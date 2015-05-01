@@ -15,14 +15,6 @@
 # static fields
 .field private static LOG_TAG:Ljava/lang/String;
 
-.field public static PRESENTATION_ALLOWED:I
-
-.field public static PRESENTATION_PAYPHONE:I
-
-.field public static PRESENTATION_RESTRICTED:I
-
-.field public static PRESENTATION_UNKNOWN:I
-
 
 # instance fields
 .field protected mCnapName:Ljava/lang/String;
@@ -37,22 +29,7 @@
     .locals 1
 
     .prologue
-    const/4 v0, 0x1
-
-    sput v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_ALLOWED:I
-
-    const/4 v0, 0x2
-
-    sput v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_RESTRICTED:I
-
-    const/4 v0, 0x3
-
-    sput v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_UNKNOWN:I
-
-    const/4 v0, 0x4
-
-    sput v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_PAYPHONE:I
-
+    .line 31
     const-string v0, "Connection"
 
     sput-object v0, Lcom/android/internal/telephony/Connection;->LOG_TAG:Ljava/lang/String;
@@ -167,7 +144,7 @@
     move-result-object v0
 
     .line 179
-    .local v0, c:Lcom/android/internal/telephony/Call;
+    .local v0, "c":Lcom/android/internal/telephony/Call;
     if-nez v0, :cond_0
 
     .line 180
@@ -257,7 +234,7 @@
 
 .method public setUserData(Ljava/lang/Object;)V
     .locals 0
-    .parameter "userdata"
+    .param p1, "userdata"    # Ljava/lang/Object;
 
     .prologue
     .line 218
@@ -279,7 +256,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 297
-    .local v0, str:Ljava/lang/StringBuilder;
+    .local v0, "str":Ljava/lang/StringBuilder;
     sget-object v1, Lcom/android/internal/telephony/Connection;->LOG_TAG:Ljava/lang/String;
 
     const/4 v2, 0x3

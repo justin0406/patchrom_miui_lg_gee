@@ -30,7 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/SensorListener;)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # Landroid/hardware/SensorListener;
 
     .prologue
     .line 211
@@ -64,7 +64,7 @@
 
 .method private static getLegacySensorType(I)I
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 354
@@ -118,7 +118,7 @@
 
 .method private static hasOrientationSensor(I)Z
     .locals 1
-    .parameter "sensors"
+    .param p0, "sensors"    # I
 
     .prologue
     .line 244
@@ -139,12 +139,12 @@
 
 .method private mapSensorDataToWindow(I[FI)V
     .locals 8
-    .parameter "sensor"
-    .parameter "values"
-    .parameter "orientation"
+    .param p1, "sensor"    # I
+    .param p2, "values"    # [F
+    .param p3, "orientation"    # I
 
     .prologue
-    const/high16 v7, 0x4334
+    const/high16 v7, 0x43340000    # 180.0f
 
     const/4 v6, 0x2
 
@@ -156,15 +156,15 @@
     aget v0, p2, v4
 
     .line 289
-    .local v0, x:F
+    .local v0, "x":F
     aget v1, p2, v5
 
     .line 290
-    .local v1, y:F
+    .local v1, "y":F
     aget v2, p2, v6
 
     .line 292
-    .local v2, z:F
+    .local v2, "z":F
     sparse-switch p1, :sswitch_data_0
 
     .line 307
@@ -269,7 +269,7 @@
 
     .line 325
     :sswitch_4
-    const/high16 v3, 0x4387
+    const/high16 v3, 0x43870000    # 270.0f
 
     cmpg-float v3, v0, v3
 
@@ -395,8 +395,8 @@
 
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 2
-    .parameter "sensor"
-    .parameter "accuracy"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
     .prologue
     .line 250
@@ -428,7 +428,7 @@
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 9
-    .parameter "event"
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
     .prologue
     const/4 v4, 0x2
@@ -441,7 +441,7 @@
     iget-object v2, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mValues:[F
 
     .line 259
-    .local v2, v:[F
+    .local v2, "v":[F
     iget-object v3, p1, Landroid/hardware/SensorEvent;->values:[F
 
     aget v3, v3, v7
@@ -470,13 +470,13 @@
     move-result v1
 
     .line 263
-    .local v1, type:I
+    .local v1, "type":I
     invoke-static {v1}, Landroid/hardware/LegacySensorManager$LegacyListener;->getLegacySensorType(I)I
 
     move-result v0
 
     .line 264
-    .local v0, legacyType:I
+    .local v0, "legacyType":I
     invoke-static {}, Landroid/hardware/LegacySensorManager;->getRotation()I
 
     move-result v3
@@ -544,7 +544,7 @@
 
 .method registerSensor(I)Z
     .locals 3
-    .parameter "legacyType"
+    .param p1, "legacyType"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -570,7 +570,7 @@
     move-result v0
 
     .line 221
-    .local v0, alreadyHasOrientationSensor:Z
+    .local v0, "alreadyHasOrientationSensor":Z
     iget v2, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     or-int/2addr v2, p1
@@ -595,7 +595,7 @@
 
 .method unregisterSensor(I)Z
     .locals 3
-    .parameter "legacyType"
+    .param p1, "legacyType"    # I
 
     .prologue
     const/4 v0, 0x0

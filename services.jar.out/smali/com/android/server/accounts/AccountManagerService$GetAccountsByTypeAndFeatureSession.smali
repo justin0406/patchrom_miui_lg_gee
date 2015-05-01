@@ -40,12 +40,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;[Ljava/lang/String;I)V
     .locals 8
-    .parameter
-    .parameter "accounts"
-    .parameter "response"
-    .parameter "type"
-    .parameter "features"
-    .parameter "callingUid"
+    .param p2, "accounts"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "type"    # Ljava/lang/String;
+    .param p5, "features"    # [Ljava/lang/String;
+    .param p6, "callingUid"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -117,7 +116,7 @@
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$GetAccountsByTypeAndFeatureSession;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
     .line 1714
-    .local v0, accountAuthenticator:Landroid/accounts/IAccountAuthenticator;
+    .local v0, "accountAuthenticator":Landroid/accounts/IAccountAuthenticator;
     if-nez v0, :cond_2
 
     .line 1719
@@ -182,7 +181,7 @@
     move-exception v1
 
     .line 1728
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v2, 0x1
 
     const-string v3, "remote exception"
@@ -194,7 +193,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 1734
@@ -267,7 +266,7 @@
     .line 1696
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$GetAccountsByTypeAndFeatureSession;->mAccounts:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
-    #getter for: Lcom/android/server/accounts/AccountManagerService$UserAccounts;->cacheLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/accounts/AccountManagerService$UserAccounts;->cacheLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/accounts/AccountManagerService$UserAccounts;->access$300(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/lang/Object;
 
     move-result-object v1
@@ -343,7 +342,7 @@
     move-result-object v3
 
     .line 1748
-    .local v3, response:Landroid/accounts/IAccountManagerResponse;
+    .local v3, "response":Landroid/accounts/IAccountManagerResponse;
     if-eqz v3, :cond_2
 
     .line 1750
@@ -357,10 +356,10 @@
     new-array v0, v5, [Landroid/accounts/Account;
 
     .line 1751
-    .local v0, accounts:[Landroid/accounts/Account;
+    .local v0, "accounts":[Landroid/accounts/Account;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     array-length v5, v0
 
@@ -436,7 +435,7 @@
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
     .line 1759
-    .local v4, result:Landroid/os/Bundle;
+    .local v4, "result":Landroid/os/Bundle;
     const-string v5, "accounts"
 
     invoke-virtual {v4, v5, v0}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
@@ -447,9 +446,9 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1768
-    .end local v0           #accounts:[Landroid/accounts/Account;
-    .end local v2           #i:I
-    .end local v4           #result:Landroid/os/Bundle;
+    .end local v0    # "accounts":[Landroid/accounts/Account;
+    .end local v2    # "i":I
+    .end local v4    # "result":Landroid/os/Bundle;
     :cond_2
     :goto_1
     return-void
@@ -459,7 +458,7 @@
     move-exception v1
 
     .line 1763
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v5, "AccountManagerService"
 
     invoke-static {v5, v8}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -480,7 +479,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 3
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 1773

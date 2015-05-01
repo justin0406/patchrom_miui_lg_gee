@@ -10,8 +10,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;)V
     .locals 0
-    .parameter "filter"
-    .parameter "name"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 28
@@ -260,7 +260,7 @@
 
 .method public setSourcePort(Landroid/filterfw/core/OutputPort;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/filterfw/core/OutputPort;
 
     .prologue
     .line 32

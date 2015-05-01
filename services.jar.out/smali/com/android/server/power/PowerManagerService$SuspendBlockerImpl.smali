@@ -28,19 +28,18 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "name"
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 2607
+    .line 2610
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2608
+    .line 2611
     iput-object p2, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mName:Ljava/lang/String;
 
-    .line 2609
+    .line 2612
     return-void
 .end method
 
@@ -50,10 +49,10 @@
     .locals 2
 
     .prologue
-    .line 2627
+    .line 2630
     monitor-enter p0
 
-    .line 2628
+    .line 2631
     :try_start_0
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
@@ -61,27 +60,27 @@
 
     iput v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
-    .line 2629
+    .line 2632
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 2633
+    .line 2636
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mName:Ljava/lang/String;
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeAcquireSuspendBlocker(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeAcquireSuspendBlocker(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2500(Ljava/lang/String;)V
 
-    .line 2635
+    .line 2638
     :cond_0
     monitor-exit p0
 
-    .line 2636
+    .line 2639
     return-void
 
-    .line 2635
+    .line 2638
     :catchall_0
     move-exception v0
 
@@ -101,13 +100,13 @@
     .end annotation
 
     .prologue
-    .line 2614
+    .line 2617
     :try_start_0
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
     if-eqz v0, :cond_0
 
-    .line 2615
+    .line 2618
     const-string v0, "PowerManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -138,27 +137,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2617
+    .line 2620
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
-    .line 2618
+    .line 2621
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mName:Ljava/lang/String;
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeReleaseSuspendBlocker(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeReleaseSuspendBlocker(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2400(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 2621
+    .line 2624
     :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 2623
+    .line 2626
     return-void
 
-    .line 2621
+    .line 2624
     :catchall_0
     move-exception v0
 
@@ -171,10 +170,10 @@
     .locals 3
 
     .prologue
-    .line 2640
+    .line 2643
     monitor-enter p0
 
-    .line 2641
+    .line 2644
     :try_start_0
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
@@ -182,32 +181,32 @@
 
     iput v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
-    .line 2642
+    .line 2645
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
     if-nez v0, :cond_1
 
-    .line 2646
+    .line 2649
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mName:Ljava/lang/String;
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeReleaseSuspendBlocker(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeReleaseSuspendBlocker(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2400(Ljava/lang/String;)V
 
-    .line 2652
+    .line 2655
     :cond_0
     :goto_0
     monitor-exit p0
 
-    .line 2653
+    .line 2656
     return-void
 
-    .line 2647
+    .line 2650
     :cond_1
     iget v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
     if-gez v0, :cond_0
 
-    .line 2648
+    .line 2651
     const-string v0, "PowerManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -242,14 +241,14 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 2650
+    .line 2653
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;->mReferenceCount:I
 
     goto :goto_0
 
-    .line 2652
+    .line 2655
     :catchall_0
     move-exception v0
 
@@ -264,10 +263,10 @@
     .locals 2
 
     .prologue
-    .line 2657
+    .line 2660
     monitor-enter p0
 
-    .line 2658
+    .line 2661
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -299,7 +298,7 @@
 
     return-object v0
 
-    .line 2659
+    .line 2662
     :catchall_0
     move-exception v0
 

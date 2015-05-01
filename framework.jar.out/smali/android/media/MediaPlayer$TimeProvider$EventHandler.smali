@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaPlayer$TimeProvider;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 3167
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x1
@@ -65,7 +64,7 @@
 
     const/4 v1, 0x0
 
-    #calls: Landroid/media/MediaPlayer$TimeProvider;->notifyTimedEvent(Z)V
+    # invokes: Landroid/media/MediaPlayer$TimeProvider;->notifyTimedEvent(Z)V
     invoke-static {v0, v1}, Landroid/media/MediaPlayer$TimeProvider;->access$2000(Landroid/media/MediaPlayer$TimeProvider;Z)V
 
     goto :goto_0
@@ -74,7 +73,7 @@
     :pswitch_1
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$0:Landroid/media/MediaPlayer$TimeProvider;
 
-    #calls: Landroid/media/MediaPlayer$TimeProvider;->notifyTimedEvent(Z)V
+    # invokes: Landroid/media/MediaPlayer$TimeProvider;->notifyTimedEvent(Z)V
     invoke-static {v0, v1}, Landroid/media/MediaPlayer$TimeProvider;->access$2000(Landroid/media/MediaPlayer$TimeProvider;Z)V
 
     goto :goto_0
@@ -83,7 +82,7 @@
     :pswitch_2
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$0:Landroid/media/MediaPlayer$TimeProvider;
 
-    #calls: Landroid/media/MediaPlayer$TimeProvider;->notifyStop()V
+    # invokes: Landroid/media/MediaPlayer$TimeProvider;->notifyStop()V
     invoke-static {v0}, Landroid/media/MediaPlayer$TimeProvider;->access$2100(Landroid/media/MediaPlayer$TimeProvider;)V
 
     goto :goto_0
@@ -92,7 +91,7 @@
     :pswitch_3
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$0:Landroid/media/MediaPlayer$TimeProvider;
 
-    #calls: Landroid/media/MediaPlayer$TimeProvider;->notifySeek()V
+    # invokes: Landroid/media/MediaPlayer$TimeProvider;->notifySeek()V
     invoke-static {v0}, Landroid/media/MediaPlayer$TimeProvider;->access$2200(Landroid/media/MediaPlayer$TimeProvider;)V
 
     goto :goto_0

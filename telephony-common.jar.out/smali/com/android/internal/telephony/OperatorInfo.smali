@@ -54,10 +54,10 @@
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/OperatorInfo$State;)V
     .locals 1
-    .parameter "operatorAlphaLong"
-    .parameter "operatorAlphaShort"
-    .parameter "operatorNumeric"
-    .parameter "state"
+    .param p1, "operatorAlphaLong"    # Ljava/lang/String;
+    .param p2, "operatorAlphaShort"    # Ljava/lang/String;
+    .param p3, "operatorNumeric"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/telephony/OperatorInfo$State;
 
     .prologue
     .line 63
@@ -86,10 +86,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "operatorAlphaLong"
-    .parameter "operatorAlphaShort"
-    .parameter "operatorNumeric"
-    .parameter "stateString"
+    .param p1, "operatorAlphaLong"    # Ljava/lang/String;
+    .param p2, "operatorAlphaShort"    # Ljava/lang/String;
+    .param p3, "operatorNumeric"    # Ljava/lang/String;
+    .param p4, "stateString"    # Ljava/lang/String;
 
     .prologue
     .line 77
@@ -105,7 +105,7 @@
 
 .method private static rilStateToState(Ljava/lang/String;)Lcom/android/internal/telephony/OperatorInfo$State;
     .locals 3
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 85
@@ -320,8 +320,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 127

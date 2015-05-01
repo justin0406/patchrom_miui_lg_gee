@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AuthenticatorDescription;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "desc"
-    .parameter "name"
-    .parameter "drawable"
+    .param p1, "desc"    # Landroid/accounts/AuthenticatorDescription;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 159

@@ -30,10 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;Landroid/os/IBinder;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 302

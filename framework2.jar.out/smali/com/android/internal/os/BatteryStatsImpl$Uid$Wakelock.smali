@@ -27,7 +27,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 3438
@@ -40,10 +39,8 @@
 
 .method private readTimerFromParcel(ILjava/util/ArrayList;Ljava/util/ArrayList;Landroid/os/Parcel;)Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
     .locals 6
-    .parameter "type"
-    .parameter
-    .parameter
-    .parameter "in"
+    .param p1, "type"    # I
+    .param p4, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -63,8 +60,8 @@
 
     .prologue
     .line 3463
-    .local p2, pool:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;>;"
-    .local p3, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p2, "pool":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;>;"
+    .local p3, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-virtual {p4}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -100,7 +97,7 @@
 # virtual methods
 .method public bridge synthetic getWakeTime(I)Landroid/os/BatteryStats$Timer;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 3438
@@ -113,7 +110,7 @@
 
 .method public getWakeTime(I)Lcom/android/internal/os/BatteryStatsImpl$Timer;
     .locals 3
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 3515
@@ -177,8 +174,7 @@
 
 .method readFromParcelLocked(Ljava/util/ArrayList;Landroid/os/Parcel;)V
     .locals 2
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +189,7 @@
 
     .prologue
     .line 3499
-    .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
@@ -256,7 +252,7 @@
     const/4 v0, 0x0
 
     .line 3472
-    .local v0, wlactive:Z
+    .local v0, "wlactive":Z
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;->mTimerFull:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
 
     if-eqz v1, :cond_0
@@ -406,8 +402,8 @@
 
 .method writeToParcelLocked(Landroid/os/Parcel;J)V
     .locals 1
-    .parameter "out"
-    .parameter "batteryRealtime"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "batteryRealtime"    # J
 
     .prologue
     .line 3508

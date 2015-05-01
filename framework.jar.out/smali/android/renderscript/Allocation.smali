@@ -119,10 +119,10 @@
 
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Type;I)V
     .locals 6
-    .parameter "id"
-    .parameter "rs"
-    .parameter "t"
-    .parameter "usage"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "t"    # Landroid/renderscript/Type;
+    .param p4, "usage"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -247,7 +247,7 @@
     move-exception v0
 
     .line 283
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "RenderScript_jni"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -298,8 +298,8 @@
 
 .method public static createCubemapFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;)Landroid/renderscript/Allocation;
     .locals 2
-    .parameter "rs"
-    .parameter "b"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1658
@@ -316,10 +316,10 @@
 
 .method public static createCubemapFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
     .locals 10
-    .parameter "rs"
-    .parameter "b"
-    .parameter "mips"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
+    .param p2, "mips"    # Landroid/renderscript/Allocation$MipmapControl;
+    .param p3, "usage"    # I
 
     .prologue
     const/4 v8, 0x0
@@ -335,13 +335,13 @@
     move-result v1
 
     .line 1615
-    .local v1, height:I
+    .local v1, "height":I
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
 
     .line 1617
-    .local v6, width:I
+    .local v6, "width":I
     rem-int/lit8 v9, v6, 0x6
 
     if-eqz v9, :cond_0
@@ -381,7 +381,7 @@
     move v3, v7
 
     .line 1624
-    .local v3, isPow2:Z
+    .local v3, "isPow2":Z
     :goto_0
     if-nez v3, :cond_3
 
@@ -394,7 +394,7 @@
 
     throw v7
 
-    .end local v3           #isPow2:Z
+    .end local v3    # "isPow2":Z
     :cond_2
     move v3, v8
 
@@ -402,20 +402,20 @@
     goto :goto_0
 
     .line 1628
-    .restart local v3       #isPow2:Z
+    .restart local v3    # "isPow2":Z
     :cond_3
     invoke-static {p0, p1}, Landroid/renderscript/Allocation;->elementFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;)Landroid/renderscript/Element;
 
     move-result-object v0
 
     .line 1629
-    .local v0, e:Landroid/renderscript/Element;
+    .local v0, "e":Landroid/renderscript/Element;
     new-instance v5, Landroid/renderscript/Type$Builder;
 
     invoke-direct {v5, p0, v0}, Landroid/renderscript/Type$Builder;-><init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
 
     .line 1630
-    .local v5, tb:Landroid/renderscript/Type$Builder;
+    .local v5, "tb":Landroid/renderscript/Type$Builder;
     invoke-virtual {v5, v1}, Landroid/renderscript/Type$Builder;->setX(I)Landroid/renderscript/Type$Builder;
 
     .line 1631
@@ -438,7 +438,7 @@
     move-result-object v4
 
     .line 1636
-    .local v4, t:Landroid/renderscript/Type;
+    .local v4, "t":Landroid/renderscript/Type;
     invoke-virtual {v4, p0}, Landroid/renderscript/Type;->getID(Landroid/renderscript/RenderScript;)I
 
     move-result v7
@@ -450,7 +450,7 @@
     move-result v2
 
     .line 1637
-    .local v2, id:I
+    .local v2, "id":I
     if-nez v2, :cond_5
 
     .line 1638
@@ -488,8 +488,8 @@
 
     throw v7
 
-    .end local v2           #id:I
-    .end local v4           #t:Landroid/renderscript/Type;
+    .end local v2    # "id":I
+    .end local v4    # "t":Landroid/renderscript/Type;
     :cond_4
     move v7, v8
 
@@ -497,8 +497,8 @@
     goto :goto_1
 
     .line 1640
-    .restart local v2       #id:I
-    .restart local v4       #t:Landroid/renderscript/Type;
+    .restart local v2    # "id":I
+    .restart local v4    # "t":Landroid/renderscript/Type;
     :cond_5
     new-instance v7, Landroid/renderscript/Allocation;
 
@@ -509,13 +509,13 @@
 
 .method public static createCubemapFromCubeFaces(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)Landroid/renderscript/Allocation;
     .locals 9
-    .parameter "rs"
-    .parameter "xpos"
-    .parameter "xneg"
-    .parameter "ypos"
-    .parameter "yneg"
-    .parameter "zpos"
-    .parameter "zneg"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "xpos"    # Landroid/graphics/Bitmap;
+    .param p2, "xneg"    # Landroid/graphics/Bitmap;
+    .param p3, "ypos"    # Landroid/graphics/Bitmap;
+    .param p4, "yneg"    # Landroid/graphics/Bitmap;
+    .param p5, "zpos"    # Landroid/graphics/Bitmap;
+    .param p6, "zneg"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1753
@@ -546,15 +546,15 @@
 
 .method public static createCubemapFromCubeFaces(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
     .locals 11
-    .parameter "rs"
-    .parameter "xpos"
-    .parameter "xneg"
-    .parameter "ypos"
-    .parameter "yneg"
-    .parameter "zpos"
-    .parameter "zneg"
-    .parameter "mips"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "xpos"    # Landroid/graphics/Bitmap;
+    .param p2, "xneg"    # Landroid/graphics/Bitmap;
+    .param p3, "ypos"    # Landroid/graphics/Bitmap;
+    .param p4, "yneg"    # Landroid/graphics/Bitmap;
+    .param p5, "zpos"    # Landroid/graphics/Bitmap;
+    .param p6, "zneg"    # Landroid/graphics/Bitmap;
+    .param p7, "mips"    # Landroid/renderscript/Allocation$MipmapControl;
+    .param p8, "usage"    # I
 
     .prologue
     .line 1689
@@ -563,7 +563,7 @@
     move-result v5
 
     .line 1690
-    .local v5, height:I
+    .local v5, "height":I
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v9
@@ -651,7 +651,7 @@
     const/4 v6, 0x1
 
     .line 1699
-    .local v6, isPow2:Z
+    .local v6, "isPow2":Z
     :goto_0
     if-nez v6, :cond_3
 
@@ -665,27 +665,27 @@
     throw v9
 
     .line 1698
-    .end local v6           #isPow2:Z
+    .end local v6    # "isPow2":Z
     :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
 
     .line 1703
-    .restart local v6       #isPow2:Z
+    .restart local v6    # "isPow2":Z
     :cond_3
     invoke-static {p0, p1}, Landroid/renderscript/Allocation;->elementFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;)Landroid/renderscript/Element;
 
     move-result-object v4
 
     .line 1704
-    .local v4, e:Landroid/renderscript/Element;
+    .local v4, "e":Landroid/renderscript/Element;
     new-instance v8, Landroid/renderscript/Type$Builder;
 
     invoke-direct {v8, p0, v4}, Landroid/renderscript/Type$Builder;-><init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
 
     .line 1705
-    .local v8, tb:Landroid/renderscript/Type$Builder;
+    .local v8, "tb":Landroid/renderscript/Type$Builder;
     invoke-virtual {v8, v5}, Landroid/renderscript/Type$Builder;->setX(I)Landroid/renderscript/Type$Builder;
 
     .line 1706
@@ -714,7 +714,7 @@
     move-result-object v7
 
     .line 1710
-    .local v7, t:Landroid/renderscript/Type;
+    .local v7, "t":Landroid/renderscript/Type;
     move-object/from16 v0, p7
 
     move/from16 v1, p8
@@ -724,13 +724,13 @@
     move-result-object v3
 
     .line 1712
-    .local v3, cubemap:Landroid/renderscript/Allocation;
+    .local v3, "cubemap":Landroid/renderscript/Allocation;
     invoke-static {p0, v3}, Landroid/renderscript/AllocationAdapter;->create2D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
 
     move-result-object v2
 
     .line 1713
-    .local v2, adapter:Landroid/renderscript/AllocationAdapter;
+    .local v2, "adapter":Landroid/renderscript/AllocationAdapter;
     sget-object v9, Landroid/renderscript/Type$CubemapFace;->POSITIVE_X:Landroid/renderscript/Type$CubemapFace;
 
     invoke-virtual {v2, v9}, Landroid/renderscript/AllocationAdapter;->setFace(Landroid/renderscript/Type$CubemapFace;)V
@@ -786,9 +786,9 @@
     return-object v3
 
     .line 1708
-    .end local v2           #adapter:Landroid/renderscript/AllocationAdapter;
-    .end local v3           #cubemap:Landroid/renderscript/Allocation;
-    .end local v7           #t:Landroid/renderscript/Type;
+    .end local v2    # "adapter":Landroid/renderscript/AllocationAdapter;
+    .end local v3    # "cubemap":Landroid/renderscript/Allocation;
+    .end local v7    # "t":Landroid/renderscript/Type;
     :cond_4
     const/4 v9, 0x0
 
@@ -797,8 +797,8 @@
 
 .method public static createFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;)Landroid/renderscript/Allocation;
     .locals 2
-    .parameter "rs"
-    .parameter "b"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1586
@@ -843,10 +843,10 @@
 
 .method public static createFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
     .locals 11
-    .parameter "rs"
-    .parameter "b"
-    .parameter "mips"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
+    .param p2, "mips"    # Landroid/renderscript/Allocation$MipmapControl;
+    .param p3, "usage"    # I
 
     .prologue
     const-wide/32 v9, 0x8000
@@ -899,13 +899,13 @@
     move-result-object v3
 
     .line 1503
-    .local v3, newBitmap:Landroid/graphics/Bitmap;
+    .local v3, "newBitmap":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 1504
-    .local v1, c:Landroid/graphics/Canvas;
+    .local v1, "c":Landroid/graphics/Canvas;
     const/4 v5, 0x0
 
     invoke-virtual {v1, p1, v8, v8, v5}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
@@ -916,8 +916,8 @@
     move-result-object v0
 
     .line 1531
-    .end local v1           #c:Landroid/graphics/Canvas;
-    .end local v3           #newBitmap:Landroid/graphics/Bitmap;
+    .end local v1    # "c":Landroid/graphics/Canvas;
+    .end local v3    # "newBitmap":Landroid/graphics/Bitmap;
     :goto_0
     return-object v0
 
@@ -928,7 +928,7 @@
     move-result-object v4
 
     .line 1511
-    .local v4, t:Landroid/renderscript/Type;
+    .local v4, "t":Landroid/renderscript/Type;
     sget-object v5, Landroid/renderscript/Allocation$MipmapControl;->MIPMAP_NONE:Landroid/renderscript/Allocation$MipmapControl;
 
     if-ne p2, v5, :cond_3
@@ -963,7 +963,7 @@
     move-result v2
 
     .line 1515
-    .local v2, id:I
+    .local v2, "id":I
     if-nez v2, :cond_2
 
     .line 1516
@@ -982,14 +982,14 @@
     invoke-direct {v0, v2, p0, v4, p3}, Landroid/renderscript/Allocation;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Type;I)V
 
     .line 1521
-    .local v0, alloc:Landroid/renderscript/Allocation;
+    .local v0, "alloc":Landroid/renderscript/Allocation;
     invoke-direct {v0, p1}, Landroid/renderscript/Allocation;->setBitmap(Landroid/graphics/Bitmap;)V
 
     goto :goto_0
 
     .line 1526
-    .end local v0           #alloc:Landroid/renderscript/Allocation;
-    .end local v2           #id:I
+    .end local v0    # "alloc":Landroid/renderscript/Allocation;
+    .end local v2    # "id":I
     :cond_3
     invoke-virtual {v4, p0}, Landroid/renderscript/Type;->getID(Landroid/renderscript/RenderScript;)I
 
@@ -1002,7 +1002,7 @@
     move-result v2
 
     .line 1527
-    .restart local v2       #id:I
+    .restart local v2    # "id":I
     if-nez v2, :cond_4
 
     .line 1528
@@ -1028,9 +1028,9 @@
 
 .method public static createFromBitmapResource(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;I)Landroid/renderscript/Allocation;
     .locals 2
-    .parameter "rs"
-    .parameter "res"
-    .parameter "id"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "id"    # I
 
     .prologue
     .line 1808
@@ -1075,11 +1075,11 @@
 
 .method public static createFromBitmapResource(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;ILandroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
     .locals 4
-    .parameter "rs"
-    .parameter "res"
-    .parameter "id"
-    .parameter "mips"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "id"    # I
+    .param p3, "mips"    # Landroid/renderscript/Allocation$MipmapControl;
+    .param p4, "usage"    # I
 
     .prologue
     .line 1779
@@ -1106,13 +1106,13 @@
     move-result-object v1
 
     .line 1784
-    .local v1, b:Landroid/graphics/Bitmap;
+    .local v1, "b":Landroid/graphics/Bitmap;
     invoke-static {p0, v1, p3, p4}, Landroid/renderscript/Allocation;->createFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
 
     move-result-object v0
 
     .line 1785
-    .local v0, alloc:Landroid/renderscript/Allocation;
+    .local v0, "alloc":Landroid/renderscript/Allocation;
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 1786
@@ -1121,9 +1121,9 @@
 
 .method public static createFromString(Landroid/renderscript/RenderScript;Ljava/lang/String;I)Landroid/renderscript/Allocation;
     .locals 5
-    .parameter "rs"
-    .parameter "str"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "usage"    # I
 
     .prologue
     .line 1830
@@ -1133,7 +1133,7 @@
     const/4 v1, 0x0
 
     .line 1833
-    .local v1, allocArray:[B
+    .local v1, "allocArray":[B
     :try_start_0
     const-string v3, "UTF-8"
 
@@ -1153,7 +1153,7 @@
     move-result-object v0
 
     .line 1835
-    .local v0, alloc:Landroid/renderscript/Allocation;
+    .local v0, "alloc":Landroid/renderscript/Allocation;
     invoke-virtual {v0, v1}, Landroid/renderscript/Allocation;->copyFrom([B)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -1162,12 +1162,12 @@
     return-object v0
 
     .line 1838
-    .end local v0           #alloc:Landroid/renderscript/Allocation;
+    .end local v0    # "alloc":Landroid/renderscript/Allocation;
     :catch_0
     move-exception v2
 
     .line 1839
-    .local v2, e:Ljava/lang/Exception;
+    .local v2, "e":Ljava/lang/Exception;
     new-instance v3, Landroid/renderscript/RSRuntimeException;
 
     const-string v4, "Could not convert string to utf-8."
@@ -1179,9 +1179,9 @@
 
 .method public static createSized(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;I)Landroid/renderscript/Allocation;
     .locals 1
-    .parameter "rs"
-    .parameter "e"
-    .parameter "count"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
+    .param p2, "count"    # I
 
     .prologue
     .line 1448
@@ -1196,10 +1196,10 @@
 
 .method public static createSized(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;II)Landroid/renderscript/Allocation;
     .locals 8
-    .parameter "rs"
-    .parameter "e"
-    .parameter "count"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
+    .param p2, "count"    # I
+    .param p3, "usage"    # I
 
     .prologue
     const-wide/32 v6, 0x8000
@@ -1218,7 +1218,7 @@
     invoke-direct {v0, p0, p1}, Landroid/renderscript/Type$Builder;-><init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
 
     .line 1427
-    .local v0, b:Landroid/renderscript/Type$Builder;
+    .local v0, "b":Landroid/renderscript/Type$Builder;
     invoke-virtual {v0, p2}, Landroid/renderscript/Type$Builder;->setX(I)Landroid/renderscript/Type$Builder;
 
     .line 1428
@@ -1227,7 +1227,7 @@
     move-result-object v2
 
     .line 1430
-    .local v2, t:Landroid/renderscript/Type;
+    .local v2, "t":Landroid/renderscript/Type;
     invoke-virtual {v2, p0}, Landroid/renderscript/Type;->getID(Landroid/renderscript/RenderScript;)I
 
     move-result v3
@@ -1243,7 +1243,7 @@
     move-result v1
 
     .line 1431
-    .local v1, id:I
+    .local v1, "id":I
     if-nez v1, :cond_0
 
     .line 1432
@@ -1269,8 +1269,8 @@
 
 .method public static createTyped(Landroid/renderscript/RenderScript;Landroid/renderscript/Type;)Landroid/renderscript/Allocation;
     .locals 2
-    .parameter "rs"
-    .parameter "type"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "type"    # Landroid/renderscript/Type;
 
     .prologue
     .line 1408
@@ -1287,9 +1287,9 @@
 
 .method public static createTyped(Landroid/renderscript/RenderScript;Landroid/renderscript/Type;I)Landroid/renderscript/Allocation;
     .locals 1
-    .parameter "rs"
-    .parameter "type"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "type"    # Landroid/renderscript/Type;
+    .param p2, "usage"    # I
 
     .prologue
     .line 1395
@@ -1304,10 +1304,10 @@
 
 .method public static createTyped(Landroid/renderscript/RenderScript;Landroid/renderscript/Type;Landroid/renderscript/Allocation$MipmapControl;I)Landroid/renderscript/Allocation;
     .locals 6
-    .parameter "rs"
-    .parameter "type"
-    .parameter "mips"
-    .parameter "usage"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "type"    # Landroid/renderscript/Type;
+    .param p2, "mips"    # Landroid/renderscript/Allocation$MipmapControl;
+    .param p3, "usage"    # I
 
     .prologue
     const-wide/32 v4, 0x8000
@@ -1351,7 +1351,7 @@
     move-result v0
 
     .line 1376
-    .local v0, id:I
+    .local v0, "id":I
     if-nez v0, :cond_1
 
     .line 1377
@@ -1377,10 +1377,10 @@
 
 .method private data1DChecks(IIII)V
     .locals 3
-    .parameter "off"
-    .parameter "count"
-    .parameter "len"
-    .parameter "dataSize"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "len"    # I
+    .param p4, "dataSize"    # I
 
     .prologue
     .line 771
@@ -1496,8 +1496,8 @@
 
 .method static elementFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;)Landroid/renderscript/Element;
     .locals 4
-    .parameter "rs"
-    .parameter "b"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1452
@@ -1506,7 +1506,7 @@
     move-result-object v0
 
     .line 1453
-    .local v0, bc:Landroid/graphics/Bitmap$Config;
+    .local v0, "bc":Landroid/graphics/Bitmap$Config;
     sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
     if-ne v0, v1, :cond_0
@@ -1620,7 +1620,7 @@
 
 .method static sendBufferNotification(I)V
     .locals 4
-    .parameter "id"
+    .param p0, "id"    # I
 
     .prologue
     .line 1867
@@ -1643,7 +1643,7 @@
     check-cast v0, Landroid/renderscript/Allocation;
 
     .line 1870
-    .local v0, a:Landroid/renderscript/Allocation;
+    .local v0, "a":Landroid/renderscript/Allocation;
     if-eqz v0, :cond_0
 
     iget-object v1, v0, Landroid/renderscript/Allocation;->mBufferNotifier:Landroid/renderscript/Allocation$OnBufferAvailableListener;
@@ -1663,7 +1663,7 @@
     return-void
 
     .line 1873
-    .end local v0           #a:Landroid/renderscript/Allocation;
+    .end local v0    # "a":Landroid/renderscript/Allocation;
     :catchall_0
     move-exception v1
 
@@ -1676,7 +1676,7 @@
 
 .method private setBitmap(Landroid/graphics/Bitmap;)V
     .locals 0
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 244
@@ -1688,9 +1688,9 @@
 
 .method static typeFromBitmap(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;Landroid/renderscript/Allocation$MipmapControl;)Landroid/renderscript/Type;
     .locals 3
-    .parameter "rs"
-    .parameter "b"
-    .parameter "mip"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "b"    # Landroid/graphics/Bitmap;
+    .param p2, "mip"    # Landroid/renderscript/Allocation$MipmapControl;
 
     .prologue
     .line 1470
@@ -1699,13 +1699,13 @@
     move-result-object v0
 
     .line 1471
-    .local v0, e:Landroid/renderscript/Element;
+    .local v0, "e":Landroid/renderscript/Element;
     new-instance v1, Landroid/renderscript/Type$Builder;
 
     invoke-direct {v1, p0, v0}, Landroid/renderscript/Type$Builder;-><init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
 
     .line 1472
-    .local v1, tb:Landroid/renderscript/Type$Builder;
+    .local v1, "tb":Landroid/renderscript/Type$Builder;
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v2
@@ -1745,7 +1745,7 @@
 
 .method private updateCacheInfo(Landroid/renderscript/Type;)V
     .locals 3
-    .parameter "t"
+    .param p1, "t"    # Landroid/renderscript/Type;
 
     .prologue
     const/4 v2, 0x1
@@ -1812,10 +1812,10 @@
 
 .method private validate2DRange(IIII)V
     .locals 2
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
 
     .prologue
     .line 946
@@ -1886,12 +1886,12 @@
 
 .method private validate3DRange(IIIIII)V
     .locals 2
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
 
     .prologue
     .line 1116
@@ -1972,7 +1972,7 @@
 
 .method private validateBitmapFormat(Landroid/graphics/Bitmap;)V
     .locals 4
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     const/4 v3, 0x2
@@ -1983,7 +1983,7 @@
     move-result-object v0
 
     .line 461
-    .local v0, bc:Landroid/graphics/Bitmap$Config;
+    .local v0, "bc":Landroid/graphics/Bitmap$Config;
     if-nez v0, :cond_0
 
     .line 462
@@ -2444,7 +2444,7 @@
 
 .method private validateBitmapSize(Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 509
@@ -2862,10 +2862,10 @@
 # virtual methods
 .method public copy1DRangeFrom(IILandroid/renderscript/Allocation;I)V
     .locals 14
-    .parameter "off"
-    .parameter "count"
-    .parameter "data"
-    .parameter "dataOff"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "data"    # Landroid/renderscript/Allocation;
+    .param p4, "dataOff"    # I
 
     .prologue
     .line 938
@@ -2926,9 +2926,9 @@
 
 .method public copy1DRangeFrom(II[B)V
     .locals 3
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [B
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -2953,9 +2953,9 @@
 
 .method public copy1DRangeFrom(II[F)V
     .locals 3
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [F
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -2980,9 +2980,9 @@
 
 .method public copy1DRangeFrom(II[I)V
     .locals 3
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [I
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3007,9 +3007,9 @@
 
 .method public copy1DRangeFrom(II[S)V
     .locals 3
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [S
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3034,9 +3034,9 @@
 
 .method public copy1DRangeFromUnchecked(II[B)V
     .locals 9
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [B
 
     .prologue
     const-wide/32 v7, 0x8000
@@ -3058,7 +3058,7 @@
     mul-int v6, v0, p2
 
     .line 844
-    .local v6, dataSize:I
+    .local v6, "dataSize":I
     array-length v0, p3
 
     invoke-direct {p0, p1, p2, v0, v6}, Landroid/renderscript/Allocation;->data1DChecks(IIII)V
@@ -3089,9 +3089,9 @@
 
 .method public copy1DRangeFromUnchecked(II[F)V
     .locals 9
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [F
 
     .prologue
     const-wide/32 v7, 0x8000
@@ -3113,7 +3113,7 @@
     mul-int v6, v0, p2
 
     .line 860
-    .local v6, dataSize:I
+    .local v6, "dataSize":I
     array-length v0, p3
 
     mul-int/lit8 v0, v0, 0x4
@@ -3146,9 +3146,9 @@
 
 .method public copy1DRangeFromUnchecked(II[I)V
     .locals 9
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [I
 
     .prologue
     const-wide/32 v7, 0x8000
@@ -3170,7 +3170,7 @@
     mul-int v6, v0, p2
 
     .line 812
-    .local v6, dataSize:I
+    .local v6, "dataSize":I
     array-length v0, p3
 
     mul-int/lit8 v0, v0, 0x4
@@ -3203,9 +3203,9 @@
 
 .method public copy1DRangeFromUnchecked(II[S)V
     .locals 9
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [S
 
     .prologue
     const-wide/32 v7, 0x8000
@@ -3227,7 +3227,7 @@
     mul-int v6, v0, p2
 
     .line 828
-    .local v6, dataSize:I
+    .local v6, "dataSize":I
     array-length v0, p3
 
     mul-int/lit8 v0, v0, 0x2
@@ -3260,13 +3260,13 @@
 
 .method public copy2DRangeFrom(IIIILandroid/renderscript/Allocation;II)V
     .locals 14
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
-    .parameter "dataXoff"
-    .parameter "dataYoff"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # Landroid/renderscript/Allocation;
+    .param p6, "dataXoff"    # I
+    .param p7, "dataYoff"    # I
 
     .prologue
     .line 1080
@@ -3340,11 +3340,11 @@
 
 .method public copy2DRangeFrom(IIII[B)V
     .locals 3
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [B
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3369,11 +3369,11 @@
 
 .method public copy2DRangeFrom(IIII[F)V
     .locals 3
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [F
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3398,11 +3398,11 @@
 
 .method public copy2DRangeFrom(IIII[I)V
     .locals 3
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [I
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3427,11 +3427,11 @@
 
 .method public copy2DRangeFrom(IIII[S)V
     .locals 3
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [S
 
     .prologue
     const-wide/32 v1, 0x8000
@@ -3456,9 +3456,9 @@
 
 .method public copy2DRangeFrom(IILandroid/graphics/Bitmap;)V
     .locals 11
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "data"    # Landroid/graphics/Bitmap;
 
     .prologue
     const-wide/32 v9, 0x8000
@@ -3498,13 +3498,13 @@
     move-result-object v8
 
     .line 1104
-    .local v8, newBitmap:Landroid/graphics/Bitmap;
+    .local v8, "newBitmap":Landroid/graphics/Bitmap;
     new-instance v7, Landroid/graphics/Canvas;
 
     invoke-direct {v7, v8}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 1105
-    .local v7, c:Landroid/graphics/Canvas;
+    .local v7, "c":Landroid/graphics/Canvas;
     const/4 v0, 0x0
 
     invoke-virtual {v7, p3, v3, v3, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
@@ -3513,8 +3513,8 @@
     invoke-virtual {p0, p1, p2, v8}, Landroid/renderscript/Allocation;->copy2DRangeFrom(IILandroid/graphics/Bitmap;)V
 
     .line 1113
-    .end local v7           #c:Landroid/graphics/Canvas;
-    .end local v8           #newBitmap:Landroid/graphics/Bitmap;
+    .end local v7    # "c":Landroid/graphics/Canvas;
+    .end local v8    # "newBitmap":Landroid/graphics/Bitmap;
     :goto_0
     return-void
 
@@ -3562,11 +3562,11 @@
 
 .method copy2DRangeFromUnchecked(IIII[B)V
     .locals 10
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [B
 
     .prologue
     .line 963
@@ -3622,11 +3622,11 @@
 
 .method copy2DRangeFromUnchecked(IIII[F)V
     .locals 10
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [F
 
     .prologue
     .line 990
@@ -3684,11 +3684,11 @@
 
 .method copy2DRangeFromUnchecked(IIII[I)V
     .locals 10
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [I
 
     .prologue
     .line 981
@@ -3746,11 +3746,11 @@
 
 .method copy2DRangeFromUnchecked(IIII[S)V
     .locals 10
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "data"    # [S
 
     .prologue
     .line 972
@@ -3808,16 +3808,16 @@
 
 .method public copy3DRangeFrom(IIIIIILandroid/renderscript/Allocation;III)V
     .locals 15
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
-    .parameter "dataXoff"
-    .parameter "dataYoff"
-    .parameter "dataZoff"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # Landroid/renderscript/Allocation;
+    .param p8, "dataXoff"    # I
+    .param p9, "dataYoff"    # I
+    .param p10, "dataZoff"    # I
 
     .prologue
     .line 1240
@@ -3875,13 +3875,13 @@
 
 .method public copy3DRangeFrom(IIIIII[B)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [B
 
     .prologue
     .line 1191
@@ -3896,13 +3896,13 @@
 
 .method public copy3DRangeFrom(IIIIII[F)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [F
 
     .prologue
     .line 1218
@@ -3917,13 +3917,13 @@
 
 .method public copy3DRangeFrom(IIIIII[I)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [I
 
     .prologue
     .line 1209
@@ -3938,13 +3938,13 @@
 
 .method public copy3DRangeFrom(IIIIII[S)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [S
 
     .prologue
     .line 1200
@@ -3959,13 +3959,13 @@
 
 .method copy3DRangeFromUnchecked(IIIIII[B)V
     .locals 12
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [B
 
     .prologue
     .line 1137
@@ -4011,13 +4011,13 @@
 
 .method copy3DRangeFromUnchecked(IIIIII[F)V
     .locals 12
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [F
 
     .prologue
     .line 1170
@@ -4065,13 +4065,13 @@
 
 .method copy3DRangeFromUnchecked(IIIIII[I)V
     .locals 12
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [I
 
     .prologue
     .line 1159
@@ -4119,13 +4119,13 @@
 
 .method copy3DRangeFromUnchecked(IIIIII[S)V
     .locals 12
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "zoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
-    .parameter "data"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "zoff"    # I
+    .param p4, "w"    # I
+    .param p5, "h"    # I
+    .param p6, "d"    # I
+    .param p7, "data"    # [S
 
     .prologue
     .line 1148
@@ -4173,7 +4173,7 @@
 
 .method public copyFrom(Landroid/graphics/Bitmap;)V
     .locals 8
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     const-wide/32 v6, 0x8000
@@ -4213,13 +4213,13 @@
     move-result-object v1
 
     .line 693
-    .local v1, newBitmap:Landroid/graphics/Bitmap;
+    .local v1, "newBitmap":Landroid/graphics/Bitmap;
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 694
-    .local v0, c:Landroid/graphics/Canvas;
+    .local v0, "c":Landroid/graphics/Canvas;
     const/4 v2, 0x0
 
     invoke-virtual {v0, p1, v5, v5, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
@@ -4228,8 +4228,8 @@
     invoke-virtual {p0, v1}, Landroid/renderscript/Allocation;->copyFrom(Landroid/graphics/Bitmap;)V
 
     .line 702
-    .end local v0           #c:Landroid/graphics/Canvas;
-    .end local v1           #newBitmap:Landroid/graphics/Bitmap;
+    .end local v0    # "c":Landroid/graphics/Canvas;
+    .end local v1    # "newBitmap":Landroid/graphics/Bitmap;
     :goto_0
     return-void
 
@@ -4259,7 +4259,7 @@
 
 .method public copyFrom(Landroid/renderscript/Allocation;)V
     .locals 10
-    .parameter "a"
+    .param p1, "a"    # Landroid/renderscript/Allocation;
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4325,7 +4325,7 @@
 
 .method public copyFrom([B)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [B
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4403,7 +4403,7 @@
 
 .method public copyFrom([F)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [F
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4481,7 +4481,7 @@
 
 .method public copyFrom([I)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [I
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4559,7 +4559,7 @@
 
 .method public copyFrom([Landroid/renderscript/BaseObj;)V
     .locals 6
-    .parameter "d"
+    .param p1, "d"    # [Landroid/renderscript/BaseObj;
 
     .prologue
     const-wide/32 v4, 0x8000
@@ -4630,10 +4630,10 @@
     new-array v1, v2, [I
 
     .line 452
-    .local v1, i:[I
+    .local v1, "i":[I
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     array-length v2, p1
 
@@ -4672,7 +4672,7 @@
 
 .method public copyFrom([S)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [S
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4750,7 +4750,7 @@
 
 .method public copyFromUnchecked([B)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [B
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4828,7 +4828,7 @@
 
 .method public copyFromUnchecked([F)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [F
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4906,7 +4906,7 @@
 
 .method public copyFromUnchecked([I)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [I
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -4984,7 +4984,7 @@
 
 .method public copyFromUnchecked([S)V
     .locals 10
-    .parameter "d"
+    .param p1, "d"    # [S
 
     .prologue
     const-wide/32 v8, 0x8000
@@ -5062,7 +5062,7 @@
 
 .method public copyTo(Landroid/graphics/Bitmap;)V
     .locals 4
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -5103,7 +5103,7 @@
 
 .method public copyTo([B)V
     .locals 4
-    .parameter "d"
+    .param p1, "d"    # [B
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -5141,7 +5141,7 @@
 
 .method public copyTo([F)V
     .locals 4
-    .parameter "d"
+    .param p1, "d"    # [F
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -5179,7 +5179,7 @@
 
 .method public copyTo([I)V
     .locals 4
-    .parameter "d"
+    .param p1, "d"    # [I
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -5217,7 +5217,7 @@
 
 .method public copyTo([S)V
     .locals 4
-    .parameter "d"
+    .param p1, "d"    # [S
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -5521,7 +5521,7 @@
 
 .method public declared-synchronized resize(I)V
     .locals 3
-    .parameter "dimX"
+    .param p1, "dimX"    # I
 
     .prologue
     .line 1339
@@ -5612,7 +5612,7 @@
     move-result v0
 
     .line 1346
-    .local v0, typeID:I
+    .local v0, "typeID":I
     new-instance v1, Landroid/renderscript/Type;
 
     iget-object v2, p0, Landroid/renderscript/Allocation;->mRS:Landroid/renderscript/RenderScript;
@@ -5641,9 +5641,9 @@
 
 .method public setFromFieldPacker(IILandroid/renderscript/FieldPacker;)V
     .locals 8
-    .parameter "xoff"
-    .parameter "component_number"
-    .parameter "fp"
+    .param p1, "xoff"    # I
+    .param p2, "component_number"    # I
+    .param p3, "fp"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 749
@@ -5713,7 +5713,7 @@
     move-result-object v5
 
     .line 758
-    .local v5, data:[B
+    .local v5, "data":[B
     iget-object v0, p0, Landroid/renderscript/Allocation;->mType:Landroid/renderscript/Type;
 
     iget-object v0, v0, Landroid/renderscript/Type;->mElement:Landroid/renderscript/Element;
@@ -5727,7 +5727,7 @@
     move-result v7
 
     .line 759
-    .local v7, eSize:I
+    .local v7, "eSize":I
     iget-object v0, p0, Landroid/renderscript/Allocation;->mType:Landroid/renderscript/Type;
 
     iget-object v0, v0, Landroid/renderscript/Type;->mElement:Landroid/renderscript/Element;
@@ -5810,8 +5810,8 @@
 
 .method public setFromFieldPacker(ILandroid/renderscript/FieldPacker;)V
     .locals 6
-    .parameter "xoff"
-    .parameter "fp"
+    .param p1, "xoff"    # I
+    .param p2, "fp"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 728
@@ -5829,19 +5829,19 @@
     move-result v2
 
     .line 730
-    .local v2, eSize:I
+    .local v2, "eSize":I
     invoke-virtual {p2}, Landroid/renderscript/FieldPacker;->getData()[B
 
     move-result-object v1
 
     .line 732
-    .local v1, data:[B
+    .local v1, "data":[B
     array-length v3, v1
 
     div-int v0, v3, v2
 
     .line 733
-    .local v0, count:I
+    .local v0, "count":I
     mul-int v3, v2, v0
 
     array-length v4, v1
@@ -5901,7 +5901,7 @@
 
 .method public setOnBufferAvailableListener(Landroid/renderscript/Allocation$OnBufferAvailableListener;)V
     .locals 4
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/renderscript/Allocation$OnBufferAvailableListener;
 
     .prologue
     .line 1860
@@ -5947,7 +5947,7 @@
 
 .method public setSurface(Landroid/view/Surface;)V
     .locals 2
-    .parameter "sur"
+    .param p1, "sur"    # Landroid/view/Surface;
 
     .prologue
     .line 1563
@@ -5989,7 +5989,7 @@
 
 .method public setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
     .locals 1
-    .parameter "st"
+    .param p1, "st"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 1553
@@ -6005,7 +6005,7 @@
 
 .method public syncAll(I)V
     .locals 4
-    .parameter "srcLocation"
+    .param p1, "srcLocation"    # I
 
     .prologue
     const-wide/32 v2, 0x8000
@@ -6112,7 +6112,7 @@
     move-result v0
 
     .line 349
-    .local v0, typeID:I
+    .local v0, "typeID":I
     if-eqz v0, :cond_0
 
     .line 350

@@ -17,7 +17,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
 
     .prologue
     .line 32

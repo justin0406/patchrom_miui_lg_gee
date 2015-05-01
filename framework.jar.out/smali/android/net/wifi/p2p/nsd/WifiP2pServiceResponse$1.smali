@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 365
@@ -51,19 +51,19 @@
     move-result v1
 
     .line 366
-    .local v1, type:I
+    .local v1, "type":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 367
-    .local v2, status:I
+    .local v2, "status":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 368
-    .local v3, transId:I
+    .local v3, "transId":I
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -73,17 +73,17 @@
     check-cast v4, Landroid/net/wifi/p2p/WifiP2pDevice;
 
     .line 369
-    .local v4, dev:Landroid/net/wifi/p2p/WifiP2pDevice;
+    .local v4, "dev":Landroid/net/wifi/p2p/WifiP2pDevice;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 370
-    .local v6, len:I
+    .local v6, "len":I
     const/4 v5, 0x0
 
     .line 371
-    .local v5, data:[B
+    .local v5, "data":[B
     if-lez v6, :cond_0
 
     .line 372
@@ -131,7 +131,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 362
@@ -144,7 +144,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 386
@@ -155,7 +155,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 362

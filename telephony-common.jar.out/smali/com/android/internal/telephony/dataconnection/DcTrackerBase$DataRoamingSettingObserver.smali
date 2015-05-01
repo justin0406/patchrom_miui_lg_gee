@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;Landroid/os/Handler;Landroid/content/Context;)V
     .locals 1
-    .parameter
-    .parameter "handler"
-    .parameter "context"
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "context"    # Landroid/content/Context;
 
     .prologue
     .line 384
@@ -47,7 +46,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 3
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 401

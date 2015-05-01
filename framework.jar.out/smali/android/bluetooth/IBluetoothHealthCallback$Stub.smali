@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothHealthCallback;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/bluetooth/IBluetoothHealthCallback;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/bluetooth/IBluetoothHealthCallback$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/bluetooth/IBluetoothHealthCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 8
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -164,14 +164,14 @@
     check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
     .line 59
-    .local v1, _arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .local v1, "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 60
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothHealthCallback$Stub;->onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
 
     .line 61
@@ -183,16 +183,16 @@
     goto :goto_0
 
     .line 56
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v2           #_arg1:I
+    .end local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v2    # "_arg1":I
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .restart local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     goto :goto_1
 
     .line 66
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     :sswitch_2
     const-string v0, "android.bluetooth.IBluetoothHealthCallback"
 
@@ -215,7 +215,7 @@
     check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
     .line 75
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .restart local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -233,20 +233,20 @@
     check-cast v2, Landroid/bluetooth/BluetoothDevice;
 
     .line 82
-    .local v2, _arg1:Landroid/bluetooth/BluetoothDevice;
+    .local v2, "_arg1":Landroid/bluetooth/BluetoothDevice;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 84
-    .local v3, _arg2:I
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 86
-    .local v4, _arg3:I
+    .local v4, "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -263,13 +263,13 @@
     check-cast v5, Landroid/os/ParcelFileDescriptor;
 
     .line 93
-    .local v5, _arg4:Landroid/os/ParcelFileDescriptor;
+    .local v5, "_arg4":Landroid/os/ParcelFileDescriptor;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     move-object v0, p0
 
     .line 94
@@ -284,32 +284,32 @@
     goto :goto_0
 
     .line 72
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothDevice;
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:Landroid/os/ParcelFileDescriptor;
-    .end local v6           #_arg5:I
+    .end local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v2    # "_arg1":Landroid/bluetooth/BluetoothDevice;
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":Landroid/os/ParcelFileDescriptor;
+    .end local v6    # "_arg5":I
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .restart local v1    # "_arg0":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     goto :goto_2
 
     .line 79
     :cond_2
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothDevice;
+    .restart local v2    # "_arg1":Landroid/bluetooth/BluetoothDevice;
     goto :goto_3
 
     .line 90
-    .restart local v3       #_arg2:I
-    .restart local v4       #_arg3:I
+    .restart local v3    # "_arg2":I
+    .restart local v4    # "_arg3":I
     :cond_3
     const/4 v5, 0x0
 
-    .restart local v5       #_arg4:Landroid/os/ParcelFileDescriptor;
+    .restart local v5    # "_arg4":Landroid/os/ParcelFileDescriptor;
     goto :goto_4
 
     .line 41

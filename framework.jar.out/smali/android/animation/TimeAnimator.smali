@@ -38,7 +38,7 @@
 # virtual methods
 .method animateValue(F)V
     .locals 0
-    .parameter "fraction"
+    .param p1, "fraction"    # F
 
     .prologue
     .line 45
@@ -47,7 +47,7 @@
 
 .method animationFrame(J)Z
     .locals 6
-    .parameter "currentTime"
+    .param p1, "currentTime"    # J
 
     .prologue
     const-wide/16 v4, 0x0
@@ -63,7 +63,7 @@
     sub-long v2, p1, v0
 
     .line 25
-    .local v2, totalTime:J
+    .local v2, "totalTime":J
     iget-wide v0, p0, Landroid/animation/TimeAnimator;->mPreviousTime:J
 
     cmp-long v0, v0, v4
@@ -71,7 +71,7 @@
     if-gez v0, :cond_1
 
     .line 26
-    .local v4, deltaTime:J
+    .local v4, "deltaTime":J
     :goto_0
     iput-wide p1, p0, Landroid/animation/TimeAnimator;->mPreviousTime:J
 
@@ -83,15 +83,15 @@
     invoke-interface/range {v0 .. v5}, Landroid/animation/TimeAnimator$TimeListener;->onTimeUpdate(Landroid/animation/TimeAnimator;JJ)V
 
     .line 29
-    .end local v2           #totalTime:J
-    .end local v4           #deltaTime:J
+    .end local v2    # "totalTime":J
+    .end local v4    # "deltaTime":J
     :cond_0
     const/4 v0, 0x0
 
     return v0
 
     .line 25
-    .restart local v2       #totalTime:J
+    .restart local v2    # "totalTime":J
     :cond_1
     iget-wide v0, p0, Landroid/animation/TimeAnimator;->mPreviousTime:J
 
@@ -110,7 +110,7 @@
 
 .method public setTimeListener(Landroid/animation/TimeAnimator$TimeListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/animation/TimeAnimator$TimeListener;
 
     .prologue
     .line 39

@@ -43,7 +43,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +55,7 @@
 
     .prologue
     .line 504
-    .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 505
@@ -71,8 +70,7 @@
 
 .method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
     .locals 2
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +85,7 @@
 
     .prologue
     .line 494
-    .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 495
@@ -135,7 +133,7 @@
 # virtual methods
 .method addCountLocked(J)V
     .locals 2
-    .parameter "count"
+    .param p1, "count"    # J
 
     .prologue
     .line 543
@@ -164,7 +162,7 @@
 
 .method public getCountLocked(I)J
     .locals 4
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 528
@@ -176,18 +174,18 @@
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLastCount:J
 
     .line 539
-    .local v0, val:J
+    .local v0, "val":J
     :cond_0
     :goto_0
     return-wide v0
 
     .line 531
-    .end local v0           #val:J
+    .end local v0    # "val":J
     :cond_1
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
     .line 532
-    .restart local v0       #val:J
+    .restart local v0    # "val":J
     const/4 v2, 0x3
 
     if-ne p1, v2, :cond_2
@@ -213,9 +211,9 @@
 
 .method public plug(JJJ)V
     .locals 2
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 523
@@ -229,7 +227,7 @@
 
 .method readSummaryFromParcelLocked(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 566
@@ -262,7 +260,7 @@
 
 .method reset(Z)V
     .locals 2
-    .parameter "detachIfReset"
+    .param p1, "detachIfReset"    # Z
 
     .prologue
     const-wide/16 v0, 0x0
@@ -292,9 +290,9 @@
 
 .method public unplug(JJJ)V
     .locals 2
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 517
@@ -313,7 +311,7 @@
 
 .method writeSummaryFromParcelLocked(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 562
@@ -327,7 +325,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 510

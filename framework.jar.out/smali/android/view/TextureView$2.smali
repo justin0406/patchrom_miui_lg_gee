@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/TextureView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 368
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 2
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 373
     iget-object v0, p0, Landroid/view/TextureView$2;->this$0:Landroid/view/TextureView;
 
-    #calls: Landroid/view/TextureView;->updateLayer()V
+    # invokes: Landroid/view/TextureView;->updateLayer()V
     invoke-static {v0}, Landroid/view/TextureView;->access$100(Landroid/view/TextureView;)V
 
     .line 375

@@ -1332,9 +1332,9 @@
     <string name="webviewchromium_actionbar_share">साझेदारी गर्नुहोस्</string>
     <string name="webviewchromium_actionbar_web_search">वेब खोजी</string>
     <string name="webviewchromium_accessibility_content_view">वेब दृश्य</string>
+    <string name="webviewchromium_date_picker_dialog_title">मिति सेट गर्नुहोस्</string>
     <string name="webviewchromium_date_picker_dialog_set">सेट गर्नुहोस्</string>
     <string name="webviewchromium_date_picker_dialog_clear">हटाउनुहोस्</string>
-    <string name="webviewchromium_date_picker_dialog_title">मिति सेट गर्नुहोस्</string>
     <string name="webviewchromium_date_time_picker_dialog_title">मिति र समय सेट गर्नुहोस्</string>
     <string name="webviewchromium_month_picker_dialog_title">महिना सेट गर्नुहोस्</string>
     <string name="webviewchromium_week_picker_dialog_title">हप्ता सेट गर्नुहोस्</string>
@@ -1357,7 +1357,6 @@
     <string name="webviewchromium_color_picker_dialog_title">रङ छान्नुहोस्</string>
     <string name="webviewchromium_low_memory_error">कम मेमोरीका कारण अघिल्लो कार्य पूरा गर्न असमर्थ</string>
     <string name="webviewchromium_opening_file_error">छनौट गरिएको फाइल खोल्न विफल भयो</string>
-    <string name="webviewchromium_private_browsing_warning">Android को यस संस्करणमा यो कार्य समर्थित छैन।</string>
     <string name="permlab_accessAllPrintJobs">सबै प्रिन्ट कार्यहरूको पहुँच गर्नुहोस्</string>
     <string name="permdesc_accessAllPrintJobs">प्रयोगकर्तालाई अन्य अनुप्रयोगद्वारा निर्मित प्रिन्ट कार्यहरू पहुँच गर्न अनुमति दिन्छ। साधारण अनुप्रयोगहरूलाई कहिल्यै आवश्यक पर्ने छैन।</string>
     <string name="status_bar_device_locked">उपकरण लक छ।</string>

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -50,8 +50,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
     .locals 18
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -76,33 +76,33 @@
     iget-object v12, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 87
-    .local v12, si:Landroid/content/pm/ServiceInfo;
+    .local v12, "si":Landroid/content/pm/ServiceInfo;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
     .line 88
-    .local v8, pm:Landroid/content/pm/PackageManager;
+    .local v8, "pm":Landroid/content/pm/PackageManager;
     const/4 v11, 0x0
 
     .line 89
-    .local v11, settingsActivityComponent:Ljava/lang/String;
+    .local v11, "settingsActivityComponent":Ljava/lang/String;
     const/4 v13, -0x1
 
     .line 90
-    .local v13, thumbnailRes:I
+    .local v13, "thumbnailRes":I
     const/4 v3, -0x1
 
     .line 91
-    .local v3, authorRes:I
+    .local v3, "authorRes":I
     const/4 v4, -0x1
 
     .line 93
-    .local v4, descriptionRes:I
+    .local v4, "descriptionRes":I
     const/4 v7, 0x0
 
     .line 95
-    .local v7, parser:Landroid/content/res/XmlResourceParser;
+    .local v7, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string v15, "android.service.wallpaper"
 
@@ -122,15 +122,15 @@
 
     throw v15
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 132
     :catch_0
     move-exception v5
 
     .line 133
-    .local v5, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v5, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     new-instance v15, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -163,7 +163,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 136
-    .end local v5           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v5    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v15
 
@@ -184,19 +184,19 @@
     move-result-object v9
 
     .line 103
-    .local v9, res:Landroid/content/res/Resources;
+    .local v9, "res":Landroid/content/res/Resources;
     invoke-static {v7}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v2
 
     .line 107
-    .local v2, attrs:Landroid/util/AttributeSet;
+    .local v2, "attrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v14
 
-    .local v14, type:I
+    .local v14, "type":I
     const/4 v15, 0x1
 
     if-eq v14, v15, :cond_3
@@ -212,7 +212,7 @@
     move-result-object v6
 
     .line 111
-    .local v6, nodeName:Ljava/lang/String;
+    .local v6, "nodeName":Ljava/lang/String;
     const-string/jumbo v15, "wallpaper"
 
     invoke-virtual {v15, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -239,7 +239,7 @@
     move-result-object v10
 
     .line 118
-    .local v10, sa:Landroid/content/res/TypedArray;
+    .local v10, "sa":Landroid/content/res/TypedArray;
     const/4 v15, 0x1
 
     invoke-virtual {v10, v15}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -282,8 +282,8 @@
     .line 131
     invoke-virtual {v10}, Landroid/content/res/TypedArray;->recycle()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 136
     if-eqz v7, :cond_5
@@ -317,7 +317,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 145
@@ -380,8 +380,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 267
@@ -535,7 +535,7 @@
 
 .method public loadAuthor(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -561,11 +561,11 @@
     iget-object v1, v2, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
 
     .line 224
-    .local v1, packageName:Ljava/lang/String;
+    .local v1, "packageName":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 225
-    .local v0, applicationInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-nez v1, :cond_1
 
     .line 226
@@ -595,7 +595,7 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -609,11 +609,11 @@
     iget-object v1, v2, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
 
     .line 237
-    .local v1, packageName:Ljava/lang/String;
+    .local v1, "packageName":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 238
-    .local v0, applicationInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-nez v1, :cond_0
 
     .line 239
@@ -686,7 +686,7 @@
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 201
@@ -701,7 +701,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 191
@@ -716,7 +716,7 @@
 
 .method public loadThumbnail(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 211
@@ -804,8 +804,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 286

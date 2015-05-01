@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 1
-    .parameter "lineCtrlPolarityIncluded"
-    .parameter "lineCtrlToggle"
-    .parameter "lineCtrlReverse"
-    .parameter "lineCtrlPowerDenial"
+    .param p1, "lineCtrlPolarityIncluded"    # I
+    .param p2, "lineCtrlToggle"    # I
+    .param p3, "lineCtrlReverse"    # I
+    .param p4, "lineCtrlPowerDenial"    # I
 
     .prologue
     .line 213

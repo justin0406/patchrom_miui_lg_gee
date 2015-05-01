@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/ColorMatrix;)V
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/ColorMatrix;
 
     .prologue
     .line 27
@@ -18,7 +18,7 @@
     move-result-object v0
 
     .line 29
-    .local v0, colorMatrix:[F
+    .local v0, "colorMatrix":[F
     invoke-static {v0}, Landroid/graphics/ColorMatrixColorFilter;->nativeColorMatrixFilter([F)I
 
     move-result v1
@@ -40,7 +40,7 @@
 
 .method public constructor <init>([F)V
     .locals 2
-    .parameter "array"
+    .param p1, "array"    # [F
 
     .prologue
     .line 40

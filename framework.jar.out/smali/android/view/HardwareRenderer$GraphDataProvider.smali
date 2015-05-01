@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/HardwareRenderer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 712

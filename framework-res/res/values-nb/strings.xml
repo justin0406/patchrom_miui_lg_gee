@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">avinstallere snarveier</string>
     <string name="permdesc_uninstall_shortcut">Lar appen fjerne snarveier på startsiden uten å involvere brukeren.</string>
     <string name="permlab_processOutgoingCalls">omdirigere utgående anrop</string>
-    <string name="permdesc_processOutgoingCalls">Lar appen behandle utgående anrop og endre nummeret som skal ringes opp. Denne tillatelsen lar appen overvåke, viderekoble eller hindre utgående anrop.</string>
+    <string name="permdesc_processOutgoingCalls">Lar appen se nummeret det ringes til under en utgående samtale, med mulighet for å omdirigere anropet til et annet nummer eller avbryte samtalen fullstendig.</string>
     <string name="permlab_receiveSms">motta tekstmeldinger (SMS)</string>
     <string name="permdesc_receiveSms">Lar appen motta og behandle tekstmeldinger. Dette betyr at appen kan overvåke eller slette meldinger som er sendt til enheten din uten at du har sett dem.</string>
     <string name="permlab_receiveMms">motta tekstmeldinger (MMS)</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">Hjem</string>
     <string name="sipAddressTypeWork">Arbeid</string>
     <string name="sipAddressTypeOther">Annen</string>
+    <string name="quick_contacts_not_available">Du har ingen apper som kan åpne denne kontakten.</string>
     <string name="keyguard_password_enter_pin_code">Skriv inn PIN-kode</string>
     <string name="keyguard_password_enter_puk_code">Skriv inn PUK-kode og ny personlig kode</string>
     <string name="keyguard_password_enter_puk_prompt">PUK-kode</string>
@@ -784,7 +785,7 @@ Prøv på nytt om %d sekunder."</string>
     <string name="lockscreen_forgot_pattern_button_text">Glemt mønsteret?</string>
     <string name="lockscreen_glogin_forgot_pattern">Opplåsing av konto</string>
     <string name="lockscreen_glogin_too_many_attempts">For mange forsøk på tegning av mønster</string>
-    <string name="lockscreen_glogin_instructions">Logg deg på med Google-kontoen din for å låse opp.</string>
+    <string name="lockscreen_glogin_instructions">Logg på med Google-kontoen din for å låse opp.</string>
     <string name="lockscreen_glogin_username_hint">Brukernavn (e-post)</string>
     <string name="lockscreen_glogin_password_hint">Passord</string>
     <string name="lockscreen_glogin_submit_button">Logg på</string>
@@ -1007,7 +1008,7 @@ Vil du lukke den?"</string>
     <string name="ringtone_picker_title">Ringetoner</string>
     <string name="ringtone_unknown">Ukjent ringetone</string>
     <string name="wifi_available_sign_in">Pålogging til Wi-Fi-nettverk</string>
-    <string name="network_available_sign_in">Logg deg på nettverket</string>
+    <string name="network_available_sign_in">Logg på nettverket</string>
     <string name="wifi_watchdog_network_disabled">Kan ikke koble til Wi-Fi</string>
     <string name="wifi_watchdog_network_disabled_detailed">" har en dårlig Internett-tilkobling."</string>
     <string name="wifi_p2p_dialog_title">Wi-Fi Direct</string>
@@ -1040,7 +1041,7 @@ Vil du lukke den?"</string>
     <string name="sms_short_code_confirm_never_allow">Aldri tillat</string>
     <string name="sim_removed_title">SIM-kort er fjernet</string>
     <string name="sim_removed_message">Det mobile nettverket forblir utilgjengelig inntil du starter på nytt med et gyldig SIM-kort.</string>
-    <string name="sim_done_button">Fullført</string>
+    <string name="sim_done_button">Ferdig</string>
     <string name="sim_added_title">SIM-kort er lagt til</string>
     <string name="sim_added_message">Start enheten på nytt for å få tilgang til det mobile nettverket.</string>
     <string name="sim_restart_button">Start på nytt</string>
@@ -1285,7 +1286,7 @@ for kontoen %s."</string>
     <string name="wireless_display_route_description">Trådløs skjerm</string>
     <string name="media_route_button_content_description">Medieutgang</string>
     <string name="media_route_chooser_title">Koble til enheten</string>
-    <string name="media_route_chooser_title_for_remote_display">Send skjermen til enheten</string>
+    <string name="media_route_chooser_title_for_remote_display">Cast skjermen til enheten</string>
     <string name="media_route_chooser_searching">Søker etter enheter …</string>
     <string name="media_route_chooser_extended_settings">Innstillinger</string>
     <string name="media_route_controller_disconnect">Koble fra</string>
@@ -1324,7 +1325,7 @@ for kontoen %s."</string>
     <string name="kg_invalid_puk">Skriv inn den korrekte PUK-koden på nytt. Gjentatte forsøk kommer til å deaktivere SIM-kortet.</string>
     <string name="kg_invalid_confirm_pin_hint">PIN-kodene stemmer ikke overens</string>
     <string name="kg_login_too_many_attempts">For mange forsøk på tegning av mønster</string>
-    <string name="kg_login_instructions">Logg deg på med Google-kontoen din for å låse opp.</string>
+    <string name="kg_login_instructions">Logg på med Google-kontoen din for å låse opp.</string>
     <string name="kg_login_username_hint">Brukernavn (e-postadresse)</string>
     <string name="kg_login_password_hint">Passord</string>
     <string name="kg_login_submit_button">Logg på</string>
@@ -1462,10 +1463,17 @@ Et høyt lydnivå i lengre perioder kan skade hørselen din."</string>
     <string name="webviewchromium_actionbar_share">Del</string>
     <string name="webviewchromium_actionbar_web_search">Nettsøk</string>
     <string name="webviewchromium_accessibility_content_view">Nettvisning</string>
+    <string name="webviewchromium_date_picker_dialog_title">Angi dato</string>
     <string name="webviewchromium_date_picker_dialog_set">Bruk</string>
     <string name="webviewchromium_date_picker_dialog_clear">Fjern</string>
-    <string name="webviewchromium_date_picker_dialog_title">Angi dato</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Annet</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Angi dato og klokkeslett</string>
+    <string name="webviewchromium_time_picker_dialog_title">Angi klokkeslett</string>
+    <string name="webviewchromium_time_picker_dialog_am">Om formiddagen</string>
+    <string name="webviewchromium_time_picker_dialog_pm">Om ettermiddagen</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Angi måned</string>
     <string name="webviewchromium_week_picker_dialog_title">Angi uke</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Dato</string>
@@ -1473,6 +1481,11 @@ Et høyt lydnivå i lengre perioder kan skade hørselen din."</string>
     <string name="webviewchromium_accessibility_date_picker_month">Måned</string>
     <string name="webviewchromium_accessibility_date_picker_week">Uke</string>
     <string name="webviewchromium_accessibility_date_picker_year">År</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Time</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Minutt</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Sekund</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Millisekund</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">Formiddag/ettermiddag</string>
     <string name="webviewchromium_media_player_error_title">Kan ikke spille av videoen</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Videoen er ikke gyldig for datastrømming til enheten.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Beklager, denne videoen kan ikke spilles av.</string>
@@ -1485,7 +1498,20 @@ Et høyt lydnivå i lengre perioder kan skade hørselen din."</string>
     <string name="webviewchromium_color_picker_button_set">Bruk</string>
     <string name="webviewchromium_color_picker_button_cancel">Avbryt</string>
     <string name="webviewchromium_color_picker_dialog_title">Velg farge</string>
+    <string name="webviewchromium_color_picker_button_red">Rød</string>
+    <string name="webviewchromium_color_picker_button_cyan">Cyan</string>
+    <string name="webviewchromium_color_picker_button_blue">Blå</string>
+    <string name="webviewchromium_color_picker_button_green">Grønn</string>
+    <string name="webviewchromium_color_picker_button_magenta">Magenta</string>
+    <string name="webviewchromium_color_picker_button_yellow">Gul</string>
+    <string name="webviewchromium_color_picker_button_black">Svart</string>
+    <string name="webviewchromium_color_picker_button_white">Hvit</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Kunne ikke kopiere til utklippstavlen</string>
     <string name="webviewchromium_low_memory_error">Kunne ikke fullføre forrige handling på grunn av for lite minne</string>
     <string name="webviewchromium_opening_file_error">Kunne ikke åpne den valgte filen</string>
     <string name="webviewchromium_private_browsing_warning">Denne funksjonaliteten støttes ikke i denne Android-versjonen.</string>
+    <string name="webviewchromium_profiler_started_toast">Profileringsverktøy startet</string>
+    <string name="webviewchromium_profiler_stopped_toast">Profileringsverktøyet er ferdig. Resultatene er i %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Kan ikke starte profileringsverktøyet fordi den eksterne lagringen ikke er klar</string>
+    <string name="webviewchromium_profiler_error_toast">Kunne ikke starte profileringsverktøyet</string>
 </resources>

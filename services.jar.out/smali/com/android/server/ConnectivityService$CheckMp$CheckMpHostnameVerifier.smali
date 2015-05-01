@@ -24,16 +24,16 @@
 # direct methods
 .method constructor <init>(Landroid/net/Uri;)V
     .locals 0
-    .parameter "orgUri"
+    .param p1, "orgUri"    # Landroid/net/Uri;
 
     .prologue
-    .line 4144
+    .line 4239
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4145
+    .line 4240
     iput-object p1, p0, Lcom/android/server/ConnectivityService$CheckMp$CheckMpHostnameVerifier;->mOrgUri:Landroid/net/Uri;
 
-    .line 4146
+    .line 4241
     return-void
 .end method
 
@@ -41,25 +41,25 @@
 # virtual methods
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
     .locals 5
-    .parameter "hostname"
-    .parameter "session"
+    .param p1, "hostname"    # Ljava/lang/String;
+    .param p2, "session"    # Ljavax/net/ssl/SSLSession;
 
     .prologue
-    .line 4150
+    .line 4245
     invoke-static {}, Ljavax/net/ssl/HttpsURLConnection;->getDefaultHostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
 
     move-result-object v0
 
-    .line 4151
-    .local v0, hv:Ljavax/net/ssl/HostnameVerifier;
+    .line 4246
+    .local v0, "hv":Ljavax/net/ssl/HostnameVerifier;
     iget-object v3, p0, Lcom/android/server/ConnectivityService$CheckMp$CheckMpHostnameVerifier;->mOrgUri:Landroid/net/Uri;
 
     invoke-virtual {v3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 4152
-    .local v1, orgUriHost:Ljava/lang/String;
+    .line 4247
+    .local v1, "orgUriHost":Ljava/lang/String;
     invoke-interface {v0, v1, p2}, Ljavax/net/ssl/HostnameVerifier;->verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
 
     move-result v3
@@ -75,8 +75,8 @@
     :cond_0
     const/4 v2, 0x1
 
-    .line 4154
-    .local v2, retVal:Z
+    .line 4249
+    .local v2, "retVal":Z
     :goto_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -116,14 +116,14 @@
 
     move-result-object v3
 
-    #calls: Lcom/android/server/ConnectivityService$CheckMp;->log(Ljava/lang/String;)V
-    invoke-static {v3}, Lcom/android/server/ConnectivityService$CheckMp;->access$4500(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/ConnectivityService$CheckMp;->log(Ljava/lang/String;)V
+    invoke-static {v3}, Lcom/android/server/ConnectivityService$CheckMp;->access$4700(Ljava/lang/String;)V
 
-    .line 4157
+    .line 4252
     return v2
 
-    .line 4152
-    .end local v2           #retVal:Z
+    .line 4247
+    .end local v2    # "retVal":Z
     :cond_1
     const/4 v2, 0x0
 

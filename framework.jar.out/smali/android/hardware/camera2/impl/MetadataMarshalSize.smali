@@ -56,7 +56,7 @@
 
 .method public getNativeSize(I)I
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     .line 58
@@ -67,7 +67,7 @@
 
 .method public isNativeTypeSupported(I)Z
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -86,10 +86,10 @@
 
 .method public marshal(Landroid/hardware/camera2/Size;Ljava/nio/ByteBuffer;IZ)I
     .locals 2
-    .parameter "value"
-    .parameter "buffer"
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "value"    # Landroid/hardware/camera2/Size;
+    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
 
     .prologue
     const/16 v1, 0x8
@@ -121,16 +121,16 @@
 
 .method public bridge synthetic marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;IZ)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/nio/ByteBuffer;
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Z
 
     .prologue
     .line 22
     check-cast p1, Landroid/hardware/camera2/Size;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/hardware/camera2/impl/MetadataMarshalSize;->marshal(Landroid/hardware/camera2/Size;Ljava/nio/ByteBuffer;IZ)I
 
     move-result v0
@@ -140,8 +140,8 @@
 
 .method public unmarshal(Ljava/nio/ByteBuffer;I)Landroid/hardware/camera2/Size;
     .locals 3
-    .parameter "buffer"
-    .parameter "nativeType"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
 
     .prologue
     .line 40
@@ -150,13 +150,13 @@
     move-result v1
 
     .line 41
-    .local v1, width:I
+    .local v1, "width":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v0
 
     .line 43
-    .local v0, height:I
+    .local v0, "height":I
     new-instance v2, Landroid/hardware/camera2/Size;
 
     invoke-direct {v2, v1, v0}, Landroid/hardware/camera2/Size;-><init>(II)V
@@ -166,8 +166,8 @@
 
 .method public bridge synthetic unmarshal(Ljava/nio/ByteBuffer;I)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/nio/ByteBuffer;
+    .param p2, "x1"    # I
 
     .prologue
     .line 22

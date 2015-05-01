@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 89
@@ -51,7 +51,7 @@
 
 .method public attachEngine(Landroid/service/wallpaper/IWallpaperEngine;)V
     .locals 5
-    .parameter "engine"
+    .param p1, "engine"    # Landroid/service/wallpaper/IWallpaperEngine;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 103
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 105
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.wallpaper.IWallpaperConnection"
 
@@ -130,7 +130,7 @@
 
 .method public engineShown(Landroid/service/wallpaper/IWallpaperEngine;)V
     .locals 5
-    .parameter "engine"
+    .param p1, "engine"    # Landroid/service/wallpaper/IWallpaperEngine;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -144,13 +144,13 @@
     move-result-object v0
 
     .line 118
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 120
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.wallpaper.IWallpaperConnection"
 
@@ -219,7 +219,7 @@
 
 .method public setWallpaper(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 6
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -233,13 +233,13 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 136
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.service.wallpaper.IWallpaperConnection"
 
@@ -279,7 +279,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 148
-    .local v2, _result:Landroid/os/ParcelFileDescriptor;
+    .local v2, "_result":Landroid/os/ParcelFileDescriptor;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -290,15 +290,15 @@
     return-object v2
 
     .line 144
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     goto :goto_0
 
     .line 148
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :catchall_0
     move-exception v3
 

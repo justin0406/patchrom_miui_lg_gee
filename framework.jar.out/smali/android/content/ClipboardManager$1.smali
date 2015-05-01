@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/ClipboardManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 63
@@ -41,7 +40,7 @@
     .line 65
     iget-object v0, p0, Landroid/content/ClipboardManager$1;->this$0:Landroid/content/ClipboardManager;
 
-    #getter for: Landroid/content/ClipboardManager;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/content/ClipboardManager;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/content/ClipboardManager;->access$000(Landroid/content/ClipboardManager;)Landroid/os/Handler;
 
     move-result-object v0

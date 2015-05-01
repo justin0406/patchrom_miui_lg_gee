@@ -48,9 +48,9 @@
 
 .method public load(Landroid/content/Context;II)I
     .locals 1
-    .parameter "context"
-    .parameter "resId"
-    .parameter "priority"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resId"    # I
+    .param p3, "priority"    # I
 
     .prologue
     .line 632
@@ -61,8 +61,8 @@
 
 .method public load(Landroid/content/res/AssetFileDescriptor;I)I
     .locals 1
-    .parameter "afd"
-    .parameter "priority"
+    .param p1, "afd"    # Landroid/content/res/AssetFileDescriptor;
+    .param p2, "priority"    # I
 
     .prologue
     .line 636
@@ -73,10 +73,10 @@
 
 .method public load(Ljava/io/FileDescriptor;JJI)I
     .locals 1
-    .parameter "fd"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "priority"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "offset"    # J
+    .param p4, "length"    # J
+    .param p6, "priority"    # I
 
     .prologue
     .line 640
@@ -87,8 +87,8 @@
 
 .method public load(Ljava/lang/String;I)I
     .locals 1
-    .parameter "path"
-    .parameter "priority"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "priority"    # I
 
     .prologue
     .line 628
@@ -99,7 +99,7 @@
 
 .method public final pause(I)V
     .locals 0
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 652
@@ -108,12 +108,12 @@
 
 .method public final play(IFFIIF)I
     .locals 1
-    .parameter "soundID"
-    .parameter "leftVolume"
-    .parameter "rightVolume"
-    .parameter "priority"
-    .parameter "loop"
-    .parameter "rate"
+    .param p1, "soundID"    # I
+    .param p2, "leftVolume"    # F
+    .param p3, "rightVolume"    # F
+    .param p4, "priority"    # I
+    .param p5, "loop"    # I
+    .param p6, "rate"    # F
 
     .prologue
     .line 649
@@ -132,7 +132,7 @@
 
 .method public final resume(I)V
     .locals 0
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 654
@@ -141,8 +141,8 @@
 
 .method public final setLoop(II)V
     .locals 0
-    .parameter "streamID"
-    .parameter "loop"
+    .param p1, "streamID"    # I
+    .param p2, "loop"    # I
 
     .prologue
     .line 670
@@ -151,7 +151,7 @@
 
 .method public setOnLoadCompleteListener(Landroid/media/SoundPool$OnLoadCompleteListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/SoundPool$OnLoadCompleteListener;
 
     .prologue
     .line 675
@@ -160,8 +160,8 @@
 
 .method public final setPriority(II)V
     .locals 0
-    .parameter "streamID"
-    .parameter "priority"
+    .param p1, "streamID"    # I
+    .param p2, "priority"    # I
 
     .prologue
     .line 668
@@ -170,8 +170,8 @@
 
 .method public final setRate(IF)V
     .locals 0
-    .parameter "streamID"
-    .parameter "rate"
+    .param p1, "streamID"    # I
+    .param p2, "rate"    # F
 
     .prologue
     .line 672
@@ -180,8 +180,8 @@
 
 .method public setVolume(IF)V
     .locals 0
-    .parameter "streamID"
-    .parameter "volume"
+    .param p1, "streamID"    # I
+    .param p2, "volume"    # F
 
     .prologue
     .line 666
@@ -190,9 +190,9 @@
 
 .method public final setVolume(IFF)V
     .locals 0
-    .parameter "streamID"
-    .parameter "leftVolume"
-    .parameter "rightVolume"
+    .param p1, "streamID"    # I
+    .param p2, "leftVolume"    # F
+    .param p3, "rightVolume"    # F
 
     .prologue
     .line 663
@@ -201,7 +201,7 @@
 
 .method public final stop(I)V
     .locals 0
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 660
@@ -210,7 +210,7 @@
 
 .method public final unload(I)Z
     .locals 1
-    .parameter "soundID"
+    .param p1, "soundID"    # I
 
     .prologue
     .line 644

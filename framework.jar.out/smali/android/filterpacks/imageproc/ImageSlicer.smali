@@ -44,7 +44,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 59
@@ -61,7 +61,7 @@
 
 .method private calcOutputFormatForInput(Landroid/filterfw/core/Frame;)V
     .locals 2
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 78
@@ -146,8 +146,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 72
@@ -156,7 +156,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 12
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v11, 0x0
@@ -189,13 +189,13 @@
     move-result-object v0
 
     .line 99
-    .local v0, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v0, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->mutableCopy()Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v2
 
     .line 100
-    .local v2, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v2, "outputFormat":Landroid/filterfw/core/MutableFrameFormat;
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mOutputWidth:I
 
     iget v8, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mOutputHeight:I
@@ -212,7 +212,7 @@
     move-result-object v1
 
     .line 106
-    .local v1, output:Landroid/filterfw/core/Frame;
+    .local v1, "output":Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mProgram:Landroid/filterfw/core/Program;
 
     if-nez v7, :cond_1
@@ -233,7 +233,7 @@
     rem-int v4, v7, v8
 
     .line 112
-    .local v4, xSliceIndex:I
+    .local v4, "xSliceIndex":I
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceIndex:I
 
     iget v8, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mXSlices:I
@@ -241,7 +241,7 @@
     div-int v6, v7, v8
 
     .line 115
-    .local v6, ySliceIndex:I
+    .local v6, "ySliceIndex":I
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceWidth:I
 
     mul-int/2addr v7, v4
@@ -259,7 +259,7 @@
     div-float v3, v7, v8
 
     .line 116
-    .local v3, x0:F
+    .local v3, "x0":F
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceHeight:I
 
     mul-int/2addr v7, v6
@@ -277,7 +277,7 @@
     div-float v5, v7, v8
 
     .line 118
-    .local v5, y0:F
+    .local v5, "y0":F
     iget-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mProgram:Landroid/filterfw/core/Program;
 
     check-cast v7, Landroid/filterfw/core/ShaderProgram;

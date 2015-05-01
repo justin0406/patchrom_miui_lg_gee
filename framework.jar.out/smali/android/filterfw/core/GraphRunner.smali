@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 49
@@ -66,7 +66,7 @@
     move-result-object v0
 
     .line 66
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->isActive()Z
@@ -106,7 +106,7 @@
     move-result-object v0
 
     .line 78
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v0, :cond_0
 
     .line 79

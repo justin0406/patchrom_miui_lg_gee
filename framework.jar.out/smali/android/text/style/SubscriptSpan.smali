@@ -20,7 +20,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 28
@@ -54,7 +54,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 3
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 44
@@ -64,7 +64,7 @@
 
     move-result v1
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     div-float/2addr v1, v2
 
@@ -80,7 +80,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 3
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 49
@@ -90,7 +90,7 @@
 
     move-result v1
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     div-float/2addr v1, v2
 
@@ -106,8 +106,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 40

@@ -136,7 +136,7 @@
 
 .method public isFlagSet(I)Z
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # I
 
     .prologue
     .line 78
@@ -159,7 +159,7 @@
 
 .method public isSourceToUseSet(I)Z
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # I
 
     .prologue
     .line 62
@@ -182,7 +182,7 @@
 
 .method public resetFlag(I)V
     .locals 2
-    .parameter "flag"
+    .param p1, "flag"    # I
 
     .prologue
     .line 74
@@ -200,7 +200,7 @@
 
 .method public resetSourceToUse(I)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # I
 
     .prologue
     .line 58
@@ -218,7 +218,7 @@
 
 .method public setFlag(I)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # I
 
     .prologue
     .line 70
@@ -234,7 +234,7 @@
 
 .method public setMaxPowerAllocationInMW(D)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # D
 
     .prologue
     .line 38
@@ -246,7 +246,7 @@
 
 .method public setPeriodInNS(J)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # J
 
     .prologue
     .line 46
@@ -258,7 +258,7 @@
 
 .method public setSourceToUse(I)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # I
 
     .prologue
     .line 54
@@ -274,8 +274,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 130

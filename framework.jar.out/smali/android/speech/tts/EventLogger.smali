@@ -32,10 +32,10 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/SynthesisRequest;IILjava/lang/String;)V
     .locals 3
-    .parameter "request"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "serviceApp"
+    .param p1, "request"    # Landroid/speech/tts/SynthesisRequest;
+    .param p2, "callerUid"    # I
+    .param p3, "callerPid"    # I
+    .param p4, "serviceApp"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -107,7 +107,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 165
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/speech/tts/EventLogger;->mRequest:Landroid/speech/tts/SynthesisRequest;
 
     invoke-virtual {v1}, Landroid/speech/tts/SynthesisRequest;->getCountry()Ljava/lang/String;
@@ -178,7 +178,7 @@
     move-result-object v0
 
     .line 156
-    .local v0, utterance:Ljava/lang/String;
+    .local v0, "utterance":Ljava/lang/String;
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -330,7 +330,7 @@
     move-result-wide v13
 
     .line 126
-    .local v13, completionTime:J
+    .local v13, "completionTime":J
     iget-boolean v0, p0, Landroid/speech/tts/EventLogger;->mError:Z
 
     if-nez v0, :cond_2
@@ -393,7 +393,7 @@
     sub-long v11, v0, v2
 
     .line 141
-    .local v11, audioLatency:J
+    .local v11, "audioLatency":J
     iget-wide v0, p0, Landroid/speech/tts/EventLogger;->mEngineStartTime:J
 
     iget-wide v2, p0, Landroid/speech/tts/EventLogger;->mRequestProcessingStartTime:J
@@ -401,7 +401,7 @@
     sub-long v7, v0, v2
 
     .line 142
-    .local v7, engineLatency:J
+    .local v7, "engineLatency":J
     iget-wide v0, p0, Landroid/speech/tts/EventLogger;->mEngineCompleteTime:J
 
     iget-wide v2, p0, Landroid/speech/tts/EventLogger;->mRequestProcessingStartTime:J
@@ -409,7 +409,7 @@
     sub-long v9, v0, v2
 
     .line 144
-    .local v9, engineTotal:J
+    .local v9, "engineTotal":J
     iget-object v0, p0, Landroid/speech/tts/EventLogger;->mServiceApp:Ljava/lang/String;
 
     iget v1, p0, Landroid/speech/tts/EventLogger;->mCallerUid:I

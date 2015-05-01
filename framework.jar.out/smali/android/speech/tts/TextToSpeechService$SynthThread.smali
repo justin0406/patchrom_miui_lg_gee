@@ -26,7 +26,6 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 238
@@ -60,7 +59,7 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 260
-    .local v0, i:Landroid/content/Intent;
+    .local v0, "i":Landroid/content/Intent;
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$SynthThread;->this$0:Landroid/speech/tts/TextToSpeechService;
 
     invoke-virtual {v1, v0}, Landroid/speech/tts/TextToSpeechService;->sendBroadcast(Landroid/content/Intent;)V

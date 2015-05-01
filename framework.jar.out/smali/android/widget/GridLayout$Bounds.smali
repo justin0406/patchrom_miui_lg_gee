@@ -39,7 +39,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/GridLayout$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/GridLayout$1;
 
     .prologue
     .line 2233
@@ -52,11 +52,11 @@
 # virtual methods
 .method protected getOffset(Landroid/widget/GridLayout;Landroid/view/View;Landroid/widget/GridLayout$Alignment;IZ)I
     .locals 2
-    .parameter "gl"
-    .parameter "c"
-    .parameter "a"
-    .parameter "size"
-    .parameter "horizontal"
+    .param p1, "gl"    # Landroid/widget/GridLayout;
+    .param p2, "c"    # Landroid/view/View;
+    .param p3, "a"    # Landroid/widget/GridLayout$Alignment;
+    .param p4, "size"    # I
+    .param p5, "horizontal"    # Z
 
     .prologue
     .line 2263
@@ -77,8 +77,8 @@
 
 .method protected include(II)V
     .locals 1
-    .parameter "before"
-    .parameter "after"
+    .param p1, "before"    # I
+    .param p2, "after"    # I
 
     .prologue
     .line 2249
@@ -105,10 +105,10 @@
 
 .method protected final include(Landroid/widget/GridLayout;Landroid/view/View;Landroid/widget/GridLayout$Spec;Landroid/widget/GridLayout$Axis;)V
     .locals 6
-    .parameter "gl"
-    .parameter "c"
-    .parameter "spec"
-    .parameter "axis"
+    .param p1, "gl"    # Landroid/widget/GridLayout;
+    .param p2, "c"    # Landroid/view/View;
+    .param p3, "spec"    # Landroid/widget/GridLayout$Spec;
+    .param p4, "axis"    # Landroid/widget/GridLayout$Axis;
 
     .prologue
     .line 2267
@@ -126,13 +126,13 @@
     iget-boolean v2, p4, Landroid/widget/GridLayout$Axis;->horizontal:Z
 
     .line 2269
-    .local v2, horizontal:Z
+    .local v2, "horizontal":Z
     invoke-virtual {p1, p2, v2}, Landroid/widget/GridLayout;->getMeasurementIncludingMargin(Landroid/view/View;Z)I
 
     move-result v3
 
     .line 2270
-    .local v3, size:I
+    .local v3, "size":I
     iget-object v4, p3, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;
 
     invoke-virtual {p1, v4, v2}, Landroid/widget/GridLayout;->getAlignment(Landroid/widget/GridLayout$Alignment;Z)Landroid/widget/GridLayout$Alignment;
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 2272
-    .local v0, alignment:Landroid/widget/GridLayout$Alignment;
+    .local v0, "alignment":Landroid/widget/GridLayout$Alignment;
     invoke-virtual {p1}, Landroid/widget/GridLayout;->getLayoutMode()I
 
     move-result v4
@@ -150,7 +150,7 @@
     move-result v1
 
     .line 2273
-    .local v1, before:I
+    .local v1, "before":I
     sub-int v4, v3, v1
 
     invoke-virtual {p0, v1, v4}, Landroid/widget/GridLayout$Bounds;->include(II)V
@@ -163,7 +163,7 @@
     .locals 1
 
     .prologue
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     .line 2243
     iput v0, p0, Landroid/widget/GridLayout$Bounds;->before:I
@@ -182,7 +182,7 @@
 
 .method protected size(Z)I
     .locals 2
-    .parameter "min"
+    .param p1, "min"    # Z
 
     .prologue
     .line 2254

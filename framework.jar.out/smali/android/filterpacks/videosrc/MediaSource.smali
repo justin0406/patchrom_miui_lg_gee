@@ -162,92 +162,92 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 
     .line 148
     :array_1
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 
     .line 152
     :array_2
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 
     .line 156
     :array_3
-    .array-data 0x4
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 4
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -340,7 +340,7 @@
 
 .method static synthetic access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
 
     .prologue
     .line 54
@@ -351,7 +351,7 @@
 
 .method static synthetic access$100(Landroid/filterpacks/videosrc/MediaSource;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
 
     .prologue
     .line 54
@@ -362,8 +362,8 @@
 
 .method static synthetic access$102(Landroid/filterpacks/videosrc/MediaSource;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 54
@@ -374,7 +374,7 @@
 
 .method static synthetic access$200(Landroid/filterpacks/videosrc/MediaSource;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
 
     .prologue
     .line 54
@@ -385,7 +385,7 @@
 
 .method static synthetic access$300(Landroid/filterpacks/videosrc/MediaSource;)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
 
     .prologue
     .line 54
@@ -396,8 +396,8 @@
 
 .method static synthetic access$402(Landroid/filterpacks/videosrc/MediaSource;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # I
 
     .prologue
     .line 54
@@ -408,8 +408,8 @@
 
 .method static synthetic access$502(Landroid/filterpacks/videosrc/MediaSource;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # I
 
     .prologue
     .line 54
@@ -420,8 +420,8 @@
 
 .method static synthetic access$602(Landroid/filterpacks/videosrc/MediaSource;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 54
@@ -432,8 +432,8 @@
 
 .method static synthetic access$702(Landroid/filterpacks/videosrc/MediaSource;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 54
@@ -444,8 +444,8 @@
 
 .method static synthetic access$802(Landroid/filterpacks/videosrc/MediaSource;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterpacks/videosrc/MediaSource;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 54
@@ -473,7 +473,7 @@
 
 .method private declared-synchronized setupMediaPlayer(Z)Z
     .locals 9
-    .parameter "useUrl"
+    .param p1, "useUrl"    # Z
 
     .prologue
     const/4 v8, 0x1
@@ -642,9 +642,9 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setDataSource(Ljava/lang/String;)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 496
     :goto_1
@@ -672,7 +672,7 @@
     invoke-direct {v7, v0}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
 
     .line 501
-    .local v7, surface:Landroid/view/Surface;
+    .local v7, "surface":Landroid/view/Surface;
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, v7}, Landroid/media/MediaPlayer;->setSurface(Landroid/view/Surface;)V
@@ -733,7 +733,7 @@
     return v8
 
     .line 472
-    .end local v7           #surface:Landroid/view/Surface;
+    .end local v7    # "surface":Landroid/view/Surface;
     :cond_7
     :try_start_4
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -752,9 +752,9 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaPlayer;->setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_1
 
@@ -763,7 +763,7 @@
     move-exception v6
 
     .line 479
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     :try_start_5
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
@@ -803,7 +803,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 475
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :cond_8
     :try_start_6
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
@@ -858,9 +858,9 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;JJ)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_6} :catch_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto/16 :goto_1
 
@@ -869,7 +869,7 @@
     move-exception v6
 
     .line 487
-    .local v6, e:Ljava/lang/IllegalArgumentException;
+    .local v6, "e":Ljava/lang/IllegalArgumentException;
     :try_start_7
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
@@ -907,7 +907,7 @@
     throw v0
 
     .line 484
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     :cond_a
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -932,7 +932,7 @@
     throw v0
 
     .line 492
-    .local v6, e:Ljava/lang/IllegalArgumentException;
+    .local v6, "e":Ljava/lang/IllegalArgumentException;
     :cond_b
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -963,7 +963,7 @@
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v2, 0x0
@@ -1037,8 +1037,8 @@
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 387
@@ -1305,7 +1305,7 @@
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 205
@@ -1419,7 +1419,7 @@
 
 .method public declared-synchronized pauseVideo(Z)V
     .locals 1
-    .parameter "pauseState"
+    .param p1, "pauseState"    # Z
 
     .prologue
     .line 430
@@ -1485,10 +1485,10 @@
 
 .method protected prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     .line 193
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
@@ -1516,7 +1516,7 @@
 
     const/4 v1, 0x0
 
-    const/high16 v2, -0x4080
+    const/high16 v2, -0x40800000    # -1.0f
 
     invoke-virtual {v0, v1, v3, v3, v2}, Landroid/filterfw/core/ShaderProgram;->setSourceRect(FFFF)V
 
@@ -1529,7 +1529,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 20
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 229
@@ -1593,7 +1593,7 @@
     const/16 v19, 0x0
 
     .line 244
-    .local v19, waitCount:I
+    .local v19, "waitCount":I
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
@@ -1698,7 +1698,7 @@
     invoke-virtual {v3}, Landroid/media/MediaPlayer;->start()V
 
     .line 268
-    .end local v19           #waitCount:I
+    .end local v19    # "waitCount":I
     :cond_8
     move-object/from16 v0, p0
 
@@ -1738,7 +1738,7 @@
     const/16 v19, 0x0
 
     .line 273
-    .restart local v19       #waitCount:I
+    .restart local v19    # "waitCount":I
     :goto_2
     move-object/from16 v0, p0
 
@@ -1802,7 +1802,7 @@
     move-exception v14
 
     .line 286
-    .local v14, e:Ljava/lang/InterruptedException;
+    .local v14, "e":Ljava/lang/InterruptedException;
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
@@ -1818,7 +1818,7 @@
     goto :goto_3
 
     .line 291
-    .end local v14           #e:Ljava/lang/InterruptedException;
+    .end local v14    # "e":Ljava/lang/InterruptedException;
     :cond_e
     const/4 v3, 0x0
 
@@ -1840,7 +1840,7 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 295
-    .end local v19           #waitCount:I
+    .end local v19    # "waitCount":I
     :cond_f
     move-object/from16 v0, p0
 
@@ -1869,7 +1869,7 @@
     new-array v4, v3, [F
 
     .line 300
-    .local v4, surfaceTransform:[F
+    .local v4, "surfaceTransform":[F
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -1882,7 +1882,7 @@
     new-array v2, v3, [F
 
     .line 303
-    .local v2, sourceCoords:[F
+    .local v2, "sourceCoords":[F
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mOrientation:I
@@ -2043,7 +2043,7 @@
     move-result-object v16
 
     .line 331
-    .local v16, temp:Ljava/lang/String;
+    .local v16, "temp":Ljava/lang/String;
     const-string v3, "MediaSource"
 
     move-object/from16 v0, v16
@@ -2051,7 +2051,7 @@
     invoke-static {v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 333
-    .end local v16           #temp:Ljava/lang/String;
+    .end local v16    # "temp":Ljava/lang/String;
     :cond_11
     move-object/from16 v0, p0
 
@@ -2099,8 +2099,8 @@
     iput-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mOrientationUpdated:Z
 
     .line 340
-    .end local v2           #sourceCoords:[F
-    .end local v4           #surfaceTransform:[F
+    .end local v2    # "sourceCoords":[F
+    .end local v4    # "surfaceTransform":[F
     :cond_12
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
@@ -2115,7 +2115,7 @@
     move-result-object v15
 
     .line 341
-    .local v15, output:Landroid/filterfw/core/Frame;
+    .local v15, "output":Landroid/filterfw/core/Frame;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mFrameExtractor:Landroid/filterfw/core/ShaderProgram;
@@ -2136,7 +2136,7 @@
     move-result-wide v17
 
     .line 344
-    .local v17, timestamp:J
+    .local v17, "timestamp":J
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
@@ -2159,7 +2159,7 @@
 
     long-to-double v6, v0
 
-    const-wide v8, 0x41cdcd6500000000L
+    const-wide v8, 0x41cdcd6500000000L    # 1.0E9
 
     div-double/2addr v6, v8
 
@@ -2205,10 +2205,10 @@
     goto/16 :goto_0
 
     .line 311
-    .end local v15           #output:Landroid/filterfw/core/Frame;
-    .end local v17           #timestamp:J
-    .restart local v2       #sourceCoords:[F
-    .restart local v4       #surfaceTransform:[F
+    .end local v15    # "output":Landroid/filterfw/core/Frame;
+    .end local v17    # "timestamp":J
+    .restart local v2    # "sourceCoords":[F
+    .restart local v4    # "surfaceTransform":[F
     :sswitch_0
     const/4 v3, 0x0
 
@@ -2251,9 +2251,9 @@
     goto/16 :goto_4
 
     .line 248
-    .end local v2           #sourceCoords:[F
-    .end local v4           #surfaceTransform:[F
-    .restart local v19       #waitCount:I
+    .end local v2    # "sourceCoords":[F
+    .end local v4    # "surfaceTransform":[F
+    .restart local v19    # "waitCount":I
     :catch_1
     move-exception v3
 
@@ -2291,7 +2291,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 374

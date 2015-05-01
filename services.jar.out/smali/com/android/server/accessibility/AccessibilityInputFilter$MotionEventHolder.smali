@@ -68,8 +68,8 @@
 
 .method public static obtain(Landroid/view/MotionEvent;I)Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
     .locals 2
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p0, "event"    # Landroid/view/MotionEvent;
+    .param p1, "policyFlags"    # I
 
     .prologue
     .line 386
@@ -82,17 +82,17 @@
     check-cast v0, Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
 
     .line 387
-    .local v0, holder:Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
+    .local v0, "holder":Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
     if-nez v0, :cond_0
 
     .line 388
     new-instance v0, Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
 
-    .end local v0           #holder:Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
+    .end local v0    # "holder":Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
     invoke-direct {v0}, Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;-><init>()V
 
     .line 390
-    .restart local v0       #holder:Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
+    .restart local v0    # "holder":Lcom/android/server/accessibility/AccessibilityInputFilter$MotionEventHolder;
     :cond_0
     invoke-static {p0}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 

@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 537
@@ -49,13 +48,13 @@
 # virtual methods
 .method public bridge synthetic post([Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # [Ljava/lang/Object;
 
     .prologue
     .line 537
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/ViewDebug$3;->post([Ljava/lang/Void;)V
 
     return-void
@@ -63,7 +62,7 @@
 
 .method public varargs post([Ljava/lang/Void;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # [Ljava/lang/Void;
 
     .prologue
     .line 547
@@ -94,13 +93,13 @@
 
 .method public bridge synthetic run([Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # [Ljava/lang/Object;
 
     .prologue
     .line 537
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/ViewDebug$3;->run([Ljava/lang/Void;)V
 
     return-void
@@ -108,7 +107,7 @@
 
 .method public varargs run([Ljava/lang/Void;)V
     .locals 5
-    .parameter "data"
+    .param p1, "data"    # [Ljava/lang/Void;
 
     .prologue
     .line 543

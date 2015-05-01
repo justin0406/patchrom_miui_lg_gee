@@ -19,17 +19,15 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$21;Landroid/content/Context;I)V
+.method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$21;Landroid/content/Context;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
+    .param p2, "x0"    # Landroid/content/Context;
 
     .prologue
-    .line 4700
+    .line 4712
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$21$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$21;
 
-    invoke-direct {p0, p2, p3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, p2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -38,7 +36,18 @@
 # virtual methods
 .method public dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
+
+    .prologue
+    .line 4728
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 1
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 4716
@@ -47,23 +56,12 @@
     return v0
 .end method
 
-.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
-    .parameter "event"
-
-    .prologue
-    .line 4704
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
 .method public dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 4707
+    .line 4719
     const/4 v0, 0x1
 
     return v0
@@ -71,10 +69,10 @@
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
-    .line 4720
+    .line 4732
     const/4 v0, 0x1
 
     return v0
@@ -82,10 +80,10 @@
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 4710
+    .line 4722
     const/4 v0, 0x1
 
     return v0
@@ -93,10 +91,10 @@
 
 .method public dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 4713
+    .line 4725
     const/4 v0, 0x1
 
     return v0

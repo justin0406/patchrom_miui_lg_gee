@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 508
@@ -54,7 +51,7 @@
     .line 510
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    #getter for: Landroid/app/SharedPreferencesImpl;->mWritingToDiskLock:Ljava/lang/Object;
+    # getter for: Landroid/app/SharedPreferencesImpl;->mWritingToDiskLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/SharedPreferencesImpl;->access$700(Landroid/app/SharedPreferencesImpl;)Ljava/lang/Object;
 
     move-result-object v1
@@ -67,7 +64,7 @@
 
     iget-object v2, p0, Landroid/app/SharedPreferencesImpl$2;->val$mcr:Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
-    #calls: Landroid/app/SharedPreferencesImpl;->writeToFile(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
+    # invokes: Landroid/app/SharedPreferencesImpl;->writeToFile(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
     invoke-static {v0, v2}, Landroid/app/SharedPreferencesImpl;->access$800(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
 
     .line 512
@@ -84,6 +81,7 @@
     :try_start_1
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
+    # operator-- for: Landroid/app/SharedPreferencesImpl;->mDiskWritesInFlight:I
     invoke-static {v0}, Landroid/app/SharedPreferencesImpl;->access$310(Landroid/app/SharedPreferencesImpl;)I
 
     .line 515

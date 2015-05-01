@@ -31,10 +31,9 @@
 # direct methods
 .method constructor <init>(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
     .locals 1
-    .parameter
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p2, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p3, "w"    # I
+    .param p4, "h"    # I
 
     .prologue
     .line 1054
@@ -67,7 +66,7 @@
 
 .method static synthetic access$2000(Landroid/media/RemoteControlClient$DisplayInfoForClient;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
 
     .prologue
     .line 1046
@@ -78,8 +77,8 @@
 
 .method static synthetic access$2002(Landroid/media/RemoteControlClient$DisplayInfoForClient;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 1046
@@ -90,7 +89,7 @@
 
 .method static synthetic access$2100(Landroid/media/RemoteControlClient$DisplayInfoForClient;)Landroid/media/IRemoteControlDisplay;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
 
     .prologue
     .line 1046
@@ -101,7 +100,7 @@
 
 .method static synthetic access$2200(Landroid/media/RemoteControlClient$DisplayInfoForClient;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
 
     .prologue
     .line 1046
@@ -112,8 +111,8 @@
 
 .method static synthetic access$2202(Landroid/media/RemoteControlClient$DisplayInfoForClient;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
+    .param p1, "x1"    # I
 
     .prologue
     .line 1046
@@ -124,7 +123,7 @@
 
 .method static synthetic access$2300(Landroid/media/RemoteControlClient$DisplayInfoForClient;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
 
     .prologue
     .line 1046
@@ -135,8 +134,8 @@
 
 .method static synthetic access$2302(Landroid/media/RemoteControlClient$DisplayInfoForClient;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
+    .param p1, "x1"    # I
 
     .prologue
     .line 1046
@@ -147,7 +146,7 @@
 
 .method static synthetic access$2400(Landroid/media/RemoteControlClient$DisplayInfoForClient;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
 
     .prologue
     .line 1046
@@ -158,8 +157,8 @@
 
 .method static synthetic access$2402(Landroid/media/RemoteControlClient$DisplayInfoForClient;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/RemoteControlClient$DisplayInfoForClient;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 1046

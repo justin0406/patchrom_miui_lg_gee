@@ -105,7 +105,7 @@
 
 .field private static final BOOLEAN_PROPERTY_VISIBLE_TO_USER:I = 0x800
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -144,8 +144,7 @@
 
 .field public static final MOVEMENT_GRANULARITY_WORD:I = 0x2
 
-#the value of this static final field might be set in the static constructor
-.field public static final ROOT_NODE_ID:J = 0x0L
+.field public static final ROOT_NODE_ID:J
 
 .field public static final UNDEFINED:I = -0x1
 
@@ -328,8 +327,8 @@
 
 .method static synthetic access$000(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/os/Parcel;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .param p1, "x1"    # Landroid/os/Parcel;
 
     .prologue
     .line 60
@@ -340,7 +339,7 @@
 
 .method private canPerformRequestOverConnection(J)Z
     .locals 2
-    .parameter "accessibilityNodeId"
+    .param p1, "accessibilityNodeId"    # J
 
     .prologue
     const/4 v1, -0x1
@@ -520,7 +519,7 @@
 
 .method private enforceValidFocusDirection(I)V
     .locals 3
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 2006
@@ -571,7 +570,7 @@
 
 .method private enforceValidFocusType(I)V
     .locals 3
-    .parameter "focusType"
+    .param p1, "focusType"    # I
 
     .prologue
     .line 2020
@@ -618,7 +617,7 @@
 
 .method public static getAccessibilityViewId(J)I
     .locals 1
-    .parameter "accessibilityNodeId"
+    .param p0, "accessibilityNodeId"    # J
 
     .prologue
     .line 450
@@ -629,7 +628,7 @@
 
 .method private static getActionSymbolicName(I)Ljava/lang/String;
     .locals 1
-    .parameter "action"
+    .param p0, "action"    # I
 
     .prologue
     .line 2372
@@ -775,7 +774,7 @@
 
 .method private getBooleanProperty(I)Z
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # I
 
     .prologue
     .line 1918
@@ -798,7 +797,7 @@
 
 .method private static getMovementGranularitySymbolicName(I)Ljava/lang/String;
     .locals 3
-    .parameter "granularity"
+    .param p0, "granularity"    # I
 
     .prologue
     .line 2421
@@ -876,7 +875,7 @@
 
 .method public static getVirtualDescendantId(J)I
     .locals 3
-    .parameter "accessibilityNodeId"
+    .param p0, "accessibilityNodeId"    # J
 
     .prologue
     .line 463
@@ -895,7 +894,7 @@
 
 .method private init(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 6
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     const/4 v3, 0x0
@@ -997,10 +996,10 @@
     move-result v1
 
     .line 2226
-    .local v1, otherChildIdCount:I
+    .local v1, "otherChildIdCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -1124,7 +1123,7 @@
 
 .method private initFromParcel(Landroid/os/Parcel;)V
     .locals 12
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v7, 0x0
@@ -1189,16 +1188,16 @@
     iget-object v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/SparseLongArray;
 
     .line 2259
-    .local v2, childIds:Landroid/util/SparseLongArray;
+    .local v2, "childIds":Landroid/util/SparseLongArray;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 2260
-    .local v3, childrenSize:I
+    .local v3, "childrenSize":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     if-ge v4, v3, :cond_1
 
@@ -1208,7 +1207,7 @@
     move-result-wide v0
 
     .line 2262
-    .local v0, childId:J
+    .local v0, "childId":J
     invoke-virtual {v2, v4, v0, v1}, Landroid/util/SparseLongArray;->put(IJ)V
 
     .line 2260
@@ -1216,10 +1215,10 @@
 
     goto :goto_1
 
-    .end local v0           #childId:J
-    .end local v2           #childIds:Landroid/util/SparseLongArray;
-    .end local v3           #childrenSize:I
-    .end local v4           #i:I
+    .end local v0    # "childId":J
+    .end local v2    # "childIds":Landroid/util/SparseLongArray;
+    .end local v3    # "childrenSize":I
+    .end local v4    # "i":I
     :cond_0
     move v5, v7
 
@@ -1227,9 +1226,9 @@
     goto :goto_0
 
     .line 2265
-    .restart local v2       #childIds:Landroid/util/SparseLongArray;
-    .restart local v3       #childrenSize:I
-    .restart local v4       #i:I
+    .restart local v2    # "childIds":Landroid/util/SparseLongArray;
+    .restart local v3    # "childrenSize":I
+    .restart local v4    # "i":I
     :cond_1
     iget-object v5, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 
@@ -1524,8 +1523,8 @@
 
 .method public static makeNodeId(II)J
     .locals 4
-    .parameter "accessibilityViewId"
-    .parameter "virtualDescendantId"
+    .param p0, "accessibilityViewId"    # I
+    .param p1, "virtualDescendantId"    # I
 
     .prologue
     .line 479
@@ -1556,18 +1555,18 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 2081
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v0, :cond_0
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     :goto_0
     return-object v0
 
-    .restart local v0       #info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;-><init>()V
 
     goto :goto_0
@@ -1575,7 +1574,7 @@
 
 .method public static obtain(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 1
-    .parameter "source"
+    .param p0, "source"    # Landroid/view/View;
 
     .prologue
     .line 2053
@@ -1584,7 +1583,7 @@
     move-result-object v0
 
     .line 2054
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-virtual {v0, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setSource(Landroid/view/View;)V
 
     .line 2055
@@ -1593,8 +1592,8 @@
 
 .method public static obtain(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 1
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p0, "root"    # Landroid/view/View;
+    .param p1, "virtualDescendantId"    # I
 
     .prologue
     .line 2069
@@ -1603,7 +1602,7 @@
     move-result-object v0
 
     .line 2070
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-virtual {v0, p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setSource(Landroid/view/View;I)V
 
     .line 2071
@@ -1612,7 +1611,7 @@
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 1
-    .parameter "info"
+    .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 2093
@@ -1621,7 +1620,7 @@
     move-result-object v0
 
     .line 2094
-    .local v0, infoClone:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "infoClone":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {v0, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->init(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     .line 2095
@@ -1630,8 +1629,8 @@
 
 .method private setBooleanProperty(IZ)V
     .locals 2
-    .parameter "property"
-    .parameter "value"
+    .param p1, "property"    # I
+    .param p2, "value"    # Z
 
     .prologue
     .line 1930
@@ -1668,7 +1667,7 @@
 # virtual methods
 .method public addAction(I)V
     .locals 1
-    .parameter "action"
+    .param p1, "action"    # I
 
     .prologue
     .line 787
@@ -1687,7 +1686,7 @@
 
 .method public addChild(Landroid/view/View;)V
     .locals 1
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 724
@@ -1701,8 +1700,8 @@
 
 .method public addChild(Landroid/view/View;I)V
     .locals 5
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "virtualDescendantId"    # I
 
     .prologue
     .line 742
@@ -1716,7 +1715,7 @@
     move-result v2
 
     .line 744
-    .local v2, index:I
+    .local v2, "index":I
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityViewId()I
@@ -1724,14 +1723,14 @@
     move-result v3
 
     .line 746
-    .local v3, rootAccessibilityViewId:I
+    .local v3, "rootAccessibilityViewId":I
     :goto_0
     invoke-static {v3, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
     move-result-wide v0
 
     .line 747
-    .local v0, childNodeId:J
+    .local v0, "childNodeId":J
     iget-object v4, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/SparseLongArray;
 
     invoke-virtual {v4, v2, v0, v1}, Landroid/util/SparseLongArray;->put(IJ)V
@@ -1740,8 +1739,8 @@
     return-void
 
     .line 744
-    .end local v0           #childNodeId:J
-    .end local v3           #rootAccessibilityViewId:I
+    .end local v0    # "childNodeId":J
+    .end local v3    # "rootAccessibilityViewId":I
     :cond_0
     const/4 v3, -0x1
 
@@ -1824,7 +1823,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -1872,7 +1871,7 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 2455
-    .local v0, other:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "other":Landroid/view/accessibility/AccessibilityNodeInfo;
     iget-wide v3, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
 
     iget-wide v5, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
@@ -1902,7 +1901,7 @@
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1944,7 +1943,7 @@
     move-result-object v0
 
     .line 882
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -1962,7 +1961,7 @@
 
 .method public findAccessibilityNodeInfosByViewId(Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "viewId"
+    .param p1, "viewId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2004,7 +2003,7 @@
     move-result-object v0
 
     .line 913
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2022,7 +2021,7 @@
 
 .method public findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 6
-    .parameter "focus"
+    .param p1, "focus"    # I
 
     .prologue
     .line 584
@@ -2069,7 +2068,7 @@
 
 .method public focusSearch(I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 6
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 608
@@ -2126,7 +2125,7 @@
 
 .method public getBoundsInParent(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "outBounds"
+    .param p1, "outBounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 994
@@ -2154,7 +2153,7 @@
 
 .method public getBoundsInScreen(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "outBounds"
+    .param p1, "outBounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1021
@@ -2182,7 +2181,7 @@
 
 .method public getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 7
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 701
@@ -2213,13 +2212,13 @@
     move-result-wide v3
 
     .line 706
-    .local v3, childId:J
+    .local v3, "childId":J
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
 
     move-result-object v0
 
     .line 707
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2362,7 +2361,7 @@
     move-result-object v0
 
     .line 1734
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2410,7 +2409,7 @@
     move-result-object v0
 
     .line 1791
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2488,7 +2487,7 @@
     move-result-object v0
 
     .line 933
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2594,11 +2593,11 @@
     const/16 v0, 0x1f
 
     .line 2467
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 2468
-    .local v1, result:I
+    .local v1, "result":I
     iget-wide v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
 
     invoke-static {v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
@@ -2690,7 +2689,7 @@
 
     .prologue
     .line 1450
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     invoke-direct {p0, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBooleanProperty(I)Z
 
@@ -2865,7 +2864,7 @@
 
 .method public performAction(I)Z
     .locals 7
-    .parameter "action"
+    .param p1, "action"    # I
 
     .prologue
     .line 830
@@ -2894,7 +2893,7 @@
     move-result-object v0
 
     .line 835
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2914,8 +2913,8 @@
 
 .method public performAction(ILandroid/os/Bundle;)Z
     .locals 7
-    .parameter "action"
-    .parameter "arguments"
+    .param p1, "action"    # I
+    .param p2, "arguments"    # Landroid/os/Bundle;
 
     .prologue
     .line 853
@@ -2944,7 +2943,7 @@
     move-result-object v0
 
     .line 858
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -2994,7 +2993,7 @@
 
 .method public refresh(Z)Z
     .locals 8
-    .parameter "bypassCache"
+    .param p1, "bypassCache"    # Z
 
     .prologue
     const/4 v6, 0x0
@@ -3023,7 +3022,7 @@
     move-result-object v0
 
     .line 645
-    .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
+    .local v0, "client":Landroid/view/accessibility/AccessibilityInteractionClient;
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
     iget v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
@@ -3037,7 +3036,7 @@
     move-result-object v7
 
     .line 647
-    .local v7, refreshedInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v7, "refreshedInfo":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v7, :cond_0
 
     .line 650
@@ -3054,7 +3053,7 @@
 
 .method public setAccessibilityFocused(Z)V
     .locals 1
-    .parameter "focused"
+    .param p1, "focused"    # Z
 
     .prologue
     .line 1189
@@ -3068,7 +3067,7 @@
 
 .method public setBoundsInParent(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1011
@@ -3093,7 +3092,7 @@
 
 .method public setBoundsInScreen(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1038
@@ -3118,7 +3117,7 @@
 
 .method public setCanOpenPopup(Z)V
     .locals 1
-    .parameter "opensPopup"
+    .param p1, "opensPopup"    # Z
 
     .prologue
     .line 1550
@@ -3135,7 +3134,7 @@
 
 .method public setCheckable(Z)V
     .locals 1
-    .parameter "checkable"
+    .param p1, "checkable"    # Z
 
     .prologue
     .line 1064
@@ -3149,7 +3148,7 @@
 
 .method public setChecked(Z)V
     .locals 1
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 1089
@@ -3163,7 +3162,7 @@
 
 .method public setClassName(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "className"
+    .param p1, "className"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1625
@@ -3178,7 +3177,7 @@
 
 .method public setClickable(Z)V
     .locals 1
-    .parameter "clickable"
+    .param p1, "clickable"    # Z
 
     .prologue
     .line 1239
@@ -3192,7 +3191,7 @@
 
 .method public setCollectionInfo(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;)V
     .locals 0
-    .parameter "collectionInfo"
+    .param p1, "collectionInfo"    # Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
     .prologue
     .line 1389
@@ -3207,7 +3206,7 @@
 
 .method public setCollectionItemInfo(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;)V
     .locals 0
-    .parameter "collectionItemInfo"
+    .param p1, "collectionItemInfo"    # Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     .prologue
     .line 1415
@@ -3222,7 +3221,7 @@
 
 .method public setConnectionId(I)V
     .locals 0
-    .parameter "connectionId"
+    .param p1, "connectionId"    # I
 
     .prologue
     .line 1947
@@ -3237,7 +3236,7 @@
 
 .method public setContentDescription(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "contentDescription"
+    .param p1, "contentDescription"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1677
@@ -3252,11 +3251,11 @@
 
 .method public setContentInvalid(Z)V
     .locals 1
-    .parameter "contentInvalid"
+    .param p1, "contentInvalid"    # Z
 
     .prologue
     .line 1465
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     invoke-direct {p0, v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBooleanProperty(IZ)V
 
@@ -3266,7 +3265,7 @@
 
 .method public setDismissable(Z)V
     .locals 1
-    .parameter "dismissable"
+    .param p1, "dismissable"    # Z
 
     .prologue
     .line 1574
@@ -3280,7 +3279,7 @@
 
 .method public setEditable(Z)V
     .locals 1
-    .parameter "editable"
+    .param p1, "editable"    # Z
 
     .prologue
     .line 1364
@@ -3294,7 +3293,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 1289
@@ -3308,7 +3307,7 @@
 
 .method public setFocusable(Z)V
     .locals 1
-    .parameter "focusable"
+    .param p1, "focusable"    # Z
 
     .prologue
     .line 1114
@@ -3322,7 +3321,7 @@
 
 .method public setFocused(Z)V
     .locals 1
-    .parameter "focused"
+    .param p1, "focused"    # Z
 
     .prologue
     .line 1139
@@ -3336,7 +3335,7 @@
 
 .method public setInputType(I)V
     .locals 0
-    .parameter "inputType"
+    .param p1, "inputType"    # I
 
     .prologue
     .line 1887
@@ -3351,7 +3350,7 @@
 
 .method public setLabelFor(Landroid/view/View;)V
     .locals 1
-    .parameter "labeled"
+    .param p1, "labeled"    # Landroid/view/View;
 
     .prologue
     .line 1688
@@ -3365,8 +3364,8 @@
 
 .method public setLabelFor(Landroid/view/View;I)V
     .locals 3
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "virtualDescendantId"    # I
 
     .prologue
     .line 1711
@@ -3380,7 +3379,7 @@
     move-result v0
 
     .line 1714
-    .local v0, rootAccessibilityViewId:I
+    .local v0, "rootAccessibilityViewId":I
     :goto_0
     invoke-static {v0, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
@@ -3392,7 +3391,7 @@
     return-void
 
     .line 1712
-    .end local v0           #rootAccessibilityViewId:I
+    .end local v0    # "rootAccessibilityViewId":I
     :cond_0
     const/4 v0, -0x1
 
@@ -3401,7 +3400,7 @@
 
 .method public setLabeledBy(Landroid/view/View;)V
     .locals 1
-    .parameter "label"
+    .param p1, "label"    # Landroid/view/View;
 
     .prologue
     .line 1745
@@ -3415,8 +3414,8 @@
 
 .method public setLabeledBy(Landroid/view/View;I)V
     .locals 3
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "virtualDescendantId"    # I
 
     .prologue
     .line 1768
@@ -3430,7 +3429,7 @@
     move-result v0
 
     .line 1771
-    .local v0, rootAccessibilityViewId:I
+    .local v0, "rootAccessibilityViewId":I
     :goto_0
     invoke-static {v0, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
@@ -3442,7 +3441,7 @@
     return-void
 
     .line 1769
-    .end local v0           #rootAccessibilityViewId:I
+    .end local v0    # "rootAccessibilityViewId":I
     :cond_0
     const/4 v0, -0x1
 
@@ -3451,7 +3450,7 @@
 
 .method public setLiveRegion(I)V
     .locals 0
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 1503
@@ -3466,7 +3465,7 @@
 
 .method public setLongClickable(Z)V
     .locals 1
-    .parameter "longClickable"
+    .param p1, "longClickable"    # Z
 
     .prologue
     .line 1264
@@ -3480,7 +3479,7 @@
 
 .method public setMovementGranularities(I)V
     .locals 0
-    .parameter "granularities"
+    .param p1, "granularities"    # I
 
     .prologue
     .line 804
@@ -3495,7 +3494,7 @@
 
 .method public setMultiLine(Z)V
     .locals 1
-    .parameter "multiLine"
+    .param p1, "multiLine"    # Z
 
     .prologue
     .line 1527
@@ -3509,7 +3508,7 @@
 
 .method public setPackageName(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1599
@@ -3524,7 +3523,7 @@
 
 .method public setParent(Landroid/view/View;)V
     .locals 1
-    .parameter "parent"
+    .param p1, "parent"    # Landroid/view/View;
 
     .prologue
     .line 959
@@ -3538,8 +3537,8 @@
 
 .method public setParent(Landroid/view/View;I)V
     .locals 3
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "virtualDescendantId"    # I
 
     .prologue
     .line 982
@@ -3553,7 +3552,7 @@
     move-result v0
 
     .line 985
-    .local v0, rootAccessibilityViewId:I
+    .local v0, "rootAccessibilityViewId":I
     :goto_0
     invoke-static {v0, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
@@ -3565,7 +3564,7 @@
     return-void
 
     .line 983
-    .end local v0           #rootAccessibilityViewId:I
+    .end local v0    # "rootAccessibilityViewId":I
     :cond_0
     const/4 v0, -0x1
 
@@ -3574,7 +3573,7 @@
 
 .method public setPassword(Z)V
     .locals 1
-    .parameter "password"
+    .param p1, "password"    # Z
 
     .prologue
     .line 1314
@@ -3588,7 +3587,7 @@
 
 .method public setRangeInfo(Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;)V
     .locals 0
-    .parameter "rangeInfo"
+    .param p1, "rangeInfo"    # Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
     .prologue
     .line 1439
@@ -3603,7 +3602,7 @@
 
 .method public setScrollable(Z)V
     .locals 1
-    .parameter "scrollable"
+    .param p1, "scrollable"    # Z
 
     .prologue
     .line 1339
@@ -3617,7 +3616,7 @@
 
 .method public setSealed(Z)V
     .locals 0
-    .parameter "sealed"
+    .param p1, "sealed"    # Z
 
     .prologue
     .line 1977
@@ -3629,7 +3628,7 @@
 
 .method public setSelected(Z)V
     .locals 1
-    .parameter "selected"
+    .param p1, "selected"    # Z
 
     .prologue
     .line 1214
@@ -3643,7 +3642,7 @@
 
 .method public setSource(Landroid/view/View;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/View;
 
     .prologue
     .line 542
@@ -3657,8 +3656,8 @@
 
 .method public setSource(Landroid/view/View;I)V
     .locals 3
-    .parameter "root"
-    .parameter "virtualDescendantId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "virtualDescendantId"    # I
 
     .prologue
     const/4 v2, -0x1
@@ -3684,7 +3683,7 @@
     move-result v0
 
     .line 569
-    .local v0, rootAccessibilityViewId:I
+    .local v0, "rootAccessibilityViewId":I
     :goto_1
     invoke-static {v0, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
@@ -3695,7 +3694,7 @@
     .line 570
     return-void
 
-    .end local v0           #rootAccessibilityViewId:I
+    .end local v0    # "rootAccessibilityViewId":I
     :cond_0
     move v1, v2
 
@@ -3711,7 +3710,7 @@
 
 .method public setText(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1651
@@ -3726,8 +3725,8 @@
 
 .method public setTextSelection(II)V
     .locals 0
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 1859
@@ -3745,7 +3744,7 @@
 
 .method public setViewIdResourceName(Ljava/lang/String;)V
     .locals 0
-    .parameter "viewIdResName"
+    .param p1, "viewIdResName"    # Ljava/lang/String;
 
     .prologue
     .line 1807
@@ -3760,7 +3759,7 @@
 
 .method public setVisibleToUser(Z)V
     .locals 1
-    .parameter "visibleToUser"
+    .param p1, "visibleToUser"    # Z
 
     .prologue
     .line 1164
@@ -3782,7 +3781,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 2477
-    .local v2, builder:Ljava/lang/StringBuilder;
+    .local v2, "builder":Ljava/lang/StringBuilder;
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -4040,7 +4039,7 @@
     .line 2528
     iget v1, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:I
 
-    .local v1, actionBits:I
+    .local v1, "actionBits":I
     :cond_0
     :goto_0
     if-eqz v1, :cond_1
@@ -4055,7 +4054,7 @@
     shl-int v0, v3, v4
 
     .line 2530
-    .local v0, action:I
+    .local v0, "action":I
     xor-int/lit8 v3, v0, -0x1
 
     and-int/2addr v1, v3
@@ -4078,7 +4077,7 @@
     goto :goto_0
 
     .line 2536
-    .end local v0           #action:I
+    .end local v0    # "action":I
     :cond_1
     const-string v3, "]"
 
@@ -4094,8 +4093,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 8
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v4, 0x1
@@ -4148,19 +4147,19 @@
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/SparseLongArray;
 
     .line 2127
-    .local v0, childIds:Landroid/util/SparseLongArray;
+    .local v0, "childIds":Landroid/util/SparseLongArray;
     invoke-virtual {v0}, Landroid/util/SparseLongArray;->size()I
 
     move-result v1
 
     .line 2128
-    .local v1, childIdsSize:I
+    .local v1, "childIdsSize":I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2129
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_1
 
@@ -4176,9 +4175,9 @@
 
     goto :goto_1
 
-    .end local v0           #childIds:Landroid/util/SparseLongArray;
-    .end local v1           #childIdsSize:I
-    .end local v2           #i:I
+    .end local v0    # "childIds":Landroid/util/SparseLongArray;
+    .end local v1    # "childIdsSize":I
+    .end local v2    # "i":I
     :cond_0
     move v3, v5
 
@@ -4186,9 +4185,9 @@
     goto :goto_0
 
     .line 2133
-    .restart local v0       #childIds:Landroid/util/SparseLongArray;
-    .restart local v1       #childIdsSize:I
-    .restart local v2       #i:I
+    .restart local v0    # "childIds":Landroid/util/SparseLongArray;
+    .restart local v1    # "childIdsSize":I
+    .restart local v2    # "i":I
     :cond_1
     iget-object v3, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 

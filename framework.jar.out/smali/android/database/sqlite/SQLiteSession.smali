@@ -13,8 +13,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field static final synthetic $assertionsDisabled:Z = false
+.field static final synthetic $assertionsDisabled:Z
 
 .field public static final TRANSACTION_MODE_DEFERRED:I = 0x0
 
@@ -66,7 +65,7 @@
 
 .method public constructor <init>(Landroid/database/sqlite/SQLiteConnectionPool;)V
     .locals 2
-    .parameter "connectionPool"
+    .param p1, "connectionPool"    # Landroid/database/sqlite/SQLiteConnectionPool;
 
     .prologue
     .line 227
@@ -94,9 +93,9 @@
 
 .method private acquireConnection(Ljava/lang/String;ILandroid/os/CancellationSignal;)V
     .locals 1
-    .parameter "sql"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "connectionFlags"    # I
+    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 892
@@ -146,10 +145,10 @@
 
 .method private beginTransactionUnchecked(ILandroid/database/sqlite/SQLiteTransactionListener;ILandroid/os/CancellationSignal;)V
     .locals 5
-    .parameter "transactionMode"
-    .parameter "transactionListener"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "transactionMode"    # I
+    .param p2, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     const/4 v3, 0x0
@@ -199,8 +198,8 @@
     :try_start_1
     invoke-interface {p2}, Landroid/database/sqlite/SQLiteTransactionListener;->onBegin()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 345
     :cond_3
@@ -210,7 +209,7 @@
     move-result-object v1
 
     .line 346
-    .local v1, transaction:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .local v1, "transaction":Landroid/database/sqlite/SQLiteSession$Transaction;
     iget-object v2, p0, Landroid/database/sqlite/SQLiteSession;->mTransactionStack:Landroid/database/sqlite/SQLiteSession$Transaction;
 
     iput-object v2, v1, Landroid/database/sqlite/SQLiteSession$Transaction;->mParent:Landroid/database/sqlite/SQLiteSession$Transaction;
@@ -233,7 +232,7 @@
     return-void
 
     .line 319
-    .end local v1           #transaction:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .end local v1    # "transaction":Landroid/database/sqlite/SQLiteSession$Transaction;
     :pswitch_0
     :try_start_3
     iget-object v2, p0, Landroid/database/sqlite/SQLiteSession;->mConnection:Landroid/database/sqlite/SQLiteConnection;
@@ -280,7 +279,7 @@
     move-exception v0
 
     .line 337
-    .local v0, ex:Ljava/lang/RuntimeException;
+    .local v0, "ex":Ljava/lang/RuntimeException;
     iget-object v2, p0, Landroid/database/sqlite/SQLiteSession;->mTransactionStack:Landroid/database/sqlite/SQLiteSession$Transaction;
 
     if-nez v2, :cond_6
@@ -310,8 +309,8 @@
 
 .method private endTransactionUnchecked(Landroid/os/CancellationSignal;Z)V
     .locals 8
-    .parameter "cancellationSignal"
-    .parameter "yielding"
+    .param p1, "cancellationSignal"    # Landroid/os/CancellationSignal;
+    .param p2, "yielding"    # Z
 
     .prologue
     const/4 v5, 0x1
@@ -327,7 +326,7 @@
     iget-object v4, p0, Landroid/database/sqlite/SQLiteSession;->mTransactionStack:Landroid/database/sqlite/SQLiteSession$Transaction;
 
     .line 410
-    .local v4, top:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .local v4, "top":Landroid/database/sqlite/SQLiteSession$Transaction;
     iget-boolean v6, v4, Landroid/database/sqlite/SQLiteSession$Transaction;->mMarkedSuccessful:Z
 
     if-nez v6, :cond_1
@@ -342,16 +341,16 @@
     move v3, v5
 
     .line 412
-    .local v3, successful:Z
+    .local v3, "successful":Z
     :goto_0
     const/4 v2, 0x0
 
     .line 413
-    .local v2, listenerException:Ljava/lang/RuntimeException;
+    .local v2, "listenerException":Ljava/lang/RuntimeException;
     iget-object v1, v4, Landroid/database/sqlite/SQLiteSession$Transaction;->mListener:Landroid/database/sqlite/SQLiteTransactionListener;
 
     .line 414
-    .local v1, listener:Landroid/database/sqlite/SQLiteTransactionListener;
+    .local v1, "listener":Landroid/database/sqlite/SQLiteTransactionListener;
     if-eqz v1, :cond_2
 
     .line 416
@@ -395,18 +394,18 @@
     throw v2
 
     .line 410
-    .end local v1           #listener:Landroid/database/sqlite/SQLiteTransactionListener;
-    .end local v2           #listenerException:Ljava/lang/RuntimeException;
-    .end local v3           #successful:Z
+    .end local v1    # "listener":Landroid/database/sqlite/SQLiteTransactionListener;
+    .end local v2    # "listenerException":Ljava/lang/RuntimeException;
+    .end local v3    # "successful":Z
     :cond_4
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 419
-    .restart local v1       #listener:Landroid/database/sqlite/SQLiteTransactionListener;
-    .restart local v2       #listenerException:Ljava/lang/RuntimeException;
-    .restart local v3       #successful:Z
+    .restart local v1    # "listener":Landroid/database/sqlite/SQLiteTransactionListener;
+    .restart local v2    # "listenerException":Ljava/lang/RuntimeException;
+    .restart local v3    # "successful":Z
     :cond_5
     :try_start_1
     invoke-interface {v1}, Landroid/database/sqlite/SQLiteTransactionListener;->onRollback()V
@@ -420,7 +419,7 @@
     move-exception v0
 
     .line 422
-    .local v0, ex:Ljava/lang/RuntimeException;
+    .local v0, "ex":Ljava/lang/RuntimeException;
     move-object v2, v0
 
     .line 423
@@ -429,7 +428,7 @@
     goto :goto_1
 
     .line 436
-    .end local v0           #ex:Ljava/lang/RuntimeException;
+    .end local v0    # "ex":Ljava/lang/RuntimeException;
     :cond_6
     if-eqz v3, :cond_7
 
@@ -481,10 +480,10 @@
 
 .method private executeSpecial(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)Z
     .locals 4
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     const/4 v1, 0x1
@@ -502,7 +501,7 @@
     move-result v0
 
     .line 872
-    .local v0, type:I
+    .local v0, "type":I
     packed-switch v0, :pswitch_data_0
 
     .line 887
@@ -547,8 +546,8 @@
 
 .method private obtainTransaction(ILandroid/database/sqlite/SQLiteTransactionListener;)Landroid/database/sqlite/SQLiteSession$Transaction;
     .locals 4
-    .parameter "mode"
-    .parameter "listener"
+    .param p1, "mode"    # I
+    .param p2, "listener"    # Landroid/database/sqlite/SQLiteTransactionListener;
 
     .prologue
     const/4 v3, 0x0
@@ -559,7 +558,7 @@
     iget-object v0, p0, Landroid/database/sqlite/SQLiteSession;->mTransactionPool:Landroid/database/sqlite/SQLiteSession$Transaction;
 
     .line 937
-    .local v0, transaction:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .local v0, "transaction":Landroid/database/sqlite/SQLiteSession$Transaction;
     if-eqz v0, :cond_0
 
     .line 938
@@ -590,16 +589,16 @@
     :cond_0
     new-instance v0, Landroid/database/sqlite/SQLiteSession$Transaction;
 
-    .end local v0           #transaction:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .end local v0    # "transaction":Landroid/database/sqlite/SQLiteSession$Transaction;
     invoke-direct {v0, v3}, Landroid/database/sqlite/SQLiteSession$Transaction;-><init>(Landroid/database/sqlite/SQLiteSession$1;)V
 
-    .restart local v0       #transaction:Landroid/database/sqlite/SQLiteSession$Transaction;
+    .restart local v0    # "transaction":Landroid/database/sqlite/SQLiteSession$Transaction;
     goto :goto_0
 .end method
 
 .method private recycleTransaction(Landroid/database/sqlite/SQLiteSession$Transaction;)V
     .locals 1
-    .parameter "transaction"
+    .param p1, "transaction"    # Landroid/database/sqlite/SQLiteSession$Transaction;
 
     .prologue
     .line 951
@@ -771,8 +770,8 @@
 
 .method private yieldTransactionUnchecked(JLandroid/os/CancellationSignal;)Z
     .locals 7
-    .parameter "sleepAfterYieldDelayMillis"
-    .parameter "cancellationSignal"
+    .param p1, "sleepAfterYieldDelayMillis"    # J
+    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     const/4 v3, 0x1
@@ -811,17 +810,17 @@
     iget v2, v4, Landroid/database/sqlite/SQLiteSession$Transaction;->mMode:I
 
     .line 535
-    .local v2, transactionMode:I
+    .local v2, "transactionMode":I
     iget-object v4, p0, Landroid/database/sqlite/SQLiteSession;->mTransactionStack:Landroid/database/sqlite/SQLiteSession$Transaction;
 
     iget-object v1, v4, Landroid/database/sqlite/SQLiteSession$Transaction;->mListener:Landroid/database/sqlite/SQLiteTransactionListener;
 
     .line 536
-    .local v1, listener:Landroid/database/sqlite/SQLiteTransactionListener;
+    .local v1, "listener":Landroid/database/sqlite/SQLiteTransactionListener;
     iget v0, p0, Landroid/database/sqlite/SQLiteSession;->mConnectionFlags:I
 
     .line 537
-    .local v0, connectionFlags:I
+    .local v0, "connectionFlags":I
     invoke-direct {p0, p3, v3}, Landroid/database/sqlite/SQLiteSession;->endTransactionUnchecked(Landroid/os/CancellationSignal;Z)V
 
     .line 539
@@ -855,10 +854,10 @@
 # virtual methods
 .method public beginTransaction(ILandroid/database/sqlite/SQLiteTransactionListener;ILandroid/os/CancellationSignal;)V
     .locals 0
-    .parameter "transactionMode"
-    .parameter "transactionListener"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "transactionMode"    # I
+    .param p2, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 297
@@ -873,7 +872,7 @@
 
 .method public endTransaction(Landroid/os/CancellationSignal;)V
     .locals 1
-    .parameter "cancellationSignal"
+    .param p1, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 398
@@ -906,10 +905,10 @@
 
 .method public execute(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)V
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 609
@@ -963,10 +962,10 @@
 
 .method public executeForBlobFileDescriptor(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)Landroid/os/ParcelFileDescriptor;
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 710
@@ -1025,10 +1024,10 @@
 
 .method public executeForChangedRowCount(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)I
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 744
@@ -1087,14 +1086,14 @@
 
 .method public executeForCursorWindow(Ljava/lang/String;[Ljava/lang/Object;Landroid/database/CursorWindow;IIZILandroid/os/CancellationSignal;)I
     .locals 10
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "window"
-    .parameter "startPos"
-    .parameter "requiredPos"
-    .parameter "countAllRows"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "window"    # Landroid/database/CursorWindow;
+    .param p4, "startPos"    # I
+    .param p5, "requiredPos"    # I
+    .param p6, "countAllRows"    # Z
+    .param p7, "connectionFlags"    # I
+    .param p8, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 822
@@ -1191,10 +1190,10 @@
 
 .method public executeForLastInsertedRowId(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)J
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 778
@@ -1253,10 +1252,10 @@
 
 .method public executeForLong(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)J
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 642
@@ -1315,10 +1314,10 @@
 
 .method public executeForString(Ljava/lang/String;[Ljava/lang/Object;ILandroid/os/CancellationSignal;)Ljava/lang/String;
     .locals 2
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "bindArgs"    # [Ljava/lang/Object;
+    .param p3, "connectionFlags"    # I
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 675
@@ -1443,10 +1442,10 @@
 
 .method public prepare(Ljava/lang/String;ILandroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteStatementInfo;)V
     .locals 2
-    .parameter "sql"
-    .parameter "connectionFlags"
-    .parameter "cancellationSignal"
-    .parameter "outStatementInfo"
+    .param p1, "sql"    # Ljava/lang/String;
+    .param p2, "connectionFlags"    # I
+    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
+    .param p4, "outStatementInfo"    # Landroid/database/sqlite/SQLiteStatementInfo;
 
     .prologue
     .line 578
@@ -1518,9 +1517,9 @@
 
 .method public yieldTransaction(JZLandroid/os/CancellationSignal;)Z
     .locals 2
-    .parameter "sleepAfterYieldDelayMillis"
-    .parameter "throwIfUnsafe"
-    .parameter "cancellationSignal"
+    .param p1, "sleepAfterYieldDelayMillis"    # J
+    .param p3, "throwIfUnsafe"    # Z
+    .param p4, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
     .prologue
     const/4 v0, 0x0

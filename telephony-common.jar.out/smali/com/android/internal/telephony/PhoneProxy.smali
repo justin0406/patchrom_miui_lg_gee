@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
     .locals 5
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     const/4 v4, 0x2
@@ -97,13 +97,14 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/PhoneProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
-    new-instance v0, Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManagerProxy;
+    .line 74
+    new-instance v0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;
 
     invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getIccPhoneBookInterfaceManager()Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManagerProxy;-><init>(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
+    invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;-><init>(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mIccPhoneBookInterfaceManagerProxy:Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;
 
@@ -196,18 +197,18 @@
 
 .method private deleteAndCreatePhone(I)V
     .locals 4
-    .parameter "newVoiceRadioTech"
+    .param p1, "newVoiceRadioTech"    # I
 
     .prologue
     .line 235
     const-string v1, "Unknown"
 
     .line 236
-    .local v1, outgoingPhoneName:Ljava/lang/String;
+    .local v1, "outgoingPhoneName":Ljava/lang/String;
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
 
     .line 238
-    .local v0, oldPhone:Lcom/android/internal/telephony/Phone;
+    .local v0, "oldPhone":Lcom/android/internal/telephony/Phone;
     if-eqz v0, :cond_0
 
     move-object v2, v0
@@ -349,7 +350,7 @@
 
 .method private static logd(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 141
@@ -381,7 +382,7 @@
 
 .method private loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 145
@@ -413,7 +414,7 @@
 
 .method private phoneObjectUpdater(I)V
     .locals 8
-    .parameter "newVoiceRadioTech"
+    .param p1, "newVoiceRadioTech"    # I
 
     .prologue
     const/4 v7, 0x2
@@ -471,7 +472,7 @@
     move-result v2
 
     .line 156
-    .local v2, volteReplacementRat:I
+    .local v2, "volteReplacementRat":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -499,7 +500,7 @@
     move p1, v2
 
     .line 162
-    .end local v2           #volteReplacementRat:I
+    .end local v2    # "volteReplacementRat":I
     :cond_0
     iget v3, p0, Lcom/android/internal/telephony/PhoneProxy;->mRilVersion:I
 
@@ -713,7 +714,7 @@
     const/4 v1, 0x0
 
     .line 201
-    .local v1, oldPowerState:Z
+    .local v1, "oldPowerState":Z
     iget-boolean v3, p0, Lcom/android/internal/telephony/PhoneProxy;->mResetModemOnRadioTechnologyChange:Z
 
     if-eqz v3, :cond_7
@@ -821,8 +822,8 @@
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 227
-    .local v0, intent:Landroid/content/Intent;
-    const/high16 v3, 0x2000
+    .local v0, "intent":Landroid/content/Intent;
+    const/high16 v3, 0x20000000
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -867,8 +868,8 @@
 
 .method public activateCellBroadcastSms(ILandroid/os/Message;)V
     .locals 1
-    .parameter "activate"
-    .parameter "response"
+    .param p1, "activate"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 988
@@ -941,7 +942,7 @@
 
 .method public dial(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
     .locals 1
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -961,8 +962,8 @@
 
 .method public dial(Ljava/lang/String;Lcom/android/internal/telephony/UUSInfo;)Lcom/android/internal/telephony/Connection;
     .locals 1
-    .parameter "dialString"
-    .parameter "uusInfo"
+    .param p1, "dialString"    # Ljava/lang/String;
+    .param p2, "uusInfo"    # Lcom/android/internal/telephony/UUSInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -982,7 +983,7 @@
 
 .method public disableApnType(Ljava/lang/String;)I
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 908
@@ -997,7 +998,7 @@
 
 .method public disableDnsCheck(Z)V
     .locals 1
-    .parameter "b"
+    .param p1, "b"    # Z
 
     .prologue
     .line 329
@@ -1047,7 +1048,7 @@
 
 .method public enableApnType(Ljava/lang/String;)I
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 903
@@ -1062,8 +1063,8 @@
 
 .method public enableEnhancedVoicePrivacy(ZLandroid/os/Message;)V
     .locals 1
-    .parameter "enable"
-    .parameter "onComplete"
+    .param p1, "enable"    # Z
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 594
@@ -1121,7 +1122,7 @@
 
 .method public getActiveApnHost(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 359
@@ -1183,7 +1184,7 @@
 
 .method public getAvailableNetworks(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 773
@@ -1225,8 +1226,8 @@
 
 .method public getCallForwardingOption(ILandroid/os/Message;)V
     .locals 1
-    .parameter "commandInterfaceCFReason"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCFReason"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 737
@@ -1240,7 +1241,7 @@
 
 .method public getCallWaiting(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 763
@@ -1324,7 +1325,7 @@
 
 .method public getCellBroadcastSmsConfig(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 993
@@ -1380,7 +1381,7 @@
 
 .method public getDataCallList(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 833
@@ -1410,7 +1411,7 @@
 
 .method public getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/PhoneConstants$DataState;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 314
@@ -1467,7 +1468,7 @@
 
 .method public getEnhancedVoicePrivacy(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 599
@@ -1631,7 +1632,7 @@
 
 .method public getLinkCapabilities(Ljava/lang/String;)Landroid/net/LinkCapabilities;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 369
@@ -1646,7 +1647,7 @@
 
 .method public getLinkProperties(Ljava/lang/String;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 364
@@ -1701,6 +1702,19 @@
     return v0
 .end method
 
+.method public getMiuiIccPhoneBookInterfaceManager()Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManager;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getMiuiIccPhoneBookInterfaceManager()Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManager;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getMsisdn()Ljava/lang/String;
     .locals 1
 
@@ -1731,7 +1745,7 @@
 
 .method public getNeighboringCids(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 798
@@ -1745,7 +1759,7 @@
 
 .method public getOutgoingCallerIdDisplay(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 751
@@ -1824,7 +1838,7 @@
 
 .method public getPreferredNetworkType(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 793
@@ -1894,7 +1908,7 @@
 
 .method public getSmscAddress(Landroid/os/Message;)V
     .locals 1
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 1008
@@ -2006,7 +2020,7 @@
 
 .method public handleInCallMmiCommands(Ljava/lang/String;)Z
     .locals 1
-    .parameter "command"
+    .param p1, "command"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -2026,7 +2040,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 94
@@ -2035,7 +2049,7 @@
     check-cast v0, Landroid/os/AsyncResult;
 
     .line 95
-    .local v0, ar:Landroid/os/AsyncResult;
+    .local v0, "ar":Landroid/os/AsyncResult;
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
@@ -2131,7 +2145,7 @@
     const-string v2, "EVENT_VOICE_RADIO_TECH_CHANGED"
 
     .line 115
-    .local v2, what:Ljava/lang/String;
+    .local v2, "what":Ljava/lang/String;
     :goto_1
     iget-object v3, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -2164,7 +2178,7 @@
     aget v1, v3, v4
 
     .line 118
-    .local v1, newVoiceTech:I
+    .local v1, "newVoiceTech":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2195,15 +2209,15 @@
     goto :goto_0
 
     .line 113
-    .end local v1           #newVoiceTech:I
-    .end local v2           #what:Ljava/lang/String;
+    .end local v1    # "newVoiceTech":I
+    .end local v2    # "what":Ljava/lang/String;
     :cond_1
     const-string v2, "EVENT_REQUEST_VOICE_RADIO_TECH_DONE"
 
     goto :goto_1
 
     .line 121
-    .restart local v2       #what:Ljava/lang/String;
+    .restart local v2    # "what":Ljava/lang/String;
     :cond_2
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2258,7 +2272,7 @@
     goto/16 :goto_0
 
     .line 129
-    .end local v2           #what:Ljava/lang/String;
+    .end local v2    # "what":Ljava/lang/String;
     :pswitch_3
     iget v3, p1, Landroid/os/Message;->arg1:I
 
@@ -2281,7 +2295,7 @@
 
 .method public handlePinMmi(Ljava/lang/String;)Z
     .locals 1
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
 
     .prologue
     .line 644
@@ -2296,8 +2310,8 @@
 
 .method public invokeOemRilRequestRaw([BLandroid/os/Message;)V
     .locals 1
-    .parameter "data"
-    .parameter "response"
+    .param p1, "data"    # [B
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 823
@@ -2311,8 +2325,8 @@
 
 .method public invokeOemRilRequestStrings([Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "strings"
-    .parameter "response"
+    .param p1, "strings"    # [Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 828
@@ -2356,7 +2370,7 @@
 
 .method public isDataConnectivityPossible(Ljava/lang/String;)Z
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 918
@@ -2399,7 +2413,7 @@
 
 .method public isOtaSpNumber(Ljava/lang/String;)Z
     .locals 1
-    .parameter "dialStr"
+    .param p1, "dialStr"    # Ljava/lang/String;
 
     .prologue
     .line 1052
@@ -2441,7 +2455,7 @@
 
 .method public queryAvailableBandMode(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 868
@@ -2455,7 +2469,7 @@
 
 .method public queryCdmaRoamingPreference(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 883
@@ -2469,7 +2483,7 @@
 
 .method public queryTTYMode(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 983
@@ -2483,9 +2497,9 @@
 
 .method public registerFoT53ClirlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1117
@@ -2499,9 +2513,9 @@
 
 .method public registerForCallWaiting(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1057
@@ -2515,9 +2529,9 @@
 
 .method public registerForCdmaOtaStatusChange(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 509
@@ -2531,9 +2545,9 @@
 
 .method public registerForDisconnect(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 419
@@ -2547,9 +2561,9 @@
 
 .method public registerForDisplayInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1077
@@ -2563,9 +2577,9 @@
 
 .method public registerForEcmTimerReset(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 529
@@ -2579,9 +2593,9 @@
 
 .method public registerForInCallVoicePrivacyOff(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 499
@@ -2595,9 +2609,9 @@
 
 .method public registerForInCallVoicePrivacyOn(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 489
@@ -2611,9 +2625,9 @@
 
 .method public registerForIncomingRing(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 409
@@ -2627,9 +2641,9 @@
 
 .method public registerForLineControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1107
@@ -2643,9 +2657,9 @@
 
 .method public registerForMmiComplete(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 439
@@ -2659,9 +2673,9 @@
 
 .method public registerForMmiInitiate(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 429
@@ -2675,9 +2689,9 @@
 
 .method public registerForNewRingingConnection(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 399
@@ -2691,9 +2705,9 @@
 
 .method public registerForNumberInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1087
@@ -2707,9 +2721,9 @@
 
 .method public registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 389
@@ -2723,9 +2737,9 @@
 
 .method public registerForRedirectedNumberInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1097
@@ -2739,9 +2753,9 @@
 
 .method public registerForResendIncallMute(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 549
@@ -2755,9 +2769,9 @@
 
 .method public registerForRingbackTone(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 539
@@ -2771,9 +2785,9 @@
 
 .method public registerForServiceStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 459
@@ -2787,9 +2801,9 @@
 
 .method public registerForSignalInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1067
@@ -2803,9 +2817,9 @@
 
 .method public registerForSubscriptionInfoReady(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 519
@@ -2819,9 +2833,9 @@
 
 .method public registerForSuppServiceFailed(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 479
@@ -2835,9 +2849,9 @@
 
 .method public registerForSuppServiceNotification(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 469
@@ -2851,9 +2865,9 @@
 
 .method public registerForT53AudioControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1127
@@ -2867,9 +2881,9 @@
 
 .method public registerForUnknownConnection(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 379
@@ -2917,8 +2931,8 @@
 
 .method public requestIsimAuthentication(Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "nonce"
-    .parameter "response"
+    .param p1, "nonce"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 1157
@@ -2932,8 +2946,8 @@
 
 .method public selectNetworkManually(Lcom/android/internal/telephony/OperatorInfo;Landroid/os/Message;)V
     .locals 1
-    .parameter "network"
-    .parameter "response"
+    .param p1, "network"    # Lcom/android/internal/telephony/OperatorInfo;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 783
@@ -2947,10 +2961,10 @@
 
 .method public sendBurstDtmf(Ljava/lang/String;IILandroid/os/Message;)V
     .locals 1
-    .parameter "dtmfString"
-    .parameter "on"
-    .parameter "off"
-    .parameter "onComplete"
+    .param p1, "dtmfString"    # Ljava/lang/String;
+    .param p2, "on"    # I
+    .param p3, "off"    # I
+    .param p4, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 1037
@@ -2964,7 +2978,7 @@
 
 .method public sendDtmf(C)V
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 654
@@ -2978,7 +2992,7 @@
 
 .method public sendUssdResponse(Ljava/lang/String;)V
     .locals 1
-    .parameter "ussdMessge"
+    .param p1, "ussdMessge"    # Ljava/lang/String;
 
     .prologue
     .line 454
@@ -2992,8 +3006,8 @@
 
 .method public setBandMode(ILandroid/os/Message;)V
     .locals 1
-    .parameter "bandMode"
-    .parameter "response"
+    .param p1, "bandMode"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 863
@@ -3007,11 +3021,11 @@
 
 .method public setCallForwardingOption(IILjava/lang/String;ILandroid/os/Message;)V
     .locals 6
-    .parameter "commandInterfaceCFReason"
-    .parameter "commandInterfaceCFAction"
-    .parameter "dialingNumber"
-    .parameter "timerSeconds"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCFReason"    # I
+    .param p2, "commandInterfaceCFAction"    # I
+    .param p3, "dialingNumber"    # Ljava/lang/String;
+    .param p4, "timerSeconds"    # I
+    .param p5, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 745
@@ -3035,8 +3049,8 @@
 
 .method public setCallWaiting(ZLandroid/os/Message;)V
     .locals 1
-    .parameter "enable"
-    .parameter "onComplete"
+    .param p1, "enable"    # Z
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 768
@@ -3050,8 +3064,8 @@
 
 .method public setCdmaRoamingPreference(ILandroid/os/Message;)V
     .locals 1
-    .parameter "cdmaRoamingType"
-    .parameter "response"
+    .param p1, "cdmaRoamingType"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 888
@@ -3065,8 +3079,8 @@
 
 .method public setCdmaSubscription(ILandroid/os/Message;)V
     .locals 1
-    .parameter "cdmaSubscriptionType"
-    .parameter "response"
+    .param p1, "cdmaSubscriptionType"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 893
@@ -3080,8 +3094,8 @@
 
 .method public setCellBroadcastSmsConfig([ILandroid/os/Message;)V
     .locals 1
-    .parameter "configValuesArray"
-    .parameter "response"
+    .param p1, "configValuesArray"    # [I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 998
@@ -3095,7 +3109,7 @@
 
 .method public setCellInfoListRate(I)V
     .locals 1
-    .parameter "rateInMillis"
+    .param p1, "rateInMillis"    # I
 
     .prologue
     .line 304
@@ -3109,7 +3123,7 @@
 
 .method public setDataRoamingEnabled(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 878
@@ -3123,7 +3137,7 @@
 
 .method public setEchoSuppressionEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 818
@@ -3137,9 +3151,9 @@
 
 .method public setLine1Number(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "alphaTag"
-    .parameter "number"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "number"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 709
@@ -3153,7 +3167,7 @@
 
 .method public setMute(Z)V
     .locals 1
-    .parameter "muted"
+    .param p1, "muted"    # Z
 
     .prologue
     .line 808
@@ -3167,7 +3181,7 @@
 
 .method public setNetworkSelectionModeAutomatic(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 778
@@ -3181,9 +3195,9 @@
 
 .method public setOnEcbModeExitResponse(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1137
@@ -3197,9 +3211,9 @@
 
 .method public setOnPostDialCharacter(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 803
@@ -3213,8 +3227,8 @@
 
 .method public setOutgoingCallerIdDisplay(ILandroid/os/Message;)V
     .locals 1
-    .parameter "commandInterfaceCLIRMode"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCLIRMode"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 757
@@ -3228,8 +3242,8 @@
 
 .method public setPreferredNetworkType(ILandroid/os/Message;)V
     .locals 1
-    .parameter "networkType"
-    .parameter "response"
+    .param p1, "networkType"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 788
@@ -3243,7 +3257,7 @@
 
 .method public setRadioPower(Z)V
     .locals 1
-    .parameter "power"
+    .param p1, "power"    # Z
 
     .prologue
     .line 669
@@ -3257,8 +3271,8 @@
 
 .method public setSmscAddress(Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "address"
-    .parameter "result"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 1013
@@ -3272,8 +3286,8 @@
 
 .method public setTTYMode(ILandroid/os/Message;)V
     .locals 1
-    .parameter "ttyMode"
-    .parameter "onComplete"
+    .param p1, "ttyMode"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 978
@@ -3287,7 +3301,7 @@
 
 .method public setUnitTestMode(Z)V
     .locals 1
-    .parameter "f"
+    .param p1, "f"    # Z
 
     .prologue
     .line 853
@@ -3301,9 +3315,9 @@
 
 .method public setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "alphaTag"
-    .parameter "voiceMailNumber"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "voiceMailNumber"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 731
@@ -3317,8 +3331,8 @@
 
 .method public setVoiceMessageWaiting(II)V
     .locals 1
-    .parameter "line"
-    .parameter "countWaiting"
+    .param p1, "line"    # I
+    .param p2, "countWaiting"    # I
 
     .prologue
     .line 1170
@@ -3332,7 +3346,7 @@
 
 .method public startDtmf(C)V
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 659
@@ -3377,7 +3391,7 @@
 
 .method public unregisterForCallWaiting(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1062
@@ -3391,7 +3405,7 @@
 
 .method public unregisterForCdmaOtaStatusChange(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 514
@@ -3405,7 +3419,7 @@
 
 .method public unregisterForDisconnect(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 424
@@ -3419,7 +3433,7 @@
 
 .method public unregisterForDisplayInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1082
@@ -3433,7 +3447,7 @@
 
 .method public unregisterForEcmTimerReset(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 534
@@ -3447,7 +3461,7 @@
 
 .method public unregisterForInCallVoicePrivacyOff(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 504
@@ -3461,7 +3475,7 @@
 
 .method public unregisterForInCallVoicePrivacyOn(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 494
@@ -3475,7 +3489,7 @@
 
 .method public unregisterForIncomingRing(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 414
@@ -3489,7 +3503,7 @@
 
 .method public unregisterForLineControlInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1112
@@ -3503,7 +3517,7 @@
 
 .method public unregisterForMmiComplete(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 444
@@ -3517,7 +3531,7 @@
 
 .method public unregisterForMmiInitiate(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 434
@@ -3531,7 +3545,7 @@
 
 .method public unregisterForNewRingingConnection(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 404
@@ -3545,7 +3559,7 @@
 
 .method public unregisterForNumberInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1092
@@ -3559,7 +3573,7 @@
 
 .method public unregisterForPreciseCallStateChanged(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 394
@@ -3573,7 +3587,7 @@
 
 .method public unregisterForRedirectedNumberInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1102
@@ -3587,7 +3601,7 @@
 
 .method public unregisterForResendIncallMute(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 554
@@ -3601,7 +3615,7 @@
 
 .method public unregisterForRingbackTone(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 544
@@ -3615,7 +3629,7 @@
 
 .method public unregisterForServiceStateChanged(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 464
@@ -3629,7 +3643,7 @@
 
 .method public unregisterForSignalInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1072
@@ -3643,7 +3657,7 @@
 
 .method public unregisterForSubscriptionInfoReady(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 524
@@ -3657,7 +3671,7 @@
 
 .method public unregisterForSuppServiceFailed(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 484
@@ -3671,7 +3685,7 @@
 
 .method public unregisterForSuppServiceNotification(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 474
@@ -3685,7 +3699,7 @@
 
 .method public unregisterForT53AudioControlInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1132
@@ -3699,7 +3713,7 @@
 
 .method public unregisterForT53ClirInfo(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1122
@@ -3713,7 +3727,7 @@
 
 .method public unregisterForUnknownConnection(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 384
@@ -3727,7 +3741,7 @@
 
 .method public unsetOnEcbModeExitResponse(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 1142
@@ -3741,7 +3755,7 @@
 
 .method public updatePhoneObject(I)V
     .locals 3
-    .parameter "voiceRadioTech"
+    .param p1, "voiceRadioTech"    # I
 
     .prologue
     .line 277

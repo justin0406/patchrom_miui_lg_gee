@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/wifi/WifiTrafficPoller;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 105
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/wifi/WifiTrafficPoller;Lcom/android/server/wifi/WifiTrafficPoller$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
+    .param p2, "x1"    # Lcom/android/server/wifi/WifiTrafficPoller$1;
 
     .prologue
     .line 105
@@ -48,7 +47,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const-wide/16 v5, 0x3e8
@@ -78,18 +77,19 @@
     if-ne v3, v0, :cond_1
 
     :goto_1
-    #setter for: Lcom/android/server/wifi/WifiTrafficPoller;->mEnableTrafficStatsPoll:Z
+    # setter for: Lcom/android/server/wifi/WifiTrafficPoller;->mEnableTrafficStatsPoll:Z
     invoke-static {v2, v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$402(Lcom/android/server/wifi/WifiTrafficPoller;Z)Z
 
     .line 110
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
+    # operator++ for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$508(Lcom/android/server/wifi/WifiTrafficPoller;)I
 
     .line 111
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mEnableTrafficStatsPoll:Z
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mEnableTrafficStatsPoll:Z
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$400(Lcom/android/server/wifi/WifiTrafficPoller;)Z
 
     move-result v0
@@ -99,13 +99,13 @@
     .line 112
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #calls: Lcom/android/server/wifi/WifiTrafficPoller;->notifyOnDataActivity()V
+    # invokes: Lcom/android/server/wifi/WifiTrafficPoller;->notifyOnDataActivity()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$600(Lcom/android/server/wifi/WifiTrafficPoller;)V
 
     .line 113
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$500(Lcom/android/server/wifi/WifiTrafficPoller;)I
 
     move-result v0
@@ -130,7 +130,7 @@
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
     invoke-static {v2}, Lcom/android/server/wifi/WifiTrafficPoller;->access$500(Lcom/android/server/wifi/WifiTrafficPoller;)I
 
     move-result v2
@@ -140,13 +140,13 @@
     .line 119
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #calls: Lcom/android/server/wifi/WifiTrafficPoller;->notifyOnDataActivity()V
+    # invokes: Lcom/android/server/wifi/WifiTrafficPoller;->notifyOnDataActivity()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$600(Lcom/android/server/wifi/WifiTrafficPoller;)V
 
     .line 120
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficStatsPollToken:I
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$500(Lcom/android/server/wifi/WifiTrafficPoller;)I
 
     move-result v0
@@ -163,7 +163,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mClients:Ljava/util/List;
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mClients:Ljava/util/List;
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$700(Lcom/android/server/wifi/WifiTrafficPoller;)Ljava/util/List;
 
     move-result-object v1
@@ -180,7 +180,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;->this$0:Lcom/android/server/wifi/WifiTrafficPoller;
 
-    #getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mClients:Ljava/util/List;
+    # getter for: Lcom/android/server/wifi/WifiTrafficPoller;->mClients:Ljava/util/List;
     invoke-static {v0}, Lcom/android/server/wifi/WifiTrafficPoller;->access$700(Lcom/android/server/wifi/WifiTrafficPoller;)Ljava/util/List;
 
     move-result-object v0

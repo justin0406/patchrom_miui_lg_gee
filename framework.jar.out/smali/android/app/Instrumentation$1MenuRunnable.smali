@@ -32,10 +32,9 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;Landroid/app/Activity;II)V
     .locals 0
-    .parameter
-    .parameter "_activity"
-    .parameter "_identifier"
-    .parameter "_flags"
+    .param p2, "_activity"    # Landroid/app/Activity;
+    .param p3, "_identifier"    # I
+    .param p4, "_flags"    # I
 
     .prologue
     .line 752
@@ -70,7 +69,7 @@
     move-result-object v0
 
     .line 761
-    .local v0, win:Landroid/view/Window;
+    .local v0, "win":Landroid/view/Window;
     const/4 v1, 0x0
 
     iget v2, p0, Landroid/app/Instrumentation$1MenuRunnable;->identifier:I

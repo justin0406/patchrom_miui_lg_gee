@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 6265
+    .line 6278
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,19 +42,19 @@
 # virtual methods
 .method public compare(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
     .locals 3
-    .parameter "p1"
-    .parameter "p2"
+    .param p1, "p1"    # Landroid/content/pm/ProviderInfo;
+    .param p2, "p2"    # Landroid/content/pm/ProviderInfo;
 
     .prologue
-    .line 6267
+    .line 6280
     iget v0, p1, Landroid/content/pm/ProviderInfo;->initOrder:I
 
-    .line 6268
-    .local v0, v1:I
+    .line 6281
+    .local v0, "v1":I
     iget v1, p2, Landroid/content/pm/ProviderInfo;->initOrder:I
 
-    .line 6269
-    .local v1, v2:I
+    .line 6282
+    .local v1, "v2":I
     if-le v0, v1, :cond_0
 
     const/4 v2, -0x1
@@ -77,17 +77,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
-    .line 6265
+    .line 6278
     check-cast p1, Landroid/content/pm/ProviderInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/content/pm/ProviderInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$4;->compare(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
 
     move-result v0

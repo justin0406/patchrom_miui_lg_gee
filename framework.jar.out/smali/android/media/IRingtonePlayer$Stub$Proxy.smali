@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 124
@@ -61,7 +61,7 @@
 
 .method public isPlaying(Landroid/os/IBinder;)Z
     .locals 6
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,13 +77,13 @@
     move-result-object v0
 
     .line 177
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 180
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IRingtonePlayer"
 
@@ -116,7 +116,7 @@
     const/4 v2, 0x1
 
     .line 187
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -127,7 +127,7 @@
     return v2
 
     .line 187
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -141,9 +141,9 @@
 
 .method public play(Landroid/os/IBinder;Landroid/net/Uri;I)V
     .locals 5
-    .parameter "token"
-    .parameter "uri"
-    .parameter "streamType"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "streamType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -157,13 +157,13 @@
     move-result-object v0
 
     .line 139
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 141
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 
@@ -237,10 +237,10 @@
 
 .method public playAsync(Landroid/net/Uri;Landroid/os/UserHandle;ZI)V
     .locals 5
-    .parameter "uri"
-    .parameter "user"
-    .parameter "looping"
-    .parameter "streamType"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "looping"    # Z
+    .param p4, "streamType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -258,13 +258,13 @@
     move-result-object v0
 
     .line 196
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 198
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.media.IRingtonePlayer"
 
@@ -372,7 +372,7 @@
 
 .method public stop(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -386,13 +386,13 @@
     move-result-object v0
 
     .line 162
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 164
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 
@@ -451,13 +451,13 @@
     move-result-object v0
 
     .line 226
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 228
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 

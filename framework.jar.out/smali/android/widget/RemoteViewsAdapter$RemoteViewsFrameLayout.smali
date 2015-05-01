@@ -17,7 +17,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 300
@@ -31,8 +31,8 @@
 # virtual methods
 .method public onRemoteViewsLoaded(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 3
-    .parameter "view"
-    .parameter "handler"
+    .param p1, "view"    # Landroid/widget/RemoteViews;
+    .param p2, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 311
@@ -61,7 +61,7 @@
     move-exception v0
 
     .line 314
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "RemoteViewsAdapter"
 
     const-string v2, "Failed to apply RemoteViews."

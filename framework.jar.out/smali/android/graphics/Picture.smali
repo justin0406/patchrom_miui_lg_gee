@@ -43,8 +43,8 @@
 
 .method private constructor <init>(IZ)V
     .locals 1
-    .parameter "nativePicture"
-    .parameter "fromStream"
+    .param p1, "nativePicture"    # I
+    .param p2, "fromStream"    # Z
 
     .prologue
     .line 171
@@ -73,7 +73,7 @@
 
 .method public constructor <init>(Landroid/graphics/Picture;)V
     .locals 2
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Picture;
 
     .prologue
     const/4 v1, 0x0
@@ -102,7 +102,7 @@
 
 .method public static createFromStream(Ljava/io/InputStream;)Landroid/graphics/Picture;
     .locals 3
-    .parameter "stream"
+    .param p0, "stream"    # Ljava/io/InputStream;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -150,8 +150,8 @@
 # virtual methods
 .method public beginRecording(II)Landroid/graphics/Canvas;
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 66
@@ -162,7 +162,7 @@
     move-result v0
 
     .line 67
-    .local v0, ni:I
+    .local v0, "ni":I
     new-instance v1, Landroid/graphics/Picture$RecordingCanvas;
 
     invoke-direct {v1, p0, v0}, Landroid/graphics/Picture$RecordingCanvas;-><init>(Landroid/graphics/Picture;I)V
@@ -177,7 +177,7 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 107
@@ -274,7 +274,7 @@
 
 .method public writeToStream(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "stream"
+    .param p1, "stream"    # Ljava/io/OutputStream;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

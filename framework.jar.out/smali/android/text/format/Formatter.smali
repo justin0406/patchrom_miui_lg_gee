@@ -16,8 +16,8 @@
 
 .method public static formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
     .locals 1
-    .parameter "context"
-    .parameter "number"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "number"    # J
 
     .prologue
     .line 36
@@ -32,14 +32,14 @@
 
 .method private static formatFileSize(Landroid/content/Context;JZ)Ljava/lang/String;
     .locals 8
-    .parameter "context"
-    .parameter "number"
-    .parameter "shorter"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "number"    # J
+    .param p3, "shorter"    # Z
 
     .prologue
-    const/high16 v5, 0x4480
+    const/high16 v5, 0x44800000    # 1024.0f
 
-    const/high16 v4, 0x4461
+    const/high16 v4, 0x44610000    # 900.0f
 
     const/4 v7, 0x1
 
@@ -60,11 +60,11 @@
     long-to-float v0, p1
 
     .line 53
-    .local v0, result:F
+    .local v0, "result":F
     const v1, 0x1040048
 
     .line 54
-    .local v1, suffix:I
+    .local v1, "suffix":I
     cmpl-float v3, v0, v4
 
     if-lez v3, :cond_1
@@ -125,7 +125,7 @@
 
     .line 75
     :cond_5
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     cmpg-float v3, v0, v3
 
@@ -147,7 +147,7 @@
     move-result-object v2
 
     .line 92
-    .local v2, value:Ljava/lang/String;
+    .local v2, "value":Ljava/lang/String;
     :goto_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -174,9 +174,9 @@
     goto :goto_0
 
     .line 77
-    .end local v2           #value:Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_6
-    const/high16 v3, 0x4120
+    const/high16 v3, 0x41200000    # 10.0f
 
     cmpg-float v3, v0, v3
 
@@ -200,11 +200,11 @@
 
     move-result-object v2
 
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     goto :goto_1
 
     .line 81
-    .end local v2           #value:Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_7
     const-string v3, "%.2f"
 
@@ -220,13 +220,13 @@
 
     move-result-object v2
 
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     goto :goto_1
 
     .line 83
-    .end local v2           #value:Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_8
-    const/high16 v3, 0x42c8
+    const/high16 v3, 0x42c80000    # 100.0f
 
     cmpg-float v3, v0, v3
 
@@ -250,11 +250,11 @@
 
     move-result-object v2
 
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     goto :goto_1
 
     .line 87
-    .end local v2           #value:Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_9
     const-string v3, "%.2f"
 
@@ -270,11 +270,11 @@
 
     move-result-object v2
 
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     goto :goto_1
 
     .line 90
-    .end local v2           #value:Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_a
     const-string v3, "%.0f"
 
@@ -290,13 +290,13 @@
 
     move-result-object v2
 
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     goto :goto_1
 .end method
 
 .method public static formatIpAddress(I)Ljava/lang/String;
     .locals 1
-    .parameter "ipv4Address"
+    .param p0, "ipv4Address"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -315,8 +315,8 @@
 
 .method public static formatShortFileSize(Landroid/content/Context;J)Ljava/lang/String;
     .locals 1
-    .parameter "context"
-    .parameter "number"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "number"    # J
 
     .prologue
     .line 44

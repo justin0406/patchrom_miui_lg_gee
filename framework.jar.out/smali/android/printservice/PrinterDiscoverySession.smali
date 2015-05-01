@@ -133,7 +133,7 @@
     const/4 v0, 0x0
 
     .line 281
-    .local v0, addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .local v0, "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v6}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
@@ -144,7 +144,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -160,7 +160,7 @@
     check-cast v2, Landroid/print/PrinterInfo;
 
     .line 282
-    .local v2, printer:Landroid/print/PrinterInfo;
+    .local v2, "printer":Landroid/print/PrinterInfo;
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v2}, Landroid/print/PrinterInfo;->getId()Landroid/print/PrinterId;
@@ -174,7 +174,7 @@
     check-cast v5, Landroid/print/PrinterInfo;
 
     .line 283
-    .local v5, sentPrinter:Landroid/print/PrinterInfo;
+    .local v5, "sentPrinter":Landroid/print/PrinterInfo;
     if-eqz v5, :cond_3
 
     invoke-virtual {v5, v2}, Landroid/print/PrinterInfo;->equals(Ljava/lang/Object;)Z
@@ -190,19 +190,19 @@
     .line 285
     new-instance v0, Ljava/util/ArrayList;
 
-    .end local v0           #addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .end local v0    # "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 287
-    .restart local v0       #addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .restart local v0    # "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     :cond_4
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     .line 292
-    .end local v2           #printer:Landroid/print/PrinterInfo;
-    .end local v5           #sentPrinter:Landroid/print/PrinterInfo;
+    .end local v2    # "printer":Landroid/print/PrinterInfo;
+    .end local v5    # "sentPrinter":Landroid/print/PrinterInfo;
     :cond_5
     if-eqz v0, :cond_6
 
@@ -224,7 +224,7 @@
     const/4 v4, 0x0
 
     .line 302
-    .local v4, removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local v4, "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v6}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
@@ -250,7 +250,7 @@
     check-cast v5, Landroid/print/PrinterInfo;
 
     .line 303
-    .restart local v5       #sentPrinter:Landroid/print/PrinterInfo;
+    .restart local v5    # "sentPrinter":Landroid/print/PrinterInfo;
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v5}, Landroid/print/PrinterInfo;->getId()Landroid/print/PrinterId;
@@ -269,11 +269,11 @@
     .line 305
     new-instance v4, Ljava/util/ArrayList;
 
-    .end local v4           #removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v4    # "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     .line 307
-    .restart local v4       #removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .restart local v4    # "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :cond_8
     invoke-virtual {v5}, Landroid/print/PrinterInfo;->getId()Landroid/print/PrinterId;
 
@@ -284,13 +284,13 @@
     goto :goto_3
 
     .line 295
-    .end local v4           #removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
-    .end local v5           #sentPrinter:Landroid/print/PrinterInfo;
+    .end local v4    # "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v5    # "sentPrinter":Landroid/print/PrinterInfo;
     :catch_0
     move-exception v3
 
     .line 296
-    .local v3, re:Landroid/os/RemoteException;
+    .local v3, "re":Landroid/os/RemoteException;
     const-string v6, "PrinterDiscoverySession"
 
     const-string v7, "Error sending added printers"
@@ -300,8 +300,8 @@
     goto :goto_2
 
     .line 312
-    .end local v3           #re:Landroid/os/RemoteException;
-    .restart local v4       #removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v3    # "re":Landroid/os/RemoteException;
+    .restart local v4    # "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :cond_9
     if-eqz v4, :cond_a
 
@@ -329,7 +329,7 @@
     move-exception v3
 
     .line 316
-    .restart local v3       #re:Landroid/os/RemoteException;
+    .restart local v3    # "re":Landroid/os/RemoteException;
     const-string v6, "PrinterDiscoverySession"
 
     const-string v7, "Error sending removed printers"
@@ -343,7 +343,6 @@
 # virtual methods
 .method public final addPrinters(Ljava/util/List;)V
     .locals 8
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -356,7 +355,7 @@
 
     .prologue
     .line 165
-    .local p1, printers:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .local p1, "printers":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
     .line 168
@@ -386,16 +385,16 @@
     const/4 v2, 0x0
 
     .line 176
-    .local v2, addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .local v2, "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
 
     .line 177
-    .local v1, addedPrinterCount:I
+    .local v1, "addedPrinterCount":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, v1, :cond_5
 
@@ -407,7 +406,7 @@
     check-cast v0, Landroid/print/PrinterInfo;
 
     .line 179
-    .local v0, addedPrinter:Landroid/print/PrinterInfo;
+    .local v0, "addedPrinter":Landroid/print/PrinterInfo;
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/print/PrinterInfo;->getId()Landroid/print/PrinterId;
@@ -421,7 +420,7 @@
     check-cast v4, Landroid/print/PrinterInfo;
 
     .line 180
-    .local v4, oldPrinter:Landroid/print/PrinterInfo;
+    .local v4, "oldPrinter":Landroid/print/PrinterInfo;
     if-eqz v4, :cond_2
 
     invoke-virtual {v4, v0}, Landroid/print/PrinterInfo;->equals(Ljava/lang/Object;)Z
@@ -437,11 +436,11 @@
     .line 182
     new-instance v2, Ljava/util/ArrayList;
 
-    .end local v2           #addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .end local v2    # "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 184
-    .restart local v2       #addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .restart local v2    # "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
     :cond_3
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -452,8 +451,8 @@
     goto :goto_1
 
     .line 189
-    .end local v0           #addedPrinter:Landroid/print/PrinterInfo;
-    .end local v4           #oldPrinter:Landroid/print/PrinterInfo;
+    .end local v0    # "addedPrinter":Landroid/print/PrinterInfo;
+    .end local v4    # "oldPrinter":Landroid/print/PrinterInfo;
     :cond_5
     if-eqz v2, :cond_0
 
@@ -476,7 +475,7 @@
     move-exception v5
 
     .line 193
-    .local v5, re:Landroid/os/RemoteException;
+    .local v5, "re":Landroid/os/RemoteException;
     const-string v6, "PrinterDiscoverySession"
 
     const-string v7, "Error sending added printers"
@@ -486,10 +485,10 @@
     goto :goto_0
 
     .line 198
-    .end local v1           #addedPrinterCount:I
-    .end local v2           #addedPrinters:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
-    .end local v3           #i:I
-    .end local v5           #re:Landroid/os/RemoteException;
+    .end local v1    # "addedPrinterCount":I
+    .end local v2    # "addedPrinters":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterInfo;>;"
+    .end local v3    # "i":I
+    .end local v5    # "re":Landroid/os/RemoteException;
     :cond_6
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
@@ -511,10 +510,10 @@
     move-result v1
 
     .line 204
-    .restart local v1       #addedPrinterCount:I
+    .restart local v1    # "addedPrinterCount":I
     const/4 v3, 0x0
 
-    .restart local v3       #i:I
+    .restart local v3    # "i":I
     :goto_2
     if-ge v3, v1, :cond_0
 
@@ -526,7 +525,7 @@
     check-cast v0, Landroid/print/PrinterInfo;
 
     .line 206
-    .restart local v0       #addedPrinter:Landroid/print/PrinterInfo;
+    .restart local v0    # "addedPrinter":Landroid/print/PrinterInfo;
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/print/PrinterInfo;->getId()Landroid/print/PrinterId;
@@ -753,7 +752,6 @@
 
 .method public final removePrinters(Ljava/util/List;)V
     .locals 7
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -766,7 +764,7 @@
 
     .prologue
     .line 229
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
     .line 232
@@ -798,16 +796,16 @@
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     .line 240
-    .local v4, removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local v4, "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v3
 
     .line 241
-    .local v3, removedPrinterIdCount:I
+    .local v3, "removedPrinterIdCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v3, :cond_3
 
@@ -819,7 +817,7 @@
     check-cast v2, Landroid/print/PrinterId;
 
     .line 243
-    .local v2, removedPrinterId:Landroid/print/PrinterId;
+    .local v2, "removedPrinterId":Landroid/print/PrinterId;
     iget-object v5, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -838,7 +836,7 @@
     goto :goto_1
 
     .line 249
-    .end local v2           #removedPrinterId:Landroid/print/PrinterId;
+    .end local v2    # "removedPrinterId":Landroid/print/PrinterId;
     :cond_3
     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
@@ -865,7 +863,7 @@
     move-exception v1
 
     .line 254
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v5, "PrinterDiscoverySession"
 
     const-string v6, "Error sending removed printers"
@@ -875,10 +873,10 @@
     goto :goto_0
 
     .line 259
-    .end local v0           #i:I
-    .end local v1           #re:Landroid/os/RemoteException;
-    .end local v3           #removedPrinterIdCount:I
-    .end local v4           #removedPrinterIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v0    # "i":I
+    .end local v1    # "re":Landroid/os/RemoteException;
+    .end local v3    # "removedPrinterIdCount":I
+    .end local v4    # "removedPrinterIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :cond_4
     iget-object v5, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
@@ -900,10 +898,10 @@
     move-result v3
 
     .line 265
-    .restart local v3       #removedPrinterIdCount:I
+    .restart local v3    # "removedPrinterIdCount":I
     const/4 v0, 0x0
 
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :goto_2
     if-ge v0, v3, :cond_0
 
@@ -915,7 +913,7 @@
     check-cast v2, Landroid/print/PrinterId;
 
     .line 267
-    .restart local v2       #removedPrinterId:Landroid/print/PrinterId;
+    .restart local v2    # "removedPrinterId":Landroid/print/PrinterId;
     iget-object v5, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -928,7 +926,7 @@
 
 .method setObserver(Landroid/printservice/IPrintServiceClient;)V
     .locals 4
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/printservice/IPrintServiceClient;
 
     .prologue
     .line 110
@@ -969,7 +967,7 @@
     move-exception v0
 
     .line 117
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "PrinterDiscoverySession"
 
     const-string v2, "Error sending added printers"
@@ -981,7 +979,6 @@
 
 .method startPrinterDiscovery(Ljava/util/List;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -994,7 +991,7 @@
 
     .prologue
     .line 480
-    .local p1, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-boolean v0, p0, Landroid/printservice/PrinterDiscoverySession;->mIsDestroyed:Z
 
     if-nez v0, :cond_1
@@ -1026,7 +1023,7 @@
 
 .method startPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 1
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 504
@@ -1083,7 +1080,7 @@
 
 .method stopPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 1
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 512
@@ -1113,7 +1110,6 @@
 
 .method validatePrinters(Ljava/util/List;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1126,7 +1122,7 @@
 
     .prologue
     .line 498
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-boolean v0, p0, Landroid/printservice/PrinterDiscoverySession;->mIsDestroyed:Z
 
     if-nez v0, :cond_0

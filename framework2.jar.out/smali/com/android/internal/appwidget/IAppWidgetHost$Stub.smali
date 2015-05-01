@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/appwidget/IAppWidgetHost;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/appwidget/IAppWidgetHost;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/appwidget/IAppWidgetHost$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/appwidget/IAppWidgetHost$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,7 +154,7 @@
     move-result v0
 
     .line 52
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -171,30 +171,30 @@
     check-cast v1, Landroid/widget/RemoteViews;
 
     .line 59
-    .local v1, _arg1:Landroid/widget/RemoteViews;
+    .local v1, "_arg1":Landroid/widget/RemoteViews;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 60
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/appwidget/IAppWidgetHost$Stub;->updateAppWidget(ILandroid/widget/RemoteViews;I)V
 
     goto :goto_0
 
     .line 56
-    .end local v1           #_arg1:Landroid/widget/RemoteViews;
-    .end local v2           #_arg2:I
+    .end local v1    # "_arg1":Landroid/widget/RemoteViews;
+    .end local v2    # "_arg2":I
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/widget/RemoteViews;
+    .restart local v1    # "_arg1":Landroid/widget/RemoteViews;
     goto :goto_1
 
     .line 65
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/widget/RemoteViews;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/widget/RemoteViews;
     :sswitch_2
     const-string v4, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -206,7 +206,7 @@
     move-result v0
 
     .line 69
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -223,30 +223,30 @@
     check-cast v1, Landroid/appwidget/AppWidgetProviderInfo;
 
     .line 76
-    .local v1, _arg1:Landroid/appwidget/AppWidgetProviderInfo;
+    .local v1, "_arg1":Landroid/appwidget/AppWidgetProviderInfo;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 77
-    .restart local v2       #_arg2:I
+    .restart local v2    # "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/appwidget/IAppWidgetHost$Stub;->providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;I)V
 
     goto :goto_0
 
     .line 73
-    .end local v1           #_arg1:Landroid/appwidget/AppWidgetProviderInfo;
-    .end local v2           #_arg2:I
+    .end local v1    # "_arg1":Landroid/appwidget/AppWidgetProviderInfo;
+    .end local v2    # "_arg2":I
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/appwidget/AppWidgetProviderInfo;
+    .restart local v1    # "_arg1":Landroid/appwidget/AppWidgetProviderInfo;
     goto :goto_2
 
     .line 82
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/appwidget/AppWidgetProviderInfo;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/appwidget/AppWidgetProviderInfo;
     :sswitch_3
     const-string v4, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -258,13 +258,13 @@
     move-result v0
 
     .line 85
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/appwidget/IAppWidgetHost$Stub;->providersChanged(I)V
 
     goto :goto_0
 
     .line 90
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_4
     const-string v4, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -276,19 +276,19 @@
     move-result v0
 
     .line 94
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 96
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 97
-    .restart local v2       #_arg2:I
+    .restart local v2    # "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/appwidget/IAppWidgetHost$Stub;->viewDataChanged(III)V
 
     goto :goto_0

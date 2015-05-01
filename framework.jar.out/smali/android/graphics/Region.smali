@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -85,7 +85,7 @@
 
 .method constructor <init>(I)V
     .locals 1
-    .parameter "ni"
+    .param p1, "ni"    # I
 
     .prologue
     .line 388
@@ -111,8 +111,8 @@
 
 .method private constructor <init>(II)V
     .locals 0
-    .parameter "ni"
-    .parameter "dummy"
+    .param p1, "ni"    # I
+    .param p2, "dummy"    # I
 
     .prologue
     .line 398
@@ -124,10 +124,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 76
@@ -151,7 +151,7 @@
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 69
@@ -183,7 +183,7 @@
 
 .method public constructor <init>(Landroid/graphics/Region;)V
     .locals 2
-    .parameter "region"
+    .param p1, "region"    # Landroid/graphics/Region;
 
     .prologue
     .line 63
@@ -206,7 +206,7 @@
 
 .method static synthetic access$000(Landroid/os/Parcel;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 23
@@ -273,18 +273,18 @@
     check-cast v0, Landroid/graphics/Region;
 
     .line 309
-    .local v0, region:Landroid/graphics/Region;
+    .local v0, "region":Landroid/graphics/Region;
     if-eqz v0, :cond_0
 
-    .end local v0           #region:Landroid/graphics/Region;
+    .end local v0    # "region":Landroid/graphics/Region;
     :goto_0
     return-object v0
 
-    .restart local v0       #region:Landroid/graphics/Region;
+    .restart local v0    # "region":Landroid/graphics/Region;
     :cond_0
     new-instance v0, Landroid/graphics/Region;
 
-    .end local v0           #region:Landroid/graphics/Region;
+    .end local v0    # "region":Landroid/graphics/Region;
     invoke-direct {v0}, Landroid/graphics/Region;-><init>()V
 
     goto :goto_0
@@ -292,7 +292,7 @@
 
 .method public static obtain(Landroid/graphics/Region;)Landroid/graphics/Region;
     .locals 1
-    .parameter "other"
+    .param p0, "other"    # Landroid/graphics/Region;
 
     .prologue
     .line 320
@@ -301,7 +301,7 @@
     move-result-object v0
 
     .line 321
-    .local v0, region:Landroid/graphics/Region;
+    .local v0, "region":Landroid/graphics/Region;
     invoke-virtual {v0, p0}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
 
     .line 322
@@ -325,7 +325,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 373
@@ -350,7 +350,7 @@
     check-cast v0, Landroid/graphics/Region;
 
     .line 377
-    .local v0, peer:Landroid/graphics/Region;
+    .local v0, "peer":Landroid/graphics/Region;
     iget v1, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     iget v2, v0, Landroid/graphics/Region;->mNativeRegion:I
@@ -404,7 +404,7 @@
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
     .line 158
-    .local v0, path:Landroid/graphics/Path;
+    .local v0, "path":Landroid/graphics/Path;
     iget v1, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     invoke-virtual {v0}, Landroid/graphics/Path;->ni()I
@@ -419,7 +419,7 @@
 
 .method public getBoundaryPath(Landroid/graphics/Path;)Z
     .locals 2
-    .parameter "path"
+    .param p1, "path"    # Landroid/graphics/Path;
 
     .prologue
     .line 167
@@ -446,7 +446,7 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     .line 137
-    .local v0, r:Landroid/graphics/Rect;
+    .local v0, "r":Landroid/graphics/Rect;
     iget v1, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     invoke-static {v1, v0}, Landroid/graphics/Region;->nativeGetBounds(ILandroid/graphics/Rect;)Z
@@ -457,7 +457,7 @@
 
 .method public getBounds(Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 146
@@ -502,11 +502,11 @@
 
 .method public op(IIIILandroid/graphics/Region$Op;)Z
     .locals 6
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "op"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
+    .param p5, "op"    # Landroid/graphics/Region$Op;
 
     .prologue
     .line 268
@@ -531,8 +531,8 @@
 
 .method public op(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z
     .locals 6
-    .parameter "r"
-    .parameter "op"
+    .param p1, "r"    # Landroid/graphics/Rect;
+    .param p2, "op"    # Landroid/graphics/Region$Op;
 
     .prologue
     .line 259
@@ -557,9 +557,9 @@
 
 .method public op(Landroid/graphics/Rect;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
     .locals 3
-    .parameter "rect"
-    .parameter "region"
-    .parameter "op"
+    .param p1, "rect"    # Landroid/graphics/Rect;
+    .param p2, "region"    # Landroid/graphics/Region;
+    .param p3, "op"    # Landroid/graphics/Region$Op;
 
     .prologue
     .line 285
@@ -578,8 +578,8 @@
 
 .method public op(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
     .locals 1
-    .parameter "region"
-    .parameter "op"
+    .param p1, "region"    # Landroid/graphics/Region;
+    .param p2, "op"    # Landroid/graphics/Region$Op;
 
     .prologue
     .line 277
@@ -592,9 +592,9 @@
 
 .method public op(Landroid/graphics/Region;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
     .locals 4
-    .parameter "region1"
-    .parameter "region2"
-    .parameter "op"
+    .param p1, "region1"    # Landroid/graphics/Region;
+    .param p2, "region2"    # Landroid/graphics/Region;
+    .param p3, "op"    # Landroid/graphics/Region$Op;
 
     .prologue
     .line 294
@@ -618,7 +618,7 @@
 
 .method public quickContains(Landroid/graphics/Rect;)Z
     .locals 4
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 182
@@ -642,7 +642,7 @@
 
 .method public quickReject(Landroid/graphics/Rect;)Z
     .locals 4
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 200
@@ -682,7 +682,7 @@
 
 .method public scale(F)V
     .locals 1
-    .parameter "scale"
+    .param p1, "scale"    # F
 
     .prologue
     .line 240
@@ -699,10 +699,10 @@
 
 .method public set(IIII)Z
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 103
@@ -717,7 +717,7 @@
 
 .method public set(Landroid/graphics/Rect;)Z
     .locals 5
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 97
@@ -740,7 +740,7 @@
 
 .method public set(Landroid/graphics/Region;)Z
     .locals 2
-    .parameter "region"
+    .param p1, "region"    # Landroid/graphics/Region;
 
     .prologue
     .line 90
@@ -773,8 +773,8 @@
 
 .method public setPath(Landroid/graphics/Path;Landroid/graphics/Region;)Z
     .locals 3
-    .parameter "path"
-    .parameter "clip"
+    .param p1, "path"    # Landroid/graphics/Path;
+    .param p2, "clip"    # Landroid/graphics/Region;
 
     .prologue
     .line 113
@@ -809,8 +809,8 @@
 
 .method public translate(II)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # I
+    .param p2, "dy"    # I
 
     .prologue
     .line 221
@@ -827,7 +827,7 @@
 
 .method public final union(Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 251
@@ -842,8 +842,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "p"
-    .parameter "flags"
+    .param p1, "p"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 366

@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager$SyncHandler;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 1840
@@ -58,7 +57,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1855
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/android/server/content/SyncManager$SyncHandler$SyncNotificationInfo;->toString(Ljava/lang/StringBuilder;)V
 
     .line 1856
@@ -71,7 +70,7 @@
 
 .method public toString(Ljava/lang/StringBuilder;)V
     .locals 2
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 1849

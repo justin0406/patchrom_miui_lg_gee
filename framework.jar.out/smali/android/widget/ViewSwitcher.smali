@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 44
@@ -30,8 +30,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 55
@@ -53,7 +53,7 @@
     move-result-object v0
 
     .line 95
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
@@ -61,13 +61,13 @@
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
     .line 96
-    .local v1, lp:Landroid/widget/FrameLayout$LayoutParams;
+    .local v1, "lp":Landroid/widget/FrameLayout$LayoutParams;
     if-nez v1, :cond_0
 
     .line 97
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    .end local v1           #lp:Landroid/widget/FrameLayout$LayoutParams;
+    .end local v1    # "lp":Landroid/widget/FrameLayout$LayoutParams;
     const/4 v2, -0x1
 
     const/4 v3, -0x2
@@ -75,7 +75,7 @@
     invoke-direct {v1, v2, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     .line 99
-    .restart local v1       #lp:Landroid/widget/FrameLayout$LayoutParams;
+    .restart local v1    # "lp":Landroid/widget/FrameLayout$LayoutParams;
     :cond_0
     invoke-virtual {p0, v0, v1}, Landroid/widget/ViewSwitcher;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
@@ -87,9 +87,9 @@
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 2
-    .parameter "child"
-    .parameter "index"
-    .parameter "params"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "index"    # I
+    .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 65
@@ -130,7 +130,7 @@
     const/4 v0, 0x1
 
     .line 90
-    .local v0, which:I
+    .local v0, "which":I
     :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/ViewSwitcher;->getChildAt(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
     return-object v1
 
     .line 89
-    .end local v0           #which:I
+    .end local v0    # "which":I
     :cond_0
     const/4 v0, 0x0
 
@@ -148,7 +148,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 73
@@ -169,7 +169,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 79
@@ -207,7 +207,7 @@
     move-result-object v0
 
     .line 125
-    .local v0, v:Landroid/view/View;
+    .local v0, "v":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 126
@@ -232,7 +232,7 @@
 
 .method public setFactory(Landroid/widget/ViewSwitcher$ViewFactory;)V
     .locals 0
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/widget/ViewSwitcher$ViewFactory;
 
     .prologue
     .line 112

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 89
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 131
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSession"
 
@@ -123,7 +123,7 @@
     move-result-object v0
 
     .line 142
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSession"
 
@@ -159,8 +159,8 @@
 
 .method public onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)V
     .locals 5
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -174,7 +174,7 @@
     move-result-object v0
 
     .line 118
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSession"
 
@@ -218,9 +218,9 @@
 
 .method public onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)V
     .locals 5
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "multipleWords"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
+    .param p3, "multipleWords"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -238,7 +238,7 @@
     move-result-object v0
 
     .line 104
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.textservice.ISpellCheckerSession"
 

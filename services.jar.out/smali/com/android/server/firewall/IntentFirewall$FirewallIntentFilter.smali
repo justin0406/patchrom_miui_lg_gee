@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/firewall/IntentFirewall$Rule;)V
     .locals 0
-    .parameter "rule"
+    .param p1, "rule"    # Lcom/android/server/firewall/IntentFirewall$Rule;
 
     .prologue
     .line 484
@@ -36,7 +36,7 @@
 
 .method static synthetic access$200(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Lcom/android/server/firewall/IntentFirewall$Rule;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
     .prologue
     .line 481

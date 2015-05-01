@@ -36,13 +36,12 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/content/ContentService$ObserverNode;Landroid/database/IContentObserver;ZLjava/lang/Object;III)V
     .locals 3
-    .parameter
-    .parameter "o"
-    .parameter "n"
-    .parameter "observersLock"
-    .parameter "_uid"
-    .parameter "_pid"
-    .parameter "_userHandle"
+    .param p2, "o"    # Landroid/database/IContentObserver;
+    .param p3, "n"    # Z
+    .param p4, "observersLock"    # Ljava/lang/Object;
+    .param p5, "_uid"    # I
+    .param p6, "_pid"    # I
+    .param p7, "_userHandle"    # I
 
     .prologue
     .line 752
@@ -91,7 +90,7 @@
     move-exception v0
 
     .line 762
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->binderDied()V
 
     goto :goto_0
@@ -99,7 +98,7 @@
 
 .method static synthetic access$100(Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;
 
     .prologue
     .line 743
@@ -146,12 +145,12 @@
 
 .method public dumpLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/util/SparseIntArray;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
-    .parameter "name"
-    .parameter "prefix"
-    .parameter "pidCounts"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
+    .param p4, "name"    # Ljava/lang/String;
+    .param p5, "prefix"    # Ljava/lang/String;
+    .param p6, "pidCounts"    # Landroid/util/SparseIntArray;
 
     .prologue
     .line 774

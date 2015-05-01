@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/CommonTimeConfig;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 422
@@ -44,7 +43,7 @@
     .line 424
     iget-object v0, p0, Landroid/os/CommonTimeConfig$1;->this$0:Landroid/os/CommonTimeConfig;
 
-    #getter for: Landroid/os/CommonTimeConfig;->mListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/os/CommonTimeConfig;->mListenerLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/os/CommonTimeConfig;->access$000(Landroid/os/CommonTimeConfig;)Ljava/lang/Object;
 
     move-result-object v1
@@ -55,7 +54,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig$1;->this$0:Landroid/os/CommonTimeConfig;
 
-    #getter for: Landroid/os/CommonTimeConfig;->mServerDiedListener:Landroid/os/CommonTimeConfig$OnServerDiedListener;
+    # getter for: Landroid/os/CommonTimeConfig;->mServerDiedListener:Landroid/os/CommonTimeConfig$OnServerDiedListener;
     invoke-static {v0}, Landroid/os/CommonTimeConfig;->access$100(Landroid/os/CommonTimeConfig;)Landroid/os/CommonTimeConfig$OnServerDiedListener;
 
     move-result-object v0
@@ -65,7 +64,7 @@
     .line 426
     iget-object v0, p0, Landroid/os/CommonTimeConfig$1;->this$0:Landroid/os/CommonTimeConfig;
 
-    #getter for: Landroid/os/CommonTimeConfig;->mServerDiedListener:Landroid/os/CommonTimeConfig$OnServerDiedListener;
+    # getter for: Landroid/os/CommonTimeConfig;->mServerDiedListener:Landroid/os/CommonTimeConfig$OnServerDiedListener;
     invoke-static {v0}, Landroid/os/CommonTimeConfig;->access$100(Landroid/os/CommonTimeConfig;)Landroid/os/CommonTimeConfig$OnServerDiedListener;
 
     move-result-object v0

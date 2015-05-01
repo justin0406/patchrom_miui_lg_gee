@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Lcom/android/server/am/IntentBindRecord;Lcom/android/server/am/ProcessRecord;)V
     .locals 1
-    .parameter "_service"
-    .parameter "_intent"
-    .parameter "_client"
+    .param p1, "_service"    # Lcom/android/server/am/ServiceRecord;
+    .param p2, "_intent"    # Lcom/android/server/am/IntentBindRecord;
+    .param p3, "_client"    # Lcom/android/server/am/ProcessRecord;
 
     .prologue
     .line 52
@@ -57,8 +57,8 @@
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -124,8 +124,8 @@
 
 .method dumpInIntentBind(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 4
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -166,7 +166,7 @@
     move-result-object v1
 
     .line 44
-    .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/am/ConnectionRecord;>;"
+    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/am/ConnectionRecord;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -182,7 +182,7 @@
     check-cast v0, Lcom/android/server/am/ConnectionRecord;
 
     .line 46
-    .local v0, c:Lcom/android/server/am/ConnectionRecord;
+    .local v0, "c":Lcom/android/server/am/ConnectionRecord;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -210,8 +210,8 @@
     goto :goto_0
 
     .line 49
-    .end local v0           #c:Lcom/android/server/am/ConnectionRecord;
-    .end local v1           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/am/ConnectionRecord;>;"
+    .end local v0    # "c":Lcom/android/server/am/ConnectionRecord;
+    .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/am/ConnectionRecord;>;"
     :cond_0
     return-void
 .end method

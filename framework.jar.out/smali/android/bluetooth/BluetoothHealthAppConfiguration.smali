@@ -46,8 +46,8 @@
 
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter "name"
-    .parameter "dataType"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "dataType"    # I
 
     .prologue
     .line 43
@@ -75,10 +75,10 @@
 
 .method constructor <init>(Ljava/lang/String;III)V
     .locals 0
-    .parameter "name"
-    .parameter "dataType"
-    .parameter "role"
-    .parameter "channelType"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "dataType"    # I
+    .param p3, "role"    # I
+    .param p4, "channelType"    # I
 
     .prologue
     .line 60
@@ -114,7 +114,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -130,7 +130,7 @@
     check-cast v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
     .line 72
-    .local v0, config:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .local v0, "config":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     iget-object v2, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mName:Ljava/lang/String;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothHealthAppConfiguration;->getName()Ljava/lang/String;
@@ -170,7 +170,7 @@
     const/4 v1, 0x1
 
     .line 77
-    .end local v0           #config:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v0    # "config":Landroid/bluetooth/BluetoothHealthAppConfiguration;
     :cond_0
     return v1
 .end method
@@ -223,7 +223,7 @@
     const/16 v0, 0x11
 
     .line 83
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -340,8 +340,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 160

@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 3
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
 
     .prologue
     .line 68
@@ -119,7 +119,7 @@
 
 .method public setKeyPrefix(Ljava/lang/String;)V
     .locals 1
-    .parameter "keyPrefix"
+    .param p1, "keyPrefix"    # Ljava/lang/String;
 
     .prologue
     .line 112
@@ -133,8 +133,8 @@
 
 .method public writeEntityData([BI)I
     .locals 4
-    .parameter "data"
-    .parameter "size"
+    .param p1, "data"    # [B
+    .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -150,7 +150,7 @@
     move-result v0
 
     .line 103
-    .local v0, result:I
+    .local v0, "result":I
     if-ltz v0, :cond_0
 
     .line 104
@@ -189,8 +189,8 @@
 
 .method public writeEntityHeader(Ljava/lang/String;I)I
     .locals 4
-    .parameter "key"
-    .parameter "dataSize"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "dataSize"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -206,7 +206,7 @@
     move-result v0
 
     .line 87
-    .local v0, result:I
+    .local v0, "result":I
     if-ltz v0, :cond_0
 
     .line 88

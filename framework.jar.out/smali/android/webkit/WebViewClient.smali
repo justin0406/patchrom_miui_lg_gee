@@ -50,9 +50,9 @@
 # virtual methods
 .method public doUpdateVisitedHistory(Landroid/webkit/WebView;Ljava/lang/String;Z)V
     .locals 0
-    .parameter "view"
-    .parameter "url"
-    .parameter "isReload"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
+    .param p3, "isReload"    # Z
 
     .prologue
     .line 188
@@ -61,9 +61,9 @@
 
 .method public onFormResubmission(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V
     .locals 0
-    .parameter "view"
-    .parameter "dontResend"
-    .parameter "resend"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "dontResend"    # Landroid/os/Message;
+    .param p3, "resend"    # Landroid/os/Message;
 
     .prologue
     .line 176
@@ -75,8 +75,8 @@
 
 .method public onLoadResource(Landroid/webkit/WebView;Ljava/lang/String;)V
     .locals 0
-    .parameter "view"
-    .parameter "url"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     .line 80
@@ -85,8 +85,8 @@
 
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
     .locals 0
-    .parameter "view"
-    .parameter "url"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     .line 70
@@ -95,9 +95,9 @@
 
 .method public onPageStarted(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 0
-    .parameter "view"
-    .parameter "url"
-    .parameter "favicon"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
+    .param p3, "favicon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 58
@@ -106,10 +106,10 @@
 
 .method public onReceivedError(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "view"
-    .parameter "errorCode"
-    .parameter "description"
-    .parameter "failingUrl"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "errorCode"    # I
+    .param p3, "description"    # Ljava/lang/String;
+    .param p4, "failingUrl"    # Ljava/lang/String;
 
     .prologue
     .line 163
@@ -118,10 +118,10 @@
 
 .method public onReceivedHttpAuthRequest(Landroid/webkit/WebView;Landroid/webkit/HttpAuthHandler;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "view"
-    .parameter "handler"
-    .parameter "host"
-    .parameter "realm"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "handler"    # Landroid/webkit/HttpAuthHandler;
+    .param p3, "host"    # Ljava/lang/String;
+    .param p4, "realm"    # Ljava/lang/String;
 
     .prologue
     .line 221
@@ -133,10 +133,10 @@
 
 .method public onReceivedLoginRequest(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "view"
-    .parameter "realm"
-    .parameter "account"
-    .parameter "args"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "realm"    # Ljava/lang/String;
+    .param p3, "account"    # Ljava/lang/String;
+    .param p4, "args"    # Ljava/lang/String;
 
     .prologue
     .line 280
@@ -145,9 +145,9 @@
 
 .method public onReceivedSslError(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V
     .locals 0
-    .parameter "view"
-    .parameter "handler"
-    .parameter "error"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "handler"    # Landroid/webkit/SslErrorHandler;
+    .param p3, "error"    # Landroid/net/http/SslError;
 
     .prologue
     .line 204
@@ -159,9 +159,9 @@
 
 .method public onScaleChanged(Landroid/webkit/WebView;FF)V
     .locals 0
-    .parameter "view"
-    .parameter "oldScale"
-    .parameter "newScale"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "oldScale"    # F
+    .param p3, "newScale"    # F
 
     .prologue
     .line 266
@@ -170,9 +170,9 @@
 
 .method public onTooManyRedirects(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V
     .locals 0
-    .parameter "view"
-    .parameter "cancelMsg"
-    .parameter "continueMsg"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "cancelMsg"    # Landroid/os/Message;
+    .param p3, "continueMsg"    # Landroid/os/Message;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -186,8 +186,8 @@
 
 .method public onUnhandledKeyEvent(Landroid/webkit/WebView;Landroid/view/KeyEvent;)V
     .locals 1
-    .parameter "view"
-    .parameter "event"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 251
@@ -196,7 +196,7 @@
     move-result-object v0
 
     .line 252
-    .local v0, root:Landroid/view/ViewRootImpl;
+    .local v0, "root":Landroid/view/ViewRootImpl;
     if-eqz v0, :cond_0
 
     .line 253
@@ -209,8 +209,8 @@
 
 .method public shouldInterceptRequest(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
     .locals 1
-    .parameter "view"
-    .parameter "url"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     .line 99
@@ -221,8 +221,8 @@
 
 .method public shouldOverrideKeyEvent(Landroid/webkit/WebView;Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "view"
-    .parameter "event"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 237
@@ -233,8 +233,8 @@
 
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Ljava/lang/String;)Z
     .locals 1
-    .parameter "view"
-    .parameter "url"
+    .param p1, "view"    # Landroid/webkit/WebView;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     .line 42

@@ -40,7 +40,7 @@
 
 .method public constructor <init>(Landroid/os/StrictMode$ThreadPolicy;)V
     .locals 1
-    .parameter "policy"
+    .param p1, "policy"    # Landroid/os/StrictMode$ThreadPolicy;
 
     .prologue
     .line 367
@@ -62,7 +62,7 @@
 
 .method private disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 2
-    .parameter "bit"
+    .param p1, "bit"    # I
 
     .prologue
     .line 507
@@ -80,7 +80,7 @@
 
 .method private enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
-    .parameter "bit"
+    .param p1, "bit"    # I
 
     .prologue
     .line 502

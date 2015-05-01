@@ -26,8 +26,8 @@
 
 .method public constructor <init>(Ljava/util/UUID;[B)V
     .locals 1
-    .parameter "uuid"
-    .parameter "initData"
+    .param p1, "uuid"    # Ljava/util/UUID;
+    .param p2, "initData"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/media/MediaCryptoException;
@@ -51,7 +51,7 @@
 
 .method private static final getByteArrayFromUUID(Ljava/util/UUID;)[B
     .locals 9
-    .parameter "uuid"
+    .param p0, "uuid"    # Ljava/util/UUID;
 
     .prologue
     .line 42
@@ -60,22 +60,22 @@
     move-result-wide v3
 
     .line 43
-    .local v3, msb:J
+    .local v3, "msb":J
     invoke-virtual {p0}, Ljava/util/UUID;->getLeastSignificantBits()J
 
     move-result-wide v1
 
     .line 45
-    .local v1, lsb:J
+    .local v1, "lsb":J
     const/16 v6, 0x10
 
     new-array v5, v6, [B
 
     .line 46
-    .local v5, uuidBytes:[B
+    .local v5, "uuidBytes":[B
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v6, 0x8
 
@@ -121,7 +121,7 @@
 
 .method public static final isCryptoSchemeSupported(Ljava/util/UUID;)Z
     .locals 1
-    .parameter "uuid"
+    .param p0, "uuid"    # Ljava/util/UUID;
 
     .prologue
     .line 38

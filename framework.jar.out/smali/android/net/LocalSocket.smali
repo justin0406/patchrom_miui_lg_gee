@@ -46,7 +46,7 @@
 
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "sockType"
+    .param p1, "sockType"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -70,8 +70,8 @@
 
 .method constructor <init>(Landroid/net/LocalSocketImpl;I)V
     .locals 1
-    .parameter "impl"
-    .parameter "sockType"
+    .param p1, "impl"    # Landroid/net/LocalSocketImpl;
+    .param p2, "sockType"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -97,7 +97,7 @@
 
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 3
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -200,7 +200,7 @@
 # virtual methods
 .method public bind(Landroid/net/LocalSocketAddress;)V
     .locals 2
-    .parameter "bindpoint"
+    .param p1, "bindpoint"    # Landroid/net/LocalSocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -288,7 +288,7 @@
 
 .method public connect(Landroid/net/LocalSocketAddress;)V
     .locals 2
-    .parameter "endpoint"
+    .param p1, "endpoint"    # Landroid/net/LocalSocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -357,8 +357,8 @@
 
 .method public connect(Landroid/net/LocalSocketAddress;I)V
     .locals 1
-    .parameter "endpoint"
-    .parameter "timeout"
+    .param p1, "endpoint"    # Landroid/net/LocalSocketAddress;
+    .param p2, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -659,7 +659,7 @@
 
 .method public setFileDescriptorsForSend([Ljava/io/FileDescriptor;)V
     .locals 1
-    .parameter "fds"
+    .param p1, "fds"    # [Ljava/io/FileDescriptor;
 
     .prologue
     .line 288
@@ -673,7 +673,7 @@
 
 .method public setReceiveBufferSize(I)V
     .locals 3
-    .parameter "size"
+    .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -698,7 +698,7 @@
 
 .method public setSendBufferSize(I)V
     .locals 3
-    .parameter "n"
+    .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -723,7 +723,7 @@
 
 .method public setSoTimeout(I)V
     .locals 3
-    .parameter "n"
+    .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

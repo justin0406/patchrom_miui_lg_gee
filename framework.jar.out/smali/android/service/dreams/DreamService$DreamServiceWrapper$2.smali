@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 762
@@ -46,7 +45,7 @@
 
     iget-object v0, v0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
-    #calls: Landroid/service/dreams/DreamService;->detach()V
+    # invokes: Landroid/service/dreams/DreamService;->detach()V
     invoke-static {v0}, Landroid/service/dreams/DreamService;->access$500(Landroid/service/dreams/DreamService;)V
 
     .line 766

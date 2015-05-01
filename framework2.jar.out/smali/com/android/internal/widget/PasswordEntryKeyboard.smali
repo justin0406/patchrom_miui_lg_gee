@@ -44,8 +44,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "xmlLayoutResId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "xmlLayoutResId"    # I
 
     .prologue
     .line 56
@@ -59,9 +59,9 @@
 
 .method public constructor <init>(Landroid/content/Context;II)V
     .locals 5
-    .parameter "context"
-    .parameter "xmlLayoutResId"
-    .parameter "mode"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "xmlLayoutResId"    # I
+    .param p3, "mode"    # I
 
     .prologue
     const/4 v4, 0x2
@@ -105,10 +105,10 @@
 
 .method public constructor <init>(Landroid/content/Context;III)V
     .locals 6
-    .parameter "context"
-    .parameter "xmlLayoutResId"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "xmlLayoutResId"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 60
@@ -132,11 +132,11 @@
 
 .method public constructor <init>(Landroid/content/Context;IIII)V
     .locals 5
-    .parameter "context"
-    .parameter "xmlLayoutResId"
-    .parameter "mode"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "xmlLayoutResId"    # I
+    .param p3, "mode"    # I
+    .param p4, "width"    # I
+    .param p5, "height"    # I
 
     .prologue
     const/4 v4, 0x2
@@ -180,11 +180,11 @@
 
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/CharSequence;II)V
     .locals 5
-    .parameter "context"
-    .parameter "layoutTemplateResId"
-    .parameter "characters"
-    .parameter "columns"
-    .parameter "horizontalPadding"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "layoutTemplateResId"    # I
+    .param p3, "characters"    # Ljava/lang/CharSequence;
+    .param p4, "columns"    # I
+    .param p5, "horizontalPadding"    # I
 
     .prologue
     const/4 v4, 0x2
@@ -225,7 +225,7 @@
 
 .method private init(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 75
@@ -234,7 +234,7 @@
     move-result-object v0
 
     .line 76
-    .local v0, res:Landroid/content/res/Resources;
+    .local v0, "res":Landroid/content/res/Resources;
     const v1, 0x108060d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -269,11 +269,11 @@
 # virtual methods
 .method protected createKeyFromXml(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard$Row;IILandroid/content/res/XmlResourceParser;)Landroid/inputmethodservice/Keyboard$Key;
     .locals 8
-    .parameter "res"
-    .parameter "parent"
-    .parameter "x"
-    .parameter "y"
-    .parameter "parser"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "parent"    # Landroid/inputmethodservice/Keyboard$Row;
+    .param p3, "x"    # I
+    .param p4, "y"    # I
+    .param p5, "parser"    # Landroid/content/res/XmlResourceParser;
 
     .prologue
     const/4 v7, 0x0
@@ -294,13 +294,13 @@
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;-><init>(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard$Row;IILandroid/content/res/XmlResourceParser;)V
 
     .line 91
-    .local v0, key:Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;
+    .local v0, "key":Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;
     iget-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->codes:[I
 
     aget v6, v1, v7
 
     .line 92
-    .local v6, code:I
+    .local v6, "code":I
     if-ltz v6, :cond_1
 
     const/16 v1, 0xa
@@ -373,25 +373,25 @@
     const/4 v1, 0x0
 
     .line 144
-    .local v1, i:I
+    .local v1, "i":I
     invoke-virtual {p0}, Lcom/android/internal/widget/PasswordEntryKeyboard;->getShiftKeyIndices()[I
 
     move-result-object v0
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v4, :cond_2
 
     aget v3, v0, v2
 
     .line 145
-    .local v3, index:I
+    .local v3, "index":I
     if-ltz v3, :cond_1
 
     iget-object v5, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -455,7 +455,7 @@
     goto :goto_0
 
     .line 154
-    .end local v3           #index:I
+    .end local v3    # "index":I
     :cond_2
     return-void
 .end method
@@ -495,10 +495,10 @@
 
 .method setEnterKeyResources(Landroid/content/res/Resources;III)V
     .locals 4
-    .parameter "res"
-    .parameter "previewId"
-    .parameter "iconId"
-    .parameter "labelId"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "previewId"    # I
+    .param p3, "iconId"    # I
+    .param p4, "labelId"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -589,26 +589,26 @@
 
 .method setShiftLocked(Z)V
     .locals 5
-    .parameter "shiftLocked"
+    .param p1, "shiftLocked"    # Z
 
     .prologue
     .line 164
     iget-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
 
-    .local v0, arr$:[Landroid/inputmethodservice/Keyboard$Key;
+    .local v0, "arr$":[Landroid/inputmethodservice/Keyboard$Key;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 165
-    .local v3, shiftKey:Landroid/inputmethodservice/Keyboard$Key;
+    .local v3, "shiftKey":Landroid/inputmethodservice/Keyboard$Key;
     if-eqz v3, :cond_0
 
     .line 166
@@ -626,7 +626,7 @@
     goto :goto_0
 
     .line 170
-    .end local v3           #shiftKey:Landroid/inputmethodservice/Keyboard$Key;
+    .end local v3    # "shiftKey":Landroid/inputmethodservice/Keyboard$Key;
     :cond_1
     if-eqz p1, :cond_2
 
@@ -647,7 +647,7 @@
 
 .method public setShifted(Z)Z
     .locals 5
-    .parameter "shiftState"
+    .param p1, "shiftState"    # Z
 
     .prologue
     const/4 v2, 0x1
@@ -658,7 +658,7 @@
     const/4 v1, 0x0
 
     .line 183
-    .local v1, shiftChanged:Z
+    .local v1, "shiftChanged":Z
     if-nez p1, :cond_3
 
     .line 184
@@ -677,7 +677,7 @@
     :goto_1
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_2
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
 
@@ -720,7 +720,7 @@
 
     goto :goto_2
 
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_2
     move v1, v3
 
@@ -753,7 +753,7 @@
     goto :goto_4
 
     .line 195
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_5
     iget v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 

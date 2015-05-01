@@ -44,13 +44,13 @@
 
 .field public static final DENSITY_NONE:I = 0xffff
 
-.field private static final DIMENSION_UNIT_STRS:[Ljava/lang/String; = null
+.field private static final DIMENSION_UNIT_STRS:[Ljava/lang/String;
 
-.field private static final FRACTION_UNIT_STRS:[Ljava/lang/String; = null
+.field private static final FRACTION_UNIT_STRS:[Ljava/lang/String;
 
 .field private static final MANTISSA_MULT:F = 0.00390625f
 
-.field private static final RADIX_MULTS:[F = null
+.field private static final RADIX_MULTS:[F
 
 .field public static final TYPE_ATTRIBUTE:I = 0x2
 
@@ -88,8 +88,6 @@
 
 .field public static final TYPE_STRING:I = 0x3
 
-.field public static miui_font_scale:F
-
 
 # instance fields
 .field public assetCookie:I
@@ -119,10 +117,6 @@
     const/4 v4, 0x1
 
     const/4 v3, 0x0
-
-    const/high16 v0, 0x3f80
-
-    sput v0, Landroid/util/TypedValue;->miui_font_scale:F
 
     .line 191
     new-array v0, v6, [F
@@ -183,11 +177,11 @@
 
     .line 191
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x80t 0x3bt
-        0x0t 0x0t 0x0t 0x38t
-        0x0t 0x0t 0x0t 0x34t
-        0x0t 0x0t 0x0t 0x30t
+    .array-data 4
+        0x3b800000    # 0.00390625f
+        0x38000000
+        0x34000000
+        0x30000000
     .end array-data
 .end method
 
@@ -208,9 +202,9 @@
 
 .method public static applyDimension(IFLandroid/util/DisplayMetrics;)F
     .locals 2
-    .parameter "unit"
-    .parameter "value"
-    .parameter "metrics"
+    .param p0, "unit"    # I
+    .param p1, "value"    # F
+    .param p2, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 323
@@ -219,13 +213,13 @@
     .line 337
     const/4 p1, 0x0
 
-    .end local p1
+    .end local p1    # "value":F
     :goto_0
     :pswitch_0
     return p1
 
     .line 327
-    .restart local p1
+    .restart local p1    # "value":F
     :pswitch_1
     iget v0, p2, Landroid/util/DisplayMetrics;->density:F
 
@@ -235,7 +229,7 @@
 
     .line 329
     :pswitch_2
-    invoke-static {p0, p1, p2}, Landroid/util/Injector$TypedValueHook;->miuiScale(IFLandroid/util/DisplayMetrics;)F
+    invoke-static {p1, p2}, Landroid/util/TypedValue;->miuiScale(FLandroid/util/DisplayMetrics;)F
 
     move-result p1
 
@@ -289,8 +283,8 @@
 
 .method public static final coerceToString(II)Ljava/lang/String;
     .locals 3
-    .parameter "type"
-    .parameter "data"
+    .param p0, "type"    # I
+    .param p1, "data"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -439,7 +433,7 @@
 
     move-result v1
 
-    const/high16 v2, 0x42c8
+    const/high16 v2, 0x42c80000    # 100.0f
 
     mul-float/2addr v1, v2
 
@@ -550,8 +544,8 @@
 
 .method public static complexToDimension(ILandroid/util/DisplayMetrics;)F
     .locals 2
-    .parameter "data"
-    .parameter "metrics"
+    .param p0, "data"    # I
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 229
@@ -572,8 +566,8 @@
 
 .method public static complexToDimensionNoisy(ILandroid/util/DisplayMetrics;)F
     .locals 5
-    .parameter "data"
-    .parameter "metrics"
+    .param p0, "data"    # I
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 295
@@ -582,7 +576,7 @@
     move-result v0
 
     .line 296
-    .local v0, res:F
+    .local v0, "res":F
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -619,7 +613,7 @@
 
     aget v3, v3, v4
 
-    const/high16 v4, 0x3b80
+    const/high16 v4, 0x3b800000    # 0.00390625f
 
     div-float/2addr v3, v4
 
@@ -667,8 +661,8 @@
 
 .method public static complexToDimensionPixelOffset(ILandroid/util/DisplayMetrics;)I
     .locals 2
-    .parameter "data"
-    .parameter "metrics"
+    .param p0, "data"    # I
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 254
@@ -691,8 +685,8 @@
 
 .method public static complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
     .locals 5
-    .parameter "data"
-    .parameter "metrics"
+    .param p0, "data"    # I
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     const/4 v4, 0x0
@@ -703,7 +697,7 @@
     move-result v2
 
     .line 282
-    .local v2, value:F
+    .local v2, "value":F
     shr-int/lit8 v3, p0, 0x0
 
     and-int/lit8 v3, v3, 0xf
@@ -713,24 +707,24 @@
     move-result v0
 
     .line 286
-    .local v0, f:F
-    const/high16 v3, 0x3f00
+    .local v0, "f":F
+    const/high16 v3, 0x3f000000    # 0.5f
 
     add-float/2addr v3, v0
 
     float-to-int v1, v3
 
     .line 287
-    .local v1, res:I
+    .local v1, "res":I
     if-eqz v1, :cond_0
 
     .line 290
-    .end local v1           #res:I
+    .end local v1    # "res":I
     :goto_0
     return v1
 
     .line 288
-    .restart local v1       #res:I
+    .restart local v1    # "res":I
     :cond_0
     cmpl-float v3, v2, v4
 
@@ -759,7 +753,7 @@
 
 .method public static complexToFloat(I)F
     .locals 3
-    .parameter "complex"
+    .param p0, "complex"    # I
 
     .prologue
     .line 208
@@ -782,9 +776,9 @@
 
 .method public static complexToFraction(IFF)F
     .locals 1
-    .parameter "data"
-    .parameter "base"
-    .parameter "pbase"
+    .param p0, "data"    # I
+    .param p1, "base"    # F
+    .param p2, "pbase"    # F
 
     .prologue
     .line 373
@@ -830,6 +824,76 @@
     .end packed-switch
 .end method
 
+.method private static miuiScale(FLandroid/util/DisplayMetrics;)F
+    .locals 5
+    .param p0, "value"    # F
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
+
+    .prologue
+    iget v2, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
+
+    iget v3, p1, Landroid/util/DisplayMetrics;->density:F
+
+    cmpg-float v2, v2, v3
+
+    if-gez v2, :cond_0
+
+    iget v2, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
+
+    mul-float/2addr v2, p0
+
+    :goto_0
+    return v2
+
+    :cond_0
+    iget v2, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
+
+    iget v3, p1, Landroid/util/DisplayMetrics;->density:F
+
+    div-float v1, v2, v3
+
+    .local v1, "scaleFactor":F
+    const/high16 v2, 0x41a00000    # 20.0f
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float v3, v1, v3
+
+    const/high16 v4, 0x3f000000    # 0.5f
+
+    add-float/2addr v3, v4
+
+    div-float v0, v2, v3
+
+    .local v0, "bigValueBase":F
+    cmpl-float v2, p0, v0
+
+    if-lez v2, :cond_1
+
+    iget v2, p1, Landroid/util/DisplayMetrics;->density:F
+
+    mul-float/2addr v2, p0
+
+    iget v3, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
+
+    iget v4, p1, Landroid/util/DisplayMetrics;->density:F
+
+    sub-float/2addr v3, v4
+
+    mul-float/2addr v3, v0
+
+    add-float/2addr v2, v3
+
+    goto :goto_0
+
+    :cond_1
+    iget v2, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
+
+    mul-float/2addr v2, p0
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public final coerceToString()Ljava/lang/CharSequence;
@@ -840,7 +904,7 @@
     iget v0, p0, Landroid/util/TypedValue;->type:I
 
     .line 411
-    .local v0, t:I
+    .local v0, "t":I
     const/4 v1, 0x3
 
     if-ne v0, v1, :cond_0
@@ -864,7 +928,7 @@
 
 .method public getDimension(Landroid/util/DisplayMetrics;)F
     .locals 1
-    .parameter "metrics"
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 352
@@ -893,8 +957,8 @@
 
 .method public getFraction(FF)F
     .locals 1
-    .parameter "base"
-    .parameter "pbase"
+    .param p1, "base"    # F
+    .param p2, "pbase"    # F
 
     .prologue
     .line 397
@@ -909,7 +973,7 @@
 
 .method public setTo(Landroid/util/TypedValue;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/util/TypedValue;
 
     .prologue
     .line 468
@@ -956,7 +1020,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 479
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "TypedValue{t=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

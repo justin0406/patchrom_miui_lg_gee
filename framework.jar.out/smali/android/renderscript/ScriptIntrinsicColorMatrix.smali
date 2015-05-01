@@ -12,8 +12,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 47
@@ -39,7 +39,7 @@
 
 .method public static create(Landroid/renderscript/RenderScript;)Landroid/renderscript/ScriptIntrinsicColorMatrix;
     .locals 3
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 78
@@ -52,7 +52,7 @@
     move-result v0
 
     .line 79
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ScriptIntrinsicColorMatrix;
 
     invoke-direct {v1, v0, p0}, Landroid/renderscript/ScriptIntrinsicColorMatrix;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -62,8 +62,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicColorMatrix;
     .locals 1
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -88,7 +88,7 @@
     invoke-direct {v0, v1}, Landroid/renderscript/FieldPacker;-><init>(I)V
 
     .line 85
-    .local v0, fp:Landroid/renderscript/FieldPacker;
+    .local v0, "fp":Landroid/renderscript/FieldPacker;
     iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/FieldPacker;->addMatrix(Landroid/renderscript/Matrix4f;)V
@@ -106,8 +106,8 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 228
@@ -419,10 +419,10 @@
 
 .method public setAdd(FFFF)V
     .locals 2
-    .parameter "r"
-    .parameter "g"
-    .parameter "b"
-    .parameter "a"
+    .param p1, "r"    # F
+    .param p2, "g"    # F
+    .param p3, "b"    # F
+    .param p4, "a"    # F
 
     .prologue
     .line 141
@@ -453,7 +453,7 @@
     invoke-direct {v0, v1}, Landroid/renderscript/FieldPacker;-><init>(I)V
 
     .line 147
-    .local v0, fp:Landroid/renderscript/FieldPacker;
+    .local v0, "fp":Landroid/renderscript/FieldPacker;
     iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mAdd:Landroid/renderscript/Float4;
 
     iget v1, v1, Landroid/renderscript/Float4;->x:F
@@ -492,7 +492,7 @@
 
 .method public setAdd(Landroid/renderscript/Float4;)V
     .locals 3
-    .parameter "f"
+    .param p1, "f"    # Landroid/renderscript/Float4;
 
     .prologue
     .line 118
@@ -531,7 +531,7 @@
     invoke-direct {v0, v1}, Landroid/renderscript/FieldPacker;-><init>(I)V
 
     .line 124
-    .local v0, fp:Landroid/renderscript/FieldPacker;
+    .local v0, "fp":Landroid/renderscript/FieldPacker;
     iget v1, p1, Landroid/renderscript/Float4;->x:F
 
     invoke-virtual {v0, v1}, Landroid/renderscript/FieldPacker;->addF32(F)V
@@ -562,7 +562,7 @@
 
 .method public setColorMatrix(Landroid/renderscript/Matrix3f;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/Matrix3f;
 
     .prologue
     .line 107
@@ -579,7 +579,7 @@
 
 .method public setColorMatrix(Landroid/renderscript/Matrix4f;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 96
@@ -598,9 +598,9 @@
     .locals 7
 
     .prologue
-    const v6, 0x3e991687
+    const v6, 0x3e991687    # 0.299f
 
-    const v5, 0x3de978d5
+    const v5, 0x3de978d5    # 0.114f
 
     const/4 v4, 0x2
 
@@ -621,7 +621,7 @@
     .line 162
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f1645a2
+    const v1, 0x3f1645a2    # 0.587f
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -638,7 +638,7 @@
     .line 165
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f1645a2
+    const v1, 0x3f1645a2    # 0.587f
 
     invoke-virtual {v0, v3, v3, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -655,7 +655,7 @@
     .line 168
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f1645a2
+    const v1, 0x3f1645a2    # 0.587f
 
     invoke-virtual {v0, v3, v4, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -689,49 +689,49 @@
     .line 199
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3e991687
+    const v1, 0x3e991687    # 0.299f
 
     invoke-virtual {v0, v2, v2, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 200
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f1645a2
+    const v1, 0x3f1645a2    # 0.587f
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 201
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3de978d5
+    const v1, 0x3de978d5    # 0.114f
 
     invoke-virtual {v0, v4, v2, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 202
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, -0x41e956c1
+    const v1, -0x41e956c1    # -0.14713f
 
     invoke-virtual {v0, v2, v3, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 203
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, -0x416c1a8b
+    const v1, -0x416c1a8b    # -0.28886f
 
     invoke-virtual {v0, v3, v3, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 204
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3edf3b64
+    const v1, 0x3edf3b64    # 0.436f
 
     invoke-virtual {v0, v4, v3, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
     .line 205
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f1d70a4
+    const v1, 0x3f1d70a4    # 0.615f
 
     invoke-virtual {v0, v2, v4, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -745,7 +745,7 @@
     .line 207
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, -0x42332df5
+    const v1, -0x42332df5    # -0.10001f
 
     invoke-virtual {v0, v4, v4, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -762,7 +762,7 @@
     .prologue
     const/4 v6, 0x0
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     const/4 v4, 0x2
 
@@ -788,7 +788,7 @@
     .line 182
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, 0x3f91e5f3
+    const v1, 0x3f91e5f3    # 1.13983f
 
     invoke-virtual {v0, v4, v2, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 
@@ -807,7 +807,7 @@
     .line 185
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicColorMatrix;->mMatrix:Landroid/renderscript/Matrix4f;
 
-    const v1, -0x40eb5dcc
+    const v1, -0x40eb5dcc    # -0.5806f
 
     invoke-virtual {v0, v4, v3, v1}, Landroid/renderscript/Matrix4f;->set(IIF)V
 

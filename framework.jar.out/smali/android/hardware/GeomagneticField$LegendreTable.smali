@@ -53,8 +53,8 @@
 
 .method public constructor <init>(IF)V
     .locals 10
-    .parameter "maxN"
-    .parameter "thetaRad"
+    .param p1, "maxN"    # I
+    .param p2, "thetaRad"    # F
 
     .prologue
     const/4 v9, 0x1
@@ -74,7 +74,7 @@
     double-to-float v0, v5
 
     .line 357
-    .local v0, cos:F
+    .local v0, "cos":F
     float-to-double v5, p2
 
     invoke-static {v5, v6}, Ljava/lang/Math;->sin(D)D
@@ -84,7 +84,7 @@
     double-to-float v4, v5
 
     .line 359
-    .local v4, sin:F
+    .local v4, "sin":F
     add-int/lit8 v5, p1, 0x1
 
     new-array v5, v5, [[F
@@ -103,7 +103,7 @@
 
     new-array v6, v9, [F
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     aput v7, v6, v8
 
@@ -123,7 +123,7 @@
     .line 363
     const/4 v3, 0x1
 
-    .local v3, n:I
+    .local v3, "n":I
     :goto_0
     if-gt v3, p1, :cond_6
 
@@ -148,7 +148,7 @@
     .line 366
     const/4 v2, 0x0
 
-    .local v2, m:I
+    .local v2, "m":I
     :goto_1
     if-gt v2, v3, :cond_5
 
@@ -320,7 +320,7 @@
     div-float v1, v5, v6
 
     .line 379
-    .local v1, k:F
+    .local v1, "k":F
     iget-object v5, p0, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
 
     aget-object v5, v5, v3
@@ -395,14 +395,14 @@
     goto/16 :goto_2
 
     .line 363
-    .end local v1           #k:F
+    .end local v1    # "k":F
     :cond_5
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
     .line 385
-    .end local v2           #m:I
+    .end local v2    # "m":I
     :cond_6
     return-void
 .end method

@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 4123
@@ -71,7 +68,7 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/server/am/LaunchWarningWindow;-><init>(Landroid/content/Context;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;)V
 
     .line 4128
-    .local v0, d:Landroid/app/Dialog;
+    .local v0, "d":Landroid/app/Dialog;
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 4129
@@ -94,7 +91,7 @@
     return-void
 
     .line 4138
-    .end local v0           #d:Landroid/app/Dialog;
+    .end local v0    # "d":Landroid/app/Dialog;
     :catchall_0
     move-exception v1
 

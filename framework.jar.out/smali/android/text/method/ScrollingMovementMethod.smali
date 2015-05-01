@@ -48,8 +48,8 @@
 # virtual methods
 .method protected bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 65
@@ -62,8 +62,8 @@
 
 .method protected down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 45
@@ -78,8 +78,8 @@
 
 .method protected end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 85
@@ -92,8 +92,8 @@
 
 .method protected home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 80
@@ -106,8 +106,8 @@
 
 .method protected left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 30
@@ -122,8 +122,8 @@
 
 .method protected lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 75
@@ -136,8 +136,8 @@
 
 .method protected lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 70
@@ -150,9 +150,9 @@
 
 .method public onTakeFocus(Landroid/widget/TextView;Landroid/text/Spannable;I)V
     .locals 6
-    .parameter "widget"
-    .parameter "text"
-    .parameter "dir"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "dir"    # I
 
     .prologue
     .line 95
@@ -161,7 +161,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     if-eqz v0, :cond_0
 
     and-int/lit8 v3, p3, 0x2
@@ -201,7 +201,7 @@
     add-int v2, v3, v4
 
     .line 104
-    .local v2, padding:I
+    .local v2, "padding":I
     invoke-virtual {v0}, Landroid/text/Layout;->getLineCount()I
 
     move-result v3
@@ -209,7 +209,7 @@
     add-int/lit8 v1, v3, -0x1
 
     .line 106
-    .local v1, line:I
+    .local v1, "line":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v3
@@ -231,17 +231,17 @@
     invoke-virtual {p1, v3, v4}, Landroid/widget/TextView;->scrollTo(II)V
 
     .line 110
-    .end local v1           #line:I
-    .end local v2           #padding:I
+    .end local v1    # "line":I
+    .end local v2    # "padding":I
     :cond_1
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 90
@@ -254,8 +254,8 @@
 
 .method protected pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 55
@@ -268,8 +268,8 @@
 
 .method protected pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 50
@@ -282,8 +282,8 @@
 
 .method protected right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 35
@@ -298,8 +298,8 @@
 
 .method protected top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 60
@@ -312,8 +312,8 @@
 
 .method protected up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 40

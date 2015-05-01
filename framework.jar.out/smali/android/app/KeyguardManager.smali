@@ -37,7 +37,7 @@
 
 .method static synthetic access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/KeyguardManager;
 
     .prologue
     .line 33
@@ -50,7 +50,7 @@
 # virtual methods
 .method public exitKeyguardSecurely(Landroid/app/KeyguardManager$OnKeyguardExitResult;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/KeyguardManager$OnKeyguardExitResult;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -101,7 +101,7 @@
     move-exception v0
 
     .line 176
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -130,7 +130,7 @@
     move-exception v0
 
     .line 146
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -159,7 +159,7 @@
     move-exception v0
 
     .line 159
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -167,7 +167,7 @@
 
 .method public newKeyguardLock(Ljava/lang/String;)Landroid/app/KeyguardManager$KeyguardLock;
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

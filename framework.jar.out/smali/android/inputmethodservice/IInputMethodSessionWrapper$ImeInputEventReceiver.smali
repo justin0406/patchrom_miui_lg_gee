@@ -35,9 +35,8 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/IInputMethodSessionWrapper;Landroid/view/InputChannel;Landroid/os/Looper;)V
     .locals 1
-    .parameter
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p2, "inputChannel"    # Landroid/view/InputChannel;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 197
@@ -61,8 +60,8 @@
 # virtual methods
 .method public finishedEvent(IZ)V
     .locals 3
-    .parameter "seq"
-    .parameter "handled"
+    .param p1, "seq"    # I
+    .param p2, "handled"    # Z
 
     .prologue
     .line 226
@@ -73,7 +72,7 @@
     move-result v1
 
     .line 227
-    .local v1, index:I
+    .local v1, "index":I
     if-ltz v1, :cond_0
 
     .line 228
@@ -86,7 +85,7 @@
     check-cast v0, Landroid/view/InputEvent;
 
     .line 229
-    .local v0, event:Landroid/view/InputEvent;
+    .local v0, "event":Landroid/view/InputEvent;
     iget-object v2, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper$ImeInputEventReceiver;->mPendingEvents:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v1}, Landroid/util/SparseArray;->removeAt(I)V
@@ -95,14 +94,14 @@
     invoke-virtual {p0, v0, p2}, Landroid/inputmethodservice/IInputMethodSessionWrapper$ImeInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     .line 232
-    .end local v0           #event:Landroid/view/InputEvent;
+    .end local v0    # "event":Landroid/view/InputEvent;
     :cond_0
     return-void
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;)V
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
     .line 203
@@ -128,7 +127,7 @@
     move-result v2
 
     .line 210
-    .local v2, seq:I
+    .local v2, "seq":I
     iget-object v3, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper$ImeInputEventReceiver;->mPendingEvents:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v2, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -144,7 +143,7 @@
     check-cast v0, Landroid/view/KeyEvent;
 
     .line 213
-    .local v0, keyEvent:Landroid/view/KeyEvent;
+    .local v0, "keyEvent":Landroid/view/KeyEvent;
     iget-object v3, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper$ImeInputEventReceiver;->this$0:Landroid/inputmethodservice/IInputMethodSessionWrapper;
 
     iget-object v3, v3, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
@@ -153,7 +152,7 @@
 
     goto :goto_0
 
-    .end local v0           #keyEvent:Landroid/view/KeyEvent;
+    .end local v0    # "keyEvent":Landroid/view/KeyEvent;
     :cond_1
     move-object v1, p1
 
@@ -161,7 +160,7 @@
     check-cast v1, Landroid/view/MotionEvent;
 
     .line 216
-    .local v1, motionEvent:Landroid/view/MotionEvent;
+    .local v1, "motionEvent":Landroid/view/MotionEvent;
     const/4 v3, 0x4
 
     invoke-virtual {v1, v3}, Landroid/view/MotionEvent;->isFromSource(I)Z

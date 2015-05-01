@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$Provider;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Landroid/content/pm/PackageParser$Provider;
 
     .prologue
     .line 4133
@@ -48,7 +48,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 4139
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ProviderIntentInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

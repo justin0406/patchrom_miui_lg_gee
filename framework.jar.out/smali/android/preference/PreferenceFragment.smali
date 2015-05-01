@@ -72,7 +72,7 @@
 
 .method static synthetic access$000(Landroid/preference/PreferenceFragment;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/preference/PreferenceFragment;
 
     .prologue
     .line 103
@@ -83,7 +83,7 @@
 
 .method static synthetic access$100(Landroid/preference/PreferenceFragment;)Landroid/widget/ListView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/preference/PreferenceFragment;
 
     .prologue
     .line 103
@@ -102,7 +102,7 @@
     move-result-object v0
 
     .line 329
-    .local v0, preferenceScreen:Landroid/preference/PreferenceScreen;
+    .local v0, "preferenceScreen":Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_0
 
     .line 330
@@ -137,7 +137,7 @@
     move-result-object v1
 
     .line 345
-    .local v1, root:Landroid/view/View;
+    .local v1, "root":Landroid/view/View;
     if-nez v1, :cond_1
 
     .line 346
@@ -158,7 +158,7 @@
     move-result-object v0
 
     .line 349
-    .local v0, rawListView:Landroid/view/View;
+    .local v0, "rawListView":Landroid/view/View;
     instance-of v2, v0, Landroid/widget/ListView;
 
     if-nez v2, :cond_2
@@ -176,7 +176,7 @@
     :cond_2
     check-cast v0, Landroid/widget/ListView;
 
-    .end local v0           #rawListView:Landroid/view/View;
+    .end local v0    # "rawListView":Landroid/view/View;
     iput-object v0, p0, Landroid/preference/PreferenceFragment;->mList:Landroid/widget/ListView;
 
     .line 355
@@ -270,7 +270,7 @@
 # virtual methods
 .method public addPreferencesFromIntent(Landroid/content/Intent;)V
     .locals 2
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 271
@@ -295,7 +295,7 @@
 
 .method public addPreferencesFromResource(I)V
     .locals 3
-    .parameter "preferencesResId"
+    .param p1, "preferencesResId"    # I
 
     .prologue
     .line 283
@@ -324,7 +324,7 @@
 
 .method public findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 310
@@ -388,7 +388,7 @@
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 168
@@ -419,7 +419,7 @@
     move-result-object v0
 
     .line 178
-    .local v0, container:Landroid/os/Bundle;
+    .local v0, "container":Landroid/os/Bundle;
     if-eqz v0, :cond_1
 
     .line 179
@@ -428,24 +428,24 @@
     move-result-object v1
 
     .line 180
-    .local v1, preferenceScreen:Landroid/preference/PreferenceScreen;
+    .local v1, "preferenceScreen":Landroid/preference/PreferenceScreen;
     if-eqz v1, :cond_1
 
     .line 181
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->restoreHierarchyState(Landroid/os/Bundle;)V
 
     .line 185
-    .end local v0           #container:Landroid/os/Bundle;
-    .end local v1           #preferenceScreen:Landroid/preference/PreferenceScreen;
+    .end local v0    # "container":Landroid/os/Bundle;
+    .end local v1    # "preferenceScreen":Landroid/preference/PreferenceScreen;
     :cond_1
     return-void
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
     .locals 1
-    .parameter "requestCode"
-    .parameter "resultCode"
-    .parameter "data"
+    .param p1, "requestCode"    # I
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Landroid/content/Intent;
 
     .prologue
     .line 228
@@ -462,7 +462,7 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 154
@@ -492,9 +492,9 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
-    .parameter "inflater"
-    .parameter "container"
-    .parameter "savedInstanceState"
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 162
@@ -557,8 +557,8 @@
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
     .locals 1
-    .parameter "preferenceScreen"
-    .parameter "preference"
+    .param p1, "preferenceScreen"    # Landroid/preference/PreferenceScreen;
+    .param p2, "preference"    # Landroid/preference/Preference;
 
     .prologue
     .line 294
@@ -599,7 +599,7 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 216
@@ -611,7 +611,7 @@
     move-result-object v1
 
     .line 219
-    .local v1, preferenceScreen:Landroid/preference/PreferenceScreen;
+    .local v1, "preferenceScreen":Landroid/preference/PreferenceScreen;
     if-eqz v1, :cond_0
 
     .line 220
@@ -620,7 +620,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 221
-    .local v0, container:Landroid/os/Bundle;
+    .local v0, "container":Landroid/os/Bundle;
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->saveHierarchyState(Landroid/os/Bundle;)V
 
     .line 222
@@ -629,7 +629,7 @@
     invoke-virtual {p1, v2, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 224
-    .end local v0           #container:Landroid/os/Bundle;
+    .end local v0    # "container":Landroid/os/Bundle;
     :cond_0
     return-void
 .end method
@@ -675,7 +675,7 @@
 
 .method public setPreferenceScreen(Landroid/preference/PreferenceScreen;)V
     .locals 1
-    .parameter "preferenceScreen"
+    .param p1, "preferenceScreen"    # Landroid/preference/PreferenceScreen;
 
     .prologue
     .line 247

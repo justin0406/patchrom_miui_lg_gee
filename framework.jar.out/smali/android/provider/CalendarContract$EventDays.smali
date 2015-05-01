@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final SELECTION:Ljava/lang/String; = "selected=1"
 
@@ -52,10 +52,10 @@
 
 .method public static final query(Landroid/content/ContentResolver;II[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 8
-    .parameter "cr"
-    .parameter "startDay"
-    .parameter "numDays"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "startDay"    # I
+    .param p2, "numDays"    # I
+    .param p3, "projection"    # [Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -76,7 +76,7 @@
     add-int/lit8 v7, v0, -0x1
 
     .line 2036
-    .local v7, endDay:I
+    .local v7, "endDay":I
     sget-object v0, Landroid/provider/CalendarContract$EventDays;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -84,7 +84,7 @@
     move-result-object v6
 
     .line 2037
-    .local v6, builder:Landroid/net/Uri$Builder;
+    .local v6, "builder":Landroid/net/Uri$Builder;
     int-to-long v0, p1
 
     invoke-static {v6, v0, v1}, Landroid/content/ContentUris;->appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;

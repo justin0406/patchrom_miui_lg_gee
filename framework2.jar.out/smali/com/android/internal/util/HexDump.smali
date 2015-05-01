@@ -24,23 +24,23 @@
     return-void
 
     :array_0
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
-        0x41t 0x0t
-        0x42t 0x0t
-        0x43t 0x0t
-        0x44t 0x0t
-        0x45t 0x0t
-        0x46t 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x41s
+        0x42s
+        0x43s
+        0x44s
+        0x45s
+        0x46s
     .end array-data
 .end method
 
@@ -56,7 +56,7 @@
 
 .method public static dumpHexString([B)Ljava/lang/String;
     .locals 2
-    .parameter "array"
+    .param p0, "array"    # [B
 
     .prologue
     .line 25
@@ -73,9 +73,9 @@
 
 .method public static dumpHexString([BII)Ljava/lang/String;
     .locals 10
-    .parameter "array"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "array"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 30
@@ -84,17 +84,17 @@
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 32
-    .local v7, result:Ljava/lang/StringBuilder;
+    .local v7, "result":Ljava/lang/StringBuilder;
     const/16 v8, 0x10
 
     new-array v4, v8, [B
 
     .line 33
-    .local v4, line:[B
+    .local v4, "line":[B
     const/4 v5, 0x0
 
     .line 35
-    .local v5, lineIndex:I
+    .local v5, "lineIndex":I
     const-string v8, "\n0x"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -109,7 +109,7 @@
     .line 38
     move v2, p1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     add-int v8, p1, p2
 
@@ -128,7 +128,7 @@
     .line 44
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_1
     const/16 v8, 0x10
 
@@ -187,12 +187,12 @@
     const/4 v5, 0x0
 
     .line 61
-    .end local v3           #j:I
+    .end local v3    # "j":I
     :cond_2
     aget-byte v0, p0, v2
 
     .line 62
-    .local v0, b:B
+    .local v0, "b":B
     const-string v8, " "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -220,8 +220,8 @@
     .line 66
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #lineIndex:I
-    .local v6, lineIndex:I
+    .end local v5    # "lineIndex":I
+    .local v6, "lineIndex":I
     aput-byte v0, v4, v5
 
     .line 38
@@ -229,12 +229,12 @@
 
     move v5, v6
 
-    .end local v6           #lineIndex:I
-    .restart local v5       #lineIndex:I
+    .end local v6    # "lineIndex":I
+    .restart local v5    # "lineIndex":I
     goto :goto_0
 
     .line 69
-    .end local v0           #b:B
+    .end local v0    # "b":B
     :cond_3
     const/16 v8, 0x10
 
@@ -246,7 +246,7 @@
     mul-int/lit8 v1, v8, 0x3
 
     .line 72
-    .local v1, count:I
+    .local v1, "count":I
     add-int/lit8 v1, v1, 0x1
 
     .line 73
@@ -309,7 +309,7 @@
     goto :goto_5
 
     .line 91
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_6
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -320,7 +320,7 @@
 
 .method public static hexStringToByteArray(Ljava/lang/String;)[B
     .locals 6
-    .parameter "hexString"
+    .param p0, "hexString"    # Ljava/lang/String;
 
     .prologue
     .line 154
@@ -329,16 +329,16 @@
     move-result v2
 
     .line 155
-    .local v2, length:I
+    .local v2, "length":I
     div-int/lit8 v3, v2, 0x2
 
     new-array v0, v3, [B
 
     .line 157
-    .local v0, buffer:[B
+    .local v0, "buffer":[B
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -383,7 +383,7 @@
 
 .method private static toByte(C)I
     .locals 3
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 145
@@ -468,7 +468,7 @@
 
 .method public static toByteArray(B)[B
     .locals 2
-    .parameter "b"
+    .param p0, "b"    # B
 
     .prologue
     .line 126
@@ -477,7 +477,7 @@
     new-array v0, v1, [B
 
     .line 127
-    .local v0, array:[B
+    .local v0, "array":[B
     const/4 v1, 0x0
 
     aput-byte p0, v0, v1
@@ -488,7 +488,7 @@
 
 .method public static toByteArray(I)[B
     .locals 3
-    .parameter "i"
+    .param p0, "i"    # I
 
     .prologue
     .line 133
@@ -497,7 +497,7 @@
     new-array v0, v1, [B
 
     .line 135
-    .local v0, array:[B
+    .local v0, "array":[B
     const/4 v1, 0x3
 
     and-int/lit16 v2, p0, 0xff
@@ -545,7 +545,7 @@
 
 .method public static toHexString(B)Ljava/lang/String;
     .locals 1
-    .parameter "b"
+    .param p0, "b"    # B
 
     .prologue
     .line 96
@@ -562,7 +562,7 @@
 
 .method public static toHexString(I)Ljava/lang/String;
     .locals 1
-    .parameter "i"
+    .param p0, "i"    # I
 
     .prologue
     .line 121
@@ -579,7 +579,7 @@
 
 .method public static toHexString([B)Ljava/lang/String;
     .locals 2
-    .parameter "array"
+    .param p0, "array"    # [B
 
     .prologue
     .line 101
@@ -596,9 +596,9 @@
 
 .method public static toHexString([BII)Ljava/lang/String;
     .locals 7
-    .parameter "array"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "array"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 106
@@ -607,18 +607,18 @@
     new-array v1, v5, [C
 
     .line 108
-    .local v1, buf:[C
+    .local v1, "buf":[C
     const/4 v2, 0x0
 
     .line 109
-    .local v2, bufIndex:I
+    .local v2, "bufIndex":I
     move v4, p1
 
-    .local v4, i:I
+    .local v4, "i":I
     move v3, v2
 
-    .end local v2           #bufIndex:I
-    .local v3, bufIndex:I
+    .end local v2    # "bufIndex":I
+    .local v3, "bufIndex":I
     :goto_0
     add-int v5, p1, p2
 
@@ -628,11 +628,11 @@
     aget-byte v0, p0, v4
 
     .line 112
-    .local v0, b:B
+    .local v0, "b":B
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #bufIndex:I
-    .restart local v2       #bufIndex:I
+    .end local v3    # "bufIndex":I
+    .restart local v2    # "bufIndex":I
     sget-object v5, Lcom/android/internal/util/HexDump;->HEX_DIGITS:[C
 
     ushr-int/lit8 v6, v0, 0x4
@@ -646,8 +646,8 @@
     .line 113
     add-int/lit8 v3, v2, 0x1
 
-    .end local v2           #bufIndex:I
-    .restart local v3       #bufIndex:I
+    .end local v2    # "bufIndex":I
+    .restart local v3    # "bufIndex":I
     sget-object v5, Lcom/android/internal/util/HexDump;->HEX_DIGITS:[C
 
     and-int/lit8 v6, v0, 0xf
@@ -662,7 +662,7 @@
     goto :goto_0
 
     .line 116
-    .end local v0           #b:B
+    .end local v0    # "b":B
     :cond_0
     new-instance v5, Ljava/lang/String;
 

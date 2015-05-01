@@ -67,7 +67,7 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/internal/policy/impl/PhoneWindow$1;
 
     .prologue
     .line 3708
@@ -78,7 +78,7 @@
 
 .method static synthetic access$2100(Landroid/os/Parcel;)Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 3708
@@ -91,7 +91,7 @@
 
 .method private static readFromParcel(Landroid/os/Parcel;)Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
     .locals 4
-    .parameter "source"
+    .param p0, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x0
@@ -104,7 +104,7 @@
     invoke-direct {v0}, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;-><init>()V
 
     .line 3730
-    .local v0, savedState:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
+    .local v0, "savedState":Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -176,8 +176,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

@@ -68,10 +68,10 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;ILandroid/view/DisplayInfo;Landroid/view/DisplayAdjustments;)V
     .locals 1
-    .parameter "global"
-    .parameter "displayId"
-    .parameter "displayInfo"
-    .parameter "daj"
+    .param p1, "global"    # Landroid/hardware/display/DisplayManagerGlobal;
+    .param p2, "displayId"    # I
+    .param p3, "displayInfo"    # Landroid/view/DisplayInfo;
+    .param p4, "daj"    # Landroid/view/DisplayAdjustments;
 
     .prologue
     .line 216
@@ -141,9 +141,9 @@
 
 .method public static hasAccess(III)Z
     .locals 1
-    .parameter "uid"
-    .parameter "flags"
-    .parameter "ownerUid"
+    .param p0, "uid"    # I
+    .param p1, "flags"    # I
+    .param p2, "ownerUid"    # I
 
     .prologue
     .line 640
@@ -173,7 +173,7 @@
 
 .method public static typeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 704
@@ -245,7 +245,7 @@
     move-result-wide v0
 
     .line 680
-    .local v0, now:J
+    .local v0, "now":J
     iget-wide v2, p0, Landroid/view/Display;->mLastCachedAppSizeUpdate:J
 
     const-wide/16 v4, 0x14
@@ -304,7 +304,7 @@
     move-result-object v0
 
     .line 658
-    .local v0, newInfo:Landroid/view/DisplayInfo;
+    .local v0, "newInfo":Landroid/view/DisplayInfo;
     if-nez v0, :cond_1
 
     .line 660
@@ -353,8 +353,8 @@
 
 .method public getCurrentSizeRange(Landroid/graphics/Point;Landroid/graphics/Point;)V
     .locals 1
-    .parameter "outSmallestSize"
-    .parameter "outLargestSize"
+    .param p1, "outSmallestSize"    # Landroid/graphics/Point;
+    .param p2, "outLargestSize"    # Landroid/graphics/Point;
 
     .prologue
     .line 457
@@ -431,7 +431,7 @@
 
 .method public getDisplayInfo(Landroid/view/DisplayInfo;)Z
     .locals 1
-    .parameter "outDisplayInfo"
+    .param p1, "outDisplayInfo"    # Landroid/view/DisplayInfo;
 
     .prologue
     .line 271
@@ -556,7 +556,7 @@
 
 .method public getMetrics(Landroid/util/DisplayMetrics;)V
     .locals 2
-    .parameter "outMetrics"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 584
@@ -637,7 +637,7 @@
 
 .method public getOverscanInsets(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "outRect"
+    .param p1, "outRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 507
@@ -715,67 +715,9 @@
     return v0
 .end method
 
-.method public getRawHeight()I
-    .locals 1
-
-    .prologue
-    monitor-enter p0
-
-    :try_start_0
-    invoke-direct {p0}, Landroid/view/Display;->updateDisplayInfoLocked()V
-
-    iget-object v0, p0, Landroid/view/Display;->mDisplayInfo:Landroid/view/DisplayInfo;
-
-    invoke-virtual {v0}, Landroid/view/DisplayInfo;->getNaturalHeight()I
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public getRawWidth()I
-    .locals 1
-
-    .prologue
-    monitor-enter p0
-
-    :try_start_0
-    invoke-direct {p0}, Landroid/view/Display;->updateDisplayInfoLocked()V
-
-    iget-object v0, p0, Landroid/view/Display;->mDisplayInfo:Landroid/view/DisplayInfo;
-
-    invoke-virtual {v0}, Landroid/view/DisplayInfo;->getNaturalWidth()I
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
 .method public getRealMetrics(Landroid/util/DisplayMetrics;)V
     .locals 3
-    .parameter "outMetrics"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 622
@@ -817,7 +759,7 @@
 
 .method public getRealSize(Landroid/graphics/Point;)V
     .locals 1
-    .parameter "outSize"
+    .param p1, "outSize"    # Landroid/graphics/Point;
 
     .prologue
     .line 603
@@ -860,7 +802,7 @@
 
 .method public getRectSize(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "outSize"
+    .param p1, "outSize"    # Landroid/graphics/Rect;
 
     .prologue
     .line 419
@@ -975,7 +917,7 @@
 
 .method public getSize(Landroid/graphics/Point;)V
     .locals 3
-    .parameter "outSize"
+    .param p1, "outSize"    # Landroid/graphics/Point;
 
     .prologue
     .line 404
@@ -1068,7 +1010,7 @@
 
 .method public hasAccess(I)Z
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 635

@@ -44,8 +44,8 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "playlistId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "playlistId"    # J
 
     .prologue
     .line 1603
@@ -92,10 +92,10 @@
 
 .method public static final moveItem(Landroid/content/ContentResolver;JII)Z
     .locals 6
-    .parameter "res"
-    .parameter "playlistId"
-    .parameter "from"
-    .parameter "to"
+    .param p0, "res"    # Landroid/content/ContentResolver;
+    .param p1, "playlistId"    # J
+    .param p3, "from"    # I
+    .param p4, "to"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -132,13 +132,13 @@
     move-result-object v0
 
     .line 1623
-    .local v0, uri:Landroid/net/Uri;
+    .local v0, "uri":Landroid/net/Uri;
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 1624
-    .local v1, values:Landroid/content/ContentValues;
+    .local v1, "values":Landroid/content/ContentValues;
     const-string/jumbo v2, "play_order"
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

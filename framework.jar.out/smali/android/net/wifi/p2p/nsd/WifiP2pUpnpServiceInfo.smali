@@ -10,7 +10,6 @@
 # direct methods
 .method private constructor <init>(Ljava/util/List;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -23,7 +22,7 @@
 
     .prologue
     .line 50
-    .local p1, queryList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local p1, "queryList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0, p1}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;-><init>(Ljava/util/List;)V
 
     .line 51
@@ -32,8 +31,8 @@
 
 .method private static createSupplicantQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "uuid"
-    .parameter "data"
+    .param p0, "uuid"    # Ljava/lang/String;
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     .line 100
@@ -42,7 +41,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 101
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string/jumbo v1, "upnp "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -102,9 +101,8 @@
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;
     .locals 5
-    .parameter "uuid"
-    .parameter "device"
-    .parameter
+    .param p0, "uuid"    # Ljava/lang/String;
+    .param p1, "device"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +118,7 @@
 
     .prologue
     .line 73
-    .local p2, services:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local p2, "services":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
@@ -145,7 +143,7 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 80
-    .local v1, info:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v1, "info":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v3, 0x0
 
     invoke-static {p0, v3}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;->createSupplicantQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -178,7 +176,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -193,7 +191,7 @@
     check-cast v2, Ljava/lang/String;
 
     .line 85
-    .local v2, service:Ljava/lang/String;
+    .local v2, "service":Ljava/lang/String;
     invoke-static {p0, v2}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;->createSupplicantQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
@@ -203,8 +201,8 @@
     goto :goto_0
 
     .line 89
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v2           #service:Ljava/lang/String;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v2    # "service":Ljava/lang/String;
     :cond_2
     new-instance v3, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;
 

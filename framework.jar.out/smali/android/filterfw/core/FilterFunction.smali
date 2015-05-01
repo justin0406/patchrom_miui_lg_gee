@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/Filter;)V
     .locals 1
-    .parameter "context"
-    .parameter "filter"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 38
@@ -54,7 +54,7 @@
     const/4 v0, 0x0
 
     .line 132
-    .local v0, i:I
+    .local v0, "i":I
     iget-object v3, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
     invoke-virtual {v3}, Landroid/filterfw/core/Filter;->getNumberOfOutputs()I
@@ -76,7 +76,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -91,7 +91,7 @@
     check-cast v2, Landroid/filterfw/core/OutputPort;
 
     .line 134
-    .local v2, outputPort:Landroid/filterfw/core/OutputPort;
+    .local v2, "outputPort":Landroid/filterfw/core/OutputPort;
     iget-object v3, p0, Landroid/filterfw/core/FilterFunction;->mResultHolders:[Landroid/filterfw/core/FilterFunction$FrameHolderPort;
 
     new-instance v4, Landroid/filterfw/core/FilterFunction$FrameHolderPort;
@@ -113,7 +113,7 @@
     goto :goto_0
 
     .line 138
-    .end local v2           #outputPort:Landroid/filterfw/core/OutputPort;
+    .end local v2    # "outputPort":Landroid/filterfw/core/OutputPort;
     :cond_0
     return-void
 .end method
@@ -137,7 +137,7 @@
 
 .method public execute(Landroid/filterfw/core/KeyValueMap;)Landroid/filterfw/core/Frame;
     .locals 11
-    .parameter "inputMap"
+    .param p1, "inputMap"    # Landroid/filterfw/core/KeyValueMap;
 
     .prologue
     const/4 v10, 0x0
@@ -152,7 +152,7 @@
     move-result v2
 
     .line 47
-    .local v2, filterOutCount:I
+    .local v2, "filterOutCount":I
     if-le v2, v9, :cond_0
 
     .line 48
@@ -211,7 +211,7 @@
     const/4 v0, 0x0
 
     .line 60
-    .local v0, didActivateGLEnv:Z
+    .local v0, "didActivateGLEnv":Z
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     invoke-virtual {v6}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
@@ -219,7 +219,7 @@
     move-result-object v3
 
     .line 61
-    .local v3, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v3, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v3, :cond_2
 
     invoke-virtual {v3}, Landroid/filterfw/core/GLEnvironment;->isActive()Z
@@ -244,7 +244,7 @@
 
     move-result-object v4
 
-    .local v4, i$:Ljava/util/Iterator;
+    .local v4, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -259,7 +259,7 @@
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 68
-    .local v1, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v6
@@ -306,7 +306,7 @@
     goto :goto_0
 
     .line 76
-    .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_4
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
@@ -335,7 +335,7 @@
     const/4 v5, 0x0
 
     .line 84
-    .local v5, result:Landroid/filterfw/core/Frame;
+    .local v5, "result":Landroid/filterfw/core/Frame;
     if-ne v2, v9, :cond_6
 
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mResultHolders:[Landroid/filterfw/core/FilterFunction$FrameHolderPort;
@@ -371,7 +371,7 @@
 
 .method public varargs executeWithArgList([Ljava/lang/Object;)Landroid/filterfw/core/Frame;
     .locals 1
-    .parameter "inputs"
+    .param p1, "inputs"    # [Ljava/lang/Object;
 
     .prologue
     .line 97
@@ -408,8 +408,8 @@
 
 .method public setInputFrame(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "input"
-    .parameter "frame"
+    .param p1, "input"    # Ljava/lang/String;
+    .param p2, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 113
@@ -423,8 +423,8 @@
 
 .method public setInputValue(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .parameter "input"
-    .parameter "value"
+    .param p1, "input"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 117

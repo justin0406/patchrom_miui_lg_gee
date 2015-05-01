@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 4
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     const/4 v1, 0x0
@@ -93,8 +93,8 @@
 
 .method static synthetic access$002(Landroid/view/InputFilter;Landroid/view/IInputFilterHost;)Landroid/view/IInputFilterHost;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/InputFilter;
+    .param p1, "x1"    # Landroid/view/IInputFilterHost;
 
     .prologue
     .line 100
@@ -105,7 +105,7 @@
 
 .method static synthetic access$100(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputFilter;
 
     .prologue
     .line 100
@@ -116,7 +116,7 @@
 
 .method static synthetic access$200(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputFilter;
 
     .prologue
     .line 100
@@ -129,8 +129,8 @@
 # virtual methods
 .method public final filterInputEvent(Landroid/view/InputEvent;I)V
     .locals 3
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 156
@@ -152,7 +152,7 @@
 
 .method public final install(Landroid/view/IInputFilterHost;)V
     .locals 2
-    .parameter "host"
+    .param p1, "host"    # Landroid/view/IInputFilterHost;
 
     .prologue
     .line 137
@@ -172,8 +172,8 @@
 
 .method public onInputEvent(Landroid/view/InputEvent;I)V
     .locals 0
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 196
@@ -201,8 +201,8 @@
 
 .method public sendInputEvent(Landroid/view/InputEvent;I)V
     .locals 2
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 166

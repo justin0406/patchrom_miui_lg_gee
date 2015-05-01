@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 510
@@ -44,7 +43,7 @@
     .line 513
     iget-object v6, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #getter for: Lcom/android/server/location/GpsLocationProvider;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/location/GpsLocationProvider;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/location/GpsLocationProvider;->access$600(Lcom/android/server/location/GpsLocationProvider;)Landroid/content/Context;
 
     move-result-object v6
@@ -58,19 +57,19 @@
     check-cast v0, Landroid/location/LocationManager;
 
     .line 515
-    .local v0, locManager:Landroid/location/LocationManager;
+    .local v0, "locManager":Landroid/location/LocationManager;
     const-wide/16 v2, 0x0
 
     .line 516
-    .local v2, minTime:J
+    .local v2, "minTime":J
     const/4 v1, 0x0
 
     .line 517
-    .local v1, minDistance:F
+    .local v1, "minDistance":F
     const/4 v4, 0x0
 
     .line 518
-    .local v4, oneShot:Z
+    .local v4, "oneShot":Z
     const-string v6, "passive"
 
     const-wide/16 v7, 0x0
@@ -84,7 +83,7 @@
     move-result-object v5
 
     .line 525
-    .local v5, request:Landroid/location/LocationRequest;
+    .local v5, "request":Landroid/location/LocationRequest;
     const/4 v6, 0x1
 
     invoke-virtual {v5, v6}, Landroid/location/LocationRequest;->setHideFromAppOps(Z)V
@@ -100,7 +99,7 @@
 
     iget-object v7, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #getter for: Lcom/android/server/location/GpsLocationProvider;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/location/GpsLocationProvider;->mHandler:Landroid/os/Handler;
     invoke-static {v7}, Lcom/android/server/location/GpsLocationProvider;->access$800(Lcom/android/server/location/GpsLocationProvider;)Landroid/os/Handler;
 
     move-result-object v7

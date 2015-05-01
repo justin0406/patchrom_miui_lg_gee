@@ -38,8 +38,7 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ActivityChooserModel;Landroid/content/pm/ResolveInfo;)V
     .locals 0
-    .parameter
-    .parameter "resolveInfo"
+    .param p2, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
     .line 893
@@ -58,7 +57,7 @@
 # virtual methods
 .method public compareTo(Landroid/widget/ActivityChooserModel$ActivityResolveInfo;)I
     .locals 2
-    .parameter "another"
+    .param p1, "another"    # Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .prologue
     .line 921
@@ -81,13 +80,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 876
     check-cast p1, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->compareTo(Landroid/widget/ActivityChooserModel$ActivityResolveInfo;)I
 
     move-result v0
@@ -97,7 +96,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -145,7 +144,7 @@
     check-cast v0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 914
-    .local v0, other:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .local v0, "other":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     iget v3, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
     invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -192,7 +191,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 927
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

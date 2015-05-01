@@ -22,10 +22,10 @@
 # direct methods
 .method public constructor <init>(IILandroid/drm/ProcessedData;Ljava/lang/String;)V
     .locals 3
-    .parameter "statusCode"
-    .parameter "infoType"
-    .parameter "data"
-    .parameter "mimeType"
+    .param p1, "statusCode"    # I
+    .param p2, "infoType"    # I
+    .param p3, "data"    # Landroid/drm/ProcessedData;
+    .param p4, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -133,7 +133,7 @@
 
 .method private isValidStatusCode(I)Z
     .locals 2
-    .parameter "statusCode"
+    .param p1, "statusCode"    # I
 
     .prologue
     const/4 v0, 0x1

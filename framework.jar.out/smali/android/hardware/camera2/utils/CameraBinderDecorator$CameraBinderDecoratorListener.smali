@@ -30,7 +30,7 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/utils/CameraBinderDecorator$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/hardware/camera2/utils/CameraBinderDecorator$1;
 
     .prologue
     .line 56
@@ -43,9 +43,9 @@
 # virtual methods
 .method public onAfterInvocation(Ljava/lang/reflect/Method;[Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 6
-    .parameter "m"
-    .parameter "args"
-    .parameter "result"
+    .param p1, "m"    # Ljava/lang/reflect/Method;
+    .param p2, "args"    # [Ljava/lang/Object;
+    .param p3, "result"    # Ljava/lang/Object;
 
     .prologue
     const/4 v4, 0x2
@@ -64,13 +64,13 @@
     .line 66
     check-cast p3, Ljava/lang/Integer;
 
-    .end local p3
+    .end local p3    # "result":Ljava/lang/Object;
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     .line 68
-    .local v0, returnValue:I
+    .local v0, "returnValue":I
     sparse-switch v0, :sswitch_data_0
 
     .line 104
@@ -177,7 +177,7 @@
     goto :goto_0
 
     .line 109
-    .end local v0           #returnValue:I
+    .end local v0    # "returnValue":I
     :cond_0
     :sswitch_8
     return-void
@@ -200,8 +200,8 @@
 
 .method public onBeforeInvocation(Ljava/lang/reflect/Method;[Ljava/lang/Object;)V
     .locals 0
-    .parameter "m"
-    .parameter "args"
+    .param p1, "m"    # Ljava/lang/reflect/Method;
+    .param p2, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 60
@@ -210,9 +210,9 @@
 
 .method public onCatchException(Ljava/lang/reflect/Method;[Ljava/lang/Object;Ljava/lang/Throwable;)Z
     .locals 3
-    .parameter "m"
-    .parameter "args"
-    .parameter "t"
+    .param p1, "m"    # Ljava/lang/reflect/Method;
+    .param p2, "args"    # [Ljava/lang/Object;
+    .param p3, "t"    # Ljava/lang/Throwable;
 
     .prologue
     .line 114
@@ -255,8 +255,8 @@
 
 .method public onFinally(Ljava/lang/reflect/Method;[Ljava/lang/Object;)V
     .locals 0
-    .parameter "m"
-    .parameter "args"
+    .param p1, "m"    # Ljava/lang/reflect/Method;
+    .param p2, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 129

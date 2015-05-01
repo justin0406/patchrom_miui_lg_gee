@@ -64,7 +64,7 @@
 # virtual methods
 .method public addWindow(Lcom/android/internal/policy/impl/PhoneWindow;)V
     .locals 4
-    .parameter "phoneWindow"
+    .param p1, "phoneWindow"    # Lcom/android/internal/policy/impl/PhoneWindow;
 
     .prologue
     .line 3772
@@ -98,8 +98,8 @@
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;->mIsWatching:Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 3782
     :cond_0
@@ -124,7 +124,7 @@
     move-exception v0
 
     .line 3779
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "PhoneWindow"
 
     const-string v3, "Couldn\'t start watching for device rotation"
@@ -134,7 +134,7 @@
     goto :goto_0
 
     .line 3783
-    .end local v0           #ex:Landroid/os/RemoteException;
+    .end local v0    # "ex":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -158,7 +158,7 @@
     const/4 v0, 0x0
 
     .line 3804
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;->mWindows:Ljava/util/ArrayList;
@@ -179,7 +179,7 @@
     check-cast v1, Ljava/lang/ref/WeakReference;
 
     .line 3806
-    .local v1, ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .local v1, "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v2
@@ -187,7 +187,7 @@
     check-cast v2, Lcom/android/internal/policy/impl/PhoneWindow;
 
     .line 3807
-    .local v2, win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .local v2, "win":Lcom/android/internal/policy/impl/PhoneWindow;
     if-eqz v2, :cond_0
 
     .line 3808
@@ -207,8 +207,8 @@
     goto :goto_0
 
     .line 3814
-    .end local v1           #ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
-    .end local v2           #win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .end local v1    # "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .end local v2    # "win":Lcom/android/internal/policy/impl/PhoneWindow;
     :catchall_0
     move-exception v3
 
@@ -230,7 +230,7 @@
 
 .method public onRotationChanged(I)V
     .locals 2
-    .parameter "rotation"
+    .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -251,7 +251,7 @@
 
 .method public removeWindow(Lcom/android/internal/policy/impl/PhoneWindow;)V
     .locals 5
-    .parameter "phoneWindow"
+    .param p1, "phoneWindow"    # Lcom/android/internal/policy/impl/PhoneWindow;
 
     .prologue
     .line 3787
@@ -263,7 +263,7 @@
     const/4 v0, 0x0
 
     .line 3789
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;->mWindows:Ljava/util/ArrayList;
@@ -284,7 +284,7 @@
     check-cast v1, Ljava/lang/ref/WeakReference;
 
     .line 3791
-    .local v1, ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .local v1, "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v2
@@ -292,7 +292,7 @@
     check-cast v2, Lcom/android/internal/policy/impl/PhoneWindow;
 
     .line 3792
-    .local v2, win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .local v2, "win":Lcom/android/internal/policy/impl/PhoneWindow;
     if-eqz v2, :cond_0
 
     if-ne v2, p1, :cond_1
@@ -306,8 +306,8 @@
     goto :goto_0
 
     .line 3798
-    .end local v1           #ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
-    .end local v2           #win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .end local v1    # "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .end local v2    # "win":Lcom/android/internal/policy/impl/PhoneWindow;
     :catchall_0
     move-exception v3
 
@@ -318,16 +318,16 @@
     throw v3
 
     .line 3795
-    .restart local v1       #ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
-    .restart local v2       #win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .restart local v1    # "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .restart local v2    # "win":Lcom/android/internal/policy/impl/PhoneWindow;
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 3798
-    .end local v1           #ref:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
-    .end local v2           #win:Lcom/android/internal/policy/impl/PhoneWindow;
+    .end local v1    # "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/android/internal/policy/impl/PhoneWindow;>;"
+    .end local v2    # "win":Lcom/android/internal/policy/impl/PhoneWindow;
     :cond_2
     :try_start_1
     monitor-exit v4

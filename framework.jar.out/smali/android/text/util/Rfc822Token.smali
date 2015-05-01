@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
-    .parameter "address"
-    .parameter "comment"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "address"    # Ljava/lang/String;
+    .param p3, "comment"    # Ljava/lang/String;
 
     .prologue
     .line 30
@@ -37,7 +37,7 @@
 
 .method public static quoteComment(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "comment"
+    .param p0, "comment"    # Ljava/lang/String;
 
     .prologue
     const/16 v5, 0x5c
@@ -48,16 +48,16 @@
     move-result v2
 
     .line 157
-    .local v2, len:I
+    .local v2, "len":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 159
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_2
 
@@ -67,7 +67,7 @@
     move-result v0
 
     .line 162
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v4, 0x28
 
     if-eq v0, v4, :cond_0
@@ -92,7 +92,7 @@
     goto :goto_0
 
     .line 169
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_2
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -103,7 +103,7 @@
 
 .method public static quoteName(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     const/16 v5, 0x5c
@@ -114,16 +114,16 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 136
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
     .line 137
-    .local v2, len:I
+    .local v2, "len":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_2
 
@@ -133,7 +133,7 @@
     move-result v0
 
     .line 140
-    .local v0, c:C
+    .local v0, "c":C
     if-eq v0, v5, :cond_0
 
     const/16 v4, 0x22
@@ -154,7 +154,7 @@
     goto :goto_0
 
     .line 147
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_2
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
 .method public static quoteNameIfNecessary(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     const/16 v5, 0x22
@@ -176,10 +176,10 @@
     move-result v2
 
     .line 114
-    .local v2, len:I
+    .local v2, "len":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_3
 
@@ -189,7 +189,7 @@
     move-result v0
 
     .line 117
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v3, 0x41
 
     if-lt v0, v3, :cond_0
@@ -247,14 +247,14 @@
     move-result-object p0
 
     .line 125
-    .end local v0           #c:C
-    .end local p0
+    .end local v0    # "c":C
+    .end local p0    # "name":Ljava/lang/String;
     :cond_3
     return-object p0
 
     .line 114
-    .restart local v0       #c:C
-    .restart local p0
+    .restart local v0    # "c":C
+    .restart local p0    # "name":Ljava/lang/String;
     :cond_4
     add-int/lit8 v1, v1, 0x1
 
@@ -263,8 +263,8 @@
 
 .method private static stringEquals(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Ljava/lang/String;
+    .param p1, "b"    # Ljava/lang/String;
 
     .prologue
     .line 181
@@ -298,7 +298,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -320,7 +320,7 @@
     check-cast v0, Landroid/text/util/Rfc822Token;
 
     .line 193
-    .local v0, other:Landroid/text/util/Rfc822Token;
+    .local v0, "other":Landroid/text/util/Rfc822Token;
     iget-object v2, p0, Landroid/text/util/Rfc822Token;->mName:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/text/util/Rfc822Token;->mName:Ljava/lang/String;
@@ -394,7 +394,7 @@
     const/16 v0, 0x11
 
     .line 174
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/text/util/Rfc822Token;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -446,7 +446,7 @@
 
 .method public setAddress(Ljava/lang/String;)V
     .locals 0
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
 
     .prologue
     .line 68
@@ -458,7 +458,7 @@
 
 .method public setComment(Ljava/lang/String;)V
     .locals 0
-    .parameter "comment"
+    .param p1, "comment"    # Ljava/lang/String;
 
     .prologue
     .line 75
@@ -470,7 +470,7 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 61
@@ -490,7 +490,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 86
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/text/util/Rfc822Token;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0

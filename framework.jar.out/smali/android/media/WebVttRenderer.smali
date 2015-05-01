@@ -12,7 +12,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 47
@@ -29,7 +29,7 @@
 # virtual methods
 .method public createTrack(Landroid/media/MediaFormat;)Landroid/media/SubtitleTrack;
     .locals 2
-    .parameter "format"
+    .param p1, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 61
@@ -59,7 +59,7 @@
 
 .method public supports(Landroid/media/MediaFormat;)Z
     .locals 2
-    .parameter "format"
+    .param p1, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 53

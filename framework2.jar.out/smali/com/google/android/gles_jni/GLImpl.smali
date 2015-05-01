@@ -87,7 +87,7 @@
 
 .method private static allowIndirectBuffers(Ljava/lang/String;)Z
     .locals 9
-    .parameter "appName"
+    .param p0, "appName"    # Ljava/lang/String;
 
     .prologue
     const/4 v7, 0x0
@@ -96,17 +96,17 @@
     const/4 v2, 0x0
 
     .line 68
-    .local v2, result:Z
+    .local v2, "result":Z
     const/4 v3, 0x0
 
     .line 69
-    .local v3, version:I
+    .local v3, "version":I
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
     .line 71
-    .local v1, pm:Landroid/content/pm/IPackageManager;
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     const/4 v4, 0x0
 
     :try_start_0
@@ -119,7 +119,7 @@
     move-result-object v0
 
     .line 72
-    .local v0, applicationInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-eqz v0, :cond_0
 
     .line 73
@@ -128,7 +128,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 78
-    .end local v0           #applicationInfo:Landroid/content/pm/ApplicationInfo;
+    .end local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
     :cond_0
     :goto_0
     const-string v4, "OpenGLES"
@@ -292,10 +292,10 @@
 
 .method public glColorPointer(IIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 212
@@ -597,8 +597,8 @@
 
 .method public glGetPointerv(I[Ljava/nio/Buffer;)V
     .locals 2
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [Ljava/nio/Buffer;
 
     .prologue
     .line 63
@@ -619,7 +619,7 @@
 
 .method public glGetString(I)Ljava/lang/String;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # I
 
     .prologue
     .line 496
@@ -628,7 +628,7 @@
     move-result-object v0
 
     .line 499
-    .local v0, returnValue:Ljava/lang/String;
+    .local v0, "returnValue":Ljava/lang/String;
     return-object v0
 .end method
 
@@ -784,10 +784,10 @@
 
 .method public glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1841
@@ -880,9 +880,9 @@
 
 .method public glNormalPointer(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 784
@@ -952,9 +952,9 @@
 
 .method public glPointSizePointerOES(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1607
@@ -1049,10 +1049,10 @@
 
 .method public glTexCoordPointer(IIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 977
@@ -1211,10 +1211,10 @@
 
 .method public glVertexPointer(IIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1122
@@ -1283,10 +1283,10 @@
 
 .method public glWeightPointerOES(IIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1885

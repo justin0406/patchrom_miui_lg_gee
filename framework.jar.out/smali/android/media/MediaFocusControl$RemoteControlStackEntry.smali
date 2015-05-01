@@ -54,10 +54,10 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaFocusControl;Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 6
-    .parameter "controller"
-    .parameter "mediaIntent"
-    .parameter "eventReceiver"
-    .parameter "token"
+    .param p1, "controller"    # Landroid/media/MediaFocusControl;
+    .param p2, "mediaIntent"    # Landroid/app/PendingIntent;
+    .param p3, "eventReceiver"    # Landroid/content/ComponentName;
+    .param p4, "token"    # Landroid/os/IBinder;
 
     .prologue
     const/4 v1, -0x1
@@ -89,6 +89,7 @@
     iput-object v1, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
 
     .line 1253
+    # ++operator for: Landroid/media/MediaFocusControl;->sLastRccId:I
     invoke-static {}, Landroid/media/MediaFocusControl;->access$3004()I
 
     move-result v1
@@ -102,7 +103,7 @@
 
     const-wide/16 v3, -0x1
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     invoke-direct {v1, v2, v3, v4, v5}, Landroid/media/MediaFocusControl$RccPlaybackState;-><init>(IJF)V
 
@@ -136,10 +137,10 @@
     move-exception v0
 
     .line 1264
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mController:Landroid/media/MediaFocusControl;
 
-    #getter for: Landroid/media/MediaFocusControl;->mEventHandler:Landroid/media/MediaFocusControl$MediaEventHandler;
+    # getter for: Landroid/media/MediaFocusControl;->mEventHandler:Landroid/media/MediaFocusControl$MediaEventHandler;
     invoke-static {v1}, Landroid/media/MediaFocusControl;->access$200(Landroid/media/MediaFocusControl;)Landroid/media/MediaFocusControl$MediaEventHandler;
 
     move-result-object v1
@@ -270,7 +271,7 @@
 
     iget-object v1, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/MediaFocusControl$RcClientDeathHandler;
 
-    #getter for: Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
+    # getter for: Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
     invoke-static {v1}, Landroid/media/MediaFocusControl$RcClientDeathHandler;->access$3100(Landroid/media/MediaFocusControl$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -281,7 +282,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/MediaFocusControl$RcClientDeathHandler;
 
-    #getter for: Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
+    # getter for: Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
     invoke-static {v1}, Landroid/media/MediaFocusControl$RcClientDeathHandler;->access$3100(Landroid/media/MediaFocusControl$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -309,7 +310,7 @@
     move-exception v0
 
     .line 1280
-    .local v0, e:Ljava/util/NoSuchElementException;
+    .local v0, "e":Ljava/util/NoSuchElementException;
     const-string v1, "MediaFocusControl"
 
     new-instance v2, Ljava/lang/StringBuilder;

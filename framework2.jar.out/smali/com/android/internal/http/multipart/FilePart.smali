@@ -49,8 +49,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Lcom/android/internal/http/multipart/PartSource;)V
     .locals 1
-    .parameter "name"
-    .parameter "partSource"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "partSource"    # Lcom/android/internal/http/multipart/PartSource;
 
     .prologue
     const/4 v0, 0x0
@@ -64,10 +64,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Lcom/android/internal/http/multipart/PartSource;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
-    .parameter "partSource"
-    .parameter "contentType"
-    .parameter "charset"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "partSource"    # Lcom/android/internal/http/multipart/PartSource;
+    .param p3, "contentType"    # Ljava/lang/String;
+    .param p4, "charset"    # Ljava/lang/String;
 
     .prologue
     .line 93
@@ -75,13 +75,13 @@
 
     const-string p3, "application/octet-stream"
 
-    .end local p3
+    .end local p3    # "contentType":Ljava/lang/String;
     :cond_0
     if-nez p4, :cond_1
 
     const-string p4, "ISO-8859-1"
 
-    .end local p4
+    .end local p4    # "charset":Ljava/lang/String;
     :cond_1
     const-string v0, "binary"
 
@@ -109,8 +109,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;)V
     .locals 2
-    .parameter "name"
-    .parameter "file"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -133,10 +133,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "file"
-    .parameter "contentType"
-    .parameter "charset"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "file"    # Ljava/io/File;
+    .param p3, "contentType"    # Ljava/lang/String;
+    .param p4, "charset"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -157,9 +157,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
     .locals 2
-    .parameter "name"
-    .parameter "fileName"
-    .parameter "file"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "fileName"    # Ljava/lang/String;
+    .param p3, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -182,11 +182,11 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "fileName"
-    .parameter "file"
-    .parameter "contentType"
-    .parameter "charset"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "fileName"    # Ljava/lang/String;
+    .param p3, "file"    # Ljava/io/File;
+    .param p4, "contentType"    # Ljava/lang/String;
+    .param p5, "charset"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -247,7 +247,7 @@
 
 .method protected sendData(Ljava/io/OutputStream;)V
     .locals 7
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -291,7 +291,7 @@
     new-array v2, v3, [B
 
     .line 221
-    .local v2, tmp:[B
+    .local v2, "tmp":[B
     iget-object v3, p0, Lcom/android/internal/http/multipart/FilePart;->source:Lcom/android/internal/http/multipart/PartSource;
 
     invoke-interface {v3}, Lcom/android/internal/http/multipart/PartSource;->createInputStream()Ljava/io/InputStream;
@@ -299,14 +299,14 @@
     move-result-object v0
 
     .line 224
-    .local v0, instream:Ljava/io/InputStream;
+    .local v0, "instream":Ljava/io/InputStream;
     :goto_1
     :try_start_0
     invoke-virtual {v0, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v1
 
-    .local v1, len:I
+    .local v1, "len":I
     if-ltz v1, :cond_1
 
     .line 225
@@ -319,7 +319,7 @@
     goto :goto_1
 
     .line 229
-    .end local v1           #len:I
+    .end local v1    # "len":I
     :catchall_0
     move-exception v3
 
@@ -327,7 +327,7 @@
 
     throw v3
 
-    .restart local v1       #len:I
+    .restart local v1    # "len":I
     :cond_1
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
@@ -336,7 +336,7 @@
 
 .method protected sendDispositionHeader(Ljava/io/OutputStream;)V
     .locals 3
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -362,7 +362,7 @@
     move-result-object v0
 
     .line 194
-    .local v0, filename:Ljava/lang/String;
+    .local v0, "filename":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 195

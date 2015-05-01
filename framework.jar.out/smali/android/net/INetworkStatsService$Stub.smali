@@ -62,7 +62,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStatsService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -84,7 +84,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/INetworkStatsService;
@@ -100,7 +100,7 @@
     :cond_1
     new-instance v0, Landroid/net/INetworkStatsService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/INetworkStatsService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -118,10 +118,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 11
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -164,7 +164,7 @@
     move-result-object v8
 
     .line 50
-    .local v8, _result:Landroid/net/INetworkStatsSession;
+    .local v8, "_result":Landroid/net/INetworkStatsSession;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 51
@@ -185,7 +185,7 @@
     goto :goto_1
 
     .line 56
-    .end local v8           #_result:Landroid/net/INetworkStatsSession;
+    .end local v8    # "_result":Landroid/net/INetworkStatsSession;
     :sswitch_2
     const-string v0, "android.net.INetworkStatsService"
 
@@ -208,19 +208,19 @@
     check-cast v1, Landroid/net/NetworkTemplate;
 
     .line 65
-    .local v1, _arg0:Landroid/net/NetworkTemplate;
+    .local v1, "_arg0":Landroid/net/NetworkTemplate;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     .line 67
-    .local v2, _arg1:J
+    .local v2, "_arg1":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
-    .local v4, _arg2:J
+    .local v4, "_arg2":J
     move-object v0, p0
 
     .line 68
@@ -229,7 +229,7 @@
     move-result-wide v8
 
     .line 69
-    .local v8, _result:J
+    .local v8, "_result":J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 70
@@ -238,18 +238,18 @@
     goto :goto_0
 
     .line 62
-    .end local v1           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v2           #_arg1:J
-    .end local v4           #_arg2:J
-    .end local v8           #_result:J
+    .end local v1    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v2    # "_arg1":J
+    .end local v4    # "_arg2":J
+    .end local v8    # "_result":J
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v1    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_2
 
     .line 75
-    .end local v1           #_arg0:Landroid/net/NetworkTemplate;
+    .end local v1    # "_arg0":Landroid/net/NetworkTemplate;
     :sswitch_3
     const-string v0, "android.net.INetworkStatsService"
 
@@ -261,13 +261,13 @@
     move-result v1
 
     .line 78
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p0, v1}, Landroid/net/INetworkStatsService$Stub;->getDataLayerSnapshotForUid(I)Landroid/net/NetworkStats;
 
     move-result-object v8
 
     .line 79
-    .local v8, _result:Landroid/net/NetworkStats;
+    .local v8, "_result":Landroid/net/NetworkStats;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 80
@@ -288,8 +288,8 @@
     goto :goto_0
 
     .line 91
-    .end local v1           #_arg0:I
-    .end local v8           #_result:Landroid/net/NetworkStats;
+    .end local v1    # "_arg0":I
+    .end local v8    # "_result":Landroid/net/NetworkStats;
     :sswitch_4
     const-string v0, "android.net.INetworkStatsService"
 
@@ -301,7 +301,7 @@
     move-result-object v8
 
     .line 93
-    .local v8, _result:[Ljava/lang/String;
+    .local v8, "_result":[Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 94
@@ -310,7 +310,7 @@
     goto :goto_0
 
     .line 99
-    .end local v8           #_result:[Ljava/lang/String;
+    .end local v8    # "_result":[Ljava/lang/String;
     :sswitch_5
     const-string v0, "android.net.INetworkStatsService"
 
@@ -322,19 +322,19 @@
     move-result v1
 
     .line 103
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 105
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 106
-    .local v4, _arg2:I
+    .local v4, "_arg2":I
     invoke-virtual {p0, v1, v2, v4}, Landroid/net/INetworkStatsService$Stub;->incrementOperationCount(III)V
 
     .line 107
@@ -343,9 +343,9 @@
     goto/16 :goto_0
 
     .line 112
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v4           #_arg2:I
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v4    # "_arg2":I
     :sswitch_6
     const-string v0, "android.net.INetworkStatsService"
 
@@ -357,7 +357,7 @@
     move-result v1
 
     .line 116
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -367,7 +367,7 @@
     move v2, v10
 
     .line 117
-    .local v2, _arg1:Z
+    .local v2, "_arg1":Z
     :cond_3
     invoke-virtual {p0, v1, v2}, Landroid/net/INetworkStatsService$Stub;->setUidForeground(IZ)V
 
@@ -377,8 +377,8 @@
     goto/16 :goto_0
 
     .line 123
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:Z
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Z
     :sswitch_7
     const-string v0, "android.net.INetworkStatsService"
 
@@ -404,7 +404,7 @@
     move-result-wide v6
 
     .line 133
-    .local v6, _arg0:J
+    .local v6, "_arg0":J
     invoke-virtual {p0, v6, v7}, Landroid/net/INetworkStatsService$Stub;->advisePersistThreshold(J)V
 
     .line 134

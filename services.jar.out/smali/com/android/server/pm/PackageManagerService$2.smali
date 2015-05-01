@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;JLandroid/content/IntentSender;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 2039
@@ -62,7 +59,7 @@
     const/4 v7, -0x1
 
     .line 2043
-    .local v7, retCode:I
+    .local v7, "retCode":I
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v0, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
@@ -108,7 +105,7 @@
     const/4 v2, 0x1
 
     .line 2053
-    .local v2, code:I
+    .local v2, "code":I
     :goto_0
     :try_start_1
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$2;->val$pi:Landroid/content/IntentSender;
@@ -126,7 +123,7 @@
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 2059
-    .end local v2           #code:I
+    .end local v2    # "code":I
     :cond_1
     :goto_1
     return-void
@@ -149,12 +146,12 @@
     goto :goto_0
 
     .line 2055
-    .restart local v2       #code:I
+    .restart local v2    # "code":I
     :catch_0
     move-exception v6
 
     .line 2056
-    .local v6, e1:Landroid/content/IntentSender$SendIntentException;
+    .local v6, "e1":Landroid/content/IntentSender$SendIntentException;
     const-string v0, "PackageManager"
 
     const-string v1, "Failed to send pending intent"

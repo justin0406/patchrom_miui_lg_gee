@@ -83,7 +83,7 @@
     move-exception v0
 
     .line 1286
-    .local v0, uoe:Ljava/lang/UnsupportedOperationException;
+    .local v0, "uoe":Ljava/lang/UnsupportedOperationException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -97,10 +97,10 @@
     const/4 v0, 0x0
 
     .line 1312
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     sget v2, Landroid/os/Debug$InstructionCount;->NUM_INSTR:I
 
@@ -139,10 +139,10 @@
     const/4 v0, 0x0
 
     .line 1298
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     sget v2, Landroid/os/Debug$InstructionCount;->NUM_INSTR:I
 
@@ -189,7 +189,7 @@
     move-exception v0
 
     .line 1272
-    .local v0, uoe:Ljava/lang/UnsupportedOperationException;
+    .local v0, "uoe":Ljava/lang/UnsupportedOperationException;
     const/4 v1, 0x0
 
     goto :goto_0

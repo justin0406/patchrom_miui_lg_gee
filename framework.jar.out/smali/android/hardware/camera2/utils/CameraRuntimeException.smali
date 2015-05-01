@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "problem"
+    .param p1, "problem"    # I
 
     .prologue
     .line 19
@@ -29,8 +29,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "problem"
-    .parameter "message"
+    .param p1, "problem"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 24
@@ -48,9 +48,9 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "problem"
-    .parameter "message"
-    .parameter "cause"
+    .param p1, "problem"    # I
+    .param p2, "message"    # Ljava/lang/String;
+    .param p3, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 30
@@ -71,8 +71,8 @@
 
 .method public constructor <init>(ILjava/lang/Throwable;)V
     .locals 0
-    .parameter "problem"
-    .parameter "cause"
+    .param p1, "problem"    # I
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 37
@@ -115,7 +115,7 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/hardware/camera2/CameraAccessException;-><init>(ILjava/lang/String;Ljava/lang/Throwable;)V
 
     .line 59
-    .local v0, e:Landroid/hardware/camera2/CameraAccessException;
+    .local v0, "e":Landroid/hardware/camera2/CameraAccessException;
     :goto_0
     invoke-virtual {p0}, Landroid/hardware/camera2/utils/CameraRuntimeException;->getStackTrace()[Ljava/lang/StackTraceElement;
 
@@ -127,7 +127,7 @@
     return-object v0
 
     .line 51
-    .end local v0           #e:Landroid/hardware/camera2/CameraAccessException;
+    .end local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     :cond_0
     iget-object v1, p0, Landroid/hardware/camera2/utils/CameraRuntimeException;->mMessage:Ljava/lang/String;
 
@@ -142,11 +142,11 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CameraAccessException;-><init>(ILjava/lang/String;)V
 
-    .restart local v0       #e:Landroid/hardware/camera2/CameraAccessException;
+    .restart local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     goto :goto_0
 
     .line 53
-    .end local v0           #e:Landroid/hardware/camera2/CameraAccessException;
+    .end local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     :cond_1
     iget-object v1, p0, Landroid/hardware/camera2/utils/CameraRuntimeException;->mCause:Ljava/lang/Throwable;
 
@@ -161,11 +161,11 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CameraAccessException;-><init>(ILjava/lang/Throwable;)V
 
-    .restart local v0       #e:Landroid/hardware/camera2/CameraAccessException;
+    .restart local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     goto :goto_0
 
     .line 56
-    .end local v0           #e:Landroid/hardware/camera2/CameraAccessException;
+    .end local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     :cond_2
     new-instance v0, Landroid/hardware/camera2/CameraAccessException;
 
@@ -173,7 +173,7 @@
 
     invoke-direct {v0, v1}, Landroid/hardware/camera2/CameraAccessException;-><init>(I)V
 
-    .restart local v0       #e:Landroid/hardware/camera2/CameraAccessException;
+    .restart local v0    # "e":Landroid/hardware/camera2/CameraAccessException;
     goto :goto_0
 .end method
 

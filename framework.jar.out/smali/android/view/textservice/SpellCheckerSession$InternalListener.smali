@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;)V
     .locals 0
-    .parameter "spellCheckerSessionListenerImpl"
+    .param p1, "spellCheckerSessionListenerImpl"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;
 
     .prologue
     .line 460
@@ -38,7 +38,7 @@
 # virtual methods
 .method public onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerSession;)V
     .locals 1
-    .parameter "session"
+    .param p1, "session"    # Lcom/android/internal/textservice/ISpellCheckerSession;
 
     .prologue
     .line 469

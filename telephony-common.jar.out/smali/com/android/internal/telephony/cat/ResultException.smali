@@ -22,7 +22,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Lcom/android/internal/telephony/cat/ResultCode;
 
     .prologue
     .line 31
@@ -105,8 +105,8 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;I)V
     .locals 2
-    .parameter "result"
-    .parameter "additionalInfo"
+    .param p1, "result"    # Lcom/android/internal/telephony/cat/ResultCode;
+    .param p2, "additionalInfo"    # I
 
     .prologue
     .line 63
@@ -134,9 +134,9 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;ILjava/lang/String;)V
     .locals 0
-    .parameter "result"
-    .parameter "additionalInfo"
-    .parameter "explanation"
+    .param p1, "result"    # Lcom/android/internal/telephony/cat/ResultCode;
+    .param p2, "additionalInfo"    # I
+    .param p3, "explanation"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -151,8 +151,8 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
     .locals 0
-    .parameter "result"
-    .parameter "explanation"
+    .param p1, "result"    # Lcom/android/internal/telephony/cat/ResultCode;
+    .param p2, "explanation"    # Ljava/lang/String;
 
     .prologue
     .line 58

@@ -32,11 +32,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 3
-    .parameter
-    .parameter "mode"
-    .parameter "tag"
-    .parameter "binder"
-    .parameter "ws"
+    .param p2, "mode"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "binder"    # Landroid/os/IBinder;
+    .param p5, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 1478
@@ -76,7 +75,7 @@
     move-exception v0
 
     .line 1487
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/wifi/WifiService$DeathRecipient;->binderDied()V
 
     goto :goto_0

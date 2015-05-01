@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 263
@@ -62,7 +61,7 @@
 
 .method public declared-synchronized setWebView(Landroid/webkit/WebView;)V
     .locals 1
-    .parameter "webview"
+    .param p1, "webview"    # Landroid/webkit/WebView;
 
     .prologue
     .line 272

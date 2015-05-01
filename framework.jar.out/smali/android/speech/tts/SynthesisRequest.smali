@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "text"
-    .parameter "params"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "params"    # Landroid/os/Bundle;
 
     .prologue
     .line 46
@@ -129,7 +129,7 @@
 
 .method setCallerUid(I)V
     .locals 0
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 135
@@ -141,9 +141,9 @@
 
 .method setLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "language"
-    .parameter "country"
-    .parameter "variant"
+    .param p1, "language"    # Ljava/lang/String;
+    .param p2, "country"    # Ljava/lang/String;
+    .param p3, "variant"    # Ljava/lang/String;
 
     .prologue
     .line 112
@@ -161,7 +161,7 @@
 
 .method setPitch(I)V
     .locals 0
-    .parameter "pitch"
+    .param p1, "pitch"    # I
 
     .prologue
     .line 128
@@ -173,7 +173,7 @@
 
 .method setSpeechRate(I)V
     .locals 0
-    .parameter "speechRate"
+    .param p1, "speechRate"    # I
 
     .prologue
     .line 121

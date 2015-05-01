@@ -76,7 +76,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/input/IInputManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -98,7 +98,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/input/IInputManager;
@@ -114,7 +114,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/input/IInputManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/input/IInputManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -132,10 +132,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 9
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -178,13 +178,13 @@
     move-result v0
 
     .line 51
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->getInputDevice(I)Landroid/view/InputDevice;
 
     move-result-object v5
 
     .line 52
-    .local v5, _result:Landroid/view/InputDevice;
+    .local v5, "_result":Landroid/view/InputDevice;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 53
@@ -205,8 +205,8 @@
     goto :goto_0
 
     .line 64
-    .end local v0           #_arg0:I
-    .end local v5           #_result:Landroid/view/InputDevice;
+    .end local v0    # "_arg0":I
+    .end local v5    # "_result":Landroid/view/InputDevice;
     :sswitch_2
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -218,7 +218,7 @@
     move-result-object v5
 
     .line 66
-    .local v5, _result:[I
+    .local v5, "_result":[I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 67
@@ -227,7 +227,7 @@
     goto :goto_0
 
     .line 72
-    .end local v5           #_result:[I
+    .end local v5    # "_result":[I
     :sswitch_3
     const-string v8, "android.hardware.input.IInputManager"
 
@@ -239,39 +239,39 @@
     move-result v0
 
     .line 76
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 78
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v2
 
     .line 80
-    .local v2, _arg2:[I
+    .local v2, "_arg2":[I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 81
-    .local v4, _arg3_length:I
+    .local v4, "_arg3_length":I
     if-gez v4, :cond_2
 
     .line 82
     const/4 v3, 0x0
 
     .line 87
-    .local v3, _arg3:[Z
+    .local v3, "_arg3":[Z
     :goto_1
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/hardware/input/IInputManager$Stub;->hasKeys(II[I[Z)Z
 
     move-result v5
 
     .line 88
-    .local v5, _result:Z
+    .local v5, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 89
@@ -288,20 +288,20 @@
     goto :goto_0
 
     .line 85
-    .end local v3           #_arg3:[Z
-    .end local v5           #_result:Z
+    .end local v3    # "_arg3":[Z
+    .end local v5    # "_result":Z
     :cond_2
     new-array v3, v4, [Z
 
-    .restart local v3       #_arg3:[Z
+    .restart local v3    # "_arg3":[Z
     goto :goto_1
 
     .line 95
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:[I
-    .end local v3           #_arg3:[Z
-    .end local v4           #_arg3_length:I
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":[I
+    .end local v3    # "_arg3":[Z
+    .end local v4    # "_arg3_length":I
     :sswitch_4
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -313,7 +313,7 @@
     move-result v0
 
     .line 98
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->tryPointerSpeed(I)V
 
     .line 99
@@ -322,7 +322,7 @@
     goto :goto_0
 
     .line 104
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_5
     const-string v8, "android.hardware.input.IInputManager"
 
@@ -345,20 +345,20 @@
     check-cast v0, Landroid/view/InputEvent;
 
     .line 113
-    .local v0, _arg0:Landroid/view/InputEvent;
+    .local v0, "_arg0":Landroid/view/InputEvent;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 114
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/hardware/input/IInputManager$Stub;->injectInputEvent(Landroid/view/InputEvent;I)Z
 
     move-result v5
 
     .line 115
-    .restart local v5       #_result:Z
+    .restart local v5    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 116
@@ -372,17 +372,17 @@
     goto/16 :goto_0
 
     .line 110
-    .end local v0           #_arg0:Landroid/view/InputEvent;
-    .end local v1           #_arg1:I
-    .end local v5           #_result:Z
+    .end local v0    # "_arg0":Landroid/view/InputEvent;
+    .end local v1    # "_arg1":I
+    .end local v5    # "_result":Z
     :cond_4
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/InputEvent;
+    .restart local v0    # "_arg0":Landroid/view/InputEvent;
     goto :goto_2
 
     .line 121
-    .end local v0           #_arg0:Landroid/view/InputEvent;
+    .end local v0    # "_arg0":Landroid/view/InputEvent;
     :sswitch_6
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -394,7 +394,7 @@
     move-result-object v5
 
     .line 123
-    .local v5, _result:[Landroid/hardware/input/KeyboardLayout;
+    .local v5, "_result":[Landroid/hardware/input/KeyboardLayout;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 124
@@ -403,7 +403,7 @@
     goto/16 :goto_0
 
     .line 129
-    .end local v5           #_result:[Landroid/hardware/input/KeyboardLayout;
+    .end local v5    # "_result":[Landroid/hardware/input/KeyboardLayout;
     :sswitch_7
     const-string v8, "android.hardware.input.IInputManager"
 
@@ -415,13 +415,13 @@
     move-result-object v0
 
     .line 132
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->getKeyboardLayout(Ljava/lang/String;)Landroid/hardware/input/KeyboardLayout;
 
     move-result-object v5
 
     .line 133
-    .local v5, _result:Landroid/hardware/input/KeyboardLayout;
+    .local v5, "_result":Landroid/hardware/input/KeyboardLayout;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 134
@@ -442,8 +442,8 @@
     goto/16 :goto_0
 
     .line 145
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v5           #_result:Landroid/hardware/input/KeyboardLayout;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v5    # "_result":Landroid/hardware/input/KeyboardLayout;
     :sswitch_8
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -455,13 +455,13 @@
     move-result-object v0
 
     .line 148
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->getCurrentKeyboardLayoutForInputDevice(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
     .line 149
-    .local v5, _result:Ljava/lang/String;
+    .local v5, "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
@@ -470,8 +470,8 @@
     goto/16 :goto_0
 
     .line 155
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v5           #_result:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v5    # "_result":Ljava/lang/String;
     :sswitch_9
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -483,13 +483,13 @@
     move-result-object v0
 
     .line 159
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 160
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/hardware/input/IInputManager$Stub;->setCurrentKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 161
@@ -498,8 +498,8 @@
     goto/16 :goto_0
 
     .line 166
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_a
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -511,13 +511,13 @@
     move-result-object v0
 
     .line 169
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->getKeyboardLayoutsForInputDevice(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v5
 
     .line 170
-    .local v5, _result:[Ljava/lang/String;
+    .local v5, "_result":[Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 171
@@ -526,8 +526,8 @@
     goto/16 :goto_0
 
     .line 176
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v5           #_result:[Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v5    # "_result":[Ljava/lang/String;
     :sswitch_b
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -539,13 +539,13 @@
     move-result-object v0
 
     .line 180
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 181
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/hardware/input/IInputManager$Stub;->addKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 182
@@ -554,8 +554,8 @@
     goto/16 :goto_0
 
     .line 187
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_c
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -567,13 +567,13 @@
     move-result-object v0
 
     .line 191
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 192
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/hardware/input/IInputManager$Stub;->removeKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 193
@@ -582,8 +582,8 @@
     goto/16 :goto_0
 
     .line 198
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_d
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -599,7 +599,7 @@
     move-result-object v0
 
     .line 201
-    .local v0, _arg0:Landroid/hardware/input/IInputDevicesChangedListener;
+    .local v0, "_arg0":Landroid/hardware/input/IInputDevicesChangedListener;
     invoke-virtual {p0, v0}, Landroid/hardware/input/IInputManager$Stub;->registerInputDevicesChangedListener(Landroid/hardware/input/IInputDevicesChangedListener;)V
 
     .line 202
@@ -608,7 +608,7 @@
     goto/16 :goto_0
 
     .line 207
-    .end local v0           #_arg0:Landroid/hardware/input/IInputDevicesChangedListener;
+    .end local v0    # "_arg0":Landroid/hardware/input/IInputDevicesChangedListener;
     :sswitch_e
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -620,25 +620,25 @@
     move-result v0
 
     .line 211
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->createLongArray()[J
 
     move-result-object v1
 
     .line 213
-    .local v1, _arg1:[J
+    .local v1, "_arg1":[J
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 215
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     .line 216
-    .local v3, _arg3:Landroid/os/IBinder;
+    .local v3, "_arg3":Landroid/os/IBinder;
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/hardware/input/IInputManager$Stub;->vibrate(I[JILandroid/os/IBinder;)V
 
     .line 217
@@ -647,10 +647,10 @@
     goto/16 :goto_0
 
     .line 222
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:[J
-    .end local v2           #_arg2:I
-    .end local v3           #_arg3:Landroid/os/IBinder;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":[J
+    .end local v2    # "_arg2":I
+    .end local v3    # "_arg3":Landroid/os/IBinder;
     :sswitch_f
     const-string v6, "android.hardware.input.IInputManager"
 
@@ -662,13 +662,13 @@
     move-result v0
 
     .line 226
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
     .line 227
-    .local v1, _arg1:Landroid/os/IBinder;
+    .local v1, "_arg1":Landroid/os/IBinder;
     invoke-virtual {p0, v0, v1}, Landroid/hardware/input/IInputManager$Stub;->cancelVibrate(ILandroid/os/IBinder;)V
 
     .line 228

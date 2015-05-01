@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/CalendarContract$SyncColumns;
 .implements Landroid/provider/CalendarContract$CalendarColumns;
+.implements Landroid/provider/CalendarContract$SyncColumns;
 
 
 # annotations
@@ -58,7 +58,7 @@
 
 .method public static newEntityIterator(Landroid/database/Cursor;)Landroid/content/EntityIterator;
     .locals 1
-    .parameter "cursor"
+    .param p0, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 509

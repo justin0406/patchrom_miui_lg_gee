@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 39
@@ -28,8 +28,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -45,7 +45,7 @@
     move-result-object v0
 
     .line 48
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -92,13 +92,13 @@
 # virtual methods
 .method protected onMeasure(II)V
     .locals 13
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     const/4 v12, 0x0
 
-    const/high16 v11, 0x4000
+    const/high16 v11, 0x40000000    # 2.0f
 
     .line 58
     invoke-virtual {p0}, Lcom/android/internal/widget/WeightedLinearLayout;->getContext()Landroid/content/Context;
@@ -114,11 +114,11 @@
     move-result-object v2
 
     .line 59
-    .local v2, metrics:Landroid/util/DisplayMetrics;
+    .local v2, "metrics":Landroid/util/DisplayMetrics;
     iget v3, v2, Landroid/util/DisplayMetrics;->widthPixels:I
 
     .line 60
-    .local v3, screenWidth:I
+    .local v3, "screenWidth":I
     iget v10, v2, Landroid/util/DisplayMetrics;->heightPixels:I
 
     if-ge v3, v10, :cond_2
@@ -126,14 +126,14 @@
     const/4 v0, 0x1
 
     .line 62
-    .local v0, isPortrait:Z
+    .local v0, "isPortrait":Z
     :goto_0
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v7
 
     .line 64
-    .local v7, widthMode:I
+    .local v7, "widthMode":I
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     .line 66
@@ -142,11 +142,11 @@
     move-result v6
 
     .line 67
-    .local v6, width:I
+    .local v6, "width":I
     const/4 v1, 0x0
 
     .line 69
-    .local v1, measure:Z
+    .local v1, "measure":Z
     invoke-static {v6, v11}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result p1
@@ -157,16 +157,16 @@
     iget v9, p0, Lcom/android/internal/widget/WeightedLinearLayout;->mMinorWeightMin:F
 
     .line 72
-    .local v9, widthWeightMin:F
+    .local v9, "widthWeightMin":F
     :goto_1
     if-eqz v0, :cond_4
 
     iget v8, p0, Lcom/android/internal/widget/WeightedLinearLayout;->mMinorWeightMax:F
 
     .line 73
-    .local v8, widthWeightMax:F
+    .local v8, "widthWeightMax":F
     :goto_2
-    const/high16 v10, -0x8000
+    const/high16 v10, -0x80000000
 
     if-ne v7, v10, :cond_0
 
@@ -178,7 +178,7 @@
     float-to-int v5, v10
 
     .line 75
-    .local v5, weightedMin:I
+    .local v5, "weightedMin":I
     int-to-float v10, v3
 
     mul-float/2addr v10, v9
@@ -186,7 +186,7 @@
     float-to-int v4, v10
 
     .line 76
-    .local v4, weightedMax:I
+    .local v4, "weightedMax":I
     cmpl-float v10, v9, v12
 
     if-lez v10, :cond_5
@@ -202,8 +202,8 @@
     const/4 v1, 0x1
 
     .line 87
-    .end local v4           #weightedMax:I
-    .end local v5           #weightedMin:I
+    .end local v4    # "weightedMax":I
+    .end local v5    # "weightedMin":I
     :cond_0
     :goto_3
     if-eqz v1, :cond_1
@@ -216,38 +216,38 @@
     return-void
 
     .line 60
-    .end local v0           #isPortrait:Z
-    .end local v1           #measure:Z
-    .end local v6           #width:I
-    .end local v7           #widthMode:I
-    .end local v8           #widthWeightMax:F
-    .end local v9           #widthWeightMin:F
+    .end local v0    # "isPortrait":Z
+    .end local v1    # "measure":Z
+    .end local v6    # "width":I
+    .end local v7    # "widthMode":I
+    .end local v8    # "widthWeightMax":F
+    .end local v9    # "widthWeightMin":F
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 71
-    .restart local v0       #isPortrait:Z
-    .restart local v1       #measure:Z
-    .restart local v6       #width:I
-    .restart local v7       #widthMode:I
+    .restart local v0    # "isPortrait":Z
+    .restart local v1    # "measure":Z
+    .restart local v6    # "width":I
+    .restart local v7    # "widthMode":I
     :cond_3
     iget v9, p0, Lcom/android/internal/widget/WeightedLinearLayout;->mMajorWeightMin:F
 
     goto :goto_1
 
     .line 72
-    .restart local v9       #widthWeightMin:F
+    .restart local v9    # "widthWeightMin":F
     :cond_4
     iget v8, p0, Lcom/android/internal/widget/WeightedLinearLayout;->mMajorWeightMax:F
 
     goto :goto_2
 
     .line 79
-    .restart local v4       #weightedMax:I
-    .restart local v5       #weightedMin:I
-    .restart local v8       #widthWeightMax:F
+    .restart local v4    # "weightedMax":I
+    .restart local v5    # "weightedMin":I
+    .restart local v8    # "widthWeightMax":F
     :cond_5
     cmpl-float v10, v8, v12
 

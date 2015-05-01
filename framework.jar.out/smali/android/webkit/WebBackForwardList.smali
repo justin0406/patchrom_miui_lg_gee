@@ -3,8 +3,8 @@
 .source "WebBackForwardList.java"
 
 # interfaces
-.implements Ljava/lang/Cloneable;
 .implements Ljava/io/Serializable;
+.implements Ljava/lang/Cloneable;
 
 
 # direct methods
@@ -112,7 +112,7 @@
 
 .method public declared-synchronized getItemAtIndex(I)Landroid/webkit/WebHistoryItem;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 58

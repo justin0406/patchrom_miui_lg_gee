@@ -24,7 +24,7 @@
 # virtual methods
 .method public closeSystemDialogs(Ljava/lang/String;)V
     .locals 0
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 73
@@ -33,7 +33,7 @@
 
 .method public dispatchAppVisibility(Z)V
     .locals 0
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 53
@@ -42,7 +42,7 @@
 
 .method public dispatchDragEvent(Landroid/view/DragEvent;)V
     .locals 0
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/DragEvent;
 
     .prologue
     .line 87
@@ -59,7 +59,7 @@
 
 .method public dispatchScreenState(Z)V
     .locals 0
-    .parameter "on"
+    .param p1, "on"    # Z
 
     .prologue
     .line 61
@@ -68,10 +68,10 @@
 
 .method public dispatchSystemUiVisibilityChanged(IIII)V
     .locals 0
-    .parameter "seq"
-    .parameter "globalUi"
-    .parameter "localValue"
-    .parameter "localChanges"
+    .param p1, "seq"    # I
+    .param p2, "globalUi"    # I
+    .param p3, "localValue"    # I
+    .param p4, "localChanges"    # I
 
     .prologue
     .line 92
@@ -83,12 +83,12 @@
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)V
     .locals 3
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "extras"
-    .parameter "sync"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "z"    # I
+    .param p5, "extras"    # Landroid/os/Bundle;
+    .param p6, "sync"    # Z
 
     .prologue
     .line 98
@@ -122,11 +122,11 @@
 
 .method public dispatchWallpaperOffsets(FFFFZ)V
     .locals 2
-    .parameter "x"
-    .parameter "y"
-    .parameter "xStep"
-    .parameter "yStep"
-    .parameter "sync"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "xStep"    # F
+    .param p4, "yStep"    # F
+    .param p5, "sync"    # Z
 
     .prologue
     .line 77
@@ -166,9 +166,9 @@
 
 .method public executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .parameter "command"
-    .parameter "parameters"
-    .parameter "out"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "parameters"    # Ljava/lang/String;
+    .param p3, "out"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 69
@@ -177,8 +177,8 @@
 
 .method public moved(II)V
     .locals 0
-    .parameter "newX"
-    .parameter "newY"
+    .param p1, "newX"    # I
+    .param p2, "newY"    # I
 
     .prologue
     .line 49
@@ -187,12 +187,12 @@
 
 .method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 1
-    .parameter "frame"
-    .parameter "overscanInsets"
-    .parameter "contentInsets"
-    .parameter "visibleInsets"
-    .parameter "reportDraw"
-    .parameter "newConfig"
+    .param p1, "frame"    # Landroid/graphics/Rect;
+    .param p2, "overscanInsets"    # Landroid/graphics/Rect;
+    .param p3, "contentInsets"    # Landroid/graphics/Rect;
+    .param p4, "visibleInsets"    # Landroid/graphics/Rect;
+    .param p5, "reportDraw"    # Z
+    .param p6, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 39
@@ -220,7 +220,7 @@
 
 .method public setSession(Landroid/view/IWindowSession;)V
     .locals 0
-    .parameter "session"
+    .param p1, "session"    # Landroid/view/IWindowSession;
 
     .prologue
     .line 33
@@ -232,8 +232,8 @@
 
 .method public windowFocusChanged(ZZ)V
     .locals 0
-    .parameter "hasFocus"
-    .parameter "touchEnabled"
+    .param p1, "hasFocus"    # Z
+    .param p2, "touchEnabled"    # Z
 
     .prologue
     .line 65

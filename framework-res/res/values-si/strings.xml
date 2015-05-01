@@ -1330,9 +1330,9 @@
     <string name="webviewchromium_actionbar_share">බෙදාගන්න</string>
     <string name="webviewchromium_actionbar_web_search">වෙබ් සෙවුම</string>
     <string name="webviewchromium_accessibility_content_view">වෙබ් දර්ශනය</string>
+    <string name="webviewchromium_date_picker_dialog_title">දිනය සකසන්න</string>
     <string name="webviewchromium_date_picker_dialog_set">සකසන්න</string>
     <string name="webviewchromium_date_picker_dialog_clear">හිස් කරන්න</string>
-    <string name="webviewchromium_date_picker_dialog_title">දිනය සකසන්න</string>
     <string name="webviewchromium_date_time_picker_dialog_title">දිනය සහ වේලාව සකසන්න</string>
     <string name="webviewchromium_month_picker_dialog_title">මාසය සකසන්න</string>
     <string name="webviewchromium_week_picker_dialog_title">සතිය සකසන්න</string>
@@ -1355,7 +1355,6 @@
     <string name="webviewchromium_color_picker_dialog_title">වර්ණය තෝරන්න</string>
     <string name="webviewchromium_low_memory_error">පෙර මෙහෙයුම අඩු මතකය නිසා සම්පූර්ණ කළ නොහැකි විය.</string>
     <string name="webviewchromium_opening_file_error">තෝරාගත් ගොනුව විවෘත කිරීමට අපොහොසත් විය</string>
-    <string name="webviewchromium_private_browsing_warning">මෙම ක්‍රියාකාරිත්වය මෙම Android අනුවාදයේ සහය නොදක්වයි.</string>
     <string name="permlab_accessAllPrintJobs">සියලු මුද්‍රණ කාර්යයන් වෙත පිවිසෙන්න</string>
     <string name="permdesc_accessAllPrintJobs">වෙනත් යෙදුමකින් සෑදු මුද්‍රණ කාර්ය වෙත පිවිසීමට ධාරකයාට අවසර දෙන්න. සාමාන්‍ය යෙදුම් සඳහා කිසිදා අවශ්‍ය නොවෙයි.</string>
     <string name="status_bar_device_locked">උපාංගයට අගුළු වැටි ඇත.</string>

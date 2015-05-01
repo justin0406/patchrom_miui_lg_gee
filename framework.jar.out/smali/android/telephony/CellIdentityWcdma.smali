@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -80,11 +80,11 @@
 
 .method public constructor <init>(IIIII)V
     .locals 0
-    .parameter "mcc"
-    .parameter "mnc"
-    .parameter "lac"
-    .parameter "cid"
-    .parameter "psc"
+    .param p1, "mcc"    # I
+    .param p2, "mnc"    # I
+    .param p3, "lac"    # I
+    .param p4, "cid"    # I
+    .param p5, "psc"    # I
 
     .prologue
     .line 62
@@ -111,7 +111,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 175
@@ -158,8 +158,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/CellIdentityWcdma$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/telephony/CellIdentityWcdma$1;
 
     .prologue
     .line 26
@@ -170,7 +170,7 @@
 
 .method private constructor <init>(Landroid/telephony/CellIdentityWcdma;)V
     .locals 1
-    .parameter "cid"
+    .param p1, "cid"    # Landroid/telephony/CellIdentityWcdma;
 
     .prologue
     .line 70
@@ -207,7 +207,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 203
@@ -245,7 +245,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -266,7 +266,7 @@
     move-object v2, v0
 
     .line 131
-    .local v2, o:Landroid/telephony/CellIdentityWcdma;
+    .local v2, "o":Landroid/telephony/CellIdentityWcdma;
     iget v4, p0, Landroid/telephony/CellIdentityWcdma;->mMcc:I
 
     iget v5, v2, Landroid/telephony/CellIdentityWcdma;->mMcc:I
@@ -302,7 +302,7 @@
     const/4 v3, 0x1
 
     .line 140
-    .end local v2           #o:Landroid/telephony/CellIdentityWcdma;
+    .end local v2    # "o":Landroid/telephony/CellIdentityWcdma;
     :cond_0
     :goto_0
     return v3
@@ -312,7 +312,7 @@
     move-exception v1
 
     .line 137
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     goto :goto_0
 .end method
 
@@ -374,7 +374,7 @@
     const/16 v0, 0x1f
 
     .line 122
-    .local v0, primeNum:I
+    .local v0, "primeNum":I
     iget v1, p0, Landroid/telephony/CellIdentityWcdma;->mMcc:I
 
     mul-int/2addr v1, v0
@@ -418,7 +418,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 147
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, " mMcc="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -488,8 +488,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 167

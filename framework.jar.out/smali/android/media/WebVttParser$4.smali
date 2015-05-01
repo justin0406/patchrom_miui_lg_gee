@@ -54,7 +54,6 @@
 
 .method constructor <init>(Landroid/media/WebVttParser;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 808
@@ -69,7 +68,7 @@
 # virtual methods
 .method public parse(Ljava/lang/String;)V
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # Ljava/lang/String;
 
     .prologue
     .line 811
@@ -91,7 +90,7 @@
 
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
+    # getter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
     invoke-static {v0}, Landroid/media/WebVttParser;->access$900(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
     move-result-object v0
@@ -128,12 +127,12 @@
 
     iget-object v1, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mParseCueText:Landroid/media/WebVttParser$Phase;
+    # getter for: Landroid/media/WebVttParser;->mParseCueText:Landroid/media/WebVttParser$Phase;
     invoke-static {v1}, Landroid/media/WebVttParser;->access$1000(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v1
 
-    #setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
+    # setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->access$102(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
 
     .line 821
@@ -144,13 +143,13 @@
 
     invoke-direct {v1}, Landroid/media/TextTrackCue;-><init>()V
 
-    #setter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
+    # setter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->access$902(Landroid/media/WebVttParser;Landroid/media/TextTrackCue;)Landroid/media/TextTrackCue;
 
     .line 822
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mCueTexts:Ljava/util/Vector;
+    # getter for: Landroid/media/WebVttParser;->mCueTexts:Ljava/util/Vector;
     invoke-static {v0}, Landroid/media/WebVttParser;->access$1100(Landroid/media/WebVttParser;)Ljava/util/Vector;
 
     move-result-object v0
@@ -162,12 +161,12 @@
 
     iget-object v1, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mParseCueTime:Landroid/media/WebVttParser$Phase;
+    # getter for: Landroid/media/WebVttParser;->mParseCueTime:Landroid/media/WebVttParser$Phase;
     invoke-static {v1}, Landroid/media/WebVttParser;->access$700(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v1
 
-    #setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
+    # setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->access$102(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
 
     .line 825
@@ -182,7 +181,7 @@
     .line 826
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
+    # getter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
     invoke-static {v0}, Landroid/media/WebVttParser;->access$100(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v0
@@ -195,7 +194,7 @@
     :cond_4
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
+    # getter for: Landroid/media/WebVttParser;->mCue:Landroid/media/TextTrackCue;
     invoke-static {v0}, Landroid/media/WebVttParser;->access$900(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
     move-result-object v0

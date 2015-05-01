@@ -75,7 +75,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 1639
@@ -155,7 +155,7 @@
     move-result v0
 
     .line 1650
-    .local v0, N:I
+    .local v0, "N":I
     if-lez v0, :cond_1
 
     .line 1651
@@ -168,7 +168,7 @@
     .line 1652
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_1
 
@@ -178,13 +178,13 @@
     move-result-wide v2
 
     .line 1654
-    .local v2, key:J
+    .local v2, "key":J
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 1655
-    .local v4, value:I
+    .local v4, "value":I
     iget-object v5, p0, Landroid/widget/AbsListView$SavedState;->checkIdState:Landroid/util/LongSparseArray;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -199,25 +199,25 @@
     goto :goto_1
 
     .line 1646
-    .end local v0           #N:I
-    .end local v1           #i:I
-    .end local v2           #key:J
-    .end local v4           #value:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
+    .end local v2    # "key":J
+    .end local v4    # "value":I
     :cond_0
     const/4 v5, 0x0
 
     goto :goto_0
 
     .line 1658
-    .restart local v0       #N:I
+    .restart local v0    # "N":I
     :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/AbsListView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/widget/AbsListView$1;
 
     .prologue
     .line 1616
@@ -228,7 +228,7 @@
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .parameter "superState"
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .prologue
     .line 1632
@@ -366,8 +366,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 6
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -439,14 +439,14 @@
     move-result v0
 
     .line 1673
-    .local v0, N:I
+    .local v0, "N":I
     :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1674
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_2
     if-ge v1, v0, :cond_2
 
@@ -479,8 +479,8 @@
 
     goto :goto_2
 
-    .end local v0           #N:I
-    .end local v1           #i:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
     :cond_0
     move v2, v3
 
@@ -494,8 +494,8 @@
     goto :goto_1
 
     .line 1678
-    .restart local v0       #N:I
-    .restart local v1       #i:I
+    .restart local v0    # "N":I
+    .restart local v1    # "i":I
     :cond_2
     return-void
 .end method

@@ -77,7 +77,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 48
@@ -117,7 +117,7 @@
 
 .method public getRoute(Ljava/lang/String;)Landroid/media/MediaRouterClientState$RouteInfo;
     .locals 4
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     .line 54
@@ -128,10 +128,10 @@
     move-result v0
 
     .line 55
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -145,7 +145,7 @@
     check-cast v2, Landroid/media/MediaRouterClientState$RouteInfo;
 
     .line 57
-    .local v2, route:Landroid/media/MediaRouterClientState$RouteInfo;
+    .local v2, "route":Landroid/media/MediaRouterClientState$RouteInfo;
     iget-object v3, v2, Landroid/media/MediaRouterClientState$RouteInfo;->id:Ljava/lang/String;
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -155,19 +155,19 @@
     if-eqz v3, :cond_0
 
     .line 61
-    .end local v2           #route:Landroid/media/MediaRouterClientState$RouteInfo;
+    .end local v2    # "route":Landroid/media/MediaRouterClientState$RouteInfo;
     :goto_1
     return-object v2
 
     .line 55
-    .restart local v2       #route:Landroid/media/MediaRouterClientState$RouteInfo;
+    .restart local v2    # "route":Landroid/media/MediaRouterClientState$RouteInfo;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 61
-    .end local v2           #route:Landroid/media/MediaRouterClientState$RouteInfo;
+    .end local v2    # "route":Landroid/media/MediaRouterClientState$RouteInfo;
     :cond_1
     const/4 v2, 0x0
 
@@ -226,8 +226,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 71

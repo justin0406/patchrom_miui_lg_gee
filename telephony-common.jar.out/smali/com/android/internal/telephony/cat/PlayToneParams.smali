@@ -12,11 +12,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Lcom/android/internal/telephony/cat/Tone;Lcom/android/internal/telephony/cat/Duration;Z)V
     .locals 1
-    .parameter "cmdDet"
-    .parameter "textMsg"
-    .parameter "tone"
-    .parameter "duration"
-    .parameter "vibrate"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "textMsg"    # Lcom/android/internal/telephony/cat/TextMessage;
+    .param p3, "tone"    # Lcom/android/internal/telephony/cat/Tone;
+    .param p4, "duration"    # Lcom/android/internal/telephony/cat/Duration;
+    .param p5, "vibrate"    # Z
 
     .prologue
     .line 91
@@ -40,7 +40,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 98

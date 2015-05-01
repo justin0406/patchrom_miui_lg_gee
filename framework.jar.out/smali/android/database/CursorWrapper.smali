@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
     .locals 0
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 35
@@ -43,8 +43,8 @@
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
     .locals 1
-    .parameter "columnIndex"
-    .parameter "buffer"
+    .param p1, "columnIndex"    # I
+    .param p2, "buffer"    # Landroid/database/CharArrayBuffer;
 
     .prologue
     .line 118
@@ -71,7 +71,7 @@
 
 .method public getBlob(I)[B
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 122
@@ -100,7 +100,7 @@
 
 .method public getColumnIndex(Ljava/lang/String;)I
     .locals 1
-    .parameter "columnName"
+    .param p1, "columnName"    # Ljava/lang/String;
 
     .prologue
     .line 73
@@ -115,7 +115,7 @@
 
 .method public getColumnIndexOrThrow(Ljava/lang/String;)I
     .locals 1
-    .parameter "columnName"
+    .param p1, "columnName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -135,7 +135,7 @@
 
 .method public getColumnName(I)Ljava/lang/String;
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 82
@@ -178,7 +178,7 @@
 
 .method public getDouble(I)D
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 90
@@ -207,7 +207,7 @@
 
 .method public getFloat(I)F
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 98
@@ -222,7 +222,7 @@
 
 .method public getInt(I)I
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 102
@@ -237,7 +237,7 @@
 
 .method public getLong(I)J
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 106
@@ -280,7 +280,7 @@
 
 .method public getShort(I)S
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 110
@@ -295,7 +295,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 114
@@ -310,7 +310,7 @@
 
 .method public getType(I)I
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 146
@@ -419,7 +419,7 @@
 
 .method public isNull(I)Z
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 150
@@ -434,7 +434,7 @@
 
 .method public move(I)Z
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     .line 158
@@ -491,7 +491,7 @@
 
 .method public moveToPosition(I)Z
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 162
@@ -520,7 +520,7 @@
 
 .method public registerContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 178
@@ -534,7 +534,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 182
@@ -562,7 +562,7 @@
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 190
@@ -577,8 +577,8 @@
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
     .locals 1
-    .parameter "cr"
-    .parameter "uri"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 194
@@ -592,7 +592,7 @@
 
 .method public unregisterContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 202
@@ -606,7 +606,7 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 206

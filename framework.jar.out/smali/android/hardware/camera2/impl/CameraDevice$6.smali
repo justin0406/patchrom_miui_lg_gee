@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/impl/CameraDevice;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 115
@@ -44,7 +43,7 @@
     .line 117
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDevice$6;->this$0:Landroid/hardware/camera2/impl/CameraDevice;
 
-    #calls: Landroid/hardware/camera2/impl/CameraDevice;->isClosed()Z
+    # invokes: Landroid/hardware/camera2/impl/CameraDevice;->isClosed()Z
     invoke-static {v0}, Landroid/hardware/camera2/impl/CameraDevice;->access$000(Landroid/hardware/camera2/impl/CameraDevice;)Z
 
     move-result v0
@@ -54,7 +53,7 @@
     .line 118
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDevice$6;->this$0:Landroid/hardware/camera2/impl/CameraDevice;
 
-    #getter for: Landroid/hardware/camera2/impl/CameraDevice;->mDeviceListener:Landroid/hardware/camera2/CameraDevice$StateListener;
+    # getter for: Landroid/hardware/camera2/impl/CameraDevice;->mDeviceListener:Landroid/hardware/camera2/CameraDevice$StateListener;
     invoke-static {v0}, Landroid/hardware/camera2/impl/CameraDevice;->access$100(Landroid/hardware/camera2/impl/CameraDevice;)Landroid/hardware/camera2/CameraDevice$StateListener;
 
     move-result-object v0

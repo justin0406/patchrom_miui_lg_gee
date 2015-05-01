@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Landroid/widget/FastScroller;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 231
+    .line 233
     iput-object p1, p0, Landroid/widget/FastScroller$2;->this$0:Landroid/widget/FastScroller;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +40,14 @@
     .locals 2
 
     .prologue
-    .line 234
+    .line 236
     iget-object v0, p0, Landroid/widget/FastScroller$2;->this$0:Landroid/widget/FastScroller;
 
     const/4 v1, 0x0
 
-    #calls: Landroid/widget/FastScroller;->setState(I)V
+    # invokes: Landroid/widget/FastScroller;->setState(I)V
     invoke-static {v0, v1}, Landroid/widget/FastScroller;->access$600(Landroid/widget/FastScroller;I)V
 
-    .line 235
+    .line 237
     return-void
 .end method

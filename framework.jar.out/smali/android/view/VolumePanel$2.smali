@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Landroid/view/VolumePanel;Landroid/content/Context;I)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # I
 
     .prologue
     .line 285
@@ -38,7 +37,7 @@
 # virtual methods
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 287
@@ -56,6 +55,7 @@
 
     if-ne v0, v1, :cond_0
 
+    # getter for: Landroid/view/VolumePanel;->sConfirmSafeVolumeDialog:Landroid/app/AlertDialog;
     invoke-static {}, Landroid/view/VolumePanel;->access$100()Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -65,7 +65,7 @@
     .line 289
     iget-object v0, p0, Landroid/view/VolumePanel$2;->this$0:Landroid/view/VolumePanel;
 
-    #calls: Landroid/view/VolumePanel;->forceTimeout()V
+    # invokes: Landroid/view/VolumePanel;->forceTimeout()V
     invoke-static {v0}, Landroid/view/VolumePanel;->access$200(Landroid/view/VolumePanel;)V
 
     .line 290

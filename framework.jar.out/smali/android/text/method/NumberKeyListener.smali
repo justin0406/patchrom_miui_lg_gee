@@ -19,8 +19,8 @@
 
 .method protected static ok([CC)Z
     .locals 2
-    .parameter "accept"
-    .parameter "c"
+    .param p0, "accept"    # [C
+    .param p1, "c"    # C
 
     .prologue
     .line 86
@@ -28,7 +28,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -61,12 +61,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 8
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     .line 49
@@ -75,14 +75,14 @@
     move-result-object v0
 
     .line 50
-    .local v0, accept:[C
+    .local v0, "accept":[C
     const/4 v1, 0x0
 
     .line 53
-    .local v1, filter:Z
+    .local v1, "filter":Z
     move v3, p2
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, p3, :cond_0
 
@@ -135,7 +135,7 @@
     invoke-direct {v2, p1, p2, p3}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;II)V
 
     .line 71
-    .local v2, filtered:Landroid/text/SpannableStringBuilder;
+    .local v2, "filtered":Landroid/text/SpannableStringBuilder;
     sub-int/2addr v3, p2
 
     .line 72
@@ -145,10 +145,10 @@
     sub-int v5, p3, p2
 
     .line 76
-    .local v5, len:I
+    .local v5, "len":I
     add-int/lit8 v4, p3, -0x1
 
-    .local v4, j:I
+    .local v4, "j":I
     :goto_2
     if-lt v4, v3, :cond_1
 
@@ -180,8 +180,8 @@
 
 .method protected lookup(Landroid/view/KeyEvent;Landroid/text/Spannable;)I
     .locals 2
-    .parameter "event"
-    .parameter "content"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "content"    # Landroid/text/Spannable;
 
     .prologue
     .line 44
@@ -202,10 +202,10 @@
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 9
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/16 v8, 0x30
@@ -220,25 +220,25 @@
     move-result v0
 
     .line 102
-    .local v0, a:I
+    .local v0, "a":I
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v1
 
     .line 104
-    .local v1, b:I
+    .local v1, "b":I
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v5
 
     .line 105
-    .local v5, selStart:I
+    .local v5, "selStart":I
     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v4
 
     .line 108
-    .local v4, selEnd:I
+    .local v4, "selEnd":I
     if-ltz v5, :cond_0
 
     if-gez v4, :cond_1
@@ -261,7 +261,7 @@
     move-result v2
 
     .line 114
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-eqz p4, :cond_2
 
@@ -270,7 +270,7 @@
     move-result v3
 
     .line 115
-    .local v3, repeatCount:I
+    .local v3, "repeatCount":I
     :cond_2
     if-nez v3, :cond_5
 
@@ -300,8 +300,8 @@
     :goto_1
     return v6
 
-    .end local v2           #i:I
-    .end local v3           #repeatCount:I
+    .end local v2    # "i":I
+    .end local v3    # "repeatCount":I
     :cond_4
     move v2, v3
 
@@ -309,8 +309,8 @@
     goto :goto_0
 
     .line 126
-    .restart local v2       #i:I
-    .restart local v3       #repeatCount:I
+    .restart local v2    # "i":I
+    .restart local v3    # "repeatCount":I
     :cond_5
     if-ne v2, v8, :cond_6
 

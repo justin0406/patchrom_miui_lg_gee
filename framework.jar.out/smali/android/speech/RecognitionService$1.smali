@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/RecognitionService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 73
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 76
@@ -55,20 +54,20 @@
     check-cast v0, Landroid/speech/RecognitionService$StartListeningArgs;
 
     .line 79
-    .local v0, args:Landroid/speech/RecognitionService$StartListeningArgs;
+    .local v0, "args":Landroid/speech/RecognitionService$StartListeningArgs;
     iget-object v1, p0, Landroid/speech/RecognitionService$1;->this$0:Landroid/speech/RecognitionService;
 
     iget-object v2, v0, Landroid/speech/RecognitionService$StartListeningArgs;->mIntent:Landroid/content/Intent;
 
     iget-object v3, v0, Landroid/speech/RecognitionService$StartListeningArgs;->mListener:Landroid/speech/IRecognitionListener;
 
-    #calls: Landroid/speech/RecognitionService;->dispatchStartListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
+    # invokes: Landroid/speech/RecognitionService;->dispatchStartListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
     invoke-static {v1, v2, v3}, Landroid/speech/RecognitionService;->access$000(Landroid/speech/RecognitionService;Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0
 
     .line 82
-    .end local v0           #args:Landroid/speech/RecognitionService$StartListeningArgs;
+    .end local v0    # "args":Landroid/speech/RecognitionService$StartListeningArgs;
     :pswitch_1
     iget-object v2, p0, Landroid/speech/RecognitionService$1;->this$0:Landroid/speech/RecognitionService;
 
@@ -76,7 +75,7 @@
 
     check-cast v1, Landroid/speech/IRecognitionListener;
 
-    #calls: Landroid/speech/RecognitionService;->dispatchStopListening(Landroid/speech/IRecognitionListener;)V
+    # invokes: Landroid/speech/RecognitionService;->dispatchStopListening(Landroid/speech/IRecognitionListener;)V
     invoke-static {v2, v1}, Landroid/speech/RecognitionService;->access$100(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0
@@ -89,7 +88,7 @@
 
     check-cast v1, Landroid/speech/IRecognitionListener;
 
-    #calls: Landroid/speech/RecognitionService;->dispatchCancel(Landroid/speech/IRecognitionListener;)V
+    # invokes: Landroid/speech/RecognitionService;->dispatchCancel(Landroid/speech/IRecognitionListener;)V
     invoke-static {v2, v1}, Landroid/speech/RecognitionService;->access$200(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0
@@ -98,7 +97,7 @@
     :pswitch_3
     iget-object v1, p0, Landroid/speech/RecognitionService$1;->this$0:Landroid/speech/RecognitionService;
 
-    #calls: Landroid/speech/RecognitionService;->dispatchClearCallback()V
+    # invokes: Landroid/speech/RecognitionService;->dispatchClearCallback()V
     invoke-static {v1}, Landroid/speech/RecognitionService;->access$300(Landroid/speech/RecognitionService;)V
 
     goto :goto_0

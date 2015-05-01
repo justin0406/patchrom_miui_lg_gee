@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 54
@@ -27,7 +27,7 @@
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
     .locals 2
-    .parameter "buf"
+    .param p1, "buf"    # Ljava/io/ByteArrayOutputStream;
 
     .prologue
     .line 61
@@ -40,7 +40,7 @@
     or-int/lit16 v0, v1, 0x80
 
     .line 62
-    .local v0, tag:I
+    .local v0, "tag":I
     invoke-virtual {p1, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 63

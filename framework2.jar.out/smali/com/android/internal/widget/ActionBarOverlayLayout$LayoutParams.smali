@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 413
@@ -30,8 +30,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 409
@@ -43,7 +43,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 417
@@ -55,7 +55,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
     .line 421

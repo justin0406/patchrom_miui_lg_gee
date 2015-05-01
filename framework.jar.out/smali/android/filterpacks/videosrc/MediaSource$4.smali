@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/filterpacks/videosrc/MediaSource;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 566
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 3
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 568
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
-    #getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
+    # getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
 
     move-result v0
@@ -68,7 +67,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
-    #getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
+    # getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
 
     move-result v0
@@ -87,7 +86,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Landroid/filterpacks/videosrc/MediaSource;->mNewFrameAvailable:Z
+    # setter for: Landroid/filterpacks/videosrc/MediaSource;->mNewFrameAvailable:Z
     invoke-static {v0, v2}, Landroid/filterpacks/videosrc/MediaSource;->access$802(Landroid/filterpacks/videosrc/MediaSource;Z)Z
 
     .line 572
@@ -98,7 +97,7 @@
     .line 573
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
-    #getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
+    # getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
 
     move-result v0

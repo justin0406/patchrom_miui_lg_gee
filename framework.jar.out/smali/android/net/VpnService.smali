@@ -25,7 +25,7 @@
     .line 106
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 254
+    .line 255
     return-void
 .end method
 
@@ -61,7 +61,7 @@
 
 .method public static prepare(Landroid/content/Context;)Landroid/content/Intent;
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -107,12 +107,12 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 3
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v1, 0x0
 
-    .line 213
+    .line 214
     if-eqz p1, :cond_0
 
     const-string v0, "android.net.VpnService"
@@ -127,12 +127,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 214
+    .line 215
     new-instance v0, Landroid/net/VpnService$Callback;
 
     invoke-direct {v0, p0, v1}, Landroid/net/VpnService$Callback;-><init>(Landroid/net/VpnService;Landroid/net/VpnService$1;)V
 
-    .line 216
+    .line 217
     :goto_0
     return-object v0
 
@@ -146,59 +146,59 @@
     .locals 0
 
     .prologue
-    .line 231
+    .line 232
     invoke-virtual {p0}, Landroid/net/VpnService;->stopSelf()V
 
-    .line 232
+    .line 233
     return-void
 .end method
 
 .method public protect(I)Z
     .locals 4
-    .parameter "socket"
+    .param p1, "socket"    # I
 
     .prologue
-    .line 167
+    .line 168
     const/4 v0, 0x0
 
-    .line 169
-    .local v0, dup:Landroid/os/ParcelFileDescriptor;
+    .line 170
+    .local v0, "dup":Landroid/os/ParcelFileDescriptor;
     :try_start_0
     invoke-static {p1}, Landroid/os/ParcelFileDescriptor;->fromFd(I)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
 
-    .line 170
+    .line 171
     invoke-static {}, Landroid/net/VpnService;->getService()Landroid/net/IConnectivityManager;
 
     move-result-object v2
 
     invoke-interface {v2, v0}, Landroid/net/IConnectivityManager;->protectVpn(Landroid/os/ParcelFileDescriptor;)Z
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 175
+    .line 176
     :try_start_1
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 178
+    .line 179
     :goto_0
     return v2
 
-    .line 171
+    .line 172
     :catch_0
     move-exception v1
 
-    .line 172
-    .local v1, e:Ljava/lang/Exception;
+    .line 173
+    .local v1, "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
-    .line 175
+    .line 176
     :try_start_2
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_2
@@ -206,28 +206,28 @@
 
     goto :goto_0
 
-    .line 176
+    .line 177
     :catch_1
     move-exception v3
 
     goto :goto_0
 
-    .line 174
-    .end local v1           #e:Ljava/lang/Exception;
+    .line 175
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v2
 
-    .line 175
+    .line 176
     :try_start_3
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 178
+    .line 179
     :goto_1
     throw v2
 
-    .line 176
+    .line 177
     :catch_2
     move-exception v3
 
@@ -241,10 +241,10 @@
 
 .method public protect(Ljava/net/DatagramSocket;)Z
     .locals 1
-    .parameter "socket"
+    .param p1, "socket"    # Ljava/net/DatagramSocket;
 
     .prologue
-    .line 200
+    .line 201
     invoke-virtual {p1}, Ljava/net/DatagramSocket;->getFileDescriptor$()Ljava/io/FileDescriptor;
 
     move-result-object v0
@@ -262,10 +262,10 @@
 
 .method public protect(Ljava/net/Socket;)Z
     .locals 1
-    .parameter "socket"
+    .param p1, "socket"    # Ljava/net/Socket;
 
     .prologue
-    .line 189
+    .line 190
     invoke-virtual {p1}, Ljava/net/Socket;->getFileDescriptor$()Ljava/io/FileDescriptor;
 
     move-result-object v0

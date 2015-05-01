@@ -1151,7 +1151,7 @@
     :cond_5
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v5, :cond_7
 
@@ -1189,103 +1189,103 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x3t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x5t 0x0t 0x0t 0x0t
-        0x6t 0x0t 0x0t 0x0t
-        0x7t 0x0t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x9t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0xbt 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0xdt 0x0t 0x0t 0x0t
-        0xet 0x0t 0x0t 0x0t
-        0xft 0x0t 0x0t 0x0t
-        0x10t 0x0t 0x0t 0x0t
-        0x10t 0x0t 0x0t 0x0t
-        0x10t 0x0t 0x0t 0x0t
-        0x10t 0x0t 0x0t 0x0t
-        0x14t 0x0t 0x0t 0x0t
-        0xet 0x0t 0x0t 0x0t
-        0xft 0x0t 0x0t 0x0t
-        0x17t 0x0t 0x0t 0x0t
-        0x18t 0x0t 0x0t 0x0t
-        0x19t 0x0t 0x0t 0x0t
-        0x1at 0x0t 0x0t 0x0t
-        0x1bt 0x0t 0x0t 0x0t
-        0x1ct 0x0t 0x0t 0x0t
-        0x1dt 0x0t 0x0t 0x0t
-        0x1et 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x20t 0x0t 0x0t 0x0t
-        0x21t 0x0t 0x0t 0x0t
-        0x22t 0x0t 0x0t 0x0t
-        0x23t 0x0t 0x0t 0x0t
-        0x24t 0x0t 0x0t 0x0t
-        0x25t 0x0t 0x0t 0x0t
-        0x26t 0x0t 0x0t 0x0t
-        0x27t 0x0t 0x0t 0x0t
-        0x28t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x3
+        0x4
+        0x5
+        0x6
+        0x7
+        0x8
+        0x9
+        0x0
+        0xb
+        0x0
+        0xd
+        0xe
+        0xf
+        0x10
+        0x10
+        0x10
+        0x10
+        0x14
+        0xe
+        0xf
+        0x17
+        0x18
+        0x19
+        0x1a
+        0x1b
+        0x1c
+        0x1d
+        0x1e
+        0x1f
+        0x20
+        0x21
+        0x22
+        0x23
+        0x24
+        0x25
+        0x26
+        0x27
+        0x28
+        0x0
+        0x0
     .end array-data
 
     .line 410
     :array_1
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x1
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
     .end array-data
 
     .line 463
     :array_2
-    .array-data 0x1
+    .array-data 1
         0x0t
         0x0t
         0x0t
@@ -1334,8 +1334,8 @@
 
 .method constructor <init>(Landroid/content/Context;Lcom/android/internal/app/IAppOpsService;)V
     .locals 1
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Lcom/android/internal/app/IAppOpsService;
 
     .prologue
     .line 740
@@ -1370,9 +1370,9 @@
 
 .method private buildSecurityExceptionMsg(IILjava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 849
@@ -1417,7 +1417,7 @@
 
 .method public static getToken(Lcom/android/internal/app/IAppOpsService;)Landroid/os/IBinder;
     .locals 2
-    .parameter "service"
+    .param p0, "service"    # Lcom/android/internal/app/IAppOpsService;
 
     .prologue
     .line 1058
@@ -1455,8 +1455,8 @@
 
     sput-object v0, Landroid/app/AppOpsManager;->sToken:Landroid/os/IBinder;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1067
     :goto_1
@@ -1486,7 +1486,7 @@
 
 .method public static opAllowsReset(I)Z
     .locals 1
-    .parameter "op"
+    .param p0, "op"    # I
 
     .prologue
     .line 581
@@ -1509,7 +1509,7 @@
 
 .method public static opToDefaultMode(I)I
     .locals 1
-    .parameter "op"
+    .param p0, "op"    # I
 
     .prologue
     .line 573
@@ -1522,7 +1522,7 @@
 
 .method public static opToName(I)Ljava/lang/String;
     .locals 2
-    .parameter "op"
+    .param p0, "op"    # I
 
     .prologue
     .line 556
@@ -1579,7 +1579,7 @@
 
 .method public static opToPermission(I)Ljava/lang/String;
     .locals 1
-    .parameter "op"
+    .param p0, "op"    # I
 
     .prologue
     .line 565
@@ -1592,7 +1592,7 @@
 
 .method public static opToSwitch(I)I
     .locals 1
-    .parameter "op"
+    .param p0, "op"    # I
 
     .prologue
     .line 548
@@ -1605,7 +1605,7 @@
 
 .method private strOpToOp(Ljava/lang/String;)I
     .locals 4
-    .parameter "op"
+    .param p1, "op"    # Ljava/lang/String;
 
     .prologue
     .line 853
@@ -1618,7 +1618,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 854
-    .local v0, val:Ljava/lang/Integer;
+    .local v0, "val":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
     .line 855
@@ -1659,9 +1659,9 @@
 # virtual methods
 .method public checkOp(IILjava/lang/String;)I
     .locals 3
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 971
@@ -1673,7 +1673,7 @@
     move-result v0
 
     .line 972
-    .local v0, mode:I
+    .local v0, "mode":I
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
@@ -1692,7 +1692,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 976
-    .end local v0           #mode:I
+    .end local v0    # "mode":I
     :catch_0
     move-exception v1
 
@@ -1705,9 +1705,9 @@
 
 .method public checkOp(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 877
@@ -1724,9 +1724,9 @@
 
 .method public checkOpNoThrow(IILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 988
@@ -1755,9 +1755,9 @@
 
 .method public checkOpNoThrow(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 885
@@ -1774,8 +1774,8 @@
 
 .method public checkPackage(ILjava/lang/String;)V
     .locals 4
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1002
@@ -1830,7 +1830,7 @@
     move-exception v0
 
     .line 1007
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/SecurityException;
 
     const-string v2, "Unable to verify package ownership"
@@ -1840,14 +1840,14 @@
     throw v1
 
     .line 1009
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public finishOp(I)V
     .locals 2
-    .parameter "op"
+    .param p1, "op"    # I
 
     .prologue
     .line 1134
@@ -1869,9 +1869,9 @@
 
 .method public finishOp(IILjava/lang/String;)V
     .locals 2
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1127
@@ -1901,9 +1901,9 @@
 
 .method public finishOp(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 949
@@ -1919,9 +1919,9 @@
 
 .method public getOpsForPackage(ILjava/lang/String;[I)Ljava/util/List;
     .locals 1
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "ops"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "ops"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1961,7 +1961,7 @@
 
 .method public getPackagesForOps([I)Ljava/util/List;
     .locals 1
-    .parameter "ops"
+    .param p1, "ops"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([I)",
@@ -1999,7 +1999,7 @@
 
 .method public noteOp(I)I
     .locals 2
-    .parameter "op"
+    .param p1, "op"    # I
 
     .prologue
     .line 1053
@@ -2022,9 +2022,9 @@
 
 .method public noteOp(IILjava/lang/String;)I
     .locals 3
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1028
@@ -2036,7 +2036,7 @@
     move-result v0
 
     .line 1029
-    .local v0, mode:I
+    .local v0, "mode":I
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
@@ -2055,7 +2055,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1033
-    .end local v0           #mode:I
+    .end local v0    # "mode":I
     :catch_0
     move-exception v1
 
@@ -2068,9 +2068,9 @@
 
 .method public noteOp(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 903
@@ -2087,9 +2087,9 @@
 
 .method public noteOpNoThrow(IILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1045
@@ -2118,9 +2118,9 @@
 
 .method public noteOpNoThrow(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 911
@@ -2160,10 +2160,10 @@
 
 .method public setMode(IILjava/lang/String;I)V
     .locals 1
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "mode"
+    .param p1, "code"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "mode"    # I
 
     .prologue
     .line 778
@@ -2187,7 +2187,7 @@
 
 .method public startOp(I)I
     .locals 2
-    .parameter "op"
+    .param p1, "op"    # I
 
     .prologue
     .line 1115
@@ -2210,9 +2210,9 @@
 
 .method public startOp(IILjava/lang/String;)I
     .locals 3
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1090
@@ -2230,7 +2230,7 @@
     move-result v0
 
     .line 1091
-    .local v0, mode:I
+    .local v0, "mode":I
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
@@ -2249,7 +2249,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1095
-    .end local v0           #mode:I
+    .end local v0    # "mode":I
     :catch_0
     move-exception v1
 
@@ -2262,9 +2262,9 @@
 
 .method public startOp(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 931
@@ -2281,9 +2281,9 @@
 
 .method public startOpNoThrow(IILjava/lang/String;)I
     .locals 2
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1107
@@ -2318,9 +2318,9 @@
 
 .method public startOpNoThrow(Ljava/lang/String;ILjava/lang/String;)I
     .locals 1
-    .parameter "op"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 939
@@ -2337,9 +2337,9 @@
 
 .method public startWatchingMode(ILjava/lang/String;Landroid/app/AppOpsManager$OnOpChangedListener;)V
     .locals 3
-    .parameter "op"
-    .parameter "packageName"
-    .parameter "callback"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "callback"    # Landroid/app/AppOpsManager$OnOpChangedListener;
 
     .prologue
     .line 810
@@ -2358,17 +2358,17 @@
     check-cast v0, Lcom/android/internal/app/IAppOpsCallback;
 
     .line 812
-    .local v0, cb:Lcom/android/internal/app/IAppOpsCallback;
+    .local v0, "cb":Lcom/android/internal/app/IAppOpsCallback;
     if-nez v0, :cond_0
 
     .line 813
     new-instance v0, Landroid/app/AppOpsManager$1;
 
-    .end local v0           #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .end local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     invoke-direct {v0, p0, p3}, Landroid/app/AppOpsManager$1;-><init>(Landroid/app/AppOpsManager;Landroid/app/AppOpsManager$OnOpChangedListener;)V
 
     .line 823
-    .restart local v0       #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .restart local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     iget-object v1, p0, Landroid/app/AppOpsManager;->mModeWatchers:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p3, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -2382,8 +2382,8 @@
 
     invoke-interface {v1, p1, p2, v0}, Lcom/android/internal/app/IAppOpsService;->startWatchingMode(ILjava/lang/String;Lcom/android/internal/app/IAppOpsCallback;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 829
     :goto_0
@@ -2394,7 +2394,7 @@
     return-void
 
     .line 829
-    .end local v0           #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .end local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     :catchall_0
     move-exception v1
 
@@ -2405,7 +2405,7 @@
     throw v1
 
     .line 827
-    .restart local v0       #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .restart local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     :catch_0
     move-exception v1
 
@@ -2414,9 +2414,9 @@
 
 .method public startWatchingMode(Ljava/lang/String;Ljava/lang/String;Landroid/app/AppOpsManager$OnOpChangedListener;)V
     .locals 1
-    .parameter "op"
-    .parameter "packageName"
-    .parameter "callback"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "callback"    # Landroid/app/AppOpsManager$OnOpChangedListener;
 
     .prologue
     .line 799
@@ -2432,7 +2432,7 @@
 
 .method public stopWatchingMode(Landroid/app/AppOpsManager$OnOpChangedListener;)V
     .locals 3
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/AppOpsManager$OnOpChangedListener;
 
     .prologue
     .line 837
@@ -2453,7 +2453,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 839
-    .local v0, cb:Lcom/android/internal/app/IAppOpsCallback;
+    .local v0, "cb":Lcom/android/internal/app/IAppOpsCallback;
     if-eqz v0, :cond_0
 
     .line 841
@@ -2462,8 +2462,8 @@
 
     invoke-interface {v1, v0}, Lcom/android/internal/app/IAppOpsService;->stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 845
     :cond_0
@@ -2475,7 +2475,7 @@
     return-void
 
     .line 845
-    .end local v0           #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .end local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     :catchall_0
     move-exception v1
 
@@ -2486,7 +2486,7 @@
     throw v1
 
     .line 842
-    .restart local v0       #cb:Lcom/android/internal/app/IAppOpsCallback;
+    .restart local v0    # "cb":Lcom/android/internal/app/IAppOpsCallback;
     :catch_0
     move-exception v1
 

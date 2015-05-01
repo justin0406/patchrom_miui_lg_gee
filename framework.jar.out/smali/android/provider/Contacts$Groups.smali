@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/SyncConstValue;
 .implements Landroid/provider/Contacts$GroupsColumns;
+.implements Landroid/provider/SyncConstValue;
 
 
 # annotations
@@ -33,7 +33,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -43,7 +43,7 @@
     .end annotation
 .end field
 
-.field public static final DELETED_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final DELETED_CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field

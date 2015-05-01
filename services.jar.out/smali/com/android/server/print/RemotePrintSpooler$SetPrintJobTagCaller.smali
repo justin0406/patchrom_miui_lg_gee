@@ -52,9 +52,9 @@
 # virtual methods
 .method public setPrintJobTag(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;Ljava/lang/String;)Z
     .locals 2
-    .parameter "target"
-    .parameter "printJobId"
-    .parameter "tag"
+    .param p1, "target"    # Landroid/print/IPrintSpooler;
+    .param p2, "printJobId"    # Landroid/print/PrintJobId;
+    .param p3, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -69,7 +69,7 @@
     move-result v0
 
     .line 541
-    .local v0, sequence:I
+    .local v0, "sequence":I
     iget-object v1, p0, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobTagCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
     invoke-interface {p1, p2, p3, v1, v0}, Landroid/print/IPrintSpooler;->setPrintJobTag(Landroid/print/PrintJobId;Ljava/lang/String;Landroid/print/IPrintSpoolerCallbacks;I)V

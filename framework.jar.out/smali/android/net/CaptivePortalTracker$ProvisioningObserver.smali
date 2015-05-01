@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/CaptivePortalTracker;)V
     .locals 3
-    .parameter
 
     .prologue
     const/4 v2, 0x0
@@ -37,7 +36,7 @@
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     .line 141
-    #getter for: Landroid/net/CaptivePortalTracker;->mContext:Landroid/content/Context;
+    # getter for: Landroid/net/CaptivePortalTracker;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/net/CaptivePortalTracker;->access$400(Landroid/net/CaptivePortalTracker;)Landroid/content/Context;
 
     move-result-object v0
@@ -65,7 +64,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     const/4 v0, 0x0
@@ -75,7 +74,7 @@
 
     iget-object v2, p0, Landroid/net/CaptivePortalTracker$ProvisioningObserver;->this$0:Landroid/net/CaptivePortalTracker;
 
-    #getter for: Landroid/net/CaptivePortalTracker;->mContext:Landroid/content/Context;
+    # getter for: Landroid/net/CaptivePortalTracker;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/net/CaptivePortalTracker;->access$400(Landroid/net/CaptivePortalTracker;)Landroid/content/Context;
 
     move-result-object v2
@@ -95,7 +94,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    #setter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
+    # setter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
     invoke-static {v1, v0}, Landroid/net/CaptivePortalTracker;->access$502(Landroid/net/CaptivePortalTracker;Z)Z
 
     .line 150

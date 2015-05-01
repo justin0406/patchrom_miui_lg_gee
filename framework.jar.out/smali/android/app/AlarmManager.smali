@@ -38,8 +38,8 @@
 # direct methods
 .method constructor <init>(Landroid/app/IAlarmManager;Landroid/content/Context;)V
     .locals 2
-    .parameter "service"
-    .parameter "ctx"
+    .param p1, "service"    # Landroid/app/IAlarmManager;
+    .param p2, "ctx"    # Landroid/content/Context;
 
     .prologue
     .line 109
@@ -56,7 +56,7 @@
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     .line 113
-    .local v0, sdkVersion:I
+    .local v0, "sdkVersion":I
     const/16 v1, 0x13
 
     if-ge v0, v1, :cond_0
@@ -98,12 +98,12 @@
 
 .method private setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
     .locals 10
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "windowMillis"
-    .parameter "intervalMillis"
-    .parameter "operation"
-    .parameter "workSource"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "windowMillis"    # J
+    .param p6, "intervalMillis"    # J
+    .param p8, "operation"    # Landroid/app/PendingIntent;
+    .param p9, "workSource"    # Landroid/os/WorkSource;
 
     .prologue
     .line 351
@@ -152,7 +152,7 @@
 # virtual methods
 .method public cancel(Landroid/app/PendingIntent;)V
     .locals 1
-    .parameter "operation"
+    .param p1, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 479
@@ -176,12 +176,12 @@
 
 .method public set(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
     .locals 0
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "windowMillis"
-    .parameter "intervalMillis"
-    .parameter "operation"
-    .parameter "workSource"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "windowMillis"    # J
+    .param p6, "intervalMillis"    # J
+    .param p8, "operation"    # Landroid/app/PendingIntent;
+    .param p9, "workSource"    # Landroid/os/WorkSource;
 
     .prologue
     .line 346
@@ -193,9 +193,9 @@
 
 .method public set(IJLandroid/app/PendingIntent;)V
     .locals 10
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "operation"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 191
@@ -223,9 +223,9 @@
 
 .method public setExact(IJLandroid/app/PendingIntent;)V
     .locals 10
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "operation"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     const-wide/16 v4, 0x0
@@ -251,10 +251,10 @@
 
 .method public setInexactRepeating(IJJLandroid/app/PendingIntent;)V
     .locals 10
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "intervalMillis"
-    .parameter "operation"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "intervalMillis"    # J
+    .param p6, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 464
@@ -280,10 +280,10 @@
 
 .method public setRepeating(IJJLandroid/app/PendingIntent;)V
     .locals 10
-    .parameter "type"
-    .parameter "triggerAtMillis"
-    .parameter "intervalMillis"
-    .parameter "operation"
+    .param p1, "type"    # I
+    .param p2, "triggerAtMillis"    # J
+    .param p4, "intervalMillis"    # J
+    .param p6, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 252
@@ -311,7 +311,7 @@
 
 .method public setTime(J)V
     .locals 1
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     .line 492
@@ -335,7 +335,7 @@
 
 .method public setTimeZone(Ljava/lang/String;)V
     .locals 1
-    .parameter "timeZone"
+    .param p1, "timeZone"    # Ljava/lang/String;
 
     .prologue
     .line 505
@@ -359,10 +359,10 @@
 
 .method public setWindow(IJJLandroid/app/PendingIntent;)V
     .locals 10
-    .parameter "type"
-    .parameter "windowStartMillis"
-    .parameter "windowLengthMillis"
-    .parameter "operation"
+    .param p1, "type"    # I
+    .param p2, "windowStartMillis"    # J
+    .param p4, "windowLengthMillis"    # J
+    .param p6, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 302

@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/multiwaveview/PointCloud;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 46
@@ -34,7 +33,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
-    const/high16 v0, 0x4248
+    const/high16 v0, 0x42480000    # 50.0f
 
     iput v0, p0, Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;->radius:F
 
@@ -48,7 +47,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;
 
     .prologue
     .line 46
@@ -59,7 +58,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;
 
     .prologue
     .line 46
@@ -92,7 +91,7 @@
 
 .method public setAlpha(F)V
     .locals 0
-    .parameter "a"
+    .param p1, "a"    # F
 
     .prologue
     .line 59
@@ -104,7 +103,7 @@
 
 .method public setRadius(F)V
     .locals 0
-    .parameter "r"
+    .param p1, "r"    # F
 
     .prologue
     .line 51

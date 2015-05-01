@@ -35,9 +35,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/location/ILocationManager;Lcom/android/internal/location/ProviderProperties;)V
     .locals 2
-    .parameter "name"
-    .parameter "locationManager"
-    .parameter "properties"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "locationManager"    # Landroid/location/ILocationManager;
+    .param p3, "properties"    # Lcom/android/internal/location/ProviderProperties;
 
     .prologue
     .line 58
@@ -130,9 +130,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 141
@@ -146,8 +146,8 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 4
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 145
@@ -393,7 +393,7 @@
 
 .method public getStatus(Landroid/os/Bundle;)I
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 94
@@ -444,8 +444,8 @@
 
 .method public sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .parameter "command"
-    .parameter "extras"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 160
@@ -456,7 +456,7 @@
 
 .method public setLocation(Landroid/location/Location;)V
     .locals 4
-    .parameter "l"
+    .param p1, "l"    # Landroid/location/Location;
 
     .prologue
     .line 109
@@ -496,7 +496,7 @@
     move-exception v0
 
     .line 115
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MockProvider"
 
     const-string v2, "RemoteException calling reportLocation"
@@ -508,8 +508,8 @@
 
 .method public setRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
     .locals 0
-    .parameter "request"
-    .parameter "source"
+    .param p1, "request"    # Lcom/android/internal/location/ProviderRequest;
+    .param p2, "source"    # Landroid/os/WorkSource;
 
     .prologue
     .line 156
@@ -518,9 +518,9 @@
 
 .method public setStatus(ILandroid/os/Bundle;J)V
     .locals 1
-    .parameter "status"
-    .parameter "extras"
-    .parameter "updateTime"
+    .param p1, "status"    # I
+    .param p2, "extras"    # Landroid/os/Bundle;
+    .param p3, "updateTime"    # J
 
     .prologue
     .line 125

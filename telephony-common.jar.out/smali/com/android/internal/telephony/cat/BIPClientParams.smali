@@ -12,9 +12,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Z)V
     .locals 0
-    .parameter "cmdDet"
-    .parameter "textMsg"
-    .parameter "has_alpha_id"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "textMsg"    # Lcom/android/internal/telephony/cat/TextMessage;
+    .param p3, "has_alpha_id"    # Z
 
     .prologue
     .line 193
@@ -34,7 +34,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 200

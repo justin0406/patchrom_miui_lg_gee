@@ -47,11 +47,11 @@
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mCurArgData:Ljava/lang/String;
 
     .line 125
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     iput-object v1, p0, Lcom/android/internal/os/BaseCommand;->mCurArgData:Ljava/lang/String;
 
     .line 130
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :goto_0
     return-object v0
 
@@ -95,7 +95,7 @@
     move-result-object v0
 
     .line 140
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 141
@@ -108,7 +108,7 @@
     aget-object v1, v2, v3
 
     .line 142
-    .local v1, prev:Ljava/lang/String;
+    .local v1, "prev":Ljava/lang/String;
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -140,7 +140,7 @@
     throw v2
 
     .line 144
-    .end local v1           #prev:Ljava/lang/String;
+    .end local v1    # "prev":Ljava/lang/String;
     :cond_0
     return-object v0
 .end method
@@ -170,7 +170,7 @@
     aget-object v1, v2, v3
 
     .line 92
-    .local v1, prev:Ljava/lang/String;
+    .local v1, "prev":Ljava/lang/String;
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -202,7 +202,7 @@
     throw v2
 
     .line 94
-    .end local v1           #prev:Ljava/lang/String;
+    .end local v1    # "prev":Ljava/lang/String;
     :cond_0
     iget v3, p0, Lcom/android/internal/os/BaseCommand;->mNextArg:I
 
@@ -227,7 +227,7 @@
     aget-object v0, v3, v4
 
     .line 98
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     const-string v3, "-"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -328,7 +328,7 @@
 
 .method public run([Ljava/lang/String;)V
     .locals 4
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -375,7 +375,7 @@
     move-exception v0
 
     .line 49
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/os/BaseCommand;->onShowUsage(Ljava/io/PrintStream;)V
@@ -415,12 +415,12 @@
     goto :goto_0
 
     .line 52
-    .end local v0           #e:Ljava/lang/IllegalArgumentException;
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catch_1
     move-exception v0
 
     .line 53
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0, v1}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintStream;)V
@@ -433,7 +433,7 @@
 
 .method public showError(Ljava/lang/String;)V
     .locals 1
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 70

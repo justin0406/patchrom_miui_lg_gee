@@ -26,10 +26,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 2708
+    .line 2711
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +38,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/PowerManagerService;Lcom/android/server/power/PowerManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/power/PowerManagerService;
+    .param p2, "x1"    # Lcom/android/server/power/PowerManagerService$1;
 
     .prologue
-    .line 2708
+    .line 2711
     invoke-direct {p0, p1}, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
@@ -55,44 +54,44 @@
     .locals 1
 
     .prologue
-    .line 2713
+    .line 2716
     monitor-enter p0
 
-    .line 2714
+    .line 2717
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;->mBlanked:Z
 
-    .line 2715
+    .line 2718
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    #getter for: Lcom/android/server/power/PowerManagerService;->mDisplayManagerService:Lcom/android/server/display/DisplayManagerService;
+    # getter for: Lcom/android/server/power/PowerManagerService;->mDisplayManagerService:Lcom/android/server/display/DisplayManagerService;
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2700(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/display/DisplayManagerService;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/server/display/DisplayManagerService;->blankAllDisplaysFromPowerManager()V
 
-    .line 2716
+    .line 2719
     const/4 v0, 0x0
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeSetInteractive(Z)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeSetInteractive(Z)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2800(Z)V
 
-    .line 2717
+    .line 2720
     const/4 v0, 0x1
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeSetAutoSuspend(Z)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeSetAutoSuspend(Z)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2900(Z)V
 
-    .line 2718
+    .line 2721
     monitor-exit p0
 
-    .line 2719
+    .line 2722
     return-void
 
-    .line 2718
+    .line 2721
     :catchall_0
     move-exception v0
 
@@ -107,10 +106,10 @@
     .locals 2
 
     .prologue
-    .line 2733
+    .line 2736
     monitor-enter p0
 
-    .line 2734
+    .line 2737
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -136,7 +135,7 @@
 
     return-object v0
 
-    .line 2735
+    .line 2738
     :catchall_0
     move-exception v0
 
@@ -151,44 +150,44 @@
     .locals 1
 
     .prologue
-    .line 2723
+    .line 2726
     monitor-enter p0
 
-    .line 2724
+    .line 2727
     const/4 v0, 0x0
 
     :try_start_0
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeSetAutoSuspend(Z)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeSetAutoSuspend(Z)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2900(Z)V
 
-    .line 2725
+    .line 2728
     const/4 v0, 0x1
 
-    #calls: Lcom/android/server/power/PowerManagerService;->nativeSetInteractive(Z)V
+    # invokes: Lcom/android/server/power/PowerManagerService;->nativeSetInteractive(Z)V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2800(Z)V
 
-    .line 2726
+    .line 2729
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    #getter for: Lcom/android/server/power/PowerManagerService;->mDisplayManagerService:Lcom/android/server/display/DisplayManagerService;
+    # getter for: Lcom/android/server/power/PowerManagerService;->mDisplayManagerService:Lcom/android/server/display/DisplayManagerService;
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$2700(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/display/DisplayManagerService;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/server/display/DisplayManagerService;->unblankAllDisplaysFromPowerManager()V
 
-    .line 2727
+    .line 2730
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;->mBlanked:Z
 
-    .line 2728
+    .line 2731
     monitor-exit p0
 
-    .line 2729
+    .line 2732
     return-void
 
-    .line 2728
+    .line 2731
     :catchall_0
     move-exception v0
 

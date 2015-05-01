@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 152
@@ -37,7 +36,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 155
@@ -50,7 +49,7 @@
     .line 156
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
-    #calls: Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->revertToNitzTimeZone()V
+    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->revertToNitzTimeZone()V
     invoke-static {v0}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->access$100(Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;)V
 
     .line 157

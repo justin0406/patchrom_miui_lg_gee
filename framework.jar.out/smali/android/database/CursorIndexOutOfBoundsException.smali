@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 2
-    .parameter "index"
-    .parameter "size"
+    .param p1, "index"    # I
+    .param p2, "size"    # I
 
     .prologue
     .line 25
@@ -47,7 +47,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 29

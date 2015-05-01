@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 565
+    .line 573
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -29,24 +29,24 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 3
-    .parameter "ctx"
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 567
+    .line 575
     const-string v2, "appops"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 568
-    .local v0, b:Landroid/os/IBinder;
+    .line 576
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
 
     move-result-object v1
 
-    .line 569
-    .local v1, service:Lcom/android/internal/app/IAppOpsService;
+    .line 577
+    .local v1, "service":Lcom/android/internal/app/IAppOpsService;
     new-instance v2, Landroid/app/AppOpsManager;
 
     invoke-direct {v2, p1, v1}, Landroid/app/AppOpsManager;-><init>(Landroid/content/Context;Lcom/android/internal/app/IAppOpsService;)V

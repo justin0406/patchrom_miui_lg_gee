@@ -117,23 +117,23 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 109
-    .local v2, providerClass:Ljava/lang/Class;,"Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
+    .local v2, "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :goto_0
     return-object v3
 
     .line 85
-    .end local v2           #providerClass:Ljava/lang/Class;,"Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
+    .end local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :cond_0
     :try_start_1
     invoke-static {}, Landroid/webkit/WebViewFactory;->getFactoryClass()Ljava/lang/Class;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v2
 
     .line 92
-    .restart local v2       #providerClass:Ljava/lang/Class;,"Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
+    .restart local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :try_start_2
     sget-object v3, Landroid/webkit/WebViewFactory$Preloader;->sPreloadedProvider:Landroid/webkit/WebViewFactoryProvider;
 
@@ -170,12 +170,12 @@
     throw v3
 
     .line 86
-    .end local v2           #providerClass:Ljava/lang/Class;,"Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
+    .end local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :catch_0
     move-exception v0
 
     .line 87
-    .local v0, e:Ljava/lang/ClassNotFoundException;
+    .local v0, "e":Ljava/lang/ClassNotFoundException;
     :try_start_3
     const-string v3, "WebViewFactory"
 
@@ -191,8 +191,8 @@
     throw v3
 
     .line 100
-    .end local v0           #e:Ljava/lang/ClassNotFoundException;
-    .restart local v2       #providerClass:Ljava/lang/Class;,"Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
+    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
+    .restart local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :cond_1
     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
     :try_end_3
@@ -201,7 +201,7 @@
     move-result-object v1
 
     .line 102
-    .local v1, oldPolicy:Landroid/os/StrictMode$ThreadPolicy;
+    .local v1, "oldPolicy":Landroid/os/StrictMode$ThreadPolicy;
     :try_start_4
     invoke-virtual {v2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
@@ -214,8 +214,8 @@
     .line 104
     sget-object v3, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 109
     :try_start_5
@@ -232,7 +232,7 @@
     move-exception v0
 
     .line 106
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_6
     const-string v3, "WebViewFactory"
 
@@ -250,7 +250,7 @@
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     .line 109
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_1
     move-exception v3
 
@@ -284,7 +284,7 @@
 
 .method public static setUseExperimentalWebView(Z)V
     .locals 0
-    .parameter "enable"
+    .param p0, "enable"    # Z
 
     .prologue
     .line 63

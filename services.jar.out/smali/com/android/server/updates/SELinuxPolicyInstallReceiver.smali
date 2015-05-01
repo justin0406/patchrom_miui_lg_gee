@@ -66,7 +66,7 @@
     invoke-direct {v0, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 111
-    .local v0, contexts:Ljava/io/File;
+    .local v0, "contexts":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     iget-object v4, p0, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->updateDir:Ljava/io/File;
@@ -80,7 +80,7 @@
     invoke-direct {v1, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 112
-    .local v1, current:Ljava/io/File;
+    .local v1, "current":Ljava/io/File;
     new-instance v3, Ljava/io/File;
 
     iget-object v4, p0, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->updateDir:Ljava/io/File;
@@ -94,7 +94,7 @@
     invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 113
-    .local v3, update:Ljava/io/File;
+    .local v3, "update":Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
     iget-object v4, p0, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->updateDir:Ljava/io/File;
@@ -108,7 +108,7 @@
     invoke-direct {v2, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 114
-    .local v2, tmp:Ljava/io/File;
+    .local v2, "tmp":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v4
@@ -210,7 +210,7 @@
 
 .method private backupContexts(Ljava/io/File;)V
     .locals 3
-    .parameter "contexts"
+    .param p1, "contexts"    # Ljava/io/File;
 
     .prologue
     .line 51
@@ -279,7 +279,7 @@
 
 .method private copyUpdate(Ljava/io/File;)V
     .locals 3
-    .parameter "contexts"
+    .param p1, "contexts"    # Ljava/io/File;
 
     .prologue
     .line 65
@@ -356,9 +356,9 @@
 
 .method private installFile(Ljava/io/File;Ljava/io/BufferedInputStream;I)V
     .locals 3
-    .parameter "destination"
-    .parameter "stream"
-    .parameter "length"
+    .param p1, "destination"    # Ljava/io/File;
+    .param p2, "stream"    # Ljava/io/BufferedInputStream;
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -372,7 +372,7 @@
     new-array v0, p3, [B
 
     .line 91
-    .local v0, chunk:[B
+    .local v0, "chunk":[B
     invoke-virtual {p2, v0, v2, p3}, Ljava/io/BufferedInputStream;->read([BII)I
 
     .line 92
@@ -390,7 +390,7 @@
 
 .method private readChunkLengths(Ljava/io/BufferedInputStream;)[I
     .locals 3
-    .parameter "bundle"
+    .param p1, "bundle"    # Ljava/io/BufferedInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -404,7 +404,7 @@
     new-array v0, v1, [I
 
     .line 81
-    .local v0, chunks:[I
+    .local v0, "chunks":[I
     const/4 v1, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->readInt(Ljava/io/BufferedInputStream;)I
@@ -446,7 +446,7 @@
 
 .method private readInt(Ljava/io/BufferedInputStream;)I
     .locals 4
-    .parameter "reader"
+    .param p1, "reader"    # Ljava/io/BufferedInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -458,10 +458,10 @@
     const/4 v1, 0x0
 
     .line 73
-    .local v1, value:I
+    .local v1, "value":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/4 v2, 0x4
 
@@ -488,7 +488,7 @@
 
 .method private setEnforcingMode(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 129
@@ -503,7 +503,7 @@
     move-result-object v0
 
     .line 131
-    .local v0, mode:Ljava/lang/String;
+    .local v0, "mode":Ljava/lang/String;
     const-string v1, "1"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -595,14 +595,14 @@
     invoke-direct {v1, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 98
-    .local v1, stream:Ljava/io/BufferedInputStream;
+    .local v1, "stream":Ljava/io/BufferedInputStream;
     :try_start_0
     invoke-direct {p0, v1}, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->readChunkLengths(Ljava/io/BufferedInputStream;)[I
 
     move-result-object v0
 
     .line 99
-    .local v0, chunkLengths:[I
+    .local v0, "chunkLengths":[I
     new-instance v2, Ljava/io/File;
 
     iget-object v3, p0, Lcom/android/server/updates/SELinuxPolicyInstallReceiver;->updateDir:Ljava/io/File;
@@ -671,7 +671,7 @@
     return-void
 
     .line 104
-    .end local v0           #chunkLengths:[I
+    .end local v0    # "chunkLengths":[I
     :catchall_0
     move-exception v2
 
@@ -684,8 +684,8 @@
 # virtual methods
 .method protected postInstall(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 144
@@ -711,7 +711,7 @@
     move-exception v0
 
     .line 148
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const-string v1, "SELinuxPolicyInstallReceiver"
 
     const-string v2, "SELinux policy update malformed: "
@@ -721,12 +721,12 @@
     goto :goto_0
 
     .line 149
-    .end local v0           #e:Ljava/lang/IllegalArgumentException;
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catch_1
     move-exception v0
 
     .line 150
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "SELinuxPolicyInstallReceiver"
 
     const-string v2, "Could not update selinux policy: "
@@ -736,12 +736,12 @@
     goto :goto_0
 
     .line 151
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catch_2
     move-exception v0
 
     .line 152
-    .local v0, e:Llibcore/io/ErrnoException;
+    .local v0, "e":Llibcore/io/ErrnoException;
     const-string v1, "SELinuxPolicyInstallReceiver"
 
     const-string v2, "Could not update selinux policy: "

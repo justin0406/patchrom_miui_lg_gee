@@ -47,10 +47,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "leftMils"
-    .parameter "topMils"
-    .parameter "rightMils"
-    .parameter "bottomMils"
+    .param p1, "leftMils"    # I
+    .param p2, "topMils"    # I
+    .param p3, "rightMils"    # I
+    .param p4, "bottomMils"    # I
 
     .prologue
     .line 1055
@@ -74,7 +74,7 @@
 
 .method static createFromParcel(Landroid/os/Parcel;)Landroid/print/PrintAttributes$Margins;
     .locals 5
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 1106
@@ -105,7 +105,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -153,7 +153,7 @@
     check-cast v0, Landroid/print/PrintAttributes$Margins;
 
     .line 1136
-    .local v0, other:Landroid/print/PrintAttributes$Margins;
+    .local v0, "other":Landroid/print/PrintAttributes$Margins;
     iget v3, p0, Landroid/print/PrintAttributes$Margins;->mBottomMils:I
 
     iget v4, v0, Landroid/print/PrintAttributes$Margins;->mBottomMils:I
@@ -253,11 +253,11 @@
     const/16 v0, 0x1f
 
     .line 1116
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 1117
-    .local v1, result:I
+    .local v1, "result":I
     iget v2, p0, Landroid/print/PrintAttributes$Margins;->mBottomMils:I
 
     add-int/lit8 v1, v2, 0x1f
@@ -297,7 +297,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1154
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "Margins{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -361,7 +361,7 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 1099

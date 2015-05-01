@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 43
@@ -91,7 +91,7 @@
     move-result-object v0
 
     .line 141
-    .local v0, freqs:[I
+    .local v0, "freqs":[I
     array-length v4, v0
 
     rem-int/lit8 v4, v4, 0x2
@@ -119,10 +119,10 @@
     new-array v2, v4, [Landroid/hardware/ConsumerIrManager$CarrierFrequencyRange;
 
     .line 147
-    .local v2, range:[Landroid/hardware/ConsumerIrManager$CarrierFrequencyRange;
+    .local v2, "range":[Landroid/hardware/ConsumerIrManager$CarrierFrequencyRange;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     array-length v4, v0
 
@@ -151,9 +151,9 @@
     goto :goto_1
 
     .line 151
-    .end local v0           #freqs:[I
-    .end local v1           #i:I
-    .end local v2           #range:[Landroid/hardware/ConsumerIrManager$CarrierFrequencyRange;
+    .end local v0    # "freqs":[I
+    .end local v1    # "i":I
+    .end local v2    # "range":[Landroid/hardware/ConsumerIrManager$CarrierFrequencyRange;
     :catch_0
     move-exception v4
 
@@ -207,8 +207,8 @@
 
 .method public transmit(I[I)V
     .locals 3
-    .parameter "carrierFrequency"
-    .parameter "pattern"
+    .param p1, "carrierFrequency"    # I
+    .param p2, "pattern"    # [I
 
     .prologue
     .line 79
@@ -245,7 +245,7 @@
     move-exception v0
 
     .line 87
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "ConsumerIr"
 
     const-string v2, "failed to transmit."

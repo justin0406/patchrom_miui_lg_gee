@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/TwilightService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 527
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 530
@@ -66,7 +65,7 @@
     .line 533
     iget-object v0, p0, Lcom/android/server/TwilightService$1;->this$0:Lcom/android/server/TwilightService;
 
-    #getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
+    # getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
     invoke-static {v0}, Lcom/android/server/TwilightService;->access$800(Lcom/android/server/TwilightService;)Lcom/android/server/TwilightService$LocationHandler;
 
     move-result-object v0
@@ -81,7 +80,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/TwilightService$1;->this$0:Lcom/android/server/TwilightService;
 
-    #getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
+    # getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
     invoke-static {v0}, Lcom/android/server/TwilightService;->access$800(Lcom/android/server/TwilightService;)Lcom/android/server/TwilightService$LocationHandler;
 
     move-result-object v0

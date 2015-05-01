@@ -127,6 +127,8 @@
     <dimen name="subtitle_outline_width">2.0dip</dimen>
     <dimen name="immersive_mode_cling_width">-1.0px</dimen>
     <dimen name="webviewchromium_link_preview_overlay_radius">7.0dip</dimen>
+    <dimen name="webviewchromium_color_button_height">60.0dip</dimen>
     <dimen name="webviewchromium_color_picker_gradient_margin">14.5dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_007f">false</item>
+    <dimen name="webviewchromium_autofill_text_height">44.0dip</dimen>
+    <dimen name="webviewchromium_autofill_text_divider_height">1.0px</dimen>
 </resources>

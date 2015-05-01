@@ -56,7 +56,7 @@
 
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "binder"
+    .param p1, "binder"    # Landroid/os/IBinder;
 
     .prologue
     .line 66
@@ -76,7 +76,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 70
@@ -100,8 +100,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/hardware/camera2/utils/BinderHolder$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/hardware/camera2/utils/BinderHolder$1;
 
     .prologue
     .line 26
@@ -134,7 +134,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 40
@@ -150,7 +150,7 @@
 
 .method public setBinder(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "binder"
+    .param p1, "binder"    # Landroid/os/IBinder;
 
     .prologue
     .line 61
@@ -162,8 +162,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 36

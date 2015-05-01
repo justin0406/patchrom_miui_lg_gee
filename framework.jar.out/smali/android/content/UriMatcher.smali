@@ -10,7 +10,7 @@
 
 .field private static final NUMBER:I = 0x1
 
-.field static final PATH_SPLIT_PATTERN:Ljava/util/regex/Pattern; = null
+.field static final PATH_SPLIT_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final TEXT:I = 0x2
 
@@ -84,7 +84,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "code"
+    .param p1, "code"    # I
 
     .prologue
     .line 131
@@ -118,9 +118,9 @@
 # virtual methods
 .method public addURI(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 14
-    .parameter "authority"
-    .parameter "path"
-    .parameter "code"
+    .param p1, "authority"    # Ljava/lang/String;
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "code"    # I
 
     .prologue
     .line 163
@@ -164,14 +164,14 @@
     const/4 v10, 0x0
 
     .line 168
-    .local v10, tokens:[Ljava/lang/String;
+    .local v10, "tokens":[Ljava/lang/String;
     if-eqz p2, :cond_2
 
     .line 169
     move-object/from16 v5, p2
 
     .line 171
-    .local v5, newPath:Ljava/lang/String;
+    .local v5, "newPath":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
     move-result v11
@@ -208,22 +208,22 @@
     move-result-object v10
 
     .line 177
-    .end local v5           #newPath:Ljava/lang/String;
+    .end local v5    # "newPath":Ljava/lang/String;
     :cond_2
     if-eqz v10, :cond_5
 
     array-length v8, v10
 
     .line 178
-    .local v8, numTokens:I
+    .local v8, "numTokens":I
     :goto_0
     move-object v6, p0
 
     .line 179
-    .local v6, node:Landroid/content/UriMatcher;
+    .local v6, "node":Landroid/content/UriMatcher;
     const/4 v3, -0x1
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, v8, :cond_a
 
@@ -233,21 +233,21 @@
     move-object v9, p1
 
     .line 181
-    .local v9, token:Ljava/lang/String;
+    .local v9, "token":Ljava/lang/String;
     :goto_2
     iget-object v2, v6, Landroid/content/UriMatcher;->mChildren:Ljava/util/ArrayList;
 
     .line 182
-    .local v2, children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .local v2, "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
     .line 185
-    .local v7, numChildren:I
+    .local v7, "numChildren":I
     const/4 v4, 0x0
 
-    .local v4, j:I
+    .local v4, "j":I
     :goto_3
     if-ge v4, v7, :cond_3
 
@@ -259,7 +259,7 @@
     check-cast v1, Landroid/content/UriMatcher;
 
     .line 187
-    .local v1, child:Landroid/content/UriMatcher;
+    .local v1, "child":Landroid/content/UriMatcher;
     iget-object v11, v1, Landroid/content/UriMatcher;->mText:Ljava/lang/String;
 
     invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -272,7 +272,7 @@
     move-object v6, v1
 
     .line 192
-    .end local v1           #child:Landroid/content/UriMatcher;
+    .end local v1    # "child":Landroid/content/UriMatcher;
     :cond_3
     if-ne v4, v7, :cond_4
 
@@ -282,7 +282,7 @@
     invoke-direct {v1}, Landroid/content/UriMatcher;-><init>()V
 
     .line 195
-    .restart local v1       #child:Landroid/content/UriMatcher;
+    .restart local v1    # "child":Landroid/content/UriMatcher;
     const-string v11, "#"
 
     invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -309,40 +309,40 @@
     move-object v6, v1
 
     .line 179
-    .end local v1           #child:Landroid/content/UriMatcher;
+    .end local v1    # "child":Landroid/content/UriMatcher;
     :cond_4
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     .line 177
-    .end local v2           #children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
-    .end local v3           #i:I
-    .end local v4           #j:I
-    .end local v6           #node:Landroid/content/UriMatcher;
-    .end local v7           #numChildren:I
-    .end local v8           #numTokens:I
-    .end local v9           #token:Ljava/lang/String;
+    .end local v2    # "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .end local v3    # "i":I
+    .end local v4    # "j":I
+    .end local v6    # "node":Landroid/content/UriMatcher;
+    .end local v7    # "numChildren":I
+    .end local v8    # "numTokens":I
+    .end local v9    # "token":Ljava/lang/String;
     :cond_5
     const/4 v8, 0x0
 
     goto :goto_0
 
     .line 180
-    .restart local v3       #i:I
-    .restart local v6       #node:Landroid/content/UriMatcher;
-    .restart local v8       #numTokens:I
+    .restart local v3    # "i":I
+    .restart local v6    # "node":Landroid/content/UriMatcher;
+    .restart local v8    # "numTokens":I
     :cond_6
     aget-object v9, v10, v3
 
     goto :goto_2
 
     .line 185
-    .restart local v1       #child:Landroid/content/UriMatcher;
-    .restart local v2       #children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
-    .restart local v4       #j:I
-    .restart local v7       #numChildren:I
-    .restart local v9       #token:Ljava/lang/String;
+    .restart local v1    # "child":Landroid/content/UriMatcher;
+    .restart local v2    # "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .restart local v4    # "j":I
+    .restart local v7    # "numChildren":I
+    .restart local v9    # "token":Ljava/lang/String;
     :cond_7
     add-int/lit8 v4, v4, 0x1
 
@@ -374,11 +374,11 @@
     goto :goto_4
 
     .line 207
-    .end local v1           #child:Landroid/content/UriMatcher;
-    .end local v2           #children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
-    .end local v4           #j:I
-    .end local v7           #numChildren:I
-    .end local v9           #token:Ljava/lang/String;
+    .end local v1    # "child":Landroid/content/UriMatcher;
+    .end local v2    # "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .end local v4    # "j":I
+    .end local v7    # "numChildren":I
+    .end local v9    # "token":Ljava/lang/String;
     :cond_a
     move/from16 v0, p3
 
@@ -390,7 +390,7 @@
 
 .method public match(Landroid/net/Uri;)I
     .locals 13
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 222
@@ -399,17 +399,17 @@
     move-result-object v10
 
     .line 223
-    .local v10, pathSegments:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v10, "pathSegments":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v4
 
     .line 225
-    .local v4, li:I
+    .local v4, "li":I
     move-object v9, p0
 
     .line 227
-    .local v9, node:Landroid/content/UriMatcher;
+    .local v9, "node":Landroid/content/UriMatcher;
     if-nez v4, :cond_0
 
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
@@ -429,7 +429,7 @@
     :cond_0
     const/4 v1, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v4, :cond_1
 
@@ -441,17 +441,17 @@
     move-result-object v11
 
     .line 233
-    .local v11, u:Ljava/lang/String;
+    .local v11, "u":Ljava/lang/String;
     :goto_2
     iget-object v5, v9, Landroid/content/UriMatcher;->mChildren:Ljava/util/ArrayList;
 
     .line 234
-    .local v5, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .local v5, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
     if-nez v5, :cond_3
 
     .line 271
-    .end local v5           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
-    .end local v11           #u:Ljava/lang/String;
+    .end local v5    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .end local v11    # "u":Ljava/lang/String;
     :cond_1
     iget v12, v9, Landroid/content/UriMatcher;->mCode:I
 
@@ -470,8 +470,8 @@
     goto :goto_2
 
     .line 237
-    .restart local v5       #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
-    .restart local v11       #u:Ljava/lang/String;
+    .restart local v5    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/UriMatcher;>;"
+    .restart local v11    # "u":Ljava/lang/String;
     :cond_3
     const/4 v9, 0x0
 
@@ -481,10 +481,10 @@
     move-result v6
 
     .line 239
-    .local v6, lj:I
+    .local v6, "lj":I
     const/4 v2, 0x0
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_3
     if-ge v2, v6, :cond_5
 
@@ -496,7 +496,7 @@
     check-cast v8, Landroid/content/UriMatcher;
 
     .line 242
-    .local v8, n:Landroid/content/UriMatcher;
+    .local v8, "n":Landroid/content/UriMatcher;
     iget v12, v8, Landroid/content/UriMatcher;->mWhich:I
 
     packed-switch v12, :pswitch_data_0
@@ -507,7 +507,7 @@
     if-eqz v9, :cond_7
 
     .line 266
-    .end local v8           #n:Landroid/content/UriMatcher;
+    .end local v8    # "n":Landroid/content/UriMatcher;
     :cond_5
     if-nez v9, :cond_8
 
@@ -517,7 +517,7 @@
     goto :goto_0
 
     .line 244
-    .restart local v8       #n:Landroid/content/UriMatcher;
+    .restart local v8    # "n":Landroid/content/UriMatcher;
     :pswitch_0
     iget-object v12, v8, Landroid/content/UriMatcher;->mText:Ljava/lang/String;
 
@@ -539,10 +539,10 @@
     move-result v7
 
     .line 250
-    .local v7, lk:I
+    .local v7, "lk":I
     const/4 v3, 0x0
 
-    .local v3, k:I
+    .local v3, "k":I
     :goto_5
     if-ge v3, v7, :cond_6
 
@@ -552,7 +552,7 @@
     move-result v0
 
     .line 252
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v12, 0x30
 
     if-lt v0, v12, :cond_4
@@ -567,7 +567,7 @@
     goto :goto_5
 
     .line 256
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_6
     move-object v9, v8
 
@@ -575,8 +575,8 @@
     goto :goto_4
 
     .line 259
-    .end local v3           #k:I
-    .end local v7           #lk:I
+    .end local v3    # "k":I
+    .end local v7    # "lk":I
     :pswitch_2
     move-object v9, v8
 
@@ -589,7 +589,7 @@
     goto :goto_3
 
     .line 231
-    .end local v8           #n:Landroid/content/UriMatcher;
+    .end local v8    # "n":Landroid/content/UriMatcher;
     :cond_8
     add-int/lit8 v1, v1, 0x1
 

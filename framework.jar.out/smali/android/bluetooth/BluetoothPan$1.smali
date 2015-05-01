@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothPan;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 185
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onBluetoothStateChange(Z)V
     .locals 4
-    .parameter "on"
+    .param p1, "on"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +66,7 @@
     :cond_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
-    #getter for: Landroid/bluetooth/BluetoothPan;->mConnection:Landroid/content/ServiceConnection;
+    # getter for: Landroid/bluetooth/BluetoothPan;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v1}, Landroid/bluetooth/BluetoothPan;->access$000(Landroid/bluetooth/BluetoothPan;)Landroid/content/ServiceConnection;
 
     move-result-object v2
@@ -80,28 +79,28 @@
 
     const/4 v3, 0x0
 
-    #setter for: Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
+    # setter for: Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
     invoke-static {v1, v3}, Landroid/bluetooth/BluetoothPan;->access$102(Landroid/bluetooth/BluetoothPan;Landroid/bluetooth/IBluetoothPan;)Landroid/bluetooth/IBluetoothPan;
 
     .line 199
     iget-object v1, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
-    #getter for: Landroid/bluetooth/BluetoothPan;->mContext:Landroid/content/Context;
+    # getter for: Landroid/bluetooth/BluetoothPan;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/bluetooth/BluetoothPan;->access$200(Landroid/bluetooth/BluetoothPan;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
-    #getter for: Landroid/bluetooth/BluetoothPan;->mConnection:Landroid/content/ServiceConnection;
+    # getter for: Landroid/bluetooth/BluetoothPan;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v3}, Landroid/bluetooth/BluetoothPan;->access$000(Landroid/bluetooth/BluetoothPan;)Landroid/content/ServiceConnection;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 203
     :goto_1
@@ -124,7 +123,7 @@
     move-exception v0
 
     .line 201
-    .local v0, re:Ljava/lang/Exception;
+    .local v0, "re":Ljava/lang/Exception;
     :try_start_2
     const-string v1, "BluetoothPan"
 

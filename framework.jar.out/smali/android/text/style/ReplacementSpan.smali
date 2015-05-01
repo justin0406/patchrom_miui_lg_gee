@@ -24,7 +24,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 0
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 42
@@ -33,7 +33,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 0
-    .parameter "p"
+    .param p1, "p"    # Landroid/text/TextPaint;
 
     .prologue
     .line 36

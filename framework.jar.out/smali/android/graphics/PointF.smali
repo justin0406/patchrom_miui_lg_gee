@@ -52,8 +52,8 @@
 
 .method public constructor <init>(FF)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 33
@@ -71,7 +71,7 @@
 
 .method public constructor <init>(Landroid/graphics/Point;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/graphics/Point;
 
     .prologue
     .line 38
@@ -97,8 +97,8 @@
 
 .method public static length(FF)F
     .locals 2
-    .parameter "x"
-    .parameter "y"
+    .param p0, "x"    # F
+    .param p1, "y"    # F
 
     .prologue
     .line 112
@@ -129,8 +129,8 @@
 
 .method public final equals(FF)Z
     .locals 1
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 73
@@ -159,7 +159,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -200,7 +200,7 @@
     check-cast v0, Landroid/graphics/PointF;
 
     .line 83
-    .local v0, pointF:Landroid/graphics/PointF;
+    .local v0, "pointF":Landroid/graphics/PointF;
     iget v3, v0, Landroid/graphics/PointF;->x:F
 
     iget v4, p0, Landroid/graphics/PointF;->x:F
@@ -254,7 +254,7 @@
     move-result v0
 
     .line 92
-    .local v0, result:I
+    .local v0, "result":I
     :goto_0
     mul-int/lit8 v2, v0, 0x1f
 
@@ -276,7 +276,7 @@
     .line 93
     return v0
 
-    .end local v0           #result:I
+    .end local v0    # "result":I
     :cond_1
     move v0, v1
 
@@ -324,8 +324,8 @@
 
 .method public final offset(FF)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 65
@@ -348,7 +348,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 159
@@ -371,8 +371,8 @@
 
 .method public final set(FF)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 47
@@ -387,7 +387,7 @@
 
 .method public final set(Landroid/graphics/PointF;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/graphics/PointF;
 
     .prologue
     .line 55
@@ -452,8 +452,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 130

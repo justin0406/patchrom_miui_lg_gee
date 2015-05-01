@@ -68,7 +68,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IPhoneStateListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 23
@@ -90,7 +90,7 @@
     move-result-object v0
 
     .line 27
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/telephony/IPhoneStateListener;
@@ -106,7 +106,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -124,10 +124,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -181,22 +181,22 @@
     check-cast v0, Landroid/telephony/ServiceState;
 
     .line 55
-    .local v0, _arg0:Landroid/telephony/ServiceState;
+    .local v0, "_arg0":Landroid/telephony/ServiceState;
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onServiceStateChanged(Landroid/telephony/ServiceState;)V
 
     goto :goto_0
 
     .line 53
-    .end local v0           #_arg0:Landroid/telephony/ServiceState;
+    .end local v0    # "_arg0":Landroid/telephony/ServiceState;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/telephony/ServiceState;
+    .restart local v0    # "_arg0":Landroid/telephony/ServiceState;
     goto :goto_1
 
     .line 60
-    .end local v0           #_arg0:Landroid/telephony/ServiceState;
+    .end local v0    # "_arg0":Landroid/telephony/ServiceState;
     :sswitch_2
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -208,13 +208,13 @@
     move-result v0
 
     .line 63
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onSignalStrengthChanged(I)V
 
     goto :goto_0
 
     .line 68
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_3
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -230,14 +230,14 @@
     move v0, v3
 
     .line 71
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :cond_1
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onMessageWaitingIndicatorChanged(Z)V
 
     goto :goto_0
 
     .line 76
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :sswitch_4
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -253,14 +253,14 @@
     move v0, v3
 
     .line 79
-    .restart local v0       #_arg0:Z
+    .restart local v0    # "_arg0":Z
     :cond_2
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onCallForwardingIndicatorChanged(Z)V
 
     goto :goto_0
 
     .line 84
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :sswitch_5
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -283,22 +283,22 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 92
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onCellLocationChanged(Landroid/os/Bundle;)V
 
     goto :goto_0
 
     .line 90
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :cond_3
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_2
 
     .line 97
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_6
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -310,20 +310,20 @@
     move-result v0
 
     .line 101
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 102
-    .local v2, _arg1:Ljava/lang/String;
+    .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onCallStateChanged(ILjava/lang/String;)V
 
     goto :goto_0
 
     .line 107
-    .end local v0           #_arg0:I
-    .end local v2           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":I
+    .end local v2    # "_arg1":Ljava/lang/String;
     :sswitch_7
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -335,20 +335,20 @@
     move-result v0
 
     .line 111
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 112
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onDataConnectionStateChanged(II)V
 
     goto/16 :goto_0
 
     .line 117
-    .end local v0           #_arg0:I
-    .end local v2           #_arg1:I
+    .end local v0    # "_arg0":I
+    .end local v2    # "_arg1":I
     :sswitch_8
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -360,13 +360,13 @@
     move-result v0
 
     .line 120
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onDataActivity(I)V
 
     goto/16 :goto_0
 
     .line 125
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_9
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -389,22 +389,22 @@
     check-cast v0, Landroid/telephony/SignalStrength;
 
     .line 133
-    .local v0, _arg0:Landroid/telephony/SignalStrength;
+    .local v0, "_arg0":Landroid/telephony/SignalStrength;
     :goto_3
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
 
     goto/16 :goto_0
 
     .line 131
-    .end local v0           #_arg0:Landroid/telephony/SignalStrength;
+    .end local v0    # "_arg0":Landroid/telephony/SignalStrength;
     :cond_4
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/telephony/SignalStrength;
+    .restart local v0    # "_arg0":Landroid/telephony/SignalStrength;
     goto :goto_3
 
     .line 138
-    .end local v0           #_arg0:Landroid/telephony/SignalStrength;
+    .end local v0    # "_arg0":Landroid/telephony/SignalStrength;
     :sswitch_a
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -416,13 +416,13 @@
     move-result v0
 
     .line 141
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onOtaspChanged(I)V
 
     goto/16 :goto_0
 
     .line 146
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_b
     const-string v4, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -436,7 +436,7 @@
     move-result-object v1
 
     .line 149
-    .local v1, _arg0:Ljava/util/List;,"Ljava/util/List<Landroid/telephony/CellInfo;>;"
+    .local v1, "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/CellInfo;>;"
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onCellInfoChanged(Ljava/util/List;)V
 
     goto/16 :goto_0

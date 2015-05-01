@@ -67,7 +67,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 1135
@@ -81,8 +81,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 1139
@@ -98,9 +98,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 1143
@@ -169,7 +169,7 @@
 
     mul-float/2addr v0, v1
 
-    const v1, 0x3d5a511a
+    const v1, 0x3d5a511a    # 0.0533f
 
     mul-float/2addr v0, v1
 
@@ -181,7 +181,7 @@
 
 .method static synthetic access$100(Landroid/media/WebVttRenderingWidget;)Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttRenderingWidget;
 
     .prologue
     .line 1103
@@ -192,9 +192,9 @@
 
 .method static synthetic access$200(Landroid/media/WebVttRenderingWidget;Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/WebVttRenderingWidget;
+    .param p1, "x1"    # Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .param p2, "x2"    # F
 
     .prologue
     .line 1103
@@ -205,7 +205,7 @@
 
 .method static synthetic access$300(Landroid/media/WebVttRenderingWidget;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttRenderingWidget;
 
     .prologue
     .line 1103
@@ -216,8 +216,8 @@
 
 .method static synthetic access$400(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 1103
@@ -230,7 +230,7 @@
 
 .method private calculateLinePosition(Landroid/media/WebVttRenderingWidget$CueLayout;)I
     .locals 6
-    .parameter "cueBox"
+    .param p1, "cueBox"    # Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .prologue
     const/16 v4, 0x64
@@ -241,21 +241,21 @@
     move-result-object v1
 
     .line 1453
-    .local v1, cue:Landroid/media/TextTrackCue;
+    .local v1, "cue":Landroid/media/TextTrackCue;
     iget-object v2, v1, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
 
     .line 1454
-    .local v2, linePosition:Ljava/lang/Integer;
+    .local v2, "linePosition":Ljava/lang/Integer;
     iget-boolean v3, v1, Landroid/media/TextTrackCue;->mSnapToLines:Z
 
     .line 1455
-    .local v3, snapToLines:Z
+    .local v3, "snapToLines":Z
     if-nez v2, :cond_1
 
     const/4 v0, 0x1
 
     .line 1457
-    .local v0, autoPosition:Z
+    .local v0, "autoPosition":Z
     :goto_0
     if-nez v3, :cond_2
 
@@ -279,14 +279,14 @@
     return v4
 
     .line 1455
-    .end local v0           #autoPosition:Z
+    .end local v0    # "autoPosition":Z
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 1460
-    .restart local v0       #autoPosition:Z
+    .restart local v0    # "autoPosition":Z
     :cond_2
     if-nez v0, :cond_3
 
@@ -302,7 +302,7 @@
     if-eqz v3, :cond_0
 
     .line 1468
-    #getter for: Landroid/media/WebVttRenderingWidget$CueLayout;->mOrder:I
+    # getter for: Landroid/media/WebVttRenderingWidget$CueLayout;->mOrder:I
     invoke-static {p1}, Landroid/media/WebVttRenderingWidget$CueLayout;->access$000(Landroid/media/WebVttRenderingWidget$CueLayout;)I
 
     move-result v4
@@ -316,9 +316,9 @@
 
 .method private layoutCue(IILandroid/media/WebVttRenderingWidget$CueLayout;)V
     .locals 19
-    .parameter "viewportWidth"
-    .parameter "viewportHeight"
-    .parameter "cueBox"
+    .param p1, "viewportWidth"    # I
+    .param p2, "viewportHeight"    # I
+    .param p3, "cueBox"    # Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .prologue
     .line 1380
@@ -327,13 +327,13 @@
     move-result-object v4
 
     .line 1381
-    .local v4, cue:Landroid/media/TextTrackCue;
+    .local v4, "cue":Landroid/media/TextTrackCue;
     invoke-virtual/range {p0 .. p0}, Landroid/media/WebVttRenderingWidget;->getLayoutDirection()I
 
     move-result v6
 
     .line 1382
-    .local v6, direction:I
+    .local v6, "direction":I
     iget v0, v4, Landroid/media/TextTrackCue;->mAlignment:I
 
     move/from16 v17, v0
@@ -345,11 +345,11 @@
     move-result v3
 
     .line 1383
-    .local v3, absAlignment:I
+    .local v3, "absAlignment":I
     iget-boolean v5, v4, Landroid/media/TextTrackCue;->mSnapToLines:Z
 
     .line 1385
-    .local v5, cueSnapToLines:Z
+    .local v5, "cueSnapToLines":Z
     invoke-virtual/range {p3 .. p3}, Landroid/media/WebVttRenderingWidget$CueLayout;->getMeasuredWidth()I
 
     move-result v17
@@ -359,7 +359,7 @@
     div-int v12, v17, p1
 
     .line 1389
-    .local v12, size:I
+    .local v12, "size":I
     packed-switch v3, :pswitch_data_0
 
     .line 1398
@@ -372,7 +372,7 @@
     sub-int v15, v17, v18
 
     .line 1403
-    .local v15, xPosition:I
+    .local v15, "xPosition":I
     :goto_0
     const/16 v17, 0x1
 
@@ -397,7 +397,7 @@
     div-int v9, v17, p1
 
     .line 1412
-    .local v9, paddingLeft:I
+    .local v9, "paddingLeft":I
     invoke-virtual/range {p0 .. p0}, Landroid/media/WebVttRenderingWidget;->getPaddingRight()I
 
     move-result v17
@@ -407,7 +407,7 @@
     div-int v10, v17, p1
 
     .line 1413
-    .local v10, paddingRight:I
+    .local v10, "paddingRight":I
     if-ge v15, v9, :cond_1
 
     add-int v17, v15, v12
@@ -431,7 +431,7 @@
     int-to-float v11, v0
 
     .line 1418
-    .local v11, rightEdge:F
+    .local v11, "rightEdge":F
     int-to-float v0, v15
 
     move/from16 v17, v0
@@ -456,22 +456,22 @@
     sub-int/2addr v12, v10
 
     .line 1424
-    .end local v9           #paddingLeft:I
-    .end local v10           #paddingRight:I
-    .end local v11           #rightEdge:F
+    .end local v9    # "paddingLeft":I
+    .end local v10    # "paddingRight":I
+    .end local v11    # "rightEdge":F
     :cond_2
     mul-int v17, v15, p1
 
     div-int/lit8 v8, v17, 0x64
 
     .line 1425
-    .local v8, left:I
+    .local v8, "left":I
     mul-int v17, v12, p1
 
     div-int/lit8 v14, v17, 0x64
 
     .line 1428
-    .local v14, width:I
+    .local v14, "width":I
     move-object/from16 v0, p0
 
     move-object/from16 v1, p3
@@ -481,13 +481,13 @@
     move-result v16
 
     .line 1431
-    .local v16, yPosition:I
+    .local v16, "yPosition":I
     invoke-virtual/range {p3 .. p3}, Landroid/media/WebVttRenderingWidget$CueLayout;->getMeasuredHeight()I
 
     move-result v7
 
     .line 1433
-    .local v7, height:I
+    .local v7, "height":I
     if-gez v16, :cond_3
 
     .line 1435
@@ -496,7 +496,7 @@
     add-int v13, p2, v17
 
     .line 1441
-    .local v13, top:I
+    .local v13, "top":I
     :goto_1
     add-int v17, v8, v14
 
@@ -514,21 +514,21 @@
     return-void
 
     .line 1391
-    .end local v7           #height:I
-    .end local v8           #left:I
-    .end local v13           #top:I
-    .end local v14           #width:I
-    .end local v15           #xPosition:I
-    .end local v16           #yPosition:I
+    .end local v7    # "height":I
+    .end local v8    # "left":I
+    .end local v13    # "top":I
+    .end local v14    # "width":I
+    .end local v15    # "xPosition":I
+    .end local v16    # "yPosition":I
     :pswitch_0
     iget v15, v4, Landroid/media/TextTrackCue;->mTextPosition:I
 
     .line 1392
-    .restart local v15       #xPosition:I
+    .restart local v15    # "xPosition":I
     goto :goto_0
 
     .line 1394
-    .end local v15           #xPosition:I
+    .end local v15    # "xPosition":I
     :pswitch_1
     iget v0, v4, Landroid/media/TextTrackCue;->mTextPosition:I
 
@@ -537,14 +537,14 @@
     sub-int v15, v17, v12
 
     .line 1395
-    .restart local v15       #xPosition:I
+    .restart local v15    # "xPosition":I
     goto :goto_0
 
     .line 1437
-    .restart local v7       #height:I
-    .restart local v8       #left:I
-    .restart local v14       #width:I
-    .restart local v16       #yPosition:I
+    .restart local v7    # "height":I
+    .restart local v8    # "left":I
+    .restart local v14    # "width":I
+    .restart local v16    # "yPosition":I
     :cond_3
     sub-int v17, p2, v7
 
@@ -552,7 +552,7 @@
 
     div-int/lit8 v13, v17, 0x64
 
-    .restart local v13       #top:I
+    .restart local v13    # "top":I
     goto :goto_1
 
     .line 1389
@@ -565,12 +565,12 @@
 
 .method private layoutRegion(IILandroid/media/WebVttRenderingWidget$RegionLayout;)V
     .locals 9
-    .parameter "viewportWidth"
-    .parameter "viewportHeight"
-    .parameter "regionBox"
+    .param p1, "viewportWidth"    # I
+    .param p2, "viewportHeight"    # I
+    .param p3, "regionBox"    # Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .prologue
-    const/high16 v8, 0x42c8
+    const/high16 v8, 0x42c80000    # 100.0f
 
     .line 1362
     invoke-virtual {p3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->getRegion()Landroid/media/TextTrackRegion;
@@ -578,27 +578,27 @@
     move-result-object v1
 
     .line 1363
-    .local v1, region:Landroid/media/TextTrackRegion;
+    .local v1, "region":Landroid/media/TextTrackRegion;
     invoke-virtual {p3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->getMeasuredHeight()I
 
     move-result v2
 
     .line 1364
-    .local v2, regionHeight:I
+    .local v2, "regionHeight":I
     invoke-virtual {p3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->getMeasuredWidth()I
 
     move-result v3
 
     .line 1367
-    .local v3, regionWidth:I
+    .local v3, "regionWidth":I
     iget v5, v1, Landroid/media/TextTrackRegion;->mViewportAnchorPointX:F
 
     .line 1368
-    .local v5, x:F
+    .local v5, "x":F
     iget v6, v1, Landroid/media/TextTrackRegion;->mViewportAnchorPointY:F
 
     .line 1369
-    .local v6, y:F
+    .local v6, "y":F
     sub-int v7, p1, v3
 
     int-to-float v7, v7
@@ -610,7 +610,7 @@
     float-to-int v0, v7
 
     .line 1370
-    .local v0, left:I
+    .local v0, "left":I
     sub-int v7, p2, v2
 
     int-to-float v7, v7
@@ -622,7 +622,7 @@
     float-to-int v4, v7
 
     .line 1372
-    .local v4, top:I
+    .local v4, "top":I
     add-int v7, v0, v3
 
     add-int v8, v4, v2
@@ -653,7 +653,7 @@
     const/4 v2, 0x1
 
     .line 1197
-    .local v2, needsListener:Z
+    .local v2, "needsListener":Z
     :goto_0
     iget-boolean v3, p0, Landroid/media/WebVttRenderingWidget;->mHasChangeListener:Z
 
@@ -680,7 +680,7 @@
     move-result-object v0
 
     .line 1204
-    .local v0, captionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .local v0, "captionStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     iget-object v3, p0, Landroid/media/WebVttRenderingWidget;->mManager:Landroid/view/accessibility/CaptioningManager;
 
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager;->getFontScale()F
@@ -695,30 +695,30 @@
 
     mul-float/2addr v3, v4
 
-    const v4, 0x3d5a511a
+    const v4, 0x3d5a511a    # 0.0533f
 
     mul-float v1, v3, v4
 
     .line 1205
-    .local v1, fontSize:F
+    .local v1, "fontSize":F
     invoke-direct {p0, v0, v1}, Landroid/media/WebVttRenderingWidget;->setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
     .line 1210
-    .end local v0           #captionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
-    .end local v1           #fontSize:F
+    .end local v0    # "captionStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .end local v1    # "fontSize":F
     :cond_0
     :goto_1
     return-void
 
     .line 1196
-    .end local v2           #needsListener:Z
+    .end local v2    # "needsListener":Z
     :cond_1
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 1207
-    .restart local v2       #needsListener:Z
+    .restart local v2    # "needsListener":Z
     :cond_2
     iget-object v3, p0, Landroid/media/WebVttRenderingWidget;->mManager:Landroid/view/accessibility/CaptioningManager;
 
@@ -741,10 +741,10 @@
     move-result v4
 
     .line 1305
-    .local v4, regionCount:I
+    .local v4, "regionCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v4, :cond_0
 
@@ -758,7 +758,7 @@
     check-cast v3, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1307
-    .local v3, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v3, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-virtual {v3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->prepForPrune()V
 
     .line 1305
@@ -767,7 +767,7 @@
     goto :goto_0
 
     .line 1310
-    .end local v3           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v3    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :cond_0
     iget-object v5, p0, Landroid/media/WebVttRenderingWidget;->mCueBoxes:Landroid/util/ArrayMap;
 
@@ -776,7 +776,7 @@
     move-result v1
 
     .line 1311
-    .local v1, cueCount:I
+    .local v1, "cueCount":I
     const/4 v2, 0x0
 
     :goto_1
@@ -792,7 +792,7 @@
     check-cast v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1313
-    .local v0, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v0, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-virtual {v0}, Landroid/media/WebVttRenderingWidget$CueLayout;->prepForPrune()V
 
     .line 1311
@@ -801,7 +801,7 @@
     goto :goto_1
 
     .line 1315
-    .end local v0           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v0    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     :cond_1
     return-void
 .end method
@@ -818,10 +818,10 @@
     move-result v4
 
     .line 1278
-    .local v4, regionCount:I
+    .local v4, "regionCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v4, :cond_1
 
@@ -835,7 +835,7 @@
     check-cast v3, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1280
-    .local v3, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v3, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-virtual {v3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->prune()Z
 
     move-result v5
@@ -863,7 +863,7 @@
     goto :goto_0
 
     .line 1288
-    .end local v3           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v3    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :cond_1
     iget-object v5, p0, Landroid/media/WebVttRenderingWidget;->mCueBoxes:Landroid/util/ArrayMap;
 
@@ -872,7 +872,7 @@
     move-result v1
 
     .line 1289
-    .local v1, cueCount:I
+    .local v1, "cueCount":I
     const/4 v2, 0x0
 
     :goto_1
@@ -888,7 +888,7 @@
     check-cast v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1291
-    .local v0, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v0, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-virtual {v0}, Landroid/media/WebVttRenderingWidget$CueLayout;->isActive()Z
 
     move-result v5
@@ -916,15 +916,15 @@
     goto :goto_1
 
     .line 1298
-    .end local v0           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v0    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     :cond_3
     return-void
 .end method
 
 .method private static resolveCueAlignment(II)I
     .locals 2
-    .parameter "layoutDirection"
-    .parameter "alignment"
+    .param p0, "layoutDirection"    # I
+    .param p1, "alignment"    # I
 
     .prologue
     const/16 v1, 0xcc
@@ -975,8 +975,8 @@
 
 .method private setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
     .locals 6
-    .parameter "captionStyle"
-    .parameter "fontSize"
+    .param p1, "captionStyle"    # Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .param p2, "fontSize"    # F
 
     .prologue
     .line 1257
@@ -993,10 +993,10 @@
     move-result v1
 
     .line 1261
-    .local v1, cueCount:I
+    .local v1, "cueCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
@@ -1010,7 +1010,7 @@
     check-cast v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1263
-    .local v0, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v0, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-virtual {v0, p1, p2}, Landroid/media/WebVttRenderingWidget$CueLayout;->setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
     .line 1261
@@ -1019,7 +1019,7 @@
     goto :goto_0
 
     .line 1266
-    .end local v0           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v0    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     :cond_0
     iget-object v5, p0, Landroid/media/WebVttRenderingWidget;->mRegionBoxes:Landroid/util/ArrayMap;
 
@@ -1028,7 +1028,7 @@
     move-result v4
 
     .line 1267
-    .local v4, regionCount:I
+    .local v4, "regionCount":I
     const/4 v2, 0x0
 
     :goto_1
@@ -1044,7 +1044,7 @@
     check-cast v3, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1269
-    .local v3, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v3, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-virtual {v3, p1, p2}, Landroid/media/WebVttRenderingWidget$RegionLayout;->setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
     .line 1267
@@ -1053,7 +1053,7 @@
     goto :goto_1
 
     .line 1271
-    .end local v3           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v3    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :cond_1
     return-void
 .end method
@@ -1090,22 +1090,22 @@
 
 .method protected onLayout(ZIIII)V
     .locals 10
-    .parameter "changed"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
     .prologue
     .line 1336
     sub-int v6, p4, p2
 
     .line 1337
-    .local v6, viewportWidth:I
+    .local v6, "viewportWidth":I
     sub-int v5, p5, p3
 
     .line 1339
-    .local v5, viewportHeight:I
+    .local v5, "viewportHeight":I
     iget-object v7, p0, Landroid/media/WebVttRenderingWidget;->mCaptionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     iget-object v8, p0, Landroid/media/WebVttRenderingWidget;->mManager:Landroid/view/accessibility/CaptioningManager;
@@ -1114,7 +1114,7 @@
 
     move-result v8
 
-    const v9, 0x3d5a511a
+    const v9, 0x3d5a511a    # 0.0533f
 
     mul-float/2addr v8, v9
 
@@ -1132,10 +1132,10 @@
     move-result v4
 
     .line 1343
-    .local v4, regionCount:I
+    .local v4, "regionCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v4, :cond_0
 
@@ -1149,7 +1149,7 @@
     check-cast v3, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1345
-    .local v3, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v3, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-direct {p0, v6, v5, v3}, Landroid/media/WebVttRenderingWidget;->layoutRegion(IILandroid/media/WebVttRenderingWidget$RegionLayout;)V
 
     .line 1343
@@ -1158,7 +1158,7 @@
     goto :goto_0
 
     .line 1348
-    .end local v3           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v3    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :cond_0
     iget-object v7, p0, Landroid/media/WebVttRenderingWidget;->mCueBoxes:Landroid/util/ArrayMap;
 
@@ -1167,7 +1167,7 @@
     move-result v1
 
     .line 1349
-    .local v1, cueCount:I
+    .local v1, "cueCount":I
     const/4 v2, 0x0
 
     :goto_1
@@ -1183,7 +1183,7 @@
     check-cast v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1351
-    .local v0, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v0, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-direct {p0, v6, v5, v0}, Landroid/media/WebVttRenderingWidget;->layoutCue(IILandroid/media/WebVttRenderingWidget$CueLayout;)V
 
     .line 1349
@@ -1192,15 +1192,15 @@
     goto :goto_1
 
     .line 1353
-    .end local v0           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v0    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     :cond_1
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 6
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 1319
@@ -1214,10 +1214,10 @@
     move-result v4
 
     .line 1322
-    .local v4, regionCount:I
+    .local v4, "regionCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v4, :cond_0
 
@@ -1231,7 +1231,7 @@
     check-cast v3, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1324
-    .local v3, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v3, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-virtual {v3, p1, p2}, Landroid/media/WebVttRenderingWidget$RegionLayout;->measureForParent(II)V
 
     .line 1322
@@ -1240,7 +1240,7 @@
     goto :goto_0
 
     .line 1327
-    .end local v3           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v3    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :cond_0
     iget-object v5, p0, Landroid/media/WebVttRenderingWidget;->mCueBoxes:Landroid/util/ArrayMap;
 
@@ -1249,7 +1249,7 @@
     move-result v1
 
     .line 1328
-    .local v1, cueCount:I
+    .local v1, "cueCount":I
     const/4 v2, 0x0
 
     :goto_1
@@ -1265,7 +1265,7 @@
     check-cast v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1330
-    .local v0, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v0, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-virtual {v0, p1, p2}, Landroid/media/WebVttRenderingWidget$CueLayout;->measureForParent(II)V
 
     .line 1328
@@ -1274,14 +1274,13 @@
     goto :goto_1
 
     .line 1332
-    .end local v0           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v0    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     :cond_1
     return-void
 .end method
 
 .method public setActiveCues(Ljava/util/Vector;)V
     .locals 13
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1293,7 +1292,7 @@
     .end annotation
 
     .prologue
-    .local p1, activeCues:Ljava/util/Vector;,"Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;"
+    .local p1, "activeCues":Ljava/util/Vector;, "Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;"
     const/4 v12, -0x2
 
     .line 1213
@@ -1302,15 +1301,15 @@
     move-result-object v1
 
     .line 1214
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     iget-object v0, p0, Landroid/media/WebVttRenderingWidget;->mCaptionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     .line 1215
-    .local v0, captionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .local v0, "captionStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     iget v5, p0, Landroid/media/WebVttRenderingWidget;->mFontSize:F
 
     .line 1217
-    .local v5, fontSize:F
+    .local v5, "fontSize":F
     invoke-direct {p0}, Landroid/media/WebVttRenderingWidget;->prepForPrune()V
 
     .line 1220
@@ -1319,10 +1318,10 @@
     move-result v2
 
     .line 1221
-    .local v2, count:I
+    .local v2, "count":I
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v2, :cond_3
 
@@ -1334,11 +1333,11 @@
     check-cast v3, Landroid/media/TextTrackCue;
 
     .line 1223
-    .local v3, cue:Landroid/media/TextTrackCue;
+    .local v3, "cue":Landroid/media/TextTrackCue;
     iget-object v8, v3, Landroid/media/TextTrackCue;->mRegion:Landroid/media/TextTrackRegion;
 
     .line 1224
-    .local v8, region:Landroid/media/TextTrackRegion;
+    .local v8, "region":Landroid/media/TextTrackRegion;
     if-eqz v8, :cond_1
 
     .line 1225
@@ -1351,17 +1350,17 @@
     check-cast v9, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
     .line 1226
-    .local v9, regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .local v9, "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     if-nez v9, :cond_0
 
     .line 1227
     new-instance v9, Landroid/media/WebVttRenderingWidget$RegionLayout;
 
-    .end local v9           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v9    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     invoke-direct {v9, v1, v8, v0, v5}, Landroid/media/WebVttRenderingWidget$RegionLayout;-><init>(Landroid/content/Context;Landroid/media/TextTrackRegion;Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
     .line 1228
-    .restart local v9       #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .restart local v9    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     iget-object v11, p0, Landroid/media/WebVttRenderingWidget;->mRegionBoxes:Landroid/util/ArrayMap;
 
     invoke-virtual {v11, v8, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1374,7 +1373,7 @@
     invoke-virtual {v9, v3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->put(Landroid/media/TextTrackCue;)V
 
     .line 1221
-    .end local v9           #regionBox:Landroid/media/WebVttRenderingWidget$RegionLayout;
+    .end local v9    # "regionBox":Landroid/media/WebVttRenderingWidget$RegionLayout;
     :goto_1
     add-int/lit8 v7, v7, 0x1
 
@@ -1391,17 +1390,17 @@
     check-cast v4, Landroid/media/WebVttRenderingWidget$CueLayout;
 
     .line 1234
-    .local v4, cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .local v4, "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     if-nez v4, :cond_2
 
     .line 1235
     new-instance v4, Landroid/media/WebVttRenderingWidget$CueLayout;
 
-    .end local v4           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v4    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     invoke-direct {v4, v1, v3, v0, v5}, Landroid/media/WebVttRenderingWidget$CueLayout;-><init>(Landroid/content/Context;Landroid/media/TextTrackCue;Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
     .line 1236
-    .restart local v4       #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
+    .restart local v4    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
     iget-object v11, p0, Landroid/media/WebVttRenderingWidget;->mCueBoxes:Landroid/util/ArrayMap;
 
     invoke-virtual {v11, v3, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1419,9 +1418,9 @@
     goto :goto_1
 
     .line 1244
-    .end local v3           #cue:Landroid/media/TextTrackCue;
-    .end local v4           #cueBox:Landroid/media/WebVttRenderingWidget$CueLayout;
-    .end local v8           #region:Landroid/media/TextTrackRegion;
+    .end local v3    # "cue":Landroid/media/TextTrackCue;
+    .end local v4    # "cueBox":Landroid/media/WebVttRenderingWidget$CueLayout;
+    .end local v8    # "region":Landroid/media/TextTrackRegion;
     :cond_3
     invoke-direct {p0}, Landroid/media/WebVttRenderingWidget;->prune()V
 
@@ -1431,13 +1430,13 @@
     move-result v10
 
     .line 1248
-    .local v10, width:I
+    .local v10, "width":I
     invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget;->getHeight()I
 
     move-result v6
 
     .line 1249
-    .local v6, height:I
+    .local v6, "height":I
     invoke-virtual {p0, v10, v6}, Landroid/media/WebVttRenderingWidget;->setSize(II)V
 
     .line 1251
@@ -1457,7 +1456,7 @@
 
 .method public setOnChangedListener(Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;
 
     .prologue
     .line 1178
@@ -1469,11 +1468,11 @@
 
 .method public setSize(II)V
     .locals 4
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
-    const/high16 v3, 0x4000
+    const/high16 v3, 0x40000000    # 2.0f
 
     const/4 v2, 0x0
 
@@ -1483,13 +1482,13 @@
     move-result v1
 
     .line 1156
-    .local v1, widthSpec:I
+    .local v1, "widthSpec":I
     invoke-static {p2, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v0
 
     .line 1158
-    .local v0, heightSpec:I
+    .local v0, "heightSpec":I
     invoke-virtual {p0, v1, v0}, Landroid/media/WebVttRenderingWidget;->measure(II)V
 
     .line 1159
@@ -1501,7 +1500,7 @@
 
 .method public setVisible(Z)V
     .locals 1
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 1183

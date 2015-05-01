@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/ILocationListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/ILocationListener;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/location/ILocationListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/ILocationListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,22 +165,22 @@
     check-cast v0, Landroid/location/Location;
 
     .line 58
-    .local v0, _arg0:Landroid/location/Location;
+    .local v0, "_arg0":Landroid/location/Location;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/location/ILocationListener$Stub;->onLocationChanged(Landroid/location/Location;)V
 
     goto :goto_0
 
     .line 56
-    .end local v0           #_arg0:Landroid/location/Location;
+    .end local v0    # "_arg0":Landroid/location/Location;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/location/Location;
+    .restart local v0    # "_arg0":Landroid/location/Location;
     goto :goto_1
 
     .line 63
-    .end local v0           #_arg0:Landroid/location/Location;
+    .end local v0    # "_arg0":Landroid/location/Location;
     :sswitch_2
     const-string v4, "android.location.ILocationListener"
 
@@ -192,13 +192,13 @@
     move-result-object v0
 
     .line 67
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 69
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -215,24 +215,24 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 75
-    .local v2, _arg2:Landroid/os/Bundle;
+    .local v2, "_arg2":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {p0, v0, v1, v2}, Landroid/location/ILocationListener$Stub;->onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
 
     goto :goto_0
 
     .line 73
-    .end local v2           #_arg2:Landroid/os/Bundle;
+    .end local v2    # "_arg2":Landroid/os/Bundle;
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_arg2:Landroid/os/Bundle;
+    .restart local v2    # "_arg2":Landroid/os/Bundle;
     goto :goto_2
 
     .line 80
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":Landroid/os/Bundle;
     :sswitch_3
     const-string v4, "android.location.ILocationListener"
 
@@ -244,13 +244,13 @@
     move-result-object v0
 
     .line 83
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/location/ILocationListener$Stub;->onProviderEnabled(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 88
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_4
     const-string v4, "android.location.ILocationListener"
 
@@ -262,7 +262,7 @@
     move-result-object v0
 
     .line 91
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/location/ILocationListener$Stub;->onProviderDisabled(Ljava/lang/String;)V
 
     goto :goto_0

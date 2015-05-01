@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/multiwaveview/PointCloud;FFF)V
     .locals 0
-    .parameter
-    .parameter "x2"
-    .parameter "y2"
-    .parameter "r"
+    .param p2, "x2"    # F
+    .param p3, "y2"    # F
+    .param p4, "r"    # F
 
     .prologue
     .line 111

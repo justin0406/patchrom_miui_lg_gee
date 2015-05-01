@@ -36,13 +36,12 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
     .locals 0
-    .parameter
-    .parameter "group"
-    .parameter "tsListener"
-    .parameter "scLocale"
-    .parameter "scListener"
-    .parameter "uid"
-    .parameter "bundle"
+    .param p2, "group"    # Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
+    .param p3, "tsListener"    # Lcom/android/internal/textservice/ITextServicesSessionListener;
+    .param p4, "scLocale"    # Ljava/lang/String;
+    .param p5, "scListener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p6, "uid"    # I
+    .param p7, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 896
@@ -74,7 +73,7 @@
 
 .method static synthetic access$1100(Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;)Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 
     .prologue
     .line 887
@@ -102,7 +101,7 @@
 
 .method public hasSpellCheckerListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)Z
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     .prologue
     .line 906

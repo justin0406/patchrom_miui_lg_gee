@@ -45,7 +45,7 @@
     check-cast v0, Landroid/graphics/drawable/shapes/RectShape;
 
     .line 57
-    .local v0, shape:Landroid/graphics/drawable/shapes/RectShape;
+    .local v0, "shape":Landroid/graphics/drawable/shapes/RectShape;
     new-instance v1, Landroid/graphics/RectF;
 
     iget-object v2, p0, Landroid/graphics/drawable/shapes/RectShape;->mRect:Landroid/graphics/RectF;
@@ -94,8 +94,8 @@
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 39
@@ -109,8 +109,8 @@
 
 .method protected onResize(FF)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .prologue
     const/4 v1, 0x0

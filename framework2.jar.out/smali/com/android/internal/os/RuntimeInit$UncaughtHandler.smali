@@ -30,7 +30,7 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/os/RuntimeInit$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/internal/os/RuntimeInit$1;
 
     .prologue
     .line 63
@@ -43,18 +43,19 @@
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
     .locals 7
-    .parameter "t"
-    .parameter "e"
+    .param p1, "t"    # Ljava/lang/Thread;
+    .param p2, "e"    # Ljava/lang/Throwable;
 
     .prologue
     const/16 v6, 0xa
 
     .line 67
     :try_start_0
+    # getter for: Lcom/android/internal/os/RuntimeInit;->mCrashing:Z
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$000()Z
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -79,9 +80,11 @@
     const/4 v3, 0x1
 
     :try_start_1
+    # setter for: Lcom/android/internal/os/RuntimeInit;->mCrashing:Z
     invoke-static {v3}, Lcom/android/internal/os/RuntimeInit;->access$002(Z)Z
 
     .line 70
+    # getter for: Lcom/android/internal/os/RuntimeInit;->mApplicationObject:Landroid/os/IBinder;
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$100()Landroid/os/IBinder;
 
     move-result-object v3
@@ -121,6 +124,7 @@
 
     move-result-object v3
 
+    # getter for: Lcom/android/internal/os/RuntimeInit;->mApplicationObject:Landroid/os/IBinder;
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$100()Landroid/os/IBinder;
 
     move-result-object v4
@@ -131,8 +135,8 @@
 
     invoke-interface {v3, v4, v5}, Landroid/app/IActivityManager;->handleApplicationCrash(Landroid/os/IBinder;Landroid/app/ApplicationErrorReport$CrashInfo;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 94
     invoke-static {}, Landroid/os/Process;->myPid()I
@@ -154,7 +158,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 74
-    .local v0, message:Ljava/lang/StringBuilder;
+    .local v0, "message":Ljava/lang/StringBuilder;
     const-string v3, "FATAL EXCEPTION: "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -179,7 +183,7 @@
     move-result-object v1
 
     .line 76
-    .local v1, processName:Ljava/lang/String;
+    .local v1, "processName":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 77
@@ -220,19 +224,19 @@
 
     invoke-static {v3, v4, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
     .line 86
-    .end local v0           #message:Ljava/lang/StringBuilder;
-    .end local v1           #processName:Ljava/lang/String;
+    .end local v0    # "message":Ljava/lang/StringBuilder;
+    .end local v1    # "processName":Ljava/lang/String;
     :catch_0
     move-exception v2
 
     .line 88
-    .local v2, t2:Ljava/lang/Throwable;
+    .local v2, "t2":Ljava/lang/Throwable;
     :try_start_3
     const-string v3, "AndroidRuntime"
 
@@ -240,8 +244,8 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 94
     :goto_2
@@ -257,7 +261,7 @@
     goto/16 :goto_0
 
     .line 94
-    .end local v2           #t2:Ljava/lang/Throwable;
+    .end local v2    # "t2":Ljava/lang/Throwable;
     :catchall_0
     move-exception v3
 
@@ -273,7 +277,7 @@
     throw v3
 
     .line 89
-    .restart local v2       #t2:Ljava/lang/Throwable;
+    .restart local v2    # "t2":Ljava/lang/Throwable;
     :catch_1
     move-exception v3
 

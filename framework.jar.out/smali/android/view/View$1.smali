@@ -28,8 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 3797
@@ -46,7 +44,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 8
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 3801
@@ -120,7 +118,7 @@
     move-exception v0
 
     .line 3806
-    .local v0, e:Ljava/lang/NoSuchMethodException;
+    .local v0, "e":Ljava/lang/NoSuchMethodException;
     iget-object v3, p0, Landroid/view/View$1;->this$0:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getId()I
@@ -128,7 +126,7 @@
     move-result v1
 
     .line 3807
-    .local v1, id:I
+    .local v1, "id":I
     const/4 v3, -0x1
 
     if-ne v1, v3, :cond_1
@@ -136,7 +134,7 @@
     const-string v2, ""
 
     .line 3810
-    .local v2, idText:Ljava/lang/String;
+    .local v2, "idText":Ljava/lang/String;
     :goto_0
     new-instance v3, Ljava/lang/IllegalStateException;
 
@@ -211,7 +209,7 @@
     throw v3
 
     .line 3807
-    .end local v2           #idText:Ljava/lang/String;
+    .end local v2    # "idText":Ljava/lang/String;
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -254,13 +252,13 @@
     goto :goto_0
 
     .line 3819
-    .end local v0           #e:Ljava/lang/NoSuchMethodException;
-    .end local v1           #id:I
+    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
+    .end local v1    # "id":I
     :catch_1
     move-exception v0
 
     .line 3820
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Could not execute non public method of the activity"
@@ -270,12 +268,12 @@
     throw v3
 
     .line 3822
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v0
 
     .line 3823
-    .local v0, e:Ljava/lang/reflect/InvocationTargetException;
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Could not execute method of the activity"

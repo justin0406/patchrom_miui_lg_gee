@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/location/IFusedLocationHardwareSink;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/location/IFusedLocationHardwareSink;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/location/IFusedLocationHardwareSink$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,7 +154,7 @@
     check-cast v0, [Landroid/location/Location;
 
     .line 56
-    .local v0, _arg0:[Landroid/location/Location;
+    .local v0, "_arg0":[Landroid/location/Location;
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onLocationAvailable([Landroid/location/Location;)V
 
     .line 57
@@ -163,7 +163,7 @@
     goto :goto_0
 
     .line 62
-    .end local v0           #_arg0:[Landroid/location/Location;
+    .end local v0    # "_arg0":[Landroid/location/Location;
     :sswitch_2
     const-string v2, "android.hardware.location.IFusedLocationHardwareSink"
 
@@ -175,7 +175,7 @@
     move-result-object v0
 
     .line 65
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onDiagnosticDataAvailable(Ljava/lang/String;)V
 
     .line 66

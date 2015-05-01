@@ -41,7 +41,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 75
@@ -100,13 +100,13 @@
     move-result-object v6
 
     .line 258
-    .local v6, context:Landroid/content/Context;
+    .local v6, "context":Landroid/content/Context;
     invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v15
 
     .line 259
-    .local v15, pm:Landroid/content/pm/PackageManager;
+    .local v15, "pm":Landroid/content/pm/PackageManager;
     const-string v21, "activity"
 
     move-object/from16 v0, v21
@@ -118,7 +118,7 @@
     check-cast v5, Landroid/app/ActivityManager;
 
     .line 261
-    .local v5, am:Landroid/app/ActivityManager;
+    .local v5, "am":Landroid/app/ActivityManager;
     const/16 v21, 0x10
 
     const/16 v22, 0x2
@@ -132,7 +132,7 @@
     move-result-object v16
 
     .line 264
-    .local v16, recentTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    .local v16, "recentTasks":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
     new-instance v21, Landroid/content/Intent;
 
     const-string v22, "android.intent.action.MAIN"
@@ -156,7 +156,7 @@
     move-result-object v7
 
     .line 268
-    .local v7, homeInfo:Landroid/content/pm/ActivityInfo;
+    .local v7, "homeInfo":Landroid/content/pm/ActivityInfo;
     new-instance v10, Lcom/android/internal/policy/impl/IconUtilities;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->getContext()Landroid/content/Context;
@@ -168,20 +168,20 @@
     invoke-direct {v10, v0}, Lcom/android/internal/policy/impl/IconUtilities;-><init>(Landroid/content/Context;)V
 
     .line 273
-    .local v10, iconUtilities:Lcom/android/internal/policy/impl/IconUtilities;
+    .local v10, "iconUtilities":Lcom/android/internal/policy/impl/IconUtilities;
     const/4 v11, 0x0
 
     .line 274
-    .local v11, index:I
+    .local v11, "index":I
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->size()I
 
     move-result v14
 
     .line 275
-    .local v14, numTasks:I
+    .local v14, "numTasks":I
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     :goto_0
     if-ge v8, v14, :cond_3
 
@@ -201,7 +201,7 @@
     check-cast v12, Landroid/app/ActivityManager$RecentTaskInfo;
 
     .line 281
-    .local v12, info:Landroid/app/ActivityManager$RecentTaskInfo;
+    .local v12, "info":Landroid/app/ActivityManager$RecentTaskInfo;
     new-instance v13, Landroid/content/Intent;
 
     iget-object v0, v12, Landroid/app/ActivityManager$RecentTaskInfo;->baseIntent:Landroid/content/Intent;
@@ -213,7 +213,7 @@
     invoke-direct {v13, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     .line 282
-    .local v13, intent:Landroid/content/Intent;
+    .local v13, "intent":Landroid/content/Intent;
     iget-object v0, v12, Landroid/app/ActivityManager$RecentTaskInfo;->origActivity:Landroid/content/ComponentName;
 
     move-object/from16 v21, v0
@@ -287,7 +287,7 @@
 
     and-int v21, v21, v22
 
-    const/high16 v22, 0x1000
+    const/high16 v22, 0x10000000
 
     or-int v21, v21, v22
 
@@ -305,7 +305,7 @@
     move-result-object v17
 
     .line 299
-    .local v17, resolveInfo:Landroid/content/pm/ResolveInfo;
+    .local v17, "resolveInfo":Landroid/content/pm/ResolveInfo;
     if-eqz v17, :cond_1
 
     .line 300
@@ -314,7 +314,7 @@
     iget-object v4, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 301
-    .local v4, activityInfo:Landroid/content/pm/ActivityInfo;
+    .local v4, "activityInfo":Landroid/content/pm/ActivityInfo;
     invoke-virtual {v4, v15}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v21
@@ -324,13 +324,13 @@
     move-result-object v19
 
     .line 302
-    .local v19, title:Ljava/lang/String;
+    .local v19, "title":Ljava/lang/String;
     invoke-virtual {v4, v15}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v9
 
     .line 304
-    .local v9, icon:Landroid/graphics/drawable/Drawable;
+    .local v9, "icon":Landroid/graphics/drawable/Drawable;
     if-eqz v19, :cond_1
 
     invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
@@ -351,7 +351,7 @@
     aget-object v20, v21, v11
 
     .line 306
-    .local v20, tv:Landroid/widget/TextView;
+    .local v20, "tv":Landroid/widget/TextView;
     move-object/from16 v0, v20
 
     move-object/from16 v1, v19
@@ -390,7 +390,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;-><init>(Lcom/android/internal/policy/impl/RecentApplicationsDialog;)V
 
     .line 310
-    .local v18, tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .local v18, "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     move-object/from16 v0, v18
 
     iput-object v12, v0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;->info:Landroid/app/ActivityManager$RecentTaskInfo;
@@ -426,14 +426,14 @@
     goto/16 :goto_1
 
     .line 322
-    .end local v4           #activityInfo:Landroid/content/pm/ActivityInfo;
-    .end local v9           #icon:Landroid/graphics/drawable/Drawable;
-    .end local v12           #info:Landroid/app/ActivityManager$RecentTaskInfo;
-    .end local v13           #intent:Landroid/content/Intent;
-    .end local v17           #resolveInfo:Landroid/content/pm/ResolveInfo;
-    .end local v18           #tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
-    .end local v19           #title:Ljava/lang/String;
-    .end local v20           #tv:Landroid/widget/TextView;
+    .end local v4    # "activityInfo":Landroid/content/pm/ActivityInfo;
+    .end local v9    # "icon":Landroid/graphics/drawable/Drawable;
+    .end local v12    # "info":Landroid/app/ActivityManager$RecentTaskInfo;
+    .end local v13    # "intent":Landroid/content/Intent;
+    .end local v17    # "resolveInfo":Landroid/content/pm/ResolveInfo;
+    .end local v18    # "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .end local v19    # "title":Ljava/lang/String;
+    .end local v20    # "tv":Landroid/widget/TextView;
     :cond_3
     move-object/from16 v0, p0
 
@@ -491,7 +491,7 @@
 
 .method private switchTo(Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;)V
     .locals 4
-    .parameter "tag"
+    .param p1, "tag"    # Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
 
     .prologue
     .line 202
@@ -515,7 +515,7 @@
     check-cast v0, Landroid/app/ActivityManager;
 
     .line 206
-    .local v0, am:Landroid/app/ActivityManager;
+    .local v0, "am":Landroid/app/ActivityManager;
     iget-object v2, p1, Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;->info:Landroid/app/ActivityManager$RecentTaskInfo;
 
     iget v2, v2, Landroid/app/ActivityManager$RecentTaskInfo;->id:I
@@ -525,7 +525,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/app/ActivityManager;->moveTaskToFront(II)V
 
     .line 216
-    .end local v0           #am:Landroid/app/ActivityManager;
+    .end local v0    # "am":Landroid/app/ActivityManager;
     :cond_0
     :goto_0
     return-void
@@ -562,7 +562,7 @@
     move-exception v1
 
     .line 213
-    .local v1, e:Landroid/content/ActivityNotFoundException;
+    .local v1, "e":Landroid/content/ActivityNotFoundException;
     const-string v2, "Recent"
 
     const-string v3, "Unable to launch recent task"
@@ -584,14 +584,14 @@
     array-length v1, v3
 
     .line 169
-    .local v1, numIcons:I
+    .local v1, "numIcons":I
     const/4 v2, 0x0
 
     .line 170
-    .local v2, tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .local v2, "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -644,11 +644,11 @@
 
     move-result-object v2
 
-    .end local v2           #tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .end local v2    # "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     check-cast v2, Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
 
     .line 176
-    .restart local v2       #tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .restart local v2    # "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     iget-object v3, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
     aget-object v3, v3, v0
@@ -668,26 +668,26 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 191
     iget-object v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
-    .local v0, arr$:[Landroid/widget/TextView;
+    .local v0, "arr$":[Landroid/widget/TextView;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v1, v0, v2
 
     .line 192
-    .local v1, b:Landroid/widget/TextView;
+    .local v1, "b":Landroid/widget/TextView;
     if-ne v1, p1, :cond_1
 
     .line 193
@@ -698,12 +698,12 @@
     check-cast v4, Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
 
     .line 194
-    .local v4, tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .local v4, "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     invoke-direct {p0, v4}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->switchTo(Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;)V
 
     .line 198
-    .end local v1           #b:Landroid/widget/TextView;
-    .end local v4           #tag:Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
+    .end local v1    # "b":Landroid/widget/TextView;
+    .end local v4    # "tag":Lcom/android/internal/policy/impl/RecentApplicationsDialog$RecentTag;
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->dismiss()V
 
@@ -711,7 +711,7 @@
     return-void
 
     .line 191
-    .restart local v1       #b:Landroid/widget/TextView;
+    .restart local v1    # "b":Landroid/widget/TextView;
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
@@ -720,10 +720,10 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 13
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    const/high16 v12, 0x2
+    const/high16 v12, 0x20000
 
     const/4 v11, 0x2
 
@@ -742,7 +742,7 @@
     move-result-object v2
 
     .line 91
-    .local v2, context:Landroid/content/Context;
+    .local v2, "context":Landroid/content/Context;
     sget-object v7, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->sStatusBar:Landroid/app/StatusBarManager;
 
     if-nez v7, :cond_0
@@ -765,7 +765,7 @@
     move-result-object v6
 
     .line 96
-    .local v6, window:Landroid/view/Window;
+    .local v6, "window":Landroid/view/Window;
     invoke-virtual {v6, v10}, Landroid/view/Window;->requestFeature(I)Z
 
     .line 97
@@ -792,7 +792,7 @@
     move-result-object v5
 
     .line 105
-    .local v5, params:Landroid/view/WindowManager$LayoutParams;
+    .local v5, "params":Landroid/view/WindowManager$LayoutParams;
     iput v8, v5, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 106
@@ -930,20 +930,20 @@
     .line 120
     iget-object v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
-    .local v0, arr$:[Landroid/widget/TextView;
+    .local v0, "arr$":[Landroid/widget/TextView;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v1, v0, v3
 
     .line 121
-    .local v1, b:Landroid/widget/TextView;
+    .local v1, "b":Landroid/widget/TextView;
     invoke-virtual {v1, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 120
@@ -952,15 +952,15 @@
     goto :goto_0
 
     .line 123
-    .end local v1           #b:Landroid/widget/TextView;
+    .end local v1    # "b":Landroid/widget/TextView;
     :cond_1
     return-void
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 9
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v6, 0x1
@@ -976,17 +976,17 @@
     move-result v0
 
     .line 132
-    .local v0, backward:Z
+    .local v0, "backward":Z
     iget-object v7, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
     array-length v5, v7
 
     .line 133
-    .local v5, numIcons:I
+    .local v5, "numIcons":I
     const/4 v4, 0x0
 
     .line 134
-    .local v4, numButtons:I
+    .local v4, "numButtons":I
     :goto_0
     if-ge v4, v5, :cond_0
 
@@ -1015,11 +1015,11 @@
     add-int/lit8 v3, v4, -0x1
 
     .line 139
-    .local v3, nextFocus:I
+    .local v3, "nextFocus":I
     :goto_1
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_2
     if-ge v2, v4, :cond_1
 
@@ -1052,7 +1052,7 @@
     move v1, v6
 
     .line 150
-    .local v1, direction:I
+    .local v1, "direction":I
     :goto_4
     iget-object v7, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
@@ -1076,28 +1076,28 @@
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->playSoundEffect(I)V
 
     .line 161
-    .end local v0           #backward:Z
-    .end local v1           #direction:I
-    .end local v2           #i:I
-    .end local v3           #nextFocus:I
-    .end local v4           #numButtons:I
-    .end local v5           #numIcons:I
+    .end local v0    # "backward":Z
+    .end local v1    # "direction":I
+    .end local v2    # "i":I
+    .end local v3    # "nextFocus":I
+    .end local v4    # "numButtons":I
+    .end local v5    # "numIcons":I
     :cond_2
     :goto_5
     return v6
 
     .line 138
-    .restart local v0       #backward:Z
-    .restart local v4       #numButtons:I
-    .restart local v5       #numIcons:I
+    .restart local v0    # "backward":Z
+    .restart local v4    # "numButtons":I
+    .restart local v5    # "numIcons":I
     :cond_3
     const/4 v3, 0x0
 
     goto :goto_1
 
     .line 144
-    .restart local v2       #i:I
-    .restart local v3       #nextFocus:I
+    .restart local v2    # "i":I
+    .restart local v3    # "nextFocus":I
     :cond_4
     add-int/lit8 v7, v2, 0x1
 
@@ -1119,11 +1119,11 @@
     goto :goto_4
 
     .line 161
-    .end local v0           #backward:Z
-    .end local v2           #i:I
-    .end local v3           #nextFocus:I
-    .end local v4           #numButtons:I
-    .end local v5           #numIcons:I
+    .end local v0    # "backward":Z
+    .end local v2    # "i":I
+    .end local v3    # "nextFocus":I
+    .end local v4    # "numButtons":I
+    .end local v5    # "numIcons":I
     :cond_7
     invoke-super {p0, p1, p2}, Landroid/app/Dialog;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
@@ -1150,7 +1150,7 @@
     .line 226
     sget-object v0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->sStatusBar:Landroid/app/StatusBarManager;
 
-    const/high16 v1, 0x1
+    const/high16 v1, 0x10000
 
     invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
 

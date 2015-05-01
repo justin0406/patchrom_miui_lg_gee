@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 270
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;Lcom/android/internal/telephony/uicc/RuimRecords$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p2, "x1"    # Lcom/android/internal/telephony/uicc/RuimRecords$1;
 
     .prologue
     .line 270
@@ -61,7 +60,7 @@
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
     .locals 12
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     const/4 v8, 0x1
@@ -80,7 +79,7 @@
     check-cast v0, [B
 
     .line 279
-    .local v0, data:[B
+    .local v0, "data":[B
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -125,17 +124,17 @@
     aget-byte v2, v0, v8
 
     .line 286
-    .local v2, encoding:I
+    .local v2, "encoding":I
     const/4 v7, 0x2
 
     aget-byte v3, v0, v7
 
     .line 287
-    .local v3, language:I
+    .local v3, "language":I
     new-array v6, v4, [B
 
     .line 288
-    .local v6, spnData:[B
+    .local v6, "spnData":[B
     array-length v7, v0
 
     add-int/lit8 v7, v7, -0x3
@@ -147,7 +146,7 @@
     add-int/lit8 v4, v7, -0x3
 
     .line 289
-    .local v4, len:I
+    .local v4, "len":I
     :cond_0
     const/4 v7, 0x3
 
@@ -156,7 +155,7 @@
     .line 292
     const/4 v5, 0x0
 
-    .local v5, numBytes:I
+    .local v5, "numBytes":I
     :goto_1
     array-length v7, v6
 
@@ -186,11 +185,11 @@
     :goto_2
     return-void
 
-    .end local v2           #encoding:I
-    .end local v3           #language:I
-    .end local v4           #len:I
-    .end local v5           #numBytes:I
-    .end local v6           #spnData:[B
+    .end local v2    # "encoding":I
+    .end local v3    # "language":I
+    .end local v4    # "len":I
+    .end local v5    # "numBytes":I
+    .end local v6    # "spnData":[B
     :cond_2
     move v7, v9
 
@@ -198,11 +197,11 @@
     goto :goto_0
 
     .line 292
-    .restart local v2       #encoding:I
-    .restart local v3       #language:I
-    .restart local v4       #len:I
-    .restart local v5       #numBytes:I
-    .restart local v6       #spnData:[B
+    .restart local v2    # "encoding":I
+    .restart local v3    # "language":I
+    .restart local v4    # "len":I
+    .restart local v5    # "numBytes":I
+    .restart local v6    # "spnData":[B
     :cond_3
     add-int/lit8 v5, v5, 0x1
 
@@ -313,7 +312,7 @@
     move-exception v1
 
     .line 318
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -339,7 +338,7 @@
     goto :goto_3
 
     .line 309
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :pswitch_2
     :try_start_2
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;

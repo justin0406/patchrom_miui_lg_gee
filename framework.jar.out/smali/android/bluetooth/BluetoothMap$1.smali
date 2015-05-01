@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothMap;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 58
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onBluetoothStateChange(Z)V
     .locals 4
-    .parameter "up"
+    .param p1, "up"    # Z
 
     .prologue
     .line 60
@@ -68,7 +67,7 @@
     .line 63
     iget-object v1, p0, Landroid/bluetooth/BluetoothMap$1;->this$0:Landroid/bluetooth/BluetoothMap;
 
-    #getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
+    # getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v1}, Landroid/bluetooth/BluetoothMap;->access$000(Landroid/bluetooth/BluetoothMap;)Landroid/content/ServiceConnection;
 
     move-result-object v2
@@ -81,28 +80,28 @@
 
     const/4 v3, 0x0
 
-    #setter for: Landroid/bluetooth/BluetoothMap;->mService:Landroid/bluetooth/IBluetoothMap;
+    # setter for: Landroid/bluetooth/BluetoothMap;->mService:Landroid/bluetooth/IBluetoothMap;
     invoke-static {v1, v3}, Landroid/bluetooth/BluetoothMap;->access$102(Landroid/bluetooth/BluetoothMap;Landroid/bluetooth/IBluetoothMap;)Landroid/bluetooth/IBluetoothMap;
 
     .line 66
     iget-object v1, p0, Landroid/bluetooth/BluetoothMap$1;->this$0:Landroid/bluetooth/BluetoothMap;
 
-    #getter for: Landroid/bluetooth/BluetoothMap;->mContext:Landroid/content/Context;
+    # getter for: Landroid/bluetooth/BluetoothMap;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/bluetooth/BluetoothMap;->access$200(Landroid/bluetooth/BluetoothMap;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothMap$1;->this$0:Landroid/bluetooth/BluetoothMap;
 
-    #getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
+    # getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v3}, Landroid/bluetooth/BluetoothMap;->access$000(Landroid/bluetooth/BluetoothMap;)Landroid/content/ServiceConnection;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 70
     :goto_0
@@ -118,7 +117,7 @@
     move-exception v0
 
     .line 68
-    .local v0, re:Ljava/lang/Exception;
+    .local v0, "re":Ljava/lang/Exception;
     const-string v1, "BluetoothMap"
 
     const-string v3, ""
@@ -128,7 +127,7 @@
     goto :goto_0
 
     .line 70
-    .end local v0           #re:Ljava/lang/Exception;
+    .end local v0    # "re":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -142,7 +141,7 @@
     :cond_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothMap$1;->this$0:Landroid/bluetooth/BluetoothMap;
 
-    #getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
+    # getter for: Landroid/bluetooth/BluetoothMap;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v1}, Landroid/bluetooth/BluetoothMap;->access$000(Landroid/bluetooth/BluetoothMap;)Landroid/content/ServiceConnection;
 
     move-result-object v2
@@ -153,7 +152,7 @@
     :try_start_2
     iget-object v1, p0, Landroid/bluetooth/BluetoothMap$1;->this$0:Landroid/bluetooth/BluetoothMap;
 
-    #getter for: Landroid/bluetooth/BluetoothMap;->mService:Landroid/bluetooth/IBluetoothMap;
+    # getter for: Landroid/bluetooth/BluetoothMap;->mService:Landroid/bluetooth/IBluetoothMap;
     invoke-static {v1}, Landroid/bluetooth/BluetoothMap;->access$100(Landroid/bluetooth/BluetoothMap;)Landroid/bluetooth/IBluetoothMap;
 
     move-result-object v1
@@ -165,8 +164,8 @@
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothMap;->doBind()Z
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 81
     :cond_1
@@ -190,7 +189,7 @@
     move-exception v0
 
     .line 79
-    .restart local v0       #re:Ljava/lang/Exception;
+    .restart local v0    # "re":Ljava/lang/Exception;
     :try_start_4
     const-string v1, "BluetoothMap"
 

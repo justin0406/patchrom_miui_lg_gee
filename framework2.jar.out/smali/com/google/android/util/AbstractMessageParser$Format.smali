@@ -25,8 +25,8 @@
 # direct methods
 .method public constructor <init>(CZ)V
     .locals 2
-    .parameter "ch"
-    .parameter "start"
+    .param p1, "ch"    # C
+    .param p2, "start"    # Z
 
     .prologue
     .line 1183
@@ -50,7 +50,7 @@
 
 .method private getFormatEnd(C)Ljava/lang/String;
     .locals 3
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 1224
@@ -125,7 +125,7 @@
 
 .method private getFormatStart(C)Ljava/lang/String;
     .locals 3
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 1214
@@ -265,7 +265,7 @@
 
 .method public setMatched(Z)V
     .locals 0
-    .parameter "matched"
+    .param p1, "matched"    # Z
 
     .prologue
     .line 1188
@@ -276,7 +276,7 @@
 
 .method public toHtml(Z)Ljava/lang/String;
     .locals 2
-    .parameter "caps"
+    .param p1, "caps"    # Z
 
     .prologue
     .line 1195

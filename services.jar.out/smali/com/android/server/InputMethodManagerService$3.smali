@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 652
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onUserSwitchComplete(I)V
     .locals 0
-    .parameter "newUserId"
+    .param p1, "newUserId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -50,8 +49,8 @@
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 2
-    .parameter "newUserId"
-    .parameter "reply"
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
     .prologue
     .line 655
@@ -65,7 +64,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #calls: Lcom/android/server/InputMethodManagerService;->switchUserLocked(I)V
+    # invokes: Lcom/android/server/InputMethodManagerService;->switchUserLocked(I)V
     invoke-static {v0, p1}, Lcom/android/server/InputMethodManagerService;->access$1000(Lcom/android/server/InputMethodManagerService;I)V
 
     .line 657

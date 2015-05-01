@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -24,8 +24,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 58
@@ -34,7 +34,7 @@
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 63
@@ -50,10 +50,10 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     .line 69
     const-string/jumbo v5, "source"
@@ -63,7 +63,7 @@
     move-result-object v4
 
     .line 70
-    .local v4, sourceFrame:Landroid/filterfw/core/Frame;
+    .local v4, "sourceFrame":Landroid/filterfw/core/Frame;
     const-string/jumbo v5, "overlay"
 
     invoke-virtual {p0, v5}, Landroid/filterpacks/imageproc/DrawOverlayFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
@@ -71,7 +71,7 @@
     move-result-object v3
 
     .line 71
-    .local v3, overlayFrame:Landroid/filterfw/core/Frame;
+    .local v3, "overlayFrame":Landroid/filterfw/core/Frame;
     const-string v5, "box"
 
     invoke-virtual {p0, v5}, Landroid/filterpacks/imageproc/DrawOverlayFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
@@ -79,7 +79,7 @@
     move-result-object v1
 
     .line 74
-    .local v1, boxFrame:Landroid/filterfw/core/Frame;
+    .local v1, "boxFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getObjectValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -87,12 +87,12 @@
     check-cast v0, Landroid/filterfw/geometry/Quad;
 
     .line 75
-    .local v0, box:Landroid/filterfw/geometry/Quad;
+    .local v0, "box":Landroid/filterfw/geometry/Quad;
     invoke-virtual {v0, v6, v6}, Landroid/filterfw/geometry/Quad;->translated(FF)Landroid/filterfw/geometry/Quad;
 
     move-result-object v5
 
-    const/high16 v6, 0x4000
+    const/high16 v6, 0x40000000    # 2.0f
 
     invoke-virtual {v5, v6}, Landroid/filterfw/geometry/Quad;->scaled(F)Landroid/filterfw/geometry/Quad;
 
@@ -117,7 +117,7 @@
     move-result-object v2
 
     .line 81
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     invoke-virtual {v2, v4}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 84
@@ -149,7 +149,7 @@
     move-result-object v0
 
     .line 50
-    .local v0, imageFormatMask:Landroid/filterfw/core/FrameFormat;
+    .local v0, "imageFormatMask":Landroid/filterfw/core/FrameFormat;
     const-string/jumbo v1, "source"
 
     invoke-virtual {p0, v1, v0}, Landroid/filterpacks/imageproc/DrawOverlayFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 168
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 366
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 369
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -96,7 +96,7 @@
     move-result-object v2
 
     .line 375
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 376
@@ -106,7 +106,7 @@
     return-object v2
 
     .line 375
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -133,13 +133,13 @@
     move-result-object v0
 
     .line 185
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 188
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -165,7 +165,7 @@
     move-result-object v2
 
     .line 194
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 195
@@ -175,7 +175,7 @@
     return-object v2
 
     .line 194
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -202,13 +202,13 @@
     move-result-object v0
 
     .line 206
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 209
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -234,7 +234,7 @@
     move-result-object v2
 
     .line 215
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 216
@@ -244,7 +244,7 @@
     return-object v2
 
     .line 215
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -271,13 +271,13 @@
     move-result-object v0
 
     .line 246
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 249
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -303,7 +303,7 @@
     move-result-object v2
 
     .line 255
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 256
@@ -313,7 +313,7 @@
     return-object v2
 
     .line 255
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -340,13 +340,13 @@
     move-result-object v0
 
     .line 266
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 269
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -372,7 +372,7 @@
     move-result-object v2
 
     .line 275
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 276
@@ -382,7 +382,7 @@
     return-object v2
 
     .line 275
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -419,13 +419,13 @@
     move-result-object v0
 
     .line 428
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 431
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -451,7 +451,7 @@
     move-result-object v2
 
     .line 437
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 438
@@ -461,7 +461,7 @@
     return-object v2
 
     .line 437
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -488,13 +488,13 @@
     move-result-object v0
 
     .line 407
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 410
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -520,7 +520,7 @@
     move-result-object v2
 
     .line 416
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 417
@@ -530,7 +530,7 @@
     return-object v2
 
     .line 416
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -557,13 +557,13 @@
     move-result-object v0
 
     .line 450
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 453
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -589,7 +589,7 @@
     move-result-object v2
 
     .line 459
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 460
@@ -599,7 +599,7 @@
     return-object v2
 
     .line 459
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -626,13 +626,13 @@
     move-result-object v0
 
     .line 306
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 309
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -658,7 +658,7 @@
     move-result-object v2
 
     .line 315
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 316
@@ -668,7 +668,7 @@
     return-object v2
 
     .line 315
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -695,13 +695,13 @@
     move-result-object v0
 
     .line 286
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 289
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -727,7 +727,7 @@
     move-result-object v2
 
     .line 295
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 296
@@ -737,7 +737,7 @@
     return-object v2
 
     .line 295
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -764,13 +764,13 @@
     move-result-object v0
 
     .line 326
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 329
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -796,7 +796,7 @@
     move-result-object v2
 
     .line 335
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 336
@@ -806,7 +806,7 @@
     return-object v2
 
     .line 335
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -833,13 +833,13 @@
     move-result-object v0
 
     .line 226
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 229
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -865,7 +865,7 @@
     move-result-object v2
 
     .line 235
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 236
@@ -875,7 +875,7 @@
     return-object v2
 
     .line 235
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -902,13 +902,13 @@
     move-result-object v0
 
     .line 386
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 389
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -934,7 +934,7 @@
     move-result-object v2
 
     .line 395
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 396
@@ -944,7 +944,7 @@
     return-object v2
 
     .line 395
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -971,13 +971,13 @@
     move-result-object v0
 
     .line 346
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 349
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -1003,7 +1003,7 @@
     move-result-object v2
 
     .line 355
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 356
@@ -1013,7 +1013,7 @@
     return-object v2
 
     .line 355
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 

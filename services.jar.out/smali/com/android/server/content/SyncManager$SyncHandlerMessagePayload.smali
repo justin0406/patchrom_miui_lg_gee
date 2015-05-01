@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
     .locals 0
-    .parameter
-    .parameter "syncContext"
-    .parameter "syncResult"
+    .param p2, "syncContext"    # Lcom/android/server/content/SyncManager$ActiveSyncContext;
+    .param p3, "syncResult"    # Landroid/content/SyncResult;
 
     .prologue
     .line 804

@@ -33,8 +33,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
     .locals 1
-    .parameter "_id"
-    .parameter "_intent"
+    .param p1, "_id"    # Ljava/lang/String;
+    .param p2, "_intent"    # Landroid/content/Intent;
 
     .prologue
     .line 48

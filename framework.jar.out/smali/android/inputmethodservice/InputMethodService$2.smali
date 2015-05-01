@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 330
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 332
@@ -50,7 +49,7 @@
     move-result-object v0
 
     .line 333
-    .local v0, ei:Landroid/view/inputmethod/EditorInfo;
+    .local v0, "ei":Landroid/view/inputmethod/EditorInfo;
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$2;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     invoke-virtual {v2}, Landroid/inputmethodservice/InputMethodService;->getCurrentInputConnection()Landroid/view/inputmethod/InputConnection;
@@ -58,7 +57,7 @@
     move-result-object v1
 
     .line 334
-    .local v1, ic:Landroid/view/inputmethod/InputConnection;
+    .local v1, "ic":Landroid/view/inputmethod/InputConnection;
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0

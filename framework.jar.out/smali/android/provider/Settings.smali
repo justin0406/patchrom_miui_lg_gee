@@ -163,7 +163,7 @@
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6237
+    .line 6243
     return-void
 .end method
 
@@ -179,10 +179,10 @@
 
 .method public static getGTalkDeviceId(J)Ljava/lang/String;
     .locals 2
-    .parameter "androidId"
+    .param p0, "androidId"    # J
 
     .prologue
-    .line 6442
+    .line 6448
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

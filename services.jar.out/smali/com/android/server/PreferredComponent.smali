@@ -46,11 +46,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/PreferredComponent$Callbacks;I[Landroid/content/ComponentName;Landroid/content/ComponentName;Z)V
     .locals 8
-    .parameter "callbacks"
-    .parameter "match"
-    .parameter "set"
-    .parameter "component"
-    .parameter "always"
+    .param p1, "callbacks"    # Lcom/android/server/PreferredComponent$Callbacks;
+    .param p2, "match"    # I
+    .param p3, "set"    # [Landroid/content/ComponentName;
+    .param p4, "component"    # Landroid/content/ComponentName;
+    .param p5, "always"    # Z
 
     .prologue
     const/4 v7, 0x0
@@ -62,7 +62,7 @@
     iput-object p1, p0, Lcom/android/server/PreferredComponent;->mCallbacks:Lcom/android/server/PreferredComponent$Callbacks;
 
     .line 63
-    const/high16 v6, 0xfff
+    const/high16 v6, 0xfff0000
 
     and-int/2addr v6, p2
 
@@ -91,22 +91,22 @@
     array-length v0, p3
 
     .line 70
-    .local v0, N:I
+    .local v0, "N":I
     new-array v5, v0, [Ljava/lang/String;
 
     .line 71
-    .local v5, myPackages:[Ljava/lang/String;
+    .local v5, "myPackages":[Ljava/lang/String;
     new-array v3, v0, [Ljava/lang/String;
 
     .line 72
-    .local v3, myClasses:[Ljava/lang/String;
+    .local v3, "myClasses":[Ljava/lang/String;
     new-array v4, v0, [Ljava/lang/String;
 
     .line 73
-    .local v4, myComponents:[Ljava/lang/String;
+    .local v4, "myComponents":[Ljava/lang/String;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_1
 
@@ -114,7 +114,7 @@
     aget-object v1, p3, v2
 
     .line 75
-    .local v1, cn:Landroid/content/ComponentName;
+    .local v1, "cn":Landroid/content/ComponentName;
     if-nez v1, :cond_0
 
     .line 76
@@ -127,22 +127,22 @@
     iput-object v7, p0, Lcom/android/server/PreferredComponent;->mSetComponents:[Ljava/lang/String;
 
     .line 93
-    .end local v0           #N:I
-    .end local v1           #cn:Landroid/content/ComponentName;
-    .end local v2           #i:I
-    .end local v3           #myClasses:[Ljava/lang/String;
-    .end local v4           #myComponents:[Ljava/lang/String;
-    .end local v5           #myPackages:[Ljava/lang/String;
+    .end local v0    # "N":I
+    .end local v1    # "cn":Landroid/content/ComponentName;
+    .end local v2    # "i":I
+    .end local v3    # "myClasses":[Ljava/lang/String;
+    .end local v4    # "myComponents":[Ljava/lang/String;
+    .end local v5    # "myPackages":[Ljava/lang/String;
     :goto_1
     return-void
 
     .line 81
-    .restart local v0       #N:I
-    .restart local v1       #cn:Landroid/content/ComponentName;
-    .restart local v2       #i:I
-    .restart local v3       #myClasses:[Ljava/lang/String;
-    .restart local v4       #myComponents:[Ljava/lang/String;
-    .restart local v5       #myPackages:[Ljava/lang/String;
+    .restart local v0    # "N":I
+    .restart local v1    # "cn":Landroid/content/ComponentName;
+    .restart local v2    # "i":I
+    .restart local v3    # "myClasses":[Ljava/lang/String;
+    .restart local v4    # "myComponents":[Ljava/lang/String;
+    .restart local v5    # "myPackages":[Ljava/lang/String;
     :cond_0
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -178,7 +178,7 @@
     goto :goto_0
 
     .line 85
-    .end local v1           #cn:Landroid/content/ComponentName;
+    .end local v1    # "cn":Landroid/content/ComponentName;
     :cond_1
     iput-object v5, p0, Lcom/android/server/PreferredComponent;->mSetPackages:[Ljava/lang/String;
 
@@ -191,11 +191,11 @@
     goto :goto_1
 
     .line 89
-    .end local v0           #N:I
-    .end local v2           #i:I
-    .end local v3           #myClasses:[Ljava/lang/String;
-    .end local v4           #myComponents:[Ljava/lang/String;
-    .end local v5           #myPackages:[Ljava/lang/String;
+    .end local v0    # "N":I
+    .end local v2    # "i":I
+    .end local v3    # "myClasses":[Ljava/lang/String;
+    .end local v4    # "myComponents":[Ljava/lang/String;
+    .end local v5    # "myPackages":[Ljava/lang/String;
     :cond_2
     iput-object v7, p0, Lcom/android/server/PreferredComponent;->mSetPackages:[Ljava/lang/String;
 
@@ -210,8 +210,8 @@
 
 .method public constructor <init>(Lcom/android/server/PreferredComponent$Callbacks;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 18
-    .parameter "callbacks"
-    .parameter "parser"
+    .param p1, "callbacks"    # Lcom/android/server/PreferredComponent$Callbacks;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -311,7 +311,7 @@
     move-result-object v4
 
     .line 104
-    .local v4, matchStr:Ljava/lang/String;
+    .local v4, "matchStr":Ljava/lang/String;
     if-eqz v4, :cond_4
 
     const/16 v15, 0x10
@@ -339,7 +339,7 @@
     move-result-object v11
 
     .line 106
-    .local v11, setCountStr:Ljava/lang/String;
+    .local v11, "setCountStr":Ljava/lang/String;
     if-eqz v11, :cond_5
 
     invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -347,7 +347,7 @@
     move-result v10
 
     .line 107
-    .local v10, setCount:I
+    .local v10, "setCount":I
     :goto_1
     const/4 v15, 0x0
 
@@ -362,7 +362,7 @@
     move-result-object v2
 
     .line 108
-    .local v2, alwaysStr:Ljava/lang/String;
+    .local v2, "alwaysStr":Ljava/lang/String;
     if-eqz v2, :cond_6
 
     invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
@@ -380,39 +380,39 @@
     new-array v7, v10, [Ljava/lang/String;
 
     .line 111
-    .local v7, myPackages:[Ljava/lang/String;
+    .local v7, "myPackages":[Ljava/lang/String;
     :goto_3
     if-lez v10, :cond_8
 
     new-array v5, v10, [Ljava/lang/String;
 
     .line 112
-    .local v5, myClasses:[Ljava/lang/String;
+    .local v5, "myClasses":[Ljava/lang/String;
     :goto_4
     if-lez v10, :cond_9
 
     new-array v6, v10, [Ljava/lang/String;
 
     .line 114
-    .local v6, myComponents:[Ljava/lang/String;
+    .local v6, "myComponents":[Ljava/lang/String;
     :goto_5
     const/4 v12, 0x0
 
     .line 116
-    .local v12, setPos:I
+    .local v12, "setPos":I
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v9
 
     .line 119
-    .local v9, outerDepth:I
+    .local v9, "outerDepth":I
     :cond_1
     :goto_6
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v14
 
-    .local v14, type:I
+    .local v14, "type":I
     const/4 v15, 0x1
 
     if-eq v14, v15, :cond_e
@@ -443,7 +443,7 @@
     move-result-object v13
 
     .line 129
-    .local v13, tagName:Ljava/lang/String;
+    .local v13, "tagName":Ljava/lang/String;
     const-string v15, "set"
 
     invoke-virtual {v13, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -466,7 +466,7 @@
     move-result-object v8
 
     .line 131
-    .local v8, name:Ljava/lang/String;
+    .local v8, "name":Ljava/lang/String;
     if-nez v8, :cond_a
 
     .line 132
@@ -513,32 +513,32 @@
     goto :goto_6
 
     .line 104
-    .end local v2           #alwaysStr:Ljava/lang/String;
-    .end local v5           #myClasses:[Ljava/lang/String;
-    .end local v6           #myComponents:[Ljava/lang/String;
-    .end local v7           #myPackages:[Ljava/lang/String;
-    .end local v8           #name:Ljava/lang/String;
-    .end local v9           #outerDepth:I
-    .end local v10           #setCount:I
-    .end local v11           #setCountStr:Ljava/lang/String;
-    .end local v12           #setPos:I
-    .end local v13           #tagName:Ljava/lang/String;
-    .end local v14           #type:I
+    .end local v2    # "alwaysStr":Ljava/lang/String;
+    .end local v5    # "myClasses":[Ljava/lang/String;
+    .end local v6    # "myComponents":[Ljava/lang/String;
+    .end local v7    # "myPackages":[Ljava/lang/String;
+    .end local v8    # "name":Ljava/lang/String;
+    .end local v9    # "outerDepth":I
+    .end local v10    # "setCount":I
+    .end local v11    # "setCountStr":Ljava/lang/String;
+    .end local v12    # "setPos":I
+    .end local v13    # "tagName":Ljava/lang/String;
+    .end local v14    # "type":I
     :cond_4
     const/4 v15, 0x0
 
     goto/16 :goto_0
 
     .line 106
-    .restart local v11       #setCountStr:Ljava/lang/String;
+    .restart local v11    # "setCountStr":Ljava/lang/String;
     :cond_5
     const/4 v10, 0x0
 
     goto :goto_1
 
     .line 108
-    .restart local v2       #alwaysStr:Ljava/lang/String;
-    .restart local v10       #setCount:I
+    .restart local v2    # "alwaysStr":Ljava/lang/String;
+    .restart local v10    # "setCount":I
     :cond_6
     const/4 v15, 0x1
 
@@ -551,26 +551,26 @@
     goto :goto_3
 
     .line 111
-    .restart local v7       #myPackages:[Ljava/lang/String;
+    .restart local v7    # "myPackages":[Ljava/lang/String;
     :cond_8
     const/4 v5, 0x0
 
     goto :goto_4
 
     .line 112
-    .restart local v5       #myClasses:[Ljava/lang/String;
+    .restart local v5    # "myClasses":[Ljava/lang/String;
     :cond_9
     const/4 v6, 0x0
 
     goto :goto_5
 
     .line 136
-    .restart local v6       #myComponents:[Ljava/lang/String;
-    .restart local v8       #name:Ljava/lang/String;
-    .restart local v9       #outerDepth:I
-    .restart local v12       #setPos:I
-    .restart local v13       #tagName:Ljava/lang/String;
-    .restart local v14       #type:I
+    .restart local v6    # "myComponents":[Ljava/lang/String;
+    .restart local v8    # "name":Ljava/lang/String;
+    .restart local v9    # "outerDepth":I
+    .restart local v12    # "setPos":I
+    .restart local v13    # "tagName":Ljava/lang/String;
+    .restart local v14    # "type":I
     :cond_a
     if-lt v12, v10, :cond_b
 
@@ -619,7 +619,7 @@
     move-result-object v3
 
     .line 143
-    .local v3, cn:Landroid/content/ComponentName;
+    .local v3, "cn":Landroid/content/ComponentName;
     if-nez v3, :cond_c
 
     .line 144
@@ -694,8 +694,8 @@
     goto :goto_7
 
     .line 156
-    .end local v3           #cn:Landroid/content/ComponentName;
-    .end local v8           #name:Ljava/lang/String;
+    .end local v3    # "cn":Landroid/content/ComponentName;
+    .end local v8    # "name":Ljava/lang/String;
     :cond_d
     move-object/from16 v0, p0
 
@@ -742,7 +742,7 @@
     goto/16 :goto_6
 
     .line 162
-    .end local v13           #tagName:Ljava/lang/String;
+    .end local v13    # "tagName":Ljava/lang/String;
     :cond_e
     if-eq v12, v10, :cond_f
 
@@ -826,9 +826,9 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 2
-    .parameter "out"
-    .parameter "prefix"
-    .parameter "ident"
+    .param p1, "out"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
+    .param p3, "ident"    # Ljava/lang/Object;
 
     .prologue
     .line 219
@@ -894,7 +894,7 @@
     .line 228
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/PreferredComponent;->mSetComponents:[Ljava/lang/String;
 
@@ -922,7 +922,7 @@
     goto :goto_0
 
     .line 233
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -939,8 +939,7 @@
 
 .method public sameSet(Ljava/util/List;I)Z
     .locals 11
-    .parameter
-    .parameter "priority"
+    .param p2, "priority"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -952,7 +951,7 @@
     .end annotation
 
     .prologue
-    .local p1, query:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local p1, "query":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     const/4 v8, 0x0
 
     .line 196
@@ -972,20 +971,20 @@
     move-result v0
 
     .line 198
-    .local v0, NQ:I
+    .local v0, "NQ":I
     iget-object v9, p0, Lcom/android/server/PreferredComponent;->mSetPackages:[Ljava/lang/String;
 
     array-length v1, v9
 
     .line 199
-    .local v1, NS:I
+    .local v1, "NS":I
     const/4 v6, 0x0
 
     .line 200
-    .local v6, numMatch:I
+    .local v6, "numMatch":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     if-ge v4, v0, :cond_6
 
@@ -997,7 +996,7 @@
     check-cast v7, Landroid/content/pm/ResolveInfo;
 
     .line 202
-    .local v7, ri:Landroid/content/pm/ResolveInfo;
+    .local v7, "ri":Landroid/content/pm/ResolveInfo;
     iget v9, v7, Landroid/content/pm/ResolveInfo;->priority:I
 
     if-eq v9, p2, :cond_3
@@ -1013,14 +1012,14 @@
     iget-object v2, v7, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 204
-    .local v2, ai:Landroid/content/pm/ActivityInfo;
+    .local v2, "ai":Landroid/content/pm/ActivityInfo;
     const/4 v3, 0x0
 
     .line 205
-    .local v3, good:Z
+    .local v3, "good":Z
     const/4 v5, 0x0
 
-    .local v5, j:I
+    .local v5, "j":I
     :goto_2
     if-ge v5, v1, :cond_4
 
@@ -1068,10 +1067,10 @@
     goto :goto_2
 
     .line 215
-    .end local v2           #ai:Landroid/content/pm/ActivityInfo;
-    .end local v3           #good:Z
-    .end local v5           #j:I
-    .end local v7           #ri:Landroid/content/pm/ResolveInfo;
+    .end local v2    # "ai":Landroid/content/pm/ActivityInfo;
+    .end local v3    # "good":Z
+    .end local v5    # "j":I
+    .end local v7    # "ri":Landroid/content/pm/ResolveInfo;
     :cond_6
     if-ne v6, v1, :cond_0
 
@@ -1082,8 +1081,8 @@
 
 .method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;Z)V
     .locals 5
-    .parameter "serializer"
-    .parameter "full"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
+    .param p2, "full"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1103,7 +1102,7 @@
     array-length v0, v2
 
     .line 180
-    .local v0, NS:I
+    .local v0, "NS":I
     :goto_0
     const-string v2, "name"
 
@@ -1154,7 +1153,7 @@
     .line 187
     const/4 v1, 0x0
 
-    .local v1, s:I
+    .local v1, "s":I
     :goto_1
     if-ge v1, v0, :cond_2
 
@@ -1183,15 +1182,15 @@
     goto :goto_1
 
     .line 179
-    .end local v0           #NS:I
-    .end local v1           #s:I
+    .end local v0    # "NS":I
+    .end local v1    # "s":I
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 193
-    .restart local v0       #NS:I
+    .restart local v0    # "NS":I
     :cond_2
     return-void
 .end method

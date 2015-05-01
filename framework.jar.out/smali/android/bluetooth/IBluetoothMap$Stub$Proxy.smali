@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 189
@@ -51,7 +51,7 @@
 
 .method public connect(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 7
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -69,13 +69,13 @@
     move-result-object v0
 
     .line 242
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 245
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothMap"
 
@@ -117,7 +117,7 @@
     if-eqz v4, :cond_1
 
     .line 258
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -128,7 +128,7 @@
     return v2
 
     .line 251
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -159,7 +159,7 @@
 
 .method public disconnect(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 7
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -177,13 +177,13 @@
     move-result-object v0
 
     .line 266
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 269
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothMap"
 
@@ -225,7 +225,7 @@
     if-eqz v4, :cond_1
 
     .line 282
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -236,7 +236,7 @@
     return v2
 
     .line 275
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -280,13 +280,13 @@
     move-result-object v0
 
     .line 220
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 223
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -323,7 +323,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 234
-    .local v2, _result:Landroid/bluetooth/BluetoothDevice;
+    .local v2, "_result":Landroid/bluetooth/BluetoothDevice;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -334,15 +334,15 @@
     return-object v2
 
     .line 230
-    .end local v2           #_result:Landroid/bluetooth/BluetoothDevice;
+    .end local v2    # "_result":Landroid/bluetooth/BluetoothDevice;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/bluetooth/BluetoothDevice;
+    .restart local v2    # "_result":Landroid/bluetooth/BluetoothDevice;
     goto :goto_0
 
     .line 234
-    .end local v2           #_result:Landroid/bluetooth/BluetoothDevice;
+    .end local v2    # "_result":Landroid/bluetooth/BluetoothDevice;
     :catchall_0
     move-exception v3
 
@@ -379,13 +379,13 @@
     move-result-object v0
 
     .line 314
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 317
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -413,7 +413,7 @@
     move-result-object v2
 
     .line 323
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 324
@@ -423,7 +423,7 @@
     return-object v2
 
     .line 323
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     :catchall_0
     move-exception v3
 
@@ -437,7 +437,7 @@
 
 .method public getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
     .locals 6
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -451,13 +451,13 @@
     move-result-object v0
 
     .line 349
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 352
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -497,7 +497,7 @@
     move-result v2
 
     .line 365
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 366
@@ -507,7 +507,7 @@
     return v2
 
     .line 358
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -532,7 +532,7 @@
 
 .method public getDevicesMatchingConnectionStates([I)Ljava/util/List;
     .locals 6
-    .parameter "states"
+    .param p1, "states"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([I)",
@@ -556,13 +556,13 @@
     move-result-object v0
 
     .line 331
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 334
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -593,7 +593,7 @@
     move-result-object v2
 
     .line 341
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 342
@@ -603,7 +603,7 @@
     return-object v2
 
     .line 341
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     :catchall_0
     move-exception v3
 
@@ -627,7 +627,7 @@
 
 .method public getPriority(Landroid/bluetooth/BluetoothDevice;)I
     .locals 6
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -641,13 +641,13 @@
     move-result-object v0
 
     .line 398
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 401
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -687,7 +687,7 @@
     move-result v2
 
     .line 414
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 415
@@ -697,7 +697,7 @@
     return v2
 
     .line 407
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -735,13 +735,13 @@
     move-result-object v0
 
     .line 203
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 206
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothMap"
 
@@ -767,7 +767,7 @@
     move-result v2
 
     .line 212
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 213
@@ -777,7 +777,7 @@
     return v2
 
     .line 212
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -791,7 +791,7 @@
 
 .method public isConnected(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 7
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -809,13 +809,13 @@
     move-result-object v0
 
     .line 290
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 293
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothMap"
 
@@ -857,7 +857,7 @@
     if-eqz v4, :cond_1
 
     .line 306
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -868,7 +868,7 @@
     return v2
 
     .line 299
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -899,8 +899,8 @@
 
 .method public setPriority(Landroid/bluetooth/BluetoothDevice;I)Z
     .locals 7
-    .parameter "device"
-    .parameter "priority"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
+    .param p2, "priority"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -918,13 +918,13 @@
     move-result-object v0
 
     .line 373
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 376
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothMap"
 
@@ -969,7 +969,7 @@
     if-eqz v4, :cond_1
 
     .line 390
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -980,7 +980,7 @@
     return v2
 
     .line 382
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 

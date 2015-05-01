@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -71,7 +71,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/BatchedScanResult;)V
     .locals 4
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/BatchedScanResult;
 
     .prologue
     .line 44
@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -110,7 +110,7 @@
 
     check-cast v1, Landroid/net/wifi/ScanResult;
 
-    .local v1, s:Landroid/net/wifi/ScanResult;
+    .local v1, "s":Landroid/net/wifi/ScanResult;
     iget-object v2, p0, Landroid/net/wifi/BatchedScanResult;->scanResults:Ljava/util/List;
 
     new-instance v3, Landroid/net/wifi/ScanResult;
@@ -122,7 +122,7 @@
     goto :goto_0
 
     .line 47
-    .end local v1           #s:Landroid/net/wifi/ScanResult;
+    .end local v1    # "s":Landroid/net/wifi/ScanResult;
     :cond_0
     return-void
 .end method
@@ -149,7 +149,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 53
-    .local v2, sb:Ljava/lang/StringBuffer;
+    .local v2, "sb":Ljava/lang/StringBuffer;
     const-string v3, "BatchedScanResult: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -183,7 +183,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -198,7 +198,7 @@
     check-cast v1, Landroid/net/wifi/ScanResult;
 
     .line 57
-    .local v1, s:Landroid/net/wifi/ScanResult;
+    .local v1, "s":Landroid/net/wifi/ScanResult;
     const-string v3, " <"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -220,7 +220,7 @@
     goto :goto_0
 
     .line 59
-    .end local v1           #s:Landroid/net/wifi/ScanResult;
+    .end local v1    # "s":Landroid/net/wifi/ScanResult;
     :cond_0
     const-string v3, " ]"
 
@@ -236,8 +236,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 70
@@ -266,7 +266,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -281,21 +281,21 @@
     check-cast v1, Landroid/net/wifi/ScanResult;
 
     .line 73
-    .local v1, s:Landroid/net/wifi/ScanResult;
+    .local v1, "s":Landroid/net/wifi/ScanResult;
     invoke-virtual {v1, p1, p2}, Landroid/net/wifi/ScanResult;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_1
 
     .line 70
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #s:Landroid/net/wifi/ScanResult;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "s":Landroid/net/wifi/ScanResult;
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 75
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 .field static final CONTENT_BASE:Ljava/lang/String; = "content:"
 
-.field private static final CONTENT_DISPOSITION_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final CONTENT_DISPOSITION_PATTERN:Ljava/util/regex/Pattern;
 
 .field static final FILE_BASE:Ljava/lang/String; = "file://"
 
@@ -50,9 +50,9 @@
 
 .method public static composeSearchUrl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "inQuery"
-    .parameter "template"
-    .parameter "queryPlaceHolder"
+    .param p0, "inQuery"    # Ljava/lang/String;
+    .param p1, "template"    # Ljava/lang/String;
+    .param p2, "queryPlaceHolder"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -63,7 +63,7 @@
     move-result v2
 
     .line 89
-    .local v2, placeHolderIndex:I
+    .local v2, "placeHolderIndex":I
     if-gez v2, :cond_0
 
     .line 107
@@ -77,7 +77,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 95
-    .local v0, buffer:Ljava/lang/StringBuilder;
+    .local v0, "buffer":Ljava/lang/StringBuilder;
     const/4 v5, 0x0
 
     invoke-virtual {p1, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -95,7 +95,7 @@
     move-result-object v3
 
     .line 99
-    .local v3, query:Ljava/lang/String;
+    .local v3, "query":Ljava/lang/String;
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
@@ -121,18 +121,18 @@
     goto :goto_0
 
     .line 100
-    .end local v3           #query:Ljava/lang/String;
+    .end local v3    # "query":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 101
-    .local v1, ex:Ljava/io/UnsupportedEncodingException;
+    .local v1, "ex":Ljava/io/UnsupportedEncodingException;
     goto :goto_0
 .end method
 
 .method public static decode([B)[B
     .locals 9
-    .parameter "url"
+    .param p0, "url"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -161,14 +161,14 @@
     new-array v5, v6, [B
 
     .line 118
-    .local v5, tempData:[B
+    .local v5, "tempData":[B
     const/4 v3, 0x0
 
     .line 119
-    .local v3, tempCount:I
+    .local v3, "tempCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     array-length v6, p0
 
@@ -178,7 +178,7 @@
     aget-byte v0, p0, v1
 
     .line 121
-    .local v0, b:B
+    .local v0, "b":B
     const/16 v6, 0x25
 
     if-ne v0, v6, :cond_1
@@ -222,8 +222,8 @@
     :cond_1
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #tempCount:I
-    .local v4, tempCount:I
+    .end local v3    # "tempCount":I
+    .local v4, "tempCount":I
     aput-byte v0, v5, v3
 
     .line 119
@@ -231,8 +231,8 @@
 
     move v3, v4
 
-    .end local v4           #tempCount:I
-    .restart local v3       #tempCount:I
+    .end local v4    # "tempCount":I
+    .restart local v3    # "tempCount":I
     goto :goto_1
 
     .line 127
@@ -246,12 +246,12 @@
     throw v6
 
     .line 132
-    .end local v0           #b:B
+    .end local v0    # "b":B
     :cond_3
     new-array v2, v3, [B
 
     .line 133
-    .local v2, retData:[B
+    .local v2, "retData":[B
     invoke-static {v5, v8, v2, v8, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
@@ -259,9 +259,9 @@
 
 .method public static final guessFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 12
-    .parameter "url"
-    .parameter "contentDisposition"
-    .parameter "mimeType"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "contentDisposition"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     const/16 v11, 0x2f
@@ -274,11 +274,11 @@
     const/4 v3, 0x0
 
     .line 305
-    .local v3, filename:Ljava/lang/String;
+    .local v3, "filename":Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 308
-    .local v2, extension:Ljava/lang/String;
+    .local v2, "extension":Ljava/lang/String;
     if-nez v3, :cond_0
 
     if-eqz p1, :cond_0
@@ -299,7 +299,7 @@
     add-int/lit8 v4, v8, 0x1
 
     .line 312
-    .local v4, index:I
+    .local v4, "index":I
     if-lez v4, :cond_0
 
     .line 313
@@ -308,7 +308,7 @@
     move-result-object v3
 
     .line 319
-    .end local v4           #index:I
+    .end local v4    # "index":I
     :cond_0
     if-nez v3, :cond_2
 
@@ -318,7 +318,7 @@
     move-result-object v0
 
     .line 321
-    .local v0, decodedUrl:Ljava/lang/String;
+    .local v0, "decodedUrl":Ljava/lang/String;
     if-eqz v0, :cond_2
 
     .line 322
@@ -329,7 +329,7 @@
     move-result v6
 
     .line 324
-    .local v6, queryIndex:I
+    .local v6, "queryIndex":I
     if-lez v6, :cond_1
 
     .line 325
@@ -355,7 +355,7 @@
     add-int/lit8 v4, v8, 0x1
 
     .line 329
-    .restart local v4       #index:I
+    .restart local v4    # "index":I
     if-lez v4, :cond_2
 
     .line 330
@@ -364,9 +364,9 @@
     move-result-object v3
 
     .line 337
-    .end local v0           #decodedUrl:Ljava/lang/String;
-    .end local v4           #index:I
-    .end local v6           #queryIndex:I
+    .end local v0    # "decodedUrl":Ljava/lang/String;
+    .end local v4    # "index":I
+    .end local v6    # "queryIndex":I
     :cond_2
     if-nez v3, :cond_3
 
@@ -380,7 +380,7 @@
     move-result v1
 
     .line 344
-    .local v1, dotIndex:I
+    .local v1, "dotIndex":I
     if-gez v1, :cond_8
 
     .line 345
@@ -493,7 +493,7 @@
     move-result v5
 
     .line 367
-    .local v5, lastDotIndex:I
+    .local v5, "lastDotIndex":I
     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
 
     move-result-object v8
@@ -509,7 +509,7 @@
     move-result-object v7
 
     .line 369
-    .local v7, typeFromExt:Ljava/lang/String;
+    .local v7, "typeFromExt":Ljava/lang/String;
     if-eqz v7, :cond_9
 
     invoke-virtual {v7, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -550,8 +550,8 @@
     move-result-object v2
 
     .line 376
-    .end local v5           #lastDotIndex:I
-    .end local v7           #typeFromExt:Ljava/lang/String;
+    .end local v5    # "lastDotIndex":I
+    .end local v7    # "typeFromExt":Ljava/lang/String;
     :cond_9
     if-nez v2, :cond_a
 
@@ -571,14 +571,14 @@
 
 .method public static guessUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-    .parameter "inUrl"
+    .param p0, "inUrl"    # Ljava/lang/String;
 
     .prologue
     .line 49
     move-object v1, p0
 
     .line 54
-    .local v1, retVal:Ljava/lang/String;
+    .local v1, "retVal":Ljava/lang/String;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -586,13 +586,13 @@
     if-nez v3, :cond_1
 
     .line 83
-    .end local p0
+    .end local p0    # "inUrl":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object p0
 
     .line 55
-    .restart local p0
+    .restart local p0    # "inUrl":Ljava/lang/String;
     :cond_1
     const-string v3, "about:"
 
@@ -663,7 +663,7 @@
     .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 79
-    .local v2, webAddress:Landroid/net/WebAddress;
+    .local v2, "webAddress":Landroid/net/WebAddress;
     invoke-virtual {v2}, Landroid/net/WebAddress;->getHost()Ljava/lang/String;
 
     move-result-object v3
@@ -718,11 +718,11 @@
     goto :goto_0
 
     .line 70
-    .end local v2           #webAddress:Landroid/net/WebAddress;
+    .end local v2    # "webAddress":Landroid/net/WebAddress;
     :catch_0
     move-exception v0
 
-    .local v0, ex:Landroid/net/ParseException;
+    .local v0, "ex":Landroid/net/ParseException;
     move-object p0, v1
 
     .line 75
@@ -731,7 +731,7 @@
 
 .method public static isAboutUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 209
@@ -758,7 +758,7 @@
 
 .method public static isAssetUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 175
@@ -785,7 +785,7 @@
 
 .method public static isContentUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 258
@@ -812,7 +812,7 @@
 
 .method public static isCookielessProxyUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -841,7 +841,7 @@
 
 .method public static isDataUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 216
@@ -868,7 +868,7 @@
 
 .method public static isFileUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 200
@@ -911,7 +911,7 @@
 
 .method public static isHttpUrl(Ljava/lang/String;)Z
     .locals 3
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -949,7 +949,7 @@
 
 .method public static isHttpsUrl(Ljava/lang/String;)Z
     .locals 3
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -987,7 +987,7 @@
 
 .method public static isJavaScriptUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 223
@@ -1014,7 +1014,7 @@
 
 .method public static isNetworkUrl(Ljava/lang/String;)Z
     .locals 2
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -1054,7 +1054,7 @@
 
 .method public static isResourceUrl(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 183
@@ -1081,7 +1081,7 @@
 
 .method public static isValidUrl(Ljava/lang/String;)Z
     .locals 2
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -1157,7 +1157,7 @@
 
 .method static parseContentDisposition(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "contentDisposition"
+    .param p0, "contentDisposition"    # Ljava/lang/String;
 
     .prologue
     .line 401
@@ -1169,7 +1169,7 @@
     move-result-object v0
 
     .line 402
-    .local v0, m:Ljava/util/regex/Matcher;
+    .local v0, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
@@ -1186,7 +1186,7 @@
     move-result-object v1
 
     .line 408
-    .end local v0           #m:Ljava/util/regex/Matcher;
+    .end local v0    # "m":Ljava/util/regex/Matcher;
     :goto_0
     return-object v1
 
@@ -1203,7 +1203,7 @@
 
 .method private static parseHex(B)I
     .locals 3
-    .parameter "b"
+    .param p0, "b"    # B
 
     .prologue
     .line 164
@@ -1288,7 +1288,7 @@
 
 .method public static stripAnchor(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 283
@@ -1299,7 +1299,7 @@
     move-result v0
 
     .line 284
-    .local v0, anchorIndex:I
+    .local v0, "anchorIndex":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
@@ -1312,14 +1312,14 @@
     move-result-object p0
 
     .line 287
-    .end local p0
+    .end local p0    # "url":Ljava/lang/String;
     :cond_0
     return-object p0
 .end method
 
 .method static verifyURLEncoding(Ljava/lang/String;)Z
     .locals 6
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/16 v5, 0x25
@@ -1332,7 +1332,7 @@
     move-result v0
 
     .line 142
-    .local v0, count:I
+    .local v0, "count":I
     if-nez v0, :cond_1
 
     .line 160
@@ -1347,7 +1347,7 @@
     move-result v2
 
     .line 147
-    .local v2, index:I
+    .local v2, "index":I
     :goto_1
     if-ltz v2, :cond_2
 
@@ -1397,11 +1397,11 @@
     move-exception v1
 
     .line 153
-    .local v1, e:Ljava/lang/IllegalArgumentException;
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     goto :goto_0
 
     .line 160
-    .end local v1           #e:Ljava/lang/IllegalArgumentException;
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
     :cond_2
     const/4 v3, 0x1
 

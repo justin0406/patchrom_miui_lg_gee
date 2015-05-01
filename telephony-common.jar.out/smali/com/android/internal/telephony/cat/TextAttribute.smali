@@ -26,15 +26,15 @@
 # direct methods
 .method public constructor <init>(IILcom/android/internal/telephony/cat/TextAlignment;Lcom/android/internal/telephony/cat/FontSize;ZZZZLcom/android/internal/telephony/cat/TextColor;)V
     .locals 0
-    .parameter "start"
-    .parameter "length"
-    .parameter "align"
-    .parameter "size"
-    .parameter "bold"
-    .parameter "italic"
-    .parameter "underlined"
-    .parameter "strikeThrough"
-    .parameter "color"
+    .param p1, "start"    # I
+    .param p2, "length"    # I
+    .param p3, "align"    # Lcom/android/internal/telephony/cat/TextAlignment;
+    .param p4, "size"    # Lcom/android/internal/telephony/cat/FontSize;
+    .param p5, "bold"    # Z
+    .param p6, "italic"    # Z
+    .param p7, "underlined"    # Z
+    .param p8, "strikeThrough"    # Z
+    .param p9, "color"    # Lcom/android/internal/telephony/cat/TextColor;
 
     .prologue
     .line 38

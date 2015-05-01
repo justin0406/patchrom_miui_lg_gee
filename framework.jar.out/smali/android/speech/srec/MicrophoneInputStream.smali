@@ -29,8 +29,8 @@
 
 .method public constructor <init>(II)V
     .locals 4
-    .parameter "sampleRate"
-    .parameter "fifoDepth"
+    .param p1, "sampleRate"    # I
+    .param p2, "fifoDepth"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -82,7 +82,7 @@
     move-result v0
 
     .line 50
-    .local v0, status:I
+    .local v0, "status":I
     if-eqz v0, :cond_1
 
     .line 51
@@ -290,7 +290,7 @@
     move-result v0
 
     .line 60
-    .local v0, rtn:I
+    .local v0, "rtn":I
     if-ne v0, v4, :cond_1
 
     iget-object v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mOneByte:[B
@@ -310,7 +310,7 @@
 
 .method public read([B)I
     .locals 3
-    .parameter "b"
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -348,9 +348,9 @@
 
 .method public read([BII)I
     .locals 2
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "startTimeMs"
-    .parameter "endTimeMs"
-    .parameter "startChar"
-    .parameter "endChar"
+    .param p1, "startTimeMs"    # I
+    .param p2, "endTimeMs"    # I
+    .param p3, "startChar"    # I
+    .param p4, "endChar"    # I
 
     .prologue
     .line 303

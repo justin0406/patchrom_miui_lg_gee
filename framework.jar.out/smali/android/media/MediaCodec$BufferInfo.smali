@@ -39,10 +39,10 @@
 # virtual methods
 .method public set(IIJI)V
     .locals 0
-    .parameter "newOffset"
-    .parameter "newSize"
-    .parameter "newTimeUs"
-    .parameter "newFlags"
+    .param p1, "newOffset"    # I
+    .param p2, "newSize"    # I
+    .param p3, "newTimeUs"    # J
+    .param p5, "newFlags"    # I
 
     .prologue
     .line 131

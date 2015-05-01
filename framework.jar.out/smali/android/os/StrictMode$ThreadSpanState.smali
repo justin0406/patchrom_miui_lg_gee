@@ -37,7 +37,7 @@
 
 .method synthetic constructor <init>(Landroid/os/StrictMode$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/StrictMode$1;
 
     .prologue
     .line 1827

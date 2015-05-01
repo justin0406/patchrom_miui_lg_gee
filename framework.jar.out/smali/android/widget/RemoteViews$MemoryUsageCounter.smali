@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/RemoteViews;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1522
@@ -36,8 +35,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/RemoteViews;
+    .param p2, "x1"    # Landroid/widget/RemoteViews$1;
 
     .prologue
     .line 1522
@@ -50,7 +49,7 @@
 # virtual methods
 .method public addBitmapMemory(Landroid/graphics/Bitmap;)V
     .locals 4
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1537
@@ -59,11 +58,11 @@
     move-result-object v1
 
     .line 1539
-    .local v1, c:Landroid/graphics/Bitmap$Config;
+    .local v1, "c":Landroid/graphics/Bitmap$Config;
     const/4 v0, 0x4
 
     .line 1540
-    .local v0, bpp:I
+    .local v0, "bpp":I
     if-eqz v1, :cond_0
 
     .line 1541
@@ -152,7 +151,7 @@
 
 .method public increment(I)V
     .locals 1
-    .parameter "numBytes"
+    .param p1, "numBytes"    # I
 
     .prologue
     .line 1528

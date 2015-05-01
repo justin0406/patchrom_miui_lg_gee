@@ -61,11 +61,11 @@
 
 .method protected constructor <init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JI)V
     .locals 3
-    .parameter "transitionId"
-    .parameter "afterMediaItem"
-    .parameter "beforeMediaItem"
-    .parameter "durationMs"
-    .parameter "behavior"
+    .param p1, "transitionId"    # Ljava/lang/String;
+    .param p2, "afterMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p3, "beforeMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p4, "durationMs"    # J
+    .param p6, "behavior"    # I
 
     .prologue
     .line 118
@@ -188,7 +188,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 476
@@ -200,17 +200,17 @@
     const/4 v0, 0x0
 
     .line 479
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_0
     iget-object v0, p0, Landroid/media/videoeditor/Transition;->mUniqueId:Ljava/lang/String;
 
     check-cast p1, Landroid/media/videoeditor/Transition;
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     iget-object v1, p1, Landroid/media/videoeditor/Transition;->mUniqueId:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -230,39 +230,39 @@
     move-result-object v5
 
     .line 334
-    .local v5, m1:Landroid/media/videoeditor/MediaItem;
+    .local v5, "m1":Landroid/media/videoeditor/MediaItem;
     invoke-virtual/range {p0 .. p0}, Landroid/media/videoeditor/Transition;->getBeforeMediaItem()Landroid/media/videoeditor/MediaItem;
 
     move-result-object v6
 
     .line 335
-    .local v6, m2:Landroid/media/videoeditor/MediaItem;
+    .local v6, "m2":Landroid/media/videoeditor/MediaItem;
     new-instance v8, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
 
     invoke-direct {v8}, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;-><init>()V
 
     .line 336
-    .local v8, clipSettings1:Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
+    .local v8, "clipSettings1":Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
     new-instance v9, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
 
     invoke-direct {v9}, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;-><init>()V
 
     .line 337
-    .local v9, clipSettings2:Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
+    .local v9, "clipSettings2":Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
     const/16 v16, 0x0
 
     .line 338
-    .local v16, transitionSetting:Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
+    .local v16, "transitionSetting":Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
     new-instance v3, Landroid/media/videoeditor/MediaArtistNativeHelper$EditSettings;
 
     invoke-direct {v3}, Landroid/media/videoeditor/MediaArtistNativeHelper$EditSettings;-><init>()V
 
     .line 342
-    .local v3, editSettings:Landroid/media/videoeditor/MediaArtistNativeHelper$EditSettings;
+    .local v3, "editSettings":Landroid/media/videoeditor/MediaArtistNativeHelper$EditSettings;
     const/4 v15, 0x0
 
     .line 344
-    .local v15, output:Ljava/lang/String;
+    .local v15, "output":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
@@ -355,7 +355,7 @@
     move-result-object v10
 
     .line 364
-    .local v10, effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .local v10, "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
     const/4 v2, 0x2
 
     move-object/from16 v0, p0
@@ -365,10 +365,10 @@
     move-result-object v11
 
     .line 365
-    .local v11, effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .local v11, "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
     const/4 v13, 0x0
 
-    .local v13, index:I
+    .local v13, "index":I
     :goto_1
     invoke-interface {v11}, Ljava/util/List;->size()I
 
@@ -409,9 +409,9 @@
     goto :goto_1
 
     .line 347
-    .end local v10           #effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v11           #effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v13           #index:I
+    .end local v10    # "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v11    # "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v13    # "index":I
     :cond_1
     if-eqz v6, :cond_0
 
@@ -427,9 +427,9 @@
     goto :goto_0
 
     .line 368
-    .restart local v10       #effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .restart local v11       #effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .restart local v13       #index:I
+    .restart local v10    # "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .restart local v11    # "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .restart local v13    # "index":I
     :cond_2
     invoke-interface {v10}, Ljava/util/List;->size()I
 
@@ -448,11 +448,11 @@
     .line 371
     const/4 v12, 0x0
 
-    .local v12, i:I
+    .local v12, "i":I
     const/4 v14, 0x0
 
     .line 372
-    .local v14, j:I
+    .local v14, "j":I
     :goto_2
     invoke-interface {v10}, Ljava/util/List;->size()I
 
@@ -511,11 +511,11 @@
     goto :goto_3
 
     .line 383
-    .end local v10           #effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v11           #effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v12           #i:I
-    .end local v13           #index:I
-    .end local v14           #j:I
+    .end local v10    # "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v11    # "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v12    # "i":I
+    .end local v13    # "index":I
+    .end local v14    # "j":I
     :cond_4
     if-nez v5, :cond_6
 
@@ -577,10 +577,10 @@
     move-result-object v11
 
     .line 395
-    .restart local v11       #effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .restart local v11    # "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
     const/4 v13, 0x0
 
-    .restart local v13       #index:I
+    .restart local v13    # "index":I
     :goto_4
     invoke-interface {v11}, Ljava/util/List;->size()I
 
@@ -633,11 +633,11 @@
     .line 399
     const/4 v12, 0x0
 
-    .restart local v12       #i:I
+    .restart local v12    # "i":I
     const/4 v14, 0x0
 
     .line 400
-    .restart local v14       #j:I
+    .restart local v14    # "j":I
     :goto_5
     invoke-interface {v11}, Ljava/util/List;->size()I
 
@@ -665,10 +665,10 @@
     goto :goto_5
 
     .line 405
-    .end local v11           #effectSettings_clip2:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v12           #i:I
-    .end local v13           #index:I
-    .end local v14           #j:I
+    .end local v11    # "effectSettings_clip2":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v12    # "i":I
+    .end local v13    # "index":I
+    .end local v14    # "j":I
     :cond_6
     if-eqz v5, :cond_7
 
@@ -730,7 +730,7 @@
     move-result-object v10
 
     .line 417
-    .restart local v10       #effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .restart local v10    # "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v2
@@ -742,11 +742,11 @@
     .line 418
     const/4 v12, 0x0
 
-    .restart local v12       #i:I
+    .restart local v12    # "i":I
     const/4 v14, 0x0
 
     .line 419
-    .restart local v14       #j:I
+    .restart local v14    # "j":I
     :goto_6
     invoke-interface {v10}, Ljava/util/List;->size()I
 
@@ -774,9 +774,9 @@
     goto :goto_6
 
     .line 426
-    .end local v10           #effectSettings_clip1:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
-    .end local v12           #i:I
-    .end local v14           #j:I
+    .end local v10    # "effectSettings_clip1":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .end local v12    # "i":I
+    .end local v14    # "j":I
     :cond_7
     const/4 v2, 0x2
 
@@ -977,30 +977,30 @@
     const/4 v0, 0x0
 
     .line 227
-    .local v0, transitionAlpha:Landroid/media/videoeditor/TransitionAlpha;
+    .local v0, "transitionAlpha":Landroid/media/videoeditor/TransitionAlpha;
     const/4 v4, 0x0
 
     .line 228
-    .local v4, transitionSliding:Landroid/media/videoeditor/TransitionSliding;
+    .local v4, "transitionSliding":Landroid/media/videoeditor/TransitionSliding;
     const/4 v1, 0x0
 
     .line 229
-    .local v1, transitionCrossfade:Landroid/media/videoeditor/TransitionCrossfade;
+    .local v1, "transitionCrossfade":Landroid/media/videoeditor/TransitionCrossfade;
     const/4 v2, 0x0
 
     .line 230
-    .local v2, transitionFadeBlack:Landroid/media/videoeditor/TransitionFadeBlack;
+    .local v2, "transitionFadeBlack":Landroid/media/videoeditor/TransitionFadeBlack;
     const/4 v3, 0x0
 
     .line 231
-    .local v3, transitionSetting:Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
+    .local v3, "transitionSetting":Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
     new-instance v3, Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
 
-    .end local v3           #transitionSetting:Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
+    .end local v3    # "transitionSetting":Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
     invoke-direct {v3}, Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;-><init>()V
 
     .line 232
-    .restart local v3       #transitionSetting:Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
+    .restart local v3    # "transitionSetting":Landroid/media/videoeditor/MediaArtistNativeHelper$TransitionSettings;
     invoke-virtual {p0}, Landroid/media/videoeditor/Transition;->getDuration()J
 
     move-result-wide v5
@@ -1282,9 +1282,9 @@
 
 .method isEffectandOverlayOverlapping(Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;I)Ljava/util/List;
     .locals 10
-    .parameter "m"
-    .parameter "clipSettings"
-    .parameter "clipNo"
+    .param p1, "m"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "clipSettings"    # Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;
+    .param p3, "clipNo"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1305,18 +1305,18 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 297
-    .local v1, effectSettings:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
+    .local v1, "effectSettings":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;>;"
     invoke-virtual {p1}, Landroid/media/videoeditor/MediaItem;->getAllOverlays()Ljava/util/List;
 
     move-result-object v5
 
     .line 298
-    .local v5, overlays:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/Overlay;>;"
+    .local v5, "overlays":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/Overlay;>;"
     invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -1332,18 +1332,18 @@
     check-cast v4, Landroid/media/videoeditor/Overlay;
 
     .line 299
-    .local v4, overlay:Landroid/media/videoeditor/Overlay;
+    .local v4, "overlay":Landroid/media/videoeditor/Overlay;
     iget-object v7, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     check-cast v4, Landroid/media/videoeditor/OverlayFrame;
 
-    .end local v4           #overlay:Landroid/media/videoeditor/Overlay;
+    .end local v4    # "overlay":Landroid/media/videoeditor/Overlay;
     invoke-virtual {v7, v4}, Landroid/media/videoeditor/MediaArtistNativeHelper;->getOverlaySettings(Landroid/media/videoeditor/OverlayFrame;)Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
 
     move-result-object v6
 
     .line 300
-    .local v6, tmpEffectSettings:Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
+    .local v6, "tmpEffectSettings":Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
     iget-object v7, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     iget v8, p2, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;->beginCutTime:I
@@ -1363,14 +1363,14 @@
     goto :goto_0
 
     .line 307
-    .end local v6           #tmpEffectSettings:Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
+    .end local v6    # "tmpEffectSettings":Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
     :cond_1
     invoke-virtual {p1}, Landroid/media/videoeditor/MediaItem;->getAllEffects()Ljava/util/List;
 
     move-result-object v2
 
     .line 308
-    .local v2, effects:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/Effect;>;"
+    .local v2, "effects":Ljava/util/List;, "Ljava/util/List<Landroid/media/videoeditor/Effect;>;"
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -1390,7 +1390,7 @@
     check-cast v0, Landroid/media/videoeditor/Effect;
 
     .line 309
-    .local v0, effect:Landroid/media/videoeditor/Effect;
+    .local v0, "effect":Landroid/media/videoeditor/Effect;
     instance-of v7, v0, Landroid/media/videoeditor/EffectColor;
 
     if-eqz v7, :cond_2
@@ -1400,13 +1400,13 @@
 
     check-cast v0, Landroid/media/videoeditor/EffectColor;
 
-    .end local v0           #effect:Landroid/media/videoeditor/Effect;
+    .end local v0    # "effect":Landroid/media/videoeditor/Effect;
     invoke-virtual {v7, v0}, Landroid/media/videoeditor/MediaArtistNativeHelper;->getEffectSettings(Landroid/media/videoeditor/EffectColor;)Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
 
     move-result-object v6
 
     .line 311
-    .restart local v6       #tmpEffectSettings:Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
+    .restart local v6    # "tmpEffectSettings":Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
     iget-object v7, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     iget v8, p2, Landroid/media/videoeditor/MediaArtistNativeHelper$ClipSettings;->beginCutTime:I
@@ -1449,7 +1449,7 @@
     goto :goto_1
 
     .line 323
-    .end local v6           #tmpEffectSettings:Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
+    .end local v6    # "tmpEffectSettings":Landroid/media/videoeditor/MediaArtistNativeHelper$EffectSettings;
     :cond_4
     return-object v1
 .end method
@@ -1476,7 +1476,7 @@
 
 .method public setDuration(J)V
     .locals 2
-    .parameter "durationMs"
+    .param p1, "durationMs"    # J
 
     .prologue
     .line 175
@@ -1517,7 +1517,7 @@
 
 .method setFilename(Ljava/lang/String;)V
     .locals 0
-    .parameter "filename"
+    .param p1, "filename"    # Ljava/lang/String;
 
     .prologue
     .line 442

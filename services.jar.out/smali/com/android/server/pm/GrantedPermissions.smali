@@ -23,7 +23,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .parameter "pkgFlags"
+    .param p1, "pkgFlags"    # I
 
     .prologue
     .line 30
@@ -45,7 +45,7 @@
 
 .method constructor <init>(Lcom/android/server/pm/GrantedPermissions;)V
     .locals 1
-    .parameter "base"
+    .param p1, "base"    # Lcom/android/server/pm/GrantedPermissions;
 
     .prologue
     .line 35
@@ -99,14 +99,16 @@
 # virtual methods
 .method setFlags(I)V
     .locals 1
-    .parameter "pkgFlags"
+    .param p1, "pkgFlags"    # I
 
     .prologue
-    const v0, -0x19fbffff
+    .line 45
+    const v0, 0x60040001
 
     and-int/2addr v0, p1
 
     iput v0, p0, Lcom/android/server/pm/GrantedPermissions;->pkgFlags:I
 
+    .line 50
     return-void
 .end method

@@ -49,7 +49,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 101
@@ -63,8 +63,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "mode"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "mode"    # I
 
     .prologue
     .line 117
@@ -80,8 +80,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 128
@@ -95,9 +95,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 144
@@ -111,10 +111,10 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 8
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
-    .parameter "mode"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
+    .param p4, "mode"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -139,7 +139,7 @@
     move-result-object v0
 
     .line 170
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v4, -0x1
 
     if-ne p4, v4, :cond_0
@@ -224,7 +224,7 @@
     invoke-direct {v2, p0, p1, p2, p3}, Landroid/widget/Spinner$DropdownPopup;-><init>(Landroid/widget/Spinner;Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 183
-    .local v2, popup:Landroid/widget/Spinner$DropdownPopup;
+    .local v2, "popup":Landroid/widget/Spinner$DropdownPopup;
     const/4 v4, 0x4
 
     const/4 v5, -0x2
@@ -252,7 +252,7 @@
     move-result v3
 
     .line 190
-    .local v3, verticalOffset:I
+    .local v3, "verticalOffset":I
     if-eqz v3, :cond_2
 
     .line 191
@@ -267,7 +267,7 @@
     move-result v1
 
     .line 196
-    .local v1, horizontalOffset:I
+    .local v1, "horizontalOffset":I
     if-eqz v1, :cond_3
 
     .line 197
@@ -298,7 +298,7 @@
 
 .method static synthetic access$100(Landroid/widget/Spinner;)Landroid/widget/Spinner$SpinnerPopup;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Spinner;
 
     .prologue
     .line 61
@@ -309,7 +309,7 @@
 
 .method static synthetic access$400(Landroid/widget/Spinner;)Landroid/graphics/Rect;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Spinner;
 
     .prologue
     .line 61
@@ -320,7 +320,7 @@
 
 .method static synthetic access$500(Landroid/widget/Spinner;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Spinner;
 
     .prologue
     .line 61
@@ -331,7 +331,7 @@
 
 .method static synthetic access$600(Landroid/widget/Spinner;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Spinner;
 
     .prologue
     .line 61
@@ -344,8 +344,8 @@
 
 .method private makeView(IZ)Landroid/view/View;
     .locals 4
-    .parameter "position"
-    .parameter "addChild"
+    .param p1, "position"    # I
+    .param p2, "addChild"    # Z
 
     .prologue
     .line 581
@@ -361,7 +361,7 @@
     move-result-object v0
 
     .line 583
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 585
@@ -370,13 +370,13 @@
     move-object v1, v0
 
     .line 597
-    .end local v0           #child:Landroid/view/View;
-    .local v1, child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
+    .local v1, "child":Landroid/view/View;
     :goto_0
     return-object v1
 
     .line 592
-    .end local v1           #child:Landroid/view/View;
+    .end local v1    # "child":Landroid/view/View;
     :cond_0
     iget-object v2, p0, Landroid/widget/Spinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
@@ -387,21 +387,21 @@
     move-result-object v0
 
     .line 595
-    .restart local v0       #child:Landroid/view/View;
+    .restart local v0    # "child":Landroid/view/View;
     invoke-direct {p0, v0, p2}, Landroid/widget/Spinner;->setUpChild(Landroid/view/View;Z)V
 
     move-object v1, v0
 
     .line 597
-    .end local v0           #child:Landroid/view/View;
-    .restart local v1       #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
+    .restart local v1    # "child":Landroid/view/View;
     goto :goto_0
 .end method
 
 .method private setUpChild(Landroid/view/View;Z)V
     .locals 11
-    .parameter "child"
-    .parameter "addChild"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "addChild"    # Z
 
     .prologue
     .line 611
@@ -410,7 +410,7 @@
     move-result-object v6
 
     .line 612
-    .local v6, lp:Landroid/view/ViewGroup$LayoutParams;
+    .local v6, "lp":Landroid/view/ViewGroup$LayoutParams;
     if-nez v6, :cond_0
 
     .line 613
@@ -468,7 +468,7 @@
     move-result v1
 
     .line 628
-    .local v1, childHeightSpec:I
+    .local v1, "childHeightSpec":I
     iget v8, p0, Landroid/widget/Spinner;->mWidthMeasureSpec:I
 
     iget-object v9, p0, Landroid/widget/Spinner;->mSpinnerPadding:Landroid/graphics/Rect;
@@ -488,7 +488,7 @@
     move-result v5
 
     .line 632
-    .local v5, childWidthSpec:I
+    .local v5, "childWidthSpec":I
     invoke-virtual {p1, v5, v1}, Landroid/view/View;->measure(II)V
 
     .line 638
@@ -523,7 +523,7 @@
     add-int v4, v8, v9
 
     .line 641
-    .local v4, childTop:I
+    .local v4, "childTop":I
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v8
@@ -531,21 +531,21 @@
     add-int v0, v4, v8
 
     .line 643
-    .local v0, childBottom:I
+    .local v0, "childBottom":I
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v7
 
     .line 644
-    .local v7, width:I
+    .local v7, "width":I
     const/4 v2, 0x0
 
     .line 645
-    .local v2, childLeft:I
+    .local v2, "childLeft":I
     add-int v3, v2, v7
 
     .line 647
-    .local v3, childRight:I
+    .local v3, "childRight":I
     invoke-virtual {p1, v2, v4, v3, v0}, Landroid/view/View;->layout(IIII)V
 
     .line 648
@@ -566,7 +566,7 @@
     const/4 v0, 0x0
 
     .line 428
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {p0}, Landroid/widget/Spinner;->getChildCount()I
 
     move-result v3
@@ -589,7 +589,7 @@
     move-result v1
 
     .line 437
-    .local v1, childBaseline:I
+    .local v1, "childBaseline":I
     if-ltz v1, :cond_1
 
     invoke-virtual {v0}, Landroid/view/View;->getTop()I
@@ -599,7 +599,7 @@
     add-int/2addr v2, v1
 
     .line 439
-    .end local v1           #childBaseline:I
+    .end local v1    # "childBaseline":I
     :cond_1
     return v2
 
@@ -708,8 +708,8 @@
 
 .method layout(IZ)V
     .locals 10
-    .parameter "delta"
-    .parameter "animate"
+    .param p1, "delta"    # I
+    .param p2, "animate"    # Z
 
     .prologue
     const/4 v9, 0x0
@@ -720,7 +720,7 @@
     iget v1, v7, Landroid/graphics/Rect;->left:I
 
     .line 515
-    .local v1, childrenLeft:I
+    .local v1, "childrenLeft":I
     iget v7, p0, Landroid/widget/Spinner;->mRight:I
 
     iget v8, p0, Landroid/widget/Spinner;->mLeft:I
@@ -740,7 +740,7 @@
     sub-int v2, v7, v8
 
     .line 517
-    .local v2, childrenWidth:I
+    .local v2, "childrenWidth":I
     iget-boolean v7, p0, Landroid/widget/Spinner;->mDataChanged:Z
 
     if-eqz v7, :cond_0
@@ -799,23 +799,23 @@
     move-result-object v4
 
     .line 541
-    .local v4, sel:Landroid/view/View;
+    .local v4, "sel":Landroid/view/View;
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
 
     .line 542
-    .local v6, width:I
+    .local v6, "width":I
     move v5, v1
 
     .line 543
-    .local v5, selectedOffset:I
+    .local v5, "selectedOffset":I
     invoke-virtual {p0}, Landroid/widget/Spinner;->getLayoutDirection()I
 
     move-result v3
 
     .line 544
-    .local v3, layoutDirection:I
+    .local v3, "layoutDirection":I
     iget v7, p0, Landroid/widget/Spinner;->mGravity:I
 
     invoke-static {v7, v3}, Landroid/view/Gravity;->getAbsoluteGravity(II)I
@@ -823,7 +823,7 @@
     move-result v0
 
     .line 545
-    .local v0, absoluteGravity:I
+    .local v0, "absoluteGravity":I
     and-int/lit8 v7, v0, 0x7
 
     sparse-switch v7, :sswitch_data_0
@@ -833,11 +833,11 @@
     invoke-virtual {v4, v5}, Landroid/view/View;->offsetLeftAndRight(I)V
 
     .line 557
-    .end local v0           #absoluteGravity:I
-    .end local v3           #layoutDirection:I
-    .end local v4           #sel:Landroid/view/View;
-    .end local v5           #selectedOffset:I
-    .end local v6           #width:I
+    .end local v0    # "absoluteGravity":I
+    .end local v3    # "layoutDirection":I
+    .end local v4    # "sel":Landroid/view/View;
+    .end local v5    # "selectedOffset":I
+    .end local v6    # "width":I
     :cond_3
     iget-object v7, p0, Landroid/widget/Spinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
@@ -863,11 +863,11 @@
     goto :goto_0
 
     .line 547
-    .restart local v0       #absoluteGravity:I
-    .restart local v3       #layoutDirection:I
-    .restart local v4       #sel:Landroid/view/View;
-    .restart local v5       #selectedOffset:I
-    .restart local v6       #width:I
+    .restart local v0    # "absoluteGravity":I
+    .restart local v3    # "layoutDirection":I
+    .restart local v4    # "sel":Landroid/view/View;
+    .restart local v5    # "selectedOffset":I
+    .restart local v6    # "width":I
     :sswitch_0
     div-int/lit8 v7, v2, 0x2
 
@@ -900,8 +900,8 @@
 
 .method measureContentWidth(Landroid/widget/SpinnerAdapter;Landroid/graphics/drawable/Drawable;)I
     .locals 13
-    .parameter "adapter"
-    .parameter "background"
+    .param p1, "adapter"    # Landroid/widget/SpinnerAdapter;
+    .param p2, "background"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 710
@@ -920,15 +920,15 @@
     const/4 v8, 0x0
 
     .line 715
-    .local v8, width:I
+    .local v8, "width":I
     const/4 v5, 0x0
 
     .line 716
-    .local v5, itemView:Landroid/view/View;
+    .local v5, "itemView":Landroid/view/View;
     const/4 v4, 0x0
 
     .line 717
-    .local v4, itemType:I
+    .local v4, "itemType":I
     const/4 v10, 0x0
 
     const/4 v11, 0x0
@@ -938,7 +938,7 @@
     move-result v9
 
     .line 719
-    .local v9, widthMeasureSpec:I
+    .local v9, "widthMeasureSpec":I
     const/4 v10, 0x0
 
     const/4 v11, 0x0
@@ -948,7 +948,7 @@
     move-result v2
 
     .line 724
-    .local v2, heightMeasureSpec:I
+    .local v2, "heightMeasureSpec":I
     const/4 v10, 0x0
 
     invoke-virtual {p0}, Landroid/widget/Spinner;->getSelectedItemPosition()I
@@ -960,7 +960,7 @@
     move-result v7
 
     .line 725
-    .local v7, start:I
+    .local v7, "start":I
     invoke-interface {p1}, Landroid/widget/SpinnerAdapter;->getCount()I
 
     move-result v10
@@ -972,11 +972,11 @@
     move-result v1
 
     .line 726
-    .local v1, end:I
+    .local v1, "end":I
     sub-int v0, v1, v7
 
     .line 727
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v10, 0x0
 
     rsub-int/lit8 v11, v0, 0xf
@@ -990,7 +990,7 @@
     .line 728
     move v3, v7
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, v1, :cond_4
 
@@ -1000,7 +1000,7 @@
     move-result v6
 
     .line 730
-    .local v6, positionType:I
+    .local v6, "positionType":I
     if-eq v6, v4, :cond_2
 
     .line 731
@@ -1052,7 +1052,7 @@
     goto :goto_1
 
     .line 745
-    .end local v6           #positionType:I
+    .end local v6    # "positionType":I
     :cond_4
     if-eqz p2, :cond_0
 
@@ -1079,8 +1079,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 666
@@ -1125,7 +1125,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 672
@@ -1146,7 +1146,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 678
@@ -1178,11 +1178,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 2
-    .parameter "changed"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -1207,8 +1207,8 @@
 
 .method protected onMeasure(II)V
     .locals 3
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 482
@@ -1223,7 +1223,7 @@
 
     move-result v1
 
-    const/high16 v2, -0x8000
+    const/high16 v2, -0x80000000
 
     if-ne v1, v2, :cond_0
 
@@ -1233,7 +1233,7 @@
     move-result v0
 
     .line 485
-    .local v0, measuredWidth:I
+    .local v0, "measuredWidth":I
     invoke-virtual {p0}, Landroid/widget/Spinner;->getAdapter()Landroid/widget/SpinnerAdapter;
 
     move-result-object v1
@@ -1265,14 +1265,14 @@
     invoke-virtual {p0, v1, v2}, Landroid/widget/Spinner;->setMeasuredDimension(II)V
 
     .line 490
-    .end local v0           #measuredWidth:I
+    .end local v0    # "measuredWidth":I
     :cond_0
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 4
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 762
@@ -1281,7 +1281,7 @@
     check-cast v1, Landroid/widget/Spinner$SavedState;
 
     .line 764
-    .local v1, ss:Landroid/widget/Spinner$SavedState;
+    .local v1, "ss":Landroid/widget/Spinner$SavedState;
     invoke-virtual {v1}, Landroid/widget/Spinner$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v3
@@ -1299,7 +1299,7 @@
     move-result-object v2
 
     .line 768
-    .local v2, vto:Landroid/view/ViewTreeObserver;
+    .local v2, "vto":Landroid/view/ViewTreeObserver;
     if-eqz v2, :cond_0
 
     .line 769
@@ -1308,12 +1308,12 @@
     invoke-direct {v0, p0}, Landroid/widget/Spinner$2;-><init>(Landroid/widget/Spinner;)V
 
     .line 781
-    .local v0, listener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    .local v0, "listener":Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
     invoke-virtual {v2, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 784
-    .end local v0           #listener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-    .end local v2           #vto:Landroid/view/ViewTreeObserver;
+    .end local v0    # "listener":Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    .end local v2    # "vto":Landroid/view/ViewTreeObserver;
     :cond_0
     return-void
 .end method
@@ -1332,7 +1332,7 @@
     invoke-direct {v0, v1}, Landroid/widget/Spinner$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 756
-    .local v0, ss:Landroid/widget/Spinner$SavedState;
+    .local v0, "ss":Landroid/widget/Spinner$SavedState;
     iget-object v1, p0, Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
 
     if-eqz v1, :cond_0
@@ -1362,7 +1362,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 473
@@ -1403,7 +1403,7 @@
     move-result v0
 
     .line 654
-    .local v0, handled:Z
+    .local v0, "handled":Z
     if-nez v0, :cond_0
 
     .line 655
@@ -1438,13 +1438,13 @@
 
 .method public bridge synthetic setAdapter(Landroid/widget/Adapter;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/Adapter;
 
     .prologue
     .line 60
     check-cast p1, Landroid/widget/SpinnerAdapter;
 
-    .end local p1
+    .end local p1    # "x0":Landroid/widget/Adapter;
     invoke-virtual {p0, p1}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     return-void
@@ -1452,7 +1452,7 @@
 
 .method public setAdapter(Landroid/widget/SpinnerAdapter;)V
     .locals 2
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/SpinnerAdapter;
 
     .prologue
     .line 413
@@ -1494,7 +1494,7 @@
 
 .method public setDropDownHorizontalOffset(I)V
     .locals 1
-    .parameter "pixels"
+    .param p1, "pixels"    # I
 
     .prologue
     .line 309
@@ -1508,7 +1508,7 @@
 
 .method public setDropDownVerticalOffset(I)V
     .locals 1
-    .parameter "pixels"
+    .param p1, "pixels"    # I
 
     .prologue
     .line 285
@@ -1522,7 +1522,7 @@
 
 .method public setDropDownWidth(I)V
     .locals 2
-    .parameter "pixels"
+    .param p1, "pixels"    # I
 
     .prologue
     .line 338
@@ -1552,7 +1552,7 @@
 
 .method public setEnabled(Z)V
     .locals 3
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 362
@@ -1569,10 +1569,10 @@
     move-result v0
 
     .line 365
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -1589,15 +1589,15 @@
     goto :goto_0
 
     .line 369
-    .end local v0           #count:I
-    .end local v1           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public setGravity(I)V
     .locals 1
-    .parameter "gravity"
+    .param p1, "gravity"    # I
 
     .prologue
     .line 380
@@ -1629,7 +1629,7 @@
 
 .method public setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
     .locals 2
-    .parameter "l"
+    .param p1, "l"    # Landroid/widget/AdapterView$OnItemClickListener;
 
     .prologue
     .line 461
@@ -1644,7 +1644,7 @@
 
 .method public setOnItemClickListenerInt(Landroid/widget/AdapterView$OnItemClickListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Landroid/widget/AdapterView$OnItemClickListener;
 
     .prologue
     .line 468
@@ -1656,7 +1656,7 @@
 
 .method public setPopupBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .parameter "background"
+    .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 245
@@ -1690,7 +1690,7 @@
 
 .method public setPopupBackgroundResource(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 261
@@ -1714,7 +1714,7 @@
 
 .method public setPrompt(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "prompt"
+    .param p1, "prompt"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 691
@@ -1728,7 +1728,7 @@
 
 .method public setPromptId(I)V
     .locals 1
-    .parameter "promptId"
+    .param p1, "promptId"    # I
 
     .prologue
     .line 699

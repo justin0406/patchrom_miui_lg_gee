@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/DhcpStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 268
@@ -44,14 +43,14 @@
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 276
     const/4 v0, 0x1
 
     .line 278
-    .local v0, retValue:Z
+    .local v0, "retValue":Z
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
@@ -68,14 +67,14 @@
     :pswitch_1
     iget-object v1, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
+    # getter for: Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$1600(Landroid/net/DhcpStateMachine;)Landroid/app/AlarmManager;
 
     move-result-object v1
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewalIntent:Landroid/app/PendingIntent;
+    # getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewalIntent:Landroid/app/PendingIntent;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$1500(Landroid/net/DhcpStateMachine;)Landroid/app/PendingIntent;
 
     move-result-object v2
@@ -85,7 +84,7 @@
     .line 281
     iget-object v1, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
+    # getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$300(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
 
     move-result-object v1
@@ -111,7 +110,7 @@
 
     iget-object v3, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
+    # getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v3}, Landroid/net/DhcpStateMachine;->access$300(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
 
     move-result-object v3
@@ -132,12 +131,12 @@
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
+    # getter for: Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$1200(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
-    #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$1700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
@@ -146,7 +145,7 @@
     :pswitch_2
     iget-object v1, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mRegisteredForPreDhcpNotification:Z
+    # getter for: Landroid/net/DhcpStateMachine;->mRegisteredForPreDhcpNotification:Z
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$400(Landroid/net/DhcpStateMachine;)Z
 
     move-result v1
@@ -156,7 +155,7 @@
     .line 289
     iget-object v1, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
+    # getter for: Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$500(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v1
@@ -170,12 +169,12 @@
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
+    # getter for: Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$1800(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
-    #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$1900(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
@@ -186,7 +185,7 @@
 
     sget-object v2, Landroid/net/DhcpStateMachine$DhcpAction;->RENEW:Landroid/net/DhcpStateMachine$DhcpAction;
 
-    #calls: Landroid/net/DhcpStateMachine;->runDhcp(Landroid/net/DhcpStateMachine$DhcpAction;)Z
+    # invokes: Landroid/net/DhcpStateMachine;->runDhcp(Landroid/net/DhcpStateMachine$DhcpAction;)Z
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$800(Landroid/net/DhcpStateMachine;Landroid/net/DhcpStateMachine$DhcpAction;)Z
 
     move-result v1
@@ -198,19 +197,19 @@
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
+    # getter for: Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$1200(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
-    #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$2000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
 
     .line 296
     :cond_2
     iget-object v1, p0, Landroid/net/DhcpStateMachine$RunningState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1

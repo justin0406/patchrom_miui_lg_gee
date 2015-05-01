@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$Package;)V
     .locals 1
-    .parameter "_owner"
+    .param p1, "_owner"    # Landroid/content/pm/PackageParser$Package;
 
     .prologue
     .line 3743
@@ -53,8 +53,8 @@
 
 .method public constructor <init>(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PermissionInfo;)V
     .locals 0
-    .parameter "_owner"
-    .parameter "_info"
+    .param p1, "_owner"    # Landroid/content/pm/PackageParser$Package;
+    .param p2, "_info"    # Landroid/content/pm/PermissionInfo;
 
     .prologue
     .line 3748
@@ -71,7 +71,7 @@
 # virtual methods
 .method public setPackageName(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 3753

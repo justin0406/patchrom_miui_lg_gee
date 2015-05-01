@@ -45,7 +45,7 @@
 
 .method public static convertCallState(Lcom/android/internal/telephony/PhoneConstants$State;)I
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Lcom/android/internal/telephony/PhoneConstants$State;
 
     .prologue
     .line 191
@@ -89,7 +89,7 @@
 
 .method public static convertCallState(I)Lcom/android/internal/telephony/PhoneConstants$State;
     .locals 1
-    .parameter "state"
+    .param p0, "state"    # I
 
     .prologue
     .line 206
@@ -123,7 +123,7 @@
 
 .method public static convertDataActivityState(Lcom/android/internal/telephony/Phone$DataActivityState;)I
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Lcom/android/internal/telephony/Phone$DataActivityState;
 
     .prologue
     .line 255
@@ -181,7 +181,7 @@
 
 .method public static convertDataActivityState(I)Lcom/android/internal/telephony/Phone$DataActivityState;
     .locals 1
-    .parameter "state"
+    .param p0, "state"    # I
 
     .prologue
     .line 274
@@ -229,7 +229,7 @@
 
 .method public static convertDataState(Lcom/android/internal/telephony/PhoneConstants$DataState;)I
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     .prologue
     .line 221
@@ -280,7 +280,7 @@
 
 .method public static convertDataState(I)Lcom/android/internal/telephony/PhoneConstants$DataState;
     .locals 1
-    .parameter "state"
+    .param p0, "state"    # I
 
     .prologue
     .line 238
@@ -323,10 +323,10 @@
 
 .method private doNotifyDataConnection(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/PhoneConstants$DataState;)V
     .locals 13
-    .parameter "sender"
-    .parameter "reason"
-    .parameter "apnType"
-    .parameter "state"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "apnType"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     .prologue
     .line 120
@@ -335,19 +335,19 @@
     move-result-object v12
 
     .line 121
-    .local v12, telephony:Landroid/telephony/TelephonyManager;
+    .local v12, "telephony":Landroid/telephony/TelephonyManager;
     const/4 v7, 0x0
 
     .line 122
-    .local v7, linkProperties:Landroid/net/LinkProperties;
+    .local v7, "linkProperties":Landroid/net/LinkProperties;
     const/4 v8, 0x0
 
     .line 123
-    .local v8, linkCapabilities:Landroid/net/LinkCapabilities;
+    .local v8, "linkCapabilities":Landroid/net/LinkCapabilities;
     const/4 v10, 0x0
 
     .line 125
-    .local v10, roaming:Z
+    .local v10, "roaming":Z
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     move-object/from16 v0, p4
@@ -375,7 +375,7 @@
     move-result-object v11
 
     .line 130
-    .local v11, ss:Landroid/telephony/ServiceState;
+    .local v11, "ss":Landroid/telephony/ServiceState;
     if-eqz v11, :cond_1
 
     invoke-virtual {v11}, Landroid/telephony/ServiceState;->getRoaming()Z
@@ -439,7 +439,7 @@
 # virtual methods
 .method public notifyCallForwardingChanged(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 94
@@ -467,8 +467,7 @@
 
 .method public notifyCellInfo(Lcom/android/internal/telephony/Phone;Ljava/util/List;)V
     .locals 1
-    .parameter "sender"
-    .parameter
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -482,7 +481,7 @@
 
     .prologue
     .line 171
-    .local p2, cellInfo:Ljava/util/List;,"Ljava/util/List<Landroid/telephony/CellInfo;>;"
+    .local p2, "cellInfo":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/CellInfo;>;"
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
 
@@ -503,7 +502,7 @@
 
 .method public notifyCellLocation(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 159
@@ -512,7 +511,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 160
-    .local v0, data:Landroid/os/Bundle;
+    .local v0, "data":Landroid/os/Bundle;
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getCellLocation()Landroid/telephony/CellLocation;
 
     move-result-object v1
@@ -540,7 +539,7 @@
 
 .method public notifyDataActivity(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 103
@@ -572,10 +571,10 @@
 
 .method public notifyDataConnection(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/PhoneConstants$DataState;)V
     .locals 0
-    .parameter "sender"
-    .parameter "reason"
-    .parameter "apnType"
-    .parameter "state"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "apnType"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     .prologue
     .line 112
@@ -587,9 +586,9 @@
 
 .method public notifyDataConnectionFailed(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "sender"
-    .parameter "reason"
-    .parameter "apnType"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 151
@@ -613,7 +612,7 @@
 
 .method public notifyMessageWaitingChanged(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 85
@@ -641,8 +640,8 @@
 
 .method public notifyOtaspChanged(Lcom/android/internal/telephony/Phone;I)V
     .locals 1
-    .parameter "sender"
-    .parameter "otaspMode"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
+    .param p2, "otaspMode"    # I
 
     .prologue
     .line 180
@@ -666,7 +665,7 @@
 
 .method public notifyPhoneState(Lcom/android/internal/telephony/Phone;)V
     .locals 4
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 47
@@ -675,11 +674,11 @@
     move-result-object v1
 
     .line 48
-    .local v1, ringingCall:Lcom/android/internal/telephony/Call;
+    .local v1, "ringingCall":Lcom/android/internal/telephony/Call;
     const-string v0, ""
 
     .line 49
-    .local v0, incomingNumber:Ljava/lang/String;
+    .local v0, "incomingNumber":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/Call;->getEarliestConnection()Lcom/android/internal/telephony/Connection;
@@ -727,7 +726,7 @@
 
 .method public notifyServiceState(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 61
@@ -736,17 +735,17 @@
     move-result-object v0
 
     .line 62
-    .local v0, ss:Landroid/telephony/ServiceState;
+    .local v0, "ss":Landroid/telephony/ServiceState;
     if-nez v0, :cond_0
 
     .line 63
     new-instance v0, Landroid/telephony/ServiceState;
 
-    .end local v0           #ss:Landroid/telephony/ServiceState;
+    .end local v0    # "ss":Landroid/telephony/ServiceState;
     invoke-direct {v0}, Landroid/telephony/ServiceState;-><init>()V
 
     .line 64
-    .restart local v0       #ss:Landroid/telephony/ServiceState;
+    .restart local v0    # "ss":Landroid/telephony/ServiceState;
     invoke-virtual {v0}, Landroid/telephony/ServiceState;->setStateOutOfService()V
 
     .line 67
@@ -771,7 +770,7 @@
 
 .method public notifySignalStrength(Lcom/android/internal/telephony/Phone;)V
     .locals 2
-    .parameter "sender"
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 76

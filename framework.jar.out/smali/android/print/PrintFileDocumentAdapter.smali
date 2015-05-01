@@ -28,9 +28,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/io/File;Landroid/print/PrintDocumentInfo;)V
     .locals 2
-    .parameter "context"
-    .parameter "file"
-    .parameter "documentInfo"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "file"    # Ljava/io/File;
+    .param p3, "documentInfo"    # Landroid/print/PrintDocumentInfo;
 
     .prologue
     .line 67
@@ -77,7 +77,7 @@
 
 .method static synthetic access$000(Landroid/print/PrintFileDocumentAdapter;)Ljava/io/File;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintFileDocumentAdapter;
 
     .prologue
     .line 47
@@ -88,7 +88,7 @@
 
 .method static synthetic access$100(Landroid/print/PrintFileDocumentAdapter;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintFileDocumentAdapter;
 
     .prologue
     .line 47
@@ -101,11 +101,11 @@
 # virtual methods
 .method public onLayout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;Landroid/os/Bundle;)V
     .locals 2
-    .parameter "oldAttributes"
-    .parameter "newAttributes"
-    .parameter "cancellationSignal"
-    .parameter "callback"
-    .parameter "metadata"
+    .param p1, "oldAttributes"    # Landroid/print/PrintAttributes;
+    .param p2, "newAttributes"    # Landroid/print/PrintAttributes;
+    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
+    .param p4, "callback"    # Landroid/print/PrintDocumentAdapter$LayoutResultCallback;
+    .param p5, "metadata"    # Landroid/os/Bundle;
 
     .prologue
     .line 83
@@ -121,10 +121,10 @@
 
 .method public onWrite([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     .locals 3
-    .parameter "pages"
-    .parameter "destination"
-    .parameter "cancellationSignal"
-    .parameter "callback"
+    .param p1, "pages"    # [Landroid/print/PageRange;
+    .param p2, "destination"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
+    .param p4, "callback"    # Landroid/print/PrintDocumentAdapter$WriteResultCallback;
 
     .prologue
     .line 89

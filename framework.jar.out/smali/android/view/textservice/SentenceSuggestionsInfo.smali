@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 59
@@ -56,7 +56,7 @@
     move-result v0
 
     .line 61
-    .local v0, infoSize:I
+    .local v0, "infoSize":I
     new-array v1, v0, [Landroid/view/textservice/SuggestionsInfo;
 
     iput-object v1, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mSuggestionsInfos:[Landroid/view/textservice/SuggestionsInfo;
@@ -102,9 +102,9 @@
 
 .method public constructor <init>([Landroid/view/textservice/SuggestionsInfo;[I[I)V
     .locals 3
-    .parameter "suggestionsInfos"
-    .parameter "offsets"
-    .parameter "lengths"
+    .param p1, "suggestionsInfos"    # [Landroid/view/textservice/SuggestionsInfo;
+    .param p2, "offsets"    # [I
+    .param p3, "lengths"    # [I
 
     .prologue
     .line 46
@@ -152,7 +152,7 @@
     array-length v0, p1
 
     .line 54
-    .local v0, infoSize:I
+    .local v0, "infoSize":I
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v1
@@ -193,7 +193,7 @@
 
 .method public getLengthAt(I)I
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 123
@@ -222,7 +222,7 @@
 
 .method public getOffsetAt(I)I
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 112
@@ -263,7 +263,7 @@
 
 .method public getSuggestionsInfoAt(I)Landroid/view/textservice/SuggestionsInfo;
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 101
@@ -292,8 +292,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 77
@@ -302,7 +302,7 @@
     array-length v0, v1
 
     .line 78
-    .local v0, infoSize:I
+    .local v0, "infoSize":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 79

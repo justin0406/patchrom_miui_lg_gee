@@ -32,9 +32,9 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/SensorEventListener;Landroid/os/Looper;Landroid/hardware/SystemSensorManager;)V
     .locals 1
-    .parameter "listener"
-    .parameter "looper"
-    .parameter "manager"
+    .param p1, "listener"    # Landroid/hardware/SensorEventListener;
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "manager"    # Landroid/hardware/SystemSensorManager;
 
     .prologue
     .line 357
@@ -58,7 +58,7 @@
 # virtual methods
 .method public addSensorEvent(Landroid/hardware/Sensor;)V
     .locals 4
-    .parameter "sensor"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 363
@@ -66,7 +66,7 @@
 
     iget-object v1, p0, Landroid/hardware/SystemSensorManager$SensorEventQueue;->mManager:Landroid/hardware/SystemSensorManager;
 
-    #getter for: Landroid/hardware/SystemSensorManager;->mTargetSdkLevel:I
+    # getter for: Landroid/hardware/SystemSensorManager;->mTargetSdkLevel:I
     invoke-static {v1}, Landroid/hardware/SystemSensorManager;->access$100(Landroid/hardware/SystemSensorManager;)I
 
     move-result v1
@@ -78,7 +78,7 @@
     invoke-direct {v0, v1}, Landroid/hardware/SensorEvent;-><init>(I)V
 
     .line 365
-    .local v0, t:Landroid/hardware/SensorEvent;
+    .local v0, "t":Landroid/hardware/SensorEvent;
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$SensorEventQueue;->mSensorsEvents:Landroid/util/SparseArray;
 
     monitor-enter v2
@@ -112,7 +112,7 @@
 
 .method protected dispatchFlushCompleteEvent(I)V
     .locals 2
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 423
@@ -123,6 +123,7 @@
     if-eqz v1, :cond_0
 
     .line 424
+    # getter for: Landroid/hardware/SystemSensorManager;->sHandleToSensor:Landroid/util/SparseArray;
     invoke-static {}, Landroid/hardware/SystemSensorManager;->access$000()Landroid/util/SparseArray;
 
     move-result-object v1
@@ -134,7 +135,7 @@
     check-cast v0, Landroid/hardware/Sensor;
 
     .line 425
-    .local v0, sensor:Landroid/hardware/Sensor;
+    .local v0, "sensor":Landroid/hardware/Sensor;
     iget-object v1, p0, Landroid/hardware/SystemSensorManager$SensorEventQueue;->mListener:Landroid/hardware/SensorEventListener;
 
     check-cast v1, Landroid/hardware/SensorEventListener2;
@@ -142,22 +143,23 @@
     invoke-interface {v1, v0}, Landroid/hardware/SensorEventListener2;->onFlushCompleted(Landroid/hardware/Sensor;)V
 
     .line 427
-    .end local v0           #sensor:Landroid/hardware/Sensor;
+    .end local v0    # "sensor":Landroid/hardware/Sensor;
     :cond_0
     return-void
 .end method
 
 .method protected dispatchSensorEvent(I[FIJ)V
     .locals 7
-    .parameter "handle"
-    .parameter "values"
-    .parameter "inAccuracy"
-    .parameter "timestamp"
+    .param p1, "handle"    # I
+    .param p2, "values"    # [F
+    .param p3, "inAccuracy"    # I
+    .param p4, "timestamp"    # J
 
     .prologue
     const/4 v6, 0x0
 
     .line 382
+    # getter for: Landroid/hardware/SystemSensorManager;->sHandleToSensor:Landroid/util/SparseArray;
     invoke-static {}, Landroid/hardware/SystemSensorManager;->access$000()Landroid/util/SparseArray;
 
     move-result-object v4
@@ -169,11 +171,11 @@
     check-cast v2, Landroid/hardware/Sensor;
 
     .line 383
-    .local v2, sensor:Landroid/hardware/Sensor;
+    .local v2, "sensor":Landroid/hardware/Sensor;
     const/4 v3, 0x0
 
     .line 384
-    .local v3, t:Landroid/hardware/SensorEvent;
+    .local v3, "t":Landroid/hardware/SensorEvent;
     iget-object v5, p0, Landroid/hardware/SystemSensorManager$SensorEventQueue;->mSensorsEvents:Landroid/util/SparseArray;
 
     monitor-enter v5
@@ -283,7 +285,7 @@
     move-result v1
 
     .line 404
-    .local v1, accuracy:I
+    .local v1, "accuracy":I
     iget v4, v3, Landroid/hardware/SensorEvent;->accuracy:I
 
     if-ltz v4, :cond_1
@@ -320,7 +322,7 @@
 
 .method public removeSensorEvent(Landroid/hardware/Sensor;)V
     .locals 3
-    .parameter "sensor"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 372

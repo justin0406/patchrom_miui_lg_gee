@@ -18,9 +18,9 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Path;FF)V
     .locals 0
-    .parameter "path"
-    .parameter "stdWidth"
-    .parameter "stdHeight"
+    .param p1, "path"    # Landroid/graphics/Path;
+    .param p2, "stdWidth"    # F
+    .param p3, "stdHeight"    # F
 
     .prologue
     .line 48
@@ -58,7 +58,7 @@
     check-cast v0, Landroid/graphics/drawable/shapes/PathShape;
 
     .line 71
-    .local v0, shape:Landroid/graphics/drawable/shapes/PathShape;
+    .local v0, "shape":Landroid/graphics/drawable/shapes/PathShape;
     new-instance v1, Landroid/graphics/Path;
 
     iget-object v2, p0, Landroid/graphics/drawable/shapes/PathShape;->mPath:Landroid/graphics/Path;
@@ -107,8 +107,8 @@
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 2
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 56
@@ -135,8 +135,8 @@
 
 .method protected onResize(FF)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .prologue
     .line 64

@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/audiofx/Equalizer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 400
@@ -38,8 +37,8 @@
 
 .method synthetic constructor <init>(Landroid/media/audiofx/Equalizer;Landroid/media/audiofx/Equalizer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/audiofx/Equalizer;
+    .param p2, "x1"    # Landroid/media/audiofx/Equalizer$1;
 
     .prologue
     .line 399
@@ -52,10 +51,10 @@
 # virtual methods
 .method public onParameterChange(Landroid/media/audiofx/AudioEffect;I[B[B)V
     .locals 9
-    .parameter "effect"
-    .parameter "status"
-    .parameter "param"
-    .parameter "value"
+    .param p1, "effect"    # Landroid/media/audiofx/AudioEffect;
+    .param p2, "status"    # I
+    .param p3, "param"    # [B
+    .param p4, "value"    # [B
 
     .prologue
     const/4 v8, -0x1
@@ -68,10 +67,10 @@
     const/4 v0, 0x0
 
     .line 406
-    .local v0, l:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
+    .local v0, "l":Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    #getter for: Landroid/media/audiofx/Equalizer;->mParamListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/audiofx/Equalizer;->mParamListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/audiofx/Equalizer;->access$000(Landroid/media/audiofx/Equalizer;)Ljava/lang/Object;
 
     move-result-object v2
@@ -82,7 +81,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    #getter for: Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
+    # getter for: Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
     invoke-static {v1}, Landroid/media/audiofx/Equalizer;->access$100(Landroid/media/audiofx/Equalizer;)Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
 
     move-result-object v1
@@ -92,7 +91,7 @@
     .line 408
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    #getter for: Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
+    # getter for: Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
     invoke-static {v1}, Landroid/media/audiofx/Equalizer;->access$100(Landroid/media/audiofx/Equalizer;)Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
 
     move-result-object v0
@@ -110,15 +109,15 @@
     const/4 v3, -0x1
 
     .line 413
-    .local v3, p1:I
+    .local v3, "p1":I
     const/4 v4, -0x1
 
     .line 414
-    .local v4, p2:I
+    .local v4, "p2":I
     const/4 v5, -0x1
 
     .line 416
-    .local v5, v:I
+    .local v5, "v":I
     array-length v1, p3
 
     if-lt v1, v7, :cond_1
@@ -174,9 +173,9 @@
     invoke-interface/range {v0 .. v5}, Landroid/media/audiofx/Equalizer$OnParameterChangeListener;->onParameterChange(Landroid/media/audiofx/Equalizer;IIII)V
 
     .line 432
-    .end local v3           #p1:I
-    .end local v4           #p2:I
-    .end local v5           #v:I
+    .end local v3    # "p1":I
+    .end local v4    # "p2":I
+    .end local v5    # "v":I
     :cond_3
     return-void
 
@@ -192,9 +191,9 @@
     throw v1
 
     .line 424
-    .restart local v3       #p1:I
-    .restart local v4       #p2:I
-    .restart local v5       #v:I
+    .restart local v3    # "p1":I
+    .restart local v4    # "p2":I
+    .restart local v5    # "v":I
     :cond_4
     array-length v1, p4
 

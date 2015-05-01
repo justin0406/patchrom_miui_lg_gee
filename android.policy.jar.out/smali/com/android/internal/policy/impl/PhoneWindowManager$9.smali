@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 2560
+    .line 2562
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$9;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +38,11 @@
 # virtual methods
 .method public createInputEventReceiver(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
     .locals 2
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p1, "inputChannel"    # Landroid/view/InputChannel;
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 2564
+    .line 2566
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$9;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;

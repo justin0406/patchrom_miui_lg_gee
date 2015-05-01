@@ -23,7 +23,7 @@
 
 .field public static final WEP40:I = 0x0
 
-.field public static final strings:[Ljava/lang/String; = null
+.field public static final strings:[Ljava/lang/String;
 
 .field public static final varName:Ljava/lang/String; = "group"
 

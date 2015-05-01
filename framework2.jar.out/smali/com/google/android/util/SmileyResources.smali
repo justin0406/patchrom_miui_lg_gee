@@ -25,8 +25,8 @@
 # direct methods
 .method public constructor <init>([Ljava/lang/String;[I)V
     .locals 4
-    .parameter "smilies"
-    .parameter "smileyResIds"
+    .param p1, "smilies"    # [Ljava/lang/String;
+    .param p2, "smileyResIds"    # [I
 
     .prologue
     .line 35
@@ -49,7 +49,7 @@
     .line 36
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v1, p1
 
@@ -130,7 +130,7 @@
 
 .method public getSmileyRes(Ljava/lang/String;)I
     .locals 2
-    .parameter "smiley"
+    .param p1, "smiley"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -143,7 +143,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 50
-    .local v0, i:Ljava/lang/Integer;
+    .local v0, "i":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
     .line 51

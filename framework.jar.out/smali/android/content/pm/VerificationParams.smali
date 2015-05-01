@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -54,11 +54,11 @@
 
 .method public constructor <init>(Landroid/net/Uri;Landroid/net/Uri;Landroid/net/Uri;ILandroid/content/pm/ManifestDigest;)V
     .locals 1
-    .parameter "verificationURI"
-    .parameter "originatingURI"
-    .parameter "referrer"
-    .parameter "originatingUid"
-    .parameter "manifestDigest"
+    .param p1, "verificationURI"    # Landroid/net/Uri;
+    .param p2, "originatingURI"    # Landroid/net/Uri;
+    .param p3, "referrer"    # Landroid/net/Uri;
+    .param p4, "originatingUid"    # I
+    .param p5, "manifestDigest"    # Landroid/content/pm/ManifestDigest;
 
     .prologue
     .line 72
@@ -90,7 +90,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 217
@@ -176,8 +176,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/VerificationParams$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/VerificationParams$1;
 
     .prologue
     .line 29
@@ -200,7 +200,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -233,7 +233,7 @@
     check-cast v0, Landroid/content/pm/VerificationParams;
 
     .line 128
-    .local v0, other:Landroid/content/pm/VerificationParams;
+    .local v0, "other":Landroid/content/pm/VerificationParams;
     iget-object v3, p0, Landroid/content/pm/VerificationParams;->mVerificationURI:Landroid/net/Uri;
 
     if-nez v3, :cond_3
@@ -461,7 +461,7 @@
     const/4 v0, 0x3
 
     .line 175
-    .local v0, hash:I
+    .local v0, "hash":I
     iget-object v1, p0, Landroid/content/pm/VerificationParams;->mVerificationURI:Landroid/net/Uri;
 
     if-nez v1, :cond_0
@@ -567,7 +567,7 @@
 
 .method public setInstallerUid(I)V
     .locals 0
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 108
@@ -589,7 +589,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 189
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "mVerificationURI="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -680,8 +680,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x0

@@ -12,13 +12,13 @@
 
 .field static final DEFAULT_COUNTER:I = 0x1
 
-.field static final DEFAULT_FAIL_CAUSE:Lcom/android/internal/telephony/dataconnection/DcFailCause; = null
+.field static final DEFAULT_FAIL_CAUSE:Lcom/android/internal/telephony/dataconnection/DcFailCause;
 
 .field static final DEFAULT_SUGGESTED_RETRY_TIME:I = -0x1
 
 .field static final FAIL_CAUSE:Ljava/lang/String; = "fail_cause"
 
-.field static final INTENT_BASE:Ljava/lang/String; = null
+.field static final INTENT_BASE:Ljava/lang/String;
 
 .field private static final LOG_TAG:Ljava/lang/String; = "DcFailBringUp"
 
@@ -71,7 +71,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 78
@@ -87,9 +87,9 @@
 # virtual methods
 .method saveParameters(III)V
     .locals 1
-    .parameter "counter"
-    .parameter "failCause"
-    .parameter "suggestedRetryTime"
+    .param p1, "counter"    # I
+    .param p2, "failCause"    # I
+    .param p3, "suggestedRetryTime"    # I
 
     .prologue
     .line 64
@@ -111,8 +111,8 @@
 
 .method saveParameters(Landroid/content/Intent;Ljava/lang/String;)V
     .locals 2
-    .parameter "intent"
-    .parameter "s"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "s"    # Ljava/lang/String;
 
     .prologue
     .line 52

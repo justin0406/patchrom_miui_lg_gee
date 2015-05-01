@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 0
-    .parameter "table"
+    .param p1, "table"    # [B
 
     .prologue
     .line 125
@@ -50,7 +50,7 @@
 
 .method public isAvailable(Lcom/android/internal/telephony/uicc/UsimServiceTable$UsimService;)Z
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Lcom/android/internal/telephony/uicc/UsimServiceTable$UsimService;
 
     .prologue
     .line 129

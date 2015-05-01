@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/CountryDetectorService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 177
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onCountryDetected(Landroid/location/Country;)V
     .locals 2
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
 
     .prologue
     .line 179
     iget-object v0, p0, Lcom/android/server/CountryDetectorService$1;->this$0:Lcom/android/server/CountryDetectorService;
 
-    #getter for: Lcom/android/server/CountryDetectorService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/CountryDetectorService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/CountryDetectorService;->access$100(Lcom/android/server/CountryDetectorService;)Landroid/os/Handler;
 
     move-result-object v0

@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewAnimator;Landroid/view/View;Landroid/widget/AdapterViewAnimator$ViewAndMetaData;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 645

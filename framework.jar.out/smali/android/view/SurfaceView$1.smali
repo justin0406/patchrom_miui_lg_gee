@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 118
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -77,7 +76,7 @@
     :pswitch_2
     iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
-    #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
+    # invokes: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v1, v0, v0}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
     goto :goto_0

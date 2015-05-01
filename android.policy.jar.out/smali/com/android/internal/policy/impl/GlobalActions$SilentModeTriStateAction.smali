@@ -3,8 +3,8 @@
 .source "GlobalActions.java"
 
 # interfaces
-.implements Lcom/android/internal/policy/impl/GlobalActions$Action;
 .implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/internal/policy/impl/GlobalActions$Action;
 
 
 # annotations
@@ -31,9 +31,9 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/media/AudioManager;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "audioManager"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "audioManager"    # Landroid/media/AudioManager;
+    .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 769
@@ -62,16 +62,16 @@
 
     .line 763
     :array_0
-    .array-data 0x4
-        0x9bt 0x2t 0x2t 0x1t
-        0x9ct 0x2t 0x2t 0x1t
-        0x9dt 0x2t 0x2t 0x1t
+    .array-data 4
+        0x102029b
+        0x102029c
+        0x102029d
     .end array-data
 .end method
 
 .method private indexToRingerMode(I)I
     .locals 0
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 782
@@ -80,7 +80,7 @@
 
 .method private ringerModeToIndex(I)I
     .locals 0
-    .parameter "ringerMode"
+    .param p1, "ringerMode"    # I
 
     .prologue
     .line 777
@@ -91,10 +91,10 @@
 # virtual methods
 .method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 6
-    .parameter "context"
-    .parameter "convertView"
-    .parameter "parent"
-    .parameter "inflater"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .param p4, "inflater"    # Landroid/view/LayoutInflater;
 
     .prologue
     const/4 v5, 0x0
@@ -107,7 +107,7 @@
     move-result-object v3
 
     .line 789
-    .local v3, v:Landroid/view/View;
+    .local v3, "v":Landroid/view/View;
     iget-object v4, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeTriStateAction;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v4}, Landroid/media/AudioManager;->getRingerMode()I
@@ -119,10 +119,10 @@
     move-result v2
 
     .line 790
-    .local v2, selectedIndex:I
+    .local v2, "selectedIndex":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/4 v4, 0x3
 
@@ -138,7 +138,7 @@
     move-result-object v1
 
     .line 792
-    .local v1, itemView:Landroid/view/View;
+    .local v1, "itemView":Landroid/view/View;
     if-ne v2, v0, :cond_0
 
     const/4 v4, 0x1
@@ -168,7 +168,7 @@
     goto :goto_1
 
     .line 797
-    .end local v1           #itemView:Landroid/view/View;
+    .end local v1    # "itemView":Landroid/view/View;
     :cond_1
     return-object v3
 .end method
@@ -185,7 +185,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 823
@@ -214,7 +214,7 @@
     move-result v0
 
     .line 826
-    .local v0, index:I
+    .local v0, "index":I
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeTriStateAction;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/GlobalActions$SilentModeTriStateAction;->indexToRingerMode(I)I

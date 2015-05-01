@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DropBoxManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 158
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 161
@@ -49,7 +48,7 @@
     .line 162
     iget-object v0, p0, Lcom/android/server/DropBoxManagerService$3;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    #getter for: Lcom/android/server/DropBoxManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/DropBoxManagerService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/DropBoxManagerService;->access$500(Lcom/android/server/DropBoxManagerService;)Landroid/content/Context;
 
     move-result-object v1

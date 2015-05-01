@@ -32,32 +32,32 @@
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ReceiverDispatcher;Z)V
     .locals 1
-    .parameter "rd"
-    .parameter "strong"
+    .param p1, "rd"    # Landroid/app/LoadedApk$ReceiverDispatcher;
+    .param p2, "strong"    # Z
 
     .prologue
-    .line 679
+    .line 670
     invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
-    .line 680
+    .line 671
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/app/LoadedApk$ReceiverDispatcher$InnerReceiver;->mDispatcher:Ljava/lang/ref/WeakReference;
 
-    .line 681
+    .line 672
     if-eqz p2, :cond_0
 
-    .end local p1
+    .end local p1    # "rd":Landroid/app/LoadedApk$ReceiverDispatcher;
     :goto_0
     iput-object p1, p0, Landroid/app/LoadedApk$ReceiverDispatcher$InnerReceiver;->mStrongRef:Landroid/app/LoadedApk$ReceiverDispatcher;
 
-    .line 682
+    .line 673
     return-void
 
-    .line 681
-    .restart local p1
+    .line 672
+    .restart local p1    # "rd":Landroid/app/LoadedApk$ReceiverDispatcher;
     :cond_0
     const/4 p1, 0x0
 
@@ -68,16 +68,16 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 9
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "data"
-    .parameter "extras"
-    .parameter "ordered"
-    .parameter "sticky"
-    .parameter "sendingUser"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
     .prologue
-    .line 685
+    .line 676
     iget-object v2, p0, Landroid/app/LoadedApk$ReceiverDispatcher$InnerReceiver;->mDispatcher:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -86,8 +86,8 @@
 
     check-cast v0, Landroid/app/LoadedApk$ReceiverDispatcher;
 
-    .line 691
-    .local v0, rd:Landroid/app/LoadedApk$ReceiverDispatcher;
+    .line 682
+    .local v0, "rd":Landroid/app/LoadedApk$ReceiverDispatcher;
     if-eqz v0, :cond_0
 
     move-object v1, p1
@@ -104,30 +104,30 @@
 
     move/from16 v7, p7
 
-    .line 692
+    .line 683
     invoke-virtual/range {v0 .. v7}, Landroid/app/LoadedApk$ReceiverDispatcher;->performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
 
-    .line 711
+    .line 702
     :goto_0
     return-void
 
-    .line 701
+    .line 692
     :cond_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v1
 
-    .line 703
-    .local v1, mgr:Landroid/app/IActivityManager;
+    .line 694
+    .local v1, "mgr":Landroid/app/IActivityManager;
     if-eqz p4, :cond_1
 
-    .line 704
+    .line 695
     const/4 v2, 0x0
 
     :try_start_0
     invoke-virtual {p4, v2}, Landroid/os/Bundle;->setAllowFds(Z)Z
 
-    .line 706
+    .line 697
     :cond_1
     const/4 v6, 0x0
 
@@ -145,12 +145,12 @@
 
     goto :goto_0
 
-    .line 707
+    .line 698
     :catch_0
     move-exception v8
 
-    .line 708
-    .local v8, e:Landroid/os/RemoteException;
+    .line 699
+    .local v8, "e":Landroid/os/RemoteException;
     const-string v2, "ActivityThread"
 
     const-string v3, "Couldn\'t finish broadcast to unregistered receiver"

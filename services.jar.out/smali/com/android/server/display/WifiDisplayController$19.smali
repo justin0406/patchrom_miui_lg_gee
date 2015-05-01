@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 928
@@ -49,7 +47,7 @@
     .line 931
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$19;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #getter for: Lcom/android/server/display/WifiDisplayController;->mDesiredDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    # getter for: Lcom/android/server/display/WifiDisplayController;->mDesiredDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$2800(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v0
@@ -60,7 +58,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$19;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #getter for: Lcom/android/server/display/WifiDisplayController;->mConnectionRetriesLeft:I
+    # getter for: Lcom/android/server/display/WifiDisplayController;->mConnectionRetriesLeft:I
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$3200(Lcom/android/server/display/WifiDisplayController;)I
 
     move-result v0
@@ -72,6 +70,7 @@
 
     const/4 v1, 0x1
 
+    # -= operator for: Lcom/android/server/display/WifiDisplayController;->mConnectionRetriesLeft:I
     invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->access$3220(Lcom/android/server/display/WifiDisplayController;I)I
 
     .line 933
@@ -89,7 +88,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$19;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #getter for: Lcom/android/server/display/WifiDisplayController;->mConnectionRetriesLeft:I
+    # getter for: Lcom/android/server/display/WifiDisplayController;->mConnectionRetriesLeft:I
     invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->access$3200(Lcom/android/server/display/WifiDisplayController;)I
 
     move-result v2
@@ -107,7 +106,7 @@
     .line 935
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$19;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #calls: Lcom/android/server/display/WifiDisplayController;->retryConnection()V
+    # invokes: Lcom/android/server/display/WifiDisplayController;->retryConnection()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$3300(Lcom/android/server/display/WifiDisplayController;)V
 
     .line 937

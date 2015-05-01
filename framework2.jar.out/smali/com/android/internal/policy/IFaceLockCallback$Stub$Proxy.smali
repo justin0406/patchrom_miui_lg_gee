@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 79
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 105
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IFaceLockCallback"
 
@@ -110,7 +110,7 @@
 
 .method public pokeWakelock(I)V
     .locals 5
-    .parameter "millis"
+    .param p1, "millis"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 127
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IFaceLockCallback"
 
@@ -176,7 +176,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IFaceLockCallback"
 
@@ -225,7 +225,7 @@
     move-result-object v0
 
     .line 94
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IFaceLockCallback"
 

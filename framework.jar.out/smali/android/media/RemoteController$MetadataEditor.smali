@@ -21,7 +21,6 @@
 # direct methods
 .method protected constructor <init>(Landroid/media/RemoteController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 445
@@ -34,9 +33,8 @@
 
 .method protected constructor <init>(Landroid/media/RemoteController;Landroid/os/Bundle;J)V
     .locals 3
-    .parameter
-    .parameter "metadata"
-    .parameter "editableKeys"
+    .param p2, "metadata"    # Landroid/os/Bundle;
+    .param p3, "editableKeys"    # J
 
     .prologue
     const/16 v2, 0x64
@@ -93,8 +91,8 @@
 
 .method static synthetic access$1200(Landroid/media/RemoteController$MetadataEditor;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/RemoteController$MetadataEditor;
+    .param p1, "x1"    # I
 
     .prologue
     .line 441
@@ -105,7 +103,7 @@
 
 .method private cleanupBitmapFromBundle(I)V
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 466
@@ -160,6 +158,7 @@
     .line 484
     :cond_0
     :try_start_1
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v3
@@ -172,19 +171,20 @@
     :try_start_2
     iget-object v2, p0, Landroid/media/RemoteController$MetadataEditor;->this$0:Landroid/media/RemoteController;
 
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v2}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
 
     .line 486
-    .local v0, genId:I
+    .local v0, "genId":I
     monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 487
     :try_start_3
+    # getter for: Landroid/media/RemoteController;->mInfoLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$200()Ljava/lang/Object;
 
     move-result-object v3
@@ -221,10 +221,10 @@
     check-cast v1, Landroid/media/Rating;
 
     .line 492
-    .local v1, rating:Landroid/media/Rating;
+    .local v1, "rating":Landroid/media/Rating;
     iget-object v2, p0, Landroid/media/RemoteController$MetadataEditor;->this$0:Landroid/media/RemoteController;
 
-    #getter for: Landroid/media/RemoteController;->mAudioManager:Landroid/media/AudioManager;
+    # getter for: Landroid/media/RemoteController;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v2}, Landroid/media/RemoteController;->access$300(Landroid/media/RemoteController;)Landroid/media/AudioManager;
 
     move-result-object v2
@@ -234,7 +234,7 @@
     invoke-virtual {v2, v0, v4, v1}, Landroid/media/AudioManager;->updateRemoteControlClientMetadata(IILandroid/media/Rating;)V
 
     .line 501
-    .end local v1           #rating:Landroid/media/Rating;
+    .end local v1    # "rating":Landroid/media/Rating;
     :goto_1
     const/4 v2, 0x0
 
@@ -258,7 +258,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     .line 480
-    .end local v0           #genId:I
+    .end local v0    # "genId":I
     :catchall_1
     move-exception v2
 
@@ -281,7 +281,7 @@
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     .line 496
-    .restart local v0       #genId:I
+    .restart local v0    # "genId":I
     :cond_1
     :try_start_8
     const-string v2, "RemoteController"

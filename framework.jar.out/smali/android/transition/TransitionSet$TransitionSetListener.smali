@@ -21,7 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/transition/TransitionSet;)V
     .locals 0
-    .parameter "transitionSet"
+    .param p1, "transitionSet"    # Landroid/transition/TransitionSet;
 
     .prologue
     .line 229
@@ -38,7 +38,7 @@
 # virtual methods
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 242
@@ -79,7 +79,7 @@
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 234

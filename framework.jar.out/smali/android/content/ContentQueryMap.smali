@@ -34,10 +34,10 @@
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;Ljava/lang/String;ZLandroid/os/Handler;)V
     .locals 2
-    .parameter "cursor"
-    .parameter "columnNameOfKey"
-    .parameter "keepUpdated"
-    .parameter "handlerForUpdateNotifications"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "columnNameOfKey"    # Ljava/lang/String;
+    .param p3, "keepUpdated"    # Z
+    .param p4, "handlerForUpdateNotifications"    # Landroid/os/Handler;
 
     .prologue
     const/4 v1, 0x0
@@ -99,8 +99,8 @@
 
 .method static synthetic access$002(Landroid/content/ContentQueryMap;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/content/ContentQueryMap;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 35
@@ -111,7 +111,7 @@
 
 .method private declared-synchronized readCursorIntoCache(Landroid/database/Cursor;)V
     .locals 5
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 150
@@ -129,7 +129,7 @@
     move-result v0
 
     .line 151
-    .local v0, capacity:I
+    .local v0, "capacity":I
     :goto_0
     new-instance v3, Ljava/util/HashMap;
 
@@ -151,10 +151,10 @@
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
     .line 154
-    .local v2, values:Landroid/content/ContentValues;
+    .local v2, "values":Landroid/content/ContentValues;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_2
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mColumnNames:[Ljava/lang/String;
 
@@ -185,18 +185,18 @@
     goto :goto_2
 
     .line 150
-    .end local v0           #capacity:I
-    .end local v1           #i:I
-    .end local v2           #values:Landroid/content/ContentValues;
+    .end local v0    # "capacity":I
+    .end local v1    # "i":I
+    .end local v2    # "values":Landroid/content/ContentValues;
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 159
-    .restart local v0       #capacity:I
-    .restart local v1       #i:I
-    .restart local v2       #values:Landroid/content/ContentValues;
+    .restart local v0    # "capacity":I
+    .restart local v1    # "i":I
+    .restart local v2    # "values":Landroid/content/ContentValues;
     :cond_2
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
@@ -213,9 +213,9 @@
     goto :goto_1
 
     .line 150
-    .end local v0           #capacity:I
-    .end local v1           #i:I
-    .end local v2           #values:Landroid/content/ContentValues;
+    .end local v0    # "capacity":I
+    .end local v1    # "i":I
+    .end local v2    # "values":Landroid/content/ContentValues;
     :catchall_0
     move-exception v3
 
@@ -224,7 +224,7 @@
     throw v3
 
     .line 161
-    .restart local v0       #capacity:I
+    .restart local v0    # "capacity":I
     :cond_3
     monitor-exit p0
 
@@ -353,7 +353,7 @@
 
 .method public declared-synchronized getValues(Ljava/lang/String;)Landroid/content/ContentValues;
     .locals 1
-    .parameter "rowName"
+    .param p1, "rowName"    # Ljava/lang/String;
 
     .prologue
     .line 125
@@ -399,7 +399,7 @@
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
 
     .line 132
-    .local v0, cursor:Landroid/database/Cursor;
+    .local v0, "cursor":Landroid/database/Cursor;
     if-nez v0, :cond_1
 
     .line 146
@@ -434,7 +434,7 @@
 
 .method public setKeepUpdated(Z)V
     .locals 2
-    .parameter "keepUpdated"
+    .param p1, "keepUpdated"    # Z
 
     .prologue
     .line 87

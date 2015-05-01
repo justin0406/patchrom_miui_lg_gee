@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
+    .param p2, "x0"    # I
+    .param p3, "x1"    # I
 
     .prologue
     .line 271
@@ -55,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
 
     move-result-object v2
@@ -63,7 +62,7 @@
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 275
-    .local v0, builder:Landroid/app/AlertDialog$Builder;
+    .local v0, "builder":Landroid/app/AlertDialog$Builder;
     const v2, 0x10400c8
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -74,14 +73,14 @@
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 277
-    const/high16 v2, 0x104
+    const/high16 v2, 0x1040000
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 278
-    const v2, 0x1040405
+    const v2, 0x1040406
 
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$3$1;
 
@@ -95,7 +94,7 @@
     move-result-object v1
 
     .line 297
-    .local v1, dialog:Landroid/app/AlertDialog;
+    .local v1, "dialog":Landroid/app/AlertDialog;
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2

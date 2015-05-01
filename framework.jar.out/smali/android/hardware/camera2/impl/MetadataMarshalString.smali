@@ -72,7 +72,7 @@
 
 .method public getNativeSize(I)I
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     .line 77
@@ -83,7 +83,7 @@
 
 .method public isNativeTypeSupported(I)Z
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     .line 72
@@ -102,16 +102,16 @@
 
 .method public bridge synthetic marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;IZ)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/nio/ByteBuffer;
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Z
 
     .prologue
     .line 21
     check-cast p1, Ljava/lang/String;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/hardware/camera2/impl/MetadataMarshalString;->marshal(Ljava/lang/String;Ljava/nio/ByteBuffer;IZ)I
 
     move-result v0
@@ -121,10 +121,10 @@
 
 .method public marshal(Ljava/lang/String;Ljava/nio/ByteBuffer;IZ)I
     .locals 2
-    .parameter "value"
-    .parameter "buffer"
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "value"    # Ljava/lang/String;
+    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
 
     .prologue
     .line 27
@@ -135,7 +135,7 @@
     move-result-object v0
 
     .line 29
-    .local v0, arr:[B
+    .local v0, "arr":[B
     if-nez p4, :cond_0
 
     .line 30
@@ -157,8 +157,8 @@
 
 .method public bridge synthetic unmarshal(Ljava/nio/ByteBuffer;I)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/nio/ByteBuffer;
+    .param p2, "x1"    # I
 
     .prologue
     .line 21
@@ -171,8 +171,8 @@
 
 .method public unmarshal(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
     .locals 6
-    .parameter "buffer"
-    .parameter "nativeType"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -184,11 +184,11 @@
     const/4 v0, 0x0
 
     .line 43
-    .local v0, foundNull:Z
+    .local v0, "foundNull":Z
     const/4 v2, 0x0
 
     .line 44
-    .local v2, stringLength:I
+    .local v2, "stringLength":I
     :goto_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
@@ -235,7 +235,7 @@
     new-array v1, v3, [B
 
     .line 59
-    .local v1, strBytes:[B
+    .local v1, "strBytes":[B
     add-int/lit8 v3, v2, 0x1
 
     invoke-virtual {p1, v1, v5, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;

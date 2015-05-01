@@ -23,8 +23,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/SamplingProfilerService;Landroid/content/ContentResolver;)V
     .locals 1
-    .parameter
-    .parameter "contentResolver"
+    .param p2, "contentResolver"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 107
@@ -51,7 +50,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 114
@@ -70,7 +69,7 @@
     move-result-object v0
 
     .line 118
-    .local v0, samplingProfilerMs:Ljava/lang/Integer;
+    .local v0, "samplingProfilerMs":Ljava/lang/Integer;
     const-string v1, "persist.sys.profiler_ms"
 
     invoke-virtual {v0}, Ljava/lang/Integer;->toString()Ljava/lang/String;

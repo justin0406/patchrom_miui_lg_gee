@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextClock;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 144
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 147
     iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    #getter for: Landroid/widget/TextClock;->mTimeZone:Ljava/lang/String;
+    # getter for: Landroid/widget/TextClock;->mTimeZone:Ljava/lang/String;
     invoke-static {v1}, Landroid/widget/TextClock;->access$200(Landroid/widget/TextClock;)Ljava/lang/String;
 
     move-result-object v1
@@ -70,18 +69,18 @@
     move-result-object v0
 
     .line 149
-    .local v0, timeZone:Ljava/lang/String;
+    .local v0, "timeZone":Ljava/lang/String;
     iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    #calls: Landroid/widget/TextClock;->createTime(Ljava/lang/String;)V
+    # invokes: Landroid/widget/TextClock;->createTime(Ljava/lang/String;)V
     invoke-static {v1, v0}, Landroid/widget/TextClock;->access$300(Landroid/widget/TextClock;Ljava/lang/String;)V
 
     .line 151
-    .end local v0           #timeZone:Ljava/lang/String;
+    .end local v0    # "timeZone":Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    #calls: Landroid/widget/TextClock;->onTimeChanged()V
+    # invokes: Landroid/widget/TextClock;->onTimeChanged()V
     invoke-static {v1}, Landroid/widget/TextClock;->access$100(Landroid/widget/TextClock;)V
 
     .line 152

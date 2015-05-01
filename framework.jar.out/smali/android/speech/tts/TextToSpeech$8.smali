@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1112
@@ -49,7 +48,7 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +66,7 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
     .locals 5
-    .parameter "service"
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,7 +80,7 @@
     move-result-object v0
 
     .line 1117
-    .local v0, defaultLanguage:[Ljava/lang/String;
+    .local v0, "defaultLanguage":[Ljava/lang/String;
     new-instance v1, Ljava/util/Locale;
 
     const/4 v2, 0x0

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 68
@@ -61,7 +61,7 @@
 
 .method public onCountryDetected(Landroid/location/Country;)V
     .locals 5
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 83
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.ICountryListener"
 

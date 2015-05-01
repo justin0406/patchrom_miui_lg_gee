@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothTetheringDataTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 122
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
     .locals 1
-    .parameter "profile"
-    .parameter "proxy"
+    .param p1, "profile"    # I
+    .param p2, "proxy"    # Landroid/bluetooth/BluetoothProfile;
 
     .prologue
     .line 124
@@ -48,8 +47,8 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothPan;
 
-    .end local p2
-    #setter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
+    .end local p2    # "proxy":Landroid/bluetooth/BluetoothProfile;
+    # setter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
     invoke-static {v0, p2}, Landroid/bluetooth/BluetoothTetheringDataTracker;->access$002(Landroid/bluetooth/BluetoothTetheringDataTracker;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
 
     .line 125
@@ -58,7 +57,7 @@
 
 .method public onServiceDisconnected(I)V
     .locals 2
-    .parameter "profile"
+    .param p1, "profile"    # I
 
     .prologue
     .line 127
@@ -66,7 +65,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
+    # setter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
     invoke-static {v0, v1}, Landroid/bluetooth/BluetoothTetheringDataTracker;->access$002(Landroid/bluetooth/BluetoothTetheringDataTracker;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
 
     .line 128

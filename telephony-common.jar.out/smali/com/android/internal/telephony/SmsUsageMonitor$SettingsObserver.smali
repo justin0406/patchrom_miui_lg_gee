@@ -23,9 +23,9 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;Landroid/content/Context;Ljava/util/concurrent/atomic/AtomicBoolean;)V
     .locals 1
-    .parameter "handler"
-    .parameter "context"
-    .parameter "enabled"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "enabled"    # Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .prologue
     .line 230
@@ -50,7 +50,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     const/4 v0, 0x1

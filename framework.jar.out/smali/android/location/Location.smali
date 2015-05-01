@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -92,7 +92,7 @@
 
 .method public constructor <init>(Landroid/location/Location;)V
     .locals 7
-    .parameter "l"
+    .param p1, "l"    # Landroid/location/Location;
 
     .prologue
     const-wide/16 v5, 0x0
@@ -184,7 +184,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 7
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     const-wide/16 v5, 0x0
@@ -276,8 +276,8 @@
 
 .method static synthetic access$002(Landroid/location/Location;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # J
 
     .prologue
     .line 40
@@ -288,8 +288,8 @@
 
 .method static synthetic access$1002(Landroid/location/Location;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -300,8 +300,8 @@
 
 .method static synthetic access$102(Landroid/location/Location;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # J
 
     .prologue
     .line 40
@@ -312,8 +312,8 @@
 
 .method static synthetic access$1102(Landroid/location/Location;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # F
 
     .prologue
     .line 40
@@ -324,8 +324,8 @@
 
 .method static synthetic access$1202(Landroid/location/Location;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Landroid/os/Bundle;
 
     .prologue
     .line 40
@@ -336,8 +336,8 @@
 
 .method static synthetic access$1302(Landroid/location/Location;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -348,8 +348,8 @@
 
 .method static synthetic access$202(Landroid/location/Location;D)D
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # D
 
     .prologue
     .line 40
@@ -360,8 +360,8 @@
 
 .method static synthetic access$302(Landroid/location/Location;D)D
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # D
 
     .prologue
     .line 40
@@ -372,8 +372,8 @@
 
 .method static synthetic access$402(Landroid/location/Location;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -384,8 +384,8 @@
 
 .method static synthetic access$502(Landroid/location/Location;D)D
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # D
 
     .prologue
     .line 40
@@ -396,8 +396,8 @@
 
 .method static synthetic access$602(Landroid/location/Location;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -408,8 +408,8 @@
 
 .method static synthetic access$702(Landroid/location/Location;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # F
 
     .prologue
     .line 40
@@ -420,8 +420,8 @@
 
 .method static synthetic access$802(Landroid/location/Location;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -432,8 +432,8 @@
 
 .method static synthetic access$902(Landroid/location/Location;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # F
 
     .prologue
     .line 40
@@ -444,52 +444,52 @@
 
 .method private static computeDistanceAndBearing(DDDD[F)V
     .locals 87
-    .parameter "lat1"
-    .parameter "lon1"
-    .parameter "lat2"
-    .parameter "lon2"
-    .parameter "results"
+    .param p0, "lat1"    # D
+    .param p2, "lon1"    # D
+    .param p4, "lat2"    # D
+    .param p6, "lon2"    # D
+    .param p8, "results"    # [F
 
     .prologue
     .line 292
     const/16 v12, 0x14
 
     .line 294
-    .local v12, MAXITERS:I
-    const-wide v75, 0x3f91df46a2529d39L
+    .local v12, "MAXITERS":I
+    const-wide v75, 0x3f91df46a2529d39L    # 0.017453292519943295
 
     mul-double p0, p0, v75
 
     .line 295
-    const-wide v75, 0x3f91df46a2529d39L
+    const-wide v75, 0x3f91df46a2529d39L    # 0.017453292519943295
 
     mul-double p4, p4, v75
 
     .line 296
-    const-wide v75, 0x3f91df46a2529d39L
+    const-wide v75, 0x3f91df46a2529d39L    # 0.017453292519943295
 
     mul-double p2, p2, v75
 
     .line 297
-    const-wide v75, 0x3f91df46a2529d39L
+    const-wide v75, 0x3f91df46a2529d39L    # 0.017453292519943295
 
     mul-double p6, p6, v75
 
     .line 299
-    const-wide v17, 0x415854a640000000L
+    const-wide v17, 0x415854a640000000L    # 6378137.0
 
     .line 300
-    .local v17, a:D
-    const-wide v21, 0x41583fc4141bda51L
+    .local v17, "a":D
+    const-wide v21, 0x41583fc4141bda51L    # 6356752.3142
 
     .line 301
-    .local v21, b:D
+    .local v21, "b":D
     sub-double v75, v17, v21
 
     div-double v44, v75, v17
 
     .line 302
-    .local v44, f:D
+    .local v44, "f":D
     mul-double v75, v17, v17
 
     mul-double v77, v21, v21
@@ -501,16 +501,16 @@
     div-double v19, v75, v77
 
     .line 304
-    .local v19, aSqMinusBSqOverBSq:D
+    .local v19, "aSqMinusBSqOverBSq":D
     sub-double v10, p6, p2
 
     .line 305
-    .local v10, L:D
+    .local v10, "L":D
     const-wide/16 v4, 0x0
 
     .line 306
-    .local v4, A:D
-    const-wide/high16 v75, 0x3ff0
+    .local v4, "A":D
+    const-wide/high16 v75, 0x3ff0000000000000L    # 1.0
 
     sub-double v75, v75, v44
 
@@ -525,8 +525,8 @@
     move-result-wide v13
 
     .line 307
-    .local v13, U1:D
-    const-wide/high16 v75, 0x3ff0
+    .local v13, "U1":D
+    const-wide/high16 v75, 0x3ff0000000000000L    # 1.0
 
     sub-double v75, v75, v44
 
@@ -541,78 +541,78 @@
     move-result-wide v15
 
     .line 309
-    .local v15, U2:D
+    .local v15, "U2":D
     invoke-static {v13, v14}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v33
 
     .line 310
-    .local v33, cosU1:D
+    .local v33, "cosU1":D
     invoke-static/range {v15 .. v16}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v37
 
     .line 311
-    .local v37, cosU2:D
+    .local v37, "cosU2":D
     invoke-static {v13, v14}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v63
 
     .line 312
-    .local v63, sinU1:D
+    .local v63, "sinU1":D
     invoke-static/range {v15 .. v16}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v67
 
     .line 313
-    .local v67, sinU2:D
+    .local v67, "sinU2":D
     mul-double v35, v33, v37
 
     .line 314
-    .local v35, cosU1cosU2:D
+    .local v35, "cosU1cosU2":D
     mul-double v65, v63, v67
 
     .line 316
-    .local v65, sinU1sinU2:D
+    .local v65, "sinU1sinU2":D
     const-wide/16 v53, 0x0
 
     .line 317
-    .local v53, sigma:D
+    .local v53, "sigma":D
     const-wide/16 v41, 0x0
 
     .line 318
-    .local v41, deltaSigma:D
+    .local v41, "deltaSigma":D
     const-wide/16 v31, 0x0
 
     .line 319
-    .local v31, cosSqAlpha:D
+    .local v31, "cosSqAlpha":D
     const-wide/16 v23, 0x0
 
     .line 320
-    .local v23, cos2SM:D
+    .local v23, "cos2SM":D
     const-wide/16 v29, 0x0
 
     .line 321
-    .local v29, cosSigma:D
+    .local v29, "cosSigma":D
     const-wide/16 v59, 0x0
 
     .line 322
-    .local v59, sinSigma:D
+    .local v59, "sinSigma":D
     const-wide/16 v27, 0x0
 
     .line 323
-    .local v27, cosLambda:D
+    .local v27, "cosLambda":D
     const-wide/16 v57, 0x0
 
     .line 325
-    .local v57, sinLambda:D
+    .local v57, "sinLambda":D
     move-wide/from16 v49, v10
 
     .line 326
-    .local v49, lambda:D
+    .local v49, "lambda":D
     const/16 v48, 0x0
 
-    .local v48, iter:I
+    .local v48, "iter":I
     :goto_0
     move/from16 v0, v48
 
@@ -622,7 +622,7 @@
     move-wide/from16 v51, v49
 
     .line 328
-    .local v51, lambdaOrig:D
+    .local v51, "lambdaOrig":D
     invoke-static/range {v49 .. v50}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v27
@@ -636,7 +636,7 @@
     mul-double v69, v37, v57
 
     .line 331
-    .local v69, t1:D
+    .local v69, "t1":D
     mul-double v75, v33, v67
 
     mul-double v77, v63, v37
@@ -646,7 +646,7 @@
     sub-double v71, v75, v77
 
     .line 332
-    .local v71, t2:D
+    .local v71, "t2":D
     mul-double v75, v69, v69
 
     mul-double v77, v71, v71
@@ -654,7 +654,7 @@
     add-double v61, v75, v77
 
     .line 333
-    .local v61, sinSqSigma:D
+    .local v61, "sinSqSigma":D
     invoke-static/range {v61 .. v62}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v59
@@ -683,9 +683,9 @@
     const-wide/16 v55, 0x0
 
     .line 338
-    .local v55, sinAlpha:D
+    .local v55, "sinAlpha":D
     :goto_1
-    const-wide/high16 v75, 0x3ff0
+    const-wide/high16 v75, 0x3ff0000000000000L    # 1.0
 
     mul-double v77, v55, v55
 
@@ -705,20 +705,20 @@
     mul-double v73, v31, v19
 
     .line 343
-    .local v73, uSquared:D
-    const-wide/high16 v75, 0x3ff0
+    .local v73, "uSquared":D
+    const-wide/high16 v75, 0x3ff0000000000000L    # 1.0
 
-    const-wide/high16 v77, 0x40d0
+    const-wide/high16 v77, 0x40d0000000000000L    # 16384.0
 
     div-double v77, v73, v77
 
-    const-wide/high16 v79, 0x40b0
+    const-wide/high16 v79, 0x40b0000000000000L    # 4096.0
 
-    const-wide/high16 v81, -0x3f78
+    const-wide/high16 v81, -0x3f78000000000000L    # -768.0
 
-    const-wide/high16 v83, 0x4074
+    const-wide/high16 v83, 0x4074000000000000L    # 320.0
 
-    const-wide v85, 0x4065e00000000000L
+    const-wide v85, 0x4065e00000000000L    # 175.0
 
     mul-double v85, v85, v73
 
@@ -737,17 +737,17 @@
     add-double v4, v75, v77
 
     .line 346
-    const-wide/high16 v75, 0x4090
+    const-wide/high16 v75, 0x4090000000000000L    # 1024.0
 
     div-double v75, v73, v75
 
-    const-wide/high16 v77, 0x4070
+    const-wide/high16 v77, 0x4070000000000000L    # 256.0
 
-    const-wide/high16 v79, -0x3fa0
+    const-wide/high16 v79, -0x3fa0000000000000L    # -128.0
 
-    const-wide v81, 0x4052800000000000L
+    const-wide v81, 0x4052800000000000L    # 74.0
 
-    const-wide v83, 0x4047800000000000L
+    const-wide v83, 0x4047800000000000L    # 47.0
 
     mul-double v83, v83, v73
 
@@ -764,18 +764,18 @@
     mul-double v6, v75, v77
 
     .line 349
-    .local v6, B:D
-    const-wide/high16 v75, 0x4030
+    .local v6, "B":D
+    const-wide/high16 v75, 0x4030000000000000L    # 16.0
 
     div-double v75, v44, v75
 
     mul-double v75, v75, v31
 
-    const-wide/high16 v77, 0x4010
+    const-wide/high16 v77, 0x4010000000000000L    # 4.0
 
-    const-wide/high16 v79, 0x4010
+    const-wide/high16 v79, 0x4010000000000000L    # 4.0
 
-    const-wide/high16 v81, 0x4008
+    const-wide/high16 v81, 0x4008000000000000L    # 3.0
 
     mul-double v81, v81, v31
 
@@ -788,20 +788,20 @@
     mul-double v8, v75, v77
 
     .line 352
-    .local v8, C:D
+    .local v8, "C":D
     mul-double v25, v23, v23
 
     .line 353
-    .local v25, cos2SMSq:D
+    .local v25, "cos2SMSq":D
     mul-double v75, v6, v59
 
-    const-wide/high16 v77, 0x4010
+    const-wide/high16 v77, 0x4010000000000000L    # 4.0
 
     div-double v77, v6, v77
 
-    const-wide/high16 v79, -0x4010
+    const-wide/high16 v79, -0x4010000000000000L    # -1.0
 
-    const-wide/high16 v81, 0x4000
+    const-wide/high16 v81, 0x4000000000000000L    # 2.0
 
     mul-double v81, v81, v25
 
@@ -809,15 +809,15 @@
 
     mul-double v79, v79, v29
 
-    const-wide/high16 v81, 0x4018
+    const-wide/high16 v81, 0x4018000000000000L    # 6.0
 
     div-double v81, v6, v81
 
     mul-double v81, v81, v23
 
-    const-wide/high16 v83, -0x3ff8
+    const-wide/high16 v83, -0x3ff8000000000000L    # -3.0
 
-    const-wide/high16 v85, 0x4010
+    const-wide/high16 v85, 0x4010000000000000L    # 4.0
 
     mul-double v85, v85, v59
 
@@ -827,9 +827,9 @@
 
     mul-double v81, v81, v83
 
-    const-wide/high16 v83, -0x3ff8
+    const-wide/high16 v83, -0x3ff8000000000000L    # -3.0
 
-    const-wide/high16 v85, 0x4010
+    const-wide/high16 v85, 0x4010000000000000L    # 4.0
 
     mul-double v85, v85, v25
 
@@ -846,7 +846,7 @@
     mul-double v41, v75, v77
 
     .line 360
-    const-wide/high16 v75, 0x3ff0
+    const-wide/high16 v75, 0x3ff0000000000000L    # 1.0
 
     sub-double v75, v75, v8
 
@@ -858,9 +858,9 @@
 
     mul-double v79, v8, v29
 
-    const-wide/high16 v81, -0x4010
+    const-wide/high16 v81, -0x4010000000000000L    # -1.0
 
-    const-wide/high16 v83, 0x4000
+    const-wide/high16 v83, 0x4000000000000000L    # 2.0
 
     mul-double v83, v83, v23
 
@@ -886,28 +886,28 @@
     div-double v39, v75, v49
 
     .line 367
-    .local v39, delta:D
+    .local v39, "delta":D
     invoke-static/range {v39 .. v40}, Ljava/lang/Math;->abs(D)D
 
     move-result-wide v75
 
-    const-wide v77, 0x3d719799812dea11L
+    const-wide v77, 0x3d719799812dea11L    # 1.0E-12
 
     cmpg-double v75, v75, v77
 
     if-gez v75, :cond_4
 
     .line 372
-    .end local v6           #B:D
-    .end local v8           #C:D
-    .end local v25           #cos2SMSq:D
-    .end local v39           #delta:D
-    .end local v51           #lambdaOrig:D
-    .end local v55           #sinAlpha:D
-    .end local v61           #sinSqSigma:D
-    .end local v69           #t1:D
-    .end local v71           #t2:D
-    .end local v73           #uSquared:D
+    .end local v6    # "B":D
+    .end local v8    # "C":D
+    .end local v25    # "cos2SMSq":D
+    .end local v39    # "delta":D
+    .end local v51    # "lambdaOrig":D
+    .end local v55    # "sinAlpha":D
+    .end local v61    # "sinSqSigma":D
+    .end local v69    # "t1":D
+    .end local v71    # "t2":D
+    .end local v73    # "uSquared":D
     :cond_0
     mul-double v75, v21, v4
 
@@ -922,7 +922,7 @@
     move/from16 v43, v0
 
     .line 373
-    .local v43, distance:F
+    .local v43, "distance":F
     const/16 v75, 0x0
 
     aput v43, p8, v75
@@ -964,14 +964,14 @@
     move/from16 v47, v0
 
     .line 377
-    .local v47, initialBearing:F
+    .local v47, "initialBearing":F
     move/from16 v0, v47
 
     float-to-double v0, v0
 
     move-wide/from16 v75, v0
 
-    const-wide v77, 0x404ca5dc1a63c1f8L
+    const-wide v77, 0x404ca5dc1a63c1f8L    # 57.29577951308232
 
     mul-double v75, v75, v77
 
@@ -1029,14 +1029,14 @@
     move/from16 v46, v0
 
     .line 382
-    .local v46, finalBearing:F
+    .local v46, "finalBearing":F
     move/from16 v0, v46
 
     float-to-double v0, v0
 
     move-wide/from16 v75, v0
 
-    const-wide v77, 0x404ca5dc1a63c1f8L
+    const-wide v77, 0x404ca5dc1a63c1f8L    # 57.29577951308232
 
     mul-double v75, v75, v77
 
@@ -1052,17 +1052,17 @@
     aput v46, p8, v75
 
     .line 386
-    .end local v46           #finalBearing:F
-    .end local v47           #initialBearing:F
+    .end local v46    # "finalBearing":F
+    .end local v47    # "initialBearing":F
     :cond_1
     return-void
 
     .line 336
-    .end local v43           #distance:F
-    .restart local v51       #lambdaOrig:D
-    .restart local v61       #sinSqSigma:D
-    .restart local v69       #t1:D
-    .restart local v71       #t2:D
+    .end local v43    # "distance":F
+    .restart local v51    # "lambdaOrig":D
+    .restart local v61    # "sinSqSigma":D
+    .restart local v69    # "t1":D
+    .restart local v71    # "t2":D
     :cond_2
     mul-double v75, v35, v57
 
@@ -1071,9 +1071,9 @@
     goto/16 :goto_1
 
     .line 339
-    .restart local v55       #sinAlpha:D
+    .restart local v55    # "sinAlpha":D
     :cond_3
-    const-wide/high16 v75, 0x4000
+    const-wide/high16 v75, 0x4000000000000000L    # 2.0
 
     mul-double v75, v75, v65
 
@@ -1084,11 +1084,11 @@
     goto/16 :goto_2
 
     .line 326
-    .restart local v6       #B:D
-    .restart local v8       #C:D
-    .restart local v25       #cos2SMSq:D
-    .restart local v39       #delta:D
-    .restart local v73       #uSquared:D
+    .restart local v6    # "B":D
+    .restart local v8    # "C":D
+    .restart local v25    # "cos2SMSq":D
+    .restart local v39    # "delta":D
+    .restart local v73    # "uSquared":D
     :cond_4
     add-int/lit8 v48, v48, 0x1
 
@@ -1097,7 +1097,7 @@
 
 .method public static convert(Ljava/lang/String;)D
     .locals 21
-    .parameter "coordinate"
+    .param p0, "coordinate"    # Ljava/lang/String;
 
     .prologue
     .line 227
@@ -1117,7 +1117,7 @@
     const/4 v8, 0x0
 
     .line 232
-    .local v8, negative:Z
+    .local v8, "negative":Z
     const/16 v17, 0x0
 
     move-object/from16 v0, p0
@@ -1163,13 +1163,13 @@
     invoke-direct {v13, v0, v1}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 238
-    .local v13, st:Ljava/util/StringTokenizer;
+    .local v13, "st":Ljava/util/StringTokenizer;
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->countTokens()I
 
     move-result v14
 
     .line 239
-    .local v14, tokens:I
+    .local v14, "tokens":I
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -1213,7 +1213,7 @@
     move-result-object v3
 
     .line 245
-    .local v3, degrees:Ljava/lang/String;
+    .local v3, "degrees":Ljava/lang/String;
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -1226,7 +1226,7 @@
     move-result-wide v15
 
     .line 247
-    .local v15, val:D
+    .local v15, "val":D
     if-eqz v8, :cond_3
 
     neg-double v0, v15
@@ -1244,24 +1244,24 @@
     goto :goto_0
 
     .line 250
-    .end local v15           #val:D
+    .end local v15    # "val":D
     :cond_4
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v7
 
     .line 251
-    .local v7, minutes:Ljava/lang/String;
+    .local v7, "minutes":Ljava/lang/String;
     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
 
     .line 253
-    .local v2, deg:I
+    .local v2, "deg":I
     const-wide/16 v10, 0x0
 
     .line 255
-    .local v10, sec:D
+    .local v10, "sec":D
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
     move-result v17
@@ -1278,19 +1278,19 @@
     int-to-double v5, v0
 
     .line 257
-    .local v5, min:D
+    .local v5, "min":D
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v12
 
     .line 258
-    .local v12, seconds:Ljava/lang/String;
+    .local v12, "seconds":Ljava/lang/String;
     invoke-static {v12}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v10
 
     .line 263
-    .end local v12           #seconds:Ljava/lang/String;
+    .end local v12    # "seconds":Ljava/lang/String;
     :goto_1
     if-eqz v8, :cond_7
 
@@ -1315,7 +1315,7 @@
     const/4 v4, 0x1
 
     .line 267
-    .local v4, isNegative180:Z
+    .local v4, "isNegative180":Z
     :goto_2
     int-to-double v0, v2
 
@@ -1368,17 +1368,17 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 282
-    .end local v2           #deg:I
-    .end local v3           #degrees:Ljava/lang/String;
-    .end local v4           #isNegative180:Z
-    .end local v5           #min:D
-    .end local v7           #minutes:Ljava/lang/String;
-    .end local v10           #sec:D
+    .end local v2    # "deg":I
+    .end local v3    # "degrees":Ljava/lang/String;
+    .end local v4    # "isNegative180":Z
+    .end local v5    # "min":D
+    .end local v7    # "minutes":Ljava/lang/String;
+    .end local v10    # "sec":D
     :catch_0
     move-exception v9
 
     .line 283
-    .local v9, nfe:Ljava/lang/NumberFormatException;
+    .local v9, "nfe":Ljava/lang/NumberFormatException;
     new-instance v17, Ljava/lang/IllegalArgumentException;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1408,18 +1408,18 @@
     throw v17
 
     .line 260
-    .end local v9           #nfe:Ljava/lang/NumberFormatException;
-    .restart local v2       #deg:I
-    .restart local v3       #degrees:Ljava/lang/String;
-    .restart local v7       #minutes:Ljava/lang/String;
-    .restart local v10       #sec:D
+    .end local v9    # "nfe":Ljava/lang/NumberFormatException;
+    .restart local v2    # "deg":I
+    .restart local v3    # "degrees":Ljava/lang/String;
+    .restart local v7    # "minutes":Ljava/lang/String;
+    .restart local v10    # "sec":D
     :cond_6
     :try_start_1
     invoke-static {v7}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v5
 
-    .restart local v5       #min:D
+    .restart local v5    # "min":D
     goto :goto_1
 
     .line 263
@@ -1429,7 +1429,7 @@
     goto :goto_2
 
     .line 270
-    .restart local v4       #isNegative180:Z
+    .restart local v4    # "isNegative180":Z
     :cond_8
     const-wide/16 v17, 0x0
 
@@ -1437,7 +1437,7 @@
 
     if-ltz v17, :cond_9
 
-    const-wide v17, 0x404d800000000000L
+    const-wide v17, 0x404d800000000000L    # 59.0
 
     cmpl-double v17, v5, v17
 
@@ -1481,7 +1481,7 @@
 
     if-ltz v17, :cond_b
 
-    const-wide v17, 0x404d800000000000L
+    const-wide v17, 0x404d800000000000L    # 59.0
 
     cmpl-double v17, v10, v17
 
@@ -1525,11 +1525,11 @@
 
     move-wide/from16 v17, v0
 
-    const-wide v19, 0x40ac200000000000L
+    const-wide v19, 0x40ac200000000000L    # 3600.0
 
     mul-double v17, v17, v19
 
-    const-wide/high16 v19, 0x404e
+    const-wide/high16 v19, 0x404e000000000000L    # 60.0
 
     mul-double v19, v19, v5
 
@@ -1538,8 +1538,8 @@
     add-double v15, v17, v10
 
     .line 280
-    .restart local v15       #val:D
-    const-wide v17, 0x40ac200000000000L
+    .restart local v15    # "val":D
+    const-wide v17, 0x40ac200000000000L    # 3600.0
 
     div-double v15, v15, v17
 
@@ -1560,26 +1560,26 @@
 
 .method public static convert(DI)Ljava/lang/String;
     .locals 11
-    .parameter "coordinate"
-    .parameter "outputType"
+    .param p0, "coordinate"    # D
+    .param p2, "outputType"    # I
 
     .prologue
     const/16 v10, 0x3a
 
     const/4 v9, 0x1
 
-    const-wide/high16 v7, 0x404e
+    const-wide/high16 v7, 0x404e000000000000L    # 60.0
 
     const/4 v6, 0x2
 
     .line 179
-    const-wide v4, -0x3f99800000000000L
+    const-wide v4, -0x3f99800000000000L    # -180.0
 
     cmpg-double v4, p0, v4
 
     if-ltz v4, :cond_0
 
-    const-wide v4, 0x4066800000000000L
+    const-wide v4, 0x4066800000000000L    # 180.0
 
     cmpl-double v4, p0, v4
 
@@ -1657,7 +1657,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 192
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     const-wide/16 v4, 0x0
 
     cmpg-double v4, p0, v4
@@ -1681,7 +1681,7 @@
     invoke-direct {v1, v4}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
     .line 198
-    .local v1, df:Ljava/text/DecimalFormat;
+    .local v1, "df":Ljava/text/DecimalFormat;
     if-eq p2, v9, :cond_4
 
     if-ne p2, v6, :cond_5
@@ -1695,7 +1695,7 @@
     double-to-int v0, v4
 
     .line 200
-    .local v0, degrees:I
+    .local v0, "degrees":I
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 201
@@ -1720,7 +1720,7 @@
     double-to-int v2, v4
 
     .line 206
-    .local v2, minutes:I
+    .local v2, "minutes":I
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 207
@@ -1735,8 +1735,8 @@
     mul-double/2addr p0, v7
 
     .line 212
-    .end local v0           #degrees:I
-    .end local v2           #minutes:I
+    .end local v0    # "degrees":I
+    .end local v2    # "minutes":I
     :cond_5
     invoke-virtual {v1, p0, p1}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
 
@@ -1754,11 +1754,11 @@
 
 .method public static distanceBetween(DDDD[F)V
     .locals 2
-    .parameter "startLatitude"
-    .parameter "startLongitude"
-    .parameter "endLatitude"
-    .parameter "endLongitude"
-    .parameter "results"
+    .param p0, "startLatitude"    # D
+    .param p2, "startLongitude"    # D
+    .param p4, "endLatitude"    # D
+    .param p6, "endLongitude"    # D
+    .param p8, "results"    # [F
 
     .prologue
     .line 408
@@ -1792,7 +1792,7 @@
 # virtual methods
 .method public bearingTo(Landroid/location/Location;)F
     .locals 10
-    .parameter "dest"
+    .param p1, "dest"    # Landroid/location/Location;
 
     .prologue
     .line 452
@@ -1917,7 +1917,7 @@
 
 .method public distanceTo(Landroid/location/Location;)F
     .locals 10
-    .parameter "dest"
+    .param p1, "dest"    # Landroid/location/Location;
 
     .prologue
     .line 425
@@ -2032,8 +2032,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 856
@@ -2105,7 +2105,7 @@
 
 .method public getExtraLocation(Ljava/lang/String;)Landroid/location/Location;
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 921
@@ -2121,7 +2121,7 @@
     move-result-object v0
 
     .line 923
-    .local v0, value:Landroid/os/Parcelable;
+    .local v0, "value":Landroid/os/Parcelable;
     instance-of v1, v0, Landroid/location/Location;
 
     if-eqz v1, :cond_0
@@ -2130,7 +2130,7 @@
     check-cast v0, Landroid/location/Location;
 
     .line 927
-    .end local v0           #value:Landroid/os/Parcelable;
+    .end local v0    # "value":Landroid/os/Parcelable;
     :goto_0
     return-object v0
 
@@ -2321,7 +2321,7 @@
     iput-boolean v0, p0, Landroid/location/Location;->mHasAccuracy:Z
 
     .line 794
-    const/high16 v0, 0x42c8
+    const/high16 v0, 0x42c80000    # 100.0f
 
     iput v0, p0, Landroid/location/Location;->mAccuracy:F
 
@@ -2495,7 +2495,7 @@
 
 .method public set(Landroid/location/Location;)V
     .locals 2
-    .parameter "l"
+    .param p1, "l"    # Landroid/location/Location;
 
     .prologue
     .line 130
@@ -2594,7 +2594,7 @@
 
 .method public setAccuracy(F)V
     .locals 1
-    .parameter "accuracy"
+    .param p1, "accuracy"    # F
 
     .prologue
     .line 746
@@ -2611,7 +2611,7 @@
 
 .method public setAltitude(D)V
     .locals 1
-    .parameter "altitude"
+    .param p1, "altitude"    # D
 
     .prologue
     .line 600
@@ -2628,10 +2628,10 @@
 
 .method public setBearing(F)V
     .locals 2
-    .parameter "bearing"
+    .param p1, "bearing"    # F
 
     .prologue
-    const/high16 v1, 0x43b4
+    const/high16 v1, 0x43b40000    # 360.0f
 
     .line 681
     :goto_0
@@ -2673,7 +2673,7 @@
 
 .method public setElapsedRealtimeNanos(J)V
     .locals 0
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 541
@@ -2685,8 +2685,8 @@
 
 .method public setExtraLocation(Ljava/lang/String;Landroid/location/Location;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/location/Location;
 
     .prologue
     .line 938
@@ -2713,7 +2713,7 @@
 
 .method public setExtras(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 823
@@ -2738,7 +2738,7 @@
 
 .method public setIsFromMockProvider(Z)V
     .locals 0
-    .parameter "isFromMockProvider"
+    .param p1, "isFromMockProvider"    # Z
 
     .prologue
     .line 960
@@ -2750,7 +2750,7 @@
 
 .method public setLatitude(D)V
     .locals 0
-    .parameter "latitude"
+    .param p1, "latitude"    # D
 
     .prologue
     .line 558
@@ -2762,7 +2762,7 @@
 
 .method public setLongitude(D)V
     .locals 0
-    .parameter "longitude"
+    .param p1, "longitude"    # D
 
     .prologue
     .line 575
@@ -2774,7 +2774,7 @@
 
 .method public setProvider(Ljava/lang/String;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 482
@@ -2786,7 +2786,7 @@
 
 .method public setSpeed(F)V
     .locals 1
-    .parameter "speed"
+    .param p1, "speed"    # F
 
     .prologue
     .line 637
@@ -2803,7 +2803,7 @@
 
 .method public setTime(J)V
     .locals 0
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 513
@@ -2829,7 +2829,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 829
-    .local v0, s:Ljava/lang/StringBuilder;
+    .local v0, "s":Ljava/lang/StringBuilder;
     const-string v1, "Location["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3039,8 +3039,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

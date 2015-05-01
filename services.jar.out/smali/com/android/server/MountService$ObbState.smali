@@ -38,12 +38,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;ILandroid/os/storage/IObbActionListener;I)V
     .locals 2
-    .parameter
-    .parameter "rawPath"
-    .parameter "canonicalPath"
-    .parameter "callingUid"
-    .parameter "token"
-    .parameter "nonce"
+    .param p2, "rawPath"    # Ljava/lang/String;
+    .param p3, "canonicalPath"    # Ljava/lang/String;
+    .param p4, "callingUid"    # I
+    .param p5, "token"    # Landroid/os/storage/IObbActionListener;
+    .param p6, "nonce"    # I
 
     .prologue
     .line 249
@@ -67,7 +66,7 @@
     move-result v0
 
     .line 254
-    .local v0, userId:I
+    .local v0, "userId":I
     const/4 v1, 0x0
 
     invoke-static {p3, v0, v1}, Lcom/android/server/MountService;->buildObbPath(Ljava/lang/String;IZ)Ljava/lang/String;
@@ -118,17 +117,17 @@
     invoke-direct {v0, v1, p0, v3}, Lcom/android/server/MountService$UnmountObbAction;-><init>(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;Z)V
 
     .line 282
-    .local v0, action:Lcom/android/server/MountService$ObbAction;
+    .local v0, "action":Lcom/android/server/MountService$ObbAction;
     iget-object v1, p0, Lcom/android/server/MountService$ObbState;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/MountService$ObbState;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v2}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v2
@@ -191,7 +190,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 296
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "rawPath="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -85,7 +85,7 @@
     move-result-object v0
 
     .line 343
-    .local v0, parts:[Ljava/lang/String;
+    .local v0, "parts":[Ljava/lang/String;
     array-length v1, v0
 
     if-ge v1, v3, :cond_0

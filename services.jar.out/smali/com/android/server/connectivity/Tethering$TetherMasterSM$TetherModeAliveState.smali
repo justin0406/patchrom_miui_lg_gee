@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 1419
@@ -94,7 +93,7 @@
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 10
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     const/4 v6, 0x0
@@ -130,7 +129,7 @@
     const/4 v3, 0x1
 
     .line 1439
-    .local v3, retValue:Z
+    .local v3, "retValue":Z
     iget v7, p1, Landroid/os/Message;->what:I
 
     packed-switch v7, :pswitch_data_0
@@ -150,10 +149,10 @@
     check-cast v4, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
 
     .line 1443
-    .local v4, who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .local v4, "who":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -165,7 +164,7 @@
 
     iget-object v6, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mUpstreamIfaceName:Ljava/lang/String;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mUpstreamIfaceName:Ljava/lang/String;
     invoke-static {v6}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$4900(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/lang/String;
 
     move-result-object v6
@@ -175,17 +174,17 @@
     goto :goto_0
 
     .line 1448
-    .end local v4           #who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .end local v4    # "who":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     :pswitch_1
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
 
     .line 1450
-    .restart local v4       #who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .restart local v4    # "who":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -195,7 +194,7 @@
     move-result v1
 
     .line 1451
-    .local v1, index:I
+    .local v1, "index":I
     const/4 v5, -0x1
 
     if-eq v1, v5, :cond_2
@@ -226,7 +225,7 @@
     .line 1453
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -236,7 +235,7 @@
     .line 1454
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -268,7 +267,7 @@
 
     iget-object v7, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v7}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v7
@@ -296,7 +295,7 @@
     .line 1460
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5000(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -305,7 +304,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -319,7 +318,7 @@
 
     check-cast v2, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
 
-    .local v2, o:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .local v2, "o":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     const-string v5, "Tethering"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -345,8 +344,8 @@
     goto :goto_1
 
     .line 1464
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v2           #o:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v2    # "o":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     :cond_2
     const-string v5, "Tethering"
 
@@ -373,8 +372,8 @@
     goto/16 :goto_0
 
     .line 1469
-    .end local v1           #index:I
-    .end local v4           #who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    .end local v1    # "index":I
+    .end local v4    # "who":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     :pswitch_2
     iput-boolean v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->mTryCell:Z
 
@@ -402,7 +401,7 @@
     :pswitch_3
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mCurrentConnectionSequence:I
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mCurrentConnectionSequence:I
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$3100(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)I
 
     move-result v5
@@ -414,7 +413,7 @@
     .line 1481
     iget-object v5, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$TetherModeAliveState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mMobileApnReserved:I
+    # getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mMobileApnReserved:I
     invoke-static {v5}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$2900(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)I
 
     move-result v5

@@ -39,15 +39,14 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/OverlayDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;IIFIZLandroid/graphics/SurfaceTexture;)V
     .locals 0
-    .parameter
-    .parameter "displayToken"
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "refreshRate"
-    .parameter "densityDpi"
-    .parameter "secure"
-    .parameter "surfaceTexture"
+    .param p2, "displayToken"    # Landroid/os/IBinder;
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "width"    # I
+    .param p5, "height"    # I
+    .param p6, "refreshRate"    # F
+    .param p7, "densityDpi"    # I
+    .param p8, "secure"    # Z
+    .param p9, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 203

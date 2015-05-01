@@ -57,8 +57,7 @@
 
 .field private static final EAP_FAILURE_STR:Ljava/lang/String; = "EAP-FAILURE"
 
-#the value of this static final field might be set in the static constructor
-.field private static final EVENT_PREFIX_LEN_STR:I = 0x0
+.field private static final EVENT_PREFIX_LEN_STR:I
 
 .field private static final EVENT_PREFIX_STR:Ljava/lang/String; = "CTRL-EVENT-"
 
@@ -180,8 +179,6 @@
 
 .field private static final UNKNOWN:I = 0xa
 
-.field private static final WAPI_EVENT_PREFIX_STR:Ljava/lang/String; = "WAPI:"
-
 .field private static final WPA_EVENT_PREFIX_STR:Ljava/lang/String; = "WPA:"
 
 .field private static final WPA_RECV_ERROR_STR:Ljava/lang/String; = "recv error"
@@ -245,8 +242,8 @@
 
 .method public constructor <init>(Lcom/android/internal/util/StateMachine;Landroid/net/wifi/WifiNative;)V
     .locals 2
-    .parameter "wifiStateMachine"
-    .parameter "wifiNative"
+    .param p1, "wifiStateMachine"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "wifiNative"    # Landroid/net/wifi/WifiNative;
 
     .prologue
     .line 360
@@ -283,7 +280,7 @@
 
 .method static synthetic access$000(Landroid/net/wifi/WifiMonitor;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor;
 
     .prologue
     .line 48
@@ -294,8 +291,8 @@
 
 .method static synthetic access$002(Landroid/net/wifi/WifiMonitor;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 48
@@ -306,7 +303,7 @@
 
 .method static synthetic access$100(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor;
 
     .prologue
     .line 48
@@ -317,7 +314,7 @@
 
 .method static synthetic access$200(Landroid/net/wifi/WifiMonitor;)Landroid/net/wifi/WifiNative;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor;
 
     .prologue
     .line 48
@@ -350,7 +347,7 @@
 # virtual methods
 .method public killSupplicant(Z)V
     .locals 1
-    .parameter "p2pSupported"
+    .param p1, "p2pSupported"    # Z
 
     .prologue
     .line 383

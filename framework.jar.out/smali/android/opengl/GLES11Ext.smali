@@ -517,10 +517,10 @@
 
 .method public static glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "size"    # I
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 895
@@ -669,10 +669,10 @@
 
 .method public static glWeightPointerOES(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "size"    # I
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 930

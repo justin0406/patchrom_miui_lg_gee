@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 141
@@ -61,8 +61,8 @@
 
 .method public getServices(ILjava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "userHandle"
-    .parameter "category"
+    .param p1, "userHandle"    # I
+    .param p2, "category"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -88,13 +88,13 @@
     move-result-object v0
 
     .line 258
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 261
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.nfc.INfcCardEmulation"
 
@@ -128,7 +128,7 @@
     move-result-object v2
 
     .line 269
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 270
@@ -138,7 +138,7 @@
     return-object v2
 
     .line 269
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -152,9 +152,9 @@
 
 .method public isDefaultServiceForAid(ILandroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 7
-    .parameter "userHandle"
-    .parameter "service"
-    .parameter "aid"
+    .param p1, "userHandle"    # I
+    .param p2, "service"    # Landroid/content/ComponentName;
+    .param p3, "aid"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -172,13 +172,13 @@
     move-result-object v0
 
     .line 181
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 184
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.nfc.INfcCardEmulation"
 
@@ -226,7 +226,7 @@
     if-eqz v4, :cond_1
 
     .line 199
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -237,7 +237,7 @@
     return v2
 
     .line 191
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -268,9 +268,9 @@
 
 .method public isDefaultServiceForCategory(ILandroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 7
-    .parameter "userHandle"
-    .parameter "service"
-    .parameter "category"
+    .param p1, "userHandle"    # I
+    .param p2, "service"    # Landroid/content/ComponentName;
+    .param p3, "category"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -288,13 +288,13 @@
     move-result-object v0
 
     .line 155
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 158
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.nfc.INfcCardEmulation"
 
@@ -342,7 +342,7 @@
     if-eqz v4, :cond_1
 
     .line 173
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -353,7 +353,7 @@
     return v2
 
     .line 165
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -384,8 +384,8 @@
 
 .method public setDefaultForNextTap(ILandroid/content/ComponentName;)Z
     .locals 7
-    .parameter "userHandle"
-    .parameter "service"
+    .param p1, "userHandle"    # I
+    .param p2, "service"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -403,13 +403,13 @@
     move-result-object v0
 
     .line 233
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 236
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.nfc.INfcCardEmulation"
 
@@ -454,7 +454,7 @@
     if-eqz v4, :cond_1
 
     .line 250
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -465,7 +465,7 @@
     return v2
 
     .line 243
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -496,9 +496,9 @@
 
 .method public setDefaultServiceForCategory(ILandroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 7
-    .parameter "userHandle"
-    .parameter "service"
-    .parameter "category"
+    .param p1, "userHandle"    # I
+    .param p2, "service"    # Landroid/content/ComponentName;
+    .param p3, "category"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -516,13 +516,13 @@
     move-result-object v0
 
     .line 207
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 210
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.nfc.INfcCardEmulation"
 
@@ -570,7 +570,7 @@
     if-eqz v4, :cond_1
 
     .line 225
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -581,7 +581,7 @@
     return v2
 
     .line 217
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 

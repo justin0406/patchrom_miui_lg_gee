@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "maxCount"
-    .parameter "result"
+    .param p1, "maxCount"    # I
+    .param p2, "result"    # I
 
     .prologue
     .line 44
@@ -60,10 +60,10 @@
 # virtual methods
 .method public append(IIIJ)V
     .locals 2
-    .parameter "handle"
-    .parameter "property"
-    .parameter "type"
-    .parameter "value"
+    .param p1, "handle"    # I
+    .param p2, "property"    # I
+    .param p3, "type"    # I
+    .param p4, "value"    # J
 
     .prologue
     .line 54
@@ -74,7 +74,7 @@
     iput v1, p0, Landroid/mtp/MtpPropertyList;->mCount:I
 
     .line 55
-    .local v0, index:I
+    .local v0, "index":I
     iget-object v1, p0, Landroid/mtp/MtpPropertyList;->mLongValues:[J
 
     if-nez v1, :cond_0
@@ -113,9 +113,9 @@
 
 .method public append(IILjava/lang/String;)V
     .locals 3
-    .parameter "handle"
-    .parameter "property"
-    .parameter "value"
+    .param p1, "handle"    # I
+    .param p2, "property"    # I
+    .param p3, "value"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -126,7 +126,7 @@
     iput v1, p0, Landroid/mtp/MtpPropertyList;->mCount:I
 
     .line 66
-    .local v0, index:I
+    .local v0, "index":I
     iget-object v1, p0, Landroid/mtp/MtpPropertyList;->mStringValues:[Ljava/lang/String;
 
     if-nez v1, :cond_0
@@ -167,7 +167,7 @@
 
 .method public setResult(I)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # I
 
     .prologue
     .line 76

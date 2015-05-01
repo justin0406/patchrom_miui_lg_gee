@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -42,7 +42,7 @@
 
 .method public constructor <init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
 
     .prologue
     .line 36
@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 40
@@ -92,8 +92,8 @@
 
 .method public onError(ILjava/lang/String;)V
     .locals 3
-    .parameter "errorCode"
-    .parameter "errorMessage"
+    .param p1, "errorCode"    # I
+    .param p2, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 70
@@ -204,7 +204,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 46
@@ -270,8 +270,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 85

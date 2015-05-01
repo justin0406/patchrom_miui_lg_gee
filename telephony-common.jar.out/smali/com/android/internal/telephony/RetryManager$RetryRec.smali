@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(II)V
     .locals 0
-    .parameter "delayTime"
-    .parameter "randomizationTime"
+    .param p1, "delayTime"    # I
+    .param p2, "randomizationTime"    # I
 
     .prologue
     .line 84

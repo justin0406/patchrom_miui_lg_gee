@@ -67,7 +67,7 @@
 
 .method synthetic constructor <init>(Landroid/appwidget/AppWidgetHostView$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/appwidget/AppWidgetHostView$1;
 
     .prologue
     .line 610
@@ -90,8 +90,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 616
@@ -100,13 +100,13 @@
     move-result v0
 
     .line 617
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 618
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 

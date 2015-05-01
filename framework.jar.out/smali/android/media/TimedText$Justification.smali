@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "horizontal"
-    .parameter "vertical"
+    .param p1, "horizontal"    # I
+    .param p2, "vertical"    # I
 
     .prologue
     .line 160

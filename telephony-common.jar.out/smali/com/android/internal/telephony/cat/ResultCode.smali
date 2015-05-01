@@ -796,9 +796,7 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "code"
+    .param p3, "code"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -818,7 +816,7 @@
 
 .method public static fromInt(I)Lcom/android/internal/telephony/cat/ResultCode;
     .locals 5
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 179
@@ -826,38 +824,38 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Lcom/android/internal/telephony/cat/ResultCode;
+    .local v0, "arr$":[Lcom/android/internal/telephony/cat/ResultCode;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 180
-    .local v3, r:Lcom/android/internal/telephony/cat/ResultCode;
+    .local v3, "r":Lcom/android/internal/telephony/cat/ResultCode;
     iget v4, v3, Lcom/android/internal/telephony/cat/ResultCode;->mCode:I
 
     if-ne v4, p0, :cond_0
 
     .line 184
-    .end local v3           #r:Lcom/android/internal/telephony/cat/ResultCode;
+    .end local v3    # "r":Lcom/android/internal/telephony/cat/ResultCode;
     :goto_1
     return-object v3
 
     .line 179
-    .restart local v3       #r:Lcom/android/internal/telephony/cat/ResultCode;
+    .restart local v3    # "r":Lcom/android/internal/telephony/cat/ResultCode;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 184
-    .end local v3           #r:Lcom/android/internal/telephony/cat/ResultCode;
+    .end local v3    # "r":Lcom/android/internal/telephony/cat/ResultCode;
     :cond_1
     const/4 v3, 0x0
 
@@ -866,7 +864,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/cat/ResultCode;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 27

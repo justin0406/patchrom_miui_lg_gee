@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "init"
+    .param p1, "init"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -34,7 +34,7 @@
     move-result-object v0
 
     .line 67
-    .local v0, fragments:[Ljava/lang/String;
+    .local v0, "fragments":[Ljava/lang/String;
     const/4 v1, 0x0
 
     aget-object v1, v0, v1

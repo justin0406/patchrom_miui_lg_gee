@@ -23,9 +23,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/content/Context;Lcom/android/internal/view/menu/SubMenuBuilder;)V
     .locals 6
-    .parameter
-    .parameter "context"
-    .parameter "subMenu"
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "subMenu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     .line 685
@@ -45,7 +44,7 @@
     check-cast v3, Lcom/android/internal/view/menu/MenuItemImpl;
 
     .line 690
-    .local v3, item:Lcom/android/internal/view/menu/MenuItemImpl;
+    .local v3, "item":Lcom/android/internal/view/menu/MenuItemImpl;
     invoke-virtual {v3}, Lcom/android/internal/view/menu/MenuItemImpl;->isActionButton()Z
 
     move-result v5
@@ -53,7 +52,7 @@
     if-nez v5, :cond_0
 
     .line 692
-    #getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
+    # getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
     invoke-static {p1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$400(Lcom/android/internal/view/menu/ActionMenuPresenter;)Landroid/view/View;
 
     move-result-object v5
@@ -77,16 +76,16 @@
     const/4 v4, 0x0
 
     .line 698
-    .local v4, preserveIconSpacing:Z
+    .local v4, "preserveIconSpacing":Z
     invoke-virtual {p3}, Lcom/android/internal/view/menu/SubMenuBuilder;->size()I
 
     move-result v1
 
     .line 699
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_1
 
@@ -96,7 +95,7 @@
     move-result-object v0
 
     .line 701
-    .local v0, childItem:Landroid/view/MenuItem;
+    .local v0, "childItem":Landroid/view/MenuItem;
     invoke-interface {v0}, Landroid/view/MenuItem;->isVisible()Z
 
     move-result v5
@@ -113,7 +112,7 @@
     const/4 v4, 0x1
 
     .line 706
-    .end local v0           #childItem:Landroid/view/MenuItem;
+    .end local v0    # "childItem":Landroid/view/MenuItem;
     :cond_1
     invoke-virtual {p0, v4}, Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;->setForceShowIcon(Z)V
 
@@ -121,11 +120,11 @@
     return-void
 
     .line 692
-    .end local v1           #count:I
-    .end local v2           #i:I
-    .end local v4           #preserveIconSpacing:Z
+    .end local v1    # "count":I
+    .end local v2    # "i":I
+    .end local v4    # "preserveIconSpacing":Z
     :cond_2
-    #getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
+    # getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
     invoke-static {p1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$400(Lcom/android/internal/view/menu/ActionMenuPresenter;)Landroid/view/View;
 
     move-result-object v5
@@ -133,10 +132,10 @@
     goto :goto_0
 
     .line 699
-    .restart local v0       #childItem:Landroid/view/MenuItem;
-    .restart local v1       #count:I
-    .restart local v2       #i:I
-    .restart local v4       #preserveIconSpacing:Z
+    .restart local v0    # "childItem":Landroid/view/MenuItem;
+    .restart local v1    # "count":I
+    .restart local v2    # "i":I
+    .restart local v4    # "preserveIconSpacing":Z
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
@@ -157,7 +156,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mActionButtonPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
+    # setter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mActionButtonPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
     invoke-static {v0, v1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$102(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;)Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
 
     .line 713

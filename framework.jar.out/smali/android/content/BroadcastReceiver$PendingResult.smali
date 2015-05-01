@@ -47,14 +47,14 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Landroid/os/Bundle;IZZLandroid/os/IBinder;I)V
     .locals 0
-    .parameter "resultCode"
-    .parameter "resultData"
-    .parameter "resultExtras"
-    .parameter "type"
-    .parameter "ordered"
-    .parameter "sticky"
-    .parameter "token"
-    .parameter "userId"
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Ljava/lang/String;
+    .param p3, "resultExtras"    # Landroid/os/Bundle;
+    .param p4, "type"    # I
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "token"    # Landroid/os/IBinder;
+    .param p8, "userId"    # I
 
     .prologue
     .line 250
@@ -133,7 +133,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 445
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     .line 446
@@ -176,7 +176,7 @@
     move-result-object v0
 
     .line 368
-    .local v0, mgr:Landroid/app/IActivityManager;
+    .local v0, "mgr":Landroid/app/IActivityManager;
     invoke-static {}, Landroid/app/QueuedWork;->hasPendingWork()Z
 
     move-result v1
@@ -195,20 +195,20 @@
     invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
     .line 397
-    .end local v0           #mgr:Landroid/app/IActivityManager;
+    .end local v0    # "mgr":Landroid/app/IActivityManager;
     :cond_0
     :goto_0
     return-void
 
     .line 389
-    .restart local v0       #mgr:Landroid/app/IActivityManager;
+    .restart local v0    # "mgr":Landroid/app/IActivityManager;
     :cond_1
     invoke-virtual {p0, v0}, Landroid/content/BroadcastReceiver$PendingResult;->sendFinished(Landroid/app/IActivityManager;)V
 
     goto :goto_0
 
     .line 391
-    .end local v0           #mgr:Landroid/app/IActivityManager;
+    .end local v0    # "mgr":Landroid/app/IActivityManager;
     :cond_2
     iget-boolean v1, p0, Landroid/content/BroadcastReceiver$PendingResult;->mOrderedHint:Z
 
@@ -226,7 +226,7 @@
     move-result-object v0
 
     .line 395
-    .restart local v0       #mgr:Landroid/app/IActivityManager;
+    .restart local v0    # "mgr":Landroid/app/IActivityManager;
     invoke-virtual {p0, v0}, Landroid/content/BroadcastReceiver$PendingResult;->sendFinished(Landroid/app/IActivityManager;)V
 
     goto :goto_0
@@ -264,44 +264,44 @@
 
 .method public final getResultExtras(Z)Landroid/os/Bundle;
     .locals 2
-    .parameter "makeMap"
+    .param p1, "makeMap"    # Z
 
     .prologue
     .line 315
     iget-object v0, p0, Landroid/content/BroadcastReceiver$PendingResult;->mResultExtras:Landroid/os/Bundle;
 
     .line 316
-    .local v0, e:Landroid/os/Bundle;
+    .local v0, "e":Landroid/os/Bundle;
     if-nez p1, :cond_0
 
     move-object v1, v0
 
     .line 318
-    .end local v0           #e:Landroid/os/Bundle;
-    .local v1, e:Landroid/os/Bundle;
+    .end local v0    # "e":Landroid/os/Bundle;
+    .local v1, "e":Landroid/os/Bundle;
     :goto_0
     return-object v1
 
     .line 317
-    .end local v1           #e:Landroid/os/Bundle;
-    .restart local v0       #e:Landroid/os/Bundle;
+    .end local v1    # "e":Landroid/os/Bundle;
+    .restart local v0    # "e":Landroid/os/Bundle;
     :cond_0
     if-nez v0, :cond_1
 
     new-instance v0, Landroid/os/Bundle;
 
-    .end local v0           #e:Landroid/os/Bundle;
+    .end local v0    # "e":Landroid/os/Bundle;
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .restart local v0       #e:Landroid/os/Bundle;
+    .restart local v0    # "e":Landroid/os/Bundle;
     iput-object v0, p0, Landroid/content/BroadcastReceiver$PendingResult;->mResultExtras:Landroid/os/Bundle;
 
     :cond_1
     move-object v1, v0
 
     .line 318
-    .end local v0           #e:Landroid/os/Bundle;
-    .restart local v1       #e:Landroid/os/Bundle;
+    .end local v0    # "e":Landroid/os/Bundle;
+    .restart local v1    # "e":Landroid/os/Bundle;
     goto :goto_0
 .end method
 
@@ -317,7 +317,7 @@
 
 .method public sendFinished(Landroid/app/IActivityManager;)V
     .locals 6
-    .parameter "am"
+    .param p1, "am"    # Landroid/app/IActivityManager;
 
     .prologue
     .line 408
@@ -391,8 +391,8 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/app/IActivityManager;->finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;Z)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 428
     :goto_0
@@ -421,8 +421,8 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/app/IActivityManager;->finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;Z)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_0
 
@@ -435,7 +435,7 @@
 
 .method public setExtrasClassLoader(Ljava/lang/ClassLoader;)V
     .locals 1
-    .parameter "cl"
+    .param p1, "cl"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 401
@@ -455,9 +455,9 @@
 
 .method public final setResult(ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .parameter "code"
-    .parameter "data"
-    .parameter "extras"
+    .param p1, "code"    # I
+    .param p2, "data"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 327
@@ -478,7 +478,7 @@
 
 .method public final setResultCode(I)V
     .locals 0
-    .parameter "code"
+    .param p1, "code"    # I
 
     .prologue
     .line 267
@@ -493,7 +493,7 @@
 
 .method public final setResultData(Ljava/lang/String;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     .line 286
@@ -508,7 +508,7 @@
 
 .method public final setResultExtras(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 305

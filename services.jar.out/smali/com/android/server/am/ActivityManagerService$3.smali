@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
     .line 1677
@@ -37,7 +36,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 17
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 1680
@@ -55,23 +54,23 @@
     :pswitch_0
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     const/4 v9, 0x0
 
     .line 1683
-    .local v9, num:I
+    .local v9, "num":I
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v13
 
     .line 1684
-    .local v13, start:J
+    .local v13, "start":J
     const/4 v1, 0x1
 
     new-array v15, v1, [J
 
     .line 1689
-    .local v15, tmp:[J
+    .local v15, "tmp":[J
     :cond_0
     :goto_1
     move-object/from16 v0, p0
@@ -134,11 +133,11 @@
     check-cast v11, Lcom/android/server/am/ProcessRecord;
 
     .line 1697
-    .local v11, proc:Lcom/android/server/am/ProcessRecord;
+    .local v11, "proc":Lcom/android/server/am/ProcessRecord;
     iget v12, v11, Lcom/android/server/am/ProcessRecord;->pssProcState:I
 
     .line 1698
-    .local v12, procState:I
+    .local v12, "procState":I
     iget-object v1, v11, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
     if-eqz v1, :cond_4
@@ -151,7 +150,7 @@
     iget v10, v11, Lcom/android/server/am/ProcessRecord;->pid:I
 
     .line 1704
-    .local v10, pid:I
+    .local v10, "pid":I
     :goto_2
     add-int/lit8 v8, v8, 0x1
 
@@ -169,7 +168,7 @@
     move-result-wide v2
 
     .line 1708
-    .local v2, pss:J
+    .local v2, "pss":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$3;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -255,15 +254,15 @@
     throw v1
 
     .line 1701
-    .end local v2           #pss:J
-    .end local v10           #pid:I
+    .end local v2    # "pss":J
+    .end local v10    # "pid":I
     :cond_4
     const/4 v11, 0x0
 
     .line 1702
     const/4 v10, 0x0
 
-    .restart local v10       #pid:I
+    .restart local v10    # "pid":I
     goto :goto_2
 
     .line 1680

@@ -40,7 +40,7 @@
 # virtual methods
 .method public applyToCanvas(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 152
@@ -129,7 +129,7 @@
 
 .method public getMatrix(Landroid/graphics/Matrix;)V
     .locals 1
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 142

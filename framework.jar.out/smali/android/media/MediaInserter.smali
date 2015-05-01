@@ -42,9 +42,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/IContentProvider;Ljava/lang/String;I)V
     .locals 1
-    .parameter "provider"
-    .parameter "packageName"
-    .parameter "bufferSizePerUri"
+    .param p1, "provider"    # Landroid/content/IContentProvider;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "bufferSizePerUri"    # I
 
     .prologue
     .line 44
@@ -79,8 +79,7 @@
 
 .method private flush(Landroid/net/Uri;Ljava/util/List;)V
     .locals 3
-    .parameter "tableUri"
-    .parameter
+    .param p1, "tableUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +99,7 @@
 
     .prologue
     .line 90
-    .local p2, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
@@ -115,16 +114,16 @@
     new-array v0, v1, [Landroid/content/ContentValues;
 
     .line 92
-    .local v0, valuesArray:[Landroid/content/ContentValues;
+    .local v0, "valuesArray":[Landroid/content/ContentValues;
     invoke-interface {p2, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    .end local v0           #valuesArray:[Landroid/content/ContentValues;
+    .end local v0    # "valuesArray":[Landroid/content/ContentValues;
     check-cast v0, [Landroid/content/ContentValues;
 
     .line 93
-    .restart local v0       #valuesArray:[Landroid/content/ContentValues;
+    .restart local v0    # "valuesArray":[Landroid/content/ContentValues;
     iget-object v1, p0, Landroid/media/MediaInserter;->mProvider:Landroid/content/IContentProvider;
 
     iget-object v2, p0, Landroid/media/MediaInserter;->mPackageName:Ljava/lang/String;
@@ -135,7 +134,7 @@
     invoke-interface {p2}, Ljava/util/List;->clear()V
 
     .line 96
-    .end local v0           #valuesArray:[Landroid/content/ContentValues;
+    .end local v0    # "valuesArray":[Landroid/content/ContentValues;
     :cond_0
     return-void
 .end method
@@ -160,7 +159,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -175,7 +174,7 @@
     check-cast v2, Landroid/net/Uri;
 
     .line 83
-    .local v2, tableUri:Landroid/net/Uri;
+    .local v2, "tableUri":Landroid/net/Uri;
     iget-object v3, p0, Landroid/media/MediaInserter;->mPriorityRowMap:Ljava/util/HashMap;
 
     invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -185,14 +184,14 @@
     check-cast v1, Ljava/util/List;
 
     .line 84
-    .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-direct {p0, v2, v1}, Landroid/media/MediaInserter;->flush(Landroid/net/Uri;Ljava/util/List;)V
 
     goto :goto_0
 
     .line 86
-    .end local v1           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
-    .end local v2           #tableUri:Landroid/net/Uri;
+    .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
+    .end local v2    # "tableUri":Landroid/net/Uri;
     :cond_0
     iget-object v3, p0, Landroid/media/MediaInserter;->mPriorityRowMap:Ljava/util/HashMap;
 
@@ -204,9 +203,9 @@
 
 .method private insert(Landroid/net/Uri;Landroid/content/ContentValues;Z)V
     .locals 4
-    .parameter "tableUri"
-    .parameter "values"
-    .parameter "priority"
+    .param p1, "tableUri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "priority"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -220,7 +219,7 @@
     iget-object v1, p0, Landroid/media/MediaInserter;->mPriorityRowMap:Ljava/util/HashMap;
 
     .line 60
-    .local v1, rowmap:Ljava/util/HashMap;,"Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
+    .local v1, "rowmap":Ljava/util/HashMap;, "Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
     :goto_0
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -229,17 +228,17 @@
     check-cast v0, Ljava/util/List;
 
     .line 61
-    .local v0, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     if-nez v0, :cond_0
 
     .line 62
     new-instance v0, Ljava/util/ArrayList;
 
-    .end local v0           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 63
-    .restart local v0       #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .restart local v0    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 65
@@ -270,8 +269,8 @@
     return-void
 
     .line 59
-    .end local v0           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
-    .end local v1           #rowmap:Ljava/util/HashMap;,"Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
+    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
+    .end local v1    # "rowmap":Ljava/util/HashMap;, "Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
     :cond_2
     iget-object v1, p0, Landroid/media/MediaInserter;->mRowMap:Ljava/util/HashMap;
 
@@ -303,7 +302,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -318,7 +317,7 @@
     check-cast v2, Landroid/net/Uri;
 
     .line 75
-    .local v2, tableUri:Landroid/net/Uri;
+    .local v2, "tableUri":Landroid/net/Uri;
     iget-object v3, p0, Landroid/media/MediaInserter;->mRowMap:Ljava/util/HashMap;
 
     invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -328,14 +327,14 @@
     check-cast v1, Ljava/util/List;
 
     .line 76
-    .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
+    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-direct {p0, v2, v1}, Landroid/media/MediaInserter;->flush(Landroid/net/Uri;Ljava/util/List;)V
 
     goto :goto_0
 
     .line 78
-    .end local v1           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
-    .end local v2           #tableUri:Landroid/net/Uri;
+    .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
+    .end local v2    # "tableUri":Landroid/net/Uri;
     :cond_0
     iget-object v3, p0, Landroid/media/MediaInserter;->mRowMap:Ljava/util/HashMap;
 
@@ -347,8 +346,8 @@
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)V
     .locals 1
-    .parameter "tableUri"
-    .parameter "values"
+    .param p1, "tableUri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -367,8 +366,8 @@
 
 .method public insertwithPriority(Landroid/net/Uri;Landroid/content/ContentValues;)V
     .locals 1
-    .parameter "tableUri"
-    .parameter "values"
+    .param p1, "tableUri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -82,8 +82,8 @@
 
 .method constructor <init>(Ljava/io/File;I)V
     .locals 2
-    .parameter "file"
-    .parameter "mode"
+    .param p1, "file"    # Ljava/io/File;
+    .param p2, "mode"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -141,7 +141,7 @@
 
 .method static synthetic access$000(Landroid/app/SharedPreferencesImpl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -152,9 +152,9 @@
 
 .method static synthetic access$100(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
+    .param p1, "x1"    # Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+    .param p2, "x2"    # Ljava/lang/Runnable;
 
     .prologue
     .line 52
@@ -165,7 +165,7 @@
 
 .method static synthetic access$300(Landroid/app/SharedPreferencesImpl;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -176,7 +176,7 @@
 
 .method static synthetic access$308(Landroid/app/SharedPreferencesImpl;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -191,7 +191,7 @@
 
 .method static synthetic access$310(Landroid/app/SharedPreferencesImpl;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -206,7 +206,7 @@
 
 .method static synthetic access$400(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -217,8 +217,8 @@
 
 .method static synthetic access$402(Landroid/app/SharedPreferencesImpl;Ljava/util/Map;)Ljava/util/Map;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
+    .param p1, "x1"    # Ljava/util/Map;
 
     .prologue
     .line 52
@@ -229,7 +229,7 @@
 
 .method static synthetic access$500(Landroid/app/SharedPreferencesImpl;)Ljava/util/WeakHashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -240,7 +240,7 @@
 
 .method static synthetic access$700(Landroid/app/SharedPreferencesImpl;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
 
     .prologue
     .line 52
@@ -251,8 +251,8 @@
 
 .method static synthetic access$800(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/SharedPreferencesImpl;
+    .param p1, "x1"    # Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
     .prologue
     .line 52
@@ -305,7 +305,7 @@
 
 .method private static createFileOutputStream(Ljava/io/File;)Ljava/io/FileOutputStream;
     .locals 8
-    .parameter "file"
+    .param p0, "file"    # Ljava/io/File;
 
     .prologue
     const/4 v7, -0x1
@@ -314,7 +314,7 @@
     const/4 v3, 0x0
 
     .line 543
-    .local v3, str:Ljava/io/FileOutputStream;
+    .local v3, "str":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v4, Ljava/io/FileOutputStream;
 
@@ -322,12 +322,12 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v3           #str:Ljava/io/FileOutputStream;
-    .local v4, str:Ljava/io/FileOutputStream;
+    .end local v3    # "str":Ljava/io/FileOutputStream;
+    .local v4, "str":Ljava/io/FileOutputStream;
     move-object v3, v4
 
-    .end local v4           #str:Ljava/io/FileOutputStream;
-    .restart local v3       #str:Ljava/io/FileOutputStream;
+    .end local v4    # "str":Ljava/io/FileOutputStream;
+    .restart local v3    # "str":Ljava/io/FileOutputStream;
     :goto_0
     move-object v5, v3
 
@@ -340,13 +340,13 @@
     move-exception v0
 
     .line 545
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     invoke-virtual {p0}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v2
 
     .line 546
-    .local v2, parent:Ljava/io/File;
+    .local v2, "parent":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->mkdir()Z
 
     move-result v5
@@ -399,13 +399,13 @@
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .end local v3           #str:Ljava/io/FileOutputStream;
-    .restart local v4       #str:Ljava/io/FileOutputStream;
+    .end local v3    # "str":Ljava/io/FileOutputStream;
+    .restart local v4    # "str":Ljava/io/FileOutputStream;
     move-object v3, v4
 
     .line 558
-    .end local v4           #str:Ljava/io/FileOutputStream;
-    .restart local v3       #str:Ljava/io/FileOutputStream;
+    .end local v4    # "str":Ljava/io/FileOutputStream;
+    .restart local v3    # "str":Ljava/io/FileOutputStream;
     goto :goto_0
 
     .line 556
@@ -413,7 +413,7 @@
     move-exception v1
 
     .line 557
-    .local v1, e2:Ljava/io/FileNotFoundException;
+    .local v1, "e2":Ljava/io/FileNotFoundException;
     const-string v5, "SharedPreferencesImpl"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -441,8 +441,8 @@
 
 .method private enqueueDiskWrite(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
     .locals 6
-    .parameter "mcr"
-    .parameter "postWriteRunnable"
+    .param p1, "mcr"    # Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+    .param p2, "postWriteRunnable"    # Ljava/lang/Runnable;
 
     .prologue
     const/4 v4, 0x0
@@ -455,13 +455,13 @@
     invoke-direct {v2, p0, p1, p2}, Landroid/app/SharedPreferencesImpl$2;-><init>(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
 
     .line 522
-    .local v2, writeToDiskRunnable:Ljava/lang/Runnable;
+    .local v2, "writeToDiskRunnable":Ljava/lang/Runnable;
     if-nez p2, :cond_0
 
     move v0, v3
 
     .line 526
-    .local v0, isFromSyncCommit:Z
+    .local v0, "isFromSyncCommit":Z
     :goto_0
     if-eqz v0, :cond_2
 
@@ -469,7 +469,7 @@
     const/4 v1, 0x0
 
     .line 528
-    .local v1, wasEmpty:Z
+    .local v1, "wasEmpty":Z
     monitor-enter p0
 
     .line 529
@@ -493,19 +493,19 @@
     invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
     .line 538
-    .end local v1           #wasEmpty:Z
+    .end local v1    # "wasEmpty":Z
     :goto_2
     return-void
 
-    .end local v0           #isFromSyncCommit:Z
+    .end local v0    # "isFromSyncCommit":Z
     :cond_0
     move v0, v4
 
     .line 522
     goto :goto_0
 
-    .restart local v0       #isFromSyncCommit:Z
-    .restart local v1       #wasEmpty:Z
+    .restart local v0    # "isFromSyncCommit":Z
+    .restart local v1    # "wasEmpty":Z
     :cond_1
     move v1, v4
 
@@ -524,7 +524,7 @@
     throw v3
 
     .line 537
-    .end local v1           #wasEmpty:Z
+    .end local v1    # "wasEmpty":Z
     :cond_2
     invoke-static {}, Landroid/app/QueuedWork;->singleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
@@ -589,7 +589,7 @@
     move-result-object v1
 
     .line 181
-    .local v1, stat:Llibcore/io/StructStat;
+    .local v1, "stat":Llibcore/io/StructStat;
     monitor-enter p0
 
     .line 182
@@ -629,7 +629,7 @@
     throw v2
 
     .line 167
-    .end local v1           #stat:Llibcore/io/StructStat;
+    .end local v1    # "stat":Llibcore/io/StructStat;
     :catchall_1
     move-exception v2
 
@@ -644,7 +644,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Llibcore/io/ErrnoException;
+    .local v0, "e":Llibcore/io/ErrnoException;
     move v2, v3
 
     .line 178
@@ -740,11 +740,11 @@
     const/4 v1, 0x0
 
     .line 112
-    .local v1, map:Ljava/util/Map;
+    .local v1, "map":Ljava/util/Map;
     const/4 v2, 0x0
 
     .line 114
-    .local v2, stat:Llibcore/io/StructStat;
+    .local v2, "stat":Llibcore/io/StructStat;
     :try_start_0
     sget-object v5, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
@@ -773,7 +773,7 @@
     const/4 v3, 0x0
 
     .line 118
-    .local v3, str:Ljava/io/BufferedInputStream;
+    .local v3, "str":Ljava/io/BufferedInputStream;
     :try_start_1
     new-instance v4, Ljava/io/BufferedInputStream;
 
@@ -787,21 +787,21 @@
 
     invoke-direct {v4, v5, v6}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 120
-    .end local v3           #str:Ljava/io/BufferedInputStream;
-    .local v4, str:Ljava/io/BufferedInputStream;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
+    .local v4, "str":Ljava/io/BufferedInputStream;
     :try_start_2
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->readMapXml(Ljava/io/InputStream;)Ljava/util/HashMap;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_6
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_5
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     move-result-object v1
 
@@ -812,7 +812,7 @@
     .catch Llibcore/io/ErrnoException; {:try_start_3 .. :try_end_3} :catch_1
 
     .line 133
-    .end local v4           #str:Ljava/io/BufferedInputStream;
+    .end local v4    # "str":Ljava/io/BufferedInputStream;
     :cond_3
     :goto_1
     const/4 v5, 0x1
@@ -842,12 +842,12 @@
     goto/16 :goto_0
 
     .line 121
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     :catch_0
     move-exception v0
 
     .line 122
-    .local v0, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :goto_3
     :try_start_4
     const-string v5, "SharedPreferencesImpl"
@@ -867,20 +867,20 @@
     goto :goto_1
 
     .line 131
-    .end local v0           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    .end local v3           #str:Ljava/io/BufferedInputStream;
+    .end local v0    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
     :catch_1
     move-exception v5
 
     goto :goto_1
 
     .line 123
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     :catch_2
     move-exception v0
 
     .line 124
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     :goto_4
     :try_start_6
     const-string v5, "SharedPreferencesImpl"
@@ -900,12 +900,12 @@
     goto :goto_1
 
     .line 125
-    .end local v0           #e:Ljava/io/FileNotFoundException;
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_3
     move-exception v0
 
     .line 126
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :goto_5
     :try_start_8
     const-string v5, "SharedPreferencesImpl"
@@ -922,7 +922,7 @@
 
     goto :goto_1
 
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v5
 
@@ -934,7 +934,7 @@
     .catch Llibcore/io/ErrnoException; {:try_start_9 .. :try_end_9} :catch_1
 
     .line 139
-    .end local v3           #str:Ljava/io/BufferedInputStream;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
     :cond_4
     new-instance v5, Ljava/util/HashMap;
 
@@ -945,56 +945,56 @@
     goto :goto_2
 
     .line 128
-    .restart local v4       #str:Ljava/io/BufferedInputStream;
+    .restart local v4    # "str":Ljava/io/BufferedInputStream;
     :catchall_1
     move-exception v5
 
     move-object v3, v4
 
-    .end local v4           #str:Ljava/io/BufferedInputStream;
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .end local v4    # "str":Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     goto :goto_6
 
     .line 125
-    .end local v3           #str:Ljava/io/BufferedInputStream;
-    .restart local v4       #str:Ljava/io/BufferedInputStream;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
+    .restart local v4    # "str":Ljava/io/BufferedInputStream;
     :catch_4
     move-exception v0
 
     move-object v3, v4
 
-    .end local v4           #str:Ljava/io/BufferedInputStream;
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .end local v4    # "str":Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     goto :goto_5
 
     .line 123
-    .end local v3           #str:Ljava/io/BufferedInputStream;
-    .restart local v4       #str:Ljava/io/BufferedInputStream;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
+    .restart local v4    # "str":Ljava/io/BufferedInputStream;
     :catch_5
     move-exception v0
 
     move-object v3, v4
 
-    .end local v4           #str:Ljava/io/BufferedInputStream;
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .end local v4    # "str":Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     goto :goto_4
 
     .line 121
-    .end local v3           #str:Ljava/io/BufferedInputStream;
-    .restart local v4       #str:Ljava/io/BufferedInputStream;
+    .end local v3    # "str":Ljava/io/BufferedInputStream;
+    .restart local v4    # "str":Ljava/io/BufferedInputStream;
     :catch_6
     move-exception v0
 
     move-object v3, v4
 
-    .end local v4           #str:Ljava/io/BufferedInputStream;
-    .restart local v3       #str:Ljava/io/BufferedInputStream;
+    .end local v4    # "str":Ljava/io/BufferedInputStream;
+    .restart local v3    # "str":Ljava/io/BufferedInputStream;
     goto :goto_3
 .end method
 
 .method private static makeBackupFile(Ljava/io/File;)Ljava/io/File;
     .locals 3
-    .parameter "prefsFile"
+    .param p0, "prefsFile"    # Ljava/io/File;
 
     .prologue
     .line 145
@@ -1071,7 +1071,7 @@
 
 .method private writeToFile(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
     .locals 7
-    .parameter "mcr"
+    .param p1, "mcr"    # Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
     .prologue
     const/4 v4, 0x1
@@ -1178,7 +1178,7 @@
     move-result-object v2
 
     .line 592
-    .local v2, str:Ljava/io/FileOutputStream;
+    .local v2, "str":Ljava/io/FileOutputStream;
     if-nez v2, :cond_4
 
     .line 593
@@ -1192,12 +1192,12 @@
     goto :goto_0
 
     .line 613
-    .end local v2           #str:Ljava/io/FileOutputStream;
+    .end local v2    # "str":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v0
 
     .line 614
-    .local v0, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     const-string v3, "SharedPreferencesImpl"
 
     const-string/jumbo v4, "writeToFile: Got exception:"
@@ -1205,7 +1205,7 @@
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 619
-    .end local v0           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v0    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :goto_1
     iget-object v3, p0, Landroid/app/SharedPreferencesImpl;->mFile:Ljava/io/File;
 
@@ -1256,7 +1256,7 @@
     goto/16 :goto_0
 
     .line 596
-    .restart local v2       #str:Ljava/io/FileOutputStream;
+    .restart local v2    # "str":Ljava/io/FileOutputStream;
     :cond_4
     :try_start_1
     iget-object v3, p1, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->mapToWriteToDisk:Ljava/util/Map;
@@ -1300,7 +1300,7 @@
     move-result-object v1
 
     .line 602
-    .local v1, stat:Llibcore/io/StructStat;
+    .local v1, "stat":Llibcore/io/StructStat;
     monitor-enter p0
     :try_end_2
     .catch Llibcore/io/ErrnoException; {:try_start_2 .. :try_end_2} :catch_2
@@ -1324,7 +1324,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 610
-    .end local v1           #stat:Llibcore/io/StructStat;
+    .end local v1    # "stat":Llibcore/io/StructStat;
     :goto_2
     :try_start_4
     iget-object v3, p0, Landroid/app/SharedPreferencesImpl;->mBackupFile:Ljava/io/File;
@@ -1342,12 +1342,12 @@
     goto/16 :goto_0
 
     .line 615
-    .end local v2           #str:Ljava/io/FileOutputStream;
+    .end local v2    # "str":Ljava/io/FileOutputStream;
     :catch_1
     move-exception v0
 
     .line 616
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v3, "SharedPreferencesImpl"
 
     const-string/jumbo v4, "writeToFile: Got exception:"
@@ -1357,9 +1357,9 @@
     goto :goto_1
 
     .line 605
-    .end local v0           #e:Ljava/io/IOException;
-    .restart local v1       #stat:Llibcore/io/StructStat;
-    .restart local v2       #str:Ljava/io/FileOutputStream;
+    .end local v0    # "e":Ljava/io/IOException;
+    .restart local v1    # "stat":Llibcore/io/StructStat;
+    .restart local v2    # "str":Ljava/io/FileOutputStream;
     :catchall_0
     move-exception v3
 
@@ -1376,7 +1376,7 @@
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
 
     .line 606
-    .end local v1           #stat:Llibcore/io/StructStat;
+    .end local v1    # "stat":Llibcore/io/StructStat;
     :catch_2
     move-exception v3
 
@@ -1387,7 +1387,7 @@
 # virtual methods
 .method public contains(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 267
@@ -1498,8 +1498,8 @@
 
 .method public getBoolean(Ljava/lang/String;Z)Z
     .locals 2
-    .parameter "key"
-    .parameter "defValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defValue"    # Z
 
     .prologue
     .line 259
@@ -1519,21 +1519,21 @@
     check-cast v0, Ljava/lang/Boolean;
 
     .line 262
-    .local v0, v:Ljava/lang/Boolean;
+    .local v0, "v":Ljava/lang/Boolean;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p2
 
-    .end local p2
+    .end local p2    # "defValue":Z
     :cond_0
     monitor-exit p0
 
     return p2
 
     .line 263
-    .end local v0           #v:Ljava/lang/Boolean;
+    .end local v0    # "v":Ljava/lang/Boolean;
     :catchall_0
     move-exception v1
 
@@ -1546,8 +1546,8 @@
 
 .method public getFloat(Ljava/lang/String;F)F
     .locals 2
-    .parameter "key"
-    .parameter "defValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defValue"    # F
 
     .prologue
     .line 252
@@ -1567,21 +1567,21 @@
     check-cast v0, Ljava/lang/Float;
 
     .line 255
-    .local v0, v:Ljava/lang/Float;
+    .local v0, "v":Ljava/lang/Float;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result p2
 
-    .end local p2
+    .end local p2    # "defValue":F
     :cond_0
     monitor-exit p0
 
     return p2
 
     .line 256
-    .end local v0           #v:Ljava/lang/Float;
+    .end local v0    # "v":Ljava/lang/Float;
     :catchall_0
     move-exception v1
 
@@ -1594,8 +1594,8 @@
 
 .method public getInt(Ljava/lang/String;I)I
     .locals 2
-    .parameter "key"
-    .parameter "defValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defValue"    # I
 
     .prologue
     .line 238
@@ -1615,21 +1615,21 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 241
-    .local v0, v:Ljava/lang/Integer;
+    .local v0, "v":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result p2
 
-    .end local p2
+    .end local p2    # "defValue":I
     :cond_0
     monitor-exit p0
 
     return p2
 
     .line 242
-    .end local v0           #v:Ljava/lang/Integer;
+    .end local v0    # "v":Ljava/lang/Integer;
     :catchall_0
     move-exception v1
 
@@ -1642,8 +1642,8 @@
 
 .method public getLong(Ljava/lang/String;J)J
     .locals 2
-    .parameter "key"
-    .parameter "defValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defValue"    # J
 
     .prologue
     .line 245
@@ -1663,21 +1663,21 @@
     check-cast v0, Ljava/lang/Long;
 
     .line 248
-    .local v0, v:Ljava/lang/Long;
+    .local v0, "v":Ljava/lang/Long;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide p2
 
-    .end local p2
+    .end local p2    # "defValue":J
     :cond_0
     monitor-exit p0
 
     return-wide p2
 
     .line 249
-    .end local v0           #v:Ljava/lang/Long;
+    .end local v0    # "v":Ljava/lang/Long;
     :catchall_0
     move-exception v1
 
@@ -1690,8 +1690,8 @@
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "key"
-    .parameter "defValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defValue"    # Ljava/lang/String;
 
     .prologue
     .line 222
@@ -1711,23 +1711,23 @@
     check-cast v0, Ljava/lang/String;
 
     .line 225
-    .local v0, v:Ljava/lang/String;
+    .local v0, "v":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .end local v0           #v:Ljava/lang/String;
+    .end local v0    # "v":Ljava/lang/String;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
-    .restart local v0       #v:Ljava/lang/String;
+    .restart local v0    # "v":Ljava/lang/String;
     :cond_0
     move-object v0, p2
 
     goto :goto_0
 
     .line 226
-    .end local v0           #v:Ljava/lang/String;
+    .end local v0    # "v":Ljava/lang/String;
     :catchall_0
     move-exception v1
 
@@ -1740,8 +1740,7 @@
 
 .method public getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
     .locals 2
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1759,7 +1758,7 @@
 
     .prologue
     .line 230
-    .local p2, defValues:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p2, "defValues":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     monitor-enter p0
 
     .line 231
@@ -1776,23 +1775,23 @@
     check-cast v0, Ljava/util/Set;
 
     .line 233
-    .local v0, v:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v0, "v":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     if-eqz v0, :cond_0
 
-    .end local v0           #v:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v0    # "v":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :goto_0
     monitor-exit p0
 
     return-object v0
 
-    .restart local v0       #v:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local v0    # "v":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_0
     move-object v0, p2
 
     goto :goto_0
 
     .line 234
-    .end local v0           #v:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v0    # "v":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :catchall_0
     move-exception v1
 
@@ -1805,7 +1804,7 @@
 
 .method public registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
     .prologue
     .line 187
@@ -1879,7 +1878,7 @@
 
 .method public unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
     .prologue
     .line 193

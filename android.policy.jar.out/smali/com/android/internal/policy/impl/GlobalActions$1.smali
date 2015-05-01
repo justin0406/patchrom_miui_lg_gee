@@ -21,12 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;IIIII)V
     .locals 6
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p2, "x0"    # I
+    .param p3, "x1"    # I
+    .param p4, "x2"    # I
+    .param p5, "x3"    # I
+    .param p6, "x4"    # I
 
     .prologue
     .line 198
@@ -53,13 +52,13 @@
 # virtual methods
 .method protected changeStateFromPress(Z)V
     .locals 2
-    .parameter "buttonOn"
+    .param p1, "buttonOn"    # Z
 
     .prologue
     .line 216
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$000(Lcom/android/internal/policy/impl/GlobalActions;)Z
 
     move-result v0
@@ -98,7 +97,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->mState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
-    #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
+    # setter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$402(Lcom/android/internal/policy/impl/GlobalActions;Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
     goto :goto_0
@@ -112,13 +111,13 @@
 
 .method onToggle(Z)V
     .locals 3
-    .parameter "on"
+    .param p1, "on"    # Z
 
     .prologue
     .line 201
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
     invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$000(Lcom/android/internal/policy/impl/GlobalActions;)Z
 
     move-result v1
@@ -142,7 +141,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsWaitingForEcmExit:Z
+    # setter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsWaitingForEcmExit:Z
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$102(Lcom/android/internal/policy/impl/GlobalActions;Z)Z
 
     .line 205
@@ -155,15 +154,15 @@
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 207
-    .local v0, ecmDialogIntent:Landroid/content/Intent;
-    const/high16 v1, 0x1000
+    .local v0, "ecmDialogIntent":Landroid/content/Intent;
+    const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 208
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
 
     move-result-object v1
@@ -171,7 +170,7 @@
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 212
-    .end local v0           #ecmDialogIntent:Landroid/content/Intent;
+    .end local v0    # "ecmDialogIntent":Landroid/content/Intent;
     :goto_0
     return-void
 
@@ -179,7 +178,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #calls: Lcom/android/internal/policy/impl/GlobalActions;->changeAirplaneModeSystemSetting(Z)V
+    # invokes: Lcom/android/internal/policy/impl/GlobalActions;->changeAirplaneModeSystemSetting(Z)V
     invoke-static {v1, p1}, Lcom/android/internal/policy/impl/GlobalActions;->access$300(Lcom/android/internal/policy/impl/GlobalActions;Z)V
 
     goto :goto_0

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewFlipper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 265
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 268
@@ -49,7 +48,7 @@
     .line 269
     iget-object v0, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
 
-    #getter for: Landroid/widget/AdapterViewFlipper;->mRunning:Z
+    # getter for: Landroid/widget/AdapterViewFlipper;->mRunning:Z
     invoke-static {v0}, Landroid/widget/AdapterViewFlipper;->access$300(Landroid/widget/AdapterViewFlipper;)Z
 
     move-result v0

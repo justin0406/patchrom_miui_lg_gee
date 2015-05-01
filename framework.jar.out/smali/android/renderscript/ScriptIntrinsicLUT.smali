@@ -16,8 +16,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 4
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     const/16 v2, 0x400
@@ -56,7 +56,7 @@
     .line 36
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     const/16 v1, 0x100
 
@@ -115,8 +115,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicLUT;
     .locals 3
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 56
@@ -131,7 +131,7 @@
     move-result v0
 
     .line 57
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ScriptIntrinsicLUT;
 
     invoke-direct {v1, v0, p0}, Landroid/renderscript/ScriptIntrinsicLUT;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -141,8 +141,8 @@
 
 .method private validate(II)V
     .locals 2
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     const/16 v0, 0xff
@@ -187,8 +187,8 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 3
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v2, 0x0
@@ -238,8 +238,8 @@
 
 .method public setAlpha(II)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 114
@@ -265,8 +265,8 @@
 
 .method public setBlue(II)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 102
@@ -292,8 +292,8 @@
 
 .method public setGreen(II)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 90
@@ -319,8 +319,8 @@
 
 .method public setRed(II)V
     .locals 2
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 78

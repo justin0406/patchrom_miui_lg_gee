@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/app/ActivityThread;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1434
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/app/ActivityThread;Landroid/app/ActivityThread$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/app/ActivityThread;
+    .param p2, "x1"    # Landroid/app/ActivityThread$1;
 
     .prologue
     .line 1434
@@ -61,11 +60,11 @@
     iget-object v0, v4, Landroid/app/ActivityThread;->mNewActivities:Landroid/app/ActivityThread$ActivityClientRecord;
 
     .line 1438
-    .local v0, a:Landroid/app/ActivityThread$ActivityClientRecord;
+    .local v0, "a":Landroid/app/ActivityThread$ActivityClientRecord;
     const/4 v3, 0x0
 
     .line 1439
-    .local v3, stopProfiling:Z
+    .local v3, "stopProfiling":Z
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
     iget-object v4, v4, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
@@ -106,7 +105,7 @@
     move-result-object v1
 
     .line 1452
-    .local v1, am:Landroid/app/IActivityManager;
+    .local v1, "am":Landroid/app/IActivityManager;
     :cond_1
     iget-object v4, v0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
 
@@ -139,7 +138,7 @@
     move-object v2, v0
 
     .line 1461
-    .local v2, prev:Landroid/app/ActivityThread$ActivityClientRecord;
+    .local v2, "prev":Landroid/app/ActivityThread$ActivityClientRecord;
     iget-object v0, v0, Landroid/app/ActivityThread$ActivityClientRecord;->nextIdle:Landroid/app/ActivityThread$ActivityClientRecord;
 
     .line 1462
@@ -149,8 +148,8 @@
     if-nez v0, :cond_1
 
     .line 1465
-    .end local v1           #am:Landroid/app/IActivityManager;
-    .end local v2           #prev:Landroid/app/ActivityThread$ActivityClientRecord;
+    .end local v1    # "am":Landroid/app/IActivityManager;
+    .end local v2    # "prev":Landroid/app/ActivityThread$ActivityClientRecord;
     :cond_3
     if-eqz v3, :cond_4
 
@@ -173,7 +172,7 @@
     return v4
 
     .line 1456
-    .restart local v1       #am:Landroid/app/IActivityManager;
+    .restart local v1    # "am":Landroid/app/IActivityManager;
     :catch_0
     move-exception v4
 

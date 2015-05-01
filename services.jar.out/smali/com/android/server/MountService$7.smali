@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2060
@@ -45,7 +44,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/MountService$7;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
+    # getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
     invoke-static {v1}, Lcom/android/server/MountService;->access$1200(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v1
@@ -75,7 +74,7 @@
     move-exception v0
 
     .line 2065
-    .local v0, e:Lcom/android/server/NativeDaemonConnectorException;
+    .local v0, "e":Lcom/android/server/NativeDaemonConnectorException;
     const-string v1, "MountService"
 
     const-string v2, "problem executing in background"

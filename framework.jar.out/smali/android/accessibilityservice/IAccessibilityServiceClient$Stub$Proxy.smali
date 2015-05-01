@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 115
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 184
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -110,7 +110,7 @@
 
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 143
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -185,7 +185,7 @@
 
 .method public onGesture(I)V
     .locals 5
-    .parameter "gesture"
+    .param p1, "gesture"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -199,7 +199,7 @@
     move-result-object v0
 
     .line 172
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -251,7 +251,7 @@
     move-result-object v0
 
     .line 161
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -287,8 +287,8 @@
 
 .method public onKeyEvent(Landroid/view/KeyEvent;I)V
     .locals 5
-    .parameter "event"
-    .parameter "sequence"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -302,7 +302,7 @@
     move-result-object v0
 
     .line 195
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -366,8 +366,8 @@
 
 .method public setConnection(Landroid/accessibilityservice/IAccessibilityServiceConnection;I)V
     .locals 5
-    .parameter "connection"
-    .parameter "connectionId"
+    .param p1, "connection"    # Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .param p2, "connectionId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -383,7 +383,7 @@
     move-result-object v0
 
     .line 130
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accessibilityservice.IAccessibilityServiceClient"
 

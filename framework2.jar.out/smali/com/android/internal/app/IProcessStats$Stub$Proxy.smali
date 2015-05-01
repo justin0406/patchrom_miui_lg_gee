@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 87
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 142
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 145
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IProcessStats"
 
@@ -96,7 +96,7 @@
     move-result v2
 
     .line 151
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 152
@@ -106,7 +106,7 @@
     return v2
 
     .line 151
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -120,7 +120,6 @@
 
 .method public getCurrentStats(Ljava/util/List;)[B
     .locals 6
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,19 +138,19 @@
 
     .prologue
     .line 100
-    .local p1, historic:Ljava/util/List;,"Ljava/util/List<Landroid/os/ParcelFileDescriptor;>;"
+    .local p1, "historic":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelFileDescriptor;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 101
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 104
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IProcessStats"
 
@@ -175,7 +174,7 @@
     move-result-object v2
 
     .line 108
-    .local v2, _result:[B
+    .local v2, "_result":[B
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, p1, v3}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
@@ -192,7 +191,7 @@
     return-object v2
 
     .line 111
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -216,7 +215,7 @@
 
 .method public getStatsOverTime(J)Landroid/os/ParcelFileDescriptor;
     .locals 6
-    .parameter "minTime"
+    .param p1, "minTime"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -230,13 +229,13 @@
     move-result-object v0
 
     .line 119
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 122
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IProcessStats"
 
@@ -276,7 +275,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
-    .local v2, _result:Landroid/os/ParcelFileDescriptor;
+    .local v2, "_result":Landroid/os/ParcelFileDescriptor;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -287,15 +286,15 @@
     return-object v2
 
     .line 130
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     goto :goto_0
 
     .line 134
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :catchall_0
     move-exception v3
 

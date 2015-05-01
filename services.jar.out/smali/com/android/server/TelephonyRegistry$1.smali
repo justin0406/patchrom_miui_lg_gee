@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/TelephonyRegistry;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 137
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 140
@@ -54,7 +53,7 @@
 
     iget-object v1, p0, Lcom/android/server/TelephonyRegistry$1;->this$0:Lcom/android/server/TelephonyRegistry;
 
-    #getter for: Lcom/android/server/TelephonyRegistry;->mCellLocation:Landroid/os/Bundle;
+    # getter for: Lcom/android/server/TelephonyRegistry;->mCellLocation:Landroid/os/Bundle;
     invoke-static {v1}, Lcom/android/server/TelephonyRegistry;->access$000(Lcom/android/server/TelephonyRegistry;)Landroid/os/Bundle;
 
     move-result-object v1

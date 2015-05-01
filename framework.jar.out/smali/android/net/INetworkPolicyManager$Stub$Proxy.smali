@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 200
@@ -74,13 +74,13 @@
     move-result-object v0
 
     .line 331
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 334
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -110,7 +110,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 340
-    .local v2, _result:[Landroid/net/NetworkPolicy;
+    .local v2, "_result":[Landroid/net/NetworkPolicy;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 341
@@ -120,7 +120,7 @@
     return-object v2
 
     .line 340
-    .end local v2           #_result:[Landroid/net/NetworkPolicy;
+    .end local v2    # "_result":[Landroid/net/NetworkPolicy;
     :catchall_0
     move-exception v3
 
@@ -134,7 +134,7 @@
 
 .method public getNetworkQuotaInfo(Landroid/net/NetworkState;)Landroid/net/NetworkQuotaInfo;
     .locals 6
-    .parameter "state"
+    .param p1, "state"    # Landroid/net/NetworkState;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -148,13 +148,13 @@
     move-result-object v0
 
     .line 403
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 406
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -205,7 +205,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 424
-    .local v2, _result:Landroid/net/NetworkQuotaInfo;
+    .local v2, "_result":Landroid/net/NetworkQuotaInfo;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -216,7 +216,7 @@
     return-object v2
 
     .line 412
-    .end local v2           #_result:Landroid/net/NetworkQuotaInfo;
+    .end local v2    # "_result":Landroid/net/NetworkQuotaInfo;
     :cond_0
     const/4 v3, 0x0
 
@@ -242,7 +242,7 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/net/NetworkQuotaInfo;
+    .restart local v2    # "_result":Landroid/net/NetworkQuotaInfo;
     goto :goto_1
 .end method
 
@@ -263,13 +263,13 @@
     move-result-object v0
 
     .line 386
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 389
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -299,7 +299,7 @@
     const/4 v2, 0x1
 
     .line 395
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -310,7 +310,7 @@
     return v2
 
     .line 395
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -324,7 +324,7 @@
 
 .method public getUidPolicy(I)I
     .locals 6
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -338,13 +338,13 @@
     move-result-object v0
 
     .line 231
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 234
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -373,7 +373,7 @@
     move-result v2
 
     .line 241
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 242
@@ -383,7 +383,7 @@
     return v2
 
     .line 241
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -397,7 +397,7 @@
 
 .method public getUidsWithPolicy(I)[I
     .locals 6
-    .parameter "policy"
+    .param p1, "policy"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -411,13 +411,13 @@
     move-result-object v0
 
     .line 249
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 252
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -446,7 +446,7 @@
     move-result-object v2
 
     .line 259
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 260
@@ -456,7 +456,7 @@
     return-object v2
 
     .line 259
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -470,7 +470,7 @@
 
 .method public isNetworkMetered(Landroid/net/NetworkState;)Z
     .locals 7
-    .parameter "state"
+    .param p1, "state"    # Landroid/net/NetworkState;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -488,13 +488,13 @@
     move-result-object v0
 
     .line 432
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 435
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.INetworkPolicyManager"
 
@@ -536,7 +536,7 @@
     if-eqz v4, :cond_1
 
     .line 448
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -547,7 +547,7 @@
     return v2
 
     .line 441
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -578,7 +578,7 @@
 
 .method public isUidForeground(I)Z
     .locals 6
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -594,13 +594,13 @@
     move-result-object v0
 
     .line 267
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 270
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -633,7 +633,7 @@
     const/4 v2, 0x1
 
     .line 277
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -644,7 +644,7 @@
     return v2
 
     .line 277
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -658,7 +658,7 @@
 
 .method public registerListener(Landroid/net/INetworkPolicyListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/net/INetworkPolicyListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -672,13 +672,13 @@
     move-result-object v0
 
     .line 285
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 287
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkPolicyManager"
 
@@ -737,7 +737,7 @@
 
 .method public setNetworkPolicies([Landroid/net/NetworkPolicy;)V
     .locals 5
-    .parameter "policies"
+    .param p1, "policies"    # [Landroid/net/NetworkPolicy;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -751,13 +751,13 @@
     move-result-object v0
 
     .line 316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 318
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkPolicyManager"
 
@@ -805,7 +805,7 @@
 
 .method public setRestrictBackground(Z)V
     .locals 5
-    .parameter "restrictBackground"
+    .param p1, "restrictBackground"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -821,13 +821,13 @@
     move-result-object v0
 
     .line 371
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 373
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -878,8 +878,8 @@
 
 .method public setUidPolicy(II)V
     .locals 5
-    .parameter "uid"
-    .parameter "policy"
+    .param p1, "uid"    # I
+    .param p2, "policy"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -893,13 +893,13 @@
     move-result-object v0
 
     .line 215
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 217
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkPolicyManager"
 
@@ -948,7 +948,7 @@
 
 .method public snoozeLimit(Landroid/net/NetworkTemplate;)V
     .locals 5
-    .parameter "template"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -962,13 +962,13 @@
     move-result-object v0
 
     .line 349
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 351
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkPolicyManager"
 
@@ -1036,7 +1036,7 @@
 
 .method public unregisterListener(Landroid/net/INetworkPolicyListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/net/INetworkPolicyListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1050,13 +1050,13 @@
     move-result-object v0
 
     .line 300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 302
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkPolicyManager"
 

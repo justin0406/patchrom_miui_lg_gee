@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
     .locals 3
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -37,7 +37,7 @@
     move-result-object v0
 
     .line 66
-    .local v0, extras:Landroid/os/Bundle;
+    .local v0, "extras":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 67
@@ -65,7 +65,7 @@
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/NfcBarcode;
     .locals 3
-    .parameter "tag"
+    .param p0, "tag"    # Landroid/nfc/Tag;
 
     .prologue
     const/4 v1, 0x0
@@ -101,7 +101,7 @@
     move-exception v0
 
     .line 55
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 

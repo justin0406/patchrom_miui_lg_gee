@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 462
@@ -48,7 +47,7 @@
     .line 468
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$1;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mStatsLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mStatsLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/net/NetworkStatsService;->access$100(Lcom/android/server/net/NetworkStatsService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -59,7 +58,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$1;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mUidRecorder:Lcom/android/server/net/NetworkStatsRecorder;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mUidRecorder:Lcom/android/server/net/NetworkStatsRecorder;
     invoke-static {v0}, Lcom/android/server/net/NetworkStatsService;->access$200(Lcom/android/server/net/NetworkStatsService;)Lcom/android/server/net/NetworkStatsRecorder;
 
     move-result-object v0
@@ -105,7 +104,7 @@
     .line 477
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$1;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mStatsLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mStatsLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/net/NetworkStatsService;->access$100(Lcom/android/server/net/NetworkStatsService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -116,7 +115,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$1;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mUidTagRecorder:Lcom/android/server/net/NetworkStatsRecorder;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mUidTagRecorder:Lcom/android/server/net/NetworkStatsRecorder;
     invoke-static {v0}, Lcom/android/server/net/NetworkStatsService;->access$300(Lcom/android/server/net/NetworkStatsService;)Lcom/android/server/net/NetworkStatsRecorder;
 
     move-result-object v0
@@ -170,14 +169,14 @@
 
 .method public getHistoryForNetwork(Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
     .locals 1
-    .parameter "template"
-    .parameter "fields"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "fields"    # I
 
     .prologue
     .line 492
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$1;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->internalGetHistoryForNetwork(Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
+    # invokes: Lcom/android/server/net/NetworkStatsService;->internalGetHistoryForNetwork(Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
     invoke-static {v0, p1, p2}, Lcom/android/server/net/NetworkStatsService;->access$500(Lcom/android/server/net/NetworkStatsService;Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
 
     move-result-object v0
@@ -187,11 +186,11 @@
 
 .method public getHistoryForUid(Landroid/net/NetworkTemplate;IIII)Landroid/net/NetworkStatsHistory;
     .locals 6
-    .parameter "template"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
-    .parameter "fields"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
+    .param p5, "fields"    # I
 
     .prologue
     .line 510
@@ -244,10 +243,10 @@
 
 .method public getSummaryForAllUid(Landroid/net/NetworkTemplate;JJZ)Landroid/net/NetworkStats;
     .locals 8
-    .parameter "template"
-    .parameter "start"
-    .parameter "end"
-    .parameter "includeTags"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "start"    # J
+    .param p4, "end"    # J
+    .param p6, "includeTags"    # Z
 
     .prologue
     .line 498
@@ -266,7 +265,7 @@
     move-result-object v6
 
     .line 499
-    .local v6, stats:Landroid/net/NetworkStats;
+    .local v6, "stats":Landroid/net/NetworkStats;
     if-eqz p6, :cond_0
 
     .line 500
@@ -285,20 +284,20 @@
     move-result-object v7
 
     .line 502
-    .local v7, tagStats:Landroid/net/NetworkStats;
+    .local v7, "tagStats":Landroid/net/NetworkStats;
     invoke-virtual {v6, v7}, Landroid/net/NetworkStats;->combineAllValues(Landroid/net/NetworkStats;)V
 
     .line 504
-    .end local v7           #tagStats:Landroid/net/NetworkStats;
+    .end local v7    # "tagStats":Landroid/net/NetworkStats;
     :cond_0
     return-object v6
 .end method
 
 .method public getSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
     .locals 6
-    .parameter "template"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "start"    # J
+    .param p4, "end"    # J
 
     .prologue
     .line 487
@@ -310,7 +309,7 @@
 
     move-wide v4, p4
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->internalGetSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
+    # invokes: Lcom/android/server/net/NetworkStatsService;->internalGetSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
     invoke-static/range {v0 .. v5}, Lcom/android/server/net/NetworkStatsService;->access$400(Lcom/android/server/net/NetworkStatsService;Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
 
     move-result-object v0

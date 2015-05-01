@@ -23,7 +23,7 @@
 
 .method private deleteDatabaseFile(Ljava/lang/String;)V
     .locals 4
-    .parameter "fileName"
+    .param p1, "fileName"    # Ljava/lang/String;
 
     .prologue
     .line 97
@@ -91,7 +91,7 @@
     move-exception v0
 
     .line 105
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "DefaultDatabaseErrorHandler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -125,7 +125,7 @@
 # virtual methods
 .method public onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 6
-    .parameter "dbObj"
+    .param p1, "dbObj"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 54
@@ -179,12 +179,12 @@
     const/4 v0, 0x0
 
     .line 73
-    .local v0, attachedDbs:Ljava/util/List;,"Ljava/util/List<Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;>;"
+    .local v0, "attachedDbs":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;>;"
     :try_start_0
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getAttachedDbs()Ljava/util/List;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -193,8 +193,8 @@
     :try_start_1
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->close()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 84
     :goto_2
@@ -205,7 +205,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_3
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -220,7 +220,7 @@
     check-cast v2, Landroid/util/Pair;
 
     .line 86
-    .local v2, p:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    .local v2, "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/String;
@@ -230,8 +230,8 @@
     goto :goto_3
 
     .line 91
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #p:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_2
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     move-result-object v1
 
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :goto_4
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -269,7 +269,7 @@
     check-cast v2, Landroid/util/Pair;
 
     .line 86
-    .restart local v2       #p:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    .restart local v2    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/String;
@@ -279,8 +279,8 @@
     goto :goto_4
 
     .line 91
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #p:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_3
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
 

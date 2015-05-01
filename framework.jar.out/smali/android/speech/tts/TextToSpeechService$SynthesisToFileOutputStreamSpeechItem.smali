@@ -23,13 +23,12 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;Ljava/lang/String;Ljava/io/FileOutputStream;)V
     .locals 0
-    .parameter
-    .parameter "callerIdentity"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
-    .parameter "text"
-    .parameter "fileOutputStream"
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
+    .param p6, "text"    # Ljava/lang/String;
+    .param p7, "fileOutputStream"    # Ljava/io/FileOutputStream;
 
     .prologue
     .line 666
@@ -78,7 +77,7 @@
     move-result v1
 
     .line 680
-    .local v1, status:I
+    .local v1, "status":I
     if-nez v1, :cond_0
 
     .line 681
@@ -108,7 +107,7 @@
     move-exception v0
 
     .line 688
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "TextToSpeechService"
 
     const-string v3, "Failed to close output file"

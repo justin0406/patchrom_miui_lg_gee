@@ -29,7 +29,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Lcom/android/server/wm/WindowManagerService;
 
     .prologue
     .line 61
@@ -56,7 +56,7 @@
 
 .method private addInputWindowHandleLw(Lcom/android/server/input/InputWindowHandle;)V
     .locals 3
-    .parameter "windowHandle"
+    .param p1, "windowHandle"    # Lcom/android/server/input/InputWindowHandle;
 
     .prologue
     .line 158
@@ -114,19 +114,19 @@
 
 .method private addInputWindowHandleLw(Lcom/android/server/input/InputWindowHandle;Lcom/android/server/wm/WindowState;IIIZZZ)V
     .locals 6
-    .parameter "inputWindowHandle"
-    .parameter "child"
-    .parameter "flags"
-    .parameter "privateFlags"
-    .parameter "type"
-    .parameter "isVisible"
-    .parameter "hasFocus"
-    .parameter "hasWallpaper"
+    .param p1, "inputWindowHandle"    # Lcom/android/server/input/InputWindowHandle;
+    .param p2, "child"    # Lcom/android/server/wm/WindowState;
+    .param p3, "flags"    # I
+    .param p4, "privateFlags"    # I
+    .param p5, "type"    # I
+    .param p6, "isVisible"    # Z
+    .param p7, "hasFocus"    # Z
+    .param p8, "hasWallpaper"    # Z
 
     .prologue
     const/4 v2, 0x0
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     .line 172
     invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->toString()Ljava/lang/String;
@@ -143,7 +143,7 @@
     const/4 v1, 0x1
 
     .line 175
-    .local v1, modal:Z
+    .local v1, "modal":Z
     :goto_0
     if-eqz v1, :cond_2
 
@@ -238,7 +238,7 @@
     iget-object v0, p2, Lcom/android/server/wm/WindowState;->mFrame:Landroid/graphics/Rect;
 
     .line 198
-    .local v0, frame:Landroid/graphics/Rect;
+    .local v0, "frame":Landroid/graphics/Rect;
     iget v2, v0, Landroid/graphics/Rect;->left:I
 
     iput v2, p1, Lcom/android/server/input/InputWindowHandle;->frameLeft:I
@@ -279,8 +279,8 @@
     .line 214
     return-void
 
-    .end local v0           #frame:Landroid/graphics/Rect;
-    .end local v1           #modal:Z
+    .end local v0    # "frame":Landroid/graphics/Rect;
+    .end local v1    # "modal":Z
     :cond_1
     move v1, v2
 
@@ -288,7 +288,7 @@
     goto :goto_0
 
     .line 181
-    .restart local v1       #modal:Z
+    .restart local v1    # "modal":Z
     :cond_2
     iget-object v3, p1, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
 
@@ -297,7 +297,7 @@
     goto :goto_1
 
     .line 209
-    .restart local v0       #frame:Landroid/graphics/Rect;
+    .restart local v0    # "frame":Landroid/graphics/Rect;
     :cond_3
     iput v5, p1, Lcom/android/server/input/InputWindowHandle;->scaleFactor:F
 
@@ -357,9 +357,9 @@
 # virtual methods
 .method public dispatchUnhandledKey(Lcom/android/server/input/InputWindowHandle;Landroid/view/KeyEvent;I)Landroid/view/KeyEvent;
     .locals 2
-    .parameter "focus"
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "focus"    # Lcom/android/server/input/InputWindowHandle;
+    .param p2, "event"    # Landroid/view/KeyEvent;
+    .param p3, "policyFlags"    # I
 
     .prologue
     .line 382
@@ -372,7 +372,7 @@
     move-object v0, v1
 
     .line 383
-    .local v0, windowState:Lcom/android/server/wm/WindowState;
+    .local v0, "windowState":Lcom/android/server/wm/WindowState;
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -385,7 +385,7 @@
     return-object v1
 
     .line 382
-    .end local v0           #windowState:Lcom/android/server/wm/WindowState;
+    .end local v0    # "windowState":Lcom/android/server/wm/WindowState;
     :cond_0
     const/4 v0, 0x0
 
@@ -438,9 +438,9 @@
 
 .method public interceptKeyBeforeDispatching(Lcom/android/server/input/InputWindowHandle;Landroid/view/KeyEvent;I)J
     .locals 3
-    .parameter "focus"
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "focus"    # Lcom/android/server/input/InputWindowHandle;
+    .param p2, "event"    # Landroid/view/KeyEvent;
+    .param p3, "policyFlags"    # I
 
     .prologue
     .line 373
@@ -453,7 +453,7 @@
     move-object v0, v1
 
     .line 374
-    .local v0, windowState:Lcom/android/server/wm/WindowState;
+    .local v0, "windowState":Lcom/android/server/wm/WindowState;
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -466,7 +466,7 @@
     return-wide v1
 
     .line 373
-    .end local v0           #windowState:Lcom/android/server/wm/WindowState;
+    .end local v0    # "windowState":Lcom/android/server/wm/WindowState;
     :cond_0
     const/4 v0, 0x0
 
@@ -475,9 +475,9 @@
 
 .method public interceptKeyBeforeQueueing(Landroid/view/KeyEvent;IZ)I
     .locals 1
-    .parameter "event"
-    .parameter "policyFlags"
-    .parameter "isScreenOn"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "policyFlags"    # I
+    .param p3, "isScreenOn"    # Z
 
     .prologue
     .line 357
@@ -494,7 +494,7 @@
 
 .method public interceptMotionBeforeQueueingWhenScreenOff(I)I
     .locals 1
-    .parameter "policyFlags"
+    .param p1, "policyFlags"    # I
 
     .prologue
     .line 365
@@ -511,24 +511,24 @@
 
 .method public notifyANR(Lcom/android/server/input/InputApplicationHandle;Lcom/android/server/input/InputWindowHandle;Ljava/lang/String;)J
     .locals 12
-    .parameter "inputApplicationHandle"
-    .parameter "inputWindowHandle"
-    .parameter "reason"
+    .param p1, "inputApplicationHandle"    # Lcom/android/server/input/InputApplicationHandle;
+    .param p2, "inputWindowHandle"    # Lcom/android/server/input/InputWindowHandle;
+    .param p3, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 92
     const/4 v3, 0x0
 
     .line 93
-    .local v3, appWindowToken:Lcom/android/server/wm/AppWindowToken;
+    .local v3, "appWindowToken":Lcom/android/server/wm/AppWindowToken;
     const/4 v7, 0x0
 
     .line 94
-    .local v7, windowState:Lcom/android/server/wm/WindowState;
+    .local v7, "windowState":Lcom/android/server/wm/WindowState;
     const/4 v2, 0x0
 
     .line 95
-    .local v2, aboveSystem:Z
+    .local v2, "aboveSystem":Z
     iget-object v8, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v9, v8, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
@@ -624,7 +624,7 @@
     move-result v4
 
     .line 115
-    .local v4, systemAlertLayer:I
+    .local v4, "systemAlertLayer":I
     iget v8, v7, Lcom/android/server/wm/WindowState;->mBaseLayer:I
 
     if-le v8, v4, :cond_3
@@ -632,7 +632,7 @@
     const/4 v2, 0x1
 
     .line 125
-    .end local v4           #systemAlertLayer:I
+    .end local v4    # "systemAlertLayer":I
     :goto_0
     iget-object v8, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -659,7 +659,7 @@
     move-result v1
 
     .line 133
-    .local v1, abort:Z
+    .local v1, "abort":Z
     if-nez v1, :cond_7
 
     .line 136
@@ -668,20 +668,20 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 154
-    .end local v1           #abort:Z
+    .end local v1    # "abort":Z
     :cond_2
     :goto_1
     return-wide v5
 
     .line 115
-    .restart local v4       #systemAlertLayer:I
+    .restart local v4    # "systemAlertLayer":I
     :cond_3
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 116
-    .end local v4           #systemAlertLayer:I
+    .end local v4    # "systemAlertLayer":I
     :cond_4
     if-eqz v3, :cond_5
 
@@ -783,7 +783,7 @@
     move-result-wide v5
 
     .line 146
-    .local v5, timeout:J
+    .local v5, "timeout":J
     const-wide/16 v8, 0x0
 
     cmp-long v8, v5, v8
@@ -791,7 +791,7 @@
     if-gez v8, :cond_2
 
     .line 154
-    .end local v5           #timeout:J
+    .end local v5    # "timeout":J
     :cond_7
     :goto_2
     const-wide/16 v5, 0x0
@@ -809,6 +809,21 @@
     move-exception v8
 
     goto :goto_2
+.end method
+
+.method public notifyBackLidSwitchChanged(JZ)V
+    .locals 1
+    .param p1, "whenNanos"    # J
+    .param p3, "lidOpen"    # Z
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/view/WindowManagerPolicy;->notifyBackLidSwitchChanged(JZ)V
+
+    return-void
 .end method
 
 .method public notifyConfigurationChanged()V
@@ -861,7 +876,7 @@
 
 .method public notifyInputChannelBroken(Lcom/android/server/input/InputWindowHandle;)V
     .locals 5
-    .parameter "inputWindowHandle"
+    .param p1, "inputWindowHandle"    # Lcom/android/server/input/InputWindowHandle;
 
     .prologue
     .line 71
@@ -886,7 +901,7 @@
     check-cast v0, Lcom/android/server/wm/WindowState;
 
     .line 77
-    .local v0, windowState:Lcom/android/server/wm/WindowState;
+    .local v0, "windowState":Lcom/android/server/wm/WindowState;
     if-eqz v0, :cond_1
 
     .line 78
@@ -925,7 +940,7 @@
 
     goto :goto_0
 
-    .end local v0           #windowState:Lcom/android/server/wm/WindowState;
+    .end local v0    # "windowState":Lcom/android/server/wm/WindowState;
     :catchall_0
     move-exception v1
 
@@ -938,8 +953,8 @@
 
 .method public notifyLidSwitchChanged(JZ)V
     .locals 1
-    .parameter "whenNanos"
-    .parameter "lidOpen"
+    .param p1, "whenNanos"    # J
+    .param p3, "lidOpen"    # Z
 
     .prologue
     .line 349
@@ -955,7 +970,7 @@
 
 .method public pauseDispatchingLw(Lcom/android/server/wm/WindowToken;)V
     .locals 2
-    .parameter "window"
+    .param p1, "window"    # Lcom/android/server/wm/WindowToken;
 
     .prologue
     const/4 v1, 0x1
@@ -978,7 +993,7 @@
 
 .method public resumeDispatchingLw(Lcom/android/server/wm/WindowToken;)V
     .locals 1
-    .parameter "window"
+    .param p1, "window"    # Lcom/android/server/wm/WindowToken;
 
     .prologue
     .line 444
@@ -1003,7 +1018,7 @@
 
 .method public setEventDispatchingLw(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 477
@@ -1024,7 +1039,7 @@
 
 .method public setFocusedAppLw(Lcom/android/server/wm/AppWindowToken;)V
     .locals 3
-    .parameter "newApp"
+    .param p1, "newApp"    # Lcom/android/server/wm/AppWindowToken;
 
     .prologue
     .line 421
@@ -1048,7 +1063,7 @@
     iget-object v0, p1, Lcom/android/server/wm/AppWindowToken;->mInputApplicationHandle:Lcom/android/server/input/InputApplicationHandle;
 
     .line 425
-    .local v0, handle:Lcom/android/server/input/InputApplicationHandle;
+    .local v0, "handle":Lcom/android/server/input/InputApplicationHandle;
     invoke-virtual {p1}, Lcom/android/server/wm/AppWindowToken;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1072,8 +1087,8 @@
 
 .method public setInputFocusLw(Lcom/android/server/wm/WindowState;Z)V
     .locals 2
-    .parameter "newWindow"
-    .parameter "updateInputWindows"
+    .param p1, "newWindow"    # Lcom/android/server/wm/WindowState;
+    .param p2, "updateInputWindows"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1152,7 +1167,7 @@
 
 .method public updateInputWindowsLw(Z)V
     .locals 32
-    .parameter "force"
+    .param p1, "force"    # Z
 
     .prologue
     .line 228
@@ -1188,7 +1203,7 @@
     move-object/from16 v29, v0
 
     .line 241
-    .local v29, universeBackground:Lcom/android/server/wm/WindowStateAnimator;
+    .local v29, "universeBackground":Lcom/android/server/wm/WindowStateAnimator;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -1198,11 +1213,11 @@
     iget v15, v2, Lcom/android/server/wm/WindowAnimator;->mAboveUniverseLayer:I
 
     .line 242
-    .local v15, aboveUniverseLayer:I
+    .local v15, "aboveUniverseLayer":I
     const/16 v16, 0x0
 
     .line 245
-    .local v16, addedUniverse:Z
+    .local v16, "addedUniverse":Z
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -1214,7 +1229,7 @@
     const/16 v22, 0x1
 
     .line 246
-    .local v22, inDrag:Z
+    .local v22, "inDrag":Z
     :goto_1
     if-eqz v22, :cond_1
 
@@ -1230,7 +1245,7 @@
     move-object/from16 v19, v0
 
     .line 251
-    .local v19, dragWindowHandle:Lcom/android/server/input/InputWindowHandle;
+    .local v19, "dragWindowHandle":Lcom/android/server/input/InputWindowHandle;
     if-eqz v19, :cond_3
 
     .line 252
@@ -1241,7 +1256,7 @@
     invoke-direct {v0, v1}, Lcom/android/server/wm/InputMonitor;->addInputWindowHandleLw(Lcom/android/server/input/InputWindowHandle;)V
 
     .line 259
-    .end local v19           #dragWindowHandle:Lcom/android/server/input/InputWindowHandle;
+    .end local v19    # "dragWindowHandle":Lcom/android/server/input/InputWindowHandle;
     :cond_1
     :goto_2
     move-object/from16 v0, p0
@@ -1255,10 +1270,10 @@
     move-result v14
 
     .line 260
-    .local v14, NFW:I
+    .local v14, "NFW":I
     const/16 v21, 0x0
 
-    .local v21, i:I
+    .local v21, "i":I
     :goto_3
     move/from16 v0, v21
 
@@ -1291,17 +1306,17 @@
     goto :goto_3
 
     .line 245
-    .end local v14           #NFW:I
-    .end local v21           #i:I
-    .end local v22           #inDrag:Z
+    .end local v14    # "NFW":I
+    .end local v21    # "i":I
+    .end local v22    # "inDrag":Z
     :cond_2
     const/16 v22, 0x0
 
     goto :goto_1
 
     .line 254
-    .restart local v19       #dragWindowHandle:Lcom/android/server/input/InputWindowHandle;
-    .restart local v22       #inDrag:Z
+    .restart local v19    # "dragWindowHandle":Lcom/android/server/input/InputWindowHandle;
+    .restart local v22    # "inDrag":Z
     :cond_3
     const-string v2, "WindowManager"
 
@@ -1312,9 +1327,9 @@
     goto :goto_2
 
     .line 265
-    .end local v19           #dragWindowHandle:Lcom/android/server/input/InputWindowHandle;
-    .restart local v14       #NFW:I
-    .restart local v21       #i:I
+    .end local v19    # "dragWindowHandle":Lcom/android/server/input/InputWindowHandle;
+    .restart local v14    # "NFW":I
+    .restart local v21    # "i":I
     :cond_4
     move-object/from16 v0, p0
 
@@ -1327,10 +1342,10 @@
     move-result v25
 
     .line 266
-    .local v25, numDisplays:I
+    .local v25, "numDisplays":I
     const/16 v18, 0x0
 
-    .local v18, displayNdx:I
+    .local v18, "displayNdx":I
     :goto_4
     move/from16 v0, v18
 
@@ -1358,14 +1373,14 @@
     move-result-object v31
 
     .line 268
-    .local v31, windows:Lcom/android/server/wm/WindowList;
+    .local v31, "windows":Lcom/android/server/wm/WindowList;
     invoke-virtual/range {v31 .. v31}, Lcom/android/server/wm/WindowList;->size()I
 
     move-result v2
 
     add-int/lit8 v30, v2, -0x1
 
-    .local v30, winNdx:I
+    .local v30, "winNdx":I
     :goto_5
     if-ltz v30, :cond_e
 
@@ -1381,7 +1396,7 @@
     check-cast v17, Lcom/android/server/wm/WindowState;
 
     .line 270
-    .local v17, child:Lcom/android/server/wm/WindowState;
+    .local v17, "child":Lcom/android/server/wm/WindowState;
     move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
@@ -1389,7 +1404,7 @@
     move-object/from16 v23, v0
 
     .line 271
-    .local v23, inputChannel:Landroid/view/InputChannel;
+    .local v23, "inputChannel":Landroid/view/InputChannel;
     move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mInputWindowHandle:Lcom/android/server/input/InputWindowHandle;
@@ -1397,7 +1412,7 @@
     move-object/from16 v24, v0
 
     .line 272
-    .local v24, inputWindowHandle:Lcom/android/server/input/InputWindowHandle;
+    .local v24, "inputWindowHandle":Lcom/android/server/input/InputWindowHandle;
     if-eqz v23, :cond_5
 
     if-eqz v24, :cond_5
@@ -1426,7 +1441,7 @@
     move/from16 v20, v0
 
     .line 278
-    .local v20, flags:I
+    .local v20, "flags":I
     move-object/from16 v0, v17
 
     iget-object v2, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
@@ -1436,7 +1451,7 @@
     move/from16 v27, v0
 
     .line 279
-    .local v27, privateFlags:I
+    .local v27, "privateFlags":I
     move-object/from16 v0, v17
 
     iget-object v2, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
@@ -1446,7 +1461,7 @@
     move/from16 v28, v0
 
     .line 281
-    .local v28, type:I
+    .local v28, "type":I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/wm/InputMonitor;->mInputFocus:Lcom/android/server/wm/WindowState;
@@ -1458,14 +1473,14 @@
     const/4 v12, 0x1
 
     .line 282
-    .local v12, hasFocus:Z
+    .local v12, "hasFocus":Z
     :goto_7
     invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowState;->isVisibleLw()Z
 
     move-result v11
 
     .line 283
-    .local v11, isVisible:Z
+    .local v11, "isVisible":Z
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -1485,7 +1500,7 @@
     const/4 v13, 0x1
 
     .line 285
-    .local v13, hasWallpaper:Z
+    .local v13, "hasWallpaper":Z
     :goto_8
     invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowState;->getDisplayId()I
 
@@ -1496,7 +1511,7 @@
     const/16 v26, 0x1
 
     .line 289
-    .local v26, onDefaultDisplay:Z
+    .local v26, "onDefaultDisplay":Z
     :goto_9
     if-eqz v22, :cond_7
 
@@ -1535,7 +1550,7 @@
     iget-object v4, v0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
     .line 296
-    .local v4, u:Lcom/android/server/wm/WindowState;
+    .local v4, "u":Lcom/android/server/wm/WindowState;
     iget-object v2, v4, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
 
     if-eqz v2, :cond_8
@@ -1581,7 +1596,7 @@
     const/16 v16, 0x1
 
     .line 304
-    .end local v4           #u:Lcom/android/server/wm/WindowState;
+    .end local v4    # "u":Lcom/android/server/wm/WindowState;
     :cond_9
     move-object/from16 v0, v17
 
@@ -1609,58 +1624,58 @@
     goto/16 :goto_6
 
     .line 281
-    .end local v11           #isVisible:Z
-    .end local v12           #hasFocus:Z
-    .end local v13           #hasWallpaper:Z
-    .end local v26           #onDefaultDisplay:Z
+    .end local v11    # "isVisible":Z
+    .end local v12    # "hasFocus":Z
+    .end local v13    # "hasWallpaper":Z
+    .end local v26    # "onDefaultDisplay":Z
     :cond_a
     const/4 v12, 0x0
 
     goto :goto_7
 
     .line 283
-    .restart local v11       #isVisible:Z
-    .restart local v12       #hasFocus:Z
+    .restart local v11    # "isVisible":Z
+    .restart local v12    # "hasFocus":Z
     :cond_b
     const/4 v13, 0x0
 
     goto :goto_8
 
     .line 285
-    .restart local v13       #hasWallpaper:Z
+    .restart local v13    # "hasWallpaper":Z
     :cond_c
     const/16 v26, 0x0
 
     goto :goto_9
 
     .line 297
-    .restart local v4       #u:Lcom/android/server/wm/WindowState;
-    .restart local v26       #onDefaultDisplay:Z
+    .restart local v4    # "u":Lcom/android/server/wm/WindowState;
+    .restart local v26    # "onDefaultDisplay":Z
     :cond_d
     const/4 v9, 0x0
 
     goto :goto_a
 
     .line 266
-    .end local v4           #u:Lcom/android/server/wm/WindowState;
-    .end local v11           #isVisible:Z
-    .end local v12           #hasFocus:Z
-    .end local v13           #hasWallpaper:Z
-    .end local v17           #child:Lcom/android/server/wm/WindowState;
-    .end local v20           #flags:I
-    .end local v23           #inputChannel:Landroid/view/InputChannel;
-    .end local v24           #inputWindowHandle:Lcom/android/server/input/InputWindowHandle;
-    .end local v26           #onDefaultDisplay:Z
-    .end local v27           #privateFlags:I
-    .end local v28           #type:I
+    .end local v4    # "u":Lcom/android/server/wm/WindowState;
+    .end local v11    # "isVisible":Z
+    .end local v12    # "hasFocus":Z
+    .end local v13    # "hasWallpaper":Z
+    .end local v17    # "child":Lcom/android/server/wm/WindowState;
+    .end local v20    # "flags":I
+    .end local v23    # "inputChannel":Landroid/view/InputChannel;
+    .end local v24    # "inputWindowHandle":Lcom/android/server/input/InputWindowHandle;
+    .end local v26    # "onDefaultDisplay":Z
+    .end local v27    # "privateFlags":I
+    .end local v28    # "type":I
     :cond_e
     add-int/lit8 v18, v18, 0x1
 
     goto/16 :goto_4
 
     .line 312
-    .end local v30           #winNdx:I
-    .end local v31           #windows:Lcom/android/server/wm/WindowList;
+    .end local v30    # "winNdx":I
+    .end local v31    # "windows":Lcom/android/server/wm/WindowList;
     :cond_f
     move-object/from16 v0, p0
 
@@ -1682,7 +1697,7 @@
 
 .method public waitForInputDevicesReady(J)Z
     .locals 2
-    .parameter "timeoutMillis"
+    .param p1, "timeoutMillis"    # J
 
     .prologue
     .line 335
@@ -1704,8 +1719,8 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/Object;->wait(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 342
     :cond_0

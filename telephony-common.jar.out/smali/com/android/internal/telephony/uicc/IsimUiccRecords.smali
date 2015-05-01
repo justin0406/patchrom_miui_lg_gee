@@ -40,9 +40,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/uicc/UiccCardApplication;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 3
-    .parameter "app"
-    .parameter "c"
-    .parameter "ci"
+    .param p1, "app"    # Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .param p2, "c"    # Landroid/content/Context;
+    .param p3, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     const/4 v0, 0x0
@@ -92,8 +92,8 @@
 
 .method static synthetic access$302(Lcom/android/internal/telephony/uicc/IsimUiccRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -104,7 +104,7 @@
 
 .method static synthetic access$400([B)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # [B
 
     .prologue
     .line 42
@@ -117,7 +117,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/telephony/uicc/IsimUiccRecords;)[Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/IsimUiccRecords;
 
     .prologue
     .line 42
@@ -128,8 +128,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/telephony/uicc/IsimUiccRecords;[Ljava/lang/String;)[Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .param p1, "x1"    # [Ljava/lang/String;
 
     .prologue
     .line 42
@@ -140,8 +140,8 @@
 
 .method static synthetic access$602(Lcom/android/internal/telephony/uicc/IsimUiccRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -152,7 +152,7 @@
 
 .method private static isimTlvToString([B)Ljava/lang/String;
     .locals 4
-    .parameter "record"
+    .param p0, "record"    # [B
 
     .prologue
     .line 181
@@ -165,7 +165,7 @@
     invoke-direct {v0, p0, v1, v2}, Lcom/android/internal/telephony/gsm/SimTlv;-><init>([BII)V
 
     .line 183
-    .local v0, tlv:Lcom/android/internal/telephony/gsm/SimTlv;
+    .local v0, "tlv":Lcom/android/internal/telephony/gsm/SimTlv;
     :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SimTlv;->getTag()I
 
@@ -259,9 +259,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 281
@@ -481,7 +481,7 @@
 
 .method public getDisplayRule(Ljava/lang/String;)I
     .locals 1
-    .parameter "plmn"
+    .param p1, "plmn"    # Ljava/lang/String;
 
     .prologue
     .line 245
@@ -538,7 +538,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 88
@@ -614,7 +614,7 @@
     move-exception v0
 
     .line 106
-    .local v0, exc:Ljava/lang/RuntimeException;
+    .local v0, "exc":Ljava/lang/RuntimeException;
     const-string v1, "IsimUiccRecords"
 
     const-string v2, "Exception parsing SIM record"
@@ -624,7 +624,7 @@
     goto :goto_0
 
     .line 97
-    .end local v0           #exc:Ljava/lang/RuntimeException;
+    .end local v0    # "exc":Ljava/lang/RuntimeException;
     :pswitch_0
     :try_start_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/uicc/IsimUiccRecords;->onReady()V
@@ -644,7 +644,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 271
@@ -676,7 +676,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 276
@@ -787,8 +787,8 @@
 
 .method public onRefresh(Z[I)V
     .locals 0
-    .parameter "fileChanged"
-    .parameter "fileList"
+    .param p1, "fileChanged"    # Z
+    .param p2, "fileList"    # [I
 
     .prologue
     .line 256
@@ -810,9 +810,9 @@
 
 .method public setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "alphaTag"
-    .parameter "voiceNumber"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "voiceNumber"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 262
@@ -821,8 +821,8 @@
 
 .method public setVoiceMessageWaiting(II)V
     .locals 0
-    .parameter "line"
-    .parameter "countWaiting"
+    .param p1, "line"    # I
+    .param p2, "countWaiting"    # I
 
     .prologue
     .line 267

@@ -72,7 +72,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -94,7 +94,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/INetworkPolicyManager;
@@ -110,7 +110,7 @@
     :cond_1
     new-instance v0, Landroid/net/INetworkPolicyManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/INetworkPolicyManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -128,10 +128,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -174,13 +174,13 @@
     move-result v0
 
     .line 56
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 57
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/net/INetworkPolicyManager$Stub;->setUidPolicy(II)V
 
     .line 58
@@ -189,8 +189,8 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":I
     :sswitch_2
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -202,13 +202,13 @@
     move-result v0
 
     .line 66
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->getUidPolicy(I)I
 
     move-result v2
 
     .line 67
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 68
@@ -217,8 +217,8 @@
     goto :goto_0
 
     .line 73
-    .end local v0           #_arg0:I
-    .end local v2           #_result:I
+    .end local v0    # "_arg0":I
+    .end local v2    # "_result":I
     :sswitch_3
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -230,13 +230,13 @@
     move-result v0
 
     .line 76
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->getUidsWithPolicy(I)[I
 
     move-result-object v2
 
     .line 77
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 78
@@ -245,8 +245,8 @@
     goto :goto_0
 
     .line 83
-    .end local v0           #_arg0:I
-    .end local v2           #_result:[I
+    .end local v0    # "_arg0":I
+    .end local v2    # "_result":[I
     :sswitch_4
     const-string v5, "android.net.INetworkPolicyManager"
 
@@ -258,13 +258,13 @@
     move-result v0
 
     .line 86
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->isUidForeground(I)Z
 
     move-result v2
 
     .line 87
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 88
@@ -278,8 +278,8 @@
     goto :goto_0
 
     .line 93
-    .end local v0           #_arg0:I
-    .end local v2           #_result:Z
+    .end local v0    # "_arg0":I
+    .end local v2    # "_result":Z
     :sswitch_5
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -295,7 +295,7 @@
     move-result-object v0
 
     .line 96
-    .local v0, _arg0:Landroid/net/INetworkPolicyListener;
+    .local v0, "_arg0":Landroid/net/INetworkPolicyListener;
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->registerListener(Landroid/net/INetworkPolicyListener;)V
 
     .line 97
@@ -304,7 +304,7 @@
     goto :goto_0
 
     .line 102
-    .end local v0           #_arg0:Landroid/net/INetworkPolicyListener;
+    .end local v0    # "_arg0":Landroid/net/INetworkPolicyListener;
     :sswitch_6
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -320,7 +320,7 @@
     move-result-object v0
 
     .line 105
-    .restart local v0       #_arg0:Landroid/net/INetworkPolicyListener;
+    .restart local v0    # "_arg0":Landroid/net/INetworkPolicyListener;
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->unregisterListener(Landroid/net/INetworkPolicyListener;)V
 
     .line 106
@@ -329,7 +329,7 @@
     goto/16 :goto_0
 
     .line 111
-    .end local v0           #_arg0:Landroid/net/INetworkPolicyListener;
+    .end local v0    # "_arg0":Landroid/net/INetworkPolicyListener;
     :sswitch_7
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -345,7 +345,7 @@
     check-cast v0, [Landroid/net/NetworkPolicy;
 
     .line 114
-    .local v0, _arg0:[Landroid/net/NetworkPolicy;
+    .local v0, "_arg0":[Landroid/net/NetworkPolicy;
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->setNetworkPolicies([Landroid/net/NetworkPolicy;)V
 
     .line 115
@@ -354,7 +354,7 @@
     goto/16 :goto_0
 
     .line 120
-    .end local v0           #_arg0:[Landroid/net/NetworkPolicy;
+    .end local v0    # "_arg0":[Landroid/net/NetworkPolicy;
     :sswitch_8
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -366,7 +366,7 @@
     move-result-object v2
 
     .line 122
-    .local v2, _result:[Landroid/net/NetworkPolicy;
+    .local v2, "_result":[Landroid/net/NetworkPolicy;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 123
@@ -375,7 +375,7 @@
     goto/16 :goto_0
 
     .line 128
-    .end local v2           #_result:[Landroid/net/NetworkPolicy;
+    .end local v2    # "_result":[Landroid/net/NetworkPolicy;
     :sswitch_9
     const-string v3, "android.net.INetworkPolicyManager"
 
@@ -398,7 +398,7 @@
     check-cast v0, Landroid/net/NetworkTemplate;
 
     .line 136
-    .local v0, _arg0:Landroid/net/NetworkTemplate;
+    .local v0, "_arg0":Landroid/net/NetworkTemplate;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->snoozeLimit(Landroid/net/NetworkTemplate;)V
 
@@ -408,15 +408,15 @@
     goto/16 :goto_0
 
     .line 134
-    .end local v0           #_arg0:Landroid/net/NetworkTemplate;
+    .end local v0    # "_arg0":Landroid/net/NetworkTemplate;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v0    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_1
 
     .line 142
-    .end local v0           #_arg0:Landroid/net/NetworkTemplate;
+    .end local v0    # "_arg0":Landroid/net/NetworkTemplate;
     :sswitch_a
     const-string v5, "android.net.INetworkPolicyManager"
 
@@ -432,7 +432,7 @@
     move v0, v4
 
     .line 145
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_2
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->setRestrictBackground(Z)V
 
@@ -441,7 +441,7 @@
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :cond_2
     move v0, v3
 
@@ -460,7 +460,7 @@
     move-result v2
 
     .line 153
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 154
@@ -474,7 +474,7 @@
     goto/16 :goto_0
 
     .line 159
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_c
     const-string v5, "android.net.INetworkPolicyManager"
 
@@ -497,14 +497,14 @@
     check-cast v0, Landroid/net/NetworkState;
 
     .line 167
-    .local v0, _arg0:Landroid/net/NetworkState;
+    .local v0, "_arg0":Landroid/net/NetworkState;
     :goto_3
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->getNetworkQuotaInfo(Landroid/net/NetworkState;)Landroid/net/NetworkQuotaInfo;
 
     move-result-object v2
 
     .line 168
-    .local v2, _result:Landroid/net/NetworkQuotaInfo;
+    .local v2, "_result":Landroid/net/NetworkQuotaInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 169
@@ -519,24 +519,24 @@
     goto/16 :goto_0
 
     .line 165
-    .end local v0           #_arg0:Landroid/net/NetworkState;
-    .end local v2           #_result:Landroid/net/NetworkQuotaInfo;
+    .end local v0    # "_arg0":Landroid/net/NetworkState;
+    .end local v2    # "_result":Landroid/net/NetworkQuotaInfo;
     :cond_4
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/net/NetworkState;
+    .restart local v0    # "_arg0":Landroid/net/NetworkState;
     goto :goto_3
 
     .line 174
-    .restart local v2       #_result:Landroid/net/NetworkQuotaInfo;
+    .restart local v2    # "_result":Landroid/net/NetworkQuotaInfo;
     :cond_5
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 180
-    .end local v0           #_arg0:Landroid/net/NetworkState;
-    .end local v2           #_result:Landroid/net/NetworkQuotaInfo;
+    .end local v0    # "_arg0":Landroid/net/NetworkState;
+    .end local v2    # "_result":Landroid/net/NetworkQuotaInfo;
     :sswitch_d
     const-string v5, "android.net.INetworkPolicyManager"
 
@@ -559,14 +559,14 @@
     check-cast v0, Landroid/net/NetworkState;
 
     .line 188
-    .restart local v0       #_arg0:Landroid/net/NetworkState;
+    .restart local v0    # "_arg0":Landroid/net/NetworkState;
     :goto_4
     invoke-virtual {p0, v0}, Landroid/net/INetworkPolicyManager$Stub;->isNetworkMetered(Landroid/net/NetworkState;)Z
 
     move-result v2
 
     .line 189
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 190
@@ -580,12 +580,12 @@
     goto/16 :goto_0
 
     .line 186
-    .end local v0           #_arg0:Landroid/net/NetworkState;
-    .end local v2           #_result:Z
+    .end local v0    # "_arg0":Landroid/net/NetworkState;
+    .end local v2    # "_result":Z
     :cond_7
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/net/NetworkState;
+    .restart local v0    # "_arg0":Landroid/net/NetworkState;
     goto :goto_4
 
     .line 43

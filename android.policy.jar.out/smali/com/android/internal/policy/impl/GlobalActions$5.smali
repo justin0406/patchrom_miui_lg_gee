@@ -23,11 +23,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter
+    .param p2, "x0"    # I
+    .param p3, "x1"    # Landroid/graphics/drawable/Drawable;
+    .param p4, "x2"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 378
@@ -69,7 +67,7 @@
     move-exception v0
 
     .line 383
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "GlobalActions"
 
     new-instance v2, Ljava/lang/StringBuilder;

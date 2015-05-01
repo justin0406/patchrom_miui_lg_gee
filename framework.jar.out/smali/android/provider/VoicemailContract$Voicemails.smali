@@ -19,7 +19,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATE:Ljava/lang/String; = "date"
 
@@ -97,7 +97,7 @@
 
 .method public static buildSourceUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "packageName"
+    .param p0, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 201

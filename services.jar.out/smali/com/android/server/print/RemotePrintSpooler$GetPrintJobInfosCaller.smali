@@ -54,10 +54,10 @@
 # virtual methods
 .method public getPrintJobInfos(Landroid/print/IPrintSpooler;Landroid/content/ComponentName;II)Ljava/util/List;
     .locals 6
-    .parameter "target"
-    .parameter "componentName"
-    .parameter "state"
-    .parameter "appId"
+    .param p1, "target"    # Landroid/print/IPrintSpooler;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "state"    # I
+    .param p4, "appId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
     move-result v5
 
     .line 478
-    .local v5, sequence:I
+    .local v5, "sequence":I
     iget-object v1, p0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
     move-object v0, p1

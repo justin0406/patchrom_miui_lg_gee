@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/SmsUsageMonitor;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 573
@@ -44,7 +43,7 @@
     .line 576
     iget-object v0, p0, Lcom/android/internal/telephony/SmsUsageMonitor$1;->this$0:Lcom/android/internal/telephony/SmsUsageMonitor;
 
-    #calls: Lcom/android/internal/telephony/SmsUsageMonitor;->writePremiumSmsPolicyDb()V
+    # invokes: Lcom/android/internal/telephony/SmsUsageMonitor;->writePremiumSmsPolicyDb()V
     invoke-static {v0}, Lcom/android/internal/telephony/SmsUsageMonitor;->access$000(Lcom/android/internal/telephony/SmsUsageMonitor;)V
 
     .line 577

@@ -129,7 +129,7 @@
 
     .prologue
     .line 46
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 621
@@ -186,9 +186,7 @@
 
 .method private final addFilter(Landroid/util/ArrayMap;Ljava/lang/String;Landroid/content/IntentFilter;)V
     .locals 6
-    .parameter
-    .parameter "name"
-    .parameter
+    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -202,9 +200,9 @@
     .end annotation
 
     .prologue
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, map:Landroid/util/ArrayMap;,"Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
-    .local p3, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "map":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
+    .local p3, "filter":Landroid/content/IntentFilter;, "TF;"
     const/4 v5, 0x0
 
     .line 365
@@ -215,7 +213,7 @@
     check-cast v1, [Landroid/content/IntentFilter;
 
     .line 366
-    .local v1, array:[Landroid/content/IntentFilter;,"[TF;"
+    .local v1, "array":[Landroid/content/IntentFilter;, "[TF;"
     if-nez v1, :cond_0
 
     .line 367
@@ -240,11 +238,11 @@
     array-length v0, v1
 
     .line 372
-    .local v0, N:I
+    .local v0, "N":I
     move v2, v0
 
     .line 373
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-lez v2, :cond_1
 
@@ -279,7 +277,7 @@
     move-result-object v3
 
     .line 380
-    .local v3, newa:[Landroid/content/IntentFilter;,"[TF;"
+    .local v3, "newa":[Landroid/content/IntentFilter;, "[TF;"
     invoke-static {v1, v5, v3, v5, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 381
@@ -293,15 +291,12 @@
 
 .method private buildResolveList(Landroid/content/Intent;Landroid/util/FastImmutableArraySet;ZZLjava/lang/String;Ljava/lang/String;[Landroid/content/IntentFilter;Ljava/util/List;I)V
     .locals 19
-    .parameter "intent"
-    .parameter
-    .parameter "debug"
-    .parameter "defaultOnly"
-    .parameter "resolvedType"
-    .parameter "scheme"
-    .parameter
-    .parameter
-    .parameter "userId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p3, "debug"    # Z
+    .param p4, "defaultOnly"    # Z
+    .param p5, "resolvedType"    # Ljava/lang/String;
+    .param p6, "scheme"    # Ljava/lang/String;
+    .param p9, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -320,34 +315,34 @@
 
     .prologue
     .line 519
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p2, categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
-    .local p7, src:[Landroid/content/IntentFilter;,"[TF;"
-    .local p8, dest:Ljava/util/List;,"Ljava/util/List<TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p2, "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .local p7, "src":[Landroid/content/IntentFilter;, "[TF;"
+    .local p8, "dest":Ljava/util/List;, "Ljava/util/List<TR;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
 
     .line 520
-    .local v3, action:Ljava/lang/String;
+    .local v3, "action":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v6
 
     .line 521
-    .local v6, data:Landroid/net/Uri;
+    .local v6, "data":Landroid/net/Uri;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
 
     move-result-object v17
 
     .line 523
-    .local v17, packageName:Ljava/lang/String;
+    .local v17, "packageName":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->isExcludingStopped()Z
 
     move-result v10
 
     .line 527
-    .local v10, excludingStopped:Z
+    .local v10, "excludingStopped":Z
     if-eqz p3, :cond_2
 
     .line 528
@@ -362,13 +357,13 @@
     invoke-direct {v14, v4, v5, v7}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;I)V
 
     .line 529
-    .local v14, logPrinter:Landroid/util/Printer;
+    .local v14, "logPrinter":Landroid/util/Printer;
     new-instance v13, Lcom/android/internal/util/FastPrintWriter;
 
     invoke-direct {v13, v14}, Lcom/android/internal/util/FastPrintWriter;-><init>(Landroid/util/Printer;)V
 
     .line 535
-    .local v13, logPrintWriter:Ljava/io/PrintWriter;
+    .local v13, "logPrintWriter":Ljava/io/PrintWriter;
     :goto_0
     if-eqz p7, :cond_3
 
@@ -377,21 +372,21 @@
     array-length v9, v0
 
     .line 536
-    .local v9, N:I
+    .local v9, "N":I
     :goto_1
     const/4 v11, 0x0
 
     .line 539
-    .local v11, hasNonDefaults:Z
+    .local v11, "hasNonDefaults":Z
     const/4 v12, 0x0
 
-    .local v12, i:I
+    .local v12, "i":I
     :goto_2
     if-ge v12, v9, :cond_b
 
     aget-object v2, p7, v12
 
-    .local v2, filter:Landroid/content/IntentFilter;,"TF;"
+    .local v2, "filter":Landroid/content/IntentFilter;, "TF;"
     if-eqz v2, :cond_b
 
     .line 541
@@ -451,20 +446,20 @@
     goto :goto_2
 
     .line 531
-    .end local v2           #filter:Landroid/content/IntentFilter;,"TF;"
-    .end local v9           #N:I
-    .end local v11           #hasNonDefaults:Z
-    .end local v12           #i:I
-    .end local v13           #logPrintWriter:Ljava/io/PrintWriter;
-    .end local v14           #logPrinter:Landroid/util/Printer;
+    .end local v2    # "filter":Landroid/content/IntentFilter;, "TF;"
+    .end local v9    # "N":I
+    .end local v11    # "hasNonDefaults":Z
+    .end local v12    # "i":I
+    .end local v13    # "logPrintWriter":Ljava/io/PrintWriter;
+    .end local v14    # "logPrinter":Landroid/util/Printer;
     :cond_2
     const/4 v14, 0x0
 
     .line 532
-    .restart local v14       #logPrinter:Landroid/util/Printer;
+    .restart local v14    # "logPrinter":Landroid/util/Printer;
     const/4 v13, 0x0
 
-    .restart local v13       #logPrintWriter:Ljava/io/PrintWriter;
+    .restart local v13    # "logPrintWriter":Ljava/io/PrintWriter;
     goto :goto_0
 
     .line 535
@@ -474,10 +469,10 @@
     goto :goto_1
 
     .line 551
-    .restart local v2       #filter:Landroid/content/IntentFilter;,"TF;"
-    .restart local v9       #N:I
-    .restart local v11       #hasNonDefaults:Z
-    .restart local v12       #i:I
+    .restart local v2    # "filter":Landroid/content/IntentFilter;, "TF;"
+    .restart local v9    # "N":I
+    .restart local v11    # "hasNonDefaults":Z
+    .restart local v12    # "i":I
     :cond_4
     if-eqz v17, :cond_5
 
@@ -566,7 +561,7 @@
     move-result v15
 
     .line 567
-    .local v15, match:I
+    .local v15, "match":I
     if-ltz v15, :cond_a
 
     .line 568
@@ -637,7 +632,7 @@
     move-result-object v16
 
     .line 573
-    .local v16, oneResult:Ljava/lang/Object;,"TR;"
+    .local v16, "oneResult":Ljava/lang/Object;, "TR;"
     if-eqz v16, :cond_1
 
     .line 574
@@ -668,7 +663,7 @@
     goto/16 :goto_3
 
     .line 582
-    .end local v16           #oneResult:Ljava/lang/Object;,"TR;"
+    .end local v16    # "oneResult":Ljava/lang/Object;, "TR;"
     :cond_9
     const/4 v11, 0x1
 
@@ -685,7 +680,7 @@
     const-string v18, "unknown reason"
 
     .line 594
-    .local v18, reason:Ljava/lang/String;
+    .local v18, "reason":Ljava/lang/String;
     :goto_4
     const-string v4, "IntentResolver"
 
@@ -714,41 +709,41 @@
     goto/16 :goto_3
 
     .line 588
-    .end local v18           #reason:Ljava/lang/String;
+    .end local v18    # "reason":Ljava/lang/String;
     :pswitch_0
     const-string v18, "action"
 
-    .restart local v18       #reason:Ljava/lang/String;
+    .restart local v18    # "reason":Ljava/lang/String;
     goto :goto_4
 
     .line 589
-    .end local v18           #reason:Ljava/lang/String;
+    .end local v18    # "reason":Ljava/lang/String;
     :pswitch_1
     const-string v18, "category"
 
-    .restart local v18       #reason:Ljava/lang/String;
+    .restart local v18    # "reason":Ljava/lang/String;
     goto :goto_4
 
     .line 590
-    .end local v18           #reason:Ljava/lang/String;
+    .end local v18    # "reason":Ljava/lang/String;
     :pswitch_2
     const-string v18, "data"
 
-    .restart local v18       #reason:Ljava/lang/String;
+    .restart local v18    # "reason":Ljava/lang/String;
     goto :goto_4
 
     .line 591
-    .end local v18           #reason:Ljava/lang/String;
+    .end local v18    # "reason":Ljava/lang/String;
     :pswitch_3
     const-string v18, "type"
 
-    .restart local v18       #reason:Ljava/lang/String;
+    .restart local v18    # "reason":Ljava/lang/String;
     goto :goto_4
 
     .line 599
-    .end local v2           #filter:Landroid/content/IntentFilter;,"TF;"
-    .end local v15           #match:I
-    .end local v18           #reason:Ljava/lang/String;
+    .end local v2    # "filter":Landroid/content/IntentFilter;, "TF;"
+    .end local v15    # "match":I
+    .end local v18    # "reason":Ljava/lang/String;
     :cond_b
     if-eqz v11, :cond_c
 
@@ -802,7 +797,7 @@
 
 .method private static getFastIntentCategories(Landroid/content/Intent;)Landroid/util/FastImmutableArraySet;
     .locals 3
-    .parameter "intent"
+    .param p0, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -822,7 +817,7 @@
     move-result-object v0
 
     .line 510
-    .local v0, categories:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v0, "categories":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     if-nez v0, :cond_0
 
     .line 511
@@ -852,10 +847,7 @@
 
 .method private final register_intent_filter(Landroid/content/IntentFilter;Ljava/util/Iterator;Landroid/util/ArrayMap;Ljava/lang/String;)I
     .locals 3
-    .parameter
-    .parameter
-    .parameter
-    .parameter "prefix"
+    .param p4, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;",
@@ -874,10 +866,10 @@
 
     .prologue
     .line 450
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
-    .local p2, i:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
-    .local p3, dest:Landroid/util/ArrayMap;,"Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
+    .local p2, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local p3, "dest":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
     if-nez p2, :cond_1
 
     .line 451
@@ -892,7 +884,7 @@
     const/4 v1, 0x0
 
     .line 455
-    .local v1, num:I
+    .local v1, "num":I
     :goto_0
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -908,7 +900,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 457
-    .local v0, name:Ljava/lang/String;
+    .local v0, "name":Ljava/lang/String;
     add-int/lit8 v1, v1, 0x1
 
     .line 459
@@ -919,8 +911,7 @@
 
 .method private final register_mime_types(Landroid/content/IntentFilter;Ljava/lang/String;)I
     .locals 8
-    .parameter
-    .parameter "prefix"
+    .param p2, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;",
@@ -930,8 +921,8 @@
     .end annotation
 
     .prologue
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
     const/4 v5, 0x0
 
     .line 388
@@ -940,7 +931,7 @@
     move-result-object v1
 
     .line 389
-    .local v1, i:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local v1, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     if-nez v1, :cond_1
 
     move v3, v5
@@ -954,7 +945,7 @@
     const/4 v3, 0x0
 
     .line 394
-    .local v3, num:I
+    .local v3, "num":I
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -970,14 +961,14 @@
     check-cast v2, Ljava/lang/String;
 
     .line 396
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
     .line 398
     move-object v0, v2
 
     .line 399
-    .local v0, baseName:Ljava/lang/String;
+    .local v0, "baseName":Ljava/lang/String;
     const/16 v6, 0x2f
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->indexOf(I)I
@@ -985,7 +976,7 @@
     move-result v4
 
     .line 400
-    .local v4, slashpos:I
+    .local v4, "slashpos":I
     if-lez v4, :cond_2
 
     .line 401
@@ -1046,9 +1037,8 @@
 
 .method private final remove_all_objects(Landroid/util/ArrayMap;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 7
-    .parameter
-    .parameter "name"
-    .parameter "object"
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1063,8 +1053,8 @@
     .end annotation
 
     .prologue
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, map:Landroid/util/ArrayMap;,"Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "map":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
     const/4 v6, 0x0
 
     .line 482
@@ -1075,7 +1065,7 @@
     check-cast v1, [Landroid/content/IntentFilter;
 
     .line 483
-    .local v1, array:[Landroid/content/IntentFilter;,"[TF;"
+    .local v1, "array":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v1, :cond_4
 
     .line 484
@@ -1084,7 +1074,7 @@
     add-int/lit8 v0, v5, -0x1
 
     .line 485
-    .local v0, LAST:I
+    .local v0, "LAST":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -1101,7 +1091,7 @@
     :cond_0
     move v2, v0
 
-    .local v2, idx:I
+    .local v2, "idx":I
     :goto_1
     if-ltz v2, :cond_3
 
@@ -1114,7 +1104,7 @@
     sub-int v4, v0, v2
 
     .line 491
-    .local v4, remain:I
+    .local v4, "remain":I
     if-lez v4, :cond_1
 
     .line 492
@@ -1132,7 +1122,7 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 488
-    .end local v4           #remain:I
+    .end local v4    # "remain":I
     :cond_2
     add-int/lit8 v2, v2, -0x1
 
@@ -1146,15 +1136,15 @@
     invoke-virtual {p1, p2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 506
-    .end local v0           #LAST:I
-    .end local v2           #idx:I
+    .end local v0    # "LAST":I
+    .end local v2    # "idx":I
     :cond_4
     :goto_2
     return-void
 
     .line 500
-    .restart local v0       #LAST:I
-    .restart local v2       #idx:I
+    .restart local v0    # "LAST":I
+    .restart local v2    # "idx":I
     :cond_5
     array-length v5, v1
 
@@ -1170,7 +1160,7 @@
     move-result-object v3
 
     .line 502
-    .local v3, newa:[Landroid/content/IntentFilter;,"[TF;"
+    .local v3, "newa":[Landroid/content/IntentFilter;, "[TF;"
     add-int/lit8 v5, v0, 0x1
 
     invoke-static {v1, v6, v3, v6, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -1183,10 +1173,7 @@
 
 .method private final unregister_intent_filter(Landroid/content/IntentFilter;Ljava/util/Iterator;Landroid/util/ArrayMap;Ljava/lang/String;)I
     .locals 3
-    .parameter
-    .parameter
-    .parameter
-    .parameter "prefix"
+    .param p4, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;",
@@ -1205,10 +1192,10 @@
 
     .prologue
     .line 466
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
-    .local p2, i:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
-    .local p3, dest:Landroid/util/ArrayMap;,"Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
+    .local p2, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local p3, "dest":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;[TF;>;"
     if-nez p2, :cond_1
 
     .line 467
@@ -1223,7 +1210,7 @@
     const/4 v1, 0x0
 
     .line 471
-    .local v1, num:I
+    .local v1, "num":I
     :goto_0
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1239,7 +1226,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 473
-    .local v0, name:Ljava/lang/String;
+    .local v0, "name":Ljava/lang/String;
     add-int/lit8 v1, v1, 0x1
 
     .line 475
@@ -1250,8 +1237,7 @@
 
 .method private final unregister_mime_types(Landroid/content/IntentFilter;Ljava/lang/String;)I
     .locals 8
-    .parameter
-    .parameter "prefix"
+    .param p2, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;",
@@ -1261,8 +1247,8 @@
     .end annotation
 
     .prologue
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
     const/4 v5, 0x0
 
     .line 419
@@ -1271,7 +1257,7 @@
     move-result-object v1
 
     .line 420
-    .local v1, i:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local v1, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     if-nez v1, :cond_1
 
     move v3, v5
@@ -1285,7 +1271,7 @@
     const/4 v3, 0x0
 
     .line 425
-    .local v3, num:I
+    .local v3, "num":I
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1301,14 +1287,14 @@
     check-cast v2, Ljava/lang/String;
 
     .line 427
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
     .line 429
     move-object v0, v2
 
     .line 430
-    .local v0, baseName:Ljava/lang/String;
+    .local v0, "baseName":Ljava/lang/String;
     const/16 v6, 0x2f
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->indexOf(I)I
@@ -1316,7 +1302,7 @@
     move-result v4
 
     .line 431
-    .local v4, slashpos:I
+    .local v4, "slashpos":I
     if-lez v4, :cond_2
 
     .line 432
@@ -1379,7 +1365,6 @@
 # virtual methods
 .method public addFilter(Landroid/content/IntentFilter;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)V"
@@ -1388,8 +1373,8 @@
 
     .prologue
     .line 58
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, f:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "f":Landroid/content/IntentFilter;, "TF;"
     iget-object v2, p0, Lcom/android/server/IntentResolver;->mFilters:Ljava/util/HashSet;
 
     invoke-virtual {v2, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -1408,7 +1393,7 @@
     move-result v0
 
     .line 61
-    .local v0, numS:I
+    .local v0, "numS":I
     const-string v2, "      Type: "
 
     invoke-direct {p0, p1, v2}, Lcom/android/server/IntentResolver;->register_mime_types(Landroid/content/IntentFilter;Ljava/lang/String;)I
@@ -1416,7 +1401,7 @@
     move-result v1
 
     .line 62
-    .local v1, numT:I
+    .local v1, "numT":I
     if-nez v0, :cond_0
 
     if-nez v1, :cond_0
@@ -1454,8 +1439,6 @@
 
 .method protected allowFilterResult(Landroid/content/IntentFilter;Ljava/util/List;)Z
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;",
@@ -1466,9 +1449,9 @@
 
     .prologue
     .line 329
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
-    .local p2, dest:Ljava/util/List;,"Ljava/util/List<TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
+    .local p2, "dest":Ljava/util/List;, "Ljava/util/List<TR;>;"
     const/4 v0, 0x1
 
     return v0
@@ -1476,15 +1459,15 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 9
-    .parameter "out"
-    .parameter "title"
-    .parameter "prefix"
-    .parameter "packageName"
-    .parameter "printFilter"
+    .param p1, "out"    # Ljava/io/PrintWriter;
+    .param p2, "title"    # Ljava/lang/String;
+    .param p3, "prefix"    # Ljava/lang/String;
+    .param p4, "packageName"    # Ljava/lang/String;
+    .param p5, "printFilter"    # Z
 
     .prologue
     .line 136
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1504,7 +1487,7 @@
     move-result-object v4
 
     .line 137
-    .local v4, innerPrefix:Ljava/lang/String;
+    .local v4, "innerPrefix":Ljava/lang/String;
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1524,7 +1507,7 @@
     move-result-object v8
 
     .line 138
-    .local v8, sepPrefix:Ljava/lang/String;
+    .local v8, "sepPrefix":Ljava/lang/String;
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1548,7 +1531,7 @@
     move-result-object v2
 
     .line 139
-    .local v2, curPrefix:Ljava/lang/String;
+    .local v2, "curPrefix":Ljava/lang/String;
     const-string v3, "Full MIME Types:"
 
     iget-object v5, p0, Lcom/android/server/IntentResolver;->mTypeToFilter:Landroid/util/ArrayMap;
@@ -1702,9 +1685,8 @@
 
 .method protected dumpFilter(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/content/IntentFilter;)V
     .locals 0
-    .parameter "out"
-    .parameter "prefix"
-    .parameter
+    .param p1, "out"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1716,8 +1698,8 @@
 
     .prologue
     .line 361
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p3, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p3, "filter":Landroid/content/IntentFilter;, "TF;"
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
@@ -1728,13 +1710,12 @@
 
 .method dumpMap(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Z)Z
     .locals 14
-    .parameter "out"
-    .parameter "titlePrefix"
-    .parameter "title"
-    .parameter "prefix"
-    .parameter
-    .parameter "packageName"
-    .parameter "printFilter"
+    .param p1, "out"    # Ljava/io/PrintWriter;
+    .param p2, "titlePrefix"    # Ljava/lang/String;
+    .param p3, "title"    # Ljava/lang/String;
+    .param p4, "prefix"    # Ljava/lang/String;
+    .param p6, "packageName"    # Ljava/lang/String;
+    .param p7, "printFilter"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1753,8 +1734,8 @@
 
     .prologue
     .line 100
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p5, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;[TF;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p5, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;[TF;>;"
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -1776,7 +1757,7 @@
     move-result-object v4
 
     .line 101
-    .local v4, eprefix:Ljava/lang/String;
+    .local v4, "eprefix":Ljava/lang/String;
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -1798,15 +1779,15 @@
     move-result-object v6
 
     .line 102
-    .local v6, fprefix:Ljava/lang/String;
+    .local v6, "fprefix":Ljava/lang/String;
     const/4 v10, 0x0
 
     .line 103
-    .local v10, printedSomething:Z
+    .local v10, "printedSomething":Z
     const/4 v11, 0x0
 
     .line 104
-    .local v11, printer:Landroid/util/Printer;
+    .local v11, "printer":Landroid/util/Printer;
     invoke-interface/range {p5 .. p5}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v12
@@ -1815,7 +1796,7 @@
 
     move-result-object v8
 
-    .local v8, i$:Ljava/util/Iterator;
+    .local v8, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1830,7 +1811,7 @@
     check-cast v3, Ljava/util/Map$Entry;
 
     .line 105
-    .local v3, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;[TF;>;"
+    .local v3, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;[TF;>;"
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -1838,24 +1819,24 @@
     check-cast v2, [Landroid/content/IntentFilter;
 
     .line 106
-    .local v2, a:[Landroid/content/IntentFilter;,"[TF;"
+    .local v2, "a":[Landroid/content/IntentFilter;, "[TF;"
     array-length v1, v2
 
     .line 107
-    .local v1, N:I
+    .local v1, "N":I
     const/4 v9, 0x0
 
     .line 109
-    .local v9, printedHeader:Z
+    .local v9, "printedHeader":Z
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v1, :cond_0
 
     aget-object v5, v2, v7
 
-    .local v5, filter:Landroid/content/IntentFilter;,"TF;"
+    .local v5, "filter":Landroid/content/IntentFilter;, "TF;"
     if-eqz v5, :cond_0
 
     .line 110
@@ -1928,11 +1909,11 @@
     .line 125
     new-instance v11, Landroid/util/PrintWriterPrinter;
 
-    .end local v11           #printer:Landroid/util/Printer;
+    .end local v11    # "printer":Landroid/util/Printer;
     invoke-direct {v11, p1}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
 
     .line 127
-    .restart local v11       #printer:Landroid/util/Printer;
+    .restart local v11    # "printer":Landroid/util/Printer;
     :cond_5
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -1957,12 +1938,12 @@
     goto :goto_1
 
     .line 131
-    .end local v1           #N:I
-    .end local v2           #a:[Landroid/content/IntentFilter;,"[TF;"
-    .end local v3           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;[TF;>;"
-    .end local v5           #filter:Landroid/content/IntentFilter;,"TF;"
-    .end local v7           #i:I
-    .end local v9           #printedHeader:Z
+    .end local v1    # "N":I
+    .end local v2    # "a":[Landroid/content/IntentFilter;, "[TF;"
+    .end local v3    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;[TF;>;"
+    .end local v5    # "filter":Landroid/content/IntentFilter;, "TF;"
+    .end local v7    # "i":I
+    .end local v9    # "printedHeader":Z
     :cond_6
     return v10
 .end method
@@ -1979,7 +1960,7 @@
 
     .prologue
     .line 195
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
     new-instance v0, Lcom/android/server/IntentResolver$IteratorWrapper;
 
     iget-object v1, p0, Lcom/android/server/IntentResolver;->mFilters:Ljava/util/HashSet;
@@ -2005,7 +1986,7 @@
 
     .prologue
     .line 202
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
     iget-object v0, p0, Lcom/android/server/IntentResolver;->mFilters:Ljava/util/HashSet;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
@@ -2017,8 +1998,7 @@
 
 .method protected isFilterStopped(Landroid/content/IntentFilter;I)Z
     .locals 1
-    .parameter
-    .parameter "userId"
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;I)Z"
@@ -2027,8 +2007,8 @@
 
     .prologue
     .line 338
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
     const/4 v0, 0x0
 
     return v0
@@ -2054,9 +2034,8 @@
 
 .method protected newResult(Landroid/content/IntentFilter;II)Ljava/lang/Object;
     .locals 0
-    .parameter
-    .parameter "match"
-    .parameter "userId"
+    .param p2, "match"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;II)TR;"
@@ -2065,17 +2044,17 @@
 
     .prologue
     .line 352
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, filter:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "filter":Landroid/content/IntentFilter;, "TF;"
     return-object p1
 .end method
 
 .method public queryIntent(Landroid/content/Intent;Ljava/lang/String;ZI)Ljava/util/List;
     .locals 40
-    .parameter "intent"
-    .parameter "resolvedType"
-    .parameter "defaultOnly"
-    .parameter "userId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resolvedType"    # Ljava/lang/String;
+    .param p3, "defaultOnly"    # Z
+    .param p4, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2089,19 +2068,19 @@
 
     .prologue
     .line 225
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getScheme()Ljava/lang/String;
 
     move-result-object v8
 
     .line 227
-    .local v8, scheme:Ljava/lang/String;
+    .local v8, "scheme":Ljava/lang/String;
     new-instance v10, Ljava/util/ArrayList;
 
     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
     .line 229
-    .local v10, finalList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TR;>;"
+    .local v10, "finalList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TR;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getFlags()I
 
     move-result v2
@@ -2113,7 +2092,7 @@
     const/4 v5, 0x1
 
     .line 232
-    .local v5, debug:Z
+    .local v5, "debug":Z
     :goto_0
     if-eqz v5, :cond_0
 
@@ -2192,19 +2171,19 @@
     const/4 v9, 0x0
 
     .line 237
-    .local v9, firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .local v9, "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     const/16 v18, 0x0
 
     .line 238
-    .local v18, secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .local v18, "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     const/16 v26, 0x0
 
     .line 239
-    .local v26, thirdTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .local v26, "thirdTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     const/16 v34, 0x0
 
     .line 243
-    .local v34, schemeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .local v34, "schemeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz p2, :cond_4
 
     .line 244
@@ -2217,7 +2196,7 @@
     move-result v39
 
     .line 245
-    .local v39, slashpos:I
+    .local v39, "slashpos":I
     if-lez v39, :cond_4
 
     .line 246
@@ -2232,7 +2211,7 @@
     move-result-object v37
 
     .line 247
-    .local v37, baseType:Ljava/lang/String;
+    .local v37, "baseType":Ljava/lang/String;
     const-string v2, "*"
 
     move-object/from16 v0, v37
@@ -2276,11 +2255,11 @@
 
     move-result-object v9
 
-    .end local v9           #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v9, [Landroid/content/IntentFilter;
 
     .line 253
-    .restart local v9       #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_2
 
     const-string v2, "IntentResolver"
@@ -2321,11 +2300,11 @@
 
     move-result-object v18
 
-    .end local v18           #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v18, [Landroid/content/IntentFilter;
 
     .line 255
-    .restart local v18       #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_3
 
     const-string v2, "IntentResolver"
@@ -2367,11 +2346,11 @@
 
     move-result-object v26
 
-    .end local v26           #thirdTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v26    # "thirdTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v26, [Landroid/content/IntentFilter;
 
     .line 268
-    .restart local v26       #thirdTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v26    # "thirdTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_4
 
     const-string v2, "IntentResolver"
@@ -2401,8 +2380,8 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 282
-    .end local v37           #baseType:Ljava/lang/String;
-    .end local v39           #slashpos:I
+    .end local v37    # "baseType":Ljava/lang/String;
+    .end local v39    # "slashpos":I
     :cond_4
     :goto_2
     if-eqz v8, :cond_5
@@ -2416,11 +2395,11 @@
 
     move-result-object v34
 
-    .end local v34           #schemeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v34    # "schemeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v34, [Landroid/content/IntentFilter;
 
     .line 284
-    .restart local v34       #schemeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v34    # "schemeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_5
 
     const-string v2, "IntentResolver"
@@ -2474,11 +2453,11 @@
 
     move-result-object v9
 
-    .end local v9           #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v9, [Landroid/content/IntentFilter;
 
     .line 292
-    .restart local v9       #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_6
 
     const-string v2, "IntentResolver"
@@ -2514,7 +2493,7 @@
     move-result-object v4
 
     .line 296
-    .local v4, categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .local v4, "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
     if-eqz v9, :cond_7
 
     move-object/from16 v2, p0
@@ -2624,7 +2603,7 @@
     .line 316
     const/16 v38, 0x0
 
-    .local v38, i:I
+    .local v38, "i":I
     :goto_3
     invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
@@ -2669,26 +2648,26 @@
     goto :goto_3
 
     .line 229
-    .end local v4           #categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
-    .end local v5           #debug:Z
-    .end local v9           #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .end local v18           #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .end local v26           #thirdTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .end local v34           #schemeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .end local v38           #i:I
+    .end local v4    # "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .end local v5    # "debug":Z
+    .end local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .end local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .end local v26    # "thirdTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .end local v34    # "schemeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .end local v38    # "i":I
     :cond_b
     const/4 v5, 0x0
 
     goto/16 :goto_0
 
     .line 259
-    .restart local v5       #debug:Z
-    .restart local v9       #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .restart local v18       #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .restart local v26       #thirdTypeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .restart local v34       #schemeCut:[Landroid/content/IntentFilter;,"[TF;"
-    .restart local v37       #baseType:Ljava/lang/String;
-    .restart local v39       #slashpos:I
+    .restart local v5    # "debug":Z
+    .restart local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .restart local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .restart local v26    # "thirdTypeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .restart local v34    # "schemeCut":[Landroid/content/IntentFilter;, "[TF;"
+    .restart local v37    # "baseType":Ljava/lang/String;
+    .restart local v39    # "slashpos":I
     :cond_c
     move-object/from16 v0, p0
 
@@ -2700,11 +2679,11 @@
 
     move-result-object v9
 
-    .end local v9           #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v9, [Landroid/content/IntentFilter;
 
     .line 260
-    .restart local v9       #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_d
 
     const-string v2, "IntentResolver"
@@ -2745,11 +2724,11 @@
 
     move-result-object v18
 
-    .end local v18           #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v18, [Landroid/content/IntentFilter;
 
     .line 262
-    .restart local v18       #secondTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v18    # "secondTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_3
 
     const-string v2, "IntentResolver"
@@ -2801,11 +2780,11 @@
 
     move-result-object v9
 
-    .end local v9           #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .end local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     check-cast v9, [Landroid/content/IntentFilter;
 
     .line 274
-    .restart local v9       #firstTypeCut:[Landroid/content/IntentFilter;,"[TF;"
+    .restart local v9    # "firstTypeCut":[Landroid/content/IntentFilter;, "[TF;"
     if-eqz v5, :cond_4
 
     const-string v2, "IntentResolver"
@@ -2837,20 +2816,19 @@
     goto/16 :goto_2
 
     .line 320
-    .end local v37           #baseType:Ljava/lang/String;
-    .end local v39           #slashpos:I
-    .restart local v4       #categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .end local v37    # "baseType":Ljava/lang/String;
+    .end local v39    # "slashpos":I
+    .restart local v4    # "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
     :cond_f
     return-object v10
 .end method
 
 .method public queryIntentFromList(Landroid/content/Intent;Ljava/lang/String;ZLjava/util/ArrayList;I)Ljava/util/List;
     .locals 13
-    .parameter "intent"
-    .parameter "resolvedType"
-    .parameter "defaultOnly"
-    .parameter
-    .parameter "userId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resolvedType"    # Ljava/lang/String;
+    .param p3, "defaultOnly"    # Z
+    .param p5, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2866,14 +2844,14 @@
 
     .prologue
     .line 207
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p4, listCut:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[TF;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p4, "listCut":Ljava/util/ArrayList;, "Ljava/util/ArrayList<[TF;>;"
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
     .line 209
-    .local v9, resultList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TR;>;"
+    .local v9, "resultList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TR;>;"
     invoke-virtual {p1}, Landroid/content/Intent;->getFlags()I
 
     move-result v1
@@ -2885,29 +2863,29 @@
     const/4 v4, 0x1
 
     .line 212
-    .local v4, debug:Z
+    .local v4, "debug":Z
     :goto_0
     invoke-static {p1}, Lcom/android/server/IntentResolver;->getFastIntentCategories(Landroid/content/Intent;)Landroid/util/FastImmutableArraySet;
 
     move-result-object v3
 
     .line 213
-    .local v3, categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .local v3, "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
     invoke-virtual {p1}, Landroid/content/Intent;->getScheme()Ljava/lang/String;
 
     move-result-object v7
 
     .line 214
-    .local v7, scheme:Ljava/lang/String;
+    .local v7, "scheme":Ljava/lang/String;
     invoke-virtual/range {p4 .. p4}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
     .line 215
-    .local v11, N:I
+    .local v11, "N":I
     const/4 v12, 0x0
 
-    .local v12, i:I
+    .local v12, "i":I
     :goto_1
     if-ge v12, v11, :cond_1
 
@@ -2938,22 +2916,22 @@
     goto :goto_1
 
     .line 209
-    .end local v3           #categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
-    .end local v4           #debug:Z
-    .end local v7           #scheme:Ljava/lang/String;
-    .end local v11           #N:I
-    .end local v12           #i:I
+    .end local v3    # "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .end local v4    # "debug":Z
+    .end local v7    # "scheme":Ljava/lang/String;
+    .end local v11    # "N":I
+    .end local v12    # "i":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
     .line 219
-    .restart local v3       #categories:Landroid/util/FastImmutableArraySet;,"Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
-    .restart local v4       #debug:Z
-    .restart local v7       #scheme:Ljava/lang/String;
-    .restart local v11       #N:I
-    .restart local v12       #i:I
+    .restart local v3    # "categories":Landroid/util/FastImmutableArraySet;, "Landroid/util/FastImmutableArraySet<Ljava/lang/String;>;"
+    .restart local v4    # "debug":Z
+    .restart local v7    # "scheme":Ljava/lang/String;
+    .restart local v11    # "N":I
+    .restart local v12    # "i":I
     :cond_1
     invoke-virtual {p0, v9}, Lcom/android/server/IntentResolver;->sortResults(Ljava/util/List;)V
 
@@ -2963,7 +2941,6 @@
 
 .method public removeFilter(Landroid/content/IntentFilter;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)V"
@@ -2972,8 +2949,8 @@
 
     .prologue
     .line 73
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, f:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "f":Landroid/content/IntentFilter;, "TF;"
     invoke-virtual {p0, p1}, Lcom/android/server/IntentResolver;->removeFilterInternal(Landroid/content/IntentFilter;)V
 
     .line 74
@@ -2987,7 +2964,6 @@
 
 .method removeFilterInternal(Landroid/content/IntentFilter;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)V"
@@ -2996,8 +2972,8 @@
 
     .prologue
     .line 84
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, f:Landroid/content/IntentFilter;,"TF;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "f":Landroid/content/IntentFilter;, "TF;"
     invoke-virtual {p1}, Landroid/content/IntentFilter;->schemesIterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -3011,7 +2987,7 @@
     move-result v0
 
     .line 86
-    .local v0, numS:I
+    .local v0, "numS":I
     const-string v2, "      Type: "
 
     invoke-direct {p0, p1, v2}, Lcom/android/server/IntentResolver;->unregister_mime_types(Landroid/content/IntentFilter;Ljava/lang/String;)I
@@ -3019,7 +2995,7 @@
     move-result v1
 
     .line 87
-    .local v1, numT:I
+    .local v1, "numT":I
     if-nez v0, :cond_0
 
     if-nez v1, :cond_0
@@ -3057,7 +3033,6 @@
 
 .method protected sortResults(Ljava/util/List;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3068,8 +3043,8 @@
 
     .prologue
     .line 357
-    .local p0, this:Lcom/android/server/IntentResolver;,"Lcom/android/server/IntentResolver<TF;TR;>;"
-    .local p1, results:Ljava/util/List;,"Ljava/util/List<TR;>;"
+    .local p0, "this":Lcom/android/server/IntentResolver;, "Lcom/android/server/IntentResolver<TF;TR;>;"
+    .local p1, "results":Ljava/util/List;, "Ljava/util/List<TR;>;"
     sget-object v0, Lcom/android/server/IntentResolver;->mResolvePrioritySorter:Ljava/util/Comparator;
 
     invoke-static {p1, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V

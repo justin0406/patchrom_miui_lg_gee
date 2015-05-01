@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$Activity;)V
     .locals 0
-    .parameter "_activity"
+    .param p1, "_activity"    # Landroid/content/pm/PackageParser$Activity;
 
     .prologue
     .line 4097
@@ -48,7 +48,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 4103
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ActivityIntentInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

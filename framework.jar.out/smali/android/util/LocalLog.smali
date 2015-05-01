@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "maxLines"
+    .param p1, "maxLines"    # I
 
     .prologue
     .line 36
@@ -54,9 +54,9 @@
 # virtual methods
 .method public declared-synchronized dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 51
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 52
-    .local v0, itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local v0, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -94,7 +94,7 @@
     goto :goto_0
 
     .line 51
-    .end local v0           #itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .end local v0    # "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :catchall_0
     move-exception v1
 
@@ -103,7 +103,7 @@
     throw v1
 
     .line 55
-    .restart local v0       #itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .restart local v0    # "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_0
     monitor-exit p0
 
@@ -112,7 +112,7 @@
 
 .method public declared-synchronized log(Ljava/lang/String;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 43

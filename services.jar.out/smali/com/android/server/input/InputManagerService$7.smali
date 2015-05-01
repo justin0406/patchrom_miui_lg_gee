@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/input/InputManagerService;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 1109
@@ -37,7 +36,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 1112

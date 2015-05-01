@@ -33,8 +33,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;J)V
     .locals 5
-    .parameter
-    .parameter "animationDuration"
+    .param p2, "animationDuration"    # J
 
     .prologue
     .line 965
@@ -75,13 +74,13 @@
     move-result-object v1
 
     .line 969
-    .local v1, property:Landroid/util/Property;,"Landroid/util/Property<Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;Landroid/view/MagnificationSpec;>;"
+    .local v1, "property":Landroid/util/Property;, "Landroid/util/Property<Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;Landroid/view/MagnificationSpec;>;"
     new-instance v0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController$1;
 
     invoke-direct {v0, p0, p1}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController$1;-><init>(Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;Lcom/android/server/accessibility/ScreenMagnifier;)V
 
     .line 985
-    .local v0, evaluator:Landroid/animation/TypeEvaluator;,"Landroid/animation/TypeEvaluator<Landroid/view/MagnificationSpec;>;"
+    .local v0, "evaluator":Landroid/animation/TypeEvaluator;, "Landroid/animation/TypeEvaluator<Landroid/view/MagnificationSpec;>;"
     const/4 v2, 0x2
 
     new-array v2, v2, [Landroid/view/MagnificationSpec;
@@ -114,7 +113,7 @@
 
     new-instance v3, Landroid/view/animation/DecelerateInterpolator;
 
-    const/high16 v4, 0x4020
+    const/high16 v4, 0x40200000    # 2.5f
 
     invoke-direct {v3, v4}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
 
@@ -126,8 +125,8 @@
 
 .method private animateMangificationSpec(Landroid/view/MagnificationSpec;Landroid/view/MagnificationSpec;)V
     .locals 3
-    .parameter "fromSpec"
-    .parameter "toSpec"
+    .param p1, "fromSpec"    # Landroid/view/MagnificationSpec;
+    .param p2, "toSpec"    # Landroid/view/MagnificationSpec;
 
     .prologue
     .line 1111
@@ -164,10 +163,10 @@
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mTempRect:Landroid/graphics/Rect;
 
     .line 1097
-    .local v0, magnifiedFrame:Landroid/graphics/Rect;
+    .local v0, "magnifiedFrame":Landroid/graphics/Rect;
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
     invoke-static {v2}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
 
     move-result-object v2
@@ -182,7 +181,7 @@
     int-to-float v1, v2
 
     .line 1099
-    .local v1, viewportWidth:F
+    .local v1, "viewportWidth":F
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     iget v2, v2, Landroid/view/MagnificationSpec;->scale:F
@@ -202,10 +201,10 @@
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mTempRect:Landroid/graphics/Rect;
 
     .line 1104
-    .local v0, magnifiedFrame:Landroid/graphics/Rect;
+    .local v0, "magnifiedFrame":Landroid/graphics/Rect;
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
     invoke-static {v2}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
 
     move-result-object v2
@@ -220,7 +219,7 @@
     int-to-float v1, v2
 
     .line 1106
-    .local v1, viewportHeight:F
+    .local v1, "viewportHeight":F
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     iget v2, v2, Landroid/view/MagnificationSpec;->scale:F
@@ -289,7 +288,7 @@
 
     iget v0, v0, Landroid/view/MagnificationSpec;->scale:F
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v0, v0, v1
 
@@ -308,8 +307,8 @@
 
 .method public offsetMagnifiedRegionCenter(FF)V
     .locals 5
-    .parameter "offsetX"
-    .parameter "offsetY"
+    .param p1, "offsetX"    # F
+    .param p2, "offsetY"    # F
 
     .prologue
     const/4 v4, 0x0
@@ -322,7 +321,7 @@
     sub-float v0, v2, p1
 
     .line 1046
-    .local v0, nonNormOffsetX:F
+    .local v0, "nonNormOffsetX":F
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     invoke-direct {p0}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->getMinOffsetX()F
@@ -347,7 +346,7 @@
     sub-float v1, v2, p2
 
     .line 1049
-    .local v1, nonNormOffsetY:F
+    .local v1, "nonNormOffsetY":F
     iget-object v2, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     invoke-direct {p0}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->getMinOffsetY()F
@@ -375,7 +374,7 @@
 
 .method public reset(Z)V
     .locals 3
-    .parameter "animate"
+    .param p1, "animate"    # Z
 
     .prologue
     .line 996
@@ -413,13 +412,13 @@
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mTempRect:Landroid/graphics/Rect;
 
     .line 1007
-    .local v0, bounds:Landroid/graphics/Rect;
+    .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 1008
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$2700(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v1
@@ -430,7 +429,7 @@
     return-void
 
     .line 1004
-    .end local v0           #bounds:Landroid/graphics/Rect;
+    .end local v0    # "bounds":Landroid/graphics/Rect;
     :cond_1
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
@@ -441,7 +440,7 @@
 
 .method public setMagnificationSpec(Landroid/view/MagnificationSpec;)V
     .locals 2
-    .parameter "spec"
+    .param p1, "spec"    # Landroid/view/MagnificationSpec;
 
     .prologue
     .line 1124
@@ -469,7 +468,7 @@
     .line 1127
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mWindowManager:Landroid/view/IWindowManager;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mWindowManager:Landroid/view/IWindowManager;
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$2800(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/view/IWindowManager;
 
     move-result-object v0
@@ -495,9 +494,9 @@
 
 .method public setMagnifiedRegionCenter(FFZ)V
     .locals 1
-    .parameter "centerX"
-    .parameter "centerY"
-    .parameter "animate"
+    .param p1, "centerX"    # F
+    .param p2, "centerY"    # F
+    .param p3, "animate"    # Z
 
     .prologue
     .line 1040
@@ -513,20 +512,20 @@
 
 .method public setScale(FFFZ)V
     .locals 14
-    .parameter "scale"
-    .parameter "pivotX"
-    .parameter "pivotY"
-    .parameter "animate"
+    .param p1, "scale"    # F
+    .param p2, "pivotX"    # F
+    .param p3, "pivotY"    # F
+    .param p4, "animate"    # Z
 
     .prologue
     .line 1024
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mTempRect:Landroid/graphics/Rect;
 
     .line 1025
-    .local v3, magnifiedFrame:Landroid/graphics/Rect;
+    .local v3, "magnifiedFrame":Landroid/graphics/Rect;
     iget-object v12, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
     invoke-static {v12}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
 
     move-result-object v12
@@ -537,11 +536,11 @@
     iget-object v11, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     .line 1027
-    .local v11, spec:Landroid/view/MagnificationSpec;
+    .local v11, "spec":Landroid/view/MagnificationSpec;
     iget v10, v11, Landroid/view/MagnificationSpec;->scale:F
 
     .line 1028
-    .local v10, oldScale:F
+    .local v10, "oldScale":F
     iget v12, v11, Landroid/view/MagnificationSpec;->offsetX:F
 
     neg-float v12, v12
@@ -559,7 +558,7 @@
     div-float v8, v12, v10
 
     .line 1029
-    .local v8, oldCenterX:F
+    .local v8, "oldCenterX":F
     iget v12, v11, Landroid/view/MagnificationSpec;->offsetY:F
 
     neg-float v12, v12
@@ -577,7 +576,7 @@
     div-float v9, v12, v10
 
     .line 1030
-    .local v9, oldCenterY:F
+    .local v9, "oldCenterY":F
     iget v12, v11, Landroid/view/MagnificationSpec;->offsetX:F
 
     neg-float v12, v12
@@ -587,7 +586,7 @@
     div-float v4, v12, v10
 
     .line 1031
-    .local v4, normPivotX:F
+    .local v4, "normPivotX":F
     iget v12, v11, Landroid/view/MagnificationSpec;->offsetY:F
 
     neg-float v12, v12
@@ -597,7 +596,7 @@
     div-float v5, v12, v10
 
     .line 1032
-    .local v5, normPivotY:F
+    .local v5, "normPivotY":F
     sub-float v12, v8, v4
 
     div-float v13, v10, p1
@@ -605,7 +604,7 @@
     mul-float v6, v12, v13
 
     .line 1033
-    .local v6, offsetX:F
+    .local v6, "offsetX":F
     sub-float v12, v9, v5
 
     div-float v13, v10, p1
@@ -613,15 +612,15 @@
     mul-float v7, v12, v13
 
     .line 1034
-    .local v7, offsetY:F
+    .local v7, "offsetY":F
     add-float v1, v4, v6
 
     .line 1035
-    .local v1, centerX:F
+    .local v1, "centerX":F
     add-float v2, v5, v7
 
     .line 1036
-    .local v2, centerY:F
+    .local v2, "centerY":F
     move/from16 v0, p4
 
     invoke-virtual {p0, p1, v1, v2, v0}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->setScaleAndMagnifiedRegionCenter(FFFZ)V
@@ -632,10 +631,10 @@
 
 .method public setScaleAndMagnifiedRegionCenter(FFFZ)V
     .locals 2
-    .parameter "scale"
-    .parameter "centerX"
-    .parameter "centerY"
-    .parameter "animate"
+    .param p1, "scale"    # F
+    .param p2, "centerX"    # F
+    .param p3, "centerY"    # F
+    .param p4, "animate"    # Z
 
     .prologue
     .line 1056
@@ -706,7 +705,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$2700(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v0
@@ -726,9 +725,9 @@
 
 .method public updateMagnificationSpec(FFF)V
     .locals 8
-    .parameter "scale"
-    .parameter "magnifiedCenterX"
-    .parameter "magnifiedCenterY"
+    .param p1, "scale"    # F
+    .param p2, "magnifiedCenterX"    # F
+    .param p3, "magnifiedCenterY"    # F
 
     .prologue
     const/4 v7, 0x0
@@ -737,10 +736,10 @@
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mTempRect:Landroid/graphics/Rect;
 
     .line 1083
-    .local v0, magnifiedFrame:Landroid/graphics/Rect;
+    .local v0, "magnifiedFrame":Landroid/graphics/Rect;
     iget-object v5, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
     invoke-static {v5}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
 
     move-result-object v5
@@ -758,7 +757,7 @@
     move-result v4
 
     .line 1086
-    .local v4, viewportWidth:I
+    .local v4, "viewportWidth":I
     div-int/lit8 v5, v4, 0x2
 
     int-to-float v5, v5
@@ -768,7 +767,7 @@
     sub-float v1, v5, v6
 
     .line 1087
-    .local v1, nonNormOffsetX:F
+    .local v1, "nonNormOffsetX":F
     iget-object v5, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     invoke-direct {p0}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->getMinOffsetX()F
@@ -791,7 +790,7 @@
     move-result v3
 
     .line 1090
-    .local v3, viewportHeight:I
+    .local v3, "viewportHeight":I
     div-int/lit8 v5, v3, 0x2
 
     int-to-float v5, v5
@@ -801,7 +800,7 @@
     sub-float v2, v5, v6
 
     .line 1091
-    .local v2, nonNormOffsetY:F
+    .local v2, "nonNormOffsetY":F
     iget-object v5, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->mCurrentMagnificationSpec:Landroid/view/MagnificationSpec;
 
     invoke-direct {p0}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->getMinOffsetY()F

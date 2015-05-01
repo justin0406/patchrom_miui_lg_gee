@@ -64,13 +64,13 @@
 
 .method static synthetic access$2000(Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;ILandroid/view/View;Landroid/view/ViewGroup;Ljava/lang/Object;Landroid/view/LayoutInflater;Landroid/widget/RemoteViews$OnClickHandler;)Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
+    .param p0, "x0"    # Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # Landroid/view/View;
+    .param p3, "x3"    # Landroid/view/ViewGroup;
+    .param p4, "x4"    # Ljava/lang/Object;
+    .param p5, "x5"    # Landroid/view/LayoutInflater;
+    .param p6, "x6"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 401
@@ -83,12 +83,12 @@
 
 .method private createLoadingView(ILandroid/view/View;Landroid/view/ViewGroup;Ljava/lang/Object;Landroid/view/LayoutInflater;Landroid/widget/RemoteViews$OnClickHandler;)Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
     .locals 12
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
-    .parameter "lock"
-    .parameter "layoutInflater"
-    .parameter "handler"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .param p4, "lock"    # Ljava/lang/Object;
+    .param p5, "layoutInflater"    # Landroid/view/LayoutInflater;
+    .param p6, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 473
@@ -97,20 +97,20 @@
     move-result-object v1
 
     .line 474
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     new-instance v6, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
 
     invoke-direct {v6, v1}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 477
-    .local v6, layout:Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
+    .local v6, "layout":Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
     monitor-enter p4
 
     .line 478
     const/4 v2, 0x0
 
     .line 480
-    .local v2, customLoadingViewAvailable:Z
+    .local v2, "customLoadingViewAvailable":Z
     :try_start_0
     iget-object v9, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->mUserLoadingView:Landroid/widget/RemoteViews;
     :try_end_0
@@ -133,7 +133,7 @@
     move-result-object v8
 
     .line 485
-    .local v8, loadingView:Landroid/view/View;
+    .local v8, "loadingView":Landroid/view/View;
     const v9, 0x1020259
 
     new-instance v10, Ljava/lang/Integer;
@@ -147,14 +147,14 @@
     .line 487
     invoke-virtual {v6, v8}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->addView(Landroid/view/View;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 488
     const/4 v2, 0x1
 
     .line 494
-    .end local v8           #loadingView:Landroid/view/View;
+    .end local v8    # "loadingView":Landroid/view/View;
     :cond_0
     :goto_0
     if-nez v2, :cond_2
@@ -182,7 +182,7 @@
     move-result-object v5
 
     .line 500
-    .local v5, firstView:Landroid/view/View;
+    .local v5, "firstView":Landroid/view/View;
     const/4 v9, 0x0
 
     const/4 v10, 0x0
@@ -213,11 +213,11 @@
 
     iput-object v9, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->mFirstView:Landroid/widget/RemoteViews;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 515
-    .end local v5           #firstView:Landroid/view/View;
+    .end local v5    # "firstView":Landroid/view/View;
     :cond_1
     :goto_1
     const v9, 0x1090086
@@ -234,7 +234,7 @@
     check-cast v7, Landroid/widget/TextView;
 
     .line 518
-    .local v7, loadingTextView:Landroid/widget/TextView;
+    .local v7, "loadingTextView":Landroid/widget/TextView;
     iget v9, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->mFirstViewHeight:I
 
     invoke-virtual {v7, v9}, Landroid/widget/TextView;->setHeight(I)V
@@ -252,7 +252,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->addView(Landroid/view/View;)V
 
     .line 523
-    .end local v7           #loadingTextView:Landroid/widget/TextView;
+    .end local v7    # "loadingTextView":Landroid/widget/TextView;
     :cond_2
     monitor-exit p4
 
@@ -264,7 +264,7 @@
     move-exception v4
 
     .line 490
-    .local v4, e:Ljava/lang/Exception;
+    .local v4, "e":Ljava/lang/Exception;
     const-string v9, "RemoteViewsAdapter"
 
     const-string v10, "Error inflating custom loading view, using default loadingview instead"
@@ -274,7 +274,7 @@
     goto :goto_0
 
     .line 523
-    .end local v4           #e:Ljava/lang/Exception;
+    .end local v4    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v9
 
@@ -289,7 +289,7 @@
     move-exception v4
 
     .line 506
-    .restart local v4       #e:Ljava/lang/Exception;
+    .restart local v4    # "e":Ljava/lang/Exception;
     :try_start_5
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -302,8 +302,8 @@
     iget v3, v9, Landroid/util/DisplayMetrics;->density:F
 
     .line 507
-    .local v3, density:F
-    const/high16 v9, 0x4248
+    .local v3, "density":F
+    const/high16 v9, 0x42480000    # 50.0f
 
     mul-float/2addr v9, v3
 
@@ -350,7 +350,7 @@
 # virtual methods
 .method public getMappedViewType(I)I
     .locals 4
-    .parameter "typeId"
+    .param p1, "typeId"    # I
 
     .prologue
     .line 450
@@ -398,7 +398,7 @@
     add-int/lit8 v0, v1, 0x1
 
     .line 455
-    .local v0, incrementalTypeId:I
+    .local v0, "incrementalTypeId":I
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->mTypeIdIndexMap:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -416,7 +416,7 @@
 
 .method public isViewTypeInRange(I)Z
     .locals 2
-    .parameter "typeId"
+    .param p1, "typeId"    # I
 
     .prologue
     .line 461
@@ -425,7 +425,7 @@
     move-result v0
 
     .line 462
-    .local v0, mappedType:I
+    .local v0, "mappedType":I
     iget v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->viewTypeCount:I
 
     if-lt v0, v1, :cond_0
@@ -482,7 +482,7 @@
 
 .method public set(Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;)V
     .locals 2
-    .parameter "d"
+    .param p1, "d"    # Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
 
     .prologue
     .line 421
@@ -530,8 +530,8 @@
 
 .method public setLoadingViewTemplates(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
     .locals 1
-    .parameter "loadingView"
-    .parameter "firstView"
+    .param p1, "loadingView"    # Landroid/widget/RemoteViews;
+    .param p2, "firstView"    # Landroid/widget/RemoteViews;
 
     .prologue
     .line 442

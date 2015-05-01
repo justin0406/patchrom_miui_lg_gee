@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 901
@@ -39,9 +38,9 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 6
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v2, 0x1
@@ -51,7 +50,7 @@
     .line 904
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
+    # getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
     invoke-static {v3}, Landroid/widget/SearchView;->access$1400(Landroid/widget/SearchView;)Landroid/app/SearchableInfo;
 
     move-result-object v3
@@ -67,7 +66,7 @@
     :cond_1
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    # getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
     invoke-static {v3}, Landroid/widget/SearchView;->access$1200(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
 
     move-result-object v3
@@ -80,7 +79,7 @@
 
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    # getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
     invoke-static {v3}, Landroid/widget/SearchView;->access$1200(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
 
     move-result-object v3
@@ -96,7 +95,7 @@
     .line 917
     iget-object v1, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #calls: Landroid/widget/SearchView;->onSuggestionsKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    # invokes: Landroid/widget/SearchView;->onSuggestionsKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     invoke-static {v1, p1, p2, p3}, Landroid/widget/SearchView;->access$1500(Landroid/widget/SearchView;Landroid/view/View;ILandroid/view/KeyEvent;)Z
 
     move-result v1
@@ -107,12 +106,12 @@
     :cond_2
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    # getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
     invoke-static {v3}, Landroid/widget/SearchView;->access$1200(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
 
     move-result-object v3
 
-    #calls: Landroid/widget/SearchView$SearchAutoComplete;->isEmpty()Z
+    # invokes: Landroid/widget/SearchView$SearchAutoComplete;->isEmpty()Z
     invoke-static {v3}, Landroid/widget/SearchView$SearchAutoComplete;->access$1600(Landroid/widget/SearchView$SearchAutoComplete;)Z
 
     move-result v3
@@ -147,7 +146,7 @@
 
     iget-object v5, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    # getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
     invoke-static {v5}, Landroid/widget/SearchView;->access$1200(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
 
     move-result-object v5
@@ -160,7 +159,7 @@
 
     move-result-object v5
 
-    #calls: Landroid/widget/SearchView;->launchQuerySearch(ILjava/lang/String;Ljava/lang/String;)V
+    # invokes: Landroid/widget/SearchView;->launchQuerySearch(ILjava/lang/String;Ljava/lang/String;)V
     invoke-static {v3, v1, v4, v5}, Landroid/widget/SearchView;->access$1700(Landroid/widget/SearchView;ILjava/lang/String;Ljava/lang/String;)V
 
     move v1, v2
@@ -179,7 +178,7 @@
     .line 934
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
+    # getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
     invoke-static {v3}, Landroid/widget/SearchView;->access$1400(Landroid/widget/SearchView;)Landroid/app/SearchableInfo;
 
     move-result-object v3
@@ -189,7 +188,7 @@
     move-result-object v0
 
     .line 935
-    .local v0, actionKey:Landroid/app/SearchableInfo$ActionKeyInfo;
+    .local v0, "actionKey":Landroid/app/SearchableInfo$ActionKeyInfo;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/app/SearchableInfo$ActionKeyInfo;->getQueryActionMsg()Ljava/lang/String;
@@ -207,7 +206,7 @@
 
     iget-object v4, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    #getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
+    # getter for: Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
     invoke-static {v4}, Landroid/widget/SearchView;->access$1200(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
 
     move-result-object v4
@@ -220,7 +219,7 @@
 
     move-result-object v4
 
-    #calls: Landroid/widget/SearchView;->launchQuerySearch(ILjava/lang/String;Ljava/lang/String;)V
+    # invokes: Landroid/widget/SearchView;->launchQuerySearch(ILjava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, p2, v3, v4}, Landroid/widget/SearchView;->access$1700(Landroid/widget/SearchView;ILjava/lang/String;Ljava/lang/String;)V
 
     move v1, v2

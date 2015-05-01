@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/TextureView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 217
@@ -44,7 +43,7 @@
     .line 220
     iget-object v0, p0, Landroid/view/TextureView$1;->this$0:Landroid/view/TextureView;
 
-    #calls: Landroid/view/TextureView;->destroySurface()V
+    # invokes: Landroid/view/TextureView;->destroySurface()V
     invoke-static {v0}, Landroid/view/TextureView;->access$000(Landroid/view/TextureView;)V
 
     .line 221

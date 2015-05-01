@@ -17,9 +17,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/TransitionDrawable$TransitionState;Landroid/graphics/drawable/TransitionDrawable;Landroid/content/res/Resources;)V
     .locals 0
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/TransitionDrawable$TransitionState;
+    .param p2, "owner"    # Landroid/graphics/drawable/TransitionDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 249
@@ -61,7 +61,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 259

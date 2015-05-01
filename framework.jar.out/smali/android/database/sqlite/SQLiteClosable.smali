@@ -129,7 +129,7 @@
     const/4 v0, 0x0
 
     .line 70
-    .local v0, refCountIsZero:Z
+    .local v0, "refCountIsZero":Z
     monitor-enter p0
 
     .line 71
@@ -188,7 +188,7 @@
     const/4 v0, 0x0
 
     .line 88
-    .local v0, refCountIsZero:Z
+    .local v0, "refCountIsZero":Z
     monitor-enter p0
 
     .line 89

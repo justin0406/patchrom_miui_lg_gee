@@ -46,8 +46,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 2
-    .parameter "name"
-    .parameter "length"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -100,7 +100,7 @@
 
 .method static synthetic access$200(Landroid/os/MemoryFile;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/MemoryFile;
 
     .prologue
     .line 36
@@ -111,7 +111,7 @@
 
 .method public static getSize(Ljava/io/FileDescriptor;)I
     .locals 1
-    .parameter "fd"
+    .param p0, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,7 +234,7 @@
 # virtual methods
 .method public declared-synchronized allowPurging(Z)Z
     .locals 3
-    .parameter "allowPurging"
+    .param p1, "allowPurging"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
     iget-boolean v0, p0, Landroid/os/MemoryFile;->mAllowPurging:Z
 
     .line 157
-    .local v0, oldValue:Z
+    .local v0, "oldValue":Z
     if-eq v0, p1, :cond_0
 
     .line 158
@@ -280,7 +280,7 @@
     goto :goto_0
 
     .line 156
-    .end local v0           #oldValue:Z
+    .end local v0    # "oldValue":Z
     :catchall_0
     move-exception v1
 
@@ -349,7 +349,7 @@
     move-exception v0
 
     .line 103
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     sget-object v1, Landroid/os/MemoryFile;->TAG:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/io/IOException;->toString()Ljava/lang/String;
@@ -452,10 +452,10 @@
 
 .method public readBytes([BIII)I
     .locals 7
-    .parameter "buffer"
-    .parameter "srcOffset"
-    .parameter "destOffset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "srcOffset"    # I
+    .param p3, "destOffset"    # I
+    .param p4, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -540,10 +540,10 @@
 
 .method public writeBytes([BIII)V
     .locals 7
-    .parameter "buffer"
-    .parameter "srcOffset"
-    .parameter "destOffset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "srcOffset"    # I
+    .param p3, "destOffset"    # I
+    .param p4, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

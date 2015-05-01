@@ -78,7 +78,7 @@
 
 .method static synthetic access$200(Landroid/service/wallpaper/WallpaperService;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/service/wallpaper/WallpaperService;
 
     .prologue
     .line 69
@@ -91,9 +91,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "out"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "out"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 1143
@@ -110,7 +110,7 @@
     .line 1144
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
 
@@ -130,7 +130,7 @@
     check-cast v0, Landroid/service/wallpaper/WallpaperService$Engine;
 
     .line 1146
-    .local v0, engine:Landroid/service/wallpaper/WallpaperService$Engine;
+    .local v0, "engine":Landroid/service/wallpaper/WallpaperService$Engine;
     const-string v2, "  Engine "
 
     invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -152,14 +152,14 @@
     goto :goto_0
 
     .line 1149
-    .end local v0           #engine:Landroid/service/wallpaper/WallpaperService$Engine;
+    .end local v0    # "engine":Landroid/service/wallpaper/WallpaperService$Engine;
     :cond_0
     return-void
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1130
@@ -194,7 +194,7 @@
     .line 1118
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
 

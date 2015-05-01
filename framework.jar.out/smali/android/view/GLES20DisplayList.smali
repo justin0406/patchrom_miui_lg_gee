@@ -35,7 +35,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 39
@@ -50,7 +50,7 @@
 
 .method static synthetic access$000(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 26
@@ -350,7 +350,7 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 .end method
@@ -478,7 +478,7 @@
 
 .method public getMatrix(Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 158
@@ -739,7 +739,7 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 .end method
@@ -769,7 +769,7 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 .end method
@@ -957,7 +957,7 @@
 
 .method public offsetLeftAndRight(F)V
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # F
 
     .prologue
     .line 431
@@ -981,7 +981,7 @@
 
 .method public offsetTopAndBottom(F)V
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # F
 
     .prologue
     .line 438
@@ -1031,7 +1031,7 @@
 
 .method public setAlpha(F)V
     .locals 1
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 174
@@ -1055,7 +1055,7 @@
 
 .method public setAnimationMatrix(Landroid/graphics/Matrix;)V
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 166
@@ -1090,7 +1090,7 @@
 
 .method public setBottom(I)V
     .locals 1
-    .parameter "bottom"
+    .param p1, "bottom"    # I
 
     .prologue
     .line 409
@@ -1114,7 +1114,7 @@
 
 .method public setCaching(Z)V
     .locals 1
-    .parameter "caching"
+    .param p1, "caching"    # Z
 
     .prologue
     .line 137
@@ -1138,7 +1138,7 @@
 
 .method public setCameraDistance(F)V
     .locals 1
-    .parameter "distance"
+    .param p1, "distance"    # F
 
     .prologue
     .line 349
@@ -1162,7 +1162,7 @@
 
 .method public setClipToBounds(Z)V
     .locals 1
-    .parameter "clipToBounds"
+    .param p1, "clipToBounds"    # Z
 
     .prologue
     .line 144
@@ -1186,7 +1186,7 @@
 
 .method public setHasOverlappingRendering(Z)V
     .locals 1
-    .parameter "hasOverlappingRendering"
+    .param p1, "hasOverlappingRendering"    # Z
 
     .prologue
     .line 189
@@ -1210,7 +1210,7 @@
 
 .method public setLeft(I)V
     .locals 1
-    .parameter "left"
+    .param p1, "left"    # I
 
     .prologue
     .line 364
@@ -1234,10 +1234,10 @@
 
 .method public setLeftTopRightBottom(IIII)V
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 424
@@ -1261,7 +1261,7 @@
 
 .method public setMatrix(Landroid/graphics/Matrix;)V
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 151
@@ -1287,7 +1287,7 @@
 
 .method public setPivotX(F)V
     .locals 1
-    .parameter "pivotX"
+    .param p1, "pivotX"    # F
 
     .prologue
     .line 319
@@ -1311,7 +1311,7 @@
 
 .method public setPivotY(F)V
     .locals 1
-    .parameter "pivotY"
+    .param p1, "pivotY"    # F
 
     .prologue
     .line 334
@@ -1335,7 +1335,7 @@
 
 .method public setRight(I)V
     .locals 1
-    .parameter "right"
+    .param p1, "right"    # I
 
     .prologue
     .line 394
@@ -1359,7 +1359,7 @@
 
 .method public setRotation(F)V
     .locals 1
-    .parameter "rotation"
+    .param p1, "rotation"    # F
 
     .prologue
     .line 235
@@ -1383,7 +1383,7 @@
 
 .method public setRotationX(F)V
     .locals 1
-    .parameter "rotationX"
+    .param p1, "rotationX"    # F
 
     .prologue
     .line 250
@@ -1407,7 +1407,7 @@
 
 .method public setRotationY(F)V
     .locals 1
-    .parameter "rotationY"
+    .param p1, "rotationY"    # F
 
     .prologue
     .line 265
@@ -1431,7 +1431,7 @@
 
 .method public setScaleX(F)V
     .locals 1
-    .parameter "scaleX"
+    .param p1, "scaleX"    # F
 
     .prologue
     .line 280
@@ -1455,7 +1455,7 @@
 
 .method public setScaleY(F)V
     .locals 1
-    .parameter "scaleY"
+    .param p1, "scaleY"    # F
 
     .prologue
     .line 295
@@ -1479,7 +1479,7 @@
 
 .method public setTop(I)V
     .locals 1
-    .parameter "top"
+    .param p1, "top"    # I
 
     .prologue
     .line 379
@@ -1503,14 +1503,14 @@
 
 .method public setTransformationInfo(FFFFFFFF)V
     .locals 9
-    .parameter "alpha"
-    .parameter "translationX"
-    .parameter "translationY"
-    .parameter "rotation"
-    .parameter "rotationX"
-    .parameter "rotationY"
-    .parameter "scaleX"
-    .parameter "scaleY"
+    .param p1, "alpha"    # F
+    .param p2, "translationX"    # F
+    .param p3, "translationY"    # F
+    .param p4, "rotation"    # F
+    .param p5, "rotationX"    # F
+    .param p6, "rotationY"    # F
+    .param p7, "scaleX"    # F
+    .param p8, "scaleY"    # F
 
     .prologue
     .line 311
@@ -1550,7 +1550,7 @@
 
 .method public setTranslationX(F)V
     .locals 1
-    .parameter "translationX"
+    .param p1, "translationX"    # F
 
     .prologue
     .line 205
@@ -1574,7 +1574,7 @@
 
 .method public setTranslationY(F)V
     .locals 1
-    .parameter "translationY"
+    .param p1, "translationY"    # F
 
     .prologue
     .line 220
@@ -1598,8 +1598,8 @@
 
 .method public start(II)Landroid/view/HardwareCanvas;
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 56

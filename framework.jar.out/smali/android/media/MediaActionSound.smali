@@ -10,7 +10,7 @@
 
 .field public static final SHUTTER_CLICK:I = 0x0
 
-.field private static final SOUND_FILES:[Ljava/lang/String; = null
+.field private static final SOUND_FILES:[Ljava/lang/String;
 
 .field private static final SOUND_NOT_LOADED:I = -0x1
 
@@ -118,7 +118,7 @@
     .line 101
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
 
@@ -146,7 +146,7 @@
 
 .method static synthetic access$000(Landroid/media/MediaActionSound;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaActionSound;
 
     .prologue
     .line 42
@@ -157,8 +157,8 @@
 
 .method static synthetic access$002(Landroid/media/MediaActionSound;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/MediaActionSound;
+    .param p1, "x1"    # I
 
     .prologue
     .line 42
@@ -171,7 +171,7 @@
 # virtual methods
 .method public declared-synchronized load(I)V
     .locals 4
-    .parameter "soundName"
+    .param p1, "soundName"    # I
 
     .prologue
     .line 120
@@ -261,7 +261,7 @@
 
 .method public declared-synchronized play(I)V
     .locals 7
-    .parameter "soundName"
+    .param p1, "soundName"    # I
 
     .prologue
     .line 159
@@ -362,15 +362,15 @@
 
     aget v1, v1, p1
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
     :try_end_2

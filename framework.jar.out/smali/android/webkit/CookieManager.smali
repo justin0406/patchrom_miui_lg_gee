@@ -65,7 +65,7 @@
 
 .method public static setAcceptFileSchemeCookies(Z)V
     .locals 1
-    .parameter "accept"
+    .param p0, "accept"    # Z
 
     .prologue
     .line 204
@@ -150,7 +150,7 @@
 
 .method public declared-synchronized getCookie(Landroid/net/WebAddress;)Ljava/lang/String;
     .locals 1
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/WebAddress;
 
     .prologue
     .line 118
@@ -175,7 +175,7 @@
 
 .method public getCookie(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "url"
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     .line 92
@@ -188,8 +188,8 @@
 
 .method public getCookie(Ljava/lang/String;Z)Ljava/lang/String;
     .locals 1
-    .parameter "url"
-    .parameter "privateBrowsing"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "privateBrowsing"    # Z
 
     .prologue
     .line 105
@@ -226,7 +226,7 @@
 
 .method public declared-synchronized hasCookies(Z)Z
     .locals 1
-    .parameter "privateBrowsing"
+    .param p1, "privateBrowsing"    # Z
 
     .prologue
     .line 152
@@ -287,7 +287,7 @@
 
 .method public declared-synchronized setAcceptCookie(Z)V
     .locals 1
-    .parameter "accept"
+    .param p1, "accept"    # Z
 
     .prologue
     .line 57
@@ -312,7 +312,7 @@
 
 .method protected setAcceptFileSchemeCookiesImpl(Z)V
     .locals 1
-    .parameter "accept"
+    .param p1, "accept"    # Z
 
     .prologue
     .line 213
@@ -325,8 +325,8 @@
 
 .method public setCookie(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "url"
-    .parameter "value"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 81

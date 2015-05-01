@@ -52,7 +52,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 50
@@ -71,8 +71,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 54
@@ -91,9 +91,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 58
@@ -112,9 +112,9 @@
 
 .method protected static next(IIZ)I
     .locals 1
-    .parameter "x"
-    .parameter "val"
-    .parameter "isRtl"
+    .param p0, "x"    # I
+    .param p1, "val"    # I
+    .param p2, "isRtl"    # Z
 
     .prologue
     .line 233
@@ -135,10 +135,10 @@
 # virtual methods
 .method public animateToVisibility(I)V
     .locals 11
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
-    const/high16 v10, 0x3f80
+    const/high16 v10, 0x3f800000    # 1.0f
 
     const-wide/16 v8, 0xc8
 
@@ -199,7 +199,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, anim:Landroid/animation/ObjectAnimator;
+    .local v0, "anim":Landroid/animation/ObjectAnimator;
     invoke-virtual {v0, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     .line 135
@@ -222,7 +222,7 @@
     invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 138
-    .local v1, set:Landroid/animation/AnimatorSet;
+    .local v1, "set":Landroid/animation/AnimatorSet;
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     const-string v4, "alpha"
@@ -236,7 +236,7 @@
     move-result-object v2
 
     .line 139
-    .local v2, splitAnim:Landroid/animation/ObjectAnimator;
+    .local v2, "splitAnim":Landroid/animation/ObjectAnimator;
     invoke-virtual {v2, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     .line 140
@@ -259,8 +259,8 @@
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
     .line 163
-    .end local v1           #set:Landroid/animation/AnimatorSet;
-    .end local v2           #splitAnim:Landroid/animation/ObjectAnimator;
+    .end local v1    # "set":Landroid/animation/AnimatorSet;
+    .end local v2    # "splitAnim":Landroid/animation/ObjectAnimator;
     :goto_0
     return-void
 
@@ -280,7 +280,7 @@
     goto :goto_0
 
     .line 148
-    .end local v0           #anim:Landroid/animation/ObjectAnimator;
+    .end local v0    # "anim":Landroid/animation/ObjectAnimator;
     :cond_3
     const-string v3, "alpha"
 
@@ -293,7 +293,7 @@
     move-result-object v0
 
     .line 149
-    .restart local v0       #anim:Landroid/animation/ObjectAnimator;
+    .restart local v0    # "anim":Landroid/animation/ObjectAnimator;
     invoke-virtual {v0, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     .line 150
@@ -316,7 +316,7 @@
     invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 153
-    .restart local v1       #set:Landroid/animation/AnimatorSet;
+    .restart local v1    # "set":Landroid/animation/AnimatorSet;
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     const-string v4, "alpha"
@@ -330,7 +330,7 @@
     move-result-object v2
 
     .line 154
-    .restart local v2       #splitAnim:Landroid/animation/ObjectAnimator;
+    .restart local v2    # "splitAnim":Landroid/animation/ObjectAnimator;
     invoke-virtual {v2, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     .line 155
@@ -355,8 +355,8 @@
     goto :goto_0
 
     .line 159
-    .end local v1           #set:Landroid/animation/AnimatorSet;
-    .end local v2           #splitAnim:Landroid/animation/ObjectAnimator;
+    .end local v1    # "set":Landroid/animation/AnimatorSet;
+    .end local v2    # "splitAnim":Landroid/animation/ObjectAnimator;
     :cond_4
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisAnimListener:Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
 
@@ -535,14 +535,14 @@
 
 .method protected measureChildView(Landroid/view/View;III)I
     .locals 1
-    .parameter "child"
-    .parameter "availableWidth"
-    .parameter "childSpecHeight"
-    .parameter "spacing"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "availableWidth"    # I
+    .param p3, "childSpecHeight"    # I
+    .param p4, "spacing"    # I
 
     .prologue
     .line 223
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     invoke-static {p2, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -572,7 +572,7 @@
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 6
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     const/4 v5, 0x0
@@ -596,7 +596,7 @@
     move-result-object v0
 
     .line 69
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1, v5}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
@@ -648,11 +648,11 @@
 
 .method protected positionChild(Landroid/view/View;IIIZ)I
     .locals 5
-    .parameter "child"
-    .parameter "x"
-    .parameter "y"
-    .parameter "contentHeight"
-    .parameter "reverse"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "contentHeight"    # I
+    .param p5, "reverse"    # Z
 
     .prologue
     .line 237
@@ -661,13 +661,13 @@
     move-result v2
 
     .line 238
-    .local v2, childWidth:I
+    .local v2, "childWidth":I
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v0
 
     .line 239
-    .local v0, childHeight:I
+    .local v0, "childHeight":I
     sub-int v3, p4, v0
 
     div-int/lit8 v3, v3, 0x2
@@ -675,7 +675,7 @@
     add-int v1, p3, v3
 
     .line 241
-    .local v1, childTop:I
+    .local v1, "childTop":I
     if-eqz p5, :cond_1
 
     .line 242
@@ -691,12 +691,12 @@
 
     neg-int v2, v2
 
-    .end local v2           #childWidth:I
+    .end local v2    # "childWidth":I
     :cond_0
     return v2
 
     .line 244
-    .restart local v2       #childWidth:I
+    .restart local v2    # "childWidth":I
     :cond_1
     add-int v3, p2, v2
 
@@ -724,7 +724,7 @@
 
 .method public setContentHeight(I)V
     .locals 2
-    .parameter "height"
+    .param p1, "height"    # I
 
     .prologue
     .line 97
@@ -752,7 +752,7 @@
 
 .method public setSplitActionBar(Z)V
     .locals 0
-    .parameter "split"
+    .param p1, "split"    # Z
 
     .prologue
     .line 85
@@ -764,7 +764,7 @@
 
 .method public setSplitView(Lcom/android/internal/widget/ActionBarContainer;)V
     .locals 0
-    .parameter "splitView"
+    .param p1, "splitView"    # Lcom/android/internal/widget/ActionBarContainer;
 
     .prologue
     .line 109
@@ -776,7 +776,7 @@
 
 .method public setSplitWhenNarrow(Z)V
     .locals 0
-    .parameter "splitWhenNarrow"
+    .param p1, "splitWhenNarrow"    # Z
 
     .prologue
     .line 93
@@ -788,7 +788,7 @@
 
 .method public setVisibility(I)V
     .locals 1
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
     .line 167

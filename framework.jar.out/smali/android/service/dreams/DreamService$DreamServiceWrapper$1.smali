@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 754
@@ -53,7 +51,7 @@
 
     iget-object v1, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;->val$windowToken:Landroid/os/IBinder;
 
-    #calls: Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;)V
+    # invokes: Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;)V
     invoke-static {v0, v1}, Landroid/service/dreams/DreamService;->access$300(Landroid/service/dreams/DreamService;Landroid/os/IBinder;)V
 
     .line 758

@@ -28,9 +28,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;Landroid/content/pm/ApplicationInfo;I)V
     .locals 0
-    .parameter "_agentStats"
-    .parameter "_appInfo"
-    .parameter "_backupMode"
+    .param p1, "_agentStats"    # Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
+    .param p2, "_appInfo"    # Landroid/content/pm/ApplicationInfo;
+    .param p3, "_backupMode"    # I
 
     .prologue
     .line 40
@@ -78,7 +78,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 51
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "BackupRecord{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

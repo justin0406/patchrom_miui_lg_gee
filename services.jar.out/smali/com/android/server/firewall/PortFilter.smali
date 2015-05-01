@@ -13,7 +13,7 @@
 
 .field private static final ATTR_MIN:Ljava/lang/String; = "min"
 
-.field public static final FACTORY:Lcom/android/server/firewall/FilterFactory; = null
+.field public static final FACTORY:Lcom/android/server/firewall/FilterFactory;
 
 .field private static final NO_BOUND:I = -0x1
 
@@ -43,8 +43,8 @@
 
 .method private constructor <init>(II)V
     .locals 0
-    .parameter "lowerBound"
-    .parameter "upperBound"
+    .param p1, "lowerBound"    # I
+    .param p2, "upperBound"    # I
 
     .prologue
     .line 38
@@ -62,9 +62,9 @@
 
 .method synthetic constructor <init>(IILcom/android/server/firewall/PortFilter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Lcom/android/server/firewall/PortFilter$1;
 
     .prologue
     .line 27
@@ -77,13 +77,13 @@
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
     .locals 4
-    .parameter "ifw"
-    .parameter "resolvedComponent"
-    .parameter "intent"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "resolvedType"
-    .parameter "receivingUid"
+    .param p1, "ifw"    # Lcom/android/server/firewall/IntentFirewall;
+    .param p2, "resolvedComponent"    # Landroid/content/ComponentName;
+    .param p3, "intent"    # Landroid/content/Intent;
+    .param p4, "callerUid"    # I
+    .param p5, "callerPid"    # I
+    .param p6, "resolvedType"    # Ljava/lang/String;
+    .param p7, "receivingUid"    # I
 
     .prologue
     const/4 v3, -0x1
@@ -92,13 +92,13 @@
     const/4 v0, -0x1
 
     .line 47
-    .local v0, port:I
+    .local v0, "port":I
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v1
 
     .line 48
-    .local v1, uri:Landroid/net/Uri;
+    .local v1, "uri":Landroid/net/Uri;
     if-eqz v1, :cond_0
 
     .line 49

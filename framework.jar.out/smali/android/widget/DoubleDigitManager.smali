@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(JLandroid/widget/DoubleDigitManager$CallBack;)V
     .locals 0
-    .parameter "timeoutInMillis"
-    .parameter "callBack"
+    .param p1, "timeoutInMillis"    # J
+    .param p3, "callBack"    # Landroid/widget/DoubleDigitManager$CallBack;
 
     .prologue
     .line 39
@@ -41,7 +41,7 @@
 
 .method static synthetic access$000(Landroid/widget/DoubleDigitManager;)Ljava/lang/Integer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DoubleDigitManager;
 
     .prologue
     .line 27
@@ -52,8 +52,8 @@
 
 .method static synthetic access$002(Landroid/widget/DoubleDigitManager;Ljava/lang/Integer;)Ljava/lang/Integer;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/DoubleDigitManager;
+    .param p1, "x1"    # Ljava/lang/Integer;
 
     .prologue
     .line 27
@@ -64,7 +64,7 @@
 
 .method static synthetic access$100(Landroid/widget/DoubleDigitManager;)Landroid/widget/DoubleDigitManager$CallBack;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DoubleDigitManager;
 
     .prologue
     .line 27
@@ -77,7 +77,7 @@
 # virtual methods
 .method public reportDigit(I)V
     .locals 5
-    .parameter "digit"
+    .param p1, "digit"    # I
 
     .prologue
     const/4 v4, 0x0

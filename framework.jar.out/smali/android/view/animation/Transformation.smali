@@ -56,7 +56,7 @@
 
     .line 68
     :goto_0
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/view/animation/Transformation;->mAlpha:F
 
@@ -79,7 +79,7 @@
 
 .method public compose(Landroid/view/animation/Transformation;)V
     .locals 2
-    .parameter "t"
+    .param p1, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 110
@@ -138,7 +138,7 @@
 
 .method public postCompose(Landroid/view/animation/Transformation;)V
     .locals 2
-    .parameter "t"
+    .param p1, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 120
@@ -167,7 +167,7 @@
 
 .method public printShortString(Ljava/io/PrintWriter;)V
     .locals 1
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 178
@@ -200,7 +200,7 @@
 
 .method public set(Landroid/view/animation/Transformation;)V
     .locals 2
-    .parameter "t"
+    .param p1, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 99
@@ -232,7 +232,7 @@
 
 .method public setAlpha(F)V
     .locals 0
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 137
@@ -244,7 +244,7 @@
 
 .method public setTransformationType(I)V
     .locals 0
-    .parameter "transformationType"
+    .param p1, "transformationType"    # I
 
     .prologue
     .line 90
@@ -266,7 +266,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 160
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Landroid/view/animation/Transformation;->toShortString(Ljava/lang/StringBuilder;)V
 
     .line 161
@@ -279,7 +279,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
     .locals 1
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 168
@@ -321,7 +321,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 150
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Transformation"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

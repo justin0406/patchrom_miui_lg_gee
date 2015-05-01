@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/cardemulation/HostApduService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 229
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 9
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v8, 0x0
@@ -61,7 +60,7 @@
     move-result-object v1
 
     .line 235
-    .local v1, dataBundle:Landroid/os/Bundle;
+    .local v1, "dataBundle":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
     .line 238
@@ -86,7 +85,7 @@
     move-result-object v0
 
     .line 241
-    .local v0, apdu:[B
+    .local v0, "apdu":[B
     if-eqz v0, :cond_3
 
     .line 242
@@ -97,7 +96,7 @@
     move-result-object v3
 
     .line 243
-    .local v3, responseApdu:[B
+    .local v3, "responseApdu":[B
     if-eqz v3, :cond_0
 
     .line 244
@@ -125,13 +124,13 @@
     move-result-object v5
 
     .line 249
-    .local v5, responseMsg:Landroid/os/Message;
+    .local v5, "responseMsg":Landroid/os/Message;
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
     .line 250
-    .local v4, responseBundle:Landroid/os/Bundle;
+    .local v4, "responseBundle":Landroid/os/Bundle;
     const-string v6, "data"
 
     invoke-virtual {v4, v6, v3}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
@@ -163,7 +162,7 @@
     move-exception v2
 
     .line 256
-    .local v2, e:Landroid/os/RemoteException;
+    .local v2, "e":Landroid/os/RemoteException;
     const-string v6, "TAG"
 
     const-string v7, "Response not sent; RemoteException calling into NfcService."
@@ -173,10 +172,10 @@
     goto :goto_0
 
     .line 261
-    .end local v2           #e:Landroid/os/RemoteException;
-    .end local v3           #responseApdu:[B
-    .end local v4           #responseBundle:Landroid/os/Bundle;
-    .end local v5           #responseMsg:Landroid/os/Message;
+    .end local v2    # "e":Landroid/os/RemoteException;
+    .end local v3    # "responseApdu":[B
+    .end local v4    # "responseBundle":Landroid/os/Bundle;
+    .end local v5    # "responseMsg":Landroid/os/Message;
     :cond_3
     const-string v6, "ApduService"
 
@@ -187,8 +186,8 @@
     goto :goto_0
 
     .line 265
-    .end local v0           #apdu:[B
-    .end local v1           #dataBundle:Landroid/os/Bundle;
+    .end local v0    # "apdu":[B
+    .end local v1    # "dataBundle":Landroid/os/Bundle;
     :pswitch_1
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -230,7 +229,7 @@
     move-exception v2
 
     .line 273
-    .restart local v2       #e:Landroid/os/RemoteException;
+    .restart local v2    # "e":Landroid/os/RemoteException;
     const-string v6, "ApduService"
 
     const-string v7, "RemoteException calling into NfcService."
@@ -240,7 +239,7 @@
     goto/16 :goto_0
 
     .line 278
-    .end local v2           #e:Landroid/os/RemoteException;
+    .end local v2    # "e":Landroid/os/RemoteException;
     :pswitch_2
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -297,7 +296,7 @@
     move-exception v2
 
     .line 290
-    .restart local v2       #e:Landroid/os/RemoteException;
+    .restart local v2    # "e":Landroid/os/RemoteException;
     const-string v6, "ApduService"
 
     const-string v7, "RemoteException calling into NfcService."

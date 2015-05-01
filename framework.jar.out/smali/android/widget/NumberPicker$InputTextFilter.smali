@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1954
@@ -36,18 +35,18 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 13
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     .line 1970
     iget-object v10, p0, Landroid/widget/NumberPicker$InputTextFilter;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
+    # getter for: Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
     invoke-static {v10}, Landroid/widget/NumberPicker;->access$900(Landroid/widget/NumberPicker;)[Ljava/lang/String;
 
     move-result-object v10
@@ -60,7 +59,7 @@
     move-result-object v3
 
     .line 1972
-    .local v3, filtered:Ljava/lang/CharSequence;
+    .local v3, "filtered":Ljava/lang/CharSequence;
     if-nez v3, :cond_0
 
     .line 1973
@@ -117,7 +116,7 @@
     move-result-object v6
 
     .line 1979
-    .local v6, result:Ljava/lang/String;
+    .local v6, "result":Ljava/lang/String;
     const-string v10, ""
 
     invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -127,25 +126,25 @@
     if-eqz v10, :cond_1
 
     .line 2011
-    .end local v6           #result:Ljava/lang/String;
+    .end local v6    # "result":Ljava/lang/String;
     :goto_0
     return-object v6
 
     .line 1982
-    .restart local v6       #result:Ljava/lang/String;
+    .restart local v6    # "result":Ljava/lang/String;
     :cond_1
     iget-object v10, p0, Landroid/widget/NumberPicker$InputTextFilter;->this$0:Landroid/widget/NumberPicker;
 
-    #calls: Landroid/widget/NumberPicker;->getSelectedPos(Ljava/lang/String;)I
+    # invokes: Landroid/widget/NumberPicker;->getSelectedPos(Ljava/lang/String;)I
     invoke-static {v10, v6}, Landroid/widget/NumberPicker;->access$1000(Landroid/widget/NumberPicker;Ljava/lang/String;)I
 
     move-result v8
 
     .line 1991
-    .local v8, val:I
+    .local v8, "val":I
     iget-object v10, p0, Landroid/widget/NumberPicker$InputTextFilter;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mMaxValue:I
+    # getter for: Landroid/widget/NumberPicker;->mMaxValue:I
     invoke-static {v10}, Landroid/widget/NumberPicker;->access$1100(Landroid/widget/NumberPicker;)I
 
     move-result v10
@@ -158,7 +157,7 @@
 
     iget-object v11, p0, Landroid/widget/NumberPicker$InputTextFilter;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mMaxValue:I
+    # getter for: Landroid/widget/NumberPicker;->mMaxValue:I
     invoke-static {v11}, Landroid/widget/NumberPicker;->access$1100(Landroid/widget/NumberPicker;)I
 
     move-result v11
@@ -186,9 +185,9 @@
     goto :goto_0
 
     .line 1997
-    .end local v3           #filtered:Ljava/lang/CharSequence;
-    .end local v6           #result:Ljava/lang/String;
-    .end local v8           #val:I
+    .end local v3    # "filtered":Ljava/lang/CharSequence;
+    .end local v6    # "result":Ljava/lang/String;
+    .end local v8    # "val":I
     :cond_4
     invoke-interface/range {p1 .. p3}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
@@ -199,7 +198,7 @@
     move-result-object v3
 
     .line 1998
-    .restart local v3       #filtered:Ljava/lang/CharSequence;
+    .restart local v3    # "filtered":Ljava/lang/CharSequence;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v10
@@ -260,7 +259,7 @@
     move-result-object v6
 
     .line 2003
-    .restart local v6       #result:Ljava/lang/String;
+    .restart local v6    # "result":Ljava/lang/String;
     invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v10
@@ -270,34 +269,34 @@
     move-result-object v7
 
     .line 2004
-    .local v7, str:Ljava/lang/String;
+    .local v7, "str":Ljava/lang/String;
     iget-object v10, p0, Landroid/widget/NumberPicker$InputTextFilter;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
+    # getter for: Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
     invoke-static {v10}, Landroid/widget/NumberPicker;->access$900(Landroid/widget/NumberPicker;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v5, v2
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_1
     if-ge v4, v5, :cond_7
 
     aget-object v8, v2, v4
 
     .line 2005
-    .local v8, val:Ljava/lang/String;
+    .local v8, "val":Ljava/lang/String;
     invoke-virtual {v8}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v9
 
     .line 2006
-    .local v9, valLowerCase:Ljava/lang/String;
+    .local v9, "valLowerCase":Ljava/lang/String;
     invoke-virtual {v9, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
@@ -315,7 +314,7 @@
 
     move-result v12
 
-    #calls: Landroid/widget/NumberPicker;->postSetSelectionCommand(II)V
+    # invokes: Landroid/widget/NumberPicker;->postSetSelectionCommand(II)V
     invoke-static {v10, v11, v12}, Landroid/widget/NumberPicker;->access$1200(Landroid/widget/NumberPicker;II)V
 
     .line 2008
@@ -338,8 +337,8 @@
     goto :goto_1
 
     .line 2011
-    .end local v8           #val:Ljava/lang/String;
-    .end local v9           #valLowerCase:Ljava/lang/String;
+    .end local v8    # "val":Ljava/lang/String;
+    .end local v9    # "valLowerCase":Ljava/lang/String;
     :cond_7
     const-string v6, ""
 
@@ -351,6 +350,7 @@
 
     .prologue
     .line 1964
+    # getter for: Landroid/widget/NumberPicker;->DIGIT_CHARACTERS:[C
     invoke-static {}, Landroid/widget/NumberPicker;->access$800()[C
 
     move-result-object v0

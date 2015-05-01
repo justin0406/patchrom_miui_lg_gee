@@ -25,9 +25,9 @@
 
 .method public constructor <init>(III)V
     .locals 0
-    .parameter "initX"
-    .parameter "initY"
-    .parameter "initZ"
+    .param p1, "initX"    # I
+    .param p2, "initY"    # I
+    .param p3, "initZ"    # I
 
     .prologue
     .line 31

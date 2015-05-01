@@ -1227,9 +1227,9 @@
 
 .method public constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/camera2/CaptureRequest;I)V
     .locals 2
-    .parameter "results"
-    .parameter "parent"
-    .parameter "sequenceId"
+    .param p1, "results"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
+    .param p2, "parent"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "sequenceId"    # I
 
     .prologue
     .line 47
@@ -1278,7 +1278,6 @@
 # virtual methods
 .method public get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1291,7 +1290,7 @@
 
     .prologue
     .line 63
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/CaptureResult;->mResults:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;

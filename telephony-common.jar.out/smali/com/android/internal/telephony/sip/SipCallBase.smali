@@ -27,7 +27,7 @@
 
     move-result-object v1
 
-    .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/Connection;>;"
+    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/internal/telephony/Connection;>;"
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -44,7 +44,7 @@
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
     .line 47
-    .local v0, c:Lcom/android/internal/telephony/Connection;
+    .local v0, "c":Lcom/android/internal/telephony/Connection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Connection;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v2
@@ -58,7 +58,7 @@
     goto :goto_0
 
     .line 50
-    .end local v0           #c:Lcom/android/internal/telephony/Connection;
+    .end local v0    # "c":Lcom/android/internal/telephony/Connection;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/sip/SipCallBase;->mConnections:Ljava/util/ArrayList;
 

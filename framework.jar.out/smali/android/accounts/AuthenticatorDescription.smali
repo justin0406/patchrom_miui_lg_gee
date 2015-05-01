@@ -52,7 +52,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -124,8 +124,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/accounts/AuthenticatorDescription$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/accounts/AuthenticatorDescription$1;
 
     .prologue
     .line 25
@@ -136,7 +136,7 @@
 
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -173,12 +173,12 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IIII)V
     .locals 8
-    .parameter "type"
-    .parameter "packageName"
-    .parameter "labelId"
-    .parameter "iconId"
-    .parameter "smallIconId"
-    .parameter "prefId"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "labelId"    # I
+    .param p4, "iconId"    # I
+    .param p5, "smallIconId"    # I
+    .param p6, "prefId"    # I
 
     .prologue
     .line 66
@@ -206,13 +206,13 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IIIIZ)V
     .locals 2
-    .parameter "type"
-    .parameter "packageName"
-    .parameter "labelId"
-    .parameter "iconId"
-    .parameter "smallIconId"
-    .parameter "prefId"
-    .parameter "customTokens"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "labelId"    # I
+    .param p4, "iconId"    # I
+    .param p5, "smallIconId"    # I
+    .param p6, "prefId"    # I
+    .param p7, "customTokens"    # Z
 
     .prologue
     .line 52
@@ -269,7 +269,7 @@
 
 .method public static newKey(Ljava/lang/String;)Landroid/accounts/AuthenticatorDescription;
     .locals 2
-    .parameter "type"
+    .param p0, "type"    # Ljava/lang/String;
 
     .prologue
     .line 75
@@ -306,7 +306,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 111
@@ -335,7 +335,7 @@
     check-cast v0, Landroid/accounts/AuthenticatorDescription;
 
     .line 114
-    .local v0, other:Landroid/accounts/AuthenticatorDescription;
+    .local v0, "other":Landroid/accounts/AuthenticatorDescription;
     iget-object v1, p0, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
     iget-object v2, v0, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
@@ -397,8 +397,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 123

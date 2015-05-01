@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 159
@@ -61,7 +61,7 @@
 
 .method public onCallForwardingIndicatorChanged(Z)V
     .locals 5
-    .parameter "cfi"
+    .param p1, "cfi"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 216
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -125,8 +125,8 @@
 
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 5
-    .parameter "state"
-    .parameter "incomingNumber"
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 248
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -182,7 +182,6 @@
 
 .method public onCellInfoChanged(Ljava/util/List;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,13 +200,13 @@
 
     .prologue
     .line 314
-    .local p1, cellInfo:Ljava/util/List;,"Ljava/util/List<Landroid/telephony/CellInfo;>;"
+    .local p1, "cellInfo":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/CellInfo;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -246,7 +245,7 @@
 
 .method public onCellLocationChanged(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "location"
+    .param p1, "location"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -260,7 +259,7 @@
     move-result-object v0
 
     .line 230
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -321,7 +320,7 @@
 
 .method public onDataActivity(I)V
     .locals 5
-    .parameter "direction"
+    .param p1, "direction"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -335,7 +334,7 @@
     move-result-object v0
 
     .line 274
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -374,8 +373,8 @@
 
 .method public onDataConnectionStateChanged(II)V
     .locals 5
-    .parameter "state"
-    .parameter "networkType"
+    .param p1, "state"    # I
+    .param p2, "networkType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -389,7 +388,7 @@
     move-result-object v0
 
     .line 261
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -431,7 +430,7 @@
 
 .method public onMessageWaitingIndicatorChanged(Z)V
     .locals 5
-    .parameter "mwi"
+    .param p1, "mwi"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -447,7 +446,7 @@
     move-result-object v0
 
     .line 204
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -495,7 +494,7 @@
 
 .method public onOtaspChanged(I)V
     .locals 5
-    .parameter "otaspMode"
+    .param p1, "otaspMode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -509,7 +508,7 @@
     move-result-object v0
 
     .line 304
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -548,7 +547,7 @@
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 5
-    .parameter "serviceState"
+    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -562,7 +561,7 @@
     move-result-object v0
 
     .line 174
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -623,7 +622,7 @@
 
 .method public onSignalStrengthChanged(I)V
     .locals 5
-    .parameter "asu"
+    .param p1, "asu"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -637,7 +636,7 @@
     move-result-object v0
 
     .line 192
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -676,7 +675,7 @@
 
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
     .locals 5
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -690,7 +689,7 @@
     move-result-object v0
 
     .line 286
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 

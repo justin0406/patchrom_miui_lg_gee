@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 38
@@ -29,7 +29,7 @@
 
 .method private static doStat(Ljava/lang/String;)Llibcore/io/StructStatVfs;
     .locals 4
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -49,7 +49,7 @@
     move-exception v0
 
     .line 46
-    .local v0, e:Llibcore/io/ErrnoException;
+    .local v0, "e":Llibcore/io/ErrnoException;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -245,7 +245,7 @@
 
 .method public restat(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 56

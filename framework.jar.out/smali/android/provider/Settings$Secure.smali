@@ -62,8 +62,6 @@
 
 .field public static final ANR_SHOW_BACKGROUND:Ljava/lang/String; = "anr_show_background"
 
-.field public static final ASSISTED_GPS_ENABLED:Ljava/lang/String; = "assisted_gps_enabled"
-
 .field public static final BACKGROUND_DATA:Ljava/lang/String; = "background_data"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -91,7 +89,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATA_ROAMING:Ljava/lang/String; = "data_roaming"
     .annotation runtime Ljava/lang/Deprecated;
@@ -203,7 +201,7 @@
 
 .field public static final MOUNT_UMS_PROMPT:Ljava/lang/String; = "mount_ums_prompt"
 
-.field private static final MOVED_TO_GLOBAL:Ljava/util/HashSet; = null
+.field private static final MOVED_TO_GLOBAL:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -214,7 +212,7 @@
     .end annotation
 .end field
 
-.field private static final MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet; = null
+.field private static final MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -302,7 +300,7 @@
 
 .field public static final SETTINGS_CLASSNAME:Ljava/lang/String; = "settings_classname"
 
-.field public static final SETTINGS_TO_BACKUP:[Ljava/lang/String; = null
+.field public static final SETTINGS_TO_BACKUP:[Ljava/lang/String;
 
 .field public static final SMS_DEFAULT_APPLICATION:Ljava/lang/String; = "sms_default_application"
 
@@ -1573,8 +1571,8 @@
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
     .locals 1
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1596,9 +1594,9 @@
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # F
 
     .prologue
     .line 3148
@@ -1615,10 +1613,10 @@
 
 .method public static getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)F
     .locals 2
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # F
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 3154
@@ -1627,7 +1625,7 @@
     move-result-object v1
 
     .line 3156
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -1638,26 +1636,26 @@
     move-result p2
 
     .line 3158
-    .end local p2
+    .end local p2    # "def":F
     :cond_0
     :goto_0
     return p2
 
     .line 3157
-    .restart local p2
+    .restart local p2    # "def":F
     :catch_0
     move-exception v0
 
     .line 3158
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method public static getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)F
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1671,7 +1669,7 @@
     move-result-object v1
 
     .line 3189
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-nez v1, :cond_0
 
     .line 3190
@@ -1697,7 +1695,7 @@
     move-exception v0
 
     .line 3195
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -1707,8 +1705,8 @@
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
     .locals 1
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1730,9 +1728,9 @@
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # I
 
     .prologue
     .line 2961
@@ -1749,9 +1747,9 @@
 
 .method public static getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)I
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1784,7 +1782,7 @@
     move-result-object v1
 
     .line 3012
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -1799,7 +1797,7 @@
     move-exception v0
 
     .line 3014
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -1809,10 +1807,10 @@
 
 .method public static getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # I
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 2966
@@ -1830,20 +1828,20 @@
     move-result p2
 
     .line 2975
-    .end local p2
+    .end local p2    # "def":I
     :cond_0
     :goto_0
     return p2
 
     .line 2971
-    .restart local p2
+    .restart local p2    # "def":I
     :cond_1
     invoke-static {p0, p1, p3}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
 
     .line 2973
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -1860,17 +1858,18 @@
     move-exception v0
 
     .line 2975
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method private static final getLocationModeForUser(Landroid/content/ContentResolver;I)I
     .locals 4
-    .parameter "cr"
-    .parameter "userId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "userId"    # I
 
     .prologue
     .line 4574
+    # getter for: Landroid/provider/Settings;->mLocationSettingsLock:Ljava/lang/Object;
     invoke-static {}, Landroid/provider/Settings;->access$000()Ljava/lang/Object;
 
     move-result-object v3
@@ -1886,7 +1885,7 @@
     move-result v0
 
     .line 4577
-    .local v0, gpsEnabled:Z
+    .local v0, "gpsEnabled":Z
     const-string v2, "network"
 
     invoke-static {p0, v2, p1}, Landroid/provider/Settings$Secure;->isLocationProviderEnabledForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
@@ -1894,7 +1893,7 @@
     move-result v1
 
     .line 4579
-    .local v1, networkEnabled:Z
+    .local v1, "networkEnabled":Z
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
@@ -1920,8 +1919,8 @@
     goto :goto_0
 
     .line 4588
-    .end local v0           #gpsEnabled:Z
-    .end local v1           #networkEnabled:Z
+    .end local v0    # "gpsEnabled":Z
+    .end local v1    # "networkEnabled":Z
     :catchall_0
     move-exception v2
 
@@ -1932,8 +1931,8 @@
     throw v2
 
     .line 4583
-    .restart local v0       #gpsEnabled:Z
-    .restart local v1       #networkEnabled:Z
+    .restart local v0    # "gpsEnabled":Z
+    .restart local v1    # "networkEnabled":Z
     :cond_1
     if-eqz v1, :cond_2
 
@@ -1958,8 +1957,8 @@
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
     .locals 2
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1981,9 +1980,9 @@
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
     .locals 2
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # J
 
     .prologue
     .line 3061
@@ -2000,9 +1999,9 @@
 
 .method public static getLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)J
     .locals 4
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -2016,7 +2015,7 @@
     move-result-object v1
 
     .line 3104
-    .local v1, valString:Ljava/lang/String;
+    .local v1, "valString":Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_0
@@ -2031,7 +2030,7 @@
     move-exception v0
 
     .line 3106
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -2041,10 +2040,10 @@
 
 .method public static getLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;JI)J
     .locals 4
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # J
+    .param p4, "userHandle"    # I
 
     .prologue
     .line 3067
@@ -2053,7 +2052,7 @@
     move-result-object v1
 
     .line 3070
-    .local v1, valString:Ljava/lang/String;
+    .local v1, "valString":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -2064,11 +2063,11 @@
     move-result-wide v2
 
     .line 3074
-    .local v2, value:J
+    .local v2, "value":J
     :goto_0
     return-wide v2
 
-    .end local v2           #value:J
+    .end local v2    # "value":J
     :cond_0
     move-wide v2, p2
 
@@ -2080,16 +2079,15 @@
     move-exception v0
 
     .line 3072
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     move-wide v2, p2
 
-    .restart local v2       #value:J
+    .restart local v2    # "value":J
     goto :goto_0
 .end method
 
 .method public static getMovedKeys(Ljava/util/HashSet;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2102,7 +2100,7 @@
 
     .prologue
     .line 2867
-    .local p0, outKeySet:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p0, "outKeySet":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
 
     invoke-virtual {p0, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
@@ -2113,8 +2111,8 @@
 
 .method public static getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "resolver"
-    .parameter "name"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 2877
@@ -2131,9 +2129,9 @@
 
 .method public static getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
     .locals 3
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 2883
@@ -2300,7 +2298,7 @@
 
 .method public static getUriFor(Ljava/lang/String;)Landroid/net/Uri;
     .locals 3
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 2938
@@ -2370,8 +2368,8 @@
 
 .method public static final isLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;)Z
     .locals 1
-    .parameter "cr"
-    .parameter "provider"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2390,9 +2388,9 @@
 
 .method public static final isLocationProviderEnabledForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     .locals 2
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "userId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2405,7 +2403,7 @@
     move-result-object v0
 
     .line 4478
-    .local v0, allowedProviders:Ljava/lang/String;
+    .local v0, "allowedProviders":Ljava/lang/String;
     const/16 v1, 0x2c
 
     invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
@@ -2417,9 +2415,9 @@
 
 .method public static putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # F
 
     .prologue
     .line 3213
@@ -2436,10 +2434,10 @@
 
 .method public static putFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # F
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 3219
@@ -2456,9 +2454,9 @@
 
 .method public static putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 3032
@@ -2475,10 +2473,10 @@
 
 .method public static putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 3038
@@ -2513,9 +2511,9 @@
 
 .method public static putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # J
 
     .prologue
     .line 3124
@@ -2532,10 +2530,10 @@
 
 .method public static putLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;JI)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # J
+    .param p4, "userHandle"    # I
 
     .prologue
     .line 3130
@@ -2552,9 +2550,9 @@
 
 .method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 2917
@@ -2571,10 +2569,10 @@
 
 .method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
     .locals 3
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 2923
@@ -2642,12 +2640,13 @@
 
 .method private static final setLocationModeForUser(Landroid/content/ContentResolver;II)Z
     .locals 8
-    .parameter "cr"
-    .parameter "mode"
-    .parameter "userId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "mode"    # I
+    .param p2, "userId"    # I
 
     .prologue
     .line 4537
+    # getter for: Landroid/provider/Settings;->mLocationSettingsLock:Ljava/lang/Object;
     invoke-static {}, Landroid/provider/Settings;->access$000()Ljava/lang/Object;
 
     move-result-object v5
@@ -2658,11 +2657,11 @@
     const/4 v0, 0x0
 
     .line 4539
-    .local v0, gps:Z
+    .local v0, "gps":Z
     const/4 v2, 0x0
 
     .line 4540
-    .local v2, network:Z
+    .local v2, "network":Z
     packed-switch p1, :pswitch_data_0
 
     .line 4554
@@ -2716,7 +2715,7 @@
     move-result v1
 
     .line 4558
-    .local v1, gpsSuccess:Z
+    .local v1, "gpsSuccess":Z
     const-string v4, "network"
 
     invoke-static {p0, v4, v2, p2}, Landroid/provider/Settings$Secure;->setLocationProviderEnabledForUser(Landroid/content/ContentResolver;Ljava/lang/String;ZI)Z
@@ -2724,7 +2723,7 @@
     move-result v3
 
     .line 4560
-    .local v3, nlpSuccess:Z
+    .local v3, "nlpSuccess":Z
     if-eqz v1, :cond_0
 
     if-eqz v3, :cond_0
@@ -2739,8 +2738,8 @@
     return v4
 
     .line 4547
-    .end local v1           #gpsSuccess:Z
-    .end local v3           #nlpSuccess:Z
+    .end local v1    # "gpsSuccess":Z
+    .end local v3    # "nlpSuccess":Z
     :pswitch_2
     const/4 v2, 0x1
 
@@ -2758,8 +2757,8 @@
     goto :goto_0
 
     .line 4560
-    .restart local v1       #gpsSuccess:Z
-    .restart local v3       #nlpSuccess:Z
+    .restart local v1    # "gpsSuccess":Z
+    .restart local v3    # "nlpSuccess":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -2779,9 +2778,9 @@
 
 .method public static final setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
     .locals 1
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "enabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2799,15 +2798,16 @@
 
 .method public static final setLocationProviderEnabledForUser(Landroid/content/ContentResolver;Ljava/lang/String;ZI)Z
     .locals 3
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-    .parameter "userId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "enabled"    # Z
+    .param p3, "userId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     .line 4509
+    # getter for: Landroid/provider/Settings;->mLocationSettingsLock:Ljava/lang/Object;
     invoke-static {}, Landroid/provider/Settings;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -2881,23 +2881,3 @@
 
     throw v0
 .end method
-
-.field public static final CONTACTS_PREAUTH_URI_EXPIRATION:Ljava/lang/String; = "contacts_preauth_uri_expiration"
-
-.field public static final DEFAULT_INSTALL_LOCATION:Ljava/lang/String; = "default_install_location"
-
-.field public static final DOWNLOAD_RECOMMENDED_MAX_BYTES_OVER_MOBILE:Ljava/lang/String; = "download_manager_recommended_max_bytes_over_mobile"
-
-.field public static final MOBILE_DATA:Ljava/lang/String; = "mobile_data"
-
-.field public static final SCREENSAVER_COMPONENT:Ljava/lang/String; = "screensaver_components"
-
-.field public static final SEND_ACTION_APP_ERROR:Ljava/lang/String; = "send_action_app_error"
-
-.field public static final SET_INSTALL_LOCATION:Ljava/lang/String; = "set_install_location"
-
-.field public static final SYS_STORAGE_THRESHOLD_PERCENTAGE:Ljava/lang/String; = "sys_storage_threshold_percentage"
-
-.field public static final WIFI_SAVED_STATE:Ljava/lang/String; = "wifi_saved_state"
-
-.field public static final WIFI_WATCHDOG_POOR_NETWORK_TEST_ENABLED:Ljava/lang/String; = "wifi_watchdog_poor_network_test_enabled"

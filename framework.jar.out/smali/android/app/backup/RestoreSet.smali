@@ -55,7 +55,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 82
@@ -88,8 +88,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/backup/RestoreSet$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/app/backup/RestoreSet$1;
 
     .prologue
     .line 28
@@ -100,9 +100,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;J)V
     .locals 0
-    .parameter "_name"
-    .parameter "_dev"
-    .parameter "_token"
+    .param p1, "_name"    # Ljava/lang/String;
+    .param p2, "_dev"    # Ljava/lang/String;
+    .param p3, "_token"    # J
 
     .prologue
     .line 53
@@ -135,8 +135,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 66

@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/PrintStream;)V
     .locals 0
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintStream;
 
     .prologue
     .line 33
@@ -30,7 +30,7 @@
 # virtual methods
 .method public println(Ljava/lang/String;)V
     .locals 1
-    .parameter "x"
+    .param p1, "x"    # Ljava/lang/String;
 
     .prologue
     .line 38

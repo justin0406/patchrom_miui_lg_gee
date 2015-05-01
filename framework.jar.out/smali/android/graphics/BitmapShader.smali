@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
     .locals 4
-    .parameter "bitmap"
-    .parameter "tileX"
-    .parameter "tileY"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "tileX"    # Landroid/graphics/Shader$TileMode;
+    .param p3, "tileY"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 41
@@ -37,7 +37,7 @@
     move-result v0
 
     .line 46
-    .local v0, b:I
+    .local v0, "b":I
     iget v1, p2, Landroid/graphics/Shader$TileMode;->nativeInt:I
 
     iget v2, p3, Landroid/graphics/Shader$TileMode;->nativeInt:I
@@ -89,7 +89,7 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     .line 56
-    .local v0, copy:Landroid/graphics/BitmapShader;
+    .local v0, "copy":Landroid/graphics/BitmapShader;
     invoke-virtual {p0, v0}, Landroid/graphics/BitmapShader;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
     .line 57

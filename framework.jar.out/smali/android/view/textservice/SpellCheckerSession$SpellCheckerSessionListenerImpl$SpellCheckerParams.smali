@@ -29,10 +29,10 @@
 # direct methods
 .method public constructor <init>(I[Landroid/view/textservice/TextInfo;IZ)V
     .locals 0
-    .parameter "what"
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "sequentialWords"
+    .param p1, "what"    # I
+    .param p2, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p3, "suggestionsLimit"    # I
+    .param p4, "sequentialWords"    # Z
 
     .prologue
     .line 250

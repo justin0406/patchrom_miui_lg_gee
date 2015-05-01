@@ -33,9 +33,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/BatteryService;Landroid/content/Context;Lcom/android/server/LightsService;)V
     .locals 2
-    .parameter
-    .parameter "context"
-    .parameter "lights"
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "lights"    # Lcom/android/server/LightsService;
 
     .prologue
     .line 699
@@ -134,7 +133,7 @@
     .line 718
     iget-object v2, p0, Lcom/android/server/BatteryService$Led;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
+    # getter for: Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
     invoke-static {v2}, Lcom/android/server/BatteryService;->access$400(Lcom/android/server/BatteryService;)Landroid/os/BatteryProperties;
 
     move-result-object v2
@@ -142,10 +141,10 @@
     iget v0, v2, Landroid/os/BatteryProperties;->batteryLevel:I
 
     .line 719
-    .local v0, level:I
+    .local v0, "level":I
     iget-object v2, p0, Lcom/android/server/BatteryService$Led;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
+    # getter for: Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
     invoke-static {v2}, Lcom/android/server/BatteryService;->access$400(Lcom/android/server/BatteryService;)Landroid/os/BatteryProperties;
 
     move-result-object v2
@@ -153,10 +152,10 @@
     iget v1, v2, Landroid/os/BatteryProperties;->batteryStatus:I
 
     .line 720
-    .local v1, status:I
+    .local v1, "status":I
     iget-object v2, p0, Lcom/android/server/BatteryService$Led;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mLowBatteryWarningLevel:I
+    # getter for: Lcom/android/server/BatteryService;->mLowBatteryWarningLevel:I
     invoke-static {v2}, Lcom/android/server/BatteryService;->access$500(Lcom/android/server/BatteryService;)I
 
     move-result v2

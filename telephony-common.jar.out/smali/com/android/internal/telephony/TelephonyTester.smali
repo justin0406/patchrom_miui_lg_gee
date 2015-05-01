@@ -18,7 +18,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
     .locals 5
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 59
@@ -45,7 +45,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 65
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneBase;->getActionDetached()Ljava/lang/String;
@@ -135,14 +135,14 @@
     invoke-virtual {v1, v2, v0, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     .line 73
-    .end local v0           #filter:Landroid/content/IntentFilter;
+    .end local v0    # "filter":Landroid/content/IntentFilter;
     :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 34
@@ -153,7 +153,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/TelephonyTester;)Lcom/android/internal/telephony/PhoneBase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/TelephonyTester;
 
     .prologue
     .line 34
@@ -164,7 +164,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 82

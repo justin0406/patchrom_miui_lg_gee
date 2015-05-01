@@ -36,7 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/nio/channels/FileChannel;)V
     .locals 2
-    .parameter "fileChannel"
+    .param p1, "fileChannel"    # Ljava/nio/channels/FileChannel;
 
     .prologue
     const/4 v1, 0x0
@@ -110,7 +110,7 @@
     move-exception v0
 
     .line 84
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     const-string v1, "FileSynthesisRequest"
 
     const-string v2, "Failed to close output file descriptor"
@@ -122,10 +122,10 @@
 
 .method private makeWavHeader(IIII)Ljava/nio/ByteBuffer;
     .locals 9
-    .parameter "sampleRateInHz"
-    .parameter "audioFormat"
-    .parameter "channelCount"
-    .parameter "dataLength"
+    .param p1, "sampleRateInHz"    # I
+    .param p2, "audioFormat"    # I
+    .param p3, "channelCount"    # I
+    .param p4, "dataLength"    # I
 
     .prologue
     const/4 v6, 0x1
@@ -140,38 +140,38 @@
     move v5, v6
 
     .line 202
-    .local v5, sampleSizeInBytes:I
+    .local v5, "sampleSizeInBytes":I
     :goto_0
     mul-int v7, p1, v5
 
     mul-int v2, v7, p3
 
     .line 203
-    .local v2, byteRate:I
+    .local v2, "byteRate":I
     mul-int v7, v5, p3
 
     int-to-short v1, v7
 
     .line 204
-    .local v1, blockAlign:S
+    .local v1, "blockAlign":S
     mul-int/lit8 v7, v5, 0x8
 
     int-to-short v0, v7
 
     .line 206
-    .local v0, bitsPerSample:S
+    .local v0, "bitsPerSample":S
     const/16 v7, 0x2c
 
     new-array v4, v7, [B
 
     .line 207
-    .local v4, headerBuf:[B
+    .local v4, "headerBuf":[B
     invoke-static {v4}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
     .line 208
-    .local v3, header:Ljava/nio/ByteBuffer;
+    .local v3, "header":Ljava/nio/ByteBuffer;
     sget-object v7, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v3, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -246,12 +246,12 @@
     return-object v3
 
     .line 201
-    .end local v0           #bitsPerSample:S
-    .end local v1           #blockAlign:S
-    .end local v2           #byteRate:I
-    .end local v3           #header:Ljava/nio/ByteBuffer;
-    .end local v4           #headerBuf:[B
-    .end local v5           #sampleSizeInBytes:I
+    .end local v0    # "bitsPerSample":S
+    .end local v1    # "blockAlign":S
+    .end local v2    # "byteRate":I
+    .end local v3    # "header":Ljava/nio/ByteBuffer;
+    .end local v4    # "headerBuf":[B
+    .end local v5    # "sampleSizeInBytes":I
     :cond_0
     const/4 v5, 0x2
 
@@ -261,7 +261,7 @@
     nop
 
     :array_0
-    .array-data 0x1
+    .array-data 1
         0x52t
         0x49t
         0x46t
@@ -270,7 +270,7 @@
 
     .line 212
     :array_1
-    .array-data 0x1
+    .array-data 1
         0x57t
         0x41t
         0x56t
@@ -279,7 +279,7 @@
 
     .line 213
     :array_2
-    .array-data 0x1
+    .array-data 1
         0x66t
         0x6dt
         0x74t
@@ -288,7 +288,7 @@
 
     .line 221
     :array_3
-    .array-data 0x1
+    .array-data 1
         0x64t
         0x61t
         0x74t
@@ -300,9 +300,9 @@
 # virtual methods
 .method public audioAvailable([BII)I
     .locals 5
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -364,8 +364,8 @@
 
     invoke-virtual {v3, v4}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 146
     const/4 v1, 0x0
@@ -380,7 +380,7 @@
     move-exception v0
 
     .line 148
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     const-string v3, "FileSynthesisRequest"
 
     const-string v4, "Failed to write to output file descriptor"
@@ -487,7 +487,7 @@
     long-to-int v0, v4
 
     .line 177
-    .local v0, dataLength:I
+    .local v0, "dataLength":I
     iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
 
     iget v5, p0, Landroid/speech/tts/FileSynthesisCallback;->mSampleRateInHz:I
@@ -510,8 +510,8 @@
 
     iput-boolean v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 181
     const/4 v2, 0x0
@@ -522,12 +522,12 @@
     goto :goto_0
 
     .line 182
-    .end local v0           #dataLength:I
+    .end local v0    # "dataLength":I
     :catch_0
     move-exception v1
 
     .line 183
-    .local v1, ex:Ljava/io/IOException;
+    .local v1, "ex":Ljava/io/IOException;
     const-string v4, "FileSynthesisRequest"
 
     const-string v5, "Failed to write to output file descriptor"
@@ -597,9 +597,9 @@
 
 .method public start(III)I
     .locals 6
-    .parameter "sampleRateInHz"
-    .parameter "audioFormat"
-    .parameter "channelCount"
+    .param p1, "sampleRateInHz"    # I
+    .param p2, "audioFormat"    # I
+    .param p3, "channelCount"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -680,8 +680,8 @@
 
     invoke-virtual {v3, v4}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 120
     const/4 v1, 0x0
@@ -696,7 +696,7 @@
     move-exception v0
 
     .line 122
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     const-string v3, "FileSynthesisRequest"
 
     new-instance v4, Ljava/lang/StringBuilder;

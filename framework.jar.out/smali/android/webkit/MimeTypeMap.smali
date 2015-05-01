@@ -35,7 +35,7 @@
 
 .method public static getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v6, 0x0
@@ -55,7 +55,7 @@
     move-result v3
 
     .line 46
-    .local v3, fragment:I
+    .local v3, "fragment":I
     if-lez v3, :cond_0
 
     .line 47
@@ -72,7 +72,7 @@
     move-result v4
 
     .line 51
-    .local v4, query:I
+    .local v4, "query":I
     if-lez v4, :cond_1
 
     .line 52
@@ -89,7 +89,7 @@
     move-result v2
 
     .line 56
-    .local v2, filenamePos:I
+    .local v2, "filenamePos":I
     if-ltz v2, :cond_2
 
     add-int/lit8 v5, v2, 0x1
@@ -99,7 +99,7 @@
     move-result-object v1
 
     .line 61
-    .local v1, filename:Ljava/lang/String;
+    .local v1, "filename":Ljava/lang/String;
     :goto_0
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
@@ -123,7 +123,7 @@
     move-result v0
 
     .line 64
-    .local v0, dotPos:I
+    .local v0, "dotPos":I
     if-ltz v0, :cond_3
 
     .line 65
@@ -134,17 +134,17 @@
     move-result-object v5
 
     .line 70
-    .end local v0           #dotPos:I
-    .end local v1           #filename:Ljava/lang/String;
-    .end local v2           #filenamePos:I
-    .end local v3           #fragment:I
-    .end local v4           #query:I
+    .end local v0    # "dotPos":I
+    .end local v1    # "filename":Ljava/lang/String;
+    .end local v2    # "filenamePos":I
+    .end local v3    # "fragment":I
+    .end local v4    # "query":I
     :goto_1
     return-object v5
 
-    .restart local v2       #filenamePos:I
-    .restart local v3       #fragment:I
-    .restart local v4       #query:I
+    .restart local v2    # "filenamePos":I
+    .restart local v3    # "fragment":I
+    .restart local v4    # "query":I
     :cond_2
     move-object v1, p0
 
@@ -152,9 +152,9 @@
     goto :goto_0
 
     .line 70
-    .end local v2           #filenamePos:I
-    .end local v3           #fragment:I
-    .end local v4           #query:I
+    .end local v2    # "filenamePos":I
+    .end local v3    # "fragment":I
+    .end local v4    # "query":I
     :cond_3
     const-string v5, ""
 
@@ -173,7 +173,7 @@
 
 .method private static mimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "extension"
+    .param p0, "extension"    # Ljava/lang/String;
 
     .prologue
     .line 93
@@ -188,7 +188,7 @@
 # virtual methods
 .method public getExtensionFromMimeType(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 113
@@ -201,7 +201,7 @@
 
 .method public getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "extension"
+    .param p1, "extension"    # Ljava/lang/String;
 
     .prologue
     .line 88
@@ -214,7 +214,7 @@
 
 .method public hasExtension(Ljava/lang/String;)Z
     .locals 1
-    .parameter "extension"
+    .param p1, "extension"    # Ljava/lang/String;
 
     .prologue
     .line 102
@@ -227,7 +227,7 @@
 
 .method public hasMimeType(Ljava/lang/String;)Z
     .locals 1
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -240,9 +240,9 @@
 
 .method remapGenericMimeType(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "mimeType"
-    .parameter "url"
-    .parameter "contentDisposition"
+    .param p1, "mimeType"    # Ljava/lang/String;
+    .param p2, "url"    # Ljava/lang/String;
+    .param p3, "contentDisposition"    # Ljava/lang/String;
 
     .prologue
     .line 130
@@ -267,7 +267,7 @@
     const/4 v1, 0x0
 
     .line 136
-    .local v1, filename:Ljava/lang/String;
+    .local v1, "filename":Ljava/lang/String;
     if-eqz p3, :cond_1
 
     .line 137
@@ -289,22 +289,22 @@
     move-result-object v0
 
     .line 143
-    .local v0, extension:Ljava/lang/String;
+    .local v0, "extension":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     .line 144
-    .local v2, newMimeType:Ljava/lang/String;
+    .local v2, "newMimeType":Ljava/lang/String;
     if-eqz v2, :cond_3
 
     .line 145
     move-object p1, v2
 
     .line 157
-    .end local v0           #extension:Ljava/lang/String;
-    .end local v1           #filename:Ljava/lang/String;
-    .end local v2           #newMimeType:Ljava/lang/String;
+    .end local v0    # "extension":Ljava/lang/String;
+    .end local v1    # "filename":Ljava/lang/String;
+    .end local v2    # "newMimeType":Ljava/lang/String;
     :cond_3
     :goto_0
     return-object p1

@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;Ljava/lang/String;II)V
     .locals 0
-    .parameter
-    .parameter "devName"
-    .parameter "state1Bits"
-    .parameter "state2Bits"
+    .param p2, "devName"    # Ljava/lang/String;
+    .param p3, "state1Bits"    # I
+    .param p4, "state2Bits"    # I
 
     .prologue
     .line 403
@@ -67,7 +66,7 @@
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 421
-    .local v0, f:Ljava/io/File;
+    .local v0, "f":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -77,8 +76,8 @@
 
 .method public computeNewHeadsetState(II)I
     .locals 4
-    .parameter "headsetState"
-    .parameter "switchState"
+    .param p1, "headsetState"    # I
+    .param p2, "switchState"    # I
 
     .prologue
     .line 425
@@ -91,7 +90,7 @@
     xor-int/lit8 v0, v2, -0x1
 
     .line 426
-    .local v0, preserveMask:I
+    .local v0, "preserveMask":I
     const/4 v2, 0x1
 
     if-ne p2, v2, :cond_0
@@ -99,7 +98,7 @@
     iget v1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
     .line 429
-    .local v1, setBits:I
+    .local v1, "setBits":I
     :goto_0
     and-int v2, p1, v0
 
@@ -108,7 +107,7 @@
     return v2
 
     .line 426
-    .end local v1           #setBits:I
+    .end local v1    # "setBits":I
     :cond_0
     const/4 v2, 0x2
 

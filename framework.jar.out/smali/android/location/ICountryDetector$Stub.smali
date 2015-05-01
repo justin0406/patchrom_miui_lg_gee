@@ -52,7 +52,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/ICountryDetector;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/ICountryDetector;
@@ -90,7 +90,7 @@
     :cond_1
     new-instance v0, Landroid/location/ICountryDetector$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/ICountryDetector$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -108,10 +108,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,7 +152,7 @@
     move-result-object v1
 
     .line 54
-    .local v1, _result:Landroid/location/Country;
+    .local v1, "_result":Landroid/location/Country;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 55
@@ -175,7 +175,7 @@
     goto :goto_0
 
     .line 66
-    .end local v1           #_result:Landroid/location/Country;
+    .end local v1    # "_result":Landroid/location/Country;
     :sswitch_2
     const-string v3, "android.location.ICountryDetector"
 
@@ -191,7 +191,7 @@
     move-result-object v0
 
     .line 69
-    .local v0, _arg0:Landroid/location/ICountryListener;
+    .local v0, "_arg0":Landroid/location/ICountryListener;
     invoke-virtual {p0, v0}, Landroid/location/ICountryDetector$Stub;->addCountryListener(Landroid/location/ICountryListener;)V
 
     .line 70
@@ -200,7 +200,7 @@
     goto :goto_0
 
     .line 75
-    .end local v0           #_arg0:Landroid/location/ICountryListener;
+    .end local v0    # "_arg0":Landroid/location/ICountryListener;
     :sswitch_3
     const-string v3, "android.location.ICountryDetector"
 
@@ -216,7 +216,7 @@
     move-result-object v0
 
     .line 78
-    .restart local v0       #_arg0:Landroid/location/ICountryListener;
+    .restart local v0    # "_arg0":Landroid/location/ICountryListener;
     invoke-virtual {p0, v0}, Landroid/location/ICountryDetector$Stub;->removeCountryListener(Landroid/location/ICountryListener;)V
 
     .line 79

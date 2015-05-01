@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 41
@@ -29,9 +29,9 @@
 
 .method private reportFreeSpace(Ljava/io/File;Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 12
-    .parameter "path"
-    .parameter "name"
-    .parameter "pw"
+    .param p1, "path"    # Ljava/io/File;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     const-wide/16 v9, 0x0
@@ -47,7 +47,7 @@
     invoke-direct {v5, v8}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
 
     .line 90
-    .local v5, statfs:Landroid/os/StatFs;
+    .local v5, "statfs":Landroid/os/StatFs;
     invoke-virtual {v5}, Landroid/os/StatFs;->getBlockSize()I
 
     move-result v8
@@ -55,7 +55,7 @@
     int-to-long v2, v8
 
     .line 91
-    .local v2, bsize:J
+    .local v2, "bsize":J
     invoke-virtual {v5}, Landroid/os/StatFs;->getAvailableBlocks()I
 
     move-result v8
@@ -63,7 +63,7 @@
     int-to-long v0, v8
 
     .line 92
-    .local v0, avail:J
+    .local v0, "avail":J
     invoke-virtual {v5}, Landroid/os/StatFs;->getBlockCount()I
 
     move-result v8
@@ -71,7 +71,7 @@
     int-to-long v6, v8
 
     .line 93
-    .local v6, total:J
+    .local v6, "total":J
     cmp-long v8, v2, v9
 
     if-lez v8, :cond_0
@@ -129,15 +129,15 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 106
-    .end local v0           #avail:J
-    .end local v2           #bsize:J
-    .end local v5           #statfs:Landroid/os/StatFs;
-    .end local v6           #total:J
+    .end local v0    # "avail":J
+    .end local v2    # "bsize":J
+    .end local v5    # "statfs":Landroid/os/StatFs;
+    .end local v6    # "total":J
     :catch_0
     move-exception v4
 
     .line 107
-    .local v4, e:Ljava/lang/IllegalArgumentException;
+    .local v4, "e":Ljava/lang/IllegalArgumentException;
     invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 108
@@ -153,15 +153,15 @@
     invoke-virtual {p3, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 112
-    .end local v4           #e:Ljava/lang/IllegalArgumentException;
+    .end local v4    # "e":Ljava/lang/IllegalArgumentException;
     :goto_0
     return-void
 
     .line 98
-    .restart local v0       #avail:J
-    .restart local v2       #bsize:J
-    .restart local v5       #statfs:Landroid/os/StatFs;
-    .restart local v6       #total:J
+    .restart local v0    # "avail":J
+    .restart local v2    # "bsize":J
+    .restart local v5    # "statfs":Landroid/os/StatFs;
+    .restart local v6    # "total":J
     :cond_1
     :try_start_1
     invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -222,9 +222,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 15
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 47
@@ -242,10 +242,10 @@
     new-array v10, v12, [B
 
     .line 51
-    .local v10, junk:[B
+    .local v10, "junk":[B
     const/4 v9, 0x0
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_0
     array-length v12, v10
 
@@ -272,37 +272,37 @@
     invoke-direct {v11, v12, v13}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 54
-    .local v11, tmp:Ljava/io/File;
+    .local v11, "tmp":Ljava/io/File;
     const/4 v7, 0x0
 
     .line 55
-    .local v7, fos:Ljava/io/FileOutputStream;
+    .local v7, "fos":Ljava/io/FileOutputStream;
     const/4 v6, 0x0
 
     .line 57
-    .local v6, error:Ljava/io/IOException;
+    .local v6, "error":Ljava/io/IOException;
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
 
     .line 59
-    .local v3, before:J
+    .local v3, "before":J
     :try_start_0
     new-instance v8, Ljava/io/FileOutputStream;
 
     invoke-direct {v8, v11}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 60
-    .end local v7           #fos:Ljava/io/FileOutputStream;
-    .local v8, fos:Ljava/io/FileOutputStream;
+    .end local v7    # "fos":Ljava/io/FileOutputStream;
+    .local v8, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     invoke-virtual {v8, v10}, Ljava/io/FileOutputStream;->write([B)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 64
     if-eqz v8, :cond_1
@@ -317,8 +317,8 @@
     move-object v7, v8
 
     .line 67
-    .end local v8           #fos:Ljava/io/FileOutputStream;
-    .restart local v7       #fos:Ljava/io/FileOutputStream;
+    .end local v8    # "fos":Ljava/io/FileOutputStream;
+    .restart local v7    # "fos":Ljava/io/FileOutputStream;
     :cond_2
     :goto_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -326,7 +326,7 @@
     move-result-wide v1
 
     .line 68
-    .local v1, after:J
+    .local v1, "after":J
     invoke-virtual {v11}, Ljava/io/File;->exists()Z
 
     move-result v12
@@ -395,12 +395,12 @@
     return-void
 
     .line 61
-    .end local v1           #after:J
+    .end local v1    # "after":J
     :catch_0
     move-exception v5
 
     .line 62
-    .local v5, e:Ljava/io/IOException;
+    .local v5, "e":Ljava/io/IOException;
     :goto_4
     move-object v6, v5
 
@@ -419,7 +419,7 @@
 
     goto :goto_2
 
-    .end local v5           #e:Ljava/io/IOException;
+    .end local v5    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v12
 
@@ -436,7 +436,7 @@
     throw v12
 
     .line 74
-    .restart local v1       #after:J
+    .restart local v1    # "after":J
     :cond_5
     const-string v12, "Latency: "
 
@@ -461,14 +461,14 @@
     goto :goto_3
 
     .line 64
-    .end local v1           #after:J
+    .end local v1    # "after":J
     :catch_2
     move-exception v13
 
     goto :goto_6
 
-    .end local v7           #fos:Ljava/io/FileOutputStream;
-    .restart local v8       #fos:Ljava/io/FileOutputStream;
+    .end local v7    # "fos":Ljava/io/FileOutputStream;
+    .restart local v8    # "fos":Ljava/io/FileOutputStream;
     :catch_3
     move-exception v12
 
@@ -479,19 +479,19 @@
 
     move-object v7, v8
 
-    .end local v8           #fos:Ljava/io/FileOutputStream;
-    .restart local v7       #fos:Ljava/io/FileOutputStream;
+    .end local v8    # "fos":Ljava/io/FileOutputStream;
+    .restart local v7    # "fos":Ljava/io/FileOutputStream;
     goto :goto_5
 
     .line 61
-    .end local v7           #fos:Ljava/io/FileOutputStream;
-    .restart local v8       #fos:Ljava/io/FileOutputStream;
+    .end local v7    # "fos":Ljava/io/FileOutputStream;
+    .restart local v8    # "fos":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v5
 
     move-object v7, v8
 
-    .end local v8           #fos:Ljava/io/FileOutputStream;
-    .restart local v7       #fos:Ljava/io/FileOutputStream;
+    .end local v8    # "fos":Ljava/io/FileOutputStream;
+    .restart local v7    # "fos":Ljava/io/FileOutputStream;
     goto :goto_4
 .end method

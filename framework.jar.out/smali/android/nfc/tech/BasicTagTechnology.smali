@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/Tag;I)V
     .locals 0
-    .parameter "tag"
-    .parameter "tech"
+    .param p1, "tag"    # Landroid/nfc/Tag;
+    .param p2, "tech"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -121,8 +121,8 @@
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->reconnect(I)I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 127
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -141,7 +141,7 @@
     move-exception v0
 
     .line 125
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_1
     const-string v1, "NFC"
 
@@ -162,7 +162,7 @@
     goto :goto_0
 
     .line 127
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -206,7 +206,7 @@
     move-result v1
 
     .line 76
-    .local v1, errorCode:I
+    .local v1, "errorCode":I
     if-nez v1, :cond_0
 
     .line 78
@@ -242,12 +242,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 87
-    .end local v1           #errorCode:I
+    .end local v1    # "errorCode":I
     :catch_0
     move-exception v0
 
     .line 88
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -264,8 +264,8 @@
     throw v2
 
     .line 85
-    .end local v0           #e:Landroid/os/RemoteException;
-    .restart local v1       #errorCode:I
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "errorCode":I
     :cond_1
     :try_start_1
     new-instance v2, Ljava/io/IOException;
@@ -306,7 +306,7 @@
     move-exception v0
 
     .line 137
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
@@ -372,7 +372,7 @@
     move-exception v0
 
     .line 65
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -427,7 +427,7 @@
     move-result v1
 
     .line 103
-    .local v1, errorCode:I
+    .local v1, "errorCode":I
     if-eqz v1, :cond_1
 
     .line 104
@@ -450,12 +450,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 108
-    .end local v1           #errorCode:I
+    .end local v1    # "errorCode":I
     :catch_0
     move-exception v0
 
     .line 109
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iput-boolean v4, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
 
     .line 110
@@ -480,16 +480,16 @@
     throw v2
 
     .line 114
-    .end local v0           #e:Landroid/os/RemoteException;
-    .restart local v1       #errorCode:I
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "errorCode":I
     :cond_1
     return-void
 .end method
 
 .method transceive([BZ)[B
     .locals 4
-    .parameter "data"
-    .parameter "raw"
+    .param p1, "data"    # [B
+    .param p2, "raw"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -519,7 +519,7 @@
     move-result-object v1
 
     .line 148
-    .local v1, result:Landroid/nfc/TransceiveResult;
+    .local v1, "result":Landroid/nfc/TransceiveResult;
     if-nez v1, :cond_0
 
     .line 149
@@ -534,12 +534,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 153
-    .end local v1           #result:Landroid/nfc/TransceiveResult;
+    .end local v1    # "result":Landroid/nfc/TransceiveResult;
     :catch_0
     move-exception v0
 
     .line 154
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -556,8 +556,8 @@
     throw v2
 
     .line 151
-    .end local v0           #e:Landroid/os/RemoteException;
-    .restart local v1       #result:Landroid/nfc/TransceiveResult;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "result":Landroid/nfc/TransceiveResult;
     :cond_0
     :try_start_1
     invoke-virtual {v1}, Landroid/nfc/TransceiveResult;->getResponseOrThrow()[B

@@ -37,12 +37,12 @@
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;Landroid/graphics/Rect;Landroid/graphics/Rect;JJ)V
     .locals 7
-    .parameter "mediaItem"
-    .parameter "effectId"
-    .parameter "startRect"
-    .parameter "endRect"
-    .parameter "startTimeMs"
-    .parameter "durationMs"
+    .param p1, "mediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "effectId"    # Ljava/lang/String;
+    .param p3, "startRect"    # Landroid/graphics/Rect;
+    .param p4, "endRect"    # Landroid/graphics/Rect;
+    .param p5, "startTimeMs"    # J
+    .param p7, "durationMs"    # J
 
     .prologue
     .line 54
@@ -130,8 +130,8 @@
 
 .method getKenBurnsSettings(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # Landroid/graphics/Rect;
+    .param p2, "end"    # Landroid/graphics/Rect;
 
     .prologue
     .line 96

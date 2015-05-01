@@ -49,9 +49,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/inputmethod/InputMethodSession;Landroid/view/InputChannel;)V
     .locals 3
-    .parameter "context"
-    .parameter "inputMethodSession"
-    .parameter "channel"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "inputMethodSession"    # Landroid/view/inputmethod/InputMethodSession;
+    .param p3, "channel"    # Landroid/view/InputChannel;
 
     .prologue
     .line 61
@@ -138,8 +138,8 @@
 # virtual methods
 .method public appPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 3
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 178
@@ -161,7 +161,7 @@
 
 .method public displayCompletions([Landroid/view/inputmethod/CompletionInfo;)V
     .locals 3
-    .parameter "completions"
+    .param p1, "completions"    # [Landroid/view/inputmethod/CompletionInfo;
 
     .prologue
     .line 146
@@ -183,7 +183,7 @@
 
 .method public executeMessage(Landroid/os/Message;)V
     .locals 8
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x1
@@ -273,7 +273,7 @@
     check-cast v7, Lcom/android/internal/os/SomeArgs;
 
     .line 95
-    .local v7, args:Lcom/android/internal/os/SomeArgs;
+    .local v7, "args":Lcom/android/internal/os/SomeArgs;
     iget-object v0, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
 
     iget v1, v7, Lcom/android/internal/os/SomeArgs;->argi1:I
@@ -296,7 +296,7 @@
     goto :goto_0
 
     .line 101
-    .end local v7           #args:Lcom/android/internal/os/SomeArgs;
+    .end local v7    # "args":Lcom/android/internal/os/SomeArgs;
     :sswitch_4
     iget-object v1, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
 
@@ -315,7 +315,7 @@
     check-cast v7, Lcom/android/internal/os/SomeArgs;
 
     .line 106
-    .restart local v7       #args:Lcom/android/internal/os/SomeArgs;
+    .restart local v7    # "args":Lcom/android/internal/os/SomeArgs;
     iget-object v2, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
 
     iget-object v0, v7, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
@@ -334,7 +334,7 @@
     goto :goto_0
 
     .line 112
-    .end local v7           #args:Lcom/android/internal/os/SomeArgs;
+    .end local v7    # "args":Lcom/android/internal/os/SomeArgs;
     :sswitch_6
     iget-object v0, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
 
@@ -439,8 +439,8 @@
 
 .method public toggleSoftInput(II)V
     .locals 3
-    .parameter "showFlags"
-    .parameter "hideFlags"
+    .param p1, "showFlags"    # I
+    .param p2, "hideFlags"    # I
 
     .prologue
     .line 184
@@ -462,7 +462,7 @@
 
 .method public updateCursor(Landroid/graphics/Rect;)V
     .locals 3
-    .parameter "newCursor"
+    .param p1, "newCursor"    # Landroid/graphics/Rect;
 
     .prologue
     .line 172
@@ -484,8 +484,8 @@
 
 .method public updateExtractedText(ILandroid/view/inputmethod/ExtractedText;)V
     .locals 3
-    .parameter "token"
-    .parameter "text"
+    .param p1, "token"    # I
+    .param p2, "text"    # Landroid/view/inputmethod/ExtractedText;
 
     .prologue
     .line 152
@@ -507,12 +507,12 @@
 
 .method public updateSelection(IIIIII)V
     .locals 9
-    .parameter "oldSelStart"
-    .parameter "oldSelEnd"
-    .parameter "newSelStart"
-    .parameter "newSelEnd"
-    .parameter "candidatesStart"
-    .parameter "candidatesEnd"
+    .param p1, "oldSelStart"    # I
+    .param p2, "oldSelEnd"    # I
+    .param p3, "newSelStart"    # I
+    .param p4, "newSelEnd"    # I
+    .param p5, "candidatesStart"    # I
+    .param p6, "candidatesEnd"    # I
 
     .prologue
     .line 159
@@ -546,7 +546,7 @@
 
 .method public viewClicked(Z)V
     .locals 4
-    .parameter "focusChanged"
+    .param p1, "focusChanged"    # Z
 
     .prologue
     .line 166

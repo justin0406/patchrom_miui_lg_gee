@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AssetAtlasService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 153
@@ -49,8 +48,8 @@
 # virtual methods
 .method public compare(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)I
     .locals 2
-    .parameter "b1"
-    .parameter "b2"
+    .param p1, "b1"    # Landroid/graphics/Bitmap;
+    .param p2, "b2"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 156
@@ -95,17 +94,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 153
     check-cast p1, Landroid/graphics/Bitmap;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/graphics/Bitmap;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AssetAtlasService$1;->compare(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)I
 
     move-result v0

@@ -27,10 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;Landroid/view/ViewGroup;Landroid/view/View;Landroid/app/Fragment;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 968
@@ -51,7 +47,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 6
-    .parameter "anim"
+    .param p1, "anim"    # Landroid/animation/Animator;
 
     .prologue
     const/4 v3, 0x0

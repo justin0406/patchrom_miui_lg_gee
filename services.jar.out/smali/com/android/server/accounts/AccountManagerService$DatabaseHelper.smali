@@ -17,12 +17,12 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 3
-    .parameter "context"
-    .parameter "userId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "userId"    # I
 
     .prologue
     .line 2380
-    #calls: Lcom/android/server/accounts/AccountManagerService;->getDatabaseName(I)Ljava/lang/String;
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->getDatabaseName(I)Ljava/lang/String;
     invoke-static {p2}, Lcom/android/server/accounts/AccountManagerService;->access$2100(I)Ljava/lang/String;
 
     move-result-object v0
@@ -39,7 +39,7 @@
 
 .method private createAccountsDeletionTrigger(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 2431
@@ -53,7 +53,7 @@
 
 .method private createGrantsTable(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 2444
@@ -67,7 +67,7 @@
 
 .method private createSharedAccountsTable(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 2423
@@ -83,7 +83,7 @@
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 2390
@@ -121,7 +121,7 @@
 
 .method public onOpen(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 2
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 2487
@@ -148,9 +148,9 @@
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 3
-    .parameter "db"
-    .parameter "oldVersion"
-    .parameter "newVersion"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "oldVersion"    # I
+    .param p3, "newVersion"    # I
 
     .prologue
     .line 2454

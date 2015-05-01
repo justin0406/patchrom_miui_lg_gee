@@ -22,8 +22,8 @@
 # virtual methods
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
     .locals 3
-    .parameter "config"
-    .parameter "status"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "status"    # I
 
     .prologue
     .line 44
@@ -65,12 +65,12 @@
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
     .locals 3
-    .parameter "config"
-    .parameter "device"
-    .parameter "prevState"
-    .parameter "newState"
-    .parameter "fd"
-    .parameter "channelId"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "device"    # Landroid/bluetooth/BluetoothDevice;
+    .param p3, "prevState"    # I
+    .param p4, "newState"    # I
+    .param p5, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p6, "channelId"    # I
 
     .prologue
     .line 64
@@ -110,7 +110,7 @@
 
     move-result-object v1
 
-    const-string v2, "newState:"
+    const-string/jumbo v2, "newState:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

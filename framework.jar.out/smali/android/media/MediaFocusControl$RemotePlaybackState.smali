@@ -29,10 +29,9 @@
 # direct methods
 .method private constructor <init>(Landroid/media/MediaFocusControl;III)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "vol"
-    .parameter "volMax"
+    .param p2, "id"    # I
+    .param p3, "vol"    # I
+    .param p4, "volMax"    # I
 
     .prologue
     .line 1114
@@ -60,11 +59,11 @@
 
 .method synthetic constructor <init>(Landroid/media/MediaFocusControl;IIILandroid/media/MediaFocusControl$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Landroid/media/MediaFocusControl;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Landroid/media/MediaFocusControl$1;
 
     .prologue
     .line 1108

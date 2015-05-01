@@ -45,7 +45,7 @@
 
 .method protected constructor <init>(Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)V
     .locals 1
-    .parameter "spb"
+    .param p1, "spb"    # Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

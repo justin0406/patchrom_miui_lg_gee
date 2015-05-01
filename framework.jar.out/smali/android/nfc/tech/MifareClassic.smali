@@ -6,11 +6,11 @@
 # static fields
 .field public static final BLOCK_SIZE:I = 0x10
 
-.field public static final KEY_DEFAULT:[B = null
+.field public static final KEY_DEFAULT:[B
 
-.field public static final KEY_MIFARE_APPLICATION_DIRECTORY:[B = null
+.field public static final KEY_MIFARE_APPLICATION_DIRECTORY:[B
 
-.field public static final KEY_NFC_FORUM:[B = null
+.field public static final KEY_NFC_FORUM:[B
 
 .field private static final MAX_BLOCK_COUNT:I = 0x100
 
@@ -77,45 +77,45 @@
     nop
 
     :array_0
-    .array-data 0x1
-        0xfft
-        0xfft
-        0xfft
-        0xfft
-        0xfft
-        0xfft
+    .array-data 1
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
     .end array-data
 
     .line 85
     nop
 
     :array_1
-    .array-data 0x1
-        0xa0t
-        0xa1t
-        0xa2t
-        0xa3t
-        0xa4t
-        0xa5t
+    .array-data 1
+        -0x60t
+        -0x5ft
+        -0x5et
+        -0x5dt
+        -0x5ct
+        -0x5bt
     .end array-data
 
     .line 91
     nop
 
     :array_2
-    .array-data 0x1
-        0xd3t
-        0xf7t
-        0xd3t
-        0xf7t
-        0xd3t
-        0xf7t
+    .array-data 1
+        -0x2dt
+        -0x9t
+        -0x2dt
+        -0x9t
+        -0x2dt
+        -0x9t
     .end array-data
 .end method
 
 .method public constructor <init>(Landroid/nfc/Tag;)V
     .locals 6
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, a:Landroid/nfc/tech/NfcA;
+    .local v0, "a":Landroid/nfc/tech/NfcA;
     iput-boolean v2, p0, Landroid/nfc/tech/MifareClassic;->mIsEmulated:Z
 
     .line 152
@@ -297,9 +297,9 @@
 
 .method private authenticate(I[BZ)Z
     .locals 9
-    .parameter "sector"
-    .parameter "key"
-    .parameter "keyA"
+    .param p1, "sector"    # I
+    .param p2, "key"    # [B
+    .param p3, "keyA"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -325,7 +325,7 @@
     new-array v0, v5, [B
 
     .line 376
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     if-eqz p3, :cond_0
 
     .line 377
@@ -353,7 +353,7 @@
     move-result-object v2
 
     .line 389
-    .local v2, uid:[B
+    .local v2, "uid":[B
     array-length v5, v2
 
     add-int/lit8 v5, v5, -0x4
@@ -385,7 +385,7 @@
     return v3
 
     .line 379
-    .end local v2           #uid:[B
+    .end local v2    # "uid":[B
     :cond_0
     const/16 v5, 0x61
 
@@ -394,16 +394,16 @@
     goto :goto_0
 
     .line 398
-    .restart local v2       #uid:[B
+    .restart local v2    # "uid":[B
     :catch_0
     move-exception v1
 
     .line 399
-    .local v1, e:Landroid/nfc/TagLostException;
+    .local v1, "e":Landroid/nfc/TagLostException;
     throw v1
 
     .line 400
-    .end local v1           #e:Landroid/nfc/TagLostException;
+    .end local v1    # "e":Landroid/nfc/TagLostException;
     :catch_1
     move-exception v3
 
@@ -416,7 +416,7 @@
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareClassic;
     .locals 3
-    .parameter "tag"
+    .param p0, "tag"    # Landroid/nfc/Tag;
 
     .prologue
     const/4 v1, 0x0
@@ -452,13 +452,13 @@
     move-exception v0
 
     .line 140
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method private static validateBlock(I)V
     .locals 3
-    .parameter "block"
+    .param p0, "block"    # I
 
     .prologue
     .line 643
@@ -501,7 +501,7 @@
 
 .method private static validateSector(I)V
     .locals 3
-    .parameter "sector"
+    .param p0, "sector"    # I
 
     .prologue
     .line 636
@@ -544,7 +544,7 @@
 
 .method private static validateValueOperand(I)V
     .locals 2
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 649
@@ -568,8 +568,8 @@
 # virtual methods
 .method public authenticateSectorWithKeyA(I[B)Z
     .locals 1
-    .parameter "sectorIndex"
-    .parameter "key"
+    .param p1, "sectorIndex"    # I
+    .param p2, "key"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -589,8 +589,8 @@
 
 .method public authenticateSectorWithKeyB(I[B)Z
     .locals 1
-    .parameter "sectorIndex"
-    .parameter "key"
+    .param p1, "sectorIndex"    # I
+    .param p2, "key"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -610,7 +610,7 @@
 
 .method public blockToSector(I)I
     .locals 1
-    .parameter "blockIndex"
+    .param p1, "blockIndex"    # I
 
     .prologue
     .line 291
@@ -670,8 +670,8 @@
 
 .method public decrement(II)V
     .locals 3
-    .parameter "blockIndex"
-    .parameter "value"
+    .param p1, "blockIndex"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -696,7 +696,7 @@
     move-result-object v0
 
     .line 505
-    .local v0, cmd:Ljava/nio/ByteBuffer;
+    .local v0, "cmd":Ljava/nio/ByteBuffer;
     sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -741,7 +741,7 @@
 
 .method public getBlockCountInSector(I)I
     .locals 1
-    .parameter "sectorIndex"
+    .param p1, "sectorIndex"    # I
 
     .prologue
     .line 274
@@ -877,7 +877,7 @@
     move-exception v0
 
     .line 623
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
@@ -902,8 +902,8 @@
 
 .method public increment(II)V
     .locals 3
-    .parameter "blockIndex"
-    .parameter "value"
+    .param p1, "blockIndex"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -928,7 +928,7 @@
     move-result-object v0
 
     .line 477
-    .local v0, cmd:Ljava/nio/ByteBuffer;
+    .local v0, "cmd":Ljava/nio/ByteBuffer;
     sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -983,7 +983,7 @@
 
 .method public readBlock(I)[B
     .locals 4
-    .parameter "blockIndex"
+    .param p1, "blockIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1015,7 +1015,7 @@
     aput-byte v2, v0, v1
 
     .line 425
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/MifareClassic;->transceive([BZ)[B
 
     move-result-object v1
@@ -1040,7 +1040,7 @@
 
 .method public restore(I)V
     .locals 4
-    .parameter "blockIndex"
+    .param p1, "blockIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1072,7 +1072,7 @@
     aput-byte v2, v0, v1
 
     .line 554
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/MifareClassic;->transceive([BZ)[B
 
     .line 555
@@ -1081,7 +1081,7 @@
 
 .method public sectorToBlock(I)I
     .locals 1
-    .parameter "sectorIndex"
+    .param p1, "sectorIndex"    # I
 
     .prologue
     .line 308
@@ -1108,7 +1108,7 @@
 
 .method public setTimeout(I)V
     .locals 4
-    .parameter "timeout"
+    .param p1, "timeout"    # I
 
     .prologue
     .line 603
@@ -1126,7 +1126,7 @@
     move-result v1
 
     .line 604
-    .local v1, err:I
+    .local v1, "err":I
     if-eqz v1, :cond_0
 
     .line 605
@@ -1141,12 +1141,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 607
-    .end local v1           #err:I
+    .end local v1    # "err":I
     :catch_0
     move-exception v0
 
     .line 608
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -1154,14 +1154,14 @@
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 610
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1181,7 +1181,7 @@
 
 .method public transfer(I)V
     .locals 4
-    .parameter "blockIndex"
+    .param p1, "blockIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1213,7 +1213,7 @@
     aput-byte v2, v0, v1
 
     .line 532
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/MifareClassic;->transceive([BZ)[B
 
     .line 533
@@ -1222,8 +1222,8 @@
 
 .method public writeBlock(I[B)V
     .locals 4
-    .parameter "blockIndex"
-    .parameter "data"
+    .param p1, "blockIndex"    # I
+    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1264,7 +1264,7 @@
     new-array v0, v1, [B
 
     .line 450
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     const/16 v1, -0x60
 
     aput-byte v1, v0, v3

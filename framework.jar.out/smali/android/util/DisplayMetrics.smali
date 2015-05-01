@@ -21,6 +21,8 @@
 
 .field public static final DENSITY_MEDIUM:I = 0xa0
 
+.field public static final DENSITY_NXHGITH:I
+
 .field public static final DENSITY_TV:I = 0xd5
 
 .field public static final DENSITY_XHIGH:I = 0x140
@@ -65,7 +67,12 @@
     .locals 1
 
     .prologue
-    .line 112
+    invoke-static {}, Landroid/util/MiuiDisplayMetrics;->getNxhdpiDensity()I
+
+    move-result v0
+
+    sput v0, Landroid/util/DisplayMetrics;->DENSITY_NXHGITH:I
+
     invoke-static {}, Landroid/util/DisplayMetrics;->getDeviceDensity()I
 
     move-result v0
@@ -112,7 +119,7 @@
 # virtual methods
 .method public equals(Landroid/util/DisplayMetrics;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 252
@@ -151,7 +158,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 242
@@ -161,7 +168,7 @@
 
     check-cast p1, Landroid/util/DisplayMetrics;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/util/DisplayMetrics;->equals(Landroid/util/DisplayMetrics;)Z
 
     move-result v0
@@ -181,7 +188,7 @@
 
 .method public equalsPhysical(Landroid/util/DisplayMetrics;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 267
@@ -302,7 +309,7 @@
 
 .method public setTo(Landroid/util/DisplayMetrics;)V
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 207
@@ -396,7 +403,7 @@
 
     int-to-float v0, v0
 
-    const/high16 v1, 0x4320
+    const/high16 v1, 0x43200000    # 160.0f
 
     div-float/2addr v0, v1
 

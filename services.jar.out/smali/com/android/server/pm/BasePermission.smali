@@ -34,9 +34,9 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 1
-    .parameter "_name"
-    .parameter "_sourcePackage"
-    .parameter "_type"
+    .param p1, "_name"    # Ljava/lang/String;
+    .param p2, "_sourcePackage"    # Ljava/lang/String;
+    .param p3, "_type"    # I
 
     .prologue
     .line 47

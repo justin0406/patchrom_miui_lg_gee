@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState;Landroid/content/Context;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/content/Context;
 
     .prologue
     .line 340
@@ -44,7 +43,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
+    # setter for: Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
     invoke-static {v0, v1}, Lcom/android/server/print/UserState;->access$202(Lcom/android/server/print/UserState;Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;)Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     .line 344

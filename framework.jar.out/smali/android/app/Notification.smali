@@ -20,7 +20,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -139,7 +139,7 @@
 
 .field public deleteIntent:Landroid/app/PendingIntent;
 
-.field public extraNotification:Lmiui/app/ExtraNotification;
+.field public extraNotification:Landroid/app/MiuiNotification;
 
 .field public extras:Landroid/os/Bundle;
 
@@ -197,11 +197,11 @@
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/app/ExtraNotification;
+    new-instance v0, Landroid/app/MiuiNotification;
 
-    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+    invoke-direct {v0}, Landroid/app/MiuiNotification;-><init>()V
 
-    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
 
     const/4 v0, -0x1
 
@@ -228,20 +228,20 @@
 
 .method public constructor <init>(ILjava/lang/CharSequence;J)V
     .locals 1
-    .parameter "icon"
-    .parameter "tickerText"
-    .parameter "when"
+    .param p1, "icon"    # I
+    .param p2, "tickerText"    # Ljava/lang/CharSequence;
+    .param p3, "when"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/app/ExtraNotification;
+    new-instance v0, Landroid/app/MiuiNotification;
 
-    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+    invoke-direct {v0}, Landroid/app/MiuiNotification;-><init>()V
 
-    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
 
     const/4 v0, -0x1
 
@@ -264,24 +264,24 @@
 
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/CharSequence;JLjava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "icon"
-    .parameter "tickerText"
-    .parameter "when"
-    .parameter "contentTitle"
-    .parameter "contentText"
-    .parameter "contentIntent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "icon"    # I
+    .param p3, "tickerText"    # Ljava/lang/CharSequence;
+    .param p4, "when"    # J
+    .param p6, "contentTitle"    # Ljava/lang/CharSequence;
+    .param p7, "contentText"    # Ljava/lang/CharSequence;
+    .param p8, "contentIntent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/app/ExtraNotification;
+    new-instance v0, Landroid/app/MiuiNotification;
 
-    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+    invoke-direct {v0}, Landroid/app/MiuiNotification;-><init>()V
 
-    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
 
     const/4 v0, -0x1
 
@@ -310,16 +310,16 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v1, Lmiui/app/ExtraNotification;
+    new-instance v1, Landroid/app/MiuiNotification;
 
-    invoke-direct {v1}, Lmiui/app/ExtraNotification;-><init>()V
+    invoke-direct {v1}, Landroid/app/MiuiNotification;-><init>()V
 
-    iput-object v1, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+    iput-object v1, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
 
     const/4 v1, -0x1
 
@@ -335,7 +335,7 @@
 
     move-result v0
 
-    .local v0, version:I
+    .local v0, "version":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
@@ -616,16 +616,16 @@
 
     .line 762
     :cond_8
-    iget-object v1, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+    iget-object v1, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
 
-    invoke-virtual {v1, p1}, Lmiui/app/ExtraNotification;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-virtual {v1, p1}, Landroid/app/MiuiNotification;->readFromParcel(Landroid/os/Parcel;)V
 
     return-void
 .end method
 
 .method public static safeCharSequence(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "cs"
+    .param p0, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 875
@@ -676,7 +676,7 @@
     move-result-object p0
 
     .line 881
-    .end local p0
+    .end local p0    # "cs":Ljava/lang/CharSequence;
     :cond_0
     return-object p0
 .end method
@@ -687,17 +687,18 @@
     .locals 2
 
     .prologue
+    .line 766
     new-instance v0, Landroid/app/Notification;
 
     invoke-direct {v0}, Landroid/app/Notification;-><init>()V
 
-    .local v0, that:Landroid/app/Notification;
+    .line 767
+    .local v0, "that":Landroid/app/Notification;
     const/4 v1, 0x1
 
     invoke-virtual {p0, v0, v1}, Landroid/app/Notification;->cloneInto(Landroid/app/Notification;Z)V
 
-    invoke-static {p0, v0}, Landroid/app/Injector$NotificationHook;->after_clone(Landroid/app/Notification;Landroid/app/Notification;)V
-
+    .line 768
     return-object v0
 .end method
 
@@ -720,8 +721,8 @@
 
 .method public cloneInto(Landroid/app/Notification;Z)V
     .locals 10
-    .parameter "that"
-    .parameter "heavy"
+    .param p1, "that"    # Landroid/app/Notification;
+    .param p2, "heavy"    # Z
 
     .prologue
     const/4 v9, 0x0
@@ -841,25 +842,25 @@
     iget-object v6, p0, Landroid/app/Notification;->vibrate:[J
 
     .line 803
-    .local v6, vibrate:[J
+    .local v6, "vibrate":[J
     if-eqz v6, :cond_4
 
     .line 804
     array-length v0, v6
 
     .line 805
-    .local v0, N:I
+    .local v0, "N":I
     new-array v5, v0, [J
 
     iput-object v5, p1, Landroid/app/Notification;->vibrate:[J
 
     .line 806
-    .local v5, vib:[J
+    .local v5, "vib":[J
     invoke-static {v6, v9, v5, v9, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 809
-    .end local v0           #N:I
-    .end local v5           #vib:[J
+    .end local v0    # "N":I
+    .end local v5    # "vib":[J
     :cond_4
     iget v7, p0, Landroid/app/Notification;->ledARGB:I
 
@@ -894,25 +895,25 @@
     iget-object v4, p0, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
     .line 819
-    .local v4, thiskind:[Ljava/lang/String;
+    .local v4, "thiskind":[Ljava/lang/String;
     if-eqz v4, :cond_5
 
     .line 820
     array-length v0, v4
 
     .line 821
-    .restart local v0       #N:I
+    .restart local v0    # "N":I
     new-array v3, v0, [Ljava/lang/String;
 
     iput-object v3, p1, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
     .line 822
-    .local v3, thatkind:[Ljava/lang/String;
+    .local v3, "thatkind":[Ljava/lang/String;
     invoke-static {v4, v9, v3, v9, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 825
-    .end local v0           #N:I
-    .end local v3           #thatkind:[Ljava/lang/String;
+    .end local v0    # "N":I
+    .end local v3    # "thatkind":[Ljava/lang/String;
     :cond_5
     iget-object v7, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
@@ -954,7 +955,7 @@
     .line 838
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     iget-object v7, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
@@ -981,12 +982,12 @@
     goto :goto_1
 
     .line 830
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :catch_0
     move-exception v1
 
     .line 831
-    .local v1, e:Landroid/os/BadParcelableException;
+    .local v1, "e":Landroid/os/BadParcelableException;
     const-string v7, "Notification"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1017,7 +1018,7 @@
     goto :goto_0
 
     .line 843
-    .end local v1           #e:Landroid/os/BadParcelableException;
+    .end local v1    # "e":Landroid/os/BadParcelableException;
     :cond_7
     if-eqz p2, :cond_8
 
@@ -1043,6 +1044,12 @@
 
     .line 850
     :cond_9
+    iget-object v7, p1, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
+
+    iget-object v8, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
+
+    invoke-virtual {v7, v8}, Landroid/app/MiuiNotification;->setTo(Landroid/app/MiuiNotification;)V
+
     return-void
 .end method
 
@@ -1107,10 +1114,10 @@
 
 .method public setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
     .locals 3
-    .parameter "context"
-    .parameter "contentTitle"
-    .parameter "contentText"
-    .parameter "contentIntent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "contentTitle"    # Ljava/lang/CharSequence;
+    .param p3, "contentText"    # Ljava/lang/CharSequence;
+    .param p4, "contentIntent"    # Landroid/app/PendingIntent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1121,7 +1128,7 @@
     invoke-direct {v0, p1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
     .line 1016
-    .local v0, builder:Landroid/app/Notification$Builder;
+    .local v0, "builder":Landroid/app/Notification$Builder;
     iget-wide v1, p0, Landroid/app/Notification;->when:J
 
     invoke-virtual {v0, v1, v2}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
@@ -1149,7 +1156,7 @@
     .line 1021
     iget v1, p0, Landroid/app/Notification;->flags:I
 
-    #setter for: Landroid/app/Notification$Builder;->mFlags:I
+    # setter for: Landroid/app/Notification$Builder;->mFlags:I
     invoke-static {v0, v1}, Landroid/app/Notification$Builder;->access$102(Landroid/app/Notification$Builder;I)I
 
     .line 1022
@@ -1195,7 +1202,7 @@
 
 .method public setUser(Landroid/os/UserHandle;)V
     .locals 2
-    .parameter "user"
+    .param p1, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1102
@@ -1258,7 +1265,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1040
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     const-string v3, "Notification(pri="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1461,7 +1468,7 @@
     add-int/lit8 v0, v3, -0x1
 
     .line 1056
-    .local v0, N:I
+    .local v0, "N":I
     const-string v3, "["
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1469,7 +1476,7 @@
     .line 1057
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_3
     if-ge v1, v0, :cond_4
 
@@ -1512,8 +1519,8 @@
     goto/16 :goto_1
 
     .line 1066
-    .end local v0           #N:I
-    .end local v1           #i:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
     :cond_6
     const-string/jumbo v3, "null"
 
@@ -1550,7 +1557,7 @@
     :cond_9
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_4
     iget-object v3, p0, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
@@ -1581,8 +1588,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -1750,7 +1757,9 @@
     invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_8
-    invoke-static {p0, p1, p2}, Landroid/app/Injector$NotificationHook;->after_writeToParcel(Landroid/app/Notification;Landroid/os/Parcel;I)V
+    iget-object v0, p0, Landroid/app/Notification;->extraNotification:Landroid/app/MiuiNotification;
+
+    invoke-virtual {v0, p1, p2}, Landroid/app/MiuiNotification;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
 

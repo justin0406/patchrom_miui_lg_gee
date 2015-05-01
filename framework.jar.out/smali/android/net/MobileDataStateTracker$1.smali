@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/MobileDataStateTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 126
@@ -36,13 +35,13 @@
 # virtual methods
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
     .locals 1
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
 
     .prologue
     .line 129
     iget-object v0, p0, Landroid/net/MobileDataStateTracker$1;->this$0:Landroid/net/MobileDataStateTracker;
 
-    #setter for: Landroid/net/MobileDataStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
+    # setter for: Landroid/net/MobileDataStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
     invoke-static {v0, p1}, Landroid/net/MobileDataStateTracker;->access$102(Landroid/net/MobileDataStateTracker;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
 
     .line 130

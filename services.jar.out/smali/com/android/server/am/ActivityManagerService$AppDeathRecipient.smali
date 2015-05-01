@@ -30,10 +30,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;)V
     .locals 0
-    .parameter
-    .parameter "app"
-    .parameter "pid"
-    .parameter "thread"
+    .param p2, "app"    # Lcom/android/server/am/ProcessRecord;
+    .param p3, "pid"    # I
+    .param p4, "thread"    # Landroid/app/IApplicationThread;
 
     .prologue
     .line 1011

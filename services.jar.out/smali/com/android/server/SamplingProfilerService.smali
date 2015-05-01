@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 45
@@ -49,9 +49,9 @@
 
 .method static synthetic access$000(Lcom/android/server/SamplingProfilerService;Ljava/io/File;Landroid/os/DropBoxManager;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/server/SamplingProfilerService;
+    .param p1, "x1"    # Ljava/io/File;
+    .param p2, "x2"    # Landroid/os/DropBoxManager;
 
     .prologue
     .line 36
@@ -62,8 +62,8 @@
 
 .method private handleSnapshotFile(Ljava/io/File;Landroid/os/DropBoxManager;)V
     .locals 4
-    .parameter "file"
-    .parameter "dropbox"
+    .param p1, "file"    # Ljava/io/File;
+    .param p2, "dropbox"    # Landroid/os/DropBoxManager;
 
     .prologue
     .line 81
@@ -74,8 +74,8 @@
 
     invoke-virtual {p2, v1, p1, v2}, Landroid/os/DropBoxManager;->addFile(Ljava/lang/String;Ljava/io/File;I)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 86
     :goto_0
@@ -89,7 +89,7 @@
     move-exception v0
 
     .line 84
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :try_start_1
     const-string v1, "SamplingProfilerService"
 
@@ -128,7 +128,7 @@
     goto :goto_0
 
     .line 86
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
 
@@ -139,7 +139,7 @@
 
 .method private registerSettingObserver(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 91
@@ -148,7 +148,7 @@
     move-result-object v0
 
     .line 92
-    .local v0, contentResolver:Landroid/content/ContentResolver;
+    .local v0, "contentResolver":Landroid/content/ContentResolver;
     const-string v1, "sampling_profiler_ms"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -169,7 +169,7 @@
 
 .method private startWorking(Landroid/content/Context;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 54
@@ -182,7 +182,7 @@
     check-cast v0, Landroid/os/DropBoxManager;
 
     .line 59
-    .local v0, dropbox:Landroid/os/DropBoxManager;
+    .local v0, "dropbox":Landroid/os/DropBoxManager;
     new-instance v3, Ljava/io/File;
 
     const-string v4, "/data/snapshots"
@@ -194,10 +194,10 @@
     move-result-object v2
 
     .line 60
-    .local v2, snapshotFiles:[Ljava/io/File;
+    .local v2, "snapshotFiles":[Ljava/io/File;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-eqz v2, :cond_0
 
@@ -240,9 +240,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 99

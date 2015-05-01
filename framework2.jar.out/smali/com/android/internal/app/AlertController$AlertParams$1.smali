@@ -32,12 +32,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Landroid/content/Context;II[Ljava/lang/CharSequence;Lcom/android/internal/app/AlertController$RecycleListView;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # I
+    .param p4, "x2"    # I
+    .param p5, "x3"    # [Ljava/lang/CharSequence;
 
     .prologue
     .line 876
@@ -54,9 +52,9 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 879
@@ -65,7 +63,7 @@
     move-result-object v1
 
     .line 880
-    .local v1, view:Landroid/view/View;
+    .local v1, "view":Landroid/view/View;
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v2, v2, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItems:[Z
@@ -80,7 +78,7 @@
     aget-boolean v0, v2, p1
 
     .line 882
-    .local v0, isItemChecked:Z
+    .local v0, "isItemChecked":Z
     if-eqz v0, :cond_0
 
     .line 883
@@ -91,7 +89,7 @@
     invoke-virtual {v2, p1, v3}, Lcom/android/internal/app/AlertController$RecycleListView;->setItemChecked(IZ)V
 
     .line 886
-    .end local v0           #isItemChecked:Z
+    .end local v0    # "isItemChecked":Z
     :cond_0
     return-object v1
 .end method

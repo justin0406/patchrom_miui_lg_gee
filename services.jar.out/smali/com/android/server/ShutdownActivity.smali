@@ -26,7 +26,7 @@
 
 .method static synthetic access$000(Lcom/android/server/ShutdownActivity;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/ShutdownActivity;
 
     .prologue
     .line 31
@@ -37,7 +37,7 @@
 
 .method static synthetic access$100(Lcom/android/server/ShutdownActivity;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/ShutdownActivity;
 
     .prologue
     .line 31
@@ -50,7 +50,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 39
@@ -62,7 +62,7 @@
     move-result-object v0
 
     .line 42
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "android.intent.action.REBOOT"
 
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -119,7 +119,7 @@
     invoke-direct {v1, p0, v2}, Lcom/android/server/ShutdownActivity$1;-><init>(Lcom/android/server/ShutdownActivity;Ljava/lang/String;)V
 
     .line 61
-    .local v1, thr:Ljava/lang/Thread;
+    .local v1, "thr":Ljava/lang/Thread;
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     .line 62

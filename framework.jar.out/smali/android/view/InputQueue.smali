@@ -101,8 +101,8 @@
 
 .method private finishInputEvent(IZ)V
     .locals 4
-    .parameter "id"
-    .parameter "handled"
+    .param p1, "id"    # I
+    .param p2, "handled"    # Z
 
     .prologue
     .line 105
@@ -113,7 +113,7 @@
     move-result v1
 
     .line 106
-    .local v1, index:I
+    .local v1, "index":I
     if-ltz v1, :cond_0
 
     .line 107
@@ -126,7 +126,7 @@
     check-cast v0, Landroid/view/InputQueue$ActiveInputEvent;
 
     .line 108
-    .local v0, e:Landroid/view/InputQueue$ActiveInputEvent;
+    .local v0, "e":Landroid/view/InputQueue$ActiveInputEvent;
     iget-object v2, p0, Landroid/view/InputQueue;->mActiveEventArray:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v1}, Landroid/util/SparseArray;->removeAt(I)V
@@ -142,7 +142,7 @@
     invoke-direct {p0, v0}, Landroid/view/InputQueue;->recycleActiveInputEvent(Landroid/view/InputQueue$ActiveInputEvent;)V
 
     .line 112
-    .end local v0           #e:Landroid/view/InputQueue$ActiveInputEvent;
+    .end local v0    # "e":Landroid/view/InputQueue$ActiveInputEvent;
     :cond_0
     return-void
 .end method
@@ -172,8 +172,8 @@
 
 .method private obtainActiveInputEvent(Ljava/lang/Object;Landroid/view/InputQueue$FinishedInputEventCallback;)Landroid/view/InputQueue$ActiveInputEvent;
     .locals 2
-    .parameter "token"
-    .parameter "callback"
+    .param p1, "token"    # Ljava/lang/Object;
+    .param p2, "callback"    # Landroid/view/InputQueue$FinishedInputEventCallback;
 
     .prologue
     .line 116
@@ -186,19 +186,19 @@
     check-cast v0, Landroid/view/InputQueue$ActiveInputEvent;
 
     .line 117
-    .local v0, e:Landroid/view/InputQueue$ActiveInputEvent;
+    .local v0, "e":Landroid/view/InputQueue$ActiveInputEvent;
     if-nez v0, :cond_0
 
     .line 118
     new-instance v0, Landroid/view/InputQueue$ActiveInputEvent;
 
-    .end local v0           #e:Landroid/view/InputQueue$ActiveInputEvent;
+    .end local v0    # "e":Landroid/view/InputQueue$ActiveInputEvent;
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Landroid/view/InputQueue$ActiveInputEvent;-><init>(Landroid/view/InputQueue;Landroid/view/InputQueue$1;)V
 
     .line 120
-    .restart local v0       #e:Landroid/view/InputQueue$ActiveInputEvent;
+    .restart local v0    # "e":Landroid/view/InputQueue$ActiveInputEvent;
     :cond_0
     iput-object p1, v0, Landroid/view/InputQueue$ActiveInputEvent;->mToken:Ljava/lang/Object;
 
@@ -211,7 +211,7 @@
 
 .method private recycleActiveInputEvent(Landroid/view/InputQueue$ActiveInputEvent;)V
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/InputQueue$ActiveInputEvent;
 
     .prologue
     .line 126
@@ -243,7 +243,7 @@
 
 .method public dispose(Z)V
     .locals 1
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     .line 73
@@ -330,10 +330,10 @@
 
 .method public sendInputEvent(Landroid/view/InputEvent;Ljava/lang/Object;ZLandroid/view/InputQueue$FinishedInputEventCallback;)V
     .locals 3
-    .parameter "e"
-    .parameter "token"
-    .parameter "predispatch"
-    .parameter "callback"
+    .param p1, "e"    # Landroid/view/InputEvent;
+    .param p2, "token"    # Ljava/lang/Object;
+    .param p3, "predispatch"    # Z
+    .param p4, "callback"    # Landroid/view/InputQueue$FinishedInputEventCallback;
 
     .prologue
     .line 94
@@ -342,7 +342,7 @@
     move-result-object v0
 
     .line 96
-    .local v0, event:Landroid/view/InputQueue$ActiveInputEvent;
+    .local v0, "event":Landroid/view/InputQueue$ActiveInputEvent;
     instance-of v2, p1, Landroid/view/KeyEvent;
 
     if-eqz v2, :cond_0
@@ -352,13 +352,13 @@
 
     check-cast p1, Landroid/view/KeyEvent;
 
-    .end local p1
+    .end local p1    # "e":Landroid/view/InputEvent;
     invoke-static {v2, p1, p3}, Landroid/view/InputQueue;->nativeSendKeyEvent(ILandroid/view/KeyEvent;Z)I
 
     move-result v1
 
     .line 101
-    .local v1, id:I
+    .local v1, "id":I
     :goto_0
     iget-object v2, p0, Landroid/view/InputQueue;->mActiveEventArray:Landroid/util/SparseArray;
 
@@ -368,18 +368,18 @@
     return-void
 
     .line 99
-    .end local v1           #id:I
-    .restart local p1
+    .end local v1    # "id":I
+    .restart local p1    # "e":Landroid/view/InputEvent;
     :cond_0
     iget v2, p0, Landroid/view/InputQueue;->mPtr:I
 
     check-cast p1, Landroid/view/MotionEvent;
 
-    .end local p1
+    .end local p1    # "e":Landroid/view/InputEvent;
     invoke-static {v2, p1}, Landroid/view/InputQueue;->nativeSendMotionEvent(ILandroid/view/MotionEvent;)I
 
     move-result v1
 
-    .restart local v1       #id:I
+    .restart local v1    # "id":I
     goto :goto_0
 .end method

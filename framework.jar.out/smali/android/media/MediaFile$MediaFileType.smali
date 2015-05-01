@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "fileType"
-    .parameter "mimeType"
+    .param p1, "fileType"    # I
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 118

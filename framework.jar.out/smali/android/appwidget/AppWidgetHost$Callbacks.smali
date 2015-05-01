@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/appwidget/AppWidgetHost;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 65
@@ -36,15 +35,15 @@
 # virtual methods
 .method public providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;I)V
     .locals 3
-    .parameter "appWidgetId"
-    .parameter "info"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "info"    # Landroid/appwidget/AppWidgetProviderInfo;
+    .param p3, "userId"    # I
 
     .prologue
     .line 76
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost$Callbacks;->this$0:Landroid/appwidget/AppWidgetHost;
 
-    #calls: Landroid/appwidget/AppWidgetHost;->isLocalBinder()Z
+    # invokes: Landroid/appwidget/AppWidgetHost;->isLocalBinder()Z
     invoke-static {v1}, Landroid/appwidget/AppWidgetHost;->access$000(Landroid/appwidget/AppWidgetHost;)Z
 
     move-result v1
@@ -71,7 +70,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 82
@@ -80,7 +79,7 @@
 
 .method public providersChanged(I)V
     .locals 4
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 85
@@ -97,7 +96,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 87
@@ -106,15 +105,15 @@
 
 .method public updateAppWidget(ILandroid/widget/RemoteViews;I)V
     .locals 3
-    .parameter "appWidgetId"
-    .parameter "views"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "views"    # Landroid/widget/RemoteViews;
+    .param p3, "userId"    # I
 
     .prologue
     .line 67
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost$Callbacks;->this$0:Landroid/appwidget/AppWidgetHost;
 
-    #calls: Landroid/appwidget/AppWidgetHost;->isLocalBinder()Z
+    # invokes: Landroid/appwidget/AppWidgetHost;->isLocalBinder()Z
     invoke-static {v1}, Landroid/appwidget/AppWidgetHost;->access$000(Landroid/appwidget/AppWidgetHost;)Z
 
     move-result v1
@@ -148,7 +147,7 @@
     move-result-object v0
 
     .line 72
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 73
@@ -157,9 +156,9 @@
 
 .method public viewDataChanged(III)V
     .locals 4
-    .parameter "appWidgetId"
-    .parameter "viewId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "viewId"    # I
+    .param p3, "userId"    # I
 
     .prologue
     .line 90
@@ -178,7 +177,7 @@
     move-result-object v0
 
     .line 92
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 93

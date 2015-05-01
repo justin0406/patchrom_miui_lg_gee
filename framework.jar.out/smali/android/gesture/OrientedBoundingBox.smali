@@ -20,14 +20,14 @@
 # direct methods
 .method constructor <init>(FFFFF)V
     .locals 3
-    .parameter "angle"
-    .parameter "cx"
-    .parameter "cy"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "angle"    # F
+    .param p2, "cx"    # F
+    .param p3, "cy"    # F
+    .param p4, "w"    # F
+    .param p5, "h"    # F
 
     .prologue
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     div-float v0, p4, p5
 
     .line 43
-    .local v0, ratio:F
+    .local v0, "ratio":F
     cmpl-float v1, v0, v2
 
     if-lez v1, :cond_0
@@ -82,7 +82,7 @@
 
     const/4 v6, 0x0
 
-    const/high16 v5, 0x4000
+    const/high16 v5, 0x40000000    # 2.0f
 
     .line 56
     new-instance v1, Landroid/graphics/Path;
@@ -90,13 +90,13 @@
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
     .line 57
-    .local v1, path:Landroid/graphics/Path;
+    .local v1, "path":Landroid/graphics/Path;
     const/4 v3, 0x2
 
     new-array v2, v3, [F
 
     .line 58
-    .local v2, point:[F
+    .local v2, "point":[F
     iget v3, p0, Landroid/gesture/OrientedBoundingBox;->width:F
 
     neg-float v3, v3
@@ -118,7 +118,7 @@
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     .line 61
-    .local v0, matrix:Landroid/graphics/Matrix;
+    .local v0, "matrix":Landroid/graphics/Matrix;
     iget v3, p0, Landroid/gesture/OrientedBoundingBox;->orientation:F
 
     invoke-virtual {v0, v3}, Landroid/graphics/Matrix;->setRotate(F)V

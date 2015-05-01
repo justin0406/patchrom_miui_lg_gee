@@ -42,13 +42,12 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$InternalServiceConnection;Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
     .locals 6
-    .parameter
-    .parameter "connection"
-    .parameter "listener"
-    .parameter "locale"
-    .parameter "scListener"
-    .parameter "uid"
-    .parameter "bundle"
+    .param p2, "connection"    # Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
+    .param p3, "listener"    # Lcom/android/internal/textservice/ITextServicesSessionListener;
+    .param p4, "locale"    # Ljava/lang/String;
+    .param p5, "scListener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p6, "uid"    # I
+    .param p7, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 720
@@ -106,7 +105,7 @@
 
 .method static synthetic access$1000(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Ljava/util/concurrent/CopyOnWriteArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     .prologue
     .line 709
@@ -117,7 +116,7 @@
 
 .method static synthetic access$900(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     .prologue
     .line 709
@@ -151,16 +150,16 @@
     .line 820
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mInternalConnection:Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
-    #getter for: Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->mSciId:Ljava/lang/String;
+    # getter for: Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->mSciId:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->access$1200(Lcom/android/server/TextServicesManagerService$InternalServiceConnection;)Ljava/lang/String;
 
     move-result-object v1
 
     .line 821
-    .local v1, sciId:Ljava/lang/String;
+    .local v1, "sciId":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService;->access$1300(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -172,13 +171,13 @@
     check-cast v0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     .line 822
-    .local v0, cur:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
+    .local v0, "cur":Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     if-ne v0, p0, :cond_0
 
     .line 826
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService;->access$1300(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -189,7 +188,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService;->access$400(Lcom/android/server/TextServicesManagerService;)Landroid/content/Context;
 
     move-result-object v2
@@ -199,8 +198,8 @@
     invoke-virtual {v2, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 830
-    .end local v0           #cur:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    .end local v1           #sciId:Ljava/lang/String;
+    .end local v0    # "cur":Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
+    .end local v1    # "sciId":Ljava/lang/String;
     :cond_1
     return-void
 .end method
@@ -209,21 +208,21 @@
 # virtual methods
 .method public addListener(Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     .locals 12
-    .parameter "tsListener"
-    .parameter "locale"
-    .parameter "scListener"
-    .parameter "uid"
-    .parameter "bundle"
+    .param p1, "tsListener"    # Lcom/android/internal/textservice/ITextServicesSessionListener;
+    .param p2, "locale"    # Ljava/lang/String;
+    .param p3, "scListener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p4, "uid"    # I
+    .param p5, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 759
     const/4 v9, 0x0
 
     .line 760
-    .local v9, recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .local v9, "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v11
@@ -239,10 +238,10 @@
     move-result v10
 
     .line 763
-    .local v10, size:I
+    .local v10, "size":I
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     :goto_0
     if-ge v8, v10, :cond_1
 
@@ -257,8 +256,8 @@
 
     invoke-virtual {v1, p3}, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->hasSpellCheckerListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)Z
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v1
 
@@ -277,18 +276,18 @@
     move-object v0, v9
 
     .line 778
-    .end local v8           #i:I
-    .end local v9           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .end local v10           #size:I
-    .local v0, recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v8    # "i":I
+    .end local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v10    # "size":I
+    .local v0, "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :goto_1
     return-object v1
 
     .line 763
-    .end local v0           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v8       #i:I
-    .restart local v9       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v10       #size:I
+    .end local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v8    # "i":I
+    .restart local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v10    # "size":I
     :cond_0
     add-int/lit8 v8, v8, 0x1
 
@@ -315,12 +314,12 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;-><init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 771
-    .end local v9           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v0       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :try_start_3
     invoke-interface {p3}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->asBinder()Landroid/os/IBinder;
 
@@ -335,12 +334,12 @@
 
     invoke-virtual {v1, v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 776
-    .end local v8           #i:I
-    .end local v10           #size:I
+    .end local v8    # "i":I
+    .end local v10    # "size":I
     :goto_2
     :try_start_4
     invoke-direct {p0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->cleanLocked()V
@@ -354,15 +353,15 @@
     goto :goto_1
 
     .line 777
-    .end local v0           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v9       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :catchall_0
     move-exception v1
 
     move-object v0, v9
 
-    .end local v9           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v0       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :goto_3
     monitor-exit v11
     :try_end_4
@@ -376,19 +375,19 @@
     goto :goto_3
 
     .line 773
-    .end local v0           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v9       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :catch_0
     move-exception v1
 
     move-object v0, v9
 
-    .end local v9           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    .restart local v0       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v9    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .restart local v0    # "recipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     goto :goto_2
 
-    .restart local v8       #i:I
-    .restart local v10       #size:I
+    .restart local v8    # "i":I
+    .restart local v10    # "size":I
     :catch_1
     move-exception v1
 
@@ -397,7 +396,7 @@
 
 .method public onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerService;)V
     .locals 7
-    .parameter "spellChecker"
+    .param p1, "spellChecker"    # Lcom/android/internal/textservice/ISpellCheckerService;
 
     .prologue
     .line 732
@@ -407,7 +406,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -422,7 +421,7 @@
     check-cast v2, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 
     .line 734
-    .local v2, listener:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .local v2, "listener":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :try_start_0
     iget-object v4, v2, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScLocale:Ljava/lang/String;
 
@@ -435,10 +434,10 @@
     move-result-object v3
 
     .line 736
-    .local v3, session:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .local v3, "session":Lcom/android/internal/textservice/ISpellCheckerSession;
     iget-object v4, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -481,12 +480,12 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 741
-    .end local v3           #session:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .end local v3    # "session":Lcom/android/internal/textservice/ISpellCheckerSession;
     :catch_0
     move-exception v0
 
     .line 742
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v4, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->TAG:Ljava/lang/String;
 
     const-string v5, "Exception in getting the spell checker session.Reconnect to the spellchecker. "
@@ -497,8 +496,8 @@
     invoke-virtual {p0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->removeAll()V
 
     .line 752
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v2           #listener:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v2    # "listener":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :goto_1
     return-void
 
@@ -506,7 +505,7 @@
     :cond_1
     iget-object v4, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -551,7 +550,7 @@
     .line 834
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -567,10 +566,10 @@
     move-result v2
 
     .line 836
-    .local v2, size:I
+    .local v2, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -584,7 +583,7 @@
     check-cast v1, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 
     .line 838
-    .local v1, idr:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .local v1, "idr":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     iget-object v3, v1, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     invoke-interface {v3}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->asBinder()Landroid/os/IBinder;
@@ -601,7 +600,7 @@
     goto :goto_0
 
     .line 840
-    .end local v1           #idr:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v1    # "idr":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :cond_0
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -617,8 +616,8 @@
     return-void
 
     .line 842
-    .end local v0           #i:I
-    .end local v2           #size:I
+    .end local v0    # "i":I
+    .end local v2    # "size":I
     :catchall_0
     move-exception v3
 
@@ -631,13 +630,13 @@
 
 .method public removeListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
     .locals 9
-    .parameter "listener"
+    .param p1, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     .prologue
     .line 785
     iget-object v6, p0, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v6}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v7
@@ -653,16 +652,16 @@
     move-result v4
 
     .line 787
-    .local v4, size:I
+    .local v4, "size":I
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 789
-    .local v2, removeList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;>;"
+    .local v2, "removeList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v4, :cond_1
 
@@ -676,7 +675,7 @@
     check-cast v5, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 
     .line 791
-    .local v5, tempRecipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .local v5, "tempRecipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     invoke-virtual {v5, p1}, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->hasSpellCheckerListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)Z
 
     move-result v6
@@ -693,14 +692,14 @@
     goto :goto_0
 
     .line 798
-    .end local v5           #tempRecipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v5    # "tempRecipient":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :cond_1
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
     .line 799
-    .local v3, removeSize:I
+    .local v3, "removeSize":I
     const/4 v0, 0x0
 
     :goto_1
@@ -714,7 +713,7 @@
     check-cast v1, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 
     .line 804
-    .local v1, idr:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .local v1, "idr":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     iget-object v6, v1, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     invoke-interface {v6}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->asBinder()Landroid/os/IBinder;
@@ -736,7 +735,7 @@
     goto :goto_1
 
     .line 807
-    .end local v1           #idr:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+    .end local v1    # "idr":Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     :cond_2
     invoke-direct {p0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->cleanLocked()V
 
@@ -747,10 +746,10 @@
     return-void
 
     .line 808
-    .end local v0           #i:I
-    .end local v2           #removeList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;>;"
-    .end local v3           #removeSize:I
-    .end local v4           #size:I
+    .end local v0    # "i":I
+    .end local v2    # "removeList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;>;"
+    .end local v3    # "removeSize":I
+    .end local v4    # "size":I
     :catchall_0
     move-exception v6
 

@@ -35,7 +35,6 @@
 # direct methods
 .method public constructor <init>(Landroid/media/videoeditor/MediaArtistNativeHelper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 141
@@ -62,7 +61,7 @@
     invoke-direct {v0, v1}, Landroid/media/videoeditor/MediaArtistNativeHelper$Version;-><init>(Landroid/media/videoeditor/MediaArtistNativeHelper;)V
 
     .line 165
-    .local v0, version:Landroid/media/videoeditor/MediaArtistNativeHelper$Version;
+    .local v0, "version":Landroid/media/videoeditor/MediaArtistNativeHelper$Version;
     iput v2, v0, Landroid/media/videoeditor/MediaArtistNativeHelper$Version;->major:I
 
     .line 166

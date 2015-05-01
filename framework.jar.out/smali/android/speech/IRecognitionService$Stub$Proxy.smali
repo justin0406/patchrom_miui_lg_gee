@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 92
@@ -51,7 +51,7 @@
 
 .method public cancel(Landroid/speech/IRecognitionListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/speech/IRecognitionListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +67,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 
@@ -123,8 +123,8 @@
 
 .method public startListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
     .locals 5
-    .parameter "recognizerIntent"
-    .parameter "listener"
+    .param p1, "recognizerIntent"    # Landroid/content/Intent;
+    .param p2, "listener"    # Landroid/speech/IRecognitionListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 117
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 
@@ -211,7 +211,7 @@
 
 .method public stopListening(Landroid/speech/IRecognitionListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/speech/IRecognitionListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -227,7 +227,7 @@
     move-result-object v0
 
     .line 143
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 

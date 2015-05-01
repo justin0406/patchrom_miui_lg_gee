@@ -170,7 +170,7 @@
 
 .method static synthetic access$000(Landroid/os/CommonTimeConfig;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CommonTimeConfig;
 
     .prologue
     .line 31
@@ -181,7 +181,7 @@
 
 .method static synthetic access$100(Landroid/os/CommonTimeConfig;)Landroid/os/CommonTimeConfig$OnServerDiedListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CommonTimeConfig;
 
     .prologue
     .line 31
@@ -228,20 +228,20 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 88
-    .local v1, retVal:Landroid/os/CommonTimeConfig;
+    .local v1, "retVal":Landroid/os/CommonTimeConfig;
     :goto_0
     return-object v1
 
     .line 84
-    .end local v1           #retVal:Landroid/os/CommonTimeConfig;
+    .end local v1    # "retVal":Landroid/os/CommonTimeConfig;
     :catch_0
     move-exception v0
 
     .line 85
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .restart local v1       #retVal:Landroid/os/CommonTimeConfig;
+    .restart local v1    # "retVal":Landroid/os/CommonTimeConfig;
     goto :goto_0
 .end method
 
@@ -300,13 +300,13 @@
     move-result-object v0
 
     .line 361
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 364
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v3, p0, Landroid/os/CommonTimeConfig;->mInterfaceDesc:Ljava/lang/String;
 
@@ -324,8 +324,8 @@
     .line 367
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -343,7 +343,7 @@
     move-exception v1
 
     .line 370
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v3, -0x7
 
     .line 373
@@ -355,7 +355,7 @@
     goto :goto_0
 
     .line 373
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
 
@@ -451,7 +451,7 @@
     move-result-object v0
 
     .line 206
-    .local v0, ifaceName:Ljava/lang/String;
+    .local v0, "ifaceName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -463,7 +463,7 @@
     move-object v0, v1
 
     .line 209
-    .end local v0           #ifaceName:Ljava/lang/String;
+    .end local v0    # "ifaceName":Ljava/lang/String;
     :cond_0
     return-object v0
 .end method
@@ -641,7 +641,7 @@
 
 .method public setAutoDisable(Z)I
     .locals 3
-    .parameter "autoDisable"
+    .param p1, "autoDisable"    # Z
 
     .prologue
     .line 338
@@ -682,7 +682,7 @@
 
 .method public setClientSyncInterval(I)I
     .locals 2
-    .parameter "interval"
+    .param p1, "interval"    # I
 
     .prologue
     .line 279
@@ -713,7 +713,7 @@
 
 .method public setMasterAnnounceInterval(I)I
     .locals 2
-    .parameter "interval"
+    .param p1, "interval"    # I
 
     .prologue
     .line 252
@@ -744,7 +744,7 @@
 
 .method public setMasterElectionEndpoint(Ljava/net/InetSocketAddress;)I
     .locals 2
-    .parameter "ep"
+    .param p1, "ep"    # Ljava/net/InetSocketAddress;
 
     .prologue
     .line 162
@@ -775,7 +775,7 @@
 
 .method public setMasterElectionGroupId(J)I
     .locals 2
-    .parameter "id"
+    .param p1, "id"    # J
 
     .prologue
     .line 187
@@ -806,7 +806,7 @@
 
 .method public setMasterElectionPriority(B)I
     .locals 2
-    .parameter "priority"
+    .param p1, "priority"    # B
 
     .prologue
     .line 133
@@ -837,7 +837,7 @@
 
 .method public setNetworkBinding(Ljava/lang/String;)I
     .locals 2
-    .parameter "ifaceName"
+    .param p1, "ifaceName"    # Ljava/lang/String;
 
     .prologue
     .line 223
@@ -851,11 +851,11 @@
     const/4 v0, -0x7
 
     .line 226
-    .end local p1
+    .end local p1    # "ifaceName":Ljava/lang/String;
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "ifaceName":Ljava/lang/String;
     :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
@@ -865,7 +865,7 @@
 
     const-string p1, ""
 
-    .end local p1
+    .end local p1    # "ifaceName":Ljava/lang/String;
     :cond_1
     invoke-virtual {v0, v1, p1}, Landroid/os/CommonTimeUtils;->transactSetString(ILjava/lang/String;)I
 
@@ -876,7 +876,7 @@
 
 .method public setPanicThreshold(I)I
     .locals 2
-    .parameter "threshold"
+    .param p1, "threshold"    # I
 
     .prologue
     .line 309
@@ -907,7 +907,7 @@
 
 .method public setServerDiedListener(Landroid/os/CommonTimeConfig$OnServerDiedListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/CommonTimeConfig$OnServerDiedListener;
 
     .prologue
     .line 399

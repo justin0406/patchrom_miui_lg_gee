@@ -35,6 +35,7 @@
 
     .prologue
     .line 55
+    # getter for: Landroid/os/SystemService;->sPropertyLock:Ljava/lang/Object;
     invoke-static {}, Landroid/os/SystemService;->access$100()Ljava/lang/Object;
 
     move-result-object v1
@@ -43,6 +44,7 @@
 
     .line 56
     :try_start_0
+    # getter for: Landroid/os/SystemService;->sPropertyLock:Ljava/lang/Object;
     invoke-static {}, Landroid/os/SystemService;->access$100()Ljava/lang/Object;
 
     move-result-object v0

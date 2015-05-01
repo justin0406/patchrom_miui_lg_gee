@@ -41,7 +41,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 478
@@ -72,7 +72,7 @@
     check-cast v0, Landroid/animation/ObjectAnimator;
 
     .line 503
-    .local v0, oa:Landroid/animation/ObjectAnimator;
+    .local v0, "oa":Landroid/animation/ObjectAnimator;
     if-eqz v0, :cond_0
 
     .line 504
@@ -82,7 +82,7 @@
     const/4 v1, 0x1
 
     .line 508
-    .end local v0           #oa:Landroid/animation/ObjectAnimator;
+    .end local v0    # "oa":Landroid/animation/ObjectAnimator;
     :goto_0
     return v1
 
@@ -111,7 +111,7 @@
     check-cast v0, Landroid/animation/ObjectAnimator;
 
     .line 492
-    .local v0, oa:Landroid/animation/ObjectAnimator;
+    .local v0, "oa":Landroid/animation/ObjectAnimator;
     if-eqz v0, :cond_0
 
     .line 493
@@ -121,7 +121,7 @@
     const/4 v1, 0x1
 
     .line 497
-    .end local v0           #oa:Landroid/animation/ObjectAnimator;
+    .end local v0    # "oa":Landroid/animation/ObjectAnimator;
     :goto_0
     return v1
 
@@ -133,7 +133,7 @@
 
 .method setSliderAnimator(Landroid/animation/ObjectAnimator;)V
     .locals 1
-    .parameter "oa"
+    .param p1, "oa"    # Landroid/animation/ObjectAnimator;
 
     .prologue
     .line 486
@@ -149,7 +149,7 @@
 
 .method setTransformAnimator(Landroid/animation/ObjectAnimator;)V
     .locals 1
-    .parameter "oa"
+    .param p1, "oa"    # Landroid/animation/ObjectAnimator;
 
     .prologue
     .line 482

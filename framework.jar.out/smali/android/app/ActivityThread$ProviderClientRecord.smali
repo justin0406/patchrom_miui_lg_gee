@@ -29,11 +29,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityThread;[Ljava/lang/String;Landroid/content/IContentProvider;Landroid/content/ContentProvider;Landroid/app/IActivityManager$ContentProviderHolder;)V
     .locals 0
-    .parameter
-    .parameter "names"
-    .parameter "provider"
-    .parameter "localProvider"
-    .parameter "holder"
+    .param p2, "names"    # [Ljava/lang/String;
+    .param p3, "provider"    # Landroid/content/IContentProvider;
+    .param p4, "localProvider"    # Landroid/content/ContentProvider;
+    .param p5, "holder"    # Landroid/app/IActivityManager$ContentProviderHolder;
 
     .prologue
     .line 326

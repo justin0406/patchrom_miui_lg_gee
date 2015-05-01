@@ -19,7 +19,7 @@
 
 .field public static final ACCOUNT_TYPE:Ljava/lang/String; = "account_type"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final ROOT_ID:Ljava/lang/String; = "root_id"
 

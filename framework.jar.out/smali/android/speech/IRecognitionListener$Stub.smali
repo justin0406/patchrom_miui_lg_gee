@@ -64,7 +64,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/speech/IRecognitionListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -86,7 +86,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/speech/IRecognitionListener;
@@ -102,7 +102,7 @@
     :cond_1
     new-instance v0, Landroid/speech/IRecognitionListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/speech/IRecognitionListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -120,10 +120,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,22 +175,22 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 61
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onReadyForSpeech(Landroid/os/Bundle;)V
 
     goto :goto_0
 
     .line 59
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_1
 
     .line 66
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_2
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -213,13 +213,13 @@
     move-result v0
 
     .line 75
-    .local v0, _arg0:F
+    .local v0, "_arg0":F
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onRmsChanged(F)V
 
     goto :goto_0
 
     .line 80
-    .end local v0           #_arg0:F
+    .end local v0    # "_arg0":F
     :sswitch_4
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -231,13 +231,13 @@
     move-result-object v0
 
     .line 83
-    .local v0, _arg0:[B
+    .local v0, "_arg0":[B
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onBufferReceived([B)V
 
     goto :goto_0
 
     .line 88
-    .end local v0           #_arg0:[B
+    .end local v0    # "_arg0":[B
     :sswitch_5
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -260,13 +260,13 @@
     move-result v0
 
     .line 97
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onError(I)V
 
     goto :goto_0
 
     .line 102
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_7
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -289,22 +289,22 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 110
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onResults(Landroid/os/Bundle;)V
 
     goto :goto_0
 
     .line 108
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_2
 
     .line 115
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_8
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -327,22 +327,22 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 123
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     :goto_3
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onPartialResults(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
     .line 121
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_3
 
     .line 128
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_9
     const-string v3, "android.speech.IRecognitionListener"
 
@@ -354,7 +354,7 @@
     move-result v0
 
     .line 132
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -371,18 +371,18 @@
     check-cast v1, Landroid/os/Bundle;
 
     .line 138
-    .local v1, _arg1:Landroid/os/Bundle;
+    .local v1, "_arg1":Landroid/os/Bundle;
     :goto_4
     invoke-virtual {p0, v0, v1}, Landroid/speech/IRecognitionListener$Stub;->onEvent(ILandroid/os/Bundle;)V
 
     goto/16 :goto_0
 
     .line 136
-    .end local v1           #_arg1:Landroid/os/Bundle;
+    .end local v1    # "_arg1":Landroid/os/Bundle;
     :cond_3
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/Bundle;
+    .restart local v1    # "_arg1":Landroid/os/Bundle;
     goto :goto_4
 
     .line 44

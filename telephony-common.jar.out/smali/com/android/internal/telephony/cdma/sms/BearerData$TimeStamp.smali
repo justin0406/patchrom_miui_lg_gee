@@ -36,7 +36,7 @@
 
 .method public static fromByteArray([B)Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
     .locals 11
-    .parameter "data"
+    .param p0, "data"    # [B
 
     .prologue
     const/16 v10, 0x3b
@@ -51,7 +51,7 @@
     invoke-direct {v5}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;-><init>()V
 
     .line 239
-    .local v5, ts:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
+    .local v5, "ts":Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
     const/4 v7, 0x0
 
     aget-byte v7, p0, v7
@@ -61,7 +61,7 @@
     move-result v6
 
     .line 240
-    .local v6, year:I
+    .local v6, "year":I
     const/16 v7, 0x63
 
     if-gt v6, v7, :cond_0
@@ -72,12 +72,12 @@
     move-object v5, v8
 
     .line 257
-    .end local v5           #ts:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
+    .end local v5    # "ts":Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
     :goto_0
     return-object v5
 
     .line 241
-    .restart local v5       #ts:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
+    .restart local v5    # "ts":Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
     :cond_1
     const/16 v7, 0x60
 
@@ -96,7 +96,7 @@
     move-result v3
 
     .line 243
-    .local v3, month:I
+    .local v3, "month":I
     if-lt v3, v9, :cond_2
 
     const/16 v7, 0xc
@@ -109,14 +109,14 @@
     goto :goto_0
 
     .line 241
-    .end local v3           #month:I
+    .end local v3    # "month":I
     :cond_3
     add-int/lit16 v7, v6, 0x7d0
 
     goto :goto_1
 
     .line 244
-    .restart local v3       #month:I
+    .restart local v3    # "month":I
     :cond_4
     add-int/lit8 v7, v3, -0x1
 
@@ -132,7 +132,7 @@
     move-result v0
 
     .line 246
-    .local v0, day:I
+    .local v0, "day":I
     if-lt v0, v9, :cond_5
 
     const/16 v7, 0x1f
@@ -158,7 +158,7 @@
     move-result v1
 
     .line 249
-    .local v1, hour:I
+    .local v1, "hour":I
     if-ltz v1, :cond_7
 
     const/16 v7, 0x17
@@ -184,7 +184,7 @@
     move-result v2
 
     .line 252
-    .local v2, minute:I
+    .local v2, "minute":I
     if-ltz v2, :cond_9
 
     if-le v2, v10, :cond_a
@@ -208,7 +208,7 @@
     move-result v4
 
     .line 255
-    .local v4, second:I
+    .local v4, "second":I
     if-ltz v4, :cond_b
 
     if-le v4, v10, :cond_c
@@ -237,7 +237,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 263
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "TimeStamp "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

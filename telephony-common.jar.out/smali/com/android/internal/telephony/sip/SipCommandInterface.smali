@@ -9,7 +9,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 35
@@ -23,7 +23,7 @@
 # virtual methods
 .method public acceptCall(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 151
@@ -32,9 +32,9 @@
 
 .method public acknowledgeIncomingGsmSmsWithPdu(ZLjava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "success"
-    .parameter "ackPdu"
-    .parameter "result"
+    .param p1, "success"    # Z
+    .param p2, "ackPdu"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 284
@@ -43,9 +43,9 @@
 
 .method public acknowledgeLastIncomingCdmaSms(ZILandroid/os/Message;)V
     .locals 0
-    .parameter "success"
-    .parameter "cause"
-    .parameter "result"
+    .param p1, "success"    # Z
+    .param p2, "cause"    # I
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 279
@@ -54,9 +54,9 @@
 
 .method public acknowledgeLastIncomingGsmSms(ZILandroid/os/Message;)V
     .locals 0
-    .parameter "success"
-    .parameter "cause"
-    .parameter "result"
+    .param p1, "success"    # Z
+    .param p2, "cause"    # I
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 274
@@ -65,7 +65,7 @@
 
 .method public cancelPendingUssd(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 373
@@ -74,10 +74,10 @@
 
 .method public changeBarringPassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "facility"
-    .parameter "oldPwd"
-    .parameter "newPwd"
-    .parameter "result"
+    .param p1, "facility"    # Ljava/lang/String;
+    .param p2, "oldPwd"    # Ljava/lang/String;
+    .param p3, "newPwd"    # Ljava/lang/String;
+    .param p4, "result"    # Landroid/os/Message;
 
     .prologue
     .line 72
@@ -86,9 +86,9 @@
 
 .method public changeIccPin(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "oldPin"
-    .parameter "newPin"
-    .parameter "result"
+    .param p1, "oldPin"    # Ljava/lang/String;
+    .param p2, "newPin"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 63
@@ -97,9 +97,9 @@
 
 .method public changeIccPin2(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "oldPin2"
-    .parameter "newPin2"
-    .parameter "result"
+    .param p1, "oldPin2"    # Ljava/lang/String;
+    .param p2, "newPin2"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 67
@@ -108,10 +108,10 @@
 
 .method public changeIccPin2ForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "oldPin2"
-    .parameter "newPin2"
-    .parameter "aidPtr"
-    .parameter "response"
+    .param p1, "oldPin2"    # Ljava/lang/String;
+    .param p2, "newPin2"    # Ljava/lang/String;
+    .param p3, "aidPtr"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 536
@@ -120,10 +120,10 @@
 
 .method public changeIccPinForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "oldPin"
-    .parameter "newPin"
-    .parameter "aidPtr"
-    .parameter "response"
+    .param p1, "oldPin"    # Ljava/lang/String;
+    .param p2, "newPin"    # Ljava/lang/String;
+    .param p3, "aidPtr"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 531
@@ -132,7 +132,7 @@
 
 .method public conference(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 134
@@ -141,9 +141,9 @@
 
 .method public deactivateDataCall(IILandroid/os/Message;)V
     .locals 0
-    .parameter "cid"
-    .parameter "reason"
-    .parameter "result"
+    .param p1, "cid"    # I
+    .param p2, "reason"    # I
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 261
@@ -152,8 +152,8 @@
 
 .method public deleteSmsOnRuim(ILandroid/os/Message;)V
     .locals 0
-    .parameter "index"
-    .parameter "response"
+    .param p1, "index"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 243
@@ -162,8 +162,8 @@
 
 .method public deleteSmsOnSim(ILandroid/os/Message;)V
     .locals 0
-    .parameter "index"
-    .parameter "response"
+    .param p1, "index"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 239
@@ -172,9 +172,9 @@
 
 .method public dial(Ljava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "address"
-    .parameter "clirMode"
-    .parameter "result"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "clirMode"    # I
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 92
@@ -183,10 +183,10 @@
 
 .method public dial(Ljava/lang/String;ILcom/android/internal/telephony/UUSInfo;Landroid/os/Message;)V
     .locals 0
-    .parameter "address"
-    .parameter "clirMode"
-    .parameter "uusInfo"
-    .parameter "result"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "clirMode"    # I
+    .param p3, "uusInfo"    # Lcom/android/internal/telephony/UUSInfo;
+    .param p4, "result"    # Landroid/os/Message;
 
     .prologue
     .line 97
@@ -195,7 +195,7 @@
 
 .method public exitEmergencyCallbackMode(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 511
@@ -204,7 +204,7 @@
 
 .method public explicitCallTransfer(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 159
@@ -213,7 +213,7 @@
 
 .method public getAvailableNetworks(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 327
@@ -222,7 +222,7 @@
 
 .method public getBasebandVersion(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 345
@@ -231,7 +231,7 @@
 
 .method public getCDMASubscription(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 467
@@ -240,7 +240,7 @@
 
 .method public getCLIR(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 297
@@ -249,7 +249,7 @@
 
 .method public getCdmaBroadcastConfig(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 499
@@ -258,7 +258,7 @@
 
 .method public getCdmaSubscriptionSource(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 446
@@ -267,7 +267,7 @@
 
 .method public getCellInfoList(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 548
@@ -276,7 +276,7 @@
 
 .method public getCurrentCalls(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 80
@@ -285,7 +285,7 @@
 
 .method public getDataCallList(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 88
@@ -294,7 +294,7 @@
 
 .method public getDataRegistrationState(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 192
@@ -303,7 +303,7 @@
 
 .method public getDeviceIdentity(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 463
@@ -312,7 +312,7 @@
 
 .method public getGsmBroadcastConfig(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 450
@@ -321,7 +321,7 @@
 
 .method public getIMEI(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 109
@@ -330,7 +330,7 @@
 
 .method public getIMEISV(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 113
@@ -339,7 +339,7 @@
 
 .method public getIMSI(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 101
@@ -348,8 +348,8 @@
 
 .method public getIMSIForApp(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "aid"
-    .parameter "result"
+    .param p1, "aid"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 105
@@ -358,7 +358,7 @@
 
 .method public getIccCardStatus(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 43
@@ -367,7 +367,7 @@
 
 .method public getImsRegistrationState(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 235
@@ -376,7 +376,7 @@
 
 .method public getLastCallFailCause(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 163
@@ -385,7 +385,7 @@
 
 .method public getLastDataCallFailCause(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 172
@@ -394,7 +394,7 @@
 
 .method public getLastPdpFailCause(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -405,7 +405,7 @@
 
 .method public getMute(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 180
@@ -414,7 +414,7 @@
 
 .method public getNeighboringCids(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 422
@@ -423,7 +423,7 @@
 
 .method public getNetworkSelectionMode(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 323
@@ -432,7 +432,7 @@
 
 .method public getOperator(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 196
@@ -441,7 +441,7 @@
 
 .method public getPDPContextList(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -452,7 +452,7 @@
 
 .method public getPreferredNetworkType(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 418
@@ -461,7 +461,7 @@
 
 .method public getPreferredVoicePrivacy(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 143
@@ -470,7 +470,7 @@
 
 .method public getSignalStrength(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 184
@@ -479,7 +479,7 @@
 
 .method public getSmscAddress(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 430
@@ -488,7 +488,7 @@
 
 .method public getVoiceRadioTechnology(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 544
@@ -497,7 +497,7 @@
 
 .method public getVoiceRegistrationState(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 188
@@ -506,8 +506,8 @@
 
 .method public handleCallSetupRequestFromSim(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "accept"
-    .parameter "response"
+    .param p1, "accept"    # Z
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 410
@@ -516,8 +516,8 @@
 
 .method public hangupConnection(ILandroid/os/Message;)V
     .locals 0
-    .parameter "gsmIndex"
-    .parameter "result"
+    .param p1, "gsmIndex"    # I
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 118
@@ -526,7 +526,7 @@
 
 .method public hangupForegroundResumeBackground(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 126
@@ -535,7 +535,7 @@
 
 .method public hangupWaitingOrBackground(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 122
@@ -544,15 +544,15 @@
 
 .method public iccIO(IILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "command"
-    .parameter "fileid"
-    .parameter "path"
-    .parameter "p1"
-    .parameter "p2"
-    .parameter "p3"
-    .parameter "data"
-    .parameter "pin2"
-    .parameter "result"
+    .param p1, "command"    # I
+    .param p2, "fileid"    # I
+    .param p3, "path"    # Ljava/lang/String;
+    .param p4, "p1"    # I
+    .param p5, "p2"    # I
+    .param p6, "p3"    # I
+    .param p7, "data"    # Ljava/lang/String;
+    .param p8, "pin2"    # Ljava/lang/String;
+    .param p9, "result"    # Landroid/os/Message;
 
     .prologue
     .line 289
@@ -561,16 +561,16 @@
 
 .method public iccIOForApp(IILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "command"
-    .parameter "fileid"
-    .parameter "path"
-    .parameter "p1"
-    .parameter "p2"
-    .parameter "p3"
-    .parameter "data"
-    .parameter "pin2"
-    .parameter "aid"
-    .parameter "result"
+    .param p1, "command"    # I
+    .param p2, "fileid"    # I
+    .param p3, "path"    # Ljava/lang/String;
+    .param p4, "p1"    # I
+    .param p5, "p2"    # I
+    .param p6, "p3"    # I
+    .param p7, "data"    # Ljava/lang/String;
+    .param p8, "pin2"    # Ljava/lang/String;
+    .param p9, "aid"    # Ljava/lang/String;
+    .param p10, "result"    # Landroid/os/Message;
 
     .prologue
     .line 293
@@ -579,8 +579,8 @@
 
 .method public invokeOemRilRequestRaw([BLandroid/os/Message;)V
     .locals 0
-    .parameter "data"
-    .parameter "response"
+    .param p1, "data"    # [B
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 381
@@ -589,8 +589,8 @@
 
 .method public invokeOemRilRequestStrings([Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "strings"
-    .parameter "response"
+    .param p1, "strings"    # [Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 385
@@ -599,7 +599,7 @@
 
 .method public queryAvailableBandMode(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 393
@@ -608,7 +608,7 @@
 
 .method public queryCLIP(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 341
@@ -617,10 +617,10 @@
 
 .method public queryCallForwardStatus(IILjava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "cfReason"
-    .parameter "serviceClass"
-    .parameter "number"
-    .parameter "response"
+    .param p1, "cfReason"    # I
+    .param p2, "serviceClass"    # I
+    .param p3, "number"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 337
@@ -629,8 +629,8 @@
 
 .method public queryCallWaiting(ILandroid/os/Message;)V
     .locals 0
-    .parameter "serviceClass"
-    .parameter "response"
+    .param p1, "serviceClass"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 305
@@ -639,7 +639,7 @@
 
 .method public queryCdmaRoamingPreference(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 475
@@ -648,10 +648,10 @@
 
 .method public queryFacilityLock(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "facility"
-    .parameter "password"
-    .parameter "serviceClass"
-    .parameter "response"
+    .param p1, "facility"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "serviceClass"    # I
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 350
@@ -660,11 +660,11 @@
 
 .method public queryFacilityLockForApp(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "facility"
-    .parameter "password"
-    .parameter "serviceClass"
-    .parameter "appId"
-    .parameter "response"
+    .param p1, "facility"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "serviceClass"    # I
+    .param p4, "appId"    # Ljava/lang/String;
+    .param p5, "response"    # Landroid/os/Message;
 
     .prologue
     .line 355
@@ -673,7 +673,7 @@
 
 .method public queryTTYMode(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 487
@@ -682,7 +682,7 @@
 
 .method public rejectCall(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 155
@@ -691,8 +691,8 @@
 
 .method public reportSmsMemoryStatus(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "available"
-    .parameter "result"
+    .param p1, "available"    # Z
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 438
@@ -701,7 +701,7 @@
 
 .method public reportStkServiceIsRunning(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 442
@@ -710,8 +710,8 @@
 
 .method public requestIsimAuthentication(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "nonce"
-    .parameter "response"
+    .param p1, "nonce"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 540
@@ -720,7 +720,7 @@
 
 .method public resetRadio(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 377
@@ -729,10 +729,10 @@
 
 .method public sendBurstDtmf(Ljava/lang/String;IILandroid/os/Message;)V
     .locals 0
-    .parameter "dtmfString"
-    .parameter "on"
-    .parameter "off"
-    .parameter "result"
+    .param p1, "dtmfString"    # Ljava/lang/String;
+    .param p2, "on"    # I
+    .param p3, "off"    # I
+    .param p4, "result"    # Landroid/os/Message;
 
     .prologue
     .line 213
@@ -741,8 +741,8 @@
 
 .method public sendCDMAFeatureCode(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "FeatureCode"
-    .parameter "response"
+    .param p1, "FeatureCode"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 495
@@ -751,8 +751,8 @@
 
 .method public sendCdmaSms([BLandroid/os/Message;)V
     .locals 0
-    .parameter "pdu"
-    .parameter "result"
+    .param p1, "pdu"    # [B
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 221
@@ -761,8 +761,8 @@
 
 .method public sendDtmf(CLandroid/os/Message;)V
     .locals 0
-    .parameter "c"
-    .parameter "result"
+    .param p1, "c"    # C
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 200
@@ -771,8 +771,8 @@
 
 .method public sendEnvelope(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "contents"
-    .parameter "response"
+    .param p1, "contents"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 401
@@ -781,8 +781,8 @@
 
 .method public sendEnvelopeWithStatus(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "contents"
-    .parameter "response"
+    .param p1, "contents"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 405
@@ -791,10 +791,10 @@
 
 .method public sendImsCdmaSms([BIILandroid/os/Message;)V
     .locals 0
-    .parameter "pdu"
-    .parameter "retry"
-    .parameter "messageRef"
-    .parameter "response"
+    .param p1, "pdu"    # [B
+    .param p2, "retry"    # I
+    .param p3, "messageRef"    # I
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 231
@@ -803,11 +803,11 @@
 
 .method public sendImsGsmSms(Ljava/lang/String;Ljava/lang/String;IILandroid/os/Message;)V
     .locals 0
-    .parameter "smscPDU"
-    .parameter "pdu"
-    .parameter "retry"
-    .parameter "messageRef"
-    .parameter "response"
+    .param p1, "smscPDU"    # Ljava/lang/String;
+    .param p2, "pdu"    # Ljava/lang/String;
+    .param p3, "retry"    # I
+    .param p4, "messageRef"    # I
+    .param p5, "response"    # Landroid/os/Message;
 
     .prologue
     .line 226
@@ -816,9 +816,9 @@
 
 .method public sendSMS(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "smscPDU"
-    .parameter "pdu"
-    .parameter "result"
+    .param p1, "smscPDU"    # Ljava/lang/String;
+    .param p2, "pdu"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 217
@@ -827,8 +827,8 @@
 
 .method public sendTerminalResponse(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "contents"
-    .parameter "response"
+    .param p1, "contents"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 397
@@ -837,8 +837,8 @@
 
 .method public sendUSSD(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "ussdString"
-    .parameter "response"
+    .param p1, "ussdString"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 369
@@ -847,8 +847,8 @@
 
 .method public separateConnection(ILandroid/os/Message;)V
     .locals 0
-    .parameter "gsmIndex"
-    .parameter "result"
+    .param p1, "gsmIndex"    # I
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 147
@@ -857,8 +857,8 @@
 
 .method public setBandMode(ILandroid/os/Message;)V
     .locals 0
-    .parameter "bandMode"
-    .parameter "response"
+    .param p1, "bandMode"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 389
@@ -867,8 +867,8 @@
 
 .method public setCLIR(ILandroid/os/Message;)V
     .locals 0
-    .parameter "clirMode"
-    .parameter "result"
+    .param p1, "clirMode"    # I
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 301
@@ -877,12 +877,12 @@
 
 .method public setCallForward(IIILjava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "action"
-    .parameter "cfReason"
-    .parameter "serviceClass"
-    .parameter "number"
-    .parameter "timeSeconds"
-    .parameter "response"
+    .param p1, "action"    # I
+    .param p2, "cfReason"    # I
+    .param p3, "serviceClass"    # I
+    .param p4, "number"    # Ljava/lang/String;
+    .param p5, "timeSeconds"    # I
+    .param p6, "response"    # Landroid/os/Message;
 
     .prologue
     .line 332
@@ -891,9 +891,9 @@
 
 .method public setCallWaiting(ZILandroid/os/Message;)V
     .locals 0
-    .parameter "enable"
-    .parameter "serviceClass"
-    .parameter "response"
+    .param p1, "enable"    # Z
+    .param p2, "serviceClass"    # I
+    .param p3, "response"    # Landroid/os/Message;
 
     .prologue
     .line 310
@@ -902,8 +902,8 @@
 
 .method public setCdmaBroadcastActivation(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "activate"
-    .parameter "response"
+    .param p1, "activate"    # Z
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 507
@@ -912,8 +912,8 @@
 
 .method public setCdmaBroadcastConfig([Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;Landroid/os/Message;)V
     .locals 0
-    .parameter "configs"
-    .parameter "response"
+    .param p1, "configs"    # [Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 503
@@ -922,8 +922,8 @@
 
 .method public setCdmaRoamingPreference(ILandroid/os/Message;)V
     .locals 0
-    .parameter "cdmaRoamingType"
-    .parameter "response"
+    .param p1, "cdmaRoamingType"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 479
@@ -932,8 +932,8 @@
 
 .method public setCdmaSubscriptionSource(ILandroid/os/Message;)V
     .locals 0
-    .parameter "cdmaSubscription"
-    .parameter "response"
+    .param p1, "cdmaSubscription"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 483
@@ -942,8 +942,8 @@
 
 .method public setCellInfoListRate(ILandroid/os/Message;)V
     .locals 0
-    .parameter "rateInMillis"
-    .parameter "response"
+    .param p1, "rateInMillis"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 552
@@ -952,11 +952,11 @@
 
 .method public setFacilityLock(Ljava/lang/String;ZLjava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "facility"
-    .parameter "lockState"
-    .parameter "password"
-    .parameter "serviceClass"
-    .parameter "response"
+    .param p1, "facility"    # Ljava/lang/String;
+    .param p2, "lockState"    # Z
+    .param p3, "password"    # Ljava/lang/String;
+    .param p4, "serviceClass"    # I
+    .param p5, "response"    # Landroid/os/Message;
 
     .prologue
     .line 360
@@ -965,12 +965,12 @@
 
 .method public setFacilityLockForApp(Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "facility"
-    .parameter "lockState"
-    .parameter "password"
-    .parameter "serviceClass"
-    .parameter "appId"
-    .parameter "response"
+    .param p1, "facility"    # Ljava/lang/String;
+    .param p2, "lockState"    # Z
+    .param p3, "password"    # Ljava/lang/String;
+    .param p4, "serviceClass"    # I
+    .param p5, "appId"    # Ljava/lang/String;
+    .param p6, "response"    # Landroid/os/Message;
 
     .prologue
     .line 365
@@ -979,8 +979,8 @@
 
 .method public setGsmBroadcastActivation(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "activate"
-    .parameter "response"
+    .param p1, "activate"    # Z
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 458
@@ -989,8 +989,8 @@
 
 .method public setGsmBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;Landroid/os/Message;)V
     .locals 0
-    .parameter "config"
-    .parameter "response"
+    .param p1, "config"    # [Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 454
@@ -999,12 +999,12 @@
 
 .method public setInitialAttachApn(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "apn"
-    .parameter "protocol"
-    .parameter "authType"
-    .parameter "username"
-    .parameter "password"
-    .parameter "result"
+    .param p1, "apn"    # Ljava/lang/String;
+    .param p2, "protocol"    # Ljava/lang/String;
+    .param p3, "authType"    # I
+    .param p4, "username"    # Ljava/lang/String;
+    .param p5, "password"    # Ljava/lang/String;
+    .param p6, "result"    # Landroid/os/Message;
 
     .prologue
     .line 557
@@ -1013,8 +1013,8 @@
 
 .method public setLocationUpdates(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "enable"
-    .parameter "response"
+    .param p1, "enable"    # Z
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 426
@@ -1023,8 +1023,8 @@
 
 .method public setMute(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "enableMute"
-    .parameter "response"
+    .param p1, "enableMute"    # Z
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 176
@@ -1033,7 +1033,7 @@
 
 .method public setNetworkSelectionModeAutomatic(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 314
@@ -1042,8 +1042,8 @@
 
 .method public setNetworkSelectionModeManual(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "operatorNumeric"
-    .parameter "response"
+    .param p1, "operatorNumeric"    # Ljava/lang/String;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 319
@@ -1052,9 +1052,9 @@
 
 .method public setOnNITZTime(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 39
@@ -1063,7 +1063,7 @@
 
 .method public setPhoneType(I)V
     .locals 0
-    .parameter "phoneType"
+    .param p1, "phoneType"    # I
 
     .prologue
     .line 471
@@ -1072,8 +1072,8 @@
 
 .method public setPreferredNetworkType(ILandroid/os/Message;)V
     .locals 0
-    .parameter "networkType"
-    .parameter "response"
+    .param p1, "networkType"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 414
@@ -1082,8 +1082,8 @@
 
 .method public setPreferredVoicePrivacy(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "enable"
-    .parameter "result"
+    .param p1, "enable"    # Z
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 139
@@ -1092,8 +1092,8 @@
 
 .method public setRadioPower(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "on"
-    .parameter "result"
+    .param p1, "on"    # Z
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 265
@@ -1102,8 +1102,8 @@
 
 .method public setSmscAddress(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "address"
-    .parameter "result"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 434
@@ -1112,8 +1112,8 @@
 
 .method public setSuppServiceNotifications(ZLandroid/os/Message;)V
     .locals 0
-    .parameter "enable"
-    .parameter "result"
+    .param p1, "enable"    # Z
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 269
@@ -1122,8 +1122,8 @@
 
 .method public setTTYMode(ILandroid/os/Message;)V
     .locals 0
-    .parameter "ttyMode"
-    .parameter "response"
+    .param p1, "ttyMode"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 491
@@ -1132,14 +1132,14 @@
 
 .method public setupDataCall(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "radioTechnology"
-    .parameter "profile"
-    .parameter "apn"
-    .parameter "user"
-    .parameter "password"
-    .parameter "authType"
-    .parameter "protocol"
-    .parameter "result"
+    .param p1, "radioTechnology"    # Ljava/lang/String;
+    .param p2, "profile"    # Ljava/lang/String;
+    .param p3, "apn"    # Ljava/lang/String;
+    .param p4, "user"    # Ljava/lang/String;
+    .param p5, "password"    # Ljava/lang/String;
+    .param p6, "authType"    # Ljava/lang/String;
+    .param p7, "protocol"    # Ljava/lang/String;
+    .param p8, "result"    # Landroid/os/Message;
 
     .prologue
     .line 257
@@ -1148,8 +1148,8 @@
 
 .method public startDtmf(CLandroid/os/Message;)V
     .locals 0
-    .parameter "c"
-    .parameter "result"
+    .param p1, "c"    # C
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 204
@@ -1158,7 +1158,7 @@
 
 .method public stopDtmf(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 208
@@ -1167,8 +1167,8 @@
 
 .method public supplyIccPin(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "pin"
-    .parameter "result"
+    .param p1, "pin"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 47
@@ -1177,8 +1177,8 @@
 
 .method public supplyIccPin2(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "pin"
-    .parameter "result"
+    .param p1, "pin"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 55
@@ -1187,9 +1187,9 @@
 
 .method public supplyIccPin2ForApp(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "pin2"
-    .parameter "aid"
-    .parameter "response"
+    .param p1, "pin2"    # Ljava/lang/String;
+    .param p2, "aid"    # Ljava/lang/String;
+    .param p3, "response"    # Landroid/os/Message;
 
     .prologue
     .line 523
@@ -1198,9 +1198,9 @@
 
 .method public supplyIccPinForApp(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "pin"
-    .parameter "aid"
-    .parameter "response"
+    .param p1, "pin"    # Ljava/lang/String;
+    .param p2, "aid"    # Ljava/lang/String;
+    .param p3, "response"    # Landroid/os/Message;
 
     .prologue
     .line 515
@@ -1209,9 +1209,9 @@
 
 .method public supplyIccPuk(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "puk"
-    .parameter "newPin"
-    .parameter "result"
+    .param p1, "puk"    # Ljava/lang/String;
+    .param p2, "newPin"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 51
@@ -1220,9 +1220,9 @@
 
 .method public supplyIccPuk2(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "puk"
-    .parameter "newPin2"
-    .parameter "result"
+    .param p1, "puk"    # Ljava/lang/String;
+    .param p2, "newPin2"    # Ljava/lang/String;
+    .param p3, "result"    # Landroid/os/Message;
 
     .prologue
     .line 59
@@ -1231,10 +1231,10 @@
 
 .method public supplyIccPuk2ForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "puk2"
-    .parameter "newPin2"
-    .parameter "aid"
-    .parameter "response"
+    .param p1, "puk2"    # Ljava/lang/String;
+    .param p2, "newPin2"    # Ljava/lang/String;
+    .param p3, "aid"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 527
@@ -1243,10 +1243,10 @@
 
 .method public supplyIccPukForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "puk"
-    .parameter "newPin"
-    .parameter "aid"
-    .parameter "response"
+    .param p1, "puk"    # Ljava/lang/String;
+    .param p2, "newPin"    # Ljava/lang/String;
+    .param p3, "aid"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 519
@@ -1255,8 +1255,8 @@
 
 .method public supplyNetworkDepersonalization(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "netpin"
-    .parameter "result"
+    .param p1, "netpin"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 76
@@ -1265,7 +1265,7 @@
 
 .method public switchWaitingOrHoldingAndActive(Landroid/os/Message;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 130
@@ -1274,9 +1274,9 @@
 
 .method public writeSmsToRuim(ILjava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "status"
-    .parameter "pdu"
-    .parameter "response"
+    .param p1, "status"    # I
+    .param p2, "pdu"    # Ljava/lang/String;
+    .param p3, "response"    # Landroid/os/Message;
 
     .prologue
     .line 251
@@ -1285,10 +1285,10 @@
 
 .method public writeSmsToSim(ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "status"
-    .parameter "smsc"
-    .parameter "pdu"
-    .parameter "response"
+    .param p1, "status"    # I
+    .param p2, "smsc"    # Ljava/lang/String;
+    .param p3, "pdu"    # Ljava/lang/String;
+    .param p4, "response"    # Landroid/os/Message;
 
     .prologue
     .line 247

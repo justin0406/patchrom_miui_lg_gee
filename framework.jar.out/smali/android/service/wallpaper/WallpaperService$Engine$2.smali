@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 187
@@ -80,7 +79,7 @@
     move-result-object v0
 
     .line 200
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$2;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -107,7 +106,7 @@
     move-result-object v0
 
     .line 206
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$2;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -120,8 +119,8 @@
 
 .method public setFixedSize(II)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 215
@@ -150,7 +149,7 @@
 
 .method public setKeepScreenOn(Z)V
     .locals 2
-    .parameter "screenOn"
+    .param p1, "screenOn"    # Z
 
     .prologue
     .line 226

@@ -6,8 +6,7 @@
 # static fields
 .field private static final BLACKLIST_CONFIG_NAME:Ljava/lang/String; = "locationPackagePrefixBlacklist"
 
-#the value of this static final field might be set in the static constructor
-.field private static final D:Z = false
+.field private static final D:Z
 
 .field private static final TAG:Ljava/lang/String; = "LocationBlacklist"
 
@@ -41,8 +40,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 2
-    .parameter "context"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     const/4 v1, 0x0
@@ -79,7 +78,7 @@
 
 .method private getStringArrayLocked(Ljava/lang/String;)[Ljava/lang/String;
     .locals 10
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 128
@@ -102,7 +101,7 @@
     move-result-object v1
 
     .line 131
-    .local v1, flatString:Ljava/lang/String;
+    .local v1, "flatString":Ljava/lang/String;
     monitor-exit v8
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -120,7 +119,7 @@
     return-object v7
 
     .line 131
-    .end local v1           #flatString:Ljava/lang/String;
+    .end local v1    # "flatString":Ljava/lang/String;
     :catchall_0
     move-exception v7
 
@@ -132,7 +131,7 @@
     throw v7
 
     .line 135
-    .restart local v1       #flatString:Ljava/lang/String;
+    .restart local v1    # "flatString":Ljava/lang/String;
     :cond_0
     const-string v7, ","
 
@@ -141,29 +140,29 @@
     move-result-object v6
 
     .line 136
-    .local v6, splitStrings:[Ljava/lang/String;
+    .local v6, "splitStrings":[Ljava/lang/String;
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
     .line 137
-    .local v5, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v5, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     move-object v0, v6
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_1
     if-ge v2, v3, :cond_2
 
     aget-object v4, v0, v2
 
     .line 138
-    .local v4, pkg:Ljava/lang/String;
+    .local v4, "pkg":Ljava/lang/String;
     invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v4
@@ -188,7 +187,7 @@
     goto :goto_2
 
     .line 144
-    .end local v4           #pkg:Ljava/lang/String;
+    .end local v4    # "pkg":Ljava/lang/String;
     :cond_2
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
@@ -207,7 +206,7 @@
 
 .method private inWhitelist(Ljava/lang/String;)Z
     .locals 6
-    .parameter "pkg"
+    .param p1, "pkg"    # Ljava/lang/String;
 
     .prologue
     .line 106
@@ -219,20 +218,20 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/LocationBlacklist;->mWhitelist:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 108
-    .local v3, white:Ljava/lang/String;
+    .local v3, "white":Ljava/lang/String;
     invoke-virtual {p1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
@@ -244,19 +243,19 @@
     monitor-exit v5
 
     .line 111
-    .end local v3           #white:Ljava/lang/String;
+    .end local v3    # "white":Ljava/lang/String;
     :goto_1
     return v4
 
     .line 107
-    .restart local v3       #white:Ljava/lang/String;
+    .restart local v3    # "white":Ljava/lang/String;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 110
-    .end local v3           #white:Ljava/lang/String;
+    .end local v3    # "white":Ljava/lang/String;
     :cond_1
     monitor-exit v5
 
@@ -266,9 +265,9 @@
     goto :goto_1
 
     .line 110
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
     :catchall_0
     move-exception v4
 
@@ -407,7 +406,7 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 148
@@ -489,7 +488,7 @@
 
 .method public isBlacklisted(Ljava/lang/String;)Z
     .locals 8
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -501,20 +500,20 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/LocationBlacklist;->mBlacklist:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_3
 
     aget-object v1, v0, v2
 
     .line 88
-    .local v1, black:Ljava/lang/String;
+    .local v1, "black":Ljava/lang/String;
     invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
@@ -579,7 +578,7 @@
     monitor-exit v5
 
     .line 99
-    .end local v1           #black:Ljava/lang/String;
+    .end local v1    # "black":Ljava/lang/String;
     :goto_1
     return v4
 
@@ -593,9 +592,9 @@
     goto :goto_1
 
     .line 98
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
     :catchall_0
     move-exception v4
 
@@ -608,7 +607,7 @@
 
 .method public onChange(Z)V
     .locals 0
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 116
@@ -620,7 +619,7 @@
 
 .method public switchUser(I)V
     .locals 2
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 120

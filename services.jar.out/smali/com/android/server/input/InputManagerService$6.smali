@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/input/InputManagerService;[Landroid/hardware/input/KeyboardLayout;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 788
@@ -44,11 +42,11 @@
 # virtual methods
 .method public visitKeyboardLayout(Landroid/content/res/Resources;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 3
-    .parameter "resources"
-    .parameter "descriptor"
-    .parameter "label"
-    .parameter "collection"
-    .parameter "keyboardLayoutResId"
+    .param p1, "resources"    # Landroid/content/res/Resources;
+    .param p2, "descriptor"    # Ljava/lang/String;
+    .param p3, "label"    # Ljava/lang/String;
+    .param p4, "collection"    # Ljava/lang/String;
+    .param p5, "keyboardLayoutResId"    # I
 
     .prologue
     .line 792

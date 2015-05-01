@@ -59,8 +59,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 53
@@ -88,7 +88,7 @@
     iget-object v0, p0, Lcom/android/internal/policy/impl/ShortcutManager;->mCursor:Landroid/database/Cursor;
 
     .line 74
-    .local v0, c:Landroid/database/Cursor;
+    .local v0, "c":Landroid/database/Cursor;
     invoke-interface {v0}, Landroid/database/Cursor;->requery()Z
 
     move-result v5
@@ -129,7 +129,7 @@
     move-result v4
 
     .line 82
-    .local v4, shortcut:I
+    .local v4, "shortcut":I
     if-eqz v4, :cond_2
 
     .line 83
@@ -140,11 +140,11 @@
     move-result-object v3
 
     .line 84
-    .local v3, intentURI:Ljava/lang/String;
+    .local v3, "intentURI":Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 86
-    .local v2, intent:Landroid/content/Intent;
+    .local v2, "intent":Landroid/content/Intent;
     :try_start_0
     invoke-static {v3}, Landroid/content/Intent;->getIntent(Ljava/lang/String;)Landroid/content/Intent;
     :try_end_0
@@ -168,7 +168,7 @@
     move-exception v1
 
     .line 88
-    .local v1, e:Ljava/net/URISyntaxException;
+    .local v1, "e":Ljava/net/URISyntaxException;
     const-string v5, "ShortcutManager"
 
     const-string v6, "Intent URI for shortcut invalid."
@@ -182,22 +182,22 @@
 # virtual methods
 .method public getIntent(Landroid/view/KeyCharacterMap;II)Landroid/content/Intent;
     .locals 3
-    .parameter "kcm"
-    .parameter "keyCode"
-    .parameter "metaState"
+    .param p1, "kcm"    # Landroid/view/KeyCharacterMap;
+    .param p2, "keyCode"    # I
+    .param p3, "metaState"    # I
 
     .prologue
     .line 111
     const/4 v0, 0x0
 
     .line 114
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     invoke-virtual {p1, p2, p3}, Landroid/view/KeyCharacterMap;->get(II)I
 
     move-result v1
 
     .line 115
-    .local v1, shortcut:I
+    .local v1, "shortcut":I
     if-eqz v1, :cond_0
 
     .line 116
@@ -207,11 +207,11 @@
 
     move-result-object v0
 
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     check-cast v0, Landroid/content/Intent;
 
     .line 120
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v0    # "intent":Landroid/content/Intent;
     :cond_0
     if-nez v0, :cond_1
 
@@ -234,11 +234,11 @@
 
     move-result-object v0
 
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     check-cast v0, Landroid/content/Intent;
 
     .line 127
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v0    # "intent":Landroid/content/Intent;
     :cond_1
     return-object v0
 .end method
@@ -284,7 +284,7 @@
 
 .method public onChange(Z)V
     .locals 0
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 69

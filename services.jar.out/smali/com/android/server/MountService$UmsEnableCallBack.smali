@@ -23,10 +23,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 1
-    .parameter
-    .parameter "path"
-    .parameter "method"
-    .parameter "force"
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "method"    # Ljava/lang/String;
+    .param p4, "force"    # Z
 
     .prologue
     .line 374
@@ -62,7 +61,7 @@
 
     const/4 v3, 0x1
 
-    #calls: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
+    # invokes: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/MountService;->access$200(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 383

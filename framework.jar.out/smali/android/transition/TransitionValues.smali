@@ -41,7 +41,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     .line 57
@@ -65,7 +65,7 @@
 
     check-cast p1, Landroid/transition/TransitionValues;
 
-    .end local p1
+    .end local p1    # "other":Ljava/lang/Object;
     iget-object v1, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -149,7 +149,7 @@
     move-result-object v1
 
     .line 75
-    .local v1, returnValue:Ljava/lang/String;
+    .local v1, "returnValue":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -210,7 +210,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -225,7 +225,7 @@
     check-cast v2, Ljava/lang/String;
 
     .line 78
-    .local v2, s:Ljava/lang/String;
+    .local v2, "s":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -273,7 +273,7 @@
     goto :goto_0
 
     .line 80
-    .end local v2           #s:Ljava/lang/String;
+    .end local v2    # "s":Ljava/lang/String;
     :cond_0
     return-object v1
 .end method

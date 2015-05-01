@@ -37,7 +37,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v4, 0x0
@@ -102,7 +102,7 @@
 
 .method static synthetic access$200(Lcom/android/server/search/SearchManagerService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/search/SearchManagerService;
 
     .prologue
     .line 56
@@ -113,8 +113,8 @@
 
 .method static synthetic access$300(Lcom/android/server/search/SearchManagerService;I)Lcom/android/server/search/Searchables;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/search/SearchManagerService;
+    .param p1, "x1"    # I
 
     .prologue
     .line 56
@@ -127,8 +127,8 @@
 
 .method static synthetic access$400(Lcom/android/server/search/SearchManagerService;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/search/SearchManagerService;
+    .param p1, "x1"    # I
 
     .prologue
     .line 56
@@ -139,7 +139,7 @@
 
 .method static synthetic access$500(Lcom/android/server/search/SearchManagerService;)Landroid/util/SparseArray;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/search/SearchManagerService;
 
     .prologue
     .line 56
@@ -150,7 +150,7 @@
 
 .method private getSearchables(I)Lcom/android/server/search/Searchables;
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 83
@@ -159,7 +159,7 @@
     move-result-wide v0
 
     .line 85
-    .local v0, origId:J
+    .local v0, "origId":J
     :try_start_0
     iget-object v4, p0, Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
 
@@ -182,7 +182,7 @@
     const/4 v3, 0x1
 
     .line 87
-    .local v3, userExists:Z
+    .local v3, "userExists":Z
     :goto_0
     if-nez v3, :cond_1
 
@@ -196,7 +196,7 @@
     return-object v2
 
     .line 85
-    .end local v3           #userExists:Z
+    .end local v3    # "userExists":Z
     :cond_0
     const/4 v3, 0x0
 
@@ -210,7 +210,7 @@
 
     throw v4
 
-    .restart local v3       #userExists:Z
+    .restart local v3    # "userExists":Z
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
@@ -230,19 +230,19 @@
     check-cast v2, Lcom/android/server/search/Searchables;
 
     .line 94
-    .local v2, searchables:Lcom/android/server/search/Searchables;
+    .local v2, "searchables":Lcom/android/server/search/Searchables;
     if-nez v2, :cond_2
 
     .line 96
     new-instance v2, Lcom/android/server/search/Searchables;
 
-    .end local v2           #searchables:Lcom/android/server/search/Searchables;
+    .end local v2    # "searchables":Lcom/android/server/search/Searchables;
     iget-object v4, p0, Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
 
     invoke-direct {v2, v4, p1}, Lcom/android/server/search/Searchables;-><init>(Landroid/content/Context;I)V
 
     .line 97
-    .restart local v2       #searchables:Lcom/android/server/search/Searchables;
+    .restart local v2    # "searchables":Lcom/android/server/search/Searchables;
     invoke-virtual {v2}, Lcom/android/server/search/Searchables;->buildSearchableList()V
 
     .line 98
@@ -257,7 +257,7 @@
     goto :goto_1
 
     .line 101
-    .end local v2           #searchables:Lcom/android/server/search/Searchables;
+    .end local v2    # "searchables":Lcom/android/server/search/Searchables;
     :catchall_1
     move-exception v4
 
@@ -270,7 +270,7 @@
 
 .method private onUserRemoved(I)V
     .locals 2
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 105
@@ -309,9 +309,9 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 5
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 267
@@ -331,7 +331,7 @@
     invoke-direct {v1, p2, v2}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
     .line 270
-    .local v1, ipw:Lcom/android/internal/util/IndentingPrintWriter;
+    .local v1, "ipw":Lcom/android/internal/util/IndentingPrintWriter;
     iget-object v3, p0, Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
 
     monitor-enter v3
@@ -339,7 +339,7 @@
     .line 271
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     :try_start_0
     iget-object v2, p0, Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
@@ -405,7 +405,7 @@
 
 .method public getAssistIntent(I)Landroid/content/ComponentName;
     .locals 13
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     const/4 v12, 0x0
@@ -440,7 +440,7 @@
     move-result-object v10
 
     .line 246
-    .local v10, pm:Landroid/content/pm/IPackageManager;
+    .local v10, "pm":Landroid/content/pm/IPackageManager;
     new-instance v7, Landroid/content/Intent;
 
     const-string v0, "android.intent.action.ASSIST"
@@ -448,7 +448,7 @@
     invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 247
-    .local v7, assistIntent:Landroid/content/Intent;
+    .local v7, "assistIntent":Landroid/content/Intent;
     iget-object v0, p0, Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -459,14 +459,14 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x1
+    const/high16 v1, 0x10000
 
     invoke-interface {v10, v7, v0, v1, p1}, Landroid/content/pm/IPackageManager;->resolveIntent(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ResolveInfo;
 
     move-result-object v9
 
     .line 251
-    .local v9, info:Landroid/content/pm/ResolveInfo;
+    .local v9, "info":Landroid/content/pm/ResolveInfo;
     if-eqz v9, :cond_0
 
     .line 252
@@ -488,9 +488,9 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 262
-    .end local v7           #assistIntent:Landroid/content/Intent;
-    .end local v9           #info:Landroid/content/pm/ResolveInfo;
-    .end local v10           #pm:Landroid/content/pm/IPackageManager;
+    .end local v7    # "assistIntent":Landroid/content/Intent;
+    .end local v9    # "info":Landroid/content/pm/ResolveInfo;
+    .end local v10    # "pm":Landroid/content/pm/IPackageManager;
     :goto_0
     return-object v0
 
@@ -499,7 +499,7 @@
     move-exception v11
 
     .line 258
-    .local v11, re:Landroid/os/RemoteException;
+    .local v11, "re":Landroid/os/RemoteException;
     const-string v0, "SearchManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -522,7 +522,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v11           #re:Landroid/os/RemoteException;
+    .end local v11    # "re":Landroid/os/RemoteException;
     :cond_0
     :goto_1
     move-object v0, v12
@@ -535,7 +535,7 @@
     move-exception v8
 
     .line 260
-    .local v8, e:Ljava/lang/Exception;
+    .local v8, "e":Ljava/lang/Exception;
     const-string v0, "SearchManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -612,7 +612,7 @@
 
 .method public getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
     .locals 2
-    .parameter "launchActivity"
+    .param p1, "launchActivity"    # Landroid/content/ComponentName;
 
     .prologue
     .line 208

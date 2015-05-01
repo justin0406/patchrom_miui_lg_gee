@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AppWidgetService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 108
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/16 v2, -0x2710

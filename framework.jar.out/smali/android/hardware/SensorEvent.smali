@@ -16,7 +16,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .parameter "valueSize"
+    .param p1, "valueSize"    # I
 
     .prologue
     .line 504

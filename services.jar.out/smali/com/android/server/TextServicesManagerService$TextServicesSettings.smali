@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;I)V
     .locals 0
-    .parameter "resolver"
-    .parameter "userId"
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "userId"    # I
 
     .prologue
     .line 918
@@ -118,7 +118,7 @@
 
 .method public putSelectedSpellChecker(Ljava/lang/String;)V
     .locals 3
-    .parameter "sciId"
+    .param p1, "sciId"    # Ljava/lang/String;
 
     .prologue
     .line 937
@@ -136,7 +136,7 @@
 
 .method public putSelectedSpellCheckerSubtype(I)V
     .locals 4
-    .parameter "hashCode"
+    .param p1, "hashCode"    # I
 
     .prologue
     .line 942
@@ -158,7 +158,7 @@
 
 .method public setCurrentUserId(I)V
     .locals 0
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 929
@@ -170,7 +170,7 @@
 
 .method public setSpellCheckerEnabled(Z)V
     .locals 4
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 948

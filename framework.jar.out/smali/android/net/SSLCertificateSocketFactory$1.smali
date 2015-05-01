@@ -32,8 +32,8 @@
 # virtual methods
 .method public checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
-    .parameter "certs"
-    .parameter "authType"
+    .param p1, "certs"    # [Ljava/security/cert/X509Certificate;
+    .param p2, "authType"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -42,8 +42,8 @@
 
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
-    .parameter "certs"
-    .parameter "authType"
+    .param p1, "certs"    # [Ljava/security/cert/X509Certificate;
+    .param p2, "authType"    # Ljava/lang/String;
 
     .prologue
     .line 80

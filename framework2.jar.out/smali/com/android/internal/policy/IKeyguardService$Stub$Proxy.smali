@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 218
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 355
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -100,7 +100,7 @@
 
 .method public dispatch(Landroid/view/MotionEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -114,7 +114,7 @@
     move-result-object v0
 
     .line 476
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -175,7 +175,7 @@
 
 .method public doKeyguardTimeout(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "options"
+    .param p1, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -189,7 +189,7 @@
     move-result-object v0
 
     .line 435
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -275,13 +275,13 @@
     move-result-object v0
 
     .line 300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 303
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -311,7 +311,7 @@
     const/4 v2, 0x1
 
     .line 309
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -322,7 +322,7 @@
     return v2
 
     .line 309
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -351,13 +351,13 @@
     move-result-object v0
 
     .line 283
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 286
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -387,7 +387,7 @@
     const/4 v2, 0x1
 
     .line 292
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -398,7 +398,7 @@
     return v2
 
     .line 292
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -427,13 +427,13 @@
     move-result-object v0
 
     .line 249
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 252
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -463,7 +463,7 @@
     const/4 v2, 0x1
 
     .line 258
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -474,7 +474,7 @@
     return v2
 
     .line 258
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -505,13 +505,13 @@
     move-result-object v0
 
     .line 232
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 235
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.policy.IKeyguardService"
 
@@ -539,7 +539,7 @@
     if-eqz v4, :cond_0
 
     .line 241
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -549,7 +549,7 @@
     .line 244
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -585,13 +585,13 @@
     move-result-object v0
 
     .line 266
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 269
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -621,7 +621,7 @@
     const/4 v2, 0x1
 
     .line 275
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -632,7 +632,7 @@
     return v2
 
     .line 275
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -646,8 +646,8 @@
 
 .method public keyguardDone(ZZ)V
     .locals 5
-    .parameter "authenticated"
-    .parameter "wakeup"
+    .param p1, "authenticated"    # Z
+    .param p2, "wakeup"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -665,7 +665,7 @@
     move-result-object v0
 
     .line 330
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -740,7 +740,7 @@
     move-result-object v0
 
     .line 494
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -789,7 +789,7 @@
     move-result-object v0
 
     .line 505
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -838,7 +838,7 @@
     move-result-object v0
 
     .line 366
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -887,7 +887,7 @@
     move-result-object v0
 
     .line 377
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -923,7 +923,7 @@
 
 .method public onScreenTurnedOff(I)V
     .locals 5
-    .parameter "reason"
+    .param p1, "reason"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -937,7 +937,7 @@
     move-result-object v0
 
     .line 388
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -976,7 +976,7 @@
 
 .method public onScreenTurnedOn(Lcom/android/internal/policy/IKeyguardShowCallback;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/internal/policy/IKeyguardShowCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -992,7 +992,7 @@
     move-result-object v0
 
     .line 400
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.policy.IKeyguardService"
 
@@ -1051,7 +1051,7 @@
     move-result-object v0
 
     .line 424
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -1087,7 +1087,7 @@
 
 .method public setCurrentUser(I)V
     .locals 5
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1101,7 +1101,7 @@
     move-result-object v0
 
     .line 453
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -1140,7 +1140,7 @@
 
 .method public setHidden(Z)V
     .locals 5
-    .parameter "isHidden"
+    .param p1, "isHidden"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1156,7 +1156,7 @@
     move-result-object v0
 
     .line 343
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.policy.IKeyguardService"
 
@@ -1204,7 +1204,7 @@
 
 .method public setKeyguardEnabled(Z)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1220,7 +1220,7 @@
     move-result-object v0
 
     .line 412
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.policy.IKeyguardService"
 
@@ -1281,7 +1281,7 @@
     move-result-object v0
 
     .line 465
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.policy.IKeyguardService"
 
@@ -1317,7 +1317,7 @@
 
 .method public verifyUnlock(Lcom/android/internal/policy/IKeyguardExitCallback;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/internal/policy/IKeyguardExitCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1333,7 +1333,7 @@
     move-result-object v0
 
     .line 318
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.policy.IKeyguardService"
 

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/AppTransition;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 159
@@ -39,10 +38,10 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 2
-    .parameter "input"
+    .param p1, "input"    # F
 
     .prologue
-    const/high16 v1, 0x3e80
+    const/high16 v1, 0x3e800000    # 0.25f
 
     .line 163
     cmpg-float v0, p1, v1
@@ -57,7 +56,7 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 .end method

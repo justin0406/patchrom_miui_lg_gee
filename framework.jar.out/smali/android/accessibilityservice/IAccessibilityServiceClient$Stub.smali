@@ -58,7 +58,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/accessibilityservice/IAccessibilityServiceClient;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/accessibilityservice/IAccessibilityServiceClient;
@@ -96,7 +96,7 @@
     :cond_1
     new-instance v0, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -114,10 +114,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,20 +162,20 @@
     move-result-object v0
 
     .line 56
-    .local v0, _arg0:Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .local v0, "_arg0":Landroid/accessibilityservice/IAccessibilityServiceConnection;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 57
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub;->setConnection(Landroid/accessibilityservice/IAccessibilityServiceConnection;I)V
 
     goto :goto_0
 
     .line 62
-    .end local v0           #_arg0:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .end local v1    # "_arg1":I
     :sswitch_2
     const-string v3, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -198,22 +198,22 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityEvent;
 
     .line 70
-    .local v0, _arg0:Landroid/view/accessibility/AccessibilityEvent;
+    .local v0, "_arg0":Landroid/view/accessibility/AccessibilityEvent;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     goto :goto_0
 
     .line 68
-    .end local v0           #_arg0:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v0    # "_arg0":Landroid/view/accessibility/AccessibilityEvent;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/accessibility/AccessibilityEvent;
+    .restart local v0    # "_arg0":Landroid/view/accessibility/AccessibilityEvent;
     goto :goto_1
 
     .line 75
-    .end local v0           #_arg0:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v0    # "_arg0":Landroid/view/accessibility/AccessibilityEvent;
     :sswitch_3
     const-string v3, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -236,13 +236,13 @@
     move-result v0
 
     .line 84
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub;->onGesture(I)V
 
     goto :goto_0
 
     .line 89
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_5
     const-string v3, "android.accessibilityservice.IAccessibilityServiceClient"
 
@@ -276,25 +276,25 @@
     check-cast v0, Landroid/view/KeyEvent;
 
     .line 104
-    .local v0, _arg0:Landroid/view/KeyEvent;
+    .local v0, "_arg0":Landroid/view/KeyEvent;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 105
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/accessibilityservice/IAccessibilityServiceClient$Stub;->onKeyEvent(Landroid/view/KeyEvent;I)V
 
     goto :goto_0
 
     .line 101
-    .end local v0           #_arg0:Landroid/view/KeyEvent;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/view/KeyEvent;
+    .end local v1    # "_arg1":I
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/KeyEvent;
+    .restart local v0    # "_arg0":Landroid/view/KeyEvent;
     goto :goto_2
 
     .line 43

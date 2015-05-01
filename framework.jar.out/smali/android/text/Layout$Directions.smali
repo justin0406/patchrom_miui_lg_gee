@@ -21,7 +21,7 @@
 # direct methods
 .method constructor <init>([I)V
     .locals 0
-    .parameter "dirs"
+    .param p1, "dirs"    # [I
 
     .prologue
     .line 1792

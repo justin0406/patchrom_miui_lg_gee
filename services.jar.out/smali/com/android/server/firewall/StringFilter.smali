@@ -21,7 +21,7 @@
 
 
 # static fields
-.field public static final ACTION:Lcom/android/server/firewall/FilterFactory; = null
+.field public static final ACTION:Lcom/android/server/firewall/FilterFactory;
 
 .field private static final ATTR_CONTAINS:Ljava/lang/String; = "contains"
 
@@ -158,7 +158,7 @@
 
 .method private constructor <init>(Lcom/android/server/firewall/StringFilter$ValueProvider;)V
     .locals 0
-    .parameter "valueProvider"
+    .param p1, "valueProvider"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     .prologue
     .line 39
@@ -173,8 +173,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Lcom/android/server/firewall/StringFilter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
+    .param p2, "x1"    # Lcom/android/server/firewall/StringFilter$1;
 
     .prologue
     .line 29
@@ -185,9 +185,9 @@
 
 .method private static getFilter(Lcom/android/server/firewall/StringFilter$ValueProvider;Lorg/xmlpull/v1/XmlPullParser;I)Lcom/android/server/firewall/StringFilter;
     .locals 3
-    .parameter "valueProvider"
-    .parameter "parser"
-    .parameter "attributeIndex"
+    .param p0, "valueProvider"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "attributeIndex"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -198,7 +198,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, attributeName:Ljava/lang/String;
+    .local v0, "attributeName":Ljava/lang/String;
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
@@ -352,8 +352,8 @@
 
 .method public static readFromXml(Lcom/android/server/firewall/StringFilter$ValueProvider;Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/StringFilter;
     .locals 5
-    .parameter "valueProvider"
-    .parameter "parser"
+    .param p0, "valueProvider"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -366,10 +366,10 @@
     const/4 v0, 0x0
 
     .line 58
-    .local v0, filter:Lcom/android/server/firewall/StringFilter;
+    .local v0, "filter":Lcom/android/server/firewall/StringFilter;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
@@ -383,7 +383,7 @@
     move-result-object v2
 
     .line 60
-    .local v2, newFilter:Lcom/android/server/firewall/StringFilter;
+    .local v2, "newFilter":Lcom/android/server/firewall/StringFilter;
     if-eqz v2, :cond_1
 
     .line 61
@@ -409,20 +409,20 @@
     goto :goto_0
 
     .line 68
-    .end local v2           #newFilter:Lcom/android/server/firewall/StringFilter;
+    .end local v2    # "newFilter":Lcom/android/server/firewall/StringFilter;
     :cond_2
     if-nez v0, :cond_3
 
     .line 71
     new-instance v0, Lcom/android/server/firewall/StringFilter$IsNullFilter;
 
-    .end local v0           #filter:Lcom/android/server/firewall/StringFilter;
+    .end local v0    # "filter":Lcom/android/server/firewall/StringFilter;
     const/4 v3, 0x0
 
     invoke-direct {v0, p0, v3}, Lcom/android/server/firewall/StringFilter$IsNullFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Z)V
 
     .line 74
-    .restart local v0       #filter:Lcom/android/server/firewall/StringFilter;
+    .restart local v0    # "filter":Lcom/android/server/firewall/StringFilter;
     :cond_3
     return-object v0
 .end method
@@ -431,13 +431,13 @@
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
     .locals 2
-    .parameter "ifw"
-    .parameter "resolvedComponent"
-    .parameter "intent"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "resolvedType"
-    .parameter "receivingUid"
+    .param p1, "ifw"    # Lcom/android/server/firewall/IntentFirewall;
+    .param p2, "resolvedComponent"    # Landroid/content/ComponentName;
+    .param p3, "intent"    # Landroid/content/Intent;
+    .param p4, "callerUid"    # I
+    .param p5, "callerPid"    # I
+    .param p6, "resolvedType"    # Ljava/lang/String;
+    .param p7, "receivingUid"    # I
 
     .prologue
     .line 123
@@ -448,7 +448,7 @@
     move-result-object v0
 
     .line 124
-    .local v0, value:Ljava/lang/String;
+    .local v0, "value":Ljava/lang/String;
     invoke-virtual {p0, v0}, Lcom/android/server/firewall/StringFilter;->matchesValue(Ljava/lang/String;)Z
 
     move-result v1

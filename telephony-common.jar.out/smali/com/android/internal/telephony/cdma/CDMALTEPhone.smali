@@ -27,9 +27,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
     .locals 1
-    .parameter "context"
-    .parameter "ci"
-    .parameter "notifier"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
+    .param p3, "notifier"    # Lcom/android/internal/telephony/PhoneNotifier;
 
     .prologue
     .line 73
@@ -43,7 +43,7 @@
 
 .method private handleSetSelectNetwork(Landroid/os/AsyncResult;)V
     .locals 6
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 169
@@ -70,7 +70,7 @@
     check-cast v1, Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;
 
     .line 178
-    .local v1, nsm:Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;
+    .local v1, "nsm":Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;
     iget-object v3, v1, Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;->message:Landroid/os/Message;
 
     if-eqz v3, :cond_2
@@ -105,13 +105,13 @@
     move-result-object v2
 
     .line 187
-    .local v2, sp:Landroid/content/SharedPreferences;
+    .local v2, "sp":Landroid/content/SharedPreferences;
     invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
     .line 188
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     const-string v3, "network_selection_key"
 
     iget-object v4, v1, Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;->operatorNumeric:Ljava/lang/String;
@@ -174,9 +174,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 333
@@ -193,7 +193,7 @@
 
 .method public getAvailableNetworks(Landroid/os/Message;)V
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 274
@@ -207,14 +207,14 @@
 
 .method public getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/PhoneConstants$DataState;
     .locals 3
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 108
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$DataState;->DISCONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     .line 110
-    .local v0, ret:Lcom/android/internal/telephony/PhoneConstants$DataState;
+    .local v0, "ret":Lcom/android/internal/telephony/PhoneConstants$DataState;
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
     if-nez v1, :cond_0
@@ -452,7 +452,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 78
@@ -503,7 +503,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 320
@@ -517,7 +517,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 324
@@ -531,8 +531,8 @@
 
 .method protected loge(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "s"
-    .parameter "e"
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "e"    # Ljava/lang/Throwable;
 
     .prologue
     .line 328
@@ -568,11 +568,11 @@
     move-result-object v2
 
     .line 291
-    .local v2, newUiccApplication:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .local v2, "newUiccApplication":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     const/4 v0, 0x0
 
     .line 293
-    .local v0, newIsimUiccRecords:Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .local v0, "newIsimUiccRecords":Lcom/android/internal/telephony/uicc/IsimUiccRecords;
     if-eqz v2, :cond_1
 
     .line 294
@@ -580,11 +580,11 @@
 
     move-result-object v0
 
-    .end local v0           #newIsimUiccRecords:Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .end local v0    # "newIsimUiccRecords":Lcom/android/internal/telephony/uicc/IsimUiccRecords;
     check-cast v0, Lcom/android/internal/telephony/uicc/IsimUiccRecords;
 
     .line 296
-    .restart local v0       #newIsimUiccRecords:Lcom/android/internal/telephony/uicc/IsimUiccRecords;
+    .restart local v0    # "newIsimUiccRecords":Lcom/android/internal/telephony/uicc/IsimUiccRecords;
     :cond_1
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->mIsimUiccRecords:Lcom/android/internal/telephony/uicc/IsimUiccRecords;
 
@@ -601,7 +601,7 @@
     const/4 v1, 0x0
 
     .line 301
-    .local v1, newSimRecords:Lcom/android/internal/telephony/uicc/SIMRecords;
+    .local v1, "newSimRecords":Lcom/android/internal/telephony/uicc/SIMRecords;
     if-eqz v2, :cond_2
 
     .line 302
@@ -609,11 +609,11 @@
 
     move-result-object v1
 
-    .end local v1           #newSimRecords:Lcom/android/internal/telephony/uicc/SIMRecords;
+    .end local v1    # "newSimRecords":Lcom/android/internal/telephony/uicc/SIMRecords;
     check-cast v1, Lcom/android/internal/telephony/uicc/SIMRecords;
 
     .line 304
-    .restart local v1       #newSimRecords:Lcom/android/internal/telephony/uicc/SIMRecords;
+    .restart local v1    # "newSimRecords":Lcom/android/internal/telephony/uicc/SIMRecords;
     :cond_2
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->mSimRecords:Lcom/android/internal/telephony/uicc/SIMRecords;
 
@@ -666,8 +666,8 @@
 
 .method public requestIsimAuthentication(Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "nonce"
-    .parameter "result"
+    .param p1, "nonce"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/os/Message;
 
     .prologue
     .line 279
@@ -681,8 +681,8 @@
 
 .method public selectNetworkManually(Lcom/android/internal/telephony/OperatorInfo;Landroid/os/Message;)V
     .locals 4
-    .parameter "network"
-    .parameter "response"
+    .param p1, "network"    # Lcom/android/internal/telephony/OperatorInfo;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 152
@@ -693,7 +693,7 @@
     invoke-direct {v1, v2}, Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;-><init>(Lcom/android/internal/telephony/cdma/CDMALTEPhone$1;)V
 
     .line 153
-    .local v1, nsm:Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;
+    .local v1, "nsm":Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;
     iput-object p2, v1, Lcom/android/internal/telephony/cdma/CDMALTEPhone$NetworkSelectMessage;->message:Landroid/os/Message;
 
     .line 154
@@ -718,7 +718,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-virtual {p1}, Lcom/android/internal/telephony/OperatorInfo;->getOperatorNumeric()Ljava/lang/String;
@@ -751,13 +751,13 @@
     move-result-object v3
 
     .line 224
-    .local v3, uri:Landroid/net/Uri;
+    .local v3, "uri":Landroid/net/Uri;
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 225
-    .local v1, map:Landroid/content/ContentValues;
+    .local v1, "map":Landroid/content/ContentValues;
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->mSimRecords:Lcom/android/internal/telephony/uicc/SIMRecords;
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/uicc/SIMRecords;->getOperatorNumeric()Ljava/lang/String;
@@ -765,7 +765,7 @@
     move-result-object v2
 
     .line 226
-    .local v2, operatorNumeric:Ljava/lang/String;
+    .local v2, "operatorNumeric":Ljava/lang/String;
     const-string v4, "numeric"
 
     invoke-virtual {v1, v4, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -806,9 +806,9 @@
     const/4 v4, 0x1
 
     .line 237
-    .end local v1           #map:Landroid/content/ContentValues;
-    .end local v2           #operatorNumeric:Ljava/lang/String;
-    .end local v3           #uri:Landroid/net/Uri;
+    .end local v1    # "map":Landroid/content/ContentValues;
+    .end local v2    # "operatorNumeric":Ljava/lang/String;
+    .end local v3    # "uri":Landroid/net/Uri;
     :goto_0
     return v4
 
@@ -817,13 +817,13 @@
     move-exception v0
 
     .line 232
-    .local v0, e:Landroid/database/SQLException;
+    .local v0, "e":Landroid/database/SQLException;
     const-string v4, "Can\'t store current operator ret false"
 
     invoke-virtual {p0, v4, v0}, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->loge(Ljava/lang/String;Ljava/lang/Exception;)V
 
     .line 237
-    .end local v0           #e:Landroid/database/SQLException;
+    .end local v0    # "e":Landroid/database/SQLException;
     :goto_1
     const/4 v4, 0x0
 
@@ -840,7 +840,7 @@
 
 .method updateCurrentCarrierInProvider(Ljava/lang/String;)Z
     .locals 3
-    .parameter "operatorNumeric"
+    .param p1, "operatorNumeric"    # Ljava/lang/String;
 
     .prologue
     .line 208
@@ -865,7 +865,7 @@
     move-result v0
 
     .line 215
-    .local v0, retVal:Z
+    .local v0, "retVal":Z
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -891,7 +891,7 @@
     return v0
 
     .line 212
-    .end local v0           #retVal:Z
+    .end local v0    # "retVal":Z
     :cond_0
     const-string v1, "updateCurrentCarrierInProvider not updated"
 
@@ -900,6 +900,6 @@
     .line 213
     const/4 v0, 0x1
 
-    .restart local v0       #retVal:Z
+    .restart local v0    # "retVal":Z
     goto :goto_0
 .end method

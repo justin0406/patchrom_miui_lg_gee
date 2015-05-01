@@ -22,12 +22,12 @@
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
     .locals 0
-    .parameter "context"
-    .parameter "name"
-    .parameter "graphString"
-    .parameter "inputName"
-    .parameter "outputName"
-    .parameter "scheduler"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "graphString"    # Ljava/lang/String;
+    .param p4, "inputName"    # Ljava/lang/String;
+    .param p5, "outputName"    # Ljava/lang/String;
+    .param p6, "scheduler"    # Ljava/lang/Class;
 
     .prologue
     .line 63
@@ -51,7 +51,7 @@
 
 .method private createGraph(Ljava/lang/String;)V
     .locals 6
-    .parameter "graphString"
+    .param p1, "graphString"    # Ljava/lang/String;
 
     .prologue
     .line 73
@@ -60,7 +60,7 @@
     invoke-direct {v1}, Landroid/filterfw/io/TextGraphReader;-><init>()V
 
     .line 75
-    .local v1, reader:Landroid/filterfw/io/GraphReader;
+    .local v1, "reader":Landroid/filterfw/io/GraphReader;
     :try_start_0
     invoke-virtual {v1, p1}, Landroid/filterfw/io/GraphReader;->readGraphString(Ljava/lang/String;)Landroid/filterfw/core/FilterGraph;
 
@@ -89,7 +89,7 @@
     move-exception v0
 
     .line 77
-    .local v0, e:Landroid/filterfw/io/GraphIOException;
+    .local v0, "e":Landroid/filterfw/io/GraphIOException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Could not setup effect"
@@ -99,7 +99,7 @@
     throw v2
 
     .line 83
-    .end local v0           #e:Landroid/filterfw/io/GraphIOException;
+    .end local v0    # "e":Landroid/filterfw/io/GraphIOException;
     :cond_0
     new-instance v2, Landroid/filterfw/core/SyncRunner;
 
@@ -123,10 +123,10 @@
 # virtual methods
 .method public apply(IIII)V
     .locals 5
-    .parameter "inputTexId"
-    .parameter "width"
-    .parameter "height"
-    .parameter "outputTexId"
+    .param p1, "inputTexId"    # I
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "outputTexId"    # I
 
     .prologue
     .line 88
@@ -142,7 +142,7 @@
     move-result-object v2
 
     .line 90
-    .local v2, src:Landroid/filterfw/core/Filter;
+    .local v2, "src":Landroid/filterfw/core/Filter;
     if-eqz v2, :cond_0
 
     .line 91
@@ -182,7 +182,7 @@
     move-result-object v0
 
     .line 98
-    .local v0, dest:Landroid/filterfw/core/Filter;
+    .local v0, "dest":Landroid/filterfw/core/Filter;
     if-eqz v0, :cond_1
 
     .line 99
@@ -209,7 +209,7 @@
     return-void
 
     .line 95
-    .end local v0           #dest:Landroid/filterfw/core/Filter;
+    .end local v0    # "dest":Landroid/filterfw/core/Filter;
     :cond_0
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -220,7 +220,7 @@
     throw v3
 
     .line 101
-    .restart local v0       #dest:Landroid/filterfw/core/Filter;
+    .restart local v0    # "dest":Landroid/filterfw/core/Filter;
     :cond_1
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -235,7 +235,7 @@
     move-exception v1
 
     .line 106
-    .local v1, e:Ljava/lang/RuntimeException;
+    .local v1, "e":Ljava/lang/RuntimeException;
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v4, "Internal error applying effect: "
@@ -269,8 +269,8 @@
 
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 0
-    .parameter "parameterKey"
-    .parameter "value"
+    .param p1, "parameterKey"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 113

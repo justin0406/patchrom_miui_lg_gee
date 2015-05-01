@@ -49,7 +49,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 43
@@ -75,9 +75,9 @@
 # virtual methods
 .method public parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/content/SyncAdapterType;
     .locals 10
-    .parameter "res"
-    .parameter "packageName"
-    .parameter "attrs"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 48
@@ -88,7 +88,7 @@
     move-result-object v8
 
     .line 51
-    .local v8, sa:Landroid/content/res/TypedArray;
+    .local v8, "sa":Landroid/content/res/TypedArray;
     const/4 v0, 0x2
 
     :try_start_0
@@ -97,7 +97,7 @@
     move-result-object v1
 
     .line 53
-    .local v1, authority:Ljava/lang/String;
+    .local v1, "authority":Ljava/lang/String;
     const/4 v0, 0x1
 
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -107,7 +107,7 @@
     move-result-object v2
 
     .line 55
-    .local v2, accountType:Ljava/lang/String;
+    .local v2, "accountType":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     if-nez v2, :cond_1
@@ -134,7 +134,7 @@
     move-result v3
 
     .line 60
-    .local v3, userVisible:Z
+    .local v3, "userVisible":Z
     const/4 v0, 0x4
 
     const/4 v9, 0x1
@@ -144,7 +144,7 @@
     move-result v4
 
     .line 63
-    .local v4, supportsUploading:Z
+    .local v4, "supportsUploading":Z
     const/4 v0, 0x6
 
     const/4 v9, 0x0
@@ -154,7 +154,7 @@
     move-result v5
 
     .line 66
-    .local v5, isAlwaysSyncable:Z
+    .local v5, "isAlwaysSyncable":Z
     const/4 v0, 0x5
 
     const/4 v9, 0x0
@@ -164,7 +164,7 @@
     move-result v6
 
     .line 69
-    .local v6, allowParallelSyncs:Z
+    .local v6, "allowParallelSyncs":Z
     const/4 v0, 0x0
 
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -172,7 +172,7 @@
     move-result-object v7
 
     .line 72
-    .local v7, settingsActivity:Ljava/lang/String;
+    .local v7, "settingsActivity":Ljava/lang/String;
     new-instance v0, Landroid/content/SyncAdapterType;
 
     invoke-direct/range {v0 .. v7}, Landroid/content/SyncAdapterType;-><init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
@@ -184,13 +184,13 @@
 
     goto :goto_0
 
-    .end local v1           #authority:Ljava/lang/String;
-    .end local v2           #accountType:Ljava/lang/String;
-    .end local v3           #userVisible:Z
-    .end local v4           #supportsUploading:Z
-    .end local v5           #isAlwaysSyncable:Z
-    .end local v6           #allowParallelSyncs:Z
-    .end local v7           #settingsActivity:Ljava/lang/String;
+    .end local v1    # "authority":Ljava/lang/String;
+    .end local v2    # "accountType":Ljava/lang/String;
+    .end local v3    # "userVisible":Z
+    .end local v4    # "supportsUploading":Z
+    .end local v5    # "isAlwaysSyncable":Z
+    .end local v6    # "allowParallelSyncs":Z
+    .end local v7    # "settingsActivity":Ljava/lang/String;
     :catchall_0
     move-exception v0
 
@@ -201,9 +201,9 @@
 
 .method public bridge synthetic parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/content/res/Resources;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 34

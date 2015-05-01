@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/GrantCredentialsPermissionActivity$1;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 99

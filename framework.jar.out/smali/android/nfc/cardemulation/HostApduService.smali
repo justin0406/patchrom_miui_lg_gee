@@ -83,7 +83,7 @@
     move-result-object v1
 
     .line 347
-    .local v1, unhandledMsg:Landroid/os/Message;
+    .local v1, "unhandledMsg":Landroid/os/Message;
     :try_start_0
     iget-object v2, p0, Landroid/nfc/cardemulation/HostApduService;->mMessenger:Landroid/os/Messenger;
 
@@ -100,7 +100,7 @@
     move-exception v0
 
     .line 349
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "TAG"
 
     const-string v3, "Local messenger has died."
@@ -112,7 +112,7 @@
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 301
@@ -133,7 +133,7 @@
 
 .method public final sendResponseApdu([B)V
     .locals 5
-    .parameter "responseApdu"
+    .param p1, "responseApdu"    # [B
 
     .prologue
     .line 311
@@ -146,13 +146,13 @@
     move-result-object v2
 
     .line 312
-    .local v2, responseMsg:Landroid/os/Message;
+    .local v2, "responseMsg":Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 313
-    .local v0, dataBundle:Landroid/os/Bundle;
+    .local v0, "dataBundle":Landroid/os/Bundle;
     const-string v3, "data"
 
     invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
@@ -177,7 +177,7 @@
     move-exception v1
 
     .line 318
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "TAG"
 
     const-string v4, "Local messenger has died."

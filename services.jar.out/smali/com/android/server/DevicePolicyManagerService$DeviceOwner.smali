@@ -47,8 +47,8 @@
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "packageName"
-    .parameter "ownerName"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "ownerName"    # Ljava/lang/String;
 
     .prologue
     .line 2856
@@ -66,8 +66,8 @@
 
 .method static isInstalled(Ljava/lang/String;Landroid/content/pm/PackageManager;)Z
     .locals 6
-    .parameter "packageName"
-    .parameter "pm"
+    .param p0, "packageName"    # Ljava/lang/String;
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     const/4 v2, 0x0
@@ -80,7 +80,7 @@
 
     move-result-object v1
 
-    .local v1, pi:Landroid/content/pm/PackageInfo;
+    .local v1, "pi":Landroid/content/pm/PackageInfo;
     if-eqz v1, :cond_0
 
     .line 2878
@@ -98,7 +98,7 @@
     const/4 v2, 0x1
 
     .line 2885
-    .end local v1           #pi:Landroid/content/pm/PackageInfo;
+    .end local v1    # "pi":Landroid/content/pm/PackageInfo;
     :cond_0
     :goto_0
     return v2
@@ -108,7 +108,7 @@
     move-exception v0
 
     .line 2883
-    .local v0, nnfe:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v0, "nnfe":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v3, "DevicePolicyManagerService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -182,20 +182,20 @@
     invoke-direct {v0, v4}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
 
     .line 2924
-    .local v0, file:Landroid/util/AtomicFile;
+    .local v0, "file":Landroid/util/AtomicFile;
     :try_start_0
     invoke-virtual {v0}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v3
 
     .line 2925
-    .local v3, output:Ljava/io/FileOutputStream;
+    .local v3, "output":Ljava/io/FileOutputStream;
     new-instance v2, Lcom/android/internal/util/FastXmlSerializer;
 
     invoke-direct {v2}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
     .line 2926
-    .local v2, out:Lorg/xmlpull/v1/XmlSerializer;
+    .local v2, "out":Lorg/xmlpull/v1/XmlSerializer;
     const-string v4, "utf-8"
 
     invoke-interface {v2, v3, v4}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
@@ -261,8 +261,8 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 2940
-    .end local v2           #out:Lorg/xmlpull/v1/XmlSerializer;
-    .end local v3           #output:Ljava/io/FileOutputStream;
+    .end local v2    # "out":Lorg/xmlpull/v1/XmlSerializer;
+    .end local v3    # "output":Ljava/io/FileOutputStream;
     :goto_0
     return-void
 
@@ -271,7 +271,7 @@
     move-exception v1
 
     .line 2938
-    .local v1, ioe:Ljava/io/IOException;
+    .local v1, "ioe":Ljava/io/IOException;
     const-string v4, "DevicePolicyManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -339,20 +339,20 @@
     invoke-direct {v0, v7}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
 
     .line 2892
-    .local v0, file:Landroid/util/AtomicFile;
+    .local v0, "file":Landroid/util/AtomicFile;
     :try_start_0
     invoke-virtual {v0}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
 
     move-result-object v1
 
     .line 2893
-    .local v1, input:Ljava/io/FileInputStream;
+    .local v1, "input":Ljava/io/FileInputStream;
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v3
 
     .line 2894
-    .local v3, parser:Lorg/xmlpull/v1/XmlPullParser;
+    .local v3, "parser":Lorg/xmlpull/v1/XmlPullParser;
     const/4 v7, 0x0
 
     invoke-interface {v3, v1, v7}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
@@ -363,7 +363,7 @@
 
     move-result v5
 
-    .local v5, type:I
+    .local v5, "type":I
     const/4 v7, 0x1
 
     if-eq v5, v7, :cond_1
@@ -379,7 +379,7 @@
     move-result-object v4
 
     .line 2900
-    .local v4, tag:Ljava/lang/String;
+    .local v4, "tag":Ljava/lang/String;
     const-string v7, "device-owner"
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -417,15 +417,15 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 2907
-    .end local v1           #input:Ljava/io/FileInputStream;
-    .end local v3           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v4           #tag:Ljava/lang/String;
-    .end local v5           #type:I
+    .end local v1    # "input":Ljava/io/FileInputStream;
+    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v4    # "tag":Ljava/lang/String;
+    .end local v5    # "type":I
     :catch_0
     move-exception v6
 
     .line 2908
-    .local v6, xppe:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v6, "xppe":Lorg/xmlpull/v1/XmlPullParserException;
     const-string v7, "DevicePolicyManagerService"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -449,15 +449,15 @@
     invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 2912
-    .end local v6           #xppe:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v6    # "xppe":Lorg/xmlpull/v1/XmlPullParserException;
     :goto_0
     return-void
 
     .line 2904
-    .restart local v1       #input:Ljava/io/FileInputStream;
-    .restart local v3       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v4       #tag:Ljava/lang/String;
-    .restart local v5       #type:I
+    .restart local v1    # "input":Ljava/io/FileInputStream;
+    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v4    # "tag":Ljava/lang/String;
+    .restart local v5    # "type":I
     :cond_2
     const/4 v7, 0x0
 
@@ -490,15 +490,15 @@
     goto :goto_0
 
     .line 2909
-    .end local v1           #input:Ljava/io/FileInputStream;
-    .end local v3           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v4           #tag:Ljava/lang/String;
-    .end local v5           #type:I
+    .end local v1    # "input":Ljava/io/FileInputStream;
+    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v4    # "tag":Ljava/lang/String;
+    .end local v5    # "type":I
     :catch_1
     move-exception v2
 
     .line 2910
-    .local v2, ioe:Ljava/io/IOException;
+    .local v2, "ioe":Ljava/io/IOException;
     const-string v7, "DevicePolicyManagerService"
 
     new-instance v8, Ljava/lang/StringBuilder;

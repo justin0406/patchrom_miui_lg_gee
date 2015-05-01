@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -290,7 +290,7 @@
     .line 201
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     sget-object v2, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
@@ -310,7 +310,7 @@
     check-cast v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
     .line 203
-    .local v1, pi:Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
+    .local v1, "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     sget-object v2, Landroid/app/admin/DeviceAdminInfo;->sRevKnownPolicies:Landroid/util/SparseArray;
 
     iget v3, v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;->ident:I
@@ -336,7 +336,7 @@
     goto :goto_0
 
     .line 456
-    .end local v1           #pi:Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
+    .end local v1    # "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     :cond_0
     new-instance v2, Landroid/app/admin/DeviceAdminInfo$1;
 
@@ -349,8 +349,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
     .locals 19
-    .parameter "context"
-    .parameter "receiver"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "receiver"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -375,17 +375,17 @@
     iget-object v2, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 235
-    .local v2, ai:Landroid/content/pm/ActivityInfo;
+    .local v2, "ai":Landroid/content/pm/ActivityInfo;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
     .line 237
-    .local v9, pm:Landroid/content/pm/PackageManager;
+    .local v9, "pm":Landroid/content/pm/PackageManager;
     const/4 v8, 0x0
 
     .line 239
-    .local v8, parser:Landroid/content/res/XmlResourceParser;
+    .local v8, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string v16, "android.app.device_admin"
 
@@ -407,15 +407,15 @@
 
     throw v16
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 293
     :catch_0
     move-exception v4
 
     .line 294
-    .local v4, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v4, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     new-instance v16, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -448,7 +448,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 297
-    .end local v4           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v4    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v16
 
@@ -473,19 +473,19 @@
     move-result-object v11
 
     .line 247
-    .local v11, res:Landroid/content/res/Resources;
+    .local v11, "res":Landroid/content/res/Resources;
     invoke-static {v8}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v3
 
     .line 251
-    .local v3, attrs:Landroid/util/AttributeSet;
+    .local v3, "attrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v14
 
-    .local v14, type:I
+    .local v14, "type":I
     const/16 v16, 0x1
 
     move/from16 v0, v16
@@ -505,7 +505,7 @@
     move-result-object v6
 
     .line 255
-    .local v6, nodeName:Ljava/lang/String;
+    .local v6, "nodeName":Ljava/lang/String;
     const-string v16, "device-admin"
 
     move-object/from16 v0, v16
@@ -536,7 +536,7 @@
     move-result-object v12
 
     .line 263
-    .local v12, sa:Landroid/content/res/TypedArray;
+    .local v12, "sa":Landroid/content/res/TypedArray;
     const/16 v16, 0x0
 
     const/16 v17, 0x1
@@ -564,7 +564,7 @@
     move-result v7
 
     .line 270
-    .local v7, outerDepth:I
+    .local v7, "outerDepth":I
     :cond_5
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->next()I
 
@@ -610,7 +610,7 @@
     move-result-object v13
 
     .line 275
-    .local v13, tagName:Ljava/lang/String;
+    .local v13, "tagName":Ljava/lang/String;
     const-string/jumbo v16, "uses-policies"
 
     move-object/from16 v0, v16
@@ -627,7 +627,7 @@
     move-result v5
 
     .line 278
-    .local v5, innerDepth:I
+    .local v5, "innerDepth":I
     :cond_7
     :goto_0
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->next()I
@@ -674,7 +674,7 @@
     move-result-object v10
 
     .line 283
-    .local v10, policyName:Ljava/lang/String;
+    .local v10, "policyName":Ljava/lang/String;
     sget-object v16, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
     move-object/from16 v0, v16
@@ -686,7 +686,7 @@
     check-cast v15, Ljava/lang/Integer;
 
     .line 284
-    .local v15, val:Ljava/lang/Integer;
+    .local v15, "val":Ljava/lang/Integer;
     if-eqz v15, :cond_9
 
     .line 285
@@ -754,16 +754,16 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
     .line 297
-    .end local v5           #innerDepth:I
-    .end local v10           #policyName:Ljava/lang/String;
-    .end local v13           #tagName:Ljava/lang/String;
-    .end local v15           #val:Ljava/lang/Integer;
+    .end local v5    # "innerDepth":I
+    .end local v10    # "policyName":Ljava/lang/String;
+    .end local v13    # "tagName":Ljava/lang/String;
+    .end local v15    # "val":Ljava/lang/Integer;
     :cond_a
     if-eqz v8, :cond_b
 
@@ -776,7 +776,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 301
@@ -818,8 +818,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 433
@@ -936,7 +936,7 @@
 
 .method public getTagForPolicy(I)Ljava/lang/String;
     .locals 1
-    .parameter "policyIdent"
+    .param p1, "policyIdent"    # I
 
     .prologue
     .line 404
@@ -972,10 +972,10 @@
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 410
-    .local v2, res:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/admin/DeviceAdminInfo$PolicyInfo;>;"
+    .local v2, "res":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/admin/DeviceAdminInfo$PolicyInfo;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     sget-object v3, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
@@ -995,7 +995,7 @@
     check-cast v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
     .line 412
-    .local v1, pi:Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
+    .local v1, "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     iget v3, v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;->ident:I
 
     invoke-virtual {p0, v3}, Landroid/app/admin/DeviceAdminInfo;->usesPolicy(I)Z
@@ -1014,7 +1014,7 @@
     goto :goto_0
 
     .line 416
-    .end local v1           #pi:Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
+    .end local v1    # "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     :cond_1
     return-object v2
 .end method
@@ -1031,7 +1031,7 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -1054,11 +1054,11 @@
     iget-object v1, v2, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
 
     .line 356
-    .local v1, packageName:Ljava/lang/String;
+    .local v1, "packageName":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 357
-    .local v0, applicationInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-nez v1, :cond_0
 
     .line 358
@@ -1090,8 +1090,8 @@
     return-object v2
 
     .line 364
-    .end local v0           #applicationInfo:Landroid/content/pm/ApplicationInfo;
-    .end local v1           #packageName:Ljava/lang/String;
+    .end local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
+    .end local v1    # "packageName":Ljava/lang/String;
     :cond_1
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
 
@@ -1102,7 +1102,7 @@
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 374
@@ -1117,7 +1117,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 344
@@ -1132,7 +1132,7 @@
 
 .method public readPoliciesFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 2
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1200,7 +1200,7 @@
 
 .method public usesPolicy(I)Z
     .locals 3
-    .parameter "policyIdent"
+    .param p1, "policyIdent"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -1225,7 +1225,7 @@
 
 .method public writePoliciesToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 3
-    .parameter "out"
+    .param p1, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -1254,8 +1254,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 449

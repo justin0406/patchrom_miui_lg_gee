@@ -35,9 +35,9 @@
 
 .method constructor <init>(IIZ)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOpaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOpaque"    # Z
 
     .prologue
     .line 59
@@ -124,7 +124,7 @@
 
 .method setDisplayList(Landroid/view/DisplayList;)V
     .locals 0
-    .parameter "displayList"
+    .param p1, "displayList"    # Landroid/view/DisplayList;
 
     .prologue
     .line 106
@@ -136,7 +136,7 @@
 
 .method setLayerPaint(Landroid/graphics/Paint;)V
     .locals 0
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 71
@@ -157,9 +157,9 @@
 
 .method update(IIZ)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOpaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOpaque"    # Z
 
     .prologue
     .line 200

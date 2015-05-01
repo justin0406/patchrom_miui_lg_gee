@@ -60,8 +60,8 @@
 
 .method public constructor <init>(Ljava/lang/String;J)V
     .locals 2
-    .parameter "tag"
-    .parameter "millis"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
 
     .prologue
     const/4 v0, 0x0
@@ -104,10 +104,10 @@
 
 .method public constructor <init>(Ljava/lang/String;JLandroid/os/ParcelFileDescriptor;I)V
     .locals 3
-    .parameter "tag"
-    .parameter "millis"
-    .parameter "data"
-    .parameter "flags"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
+    .param p4, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p5, "flags"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -202,10 +202,10 @@
 
 .method public constructor <init>(Ljava/lang/String;JLjava/io/File;I)V
     .locals 3
-    .parameter "tag"
-    .parameter "millis"
-    .parameter "data"
-    .parameter "flags"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
+    .param p4, "data"    # Ljava/io/File;
+    .param p5, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -270,7 +270,7 @@
     iput-object v0, p0, Landroid/os/DropBoxManager$Entry;->mData:[B
 
     .line 165
-    const/high16 v0, 0x1000
+    const/high16 v0, 0x10000000
 
     invoke-static {p4, v0}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
@@ -287,9 +287,9 @@
 
 .method public constructor <init>(Ljava/lang/String;JLjava/lang/String;)V
     .locals 2
-    .parameter "tag"
-    .parameter "millis"
-    .parameter "text"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
+    .param p4, "text"    # Ljava/lang/String;
 
     .prologue
     .line 109
@@ -348,10 +348,10 @@
 
 .method public constructor <init>(Ljava/lang/String;J[BI)V
     .locals 3
-    .parameter "tag"
-    .parameter "millis"
-    .parameter "data"
-    .parameter "flags"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
+    .param p4, "data"    # [B
+    .param p5, "flags"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -528,7 +528,7 @@
     invoke-direct {v0, v1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
     .line 219
-    .local v0, is:Ljava/io/InputStream;
+    .local v0, "is":Ljava/io/InputStream;
     :goto_0
     iget v1, p0, Landroid/os/DropBoxManager$Entry;->mFlags:I
 
@@ -542,7 +542,7 @@
 
     move-object v0, v1
 
-    .end local v0           #is:Ljava/io/InputStream;
+    .end local v0    # "is":Ljava/io/InputStream;
     :cond_0
     :goto_1
     return-object v0
@@ -560,11 +560,11 @@
 
     invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
-    .restart local v0       #is:Ljava/io/InputStream;
+    .restart local v0    # "is":Ljava/io/InputStream;
     goto :goto_0
 
     .line 217
-    .end local v0           #is:Ljava/io/InputStream;
+    .end local v0    # "is":Ljava/io/InputStream;
     :cond_2
     const/4 v0, 0x0
 
@@ -583,7 +583,7 @@
 
 .method public getText(I)Ljava/lang/String;
     .locals 9
-    .parameter "maxBytes"
+    .param p1, "maxBytes"    # I
 
     .prologue
     const/4 v8, 0x0
@@ -629,12 +629,12 @@
     const/4 v2, 0x0
 
     .line 193
-    .local v2, is:Ljava/io/InputStream;
+    .local v2, "is":Ljava/io/InputStream;
     :try_start_0
     invoke-virtual {p0}, Landroid/os/DropBoxManager$Entry;->getInputStream()Ljava/io/InputStream;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -662,15 +662,15 @@
     new-array v0, p1, [B
 
     .line 196
-    .local v0, buf:[B
+    .local v0, "buf":[B
     const/4 v4, 0x0
 
     .line 197
-    .local v4, readBytes:I
+    .local v4, "readBytes":I
     const/4 v3, 0x0
 
     .line 198
-    .local v3, n:I
+    .local v3, "n":I
     :goto_1
     if-ltz v3, :cond_4
 
@@ -695,8 +695,8 @@
 
     invoke-direct {v6, v0, v7, v4}, Ljava/lang/String;-><init>([BII)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 205
     if-eqz v2, :cond_5
@@ -713,14 +713,14 @@
     goto :goto_0
 
     .line 202
-    .end local v0           #buf:[B
-    .end local v3           #n:I
-    .end local v4           #readBytes:I
+    .end local v0    # "buf":[B
+    .end local v3    # "n":I
+    .end local v4    # "readBytes":I
     :catch_1
     move-exception v1
 
     .line 205
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     if-eqz v2, :cond_0
 
     :try_start_4
@@ -735,7 +735,7 @@
 
     goto :goto_0
 
-    .end local v1           #e:Ljava/io/IOException;
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v5
 
@@ -750,17 +750,17 @@
     :goto_3
     throw v5
 
-    .restart local v0       #buf:[B
-    .restart local v3       #n:I
-    .restart local v4       #readBytes:I
+    .restart local v0    # "buf":[B
+    .restart local v3    # "n":I
+    .restart local v4    # "readBytes":I
     :catch_3
     move-exception v5
 
     goto :goto_2
 
-    .end local v0           #buf:[B
-    .end local v3           #n:I
-    .end local v4           #readBytes:I
+    .end local v0    # "buf":[B
+    .end local v3    # "n":I
+    .end local v4    # "readBytes":I
     :catch_4
     move-exception v6
 
@@ -779,8 +779,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 241

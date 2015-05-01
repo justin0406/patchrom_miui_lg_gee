@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 350
@@ -36,7 +35,7 @@
 # virtual methods
 .method public attachToken(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 355
@@ -65,7 +64,7 @@
 
 .method public bindInput(Landroid/view/inputmethod/InputBinding;)V
     .locals 3
-    .parameter "binding"
+    .param p1, "binding"    # Landroid/view/inputmethod/InputBinding;
 
     .prologue
     .line 367
@@ -90,7 +89,7 @@
     move-result-object v0
 
     .line 372
-    .local v0, ic:Landroid/view/inputmethod/InputConnection;
+    .local v0, "ic":Landroid/view/inputmethod/InputConnection;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
@@ -116,7 +115,7 @@
 
 .method public changeInputMethodSubtype(Landroid/view/inputmethod/InputMethodSubtype;)V
     .locals 1
-    .parameter "subtype"
+    .param p1, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
 
     .prologue
     .line 445
@@ -130,8 +129,8 @@
 
 .method public hideSoftInput(ILandroid/os/ResultReceiver;)V
     .locals 3
-    .parameter "flags"
-    .parameter "resultReceiver"
+    .param p1, "flags"    # I
+    .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
 
     .prologue
     const/4 v1, 0x0
@@ -144,7 +143,7 @@
     move-result v0
 
     .line 404
-    .local v0, wasVis:Z
+    .local v0, "wasVis":Z
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iput v1, v2, Landroid/inputmethodservice/InputMethodService;->mShowInputFlags:I
@@ -162,7 +161,7 @@
     .line 407
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
-    #calls: Landroid/inputmethodservice/InputMethodService;->doHideWindow()V
+    # invokes: Landroid/inputmethodservice/InputMethodService;->doHideWindow()V
     invoke-static {v2}, Landroid/inputmethodservice/InputMethodService;->access$000(Landroid/inputmethodservice/InputMethodService;)V
 
     .line 408
@@ -200,8 +199,8 @@
 
 .method public restartInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
     .locals 2
-    .parameter "ic"
-    .parameter "attribute"
+    .param p1, "ic"    # Landroid/view/inputmethod/InputConnection;
+    .param p2, "attribute"    # Landroid/view/inputmethod/EditorInfo;
 
     .prologue
     .line 395
@@ -217,8 +216,8 @@
 
 .method public showSoftInput(ILandroid/os/ResultReceiver;)V
     .locals 10
-    .parameter "flags"
-    .parameter "resultReceiver"
+    .param p1, "flags"    # I
+    .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
 
     .prologue
     const/4 v4, 0x2
@@ -235,7 +234,7 @@
     move-result v2
 
     .line 422
-    .local v2, wasVis:Z
+    .local v2, "wasVis":Z
     iget-object v3, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iput v5, v3, Landroid/inputmethodservice/InputMethodService;->mShowInputFlags:I
@@ -269,7 +268,7 @@
     move-result v1
 
     .line 434
-    .local v1, showing:Z
+    .local v1, "showing":Z
     iget-object v3, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iget-object v7, v3, Landroid/inputmethodservice/InputMethodService;->mImm:Landroid/view/inputmethod/InputMethodManager;
@@ -313,12 +312,12 @@
     return-void
 
     .line 426
-    .end local v1           #showing:Z
+    .end local v1    # "showing":Z
     :catch_0
     move-exception v0
 
     .line 428
-    .local v0, e:Landroid/view/WindowManager$BadTokenException;
+    .local v0, "e":Landroid/view/WindowManager$BadTokenException;
     iget-object v3, p0, Landroid/inputmethodservice/InputMethodService$InputMethodImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iput-boolean v5, v3, Landroid/inputmethodservice/InputMethodService;->mWindowVisible:Z
@@ -330,8 +329,8 @@
 
     goto :goto_0
 
-    .end local v0           #e:Landroid/view/WindowManager$BadTokenException;
-    .restart local v1       #showing:Z
+    .end local v0    # "e":Landroid/view/WindowManager$BadTokenException;
+    .restart local v1    # "showing":Z
     :cond_2
     move v3, v5
 
@@ -354,8 +353,8 @@
 
 .method public startInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
     .locals 2
-    .parameter "ic"
-    .parameter "attribute"
+    .param p1, "ic"    # Landroid/view/inputmethod/InputConnection;
+    .param p2, "attribute"    # Landroid/view/inputmethod/EditorInfo;
 
     .prologue
     .line 390

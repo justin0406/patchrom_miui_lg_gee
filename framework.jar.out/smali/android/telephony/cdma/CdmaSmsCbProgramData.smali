@@ -31,7 +31,7 @@
 
 .field public static final ALERT_OPTION_VISUAL_REPEAT:I = 0x5
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -80,12 +80,12 @@
 
 .method public constructor <init>(IIIIILjava/lang/String;)V
     .locals 0
-    .parameter "operation"
-    .parameter "category"
-    .parameter "language"
-    .parameter "maxMessages"
-    .parameter "alertOption"
-    .parameter "categoryName"
+    .param p1, "operation"    # I
+    .param p2, "category"    # I
+    .param p3, "language"    # I
+    .param p4, "maxMessages"    # I
+    .param p5, "alertOption"    # I
+    .param p6, "categoryName"    # Ljava/lang/String;
 
     .prologue
     .line 98
@@ -115,7 +115,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 108
@@ -335,8 +335,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 125

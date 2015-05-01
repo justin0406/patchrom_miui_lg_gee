@@ -37,14 +37,14 @@
 
 .method static isValid(I)Z
     .locals 1
-    .parameter "playbackStatus"
+    .param p0, "playbackStatus"    # I
 
     .prologue
     .line 141
     const/4 v0, 0x0
 
     .line 143
-    .local v0, isValid:Z
+    .local v0, "isValid":Z
     packed-switch p0, :pswitch_data_0
 
     .line 150

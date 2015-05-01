@@ -21,8 +21,8 @@
 # direct methods
 .method public varargs constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
     .locals 0
-    .parameter "context"
-    .parameter "prefGroups"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "prefGroups"    # [Ljava/lang/String;
 
     .prologue
     .line 86
@@ -42,34 +42,34 @@
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 6
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 97
     iget-object v1, p0, Landroid/app/backup/SharedPreferencesBackupHelper;->mContext:Landroid/content/Context;
 
     .line 101
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     invoke-static {}, Landroid/app/QueuedWork;->waitToFinish()V
 
     .line 104
     iget-object v4, p0, Landroid/app/backup/SharedPreferencesBackupHelper;->mPrefGroups:[Ljava/lang/String;
 
     .line 105
-    .local v4, prefGroups:[Ljava/lang/String;
+    .local v4, "prefGroups":[Ljava/lang/String;
     array-length v0, v4
 
     .line 106
-    .local v0, N:I
+    .local v0, "N":I
     new-array v2, v0, [Ljava/lang/String;
 
     .line 107
-    .local v2, files:[Ljava/lang/String;
+    .local v2, "files":[Ljava/lang/String;
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v0, :cond_0
 
@@ -101,20 +101,20 @@
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
     .locals 4
-    .parameter "data"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInputStream;
 
     .prologue
     .line 120
     iget-object v0, p0, Landroid/app/backup/SharedPreferencesBackupHelper;->mContext:Landroid/content/Context;
 
     .line 122
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     invoke-virtual {p1}, Landroid/app/backup/BackupDataInputStream;->getKey()Ljava/lang/String;
 
     move-result-object v2
 
     .line 125
-    .local v2, key:Ljava/lang/String;
+    .local v2, "key":Ljava/lang/String;
     iget-object v3, p0, Landroid/app/backup/SharedPreferencesBackupHelper;->mPrefGroups:[Ljava/lang/String;
 
     invoke-virtual {p0, v2, v3}, Landroid/app/backup/SharedPreferencesBackupHelper;->isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
@@ -133,18 +133,18 @@
     move-result-object v1
 
     .line 127
-    .local v1, f:Ljava/io/File;
+    .local v1, "f":Ljava/io/File;
     invoke-virtual {p0, v1, p1}, Landroid/app/backup/SharedPreferencesBackupHelper;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
 
     .line 129
-    .end local v1           #f:Ljava/io/File;
+    .end local v1    # "f":Ljava/io/File;
     :cond_0
     return-void
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 70

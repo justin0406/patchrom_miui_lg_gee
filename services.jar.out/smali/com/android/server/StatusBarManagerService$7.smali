@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 640
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 642
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 643
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

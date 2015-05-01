@@ -26,7 +26,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "numSuccessfulYieldPoints"
+    .param p1, "numSuccessfulYieldPoints"    # I
 
     .prologue
     .line 43
@@ -41,7 +41,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 31
@@ -58,8 +58,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "message"
-    .parameter "numSuccessfulYieldPoints"
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "numSuccessfulYieldPoints"    # I
 
     .prologue
     .line 47
@@ -74,8 +74,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "message"
-    .parameter "cause"
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 35
@@ -92,7 +92,7 @@
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "cause"
+    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 39

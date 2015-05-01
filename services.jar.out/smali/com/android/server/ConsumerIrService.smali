@@ -22,7 +22,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x1
@@ -50,7 +50,7 @@
     check-cast v0, Landroid/os/PowerManager;
 
     .line 65
-    .local v0, pm:Landroid/os/PowerManager;
+    .local v0, "pm":Landroid/os/PowerManager;
     const-string v1, "ConsumerIrService"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
@@ -232,9 +232,9 @@
 
 .method public transmit(Ljava/lang/String;I[I)V
     .locals 11
-    .parameter "packageName"
-    .parameter "carrierFrequency"
-    .parameter "pattern"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "carrierFrequency"    # I
+    .param p3, "pattern"    # [I
 
     .prologue
     .line 92
@@ -262,23 +262,23 @@
     const-wide/16 v5, 0x0
 
     .line 99
-    .local v5, totalXmitTime:J
+    .local v5, "totalXmitTime":J
     move-object v0, p3
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_2
 
     aget v4, v0, v2
 
     .line 100
-    .local v4, slice:I
+    .local v4, "slice":I
     if-gtz v4, :cond_1
 
     .line 101
@@ -302,7 +302,7 @@
     goto :goto_0
 
     .line 106
-    .end local v4           #slice:I
+    .end local v4    # "slice":I
     :cond_2
     const-wide/32 v7, 0x1e8480
 
@@ -337,7 +337,7 @@
     move-result v1
 
     .line 116
-    .local v1, err:I
+    .local v1, "err":I
     if-gez v1, :cond_4
 
     .line 117
@@ -371,7 +371,7 @@
     return-void
 
     .line 119
-    .end local v1           #err:I
+    .end local v1    # "err":I
     :catchall_0
     move-exception v7
 

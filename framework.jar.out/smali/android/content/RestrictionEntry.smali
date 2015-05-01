@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -64,7 +64,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 363
@@ -132,8 +132,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
-    .parameter "selectedString"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "selectedString"    # Ljava/lang/String;
 
     .prologue
     .line 110
@@ -156,8 +156,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "key"
-    .parameter "selectedState"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "selectedState"    # Z
 
     .prologue
     .line 121
@@ -180,8 +180,8 @@
 
 .method public constructor <init>(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
-    .parameter "selectedStrings"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "selectedStrings"    # [Ljava/lang/String;
 
     .prologue
     .line 132
@@ -204,8 +204,8 @@
 
 .method private equalArrays([Ljava/lang/String;[Ljava/lang/String;)Z
     .locals 4
-    .parameter "one"
-    .parameter "other"
+    .param p1, "one"    # [Ljava/lang/String;
+    .param p2, "other"    # [Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -226,7 +226,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     array-length v2, p1
 
@@ -257,7 +257,7 @@
 
 .method private readArray(Landroid/os/Parcel;)[Ljava/lang/String;
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 355
@@ -266,14 +266,14 @@
     move-result v0
 
     .line 356
-    .local v0, count:I
+    .local v0, "count":I
     new-array v2, v0, [Ljava/lang/String;
 
     .line 357
-    .local v2, values:[Ljava/lang/String;
+    .local v2, "values":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -296,8 +296,8 @@
 
 .method private writeArray(Landroid/os/Parcel;[Ljava/lang/String;)V
     .locals 2
-    .parameter "dest"
-    .parameter "values"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "values"    # [Ljava/lang/String;
 
     .prologue
     .line 380
@@ -321,7 +321,7 @@
     .line 384
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v1, p2
 
@@ -352,7 +352,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -384,7 +384,7 @@
     check-cast v0, Landroid/content/RestrictionEntry;
 
     .line 329
-    .local v0, other:Landroid/content/RestrictionEntry;
+    .local v0, "other":Landroid/content/RestrictionEntry;
     iget v3, p0, Landroid/content/RestrictionEntry;->type:I
 
     iget v4, v0, Landroid/content/RestrictionEntry;->type:I
@@ -554,7 +554,7 @@
     const/16 v3, 0x11
 
     .line 341
-    .local v3, result:I
+    .local v3, "result":I
     iget-object v5, p0, Landroid/content/RestrictionEntry;->key:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
@@ -592,20 +592,20 @@
     .line 345
     iget-object v0, p0, Landroid/content/RestrictionEntry;->currentValues:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-object v4, v0, v1
 
     .line 346
-    .local v4, value:Ljava/lang/String;
+    .local v4, "value":Ljava/lang/String;
     if-eqz v4, :cond_2
 
     .line 347
@@ -626,7 +626,7 @@
 
 .method public setAllSelectedStrings([Ljava/lang/String;)V
     .locals 0
-    .parameter "allSelectedStrings"
+    .param p1, "allSelectedStrings"    # [Ljava/lang/String;
 
     .prologue
     .line 204
@@ -638,8 +638,8 @@
 
 .method public setChoiceEntries(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "stringArrayResId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "stringArrayResId"    # I
 
     .prologue
     .line 262
@@ -659,7 +659,7 @@
 
 .method public setChoiceEntries([Ljava/lang/String;)V
     .locals 0
-    .parameter "choiceEntries"
+    .param p1, "choiceEntries"    # [Ljava/lang/String;
 
     .prologue
     .line 253
@@ -671,8 +671,8 @@
 
 .method public setChoiceValues(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "stringArrayResId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "stringArrayResId"    # I
 
     .prologue
     .line 232
@@ -692,7 +692,7 @@
 
 .method public setChoiceValues([Ljava/lang/String;)V
     .locals 0
-    .parameter "choiceValues"
+    .param p1, "choiceValues"    # [Ljava/lang/String;
 
     .prologue
     .line 221
@@ -704,7 +704,7 @@
 
 .method public setDescription(Ljava/lang/String;)V
     .locals 0
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/String;
 
     .prologue
     .line 288
@@ -716,7 +716,7 @@
 
 .method public setSelectedState(Z)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Z
 
     .prologue
     .line 195
@@ -732,7 +732,7 @@
 
 .method public setSelectedString(Ljava/lang/String;)V
     .locals 0
-    .parameter "selectedString"
+    .param p1, "selectedString"    # Ljava/lang/String;
 
     .prologue
     .line 186
@@ -744,7 +744,7 @@
 
 .method public setTitle(Ljava/lang/String;)V
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/String;
 
     .prologue
     .line 312
@@ -756,7 +756,7 @@
 
 .method public setType(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 143
@@ -826,8 +826,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 392

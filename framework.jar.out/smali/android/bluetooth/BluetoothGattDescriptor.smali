@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final DISABLE_NOTIFICATION_VALUE:[B = null
+.field public static final DISABLE_NOTIFICATION_VALUE:[B
 
-.field public static final ENABLE_INDICATION_VALUE:[B = null
+.field public static final ENABLE_INDICATION_VALUE:[B
 
-.field public static final ENABLE_NOTIFICATION_VALUE:[B = null
+.field public static final ENABLE_NOTIFICATION_VALUE:[B
 
 .field public static final PERMISSION_READ:I = 0x1
 
@@ -73,7 +73,7 @@
     nop
 
     :array_0
-    .array-data 0x1
+    .array-data 1
         0x1t
         0x0t
     .end array-data
@@ -82,7 +82,7 @@
     nop
 
     :array_1
-    .array-data 0x1
+    .array-data 1
         0x2t
         0x0t
     .end array-data
@@ -91,7 +91,7 @@
     nop
 
     :array_2
-    .array-data 0x1
+    .array-data 1
         0x0t
         0x0t
     .end array-data
@@ -99,10 +99,10 @@
 
 .method constructor <init>(Landroid/bluetooth/BluetoothGattCharacteristic;Ljava/util/UUID;II)V
     .locals 0
-    .parameter "characteristic"
-    .parameter "uuid"
-    .parameter "instance"
-    .parameter "permissions"
+    .param p1, "characteristic"    # Landroid/bluetooth/BluetoothGattCharacteristic;
+    .param p2, "uuid"    # Ljava/util/UUID;
+    .param p3, "instance"    # I
+    .param p4, "permissions"    # I
 
     .prologue
     .line 137
@@ -117,8 +117,8 @@
 
 .method public constructor <init>(Ljava/util/UUID;I)V
     .locals 2
-    .parameter "uuid"
-    .parameter "permissions"
+    .param p1, "uuid"    # Ljava/util/UUID;
+    .param p2, "permissions"    # I
 
     .prologue
     .line 124
@@ -137,10 +137,10 @@
 
 .method private initDescriptor(Landroid/bluetooth/BluetoothGattCharacteristic;Ljava/util/UUID;II)V
     .locals 0
-    .parameter "characteristic"
-    .parameter "uuid"
-    .parameter "instance"
-    .parameter "permissions"
+    .param p1, "characteristic"    # Landroid/bluetooth/BluetoothGattCharacteristic;
+    .param p2, "uuid"    # Ljava/util/UUID;
+    .param p3, "instance"    # I
+    .param p4, "permissions"    # I
 
     .prologue
     .line 143
@@ -213,7 +213,7 @@
 
 .method setCharacteristic(Landroid/bluetooth/BluetoothGattCharacteristic;)V
     .locals 0
-    .parameter "characteristic"
+    .param p1, "characteristic"    # Landroid/bluetooth/BluetoothGattCharacteristic;
 
     .prologue
     .line 162
@@ -225,7 +225,7 @@
 
 .method public setValue([B)Z
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # [B
 
     .prologue
     .line 225

@@ -50,7 +50,7 @@
 
 .method public static add(Ljava/lang/Runnable;)V
     .locals 1
-    .parameter "finisher"
+    .param p0, "finisher"    # Ljava/lang/Runnable;
 
     .prologue
     .line 70
@@ -88,7 +88,7 @@
 
 .method public static remove(Ljava/lang/Runnable;)V
     .locals 1
-    .parameter "finisher"
+    .param p0, "finisher"    # Ljava/lang/Runnable;
 
     .prologue
     .line 74
@@ -146,7 +146,7 @@
 
     .prologue
     .line 87
-    .local v0, toFinish:Ljava/lang/Runnable;
+    .local v0, "toFinish":Ljava/lang/Runnable;
     :goto_0
     sget-object v1, Landroid/app/QueuedWork;->sPendingWorkFinishers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
@@ -154,10 +154,10 @@
 
     move-result-object v0
 
-    .end local v0           #toFinish:Ljava/lang/Runnable;
+    .end local v0    # "toFinish":Ljava/lang/Runnable;
     check-cast v0, Ljava/lang/Runnable;
 
-    .restart local v0       #toFinish:Ljava/lang/Runnable;
+    .restart local v0    # "toFinish":Ljava/lang/Runnable;
     if-eqz v0, :cond_0
 
     .line 88

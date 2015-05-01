@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/RemoteDisplay;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 147
@@ -49,7 +47,7 @@
     .line 150
     iget-object v0, p0, Landroid/media/RemoteDisplay$3;->this$0:Landroid/media/RemoteDisplay;
 
-    #getter for: Landroid/media/RemoteDisplay;->mListener:Landroid/media/RemoteDisplay$Listener;
+    # getter for: Landroid/media/RemoteDisplay;->mListener:Landroid/media/RemoteDisplay$Listener;
     invoke-static {v0}, Landroid/media/RemoteDisplay;->access$000(Landroid/media/RemoteDisplay;)Landroid/media/RemoteDisplay$Listener;
 
     move-result-object v0

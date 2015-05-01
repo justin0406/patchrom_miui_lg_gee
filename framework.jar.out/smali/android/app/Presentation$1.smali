@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;ILandroid/view/WindowManagerImpl;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter
+    .param p1, "x0"    # Landroid/content/Context;
+    .param p2, "x1"    # I
 
     .prologue
     .line 312
@@ -38,7 +37,7 @@
 # virtual methods
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 315

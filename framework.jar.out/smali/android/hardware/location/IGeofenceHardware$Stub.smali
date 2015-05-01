@@ -66,7 +66,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/location/IGeofenceHardware;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -88,7 +88,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/location/IGeofenceHardware;
@@ -104,7 +104,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/location/IGeofenceHardware$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/location/IGeofenceHardware$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -122,10 +122,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 16
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +175,7 @@
     move-result-object v2
 
     .line 51
-    .local v2, _arg0:Landroid/location/IGpsGeofenceHardware;
+    .local v2, "_arg0":Landroid/location/IGpsGeofenceHardware;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/location/IGeofenceHardware$Stub;->setGpsGeofenceHardware(Landroid/location/IGpsGeofenceHardware;)V
@@ -189,7 +189,7 @@
     goto :goto_0
 
     .line 57
-    .end local v2           #_arg0:Landroid/location/IGpsGeofenceHardware;
+    .end local v2    # "_arg0":Landroid/location/IGpsGeofenceHardware;
     :sswitch_2
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -207,7 +207,7 @@
     move-result-object v2
 
     .line 60
-    .local v2, _arg0:Landroid/location/IFusedGeofenceHardware;
+    .local v2, "_arg0":Landroid/location/IFusedGeofenceHardware;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/location/IGeofenceHardware$Stub;->setFusedGeofenceHardware(Landroid/location/IFusedGeofenceHardware;)V
@@ -221,7 +221,7 @@
     goto :goto_0
 
     .line 66
-    .end local v2           #_arg0:Landroid/location/IFusedGeofenceHardware;
+    .end local v2    # "_arg0":Landroid/location/IFusedGeofenceHardware;
     :sswitch_3
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -235,7 +235,7 @@
     move-result-object v15
 
     .line 68
-    .local v15, _result:[I
+    .local v15, "_result":[I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 69
@@ -249,7 +249,7 @@
     goto :goto_0
 
     .line 74
-    .end local v15           #_result:[I
+    .end local v15    # "_result":[I
     :sswitch_4
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -263,7 +263,7 @@
     move-result v2
 
     .line 77
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/location/IGeofenceHardware$Stub;->getStatusOfMonitoringType(I)I
@@ -271,7 +271,7 @@
     move-result v15
 
     .line 78
-    .local v15, _result:I
+    .local v15, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 79
@@ -285,8 +285,8 @@
     goto :goto_0
 
     .line 84
-    .end local v2           #_arg0:I
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":I
+    .end local v15    # "_result":I
     :sswitch_5
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -300,55 +300,55 @@
     move-result v2
 
     .line 88
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 90
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v4
 
     .line 92
-    .local v4, _arg2:D
+    .local v4, "_arg2":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v6
 
     .line 94
-    .local v6, _arg3:D
+    .local v6, "_arg3":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v8
 
     .line 96
-    .local v8, _arg4:D
+    .local v8, "_arg4":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
     .line 98
-    .local v10, _arg5:I
+    .local v10, "_arg5":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v11
 
     .line 100
-    .local v11, _arg6:I
+    .local v11, "_arg6":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v12
 
     .line 102
-    .local v12, _arg7:I
+    .local v12, "_arg7":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v13
 
     .line 104
-    .local v13, _arg8:I
+    .local v13, "_arg8":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -357,7 +357,7 @@
 
     move-result-object v14
 
-    .local v14, _arg9:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .local v14, "_arg9":Landroid/hardware/location/IGeofenceHardwareCallback;
     move-object/from16 v1, p0
 
     .line 105
@@ -366,7 +366,7 @@
     move-result v15
 
     .line 106
-    .local v15, _result:Z
+    .local v15, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 107
@@ -391,17 +391,17 @@
     goto :goto_1
 
     .line 112
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:D
-    .end local v6           #_arg3:D
-    .end local v8           #_arg4:D
-    .end local v10           #_arg5:I
-    .end local v11           #_arg6:I
-    .end local v12           #_arg7:I
-    .end local v13           #_arg8:I
-    .end local v14           #_arg9:Landroid/hardware/location/IGeofenceHardwareCallback;
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":D
+    .end local v6    # "_arg3":D
+    .end local v8    # "_arg4":D
+    .end local v10    # "_arg5":I
+    .end local v11    # "_arg6":I
+    .end local v12    # "_arg7":I
+    .end local v13    # "_arg8":I
+    .end local v14    # "_arg9":Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v15    # "_result":Z
     :sswitch_6
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -415,13 +415,13 @@
     move-result v2
 
     .line 116
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 117
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/location/IGeofenceHardware$Stub;->removeGeofence(II)Z
@@ -429,7 +429,7 @@
     move-result v15
 
     .line 118
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 119
@@ -454,9 +454,9 @@
     goto :goto_2
 
     .line 124
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v15    # "_result":Z
     :sswitch_7
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -470,13 +470,13 @@
     move-result v2
 
     .line 128
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 129
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/location/IGeofenceHardware$Stub;->pauseGeofence(II)Z
@@ -484,7 +484,7 @@
     move-result v15
 
     .line 130
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 131
@@ -509,9 +509,9 @@
     goto :goto_3
 
     .line 136
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v15    # "_result":Z
     :sswitch_8
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -525,19 +525,19 @@
     move-result v2
 
     .line 140
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 142
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 143
-    .local v4, _arg2:I
+    .local v4, "_arg2":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/hardware/location/IGeofenceHardware$Stub;->resumeGeofence(III)Z
@@ -545,7 +545,7 @@
     move-result v15
 
     .line 144
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 145
@@ -570,10 +570,10 @@
     goto :goto_4
 
     .line 150
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v15    # "_result":Z
     :sswitch_9
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -587,7 +587,7 @@
     move-result v2
 
     .line 154
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -597,7 +597,7 @@
     move-result-object v3
 
     .line 155
-    .local v3, _arg1:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .local v3, "_arg1":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/location/IGeofenceHardware$Stub;->registerForMonitorStateChangeCallback(ILandroid/hardware/location/IGeofenceHardwareMonitorCallback;)Z
@@ -605,7 +605,7 @@
     move-result v15
 
     .line 156
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 157
@@ -630,9 +630,9 @@
     goto :goto_5
 
     .line 162
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .end local v15    # "_result":Z
     :sswitch_a
     const-string v1, "android.hardware.location.IGeofenceHardware"
 
@@ -646,7 +646,7 @@
     move-result v2
 
     .line 166
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -656,7 +656,7 @@
     move-result-object v3
 
     .line 167
-    .restart local v3       #_arg1:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .restart local v3    # "_arg1":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/location/IGeofenceHardware$Stub;->unregisterForMonitorStateChangeCallback(ILandroid/hardware/location/IGeofenceHardwareMonitorCallback;)Z
@@ -664,7 +664,7 @@
     move-result v15
 
     .line 168
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 169

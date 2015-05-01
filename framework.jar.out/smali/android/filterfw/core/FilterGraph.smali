@@ -147,7 +147,7 @@
     const/4 v1, 0x1
 
     .line 314
-    .local v1, branchId:I
+    .local v1, "branchId":I
     iget-object v11, p0, Landroid/filterfw/core/FilterGraph;->mPreconnections:Ljava/util/HashMap;
 
     invoke-virtual {v11}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -172,7 +172,7 @@
     check-cast v5, Ljava/util/Map$Entry;
 
     .line 315
-    .local v5, connection:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
+    .local v5, "connection":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v10
@@ -180,7 +180,7 @@
     check-cast v10, Landroid/filterfw/core/OutputPort;
 
     .line 316
-    .local v10, outputPort:Landroid/filterfw/core/OutputPort;
+    .local v10, "outputPort":Landroid/filterfw/core/OutputPort;
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -188,7 +188,7 @@
     check-cast v9, Ljava/util/LinkedList;
 
     .line 317
-    .local v9, inputPorts:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .local v9, "inputPorts":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     invoke-virtual {v9}, Ljava/util/LinkedList;->size()I
 
     move-result v11
@@ -292,7 +292,7 @@
     const/4 v0, 0x0
 
     .line 325
-    .local v0, branch:Landroid/filterpacks/base/FrameBranch;
+    .local v0, "branch":Landroid/filterpacks/base/FrameBranch;
     iget v11, p0, Landroid/filterfw/core/FilterGraph;->mAutoBranchMode:I
 
     const/4 v12, 0x1
@@ -302,7 +302,7 @@
     .line 326
     new-instance v0, Landroid/filterpacks/base/FrameBranch;
 
-    .end local v0           #branch:Landroid/filterpacks/base/FrameBranch;
+    .end local v0    # "branch":Landroid/filterpacks/base/FrameBranch;
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -315,8 +315,8 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #branchId:I
-    .local v2, branchId:I
+    .end local v1    # "branchId":I
+    .local v2, "branchId":I
     invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v11
@@ -328,13 +328,13 @@
     invoke-direct {v0, v11}, Landroid/filterpacks/base/FrameBranch;-><init>(Ljava/lang/String;)V
 
     .line 330
-    .restart local v0       #branch:Landroid/filterpacks/base/FrameBranch;
+    .restart local v0    # "branch":Landroid/filterpacks/base/FrameBranch;
     new-instance v4, Landroid/filterfw/core/KeyValueMap;
 
     invoke-direct {v4}, Landroid/filterfw/core/KeyValueMap;-><init>()V
 
     .line 331
-    .local v4, branchParams:Landroid/filterfw/core/KeyValueMap;
+    .local v4, "branchParams":Landroid/filterfw/core/KeyValueMap;
     const/4 v11, 0x2
 
     new-array v11, v11, [Ljava/lang/Object;
@@ -377,7 +377,7 @@
     move-result-object v8
 
     .line 335
-    .local v8, inputPortIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
+    .local v8, "inputPortIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->getOutputPorts()Ljava/util/Collection;
 
     move-result-object v11
@@ -386,7 +386,7 @@
 
     move-result-object v7
 
-    .local v7, i$:Ljava/util/Iterator;
+    .local v7, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -401,7 +401,7 @@
     check-cast v3, Landroid/filterfw/core/OutputPort;
 
     .line 336
-    .local v3, branchOutPort:Landroid/filterfw/core/OutputPort;
+    .local v3, "branchOutPort":Landroid/filterfw/core/OutputPort;
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v11
@@ -413,12 +413,12 @@
     goto :goto_1
 
     .line 328
-    .end local v2           #branchId:I
-    .end local v3           #branchOutPort:Landroid/filterfw/core/OutputPort;
-    .end local v4           #branchParams:Landroid/filterfw/core/KeyValueMap;
-    .end local v7           #i$:Ljava/util/Iterator;
-    .end local v8           #inputPortIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
-    .restart local v1       #branchId:I
+    .end local v2    # "branchId":I
+    .end local v3    # "branchOutPort":Landroid/filterfw/core/OutputPort;
+    .end local v4    # "branchParams":Landroid/filterfw/core/KeyValueMap;
+    .end local v7    # "i$":Ljava/util/Iterator;
+    .end local v8    # "inputPortIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
+    .restart local v1    # "branchId":I
     :cond_3
     new-instance v11, Ljava/lang/RuntimeException;
 
@@ -429,10 +429,10 @@
     throw v11
 
     .line 340
-    .end local v0           #branch:Landroid/filterpacks/base/FrameBranch;
-    .end local v5           #connection:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
-    .end local v9           #inputPorts:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
-    .end local v10           #outputPort:Landroid/filterfw/core/OutputPort;
+    .end local v0    # "branch":Landroid/filterpacks/base/FrameBranch;
+    .end local v5    # "connection":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
+    .end local v9    # "inputPorts":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .end local v10    # "outputPort":Landroid/filterfw/core/OutputPort;
     :cond_4
     iget-object v11, p0, Landroid/filterfw/core/FilterGraph;->mPreconnections:Ljava/util/HashMap;
 
@@ -441,20 +441,20 @@
     .line 341
     return-void
 
-    .end local v1           #branchId:I
-    .restart local v0       #branch:Landroid/filterpacks/base/FrameBranch;
-    .restart local v2       #branchId:I
-    .restart local v4       #branchParams:Landroid/filterfw/core/KeyValueMap;
-    .restart local v5       #connection:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
-    .restart local v7       #i$:Ljava/util/Iterator;
-    .restart local v8       #inputPortIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
-    .restart local v9       #inputPorts:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
-    .restart local v10       #outputPort:Landroid/filterfw/core/OutputPort;
+    .end local v1    # "branchId":I
+    .restart local v0    # "branch":Landroid/filterpacks/base/FrameBranch;
+    .restart local v2    # "branchId":I
+    .restart local v4    # "branchParams":Landroid/filterfw/core/KeyValueMap;
+    .restart local v5    # "connection":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
+    .restart local v7    # "i$":Ljava/util/Iterator;
+    .restart local v8    # "inputPortIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
+    .restart local v9    # "inputPorts":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .restart local v10    # "outputPort":Landroid/filterfw/core/OutputPort;
     :cond_5
     move v1, v2
 
-    .end local v2           #branchId:I
-    .restart local v1       #branchId:I
+    .end local v2    # "branchId":I
+    .restart local v1    # "branchId":I
     goto/16 :goto_0
 .end method
 
@@ -468,7 +468,7 @@
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     .line 278
-    .local v0, addedFilters:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/Filter;>;"
+    .local v0, "addedFilters":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/Filter;>;"
     iget-object v7, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
 
     invoke-virtual {v7}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
@@ -489,11 +489,11 @@
     check-cast v1, Landroid/filterfw/core/Filter;
 
     .line 279
-    .local v1, filter:Landroid/filterfw/core/Filter;
+    .local v1, "filter":Landroid/filterfw/core/Filter;
     const/4 v4, 0x0
 
     .line 280
-    .local v4, id:I
+    .local v4, "id":I
     invoke-virtual {v1}, Landroid/filterfw/core/Filter;->getOutputPorts()Ljava/util/Collection;
 
     move-result-object v7
@@ -502,7 +502,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_1
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -518,7 +518,7 @@
     check-cast v6, Landroid/filterfw/core/OutputPort;
 
     .line 281
-    .local v6, port:Landroid/filterfw/core/OutputPort;
+    .local v6, "port":Landroid/filterfw/core/OutputPort;
     invoke-virtual {v6}, Landroid/filterfw/core/OutputPort;->isConnected()Z
 
     move-result v7
@@ -591,7 +591,7 @@
     invoke-direct {v5, v7}, Landroid/filterpacks/base/NullFilter;-><init>(Ljava/lang/String;)V
 
     .line 284
-    .local v5, nullFilter:Landroid/filterpacks/base/NullFilter;
+    .local v5, "nullFilter":Landroid/filterpacks/base/NullFilter;
     invoke-virtual {v5}, Landroid/filterpacks/base/NullFilter;->init()V
 
     .line 285
@@ -612,17 +612,17 @@
     goto :goto_0
 
     .line 292
-    .end local v1           #filter:Landroid/filterfw/core/Filter;
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v4           #id:I
-    .end local v5           #nullFilter:Landroid/filterpacks/base/NullFilter;
-    .end local v6           #port:Landroid/filterfw/core/OutputPort;
+    .end local v1    # "filter":Landroid/filterfw/core/Filter;
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v4    # "id":I
+    .end local v5    # "nullFilter":Landroid/filterpacks/base/NullFilter;
+    .end local v6    # "port":Landroid/filterfw/core/OutputPort;
     :cond_3
     invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -637,13 +637,13 @@
     check-cast v1, Landroid/filterfw/core/Filter;
 
     .line 293
-    .restart local v1       #filter:Landroid/filterfw/core/Filter;
+    .restart local v1    # "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {p0, v1}, Landroid/filterfw/core/FilterGraph;->addFilter(Landroid/filterfw/core/Filter;)Z
 
     goto :goto_1
 
     .line 295
-    .end local v1           #filter:Landroid/filterfw/core/Filter;
+    .end local v1    # "filter":Landroid/filterfw/core/Filter;
     :cond_4
     return-void
 .end method
@@ -667,7 +667,7 @@
     invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     .line 345
-    .local v2, sourceFilters:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/filterfw/core/Filter;>;"
+    .local v2, "sourceFilters":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/filterfw/core/Filter;>;"
     invoke-virtual {p0}, Landroid/filterfw/core/FilterGraph;->getFilters()Ljava/util/Set;
 
     move-result-object v3
@@ -676,7 +676,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -692,7 +692,7 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 346
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->getNumberOfConnectedInputs()I
 
     move-result v3
@@ -733,15 +733,15 @@
     goto :goto_0
 
     .line 351
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_2
     return-object v2
 .end method
 
 .method private preconnect(Landroid/filterfw/core/OutputPort;Landroid/filterfw/core/InputPort;)V
     .locals 2
-    .parameter "outPort"
-    .parameter "inPort"
+    .param p1, "outPort"    # Landroid/filterfw/core/OutputPort;
+    .param p2, "inPort"    # Landroid/filterfw/core/InputPort;
 
     .prologue
     .line 304
@@ -754,17 +754,17 @@
     check-cast v0, Ljava/util/LinkedList;
 
     .line 305
-    .local v0, targets:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .local v0, "targets":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     if-nez v0, :cond_0
 
     .line 306
     new-instance v0, Ljava/util/LinkedList;
 
-    .end local v0           #targets:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .end local v0    # "targets":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     .line 307
-    .restart local v0       #targets:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
+    .restart local v0    # "targets":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     iget-object v1, p0, Landroid/filterfw/core/FilterGraph;->mPreconnections:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -779,8 +779,7 @@
 
 .method private readyForProcessing(Landroid/filterfw/core/Filter;Ljava/util/Set;)Z
     .locals 5
-    .parameter "filter"
-    .parameter
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -793,7 +792,7 @@
     .end annotation
 
     .prologue
-    .local p2, processed:Ljava/util/Set;,"Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
+    .local p2, "processed":Ljava/util/Set;, "Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
     const/4 v3, 0x0
 
     .line 177
@@ -817,7 +816,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -832,13 +831,13 @@
     check-cast v2, Landroid/filterfw/core/InputPort;
 
     .line 183
-    .local v2, port:Landroid/filterfw/core/InputPort;
+    .local v2, "port":Landroid/filterfw/core/InputPort;
     invoke-virtual {v2}, Landroid/filterfw/core/InputPort;->getSourceFilter()Landroid/filterfw/core/Filter;
 
     move-result-object v0
 
     .line 184
-    .local v0, dependency:Landroid/filterfw/core/Filter;
+    .local v0, "dependency":Landroid/filterfw/core/Filter;
     if-eqz v0, :cond_1
 
     invoke-interface {p2, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -850,8 +849,8 @@
     goto :goto_0
 
     .line 188
-    .end local v0           #dependency:Landroid/filterfw/core/Filter;
-    .end local v2           #port:Landroid/filterfw/core/InputPort;
+    .end local v0    # "dependency":Landroid/filterfw/core/Filter;
+    .end local v2    # "port":Landroid/filterfw/core/InputPort;
     :cond_2
     const/4 v3, 0x1
 
@@ -860,7 +859,7 @@
 
 .method private removeFilter(Landroid/filterfw/core/Filter;)V
     .locals 2
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 298
@@ -891,13 +890,13 @@
     invoke-direct {v1}, Ljava/util/Stack;-><init>()V
 
     .line 193
-    .local v1, filterStack:Ljava/util/Stack;,"Ljava/util/Stack<Landroid/filterfw/core/Filter;>;"
+    .local v1, "filterStack":Ljava/util/Stack;, "Ljava/util/Stack<Landroid/filterfw/core/Filter;>;"
     new-instance v4, Ljava/util/HashSet;
 
     invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
 
     .line 194
-    .local v4, processedFilters:Ljava/util/Set;,"Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
+    .local v4, "processedFilters":Ljava/util/Set;, "Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
     invoke-direct {p0}, Landroid/filterfw/core/FilterGraph;->getSourceFilters()Ljava/util/HashSet;
 
     move-result-object v6
@@ -920,7 +919,7 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 199
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-interface {v4, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 202
@@ -972,7 +971,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -988,13 +987,13 @@
     check-cast v3, Landroid/filterfw/core/OutputPort;
 
     .line 210
-    .local v3, port:Landroid/filterfw/core/OutputPort;
+    .local v3, "port":Landroid/filterfw/core/OutputPort;
     invoke-virtual {v3}, Landroid/filterfw/core/OutputPort;->getTargetFilter()Landroid/filterfw/core/Filter;
 
     move-result-object v5
 
     .line 211
-    .local v5, target:Landroid/filterfw/core/Filter;
+    .local v5, "target":Landroid/filterfw/core/Filter;
     if-eqz v5, :cond_2
 
     invoke-direct {p0, v5, v4}, Landroid/filterfw/core/FilterGraph;->readyForProcessing(Landroid/filterfw/core/Filter;Ljava/util/Set;)Z
@@ -1009,10 +1008,10 @@
     goto :goto_0
 
     .line 218
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
-    .end local v2           #i$:Ljava/util/Iterator;
-    .end local v3           #port:Landroid/filterfw/core/OutputPort;
-    .end local v5           #target:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v3    # "port":Landroid/filterfw/core/OutputPort;
+    .end local v5    # "target":Landroid/filterfw/core/Filter;
     :cond_3
     invoke-interface {v4}, Ljava/util/Set;->size()I
 
@@ -1044,7 +1043,7 @@
 
 .method private runTypeCheckOn(Landroid/filterfw/core/Filter;)V
     .locals 9
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     const/4 v8, 0x0
@@ -1058,7 +1057,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1073,7 +1072,7 @@
     check-cast v2, Landroid/filterfw/core/InputPort;
 
     .line 241
-    .local v2, inputPort:Landroid/filterfw/core/InputPort;
+    .local v2, "inputPort":Landroid/filterfw/core/InputPort;
     iget-boolean v5, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
     if-eqz v5, :cond_1
@@ -1107,13 +1106,13 @@
     move-result-object v3
 
     .line 243
-    .local v3, sourceFormat:Landroid/filterfw/core/FrameFormat;
+    .local v3, "sourceFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {v2}, Landroid/filterfw/core/InputPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v4
 
     .line 244
-    .local v4, targetFormat:Landroid/filterfw/core/FrameFormat;
+    .local v4, "targetFormat":Landroid/filterfw/core/FrameFormat;
     if-eqz v3, :cond_0
 
     if-eqz v4, :cond_0
@@ -1166,7 +1165,7 @@
     const/4 v0, 0x1
 
     .line 248
-    .local v0, compatible:Z
+    .local v0, "compatible":Z
     iget v5, p0, Landroid/filterfw/core/FilterGraph;->mTypeCheckMode:I
 
     packed-switch v5, :pswitch_data_0
@@ -1263,10 +1262,10 @@
     goto :goto_0
 
     .line 269
-    .end local v0           #compatible:Z
-    .end local v2           #inputPort:Landroid/filterfw/core/InputPort;
-    .end local v3           #sourceFormat:Landroid/filterfw/core/FrameFormat;
-    .end local v4           #targetFormat:Landroid/filterfw/core/FrameFormat;
+    .end local v0    # "compatible":Z
+    .end local v2    # "inputPort":Landroid/filterfw/core/InputPort;
+    .end local v3    # "sourceFormat":Landroid/filterfw/core/FrameFormat;
+    .end local v4    # "targetFormat":Landroid/filterfw/core/FrameFormat;
     :cond_3
     return-void
 
@@ -1281,7 +1280,7 @@
 
 .method private updateOutputs(Landroid/filterfw/core/Filter;)V
     .locals 8
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 224
@@ -1293,7 +1292,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -1309,13 +1308,13 @@
     check-cast v4, Landroid/filterfw/core/OutputPort;
 
     .line 225
-    .local v4, outputPort:Landroid/filterfw/core/OutputPort;
+    .local v4, "outputPort":Landroid/filterfw/core/OutputPort;
     invoke-virtual {v4}, Landroid/filterfw/core/OutputPort;->getBasePort()Landroid/filterfw/core/InputPort;
 
     move-result-object v2
 
     .line 226
-    .local v2, inputPort:Landroid/filterfw/core/InputPort;
+    .local v2, "inputPort":Landroid/filterfw/core/InputPort;
     if-eqz v2, :cond_0
 
     .line 227
@@ -1324,7 +1323,7 @@
     move-result-object v1
 
     .line 228
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {v4}, Landroid/filterfw/core/OutputPort;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -1334,7 +1333,7 @@
     move-result-object v3
 
     .line 230
-    .local v3, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v3, "outputFormat":Landroid/filterfw/core/FrameFormat;
     if-nez v3, :cond_1
 
     .line 231
@@ -1375,10 +1374,10 @@
     goto :goto_0
 
     .line 237
-    .end local v1           #inputFormat:Landroid/filterfw/core/FrameFormat;
-    .end local v2           #inputPort:Landroid/filterfw/core/InputPort;
-    .end local v3           #outputFormat:Landroid/filterfw/core/FrameFormat;
-    .end local v4           #outputPort:Landroid/filterfw/core/OutputPort;
+    .end local v1    # "inputFormat":Landroid/filterfw/core/FrameFormat;
+    .end local v2    # "inputPort":Landroid/filterfw/core/InputPort;
+    .end local v3    # "outputFormat":Landroid/filterfw/core/FrameFormat;
+    .end local v4    # "outputPort":Landroid/filterfw/core/OutputPort;
     :cond_2
     return-void
 .end method
@@ -1387,7 +1386,7 @@
 # virtual methods
 .method public addFilter(Landroid/filterfw/core/Filter;)Z
     .locals 2
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 66
@@ -1447,7 +1446,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1462,13 +1461,13 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 128
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->openOutputs()V
 
     goto :goto_0
 
     .line 130
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_1
     const/4 v2, 0x1
 
@@ -1480,7 +1479,7 @@
 
 .method public closeFilters(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 140
@@ -1502,7 +1501,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1517,13 +1516,13 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 142
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/Filter;->performClose(Landroid/filterfw/core/FilterContext;)V
 
     goto :goto_0
 
     .line 144
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_1
     const/4 v2, 0x0
 
@@ -1535,10 +1534,10 @@
 
 .method public connect(Landroid/filterfw/core/Filter;Ljava/lang/String;Landroid/filterfw/core/Filter;Ljava/lang/String;)V
     .locals 5
-    .parameter "source"
-    .parameter "outputName"
-    .parameter "target"
-    .parameter "inputName"
+    .param p1, "source"    # Landroid/filterfw/core/Filter;
+    .param p2, "outputName"    # Ljava/lang/String;
+    .param p3, "target"    # Landroid/filterfw/core/Filter;
+    .param p4, "inputName"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -1587,13 +1586,13 @@
     move-result-object v1
 
     .line 93
-    .local v1, outPort:Landroid/filterfw/core/OutputPort;
+    .local v1, "outPort":Landroid/filterfw/core/OutputPort;
     invoke-virtual {p3, p4}, Landroid/filterfw/core/Filter;->getInputPort(Ljava/lang/String;)Landroid/filterfw/core/InputPort;
 
     move-result-object v0
 
     .line 94
-    .local v0, inPort:Landroid/filterfw/core/InputPort;
+    .local v0, "inPort":Landroid/filterfw/core/InputPort;
     if-nez v1, :cond_4
 
     .line 95
@@ -1692,10 +1691,10 @@
 
 .method public connect(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "sourceName"
-    .parameter "outputName"
-    .parameter "targetName"
-    .parameter "inputName"
+    .param p1, "sourceName"    # Ljava/lang/String;
+    .param p2, "outputName"    # Ljava/lang/String;
+    .param p3, "targetName"    # Ljava/lang/String;
+    .param p4, "inputName"    # Ljava/lang/String;
 
     .prologue
     .line 109
@@ -1704,13 +1703,13 @@
     move-result-object v0
 
     .line 110
-    .local v0, source:Landroid/filterfw/core/Filter;
+    .local v0, "source":Landroid/filterfw/core/Filter;
     invoke-virtual {p0, p3}, Landroid/filterfw/core/FilterGraph;->getFilter(Ljava/lang/String;)Landroid/filterfw/core/Filter;
 
     move-result-object v1
 
     .line 111
-    .local v1, target:Landroid/filterfw/core/Filter;
+    .local v1, "target":Landroid/filterfw/core/Filter;
     if-nez v0, :cond_0
 
     .line 112
@@ -1789,7 +1788,7 @@
 
 .method public containsFilter(Landroid/filterfw/core/Filter;)Z
     .locals 1
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 75
@@ -1813,7 +1812,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1828,20 +1827,20 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 135
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->clearOutputs()V
 
     goto :goto_0
 
     .line 137
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_0
     return-void
 .end method
 
 .method public getFilter(Ljava/lang/String;)Landroid/filterfw/core/Filter;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -1887,7 +1886,7 @@
 
 .method public setAutoBranchMode(I)V
     .locals 0
-    .parameter "autoBranchMode"
+    .param p1, "autoBranchMode"    # I
 
     .prologue
     .line 152
@@ -1899,7 +1898,7 @@
 
 .method public setDiscardUnconnectedOutputs(Z)V
     .locals 0
-    .parameter "discard"
+    .param p1, "discard"    # Z
 
     .prologue
     .line 156
@@ -1911,7 +1910,7 @@
 
 .method public setTypeCheckMode(I)V
     .locals 0
-    .parameter "typeCheckMode"
+    .param p1, "typeCheckMode"    # I
 
     .prologue
     .line 160
@@ -1949,7 +1948,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 164
@@ -1971,7 +1970,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1986,13 +1985,13 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 167
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/Filter;->performTearDown(Landroid/filterfw/core/FilterContext;)V
 
     goto :goto_0
 
     .line 169
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_0
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
 
@@ -2009,7 +2008,7 @@
     iput-boolean v2, p0, Landroid/filterfw/core/FilterGraph;->mIsReady:Z
 
     .line 173
-    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method

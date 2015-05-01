@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 51
@@ -76,8 +76,8 @@
 # virtual methods
 .method public bridge synthetic getServiceInfo(Landroid/accounts/AuthenticatorDescription;I)Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/accounts/AuthenticatorDescription;
+    .param p2, "x1"    # I
 
     .prologue
     .line 44
@@ -90,9 +90,9 @@
 
 .method public parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/accounts/AuthenticatorDescription;
     .locals 9
-    .parameter "res"
-    .parameter "packageName"
-    .parameter "attrs"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 58
@@ -103,7 +103,7 @@
     move-result-object v8
 
     .line 61
-    .local v8, sa:Landroid/content/res/TypedArray;
+    .local v8, "sa":Landroid/content/res/TypedArray;
     const/4 v0, 0x2
 
     :try_start_0
@@ -112,7 +112,7 @@
     move-result-object v1
 
     .line 63
-    .local v1, accountType:Ljava/lang/String;
+    .local v1, "accountType":Ljava/lang/String;
     const/4 v0, 0x0
 
     const/4 v2, 0x0
@@ -122,7 +122,7 @@
     move-result v3
 
     .line 65
-    .local v3, labelId:I
+    .local v3, "labelId":I
     const/4 v0, 0x1
 
     const/4 v2, 0x0
@@ -132,7 +132,7 @@
     move-result v4
 
     .line 67
-    .local v4, iconId:I
+    .local v4, "iconId":I
     const/4 v0, 0x3
 
     const/4 v2, 0x0
@@ -142,7 +142,7 @@
     move-result v5
 
     .line 69
-    .local v5, smallIconId:I
+    .local v5, "smallIconId":I
     const/4 v0, 0x4
 
     const/4 v2, 0x0
@@ -152,7 +152,7 @@
     move-result v6
 
     .line 71
-    .local v6, prefId:I
+    .local v6, "prefId":I
     const/4 v0, 0x5
 
     const/4 v2, 0x0
@@ -162,7 +162,7 @@
     move-result v7
 
     .line 73
-    .local v7, customTokens:Z
+    .local v7, "customTokens":Z
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -196,12 +196,12 @@
 
     goto :goto_0
 
-    .end local v1           #accountType:Ljava/lang/String;
-    .end local v3           #labelId:I
-    .end local v4           #iconId:I
-    .end local v5           #smallIconId:I
-    .end local v6           #prefId:I
-    .end local v7           #customTokens:Z
+    .end local v1    # "accountType":Ljava/lang/String;
+    .end local v3    # "labelId":I
+    .end local v4    # "iconId":I
+    .end local v5    # "smallIconId":I
+    .end local v6    # "prefId":I
+    .end local v7    # "customTokens":Z
     :catchall_0
     move-exception v0
 
@@ -212,9 +212,9 @@
 
 .method public bridge synthetic parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/content/res/Resources;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 44

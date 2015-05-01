@@ -86,7 +86,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 8
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -114,13 +114,13 @@
 
 .method public constructor <init>(Ljava/lang/String;ZZZZZZ)V
     .locals 1
-    .parameter "text"
-    .parameter "parseSmilies"
-    .parameter "parseAcronyms"
-    .parameter "parseFormatting"
-    .parameter "parseUrls"
-    .parameter "parseMusic"
-    .parameter "parseMeText"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "parseSmilies"    # Z
+    .param p3, "parseAcronyms"    # Z
+    .param p4, "parseFormatting"    # Z
+    .param p5, "parseUrls"    # Z
+    .param p6, "parseMusic"    # Z
+    .param p7, "parseMeText"    # Z
 
     .prologue
     .line 100
@@ -184,7 +184,7 @@
 
 .method private addToken(Lcom/google/android/util/AbstractMessageParser$Token;)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # Lcom/google/android/util/AbstractMessageParser$Token;
 
     .prologue
     .line 1236
@@ -198,8 +198,8 @@
 
 .method private addURLToken(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "url"
-    .parameter "text"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "text"    # Ljava/lang/String;
 
     .prologue
     .line 465
@@ -215,13 +215,13 @@
 
 .method private buildParts(Ljava/lang/String;)V
     .locals 4
-    .parameter "meText"
+    .param p1, "meText"    # Ljava/lang/String;
 
     .prologue
     .line 234
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
@@ -241,7 +241,7 @@
     check-cast v1, Lcom/google/android/util/AbstractMessageParser$Token;
 
     .line 236
-    .local v1, token:Lcom/google/android/util/AbstractMessageParser$Token;
+    .local v1, "token":Lcom/google/android/util/AbstractMessageParser$Token;
     invoke-virtual {v1}, Lcom/google/android/util/AbstractMessageParser$Token;->isMedia()Z
 
     move-result v2
@@ -290,7 +290,7 @@
     goto :goto_0
 
     .line 243
-    .end local v1           #token:Lcom/google/android/util/AbstractMessageParser$Token;
+    .end local v1    # "token":Lcom/google/android/util/AbstractMessageParser$Token;
     :cond_2
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser;->parts:Ljava/util/ArrayList;
 
@@ -320,7 +320,7 @@
 
 .method private getCharClass(I)I
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 576
@@ -351,7 +351,7 @@
     move-result v0
 
     .line 581
-    .local v0, ch:C
+    .local v0, "ch":C
     invoke-static {v0}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v1
@@ -415,7 +415,7 @@
 
 .method private isDomainChar(C)Z
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 328
@@ -449,7 +449,7 @@
 
 .method private static isFormatChar(C)Z
     .locals 1
-    .parameter "ch"
+    .param p0, "ch"    # C
 
     .prologue
     .line 644
@@ -480,7 +480,7 @@
 
 .method private static isPunctuation(C)Z
     .locals 1
-    .parameter "ch"
+    .param p0, "ch"    # C
 
     .prologue
     .line 629
@@ -517,8 +517,8 @@
 
 .method private static isSmileyBreak(CC)Z
     .locals 1
-    .parameter "c1"
-    .parameter "c2"
+    .param p0, "c1"    # C
+    .param p1, "c2"    # C
 
     .prologue
     .line 604
@@ -588,7 +588,7 @@
 
 .method private isSmileyBreak(I)Z
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 547
@@ -638,7 +638,7 @@
 
 .method private isURLBreak(I)Z
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 561
@@ -675,7 +675,7 @@
 
 .method private isValidDomain(Ljava/lang/String;)Z
     .locals 2
-    .parameter "domain"
+    .param p1, "domain"    # Ljava/lang/String;
 
     .prologue
     .line 334
@@ -712,7 +712,7 @@
 
 .method private isWordBreak(I)Z
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 542
@@ -765,9 +765,9 @@
 
 .method private static longestMatch(Lcom/google/android/util/AbstractMessageParser$TrieNode;Lcom/google/android/util/AbstractMessageParser;I)Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 1
-    .parameter "root"
-    .parameter "p"
-    .parameter "start"
+    .param p0, "root"    # Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .param p1, "p"    # Lcom/google/android/util/AbstractMessageParser;
+    .param p2, "start"    # I
 
     .prologue
     .line 1400
@@ -782,21 +782,21 @@
 
 .method private static longestMatch(Lcom/google/android/util/AbstractMessageParser$TrieNode;Lcom/google/android/util/AbstractMessageParser;IZ)Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 4
-    .parameter "root"
-    .parameter "p"
-    .parameter "start"
-    .parameter "smiley"
+    .param p0, "root"    # Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .param p1, "p"    # Lcom/google/android/util/AbstractMessageParser;
+    .param p2, "start"    # I
+    .param p3, "smiley"    # Z
 
     .prologue
     .line 1410
     move v1, p2
 
     .line 1411
-    .local v1, index:I
+    .local v1, "index":I
     const/4 v0, 0x0
 
     .line 1412
-    .local v0, bestMatch:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .local v0, "bestMatch":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     :goto_0
     invoke-virtual {p1}, Lcom/google/android/util/AbstractMessageParser;->getRawText()Ljava/lang/String;
 
@@ -815,8 +815,8 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #index:I
-    .local v2, index:I
+    .end local v1    # "index":I
+    .local v2, "index":I
     invoke-virtual {v3, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
@@ -831,14 +831,14 @@
     move v1, v2
 
     .line 1424
-    .end local v2           #index:I
-    .restart local v1       #index:I
+    .end local v2    # "index":I
+    .restart local v1    # "index":I
     :cond_0
     return-object v0
 
     .line 1416
-    .end local v1           #index:I
-    .restart local v2       #index:I
+    .end local v1    # "index":I
+    .restart local v2    # "index":I
     :cond_1
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$TrieNode;->exists()Z
 
@@ -858,13 +858,13 @@
 
     move v1, v2
 
-    .end local v2           #index:I
-    .restart local v1       #index:I
+    .end local v2    # "index":I
+    .restart local v1    # "index":I
     goto :goto_0
 
     .line 1419
-    .end local v1           #index:I
-    .restart local v2       #index:I
+    .end local v1    # "index":I
+    .restart local v2    # "index":I
     :cond_2
     if-eqz p3, :cond_3
 
@@ -879,31 +879,31 @@
 
     move v1, v2
 
-    .end local v2           #index:I
-    .restart local v1       #index:I
+    .end local v2    # "index":I
+    .restart local v1    # "index":I
     goto :goto_0
 
-    .end local v1           #index:I
-    .restart local v2       #index:I
+    .end local v1    # "index":I
+    .restart local v2    # "index":I
     :cond_3
     move v1, v2
 
-    .end local v2           #index:I
-    .restart local v1       #index:I
+    .end local v2    # "index":I
+    .restart local v1    # "index":I
     goto :goto_0
 .end method
 
 .method private static matches(Lcom/google/android/util/AbstractMessageParser$TrieNode;Ljava/lang/String;)Z
     .locals 3
-    .parameter "root"
-    .parameter "str"
+    .param p0, "root"    # Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 1382
     const/4 v0, 0x0
 
     .line 1383
-    .local v0, index:I
+    .local v0, "index":I
     :goto_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -914,8 +914,8 @@
     .line 1384
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .local v1, index:I
+    .end local v0    # "index":I
+    .local v1, "index":I
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -930,8 +930,8 @@
     move v0, v1
 
     .line 1391
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     :cond_0
     const/4 v2, 0x0
 
@@ -939,8 +939,8 @@
     return v2
 
     .line 1387
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     :cond_1
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$TrieNode;->exists()Z
 
@@ -953,17 +953,17 @@
 
     move v0, v1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     goto :goto_1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     :cond_2
     move v0, v1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     goto :goto_0
 .end method
 
@@ -1000,7 +1000,7 @@
     move-result-object v0
 
     .line 317
-    .local v0, match:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .local v0, "match":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     if-eqz v0, :cond_0
 
     .line 320
@@ -1062,7 +1062,7 @@
     iget v2, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
     .line 489
-    .local v2, endChar:I
+    .local v2, "endChar":I
     :goto_1
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1107,10 +1107,10 @@
     invoke-direct {v6}, Ljava/util/LinkedHashMap;-><init>()V
 
     .line 503
-    .local v6, seenCharacters:Ljava/util/LinkedHashMap;,"Ljava/util/LinkedHashMap<Ljava/lang/Character;Ljava/lang/Boolean;>;"
+    .local v6, "seenCharacters":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<Ljava/lang/Character;Ljava/lang/Boolean;>;"
     iget v4, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
-    .local v4, index:I
+    .local v4, "index":I
     :goto_2
     if-ge v4, v2, :cond_5
 
@@ -1122,13 +1122,13 @@
     move-result v0
 
     .line 505
-    .local v0, ch:C
+    .local v0, "ch":C
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v5
 
     .line 506
-    .local v5, key:Ljava/lang/Character;
+    .local v5, "key":Ljava/lang/Character;
     invoke-virtual {v6, v5}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v10
@@ -1159,7 +1159,7 @@
     check-cast v7, Lcom/google/android/util/AbstractMessageParser$Format;
 
     .line 512
-    .local v7, start:Lcom/google/android/util/AbstractMessageParser$Format;
+    .local v7, "start":Lcom/google/android/util/AbstractMessageParser$Format;
     if-eqz v7, :cond_4
 
     .line 514
@@ -1181,11 +1181,11 @@
     :cond_4
     new-instance v7, Lcom/google/android/util/AbstractMessageParser$Format;
 
-    .end local v7           #start:Lcom/google/android/util/AbstractMessageParser$Format;
+    .end local v7    # "start":Lcom/google/android/util/AbstractMessageParser$Format;
     invoke-direct {v7, v0, v9}, Lcom/google/android/util/AbstractMessageParser$Format;-><init>(CZ)V
 
     .line 520
-    .restart local v7       #start:Lcom/google/android/util/AbstractMessageParser$Format;
+    .restart local v7    # "start":Lcom/google/android/util/AbstractMessageParser$Format;
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->formatStart:Ljava/util/HashMap;
 
     invoke-virtual {v10, v5, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1201,9 +1201,9 @@
     goto :goto_3
 
     .line 528
-    .end local v0           #ch:C
-    .end local v5           #key:Ljava/lang/Character;
-    .end local v7           #start:Lcom/google/android/util/AbstractMessageParser$Format;
+    .end local v0    # "ch":C
+    .end local v5    # "key":Ljava/lang/Character;
+    .end local v7    # "start":Lcom/google/android/util/AbstractMessageParser$Format;
     :cond_5
     invoke-virtual {v6}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
 
@@ -1213,7 +1213,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_6
     :goto_4
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -1229,7 +1229,7 @@
     check-cast v5, Ljava/lang/Character;
 
     .line 529
-    .restart local v5       #key:Ljava/lang/Character;
+    .restart local v5    # "key":Ljava/lang/Character;
     invoke-virtual {v6, v5}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v10
@@ -1248,7 +1248,7 @@
     invoke-direct {v1, v10, v8}, Lcom/google/android/util/AbstractMessageParser$Format;-><init>(CZ)V
 
     .line 531
-    .local v1, end:Lcom/google/android/util/AbstractMessageParser$Format;
+    .local v1, "end":Lcom/google/android/util/AbstractMessageParser$Format;
     invoke-virtual {v1, v9}, Lcom/google/android/util/AbstractMessageParser$Format;->setMatched(Z)V
 
     .line 532
@@ -1257,8 +1257,8 @@
     goto :goto_4
 
     .line 536
-    .end local v1           #end:Lcom/google/android/util/AbstractMessageParser$Format;
-    .end local v5           #key:Ljava/lang/Character;
+    .end local v1    # "end":Lcom/google/android/util/AbstractMessageParser$Format;
+    .end local v5    # "key":Ljava/lang/Character;
     :cond_7
     iput v2, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
@@ -1367,7 +1367,7 @@
     move-result-object v0
 
     .line 295
-    .local v0, match:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .local v0, "match":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     if-eqz v0, :cond_0
 
     .line 298
@@ -1380,7 +1380,7 @@
     move-result v2
 
     .line 299
-    .local v2, previousCharClass:I
+    .local v2, "previousCharClass":I
     iget v5, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
     invoke-virtual {v0}, Lcom/google/android/util/AbstractMessageParser$TrieNode;->getText()Ljava/lang/String;
@@ -1398,7 +1398,7 @@
     move-result v1
 
     .line 300
-    .local v1, nextCharClass:I
+    .local v1, "nextCharClass":I
     if-eq v2, v7, :cond_2
 
     if-ne v2, v8, :cond_3
@@ -1451,11 +1451,11 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 268
-    .local v0, buf:Ljava/lang/StringBuilder;
+    .local v0, "buf":Ljava/lang/StringBuilder;
     iget v2, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
     .line 270
-    .local v2, start:I
+    .local v2, "start":I
     :cond_0
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1470,7 +1470,7 @@
     move-result v1
 
     .line 271
-    .local v1, ch:C
+    .local v1, "ch":C
     sparse-switch v1, :sswitch_data_0
 
     .line 278
@@ -1601,11 +1601,11 @@
     iget v6, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
 
     .line 353
-    .local v6, start:I
+    .local v6, "start":I
     move v4, v6
 
     .line 354
-    .local v4, index:I
+    .local v4, "index":I
     :goto_1
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1637,11 +1637,11 @@
     const-string v7, ""
 
     .line 359
-    .local v7, url:Ljava/lang/String;
+    .local v7, "url":Ljava/lang/String;
     const/4 v3, 0x0
 
     .line 361
-    .local v3, done:Z
+    .local v3, "done":Z
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
     invoke-virtual {v10}, Ljava/lang/String;->length()I
@@ -1669,7 +1669,7 @@
     move-result-object v5
 
     .line 366
-    .local v5, scheme:Ljava/lang/String;
+    .local v5, "scheme":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser;->getResources()Lcom/google/android/util/AbstractMessageParser$Resources;
 
     move-result-object v10
@@ -1685,7 +1685,7 @@
     if-eqz v10, :cond_0
 
     .line 443
-    .end local v5           #scheme:Ljava/lang/String;
+    .end local v5    # "scheme":Ljava/lang/String;
     :goto_2
     if-nez v3, :cond_e
 
@@ -1744,7 +1744,7 @@
     move-result v0
 
     .line 373
-    .local v0, ch:C
+    .local v0, "ch":C
     if-eq v0, v11, :cond_5
 
     invoke-direct {p0, v0}, Lcom/google/android/util/AbstractMessageParser;->isDomainChar(C)Z
@@ -1754,7 +1754,7 @@
     if-nez v10, :cond_5
 
     .line 382
-    .end local v0           #ch:C
+    .end local v0    # "ch":C
     :cond_4
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1765,7 +1765,7 @@
     move-result-object v2
 
     .line 383
-    .local v2, domain:Ljava/lang/String;
+    .local v2, "domain":Ljava/lang/String;
     invoke-direct {p0, v2}, Lcom/google/android/util/AbstractMessageParser;->isValidDomain(Ljava/lang/String;)Z
 
     move-result v10
@@ -1801,7 +1801,7 @@
     move-result v0
 
     .line 391
-    .restart local v0       #ch:C
+    .restart local v0    # "ch":C
     invoke-static {v0}, Ljava/lang/Character;->isDigit(C)Z
 
     move-result v10
@@ -1839,7 +1839,7 @@
     goto :goto_5
 
     .line 376
-    .end local v2           #domain:Ljava/lang/String;
+    .end local v2    # "domain":Ljava/lang/String;
     :cond_5
     add-int/lit8 v4, v4, 0x1
 
@@ -1847,8 +1847,8 @@
     goto :goto_4
 
     .line 406
-    .end local v0           #ch:C
-    .restart local v2       #domain:Ljava/lang/String;
+    .end local v0    # "ch":C
+    .restart local v2    # "domain":Ljava/lang/String;
     :cond_6
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1878,7 +1878,7 @@
     move-result v0
 
     .line 410
-    .restart local v0       #ch:C
+    .restart local v0    # "ch":C
     const/16 v10, 0x3f
 
     if-ne v0, v10, :cond_b
@@ -1910,7 +1910,7 @@
     move-result v1
 
     .line 417
-    .local v1, ch2:C
+    .local v1, "ch2":C
     invoke-static {v1}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v9
@@ -1930,7 +1930,7 @@
     goto :goto_6
 
     .line 421
-    .end local v1           #ch2:C
+    .end local v1    # "ch2":C
     :cond_b
     invoke-static {v0}, Lcom/google/android/util/AbstractMessageParser;->isPunctuation(C)Z
 
@@ -1969,8 +1969,8 @@
     goto :goto_6
 
     .line 450
-    .end local v0           #ch:C
-    .end local v2           #domain:Ljava/lang/String;
+    .end local v0    # "ch":C
+    .end local v2    # "domain":Ljava/lang/String;
     :cond_e
     iget-object v9, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1979,7 +1979,7 @@
     move-result-object v8
 
     .line 451
-    .local v8, urlText:Ljava/lang/String;
+    .local v8, "urlText":Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2010,7 +2010,7 @@
 
 .method protected static reverse(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "str"
+    .param p0, "str"    # Ljava/lang/String;
 
     .prologue
     .line 1331
@@ -2019,14 +2019,14 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1332
-    .local v0, buf:Ljava/lang/StringBuilder;
+    .local v0, "buf":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -2053,8 +2053,8 @@
 
 .method public static tokenForUrl(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$Token;
     .locals 4
-    .parameter "url"
-    .parameter "text"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 196
@@ -2075,7 +2075,7 @@
     move-result-object v2
 
     .line 202
-    .local v2, video:Lcom/google/android/util/AbstractMessageParser$Video;
+    .local v2, "video":Lcom/google/android/util/AbstractMessageParser$Video;
     if-nez v2, :cond_0
 
     .line 207
@@ -2084,7 +2084,7 @@
     move-result-object v3
 
     .line 208
-    .local v3, ytVideo:Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;
+    .local v3, "ytVideo":Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;
     if-eqz v3, :cond_2
 
     move-object v2, v3
@@ -2099,7 +2099,7 @@
     move-result-object v1
 
     .line 214
-    .local v1, photo:Lcom/google/android/util/AbstractMessageParser$Photo;
+    .local v1, "photo":Lcom/google/android/util/AbstractMessageParser$Photo;
     if-eqz v1, :cond_3
 
     move-object v2, v1
@@ -2114,7 +2114,7 @@
     move-result-object v0
 
     .line 220
-    .local v0, flickrPhoto:Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
+    .local v0, "flickrPhoto":Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
     if-eqz v0, :cond_4
 
     move-object v2, v0
@@ -2126,7 +2126,7 @@
     :cond_4
     new-instance v2, Lcom/google/android/util/AbstractMessageParser$Link;
 
-    .end local v2           #video:Lcom/google/android/util/AbstractMessageParser$Video;
+    .end local v2    # "video":Lcom/google/android/util/AbstractMessageParser$Video;
     invoke-direct {v2, p0, p1}, Lcom/google/android/util/AbstractMessageParser$Link;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
@@ -2136,7 +2136,7 @@
 # virtual methods
 .method public final getPart(I)Lcom/google/android/util/AbstractMessageParser$Part;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 122
@@ -2226,7 +2226,7 @@
     const/4 v1, 0x0
 
     .line 138
-    .local v1, meText:Ljava/lang/String;
+    .local v1, "meText":Ljava/lang/String;
     iget-boolean v3, p0, Lcom/google/android/util/AbstractMessageParser;->parseMeText:Z
 
     if-eqz v3, :cond_1
@@ -2284,7 +2284,7 @@
     const/4 v2, 0x0
 
     .line 146
-    .local v2, wasSmiley:Z
+    .local v2, "wasSmiley":Z
     :cond_2
     :goto_1
     iget v3, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
@@ -2372,7 +2372,7 @@
     :cond_6
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_2
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
@@ -2547,7 +2547,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1243
-    .local v1, html:Ljava/lang/StringBuilder;
+    .local v1, "html":Ljava/lang/StringBuilder;
     iget-object v7, p0, Lcom/google/android/util/AbstractMessageParser;->parts:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -2568,11 +2568,11 @@
     check-cast v5, Lcom/google/android/util/AbstractMessageParser$Part;
 
     .line 1244
-    .local v5, part:Lcom/google/android/util/AbstractMessageParser$Part;
+    .local v5, "part":Lcom/google/android/util/AbstractMessageParser$Part;
     const/4 v0, 0x0
 
     .line 1246
-    .local v0, caps:Z
+    .local v0, "caps":Z
     const-string v7, "<p>"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2586,7 +2586,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -2602,7 +2602,7 @@
     check-cast v6, Lcom/google/android/util/AbstractMessageParser$Token;
 
     .line 1248
-    .local v6, token:Lcom/google/android/util/AbstractMessageParser$Token;
+    .local v6, "token":Lcom/google/android/util/AbstractMessageParser$Token;
     invoke-virtual {v6}, Lcom/google/android/util/AbstractMessageParser$Token;->isHtml()Z
 
     move-result v7
@@ -2889,7 +2889,7 @@
     check-cast v4, Lcom/google/android/util/AbstractMessageParser$Photo;
 
     .line 1307
-    .local v4, p:Lcom/google/android/util/AbstractMessageParser$Photo;
+    .local v4, "p":Lcom/google/android/util/AbstractMessageParser$Photo;
     const-string v7, "<a href=\""
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2925,8 +2925,8 @@
     goto/16 :goto_2
 
     .line 1323
-    .end local v4           #p:Lcom/google/android/util/AbstractMessageParser$Photo;
-    .end local v6           #token:Lcom/google/android/util/AbstractMessageParser$Token;
+    .end local v4    # "p":Lcom/google/android/util/AbstractMessageParser$Photo;
+    .end local v6    # "token":Lcom/google/android/util/AbstractMessageParser$Token;
     :cond_2
     const-string v7, "</p>\n"
 
@@ -2935,9 +2935,9 @@
     goto/16 :goto_0
 
     .line 1326
-    .end local v0           #caps:Z
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v5           #part:Lcom/google/android/util/AbstractMessageParser$Part;
+    .end local v0    # "caps":Z
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v5    # "part":Lcom/google/android/util/AbstractMessageParser$Part;
     :cond_3
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

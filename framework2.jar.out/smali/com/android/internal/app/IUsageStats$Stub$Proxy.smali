@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 125
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 232
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 235
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IUsageStats"
 
@@ -100,7 +100,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 241
-    .local v2, _result:[Lcom/android/internal/os/PkgUsageStats;
+    .local v2, "_result":[Lcom/android/internal/os/PkgUsageStats;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 242
@@ -110,7 +110,7 @@
     return-object v2
 
     .line 241
-    .end local v2           #_result:[Lcom/android/internal/os/PkgUsageStats;
+    .end local v2    # "_result":[Lcom/android/internal/os/PkgUsageStats;
     :catchall_0
     move-exception v3
 
@@ -134,7 +134,7 @@
 
 .method public getPkgUsageStats(Landroid/content/ComponentName;)Lcom/android/internal/os/PkgUsageStats;
     .locals 6
-    .parameter "componentName"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -148,13 +148,13 @@
     move-result-object v0
 
     .line 203
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 206
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IUsageStats"
 
@@ -205,7 +205,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 224
-    .local v2, _result:Lcom/android/internal/os/PkgUsageStats;
+    .local v2, "_result":Lcom/android/internal/os/PkgUsageStats;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -216,7 +216,7 @@
     return-object v2
 
     .line 212
-    .end local v2           #_result:Lcom/android/internal/os/PkgUsageStats;
+    .end local v2    # "_result":Lcom/android/internal/os/PkgUsageStats;
     :cond_0
     const/4 v3, 0x0
 
@@ -242,14 +242,14 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Lcom/android/internal/os/PkgUsageStats;
+    .restart local v2    # "_result":Lcom/android/internal/os/PkgUsageStats;
     goto :goto_1
 .end method
 
 .method public noteLaunchTime(Landroid/content/ComponentName;I)V
     .locals 5
-    .parameter "componentName"
-    .parameter "millis"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .param p2, "millis"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -263,13 +263,13 @@
     move-result-object v0
 
     .line 181
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 183
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IUsageStats"
 
@@ -340,7 +340,7 @@
 
 .method public notePauseComponent(Landroid/content/ComponentName;)V
     .locals 5
-    .parameter "componentName"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -354,13 +354,13 @@
     move-result-object v0
 
     .line 160
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 162
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IUsageStats"
 
@@ -428,7 +428,7 @@
 
 .method public noteResumeComponent(Landroid/content/ComponentName;)V
     .locals 5
-    .parameter "componentName"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -442,13 +442,13 @@
     move-result-object v0
 
     .line 139
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 141
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IUsageStats"
 

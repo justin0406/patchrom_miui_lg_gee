@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 85
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 126
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.IThumbnailReceiver"
 
@@ -110,9 +110,9 @@
 
 .method public newThumbnail(ILandroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
     .locals 5
-    .parameter "id"
-    .parameter "thumbnail"
-    .parameter "description"
+    .param p1, "id"    # I
+    .param p2, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p3, "description"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -126,7 +126,7 @@
     move-result-object v0
 
     .line 100
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.IThumbnailReceiver"
 

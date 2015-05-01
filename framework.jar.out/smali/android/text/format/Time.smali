@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final DAYS_PER_MONTH:[I = null
+.field private static final DAYS_PER_MONTH:[I
 
 .field public static final EPOCH_JULIAN_DAY:I = 0x253d8c
 
@@ -137,31 +137,31 @@
 
     .line 220
     :array_0
-    .array-data 0x4
-        0x1ft 0x0t 0x0t 0x0t
-        0x1ct 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x1et 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x1et 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x1et 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
-        0x1et 0x0t 0x0t 0x0t
-        0x1ft 0x0t 0x0t 0x0t
+    .array-data 4
+        0x1f
+        0x1c
+        0x1f
+        0x1e
+        0x1f
+        0x1e
+        0x1f
+        0x1f
+        0x1e
+        0x1f
+        0x1e
+        0x1f
     .end array-data
 
     .line 639
     :array_1
-    .array-data 0x4
-        0xfdt 0xfft 0xfft 0xfft
-        0x3t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0xfft 0xfft 0xfft 0xfft
-        0xfet 0xfft 0xfft 0xfft
+    .array-data 4
+        -0x3
+        0x3
+        0x2
+        0x1
+        0x0
+        -0x1
+        -0x2
     .end array-data
 .end method
 
@@ -186,7 +186,7 @@
 
 .method public constructor <init>(Landroid/text/format/Time;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/text/format/Time;
 
     .prologue
     .line 191
@@ -201,7 +201,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "timezone"
+    .param p1, "timezone"    # Ljava/lang/String;
 
     .prologue
     .line 165
@@ -244,8 +244,8 @@
 
 .method public static compare(Landroid/text/format/Time;Landroid/text/format/Time;)I
     .locals 2
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Landroid/text/format/Time;
+    .param p1, "b"    # Landroid/text/format/Time;
 
     .prologue
     .line 302
@@ -303,8 +303,8 @@
 
 .method public static getJulianDay(JJ)I
     .locals 8
-    .parameter "millis"
-    .parameter "gmtoff"
+    .param p0, "millis"    # J
+    .param p2, "gmtoff"    # J
 
     .prologue
     .line 733
@@ -313,7 +313,7 @@
     mul-long v2, p2, v4
 
     .line 734
-    .local v2, offsetMillis:J
+    .local v2, "offsetMillis":J
     add-long v4, p0, v2
 
     const-wide/32 v6, 0x5265c00
@@ -321,10 +321,10 @@
     div-long v0, v4, v6
 
     .line 735
-    .local v0, julianDay:J
+    .local v0, "julianDay":J
     long-to-int v4, v0
 
-    const v5, 0x253d8c
+    const v5, 0x253d8c    # 3.419992E-39f
 
     add-int/2addr v4, v5
 
@@ -333,7 +333,7 @@
 
 .method public static getJulianMondayFromWeeksSinceEpoch(I)I
     .locals 2
-    .parameter "week"
+    .param p0, "week"    # I
 
     .prologue
     .line 811
@@ -348,15 +348,15 @@
 
 .method public static getWeeksSinceEpochFromJulianDay(II)I
     .locals 3
-    .parameter "julianDay"
-    .parameter "firstDayOfWeek"
+    .param p0, "julianDay"    # I
+    .param p1, "firstDayOfWeek"    # I
 
     .prologue
     .line 792
     rsub-int/lit8 v0, p1, 0x4
 
     .line 793
-    .local v0, diff:I
+    .local v0, "diff":I
     if-gez v0, :cond_0
 
     .line 794
@@ -364,12 +364,12 @@
 
     .line 796
     :cond_0
-    const v2, 0x253d8c
+    const v2, 0x253d8c    # 3.419992E-39f
 
     sub-int v1, v2, v0
 
     .line 797
-    .local v1, refDay:I
+    .local v1, "refDay":I
     sub-int v2, p0, v1
 
     div-int/lit8 v2, v2, 0x7
@@ -379,7 +379,7 @@
 
 .method public static isEpoch(Landroid/text/format/Time;)Z
     .locals 5
-    .parameter "time"
+    .param p0, "time"    # Landroid/text/format/Time;
 
     .prologue
     const/4 v2, 0x1
@@ -390,14 +390,14 @@
     move-result-wide v0
 
     .line 713
-    .local v0, millis:J
+    .local v0, "millis":J
     const-wide/16 v3, 0x0
 
     invoke-static {v0, v1, v3, v4}, Landroid/text/format/Time;->getJulianDay(JJ)I
 
     move-result v3
 
-    const v4, 0x253d8c
+    const v4, 0x253d8c    # 3.419992E-39f
 
     if-ne v3, v4, :cond_0
 
@@ -412,7 +412,7 @@
 
 .method private localizeDigits(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 357
@@ -421,22 +421,22 @@
     move-result v2
 
     .line 358
-    .local v2, length:I
+    .local v2, "length":I
     sget-char v5, Landroid/text/format/Time;->sZeroDigit:C
 
     add-int/lit8 v3, v5, -0x30
 
     .line 359
-    .local v3, offsetToLocalizedDigits:I
+    .local v3, "offsetToLocalizedDigits":I
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4, v2}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 360
-    .local v4, result:Ljava/lang/StringBuilder;
+    .local v4, "result":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -446,7 +446,7 @@
     move-result v0
 
     .line 362
-    .local v0, ch:C
+    .local v0, "ch":C
     const/16 v5, 0x30
 
     if-lt v0, v5, :cond_0
@@ -470,7 +470,7 @@
     goto :goto_0
 
     .line 367
-    .end local v0           #ch:C
+    .end local v0    # "ch":C
     :cond_1
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -492,7 +492,7 @@
 # virtual methods
 .method public after(Landroid/text/format/Time;)Z
     .locals 1
-    .parameter "that"
+    .param p1, "that"    # Landroid/text/format/Time;
 
     .prologue
     .line 631
@@ -515,7 +515,7 @@
 
 .method public before(Landroid/text/format/Time;)Z
     .locals 1
-    .parameter "that"
+    .param p1, "that"    # Landroid/text/format/Time;
 
     .prologue
     .line 619
@@ -538,7 +538,7 @@
 
 .method public clear(Ljava/lang/String;)V
     .locals 2
-    .parameter "timezone"
+    .param p1, "timezone"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -602,7 +602,7 @@
 
 .method public format(Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .parameter "format"
+    .param p1, "format"    # Ljava/lang/String;
 
     .prologue
     .line 321
@@ -617,7 +617,7 @@
     move-result-object v0
 
     .line 324
-    .local v0, locale:Ljava/util/Locale;
+    .local v0, "locale":Ljava/util/Locale;
     sget-object v4, Landroid/text/format/Time;->sLocale:Ljava/util/Locale;
 
     if-eqz v4, :cond_0
@@ -639,7 +639,7 @@
     move-result-object v1
 
     .line 327
-    .local v1, localeData:Llibcore/icu/LocaleData;
+    .local v1, "localeData":Llibcore/icu/LocaleData;
     iget-object v4, v1, Llibcore/icu/LocaleData;->amPm:[Ljava/lang/String;
 
     const/4 v6, 0x0
@@ -693,7 +693,7 @@
     move-result-object v2
 
     .line 338
-    .local v2, r:Landroid/content/res/Resources;
+    .local v2, "r":Landroid/content/res/Resources;
     const v4, 0x104003d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -724,15 +724,15 @@
     sput-object v0, Landroid/text/format/Time;->sLocale:Ljava/util/Locale;
 
     .line 345
-    .end local v1           #localeData:Llibcore/icu/LocaleData;
-    .end local v2           #r:Landroid/content/res/Resources;
+    .end local v1    # "localeData":Llibcore/icu/LocaleData;
+    .end local v2    # "r":Landroid/content/res/Resources;
     :cond_1
     invoke-direct {p0, p1}, Landroid/text/format/Time;->format1(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 346
-    .local v3, result:Ljava/lang/String;
+    .local v3, "result":Ljava/lang/String;
     sget-char v4, Landroid/text/format/Time;->sZeroDigit:C
 
     const/16 v6, 0x30
@@ -751,8 +751,8 @@
     return-object v3
 
     .line 350
-    .end local v0           #locale:Ljava/util/Locale;
-    .end local v3           #result:Ljava/lang/String;
+    .end local v0    # "locale":Ljava/util/Locale;
+    .end local v3    # "result":Ljava/lang/String;
     :catchall_0
     move-exception v4
 
@@ -768,7 +768,7 @@
 
 .method public format3339(Z)Ljava/lang/String;
     .locals 10
-    .parameter "allDay"
+    .param p1, "allDay"    # Z
 
     .prologue
     .line 689
@@ -815,7 +815,7 @@
     move-result-object v0
 
     .line 695
-    .local v0, base:Ljava/lang/String;
+    .local v0, "base":Ljava/lang/String;
     iget-wide v5, p0, Landroid/text/format/Time;->gmtoff:J
 
     const-wide/16 v7, 0x0
@@ -827,7 +827,7 @@
     const-string v4, "-"
 
     .line 696
-    .local v4, sign:Ljava/lang/String;
+    .local v4, "sign":Ljava/lang/String;
     :goto_1
     iget-wide v5, p0, Landroid/text/format/Time;->gmtoff:J
 
@@ -838,17 +838,17 @@
     long-to-int v3, v5
 
     .line 697
-    .local v3, offset:I
+    .local v3, "offset":I
     rem-int/lit16 v5, v3, 0xe10
 
     div-int/lit8 v2, v5, 0x3c
 
     .line 698
-    .local v2, minutes:I
+    .local v2, "minutes":I
     div-int/lit16 v1, v3, 0xe10
 
     .line 700
-    .local v1, hours:I
+    .local v1, "hours":I
     sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v6, "%s%s%02d:%02d"
@@ -888,10 +888,10 @@
     goto :goto_0
 
     .line 695
-    .end local v1           #hours:I
-    .end local v2           #minutes:I
-    .end local v3           #offset:I
-    .end local v4           #sign:Ljava/lang/String;
+    .end local v1    # "hours":I
+    .end local v2    # "minutes":I
+    .end local v3    # "offset":I
+    .end local v4    # "sign":Ljava/lang/String;
     :cond_2
     const-string v4, "+"
 
@@ -900,7 +900,7 @@
 
 .method public getActualMaximum(I)I
     .locals 5
-    .parameter "field"
+    .param p1, "field"    # I
 
     .prologue
     const/16 v0, 0x3b
@@ -964,7 +964,7 @@
     aget v0, v3, v4
 
     .line 240
-    .local v0, n:I
+    .local v0, "n":I
     if-eq v0, v2, :cond_1
 
     move v2, v0
@@ -977,7 +977,7 @@
     iget v1, p0, Landroid/text/format/Time;->year:I
 
     .line 244
-    .local v1, y:I
+    .local v1, "y":I
     rem-int/lit8 v3, v1, 0x4
 
     if-nez v3, :cond_0
@@ -996,8 +996,8 @@
     goto :goto_0
 
     .line 248
-    .end local v0           #n:I
-    .end local v1           #y:I
+    .end local v0    # "n":I
+    .end local v1    # "y":I
     :pswitch_4
     const/16 v2, 0xb
 
@@ -1020,7 +1020,7 @@
     iget v1, p0, Landroid/text/format/Time;->year:I
 
     .line 256
-    .restart local v1       #y:I
+    .restart local v1    # "y":I
     rem-int/lit8 v2, v1, 0x4
 
     if-nez v2, :cond_4
@@ -1044,7 +1044,7 @@
     goto :goto_0
 
     .line 259
-    .end local v1           #y:I
+    .end local v1    # "y":I
     :pswitch_8
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -1085,7 +1085,7 @@
     add-int v0, v2, v3
 
     .line 666
-    .local v0, closestThursday:I
+    .local v0, "closestThursday":I
     if-ltz v0, :cond_0
 
     const/16 v2, 0x16c
@@ -1108,7 +1108,7 @@
     invoke-direct {v1, p0}, Landroid/text/format/Time;-><init>(Landroid/text/format/Time;)V
 
     .line 672
-    .local v1, temp:Landroid/text/format/Time;
+    .local v1, "temp":Landroid/text/format/Time;
     iget v2, v1, Landroid/text/format/Time;->monthDay:I
 
     sget-object v3, Landroid/text/format/Time;->sThursdayOffset:[I
@@ -1141,7 +1141,7 @@
 
 .method public parse(Ljava/lang/String;)Z
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 414
@@ -1184,7 +1184,7 @@
 
 .method public parse3339(Ljava/lang/String;)Z
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 461
@@ -1227,9 +1227,9 @@
 
 .method public set(III)V
     .locals 2
-    .parameter "monthDay"
-    .parameter "month"
-    .parameter "year"
+    .param p1, "monthDay"    # I
+    .param p2, "month"    # I
+    .param p3, "year"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -1279,12 +1279,12 @@
 
 .method public set(IIIIII)V
     .locals 2
-    .parameter "second"
-    .parameter "minute"
-    .parameter "hour"
-    .parameter "monthDay"
-    .parameter "month"
-    .parameter "year"
+    .param p1, "second"    # I
+    .param p2, "minute"    # I
+    .param p3, "hour"    # I
+    .param p4, "monthDay"    # I
+    .param p5, "month"    # I
+    .param p6, "year"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -1335,7 +1335,7 @@
 
 .method public set(Landroid/text/format/Time;)V
     .locals 2
-    .parameter "that"
+    .param p1, "that"    # Landroid/text/format/Time;
 
     .prologue
     .line 556
@@ -1404,13 +1404,13 @@
 
 .method public setJulianDay(I)J
     .locals 9
-    .parameter "julianDay"
+    .param p1, "julianDay"    # I
 
     .prologue
     const/4 v8, 0x0
 
     .line 762
-    const v4, 0x253d8c
+    const v4, 0x253d8c    # 3.419992E-39f
 
     sub-int v4, p1, v4
 
@@ -1421,7 +1421,7 @@
     mul-long v2, v4, v6
 
     .line 763
-    .local v2, millis:J
+    .local v2, "millis":J
     invoke-virtual {p0, v2, v3}, Landroid/text/format/Time;->set(J)V
 
     .line 767
@@ -1432,11 +1432,11 @@
     move-result v0
 
     .line 768
-    .local v0, approximateDay:I
+    .local v0, "approximateDay":I
     sub-int v1, p1, v0
 
     .line 769
-    .local v1, diff:I
+    .local v1, "diff":I
     iget v4, p0, Landroid/text/format/Time;->monthDay:I
 
     add-int/2addr v4, v1

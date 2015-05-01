@@ -80,7 +80,7 @@
 
 .method public static obtain(Lcom/android/server/wm/WindowState;)Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
     .locals 3
-    .parameter "windowState"
+    .param p0, "windowState"    # Lcom/android/server/wm/WindowState;
 
     .prologue
     .line 675
@@ -93,17 +93,17 @@
     check-cast v0, Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
 
     .line 676
-    .local v0, info:Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
+    .local v0, "info":Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
     if-nez v0, :cond_0
 
     .line 677
     new-instance v0, Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
 
-    .end local v0           #info:Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
+    .end local v0    # "info":Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
     invoke-direct {v0}, Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;-><init>()V
 
     .line 679
-    .restart local v0       #info:Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
+    .restart local v0    # "info":Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;
     :cond_0
     iput-object p0, v0, Lcom/android/server/wm/DisplayMagnifier$WindowStateInfo;->mWindowState:Lcom/android/server/wm/WindowState;
 

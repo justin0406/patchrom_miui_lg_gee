@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 105
@@ -61,8 +61,8 @@
 
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
     .locals 5
-    .parameter "config"
-    .parameter "status"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,13 +76,13 @@
     move-result-object v0
 
     .line 119
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 121
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.bluetooth.IBluetoothHealthCallback"
 
@@ -153,12 +153,12 @@
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
     .locals 5
-    .parameter "config"
-    .parameter "device"
-    .parameter "prevState"
-    .parameter "newState"
-    .parameter "fd"
-    .parameter "id"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "device"    # Landroid/bluetooth/BluetoothDevice;
+    .param p3, "prevState"    # I
+    .param p4, "newState"    # I
+    .param p5, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p6, "id"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -172,13 +172,13 @@
     move-result-object v0
 
     .line 141
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 143
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.bluetooth.IBluetoothHealthCallback"
 

@@ -18,8 +18,7 @@
 
 .field static final MAX_CACHED_APPS:I = 0x18
 
-#the value of this static final field might be set in the static constructor
-.field private static final MAX_EMPTY_APPS:I = 0x0
+.field private static final MAX_EMPTY_APPS:I
 
 .field static final MAX_EMPTY_TIME:J = 0x1b7740L
 
@@ -73,13 +72,11 @@
 
 .field static final SYSTEM_ADJ:I = -0x10
 
-#the value of this static final field might be set in the static constructor
-.field static final TRIM_CACHED_APPS:I = 0x0
+.field static final TRIM_CACHED_APPS:I
 
 .field static final TRIM_CRITICAL_THRESHOLD:I = 0x3
 
-#the value of this static final field might be set in the static constructor
-.field static final TRIM_EMPTY_APPS:I = 0x0
+.field static final TRIM_EMPTY_APPS:I
 
 .field static final TRIM_LOW_THRESHOLD:I = 0x5
 
@@ -169,59 +166,59 @@
 
     .line 425
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x3t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
+        0x1
+        0x2
+        0x2
+        0x2
+        0x2
+        0x3
+        0x4
+        0x4
+        0x4
+        0x4
+        0x4
+        0x4
     .end array-data
 
     .line 442
     :array_1
-    .array-data 0x8
-        0xc0t 0xd4t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xc0t 0xd4t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x10t 0x27t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x20t 0x4et 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x20t 0x4et 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x20t 0x4et 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x20t 0x4et 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x20t 0x4et 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x30t 0x75t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
+    .array-data 8
+        0x1d4c0
+        0x1d4c0
+        0x2710
+        0x4e20
+        0x4e20
+        0x4e20
+        0x4e20
+        0x4e20
+        0x7530
+        0x7530
+        0x7530
+        0x7530
+        0x7530
+        0x7530
     .end array-data
 
     .line 459
     :array_2
-    .array-data 0x8
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xc0t 0xd4t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0xa0t 0xbbt 0xdt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x80t 0x4ft 0x12t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x80t 0x4ft 0x12t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x40t 0x77t 0x1bt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x40t 0x77t 0x1bt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x40t 0x77t 0x1bt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x40t 0x77t 0x1bt 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x40t 0x77t 0x1bt 0x0t 0x0t 0x0t 0x0t 0x0t
+    .array-data 8
+        0xdbba0
+        0xdbba0
+        0x1d4c0
+        0xdbba0
+        0xdbba0
+        0xdbba0
+        0xdbba0
+        0x124f80
+        0x124f80
+        0x1b7740
+        0x1b7740
+        0x1b7740
+        0x1b7740
+        0x1b7740
     .end array-data
 .end method
 
@@ -272,7 +269,7 @@
     invoke-direct {v0}, Lcom/android/internal/util/MemInfoReader;-><init>()V
 
     .line 174
-    .local v0, minfo:Lcom/android/internal/util/MemInfoReader;
+    .local v0, "minfo":Lcom/android/internal/util/MemInfoReader;
     invoke-virtual {v0}, Lcom/android/internal/util/MemInfoReader;->readMemInfo()V
 
     .line 175
@@ -296,51 +293,51 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x2t 0x0t 0x0t 0x0t
-        0x3t 0x0t 0x0t 0x0t
-        0x9t 0x0t 0x0t 0x0t
-        0xft 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x1
+        0x2
+        0x3
+        0x9
+        0xf
     .end array-data
 
     .line 153
     :array_1
-    .array-data 0x8
-        0x0t 0x20t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x30t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x40t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x60t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x70t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x80t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
+    .array-data 8
+        0x2000
+        0x3000
+        0x4000
+        0x6000
+        0x7000
+        0x8000
     .end array-data
 
     .line 159
     :array_2
-    .array-data 0x8
-        0x0t 0xc0t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0xf0t 0x0t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x20t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x50t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0x80t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
-        0x0t 0xe0t 0x1t 0x0t 0x0t 0x0t 0x0t 0x0t
+    .array-data 8
+        0xc000
+        0xf000
+        0x12000
+        0x15000
+        0x18000
+        0x1e000
     .end array-data
 .end method
 
 .method public static appendRamKb(Ljava/lang/StringBuilder;J)V
     .locals 4
-    .parameter "sb"
-    .parameter "ramKb"
+    .param p0, "sb"    # Ljava/lang/StringBuilder;
+    .param p1, "ramKb"    # J
 
     .prologue
     .line 381
     const/4 v1, 0x0
 
-    .local v1, j:I
+    .local v1, "j":I
     const/16 v0, 0xa
 
-    .local v0, fact:I
+    .local v0, "fact":I
     :goto_0
     const/4 v2, 0x6
 
@@ -376,10 +373,10 @@
 
 .method private static buildOomTag(Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;
     .locals 2
-    .parameter "prefix"
-    .parameter "space"
-    .parameter "val"
-    .parameter "base"
+    .param p0, "prefix"    # Ljava/lang/String;
+    .param p1, "space"    # Ljava/lang/String;
+    .param p2, "val"    # I
+    .param p3, "base"    # I
 
     .prologue
     .line 286
@@ -389,12 +386,12 @@
     if-nez p1, :cond_0
 
     .line 290
-    .end local p0
+    .end local p0    # "prefix":Ljava/lang/String;
     :goto_0
     return-object p0
 
     .line 288
-    .restart local p0
+    .restart local p0    # "prefix":Ljava/lang/String;
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -451,7 +448,7 @@
 
 .method public static computeEmptyProcessLimit(I)I
     .locals 1
-    .parameter "totalProcessLimit"
+    .param p0, "totalProcessLimit"    # I
 
     .prologue
     .line 282
@@ -464,10 +461,10 @@
 
 .method public static computeNextPssTime(IZZJ)J
     .locals 3
-    .parameter "procState"
-    .parameter "first"
-    .parameter "sleeping"
-    .parameter "now"
+    .param p0, "procState"    # I
+    .param p1, "first"    # Z
+    .param p2, "sleeping"    # Z
+    .param p3, "now"    # J
 
     .prologue
     .line 482
@@ -478,7 +475,7 @@
     sget-object v0, Lcom/android/server/am/ProcessList;->sFirstAwakePssTimes:[J
 
     .line 489
-    .local v0, table:[J
+    .local v0, "table":[J
     :goto_0
     aget-wide v1, v0, p0
 
@@ -487,7 +484,7 @@
     return-wide v1
 
     .line 482
-    .end local v0           #table:[J
+    .end local v0    # "table":[J
     :cond_0
     sget-object v0, Lcom/android/server/am/ProcessList;->sSameAwakePssTimes:[J
 
@@ -508,7 +505,7 @@
 
 .method public static makeOomAdjString(I)Ljava/lang/String;
     .locals 6
-    .parameter "setAdj"
+    .param p0, "setAdj"    # I
 
     .prologue
     const/4 v5, 0x1
@@ -738,7 +735,7 @@
 
 .method public static makeProcStateString(I)Ljava/lang/String;
     .locals 1
-    .parameter "curProcState"
+    .param p0, "curProcState"    # I
 
     .prologue
     .line 327
@@ -748,143 +745,143 @@
     const-string v0, "??"
 
     .line 377
-    .local v0, procState:Ljava/lang/String;
+    .local v0, "procState":Ljava/lang/String;
     :goto_0
     return-object v0
 
     .line 329
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_0
     const-string v0, "N "
 
     .line 330
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 332
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_1
     const-string v0, "P "
 
     .line 333
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 335
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_2
     const-string v0, "PU"
 
     .line 336
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 338
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_3
     const-string v0, "T "
 
     .line 339
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 341
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_4
     const-string v0, "IF"
 
     .line 342
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 344
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_5
     const-string v0, "IB"
 
     .line 345
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 347
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_6
     const-string v0, "BU"
 
     .line 348
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 350
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_7
     const-string v0, "HW"
 
     .line 351
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 353
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_8
     const-string v0, "S "
 
     .line 354
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 356
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_9
     const-string v0, "R "
 
     .line 357
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 359
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_a
     const-string v0, "HO"
 
     .line 360
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 362
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_b
     const-string v0, "LA"
 
     .line 363
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 365
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_c
     const-string v0, "CA"
 
     .line 366
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 368
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_d
     const-string v0, "Ca"
 
     .line 369
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 371
-    .end local v0           #procState:Ljava/lang/String;
+    .end local v0    # "procState":Ljava/lang/String;
     :pswitch_e
     const-string v0, "CE"
 
     .line 372
-    .restart local v0       #procState:Ljava/lang/String;
+    .restart local v0    # "procState":Ljava/lang/String;
     goto :goto_0
 
     .line 327
@@ -912,8 +909,8 @@
 
 .method public static procStatesDifferForMem(II)Z
     .locals 2
-    .parameter "procState1"
-    .parameter "procState2"
+    .param p0, "procState1"    # I
+    .param p1, "procState2"    # I
 
     .prologue
     .line 477
@@ -940,9 +937,9 @@
 
 .method private updateOomLevels(IIZ)V
     .locals 26
-    .parameter "displayWidth"
-    .parameter "displayHeight"
-    .parameter "write"
+    .param p1, "displayWidth"    # I
+    .param p2, "displayHeight"    # I
+    .param p3, "write"    # Z
 
     .prologue
     .line 193
@@ -962,20 +959,20 @@
 
     move/from16 v20, v0
 
-    const/high16 v21, 0x43c8
+    const/high16 v21, 0x43c80000    # 400.0f
 
     div-float v19, v20, v21
 
     .line 196
-    .local v19, scaleMem:F
+    .local v19, "scaleMem":F
     const v11, 0x5dc00
 
     .line 197
-    .local v11, minSize:I
+    .local v11, "minSize":I
     const v9, 0xfa000
 
     .line 198
-    .local v9, maxSize:I
+    .local v9, "maxSize":I
     mul-int v20, p1, p2
 
     move/from16 v0, v20
@@ -1001,19 +998,19 @@
     div-float v18, v20, v21
 
     .line 205
-    .local v18, scaleDisp:F
+    .local v18, "scaleDisp":F
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 206
-    .local v3, adjString:Ljava/lang/StringBuilder;
+    .local v3, "adjString":Ljava/lang/StringBuilder;
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 208
-    .local v10, memString:Ljava/lang/StringBuilder;
+    .local v10, "memString":Ljava/lang/StringBuilder;
     cmpl-float v20, v19, v18
 
     if-lez v20, :cond_1
@@ -1021,7 +1018,7 @@
     move/from16 v17, v19
 
     .line 209
-    .local v17, scale:F
+    .local v17, "scale":F
     :goto_0
     const/16 v20, 0x0
 
@@ -1045,7 +1042,7 @@
     move-result v13
 
     .line 213
-    .local v13, minfree_adj:I
+    .local v13, "minfree_adj":I
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v20
@@ -1057,10 +1054,10 @@
     move-result v12
 
     .line 219
-    .local v12, minfree_abs:I
+    .local v12, "minfree_abs":I
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_2
     move-object/from16 v0, p0
 
@@ -1088,7 +1085,7 @@
     aget-wide v7, v20, v6
 
     .line 221
-    .local v7, low:J
+    .local v7, "low":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh:[J
@@ -1098,7 +1095,7 @@
     aget-wide v4, v20, v6
 
     .line 222
-    .local v4, high:J
+    .local v4, "high":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[J
@@ -1134,12 +1131,12 @@
 
     goto :goto_2
 
-    .end local v4           #high:J
-    .end local v6           #i:I
-    .end local v7           #low:J
-    .end local v12           #minfree_abs:I
-    .end local v13           #minfree_adj:I
-    .end local v17           #scale:F
+    .end local v4    # "high":J
+    .end local v6    # "i":I
+    .end local v7    # "low":J
+    .end local v12    # "minfree_abs":I
+    .end local v13    # "minfree_adj":I
+    .end local v17    # "scale":F
     :cond_1
     move/from16 v17, v18
 
@@ -1147,22 +1144,22 @@
     goto :goto_0
 
     .line 210
-    .restart local v17       #scale:F
+    .restart local v17    # "scale":F
     :cond_2
-    const/high16 v20, 0x3f80
+    const/high16 v20, 0x3f800000    # 1.0f
 
     cmpl-float v20, v17, v20
 
     if-lez v20, :cond_0
 
-    const/high16 v17, 0x3f80
+    const/high16 v17, 0x3f800000    # 1.0f
 
     goto :goto_1
 
     .line 225
-    .restart local v6       #i:I
-    .restart local v12       #minfree_abs:I
-    .restart local v13       #minfree_adj:I
+    .restart local v6    # "i":I
+    .restart local v12    # "minfree_abs":I
+    .restart local v13    # "minfree_adj":I
     :cond_3
     if-ltz v12, :cond_4
 
@@ -1497,7 +1494,7 @@
     div-int/lit16 v14, v0, 0x400
 
     .line 257
-    .local v14, reserve:I
+    .local v14, "reserve":I
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v20
@@ -1509,7 +1506,7 @@
     move-result v16
 
     .line 258
-    .local v16, reserve_adj:I
+    .local v16, "reserve_adj":I
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v20
@@ -1521,7 +1518,7 @@
     move-result v15
 
     .line 260
-    .local v15, reserve_abs:I
+    .local v15, "reserve_abs":I
     if-ltz v15, :cond_9
 
     .line 261
@@ -1590,26 +1587,26 @@
 
 .method private writeFile(Ljava/lang/String;Ljava/lang/String;)V
     .locals 6
-    .parameter "path"
-    .parameter "data"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "data"    # Ljava/lang/String;
 
     .prologue
     .line 510
     const/4 v1, 0x0
 
     .line 512
-    .local v1, fos:Ljava/io/FileOutputStream;
+    .local v1, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 513
-    .end local v1           #fos:Ljava/io/FileOutputStream;
-    .local v2, fos:Ljava/io/FileOutputStream;
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
@@ -1617,8 +1614,8 @@
 
     invoke-virtual {v2, v3}, Ljava/io/FileOutputStream;->write([B)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 517
     if-eqz v2, :cond_2
@@ -1632,23 +1629,23 @@
     move-object v1, v2
 
     .line 524
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     :cond_0
     :goto_0
     return-void
 
     .line 520
-    .end local v1           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v3
 
     move-object v1, v2
 
     .line 521
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     goto :goto_0
 
     .line 514
@@ -1656,7 +1653,7 @@
     move-exception v0
 
     .line 515
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :goto_1
     :try_start_3
     const-string v3, "ActivityManager"
@@ -1701,7 +1698,7 @@
     goto :goto_0
 
     .line 517
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v3
 
@@ -1726,36 +1723,36 @@
     goto :goto_3
 
     .line 517
-    .end local v1           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     goto :goto_2
 
     .line 514
-    .end local v1           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v0
 
     move-object v1, v2
 
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     goto :goto_1
 
-    .end local v1           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :cond_2
     move-object v1, v2
 
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     goto :goto_0
 .end method
 
@@ -1763,7 +1760,7 @@
 # virtual methods
 .method applyDisplaySize(Lcom/android/server/wm/WindowManagerService;)V
     .locals 4
-    .parameter "wm"
+    .param p1, "wm"    # Lcom/android/server/wm/WindowManagerService;
 
     .prologue
     const/4 v3, 0x1
@@ -1779,7 +1776,7 @@
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
 
     .line 182
-    .local v0, p:Landroid/graphics/Point;
+    .local v0, "p":Landroid/graphics/Point;
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1, v0}, Lcom/android/server/wm/WindowManagerService;->getBaseDisplaySize(ILandroid/graphics/Point;)V
@@ -1804,7 +1801,7 @@
     iput-boolean v3, p0, Lcom/android/server/am/ProcessList;->mHaveDisplaySize:Z
 
     .line 188
-    .end local v0           #p:Landroid/graphics/Point;
+    .end local v0    # "p":Landroid/graphics/Point;
     :cond_0
     return-void
 .end method
@@ -1821,7 +1818,7 @@
 
 .method getMemLevel(I)J
     .locals 5
-    .parameter "adjustment"
+    .param p1, "adjustment"    # I
 
     .prologue
     const-wide/16 v3, 0x400
@@ -1829,7 +1826,7 @@
     .line 493
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 

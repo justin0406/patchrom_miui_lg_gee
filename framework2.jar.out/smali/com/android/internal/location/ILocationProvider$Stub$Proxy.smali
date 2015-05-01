@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 156
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 184
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 186
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.location.ILocationProvider"
 
@@ -126,13 +126,13 @@
     move-result-object v0
 
     .line 170
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 172
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.location.ILocationProvider"
 
@@ -198,13 +198,13 @@
     move-result-object v0
 
     .line 228
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 231
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.location.ILocationProvider"
 
@@ -241,7 +241,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 242
-    .local v2, _result:Lcom/android/internal/location/ProviderProperties;
+    .local v2, "_result":Lcom/android/internal/location/ProviderProperties;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -252,15 +252,15 @@
     return-object v2
 
     .line 238
-    .end local v2           #_result:Lcom/android/internal/location/ProviderProperties;
+    .end local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Lcom/android/internal/location/ProviderProperties;
+    .restart local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     goto :goto_0
 
     .line 242
-    .end local v2           #_result:Lcom/android/internal/location/ProviderProperties;
+    .end local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     :catchall_0
     move-exception v3
 
@@ -274,7 +274,7 @@
 
 .method public getStatus(Landroid/os/Bundle;)I
     .locals 6
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -288,13 +288,13 @@
     move-result-object v0
 
     .line 250
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 253
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.location.ILocationProvider"
 
@@ -318,7 +318,7 @@
     move-result v2
 
     .line 257
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -341,7 +341,7 @@
     return v2
 
     .line 262
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -368,13 +368,13 @@
     move-result-object v0
 
     .line 270
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 273
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -400,7 +400,7 @@
     move-result-wide v2
 
     .line 279
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 280
@@ -410,7 +410,7 @@
     return-wide v2
 
     .line 279
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -424,8 +424,8 @@
 
 .method public sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 7
-    .parameter "command"
-    .parameter "extras"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -443,13 +443,13 @@
     move-result-object v0
 
     .line 287
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 290
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -492,7 +492,7 @@
     if-eqz v4, :cond_2
 
     .line 302
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
@@ -516,7 +516,7 @@
     return v2
 
     .line 297
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v4, 0x0
 
@@ -547,8 +547,8 @@
 
 .method public setRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "request"
-    .parameter "ws"
+    .param p1, "request"    # Lcom/android/internal/location/ProviderRequest;
+    .param p2, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -562,13 +562,13 @@
     move-result-object v0
 
     .line 198
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 200
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.location.ILocationProvider"
 

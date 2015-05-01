@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 107
@@ -61,7 +61,7 @@
 
 .method public onFirstFix(I)V
     .locals 5
-    .parameter "ttff"
+    .param p1, "ttff"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.IGpsStatusListener"
 
@@ -127,7 +127,7 @@
     move-result-object v0
 
     .line 122
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.IGpsStatusListener"
 
@@ -176,7 +176,7 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.IGpsStatusListener"
 
@@ -212,8 +212,8 @@
 
 .method public onNmeaReceived(JLjava/lang/String;)V
     .locals 5
-    .parameter "timestamp"
-    .parameter "nmea"
+    .param p1, "timestamp"    # J
+    .param p3, "nmea"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -227,7 +227,7 @@
     move-result-object v0
 
     .line 175
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.IGpsStatusListener"
 
@@ -269,14 +269,14 @@
 
 .method public onSvStatusChanged(I[I[F[F[FIII)V
     .locals 5
-    .parameter "svCount"
-    .parameter "prns"
-    .parameter "snrs"
-    .parameter "elevations"
-    .parameter "azimuths"
-    .parameter "ephemerisMask"
-    .parameter "almanacMask"
-    .parameter "usedInFixMask"
+    .param p1, "svCount"    # I
+    .param p2, "prns"    # [I
+    .param p3, "snrs"    # [F
+    .param p4, "elevations"    # [F
+    .param p5, "azimuths"    # [F
+    .param p6, "ephemerisMask"    # I
+    .param p7, "almanacMask"    # I
+    .param p8, "usedInFixMask"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -290,7 +290,7 @@
     move-result-object v0
 
     .line 156
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.IGpsStatusListener"
 

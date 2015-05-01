@@ -6,7 +6,7 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 35
@@ -22,9 +22,9 @@
 
 .method protected constructor <init>(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneBase;)V
     .locals 0
-    .parameter "debugTag"
-    .parameter "context"
-    .parameter "phone"
+    .param p1, "debugTag"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 39
@@ -36,7 +36,7 @@
 
 .method public static makeCellBroadcastHandler(Landroid/content/Context;)Lcom/android/internal/telephony/CellBroadcastHandler;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 48
@@ -45,7 +45,7 @@
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/CellBroadcastHandler;-><init>(Landroid/content/Context;)V
 
     .line 49
-    .local v0, handler:Lcom/android/internal/telephony/CellBroadcastHandler;
+    .local v0, "handler":Lcom/android/internal/telephony/CellBroadcastHandler;
     invoke-virtual {v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->start()V
 
     .line 50
@@ -56,7 +56,7 @@
 # virtual methods
 .method protected handleBroadcastSms(Landroid/telephony/SmsCbMessage;)V
     .locals 9
-    .parameter "message"
+    .param p1, "message"    # Landroid/telephony/SmsCbMessage;
 
     .prologue
     const/4 v7, 0x0
@@ -81,15 +81,15 @@
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 82
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     const-string v2, "android.permission.RECEIVE_EMERGENCY_BROADCAST"
 
     .line 83
-    .local v2, receiverPermission:Ljava/lang/String;
+    .local v2, "receiverPermission":Ljava/lang/String;
     const/16 v3, 0x11
 
     .line 90
-    .local v3, appOp:I
+    .local v3, "appOp":I
     :goto_0
     const-string v0, "message"
 
@@ -114,9 +114,9 @@
     return-void
 
     .line 85
-    .end local v1           #intent:Landroid/content/Intent;
-    .end local v2           #receiverPermission:Ljava/lang/String;
-    .end local v3           #appOp:I
+    .end local v1    # "intent":Landroid/content/Intent;
+    .end local v2    # "receiverPermission":Ljava/lang/String;
+    .end local v3    # "appOp":I
     :cond_0
     const-string v0, "Dispatching SMS CB"
 
@@ -130,20 +130,20 @@
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 87
-    .restart local v1       #intent:Landroid/content/Intent;
+    .restart local v1    # "intent":Landroid/content/Intent;
     const-string v2, "android.permission.RECEIVE_SMS"
 
     .line 88
-    .restart local v2       #receiverPermission:Ljava/lang/String;
+    .restart local v2    # "receiverPermission":Ljava/lang/String;
     const/16 v3, 0x10
 
-    .restart local v3       #appOp:I
+    .restart local v3    # "appOp":I
     goto :goto_0
 .end method
 
 .method protected handleSmsMessage(Landroid/os/Message;)Z
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 62

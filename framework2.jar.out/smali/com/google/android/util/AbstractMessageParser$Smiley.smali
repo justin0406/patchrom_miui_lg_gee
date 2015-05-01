@@ -17,7 +17,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 1142
@@ -50,7 +50,7 @@
     move-result-object v0
 
     .line 1149
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$Smiley;->getRawText()Ljava/lang/String;
 
     move-result-object v1

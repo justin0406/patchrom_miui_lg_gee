@@ -8,11 +8,9 @@
 
 .field private static final ENTROPY_WRITE_PERIOD:I = 0xa4cb80
 
-#the value of this static final field might be set in the static constructor
-.field private static final START_NANOTIME:J = 0x0L
+.field private static final START_NANOTIME:J
 
-#the value of this static final field might be set in the static constructor
-.field private static final START_TIME:J = 0x0L
+.field private static final START_TIME:J
 
 .field private static final TAG:Ljava/lang/String; = "EntropyMixer"
 
@@ -51,7 +49,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 85
@@ -87,9 +85,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "context"
-    .parameter "entropyFile"
-    .parameter "randomDevice"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "entropyFile"    # Ljava/lang/String;
+    .param p3, "randomDevice"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -159,7 +157,7 @@
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     .line 100
-    .local v0, broadcastFilter:Landroid/content/IntentFilter;
+    .local v0, "broadcastFilter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -180,7 +178,7 @@
 
 .method static synthetic access$000(Lcom/android/server/EntropyMixer;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/EntropyMixer;
 
     .prologue
     .line 52
@@ -191,7 +189,7 @@
 
 .method static synthetic access$100(Lcom/android/server/EntropyMixer;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/EntropyMixer;
 
     .prologue
     .line 52
@@ -208,7 +206,7 @@
     const/4 v1, 0x0
 
     .line 146
-    .local v1, out:Ljava/io/PrintWriter;
+    .local v1, "out":Ljava/io/PrintWriter;
     :try_start_0
     new-instance v2, Ljava/io/PrintWriter;
 
@@ -220,12 +218,12 @@
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
-    .end local v1           #out:Ljava/io/PrintWriter;
-    .local v2, out:Ljava/io/PrintWriter;
+    .end local v1    # "out":Ljava/io/PrintWriter;
+    .local v2, "out":Ljava/io/PrintWriter;
     :try_start_1
     const-string v3, "Copyright (C) 2009 The Android Open Source Project"
 
@@ -343,8 +341,8 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/io/PrintWriter;->println(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 165
     if-eqz v2, :cond_0
@@ -356,8 +354,8 @@
     move-object v1, v2
 
     .line 169
-    .end local v2           #out:Ljava/io/PrintWriter;
-    .restart local v1       #out:Ljava/io/PrintWriter;
+    .end local v2    # "out":Ljava/io/PrintWriter;
+    .restart local v1    # "out":Ljava/io/PrintWriter;
     :cond_1
     :goto_0
     return-void
@@ -367,7 +365,7 @@
     move-exception v0
 
     .line 163
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :goto_1
     :try_start_2
     const-string v3, "EntropyMixer"
@@ -387,7 +385,7 @@
     goto :goto_0
 
     .line 165
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v3
 
@@ -401,27 +399,27 @@
     :cond_2
     throw v3
 
-    .end local v1           #out:Ljava/io/PrintWriter;
-    .restart local v2       #out:Ljava/io/PrintWriter;
+    .end local v1    # "out":Ljava/io/PrintWriter;
+    .restart local v2    # "out":Ljava/io/PrintWriter;
     :catchall_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #out:Ljava/io/PrintWriter;
-    .restart local v1       #out:Ljava/io/PrintWriter;
+    .end local v2    # "out":Ljava/io/PrintWriter;
+    .restart local v1    # "out":Ljava/io/PrintWriter;
     goto :goto_2
 
     .line 162
-    .end local v1           #out:Ljava/io/PrintWriter;
-    .restart local v2       #out:Ljava/io/PrintWriter;
+    .end local v1    # "out":Ljava/io/PrintWriter;
+    .restart local v2    # "out":Ljava/io/PrintWriter;
     :catch_1
     move-exception v0
 
     move-object v1, v2
 
-    .end local v2           #out:Ljava/io/PrintWriter;
-    .restart local v1       #out:Ljava/io/PrintWriter;
+    .end local v2    # "out":Ljava/io/PrintWriter;
+    .restart local v1    # "out":Ljava/io/PrintWriter;
     goto :goto_1
 .end method
 
@@ -435,7 +433,7 @@
     move-result-object v0
 
     .line 173
-    .local v0, dataDir:Ljava/io/File;
+    .local v0, "dataDir":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     const-string v2, "system"
@@ -443,7 +441,7 @@
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 174
-    .local v1, systemDir:Ljava/io/File;
+    .local v1, "systemDir":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     .line 175
@@ -484,7 +482,7 @@
     move-exception v0
 
     .line 114
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v1, "EntropyMixer"
 
     const-string v2, "No existing entropy file -- first boot?"
@@ -494,12 +492,12 @@
     goto :goto_0
 
     .line 115
-    .end local v0           #e:Ljava/io/FileNotFoundException;
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
     .line 116
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "EntropyMixer"
 
     const-string v2, "Failure loading existing entropy file"
@@ -567,7 +565,7 @@
     move-exception v0
 
     .line 125
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "EntropyMixer"
 
     const-string v2, "Unable to write entropy"

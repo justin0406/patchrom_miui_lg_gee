@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -93,12 +93,12 @@
 
 .method public constructor <init>(IIILandroid/hardware/display/WifiDisplay;[Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplaySessionInfo;)V
     .locals 2
-    .parameter "featureState"
-    .parameter "scanState"
-    .parameter "activeDisplayState"
-    .parameter "activeDisplay"
-    .parameter "displays"
-    .parameter "sessionInfo"
+    .param p1, "featureState"    # I
+    .param p2, "scanState"    # I
+    .param p3, "activeDisplayState"    # I
+    .param p4, "activeDisplay"    # Landroid/hardware/display/WifiDisplay;
+    .param p5, "displays"    # [Landroid/hardware/display/WifiDisplay;
+    .param p6, "sessionInfo"    # Landroid/hardware/display/WifiDisplaySessionInfo;
 
     .prologue
     .line 100
@@ -135,7 +135,7 @@
     .line 111
     if-eqz p6, :cond_1
 
-    .end local p6
+    .end local p6    # "sessionInfo":Landroid/hardware/display/WifiDisplaySessionInfo;
     :goto_0
     iput-object p6, p0, Landroid/hardware/display/WifiDisplayStatus;->mSessionInfo:Landroid/hardware/display/WifiDisplaySessionInfo;
 
@@ -143,11 +143,11 @@
     return-void
 
     .line 111
-    .restart local p6
+    .restart local p6    # "sessionInfo":Landroid/hardware/display/WifiDisplaySessionInfo;
     :cond_1
     new-instance p6, Landroid/hardware/display/WifiDisplaySessionInfo;
 
-    .end local p6
+    .end local p6    # "sessionInfo":Landroid/hardware/display/WifiDisplaySessionInfo;
     invoke-direct {p6}, Landroid/hardware/display/WifiDisplaySessionInfo;-><init>()V
 
     goto :goto_0
@@ -325,8 +325,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 171
@@ -370,20 +370,20 @@
     .line 183
     iget-object v0, p0, Landroid/hardware/display/WifiDisplayStatus;->mDisplays:[Landroid/hardware/display/WifiDisplay;
 
-    .local v0, arr$:[Landroid/hardware/display/WifiDisplay;
+    .local v0, "arr$":[Landroid/hardware/display/WifiDisplay;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_1
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 184
-    .local v1, display:Landroid/hardware/display/WifiDisplay;
+    .local v1, "display":Landroid/hardware/display/WifiDisplay;
     invoke-virtual {v1, p1, p2}, Landroid/hardware/display/WifiDisplay;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 183
@@ -392,10 +392,10 @@
     goto :goto_1
 
     .line 179
-    .end local v0           #arr$:[Landroid/hardware/display/WifiDisplay;
-    .end local v1           #display:Landroid/hardware/display/WifiDisplay;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
+    .end local v0    # "arr$":[Landroid/hardware/display/WifiDisplay;
+    .end local v1    # "display":Landroid/hardware/display/WifiDisplay;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
     :cond_0
     const/4 v4, 0x0
 
@@ -404,9 +404,9 @@
     goto :goto_0
 
     .line 187
-    .restart local v0       #arr$:[Landroid/hardware/display/WifiDisplay;
-    .restart local v2       #i$:I
-    .restart local v3       #len$:I
+    .restart local v0    # "arr$":[Landroid/hardware/display/WifiDisplay;
+    .restart local v2    # "i$":I
+    .restart local v3    # "len$":I
     :cond_1
     iget-object v4, p0, Landroid/hardware/display/WifiDisplayStatus;->mSessionInfo:Landroid/hardware/display/WifiDisplaySessionInfo;
 

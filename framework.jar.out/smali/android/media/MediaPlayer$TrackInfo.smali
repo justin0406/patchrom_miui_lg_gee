@@ -18,7 +18,7 @@
 
 
 # static fields
-.field static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -63,8 +63,8 @@
 
 .method constructor <init>(ILandroid/media/MediaFormat;)V
     .locals 0
-    .parameter "type"
-    .parameter "format"
+    .param p1, "type"    # I
+    .param p2, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 1619
@@ -82,7 +82,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 1598
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 1603
-    .local v0, language:Ljava/lang/String;
+    .local v0, "language":Ljava/lang/String;
     iget v1, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
 
     const/4 v2, 0x3
@@ -248,12 +248,12 @@
     move-result-object v0
 
     .line 1573
-    .local v0, language:Ljava/lang/String;
+    .local v0, "language":Ljava/lang/String;
     if-nez v0, :cond_0
 
     const-string/jumbo v0, "und"
 
-    .end local v0           #language:Ljava/lang/String;
+    .end local v0    # "language":Ljava/lang/String;
     :cond_0
     return-object v0
 .end method
@@ -270,8 +270,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1637

@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;B)V
     .locals 0
-    .parameter "prefix"
-    .parameter "score"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "score"    # B
 
     .prologue
     .line 217

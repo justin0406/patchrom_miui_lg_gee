@@ -73,7 +73,7 @@
 
 .method public constructor <init>(Landroid/media/MediaRouterClientState$RouteInfo;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/media/MediaRouterClientState$RouteInfo;
 
     .prologue
     .line 118
@@ -145,7 +145,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 133
@@ -252,7 +252,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -473,8 +473,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 155

@@ -6,10 +6,10 @@
 # direct methods
 .method public constructor <init>([FFFF)V
     .locals 2
-    .parameter "direction"
-    .parameter "ambient"
-    .parameter "specular"
-    .parameter "blurRadius"
+    .param p1, "direction"    # [F
+    .param p2, "ambient"    # F
+    .param p3, "specular"    # F
+    .param p4, "blurRadius"    # F
 
     .prologue
     .line 29

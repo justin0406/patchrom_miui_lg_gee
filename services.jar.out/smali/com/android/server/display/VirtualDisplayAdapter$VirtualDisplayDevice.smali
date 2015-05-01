@@ -44,17 +44,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)V
     .locals 0
-    .parameter
-    .parameter "displayToken"
-    .parameter "appToken"
-    .parameter "ownerUid"
-    .parameter "ownerPackageName"
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "densityDpi"
-    .parameter "surface"
-    .parameter "flags"
+    .param p2, "displayToken"    # Landroid/os/IBinder;
+    .param p3, "appToken"    # Landroid/os/IBinder;
+    .param p4, "ownerUid"    # I
+    .param p5, "ownerPackageName"    # Ljava/lang/String;
+    .param p6, "name"    # Ljava/lang/String;
+    .param p7, "width"    # I
+    .param p8, "height"    # I
+    .param p9, "densityDpi"    # I
+    .param p10, "surface"    # Landroid/view/Surface;
+    .param p11, "flags"    # I
 
     .prologue
     .line 110
@@ -120,7 +119,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mAppToken:Landroid/os/IBinder;
 
-    #calls: Lcom/android/server/display/VirtualDisplayAdapter;->handleBinderDiedLocked(Landroid/os/IBinder;)V
+    # invokes: Lcom/android/server/display/VirtualDisplayAdapter;->handleBinderDiedLocked(Landroid/os/IBinder;)V
     invoke-static {v0, v2}, Lcom/android/server/display/VirtualDisplayAdapter;->access$000(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
 
     .line 129
@@ -214,7 +213,7 @@
     .line 154
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    const/high16 v1, 0x4270
+    const/high16 v1, 0x42700000    # 60.0f
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->refreshRate:F
 

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 719
@@ -45,7 +44,7 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
+    # getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
     invoke-static {v13}, Lcom/android/server/MountService;->access$1200(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v13
@@ -73,23 +72,23 @@
     move-result-object v10
 
     .line 729
-    .local v10, vols:[Ljava/lang/String;
+    .local v10, "vols":[Ljava/lang/String;
     move-object v1, v10
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v4, v1
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v11, v1, v3
 
     .line 730
-    .local v11, volstr:Ljava/lang/String;
+    .local v11, "volstr":Ljava/lang/String;
     const-string v13, " "
 
     invoke-virtual {v11, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -97,22 +96,22 @@
     move-result-object v9
 
     .line 732
-    .local v9, tok:[Ljava/lang/String;
+    .local v9, "tok":[Ljava/lang/String;
     const/4 v13, 0x1
 
     aget-object v5, v9, v13
 
     .line 733
-    .local v5, path:Ljava/lang/String;
+    .local v5, "path":Ljava/lang/String;
     const-string v8, "removed"
 
     .line 736
-    .local v8, state:Ljava/lang/String;
+    .local v8, "state":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mVolumesLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/MountService;->mVolumesLock:Ljava/lang/Object;
     invoke-static {v13}, Lcom/android/server/MountService;->access$600(Lcom/android/server/MountService;)Ljava/lang/Object;
 
     move-result-object v14
@@ -127,7 +126,7 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mVolumesByPath:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/MountService;->mVolumesByPath:Ljava/util/HashMap;
     invoke-static {v13}, Lcom/android/server/MountService;->access$1400(Lcom/android/server/MountService;)Ljava/util/HashMap;
 
     move-result-object v13
@@ -139,7 +138,7 @@
     check-cast v12, Landroid/os/storage/StorageVolume;
 
     .line 738
-    .local v12, volume:Landroid/os/storage/StorageVolume;
+    .local v12, "volume":Landroid/os/storage/StorageVolume;
     monitor-exit v14
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -155,7 +154,7 @@
     move-result v7
 
     .line 741
-    .local v7, st:I
+    .local v7, "st":I
     if-nez v7, :cond_2
 
     .line 742
@@ -170,7 +169,7 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #calls: Lcom/android/server/MountService;->updatePublicVolumeState(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
+    # invokes: Lcom/android/server/MountService;->updatePublicVolumeState(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
     invoke-static {v13, v12, v8}, Lcom/android/server/MountService;->access$1500(Lcom/android/server/MountService;Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
@@ -182,8 +181,8 @@
     goto :goto_0
 
     .line 738
-    .end local v7           #st:I
-    .end local v12           #volume:Landroid/os/storage/StorageVolume;
+    .end local v7    # "st":I
+    .end local v12    # "volume":Landroid/os/storage/StorageVolume;
     :catchall_0
     move-exception v13
 
@@ -198,19 +197,19 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 760
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .end local v5           #path:Ljava/lang/String;
-    .end local v8           #state:Ljava/lang/String;
-    .end local v9           #tok:[Ljava/lang/String;
-    .end local v10           #vols:[Ljava/lang/String;
-    .end local v11           #volstr:Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v5    # "path":Ljava/lang/String;
+    .end local v8    # "state":Ljava/lang/String;
+    .end local v9    # "tok":[Ljava/lang/String;
+    .end local v10    # "vols":[Ljava/lang/String;
+    .end local v11    # "volstr":Ljava/lang/String;
     :catch_0
     move-exception v2
 
     .line 761
-    .local v2, e:Ljava/lang/Exception;
+    .local v2, "e":Ljava/lang/Exception;
     const-string v13, "MountService"
 
     const-string v14, "Error processing initial volume state"
@@ -222,13 +221,13 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #calls: Lcom/android/server/MountService;->getPrimaryPhysicalVolume()Landroid/os/storage/StorageVolume;
+    # invokes: Lcom/android/server/MountService;->getPrimaryPhysicalVolume()Landroid/os/storage/StorageVolume;
     invoke-static {v13}, Lcom/android/server/MountService;->access$1600(Lcom/android/server/MountService;)Landroid/os/storage/StorageVolume;
 
     move-result-object v6
 
     .line 763
-    .local v6, primary:Landroid/os/storage/StorageVolume;
+    .local v6, "primary":Landroid/os/storage/StorageVolume;
     if-eqz v6, :cond_1
 
     .line 764
@@ -238,18 +237,18 @@
 
     const-string v14, "removed"
 
-    #calls: Lcom/android/server/MountService;->updatePublicVolumeState(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
+    # invokes: Lcom/android/server/MountService;->updatePublicVolumeState(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
     invoke-static {v13, v6, v14}, Lcom/android/server/MountService;->access$1500(Lcom/android/server/MountService;Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
 
     .line 772
-    .end local v2           #e:Ljava/lang/Exception;
-    .end local v6           #primary:Landroid/os/storage/StorageVolume;
+    .end local v2    # "e":Ljava/lang/Exception;
+    .end local v6    # "primary":Landroid/os/storage/StorageVolume;
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
+    # getter for: Lcom/android/server/MountService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v13}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v13
@@ -261,7 +260,7 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mPms:Lcom/android/server/pm/PackageManagerService;
+    # getter for: Lcom/android/server/MountService;->mPms:Lcom/android/server/pm/PackageManagerService;
     invoke-static {v13}, Lcom/android/server/MountService;->access$300(Lcom/android/server/MountService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v13
@@ -273,7 +272,7 @@
 
     iget-object v13, v0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mAsecsScanned:Ljava/util/concurrent/CountDownLatch;
+    # getter for: Lcom/android/server/MountService;->mAsecsScanned:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v13}, Lcom/android/server/MountService;->access$1800(Lcom/android/server/MountService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v13
@@ -284,16 +283,16 @@
     return-void
 
     .line 743
-    .restart local v1       #arr$:[Ljava/lang/String;
-    .restart local v3       #i$:I
-    .restart local v4       #len$:I
-    .restart local v5       #path:Ljava/lang/String;
-    .restart local v7       #st:I
-    .restart local v8       #state:Ljava/lang/String;
-    .restart local v9       #tok:[Ljava/lang/String;
-    .restart local v10       #vols:[Ljava/lang/String;
-    .restart local v11       #volstr:Ljava/lang/String;
-    .restart local v12       #volume:Landroid/os/storage/StorageVolume;
+    .restart local v1    # "arr$":[Ljava/lang/String;
+    .restart local v3    # "i$":I
+    .restart local v4    # "len$":I
+    .restart local v5    # "path":Ljava/lang/String;
+    .restart local v7    # "st":I
+    .restart local v8    # "state":Ljava/lang/String;
+    .restart local v9    # "tok":[Ljava/lang/String;
+    .restart local v10    # "vols":[Ljava/lang/String;
+    .restart local v11    # "volstr":Ljava/lang/String;
+    .restart local v12    # "volume":Landroid/os/storage/StorageVolume;
     :cond_2
     const/4 v13, 0x1
 

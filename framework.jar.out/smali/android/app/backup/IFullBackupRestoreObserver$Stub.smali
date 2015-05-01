@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/backup/IFullBackupRestoreObserver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/backup/IFullBackupRestoreObserver;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Landroid/app/backup/IFullBackupRestoreObserver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/backup/IFullBackupRestoreObserver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -171,13 +171,13 @@
     move-result-object v0
 
     .line 62
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/app/backup/IFullBackupRestoreObserver$Stub;->onBackupPackage(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 67
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_3
     const-string v2, "android.app.backup.IFullBackupRestoreObserver"
 
@@ -211,13 +211,13 @@
     move-result-object v0
 
     .line 82
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/app/backup/IFullBackupRestoreObserver$Stub;->onRestorePackage(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 87
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_6
     const-string v2, "android.app.backup.IFullBackupRestoreObserver"
 

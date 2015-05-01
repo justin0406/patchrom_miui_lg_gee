@@ -82,7 +82,7 @@
 # virtual methods
 .method protected checkForTestEmergencyNumber(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -95,7 +95,7 @@
     move-result-object v0
 
     .line 149
-    .local v0, testEn:Ljava/lang/String;
+    .local v0, "testEn":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -110,7 +110,7 @@
     move-result-object v1
 
     .line 151
-    .local v1, values:[Ljava/lang/String;
+    .local v1, "values":[Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -197,16 +197,16 @@
     aget-object p1, v1, v4
 
     .line 162
-    .end local v1           #values:[Ljava/lang/String;
+    .end local v1    # "values":[Ljava/lang/String;
     :cond_0
     return-object p1
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 176
@@ -306,7 +306,7 @@
 
 .method protected isCommandExceptionRadioNotAvailable(Ljava/lang/Throwable;)Z
     .locals 2
-    .parameter "e"
+    .param p1, "e"    # Ljava/lang/Throwable;
 
     .prologue
     .line 85
@@ -318,7 +318,7 @@
 
     check-cast p1, Lcom/android/internal/telephony/CommandException;
 
-    .end local p1
+    .end local p1    # "e":Ljava/lang/Throwable;
     invoke-virtual {p1}, Lcom/android/internal/telephony/CommandException;->getCommandError()Lcom/android/internal/telephony/CommandException$Error;
 
     move-result-object v0
@@ -343,7 +343,7 @@
 
 .method protected obtainNoPollCompleteMessage(I)Landroid/os/Message;
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 106
@@ -376,7 +376,7 @@
     move-result-object v0
 
     .line 79
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x3
 
     iput v1, v0, Landroid/os/Message;->what:I

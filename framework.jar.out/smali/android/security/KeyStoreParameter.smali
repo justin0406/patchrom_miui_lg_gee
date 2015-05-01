@@ -22,7 +22,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 0
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 50
@@ -37,8 +37,8 @@
 
 .method synthetic constructor <init>(ILandroid/security/KeyStoreParameter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/security/KeyStoreParameter$1;
 
     .prologue
     .line 47

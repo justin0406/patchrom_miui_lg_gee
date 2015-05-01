@@ -32,11 +32,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService$PerformFullRestoreTask;Landroid/app/IBackupAgent;Lcom/android/server/BackupManagerService$FileMetadata;Landroid/os/ParcelFileDescriptor;I)V
     .locals 1
-    .parameter
-    .parameter "agent"
-    .parameter "info"
-    .parameter "socket"
-    .parameter "token"
+    .param p2, "agent"    # Landroid/app/IBackupAgent;
+    .param p3, "info"    # Lcom/android/server/BackupManagerService$FileMetadata;
+    .param p4, "socket"    # Landroid/os/ParcelFileDescriptor;
+    .param p5, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,21 +43,21 @@
     .end annotation
 
     .prologue
-    .line 3191
+    .line 3256
     iput-object p1, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->this$1:Lcom/android/server/BackupManagerService$PerformFullRestoreTask;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3192
+    .line 3257
     iput-object p2, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->mAgent:Landroid/app/IBackupAgent;
 
-    .line 3193
+    .line 3258
     iput-object p3, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->mInfo:Lcom/android/server/BackupManagerService$FileMetadata;
 
-    .line 3194
+    .line 3259
     iput p5, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->mToken:I
 
-    .line 3201
+    .line 3266
     invoke-virtual {p4}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v0
@@ -69,7 +68,7 @@
 
     iput-object v0, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->mSocket:Landroid/os/ParcelFileDescriptor;
 
-    .line 3202
+    .line 3267
     return-void
 .end method
 
@@ -79,7 +78,7 @@
     .locals 13
 
     .prologue
-    .line 3207
+    .line 3272
     :try_start_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreFileRunnable;->mAgent:Landroid/app/IBackupAgent;
 
@@ -121,11 +120,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3213
+    .line 3278
     :goto_0
     return-void
 
-    .line 3210
+    .line 3275
     :catch_0
     move-exception v0
 

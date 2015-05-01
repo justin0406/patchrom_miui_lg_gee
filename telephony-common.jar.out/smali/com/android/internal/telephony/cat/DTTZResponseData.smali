@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Calendar;)V
     .locals 0
-    .parameter "cal"
+    .param p1, "cal"    # Ljava/util/Calendar;
 
     .prologue
     .line 204
@@ -25,7 +25,7 @@
 
 .method private byteToBCD(I)B
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 258
@@ -85,7 +85,7 @@
 
 .method private getTZOffSetByte(J)B
     .locals 8
-    .parameter "offSetVal"
+    .param p1, "offSetVal"    # J
 
     .prologue
     const/4 v5, 0x1
@@ -100,14 +100,14 @@
     move v2, v5
 
     .line 276
-    .local v2, isNegative:Z
+    .local v2, "isNegative":Z
     :goto_0
     const-wide/32 v6, 0xdbba0
 
     div-long v3, p1, v6
 
     .line 277
-    .local v3, tzOffset:J
+    .local v3, "tzOffset":J
     if-eqz v2, :cond_0
 
     const/4 v5, -0x1
@@ -125,7 +125,7 @@
     move-result v0
 
     .line 280
-    .local v0, bcdVal:B
+    .local v0, "bcdVal":B
     if-eqz v2, :cond_2
 
     or-int/lit8 v5, v0, 0x8
@@ -134,29 +134,29 @@
 
     move v1, v0
 
-    .end local v0           #bcdVal:B
-    .local v1, bcdVal:B
+    .end local v0    # "bcdVal":B
+    .local v1, "bcdVal":B
     :goto_1
     return v0
 
     .line 268
-    .end local v1           #bcdVal:B
-    .end local v2           #isNegative:Z
-    .end local v3           #tzOffset:J
+    .end local v1    # "bcdVal":B
+    .end local v2    # "isNegative":Z
+    .end local v3    # "tzOffset":J
     :cond_1
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .restart local v0       #bcdVal:B
-    .restart local v2       #isNegative:Z
-    .restart local v3       #tzOffset:J
+    .restart local v0    # "bcdVal":B
+    .restart local v2    # "isNegative":Z
+    .restart local v3    # "tzOffset":J
     :cond_2
     move v1, v0
 
     .line 280
-    .end local v0           #bcdVal:B
-    .restart local v1       #bcdVal:B
+    .end local v0    # "bcdVal":B
+    .restart local v1    # "bcdVal":B
     goto :goto_1
 .end method
 
@@ -164,7 +164,7 @@
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
     .locals 14
-    .parameter "buf"
+    .param p1, "buf"    # Ljava/io/ByteArrayOutputStream;
 
     .prologue
     const/4 v13, 0x5
@@ -193,7 +193,7 @@
     or-int/lit16 v5, v9, 0x80
 
     .line 216
-    .local v5, tag:I
+    .local v5, "tag":I
     invoke-virtual {p1, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 218
@@ -202,7 +202,7 @@
     new-array v2, v9, [B
 
     .line 220
-    .local v2, data:[B
+    .local v2, "data":[B
     const/4 v9, 0x0
 
     aput-byte v12, v2, v9
@@ -324,7 +324,7 @@
     move-result-object v6
 
     .line 244
-    .local v6, tz:Ljava/lang/String;
+    .local v6, "tz":Ljava/lang/String;
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
@@ -340,20 +340,20 @@
     :goto_0
     move-object v0, v2
 
-    .local v0, arr$:[B
+    .local v0, "arr$":[B
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_1
     if-ge v3, v4, :cond_0
 
     aget-byte v1, v0, v3
 
     .line 253
-    .local v1, b:B
+    .local v1, "b":B
     invoke-virtual {p1, v1}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 252
@@ -362,17 +362,17 @@
     goto :goto_1
 
     .line 247
-    .end local v0           #arr$:[B
-    .end local v1           #b:B
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[B
+    .end local v1    # "b":B
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :cond_3
     invoke-static {v6}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v7
 
     .line 248
-    .local v7, zone:Ljava/util/TimeZone;
+    .local v7, "zone":Ljava/util/TimeZone;
     invoke-virtual {v7}, Ljava/util/TimeZone;->getRawOffset()I
 
     move-result v9
@@ -384,7 +384,7 @@
     add-int v8, v9, v10
 
     .line 249
-    .local v8, zoneOffset:I
+    .local v8, "zoneOffset":I
     int-to-long v9, v8
 
     invoke-direct {p0, v9, v10}, Lcom/android/internal/telephony/cat/DTTZResponseData;->getTZOffSetByte(J)B

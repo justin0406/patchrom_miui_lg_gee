@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityStack;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 260
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 9
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v2, 0x0
@@ -60,7 +59,7 @@
     check-cast v1, Lcom/android/server/am/ActivityRecord;
 
     .line 271
-    .local v1, r:Lcom/android/server/am/ActivityRecord;
+    .local v1, "r":Lcom/android/server/am/ActivityRecord;
     const-string v2, "ActivityManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -150,14 +149,14 @@
     throw v2
 
     .line 280
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :pswitch_1
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/server/am/ActivityRecord;
 
     .line 281
-    .restart local v1       #r:Lcom/android/server/am/ActivityRecord;
+    .restart local v1    # "r":Lcom/android/server/am/ActivityRecord;
     iget-object v2, p0, Lcom/android/server/am/ActivityStack$ActivityStackHandler;->this$0:Lcom/android/server/am/ActivityStack;
 
     iget-object v3, v2, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -217,14 +216,14 @@
     throw v2
 
     .line 288
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :pswitch_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/server/am/ActivityRecord;
 
     .line 291
-    .restart local v1       #r:Lcom/android/server/am/ActivityRecord;
+    .restart local v1    # "r":Lcom/android/server/am/ActivityRecord;
     const-string v3, "ActivityManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -280,14 +279,14 @@
     throw v2
 
     .line 297
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :pswitch_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/server/am/ActivityRecord;
 
     .line 300
-    .restart local v1       #r:Lcom/android/server/am/ActivityRecord;
+    .restart local v1    # "r":Lcom/android/server/am/ActivityRecord;
     const-string v2, "ActivityManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -352,14 +351,14 @@
     throw v2
 
     .line 308
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :pswitch_4
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
 
     .line 309
-    .local v0, args:Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
+    .local v0, "args":Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
     iget-object v2, p0, Lcom/android/server/am/ActivityStack$ActivityStackHandler;->this$0:Lcom/android/server/am/ActivityStack;
 
     iget-object v3, v2, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -393,7 +392,7 @@
     throw v2
 
     .line 314
-    .end local v0           #args:Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
+    .end local v0    # "args":Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
     :pswitch_5
     iget-object v2, p0, Lcom/android/server/am/ActivityStack$ActivityStackHandler;->this$0:Lcom/android/server/am/ActivityStack;
 

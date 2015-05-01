@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DeviceStorageMonitorService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 135
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x1
@@ -66,7 +65,7 @@
     if-ne v2, v0, :cond_1
 
     :goto_1
-    #calls: Lcom/android/server/DeviceStorageMonitorService;->checkMemory(Z)V
+    # invokes: Lcom/android/server/DeviceStorageMonitorService;->checkMemory(Z)V
     invoke-static {v1, v0}, Lcom/android/server/DeviceStorageMonitorService;->access$000(Lcom/android/server/DeviceStorageMonitorService;Z)V
 
     goto :goto_0

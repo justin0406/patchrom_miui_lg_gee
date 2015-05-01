@@ -70,8 +70,8 @@
 
 .method private constructor <init>(Landroid/os/Looper;Lcom/android/internal/telephony/uicc/IccFileHandler;)V
     .locals 2
-    .parameter "looper"
-    .parameter "fh"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "fh"    # Lcom/android/internal/telephony/uicc/IccFileHandler;
 
     .prologue
     const/4 v1, 0x0
@@ -131,7 +131,7 @@
 
 .method private static bitToBnW(I)I
     .locals 1
-    .parameter "bit"
+    .param p0, "bit"    # I
 
     .prologue
     .line 268
@@ -147,15 +147,15 @@
     return v0
 
     :cond_0
-    const/high16 v0, -0x100
+    const/high16 v0, -0x1000000
 
     goto :goto_0
 .end method
 
 .method static getInstance(Landroid/os/Handler;Lcom/android/internal/telephony/uicc/IccFileHandler;)Lcom/android/internal/telephony/cat/IconLoader;
     .locals 3
-    .parameter "caller"
-    .parameter "fh"
+    .param p0, "caller"    # Landroid/os/Handler;
+    .param p1, "fh"    # Lcom/android/internal/telephony/uicc/IccFileHandler;
 
     .prologue
     .line 77
@@ -182,7 +182,7 @@
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     .line 82
-    .local v0, thread:Landroid/os/HandlerThread;
+    .local v0, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     .line 83
@@ -197,7 +197,7 @@
     goto :goto_0
 
     .line 85
-    .end local v0           #thread:Landroid/os/HandlerThread;
+    .end local v0    # "thread":Landroid/os/HandlerThread;
     :cond_1
     const/4 v1, 0x0
 
@@ -206,14 +206,14 @@
 
 .method private static getMask(I)I
     .locals 1
-    .parameter "numOfBits"
+    .param p0, "numOfBits"    # I
 
     .prologue
     .line 330
     const/4 v0, 0x0
 
     .line 332
-    .local v0, mask:I
+    .local v0, "mask":I
     packed-switch p0, :pswitch_data_0
 
     .line 358
@@ -291,7 +291,7 @@
 
 .method private handleImageDescriptor([B)Z
     .locals 2
-    .parameter "rawData"
+    .param p1, "rawData"    # [B
 
     .prologue
     const/4 v0, 0x1
@@ -318,63 +318,63 @@
 
 .method public static parseToBnW([BI)Landroid/graphics/Bitmap;
     .locals 13
-    .parameter "data"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "length"    # I
 
     .prologue
     .line 235
     const/4 v8, 0x0
 
     .line 236
-    .local v8, valueIndex:I
+    .local v8, "valueIndex":I
     add-int/lit8 v9, v8, 0x1
 
-    .end local v8           #valueIndex:I
-    .local v9, valueIndex:I
+    .end local v8    # "valueIndex":I
+    .local v9, "valueIndex":I
     aget-byte v11, p0, v8
 
     and-int/lit16 v10, v11, 0xff
 
     .line 237
-    .local v10, width:I
+    .local v10, "width":I
     add-int/lit8 v8, v9, 0x1
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     aget-byte v11, p0, v9
 
     and-int/lit16 v3, v11, 0xff
 
     .line 238
-    .local v3, height:I
+    .local v3, "height":I
     mul-int v4, v10, v3
 
     .line 240
-    .local v4, numOfPixels:I
+    .local v4, "numOfPixels":I
     new-array v7, v4, [I
 
     .line 242
-    .local v7, pixels:[I
+    .local v7, "pixels":[I
     const/4 v5, 0x0
 
     .line 243
-    .local v5, pixelIndex:I
+    .local v5, "pixelIndex":I
     const/4 v0, 0x7
 
     .line 244
-    .local v0, bitIndex:I
+    .local v0, "bitIndex":I
     const/4 v2, 0x0
 
-    .local v2, currentByte:B
+    .local v2, "currentByte":B
     move v6, v5
 
-    .end local v5           #pixelIndex:I
-    .local v6, pixelIndex:I
+    .end local v5    # "pixelIndex":I
+    .local v6, "pixelIndex":I
     move v9, v8
 
     .line 245
-    .end local v8           #valueIndex:I
-    .restart local v9       #valueIndex:I
+    .end local v8    # "valueIndex":I
+    .restart local v9    # "valueIndex":I
     :goto_0
     if-ge v6, v4, :cond_0
 
@@ -386,8 +386,8 @@
     .line 248
     add-int/lit8 v8, v9, 0x1
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     aget-byte v2, p0, v9
 
     .line 249
@@ -397,12 +397,12 @@
     :goto_1
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #pixelIndex:I
-    .restart local v5       #pixelIndex:I
+    .end local v6    # "pixelIndex":I
+    .restart local v5    # "pixelIndex":I
     add-int/lit8 v1, v0, -0x1
 
-    .end local v0           #bitIndex:I
-    .local v1, bitIndex:I
+    .end local v0    # "bitIndex":I
+    .local v1, "bitIndex":I
     shr-int v11, v2, v0
 
     and-int/lit8 v11, v11, 0x1
@@ -415,16 +415,16 @@
 
     move v0, v1
 
-    .end local v1           #bitIndex:I
-    .restart local v0       #bitIndex:I
+    .end local v1    # "bitIndex":I
+    .restart local v0    # "bitIndex":I
     move v6, v5
 
-    .end local v5           #pixelIndex:I
-    .restart local v6       #pixelIndex:I
+    .end local v5    # "pixelIndex":I
+    .restart local v6    # "pixelIndex":I
     move v9, v8
 
-    .end local v8           #valueIndex:I
-    .restart local v9       #valueIndex:I
+    .end local v8    # "valueIndex":I
+    .restart local v9    # "valueIndex":I
     goto :goto_0
 
     .line 254
@@ -451,28 +451,28 @@
     :cond_2
     move v8, v9
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     goto :goto_1
 .end method
 
 .method public static parseToRGB([BIZ[B)Landroid/graphics/Bitmap;
     .locals 22
-    .parameter "data"
-    .parameter "length"
-    .parameter "transparency"
-    .parameter "clut"
+    .param p0, "data"    # [B
+    .param p1, "length"    # I
+    .param p2, "transparency"    # Z
+    .param p3, "clut"    # [B
 
     .prologue
     .line 286
     const/16 v16, 0x0
 
     .line 287
-    .local v16, valueIndex:I
+    .local v16, "valueIndex":I
     add-int/lit8 v17, v16, 0x1
 
-    .end local v16           #valueIndex:I
-    .local v17, valueIndex:I
+    .end local v16    # "valueIndex":I
+    .local v17, "valueIndex":I
     aget-byte v19, p0, v16
 
     move/from16 v0, v19
@@ -482,11 +482,11 @@
     move/from16 v18, v0
 
     .line 288
-    .local v18, width:I
+    .local v18, "width":I
     add-int/lit8 v16, v17, 0x1
 
-    .end local v17           #valueIndex:I
-    .restart local v16       #valueIndex:I
+    .end local v17    # "valueIndex":I
+    .restart local v16    # "valueIndex":I
     aget-byte v19, p0, v17
 
     move/from16 v0, v19
@@ -494,11 +494,11 @@
     and-int/lit16 v9, v0, 0xff
 
     .line 289
-    .local v9, height:I
+    .local v9, "height":I
     add-int/lit8 v17, v16, 0x1
 
-    .end local v16           #valueIndex:I
-    .restart local v17       #valueIndex:I
+    .end local v16    # "valueIndex":I
+    .restart local v17    # "valueIndex":I
     aget-byte v19, p0, v16
 
     move/from16 v0, v19
@@ -506,11 +506,11 @@
     and-int/lit16 v4, v0, 0xff
 
     .line 290
-    .local v4, bitsPerImg:I
+    .local v4, "bitsPerImg":I
     add-int/lit8 v16, v17, 0x1
 
-    .end local v17           #valueIndex:I
-    .restart local v16       #valueIndex:I
+    .end local v17    # "valueIndex":I
+    .restart local v16    # "valueIndex":I
     aget-byte v19, p0, v17
 
     move/from16 v0, v19
@@ -518,7 +518,7 @@
     and-int/lit16 v11, v0, 0xff
 
     .line 292
-    .local v11, numOfClutEntries:I
+    .local v11, "numOfClutEntries":I
     const/16 v19, 0x1
 
     move/from16 v0, v19
@@ -539,40 +539,40 @@
     mul-int v12, v18, v9
 
     .line 297
-    .local v12, numOfPixels:I
+    .local v12, "numOfPixels":I
     new-array v15, v12, [I
 
     .line 299
-    .local v15, pixels:[I
+    .local v15, "pixels":[I
     const/16 v16, 0x6
 
     .line 300
     const/4 v13, 0x0
 
     .line 301
-    .local v13, pixelIndex:I
+    .local v13, "pixelIndex":I
     rsub-int/lit8 v5, v4, 0x8
 
     .line 302
-    .local v5, bitsStartOffset:I
+    .local v5, "bitsStartOffset":I
     move v2, v5
 
     .line 303
-    .local v2, bitIndex:I
+    .local v2, "bitIndex":I
     add-int/lit8 v17, v16, 0x1
 
-    .end local v16           #valueIndex:I
-    .restart local v17       #valueIndex:I
+    .end local v16    # "valueIndex":I
+    .restart local v17    # "valueIndex":I
     aget-byte v8, p0, v16
 
     .line 304
-    .local v8, currentByte:B
+    .local v8, "currentByte":B
     invoke-static {v4}, Lcom/android/internal/telephony/cat/IconLoader;->getMask(I)I
 
     move-result v10
 
     .line 305
-    .local v10, mask:I
+    .local v10, "mask":I
     const/16 v19, 0x8
 
     rem-int v19, v19, v4
@@ -581,13 +581,13 @@
 
     const/4 v3, 0x1
 
-    .local v3, bitsOverlaps:Z
+    .local v3, "bitsOverlaps":Z
     :goto_0
     move v14, v13
 
     .line 306
-    .end local v13           #pixelIndex:I
-    .local v14, pixelIndex:I
+    .end local v13    # "pixelIndex":I
+    .local v14, "pixelIndex":I
     :goto_1
     if-ge v14, v12, :cond_3
 
@@ -597,8 +597,8 @@
     .line 309
     add-int/lit8 v16, v17, 0x1
 
-    .end local v17           #valueIndex:I
-    .restart local v16       #valueIndex:I
+    .end local v17    # "valueIndex":I
+    .restart local v16    # "valueIndex":I
     aget-byte v8, p0, v17
 
     .line 310
@@ -613,15 +613,15 @@
     and-int v6, v19, v10
 
     .line 313
-    .local v6, clutEntry:I
+    .local v6, "clutEntry":I
     mul-int/lit8 v7, v6, 0x3
 
     .line 314
-    .local v7, clutIndex:I
+    .local v7, "clutIndex":I
     add-int/lit8 v13, v14, 0x1
 
-    .end local v14           #pixelIndex:I
-    .restart local v13       #pixelIndex:I
+    .end local v14    # "pixelIndex":I
+    .restart local v13    # "pixelIndex":I
     aget-byte v19, p3, v7
 
     add-int/lit8 v20, v7, 0x1
@@ -643,40 +643,40 @@
 
     move v14, v13
 
-    .end local v13           #pixelIndex:I
-    .restart local v14       #pixelIndex:I
+    .end local v13    # "pixelIndex":I
+    .restart local v14    # "pixelIndex":I
     move/from16 v17, v16
 
     .line 317
-    .end local v16           #valueIndex:I
-    .restart local v17       #valueIndex:I
+    .end local v16    # "valueIndex":I
+    .restart local v17    # "valueIndex":I
     goto :goto_1
 
     .line 305
-    .end local v3           #bitsOverlaps:Z
-    .end local v6           #clutEntry:I
-    .end local v7           #clutIndex:I
-    .end local v14           #pixelIndex:I
-    .restart local v13       #pixelIndex:I
+    .end local v3    # "bitsOverlaps":Z
+    .end local v6    # "clutEntry":I
+    .end local v7    # "clutIndex":I
+    .end local v14    # "pixelIndex":I
+    .restart local v13    # "pixelIndex":I
     :cond_1
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 310
-    .end local v13           #pixelIndex:I
-    .end local v17           #valueIndex:I
-    .restart local v3       #bitsOverlaps:Z
-    .restart local v14       #pixelIndex:I
-    .restart local v16       #valueIndex:I
+    .end local v13    # "pixelIndex":I
+    .end local v17    # "valueIndex":I
+    .restart local v3    # "bitsOverlaps":Z
+    .restart local v14    # "pixelIndex":I
+    .restart local v16    # "valueIndex":I
     :cond_2
     mul-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
     .line 319
-    .end local v16           #valueIndex:I
-    .restart local v17       #valueIndex:I
+    .end local v16    # "valueIndex":I
+    .restart local v17    # "valueIndex":I
     :cond_3
     sget-object v19, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
@@ -693,8 +693,8 @@
     :cond_4
     move/from16 v16, v17
 
-    .end local v17           #valueIndex:I
-    .restart local v16       #valueIndex:I
+    .end local v17    # "valueIndex":I
+    .restart local v16    # "valueIndex":I
     goto :goto_2
 .end method
 
@@ -797,13 +797,13 @@
     mul-int/lit8 v4, v0, 0x3
 
     .line 188
-    .local v4, length:I
+    .local v4, "length":I
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cat/IconLoader;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v5
 
     .line 189
-    .local v5, msg:Landroid/os/Message;
+    .local v5, "msg":Landroid/os/Message;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mSimFH:Lcom/android/internal/telephony/uicc/IccFileHandler;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
@@ -842,7 +842,7 @@
     move-result-object v5
 
     .line 208
-    .local v5, msg:Landroid/os/Message;
+    .local v5, "msg":Landroid/os/Message;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mSimFH:Lcom/android/internal/telephony/uicc/IccFileHandler;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
@@ -891,7 +891,7 @@
     move-result-object v0
 
     .line 202
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mSimFH:Lcom/android/internal/telephony/uicc/IccFileHandler;
 
     iget v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mRecordNumber:I
@@ -903,7 +903,7 @@
 
 .method private startLoadingIcon(I)V
     .locals 2
-    .parameter "recordNumber"
+    .param p1, "recordNumber"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -966,7 +966,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 133
@@ -987,7 +987,7 @@
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 136
-    .local v1, ar:Landroid/os/AsyncResult;
+    .local v1, "ar":Landroid/os/AsyncResult;
     iget-object v5, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
@@ -1008,12 +1008,12 @@
     goto :goto_0
 
     .line 163
-    .end local v1           #ar:Landroid/os/AsyncResult;
+    .end local v1    # "ar":Landroid/os/AsyncResult;
     :catch_0
     move-exception v3
 
     .line 164
-    .local v3, e:Ljava/lang/Exception;
+    .local v3, "e":Ljava/lang/Exception;
     const-string v5, "Icon load failed"
 
     invoke-static {p0, v5}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1024,8 +1024,8 @@
     goto :goto_0
 
     .line 139
-    .end local v3           #e:Ljava/lang/Exception;
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .end local v3    # "e":Ljava/lang/Exception;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     :cond_1
     :try_start_1
     new-instance v5, Ljava/lang/Exception;
@@ -1037,14 +1037,14 @@
     throw v5
 
     .line 143
-    .end local v1           #ar:Landroid/os/AsyncResult;
+    .end local v1    # "ar":Landroid/os/AsyncResult;
     :pswitch_1
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 144
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v5, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
@@ -1056,7 +1056,7 @@
     move-object v4, v0
 
     .line 145
-    .local v4, rawData:[B
+    .local v4, "rawData":[B
     iget-object v5, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
 
     iget v5, v5, Lcom/android/internal/telephony/cat/ImageDescriptor;->mCodingScheme:I
@@ -1111,15 +1111,15 @@
     goto :goto_0
 
     .line 155
-    .end local v1           #ar:Landroid/os/AsyncResult;
-    .end local v4           #rawData:[B
+    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .end local v4    # "rawData":[B
     :pswitch_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 156
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v5, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
@@ -1131,7 +1131,7 @@
     move-object v2, v0
 
     .line 157
-    .local v2, clut:[B
+    .local v2, "clut":[B
     iget-object v5, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconData:[B
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconData:[B
@@ -1177,8 +1177,8 @@
 
 .method loadIcon(ILandroid/os/Message;)V
     .locals 1
-    .parameter "recordNumber"
-    .parameter "msg"
+    .param p1, "recordNumber"    # I
+    .param p2, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 102
@@ -1205,8 +1205,8 @@
 
 .method loadIcons([ILandroid/os/Message;)V
     .locals 2
-    .parameter "recordNumbers"
-    .parameter "msg"
+    .param p1, "recordNumbers"    # [I
+    .param p2, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x0

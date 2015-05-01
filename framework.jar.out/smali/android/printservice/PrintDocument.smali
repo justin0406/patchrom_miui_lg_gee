@@ -18,9 +18,9 @@
 # direct methods
 .method constructor <init>(Landroid/print/PrintJobId;Landroid/printservice/IPrintServiceClient;Landroid/print/PrintDocumentInfo;)V
     .locals 0
-    .parameter "printJobId"
-    .parameter "printServiceClient"
-    .parameter "info"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "printServiceClient"    # Landroid/printservice/IPrintServiceClient;
+    .param p3, "info"    # Landroid/print/PrintDocumentInfo;
 
     .prologue
     .line 46
@@ -52,18 +52,18 @@
     const/4 v4, 0x0
 
     .line 75
-    .local v4, source:Landroid/os/ParcelFileDescriptor;
+    .local v4, "source":Landroid/os/ParcelFileDescriptor;
     const/4 v3, 0x0
 
     .line 77
-    .local v3, sink:Landroid/os/ParcelFileDescriptor;
+    .local v3, "sink":Landroid/os/ParcelFileDescriptor;
     :try_start_0
     invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
 
     .line 78
-    .local v0, fds:[Landroid/os/ParcelFileDescriptor;
+    .local v0, "fds":[Landroid/os/ParcelFileDescriptor;
     const/4 v5, 0x0
 
     aget-object v4, v0, v5
@@ -80,9 +80,9 @@
 
     invoke-interface {v5, v3, v6}, Landroid/printservice/IPrintServiceClient;->writePrintJobData(Landroid/os/ParcelFileDescriptor;Landroid/print/PrintJobId;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 87
     if-eqz v3, :cond_0
@@ -98,7 +98,7 @@
     move-object v5, v4
 
     .line 95
-    .end local v0           #fds:[Landroid/os/ParcelFileDescriptor;
+    .end local v0    # "fds":[Landroid/os/ParcelFileDescriptor;
     :goto_1
     return-object v5
 
@@ -107,7 +107,7 @@
     move-exception v1
 
     .line 83
-    .local v1, ioe:Ljava/io/IOException;
+    .local v1, "ioe":Ljava/io/IOException;
     :try_start_2
     const-string v5, "PrintDocument"
 
@@ -127,7 +127,7 @@
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_4
 
     .line 95
-    .end local v1           #ioe:Ljava/io/IOException;
+    .end local v1    # "ioe":Ljava/io/IOException;
     :cond_1
     :goto_2
     const/4 v5, 0x0
@@ -139,7 +139,7 @@
     move-exception v2
 
     .line 85
-    .local v2, re:Landroid/os/RemoteException;
+    .local v2, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v5, "PrintDocument"
 
@@ -167,7 +167,7 @@
     goto :goto_2
 
     .line 87
-    .end local v2           #re:Landroid/os/RemoteException;
+    .end local v2    # "re":Landroid/os/RemoteException;
     :catchall_0
     move-exception v5
 
@@ -185,20 +185,20 @@
     throw v5
 
     .line 90
-    .restart local v0       #fds:[Landroid/os/ParcelFileDescriptor;
+    .restart local v0    # "fds":[Landroid/os/ParcelFileDescriptor;
     :catch_3
     move-exception v5
 
     goto :goto_0
 
-    .end local v0           #fds:[Landroid/os/ParcelFileDescriptor;
-    .restart local v1       #ioe:Ljava/io/IOException;
+    .end local v0    # "fds":[Landroid/os/ParcelFileDescriptor;
+    .restart local v1    # "ioe":Ljava/io/IOException;
     :catch_4
     move-exception v5
 
     goto :goto_2
 
-    .end local v1           #ioe:Ljava/io/IOException;
+    .end local v1    # "ioe":Ljava/io/IOException;
     :catch_5
     move-exception v6
 

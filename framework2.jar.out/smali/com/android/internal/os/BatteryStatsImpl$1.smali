@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 5302

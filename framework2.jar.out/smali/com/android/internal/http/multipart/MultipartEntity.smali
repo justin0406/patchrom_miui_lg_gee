@@ -51,7 +51,7 @@
 
 .method public constructor <init>([Lcom/android/internal/http/multipart/Part;)V
     .locals 2
-    .parameter "parts"
+    .param p1, "parts"    # [Lcom/android/internal/http/multipart/Part;
 
     .prologue
     .line 142
@@ -94,8 +94,8 @@
 
 .method public constructor <init>([Lcom/android/internal/http/multipart/Part;Lorg/apache/http/params/HttpParams;)V
     .locals 2
-    .parameter "parts"
-    .parameter "params"
+    .param p1, "parts"    # [Lcom/android/internal/http/multipart/Part;
+    .param p2, "params"    # Lorg/apache/http/params/HttpParams;
 
     .prologue
     .line 131
@@ -152,7 +152,7 @@
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
     .line 110
-    .local v2, rand:Ljava/util/Random;
+    .local v2, "rand":Ljava/util/Random;
     const/16 v3, 0xb
 
     invoke-virtual {v2, v3}, Ljava/util/Random;->nextInt(I)I
@@ -164,10 +164,10 @@
     new-array v0, v3, [B
 
     .line 111
-    .local v0, bytes:[B
+    .local v0, "bytes":[B
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v3, v0
 
@@ -242,7 +242,7 @@
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 222
-    .local v1, baos:Ljava/io/ByteArrayOutputStream;
+    .local v1, "baos":Ljava/io/ByteArrayOutputStream;
     iget-object v2, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
 
     iget-object v3, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
@@ -259,7 +259,7 @@
     invoke-direct {v0, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
     .line 224
-    .local v0, bais:Ljava/io/ByteArrayInputStream;
+    .local v0, "bais":Ljava/io/ByteArrayInputStream;
     return-object v0
 .end method
 
@@ -290,7 +290,7 @@
     move-exception v0
 
     .line 210
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Lcom/android/internal/http/multipart/MultipartEntity;->log:Lorg/apache/commons/logging/Log;
 
     const-string v2, "An exception occurred while getting the length of the parts"
@@ -315,7 +315,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 198
-    .local v0, buffer:Ljava/lang/StringBuffer;
+    .local v0, "buffer":Ljava/lang/StringBuffer;
     const-string v1, "; boundary="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -358,7 +358,7 @@
     const/4 v0, 0x0
 
     .line 163
-    .local v0, temp:Ljava/lang/String;
+    .local v0, "temp":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->params:Lorg/apache/http/params/HttpParams;
 
     if-eqz v1, :cond_0
@@ -372,11 +372,11 @@
 
     move-result-object v0
 
-    .end local v0           #temp:Ljava/lang/String;
+    .end local v0    # "temp":Ljava/lang/String;
     check-cast v0, Ljava/lang/String;
 
     .line 166
-    .restart local v0       #temp:Ljava/lang/String;
+    .restart local v0    # "temp":Ljava/lang/String;
     :cond_0
     if-eqz v0, :cond_2
 
@@ -388,7 +388,7 @@
     iput-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
     .line 172
-    .end local v0           #temp:Ljava/lang/String;
+    .end local v0    # "temp":Ljava/lang/String;
     :cond_1
     :goto_0
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
@@ -396,7 +396,7 @@
     return-object v1
 
     .line 169
-    .restart local v0       #temp:Ljava/lang/String;
+    .restart local v0    # "temp":Ljava/lang/String;
     :cond_2
     invoke-static {}, Lcom/android/internal/http/multipart/MultipartEntity;->generateMultipartBoundary()[B
 
@@ -414,7 +414,7 @@
     .line 179
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
 
@@ -465,7 +465,7 @@
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

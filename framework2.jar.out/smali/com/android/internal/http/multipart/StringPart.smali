@@ -38,8 +38,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 103
@@ -53,9 +53,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
-    .parameter "value"
-    .parameter "charset"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
+    .param p3, "charset"    # Ljava/lang/String;
 
     .prologue
     .line 80
@@ -65,7 +65,7 @@
 
     const-string p3, "US-ASCII"
 
-    .end local p3
+    .end local p3    # "charset":Ljava/lang/String;
     :cond_0
     const-string v1, "8bit"
 
@@ -168,7 +168,7 @@
 
 .method protected sendData(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -196,7 +196,7 @@
 
 .method public setCharSet(Ljava/lang/String;)V
     .locals 1
-    .parameter "charSet"
+    .param p1, "charSet"    # Ljava/lang/String;
 
     .prologue
     .line 146

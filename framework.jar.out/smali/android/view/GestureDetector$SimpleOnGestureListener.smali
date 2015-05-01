@@ -3,8 +3,8 @@
 .source "GestureDetector.java"
 
 # interfaces
-.implements Landroid/view/GestureDetector$OnGestureListener;
 .implements Landroid/view/GestureDetector$OnDoubleTapListener;
+.implements Landroid/view/GestureDetector$OnGestureListener;
 
 
 # annotations
@@ -33,7 +33,7 @@
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 183
@@ -44,7 +44,7 @@
 
 .method public onDoubleTapEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 187
@@ -55,7 +55,7 @@
 
 .method public onDown(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 179
@@ -66,10 +66,10 @@
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
-    .parameter "e1"
-    .parameter "e2"
-    .parameter "velocityX"
-    .parameter "velocityY"
+    .param p1, "e1"    # Landroid/view/MotionEvent;
+    .param p2, "e2"    # Landroid/view/MotionEvent;
+    .param p3, "velocityX"    # F
+    .param p4, "velocityY"    # F
 
     .prologue
     .line 172
@@ -80,7 +80,7 @@
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
     .locals 0
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 163
@@ -89,10 +89,10 @@
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
-    .parameter "e1"
-    .parameter "e2"
-    .parameter "distanceX"
-    .parameter "distanceY"
+    .param p1, "e1"    # Landroid/view/MotionEvent;
+    .param p2, "e2"    # Landroid/view/MotionEvent;
+    .param p3, "distanceX"    # F
+    .param p4, "distanceY"    # F
 
     .prologue
     .line 167
@@ -103,7 +103,7 @@
 
 .method public onShowPress(Landroid/view/MotionEvent;)V
     .locals 0
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 176
@@ -112,7 +112,7 @@
 
 .method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 191
@@ -123,7 +123,7 @@
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 159

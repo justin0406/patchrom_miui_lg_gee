@@ -33,12 +33,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/util/StateMachine;Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "sm"
-    .parameter "msg"
-    .parameter "info"
-    .parameter "state"
-    .parameter "orgState"
-    .parameter "transToState"
+    .param p1, "sm"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "msg"    # Landroid/os/Message;
+    .param p3, "info"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/util/IState;
+    .param p5, "orgState"    # Lcom/android/internal/util/IState;
+    .param p6, "transToState"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 467
@@ -125,7 +125,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 533
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const-string v3, "time="
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -136,7 +136,7 @@
     move-result-object v0
 
     .line 535
-    .local v0, c:Ljava/util/Calendar;
+    .local v0, "c":Ljava/util/Calendar;
     iget-wide v3, p0, Lcom/android/internal/util/StateMachine$LogRec;->mTime:J
 
     invoke-virtual {v0, v3, v4}, Ljava/util/Calendar;->setTimeInMillis(J)V
@@ -242,7 +242,7 @@
     move-result-object v2
 
     .line 545
-    .local v2, what:Ljava/lang/String;
+    .local v2, "what":Ljava/lang/String;
     :goto_3
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -303,7 +303,7 @@
     return-object v3
 
     .line 538
-    .end local v2           #what:Ljava/lang/String;
+    .end local v2    # "what":Ljava/lang/String;
     :cond_1
     iget-object v3, p0, Lcom/android/internal/util/StateMachine$LogRec;->mState:Lcom/android/internal/util/IState;
 
@@ -340,7 +340,7 @@
     goto :goto_3
 
     .line 551
-    .restart local v2       #what:Ljava/lang/String;
+    .restart local v2    # "what":Ljava/lang/String;
     :cond_5
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -349,12 +349,12 @@
 
 .method public update(Lcom/android/internal/util/StateMachine;Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;)V
     .locals 2
-    .parameter "sm"
-    .parameter "msg"
-    .parameter "info"
-    .parameter "state"
-    .parameter "orgState"
-    .parameter "dstState"
+    .param p1, "sm"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "msg"    # Landroid/os/Message;
+    .param p3, "info"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/util/IState;
+    .param p5, "orgState"    # Lcom/android/internal/util/IState;
+    .param p6, "dstState"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 479

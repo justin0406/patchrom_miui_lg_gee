@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/database/IContentObserver;Landroid/os/IBinder$DeathRecipient;)V
     .locals 2
-    .parameter "remoteObserver"
-    .parameter "recipient"
+    .param p1, "remoteObserver"    # Landroid/database/IContentObserver;
+    .param p2, "recipient"    # Landroid/os/IBinder$DeathRecipient;
 
     .prologue
     .line 62
@@ -70,8 +70,8 @@
 
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 84
@@ -95,7 +95,7 @@
 
 .method public unlinkToDeath(Landroid/os/IBinder$DeathRecipient;)Z
     .locals 2
-    .parameter "recipient"
+    .param p1, "recipient"    # Landroid/os/IBinder$DeathRecipient;
 
     .prologue
     .line 72

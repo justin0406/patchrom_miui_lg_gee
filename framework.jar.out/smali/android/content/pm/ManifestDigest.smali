@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -46,7 +46,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 55
@@ -65,8 +65,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ManifestDigest$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/ManifestDigest$1;
 
     .prologue
     .line 39
@@ -77,7 +77,7 @@
 
 .method constructor <init>([B)V
     .locals 0
-    .parameter "digest"
+    .param p1, "digest"    # [B
 
     .prologue
     .line 51
@@ -92,7 +92,7 @@
 
 .method static fromInputStream(Ljava/io/InputStream;)Landroid/content/pm/ManifestDigest;
     .locals 8
-    .parameter "fileIs"
+    .param p0, "fileIs"    # Ljava/io/InputStream;
 
     .prologue
     const/4 v5, 0x0
@@ -116,7 +116,7 @@
     move-result-object v3
 
     .line 71
-    .local v3, md:Ljava/security/MessageDigest;
+    .local v3, "md":Ljava/security/MessageDigest;
     new-instance v1, Ljava/security/DigestInputStream;
 
     new-instance v6, Ljava/io/BufferedInputStream;
@@ -126,14 +126,14 @@
     invoke-direct {v1, v6, v3}, Ljava/security/DigestInputStream;-><init>(Ljava/io/InputStream;Ljava/security/MessageDigest;)V
 
     .line 73
-    .local v1, dis:Ljava/security/DigestInputStream;
+    .local v1, "dis":Ljava/security/DigestInputStream;
     const/16 v6, 0x2000
 
     :try_start_1
     new-array v4, v6, [B
 
     .line 74
-    .local v4, readBuffer:[B
+    .local v4, "readBuffer":[B
     :cond_1
     const/4 v6, 0x0
 
@@ -141,8 +141,8 @@
 
     invoke-virtual {v1, v4, v6, v7}, Ljava/security/DigestInputStream;->read([BII)I
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v6
 
@@ -159,7 +159,7 @@
     move-result-object v0
 
     .line 85
-    .local v0, digest:[B
+    .local v0, "digest":[B
     new-instance v5, Landroid/content/pm/ManifestDigest;
 
     invoke-direct {v5, v0}, Landroid/content/pm/ManifestDigest;-><init>([B)V
@@ -167,15 +167,15 @@
     goto :goto_0
 
     .line 67
-    .end local v0           #digest:[B
-    .end local v1           #dis:Ljava/security/DigestInputStream;
-    .end local v3           #md:Ljava/security/MessageDigest;
-    .end local v4           #readBuffer:[B
+    .end local v0    # "digest":[B
+    .end local v1    # "dis":Ljava/security/DigestInputStream;
+    .end local v3    # "md":Ljava/security/MessageDigest;
+    .end local v4    # "readBuffer":[B
     :catch_0
     move-exception v2
 
     .line 68
-    .local v2, e:Ljava/security/NoSuchAlgorithmException;
+    .local v2, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v5, Ljava/lang/RuntimeException;
 
     const-string v6, "SHA-256 must be available"
@@ -185,14 +185,14 @@
     throw v5
 
     .line 77
-    .end local v2           #e:Ljava/security/NoSuchAlgorithmException;
-    .restart local v1       #dis:Ljava/security/DigestInputStream;
-    .restart local v3       #md:Ljava/security/MessageDigest;
+    .end local v2    # "e":Ljava/security/NoSuchAlgorithmException;
+    .restart local v1    # "dis":Ljava/security/DigestInputStream;
+    .restart local v3    # "md":Ljava/security/MessageDigest;
     :catch_1
     move-exception v2
 
     .line 78
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     :try_start_2
     const-string v6, "ManifestDigest"
 
@@ -207,7 +207,7 @@
 
     goto :goto_0
 
-    .end local v2           #e:Ljava/io/IOException;
+    .end local v2    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v5
 
@@ -230,7 +230,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -252,7 +252,7 @@
     check-cast v0, Landroid/content/pm/ManifestDigest;
 
     .line 101
-    .local v0, other:Landroid/content/pm/ManifestDigest;
+    .local v0, "other":Landroid/content/pm/ManifestDigest;
     if-eq p0, v0, :cond_2
 
     iget-object v2, p0, Landroid/content/pm/ManifestDigest;->mDigest:[B
@@ -311,7 +311,7 @@
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 114
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     const-string v4, "ManifestDigest {mDigest="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -322,10 +322,10 @@
     array-length v0, v4
 
     .line 117
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -335,7 +335,7 @@
     aget-byte v1, v4, v2
 
     .line 119
-    .local v1, b:B
+    .local v1, "b":B
     const/4 v4, 0x0
 
     invoke-static {v3, v1, v4}, Ljava/lang/IntegralToString;->appendByteAsHex(Ljava/lang/StringBuilder;BZ)Ljava/lang/StringBuilder;
@@ -351,7 +351,7 @@
     goto :goto_0
 
     .line 122
-    .end local v1           #b:B
+    .end local v1    # "b":B
     :cond_0
     const/16 v4, 0x7d
 
@@ -367,8 +367,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 129

@@ -28,10 +28,10 @@
 # direct methods
 .method public constructor <init>(FFII)V
     .locals 1
-    .parameter "cx"
-    .parameter "cy"
-    .parameter "color0"
-    .parameter "color1"
+    .param p1, "cx"    # F
+    .param p2, "cy"    # F
+    .param p3, "color0"    # I
+    .param p4, "color1"    # I
 
     .prologue
     .line 77
@@ -76,10 +76,10 @@
 
 .method public constructor <init>(FF[I[F)V
     .locals 2
-    .parameter "cx"
-    .parameter "cy"
-    .parameter "colors"
-    .parameter "positions"
+    .param p1, "cx"    # F
+    .param p2, "cy"    # F
+    .param p3, "colors"    # [I
+    .param p4, "positions"    # [F
 
     .prologue
     .line 52
@@ -222,7 +222,7 @@
     invoke-direct {v0, v3, v4, v1, v2}, Landroid/graphics/SweepGradient;-><init>(FF[I[F)V
 
     .line 105
-    .local v0, copy:Landroid/graphics/SweepGradient;
+    .local v0, "copy":Landroid/graphics/SweepGradient;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/graphics/SweepGradient;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
@@ -230,7 +230,7 @@
     return-object v0
 
     .line 95
-    .end local v0           #copy:Landroid/graphics/SweepGradient;
+    .end local v0    # "copy":Landroid/graphics/SweepGradient;
     :cond_0
     const/4 v2, 0x0
 
@@ -251,7 +251,7 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/SweepGradient;-><init>(FFII)V
 
     .line 100
-    .restart local v0       #copy:Landroid/graphics/SweepGradient;
+    .restart local v0    # "copy":Landroid/graphics/SweepGradient;
     goto :goto_1
 
     .line 93

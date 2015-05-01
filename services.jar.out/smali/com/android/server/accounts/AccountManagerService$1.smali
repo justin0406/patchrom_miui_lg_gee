@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 248
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context1"
-    .parameter "intent"
+    .param p1, "context1"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 251
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$1;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    #calls: Lcom/android/server/accounts/AccountManagerService;->purgeOldGrantsAll()V
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->purgeOldGrantsAll()V
     invoke-static {v0}, Lcom/android/server/accounts/AccountManagerService;->access$000(Lcom/android/server/accounts/AccountManagerService;)V
 
     .line 252

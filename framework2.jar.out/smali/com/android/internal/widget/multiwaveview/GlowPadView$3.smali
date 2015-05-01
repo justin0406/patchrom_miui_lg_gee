@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/GlowPadView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 177
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .prologue
     .line 179

@@ -84,7 +84,7 @@
 
 .method synthetic constructor <init>(Landroid/media/SubtitleTrack$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/media/SubtitleTrack$1;
 
     .prologue
     .line 600
@@ -105,7 +105,7 @@
     iget-object v0, p0, Landroid/media/SubtitleTrack$Run;->mPrevRunAtEndTimeMs:Landroid/media/SubtitleTrack$Run;
 
     .line 638
-    .local v0, prev:Landroid/media/SubtitleTrack$Run;
+    .local v0, "prev":Landroid/media/SubtitleTrack$Run;
     iget-object v1, p0, Landroid/media/SubtitleTrack$Run;->mPrevRunAtEndTimeMs:Landroid/media/SubtitleTrack$Run;
 
     if-eqz v1, :cond_0
@@ -141,7 +141,6 @@
 
 .method public storeByEndTimeMs(Landroid/util/LongSparseArray;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,7 +153,7 @@
 
     .prologue
     .line 610
-    .local p1, runsByEndTime:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<Landroid/media/SubtitleTrack$Run;>;"
+    .local p1, "runsByEndTime":Landroid/util/LongSparseArray;, "Landroid/util/LongSparseArray<Landroid/media/SubtitleTrack$Run;>;"
     iget-wide v1, p0, Landroid/media/SubtitleTrack$Run;->mStoredEndTimeMs:J
 
     invoke-virtual {p1, v1, v2}, Landroid/util/LongSparseArray;->indexOfKey(J)I
@@ -162,7 +161,7 @@
     move-result v0
 
     .line 611
-    .local v0, ix:I
+    .local v0, "ix":I
     if-ltz v0, :cond_2
 
     .line 612

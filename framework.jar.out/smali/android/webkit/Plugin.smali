@@ -31,10 +31,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
-    .parameter "path"
-    .parameter "fileName"
-    .parameter "description"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "fileName"    # Ljava/lang/String;
+    .param p4, "description"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -69,7 +69,7 @@
 
 .method static synthetic access$100(Landroid/webkit/Plugin;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/webkit/Plugin;
 
     .prologue
     .line 35
@@ -80,7 +80,7 @@
 
 .method static synthetic access$200(Landroid/webkit/Plugin;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/webkit/Plugin;
 
     .prologue
     .line 35
@@ -93,7 +93,7 @@
 # virtual methods
 .method public dispatchClickEvent(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -163,7 +163,7 @@
 
 .method public setClickHandler(Landroid/webkit/Plugin$PreferencesClickHandler;)V
     .locals 0
-    .parameter "handler"
+    .param p1, "handler"    # Landroid/webkit/Plugin$PreferencesClickHandler;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -177,7 +177,7 @@
 
 .method public setDescription(Ljava/lang/String;)V
     .locals 0
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -191,7 +191,7 @@
 
 .method public setFileName(Ljava/lang/String;)V
     .locals 0
-    .parameter "fileName"
+    .param p1, "fileName"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -205,7 +205,7 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -219,7 +219,7 @@
 
 .method public setPath(Ljava/lang/String;)V
     .locals 0
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

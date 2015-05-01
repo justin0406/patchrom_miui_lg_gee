@@ -41,12 +41,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;IIILandroid/content/IIntentReceiver;)V
     .locals 1
-    .parameter "_owner"
-    .parameter "_app"
-    .parameter "_pid"
-    .parameter "_uid"
-    .parameter "_userId"
-    .parameter "_receiver"
+    .param p1, "_owner"    # Lcom/android/server/am/ActivityManagerService;
+    .param p2, "_app"    # Lcom/android/server/am/ProcessRecord;
+    .param p3, "_pid"    # I
+    .param p4, "_uid"    # I
+    .param p5, "_userId"    # I
+    .param p6, "_receiver"    # Landroid/content/IIntentReceiver;
 
     .prologue
     .line 49
@@ -108,8 +108,8 @@
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 7
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 82
@@ -118,7 +118,7 @@
     invoke-direct {v4, p1}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
 
     .line 83
-    .local v4, pr:Landroid/util/Printer;
+    .local v4, "pr":Landroid/util/Printer;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ReceiverList;->dumpLocal(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     .line 84
@@ -141,16 +141,16 @@
     move-result-object v3
 
     .line 85
-    .local v3, p2:Ljava/lang/String;
+    .local v3, "p2":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/android/server/am/ReceiverList;->size()I
 
     move-result v0
 
     .line 86
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -162,7 +162,7 @@
     check-cast v1, Lcom/android/server/am/BroadcastFilter;
 
     .line 88
-    .local v1, bf:Lcom/android/server/am/BroadcastFilter;
+    .local v1, "bf":Lcom/android/server/am/BroadcastFilter;
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v5, "Filter #"
@@ -201,15 +201,15 @@
     goto :goto_0
 
     .line 94
-    .end local v1           #bf:Lcom/android/server/am/BroadcastFilter;
+    .end local v1    # "bf":Lcom/android/server/am/BroadcastFilter;
     :cond_0
     return-void
 .end method
 
 .method dumpLocal(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 1
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 72
@@ -301,7 +301,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 60
@@ -357,7 +357,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 101
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ReceiverList{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

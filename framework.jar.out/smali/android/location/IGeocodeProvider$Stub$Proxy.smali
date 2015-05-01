@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 111
@@ -51,11 +51,10 @@
 
 .method public getFromLocation(DDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
     .locals 6
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "maxResults"
-    .parameter "params"
-    .parameter
+    .param p1, "latitude"    # D
+    .param p3, "longitude"    # D
+    .param p5, "maxResults"    # I
+    .param p6, "params"    # Landroid/location/GeocoderParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(DDI",
@@ -76,19 +75,19 @@
 
     .prologue
     .line 124
-    .local p7, addrs:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local p7, "addrs":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 125
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 128
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.IGeocodeProvider"
 
@@ -135,7 +134,7 @@
     move-result-object v2
 
     .line 142
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     sget-object v3, Landroid/location/Address;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, p7, v3}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
@@ -152,7 +151,7 @@
     return-object v2
 
     .line 137
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
@@ -177,14 +176,13 @@
 
 .method public getFromLocationName(Ljava/lang/String;DDDDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
     .locals 8
-    .parameter "locationName"
-    .parameter "lowerLeftLatitude"
-    .parameter "lowerLeftLongitude"
-    .parameter "upperRightLatitude"
-    .parameter "upperRightLongitude"
-    .parameter "maxResults"
-    .parameter "params"
-    .parameter
+    .param p1, "locationName"    # Ljava/lang/String;
+    .param p2, "lowerLeftLatitude"    # D
+    .param p4, "lowerLeftLongitude"    # D
+    .param p6, "upperRightLatitude"    # D
+    .param p8, "upperRightLongitude"    # D
+    .param p10, "maxResults"    # I
+    .param p11, "params"    # Landroid/location/GeocoderParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -207,19 +205,19 @@
 
     .prologue
     .line 152
-    .local p12, addrs:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local p12, "addrs":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 153
-    .local v2, _data:Landroid/os/Parcel;
+    .local v2, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 156
-    .local v3, _reply:Landroid/os/Parcel;
+    .local v3, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.location.IGeocodeProvider"
 
@@ -281,7 +279,7 @@
     move-result-object v4
 
     .line 173
-    .local v4, _result:Ljava/lang/String;
+    .local v4, "_result":Ljava/lang/String;
     sget-object v5, Landroid/location/Address;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p12
@@ -300,7 +298,7 @@
     return-object v4
 
     .line 168
-    .end local v4           #_result:Ljava/lang/String;
+    .end local v4    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v5, 0x0
 

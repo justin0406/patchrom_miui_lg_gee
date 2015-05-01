@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 454
@@ -36,8 +35,8 @@
 # virtual methods
 .method public appPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 524
@@ -62,7 +61,7 @@
 
 .method public displayCompletions([Landroid/view/inputmethod/CompletionInfo;)V
     .locals 1
-    .parameter "completions"
+    .param p1, "completions"    # [Landroid/view/inputmethod/CompletionInfo;
 
     .prologue
     .line 468
@@ -116,14 +115,14 @@
 
 .method public toggleSoftInput(II)V
     .locals 1
-    .parameter "showFlags"
-    .parameter "hideFlags"
+    .param p1, "showFlags"    # I
+    .param p2, "hideFlags"    # I
 
     .prologue
     .line 534
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService$InputMethodSessionImpl;->this$0:Landroid/inputmethodservice/InputMethodService;
 
-    #calls: Landroid/inputmethodservice/InputMethodService;->onToggleSoftInput(II)V
+    # invokes: Landroid/inputmethodservice/InputMethodService;->onToggleSoftInput(II)V
     invoke-static {v0, p1, p2}, Landroid/inputmethodservice/InputMethodService;->access$100(Landroid/inputmethodservice/InputMethodService;II)V
 
     .line 535
@@ -132,7 +131,7 @@
 
 .method public updateCursor(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "newCursor"
+    .param p1, "newCursor"    # Landroid/graphics/Rect;
 
     .prologue
     .line 513
@@ -157,8 +156,8 @@
 
 .method public updateExtractedText(ILandroid/view/inputmethod/ExtractedText;)V
     .locals 1
-    .parameter "token"
-    .parameter "text"
+    .param p1, "token"    # I
+    .param p2, "text"    # Landroid/view/inputmethod/ExtractedText;
 
     .prologue
     .line 480
@@ -183,12 +182,12 @@
 
 .method public updateSelection(IIIIII)V
     .locals 7
-    .parameter "oldSelStart"
-    .parameter "oldSelEnd"
-    .parameter "newSelStart"
-    .parameter "newSelEnd"
-    .parameter "candidatesStart"
-    .parameter "candidatesEnd"
+    .param p1, "oldSelStart"    # I
+    .param p2, "oldSelEnd"    # I
+    .param p3, "newSelStart"    # I
+    .param p4, "newSelEnd"    # I
+    .param p5, "candidatesStart"    # I
+    .param p6, "candidatesEnd"    # I
 
     .prologue
     .line 493
@@ -225,7 +224,7 @@
 
 .method public viewClicked(Z)V
     .locals 1
-    .parameter "focusChanged"
+    .param p1, "focusChanged"    # Z
 
     .prologue
     .line 502

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 270
@@ -41,11 +41,11 @@
 # virtual methods
 .method public acquireWakeLock(Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "lock"
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "packageName"
-    .parameter "ws"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "flags"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "packageName"    # Ljava/lang/String;
+    .param p5, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -59,13 +59,13 @@
     move-result-object v0
 
     .line 287
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 289
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -145,11 +145,11 @@
 
 .method public acquireWakeLockWithUid(Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;I)V
     .locals 5
-    .parameter "lock"
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "packageName"
-    .parameter "uidtoblame"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "flags"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "packageName"    # Ljava/lang/String;
+    .param p5, "uidtoblame"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -163,13 +163,13 @@
     move-result-object v0
 
     .line 312
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 314
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -237,7 +237,7 @@
 
 .method public crash(Ljava/lang/String;)V
     .locals 5
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -251,13 +251,13 @@
     move-result-object v0
 
     .line 516
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 518
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -313,8 +313,8 @@
 
 .method public goToSleep(JI)V
     .locals 5
-    .parameter "time"
-    .parameter "reason"
+    .param p1, "time"    # J
+    .param p3, "reason"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -328,13 +328,13 @@
     move-result-object v0
 
     .line 435
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 437
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -398,13 +398,13 @@
     move-result-object v0
 
     .line 466
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 469
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IPowerManager"
 
@@ -434,7 +434,7 @@
     const/4 v2, 0x1
 
     .line 475
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -445,7 +445,7 @@
     return v2
 
     .line 475
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -459,7 +459,7 @@
 
 .method public isWakeLockLevelSupported(I)Z
     .locals 6
-    .parameter "level"
+    .param p1, "level"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -475,13 +475,13 @@
     move-result-object v0
 
     .line 385
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 388
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IPowerManager"
 
@@ -514,7 +514,7 @@
     const/4 v2, 0x1
 
     .line 395
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -525,7 +525,7 @@
     return v2
 
     .line 395
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -539,7 +539,7 @@
 
 .method public nap(J)V
     .locals 5
-    .parameter "time"
+    .param p1, "time"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -553,13 +553,13 @@
     move-result-object v0
 
     .line 451
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 453
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -605,9 +605,9 @@
 
 .method public reboot(ZLjava/lang/String;Z)V
     .locals 5
-    .parameter "confirm"
-    .parameter "reason"
-    .parameter "wait"
+    .param p1, "confirm"    # Z
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "wait"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -625,13 +625,13 @@
     move-result-object v0
 
     .line 483
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 485
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.os.IPowerManager"
 
@@ -703,8 +703,8 @@
 
 .method public releaseWakeLock(Landroid/os/IBinder;I)V
     .locals 5
-    .parameter "lock"
-    .parameter "flags"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -718,13 +718,13 @@
     move-result-object v0
 
     .line 331
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 333
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -773,8 +773,8 @@
 
 .method public setAttentionLight(ZI)V
     .locals 5
-    .parameter "on"
-    .parameter "color"
+    .param p1, "on"    # Z
+    .param p2, "color"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -790,13 +790,13 @@
     move-result-object v0
 
     .line 596
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 598
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IPowerManager"
 
@@ -850,7 +850,7 @@
 
 .method public setMaximumScreenOffTimeoutFromDeviceAdmin(I)V
     .locals 5
-    .parameter "timeMs"
+    .param p1, "timeMs"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -864,13 +864,13 @@
     move-result-object v0
 
     .line 546
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 548
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -916,7 +916,7 @@
 
 .method public setStayOnSetting(I)V
     .locals 5
-    .parameter "val"
+    .param p1, "val"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -930,13 +930,13 @@
     move-result-object v0
 
     .line 531
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 533
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -982,7 +982,7 @@
 
 .method public setTemporaryScreenAutoBrightnessAdjustmentSettingOverride(F)V
     .locals 5
-    .parameter "adj"
+    .param p1, "adj"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -996,13 +996,13 @@
     move-result-object v0
 
     .line 579
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 581
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -1048,7 +1048,7 @@
 
 .method public setTemporaryScreenBrightnessSettingOverride(I)V
     .locals 5
-    .parameter "brightness"
+    .param p1, "brightness"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1062,13 +1062,13 @@
     move-result-object v0
 
     .line 564
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 566
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -1114,8 +1114,8 @@
 
 .method public shutdown(ZZ)V
     .locals 5
-    .parameter "confirm"
-    .parameter "wait"
+    .param p1, "confirm"    # Z
+    .param p2, "wait"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1133,13 +1133,13 @@
     move-result-object v0
 
     .line 500
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 502
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.os.IPowerManager"
 
@@ -1208,8 +1208,8 @@
 
 .method public updateWakeLockUids(Landroid/os/IBinder;[I)V
     .locals 5
-    .parameter "lock"
-    .parameter "uids"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "uids"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1223,13 +1223,13 @@
     move-result-object v0
 
     .line 347
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 349
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -1278,8 +1278,8 @@
 
 .method public updateWakeLockWorkSource(Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "lock"
-    .parameter "ws"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1293,13 +1293,13 @@
     move-result-object v0
 
     .line 363
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 365
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -1370,9 +1370,9 @@
 
 .method public userActivity(JII)V
     .locals 5
-    .parameter "time"
-    .parameter "event"
-    .parameter "flags"
+    .param p1, "time"    # J
+    .param p3, "event"    # I
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1386,13 +1386,13 @@
     move-result-object v0
 
     .line 403
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 405
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 
@@ -1444,7 +1444,7 @@
 
 .method public wakeUp(J)V
     .locals 5
-    .parameter "time"
+    .param p1, "time"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1458,13 +1458,13 @@
     move-result-object v0
 
     .line 420
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 422
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IPowerManager"
 

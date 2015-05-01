@@ -23,9 +23,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Landroid/graphics/drawable/AnimationDrawable;Landroid/content/res/Resources;)V
     .locals 1
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/AnimationDrawable$AnimationState;
+    .param p2, "owner"    # Landroid/graphics/drawable/AnimationDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 319
@@ -68,7 +68,7 @@
 
 .method static synthetic access$000(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)[I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
     .prologue
     .line 313
@@ -79,8 +79,8 @@
 
 .method static synthetic access$002(Landroid/graphics/drawable/AnimationDrawable$AnimationState;[I)[I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/drawable/AnimationDrawable$AnimationState;
+    .param p1, "x1"    # [I
 
     .prologue
     .line 313
@@ -91,7 +91,7 @@
 
 .method static synthetic access$100(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
     .prologue
     .line 313
@@ -102,8 +102,8 @@
 
 .method static synthetic access$102(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/drawable/AnimationDrawable$AnimationState;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 313
@@ -116,8 +116,8 @@
 # virtual methods
 .method public addFrame(Landroid/graphics/drawable/Drawable;I)V
     .locals 2
-    .parameter "dr"
-    .parameter "dur"
+    .param p1, "dr"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "dur"    # I
 
     .prologue
     .line 343
@@ -126,7 +126,7 @@
     move-result v0
 
     .line 344
-    .local v0, pos:I
+    .local v0, "pos":I
     iget-object v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     aput p2, v1, v0
@@ -137,8 +137,8 @@
 
 .method public growArray(II)V
     .locals 3
-    .parameter "oldSize"
-    .parameter "newSize"
+    .param p1, "oldSize"    # I
+    .param p2, "newSize"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -150,7 +150,7 @@
     new-array v0, p2, [I
 
     .line 351
-    .local v0, newDurations:[I
+    .local v0, "newDurations":[I
     iget-object v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     invoke-static {v1, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -178,7 +178,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 337

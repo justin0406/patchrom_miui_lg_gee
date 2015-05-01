@@ -45,6 +45,7 @@
     const/4 v0, 0x0
 
     :try_start_0
+    # setter for: Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
     invoke-static {v0}, Landroid/bluetooth/BluetoothDevice;->access$002(Landroid/bluetooth/IBluetooth;)Landroid/bluetooth/IBluetooth;
 
     .line 549
@@ -66,7 +67,7 @@
 
 .method public onBluetoothServiceUp(Landroid/bluetooth/IBluetooth;)V
     .locals 2
-    .parameter "bluetoothService"
+    .param p1, "bluetoothService"    # Landroid/bluetooth/IBluetooth;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,6 +82,7 @@
 
     .line 541
     :try_start_0
+    # setter for: Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
     invoke-static {p1}, Landroid/bluetooth/BluetoothDevice;->access$002(Landroid/bluetooth/IBluetooth;)Landroid/bluetooth/IBluetooth;
 
     .line 542

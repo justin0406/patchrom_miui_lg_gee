@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 528
@@ -49,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/am/UsageStatsService;->writeStatsToFile(ZZ)V
+    # invokes: Lcom/android/server/am/UsageStatsService;->writeStatsToFile(ZZ)V
     invoke-static {v0, v1, v2}, Lcom/android/server/am/UsageStatsService;->access$100(Lcom/android/server/am/UsageStatsService;ZZ)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -57,7 +56,7 @@
     .line 534
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
-    #getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    # getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v0}, Lcom/android/server/am/UsageStatsService;->access$200(Lcom/android/server/am/UsageStatsService;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
@@ -73,7 +72,7 @@
 
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
-    #getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    # getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v1}, Lcom/android/server/am/UsageStatsService;->access$200(Lcom/android/server/am/UsageStatsService;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v1

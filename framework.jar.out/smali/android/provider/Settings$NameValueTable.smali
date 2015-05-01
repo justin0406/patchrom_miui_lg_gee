@@ -36,8 +36,8 @@
 
 .method public static getUriFor(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
     .locals 1
-    .parameter "uri"
-    .parameter "name"
+    .param p0, "uri"    # Landroid/net/Uri;
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 850
@@ -50,10 +50,10 @@
 
 .method protected static putString(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 5
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "value"    # Ljava/lang/String;
 
     .prologue
     .line 838
@@ -63,7 +63,7 @@
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 839
-    .local v1, values:Landroid/content/ContentValues;
+    .local v1, "values":Landroid/content/ContentValues;
     const-string v2, "name"
 
     invoke-virtual {v1, v2, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -82,7 +82,7 @@
     const/4 v2, 0x1
 
     .line 845
-    .end local v1           #values:Landroid/content/ContentValues;
+    .end local v1    # "values":Landroid/content/ContentValues;
     :goto_0
     return v2
 
@@ -91,7 +91,7 @@
     move-exception v0
 
     .line 844
-    .local v0, e:Landroid/database/SQLException;
+    .local v0, "e":Landroid/database/SQLException;
     const-string v2, "Settings"
 
     new-instance v3, Ljava/lang/StringBuilder;

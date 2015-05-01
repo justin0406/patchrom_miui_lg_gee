@@ -66,7 +66,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IMediaContainerService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 23
@@ -88,7 +88,7 @@
     move-result-object v0
 
     .line 27
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/app/IMediaContainerService;
@@ -104,7 +104,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/app/IMediaContainerService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/app/IMediaContainerService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -122,10 +122,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 12
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -178,32 +178,32 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 56
-    .local v1, _arg0:Landroid/net/Uri;
+    .local v1, "_arg0":Landroid/net/Uri;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 58
-    .local v2, _arg1:Ljava/lang/String;
+    .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 60
-    .local v3, _arg2:Ljava/lang/String;
+    .local v3, "_arg2":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
     .line 62
-    .local v4, _arg3:Ljava/lang/String;
+    .local v4, "_arg3":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
     .line 64
-    .local v5, _arg4:Ljava/lang/String;
+    .local v5, "_arg4":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -213,7 +213,7 @@
     const/4 v6, 0x1
 
     .line 66
-    .local v6, _arg5:Z
+    .local v6, "_arg5":Z
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -223,7 +223,7 @@
 
     const/4 v7, 0x1
 
-    .local v7, _arg6:Z
+    .local v7, "_arg6":Z
     :goto_3
     move-object v0, p0
 
@@ -233,7 +233,7 @@
     move-result-object v10
 
     .line 68
-    .local v10, _result:Ljava/lang/String;
+    .local v10, "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 69
@@ -245,44 +245,44 @@
     goto :goto_0
 
     .line 53
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v3           #_arg2:Ljava/lang/String;
-    .end local v4           #_arg3:Ljava/lang/String;
-    .end local v5           #_arg4:Ljava/lang/String;
-    .end local v6           #_arg5:Z
-    .end local v7           #_arg6:Z
-    .end local v10           #_result:Ljava/lang/String;
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Ljava/lang/String;
+    .end local v3    # "_arg2":Ljava/lang/String;
+    .end local v4    # "_arg3":Ljava/lang/String;
+    .end local v5    # "_arg4":Ljava/lang/String;
+    .end local v6    # "_arg5":Z
+    .end local v7    # "_arg6":Z
+    .end local v10    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     goto :goto_1
 
     .line 64
-    .restart local v2       #_arg1:Ljava/lang/String;
-    .restart local v3       #_arg2:Ljava/lang/String;
-    .restart local v4       #_arg3:Ljava/lang/String;
-    .restart local v5       #_arg4:Ljava/lang/String;
+    .restart local v2    # "_arg1":Ljava/lang/String;
+    .restart local v3    # "_arg2":Ljava/lang/String;
+    .restart local v4    # "_arg3":Ljava/lang/String;
+    .restart local v5    # "_arg4":Ljava/lang/String;
     :cond_1
     const/4 v6, 0x0
 
     goto :goto_2
 
     .line 66
-    .restart local v6       #_arg5:Z
+    .restart local v6    # "_arg5":Z
     :cond_2
     const/4 v7, 0x0
 
     goto :goto_3
 
     .line 74
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v3           #_arg2:Ljava/lang/String;
-    .end local v4           #_arg3:Ljava/lang/String;
-    .end local v5           #_arg4:Ljava/lang/String;
-    .end local v6           #_arg5:Z
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Ljava/lang/String;
+    .end local v3    # "_arg2":Ljava/lang/String;
+    .end local v4    # "_arg3":Ljava/lang/String;
+    .end local v5    # "_arg4":Ljava/lang/String;
+    .end local v6    # "_arg5":Z
     :sswitch_2
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -305,7 +305,7 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 83
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -323,7 +323,7 @@
     check-cast v2, Landroid/content/pm/ContainerEncryptionParams;
 
     .line 90
-    .local v2, _arg1:Landroid/content/pm/ContainerEncryptionParams;
+    .local v2, "_arg1":Landroid/content/pm/ContainerEncryptionParams;
     :goto_5
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -341,14 +341,14 @@
     check-cast v3, Landroid/os/ParcelFileDescriptor;
 
     .line 96
-    .local v3, _arg2:Landroid/os/ParcelFileDescriptor;
+    .local v3, "_arg2":Landroid/os/ParcelFileDescriptor;
     :goto_6
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/app/IMediaContainerService$Stub;->copyResource(Landroid/net/Uri;Landroid/content/pm/ContainerEncryptionParams;Landroid/os/ParcelFileDescriptor;)I
 
     move-result v10
 
     .line 97
-    .local v10, _result:I
+    .local v10, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 98
@@ -360,34 +360,34 @@
     goto/16 :goto_0
 
     .line 80
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Landroid/content/pm/ContainerEncryptionParams;
-    .end local v3           #_arg2:Landroid/os/ParcelFileDescriptor;
-    .end local v10           #_result:I
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Landroid/content/pm/ContainerEncryptionParams;
+    .end local v3    # "_arg2":Landroid/os/ParcelFileDescriptor;
+    .end local v10    # "_result":I
     :cond_3
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     goto :goto_4
 
     .line 87
     :cond_4
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/content/pm/ContainerEncryptionParams;
+    .restart local v2    # "_arg1":Landroid/content/pm/ContainerEncryptionParams;
     goto :goto_5
 
     .line 94
     :cond_5
     const/4 v3, 0x0
 
-    .restart local v3       #_arg2:Landroid/os/ParcelFileDescriptor;
+    .restart local v3    # "_arg2":Landroid/os/ParcelFileDescriptor;
     goto :goto_6
 
     .line 103
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Landroid/content/pm/ContainerEncryptionParams;
-    .end local v3           #_arg2:Landroid/os/ParcelFileDescriptor;
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Landroid/content/pm/ContainerEncryptionParams;
+    .end local v3    # "_arg2":Landroid/os/ParcelFileDescriptor;
     :sswitch_3
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -399,25 +399,25 @@
     move-result-object v1
 
     .line 107
-    .local v1, _arg0:Ljava/lang/String;
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 109
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v8
 
     .line 110
-    .local v8, _arg2:J
+    .local v8, "_arg2":J
     invoke-virtual {p0, v1, v2, v8, v9}, Lcom/android/internal/app/IMediaContainerService$Stub;->getMinimalPackageInfo(Ljava/lang/String;IJ)Landroid/content/pm/PackageInfoLite;
 
     move-result-object v10
 
     .line 111
-    .local v10, _result:Landroid/content/pm/PackageInfoLite;
+    .local v10, "_result":Landroid/content/pm/PackageInfoLite;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 112
@@ -448,10 +448,10 @@
     goto :goto_7
 
     .line 123
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v8           #_arg2:J
-    .end local v10           #_result:Landroid/content/pm/PackageInfoLite;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v8    # "_arg2":J
+    .end local v10    # "_result":Landroid/content/pm/PackageInfoLite;
     :sswitch_4
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -474,7 +474,7 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 132
-    .local v1, _arg0:Landroid/net/Uri;
+    .local v1, "_arg0":Landroid/net/Uri;
     :goto_8
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -485,20 +485,20 @@
     const/4 v2, 0x1
 
     .line 134
-    .local v2, _arg1:Z
+    .local v2, "_arg1":Z
     :goto_9
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v8
 
     .line 135
-    .restart local v8       #_arg2:J
+    .restart local v8    # "_arg2":J
     invoke-virtual {p0, v1, v2, v8, v9}, Lcom/android/internal/app/IMediaContainerService$Stub;->checkInternalFreeStorage(Landroid/net/Uri;ZJ)Z
 
     move-result v10
 
     .line 136
-    .local v10, _result:Z
+    .local v10, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 137
@@ -515,14 +515,14 @@
     goto/16 :goto_0
 
     .line 129
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Z
-    .end local v8           #_arg2:J
-    .end local v10           #_result:Z
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Z
+    .end local v8    # "_arg2":J
+    .end local v10    # "_result":Z
     :cond_7
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     goto :goto_8
 
     .line 132
@@ -532,19 +532,19 @@
     goto :goto_9
 
     .line 137
-    .restart local v2       #_arg1:Z
-    .restart local v8       #_arg2:J
-    .restart local v10       #_result:Z
+    .restart local v2    # "_arg1":Z
+    .restart local v8    # "_arg2":J
+    .restart local v10    # "_result":Z
     :cond_9
     const/4 v0, 0x0
 
     goto :goto_a
 
     .line 142
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Z
-    .end local v8           #_arg2:J
-    .end local v10           #_result:Z
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Z
+    .end local v8    # "_arg2":J
+    .end local v10    # "_result":Z
     :sswitch_5
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -567,7 +567,7 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 151
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     :goto_b
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -578,14 +578,14 @@
     const/4 v2, 0x1
 
     .line 152
-    .restart local v2       #_arg1:Z
+    .restart local v2    # "_arg1":Z
     :goto_c
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IMediaContainerService$Stub;->checkExternalFreeStorage(Landroid/net/Uri;Z)Z
 
     move-result v10
 
     .line 153
-    .restart local v10       #_result:Z
+    .restart local v10    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 154
@@ -602,13 +602,13 @@
     goto/16 :goto_0
 
     .line 148
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Z
-    .end local v10           #_result:Z
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Z
+    .end local v10    # "_result":Z
     :cond_a
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/net/Uri;
+    .restart local v1    # "_arg0":Landroid/net/Uri;
     goto :goto_b
 
     .line 151
@@ -618,17 +618,17 @@
     goto :goto_c
 
     .line 154
-    .restart local v2       #_arg1:Z
-    .restart local v10       #_result:Z
+    .restart local v2    # "_arg1":Z
+    .restart local v10    # "_result":Z
     :cond_c
     const/4 v0, 0x0
 
     goto :goto_d
 
     .line 159
-    .end local v1           #_arg0:Landroid/net/Uri;
-    .end local v2           #_arg1:Z
-    .end local v10           #_result:Z
+    .end local v1    # "_arg0":Landroid/net/Uri;
+    .end local v2    # "_arg1":Z
+    .end local v10    # "_result":Z
     :sswitch_6
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -640,13 +640,13 @@
     move-result-object v1
 
     .line 162
-    .local v1, _arg0:Ljava/lang/String;
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IMediaContainerService$Stub;->getObbInfo(Ljava/lang/String;)Landroid/content/res/ObbInfo;
 
     move-result-object v10
 
     .line 163
-    .local v10, _result:Landroid/content/res/ObbInfo;
+    .local v10, "_result":Landroid/content/res/ObbInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 164
@@ -677,8 +677,8 @@
     goto :goto_e
 
     .line 175
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v10           #_result:Landroid/content/res/ObbInfo;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v10    # "_result":Landroid/content/res/ObbInfo;
     :sswitch_7
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -690,13 +690,13 @@
     move-result-object v1
 
     .line 178
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IMediaContainerService$Stub;->calculateDirectorySize(Ljava/lang/String;)J
 
     move-result-wide v10
 
     .line 179
-    .local v10, _result:J
+    .local v10, "_result":J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 180
@@ -708,8 +708,8 @@
     goto/16 :goto_0
 
     .line 185
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v10           #_result:J
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v10    # "_result":J
     :sswitch_8
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -721,13 +721,13 @@
     move-result-object v1
 
     .line 188
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IMediaContainerService$Stub;->getFileSystemStats(Ljava/lang/String;)[J
 
     move-result-object v10
 
     .line 189
-    .local v10, _result:[J
+    .local v10, "_result":[J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 190
@@ -739,8 +739,8 @@
     goto/16 :goto_0
 
     .line 195
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v10           #_result:[J
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v10    # "_result":[J
     :sswitch_9
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -752,7 +752,7 @@
     move-result-object v1
 
     .line 198
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IMediaContainerService$Stub;->clearDirectory(Ljava/lang/String;)V
 
     .line 199
@@ -764,7 +764,7 @@
     goto/16 :goto_0
 
     .line 204
-    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v1    # "_arg0":Ljava/lang/String;
     :sswitch_a
     const-string v0, "com.android.internal.app.IMediaContainerService"
 
@@ -776,7 +776,7 @@
     move-result-object v1
 
     .line 208
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -786,14 +786,14 @@
     const/4 v2, 0x1
 
     .line 209
-    .restart local v2       #_arg1:Z
+    .restart local v2    # "_arg1":Z
     :goto_f
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IMediaContainerService$Stub;->calculateInstalledSize(Ljava/lang/String;Z)J
 
     move-result-wide v10
 
     .line 210
-    .local v10, _result:J
+    .local v10, "_result":J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 211
@@ -805,8 +805,8 @@
     goto/16 :goto_0
 
     .line 208
-    .end local v2           #_arg1:Z
-    .end local v10           #_result:J
+    .end local v2    # "_arg1":Z
+    .end local v10    # "_result":J
     :cond_e
     const/4 v2, 0x0
 

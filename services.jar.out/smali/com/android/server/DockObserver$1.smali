@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DockObserver;Z)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Z
 
     .prologue
     .line 196
@@ -37,7 +36,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 199
@@ -53,7 +52,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
-    #calls: Lcom/android/server/DockObserver;->handleDockStateChange()V
+    # invokes: Lcom/android/server/DockObserver;->handleDockStateChange()V
     invoke-static {v0}, Lcom/android/server/DockObserver;->access$000(Lcom/android/server/DockObserver;)V
 
     goto :goto_0

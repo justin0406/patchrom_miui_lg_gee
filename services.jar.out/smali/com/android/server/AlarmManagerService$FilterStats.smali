@@ -43,8 +43,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AlarmManagerService$BroadcastStats;Landroid/util/Pair;)V
     .locals 0
-    .parameter "broadcastStats"
-    .parameter
+    .param p1, "broadcastStats"    # Lcom/android/server/AlarmManagerService$BroadcastStats;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +58,7 @@
 
     .prologue
     .line 440
-    .local p2, target:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Landroid/content/ComponentName;>;"
+    .local p2, "target":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Landroid/content/ComponentName;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 441

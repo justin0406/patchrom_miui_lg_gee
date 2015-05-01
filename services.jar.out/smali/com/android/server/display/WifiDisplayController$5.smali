@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 388
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onFailure(I)V
     .locals 0
-    .parameter "reason"
+    .param p1, "reason"    # I
 
     .prologue
     .line 408
@@ -53,7 +52,7 @@
     .line 395
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$5;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #getter for: Lcom/android/server/display/WifiDisplayController;->mDiscoverPeersInProgress:Z
+    # getter for: Lcom/android/server/display/WifiDisplayController;->mDiscoverPeersInProgress:Z
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$600(Lcom/android/server/display/WifiDisplayController;)Z
 
     move-result v0
@@ -63,7 +62,7 @@
     .line 396
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$5;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #calls: Lcom/android/server/display/WifiDisplayController;->requestPeers()V
+    # invokes: Lcom/android/server/display/WifiDisplayController;->requestPeers()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$700(Lcom/android/server/display/WifiDisplayController;)V
 
     .line 398

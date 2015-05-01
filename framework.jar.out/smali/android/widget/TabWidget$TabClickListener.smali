@@ -26,8 +26,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TabWidget;I)V
     .locals 0
-    .parameter
-    .parameter "tabIndex"
+    .param p2, "tabIndex"    # I
 
     .prologue
     .line 541
@@ -44,9 +43,9 @@
 
 .method synthetic constructor <init>(Landroid/widget/TabWidget;ILandroid/widget/TabWidget$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/widget/TabWidget;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Landroid/widget/TabWidget$1;
 
     .prologue
     .line 537
@@ -59,13 +58,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 546
     iget-object v0, p0, Landroid/widget/TabWidget$TabClickListener;->this$0:Landroid/widget/TabWidget;
 
-    #getter for: Landroid/widget/TabWidget;->mSelectionChangedListener:Landroid/widget/TabWidget$OnTabSelectionChanged;
+    # getter for: Landroid/widget/TabWidget;->mSelectionChangedListener:Landroid/widget/TabWidget$OnTabSelectionChanged;
     invoke-static {v0}, Landroid/widget/TabWidget;->access$100(Landroid/widget/TabWidget;)Landroid/widget/TabWidget$OnTabSelectionChanged;
 
     move-result-object v0

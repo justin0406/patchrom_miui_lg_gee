@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
     .locals 3
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     move-result-object v0
 
     .line 74
-    .local v0, extras:Landroid/os/Bundle;
+    .local v0, "extras":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 75
@@ -75,7 +75,7 @@
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/IsoDep;
     .locals 3
-    .parameter "tag"
+    .param p0, "tag"    # Landroid/nfc/Tag;
 
     .prologue
     const/4 v1, 0x0
@@ -111,7 +111,7 @@
     move-exception v0
 
     .line 65
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
@@ -220,7 +220,7 @@
     move-exception v0
 
     .line 114
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
@@ -272,7 +272,7 @@
     move-exception v0
 
     .line 201
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
@@ -302,7 +302,7 @@
 
 .method public setTimeout(I)V
     .locals 4
-    .parameter "timeout"
+    .param p1, "timeout"    # I
 
     .prologue
     .line 94
@@ -320,7 +320,7 @@
     move-result v1
 
     .line 95
-    .local v1, err:I
+    .local v1, "err":I
     if-eqz v1, :cond_0
 
     .line 96
@@ -335,12 +335,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 98
-    .end local v1           #err:I
+    .end local v1    # "err":I
     :catch_0
     move-exception v0
 
     .line 99
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -348,14 +348,14 @@
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 101
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

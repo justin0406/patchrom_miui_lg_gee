@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     .prologue
@@ -21,7 +21,7 @@
 
 .method public static canDistinguishDialingAndConnected(I)Z
     .locals 1
-    .parameter "phoneType"
+    .param p0, "phoneType"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -40,7 +40,7 @@
 
 .method public static getDeviceIdLabel(Lcom/android/internal/telephony/Phone;)I
     .locals 3
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 102
@@ -110,7 +110,7 @@
 
 .method public static supportsAdn(I)Z
     .locals 1
-    .parameter "phoneType"
+    .param p0, "phoneType"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -129,7 +129,7 @@
 
 .method public static supportsAnswerAndHold(Lcom/android/internal/telephony/Phone;)Z
     .locals 3
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     const/4 v0, 0x1
@@ -161,7 +161,7 @@
 
 .method public static supportsConferenceCallManagement(Lcom/android/internal/telephony/Phone;)Z
     .locals 3
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     const/4 v0, 0x1
@@ -193,7 +193,7 @@
 
 .method public static supportsEcm(Lcom/android/internal/telephony/Phone;)Z
     .locals 2
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 48
@@ -218,7 +218,7 @@
 
 .method public static supportsHoldAndUnhold(Lcom/android/internal/telephony/Phone;)Z
     .locals 3
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     const/4 v0, 0x1
@@ -250,7 +250,7 @@
 
 .method public static supportsNetworkSelection(Lcom/android/internal/telephony/Phone;)Z
     .locals 2
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     const/4 v0, 0x1
@@ -273,7 +273,7 @@
 
 .method public static supportsOtasp(Lcom/android/internal/telephony/Phone;)Z
     .locals 2
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 69
@@ -298,7 +298,7 @@
 
 .method public static supportsVoiceMessageCount(Lcom/android/internal/telephony/Phone;)Z
     .locals 2
-    .parameter "phone"
+    .param p0, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 78

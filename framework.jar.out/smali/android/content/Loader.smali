@@ -59,10 +59,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v1, 0x0
 
     .line 131
@@ -103,7 +103,7 @@
 
     .prologue
     .line 403
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/content/Loader;->mAbandoned:Z
@@ -120,7 +120,7 @@
 
     .prologue
     .line 320
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     invoke-virtual {p0}, Landroid/content/Loader;->onCancelLoad()Z
 
     move-result v0
@@ -133,7 +133,7 @@
 
     .prologue
     .line 475
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/Loader;->mProcessingChange:Z
@@ -144,7 +144,6 @@
 
 .method public dataToString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)",
@@ -154,8 +153,8 @@
 
     .prologue
     .line 515
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p1, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p1, "data":Ljava/lang/Object;, "TD;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x40
@@ -163,7 +162,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 516
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-static {p1, v0}, Landroid/util/DebugUtils;->buildShortClassTag(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
 
     .line 517
@@ -184,7 +183,7 @@
 
     .prologue
     .line 155
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
     if-eqz v0, :cond_0
@@ -201,7 +200,6 @@
 
 .method public deliverResult(Ljava/lang/Object;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -210,8 +208,8 @@
 
     .prologue
     .line 143
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p1, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p1, "data":Ljava/lang/Object;, "TD;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
     if-eqz v0, :cond_0
@@ -228,14 +226,14 @@
 
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "prefix"
-    .parameter "fd"
-    .parameter "writer"
-    .parameter "args"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .param p3, "writer"    # Ljava/io/PrintWriter;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 540
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "mId="
@@ -339,7 +337,7 @@
 
     .prologue
     .line 347
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     invoke-virtual {p0}, Landroid/content/Loader;->onForceLoad()V
 
     .line 348
@@ -351,7 +349,7 @@
 
     .prologue
     .line 164
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -362,7 +360,7 @@
 
     .prologue
     .line 171
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget v0, p0, Landroid/content/Loader;->mId:I
 
     return v0
@@ -373,7 +371,7 @@
 
     .prologue
     .line 253
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mAbandoned:Z
 
     return v0
@@ -384,7 +382,7 @@
 
     .prologue
     .line 262
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mReset:Z
 
     return v0
@@ -395,7 +393,7 @@
 
     .prologue
     .line 244
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mStarted:Z
 
     return v0
@@ -406,7 +404,7 @@
 
     .prologue
     .line 417
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     return-void
 .end method
 
@@ -415,7 +413,7 @@
 
     .prologue
     .line 335
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v0, 0x0
 
     return v0
@@ -426,7 +424,7 @@
 
     .prologue
     .line 500
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mStarted:Z
 
     if-eqz v0, :cond_0
@@ -452,7 +450,7 @@
 
     .prologue
     .line 355
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     return-void
 .end method
 
@@ -461,7 +459,7 @@
 
     .prologue
     .line 453
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     return-void
 .end method
 
@@ -470,7 +468,7 @@
 
     .prologue
     .line 299
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     return-void
 .end method
 
@@ -479,14 +477,13 @@
 
     .prologue
     .line 389
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     return-void
 .end method
 
 .method public registerListener(ILandroid/content/Loader$OnLoadCompleteListener;)V
     .locals 2
-    .parameter "id"
-    .parameter
+    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -497,8 +494,8 @@
 
     .prologue
     .line 182
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p2, listener:Landroid/content/Loader$OnLoadCompleteListener;,"Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p2, "listener":Landroid/content/Loader$OnLoadCompleteListener;, "Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
     if-eqz v0, :cond_0
@@ -525,7 +522,6 @@
 
 .method public registerOnLoadCanceledListener(Landroid/content/Loader$OnLoadCanceledListener;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -536,8 +532,8 @@
 
     .prologue
     .line 214
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p1, listener:Landroid/content/Loader$OnLoadCanceledListener;,"Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p1, "listener":Landroid/content/Loader$OnLoadCanceledListener;, "Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
     if-eqz v0, :cond_0
@@ -563,7 +559,7 @@
     .locals 2
 
     .prologue
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v1, 0x0
 
     .line 438
@@ -595,7 +591,7 @@
 
     .prologue
     .line 486
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mProcessingChange:Z
 
     if-eqz v0, :cond_0
@@ -614,7 +610,7 @@
     .locals 2
 
     .prologue
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v1, 0x0
 
     .line 287
@@ -640,7 +636,7 @@
 
     .prologue
     .line 378
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/Loader;->mStarted:Z
@@ -657,11 +653,11 @@
 
     .prologue
     .line 461
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mContentChanged:Z
 
     .line 462
-    .local v0, res:Z
+    .local v0, "res":Z
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/content/Loader;->mContentChanged:Z
@@ -682,7 +678,7 @@
 
     .prologue
     .line 523
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x40
@@ -690,7 +686,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 524
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-static {p0, v0}, Landroid/util/DebugUtils;->buildShortClassTag(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
 
     .line 525
@@ -718,7 +714,6 @@
 
 .method public unregisterListener(Landroid/content/Loader$OnLoadCompleteListener;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -729,8 +724,8 @@
 
     .prologue
     .line 195
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p1, listener:Landroid/content/Loader$OnLoadCompleteListener;,"Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p1, "listener":Landroid/content/Loader$OnLoadCompleteListener;, "Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
     if-nez v0, :cond_0
@@ -771,7 +766,6 @@
 
 .method public unregisterOnLoadCanceledListener(Landroid/content/Loader$OnLoadCanceledListener;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -782,8 +776,8 @@
 
     .prologue
     .line 229
-    .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
-    .local p1, listener:Landroid/content/Loader$OnLoadCanceledListener;,"Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
+    .local p0, "this":Landroid/content/Loader;, "Landroid/content/Loader<TD;>;"
+    .local p1, "listener":Landroid/content/Loader$OnLoadCanceledListener;, "Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
     if-nez v0, :cond_0

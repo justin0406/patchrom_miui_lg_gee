@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 82
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 130
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 133
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.IConsumerIrService"
 
@@ -96,7 +96,7 @@
     move-result-object v2
 
     .line 139
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 140
@@ -106,7 +106,7 @@
     return-object v2
 
     .line 139
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -147,13 +147,13 @@
     move-result-object v0
 
     .line 96
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 99
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.hardware.IConsumerIrService"
 
@@ -181,7 +181,7 @@
     if-eqz v4, :cond_0
 
     .line 105
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -191,7 +191,7 @@
     .line 108
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -212,9 +212,9 @@
 
 .method public transmit(Ljava/lang/String;I[I)V
     .locals 5
-    .parameter "packageName"
-    .parameter "carrierFrequency"
-    .parameter "pattern"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "carrierFrequency"    # I
+    .param p3, "pattern"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -228,13 +228,13 @@
     move-result-object v0
 
     .line 113
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 115
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.IConsumerIrService"
 

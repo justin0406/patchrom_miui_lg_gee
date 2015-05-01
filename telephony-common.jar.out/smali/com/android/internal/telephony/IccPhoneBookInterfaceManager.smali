@@ -43,7 +43,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
     .locals 2
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 110
@@ -76,7 +76,7 @@
     check-cast v0, Lcom/android/internal/telephony/uicc/IccRecords;
 
     .line 113
-    .local v0, r:Lcom/android/internal/telephony/uicc/IccRecords;
+    .local v0, "r":Lcom/android/internal/telephony/uicc/IccRecords;
     if-eqz v0, :cond_0
 
     .line 114
@@ -93,7 +93,7 @@
 
 .method private updateEfForIccType(I)I
     .locals 2
-    .parameter "efid"
+    .param p1, "efid"    # I
 
     .prologue
     .line 315
@@ -116,7 +116,7 @@
     const/16 p1, 0x4f30
 
     .line 320
-    .end local p1
+    .end local p1    # "efid":I
     :cond_0
     return p1
 .end method
@@ -173,7 +173,7 @@
 
 .method public getAdnRecordsInEf(I)Ljava/util/List;
     .locals 5
-    .parameter "efid"
+    .param p1, "efid"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -253,7 +253,7 @@
     invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 281
-    .local v1, status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .local v1, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v4, 0x2
@@ -263,7 +263,7 @@
     move-result-object v0
 
     .line 282
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mAdnCache:Lcom/android/internal/telephony/uicc/AdnRecordCache;
 
     if-eqz v2, :cond_1
@@ -303,8 +303,8 @@
     goto :goto_0
 
     .line 288
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     :catchall_0
     move-exception v2
 
@@ -339,11 +339,11 @@
 
 .method public updateAdnRecordsInEfByIndex(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
     .locals 8
-    .parameter "efid"
-    .parameter "newTag"
-    .parameter "newPhoneNumber"
-    .parameter "index"
-    .parameter "pin2"
+    .param p1, "efid"    # I
+    .param p2, "newTag"    # Ljava/lang/String;
+    .param p3, "newPhoneNumber"    # Ljava/lang/String;
+    .param p4, "index"    # I
+    .param p5, "pin2"    # Ljava/lang/String;
 
     .prologue
     .line 218
@@ -466,7 +466,7 @@
     invoke-direct {v6, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 232
-    .local v6, status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .local v6, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -476,13 +476,13 @@
     move-result-object v5
 
     .line 233
-    .local v5, response:Landroid/os/Message;
+    .local v5, "response":Landroid/os/Message;
     new-instance v2, Lcom/android/internal/telephony/uicc/AdnRecord;
 
     invoke-direct {v2, p2, p3}, Lcom/android/internal/telephony/uicc/AdnRecord;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 234
-    .local v2, newAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
+    .local v2, "newAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mAdnCache:Lcom/android/internal/telephony/uicc/AdnRecordCache;
 
     if-eqz v0, :cond_1
@@ -522,9 +522,9 @@
     goto :goto_0
 
     .line 240
-    .end local v2           #newAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
-    .end local v5           #response:Landroid/os/Message;
-    .end local v6           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .end local v2    # "newAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
+    .end local v5    # "response":Landroid/os/Message;
+    .end local v6    # "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     :catchall_0
     move-exception v0
 
@@ -537,12 +537,12 @@
 
 .method public updateAdnRecordsInEfBySearch(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 8
-    .parameter "efid"
-    .parameter "oldTag"
-    .parameter "oldPhoneNumber"
-    .parameter "newTag"
-    .parameter "newPhoneNumber"
-    .parameter "pin2"
+    .param p1, "efid"    # I
+    .param p2, "oldTag"    # Ljava/lang/String;
+    .param p3, "oldPhoneNumber"    # Ljava/lang/String;
+    .param p4, "newTag"    # Ljava/lang/String;
+    .param p5, "newPhoneNumber"    # Ljava/lang/String;
+    .param p6, "pin2"    # Ljava/lang/String;
 
     .prologue
     .line 165
@@ -686,7 +686,7 @@
     invoke-direct {v6, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 183
-    .local v6, status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .local v6, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -696,19 +696,19 @@
     move-result-object v5
 
     .line 184
-    .local v5, response:Landroid/os/Message;
+    .local v5, "response":Landroid/os/Message;
     new-instance v2, Lcom/android/internal/telephony/uicc/AdnRecord;
 
     invoke-direct {v2, p2, p3}, Lcom/android/internal/telephony/uicc/AdnRecord;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 185
-    .local v2, oldAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
+    .local v2, "oldAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
     new-instance v3, Lcom/android/internal/telephony/uicc/AdnRecord;
 
     invoke-direct {v3, p4, p5}, Lcom/android/internal/telephony/uicc/AdnRecord;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 186
-    .local v3, newAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
+    .local v3, "newAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mAdnCache:Lcom/android/internal/telephony/uicc/AdnRecordCache;
 
     if-eqz v0, :cond_1
@@ -746,10 +746,10 @@
     goto :goto_0
 
     .line 192
-    .end local v2           #oldAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
-    .end local v3           #newAdn:Lcom/android/internal/telephony/uicc/AdnRecord;
-    .end local v5           #response:Landroid/os/Message;
-    .end local v6           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .end local v2    # "oldAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
+    .end local v3    # "newAdn":Lcom/android/internal/telephony/uicc/AdnRecord;
+    .end local v5    # "response":Landroid/os/Message;
+    .end local v6    # "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     :catchall_0
     move-exception v0
 
@@ -762,7 +762,7 @@
 
 .method public updateIccRecords(Lcom/android/internal/telephony/uicc/IccRecords;)V
     .locals 1
-    .parameter "iccRecords"
+    .param p1, "iccRecords"    # Lcom/android/internal/telephony/uicc/IccRecords;
 
     .prologue
     .line 122
@@ -790,7 +790,7 @@
 
 .method protected waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
     .locals 2
-    .parameter "status"
+    .param p1, "status"    # Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .prologue
     .line 304
@@ -816,7 +816,7 @@
     move-exception v0
 
     .line 308
-    .local v0, e:Ljava/lang/InterruptedException;
+    .local v0, "e":Ljava/lang/InterruptedException;
     const-string v1, "interrupted while trying to update by search"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->logd(Ljava/lang/String;)V
@@ -824,7 +824,7 @@
     goto :goto_0
 
     .line 311
-    .end local v0           #e:Ljava/lang/InterruptedException;
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :cond_0
     return-void
 .end method

@@ -51,7 +51,7 @@
 
 .field public static final CONNECTION_ACCESS_YES:I = 0x1
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -177,7 +177,7 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
 
     .prologue
     .line 561
@@ -228,7 +228,7 @@
 
 .method static synthetic access$002(Landroid/bluetooth/IBluetooth;)Landroid/bluetooth/IBluetooth;
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/IBluetooth;
 
     .prologue
     .line 67
@@ -239,7 +239,7 @@
 
 .method public static convertPinToBytes(Ljava/lang/String;)[B
     .locals 5
-    .parameter "pin"
+    .param p0, "pin"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -266,7 +266,7 @@
     move-result-object v0
 
     .line 1196
-    .local v0, pinBytes:[B
+    .local v0, "pinBytes":[B
     array-length v3, v0
 
     if-lez v3, :cond_2
@@ -284,12 +284,12 @@
     goto :goto_0
 
     .line 1192
-    .end local v0           #pinBytes:[B
+    .end local v0    # "pinBytes":[B
     :catch_0
     move-exception v1
 
     .line 1193
-    .local v1, uee:Ljava/io/UnsupportedEncodingException;
+    .local v1, "uee":Ljava/io/UnsupportedEncodingException;
     const-string v3, "BluetoothDevice"
 
     const-string v4, "UTF-8 not supported?!?"
@@ -323,7 +323,7 @@
     move-result-object v0
 
     .line 530
-    .local v0, adapter:Landroid/bluetooth/BluetoothAdapter;
+    .local v0, "adapter":Landroid/bluetooth/BluetoothAdapter;
     sget-object v1, Landroid/bluetooth/BluetoothDevice;->mStateChangeCallback:Landroid/bluetooth/IBluetoothManagerCallback;
 
     invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothAdapter;->getBluetoothService(Landroid/bluetooth/IBluetoothManagerCallback;)Landroid/bluetooth/IBluetooth;
@@ -396,7 +396,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -445,7 +445,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -457,9 +457,9 @@
 
 .method public connectGatt(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;
     .locals 8
-    .parameter "context"
-    .parameter "autoConnect"
-    .parameter "callback"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "autoConnect"    # Z
+    .param p3, "callback"    # Landroid/bluetooth/BluetoothGattCallback;
 
     .prologue
     const/4 v5, 0x0
@@ -470,38 +470,38 @@
     move-result-object v0
 
     .line 1219
-    .local v0, adapter:Landroid/bluetooth/BluetoothAdapter;
+    .local v0, "adapter":Landroid/bluetooth/BluetoothAdapter;
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getBluetoothManager()Landroid/bluetooth/IBluetoothManager;
 
     move-result-object v4
 
     .line 1221
-    .local v4, managerService:Landroid/bluetooth/IBluetoothManager;
+    .local v4, "managerService":Landroid/bluetooth/IBluetoothManager;
     :try_start_0
     invoke-interface {v4}, Landroid/bluetooth/IBluetoothManager;->getBluetoothGatt()Landroid/bluetooth/IBluetoothGatt;
 
     move-result-object v3
 
     .line 1222
-    .local v3, iGatt:Landroid/bluetooth/IBluetoothGatt;
+    .local v3, "iGatt":Landroid/bluetooth/IBluetoothGatt;
     if-nez v3, :cond_0
 
     move-object v2, v5
 
     .line 1230
-    .end local v3           #iGatt:Landroid/bluetooth/IBluetoothGatt;
+    .end local v3    # "iGatt":Landroid/bluetooth/IBluetoothGatt;
     :goto_0
     return-object v2
 
     .line 1226
-    .restart local v3       #iGatt:Landroid/bluetooth/IBluetoothGatt;
+    .restart local v3    # "iGatt":Landroid/bluetooth/IBluetoothGatt;
     :cond_0
     new-instance v2, Landroid/bluetooth/BluetoothGatt;
 
     invoke-direct {v2, p1, v3, p0}, Landroid/bluetooth/BluetoothGatt;-><init>(Landroid/content/Context;Landroid/bluetooth/IBluetoothGatt;Landroid/bluetooth/BluetoothDevice;)V
 
     .line 1227
-    .local v2, gatt:Landroid/bluetooth/BluetoothGatt;
+    .local v2, "gatt":Landroid/bluetooth/BluetoothGatt;
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
@@ -513,12 +513,12 @@
     goto :goto_0
 
     .line 1229
-    .end local v2           #gatt:Landroid/bluetooth/BluetoothGatt;
-    .end local v3           #iGatt:Landroid/bluetooth/IBluetoothGatt;
+    .end local v2    # "gatt":Landroid/bluetooth/BluetoothGatt;
+    .end local v3    # "iGatt":Landroid/bluetooth/IBluetoothGatt;
     :catch_0
     move-exception v1
 
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v6, "BluetoothDevice"
 
     const-string v7, ""
@@ -570,7 +570,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -582,8 +582,8 @@
 
 .method public createBondOutOfBand([B[B)Z
     .locals 1
-    .parameter "hash"
-    .parameter "randomizer"
+    .param p1, "hash"    # [B
+    .param p2, "randomizer"    # [B
 
     .prologue
     .line 768
@@ -594,7 +594,7 @@
 
 .method public createInsecureRfcommSocket(I)Landroid/bluetooth/BluetoothSocket;
     .locals 8
-    .parameter "port"
+    .param p1, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -626,7 +626,7 @@
 
 .method public createInsecureRfcommSocketToServiceRecord(Ljava/util/UUID;)Landroid/bluetooth/BluetoothSocket;
     .locals 8
-    .parameter "uuid"
+    .param p1, "uuid"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -660,7 +660,7 @@
 
 .method public createRfcommSocket(I)Landroid/bluetooth/BluetoothSocket;
     .locals 8
-    .parameter "channel"
+    .param p1, "channel"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -692,7 +692,7 @@
 
 .method public createRfcommSocketToServiceRecord(Ljava/util/UUID;)Landroid/bluetooth/BluetoothSocket;
     .locals 8
-    .parameter "uuid"
+    .param p1, "uuid"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -767,7 +767,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 572
@@ -780,7 +780,7 @@
 
     check-cast p1, Landroid/bluetooth/BluetoothDevice;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
     move-result-object v1
@@ -793,7 +793,7 @@
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -822,7 +822,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothDevice"
 
     const-string v2, ""
@@ -884,7 +884,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -904,7 +904,7 @@
     move-result-object v0
 
     .line 715
-    .local v0, name:Ljava/lang/String;
+    .local v0, "name":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 716
@@ -950,8 +950,8 @@
     move-result v0
 
     .line 872
-    .local v0, classInt:I
-    const/high16 v3, -0x100
+    .local v0, "classInt":I
+    const/high16 v3, -0x1000000
 
     if-eq v0, v3, :cond_0
 
@@ -967,11 +967,11 @@
     goto :goto_0
 
     .line 874
-    .end local v0           #classInt:I
+    .end local v0    # "classInt":I
     :catch_0
     move-exception v1
 
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "BluetoothDevice"
 
     const-string v4, ""
@@ -1021,7 +1021,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "BluetoothDevice"
 
     const-string v4, ""
@@ -1031,12 +1031,12 @@
     goto :goto_0
 
     .line 850
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 853
-    .local v1, npe:Ljava/lang/NullPointerException;
+    .local v1, "npe":Ljava/lang/NullPointerException;
     const-string v3, "BluetoothDevice"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1111,7 +1111,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1123,11 +1123,11 @@
 
 .method public getServiceChannel(Landroid/os/ParcelUuid;)I
     .locals 1
-    .parameter "uuid"
+    .param p1, "uuid"    # Landroid/os/ParcelUuid;
 
     .prologue
     .line 963
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     return v0
 .end method
@@ -1181,7 +1181,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1230,7 +1230,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1303,7 +1303,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1315,7 +1315,7 @@
 
 .method public setAlias(Ljava/lang/String;)Z
     .locals 4
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -1353,7 +1353,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1365,8 +1365,8 @@
 
 .method public setDeviceOutOfBandData([B[B)Z
     .locals 1
-    .parameter "hash"
-    .parameter "randomizer"
+    .param p1, "hash"    # [B
+    .param p2, "randomizer"    # [B
 
     .prologue
     .line 790
@@ -1377,7 +1377,7 @@
 
 .method public setPairingConfirmation(Z)Z
     .locals 4
-    .parameter "confirm"
+    .param p1, "confirm"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1415,7 +1415,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1427,7 +1427,7 @@
 
 .method public setPasskey(I)Z
     .locals 1
-    .parameter "passkey"
+    .param p1, "passkey"    # I
 
     .prologue
     .line 991
@@ -1438,7 +1438,7 @@
 
 .method public setPin([B)Z
     .locals 5
-    .parameter "pin"
+    .param p1, "pin"    # [B
 
     .prologue
     const/4 v1, 0x0
@@ -1480,7 +1480,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothDevice"
 
     const-string v3, ""
@@ -1502,7 +1502,7 @@
 
 .method public setTrust(Z)Z
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 908
@@ -1523,8 +1523,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 611

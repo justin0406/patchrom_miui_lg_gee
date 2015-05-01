@@ -10,8 +10,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 32
@@ -23,8 +23,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicHistogram;
     .locals 4
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 49
@@ -90,13 +90,13 @@
     move-result v0
 
     .line 56
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ScriptIntrinsicHistogram;
 
     invoke-direct {v1, v0, p0}, Landroid/renderscript/ScriptIntrinsicHistogram;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 57
-    .local v1, sib:Landroid/renderscript/ScriptIntrinsicHistogram;
+    .local v1, "sib":Landroid/renderscript/ScriptIntrinsicHistogram;
     return-object v1
 .end method
 
@@ -104,7 +104,7 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;)V
     .locals 3
-    .parameter "ain"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v2, 0x0
@@ -210,7 +210,7 @@
 
 .method public forEach_Dot(Landroid/renderscript/Allocation;)V
     .locals 4
-    .parameter "ain"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v3, 0x0
@@ -338,10 +338,10 @@
 
 .method public setDotCoefficients(FFFF)V
     .locals 3
-    .parameter "r"
-    .parameter "g"
-    .parameter "b"
-    .parameter "a"
+    .param p1, "r"    # F
+    .param p2, "g"    # F
+    .param p3, "b"    # F
+    .param p4, "a"    # F
 
     .prologue
     const/4 v2, 0x0
@@ -381,7 +381,7 @@
 
     add-float/2addr v1, p4
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     cmpl-float v1, v1, v2
 
@@ -405,7 +405,7 @@
     invoke-direct {v0, v1}, Landroid/renderscript/FieldPacker;-><init>(I)V
 
     .line 108
-    .local v0, fp:Landroid/renderscript/FieldPacker;
+    .local v0, "fp":Landroid/renderscript/FieldPacker;
     invoke-virtual {v0, p1}, Landroid/renderscript/FieldPacker;->addF32(F)V
 
     .line 109
@@ -428,7 +428,7 @@
 
 .method public setOutput(Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "aout"
+    .param p1, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 122

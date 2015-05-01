@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/IBatteryPropertiesRegistrar;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/IBatteryPropertiesRegistrar;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/os/IBatteryPropertiesRegistrar$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/IBatteryPropertiesRegistrar$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,7 +154,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, _arg0:Landroid/os/IBatteryPropertiesListener;
+    .local v0, "_arg0":Landroid/os/IBatteryPropertiesListener;
     invoke-virtual {p0, v0}, Landroid/os/IBatteryPropertiesRegistrar$Stub;->registerListener(Landroid/os/IBatteryPropertiesListener;)V
 
     .line 54
@@ -163,7 +163,7 @@
     goto :goto_0
 
     .line 59
-    .end local v0           #_arg0:Landroid/os/IBatteryPropertiesListener;
+    .end local v0    # "_arg0":Landroid/os/IBatteryPropertiesListener;
     :sswitch_2
     const-string v2, "android.os.IBatteryPropertiesRegistrar"
 
@@ -179,7 +179,7 @@
     move-result-object v0
 
     .line 62
-    .restart local v0       #_arg0:Landroid/os/IBatteryPropertiesListener;
+    .restart local v0    # "_arg0":Landroid/os/IBatteryPropertiesListener;
     invoke-virtual {p0, v0}, Landroid/os/IBatteryPropertiesRegistrar$Stub;->unregisterListener(Landroid/os/IBatteryPropertiesListener;)V
 
     .line 63

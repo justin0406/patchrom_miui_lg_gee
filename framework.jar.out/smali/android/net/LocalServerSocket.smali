@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 2
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -56,7 +56,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,7 +123,7 @@
     invoke-direct {v0}, Landroid/net/LocalSocketImpl;-><init>()V
 
     .line 94
-    .local v0, acceptedImpl:Landroid/net/LocalSocketImpl;
+    .local v0, "acceptedImpl":Landroid/net/LocalSocketImpl;
     iget-object v1, p0, Landroid/net/LocalServerSocket;->impl:Landroid/net/LocalSocketImpl;
 
     invoke-virtual {v1, v0}, Landroid/net/LocalSocketImpl;->accept(Landroid/net/LocalSocketImpl;)V

@@ -74,7 +74,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/display/IDisplayManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -96,7 +96,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/display/IDisplayManager;
@@ -112,7 +112,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/display/IDisplayManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/display/IDisplayManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -130,10 +130,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 10
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,13 +175,13 @@
     move-result v1
 
     .line 51
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p0, v1}, Landroid/hardware/display/IDisplayManager$Stub;->getDisplayInfo(I)Landroid/view/DisplayInfo;
 
     move-result-object v9
 
     .line 52
-    .local v9, _result:Landroid/view/DisplayInfo;
+    .local v9, "_result":Landroid/view/DisplayInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 53
@@ -212,8 +212,8 @@
     goto :goto_1
 
     .line 64
-    .end local v1           #_arg0:I
-    .end local v9           #_result:Landroid/view/DisplayInfo;
+    .end local v1    # "_arg0":I
+    .end local v9    # "_result":Landroid/view/DisplayInfo;
     :sswitch_2
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -225,7 +225,7 @@
     move-result-object v9
 
     .line 66
-    .local v9, _result:[I
+    .local v9, "_result":[I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 67
@@ -237,7 +237,7 @@
     goto :goto_0
 
     .line 72
-    .end local v9           #_result:[I
+    .end local v9    # "_result":[I
     :sswitch_3
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -253,7 +253,7 @@
     move-result-object v1
 
     .line 75
-    .local v1, _arg0:Landroid/hardware/display/IDisplayManagerCallback;
+    .local v1, "_arg0":Landroid/hardware/display/IDisplayManagerCallback;
     invoke-virtual {p0, v1}, Landroid/hardware/display/IDisplayManager$Stub;->registerCallback(Landroid/hardware/display/IDisplayManagerCallback;)V
 
     .line 76
@@ -265,7 +265,7 @@
     goto :goto_0
 
     .line 81
-    .end local v1           #_arg0:Landroid/hardware/display/IDisplayManagerCallback;
+    .end local v1    # "_arg0":Landroid/hardware/display/IDisplayManagerCallback;
     :sswitch_4
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -311,7 +311,7 @@
     move-result-object v1
 
     .line 98
-    .local v1, _arg0:Ljava/lang/String;
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/hardware/display/IDisplayManager$Stub;->connectWifiDisplay(Ljava/lang/String;)V
 
     .line 99
@@ -323,7 +323,7 @@
     goto :goto_0
 
     .line 104
-    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v1    # "_arg0":Ljava/lang/String;
     :sswitch_7
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -352,13 +352,13 @@
     move-result-object v1
 
     .line 115
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 116
-    .local v2, _arg1:Ljava/lang/String;
+    .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Landroid/hardware/display/IDisplayManager$Stub;->renameWifiDisplay(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 117
@@ -370,8 +370,8 @@
     goto/16 :goto_0
 
     .line 122
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Ljava/lang/String;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":Ljava/lang/String;
     :sswitch_9
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -383,7 +383,7 @@
     move-result-object v1
 
     .line 125
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/hardware/display/IDisplayManager$Stub;->forgetWifiDisplay(Ljava/lang/String;)V
 
     .line 126
@@ -395,7 +395,7 @@
     goto/16 :goto_0
 
     .line 131
-    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v1    # "_arg0":Ljava/lang/String;
     :sswitch_a
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -441,7 +441,7 @@
     move-result-object v9
 
     .line 147
-    .local v9, _result:Landroid/hardware/display/WifiDisplayStatus;
+    .local v9, "_result":Landroid/hardware/display/WifiDisplayStatus;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 148
@@ -472,7 +472,7 @@
     goto :goto_2
 
     .line 159
-    .end local v9           #_result:Landroid/hardware/display/WifiDisplayStatus;
+    .end local v9    # "_result":Landroid/hardware/display/WifiDisplayStatus;
     :sswitch_d
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -484,37 +484,37 @@
     move-result-object v1
 
     .line 163
-    .local v1, _arg0:Landroid/os/IBinder;
+    .local v1, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 165
-    .restart local v2       #_arg1:Ljava/lang/String;
+    .restart local v2    # "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 167
-    .local v3, _arg2:Ljava/lang/String;
+    .local v3, "_arg2":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 169
-    .local v4, _arg3:I
+    .local v4, "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 171
-    .local v5, _arg4:I
+    .local v5, "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 173
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -531,13 +531,13 @@
     check-cast v7, Landroid/view/Surface;
 
     .line 180
-    .local v7, _arg6:Landroid/view/Surface;
+    .local v7, "_arg6":Landroid/view/Surface;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
-    .local v8, _arg7:I
+    .local v8, "_arg7":I
     move-object v0, p0
 
     .line 181
@@ -546,7 +546,7 @@
     move-result v9
 
     .line 182
-    .local v9, _result:I
+    .local v9, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 183
@@ -558,23 +558,23 @@
     goto/16 :goto_0
 
     .line 177
-    .end local v7           #_arg6:Landroid/view/Surface;
-    .end local v8           #_arg7:I
-    .end local v9           #_result:I
+    .end local v7    # "_arg6":Landroid/view/Surface;
+    .end local v8    # "_arg7":I
+    .end local v9    # "_result":I
     :cond_2
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/view/Surface;
+    .restart local v7    # "_arg6":Landroid/view/Surface;
     goto :goto_3
 
     .line 188
-    .end local v1           #_arg0:Landroid/os/IBinder;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v3           #_arg2:Ljava/lang/String;
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/view/Surface;
+    .end local v1    # "_arg0":Landroid/os/IBinder;
+    .end local v2    # "_arg1":Ljava/lang/String;
+    .end local v3    # "_arg2":Ljava/lang/String;
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/view/Surface;
     :sswitch_e
     const-string v0, "android.hardware.display.IDisplayManager"
 
@@ -586,7 +586,7 @@
     move-result-object v1
 
     .line 191
-    .restart local v1       #_arg0:Landroid/os/IBinder;
+    .restart local v1    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v1}, Landroid/hardware/display/IDisplayManager$Stub;->releaseVirtualDisplay(Landroid/os/IBinder;)V
 
     .line 192

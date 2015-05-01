@@ -42,18 +42,18 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/ProxyProperties;
     .locals 8
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 256
     const/4 v1, 0x0
 
     .line 257
-    .local v1, host:Ljava/lang/String;
+    .local v1, "host":Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 258
-    .local v2, port:I
+    .local v2, "port":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v5
@@ -66,20 +66,20 @@
     move-result-object v7
 
     .line 260
-    .local v7, url:Ljava/lang/String;
+    .local v7, "url":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 261
-    .local v6, localPort:I
+    .local v6, "localPort":I
     new-instance v0, Landroid/net/ProxyProperties;
 
     invoke-direct {v0, v7, v6}, Landroid/net/ProxyProperties;-><init>(Ljava/lang/String;I)V
 
     .line 271
-    .end local v6           #localPort:I
-    .end local v7           #url:Ljava/lang/String;
+    .end local v6    # "localPort":I
+    .end local v7    # "url":Ljava/lang/String;
     :goto_0
     return-object v0
 
@@ -108,13 +108,13 @@
     move-result-object v3
 
     .line 268
-    .local v3, exclList:Ljava/lang/String;
+    .local v3, "exclList":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v4
 
     .line 269
-    .local v4, parsedExclList:[Ljava/lang/String;
+    .local v4, "parsedExclList":[Ljava/lang/String;
     new-instance v0, Landroid/net/ProxyProperties;
 
     const/4 v5, 0x0
@@ -122,13 +122,13 @@
     invoke-direct/range {v0 .. v5}, Landroid/net/ProxyProperties;-><init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Landroid/net/ProxyProperties$1;)V
 
     .line 271
-    .local v0, proxyProperties:Landroid/net/ProxyProperties;
+    .local v0, "proxyProperties":Landroid/net/ProxyProperties;
     goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 254
@@ -141,7 +141,7 @@
 
 .method public newArray(I)[Landroid/net/ProxyProperties;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 275
@@ -152,7 +152,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 254

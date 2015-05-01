@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 221
@@ -51,7 +51,7 @@
 
 .method public calculateDirectorySize(Ljava/lang/String;)J
     .locals 7
-    .parameter "directory"
+    .param p1, "directory"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 402
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 405
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.app.IMediaContainerService"
 
@@ -100,7 +100,7 @@
     move-result-wide v2
 
     .line 412
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 413
@@ -110,7 +110,7 @@
     return-wide v2
 
     .line 412
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -124,8 +124,8 @@
 
 .method public calculateInstalledSize(Ljava/lang/String;Z)J
     .locals 7
-    .parameter "packagePath"
-    .parameter "isForwardLocked"
+    .param p1, "packagePath"    # Ljava/lang/String;
+    .param p2, "isForwardLocked"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -141,13 +141,13 @@
     move-result-object v0
 
     .line 454
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 457
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "com.android.internal.app.IMediaContainerService"
 
@@ -184,7 +184,7 @@
     move-result-wide v2
 
     .line 465
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 466
@@ -194,7 +194,7 @@
     return-wide v2
 
     .line 465
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -208,8 +208,8 @@
 
 .method public checkExternalFreeStorage(Landroid/net/Uri;Z)Z
     .locals 7
-    .parameter "fileUri"
-    .parameter "isForwardLocked"
+    .param p1, "fileUri"    # Landroid/net/Uri;
+    .param p2, "isForwardLocked"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -227,13 +227,13 @@
     move-result-object v0
 
     .line 354
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 357
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.app.IMediaContainerService"
 
@@ -283,7 +283,7 @@
     if-eqz v4, :cond_2
 
     .line 371
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -294,7 +294,7 @@
     return v2
 
     .line 363
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -331,9 +331,9 @@
 
 .method public checkInternalFreeStorage(Landroid/net/Uri;ZJ)Z
     .locals 7
-    .parameter "fileUri"
-    .parameter "isForwardLocked"
-    .parameter "threshold"
+    .param p1, "fileUri"    # Landroid/net/Uri;
+    .param p2, "isForwardLocked"    # Z
+    .param p3, "threshold"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -351,13 +351,13 @@
     move-result-object v0
 
     .line 328
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 331
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.app.IMediaContainerService"
 
@@ -410,7 +410,7 @@
     if-eqz v4, :cond_2
 
     .line 346
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -421,7 +421,7 @@
     return v2
 
     .line 337
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -458,7 +458,7 @@
 
 .method public clearDirectory(Ljava/lang/String;)V
     .locals 5
-    .parameter "directory"
+    .param p1, "directory"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -472,13 +472,13 @@
     move-result-object v0
 
     .line 439
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 441
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IMediaContainerService"
 
@@ -524,9 +524,9 @@
 
 .method public copyResource(Landroid/net/Uri;Landroid/content/pm/ContainerEncryptionParams;Landroid/os/ParcelFileDescriptor;)I
     .locals 6
-    .parameter "packageURI"
-    .parameter "encryptionParams"
-    .parameter "outStream"
+    .param p1, "packageURI"    # Landroid/net/Uri;
+    .param p2, "encryptionParams"    # Landroid/content/pm/ContainerEncryptionParams;
+    .param p3, "outStream"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -540,13 +540,13 @@
     move-result-object v0
 
     .line 265
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 268
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IMediaContainerService"
 
@@ -614,7 +614,7 @@
     move-result v2
 
     .line 295
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 296
@@ -624,7 +624,7 @@
     return v2
 
     .line 274
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -668,13 +668,13 @@
 
 .method public copyResourceToContainer(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Ljava/lang/String;
     .locals 6
-    .parameter "packageURI"
-    .parameter "containerId"
-    .parameter "key"
-    .parameter "resFileName"
-    .parameter "publicResFileName"
-    .parameter "isExternal"
-    .parameter "isForwardLocked"
+    .param p1, "packageURI"    # Landroid/net/Uri;
+    .param p2, "containerId"    # Ljava/lang/String;
+    .param p3, "key"    # Ljava/lang/String;
+    .param p4, "resFileName"    # Ljava/lang/String;
+    .param p5, "publicResFileName"    # Ljava/lang/String;
+    .param p6, "isExternal"    # Z
+    .param p7, "isForwardLocked"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -692,13 +692,13 @@
     move-result-object v0
 
     .line 235
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 238
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "com.android.internal.app.IMediaContainerService"
 
@@ -764,7 +764,7 @@
     move-result-object v2
 
     .line 257
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 258
@@ -774,7 +774,7 @@
     return-object v2
 
     .line 244
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v5, 0x0
 
@@ -811,7 +811,7 @@
 
 .method public getFileSystemStats(Ljava/lang/String;)[J
     .locals 6
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -825,13 +825,13 @@
     move-result-object v0
 
     .line 421
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 424
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IMediaContainerService"
 
@@ -860,7 +860,7 @@
     move-result-object v2
 
     .line 431
-    .local v2, _result:[J
+    .local v2, "_result":[J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 432
@@ -870,7 +870,7 @@
     return-object v2
 
     .line 431
-    .end local v2           #_result:[J
+    .end local v2    # "_result":[J
     :catchall_0
     move-exception v3
 
@@ -894,9 +894,9 @@
 
 .method public getMinimalPackageInfo(Ljava/lang/String;IJ)Landroid/content/pm/PackageInfoLite;
     .locals 6
-    .parameter "packagePath"
-    .parameter "flags"
-    .parameter "threshold"
+    .param p1, "packagePath"    # Ljava/lang/String;
+    .param p2, "flags"    # I
+    .param p3, "threshold"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -910,13 +910,13 @@
     move-result-object v0
 
     .line 303
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 306
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IMediaContainerService"
 
@@ -962,7 +962,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 320
-    .local v2, _result:Landroid/content/pm/PackageInfoLite;
+    .local v2, "_result":Landroid/content/pm/PackageInfoLite;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -973,15 +973,15 @@
     return-object v2
 
     .line 316
-    .end local v2           #_result:Landroid/content/pm/PackageInfoLite;
+    .end local v2    # "_result":Landroid/content/pm/PackageInfoLite;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/pm/PackageInfoLite;
+    .restart local v2    # "_result":Landroid/content/pm/PackageInfoLite;
     goto :goto_0
 
     .line 320
-    .end local v2           #_result:Landroid/content/pm/PackageInfoLite;
+    .end local v2    # "_result":Landroid/content/pm/PackageInfoLite;
     :catchall_0
     move-exception v3
 
@@ -995,7 +995,7 @@
 
 .method public getObbInfo(Ljava/lang/String;)Landroid/content/res/ObbInfo;
     .locals 6
-    .parameter "filename"
+    .param p1, "filename"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1009,13 +1009,13 @@
     move-result-object v0
 
     .line 379
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 382
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IMediaContainerService"
 
@@ -1055,7 +1055,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 394
-    .local v2, _result:Landroid/content/res/ObbInfo;
+    .local v2, "_result":Landroid/content/res/ObbInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1066,15 +1066,15 @@
     return-object v2
 
     .line 390
-    .end local v2           #_result:Landroid/content/res/ObbInfo;
+    .end local v2    # "_result":Landroid/content/res/ObbInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/res/ObbInfo;
+    .restart local v2    # "_result":Landroid/content/res/ObbInfo;
     goto :goto_0
 
     .line 394
-    .end local v2           #_result:Landroid/content/res/ObbInfo;
+    .end local v2    # "_result":Landroid/content/res/ObbInfo;
     :catchall_0
     move-exception v3
 

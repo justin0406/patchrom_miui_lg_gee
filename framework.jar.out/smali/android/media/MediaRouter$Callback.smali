@@ -38,8 +38,8 @@
 
 .method public onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2714

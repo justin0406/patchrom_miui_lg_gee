@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiController;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 306
+    .line 316
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -36,19 +35,19 @@
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
     .locals 10
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    .line 309
+    .line 319
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
 
-    .line 373
+    .line 383
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -75,73 +74,73 @@
 
     throw v3
 
-    .line 311
+    .line 321
     :pswitch_0
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
+    # getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$400(Lcom/android/server/wifi/WifiController;)Landroid/app/AlarmManager;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
+    # getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
     invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$300(Lcom/android/server/wifi/WifiController;)Landroid/app/PendingIntent;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 312
+    .line 322
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
+    # setter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
     invoke-static {v3, v8}, Lcom/android/server/wifi/WifiController;->access$502(Lcom/android/server/wifi/WifiController;Z)Z
 
-    .line 313
+    .line 323
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mDeviceIdle:Z
+    # setter for: Lcom/android/server/wifi/WifiController;->mDeviceIdle:Z
     invoke-static {v3, v8}, Lcom/android/server/wifi/WifiController;->access$602(Lcom/android/server/wifi/WifiController;Z)Z
 
-    .line 314
+    .line 324
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #calls: Lcom/android/server/wifi/WifiController;->updateBatteryWorkSource()V
+    # invokes: Lcom/android/server/wifi/WifiController;->updateBatteryWorkSource()V
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$700(Lcom/android/server/wifi/WifiController;)V
 
-    .line 375
+    .line 385
     :cond_0
     :goto_0
     :pswitch_1
     return v9
 
-    .line 317
+    .line 327
     :pswitch_2
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
+    # setter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
     invoke-static {v3, v9}, Lcom/android/server/wifi/WifiController;->access$502(Lcom/android/server/wifi/WifiController;Z)Z
 
-    .line 324
+    .line 334
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v4, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
+    # getter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
     invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$800(Lcom/android/server/wifi/WifiController;)I
 
     move-result v4
 
-    #calls: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
+    # invokes: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
     invoke-static {v3, v4}, Lcom/android/server/wifi/WifiController;->access$900(Lcom/android/server/wifi/WifiController;I)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 326
+    .line 336
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v3, v3, Lcom/android/server/wifi/WifiController;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -154,10 +153,10 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 329
+    .line 339
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
+    # getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$400(Lcom/android/server/wifi/WifiController;)Landroid/app/AlarmManager;
 
     move-result-object v3
@@ -168,7 +167,7 @@
 
     iget-object v6, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mIdleMillis:J
+    # getter for: Lcom/android/server/wifi/WifiController;->mIdleMillis:J
     invoke-static {v6}, Lcom/android/server/wifi/WifiController;->access$1000(Lcom/android/server/wifi/WifiController;)J
 
     move-result-wide v6
@@ -177,7 +176,7 @@
 
     iget-object v6, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
+    # getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
     invoke-static {v6}, Lcom/android/server/wifi/WifiController;->access$300(Lcom/android/server/wifi/WifiController;)Landroid/app/PendingIntent;
 
     move-result-object v6
@@ -186,7 +185,7 @@
 
     goto :goto_0
 
-    .line 332
+    .line 342
     :cond_1
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -196,30 +195,30 @@
 
     goto :goto_0
 
-    .line 337
+    .line 347
     :pswitch_3
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mDeviceIdle:Z
+    # setter for: Lcom/android/server/wifi/WifiController;->mDeviceIdle:Z
     invoke-static {v3, v9}, Lcom/android/server/wifi/WifiController;->access$602(Lcom/android/server/wifi/WifiController;Z)Z
 
-    .line 338
+    .line 348
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #calls: Lcom/android/server/wifi/WifiController;->updateBatteryWorkSource()V
+    # invokes: Lcom/android/server/wifi/WifiController;->updateBatteryWorkSource()V
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$700(Lcom/android/server/wifi/WifiController;)V
 
     goto :goto_0
 
-    .line 348
+    .line 358
     :pswitch_4
     iget v0, p1, Landroid/os/Message;->arg1:I
 
-    .line 350
-    .local v0, pluggedType:I
+    .line 360
+    .local v0, "pluggedType":I
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
+    # getter for: Lcom/android/server/wifi/WifiController;->mScreenOff:Z
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$500(Lcom/android/server/wifi/WifiController;)Z
 
     move-result v3
@@ -230,12 +229,12 @@
 
     iget-object v4, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
+    # getter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
     invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$800(Lcom/android/server/wifi/WifiController;)I
 
     move-result v4
 
-    #calls: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
+    # invokes: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
     invoke-static {v3, v4}, Lcom/android/server/wifi/WifiController;->access$900(Lcom/android/server/wifi/WifiController;I)Z
 
     move-result v3
@@ -244,77 +243,77 @@
 
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #calls: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
+    # invokes: Lcom/android/server/wifi/WifiController;->shouldWifiStayAwake(I)Z
     invoke-static {v3, v0}, Lcom/android/server/wifi/WifiController;->access$900(Lcom/android/server/wifi/WifiController;I)Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    .line 352
+    .line 362
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
 
     iget-object v5, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mIdleMillis:J
+    # getter for: Lcom/android/server/wifi/WifiController;->mIdleMillis:J
     invoke-static {v5}, Lcom/android/server/wifi/WifiController;->access$1000(Lcom/android/server/wifi/WifiController;)J
 
     move-result-wide v5
 
     add-long v1, v3, v5
 
-    .line 354
-    .local v1, triggerTime:J
+    .line 364
+    .local v1, "triggerTime":J
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
+    # getter for: Lcom/android/server/wifi/WifiController;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$400(Lcom/android/server/wifi/WifiController;)Landroid/app/AlarmManager;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
+    # getter for: Lcom/android/server/wifi/WifiController;->mIdleIntent:Landroid/app/PendingIntent;
     invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$300(Lcom/android/server/wifi/WifiController;)Landroid/app/PendingIntent;
 
     move-result-object v4
 
     invoke-virtual {v3, v8, v1, v2, v4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 357
-    .end local v1           #triggerTime:J
+    .line 367
+    .end local v1    # "triggerTime":J
     :cond_2
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
+    # setter for: Lcom/android/server/wifi/WifiController;->mPluggedType:I
     invoke-static {v3, v0}, Lcom/android/server/wifi/WifiController;->access$802(Lcom/android/server/wifi/WifiController;I)I
 
     goto/16 :goto_0
 
-    .line 367
-    .end local v0           #pluggedType:I
+    .line 377
+    .end local v0    # "pluggedType":I
     :pswitch_5
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
-    #setter for: Lcom/android/server/wifi/WifiController;->mFirstUserSignOnSeen:Z
+    # setter for: Lcom/android/server/wifi/WifiController;->mFirstUserSignOnSeen:Z
     invoke-static {v3, v9}, Lcom/android/server/wifi/WifiController;->access$1102(Lcom/android/server/wifi/WifiController;Z)Z
 
     goto/16 :goto_0
 
-    .line 370
+    .line 380
     :pswitch_6
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$DefaultState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v4, "DEFERRED_TOGGLE ignored due to state change"
 
-    #calls: Lcom/android/server/wifi/WifiController;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/wifi/WifiController;->log(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/server/wifi/WifiController;->access$1200(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 309
+    .line 319
     nop
 
     :pswitch_data_0

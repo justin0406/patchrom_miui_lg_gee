@@ -31,7 +31,7 @@
 
 .method static synthetic access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareService;
 
     .prologue
     .line 33
@@ -42,7 +42,7 @@
 
 .method static synthetic access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareService;
 
     .prologue
     .line 33
@@ -53,10 +53,10 @@
 
 .method static synthetic access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareService;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
 
     .prologue
     .line 33
@@ -67,9 +67,9 @@
 
 .method private checkPermission(III)V
     .locals 3
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "monitoringType"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "monitoringType"    # I
 
     .prologue
     .line 60
@@ -121,7 +121,7 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 45
@@ -165,7 +165,7 @@
 
 .method public onUnbind(Landroid/content/Intent;)Z
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 50

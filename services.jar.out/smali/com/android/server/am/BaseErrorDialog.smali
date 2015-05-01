@@ -12,29 +12,29 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    const/high16 v3, 0x2
+    const/high16 v3, 0x20000
 
+    .line 31
     const v1, 0x1030307
-
-    invoke-static {v1}, Lcom/android/server/am/Injector$BaseErrorDialogHook;->getTheme(I)I
-
-    move-result v1
 
     invoke-direct {p0, p1, v1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
+    .line 72
     new-instance v1, Lcom/android/server/am/BaseErrorDialog$1;
 
     invoke-direct {v1, p0}, Lcom/android/server/am/BaseErrorDialog$1;-><init>(Lcom/android/server/am/BaseErrorDialog;)V
 
     iput-object v1, p0, Lcom/android/server/am/BaseErrorDialog;->mHandler:Landroid/os/Handler;
 
+    .line 81
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/am/BaseErrorDialog;->mConsuming:Z
 
+    .line 33
     invoke-virtual {p0}, Lcom/android/server/am/BaseErrorDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -60,7 +60,7 @@
     move-result-object v0
 
     .line 37
-    .local v0, attrs:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     const-string v1, "Error Dialog"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
@@ -83,8 +83,8 @@
 
 .method static synthetic access$002(Lcom/android/server/am/BaseErrorDialog;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/am/BaseErrorDialog;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 29
@@ -95,8 +95,8 @@
 
 .method static synthetic access$100(Lcom/android/server/am/BaseErrorDialog;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/am/BaseErrorDialog;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 29
@@ -107,7 +107,7 @@
 
 .method private setEnabled(Z)V
     .locals 2
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 58
@@ -120,7 +120,7 @@
     check-cast v0, Landroid/widget/Button;
 
     .line 59
-    .local v0, b:Landroid/widget/Button;
+    .local v0, "b":Landroid/widget/Button;
     if-eqz v0, :cond_0
 
     .line 60
@@ -134,11 +134,11 @@
 
     move-result-object v0
 
-    .end local v0           #b:Landroid/widget/Button;
+    .end local v0    # "b":Landroid/widget/Button;
     check-cast v0, Landroid/widget/Button;
 
     .line 63
-    .restart local v0       #b:Landroid/widget/Button;
+    .restart local v0    # "b":Landroid/widget/Button;
     if-eqz v0, :cond_1
 
     .line 64
@@ -152,11 +152,11 @@
 
     move-result-object v0
 
-    .end local v0           #b:Landroid/widget/Button;
+    .end local v0    # "b":Landroid/widget/Button;
     check-cast v0, Landroid/widget/Button;
 
     .line 67
-    .restart local v0       #b:Landroid/widget/Button;
+    .restart local v0    # "b":Landroid/widget/Button;
     if-eqz v0, :cond_2
 
     .line 68
@@ -171,7 +171,7 @@
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 49

@@ -17,7 +17,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -58,7 +58,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 358
@@ -118,9 +118,9 @@
 
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;JJ)V
     .locals 7
-    .parameter "fd"
-    .parameter "startOffset"
-    .parameter "length"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "startOffset"    # J
+    .param p4, "length"    # J
 
     .prologue
     .line 59
@@ -142,10 +142,10 @@
 
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;JJLandroid/os/Bundle;)V
     .locals 3
-    .parameter "fd"
-    .parameter "startOffset"
-    .parameter "length"
-    .parameter "extras"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "startOffset"    # J
+    .param p4, "length"    # J
+    .param p6, "extras"    # Landroid/os/Bundle;
 
     .prologue
     const-wide/16 v1, 0x0
@@ -373,7 +373,7 @@
     move-result-wide v0
 
     .line 136
-    .local v0, len:J
+    .local v0, "len":J
     cmp-long v2, v0, v4
 
     if-gez v2, :cond_0
@@ -463,8 +463,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 347

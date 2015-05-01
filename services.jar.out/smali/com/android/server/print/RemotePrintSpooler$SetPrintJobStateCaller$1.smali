@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 509
@@ -38,8 +37,8 @@
 # virtual methods
 .method public onSetPrintJobStateResult(ZI)V
     .locals 2
-    .parameter "success"
-    .parameter "sequence"
+    .param p1, "success"    # Z
+    .param p2, "sequence"    # I
 
     .prologue
     .line 512

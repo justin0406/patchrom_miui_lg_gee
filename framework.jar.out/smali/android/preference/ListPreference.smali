@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 65
@@ -42,8 +42,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -59,7 +59,7 @@
     move-result-object v0
 
     .line 51
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -103,8 +103,8 @@
 
 .method static synthetic access$002(Landroid/preference/ListPreference;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/preference/ListPreference;
+    .param p1, "x1"    # I
 
     .prologue
     .line 38
@@ -131,7 +131,7 @@
 # virtual methods
 .method public findIndexOfValue(Ljava/lang/String;)I
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 221
@@ -148,7 +148,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -164,19 +164,19 @@
     if-eqz v1, :cond_0
 
     .line 228
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 222
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 228
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     const/4 v0, -0x1
 
@@ -203,7 +203,7 @@
     move-result v0
 
     .line 211
-    .local v0, index:I
+    .local v0, "index":I
     if-ltz v0, :cond_0
 
     iget-object v1, p0, Landroid/preference/ListPreference;->mEntries:[Ljava/lang/CharSequence;
@@ -243,7 +243,7 @@
     move-result-object v0
 
     .line 157
-    .local v0, entry:Ljava/lang/CharSequence;
+    .local v0, "entry":Ljava/lang/CharSequence;
     iget-object v1, p0, Landroid/preference/ListPreference;->mSummary:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -290,7 +290,7 @@
 
 .method protected onDialogClosed(Z)V
     .locals 3
-    .parameter "positiveResult"
+    .param p1, "positiveResult"    # Z
 
     .prologue
     .line 269
@@ -319,7 +319,7 @@
     move-result-object v0
 
     .line 273
-    .local v0, value:Ljava/lang/String;
+    .local v0, "value":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/preference/ListPreference;->callChangeListener(Ljava/lang/Object;)Z
 
     move-result v1
@@ -330,15 +330,15 @@
     invoke-virtual {p0, v0}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
     .line 277
-    .end local v0           #value:Ljava/lang/String;
+    .end local v0    # "value":Ljava/lang/String;
     :cond_0
     return-void
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 281
@@ -351,7 +351,7 @@
 
 .method protected onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
     .locals 4
-    .parameter "builder"
+    .param p1, "builder"    # Landroid/app/AlertDialog$Builder;
 
     .prologue
     const/4 v3, 0x0
@@ -406,7 +406,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 304
@@ -439,7 +439,7 @@
     check-cast v0, Landroid/preference/ListPreference$SavedState;
 
     .line 311
-    .local v0, myState:Landroid/preference/ListPreference$SavedState;
+    .local v0, "myState":Landroid/preference/ListPreference$SavedState;
     invoke-virtual {v0}, Landroid/preference/ListPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -464,7 +464,7 @@
     move-result-object v1
 
     .line 292
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Landroid/preference/ListPreference;->isPersistent()Z
 
     move-result v2
@@ -472,19 +472,19 @@
     if-eqz v2, :cond_0
 
     .line 299
-    .end local v1           #superState:Landroid/os/Parcelable;
+    .end local v1    # "superState":Landroid/os/Parcelable;
     :goto_0
     return-object v1
 
     .line 297
-    .restart local v1       #superState:Landroid/os/Parcelable;
+    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
     new-instance v0, Landroid/preference/ListPreference$SavedState;
 
     invoke-direct {v0, v1}, Landroid/preference/ListPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 298
-    .local v0, myState:Landroid/preference/ListPreference$SavedState;
+    .local v0, "myState":Landroid/preference/ListPreference$SavedState;
     invoke-virtual {p0}, Landroid/preference/ListPreference;->getValue()Ljava/lang/String;
 
     move-result-object v2
@@ -499,8 +499,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 1
-    .parameter "restoreValue"
-    .parameter "defaultValue"
+    .param p1, "restoreValue"    # Z
+    .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 286
@@ -512,7 +512,7 @@
 
     move-result-object p2
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     :goto_0
     invoke-virtual {p0, p2}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
@@ -520,7 +520,7 @@
     return-void
 
     .line 286
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :cond_0
     check-cast p2, Ljava/lang/String;
 
@@ -529,7 +529,7 @@
 
 .method public setEntries(I)V
     .locals 1
-    .parameter "entriesResId"
+    .param p1, "entriesResId"    # I
 
     .prologue
     .line 87
@@ -553,7 +553,7 @@
 
 .method public setEntries([Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "entries"
+    .param p1, "entries"    # [Ljava/lang/CharSequence;
 
     .prologue
     .line 79
@@ -565,7 +565,7 @@
 
 .method public setEntryValues(I)V
     .locals 1
-    .parameter "entryValuesResId"
+    .param p1, "entryValuesResId"    # I
 
     .prologue
     .line 115
@@ -589,7 +589,7 @@
 
 .method public setEntryValues([Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "entryValues"
+    .param p1, "entryValues"    # [Ljava/lang/CharSequence;
 
     .prologue
     .line 107
@@ -601,7 +601,7 @@
 
 .method public setSummary(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "summary"
+    .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 175
@@ -648,7 +648,7 @@
 
 .method public setValue(Ljava/lang/String;)V
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -665,7 +665,7 @@
     move v0, v1
 
     .line 136
-    .local v0, changed:Z
+    .local v0, "changed":Z
     :goto_0
     if-nez v0, :cond_0
 
@@ -694,7 +694,7 @@
     return-void
 
     .line 135
-    .end local v0           #changed:Z
+    .end local v0    # "changed":Z
     :cond_2
     const/4 v0, 0x0
 
@@ -703,7 +703,7 @@
 
 .method public setValueIndex(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 189

@@ -26,8 +26,8 @@
 
 .method public constructor <init>(Landroid/mtp/MtpDatabase;Z)V
     .locals 0
-    .parameter "database"
-    .parameter "usePtp"
+    .param p1, "database"    # Landroid/mtp/MtpDatabase;
+    .param p2, "usePtp"    # Z
 
     .prologue
     .line 31
@@ -65,7 +65,7 @@
 # virtual methods
 .method public addStorage(Landroid/mtp/MtpStorage;)V
     .locals 0
-    .parameter "storage"
+    .param p1, "storage"    # Landroid/mtp/MtpStorage;
 
     .prologue
     .line 55
@@ -77,7 +77,7 @@
 
 .method public removeStorage(Landroid/mtp/MtpStorage;)V
     .locals 1
-    .parameter "storage"
+    .param p1, "storage"    # Landroid/mtp/MtpStorage;
 
     .prologue
     .line 59
@@ -107,7 +107,7 @@
 
 .method public sendObjectAdded(I)V
     .locals 0
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 47
@@ -119,7 +119,7 @@
 
 .method public sendObjectRemoved(I)V
     .locals 0
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 51
@@ -141,7 +141,7 @@
     invoke-direct {v0, p0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 37
-    .local v0, thread:Ljava/lang/Thread;
+    .local v0, "thread":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 38

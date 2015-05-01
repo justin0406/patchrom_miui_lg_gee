@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Landroid/view/SurfaceControl$PhysicalDisplayInfo;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     .line 397
@@ -61,7 +61,7 @@
 # virtual methods
 .method public copyFrom(Landroid/view/SurfaceControl$PhysicalDisplayInfo;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     .line 423
@@ -105,7 +105,7 @@
 
 .method public equals(Landroid/view/SurfaceControl$PhysicalDisplayInfo;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     .line 407
@@ -174,7 +174,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 403
@@ -184,7 +184,7 @@
 
     check-cast p1, Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->equals(Landroid/view/SurfaceControl$PhysicalDisplayInfo;)Z
 
     move-result v0

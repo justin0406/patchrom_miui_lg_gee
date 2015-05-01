@@ -20,9 +20,9 @@
 
 .method public static adnStringFieldToString([BII)Ljava/lang/String;
     .locals 13
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 177
@@ -54,11 +54,11 @@
     div-int/lit8 v9, v10, 0x2
 
     .line 183
-    .local v9, ucslen:I
+    .local v9, "ucslen":I
     const/4 v7, 0x0
 
     .line 186
-    .local v7, ret:Ljava/lang/String;
+    .local v7, "ret":Ljava/lang/String;
     :try_start_0
     new-instance v8, Ljava/lang/String;
 
@@ -72,13 +72,13 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v7           #ret:Ljava/lang/String;
-    .local v8, ret:Ljava/lang/String;
+    .end local v7    # "ret":Ljava/lang/String;
+    .local v8, "ret":Ljava/lang/String;
     move-object v7, v8
 
     .line 192
-    .end local v8           #ret:Ljava/lang/String;
-    .restart local v7       #ret:Ljava/lang/String;
+    .end local v8    # "ret":Ljava/lang/String;
+    .restart local v7    # "ret":Ljava/lang/String;
     :goto_1
     if-eqz v7, :cond_2
 
@@ -111,7 +111,7 @@
     move-exception v3
 
     .line 188
-    .local v3, ex:Ljava/io/UnsupportedEncodingException;
+    .local v3, "ex":Ljava/io/UnsupportedEncodingException;
     const-string v10, "IccUtils"
 
     const-string v11, "implausible UnsupportedEncodingException"
@@ -121,7 +121,7 @@
     goto :goto_1
 
     .line 199
-    .end local v3           #ex:Ljava/io/UnsupportedEncodingException;
+    .end local v3    # "ex":Ljava/io/UnsupportedEncodingException;
     :cond_1
     const/4 v10, 0x0
 
@@ -132,21 +132,21 @@
     goto :goto_0
 
     .line 204
-    .end local v7           #ret:Ljava/lang/String;
-    .end local v9           #ucslen:I
+    .end local v7    # "ret":Ljava/lang/String;
+    .end local v9    # "ucslen":I
     :cond_2
     const/4 v4, 0x0
 
     .line 205
-    .local v4, isucs2:Z
+    .local v4, "isucs2":Z
     const/4 v0, 0x0
 
     .line 206
-    .local v0, base:C
+    .local v0, "base":C
     const/4 v5, 0x0
 
     .line 208
-    .local v5, len:I
+    .local v5, "len":I
     const/4 v10, 0x3
 
     if-lt p2, v10, :cond_6
@@ -201,7 +201,7 @@
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 230
-    .local v7, ret:Ljava/lang/StringBuilder;
+    .local v7, "ret":Ljava/lang/StringBuilder;
     :goto_4
     if-lez v5, :cond_9
 
@@ -232,7 +232,7 @@
     const/4 v1, 0x0
 
     .line 242
-    .local v1, count:I
+    .local v1, "count":I
     :goto_5
     if-ge v1, v5, :cond_8
 
@@ -248,8 +248,8 @@
     goto :goto_5
 
     .line 216
-    .end local v1           #count:I
-    .end local v7           #ret:Ljava/lang/StringBuilder;
+    .end local v1    # "count":I
+    .end local v7    # "ret":Ljava/lang/StringBuilder;
     :cond_6
     const/4 v10, 0x4
 
@@ -305,8 +305,8 @@
     goto :goto_3
 
     .line 245
-    .restart local v1       #count:I
-    .restart local v7       #ret:Ljava/lang/StringBuilder;
+    .restart local v1    # "count":I
+    .restart local v7    # "ret":Ljava/lang/StringBuilder;
     :cond_8
     invoke-static {p0, p1, v1}, Lcom/android/internal/telephony/GsmAlphabet;->gsm8BitUnpackedToString([BII)Ljava/lang/String;
 
@@ -324,7 +324,7 @@
     goto :goto_4
 
     .line 252
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_9
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -333,18 +333,18 @@
     goto/16 :goto_0
 
     .line 255
-    .end local v7           #ret:Ljava/lang/StringBuilder;
+    .end local v7    # "ret":Ljava/lang/StringBuilder;
     :cond_a
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v6
 
     .line 256
-    .local v6, resource:Landroid/content/res/Resources;
+    .local v6, "resource":Landroid/content/res/Resources;
     const-string v2, ""
 
     .line 258
-    .local v2, defaultCharset:Ljava/lang/String;
+    .local v2, "defaultCharset":Ljava/lang/String;
     const v10, 0x1040028
 
     :try_start_1
@@ -375,9 +375,9 @@
 
 .method public static bcdToString([BII)Ljava/lang/String;
     .locals 5
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     const/16 v4, 0x9
@@ -390,10 +390,10 @@
     invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 46
-    .local v1, ret:Ljava/lang/StringBuilder;
+    .local v1, "ret":Ljava/lang/StringBuilder;
     move v0, p1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     add-int v3, p1, p2
 
@@ -405,11 +405,11 @@
     and-int/lit8 v2, v3, 0xf
 
     .line 51
-    .local v2, v:I
+    .local v2, "v":I
     if-le v2, v4, :cond_1
 
     .line 61
-    .end local v2           #v:I
+    .end local v2    # "v":I
     :cond_0
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -418,7 +418,7 @@
     return-object v3
 
     .line 52
-    .restart local v2       #v:I
+    .restart local v2    # "v":I
     :cond_1
     add-int/lit8 v3, v2, 0x30
 
@@ -460,7 +460,7 @@
 
 .method private static bitToRGB(I)I
     .locals 1
-    .parameter "bit"
+    .param p0, "bit"    # I
 
     .prologue
     .line 416
@@ -476,14 +476,14 @@
     return v0
 
     :cond_0
-    const/high16 v0, -0x100
+    const/high16 v0, -0x1000000
 
     goto :goto_0
 .end method
 
 .method public static bytesToHexString([B)Ljava/lang/String;
     .locals 4
-    .parameter "bytes"
+    .param p0, "bytes"    # [B
 
     .prologue
     .line 313
@@ -506,10 +506,10 @@
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 317
-    .local v2, ret:Ljava/lang/StringBuilder;
+    .local v2, "ret":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     array-length v3, p0
 
@@ -523,7 +523,7 @@
     and-int/lit8 v0, v3, 0xf
 
     .line 322
-    .local v0, b:I
+    .local v0, "b":I
     const-string v3, "0123456789abcdef"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->charAt(I)C
@@ -552,7 +552,7 @@
     goto :goto_1
 
     .line 329
-    .end local v0           #b:I
+    .end local v0    # "b":I
     :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -563,14 +563,14 @@
 
 .method public static cdmaBcdByteToInt(B)I
     .locals 3
-    .parameter "b"
+    .param p0, "b"    # B
 
     .prologue
     .line 126
     const/4 v0, 0x0
 
     .line 129
-    .local v0, ret:I
+    .local v0, "ret":I
     and-int/lit16 v1, p0, 0xf0
 
     const/16 v2, 0x90
@@ -604,9 +604,9 @@
 
 .method public static cdmaBcdToString([BII)Ljava/lang/String;
     .locals 6
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     const/16 v5, 0x9
@@ -617,14 +617,14 @@
     invoke-direct {v2, p2}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 71
-    .local v2, ret:Ljava/lang/StringBuilder;
+    .local v2, "ret":Ljava/lang/StringBuilder;
     const/4 v0, 0x0
 
     .line 72
-    .local v0, count:I
+    .local v0, "count":I
     move v1, p1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v0, p2, :cond_1
 
@@ -634,7 +634,7 @@
     and-int/lit8 v3, v4, 0xf
 
     .line 75
-    .local v3, v:I
+    .local v3, "v":I
     if-le v3, v5, :cond_0
 
     const/4 v3, 0x0
@@ -653,7 +653,7 @@
     if-ne v0, p2, :cond_2
 
     .line 85
-    .end local v3           #v:I
+    .end local v3    # "v":I
     :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -662,7 +662,7 @@
     return-object v4
 
     .line 80
-    .restart local v3       #v:I
+    .restart local v3    # "v":I
     :cond_2
     aget-byte v4, p0, v1
 
@@ -694,9 +694,9 @@
 
 .method private static getCLUT([BII)[I
     .locals 9
-    .parameter "rawData"
-    .parameter "offset"
-    .parameter "number"
+    .param p0, "rawData"    # [B
+    .param p1, "offset"    # I
+    .param p2, "number"    # I
 
     .prologue
     .line 511
@@ -714,34 +714,34 @@
     new-array v4, p2, [I
 
     .line 516
-    .local v4, result:[I
+    .local v4, "result":[I
     mul-int/lit8 v7, p2, 0x3
 
     add-int v3, p1, v7
 
     .line 517
-    .local v3, endIndex:I
+    .local v3, "endIndex":I
     move v5, p1
 
     .line 518
-    .local v5, valueIndex:I
+    .local v5, "valueIndex":I
     const/4 v1, 0x0
 
     .line 519
-    .local v1, colorIndex:I
-    const/high16 v0, -0x100
+    .local v1, "colorIndex":I
+    const/high16 v0, -0x1000000
 
     .line 521
-    .local v0, alpha:I
+    .local v0, "alpha":I
     :goto_0
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #colorIndex:I
-    .local v2, colorIndex:I
+    .end local v1    # "colorIndex":I
+    .local v2, "colorIndex":I
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #valueIndex:I
-    .local v6, valueIndex:I
+    .end local v5    # "valueIndex":I
+    .local v6, "valueIndex":I
     aget-byte v7, p0, v5
 
     and-int/lit16 v7, v7, 0xff
@@ -752,8 +752,8 @@
 
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #valueIndex:I
-    .restart local v5       #valueIndex:I
+    .end local v6    # "valueIndex":I
+    .restart local v5    # "valueIndex":I
     aget-byte v8, p0, v6
 
     and-int/lit16 v8, v8, 0xff
@@ -764,8 +764,8 @@
 
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #valueIndex:I
-    .restart local v6       #valueIndex:I
+    .end local v5    # "valueIndex":I
+    .restart local v6    # "valueIndex":I
     aget-byte v8, p0, v5
 
     and-int/lit16 v8, v8, 0xff
@@ -779,25 +779,25 @@
 
     move v1, v2
 
-    .end local v2           #colorIndex:I
-    .restart local v1       #colorIndex:I
+    .end local v2    # "colorIndex":I
+    .restart local v1    # "colorIndex":I
     move v5, v6
 
-    .end local v6           #valueIndex:I
-    .restart local v5       #valueIndex:I
+    .end local v6    # "valueIndex":I
+    .restart local v5    # "valueIndex":I
     goto :goto_0
 .end method
 
 .method public static gsmBcdByteToInt(B)I
     .locals 3
-    .parameter "b"
+    .param p0, "b"    # B
 
     .prologue
     .line 104
     const/4 v0, 0x0
 
     .line 107
-    .local v0, ret:I
+    .local v0, "ret":I
     and-int/lit16 v1, p0, 0xf0
 
     const/16 v2, 0x90
@@ -831,7 +831,7 @@
 
 .method static hexCharToInt(C)I
     .locals 3
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 268
@@ -916,7 +916,7 @@
 
 .method public static hexStringToBytes(Ljava/lang/String;)[B
     .locals 6
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 289
@@ -935,16 +935,16 @@
     move-result v2
 
     .line 293
-    .local v2, sz:I
+    .local v2, "sz":I
     div-int/lit8 v3, v2, 0x2
 
     new-array v1, v3, [B
 
     .line 295
-    .local v1, ret:[B
+    .local v1, "ret":[B
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -985,11 +985,11 @@
 
 .method private static mapTo2OrderBitColor([BII[II)[I
     .locals 11
-    .parameter "data"
-    .parameter "valueIndex"
-    .parameter "length"
-    .parameter "colorArray"
-    .parameter "bits"
+    .param p0, "data"    # [B
+    .param p1, "valueIndex"    # I
+    .param p2, "length"    # I
+    .param p3, "colorArray"    # [I
+    .param p4, "bits"    # I
 
     .prologue
     const/16 v10, 0x8
@@ -1020,7 +1020,7 @@
     const/4 v0, 0x1
 
     .line 468
-    .local v0, mask:I
+    .local v0, "mask":I
     packed-switch p4, :pswitch_data_0
 
     .line 483
@@ -1029,38 +1029,38 @@
     new-array v2, p2, [I
 
     .line 484
-    .local v2, resultArray:[I
+    .local v2, "resultArray":[I
     const/4 v3, 0x0
 
     .line 485
-    .local v3, resultIndex:I
+    .local v3, "resultIndex":I
     div-int v5, v10, p4
 
-    .local v5, run:I
+    .local v5, "run":I
     move v8, p1
 
     .line 486
-    .end local p1
-    .local v8, valueIndex:I
+    .end local p1    # "valueIndex":I
+    .local v8, "valueIndex":I
     :goto_2
     if-ge v3, p2, :cond_2
 
     .line 487
     add-int/lit8 p1, v8, 0x1
 
-    .end local v8           #valueIndex:I
-    .restart local p1
+    .end local v8    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     aget-byte v7, p0, v8
 
     .line 488
-    .local v7, tempByte:B
+    .local v7, "tempByte":B
     const/4 v6, 0x0
 
-    .local v6, runIndex:I
+    .local v6, "runIndex":I
     move v4, v3
 
-    .end local v3           #resultIndex:I
-    .local v4, resultIndex:I
+    .end local v3    # "resultIndex":I
+    .local v4, "resultIndex":I
     :goto_3
     if-ge v6, v5, :cond_1
 
@@ -1070,11 +1070,11 @@
     add-int/lit8 v1, v9, -0x1
 
     .line 490
-    .local v1, offset:I
+    .local v1, "offset":I
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #resultIndex:I
-    .restart local v3       #resultIndex:I
+    .end local v4    # "resultIndex":I
+    .restart local v3    # "resultIndex":I
     mul-int v9, v1, p4
 
     shr-int v9, v7, v9
@@ -1090,17 +1090,17 @@
 
     move v4, v3
 
-    .end local v3           #resultIndex:I
-    .restart local v4       #resultIndex:I
+    .end local v3    # "resultIndex":I
+    .restart local v4    # "resultIndex":I
     goto :goto_3
 
     .line 470
-    .end local v1           #offset:I
-    .end local v2           #resultArray:[I
-    .end local v4           #resultIndex:I
-    .end local v5           #run:I
-    .end local v6           #runIndex:I
-    .end local v7           #tempByte:B
+    .end local v1    # "offset":I
+    .end local v2    # "resultArray":[I
+    .end local v4    # "resultIndex":I
+    .end local v5    # "run":I
+    .end local v6    # "runIndex":I
+    .end local v7    # "tempByte":B
     :pswitch_1
     const/4 v0, 0x1
 
@@ -1127,31 +1127,31 @@
 
     goto :goto_1
 
-    .restart local v2       #resultArray:[I
-    .restart local v4       #resultIndex:I
-    .restart local v5       #run:I
-    .restart local v6       #runIndex:I
-    .restart local v7       #tempByte:B
+    .restart local v2    # "resultArray":[I
+    .restart local v4    # "resultIndex":I
+    .restart local v5    # "run":I
+    .restart local v6    # "runIndex":I
+    .restart local v7    # "tempByte":B
     :cond_1
     move v3, v4
 
-    .end local v4           #resultIndex:I
-    .restart local v3       #resultIndex:I
+    .end local v4    # "resultIndex":I
+    .restart local v3    # "resultIndex":I
     move v8, p1
 
     .line 493
-    .end local p1
-    .restart local v8       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     goto :goto_2
 
-    .end local v6           #runIndex:I
-    .end local v7           #tempByte:B
+    .end local v6    # "runIndex":I
+    .end local v7    # "tempByte":B
     :cond_2
     move p1, v8
 
     .line 494
-    .end local v8           #valueIndex:I
-    .restart local p1
+    .end local v8    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     goto :goto_0
 
     .line 468
@@ -1170,11 +1170,11 @@
 
 .method private static mapToNon2OrderBitColor([BII[II)[I
     .locals 3
-    .parameter "data"
-    .parameter "valueIndex"
-    .parameter "length"
-    .parameter "colorArray"
-    .parameter "bits"
+    .param p0, "data"    # [B
+    .param p1, "valueIndex"    # I
+    .param p2, "length"    # I
+    .param p3, "colorArray"    # [I
+    .param p4, "bits"    # I
 
     .prologue
     .line 499
@@ -1205,15 +1205,15 @@
     new-array v0, p2, [I
 
     .line 507
-    .local v0, resultArray:[I
+    .local v0, "resultArray":[I
     goto :goto_0
 .end method
 
 .method public static networkNameToString([BII)Ljava/lang/String;
     .locals 7
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 342
@@ -1252,7 +1252,7 @@
     const-string v2, ""
 
     .line 375
-    .local v2, ret:Ljava/lang/String;
+    .local v2, "ret":Ljava/lang/String;
     :goto_1
     aget-byte v4, p0, p1
 
@@ -1263,14 +1263,14 @@
     goto :goto_0
 
     .line 350
-    .end local v2           #ret:Ljava/lang/String;
+    .end local v2    # "ret":Ljava/lang/String;
     :pswitch_0
     aget-byte v4, p0, p1
 
     and-int/lit8 v3, v4, 0x7
 
     .line 351
-    .local v3, unusedBits:I
+    .local v3, "unusedBits":I
     add-int/lit8 v4, p2, -0x1
 
     mul-int/lit8 v4, v4, 0x8
@@ -1280,7 +1280,7 @@
     div-int/lit8 v0, v4, 0x7
 
     .line 352
-    .local v0, countSeptets:I
+    .local v0, "countSeptets":I
     add-int/lit8 v4, p1, 0x1
 
     invoke-static {p0, v4, v0}, Lcom/android/internal/telephony/GsmAlphabet;->gsm7BitPackedToString([BII)Ljava/lang/String;
@@ -1288,13 +1288,13 @@
     move-result-object v2
 
     .line 353
-    .restart local v2       #ret:Ljava/lang/String;
+    .restart local v2    # "ret":Ljava/lang/String;
     goto :goto_1
 
     .line 357
-    .end local v0           #countSeptets:I
-    .end local v2           #ret:Ljava/lang/String;
-    .end local v3           #unusedBits:I
+    .end local v0    # "countSeptets":I
+    .end local v2    # "ret":Ljava/lang/String;
+    .end local v3    # "unusedBits":I
     :pswitch_1
     :try_start_0
     new-instance v2, Ljava/lang/String;
@@ -1309,20 +1309,20 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .restart local v2       #ret:Ljava/lang/String;
+    .restart local v2    # "ret":Ljava/lang/String;
     goto :goto_1
 
     .line 359
-    .end local v2           #ret:Ljava/lang/String;
+    .end local v2    # "ret":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 360
-    .local v1, ex:Ljava/io/UnsupportedEncodingException;
+    .local v1, "ex":Ljava/io/UnsupportedEncodingException;
     const-string v2, ""
 
     .line 361
-    .restart local v2       #ret:Ljava/lang/String;
+    .restart local v2    # "ret":Ljava/lang/String;
     const-string v4, "IccUtils"
 
     const-string v5, "implausible UnsupportedEncodingException"
@@ -1343,63 +1343,63 @@
 
 .method public static parseToBnW([BI)Landroid/graphics/Bitmap;
     .locals 13
-    .parameter "data"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "length"    # I
 
     .prologue
     .line 390
     const/4 v8, 0x0
 
     .line 391
-    .local v8, valueIndex:I
+    .local v8, "valueIndex":I
     add-int/lit8 v9, v8, 0x1
 
-    .end local v8           #valueIndex:I
-    .local v9, valueIndex:I
+    .end local v8    # "valueIndex":I
+    .local v9, "valueIndex":I
     aget-byte v11, p0, v8
 
     and-int/lit16 v10, v11, 0xff
 
     .line 392
-    .local v10, width:I
+    .local v10, "width":I
     add-int/lit8 v8, v9, 0x1
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     aget-byte v11, p0, v9
 
     and-int/lit16 v3, v11, 0xff
 
     .line 393
-    .local v3, height:I
+    .local v3, "height":I
     mul-int v4, v10, v3
 
     .line 395
-    .local v4, numOfPixels:I
+    .local v4, "numOfPixels":I
     new-array v7, v4, [I
 
     .line 397
-    .local v7, pixels:[I
+    .local v7, "pixels":[I
     const/4 v5, 0x0
 
     .line 398
-    .local v5, pixelIndex:I
+    .local v5, "pixelIndex":I
     const/4 v0, 0x7
 
     .line 399
-    .local v0, bitIndex:I
+    .local v0, "bitIndex":I
     const/4 v2, 0x0
 
-    .local v2, currentByte:B
+    .local v2, "currentByte":B
     move v6, v5
 
-    .end local v5           #pixelIndex:I
-    .local v6, pixelIndex:I
+    .end local v5    # "pixelIndex":I
+    .local v6, "pixelIndex":I
     move v9, v8
 
     .line 400
-    .end local v8           #valueIndex:I
-    .restart local v9       #valueIndex:I
+    .end local v8    # "valueIndex":I
+    .restart local v9    # "valueIndex":I
     :goto_0
     if-ge v6, v4, :cond_0
 
@@ -1411,8 +1411,8 @@
     .line 403
     add-int/lit8 v8, v9, 0x1
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     aget-byte v2, p0, v9
 
     .line 404
@@ -1422,12 +1422,12 @@
     :goto_1
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #pixelIndex:I
-    .restart local v5       #pixelIndex:I
+    .end local v6    # "pixelIndex":I
+    .restart local v5    # "pixelIndex":I
     add-int/lit8 v1, v0, -0x1
 
-    .end local v0           #bitIndex:I
-    .local v1, bitIndex:I
+    .end local v0    # "bitIndex":I
+    .local v1, "bitIndex":I
     shr-int v11, v2, v0
 
     and-int/lit8 v11, v11, 0x1
@@ -1440,16 +1440,16 @@
 
     move v0, v1
 
-    .end local v1           #bitIndex:I
-    .restart local v0       #bitIndex:I
+    .end local v1    # "bitIndex":I
+    .restart local v0    # "bitIndex":I
     move v6, v5
 
-    .end local v5           #pixelIndex:I
-    .restart local v6       #pixelIndex:I
+    .end local v5    # "pixelIndex":I
+    .restart local v6    # "pixelIndex":I
     move v9, v8
 
-    .end local v8           #valueIndex:I
-    .restart local v9       #valueIndex:I
+    .end local v8    # "valueIndex":I
+    .restart local v9    # "valueIndex":I
     goto :goto_0
 
     .line 409
@@ -1476,67 +1476,67 @@
     :cond_2
     move v8, v9
 
-    .end local v9           #valueIndex:I
-    .restart local v8       #valueIndex:I
+    .end local v9    # "valueIndex":I
+    .restart local v8    # "valueIndex":I
     goto :goto_1
 .end method
 
 .method public static parseToRGB([BIZ)Landroid/graphics/Bitmap;
     .locals 11
-    .parameter "data"
-    .parameter "length"
-    .parameter "transparency"
+    .param p0, "data"    # [B
+    .param p1, "length"    # I
+    .param p2, "transparency"    # Z
 
     .prologue
     .line 433
     const/4 v6, 0x0
 
     .line 434
-    .local v6, valueIndex:I
+    .local v6, "valueIndex":I
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #valueIndex:I
-    .local v7, valueIndex:I
+    .end local v6    # "valueIndex":I
+    .local v7, "valueIndex":I
     aget-byte v9, p0, v6
 
     and-int/lit16 v8, v9, 0xff
 
     .line 435
-    .local v8, width:I
+    .local v8, "width":I
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #valueIndex:I
-    .restart local v6       #valueIndex:I
+    .end local v7    # "valueIndex":I
+    .restart local v6    # "valueIndex":I
     aget-byte v9, p0, v7
 
     and-int/lit16 v4, v9, 0xff
 
     .line 436
-    .local v4, height:I
+    .local v4, "height":I
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #valueIndex:I
-    .restart local v7       #valueIndex:I
+    .end local v6    # "valueIndex":I
+    .restart local v7    # "valueIndex":I
     aget-byte v9, p0, v6
 
     and-int/lit16 v0, v9, 0xff
 
     .line 437
-    .local v0, bits:I
+    .local v0, "bits":I
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #valueIndex:I
-    .restart local v6       #valueIndex:I
+    .end local v7    # "valueIndex":I
+    .restart local v6    # "valueIndex":I
     aget-byte v9, p0, v7
 
     and-int/lit16 v3, v9, 0xff
 
     .line 438
-    .local v3, colorNumber:I
+    .local v3, "colorNumber":I
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #valueIndex:I
-    .restart local v7       #valueIndex:I
+    .end local v6    # "valueIndex":I
+    .restart local v7    # "valueIndex":I
     aget-byte v9, p0, v6
 
     and-int/lit16 v9, v9, 0xff
@@ -1545,8 +1545,8 @@
 
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #valueIndex:I
-    .restart local v6       #valueIndex:I
+    .end local v7    # "valueIndex":I
+    .restart local v6    # "valueIndex":I
     aget-byte v10, p0, v7
 
     and-int/lit16 v10, v10, 0xff
@@ -1554,13 +1554,13 @@
     or-int v1, v9, v10
 
     .line 441
-    .local v1, clutOffset:I
+    .local v1, "clutOffset":I
     invoke-static {p0, v1, v3}, Lcom/android/internal/telephony/IccUtils;->getCLUT([BII)[I
 
     move-result-object v2
 
     .line 442
-    .local v2, colorIndexArray:[I
+    .local v2, "colorIndexArray":[I
     const/4 v9, 0x1
 
     if-ne v9, p2, :cond_0
@@ -1577,7 +1577,7 @@
     const/4 v5, 0x0
 
     .line 447
-    .local v5, resultArray:[I
+    .local v5, "resultArray":[I
     const/16 v9, 0x8
 
     rem-int/2addr v9, v0

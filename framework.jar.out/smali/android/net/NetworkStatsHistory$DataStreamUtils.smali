@@ -27,7 +27,7 @@
 
 .method public static readFullLongArray(Ljava/io/DataInputStream;)[J
     .locals 5
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,7 +44,7 @@
     move-result v1
 
     .line 642
-    .local v1, size:I
+    .local v1, "size":I
     if-gez v1, :cond_0
 
     new-instance v3, Ljava/net/ProtocolException;
@@ -60,10 +60,10 @@
     new-array v2, v1, [J
 
     .line 644
-    .local v2, values:[J
+    .local v2, "values":[J
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -88,7 +88,7 @@
 
 .method public static readVarLong(Ljava/io/DataInputStream;)J
     .locals 6
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -100,11 +100,11 @@
     const/4 v3, 0x0
 
     .line 655
-    .local v3, shift:I
+    .local v3, "shift":I
     const-wide/16 v1, 0x0
 
     .line 656
-    .local v1, result:J
+    .local v1, "result":J
     :goto_0
     const/16 v4, 0x40
 
@@ -116,7 +116,7 @@
     move-result v0
 
     .line 658
-    .local v0, b:B
+    .local v0, "b":B
     and-int/lit8 v4, v0, 0x7f
 
     int-to-long v4, v4
@@ -141,7 +141,7 @@
     goto :goto_0
 
     .line 663
-    .end local v0           #b:B
+    .end local v0    # "b":B
     :cond_1
     new-instance v4, Ljava/net/ProtocolException;
 
@@ -154,7 +154,7 @@
 
 .method public static readVarLongArray(Ljava/io/DataInputStream;)[J
     .locals 5
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,7 +168,7 @@
     move-result v1
 
     .line 683
-    .local v1, size:I
+    .local v1, "size":I
     const/4 v3, -0x1
 
     if-ne v1, v3, :cond_1
@@ -196,10 +196,10 @@
     new-array v2, v1, [J
 
     .line 686
-    .local v2, values:[J
+    .local v2, "values":[J
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -220,8 +220,8 @@
 
 .method public static writeVarLong(Ljava/io/DataOutputStream;J)V
     .locals 4
-    .parameter "out"
-    .parameter "value"
+    .param p0, "out"    # Ljava/io/DataOutputStream;
+    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -269,9 +269,9 @@
 
 .method public static writeVarLongArray(Ljava/io/DataOutputStream;[JI)V
     .locals 3
-    .parameter "out"
-    .parameter "values"
-    .parameter "size"
+    .param p0, "out"    # Ljava/io/DataOutputStream;
+    .param p1, "values"    # [J
+    .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -313,7 +313,7 @@
     .line 702
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p2, :cond_0
 

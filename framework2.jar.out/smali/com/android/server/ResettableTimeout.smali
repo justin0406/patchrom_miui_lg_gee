@@ -42,7 +42,7 @@
 
 .method static synthetic access$100(Lcom/android/server/ResettableTimeout;)Landroid/os/ConditionVariable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/ResettableTimeout;
 
     .prologue
     .line 29
@@ -53,7 +53,7 @@
 
 .method static synthetic access$200(Lcom/android/server/ResettableTimeout;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/ResettableTimeout;
 
     .prologue
     .line 29
@@ -64,8 +64,8 @@
 
 .method static synthetic access$302(Lcom/android/server/ResettableTimeout;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/ResettableTimeout;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 29
@@ -76,8 +76,8 @@
 
 .method static synthetic access$402(Lcom/android/server/ResettableTimeout;Ljava/lang/Thread;)Ljava/lang/Thread;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/ResettableTimeout;
+    .param p1, "x1"    # Ljava/lang/Thread;
 
     .prologue
     .line 29
@@ -150,7 +150,7 @@
 
 .method public go(J)V
     .locals 3
-    .parameter "milliseconds"
+    .param p1, "milliseconds"    # J
 
     .prologue
     .line 54
@@ -175,7 +175,7 @@
     const/4 v0, 0x0
 
     .line 66
-    .local v0, alreadyOn:Z
+    .local v0, "alreadyOn":Z
     iget-object v1, p0, Lcom/android/server/ResettableTimeout;->mLock:Landroid/os/ConditionVariable;
 
     invoke-virtual {v1}, Landroid/os/ConditionVariable;->close()V
@@ -215,12 +215,12 @@
     return-void
 
     .line 72
-    .end local v0           #alreadyOn:Z
+    .end local v0    # "alreadyOn":Z
     :cond_0
     const/4 v0, 0x1
 
     .line 74
-    .restart local v0       #alreadyOn:Z
+    .restart local v0    # "alreadyOn":Z
     iget-object v1, p0, Lcom/android/server/ResettableTimeout;->mThread:Ljava/lang/Thread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
@@ -228,7 +228,7 @@
     goto :goto_0
 
     .line 77
-    .end local v0           #alreadyOn:Z
+    .end local v0    # "alreadyOn":Z
     :catchall_0
     move-exception v1
 

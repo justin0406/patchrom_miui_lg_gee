@@ -16,7 +16,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field public static final IFACE_ALL:Ljava/lang/String; = null
+.field public static final IFACE_ALL:Ljava/lang/String;
 
 .field public static final SET_ALL:I = -0x1
 
@@ -86,8 +86,8 @@
 
 .method public constructor <init>(JI)V
     .locals 1
-    .parameter "elapsedRealtime"
-    .parameter "initialSize"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "initialSize"    # I
 
     .prologue
     .line 152
@@ -152,7 +152,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 166
@@ -241,10 +241,9 @@
 
 .method private getTotal(Landroid/net/NetworkStats$Entry;Ljava/util/HashSet;IZ)Landroid/net/NetworkStats$Entry;
     .locals 11
-    .parameter "recycle"
-    .parameter
-    .parameter "limitUid"
-    .parameter "includeTags"
+    .param p1, "recycle"    # Landroid/net/NetworkStats$Entry;
+    .param p3, "limitUid"    # I
+    .param p4, "includeTags"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -258,7 +257,7 @@
     .end annotation
 
     .prologue
-    .local p2, limitIface:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "limitIface":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     const/4 v5, 0x1
 
     const/4 v10, -0x1
@@ -273,7 +272,7 @@
     move-object v0, p1
 
     .line 465
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     :goto_0
     sget-object v6, Landroid/net/NetworkStats;->IFACE_ALL:Ljava/lang/String;
 
@@ -306,7 +305,7 @@
     .line 475
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     iget v6, p0, Landroid/net/NetworkStats;->size:I
 
@@ -325,7 +324,7 @@
     move v3, v5
 
     .line 477
-    .local v3, matchesUid:Z
+    .local v3, "matchesUid":Z
     :goto_2
     if-eqz p2, :cond_1
 
@@ -343,7 +342,7 @@
     move v2, v5
 
     .line 479
-    .local v2, matchesIface:Z
+    .local v2, "matchesIface":Z
     :goto_3
     if-eqz v3, :cond_2
 
@@ -366,10 +365,10 @@
     goto :goto_1
 
     .line 463
-    .end local v0           #entry:Landroid/net/NetworkStats$Entry;
-    .end local v1           #i:I
-    .end local v2           #matchesIface:Z
-    .end local v3           #matchesUid:Z
+    .end local v0    # "entry":Landroid/net/NetworkStats$Entry;
+    .end local v1    # "i":I
+    .end local v2    # "matchesIface":Z
+    .end local v3    # "matchesUid":Z
     :cond_3
     new-instance v0, Landroid/net/NetworkStats$Entry;
 
@@ -377,15 +376,15 @@
 
     goto :goto_0
 
-    .restart local v0       #entry:Landroid/net/NetworkStats$Entry;
-    .restart local v1       #i:I
+    .restart local v0    # "entry":Landroid/net/NetworkStats$Entry;
+    .restart local v1    # "i":I
     :cond_4
     move v3, v4
 
     .line 476
     goto :goto_2
 
-    .restart local v3       #matchesUid:Z
+    .restart local v3    # "matchesUid":Z
     :cond_5
     move v2, v4
 
@@ -393,7 +392,7 @@
     goto :goto_3
 
     .line 483
-    .restart local v2       #matchesIface:Z
+    .restart local v2    # "matchesIface":Z
     :cond_6
     iget-wide v6, v0, Landroid/net/NetworkStats$Entry;->rxBytes:J
 
@@ -452,15 +451,15 @@
     goto :goto_4
 
     .line 490
-    .end local v2           #matchesIface:Z
-    .end local v3           #matchesUid:Z
+    .end local v2    # "matchesIface":Z
+    .end local v3    # "matchesUid":Z
     :cond_7
     return-object v0
 .end method
 
 .method public static setToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "set"
+    .param p0, "set"    # I
 
     .prologue
     .line 661
@@ -503,10 +502,8 @@
 
 .method public static subtract(Landroid/net/NetworkStats;Landroid/net/NetworkStats;Landroid/net/NetworkStats$NonMonotonicObserver;Ljava/lang/Object;)Landroid/net/NetworkStats;
     .locals 13
-    .parameter "left"
-    .parameter "right"
-    .parameter
-    .parameter
+    .param p0, "left"    # Landroid/net/NetworkStats;
+    .param p1, "right"    # Landroid/net/NetworkStats;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C:",
@@ -522,8 +519,8 @@
 
     .prologue
     .line 512
-    .local p2, observer:Landroid/net/NetworkStats$NonMonotonicObserver;,"Landroid/net/NetworkStats$NonMonotonicObserver<TC;>;"
-    .local p3, cookie:Ljava/lang/Object;,"TC;"
+    .local p2, "observer":Landroid/net/NetworkStats$NonMonotonicObserver;, "Landroid/net/NetworkStats$NonMonotonicObserver<TC;>;"
+    .local p3, "cookie":Ljava/lang/Object;, "TC;"
     iget-wide v0, p0, Landroid/net/NetworkStats;->elapsedRealtime:J
 
     iget-wide v2, p1, Landroid/net/NetworkStats;->elapsedRealtime:J
@@ -531,7 +528,7 @@
     sub-long v9, v0, v2
 
     .line 513
-    .local v9, deltaRealtime:J
+    .local v9, "deltaRealtime":J
     const-wide/16 v0, 0x0
 
     cmp-long v0, v9, v0
@@ -567,7 +564,7 @@
     invoke-direct {v11}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 522
-    .local v11, entry:Landroid/net/NetworkStats$Entry;
+    .local v11, "entry":Landroid/net/NetworkStats$Entry;
     new-instance v12, Landroid/net/NetworkStats;
 
     iget v0, p0, Landroid/net/NetworkStats;->size:I
@@ -575,10 +572,10 @@
     invoke-direct {v12, v9, v10, v0}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 523
-    .local v12, result:Landroid/net/NetworkStats;
+    .local v12, "result":Landroid/net/NetworkStats;
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_0
     iget v0, p0, Landroid/net/NetworkStats;->size:I
 
@@ -628,7 +625,7 @@
     move-result v7
 
     .line 531
-    .local v7, j:I
+    .local v7, "j":I
     const/4 v0, -0x1
 
     if-ne v7, v0, :cond_3
@@ -859,14 +856,14 @@
     goto/16 :goto_1
 
     .line 562
-    .end local v7           #j:I
+    .end local v7    # "j":I
     :cond_6
     return-object v12
 .end method
 
 .method public static tagToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "tag"
+    .param p0, "tag"    # I
 
     .prologue
     .line 677
@@ -899,11 +896,11 @@
 # virtual methods
 .method public addIfaceValues(Ljava/lang/String;JJJJ)Landroid/net/NetworkStats;
     .locals 15
-    .parameter "iface"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "rxBytes"    # J
+    .param p4, "rxPackets"    # J
+    .param p6, "txBytes"    # J
+    .param p8, "txPackets"    # J
 
     .prologue
     .line 209
@@ -936,7 +933,7 @@
 
 .method public addValues(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats;
     .locals 5
-    .parameter "entry"
+    .param p1, "entry"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 225
@@ -964,7 +961,7 @@
     div-int/lit8 v0, v1, 0x2
 
     .line 227
-    .local v0, newLength:I
+    .local v0, "newLength":I
     iget-object v1, p0, Landroid/net/NetworkStats;->iface:[Ljava/lang/String;
 
     invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -1048,7 +1045,7 @@
     iput-object v1, p0, Landroid/net/NetworkStats;->operations:[J
 
     .line 238
-    .end local v0           #newLength:I
+    .end local v0    # "newLength":I
     :cond_0
     iget-object v1, p0, Landroid/net/NetworkStats;->iface:[Ljava/lang/String;
 
@@ -1143,15 +1140,15 @@
 
 .method public addValues(Ljava/lang/String;IIIJJJJJ)Landroid/net/NetworkStats;
     .locals 15
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
+    .param p5, "rxBytes"    # J
+    .param p7, "rxPackets"    # J
+    .param p9, "txBytes"    # J
+    .param p11, "txPackets"    # J
+    .param p13, "operations"    # J
 
     .prologue
     .line 216
@@ -1198,14 +1195,14 @@
     invoke-direct {v0, v3, v4, v5}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 198
-    .local v0, clone:Landroid/net/NetworkStats;
+    .local v0, "clone":Landroid/net/NetworkStats;
     const/4 v1, 0x0
 
     .line 199
-    .local v1, entry:Landroid/net/NetworkStats$Entry;
+    .local v1, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -1248,17 +1245,17 @@
 
 .method public combineAllValues(Landroid/net/NetworkStats;)V
     .locals 3
-    .parameter "another"
+    .param p1, "another"    # Landroid/net/NetworkStats;
 
     .prologue
     .line 327
     const/4 v0, 0x0
 
     .line 328
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v2, p1, Landroid/net/NetworkStats;->size:I
 
@@ -1284,7 +1281,7 @@
 
 .method public combineValues(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats;
     .locals 6
-    .parameter "entry"
+    .param p1, "entry"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 309
@@ -1301,7 +1298,7 @@
     move-result v0
 
     .line 310
-    .local v0, i:I
+    .local v0, "i":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
@@ -1374,15 +1371,15 @@
 
 .method public combineValues(Ljava/lang/String;IIIJJJJJ)Landroid/net/NetworkStats;
     .locals 15
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
+    .param p5, "rxBytes"    # J
+    .param p7, "rxPackets"    # J
+    .param p9, "txBytes"    # J
+    .param p11, "txPackets"    # J
+    .param p13, "operations"    # J
 
     .prologue
     .line 299
@@ -1417,14 +1414,14 @@
 
 .method public combineValues(Ljava/lang/String;IIJJJJJ)Landroid/net/NetworkStats;
     .locals 15
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "tag"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "tag"    # I
+    .param p4, "rxBytes"    # J
+    .param p6, "rxPackets"    # J
+    .param p8, "txBytes"    # J
+    .param p10, "txPackets"    # J
+    .param p12, "operations"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1469,8 +1466,8 @@
 
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 3
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 640
@@ -1488,7 +1485,7 @@
     .line 642
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/net/NetworkStats;->size:I
 
@@ -1627,16 +1624,16 @@
 
 .method public findIndex(Ljava/lang/String;III)I
     .locals 2
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
 
     .prologue
     .line 338
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/net/NetworkStats;->size:I
 
@@ -1672,12 +1669,12 @@
     if-eqz v1, :cond_0
 
     .line 344
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 338
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -1692,17 +1689,17 @@
 
 .method public findIndexHinted(Ljava/lang/String;IIII)I
     .locals 5
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
-    .parameter "hintIndex"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
+    .param p5, "hintIndex"    # I
 
     .prologue
     .line 353
     const/4 v2, 0x0
 
-    .local v2, offset:I
+    .local v2, "offset":I
     :goto_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -1712,7 +1709,7 @@
     div-int/lit8 v0, v2, 0x2
 
     .line 358
-    .local v0, halfOffset:I
+    .local v0, "halfOffset":I
     rem-int/lit8 v3, v2, 0x2
 
     if-nez v3, :cond_0
@@ -1725,7 +1722,7 @@
     rem-int v1, v3, v4
 
     .line 364
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     iget-object v3, p0, Landroid/net/NetworkStats;->uid:[I
 
@@ -1756,13 +1753,13 @@
     if-eqz v3, :cond_1
 
     .line 369
-    .end local v0           #halfOffset:I
-    .end local v1           #i:I
+    .end local v0    # "halfOffset":I
+    .end local v1    # "i":I
     :goto_2
     return v1
 
     .line 361
-    .restart local v0       #halfOffset:I
+    .restart local v0    # "halfOffset":I
     :cond_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -1776,7 +1773,7 @@
 
     rem-int v1, v3, v4
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     goto :goto_1
 
     .line 353
@@ -1786,8 +1783,8 @@
     goto :goto_0
 
     .line 369
-    .end local v0           #halfOffset:I
-    .end local v1           #i:I
+    .end local v0    # "halfOffset":I
+    .end local v1    # "i":I
     :cond_2
     const/4 v1, -0x1
 
@@ -1822,7 +1819,7 @@
 
 .method public getTotal(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
     .locals 3
-    .parameter "recycle"
+    .param p1, "recycle"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 431
@@ -1841,8 +1838,8 @@
 
 .method public getTotal(Landroid/net/NetworkStats$Entry;I)Landroid/net/NetworkStats$Entry;
     .locals 2
-    .parameter "recycle"
-    .parameter "limitUid"
+    .param p1, "recycle"    # Landroid/net/NetworkStats$Entry;
+    .param p2, "limitUid"    # I
 
     .prologue
     .line 439
@@ -1859,8 +1856,7 @@
 
 .method public getTotal(Landroid/net/NetworkStats$Entry;Ljava/util/HashSet;)Landroid/net/NetworkStats$Entry;
     .locals 2
-    .parameter "recycle"
-    .parameter
+    .param p1, "recycle"    # Landroid/net/NetworkStats$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1875,7 +1871,7 @@
 
     .prologue
     .line 447
-    .local p2, limitIface:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "limitIface":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     const/4 v0, -0x1
 
     const/4 v1, 0x0
@@ -1899,7 +1895,7 @@
     move-result-object v0
 
     .line 424
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     iget-wide v1, v0, Landroid/net/NetworkStats$Entry;->rxBytes:J
 
     iget-wide v3, v0, Landroid/net/NetworkStats$Entry;->txBytes:J
@@ -1911,7 +1907,7 @@
 
 .method public getTotalIncludingTags(Landroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
     .locals 3
-    .parameter "recycle"
+    .param p1, "recycle"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 451
@@ -1938,23 +1934,23 @@
     invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
     .line 393
-    .local v3, ifaces:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local v3, "ifaces":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     iget-object v0, p0, Landroid/net/NetworkStats;->iface:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v4, :cond_1
 
     aget-object v2, v0, v1
 
     .line 394
-    .local v2, iface:Ljava/lang/String;
+    .local v2, "iface":Ljava/lang/String;
     sget-object v5, Landroid/net/NetworkStats;->IFACE_ALL:Ljava/lang/String;
 
     if-eq v2, v5, :cond_0
@@ -1969,7 +1965,7 @@
     goto :goto_0
 
     .line 398
-    .end local v2           #iface:Ljava/lang/String;
+    .end local v2    # "iface":Ljava/lang/String;
     :cond_1
     invoke-virtual {v3}, Ljava/util/HashSet;->size()I
 
@@ -1996,23 +1992,23 @@
     invoke-direct {v7}, Landroid/util/SparseBooleanArray;-><init>()V
 
     .line 406
-    .local v7, uids:Landroid/util/SparseBooleanArray;
+    .local v7, "uids":Landroid/util/SparseBooleanArray;
     iget-object v0, p0, Landroid/net/NetworkStats;->uid:[I
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget v6, v0, v2
 
     .line 407
-    .local v6, uid:I
+    .local v6, "uid":I
     const/4 v8, 0x1
 
     invoke-virtual {v7, v6, v8}, Landroid/util/SparseBooleanArray;->put(IZ)V
@@ -2023,21 +2019,21 @@
     goto :goto_0
 
     .line 410
-    .end local v6           #uid:I
+    .end local v6    # "uid":I
     :cond_0
     invoke-virtual {v7}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v5
 
     .line 411
-    .local v5, size:I
+    .local v5, "size":I
     new-array v4, v5, [I
 
     .line 412
-    .local v4, result:[I
+    .local v4, "result":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v5, :cond_1
 
@@ -2060,8 +2056,8 @@
 
 .method public getValues(ILandroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
     .locals 3
-    .parameter "i"
-    .parameter "recycle"
+    .param p1, "i"    # I
+    .param p2, "recycle"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 256
@@ -2070,7 +2066,7 @@
     move-object v0, p2
 
     .line 257
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     :goto_0
     iget-object v1, p0, Landroid/net/NetworkStats;->iface:[Ljava/lang/String;
 
@@ -2138,7 +2134,7 @@
     return-object v0
 
     .line 256
-    .end local v0           #entry:Landroid/net/NetworkStats$Entry;
+    .end local v0    # "entry":Landroid/net/NetworkStats$Entry;
     :cond_0
     new-instance v0, Landroid/net/NetworkStats$Entry;
 
@@ -2163,13 +2159,13 @@
     invoke-direct {v2, v3, v4, v5}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 572
-    .local v2, stats:Landroid/net/NetworkStats;
+    .local v2, "stats":Landroid/net/NetworkStats;
     new-instance v0, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v0}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 573
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     iput v6, v0, Landroid/net/NetworkStats$Entry;->uid:I
 
     .line 574
@@ -2188,7 +2184,7 @@
     .line 578
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -2267,13 +2263,13 @@
     invoke-direct {v2, v3, v4, v5}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 600
-    .local v2, stats:Landroid/net/NetworkStats;
+    .local v2, "stats":Landroid/net/NetworkStats;
     new-instance v0, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v0}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 601
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     sget-object v3, Landroid/net/NetworkStats;->IFACE_ALL:Ljava/lang/String;
 
     iput-object v3, v0, Landroid/net/NetworkStats$Entry;->iface:Ljava/lang/String;
@@ -2291,7 +2287,7 @@
     .line 605
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -2387,13 +2383,13 @@
 
 .method public spliceOperationsFrom(Landroid/net/NetworkStats;)V
     .locals 6
-    .parameter "stats"
+    .param p1, "stats"    # Landroid/net/NetworkStats;
 
     .prologue
     .line 378
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v2, p0, Landroid/net/NetworkStats;->size:I
 
@@ -2421,7 +2417,7 @@
     move-result v1
 
     .line 380
-    .local v1, j:I
+    .local v1, "j":I
     const/4 v2, -0x1
 
     if-ne v1, v2, :cond_0
@@ -2452,14 +2448,14 @@
     goto :goto_1
 
     .line 386
-    .end local v1           #j:I
+    .end local v1    # "j":I
     :cond_1
     return-void
 .end method
 
 .method public subtract(Landroid/net/NetworkStats;)Landroid/net/NetworkStats;
     .locals 1
-    .parameter "right"
+    .param p1, "right"    # Landroid/net/NetworkStats;
 
     .prologue
     const/4 v0, 0x0
@@ -2482,7 +2478,7 @@
     invoke-direct {v0}, Ljava/io/CharArrayWriter;-><init>()V
 
     .line 683
-    .local v0, writer:Ljava/io/CharArrayWriter;
+    .local v0, "writer":Ljava/io/CharArrayWriter;
     const-string v1, ""
 
     new-instance v2, Ljava/io/PrintWriter;
@@ -2501,7 +2497,7 @@
 
 .method public withoutUids([I)Landroid/net/NetworkStats;
     .locals 6
-    .parameter "uids"
+    .param p1, "uids"    # [I
 
     .prologue
     .line 626
@@ -2514,16 +2510,16 @@
     invoke-direct {v2, v3, v4, v5}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 628
-    .local v2, stats:Landroid/net/NetworkStats;
+    .local v2, "stats":Landroid/net/NetworkStats;
     new-instance v0, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v0}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 629
-    .local v0, entry:Landroid/net/NetworkStats$Entry;
+    .local v0, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Landroid/net/NetworkStats;->size:I
 
@@ -2559,8 +2555,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 182

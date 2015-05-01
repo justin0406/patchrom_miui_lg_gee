@@ -23,7 +23,7 @@
 
 .field private static final MIN_WIDTH:I = 0x64
 
-.field private static final SETTING_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final SETTING_PATTERN:Ljava/util/regex/Pattern;
 
 .field static final TAG:Ljava/lang/String; = "OverlayDisplayAdapter"
 
@@ -64,11 +64,11 @@
 
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService$SyncRoot;Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/DisplayAdapter$Listener;Landroid/os/Handler;)V
     .locals 6
-    .parameter "syncRoot"
-    .parameter "context"
-    .parameter "handler"
-    .parameter "listener"
-    .parameter "uiHandler"
+    .param p1, "syncRoot"    # Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "handler"    # Landroid/os/Handler;
+    .param p4, "listener"    # Lcom/android/server/display/DisplayAdapter$Listener;
+    .param p5, "uiHandler"    # Landroid/os/Handler;
 
     .prologue
     .line 72
@@ -107,7 +107,7 @@
 
 .method static synthetic access$000(Lcom/android/server/display/OverlayDisplayAdapter;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayAdapter;
 
     .prologue
     .line 52
@@ -118,7 +118,7 @@
 
 .method static synthetic access$100(Lcom/android/server/display/OverlayDisplayAdapter;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayAdapter;
 
     .prologue
     .line 52
@@ -129,7 +129,7 @@
 
 .method private static chooseOverlayGravity(I)I
     .locals 1
-    .parameter "overlayNumber"
+    .param p0, "overlayNumber"    # I
 
     .prologue
     .line 176
@@ -222,7 +222,7 @@
     move-result-object v19
 
     .line 117
-    .local v19, value:Ljava/lang/String;
+    .local v19, "value":Ljava/lang/String;
     if-nez v19, :cond_0
 
     .line 118
@@ -282,7 +282,7 @@
 
     move-result-object v13
 
-    .local v13, i$:Ljava/util/Iterator;
+    .local v13, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
@@ -297,13 +297,13 @@
     check-cast v17, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
     .line 129
-    .local v17, overlay:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
+    .local v17, "overlay":Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
     invoke-virtual/range {v17 .. v17}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->dismissLocked()V
 
     goto :goto_1
 
     .line 131
-    .end local v17           #overlay:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
+    .end local v17    # "overlay":Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
     :cond_3
     move-object/from16 v0, p0
 
@@ -312,12 +312,12 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 134
-    .end local v13           #i$:Ljava/util/Iterator;
+    .end local v13    # "i$":Ljava/util/Iterator;
     :cond_4
     const/4 v11, 0x0
 
     .line 135
-    .local v11, count:I
+    .local v11, "count":I
     const-string v2, ";"
 
     move-object/from16 v0, v19
@@ -326,20 +326,20 @@
 
     move-result-object v10
 
-    .local v10, arr$:[Ljava/lang/String;
+    .local v10, "arr$":[Ljava/lang/String;
     array-length v14, v10
 
-    .local v14, len$:I
+    .local v14, "len$":I
     const/4 v13, 0x0
 
-    .local v13, i$:I
+    .local v13, "i$":I
     :goto_2
     if-ge v13, v14, :cond_1
 
     aget-object v18, v10, v13
 
     .line 136
-    .local v18, part:Ljava/lang/String;
+    .local v18, "part":Ljava/lang/String;
     sget-object v2, Lcom/android/server/display/OverlayDisplayAdapter;->SETTING_PATTERN:Ljava/util/regex/Pattern;
 
     move-object/from16 v0, v18
@@ -349,7 +349,7 @@
     move-result-object v15
 
     .line 137
-    .local v15, matcher:Ljava/util/regex/Matcher;
+    .local v15, "matcher":Ljava/util/regex/Matcher;
     invoke-virtual {v15}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v2
@@ -406,7 +406,7 @@
     move-result v5
 
     .line 144
-    .local v5, width:I
+    .local v5, "width":I
     const/4 v2, 0x2
 
     invoke-virtual {v15, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -420,7 +420,7 @@
     move-result v6
 
     .line 145
-    .local v6, height:I
+    .local v6, "height":I
     const/4 v2, 0x3
 
     invoke-virtual {v15, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -434,7 +434,7 @@
     move-result v7
 
     .line 146
-    .local v7, densityDpi:I
+    .local v7, "densityDpi":I
     const/4 v2, 0x4
 
     invoke-virtual {v15, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -442,7 +442,7 @@
     move-result-object v12
 
     .line 147
-    .local v12, flagString:Ljava/lang/String;
+    .local v12, "flagString":Ljava/lang/String;
     const/16 v2, 0x64
 
     if-lt v5, v2, :cond_9
@@ -473,7 +473,7 @@
     move/from16 v16, v11
 
     .line 152
-    .local v16, number:I
+    .local v16, "number":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/display/OverlayDisplayAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -482,7 +482,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040553
+    const v3, 0x1040554
 
     const/16 v20, 0x1
 
@@ -507,13 +507,13 @@
     move-result-object v4
 
     .line 155
-    .local v4, name:Ljava/lang/String;
+    .local v4, "name":Ljava/lang/String;
     invoke-static/range {v16 .. v16}, Lcom/android/server/display/OverlayDisplayAdapter;->chooseOverlayGravity(I)I
 
     move-result v8
 
     .line 156
-    .local v8, gravity:I
+    .local v8, "gravity":I
     if-eqz v12, :cond_7
 
     const-string v2, ",secure"
@@ -527,7 +527,7 @@
     const/4 v9, 0x1
 
     .line 158
-    .local v9, secure:Z
+    .local v9, "secure":Z
     :goto_3
     const-string v2, "OverlayDisplayAdapter"
 
@@ -635,14 +635,14 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 135
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #width:I
-    .end local v6           #height:I
-    .end local v7           #densityDpi:I
-    .end local v8           #gravity:I
-    .end local v9           #secure:Z
-    .end local v12           #flagString:Ljava/lang/String;
-    .end local v16           #number:I
+    .end local v4    # "name":Ljava/lang/String;
+    .end local v5    # "width":I
+    .end local v6    # "height":I
+    .end local v7    # "densityDpi":I
+    .end local v8    # "gravity":I
+    .end local v9    # "secure":Z
+    .end local v12    # "flagString":Ljava/lang/String;
+    .end local v16    # "number":I
     :cond_6
     :goto_4
     add-int/lit8 v13, v13, 0x1
@@ -650,26 +650,26 @@
     goto/16 :goto_2
 
     .line 156
-    .restart local v4       #name:Ljava/lang/String;
-    .restart local v5       #width:I
-    .restart local v6       #height:I
-    .restart local v7       #densityDpi:I
-    .restart local v8       #gravity:I
-    .restart local v12       #flagString:Ljava/lang/String;
-    .restart local v16       #number:I
+    .restart local v4    # "name":Ljava/lang/String;
+    .restart local v5    # "width":I
+    .restart local v6    # "height":I
+    .restart local v7    # "densityDpi":I
+    .restart local v8    # "gravity":I
+    .restart local v12    # "flagString":Ljava/lang/String;
+    .restart local v16    # "number":I
     :cond_7
     const/4 v9, 0x0
 
     goto :goto_3
 
     .line 168
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #width:I
-    .end local v6           #height:I
-    .end local v7           #densityDpi:I
-    .end local v8           #gravity:I
-    .end local v12           #flagString:Ljava/lang/String;
-    .end local v16           #number:I
+    .end local v4    # "name":Ljava/lang/String;
+    .end local v5    # "width":I
+    .end local v6    # "height":I
+    .end local v7    # "densityDpi":I
+    .end local v8    # "gravity":I
+    .end local v12    # "flagString":Ljava/lang/String;
+    .end local v16    # "number":I
     :cond_8
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->isEmpty()Z
 
@@ -719,7 +719,7 @@
 # virtual methods
 .method public dumpLocked(Ljava/io/PrintWriter;)V
     .locals 4
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 78
@@ -782,7 +782,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -797,13 +797,13 @@
     check-cast v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
     .line 83
-    .local v1, overlay:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
+    .local v1, "overlay":Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
     invoke-virtual {v1, p1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->dumpLocked(Ljava/io/PrintWriter;)V
 
     goto :goto_0
 
     .line 85
-    .end local v1           #overlay:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
+    .end local v1    # "overlay":Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
     :cond_0
     return-void
 .end method

@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 366
@@ -76,8 +76,8 @@
 
 .method static synthetic access$000(Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
+    .param p1, "x1"    # Landroid/view/textservice/TextInfo;
 
     .prologue
     .line 333
@@ -90,7 +90,7 @@
 
 .method private getSplitWords(Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
     .locals 13
-    .parameter "originalTextInfo"
+    .param p1, "originalTextInfo"    # Landroid/view/textservice/TextInfo;
 
     .prologue
     const/4 v12, 0x0
@@ -101,35 +101,35 @@
     iget-object v8, p0, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->mWordIterator:Landroid/text/method/WordIterator;
 
     .line 372
-    .local v8, wordIterator:Landroid/text/method/WordIterator;
+    .local v8, "wordIterator":Landroid/text/method/WordIterator;
     invoke-virtual {p1}, Landroid/view/textservice/TextInfo;->getText()Ljava/lang/String;
 
     move-result-object v2
 
     .line 373
-    .local v2, originalText:Ljava/lang/CharSequence;
+    .local v2, "originalText":Ljava/lang/CharSequence;
     invoke-virtual {p1}, Landroid/view/textservice/TextInfo;->getCookie()I
 
     move-result v0
 
     .line 374
-    .local v0, cookie:I
+    .local v0, "cookie":I
     const/4 v4, 0x0
 
     .line 375
-    .local v4, start:I
+    .local v4, "start":I
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
     .line 376
-    .local v1, end:I
+    .local v1, "end":I
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     .line 377
-    .local v7, wordItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;>;"
+    .local v7, "wordItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;>;"
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v10
@@ -142,13 +142,13 @@
     move-result v6
 
     .line 379
-    .local v6, wordEnd:I
+    .local v6, "wordEnd":I
     invoke-virtual {v8, v6}, Landroid/text/method/WordIterator;->getBeginning(I)I
 
     move-result v9
 
     .line 385
-    .local v9, wordStart:I
+    .local v9, "wordStart":I
     :goto_0
     if-gt v9, v1, :cond_1
 
@@ -171,7 +171,7 @@
     move-result-object v3
 
     .line 388
-    .local v3, query:Ljava/lang/String;
+    .local v3, "query":Ljava/lang/String;
     new-instance v5, Landroid/view/textservice/TextInfo;
 
     invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
@@ -181,7 +181,7 @@
     invoke-direct {v5, v3, v0, v10}, Landroid/view/textservice/TextInfo;-><init>(Ljava/lang/String;II)V
 
     .line 389
-    .local v5, ti:Landroid/view/textservice/TextInfo;
+    .local v5, "ti":Landroid/view/textservice/TextInfo;
     new-instance v10, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
 
     invoke-direct {v10, v5, v9, v6}, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;-><init>(Landroid/view/textservice/TextInfo;II)V
@@ -189,8 +189,8 @@
     invoke-virtual {v7, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 394
-    .end local v3           #query:Ljava/lang/String;
-    .end local v5           #ti:Landroid/view/textservice/TextInfo;
+    .end local v3    # "query":Ljava/lang/String;
+    .end local v5    # "ti":Landroid/view/textservice/TextInfo;
     :cond_0
     invoke-virtual {v8, v6}, Landroid/text/method/WordIterator;->following(I)I
 
@@ -218,8 +218,8 @@
 
 .method public static reconstructSuggestions(Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;[Landroid/view/textservice/SuggestionsInfo;)Landroid/view/textservice/SentenceSuggestionsInfo;
     .locals 13
-    .parameter "originalTextInfoParams"
-    .parameter "results"
+    .param p0, "originalTextInfoParams"    # Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
+    .param p1, "results"    # [Landroid/view/textservice/SuggestionsInfo;
 
     .prologue
     const/4 v11, 0x0
@@ -248,7 +248,7 @@
     move-result v6
 
     .line 418
-    .local v6, originalCookie:I
+    .local v6, "originalCookie":I
     iget-object v11, p0, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;->mOriginalTextInfo:Landroid/view/textservice/TextInfo;
 
     invoke-virtual {v11}, Landroid/view/textservice/TextInfo;->getSequence()I
@@ -256,26 +256,26 @@
     move-result v7
 
     .line 421
-    .local v7, originalSequence:I
+    .local v7, "originalSequence":I
     iget v8, p0, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;->mSize:I
 
     .line 422
-    .local v8, querySize:I
+    .local v8, "querySize":I
     new-array v5, v8, [I
 
     .line 423
-    .local v5, offsets:[I
+    .local v5, "offsets":[I
     new-array v4, v8, [I
 
     .line 424
-    .local v4, lengths:[I
+    .local v4, "lengths":[I
     new-array v9, v8, [Landroid/view/textservice/SuggestionsInfo;
 
     .line 425
-    .local v9, reconstructedSuggestions:[Landroid/view/textservice/SuggestionsInfo;
+    .local v9, "reconstructedSuggestions":[Landroid/view/textservice/SuggestionsInfo;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v8, :cond_5
 
@@ -289,14 +289,14 @@
     check-cast v2, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
 
     .line 427
-    .local v2, item:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
+    .local v2, "item":Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
     const/4 v10, 0x0
 
     .line 428
-    .local v10, result:Landroid/view/textservice/SuggestionsInfo;
+    .local v10, "result":Landroid/view/textservice/SuggestionsInfo;
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_2
     array-length v11, p1
 
@@ -306,7 +306,7 @@
     aget-object v0, p1, v3
 
     .line 430
-    .local v0, cur:Landroid/view/textservice/SuggestionsInfo;
+    .local v0, "cur":Landroid/view/textservice/SuggestionsInfo;
     if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Landroid/view/textservice/SuggestionsInfo;->getSequence()I
@@ -328,7 +328,7 @@
     invoke-virtual {v10, v6, v7}, Landroid/view/textservice/SuggestionsInfo;->setCookieAndSequence(II)V
 
     .line 436
-    .end local v0           #cur:Landroid/view/textservice/SuggestionsInfo;
+    .end local v0    # "cur":Landroid/view/textservice/SuggestionsInfo;
     :cond_2
     iget v11, v2, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;->mStart:I
 
@@ -342,7 +342,7 @@
     .line 438
     if-eqz v10, :cond_4
 
-    .end local v10           #result:Landroid/view/textservice/SuggestionsInfo;
+    .end local v10    # "result":Landroid/view/textservice/SuggestionsInfo;
     :goto_3
     aput-object v10, v9, v1
 
@@ -352,24 +352,24 @@
     goto :goto_1
 
     .line 428
-    .restart local v0       #cur:Landroid/view/textservice/SuggestionsInfo;
-    .restart local v10       #result:Landroid/view/textservice/SuggestionsInfo;
+    .restart local v0    # "cur":Landroid/view/textservice/SuggestionsInfo;
+    .restart local v10    # "result":Landroid/view/textservice/SuggestionsInfo;
     :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 438
-    .end local v0           #cur:Landroid/view/textservice/SuggestionsInfo;
+    .end local v0    # "cur":Landroid/view/textservice/SuggestionsInfo;
     :cond_4
     sget-object v10, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->EMPTY_SUGGESTIONS_INFO:Landroid/view/textservice/SuggestionsInfo;
 
     goto :goto_3
 
     .line 447
-    .end local v2           #item:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
-    .end local v3           #j:I
-    .end local v10           #result:Landroid/view/textservice/SuggestionsInfo;
+    .end local v2    # "item":Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;
+    .end local v3    # "j":I
+    .end local v10    # "result":Landroid/view/textservice/SuggestionsInfo;
     :cond_5
     new-instance v11, Landroid/view/textservice/SentenceSuggestionsInfo;
 

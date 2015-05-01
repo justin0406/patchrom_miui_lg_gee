@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 133
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 237
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintDocumentAdapter"
 
@@ -113,7 +113,7 @@
     move-result-object v0
 
     .line 226
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintDocumentAdapter"
 
@@ -159,11 +159,11 @@
 
 .method public layout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/print/ILayoutResultCallback;Landroid/os/Bundle;I)V
     .locals 5
-    .parameter "oldAttributes"
-    .parameter "newAttributes"
-    .parameter "callback"
-    .parameter "metadata"
-    .parameter "sequence"
+    .param p1, "oldAttributes"    # Landroid/print/PrintAttributes;
+    .param p2, "newAttributes"    # Landroid/print/PrintAttributes;
+    .param p3, "callback"    # Landroid/print/ILayoutResultCallback;
+    .param p4, "metadata"    # Landroid/os/Bundle;
+    .param p5, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -179,7 +179,7 @@
     move-result-object v0
 
     .line 171
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintDocumentAdapter"
 
@@ -300,7 +300,7 @@
 
 .method public setObserver(Landroid/print/IPrintDocumentAdapterObserver;)V
     .locals 5
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/print/IPrintDocumentAdapterObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -316,7 +316,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintDocumentAdapter"
 
@@ -375,7 +375,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintDocumentAdapter"
 
@@ -411,10 +411,10 @@
 
 .method public write([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/print/IWriteResultCallback;I)V
     .locals 5
-    .parameter "pages"
-    .parameter "fd"
-    .parameter "callback"
-    .parameter "sequence"
+    .param p1, "pages"    # [Landroid/print/PageRange;
+    .param p2, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "callback"    # Landroid/print/IWriteResultCallback;
+    .param p4, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -430,7 +430,7 @@
     move-result-object v0
 
     .line 205
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintDocumentAdapter"
 

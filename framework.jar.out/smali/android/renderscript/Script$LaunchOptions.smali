@@ -63,7 +63,7 @@
 
 .method static synthetic access$000(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -74,7 +74,7 @@
 
 .method static synthetic access$100(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -85,7 +85,7 @@
 
 .method static synthetic access$200(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -96,7 +96,7 @@
 
 .method static synthetic access$300(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -107,7 +107,7 @@
 
 .method static synthetic access$400(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -118,7 +118,7 @@
 
 .method static synthetic access$500(Landroid/renderscript/Script$LaunchOptions;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 349
@@ -191,8 +191,8 @@
 
 .method public setX(II)Landroid/renderscript/Script$LaunchOptions;
     .locals 2
-    .parameter "xstartArg"
-    .parameter "xendArg"
+    .param p1, "xstartArg"    # I
+    .param p2, "xendArg"    # I
 
     .prologue
     .line 368
@@ -223,8 +223,8 @@
 
 .method public setY(II)Landroid/renderscript/Script$LaunchOptions;
     .locals 2
-    .parameter "ystartArg"
-    .parameter "yendArg"
+    .param p1, "ystartArg"    # I
+    .param p2, "yendArg"    # I
 
     .prologue
     .line 386
@@ -255,8 +255,8 @@
 
 .method public setZ(II)Landroid/renderscript/Script$LaunchOptions;
     .locals 2
-    .parameter "zstartArg"
-    .parameter "zendArg"
+    .param p1, "zstartArg"    # I
+    .param p2, "zendArg"    # I
 
     .prologue
     .line 404

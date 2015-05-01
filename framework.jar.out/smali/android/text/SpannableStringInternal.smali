@@ -6,7 +6,7 @@
 # static fields
 .field private static final COLUMNS:I = 0x3
 
-.field static final EMPTY:[Ljava/lang/Object; = null
+.field static final EMPTY:[Ljava/lang/Object;
 
 .field private static final END:I = 0x1
 
@@ -42,9 +42,9 @@
 
 .method constructor <init>(Ljava/lang/CharSequence;II)V
     .locals 10
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 26
@@ -75,7 +75,7 @@
     move-result v3
 
     .line 33
-    .local v3, initial:I
+    .local v3, "initial":I
     new-array v7, v3, [Ljava/lang/Object;
 
     iput-object v7, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
@@ -98,7 +98,7 @@
     check-cast v4, Landroid/text/Spanned;
 
     .line 38
-    .local v4, sp:Landroid/text/Spanned;
+    .local v4, "sp":Landroid/text/Spanned;
     const-class v7, Ljava/lang/Object;
 
     invoke-interface {v4, p2, p3, v7}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
@@ -106,10 +106,10 @@
     move-result-object v5
 
     .line 40
-    .local v5, spans:[Ljava/lang/Object;
+    .local v5, "spans":[Ljava/lang/Object;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     array-length v7, v5
 
@@ -123,7 +123,7 @@
     move-result v6
 
     .line 42
-    .local v6, st:I
+    .local v6, "st":I
     aget-object v7, v5, v2
 
     invoke-interface {v4, v7}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
@@ -131,7 +131,7 @@
     move-result v0
 
     .line 43
-    .local v0, en:I
+    .local v0, "en":I
     aget-object v7, v5, v2
 
     invoke-interface {v4, v7}, Landroid/text/Spanned;->getSpanFlags(Ljava/lang/Object;)I
@@ -139,7 +139,7 @@
     move-result v1
 
     .line 45
-    .local v1, fl:I
+    .local v1, "fl":I
     if-ge v6, p2, :cond_0
 
     .line 46
@@ -168,13 +168,13 @@
     goto :goto_1
 
     .line 30
-    .end local v0           #en:I
-    .end local v1           #fl:I
-    .end local v2           #i:I
-    .end local v3           #initial:I
-    .end local v4           #sp:Landroid/text/Spanned;
-    .end local v5           #spans:[Ljava/lang/Object;
-    .end local v6           #st:I
+    .end local v0    # "en":I
+    .end local v1    # "fl":I
+    .end local v2    # "i":I
+    .end local v3    # "initial":I
+    .end local v4    # "sp":Landroid/text/Spanned;
+    .end local v5    # "spans":[Ljava/lang/Object;
+    .end local v6    # "st":I
     :cond_2
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -189,16 +189,16 @@
     goto :goto_0
 
     .line 53
-    .restart local v3       #initial:I
+    .restart local v3    # "initial":I
     :cond_3
     return-void
 .end method
 
 .method private checkRange(Ljava/lang/String;II)V
     .locals 4
-    .parameter "operation"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "operation"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 340
@@ -250,7 +250,7 @@
     move-result v0
 
     .line 348
-    .local v0, len:I
+    .local v0, "len":I
     if-gt p2, v0, :cond_1
 
     if-le p3, v0, :cond_2
@@ -352,8 +352,8 @@
 
 .method private static region(II)Ljava/lang/String;
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p0, "start"    # I
+    .param p1, "end"    # I
 
     .prologue
     .line 336
@@ -396,9 +396,9 @@
 
 .method private sendSpanAdded(Ljava/lang/Object;II)V
     .locals 5
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "what"    # Ljava/lang/Object;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 308
@@ -411,14 +411,14 @@
     check-cast v2, [Landroid/text/SpanWatcher;
 
     .line 309
-    .local v2, recip:[Landroid/text/SpanWatcher;
+    .local v2, "recip":[Landroid/text/SpanWatcher;
     array-length v1, v2
 
     .line 311
-    .local v1, n:I
+    .local v1, "n":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -443,11 +443,11 @@
 
 .method private sendSpanChanged(Ljava/lang/Object;IIII)V
     .locals 10
-    .parameter "what"
-    .parameter "s"
-    .parameter "e"
-    .parameter "st"
-    .parameter "en"
+    .param p1, "what"    # Ljava/lang/Object;
+    .param p2, "s"    # I
+    .param p3, "e"    # I
+    .param p4, "st"    # I
+    .param p5, "en"    # I
 
     .prologue
     .line 326
@@ -468,14 +468,14 @@
     check-cast v9, [Landroid/text/SpanWatcher;
 
     .line 328
-    .local v9, recip:[Landroid/text/SpanWatcher;
+    .local v9, "recip":[Landroid/text/SpanWatcher;
     array-length v8, v9
 
     .line 330
-    .local v8, n:I
+    .local v8, "n":I
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v8, :cond_0
 
@@ -510,9 +510,9 @@
 
 .method private sendSpanRemoved(Ljava/lang/Object;II)V
     .locals 5
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "what"    # Ljava/lang/Object;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 317
@@ -525,14 +525,14 @@
     check-cast v2, [Landroid/text/SpanWatcher;
 
     .line 318
-    .local v2, recip:[Landroid/text/SpanWatcher;
+    .local v2, "recip":[Landroid/text/SpanWatcher;
     array-length v1, v2
 
     .line 320
-    .local v1, n:I
+    .local v1, "n":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -559,7 +559,7 @@
 # virtual methods
 .method public final charAt(I)C
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 60
@@ -574,7 +574,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 8
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v5, 0x0
@@ -604,7 +604,7 @@
     check-cast v1, Landroid/text/Spanned;
 
     .line 368
-    .local v1, other:Landroid/text/Spanned;
+    .local v1, "other":Landroid/text/Spanned;
     invoke-interface {v1}, Landroid/text/Spanned;->length()I
 
     move-result v6
@@ -616,7 +616,7 @@
     move-result-object v3
 
     .line 369
-    .local v3, otherSpans:[Ljava/lang/Object;
+    .local v3, "otherSpans":[Ljava/lang/Object;
     iget v6, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     array-length v7, v3
@@ -626,7 +626,7 @@
     .line 370
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v6, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
@@ -638,11 +638,11 @@
     aget-object v4, v6, v0
 
     .line 372
-    .local v4, thisSpan:Ljava/lang/Object;
+    .local v4, "thisSpan":Ljava/lang/Object;
     aget-object v2, v3, v0
 
     .line 373
-    .local v2, otherSpan:Ljava/lang/Object;
+    .local v2, "otherSpan":Ljava/lang/Object;
     if-ne v4, p0, :cond_1
 
     .line 374
@@ -679,21 +679,21 @@
     if-eq v6, v7, :cond_2
 
     .line 390
-    .end local v0           #i:I
-    .end local v1           #other:Landroid/text/Spanned;
-    .end local v2           #otherSpan:Ljava/lang/Object;
-    .end local v3           #otherSpans:[Ljava/lang/Object;
-    .end local v4           #thisSpan:Ljava/lang/Object;
+    .end local v0    # "i":I
+    .end local v1    # "other":Landroid/text/Spanned;
+    .end local v2    # "otherSpan":Ljava/lang/Object;
+    .end local v3    # "otherSpans":[Ljava/lang/Object;
+    .end local v4    # "thisSpan":Ljava/lang/Object;
     :cond_0
     :goto_1
     return v5
 
     .line 380
-    .restart local v0       #i:I
-    .restart local v1       #other:Landroid/text/Spanned;
-    .restart local v2       #otherSpan:Ljava/lang/Object;
-    .restart local v3       #otherSpans:[Ljava/lang/Object;
-    .restart local v4       #thisSpan:Ljava/lang/Object;
+    .restart local v0    # "i":I
+    .restart local v1    # "other":Landroid/text/Spanned;
+    .restart local v2    # "otherSpan":Ljava/lang/Object;
+    .restart local v3    # "otherSpans":[Ljava/lang/Object;
+    .restart local v4    # "thisSpan":Ljava/lang/Object;
     :cond_1
     invoke-virtual {v4, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -738,8 +738,8 @@
     goto :goto_0
 
     .line 387
-    .end local v2           #otherSpan:Ljava/lang/Object;
-    .end local v4           #thisSpan:Ljava/lang/Object;
+    .end local v2    # "otherSpan":Ljava/lang/Object;
+    .end local v4    # "thisSpan":Ljava/lang/Object;
     :cond_3
     const/4 v5, 0x1
 
@@ -748,10 +748,10 @@
 
 .method public final getChars(II[CI)V
     .locals 1
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "off"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "dest"    # [C
+    .param p4, "off"    # I
 
     .prologue
     .line 70
@@ -765,25 +765,25 @@
 
 .method public getSpanEnd(Ljava/lang/Object;)I
     .locals 5
-    .parameter "what"
+    .param p1, "what"    # Ljava/lang/Object;
 
     .prologue
     .line 178
     iget v0, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 179
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v3, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 180
-    .local v3, spans:[Ljava/lang/Object;
+    .local v3, "spans":[Ljava/lang/Object;
     iget-object v1, p0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 182
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v2, v0, -0x1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ltz v2, :cond_1
 
@@ -818,25 +818,25 @@
 
 .method public getSpanFlags(Ljava/lang/Object;)I
     .locals 5
-    .parameter "what"
+    .param p1, "what"    # Ljava/lang/Object;
 
     .prologue
     .line 192
     iget v0, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 193
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v3, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 194
-    .local v3, spans:[Ljava/lang/Object;
+    .local v3, "spans":[Ljava/lang/Object;
     iget-object v1, p0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 196
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v2, v0, -0x1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ltz v2, :cond_1
 
@@ -871,25 +871,25 @@
 
 .method public getSpanStart(Ljava/lang/Object;)I
     .locals 5
-    .parameter "what"
+    .param p1, "what"    # Ljava/lang/Object;
 
     .prologue
     .line 164
     iget v0, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 165
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v3, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 166
-    .local v3, spans:[Ljava/lang/Object;
+    .local v3, "spans":[Ljava/lang/Object;
     iget-object v1, p0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 168
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v2, v0, -0x1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ltz v2, :cond_1
 
@@ -924,9 +924,8 @@
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
     .locals 18
-    .parameter "queryStart"
-    .parameter "queryEnd"
-    .parameter
+    .param p1, "queryStart"    # I
+    .param p2, "queryEnd"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -939,45 +938,45 @@
 
     .prologue
     .line 206
-    .local p3, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p3, "kind":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v2, 0x0
 
     .line 208
-    .local v2, count:I
+    .local v2, "count":I
     move-object/from16 v0, p0
 
     iget v12, v0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 209
-    .local v12, spanCount:I
+    .local v12, "spanCount":I
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 210
-    .local v15, spans:[Ljava/lang/Object;
+    .local v15, "spans":[Ljava/lang/Object;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 211
-    .local v4, data:[I
+    .local v4, "data":[I
     const/4 v10, 0x0
 
     .line 212
-    .local v10, ret:[Ljava/lang/Object;
+    .local v10, "ret":[Ljava/lang/Object;
     const/4 v11, 0x0
 
     .line 214
-    .local v11, ret1:Ljava/lang/Object;
+    .local v11, "ret1":Ljava/lang/Object;
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     move v3, v2
 
-    .end local v2           #count:I
-    .end local v11           #ret1:Ljava/lang/Object;
-    .local v3, count:I
+    .end local v2    # "count":I
+    .end local v11    # "ret1":Ljava/lang/Object;
+    .local v3, "count":I
     :goto_0
     if-ge v5, v12, :cond_a
 
@@ -999,15 +998,15 @@
     move v2, v3
 
     .line 214
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     :goto_1
     add-int/lit8 v5, v5, 0x1
 
     move v3, v2
 
-    .end local v2           #count:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
     goto :goto_0
 
     .line 219
@@ -1019,7 +1018,7 @@
     aget v14, v4, v16
 
     .line 220
-    .local v14, spanStart:I
+    .local v14, "spanStart":I
     mul-int/lit8 v16, v5, 0x3
 
     add-int/lit8 v16, v16, 0x1
@@ -1027,7 +1026,7 @@
     aget v13, v4, v16
 
     .line 222
-    .local v13, spanEnd:I
+    .local v13, "spanEnd":I
     move/from16 v0, p2
 
     if-le v14, v0, :cond_1
@@ -1035,13 +1034,13 @@
     move v2, v3
 
     .line 223
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto :goto_1
 
     .line 225
-    .end local v2           #count:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
     :cond_1
     move/from16 v0, p1
 
@@ -1050,13 +1049,13 @@
     move v2, v3
 
     .line 226
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto :goto_1
 
     .line 229
-    .end local v2           #count:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
     :cond_2
     if-eq v14, v13, :cond_4
 
@@ -1074,13 +1073,13 @@
     move v2, v3
 
     .line 231
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto :goto_1
 
     .line 233
-    .end local v2           #count:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
     :cond_3
     move/from16 v0, p1
 
@@ -1089,13 +1088,13 @@
     move v2, v3
 
     .line 234
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto :goto_1
 
     .line 238
-    .end local v2           #count:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
     :cond_4
     if-nez v3, :cond_5
 
@@ -1103,17 +1102,17 @@
     aget-object v11, v15, v5
 
     .line 240
-    .restart local v11       #ret1:Ljava/lang/Object;
+    .restart local v11    # "ret1":Ljava/lang/Object;
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto :goto_1
 
     .line 242
-    .end local v2           #count:I
-    .end local v11           #ret1:Ljava/lang/Object;
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .end local v11    # "ret1":Ljava/lang/Object;
+    .restart local v3    # "count":I
     :cond_5
     const/16 v16, 0x1
 
@@ -1153,18 +1152,18 @@
 
     aget v16, v4, v16
 
-    const/high16 v17, 0xff
+    const/high16 v17, 0xff0000
 
     and-int v9, v16, v17
 
     .line 248
-    .local v9, prio:I
+    .local v9, "prio":I
     if-eqz v9, :cond_9
 
     .line 251
     const/4 v6, 0x0
 
-    .local v6, j:I
+    .local v6, "j":I
     :goto_2
     if-ge v6, v3, :cond_7
 
@@ -1179,16 +1178,16 @@
 
     move-result v16
 
-    const/high16 v17, 0xff
+    const/high16 v17, 0xff0000
 
     and-int v8, v16, v17
 
     .line 254
-    .local v8, p:I
+    .local v8, "p":I
     if-le v9, v8, :cond_8
 
     .line 259
-    .end local v8           #p:I
+    .end local v8    # "p":I
     :cond_7
     add-int/lit8 v16, v6, 0x1
 
@@ -1209,27 +1208,27 @@
     add-int/lit8 v2, v3, 0x1
 
     .line 262
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     goto/16 :goto_1
 
     .line 251
-    .end local v2           #count:I
-    .restart local v3       #count:I
-    .restart local v8       #p:I
+    .end local v2    # "count":I
+    .restart local v3    # "count":I
+    .restart local v8    # "p":I
     :cond_8
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
     .line 263
-    .end local v6           #j:I
-    .end local v8           #p:I
+    .end local v6    # "j":I
+    .end local v8    # "p":I
     :cond_9
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #count:I
-    .restart local v2       #count:I
+    .end local v3    # "count":I
+    .restart local v2    # "count":I
     aget-object v16, v15, v5
 
     aput-object v16, v10, v3
@@ -1237,11 +1236,11 @@
     goto/16 :goto_1
 
     .line 268
-    .end local v2           #count:I
-    .end local v9           #prio:I
-    .end local v13           #spanEnd:I
-    .end local v14           #spanStart:I
-    .restart local v3       #count:I
+    .end local v2    # "count":I
+    .end local v9    # "prio":I
+    .end local v13    # "spanEnd":I
+    .end local v14    # "spanStart":I
+    .restart local v3    # "count":I
     :cond_a
     if-nez v3, :cond_b
 
@@ -1325,7 +1324,7 @@
     check-cast v7, [Ljava/lang/Object;
 
     .line 281
-    .local v7, nret:[Ljava/lang/Object;
+    .local v7, "nret":[Ljava/lang/Object;
     const/16 v16, 0x0
 
     const/16 v17, 0x0
@@ -1339,7 +1338,7 @@
     .line 282
     check-cast v7, [Ljava/lang/Object;
 
-    .end local v7           #nret:[Ljava/lang/Object;
+    .end local v7    # "nret":[Ljava/lang/Object;
     move-object/from16 v16, v7
 
     goto :goto_3
@@ -1359,7 +1358,7 @@
     move-result v0
 
     .line 397
-    .local v0, hash:I
+    .local v0, "hash":I
     mul-int/lit8 v3, v0, 0x1f
 
     iget v4, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
@@ -1369,7 +1368,7 @@
     .line 398
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
@@ -1381,7 +1380,7 @@
     aget-object v2, v3, v1
 
     .line 400
-    .local v2, span:Ljava/lang/Object;
+    .local v2, "span":Ljava/lang/Object;
     if-eq v2, p0, :cond_0
 
     .line 401
@@ -1427,7 +1426,7 @@
     goto :goto_0
 
     .line 407
-    .end local v2           #span:Ljava/lang/Object;
+    .end local v2    # "span":Ljava/lang/Object;
     :cond_1
     return v0
 .end method
@@ -1448,24 +1447,24 @@
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
     .locals 7
-    .parameter "start"
-    .parameter "limit"
-    .parameter "kind"
+    .param p1, "start"    # I
+    .param p2, "limit"    # I
+    .param p3, "kind"    # Ljava/lang/Class;
 
     .prologue
     .line 286
     iget v0, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 287
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v4, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 288
-    .local v4, spans:[Ljava/lang/Object;
+    .local v4, "spans":[Ljava/lang/Object;
     iget-object v1, p0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 290
-    .local v1, data:[I
+    .local v1, "data":[I
     if-nez p3, :cond_0
 
     .line 291
@@ -1475,7 +1474,7 @@
     :cond_0
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v0, :cond_3
 
@@ -1487,7 +1486,7 @@
     aget v5, v1, v6
 
     .line 296
-    .local v5, st:I
+    .local v5, "st":I
     mul-int/lit8 v6, v3, 0x3
 
     add-int/lit8 v6, v6, 0x1
@@ -1495,7 +1494,7 @@
     aget v2, v1, v6
 
     .line 298
-    .local v2, en:I
+    .local v2, "en":I
     if-le v5, p1, :cond_1
 
     if-ge v5, p2, :cond_1
@@ -1535,33 +1534,33 @@
     goto :goto_0
 
     .line 304
-    .end local v2           #en:I
-    .end local v5           #st:I
+    .end local v2    # "en":I
+    .end local v5    # "st":I
     :cond_3
     return p2
 .end method
 
 .method removeSpan(Ljava/lang/Object;)V
     .locals 10
-    .parameter "what"
+    .param p1, "what"    # Ljava/lang/Object;
 
     .prologue
     .line 140
     iget v1, p0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 141
-    .local v1, count:I
+    .local v1, "count":I
     iget-object v6, p0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
 
     .line 142
-    .local v6, spans:[Ljava/lang/Object;
+    .local v6, "spans":[Ljava/lang/Object;
     iget-object v2, p0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 144
-    .local v2, data:[I
+    .local v2, "data":[I
     add-int/lit8 v3, v1, -0x1
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ltz v3, :cond_0
 
@@ -1578,7 +1577,7 @@
     aget v5, v2, v7
 
     .line 147
-    .local v5, ostart:I
+    .local v5, "ostart":I
     mul-int/lit8 v7, v3, 0x3
 
     add-int/lit8 v7, v7, 0x1
@@ -1586,13 +1585,13 @@
     aget v4, v2, v7
 
     .line 149
-    .local v4, oend:I
+    .local v4, "oend":I
     add-int/lit8 v7, v3, 0x1
 
     sub-int v0, v1, v7
 
     .line 151
-    .local v0, c:I
+    .local v0, "c":I
     add-int/lit8 v7, v3, 0x1
 
     invoke-static {v6, v7, v6, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -1619,9 +1618,9 @@
     invoke-direct {p0, p1, v5, v4}, Landroid/text/SpannableStringInternal;->sendSpanRemoved(Ljava/lang/Object;II)V
 
     .line 161
-    .end local v0           #c:I
-    .end local v4           #oend:I
-    .end local v5           #ostart:I
+    .end local v0    # "c":I
+    .end local v4    # "oend":I
+    .end local v5    # "ostart":I
     :cond_0
     return-void
 
@@ -1634,21 +1633,21 @@
 
 .method setSpan(Ljava/lang/Object;III)V
     .locals 19
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
-    .parameter "flags"
+    .param p1, "what"    # Ljava/lang/Object;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "flags"    # I
 
     .prologue
     .line 74
     move/from16 v7, p2
 
     .line 75
-    .local v7, nstart:I
+    .local v7, "nstart":I
     move/from16 v8, p3
 
     .line 77
-    .local v8, nend:I
+    .local v8, "nend":I
     const-string/jumbo v3, "setSpan"
 
     move-object/from16 v0, p0
@@ -1687,7 +1686,7 @@
     move-result v9
 
     .line 83
-    .local v9, c:C
+    .local v9, "c":C
     const/16 v3, 0xa
 
     if-eq v9, v3, :cond_0
@@ -1742,7 +1741,7 @@
     throw v3
 
     .line 89
-    .end local v9           #c:C
+    .end local v9    # "c":C
     :cond_0
     if-eqz p3, :cond_1
 
@@ -1764,7 +1763,7 @@
     move-result v9
 
     .line 92
-    .restart local v9       #c:C
+    .restart local v9    # "c":C
     const/16 v3, 0xa
 
     if-eq v9, v3, :cond_1
@@ -1819,14 +1818,14 @@
     throw v3
 
     .line 99
-    .end local v9           #c:C
+    .end local v9    # "c":C
     :cond_1
     move-object/from16 v0, p0
 
     iget v10, v0, Landroid/text/SpannableStringInternal;->mSpanCount:I
 
     .line 100
-    .local v10, count:I
+    .local v10, "count":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
@@ -1834,16 +1833,16 @@
     move-object/from16 v16, v0
 
     .line 101
-    .local v16, spans:[Ljava/lang/Object;
+    .local v16, "spans":[Ljava/lang/Object;
     move-object/from16 v0, p0
 
     iget-object v11, v0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 103
-    .local v11, data:[I
+    .local v11, "data":[I
     const/4 v12, 0x0
 
-    .local v12, i:I
+    .local v12, "i":I
     :goto_0
     if-ge v12, v10, :cond_4
 
@@ -1862,7 +1861,7 @@
     aget v5, v11, v3
 
     .line 106
-    .local v5, ostart:I
+    .local v5, "ostart":I
     mul-int/lit8 v3, v12, 0x3
 
     add-int/lit8 v3, v3, 0x1
@@ -1870,7 +1869,7 @@
     aget v6, v11, v3
 
     .line 108
-    .local v6, oend:I
+    .local v6, "oend":I
     mul-int/lit8 v3, v12, 0x3
 
     add-int/lit8 v3, v3, 0x0
@@ -1899,8 +1898,8 @@
     invoke-direct/range {v3 .. v8}, Landroid/text/SpannableStringInternal;->sendSpanChanged(Ljava/lang/Object;IIII)V
 
     .line 137
-    .end local v5           #ostart:I
-    .end local v6           #oend:I
+    .end local v5    # "ostart":I
+    .end local v6    # "oend":I
     :cond_2
     :goto_1
     return-void
@@ -1939,17 +1938,17 @@
     move-result v14
 
     .line 119
-    .local v14, newsize:I
+    .local v14, "newsize":I
     new-array v15, v14, [Ljava/lang/Object;
 
     .line 120
-    .local v15, newtags:[Ljava/lang/Object;
+    .local v15, "newtags":[Ljava/lang/Object;
     mul-int/lit8 v3, v14, 0x3
 
     new-array v13, v3, [I
 
     .line 122
-    .local v13, newdata:[I
+    .local v13, "newdata":[I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
@@ -2004,9 +2003,9 @@
     iput-object v13, v0, Landroid/text/SpannableStringInternal;->mSpanData:[I
 
     .line 129
-    .end local v13           #newdata:[I
-    .end local v14           #newsize:I
-    .end local v15           #newtags:[Ljava/lang/Object;
+    .end local v13    # "newdata":[I
+    .end local v14    # "newsize":I
+    .end local v15    # "newtags":[Ljava/lang/Object;
     :cond_5
     move-object/from16 v0, p0
 

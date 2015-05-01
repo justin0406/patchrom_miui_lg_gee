@@ -84,7 +84,7 @@
 
 .field public static final COMBINING_ACCENT_MASK:I = 0x7fffffff
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -483,7 +483,7 @@
 
 .method private constructor <init>(I)V
     .locals 0
-    .parameter "ptr"
+    .param p1, "ptr"    # I
 
     .prologue
     .line 311
@@ -498,7 +498,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 300
@@ -545,8 +545,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/KeyCharacterMap$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/view/KeyCharacterMap$1;
 
     .prologue
     .line 32
@@ -557,8 +557,8 @@
 
 .method private static addCombining(II)V
     .locals 1
-    .parameter "combining"
-    .parameter "accent"
+    .param p0, "combining"    # I
+    .param p1, "accent"    # I
 
     .prologue
     .line 236
@@ -577,9 +577,9 @@
 
 .method private static addDeadKey(III)V
     .locals 4
-    .parameter "accent"
-    .parameter "c"
-    .parameter "result"
+    .param p0, "accent"    # I
+    .param p1, "c"    # I
+    .param p2, "result"    # I
 
     .prologue
     .line 267
@@ -590,7 +590,7 @@
     move-result v1
 
     .line 268
-    .local v1, combining:I
+    .local v1, "combining":I
     if-nez v1, :cond_0
 
     .line 269
@@ -609,7 +609,7 @@
     or-int v0, v2, p1
 
     .line 272
-    .local v0, combination:I
+    .local v0, "combination":I
     sget-object v2, Landroid/view/KeyCharacterMap;->sDeadKeyCache:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v0, p2}, Landroid/util/SparseIntArray;->put(II)V
@@ -620,7 +620,7 @@
 
 .method public static deviceHasKey(I)Z
     .locals 3
-    .parameter "keyCode"
+    .param p0, "keyCode"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -647,7 +647,7 @@
 
 .method public static deviceHasKeys([I)[Z
     .locals 1
-    .parameter "keyCodes"
+    .param p0, "keyCodes"    # [I
 
     .prologue
     .line 711
@@ -664,8 +664,8 @@
 
 .method public static getDeadChar(II)I
     .locals 9
-    .parameter "accent"
-    .parameter "c"
+    .param p0, "accent"    # I
+    .param p1, "c"    # I
 
     .prologue
     const/4 v8, -0x1
@@ -695,7 +695,7 @@
     move-result v2
 
     .line 496
-    .local v2, combining:I
+    .local v2, "combining":I
     if-nez v2, :cond_2
 
     move v1, v4
@@ -710,7 +710,7 @@
     or-int v0, v5, p1
 
     .line 502
-    .local v0, combination:I
+    .local v0, "combination":I
     sget-object v5, Landroid/view/KeyCharacterMap;->sDeadKeyCache:Landroid/util/SparseIntArray;
 
     monitor-enter v5
@@ -726,7 +726,7 @@
     move-result v1
 
     .line 504
-    .local v1, combined:I
+    .local v1, "combined":I
     if-ne v1, v8, :cond_3
 
     .line 505
@@ -760,7 +760,7 @@
     move-result-object v3
 
     .line 509
-    .local v3, result:Ljava/lang/String;
+    .local v3, "result":Ljava/lang/String;
     const/4 v6, 0x0
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -788,13 +788,13 @@
     invoke-virtual {v4, v0, v1}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 513
-    .end local v3           #result:Ljava/lang/String;
+    .end local v3    # "result":Ljava/lang/String;
     :cond_3
     monitor-exit v5
 
     goto :goto_0
 
-    .end local v1           #combined:I
+    .end local v1    # "combined":I
     :catchall_0
     move-exception v4
 
@@ -804,8 +804,8 @@
 
     throw v4
 
-    .restart local v1       #combined:I
-    .restart local v3       #result:Ljava/lang/String;
+    .restart local v1    # "combined":I
+    .restart local v3    # "result":Ljava/lang/String;
     :cond_4
     move v1, v4
 
@@ -815,7 +815,7 @@
 
 .method public static load(I)Landroid/view/KeyCharacterMap;
     .locals 5
-    .parameter "deviceId"
+    .param p0, "deviceId"    # I
 
     .prologue
     .line 333
@@ -824,13 +824,13 @@
     move-result-object v0
 
     .line 334
-    .local v0, im:Landroid/hardware/input/InputManager;
+    .local v0, "im":Landroid/hardware/input/InputManager;
     invoke-virtual {v0, p0}, Landroid/hardware/input/InputManager;->getInputDevice(I)Landroid/view/InputDevice;
 
     move-result-object v1
 
     .line 335
-    .local v1, inputDevice:Landroid/view/InputDevice;
+    .local v1, "inputDevice":Landroid/view/InputDevice;
     if-nez v1, :cond_0
 
     .line 336
@@ -950,8 +950,8 @@
 
 .method public get(II)I
     .locals 3
-    .parameter "keyCode"
-    .parameter "metaState"
+    .param p1, "keyCode"    # I
+    .param p2, "metaState"    # I
 
     .prologue
     .line 367
@@ -967,7 +967,7 @@
     move-result v0
 
     .line 370
-    .local v0, ch:C
+    .local v0, "ch":C
     sget-object v2, Landroid/view/KeyCharacterMap;->sCombiningToAccent:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->get(I)I
@@ -975,23 +975,23 @@
     move-result v1
 
     .line 371
-    .local v1, map:I
+    .local v1, "map":I
     if-eqz v1, :cond_0
 
     .line 372
-    const/high16 v2, -0x8000
+    const/high16 v2, -0x80000000
 
     or-int v0, v1, v2
 
     .line 374
-    .end local v0           #ch:C
+    .end local v0    # "ch":C
     :cond_0
     return v0
 .end method
 
 .method public getDisplayLabel(I)C
     .locals 1
-    .parameter "keyCode"
+    .param p1, "keyCode"    # I
 
     .prologue
     .line 474
@@ -1006,7 +1006,7 @@
 
 .method public getEvents([C)[Landroid/view/KeyEvent;
     .locals 2
-    .parameter "chars"
+    .param p1, "chars"    # [C
 
     .prologue
     .line 604
@@ -1034,8 +1034,8 @@
 
 .method public getFallbackAction(II)Landroid/view/KeyCharacterMap$FallbackAction;
     .locals 2
-    .parameter "keyCode"
-    .parameter "metaState"
+    .param p1, "keyCode"    # I
+    .param p2, "metaState"    # I
 
     .prologue
     .line 396
@@ -1044,7 +1044,7 @@
     move-result-object v0
 
     .line 397
-    .local v0, action:Landroid/view/KeyCharacterMap$FallbackAction;
+    .local v0, "action":Landroid/view/KeyCharacterMap$FallbackAction;
     invoke-static {p2}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
 
     move-result p2
@@ -1068,12 +1068,12 @@
     iput v1, v0, Landroid/view/KeyCharacterMap$FallbackAction;->metaState:I
 
     .line 403
-    .end local v0           #action:Landroid/view/KeyCharacterMap$FallbackAction;
+    .end local v0    # "action":Landroid/view/KeyCharacterMap$FallbackAction;
     :goto_0
     return-object v0
 
     .line 402
-    .restart local v0       #action:Landroid/view/KeyCharacterMap$FallbackAction;
+    .restart local v0    # "action":Landroid/view/KeyCharacterMap$FallbackAction;
     :cond_0
     invoke-virtual {v0}, Landroid/view/KeyCharacterMap$FallbackAction;->recycle()V
 
@@ -1085,8 +1085,8 @@
 
 .method public getKeyData(ILandroid/view/KeyCharacterMap$KeyData;)Z
     .locals 7
-    .parameter "keyCode"
-    .parameter "results"
+    .param p1, "keyCode"    # I
+    .param p2, "results"    # Landroid/view/KeyCharacterMap$KeyData;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1126,7 +1126,7 @@
     move-result v0
 
     .line 568
-    .local v0, displayLabel:C
+    .local v0, "displayLabel":C
     if-nez v0, :cond_1
 
     .line 579
@@ -1212,8 +1212,8 @@
 
 .method public getMatch(I[C)C
     .locals 1
-    .parameter "keyCode"
-    .parameter "chars"
+    .param p1, "keyCode"    # I
+    .param p2, "chars"    # [C
 
     .prologue
     .line 444
@@ -1228,9 +1228,9 @@
 
 .method public getMatch(I[CI)C
     .locals 2
-    .parameter "keyCode"
-    .parameter "chars"
-    .parameter "metaState"
+    .param p1, "keyCode"    # I
+    .param p2, "chars"    # [C
+    .param p3, "metaState"    # I
 
     .prologue
     .line 458
@@ -1296,7 +1296,7 @@
 
 .method public getNumber(I)C
     .locals 1
-    .parameter "keyCode"
+    .param p1, "keyCode"    # I
 
     .prologue
     .line 428
@@ -1311,7 +1311,7 @@
 
 .method public isPrintingKey(I)Z
     .locals 2
-    .parameter "keyCode"
+    .param p1, "keyCode"    # I
 
     .prologue
     .line 617
@@ -1326,7 +1326,7 @@
     move-result v0
 
     .line 619
-    .local v0, type:I
+    .local v0, "type":I
     packed-switch v0, :pswitch_data_0
 
     .line 628
@@ -1356,8 +1356,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 716

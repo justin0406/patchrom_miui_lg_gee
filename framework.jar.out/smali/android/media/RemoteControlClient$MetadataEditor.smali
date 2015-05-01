@@ -27,7 +27,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/RemoteControlClient;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 400
@@ -40,8 +39,8 @@
 
 .method synthetic constructor <init>(Landroid/media/RemoteControlClient;Landroid/media/RemoteControlClient$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/RemoteControlClient;
+    .param p2, "x1"    # Landroid/media/RemoteControlClient$1;
 
     .prologue
     .line 397
@@ -84,7 +83,7 @@
     :try_start_1
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -103,13 +102,13 @@
 
     invoke-direct {v2, v3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    #setter for: Landroid/media/RemoteControlClient;->mMetadata:Landroid/os/Bundle;
+    # setter for: Landroid/media/RemoteControlClient;->mMetadata:Landroid/os/Bundle;
     invoke-static {v0, v2}, Landroid/media/RemoteControlClient;->access$102(Landroid/media/RemoteControlClient;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     .line 510
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mMetadata:Landroid/os/Bundle;
+    # getter for: Landroid/media/RemoteControlClient;->mMetadata:Landroid/os/Bundle;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$100(Landroid/media/RemoteControlClient;)Landroid/os/Bundle;
 
     move-result-object v0
@@ -127,7 +126,7 @@
     .line 511
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
+    # getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$200(Landroid/media/RemoteControlClient;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -136,7 +135,7 @@
 
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
+    # getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$200(Landroid/media/RemoteControlClient;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -152,7 +151,7 @@
     .line 512
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
+    # getter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$200(Landroid/media/RemoteControlClient;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -165,7 +164,7 @@
 
     iget-object v2, p0, Landroid/media/RemoteControlClient$MetadataEditor;->mEditorArtwork:Landroid/graphics/Bitmap;
 
-    #setter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
+    # setter for: Landroid/media/RemoteControlClient;->mOriginalArtwork:Landroid/graphics/Bitmap;
     invoke-static {v0, v2}, Landroid/media/RemoteControlClient;->access$202(Landroid/media/RemoteControlClient;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     .line 515
@@ -191,7 +190,7 @@
 
     const/4 v4, 0x0
 
-    #calls: Landroid/media/RemoteControlClient;->sendMetadataWithArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->sendMetadataWithArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v0, v2, v3, v4}, Landroid/media/RemoteControlClient;->access$300(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
 
     .line 526
@@ -238,7 +237,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Landroid/media/RemoteControlClient;->sendMetadata_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
+    # invokes: Landroid/media/RemoteControlClient;->sendMetadata_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
     invoke-static {v0, v2}, Landroid/media/RemoteControlClient;->access$400(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;)V
 
     goto :goto_1
@@ -258,7 +257,7 @@
 
     const/4 v4, 0x0
 
-    #calls: Landroid/media/RemoteControlClient;->sendArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->sendArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v0, v2, v3, v4}, Landroid/media/RemoteControlClient;->access$500(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
@@ -311,8 +310,8 @@
 
 .method public bridge synthetic putBitmap(ILandroid/graphics/Bitmap;)Landroid/media/MediaMetadataEditor;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -330,8 +329,8 @@
 
 .method public declared-synchronized putBitmap(ILandroid/graphics/Bitmap;)Landroid/media/RemoteControlClient$MetadataEditor;
     .locals 1
-    .parameter "key"
-    .parameter "bitmap"
+    .param p1, "key"    # I
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -363,8 +362,8 @@
 
 .method public bridge synthetic putLong(IJ)Landroid/media/MediaMetadataEditor;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -382,8 +381,8 @@
 
 .method public declared-synchronized putLong(IJ)Landroid/media/RemoteControlClient$MetadataEditor;
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -415,8 +414,8 @@
 
 .method public bridge synthetic putString(ILjava/lang/String;)Landroid/media/MediaMetadataEditor;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -434,8 +433,8 @@
 
 .method public declared-synchronized putString(ILjava/lang/String;)Landroid/media/RemoteControlClient$MetadataEditor;
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;

@@ -27,8 +27,6 @@
 
 .method static add(Ljava/util/ArrayList;Ljava/lang/Object;)Ljava/util/ArrayList;
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -43,18 +41,18 @@
 
     .prologue
     .line 1666
-    .local p0, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
-    .local p1, item:Ljava/lang/Object;,"TT;"
+    .local p0, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
+    .local p1, "item":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     .line 1667
     new-instance p0, Ljava/util/ArrayList;
 
-    .end local p0           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .end local p0    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
     .line 1669
-    .restart local p0       #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .restart local p0    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     :cond_0
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
@@ -72,8 +70,6 @@
 
 .method static remove(Ljava/util/ArrayList;Ljava/lang/Object;)Ljava/util/ArrayList;
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -88,8 +84,8 @@
 
     .prologue
     .line 1681
-    .local p0, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
-    .local p1, item:Ljava/lang/Object;,"TT;"
+    .local p0, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
+    .local p1, "item":Ljava/lang/Object;, "TT;"
     if-eqz p0, :cond_0
 
     .line 1682

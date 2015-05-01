@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/IccSmsInterfaceManager;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 633
@@ -54,9 +53,9 @@
 # virtual methods
 .method protected addRange(IIZ)V
     .locals 7
-    .parameter "startId"
-    .parameter "endId"
-    .parameter "selected"
+    .param p1, "startId"    # I
+    .param p2, "endId"    # I
+    .param p3, "selected"    # Z
 
     .prologue
     .line 653
@@ -121,10 +120,10 @@
     check-cast v0, [Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;
 
     .line 668
-    .local v0, configs:[Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;
+    .local v0, "configs":[Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
-    #calls: Lcom/android/internal/telephony/IccSmsInterfaceManager;->setCellBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;)Z
+    # invokes: Lcom/android/internal/telephony/IccSmsInterfaceManager;->setCellBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;)Z
     invoke-static {v1, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->access$100(Lcom/android/internal/telephony/IccSmsInterfaceManager;[Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;)Z
 
     move-result v1

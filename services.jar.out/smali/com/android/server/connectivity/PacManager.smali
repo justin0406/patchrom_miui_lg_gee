@@ -82,9 +82,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;I)V
     .locals 3
-    .parameter "context"
-    .parameter "handler"
-    .parameter "proxyMessage"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "proxyMessage"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -152,7 +152,7 @@
 
 .method static synthetic access$000(Lcom/android/server/connectivity/PacManager;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -163,7 +163,7 @@
 
 .method static synthetic access$100(Lcom/android/server/connectivity/PacManager;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -174,7 +174,7 @@
 
 .method static synthetic access$1000(Lcom/android/server/connectivity/PacManager;)Lcom/android/net/IProxyService;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -185,8 +185,8 @@
 
 .method static synthetic access$1002(Lcom/android/server/connectivity/PacManager;Lcom/android/net/IProxyService;)Lcom/android/net/IProxyService;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
+    .param p1, "x1"    # Lcom/android/net/IProxyService;
 
     .prologue
     .line 56
@@ -197,7 +197,7 @@
 
 .method static synthetic access$1100(Lcom/android/server/connectivity/PacManager;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -208,8 +208,8 @@
 
 .method static synthetic access$1102(Lcom/android/server/connectivity/PacManager;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
+    .param p1, "x1"    # I
 
     .prologue
     .line 56
@@ -220,8 +220,8 @@
 
 .method static synthetic access$1202(Lcom/android/server/connectivity/PacManager;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 56
@@ -232,7 +232,7 @@
 
 .method static synthetic access$200(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -250,7 +250,7 @@
 
 .method static synthetic access$300(Lcom/android/server/connectivity/PacManager;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -261,8 +261,8 @@
 
 .method static synthetic access$400(Lcom/android/server/connectivity/PacManager;Ljava/lang/String;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 56
@@ -275,8 +275,8 @@
 
 .method static synthetic access$502(Lcom/android/server/connectivity/PacManager;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 56
@@ -287,7 +287,7 @@
 
 .method static synthetic access$600(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -298,7 +298,7 @@
 
 .method static synthetic access$700(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -309,7 +309,7 @@
 
 .method static synthetic access$800(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -320,7 +320,7 @@
 
 .method static synthetic access$900(Lcom/android/server/connectivity/PacManager;)Ljava/lang/Runnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
     .line 56
@@ -333,7 +333,7 @@
     .locals 4
 
     .prologue
-    const v3, 0x40000005
+    const v3, 0x40000005    # 2.0000012f
 
     .line 265
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
@@ -358,7 +358,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 270
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "com.android.pacprocessor"
 
     const-string v2, "com.android.pacprocessor.PacService"
@@ -422,11 +422,11 @@
     .line 316
     new-instance v0, Landroid/content/Intent;
 
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 317
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v0    # "intent":Landroid/content/Intent;
     const-string v1, "com.android.proxyhandler"
 
     const-string v2, "com.android.proxyhandler.ProxyService"
@@ -452,7 +452,7 @@
 
 .method private static get(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "urlString"
+    .param p0, "urlString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -466,7 +466,7 @@
     invoke-direct {v0, p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     .line 204
-    .local v0, url:Ljava/net/URL;
+    .local v0, "url":Ljava/net/URL;
     sget-object v2, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     invoke-virtual {v0, v2}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
@@ -474,7 +474,7 @@
     move-result-object v1
 
     .line 205
-    .local v1, urlConnection:Ljava/net/URLConnection;
+    .local v1, "urlConnection":Ljava/net/URLConnection;
     new-instance v2, Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
@@ -521,7 +521,7 @@
 
 .method private getDownloadDelay(I)J
     .locals 3
-    .parameter "delayIndex"
+    .param p1, "delayIndex"    # I
 
     .prologue
     .line 237
@@ -536,7 +536,7 @@
     move-result-object v0
 
     .line 238
-    .local v0, list:[Ljava/lang/String;
+    .local v0, "list":[Ljava/lang/String;
     array-length v1, v0
 
     if-ge p1, v1, :cond_0
@@ -560,7 +560,7 @@
 
 .method private getNextDelay(I)I
     .locals 1
-    .parameter "currentDelay"
+    .param p1, "currentDelay"    # I
 
     .prologue
     const/4 v0, 0x3
@@ -573,7 +573,7 @@
     move p1, v0
 
     .line 212
-    .end local p1
+    .end local p1    # "currentDelay":I
     :cond_0
     return p1
 .end method
@@ -590,7 +590,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     const-string v3, "conn.pac_change_delay"
 
     const-string v4, "8 32 120 14400 43200"
@@ -600,7 +600,7 @@
     move-result-object v1
 
     .line 232
-    .local v1, defaultDelay:Ljava/lang/String;
+    .local v1, "defaultDelay":Ljava/lang/String;
     const-string v3, "pac_change_delay"
 
     invoke-static {v0, v3}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -608,14 +608,14 @@
     move-result-object v2
 
     .line 233
-    .local v2, val:Ljava/lang/String;
+    .local v2, "val":Ljava/lang/String;
     if-nez v2, :cond_0
 
-    .end local v1           #defaultDelay:Ljava/lang/String;
+    .end local v1    # "defaultDelay":Ljava/lang/String;
     :goto_0
     return-object v1
 
-    .restart local v1       #defaultDelay:Ljava/lang/String;
+    .restart local v1    # "defaultDelay":Ljava/lang/String;
     :cond_0
     move-object v1, v2
 
@@ -664,7 +664,7 @@
 
 .method private sendPacBroadcast(Landroid/net/ProxyProperties;)V
     .locals 3
-    .parameter "proxy"
+    .param p1, "proxy"    # Landroid/net/ProxyProperties;
 
     .prologue
     .line 369
@@ -749,7 +749,7 @@
 
 .method private setCurrentProxyScript(Ljava/lang/String;)Z
     .locals 3
-    .parameter "script"
+    .param p1, "script"    # Ljava/lang/String;
 
     .prologue
     .line 251
@@ -794,7 +794,7 @@
     move-exception v0
 
     .line 259
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "PacManager"
 
     const-string v2, "Unable to set PAC file"
@@ -806,7 +806,7 @@
 
 .method private setDownloadIn(I)V
     .locals 8
-    .parameter "delayIndex"
+    .param p1, "delayIndex"    # I
 
     .prologue
     .line 245
@@ -815,7 +815,7 @@
     move-result-wide v0
 
     .line 246
-    .local v0, delay:J
+    .local v0, "delay":J
     const-wide/16 v4, 0x3e8
 
     mul-long/2addr v4, v0
@@ -827,7 +827,7 @@
     add-long v2, v4, v6
 
     .line 247
-    .local v2, timeTillTrigger:J
+    .local v2, "timeTillTrigger":J
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
 
     move-result-object v4
@@ -896,7 +896,7 @@
 # virtual methods
 .method public declared-synchronized setCurrentProxyScriptUrl(Landroid/net/ProxyProperties;)Z
     .locals 5
-    .parameter "proxy"
+    .param p1, "proxy"    # Landroid/net/ProxyProperties;
 
     .prologue
     const/4 v1, 0x0
@@ -1063,8 +1063,8 @@
 
     invoke-interface {v3}, Lcom/android/net/IProxyService;->stopPacSystem()V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
     .line 189
     :try_start_9
@@ -1094,7 +1094,7 @@
     move-exception v0
 
     .line 187
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_b
     const-string v3, "PacManager"
 
@@ -1110,7 +1110,7 @@
 
     goto :goto_1
 
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_3
     move-exception v1
 

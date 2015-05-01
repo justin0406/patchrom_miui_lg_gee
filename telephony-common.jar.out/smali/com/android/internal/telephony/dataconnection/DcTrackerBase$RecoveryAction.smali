@@ -31,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 1439
+    .line 1428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,10 +39,10 @@
 
 .method static synthetic access$000(I)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
-    .line 1439
+    .line 1428
     invoke-static {p0}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$RecoveryAction;->isAggressiveRecovery(I)Z
 
     move-result v0
@@ -52,12 +52,12 @@
 
 .method private static isAggressiveRecovery(I)Z
     .locals 2
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     const/4 v0, 0x1
 
-    .line 1447
+    .line 1436
     if-eq p0, v0, :cond_0
 
     const/4 v1, 0x2

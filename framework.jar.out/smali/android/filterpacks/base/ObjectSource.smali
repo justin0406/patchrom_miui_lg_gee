@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 48
@@ -56,8 +56,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 86
@@ -91,7 +91,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 59
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 64
-    .local v0, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v0, "outputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v1
@@ -150,7 +150,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/Frame;->setTimestamp(J)V
 
     .line 70
-    .end local v0           #outputFormat:Landroid/filterfw/core/FrameFormat;
+    .end local v0    # "outputFormat":Landroid/filterfw/core/FrameFormat;
     :cond_1
     const-string v1, "frame"
 
@@ -190,7 +190,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 80

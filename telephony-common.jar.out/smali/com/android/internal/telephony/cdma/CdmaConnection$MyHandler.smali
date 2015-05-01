@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cdma/CdmaConnection;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "l"
+    .param p2, "l"    # Landroid/os/Looper;
 
     .prologue
     .line 100
@@ -37,7 +36,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 106
@@ -61,7 +60,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaConnection$MyHandler;->this$0:Lcom/android/internal/telephony/cdma/CdmaConnection;
 
-    #calls: Lcom/android/internal/telephony/cdma/CdmaConnection;->releaseWakeLock()V
+    # invokes: Lcom/android/internal/telephony/cdma/CdmaConnection;->releaseWakeLock()V
     invoke-static {v0}, Lcom/android/internal/telephony/cdma/CdmaConnection;->access$000(Lcom/android/internal/telephony/cdma/CdmaConnection;)V
 
     goto :goto_0

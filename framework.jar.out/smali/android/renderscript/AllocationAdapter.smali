@@ -6,9 +6,9 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "id"
-    .parameter "rs"
-    .parameter "alloc"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "alloc"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 30
@@ -27,8 +27,8 @@
 
 .method public static create1D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
     .locals 3
-    .parameter "rs"
-    .parameter "a"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "a"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v2, 0x0
@@ -44,7 +44,7 @@
     invoke-direct {v0, v2, p0, p1}, Landroid/renderscript/AllocationAdapter;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
 
     .line 218
-    .local v0, aa:Landroid/renderscript/AllocationAdapter;
+    .local v0, "aa":Landroid/renderscript/AllocationAdapter;
     iput-boolean v1, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedLOD:Z
 
     .line 219
@@ -64,63 +64,40 @@
 .end method
 
 .method public static create2D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
-    .locals 6
-    .parameter "rs"
-    .parameter "a"
+    .locals 3
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "a"    # Landroid/renderscript/Allocation;
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     .line 227
-    const-string/jumbo v1, "rs"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "create2d "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 228
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 229
+    .line 228
     new-instance v0, Landroid/renderscript/AllocationAdapter;
 
-    invoke-direct {v0, v4, p0, p1}, Landroid/renderscript/AllocationAdapter;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
+    invoke-direct {v0, v1, p0, p1}, Landroid/renderscript/AllocationAdapter;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
+
+    .line 229
+    .local v0, "aa":Landroid/renderscript/AllocationAdapter;
+    iput-boolean v2, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedLOD:Z
 
     .line 230
-    .local v0, aa:Landroid/renderscript/AllocationAdapter;
-    iput-boolean v5, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedLOD:Z
+    iput-boolean v2, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedFace:Z
 
     .line 231
-    iput-boolean v5, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedFace:Z
+    iput-boolean v1, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedY:Z
 
     .line 232
-    iput-boolean v4, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedY:Z
+    iput-boolean v2, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedZ:Z
 
     .line 233
-    iput-boolean v5, v0, Landroid/renderscript/AllocationAdapter;->mConstrainedZ:Z
+    invoke-virtual {v0, v1}, Landroid/renderscript/AllocationAdapter;->initLOD(I)V
 
     .line 234
-    invoke-virtual {v0, v4}, Landroid/renderscript/AllocationAdapter;->initLOD(I)V
-
-    .line 235
     return-object v0
 .end method
 
@@ -128,7 +105,7 @@
 # virtual methods
 .method getID(Landroid/renderscript/RenderScript;)I
     .locals 2
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 35
@@ -143,7 +120,7 @@
 
 .method initLOD(I)V
     .locals 8
-    .parameter "lod"
+    .param p1, "lod"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -195,7 +172,7 @@
     move-result v1
 
     .line 106
-    .local v1, tx:I
+    .local v1, "tx":I
     iget-object v4, p0, Landroid/renderscript/AllocationAdapter;->mAdaptedAllocation:Landroid/renderscript/Allocation;
 
     iget-object v4, v4, Landroid/renderscript/Allocation;->mType:Landroid/renderscript/Type;
@@ -205,7 +182,7 @@
     move-result v2
 
     .line 107
-    .local v2, ty:I
+    .local v2, "ty":I
     iget-object v4, p0, Landroid/renderscript/AllocationAdapter;->mAdaptedAllocation:Landroid/renderscript/Allocation;
 
     iget-object v4, v4, Landroid/renderscript/Allocation;->mType:Landroid/renderscript/Type;
@@ -215,10 +192,10 @@
     move-result v3
 
     .line 109
-    .local v3, tz:I
+    .local v3, "tz":I
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     if-ge v0, p1, :cond_5
 
@@ -341,7 +318,7 @@
 
 .method public readData([F)V
     .locals 0
-    .parameter "d"
+    .param p1, "d"    # [F
 
     .prologue
     .line 97
@@ -353,7 +330,7 @@
 
 .method public readData([I)V
     .locals 0
-    .parameter "d"
+    .param p1, "d"    # [I
 
     .prologue
     .line 91
@@ -365,10 +342,10 @@
 
 .method public declared-synchronized resize(I)V
     .locals 2
-    .parameter "dimX"
+    .param p1, "dimX"    # I
 
     .prologue
-    .line 246
+    .line 245
     monitor-enter p0
 
     :try_start_0
@@ -392,7 +369,7 @@
 
 .method public setFace(Landroid/renderscript/Type$CubemapFace;)V
     .locals 2
-    .parameter "cf"
+    .param p1, "cf"    # Landroid/renderscript/Type$CubemapFace;
 
     .prologue
     .line 160
@@ -455,7 +432,7 @@
 
 .method public setLOD(I)V
     .locals 2
-    .parameter "lod"
+    .param p1, "lod"    # I
 
     .prologue
     .line 143
@@ -505,7 +482,7 @@
 
 .method public setY(I)V
     .locals 2
-    .parameter "y"
+    .param p1, "y"    # I
 
     .prologue
     .line 181
@@ -578,7 +555,7 @@
 
 .method public setZ(I)V
     .locals 2
-    .parameter "z"
+    .param p1, "z"    # I
 
     .prologue
     .line 202
@@ -651,8 +628,8 @@
 
 .method public subData(ILandroid/renderscript/FieldPacker;)V
     .locals 0
-    .parameter "xoff"
-    .parameter "fp"
+    .param p1, "xoff"    # I
+    .param p2, "fp"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 43
@@ -664,9 +641,9 @@
 
 .method public subData1D(II[B)V
     .locals 0
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [B
 
     .prologue
     .line 67
@@ -678,9 +655,9 @@
 
 .method public subData1D(II[F)V
     .locals 0
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [F
 
     .prologue
     .line 73
@@ -692,9 +669,9 @@
 
 .method public subData1D(II[I)V
     .locals 0
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [I
 
     .prologue
     .line 55
@@ -706,9 +683,9 @@
 
 .method public subData1D(II[S)V
     .locals 0
-    .parameter "off"
-    .parameter "count"
-    .parameter "d"
+    .param p1, "off"    # I
+    .param p2, "count"    # I
+    .param p3, "d"    # [S
 
     .prologue
     .line 61
@@ -720,11 +697,11 @@
 
 .method public subData2D(IIII[F)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "d"    # [F
 
     .prologue
     .line 85
@@ -736,11 +713,11 @@
 
 .method public subData2D(IIII[I)V
     .locals 0
-    .parameter "xoff"
-    .parameter "yoff"
-    .parameter "w"
-    .parameter "h"
-    .parameter "d"
+    .param p1, "xoff"    # I
+    .param p2, "yoff"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "d"    # [I
 
     .prologue
     .line 79
@@ -752,9 +729,9 @@
 
 .method public subElementData(IILandroid/renderscript/FieldPacker;)V
     .locals 0
-    .parameter "xoff"
-    .parameter "component_number"
-    .parameter "fp"
+    .param p1, "xoff"    # I
+    .param p2, "component_number"    # I
+    .param p3, "fp"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 49

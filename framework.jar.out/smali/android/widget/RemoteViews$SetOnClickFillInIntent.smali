@@ -27,9 +27,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/content/Intent;)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "fillInIntent"
+    .param p2, "id"    # I
+    .param p3, "fillInIntent"    # Landroid/content/Intent;
 
     .prologue
     .line 365
@@ -51,8 +50,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 370
@@ -88,9 +86,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 4
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 383
@@ -101,7 +99,7 @@
     move-result-object v1
 
     .line 384
-    .local v1, target:Landroid/view/View;
+    .local v1, "target":Landroid/view/View;
     if-nez v1, :cond_1
 
     .line 428
@@ -113,7 +111,7 @@
     :cond_1
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->this$0:Landroid/widget/RemoteViews;
 
-    #getter for: Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
+    # getter for: Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
     invoke-static {v2}, Landroid/widget/RemoteViews;->access$100(Landroid/widget/RemoteViews;)Z
 
     move-result v2
@@ -154,7 +152,7 @@
     invoke-direct {v0, p0, p3}, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;-><init>(Landroid/widget/RemoteViews$SetOnClickFillInIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
 
     .line 426
-    .local v0, listener:Landroid/view/View$OnClickListener;
+    .local v0, "listener":Landroid/view/View$OnClickListener;
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     goto :goto_0
@@ -172,8 +170,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 376

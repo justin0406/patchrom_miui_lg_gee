@@ -1146,7 +1146,7 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/CaptureRequest$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/hardware/camera2/CaptureRequest$1;
 
     .prologue
     .line 59
@@ -1157,7 +1157,7 @@
 
 .method private constructor <init>(Landroid/hardware/camera2/CaptureRequest;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/hardware/camera2/CaptureRequest;
 
     .prologue
     .line 82
@@ -1194,8 +1194,8 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureRequest$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p2, "x1"    # Landroid/hardware/camera2/CaptureRequest$1;
 
     .prologue
     .line 59
@@ -1206,7 +1206,7 @@
 
 .method private constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 1
-    .parameter "settings"
+    .param p1, "settings"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .prologue
     .line 93
@@ -1228,8 +1228,8 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/camera2/CaptureRequest$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
+    .param p2, "x1"    # Landroid/hardware/camera2/CaptureRequest$1;
 
     .prologue
     .line 59
@@ -1240,7 +1240,7 @@
 
 .method static synthetic access$200(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/camera2/CaptureRequest;
 
     .prologue
     .line 59
@@ -1251,7 +1251,7 @@
 
 .method static synthetic access$300(Landroid/hardware/camera2/CaptureRequest;)Landroid/hardware/camera2/impl/CameraMetadataNative;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/camera2/CaptureRequest;
 
     .prologue
     .line 59
@@ -1262,8 +1262,8 @@
 
 .method static synthetic access$402(Landroid/hardware/camera2/CaptureRequest;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p1, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 59
@@ -1274,7 +1274,7 @@
 
 .method private equals(Landroid/hardware/camera2/CaptureRequest;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/hardware/camera2/CaptureRequest;
 
     .prologue
     .line 138
@@ -1335,7 +1335,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     .line 133
@@ -1345,7 +1345,7 @@
 
     check-cast p1, Landroid/hardware/camera2/CaptureRequest;
 
-    .end local p1
+    .end local p1    # "other":Ljava/lang/Object;
     invoke-direct {p0, p1}, Landroid/hardware/camera2/CaptureRequest;->equals(Landroid/hardware/camera2/CaptureRequest;)Z
 
     move-result v0
@@ -1365,7 +1365,6 @@
 
 .method public get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1378,7 +1377,7 @@
 
     .prologue
     .line 101
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
@@ -1414,7 +1413,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 174
@@ -1439,7 +1438,7 @@
     move-result-object v4
 
     .line 180
-    .local v4, parcelableArray:[Landroid/os/Parcelable;
+    .local v4, "parcelableArray":[Landroid/os/Parcelable;
     if-nez v4, :cond_1
 
     .line 188
@@ -1450,26 +1449,26 @@
     :cond_1
     move-object v0, v4
 
-    .local v0, arr$:[Landroid/os/Parcelable;
+    .local v0, "arr$":[Landroid/os/Parcelable;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
-    .local v3, p:Landroid/os/Parcelable;
+    .local v3, "p":Landroid/os/Parcelable;
     move-object v5, v3
 
     .line 185
     check-cast v5, Landroid/view/Surface;
 
     .line 186
-    .local v5, s:Landroid/view/Surface;
+    .local v5, "s":Landroid/view/Surface;
     iget-object v6, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
 
     invoke-virtual {v6, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -1482,8 +1481,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 197

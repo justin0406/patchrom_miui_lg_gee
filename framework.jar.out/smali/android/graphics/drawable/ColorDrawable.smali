@@ -41,7 +41,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 56
@@ -58,7 +58,7 @@
 
 .method private constructor <init>(Landroid/graphics/drawable/ColorDrawable$ColorState;)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     .prologue
     .line 60
@@ -84,8 +84,8 @@
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/ColorDrawable$ColorState;Landroid/graphics/drawable/ColorDrawable$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/graphics/drawable/ColorDrawable$ColorState;
+    .param p2, "x1"    # Landroid/graphics/drawable/ColorDrawable$1;
 
     .prologue
     .line 37
@@ -98,7 +98,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 86
@@ -239,9 +239,9 @@
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
     .locals 4
-    .parameter "r"
-    .parameter "parser"
-    .parameter "attrs"
+    .param p1, "r"    # Landroid/content/res/Resources;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -261,13 +261,13 @@
     move-result-object v0
 
     .line 165
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     iget-object v2, p0, Landroid/graphics/drawable/ColorDrawable;->mState:Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     iget v1, v2, Landroid/graphics/drawable/ColorDrawable$ColorState;->mBaseColor:I
 
     .line 166
-    .local v1, color:I
+    .local v1, "color":I
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -326,7 +326,7 @@
 
 .method public setAlpha(I)V
     .locals 6
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 130
@@ -342,19 +342,19 @@
     ushr-int/lit8 v0, v3, 0x18
 
     .line 132
-    .local v0, baseAlpha:I
+    .local v0, "baseAlpha":I
     mul-int v3, v0, p1
 
     shr-int/lit8 v2, v3, 0x8
 
     .line 133
-    .local v2, useAlpha:I
+    .local v2, "useAlpha":I
     iget-object v3, p0, Landroid/graphics/drawable/ColorDrawable;->mState:Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     iget v1, v3, Landroid/graphics/drawable/ColorDrawable$ColorState;->mUseColor:I
 
     .line 134
-    .local v1, oldUseColor:I
+    .local v1, "oldUseColor":I
     iget-object v3, p0, Landroid/graphics/drawable/ColorDrawable;->mState:Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     iget-object v4, p0, Landroid/graphics/drawable/ColorDrawable;->mState:Landroid/graphics/drawable/ColorDrawable$ColorState;
@@ -388,7 +388,7 @@
 
 .method public setColor(I)V
     .locals 2
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 108
@@ -424,7 +424,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
-    .parameter "colorFilter"
+    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 146

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AppWidgetServiceImpl;Landroid/content/Intent;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 825
@@ -44,8 +42,8 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 828
@@ -54,7 +52,7 @@
     move-result-object v0
 
     .line 830
-    .local v0, cb:Lcom/android/internal/widget/IRemoteViewsFactory;
+    .local v0, "cb":Lcom/android/internal/widget/IRemoteViewsFactory;
     :try_start_0
     iget-object v2, p0, Lcom/android/server/AppWidgetServiceImpl$1;->val$intent:Landroid/content/Intent;
 
@@ -79,18 +77,18 @@
     move-exception v1
 
     .line 832
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
     .line 833
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 834
-    .local v1, e:Ljava/lang/RuntimeException;
+    .local v1, "e":Ljava/lang/RuntimeException;
     invoke-virtual {v1}, Ljava/lang/RuntimeException;->printStackTrace()V
 
     goto :goto_0
@@ -98,7 +96,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 842

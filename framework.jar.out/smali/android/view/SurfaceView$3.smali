@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 170
@@ -72,7 +71,7 @@
     .line 175
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
-    #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
+    # invokes: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v2, v2}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
     .line 176

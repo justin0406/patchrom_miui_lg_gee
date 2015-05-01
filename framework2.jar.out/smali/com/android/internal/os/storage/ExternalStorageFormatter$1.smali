@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/storage/ExternalStorageFormatter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 54
@@ -36,9 +35,9 @@
 # virtual methods
 .method public onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "path"
-    .parameter "oldState"
-    .parameter "newState"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "oldState"    # Ljava/lang/String;
+    .param p3, "newState"    # Ljava/lang/String;
 
     .prologue
     .line 57

@@ -70,7 +70,7 @@
 
 .method static fromCLCCLine(Ljava/lang/String;)Lcom/android/internal/telephony/DriverCall;
     .locals 7
-    .parameter "line"
+    .param p0, "line"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -81,13 +81,13 @@
     invoke-direct {v2}, Lcom/android/internal/telephony/DriverCall;-><init>()V
 
     .line 61
-    .local v2, ret:Lcom/android/internal/telephony/DriverCall;
+    .local v2, "ret":Lcom/android/internal/telephony/DriverCall;
     new-instance v1, Lcom/android/internal/telephony/ATResponseParser;
 
     invoke-direct {v1, p0}, Lcom/android/internal/telephony/ATResponseParser;-><init>(Ljava/lang/String;)V
 
     .line 64
-    .local v1, p:Lcom/android/internal/telephony/ATResponseParser;
+    .local v1, "p":Lcom/android/internal/telephony/ATResponseParser;
     :try_start_0
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextInt()I
 
@@ -191,13 +191,13 @@
     .catch Lcom/android/internal/telephony/ATParseEx; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 97
-    .end local v2           #ret:Lcom/android/internal/telephony/DriverCall;
+    .end local v2    # "ret":Lcom/android/internal/telephony/DriverCall;
     :cond_1
     :goto_1
     return-object v2
 
     .line 68
-    .restart local v2       #ret:Lcom/android/internal/telephony/DriverCall;
+    .restart local v2    # "ret":Lcom/android/internal/telephony/DriverCall;
     :cond_2
     const/4 v4, 0x0
 
@@ -208,7 +208,7 @@
     move-exception v0
 
     .line 93
-    .local v0, ex:Lcom/android/internal/telephony/ATParseEx;
+    .local v0, "ex":Lcom/android/internal/telephony/ATParseEx;
     const-string v4, "DriverCall"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -245,7 +245,7 @@
 
 .method public static presentationFromCLIP(I)I
     .locals 3
-    .parameter "cli"
+    .param p0, "cli"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/ATParseEx;
@@ -319,7 +319,7 @@
 
 .method public static stateFromCLCC(I)Lcom/android/internal/telephony/DriverCall$State;
     .locals 3
-    .parameter "state"
+    .param p0, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/ATParseEx;
@@ -409,7 +409,7 @@
 # virtual methods
 .method public compareTo(Lcom/android/internal/telephony/DriverCall;)I
     .locals 2
-    .parameter "dc"
+    .param p1, "dc"    # Lcom/android/internal/telephony/DriverCall;
 
     .prologue
     .line 153
@@ -448,13 +448,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 26
     check-cast p1, Lcom/android/internal/telephony/DriverCall;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/DriverCall;->compareTo(Lcom/android/internal/telephony/DriverCall;)I
 
     move-result v0

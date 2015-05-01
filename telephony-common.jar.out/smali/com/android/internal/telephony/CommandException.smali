@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/CommandException$Error;)V
     .locals 1
-    .parameter "e"
+    .param p1, "e"    # Lcom/android/internal/telephony/CommandException$Error;
 
     .prologue
     .line 48
@@ -37,7 +37,7 @@
 
 .method public static fromRilErrno(I)Lcom/android/internal/telephony/CommandException;
     .locals 3
-    .parameter "ril_errno"
+    .param p0, "ril_errno"    # I
 
     .prologue
     .line 54

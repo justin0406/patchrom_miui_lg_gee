@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 429
@@ -41,9 +41,9 @@
 # virtual methods
 .method public allocateAppWidgetId(Ljava/lang/String;II)I
     .locals 6
-    .parameter "packageName"
-    .parameter "hostId"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "hostId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -57,13 +57,13 @@
     move-result-object v0
 
     .line 485
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 488
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -98,7 +98,7 @@
     move-result v2
 
     .line 497
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 498
@@ -108,7 +108,7 @@
     return v2
 
     .line 497
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -132,10 +132,10 @@
 
 .method public bindAppWidgetId(ILandroid/content/ComponentName;Landroid/os/Bundle;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "provider"
-    .parameter "options"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "provider"    # Landroid/content/ComponentName;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -149,13 +149,13 @@
     move-result-object v0
 
     .line 817
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 819
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -254,11 +254,11 @@
 
 .method public bindAppWidgetIdIfAllowed(Ljava/lang/String;ILandroid/content/ComponentName;Landroid/os/Bundle;I)Z
     .locals 7
-    .parameter "packageName"
-    .parameter "appWidgetId"
-    .parameter "provider"
-    .parameter "options"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "appWidgetId"    # I
+    .param p3, "provider"    # Landroid/content/ComponentName;
+    .param p4, "options"    # Landroid/os/Bundle;
+    .param p5, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -276,13 +276,13 @@
     move-result-object v0
 
     .line 847
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 850
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -347,7 +347,7 @@
     if-eqz v4, :cond_2
 
     .line 873
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -358,7 +358,7 @@
     return v2
 
     .line 858
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -400,10 +400,10 @@
 
 .method public bindRemoteViewsService(ILandroid/content/Intent;Landroid/os/IBinder;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "intent"
-    .parameter "connection"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "connection"    # Landroid/os/IBinder;
+    .param p4, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -417,13 +417,13 @@
     move-result-object v0
 
     .line 881
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 883
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -500,7 +500,7 @@
 
 .method public deleteAllHosts(I)V
     .locals 5
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -514,13 +514,13 @@
     move-result-object v0
 
     .line 537
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 539
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -566,8 +566,8 @@
 
 .method public deleteAppWidgetId(II)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -581,13 +581,13 @@
     move-result-object v0
 
     .line 505
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 507
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -636,8 +636,8 @@
 
 .method public deleteHost(II)V
     .locals 5
-    .parameter "hostId"
-    .parameter "userId"
+    .param p1, "hostId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -651,13 +651,13 @@
     move-result-object v0
 
     .line 521
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 523
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -706,8 +706,8 @@
 
 .method public getAppWidgetIds(Landroid/content/ComponentName;I)[I
     .locals 6
-    .parameter "provider"
-    .parameter "userId"
+    .param p1, "provider"    # Landroid/content/ComponentName;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -721,13 +721,13 @@
     move-result-object v0
 
     .line 928
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 931
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -770,7 +770,7 @@
     move-result-object v2
 
     .line 945
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 946
@@ -780,7 +780,7 @@
     return-object v2
 
     .line 937
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :cond_0
     const/4 v3, 0x0
 
@@ -805,8 +805,8 @@
 
 .method public getAppWidgetIdsForHost(II)[I
     .locals 6
-    .parameter "hostId"
-    .parameter "userId"
+    .param p1, "hostId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -820,13 +820,13 @@
     move-result-object v0
 
     .line 576
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 579
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -858,7 +858,7 @@
     move-result-object v2
 
     .line 587
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 588
@@ -868,7 +868,7 @@
     return-object v2
 
     .line 587
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -882,8 +882,8 @@
 
 .method public getAppWidgetInfo(II)Landroid/appwidget/AppWidgetProviderInfo;
     .locals 6
-    .parameter "appWidgetId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -897,13 +897,13 @@
     move-result-object v0
 
     .line 757
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 760
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -946,7 +946,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 773
-    .local v2, _result:Landroid/appwidget/AppWidgetProviderInfo;
+    .local v2, "_result":Landroid/appwidget/AppWidgetProviderInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -957,15 +957,15 @@
     return-object v2
 
     .line 769
-    .end local v2           #_result:Landroid/appwidget/AppWidgetProviderInfo;
+    .end local v2    # "_result":Landroid/appwidget/AppWidgetProviderInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/appwidget/AppWidgetProviderInfo;
+    .restart local v2    # "_result":Landroid/appwidget/AppWidgetProviderInfo;
     goto :goto_0
 
     .line 773
-    .end local v2           #_result:Landroid/appwidget/AppWidgetProviderInfo;
+    .end local v2    # "_result":Landroid/appwidget/AppWidgetProviderInfo;
     :catchall_0
     move-exception v3
 
@@ -979,8 +979,8 @@
 
 .method public getAppWidgetOptions(II)Landroid/os/Bundle;
     .locals 6
-    .parameter "appWidgetId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -994,13 +994,13 @@
     move-result-object v0
 
     .line 645
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 648
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1043,7 +1043,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 661
-    .local v2, _result:Landroid/os/Bundle;
+    .local v2, "_result":Landroid/os/Bundle;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1054,15 +1054,15 @@
     return-object v2
 
     .line 657
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Bundle;
+    .restart local v2    # "_result":Landroid/os/Bundle;
     goto :goto_0
 
     .line 661
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 
@@ -1076,8 +1076,8 @@
 
 .method public getAppWidgetViews(II)Landroid/widget/RemoteViews;
     .locals 6
-    .parameter "appWidgetId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1091,13 +1091,13 @@
     move-result-object v0
 
     .line 552
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 555
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1140,7 +1140,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 568
-    .local v2, _result:Landroid/widget/RemoteViews;
+    .local v2, "_result":Landroid/widget/RemoteViews;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1151,15 +1151,15 @@
     return-object v2
 
     .line 564
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/widget/RemoteViews;
+    .restart local v2    # "_result":Landroid/widget/RemoteViews;
     goto :goto_0
 
     .line 568
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :catchall_0
     move-exception v3
 
@@ -1173,8 +1173,8 @@
 
 .method public getInstalledProviders(II)Ljava/util/List;
     .locals 6
-    .parameter "categoryFilter"
-    .parameter "userId"
+    .param p1, "categoryFilter"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -1198,13 +1198,13 @@
     move-result-object v0
 
     .line 738
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 741
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1238,7 +1238,7 @@
     move-result-object v2
 
     .line 749
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/appwidget/AppWidgetProviderInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/appwidget/AppWidgetProviderInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 750
@@ -1248,7 +1248,7 @@
     return-object v2
 
     .line 749
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/appwidget/AppWidgetProviderInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/appwidget/AppWidgetProviderInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -1272,8 +1272,8 @@
 
 .method public hasBindAppWidgetPermission(Ljava/lang/String;I)Z
     .locals 6
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1289,13 +1289,13 @@
     move-result-object v0
 
     .line 781
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 784
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1331,7 +1331,7 @@
     const/4 v2, 0x1
 
     .line 792
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1342,7 +1342,7 @@
     return v2
 
     .line 792
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1356,9 +1356,9 @@
 
 .method public notifyAppWidgetViewDataChanged([III)V
     .locals 5
-    .parameter "appWidgetIds"
-    .parameter "viewId"
-    .parameter "userId"
+    .param p1, "appWidgetIds"    # [I
+    .param p2, "viewId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1372,13 +1372,13 @@
     move-result-object v0
 
     .line 721
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 723
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1430,9 +1430,9 @@
 
 .method public partiallyUpdateAppWidgetIds([ILandroid/widget/RemoteViews;I)V
     .locals 5
-    .parameter "appWidgetIds"
-    .parameter "views"
-    .parameter "userId"
+    .param p1, "appWidgetIds"    # [I
+    .param p2, "views"    # Landroid/widget/RemoteViews;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1446,13 +1446,13 @@
     move-result-object v0
 
     .line 669
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 671
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1526,9 +1526,9 @@
 
 .method public setBindAppWidgetPermission(Ljava/lang/String;ZI)V
     .locals 5
-    .parameter "packageName"
-    .parameter "permission"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "permission"    # Z
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1544,13 +1544,13 @@
     move-result-object v0
 
     .line 800
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 802
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1607,11 +1607,10 @@
 
 .method public startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;ILjava/util/List;I)[I
     .locals 6
-    .parameter "host"
-    .parameter "packageName"
-    .parameter "hostId"
-    .parameter
-    .parameter "userId"
+    .param p1, "host"    # Lcom/android/internal/appwidget/IAppWidgetHost;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "hostId"    # I
+    .param p5, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1633,19 +1632,19 @@
 
     .prologue
     .line 446
-    .local p4, updatedViews:Ljava/util/List;,"Ljava/util/List<Landroid/widget/RemoteViews;>;"
+    .local p4, "updatedViews":Ljava/util/List;, "Ljava/util/List<Landroid/widget/RemoteViews;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 447
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 450
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1688,7 +1687,7 @@
     move-result-object v2
 
     .line 458
-    .local v2, _result:[I
+    .local v2, "_result":[I
     sget-object v3, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, p4, v3}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
@@ -1705,7 +1704,7 @@
     return-object v2
 
     .line 451
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :cond_0
     const/4 v3, 0x0
 
@@ -1725,8 +1724,8 @@
 
 .method public stopListening(II)V
     .locals 5
-    .parameter "hostId"
-    .parameter "userId"
+    .param p1, "hostId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1740,13 +1739,13 @@
     move-result-object v0
 
     .line 469
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 471
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1795,9 +1794,9 @@
 
 .method public unbindRemoteViewsService(ILandroid/content/Intent;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "intent"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1811,13 +1810,13 @@
     move-result-object v0
 
     .line 905
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 907
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1891,9 +1890,9 @@
 
 .method public updateAppWidgetIds([ILandroid/widget/RemoteViews;I)V
     .locals 5
-    .parameter "appWidgetIds"
-    .parameter "views"
-    .parameter "userId"
+    .param p1, "appWidgetIds"    # [I
+    .param p2, "views"    # Landroid/widget/RemoteViews;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1907,13 +1906,13 @@
     move-result-object v0
 
     .line 599
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 601
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1987,9 +1986,9 @@
 
 .method public updateAppWidgetOptions(ILandroid/os/Bundle;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "extras"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "extras"    # Landroid/os/Bundle;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2003,13 +2002,13 @@
     move-result-object v0
 
     .line 622
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 624
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -2083,9 +2082,9 @@
 
 .method public updateAppWidgetProvider(Landroid/content/ComponentName;Landroid/widget/RemoteViews;I)V
     .locals 5
-    .parameter "provider"
-    .parameter "views"
-    .parameter "userId"
+    .param p1, "provider"    # Landroid/content/ComponentName;
+    .param p2, "views"    # Landroid/widget/RemoteViews;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2099,13 +2098,13 @@
     move-result-object v0
 
     .line 692
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 694
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.appwidget.IAppWidgetService"
 

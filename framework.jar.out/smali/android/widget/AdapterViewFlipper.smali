@@ -41,7 +41,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x1
@@ -97,8 +97,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/16 v4, 0x2710
@@ -156,7 +156,7 @@
     move-result-object v0
 
     .line 66
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v4}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -182,8 +182,8 @@
 
 .method static synthetic access$002(Landroid/widget/AdapterViewFlipper;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/AdapterViewFlipper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 42
@@ -194,7 +194,7 @@
 
 .method static synthetic access$100(Landroid/widget/AdapterViewFlipper;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/AdapterViewFlipper;
 
     .prologue
     .line 42
@@ -205,8 +205,8 @@
 
 .method static synthetic access$200(Landroid/widget/AdapterViewFlipper;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/AdapterViewFlipper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 42
@@ -217,7 +217,7 @@
 
 .method static synthetic access$300(Landroid/widget/AdapterViewFlipper;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/AdapterViewFlipper;
 
     .prologue
     .line 42
@@ -241,7 +241,7 @@
 
 .method private updateRunning(Z)V
     .locals 5
-    .parameter "flipNow"
+    .param p1, "flipNow"    # Z
 
     .prologue
     const/4 v2, 0x1
@@ -270,7 +270,7 @@
     move v1, v2
 
     .line 224
-    .local v1, running:Z
+    .local v1, "running":Z
     :goto_0
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
@@ -292,7 +292,7 @@
     move-result-object v0
 
     .line 228
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v2, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
 
     iget v3, p0, Landroid/widget/AdapterViewFlipper;->mFlipInterval:I
@@ -302,7 +302,7 @@
     invoke-virtual {v2, v0, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 232
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :goto_1
     iput-boolean v1, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
@@ -311,14 +311,14 @@
     return-void
 
     .line 222
-    .end local v1           #running:Z
+    .end local v1    # "running":Z
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
     .line 230
-    .restart local v1       #running:Z
+    .restart local v1    # "running":Z
     :cond_2
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
 
@@ -390,7 +390,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 97
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -452,7 +452,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 290
@@ -473,7 +473,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 296
@@ -494,7 +494,7 @@
 
 .method protected onWindowVisibilityChanged(I)V
     .locals 2
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -525,7 +525,7 @@
 
 .method public setAdapter(Landroid/widget/Adapter;)V
     .locals 0
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/Adapter;
 
     .prologue
     .line 125
@@ -540,7 +540,7 @@
 
 .method public setAutoStart(Z)V
     .locals 0
-    .parameter "autoStart"
+    .param p1, "autoStart"    # Z
 
     .prologue
     .line 252
@@ -552,7 +552,7 @@
 
 .method public setFlipInterval(I)V
     .locals 0
-    .parameter "flipInterval"
+    .param p1, "flipInterval"    # I
 
     .prologue
     .line 152
@@ -588,7 +588,7 @@
     move-result-object v0
 
     .line 182
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
 
     iget v2, p0, Landroid/widget/AdapterViewFlipper;->mFlipInterval:I
@@ -598,7 +598,7 @@
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 184
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showNext()V
 
@@ -632,7 +632,7 @@
     move-result-object v0
 
     .line 198
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
 
     iget v2, p0, Landroid/widget/AdapterViewFlipper;->mFlipInterval:I
@@ -642,7 +642,7 @@
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 200
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showPrevious()V
 

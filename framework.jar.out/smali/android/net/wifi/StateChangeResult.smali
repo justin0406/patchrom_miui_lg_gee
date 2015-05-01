@@ -16,10 +16,10 @@
 # direct methods
 .method constructor <init>(ILandroid/net/wifi/WifiSsid;Ljava/lang/String;Landroid/net/wifi/SupplicantState;)V
     .locals 0
-    .parameter "networkId"
-    .parameter "wifiSsid"
-    .parameter "BSSID"
-    .parameter "state"
+    .param p1, "networkId"    # I
+    .param p2, "wifiSsid"    # Landroid/net/wifi/WifiSsid;
+    .param p3, "BSSID"    # Ljava/lang/String;
+    .param p4, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 27

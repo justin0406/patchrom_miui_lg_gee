@@ -26,8 +26,7 @@
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLSurfaceView;[I)V
     .locals 1
-    .parameter
-    .parameter "configSpec"
+    .param p2, "configSpec"    # [I
 
     .prologue
     .line 849
@@ -48,7 +47,7 @@
 
 .method private filterConfigSpec([I)[I
     .locals 5
-    .parameter "configSpec"
+    .param p1, "configSpec"    # [I
 
     .prologue
     const/4 v4, 0x0
@@ -56,7 +55,7 @@
     .line 885
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->this$0:Landroid/opengl/GLSurfaceView;
 
-    #getter for: Landroid/opengl/GLSurfaceView;->mEGLContextClientVersion:I
+    # getter for: Landroid/opengl/GLSurfaceView;->mEGLContextClientVersion:I
     invoke-static {v2}, Landroid/opengl/GLSurfaceView;->access$200(Landroid/opengl/GLSurfaceView;)I
 
     move-result v2
@@ -66,23 +65,23 @@
     if-eq v2, v3, :cond_0
 
     .line 897
-    .end local p1
+    .end local p1    # "configSpec":[I
     :goto_0
     return-object p1
 
     .line 891
-    .restart local p1
+    .restart local p1    # "configSpec":[I
     :cond_0
     array-length v0, p1
 
     .line 892
-    .local v0, len:I
+    .local v0, "len":I
     add-int/lit8 v2, v0, 0x2
 
     new-array v1, v2, [I
 
     .line 893
-    .local v1, newConfigSpec:[I
+    .local v1, "newConfigSpec":[I
     add-int/lit8 v2, v0, -0x1
 
     invoke-static {p1, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -116,8 +115,8 @@
 # virtual methods
 .method public chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLConfig;
     .locals 7
-    .parameter "egl"
-    .parameter "display"
+    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
+    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
 
     .prologue
     const/4 v4, 0x0
@@ -128,7 +127,7 @@
     new-array v5, v0, [I
 
     .line 855
-    .local v5, num_config:[I
+    .local v5, "num_config":[I
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->mConfigSpec:[I
 
     const/4 v3, 0x0
@@ -157,7 +156,7 @@
     aget v4, v5, v4
 
     .line 862
-    .local v4, numConfigs:I
+    .local v4, "numConfigs":I
     if-gtz v4, :cond_1
 
     .line 863
@@ -174,7 +173,7 @@
     new-array v3, v4, [Ljavax/microedition/khronos/egl/EGLConfig;
 
     .line 868
-    .local v3, configs:[Ljavax/microedition/khronos/egl/EGLConfig;
+    .local v3, "configs":[Ljavax/microedition/khronos/egl/EGLConfig;
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->mConfigSpec:[I
 
     move-object v0, p1
@@ -203,7 +202,7 @@
     move-result-object v6
 
     .line 873
-    .local v6, config:Ljavax/microedition/khronos/egl/EGLConfig;
+    .local v6, "config":Ljavax/microedition/khronos/egl/EGLConfig;
     if-nez v6, :cond_3
 
     .line 874

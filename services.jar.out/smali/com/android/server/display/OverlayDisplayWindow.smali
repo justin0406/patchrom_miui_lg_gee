@@ -97,30 +97,30 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;IIIIZLcom/android/server/display/OverlayDisplayWindow$Listener;)V
     .locals 5
-    .parameter "context"
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "densityDpi"
-    .parameter "gravity"
-    .parameter "secure"
-    .parameter "listener"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "width"    # I
+    .param p4, "height"    # I
+    .param p5, "densityDpi"    # I
+    .param p6, "gravity"    # I
+    .param p7, "secure"    # Z
+    .param p8, "listener"    # Lcom/android/server/display/OverlayDisplayWindow$Listener;
 
     .prologue
     const/4 v4, 0x0
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 51
-    const/high16 v0, 0x3f00
+    const/high16 v0, 0x3f000000    # 0.5f
 
     iput v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->INITIAL_SCALE:F
 
     .line 52
-    const v0, 0x3e99999a
+    const v0, 0x3e99999a    # 0.3f
 
     iput v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->MIN_SCALE:F
 
@@ -128,7 +128,7 @@
     iput v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->MAX_SCALE:F
 
     .line 54
-    const v0, 0x3f4ccccd
+    const v0, 0x3f4ccccd    # 0.8f
 
     iput v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->WINDOW_ALPHA:F
 
@@ -209,7 +209,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040554
+    const v1, 0x1040555
 
     const/4 v2, 0x4
 
@@ -273,7 +273,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040555
+    const v2, 0x1040556
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -333,7 +333,7 @@
 
 .method static synthetic access$000(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/Display;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -344,7 +344,7 @@
 
 .method static synthetic access$100(Lcom/android/server/display/OverlayDisplayWindow;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -357,7 +357,7 @@
 
 .method static synthetic access$200(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -368,7 +368,7 @@
 
 .method static synthetic access$300(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -379,7 +379,7 @@
 
 .method static synthetic access$400(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/GestureDetector;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -390,7 +390,7 @@
 
 .method static synthetic access$500(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/ScaleGestureDetector;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -401,7 +401,7 @@
 
 .method static synthetic access$600(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
 
     .prologue
     .line 47
@@ -412,8 +412,8 @@
 
 .method static synthetic access$724(Lcom/android/server/display/OverlayDisplayWindow;F)F
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
+    .param p1, "x1"    # F
 
     .prologue
     .line 47
@@ -428,8 +428,8 @@
 
 .method static synthetic access$824(Lcom/android/server/display/OverlayDisplayWindow;F)F
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
+    .param p1, "x1"    # F
 
     .prologue
     .line 47
@@ -444,8 +444,8 @@
 
 .method static synthetic access$932(Lcom/android/server/display/OverlayDisplayWindow;F)F
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/display/OverlayDisplayWindow;
+    .param p1, "x1"    # F
 
     .prologue
     .line 47
@@ -471,7 +471,7 @@
     iput v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->mLiveTranslationY:F
 
     .line 271
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->mLiveScale:F
 
@@ -495,7 +495,7 @@
     move-result-object v0
 
     .line 183
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v1, 0x109006d
 
     const/4 v3, 0x0
@@ -637,7 +637,7 @@
     .line 215
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v3, 0x3f4ccccd
+    const v3, 0x3f4ccccd    # 0.8f
 
     iput v3, v1, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
@@ -704,7 +704,7 @@
     iput v2, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowY:I
 
     .line 228
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     iput v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowScale:F
 
@@ -803,7 +803,7 @@
     .prologue
     const/4 v9, 0x0
 
-    const/high16 v8, 0x3f80
+    const/high16 v8, 0x3f800000    # 1.0f
 
     .line 232
     iget v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowScale:F
@@ -813,7 +813,7 @@
     mul-float v2, v6, v7
 
     .line 233
-    .local v2, scale:F
+    .local v2, "scale":F
     iget-object v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplayInfo:Landroid/view/DisplayInfo;
 
     iget v6, v6, Landroid/view/DisplayInfo;->logicalWidth:I
@@ -848,7 +848,7 @@
     move-result v2
 
     .line 235
-    const v6, 0x3e99999a
+    const v6, 0x3e99999a    # 0.3f
 
     invoke-static {v8, v2}, Ljava/lang/Math;->min(FF)F
 
@@ -865,12 +865,12 @@
 
     sub-float/2addr v6, v8
 
-    const/high16 v7, 0x3f00
+    const/high16 v7, 0x3f000000    # 0.5f
 
     mul-float v1, v6, v7
 
     .line 238
-    .local v1, offsetScale:F
+    .local v1, "offsetScale":F
     iget v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWidth:I
 
     int-to-float v6, v6
@@ -880,7 +880,7 @@
     float-to-int v3, v6
 
     .line 239
-    .local v3, width:I
+    .local v3, "width":I
     iget v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mHeight:I
 
     int-to-float v6, v6
@@ -890,7 +890,7 @@
     float-to-int v0, v6
 
     .line 240
-    .local v0, height:I
+    .local v0, "height":I
     iget v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowX:I
 
     int-to-float v6, v6
@@ -908,7 +908,7 @@
     float-to-int v4, v6
 
     .line 241
-    .local v4, x:I
+    .local v4, "x":I
     iget v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowY:I
 
     int-to-float v6, v6
@@ -926,7 +926,7 @@
     float-to-int v5, v6
 
     .line 242
-    .local v5, y:I
+    .local v5, "y":I
     iget-object v6, p0, Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplayInfo:Landroid/view/DisplayInfo;
 
     iget v6, v6, Landroid/view/DisplayInfo;->logicalWidth:I
@@ -1027,7 +1027,7 @@
 
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 157

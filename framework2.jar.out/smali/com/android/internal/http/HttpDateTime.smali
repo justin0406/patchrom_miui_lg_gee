@@ -12,11 +12,11 @@
 
 
 # static fields
-.field private static final HTTP_DATE_ANSIC_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final HTTP_DATE_ANSIC_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final HTTP_DATE_ANSIC_REGEXP:Ljava/lang/String; = "[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})"
 
-.field private static final HTTP_DATE_RFC_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final HTTP_DATE_RFC_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final HTTP_DATE_RFC_REGEXP:Ljava/lang/String; = "([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])"
 
@@ -60,7 +60,7 @@
 
 .method private static getDate(Ljava/lang/String;)I
     .locals 3
-    .parameter "dateString"
+    .param p0, "dateString"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -109,7 +109,7 @@
 
 .method private static getMonth(Ljava/lang/String;)I
     .locals 6
-    .parameter "monthString"
+    .param p0, "monthString"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x2
@@ -150,7 +150,7 @@
     add-int/lit16 v0, v4, -0x123
 
     .line 151
-    .local v0, hash:I
+    .local v0, "hash":I
     sparse-switch v0, :sswitch_data_0
 
     .line 177
@@ -248,18 +248,18 @@
 
 .method private static getTime(Ljava/lang/String;)Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     .locals 7
-    .parameter "timeString"
+    .param p0, "timeString"    # Ljava/lang/String;
 
     .prologue
     .line 208
     const/4 v1, 0x0
 
     .line 209
-    .local v1, i:I
+    .local v1, "i":I
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #i:I
-    .local v2, i:I
+    .end local v1    # "i":I
+    .local v2, "i":I
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -267,7 +267,7 @@
     add-int/lit8 v0, v5, -0x30
 
     .line 210
-    .local v0, hour:I
+    .local v0, "hour":I
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -281,8 +281,8 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
@@ -298,8 +298,8 @@
     .line 215
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #i:I
-    .restart local v2       #i:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -310,8 +310,8 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
@@ -321,14 +321,14 @@
     add-int v3, v5, v6
 
     .line 218
-    .local v3, minute:I
+    .local v3, "minute":I
     add-int/lit8 v1, v1, 0x1
 
     .line 220
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #i:I
-    .restart local v2       #i:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -339,8 +339,8 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
@@ -350,28 +350,28 @@
     add-int v4, v5, v6
 
     .line 223
-    .local v4, second:I
+    .local v4, "second":I
     new-instance v5, Lcom/android/internal/http/HttpDateTime$TimeOfDay;
 
     invoke-direct {v5, v0, v3, v4}, Lcom/android/internal/http/HttpDateTime$TimeOfDay;-><init>(III)V
 
     return-object v5
 
-    .end local v1           #i:I
-    .end local v3           #minute:I
-    .end local v4           #second:I
-    .restart local v2       #i:I
+    .end local v1    # "i":I
+    .end local v3    # "minute":I
+    .end local v4    # "second":I
+    .restart local v2    # "i":I
     :cond_0
     move v1, v2
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     goto :goto_0
 .end method
 
 .method private static getYear(Ljava/lang/String;)I
     .locals 7
-    .parameter "yearString"
+    .param p0, "yearString"    # Ljava/lang/String;
 
     .prologue
     const/4 v6, 0x3
@@ -407,7 +407,7 @@
     add-int v0, v1, v2
 
     .line 185
-    .local v0, year:I
+    .local v0, "year":I
     const/16 v1, 0x46
 
     if-lt v0, v1, :cond_0
@@ -416,19 +416,19 @@
     add-int/lit16 v1, v0, 0x76c
 
     .line 202
-    .end local v0           #year:I
+    .end local v0    # "year":I
     :goto_0
     return v1
 
     .line 188
-    .restart local v0       #year:I
+    .restart local v0    # "year":I
     :cond_0
     add-int/lit16 v1, v0, 0x7d0
 
     goto :goto_0
 
     .line 190
-    .end local v0           #year:I
+    .end local v0    # "year":I
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -464,13 +464,13 @@
     add-int v0, v1, v2
 
     .line 195
-    .restart local v0       #year:I
+    .restart local v0    # "year":I
     add-int/lit16 v1, v0, 0x76c
 
     goto :goto_0
 
     .line 196
-    .end local v0           #year:I
+    .end local v0    # "year":I
     :cond_2
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -528,7 +528,7 @@
 
 .method public static parse(Ljava/lang/String;)J
     .locals 12
-    .parameter "timeString"
+    .param p0, "timeString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -548,15 +548,15 @@
     const/4 v4, 0x1
 
     .line 89
-    .local v4, date:I
+    .local v4, "date":I
     const/4 v5, 0x0
 
     .line 90
-    .local v5, month:I
+    .local v5, "month":I
     const/16 v6, 0x7b2
 
     .line 93
-    .local v6, year:I
+    .local v6, "year":I
     sget-object v1, Lcom/android/internal/http/HttpDateTime;->HTTP_DATE_RFC_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v1, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -564,7 +564,7 @@
     move-result-object v8
 
     .line 94
-    .local v8, rfcMatcher:Ljava/util/regex/Matcher;
+    .local v8, "rfcMatcher":Ljava/util/regex/Matcher;
     invoke-virtual {v8}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
@@ -608,7 +608,7 @@
     move-result-object v9
 
     .line 112
-    .local v9, timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
+    .local v9, "timeOfDay":Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     :goto_0
     const/16 v1, 0x7f6
 
@@ -632,7 +632,7 @@
     invoke-direct {v0, v1}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
 
     .line 119
-    .local v0, time:Landroid/text/format/Time;
+    .local v0, "time":Landroid/text/format/Time;
     iget v1, v9, Lcom/android/internal/http/HttpDateTime$TimeOfDay;->second:I
 
     iget v2, v9, Lcom/android/internal/http/HttpDateTime$TimeOfDay;->minute:I
@@ -651,8 +651,8 @@
     return-wide v1
 
     .line 100
-    .end local v0           #time:Landroid/text/format/Time;
-    .end local v9           #timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
+    .end local v0    # "time":Landroid/text/format/Time;
+    .end local v9    # "timeOfDay":Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     :cond_1
     sget-object v1, Lcom/android/internal/http/HttpDateTime;->HTTP_DATE_ANSIC_PATTERN:Ljava/util/regex/Pattern;
 
@@ -661,7 +661,7 @@
     move-result-object v7
 
     .line 101
-    .local v7, ansicMatcher:Ljava/util/regex/Matcher;
+    .local v7, "ansicMatcher":Ljava/util/regex/Matcher;
     invoke-virtual {v7}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
@@ -696,7 +696,7 @@
     move-result-object v9
 
     .line 105
-    .restart local v9       #timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
+    .restart local v9    # "timeOfDay":Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     invoke-virtual {v7, v11}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v1
@@ -708,7 +708,7 @@
     goto :goto_0
 
     .line 107
-    .end local v9           #timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
+    .end local v9    # "timeOfDay":Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     :cond_2
     new-instance v1, Ljava/lang/IllegalArgumentException;
 

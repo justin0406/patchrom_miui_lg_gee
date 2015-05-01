@@ -42,7 +42,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 6
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
 
     .prologue
     .line 67
@@ -52,11 +52,11 @@
     const/4 v0, 0x0
 
     .line 69
-    .local v0, inetAddress:Ljava/net/InetAddress;
+    .local v0, "inetAddress":Ljava/net/InetAddress;
     const/4 v2, -0x1
 
     .line 71
-    .local v2, prefixLength:I
+    .local v2, "prefixLength":I
     :try_start_0
     const-string v3, "/"
 
@@ -67,7 +67,7 @@
     move-result-object v1
 
     .line 72
-    .local v1, pieces:[Ljava/lang/String;
+    .local v1, "pieces":[Ljava/lang/String;
     const/4 v3, 0x1
 
     aget-object v3, v1, v3
@@ -91,7 +91,7 @@
     move-result-object v0
 
     .line 80
-    .end local v1           #pieces:[Ljava/lang/String;
+    .end local v1    # "pieces":[Ljava/lang/String;
     :goto_0
     if-eqz v0, :cond_0
 
@@ -159,8 +159,8 @@
 
 .method public constructor <init>(Ljava/net/InetAddress;I)V
     .locals 0
-    .parameter "address"
-    .parameter "prefixLength"
+    .param p1, "address"    # Ljava/net/InetAddress;
+    .param p2, "prefixLength"    # I
 
     .prologue
     .line 53
@@ -175,7 +175,7 @@
 
 .method public constructor <init>(Ljava/net/InterfaceAddress;)V
     .locals 2
-    .parameter "interfaceAddress"
+    .param p1, "interfaceAddress"    # Ljava/net/InterfaceAddress;
 
     .prologue
     .line 57
@@ -198,8 +198,8 @@
 
 .method private init(Ljava/net/InetAddress;I)V
     .locals 3
-    .parameter "address"
-    .parameter "prefixLength"
+    .param p1, "address"    # Ljava/net/InetAddress;
+    .param p2, "prefixLength"    # I
 
     .prologue
     .line 43
@@ -281,7 +281,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -303,7 +303,7 @@
     check-cast v0, Landroid/net/LinkAddress;
 
     .line 106
-    .local v0, linkAddress:Landroid/net/LinkAddress;
+    .local v0, "linkAddress":Landroid/net/LinkAddress;
     iget-object v2, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
     iget-object v3, v0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
@@ -423,8 +423,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 145

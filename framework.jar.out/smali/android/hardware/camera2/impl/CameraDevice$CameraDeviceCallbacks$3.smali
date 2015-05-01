@@ -30,10 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/impl/CameraDevice$CameraDeviceCallbacks;Landroid/hardware/camera2/impl/CameraDevice$CaptureListenerHolder;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 630
@@ -61,7 +57,7 @@
 
     iget-object v0, v0, Landroid/hardware/camera2/impl/CameraDevice$CameraDeviceCallbacks;->this$0:Landroid/hardware/camera2/impl/CameraDevice;
 
-    #calls: Landroid/hardware/camera2/impl/CameraDevice;->isClosed()Z
+    # invokes: Landroid/hardware/camera2/impl/CameraDevice;->isClosed()Z
     invoke-static {v0}, Landroid/hardware/camera2/impl/CameraDevice;->access$000(Landroid/hardware/camera2/impl/CameraDevice;)Z
 
     move-result v0

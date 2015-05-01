@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TableLayout;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 760
@@ -39,8 +38,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/TableLayout;Landroid/widget/TableLayout$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/TableLayout;
+    .param p2, "x1"    # Landroid/widget/TableLayout$1;
 
     .prologue
     .line 760
@@ -51,8 +50,8 @@
 
 .method static synthetic access$102(Landroid/widget/TableLayout$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/TableLayout$PassThroughHierarchyChangeListener;
+    .param p1, "x1"    # Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .prologue
     .line 760
@@ -65,14 +64,14 @@
 # virtual methods
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .locals 1
-    .parameter "parent"
-    .parameter "child"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 768
     iget-object v0, p0, Landroid/widget/TableLayout$PassThroughHierarchyChangeListener;->this$0:Landroid/widget/TableLayout;
 
-    #calls: Landroid/widget/TableLayout;->trackCollapsedColumns(Landroid/view/View;)V
+    # invokes: Landroid/widget/TableLayout;->trackCollapsedColumns(Landroid/view/View;)V
     invoke-static {v0, p2}, Landroid/widget/TableLayout;->access$200(Landroid/widget/TableLayout;Landroid/view/View;)V
 
     .line 770
@@ -92,8 +91,8 @@
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
     .locals 1
-    .parameter "parent"
-    .parameter "child"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 779

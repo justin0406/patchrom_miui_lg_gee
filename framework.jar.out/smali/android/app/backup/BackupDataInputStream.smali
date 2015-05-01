@@ -16,7 +16,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/backup/BackupDataInput;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInput;
 
     .prologue
     .line 47
@@ -58,7 +58,7 @@
     iget-object v0, p0, Landroid/app/backup/BackupDataInputStream;->mOneByte:[B
 
     .line 60
-    .local v0, one:[B
+    .local v0, "one":[B
     iget-object v1, p0, Landroid/app/backup/BackupDataInputStream;->mOneByte:[B
 
     if-nez v1, :cond_0
@@ -66,11 +66,11 @@
     .line 61
     new-array v0, v3, [B
 
-    .end local v0           #one:[B
+    .end local v0    # "one":[B
     iput-object v0, p0, Landroid/app/backup/BackupDataInputStream;->mOneByte:[B
 
     .line 63
-    .restart local v0       #one:[B
+    .restart local v0    # "one":[B
     :cond_0
     iget-object v1, p0, Landroid/app/backup/BackupDataInputStream;->mData:Landroid/app/backup/BackupDataInput;
 
@@ -84,7 +84,7 @@
 
 .method public read([B)I
     .locals 3
-    .parameter "b"
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -108,9 +108,9 @@
 
 .method public read([BII)I
     .locals 1
-    .parameter "b"
-    .parameter "offset"
-    .parameter "size"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

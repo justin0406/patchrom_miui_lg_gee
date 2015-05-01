@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1896

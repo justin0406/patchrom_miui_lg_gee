@@ -33,13 +33,13 @@
 # direct methods
 .method private constructor <init>(IIFFFFF)V
     .locals 0
-    .parameter "axis"
-    .parameter "source"
-    .parameter "min"
-    .parameter "max"
-    .parameter "flat"
-    .parameter "fuzz"
-    .parameter "resolution"
+    .param p1, "axis"    # I
+    .param p2, "source"    # I
+    .param p3, "min"    # F
+    .param p4, "max"    # F
+    .param p5, "flat"    # F
+    .param p6, "fuzz"    # F
+    .param p7, "resolution"    # F
 
     .prologue
     .line 706
@@ -72,14 +72,14 @@
 
 .method synthetic constructor <init>(IIFFFFFLandroid/view/InputDevice$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
-    .parameter "x7"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # F
+    .param p4, "x3"    # F
+    .param p5, "x4"    # F
+    .param p6, "x5"    # F
+    .param p7, "x6"    # F
+    .param p8, "x7"    # Landroid/view/InputDevice$1;
 
     .prologue
     .line 696
@@ -90,7 +90,7 @@
 
 .method static synthetic access$100(Landroid/view/InputDevice$MotionRange;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -101,7 +101,7 @@
 
 .method static synthetic access$200(Landroid/view/InputDevice$MotionRange;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -112,7 +112,7 @@
 
 .method static synthetic access$400(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -123,7 +123,7 @@
 
 .method static synthetic access$500(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -134,7 +134,7 @@
 
 .method static synthetic access$600(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -145,7 +145,7 @@
 
 .method static synthetic access$700(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -156,7 +156,7 @@
 
 .method static synthetic access$800(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
     .prologue
     .line 696
@@ -253,7 +253,7 @@
 
 .method public isFromSource(I)Z
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # I
 
     .prologue
     .line 742

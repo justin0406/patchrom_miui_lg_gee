@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteInfo$1;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 1944

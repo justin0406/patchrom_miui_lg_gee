@@ -68,7 +68,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 1431
@@ -83,8 +83,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ActivityManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/app/ActivityManager$1;
 
     .prologue
     .line 1387
@@ -107,7 +107,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 1410
@@ -174,7 +174,7 @@
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 1436
@@ -185,7 +185,7 @@
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1437
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v2, "Stack id="
@@ -235,7 +235,7 @@
     .line 1440
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskIds:[I
 
@@ -287,8 +287,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1400

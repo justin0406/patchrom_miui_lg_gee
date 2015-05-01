@@ -73,7 +73,7 @@
 
 .method public static getTagCode(Ljava/lang/String;)I
     .locals 2
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 211
@@ -89,7 +89,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 213
-    .local v0, code:Ljava/lang/Integer;
+    .local v0, "code":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -107,7 +107,7 @@
 
 .method public static getTagName(I)Ljava/lang/String;
     .locals 2
-    .parameter "tag"
+    .param p0, "tag"    # I
 
     .prologue
     .line 201
@@ -168,9 +168,9 @@
     if-eqz v9, :cond_1
 
     .line 256
-    .local v0, comment:Ljava/util/regex/Pattern;
-    .local v6, reader:Ljava/io/BufferedReader;
-    .local v8, tag:Ljava/util/regex/Pattern;
+    .local v0, "comment":Ljava/util/regex/Pattern;
+    .local v6, "reader":Ljava/io/BufferedReader;
+    .local v8, "tag":Ljava/util/regex/Pattern;
     :cond_0
     :goto_0
     monitor-exit v10
@@ -178,9 +178,9 @@
     return-void
 
     .line 222
-    .end local v0           #comment:Ljava/util/regex/Pattern;
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .end local v8           #tag:Ljava/util/regex/Pattern;
+    .end local v0    # "comment":Ljava/util/regex/Pattern;
+    .end local v6    # "reader":Ljava/io/BufferedReader;
+    .end local v8    # "tag":Ljava/util/regex/Pattern;
     :cond_1
     :try_start_1
     new-instance v9, Ljava/util/HashMap;
@@ -204,7 +204,7 @@
     move-result-object v0
 
     .line 226
-    .restart local v0       #comment:Ljava/util/regex/Pattern;
+    .restart local v0    # "comment":Ljava/util/regex/Pattern;
     const-string v9, "^\\s*(\\d+)\\s+(\\w+)\\s*(\\(.*\\))?\\s*$"
 
     invoke-static {v9}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -214,11 +214,11 @@
     move-result-object v8
 
     .line 227
-    .restart local v8       #tag:Ljava/util/regex/Pattern;
+    .restart local v8    # "tag":Ljava/util/regex/Pattern;
     const/4 v6, 0x0
 
     .line 231
-    .restart local v6       #reader:Ljava/io/BufferedReader;
+    .restart local v6    # "reader":Ljava/io/BufferedReader;
     :try_start_2
     new-instance v7, Ljava/io/BufferedReader;
 
@@ -232,12 +232,12 @@
 
     invoke-direct {v7, v9, v11}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 232
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .local v7, reader:Ljava/io/BufferedReader;
+    .end local v6    # "reader":Ljava/io/BufferedReader;
+    .local v7, "reader":Ljava/io/BufferedReader;
     :cond_2
     :goto_1
     :try_start_3
@@ -245,7 +245,7 @@
 
     move-result-object v2
 
-    .local v2, line:Ljava/lang/String;
+    .local v2, "line":Ljava/lang/String;
     if-eqz v2, :cond_5
 
     .line 233
@@ -265,7 +265,7 @@
     move-result-object v3
 
     .line 236
-    .local v3, m:Ljava/util/regex/Matcher;
+    .local v3, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v9
@@ -295,23 +295,23 @@
 
     invoke-static {v9, v11}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
 
     .line 250
-    .end local v2           #line:Ljava/lang/String;
-    .end local v3           #m:Ljava/util/regex/Matcher;
+    .end local v2    # "line":Ljava/lang/String;
+    .end local v3    # "m":Ljava/util/regex/Matcher;
     :catch_0
     move-exception v1
 
     move-object v6, v7
 
     .line 251
-    .end local v7           #reader:Ljava/io/BufferedReader;
-    .local v1, e:Ljava/io/IOException;
-    .restart local v6       #reader:Ljava/io/BufferedReader;
+    .end local v7    # "reader":Ljava/io/BufferedReader;
+    .local v1, "e":Ljava/io/IOException;
+    .restart local v6    # "reader":Ljava/io/BufferedReader;
     :goto_2
     :try_start_4
     const-string v9, "EventLog"
@@ -328,8 +328,8 @@
     :try_start_5
     invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     goto :goto_0
 
@@ -339,11 +339,11 @@
     goto :goto_0
 
     .line 242
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .restart local v2       #line:Ljava/lang/String;
-    .restart local v3       #m:Ljava/util/regex/Matcher;
-    .restart local v7       #reader:Ljava/io/BufferedReader;
+    .end local v1    # "e":Ljava/io/IOException;
+    .end local v6    # "reader":Ljava/io/BufferedReader;
+    .restart local v2    # "line":Ljava/lang/String;
+    .restart local v3    # "m":Ljava/util/regex/Matcher;
+    .restart local v7    # "reader":Ljava/io/BufferedReader;
     :cond_3
     const/4 v9, 0x1
 
@@ -357,7 +357,7 @@
     move-result v5
 
     .line 243
-    .local v5, num:I
+    .local v5, "num":I
     const/4 v9, 0x2
 
     invoke-virtual {v3, v9}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -365,7 +365,7 @@
     move-result-object v4
 
     .line 244
-    .local v4, name:Ljava/lang/String;
+    .local v4, "name":Ljava/lang/String;
     sget-object v9, Landroid/util/EventLog;->sTagCodes:Ljava/util/HashMap;
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -383,20 +383,20 @@
 
     invoke-virtual {v9, v11, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_6} :catch_2
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_1
 
     .line 246
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #num:I
+    .end local v4    # "name":Ljava/lang/String;
+    .end local v5    # "num":I
     :catch_2
     move-exception v1
 
     .line 247
-    .local v1, e:Ljava/lang/NumberFormatException;
+    .local v1, "e":Ljava/lang/NumberFormatException;
     :try_start_7
     const-string v9, "EventLog"
 
@@ -420,30 +420,30 @@
 
     invoke-static {v9, v11, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto :goto_1
 
     .line 254
-    .end local v1           #e:Ljava/lang/NumberFormatException;
-    .end local v2           #line:Ljava/lang/String;
-    .end local v3           #m:Ljava/util/regex/Matcher;
+    .end local v1    # "e":Ljava/lang/NumberFormatException;
+    .end local v2    # "line":Ljava/lang/String;
+    .end local v3    # "m":Ljava/util/regex/Matcher;
     :catchall_0
     move-exception v9
 
     move-object v6, v7
 
-    .end local v7           #reader:Ljava/io/BufferedReader;
-    .restart local v6       #reader:Ljava/io/BufferedReader;
+    .end local v7    # "reader":Ljava/io/BufferedReader;
+    .restart local v6    # "reader":Ljava/io/BufferedReader;
     :goto_3
     if-eqz v6, :cond_4
 
     :try_start_8
     invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_4
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     :cond_4
     :goto_4
@@ -453,8 +453,8 @@
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     .line 220
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .end local v8           #tag:Ljava/util/regex/Pattern;
+    .end local v6    # "reader":Ljava/io/BufferedReader;
+    .end local v8    # "tag":Ljava/util/regex/Pattern;
     :catchall_1
     move-exception v9
 
@@ -463,39 +463,39 @@
     throw v9
 
     .line 254
-    .restart local v2       #line:Ljava/lang/String;
-    .restart local v7       #reader:Ljava/io/BufferedReader;
-    .restart local v8       #tag:Ljava/util/regex/Pattern;
+    .restart local v2    # "line":Ljava/lang/String;
+    .restart local v7    # "reader":Ljava/io/BufferedReader;
+    .restart local v8    # "tag":Ljava/util/regex/Pattern;
     :cond_5
     if-eqz v7, :cond_6
 
     :try_start_a
     invoke-virtual {v7}, Ljava/io/BufferedReader;->close()V
     :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_3
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
     :cond_6
     move-object v6, v7
 
-    .end local v7           #reader:Ljava/io/BufferedReader;
-    .restart local v6       #reader:Ljava/io/BufferedReader;
+    .end local v7    # "reader":Ljava/io/BufferedReader;
+    .restart local v6    # "reader":Ljava/io/BufferedReader;
     goto/16 :goto_0
 
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .restart local v7       #reader:Ljava/io/BufferedReader;
+    .end local v6    # "reader":Ljava/io/BufferedReader;
+    .restart local v7    # "reader":Ljava/io/BufferedReader;
     :catch_3
     move-exception v9
 
     move-object v6, v7
 
     .line 255
-    .end local v7           #reader:Ljava/io/BufferedReader;
-    .restart local v6       #reader:Ljava/io/BufferedReader;
+    .end local v7    # "reader":Ljava/io/BufferedReader;
+    .restart local v6    # "reader":Ljava/io/BufferedReader;
     goto/16 :goto_0
 
     .line 254
-    .end local v2           #line:Ljava/lang/String;
+    .end local v2    # "line":Ljava/lang/String;
     :catch_4
     move-exception v11
 

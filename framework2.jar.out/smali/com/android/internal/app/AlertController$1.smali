@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 129
@@ -39,17 +38,17 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 131
     const/4 v0, 0x0
 
     .line 132
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonPositive:Landroid/widget/Button;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonPositive:Landroid/widget/Button;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$000(Lcom/android/internal/app/AlertController;)Landroid/widget/Button;
 
     move-result-object v1
@@ -58,7 +57,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonPositiveMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonPositiveMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$100(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1
@@ -68,7 +67,7 @@
     .line 133
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonPositiveMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonPositiveMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$100(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1
@@ -89,7 +88,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/internal/app/AlertController;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$700(Lcom/android/internal/app/AlertController;)Landroid/os/Handler;
 
     move-result-object v1
@@ -98,7 +97,7 @@
 
     iget-object v3, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mDialogInterface:Landroid/content/DialogInterface;
+    # getter for: Lcom/android/internal/app/AlertController;->mDialogInterface:Landroid/content/DialogInterface;
     invoke-static {v3}, Lcom/android/internal/app/AlertController;->access$600(Lcom/android/internal/app/AlertController;)Landroid/content/DialogInterface;
 
     move-result-object v3
@@ -116,7 +115,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNegative:Landroid/widget/Button;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNegative:Landroid/widget/Button;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$200(Lcom/android/internal/app/AlertController;)Landroid/widget/Button;
 
     move-result-object v1
@@ -125,7 +124,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNegativeMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNegativeMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$300(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1
@@ -135,7 +134,7 @@
     .line 135
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNegativeMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNegativeMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$300(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1
@@ -150,7 +149,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNeutral:Landroid/widget/Button;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNeutral:Landroid/widget/Button;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$400(Lcom/android/internal/app/AlertController;)Landroid/widget/Button;
 
     move-result-object v1
@@ -159,7 +158,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNeutralMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNeutralMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$500(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1
@@ -169,7 +168,7 @@
     .line 137
     iget-object v1, p0, Lcom/android/internal/app/AlertController$1;->this$0:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mButtonNeutralMessage:Landroid/os/Message;
+    # getter for: Lcom/android/internal/app/AlertController;->mButtonNeutralMessage:Landroid/os/Message;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$500(Lcom/android/internal/app/AlertController;)Landroid/os/Message;
 
     move-result-object v1

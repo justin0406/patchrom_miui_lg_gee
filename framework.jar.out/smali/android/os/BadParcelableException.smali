@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Exception;)V
     .locals 0
-    .parameter "cause"
+    .param p1, "cause"    # Ljava/lang/Exception;
 
     .prologue
     .line 29
@@ -18,7 +18,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 26

@@ -26,7 +26,7 @@
 
 .method public static getExtendedMetadataParser([B)Landroid/drm/DrmUtils$ExtendedMetadataParser;
     .locals 2
-    .parameter "extendedMetadata"
+    .param p0, "extendedMetadata"    # [B
 
     .prologue
     .line 111
@@ -41,7 +41,7 @@
 
 .method private static quietlyDispose(Ljava/io/InputStream;)V
     .locals 1
-    .parameter "stream"
+    .param p0, "stream"    # Ljava/io/InputStream;
 
     .prologue
     .line 85
@@ -67,7 +67,7 @@
 
 .method private static quietlyDispose(Ljava/io/OutputStream;)V
     .locals 1
-    .parameter "stream"
+    .param p0, "stream"    # Ljava/io/OutputStream;
 
     .prologue
     .line 95
@@ -93,7 +93,7 @@
 
 .method static readBytes(Ljava/io/File;)[B
     .locals 5
-    .parameter "file"
+    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -107,24 +107,24 @@
     invoke-direct {v2, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 47
-    .local v2, inputStream:Ljava/io/FileInputStream;
+    .local v2, "inputStream":Ljava/io/FileInputStream;
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 48
-    .local v0, bufferedStream:Ljava/io/BufferedInputStream;
+    .local v0, "bufferedStream":Ljava/io/BufferedInputStream;
     const/4 v1, 0x0
 
     .line 51
-    .local v1, data:[B
+    .local v1, "data":[B
     :try_start_0
     invoke-virtual {v0}, Ljava/io/BufferedInputStream;->available()I
 
     move-result v3
 
     .line 52
-    .local v3, length:I
+    .local v3, "length":I
     if-lez v3, :cond_0
 
     .line 53
@@ -146,7 +146,7 @@
     return-object v1
 
     .line 58
-    .end local v3           #length:I
+    .end local v3    # "length":I
     :catchall_0
     move-exception v4
 
@@ -160,7 +160,7 @@
 
 .method static readBytes(Ljava/lang/String;)[B
     .locals 2
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -174,7 +174,7 @@
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 41
-    .local v0, file:Ljava/io/File;
+    .local v0, "file":Ljava/io/File;
     invoke-static {v0}, Landroid/drm/DrmUtils;->readBytes(Ljava/io/File;)[B
 
     move-result-object v1
@@ -184,7 +184,7 @@
 
 .method static removeFile(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -198,7 +198,7 @@
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 80
-    .local v0, file:Ljava/io/File;
+    .local v0, "file":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 81
@@ -207,8 +207,8 @@
 
 .method static writeToFile(Ljava/lang/String;[B)V
     .locals 3
-    .parameter "path"
-    .parameter "data"
+    .param p0, "path"    # Ljava/lang/String;
+    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -220,7 +220,7 @@
     const/4 v0, 0x0
 
     .line 68
-    .local v0, outputStream:Ljava/io/FileOutputStream;
+    .local v0, "outputStream":Ljava/io/FileOutputStream;
     if-eqz p0, :cond_0
 
     if-eqz p1, :cond_0
@@ -234,8 +234,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 71
-    .end local v0           #outputStream:Ljava/io/FileOutputStream;
-    .local v1, outputStream:Ljava/io/FileOutputStream;
+    .end local v0    # "outputStream":Ljava/io/FileOutputStream;
+    .local v1, "outputStream":Ljava/io/FileOutputStream;
     :try_start_1
     invoke-virtual {v1, p1}, Ljava/io/FileOutputStream;->write([B)V
     :try_end_1
@@ -247,8 +247,8 @@
     move-object v0, v1
 
     .line 76
-    .end local v1           #outputStream:Ljava/io/FileOutputStream;
-    .restart local v0       #outputStream:Ljava/io/FileOutputStream;
+    .end local v1    # "outputStream":Ljava/io/FileOutputStream;
+    .restart local v0    # "outputStream":Ljava/io/FileOutputStream;
     :cond_0
     return-void
 
@@ -261,14 +261,14 @@
 
     throw v2
 
-    .end local v0           #outputStream:Ljava/io/FileOutputStream;
-    .restart local v1       #outputStream:Ljava/io/FileOutputStream;
+    .end local v0    # "outputStream":Ljava/io/FileOutputStream;
+    .restart local v1    # "outputStream":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v2
 
     move-object v0, v1
 
-    .end local v1           #outputStream:Ljava/io/FileOutputStream;
-    .restart local v0       #outputStream:Ljava/io/FileOutputStream;
+    .end local v1    # "outputStream":Ljava/io/FileOutputStream;
+    .restart local v0    # "outputStream":Ljava/io/FileOutputStream;
     goto :goto_0
 .end method

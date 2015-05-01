@@ -11,7 +11,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "opColor"
+    .param p1, "opColor"    # I
 
     .prologue
     .line 28

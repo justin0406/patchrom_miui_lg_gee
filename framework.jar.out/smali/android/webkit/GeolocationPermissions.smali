@@ -42,7 +42,7 @@
 # virtual methods
 .method public allow(Ljava/lang/String;)V
     .locals 0
-    .parameter "origin"
+    .param p1, "origin"    # Ljava/lang/String;
 
     .prologue
     .line 122
@@ -51,7 +51,7 @@
 
 .method public clear(Ljava/lang/String;)V
     .locals 0
-    .parameter "origin"
+    .param p1, "origin"    # Ljava/lang/String;
 
     .prologue
     .line 113
@@ -68,8 +68,7 @@
 
 .method public getAllowed(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
     .locals 0
-    .parameter "origin"
-    .parameter
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,13 +82,12 @@
 
     .prologue
     .line 104
-    .local p2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
+    .local p2, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
     return-void
 .end method
 
 .method public getOrigins(Landroid/webkit/ValueCallback;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,6 +102,6 @@
 
     .prologue
     .line 89
-    .local p1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
+    .local p1, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     return-void
 .end method

@@ -127,7 +127,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v6, 0x0
@@ -168,10 +168,10 @@
     move-result v2
 
     .line 63
-    .local v2, size:I
+    .local v2, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -183,7 +183,7 @@
     check-cast v1, Lcom/android/internal/telephony/cat/Item;
 
     .line 65
-    .local v1, item:Lcom/android/internal/telephony/cat/Item;
+    .local v1, "item":Lcom/android/internal/telephony/cat/Item;
     iget-object v3, p0, Lcom/android/internal/telephony/cat/Menu;->items:Ljava/util/List;
 
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -194,7 +194,7 @@
     goto :goto_0
 
     .line 67
-    .end local v1           #item:Lcom/android/internal/telephony/cat/Item;
+    .end local v1    # "item":Lcom/android/internal/telephony/cat/Item;
     :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -291,8 +291,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Menu$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Lcom/android/internal/telephony/cat/Menu$1;
 
     .prologue
     .line 30
@@ -315,8 +315,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -341,13 +341,13 @@
     move-result v1
 
     .line 86
-    .local v1, size:I
+    .local v1, "size":I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 87
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 

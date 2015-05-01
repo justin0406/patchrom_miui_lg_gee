@@ -32,7 +32,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 6
-    .parameter "settings"
+    .param p1, "settings"    # Ljava/lang/String;
 
     .prologue
     .line 226
@@ -46,7 +46,7 @@
     invoke-direct {v2, p1, v3}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 229
-    .local v2, st:Ljava/util/StringTokenizer;
+    .local v2, "st":Ljava/util/StringTokenizer;
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->countTokens()I
 
     move-result v3
@@ -87,7 +87,7 @@
     move-result-object v0
 
     .line 233
-    .local v0, key:Ljava/lang/String;
+    .local v0, "key":Ljava/lang/String;
     const-string v3, "LoudnessEnhancer"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -169,7 +169,7 @@
     move-exception v1
 
     .line 244
-    .local v1, nfe:Ljava/lang/NumberFormatException;
+    .local v1, "nfe":Ljava/lang/NumberFormatException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -195,7 +195,7 @@
     throw v3
 
     .line 242
-    .end local v1           #nfe:Ljava/lang/NumberFormatException;
+    .end local v1    # "nfe":Ljava/lang/NumberFormatException;
     :cond_2
     :try_start_1
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -250,6 +250,6 @@
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     .line 254
-    .local v0, str:Ljava/lang/String;
+    .local v0, "str":Ljava/lang/String;
     return-object v0
 .end method

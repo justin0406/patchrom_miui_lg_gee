@@ -74,7 +74,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IPhoneSubInfo;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 27
@@ -96,7 +96,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/telephony/IPhoneSubInfo;
@@ -112,7 +112,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/telephony/IPhoneSubInfo$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/IPhoneSubInfo$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -130,10 +130,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -174,7 +174,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, _result:Ljava/lang/String;
+    .local v0, "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 54
@@ -183,7 +183,7 @@
     goto :goto_0
 
     .line 59
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_2
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -195,7 +195,7 @@
     move-result-object v0
 
     .line 61
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 62
@@ -204,7 +204,7 @@
     goto :goto_0
 
     .line 67
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_3
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -216,7 +216,7 @@
     move-result-object v0
 
     .line 69
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 70
@@ -225,7 +225,7 @@
     goto :goto_0
 
     .line 75
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_4
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -237,7 +237,7 @@
     move-result-object v0
 
     .line 77
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 78
@@ -246,7 +246,7 @@
     goto :goto_0
 
     .line 83
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_5
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -258,7 +258,7 @@
     move-result-object v0
 
     .line 85
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 86
@@ -267,7 +267,7 @@
     goto :goto_0
 
     .line 91
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_6
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -279,7 +279,7 @@
     move-result-object v0
 
     .line 93
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 94
@@ -288,7 +288,7 @@
     goto :goto_0
 
     .line 99
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_7
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -300,7 +300,7 @@
     move-result-object v0
 
     .line 101
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 102
@@ -309,7 +309,7 @@
     goto :goto_0
 
     .line 107
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_8
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -321,7 +321,7 @@
     move-result-object v0
 
     .line 109
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 110
@@ -330,7 +330,7 @@
     goto/16 :goto_0
 
     .line 115
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_9
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -342,7 +342,7 @@
     move-result-object v0
 
     .line 117
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 118
@@ -351,7 +351,7 @@
     goto/16 :goto_0
 
     .line 123
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_a
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -363,7 +363,7 @@
     move-result-object v0
 
     .line 125
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 126
@@ -372,7 +372,7 @@
     goto/16 :goto_0
 
     .line 131
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_b
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -384,7 +384,7 @@
     move-result-object v0
 
     .line 133
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 134
@@ -393,7 +393,7 @@
     goto/16 :goto_0
 
     .line 139
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_c
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -405,7 +405,7 @@
     move-result-object v0
 
     .line 141
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 142
@@ -414,7 +414,7 @@
     goto/16 :goto_0
 
     .line 147
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_d
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -426,7 +426,7 @@
     move-result-object v0
 
     .line 149
-    .restart local v0       #_result:Ljava/lang/String;
+    .restart local v0    # "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
@@ -435,7 +435,7 @@
     goto/16 :goto_0
 
     .line 155
-    .end local v0           #_result:Ljava/lang/String;
+    .end local v0    # "_result":Ljava/lang/String;
     :sswitch_e
     const-string v2, "com.android.internal.telephony.IPhoneSubInfo"
 
@@ -447,7 +447,7 @@
     move-result-object v0
 
     .line 157
-    .local v0, _result:[Ljava/lang/String;
+    .local v0, "_result":[Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 158

@@ -42,8 +42,8 @@
 
 .method public constructor <init>(Landroid/content/ComponentName;Ljava/lang/String;)V
     .locals 0
-    .parameter "serviceName"
-    .parameter "localId"
+    .param p1, "serviceName"    # Landroid/content/ComponentName;
+    .param p2, "localId"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -61,7 +61,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 46
@@ -91,8 +91,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrinterId$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/print/PrinterId$1;
 
     .prologue
     .line 27
@@ -115,7 +115,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -163,7 +163,7 @@
     check-cast v0, Landroid/print/PrinterId;
 
     .line 95
-    .local v0, other:Landroid/print/PrinterId;
+    .local v0, "other":Landroid/print/PrinterId;
     iget-object v3, p0, Landroid/print/PrinterId;->mServiceName:Landroid/content/ComponentName;
 
     if-nez v3, :cond_4
@@ -241,11 +241,11 @@
     const/16 v1, 0x1f
 
     .line 111
-    .local v1, prime:I
+    .local v1, "prime":I
     const/4 v0, 0x1
 
     .line 112
-    .local v0, hashCode:I
+    .local v0, "hashCode":I
     iget-object v2, p0, Landroid/print/PrinterId;->mServiceName:Landroid/content/ComponentName;
 
     if-eqz v2, :cond_0
@@ -290,7 +290,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 121
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "PrinterId{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -336,8 +336,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 79

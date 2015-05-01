@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/IGpsStatusListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/IGpsStatusListener;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/location/IGpsStatusListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/IGpsStatusListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 11
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -185,7 +185,7 @@
     move-result v1
 
     .line 65
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p0, v1}, Landroid/location/IGpsStatusListener$Stub;->onFirstFix(I)V
 
     .line 66
@@ -194,7 +194,7 @@
     goto :goto_0
 
     .line 70
-    .end local v1           #_arg0:I
+    .end local v1    # "_arg0":I
     :sswitch_4
     const-string v0, "android.location.IGpsStatusListener"
 
@@ -206,48 +206,48 @@
     move-result v1
 
     .line 74
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v2
 
     .line 76
-    .local v2, _arg1:[I
+    .local v2, "_arg1":[I
     invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
 
     move-result-object v3
 
     .line 78
-    .local v3, _arg2:[F
+    .local v3, "_arg2":[F
     invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
 
     move-result-object v4
 
     .line 80
-    .local v4, _arg3:[F
+    .local v4, "_arg3":[F
     invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
 
     move-result-object v5
 
     .line 82
-    .local v5, _arg4:[F
+    .local v5, "_arg4":[F
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 84
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 86
-    .local v7, _arg6:I
+    .local v7, "_arg6":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
-    .local v8, _arg7:I
+    .local v8, "_arg7":I
     move-object v0, p0
 
     .line 87
@@ -259,14 +259,14 @@
     goto :goto_0
 
     .line 92
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:[I
-    .end local v3           #_arg2:[F
-    .end local v4           #_arg3:[F
-    .end local v5           #_arg4:[F
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:I
-    .end local v8           #_arg7:I
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":[I
+    .end local v3    # "_arg2":[F
+    .end local v4    # "_arg3":[F
+    .end local v5    # "_arg4":[F
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":I
+    .end local v8    # "_arg7":I
     :sswitch_5
     const-string v0, "android.location.IGpsStatusListener"
 
@@ -278,13 +278,13 @@
     move-result-wide v9
 
     .line 96
-    .local v9, _arg0:J
+    .local v9, "_arg0":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 97
-    .local v2, _arg1:Ljava/lang/String;
+    .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v9, v10, v2}, Landroid/location/IGpsStatusListener$Stub;->onNmeaReceived(JLjava/lang/String;)V
 
     .line 98

@@ -61,8 +61,6 @@
 
 .method constructor <init>(Landroid/widget/GridLayout$Axis;[Landroid/widget/GridLayout$Arc;)V
     .locals 2
-    .parameter
-    .parameter
 
     .prologue
     .line 1429
@@ -126,12 +124,12 @@
     .line 1458
     const/4 v1, 0x0
 
-    .local v1, loc:I
+    .local v1, "loc":I
     iget-object v2, p0, Landroid/widget/GridLayout$Axis$1;->arcsByVertex:[[Landroid/widget/GridLayout$Arc;
 
     array-length v0, v2
 
-    .local v0, N:I
+    .local v0, "N":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -170,7 +168,7 @@
 
 .method walk(I)V
     .locals 7
-    .parameter "loc"
+    .param p1, "loc"    # I
 
     .prologue
     .line 1436
@@ -198,20 +196,20 @@
 
     aget-object v1, v4, p1
 
-    .local v1, arr$:[Landroid/widget/GridLayout$Arc;
+    .local v1, "arr$":[Landroid/widget/GridLayout$Arc;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_1
     if-ge v2, v3, :cond_1
 
     aget-object v0, v1, v2
 
     .line 1440
-    .local v0, arc:Landroid/widget/GridLayout$Arc;
+    .local v0, "arc":Landroid/widget/GridLayout$Arc;
     iget-object v4, v0, Landroid/widget/GridLayout$Arc;->span:Landroid/widget/GridLayout$Interval;
 
     iget v4, v4, Landroid/widget/GridLayout$Interval;->max:I
@@ -235,7 +233,7 @@
     goto :goto_1
 
     .line 1443
-    .end local v0           #arc:Landroid/widget/GridLayout$Arc;
+    .end local v0    # "arc":Landroid/widget/GridLayout$Arc;
     :cond_1
     iget-object v4, p0, Landroid/widget/GridLayout$Axis$1;->visited:[I
 
@@ -246,9 +244,9 @@
     goto :goto_0
 
     .line 1448
-    .end local v1           #arr$:[Landroid/widget/GridLayout$Arc;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
+    .end local v1    # "arr$":[Landroid/widget/GridLayout$Arc;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
     :pswitch_1
     sget-boolean v4, Landroid/widget/GridLayout$Axis$1;->$assertionsDisabled:Z
 

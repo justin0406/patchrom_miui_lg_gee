@@ -36,8 +36,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 2
-    .parameter "cmdNum"
-    .parameter "logCmd"
+    .param p1, "cmdNum"    # I
+    .param p2, "logCmd"    # Ljava/lang/String;
 
     .prologue
     .line 511

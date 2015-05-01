@@ -43,7 +43,7 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 11
-    .parameter "audioWaveformFilename"
+    .param p1, "audioWaveformFilename"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -73,14 +73,14 @@
     const/4 v1, 0x0
 
     .line 75
-    .local v1, audioGraphFileReadHandle:Ljava/io/FileInputStream;
+    .local v1, "audioGraphFileReadHandle":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 77
-    .local v0, audioGraphFileContext:Ljava/io/File;
+    .local v0, "audioGraphFileContext":Ljava/io/File;
     new-instance v2, Ljava/io/FileInputStream;
 
     invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
@@ -88,15 +88,15 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 81
-    .end local v1           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    .local v2, audioGraphFileReadHandle:Ljava/io/FileInputStream;
+    .end local v1    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
+    .local v2, "audioGraphFileReadHandle":Ljava/io/FileInputStream;
     const/4 v8, 0x4
 
     :try_start_1
     new-array v4, v8, [B
 
     .line 83
-    .local v4, tempFrameDuration:[B
+    .local v4, "tempFrameDuration":[B
     const/4 v8, 0x0
 
     const/4 v9, 0x4
@@ -107,14 +107,14 @@
     const/4 v5, 0x0
 
     .line 86
-    .local v5, tempFrameDurationMs:I
+    .local v5, "tempFrameDurationMs":I
     const/4 v7, 0x0
 
     .line 87
-    .local v7, tempFramesCounter:I
+    .local v7, "tempFramesCounter":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v10, :cond_1
 
@@ -143,7 +143,7 @@
     new-array v6, v8, [B
 
     .line 98
-    .local v6, tempFramesCount:[B
+    .local v6, "tempFramesCount":[B
     const/4 v8, 0x0
 
     const/4 v9, 0x4
@@ -220,14 +220,14 @@
     return-void
 
     .line 114
-    .end local v0           #audioGraphFileContext:Ljava/io/File;
-    .end local v2           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    .end local v3           #i:I
-    .end local v4           #tempFrameDuration:[B
-    .end local v5           #tempFrameDurationMs:I
-    .end local v6           #tempFramesCount:[B
-    .end local v7           #tempFramesCounter:I
-    .restart local v1       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
+    .end local v0    # "audioGraphFileContext":Ljava/io/File;
+    .end local v2    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
+    .end local v3    # "i":I
+    .end local v4    # "tempFrameDuration":[B
+    .end local v5    # "tempFrameDurationMs":I
+    .end local v6    # "tempFramesCount":[B
+    .end local v7    # "tempFramesCounter":I
+    .restart local v1    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
     :catchall_0
     move-exception v8
 
@@ -241,16 +241,16 @@
     throw v8
 
     .line 114
-    .end local v1           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    .restart local v0       #audioGraphFileContext:Ljava/io/File;
-    .restart local v2       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
+    .end local v1    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
+    .restart local v0    # "audioGraphFileContext":Ljava/io/File;
+    .restart local v2    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
     :catchall_1
     move-exception v8
 
     move-object v1, v2
 
-    .end local v2           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    .restart local v1       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
+    .end local v2    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
+    .restart local v1    # "audioGraphFileReadHandle":Ljava/io/FileInputStream;
     goto :goto_3
 .end method
 

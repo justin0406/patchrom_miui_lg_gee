@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WifiSsid;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 223
@@ -53,17 +53,17 @@
     invoke-direct {v2, v3}, Landroid/net/wifi/WifiSsid;-><init>(Landroid/net/wifi/WifiSsid$1;)V
 
     .line 224
-    .local v2, ssid:Landroid/net/wifi/WifiSsid;
+    .local v2, "ssid":Landroid/net/wifi/WifiSsid;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 225
-    .local v1, length:I
+    .local v1, "length":I
     new-array v0, v1, [B
 
     .line 226
-    .local v0, b:[B
+    .local v0, "b":[B
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 227
@@ -79,7 +79,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 221
@@ -92,7 +92,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/WifiSsid;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 232
@@ -103,7 +103,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 221

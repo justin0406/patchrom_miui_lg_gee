@@ -52,7 +52,7 @@
 
 .method synthetic constructor <init>(Landroid/os/AsyncTask$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/AsyncTask$1;
 
     .prologue
     .line 223
@@ -65,7 +65,7 @@
 # virtual methods
 .method public declared-synchronized execute(Ljava/lang/Runnable;)V
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 228

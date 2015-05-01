@@ -16,8 +16,8 @@
 
 .method private static bytesPerSampleForClass(Ljava/lang/Class;I)I
     .locals 4
-    .parameter "clazz"
-    .parameter "target"
+    .param p0, "clazz"    # Ljava/lang/Class;
+    .param p1, "target"    # I
 
     .prologue
     .line 59
@@ -89,7 +89,7 @@
     move-exception v0
 
     .line 67
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -127,7 +127,7 @@
     throw v1
 
     .line 72
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     const/4 v1, 0x1
 
@@ -136,8 +136,8 @@
 
 .method public static fromClass(Ljava/lang/Class;I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "clazz"
-    .parameter "target"
+    .param p0, "clazz"    # Ljava/lang/Class;
+    .param p1, "target"    # I
 
     .prologue
     .line 41
@@ -152,9 +152,9 @@
 
 .method public static fromClass(Ljava/lang/Class;II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "clazz"
-    .parameter "count"
-    .parameter "target"
+    .param p0, "clazz"    # Ljava/lang/Class;
+    .param p1, "count"    # I
+    .param p2, "target"    # I
 
     .prologue
     .line 31
@@ -165,7 +165,7 @@
     invoke-direct {v0, v1, p2}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 32
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     invoke-static {p0}, Landroid/filterfw/format/ObjectFormat;->getBoxedClass(Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object v1
@@ -192,8 +192,8 @@
 
 .method public static fromObject(Ljava/lang/Object;I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "object"
-    .parameter "target"
+    .param p0, "object"    # Ljava/lang/Object;
+    .param p1, "target"    # I
 
     .prologue
     .line 45
@@ -224,9 +224,9 @@
 
 .method public static fromObject(Ljava/lang/Object;II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "object"
-    .parameter "count"
-    .parameter "target"
+    .param p0, "object"    # Ljava/lang/Object;
+    .param p1, "count"    # I
+    .param p2, "target"    # I
 
     .prologue
     .line 51
@@ -255,7 +255,7 @@
 
 .method private static getBoxedClass(Ljava/lang/Class;)Ljava/lang/Class;
     .locals 3
-    .parameter "type"
+    .param p0, "type"    # Ljava/lang/Class;
 
     .prologue
     .line 78
@@ -274,13 +274,13 @@
     const-class p0, Ljava/lang/Boolean;
 
     .line 102
-    .end local p0
+    .end local p0    # "type":Ljava/lang/Class;
     :cond_0
     :goto_0
     return-object p0
 
     .line 82
-    .restart local p0
+    .restart local p0    # "type":Ljava/lang/Class;
     :cond_1
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 

@@ -32,7 +32,7 @@
 
 .method public static main([Ljava/lang/String;)V
     .locals 7
-    .parameter "args"
+    .param p0, "args"    # [Ljava/lang/String;
 
     .prologue
     const-wide/32 v4, 0x5265c00
@@ -113,7 +113,7 @@
 
     move-result-object v0
 
-    const v1, 0x3f4ccccd
+    const v1, 0x3f4ccccd    # 0.8f
 
     invoke-virtual {v0, v1}, Ldalvik/system/VMRuntime;->setTargetHeapUtilization(F)F
 
@@ -143,7 +143,7 @@
     invoke-direct {v6}, Lcom/android/server/ServerThread;-><init>()V
 
     .line 1179
-    .local v6, thr:Lcom/android/server/ServerThread;
+    .local v6, "thr":Lcom/android/server/ServerThread;
     invoke-virtual {v6}, Lcom/android/server/ServerThread;->initAndLoop()V
 
     .line 1180

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 102
@@ -51,7 +51,7 @@
 
 .method public cancelVibrate(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 170
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 172
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
@@ -144,13 +144,13 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 119
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.os.IVibratorService"
 
@@ -178,7 +178,7 @@
     if-eqz v4, :cond_0
 
     .line 125
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -188,7 +188,7 @@
     .line 128
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -209,10 +209,10 @@
 
 .method public vibrate(ILjava/lang/String;JLandroid/os/IBinder;)V
     .locals 5
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "milliseconds"
-    .parameter "token"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "milliseconds"    # J
+    .param p5, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -226,13 +226,13 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 135
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
@@ -287,11 +287,11 @@
 
 .method public vibratePattern(ILjava/lang/String;[JILandroid/os/IBinder;)V
     .locals 5
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "pattern"
-    .parameter "repeat"
-    .parameter "token"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "pattern"    # [J
+    .param p4, "repeat"    # I
+    .param p5, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -305,13 +305,13 @@
     move-result-object v0
 
     .line 151
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 153
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 

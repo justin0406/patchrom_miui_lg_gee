@@ -45,7 +45,7 @@
 
 .method private constructor <init>(Z)V
     .locals 1
-    .parameter "quitAllowed"
+    .param p1, "quitAllowed"    # Z
 
     .prologue
     .line 187
@@ -107,7 +107,7 @@
     move-result-object v3
 
     .line 112
-    .local v3, me:Landroid/os/Looper;
+    .local v3, "me":Landroid/os/Looper;
     if-nez v3, :cond_0
 
     .line 113
@@ -124,7 +124,7 @@
     iget-object v7, v3, Landroid/os/Looper;->mQueue:Landroid/os/MessageQueue;
 
     .line 119
-    .local v7, queue:Landroid/os/MessageQueue;
+    .local v7, "queue":Landroid/os/MessageQueue;
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     .line 120
@@ -133,14 +133,14 @@
     move-result-wide v0
 
     .line 123
-    .local v0, ident:J
+    .local v0, "ident":J
     :goto_0
     invoke-virtual {v7}, Landroid/os/MessageQueue;->next()Landroid/os/Message;
 
     move-result-object v4
 
     .line 124
-    .local v4, msg:Landroid/os/Message;
+    .local v4, "msg":Landroid/os/Message;
     if-nez v4, :cond_1
 
     .line 126
@@ -151,7 +151,7 @@
     iget-object v2, v3, Landroid/os/Looper;->mLogging:Landroid/util/Printer;
 
     .line 131
-    .local v2, logging:Landroid/util/Printer;
+    .local v2, "logging":Landroid/util/Printer;
     if-eqz v2, :cond_2
 
     .line 132
@@ -252,7 +252,7 @@
     move-result-wide v5
 
     .line 145
-    .local v5, newIdent:J
+    .local v5, "newIdent":J
     cmp-long v8, v0, v5
 
     if-eqz v8, :cond_4
@@ -394,7 +394,7 @@
 
 .method private static prepare(Z)V
     .locals 2
-    .parameter "quitAllowed"
+    .param p0, "quitAllowed"    # Z
 
     .prologue
     .line 76
@@ -490,8 +490,8 @@
 # virtual methods
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 301
@@ -652,7 +652,7 @@
 
 .method public removeSyncBarrier(I)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # I
 
     .prologue
     .line 275
@@ -666,7 +666,7 @@
 
 .method public setMessageLogging(Landroid/util/Printer;)V
     .locals 0
-    .parameter "printer"
+    .param p1, "printer"    # Landroid/util/Printer;
 
     .prologue
     .line 175

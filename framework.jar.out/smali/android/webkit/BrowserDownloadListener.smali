@@ -21,11 +21,11 @@
 # virtual methods
 .method public onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
     .locals 8
-    .parameter "url"
-    .parameter "userAgent"
-    .parameter "contentDisposition"
-    .parameter "mimetype"
-    .parameter "contentLength"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "userAgent"    # Ljava/lang/String;
+    .param p3, "contentDisposition"    # Ljava/lang/String;
+    .param p4, "mimetype"    # Ljava/lang/String;
+    .param p5, "contentLength"    # J
 
     .prologue
     .line 54

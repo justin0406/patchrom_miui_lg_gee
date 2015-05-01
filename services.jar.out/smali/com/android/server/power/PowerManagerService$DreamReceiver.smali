@@ -21,10 +21,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 2429
+    .line 2432
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$DreamReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -34,11 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/PowerManagerService;Lcom/android/server/power/PowerManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/power/PowerManagerService;
+    .param p2, "x1"    # Lcom/android/server/power/PowerManagerService$1;
 
     .prologue
-    .line 2429
+    .line 2432
     invoke-direct {p0, p1}, Lcom/android/server/power/PowerManagerService$DreamReceiver;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
@@ -48,34 +47,34 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 2432
+    .line 2435
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$DreamReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    #getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$700(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 2433
+    .line 2436
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$DreamReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    #calls: Lcom/android/server/power/PowerManagerService;->scheduleSandmanLocked()V
+    # invokes: Lcom/android/server/power/PowerManagerService;->scheduleSandmanLocked()V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$1500(Lcom/android/server/power/PowerManagerService;)V
 
-    .line 2434
+    .line 2437
     monitor-exit v1
 
-    .line 2435
+    .line 2438
     return-void
 
-    .line 2434
+    .line 2437
     :catchall_0
     move-exception v0
 

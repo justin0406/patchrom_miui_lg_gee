@@ -3,8 +3,8 @@
 .source "AndroidHttpClientConnection.java"
 
 # interfaces
-.implements Lorg/apache/http/HttpInetConnection;
 .implements Lorg/apache/http/HttpConnection;
+.implements Lorg/apache/http/HttpInetConnection;
 
 
 # instance fields
@@ -115,7 +115,7 @@
 
 .method private determineLength(Landroid/net/http/Headers;)J
     .locals 8
-    .parameter "headers"
+    .param p1, "headers"    # Landroid/net/http/Headers;
 
     .prologue
     const-wide/16 v4, -0x1
@@ -126,7 +126,7 @@
     move-result-wide v2
 
     .line 420
-    .local v2, transferEncoding:J
+    .local v2, "transferEncoding":J
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
@@ -134,19 +134,19 @@
     if-gez v6, :cond_0
 
     .line 427
-    .end local v2           #transferEncoding:J
+    .end local v2    # "transferEncoding":J
     :goto_0
     return-wide v2
 
     .line 423
-    .restart local v2       #transferEncoding:J
+    .restart local v2    # "transferEncoding":J
     :cond_0
     invoke-virtual {p1}, Landroid/net/http/Headers;->getContentLength()J
 
     move-result-wide v0
 
     .line 424
-    .local v0, contentlen:J
+    .local v0, "contentlen":J
     cmp-long v6, v0, v4
 
     if-lez v6, :cond_1
@@ -167,8 +167,8 @@
 # virtual methods
 .method public bind(Ljava/net/Socket;Lorg/apache/http/params/HttpParams;)V
     .locals 6
-    .parameter "socket"
-    .parameter "params"
+    .param p1, "socket"    # Ljava/net/Socket;
+    .param p2, "params"    # Lorg/apache/http/params/HttpParams;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -229,7 +229,7 @@
     move-result v1
 
     .line 108
-    .local v1, linger:I
+    .local v1, "linger":I
     if-ltz v1, :cond_2
 
     .line 109
@@ -250,7 +250,7 @@
     move-result v0
 
     .line 114
-    .local v0, buffersize:I
+    .local v0, "buffersize":I
     new-instance v2, Lorg/apache/http/impl/io/SocketInputBuffer;
 
     invoke-direct {v2, p1, v0, p2}, Lorg/apache/http/impl/io/SocketInputBuffer;-><init>(Ljava/net/Socket;ILorg/apache/http/params/HttpParams;)V
@@ -319,7 +319,7 @@
     return-void
 
     .line 109
-    .end local v0           #buffersize:I
+    .end local v0    # "buffersize":I
     :cond_3
     const/4 v2, 0x0
 
@@ -581,7 +581,7 @@
     move-exception v0
 
     .line 212
-    .local v0, ignore:Ljava/net/SocketException;
+    .local v0, "ignore":Ljava/net/SocketException;
     goto :goto_0
 .end method
 
@@ -648,13 +648,13 @@
     move-exception v0
 
     .line 453
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     goto :goto_0
 .end method
 
 .method public parseResponseHeader(Landroid/net/http/Headers;)Lorg/apache/http/StatusLine;
     .locals 14
-    .parameter "headers"
+    .param p1, "headers"    # Landroid/net/http/Headers;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -674,7 +674,7 @@
     invoke-direct {v1, v10}, Lorg/apache/http/util/CharArrayBuffer;-><init>(I)V
 
     .line 308
-    .local v1, current:Lorg/apache/http/util/CharArrayBuffer;
+    .local v1, "current":Lorg/apache/http/util/CharArrayBuffer;
     iget-object v10, p0, Landroid/net/http/AndroidHttpClientConnection;->inbuffer:Lorg/apache/http/io/SessionInputBuffer;
 
     invoke-interface {v10, v1}, Lorg/apache/http/io/SessionInputBuffer;->readLine(Lorg/apache/http/util/CharArrayBuffer;)I
@@ -713,34 +713,34 @@
     move-result-object v9
 
     .line 317
-    .local v9, statusline:Lorg/apache/http/StatusLine;
+    .local v9, "statusline":Lorg/apache/http/StatusLine;
     invoke-interface {v9}, Lorg/apache/http/StatusLine;->getStatusCode()I
 
     move-result v8
 
     .line 320
-    .local v8, statusCode:I
+    .local v8, "statusCode":I
     const/4 v6, 0x0
 
     .line 321
-    .local v6, previous:Lorg/apache/http/util/CharArrayBuffer;
+    .local v6, "previous":Lorg/apache/http/util/CharArrayBuffer;
     const/4 v3, 0x0
 
     .line 323
-    .local v3, headerNumber:I
+    .local v3, "headerNumber":I
     :cond_1
     if-nez v1, :cond_5
 
     .line 324
     new-instance v1, Lorg/apache/http/util/CharArrayBuffer;
 
-    .end local v1           #current:Lorg/apache/http/util/CharArrayBuffer;
+    .end local v1    # "current":Lorg/apache/http/util/CharArrayBuffer;
     const/16 v10, 0x40
 
     invoke-direct {v1, v10}, Lorg/apache/http/util/CharArrayBuffer;-><init>(I)V
 
     .line 329
-    .restart local v1       #current:Lorg/apache/http/util/CharArrayBuffer;
+    .restart local v1    # "current":Lorg/apache/http/util/CharArrayBuffer;
     :goto_0
     iget-object v10, p0, Landroid/net/http/AndroidHttpClientConnection;->inbuffer:Lorg/apache/http/io/SessionInputBuffer;
 
@@ -749,7 +749,7 @@
     move-result v4
 
     .line 330
-    .local v4, l:I
+    .local v4, "l":I
     const/4 v10, -0x1
 
     if-eq v4, v10, :cond_2
@@ -785,14 +785,14 @@
     return-object v9
 
     .line 327
-    .end local v4           #l:I
+    .end local v4    # "l":I
     :cond_5
     invoke-virtual {v1}, Lorg/apache/http/util/CharArrayBuffer;->clear()V
 
     goto :goto_0
 
     .line 337
-    .restart local v4       #l:I
+    .restart local v4    # "l":I
     :cond_6
     const/4 v10, 0x0
 
@@ -801,7 +801,7 @@
     move-result v2
 
     .line 338
-    .local v2, first:C
+    .local v2, "first":C
     const/16 v10, 0x20
 
     if-eq v2, v10, :cond_7
@@ -817,13 +817,13 @@
     const/4 v7, 0x0
 
     .line 342
-    .local v7, start:I
+    .local v7, "start":I
     invoke-virtual {v1}, Lorg/apache/http/util/CharArrayBuffer;->length()I
 
     move-result v5
 
     .line 343
-    .local v5, length:I
+    .local v5, "length":I
     :goto_1
     if-ge v7, v5, :cond_8
 
@@ -833,7 +833,7 @@
     move-result v0
 
     .line 345
-    .local v0, ch:C
+    .local v0, "ch":C
     const/16 v10, 0x20
 
     if-eq v0, v10, :cond_9
@@ -843,7 +843,7 @@
     if-eq v0, v10, :cond_9
 
     .line 350
-    .end local v0           #ch:C
+    .end local v0    # "ch":C
     :cond_8
     iget v10, p0, Landroid/net/http/AndroidHttpClientConnection;->maxLineLength:I
 
@@ -877,7 +877,7 @@
     throw v10
 
     .line 348
-    .restart local v0       #ch:C
+    .restart local v0    # "ch":C
     :cond_9
     add-int/lit8 v7, v7, 0x1
 
@@ -885,7 +885,7 @@
     goto :goto_1
 
     .line 355
-    .end local v0           #ch:C
+    .end local v0    # "ch":C
     :cond_a
     const/16 v10, 0x20
 
@@ -901,8 +901,8 @@
     invoke-virtual {v6, v1, v7, v10}, Lorg/apache/http/util/CharArrayBuffer;->append(Lorg/apache/http/util/CharArrayBuffer;II)V
 
     .line 365
-    .end local v5           #length:I
-    .end local v7           #start:I
+    .end local v5    # "length":I
+    .end local v7    # "start":I
     :goto_2
     iget v10, p0, Landroid/net/http/AndroidHttpClientConnection;->maxHeaderCount:I
 
@@ -943,7 +943,7 @@
 
 .method public receiveResponseEntity(Landroid/net/http/Headers;)Lorg/apache/http/HttpEntity;
     .locals 10
-    .parameter "headers"
+    .param p1, "headers"    # Landroid/net/http/Headers;
 
     .prologue
     const/4 v9, 0x0
@@ -959,13 +959,13 @@
     invoke-direct {v2}, Lorg/apache/http/entity/BasicHttpEntity;-><init>()V
 
     .line 389
-    .local v2, entity:Lorg/apache/http/entity/BasicHttpEntity;
+    .local v2, "entity":Lorg/apache/http/entity/BasicHttpEntity;
     invoke-direct {p0, p1}, Landroid/net/http/AndroidHttpClientConnection;->determineLength(Landroid/net/http/Headers;)J
 
     move-result-wide v3
 
     .line 390
-    .local v3, len:J
+    .local v3, "len":J
     const-wide/16 v5, -0x2
 
     cmp-long v5, v3, v5
@@ -996,7 +996,7 @@
     move-result-object v1
 
     .line 405
-    .local v1, contentTypeHeader:Ljava/lang/String;
+    .local v1, "contentTypeHeader":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     .line 406
@@ -1009,7 +1009,7 @@
     move-result-object v0
 
     .line 409
-    .local v0, contentEncodingHeader:Ljava/lang/String;
+    .local v0, "contentEncodingHeader":Ljava/lang/String;
     if-eqz v0, :cond_1
 
     .line 410
@@ -1020,8 +1020,8 @@
     return-object v2
 
     .line 394
-    .end local v0           #contentEncodingHeader:Ljava/lang/String;
-    .end local v1           #contentTypeHeader:Ljava/lang/String;
+    .end local v0    # "contentEncodingHeader":Ljava/lang/String;
+    .end local v1    # "contentTypeHeader":Ljava/lang/String;
     :cond_2
     cmp-long v5, v3, v7
 
@@ -1065,7 +1065,7 @@
 
 .method public sendRequestEntity(Lorg/apache/http/HttpEntityEnclosingRequest;)V
     .locals 3
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/http/HttpEntityEnclosingRequest;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/apache/http/HttpException;,
@@ -1118,7 +1118,7 @@
 
 .method public sendRequestHeader(Lorg/apache/http/HttpRequest;)V
     .locals 2
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/http/HttpRequest;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/apache/http/HttpException;,
@@ -1159,7 +1159,7 @@
 
 .method public setSocketTimeout(I)V
     .locals 1
-    .parameter "timeout"
+    .param p1, "timeout"    # I
 
     .prologue
     .line 195
@@ -1208,7 +1208,7 @@
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     .line 222
-    .local v0, tmpsocket:Ljava/net/Socket;
+    .local v0, "tmpsocket":Ljava/net/Socket;
     if-eqz v0, :cond_0
 
     .line 223
@@ -1229,7 +1229,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 134
-    .local v0, buffer:Ljava/lang/StringBuilder;
+    .local v0, "buffer":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1

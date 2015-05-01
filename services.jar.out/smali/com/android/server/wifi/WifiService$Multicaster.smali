@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 6
-    .parameter
-    .parameter "tag"
-    .parameter "binder"
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "binder"    # Landroid/os/IBinder;
 
     .prologue
     .line 1497
@@ -66,7 +65,7 @@
     .line 1503
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mMulticasters:Ljava/util/List;
+    # getter for: Lcom/android/server/wifi/WifiService;->mMulticasters:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/wifi/WifiService;->access$1600(Lcom/android/server/wifi/WifiService;)Ljava/util/List;
 
     move-result-object v2
@@ -77,7 +76,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mMulticasters:Ljava/util/List;
+    # getter for: Lcom/android/server/wifi/WifiService;->mMulticasters:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/wifi/WifiService;->access$1600(Lcom/android/server/wifi/WifiService;)Ljava/util/List;
 
     move-result-object v1
@@ -87,7 +86,7 @@
     move-result v0
 
     .line 1505
-    .local v0, i:I
+    .local v0, "i":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
@@ -97,7 +96,7 @@
 
     iget v3, p0, Lcom/android/server/wifi/WifiService$Multicaster;->mMode:I
 
-    #calls: Lcom/android/server/wifi/WifiService;->removeMulticasterLocked(II)V
+    # invokes: Lcom/android/server/wifi/WifiService;->removeMulticasterLocked(II)V
     invoke-static {v1, v0, v3}, Lcom/android/server/wifi/WifiService;->access$1700(Lcom/android/server/wifi/WifiService;II)V
 
     .line 1508
@@ -108,7 +107,7 @@
     return-void
 
     .line 1508
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 

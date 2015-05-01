@@ -52,11 +52,11 @@
 
 .method public constructor <init>([B[I[Landroid/os/Bundle;ILandroid/nfc/INfcTag;)V
     .locals 2
-    .parameter "id"
-    .parameter "techList"
-    .parameter "techListExtras"
-    .parameter "serviceHandle"
-    .parameter "tagService"
+    .param p1, "id"    # [B
+    .param p2, "techList"    # [I
+    .param p3, "techListExtras"    # [Landroid/os/Bundle;
+    .param p4, "serviceHandle"    # I
+    .param p5, "tagService"    # Landroid/nfc/INfcTag;
 
     .prologue
     .line 126
@@ -122,9 +122,9 @@
 
 .method public static createMockTag([B[I[Landroid/os/Bundle;)Landroid/nfc/Tag;
     .locals 6
-    .parameter "id"
-    .parameter "techList"
-    .parameter "techListExtras"
+    .param p0, "id"    # [B
+    .param p1, "techList"    # [I
+    .param p2, "techListExtras"    # [Landroid/os/Bundle;
 
     .prologue
     .line 153
@@ -147,21 +147,21 @@
 
 .method private generateTechStringList([I)[Ljava/lang/String;
     .locals 6
-    .parameter "techList"
+    .param p1, "techList"    # [I
 
     .prologue
     .line 157
     array-length v1, p1
 
     .line 158
-    .local v1, size:I
+    .local v1, "size":I
     new-array v2, v1, [Ljava/lang/String;
 
     .line 159
-    .local v2, strings:[Ljava/lang/String;
+    .local v2, "strings":[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -345,7 +345,7 @@
 
 .method static readBytesWithNull(Landroid/os/Parcel;)[B
     .locals 2
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 337
@@ -354,11 +354,11 @@
     move-result v0
 
     .line 338
-    .local v0, len:I
+    .local v0, "len":I
     const/4 v1, 0x0
 
     .line 339
-    .local v1, result:[B
+    .local v1, "result":[B
     if-ltz v0, :cond_0
 
     .line 340
@@ -374,8 +374,8 @@
 
 .method static writeBytesWithNull(Landroid/os/Parcel;[B)V
     .locals 1
-    .parameter "out"
-    .parameter "b"
+    .param p0, "out"    # Landroid/os/Parcel;
+    .param p1, "b"    # [B
 
     .prologue
     .line 347
@@ -456,17 +456,17 @@
 
 .method public getTechExtras(I)Landroid/os/Bundle;
     .locals 3
-    .parameter "tech"
+    .param p1, "tech"    # I
 
     .prologue
     .line 299
     const/4 v1, -0x1
 
     .line 300
-    .local v1, pos:I
+    .local v1, "pos":I
     const/4 v0, 0x0
 
-    .local v0, idx:I
+    .local v0, "idx":I
     :goto_0
     iget-object v2, p0, Landroid/nfc/Tag;->mTechList:[I
 
@@ -522,44 +522,44 @@
 
 .method public hasTech(I)Z
     .locals 5
-    .parameter "techType"
+    .param p1, "techType"    # I
 
     .prologue
     .line 291
     iget-object v0, p0, Landroid/nfc/Tag;->mTechList:[I
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget v3, v0, v1
 
     .line 292
-    .local v3, tech:I
+    .local v3, "tech":I
     if-ne v3, p1, :cond_0
 
     const/4 v4, 0x1
 
     .line 294
-    .end local v3           #tech:I
+    .end local v3    # "tech":I
     :goto_1
     return v4
 
     .line 291
-    .restart local v3       #tech:I
+    .restart local v3    # "tech":I
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 294
-    .end local v3           #tech:I
+    .end local v3    # "tech":I
     :cond_1
     const/4 v4, 0x0
 
@@ -622,7 +622,7 @@
     move-result-object v1
 
     .line 278
-    .local v1, newTag:Landroid/nfc/Tag;
+    .local v1, "newTag":Landroid/nfc/Tag;
     if-eqz v1, :cond_2
 
     .line 279
@@ -641,12 +641,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 283
-    .end local v1           #newTag:Landroid/nfc/Tag;
+    .end local v1    # "newTag":Landroid/nfc/Tag;
     :catch_0
     move-exception v0
 
     .line 284
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "NFC service dead"
@@ -658,7 +658,7 @@
 
 .method public declared-synchronized setConnectedTechnology(I)V
     .locals 2
-    .parameter "technology"
+    .param p1, "technology"    # I
 
     .prologue
     .line 411
@@ -728,20 +728,20 @@
     invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 324
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Landroid/nfc/Tag;->getTechList()[Ljava/lang/String;
 
     move-result-object v3
 
     .line 325
-    .local v3, techList:[Ljava/lang/String;
+    .local v3, "techList":[Ljava/lang/String;
     array-length v1, v3
 
     .line 326
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -782,8 +782,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -796,7 +796,7 @@
     const/4 v0, 0x1
 
     .line 365
-    .local v0, isMock:I
+    .local v0, "isMock":I
     :goto_0
     iget-object v2, p0, Landroid/nfc/Tag;->mId:[B
 
@@ -843,7 +843,7 @@
     :cond_0
     return-void
 
-    .end local v0           #isMock:I
+    .end local v0    # "isMock":I
     :cond_1
     move v0, v1
 

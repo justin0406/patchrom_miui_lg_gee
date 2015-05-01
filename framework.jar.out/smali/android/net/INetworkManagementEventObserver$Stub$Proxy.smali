@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 149
@@ -41,10 +41,10 @@
 # virtual methods
 .method public addressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 5
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,13 +58,13 @@
     move-result-object v0
 
     .line 282
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 284
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
@@ -119,10 +119,10 @@
 
 .method public addressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 5
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -136,13 +136,13 @@
     move-result-object v0
 
     .line 256
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 258
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
@@ -217,7 +217,7 @@
 
 .method public interfaceAdded(Ljava/lang/String;)V
     .locals 5
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -231,13 +231,13 @@
     move-result-object v0
 
     .line 213
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 215
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
@@ -283,8 +283,8 @@
 
 .method public interfaceClassDataActivityChanged(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "label"
-    .parameter "active"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "active"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -300,13 +300,13 @@
     move-result-object v0
 
     .line 329
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 331
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkManagementEventObserver"
 
@@ -360,8 +360,8 @@
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -377,13 +377,13 @@
     move-result-object v0
 
     .line 192
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 194
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkManagementEventObserver"
 
@@ -437,7 +437,7 @@
 
 .method public interfaceRemoved(Ljava/lang/String;)V
     .locals 5
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -451,13 +451,13 @@
     move-result-object v0
 
     .line 233
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 235
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
@@ -503,8 +503,8 @@
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -522,13 +522,13 @@
     move-result-object v0
 
     .line 169
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 171
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.INetworkManagementEventObserver"
 
@@ -586,8 +586,8 @@
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "limitName"
-    .parameter "iface"
+    .param p1, "limitName"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -601,13 +601,13 @@
     move-result-object v0
 
     .line 307
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 309
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 

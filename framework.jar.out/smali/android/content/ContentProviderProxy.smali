@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 369
@@ -30,8 +30,7 @@
 # virtual methods
 .method public applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
     .locals 8
-    .parameter "callingPkg"
-    .parameter
+    .param p1, "callingPkg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,19 +52,19 @@
 
     .prologue
     .line 501
-    .local p2, operations:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
+    .local p2, "operations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 502
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 504
-    .local v3, reply:Landroid/os/Parcel;
+    .local v3, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.content.IContentProvider"
 
@@ -86,7 +85,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -101,7 +100,7 @@
     check-cast v2, Landroid/content/ContentProviderOperation;
 
     .line 508
-    .local v2, operation:Landroid/content/ContentProviderOperation;
+    .local v2, "operation":Landroid/content/ContentProviderOperation;
     const/4 v5, 0x0
 
     invoke-virtual {v2, v0, v5}, Landroid/content/ContentProviderOperation;->writeToParcel(Landroid/os/Parcel;I)V
@@ -111,8 +110,8 @@
     goto :goto_0
 
     .line 517
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #operation:Landroid/content/ContentProviderOperation;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "operation":Landroid/content/ContentProviderOperation;
     :catchall_0
     move-exception v5
 
@@ -124,7 +123,7 @@
     throw v5
 
     .line 510
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     iget-object v5, p0, Landroid/content/ContentProviderProxy;->mRemote:Landroid/os/IBinder;
@@ -150,7 +149,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 517
-    .local v4, results:[Landroid/content/ContentProviderResult;
+    .local v4, "results":[Landroid/content/ContentProviderResult;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 518
@@ -171,9 +170,9 @@
 
 .method public bulkInsert(Ljava/lang/String;Landroid/net/Uri;[Landroid/content/ContentValues;)I
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "values"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "values"    # [Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -187,13 +186,13 @@
     move-result-object v1
 
     .line 479
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 481
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -232,7 +231,7 @@
     move-result v0
 
     .line 493
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 494
@@ -241,7 +240,7 @@
     return v0
 
     .line 493
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :catchall_0
     move-exception v3
 
@@ -255,10 +254,10 @@
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 6
-    .parameter "callingPkg"
-    .parameter "method"
-    .parameter "request"
-    .parameter "args"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "method"    # Ljava/lang/String;
+    .param p3, "request"    # Ljava/lang/String;
+    .param p4, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -272,13 +271,13 @@
     move-result-object v1
 
     .line 625
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 627
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -316,7 +315,7 @@
     move-result-object v0
 
     .line 640
-    .local v0, bundle:Landroid/os/Bundle;
+    .local v0, "bundle":Landroid/os/Bundle;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 641
@@ -325,7 +324,7 @@
     return-object v0
 
     .line 640
-    .end local v0           #bundle:Landroid/os/Bundle;
+    .end local v0    # "bundle":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 
@@ -339,8 +338,8 @@
 
 .method public canonicalize(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -354,13 +353,13 @@
     move-result-object v0
 
     .line 715
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 717
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -398,7 +397,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 728
-    .local v1, out:Landroid/net/Uri;
+    .local v1, "out":Landroid/net/Uri;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 729
@@ -407,7 +406,7 @@
     return-object v1
 
     .line 728
-    .end local v1           #out:Landroid/net/Uri;
+    .end local v1    # "out":Landroid/net/Uri;
     :catchall_0
     move-exception v3
 
@@ -434,13 +433,13 @@
     move-result-object v1
 
     .line 695
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 697
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -470,7 +469,7 @@
     move-result-object v0
 
     .line 707
-    .local v0, cancellationSignal:Landroid/os/ICancellationSignal;
+    .local v0, "cancellationSignal":Landroid/os/ICancellationSignal;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 708
@@ -479,7 +478,7 @@
     return-object v0
 
     .line 707
-    .end local v0           #cancellationSignal:Landroid/os/ICancellationSignal;
+    .end local v0    # "cancellationSignal":Landroid/os/ICancellationSignal;
     :catchall_0
     move-exception v3
 
@@ -493,10 +492,10 @@
 
 .method public delete(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -510,13 +509,13 @@
     move-result-object v1
 
     .line 525
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 527
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -556,7 +555,7 @@
     move-result v0
 
     .line 540
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 541
@@ -565,7 +564,7 @@
     return v0
 
     .line 540
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :catchall_0
     move-exception v3
 
@@ -579,8 +578,8 @@
 
 .method public getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
     .locals 6
-    .parameter "url"
-    .parameter "mimeTypeFilter"
+    .param p1, "url"    # Landroid/net/Uri;
+    .param p2, "mimeTypeFilter"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -594,13 +593,13 @@
     move-result-object v0
 
     .line 648
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 650
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -634,7 +633,7 @@
     move-result-object v1
 
     .line 661
-    .local v1, out:[Ljava/lang/String;
+    .local v1, "out":[Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 662
@@ -643,7 +642,7 @@
     return-object v1
 
     .line 661
-    .end local v1           #out:[Ljava/lang/String;
+    .end local v1    # "out":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -657,7 +656,7 @@
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 6
-    .parameter "url"
+    .param p1, "url"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -671,13 +670,13 @@
     move-result-object v0
 
     .line 438
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 440
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -708,7 +707,7 @@
     move-result-object v1
 
     .line 450
-    .local v1, out:Ljava/lang/String;
+    .local v1, "out":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 451
@@ -717,7 +716,7 @@
     return-object v1
 
     .line 450
-    .end local v1           #out:Ljava/lang/String;
+    .end local v1    # "out":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -731,9 +730,9 @@
 
 .method public insert(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "values"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "values"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -747,13 +746,13 @@
     move-result-object v0
 
     .line 458
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 460
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -796,7 +795,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 472
-    .local v1, out:Landroid/net/Uri;
+    .local v1, "out":Landroid/net/Uri;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 473
@@ -805,7 +804,7 @@
     return-object v1
 
     .line 472
-    .end local v1           #out:Landroid/net/Uri;
+    .end local v1    # "out":Landroid/net/Uri;
     :catchall_0
     move-exception v3
 
@@ -819,10 +818,10 @@
 
 .method public openAssetFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 7
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "mode"
-    .parameter "signal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "mode"    # Ljava/lang/String;
+    .param p4, "signal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -839,13 +838,13 @@
     move-result-object v0
 
     .line 600
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 602
-    .local v3, reply:Landroid/os/Parcel;
+    .local v3, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentProvider"
 
@@ -890,7 +889,7 @@
     move-result v2
 
     .line 613
-    .local v2, has:I
+    .local v2, "has":I
     if-eqz v2, :cond_0
 
     sget-object v4, Landroid/content/res/AssetFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -906,7 +905,7 @@
     move-object v1, v4
 
     .line 617
-    .local v1, fd:Landroid/content/res/AssetFileDescriptor;
+    .local v1, "fd":Landroid/content/res/AssetFileDescriptor;
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
@@ -915,8 +914,8 @@
 
     return-object v1
 
-    .end local v1           #fd:Landroid/content/res/AssetFileDescriptor;
-    .end local v2           #has:I
+    .end local v1    # "fd":Landroid/content/res/AssetFileDescriptor;
+    .end local v2    # "has":I
     :cond_1
     move-object v4, v1
 
@@ -937,10 +936,10 @@
 
 .method public openFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/os/ParcelFileDescriptor;
     .locals 7
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "mode"
-    .parameter "signal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "mode"    # Ljava/lang/String;
+    .param p4, "signal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -957,13 +956,13 @@
     move-result-object v0
 
     .line 574
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 576
-    .local v3, reply:Landroid/os/Parcel;
+    .local v3, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentProvider"
 
@@ -1008,7 +1007,7 @@
     move-result v2
 
     .line 587
-    .local v2, has:I
+    .local v2, "has":I
     if-eqz v2, :cond_0
 
     invoke-virtual {v3}, Landroid/os/Parcel;->readFileDescriptor()Landroid/os/ParcelFileDescriptor;
@@ -1018,7 +1017,7 @@
     move-result-object v1
 
     .line 590
-    .local v1, fd:Landroid/os/ParcelFileDescriptor;
+    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
@@ -1027,8 +1026,8 @@
 
     return-object v1
 
-    .end local v1           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v2           #has:I
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "has":I
     :cond_1
     move-object v4, v1
 
@@ -1049,11 +1048,11 @@
 
 .method public openTypedAssetFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 7
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "mimeType"
-    .parameter "opts"
-    .parameter "signal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "mimeType"    # Ljava/lang/String;
+    .param p4, "opts"    # Landroid/os/Bundle;
+    .param p5, "signal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -1070,13 +1069,13 @@
     move-result-object v0
 
     .line 670
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 672
-    .local v3, reply:Landroid/os/Parcel;
+    .local v3, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentProvider"
 
@@ -1124,7 +1123,7 @@
     move-result v2
 
     .line 684
-    .local v2, has:I
+    .local v2, "has":I
     if-eqz v2, :cond_0
 
     sget-object v4, Landroid/content/res/AssetFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1140,7 +1139,7 @@
     move-object v1, v4
 
     .line 688
-    .local v1, fd:Landroid/content/res/AssetFileDescriptor;
+    .local v1, "fd":Landroid/content/res/AssetFileDescriptor;
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
@@ -1149,8 +1148,8 @@
 
     return-object v1
 
-    .end local v1           #fd:Landroid/content/res/AssetFileDescriptor;
-    .end local v2           #has:I
+    .end local v1    # "fd":Landroid/content/res/AssetFileDescriptor;
+    .end local v2    # "has":I
     :cond_1
     move-object v4, v1
 
@@ -1171,13 +1170,13 @@
 
 .method public query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
     .locals 11
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "selectionArgs"
-    .parameter "sortOrder"
-    .parameter "cancellationSignal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "projection"    # [Ljava/lang/String;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
+    .param p6, "sortOrder"    # Ljava/lang/String;
+    .param p7, "cancellationSignal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1191,19 +1190,19 @@
     invoke-direct {v1}, Landroid/database/BulkCursorToCursorAdaptor;-><init>()V
 
     .line 382
-    .local v1, adaptor:Landroid/database/BulkCursorToCursorAdaptor;
+    .local v1, "adaptor":Landroid/database/BulkCursorToCursorAdaptor;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 383
-    .local v3, data:Landroid/os/Parcel;
+    .local v3, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v7
 
     .line 385
-    .local v7, reply:Landroid/os/Parcel;
+    .local v7, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v8, "android.content.IContentProvider"
 
@@ -1221,7 +1220,7 @@
     const/4 v6, 0x0
 
     .line 390
-    .local v6, length:I
+    .local v6, "length":I
     if-eqz p3, :cond_0
 
     .line 391
@@ -1234,7 +1233,7 @@
     .line 394
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_0
     if-ge v5, v6, :cond_1
 
@@ -1342,15 +1341,15 @@
     check-cast v2, Landroid/database/BulkCursorDescriptor;
 
     .line 417
-    .local v2, d:Landroid/database/BulkCursorDescriptor;
+    .local v2, "d":Landroid/database/BulkCursorDescriptor;
     invoke-virtual {v1, v2}, Landroid/database/BulkCursorToCursorAdaptor;->initialize(Landroid/database/BulkCursorDescriptor;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 430
-    .end local v2           #d:Landroid/database/BulkCursorDescriptor;
+    .end local v2    # "d":Landroid/database/BulkCursorDescriptor;
     :goto_4
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
@@ -1370,9 +1369,9 @@
     :try_start_1
     invoke-virtual {v1}, Landroid/database/BulkCursorToCursorAdaptor;->close()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 420
     const/4 v1, 0x0
@@ -1380,13 +1379,13 @@
     goto :goto_4
 
     .line 423
-    .end local v5           #i:I
-    .end local v6           #length:I
+    .end local v5    # "i":I
+    .end local v6    # "length":I
     :catch_0
     move-exception v4
 
     .line 424
-    .local v4, ex:Landroid/os/RemoteException;
+    .local v4, "ex":Landroid/os/RemoteException;
     :try_start_2
     invoke-virtual {v1}, Landroid/database/BulkCursorToCursorAdaptor;->close()V
 
@@ -1396,7 +1395,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 430
-    .end local v4           #ex:Landroid/os/RemoteException;
+    .end local v4    # "ex":Landroid/os/RemoteException;
     :catchall_0
     move-exception v8
 
@@ -1412,7 +1411,7 @@
     move-exception v4
 
     .line 427
-    .local v4, ex:Ljava/lang/RuntimeException;
+    .local v4, "ex":Ljava/lang/RuntimeException;
     :try_start_3
     invoke-virtual {v1}, Landroid/database/BulkCursorToCursorAdaptor;->close()V
 
@@ -1424,8 +1423,8 @@
 
 .method public uncanonicalize(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1439,13 +1438,13 @@
     move-result-object v0
 
     .line 735
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 737
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -1483,7 +1482,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 748
-    .local v1, out:Landroid/net/Uri;
+    .local v1, "out":Landroid/net/Uri;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 749
@@ -1492,7 +1491,7 @@
     return-object v1
 
     .line 748
-    .end local v1           #out:Landroid/net/Uri;
+    .end local v1    # "out":Landroid/net/Uri;
     :catchall_0
     move-exception v3
 
@@ -1506,11 +1505,11 @@
 
 .method public update(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 6
-    .parameter "callingPkg"
-    .parameter "url"
-    .parameter "values"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "url"    # Landroid/net/Uri;
+    .param p3, "values"    # Landroid/content/ContentValues;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1524,13 +1523,13 @@
     move-result-object v1
 
     .line 548
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 550
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentProvider"
 
@@ -1575,7 +1574,7 @@
     move-result v0
 
     .line 564
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 565
@@ -1584,7 +1583,7 @@
     return v0
 
     .line 564
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :catchall_0
     move-exception v3
 

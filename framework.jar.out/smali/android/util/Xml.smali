@@ -41,7 +41,7 @@
 
 .method public static asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
     .locals 1
-    .parameter "parser"
+    .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
     .prologue
     .line 176
@@ -51,11 +51,11 @@
 
     check-cast p0, Landroid/util/AttributeSet;
 
-    .end local p0
+    .end local p0    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :goto_0
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :cond_0
     new-instance v0, Landroid/util/XmlPullAttributes;
 
@@ -68,7 +68,7 @@
 
 .method public static findEncodingByName(Ljava/lang/String;)Landroid/util/Xml$Encoding;
     .locals 5
-    .parameter "encodingName"
+    .param p0, "encodingName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
@@ -92,20 +92,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Landroid/util/Xml$Encoding;
+    .local v0, "arr$":[Landroid/util/Xml$Encoding;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_2
 
     aget-object v1, v0, v2
 
     .line 153
-    .local v1, encoding:Landroid/util/Xml$Encoding;
+    .local v1, "encoding":Landroid/util/Xml$Encoding;
     iget-object v4, v1, Landroid/util/Xml$Encoding;->expatName:Ljava/lang/String;
 
     invoke-virtual {v4, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -120,7 +120,7 @@
     goto :goto_0
 
     .line 156
-    .end local v1           #encoding:Landroid/util/Xml$Encoding;
+    .end local v1    # "encoding":Landroid/util/Xml$Encoding;
     :cond_2
     new-instance v4, Ljava/io/UnsupportedEncodingException;
 
@@ -140,7 +140,7 @@
     invoke-direct {v1}, Lorg/kxml2/io/KXmlParser;-><init>()V
 
     .line 93
-    .local v1, parser:Lorg/kxml2/io/KXmlParser;
+    .local v1, "parser":Lorg/kxml2/io/KXmlParser;
     const-string v2, "http://xmlpull.org/v1/doc/features.html#process-docdecl"
 
     const/4 v3, 0x1
@@ -164,7 +164,7 @@
     move-exception v0
 
     .line 97
-    .local v0, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -193,7 +193,7 @@
     move-exception v0
 
     .line 108
-    .local v0, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -203,9 +203,9 @@
 
 .method public static parse(Ljava/io/InputStream;Landroid/util/Xml$Encoding;Lorg/xml/sax/ContentHandler;)V
     .locals 3
-    .parameter "in"
-    .parameter "encoding"
-    .parameter "contentHandler"
+    .param p0, "in"    # Ljava/io/InputStream;
+    .param p1, "encoding"    # Landroid/util/Xml$Encoding;
+    .param p2, "contentHandler"    # Lorg/xml/sax/ContentHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -220,7 +220,7 @@
     invoke-direct {v0}, Lorg/apache/harmony/xml/ExpatReader;-><init>()V
 
     .line 81
-    .local v0, reader:Lorg/xml/sax/XMLReader;
+    .local v0, "reader":Lorg/xml/sax/XMLReader;
     invoke-interface {v0, p2}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
     .line 82
@@ -229,7 +229,7 @@
     invoke-direct {v1, p0}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
 
     .line 83
-    .local v1, source:Lorg/xml/sax/InputSource;
+    .local v1, "source":Lorg/xml/sax/InputSource;
     iget-object v2, p1, Landroid/util/Xml$Encoding;->expatName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Lorg/xml/sax/InputSource;->setEncoding(Ljava/lang/String;)V
@@ -243,8 +243,8 @@
 
 .method public static parse(Ljava/io/Reader;Lorg/xml/sax/ContentHandler;)V
     .locals 2
-    .parameter "in"
-    .parameter "contentHandler"
+    .param p0, "in"    # Ljava/io/Reader;
+    .param p1, "contentHandler"    # Lorg/xml/sax/ContentHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -259,7 +259,7 @@
     invoke-direct {v0}, Lorg/apache/harmony/xml/ExpatReader;-><init>()V
 
     .line 70
-    .local v0, reader:Lorg/xml/sax/XMLReader;
+    .local v0, "reader":Lorg/xml/sax/XMLReader;
     invoke-interface {v0, p1}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
     .line 71
@@ -275,8 +275,8 @@
 
 .method public static parse(Ljava/lang/String;Lorg/xml/sax/ContentHandler;)V
     .locals 4
-    .parameter "xml"
-    .parameter "contentHandler"
+    .param p0, "xml"    # Ljava/lang/String;
+    .param p1, "contentHandler"    # Lorg/xml/sax/ContentHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -291,7 +291,7 @@
     invoke-direct {v1}, Lorg/apache/harmony/xml/ExpatReader;-><init>()V
 
     .line 56
-    .local v1, reader:Lorg/xml/sax/XMLReader;
+    .local v1, "reader":Lorg/xml/sax/XMLReader;
     invoke-interface {v1, p1}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
     .line 57
@@ -311,12 +311,12 @@
     return-void
 
     .line 58
-    .end local v1           #reader:Lorg/xml/sax/XMLReader;
+    .end local v1    # "reader":Lorg/xml/sax/XMLReader;
     :catch_0
     move-exception v0
 
     .line 59
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V

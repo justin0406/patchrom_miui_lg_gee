@@ -17,7 +17,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 43
@@ -58,20 +58,20 @@
     new-array v6, v7, [I
 
     .line 56
-    .local v6, tmp:[I
+    .local v6, "tmp":[I
     iget v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mTextureCount:I
 
     new-array v5, v7, [Ljava/lang/String;
 
     .line 57
-    .local v5, texNames:[Ljava/lang/String;
+    .local v5, "texNames":[Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 59
-    .local v2, idx:I
+    .local v2, "idx":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mInputCount:I
 
@@ -80,8 +80,8 @@
     .line 60
     add-int/lit8 v3, v2, 0x1
 
-    .end local v2           #idx:I
-    .local v3, idx:I
+    .end local v2    # "idx":I
+    .local v3, "idx":I
     sget-object v7, Landroid/renderscript/Program$ProgramParam;->INPUT:Landroid/renderscript/Program$ProgramParam;
 
     iget v7, v7, Landroid/renderscript/Program$ProgramParam;->mID:I
@@ -91,8 +91,8 @@
     .line 61
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #idx:I
-    .restart local v2       #idx:I
+    .end local v3    # "idx":I
+    .restart local v2    # "idx":I
     iget-object v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mInputs:[Landroid/renderscript/Element;
 
     aget-object v7, v7, v0
@@ -122,8 +122,8 @@
     .line 64
     add-int/lit8 v3, v2, 0x1
 
-    .end local v2           #idx:I
-    .restart local v3       #idx:I
+    .end local v2    # "idx":I
+    .restart local v3    # "idx":I
     sget-object v7, Landroid/renderscript/Program$ProgramParam;->OUTPUT:Landroid/renderscript/Program$ProgramParam;
 
     iget v7, v7, Landroid/renderscript/Program$ProgramParam;->mID:I
@@ -133,8 +133,8 @@
     .line 65
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #idx:I
-    .restart local v2       #idx:I
+    .end local v3    # "idx":I
+    .restart local v2    # "idx":I
     iget-object v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mOutputs:[Landroid/renderscript/Element;
 
     aget-object v7, v7, v0
@@ -164,8 +164,8 @@
     .line 68
     add-int/lit8 v3, v2, 0x1
 
-    .end local v2           #idx:I
-    .restart local v3       #idx:I
+    .end local v2    # "idx":I
+    .restart local v3    # "idx":I
     sget-object v7, Landroid/renderscript/Program$ProgramParam;->CONSTANT:Landroid/renderscript/Program$ProgramParam;
 
     iget v7, v7, Landroid/renderscript/Program$ProgramParam;->mID:I
@@ -175,8 +175,8 @@
     .line 69
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #idx:I
-    .restart local v2       #idx:I
+    .end local v3    # "idx":I
+    .restart local v2    # "idx":I
     iget-object v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mConstants:[Landroid/renderscript/Type;
 
     aget-object v7, v7, v0
@@ -206,8 +206,8 @@
     .line 72
     add-int/lit8 v3, v2, 0x1
 
-    .end local v2           #idx:I
-    .restart local v3       #idx:I
+    .end local v2    # "idx":I
+    .restart local v3    # "idx":I
     sget-object v7, Landroid/renderscript/Program$ProgramParam;->TEXTURE_TYPE:Landroid/renderscript/Program$ProgramParam;
 
     iget v7, v7, Landroid/renderscript/Program$ProgramParam;->mID:I
@@ -217,8 +217,8 @@
     .line 73
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #idx:I
-    .restart local v2       #idx:I
+    .end local v3    # "idx":I
+    .restart local v2    # "idx":I
     iget-object v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mTextureTypes:[Landroid/renderscript/Program$TextureType;
 
     aget-object v7, v7, v0
@@ -250,7 +250,7 @@
     move-result v1
 
     .line 78
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v4, Landroid/renderscript/ProgramFragmentFixedFunction;
 
     iget-object v7, p0, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -258,7 +258,7 @@
     invoke-direct {v4, v1, v7}, Landroid/renderscript/ProgramFragmentFixedFunction;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 79
-    .local v4, pf:Landroid/renderscript/ProgramFragmentFixedFunction;
+    .local v4, "pf":Landroid/renderscript/ProgramFragmentFixedFunction;
     invoke-virtual {p0, v4}, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->initProgram(Landroid/renderscript/Program;)V
 
     .line 80

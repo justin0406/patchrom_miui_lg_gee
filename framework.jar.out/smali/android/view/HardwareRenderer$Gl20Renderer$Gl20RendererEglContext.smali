@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 1889
@@ -42,7 +42,7 @@
 # virtual methods
 .method public onTerminate(Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 6
-    .parameter "eglContext"
+    .param p1, "eglContext"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 1895
@@ -111,7 +111,7 @@
     if-ne v0, v2, :cond_2
 
     .line 1909
-    #calls: Landroid/view/HardwareRenderer$Gl20Renderer;->usePbufferSurface(Ljavax/microedition/khronos/egl/EGLContext;)V
+    # invokes: Landroid/view/HardwareRenderer$Gl20Renderer;->usePbufferSurface(Ljavax/microedition/khronos/egl/EGLContext;)V
     invoke-static {p1}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$500(Ljavax/microedition/khronos/egl/EGLContext;)V
 
     .line 1910
@@ -141,6 +141,7 @@
 
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
+    # getter for: Landroid/view/HardwareRenderer$Gl20Renderer;->sPbuffer:Ljavax/microedition/khronos/egl/EGLSurface;
     invoke-static {}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$600()Ljavax/microedition/khronos/egl/EGLSurface;
 
     move-result-object v3
@@ -190,6 +191,7 @@
     .line 1926
     const/4 v0, 0x0
 
+    # setter for: Landroid/view/HardwareRenderer$Gl20Renderer;->sPbuffer:Ljavax/microedition/khronos/egl/EGLSurface;
     invoke-static {v0}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$602(Ljavax/microedition/khronos/egl/EGLSurface;)Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 1928

@@ -25,8 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/PopupWindow;Landroid/content/Context;)V
     .locals 0
-    .parameter
-    .parameter "context"
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     .line 1585
@@ -43,7 +42,7 @@
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -94,7 +93,7 @@
     move-result-object v0
 
     .line 1611
-    .local v0, state:Landroid/view/KeyEvent$DispatcherState;
+    .local v0, "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_0
 
     .line 1612
@@ -103,7 +102,7 @@
     goto :goto_0
 
     .line 1615
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_2
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -117,7 +116,7 @@
     move-result-object v0
 
     .line 1617
-    .restart local v0       #state:Landroid/view/KeyEvent$DispatcherState;
+    .restart local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_3
 
     invoke-virtual {v0, p1}, Landroid/view/KeyEvent$DispatcherState;->isTracking(Landroid/view/KeyEvent;)Z
@@ -140,7 +139,7 @@
     goto :goto_0
 
     .line 1622
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_3
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
@@ -159,13 +158,13 @@
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 1630
     iget-object v0, p0, Landroid/widget/PopupWindow$PopupViewContainer;->this$0:Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/widget/PopupWindow;->mTouchInterceptor:Landroid/view/View$OnTouchListener;
+    # getter for: Landroid/widget/PopupWindow;->mTouchInterceptor:Landroid/view/View$OnTouchListener;
     invoke-static {v0}, Landroid/widget/PopupWindow;->access$900(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
 
     move-result-object v0
@@ -174,7 +173,7 @@
 
     iget-object v0, p0, Landroid/widget/PopupWindow$PopupViewContainer;->this$0:Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/widget/PopupWindow;->mTouchInterceptor:Landroid/view/View$OnTouchListener;
+    # getter for: Landroid/widget/PopupWindow;->mTouchInterceptor:Landroid/view/View$OnTouchListener;
     invoke-static {v0}, Landroid/widget/PopupWindow;->access$900(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
 
     move-result-object v0
@@ -202,13 +201,13 @@
 
 .method protected onCreateDrawableState(I)[I
     .locals 2
-    .parameter "extraSpace"
+    .param p1, "extraSpace"    # I
 
     .prologue
     .line 1591
     iget-object v1, p0, Landroid/widget/PopupWindow$PopupViewContainer;->this$0:Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/widget/PopupWindow;->mAboveAnchor:Z
+    # getter for: Landroid/widget/PopupWindow;->mAboveAnchor:Z
     invoke-static {v1}, Landroid/widget/PopupWindow;->access$700(Landroid/widget/PopupWindow;)Z
 
     move-result v1
@@ -223,7 +222,8 @@
     move-result-object v0
 
     .line 1594
-    .local v0, drawableState:[I
+    .local v0, "drawableState":[I
+    # getter for: Landroid/widget/PopupWindow;->ABOVE_ANCHOR_STATE_SET:[I
     invoke-static {}, Landroid/widget/PopupWindow;->access$800()[I
 
     move-result-object v1
@@ -231,7 +231,7 @@
     invoke-static {v0, v1}, Landroid/view/View;->mergeDrawableStates([I[I)[I
 
     .line 1597
-    .end local v0           #drawableState:[I
+    .end local v0    # "drawableState":[I
     :goto_0
     return-object v0
 
@@ -245,7 +245,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v2, 0x1
@@ -258,7 +258,7 @@
     float-to-int v0, v3
 
     .line 1639
-    .local v0, x:I
+    .local v0, "x":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
@@ -266,7 +266,7 @@
     float-to-int v1, v3
 
     .line 1641
-    .local v1, y:I
+    .local v1, "y":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
@@ -327,13 +327,13 @@
 
 .method public sendAccessibilityEvent(I)V
     .locals 1
-    .parameter "eventType"
+    .param p1, "eventType"    # I
 
     .prologue
     .line 1656
     iget-object v0, p0, Landroid/widget/PopupWindow$PopupViewContainer;->this$0:Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/widget/PopupWindow;->mContentView:Landroid/view/View;
+    # getter for: Landroid/widget/PopupWindow;->mContentView:Landroid/view/View;
     invoke-static {v0}, Landroid/widget/PopupWindow;->access$1000(Landroid/widget/PopupWindow;)Landroid/view/View;
 
     move-result-object v0
@@ -343,7 +343,7 @@
     .line 1657
     iget-object v0, p0, Landroid/widget/PopupWindow$PopupViewContainer;->this$0:Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/widget/PopupWindow;->mContentView:Landroid/view/View;
+    # getter for: Landroid/widget/PopupWindow;->mContentView:Landroid/view/View;
     invoke-static {v0}, Landroid/widget/PopupWindow;->access$1000(Landroid/widget/PopupWindow;)Landroid/view/View;
 
     move-result-object v0

@@ -32,7 +32,7 @@
 # virtual methods
 .method public println(Ljava/lang/String;)V
     .locals 0
-    .parameter "x"
+    .param p1, "x"    # Ljava/lang/String;
 
     .prologue
     .line 231

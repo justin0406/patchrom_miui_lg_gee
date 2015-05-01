@@ -12,7 +12,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 34
@@ -26,8 +26,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 38
@@ -41,9 +41,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 42
@@ -57,8 +57,8 @@
 # virtual methods
 .method protected deleteText_internal(II)V
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 171
@@ -159,8 +159,8 @@
 
 .method protected onSelectionChanged(II)V
     .locals 1
-    .parameter "selStart"
-    .parameter "selEnd"
+    .param p1, "selStart"    # I
+    .param p2, "selEnd"    # I
 
     .prologue
     .line 84
@@ -188,7 +188,7 @@
 
 .method public onTextContextMenuItem(I)Z
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 102
@@ -262,9 +262,9 @@
 
 .method protected replaceText_internal(IILjava/lang/CharSequence;)V
     .locals 1
-    .parameter "start"
-    .parameter "end"
-    .parameter "text"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 182
@@ -278,8 +278,8 @@
 
 .method protected setCursorPosition_internal(II)V
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 204
@@ -293,7 +293,7 @@
 
 .method public setExtractedText(Landroid/view/inputmethod/ExtractedText;)V
     .locals 2
-    .parameter "text"
+    .param p1, "text"    # Landroid/view/inputmethod/ExtractedText;
 
     .prologue
     .line 73
@@ -334,7 +334,7 @@
 
 .method setIME(Landroid/inputmethodservice/InputMethodService;)V
     .locals 0
-    .parameter "ime"
+    .param p1, "ime"    # Landroid/inputmethodservice/InputMethodService;
 
     .prologue
     .line 46
@@ -346,10 +346,10 @@
 
 .method protected setSpan_internal(Ljava/lang/Object;III)V
     .locals 1
-    .parameter "span"
-    .parameter "start"
-    .parameter "end"
-    .parameter "flags"
+    .param p1, "span"    # Ljava/lang/Object;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "flags"    # I
 
     .prologue
     .line 193
@@ -378,7 +378,7 @@
 
 .method protected viewClicked(Landroid/view/inputmethod/InputMethodManager;)V
     .locals 2
-    .parameter "imm"
+    .param p1, "imm"    # Landroid/view/inputmethod/InputMethodManager;
 
     .prologue
     .line 158

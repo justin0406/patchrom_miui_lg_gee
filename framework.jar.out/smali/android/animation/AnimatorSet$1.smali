@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/animation/AnimatorSet;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter
-    .parameter
 
     .prologue
     .line 569
@@ -48,7 +46,7 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "anim"
+    .param p1, "anim"    # Landroid/animation/Animator;
 
     .prologue
     .line 572
@@ -62,7 +60,7 @@
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 5
-    .parameter "anim"
+    .param p1, "anim"    # Landroid/animation/Animator;
 
     .prologue
     .line 575
@@ -78,10 +76,10 @@
     move-result v2
 
     .line 577
-    .local v2, numNodes:I
+    .local v2, "numNodes":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -95,7 +93,7 @@
     check-cast v1, Landroid/animation/AnimatorSet$Node;
 
     .line 579
-    .local v1, node:Landroid/animation/AnimatorSet$Node;
+    .local v1, "node":Landroid/animation/AnimatorSet$Node;
     iget-object v3, v1, Landroid/animation/AnimatorSet$Node;->animation:Landroid/animation/Animator;
 
     invoke-virtual {v3}, Landroid/animation/Animator;->start()V
@@ -103,7 +101,7 @@
     .line 580
     iget-object v3, p0, Landroid/animation/AnimatorSet$1;->this$0:Landroid/animation/AnimatorSet;
 
-    #getter for: Landroid/animation/AnimatorSet;->mPlayingSet:Ljava/util/ArrayList;
+    # getter for: Landroid/animation/AnimatorSet;->mPlayingSet:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/animation/AnimatorSet;->access$000(Landroid/animation/AnimatorSet;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -118,15 +116,15 @@
     goto :goto_0
 
     .line 583
-    .end local v0           #i:I
-    .end local v1           #node:Landroid/animation/AnimatorSet$Node;
-    .end local v2           #numNodes:I
+    .end local v0    # "i":I
+    .end local v1    # "node":Landroid/animation/AnimatorSet$Node;
+    .end local v2    # "numNodes":I
     :cond_0
     iget-object v3, p0, Landroid/animation/AnimatorSet$1;->this$0:Landroid/animation/AnimatorSet;
 
     const/4 v4, 0x0
 
-    #setter for: Landroid/animation/AnimatorSet;->mDelayAnim:Landroid/animation/ValueAnimator;
+    # setter for: Landroid/animation/AnimatorSet;->mDelayAnim:Landroid/animation/ValueAnimator;
     invoke-static {v3, v4}, Landroid/animation/AnimatorSet;->access$102(Landroid/animation/AnimatorSet;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     .line 584

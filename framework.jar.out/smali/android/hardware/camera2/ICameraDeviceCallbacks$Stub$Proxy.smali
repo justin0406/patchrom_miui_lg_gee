@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 92
@@ -61,7 +61,7 @@
 
 .method public onCameraError(I)V
     .locals 5
-    .parameter "errorCode"
+    .param p1, "errorCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 110
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.camera2.ICameraDeviceCallbacks"
 
@@ -127,7 +127,7 @@
     move-result-object v0
 
     .line 122
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.camera2.ICameraDeviceCallbacks"
 
@@ -163,8 +163,8 @@
 
 .method public onCaptureStarted(IJ)V
     .locals 5
-    .parameter "requestId"
-    .parameter "timestamp"
+    .param p1, "requestId"    # I
+    .param p2, "timestamp"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -178,7 +178,7 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.camera2.ICameraDeviceCallbacks"
 
@@ -220,8 +220,8 @@
 
 .method public onResultReceived(ILandroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 5
-    .parameter "requestId"
-    .parameter "result"
+    .param p1, "requestId"    # I
+    .param p2, "result"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -235,7 +235,7 @@
     move-result-object v0
 
     .line 146
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.camera2.ICameraDeviceCallbacks"
 

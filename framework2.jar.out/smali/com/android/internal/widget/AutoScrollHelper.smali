@@ -18,8 +18,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final DEFAULT_ACTIVATION_DELAY:I = 0x0
+.field private static final DEFAULT_ACTIVATION_DELAY:I
 
 .field private static final DEFAULT_EDGE_TYPE:I = 0x1
 
@@ -107,16 +106,16 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 9
-    .parameter "target"
+    .param p1, "target"    # Landroid/view/View;
 
     .prologue
-    const v8, 0x7f7fffff
+    const v8, 0x7f7fffff    # Float.MAX_VALUE
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
-    const/high16 v6, 0x3f00
+    const/high16 v6, 0x3f000000    # 0.5f
 
-    const v5, 0x3e4ccccd
+    const v5, 0x3e4ccccd    # 0.2f
 
     const/4 v4, 0x2
 
@@ -185,8 +184,8 @@
     move-result-object v1
 
     .line 212
-    .local v1, metrics:Landroid/util/DisplayMetrics;
-    const v3, 0x44c4e000
+    .local v1, "metrics":Landroid/util/DisplayMetrics;
+    const v3, 0x44c4e000    # 1575.0f
 
     iget v4, v1, Landroid/util/DisplayMetrics;->density:F
 
@@ -197,8 +196,8 @@
     float-to-int v0, v3
 
     .line 213
-    .local v0, maxVelocity:I
-    const v3, 0x439d8000
+    .local v0, "maxVelocity":I
+    const v3, 0x439d8000    # 315.0f
 
     iget v4, v1, Landroid/util/DisplayMetrics;->density:F
 
@@ -209,7 +208,7 @@
     float-to-int v2, v3
 
     .line 214
-    .local v2, minVelocity:I
+    .local v2, "minVelocity":I
     int-to-float v3, v0
 
     int-to-float v4, v0
@@ -257,43 +256,43 @@
 
     .line 148
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
     .end array-data
 
     .line 151
     :array_1
-    .array-data 0x4
-        0xfft 0xfft 0x7ft 0x7ft
-        0xfft 0xfft 0x7ft 0x7ft
+    .array-data 4
+        0x7f7fffff    # Float.MAX_VALUE
+        0x7f7fffff    # Float.MAX_VALUE
     .end array-data
 
     .line 160
     :array_2
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
     .end array-data
 
     .line 163
     :array_3
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
     .end array-data
 
     .line 166
     :array_4
-    .array-data 0x4
-        0xfft 0xfft 0x7ft 0x7ft
-        0xfft 0xfft 0x7ft 0x7ft
+    .array-data 4
+        0x7f7fffff    # Float.MAX_VALUE
+        0x7f7fffff    # Float.MAX_VALUE
     .end array-data
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/AutoScrollHelper;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -304,8 +303,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 83
@@ -316,7 +315,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/widget/AutoScrollHelper;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -327,8 +326,8 @@
 
 .method static synthetic access$202(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 83
@@ -339,7 +338,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/widget/AutoScrollHelper;)Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -350,7 +349,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/widget/AutoScrollHelper;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -363,7 +362,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/widget/AutoScrollHelper;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -374,8 +373,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 83
@@ -386,7 +385,7 @@
 
 .method static synthetic access$600(Lcom/android/internal/widget/AutoScrollHelper;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -397,7 +396,7 @@
 
 .method static synthetic access$700(Lcom/android/internal/widget/AutoScrollHelper;)Landroid/view/View;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
 
     .prologue
     .line 83
@@ -408,9 +407,9 @@
 
 .method static synthetic access$800(III)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
 
     .prologue
     .line 83
@@ -423,9 +422,9 @@
 
 .method static synthetic access$900(FFF)F
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # F
+    .param p1, "x1"    # F
+    .param p2, "x2"    # F
 
     .prologue
     .line 83
@@ -448,7 +447,7 @@
     move-result-wide v0
 
     .line 677
-    .local v0, eventTime:J
+    .local v0, "eventTime":J
     const/4 v4, 0x3
 
     const/4 v7, 0x0
@@ -462,7 +461,7 @@
     move-result-object v8
 
     .line 679
-    .local v8, cancel:Landroid/view/MotionEvent;
+    .local v8, "cancel":Landroid/view/MotionEvent;
     iget-object v2, p0, Lcom/android/internal/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
 
     invoke-virtual {v2, v8}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -476,10 +475,10 @@
 
 .method private computeTargetVelocity(IFFF)F
     .locals 9
-    .parameter "direction"
-    .parameter "coordinate"
-    .parameter "srcSize"
-    .parameter "dstSize"
+    .param p1, "direction"    # I
+    .param p2, "coordinate"    # F
+    .param p3, "srcSize"    # F
+    .param p4, "dstSize"    # F
 
     .prologue
     const/4 v7, 0x0
@@ -490,19 +489,19 @@
     aget v3, v8, p1
 
     .line 539
-    .local v3, relativeEdge:F
+    .local v3, "relativeEdge":F
     iget-object v8, p0, Lcom/android/internal/widget/AutoScrollHelper;->mMaximumEdges:[F
 
     aget v0, v8, p1
 
     .line 540
-    .local v0, maximumEdge:F
+    .local v0, "maximumEdge":F
     invoke-direct {p0, v3, p3, v0, p2}, Lcom/android/internal/widget/AutoScrollHelper;->getEdgeValue(FFFF)F
 
     move-result v6
 
     .line 541
-    .local v6, value:F
+    .local v6, "value":F
     cmpl-float v8, v6, v7
 
     if-nez v8, :cond_0
@@ -518,23 +517,23 @@
     aget v4, v8, p1
 
     .line 547
-    .local v4, relativeVelocity:F
+    .local v4, "relativeVelocity":F
     iget-object v8, p0, Lcom/android/internal/widget/AutoScrollHelper;->mMinimumVelocity:[F
 
     aget v2, v8, p1
 
     .line 548
-    .local v2, minimumVelocity:F
+    .local v2, "minimumVelocity":F
     iget-object v8, p0, Lcom/android/internal/widget/AutoScrollHelper;->mMaximumVelocity:[F
 
     aget v1, v8, p1
 
     .line 549
-    .local v1, maximumVelocity:F
+    .local v1, "maximumVelocity":F
     mul-float v5, v4, p4
 
     .line 554
-    .local v5, targetVelocity:F
+    .local v5, "targetVelocity":F
     cmpl-float v7, v6, v7
 
     if-lez v7, :cond_1
@@ -565,9 +564,9 @@
 
 .method private static constrain(FFF)F
     .locals 1
-    .parameter "value"
-    .parameter "min"
-    .parameter "max"
+    .param p0, "value"    # F
+    .param p1, "min"    # F
+    .param p2, "max"    # F
 
     .prologue
     .line 662
@@ -576,12 +575,12 @@
     if-lez v0, :cond_0
 
     .line 667
-    .end local p2
+    .end local p2    # "max":F
     :goto_0
     return p2
 
     .line 664
-    .restart local p2
+    .restart local p2    # "max":F
     :cond_0
     cmpg-float v0, p0, p1
 
@@ -601,21 +600,21 @@
 
 .method private static constrain(III)I
     .locals 0
-    .parameter "value"
-    .parameter "min"
-    .parameter "max"
+    .param p0, "value"    # I
+    .param p1, "min"    # I
+    .param p2, "max"    # I
 
     .prologue
     .line 652
     if-le p0, p2, :cond_0
 
     .line 657
-    .end local p2
+    .end local p2    # "max":I
     :goto_0
     return p2
 
     .line 654
-    .restart local p2
+    .restart local p2    # "max":I
     :cond_0
     if-ge p0, p1, :cond_1
 
@@ -633,11 +632,11 @@
 
 .method private constrainEdgeValue(FF)F
     .locals 4
-    .parameter "current"
-    .parameter "leading"
+    .param p1, "current"    # F
+    .param p2, "leading"    # F
 
     .prologue
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     const/4 v0, 0x0
 
@@ -718,10 +717,10 @@
 
 .method private getEdgeValue(FFFF)F
     .locals 7
-    .parameter "relativeValue"
-    .parameter "size"
-    .parameter "maxValue"
-    .parameter "current"
+    .param p1, "relativeValue"    # F
+    .param p2, "size"    # F
+    .param p3, "maxValue"    # F
+    .param p4, "current"    # F
 
     .prologue
     const/4 v5, 0x0
@@ -734,13 +733,13 @@
     move-result v0
 
     .line 607
-    .local v0, edgeSize:F
+    .local v0, "edgeSize":F
     invoke-direct {p0, p4, v0}, Lcom/android/internal/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
 
     move-result v3
 
     .line 608
-    .local v3, valueLeading:F
+    .local v3, "valueLeading":F
     sub-float v6, p2, p4
 
     invoke-direct {p0, v6, v0}, Lcom/android/internal/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
@@ -748,11 +747,11 @@
     move-result v4
 
     .line 609
-    .local v4, valueTrailing:F
+    .local v4, "valueTrailing":F
     sub-float v2, v4, v3
 
     .line 611
-    .local v2, value:F
+    .local v2, "value":F
     cmpg-float v6, v2, v5
 
     if-gez v6, :cond_1
@@ -769,17 +768,17 @@
     neg-float v1, v5
 
     .line 619
-    .local v1, interpolated:F
+    .local v1, "interpolated":F
     :goto_0
-    const/high16 v5, -0x4080
+    const/high16 v5, -0x40800000    # -1.0f
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     invoke-static {v1, v5, v6}, Lcom/android/internal/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result v5
 
-    .end local v1           #interpolated:F
+    .end local v1    # "interpolated":F
     :cond_0
     return v5
 
@@ -796,7 +795,7 @@
 
     move-result v1
 
-    .restart local v1       #interpolated:F
+    .restart local v1    # "interpolated":F
     goto :goto_0
 .end method
 
@@ -835,19 +834,19 @@
     iget-object v1, p0, Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
 
     .line 492
-    .local v1, scroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
+    .local v1, "scroller":Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
     invoke-virtual {v1}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->getVerticalDirection()I
 
     move-result v2
 
     .line 493
-    .local v2, verticalDirection:I
+    .local v2, "verticalDirection":I
     invoke-virtual {v1}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->getHorizontalDirection()I
 
     move-result v0
 
     .line 495
-    .local v0, horizontalDirection:I
+    .local v0, "horizontalDirection":I
     if-eqz v2, :cond_0
 
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/AutoScrollHelper;->canTargetScrollVertically(I)Z
@@ -970,8 +969,8 @@
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 8
-    .parameter "v"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v3, 0x1
@@ -994,7 +993,7 @@
     move-result v0
 
     .line 460
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     .line 484
@@ -1045,7 +1044,7 @@
     move-result v1
 
     .line 468
-    .local v1, xTargetVelocity:F
+    .local v1, "xTargetVelocity":F
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v5
@@ -1069,7 +1068,7 @@
     move-result v2
 
     .line 470
-    .local v2, yTargetVelocity:F
+    .local v2, "yTargetVelocity":F
     iget-object v5, p0, Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
 
     invoke-virtual {v5, v1, v2}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->setTargetVelocity(FF)V
@@ -1091,8 +1090,8 @@
     goto :goto_1
 
     .line 480
-    .end local v1           #xTargetVelocity:F
-    .end local v2           #yTargetVelocity:F
+    .end local v1    # "xTargetVelocity":F
+    .end local v2    # "yTargetVelocity":F
     :pswitch_2
     invoke-direct {p0}, Lcom/android/internal/widget/AutoScrollHelper;->requestStop()V
 
@@ -1121,7 +1120,7 @@
 
 .method public setActivationDelay(I)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 0
-    .parameter "delayMillis"
+    .param p1, "delayMillis"    # I
 
     .prologue
     .line 411
@@ -1133,7 +1132,7 @@
 
 .method public setEdgeType(I)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 353
@@ -1145,7 +1144,7 @@
 
 .method public setEnabled(Z)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 234
@@ -1168,7 +1167,7 @@
 
 .method public setExclusive(Z)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 0
-    .parameter "exclusive"
+    .param p1, "exclusive"    # Z
 
     .prologue
     .line 262
@@ -1180,8 +1179,8 @@
 
 .method public setMaximumEdges(FF)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 2
-    .parameter "horizontalMax"
-    .parameter "verticalMax"
+    .param p1, "horizontalMax"    # F
+    .param p2, "verticalMax"    # F
 
     .prologue
     .line 394
@@ -1204,11 +1203,11 @@
 
 .method public setMaximumVelocity(FF)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 4
-    .parameter "horizontalMax"
-    .parameter "verticalMax"
+    .param p1, "horizontalMax"    # F
+    .param p2, "verticalMax"    # F
 
     .prologue
-    const/high16 v3, 0x447a
+    const/high16 v3, 0x447a0000    # 1000.0f
 
     .line 293
     iget-object v0, p0, Lcom/android/internal/widget/AutoScrollHelper;->mMaximumVelocity:[F
@@ -1234,11 +1233,11 @@
 
 .method public setMinimumVelocity(FF)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 4
-    .parameter "horizontalMin"
-    .parameter "verticalMin"
+    .param p1, "horizontalMin"    # F
+    .param p2, "verticalMin"    # F
 
     .prologue
-    const/high16 v3, 0x447a
+    const/high16 v3, 0x447a0000    # 1000.0f
 
     .line 311
     iget-object v0, p0, Lcom/android/internal/widget/AutoScrollHelper;->mMinimumVelocity:[F
@@ -1264,7 +1263,7 @@
 
 .method public setRampDownDuration(I)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 1
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # I
 
     .prologue
     .line 441
@@ -1278,7 +1277,7 @@
 
 .method public setRampUpDuration(I)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 1
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # I
 
     .prologue
     .line 426
@@ -1292,8 +1291,8 @@
 
 .method public setRelativeEdges(FF)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 2
-    .parameter "horizontal"
-    .parameter "vertical"
+    .param p1, "horizontal"    # F
+    .param p2, "vertical"    # F
 
     .prologue
     .line 372
@@ -1316,11 +1315,11 @@
 
 .method public setRelativeVelocity(FF)Lcom/android/internal/widget/AutoScrollHelper;
     .locals 4
-    .parameter "horizontal"
-    .parameter "vertical"
+    .param p1, "horizontal"    # F
+    .param p2, "vertical"    # F
 
     .prologue
-    const/high16 v3, 0x447a
+    const/high16 v3, 0x447a0000    # 1000.0f
 
     .line 332
     iget-object v0, p0, Lcom/android/internal/widget/AutoScrollHelper;->mRelativeVelocity:[F

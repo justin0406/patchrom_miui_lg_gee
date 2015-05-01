@@ -16,10 +16,10 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "totalFrames"
-    .parameter "periodFrames"
-    .parameter "periodTime"
-    .parameter "pixels"
+    .param p1, "totalFrames"    # I
+    .param p2, "periodFrames"    # I
+    .param p3, "periodTime"    # I
+    .param p4, "pixels"    # I
 
     .prologue
     .line 30
@@ -76,12 +76,12 @@
 
     div-double/2addr v2, v4
 
-    const-wide v4, 0x412e848000000000L
+    const-wide v4, 0x412e848000000000L    # 1000000.0
 
     mul-double v0, v2, v4
 
     .line 55
-    .local v0, frameTimeInNanos:D
+    .local v0, "frameTimeInNanos":D
     iget v2, p0, Landroid/filterpacks/performance/Throughput;->mPixels:I
 
     int-to-double v2, v2

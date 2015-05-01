@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/android/internal/location/ProviderProperties;)V
     .locals 3
-    .parameter "name"
-    .parameter "properties"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "properties"    # Lcom/android/internal/location/ProviderProperties;
 
     .prologue
     .line 59
@@ -76,9 +76,9 @@
 
 .method public static propertiesMeetCriteria(Ljava/lang/String;Lcom/android/internal/location/ProviderProperties;Landroid/location/Criteria;)Z
     .locals 3
-    .parameter "name"
-    .parameter "properties"
-    .parameter "criteria"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "properties"    # Lcom/android/internal/location/ProviderProperties;
+    .param p2, "criteria"    # Landroid/location/Criteria;
 
     .prologue
     const/4 v0, 0x0
@@ -237,7 +237,7 @@
 
 .method public meetsCriteria(Landroid/location/Criteria;)Z
     .locals 2
-    .parameter "criteria"
+    .param p1, "criteria"    # Landroid/location/Criteria;
 
     .prologue
     .line 79

@@ -54,8 +54,8 @@
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "encoded"
-    .parameter "decoded"
+    .param p1, "encoded"    # Ljava/lang/String;
+    .param p2, "decoded"    # Ljava/lang/String;
 
     .prologue
     .line 1999
@@ -67,9 +67,9 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/net/Uri$1;
 
     .prologue
     .line 1990
@@ -80,8 +80,8 @@
 
 .method static from(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Part;
     .locals 1
-    .parameter "encoded"
-    .parameter "decoded"
+    .param p0, "encoded"    # Ljava/lang/String;
+    .param p1, "decoded"    # Ljava/lang/String;
 
     .prologue
     .line 2062
@@ -140,10 +140,11 @@
 
 .method static fromDecoded(Ljava/lang/String;)Landroid/net/Uri$Part;
     .locals 1
-    .parameter "decoded"
+    .param p0, "decoded"    # Ljava/lang/String;
 
     .prologue
     .line 2049
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -157,10 +158,11 @@
 
 .method static fromEncoded(Ljava/lang/String;)Landroid/net/Uri$Part;
     .locals 1
-    .parameter "encoded"
+    .param p0, "encoded"    # Ljava/lang/String;
 
     .prologue
     .line 2040
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -174,7 +176,7 @@
 
 .method static nonNull(Landroid/net/Uri$Part;)Landroid/net/Uri$Part;
     .locals 0
-    .parameter "part"
+    .param p0, "part"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 2031
@@ -182,14 +184,14 @@
 
     sget-object p0, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
-    .end local p0
+    .end local p0    # "part":Landroid/net/Uri$Part;
     :cond_0
     return-object p0
 .end method
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri$Part;
     .locals 4
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 2013
@@ -198,7 +200,7 @@
     move-result v0
 
     .line 2014
-    .local v0, representation:I
+    .local v0, "representation":I
     packed-switch v0, :pswitch_data_0
 
     .line 2022
@@ -288,6 +290,7 @@
     .line 2008
     iget-object v1, p0, Landroid/net/Uri$Part;->encoded:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -297,7 +300,7 @@
     const/4 v0, 0x1
 
     .line 2009
-    .local v0, hasEncoded:Z
+    .local v0, "hasEncoded":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -307,14 +310,14 @@
     return-object v1
 
     .line 2008
-    .end local v0           #hasEncoded:Z
+    .end local v0    # "hasEncoded":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 2009
-    .restart local v0       #hasEncoded:Z
+    .restart local v0    # "hasEncoded":Z
     :cond_1
     iget-object v1, p0, Landroid/net/Uri$Part;->decoded:Ljava/lang/String;
 

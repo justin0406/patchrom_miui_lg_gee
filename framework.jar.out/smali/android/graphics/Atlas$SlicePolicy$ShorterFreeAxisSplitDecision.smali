@@ -30,7 +30,7 @@
 
 .method synthetic constructor <init>(Landroid/graphics/Atlas$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/graphics/Atlas$1;
 
     .prologue
     .line 334
@@ -43,10 +43,10 @@
 # virtual methods
 .method public splitHorizontal(IIII)Z
     .locals 1
-    .parameter "freeWidth"
-    .parameter "freeHeight"
-    .parameter "rectWidth"
-    .parameter "rectHeight"
+    .param p1, "freeWidth"    # I
+    .param p2, "freeHeight"    # I
+    .param p3, "rectWidth"    # I
+    .param p4, "rectHeight"    # I
 
     .prologue
     .line 338

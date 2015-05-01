@@ -46,8 +46,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TS;)V"
@@ -56,9 +54,9 @@
 
     .prologue
     .line 158
-    .local p0, this:Landroid/widget/RemoteViews$MutablePair;,"Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
-    .local p1, first:Ljava/lang/Object;,"TF;"
-    .local p2, second:Ljava/lang/Object;,"TS;"
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
+    .local p1, "first":Ljava/lang/Object;, "TF;"
+    .local p2, "second":Ljava/lang/Object;, "TS;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 159
@@ -75,10 +73,10 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
-    .local p0, this:Landroid/widget/RemoteViews$MutablePair;,"Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
     const/4 v1, 0x0
 
     .line 165
@@ -98,7 +96,7 @@
     check-cast v0, Landroid/widget/RemoteViews$MutablePair;
 
     .line 169
-    .local v0, p:Landroid/widget/RemoteViews$MutablePair;,"Landroid/widget/RemoteViews$MutablePair<**>;"
+    .local v0, "p":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<**>;"
     iget-object v2, v0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
 
     iget-object v3, p0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
@@ -128,7 +126,7 @@
     .locals 3
 
     .prologue
-    .local p0, this:Landroid/widget/RemoteViews$MutablePair;,"Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
     const/4 v1, 0x0
 
     .line 174

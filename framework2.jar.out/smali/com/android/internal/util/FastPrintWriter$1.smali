@@ -44,7 +44,7 @@
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     .line 23
-    .local v0, ex:Ljava/lang/UnsupportedOperationException;
+    .local v0, "ex":Ljava/lang/UnsupportedOperationException;
     throw v0
 .end method
 
@@ -66,9 +66,9 @@
 
 .method public write([CII)V
     .locals 0
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buf"    # [C
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

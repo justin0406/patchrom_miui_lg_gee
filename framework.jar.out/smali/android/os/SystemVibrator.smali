@@ -56,7 +56,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 41
@@ -126,7 +126,7 @@
     move-exception v0
 
     .line 117
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "Vibrator"
 
     const-string v2, "Failed to cancel vibration."
@@ -180,9 +180,9 @@
 
 .method public vibrate(ILjava/lang/String;J)V
     .locals 7
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "milliseconds"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "milliseconds"    # J
 
     .prologue
     .line 75
@@ -225,7 +225,7 @@
     move-exception v6
 
     .line 82
-    .local v6, e:Landroid/os/RemoteException;
+    .local v6, "e":Landroid/os/RemoteException;
     const-string v0, "Vibrator"
 
     const-string v1, "Failed to vibrate."
@@ -237,10 +237,10 @@
 
 .method public vibrate(ILjava/lang/String;[JI)V
     .locals 7
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "pattern"    # [J
+    .param p4, "repeat"    # I
 
     .prologue
     .line 91
@@ -290,7 +290,7 @@
     move-exception v6
 
     .line 102
-    .local v6, e:Landroid/os/RemoteException;
+    .local v6, "e":Landroid/os/RemoteException;
     const-string v0, "Vibrator"
 
     const-string v1, "Failed to vibrate."
@@ -300,7 +300,7 @@
     goto :goto_0
 
     .line 105
-    .end local v6           #e:Landroid/os/RemoteException;
+    .end local v6    # "e":Landroid/os/RemoteException;
     :cond_1
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -311,7 +311,7 @@
 
 .method public vibrate(J)V
     .locals 2
-    .parameter "milliseconds"
+    .param p1, "milliseconds"    # J
 
     .prologue
     .line 62
@@ -329,8 +329,8 @@
 
 .method public vibrate([JI)V
     .locals 2
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "pattern"    # [J
+    .param p2, "repeat"    # I
 
     .prologue
     .line 67

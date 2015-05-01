@@ -46,7 +46,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 76
@@ -106,10 +106,10 @@
 
 .method public constructor <init>(Ljava/lang/String;IILandroid/content/Intent;)V
     .locals 0
-    .parameter "resultWho"
-    .parameter "requestCode"
-    .parameter "resultCode"
-    .parameter "data"
+    .param p1, "resultWho"    # Ljava/lang/String;
+    .param p2, "requestCode"    # I
+    .param p3, "resultCode"    # I
+    .param p4, "data"    # Landroid/content/Intent;
 
     .prologue
     .line 37
@@ -215,8 +215,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x0

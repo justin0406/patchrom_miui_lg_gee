@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;)V
     .locals 0
-    .parameter "filter"
-    .parameter "name"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 29
@@ -76,7 +76,7 @@
 
 .method public connectTo(Landroid/filterfw/core/InputPort;)V
     .locals 3
-    .parameter "target"
+    .param p1, "target"    # Landroid/filterfw/core/InputPort;
 
     .prologue
     .line 33
@@ -356,7 +356,7 @@
 
 .method public pushFrame(Landroid/filterfw/core/Frame;)V
     .locals 3
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 91
@@ -407,7 +407,7 @@
 
 .method public setBasePort(Landroid/filterfw/core/InputPort;)V
     .locals 0
-    .parameter "basePort"
+    .param p1, "basePort"    # Landroid/filterfw/core/InputPort;
 
     .prologue
     .line 67
@@ -419,7 +419,7 @@
 
 .method public setFrame(Landroid/filterfw/core/Frame;)V
     .locals 3
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 100

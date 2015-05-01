@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 2
-    .parameter "template"
+    .param p1, "template"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .prologue
     .line 225
@@ -44,13 +44,13 @@
 # virtual methods
 .method public addTarget(Landroid/view/Surface;)V
     .locals 1
-    .parameter "outputTarget"
+    .param p1, "outputTarget"    # Landroid/view/Surface;
 
     .prologue
     .line 241
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #getter for: Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    # getter for: Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
     invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->access$200(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
 
     move-result-object v0
@@ -79,7 +79,6 @@
 
 .method public get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -92,10 +91,10 @@
 
     .prologue
     .line 277
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    # getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
     invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->access$300(Landroid/hardware/camera2/CaptureRequest;)Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     move-result-object v0
@@ -114,7 +113,7 @@
     .line 310
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    # getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
     invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->access$300(Landroid/hardware/camera2/CaptureRequest;)Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     move-result-object v0
@@ -128,13 +127,13 @@
 
 .method public removeTarget(Landroid/view/Surface;)V
     .locals 1
-    .parameter "outputTarget"
+    .param p1, "outputTarget"    # Landroid/view/Surface;
 
     .prologue
     .line 252
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #getter for: Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    # getter for: Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
     invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->access$200(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
 
     move-result-object v0
@@ -147,8 +146,6 @@
 
 .method public set(Landroid/hardware/camera2/CameraMetadata$Key;Ljava/lang/Object;)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -161,11 +158,11 @@
 
     .prologue
     .line 264
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
-    .local p2, value:Ljava/lang/Object;,"TT;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    # getter for: Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
     invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->access$300(Landroid/hardware/camera2/CaptureRequest;)Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     move-result-object v0
@@ -178,13 +175,13 @@
 
 .method public setTag(Ljava/lang/Object;)V
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/Object;
 
     .prologue
     .line 292
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    #setter for: Landroid/hardware/camera2/CaptureRequest;->mUserTag:Ljava/lang/Object;
+    # setter for: Landroid/hardware/camera2/CaptureRequest;->mUserTag:Ljava/lang/Object;
     invoke-static {v0, p1}, Landroid/hardware/camera2/CaptureRequest;->access$402(Landroid/hardware/camera2/CaptureRequest;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 293

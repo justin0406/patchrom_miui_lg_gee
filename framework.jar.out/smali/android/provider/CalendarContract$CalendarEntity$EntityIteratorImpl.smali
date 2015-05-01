@@ -17,7 +17,7 @@
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
     .locals 0
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 515
@@ -31,7 +31,7 @@
 # virtual methods
 .method public getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
     .locals 6
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -51,13 +51,13 @@
     move-result-wide v0
 
     .line 524
-    .local v0, calendarId:J
+    .local v0, "calendarId":J
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
     .line 525
-    .local v2, cv:Landroid/content/ContentValues;
+    .local v2, "cv":Landroid/content/ContentValues;
     const-string v4, "_id"
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -227,7 +227,7 @@
     invoke-direct {v3, v2}, Landroid/content/Entity;-><init>(Landroid/content/ContentValues;)V
 
     .line 577
-    .local v3, entity:Landroid/content/Entity;
+    .local v3, "entity":Landroid/content/Entity;
     invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
 
     .line 580

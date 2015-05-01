@@ -50,8 +50,8 @@
 
 .method private constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 3
-    .parameter "c"
-    .parameter "ci"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     const/4 v2, 0x0
@@ -141,7 +141,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
 
     .prologue
     .line 222
@@ -155,8 +155,8 @@
 
 .method public static make(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)Lcom/android/internal/telephony/uicc/UiccController;
     .locals 3
-    .parameter "c"
-    .parameter "ci"
+    .param p0, "c"    # Landroid/content/Context;
+    .param p1, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 93
@@ -210,7 +210,7 @@
 
 .method private declared-synchronized onGetIccCardStatusDone(Landroid/os/AsyncResult;)V
     .locals 4
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 200
@@ -246,7 +246,7 @@
     check-cast v0, Lcom/android/internal/telephony/uicc/IccCardStatus;
 
     .line 209
-    .local v0, status:Lcom/android/internal/telephony/uicc/IccCardStatus;
+    .local v0, "status":Lcom/android/internal/telephony/uicc/IccCardStatus;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mUiccCard:Lcom/android/internal/telephony/uicc/UiccCard;
 
     if-nez v1, :cond_1
@@ -278,7 +278,7 @@
     goto :goto_0
 
     .line 200
-    .end local v0           #status:Lcom/android/internal/telephony/uicc/IccCardStatus;
+    .end local v0    # "status":Lcom/android/internal/telephony/uicc/IccCardStatus;
     :catchall_0
     move-exception v1
 
@@ -287,7 +287,7 @@
     throw v1
 
     .line 214
-    .restart local v0       #status:Lcom/android/internal/telephony/uicc/IccCardStatus;
+    .restart local v0    # "status":Lcom/android/internal/telephony/uicc/IccCardStatus;
     :cond_1
     :try_start_2
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mUiccCard:Lcom/android/internal/telephony/uicc/UiccCard;
@@ -307,9 +307,9 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 226
@@ -455,7 +455,7 @@
     .line 232
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccChangedRegistrants:Landroid/os/RegistrantList;
 
@@ -537,7 +537,7 @@
 
 .method public getIccFileHandler(I)Lcom/android/internal/telephony/uicc/IccFileHandler;
     .locals 3
-    .parameter "family"
+    .param p1, "family"    # I
 
     .prologue
     .line 143
@@ -559,7 +559,7 @@
     move-result-object v0
 
     .line 146
-    .local v0, app:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .local v0, "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     if-eqz v0, :cond_0
 
     .line 147
@@ -570,7 +570,7 @@
     monitor-exit v2
 
     .line 150
-    .end local v0           #app:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .end local v0    # "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     :goto_0
     return-object v1
 
@@ -594,7 +594,7 @@
 
 .method public getIccRecords(I)Lcom/android/internal/telephony/uicc/IccRecords;
     .locals 3
-    .parameter "family"
+    .param p1, "family"    # I
 
     .prologue
     .line 130
@@ -616,7 +616,7 @@
     move-result-object v0
 
     .line 133
-    .local v0, app:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .local v0, "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     if-eqz v0, :cond_0
 
     .line 134
@@ -627,7 +627,7 @@
     monitor-exit v2
 
     .line 137
-    .end local v0           #app:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .end local v0    # "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     :goto_0
     return-object v1
 
@@ -679,7 +679,7 @@
 
 .method public getUiccCardApplication(I)Lcom/android/internal/telephony/uicc/UiccCardApplication;
     .locals 2
-    .parameter "family"
+    .param p1, "family"    # I
 
     .prologue
     .line 120
@@ -726,7 +726,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 173
@@ -814,7 +814,7 @@
     check-cast v0, Landroid/os/AsyncResult;
 
     .line 182
-    .local v0, ar:Landroid/os/AsyncResult;
+    .local v0, "ar":Landroid/os/AsyncResult;
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->onGetIccCardStatusDone(Landroid/os/AsyncResult;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -831,9 +831,9 @@
 
 .method public registerForIccChanged(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 3
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 156
@@ -848,7 +848,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 158
-    .local v0, r:Landroid/os/Registrant;
+    .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -863,7 +863,7 @@
     return-void
 
     .line 162
-    .end local v0           #r:Landroid/os/Registrant;
+    .end local v0    # "r":Landroid/os/Registrant;
     :catchall_0
     move-exception v1
 
@@ -876,7 +876,7 @@
 
 .method public unregisterForIccChanged(Landroid/os/Handler;)V
     .locals 2
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 166

@@ -83,8 +83,8 @@
 # direct methods
 .method constructor <init>(Landroid/view/Display;Lcom/android/server/wm/WindowManagerService;)V
     .locals 5
-    .parameter "display"
-    .parameter "service"
+    .param p1, "display"    # Landroid/view/Display;
+    .param p2, "service"    # Lcom/android/server/wm/WindowManagerService;
 
     .prologue
     const/4 v4, 0x0
@@ -219,7 +219,7 @@
     invoke-direct {v0, p2, p0, v4}, Lcom/android/server/wm/StackBox;-><init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/StackBox;)V
 
     .line 128
-    .local v0, newBox:Lcom/android/server/wm/StackBox;
+    .local v0, "newBox":Lcom/android/server/wm/StackBox;
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -230,7 +230,7 @@
     invoke-direct {v1, p2, v3, p0}, Lcom/android/server/wm/TaskStack;-><init>(Lcom/android/server/wm/WindowManagerService;ILcom/android/server/wm/DisplayContent;)V
 
     .line 130
-    .local v1, newStack:Lcom/android/server/wm/TaskStack;
+    .local v1, "newStack":Lcom/android/server/wm/TaskStack;
     iput-object v0, v1, Lcom/android/server/wm/TaskStack;->mStackBox:Lcom/android/server/wm/StackBox;
 
     .line 131
@@ -242,8 +242,8 @@
     .line 133
     return-void
 
-    .end local v0           #newBox:Lcom/android/server/wm/StackBox;
-    .end local v1           #newStack:Lcom/android/server/wm/TaskStack;
+    .end local v0    # "newBox":Lcom/android/server/wm/StackBox;
+    .end local v1    # "newStack":Lcom/android/server/wm/TaskStack;
     :cond_0
     move v2, v3
 
@@ -255,8 +255,8 @@
 # virtual methods
 .method addStackBox(Lcom/android/server/wm/StackBox;Z)V
     .locals 2
-    .parameter "box"
-    .parameter "toTop"
+    .param p1, "box"    # Lcom/android/server/wm/StackBox;
+    .param p2, "toTop"    # Z
 
     .prologue
     .line 292
@@ -306,8 +306,8 @@
 
 .method addTask(Lcom/android/server/wm/Task;Z)V
     .locals 8
-    .parameter "task"
-    .parameter "toTop"
+    .param p1, "task"    # Lcom/android/server/wm/Task;
+    .param p2, "toTop"    # Z
 
     .prologue
     const/4 v4, 0x1
@@ -323,7 +323,7 @@
     iget v2, p1, Lcom/android/server/wm/Task;->mUserId:I
 
     .line 179
-    .local v2, userId:I
+    .local v2, "userId":I
     iget-object v3, p0, Lcom/android/server/wm/DisplayContent;->mTaskHistory:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -331,13 +331,13 @@
     move-result v0
 
     .line 180
-    .local v0, numTasks:I
+    .local v0, "numTasks":I
     if-eqz p2, :cond_3
 
     .line 181
     add-int/lit8 v1, v0, -0x1
 
-    .local v1, taskNdx:I
+    .local v1, "taskNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -410,11 +410,11 @@
     goto :goto_0
 
     .line 188
-    .end local v1           #taskNdx:I
+    .end local v1    # "taskNdx":I
     :cond_3
     const/4 v1, 0x0
 
-    .restart local v1       #taskNdx:I
+    .restart local v1    # "taskNdx":I
     :goto_2
     if-ge v1, v0, :cond_1
 
@@ -451,7 +451,7 @@
     const/4 v0, 0x0
 
     .line 424
-    .local v0, result:Z
+    .local v0, "result":Z
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -460,7 +460,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -502,7 +502,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, stackBoxNdx:I
+    .local v0, "stackBoxNdx":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -529,17 +529,17 @@
 
 .method createStack(IIIF)Lcom/android/server/wm/TaskStack;
     .locals 16
-    .parameter "stackId"
-    .parameter "relativeStackBoxId"
-    .parameter "position"
-    .parameter "weight"
+    .param p1, "stackId"    # I
+    .param p2, "relativeStackBoxId"    # I
+    .param p3, "position"    # I
+    .param p4, "weight"    # F
 
     .prologue
     .line 232
     const/4 v6, 0x0
 
     .line 235
-    .local v6, newStack:Lcom/android/server/wm/TaskStack;
+    .local v6, "newStack":Lcom/android/server/wm/TaskStack;
     if-nez p1, :cond_3
 
     .line 236
@@ -615,13 +615,13 @@
 
     const/4 v11, 0x3
 
-    const/high16 v12, 0x42c8
+    const/high16 v12, 0x42c80000    # 100.0f
 
     mul-float v12, v12, p4
 
     float-to-double v12, v12
 
-    const-wide/high16 v14, 0x3fe0
+    const-wide/high16 v14, 0x3fe0000000000000L    # 0.5
 
     add-double/2addr v12, v14
 
@@ -650,7 +650,7 @@
 
     add-int/lit8 v8, v9, -0x1
 
-    .local v8, stackBoxNdx:I
+    .local v8, "stackBoxNdx":I
     :goto_0
     if-ltz v8, :cond_5
 
@@ -666,7 +666,7 @@
     check-cast v4, Lcom/android/server/wm/StackBox;
 
     .line 244
-    .local v4, box:Lcom/android/server/wm/StackBox;
+    .local v4, "box":Lcom/android/server/wm/StackBox;
     const/4 v9, 0x6
 
     move/from16 v0, p3
@@ -703,10 +703,10 @@
     invoke-direct {v5, v9, v0, v10}, Lcom/android/server/wm/StackBox;-><init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/StackBox;)V
 
     .line 249
-    .local v5, newBox:Lcom/android/server/wm/StackBox;
+    .local v5, "newBox":Lcom/android/server/wm/StackBox;
     new-instance v6, Lcom/android/server/wm/TaskStack;
 
-    .end local v6           #newStack:Lcom/android/server/wm/TaskStack;
+    .end local v6    # "newStack":Lcom/android/server/wm/TaskStack;
     move-object/from16 v0, p0
 
     iget-object v9, v0, Lcom/android/server/wm/DisplayContent;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -718,7 +718,7 @@
     invoke-direct {v6, v9, v0, v1}, Lcom/android/server/wm/TaskStack;-><init>(Lcom/android/server/wm/WindowManagerService;ILcom/android/server/wm/DisplayContent;)V
 
     .line 250
-    .restart local v6       #newStack:Lcom/android/server/wm/TaskStack;
+    .restart local v6    # "newStack":Lcom/android/server/wm/TaskStack;
     iput-object v5, v6, Lcom/android/server/wm/TaskStack;->mStackBox:Lcom/android/server/wm/StackBox;
 
     .line 251
@@ -734,7 +734,7 @@
     const/4 v7, 0x1
 
     .line 255
-    .local v7, offset:I
+    .local v7, "offset":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -745,9 +745,9 @@
     invoke-virtual {v9, v10, v5}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     .line 266
-    .end local v4           #box:Lcom/android/server/wm/StackBox;
-    .end local v5           #newBox:Lcom/android/server/wm/StackBox;
-    .end local v7           #offset:I
+    .end local v4    # "box":Lcom/android/server/wm/StackBox;
+    .end local v5    # "newBox":Lcom/android/server/wm/StackBox;
+    .end local v7    # "offset":I
     :cond_5
     if-gez v8, :cond_1
 
@@ -785,15 +785,15 @@
     throw v9
 
     .line 252
-    .restart local v4       #box:Lcom/android/server/wm/StackBox;
-    .restart local v5       #newBox:Lcom/android/server/wm/StackBox;
+    .restart local v4    # "box":Lcom/android/server/wm/StackBox;
+    .restart local v5    # "newBox":Lcom/android/server/wm/StackBox;
     :cond_6
     const/4 v7, 0x0
 
     goto :goto_1
 
     .line 260
-    .end local v5           #newBox:Lcom/android/server/wm/StackBox;
+    .end local v5    # "newBox":Lcom/android/server/wm/StackBox;
     :cond_7
     move/from16 v0, p1
 
@@ -819,8 +819,8 @@
 
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 13
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 457
@@ -854,7 +854,7 @@
     move-result-object v4
 
     .line 459
-    .local v4, subPrefix:Ljava/lang/String;
+    .local v4, "subPrefix":Ljava/lang/String;
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v10, "init="
@@ -1043,7 +1043,7 @@
     .line 480
     const/4 v0, 0x0
 
-    .local v0, boxNdx:I
+    .local v0, "boxNdx":I
     :goto_0
     iget-object v10, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
@@ -1103,7 +1103,7 @@
     move-result v2
 
     .line 485
-    .local v2, ndx:I
+    .local v2, "ndx":I
     if-lez v2, :cond_4
 
     .line 486
@@ -1126,7 +1126,7 @@
 
     add-int/lit8 v5, v10, -0x1
 
-    .local v5, taskNdx:I
+    .local v5, "taskNdx":I
     :goto_1
     if-ltz v5, :cond_4
 
@@ -1142,18 +1142,18 @@
     iget-object v8, v10, Lcom/android/server/wm/Task;->mAppTokens:Lcom/android/server/wm/AppTokenList;
 
     .line 491
-    .local v8, tokens:Lcom/android/server/wm/AppTokenList;
+    .local v8, "tokens":Lcom/android/server/wm/AppTokenList;
     invoke-virtual {v8}, Lcom/android/server/wm/AppTokenList;->size()I
 
     move-result v10
 
     add-int/lit8 v7, v10, -0x1
 
-    .local v7, tokenNdx:I
+    .local v7, "tokenNdx":I
     move v3, v2
 
-    .end local v2           #ndx:I
-    .local v3, ndx:I
+    .end local v2    # "ndx":I
+    .local v3, "ndx":I
     :goto_2
     if-ltz v7, :cond_3
 
@@ -1165,15 +1165,15 @@
     check-cast v9, Lcom/android/server/wm/AppWindowToken;
 
     .line 493
-    .local v9, wtoken:Lcom/android/server/wm/AppWindowToken;
+    .local v9, "wtoken":Lcom/android/server/wm/AppWindowToken;
     const-string v10, "  App #"
 
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     add-int/lit8 v2, v3, -0x1
 
-    .end local v3           #ndx:I
-    .restart local v2       #ndx:I
+    .end local v3    # "ndx":I
+    .restart local v2    # "ndx":I
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->print(I)V
 
     .line 494
@@ -1197,25 +1197,25 @@
 
     move v3, v2
 
-    .end local v2           #ndx:I
-    .restart local v3       #ndx:I
+    .end local v2    # "ndx":I
+    .restart local v3    # "ndx":I
     goto :goto_2
 
     .line 489
-    .end local v9           #wtoken:Lcom/android/server/wm/AppWindowToken;
+    .end local v9    # "wtoken":Lcom/android/server/wm/AppWindowToken;
     :cond_3
     add-int/lit8 v5, v5, -0x1
 
     move v2, v3
 
-    .end local v3           #ndx:I
-    .restart local v2       #ndx:I
+    .end local v3    # "ndx":I
+    .restart local v2    # "ndx":I
     goto :goto_1
 
     .line 499
-    .end local v5           #taskNdx:I
-    .end local v7           #tokenNdx:I
-    .end local v8           #tokens:Lcom/android/server/wm/AppTokenList;
+    .end local v5    # "taskNdx":I
+    .end local v7    # "tokenNdx":I
+    .end local v8    # "tokens":Lcom/android/server/wm/AppTokenList;
     :cond_4
     iget-object v10, p0, Lcom/android/server/wm/DisplayContent;->mExitingTokens:Ljava/util/ArrayList;
 
@@ -1242,7 +1242,7 @@
 
     add-int/lit8 v1, v10, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_3
     if-ltz v1, :cond_5
 
@@ -1256,7 +1256,7 @@
     check-cast v6, Lcom/android/server/wm/WindowToken;
 
     .line 504
-    .local v6, token:Lcom/android/server/wm/WindowToken;
+    .local v6, "token":Lcom/android/server/wm/WindowToken;
     const-string v10, "  Exiting #"
 
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1286,8 +1286,8 @@
     goto :goto_3
 
     .line 510
-    .end local v1           #i:I
-    .end local v6           #token:Lcom/android/server/wm/WindowToken;
+    .end local v1    # "i":I
+    .end local v6    # "token":Lcom/android/server/wm/WindowToken;
     :cond_5
     iget-object v10, p0, Lcom/android/server/wm/DisplayContent;->mExitingAppTokens:Lcom/android/server/wm/AppTokenList;
 
@@ -1314,7 +1314,7 @@
 
     add-int/lit8 v1, v10, -0x1
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_4
     if-ltz v1, :cond_6
 
@@ -1328,7 +1328,7 @@
     check-cast v6, Lcom/android/server/wm/WindowToken;
 
     .line 515
-    .restart local v6       #token:Lcom/android/server/wm/WindowToken;
+    .restart local v6    # "token":Lcom/android/server/wm/WindowToken;
     const-string v10, "  Exiting App #"
 
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1358,8 +1358,8 @@
     goto :goto_4
 
     .line 521
-    .end local v1           #i:I
-    .end local v6           #token:Lcom/android/server/wm/WindowToken;
+    .end local v1    # "i":I
+    .end local v6    # "token":Lcom/android/server/wm/WindowToken;
     :cond_6
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
@@ -1409,7 +1409,7 @@
 
 .method getLogicalDisplayRect(Landroid/graphics/Rect;)V
     .locals 6
-    .parameter "out"
+    .param p1, "out"    # Landroid/graphics/Rect;
 
     .prologue
     .line 212
@@ -1421,7 +1421,7 @@
     iget v3, v4, Landroid/view/DisplayInfo;->logicalWidth:I
 
     .line 215
-    .local v3, width:I
+    .local v3, "width":I
     iget v4, p0, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
     sub-int/2addr v4, v3
@@ -1429,13 +1429,13 @@
     div-int/lit8 v1, v4, 0x2
 
     .line 216
-    .local v1, left:I
+    .local v1, "left":I
     iget-object v4, p0, Lcom/android/server/wm/DisplayContent;->mDisplayInfo:Landroid/view/DisplayInfo;
 
     iget v0, v4, Landroid/view/DisplayInfo;->logicalHeight:I
 
     .line 217
-    .local v0, height:I
+    .local v0, "height":I
     iget v4, p0, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
     sub-int/2addr v4, v0
@@ -1443,7 +1443,7 @@
     div-int/lit8 v2, v4, 0x2
 
     .line 218
-    .local v2, top:I
+    .local v2, "top":I
     add-int v4, v1, v3
 
     add-int v5, v2, v0
@@ -1456,7 +1456,7 @@
 
 .method getStackBounds(I)Landroid/graphics/Rect;
     .locals 3
-    .parameter "stackId"
+    .param p1, "stackId"    # I
 
     .prologue
     .line 371
@@ -1468,7 +1468,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_1
 
@@ -1486,23 +1486,23 @@
     move-result-object v0
 
     .line 373
-    .local v0, bounds:Landroid/graphics/Rect;
+    .local v0, "bounds":Landroid/graphics/Rect;
     if-eqz v0, :cond_0
 
     .line 377
-    .end local v0           #bounds:Landroid/graphics/Rect;
+    .end local v0    # "bounds":Landroid/graphics/Rect;
     :goto_1
     return-object v0
 
     .line 371
-    .restart local v0       #bounds:Landroid/graphics/Rect;
+    .restart local v0    # "bounds":Landroid/graphics/Rect;
     :cond_0
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 377
-    .end local v0           #bounds:Landroid/graphics/Rect;
+    .end local v0    # "bounds":Landroid/graphics/Rect;
     :cond_1
     const/4 v0, 0x0
 
@@ -1511,7 +1511,7 @@
 
 .method getStackBoxInfo(Lcom/android/server/wm/StackBox;)Landroid/app/ActivityManager$StackBoxInfo;
     .locals 4
-    .parameter "box"
+    .param p1, "box"    # Lcom/android/server/wm/StackBox;
 
     .prologue
     .line 310
@@ -1520,7 +1520,7 @@
     invoke-direct {v0}, Landroid/app/ActivityManager$StackBoxInfo;-><init>()V
 
     .line 311
-    .local v0, info:Landroid/app/ActivityManager$StackBoxInfo;
+    .local v0, "info":Landroid/app/ActivityManager$StackBoxInfo;
     iget v1, p1, Lcom/android/server/wm/StackBox;->mStackBoxId:I
 
     iput v1, v0, Landroid/app/ActivityManager$StackBoxInfo;->stackBoxId:I
@@ -1621,7 +1621,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 329
-    .local v0, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/ActivityManager$StackBoxInfo;>;"
+    .local v0, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$StackBoxInfo;>;"
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -1630,7 +1630,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -1690,7 +1690,7 @@
 
 .method public hasAccess(I)Z
     .locals 1
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 155
@@ -1743,7 +1743,7 @@
     const/4 v0, 0x0
 
     .line 438
-    .local v0, result:Z
+    .local v0, "result":Z
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -1752,7 +1752,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -1809,7 +1809,7 @@
 
 .method moveHomeStackBox(Z)Z
     .locals 4
-    .parameter "toTop"
+    .param p1, "toTop"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -1907,7 +1907,7 @@
     const/4 v0, 0x0
 
     .line 224
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mTaskHistory:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -1916,7 +1916,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, taskNdx:I
+    .local v1, "taskNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -1949,14 +1949,14 @@
 
 .method removeStackBox(Lcom/android/server/wm/StackBox;)V
     .locals 2
-    .parameter "box"
+    .param p1, "box"    # Lcom/android/server/wm/StackBox;
 
     .prologue
     .line 300
     iget-object v0, p1, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     .line 301
-    .local v0, stack:Lcom/android/server/wm/TaskStack;
+    .local v0, "stack":Lcom/android/server/wm/TaskStack;
     if-eqz v0, :cond_0
 
     iget v1, v0, Lcom/android/server/wm/TaskStack;->mStackId:I
@@ -1978,7 +1978,7 @@
 
 .method removeTask(Lcom/android/server/wm/Task;)V
     .locals 1
-    .parameter "task"
+    .param p1, "task"    # Lcom/android/server/wm/Task;
 
     .prologue
     .line 200
@@ -2003,7 +2003,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, stackBoxNdx:I
+    .local v0, "stackBoxNdx":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -2041,7 +2041,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, stackBoxNdx:I
+    .local v0, "stackBoxNdx":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -2068,8 +2068,8 @@
 
 .method resizeStack(IF)Z
     .locals 4
-    .parameter "stackBoxId"
-    .parameter "weight"
+    .param p1, "stackBoxId"    # I
+    .param p2, "weight"    # F
 
     .prologue
     const/4 v2, 0x1
@@ -2083,7 +2083,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_1
 
@@ -2097,7 +2097,7 @@
     check-cast v0, Lcom/android/server/wm/StackBox;
 
     .line 283
-    .local v0, box:Lcom/android/server/wm/StackBox;
+    .local v0, "box":Lcom/android/server/wm/StackBox;
     invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/StackBox;->resize(IF)Z
 
     move-result v3
@@ -2108,19 +2108,19 @@
     iput-boolean v2, p0, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
 
     .line 288
-    .end local v0           #box:Lcom/android/server/wm/StackBox;
+    .end local v0    # "box":Lcom/android/server/wm/StackBox;
     :goto_1
     return v2
 
     .line 281
-    .restart local v0       #box:Lcom/android/server/wm/StackBox;
+    .restart local v0    # "box":Lcom/android/server/wm/StackBox;
     :cond_0
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 288
-    .end local v0           #box:Lcom/android/server/wm/StackBox;
+    .end local v0    # "box":Lcom/android/server/wm/StackBox;
     :cond_1
     const/4 v2, 0x0
 
@@ -2129,14 +2129,14 @@
 
 .method setStackBoxSize(Landroid/graphics/Rect;)Z
     .locals 4
-    .parameter "contentRect"
+    .param p1, "contentRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 363
     const/4 v0, 0x0
 
     .line 364
-    .local v0, change:Z
+    .local v0, "change":Z
     iget-object v2, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -2145,7 +2145,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -2178,7 +2178,7 @@
 
 .method setTouchExcludeRegion(Lcom/android/server/wm/TaskStack;)V
     .locals 7
-    .parameter "focusedStack"
+    .param p1, "focusedStack"    # Lcom/android/server/wm/TaskStack;
 
     .prologue
     .line 386
@@ -2194,14 +2194,14 @@
     move-result-object v3
 
     .line 388
-    .local v3, windows:Lcom/android/server/wm/WindowList;
+    .local v3, "windows":Lcom/android/server/wm/WindowList;
     invoke-virtual {v3}, Lcom/android/server/wm/WindowList;->size()I
 
     move-result v4
 
     add-int/lit8 v0, v4, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -2213,13 +2213,13 @@
     check-cast v2, Lcom/android/server/wm/WindowState;
 
     .line 390
-    .local v2, win:Lcom/android/server/wm/WindowState;
+    .local v2, "win":Lcom/android/server/wm/WindowState;
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getStack()Lcom/android/server/wm/TaskStack;
 
     move-result-object v1
 
     .line 391
-    .local v1, stack:Lcom/android/server/wm/TaskStack;
+    .local v1, "stack":Lcom/android/server/wm/TaskStack;
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isVisibleLw()Z
 
     move-result v4
@@ -2260,16 +2260,16 @@
     goto :goto_0
 
     .line 397
-    .end local v1           #stack:Lcom/android/server/wm/TaskStack;
-    .end local v2           #win:Lcom/android/server/wm/WindowState;
+    .end local v1    # "stack":Lcom/android/server/wm/TaskStack;
+    .end local v2    # "win":Lcom/android/server/wm/WindowState;
     :cond_1
     return-void
 .end method
 
 .method stackIdFromPoint(II)I
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 381
@@ -2290,7 +2290,7 @@
     check-cast v0, Lcom/android/server/wm/StackBox;
 
     .line 382
-    .local v0, topBox:Lcom/android/server/wm/StackBox;
+    .local v0, "topBox":Lcom/android/server/wm/StackBox;
     invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/StackBox;->stackIdFromPoint(II)I
 
     move-result v1
@@ -2311,7 +2311,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, stackBoxNdx:I
+    .local v0, "stackBoxNdx":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -2338,8 +2338,8 @@
 
 .method switchUserStacks(II)V
     .locals 5
-    .parameter "oldUserId"
-    .parameter "newUserId"
+    .param p1, "oldUserId"    # I
+    .param p2, "newUserId"    # I
 
     .prologue
     .line 400
@@ -2348,10 +2348,10 @@
     move-result-object v3
 
     .line 401
-    .local v3, windows:Lcom/android/server/wm/WindowList;
+    .local v3, "windows":Lcom/android/server/wm/WindowList;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     invoke-virtual {v3}, Lcom/android/server/wm/WindowList;->size()I
 
@@ -2367,7 +2367,7 @@
     check-cast v2, Lcom/android/server/wm/WindowState;
 
     .line 403
-    .local v2, win:Lcom/android/server/wm/WindowState;
+    .local v2, "win":Lcom/android/server/wm/WindowState;
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isHiddenFromUserLocked()Z
 
     move-result v4
@@ -2386,7 +2386,7 @@
     goto :goto_0
 
     .line 411
-    .end local v2           #win:Lcom/android/server/wm/WindowState;
+    .end local v2    # "win":Lcom/android/server/wm/WindowState;
     :cond_1
     iget-object v4, p0, Lcom/android/server/wm/DisplayContent;->mStackBoxes:Ljava/util/ArrayList;
 
@@ -2396,7 +2396,7 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    .local v1, stackBoxNdx:I
+    .local v1, "stackBoxNdx":I
     :goto_1
     if-ltz v1, :cond_2
 

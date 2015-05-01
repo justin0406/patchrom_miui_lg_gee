@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 54
@@ -77,7 +77,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -91,9 +91,9 @@
 
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 1
-    .parameter "text"
-    .parameter "cookie"
-    .parameter "sequence"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "cookie"    # I
+    .param p3, "sequence"    # I
 
     .prologue
     .line 45
@@ -171,8 +171,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 68

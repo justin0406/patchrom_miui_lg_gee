@@ -91,7 +91,7 @@
     const/4 v0, 0x0
 
     .line 262
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     iget-object v2, p0, Landroid/app/Application;->mActivityLifecycleCallbacks:Ljava/util/ArrayList;
 
     monitor-enter v2
@@ -139,7 +139,7 @@
     const/4 v0, 0x0
 
     .line 252
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     iget-object v2, p0, Landroid/app/Application;->mComponentCallbacks:Ljava/util/ArrayList;
 
     monitor-enter v2
@@ -183,7 +183,7 @@
 # virtual methods
 .method final attach(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 181
@@ -204,8 +204,8 @@
 
 .method dispatchActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 3
-    .parameter "activity"
-    .parameter "savedInstanceState"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 186
@@ -214,13 +214,13 @@
     move-result-object v0
 
     .line 187
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 188
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -239,14 +239,14 @@
     goto :goto_0
 
     .line 193
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivityDestroyed(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 242
@@ -255,13 +255,13 @@
     move-result-object v0
 
     .line 243
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 244
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -280,14 +280,14 @@
     goto :goto_0
 
     .line 248
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivityPaused(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 214
@@ -296,13 +296,13 @@
     move-result-object v0
 
     .line 215
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 216
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -321,14 +321,14 @@
     goto :goto_0
 
     .line 220
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivityResumed(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 205
@@ -337,13 +337,13 @@
     move-result-object v0
 
     .line 206
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 207
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -362,15 +362,15 @@
     goto :goto_0
 
     .line 211
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 3
-    .parameter "activity"
-    .parameter "outState"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 232
@@ -379,13 +379,13 @@
     move-result-object v0
 
     .line 233
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 234
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -404,14 +404,14 @@
     goto :goto_0
 
     .line 239
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivityStarted(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 196
@@ -420,13 +420,13 @@
     move-result-object v0
 
     .line 197
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 198
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -445,14 +445,14 @@
     goto :goto_0
 
     .line 202
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchActivityStopped(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 223
@@ -461,13 +461,13 @@
     move-result-object v0
 
     .line 224
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 225
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -486,15 +486,15 @@
     goto :goto_0
 
     .line 229
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method dispatchOnProvideAssistData(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 3
-    .parameter "activity"
-    .parameter "data"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 272
@@ -522,7 +522,7 @@
     move-result-object v0
 
     .line 277
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -533,7 +533,7 @@
     .line 279
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -552,8 +552,8 @@
     goto :goto_0
 
     .line 277
-    .end local v0           #callbacks:[Ljava/lang/Object;
-    .end local v1           #i:I
+    .end local v0    # "callbacks":[Ljava/lang/Object;
+    .end local v1    # "i":I
     :catchall_0
     move-exception v2
 
@@ -567,7 +567,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 3
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 105
@@ -576,13 +576,13 @@
     move-result-object v0
 
     .line 106
-    .local v0, callbacks:[Ljava/lang/Object;
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 107
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -601,76 +601,55 @@
     goto :goto_0
 
     .line 111
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public onCreate()V
-    .locals 3
+    .locals 0
 
     .prologue
-    :try_start_0
-    invoke-virtual {p0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/res/MiuiResources;
-
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/app/IActivityManager;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/content/res/MiuiResources;->initMiuiFontScale(Landroid/content/res/Configuration;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
+    .line 93
     return-void
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
 .end method
 
 .method public onLowMemory()V
     .locals 3
 
     .prologue
+    .line 114
     invoke-direct {p0}, Landroid/app/Application;->collectComponentCallbacks()[Ljava/lang/Object;
 
     move-result-object v0
 
-    .local v0, callbacks:[Ljava/lang/Object;
+    .line 115
+    .local v0, "callbacks":[Ljava/lang/Object;
     if-eqz v0, :cond_0
 
+    .line 116
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
     if-ge v1, v2, :cond_0
 
+    .line 117
     aget-object v2, v0, v1
 
     check-cast v2, Landroid/content/ComponentCallbacks;
 
     invoke-interface {v2}, Landroid/content/ComponentCallbacks;->onLowMemory()V
 
+    .line 116
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1           #i:I
+    .line 120
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
@@ -679,14 +658,13 @@
     .locals 0
 
     .prologue
-    .line 93
     .line 102
     return-void
 .end method
 
 .method public onTrimMemory(I)V
     .locals 4
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 123
@@ -695,13 +673,13 @@
     move-result-object v1
 
     .line 124
-    .local v1, callbacks:[Ljava/lang/Object;
+    .local v1, "callbacks":[Ljava/lang/Object;
     if-eqz v1, :cond_1
 
     .line 125
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     array-length v3, v1
 
@@ -711,7 +689,7 @@
     aget-object v0, v1, v2
 
     .line 127
-    .local v0, c:Ljava/lang/Object;
+    .local v0, "c":Ljava/lang/Object;
     instance-of v3, v0, Landroid/content/ComponentCallbacks2;
 
     if-eqz v3, :cond_0
@@ -719,7 +697,7 @@
     .line 128
     check-cast v0, Landroid/content/ComponentCallbacks2;
 
-    .end local v0           #c:Ljava/lang/Object;
+    .end local v0    # "c":Ljava/lang/Object;
     invoke-interface {v0, p1}, Landroid/content/ComponentCallbacks2;->onTrimMemory(I)V
 
     .line 125
@@ -729,14 +707,14 @@
     goto :goto_0
 
     .line 132
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/Application$ActivityLifecycleCallbacks;
 
     .prologue
     .line 147
@@ -769,7 +747,7 @@
 
 .method public registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
     .prologue
     .line 135
@@ -802,7 +780,7 @@
 
 .method public registerOnProvideAssistDataListener(Landroid/app/Application$OnProvideAssistDataListener;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/Application$OnProvideAssistDataListener;
 
     .prologue
     .line 159
@@ -846,7 +824,7 @@
 
 .method public unregisterActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/Application$ActivityLifecycleCallbacks;
 
     .prologue
     .line 153
@@ -879,7 +857,7 @@
 
 .method public unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
     .prologue
     .line 141
@@ -912,7 +890,7 @@
 
 .method public unregisterOnProvideAssistDataListener(Landroid/app/Application$OnProvideAssistDataListener;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/app/Application$OnProvideAssistDataListener;
 
     .prologue
     .line 168

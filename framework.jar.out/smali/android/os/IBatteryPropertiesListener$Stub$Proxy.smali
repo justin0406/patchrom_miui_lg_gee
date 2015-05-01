@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 68
@@ -51,7 +51,7 @@
 
 .method public batteryPropertiesChanged(Landroid/os/BatteryProperties;)V
     .locals 5
-    .parameter "props"
+    .param p1, "props"    # Landroid/os/BatteryProperties;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
     move-result-object v0
 
     .line 83
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.os.IBatteryPropertiesListener"
 

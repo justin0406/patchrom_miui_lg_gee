@@ -97,7 +97,7 @@
 
     const/4 v3, -0x1
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
@@ -172,7 +172,7 @@
 
 .method static synthetic access$1500(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -183,7 +183,7 @@
 
 .method static synthetic access$1600(Landroid/view/View$TransformationInfo;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -194,8 +194,8 @@
 
 .method static synthetic access$1602(Landroid/view/View$TransformationInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 2800
@@ -206,7 +206,7 @@
 
 .method static synthetic access$1700(Landroid/view/View$TransformationInfo;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -217,8 +217,8 @@
 
 .method static synthetic access$1702(Landroid/view/View$TransformationInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 2800
@@ -229,7 +229,7 @@
 
 .method static synthetic access$1800(Landroid/view/View$TransformationInfo;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -240,8 +240,8 @@
 
 .method static synthetic access$1802(Landroid/view/View$TransformationInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 2800
@@ -252,7 +252,7 @@
 
 .method static synthetic access$1900(Landroid/view/View$TransformationInfo;)Landroid/graphics/Camera;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -263,8 +263,8 @@
 
 .method static synthetic access$1902(Landroid/view/View$TransformationInfo;Landroid/graphics/Camera;)Landroid/graphics/Camera;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # Landroid/graphics/Camera;
 
     .prologue
     .line 2800
@@ -275,7 +275,7 @@
 
 .method static synthetic access$2000(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -286,8 +286,8 @@
 
 .method static synthetic access$2002(Landroid/view/View$TransformationInfo;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 2800
@@ -298,7 +298,7 @@
 
 .method static synthetic access$2100(Landroid/view/View$TransformationInfo;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -309,8 +309,8 @@
 
 .method static synthetic access$2102(Landroid/view/View$TransformationInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 2800
@@ -321,7 +321,7 @@
 
 .method static synthetic access$2200(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
 
     .prologue
     .line 2800
@@ -332,8 +332,8 @@
 
 .method static synthetic access$2202(Landroid/view/View$TransformationInfo;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/View$TransformationInfo;
+    .param p1, "x1"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 2800

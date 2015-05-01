@@ -25,10 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/Watchdog;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 425

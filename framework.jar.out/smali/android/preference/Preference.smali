@@ -87,8 +87,6 @@
 
 .field private mPreferenceManager:Landroid/preference/PreferenceManager;
 
-.field mPreferenceParent:Landroid/preference/PreferenceGroup;
-
 .field private mRequiresKey:Z
 
 .field private mSelectable:Z
@@ -107,7 +105,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 309
@@ -121,8 +119,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 300
@@ -136,9 +134,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 6
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -190,12 +188,12 @@
     move-result-object v0
 
     .line 215
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v2
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ltz v2, :cond_0
 
@@ -205,7 +203,7 @@
     move-result v1
 
     .line 217
-    .local v1, attr:I
+    .local v1, "attr":I
     packed-switch v1, :pswitch_data_0
 
     .line 215
@@ -372,7 +370,7 @@
     goto :goto_1
 
     .line 276
-    .end local v1           #attr:I
+    .end local v1    # "attr":I
     :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -448,7 +446,7 @@
     move-result v0
 
     .line 1340
-    .local v0, shouldPersist:Z
+    .local v0, "shouldPersist":Z
     if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
@@ -518,7 +516,7 @@
     move-result-object v0
 
     .line 1160
-    .local v0, preference:Landroid/preference/Preference;
+    .local v0, "preference":Landroid/preference/Preference;
     if-eqz v0, :cond_1
 
     .line 1161
@@ -587,7 +585,7 @@
 
 .method private registerDependent(Landroid/preference/Preference;)V
     .locals 1
-    .parameter "dependent"
+    .param p1, "dependent"    # Landroid/preference/Preference;
 
     .prologue
     .line 1205
@@ -621,8 +619,8 @@
 
 .method private setEnabledStateOnViews(Landroid/view/View;Z)V
     .locals 3
-    .parameter "v"
-    .parameter "enabled"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "enabled"    # Z
 
     .prologue
     .line 555
@@ -639,14 +637,14 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 559
-    .local v1, vg:Landroid/view/ViewGroup;
+    .local v1, "vg":Landroid/view/ViewGroup;
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v2
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -663,15 +661,15 @@
     goto :goto_0
 
     .line 563
-    .end local v0           #i:I
-    .end local v1           #vg:Landroid/view/ViewGroup;
+    .end local v0    # "i":I
+    .end local v1    # "vg":Landroid/view/ViewGroup;
     :cond_0
     return-void
 .end method
 
 .method private tryCommit(Landroid/content/SharedPreferences$Editor;)V
     .locals 2
-    .parameter "editor"
+    .param p1, "editor"    # Landroid/content/SharedPreferences$Editor;
 
     .prologue
     .line 1370
@@ -699,7 +697,7 @@
     move-exception v0
 
     .line 1377
-    .local v0, unused:Ljava/lang/AbstractMethodError;
+    .local v0, "unused":Ljava/lang/AbstractMethodError;
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     goto :goto_0
@@ -722,21 +720,21 @@
     move-result-object v0
 
     .line 1171
-    .local v0, oldDependency:Landroid/preference/Preference;
+    .local v0, "oldDependency":Landroid/preference/Preference;
     if-eqz v0, :cond_0
 
     .line 1172
     invoke-direct {v0, p0}, Landroid/preference/Preference;->unregisterDependent(Landroid/preference/Preference;)V
 
     .line 1175
-    .end local v0           #oldDependency:Landroid/preference/Preference;
+    .end local v0    # "oldDependency":Landroid/preference/Preference;
     :cond_0
     return-void
 .end method
 
 .method private unregisterDependent(Landroid/preference/Preference;)V
     .locals 1
-    .parameter "dependent"
+    .param p1, "dependent"    # Landroid/preference/Preference;
 
     .prologue
     .line 1223
@@ -758,7 +756,7 @@
 # virtual methods
 .method protected callChangeListener(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "newValue"
+    .param p1, "newValue"    # Ljava/lang/Object;
 
     .prologue
     .line 897
@@ -793,7 +791,7 @@
 
 .method public compareTo(Landroid/preference/Preference;)I
     .locals 2
-    .parameter "another"
+    .param p1, "another"    # Landroid/preference/Preference;
 
     .prologue
     .line 1074
@@ -864,13 +862,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 80
     check-cast p1, Landroid/preference/Preference;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/preference/Preference;->compareTo(Landroid/preference/Preference;)I
 
     move-result v0
@@ -880,7 +878,7 @@
 
 .method dispatchRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "container"
+    .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
     .line 1776
@@ -898,7 +896,7 @@
     move-result-object v0
 
     .line 1778
-    .local v0, state:Landroid/os/Parcelable;
+    .local v0, "state":Landroid/os/Parcelable;
     if-eqz v0, :cond_0
 
     .line 1779
@@ -924,14 +922,14 @@
     throw v1
 
     .line 1787
-    .end local v0           #state:Landroid/os/Parcelable;
+    .end local v0    # "state":Landroid/os/Parcelable;
     :cond_0
     return-void
 .end method
 
 .method dispatchSaveInstanceState(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "container"
+    .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
     .line 1723
@@ -952,7 +950,7 @@
     move-result-object v0
 
     .line 1726
-    .local v0, state:Landroid/os/Parcelable;
+    .local v0, "state":Landroid/os/Parcelable;
     iget-boolean v1, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
     if-nez v1, :cond_0
@@ -976,14 +974,14 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 1734
-    .end local v0           #state:Landroid/os/Parcelable;
+    .end local v0    # "state":Landroid/os/Parcelable;
     :cond_1
     return-void
 .end method
 
 .method protected findPreferenceInHierarchy(Ljava/lang/String;)Landroid/preference/Preference;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1188
@@ -1096,13 +1094,13 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1685
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
     .line 1686
-    .local v2, title:Ljava/lang/CharSequence;
+    .local v2, "title":Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -1123,7 +1121,7 @@
     move-result-object v1
 
     .line 1690
-    .local v1, summary:Ljava/lang/CharSequence;
+    .local v1, "summary":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -1251,7 +1249,7 @@
 
 .method protected getPersistedBoolean(Z)Z
     .locals 2
-    .parameter "defaultReturnValue"
+    .param p1, "defaultReturnValue"    # Z
 
     .prologue
     .line 1656
@@ -1262,11 +1260,11 @@
     if-nez v0, :cond_0
 
     .line 1660
-    .end local p1
+    .end local p1    # "defaultReturnValue":Z
     :goto_0
     return p1
 
-    .restart local p1
+    .restart local p1    # "defaultReturnValue":Z
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1285,7 +1283,7 @@
 
 .method protected getPersistedFloat(F)F
     .locals 2
-    .parameter "defaultReturnValue"
+    .param p1, "defaultReturnValue"    # F
 
     .prologue
     .line 1568
@@ -1296,11 +1294,11 @@
     if-nez v0, :cond_0
 
     .line 1572
-    .end local p1
+    .end local p1    # "defaultReturnValue":F
     :goto_0
     return p1
 
-    .restart local p1
+    .restart local p1    # "defaultReturnValue":F
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1319,7 +1317,7 @@
 
 .method protected getPersistedInt(I)I
     .locals 2
-    .parameter "defaultReturnValue"
+    .param p1, "defaultReturnValue"    # I
 
     .prologue
     .line 1524
@@ -1330,11 +1328,11 @@
     if-nez v0, :cond_0
 
     .line 1528
-    .end local p1
+    .end local p1    # "defaultReturnValue":I
     :goto_0
     return p1
 
-    .restart local p1
+    .restart local p1    # "defaultReturnValue":I
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1353,7 +1351,7 @@
 
 .method protected getPersistedLong(J)J
     .locals 2
-    .parameter "defaultReturnValue"
+    .param p1, "defaultReturnValue"    # J
 
     .prologue
     .line 1612
@@ -1364,11 +1362,11 @@
     if-nez v0, :cond_0
 
     .line 1616
-    .end local p1
+    .end local p1    # "defaultReturnValue":J
     :goto_0
     return-wide p1
 
-    .restart local p1
+    .restart local p1    # "defaultReturnValue":J
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1387,7 +1385,7 @@
 
 .method protected getPersistedString(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "defaultReturnValue"
+    .param p1, "defaultReturnValue"    # Ljava/lang/String;
 
     .prologue
     .line 1425
@@ -1398,11 +1396,11 @@
     if-nez v0, :cond_0
 
     .line 1429
-    .end local p1
+    .end local p1    # "defaultReturnValue":Ljava/lang/String;
     :goto_0
     return-object p1
 
-    .restart local p1
+    .restart local p1    # "defaultReturnValue":Ljava/lang/String;
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1421,7 +1419,6 @@
 
 .method protected getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1438,7 +1435,7 @@
 
     .prologue
     .line 1480
-    .local p1, defaultReturnValue:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p1, "defaultReturnValue":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
@@ -1446,11 +1443,11 @@
     if-nez v0, :cond_0
 
     .line 1484
-    .end local p1           #defaultReturnValue:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .end local p1    # "defaultReturnValue":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :goto_0
     return-object p1
 
-    .restart local p1       #defaultReturnValue:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local p1    # "defaultReturnValue":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1545,8 +1542,8 @@
 
 .method public getView(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "convertView"    # Landroid/view/View;
+    .param p2, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 459
@@ -1668,14 +1665,14 @@
 
 .method public notifyDependencyChange(Z)V
     .locals 4
-    .parameter "disableDependents"
+    .param p1, "disableDependents"    # Z
 
     .prologue
     .line 1236
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
     .line 1238
-    .local v0, dependents:Ljava/util/List;,"Ljava/util/List<Landroid/preference/Preference;>;"
+    .local v0, "dependents":Ljava/util/List;, "Ljava/util/List<Landroid/preference/Preference;>;"
     if-nez v0, :cond_1
 
     .line 1246
@@ -1689,10 +1686,10 @@
     move-result v1
 
     .line 1243
-    .local v1, dependentsCount:I
+    .local v1, "dependentsCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
@@ -1743,7 +1740,7 @@
 
 .method protected onAttachedToHierarchy(Landroid/preference/PreferenceManager;)V
     .locals 2
-    .parameter "preferenceManager"
+    .param p1, "preferenceManager"    # Landroid/preference/PreferenceManager;
 
     .prologue
     .line 1136
@@ -1765,14 +1762,12 @@
 
 .method protected onBindView(Landroid/view/View;)V
     .locals 9
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     const/16 v6, 0x8
 
     const/4 v5, 0x0
-
-    invoke-static {p0, p1}, Landroid/preference/Injector$PreferenceHook;->before_onBindView(Landroid/preference/Preference;Landroid/view/View;)V
 
     .line 509
     const v7, 0x1020016
@@ -1784,7 +1779,7 @@
     check-cast v4, Landroid/widget/TextView;
 
     .line 511
-    .local v4, titleView:Landroid/widget/TextView;
+    .local v4, "titleView":Landroid/widget/TextView;
     if-eqz v4, :cond_0
 
     .line 512
@@ -1793,7 +1788,7 @@
     move-result-object v3
 
     .line 513
-    .local v3, title:Ljava/lang/CharSequence;
+    .local v3, "title":Ljava/lang/CharSequence;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
@@ -1807,7 +1802,7 @@
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 521
-    .end local v3           #title:Ljava/lang/CharSequence;
+    .end local v3    # "title":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     const v7, 0x1020010
@@ -1819,7 +1814,7 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 523
-    .local v2, summaryView:Landroid/widget/TextView;
+    .local v2, "summaryView":Landroid/widget/TextView;
     if-eqz v2, :cond_1
 
     .line 524
@@ -1828,7 +1823,7 @@
     move-result-object v1
 
     .line 525
-    .local v1, summary:Ljava/lang/CharSequence;
+    .local v1, "summary":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
@@ -1842,7 +1837,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 533
-    .end local v1           #summary:Ljava/lang/CharSequence;
+    .end local v1    # "summary":Ljava/lang/CharSequence;
     :cond_1
     :goto_1
     const v7, 0x1020006
@@ -1854,7 +1849,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 534
-    .local v0, imageView:Landroid/widget/ImageView;
+    .local v0, "imageView":Landroid/widget/ImageView;
     if-eqz v0, :cond_5
 
     .line 535
@@ -1927,25 +1922,25 @@
     return-void
 
     .line 517
-    .end local v0           #imageView:Landroid/widget/ImageView;
-    .end local v2           #summaryView:Landroid/widget/TextView;
-    .restart local v3       #title:Ljava/lang/CharSequence;
+    .end local v0    # "imageView":Landroid/widget/ImageView;
+    .end local v2    # "summaryView":Landroid/widget/TextView;
+    .restart local v3    # "title":Ljava/lang/CharSequence;
     :cond_7
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 
     .line 529
-    .end local v3           #title:Ljava/lang/CharSequence;
-    .restart local v1       #summary:Ljava/lang/CharSequence;
-    .restart local v2       #summaryView:Landroid/widget/TextView;
+    .end local v3    # "title":Ljava/lang/CharSequence;
+    .restart local v1    # "summary":Ljava/lang/CharSequence;
+    .restart local v2    # "summaryView":Landroid/widget/TextView;
     :cond_8
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
-    .end local v1           #summary:Ljava/lang/CharSequence;
-    .restart local v0       #imageView:Landroid/widget/ImageView;
+    .end local v1    # "summary":Ljava/lang/CharSequence;
+    .restart local v0    # "imageView":Landroid/widget/ImageView;
     :cond_9
     move v5, v6
 
@@ -1963,7 +1958,7 @@
 
 .method protected onCreateView(Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 5
-    .parameter "parent"
+    .param p1, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 480
@@ -1978,7 +1973,7 @@
     check-cast v1, Landroid/view/LayoutInflater;
 
     .line 483
-    .local v1, layoutInflater:Landroid/view/LayoutInflater;
+    .local v1, "layoutInflater":Landroid/view/LayoutInflater;
     iget v3, p0, Landroid/preference/Preference;->mLayoutResId:I
 
     const/4 v4, 0x0
@@ -1988,7 +1983,7 @@
     move-result-object v0
 
     .line 485
-    .local v0, layout:Landroid/view/View;
+    .local v0, "layout":Landroid/view/View;
     const v3, 0x1020018
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1998,7 +1993,7 @@
     check-cast v2, Landroid/view/ViewGroup;
 
     .line 487
-    .local v2, widgetFrame:Landroid/view/ViewGroup;
+    .local v2, "widgetFrame":Landroid/view/ViewGroup;
     if-eqz v2, :cond_0
 
     .line 488
@@ -2027,8 +2022,8 @@
 
 .method public onDependencyChanged(Landroid/preference/Preference;Z)V
     .locals 1
-    .parameter "dependency"
-    .parameter "disableDependent"
+    .param p1, "dependency"    # Landroid/preference/Preference;
+    .param p2, "disableDependent"    # Z
 
     .prologue
     .line 1255
@@ -2067,8 +2062,8 @@
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 326
@@ -2079,9 +2074,9 @@
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 982
@@ -2092,8 +2087,8 @@
 
 .method public onParentChanged(Landroid/preference/Preference;Z)V
     .locals 1
-    .parameter "parent"
-    .parameter "disableChild"
+    .param p1, "parent"    # Landroid/preference/Preference;
+    .param p2, "disableChild"    # Z
 
     .prologue
     .line 1272
@@ -2143,7 +2138,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 1800
@@ -2189,8 +2184,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 0
-    .parameter "restorePersistedValue"
-    .parameter "defaultValue"
+    .param p1, "restorePersistedValue"    # Z
+    .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 1367
@@ -2209,7 +2204,7 @@
 
 .method public performClick(Landroid/preference/PreferenceScreen;)V
     .locals 4
-    .parameter "preferenceScreen"
+    .param p1, "preferenceScreen"    # Landroid/preference/PreferenceScreen;
 
     .prologue
     .line 948
@@ -2248,7 +2243,7 @@
     move-result-object v2
 
     .line 959
-    .local v2, preferenceManager:Landroid/preference/PreferenceManager;
+    .local v2, "preferenceManager":Landroid/preference/PreferenceManager;
     if-eqz v2, :cond_3
 
     .line 960
@@ -2257,7 +2252,7 @@
     move-result-object v1
 
     .line 962
-    .local v1, listener:Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
+    .local v1, "listener":Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
     if-eqz p1, :cond_3
 
     if-eqz v1, :cond_3
@@ -2269,7 +2264,7 @@
     if-nez v3, :cond_0
 
     .line 968
-    .end local v1           #listener:Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
+    .end local v1    # "listener":Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
     :cond_3
     iget-object v3, p0, Landroid/preference/Preference;->mIntent:Landroid/content/Intent;
 
@@ -2281,7 +2276,7 @@
     move-result-object v0
 
     .line 970
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     iget-object v3, p0, Landroid/preference/Preference;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
@@ -2291,7 +2286,7 @@
 
 .method protected persistBoolean(Z)Z
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -2330,7 +2325,7 @@
     move-result-object v0
 
     .line 1637
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
@@ -2340,7 +2335,7 @@
 
     goto :goto_0
 
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_2
     move v2, v1
 
@@ -2350,7 +2345,7 @@
 
 .method protected persistFloat(F)Z
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # F
 
     .prologue
     const/4 v1, 0x1
@@ -2363,7 +2358,7 @@
     if-eqz v2, :cond_1
 
     .line 1543
-    const/high16 v2, 0x7fc0
+    const/high16 v2, 0x7fc00000    # NaNf
 
     invoke-virtual {p0, v2}, Landroid/preference/Preference;->getPersistedFloat(F)F
 
@@ -2386,7 +2381,7 @@
     move-result-object v0
 
     .line 1549
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putFloat(Ljava/lang/String;F)Landroid/content/SharedPreferences$Editor;
@@ -2397,7 +2392,7 @@
     goto :goto_0
 
     .line 1553
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
 
@@ -2406,7 +2401,7 @@
 
 .method protected persistInt(I)Z
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -2440,7 +2435,7 @@
     move-result-object v0
 
     .line 1505
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
@@ -2451,7 +2446,7 @@
     goto :goto_0
 
     .line 1509
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
 
@@ -2460,7 +2455,7 @@
 
 .method protected persistLong(J)Z
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # J
 
     .prologue
     const/4 v1, 0x1
@@ -2498,7 +2493,7 @@
     move-result-object v0
 
     .line 1593
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v2, p1, p2}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
@@ -2509,7 +2504,7 @@
     goto :goto_0
 
     .line 1597
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
 
@@ -2518,7 +2513,7 @@
 
 .method protected persistString(Ljava/lang/String;)Z
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -2552,7 +2547,7 @@
     move-result-object v0
 
     .line 1404
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
@@ -2563,7 +2558,7 @@
     goto :goto_0
 
     .line 1408
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
 
@@ -2572,7 +2567,6 @@
 
 .method protected persistStringSet(Ljava/util/Set;)Z
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2584,7 +2578,7 @@
     .end annotation
 
     .prologue
-    .local p1, values:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p1, "values":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v1, 0x1
 
     .line 1448
@@ -2620,7 +2614,7 @@
     move-result-object v0
 
     .line 1456
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
@@ -2631,7 +2625,7 @@
     goto :goto_0
 
     .line 1460
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
 
@@ -2668,7 +2662,7 @@
 
 .method public restoreHierarchyState(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "container"
+    .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
     .line 1762
@@ -2680,7 +2674,7 @@
 
 .method public saveHierarchyState(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "container"
+    .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
     .line 1709
@@ -2692,7 +2686,7 @@
 
 .method public setDefaultValue(Ljava/lang/Object;)V
     .locals 0
-    .parameter "defaultValue"
+    .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 1334
@@ -2704,7 +2698,7 @@
 
 .method public setDependency(Ljava/lang/String;)V
     .locals 0
-    .parameter "dependencyKey"
+    .param p1, "dependencyKey"    # Ljava/lang/String;
 
     .prologue
     .line 1300
@@ -2722,7 +2716,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 722
@@ -2750,7 +2744,7 @@
 
 .method public setFragment(Ljava/lang/String;)V
     .locals 0
-    .parameter "fragment"
+    .param p1, "fragment"    # Ljava/lang/String;
 
     .prologue
     .line 354
@@ -2762,7 +2756,7 @@
 
 .method public setIcon(I)V
     .locals 1
-    .parameter "iconResId"
+    .param p1, "iconResId"    # I
 
     .prologue
     .line 669
@@ -2787,7 +2781,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 655
@@ -2818,7 +2812,7 @@
 
 .method public setIntent(Landroid/content/Intent;)V
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 336
@@ -2830,7 +2824,7 @@
 
 .method public setKey(Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 813
@@ -2857,7 +2851,7 @@
 
 .method public setLayoutResource(I)V
     .locals 1
-    .parameter "layoutResId"
+    .param p1, "layoutResId"    # I
 
     .prologue
     .line 401
@@ -2880,7 +2874,7 @@
 
 .method final setOnPreferenceChangeInternalListener(Landroid/preference/Preference$OnPreferenceChangeInternalListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     .prologue
     .line 1097
@@ -2892,7 +2886,7 @@
 
 .method public setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
     .locals 0
-    .parameter "onPreferenceChangeListener"
+    .param p1, "onPreferenceChangeListener"    # Landroid/preference/Preference$OnPreferenceChangeListener;
 
     .prologue
     .line 907
@@ -2904,7 +2898,7 @@
 
 .method public setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
     .locals 0
-    .parameter "onPreferenceClickListener"
+    .param p1, "onPreferenceClickListener"    # Landroid/preference/Preference$OnPreferenceClickListener;
 
     .prologue
     .line 926
@@ -2916,7 +2910,7 @@
 
 .method public setOrder(I)V
     .locals 1
-    .parameter "order"
+    .param p1, "order"    # I
 
     .prologue
     .line 579
@@ -2935,19 +2929,9 @@
     return-void
 .end method
 
-.method public setParent(Landroid/preference/PreferenceGroup;)V
-    .locals 0
-    .parameter "parent"
-
-    .prologue
-    iput-object p1, p0, Landroid/preference/Preference;->mPreferenceParent:Landroid/preference/PreferenceGroup;
-
-    return-void
-.end method
-
 .method public setPersistent(Z)V
     .locals 0
-    .parameter "persistent"
+    .param p1, "persistent"    # Z
 
     .prologue
     .line 885
@@ -2959,7 +2943,7 @@
 
 .method public setSelectable(Z)V
     .locals 1
-    .parameter "selectable"
+    .param p1, "selectable"    # Z
 
     .prologue
     .line 747
@@ -2980,7 +2964,7 @@
 
 .method public setShouldDisableView(Z)V
     .locals 0
-    .parameter "shouldDisableView"
+    .param p1, "shouldDisableView"    # Z
 
     .prologue
     .line 774
@@ -2995,7 +2979,7 @@
 
 .method public setSummary(I)V
     .locals 1
-    .parameter "summaryResId"
+    .param p1, "summaryResId"    # I
 
     .prologue
     .line 712
@@ -3013,7 +2997,7 @@
 
 .method public setSummary(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "summary"
+    .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 699
@@ -3048,7 +3032,7 @@
 
 .method public setTitle(I)V
     .locals 1
-    .parameter "titleResId"
+    .param p1, "titleResId"    # I
 
     .prologue
     .line 621
@@ -3069,7 +3053,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 607
@@ -3109,7 +3093,7 @@
 
 .method public setWidgetLayoutResource(I)V
     .locals 1
-    .parameter "widgetLayoutResId"
+    .param p1, "widgetLayoutResId"    # I
 
     .prologue
     .line 429

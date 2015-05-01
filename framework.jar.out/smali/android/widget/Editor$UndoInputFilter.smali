@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/Editor;)V
     .locals 0
-    .parameter "editor"
+    .param p1, "editor"    # Landroid/widget/Editor;
 
     .prologue
     .line 3918
@@ -41,12 +41,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 8
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -59,7 +59,7 @@
     iget-object v2, v3, Landroid/widget/Editor;->mUndoManager:Landroid/content/UndoManager;
 
     .line 3930
-    .local v2, um:Landroid/content/UndoManager;
+    .local v2, "um":Landroid/content/UndoManager;
     invoke-virtual {v2}, Landroid/content/UndoManager;->isInUndo()Z
 
     move-result v3
@@ -92,7 +92,7 @@
     check-cast v0, Landroid/widget/Editor$TextModifyOperation;
 
     .line 3938
-    .local v0, op:Landroid/widget/Editor$TextModifyOperation;
+    .local v0, "op":Landroid/widget/Editor$TextModifyOperation;
     if-eqz v0, :cond_6
 
     .line 3942
@@ -156,7 +156,7 @@
     check-cast v1, Landroid/text/SpannableStringBuilder;
 
     .line 3963
-    .local v1, str:Landroid/text/SpannableStringBuilder;
+    .local v1, "str":Landroid/text/SpannableStringBuilder;
     :goto_1
     invoke-virtual {v1, v7, p4, p5, p6}, Landroid/text/SpannableStringBuilder;->insert(ILjava/lang/CharSequence;II)Landroid/text/SpannableStringBuilder;
 
@@ -172,7 +172,7 @@
     goto :goto_0
 
     .line 3961
-    .end local v1           #str:Landroid/text/SpannableStringBuilder;
+    .end local v1    # "str":Landroid/text/SpannableStringBuilder;
     :cond_4
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
@@ -180,11 +180,11 @@
 
     invoke-direct {v1, v3}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .restart local v1       #str:Landroid/text/SpannableStringBuilder;
+    .restart local v1    # "str":Landroid/text/SpannableStringBuilder;
     goto :goto_1
 
     .line 3976
-    .end local v1           #str:Landroid/text/SpannableStringBuilder;
+    .end local v1    # "str":Landroid/text/SpannableStringBuilder;
     :cond_5
     invoke-virtual {v2, v6}, Landroid/content/UndoManager;->commitState(Landroid/content/UndoOwner;)I
 
@@ -197,7 +197,7 @@
     :cond_6
     new-instance v0, Landroid/widget/Editor$TextModifyOperation;
 
-    .end local v0           #op:Landroid/widget/Editor$TextModifyOperation;
+    .end local v0    # "op":Landroid/widget/Editor$TextModifyOperation;
     iget-object v3, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
     iget-object v3, v3, Landroid/widget/Editor;->mUndoOwner:Landroid/content/UndoOwner;
@@ -205,7 +205,7 @@
     invoke-direct {v0, v3}, Landroid/widget/Editor$TextModifyOperation;-><init>(Landroid/content/UndoOwner;)V
 
     .line 3982
-    .restart local v0       #op:Landroid/widget/Editor$TextModifyOperation;
+    .restart local v0    # "op":Landroid/widget/Editor$TextModifyOperation;
     iput p5, v0, Landroid/widget/Editor$TextModifyOperation;->mRangeStart:I
 
     .line 3983

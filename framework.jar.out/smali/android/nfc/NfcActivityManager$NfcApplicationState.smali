@@ -25,8 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/NfcActivityManager;Landroid/app/Application;)V
     .locals 1
-    .parameter
-    .parameter "app"
+    .param p2, "app"    # Landroid/app/Application;
 
     .prologue
     .line 58

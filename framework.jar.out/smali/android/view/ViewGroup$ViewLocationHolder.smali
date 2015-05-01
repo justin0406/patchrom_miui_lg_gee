@@ -106,15 +106,15 @@
 
 .method private init(Landroid/view/ViewGroup;Landroid/view/View;)V
     .locals 2
-    .parameter "root"
-    .parameter "view"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     .line 6721
     iget-object v0, p0, Landroid/view/ViewGroup$ViewLocationHolder;->mLocation:Landroid/graphics/Rect;
 
     .line 6722
-    .local v0, viewLocation:Landroid/graphics/Rect;
+    .local v0, "viewLocation":Landroid/graphics/Rect;
     invoke-virtual {p2, v0}, Landroid/view/View;->getDrawingRect(Landroid/graphics/Rect;)V
 
     .line 6723
@@ -136,8 +136,8 @@
 
 .method public static obtain(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/ViewGroup$ViewLocationHolder;
     .locals 2
-    .parameter "root"
-    .parameter "view"
+    .param p0, "root"    # Landroid/view/ViewGroup;
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 6656
@@ -150,17 +150,17 @@
     check-cast v0, Landroid/view/ViewGroup$ViewLocationHolder;
 
     .line 6657
-    .local v0, holder:Landroid/view/ViewGroup$ViewLocationHolder;
+    .local v0, "holder":Landroid/view/ViewGroup$ViewLocationHolder;
     if-nez v0, :cond_0
 
     .line 6658
     new-instance v0, Landroid/view/ViewGroup$ViewLocationHolder;
 
-    .end local v0           #holder:Landroid/view/ViewGroup$ViewLocationHolder;
+    .end local v0    # "holder":Landroid/view/ViewGroup$ViewLocationHolder;
     invoke-direct {v0}, Landroid/view/ViewGroup$ViewLocationHolder;-><init>()V
 
     .line 6660
-    .restart local v0       #holder:Landroid/view/ViewGroup$ViewLocationHolder;
+    .restart local v0    # "holder":Landroid/view/ViewGroup$ViewLocationHolder;
     :cond_0
     invoke-direct {v0, p0, p1}, Landroid/view/ViewGroup$ViewLocationHolder;->init(Landroid/view/ViewGroup;Landroid/view/View;)V
 
@@ -172,7 +172,7 @@
 # virtual methods
 .method public compareTo(Landroid/view/ViewGroup$ViewLocationHolder;)I
     .locals 7
-    .parameter "another"
+    .param p1, "another"    # Landroid/view/ViewGroup$ViewLocationHolder;
 
     .prologue
     const/4 v1, 0x1
@@ -246,11 +246,11 @@
     sub-int v1, v5, v6
 
     .line 6690
-    .local v1, leftDifference:I
+    .local v1, "leftDifference":I
     if-nez v1, :cond_0
 
     .line 6701
-    .end local v1           #leftDifference:I
+    .end local v1    # "leftDifference":I
     :cond_3
     iget-object v5, p0, Landroid/view/ViewGroup$ViewLocationHolder;->mLocation:Landroid/graphics/Rect;
 
@@ -263,7 +263,7 @@
     sub-int v3, v5, v6
 
     .line 6702
-    .local v3, topDiference:I
+    .local v3, "topDiference":I
     if-eqz v3, :cond_5
 
     move v1, v3
@@ -272,7 +272,7 @@
     goto :goto_0
 
     .line 6694
-    .end local v3           #topDiference:I
+    .end local v3    # "topDiference":I
     :cond_4
     iget-object v5, p0, Landroid/view/ViewGroup$ViewLocationHolder;->mLocation:Landroid/graphics/Rect;
 
@@ -285,7 +285,7 @@
     sub-int v2, v5, v6
 
     .line 6696
-    .local v2, rightDifference:I
+    .local v2, "rightDifference":I
     if-eqz v2, :cond_3
 
     .line 6697
@@ -294,8 +294,8 @@
     goto :goto_0
 
     .line 6706
-    .end local v2           #rightDifference:I
-    .restart local v3       #topDiference:I
+    .end local v2    # "rightDifference":I
+    .restart local v3    # "topDiference":I
     :cond_5
     iget-object v5, p0, Landroid/view/ViewGroup$ViewLocationHolder;->mLocation:Landroid/graphics/Rect;
 
@@ -312,7 +312,7 @@
     sub-int v0, v5, v6
 
     .line 6707
-    .local v0, heightDiference:I
+    .local v0, "heightDiference":I
     if-eqz v0, :cond_6
 
     .line 6708
@@ -337,7 +337,7 @@
     sub-int v4, v5, v6
 
     .line 6712
-    .local v4, widthDiference:I
+    .local v4, "widthDiference":I
     if-eqz v4, :cond_7
 
     .line 6713
@@ -366,13 +366,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 6642
     check-cast p1, Landroid/view/ViewGroup$ViewLocationHolder;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup$ViewLocationHolder;->compareTo(Landroid/view/ViewGroup$ViewLocationHolder;)I
 
     move-result v0

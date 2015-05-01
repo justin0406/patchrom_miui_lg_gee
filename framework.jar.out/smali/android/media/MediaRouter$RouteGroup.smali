@@ -32,7 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteCategory;)V
     .locals 1
-    .parameter "category"
+    .param p1, "category"    # Landroid/media/MediaRouter$RouteCategory;
 
     .prologue
     .line 2222
@@ -61,7 +61,7 @@
 # virtual methods
 .method public addRoute(Landroid/media/MediaRouter$RouteInfo;)V
     .locals 4
-    .parameter "route"
+    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2239
@@ -168,7 +168,7 @@
     move-result v0
 
     .line 2249
-    .local v0, at:I
+    .local v0, "at":I
     iget-object v1, p0, Landroid/media/MediaRouter$RouteGroup;->mRoutes:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -196,8 +196,8 @@
 
 .method public addRoute(Landroid/media/MediaRouter$RouteInfo;I)V
     .locals 3
-    .parameter "route"
-    .parameter "insertAt"
+    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p2, "insertAt"    # I
 
     .prologue
     .line 2264
@@ -324,7 +324,7 @@
 
 .method getName(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 2229
@@ -345,7 +345,7 @@
 
 .method public getRouteAt(I)Landroid/media/MediaRouter$RouteInfo;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 2327
@@ -376,8 +376,8 @@
 
 .method memberNameChanged(Landroid/media/MediaRouter$RouteInfo;Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "info"
-    .parameter "name"
+    .param p1, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p2, "name"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2394
@@ -394,8 +394,8 @@
 
 .method memberStatusChanged(Landroid/media/MediaRouter$RouteInfo;Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "info"
-    .parameter "status"
+    .param p1, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p2, "status"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2399
@@ -407,7 +407,7 @@
 
 .method memberVolumeChanged(Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "info"
+    .param p1, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2403
@@ -419,7 +419,7 @@
 
 .method public removeRoute(I)V
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 2305
@@ -432,7 +432,7 @@
     check-cast v0, Landroid/media/MediaRouter$RouteInfo;
 
     .line 2306
-    .local v0, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v0, "route":Landroid/media/MediaRouter$RouteInfo;
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/media/MediaRouter$RouteInfo;->mGroup:Landroid/media/MediaRouter$RouteGroup;
@@ -457,7 +457,7 @@
 
 .method public removeRoute(Landroid/media/MediaRouter$RouteInfo;)V
     .locals 3
-    .parameter "route"
+    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2287
@@ -529,7 +529,7 @@
 
 .method public requestSetVolume(I)V
     .locals 8
-    .parameter "volume"
+    .param p1, "volume"    # I
 
     .prologue
     .line 2352
@@ -538,7 +538,7 @@
     move-result v1
 
     .line 2353
-    .local v1, maxVol:I
+    .local v1, "maxVol":I
     if-nez v1, :cond_1
 
     .line 2368
@@ -555,16 +555,16 @@
     div-float v5, v6, v7
 
     .line 2358
-    .local v5, scaledVolume:F
+    .local v5, "scaledVolume":F
     invoke-virtual {p0}, Landroid/media/MediaRouter$RouteGroup;->getRouteCount()I
 
     move-result v3
 
     .line 2359
-    .local v3, routeCount:I
+    .local v3, "routeCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v3, :cond_2
 
@@ -574,7 +574,7 @@
     move-result-object v2
 
     .line 2361
-    .local v2, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v2, "route":Landroid/media/MediaRouter$RouteInfo;
     invoke-virtual {v2}, Landroid/media/MediaRouter$RouteInfo;->getVolumeMax()I
 
     move-result v6
@@ -586,7 +586,7 @@
     float-to-int v4, v6
 
     .line 2362
-    .local v4, routeVol:I
+    .local v4, "routeVol":I
     invoke-virtual {v2, v4}, Landroid/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
 
     .line 2359
@@ -595,8 +595,8 @@
     goto :goto_1
 
     .line 2364
-    .end local v2           #route:Landroid/media/MediaRouter$RouteInfo;
-    .end local v4           #routeVol:I
+    .end local v2    # "route":Landroid/media/MediaRouter$RouteInfo;
+    .end local v4    # "routeVol":I
     :cond_2
     iget v6, p0, Landroid/media/MediaRouter$RouteGroup;->mVolume:I
 
@@ -613,7 +613,7 @@
 
 .method public requestUpdateVolume(I)V
     .locals 7
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 2372
@@ -622,7 +622,7 @@
     move-result v1
 
     .line 2373
-    .local v1, maxVol:I
+    .local v1, "maxVol":I
     if-nez v1, :cond_1
 
     .line 2391
@@ -637,14 +637,14 @@
     move-result v3
 
     .line 2378
-    .local v3, routeCount:I
+    .local v3, "routeCount":I
     const/4 v5, 0x0
 
     .line 2379
-    .local v5, volume:I
+    .local v5, "volume":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v3, :cond_3
 
@@ -654,7 +654,7 @@
     move-result-object v2
 
     .line 2381
-    .local v2, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v2, "route":Landroid/media/MediaRouter$RouteInfo;
     invoke-virtual {v2, p1}, Landroid/media/MediaRouter$RouteInfo;->requestUpdateVolume(I)V
 
     .line 2382
@@ -663,7 +663,7 @@
     move-result v4
 
     .line 2383
-    .local v4, routeVol:I
+    .local v4, "routeVol":I
     if-le v4, v5, :cond_2
 
     .line 2384
@@ -676,8 +676,8 @@
     goto :goto_1
 
     .line 2387
-    .end local v2           #route:Landroid/media/MediaRouter$RouteInfo;
-    .end local v4           #routeVol:I
+    .end local v2    # "route":Landroid/media/MediaRouter$RouteInfo;
+    .end local v4    # "routeVol":I
     :cond_3
     iget v6, p0, Landroid/media/MediaRouter$RouteGroup;->mVolume:I
 
@@ -704,7 +704,7 @@
     const/4 v7, 0x0
 
     .line 2425
-    .local v7, types:I
+    .local v7, "types":I
     iget-object v8, p0, Landroid/media/MediaRouter$RouteGroup;->mRoutes:Ljava/util/ArrayList;
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
@@ -712,7 +712,7 @@
     move-result v0
 
     .line 2426
-    .local v0, count:I
+    .local v0, "count":I
     if-nez v0, :cond_0
 
     .line 2428
@@ -727,18 +727,18 @@
     const/4 v4, 0x0
 
     .line 2433
-    .local v4, maxVolume:I
+    .local v4, "maxVolume":I
     const/4 v3, 0x1
 
     .line 2434
-    .local v3, isLocal:Z
+    .local v3, "isLocal":Z
     const/4 v2, 0x1
 
     .line 2435
-    .local v2, isFixedVolume:Z
+    .local v2, "isFixedVolume":Z
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_4
 
@@ -752,7 +752,7 @@
     check-cast v5, Landroid/media/MediaRouter$RouteInfo;
 
     .line 2437
-    .local v5, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v5, "route":Landroid/media/MediaRouter$RouteInfo;
     iget v8, v5, Landroid/media/MediaRouter$RouteInfo;->mSupportedTypes:I
 
     or-int/2addr v7, v8
@@ -763,7 +763,7 @@
     move-result v6
 
     .line 2439
-    .local v6, routeMaxVolume:I
+    .local v6, "routeMaxVolume":I
     if-le v6, v4, :cond_1
 
     .line 2440
@@ -812,8 +812,8 @@
     goto :goto_3
 
     .line 2445
-    .end local v5           #route:Landroid/media/MediaRouter$RouteInfo;
-    .end local v6           #routeMaxVolume:I
+    .end local v5    # "route":Landroid/media/MediaRouter$RouteInfo;
+    .end local v6    # "routeMaxVolume":I
     :cond_4
     if-eqz v3, :cond_5
 
@@ -880,7 +880,7 @@
 
 .method public setIconDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 2337
@@ -892,7 +892,7 @@
 
 .method public setIconResource(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 2347
@@ -924,7 +924,7 @@
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 2469
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     const/16 v3, 0x5b
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -937,10 +937,10 @@
     move-result v0
 
     .line 2471
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -990,7 +990,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 2455
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     iget-object v4, p0, Landroid/media/MediaRouter$RouteGroup;->mRoutes:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
@@ -998,10 +998,10 @@
     move-result v0
 
     .line 2456
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -1015,7 +1015,7 @@
     check-cast v2, Landroid/media/MediaRouter$RouteInfo;
 
     .line 2459
-    .local v2, info:Landroid/media/MediaRouter$RouteInfo;
+    .local v2, "info":Landroid/media/MediaRouter$RouteInfo;
     if-lez v1, :cond_0
 
     const-string v4, ", "
@@ -1034,7 +1034,7 @@
     goto :goto_0
 
     .line 2462
-    .end local v2           #info:Landroid/media/MediaRouter$RouteInfo;
+    .end local v2    # "info":Landroid/media/MediaRouter$RouteInfo;
     :cond_1
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1061,14 +1061,14 @@
     move-result v1
 
     .line 2409
-    .local v1, routeCount:I
+    .local v1, "routeCount":I
     const/4 v3, 0x0
 
     .line 2410
-    .local v3, volume:I
+    .local v3, "volume":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -1082,7 +1082,7 @@
     move-result v2
 
     .line 2412
-    .local v2, routeVol:I
+    .local v2, "routeVol":I
     if-le v2, v3, :cond_0
 
     .line 2413
@@ -1095,7 +1095,7 @@
     goto :goto_0
 
     .line 2416
-    .end local v2           #routeVol:I
+    .end local v2    # "routeVol":I
     :cond_1
     iget v4, p0, Landroid/media/MediaRouter$RouteGroup;->mVolume:I
 

@@ -16,8 +16,8 @@
 
 .method public static equal(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Ljava/lang/Object;
+    .param p1, "b"    # Ljava/lang/Object;
 
     .prologue
     .line 40
@@ -45,7 +45,7 @@
 
 .method public static varargs hashCode([Ljava/lang/Object;)I
     .locals 1
-    .parameter "objects"
+    .param p0, "objects"    # [Ljava/lang/Object;
 
     .prologue
     .line 59

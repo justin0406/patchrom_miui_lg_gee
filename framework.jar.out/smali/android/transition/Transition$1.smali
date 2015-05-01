@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Transition;Landroid/util/ArrayMap;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 594
@@ -41,7 +39,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 601
@@ -52,7 +50,7 @@
     .line 602
     iget-object v0, p0, Landroid/transition/Transition$1;->this$0:Landroid/transition/Transition;
 
-    #getter for: Landroid/transition/Transition;->mCurrentAnimators:Ljava/util/ArrayList;
+    # getter for: Landroid/transition/Transition;->mCurrentAnimators:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/transition/Transition;->access$000(Landroid/transition/Transition;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -65,13 +63,13 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 597
     iget-object v0, p0, Landroid/transition/Transition$1;->this$0:Landroid/transition/Transition;
 
-    #getter for: Landroid/transition/Transition;->mCurrentAnimators:Ljava/util/ArrayList;
+    # getter for: Landroid/transition/Transition;->mCurrentAnimators:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/transition/Transition;->access$000(Landroid/transition/Transition;)Ljava/util/ArrayList;
 
     move-result-object v0

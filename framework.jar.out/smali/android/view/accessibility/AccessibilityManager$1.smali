@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/AccessibilityManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 133
@@ -36,7 +35,7 @@
 # virtual methods
 .method public setState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 135

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ServiceWatcher;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 272
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onPackageAdded(Ljava/lang/String;I)V
     .locals 3
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 291
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$000(Lcom/android/server/ServiceWatcher;)Ljava/lang/Object;
 
     move-result-object v1
@@ -54,7 +53,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
+    # getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$100(Lcom/android/server/ServiceWatcher;)Ljava/lang/String;
 
     move-result-object v0
@@ -68,7 +67,7 @@
     .line 294
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #calls: Lcom/android/server/ServiceWatcher;->unbindLocked()V
+    # invokes: Lcom/android/server/ServiceWatcher;->unbindLocked()V
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$200(Lcom/android/server/ServiceWatcher;)V
 
     .line 297
@@ -77,7 +76,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
+    # invokes: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
     invoke-static {v0, v2}, Lcom/android/server/ServiceWatcher;->access$300(Lcom/android/server/ServiceWatcher;Ljava/lang/String;)Z
 
     .line 298
@@ -99,15 +98,15 @@
 
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
     .locals 3
-    .parameter "packageName"
-    .parameter "uid"
-    .parameter "components"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "components"    # [Ljava/lang/String;
 
     .prologue
     .line 315
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$000(Lcom/android/server/ServiceWatcher;)Ljava/lang/Object;
 
     move-result-object v1
@@ -118,7 +117,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
+    # getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$100(Lcom/android/server/ServiceWatcher;)Ljava/lang/String;
 
     move-result-object v0
@@ -132,7 +131,7 @@
     .line 318
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #calls: Lcom/android/server/ServiceWatcher;->unbindLocked()V
+    # invokes: Lcom/android/server/ServiceWatcher;->unbindLocked()V
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$200(Lcom/android/server/ServiceWatcher;)V
 
     .line 322
@@ -141,7 +140,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
+    # invokes: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
     invoke-static {v0, v2}, Lcom/android/server/ServiceWatcher;->access$300(Lcom/android/server/ServiceWatcher;Ljava/lang/String;)Z
 
     .line 323
@@ -170,14 +169,14 @@
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 3
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 303
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$000(Lcom/android/server/ServiceWatcher;)Ljava/lang/Object;
 
     move-result-object v1
@@ -188,7 +187,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
+    # getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$100(Lcom/android/server/ServiceWatcher;)Ljava/lang/String;
 
     move-result-object v0
@@ -202,7 +201,7 @@
     .line 305
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #calls: Lcom/android/server/ServiceWatcher;->unbindLocked()V
+    # invokes: Lcom/android/server/ServiceWatcher;->unbindLocked()V
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$200(Lcom/android/server/ServiceWatcher;)V
 
     .line 308
@@ -210,7 +209,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
+    # invokes: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
     invoke-static {v0, v2}, Lcom/android/server/ServiceWatcher;->access$300(Lcom/android/server/ServiceWatcher;Ljava/lang/String;)Z
 
     .line 310
@@ -233,14 +232,14 @@
 
 .method public onPackageUpdateFinished(Ljava/lang/String;I)V
     .locals 3
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 278
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$000(Lcom/android/server/ServiceWatcher;)Ljava/lang/Object;
 
     move-result-object v1
@@ -251,7 +250,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
+    # getter for: Lcom/android/server/ServiceWatcher;->mPackageName:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$100(Lcom/android/server/ServiceWatcher;)Ljava/lang/String;
 
     move-result-object v0
@@ -265,7 +264,7 @@
     .line 281
     iget-object v0, p0, Lcom/android/server/ServiceWatcher$2;->this$0:Lcom/android/server/ServiceWatcher;
 
-    #calls: Lcom/android/server/ServiceWatcher;->unbindLocked()V
+    # invokes: Lcom/android/server/ServiceWatcher;->unbindLocked()V
     invoke-static {v0}, Lcom/android/server/ServiceWatcher;->access$200(Lcom/android/server/ServiceWatcher;)V
 
     .line 285
@@ -274,7 +273,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
+    # invokes: Lcom/android/server/ServiceWatcher;->bindBestPackageLocked(Ljava/lang/String;)Z
     invoke-static {v0, v2}, Lcom/android/server/ServiceWatcher;->access$300(Lcom/android/server/ServiceWatcher;Ljava/lang/String;)Z
 
     .line 286

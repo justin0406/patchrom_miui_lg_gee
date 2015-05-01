@@ -20,11 +20,11 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILandroid/content/res/Configuration;FLandroid/os/IBinder;)V
     .locals 4
-    .parameter "resDir"
-    .parameter "displayId"
-    .parameter "overrideConfiguration"
-    .parameter "scale"
-    .parameter "token"
+    .param p1, "resDir"    # Ljava/lang/String;
+    .param p2, "displayId"    # I
+    .param p3, "overrideConfiguration"    # Landroid/content/res/Configuration;
+    .param p4, "scale"    # F
+    .param p5, "token"    # Landroid/os/IBinder;
 
     .prologue
     const/4 v2, 0x0
@@ -64,7 +64,7 @@
     const/16 v0, 0x11
 
     .line 42
-    .local v0, hash:I
+    .local v0, "hash":I
     iget-object v1, p0, Landroid/content/res/ResourcesKey;->mResDir:Ljava/lang/String;
 
     if-nez v1, :cond_2
@@ -129,7 +129,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -151,7 +151,7 @@
     check-cast v0, Landroid/content/res/ResourcesKey;
 
     .line 65
-    .local v0, peer:Landroid/content/res/ResourcesKey;
+    .local v0, "peer":Landroid/content/res/ResourcesKey;
     iget-object v2, p0, Landroid/content/res/ResourcesKey;->mResDir:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/content/res/ResourcesKey;->mResDir:Ljava/lang/String;

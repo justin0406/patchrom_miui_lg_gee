@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/Location;
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x1
@@ -55,18 +55,18 @@
     move-result-object v1
 
     .line 864
-    .local v1, provider:Ljava/lang/String;
+    .local v1, "provider":Ljava/lang/String;
     new-instance v0, Landroid/location/Location;
 
     invoke-direct {v0, v1}, Landroid/location/Location;-><init>(Ljava/lang/String;)V
 
     .line 865
-    .local v0, l:Landroid/location/Location;
+    .local v0, "l":Landroid/location/Location;
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v5
 
-    #setter for: Landroid/location/Location;->mTime:J
+    # setter for: Landroid/location/Location;->mTime:J
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$002(Landroid/location/Location;J)J
 
     .line 866
@@ -74,7 +74,7 @@
 
     move-result-wide v5
 
-    #setter for: Landroid/location/Location;->mElapsedRealtimeNanos:J
+    # setter for: Landroid/location/Location;->mElapsedRealtimeNanos:J
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$102(Landroid/location/Location;J)J
 
     .line 867
@@ -82,7 +82,7 @@
 
     move-result-wide v5
 
-    #setter for: Landroid/location/Location;->mLatitude:D
+    # setter for: Landroid/location/Location;->mLatitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$202(Landroid/location/Location;D)D
 
     .line 868
@@ -90,7 +90,7 @@
 
     move-result-wide v5
 
-    #setter for: Landroid/location/Location;->mLongitude:D
+    # setter for: Landroid/location/Location;->mLongitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$302(Landroid/location/Location;D)D
 
     .line 869
@@ -103,7 +103,7 @@
     move v2, v3
 
     :goto_0
-    #setter for: Landroid/location/Location;->mHasAltitude:Z
+    # setter for: Landroid/location/Location;->mHasAltitude:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$402(Landroid/location/Location;Z)Z
 
     .line 870
@@ -111,7 +111,7 @@
 
     move-result-wide v5
 
-    #setter for: Landroid/location/Location;->mAltitude:D
+    # setter for: Landroid/location/Location;->mAltitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$502(Landroid/location/Location;D)D
 
     .line 871
@@ -124,7 +124,7 @@
     move v2, v3
 
     :goto_1
-    #setter for: Landroid/location/Location;->mHasSpeed:Z
+    # setter for: Landroid/location/Location;->mHasSpeed:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$602(Landroid/location/Location;Z)Z
 
     .line 872
@@ -132,7 +132,7 @@
 
     move-result v2
 
-    #setter for: Landroid/location/Location;->mSpeed:F
+    # setter for: Landroid/location/Location;->mSpeed:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$702(Landroid/location/Location;F)F
 
     .line 873
@@ -145,7 +145,7 @@
     move v2, v3
 
     :goto_2
-    #setter for: Landroid/location/Location;->mHasBearing:Z
+    # setter for: Landroid/location/Location;->mHasBearing:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$802(Landroid/location/Location;Z)Z
 
     .line 874
@@ -153,7 +153,7 @@
 
     move-result v2
 
-    #setter for: Landroid/location/Location;->mBearing:F
+    # setter for: Landroid/location/Location;->mBearing:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$902(Landroid/location/Location;F)F
 
     .line 875
@@ -166,7 +166,7 @@
     move v2, v3
 
     :goto_3
-    #setter for: Landroid/location/Location;->mHasAccuracy:Z
+    # setter for: Landroid/location/Location;->mHasAccuracy:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$1002(Landroid/location/Location;Z)Z
 
     .line 876
@@ -174,7 +174,7 @@
 
     move-result v2
 
-    #setter for: Landroid/location/Location;->mAccuracy:F
+    # setter for: Landroid/location/Location;->mAccuracy:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$1102(Landroid/location/Location;F)F
 
     .line 877
@@ -182,7 +182,7 @@
 
     move-result-object v2
 
-    #setter for: Landroid/location/Location;->mExtras:Landroid/os/Bundle;
+    # setter for: Landroid/location/Location;->mExtras:Landroid/os/Bundle;
     invoke-static {v0, v2}, Landroid/location/Location;->access$1202(Landroid/location/Location;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     .line 878
@@ -193,7 +193,7 @@
     if-eqz v2, :cond_4
 
     :goto_4
-    #setter for: Landroid/location/Location;->mIsFromMockProvider:Z
+    # setter for: Landroid/location/Location;->mIsFromMockProvider:Z
     invoke-static {v0, v3}, Landroid/location/Location;->access$1302(Landroid/location/Location;Z)Z
 
     .line 879
@@ -232,7 +232,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 860
@@ -245,7 +245,7 @@
 
 .method public newArray(I)[Landroid/location/Location;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 884
@@ -256,7 +256,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 860

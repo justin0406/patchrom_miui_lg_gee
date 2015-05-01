@@ -43,9 +43,9 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;Landroid/net/sip/SipProfile;)V
     .locals 3
-    .parameter "context"
-    .parameter "notifier"
-    .parameter "profile"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "notifier"    # Lcom/android/internal/telephony/PhoneNotifier;
+    .param p3, "profile"    # Landroid/net/sip/SipProfile;
 
     .prologue
     const/4 v2, 0x0
@@ -158,7 +158,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/sip/SipPhone;)Landroid/net/sip/SipProfile;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 49
@@ -169,7 +169,7 @@
 
 .method static synthetic access$1200(Landroid/net/sip/SipAudioCall;)Lcom/android/internal/telephony/Call$State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/sip/SipAudioCall;
 
     .prologue
     .line 49
@@ -182,7 +182,7 @@
 
 .method static synthetic access$1300(Lcom/android/internal/telephony/sip/SipPhone;)Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 49
@@ -193,8 +193,8 @@
 
 .method static synthetic access$1400(Lcom/android/internal/telephony/sip/SipPhone;Landroid/net/sip/SipProfile;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
+    .param p1, "x1"    # Landroid/net/sip/SipProfile;
 
     .prologue
     .line 49
@@ -207,7 +207,7 @@
 
 .method static synthetic access$1500(Lcom/android/internal/telephony/sip/SipPhone;)Landroid/net/sip/SipManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 49
@@ -218,8 +218,8 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/sip/SipPhone;Lcom/android/internal/telephony/Connection;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
+    .param p1, "x1"    # Lcom/android/internal/telephony/Connection;
 
     .prologue
     .line 49
@@ -230,7 +230,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/sip/SipPhone;)Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 49
@@ -241,7 +241,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/telephony/sip/SipPhone;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 49
@@ -252,8 +252,8 @@
 
 .method static synthetic access$500(Lcom/android/internal/telephony/sip/SipPhone;Lcom/android/internal/telephony/Connection;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
+    .param p1, "x1"    # Lcom/android/internal/telephony/Connection;
 
     .prologue
     .line 49
@@ -264,7 +264,7 @@
 
 .method private dialInternal(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
     .locals 5
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -369,16 +369,16 @@
     move-result-object v0
 
     .line 206
-    .local v0, c:Lcom/android/internal/telephony/Connection;
+    .local v0, "c":Lcom/android/internal/telephony/Connection;
     return-object v0
 
     .line 207
-    .end local v0           #c:Lcom/android/internal/telephony/Connection;
+    .end local v0    # "c":Lcom/android/internal/telephony/Connection;
     :catch_0
     move-exception v1
 
     .line 208
-    .local v1, e:Landroid/net/sip/SipException;
+    .local v1, "e":Landroid/net/sip/SipException;
     const-string v2, "dialInternal: "
 
     invoke-direct {p0, v2, v1}, Lcom/android/internal/telephony/sip/SipPhone;->loge(Ljava/lang/String;Ljava/lang/Exception;)V
@@ -411,7 +411,7 @@
 
 .method private static getCallStateFrom(Landroid/net/sip/SipAudioCall;)Lcom/android/internal/telephony/Call$State;
     .locals 3
-    .parameter "sipAudioCall"
+    .param p0, "sipAudioCall"    # Landroid/net/sip/SipAudioCall;
 
     .prologue
     .line 396
@@ -434,7 +434,7 @@
     move-result v0
 
     .line 398
-    .local v0, sessionState:I
+    .local v0, "sessionState":I
     packed-switch v0, :pswitch_data_0
 
     .line 407
@@ -519,7 +519,7 @@
 
 .method private getSipDomain(Landroid/net/sip/SipProfile;)Ljava/lang/String;
     .locals 3
-    .parameter "p"
+    .param p1, "p"    # Landroid/net/sip/SipProfile;
 
     .prologue
     .line 386
@@ -528,7 +528,7 @@
     move-result-object v0
 
     .line 388
-    .local v0, domain:Ljava/lang/String;
+    .local v0, "domain":Ljava/lang/String;
     const-string v1, ":5060"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -551,14 +551,14 @@
     move-result-object v0
 
     .line 391
-    .end local v0           #domain:Ljava/lang/String;
+    .end local v0    # "domain":Ljava/lang/String;
     :cond_0
     return-object v0
 .end method
 
 .method private getUriString(Landroid/net/sip/SipProfile;)Ljava/lang/String;
     .locals 2
-    .parameter "p"
+    .param p1, "p"    # Landroid/net/sip/SipProfile;
 
     .prologue
     .line 382
@@ -597,7 +597,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 413
@@ -611,7 +611,7 @@
 
 .method private loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 421
@@ -625,8 +625,8 @@
 
 .method private loge(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 1
-    .parameter "s"
-    .parameter "e"
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "e"    # Ljava/lang/Exception;
 
     .prologue
     .line 425
@@ -640,7 +640,7 @@
 
 .method private static slog(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 417
@@ -742,8 +742,8 @@
 
 .method public bridge synthetic activateCellBroadcastSms(ILandroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -781,7 +781,7 @@
 
 .method public canTake(Ljava/lang/Object;)Z
     .locals 9
-    .parameter "incomingCall"
+    .param p1, "incomingCall"    # Ljava/lang/Object;
 
     .prologue
     const/4 v5, 0x0
@@ -892,7 +892,7 @@
     move-object v4, v0
 
     .line 119
-    .local v4, sipAudioCall:Landroid/net/sip/SipAudioCall;
+    .local v4, "sipAudioCall":Landroid/net/sip/SipAudioCall;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -931,7 +931,7 @@
     move-result-object v2
 
     .line 122
-    .local v2, localUri:Ljava/lang/String;
+    .local v2, "localUri":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/internal/telephony/sip/SipPhone;->mProfile:Landroid/net/sip/SipProfile;
 
     invoke-virtual {v7}, Landroid/net/sip/SipProfile;->getUriString()Ljava/lang/String;
@@ -956,7 +956,7 @@
     move-result v3
 
     .line 124
-    .local v3, makeCallWait:Z
+    .local v3, "makeCallWait":Z
     iget-object v7, p0, Lcom/android/internal/telephony/sip/SipPhone;->mRingingCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     invoke-virtual {v7, v4, v3}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->initIncomingCall(Landroid/net/sip/SipAudioCall;Z)V
@@ -980,8 +980,8 @@
 
     invoke-virtual {v7}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->reset()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 131
     :cond_3
@@ -993,14 +993,14 @@
     goto/16 :goto_0
 
     .line 133
-    .end local v2           #localUri:Ljava/lang/String;
-    .end local v3           #makeCallWait:Z
-    .end local v4           #sipAudioCall:Landroid/net/sip/SipAudioCall;
+    .end local v2    # "localUri":Ljava/lang/String;
+    .end local v3    # "makeCallWait":Z
+    .end local v4    # "sipAudioCall":Landroid/net/sip/SipAudioCall;
     :catch_0
     move-exception v1
 
     .line 137
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1027,7 +1027,7 @@
     invoke-virtual {v7}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->reset()V
 
     .line 140
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_4
     const-string v7, "canTake: NOT taking !!"
 
@@ -1218,7 +1218,7 @@
 
 .method public conference(Lcom/android/internal/telephony/Call;)V
     .locals 4
-    .parameter "that"
+    .param p1, "that"    # Lcom/android/internal/telephony/Call;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -1279,7 +1279,7 @@
     throw v0
 
     .line 250
-    .end local p1
+    .end local p1    # "that":Lcom/android/internal/telephony/Call;
     :catchall_0
     move-exception v0
 
@@ -1290,14 +1290,14 @@
     throw v0
 
     .line 249
-    .restart local p1
+    .restart local p1    # "that":Lcom/android/internal/telephony/Call;
     :cond_0
     :try_start_1
     iget-object v0, p0, Lcom/android/internal/telephony/sip/SipPhone;->mForegroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     check-cast p1, Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
-    .end local p1
+    .end local p1    # "that":Lcom/android/internal/telephony/Call;
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->merge(Lcom/android/internal/telephony/sip/SipPhone$SipCall;)V
 
     .line 250
@@ -1311,7 +1311,7 @@
 
 .method public dial(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
     .locals 2
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -1347,8 +1347,8 @@
 
 .method public bridge synthetic dial(Ljava/lang/String;Lcom/android/internal/telephony/UUSInfo;)Lcom/android/internal/telephony/Connection;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Lcom/android/internal/telephony/UUSInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -1410,7 +1410,7 @@
 
 .method public equals(Lcom/android/internal/telephony/sip/SipPhone;)Z
     .locals 2
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/sip/SipPhone;
 
     .prologue
     .line 89
@@ -1431,7 +1431,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 78
@@ -1460,7 +1460,7 @@
     check-cast v0, Lcom/android/internal/telephony/sip/SipPhone;
 
     .line 81
-    .local v0, that:Lcom/android/internal/telephony/sip/SipPhone;
+    .local v0, "that":Lcom/android/internal/telephony/sip/SipPhone;
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->mProfile:Landroid/net/sip/SipProfile;
 
     invoke-virtual {v1}, Landroid/net/sip/SipProfile;->getUriString()Ljava/lang/String;
@@ -1490,7 +1490,7 @@
 
 .method public bridge synthetic getAvailableNetworks(Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -1523,8 +1523,8 @@
 
 .method public bridge synthetic getCallForwardingOption(ILandroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -1535,7 +1535,7 @@
 
 .method public getCallWaiting(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -1552,7 +1552,7 @@
 
 .method public bridge synthetic getCellBroadcastSmsConfig(Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -1599,7 +1599,7 @@
 
 .method public bridge synthetic getDataCallList(Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -1622,7 +1622,7 @@
 
 .method public bridge synthetic getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/PhoneConstants$DataState;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -1801,7 +1801,7 @@
 
 .method public bridge synthetic getLinkProperties(Ljava/lang/String;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -1874,7 +1874,7 @@
 
 .method public bridge synthetic getNeighboringCids(Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -1885,7 +1885,7 @@
 
 .method public getOutgoingCallerIdDisplay(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -2034,7 +2034,7 @@
 
 .method public bridge synthetic handleInCallMmiCommands(Ljava/lang/String;)Z
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -2047,7 +2047,7 @@
 
 .method public bridge synthetic handlePinMmi(Ljava/lang/String;)Z
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -2094,9 +2094,9 @@
 
 .method public bridge synthetic registerForRingbackTone(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/os/Handler;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/Object;
 
     .prologue
     .line 49
@@ -2107,9 +2107,9 @@
 
 .method public bridge synthetic registerForSuppServiceNotification(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/os/Handler;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/Object;
 
     .prologue
     .line 49
@@ -2190,7 +2190,7 @@
 
 .method public bridge synthetic saveClirSetting(I)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 49
@@ -2201,8 +2201,8 @@
 
 .method public bridge synthetic selectNetworkManually(Lcom/android/internal/telephony/OperatorInfo;Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/OperatorInfo;
+    .param p2, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2213,7 +2213,7 @@
 
 .method public sendBurstDtmf(Ljava/lang/String;)V
     .locals 1
-    .parameter "dtmfString"
+    .param p1, "dtmfString"    # Ljava/lang/String;
 
     .prologue
     .line 301
@@ -2227,7 +2227,7 @@
 
 .method public sendDtmf(C)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 277
@@ -2311,7 +2311,7 @@
 
 .method public bridge synthetic sendUssdResponse(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -2322,11 +2322,11 @@
 
 .method public bridge synthetic setCallForwardingOption(IILjava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/String;
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2337,8 +2337,8 @@
 
 .method public setCallWaiting(ZLandroid/os/Message;)V
     .locals 1
-    .parameter "enable"
-    .parameter "onComplete"
+    .param p1, "enable"    # Z
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 329
@@ -2352,8 +2352,8 @@
 
 .method public bridge synthetic setCellBroadcastSmsConfig([ILandroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # [I
+    .param p2, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2364,7 +2364,7 @@
 
 .method public bridge synthetic setDataRoamingEnabled(Z)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Z
 
     .prologue
     .line 49
@@ -2375,7 +2375,7 @@
 
 .method public setEchoSuppressionEnabled(Z)V
     .locals 2
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 339
@@ -2408,9 +2408,9 @@
 
 .method public bridge synthetic setLine1Number(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2421,7 +2421,7 @@
 
 .method public setMute(Z)V
     .locals 2
-    .parameter "muted"
+    .param p1, "muted"    # Z
 
     .prologue
     .line 346
@@ -2454,7 +2454,7 @@
 
 .method public bridge synthetic setNetworkSelectionModeAutomatic(Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2465,9 +2465,9 @@
 
 .method public bridge synthetic setOnPostDialCharacter(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/os/Handler;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/Object;
 
     .prologue
     .line 49
@@ -2478,8 +2478,8 @@
 
 .method public setOutgoingCallerIdDisplay(ILandroid/os/Message;)V
     .locals 1
-    .parameter "commandInterfaceCLIRMode"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCLIRMode"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -2496,7 +2496,7 @@
 
 .method public bridge synthetic setRadioPower(Z)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Z
 
     .prologue
     .line 49
@@ -2507,9 +2507,9 @@
 
 .method public bridge synthetic setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/os/Message;
 
     .prologue
     .line 49
@@ -2520,7 +2520,7 @@
 
 .method public startDtmf(C)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 288
@@ -2658,7 +2658,7 @@
 
 .method public bridge synthetic unregisterForRingbackTone(Landroid/os/Handler;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 49
@@ -2669,7 +2669,7 @@
 
 .method public bridge synthetic unregisterForSuppServiceNotification(Landroid/os/Handler;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 49

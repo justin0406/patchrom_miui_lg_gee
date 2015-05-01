@@ -25,10 +25,10 @@
 
 .method public static dumpAsync(Landroid/os/Handler;Lcom/android/internal/util/DumpUtils$Dump;Ljava/io/PrintWriter;J)V
     .locals 2
-    .parameter "handler"
-    .parameter "dump"
-    .parameter "pw"
-    .parameter "timeout"
+    .param p0, "handler"    # Landroid/os/Handler;
+    .param p1, "dump"    # Lcom/android/internal/util/DumpUtils$Dump;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "timeout"    # J
 
     .prologue
     .line 39
@@ -37,7 +37,7 @@
     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
 
     .line 40
-    .local v0, sw:Ljava/io/StringWriter;
+    .local v0, "sw":Ljava/io/StringWriter;
     new-instance v1, Lcom/android/internal/util/DumpUtils$1;
 
     invoke-direct {v1, v0, p1}, Lcom/android/internal/util/DumpUtils$1;-><init>(Ljava/io/StringWriter;Lcom/android/internal/util/DumpUtils$Dump;)V

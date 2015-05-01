@@ -225,7 +225,7 @@
 
 .method public finishPage(Landroid/graphics/pdf/PdfDocument$Page;)V
     .locals 2
-    .parameter "page"
+    .param p1, "page"    # Landroid/graphics/pdf/PdfDocument$Page;
 
     .prologue
     .line 140
@@ -296,7 +296,7 @@
     invoke-direct {p0, v0}, Landroid/graphics/pdf/PdfDocument;->nativeFinishPage(I)V
 
     .line 153
-    #calls: Landroid/graphics/pdf/PdfDocument$Page;->finish()V
+    # invokes: Landroid/graphics/pdf/PdfDocument$Page;->finish()V
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$Page;->access$400(Landroid/graphics/pdf/PdfDocument$Page;)V
 
     .line 154
@@ -328,7 +328,7 @@
 
 .method public startPage(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/pdf/PdfDocument$Page;
     .locals 8
-    .parameter "pageInfo"
+    .param p1, "pageInfo"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
 
     .prologue
     .line 116
@@ -355,38 +355,38 @@
 
     iget v0, p0, Landroid/graphics/pdf/PdfDocument;->mNativeDocument:I
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mPageWidth:I
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mPageWidth:I
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$000(Landroid/graphics/pdf/PdfDocument$PageInfo;)I
 
     move-result v1
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mPageHeight:I
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mPageHeight:I
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$100(Landroid/graphics/pdf/PdfDocument$PageInfo;)I
 
     move-result v2
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$200(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/Rect;
 
     move-result-object v3
 
     iget v3, v3, Landroid/graphics/Rect;->left:I
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$200(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/Rect;
 
     move-result-object v4
 
     iget v4, v4, Landroid/graphics/Rect;->top:I
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$200(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/Rect;
 
     move-result-object v5
 
     iget v5, v5, Landroid/graphics/Rect;->right:I
 
-    #getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
+    # getter for: Landroid/graphics/pdf/PdfDocument$PageInfo;->mContentRect:Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/graphics/pdf/PdfDocument$PageInfo;->access$200(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/Rect;
 
     move-result-object v6
@@ -400,7 +400,7 @@
     invoke-direct {v7, p0, v0}, Landroid/graphics/pdf/PdfDocument$PdfCanvas;-><init>(Landroid/graphics/pdf/PdfDocument;I)V
 
     .line 124
-    .local v7, canvas:Landroid/graphics/Canvas;
+    .local v7, "canvas":Landroid/graphics/Canvas;
     new-instance v0, Landroid/graphics/pdf/PdfDocument$Page;
 
     const/4 v1, 0x0
@@ -417,7 +417,7 @@
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

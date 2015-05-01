@@ -14,13 +14,13 @@
 # static fields
 .field private static final DEBUG:Z = false
 
-.field private static final EXCLLIST_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final EXCLLIST_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final EXCLLIST_REGEXP:Ljava/lang/String; = "$|^(.?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*(\\.[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*)*)+(,(.?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*(\\.[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*)*))*$"
 
 .field public static final EXTRA_PROXY_INFO:Ljava/lang/String; = "proxy"
 
-.field private static final HOSTNAME_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final HOSTNAME_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final HOSTNAME_REGEXP:Ljava/lang/String; = "^$|^[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*(\\.[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*)*$"
 
@@ -87,7 +87,7 @@
 
 .method public static final getAndroidProxySelectorRoutePlanner(Landroid/content/Context;)Lorg/apache/http/conn/routing/HttpRoutePlanner;
     .locals 3
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 308
@@ -104,7 +104,7 @@
     invoke-direct {v0, v1, v2, p0}, Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;-><init>(Lorg/apache/http/conn/scheme/SchemeRegistry;Ljava/net/ProxySelector;Landroid/content/Context;)V
 
     .line 310
-    .local v0, ret:Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;
+    .local v0, "ret":Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;
     return-object v0
 .end method
 
@@ -120,7 +120,7 @@
     move-result-object v0
 
     .line 172
-    .local v0, host:Ljava/lang/String;
+    .local v0, "host":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -130,7 +130,7 @@
     const/4 v0, 0x0
 
     .line 173
-    .end local v0           #host:Ljava/lang/String;
+    .end local v0    # "host":Ljava/lang/String;
     :cond_0
     return-object v0
 .end method
@@ -149,12 +149,12 @@
     if-nez v2, :cond_0
 
     .line 189
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     :goto_0
     return v1
 
     .line 187
-    .end local v0           #e:Ljava/lang/NumberFormatException;
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
     :cond_0
     :try_start_0
     const-string v2, "http.proxyPort"
@@ -176,13 +176,13 @@
     move-exception v0
 
     .line 189
-    .restart local v0       #e:Ljava/lang/NumberFormatException;
+    .restart local v0    # "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method public static final getHost(Landroid/content/Context;)Ljava/lang/String;
     .locals 4
-    .parameter "ctx"
+    .param p0, "ctx"    # Landroid/content/Context;
 
     .prologue
     const/4 v3, 0x0
@@ -193,7 +193,7 @@
     move-result-object v1
 
     .line 137
-    .local v1, proxy:Ljava/net/Proxy;
+    .local v1, "proxy":Ljava/net/Proxy;
     sget-object v2, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     if-ne v1, v2, :cond_0
@@ -227,7 +227,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     move-object v2, v3
 
     .line 141
@@ -236,7 +236,7 @@
 
 .method public static final getPort(Landroid/content/Context;)I
     .locals 4
-    .parameter "ctx"
+    .param p0, "ctx"    # Landroid/content/Context;
 
     .prologue
     const/4 v3, -0x1
@@ -249,7 +249,7 @@
     move-result-object v1
 
     .line 154
-    .local v1, proxy:Ljava/net/Proxy;
+    .local v1, "proxy":Ljava/net/Proxy;
     sget-object v2, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     if-ne v1, v2, :cond_0
@@ -283,7 +283,7 @@
     :catch_0
     move-exception v0
 
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     move v2, v3
 
     .line 158
@@ -292,21 +292,17 @@
 
 .method public static final getPreferredHttpHost(Landroid/content/Context;Ljava/lang/String;)Lorg/apache/http/HttpHost;
     .locals 6
-    .parameter "context"
-    .parameter "url"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
-    invoke-static {p0, p1}, Landroid/net/Injector$ProxyHook;->getPreferredHttpHost(Landroid/content/Context;Ljava/lang/String;)Lorg/apache/http/HttpHost;
-
-    move-result-object v0
-
-    return-object v0
-
+    .line 208
     invoke-static {p0, p1}, Landroid/net/Proxy;->getProxy(Landroid/content/Context;Ljava/lang/String;)Ljava/net/Proxy;
 
     move-result-object v0
 
-    .local v0, prefProxy:Ljava/net/Proxy;
+    .line 209
+    .local v0, "prefProxy":Ljava/net/Proxy;
     sget-object v2, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     invoke-virtual {v0, v2}, Ljava/net/Proxy;->equals(Ljava/lang/Object;)Z
@@ -331,7 +327,7 @@
     check-cast v1, Ljava/net/InetSocketAddress;
 
     .line 213
-    .local v1, sa:Ljava/net/InetSocketAddress;
+    .local v1, "sa":Ljava/net/InetSocketAddress;
     new-instance v2, Lorg/apache/http/HttpHost;
 
     invoke-virtual {v1}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
@@ -351,15 +347,15 @@
 
 .method public static final getProxy(Landroid/content/Context;Ljava/lang/String;)Ljava/net/Proxy;
     .locals 4
-    .parameter "ctx"
-    .parameter "url"
+    .param p0, "ctx"    # Landroid/content/Context;
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     .line 101
     const-string v0, ""
 
     .line 102
-    .local v0, host:Ljava/lang/String;
+    .local v0, "host":Ljava/lang/String;
     if-eqz p1, :cond_0
 
     .line 103
@@ -368,13 +364,13 @@
     move-result-object v2
 
     .line 104
-    .local v2, uri:Ljava/net/URI;
+    .local v2, "uri":Ljava/net/URI;
     invoke-virtual {v2}, Ljava/net/URI;->getHost()Ljava/lang/String;
 
     move-result-object v0
 
     .line 107
-    .end local v2           #uri:Ljava/net/URI;
+    .end local v2    # "uri":Ljava/net/URI;
     :cond_0
     invoke-static {v0}, Landroid/net/Proxy;->isLocalHost(Ljava/lang/String;)Z
 
@@ -419,7 +415,7 @@
     move-result-object v1
 
     .line 116
-    .local v1, proxyProperties:Landroid/net/ProxyProperties;
+    .local v1, "proxyProperties":Landroid/net/ProxyProperties;
     if-eqz v1, :cond_3
 
     .line 117
@@ -437,7 +433,7 @@
     goto :goto_0
 
     .line 122
-    .end local v1           #proxyProperties:Landroid/net/ProxyProperties;
+    .end local v1    # "proxyProperties":Landroid/net/ProxyProperties;
     :cond_3
     sget-object v3, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
@@ -446,7 +442,7 @@
 
 .method private static final isLocalHost(Ljava/lang/String;)Z
     .locals 3
-    .parameter "host"
+    .param p0, "host"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -508,26 +504,26 @@
 
 .method public static final setHttpProxySystemProperty(Landroid/net/ProxyProperties;)V
     .locals 5
-    .parameter "p"
+    .param p0, "p"    # Landroid/net/ProxyProperties;
 
     .prologue
     .line 315
     const/4 v1, 0x0
 
     .line 316
-    .local v1, host:Ljava/lang/String;
+    .local v1, "host":Ljava/lang/String;
     const/4 v3, 0x0
 
     .line 317
-    .local v3, port:Ljava/lang/String;
+    .local v3, "port":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 318
-    .local v0, exclList:Ljava/lang/String;
+    .local v0, "exclList":Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 319
-    .local v2, pacFileUrl:Ljava/lang/String;
+    .local v2, "pacFileUrl":Ljava/lang/String;
     if-eqz p0, :cond_0
 
     .line 320
@@ -564,10 +560,10 @@
 
 .method public static final setHttpProxySystemProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "host"
-    .parameter "port"
-    .parameter "exclList"
-    .parameter "pacFileUrl"
+    .param p0, "host"    # Ljava/lang/String;
+    .param p1, "port"    # Ljava/lang/String;
+    .param p2, "exclList"    # Ljava/lang/String;
+    .param p3, "pacFileUrl"    # Ljava/lang/String;
 
     .prologue
     .line 331
@@ -692,9 +688,9 @@
 
 .method public static validate(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "hostname"
-    .parameter "port"
-    .parameter "exclList"
+    .param p0, "hostname"    # Ljava/lang/String;
+    .param p1, "port"    # Ljava/lang/String;
+    .param p2, "exclList"    # Ljava/lang/String;
 
     .prologue
     .line 240
@@ -705,7 +701,7 @@
     move-result-object v2
 
     .line 241
-    .local v2, match:Ljava/util/regex/Matcher;
+    .local v2, "match":Ljava/util/regex/Matcher;
     sget-object v4, Landroid/net/Proxy;->EXCLLIST_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v4, p2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -713,7 +709,7 @@
     move-result-object v1
 
     .line 243
-    .local v1, listMatch:Ljava/util/regex/Matcher;
+    .local v1, "listMatch":Ljava/util/regex/Matcher;
     invoke-virtual {v2}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v4
@@ -790,7 +786,7 @@
     const/4 v3, -0x1
 
     .line 261
-    .local v3, portVal:I
+    .local v3, "portVal":I
     :try_start_0
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -818,7 +814,7 @@
     move-exception v0
 
     .line 263
-    .local v0, ex:Ljava/lang/NumberFormatException;
+    .local v0, "ex":Ljava/lang/NumberFormatException;
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v4}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -826,8 +822,8 @@
     throw v4
 
     .line 269
-    .end local v0           #ex:Ljava/lang/NumberFormatException;
-    .end local v3           #portVal:I
+    .end local v0    # "ex":Ljava/lang/NumberFormatException;
+    .end local v3    # "portVal":I
     :cond_5
     return-void
 .end method

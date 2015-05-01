@@ -31,8 +31,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/HardwareRenderer$GlRenderer;I)V
     .locals 0
-    .parameter
-    .parameter "graphType"
+    .param p2, "graphType"    # I
 
     .prologue
     .line 1795
@@ -136,7 +135,7 @@
 
     .prologue
     .line 1836
-    const/high16 v0, 0x4180
+    const/high16 v0, 0x41800000    # 16.0f
 
     return v0
 .end method
@@ -153,17 +152,17 @@
 
 .method prepare(Landroid/util/DisplayMetrics;)V
     .locals 2
-    .parameter "metrics"
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 1801
     iget v0, p1, Landroid/util/DisplayMetrics;->density:F
 
     .line 1803
-    .local v0, density:F
+    .local v0, "density":F
     const/4 v1, 0x7
 
-    #calls: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
+    # invokes: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
     invoke-static {v1, v0}, Landroid/view/HardwareRenderer$GlRenderer;->access$300(IF)I
 
     move-result v1
@@ -173,7 +172,7 @@
     .line 1804
     const/4 v1, 0x3
 
-    #calls: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
+    # invokes: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
     invoke-static {v1, v0}, Landroid/view/HardwareRenderer$GlRenderer;->access$300(IF)I
 
     move-result v1
@@ -183,7 +182,7 @@
     .line 1805
     const/4 v1, 0x0
 
-    #calls: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
+    # invokes: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
     invoke-static {v1, v0}, Landroid/view/HardwareRenderer$GlRenderer;->access$300(IF)I
 
     move-result v1
@@ -193,7 +192,7 @@
     .line 1806
     const/4 v1, 0x2
 
-    #calls: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
+    # invokes: Landroid/view/HardwareRenderer$GlRenderer;->dpToPx(IF)I
     invoke-static {v1, v0}, Landroid/view/HardwareRenderer$GlRenderer;->access$300(IF)I
 
     move-result v1
@@ -206,11 +205,11 @@
 
 .method setupCurrentFramePaint(Landroid/graphics/Paint;)V
     .locals 2
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 1868
-    const v0, -0x30a055b3
+    const v0, -0x30a055b3    # -3.75248E9f
 
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
 
@@ -234,11 +233,12 @@
 
 .method setupGraphPaint(Landroid/graphics/Paint;I)V
     .locals 2
-    .parameter "paint"
-    .parameter "elementIndex"
+    .param p1, "paint"    # Landroid/graphics/Paint;
+    .param p2, "elementIndex"    # I
 
     .prologue
     .line 1856
+    # getter for: Landroid/view/HardwareRenderer$GlRenderer;->PROFILE_DRAW_COLORS:[I
     invoke-static {}, Landroid/view/HardwareRenderer$GlRenderer;->access$400()[I
 
     move-result-object v0
@@ -267,7 +267,7 @@
 
 .method setupThresholdPaint(Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 1862

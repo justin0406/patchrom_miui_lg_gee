@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 242
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;Lcom/android/internal/telephony/uicc/RuimRecords$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p2, "x1"    # Lcom/android/internal/telephony/uicc/RuimRecords$1;
 
     .prologue
     .line 242
@@ -61,7 +60,7 @@
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
     .locals 7
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     const/16 v6, 0x68
@@ -79,17 +78,17 @@
 
     check-cast v1, [B
 
-    #setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v2, v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$102(Lcom/android/internal/telephony/uicc/RuimRecords;[B)[B
 
     .line 252
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -101,7 +100,7 @@
     .line 253
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -115,7 +114,7 @@
     .line 261
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -124,7 +123,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -143,7 +142,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -152,7 +151,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -169,7 +168,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -180,7 +179,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -197,7 +196,7 @@
     :pswitch_2
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -206,7 +205,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -223,7 +222,7 @@
     :pswitch_3
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -234,7 +233,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -251,7 +250,7 @@
     :pswitch_4
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -262,7 +261,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -279,7 +278,7 @@
     :pswitch_5
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -290,7 +289,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -305,7 +304,7 @@
     :pswitch_6
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -314,7 +313,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v1
@@ -341,7 +340,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
     invoke-static {v3}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v3

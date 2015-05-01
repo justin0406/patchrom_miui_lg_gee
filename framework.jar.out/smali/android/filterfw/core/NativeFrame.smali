@@ -23,8 +23,8 @@
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
     .locals 2
-    .parameter "format"
-    .parameter "frameManager"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 39
@@ -41,7 +41,7 @@
     move-result v0
 
     .line 41
-    .local v0, capacity:I
+    .local v0, "capacity":I
     invoke-direct {p0, v0}, Landroid/filterfw/core/NativeFrame;->nativeAllocate(I)Z
 
     .line 42
@@ -163,13 +163,13 @@
     move-result-object v2
 
     .line 195
-    .local v2, result:Landroid/graphics/Bitmap;
+    .local v2, "result":Landroid/graphics/Bitmap;
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->getByteCount()I
 
     move-result v1
 
     .line 196
-    .local v1, byteCount:I
+    .local v1, "byteCount":I
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -179,7 +179,7 @@
     move-result v0
 
     .line 197
-    .local v0, bps:I
+    .local v0, "bps":I
     invoke-direct {p0, v2, v1, v0}, Landroid/filterfw/core/NativeFrame;->getNativeBitmap(Landroid/graphics/Bitmap;II)Z
 
     move-result v3
@@ -230,7 +230,7 @@
     move-result-object v0
 
     .line 166
-    .local v0, data:[B
+    .local v0, "data":[B
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -323,7 +323,7 @@
     move-result-object v1
 
     .line 79
-    .local v1, structClass:Ljava/lang/Class;
+    .local v1, "structClass":Ljava/lang/Class;
     if-nez v1, :cond_1
 
     .line 80
@@ -359,19 +359,19 @@
     const/4 v2, 0x0
 
     .line 93
-    .local v2, structData:Landroid/filterfw/core/NativeBuffer;
+    .local v2, "structData":Landroid/filterfw/core/NativeBuffer;
     :try_start_0
     invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v2
 
-    .end local v2           #structData:Landroid/filterfw/core/NativeBuffer;
+    .end local v2    # "structData":Landroid/filterfw/core/NativeBuffer;
     check-cast v2, Landroid/filterfw/core/NativeBuffer;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 100
-    .restart local v2       #structData:Landroid/filterfw/core/NativeBuffer;
+    .restart local v2    # "structData":Landroid/filterfw/core/NativeBuffer;
     invoke-direct {p0, v2}, Landroid/filterfw/core/NativeFrame;->getNativeBuffer(Landroid/filterfw/core/NativeBuffer;)Z
 
     move-result v3
@@ -388,12 +388,12 @@
     throw v3
 
     .line 94
-    .end local v2           #structData:Landroid/filterfw/core/NativeBuffer;
+    .end local v2    # "structData":Landroid/filterfw/core/NativeBuffer;
     :catch_0
     move-exception v0
 
     .line 95
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -425,8 +425,8 @@
     throw v3
 
     .line 105
-    .end local v0           #e:Ljava/lang/Exception;
-    .restart local v2       #structData:Landroid/filterfw/core/NativeBuffer;
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v2    # "structData":Landroid/filterfw/core/NativeBuffer;
     :cond_3
     invoke-virtual {v2, p0}, Landroid/filterfw/core/NativeBuffer;->attachToFrame(Landroid/filterfw/core/Frame;)V
 
@@ -502,7 +502,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 5
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 171
@@ -577,13 +577,13 @@
     move-result-object v2
 
     .line 179
-    .local v2, rgbaBitmap:Landroid/graphics/Bitmap;
+    .local v2, "rgbaBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->getByteCount()I
 
     move-result v1
 
     .line 180
-    .local v1, byteCount:I
+    .local v1, "byteCount":I
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -593,7 +593,7 @@
     move-result v0
 
     .line 181
-    .local v0, bps:I
+    .local v0, "bps":I
     invoke-direct {p0, v2, v1, v0}, Landroid/filterfw/core/NativeFrame;->setNativeBitmap(Landroid/graphics/Bitmap;II)Z
 
     move-result v3
@@ -616,9 +616,9 @@
 
 .method public setData(Ljava/nio/ByteBuffer;II)V
     .locals 4
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     .line 148
@@ -630,7 +630,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, bytes:[B
+    .local v0, "bytes":[B
     add-int v1, p3, p2
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
@@ -771,7 +771,7 @@
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
     .locals 3
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 206
@@ -865,7 +865,7 @@
     .line 214
     check-cast p1, Landroid/filterfw/core/NativeFrame;
 
-    .end local p1
+    .end local p1    # "frame":Landroid/filterfw/core/Frame;
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->nativeCopyFromNative(Landroid/filterfw/core/NativeFrame;)Z
 
     .line 222
@@ -873,7 +873,7 @@
     return-void
 
     .line 215
-    .restart local p1
+    .restart local p1    # "frame":Landroid/filterfw/core/Frame;
     :cond_1
     instance-of v0, p1, Landroid/filterfw/core/GLFrame;
 
@@ -882,13 +882,13 @@
     .line 216
     check-cast p1, Landroid/filterfw/core/GLFrame;
 
-    .end local p1
+    .end local p1    # "frame":Landroid/filterfw/core/Frame;
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->nativeCopyFromGL(Landroid/filterfw/core/GLFrame;)Z
 
     goto :goto_0
 
     .line 217
-    .restart local p1
+    .restart local p1    # "frame":Landroid/filterfw/core/Frame;
     :cond_2
     instance-of v0, p1, Landroid/filterfw/core/SimpleFrame;
 
@@ -912,7 +912,7 @@
 
 .method public setFloats([F)V
     .locals 4
-    .parameter "floats"
+    .param p1, "floats"    # [F
 
     .prologue
     .line 129
@@ -1018,7 +1018,7 @@
 
 .method public setInts([I)V
     .locals 4
-    .parameter "ints"
+    .param p1, "ints"    # [I
 
     .prologue
     .line 112

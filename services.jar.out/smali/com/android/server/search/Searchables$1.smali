@@ -42,8 +42,8 @@
 # virtual methods
 .method public compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
     .locals 4
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Landroid/content/pm/ResolveInfo;
+    .param p2, "rhs"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
     .line 335
@@ -58,20 +58,20 @@
 
     .line 338
     :cond_0
-    #calls: Lcom/android/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
+    # invokes: Lcom/android/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
     invoke-static {p1}, Lcom/android/server/search/Searchables;->access$000(Landroid/content/pm/ResolveInfo;)Z
 
     move-result v0
 
     .line 339
-    .local v0, lhsSystem:Z
-    #calls: Lcom/android/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
+    .local v0, "lhsSystem":Z
+    # invokes: Lcom/android/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
     invoke-static {p2}, Lcom/android/server/search/Searchables;->access$000(Landroid/content/pm/ResolveInfo;)Z
 
     move-result v1
 
     .line 341
-    .local v1, rhsSystem:Z
+    .local v1, "rhsSystem":Z
     if-eqz v0, :cond_1
 
     if-nez v1, :cond_1
@@ -105,17 +105,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 332
     check-cast p1, Landroid/content/pm/ResolveInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/content/pm/ResolveInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/search/Searchables$1;->compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
 
     move-result v0

@@ -21,11 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/RegisteredServicesCache;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 153
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$2;,"Landroid/content/pm/RegisteredServicesCache.2;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$2;, "Landroid/content/pm/RegisteredServicesCache.2;"
     iput-object p1, p0, Landroid/content/pm/RegisteredServicesCache$2;->this$0:Landroid/content/pm/RegisteredServicesCache;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -37,17 +36,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 157
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$2;,"Landroid/content/pm/RegisteredServicesCache.2;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$2;, "Landroid/content/pm/RegisteredServicesCache.2;"
     iget-object v0, p0, Landroid/content/pm/RegisteredServicesCache$2;->this$0:Landroid/content/pm/RegisteredServicesCache;
 
     const/4 v1, 0x0
 
-    #calls: Landroid/content/pm/RegisteredServicesCache;->generateServicesMap(I)V
+    # invokes: Landroid/content/pm/RegisteredServicesCache;->generateServicesMap(I)V
     invoke-static {v0, v1}, Landroid/content/pm/RegisteredServicesCache;->access$100(Landroid/content/pm/RegisteredServicesCache;I)V
 
     .line 158

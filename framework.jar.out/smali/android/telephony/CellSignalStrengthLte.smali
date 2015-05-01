@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -68,12 +68,12 @@
 
 .method public constructor <init>(IIIIII)V
     .locals 0
-    .parameter "signalStrength"
-    .parameter "rsrp"
-    .parameter "rsrq"
-    .parameter "rssnr"
-    .parameter "cqi"
-    .parameter "timingAdvance"
+    .param p1, "signalStrength"    # I
+    .param p2, "rsrp"    # I
+    .param p3, "rsrq"    # I
+    .param p4, "rssnr"    # I
+    .param p5, "cqi"    # I
+    .param p6, "timingAdvance"    # I
 
     .prologue
     .line 53
@@ -88,7 +88,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 263
@@ -146,8 +146,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/CellSignalStrengthLte$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/telephony/CellSignalStrengthLte$1;
 
     .prologue
     .line 26
@@ -158,7 +158,7 @@
 
 .method public constructor <init>(Landroid/telephony/CellSignalStrengthLte;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/CellSignalStrengthLte;
 
     .prologue
     .line 64
@@ -173,7 +173,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 300
@@ -213,7 +213,7 @@
 
 .method protected copyFrom(Landroid/telephony/CellSignalStrengthLte;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/CellSignalStrengthLte;
 
     .prologue
     .line 109
@@ -262,7 +262,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -278,11 +278,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 219
-    .local v2, s:Landroid/telephony/CellSignalStrengthLte;
+    .local v2, "s":Landroid/telephony/CellSignalStrengthLte;
     if-nez p1, :cond_1
 
     .line 223
-    .end local v2           #s:Landroid/telephony/CellSignalStrengthLte;
+    .end local v2    # "s":Landroid/telephony/CellSignalStrengthLte;
     :cond_0
     :goto_0
     return v3
@@ -292,12 +292,12 @@
     move-exception v1
 
     .line 216
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 223
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Landroid/telephony/CellSignalStrengthLte;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Landroid/telephony/CellSignalStrengthLte;
     :cond_1
     iget v4, p0, Landroid/telephony/CellSignalStrengthLte;->mSignalStrength:I
 
@@ -348,13 +348,13 @@
     const/16 v0, 0x63
 
     .line 185
-    .local v0, lteAsuLevel:I
+    .local v0, "lteAsuLevel":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthLte;->getDbm()I
 
     move-result v1
 
     .line 186
-    .local v1, lteDbm:I
+    .local v1, "lteDbm":I
     const/16 v2, -0x8c
 
     if-gt v1, v2, :cond_0
@@ -402,11 +402,11 @@
     const/4 v1, 0x0
 
     .line 142
-    .local v1, levelRsrp:I
+    .local v1, "levelRsrp":I
     const/4 v2, 0x0
 
     .line 144
-    .local v2, levelRssnr:I
+    .local v2, "levelRssnr":I
     iget v3, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrp:I
 
     if-ne v3, v5, :cond_0
@@ -431,12 +431,12 @@
     move v0, v2
 
     .line 167
-    .local v0, level:I
+    .local v0, "level":I
     :goto_2
     return v0
 
     .line 145
-    .end local v0           #level:I
+    .end local v0    # "level":I
     :cond_0
     iget v3, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrp:I
 
@@ -529,21 +529,21 @@
     .line 161
     move v0, v1
 
-    .restart local v0       #level:I
+    .restart local v0    # "level":I
     goto :goto_2
 
     .line 163
-    .end local v0           #level:I
+    .end local v0    # "level":I
     :cond_9
     if-ge v2, v1, :cond_a
 
     move v0, v2
 
-    .restart local v0       #level:I
+    .restart local v0    # "level":I
     :goto_3
     goto :goto_2
 
-    .end local v0           #level:I
+    .end local v0    # "level":I
     :cond_a
     move v0, v1
 
@@ -568,7 +568,7 @@
     const/16 v0, 0x1f
 
     .line 204
-    .local v0, primeNum:I
+    .local v0, "primeNum":I
     iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mSignalStrength:I
 
     mul-int/2addr v1, v0
@@ -608,12 +608,12 @@
 
 .method public initialize(IIIIII)V
     .locals 0
-    .parameter "lteSignalStrength"
-    .parameter "rsrp"
-    .parameter "rsrq"
-    .parameter "rssnr"
-    .parameter "cqi"
-    .parameter "timingAdvance"
+    .param p1, "lteSignalStrength"    # I
+    .param p2, "rsrp"    # I
+    .param p3, "rsrq"    # I
+    .param p4, "rssnr"    # I
+    .param p5, "cqi"    # I
+    .param p6, "timingAdvance"    # I
 
     .prologue
     .line 81
@@ -640,8 +640,8 @@
 
 .method public initialize(Landroid/telephony/SignalStrength;I)V
     .locals 1
-    .parameter "ss"
-    .parameter "timingAdvance"
+    .param p1, "ss"    # Landroid/telephony/SignalStrength;
+    .param p2, "timingAdvance"    # I
 
     .prologue
     .line 97
@@ -804,8 +804,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 249

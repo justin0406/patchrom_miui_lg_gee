@@ -29,7 +29,7 @@
 # virtual methods
 .method public format(Ljava/util/logging/LogRecord;)Ljava/lang/String;
     .locals 5
-    .parameter "r"
+    .param p1, "r"    # Ljava/util/logging/LogRecord;
 
     .prologue
     .line 92
@@ -38,7 +38,7 @@
     move-result-object v2
 
     .line 93
-    .local v2, thrown:Ljava/lang/Throwable;
+    .local v2, "thrown":Ljava/lang/Throwable;
     if-eqz v2, :cond_0
 
     .line 94
@@ -47,7 +47,7 @@
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
     .line 95
-    .local v1, sw:Ljava/io/StringWriter;
+    .local v1, "sw":Ljava/io/StringWriter;
     new-instance v0, Lcom/android/internal/util/FastPrintWriter;
 
     const/4 v3, 0x0
@@ -57,7 +57,7 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
     .line 96
-    .local v0, pw:Ljava/io/PrintWriter;
+    .local v0, "pw":Ljava/io/PrintWriter;
     invoke-virtual {p1}, Ljava/util/logging/LogRecord;->getMessage()Ljava/lang/String;
 
     move-result-object v3
@@ -81,8 +81,8 @@
     move-result-object v3
 
     .line 102
-    .end local v0           #pw:Ljava/io/PrintWriter;
-    .end local v1           #sw:Ljava/io/StringWriter;
+    .end local v0    # "pw":Ljava/io/PrintWriter;
+    .end local v1    # "sw":Ljava/io/StringWriter;
     :goto_0
     return-object v3
 

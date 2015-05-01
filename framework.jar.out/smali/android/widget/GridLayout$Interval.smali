@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "min"
-    .parameter "max"
+    .param p1, "min"    # I
+    .param p2, "max"    # I
 
     .prologue
     .line 2317
@@ -44,7 +44,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "that"
+    .param p1, "that"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -86,7 +86,7 @@
     check-cast v0, Landroid/widget/GridLayout$Interval;
 
     .line 2351
-    .local v0, interval:Landroid/widget/GridLayout$Interval;
+    .local v0, "interval":Landroid/widget/GridLayout$Interval;
     iget v3, p0, Landroid/widget/GridLayout$Interval;->max:I
 
     iget v4, v0, Landroid/widget/GridLayout$Interval;->max:I
@@ -120,7 +120,7 @@
     iget v0, p0, Landroid/widget/GridLayout$Interval;->min:I
 
     .line 2365
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/widget/GridLayout$Interval;->max:I

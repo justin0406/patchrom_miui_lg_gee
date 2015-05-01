@@ -10,8 +10,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Input;)V
     .locals 1
-    .parameter "cmdDet"
-    .parameter "input"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "input"    # Lcom/android/internal/telephony/cat/Input;
 
     .prologue
     .line 167
@@ -33,7 +33,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 173

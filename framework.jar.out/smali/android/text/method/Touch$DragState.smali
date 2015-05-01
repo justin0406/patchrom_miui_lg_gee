@@ -34,10 +34,10 @@
 # direct methods
 .method public constructor <init>(FFII)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
-    .parameter "scrollX"
-    .parameter "scrollY"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "scrollX"    # I
+    .param p4, "scrollY"    # I
 
     .prologue
     .line 205

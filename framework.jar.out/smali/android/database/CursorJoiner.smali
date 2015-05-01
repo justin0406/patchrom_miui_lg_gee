@@ -3,8 +3,8 @@
 .source "CursorJoiner.java"
 
 # interfaces
-.implements Ljava/util/Iterator;
 .implements Ljava/lang/Iterable;
+.implements Ljava/util/Iterator;
 
 
 # annotations
@@ -79,10 +79,10 @@
 
 .method public constructor <init>(Landroid/database/Cursor;[Ljava/lang/String;Landroid/database/Cursor;[Ljava/lang/String;)V
     .locals 3
-    .parameter "cursorLeft"
-    .parameter "columnNamesLeft"
-    .parameter "cursorRight"
-    .parameter "columnNamesRight"
+    .param p1, "cursorLeft"    # Landroid/database/Cursor;
+    .param p2, "columnNamesLeft"    # [Ljava/lang/String;
+    .param p3, "cursorRight"    # Landroid/database/Cursor;
+    .param p4, "columnNamesRight"    # [Ljava/lang/String;
 
     .prologue
     .line 77
@@ -187,8 +187,8 @@
 
 .method private buildColumnIndiciesArray(Landroid/database/Cursor;[Ljava/lang/String;)[I
     .locals 3
-    .parameter "cursor"
-    .parameter "columnNames"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "columnNames"    # [Ljava/lang/String;
 
     .prologue
     .line 109
@@ -197,10 +197,10 @@
     new-array v0, v2, [I
 
     .line 110
-    .local v0, columns:[I
+    .local v0, "columns":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, p2
 
@@ -227,7 +227,7 @@
 
 .method private static varargs compareStrings([Ljava/lang/String;)I
     .locals 6
-    .parameter "values"
+    .param p0, "values"    # [Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x1
@@ -254,7 +254,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     array-length v4, p0
 
@@ -306,7 +306,7 @@
     move-result v0
 
     .line 258
-    .local v0, comp:I
+    .local v0, "comp":I
     if-eqz v0, :cond_1
 
     .line 259
@@ -317,7 +317,7 @@
     goto :goto_1
 
     .line 263
-    .end local v0           #comp:I
+    .end local v0    # "comp":I
     :cond_5
     const/4 v2, 0x0
 
@@ -396,10 +396,10 @@
 
 .method private static populateValues([Ljava/lang/String;Landroid/database/Cursor;[II)V
     .locals 3
-    .parameter "values"
-    .parameter "cursor"
-    .parameter "columnIndicies"
-    .parameter "startingIndex"
+    .param p0, "values"    # [Ljava/lang/String;
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "columnIndicies"    # [I
+    .param p3, "startingIndex"    # I
 
     .prologue
     .line 206
@@ -423,7 +423,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v1, p2
 
@@ -686,7 +686,7 @@
     move v0, v2
 
     .line 164
-    .local v0, hasLeft:Z
+    .local v0, "hasLeft":Z
     :goto_0
     iget-object v4, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
@@ -699,7 +699,7 @@
     move v1, v2
 
     .line 166
-    .local v1, hasRight:Z
+    .local v1, "hasRight":Z
     :goto_1
     if-eqz v0, :cond_4
 
@@ -741,15 +741,15 @@
 
     return-object v2
 
-    .end local v0           #hasLeft:Z
-    .end local v1           #hasRight:Z
+    .end local v0    # "hasLeft":Z
+    .end local v1    # "hasRight":Z
     :cond_2
     move v0, v3
 
     .line 163
     goto :goto_0
 
-    .restart local v0       #hasLeft:Z
+    .restart local v0    # "hasLeft":Z
     :cond_3
     move v1, v3
 
@@ -757,7 +757,7 @@
     goto :goto_1
 
     .line 171
-    .restart local v1       #hasRight:Z
+    .restart local v1    # "hasRight":Z
     :pswitch_0
     sget-object v3, Landroid/database/CursorJoiner$Result;->LEFT:Landroid/database/CursorJoiner$Result;
 

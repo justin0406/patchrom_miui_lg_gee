@@ -48,7 +48,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageStatsObserver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/pm/IPackageStatsObserver;
@@ -86,7 +86,7 @@
     :cond_1
     new-instance v0, Landroid/content/pm/IPackageStatsObserver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/pm/IPackageStatsObserver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -104,10 +104,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,7 +159,7 @@
     check-cast v0, Landroid/content/pm/PackageStats;
 
     .line 62
-    .local v0, _arg0:Landroid/content/pm/PackageStats;
+    .local v0, "_arg0":Landroid/content/pm/PackageStats;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -170,19 +170,19 @@
     move v1, v2
 
     .line 63
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :goto_2
     invoke-virtual {p0, v0, v1}, Landroid/content/pm/IPackageStatsObserver$Stub;->onGetStatsCompleted(Landroid/content/pm/PackageStats;Z)V
 
     goto :goto_0
 
     .line 59
-    .end local v0           #_arg0:Landroid/content/pm/PackageStats;
-    .end local v1           #_arg1:Z
+    .end local v0    # "_arg0":Landroid/content/pm/PackageStats;
+    .end local v1    # "_arg1":Z
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/pm/PackageStats;
+    .restart local v0    # "_arg0":Landroid/content/pm/PackageStats;
     goto :goto_1
 
     .line 62

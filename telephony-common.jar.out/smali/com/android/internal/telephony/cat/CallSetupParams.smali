@@ -12,9 +12,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Lcom/android/internal/telephony/cat/TextMessage;)V
     .locals 0
-    .parameter "cmdDet"
-    .parameter "confirmMsg"
-    .parameter "callMsg"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "confirmMsg"    # Lcom/android/internal/telephony/cat/TextMessage;
+    .param p3, "callMsg"    # Lcom/android/internal/telephony/cat/TextMessage;
 
     .prologue
     .line 112
@@ -34,7 +34,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 3
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     const/4 v1, 0x1

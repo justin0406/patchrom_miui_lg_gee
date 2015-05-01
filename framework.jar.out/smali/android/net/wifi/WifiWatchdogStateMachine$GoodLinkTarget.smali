@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .parameter "adj"
-    .parameter "count"
-    .parameter "time"
+    .param p1, "adj"    # I
+    .param p2, "count"    # I
+    .param p3, "time"    # I
 
     .prologue
     .line 973

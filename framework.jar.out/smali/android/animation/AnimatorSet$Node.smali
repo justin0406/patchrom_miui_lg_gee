@@ -70,7 +70,7 @@
 # direct methods
 .method public constructor <init>(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     const/4 v0, 0x0
@@ -106,7 +106,7 @@
 # virtual methods
 .method public addDependency(Landroid/animation/AnimatorSet$Dependency;)V
     .locals 3
-    .parameter "dependency"
+    .param p1, "dependency"    # Landroid/animation/AnimatorSet$Dependency;
 
     .prologue
     .line 996
@@ -157,7 +157,7 @@
     iget-object v0, p1, Landroid/animation/AnimatorSet$Dependency;->node:Landroid/animation/AnimatorSet$Node;
 
     .line 1005
-    .local v0, dependencyNode:Landroid/animation/AnimatorSet$Node;
+    .local v0, "dependencyNode":Landroid/animation/AnimatorSet$Node;
     iget-object v1, v0, Landroid/animation/AnimatorSet$Node;->nodeDependents:Ljava/util/ArrayList;
 
     if-nez v1, :cond_2
@@ -192,7 +192,7 @@
     check-cast v1, Landroid/animation/AnimatorSet$Node;
 
     .line 1015
-    .local v1, node:Landroid/animation/AnimatorSet$Node;
+    .local v1, "node":Landroid/animation/AnimatorSet$Node;
     iget-object v2, p0, Landroid/animation/AnimatorSet$Node;->animation:Landroid/animation/Animator;
 
     invoke-virtual {v2}, Landroid/animation/Animator;->clone()Landroid/animation/Animator;
@@ -207,12 +207,12 @@
     return-object v1
 
     .line 1017
-    .end local v1           #node:Landroid/animation/AnimatorSet$Node;
+    .end local v1    # "node":Landroid/animation/AnimatorSet$Node;
     :catch_0
     move-exception v0
 
     .line 1018
-    .local v0, e:Ljava/lang/CloneNotSupportedException;
+    .local v0, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V

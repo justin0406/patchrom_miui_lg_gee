@@ -12,9 +12,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Menu;Z)V
     .locals 1
-    .parameter "cmdDet"
-    .parameter "menu"
-    .parameter "loadTitleIcon"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "menu"    # Lcom/android/internal/telephony/cat/Menu;
+    .param p3, "loadTitleIcon"    # Z
 
     .prologue
     .line 138
@@ -44,7 +44,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 3
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 145
@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -104,7 +104,7 @@
     check-cast v1, Lcom/android/internal/telephony/cat/Item;
 
     .line 150
-    .local v1, item:Lcom/android/internal/telephony/cat/Item;
+    .local v1, "item":Lcom/android/internal/telephony/cat/Item;
     iget-object v2, v1, Lcom/android/internal/telephony/cat/Item;->icon:Landroid/graphics/Bitmap;
 
     if-nez v2, :cond_2
@@ -115,8 +115,8 @@
     goto :goto_0
 
     .line 159
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #item:Lcom/android/internal/telephony/cat/Item;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "item":Lcom/android/internal/telephony/cat/Item;
     :cond_3
     const/4 v2, 0x0
 

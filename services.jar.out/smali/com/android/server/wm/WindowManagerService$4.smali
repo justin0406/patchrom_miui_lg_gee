@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 765
+    .line 772
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Landroid/app/AppOpsManager$OnOpChangedInternalListener;-><init>()V
@@ -36,15 +35,15 @@
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
     .locals 1
-    .parameter "op"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 768
+    .line 775
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->updateAppOpsState()V
 
-    .line 769
+    .line 776
     return-void
 .end method

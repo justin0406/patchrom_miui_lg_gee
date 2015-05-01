@@ -5,7 +5,7 @@
         <item quantity="one">"Et queda %d intent; si no l'encertes, la SIM es bloquejarà."</item>
     </plurals>
     <plurals name="num_seconds_ago">
-        <item quantity="other">fa %d segons</item>
+        <item quantity="other">Fa %d segons</item>
         <item quantity="one">Fa 1 segon</item>
     </plurals>
     <plurals name="num_minutes_ago">
@@ -21,7 +21,7 @@
     </plurals>
     <plurals name="num_days_ago">
         <item quantity="other">Fa %d dies</item>
-        <item quantity="one">ahir</item>
+        <item quantity="one">Ahir</item>
     </plurals>
     <plurals name="in_num_seconds">
         <item quantity="other">"d'aquí a %d segons"</item>

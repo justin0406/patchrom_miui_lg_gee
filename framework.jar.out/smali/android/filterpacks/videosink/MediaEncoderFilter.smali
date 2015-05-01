@@ -168,12 +168,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 12
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const-wide/16 v10, 0x0
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v8, 0x0
 
@@ -272,25 +272,25 @@
     invoke-direct {v0, v8, v8}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 195
-    .local v0, bl:Landroid/filterfw/geometry/Point;
+    .local v0, "bl":Landroid/filterfw/geometry/Point;
     new-instance v1, Landroid/filterfw/geometry/Point;
 
     invoke-direct {v1, v9, v8}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 196
-    .local v1, br:Landroid/filterfw/geometry/Point;
+    .local v1, "br":Landroid/filterfw/geometry/Point;
     new-instance v2, Landroid/filterfw/geometry/Point;
 
     invoke-direct {v2, v8, v9}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 197
-    .local v2, tl:Landroid/filterfw/geometry/Point;
+    .local v2, "tl":Landroid/filterfw/geometry/Point;
     new-instance v3, Landroid/filterfw/geometry/Point;
 
     invoke-direct {v3, v9, v9}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 198
-    .local v3, tr:Landroid/filterfw/geometry/Point;
+    .local v3, "tr":Landroid/filterfw/geometry/Point;
     new-instance v4, Landroid/filterfw/geometry/Quad;
 
     invoke-direct {v4, v0, v1, v2, v3}, Landroid/filterfw/geometry/Quad;-><init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
@@ -314,7 +314,7 @@
 
 .method private startRecording(Landroid/filterfw/core/FilterContext;)V
     .locals 11
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v6, 0x1
@@ -343,7 +343,7 @@
     invoke-direct {v2, v5, v8}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 303
-    .local v2, screenFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v2, "screenFormat":Landroid/filterfw/core/MutableFrameFormat;
     const/4 v5, 0x4
 
     invoke-virtual {v2, v5}, Landroid/filterfw/core/MutableFrameFormat;->setBytesPerSample(I)V
@@ -360,7 +360,7 @@
     move v4, v6
 
     .line 309
-    .local v4, widthHeightSpecified:Z
+    .local v4, "widthHeightSpecified":Z
     :goto_0
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
 
@@ -374,13 +374,13 @@
     iget v3, v5, Landroid/media/CamcorderProfile;->videoFrameWidth:I
 
     .line 311
-    .local v3, width:I
+    .local v3, "width":I
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
 
     iget v1, v5, Landroid/media/CamcorderProfile;->videoFrameHeight:I
 
     .line 316
-    .local v1, height:I
+    .local v1, "height":I
     :goto_1
     invoke-virtual {v2, v3, v1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
@@ -460,9 +460,9 @@
     .line 345
     return-void
 
-    .end local v1           #height:I
-    .end local v3           #width:I
-    .end local v4           #widthHeightSpecified:Z
+    .end local v1    # "height":I
+    .end local v3    # "width":I
+    .end local v4    # "widthHeightSpecified":Z
     :cond_2
     move v4, v7
 
@@ -470,15 +470,15 @@
     goto :goto_0
 
     .line 313
-    .restart local v4       #widthHeightSpecified:Z
+    .restart local v4    # "widthHeightSpecified":Z
     :cond_3
     iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
     .line 314
-    .restart local v3       #width:I
+    .restart local v3    # "width":I
     iget v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
-    .restart local v1       #height:I
+    .restart local v1    # "height":I
     goto :goto_1
 
     .line 327
@@ -486,16 +486,16 @@
     move-exception v0
 
     .line 328
-    .local v0, e:Ljava/lang/IllegalStateException;
+    .local v0, "e":Ljava/lang/IllegalStateException;
     throw v0
 
     .line 329
-    .end local v0           #e:Ljava/lang/IllegalStateException;
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v0
 
     .line 330
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     new-instance v5, Ljava/lang/RuntimeException;
 
     const-string v6, "IOException inMediaRecorder.prepare()!"
@@ -505,12 +505,12 @@
     throw v5
 
     .line 332
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catch_2
     move-exception v0
 
     .line 333
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v5, Ljava/lang/RuntimeException;
 
     const-string v6, "Unknown Exception inMediaRecorder.prepare()!"
@@ -522,7 +522,7 @@
 
 .method private stopRecording(Landroid/filterfw/core/FilterContext;)V
     .locals 8
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v7, 0x0
@@ -553,7 +553,7 @@
     move-result-object v1
 
     .line 434
-    .local v1, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v1, "glEnv":Landroid/filterfw/core/GLEnvironment;
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
     if-eqz v2, :cond_1
@@ -629,7 +629,7 @@
     move-exception v0
 
     .line 439
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     new-instance v2, Landroid/filterpacks/videosink/MediaRecorderStopException;
 
     const-string v3, "MediaRecorder.stop() failed!"
@@ -661,7 +661,7 @@
     const/4 v0, 0x2
 
     .line 241
-    .local v0, GRALLOC_BUFFER:I
+    .local v0, "GRALLOC_BUFFER":I
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/4 v3, 0x2
@@ -782,14 +782,14 @@
     return-void
 
     .line 239
-    .end local v0           #GRALLOC_BUFFER:I
+    .end local v0    # "GRALLOC_BUFFER":I
     :cond_2
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 254
-    .restart local v0       #GRALLOC_BUFFER:I
+    .restart local v0    # "GRALLOC_BUFFER":I
     :cond_3
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
@@ -837,7 +837,7 @@
     move-exception v1
 
     .line 275
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const-string v2, "MediaEncoderFilter"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -877,7 +877,7 @@
     invoke-direct {v0}, Landroid/filterfw/geometry/Quad;-><init>()V
 
     .line 228
-    .local v0, flippedRegion:Landroid/filterfw/geometry/Quad;
+    .local v0, "flippedRegion":Landroid/filterfw/geometry/Quad;
     iget-object v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mSourceRegion:Landroid/filterfw/geometry/Quad;
 
     iget-object v1, v1, Landroid/filterfw/geometry/Quad;->p2:Landroid/filterfw/geometry/Point;
@@ -918,7 +918,7 @@
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 457
@@ -947,8 +947,8 @@
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 211
@@ -1044,7 +1044,7 @@
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 292
@@ -1076,7 +1076,7 @@
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 283
@@ -1109,7 +1109,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 387
@@ -1118,7 +1118,7 @@
     move-result-object v0
 
     .line 389
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     const-string/jumbo v2, "videoframe"
 
     invoke-virtual {p0, v2}, Landroid/filterpacks/videosink/MediaEncoderFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
@@ -1126,7 +1126,7 @@
     move-result-object v1
 
     .line 392
-    .local v1, input:Landroid/filterfw/core/Frame;
+    .local v1, "input":Landroid/filterfw/core/Frame;
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
     if-nez v2, :cond_0
@@ -1241,7 +1241,7 @@
 
 .method public skipFrameAndModifyTimestamp(J)Z
     .locals 9
-    .parameter "timestampNs"
+    .param p1, "timestampNs"    # J
 
     .prologue
     const-wide/32 v7, 0x3b9aca00
@@ -1475,7 +1475,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 465

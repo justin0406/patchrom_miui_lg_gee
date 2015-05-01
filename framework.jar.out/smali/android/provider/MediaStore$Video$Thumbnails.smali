@@ -22,13 +22,13 @@
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "video_id ASC"
 
-.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final FULL_SCREEN_KIND:I = 0x2
 
 .field public static final HEIGHT:Ljava/lang/String; = "height"
 
-.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final KIND:Ljava/lang/String; = "kind"
 
@@ -79,8 +79,8 @@
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;J)V
     .locals 6
-    .parameter "cr"
-    .parameter "origId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
 
     .prologue
     .line 2033
@@ -100,9 +100,9 @@
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;JJ)V
     .locals 6
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "groupId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "groupId"    # J
 
     .prologue
     .line 2083
@@ -122,7 +122,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 2094
@@ -159,10 +159,10 @@
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 9
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "kind"
-    .parameter "options"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "kind"    # I
+    .param p4, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 2050
@@ -189,11 +189,11 @@
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JJILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 9
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "groupId"
-    .parameter "kind"
-    .parameter "options"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "groupId"    # J
+    .param p5, "kind"    # I
+    .param p6, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 2069

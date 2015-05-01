@@ -28,8 +28,8 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;I)V
     .locals 7
-    .parameter "bounds"
-    .parameter "score"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
+    .param p2, "score"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -55,12 +55,12 @@
 
 .method public constructor <init>(Landroid/graphics/Rect;IILandroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)V
     .locals 2
-    .parameter "bounds"
-    .parameter "score"
-    .parameter "id"
-    .parameter "leftEyePosition"
-    .parameter "rightEyePosition"
-    .parameter "mouthPosition"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
+    .param p2, "score"    # I
+    .param p3, "id"    # I
+    .param p4, "leftEyePosition"    # Landroid/graphics/Point;
+    .param p5, "rightEyePosition"    # Landroid/graphics/Point;
+    .param p6, "mouthPosition"    # Landroid/graphics/Point;
 
     .prologue
     const/4 v1, -0x1
@@ -151,8 +151,8 @@
 
 .method private static checkNotNull(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .parameter "name"
-    .parameter "obj"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 252
@@ -190,8 +190,8 @@
 
 .method private static checkNull(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .parameter "name"
-    .parameter "obj"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 258

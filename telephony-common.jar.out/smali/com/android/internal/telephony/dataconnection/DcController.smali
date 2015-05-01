@@ -60,10 +60,10 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Lcom/android/internal/telephony/PhoneBase;Lcom/android/internal/telephony/dataconnection/DcTrackerBase;Landroid/os/Handler;)V
     .locals 2
-    .parameter "name"
-    .parameter "phone"
-    .parameter "dct"
-    .parameter "handler"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "phone"    # Lcom/android/internal/telephony/PhoneBase;
+    .param p3, "dct"    # Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+    .param p4, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 78
@@ -129,7 +129,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/dataconnection/DcController;)Lcom/android/internal/telephony/PhoneBase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
 
     .prologue
     .line 43
@@ -140,7 +140,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/dataconnection/DcController;)Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
 
     .prologue
     .line 43
@@ -151,8 +151,8 @@
 
 .method static synthetic access$202(Lcom/android/internal/telephony/dataconnection/DcController;Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;)Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
+    .param p1, "x1"    # Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
 
     .prologue
     .line 43
@@ -163,7 +163,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/dataconnection/DcController;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
 
     .prologue
     .line 43
@@ -174,8 +174,8 @@
 
 .method static synthetic access$400(Lcom/android/internal/telephony/dataconnection/DcController;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -186,7 +186,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/telephony/dataconnection/DcController;)Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcController;
 
     .prologue
     .line 43
@@ -197,7 +197,7 @@
 
 .method private lr(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 328
@@ -209,9 +209,9 @@
 
 .method static makeDcc(Lcom/android/internal/telephony/PhoneBase;Lcom/android/internal/telephony/dataconnection/DcTrackerBase;Landroid/os/Handler;)Lcom/android/internal/telephony/dataconnection/DcController;
     .locals 2
-    .parameter "phone"
-    .parameter "dct"
-    .parameter "handler"
+    .param p0, "phone"    # Lcom/android/internal/telephony/PhoneBase;
+    .param p1, "dct"    # Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 89
@@ -222,7 +222,7 @@
     invoke-direct {v0, v1, p0, p1, p2}, Lcom/android/internal/telephony/dataconnection/DcController;-><init>(Ljava/lang/String;Lcom/android/internal/telephony/PhoneBase;Lcom/android/internal/telephony/dataconnection/DcTrackerBase;Landroid/os/Handler;)V
 
     .line 90
-    .local v0, dcc:Lcom/android/internal/telephony/dataconnection/DcController;
+    .local v0, "dcc":Lcom/android/internal/telephony/dataconnection/DcController;
     invoke-virtual {v0}, Lcom/android/internal/telephony/dataconnection/DcController;->start()V
 
     .line 91
@@ -233,7 +233,7 @@
 # virtual methods
 .method addActiveDcByCid(Lcom/android/internal/telephony/dataconnection/DataConnection;)V
     .locals 2
-    .parameter "dc"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .prologue
     .line 109
@@ -280,7 +280,7 @@
 
 .method addDc(Lcom/android/internal/telephony/dataconnection/DataConnection;)V
     .locals 1
-    .parameter "dc"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .prologue
     .line 100
@@ -310,9 +310,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 361
@@ -393,14 +393,14 @@
 
 .method protected getWhatToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 346
     const/4 v0, 0x0
 
     .line 347
-    .local v0, info:Ljava/lang/String;
+    .local v0, "info":Ljava/lang/String;
     invoke-static {p1}, Lcom/android/internal/telephony/dataconnection/DataConnection;->cmdToString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -420,7 +420,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 333
@@ -436,7 +436,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 338
@@ -452,7 +452,7 @@
 
 .method removeActiveDcByCid(Lcom/android/internal/telephony/dataconnection/DataConnection;)V
     .locals 3
-    .parameter "dc"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .prologue
     .line 116
@@ -471,7 +471,7 @@
     check-cast v0, Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .line 117
-    .local v0, removedDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
+    .local v0, "removedDc":Lcom/android/internal/telephony/dataconnection/DataConnection;
     if-nez v0, :cond_0
 
     .line 118
@@ -502,7 +502,7 @@
 
 .method removeDc(Lcom/android/internal/telephony/dataconnection/DataConnection;)V
     .locals 2
-    .parameter "dc"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .prologue
     .line 104

@@ -117,7 +117,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x0
@@ -287,8 +287,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Input$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Lcom/android/internal/telephony/cat/Input$1;
 
     .prologue
     .line 27
@@ -311,7 +311,7 @@
 
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 1
-    .parameter "Icon"
+    .param p1, "Icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 104
@@ -322,8 +322,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

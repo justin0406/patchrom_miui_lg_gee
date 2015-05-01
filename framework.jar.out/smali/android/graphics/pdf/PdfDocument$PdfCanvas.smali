@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/pdf/PdfDocument;I)V
     .locals 0
-    .parameter
-    .parameter "nativeCanvas"
+    .param p2, "nativeCanvas"    # I
 
     .prologue
     .line 251
@@ -39,7 +38,7 @@
 # virtual methods
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 257

@@ -38,7 +38,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 55
@@ -62,8 +62,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 90
@@ -106,7 +106,7 @@
 
 .method public loadImage(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "filterContext"
+    .param p1, "filterContext"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 71
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 76
-    .local v0, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v0, "outputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v1
@@ -187,7 +187,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 100
@@ -235,7 +235,7 @@
     move-result-object v0
 
     .line 66
-    .local v0, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v0, "outputFormat":Landroid/filterfw/core/FrameFormat;
     const-string v1, "image"
 
     invoke-virtual {p0, v1, v0}, Landroid/filterpacks/imageproc/BitmapSource;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
@@ -246,7 +246,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 113

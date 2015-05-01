@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(F)V
     .locals 0
-    .parameter "cycles"
+    .param p1, "cycles"    # F
 
     .prologue
     .line 29
@@ -28,8 +28,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 33
@@ -43,10 +43,10 @@
     move-result-object v0
 
     .line 37
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
@@ -65,11 +65,11 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 4
-    .parameter "input"
+    .param p1, "input"    # F
 
     .prologue
     .line 43
-    const/high16 v0, 0x4000
+    const/high16 v0, 0x40000000    # 2.0f
 
     iget v1, p0, Landroid/view/animation/CycleInterpolator;->mCycles:F
 
@@ -77,7 +77,7 @@
 
     float-to-double v0, v0
 
-    const-wide v2, 0x400921fb54442d18L
+    const-wide v2, 0x400921fb54442d18L    # Math.PI
 
     mul-double/2addr v0, v2
 

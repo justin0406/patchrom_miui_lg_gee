@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 2330
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 2336
@@ -81,11 +80,11 @@
     check-cast v0, Lcom/android/server/accounts/AccountManagerService$Session;
 
     .line 2339
-    .local v0, session:Lcom/android/server/accounts/AccountManagerService$Session;
+    .local v0, "session":Lcom/android/server/accounts/AccountManagerService$Session;
     invoke-virtual {v0}, Lcom/android/server/accounts/AccountManagerService$Session;->onTimedOut()V
 
     .line 2349
-    .end local v0           #session:Lcom/android/server/accounts/AccountManagerService$Session;
+    .end local v0    # "session":Lcom/android/server/accounts/AccountManagerService$Session;
     :goto_0
     return-void
 
@@ -101,7 +100,7 @@
 
     iget v4, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Lcom/android/server/accounts/AccountManagerService;->copyAccountToUser(Landroid/accounts/Account;II)Z
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->copyAccountToUser(Landroid/accounts/Account;II)Z
     invoke-static {v2, v1, v3, v4}, Lcom/android/server/accounts/AccountManagerService;->access$2000(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/Account;II)Z
 
     goto :goto_0

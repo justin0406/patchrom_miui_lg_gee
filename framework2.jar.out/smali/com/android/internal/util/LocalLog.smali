@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     const/16 v1, 0x14
@@ -52,9 +52,9 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
-    .parameter "pw"
-    .parameter "header"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "header"    # Ljava/lang/String;
+    .param p3, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 50
@@ -92,7 +92,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     iget-object v1, p0, Lcom/android/internal/util/LocalLog;->mLines:Ljava/util/ArrayList;
 
@@ -134,7 +134,7 @@
     goto :goto_0
 
     .line 64
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 
@@ -147,7 +147,7 @@
 
 .method public w(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 40

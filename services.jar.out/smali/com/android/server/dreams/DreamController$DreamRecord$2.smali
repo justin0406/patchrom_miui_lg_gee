@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/dreams/DreamController$DreamRecord;Landroid/os/IBinder;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 248
@@ -58,7 +56,7 @@
 
     iget-object v0, v0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
 
-    #getter for: Lcom/android/server/dreams/DreamController;->mCurrentDream:Lcom/android/server/dreams/DreamController$DreamRecord;
+    # getter for: Lcom/android/server/dreams/DreamController;->mCurrentDream:Lcom/android/server/dreams/DreamController$DreamRecord;
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->access$000(Lcom/android/server/dreams/DreamController;)Lcom/android/server/dreams/DreamController$DreamRecord;
 
     move-result-object v0
@@ -84,7 +82,7 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/server/dreams/DreamController;->attach(Landroid/service/dreams/IDreamService;)V
+    # invokes: Lcom/android/server/dreams/DreamController;->attach(Landroid/service/dreams/IDreamService;)V
     invoke-static {v0, v1}, Lcom/android/server/dreams/DreamController;->access$300(Lcom/android/server/dreams/DreamController;Landroid/service/dreams/IDreamService;)V
 
     .line 255

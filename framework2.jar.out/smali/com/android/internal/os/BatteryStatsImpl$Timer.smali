@@ -51,8 +51,7 @@
 # direct methods
 .method constructor <init>(ILjava/util/ArrayList;)V
     .locals 0
-    .parameter "type"
-    .parameter
+    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -65,7 +64,7 @@
 
     .prologue
     .line 635
-    .local p2, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p2, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0}, Landroid/os/BatteryStats$Timer;-><init>()V
 
     .line 636
@@ -83,9 +82,8 @@
 
 .method constructor <init>(ILjava/util/ArrayList;Landroid/os/Parcel;)V
     .locals 2
-    .parameter "type"
-    .parameter
-    .parameter "in"
+    .param p1, "type"    # I
+    .param p3, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -100,7 +98,7 @@
 
     .prologue
     .line 620
-    .local p2, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p2, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0}, Landroid/os/BatteryStats$Timer;-><init>()V
 
     .line 621
@@ -170,9 +168,9 @@
 
 .method public static writeTimerToParcel(Landroid/os/Parcel;Lcom/android/internal/os/BatteryStatsImpl$Timer;J)V
     .locals 1
-    .parameter "out"
-    .parameter "timer"
-    .parameter "batteryRealtime"
+    .param p0, "out"    # Landroid/os/Parcel;
+    .param p1, "timer"    # Lcom/android/internal/os/BatteryStatsImpl$Timer;
+    .param p2, "batteryRealtime"    # J
 
     .prologue
     .line 707
@@ -222,7 +220,7 @@
 
 .method public getCountLocked(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 736
@@ -234,20 +232,20 @@
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mLastCount:I
 
     .line 747
-    .local v0, val:I
+    .local v0, "val":I
     :cond_0
     :goto_0
     return v0
 
     .line 739
-    .end local v0           #val:I
+    .end local v0    # "val":I
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->computeCurrentCountLocked()I
 
     move-result v0
 
     .line 740
-    .restart local v0       #val:I
+    .restart local v0    # "val":I
     const/4 v1, 0x3
 
     if-ne p1, v1, :cond_2
@@ -273,8 +271,8 @@
 
 .method public getTotalTimeLocked(JI)J
     .locals 4
-    .parameter "batteryRealtime"
-    .parameter "which"
+    .param p1, "batteryRealtime"    # J
+    .param p3, "which"    # I
 
     .prologue
     .line 719
@@ -286,20 +284,20 @@
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mLastTime:J
 
     .line 730
-    .local v0, val:J
+    .local v0, "val":J
     :cond_0
     :goto_0
     return-wide v0
 
     .line 722
-    .end local v0           #val:J
+    .end local v0    # "val":J
     :cond_1
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->computeRunTimeLocked(J)J
 
     move-result-wide v0
 
     .line 723
-    .restart local v0       #val:J
+    .restart local v0    # "val":J
     const/4 v2, 0x3
 
     if-ne p3, v2, :cond_2
@@ -325,8 +323,8 @@
 
 .method public logState(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 751
@@ -476,9 +474,9 @@
 
 .method public plug(JJJ)V
     .locals 2
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 691
@@ -501,7 +499,7 @@
 
 .method readSummaryFromParcelLocked(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 770
@@ -552,8 +550,8 @@
 
 .method reset(Lcom/android/internal/os/BatteryStatsImpl;Z)Z
     .locals 2
-    .parameter "stats"
-    .parameter "detachIfReset"
+    .param p1, "stats"    # Lcom/android/internal/os/BatteryStatsImpl;
+    .param p2, "detachIfReset"    # Z
 
     .prologue
     .line 650
@@ -589,9 +587,9 @@
 
 .method public unplug(JJJ)V
     .locals 2
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 677
@@ -612,8 +610,8 @@
 
 .method writeSummaryFromParcelLocked(Landroid/os/Parcel;J)V
     .locals 6
-    .parameter "out"
-    .parameter "batteryRealtime"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "batteryRealtime"    # J
 
     .prologue
     .line 762
@@ -622,7 +620,7 @@
     move-result-wide v0
 
     .line 764
-    .local v0, runTime:J
+    .local v0, "runTime":J
     const-wide/16 v2, 0x1f4
 
     add-long/2addr v2, v0
@@ -644,8 +642,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;J)V
     .locals 2
-    .parameter "out"
-    .parameter "batteryRealtime"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "batteryRealtime"    # J
 
     .prologue
     .line 663

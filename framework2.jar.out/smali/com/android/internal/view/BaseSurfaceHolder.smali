@@ -112,7 +112,7 @@
 
 .method private final internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 10
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 165
@@ -141,7 +141,7 @@
     const/4 v0, 0x0
 
     .line 174
-    .local v0, c:Landroid/graphics/Canvas;
+    .local v0, "c":Landroid/graphics/Canvas;
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onAllowLockCanvas()Z
 
     move-result v6
@@ -198,17 +198,17 @@
     iput-wide v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
     .line 211
-    .end local v0           #c:Landroid/graphics/Canvas;
+    .end local v0    # "c":Landroid/graphics/Canvas;
     :goto_1
     return-object v0
 
     .line 185
-    .restart local v0       #c:Landroid/graphics/Canvas;
+    .restart local v0    # "c":Landroid/graphics/Canvas;
     :catch_0
     move-exception v1
 
     .line 186
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const-string v6, "BaseSurfaceHolder"
 
     const-string v7, "Exception locking surface"
@@ -218,14 +218,14 @@
     goto :goto_0
 
     .line 199
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_4
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     .line 200
-    .local v4, now:J
+    .local v4, "now":J
     iget-wide v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
     const-wide/16 v8, 0x64
@@ -233,7 +233,7 @@
     add-long v2, v6, v8
 
     .line 201
-    .local v2, nextTime:J
+    .local v2, "nextTime":J
     cmp-long v6, v2, v4
 
     if-lez v6, :cond_5
@@ -277,7 +277,7 @@
 # virtual methods
 .method public addCallback(Landroid/view/SurfaceHolder$Callback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
     .line 75
@@ -349,7 +349,7 @@
     move-result v0
 
     .line 97
-    .local v0, N:I
+    .local v0, "N":I
     if-lez v0, :cond_3
 
     .line 98
@@ -403,7 +403,7 @@
     goto :goto_1
 
     .line 106
-    .end local v0           #N:I
+    .end local v0    # "N":I
     :catchall_0
     move-exception v1
 
@@ -490,7 +490,7 @@
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 1
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 161
@@ -512,7 +512,7 @@
 
 .method public removeCallback(Landroid/view/SurfaceHolder$Callback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
     .line 85
@@ -545,8 +545,8 @@
 
 .method public setFixedSize(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 116
@@ -575,7 +575,7 @@
 
 .method public setFormat(I)V
     .locals 1
-    .parameter "format"
+    .param p1, "format"    # I
 
     .prologue
     .line 131
@@ -625,8 +625,8 @@
 
 .method public setSurfaceFrameSize(II)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -657,7 +657,7 @@
 
 .method public setType(I)V
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 138
@@ -727,7 +727,7 @@
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 215

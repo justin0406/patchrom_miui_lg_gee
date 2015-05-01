@@ -42,7 +42,7 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 14
-    .parameter "pdu"
+    .param p1, "pdu"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -174,7 +174,7 @@
     const/4 v8, 0x1
 
     .line 112
-    .local v8, emergencyUserAlert:Z
+    .local v8, "emergencyUserAlert":Z
     :goto_0
     const/4 v0, 0x5
 
@@ -187,7 +187,7 @@
     const/4 v7, 0x1
 
     .line 113
-    .local v7, activatePopup:Z
+    .local v7, "activatePopup":Z
     :goto_1
     const/4 v0, 0x4
 
@@ -198,7 +198,7 @@
     ushr-int/lit8 v13, v0, 0x1
 
     .line 116
-    .local v13, warningType:I
+    .local v13, "warningType":I
     array-length v0, p1
 
     const/4 v2, 0x6
@@ -215,7 +215,7 @@
     move-result-object v12
 
     .line 121
-    .local v12, warningSecurityInfo:[B
+    .local v12, "warningSecurityInfo":[B
     :goto_2
     new-instance v0, Landroid/telephony/SmsCbEtwsInfo;
 
@@ -229,10 +229,10 @@
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mCmasInfo:Landroid/telephony/SmsCbCmasInfo;
 
     .line 183
-    .end local v7           #activatePopup:Z
-    .end local v8           #emergencyUserAlert:Z
-    .end local v12           #warningSecurityInfo:[B
-    .end local v13           #warningType:I
+    .end local v7    # "activatePopup":Z
+    .end local v8    # "emergencyUserAlert":Z
+    .end local v12    # "warningSecurityInfo":[B
+    .end local v13    # "warningType":I
     :goto_3
     return-void
 
@@ -243,26 +243,26 @@
     goto :goto_0
 
     .line 112
-    .restart local v8       #emergencyUserAlert:Z
+    .restart local v8    # "emergencyUserAlert":Z
     :cond_3
     const/4 v7, 0x0
 
     goto :goto_1
 
     .line 119
-    .restart local v7       #activatePopup:Z
-    .restart local v13       #warningType:I
+    .restart local v7    # "activatePopup":Z
+    .restart local v13    # "warningType":I
     :cond_4
     const/4 v12, 0x0
 
-    .restart local v12       #warningSecurityInfo:[B
+    .restart local v12    # "warningSecurityInfo":[B
     goto :goto_2
 
     .line 127
-    .end local v7           #activatePopup:Z
-    .end local v8           #emergencyUserAlert:Z
-    .end local v12           #warningSecurityInfo:[B
-    .end local v13           #warningType:I
+    .end local v7    # "activatePopup":Z
+    .end local v8    # "emergencyUserAlert":Z
+    .end local v12    # "warningSecurityInfo":[B
+    .end local v13    # "warningType":I
     :cond_5
     const/4 v0, 0x1
 
@@ -287,7 +287,7 @@
     ushr-int/lit8 v11, v0, 0x4
 
     .line 132
-    .local v11, pageIndex:I
+    .local v11, "pageIndex":I
     const/4 v0, 0x5
 
     aget-byte v0, p1, v0
@@ -295,7 +295,7 @@
     and-int/lit8 v10, v0, 0xf
 
     .line 134
-    .local v10, nrOfPages:I
+    .local v10, "nrOfPages":I
     if-eqz v11, :cond_6
 
     if-eqz v10, :cond_6
@@ -317,8 +317,8 @@
     iput v10, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mNrOfPages:I
 
     .line 165
-    .end local v10           #nrOfPages:I
-    .end local v11           #pageIndex:I
+    .end local v10    # "nrOfPages":I
+    .end local v11    # "pageIndex":I
     :goto_4
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isEtwsMessage()Z
 
@@ -332,19 +332,19 @@
     move-result v8
 
     .line 167
-    .restart local v8       #emergencyUserAlert:Z
+    .restart local v8    # "emergencyUserAlert":Z
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isEtwsPopupAlert()Z
 
     move-result v7
 
     .line 168
-    .restart local v7       #activatePopup:Z
+    .restart local v7    # "activatePopup":Z
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getEtwsWarningType()I
 
     move-result v13
 
     .line 169
-    .restart local v13       #warningType:I
+    .restart local v13    # "warningType":I
     new-instance v0, Landroid/telephony/SmsCbEtwsInfo;
 
     const/4 v2, 0x0
@@ -361,9 +361,9 @@
     goto :goto_3
 
     .line 145
-    .end local v7           #activatePopup:Z
-    .end local v8           #emergencyUserAlert:Z
-    .end local v13           #warningType:I
+    .end local v7    # "activatePopup":Z
+    .end local v8    # "emergencyUserAlert":Z
+    .end local v13    # "warningType":I
     :cond_8
     const/4 v0, 0x2
 
@@ -375,7 +375,7 @@
     aget-byte v9, p1, v0
 
     .line 149
-    .local v9, messageType:I
+    .local v9, "messageType":I
     const/4 v0, 0x1
 
     if-eq v9, v0, :cond_9
@@ -477,7 +477,7 @@
     goto :goto_4
 
     .line 171
-    .end local v9           #messageType:I
+    .end local v9    # "messageType":I
     :cond_a
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isCmasMessage()Z
 
@@ -491,25 +491,25 @@
     move-result v1
 
     .line 173
-    .local v1, messageClass:I
+    .local v1, "messageClass":I
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getCmasSeverity()I
 
     move-result v4
 
     .line 174
-    .local v4, severity:I
+    .local v4, "severity":I
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getCmasUrgency()I
 
     move-result v5
 
     .line 175
-    .local v5, urgency:I
+    .local v5, "urgency":I
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getCmasCertainty()I
 
     move-result v6
 
     .line 176
-    .local v6, certainty:I
+    .local v6, "certainty":I
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mEtwsInfo:Landroid/telephony/SmsCbEtwsInfo;
@@ -528,10 +528,10 @@
     goto/16 :goto_3
 
     .line 180
-    .end local v1           #messageClass:I
-    .end local v4           #severity:I
-    .end local v5           #urgency:I
-    .end local v6           #certainty:I
+    .end local v1    # "messageClass":I
+    .end local v4    # "severity":I
+    .end local v5    # "urgency":I
+    .end local v6    # "certainty":I
     :cond_b
     const/4 v0, 0x0
 

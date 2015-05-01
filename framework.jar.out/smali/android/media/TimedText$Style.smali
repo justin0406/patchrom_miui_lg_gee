@@ -35,14 +35,14 @@
 # direct methods
 .method public constructor <init>(IIIZZZII)V
     .locals 0
-    .parameter "startChar"
-    .parameter "endChar"
-    .parameter "fontId"
-    .parameter "isBold"
-    .parameter "isItalic"
-    .parameter "isUnderlined"
-    .parameter "fontSize"
-    .parameter "colorRGBA"
+    .param p1, "startChar"    # I
+    .param p2, "endChar"    # I
+    .param p3, "fontId"    # I
+    .param p4, "isBold"    # Z
+    .param p5, "isItalic"    # Z
+    .param p6, "isUnderlined"    # Z
+    .param p7, "fontSize"    # I
+    .param p8, "colorRGBA"    # I
 
     .prologue
     .line 227

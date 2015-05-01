@@ -48,13 +48,13 @@
     move-result-object v1
 
     .line 2046
-    .local v1, b:Landroid/os/IBinder;
+    .local v1, "b":Landroid/os/IBinder;
     invoke-static {v1}, Landroid/app/ActivityManagerNative;->asInterface(Landroid/os/IBinder;)Landroid/app/IActivityManager;
 
     move-result-object v0
 
     .line 2050
-    .local v0, am:Landroid/app/IActivityManager;
+    .local v0, "am":Landroid/app/IActivityManager;
     return-object v0
 .end method
 

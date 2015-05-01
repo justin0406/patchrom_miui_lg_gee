@@ -58,8 +58,8 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Landroid/print/PrintDocumentAdapter;)V
     .locals 2
-    .parameter "activity"
-    .parameter "documentAdapter"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "documentAdapter"    # Landroid/print/PrintDocumentAdapter;
 
     .prologue
     .line 479
@@ -106,7 +106,7 @@
 
 .method static synthetic access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -117,7 +117,7 @@
 
 .method static synthetic access$1100(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -128,7 +128,7 @@
 
 .method static synthetic access$200(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -141,7 +141,7 @@
 
 .method static synthetic access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -152,7 +152,7 @@
 
 .method static synthetic access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintDocumentAdapter;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -163,7 +163,7 @@
 
 .method static synthetic access$500(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -174,8 +174,8 @@
 
 .method static synthetic access$502(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .param p1, "x1"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
 
     .prologue
     .line 451
@@ -186,8 +186,8 @@
 
 .method static synthetic access$602(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/CancellationSignal;)Landroid/os/CancellationSignal;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .param p1, "x1"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 451
@@ -198,7 +198,7 @@
 
 .method static synthetic access$700(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -209,8 +209,8 @@
 
 .method static synthetic access$702(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .param p1, "x1"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
 
     .prologue
     .line 451
@@ -221,7 +221,7 @@
 
 .method static synthetic access$800(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/app/Activity;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -232,7 +232,7 @@
 
 .method static synthetic access$900(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     .prologue
     .line 451
@@ -536,11 +536,11 @@
 
 .method public layout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/print/ILayoutResultCallback;Landroid/os/Bundle;I)V
     .locals 5
-    .parameter "oldAttributes"
-    .parameter "newAttributes"
-    .parameter "callback"
-    .parameter "metadata"
-    .parameter "sequence"
+    .param p1, "oldAttributes"    # Landroid/print/PrintAttributes;
+    .param p2, "newAttributes"    # Landroid/print/PrintAttributes;
+    .param p3, "callback"    # Landroid/print/ILayoutResultCallback;
+    .param p4, "metadata"    # Landroid/os/Bundle;
+    .param p5, "sequence"    # I
 
     .prologue
     .line 522
@@ -553,7 +553,7 @@
     iget-boolean v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
 
     .line 525
-    .local v0, destroyed:Z
+    .local v0, "destroyed":Z
     iget-boolean v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mStartReqeusted:Z
 
     if-eqz v2, :cond_3
@@ -661,7 +661,7 @@
     move-exception v1
 
     .line 552
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error notifying for cancelled layout"
@@ -671,8 +671,8 @@
     goto :goto_0
 
     .line 547
-    .end local v0           #destroyed:Z
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v0    # "destroyed":Z
+    .end local v1    # "re":Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
 
@@ -686,8 +686,8 @@
 
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
-    .parameter "activity"
-    .parameter "savedInstanceState"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 638
@@ -696,7 +696,7 @@
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
     .locals 4
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 668
@@ -719,7 +719,7 @@
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mObserver:Landroid/print/IPrintDocumentAdapterObserver;
 
     .line 672
-    .local v0, observer:Landroid/print/IPrintDocumentAdapterObserver;
+    .local v0, "observer":Landroid/print/IPrintDocumentAdapterObserver;
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->clearLocked()V
 
     .line 677
@@ -750,18 +750,18 @@
     return-void
 
     .line 674
-    .end local v0           #observer:Landroid/print/IPrintDocumentAdapterObserver;
+    .end local v0    # "observer":Landroid/print/IPrintDocumentAdapterObserver;
     :cond_1
     const/4 v0, 0x0
 
     .line 675
-    .restart local v0       #observer:Landroid/print/IPrintDocumentAdapterObserver;
+    .restart local v0    # "observer":Landroid/print/IPrintDocumentAdapterObserver;
     const/4 p1, 0x0
 
     goto :goto_0
 
     .line 677
-    .end local v0           #observer:Landroid/print/IPrintDocumentAdapterObserver;
+    .end local v0    # "observer":Landroid/print/IPrintDocumentAdapterObserver;
     :catchall_0
     move-exception v2
 
@@ -773,12 +773,12 @@
     throw v2
 
     .line 683
-    .restart local v0       #observer:Landroid/print/IPrintDocumentAdapterObserver;
+    .restart local v0    # "observer":Landroid/print/IPrintDocumentAdapterObserver;
     :catch_0
     move-exception v1
 
     .line 684
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error announcing destroyed state"
@@ -790,7 +790,7 @@
 
 .method public onActivityPaused(Landroid/app/Activity;)V
     .locals 0
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 633
@@ -799,7 +799,7 @@
 
 .method public onActivityResumed(Landroid/app/Activity;)V
     .locals 0
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 648
@@ -808,8 +808,8 @@
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
-    .parameter "activity"
-    .parameter "outState"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 658
@@ -818,7 +818,7 @@
 
 .method public onActivityStarted(Landroid/app/Activity;)V
     .locals 0
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 643
@@ -827,7 +827,7 @@
 
 .method public onActivityStopped(Landroid/app/Activity;)V
     .locals 0
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 653
@@ -836,7 +836,7 @@
 
 .method public setObserver(Landroid/print/IPrintDocumentAdapterObserver;)V
     .locals 4
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/print/IPrintDocumentAdapterObserver;
 
     .prologue
     .line 489
@@ -858,7 +858,7 @@
     iget-boolean v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
 
     .line 494
-    .local v0, destroyed:Z
+    .local v0, "destroyed":Z
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -878,7 +878,7 @@
     return-void
 
     .line 494
-    .end local v0           #destroyed:Z
+    .end local v0    # "destroyed":Z
     :catchall_0
     move-exception v2
 
@@ -890,12 +890,12 @@
     throw v2
 
     .line 498
-    .restart local v0       #destroyed:Z
+    .restart local v0    # "destroyed":Z
     :catch_0
     move-exception v1
 
     .line 499
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error announcing destroyed state"
@@ -962,10 +962,10 @@
 
 .method public write([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/print/IWriteResultCallback;I)V
     .locals 5
-    .parameter "pages"
-    .parameter "fd"
-    .parameter "callback"
-    .parameter "sequence"
+    .param p1, "pages"    # [Landroid/print/PageRange;
+    .param p2, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "callback"    # Landroid/print/IWriteResultCallback;
+    .param p4, "sequence"    # I
 
     .prologue
     .line 561
@@ -978,7 +978,7 @@
     iget-boolean v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
 
     .line 564
-    .local v0, destroyed:Z
+    .local v0, "destroyed":Z
     iget-boolean v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mStartReqeusted:Z
 
     if-eqz v2, :cond_3
@@ -1081,7 +1081,7 @@
     move-exception v1
 
     .line 590
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error notifying for cancelled write"
@@ -1091,8 +1091,8 @@
     goto :goto_0
 
     .line 585
-    .end local v0           #destroyed:Z
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v0    # "destroyed":Z
+    .end local v1    # "re":Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
 

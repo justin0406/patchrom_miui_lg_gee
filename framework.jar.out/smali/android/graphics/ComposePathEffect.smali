@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/PathEffect;Landroid/graphics/PathEffect;)V
     .locals 2
-    .parameter "outerpe"
-    .parameter "innerpe"
+    .param p1, "outerpe"    # Landroid/graphics/PathEffect;
+    .param p2, "innerpe"    # Landroid/graphics/PathEffect;
 
     .prologue
     .line 25

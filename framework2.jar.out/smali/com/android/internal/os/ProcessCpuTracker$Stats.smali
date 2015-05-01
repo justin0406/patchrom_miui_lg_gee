@@ -91,9 +91,9 @@
 # direct methods
 .method constructor <init>(IIZ)V
     .locals 5
-    .parameter "_pid"
-    .parameter "parentPid"
-    .parameter "includeThreads"
+    .param p1, "_pid"    # I
+    .param p2, "parentPid"    # I
+    .param p3, "includeThreads"    # Z
 
     .prologue
     const/4 v4, 0x0
@@ -121,7 +121,7 @@
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 220
-    .local v0, procDir:Ljava/io/File;
+    .local v0, "procDir":Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
     const-string v3, "stat"
@@ -204,7 +204,7 @@
     goto :goto_0
 
     .line 231
-    .end local v0           #procDir:Ljava/io/File;
+    .end local v0    # "procDir":Ljava/io/File;
     :cond_1
     new-instance v0, Ljava/io/File;
 
@@ -217,7 +217,7 @@
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 233
-    .restart local v0       #procDir:Ljava/io/File;
+    .restart local v0    # "procDir":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/io/File;
@@ -235,7 +235,7 @@
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 235
-    .local v1, taskDir:Ljava/io/File;
+    .local v1, "taskDir":Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
     const-string v3, "stat"

@@ -37,8 +37,8 @@
 # direct methods
 .method public constructor <init>(Landroid/os/UserHandle;Z)V
     .locals 1
-    .parameter "handle"
-    .parameter "initial"
+    .param p1, "handle"    # Landroid/os/UserHandle;
+    .param p2, "initial"    # Z
 
     .prologue
     .line 43
@@ -67,8 +67,8 @@
 # virtual methods
 .method dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 1
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 48

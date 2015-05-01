@@ -27,10 +27,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/IntRangeManager;IILjava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "startId"
-    .parameter "endId"
-    .parameter "client"
+    .param p2, "startId"    # I
+    .param p3, "endId"    # I
+    .param p4, "client"    # Ljava/lang/String;
 
     .prologue
     .line 152
@@ -55,7 +54,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -73,7 +72,7 @@
     check-cast v0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;
 
     .line 162
-    .local v0, other:Lcom/android/internal/telephony/IntRangeManager$ClientRange;
+    .local v0, "other":Lcom/android/internal/telephony/IntRangeManager$ClientRange;
     iget v2, p0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->mStartId:I
 
     iget v3, v0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->mStartId:I
@@ -99,7 +98,7 @@
     const/4 v1, 0x1
 
     .line 166
-    .end local v0           #other:Lcom/android/internal/telephony/IntRangeManager$ClientRange;
+    .end local v0    # "other":Lcom/android/internal/telephony/IntRangeManager$ClientRange;
     :cond_0
     return v1
 .end method

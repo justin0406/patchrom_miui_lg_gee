@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 89
@@ -41,7 +41,7 @@
 # virtual methods
 .method public addCountryListener(Landroid/location/ICountryListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ICountryListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,13 +55,13 @@
     move-result-object v0
 
     .line 132
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 134
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ICountryDetector"
 
@@ -143,13 +143,13 @@
     move-result-object v0
 
     .line 107
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 110
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ICountryDetector"
 
@@ -186,7 +186,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 121
-    .local v2, _result:Landroid/location/Country;
+    .local v2, "_result":Landroid/location/Country;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -197,15 +197,15 @@
     return-object v2
 
     .line 117
-    .end local v2           #_result:Landroid/location/Country;
+    .end local v2    # "_result":Landroid/location/Country;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/location/Country;
+    .restart local v2    # "_result":Landroid/location/Country;
     goto :goto_0
 
     .line 121
-    .end local v2           #_result:Landroid/location/Country;
+    .end local v2    # "_result":Landroid/location/Country;
     :catchall_0
     move-exception v3
 
@@ -229,7 +229,7 @@
 
 .method public removeCountryListener(Landroid/location/ICountryListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ICountryListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -243,13 +243,13 @@
     move-result-object v0
 
     .line 150
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 152
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ICountryDetector"
 

@@ -9,7 +9,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 43
@@ -23,7 +23,7 @@
 # virtual methods
 .method public setHeaderIcon(I)Landroid/view/ContextMenu;
     .locals 1
-    .parameter "iconRes"
+    .param p1, "iconRes"    # I
 
     .prologue
     .line 51
@@ -38,7 +38,7 @@
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/ContextMenu;
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 47
@@ -53,7 +53,7 @@
 
 .method public setHeaderTitle(I)Landroid/view/ContextMenu;
     .locals 1
-    .parameter "titleRes"
+    .param p1, "titleRes"    # I
 
     .prologue
     .line 59
@@ -68,7 +68,7 @@
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 55
@@ -83,7 +83,7 @@
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/ContextMenu;
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 63
@@ -98,8 +98,8 @@
 
 .method public show(Landroid/view/View;Landroid/os/IBinder;)Lcom/android/internal/view/menu/MenuDialogHelper;
     .locals 3
-    .parameter "originalView"
-    .parameter "token"
+    .param p1, "originalView"    # Landroid/view/View;
+    .param p2, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 78
@@ -133,11 +133,11 @@
     invoke-direct {v0, p0}, Lcom/android/internal/view/menu/MenuDialogHelper;-><init>(Lcom/android/internal/view/menu/MenuBuilder;)V
 
     .line 88
-    .local v0, helper:Lcom/android/internal/view/menu/MenuDialogHelper;
+    .local v0, "helper":Lcom/android/internal/view/menu/MenuDialogHelper;
     invoke-virtual {v0, p2}, Lcom/android/internal/view/menu/MenuDialogHelper;->show(Landroid/os/IBinder;)V
 
     .line 93
-    .end local v0           #helper:Lcom/android/internal/view/menu/MenuDialogHelper;
+    .end local v0    # "helper":Lcom/android/internal/view/menu/MenuDialogHelper;
     :goto_0
     return-object v0
 

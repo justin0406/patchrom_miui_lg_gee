@@ -24,7 +24,7 @@
 
 .method private getModificationDate(Ljava/lang/String;)Ljava/util/Date;
     .locals 4
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 170
@@ -35,7 +35,7 @@
     move-result-wide v0
 
     .line 171
-    .local v0, epochMillis:J
+    .local v0, "epochMillis":J
     const-wide/16 v2, -0x1
 
     cmp-long v2, v0, v2
@@ -80,7 +80,7 @@
     move-result-object v6
 
     .line 386
-    .local v6, rawAliases:[Ljava/lang/String;
+    .local v6, "rawAliases":[Ljava/lang/String;
     if-nez v6, :cond_1
 
     .line 387
@@ -101,23 +101,23 @@
     invoke-direct {v1, v7}, Ljava/util/HashSet;-><init>(I)V
 
     .line 391
-    .local v1, aliases:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v1, "aliases":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     move-object v2, v6
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v5, v2
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v5, :cond_0
 
     aget-object v0, v2, v3
 
     .line 392
-    .local v0, alias:Ljava/lang/String;
+    .local v0, "alias":Ljava/lang/String;
     const/16 v7, 0x5f
 
     invoke-virtual {v0, v7}, Ljava/lang/String;->indexOf(I)I
@@ -125,7 +125,7 @@
     move-result v4
 
     .line 393
-    .local v4, idx:I
+    .local v4, "idx":I
     const/4 v7, -0x1
 
     if-eq v4, v7, :cond_2
@@ -185,7 +185,7 @@
 
 .method private isCertificateEntry(Ljava/lang/String;)Z
     .locals 3
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 439
@@ -231,7 +231,7 @@
 
 .method private isKeyEntry(Ljava/lang/String;)Z
     .locals 3
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 431
@@ -277,10 +277,10 @@
 
 .method private setPrivateKeyEntry(Ljava/lang/String;Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Landroid/security/KeyStoreParameter;)V
     .locals 22
-    .parameter "alias"
-    .parameter "key"
-    .parameter "chain"
-    .parameter "params"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "key"    # Ljava/security/PrivateKey;
+    .param p3, "chain"    # [Ljava/security/cert/Certificate;
+    .param p4, "params"    # Landroid/security/KeyStoreParameter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -292,7 +292,7 @@
     const/4 v10, 0x0
 
     .line 216
-    .local v10, keyBytes:[B
+    .local v10, "keyBytes":[B
     move-object/from16 v0, p2
 
     instance-of v0, v0, Lcom/android/org/conscrypt/OpenSSLKeyHolder;
@@ -315,7 +315,7 @@
     move-result-object v14
 
     .line 223
-    .local v14, pkeyAlias:Ljava/lang/String;
+    .local v14, "pkeyAlias":Ljava/lang/String;
     :goto_0
     if-eqz v14, :cond_3
 
@@ -343,7 +343,7 @@
     move-result-object v12
 
     .line 225
-    .local v12, keySubalias:Ljava/lang/String;
+    .local v12, "keySubalias":Ljava/lang/String;
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -394,22 +394,22 @@
     throw v19
 
     .line 219
-    .end local v12           #keySubalias:Ljava/lang/String;
-    .end local v14           #pkeyAlias:Ljava/lang/String;
+    .end local v12    # "keySubalias":Ljava/lang/String;
+    .end local v14    # "pkeyAlias":Ljava/lang/String;
     :cond_0
     const/4 v14, 0x0
 
-    .restart local v14       #pkeyAlias:Ljava/lang/String;
+    .restart local v14    # "pkeyAlias":Ljava/lang/String;
     goto :goto_0
 
     .line 230
-    .restart local v12       #keySubalias:Ljava/lang/String;
+    .restart local v12    # "keySubalias":Ljava/lang/String;
     :cond_1
     const/4 v15, 0x0
 
     .line 249
-    .end local v12           #keySubalias:Ljava/lang/String;
-    .local v15, shouldReplacePrivateKey:Z
+    .end local v12    # "keySubalias":Ljava/lang/String;
+    .local v15, "shouldReplacePrivateKey":Z
     :goto_1
     if-eqz p3, :cond_2
 
@@ -432,14 +432,14 @@
     throw v19
 
     .line 233
-    .end local v15           #shouldReplacePrivateKey:Z
+    .end local v15    # "shouldReplacePrivateKey":Z
     :cond_3
     invoke-interface/range {p2 .. p2}, Ljava/security/PrivateKey;->getFormat()Ljava/lang/String;
 
     move-result-object v11
 
     .line 234
-    .local v11, keyFormat:Ljava/lang/String;
+    .local v11, "keyFormat":Ljava/lang/String;
     if-eqz v11, :cond_4
 
     const-string v19, "PKCS#8"
@@ -484,11 +484,11 @@
     :cond_6
     const/4 v15, 0x1
 
-    .restart local v15       #shouldReplacePrivateKey:Z
+    .restart local v15    # "shouldReplacePrivateKey":Z
     goto :goto_1
 
     .line 254
-    .end local v11           #keyFormat:Ljava/lang/String;
+    .end local v11    # "keyFormat":Ljava/lang/String;
     :cond_7
     move-object/from16 v0, p3
 
@@ -503,10 +503,10 @@
     move-object/from16 v18, v0
 
     .line 255
-    .local v18, x509chain:[Ljava/security/cert/X509Certificate;
+    .local v18, "x509chain":[Ljava/security/cert/X509Certificate;
     const/4 v9, 0x0
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_2
     move-object/from16 v0, p3
 
@@ -626,7 +626,7 @@
     move-result-object v17
 
     .line 282
-    .local v17, userCertBytes:[B
+    .local v17, "userCertBytes":[B
     move-object/from16 v0, p3
 
     array-length v0, v0
@@ -655,11 +655,11 @@
     new-array v5, v0, [[B
 
     .line 288
-    .local v5, certsBytes:[[B
+    .local v5, "certsBytes":[[B
     const/16 v16, 0x0
 
     .line 289
-    .local v16, totalCertLength:I
+    .local v16, "totalCertLength":I
     const/4 v9, 0x0
 
     :goto_3
@@ -702,14 +702,14 @@
     goto :goto_3
 
     .line 272
-    .end local v5           #certsBytes:[[B
-    .end local v16           #totalCertLength:I
-    .end local v17           #userCertBytes:[B
+    .end local v5    # "certsBytes":[[B
+    .end local v16    # "totalCertLength":I
+    .end local v17    # "userCertBytes":[B
     :catch_0
     move-exception v7
 
     .line 273
-    .local v7, e:Ljava/security/cert/CertificateEncodingException;
+    .local v7, "e":Ljava/security/cert/CertificateEncodingException;
     new-instance v19, Ljava/security/KeyStoreException;
 
     const-string v20, "Couldn\'t encode certificate #1"
@@ -723,15 +723,15 @@
     throw v19
 
     .line 293
-    .end local v7           #e:Ljava/security/cert/CertificateEncodingException;
-    .restart local v5       #certsBytes:[[B
-    .restart local v16       #totalCertLength:I
-    .restart local v17       #userCertBytes:[B
+    .end local v7    # "e":Ljava/security/cert/CertificateEncodingException;
+    .restart local v5    # "certsBytes":[[B
+    .restart local v16    # "totalCertLength":I
+    .restart local v17    # "userCertBytes":[B
     :catch_1
     move-exception v7
 
     .line 294
-    .restart local v7       #e:Ljava/security/cert/CertificateEncodingException;
+    .restart local v7    # "e":Ljava/security/cert/CertificateEncodingException;
     new-instance v19, Ljava/security/KeyStoreException;
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -763,18 +763,18 @@
     throw v19
 
     .line 302
-    .end local v7           #e:Ljava/security/cert/CertificateEncodingException;
+    .end local v7    # "e":Ljava/security/cert/CertificateEncodingException;
     :cond_b
     move/from16 v0, v16
 
     new-array v6, v0, [B
 
     .line 303
-    .local v6, chainBytes:[B
+    .local v6, "chainBytes":[B
     const/4 v13, 0x0
 
     .line 304
-    .local v13, outputOffset:I
+    .local v13, "outputOffset":I
     const/4 v9, 0x0
 
     :goto_4
@@ -794,7 +794,7 @@
     array-length v4, v0
 
     .line 306
-    .local v4, certLength:I
+    .local v4, "certLength":I
     aget-object v19, v5, v9
 
     const/16 v20, 0x0
@@ -819,16 +819,16 @@
     goto :goto_4
 
     .line 311
-    .end local v4           #certLength:I
-    .end local v5           #certsBytes:[[B
-    .end local v6           #chainBytes:[B
-    .end local v13           #outputOffset:I
-    .end local v16           #totalCertLength:I
+    .end local v4    # "certLength":I
+    .end local v5    # "certsBytes":[[B
+    .end local v6    # "chainBytes":[B
+    .end local v13    # "outputOffset":I
+    .end local v16    # "totalCertLength":I
     :cond_c
     const/4 v6, 0x0
 
     .line 318
-    .restart local v6       #chainBytes:[B
+    .restart local v6    # "chainBytes":[B
     :cond_d
     if-eqz v15, :cond_e
 
@@ -852,7 +852,7 @@
     const/4 v8, 0x0
 
     .line 326
-    .local v8, flags:I
+    .local v8, "flags":I
     :goto_6
     if-eqz v15, :cond_10
 
@@ -921,7 +921,7 @@
     throw v19
 
     .line 321
-    .end local v8           #flags:I
+    .end local v8    # "flags":I
     :cond_e
     move-object/from16 v0, p0
 
@@ -946,7 +946,7 @@
     goto :goto_6
 
     .line 331
-    .restart local v8       #flags:I
+    .restart local v8    # "flags":I
     :cond_10
     move-object/from16 v0, p0
 
@@ -1089,7 +1089,7 @@
 
 .method private static toCertificate([B)Ljava/security/cert/X509Certificate;
     .locals 4
-    .parameter "bytes"
+    .param p0, "bytes"    # [B
 
     .prologue
     .line 148
@@ -1101,7 +1101,7 @@
     move-result-object v0
 
     .line 149
-    .local v0, certFactory:Ljava/security/cert/CertificateFactory;
+    .local v0, "certFactory":Ljava/security/cert/CertificateFactory;
     new-instance v2, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v2, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
@@ -1115,7 +1115,7 @@
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 153
-    .end local v0           #certFactory:Ljava/security/cert/CertificateFactory;
+    .end local v0    # "certFactory":Ljava/security/cert/CertificateFactory;
     :goto_0
     return-object v2
 
@@ -1124,7 +1124,7 @@
     move-exception v1
 
     .line 152
-    .local v1, e:Ljava/security/cert/CertificateException;
+    .local v1, "e":Ljava/security/cert/CertificateException;
     const-string v2, "AndroidKeyStore"
 
     const-string v3, "Couldn\'t parse certificate in keystore"
@@ -1139,7 +1139,7 @@
 
 .method private static toCertificates([B)Ljava/util/Collection;
     .locals 4
-    .parameter "bytes"
+    .param p0, "bytes"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B)",
@@ -1160,7 +1160,7 @@
     move-result-object v0
 
     .line 161
-    .local v0, certFactory:Ljava/security/cert/CertificateFactory;
+    .local v0, "certFactory":Ljava/security/cert/CertificateFactory;
     new-instance v2, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v2, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
@@ -1172,7 +1172,7 @@
     move-result-object v2
 
     .line 165
-    .end local v0           #certFactory:Ljava/security/cert/CertificateFactory;
+    .end local v0    # "certFactory":Ljava/security/cert/CertificateFactory;
     :goto_0
     return-object v2
 
@@ -1181,7 +1181,7 @@
     move-exception v1
 
     .line 164
-    .local v1, e:Ljava/security/cert/CertificateException;
+    .local v1, "e":Ljava/security/cert/CertificateException;
     const-string v2, "AndroidKeyStore"
 
     const-string v3, "Couldn\'t parse certificates in keystore"
@@ -1225,7 +1225,7 @@
 
 .method public engineContainsAlias(Ljava/lang/String;)Z
     .locals 3
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 411
@@ -1334,7 +1334,7 @@
 
 .method public engineDeleteEntry(Ljava/lang/String;)V
     .locals 3
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -1397,7 +1397,7 @@
 
 .method public engineGetCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
     .locals 4
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 129
@@ -1439,7 +1439,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, certificate:[B
+    .local v0, "certificate":[B
     if-eqz v0, :cond_1
 
     .line 135
@@ -1496,7 +1496,7 @@
 
 .method public engineGetCertificateAlias(Ljava/security/cert/Certificate;)Ljava/lang/String;
     .locals 13
-    .parameter "cert"
+    .param p1, "cert"    # Ljava/security/cert/Certificate;
 
     .prologue
     const/4 v9, 0x0
@@ -1517,7 +1517,7 @@
     invoke-direct {v8}, Ljava/util/HashSet;-><init>()V
 
     .line 465
-    .local v8, nonCaEntries:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v8, "nonCaEntries":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v10, p0, Landroid/security/AndroidKeyStore;->mKeyStore:Landroid/security/KeyStore;
 
     const-string v11, "USRCERT_"
@@ -1527,26 +1527,26 @@
     move-result-object v4
 
     .line 466
-    .local v4, certAliases:[Ljava/lang/String;
+    .local v4, "certAliases":[Ljava/lang/String;
     if-eqz v4, :cond_3
 
     .line 467
     move-object v1, v4
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v7, v1
 
-    .local v7, len$:I
+    .local v7, "len$":I
     const/4 v6, 0x0
 
-    .local v6, i$:I
+    .local v6, "i$":I
     :goto_1
     if-ge v6, v7, :cond_3
 
     aget-object v0, v1, v6
 
     .line 468
-    .local v0, alias:Ljava/lang/String;
+    .local v0, "alias":Ljava/lang/String;
     iget-object v10, p0, Landroid/security/AndroidKeyStore;->mKeyStore:Landroid/security/KeyStore;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1572,7 +1572,7 @@
     move-result-object v5
 
     .line 469
-    .local v5, certBytes:[B
+    .local v5, "certBytes":[B
     if-nez v5, :cond_2
 
     .line 467
@@ -1588,7 +1588,7 @@
     move-result-object v2
 
     .line 474
-    .local v2, c:Ljava/security/cert/Certificate;
+    .local v2, "c":Ljava/security/cert/Certificate;
     invoke-interface {v8, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 476
@@ -1601,12 +1601,12 @@
     goto :goto_0
 
     .line 486
-    .end local v0           #alias:Ljava/lang/String;
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v2           #c:Ljava/security/cert/Certificate;
-    .end local v5           #certBytes:[B
-    .end local v6           #i$:I
-    .end local v7           #len$:I
+    .end local v0    # "alias":Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v2    # "c":Ljava/security/cert/Certificate;
+    .end local v5    # "certBytes":[B
+    .end local v6    # "i$":I
+    .end local v7    # "len$":I
     :cond_3
     iget-object v10, p0, Landroid/security/AndroidKeyStore;->mKeyStore:Landroid/security/KeyStore;
 
@@ -1617,26 +1617,26 @@
     move-result-object v3
 
     .line 487
-    .local v3, caAliases:[Ljava/lang/String;
+    .local v3, "caAliases":[Ljava/lang/String;
     if-eqz v4, :cond_6
 
     .line 488
     move-object v1, v3
 
-    .restart local v1       #arr$:[Ljava/lang/String;
+    .restart local v1    # "arr$":[Ljava/lang/String;
     array-length v7, v1
 
-    .restart local v7       #len$:I
+    .restart local v7    # "len$":I
     const/4 v6, 0x0
 
-    .restart local v6       #i$:I
+    .restart local v6    # "i$":I
     :goto_2
     if-ge v6, v7, :cond_6
 
     aget-object v0, v1, v6
 
     .line 489
-    .restart local v0       #alias:Ljava/lang/String;
+    .restart local v0    # "alias":Ljava/lang/String;
     invoke-interface {v8, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v10
@@ -1676,7 +1676,7 @@
     move-result-object v5
 
     .line 494
-    .restart local v5       #certBytes:[B
+    .restart local v5    # "certBytes":[B
     if-eqz v5, :cond_4
 
     .line 498
@@ -1709,7 +1709,7 @@
     move-result-object v2
 
     .line 500
-    .restart local v2       #c:Ljava/security/cert/Certificate;
+    .restart local v2    # "c":Ljava/security/cert/Certificate;
     invoke-virtual {p1, v2}, Ljava/security/cert/Certificate;->equals(Ljava/lang/Object;)Z
 
     move-result v10
@@ -1718,12 +1718,12 @@
 
     goto/16 :goto_0
 
-    .end local v0           #alias:Ljava/lang/String;
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v2           #c:Ljava/security/cert/Certificate;
-    .end local v5           #certBytes:[B
-    .end local v6           #i$:I
-    .end local v7           #len$:I
+    .end local v0    # "alias":Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v2    # "c":Ljava/security/cert/Certificate;
+    .end local v5    # "certBytes":[B
+    .end local v6    # "i$":I
+    .end local v7    # "len$":I
     :cond_6
     move-object v0, v9
 
@@ -1733,7 +1733,7 @@
 
 .method public engineGetCertificateChain(Ljava/lang/String;)[Ljava/security/cert/Certificate;
     .locals 10
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -1757,7 +1757,7 @@
     check-cast v6, Ljava/security/cert/X509Certificate;
 
     .line 101
-    .local v6, leaf:Ljava/security/cert/X509Certificate;
+    .local v6, "leaf":Ljava/security/cert/X509Certificate;
     if-nez v6, :cond_1
 
     .line 102
@@ -1794,7 +1794,7 @@
     move-result-object v0
 
     .line 108
-    .local v0, caBytes:[B
+    .local v0, "caBytes":[B
     if-eqz v0, :cond_2
 
     .line 109
@@ -1803,7 +1803,7 @@
     move-result-object v1
 
     .line 111
-    .local v1, caChain:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;"
+    .local v1, "caChain":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;"
     invoke-interface {v1}, Ljava/util/Collection;->size()I
 
     move-result v7
@@ -1813,17 +1813,17 @@
     new-array v2, v7, [Ljava/security/cert/Certificate;
 
     .line 113
-    .local v2, caList:[Ljava/security/cert/Certificate;
+    .local v2, "caList":[Ljava/security/cert/Certificate;
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
     .line 114
-    .local v5, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/security/cert/X509Certificate;>;"
+    .local v5, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/security/cert/X509Certificate;>;"
     const/4 v3, 0x1
 
     .line 115
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1834,8 +1834,8 @@
     .line 116
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #i:I
-    .local v4, i:I
+    .end local v3    # "i":I
+    .local v4, "i":I
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
@@ -1846,22 +1846,22 @@
 
     move v3, v4
 
-    .end local v4           #i:I
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .restart local v3    # "i":I
     goto :goto_1
 
     .line 119
-    .end local v1           #caChain:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;"
-    .end local v2           #caList:[Ljava/security/cert/Certificate;
-    .end local v3           #i:I
-    .end local v5           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/security/cert/X509Certificate;>;"
+    .end local v1    # "caChain":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;"
+    .end local v2    # "caList":[Ljava/security/cert/Certificate;
+    .end local v3    # "i":I
+    .end local v5    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/security/cert/X509Certificate;>;"
     :cond_2
     const/4 v7, 0x1
 
     new-array v2, v7, [Ljava/security/cert/Certificate;
 
     .line 122
-    .restart local v2       #caList:[Ljava/security/cert/Certificate;
+    .restart local v2    # "caList":[Ljava/security/cert/Certificate;
     :cond_3
     const/4 v7, 0x0
 
@@ -1872,7 +1872,7 @@
 
 .method public engineGetCreationDate(Ljava/lang/String;)Ljava/util/Date;
     .locals 3
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 180
@@ -1912,7 +1912,7 @@
     move-result-object v0
 
     .line 185
-    .local v0, d:Ljava/util/Date;
+    .local v0, "d":Ljava/util/Date;
     if-eqz v0, :cond_1
 
     move-object v1, v0
@@ -1982,8 +1982,8 @@
 
 .method public engineGetKey(Ljava/lang/String;[C)Ljava/security/Key;
     .locals 5
-    .parameter "alias"
-    .parameter "password"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "password"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -2015,7 +2015,7 @@
     move-result-object v1
 
     .line 86
-    .local v1, engine:Lcom/android/org/conscrypt/OpenSSLEngine;
+    .local v1, "engine":Lcom/android/org/conscrypt/OpenSSLEngine;
     :try_start_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2048,7 +2048,7 @@
     move-exception v0
 
     .line 88
-    .local v0, e:Ljava/security/InvalidKeyException;
+    .local v0, "e":Ljava/security/InvalidKeyException;
     new-instance v2, Ljava/security/UnrecoverableKeyException;
 
     const-string v3, "Can\'t get key"
@@ -2056,7 +2056,7 @@
     invoke-direct {v2, v3}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
 
     .line 89
-    .local v2, t:Ljava/security/UnrecoverableKeyException;
+    .local v2, "t":Ljava/security/UnrecoverableKeyException;
     invoke-virtual {v2, v0}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 90
@@ -2065,7 +2065,7 @@
 
 .method public engineIsCertificateEntry(Ljava/lang/String;)Z
     .locals 1
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 448
@@ -2094,7 +2094,7 @@
 
 .method public engineIsKeyEntry(Ljava/lang/String;)Z
     .locals 1
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 427
@@ -2107,8 +2107,8 @@
 
 .method public engineLoad(Ljava/io/InputStream;[C)V
     .locals 2
-    .parameter "stream"
-    .parameter "password"
+    .param p1, "stream"    # Ljava/io/InputStream;
+    .param p2, "password"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -2157,8 +2157,8 @@
 
 .method public engineSetCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
     .locals 6
-    .parameter "alias"
-    .parameter "cert"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "cert"    # Ljava/security/cert/Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -2205,7 +2205,7 @@
     move-result-object v1
 
     .line 367
-    .local v1, encoded:[B
+    .local v1, "encoded":[B
     iget-object v2, p0, Landroid/security/AndroidKeyStore;->mKeyStore:Landroid/security/KeyStore;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2246,12 +2246,12 @@
     throw v2
 
     .line 363
-    .end local v1           #encoded:[B
+    .end local v1    # "encoded":[B
     :catch_0
     move-exception v0
 
     .line 364
-    .local v0, e:Ljava/security/cert/CertificateEncodingException;
+    .local v0, "e":Ljava/security/cert/CertificateEncodingException;
     new-instance v2, Ljava/security/KeyStoreException;
 
     invoke-direct {v2, v0}, Ljava/security/KeyStoreException;-><init>(Ljava/lang/Throwable;)V
@@ -2259,17 +2259,17 @@
     throw v2
 
     .line 371
-    .end local v0           #e:Ljava/security/cert/CertificateEncodingException;
-    .restart local v1       #encoded:[B
+    .end local v0    # "e":Ljava/security/cert/CertificateEncodingException;
+    .restart local v1    # "encoded":[B
     :cond_2
     return-void
 .end method
 
 .method public engineSetEntry(Ljava/lang/String;Ljava/security/KeyStore$Entry;Ljava/security/KeyStore$ProtectionParameter;)V
     .locals 5
-    .parameter "alias"
-    .parameter "entry"
-    .parameter "param"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "entry"    # Ljava/security/KeyStore$Entry;
+    .param p3, "param"    # Ljava/security/KeyStore$ProtectionParameter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -2312,7 +2312,7 @@
     check-cast v1, Ljava/security/KeyStore$TrustedCertificateEntry;
 
     .line 543
-    .local v1, trE:Ljava/security/KeyStore$TrustedCertificateEntry;
+    .local v1, "trE":Ljava/security/KeyStore$TrustedCertificateEntry;
     invoke-virtual {v1}, Ljava/security/KeyStore$TrustedCertificateEntry;->getTrustedCertificate()Ljava/security/cert/Certificate;
 
     move-result-object v2
@@ -2320,13 +2320,13 @@
     invoke-virtual {p0, p1, v2}, Landroid/security/AndroidKeyStore;->engineSetCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
 
     .line 557
-    .end local v1           #trE:Ljava/security/KeyStore$TrustedCertificateEntry;
-    .end local p3
+    .end local v1    # "trE":Ljava/security/KeyStore$TrustedCertificateEntry;
+    .end local p3    # "param":Ljava/security/KeyStore$ProtectionParameter;
     :goto_0
     return-void
 
     .line 547
-    .restart local p3
+    .restart local p3    # "param":Ljava/security/KeyStore$ProtectionParameter;
     :cond_2
     if-eqz p3, :cond_3
 
@@ -2379,7 +2379,7 @@
     check-cast v0, Ljava/security/KeyStore$PrivateKeyEntry;
 
     .line 555
-    .local v0, prE:Ljava/security/KeyStore$PrivateKeyEntry;
+    .local v0, "prE":Ljava/security/KeyStore$PrivateKeyEntry;
     invoke-virtual {v0}, Ljava/security/KeyStore$PrivateKeyEntry;->getPrivateKey()Ljava/security/PrivateKey;
 
     move-result-object v2
@@ -2390,14 +2390,14 @@
 
     check-cast p3, Landroid/security/KeyStoreParameter;
 
-    .end local p3
+    .end local p3    # "param":Ljava/security/KeyStore$ProtectionParameter;
     invoke-direct {p0, p1, v2, v3, p3}, Landroid/security/AndroidKeyStore;->setPrivateKeyEntry(Ljava/lang/String;Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Landroid/security/KeyStoreParameter;)V
 
     goto :goto_0
 
     .line 560
-    .end local v0           #prE:Ljava/security/KeyStore$PrivateKeyEntry;
-    .restart local p3
+    .end local v0    # "prE":Ljava/security/KeyStore$PrivateKeyEntry;
+    .restart local p3    # "param":Ljava/security/KeyStore$ProtectionParameter;
     :cond_4
     new-instance v2, Ljava/security/KeyStoreException;
 
@@ -2426,10 +2426,10 @@
 
 .method public engineSetKeyEntry(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V
     .locals 2
-    .parameter "alias"
-    .parameter "key"
-    .parameter "password"
-    .parameter "chain"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "key"    # Ljava/security/Key;
+    .param p3, "password"    # [C
+    .param p4, "chain"    # [Ljava/security/cert/Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -2462,7 +2462,7 @@
     .line 205
     check-cast p2, Ljava/security/PrivateKey;
 
-    .end local p2
+    .end local p2    # "key":Ljava/security/Key;
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p4, v0}, Landroid/security/AndroidKeyStore;->setPrivateKeyEntry(Ljava/lang/String;Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Landroid/security/KeyStoreParameter;)V
@@ -2471,7 +2471,7 @@
     return-void
 
     .line 207
-    .restart local p2
+    .restart local p2    # "key":Ljava/security/Key;
     :cond_1
     new-instance v0, Ljava/security/KeyStoreException;
 
@@ -2484,9 +2484,9 @@
 
 .method public engineSetKeyEntry(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V
     .locals 2
-    .parameter "alias"
-    .parameter "userKey"
-    .parameter "chain"
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "userKey"    # [B
+    .param p3, "chain"    # [Ljava/security/cert/Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;
@@ -2522,8 +2522,8 @@
 
 .method public engineStore(Ljava/io/OutputStream;[C)V
     .locals 2
-    .parameter "stream"
-    .parameter "password"
+    .param p1, "stream"    # Ljava/io/OutputStream;
+    .param p2, "password"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,

@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -30,7 +29,7 @@
 
     .prologue
     .line 478
-    .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;)V
 
     .line 479
@@ -39,8 +38,7 @@
 
 .method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
     .locals 0
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +53,7 @@
 
     .prologue
     .line 474
-    .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p1, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
 
     .line 475
@@ -66,7 +64,7 @@
 # virtual methods
 .method public addCountAtomic(J)V
     .locals 2
-    .parameter "count"
+    .param p1, "count"    # J
 
     .prologue
     .line 482

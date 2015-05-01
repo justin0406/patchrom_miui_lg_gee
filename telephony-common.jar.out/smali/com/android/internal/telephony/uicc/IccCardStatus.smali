@@ -46,7 +46,7 @@
 # virtual methods
 .method public setCardState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 67
@@ -116,7 +116,7 @@
 
 .method public setUniversalPinState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 83
@@ -221,7 +221,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 112
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const-string v2, "IccCardState {"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -287,12 +287,12 @@
     aget-object v0, v2, v3
 
     .line 119
-    .local v0, app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .local v0, "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     if-nez v0, :cond_0
 
     const-string v0, "null"
 
-    .end local v0           #app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .end local v0    # "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     :cond_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -325,12 +325,12 @@
     aget-object v0, v2, v3
 
     .line 126
-    .restart local v0       #app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .restart local v0    # "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     if-nez v0, :cond_2
 
     const-string v0, "null"
 
-    .end local v0           #app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .end local v0    # "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     :cond_2
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -363,12 +363,12 @@
     aget-object v0, v2, v3
 
     .line 133
-    .restart local v0       #app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .restart local v0    # "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     if-nez v0, :cond_4
 
     const-string v0, "null"
 
-    .end local v0           #app:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
+    .end local v0    # "app":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus;
     :cond_4
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

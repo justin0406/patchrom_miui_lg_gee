@@ -32,7 +32,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/View;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 19457
@@ -50,8 +49,8 @@
 
 .method synthetic constructor <init>(Landroid/view/View;Landroid/view/View$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/View;
+    .param p2, "x1"    # Landroid/view/View$1;
 
     .prologue
     .line 19457
@@ -102,7 +101,7 @@
     move-result-object v0
 
     .line 19470
-    .local v0, event:Landroid/view/accessibility/AccessibilityEvent;
+    .local v0, "event":Landroid/view/accessibility/AccessibilityEvent;
     const/16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setEventType(I)V
@@ -118,7 +117,7 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->sendAccessibilityEventUnchecked(Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 19474
-    .end local v0           #event:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v0    # "event":Landroid/view/accessibility/AccessibilityEvent;
     :cond_0
     iput v3, p0, Landroid/view/View$SendViewStateChangedAccessibilityEvent;->mChangeTypes:I
 
@@ -128,7 +127,7 @@
 
 .method public runOrPost(I)V
     .locals 9
-    .parameter "changeType"
+    .param p1, "changeType"    # I
 
     .prologue
     const/4 v8, 0x1
@@ -143,7 +142,7 @@
     .line 19482
     iget-object v4, p0, Landroid/view/View$SendViewStateChangedAccessibilityEvent;->this$0:Landroid/view/View;
 
-    #calls: Landroid/view/View;->inLiveRegion()Z
+    # invokes: Landroid/view/View;->inLiveRegion()Z
     invoke-static {v4}, Landroid/view/View;->access$2800(Landroid/view/View;)Z
 
     move-result v4
@@ -200,13 +199,13 @@
     sub-long v2, v4, v6
 
     .line 19500
-    .local v2, timeSinceLastMillis:J
+    .local v2, "timeSinceLastMillis":J
     invoke-static {}, Landroid/view/ViewConfiguration;->getSendRecurringAccessibilityEventsInterval()J
 
     move-result-wide v0
 
     .line 19502
-    .local v0, minEventIntevalMillis:J
+    .local v0, "minEventIntevalMillis":J
     cmp-long v4, v2, v0
 
     if-ltz v4, :cond_3

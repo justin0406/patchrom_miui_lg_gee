@@ -16,7 +16,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -107,7 +107,7 @@
 
 .method private constructor <init>(I)V
     .locals 2
-    .parameter "nativeObject"
+    .param p1, "nativeObject"    # I
 
     .prologue
     .line 133
@@ -164,7 +164,7 @@
 
 .method public constructor <init>(Landroid/graphics/SurfaceTexture;)V
     .locals 2
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 121
@@ -245,7 +245,7 @@
 
 .method static synthetic access$100(Landroid/view/Surface;)Landroid/graphics/Matrix;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/Surface;
 
     .prologue
     .line 32
@@ -316,7 +316,7 @@
 
 .method public static rotationToString(I)Ljava/lang/String;
     .locals 3
-    .parameter "rotation"
+    .param p0, "rotation"    # I
 
     .prologue
     .line 434
@@ -385,8 +385,8 @@
 
 .method public static screenshot(II)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
 
     .prologue
     invoke-static {p0, p1}, Landroid/view/SurfaceControl;->screenshot(II)Landroid/graphics/Bitmap;
@@ -398,10 +398,10 @@
 
 .method public static screenshot(IIII)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "minLayer"
-    .parameter "maxLayer"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
+    .param p2, "minLayer"    # I
+    .param p3, "maxLayer"    # I
 
     .prologue
     invoke-static {p0, p1, p2, p3}, Landroid/view/SurfaceControl;->screenshot(IIII)Landroid/graphics/Bitmap;
@@ -413,7 +413,7 @@
 
 .method private setNativeObjectLocked(I)V
     .locals 2
-    .parameter "ptr"
+    .param p1, "ptr"    # I
 
     .prologue
     .line 395
@@ -471,7 +471,7 @@
 # virtual methods
 .method public copyFrom(Landroid/view/SurfaceControl;)V
     .locals 4
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/SurfaceControl;
 
     .prologue
     .line 306
@@ -491,7 +491,7 @@
     iget v1, p1, Landroid/view/SurfaceControl;->mNativeObject:I
 
     .line 311
-    .local v1, surfaceControlPtr:I
+    .local v1, "surfaceControlPtr":I
     if-nez v1, :cond_1
 
     .line 312
@@ -510,7 +510,7 @@
     move-result v0
 
     .line 317
-    .local v0, newNativeObject:I
+    .local v0, "newNativeObject":I
     iget-object v3, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
@@ -719,7 +719,7 @@
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 3
-    .parameter "inOutDirty"
+    .param p1, "inOutDirty"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;,
@@ -786,7 +786,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 358
@@ -886,7 +886,7 @@
 
 .method setCompatibilityTranslator(Landroid/content/res/CompatibilityInfo$Translator;)V
     .locals 2
-    .parameter "translator"
+    .param p1, "translator"    # Landroid/content/res/CompatibilityInfo$Translator;
 
     .prologue
     .line 289
@@ -896,7 +896,7 @@
     iget v0, p1, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     .line 291
-    .local v0, appScale:F
+    .local v0, "appScale":F
     new-instance v1, Landroid/graphics/Matrix;
 
     invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
@@ -909,7 +909,7 @@
     invoke-virtual {v1, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V
 
     .line 294
-    .end local v0           #appScale:F
+    .end local v0    # "appScale":F
     :cond_0
     return-void
 .end method
@@ -980,7 +980,7 @@
 
 .method public transferFrom(Landroid/view/Surface;)V
     .locals 3
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/Surface;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1011,7 +1011,7 @@
     iget v0, p1, Landroid/view/Surface;->mNativeObject:I
 
     .line 340
-    .local v0, newPtr:I
+    .local v0, "newPtr":I
     const/4 v1, 0x0
 
     invoke-direct {p1, v1}, Landroid/view/Surface;->setNativeObjectLocked(I)V
@@ -1047,7 +1047,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 350
-    .end local v0           #newPtr:I
+    .end local v0    # "newPtr":I
     :cond_2
     return-void
 
@@ -1063,7 +1063,7 @@
     throw v1
 
     .line 348
-    .restart local v0       #newPtr:I
+    .restart local v0    # "newPtr":I
     :catchall_1
     move-exception v1
 
@@ -1077,7 +1077,7 @@
 
 .method public unlockCanvas(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1092,7 +1092,7 @@
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     .locals 4
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 255
@@ -1230,8 +1230,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 374

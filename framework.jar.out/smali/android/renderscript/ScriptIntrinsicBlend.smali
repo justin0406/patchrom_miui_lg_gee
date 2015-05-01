@@ -6,8 +6,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 25
@@ -19,9 +19,9 @@
 
 .method private blend(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "id"
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "id"    # I
+    .param p2, "ain"    # Landroid/renderscript/Allocation;
+    .param p3, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 44
@@ -89,8 +89,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicBlend;
     .locals 3
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 38
@@ -105,7 +105,7 @@
     move-result v0
 
     .line 39
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ScriptIntrinsicBlend;
 
     invoke-direct {v1, v0, p0}, Landroid/renderscript/ScriptIntrinsicBlend;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -117,8 +117,8 @@
 # virtual methods
 .method public forEachAdd(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 399
@@ -132,8 +132,8 @@
 
 .method public forEachClear(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 60
@@ -147,8 +147,8 @@
 
 .method public forEachDst(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 0
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 102
@@ -157,8 +157,8 @@
 
 .method public forEachDstAtop(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 255
@@ -172,8 +172,8 @@
 
 .method public forEachDstIn(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 177
@@ -187,8 +187,8 @@
 
 .method public forEachDstOut(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 215
@@ -202,8 +202,8 @@
 
 .method public forEachDstOver(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 139
@@ -217,8 +217,8 @@
 
 .method public forEachMultiply(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 303
@@ -232,8 +232,8 @@
 
 .method public forEachSrc(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 80
@@ -247,8 +247,8 @@
 
 .method public forEachSrcAtop(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 235
@@ -262,8 +262,8 @@
 
 .method public forEachSrcIn(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 158
@@ -277,8 +277,8 @@
 
 .method public forEachSrcOut(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 196
@@ -292,8 +292,8 @@
 
 .method public forEachSrcOver(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 120
@@ -307,8 +307,8 @@
 
 .method public forEachSubtract(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 418
@@ -322,8 +322,8 @@
 
 .method public forEachXor(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 274

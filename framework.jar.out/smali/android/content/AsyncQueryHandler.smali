@@ -58,7 +58,7 @@
 
 .method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 3
-    .parameter "cr"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 125
@@ -90,7 +90,7 @@
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     .line 130
-    .local v0, thread:Landroid/os/HandlerThread;
+    .local v0, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     .line 132
@@ -101,7 +101,7 @@
     sput-object v1, Landroid/content/AsyncQueryHandler;->sLooper:Landroid/os/Looper;
 
     .line 134
-    .end local v0           #thread:Landroid/os/HandlerThread;
+    .end local v0    # "thread":Landroid/os/HandlerThread;
     :cond_0
     monitor-exit v2
     :try_end_0
@@ -135,7 +135,7 @@
 # virtual methods
 .method public final cancelOperation(I)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # I
 
     .prologue
     .line 194
@@ -149,7 +149,7 @@
 
 .method protected createHandler(Landroid/os/Looper;)Landroid/os/Handler;
     .locals 1
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 139
@@ -162,7 +162,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 331
@@ -171,15 +171,15 @@
     check-cast v0, Landroid/content/AsyncQueryHandler$WorkerArgs;
 
     .line 338
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iget v2, p1, Landroid/os/Message;->what:I
 
     .line 339
-    .local v2, token:I
+    .local v2, "token":I
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     .line 342
-    .local v1, event:I
+    .local v1, "event":I
     packed-switch v1, :pswitch_data_0
 
     .line 359
@@ -254,9 +254,9 @@
 
 .method protected onDeleteComplete(ILjava/lang/Object;I)V
     .locals 0
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "result"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "result"    # I
 
     .prologue
     .line 327
@@ -265,9 +265,9 @@
 
 .method protected onInsertComplete(ILjava/lang/Object;Landroid/net/Uri;)V
     .locals 0
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "uri"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 301
@@ -276,9 +276,9 @@
 
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
     .locals 0
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "cursor"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 288
@@ -287,9 +287,9 @@
 
 .method protected onUpdateComplete(ILjava/lang/Object;I)V
     .locals 0
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "result"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "result"    # I
 
     .prologue
     .line 314
@@ -298,11 +298,11 @@
 
 .method public final startDelete(ILjava/lang/Object;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 3
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "uri"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 264
@@ -313,7 +313,7 @@
     move-result-object v1
 
     .line 265
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     const/4 v2, 0x4
 
     iput v2, v1, Landroid/os/Message;->arg1:I
@@ -324,7 +324,7 @@
     invoke-direct {v0}, Landroid/content/AsyncQueryHandler$WorkerArgs;-><init>()V
 
     .line 268
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iput-object p0, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->handler:Landroid/os/Handler;
 
     .line 269
@@ -353,10 +353,10 @@
 
 .method public final startInsert(ILjava/lang/Object;Landroid/net/Uri;Landroid/content/ContentValues;)V
     .locals 3
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "uri"
-    .parameter "initialValues"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "initialValues"    # Landroid/content/ContentValues;
 
     .prologue
     .line 210
@@ -367,7 +367,7 @@
     move-result-object v1
 
     .line 211
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     const/4 v2, 0x2
 
     iput v2, v1, Landroid/os/Message;->arg1:I
@@ -378,7 +378,7 @@
     invoke-direct {v0}, Landroid/content/AsyncQueryHandler$WorkerArgs;-><init>()V
 
     .line 214
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iput-object p0, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->handler:Landroid/os/Handler;
 
     .line 215
@@ -404,13 +404,13 @@
 
 .method public startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "uri"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "selectionArgs"
-    .parameter "orderBy"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "projection"    # [Ljava/lang/String;
+    .param p5, "selection"    # Ljava/lang/String;
+    .param p6, "selectionArgs"    # [Ljava/lang/String;
+    .param p7, "orderBy"    # Ljava/lang/String;
 
     .prologue
     .line 168
@@ -421,7 +421,7 @@
     move-result-object v1
 
     .line 169
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     const/4 v2, 0x1
 
     iput v2, v1, Landroid/os/Message;->arg1:I
@@ -432,7 +432,7 @@
     invoke-direct {v0}, Landroid/content/AsyncQueryHandler$WorkerArgs;-><init>()V
 
     .line 172
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iput-object p0, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->handler:Landroid/os/Handler;
 
     .line 173
@@ -467,12 +467,12 @@
 
 .method public final startUpdate(ILjava/lang/Object;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 3
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "uri"
-    .parameter "values"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "values"    # Landroid/content/ContentValues;
+    .param p5, "selection"    # Ljava/lang/String;
+    .param p6, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 236
@@ -483,7 +483,7 @@
     move-result-object v1
 
     .line 237
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     const/4 v2, 0x3
 
     iput v2, v1, Landroid/os/Message;->arg1:I
@@ -494,7 +494,7 @@
     invoke-direct {v0}, Landroid/content/AsyncQueryHandler$WorkerArgs;-><init>()V
 
     .line 240
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iput-object p0, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->handler:Landroid/os/Handler;
 
     .line 241

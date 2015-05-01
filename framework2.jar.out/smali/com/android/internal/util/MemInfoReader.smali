@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, savedPolicy:Landroid/os/StrictMode$ThreadPolicy;
+    .local v0, "savedPolicy":Landroid/os/StrictMode$ThreadPolicy;
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/util/MemInfoReader;->mInfos:[J
 

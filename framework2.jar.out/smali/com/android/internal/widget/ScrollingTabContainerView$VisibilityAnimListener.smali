@@ -28,7 +28,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 556
@@ -48,7 +47,7 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 582
@@ -62,7 +61,7 @@
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 574
@@ -94,7 +93,7 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 587
@@ -103,7 +102,7 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     const/4 v1, 0x0
@@ -127,7 +126,7 @@
 
 .method public withFinalVisibility(I)Lcom/android/internal/widget/ScrollingTabContainerView$VisibilityAnimListener;
     .locals 0
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
     .line 561

@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/Filter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 267
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/Filter;Landroid/widget/Filter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/Filter;
+    .param p2, "x1"    # Landroid/widget/Filter$1;
 
     .prologue
     .line 267
@@ -48,7 +47,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 280
@@ -57,7 +56,7 @@
     check-cast v0, Landroid/widget/Filter$RequestArguments;
 
     .line 282
-    .local v0, args:Landroid/widget/Filter$RequestArguments;
+    .local v0, "args":Landroid/widget/Filter$RequestArguments;
     iget-object v2, p0, Landroid/widget/Filter$ResultsHandler;->this$0:Landroid/widget/Filter;
 
     iget-object v3, v0, Landroid/widget/Filter$RequestArguments;->constraint:Ljava/lang/CharSequence;
@@ -81,14 +80,14 @@
     iget v1, v2, Landroid/widget/Filter$FilterResults;->count:I
 
     .line 285
-    .local v1, count:I
+    .local v1, "count":I
     :goto_0
     iget-object v2, v0, Landroid/widget/Filter$RequestArguments;->listener:Landroid/widget/Filter$FilterListener;
 
     invoke-interface {v2, v1}, Landroid/widget/Filter$FilterListener;->onFilterComplete(I)V
 
     .line 287
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_0
     return-void
 

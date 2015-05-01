@@ -30,7 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v4, 0x0
@@ -94,8 +94,8 @@
 
 .method static synthetic access$000(Lcom/android/server/RecognitionManagerService;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/RecognitionManagerService;
+    .param p1, "x1"    # I
 
     .prologue
     .line 40
@@ -106,7 +106,7 @@
 
 .method private initForUser(I)V
     .locals 4
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 91
@@ -115,11 +115,11 @@
     move-result-object v0
 
     .line 92
-    .local v0, comp:Landroid/content/ComponentName;
+    .local v0, "comp":Landroid/content/ComponentName;
     const/4 v1, 0x0
 
     .line 93
-    .local v1, info:Landroid/content/pm/ServiceInfo;
+    .local v1, "info":Landroid/content/pm/ServiceInfo;
     if-eqz v0, :cond_0
 
     .line 96
@@ -167,8 +167,8 @@
 # virtual methods
 .method findAvailRecognizer(Ljava/lang/String;I)Landroid/content/ComponentName;
     .locals 8
-    .parameter "prefPackage"
-    .parameter "userHandle"
+    .param p1, "prefPackage"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -191,13 +191,13 @@
     move-result-object v0
 
     .line 112
-    .local v0, available:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v0, "available":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
     .line 114
-    .local v2, numAvailable:I
+    .local v2, "numAvailable":I
     if-nez v2, :cond_0
 
     .line 115
@@ -237,7 +237,7 @@
     .line 119
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v2, :cond_2
 
@@ -251,7 +251,7 @@
     iget-object v3, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 121
-    .local v3, serviceInfo:Landroid/content/pm/ServiceInfo;
+    .local v3, "serviceInfo":Landroid/content/pm/ServiceInfo;
     iget-object v4, v3, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -278,8 +278,8 @@
     goto :goto_1
 
     .line 126
-    .end local v1           #i:I
-    .end local v3           #serviceInfo:Landroid/content/pm/ServiceInfo;
+    .end local v1    # "i":I
+    .end local v3    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :cond_2
     const/4 v4, 0x1
 
@@ -303,7 +303,7 @@
     iget-object v3, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 131
-    .restart local v3       #serviceInfo:Landroid/content/pm/ServiceInfo;
+    .restart local v3    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     new-instance v4, Landroid/content/ComponentName;
 
     iget-object v5, v3, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -317,7 +317,7 @@
 
 .method getCurRecognizer(I)Landroid/content/ComponentName;
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 136
@@ -334,7 +334,7 @@
     move-result-object v0
 
     .line 139
-    .local v0, curRecognizer:Ljava/lang/String;
+    .local v0, "curRecognizer":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -358,8 +358,8 @@
 
 .method setCurRecognizer(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "comp"
-    .parameter "userHandle"
+    .param p1, "comp"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 148

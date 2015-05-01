@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 41
@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Ljava/util/Locale;)V
     .locals 0
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 37
@@ -59,8 +59,8 @@
 
 .method private static apply(Landroid/graphics/Paint;Ljava/util/Locale;)V
     .locals 0
-    .parameter "paint"
-    .parameter "locale"
+    .param p0, "paint"    # Landroid/graphics/Paint;
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 82
@@ -104,7 +104,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 73
@@ -118,7 +118,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/text/TextPaint;
 
     .prologue
     .line 78
@@ -132,8 +132,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 57

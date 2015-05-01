@@ -61,7 +61,6 @@
 
 .method public static getSamplingSnapshots(Ljava/util/Map;)V
     .locals 10
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,11 +74,11 @@
 
     .prologue
     .line 51
-    .local p0, mapIfaceToSample:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Landroid/net/SamplingDataTracker$SamplingSnapshot;>;"
+    .local p0, "mapIfaceToSample":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/net/SamplingDataTracker$SamplingSnapshot;>;"
     const/4 v3, 0x0
 
     .line 53
-    .local v3, reader:Ljava/io/BufferedReader;
+    .local v3, "reader":Ljava/io/BufferedReader;
     :try_start_0
     new-instance v4, Ljava/io/BufferedReader;
 
@@ -91,13 +90,13 @@
 
     invoke-direct {v4, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_4
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 57
-    .end local v3           #reader:Ljava/io/BufferedReader;
-    .local v4, reader:Ljava/io/BufferedReader;
+    .end local v3    # "reader":Ljava/io/BufferedReader;
+    .local v4, "reader":Ljava/io/BufferedReader;
     :try_start_1
     invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
@@ -111,7 +110,7 @@
 
     move-result-object v2
 
-    .local v2, line:Ljava/lang/String;
+    .local v2, "line":Ljava/lang/String;
     if-eqz v2, :cond_1
 
     .line 63
@@ -127,7 +126,7 @@
     move-result-object v6
 
     .line 66
-    .local v6, tokens:[Ljava/lang/String;
+    .local v6, "tokens":[Ljava/lang/String;
     array-length v7, v6
 
     const/16 v8, 0x11
@@ -150,12 +149,12 @@
     aget-object v0, v7, v8
 
     .line 77
-    .local v0, currentIface:Ljava/lang/String;
+    .local v0, "currentIface":Ljava/lang/String;
     invoke-interface {p0, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_8
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_7
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result v7
 
@@ -168,7 +167,7 @@
     invoke-direct {v5}, Landroid/net/SamplingDataTracker$SamplingSnapshot;-><init>()V
 
     .line 82
-    .local v5, ss:Landroid/net/SamplingDataTracker$SamplingSnapshot;
+    .local v5, "ss":Landroid/net/SamplingDataTracker$SamplingSnapshot;
     const/4 v7, 0x1
 
     aget-object v7, v6, v7
@@ -244,23 +243,23 @@
     .line 105
     invoke-interface {p0, v0, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_8
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_7
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     goto :goto_0
 
     .line 107
-    .end local v5           #ss:Landroid/net/SamplingDataTracker$SamplingSnapshot;
+    .end local v5    # "ss":Landroid/net/SamplingDataTracker$SamplingSnapshot;
     :catch_0
     move-exception v7
 
     goto :goto_0
 
     .line 128
-    .end local v0           #currentIface:Ljava/lang/String;
-    .end local v6           #tokens:[Ljava/lang/String;
+    .end local v0    # "currentIface":Ljava/lang/String;
+    .end local v6    # "tokens":[Ljava/lang/String;
     :cond_1
     if-eqz v4, :cond_2
 
@@ -274,22 +273,22 @@
     move-object v3, v4
 
     .line 135
-    .end local v2           #line:Ljava/lang/String;
-    .end local v4           #reader:Ljava/io/BufferedReader;
-    .restart local v3       #reader:Ljava/io/BufferedReader;
+    .end local v2    # "line":Ljava/lang/String;
+    .end local v4    # "reader":Ljava/io/BufferedReader;
+    .restart local v3    # "reader":Ljava/io/BufferedReader;
     :cond_3
     :goto_1
     return-void
 
     .line 131
-    .end local v3           #reader:Ljava/io/BufferedReader;
-    .restart local v2       #line:Ljava/lang/String;
-    .restart local v4       #reader:Ljava/io/BufferedReader;
+    .end local v3    # "reader":Ljava/io/BufferedReader;
+    .restart local v2    # "line":Ljava/lang/String;
+    .restart local v4    # "reader":Ljava/io/BufferedReader;
     :catch_1
     move-exception v1
 
     .line 132
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     const-string v7, "SamplingDataTracker"
 
     const-string v8, "could not close /proc/net/dev"
@@ -299,18 +298,18 @@
     move-object v3, v4
 
     .line 134
-    .end local v4           #reader:Ljava/io/BufferedReader;
-    .restart local v3       #reader:Ljava/io/BufferedReader;
+    .end local v4    # "reader":Ljava/io/BufferedReader;
+    .restart local v3    # "reader":Ljava/io/BufferedReader;
     goto :goto_1
 
     .line 122
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v2           #line:Ljava/lang/String;
+    .end local v1    # "e":Ljava/io/IOException;
+    .end local v2    # "line":Ljava/lang/String;
     :catch_2
     move-exception v1
 
     .line 123
-    .local v1, e:Ljava/io/FileNotFoundException;
+    .local v1, "e":Ljava/io/FileNotFoundException;
     :goto_2
     :try_start_4
     const-string v7, "SamplingDataTracker"
@@ -337,7 +336,7 @@
     move-exception v1
 
     .line 132
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     const-string v7, "SamplingDataTracker"
 
     const-string v8, "could not close /proc/net/dev"
@@ -347,12 +346,12 @@
     goto :goto_1
 
     .line 124
-    .end local v1           #e:Ljava/io/IOException;
+    .end local v1    # "e":Ljava/io/IOException;
     :catch_4
     move-exception v1
 
     .line 125
-    .restart local v1       #e:Ljava/io/IOException;
+    .restart local v1    # "e":Ljava/io/IOException;
     :goto_3
     :try_start_6
     const-string v7, "SamplingDataTracker"
@@ -388,7 +387,7 @@
     goto :goto_1
 
     .line 127
-    .end local v1           #e:Ljava/io/IOException;
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
@@ -412,7 +411,7 @@
     move-exception v1
 
     .line 132
-    .restart local v1       #e:Ljava/io/IOException;
+    .restart local v1    # "e":Ljava/io/IOException;
     const-string v8, "SamplingDataTracker"
 
     const-string v9, "could not close /proc/net/dev"
@@ -422,40 +421,40 @@
     goto :goto_5
 
     .line 127
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v3           #reader:Ljava/io/BufferedReader;
-    .restart local v4       #reader:Ljava/io/BufferedReader;
+    .end local v1    # "e":Ljava/io/IOException;
+    .end local v3    # "reader":Ljava/io/BufferedReader;
+    .restart local v4    # "reader":Ljava/io/BufferedReader;
     :catchall_1
     move-exception v7
 
     move-object v3, v4
 
-    .end local v4           #reader:Ljava/io/BufferedReader;
-    .restart local v3       #reader:Ljava/io/BufferedReader;
+    .end local v4    # "reader":Ljava/io/BufferedReader;
+    .restart local v3    # "reader":Ljava/io/BufferedReader;
     goto :goto_4
 
     .line 124
-    .end local v3           #reader:Ljava/io/BufferedReader;
-    .restart local v4       #reader:Ljava/io/BufferedReader;
+    .end local v3    # "reader":Ljava/io/BufferedReader;
+    .restart local v4    # "reader":Ljava/io/BufferedReader;
     :catch_7
     move-exception v1
 
     move-object v3, v4
 
-    .end local v4           #reader:Ljava/io/BufferedReader;
-    .restart local v3       #reader:Ljava/io/BufferedReader;
+    .end local v4    # "reader":Ljava/io/BufferedReader;
+    .restart local v3    # "reader":Ljava/io/BufferedReader;
     goto :goto_3
 
     .line 122
-    .end local v3           #reader:Ljava/io/BufferedReader;
-    .restart local v4       #reader:Ljava/io/BufferedReader;
+    .end local v3    # "reader":Ljava/io/BufferedReader;
+    .restart local v4    # "reader":Ljava/io/BufferedReader;
     :catch_8
     move-exception v1
 
     move-object v3, v4
 
-    .end local v4           #reader:Ljava/io/BufferedReader;
-    .restart local v3       #reader:Ljava/io/BufferedReader;
+    .end local v4    # "reader":Ljava/io/BufferedReader;
+    .restart local v3    # "reader":Ljava/io/BufferedReader;
     goto :goto_2
 .end method
 
@@ -579,8 +578,8 @@
 
 .method public getSampledPacketCount(Landroid/net/SamplingDataTracker$SamplingSnapshot;Landroid/net/SamplingDataTracker$SamplingSnapshot;)J
     .locals 8
-    .parameter "begin"
-    .parameter "end"
+    .param p1, "begin"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
+    .param p2, "end"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 242
@@ -596,7 +595,7 @@
     sub-long v0, v4, v6
 
     .line 244
-    .local v0, rxPacketCount:J
+    .local v0, "rxPacketCount":J
     iget-wide v4, p2, Landroid/net/SamplingDataTracker$SamplingSnapshot;->mTxPacketCount:J
 
     iget-wide v6, p1, Landroid/net/SamplingDataTracker$SamplingSnapshot;->mTxPacketCount:J
@@ -604,12 +603,12 @@
     sub-long v2, v4, v6
 
     .line 245
-    .local v2, txPacketCount:J
+    .local v2, "txPacketCount":J
     add-long v4, v0, v2
 
     .line 247
-    .end local v0           #rxPacketCount:J
-    .end local v2           #txPacketCount:J
+    .end local v0    # "rxPacketCount":J
+    .end local v2    # "txPacketCount":J
     :goto_0
     return-wide v4
 
@@ -638,18 +637,18 @@
     move-result-wide v0
 
     .line 254
-    .local v0, rxPacketErrorCount:J
+    .local v0, "rxPacketErrorCount":J
     invoke-virtual {p0}, Landroid/net/SamplingDataTracker;->getSampledTxPacketErrorCount()J
 
     move-result-wide v2
 
     .line 255
-    .local v2, txPacketErrorCount:J
+    .local v2, "txPacketErrorCount":J
     add-long v4, v0, v2
 
     .line 257
-    .end local v0           #rxPacketErrorCount:J
-    .end local v2           #txPacketErrorCount:J
+    .end local v0    # "rxPacketErrorCount":J
+    .end local v2    # "txPacketErrorCount":J
     :goto_0
     return-wide v4
 
@@ -1017,7 +1016,7 @@
 
 .method public setCommonLinkQualityInfoFields(Landroid/net/LinkQualityInfo;)V
     .locals 4
-    .parameter "li"
+    .param p1, "li"    # Landroid/net/LinkQualityInfo;
 
     .prologue
     .line 292
@@ -1073,7 +1072,7 @@
 
 .method public startSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 154
@@ -1104,7 +1103,7 @@
 
 .method public stopSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 6
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 160

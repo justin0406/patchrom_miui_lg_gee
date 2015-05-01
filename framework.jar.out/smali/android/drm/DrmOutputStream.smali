@@ -18,9 +18,9 @@
 # direct methods
 .method public constructor <init>(Landroid/drm/DrmManagerClient;Ljava/io/RandomAccessFile;Ljava/lang/String;)V
     .locals 3
-    .parameter "client"
-    .parameter "file"
-    .parameter "mimeType"
+    .param p1, "client"    # Landroid/drm/DrmManagerClient;
+    .param p2, "file"    # Ljava/io/RandomAccessFile;
+    .param p3, "mimeType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 63
-    .local v0, status:Landroid/drm/DrmConvertedStatus;
+    .local v0, "status":Landroid/drm/DrmConvertedStatus;
     iget v1, v0, Landroid/drm/DrmConvertedStatus;->statusCode:I
 
     const/4 v2, 0x1
@@ -202,7 +202,7 @@
 
 .method public write(I)V
     .locals 0
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -219,9 +219,9 @@
 
 .method public write([BII)V
     .locals 5
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -243,7 +243,7 @@
     move-object v0, p1
 
     .line 93
-    .local v0, exactBuffer:[B
+    .local v0, "exactBuffer":[B
     :goto_0
     iget-object v2, p0, Landroid/drm/DrmOutputStream;->mClient:Landroid/drm/DrmManagerClient;
 
@@ -254,7 +254,7 @@
     move-result-object v1
 
     .line 94
-    .local v1, status:Landroid/drm/DrmConvertedStatus;
+    .local v1, "status":Landroid/drm/DrmConvertedStatus;
     iget v2, v1, Landroid/drm/DrmConvertedStatus;->statusCode:I
 
     const/4 v3, 0x1
@@ -272,13 +272,13 @@
     return-void
 
     .line 89
-    .end local v0           #exactBuffer:[B
-    .end local v1           #status:Landroid/drm/DrmConvertedStatus;
+    .end local v0    # "exactBuffer":[B
+    .end local v1    # "status":Landroid/drm/DrmConvertedStatus;
     :cond_0
     new-array v0, p3, [B
 
     .line 90
-    .restart local v0       #exactBuffer:[B
+    .restart local v0    # "exactBuffer":[B
     const/4 v2, 0x0
 
     invoke-static {p1, p2, v0, v2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -286,7 +286,7 @@
     goto :goto_0
 
     .line 97
-    .restart local v1       #status:Landroid/drm/DrmConvertedStatus;
+    .restart local v1    # "status":Landroid/drm/DrmConvertedStatus;
     :cond_1
     new-instance v2, Ljava/io/IOException;
 

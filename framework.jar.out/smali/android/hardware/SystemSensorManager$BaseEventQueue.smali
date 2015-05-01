@@ -33,8 +33,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/Looper;Landroid/hardware/SystemSensorManager;)V
     .locals 2
-    .parameter "looper"
-    .parameter "manager"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "manager"    # Landroid/hardware/SystemSensorManager;
 
     .prologue
     .line 240
@@ -104,7 +104,7 @@
 
 .method private disableSensor(Landroid/hardware/Sensor;)I
     .locals 2
-    .parameter "sensor"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 339
@@ -145,7 +145,7 @@
 
 .method private dispose(Z)V
     .locals 1
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     .line 318
@@ -190,10 +190,10 @@
 
 .method private enableSensor(Landroid/hardware/Sensor;III)I
     .locals 2
-    .parameter "sensor"
-    .parameter "rateUs"
-    .parameter "maxBatchReportLatencyUs"
-    .parameter "reservedFlags"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "rateUs"    # I
+    .param p3, "maxBatchReportLatencyUs"    # I
+    .param p4, "reservedFlags"    # I
 
     .prologue
     .line 332
@@ -251,10 +251,10 @@
 # virtual methods
 .method public addSensor(Landroid/hardware/Sensor;III)Z
     .locals 4
-    .parameter "sensor"
-    .parameter "delayUs"
-    .parameter "maxBatchReportLatencyUs"
-    .parameter "reservedFlags"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "delayUs"    # I
+    .param p3, "maxBatchReportLatencyUs"    # I
+    .param p4, "reservedFlags"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -267,7 +267,7 @@
     move-result v0
 
     .line 254
-    .local v0, handle:I
+    .local v0, "handle":I
     iget-object v3, p0, Landroid/hardware/SystemSensorManager$BaseEventQueue;->mActiveSensors:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -433,7 +433,7 @@
     .line 271
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v3, p0, Landroid/hardware/SystemSensorManager$BaseEventQueue;->mActiveSensors:Landroid/util/SparseBooleanArray;
 
@@ -460,7 +460,8 @@
     move-result v0
 
     .line 274
-    .local v0, handle:I
+    .local v0, "handle":I
+    # getter for: Landroid/hardware/SystemSensorManager;->sHandleToSensor:Landroid/util/SparseArray;
     invoke-static {}, Landroid/hardware/SystemSensorManager;->access$000()Landroid/util/SparseArray;
 
     move-result-object v3
@@ -472,7 +473,7 @@
     check-cast v2, Landroid/hardware/Sensor;
 
     .line 275
-    .local v2, sensor:Landroid/hardware/Sensor;
+    .local v2, "sensor":Landroid/hardware/Sensor;
     if-eqz v2, :cond_0
 
     .line 276
@@ -489,8 +490,8 @@
     invoke-virtual {p0, v2}, Landroid/hardware/SystemSensorManager$BaseEventQueue;->removeSensorEvent(Landroid/hardware/Sensor;)V
 
     .line 271
-    .end local v0           #handle:I
-    .end local v2           #sensor:Landroid/hardware/Sensor;
+    .end local v0    # "handle":I
+    .end local v2    # "sensor":Landroid/hardware/Sensor;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
@@ -503,8 +504,8 @@
 
 .method public removeSensor(Landroid/hardware/Sensor;Z)Z
     .locals 4
-    .parameter "sensor"
-    .parameter "disable"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "disable"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -515,7 +516,7 @@
     move-result v0
 
     .line 289
-    .local v0, handle:I
+    .local v0, "handle":I
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$BaseEventQueue;->mActiveSensors:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseBooleanArray;->get(I)Z

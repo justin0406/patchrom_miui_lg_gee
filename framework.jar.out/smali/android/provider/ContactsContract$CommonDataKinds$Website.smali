@@ -3,8 +3,8 @@
 .source "ContactsContract.java"
 
 # interfaces
-.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 .implements Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;
+.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 
 
 # annotations
@@ -43,7 +43,7 @@
     .locals 0
 
     .prologue
-    .line 6743
+    .line 6745
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

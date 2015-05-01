@@ -100,7 +100,7 @@
     const/4 v1, 0x1
 
     .line 156
-    .local v1, out:Z
+    .local v1, "out":Z
     :goto_0
     iget-object v3, p0, Landroid/hardware/usb/UsbRequest;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -116,7 +116,7 @@
     move-result v0
 
     .line 161
-    .local v0, bytesRead:I
+    .local v0, "bytesRead":I
     :goto_1
     if-ltz v0, :cond_0
 
@@ -143,8 +143,8 @@
     .line 166
     return-void
 
-    .end local v0           #bytesRead:I
-    .end local v1           #out:Z
+    .end local v0    # "bytesRead":I
+    .end local v1    # "out":Z
     :cond_1
     move v1, v2
 
@@ -152,7 +152,7 @@
     goto :goto_0
 
     .line 159
-    .restart local v1       #out:Z
+    .restart local v1    # "out":Z
     :cond_2
     iget-object v3, p0, Landroid/hardware/usb/UsbRequest;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -166,7 +166,7 @@
 
     move-result v0
 
-    .restart local v0       #bytesRead:I
+    .restart local v0    # "bytesRead":I
     goto :goto_1
 .end method
 
@@ -251,8 +251,8 @@
 
 .method public initialize(Landroid/hardware/usb/UsbDeviceConnection;Landroid/hardware/usb/UsbEndpoint;)Z
     .locals 6
-    .parameter "connection"
-    .parameter "endpoint"
+    .param p1, "connection"    # Landroid/hardware/usb/UsbDeviceConnection;
+    .param p2, "endpoint"    # Landroid/hardware/usb/UsbEndpoint;
 
     .prologue
     .line 62
@@ -288,8 +288,8 @@
 
 .method public queue(Ljava/nio/ByteBuffer;I)Z
     .locals 4
-    .parameter "buffer"
-    .parameter "length"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "length"    # I
 
     .prologue
     .line 136
@@ -304,7 +304,7 @@
     const/4 v0, 0x1
 
     .line 138
-    .local v0, out:Z
+    .local v0, "out":Z
     :goto_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->isDirect()Z
 
@@ -318,7 +318,7 @@
     move-result v1
 
     .line 145
-    .local v1, result:Z
+    .local v1, "result":Z
     :goto_1
     if-eqz v1, :cond_0
 
@@ -333,15 +333,15 @@
     return v1
 
     .line 136
-    .end local v0           #out:Z
-    .end local v1           #result:Z
+    .end local v0    # "out":Z
+    .end local v1    # "result":Z
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 140
-    .restart local v0       #out:Z
+    .restart local v0    # "out":Z
     :cond_2
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasArray()Z
 
@@ -358,11 +358,11 @@
 
     move-result v1
 
-    .restart local v1       #result:Z
+    .restart local v1    # "result":Z
     goto :goto_1
 
     .line 143
-    .end local v1           #result:Z
+    .end local v1    # "result":Z
     :cond_3
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -375,7 +375,7 @@
 
 .method public setClientData(Ljava/lang/Object;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/Object;
 
     .prologue
     .line 119

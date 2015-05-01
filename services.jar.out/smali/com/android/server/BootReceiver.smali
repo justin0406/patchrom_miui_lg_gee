@@ -4,8 +4,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final LOG_SIZE:I = 0x0
+.field private static final LOG_SIZE:I
 
 .field private static final OLD_UPDATER_CLASS:Ljava/lang/String; = "com.google.android.systemupdater.SystemUpdateReceiver"
 
@@ -59,7 +58,7 @@
 
     .line 47
     :cond_0
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     goto :goto_0
 .end method
@@ -76,8 +75,8 @@
 
 .method static synthetic access$000(Lcom/android/server/BootReceiver;Landroid/content/Context;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/BootReceiver;
+    .param p1, "x1"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -93,8 +92,8 @@
 
 .method static synthetic access$100(Lcom/android/server/BootReceiver;Landroid/content/Context;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/BootReceiver;
+    .param p1, "x1"    # Landroid/content/Context;
 
     .prologue
     .line 42
@@ -125,12 +124,12 @@
 
 .method static synthetic access$400(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p0, "x0"    # Landroid/os/DropBoxManager;
+    .param p1, "x1"    # Landroid/content/SharedPreferences;
+    .param p2, "x2"    # Ljava/lang/String;
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # I
+    .param p5, "x5"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -146,11 +145,11 @@
 
 .method private static addAuditErrorsToDropBox(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;ILjava/lang/String;)V
     .locals 16
-    .parameter "db"
-    .parameter "prefs"
-    .parameter "headers"
-    .parameter "maxSize"
-    .parameter "tag"
+    .param p0, "db"    # Landroid/os/DropBoxManager;
+    .param p1, "prefs"    # Landroid/content/SharedPreferences;
+    .param p2, "headers"    # Ljava/lang/String;
+    .param p3, "maxSize"    # I
+    .param p4, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -192,13 +191,13 @@
     invoke-direct {v3, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 186
-    .local v3, file:Ljava/io/File;
+    .local v3, "file":Ljava/io/File;
     invoke-virtual {v3}, Ljava/io/File;->lastModified()J
 
     move-result-wide v4
 
     .line 187
-    .local v4, fileTime:J
+    .local v4, "fileTime":J
     const-wide/16 v13, 0x0
 
     cmp-long v13, v4, v13
@@ -220,7 +219,7 @@
     move-result-wide v7
 
     .line 191
-    .local v7, lastTime:J
+    .local v7, "lastTime":J
     cmp-long v13, v7, v4
 
     if-eqz v13, :cond_0
@@ -239,7 +238,7 @@
     invoke-interface {v13}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 197
-    .end local v7           #lastTime:J
+    .end local v7    # "lastTime":J
     :cond_2
     const-string v13, "[[TRUNCATED]]\n"
 
@@ -250,33 +249,33 @@
     move-result-object v11
 
     .line 198
-    .local v11, log:Ljava/lang/String;
+    .local v11, "log":Ljava/lang/String;
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 199
-    .local v12, sb:Ljava/lang/StringBuilder;
+    .local v12, "sb":Ljava/lang/StringBuilder;
     const-string v13, "\n"
 
     invoke-virtual {v11, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v9, v2
 
-    .local v9, len$:I
+    .local v9, "len$":I
     const/4 v6, 0x0
 
-    .local v6, i$:I
+    .local v6, "i$":I
     :goto_1
     if-ge v6, v9, :cond_4
 
     aget-object v10, v2, v6
 
     .line 200
-    .local v10, line:Ljava/lang/String;
+    .local v10, "line":Ljava/lang/String;
     const-string v13, "audit"
 
     invoke-virtual {v10, v13}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -313,7 +312,7 @@
     goto :goto_1
 
     .line 204
-    .end local v10           #line:Ljava/lang/String;
+    .end local v10    # "line":Ljava/lang/String;
     :cond_4
     const-string v13, "BootReceiver"
 
@@ -385,12 +384,12 @@
 
 .method private static addFileToDropBox(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 8
-    .parameter "db"
-    .parameter "prefs"
-    .parameter "headers"
-    .parameter "filename"
-    .parameter "maxSize"
-    .parameter "tag"
+    .param p0, "db"    # Landroid/os/DropBoxManager;
+    .param p1, "prefs"    # Landroid/content/SharedPreferences;
+    .param p2, "headers"    # Ljava/lang/String;
+    .param p3, "filename"    # Ljava/lang/String;
+    .param p4, "maxSize"    # I
+    .param p5, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -421,13 +420,13 @@
     invoke-direct {v0, p3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 165
-    .local v0, file:Ljava/io/File;
+    .local v0, "file":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->lastModified()J
 
     move-result-wide v1
 
     .line 166
-    .local v1, fileTime:J
+    .local v1, "fileTime":J
     cmp-long v5, v1, v6
 
     if-lez v5, :cond_0
@@ -441,7 +440,7 @@
     move-result-wide v3
 
     .line 170
-    .local v3, lastTime:J
+    .local v3, "lastTime":J
     cmp-long v5, v3, v1
 
     if-eqz v5, :cond_0
@@ -458,7 +457,7 @@
     invoke-interface {v5}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 176
-    .end local v3           #lastTime:J
+    .end local v3    # "lastTime":J
     :cond_2
     const-string v5, "BootReceiver"
 
@@ -528,11 +527,11 @@
 
 .method private static addFsckErrorsToDropBox(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;ILjava/lang/String;)V
     .locals 18
-    .parameter "db"
-    .parameter "prefs"
-    .parameter "headers"
-    .parameter "maxSize"
-    .parameter "tag"
+    .param p0, "db"    # Landroid/os/DropBoxManager;
+    .param p1, "prefs"    # Landroid/content/SharedPreferences;
+    .param p2, "headers"    # Ljava/lang/String;
+    .param p3, "maxSize"    # I
+    .param p4, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -544,7 +543,7 @@
     const/16 v17, 0x0
 
     .line 211
-    .local v17, upload_needed:Z
+    .local v17, "upload_needed":Z
     if-eqz p0, :cond_0
 
     move-object/from16 v0, p0
@@ -578,13 +577,13 @@
     invoke-direct {v9, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 215
-    .local v9, file:Ljava/io/File;
+    .local v9, "file":Ljava/io/File;
     invoke-virtual {v9}, Ljava/io/File;->lastModified()J
 
     move-result-wide v10
 
     .line 216
-    .local v10, fileTime:J
+    .local v10, "fileTime":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v10, v2
@@ -601,33 +600,33 @@
     move-result-object v15
 
     .line 219
-    .local v15, log:Ljava/lang/String;
+    .local v15, "log":Ljava/lang/String;
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 220
-    .local v16, sb:Ljava/lang/StringBuilder;
+    .local v16, "sb":Ljava/lang/StringBuilder;
     const-string v2, "\n"
 
     invoke-virtual {v15, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v8
 
-    .local v8, arr$:[Ljava/lang/String;
+    .local v8, "arr$":[Ljava/lang/String;
     array-length v13, v8
 
-    .local v13, len$:I
+    .local v13, "len$":I
     const/4 v12, 0x0
 
-    .local v12, i$:I
+    .local v12, "i$":I
     :goto_1
     if-ge v12, v13, :cond_2
 
     aget-object v14, v8, v12
 
     .line 221
-    .local v14, line:Ljava/lang/String;
+    .local v14, "line":Ljava/lang/String;
     const-string v2, "FILE SYSTEM WAS MODIFIED"
 
     invoke-virtual {v14, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -640,7 +639,7 @@
     const/16 v17, 0x1
 
     .line 227
-    .end local v14           #line:Ljava/lang/String;
+    .end local v14    # "line":Ljava/lang/String;
     :cond_2
     if-eqz v17, :cond_3
 
@@ -666,7 +665,7 @@
     goto :goto_0
 
     .line 220
-    .restart local v14       #line:Ljava/lang/String;
+    .restart local v14    # "line":Ljava/lang/String;
     :cond_4
     add-int/lit8 v12, v12, 0x1
 
@@ -675,7 +674,7 @@
 
 .method private logBootEvents(Landroid/content/Context;)V
     .locals 14
-    .parameter "ctx"
+    .param p1, "ctx"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -695,7 +694,7 @@
     check-cast v0, Landroid/os/DropBoxManager;
 
     .line 98
-    .local v0, db:Landroid/os/DropBoxManager;
+    .local v0, "db":Landroid/os/DropBoxManager;
     const-string v3, "log_files"
 
     const/4 v4, 0x0
@@ -705,7 +704,7 @@
     move-result-object v1
 
     .line 99
-    .local v1, prefs:Landroid/content/SharedPreferences;
+    .local v1, "prefs":Landroid/content/SharedPreferences;
     new-instance v3, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x200
@@ -843,13 +842,13 @@
     move-result-object v2
 
     .line 110
-    .local v2, headers:Ljava/lang/String;
+    .local v2, "headers":Ljava/lang/String;
     invoke-static {}, Landroid/os/RecoverySystem;->handleAftermath()Ljava/lang/String;
 
     move-result-object v12
 
     .line 111
-    .local v12, recovery:Ljava/lang/String;
+    .local v12, "recovery":Ljava/lang/String;
     if-eqz v12, :cond_0
 
     if-eqz v0, :cond_0
@@ -897,7 +896,7 @@
     move-result-object v11
 
     .line 117
-    .local v11, now:Ljava/lang/String;
+    .local v11, "now":Ljava/lang/String;
     const-string v3, "ro.runtime.firstboot"
 
     invoke-static {v3, v11}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
@@ -973,7 +972,7 @@
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/BootReceiver;->addFsckErrorsToDropBox(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;ILjava/lang/String;)V
 
     .line 136
-    .end local v11           #now:Ljava/lang/String;
+    .end local v11    # "now":Ljava/lang/String;
     :cond_2
     :goto_0
     sget-object v3, Lcom/android/server/BootReceiver;->TOMBSTONE_DIR:Ljava/io/File;
@@ -983,10 +982,10 @@
     move-result-object v13
 
     .line 137
-    .local v13, tombstoneFiles:[Ljava/io/File;
+    .local v13, "tombstoneFiles":[Ljava/io/File;
     const/4 v10, 0x0
 
-    .local v10, i:I
+    .local v10, "i":I
     :goto_1
     if-eqz v13, :cond_4
 
@@ -1013,8 +1012,8 @@
     goto :goto_1
 
     .line 132
-    .end local v10           #i:I
-    .end local v13           #tombstoneFiles:[Ljava/io/File;
+    .end local v10    # "i":I
+    .end local v13    # "tombstoneFiles":[Ljava/io/File;
     :cond_3
     if-eqz v0, :cond_2
 
@@ -1025,8 +1024,8 @@
     goto :goto_0
 
     .line 144
-    .restart local v10       #i:I
-    .restart local v13       #tombstoneFiles:[Ljava/io/File;
+    .restart local v10    # "i":I
+    .restart local v13    # "tombstoneFiles":[Ljava/io/File;
     :cond_4
     new-instance v3, Lcom/android/server/BootReceiver$2;
 
@@ -1061,7 +1060,7 @@
 
 .method private removeOldUpdatePackages(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 93
@@ -1079,8 +1078,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 66

@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1124

@@ -39,7 +39,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 2
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     const/4 v1, 0x1
@@ -129,7 +129,7 @@
     move-result v10
 
     .line 427
-    .local v10, id:I
+    .local v10, "id":I
     new-instance v11, Landroid/renderscript/ProgramStore;
 
     iget-object v0, p0, Landroid/renderscript/ProgramStore$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -137,7 +137,7 @@
     invoke-direct {v11, v10, v0}, Landroid/renderscript/ProgramStore;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 428
-    .local v11, programStore:Landroid/renderscript/ProgramStore;
+    .local v11, "programStore":Landroid/renderscript/ProgramStore;
     iget-object v0, p0, Landroid/renderscript/ProgramStore$Builder;->mDepthFunc:Landroid/renderscript/ProgramStore$DepthFunc;
 
     iput-object v0, v11, Landroid/renderscript/ProgramStore;->mDepthFunc:Landroid/renderscript/ProgramStore$DepthFunc;
@@ -188,8 +188,8 @@
 
 .method public setBlendFunc(Landroid/renderscript/ProgramStore$BlendSrcFunc;Landroid/renderscript/ProgramStore$BlendDstFunc;)Landroid/renderscript/ProgramStore$Builder;
     .locals 0
-    .parameter "src"
-    .parameter "dst"
+    .param p1, "src"    # Landroid/renderscript/ProgramStore$BlendSrcFunc;
+    .param p2, "dst"    # Landroid/renderscript/ProgramStore$BlendDstFunc;
 
     .prologue
     .line 401
@@ -204,10 +204,10 @@
 
 .method public setColorMaskEnabled(ZZZZ)Landroid/renderscript/ProgramStore$Builder;
     .locals 0
-    .parameter "r"
-    .parameter "g"
-    .parameter "b"
-    .parameter "a"
+    .param p1, "r"    # Z
+    .param p2, "g"    # Z
+    .param p3, "b"    # Z
+    .param p4, "a"    # Z
 
     .prologue
     .line 382
@@ -228,7 +228,7 @@
 
 .method public setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
     .locals 0
-    .parameter "func"
+    .param p1, "func"    # Landroid/renderscript/ProgramStore$DepthFunc;
 
     .prologue
     .line 354
@@ -240,7 +240,7 @@
 
 .method public setDepthMaskEnabled(Z)Landroid/renderscript/ProgramStore$Builder;
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 367
@@ -252,7 +252,7 @@
 
 .method public setDitherEnabled(Z)Landroid/renderscript/ProgramStore$Builder;
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 415

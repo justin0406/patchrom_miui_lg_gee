@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/Notifier;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 498
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v6, 0x1
@@ -63,7 +62,7 @@
 
     iget-object v4, p0, Lcom/android/server/power/Notifier$3;->this$0:Lcom/android/server/power/Notifier;
 
-    #getter for: Lcom/android/server/power/Notifier;->mBroadcastStartTime:J
+    # getter for: Lcom/android/server/power/Notifier;->mBroadcastStartTime:J
     invoke-static {v4}, Lcom/android/server/power/Notifier;->access$400(Lcom/android/server/power/Notifier;)J
 
     move-result-wide v4
@@ -89,7 +88,7 @@
     .line 503
     iget-object v0, p0, Lcom/android/server/power/Notifier$3;->this$0:Lcom/android/server/power/Notifier;
 
-    #calls: Lcom/android/server/power/Notifier;->sendNextBroadcast()V
+    # invokes: Lcom/android/server/power/Notifier;->sendNextBroadcast()V
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$500(Lcom/android/server/power/Notifier;)V
 
     .line 504

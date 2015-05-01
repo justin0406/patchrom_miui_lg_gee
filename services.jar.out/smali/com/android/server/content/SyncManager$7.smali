@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 342
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/16 v3, -0x2710
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 346
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -56,7 +55,7 @@
     move-result v1
 
     .line 347
-    .local v1, userId:I
+    .local v1, "userId":I
     if-ne v1, v3, :cond_1
 
     .line 356
@@ -77,7 +76,7 @@
     .line 350
     iget-object v2, p0, Lcom/android/server/content/SyncManager$7;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->onUserRemoved(I)V
+    # invokes: Lcom/android/server/content/SyncManager;->onUserRemoved(I)V
     invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$800(Lcom/android/server/content/SyncManager;I)V
 
     goto :goto_0
@@ -95,7 +94,7 @@
     .line 352
     iget-object v2, p0, Lcom/android/server/content/SyncManager$7;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->onUserStarting(I)V
+    # invokes: Lcom/android/server/content/SyncManager;->onUserStarting(I)V
     invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$900(Lcom/android/server/content/SyncManager;I)V
 
     goto :goto_0
@@ -113,7 +112,7 @@
     .line 354
     iget-object v2, p0, Lcom/android/server/content/SyncManager$7;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->onUserStopping(I)V
+    # invokes: Lcom/android/server/content/SyncManager;->onUserStopping(I)V
     invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$1000(Lcom/android/server/content/SyncManager;I)V
 
     goto :goto_0

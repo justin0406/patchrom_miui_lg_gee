@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService$NsdStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 152
@@ -36,7 +35,7 @@
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
     .locals 7
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v3, 0x0
@@ -85,7 +84,7 @@
     check-cast v1, Lcom/android/internal/util/AsyncChannel;
 
     .line 159
-    .local v1, c:Lcom/android/internal/util/AsyncChannel;
+    .local v1, "c":Lcom/android/internal/util/AsyncChannel;
     const-string v3, "NsdService"
 
     const-string v4, "New client listening to asynchronous messages"
@@ -111,12 +110,12 @@
     invoke-direct {v2, v3, v1, v4, v5}, Lcom/android/server/NsdService$ClientInfo;-><init>(Lcom/android/server/NsdService;Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;Lcom/android/server/NsdService$1;)V
 
     .line 162
-    .local v2, cInfo:Lcom/android/server/NsdService$ClientInfo;
+    .local v2, "cInfo":Lcom/android/server/NsdService$ClientInfo;
     iget-object v3, p0, Lcom/android/server/NsdService$NsdStateMachine$DefaultState;->this$1:Lcom/android/server/NsdService$NsdStateMachine;
 
     iget-object v3, v3, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mClients:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/NsdService;->mClients:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/NsdService;->access$500(Lcom/android/server/NsdService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -126,8 +125,8 @@
     invoke-virtual {v3, v4, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 204
-    .end local v1           #c:Lcom/android/internal/util/AsyncChannel;
-    .end local v2           #cInfo:Lcom/android/server/NsdService$ClientInfo;
+    .end local v1    # "c":Lcom/android/internal/util/AsyncChannel;
+    .end local v2    # "cInfo":Lcom/android/server/NsdService$ClientInfo;
     :goto_1
     const/4 v3, 0x1
 
@@ -182,7 +181,7 @@
 
     iget-object v3, v3, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mClients:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/NsdService;->mClients:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/NsdService;->access$500(Lcom/android/server/NsdService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -228,12 +227,12 @@
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
     .line 177
-    .local v0, ac:Lcom/android/internal/util/AsyncChannel;
+    .local v0, "ac":Lcom/android/internal/util/AsyncChannel;
     iget-object v3, p0, Lcom/android/server/NsdService$NsdStateMachine$DefaultState;->this$1:Lcom/android/server/NsdService$NsdStateMachine;
 
     iget-object v3, v3, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/NsdService;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/NsdService;->access$300(Lcom/android/server/NsdService;)Landroid/content/Context;
 
     move-result-object v3
@@ -251,7 +250,7 @@
     goto :goto_1
 
     .line 180
-    .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
+    .end local v0    # "ac":Lcom/android/internal/util/AsyncChannel;
     :sswitch_3
     iget-object v4, p0, Lcom/android/server/NsdService$NsdStateMachine$DefaultState;->this$1:Lcom/android/server/NsdService$NsdStateMachine;
 
@@ -259,7 +258,7 @@
 
     const v5, 0x60003
 
-    #calls: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
+    # invokes: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
     invoke-static {v4, p1, v5, v3}, Lcom/android/server/NsdService;->access$600(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto :goto_1
@@ -272,7 +271,7 @@
 
     const v5, 0x60007
 
-    #calls: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
+    # invokes: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
     invoke-static {v4, p1, v5, v3}, Lcom/android/server/NsdService;->access$600(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto :goto_1
@@ -285,7 +284,7 @@
 
     const v5, 0x6000a
 
-    #calls: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
+    # invokes: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
     invoke-static {v4, p1, v5, v3}, Lcom/android/server/NsdService;->access$600(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_1
@@ -298,7 +297,7 @@
 
     const v5, 0x6000d
 
-    #calls: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
+    # invokes: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
     invoke-static {v4, p1, v5, v3}, Lcom/android/server/NsdService;->access$600(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_1
@@ -311,7 +310,7 @@
 
     const v5, 0x60013
 
-    #calls: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
+    # invokes: Lcom/android/server/NsdService;->replyToMessage(Landroid/os/Message;II)V
     invoke-static {v4, p1, v5, v3}, Lcom/android/server/NsdService;->access$600(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_1

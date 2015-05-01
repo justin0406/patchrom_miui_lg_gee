@@ -26,9 +26,9 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "infoType"
-    .parameter "path"
-    .parameter "mimeType"
+    .param p1, "infoType"    # I
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 68
@@ -119,7 +119,7 @@
     move-result-object v1
 
     .line 84
-    .local v1, msg:Ljava/lang/String;
+    .local v1, "msg":Ljava/lang/String;
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v2}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -127,12 +127,12 @@
     throw v2
 
     .line 73
-    .end local v1           #msg:Ljava/lang/String;
+    .end local v1    # "msg":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 77
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/drm/DrmInfo;->mData:[B
@@ -140,16 +140,16 @@
     goto :goto_0
 
     .line 86
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(I[BLjava/lang/String;)V
     .locals 3
-    .parameter "infoType"
-    .parameter "data"
-    .parameter "mimeType"
+    .param p1, "infoType"    # I
+    .param p2, "data"    # [B
+    .param p3, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 48
@@ -230,7 +230,7 @@
     move-result-object v0
 
     .line 57
-    .local v0, msg:Ljava/lang/String;
+    .local v0, "msg":Ljava/lang/String;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -238,7 +238,7 @@
     throw v1
 
     .line 59
-    .end local v0           #msg:Ljava/lang/String;
+    .end local v0    # "msg":Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -247,7 +247,7 @@
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 108
@@ -394,8 +394,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 97

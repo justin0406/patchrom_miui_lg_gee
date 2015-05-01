@@ -84,24 +84,24 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;ILjava/util/List;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;ZZZI)V
     .locals 2
-    .parameter "_queue"
-    .parameter "_intent"
-    .parameter "_callerApp"
-    .parameter "_callerPackage"
-    .parameter "_callingPid"
-    .parameter "_callingUid"
-    .parameter "_resolvedType"
-    .parameter "_requiredPermission"
-    .parameter "_appOp"
-    .parameter "_receivers"
-    .parameter "_resultTo"
-    .parameter "_resultCode"
-    .parameter "_resultData"
-    .parameter "_resultExtras"
-    .parameter "_serialized"
-    .parameter "_sticky"
-    .parameter "_initialSticky"
-    .parameter "_userId"
+    .param p1, "_queue"    # Lcom/android/server/am/BroadcastQueue;
+    .param p2, "_intent"    # Landroid/content/Intent;
+    .param p3, "_callerApp"    # Lcom/android/server/am/ProcessRecord;
+    .param p4, "_callerPackage"    # Ljava/lang/String;
+    .param p5, "_callingPid"    # I
+    .param p6, "_callingUid"    # I
+    .param p7, "_resolvedType"    # Ljava/lang/String;
+    .param p8, "_requiredPermission"    # Ljava/lang/String;
+    .param p9, "_appOp"    # I
+    .param p10, "_receivers"    # Ljava/util/List;
+    .param p11, "_resultTo"    # Landroid/content/IIntentReceiver;
+    .param p12, "_resultCode"    # I
+    .param p13, "_resultData"    # Ljava/lang/String;
+    .param p14, "_resultExtras"    # Landroid/os/Bundle;
+    .param p15, "_serialized"    # Z
+    .param p16, "_sticky"    # Z
+    .param p17, "_initialSticky"    # Z
+    .param p18, "_userId"    # I
 
     .prologue
     .line 181
@@ -196,8 +196,8 @@
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 13
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -206,7 +206,7 @@
     move-result-wide v3
 
     .line 88
-    .local v3, now:J
+    .local v3, "now":J
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
@@ -269,7 +269,7 @@
     move-result-object v1
 
     .line 94
-    .local v1, bundle:Landroid/os/Bundle;
+    .local v1, "bundle":Landroid/os/Bundle;
     if-eqz v1, :cond_1
 
     .line 95
@@ -694,7 +694,7 @@
     const-string v8, " (?)"
 
     .line 153
-    .local v8, stateStr:Ljava/lang/String;
+    .local v8, "stateStr":Ljava/lang/String;
     iget v9, p0, Lcom/android/server/am/BroadcastRecord;->state:I
 
     packed-switch v9, :pswitch_data_0
@@ -714,7 +714,7 @@
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 161
-    .end local v8           #stateStr:Ljava/lang/String;
+    .end local v8    # "stateStr":Ljava/lang/String;
     :cond_f
     iget-object v9, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
 
@@ -727,7 +727,7 @@
     move-result v0
 
     .line 162
-    .local v0, N:I
+    .local v0, "N":I
     :goto_4
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -748,16 +748,16 @@
     move-result-object v6
 
     .line 163
-    .local v6, p2:Ljava/lang/String;
+    .local v6, "p2":Ljava/lang/String;
     new-instance v7, Landroid/util/PrintWriterPrinter;
 
     invoke-direct {v7, p1}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
 
     .line 164
-    .local v7, printer:Landroid/util/PrintWriterPrinter;
+    .local v7, "printer":Landroid/util/PrintWriterPrinter;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_5
     if-ge v2, v0, :cond_16
 
@@ -769,7 +769,7 @@
     move-result-object v5
 
     .line 166
-    .local v5, o:Ljava/lang/Object;
+    .local v5, "o":Ljava/lang/Object;
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v9, "Receiver #"
@@ -793,7 +793,7 @@
     .line 169
     check-cast v5, Lcom/android/server/am/BroadcastFilter;
 
-    .end local v5           #o:Ljava/lang/Object;
+    .end local v5    # "o":Ljava/lang/Object;
     invoke-virtual {v5, p1, v6}, Lcom/android/server/am/BroadcastFilter;->dumpBrief(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     .line 164
@@ -804,10 +804,10 @@
     goto :goto_5
 
     .line 98
-    .end local v0           #N:I
-    .end local v2           #i:I
-    .end local v6           #p2:Ljava/lang/String;
-    .end local v7           #printer:Landroid/util/PrintWriterPrinter;
+    .end local v0    # "N":I
+    .end local v2    # "i":I
+    .end local v6    # "p2":Ljava/lang/String;
+    .end local v7    # "printer":Landroid/util/PrintWriterPrinter;
     :cond_11
     const-string v9, "null"
 
@@ -832,7 +832,7 @@
     goto/16 :goto_2
 
     .line 154
-    .restart local v8       #stateStr:Ljava/lang/String;
+    .restart local v8    # "stateStr":Ljava/lang/String;
     :pswitch_0
     const-string v8, " (APP_RECEIVE)"
 
@@ -857,18 +857,18 @@
     goto :goto_3
 
     .line 161
-    .end local v8           #stateStr:Ljava/lang/String;
+    .end local v8    # "stateStr":Ljava/lang/String;
     :cond_14
     const/4 v0, 0x0
 
     goto :goto_4
 
     .line 170
-    .restart local v0       #N:I
-    .restart local v2       #i:I
-    .restart local v5       #o:Ljava/lang/Object;
-    .restart local v6       #p2:Ljava/lang/String;
-    .restart local v7       #printer:Landroid/util/PrintWriterPrinter;
+    .restart local v0    # "N":I
+    .restart local v2    # "i":I
+    .restart local v5    # "o":Ljava/lang/Object;
+    .restart local v6    # "p2":Ljava/lang/String;
+    .restart local v7    # "printer":Landroid/util/PrintWriterPrinter;
     :cond_15
     instance-of v9, v5, Landroid/content/pm/ResolveInfo;
 
@@ -877,7 +877,7 @@
     .line 171
     check-cast v5, Landroid/content/pm/ResolveInfo;
 
-    .end local v5           #o:Ljava/lang/Object;
+    .end local v5    # "o":Ljava/lang/Object;
     invoke-virtual {v5, v7, v6}, Landroid/content/pm/ResolveInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
     goto :goto_6

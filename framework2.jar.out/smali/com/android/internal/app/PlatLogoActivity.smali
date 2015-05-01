@@ -37,7 +37,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 13
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 51
@@ -49,7 +49,7 @@
     invoke-direct {v10}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 54
-    .local v10, metrics:Landroid/util/DisplayMetrics;
+    .local v10, "metrics":Landroid/util/DisplayMetrics;
     invoke-virtual {p0}, Lcom/android/internal/app/PlatLogoActivity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v0
@@ -70,7 +70,7 @@
     move-result-object v6
 
     .line 57
-    .local v6, bold:Landroid/graphics/Typeface;
+    .local v6, "bold":Landroid/graphics/Typeface;
     const-string v0, "sans-serif-light"
 
     const/4 v1, 0x0
@@ -80,7 +80,7 @@
     move-result-object v7
 
     .line 59
-    .local v7, light:Landroid/graphics/Typeface;
+    .local v7, "light":Landroid/graphics/Typeface;
     new-instance v0, Landroid/widget/FrameLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -90,7 +90,7 @@
     .line 60
     iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity;->mContent:Landroid/widget/FrameLayout;
 
-    const/high16 v1, -0x4000
+    const/high16 v1, -0x40000000    # -2.0f
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
 
@@ -104,7 +104,7 @@
     invoke-direct {v8, v0, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     .line 65
-    .local v8, lp:Landroid/widget/FrameLayout$LayoutParams;
+    .local v8, "lp":Landroid/widget/FrameLayout$LayoutParams;
     const/16 v0, 0x11
 
     iput v0, v8, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
@@ -115,7 +115,7 @@
     invoke-direct {v2, p0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     .line 68
-    .local v2, logo:Landroid/widget/ImageView;
+    .local v2, "logo":Landroid/widget/ImageView;
     const v0, 0x10804a5
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -136,7 +136,7 @@
     invoke-direct {v3, p0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 73
-    .local v3, bg:Landroid/view/View;
+    .local v3, "bg":Landroid/view/View;
     const v0, -0x12e2dc
 
     invoke-virtual {v3, v0}, Landroid/view/View;->setBackgroundColor(I)V
@@ -152,11 +152,11 @@
     invoke-direct {v4, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 78
-    .local v4, letter:Landroid/widget/TextView;
+    .local v4, "letter":Landroid/widget/TextView;
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 79
-    const/high16 v0, 0x4396
+    const/high16 v0, 0x43960000    # 300.0f
 
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
@@ -188,7 +188,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 84
-    const/high16 v0, 0x4080
+    const/high16 v0, 0x40800000    # 4.0f
 
     iget v1, v10, Landroid/util/DisplayMetrics;->density:F
 
@@ -197,20 +197,20 @@
     float-to-int v11, v0
 
     .line 86
-    .local v11, p:I
+    .local v11, "p":I
     new-instance v5, Landroid/widget/TextView;
 
     invoke-direct {v5, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 87
-    .local v5, tv:Landroid/widget/TextView;
+    .local v5, "tv":Landroid/widget/TextView;
     if-eqz v7, :cond_0
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 88
     :cond_0
-    const/high16 v0, 0x41f0
+    const/high16 v0, 0x41f00000    # 30.0f
 
     invoke-virtual {v5, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
@@ -283,7 +283,7 @@
     invoke-direct {v9, v8}, Landroid/widget/FrameLayout$LayoutParams;-><init>(Landroid/widget/FrameLayout$LayoutParams;)V
 
     .line 101
-    .local v9, lp2:Landroid/widget/FrameLayout$LayoutParams;
+    .local v9, "lp2":Landroid/widget/FrameLayout$LayoutParams;
     const/16 v0, 0x51
 
     iput v0, v9, Landroid/widget/FrameLayout$LayoutParams;->gravity:I

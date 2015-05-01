@@ -29,9 +29,9 @@
 # virtual methods
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
     .locals 10
-    .parameter "view"
-    .parameter "pendingIntent"
-    .parameter "fillInIntent"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p3, "fillInIntent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v9, 0x0
@@ -43,7 +43,7 @@
     move-result-object v0
 
     .line 213
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -61,14 +61,14 @@
     move-result-object v8
 
     .line 216
-    .local v8, opts:Landroid/app/ActivityOptions;
+    .local v8, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
 
-    const/high16 v3, 0x1000
+    const/high16 v3, 0x10000000
 
-    const/high16 v4, 0x1000
+    const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
@@ -86,8 +86,8 @@
     .line 228
     const/4 v1, 0x1
 
-    .end local v0           #context:Landroid/content/Context;
-    .end local v8           #opts:Landroid/app/ActivityOptions;
+    .end local v0    # "context":Landroid/content/Context;
+    .end local v8    # "opts":Landroid/app/ActivityOptions;
     :goto_0
     return v1
 
@@ -96,7 +96,7 @@
     move-exception v7
 
     .line 221
-    .local v7, e:Landroid/content/IntentSender$SendIntentException;
+    .local v7, "e":Landroid/content/IntentSender$SendIntentException;
     const-string v1, "RemoteViews"
 
     const-string v2, "Cannot send pending intent: "
@@ -109,12 +109,12 @@
     goto :goto_0
 
     .line 223
-    .end local v7           #e:Landroid/content/IntentSender$SendIntentException;
+    .end local v7    # "e":Landroid/content/IntentSender$SendIntentException;
     :catch_1
     move-exception v7
 
     .line 224
-    .local v7, e:Ljava/lang/Exception;
+    .local v7, "e":Ljava/lang/Exception;
     const-string v1, "RemoteViews"
 
     const-string v2, "Cannot send pending intent due to unknown exception: "

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BatteryService;Landroid/content/Intent;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 501

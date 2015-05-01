@@ -18,9 +18,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)V
     .locals 2
-    .parameter "service"
-    .parameter "context"
-    .parameter "appInfo"
+    .param p1, "service"    # Lcom/android/server/am/ActivityManagerService;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "appInfo"    # Landroid/content/pm/ApplicationInfo;
 
     .prologue
     const/4 v1, 0x1
@@ -156,7 +156,7 @@
     move-result v1
 
     .line 83
-    .local v1, mode:I
+    .local v1, "mode":I
     iget-object v5, p0, Lcom/android/server/am/CompatModeDialog;->mCompatEnabled:Landroid/widget/Switch;
 
     if-ne v1, v3, :cond_1
@@ -178,7 +178,7 @@
     move-result v0
 
     .line 86
-    .local v0, ask:Z
+    .local v0, "ask":Z
     iget-object v3, p0, Lcom/android/server/am/CompatModeDialog;->mAlwaysShow:Landroid/widget/CheckBox;
 
     invoke-virtual {v3, v0}, Landroid/widget/CheckBox;->setChecked(Z)V
@@ -199,7 +199,7 @@
     .line 89
     return-void
 
-    .end local v0           #ask:Z
+    .end local v0    # "ask":Z
     :cond_1
     move v3, v2
 
@@ -207,7 +207,7 @@
     goto :goto_0
 
     .line 88
-    .end local v1           #mode:I
+    .end local v1    # "mode":I
     :catchall_0
     move-exception v2
 

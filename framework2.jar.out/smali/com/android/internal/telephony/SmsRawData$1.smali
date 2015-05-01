@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/telephony/SmsRawData;
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 34
@@ -51,11 +51,11 @@
     move-result v1
 
     .line 35
-    .local v1, size:I
+    .local v1, "size":I
     new-array v0, v1, [B
 
     .line 36
-    .local v0, data:[B
+    .local v0, "data":[B
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 37
@@ -68,7 +68,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 31
@@ -81,7 +81,7 @@
 
 .method public newArray(I)[Lcom/android/internal/telephony/SmsRawData;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 41
@@ -92,7 +92,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 31

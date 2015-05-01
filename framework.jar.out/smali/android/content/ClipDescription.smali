@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/content/ClipDescription;)V
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Landroid/content/ClipDescription;
 
     .prologue
     .line 82
@@ -72,7 +72,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 235
@@ -102,8 +102,8 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;[Ljava/lang/String;)V
     .locals 2
-    .parameter "label"
-    .parameter "mimeTypes"
+    .param p1, "label"    # Ljava/lang/CharSequence;
+    .param p2, "mimeTypes"    # [Ljava/lang/String;
 
     .prologue
     .line 71
@@ -134,8 +134,8 @@
 
 .method public static compareMimeTypes(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 6
-    .parameter "concreteType"
-    .parameter "desiredType"
+    .param p0, "concreteType"    # Ljava/lang/String;
+    .param p1, "desiredType"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -148,7 +148,7 @@
     move-result v1
 
     .line 95
-    .local v1, typeLength:I
+    .local v1, "typeLength":I
     const/4 v4, 0x3
 
     if-ne v1, v4, :cond_1
@@ -175,7 +175,7 @@
     move-result v0
 
     .line 100
-    .local v0, slashpos:I
+    .local v0, "slashpos":I
     if-lez v0, :cond_2
 
     .line 101
@@ -233,17 +233,17 @@
 
 .method public filterMimeTypes(Ljava/lang/String;)[Ljava/lang/String;
     .locals 4
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 145
     const/4 v0, 0x0
 
     .line 146
-    .local v0, array:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v0, "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v3, p0, Landroid/content/ClipDescription;->mMimeTypes:[Ljava/lang/String;
 
@@ -268,11 +268,11 @@
     .line 149
     new-instance v0, Ljava/util/ArrayList;
 
-    .end local v0           #array:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v0    # "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 151
-    .restart local v0       #array:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v0    # "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :cond_0
     iget-object v3, p0, Landroid/content/ClipDescription;->mMimeTypes:[Ljava/lang/String;
 
@@ -306,7 +306,7 @@
     new-array v2, v3, [Ljava/lang/String;
 
     .line 158
-    .local v2, rawArray:[Ljava/lang/String;
+    .local v2, "rawArray":[Ljava/lang/String;
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     goto :goto_1
@@ -324,7 +324,7 @@
 
 .method public getMimeType(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 173
@@ -349,13 +349,13 @@
 
 .method public hasMimeType(Ljava/lang/String;)Z
     .locals 2
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 128
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/content/ClipDescription;->mMimeTypes:[Ljava/lang/String;
 
@@ -396,7 +396,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)Z
     .locals 5
-    .parameter "b"
+    .param p1, "b"    # Ljava/lang/StringBuilder;
 
     .prologue
     const/16 v4, 0x22
@@ -407,10 +407,10 @@
     const/4 v0, 0x1
 
     .line 205
-    .local v0, first:Z
+    .local v0, "first":Z
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Landroid/content/ClipDescription;->mMimeTypes:[Ljava/lang/String;
 
@@ -494,7 +494,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 195
-    .local v0, b:Ljava/lang/StringBuilder;
+    .local v0, "b":Ljava/lang/StringBuilder;
     const-string v1, "ClipDescription { "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -554,7 +554,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/content/ClipDescription;->mMimeTypes:[Ljava/lang/String;
 
@@ -613,8 +613,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 231

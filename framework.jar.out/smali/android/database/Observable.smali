@@ -31,7 +31,7 @@
 
     .prologue
     .line 29
-    .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
+    .local p0, "this":Landroid/database/Observable;, "Landroid/database/Observable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
@@ -48,7 +48,6 @@
 # virtual methods
 .method public registerObserver(Ljava/lang/Object;)V
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -57,8 +56,8 @@
 
     .prologue
     .line 44
-    .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
-    .local p1, observer:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/database/Observable;, "Landroid/database/Observable<TT;>;"
+    .local p1, "observer":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
     .line 45
@@ -148,7 +147,7 @@
 
     .prologue
     .line 79
-    .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
+    .local p0, "this":Landroid/database/Observable;, "Landroid/database/Observable<TT;>;"
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     monitor-enter v1
@@ -178,7 +177,6 @@
 
 .method public unregisterObserver(Ljava/lang/Object;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -187,8 +185,8 @@
 
     .prologue
     .line 63
-    .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
-    .local p1, observer:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/database/Observable;, "Landroid/database/Observable<TT;>;"
+    .local p1, "observer":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
     .line 64
@@ -215,7 +213,7 @@
     move-result v0
 
     .line 68
-    .local v0, index:I
+    .local v0, "index":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_1
@@ -252,7 +250,7 @@
     throw v1
 
     .line 72
-    .end local v0           #index:I
+    .end local v0    # "index":I
     :catchall_0
     move-exception v1
 
@@ -263,7 +261,7 @@
     throw v1
 
     .line 71
-    .restart local v0       #index:I
+    .restart local v0    # "index":I
     :cond_1
     :try_start_1
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;

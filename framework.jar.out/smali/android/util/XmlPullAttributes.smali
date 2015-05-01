@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 0
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
     .prologue
     .line 29
@@ -30,8 +30,8 @@
 # virtual methods
 .method public getAttributeBooleanValue(IZ)Z
     .locals 1
-    .parameter "index"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "defaultValue"    # Z
 
     .prologue
     .line 103
@@ -48,9 +48,9 @@
 
 .method public getAttributeBooleanValue(Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "defaultValue"    # Z
 
     .prologue
     .line 65
@@ -81,8 +81,8 @@
 
 .method public getAttributeFloatValue(IF)F
     .locals 1
-    .parameter "index"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "defaultValue"    # F
 
     .prologue
     .line 123
@@ -91,7 +91,7 @@
     move-result-object v0
 
     .line 124
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 125
@@ -100,16 +100,16 @@
     move-result p2
 
     .line 127
-    .end local p2
+    .end local p2    # "defaultValue":F
     :cond_0
     return p2
 .end method
 
 .method public getAttributeFloatValue(Ljava/lang/String;Ljava/lang/String;F)F
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "defaultValue"    # F
 
     .prologue
     .line 89
@@ -118,7 +118,7 @@
     move-result-object v0
 
     .line 90
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 91
@@ -127,15 +127,15 @@
     move-result p3
 
     .line 93
-    .end local p3
+    .end local p3    # "defaultValue":F
     :cond_0
     return p3
 .end method
 
 .method public getAttributeIntValue(II)I
     .locals 1
-    .parameter "index"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 113
@@ -152,9 +152,9 @@
 
 .method public getAttributeIntValue(Ljava/lang/String;Ljava/lang/String;I)I
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "defaultValue"    # I
 
     .prologue
     .line 77
@@ -171,9 +171,9 @@
 
 .method public getAttributeListValue(I[Ljava/lang/String;I)I
     .locals 1
-    .parameter "index"
-    .parameter "options"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "options"    # [Ljava/lang/String;
+    .param p3, "defaultValue"    # I
 
     .prologue
     .line 98
@@ -190,10 +190,10 @@
 
 .method public getAttributeListValue(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)I
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "options"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "options"    # [Ljava/lang/String;
+    .param p4, "defaultValue"    # I
 
     .prologue
     .line 59
@@ -210,7 +210,7 @@
 
 .method public getAttributeName(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 38
@@ -225,7 +225,7 @@
 
 .method public getAttributeNameResource(I)I
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 54
@@ -236,8 +236,8 @@
 
 .method public getAttributeResourceValue(II)I
     .locals 1
-    .parameter "index"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 108
@@ -254,9 +254,9 @@
 
 .method public getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "defaultValue"    # I
 
     .prologue
     .line 71
@@ -273,8 +273,8 @@
 
 .method public getAttributeUnsignedIntValue(II)I
     .locals 1
-    .parameter "index"
-    .parameter "defaultValue"
+    .param p1, "index"    # I
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 118
@@ -291,9 +291,9 @@
 
 .method public getAttributeUnsignedIntValue(Ljava/lang/String;Ljava/lang/String;I)I
     .locals 1
-    .parameter "namespace"
-    .parameter "attribute"
-    .parameter "defaultValue"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "attribute"    # Ljava/lang/String;
+    .param p3, "defaultValue"    # I
 
     .prologue
     .line 83
@@ -310,7 +310,7 @@
 
 .method public getAttributeValue(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 42
@@ -325,8 +325,8 @@
 
 .method public getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "namespace"
-    .parameter "name"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -373,7 +373,7 @@
 
 .method public getIdAttributeResourceValue(I)I
     .locals 2
-    .parameter "defaultValue"
+    .param p1, "defaultValue"    # I
 
     .prologue
     .line 139

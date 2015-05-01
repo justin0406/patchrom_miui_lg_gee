@@ -23,12 +23,11 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;Landroid/net/Uri;)V
     .locals 6
-    .parameter
-    .parameter "callerIdentity"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
-    .parameter "uri"
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
+    .param p6, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 697
@@ -81,7 +80,7 @@
     .line 710
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$AudioSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mAudioPlaybackHandler:Landroid/speech/tts/AudioPlaybackHandler;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mAudioPlaybackHandler:Landroid/speech/tts/AudioPlaybackHandler;
     invoke-static {v0}, Landroid/speech/tts/TextToSpeechService;->access$200(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/AudioPlaybackHandler;
 
     move-result-object v0

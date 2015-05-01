@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;[Landroid/media/TextTrackCueSpan;)V
     .locals 1
-    .parameter "context"
-    .parameter "spans"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "spans"    # [Landroid/media/TextTrackCueSpan;
 
     .prologue
     .line 1808
@@ -51,8 +51,8 @@
 # virtual methods
 .method public setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
     .locals 1
-    .parameter "captionStyle"
-    .parameter "fontSize"
+    .param p1, "captionStyle"    # Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .param p2, "fontSize"    # F
 
     .prologue
     .line 1834
@@ -97,11 +97,11 @@
     iget-object v0, p0, Landroid/media/WebVttRenderingWidget$SpanLayout;->mBuilder:Landroid/text/SpannableStringBuilder;
 
     .line 1817
-    .local v0, builder:Landroid/text/SpannableStringBuilder;
+    .local v0, "builder":Landroid/text/SpannableStringBuilder;
     iget-object v4, p0, Landroid/media/WebVttRenderingWidget$SpanLayout;->mSpans:[Landroid/media/TextTrackCueSpan;
 
     .line 1819
-    .local v4, spans:[Landroid/media/TextTrackCueSpan;
+    .local v4, "spans":[Landroid/media/TextTrackCueSpan;
     invoke-virtual {v0}, Landroid/text/SpannableStringBuilder;->clear()V
 
     .line 1820
@@ -111,10 +111,10 @@
     array-length v3, v4
 
     .line 1823
-    .local v3, spanCount:I
+    .local v3, "spanCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_1
 
@@ -122,7 +122,7 @@
     aget-object v2, v4, v1
 
     .line 1825
-    .local v2, span:Landroid/media/TextTrackCueSpan;
+    .local v2, "span":Landroid/media/TextTrackCueSpan;
     iget-boolean v5, v2, Landroid/media/TextTrackCueSpan;->mEnabled:Z
 
     if-eqz v5, :cond_0
@@ -141,7 +141,7 @@
     goto :goto_0
 
     .line 1830
-    .end local v2           #span:Landroid/media/TextTrackCueSpan;
+    .end local v2    # "span":Landroid/media/TextTrackCueSpan;
     :cond_1
     invoke-virtual {p0, v0}, Landroid/media/WebVttRenderingWidget$SpanLayout;->setText(Ljava/lang/CharSequence;)V
 

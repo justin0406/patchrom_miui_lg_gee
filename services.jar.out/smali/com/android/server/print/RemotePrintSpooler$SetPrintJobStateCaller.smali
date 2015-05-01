@@ -52,10 +52,10 @@
 # virtual methods
 .method public setPrintJobState(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;ILjava/lang/String;)Z
     .locals 6
-    .parameter "target"
-    .parameter "printJobId"
-    .parameter "status"
-    .parameter "error"
+    .param p1, "target"    # Landroid/print/IPrintSpooler;
+    .param p2, "printJobId"    # Landroid/print/PrintJobId;
+    .param p3, "status"    # I
+    .param p4, "error"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -70,7 +70,7 @@
     move-result v5
 
     .line 520
-    .local v5, sequence:I
+    .local v5, "sequence":I
     iget-object v4, p0, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
     move-object v0, p1

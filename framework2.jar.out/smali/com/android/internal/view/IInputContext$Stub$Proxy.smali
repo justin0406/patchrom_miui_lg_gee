@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 292
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 507
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -100,7 +100,7 @@
 
 .method public clearMetaKeyStates(I)V
     .locals 5
-    .parameter "states"
+    .param p1, "states"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -114,7 +114,7 @@
     move-result-object v0
 
     .line 559
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -153,7 +153,7 @@
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
     .locals 5
-    .parameter "completion"
+    .param p1, "completion"    # Landroid/view/inputmethod/CompletionInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,7 +167,7 @@
     move-result-object v0
 
     .line 434
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -228,7 +228,7 @@
 
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)V
     .locals 5
-    .parameter "correction"
+    .param p1, "correction"    # Landroid/view/inputmethod/CorrectionInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -242,7 +242,7 @@
     move-result-object v0
 
     .line 452
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -303,8 +303,8 @@
 
 .method public commitText(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "text"
-    .parameter "newCursorPosition"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "newCursorPosition"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -318,7 +318,7 @@
     move-result-object v0
 
     .line 415
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -382,8 +382,8 @@
 
 .method public deleteSurroundingText(II)V
     .locals 5
-    .parameter "leftLength"
-    .parameter "rightLength"
+    .param p1, "leftLength"    # I
+    .param p2, "rightLength"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -397,7 +397,7 @@
     move-result-object v0
 
     .line 372
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -452,7 +452,7 @@
     move-result-object v0
 
     .line 518
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -501,7 +501,7 @@
     move-result-object v0
 
     .line 404
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -537,9 +537,9 @@
 
 .method public getCursorCapsMode(IILcom/android/internal/view/IInputContextCallback;)V
     .locals 5
-    .parameter "reqModes"
-    .parameter "seq"
-    .parameter "callback"
+    .param p1, "reqModes"    # I
+    .param p2, "seq"    # I
+    .param p3, "callback"    # Lcom/android/internal/view/IInputContextCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -555,7 +555,7 @@
     move-result-object v0
 
     .line 337
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -607,10 +607,10 @@
 
 .method public getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;IILcom/android/internal/view/IInputContextCallback;)V
     .locals 5
-    .parameter "request"
-    .parameter "flags"
-    .parameter "seq"
-    .parameter "callback"
+    .param p1, "request"    # Landroid/view/inputmethod/ExtractedTextRequest;
+    .param p2, "flags"    # I
+    .param p3, "seq"    # I
+    .param p4, "callback"    # Lcom/android/internal/view/IInputContextCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -626,7 +626,7 @@
     move-result-object v0
 
     .line 351
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -713,9 +713,9 @@
 
 .method public getSelectedText(IILcom/android/internal/view/IInputContextCallback;)V
     .locals 5
-    .parameter "flags"
-    .parameter "seq"
-    .parameter "callback"
+    .param p1, "flags"    # I
+    .param p2, "seq"    # I
+    .param p3, "callback"    # Lcom/android/internal/view/IInputContextCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -731,7 +731,7 @@
     move-result-object v0
 
     .line 603
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -783,10 +783,10 @@
 
 .method public getTextAfterCursor(IIILcom/android/internal/view/IInputContextCallback;)V
     .locals 5
-    .parameter "length"
-    .parameter "flags"
-    .parameter "seq"
-    .parameter "callback"
+    .param p1, "length"    # I
+    .param p2, "flags"    # I
+    .param p3, "seq"    # I
+    .param p4, "callback"    # Lcom/android/internal/view/IInputContextCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -802,7 +802,7 @@
     move-result-object v0
 
     .line 322
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -857,10 +857,10 @@
 
 .method public getTextBeforeCursor(IIILcom/android/internal/view/IInputContextCallback;)V
     .locals 5
-    .parameter "length"
-    .parameter "flags"
-    .parameter "seq"
-    .parameter "callback"
+    .param p1, "length"    # I
+    .param p2, "flags"    # I
+    .param p3, "seq"    # I
+    .param p4, "callback"    # Lcom/android/internal/view/IInputContextCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -876,7 +876,7 @@
     move-result-object v0
 
     .line 307
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -931,7 +931,7 @@
 
 .method public performContextMenuAction(I)V
     .locals 5
-    .parameter "id"
+    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -945,7 +945,7 @@
     move-result-object v0
 
     .line 495
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -984,7 +984,7 @@
 
 .method public performEditorAction(I)V
     .locals 5
-    .parameter "actionCode"
+    .param p1, "actionCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -998,7 +998,7 @@
     move-result-object v0
 
     .line 483
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -1037,8 +1037,8 @@
 
 .method public performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1052,7 +1052,7 @@
     move-result-object v0
 
     .line 571
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -1116,7 +1116,7 @@
 
 .method public reportFullscreenMode(Z)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1132,7 +1132,7 @@
     move-result-object v0
 
     .line 529
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputContext"
 
@@ -1180,7 +1180,7 @@
 
 .method public sendKeyEvent(Landroid/view/KeyEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1194,7 +1194,7 @@
     move-result-object v0
 
     .line 541
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -1255,8 +1255,8 @@
 
 .method public setComposingRegion(II)V
     .locals 5
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1270,7 +1270,7 @@
     move-result-object v0
 
     .line 590
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -1312,8 +1312,8 @@
 
 .method public setComposingText(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "text"
-    .parameter "newCursorPosition"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "newCursorPosition"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1327,7 +1327,7 @@
     move-result-object v0
 
     .line 385
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 
@@ -1391,8 +1391,8 @@
 
 .method public setSelection(II)V
     .locals 5
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1406,7 +1406,7 @@
     move-result-object v0
 
     .line 470
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContext"
 

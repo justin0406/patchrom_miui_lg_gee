@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$2$1;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1478
@@ -49,8 +48,8 @@
 # virtual methods
 .method public compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
     .locals 6
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Lcom/android/server/am/ProcessMemInfo;
+    .param p2, "rhs"    # Lcom/android/server/am/ProcessMemInfo;
 
     .prologue
     const/4 v1, 0x1
@@ -119,17 +118,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 1478
     check-cast p1, Lcom/android/server/am/ProcessMemInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/am/ProcessMemInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$2$1$1;->compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
 
     move-result v0

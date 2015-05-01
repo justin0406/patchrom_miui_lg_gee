@@ -83,15 +83,15 @@
 
 .method static obtain(ILandroid/os/Message;)Lcom/android/internal/telephony/RILRequest;
     .locals 3
-    .parameter "request"
-    .parameter "result"
+    .param p0, "request"    # I
+    .param p1, "result"    # Landroid/os/Message;
 
     .prologue
     .line 108
     const/4 v0, 0x0
 
     .line 110
-    .local v0, rr:Lcom/android/internal/telephony/RILRequest;
+    .local v0, "rr":Lcom/android/internal/telephony/RILRequest;
     sget-object v2, Lcom/android/internal/telephony/RILRequest;->sPoolSync:Ljava/lang/Object;
 
     monitor-enter v2
@@ -134,11 +134,11 @@
     .line 120
     new-instance v0, Lcom/android/internal/telephony/RILRequest;
 
-    .end local v0           #rr:Lcom/android/internal/telephony/RILRequest;
+    .end local v0    # "rr":Lcom/android/internal/telephony/RILRequest;
     invoke-direct {v0}, Lcom/android/internal/telephony/RILRequest;-><init>()V
 
     .line 123
-    .restart local v0       #rr:Lcom/android/internal/telephony/RILRequest;
+    .restart local v0    # "rr":Lcom/android/internal/telephony/RILRequest;
     :cond_1
     sget-object v1, Lcom/android/internal/telephony/RILRequest;->sNextSerial:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -230,8 +230,8 @@
 # virtual methods
 .method onError(ILjava/lang/Object;)V
     .locals 4
-    .parameter "error"
-    .parameter "ret"
+    .param p1, "error"    # I
+    .param p2, "ret"    # Ljava/lang/Object;
 
     .prologue
     .line 191
@@ -240,7 +240,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, ex:Lcom/android/internal/telephony/CommandException;
+    .local v0, "ex":Lcom/android/internal/telephony/CommandException;
     const-string v1, "RilRequest"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -406,7 +406,7 @@
     invoke-direct {v4, v6}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 172
-    .local v4, sb:Ljava/lang/StringBuilder;
+    .local v4, "sb":Ljava/lang/StringBuilder;
     iget v6, p0, Lcom/android/internal/telephony/RILRequest;->mSerial:I
 
     int-to-long v6, v6
@@ -420,13 +420,13 @@
     rem-long v0, v6, v8
 
     .line 174
-    .local v0, adjustedSerial:J
+    .local v0, "adjustedSerial":J
     invoke-static {v0, v1}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v5
 
     .line 177
-    .local v5, sn:Ljava/lang/String;
+    .local v5, "sn":Ljava/lang/String;
     const/16 v6, 0x5b
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -434,12 +434,12 @@
     .line 178
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    .local v3, s:I
+    .local v3, "s":I
     :goto_0
     rsub-int/lit8 v6, v3, 0x4
 

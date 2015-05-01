@@ -17,7 +17,7 @@
 # static fields
 .field private static final ALWAYS_NEEDS_COMPAT:I = 0x2
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field public static final DEFAULT_COMPATIBILITY_INFO:Landroid/content/res/CompatibilityInfo; = null
+.field public static final DEFAULT_COMPATIBILITY_INFO:Landroid/content/res/CompatibilityInfo;
 
 .field public static final DEFAULT_NORMAL_SHORT_DIMENSION:I = 0x140
 
@@ -77,7 +77,7 @@
     .locals 3
 
     .prologue
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     .line 253
     const/4 v0, 0x4
@@ -92,10 +92,10 @@
 
 .method private constructor <init>(IIFF)V
     .locals 0
-    .parameter "compFlags"
-    .parameter "dens"
-    .parameter "scale"
-    .parameter "invertedScale"
+    .param p1, "compFlags"    # I
+    .param p2, "dens"    # I
+    .param p3, "scale"    # F
+    .param p4, "invertedScale"    # F
 
     .prologue
     .line 245
@@ -119,10 +119,10 @@
 
 .method public constructor <init>(Landroid/content/pm/ApplicationInfo;IIZ)V
     .locals 11
-    .parameter "appInfo"
-    .parameter "screenLayout"
-    .parameter "sw"
-    .parameter "forceCompat"
+    .param p1, "appInfo"    # Landroid/content/pm/ApplicationInfo;
+    .param p2, "screenLayout"    # I
+    .param p3, "sw"    # I
+    .param p4, "forceCompat"    # Z
 
     .prologue
     .line 96
@@ -132,7 +132,7 @@
     const/4 v5, 0x0
 
     .line 99
-    .local v5, compatFlags:I
+    .local v5, "compatFlags":I
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
     if-nez v9, :cond_0
@@ -154,7 +154,7 @@
     iget v7, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
     .line 105
-    .local v7, required:I
+    .local v7, "required":I
     :goto_0
     if-nez v7, :cond_1
 
@@ -170,7 +170,7 @@
     iget v4, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
     .line 110
-    .local v4, compat:I
+    .local v4, "compat":I
     :goto_1
     if-ge v4, v7, :cond_2
 
@@ -182,7 +182,7 @@
     iget v6, p1, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
     .line 115
-    .local v6, largest:I
+    .local v6, "largest":I
     const/16 v9, 0x140
 
     if-le v7, v9, :cond_6
@@ -198,19 +198,19 @@
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationDensity:I
 
     .line 140
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
     .line 141
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
 
     .line 241
-    .end local v4           #compat:I
-    .end local v6           #largest:I
-    .end local v7           #required:I
+    .end local v4    # "compat":I
+    .end local v6    # "largest":I
+    .end local v7    # "required":I
     :goto_3
     iput v5, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
 
@@ -223,7 +223,7 @@
 
     goto :goto_0
 
-    .restart local v7       #required:I
+    .restart local v7    # "required":I
     :cond_5
     move v4, v7
 
@@ -231,8 +231,8 @@
     goto :goto_1
 
     .line 123
-    .restart local v4       #compat:I
-    .restart local v6       #largest:I
+    .restart local v4    # "compat":I
+    .restart local v6    # "largest":I
     :cond_6
     if-eqz v6, :cond_7
 
@@ -262,30 +262,30 @@
     goto :goto_2
 
     .line 148
-    .end local v4           #compat:I
-    .end local v6           #largest:I
-    .end local v7           #required:I
+    .end local v4    # "compat":I
+    .end local v6    # "largest":I
+    .end local v7    # "required":I
     :cond_9
     const/4 v0, 0x2
 
     .line 154
-    .local v0, EXPANDABLE:I
+    .local v0, "EXPANDABLE":I
     const/16 v1, 0x8
 
     .line 160
-    .local v1, LARGE_SCREENS:I
+    .local v1, "LARGE_SCREENS":I
     const/16 v2, 0x20
 
     .line 162
-    .local v2, XLARGE_SCREENS:I
+    .local v2, "XLARGE_SCREENS":I
     const/4 v8, 0x0
 
     .line 166
-    .local v8, sizeInfo:I
+    .local v8, "sizeInfo":I
     const/4 v3, 0x0
 
     .line 168
-    .local v3, anyResizeable:Z
+    .local v3, "anyResizeable":Z
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit16 v9, v9, 0x800
@@ -308,7 +308,7 @@
     :cond_a
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v10, 0x8
+    const/high16 v10, 0x80000
 
     and-int/2addr v9, v10
 
@@ -356,7 +356,7 @@
     .line 217
     :cond_e
     :goto_4
-    const/high16 v9, 0x1000
+    const/high16 v9, 0x10000000
 
     and-int/2addr v9, p2
 
@@ -385,12 +385,12 @@
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationDensity:I
 
     .line 230
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
     .line 231
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
 
@@ -409,7 +409,7 @@
     :cond_10
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v10, 0x8
+    const/high16 v10, 0x80000
 
     and-int/2addr v9, v10
 
@@ -471,14 +471,14 @@
 
     int-to-float v9, v9
 
-    const/high16 v10, 0x4320
+    const/high16 v10, 0x43200000    # 160.0f
 
     div-float/2addr v9, v10
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
     .line 236
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     iget v10, p0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
@@ -501,7 +501,7 @@
 
 .method synthetic constructor <init>(Landroid/content/res/CompatibilityInfo$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/content/res/CompatibilityInfo$1;
 
     .prologue
     .line 37
@@ -512,7 +512,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 595
@@ -552,8 +552,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/res/CompatibilityInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/res/CompatibilityInfo$1;
 
     .prologue
     .line 37
@@ -564,45 +564,45 @@
 
 .method public static computeCompatibleScaling(Landroid/util/DisplayMetrics;Landroid/util/DisplayMetrics;)F
     .locals 14
-    .parameter "dm"
-    .parameter "outDm"
+    .param p0, "dm"    # Landroid/util/DisplayMetrics;
+    .param p1, "outDm"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 478
     iget v11, p0, Landroid/util/DisplayMetrics;->noncompatWidthPixels:I
 
     .line 479
-    .local v11, width:I
+    .local v11, "width":I
     iget v1, p0, Landroid/util/DisplayMetrics;->noncompatHeightPixels:I
 
     .line 481
-    .local v1, height:I
+    .local v1, "height":I
     if-ge v11, v1, :cond_3
 
     .line 482
     move v9, v11
 
     .line 483
-    .local v9, shortSize:I
+    .local v9, "shortSize":I
     move v2, v1
 
     .line 488
-    .local v2, longSize:I
+    .local v2, "longSize":I
     :goto_0
-    const/high16 v12, 0x43a0
+    const/high16 v12, 0x43a00000    # 320.0f
 
     iget v13, p0, Landroid/util/DisplayMetrics;->density:F
 
     mul-float/2addr v12, v13
 
-    const/high16 v13, 0x3f00
+    const/high16 v13, 0x3f000000    # 0.5f
 
     add-float/2addr v12, v13
 
     float-to-int v5, v12
 
     .line 489
-    .local v5, newShortSize:I
+    .local v5, "newShortSize":I
     int-to-float v12, v2
 
     int-to-float v13, v9
@@ -610,7 +610,7 @@
     div-float v0, v12, v13
 
     .line 490
-    .local v0, aspect:F
+    .local v0, "aspect":F
     const v12, 0x3fe3bbbc
 
     cmpl-float v12, v0, v12
@@ -626,25 +626,25 @@
 
     mul-float/2addr v12, v0
 
-    const/high16 v13, 0x3f00
+    const/high16 v13, 0x3f000000    # 0.5f
 
     add-float/2addr v12, v13
 
     float-to-int v4, v12
 
     .line 495
-    .local v4, newLongSize:I
+    .local v4, "newLongSize":I
     if-ge v11, v1, :cond_4
 
     .line 496
     move v6, v5
 
     .line 497
-    .local v6, newWidth:I
+    .local v6, "newWidth":I
     move v3, v4
 
     .line 503
-    .local v3, newHeight:I
+    .local v3, "newHeight":I
     :goto_1
     int-to-float v12, v11
 
@@ -653,7 +653,7 @@
     div-float v10, v12, v13
 
     .line 504
-    .local v10, sw:F
+    .local v10, "sw":F
     int-to-float v12, v1
 
     int-to-float v13, v3
@@ -661,7 +661,7 @@
     div-float v8, v12, v13
 
     .line 505
-    .local v8, sh:F
+    .local v8, "sh":F
     cmpg-float v12, v10, v8
 
     if-gez v12, :cond_5
@@ -669,16 +669,16 @@
     move v7, v10
 
     .line 506
-    .local v7, scale:F
+    .local v7, "scale":F
     :goto_2
-    const/high16 v12, 0x3f80
+    const/high16 v12, 0x3f800000    # 1.0f
 
     cmpg-float v12, v7, v12
 
     if-gez v12, :cond_1
 
     .line 507
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     .line 510
     :cond_1
@@ -695,42 +695,42 @@
     return v7
 
     .line 485
-    .end local v0           #aspect:F
-    .end local v2           #longSize:I
-    .end local v3           #newHeight:I
-    .end local v4           #newLongSize:I
-    .end local v5           #newShortSize:I
-    .end local v6           #newWidth:I
-    .end local v7           #scale:F
-    .end local v8           #sh:F
-    .end local v9           #shortSize:I
-    .end local v10           #sw:F
+    .end local v0    # "aspect":F
+    .end local v2    # "longSize":I
+    .end local v3    # "newHeight":I
+    .end local v4    # "newLongSize":I
+    .end local v5    # "newShortSize":I
+    .end local v6    # "newWidth":I
+    .end local v7    # "scale":F
+    .end local v8    # "sh":F
+    .end local v9    # "shortSize":I
+    .end local v10    # "sw":F
     :cond_3
     move v9, v1
 
     .line 486
-    .restart local v9       #shortSize:I
+    .restart local v9    # "shortSize":I
     move v2, v11
 
-    .restart local v2       #longSize:I
+    .restart local v2    # "longSize":I
     goto :goto_0
 
     .line 499
-    .restart local v0       #aspect:F
-    .restart local v4       #newLongSize:I
-    .restart local v5       #newShortSize:I
+    .restart local v0    # "aspect":F
+    .restart local v4    # "newLongSize":I
+    .restart local v5    # "newShortSize":I
     :cond_4
     move v6, v4
 
     .line 500
-    .restart local v6       #newWidth:I
+    .restart local v6    # "newWidth":I
     move v3, v5
 
-    .restart local v3       #newHeight:I
+    .restart local v3    # "newHeight":I
     goto :goto_1
 
-    .restart local v8       #sh:F
-    .restart local v10       #sw:F
+    .restart local v8    # "sh":F
+    .restart local v10    # "sw":F
     :cond_5
     move v7, v8
 
@@ -764,8 +764,8 @@
 
 .method public applyToConfiguration(ILandroid/content/res/Configuration;)V
     .locals 3
-    .parameter "displayDensity"
-    .parameter "inoutConfig"
+    .param p1, "displayDensity"    # I
+    .param p2, "inoutConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 452
@@ -814,14 +814,14 @@
     iget v0, p0, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
 
     .line 466
-    .local v0, invertedRatio:F
+    .local v0, "invertedRatio":F
     iget v1, p2, Landroid/content/res/Configuration;->densityDpi:I
 
     int-to-float v1, v1
 
     mul-float/2addr v1, v0
 
-    const/high16 v2, 0x3f00
+    const/high16 v2, 0x3f000000    # 0.5f
 
     add-float/2addr v1, v2
 
@@ -830,17 +830,17 @@
     iput v1, p2, Landroid/content/res/Configuration;->densityDpi:I
 
     .line 468
-    .end local v0           #invertedRatio:F
+    .end local v0    # "invertedRatio":F
     :cond_1
     return-void
 .end method
 
 .method public applyToDisplayMetrics(Landroid/util/DisplayMetrics;)V
     .locals 3
-    .parameter "inoutDm"
+    .param p1, "inoutDm"    # Landroid/util/DisplayMetrics;
 
     .prologue
-    const/high16 v2, 0x3f00
+    const/high16 v2, 0x3f000000    # 0.5f
 
     .line 430
     invoke-virtual {p0}, Landroid/content/res/CompatibilityInfo;->supportsScreen()Z
@@ -864,7 +864,7 @@
     iget v0, p0, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
 
     .line 441
-    .local v0, invertedRatio:F
+    .local v0, "invertedRatio":F
     iget v1, p1, Landroid/util/DisplayMetrics;->noncompatDensity:F
 
     mul-float/2addr v1, v0
@@ -932,7 +932,7 @@
     iput v1, p1, Landroid/util/DisplayMetrics;->heightPixels:I
 
     .line 449
-    .end local v0           #invertedRatio:F
+    .end local v0    # "invertedRatio":F
     :cond_0
     return-void
 
@@ -962,7 +962,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x1
@@ -987,7 +987,7 @@
     move-object v2, v0
 
     .line 525
-    .local v2, oc:Landroid/content/res/CompatibilityInfo;
+    .local v2, "oc":Landroid/content/res/CompatibilityInfo;
     iget v5, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
 
     iget v6, v2, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
@@ -1041,11 +1041,11 @@
     goto :goto_0
 
     .line 530
-    .end local v2           #oc:Landroid/content/res/CompatibilityInfo;
+    .end local v2    # "oc":Landroid/content/res/CompatibilityInfo;
     :catch_0
     move-exception v1
 
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     move v3, v4
 
     .line 531
@@ -1084,7 +1084,7 @@
     const/16 v0, 0x11
 
     .line 562
-    .local v0, result:I
+    .local v0, "result":I
     iget v1, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
 
     add-int/lit16 v0, v1, 0x20f
@@ -1200,7 +1200,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 538
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1292,8 +1292,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 576

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 107
@@ -61,9 +61,9 @@
 
 .method public providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "info"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "info"    # Landroid/appwidget/AppWidgetProviderInfo;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 142
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -144,7 +144,7 @@
 
 .method public providersChanged(I)V
     .locals 5
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,7 +158,7 @@
     move-result-object v0
 
     .line 162
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -197,9 +197,9 @@
 
 .method public updateAppWidget(ILandroid/widget/RemoteViews;I)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "views"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "views"    # Landroid/widget/RemoteViews;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -213,7 +213,7 @@
     move-result-object v0
 
     .line 122
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
@@ -280,9 +280,9 @@
 
 .method public viewDataChanged(III)V
     .locals 5
-    .parameter "appWidgetId"
-    .parameter "viewId"
-    .parameter "userId"
+    .param p1, "appWidgetId"    # I
+    .param p2, "viewId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -296,7 +296,7 @@
     move-result-object v0
 
     .line 174
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 

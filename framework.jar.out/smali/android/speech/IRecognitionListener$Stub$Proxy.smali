@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 148
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -110,7 +110,7 @@
 
 .method public onBufferReceived([B)V
     .locals 5
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 222
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -176,7 +176,7 @@
     move-result-object v0
 
     .line 237
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -212,7 +212,7 @@
 
 .method public onError(I)V
     .locals 5
-    .parameter "error"
+    .param p1, "error"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -226,7 +226,7 @@
     move-result-object v0
 
     .line 253
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -265,8 +265,8 @@
 
 .method public onEvent(ILandroid/os/Bundle;)V
     .locals 5
-    .parameter "eventType"
-    .parameter "params"
+    .param p1, "eventType"    # I
+    .param p2, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -280,7 +280,7 @@
     move-result-object v0
 
     .line 317
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -344,7 +344,7 @@
 
 .method public onPartialResults(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "results"
+    .param p1, "results"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -358,7 +358,7 @@
     move-result-object v0
 
     .line 293
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -419,7 +419,7 @@
 
 .method public onReadyForSpeech(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "params"
+    .param p1, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -433,7 +433,7 @@
     move-result-object v0
 
     .line 168
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -494,7 +494,7 @@
 
 .method public onResults(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "results"
+    .param p1, "results"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -508,7 +508,7 @@
     move-result-object v0
 
     .line 270
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 
@@ -569,7 +569,7 @@
 
 .method public onRmsChanged(F)V
     .locals 5
-    .parameter "rmsdB"
+    .param p1, "rmsdB"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -583,7 +583,7 @@
     move-result-object v0
 
     .line 205
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.IRecognitionListener"
 

@@ -46,7 +46,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -74,7 +74,7 @@
     return-void
 
     .line 39
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 
@@ -104,7 +104,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -132,7 +132,7 @@
     return-void
 
     .line 52
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 

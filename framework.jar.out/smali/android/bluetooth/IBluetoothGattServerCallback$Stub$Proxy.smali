@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 294
@@ -61,15 +61,15 @@
 
 .method public onCharacteristicReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
     .locals 5
-    .parameter "address"
-    .parameter "transId"
-    .parameter "offset"
-    .parameter "isLong"
-    .parameter "srvcType"
-    .parameter "srvcInstId"
-    .parameter "srvcId"
-    .parameter "charInstId"
-    .parameter "charId"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "transId"    # I
+    .param p3, "offset"    # I
+    .param p4, "isLong"    # Z
+    .param p5, "srvcType"    # I
+    .param p6, "srvcInstId"    # I
+    .param p7, "srvcId"    # Landroid/os/ParcelUuid;
+    .param p8, "charInstId"    # I
+    .param p9, "charId"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,13 +87,13 @@
     move-result-object v0
 
     .line 383
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 385
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -216,18 +216,18 @@
 
 .method public onCharacteristicWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
     .locals 6
-    .parameter "address"
-    .parameter "transId"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "isPrep"
-    .parameter "needRsp"
-    .parameter "srvcType"
-    .parameter "srvcInstId"
-    .parameter "srvcId"
-    .parameter "charInstId"
-    .parameter "charId"
-    .parameter "value"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "transId"    # I
+    .param p3, "offset"    # I
+    .param p4, "length"    # I
+    .param p5, "isPrep"    # Z
+    .param p6, "needRsp"    # Z
+    .param p7, "srvcType"    # I
+    .param p8, "srvcInstId"    # I
+    .param p9, "srvcId"    # Landroid/os/ParcelUuid;
+    .param p10, "charInstId"    # I
+    .param p11, "charId"    # Landroid/os/ParcelUuid;
+    .param p12, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -241,13 +241,13 @@
     move-result-object v1
 
     .line 460
-    .local v1, _data:Landroid/os/Parcel;
+    .local v1, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 462
-    .local v2, _reply:Landroid/os/Parcel;
+    .local v2, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -398,16 +398,16 @@
 
 .method public onDescriptorReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;)V
     .locals 5
-    .parameter "address"
-    .parameter "transId"
-    .parameter "offset"
-    .parameter "isLong"
-    .parameter "srvcType"
-    .parameter "srvcInstId"
-    .parameter "srvcId"
-    .parameter "charInstId"
-    .parameter "charId"
-    .parameter "descrId"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "transId"    # I
+    .param p3, "offset"    # I
+    .param p4, "isLong"    # Z
+    .param p5, "srvcType"    # I
+    .param p6, "srvcInstId"    # I
+    .param p7, "srvcId"    # Landroid/os/ParcelUuid;
+    .param p8, "charInstId"    # I
+    .param p9, "charId"    # Landroid/os/ParcelUuid;
+    .param p10, "descrId"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -425,13 +425,13 @@
     move-result-object v0
 
     .line 418
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 420
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -576,19 +576,19 @@
 
 .method public onDescriptorWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;[B)V
     .locals 6
-    .parameter "address"
-    .parameter "transId"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "isPrep"
-    .parameter "needRsp"
-    .parameter "srvcType"
-    .parameter "srvcInstId"
-    .parameter "srvcId"
-    .parameter "charInstId"
-    .parameter "charId"
-    .parameter "descrId"
-    .parameter "value"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "transId"    # I
+    .param p3, "offset"    # I
+    .param p4, "length"    # I
+    .param p5, "isPrep"    # Z
+    .param p6, "needRsp"    # Z
+    .param p7, "srvcType"    # I
+    .param p8, "srvcInstId"    # I
+    .param p9, "srvcId"    # Landroid/os/ParcelUuid;
+    .param p10, "charInstId"    # I
+    .param p11, "charId"    # Landroid/os/ParcelUuid;
+    .param p12, "descrId"    # Landroid/os/ParcelUuid;
+    .param p13, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -602,13 +602,13 @@
     move-result-object v1
 
     .line 498
-    .local v1, _data:Landroid/os/Parcel;
+    .local v1, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 500
-    .local v2, _reply:Landroid/os/Parcel;
+    .local v2, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -783,9 +783,9 @@
 
 .method public onExecuteWrite(Ljava/lang/String;IZ)V
     .locals 5
-    .parameter "address"
-    .parameter "transId"
-    .parameter "execWrite"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "transId"    # I
+    .param p3, "execWrite"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -801,13 +801,13 @@
     move-result-object v0
 
     .line 543
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 545
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -864,9 +864,9 @@
 
 .method public onScanResult(Ljava/lang/String;I[B)V
     .locals 5
-    .parameter "address"
-    .parameter "rssi"
-    .parameter "advData"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "rssi"    # I
+    .param p3, "advData"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -880,13 +880,13 @@
     move-result-object v0
 
     .line 324
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 326
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -938,10 +938,10 @@
 
 .method public onServerConnectionState(IIZLjava/lang/String;)V
     .locals 5
-    .parameter "status"
-    .parameter "serverIf"
-    .parameter "connected"
-    .parameter "address"
+    .param p1, "status"    # I
+    .param p2, "serverIf"    # I
+    .param p3, "connected"    # Z
+    .param p4, "address"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -957,13 +957,13 @@
     move-result-object v0
 
     .line 341
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 343
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -1023,8 +1023,8 @@
 
 .method public onServerRegistered(II)V
     .locals 5
-    .parameter "status"
-    .parameter "serverIf"
+    .param p1, "status"    # I
+    .param p2, "serverIf"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1038,13 +1038,13 @@
     move-result-object v0
 
     .line 308
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 310
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.bluetooth.IBluetoothGattServerCallback"
 
@@ -1093,10 +1093,10 @@
 
 .method public onServiceAdded(IIILandroid/os/ParcelUuid;)V
     .locals 5
-    .parameter "status"
-    .parameter "srvcType"
-    .parameter "srvcInstId"
-    .parameter "srvcId"
+    .param p1, "status"    # I
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcId"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1110,13 +1110,13 @@
     move-result-object v0
 
     .line 359
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 361
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.bluetooth.IBluetoothGattServerCallback"
 

@@ -29,11 +29,11 @@
 
 .method public constructor <init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JI)V
     .locals 0
-    .parameter "transitionId"
-    .parameter "afterMediaItem"
-    .parameter "beforeMediaItem"
-    .parameter "durationMs"
-    .parameter "behavior"
+    .param p1, "transitionId"    # Ljava/lang/String;
+    .param p2, "afterMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p3, "beforeMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p4, "durationMs"    # J
+    .param p6, "behavior"    # I
 
     .prologue
     .line 52

@@ -36,7 +36,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/View;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 19439
@@ -49,8 +48,8 @@
 
 .method synthetic constructor <init>(Landroid/view/View;Landroid/view/View$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/View;
+    .param p2, "x1"    # Landroid/view/View$1;
 
     .prologue
     .line 19439
@@ -63,7 +62,7 @@
 # virtual methods
 .method public apply(Landroid/view/View;)Z
     .locals 2
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 19444
@@ -86,13 +85,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 19439
     check-cast p1, Landroid/view/View;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/View$MatchIdPredicate;->apply(Landroid/view/View;)Z
 
     move-result v0

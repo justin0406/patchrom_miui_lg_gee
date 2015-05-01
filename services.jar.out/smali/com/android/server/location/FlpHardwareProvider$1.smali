@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/FlpHardwareProvider;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 250
@@ -41,7 +40,7 @@
     .line 276
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeGetBatchSize()I
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeGetBatchSize()I
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$300(Lcom/android/server/location/FlpHardwareProvider;)I
 
     move-result v0
@@ -51,13 +50,13 @@
 
 .method public injectDeviceContext(I)V
     .locals 1
-    .parameter "deviceEnabledContext"
+    .param p1, "deviceEnabledContext"    # I
 
     .prologue
     .line 316
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDeviceContext(I)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDeviceContext(I)V
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->access$1100(Lcom/android/server/location/FlpHardwareProvider;I)V
 
     .line 317
@@ -66,13 +65,13 @@
 
 .method public injectDiagnosticData(Ljava/lang/String;)V
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     .line 306
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDiagnosticData(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDiagnosticData(Ljava/lang/String;)V
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->access$900(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
 
     .line 307
@@ -81,13 +80,13 @@
 
 .method public registerSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
     .locals 3
-    .parameter "eventSink"
+    .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .prologue
     .line 253
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSinkLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSinkLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$100(Lcom/android/server/location/FlpHardwareProvider;)Ljava/lang/Object;
 
     move-result-object v1
@@ -98,7 +97,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
+    # getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$200(Lcom/android/server/location/FlpHardwareProvider;)Landroid/hardware/location/IFusedLocationHardwareSink;
 
     move-result-object v0
@@ -129,7 +128,7 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #setter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
+    # setter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->access$202(Lcom/android/server/location/FlpHardwareProvider;Landroid/hardware/location/IFusedLocationHardwareSink;)Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .line 261
@@ -143,13 +142,13 @@
 
 .method public requestBatchOfLocations(I)V
     .locals 1
-    .parameter "batchSizeRequested"
+    .param p1, "batchSizeRequested"    # I
 
     .prologue
     .line 296
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeRequestBatchedLocation(I)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeRequestBatchedLocation(I)V
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->access$700(Lcom/android/server/location/FlpHardwareProvider;I)V
 
     .line 297
@@ -158,14 +157,14 @@
 
 .method public startBatching(ILandroid/location/FusedBatchOptions;)V
     .locals 1
-    .parameter "requestId"
-    .parameter "options"
+    .param p1, "requestId"    # I
+    .param p2, "options"    # Landroid/location/FusedBatchOptions;
 
     .prologue
     .line 281
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeStartBatching(ILandroid/location/FusedBatchOptions;)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeStartBatching(ILandroid/location/FusedBatchOptions;)V
     invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->access$400(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
     .line 282
@@ -174,13 +173,13 @@
 
 .method public stopBatching(I)V
     .locals 1
-    .parameter "requestId"
+    .param p1, "requestId"    # I
 
     .prologue
     .line 286
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeStopBatching(I)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeStopBatching(I)V
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->access$500(Lcom/android/server/location/FlpHardwareProvider;I)V
 
     .line 287
@@ -194,7 +193,7 @@
     .line 311
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeIsDeviceContextSupported()Z
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeIsDeviceContextSupported()Z
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$1000(Lcom/android/server/location/FlpHardwareProvider;)Z
 
     move-result v0
@@ -209,7 +208,7 @@
     .line 301
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeIsDiagnosticSupported()Z
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeIsDiagnosticSupported()Z
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$800(Lcom/android/server/location/FlpHardwareProvider;)Z
 
     move-result v0
@@ -219,13 +218,13 @@
 
 .method public unregisterSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
     .locals 3
-    .parameter "eventSink"
+    .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .prologue
     .line 266
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSinkLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSinkLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$100(Lcom/android/server/location/FlpHardwareProvider;)Ljava/lang/Object;
 
     move-result-object v1
@@ -236,7 +235,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
+    # getter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->access$200(Lcom/android/server/location/FlpHardwareProvider;)Landroid/hardware/location/IFusedLocationHardwareSink;
 
     move-result-object v0
@@ -248,7 +247,7 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
+    # setter for: Lcom/android/server/location/FlpHardwareProvider;->mLocationSink:Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-static {v0, v2}, Lcom/android/server/location/FlpHardwareProvider;->access$202(Lcom/android/server/location/FlpHardwareProvider;Landroid/hardware/location/IFusedLocationHardwareSink;)Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .line 271
@@ -271,14 +270,14 @@
 
 .method public updateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
     .locals 1
-    .parameter "requestId"
-    .parameter "options"
+    .param p1, "requestId"    # I
+    .param p2, "options"    # Landroid/location/FusedBatchOptions;
 
     .prologue
     .line 291
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    #calls: Lcom/android/server/location/FlpHardwareProvider;->nativeUpdateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
+    # invokes: Lcom/android/server/location/FlpHardwareProvider;->nativeUpdateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
     invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->access$600(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
     .line 292

@@ -31,7 +31,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/am/UriPermission;)V
     .locals 2
-    .parameter "perm"
+    .param p1, "perm"    # Lcom/android/server/am/UriPermission;
 
     .prologue
     .line 340
@@ -73,8 +73,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/am/UriPermission;Lcom/android/server/am/UriPermission$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/am/UriPermission;
+    .param p2, "x1"    # Lcom/android/server/am/UriPermission$1;
 
     .prologue
     .line 332

@@ -18,11 +18,11 @@
 # direct methods
 .method public constructor <init>(IIIIZ)V
     .locals 0
-    .parameter "fromId"
-    .parameter "toId"
-    .parameter "fromScheme"
-    .parameter "toScheme"
-    .parameter "selected"
+    .param p1, "fromId"    # I
+    .param p2, "toId"    # I
+    .param p3, "fromScheme"    # I
+    .param p4, "toScheme"    # I
+    .param p5, "selected"    # Z
 
     .prologue
     .line 48
@@ -101,7 +101,7 @@
 
 .method public setFromCodeScheme(I)V
     .locals 0
-    .parameter "fromCodeScheme"
+    .param p1, "fromCodeScheme"    # I
 
     .prologue
     .line 88
@@ -113,7 +113,7 @@
 
 .method public setFromServiceId(I)V
     .locals 0
-    .parameter "fromServiceId"
+    .param p1, "fromServiceId"    # I
 
     .prologue
     .line 60
@@ -125,7 +125,7 @@
 
 .method public setSelected(Z)V
     .locals 0
-    .parameter "selected"
+    .param p1, "selected"    # Z
 
     .prologue
     .line 116
@@ -137,7 +137,7 @@
 
 .method public setToCodeScheme(I)V
     .locals 0
-    .parameter "toCodeScheme"
+    .param p1, "toCodeScheme"    # I
 
     .prologue
     .line 102
@@ -149,7 +149,7 @@
 
 .method public setToServiceId(I)V
     .locals 0
-    .parameter "toServiceId"
+    .param p1, "toServiceId"    # I
 
     .prologue
     .line 74

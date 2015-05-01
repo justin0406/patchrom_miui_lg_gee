@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLSurfaceView;Z)V
     .locals 8
-    .parameter
-    .parameter "withDepthBuffer"
+    .param p2, "withDepthBuffer"    # Z
 
     .prologue
     const/16 v2, 0x8

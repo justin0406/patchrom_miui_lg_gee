@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WifiInfo;
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x1
@@ -53,7 +53,7 @@
     invoke-direct {v0}, Landroid/net/wifi/WifiInfo;-><init>()V
 
     .line 347
-    .local v0, info:Landroid/net/wifi/WifiInfo;
+    .local v0, "info":Landroid/net/wifi/WifiInfo;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -113,7 +113,7 @@
 
     check-cast v1, Landroid/net/wifi/WifiSsid;
 
-    #setter for: Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
+    # setter for: Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$002(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/WifiSsid;)Landroid/net/wifi/WifiSsid;
 
     .line 358
@@ -122,7 +122,7 @@
 
     move-result-object v1
 
-    #setter for: Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
+    # setter for: Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$102(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 359
@@ -130,7 +130,7 @@
 
     move-result-object v1
 
-    #setter for: Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
+    # setter for: Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$202(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 360
@@ -143,14 +143,15 @@
     move v1, v2
 
     :goto_1
-    #setter for: Landroid/net/wifi/WifiInfo;->mMeteredHint:Z
+    # setter for: Landroid/net/wifi/WifiInfo;->mMeteredHint:Z
     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$302(Landroid/net/wifi/WifiInfo;Z)Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiInfo;->setVendorInfo(Ljava/lang/String;)V
+    # setter for: Landroid/net/wifi/WifiInfo;->mVendorInfo:Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access_mVendorInfo(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 361
     sget-object v1, Landroid/net/wifi/SupplicantState;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -161,7 +162,7 @@
 
     check-cast v1, Landroid/net/wifi/SupplicantState;
 
-    #setter for: Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
+    # setter for: Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$402(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
 
     .line 362
@@ -182,7 +183,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 344
@@ -195,7 +196,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/WifiInfo;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 366
@@ -206,7 +207,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 344

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 1164
@@ -37,7 +36,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 1167
@@ -50,7 +49,7 @@
     .line 1168
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$3;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v0}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v0

@@ -27,10 +27,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "initX"
-    .parameter "initY"
-    .parameter "initZ"
-    .parameter "initW"
+    .param p1, "initX"    # I
+    .param p2, "initY"    # I
+    .param p3, "initZ"    # I
+    .param p4, "initW"    # I
 
     .prologue
     .line 31

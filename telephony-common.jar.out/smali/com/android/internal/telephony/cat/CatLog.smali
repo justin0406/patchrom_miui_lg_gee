@@ -20,8 +20,8 @@
 
 .method public static d(Ljava/lang/Object;Ljava/lang/String;)V
     .locals 4
-    .parameter "caller"
-    .parameter "msg"
+    .param p0, "caller"    # Ljava/lang/Object;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 29
@@ -34,7 +34,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, className:Ljava/lang/String;
+    .local v0, "className":Ljava/lang/String;
     const-string v1, "CAT"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -79,8 +79,8 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "caller"
-    .parameter "msg"
+    .param p0, "caller"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 39

@@ -32,9 +32,9 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
     .locals 0
-    .parameter "paths"
-    .parameter "mimeTypes"
-    .parameter "client"
+    .param p1, "paths"    # [Ljava/lang/String;
+    .param p2, "mimeTypes"    # [Ljava/lang/String;
+    .param p3, "client"    # Landroid/media/MediaScannerConnection$OnScanCompletedListener;
 
     .prologue
     .line 188
@@ -68,8 +68,8 @@
 
 .method public onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
     .locals 1
-    .parameter "path"
-    .parameter "uri"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 199
@@ -125,7 +125,7 @@
     aget-object v0, v1, v2
 
     .line 211
-    .local v0, mimeType:Ljava/lang/String;
+    .local v0, "mimeType":Ljava/lang/String;
     :goto_1
     iget-object v1, p0, Landroid/media/MediaScannerConnection$ClientProxy;->mConnection:Landroid/media/MediaScannerConnection;
 
@@ -147,7 +147,7 @@
     goto :goto_0
 
     .line 210
-    .end local v0           #mimeType:Ljava/lang/String;
+    .end local v0    # "mimeType":Ljava/lang/String;
     :cond_1
     const/4 v0, 0x0
 

@@ -52,7 +52,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "header"
+    .param p1, "header"    # Ljava/lang/String;
 
     .prologue
     .line 118
@@ -71,7 +71,7 @@
 
 .method private parseHeader(Ljava/lang/String;)V
     .locals 2
-    .parameter "header"
+    .param p1, "header"    # Ljava/lang/String;
 
     .prologue
     .line 267
@@ -83,7 +83,7 @@
     move-result-object v0
 
     .line 269
-    .local v0, parameters:Ljava/lang/String;
+    .local v0, "parameters":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 271
@@ -95,14 +95,14 @@
     invoke-direct {p0, v0}, Landroid/net/http/HttpAuthHeader;->parseParameters(Ljava/lang/String;)V
 
     .line 276
-    .end local v0           #parameters:Ljava/lang/String;
+    .end local v0    # "parameters":Ljava/lang/String;
     :cond_0
     return-void
 .end method
 
 .method private parseParameter(Ljava/lang/String;)V
     .locals 5
-    .parameter "parameter"
+    .param p1, "parameter"    # Ljava/lang/String;
 
     .prologue
     .line 338
@@ -116,7 +116,7 @@
     move-result v0
 
     .line 341
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_0
 
     .line 342
@@ -131,7 +131,7 @@
     move-result-object v1
 
     .line 343
-    .local v1, token:Ljava/lang/String;
+    .local v1, "token":Ljava/lang/String;
     add-int/lit8 v3, v0, 0x1
 
     invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -147,7 +147,7 @@
     move-result-object v2
 
     .line 352
-    .local v2, value:Ljava/lang/String;
+    .local v2, "value":Ljava/lang/String;
     const-string/jumbo v3, "realm"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -160,17 +160,17 @@
     iput-object v2, p0, Landroid/net/http/HttpAuthHeader;->mRealm:Ljava/lang/String;
 
     .line 361
-    .end local v0           #i:I
-    .end local v1           #token:Ljava/lang/String;
-    .end local v2           #value:Ljava/lang/String;
+    .end local v0    # "i":I
+    .end local v1    # "token":Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
     .line 355
-    .restart local v0       #i:I
-    .restart local v1       #token:Ljava/lang/String;
-    .restart local v2       #value:Ljava/lang/String;
+    .restart local v0    # "i":I
+    .restart local v1    # "token":Ljava/lang/String;
+    .restart local v2    # "value":Ljava/lang/String;
     :cond_1
     iget v3, p0, Landroid/net/http/HttpAuthHeader;->mScheme:I
 
@@ -186,8 +186,8 @@
 
 .method private parseParameter(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "token"
-    .parameter "value"
+    .param p1, "token"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 368
@@ -287,7 +287,7 @@
 
 .method private parseParameters(Ljava/lang/String;)V
     .locals 2
-    .parameter "parameters"
+    .param p1, "parameters"    # Ljava/lang/String;
 
     .prologue
     .line 318
@@ -302,7 +302,7 @@
     move-result v0
 
     .line 322
-    .local v0, i:I
+    .local v0, "i":I
     if-gez v0, :cond_2
 
     .line 324
@@ -313,12 +313,12 @@
     if-gez v0, :cond_0
 
     .line 331
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-void
 
     .line 326
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_2
     const/4 v1, 0x0
 
@@ -340,7 +340,7 @@
 
 .method private parseScheme(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "header"
+    .param p1, "header"    # Ljava/lang/String;
 
     .prologue
     .line 286
@@ -354,7 +354,7 @@
     move-result v0
 
     .line 288
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_2
 
     .line 289
@@ -369,7 +369,7 @@
     move-result-object v1
 
     .line 290
-    .local v1, scheme:Ljava/lang/String;
+    .local v1, "scheme":Ljava/lang/String;
     const-string v2, "Digest"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -398,14 +398,14 @@
     move-result-object v2
 
     .line 305
-    .end local v0           #i:I
-    .end local v1           #scheme:Ljava/lang/String;
+    .end local v0    # "i":I
+    .end local v1    # "scheme":Ljava/lang/String;
     :goto_1
     return-object v2
 
     .line 296
-    .restart local v0       #i:I
-    .restart local v1       #scheme:Ljava/lang/String;
+    .restart local v0    # "i":I
+    .restart local v1    # "scheme":Ljava/lang/String;
     :cond_1
     const-string v2, "Basic"
 
@@ -423,8 +423,8 @@
     goto :goto_0
 
     .line 305
-    .end local v0           #i:I
-    .end local v1           #scheme:Ljava/lang/String;
+    .end local v0    # "i":I
+    .end local v1    # "scheme":Ljava/lang/String;
     :cond_2
     const/4 v2, 0x0
 
@@ -433,7 +433,7 @@
 
 .method private parseStale(Ljava/lang/String;)V
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 401
@@ -460,7 +460,7 @@
 
 .method private static trimDoubleQuotesIfAny(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "value"
+    .param p0, "value"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0x22
@@ -474,7 +474,7 @@
     move-result v0
 
     .line 416
-    .local v0, len:I
+    .local v0, "len":I
     const/4 v1, 0x2
 
     if-le v0, v1, :cond_0
@@ -505,8 +505,8 @@
     move-result-object p0
 
     .line 422
-    .end local v0           #len:I
-    .end local p0
+    .end local v0    # "len":I
+    .end local p0    # "value":Ljava/lang/String;
     :cond_0
     return-object p0
 .end method
@@ -725,7 +725,7 @@
 
 .method public setPassword(Ljava/lang/String;)V
     .locals 0
-    .parameter "password"
+    .param p1, "password"    # Ljava/lang/String;
 
     .prologue
     .line 163
@@ -750,7 +750,7 @@
 
 .method public setUsername(Ljava/lang/String;)V
     .locals 0
-    .parameter "username"
+    .param p1, "username"    # Ljava/lang/String;
 
     .prologue
     .line 149

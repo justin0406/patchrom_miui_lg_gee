@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -81,7 +81,7 @@
 
 .method public static stateFromNetworkInfo(Landroid/net/NetworkInfo;)I
     .locals 4
-    .parameter "info"
+    .param p0, "info"    # Landroid/net/NetworkInfo;
 
     .prologue
     const/4 v0, 0x0
@@ -183,8 +183,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 52

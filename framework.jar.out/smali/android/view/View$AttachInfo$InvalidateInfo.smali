@@ -82,18 +82,18 @@
     check-cast v0, Landroid/view/View$AttachInfo$InvalidateInfo;
 
     .line 18719
-    .local v0, instance:Landroid/view/View$AttachInfo$InvalidateInfo;
+    .local v0, "instance":Landroid/view/View$AttachInfo$InvalidateInfo;
     if-eqz v0, :cond_0
 
-    .end local v0           #instance:Landroid/view/View$AttachInfo$InvalidateInfo;
+    .end local v0    # "instance":Landroid/view/View$AttachInfo$InvalidateInfo;
     :goto_0
     return-object v0
 
-    .restart local v0       #instance:Landroid/view/View$AttachInfo$InvalidateInfo;
+    .restart local v0    # "instance":Landroid/view/View$AttachInfo$InvalidateInfo;
     :cond_0
     new-instance v0, Landroid/view/View$AttachInfo$InvalidateInfo;
 
-    .end local v0           #instance:Landroid/view/View$AttachInfo$InvalidateInfo;
+    .end local v0    # "instance":Landroid/view/View$AttachInfo$InvalidateInfo;
     invoke-direct {v0}, Landroid/view/View$AttachInfo$InvalidateInfo;-><init>()V
 
     goto :goto_0

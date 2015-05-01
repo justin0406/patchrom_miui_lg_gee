@@ -68,7 +68,7 @@
     invoke-direct {v0, v1}, Lcom/android/server/am/ActivityManagerService;-><init>(Lcom/android/server/am/ActivityManagerService$1;)V
 
     .line 1849
-    .local v0, m:Lcom/android/server/am/ActivityManagerService;
+    .local v0, "m":Lcom/android/server/am/ActivityManagerService;
     monitor-enter p0
 
     .line 1850
@@ -123,8 +123,8 @@
     :try_start_2
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     goto :goto_0
 

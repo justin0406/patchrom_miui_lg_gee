@@ -14,8 +14,8 @@
 # direct methods
 .method public constructor <init>(Ljavax/microedition/khronos/opengles/GL;I)V
     .locals 3
-    .parameter "gl"
-    .parameter "configFlags"
+    .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL;
+    .param p2, "configFlags"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    .local v0, glError:I
+    .local v0, "glError":I
     if-eqz v0, :cond_0
 
     .line 62
@@ -86,7 +86,7 @@
     throw v1
 
     .line 65
-    .end local v0           #glError:I
+    .end local v0    # "glError":I
     :cond_0
     return-void
 .end method
@@ -106,7 +106,7 @@
     move-result-object v0
 
     .line 47
-    .local v0, currentThread:Ljava/lang/Thread;
+    .local v0, "currentThread":Ljava/lang/Thread;
     iget-object v1, p0, Landroid/opengl/GLErrorWrapper;->mOurThread:Ljava/lang/Thread;
 
     if-nez v1, :cond_1
@@ -115,12 +115,12 @@
     iput-object v0, p0, Landroid/opengl/GLErrorWrapper;->mOurThread:Ljava/lang/Thread;
 
     .line 56
-    .end local v0           #currentThread:Ljava/lang/Thread;
+    .end local v0    # "currentThread":Ljava/lang/Thread;
     :cond_0
     return-void
 
     .line 50
-    .restart local v0       #currentThread:Ljava/lang/Thread;
+    .restart local v0    # "currentThread":Ljava/lang/Thread;
     :cond_1
     iget-object v1, p0, Landroid/opengl/GLErrorWrapper;->mOurThread:Ljava/lang/Thread;
 
@@ -146,7 +146,7 @@
 # virtual methods
 .method public glActiveTexture(I)V
     .locals 1
-    .parameter "texture"
+    .param p1, "texture"    # I
 
     .prologue
     .line 71
@@ -166,8 +166,8 @@
 
 .method public glAlphaFunc(IF)V
     .locals 1
-    .parameter "func"
-    .parameter "ref"
+    .param p1, "func"    # I
+    .param p2, "ref"    # F
 
     .prologue
     .line 77
@@ -187,8 +187,8 @@
 
 .method public glAlphaFuncx(II)V
     .locals 1
-    .parameter "func"
-    .parameter "ref"
+    .param p1, "func"    # I
+    .param p2, "ref"    # I
 
     .prologue
     .line 83
@@ -208,8 +208,8 @@
 
 .method public glBindBuffer(II)V
     .locals 1
-    .parameter "target"
-    .parameter "buffer"
+    .param p1, "target"    # I
+    .param p2, "buffer"    # I
 
     .prologue
     .line 963
@@ -229,8 +229,8 @@
 
 .method public glBindFramebufferOES(II)V
     .locals 1
-    .parameter "target"
-    .parameter "framebuffer"
+    .param p1, "target"    # I
+    .param p2, "framebuffer"    # I
 
     .prologue
     .line 1382
@@ -250,8 +250,8 @@
 
 .method public glBindRenderbufferOES(II)V
     .locals 1
-    .parameter "target"
-    .parameter "renderbuffer"
+    .param p1, "target"    # I
+    .param p2, "renderbuffer"    # I
 
     .prologue
     .line 1389
@@ -271,8 +271,8 @@
 
 .method public glBindTexture(II)V
     .locals 1
-    .parameter "target"
-    .parameter "texture"
+    .param p1, "target"    # I
+    .param p2, "texture"    # I
 
     .prologue
     .line 89
@@ -292,7 +292,7 @@
 
 .method public glBlendEquation(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 1396
@@ -312,8 +312,8 @@
 
 .method public glBlendEquationSeparate(II)V
     .locals 1
-    .parameter "modeRGB"
-    .parameter "modeAlpha"
+    .param p1, "modeRGB"    # I
+    .param p2, "modeAlpha"    # I
 
     .prologue
     .line 1403
@@ -333,8 +333,8 @@
 
 .method public glBlendFunc(II)V
     .locals 1
-    .parameter "sfactor"
-    .parameter "dfactor"
+    .param p1, "sfactor"    # I
+    .param p2, "dfactor"    # I
 
     .prologue
     .line 95
@@ -354,10 +354,10 @@
 
 .method public glBlendFuncSeparate(IIII)V
     .locals 1
-    .parameter "srcRGB"
-    .parameter "dstRGB"
-    .parameter "srcAlpha"
-    .parameter "dstAlpha"
+    .param p1, "srcRGB"    # I
+    .param p2, "dstRGB"    # I
+    .param p3, "srcAlpha"    # I
+    .param p4, "dstAlpha"    # I
 
     .prologue
     .line 1411
@@ -377,10 +377,10 @@
 
 .method public glBufferData(IILjava/nio/Buffer;I)V
     .locals 1
-    .parameter "target"
-    .parameter "size"
-    .parameter "data"
-    .parameter "usage"
+    .param p1, "target"    # I
+    .param p2, "size"    # I
+    .param p3, "data"    # Ljava/nio/Buffer;
+    .param p4, "usage"    # I
 
     .prologue
     .line 969
@@ -400,10 +400,10 @@
 
 .method public glBufferSubData(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "offset"
-    .parameter "size"
-    .parameter "data"
+    .param p1, "target"    # I
+    .param p2, "offset"    # I
+    .param p3, "size"    # I
+    .param p4, "data"    # Ljava/nio/Buffer;
 
     .prologue
     .line 975
@@ -423,7 +423,7 @@
 
 .method public glCheckFramebufferStatusOES(I)I
     .locals 2
-    .parameter "target"
+    .param p1, "target"    # I
 
     .prologue
     .line 1418
@@ -437,7 +437,7 @@
     move-result v0
 
     .line 1420
-    .local v0, result:I
+    .local v0, "result":I
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 1421
@@ -446,7 +446,7 @@
 
 .method public glClear(I)V
     .locals 1
-    .parameter "mask"
+    .param p1, "mask"    # I
 
     .prologue
     .line 101
@@ -466,10 +466,10 @@
 
 .method public glClearColor(FFFF)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # F
+    .param p2, "green"    # F
+    .param p3, "blue"    # F
+    .param p4, "alpha"    # F
 
     .prologue
     .line 107
@@ -489,10 +489,10 @@
 
 .method public glClearColorx(IIII)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # I
+    .param p2, "green"    # I
+    .param p3, "blue"    # I
+    .param p4, "alpha"    # I
 
     .prologue
     .line 113
@@ -512,7 +512,7 @@
 
 .method public glClearDepthf(F)V
     .locals 1
-    .parameter "depth"
+    .param p1, "depth"    # F
 
     .prologue
     .line 119
@@ -532,7 +532,7 @@
 
 .method public glClearDepthx(I)V
     .locals 1
-    .parameter "depth"
+    .param p1, "depth"    # I
 
     .prologue
     .line 125
@@ -552,7 +552,7 @@
 
 .method public glClearStencil(I)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # I
 
     .prologue
     .line 131
@@ -572,7 +572,7 @@
 
 .method public glClientActiveTexture(I)V
     .locals 1
-    .parameter "texture"
+    .param p1, "texture"    # I
 
     .prologue
     .line 137
@@ -592,8 +592,8 @@
 
 .method public glClipPlanef(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "plane"
-    .parameter "equation"
+    .param p1, "plane"    # I
+    .param p2, "equation"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 853
@@ -613,9 +613,9 @@
 
 .method public glClipPlanef(I[FI)V
     .locals 1
-    .parameter "plane"
-    .parameter "equation"
-    .parameter "offset"
+    .param p1, "plane"    # I
+    .param p2, "equation"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 847
@@ -635,8 +635,8 @@
 
 .method public glClipPlanex(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "plane"
-    .parameter "equation"
+    .param p1, "plane"    # I
+    .param p2, "equation"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 865
@@ -656,9 +656,9 @@
 
 .method public glClipPlanex(I[II)V
     .locals 1
-    .parameter "plane"
-    .parameter "equation"
-    .parameter "offset"
+    .param p1, "plane"    # I
+    .param p2, "equation"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 859
@@ -678,10 +678,10 @@
 
 .method public glColor4f(FFFF)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # F
+    .param p2, "green"    # F
+    .param p3, "blue"    # F
+    .param p4, "alpha"    # F
 
     .prologue
     .line 143
@@ -701,10 +701,10 @@
 
 .method public glColor4ub(BBBB)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # B
+    .param p2, "green"    # B
+    .param p3, "blue"    # B
+    .param p4, "alpha"    # B
 
     .prologue
     .line 981
@@ -723,10 +723,10 @@
 
 .method public glColor4x(IIII)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # I
+    .param p2, "green"    # I
+    .param p3, "blue"    # I
+    .param p4, "alpha"    # I
 
     .prologue
     .line 149
@@ -746,10 +746,10 @@
 
 .method public glColorMask(ZZZZ)V
     .locals 1
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-    .parameter "alpha"
+    .param p1, "red"    # Z
+    .param p2, "green"    # Z
+    .param p3, "blue"    # Z
+    .param p4, "alpha"    # Z
 
     .prologue
     .line 156
@@ -769,10 +769,10 @@
 
 .method public glColorPointer(IIII)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 986
@@ -792,10 +792,10 @@
 
 .method public glColorPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 162
@@ -815,14 +815,14 @@
 
 .method public glCompressedTexImage2D(IIIIIIILjava/nio/Buffer;)V
     .locals 9
-    .parameter "target"
-    .parameter "level"
-    .parameter "internalformat"
-    .parameter "width"
-    .parameter "height"
-    .parameter "border"
-    .parameter "imageSize"
-    .parameter "data"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "internalformat"    # I
+    .param p4, "width"    # I
+    .param p5, "height"    # I
+    .param p6, "border"    # I
+    .param p7, "imageSize"    # I
+    .param p8, "data"    # Ljava/nio/Buffer;
 
     .prologue
     .line 170
@@ -858,15 +858,15 @@
 
 .method public glCompressedTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
     .locals 10
-    .parameter "target"
-    .parameter "level"
-    .parameter "xoffset"
-    .parameter "yoffset"
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "imageSize"
-    .parameter "data"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "xoffset"    # I
+    .param p4, "yoffset"    # I
+    .param p5, "width"    # I
+    .param p6, "height"    # I
+    .param p7, "format"    # I
+    .param p8, "imageSize"    # I
+    .param p9, "data"    # Ljava/nio/Buffer;
 
     .prologue
     .line 179
@@ -904,14 +904,14 @@
 
 .method public glCopyTexImage2D(IIIIIIII)V
     .locals 9
-    .parameter "target"
-    .parameter "level"
-    .parameter "internalformat"
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
-    .parameter "border"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "internalformat"    # I
+    .param p4, "x"    # I
+    .param p5, "y"    # I
+    .param p6, "width"    # I
+    .param p7, "height"    # I
+    .param p8, "border"    # I
 
     .prologue
     .line 187
@@ -947,14 +947,14 @@
 
 .method public glCopyTexSubImage2D(IIIIIIII)V
     .locals 9
-    .parameter "target"
-    .parameter "level"
-    .parameter "xoffset"
-    .parameter "yoffset"
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "xoffset"    # I
+    .param p4, "yoffset"    # I
+    .param p5, "x"    # I
+    .param p6, "y"    # I
+    .param p7, "width"    # I
+    .param p8, "height"    # I
 
     .prologue
     .line 195
@@ -990,7 +990,7 @@
 
 .method public glCullFace(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 202
@@ -1010,7 +1010,7 @@
 
 .method public glCurrentPaletteMatrixOES(I)V
     .locals 1
-    .parameter "matrixpaletteindex"
+    .param p1, "matrixpaletteindex"    # I
 
     .prologue
     .line 1342
@@ -1030,8 +1030,8 @@
 
 .method public glDeleteBuffers(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "buffers"
+    .param p1, "n"    # I
+    .param p2, "buffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 998
@@ -1051,9 +1051,9 @@
 
 .method public glDeleteBuffers(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "buffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "buffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 992
@@ -1073,8 +1073,8 @@
 
 .method public glDeleteFramebuffersOES(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "framebuffers"
+    .param p1, "n"    # I
+    .param p2, "framebuffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1433
@@ -1094,9 +1094,9 @@
 
 .method public glDeleteFramebuffersOES(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "framebuffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "framebuffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1426
@@ -1116,8 +1116,8 @@
 
 .method public glDeleteRenderbuffersOES(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "renderbuffers"
+    .param p1, "n"    # I
+    .param p2, "renderbuffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1447
@@ -1137,9 +1137,9 @@
 
 .method public glDeleteRenderbuffersOES(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "renderbuffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "renderbuffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1440
@@ -1159,8 +1159,8 @@
 
 .method public glDeleteTextures(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "textures"
+    .param p1, "n"    # I
+    .param p2, "textures"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 214
@@ -1180,9 +1180,9 @@
 
 .method public glDeleteTextures(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "textures"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "textures"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 208
@@ -1202,7 +1202,7 @@
 
 .method public glDepthFunc(I)V
     .locals 1
-    .parameter "func"
+    .param p1, "func"    # I
 
     .prologue
     .line 220
@@ -1222,7 +1222,7 @@
 
 .method public glDepthMask(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 226
@@ -1242,8 +1242,8 @@
 
 .method public glDepthRangef(FF)V
     .locals 1
-    .parameter "near"
-    .parameter "far"
+    .param p1, "near"    # F
+    .param p2, "far"    # F
 
     .prologue
     .line 232
@@ -1263,8 +1263,8 @@
 
 .method public glDepthRangex(II)V
     .locals 1
-    .parameter "near"
-    .parameter "far"
+    .param p1, "near"    # I
+    .param p2, "far"    # I
 
     .prologue
     .line 238
@@ -1284,7 +1284,7 @@
 
 .method public glDisable(I)V
     .locals 1
-    .parameter "cap"
+    .param p1, "cap"    # I
 
     .prologue
     .line 244
@@ -1304,7 +1304,7 @@
 
 .method public glDisableClientState(I)V
     .locals 1
-    .parameter "array"
+    .param p1, "array"    # I
 
     .prologue
     .line 250
@@ -1324,9 +1324,9 @@
 
 .method public glDrawArrays(III)V
     .locals 1
-    .parameter "mode"
-    .parameter "first"
-    .parameter "count"
+    .param p1, "mode"    # I
+    .param p2, "first"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 256
@@ -1346,10 +1346,10 @@
 
 .method public glDrawElements(IIII)V
     .locals 1
-    .parameter "mode"
-    .parameter "count"
-    .parameter "type"
-    .parameter "offset"
+    .param p1, "mode"    # I
+    .param p2, "count"    # I
+    .param p3, "type"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1004
@@ -1369,10 +1369,10 @@
 
 .method public glDrawElements(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "mode"
-    .parameter "count"
-    .parameter "type"
-    .parameter "indices"
+    .param p1, "mode"    # I
+    .param p2, "count"    # I
+    .param p3, "type"    # I
+    .param p4, "indices"    # Ljava/nio/Buffer;
 
     .prologue
     .line 262
@@ -1392,11 +1392,11 @@
 
 .method public glDrawTexfOES(FFFFF)V
     .locals 6
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
+    .param p4, "width"    # F
+    .param p5, "height"    # F
 
     .prologue
     .line 874
@@ -1426,7 +1426,7 @@
 
 .method public glDrawTexfvOES(Ljava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "coords"
+    .param p1, "coords"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 886
@@ -1446,8 +1446,8 @@
 
 .method public glDrawTexfvOES([FI)V
     .locals 1
-    .parameter "coords"
-    .parameter "offset"
+    .param p1, "coords"    # [F
+    .param p2, "offset"    # I
 
     .prologue
     .line 880
@@ -1467,11 +1467,11 @@
 
 .method public glDrawTexiOES(IIIII)V
     .locals 6
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "z"    # I
+    .param p4, "width"    # I
+    .param p5, "height"    # I
 
     .prologue
     .line 892
@@ -1501,7 +1501,7 @@
 
 .method public glDrawTexivOES(Ljava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coords"
+    .param p1, "coords"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 904
@@ -1521,8 +1521,8 @@
 
 .method public glDrawTexivOES([II)V
     .locals 1
-    .parameter "coords"
-    .parameter "offset"
+    .param p1, "coords"    # [I
+    .param p2, "offset"    # I
 
     .prologue
     .line 898
@@ -1542,11 +1542,11 @@
 
 .method public glDrawTexsOES(SSSSS)V
     .locals 6
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # S
+    .param p2, "y"    # S
+    .param p3, "z"    # S
+    .param p4, "width"    # S
+    .param p5, "height"    # S
 
     .prologue
     .line 911
@@ -1576,7 +1576,7 @@
 
 .method public glDrawTexsvOES(Ljava/nio/ShortBuffer;)V
     .locals 1
-    .parameter "coords"
+    .param p1, "coords"    # Ljava/nio/ShortBuffer;
 
     .prologue
     .line 923
@@ -1596,8 +1596,8 @@
 
 .method public glDrawTexsvOES([SI)V
     .locals 1
-    .parameter "coords"
-    .parameter "offset"
+    .param p1, "coords"    # [S
+    .param p2, "offset"    # I
 
     .prologue
     .line 917
@@ -1617,11 +1617,11 @@
 
 .method public glDrawTexxOES(IIIII)V
     .locals 6
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "z"    # I
+    .param p4, "width"    # I
+    .param p5, "height"    # I
 
     .prologue
     .line 929
@@ -1651,7 +1651,7 @@
 
 .method public glDrawTexxvOES(Ljava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coords"
+    .param p1, "coords"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 941
@@ -1671,8 +1671,8 @@
 
 .method public glDrawTexxvOES([II)V
     .locals 1
-    .parameter "coords"
-    .parameter "offset"
+    .param p1, "coords"    # [I
+    .param p2, "offset"    # I
 
     .prologue
     .line 935
@@ -1692,7 +1692,7 @@
 
 .method public glEnable(I)V
     .locals 1
-    .parameter "cap"
+    .param p1, "cap"    # I
 
     .prologue
     .line 268
@@ -1712,7 +1712,7 @@
 
 .method public glEnableClientState(I)V
     .locals 1
-    .parameter "array"
+    .param p1, "array"    # I
 
     .prologue
     .line 274
@@ -1770,8 +1770,8 @@
 
 .method public glFogf(IF)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # F
 
     .prologue
     .line 292
@@ -1791,8 +1791,8 @@
 
 .method public glFogfv(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 304
@@ -1812,9 +1812,9 @@
 
 .method public glFogfv(I[FI)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 298
@@ -1834,8 +1834,8 @@
 
 .method public glFogx(II)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # I
 
     .prologue
     .line 310
@@ -1855,8 +1855,8 @@
 
 .method public glFogxv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 322
@@ -1876,9 +1876,9 @@
 
 .method public glFogxv(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 316
@@ -1898,10 +1898,10 @@
 
 .method public glFramebufferRenderbufferOES(IIII)V
     .locals 1
-    .parameter "target"
-    .parameter "attachment"
-    .parameter "renderbuffertarget"
-    .parameter "renderbuffer"
+    .param p1, "target"    # I
+    .param p2, "attachment"    # I
+    .param p3, "renderbuffertarget"    # I
+    .param p4, "renderbuffer"    # I
 
     .prologue
     .line 1455
@@ -1921,11 +1921,11 @@
 
 .method public glFramebufferTexture2DOES(IIIII)V
     .locals 6
-    .parameter "target"
-    .parameter "attachment"
-    .parameter "textarget"
-    .parameter "texture"
-    .parameter "level"
+    .param p1, "target"    # I
+    .param p2, "attachment"    # I
+    .param p3, "textarget"    # I
+    .param p4, "texture"    # I
+    .param p5, "level"    # I
 
     .prologue
     .line 1463
@@ -1955,7 +1955,7 @@
 
 .method public glFrontFace(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 328
@@ -1975,12 +1975,12 @@
 
 .method public glFrustumf(FFFFFF)V
     .locals 7
-    .parameter "left"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "top"
-    .parameter "near"
-    .parameter "far"
+    .param p1, "left"    # F
+    .param p2, "right"    # F
+    .param p3, "bottom"    # F
+    .param p4, "top"    # F
+    .param p5, "near"    # F
+    .param p6, "far"    # F
 
     .prologue
     .line 335
@@ -2012,12 +2012,12 @@
 
 .method public glFrustumx(IIIIII)V
     .locals 7
-    .parameter "left"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "top"
-    .parameter "near"
-    .parameter "far"
+    .param p1, "left"    # I
+    .param p2, "right"    # I
+    .param p3, "bottom"    # I
+    .param p4, "top"    # I
+    .param p5, "near"    # I
+    .param p6, "far"    # I
 
     .prologue
     .line 342
@@ -2049,8 +2049,8 @@
 
 .method public glGenBuffers(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "buffers"
+    .param p1, "n"    # I
+    .param p2, "buffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1016
@@ -2070,9 +2070,9 @@
 
 .method public glGenBuffers(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "buffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "buffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1010
@@ -2092,8 +2092,8 @@
 
 .method public glGenFramebuffersOES(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "framebuffers"
+    .param p1, "n"    # I
+    .param p2, "framebuffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1484
@@ -2113,9 +2113,9 @@
 
 .method public glGenFramebuffersOES(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "framebuffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "framebuffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1477
@@ -2135,8 +2135,8 @@
 
 .method public glGenRenderbuffersOES(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "renderbuffers"
+    .param p1, "n"    # I
+    .param p2, "renderbuffers"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1498
@@ -2156,9 +2156,9 @@
 
 .method public glGenRenderbuffersOES(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "renderbuffers"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "renderbuffers"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1491
@@ -2178,8 +2178,8 @@
 
 .method public glGenTextures(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "n"
-    .parameter "textures"
+    .param p1, "n"    # I
+    .param p2, "textures"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 354
@@ -2199,9 +2199,9 @@
 
 .method public glGenTextures(I[II)V
     .locals 1
-    .parameter "n"
-    .parameter "textures"
-    .parameter "offset"
+    .param p1, "n"    # I
+    .param p2, "textures"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 348
@@ -2221,7 +2221,7 @@
 
 .method public glGenerateMipmapOES(I)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # I
 
     .prologue
     .line 1470
@@ -2241,8 +2241,8 @@
 
 .method public glGetBooleanv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1028
@@ -2262,9 +2262,9 @@
 
 .method public glGetBooleanv(I[ZI)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [Z
+    .param p3, "offset"    # I
 
     .prologue
     .line 1022
@@ -2284,9 +2284,9 @@
 
 .method public glGetBufferParameteriv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1041
@@ -2306,10 +2306,10 @@
 
 .method public glGetBufferParameteriv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1035
@@ -2329,8 +2329,8 @@
 
 .method public glGetClipPlanef(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "eqn"
+    .param p1, "pname"    # I
+    .param p2, "eqn"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1053
@@ -2350,9 +2350,9 @@
 
 .method public glGetClipPlanef(I[FI)V
     .locals 1
-    .parameter "pname"
-    .parameter "eqn"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "eqn"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 1047
@@ -2372,8 +2372,8 @@
 
 .method public glGetClipPlanex(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "eqn"
+    .param p1, "pname"    # I
+    .param p2, "eqn"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1065
@@ -2393,9 +2393,9 @@
 
 .method public glGetClipPlanex(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "eqn"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "eqn"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1059
@@ -2428,14 +2428,14 @@
     move-result v0
 
     .line 362
-    .local v0, result:I
+    .local v0, "result":I
     return v0
 .end method
 
 .method public glGetFixedv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1077
@@ -2455,9 +2455,9 @@
 
 .method public glGetFixedv(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1071
@@ -2477,8 +2477,8 @@
 
 .method public glGetFloatv(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1089
@@ -2498,9 +2498,9 @@
 
 .method public glGetFloatv(I[FI)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 1083
@@ -2520,10 +2520,10 @@
 
 .method public glGetFramebufferAttachmentParameterivOES(IIILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "attachment"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "attachment"    # I
+    .param p3, "pname"    # I
+    .param p4, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1514
@@ -2543,11 +2543,11 @@
 
 .method public glGetFramebufferAttachmentParameterivOES(III[II)V
     .locals 6
-    .parameter "target"
-    .parameter "attachment"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "attachment"    # I
+    .param p3, "pname"    # I
+    .param p4, "params"    # [I
+    .param p5, "offset"    # I
 
     .prologue
     .line 1506
@@ -2577,8 +2577,8 @@
 
 .method public glGetIntegerv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 372
@@ -2598,9 +2598,9 @@
 
 .method public glGetIntegerv(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 366
@@ -2620,9 +2620,9 @@
 
 .method public glGetLightfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1101
@@ -2642,10 +2642,10 @@
 
 .method public glGetLightfv(II[FI)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1095
@@ -2665,9 +2665,9 @@
 
 .method public glGetLightxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1113
@@ -2687,10 +2687,10 @@
 
 .method public glGetLightxv(II[II)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1107
@@ -2710,9 +2710,9 @@
 
 .method public glGetMaterialfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1125
@@ -2732,10 +2732,10 @@
 
 .method public glGetMaterialfv(II[FI)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1119
@@ -2755,9 +2755,9 @@
 
 .method public glGetMaterialxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1137
@@ -2777,10 +2777,10 @@
 
 .method public glGetMaterialxv(II[II)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1131
@@ -2800,8 +2800,8 @@
 
 .method public glGetPointerv(I[Ljava/nio/Buffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [Ljava/nio/Buffer;
 
     .prologue
     .line 1143
@@ -2821,9 +2821,9 @@
 
 .method public glGetRenderbufferParameterivOES(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1530
@@ -2843,10 +2843,10 @@
 
 .method public glGetRenderbufferParameterivOES(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1522
@@ -2866,7 +2866,7 @@
 
 .method public glGetString(I)Ljava/lang/String;
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # I
 
     .prologue
     .line 378
@@ -2880,7 +2880,7 @@
     move-result-object v0
 
     .line 380
-    .local v0, result:Ljava/lang/String;
+    .local v0, "result":Ljava/lang/String;
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 381
@@ -2889,9 +2889,9 @@
 
 .method public glGetTexEnviv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "env"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "env"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1155
@@ -2911,10 +2911,10 @@
 
 .method public glGetTexEnviv(II[II)V
     .locals 1
-    .parameter "env"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "env"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1149
@@ -2934,9 +2934,9 @@
 
 .method public glGetTexEnvxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "env"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "env"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1167
@@ -2956,10 +2956,10 @@
 
 .method public glGetTexEnvxv(II[II)V
     .locals 1
-    .parameter "env"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "env"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1161
@@ -2979,9 +2979,9 @@
 
 .method public glGetTexGenfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1544
@@ -3001,10 +3001,10 @@
 
 .method public glGetTexGenfv(II[FI)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1537
@@ -3024,9 +3024,9 @@
 
 .method public glGetTexGeniv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1558
@@ -3046,10 +3046,10 @@
 
 .method public glGetTexGeniv(II[II)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1551
@@ -3069,9 +3069,9 @@
 
 .method public glGetTexGenxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1572
@@ -3091,10 +3091,10 @@
 
 .method public glGetTexGenxv(II[II)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1565
@@ -3114,9 +3114,9 @@
 
 .method public glGetTexParameterfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1180
@@ -3136,10 +3136,10 @@
 
 .method public glGetTexParameterfv(II[FI)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1174
@@ -3159,9 +3159,9 @@
 
 .method public glGetTexParameteriv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1193
@@ -3181,10 +3181,10 @@
 
 .method public glGetTexParameteriv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1187
@@ -3204,9 +3204,9 @@
 
 .method public glGetTexParameterxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1206
@@ -3226,10 +3226,10 @@
 
 .method public glGetTexParameterxv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1200
@@ -3249,8 +3249,8 @@
 
 .method public glHint(II)V
     .locals 1
-    .parameter "target"
-    .parameter "mode"
+    .param p1, "target"    # I
+    .param p2, "mode"    # I
 
     .prologue
     .line 385
@@ -3270,7 +3270,7 @@
 
 .method public glIsBuffer(I)Z
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # I
 
     .prologue
     .line 1212
@@ -3284,7 +3284,7 @@
     move-result v0
 
     .line 1214
-    .local v0, valid:Z
+    .local v0, "valid":Z
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 1215
@@ -3293,7 +3293,7 @@
 
 .method public glIsEnabled(I)Z
     .locals 2
-    .parameter "cap"
+    .param p1, "cap"    # I
 
     .prologue
     .line 1219
@@ -3307,7 +3307,7 @@
     move-result v0
 
     .line 1221
-    .local v0, valid:Z
+    .local v0, "valid":Z
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 1222
@@ -3316,7 +3316,7 @@
 
 .method public glIsFramebufferOES(I)Z
     .locals 2
-    .parameter "framebuffer"
+    .param p1, "framebuffer"    # I
 
     .prologue
     .line 1579
@@ -3330,7 +3330,7 @@
     move-result v0
 
     .line 1581
-    .local v0, result:Z
+    .local v0, "result":Z
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 1582
@@ -3339,7 +3339,7 @@
 
 .method public glIsRenderbufferOES(I)Z
     .locals 1
-    .parameter "renderbuffer"
+    .param p1, "renderbuffer"    # I
 
     .prologue
     .line 1587
@@ -3361,7 +3361,7 @@
 
 .method public glIsTexture(I)Z
     .locals 2
-    .parameter "texture"
+    .param p1, "texture"    # I
 
     .prologue
     .line 1226
@@ -3375,7 +3375,7 @@
     move-result v0
 
     .line 1228
-    .local v0, valid:Z
+    .local v0, "valid":Z
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 1229
@@ -3384,8 +3384,8 @@
 
 .method public glLightModelf(IF)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # F
 
     .prologue
     .line 391
@@ -3405,8 +3405,8 @@
 
 .method public glLightModelfv(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 403
@@ -3426,9 +3426,9 @@
 
 .method public glLightModelfv(I[FI)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 397
@@ -3448,8 +3448,8 @@
 
 .method public glLightModelx(II)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # I
 
     .prologue
     .line 409
@@ -3469,8 +3469,8 @@
 
 .method public glLightModelxv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 421
@@ -3490,9 +3490,9 @@
 
 .method public glLightModelxv(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 415
@@ -3512,9 +3512,9 @@
 
 .method public glLightf(IIF)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # F
 
     .prologue
     .line 427
@@ -3534,9 +3534,9 @@
 
 .method public glLightfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 439
@@ -3556,10 +3556,10 @@
 
 .method public glLightfv(II[FI)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 433
@@ -3579,9 +3579,9 @@
 
 .method public glLightx(III)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 445
@@ -3601,9 +3601,9 @@
 
 .method public glLightxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 457
@@ -3623,10 +3623,10 @@
 
 .method public glLightxv(II[II)V
     .locals 1
-    .parameter "light"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "light"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 451
@@ -3646,7 +3646,7 @@
 
 .method public glLineWidth(F)V
     .locals 1
-    .parameter "width"
+    .param p1, "width"    # F
 
     .prologue
     .line 463
@@ -3666,7 +3666,7 @@
 
 .method public glLineWidthx(I)V
     .locals 1
-    .parameter "width"
+    .param p1, "width"    # I
 
     .prologue
     .line 469
@@ -3705,7 +3705,7 @@
 
 .method public glLoadMatrixf(Ljava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 487
@@ -3725,8 +3725,8 @@
 
 .method public glLoadMatrixf([FI)V
     .locals 1
-    .parameter "m"
-    .parameter "offset"
+    .param p1, "m"    # [F
+    .param p2, "offset"    # I
 
     .prologue
     .line 481
@@ -3746,7 +3746,7 @@
 
 .method public glLoadMatrixx(Ljava/nio/IntBuffer;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 499
@@ -3766,8 +3766,8 @@
 
 .method public glLoadMatrixx([II)V
     .locals 1
-    .parameter "m"
-    .parameter "offset"
+    .param p1, "m"    # [I
+    .param p2, "offset"    # I
 
     .prologue
     .line 493
@@ -3806,7 +3806,7 @@
 
 .method public glLogicOp(I)V
     .locals 1
-    .parameter "opcode"
+    .param p1, "opcode"    # I
 
     .prologue
     .line 505
@@ -3826,9 +3826,9 @@
 
 .method public glMaterialf(IIF)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # F
 
     .prologue
     .line 511
@@ -3848,9 +3848,9 @@
 
 .method public glMaterialfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 523
@@ -3870,10 +3870,10 @@
 
 .method public glMaterialfv(II[FI)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 517
@@ -3893,9 +3893,9 @@
 
 .method public glMaterialx(III)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 529
@@ -3915,9 +3915,9 @@
 
 .method public glMaterialxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 541
@@ -3937,10 +3937,10 @@
 
 .method public glMaterialxv(II[II)V
     .locals 1
-    .parameter "face"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "face"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 535
@@ -3960,10 +3960,10 @@
 
 .method public glMatrixIndexPointerOES(IIII)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1362
@@ -3983,10 +3983,10 @@
 
 .method public glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1355
@@ -4006,7 +4006,7 @@
 
 .method public glMatrixMode(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 547
@@ -4026,7 +4026,7 @@
 
 .method public glMultMatrixf(Ljava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 559
@@ -4046,8 +4046,8 @@
 
 .method public glMultMatrixf([FI)V
     .locals 1
-    .parameter "m"
-    .parameter "offset"
+    .param p1, "m"    # [F
+    .param p2, "offset"    # I
 
     .prologue
     .line 553
@@ -4067,7 +4067,7 @@
 
 .method public glMultMatrixx(Ljava/nio/IntBuffer;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 571
@@ -4087,8 +4087,8 @@
 
 .method public glMultMatrixx([II)V
     .locals 1
-    .parameter "m"
-    .parameter "offset"
+    .param p1, "m"    # [I
+    .param p2, "offset"    # I
 
     .prologue
     .line 565
@@ -4108,11 +4108,11 @@
 
 .method public glMultiTexCoord4f(IFFFF)V
     .locals 6
-    .parameter "target"
-    .parameter "s"
-    .parameter "t"
-    .parameter "r"
-    .parameter "q"
+    .param p1, "target"    # I
+    .param p2, "s"    # F
+    .param p3, "t"    # F
+    .param p4, "r"    # F
+    .param p5, "q"    # F
 
     .prologue
     .line 578
@@ -4142,11 +4142,11 @@
 
 .method public glMultiTexCoord4x(IIIII)V
     .locals 6
-    .parameter "target"
-    .parameter "s"
-    .parameter "t"
-    .parameter "r"
-    .parameter "q"
+    .param p1, "target"    # I
+    .param p2, "s"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "q"    # I
 
     .prologue
     .line 584
@@ -4176,9 +4176,9 @@
 
 .method public glNormal3f(FFF)V
     .locals 1
-    .parameter "nx"
-    .parameter "ny"
-    .parameter "nz"
+    .param p1, "nx"    # F
+    .param p2, "ny"    # F
+    .param p3, "nz"    # F
 
     .prologue
     .line 590
@@ -4198,9 +4198,9 @@
 
 .method public glNormal3x(III)V
     .locals 1
-    .parameter "nx"
-    .parameter "ny"
-    .parameter "nz"
+    .param p1, "nx"    # I
+    .param p2, "ny"    # I
+    .param p3, "nz"    # I
 
     .prologue
     .line 596
@@ -4220,9 +4220,9 @@
 
 .method public glNormalPointer(III)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1233
@@ -4242,9 +4242,9 @@
 
 .method public glNormalPointer(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 602
@@ -4264,12 +4264,12 @@
 
 .method public glOrthof(FFFFFF)V
     .locals 7
-    .parameter "left"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "top"
-    .parameter "near"
-    .parameter "far"
+    .param p1, "left"    # F
+    .param p2, "right"    # F
+    .param p3, "bottom"    # F
+    .param p4, "top"    # F
+    .param p5, "near"    # F
+    .param p6, "far"    # F
 
     .prologue
     .line 609
@@ -4301,12 +4301,12 @@
 
 .method public glOrthox(IIIIII)V
     .locals 7
-    .parameter "left"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "top"
-    .parameter "near"
-    .parameter "far"
+    .param p1, "left"    # I
+    .param p2, "right"    # I
+    .param p3, "bottom"    # I
+    .param p4, "top"    # I
+    .param p5, "near"    # I
+    .param p6, "far"    # I
 
     .prologue
     .line 616
@@ -4338,8 +4338,8 @@
 
 .method public glPixelStorei(II)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # I
 
     .prologue
     .line 622
@@ -4359,8 +4359,8 @@
 
 .method public glPointParameterf(IF)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # F
 
     .prologue
     .line 1239
@@ -4380,8 +4380,8 @@
 
 .method public glPointParameterfv(ILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1251
@@ -4401,9 +4401,9 @@
 
 .method public glPointParameterfv(I[FI)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [F
+    .param p3, "offset"    # I
 
     .prologue
     .line 1245
@@ -4423,8 +4423,8 @@
 
 .method public glPointParameterx(II)V
     .locals 1
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "pname"    # I
+    .param p2, "param"    # I
 
     .prologue
     .line 1257
@@ -4444,8 +4444,8 @@
 
 .method public glPointParameterxv(ILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "pname"    # I
+    .param p2, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1269
@@ -4465,9 +4465,9 @@
 
 .method public glPointParameterxv(I[II)V
     .locals 1
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "pname"    # I
+    .param p2, "params"    # [I
+    .param p3, "offset"    # I
 
     .prologue
     .line 1263
@@ -4487,7 +4487,7 @@
 
 .method public glPointSize(F)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # F
 
     .prologue
     .line 628
@@ -4507,9 +4507,9 @@
 
 .method public glPointSizePointerOES(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1275
@@ -4529,7 +4529,7 @@
 
 .method public glPointSizex(I)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 634
@@ -4549,8 +4549,8 @@
 
 .method public glPolygonOffset(FF)V
     .locals 1
-    .parameter "factor"
-    .parameter "units"
+    .param p1, "factor"    # F
+    .param p2, "units"    # F
 
     .prologue
     .line 640
@@ -4570,8 +4570,8 @@
 
 .method public glPolygonOffsetx(II)V
     .locals 1
-    .parameter "factor"
-    .parameter "units"
+    .param p1, "factor"    # I
+    .param p2, "units"    # I
 
     .prologue
     .line 646
@@ -4629,8 +4629,8 @@
 
 .method public glQueryMatrixxOES(Ljava/nio/IntBuffer;Ljava/nio/IntBuffer;)I
     .locals 2
-    .parameter "mantissa"
-    .parameter "exponent"
+    .param p1, "mantissa"    # Ljava/nio/IntBuffer;
+    .param p2, "exponent"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 956
@@ -4644,7 +4644,7 @@
     move-result v0
 
     .line 958
-    .local v0, valid:I
+    .local v0, "valid":I
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 959
@@ -4653,10 +4653,10 @@
 
 .method public glQueryMatrixxOES([II[II)I
     .locals 2
-    .parameter "mantissa"
-    .parameter "mantissaOffset"
-    .parameter "exponent"
-    .parameter "exponentOffset"
+    .param p1, "mantissa"    # [I
+    .param p2, "mantissaOffset"    # I
+    .param p3, "exponent"    # [I
+    .param p4, "exponentOffset"    # I
 
     .prologue
     .line 948
@@ -4670,7 +4670,7 @@
     move-result v0
 
     .line 951
-    .local v0, valid:I
+    .local v0, "valid":I
     invoke-direct {p0}, Landroid/opengl/GLErrorWrapper;->checkError()V
 
     .line 952
@@ -4679,13 +4679,13 @@
 
 .method public glReadPixels(IIIIIILjava/nio/Buffer;)V
     .locals 8
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "type"
-    .parameter "pixels"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
+    .param p5, "format"    # I
+    .param p6, "type"    # I
+    .param p7, "pixels"    # Ljava/nio/Buffer;
 
     .prologue
     .line 665
@@ -4719,10 +4719,10 @@
 
 .method public glRenderbufferStorageOES(IIII)V
     .locals 1
-    .parameter "target"
-    .parameter "internalformat"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "target"    # I
+    .param p2, "internalformat"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 1596
@@ -4742,10 +4742,10 @@
 
 .method public glRotatef(FFFF)V
     .locals 1
-    .parameter "angle"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "angle"    # F
+    .param p2, "x"    # F
+    .param p3, "y"    # F
+    .param p4, "z"    # F
 
     .prologue
     .line 671
@@ -4765,10 +4765,10 @@
 
 .method public glRotatex(IIII)V
     .locals 1
-    .parameter "angle"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "angle"    # I
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "z"    # I
 
     .prologue
     .line 677
@@ -4788,8 +4788,8 @@
 
 .method public glSampleCoverage(FZ)V
     .locals 1
-    .parameter "value"
-    .parameter "invert"
+    .param p1, "value"    # F
+    .param p2, "invert"    # Z
 
     .prologue
     .line 683
@@ -4809,8 +4809,8 @@
 
 .method public glSampleCoveragex(IZ)V
     .locals 1
-    .parameter "value"
-    .parameter "invert"
+    .param p1, "value"    # I
+    .param p2, "invert"    # Z
 
     .prologue
     .line 689
@@ -4830,9 +4830,9 @@
 
 .method public glScalef(FFF)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
     .prologue
     .line 695
@@ -4852,9 +4852,9 @@
 
 .method public glScalex(III)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "z"    # I
 
     .prologue
     .line 701
@@ -4874,10 +4874,10 @@
 
 .method public glScissor(IIII)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 707
@@ -4897,7 +4897,7 @@
 
 .method public glShadeModel(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 713
@@ -4917,9 +4917,9 @@
 
 .method public glStencilFunc(III)V
     .locals 1
-    .parameter "func"
-    .parameter "ref"
-    .parameter "mask"
+    .param p1, "func"    # I
+    .param p2, "ref"    # I
+    .param p3, "mask"    # I
 
     .prologue
     .line 719
@@ -4939,7 +4939,7 @@
 
 .method public glStencilMask(I)V
     .locals 1
-    .parameter "mask"
+    .param p1, "mask"    # I
 
     .prologue
     .line 725
@@ -4959,9 +4959,9 @@
 
 .method public glStencilOp(III)V
     .locals 1
-    .parameter "fail"
-    .parameter "zfail"
-    .parameter "zpass"
+    .param p1, "fail"    # I
+    .param p2, "zfail"    # I
+    .param p3, "zpass"    # I
 
     .prologue
     .line 731
@@ -4981,10 +4981,10 @@
 
 .method public glTexCoordPointer(IIII)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1281
@@ -5004,10 +5004,10 @@
 
 .method public glTexCoordPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 738
@@ -5027,9 +5027,9 @@
 
 .method public glTexEnvf(IIF)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # F
 
     .prologue
     .line 744
@@ -5049,9 +5049,9 @@
 
 .method public glTexEnvfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 756
@@ -5071,10 +5071,10 @@
 
 .method public glTexEnvfv(II[FI)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 750
@@ -5094,9 +5094,9 @@
 
 .method public glTexEnvi(III)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 1287
@@ -5116,9 +5116,9 @@
 
 .method public glTexEnviv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1299
@@ -5138,10 +5138,10 @@
 
 .method public glTexEnviv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1293
@@ -5161,9 +5161,9 @@
 
 .method public glTexEnvx(III)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 762
@@ -5183,9 +5183,9 @@
 
 .method public glTexEnvxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 774
@@ -5205,10 +5205,10 @@
 
 .method public glTexEnvxv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 768
@@ -5228,9 +5228,9 @@
 
 .method public glTexGenf(IIF)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # F
 
     .prologue
     .line 1603
@@ -5250,9 +5250,9 @@
 
 .method public glTexGenfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1617
@@ -5272,10 +5272,10 @@
 
 .method public glTexGenfv(II[FI)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1610
@@ -5295,9 +5295,9 @@
 
 .method public glTexGeni(III)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 1624
@@ -5317,9 +5317,9 @@
 
 .method public glTexGeniv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1638
@@ -5339,10 +5339,10 @@
 
 .method public glTexGeniv(II[II)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1631
@@ -5362,9 +5362,9 @@
 
 .method public glTexGenx(III)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 1645
@@ -5384,9 +5384,9 @@
 
 .method public glTexGenxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1659
@@ -5406,10 +5406,10 @@
 
 .method public glTexGenxv(II[II)V
     .locals 1
-    .parameter "coord"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "coord"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1652
@@ -5429,15 +5429,15 @@
 
 .method public glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
     .locals 10
-    .parameter "target"
-    .parameter "level"
-    .parameter "internalformat"
-    .parameter "width"
-    .parameter "height"
-    .parameter "border"
-    .parameter "format"
-    .parameter "type"
-    .parameter "pixels"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "internalformat"    # I
+    .param p4, "width"    # I
+    .param p5, "height"    # I
+    .param p6, "border"    # I
+    .param p7, "format"    # I
+    .param p8, "type"    # I
+    .param p9, "pixels"    # Ljava/nio/Buffer;
 
     .prologue
     .line 782
@@ -5475,9 +5475,9 @@
 
 .method public glTexParameterf(IIF)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # F
 
     .prologue
     .line 789
@@ -5497,9 +5497,9 @@
 
 .method public glTexParameterfv(IILjava/nio/FloatBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/FloatBuffer;
 
     .prologue
     .line 1312
@@ -5519,10 +5519,10 @@
 
 .method public glTexParameterfv(II[FI)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [F
+    .param p4, "offset"    # I
 
     .prologue
     .line 1306
@@ -5542,9 +5542,9 @@
 
 .method public glTexParameteri(III)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 1318
@@ -5564,9 +5564,9 @@
 
 .method public glTexParameteriv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 807
@@ -5586,10 +5586,10 @@
 
 .method public glTexParameteriv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 801
@@ -5609,9 +5609,9 @@
 
 .method public glTexParameterx(III)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "param"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "param"    # I
 
     .prologue
     .line 795
@@ -5631,9 +5631,9 @@
 
 .method public glTexParameterxv(IILjava/nio/IntBuffer;)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # Ljava/nio/IntBuffer;
 
     .prologue
     .line 1330
@@ -5653,10 +5653,10 @@
 
 .method public glTexParameterxv(II[II)V
     .locals 1
-    .parameter "target"
-    .parameter "pname"
-    .parameter "params"
-    .parameter "offset"
+    .param p1, "target"    # I
+    .param p2, "pname"    # I
+    .param p3, "params"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1324
@@ -5676,15 +5676,15 @@
 
 .method public glTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
     .locals 10
-    .parameter "target"
-    .parameter "level"
-    .parameter "xoffset"
-    .parameter "yoffset"
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "type"
-    .parameter "pixels"
+    .param p1, "target"    # I
+    .param p2, "level"    # I
+    .param p3, "xoffset"    # I
+    .param p4, "yoffset"    # I
+    .param p5, "width"    # I
+    .param p6, "height"    # I
+    .param p7, "format"    # I
+    .param p8, "type"    # I
+    .param p9, "pixels"    # Ljava/nio/Buffer;
 
     .prologue
     .line 815
@@ -5722,9 +5722,9 @@
 
 .method public glTranslatef(FFF)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
     .prologue
     .line 822
@@ -5744,9 +5744,9 @@
 
 .method public glTranslatex(III)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "z"    # I
 
     .prologue
     .line 828
@@ -5766,10 +5766,10 @@
 
 .method public glVertexPointer(IIII)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1336
@@ -5789,10 +5789,10 @@
 
 .method public glVertexPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 835
@@ -5812,10 +5812,10 @@
 
 .method public glViewport(IIII)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 841
@@ -5835,10 +5835,10 @@
 
 .method public glWeightPointerOES(IIII)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "offset"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "offset"    # I
 
     .prologue
     .line 1375
@@ -5858,10 +5858,10 @@
 
 .method public glWeightPointerOES(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1369

@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/InterfaceConfiguration;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 142
@@ -51,12 +51,12 @@
     invoke-direct {v1}, Landroid/net/InterfaceConfiguration;-><init>()V
 
     .line 143
-    .local v1, info:Landroid/net/InterfaceConfiguration;
+    .local v1, "info":Landroid/net/InterfaceConfiguration;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    #setter for: Landroid/net/InterfaceConfiguration;->mHwAddr:Ljava/lang/String;
+    # setter for: Landroid/net/InterfaceConfiguration;->mHwAddr:Ljava/lang/String;
     invoke-static {v1, v3}, Landroid/net/InterfaceConfiguration;->access$002(Landroid/net/InterfaceConfiguration;Ljava/lang/String;)Ljava/lang/String;
 
     .line 144
@@ -77,7 +77,7 @@
 
     check-cast v3, Landroid/net/LinkAddress;
 
-    #setter for: Landroid/net/InterfaceConfiguration;->mAddr:Landroid/net/LinkAddress;
+    # setter for: Landroid/net/InterfaceConfiguration;->mAddr:Landroid/net/LinkAddress;
     invoke-static {v1, v3}, Landroid/net/InterfaceConfiguration;->access$102(Landroid/net/InterfaceConfiguration;Landroid/net/LinkAddress;)Landroid/net/LinkAddress;
 
     .line 147
@@ -87,15 +87,15 @@
     move-result v2
 
     .line 148
-    .local v2, size:I
+    .local v2, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
     .line 149
-    #getter for: Landroid/net/InterfaceConfiguration;->mFlags:Ljava/util/HashSet;
+    # getter for: Landroid/net/InterfaceConfiguration;->mFlags:Ljava/util/HashSet;
     invoke-static {v1}, Landroid/net/InterfaceConfiguration;->access$200(Landroid/net/InterfaceConfiguration;)Ljava/util/HashSet;
 
     move-result-object v3
@@ -118,7 +118,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 140
@@ -131,7 +131,7 @@
 
 .method public newArray(I)[Landroid/net/InterfaceConfiguration;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 155
@@ -142,7 +142,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 140

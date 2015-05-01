@@ -27,8 +27,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/app/ProcessStats;Ljava/lang/String;)V
     .locals 0
-    .parameter "stats"
-    .parameter "name"
+    .param p1, "stats"    # Lcom/android/internal/app/ProcessStats;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 2285
@@ -48,8 +48,8 @@
 # virtual methods
 .method addDuration(IJ)V
     .locals 6
-    .parameter "state"
-    .parameter "dur"
+    .param p1, "state"    # I
+    .param p2, "dur"    # J
 
     .prologue
     .line 2343
@@ -62,7 +62,7 @@
     move-result v0
 
     .line 2345
-    .local v0, idx:I
+    .local v0, "idx":I
     if-ltz v0, :cond_0
 
     .line 2346
@@ -71,7 +71,7 @@
     aget v2, v3, v0
 
     .line 2354
-    .local v2, off:I
+    .local v2, "off":I
     :goto_0
     iget-object v3, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
@@ -92,7 +92,7 @@
     check-cast v1, [J
 
     .line 2357
-    .local v1, longs:[J
+    .local v1, "longs":[J
     sget v3, Lcom/android/internal/app/ProcessStats;->OFFSET_INDEX_SHIFT:I
 
     shr-int v3, v2, v3
@@ -111,8 +111,8 @@
     return-void
 
     .line 2348
-    .end local v1           #longs:[J
-    .end local v2           #off:I
+    .end local v1    # "longs":[J
+    .end local v2    # "off":I
     :cond_0
     iget-object v3, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
@@ -139,7 +139,7 @@
     move-result v2
 
     .line 2351
-    .restart local v2       #off:I
+    .restart local v2    # "off":I
     iget-object v3, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
     iget-object v3, v3, Lcom/android/internal/app/ProcessStats;->mAddLongTable:[I
@@ -158,13 +158,13 @@
 
 .method addDurations(Lcom/android/internal/app/ProcessStats$DurationsTable;)V
     .locals 5
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/app/ProcessStats$DurationsTable;
 
     .prologue
     .line 2310
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p1, Lcom/android/internal/app/ProcessStats$DurationsTable;->mDurationsTableSize:I
 
@@ -176,7 +176,7 @@
     aget v0, v3, v1
 
     .line 2312
-    .local v0, ent:I
+    .local v0, "ent":I
     sget v3, Lcom/android/internal/app/ProcessStats;->OFFSET_TYPE_SHIFT:I
 
     shr-int v3, v0, v3
@@ -186,7 +186,7 @@
     and-int v2, v3, v4
 
     .line 2315
-    .local v2, state:I
+    .local v2, "state":I
     iget-object v3, p1, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
     const/4 v4, 0x0
@@ -203,15 +203,15 @@
     goto :goto_0
 
     .line 2317
-    .end local v0           #ent:I
-    .end local v2           #state:I
+    .end local v0    # "ent":I
+    .end local v2    # "state":I
     :cond_0
     return-void
 .end method
 
 .method copyDurationsTo(Lcom/android/internal/app/ProcessStats$DurationsTable;)V
     .locals 8
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/app/ProcessStats$DurationsTable;
 
     .prologue
     const/4 v7, 0x0
@@ -240,7 +240,7 @@
     .line 2294
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v4, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mDurationsTableSize:I
 
@@ -252,7 +252,7 @@
     aget v2, v4, v0
 
     .line 2296
-    .local v2, origEnt:I
+    .local v2, "origEnt":I
     sget v4, Lcom/android/internal/app/ProcessStats;->OFFSET_TYPE_SHIFT:I
 
     shr-int v4, v2, v4
@@ -262,7 +262,7 @@
     and-int v3, v4, v5
 
     .line 2297
-    .local v3, type:I
+    .local v3, "type":I
     iget-object v4, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
     const/4 v5, 0x1
@@ -272,7 +272,7 @@
     move-result v1
 
     .line 2298
-    .local v1, newOff:I
+    .local v1, "newOff":I
     iget-object v4, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
     iget-object v4, v4, Lcom/android/internal/app/ProcessStats;->mAddLongTable:[I
@@ -298,9 +298,9 @@
     goto :goto_0
 
     .line 2301
-    .end local v1           #newOff:I
-    .end local v2           #origEnt:I
-    .end local v3           #type:I
+    .end local v1    # "newOff":I
+    .end local v2    # "origEnt":I
+    .end local v3    # "type":I
     :cond_0
     iget-object v4, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
 
@@ -316,7 +316,7 @@
     iput v4, p1, Lcom/android/internal/app/ProcessStats$DurationsTable;->mDurationsTableSize:I
 
     .line 2307
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return-void
 
@@ -334,8 +334,8 @@
 
 .method getDuration(IJ)J
     .locals 4
-    .parameter "state"
-    .parameter "now"
+    .param p1, "state"    # I
+    .param p2, "now"    # J
 
     .prologue
     .line 2361
@@ -348,7 +348,7 @@
     move-result v0
 
     .line 2362
-    .local v0, idx:I
+    .local v0, "idx":I
     if-ltz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mStats:Lcom/android/internal/app/ProcessStats;
@@ -374,7 +374,7 @@
 
 .method readDurationsFromParcel(Landroid/os/Parcel;)Z
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x0
@@ -386,7 +386,7 @@
 
     const-string v3, "durations"
 
-    #calls: Lcom/android/internal/app/ProcessStats;->readTableFromParcel(Landroid/os/Parcel;Ljava/lang/String;Ljava/lang/String;)[I
+    # invokes: Lcom/android/internal/app/ProcessStats;->readTableFromParcel(Landroid/os/Parcel;Ljava/lang/String;Ljava/lang/String;)[I
     invoke-static {v1, p1, v2, v3}, Lcom/android/internal/app/ProcessStats;->access$100(Lcom/android/internal/app/ProcessStats;Landroid/os/Parcel;Ljava/lang/String;Ljava/lang/String;)[I
 
     move-result-object v1
@@ -443,7 +443,7 @@
 
 .method writeDurationsToParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 2325
@@ -454,7 +454,7 @@
     .line 2326
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Lcom/android/internal/app/ProcessStats$DurationsTable;->mDurationsTableSize:I
 

@@ -75,8 +75,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 5918
@@ -94,8 +94,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 5899
@@ -109,7 +109,7 @@
     move-result-object v0
 
     .line 5901
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
     const/4 v2, 0x1
@@ -125,7 +125,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 5928
@@ -147,7 +147,7 @@
 
 .method protected static sizeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "size"
+    .param p0, "size"    # I
 
     .prologue
     .line 5999
@@ -186,7 +186,7 @@
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "output"
+    .param p1, "output"    # Ljava/lang/String;
 
     .prologue
     .line 5975
@@ -245,9 +245,9 @@
 
 .method public onDebugDraw(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 0
-    .parameter "view"
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "canvas"    # Landroid/graphics/Canvas;
+    .param p3, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 5988
@@ -256,7 +256,7 @@
 
 .method public resolveLayoutDirection(I)V
     .locals 0
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 5963
@@ -265,9 +265,9 @@
 
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
     .locals 1
-    .parameter "a"
-    .parameter "widthAttr"
-    .parameter "heightAttr"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "widthAttr"    # I
+    .param p3, "heightAttr"    # I
 
     .prologue
     .line 5948

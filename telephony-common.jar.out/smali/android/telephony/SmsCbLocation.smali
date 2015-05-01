@@ -68,7 +68,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 71
@@ -101,7 +101,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "plmn"
+    .param p1, "plmn"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, -0x1
@@ -124,9 +124,9 @@
 
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter "plmn"
-    .parameter "lac"
-    .parameter "cid"
+    .param p1, "plmn"    # Ljava/lang/String;
+    .param p2, "lac"    # I
+    .param p3, "cid"    # I
 
     .prologue
     .line 62
@@ -159,7 +159,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -195,7 +195,7 @@
     check-cast v0, Landroid/telephony/SmsCbLocation;
 
     .line 118
-    .local v0, other:Landroid/telephony/SmsCbLocation;
+    .local v0, "other":Landroid/telephony/SmsCbLocation;
     iget-object v3, p0, Landroid/telephony/SmsCbLocation;->mPlmn:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/telephony/SmsCbLocation;->mPlmn:Ljava/lang/String;
@@ -266,7 +266,7 @@
     move-result v0
 
     .line 104
-    .local v0, hash:I
+    .local v0, "hash":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/telephony/SmsCbLocation;->mLac:I
@@ -286,7 +286,7 @@
 
 .method public isInLocationArea(Landroid/telephony/SmsCbLocation;)Z
     .locals 4
-    .parameter "area"
+    .param p1, "area"    # Landroid/telephony/SmsCbLocation;
 
     .prologue
     const/4 v0, 0x0
@@ -336,9 +336,9 @@
 
 .method public isInLocationArea(Ljava/lang/String;II)Z
     .locals 3
-    .parameter "plmn"
-    .parameter "lac"
-    .parameter "cid"
+    .param p1, "plmn"    # Ljava/lang/String;
+    .param p2, "lac"    # I
+    .param p3, "cid"    # I
 
     .prologue
     const/4 v2, -0x1
@@ -444,8 +444,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 174

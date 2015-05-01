@@ -26,7 +26,7 @@
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/contact_directories"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT:J = 0x0L
 
@@ -72,7 +72,7 @@
     .locals 2
 
     .prologue
-    .line 442
+    .line 444
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "directories"
@@ -90,31 +90,31 @@
     .locals 0
 
     .prologue
-    .line 435
+    .line 437
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 436
+    .line 438
     return-void
 .end method
 
 .method public static notifyDirectoryChange(Landroid/content/ContentResolver;)V
     .locals 3
-    .parameter "resolver"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
 
     .prologue
     const/4 v2, 0x0
 
-    .line 616
+    .line 618
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 617
-    .local v0, contentValues:Landroid/content/ContentValues;
+    .line 619
+    .local v0, "contentValues":Landroid/content/ContentValues;
     sget-object v1, Landroid/provider/ContactsContract$Directory;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v1, v0, v2, v2}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 618
+    .line 620
     return-void
 .end method

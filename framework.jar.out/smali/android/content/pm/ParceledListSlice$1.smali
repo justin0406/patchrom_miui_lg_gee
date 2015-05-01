@@ -25,13 +25,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/ParceledListSlice;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 129
-    .local p0, this:Landroid/content/pm/ParceledListSlice$1;,"Landroid/content/pm/ParceledListSlice.1;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice$1;, "Landroid/content/pm/ParceledListSlice.1;"
     iput-object p1, p0, Landroid/content/pm/ParceledListSlice$1;->this$0:Landroid/content/pm/ParceledListSlice;
 
     iput p2, p0, Landroid/content/pm/ParceledListSlice$1;->val$N:I
@@ -47,10 +44,10 @@
 # virtual methods
 .method protected onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,7 +55,7 @@
     .end annotation
 
     .prologue
-    .local p0, this:Landroid/content/pm/ParceledListSlice$1;,"Landroid/content/pm/ParceledListSlice.1;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice$1;, "Landroid/content/pm/ParceledListSlice.1;"
     const/4 v2, 0x1
 
     .line 133
@@ -80,13 +77,15 @@
     move-result v0
 
     .line 137
-    .local v0, i:I
+    .local v0, "i":I
+    # getter for: Landroid/content/pm/ParceledListSlice;->DEBUG:Z
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$000()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
+    # getter for: Landroid/content/pm/ParceledListSlice;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -134,7 +133,7 @@
 
     move-result v1
 
-    const/high16 v3, 0x4
+    const/high16 v3, 0x40000
 
     if-ge v1, v3, :cond_3
 
@@ -144,7 +143,7 @@
     .line 140
     iget-object v1, p0, Landroid/content/pm/ParceledListSlice$1;->this$0:Landroid/content/pm/ParceledListSlice;
 
-    #getter for: Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
+    # getter for: Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
     invoke-static {v1}, Landroid/content/pm/ParceledListSlice;->access$200(Landroid/content/pm/ParceledListSlice;)Ljava/util/List;
 
     move-result-object v1
@@ -160,12 +159,14 @@
     invoke-interface {v1, p3, v3}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 141
+    # getter for: Landroid/content/pm/ParceledListSlice;->DEBUG:Z
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$000()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
+    # getter for: Landroid/content/pm/ParceledListSlice;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -192,7 +193,7 @@
 
     iget-object v4, p0, Landroid/content/pm/ParceledListSlice$1;->this$0:Landroid/content/pm/ParceledListSlice;
 
-    #getter for: Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
+    # getter for: Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
     invoke-static {v4}, Landroid/content/pm/ParceledListSlice;->access$200(Landroid/content/pm/ParceledListSlice;)Ljava/util/List;
 
     move-result-object v4
@@ -224,12 +225,14 @@
     if-ge v0, v1, :cond_5
 
     .line 145
+    # getter for: Landroid/content/pm/ParceledListSlice;->DEBUG:Z
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$000()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
+    # getter for: Landroid/content/pm/ParceledListSlice;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/content/pm/ParceledListSlice;->access$100()Ljava/lang/String;
 
     move-result-object v1

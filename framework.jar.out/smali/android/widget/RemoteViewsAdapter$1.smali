@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 932
@@ -47,6 +45,7 @@
 
     .prologue
     .line 935
+    # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
 
     move-result-object v1
@@ -55,6 +54,7 @@
 
     .line 936
     :try_start_0
+    # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
 
     move-result-object v0
@@ -68,6 +68,7 @@
     if-eqz v0, :cond_0
 
     .line 937
+    # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
 
     move-result-object v0
@@ -78,6 +79,7 @@
 
     .line 939
     :cond_0
+    # getter for: Landroid/widget/RemoteViewsAdapter;->sRemoteViewsCacheRemoveRunnables:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1600()Ljava/util/HashMap;
 
     move-result-object v0
@@ -91,6 +93,7 @@
     if-eqz v0, :cond_1
 
     .line 940
+    # getter for: Landroid/widget/RemoteViewsAdapter;->sRemoteViewsCacheRemoveRunnables:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1600()Ljava/util/HashMap;
 
     move-result-object v0

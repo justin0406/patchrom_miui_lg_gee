@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "len"
+    .param p1, "len"    # I
 
     .prologue
     .line 32
@@ -48,7 +48,7 @@
 
 .method public constructor <init>([B)V
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # [B
 
     .prologue
     .line 39
@@ -82,7 +82,7 @@
 # virtual methods
 .method public addBoolean(Z)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Z
 
     .prologue
     .line 579
@@ -107,7 +107,7 @@
 
 .method public addF32(F)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # F
 
     .prologue
     .line 218
@@ -123,7 +123,7 @@
 
 .method public addF32(Landroid/renderscript/Float2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Float2;
 
     .prologue
     .line 242
@@ -142,7 +142,7 @@
 
 .method public addF32(Landroid/renderscript/Float3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Float3;
 
     .prologue
     .line 246
@@ -166,7 +166,7 @@
 
 .method public addF32(Landroid/renderscript/Float4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Float4;
 
     .prologue
     .line 251
@@ -195,7 +195,7 @@
 
 .method public addF64(D)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # D
 
     .prologue
     .line 226
@@ -211,7 +211,7 @@
 
 .method public addF64(Landroid/renderscript/Double2;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Double2;
 
     .prologue
     .line 258
@@ -230,7 +230,7 @@
 
 .method public addF64(Landroid/renderscript/Double3;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Double3;
 
     .prologue
     .line 262
@@ -254,7 +254,7 @@
 
 .method public addF64(Landroid/renderscript/Double4;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Double4;
 
     .prologue
     .line 267
@@ -283,7 +283,7 @@
 
 .method public addI16(Landroid/renderscript/Short2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short2;
 
     .prologue
     .line 306
@@ -302,7 +302,7 @@
 
 .method public addI16(Landroid/renderscript/Short3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short3;
 
     .prologue
     .line 310
@@ -326,7 +326,7 @@
 
 .method public addI16(Landroid/renderscript/Short4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short4;
 
     .prologue
     .line 315
@@ -355,7 +355,7 @@
 
 .method public addI16(S)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # S
 
     .prologue
     .line 103
@@ -399,7 +399,7 @@
 
 .method public addI32(I)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # I
 
     .prologue
     .line 118
@@ -479,7 +479,7 @@
 
 .method public addI32(Landroid/renderscript/Int2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int2;
 
     .prologue
     .line 338
@@ -498,7 +498,7 @@
 
 .method public addI32(Landroid/renderscript/Int3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int3;
 
     .prologue
     .line 342
@@ -522,7 +522,7 @@
 
 .method public addI32(Landroid/renderscript/Int4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int4;
 
     .prologue
     .line 347
@@ -551,7 +551,7 @@
 
 .method public addI64(J)V
     .locals 7
-    .parameter "v"
+    .param p1, "v"    # J
 
     .prologue
     const/16 v6, 0x8
@@ -729,7 +729,7 @@
 
 .method public addI64(Landroid/renderscript/Long2;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long2;
 
     .prologue
     .line 370
@@ -748,7 +748,7 @@
 
 .method public addI64(Landroid/renderscript/Long3;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long3;
 
     .prologue
     .line 374
@@ -772,7 +772,7 @@
 
 .method public addI64(Landroid/renderscript/Long4;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long4;
 
     .prologue
     .line 379
@@ -801,7 +801,7 @@
 
 .method public addI8(B)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # B
 
     .prologue
     .line 94
@@ -821,7 +821,7 @@
 
 .method public addI8(Landroid/renderscript/Byte2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Byte2;
 
     .prologue
     .line 274
@@ -840,7 +840,7 @@
 
 .method public addI8(Landroid/renderscript/Byte3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Byte3;
 
     .prologue
     .line 278
@@ -864,7 +864,7 @@
 
 .method public addI8(Landroid/renderscript/Byte4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Byte4;
 
     .prologue
     .line 283
@@ -893,13 +893,13 @@
 
 .method public addMatrix(Landroid/renderscript/Matrix2f;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Matrix2f;
 
     .prologue
     .line 565
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix2f;->mMat:[F
 
@@ -926,13 +926,13 @@
 
 .method public addMatrix(Landroid/renderscript/Matrix3f;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Matrix3f;
 
     .prologue
     .line 551
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix3f;->mMat:[F
 
@@ -959,13 +959,13 @@
 
 .method public addMatrix(Landroid/renderscript/Matrix4f;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 537
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix4f;->mMat:[F
 
@@ -992,7 +992,7 @@
 
 .method public addObj(Landroid/renderscript/BaseObj;)V
     .locals 1
-    .parameter "obj"
+    .param p1, "obj"    # Landroid/renderscript/BaseObj;
 
     .prologue
     .line 234
@@ -1022,7 +1022,7 @@
 
 .method public addU16(I)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # I
 
     .prologue
     .line 180
@@ -1113,7 +1113,7 @@
 
 .method public addU16(Landroid/renderscript/Int2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int2;
 
     .prologue
     .line 322
@@ -1132,7 +1132,7 @@
 
 .method public addU16(Landroid/renderscript/Int3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int3;
 
     .prologue
     .line 326
@@ -1156,7 +1156,7 @@
 
 .method public addU16(Landroid/renderscript/Int4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Int4;
 
     .prologue
     .line 331
@@ -1185,7 +1185,7 @@
 
 .method public addU32(J)V
     .locals 6
-    .parameter "v"
+    .param p1, "v"    # J
 
     .prologue
     const-wide/16 v4, 0xff
@@ -1334,7 +1334,7 @@
 
 .method public addU32(Landroid/renderscript/Long2;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long2;
 
     .prologue
     .line 354
@@ -1353,7 +1353,7 @@
 
 .method public addU32(Landroid/renderscript/Long3;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long3;
 
     .prologue
     .line 358
@@ -1377,7 +1377,7 @@
 
 .method public addU32(Landroid/renderscript/Long4;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long4;
 
     .prologue
     .line 363
@@ -1406,7 +1406,7 @@
 
 .method public addU64(J)V
     .locals 7
-    .parameter "v"
+    .param p1, "v"    # J
 
     .prologue
     const/16 v6, 0x8
@@ -1630,7 +1630,7 @@
 
 .method public addU64(Landroid/renderscript/Long2;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long2;
 
     .prologue
     .line 386
@@ -1649,7 +1649,7 @@
 
 .method public addU64(Landroid/renderscript/Long3;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long3;
 
     .prologue
     .line 390
@@ -1673,7 +1673,7 @@
 
 .method public addU64(Landroid/renderscript/Long4;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Long4;
 
     .prologue
     .line 395
@@ -1702,7 +1702,7 @@
 
 .method public addU8(Landroid/renderscript/Short2;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short2;
 
     .prologue
     .line 290
@@ -1721,7 +1721,7 @@
 
 .method public addU8(Landroid/renderscript/Short3;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short3;
 
     .prologue
     .line 294
@@ -1745,7 +1745,7 @@
 
 .method public addU8(Landroid/renderscript/Short4;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Short4;
 
     .prologue
     .line 299
@@ -1774,7 +1774,7 @@
 
 .method public addU8(S)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # S
 
     .prologue
     .line 172
@@ -1843,7 +1843,7 @@
 
 .method public align(I)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # I
 
     .prologue
     .line 47
@@ -1944,7 +1944,7 @@
 
 .method public reset(I)V
     .locals 3
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 79
@@ -1990,7 +1990,7 @@
 
 .method public skip(I)V
     .locals 4
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 86
@@ -1999,7 +1999,7 @@
     add-int v0, v1, p1
 
     .line 87
-    .local v0, res:I
+    .local v0, "res":I
     if-ltz v0, :cond_0
 
     iget v1, p0, Landroid/renderscript/FieldPacker;->mLen:I
@@ -2052,7 +2052,7 @@
     move-result v0
 
     .line 584
-    .local v0, v:B
+    .local v0, "v":B
     if-ne v0, v1, :cond_0
 
     .line 587
@@ -2075,7 +2075,7 @@
     invoke-direct {v0}, Landroid/renderscript/Byte2;-><init>()V
 
     .line 448
-    .local v0, v:Landroid/renderscript/Byte2;
+    .local v0, "v":Landroid/renderscript/Byte2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI8()B
 
     move-result v1
@@ -2103,7 +2103,7 @@
     invoke-direct {v0}, Landroid/renderscript/Byte3;-><init>()V
 
     .line 454
-    .local v0, v:Landroid/renderscript/Byte3;
+    .local v0, "v":Landroid/renderscript/Byte3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI8()B
 
     move-result v1
@@ -2138,7 +2138,7 @@
     invoke-direct {v0}, Landroid/renderscript/Byte4;-><init>()V
 
     .line 461
-    .local v0, v:Landroid/renderscript/Byte4;
+    .local v0, "v":Landroid/renderscript/Byte4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI8()B
 
     move-result v1
@@ -2180,7 +2180,7 @@
     invoke-direct {v0}, Landroid/renderscript/Double2;-><init>()V
 
     .line 426
-    .local v0, v:Landroid/renderscript/Double2;
+    .local v0, "v":Landroid/renderscript/Double2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF64()D
 
     move-result-wide v1
@@ -2208,7 +2208,7 @@
     invoke-direct {v0}, Landroid/renderscript/Double3;-><init>()V
 
     .line 432
-    .local v0, v:Landroid/renderscript/Double3;
+    .local v0, "v":Landroid/renderscript/Double3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF64()D
 
     move-result-wide v1
@@ -2243,7 +2243,7 @@
     invoke-direct {v0}, Landroid/renderscript/Double4;-><init>()V
 
     .line 439
-    .local v0, v:Landroid/renderscript/Double4;
+    .local v0, "v":Landroid/renderscript/Double4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF64()D
 
     move-result-wide v1
@@ -2317,7 +2317,7 @@
     invoke-direct {v0}, Landroid/renderscript/Float2;-><init>()V
 
     .line 404
-    .local v0, v:Landroid/renderscript/Float2;
+    .local v0, "v":Landroid/renderscript/Float2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF32()F
 
     move-result v1
@@ -2345,7 +2345,7 @@
     invoke-direct {v0}, Landroid/renderscript/Float3;-><init>()V
 
     .line 410
-    .local v0, v:Landroid/renderscript/Float3;
+    .local v0, "v":Landroid/renderscript/Float3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF32()F
 
     move-result v1
@@ -2380,7 +2380,7 @@
     invoke-direct {v0}, Landroid/renderscript/Float4;-><init>()V
 
     .line 417
-    .local v0, v:Landroid/renderscript/Float4;
+    .local v0, "v":Landroid/renderscript/Float4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subF32()F
 
     move-result v1
@@ -2425,7 +2425,7 @@
     const/4 v0, 0x0
 
     .line 111
-    .local v0, v:S
+    .local v0, "v":S
     iget-object v1, p0, Landroid/renderscript/FieldPacker;->mData:[B
 
     iget v2, p0, Landroid/renderscript/FieldPacker;->mPos:I
@@ -2478,7 +2478,7 @@
     const/4 v0, 0x0
 
     .line 128
-    .local v0, v:I
+    .local v0, "v":I
     iget-object v1, p0, Landroid/renderscript/FieldPacker;->mData:[B
 
     iget v2, p0, Landroid/renderscript/FieldPacker;->mPos:I
@@ -2561,11 +2561,11 @@
     const-wide/16 v0, 0x0
 
     .line 151
-    .local v0, v:J
+    .local v0, "v":J
     const/4 v2, 0x0
 
     .line 152
-    .local v2, x:B
+    .local v2, "x":B
     iget-object v3, p0, Landroid/renderscript/FieldPacker;->mData:[B
 
     iget v4, p0, Landroid/renderscript/FieldPacker;->mPos:I
@@ -2772,7 +2772,7 @@
     invoke-direct {v0}, Landroid/renderscript/Int2;-><init>()V
 
     .line 492
-    .local v0, v:Landroid/renderscript/Int2;
+    .local v0, "v":Landroid/renderscript/Int2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI32()I
 
     move-result v1
@@ -2800,7 +2800,7 @@
     invoke-direct {v0}, Landroid/renderscript/Int3;-><init>()V
 
     .line 498
-    .local v0, v:Landroid/renderscript/Int3;
+    .local v0, "v":Landroid/renderscript/Int3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI32()I
 
     move-result v1
@@ -2835,7 +2835,7 @@
     invoke-direct {v0}, Landroid/renderscript/Int4;-><init>()V
 
     .line 505
-    .local v0, v:Landroid/renderscript/Int4;
+    .local v0, "v":Landroid/renderscript/Int4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI32()I
 
     move-result v1
@@ -2877,7 +2877,7 @@
     invoke-direct {v0}, Landroid/renderscript/Long2;-><init>()V
 
     .line 514
-    .local v0, v:Landroid/renderscript/Long2;
+    .local v0, "v":Landroid/renderscript/Long2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI64()J
 
     move-result-wide v1
@@ -2905,7 +2905,7 @@
     invoke-direct {v0}, Landroid/renderscript/Long3;-><init>()V
 
     .line 520
-    .local v0, v:Landroid/renderscript/Long3;
+    .local v0, "v":Landroid/renderscript/Long3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI64()J
 
     move-result-wide v1
@@ -2940,7 +2940,7 @@
     invoke-direct {v0}, Landroid/renderscript/Long4;-><init>()V
 
     .line 527
-    .local v0, v:Landroid/renderscript/Long4;
+    .local v0, "v":Landroid/renderscript/Long4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI64()J
 
     move-result-wide v1
@@ -2982,14 +2982,14 @@
     invoke-direct {v1}, Landroid/renderscript/Matrix2f;-><init>()V
 
     .line 572
-    .local v1, v:Landroid/renderscript/Matrix2f;
+    .local v1, "v":Landroid/renderscript/Matrix2f;
     iget-object v2, v1, Landroid/renderscript/Matrix2f;->mMat:[F
 
     array-length v2, v2
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3022,14 +3022,14 @@
     invoke-direct {v1}, Landroid/renderscript/Matrix3f;-><init>()V
 
     .line 558
-    .local v1, v:Landroid/renderscript/Matrix3f;
+    .local v1, "v":Landroid/renderscript/Matrix3f;
     iget-object v2, v1, Landroid/renderscript/Matrix3f;->mMat:[F
 
     array-length v2, v2
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3062,14 +3062,14 @@
     invoke-direct {v1}, Landroid/renderscript/Matrix4f;-><init>()V
 
     .line 544
-    .local v1, v:Landroid/renderscript/Matrix4f;
+    .local v1, "v":Landroid/renderscript/Matrix4f;
     iget-object v2, v1, Landroid/renderscript/Matrix4f;->mMat:[F
 
     array-length v2, v2
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3102,7 +3102,7 @@
     invoke-direct {v0}, Landroid/renderscript/Short2;-><init>()V
 
     .line 470
-    .local v0, v:Landroid/renderscript/Short2;
+    .local v0, "v":Landroid/renderscript/Short2;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI16()S
 
     move-result v1
@@ -3130,7 +3130,7 @@
     invoke-direct {v0}, Landroid/renderscript/Short3;-><init>()V
 
     .line 476
-    .local v0, v:Landroid/renderscript/Short3;
+    .local v0, "v":Landroid/renderscript/Short3;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI16()S
 
     move-result v1
@@ -3165,7 +3165,7 @@
     invoke-direct {v0}, Landroid/renderscript/Short4;-><init>()V
 
     .line 483
-    .local v0, v:Landroid/renderscript/Short4;
+    .local v0, "v":Landroid/renderscript/Short4;
     invoke-virtual {p0}, Landroid/renderscript/FieldPacker;->subI16()S
 
     move-result v1
@@ -3199,7 +3199,7 @@
 
 .method public subalign(I)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # I
 
     .prologue
     .line 58

@@ -18,8 +18,8 @@
 # virtual methods
 .method public onUpdate(ILjava/lang/String;)V
     .locals 0
-    .parameter "nowBeingRestored"
-    .parameter "currentPackage"
+    .param p1, "nowBeingRestored"    # I
+    .param p2, "currentPackage"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -28,7 +28,7 @@
 
 .method public restoreFinished(I)V
     .locals 0
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     .line 75
@@ -37,7 +37,7 @@
 
 .method public restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # [Landroid/app/backup/RestoreSet;
 
     .prologue
     .line 40
@@ -46,7 +46,7 @@
 
 .method public restoreStarting(I)V
     .locals 0
-    .parameter "numPackages"
+    .param p1, "numPackages"    # I
 
     .prologue
     .line 49

@@ -18,8 +18,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "year"
-    .parameter "month"
+    .param p1, "year"    # I
+    .param p2, "month"    # I
 
     .prologue
     .line 67
@@ -33,9 +33,9 @@
 
 .method public constructor <init>(III)V
     .locals 4
-    .parameter "year"
-    .parameter "month"
-    .parameter "weekStartDay"
+    .param p1, "year"    # I
+    .param p2, "month"    # I
+    .param p3, "weekStartDay"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -169,13 +169,13 @@
     move-result v0
 
     .line 207
-    .local v0, firstDayOfMonth:I
+    .local v0, "firstDayOfMonth":I
     iget v2, p0, Landroid/util/MonthDisplayHelper;->mWeekStartDay:I
 
     sub-int v1, v0, v2
 
     .line 208
-    .local v1, offset:I
+    .local v1, "offset":I
     if-gez v1, :cond_0
 
     .line 209
@@ -193,7 +193,7 @@
 # virtual methods
 .method public getColumnOf(I)I
     .locals 1
-    .parameter "day"
+    .param p1, "day"    # I
 
     .prologue
     .line 157
@@ -210,8 +210,8 @@
 
 .method public getDayAt(II)I
     .locals 3
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 136
@@ -250,7 +250,7 @@
     add-int/lit8 v0, v1, 0x1
 
     .line 142
-    .local v0, day:I
+    .local v0, "day":I
     iget v1, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInMonth:I
 
     if-le v0, v1, :cond_0
@@ -264,7 +264,7 @@
 
 .method public getDigitsForRow(I)[I
     .locals 5
-    .parameter "row"
+    .param p1, "row"    # I
 
     .prologue
     const/4 v3, 0x7
@@ -313,10 +313,10 @@
     new-array v1, v3, [I
 
     .line 122
-    .local v1, result:[I
+    .local v1, "result":[I
     const/4 v0, 0x0
 
-    .local v0, column:I
+    .local v0, "column":I
     :goto_0
     if-ge v0, v3, :cond_2
 
@@ -391,7 +391,7 @@
 
 .method public getRowOf(I)I
     .locals 1
-    .parameter "day"
+    .param p1, "day"    # I
 
     .prologue
     .line 150
@@ -434,8 +434,8 @@
 
 .method public isWithinCurrentMonth(II)Z
     .locals 4
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -479,7 +479,7 @@
     add-int/lit8 v0, v2, 0x1
 
     .line 190
-    .local v0, day:I
+    .local v0, "day":I
     iget v2, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInMonth:I
 
     if-gt v0, v2, :cond_0

@@ -25,7 +25,7 @@
 
 .method public callDrawGLFunction(I)I
     .locals 1
-    .parameter "drawGLFunction"
+    .param p1, "drawGLFunction"    # I
 
     .prologue
     .line 150
@@ -48,7 +48,7 @@
 
 .method public drawDisplayList(Landroid/view/DisplayList;)V
     .locals 2
-    .parameter "displayList"
+    .param p1, "displayList"    # Landroid/view/DisplayList;
 
     .prologue
     .line 94
@@ -80,7 +80,7 @@
 
 .method public invokeFunctors(Landroid/graphics/Rect;)I
     .locals 1
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 164
@@ -113,7 +113,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 39
@@ -126,7 +126,7 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 53

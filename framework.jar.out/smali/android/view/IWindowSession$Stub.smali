@@ -100,7 +100,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/view/IWindowSession;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -122,7 +122,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/view/IWindowSession;
@@ -138,7 +138,7 @@
     :cond_1
     new-instance v0, Landroid/view/IWindowSession$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/view/IWindowSession$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -156,10 +156,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 16
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -209,13 +209,13 @@
     move-result-object v2
 
     .line 56
-    .local v2, _arg0:Landroid/view/IWindow;
+    .local v2, "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 58
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -234,25 +234,25 @@
     check-cast v4, Landroid/view/WindowManager$LayoutParams;
 
     .line 65
-    .local v4, _arg2:Landroid/view/WindowManager$LayoutParams;
+    .local v4, "_arg2":Landroid/view/WindowManager$LayoutParams;
     :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 67
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
     .line 69
-    .local v6, _arg4:Landroid/graphics/Rect;
+    .local v6, "_arg4":Landroid/graphics/Rect;
     new-instance v7, Landroid/view/InputChannel;
 
     invoke-direct {v7}, Landroid/view/InputChannel;-><init>()V
 
-    .local v7, _arg5:Landroid/view/InputChannel;
+    .local v7, "_arg5":Landroid/view/InputChannel;
     move-object/from16 v1, p0
 
     .line 70
@@ -261,7 +261,7 @@
     move-result v15
 
     .line 71
-    .local v15, _result:I
+    .local v15, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 72
@@ -311,22 +311,22 @@
     goto :goto_0
 
     .line 62
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Landroid/graphics/Rect;
-    .end local v7           #_arg5:Landroid/view/InputChannel;
-    .end local v15           #_result:I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Landroid/graphics/Rect;
+    .end local v7    # "_arg5":Landroid/view/InputChannel;
+    .end local v15    # "_result":I
     :cond_0
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     goto :goto_1
 
     .line 78
-    .restart local v5       #_arg3:I
-    .restart local v6       #_arg4:Landroid/graphics/Rect;
-    .restart local v7       #_arg5:Landroid/view/InputChannel;
-    .restart local v15       #_result:I
+    .restart local v5    # "_arg3":I
+    .restart local v6    # "_arg4":Landroid/graphics/Rect;
+    .restart local v7    # "_arg5":Landroid/view/InputChannel;
+    .restart local v15    # "_result":I
     :cond_1
     const/4 v1, 0x0
 
@@ -347,13 +347,13 @@
     goto :goto_3
 
     .line 91
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Landroid/graphics/Rect;
-    .end local v7           #_arg5:Landroid/view/InputChannel;
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Landroid/graphics/Rect;
+    .end local v7    # "_arg5":Landroid/view/InputChannel;
+    .end local v15    # "_result":I
     :sswitch_2
     const-string v1, "android.view.IWindowSession"
 
@@ -371,13 +371,13 @@
     move-result-object v2
 
     .line 95
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 97
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -396,31 +396,31 @@
     check-cast v4, Landroid/view/WindowManager$LayoutParams;
 
     .line 104
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     :goto_4
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 106
-    .restart local v5       #_arg3:I
+    .restart local v5    # "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 108
-    .local v6, _arg4:I
+    .local v6, "_arg4":I
     new-instance v7, Landroid/graphics/Rect;
 
     invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
     .line 110
-    .local v7, _arg5:Landroid/graphics/Rect;
+    .local v7, "_arg5":Landroid/graphics/Rect;
     new-instance v8, Landroid/view/InputChannel;
 
     invoke-direct {v8}, Landroid/view/InputChannel;-><init>()V
 
-    .local v8, _arg6:Landroid/view/InputChannel;
+    .local v8, "_arg6":Landroid/view/InputChannel;
     move-object/from16 v1, p0
 
     .line 111
@@ -429,7 +429,7 @@
     move-result v15
 
     .line 112
-    .restart local v15       #_result:I
+    .restart local v15    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 113
@@ -479,24 +479,24 @@
     goto/16 :goto_0
 
     .line 101
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Landroid/graphics/Rect;
-    .end local v8           #_arg6:Landroid/view/InputChannel;
-    .end local v15           #_result:I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Landroid/graphics/Rect;
+    .end local v8    # "_arg6":Landroid/view/InputChannel;
+    .end local v15    # "_result":I
     :cond_3
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     goto :goto_4
 
     .line 119
-    .restart local v5       #_arg3:I
-    .restart local v6       #_arg4:I
-    .restart local v7       #_arg5:Landroid/graphics/Rect;
-    .restart local v8       #_arg6:Landroid/view/InputChannel;
-    .restart local v15       #_result:I
+    .restart local v5    # "_arg3":I
+    .restart local v6    # "_arg4":I
+    .restart local v7    # "_arg5":Landroid/graphics/Rect;
+    .restart local v8    # "_arg6":Landroid/view/InputChannel;
+    .restart local v15    # "_result":I
     :cond_4
     const/4 v1, 0x0
 
@@ -517,14 +517,14 @@
     goto :goto_6
 
     .line 132
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Landroid/graphics/Rect;
-    .end local v8           #_arg6:Landroid/view/InputChannel;
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Landroid/graphics/Rect;
+    .end local v8    # "_arg6":Landroid/view/InputChannel;
+    .end local v15    # "_result":I
     :sswitch_3
     const-string v1, "android.view.IWindowSession"
 
@@ -542,13 +542,13 @@
     move-result-object v2
 
     .line 136
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 138
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -567,19 +567,19 @@
     check-cast v4, Landroid/view/WindowManager$LayoutParams;
 
     .line 145
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 147
-    .restart local v5       #_arg3:I
+    .restart local v5    # "_arg3":I
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
-    .local v6, _arg4:Landroid/graphics/Rect;
+    .local v6, "_arg4":Landroid/graphics/Rect;
     move-object/from16 v1, p0
 
     .line 148
@@ -588,7 +588,7 @@
     move-result v15
 
     .line 149
-    .restart local v15       #_result:I
+    .restart local v15    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
@@ -620,20 +620,20 @@
     goto/16 :goto_0
 
     .line 142
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Landroid/graphics/Rect;
-    .end local v15           #_result:I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Landroid/graphics/Rect;
+    .end local v15    # "_result":I
     :cond_6
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     goto :goto_7
 
     .line 156
-    .restart local v5       #_arg3:I
-    .restart local v6       #_arg4:Landroid/graphics/Rect;
-    .restart local v15       #_result:I
+    .restart local v5    # "_arg3":I
+    .restart local v6    # "_arg4":Landroid/graphics/Rect;
+    .restart local v15    # "_result":I
     :cond_7
     const/4 v1, 0x0
 
@@ -644,12 +644,12 @@
     goto :goto_8
 
     .line 162
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Landroid/graphics/Rect;
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Landroid/graphics/Rect;
+    .end local v15    # "_result":I
     :sswitch_4
     const-string v1, "android.view.IWindowSession"
 
@@ -667,13 +667,13 @@
     move-result-object v2
 
     .line 166
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 168
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -692,25 +692,25 @@
     check-cast v4, Landroid/view/WindowManager$LayoutParams;
 
     .line 175
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     :goto_9
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 177
-    .restart local v5       #_arg3:I
+    .restart local v5    # "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 179
-    .local v6, _arg4:I
+    .local v6, "_arg4":I
     new-instance v7, Landroid/graphics/Rect;
 
     invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    .restart local v7       #_arg5:Landroid/graphics/Rect;
+    .restart local v7    # "_arg5":Landroid/graphics/Rect;
     move-object/from16 v1, p0
 
     .line 180
@@ -719,7 +719,7 @@
     move-result v15
 
     .line 181
-    .restart local v15       #_result:I
+    .restart local v15    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 182
@@ -751,22 +751,22 @@
     goto/16 :goto_0
 
     .line 172
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Landroid/graphics/Rect;
-    .end local v15           #_result:I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Landroid/graphics/Rect;
+    .end local v15    # "_result":I
     :cond_8
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     goto :goto_9
 
     .line 188
-    .restart local v5       #_arg3:I
-    .restart local v6       #_arg4:I
-    .restart local v7       #_arg5:Landroid/graphics/Rect;
-    .restart local v15       #_result:I
+    .restart local v5    # "_arg3":I
+    .restart local v6    # "_arg4":I
+    .restart local v7    # "_arg5":Landroid/graphics/Rect;
+    .restart local v15    # "_result":I
     :cond_9
     const/4 v1, 0x0
 
@@ -777,13 +777,13 @@
     goto :goto_a
 
     .line 194
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Landroid/graphics/Rect;
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Landroid/graphics/Rect;
+    .end local v15    # "_result":I
     :sswitch_5
     const-string v1, "android.view.IWindowSession"
 
@@ -801,7 +801,7 @@
     move-result-object v2
 
     .line 197
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->remove(Landroid/view/IWindow;)V
@@ -815,7 +815,7 @@
     goto/16 :goto_0
 
     .line 203
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_6
     const-string v1, "android.view.IWindowSession"
 
@@ -833,13 +833,13 @@
     move-result-object v2
 
     .line 207
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 209
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -858,67 +858,67 @@
     check-cast v4, Landroid/view/WindowManager$LayoutParams;
 
     .line 216
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     :goto_b
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 218
-    .restart local v5       #_arg3:I
+    .restart local v5    # "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 220
-    .restart local v6       #_arg4:I
+    .restart local v6    # "_arg4":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 222
-    .local v7, _arg5:I
+    .local v7, "_arg5":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
     .line 224
-    .local v8, _arg6:I
+    .local v8, "_arg6":I
     new-instance v9, Landroid/graphics/Rect;
 
     invoke-direct {v9}, Landroid/graphics/Rect;-><init>()V
 
     .line 226
-    .local v9, _arg7:Landroid/graphics/Rect;
+    .local v9, "_arg7":Landroid/graphics/Rect;
     new-instance v10, Landroid/graphics/Rect;
 
     invoke-direct {v10}, Landroid/graphics/Rect;-><init>()V
 
     .line 228
-    .local v10, _arg8:Landroid/graphics/Rect;
+    .local v10, "_arg8":Landroid/graphics/Rect;
     new-instance v11, Landroid/graphics/Rect;
 
     invoke-direct {v11}, Landroid/graphics/Rect;-><init>()V
 
     .line 230
-    .local v11, _arg9:Landroid/graphics/Rect;
+    .local v11, "_arg9":Landroid/graphics/Rect;
     new-instance v12, Landroid/graphics/Rect;
 
     invoke-direct {v12}, Landroid/graphics/Rect;-><init>()V
 
     .line 232
-    .local v12, _arg10:Landroid/graphics/Rect;
+    .local v12, "_arg10":Landroid/graphics/Rect;
     new-instance v13, Landroid/content/res/Configuration;
 
     invoke-direct {v13}, Landroid/content/res/Configuration;-><init>()V
 
     .line 234
-    .local v13, _arg11:Landroid/content/res/Configuration;
+    .local v13, "_arg11":Landroid/content/res/Configuration;
     new-instance v14, Landroid/view/Surface;
 
     invoke-direct {v14}, Landroid/view/Surface;-><init>()V
 
-    .local v14, _arg12:Landroid/view/Surface;
+    .local v14, "_arg12":Landroid/view/Surface;
     move-object/from16 v1, p0
 
     .line 235
@@ -927,7 +927,7 @@
     move-result v15
 
     .line 236
-    .restart local v15       #_result:I
+    .restart local v15    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 237
@@ -1049,36 +1049,36 @@
     goto/16 :goto_0
 
     .line 213
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:I
-    .end local v8           #_arg6:I
-    .end local v9           #_arg7:Landroid/graphics/Rect;
-    .end local v10           #_arg8:Landroid/graphics/Rect;
-    .end local v11           #_arg9:Landroid/graphics/Rect;
-    .end local v12           #_arg10:Landroid/graphics/Rect;
-    .end local v13           #_arg11:Landroid/content/res/Configuration;
-    .end local v14           #_arg12:Landroid/view/Surface;
-    .end local v15           #_result:I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":I
+    .end local v8    # "_arg6":I
+    .end local v9    # "_arg7":Landroid/graphics/Rect;
+    .end local v10    # "_arg8":Landroid/graphics/Rect;
+    .end local v11    # "_arg9":Landroid/graphics/Rect;
+    .end local v12    # "_arg10":Landroid/graphics/Rect;
+    .end local v13    # "_arg11":Landroid/content/res/Configuration;
+    .end local v14    # "_arg12":Landroid/view/Surface;
+    .end local v15    # "_result":I
     :cond_a
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/view/WindowManager$LayoutParams;
+    .restart local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
     goto/16 :goto_b
 
     .line 243
-    .restart local v5       #_arg3:I
-    .restart local v6       #_arg4:I
-    .restart local v7       #_arg5:I
-    .restart local v8       #_arg6:I
-    .restart local v9       #_arg7:Landroid/graphics/Rect;
-    .restart local v10       #_arg8:Landroid/graphics/Rect;
-    .restart local v11       #_arg9:Landroid/graphics/Rect;
-    .restart local v12       #_arg10:Landroid/graphics/Rect;
-    .restart local v13       #_arg11:Landroid/content/res/Configuration;
-    .restart local v14       #_arg12:Landroid/view/Surface;
-    .restart local v15       #_result:I
+    .restart local v5    # "_arg3":I
+    .restart local v6    # "_arg4":I
+    .restart local v7    # "_arg5":I
+    .restart local v8    # "_arg6":I
+    .restart local v9    # "_arg7":Landroid/graphics/Rect;
+    .restart local v10    # "_arg8":Landroid/graphics/Rect;
+    .restart local v11    # "_arg9":Landroid/graphics/Rect;
+    .restart local v12    # "_arg10":Landroid/graphics/Rect;
+    .restart local v13    # "_arg11":Landroid/content/res/Configuration;
+    .restart local v14    # "_arg12":Landroid/view/Surface;
+    .restart local v15    # "_result":I
     :cond_b
     const/4 v1, 0x0
 
@@ -1139,20 +1139,20 @@
     goto :goto_11
 
     .line 284
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/view/WindowManager$LayoutParams;
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:I
-    .end local v8           #_arg6:I
-    .end local v9           #_arg7:Landroid/graphics/Rect;
-    .end local v10           #_arg8:Landroid/graphics/Rect;
-    .end local v11           #_arg9:Landroid/graphics/Rect;
-    .end local v12           #_arg10:Landroid/graphics/Rect;
-    .end local v13           #_arg11:Landroid/content/res/Configuration;
-    .end local v14           #_arg12:Landroid/view/Surface;
-    .end local v15           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/view/WindowManager$LayoutParams;
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":I
+    .end local v8    # "_arg6":I
+    .end local v9    # "_arg7":Landroid/graphics/Rect;
+    .end local v10    # "_arg8":Landroid/graphics/Rect;
+    .end local v11    # "_arg9":Landroid/graphics/Rect;
+    .end local v12    # "_arg10":Landroid/graphics/Rect;
+    .end local v13    # "_arg11":Landroid/content/res/Configuration;
+    .end local v14    # "_arg12":Landroid/view/Surface;
+    .end local v15    # "_result":I
     :sswitch_7
     const-string v1, "android.view.IWindowSession"
 
@@ -1170,7 +1170,7 @@
     move-result-object v2
 
     .line 287
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->performDeferredDestroy(Landroid/view/IWindow;)V
@@ -1184,7 +1184,7 @@
     goto/16 :goto_0
 
     .line 293
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_8
     const-string v1, "android.view.IWindowSession"
 
@@ -1202,7 +1202,7 @@
     move-result-object v2
 
     .line 296
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->outOfMemory(Landroid/view/IWindow;)Z
@@ -1210,7 +1210,7 @@
     move-result v15
 
     .line 297
-    .local v15, _result:Z
+    .local v15, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 298
@@ -1235,8 +1235,8 @@
     goto :goto_12
 
     .line 303
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v15    # "_result":Z
     :sswitch_9
     const-string v1, "android.view.IWindowSession"
 
@@ -1254,7 +1254,7 @@
     move-result-object v2
 
     .line 307
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1273,7 +1273,7 @@
     check-cast v3, Landroid/graphics/Region;
 
     .line 313
-    .local v3, _arg1:Landroid/graphics/Region;
+    .local v3, "_arg1":Landroid/graphics/Region;
     :goto_13
     move-object/from16 v0, p0
 
@@ -1288,16 +1288,16 @@
     goto/16 :goto_0
 
     .line 311
-    .end local v3           #_arg1:Landroid/graphics/Region;
+    .end local v3    # "_arg1":Landroid/graphics/Region;
     :cond_12
     const/4 v3, 0x0
 
-    .restart local v3       #_arg1:Landroid/graphics/Region;
+    .restart local v3    # "_arg1":Landroid/graphics/Region;
     goto :goto_13
 
     .line 319
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:Landroid/graphics/Region;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":Landroid/graphics/Region;
     :sswitch_a
     const-string v1, "android.view.IWindowSession"
 
@@ -1315,13 +1315,13 @@
     move-result-object v2
 
     .line 323
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 325
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1340,7 +1340,7 @@
     check-cast v4, Landroid/graphics/Rect;
 
     .line 332
-    .local v4, _arg2:Landroid/graphics/Rect;
+    .local v4, "_arg2":Landroid/graphics/Rect;
     :goto_14
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1360,7 +1360,7 @@
     check-cast v5, Landroid/graphics/Rect;
 
     .line 339
-    .local v5, _arg3:Landroid/graphics/Rect;
+    .local v5, "_arg3":Landroid/graphics/Rect;
     :goto_15
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1379,7 +1379,7 @@
 
     check-cast v6, Landroid/graphics/Region;
 
-    .local v6, _arg4:Landroid/graphics/Region;
+    .local v6, "_arg4":Landroid/graphics/Region;
     :goto_16
     move-object/from16 v1, p0
 
@@ -1395,35 +1395,35 @@
     goto/16 :goto_0
 
     .line 329
-    .end local v4           #_arg2:Landroid/graphics/Rect;
-    .end local v5           #_arg3:Landroid/graphics/Rect;
-    .end local v6           #_arg4:Landroid/graphics/Region;
+    .end local v4    # "_arg2":Landroid/graphics/Rect;
+    .end local v5    # "_arg3":Landroid/graphics/Rect;
+    .end local v6    # "_arg4":Landroid/graphics/Region;
     :cond_13
     const/4 v4, 0x0
 
-    .restart local v4       #_arg2:Landroid/graphics/Rect;
+    .restart local v4    # "_arg2":Landroid/graphics/Rect;
     goto :goto_14
 
     .line 336
     :cond_14
     const/4 v5, 0x0
 
-    .restart local v5       #_arg3:Landroid/graphics/Rect;
+    .restart local v5    # "_arg3":Landroid/graphics/Rect;
     goto :goto_15
 
     .line 343
     :cond_15
     const/4 v6, 0x0
 
-    .restart local v6       #_arg4:Landroid/graphics/Region;
+    .restart local v6    # "_arg4":Landroid/graphics/Region;
     goto :goto_16
 
     .line 351
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Landroid/graphics/Rect;
-    .end local v5           #_arg3:Landroid/graphics/Rect;
-    .end local v6           #_arg4:Landroid/graphics/Region;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Landroid/graphics/Rect;
+    .end local v5    # "_arg3":Landroid/graphics/Rect;
+    .end local v6    # "_arg4":Landroid/graphics/Region;
     :sswitch_b
     const-string v1, "android.view.IWindowSession"
 
@@ -1441,13 +1441,13 @@
     move-result-object v2
 
     .line 355
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
     .line 356
-    .local v3, _arg1:Landroid/graphics/Rect;
+    .local v3, "_arg1":Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v3}, Landroid/view/IWindowSession$Stub;->getDisplayFrame(Landroid/view/IWindow;Landroid/graphics/Rect;)V
@@ -1489,8 +1489,8 @@
     goto :goto_17
 
     .line 369
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:Landroid/graphics/Rect;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":Landroid/graphics/Rect;
     :sswitch_c
     const-string v1, "android.view.IWindowSession"
 
@@ -1508,7 +1508,7 @@
     move-result-object v2
 
     .line 372
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->finishDrawing(Landroid/view/IWindow;)V
@@ -1522,7 +1522,7 @@
     goto/16 :goto_0
 
     .line 378
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_d
     const-string v1, "android.view.IWindowSession"
 
@@ -1540,7 +1540,7 @@
     const/4 v2, 0x1
 
     .line 381
-    .local v2, _arg0:Z
+    .local v2, "_arg0":Z
     :goto_18
     move-object/from16 v0, p0
 
@@ -1555,7 +1555,7 @@
     goto/16 :goto_0
 
     .line 380
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :cond_17
     const/4 v2, 0x0
 
@@ -1575,7 +1575,7 @@
     move-result v15
 
     .line 389
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 390
@@ -1600,7 +1600,7 @@
     goto :goto_19
 
     .line 395
-    .end local v15           #_result:Z
+    .end local v15    # "_result":Z
     :sswitch_f
     const-string v1, "android.view.IWindowSession"
 
@@ -1618,13 +1618,13 @@
     move-result-object v2
 
     .line 399
-    .local v2, _arg0:Landroid/view/IWindow;
+    .local v2, "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 401
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1634,7 +1634,7 @@
     const/4 v4, 0x1
 
     .line 402
-    .local v4, _arg2:Z
+    .local v4, "_arg2":Z
     :goto_1a
     move-object/from16 v0, p0
 
@@ -1643,7 +1643,7 @@
     move-result v15
 
     .line 403
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 404
@@ -1662,26 +1662,26 @@
     goto/16 :goto_0
 
     .line 401
-    .end local v4           #_arg2:Z
-    .end local v15           #_result:Z
+    .end local v4    # "_arg2":Z
+    .end local v15    # "_result":Z
     :cond_19
     const/4 v4, 0x0
 
     goto :goto_1a
 
     .line 404
-    .restart local v4       #_arg2:Z
-    .restart local v15       #_result:Z
+    .restart local v4    # "_arg2":Z
+    .restart local v15    # "_result":Z
     :cond_1a
     const/4 v1, 0x0
 
     goto :goto_1b
 
     .line 409
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:Z
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":Z
+    .end local v15    # "_result":Z
     :sswitch_10
     const-string v1, "android.view.IWindowSession"
 
@@ -1699,30 +1699,30 @@
     move-result-object v2
 
     .line 413
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 415
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 417
-    .local v4, _arg2:I
+    .local v4, "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 419
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     new-instance v6, Landroid/view/Surface;
 
     invoke-direct {v6}, Landroid/view/Surface;-><init>()V
 
-    .local v6, _arg4:Landroid/view/Surface;
+    .local v6, "_arg4":Landroid/view/Surface;
     move-object/from16 v1, p0
 
     .line 420
@@ -1731,7 +1731,7 @@
     move-result-object v15
 
     .line 421
-    .local v15, _result:Landroid/os/IBinder;
+    .local v15, "_result":Landroid/os/IBinder;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 422
@@ -1773,12 +1773,12 @@
     goto :goto_1c
 
     .line 434
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Landroid/view/Surface;
-    .end local v15           #_result:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Landroid/view/Surface;
+    .end local v15    # "_result":Landroid/os/IBinder;
     :sswitch_11
     const-string v1, "android.view.IWindowSession"
 
@@ -1796,37 +1796,37 @@
     move-result-object v2
 
     .line 438
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     .line 440
-    .local v3, _arg1:Landroid/os/IBinder;
+    .local v3, "_arg1":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v4
 
     .line 442
-    .local v4, _arg2:F
+    .local v4, "_arg2":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v5
 
     .line 444
-    .local v5, _arg3:F
+    .local v5, "_arg3":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v6
 
     .line 446
-    .local v6, _arg4:F
+    .local v6, "_arg4":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v7
 
     .line 448
-    .local v7, _arg5:F
+    .local v7, "_arg5":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1844,7 +1844,7 @@
 
     check-cast v8, Landroid/content/ClipData;
 
-    .local v8, _arg6:Landroid/content/ClipData;
+    .local v8, "_arg6":Landroid/content/ClipData;
     :goto_1d
     move-object/from16 v1, p0
 
@@ -1854,7 +1854,7 @@
     move-result v15
 
     .line 455
-    .local v15, _result:Z
+    .local v15, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 456
@@ -1873,30 +1873,30 @@
     goto/16 :goto_0
 
     .line 452
-    .end local v8           #_arg6:Landroid/content/ClipData;
-    .end local v15           #_result:Z
+    .end local v8    # "_arg6":Landroid/content/ClipData;
+    .end local v15    # "_result":Z
     :cond_1c
     const/4 v8, 0x0
 
-    .restart local v8       #_arg6:Landroid/content/ClipData;
+    .restart local v8    # "_arg6":Landroid/content/ClipData;
     goto :goto_1d
 
     .line 456
-    .restart local v15       #_result:Z
+    .restart local v15    # "_result":Z
     :cond_1d
     const/4 v1, 0x0
 
     goto :goto_1e
 
     .line 461
-    .end local v2           #_arg0:Landroid/view/IWindow;
-    .end local v3           #_arg1:Landroid/os/IBinder;
-    .end local v4           #_arg2:F
-    .end local v5           #_arg3:F
-    .end local v6           #_arg4:F
-    .end local v7           #_arg5:F
-    .end local v8           #_arg6:Landroid/content/ClipData;
-    .end local v15           #_result:Z
+    .end local v2    # "_arg0":Landroid/view/IWindow;
+    .end local v3    # "_arg1":Landroid/os/IBinder;
+    .end local v4    # "_arg2":F
+    .end local v5    # "_arg3":F
+    .end local v6    # "_arg4":F
+    .end local v7    # "_arg5":F
+    .end local v8    # "_arg6":Landroid/content/ClipData;
+    .end local v15    # "_result":Z
     :sswitch_12
     const-string v1, "android.view.IWindowSession"
 
@@ -1914,7 +1914,7 @@
     move-result-object v2
 
     .line 465
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1924,7 +1924,7 @@
     const/4 v3, 0x1
 
     .line 466
-    .local v3, _arg1:Z
+    .local v3, "_arg1":Z
     :goto_1f
     move-object/from16 v0, p0
 
@@ -1939,14 +1939,14 @@
     goto/16 :goto_0
 
     .line 465
-    .end local v3           #_arg1:Z
+    .end local v3    # "_arg1":Z
     :cond_1e
     const/4 v3, 0x0
 
     goto :goto_1f
 
     .line 472
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_13
     const-string v1, "android.view.IWindowSession"
 
@@ -1964,7 +1964,7 @@
     move-result-object v2
 
     .line 475
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->dragRecipientEntered(Landroid/view/IWindow;)V
@@ -1978,7 +1978,7 @@
     goto/16 :goto_0
 
     .line 481
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_14
     const-string v1, "android.view.IWindowSession"
 
@@ -1996,7 +1996,7 @@
     move-result-object v2
 
     .line 484
-    .restart local v2       #_arg0:Landroid/view/IWindow;
+    .restart local v2    # "_arg0":Landroid/view/IWindow;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->dragRecipientExited(Landroid/view/IWindow;)V
@@ -2010,7 +2010,7 @@
     goto/16 :goto_0
 
     .line 490
-    .end local v2           #_arg0:Landroid/view/IWindow;
+    .end local v2    # "_arg0":Landroid/view/IWindow;
     :sswitch_15
     const-string v1, "android.view.IWindowSession"
 
@@ -2024,30 +2024,30 @@
     move-result-object v2
 
     .line 494
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v3
 
     .line 496
-    .local v3, _arg1:F
+    .local v3, "_arg1":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v4
 
     .line 498
-    .restart local v4       #_arg2:F
+    .restart local v4    # "_arg2":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v5
 
     .line 500
-    .restart local v5       #_arg3:F
+    .restart local v5    # "_arg3":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v6
 
-    .restart local v6       #_arg4:F
+    .restart local v6    # "_arg4":F
     move-object/from16 v1, p0
 
     .line 501
@@ -2062,11 +2062,11 @@
     goto/16 :goto_0
 
     .line 507
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:F
-    .end local v4           #_arg2:F
-    .end local v5           #_arg3:F
-    .end local v6           #_arg4:F
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":F
+    .end local v4    # "_arg2":F
+    .end local v5    # "_arg3":F
+    .end local v6    # "_arg4":F
     :sswitch_16
     const-string v1, "android.view.IWindowSession"
 
@@ -2080,7 +2080,7 @@
     move-result-object v2
 
     .line 510
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->wallpaperOffsetsComplete(Landroid/os/IBinder;)V
@@ -2094,7 +2094,7 @@
     goto/16 :goto_0
 
     .line 516
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_17
     const-string v1, "android.view.IWindowSession"
 
@@ -2108,31 +2108,31 @@
     move-result-object v2
 
     .line 520
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 522
-    .local v3, _arg1:Ljava/lang/String;
+    .local v3, "_arg1":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 524
-    .local v4, _arg2:I
+    .local v4, "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 526
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 528
-    .local v6, _arg4:I
+    .local v6, "_arg4":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -2151,7 +2151,7 @@
     check-cast v7, Landroid/os/Bundle;
 
     .line 535
-    .local v7, _arg5:Landroid/os/Bundle;
+    .local v7, "_arg5":Landroid/os/Bundle;
     :goto_20
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2161,7 +2161,7 @@
 
     const/4 v8, 0x1
 
-    .local v8, _arg6:Z
+    .local v8, "_arg6":Z
     :goto_21
     move-object/from16 v1, p0
 
@@ -2171,7 +2171,7 @@
     move-result-object v15
 
     .line 537
-    .local v15, _result:Landroid/os/Bundle;
+    .local v15, "_result":Landroid/os/Bundle;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 538
@@ -2198,13 +2198,13 @@
     goto/16 :goto_0
 
     .line 532
-    .end local v7           #_arg5:Landroid/os/Bundle;
-    .end local v8           #_arg6:Z
-    .end local v15           #_result:Landroid/os/Bundle;
+    .end local v7    # "_arg5":Landroid/os/Bundle;
+    .end local v8    # "_arg6":Z
+    .end local v15    # "_result":Landroid/os/Bundle;
     :cond_1f
     const/4 v7, 0x0
 
-    .restart local v7       #_arg5:Landroid/os/Bundle;
+    .restart local v7    # "_arg5":Landroid/os/Bundle;
     goto :goto_20
 
     .line 535
@@ -2214,8 +2214,8 @@
     goto :goto_21
 
     .line 543
-    .restart local v8       #_arg6:Z
-    .restart local v15       #_result:Landroid/os/Bundle;
+    .restart local v8    # "_arg6":Z
+    .restart local v15    # "_result":Landroid/os/Bundle;
     :cond_21
     const/4 v1, 0x0
 
@@ -2226,14 +2226,14 @@
     goto :goto_22
 
     .line 549
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Ljava/lang/String;
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Landroid/os/Bundle;
-    .end local v8           #_arg6:Z
-    .end local v15           #_result:Landroid/os/Bundle;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Ljava/lang/String;
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Landroid/os/Bundle;
+    .end local v8    # "_arg6":Z
+    .end local v15    # "_result":Landroid/os/Bundle;
     :sswitch_18
     const-string v1, "android.view.IWindowSession"
 
@@ -2247,7 +2247,7 @@
     move-result-object v2
 
     .line 553
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -2266,7 +2266,7 @@
     check-cast v3, Landroid/os/Bundle;
 
     .line 559
-    .local v3, _arg1:Landroid/os/Bundle;
+    .local v3, "_arg1":Landroid/os/Bundle;
     :goto_23
     move-object/from16 v0, p0
 
@@ -2281,16 +2281,16 @@
     goto/16 :goto_0
 
     .line 557
-    .end local v3           #_arg1:Landroid/os/Bundle;
+    .end local v3    # "_arg1":Landroid/os/Bundle;
     :cond_22
     const/4 v3, 0x0
 
-    .restart local v3       #_arg1:Landroid/os/Bundle;
+    .restart local v3    # "_arg1":Landroid/os/Bundle;
     goto :goto_23
 
     .line 565
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Landroid/os/Bundle;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Landroid/os/Bundle;
     :sswitch_19
     const-string v1, "android.view.IWindowSession"
 
@@ -2304,48 +2304,48 @@
     move-result-object v2
 
     .line 569
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v3
 
     .line 571
-    .local v3, _arg1:F
+    .local v3, "_arg1":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v4
 
     .line 573
-    .local v4, _arg2:F
+    .local v4, "_arg2":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v5
 
     .line 575
-    .local v5, _arg3:F
+    .local v5, "_arg3":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v6
 
     .line 577
-    .local v6, _arg4:F
+    .local v6, "_arg4":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v7
 
     .line 579
-    .local v7, _arg5:F
+    .local v7, "_arg5":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v8
 
     .line 581
-    .local v8, _arg6:F
+    .local v8, "_arg6":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v9
 
-    .local v9, _arg7:F
+    .local v9, "_arg7":F
     move-object/from16 v1, p0
 
     .line 582
@@ -2360,14 +2360,14 @@
     goto/16 :goto_0
 
     .line 588
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:F
-    .end local v4           #_arg2:F
-    .end local v5           #_arg3:F
-    .end local v6           #_arg4:F
-    .end local v7           #_arg5:F
-    .end local v8           #_arg6:F
-    .end local v9           #_arg7:F
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":F
+    .end local v4    # "_arg2":F
+    .end local v5    # "_arg3":F
+    .end local v6    # "_arg4":F
+    .end local v7    # "_arg5":F
+    .end local v8    # "_arg6":F
+    .end local v9    # "_arg7":F
     :sswitch_1a
     const-string v1, "android.view.IWindowSession"
 
@@ -2381,7 +2381,7 @@
     move-result-object v2
 
     .line 592
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -2400,7 +2400,7 @@
     check-cast v3, Landroid/graphics/Rect;
 
     .line 599
-    .local v3, _arg1:Landroid/graphics/Rect;
+    .local v3, "_arg1":Landroid/graphics/Rect;
     :goto_24
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2411,7 +2411,7 @@
     const/4 v4, 0x1
 
     .line 600
-    .local v4, _arg2:Z
+    .local v4, "_arg2":Z
     :goto_25
     move-object/from16 v0, p0
 
@@ -2426,12 +2426,12 @@
     goto/16 :goto_0
 
     .line 596
-    .end local v3           #_arg1:Landroid/graphics/Rect;
-    .end local v4           #_arg2:Z
+    .end local v3    # "_arg1":Landroid/graphics/Rect;
+    .end local v4    # "_arg2":Z
     :cond_23
     const/4 v3, 0x0
 
-    .restart local v3       #_arg1:Landroid/graphics/Rect;
+    .restart local v3    # "_arg1":Landroid/graphics/Rect;
     goto :goto_24
 
     .line 599
@@ -2441,8 +2441,8 @@
     goto :goto_25
 
     .line 606
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Landroid/graphics/Rect;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Landroid/graphics/Rect;
     :sswitch_1b
     const-string v1, "android.view.IWindowSession"
 
@@ -2456,7 +2456,7 @@
     move-result-object v2
 
     .line 609
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/view/IWindowSession$Stub;->getWindowId(Landroid/os/IBinder;)Landroid/view/IWindowId;
@@ -2464,7 +2464,7 @@
     move-result-object v15
 
     .line 610
-    .local v15, _result:Landroid/view/IWindowId;
+    .local v15, "_result":Landroid/view/IWindowId;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 611

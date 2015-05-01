@@ -45,14 +45,14 @@
 
 .method static isValid(I)Z
     .locals 1
-    .parameter "action"
+    .param p0, "action"    # I
 
     .prologue
     .line 198
     const/4 v0, 0x0
 
     .line 200
-    .local v0, isValid:Z
+    .local v0, "isValid":Z
     packed-switch p0, :pswitch_data_0
 
     .line 211

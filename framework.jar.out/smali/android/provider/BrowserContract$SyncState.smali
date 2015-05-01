@@ -54,8 +54,8 @@
 
 .method public static get(Landroid/content/ContentProviderClient;Landroid/accounts/Account;)[B
     .locals 1
-    .parameter "provider"
-    .parameter "account"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,8 +75,8 @@
 
 .method public static getWithUri(Landroid/content/ContentProviderClient;Landroid/accounts/Account;)Landroid/util/Pair;
     .locals 1
-    .parameter "provider"
-    .parameter "account"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -109,8 +109,8 @@
 
 .method public static newSetOperation(Landroid/accounts/Account;[B)Landroid/content/ContentProviderOperation;
     .locals 1
-    .parameter "account"
-    .parameter "data"
+    .param p0, "account"    # Landroid/accounts/Account;
+    .param p1, "data"    # [B
 
     .prologue
     .line 549
@@ -125,9 +125,9 @@
 
 .method public static set(Landroid/content/ContentProviderClient;Landroid/accounts/Account;[B)V
     .locals 1
-    .parameter "provider"
-    .parameter "account"
-    .parameter "data"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

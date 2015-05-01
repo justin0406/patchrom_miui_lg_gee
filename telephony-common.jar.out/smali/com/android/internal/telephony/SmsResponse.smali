@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;I)V
     .locals 0
-    .parameter "messageRef"
-    .parameter "ackPdu"
-    .parameter "errorCode"
+    .param p1, "messageRef"    # I
+    .param p2, "ackPdu"    # Ljava/lang/String;
+    .param p3, "errorCode"    # I
 
     .prologue
     .line 35
@@ -93,6 +93,6 @@
     move-result-object v0
 
     .line 47
-    .local v0, ret:Ljava/lang/String;
+    .local v0, "ret":Ljava/lang/String;
     return-object v0
 .end method

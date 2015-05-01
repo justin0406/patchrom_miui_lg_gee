@@ -25,7 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/InboundSmsTracker;)V
     .locals 1
-    .parameter "tracker"
+    .param p1, "tracker"    # Lcom/android/internal/telephony/InboundSmsTracker;
 
     .prologue
     .line 195
@@ -60,7 +60,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -76,7 +76,7 @@
     check-cast v0, Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;
 
     .line 215
-    .local v0, other:Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;
+    .local v0, "other":Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;
     iget-object v2, v0, Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;->mAddress:Ljava/lang/String;
 
     iget-object v3, p0, Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;->mAddress:Ljava/lang/String;
@@ -102,7 +102,7 @@
     const/4 v1, 0x1
 
     .line 219
-    .end local v0           #other:Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;
+    .end local v0    # "other":Lcom/android/internal/telephony/SmsBroadcastUndelivered$SmsReferenceKey;
     :cond_0
     return v1
 .end method

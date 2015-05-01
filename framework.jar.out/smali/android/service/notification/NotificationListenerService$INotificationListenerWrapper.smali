@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/service/notification/NotificationListenerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 164
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/service/notification/NotificationListenerService;Landroid/service/notification/NotificationListenerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/service/notification/NotificationListenerService;
+    .param p2, "x1"    # Landroid/service/notification/NotificationListenerService$1;
 
     .prologue
     .line 164
@@ -48,7 +47,7 @@
 # virtual methods
 .method public onNotificationPosted(Landroid/service/notification/StatusBarNotification;)V
     .locals 3
-    .parameter "sbn"
+    .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
 
     .prologue
     .line 168
@@ -68,10 +67,10 @@
     move-exception v0
 
     .line 170
-    .local v0, t:Ljava/lang/Throwable;
+    .local v0, "t":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/service/notification/NotificationListenerService$INotificationListenerWrapper;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    #getter for: Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+    # getter for: Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
     invoke-static {v1}, Landroid/service/notification/NotificationListenerService;->access$100(Landroid/service/notification/NotificationListenerService;)Ljava/lang/String;
 
     move-result-object v1
@@ -85,7 +84,7 @@
 
 .method public onNotificationRemoved(Landroid/service/notification/StatusBarNotification;)V
     .locals 3
-    .parameter "sbn"
+    .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
 
     .prologue
     .line 176
@@ -105,10 +104,10 @@
     move-exception v0
 
     .line 178
-    .local v0, t:Ljava/lang/Throwable;
+    .local v0, "t":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/service/notification/NotificationListenerService$INotificationListenerWrapper;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    #getter for: Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+    # getter for: Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
     invoke-static {v1}, Landroid/service/notification/NotificationListenerService;->access$100(Landroid/service/notification/NotificationListenerService;)Ljava/lang/String;
 
     move-result-object v1

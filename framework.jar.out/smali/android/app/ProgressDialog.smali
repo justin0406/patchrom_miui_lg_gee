@@ -50,7 +50,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 77
@@ -70,8 +70,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "theme"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
 
     .prologue
     .line 82
@@ -91,7 +91,7 @@
 
 .method static synthetic access$000(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/ProgressDialog;
 
     .prologue
     .line 43
@@ -102,7 +102,7 @@
 
 .method static synthetic access$100(Landroid/app/ProgressDialog;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/ProgressDialog;
 
     .prologue
     .line 43
@@ -113,7 +113,7 @@
 
 .method static synthetic access$200(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/ProgressDialog;
 
     .prologue
     .line 43
@@ -124,7 +124,7 @@
 
 .method static synthetic access$300(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/ProgressDialog;
 
     .prologue
     .line 43
@@ -135,7 +135,7 @@
 
 .method static synthetic access$400(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/ProgressDialog;
 
     .prologue
     .line 43
@@ -209,9 +209,9 @@
 
 .method public static show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/app/ProgressDialog;
     .locals 1
-    .parameter "context"
-    .parameter "title"
-    .parameter "message"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "title"    # Ljava/lang/CharSequence;
+    .param p2, "message"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 94
@@ -226,10 +226,10 @@
 
 .method public static show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Landroid/app/ProgressDialog;
     .locals 6
-    .parameter "context"
-    .parameter "title"
-    .parameter "message"
-    .parameter "indeterminate"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "title"    # Ljava/lang/CharSequence;
+    .param p2, "message"    # Ljava/lang/CharSequence;
+    .param p3, "indeterminate"    # Z
 
     .prologue
     .line 99
@@ -254,11 +254,11 @@
 
 .method public static show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
     .locals 6
-    .parameter "context"
-    .parameter "title"
-    .parameter "message"
-    .parameter "indeterminate"
-    .parameter "cancelable"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "title"    # Ljava/lang/CharSequence;
+    .param p2, "message"    # Ljava/lang/CharSequence;
+    .param p3, "indeterminate"    # Z
+    .param p4, "cancelable"    # Z
 
     .prologue
     .line 104
@@ -283,12 +283,12 @@
 
 .method public static show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZLandroid/content/DialogInterface$OnCancelListener;)Landroid/app/ProgressDialog;
     .locals 1
-    .parameter "context"
-    .parameter "title"
-    .parameter "message"
-    .parameter "indeterminate"
-    .parameter "cancelable"
-    .parameter "cancelListener"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "title"    # Ljava/lang/CharSequence;
+    .param p2, "message"    # Ljava/lang/CharSequence;
+    .param p3, "indeterminate"    # Z
+    .param p4, "cancelable"    # Z
+    .param p5, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .prologue
     .line 110
@@ -297,7 +297,7 @@
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     .line 111
-    .local v0, dialog:Landroid/app/ProgressDialog;
+    .local v0, "dialog":Landroid/app/ProgressDialog;
     invoke-virtual {v0, p1}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 112
@@ -401,7 +401,7 @@
 
 .method public incrementProgressBy(I)V
     .locals 1
-    .parameter "diff"
+    .param p1, "diff"    # I
 
     .prologue
     .line 262
@@ -434,7 +434,7 @@
 
 .method public incrementSecondaryProgressBy(I)V
     .locals 1
-    .parameter "diff"
+    .param p1, "diff"    # I
 
     .prologue
     .line 271
@@ -493,7 +493,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 9
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     const v8, 0x102000d
@@ -508,7 +508,7 @@
     move-result-object v1
 
     .line 123
-    .local v1, inflater:Landroid/view/LayoutInflater;
+    .local v1, "inflater":Landroid/view/LayoutInflater;
     iget-object v3, p0, Landroid/app/ProgressDialog;->mContext:Landroid/content/Context;
 
     sget-object v4, Lcom/android/internal/R$styleable;->AlertDialog:[I
@@ -522,7 +522,7 @@
     move-result-object v0
 
     .line 126
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     iget v3, p0, Landroid/app/ProgressDialog;->mProgressStyle:I
 
     const/4 v4, 0x1
@@ -550,7 +550,7 @@
     move-result-object v2
 
     .line 159
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
@@ -691,7 +691,7 @@
     return-void
 
     .line 164
-    .end local v2           #view:Landroid/view/View;
+    .end local v2    # "view":Landroid/view/View;
     :cond_8
     const/16 v3, 0xf
 
@@ -706,7 +706,7 @@
     move-result-object v2
 
     .line 167
-    .restart local v2       #view:Landroid/view/View;
+    .restart local v2    # "view":Landroid/view/View;
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
@@ -728,10 +728,6 @@
 
     .line 169
     invoke-virtual {p0, v2}, Landroid/app/ProgressDialog;->setView(Landroid/view/View;)V
-
-    iget-object v3, p0, Landroid/app/ProgressDialog;->mMessageView:Landroid/widget/TextView;
-
-    invoke-static {p0, v3}, Landroid/app/Injector$ProgressDialogHook;->updateSpinnerStyleProgressDialog(Landroid/app/ProgressDialog;Landroid/widget/TextView;)V
 
     goto :goto_0
 .end method
@@ -770,7 +766,7 @@
 
 .method public setIndeterminate(Z)V
     .locals 1
-    .parameter "indeterminate"
+    .param p1, "indeterminate"    # Z
 
     .prologue
     .line 296
@@ -796,7 +792,7 @@
 
 .method public setIndeterminateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 288
@@ -822,7 +818,7 @@
 
 .method public setMax(I)V
     .locals 1
-    .parameter "max"
+    .param p1, "max"    # I
 
     .prologue
     .line 253
@@ -851,7 +847,7 @@
 
 .method public setMessage(Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 312
@@ -890,7 +886,7 @@
 
 .method public setProgress(I)V
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 214
@@ -919,7 +915,7 @@
 
 .method public setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 280
@@ -945,7 +941,7 @@
 
 .method public setProgressNumberFormat(Ljava/lang/String;)V
     .locals 0
-    .parameter "format"
+    .param p1, "format"    # Ljava/lang/String;
 
     .prologue
     .line 336
@@ -960,7 +956,7 @@
 
 .method public setProgressPercentFormat(Ljava/text/NumberFormat;)V
     .locals 0
-    .parameter "format"
+    .param p1, "format"    # Ljava/text/NumberFormat;
 
     .prologue
     .line 349
@@ -975,7 +971,7 @@
 
 .method public setProgressStyle(I)V
     .locals 0
-    .parameter "style"
+    .param p1, "style"    # I
 
     .prologue
     .line 324
@@ -987,7 +983,7 @@
 
 .method public setSecondaryProgress(I)V
     .locals 1
-    .parameter "secondaryProgress"
+    .param p1, "secondaryProgress"    # I
 
     .prologue
     .line 223

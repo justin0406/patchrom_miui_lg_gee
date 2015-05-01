@@ -41,9 +41,9 @@
 
 .method public constructor <init>(ILjava/lang/String;Z)V
     .locals 0
-    .parameter "userId"
-    .parameter "packageName"
-    .parameter "andCode"
+    .param p1, "userId"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "andCode"    # Z
 
     .prologue
     .line 28
@@ -64,7 +64,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 80
@@ -108,8 +108,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageCleanItem$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/PackageCleanItem$1;
 
     .prologue
     .line 23
@@ -132,7 +132,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x1
@@ -160,7 +160,7 @@
     move-object v1, v0
 
     .line 42
-    .local v1, other:Landroid/content/pm/PackageCleanItem;
+    .local v1, "other":Landroid/content/pm/PackageCleanItem;
     iget v4, p0, Landroid/content/pm/PackageCleanItem;->userId:I
 
     iget v5, v1, Landroid/content/pm/PackageCleanItem;->userId:I
@@ -191,7 +191,7 @@
     goto :goto_0
 
     .line 45
-    .end local v1           #other:Landroid/content/pm/PackageCleanItem;
+    .end local v1    # "other":Landroid/content/pm/PackageCleanItem;
     :catch_0
     move-exception v2
 
@@ -210,7 +210,7 @@
     const/16 v0, 0x11
 
     .line 53
-    .local v0, result:I
+    .local v0, "result":I
     iget v1, p0, Landroid/content/pm/PackageCleanItem;->userId:I
 
     add-int/lit16 v0, v1, 0x20f
@@ -250,8 +250,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 64

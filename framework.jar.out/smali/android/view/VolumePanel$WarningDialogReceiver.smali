@@ -28,9 +28,9 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/app/Dialog;Landroid/view/VolumePanel;)V
     .locals 2
-    .parameter "context"
-    .parameter "dialog"
-    .parameter "volumePanel"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "dialog"    # Landroid/app/Dialog;
+    .param p3, "volumePanel"    # Landroid/view/VolumePanel;
 
     .prologue
     .line 227
@@ -53,7 +53,7 @@
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     .line 232
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     invoke-virtual {p1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 233
@@ -65,6 +65,7 @@
 
     .prologue
     .line 247
+    # getter for: Landroid/view/VolumePanel;->sConfirmSafeVolumeLock:Ljava/lang/Object;
     invoke-static {}, Landroid/view/VolumePanel;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -75,6 +76,7 @@
     const/4 v0, 0x0
 
     :try_start_0
+    # setter for: Landroid/view/VolumePanel;->sConfirmSafeVolumeDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Landroid/view/VolumePanel;->access$102(Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     .line 249
@@ -85,7 +87,7 @@
     .line 250
     iget-object v0, p0, Landroid/view/VolumePanel$WarningDialogReceiver;->mVolumePanel:Landroid/view/VolumePanel;
 
-    #calls: Landroid/view/VolumePanel;->forceTimeout()V
+    # invokes: Landroid/view/VolumePanel;->forceTimeout()V
     invoke-static {v0}, Landroid/view/VolumePanel;->access$200(Landroid/view/VolumePanel;)V
 
     .line 251
@@ -112,7 +114,7 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 1
-    .parameter "unused"
+    .param p1, "unused"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 242
@@ -129,8 +131,8 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 237

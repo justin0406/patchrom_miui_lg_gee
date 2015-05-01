@@ -520,7 +520,7 @@
 
 .method public static isAbstractObject(I)Z
     .locals 1
-    .parameter "format"
+    .param p0, "format"    # I
 
     .prologue
     .line 280

@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/UpdateLockService;Landroid/os/Handler;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "h"
-    .parameter "tag"
+    .param p2, "h"    # Landroid/os/Handler;
+    .param p3, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 47

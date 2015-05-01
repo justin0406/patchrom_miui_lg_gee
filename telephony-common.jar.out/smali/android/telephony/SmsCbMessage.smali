@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -80,16 +80,16 @@
 
 .method public constructor <init>(IIILandroid/telephony/SmsCbLocation;ILjava/lang/String;Ljava/lang/String;ILandroid/telephony/SmsCbEtwsInfo;Landroid/telephony/SmsCbCmasInfo;)V
     .locals 0
-    .parameter "messageFormat"
-    .parameter "geographicalScope"
-    .parameter "serialNumber"
-    .parameter "location"
-    .parameter "serviceCategory"
-    .parameter "language"
-    .parameter "body"
-    .parameter "priority"
-    .parameter "etwsWarningInfo"
-    .parameter "cmasWarningInfo"
+    .param p1, "messageFormat"    # I
+    .param p2, "geographicalScope"    # I
+    .param p3, "serialNumber"    # I
+    .param p4, "location"    # Landroid/telephony/SmsCbLocation;
+    .param p5, "serviceCategory"    # I
+    .param p6, "language"    # Ljava/lang/String;
+    .param p7, "body"    # Ljava/lang/String;
+    .param p8, "priority"    # I
+    .param p9, "etwsWarningInfo"    # Landroid/telephony/SmsCbEtwsInfo;
+    .param p10, "cmasWarningInfo"    # Landroid/telephony/SmsCbCmasInfo;
 
     .prologue
     .line 146
@@ -131,7 +131,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -201,7 +201,7 @@
     move-result v0
 
     .line 170
-    .local v0, type:I
+    .local v0, "type":I
     packed-switch v0, :pswitch_data_0
 
     .line 184
@@ -610,8 +610,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 197

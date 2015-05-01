@@ -60,11 +60,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 137
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     invoke-direct {p0, p1, v0}, Landroid/content/AsyncTaskLoader;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;)V
@@ -75,12 +75,12 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;)V
     .locals 2
-    .parameter "context"
-    .parameter "executor"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
     .prologue
     .line 142
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     invoke-direct {p0, p1}, Landroid/content/Loader;-><init>(Landroid/content/Context;)V
 
     .line 133
@@ -102,14 +102,12 @@
 
     .prologue
     .line 327
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     return-void
 .end method
 
 .method dispatchOnCancelled(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
     .locals 2
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,9 +120,9 @@
 
     .prologue
     .line 240
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
-    .local p1, task:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
-    .local p2, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p1, "task":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p2, "data":Ljava/lang/Object;, "TD;"
     invoke-virtual {p0, p2}, Landroid/content/AsyncTaskLoader;->onCanceled(Ljava/lang/Object;)V
 
     .line 241
@@ -160,8 +158,6 @@
 
 .method dispatchOnLoadComplete(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
     .locals 2
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,9 +170,9 @@
 
     .prologue
     .line 253
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
-    .local p1, task:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
-    .local p2, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p1, "task":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p2, "data":Ljava/lang/Object;, "TD;"
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     if-eq v0, p1, :cond_0
@@ -225,14 +221,14 @@
 
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
-    .parameter "prefix"
-    .parameter "fd"
-    .parameter "writer"
-    .parameter "args"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .param p3, "writer"    # Ljava/io/PrintWriter;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 359
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     invoke-super {p0, p1, p2, p3, p4}, Landroid/content/Loader;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     .line 360
@@ -339,7 +335,7 @@
 
     .prologue
     .line 217
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     if-nez v2, :cond_1
@@ -385,7 +381,7 @@
     move-result-wide v0
 
     .line 224
-    .local v0, now:J
+    .local v0, "now":J
     iget-wide v2, p0, Landroid/content/AsyncTaskLoader;->mLastLoadCompleteTime:J
 
     iget-wide v4, p0, Landroid/content/AsyncTaskLoader;->mUpdateThrottle:J
@@ -417,7 +413,7 @@
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
 
     .line 237
-    .end local v0           #now:J
+    .end local v0    # "now":J
     :cond_1
     :goto_0
     return-void
@@ -442,7 +438,7 @@
 
     .prologue
     .line 337
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     if-eqz v0, :cond_0
@@ -470,7 +466,7 @@
     .locals 4
 
     .prologue
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     const/4 v3, 0x0
 
     const/4 v0, 0x0
@@ -547,7 +543,7 @@
     move-result v0
 
     .line 195
-    .local v0, cancelled:Z
+    .local v0, "cancelled":Z
     if-eqz v0, :cond_4
 
     .line 196
@@ -567,7 +563,6 @@
 
 .method public onCanceled(Ljava/lang/Object;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -576,8 +571,8 @@
 
     .prologue
     .line 214
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
-    .local p1, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p1, "data":Ljava/lang/Object;, "TD;"
     return-void
 .end method
 
@@ -586,7 +581,7 @@
 
     .prologue
     .line 162
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     invoke-super {p0}, Landroid/content/Loader;->onForceLoad()V
 
     .line 163
@@ -616,7 +611,7 @@
 
     .prologue
     .line 312
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     invoke-virtual {p0}, Landroid/content/AsyncTaskLoader;->loadInBackground()Ljava/lang/Object;
 
     move-result-object v0
@@ -626,11 +621,11 @@
 
 .method public setUpdateThrottle(J)V
     .locals 2
-    .parameter "delayMS"
+    .param p1, "delayMS"    # J
 
     .prologue
     .line 154
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     iput-wide p1, p0, Landroid/content/AsyncTaskLoader;->mUpdateThrottle:J
 
     .line 155
@@ -657,11 +652,11 @@
 
     .prologue
     .line 351
-    .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader;, "Landroid/content/AsyncTaskLoader<TD;>;"
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     .line 352
-    .local v0, task:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local v0, "task":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     if-eqz v0, :cond_0
 
     .line 353

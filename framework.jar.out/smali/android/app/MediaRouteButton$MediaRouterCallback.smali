@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/app/MediaRouteButton;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 410
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/app/MediaRouteButton;Landroid/app/MediaRouteButton$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/app/MediaRouteButton;
+    .param p2, "x1"    # Landroid/app/MediaRouteButton$1;
 
     .prologue
     .line 410
@@ -48,14 +47,14 @@
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 413
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 414
@@ -64,14 +63,14 @@
 
 .method public onRouteChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 423
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 424
@@ -80,16 +79,16 @@
 
 .method public onRouteGrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;I)V
     .locals 1
-    .parameter "router"
-    .parameter "info"
-    .parameter "group"
-    .parameter "index"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
+    .param p4, "index"    # I
 
     .prologue
     .line 439
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 440
@@ -98,14 +97,14 @@
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 418
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 419
@@ -114,15 +113,15 @@
 
 .method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .parameter "router"
-    .parameter "type"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "type"    # I
+    .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 428
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 429
@@ -131,15 +130,15 @@
 
 .method public onRouteUngrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;)V
     .locals 1
-    .parameter "router"
-    .parameter "info"
-    .parameter "group"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
 
     .prologue
     .line 444
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 445
@@ -148,15 +147,15 @@
 
 .method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
-    .parameter "router"
-    .parameter "type"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "type"    # I
+    .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 433
     iget-object v0, p0, Landroid/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroid/app/MediaRouteButton;
 
-    #calls: Landroid/app/MediaRouteButton;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteButton;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteButton;->access$100(Landroid/app/MediaRouteButton;)V
 
     .line 434

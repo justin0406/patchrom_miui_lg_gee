@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -79,7 +79,7 @@
 
 .method public constructor <init>(Landroid/media/RemoteDisplayState$RemoteDisplayInfo;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/media/RemoteDisplayState$RemoteDisplayInfo;
 
     .prologue
     .line 119
@@ -131,7 +131,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 130
@@ -199,7 +199,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -389,8 +389,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 152

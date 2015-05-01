@@ -16,9 +16,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;)V
     .locals 6
-    .parameter "name"
-    .parameter "context"
-    .parameter "notifier"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "notifier"    # Lcom/android/internal/telephony/PhoneNotifier;
 
     .prologue
     .line 60
@@ -56,8 +56,8 @@
 
 .method static migrate(Landroid/os/RegistrantList;Landroid/os/RegistrantList;)V
     .locals 3
-    .parameter "to"
-    .parameter "from"
+    .param p0, "to"    # Landroid/os/RegistrantList;
+    .param p1, "from"    # Landroid/os/RegistrantList;
 
     .prologue
     .line 93
@@ -66,12 +66,12 @@
     .line 94
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     invoke-virtual {p1}, Landroid/os/RegistrantList;->size()I
 
     move-result v1
 
-    .local v1, n:I
+    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -98,8 +98,8 @@
 # virtual methods
 .method public activateCellBroadcastSms(ILandroid/os/Message;)V
     .locals 2
-    .parameter "activate"
-    .parameter "response"
+    .param p1, "activate"    # I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 486
@@ -129,7 +129,7 @@
     move-result v1
 
     .line 223
-    .local v1, serviceState:I
+    .local v1, "serviceState":I
     const-string v3, "SipPhoneBase"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
     move-result-object v0
 
     .line 228
-    .local v0, disableCall:Ljava/lang/String;
+    .local v0, "disableCall":Ljava/lang/String;
     const-string v3, "SipPhoneBase"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -345,8 +345,8 @@
 
 .method public dial(Ljava/lang/String;Lcom/android/internal/telephony/UUSInfo;)Lcom/android/internal/telephony/Connection;
     .locals 1
-    .parameter "dialString"
-    .parameter "uusInfo"
+    .param p1, "dialString"    # Ljava/lang/String;
+    .param p2, "uusInfo"    # Lcom/android/internal/telephony/UUSInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -400,7 +400,7 @@
 
 .method public getAvailableNetworks(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 400
@@ -422,8 +422,8 @@
 
 .method public getCallForwardingOption(ILandroid/os/Message;)V
     .locals 0
-    .parameter "commandInterfaceCFReason"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCFReason"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 354
@@ -432,7 +432,7 @@
 
 .method public getCallWaiting(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -449,7 +449,7 @@
 
 .method public getCellBroadcastSmsConfig(Landroid/os/Message;)V
     .locals 2
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 491
@@ -504,7 +504,7 @@
 
 .method public getDataCallList(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 422
@@ -523,7 +523,7 @@
 
 .method public getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/PhoneConstants$DataState;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 170
@@ -674,7 +674,7 @@
 
 .method public getLinkProperties(Ljava/lang/String;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "apnType"
+    .param p1, "apnType"    # Ljava/lang/String;
 
     .prologue
     .line 510
@@ -712,7 +712,7 @@
 
 .method public getNeighboringCids(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 414
@@ -721,7 +721,7 @@
 
 .method public getOutgoingCallerIdDisplay(Landroid/os/Message;)V
     .locals 1
-    .parameter "onComplete"
+    .param p1, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -792,7 +792,7 @@
     invoke-direct {v0}, Landroid/telephony/ServiceState;-><init>()V
 
     .line 124
-    .local v0, s:Landroid/telephony/ServiceState;
+    .local v0, "s":Landroid/telephony/ServiceState;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/telephony/ServiceState;->setState(I)V
@@ -855,7 +855,7 @@
 
 .method public handleInCallMmiCommands(Ljava/lang/String;)Z
     .locals 1
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
 
     .prologue
     .line 241
@@ -866,7 +866,7 @@
 
 .method public handlePinMmi(Ljava/lang/String;)Z
     .locals 1
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
 
     .prologue
     .line 255
@@ -899,7 +899,7 @@
     move-result-object v1
 
     .line 246
-    .local v1, foregroundCallState:Lcom/android/internal/telephony/Call$State;
+    .local v1, "foregroundCallState":Lcom/android/internal/telephony/Call$State;
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhoneBase;->getBackgroundCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v3
@@ -909,7 +909,7 @@
     move-result-object v0
 
     .line 247
-    .local v0, backgroundCallState:Lcom/android/internal/telephony/Call$State;
+    .local v0, "backgroundCallState":Lcom/android/internal/telephony/Call$State;
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhoneBase;->getRingingCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v3
@@ -919,7 +919,7 @@
     move-result-object v2
 
     .line 249
-    .local v2, ringingCallState:Lcom/android/internal/telephony/Call$State;
+    .local v2, "ringingCallState":Lcom/android/internal/telephony/Call$State;
     invoke-virtual {v1}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
     move-result v3
@@ -952,7 +952,7 @@
 
 .method migrateFrom(Lcom/android/internal/telephony/sip/SipPhoneBase;)V
     .locals 2
-    .parameter "from"
+    .param p1, "from"    # Lcom/android/internal/telephony/sip/SipPhoneBase;
 
     .prologue
     .line 80
@@ -1054,7 +1054,7 @@
 
 .method notifyDisconnect(Lcom/android/internal/telephony/Connection;)V
     .locals 1
-    .parameter "cn"
+    .param p1, "cn"    # Lcom/android/internal/telephony/Connection;
 
     .prologue
     .line 201
@@ -1068,7 +1068,7 @@
 
 .method notifyNewRingingConnection(Lcom/android/internal/telephony/Connection;)V
     .locals 0
-    .parameter "c"
+    .param p1, "c"    # Lcom/android/internal/telephony/Connection;
 
     .prologue
     .line 197
@@ -1104,7 +1104,7 @@
 
 .method notifyServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 0
-    .parameter "ss"
+    .param p1, "ss"    # Landroid/telephony/ServiceState;
 
     .prologue
     .line 213
@@ -1116,7 +1116,7 @@
 
 .method notifySuppServiceFailed(Lcom/android/internal/telephony/Phone$SuppService;)V
     .locals 1
-    .parameter "code"
+    .param p1, "code"    # Lcom/android/internal/telephony/Phone$SuppService;
 
     .prologue
     .line 209
@@ -1151,9 +1151,9 @@
 
 .method public registerForRingbackTone(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 101
@@ -1167,9 +1167,9 @@
 
 .method public registerForSuppServiceNotification(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 265
@@ -1178,7 +1178,7 @@
 
 .method public saveClirSetting(I)V
     .locals 0
-    .parameter "commandInterfaceCLIRMode"
+    .param p1, "commandInterfaceCLIRMode"    # I
 
     .prologue
     .line 467
@@ -1187,8 +1187,8 @@
 
 .method public selectNetworkManually(Lcom/android/internal/telephony/OperatorInfo;Landroid/os/Message;)V
     .locals 0
-    .parameter "network"
-    .parameter "response"
+    .param p1, "network"    # Lcom/android/internal/telephony/OperatorInfo;
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 410
@@ -1197,7 +1197,7 @@
 
 .method public sendUssdResponse(Ljava/lang/String;)V
     .locals 0
-    .parameter "ussdMessge"
+    .param p1, "ussdMessge"    # Ljava/lang/String;
 
     .prologue
     .line 260
@@ -1206,11 +1206,11 @@
 
 .method public setCallForwardingOption(IILjava/lang/String;ILandroid/os/Message;)V
     .locals 0
-    .parameter "commandInterfaceCFAction"
-    .parameter "commandInterfaceCFReason"
-    .parameter "dialingNumber"
-    .parameter "timerSeconds"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCFAction"    # I
+    .param p2, "commandInterfaceCFReason"    # I
+    .param p3, "dialingNumber"    # Ljava/lang/String;
+    .param p4, "timerSeconds"    # I
+    .param p5, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 360
@@ -1219,8 +1219,8 @@
 
 .method public setCallWaiting(ZLandroid/os/Message;)V
     .locals 2
-    .parameter "enable"
-    .parameter "onComplete"
+    .param p1, "enable"    # Z
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 385
@@ -1236,8 +1236,8 @@
 
 .method public setCellBroadcastSmsConfig([ILandroid/os/Message;)V
     .locals 2
-    .parameter "configValuesArray"
-    .parameter "response"
+    .param p1, "configValuesArray"    # [I
+    .param p2, "response"    # Landroid/os/Message;
 
     .prologue
     .line 496
@@ -1253,7 +1253,7 @@
 
 .method public setDataRoamingEnabled(Z)V
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 447
@@ -1262,9 +1262,9 @@
 
 .method public setLine1Number(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "alphaTag"
-    .parameter "number"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "number"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -1281,7 +1281,7 @@
 
 .method public setNetworkSelectionModeAutomatic(Landroid/os/Message;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 404
@@ -1290,9 +1290,9 @@
 
 .method public setOnPostDialCharacter(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 0
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 418
@@ -1301,8 +1301,8 @@
 
 .method public setOutgoingCallerIdDisplay(ILandroid/os/Message;)V
     .locals 1
-    .parameter "commandInterfaceCLIRMode"
-    .parameter "onComplete"
+    .param p1, "commandInterfaceCLIRMode"    # I
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -1319,7 +1319,7 @@
 
 .method public setRadioPower(Z)V
     .locals 0
-    .parameter "power"
+    .param p1, "power"    # Z
 
     .prologue
     .line 273
@@ -1328,9 +1328,9 @@
 
 .method public setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 1
-    .parameter "alphaTag"
-    .parameter "voiceMailNumber"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "voiceMailNumber"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x0
@@ -1359,7 +1359,7 @@
     invoke-direct {v0, v2, v1, v2}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
     .line 111
-    .local v0, result:Landroid/os/AsyncResult;
+    .local v0, "result":Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhoneBase;->mRingbackRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
@@ -1382,7 +1382,7 @@
     invoke-direct {v0, v2, v1, v2}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
     .line 116
-    .local v0, result:Landroid/os/AsyncResult;
+    .local v0, "result":Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhoneBase;->mRingbackRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
@@ -1393,7 +1393,7 @@
 
 .method public unregisterForRingbackTone(Landroid/os/Handler;)V
     .locals 1
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 106
@@ -1407,7 +1407,7 @@
 
 .method public unregisterForSuppServiceNotification(Landroid/os/Handler;)V
     .locals 0
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 269
@@ -1432,7 +1432,7 @@
     iget-object v0, p0, Lcom/android/internal/telephony/sip/SipPhoneBase;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
     .line 516
-    .local v0, oldState:Lcom/android/internal/telephony/PhoneConstants$State;
+    .local v0, "oldState":Lcom/android/internal/telephony/PhoneConstants$State;
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhoneBase;->getRingingCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1

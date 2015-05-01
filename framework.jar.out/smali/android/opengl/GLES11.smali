@@ -446,9 +446,9 @@
 
 .method public static glPointSizePointerOES(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "type"    # I
+    .param p1, "stride"    # I
+    .param p2, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 612

@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/util/FileRotator;Lcom/android/internal/util/FileRotator$Reader;Lcom/android/internal/util/FileRotator$Writer;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 190
@@ -49,7 +46,7 @@
 # virtual methods
 .method public read(Ljava/io/InputStream;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -86,7 +83,7 @@
 
 .method public write(Ljava/io/OutputStream;)V
     .locals 1
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

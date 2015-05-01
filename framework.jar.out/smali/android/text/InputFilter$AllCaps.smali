@@ -32,12 +32,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 9
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -47,7 +47,7 @@
     .line 52
     move v6, p2
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     if-ge v6, p3, :cond_2
 
@@ -68,7 +68,7 @@
     new-array v8, v0, [C
 
     .line 55
-    .local v8, v:[C
+    .local v8, "v":[C
     invoke-static {p1, p2, p3, v8, v5}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 56
@@ -81,7 +81,7 @@
     move-result-object v7
 
     .line 58
-    .local v7, s:Ljava/lang/String;
+    .local v7, "s":Ljava/lang/String;
     instance-of v0, p1, Landroid/text/Spanned;
 
     if-eqz v0, :cond_0
@@ -91,7 +91,7 @@
 
     invoke-direct {v4, v7}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .local v4, sp:Landroid/text/SpannableString;
+    .local v4, "sp":Landroid/text/SpannableString;
     move-object v0, p1
 
     .line 60
@@ -104,14 +104,14 @@
     invoke-static/range {v0 .. v5}, Landroid/text/TextUtils;->copySpansFrom(Landroid/text/Spanned;IILjava/lang/Class;Landroid/text/Spannable;I)V
 
     .line 69
-    .end local v4           #sp:Landroid/text/SpannableString;
-    .end local v7           #s:Ljava/lang/String;
-    .end local v8           #v:[C
+    .end local v4    # "sp":Landroid/text/SpannableString;
+    .end local v7    # "s":Ljava/lang/String;
+    .end local v8    # "v":[C
     :goto_1
     return-object v4
 
-    .restart local v7       #s:Ljava/lang/String;
-    .restart local v8       #v:[C
+    .restart local v7    # "s":Ljava/lang/String;
+    .restart local v8    # "v":[C
     :cond_0
     move-object v4, v7
 
@@ -119,8 +119,8 @@
     goto :goto_1
 
     .line 52
-    .end local v7           #s:Ljava/lang/String;
-    .end local v8           #v:[C
+    .end local v7    # "s":Ljava/lang/String;
+    .end local v8    # "v":[C
     :cond_1
     add-int/lit8 v6, v6, 0x1
 

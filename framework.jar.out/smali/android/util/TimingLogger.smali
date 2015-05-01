@@ -36,8 +36,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "tag"
-    .parameter "label"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -54,7 +54,7 @@
 # virtual methods
 .method public addSplit(Ljava/lang/String;)V
     .locals 4
-    .parameter "splitLabel"
+    .param p1, "splitLabel"    # Ljava/lang/String;
 
     .prologue
     .line 123
@@ -73,7 +73,7 @@
     move-result-wide v0
 
     .line 125
-    .local v0, now:J
+    .local v0, "now":J
     iget-object v2, p0, Landroid/util/TimingLogger;->mSplits:Ljava/util/ArrayList;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -145,14 +145,14 @@
     move-result-wide v0
 
     .line 138
-    .local v0, first:J
+    .local v0, "first":J
     move-wide v3, v0
 
     .line 139
-    .local v3, now:J
+    .local v3, "now":J
     const/4 v2, 0x1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     iget-object v8, p0, Landroid/util/TimingLogger;->mSplits:Ljava/util/ArrayList;
 
@@ -185,7 +185,7 @@
     check-cast v7, Ljava/lang/String;
 
     .line 142
-    .local v7, splitLabel:Ljava/lang/String;
+    .local v7, "splitLabel":Ljava/lang/String;
     iget-object v8, p0, Landroid/util/TimingLogger;->mSplits:Ljava/util/ArrayList;
 
     add-int/lit8 v9, v2, -0x1
@@ -201,7 +201,7 @@
     move-result-wide v5
 
     .line 144
-    .local v5, prev:J
+    .local v5, "prev":J
     iget-object v8, p0, Landroid/util/TimingLogger;->mTag:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -248,8 +248,8 @@
     goto :goto_1
 
     .line 146
-    .end local v5           #prev:J
-    .end local v7           #splitLabel:Ljava/lang/String;
+    .end local v5    # "prev":J
+    .end local v7    # "splitLabel":Ljava/lang/String;
     :cond_1
     iget-object v8, p0, Landroid/util/TimingLogger;->mTag:Ljava/lang/String;
 
@@ -369,8 +369,8 @@
 
 .method public reset(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "tag"
-    .parameter "label"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
 
     .prologue
     .line 89

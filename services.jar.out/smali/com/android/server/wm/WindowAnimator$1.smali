@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowAnimator;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 93
@@ -63,7 +62,7 @@
     .line 98
     iget-object v0, p0, Lcom/android/server/wm/WindowAnimator$1;->this$0:Lcom/android/server/wm/WindowAnimator;
 
-    #calls: Lcom/android/server/wm/WindowAnimator;->animateLocked()V
+    # invokes: Lcom/android/server/wm/WindowAnimator;->animateLocked()V
     invoke-static {v0}, Lcom/android/server/wm/WindowAnimator;->access$000(Lcom/android/server/wm/WindowAnimator;)V
 
     .line 99

@@ -48,8 +48,8 @@
 # direct methods
 .method constructor <init>(Landroid/media/WebVttRenderingWidget;Landroid/media/MediaFormat;)V
     .locals 2
-    .parameter "renderingWidget"
-    .parameter "format"
+    .param p1, "renderingWidget"    # Landroid/media/WebVttRenderingWidget;
+    .param p2, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 992
@@ -125,7 +125,7 @@
 
 .method public onCueParsed(Landroid/media/TextTrackCue;)V
     .locals 17
-    .parameter "cue"
+    .param p1, "cue"    # Landroid/media/TextTrackCue;
 
     .prologue
     .line 1024
@@ -211,20 +211,20 @@
 
     iget-object v1, v0, Landroid/media/TextTrackCue;->mStrings:[Ljava/lang/String;
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v6, v1
 
-    .local v6, len$:I
+    .local v6, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v6, :cond_2
 
     aget-object v9, v1, v3
 
     .line 1035
-    .local v9, s:Ljava/lang/String;
+    .local v9, "s":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v11, v0, Landroid/media/WebVttTrack;->mTokenizer:Landroid/media/Tokenizer;
@@ -237,7 +237,7 @@
     goto :goto_0
 
     .line 1037
-    .end local v9           #s:Ljava/lang/String;
+    .end local v9    # "s":Ljava/lang/String;
     :cond_2
     move-object/from16 v0, p0
 
@@ -294,41 +294,41 @@
 
     iget-object v1, v0, Landroid/media/TextTrackCue;->mLines:[[Landroid/media/TextTrackCueSpan;
 
-    .local v1, arr$:[[Landroid/media/TextTrackCueSpan;
+    .local v1, "arr$":[[Landroid/media/TextTrackCueSpan;
     array-length v6, v1
 
     const/4 v3, 0x0
 
     move v4, v3
 
-    .end local v1           #arr$:[[Landroid/media/TextTrackCueSpan;
-    .end local v3           #i$:I
-    .end local v6           #len$:I
-    .local v4, i$:I
+    .end local v1    # "arr$":[[Landroid/media/TextTrackCueSpan;
+    .end local v3    # "i$":I
+    .end local v6    # "len$":I
+    .local v4, "i$":I
     :goto_1
     if-ge v4, v6, :cond_6
 
     aget-object v8, v1, v4
 
     .line 1045
-    .local v8, line:[Landroid/media/TextTrackCueSpan;
+    .local v8, "line":[Landroid/media/TextTrackCueSpan;
     move-object v2, v8
 
-    .local v2, arr$:[Landroid/media/TextTrackCueSpan;
+    .local v2, "arr$":[Landroid/media/TextTrackCueSpan;
     array-length v7, v2
 
-    .local v7, len$:I
+    .local v7, "len$":I
     const/4 v3, 0x0
 
-    .end local v4           #i$:I
-    .restart local v3       #i$:I
+    .end local v4    # "i$":I
+    .restart local v3    # "i$":I
     :goto_2
     if-ge v3, v7, :cond_5
 
     aget-object v10, v2, v3
 
     .line 1046
-    .local v10, span:Landroid/media/TextTrackCueSpan;
+    .local v10, "span":Landroid/media/TextTrackCueSpan;
     iget-wide v13, v10, Landroid/media/TextTrackCueSpan;->mTimestampMs:J
 
     move-object/from16 v0, p1
@@ -385,20 +385,20 @@
     goto :goto_2
 
     .line 1044
-    .end local v10           #span:Landroid/media/TextTrackCueSpan;
+    .end local v10    # "span":Landroid/media/TextTrackCueSpan;
     :cond_5
     add-int/lit8 v3, v4, 0x1
 
     move v4, v3
 
-    .end local v3           #i$:I
-    .restart local v4       #i$:I
+    .end local v3    # "i$":I
+    .restart local v4    # "i$":I
     goto :goto_1
 
     .line 1054
-    .end local v2           #arr$:[Landroid/media/TextTrackCueSpan;
-    .end local v7           #len$:I
-    .end local v8           #line:[Landroid/media/TextTrackCueSpan;
+    .end local v2    # "arr$":[Landroid/media/TextTrackCueSpan;
+    .end local v7    # "len$":I
+    .end local v8    # "line":[Landroid/media/TextTrackCueSpan;
     :cond_6
     move-object/from16 v0, p0
 
@@ -428,7 +428,7 @@
     .line 1056
     const/4 v5, 0x0
 
-    .local v5, ix:I
+    .local v5, "ix":I
     :goto_3
     move-object/from16 v0, p0
 
@@ -475,7 +475,7 @@
     invoke-virtual {v11}, Ljava/util/Vector;->clear()V
 
     .line 1064
-    .end local v5           #ix:I
+    .end local v5    # "ix":I
     :goto_4
     move-object/from16 v0, p0
 
@@ -512,7 +512,7 @@
     goto :goto_4
 
     .line 1065
-    .end local v4           #i$:I
+    .end local v4    # "i$":I
     :catchall_0
     move-exception v11
 
@@ -525,9 +525,9 @@
 
 .method public onData(Ljava/lang/String;ZJ)V
     .locals 4
-    .parameter "data"
-    .parameter "eos"
-    .parameter "runID"
+    .param p1, "data"    # Ljava/lang/String;
+    .param p2, "eos"    # Z
+    .param p3, "runID"    # J
 
     .prologue
     .line 1005
@@ -645,7 +645,7 @@
 
 .method public onRegionParsed(Landroid/media/TextTrackRegion;)V
     .locals 3
-    .parameter "region"
+    .param p1, "region"    # Landroid/media/TextTrackRegion;
 
     .prologue
     .line 1072
@@ -680,7 +680,6 @@
 
 .method public updateView(Ljava/util/Vector;)V
     .locals 7
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -693,7 +692,7 @@
 
     .prologue
     .line 1079
-    .local p1, activeCues:Ljava/util/Vector;,"Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;"
+    .local p1, "activeCues":Ljava/util/Vector;, "Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;"
     iget-boolean v1, p0, Landroid/media/WebVttTrack;->mVisible:Z
 
     if-nez v1, :cond_0
@@ -772,7 +771,7 @@
     move-exception v0
 
     .line 1090
-    .local v0, e:Ljava/lang/IllegalStateException;
+    .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "WebVttTrack"
 
     const-string v2, "at (illegal state) the active cues are:"

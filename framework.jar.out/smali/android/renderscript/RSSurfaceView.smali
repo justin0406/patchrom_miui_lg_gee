@@ -15,7 +15,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 54
@@ -30,8 +30,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 66
@@ -54,7 +54,7 @@
     move-result-object v0
 
     .line 75
-    .local v0, holder:Landroid/view/SurfaceHolder;
+    .local v0, "holder":Landroid/view/SurfaceHolder;
     invoke-interface {v0, p0}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
     .line 76
@@ -65,7 +65,7 @@
 # virtual methods
 .method public createRenderScriptGL(Landroid/renderscript/RenderScriptGL$SurfaceConfig;)Landroid/renderscript/RenderScriptGL;
     .locals 2
-    .parameter "sc"
+    .param p1, "sc"    # Landroid/renderscript/RenderScriptGL$SurfaceConfig;
 
     .prologue
     .line 145
@@ -78,7 +78,7 @@
     invoke-direct {v0, v1, p1}, Landroid/renderscript/RenderScriptGL;-><init>(Landroid/content/Context;Landroid/renderscript/RenderScriptGL$SurfaceConfig;)V
 
     .line 146
-    .local v0, rs:Landroid/renderscript/RenderScriptGL;
+    .local v0, "rs":Landroid/renderscript/RenderScriptGL;
     invoke-virtual {p0, v0}, Landroid/renderscript/RSSurfaceView;->setRenderScriptGL(Landroid/renderscript/RenderScriptGL;)V
 
     .line 147
@@ -170,7 +170,7 @@
 
 .method public setRenderScriptGL(Landroid/renderscript/RenderScriptGL;)V
     .locals 0
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScriptGL;
 
     .prologue
     .line 164
@@ -182,10 +182,10 @@
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 1
-    .parameter "holder"
-    .parameter "format"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
 
     .prologue
     .line 107
@@ -222,7 +222,7 @@
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 0
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 84
@@ -234,7 +234,7 @@
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 4
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 93

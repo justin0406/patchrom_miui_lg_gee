@@ -243,13 +243,13 @@
     array-length v6, v11
 
     .line 1440
-    .local v6, numTables:I
+    .local v6, "numTables":I
     sget-object v11, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageShiftTables:[Ljava/lang/String;
 
     array-length v5, v11
 
     .line 1441
-    .local v5, numShiftTables:I
+    .local v5, "numShiftTables":I
     if-eq v6, v5, :cond_0
 
     .line 1442
@@ -294,7 +294,7 @@
     .line 1447
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v6, :cond_3
 
@@ -304,13 +304,13 @@
     aget-object v9, v11, v3
 
     .line 1450
-    .local v9, table:Ljava/lang/String;
+    .local v9, "table":Ljava/lang/String;
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v10
 
     .line 1451
-    .local v10, tableLen:I
+    .local v10, "tableLen":I
     if-eqz v10, :cond_1
 
     const/16 v11, 0x80
@@ -363,7 +363,7 @@
     invoke-direct {v1, v10}, Landroid/util/SparseIntArray;-><init>(I)V
 
     .line 1457
-    .local v1, charToGsmTable:Landroid/util/SparseIntArray;
+    .local v1, "charToGsmTable":Landroid/util/SparseIntArray;
     sget-object v11, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aput-object v1, v11, v3
@@ -371,7 +371,7 @@
     .line 1458
     const/4 v4, 0x0
 
-    .local v4, j:I
+    .local v4, "j":I
     :goto_1
     if-ge v4, v10, :cond_2
 
@@ -381,7 +381,7 @@
     move-result v0
 
     .line 1460
-    .local v0, c:C
+    .local v0, "c":C
     invoke-virtual {v1, v0, v4}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 1458
@@ -390,17 +390,17 @@
     goto :goto_1
 
     .line 1447
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 1464
-    .end local v1           #charToGsmTable:Landroid/util/SparseIntArray;
-    .end local v4           #j:I
-    .end local v9           #table:Ljava/lang/String;
-    .end local v10           #tableLen:I
+    .end local v1    # "charToGsmTable":Landroid/util/SparseIntArray;
+    .end local v4    # "j":I
+    .end local v9    # "table":Ljava/lang/String;
+    .end local v10    # "tableLen":I
     :cond_3
     new-array v11, v6, [Landroid/util/SparseIntArray;
 
@@ -418,13 +418,13 @@
     aget-object v7, v11, v3
 
     .line 1468
-    .local v7, shiftTable:Ljava/lang/String;
+    .local v7, "shiftTable":Ljava/lang/String;
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v8
 
     .line 1469
-    .local v8, shiftTableLen:I
+    .local v8, "shiftTableLen":I
     if-eqz v8, :cond_4
 
     const/16 v11, 0x80
@@ -477,7 +477,7 @@
     invoke-direct {v2, v8}, Landroid/util/SparseIntArray;-><init>(I)V
 
     .line 1475
-    .local v2, charToShiftTable:Landroid/util/SparseIntArray;
+    .local v2, "charToShiftTable":Landroid/util/SparseIntArray;
     sget-object v11, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
     aput-object v2, v11, v3
@@ -485,7 +485,7 @@
     .line 1476
     const/4 v4, 0x0
 
-    .restart local v4       #j:I
+    .restart local v4    # "j":I
     :goto_3
     if-ge v4, v8, :cond_6
 
@@ -495,7 +495,7 @@
     move-result v0
 
     .line 1478
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     const/16 v11, 0x20
 
     if-eq v0, v11, :cond_5
@@ -510,17 +510,17 @@
     goto :goto_3
 
     .line 1465
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_6
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 1483
-    .end local v2           #charToShiftTable:Landroid/util/SparseIntArray;
-    .end local v4           #j:I
-    .end local v7           #shiftTable:Ljava/lang/String;
-    .end local v8           #shiftTableLen:I
+    .end local v2    # "charToShiftTable":Landroid/util/SparseIntArray;
+    .end local v4    # "j":I
+    .end local v7    # "shiftTable":Ljava/lang/String;
+    .end local v8    # "shiftTableLen":I
     :cond_7
     return-void
 .end method
@@ -557,7 +557,7 @@
 
 .method public static charToGsm(C)I
     .locals 4
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     const/16 v3, 0x20
@@ -583,7 +583,7 @@
     move-exception v0
 
     .line 147
-    .local v0, ex:Lcom/android/internal/telephony/EncodeException;
+    .local v0, "ex":Lcom/android/internal/telephony/EncodeException;
     sget-object v1, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aget-object v1, v1, v2
@@ -597,8 +597,8 @@
 
 .method public static charToGsm(CZ)I
     .locals 5
-    .parameter "c"
-    .parameter "throwException"
+    .param p0, "c"    # C
+    .param p1, "throwException"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -622,7 +622,7 @@
     move-result v0
 
     .line 169
-    .local v0, ret:I
+    .local v0, "ret":I
     if-ne v0, v2, :cond_2
 
     .line 170
@@ -676,7 +676,7 @@
 
 .method public static charToGsmExtended(C)I
     .locals 5
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     const/16 v4, 0x20
@@ -695,7 +695,7 @@
     move-result v0
 
     .line 199
-    .local v0, ret:I
+    .local v0, "ret":I
     if-ne v0, v2, :cond_0
 
     .line 200
@@ -708,14 +708,14 @@
     move-result v0
 
     .line 203
-    .end local v0           #ret:I
+    .end local v0    # "ret":I
     :cond_0
     return v0
 .end method
 
 .method public static countGsmSeptets(C)I
     .locals 3
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     const/4 v1, 0x0
@@ -739,14 +739,14 @@
     move-exception v0
 
     .line 717
-    .local v0, ex:Lcom/android/internal/telephony/EncodeException;
+    .local v0, "ex":Lcom/android/internal/telephony/EncodeException;
     goto :goto_0
 .end method
 
 .method public static countGsmSeptets(CZ)I
     .locals 4
-    .parameter "c"
-    .parameter "throwsException"
+    .param p0, "c"    # C
+    .param p1, "throwsException"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -807,8 +807,8 @@
 
 .method public static countGsmSeptets(Ljava/lang/CharSequence;Z)Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     .locals 27
-    .parameter "s"
-    .parameter "use7bitOnly"
+    .param p0, "s"    # Ljava/lang/CharSequence;
+    .param p1, "use7bitOnly"    # Z
 
     .prologue
     .line 807
@@ -847,7 +847,7 @@
     invoke-direct/range {v22 .. v22}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
 
     .line 813
-    .local v22, ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .local v22, "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     const/16 v25, 0x0
 
     const/16 v26, 0x0
@@ -865,7 +865,7 @@
     move-result v14
 
     .line 814
-    .local v14, septets:I
+    .local v14, "septets":I
     const/16 v25, -0x1
 
     move/from16 v0, v25
@@ -876,15 +876,15 @@
     const/16 v22, 0x0
 
     .line 942
-    .end local v14           #septets:I
-    .end local v22           #ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .end local v14    # "septets":I
+    .end local v22    # "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     :cond_1
     :goto_0
     return-object v22
 
     .line 817
-    .restart local v14       #septets:I
-    .restart local v22       #ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .restart local v14    # "septets":I
+    .restart local v22    # "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     :cond_2
     const/16 v25, 0x1
 
@@ -980,13 +980,13 @@
     goto :goto_1
 
     .line 832
-    .end local v14           #septets:I
-    .end local v22           #ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .end local v14    # "septets":I
+    .end local v22    # "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     :cond_4
     sget v11, Lcom/android/internal/telephony/GsmAlphabet;->sHighestEnabledSingleShiftCode:I
 
     .line 833
-    .local v11, maxSingleShiftCode:I
+    .local v11, "maxSingleShiftCode":I
     new-instance v10, Ljava/util/ArrayList;
 
     sget-object v25, Lcom/android/internal/telephony/GsmAlphabet;->sEnabledLockingShiftTables:[I
@@ -1004,7 +1004,7 @@
     invoke-direct {v10, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 837
-    .local v10, lpcList:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;>;"
+    .local v10, "lpcList":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;>;"
     new-instance v25, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
 
     const/16 v26, 0x0
@@ -1018,20 +1018,20 @@
     .line 838
     sget-object v4, Lcom/android/internal/telephony/GsmAlphabet;->sEnabledLockingShiftTables:[I
 
-    .local v4, arr$:[I
+    .local v4, "arr$":[I
     array-length v8, v4
 
-    .local v8, len$:I
+    .local v8, "len$":I
     const/4 v7, 0x0
 
-    .local v7, i$:I
+    .local v7, "i$":I
     :goto_2
     if-ge v7, v8, :cond_6
 
     aget v6, v4, v7
 
     .line 840
-    .local v6, i:I
+    .local v6, "i":I
     if-eqz v6, :cond_5
 
     sget-object v25, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageTables:[Ljava/lang/String;
@@ -1062,18 +1062,18 @@
     goto :goto_2
 
     .line 845
-    .end local v6           #i:I
+    .end local v6    # "i":I
     :cond_6
     invoke-interface/range {p0 .. p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v19
 
     .line 847
-    .local v19, sz:I
+    .local v19, "sz":I
     const/4 v6, 0x0
 
-    .end local v7           #i$:I
-    .restart local v6       #i:I
+    .end local v7    # "i$":I
+    .restart local v6    # "i":I
     :goto_3
     move/from16 v0, v19
 
@@ -1093,7 +1093,7 @@
     move-result v5
 
     .line 849
-    .local v5, c:C
+    .local v5, "c":C
     const/16 v25, 0x1b
 
     move/from16 v0, v25
@@ -1119,7 +1119,7 @@
 
     move-result-object v7
 
-    .local v7, i$:Ljava/util/Iterator;
+    .local v7, "i$":Ljava/util/Iterator;
     :cond_9
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1134,7 +1134,7 @@
     check-cast v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
 
     .line 855
-    .local v9, lpc:Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+    .local v9, "lpc":Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
     sget-object v25, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     iget v0, v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
@@ -1154,7 +1154,7 @@
     move-result v21
 
     .line 856
-    .local v21, tableIndex:I
+    .local v21, "tableIndex":I
     const/16 v25, -0x1
 
     move/from16 v0, v21
@@ -1166,7 +1166,7 @@
     .line 858
     const/16 v20, 0x0
 
-    .local v20, table:I
+    .local v20, "table":I
     :goto_4
     move/from16 v0, v20
 
@@ -1203,7 +1203,7 @@
     move-result v18
 
     .line 861
-    .local v18, shiftTableIndex:I
+    .local v18, "shiftTableIndex":I
     const/16 v25, -0x1
 
     move/from16 v0, v18
@@ -1238,7 +1238,7 @@
     aput v26, v25, v20
 
     .line 858
-    .end local v18           #shiftTableIndex:I
+    .end local v18    # "shiftTableIndex":I
     :cond_a
     :goto_5
     add-int/lit8 v20, v20, 0x1
@@ -1246,7 +1246,7 @@
     goto :goto_4
 
     .line 868
-    .restart local v18       #shiftTableIndex:I
+    .restart local v18    # "shiftTableIndex":I
     :cond_b
     iget-object v0, v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -1273,12 +1273,12 @@
     goto :goto_5
 
     .line 878
-    .end local v18           #shiftTableIndex:I
-    .end local v20           #table:I
+    .end local v18    # "shiftTableIndex":I
+    .end local v20    # "table":I
     :cond_d
     const/16 v20, 0x0
 
-    .restart local v20       #table:I
+    .restart local v20    # "table":I
     :goto_6
     move/from16 v0, v20
 
@@ -1317,18 +1317,18 @@
     goto :goto_6
 
     .line 888
-    .end local v5           #c:C
-    .end local v7           #i$:Ljava/util/Iterator;
-    .end local v9           #lpc:Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
-    .end local v20           #table:I
-    .end local v21           #tableIndex:I
+    .end local v5    # "c":C
+    .end local v7    # "i$":Ljava/util/Iterator;
+    .end local v9    # "lpc":Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+    .end local v20    # "table":I
+    .end local v21    # "tableIndex":I
     :cond_f
     new-instance v22, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
 
     invoke-direct/range {v22 .. v22}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
 
     .line 889
-    .restart local v22       #ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .restart local v22    # "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     const v25, 0x7fffffff
 
     move/from16 v0, v25
@@ -1350,12 +1350,12 @@
     const v12, 0x7fffffff
 
     .line 892
-    .local v12, minUnencodableCount:I
+    .local v12, "minUnencodableCount":I
     invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    .restart local v7       #i$:Ljava/util/Iterator;
+    .restart local v7    # "i$":Ljava/util/Iterator;
     :cond_10
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1370,10 +1370,10 @@
     check-cast v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
 
     .line 893
-    .restart local v9       #lpc:Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+    .restart local v9    # "lpc":Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
     const/16 v17, 0x0
 
-    .local v17, shiftTable:I
+    .local v17, "shiftTable":I
     :goto_7
     move/from16 v0, v17
 
@@ -1387,7 +1387,7 @@
     aget v14, v25, v17
 
     .line 895
-    .restart local v14       #septets:I
+    .restart local v14    # "septets":I
     const/16 v25, -0x1
 
     move/from16 v0, v25
@@ -1415,7 +1415,7 @@
     const/16 v23, 0x8
 
     .line 908
-    .local v23, udhLength:I
+    .local v23, "udhLength":I
     :goto_9
     add-int v25, v14, v23
 
@@ -1443,7 +1443,7 @@
     rsub-int v15, v0, 0xa0
 
     .line 914
-    .local v15, septetsPerMessage:I
+    .local v15, "septetsPerMessage":I
     add-int v25, v14, v15
 
     add-int/lit8 v25, v25, -0x1
@@ -1451,14 +1451,14 @@
     div-int v13, v25, v15
 
     .line 915
-    .local v13, msgCount:I
+    .local v13, "msgCount":I
     mul-int v25, v13, v15
 
     sub-int v16, v25, v14
 
     .line 921
-    .end local v15           #septetsPerMessage:I
-    .local v16, septetsRemaining:I
+    .end local v15    # "septetsPerMessage":I
+    .local v16, "septetsRemaining":I
     :goto_a
     iget-object v0, v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->unencodableCounts:[I
 
@@ -1467,7 +1467,7 @@
     aget v24, v25, v17
 
     .line 922
-    .local v24, unencodableCount:I
+    .local v24, "unencodableCount":I
     if-eqz p1, :cond_14
 
     move/from16 v0, v24
@@ -1557,10 +1557,10 @@
     goto :goto_8
 
     .line 901
-    .end local v13           #msgCount:I
-    .end local v16           #septetsRemaining:I
-    .end local v23           #udhLength:I
-    .end local v24           #unencodableCount:I
+    .end local v13    # "msgCount":I
+    .end local v16    # "septetsRemaining":I
+    .end local v23    # "udhLength":I
+    .end local v24    # "unencodableCount":I
     :cond_17
     iget v0, v9, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
 
@@ -1574,15 +1574,15 @@
     :cond_18
     const/16 v23, 0x5
 
-    .restart local v23       #udhLength:I
+    .restart local v23    # "udhLength":I
     goto :goto_9
 
     .line 904
-    .end local v23           #udhLength:I
+    .end local v23    # "udhLength":I
     :cond_19
     const/16 v23, 0x0
 
-    .restart local v23       #udhLength:I
+    .restart local v23    # "udhLength":I
     goto :goto_9
 
     .line 917
@@ -1590,7 +1590,7 @@
     const/4 v13, 0x1
 
     .line 918
-    .restart local v13       #msgCount:I
+    .restart local v13    # "msgCount":I
     move/from16 v0, v23
 
     rsub-int v0, v0, 0xa0
@@ -1599,16 +1599,16 @@
 
     sub-int v16, v25, v14
 
-    .restart local v16       #septetsRemaining:I
+    .restart local v16    # "septetsRemaining":I
     goto :goto_a
 
     .line 938
-    .end local v9           #lpc:Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
-    .end local v13           #msgCount:I
-    .end local v14           #septets:I
-    .end local v16           #septetsRemaining:I
-    .end local v17           #shiftTable:I
-    .end local v23           #udhLength:I
+    .end local v9    # "lpc":Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+    .end local v13    # "msgCount":I
+    .end local v14    # "septets":I
+    .end local v16    # "septetsRemaining":I
+    .end local v17    # "shiftTable":I
+    .end local v23    # "udhLength":I
     :cond_1b
     move-object/from16 v0, v22
 
@@ -1632,10 +1632,10 @@
 
 .method public static countGsmSeptetsUsingTables(Ljava/lang/CharSequence;ZII)I
     .locals 9
-    .parameter "s"
-    .parameter "use7bitOnly"
-    .parameter "languageTable"
-    .parameter "languageShiftTable"
+    .param p0, "s"    # Ljava/lang/CharSequence;
+    .param p1, "use7bitOnly"    # Z
+    .param p2, "languageTable"    # I
+    .param p3, "languageShiftTable"    # I
 
     .prologue
     const/4 v6, -0x1
@@ -1644,28 +1644,28 @@
     const/4 v3, 0x0
 
     .line 764
-    .local v3, count:I
+    .local v3, "count":I
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
     .line 765
-    .local v5, sz:I
+    .local v5, "sz":I
     sget-object v7, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aget-object v1, v7, p2
 
     .line 766
-    .local v1, charToLanguageTable:Landroid/util/SparseIntArray;
+    .local v1, "charToLanguageTable":Landroid/util/SparseIntArray;
     sget-object v7, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
     aget-object v2, v7, p3
 
     .line 767
-    .local v2, charToShiftTable:Landroid/util/SparseIntArray;
+    .local v2, "charToShiftTable":Landroid/util/SparseIntArray;
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v5, :cond_4
 
@@ -1675,7 +1675,7 @@
     move-result v0
 
     .line 769
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v7, 0x1b
 
     if-ne v0, v7, :cond_0
@@ -1732,8 +1732,8 @@
     move v3, v6
 
     .line 783
-    .end local v0           #c:C
-    .end local v3           #count:I
+    .end local v0    # "c":C
+    .end local v3    # "count":I
     :cond_4
     return v3
 .end method
@@ -1748,7 +1748,7 @@
     move-result-object v0
 
     .line 1046
-    .local v0, r:Landroid/content/res/Resources;
+    .local v0, "r":Landroid/content/res/Resources;
     const v1, 0x1070025
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
@@ -1801,11 +1801,11 @@
 
 .method public static findGsmSeptetLimitIndex(Ljava/lang/String;IIII)I
     .locals 8
-    .parameter "s"
-    .parameter "start"
-    .parameter "limit"
-    .parameter "langTable"
-    .parameter "langShiftTable"
+    .param p0, "s"    # Ljava/lang/String;
+    .param p1, "start"    # I
+    .param p2, "limit"    # I
+    .param p3, "langTable"    # I
+    .param p4, "langShiftTable"    # I
 
     .prologue
     const/4 v7, -0x1
@@ -1814,28 +1814,28 @@
     const/4 v0, 0x0
 
     .line 963
-    .local v0, accumulator:I
+    .local v0, "accumulator":I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v5
 
     .line 965
-    .local v5, size:I
+    .local v5, "size":I
     sget-object v6, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aget-object v2, v6, p3
 
     .line 966
-    .local v2, charToLangTable:Landroid/util/SparseIntArray;
+    .local v2, "charToLangTable":Landroid/util/SparseIntArray;
     sget-object v6, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
     aget-object v1, v6, p4
 
     .line 967
-    .local v1, charToLangShiftTable:Landroid/util/SparseIntArray;
+    .local v1, "charToLangShiftTable":Landroid/util/SparseIntArray;
     move v4, p1
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v5, :cond_3
 
@@ -1849,7 +1849,7 @@
     move-result v3
 
     .line 969
-    .local v3, encodedSeptet:I
+    .local v3, "encodedSeptet":I
     if-ne v3, v7, :cond_1
 
     .line 970
@@ -1872,14 +1872,14 @@
     if-le v0, p2, :cond_2
 
     .line 984
-    .end local v3           #encodedSeptet:I
-    .end local v4           #i:I
+    .end local v3    # "encodedSeptet":I
+    .end local v4    # "i":I
     :goto_2
     return v4
 
     .line 975
-    .restart local v3       #encodedSeptet:I
-    .restart local v4       #i:I
+    .restart local v3    # "encodedSeptet":I
+    .restart local v4    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x2
 
@@ -1897,7 +1897,7 @@
 
     goto :goto_0
 
-    .end local v3           #encodedSeptet:I
+    .end local v3    # "encodedSeptet":I
     :cond_3
     move v4, v5
 
@@ -1959,9 +1959,9 @@
 
 .method public static gsm7BitPackedToString([BII)Ljava/lang/String;
     .locals 6
-    .parameter "pdu"
-    .parameter "offset"
-    .parameter "lengthSeptets"
+    .param p0, "pdu"    # [B
+    .param p1, "offset"    # I
+    .param p2, "lengthSeptets"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -1986,12 +1986,12 @@
 
 .method public static gsm7BitPackedToString([BIIIII)Ljava/lang/String;
     .locals 15
-    .parameter "pdu"
-    .parameter "offset"
-    .parameter "lengthSeptets"
-    .parameter "numPaddingBits"
-    .parameter "languageTable"
-    .parameter "shiftTable"
+    .param p0, "pdu"    # [B
+    .param p1, "offset"    # I
+    .param p2, "lengthSeptets"    # I
+    .param p3, "numPaddingBits"    # I
+    .param p4, "languageTable"    # I
+    .param p5, "shiftTable"    # I
 
     .prologue
     .line 477
@@ -2002,7 +2002,7 @@
     invoke-direct {v9, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 479
-    .local v9, ret:Ljava/lang/StringBuilder;
+    .local v9, "ret":Ljava/lang/StringBuilder;
     if-ltz p4, :cond_0
 
     sget-object v12, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageTables:[Ljava/lang/String;
@@ -2100,20 +2100,20 @@
     const/4 v8, 0x0
 
     .line 490
-    .local v8, prevCharWasEscape:Z
+    .local v8, "prevCharWasEscape":Z
     :try_start_0
     sget-object v12, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageTables:[Ljava/lang/String;
 
     aget-object v7, v12, p4
 
     .line 491
-    .local v7, languageTableToChar:Ljava/lang/String;
+    .local v7, "languageTableToChar":Ljava/lang/String;
     sget-object v12, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageShiftTables:[Ljava/lang/String;
 
     aget-object v11, v12, p5
 
     .line 493
-    .local v11, shiftTableToChar:Ljava/lang/String;
+    .local v11, "shiftTableToChar":Ljava/lang/String;
     invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
 
     move-result v12
@@ -2208,7 +2208,7 @@
     :cond_5
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     move/from16 v0, p2
 
@@ -2220,15 +2220,15 @@
     add-int v1, v12, p3
 
     .line 505
-    .local v1, bitOffset:I
+    .local v1, "bitOffset":I
     div-int/lit8 v2, v1, 0x8
 
     .line 506
-    .local v2, byteOffset:I
+    .local v2, "byteOffset":I
     rem-int/lit8 v10, v1, 0x8
 
     .line 509
-    .local v10, shift:I
+    .local v10, "shift":I
     add-int v12, p1, v2
 
     aget-byte v12, p0, v12
@@ -2238,7 +2238,7 @@
     and-int/lit8 v5, v12, 0x7f
 
     .line 512
-    .local v5, gsmVal:I
+    .local v5, "gsmVal":I
     const/4 v12, 0x1
 
     if-le v10, v12, :cond_6
@@ -2298,7 +2298,7 @@
     move-result v3
 
     .line 524
-    .local v3, c:C
+    .local v3, "c":C
     const/16 v12, 0x20
 
     if-ne v3, v12, :cond_8
@@ -2315,19 +2315,19 @@
     goto :goto_1
 
     .line 537
-    .end local v1           #bitOffset:I
-    .end local v2           #byteOffset:I
-    .end local v3           #c:C
-    .end local v5           #gsmVal:I
-    .end local v6           #i:I
-    .end local v7           #languageTableToChar:Ljava/lang/String;
-    .end local v10           #shift:I
-    .end local v11           #shiftTableToChar:Ljava/lang/String;
+    .end local v1    # "bitOffset":I
+    .end local v2    # "byteOffset":I
+    .end local v3    # "c":C
+    .end local v5    # "gsmVal":I
+    .end local v6    # "i":I
+    .end local v7    # "languageTableToChar":Ljava/lang/String;
+    .end local v10    # "shift":I
+    .end local v11    # "shiftTableToChar":Ljava/lang/String;
     :catch_0
     move-exception v4
 
     .line 538
-    .local v4, ex:Ljava/lang/RuntimeException;
+    .local v4, "ex":Ljava/lang/RuntimeException;
     const-string v12, "GSM"
 
     const-string v13, "Error GSM 7 bit packed: "
@@ -2338,19 +2338,19 @@
     const/4 v12, 0x0
 
     .line 542
-    .end local v4           #ex:Ljava/lang/RuntimeException;
+    .end local v4    # "ex":Ljava/lang/RuntimeException;
     :goto_3
     return-object v12
 
     .line 527
-    .restart local v1       #bitOffset:I
-    .restart local v2       #byteOffset:I
-    .restart local v3       #c:C
-    .restart local v5       #gsmVal:I
-    .restart local v6       #i:I
-    .restart local v7       #languageTableToChar:Ljava/lang/String;
-    .restart local v10       #shift:I
-    .restart local v11       #shiftTableToChar:Ljava/lang/String;
+    .restart local v1    # "bitOffset":I
+    .restart local v2    # "byteOffset":I
+    .restart local v3    # "c":C
+    .restart local v5    # "gsmVal":I
+    .restart local v6    # "i":I
+    .restart local v7    # "languageTableToChar":Ljava/lang/String;
+    .restart local v10    # "shift":I
+    .restart local v11    # "shiftTableToChar":Ljava/lang/String;
     :cond_8
     :try_start_1
     invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -2358,7 +2358,7 @@
     goto :goto_1
 
     .line 531
-    .end local v3           #c:C
+    .end local v3    # "c":C
     :cond_9
     const/16 v12, 0x1b
 
@@ -2382,10 +2382,10 @@
     goto :goto_2
 
     .line 542
-    .end local v1           #bitOffset:I
-    .end local v2           #byteOffset:I
-    .end local v5           #gsmVal:I
-    .end local v10           #shift:I
+    .end local v1    # "bitOffset":I
+    .end local v2    # "byteOffset":I
+    .end local v5    # "gsmVal":I
+    .end local v10    # "shift":I
     :cond_b
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2396,9 +2396,9 @@
 
 .method public static gsm8BitUnpackedToString([BII)Ljava/lang/String;
     .locals 1
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 560
@@ -2413,25 +2413,25 @@
 
 .method public static gsm8BitUnpackedToString([BIILjava/lang/String;)Ljava/lang/String;
     .locals 14
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "characterset"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
+    .param p3, "characterset"    # Ljava/lang/String;
 
     .prologue
     .line 575
     const/4 v5, 0x0
 
     .line 576
-    .local v5, isMbcs:Z
+    .local v5, "isMbcs":Z
     const/4 v2, 0x0
 
     .line 577
-    .local v2, charset:Ljava/nio/charset/Charset;
+    .local v2, "charset":Ljava/nio/charset/Charset;
     const/4 v7, 0x0
 
     .line 579
-    .local v7, mbcsBuffer:Ljava/nio/ByteBuffer;
+    .local v7, "mbcsBuffer":Ljava/nio/ByteBuffer;
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
@@ -2478,7 +2478,7 @@
     aget-object v6, v12, v13
 
     .line 589
-    .local v6, languageTableToChar:Ljava/lang/String;
+    .local v6, "languageTableToChar":Ljava/lang/String;
     sget-object v12, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageShiftTables:[Ljava/lang/String;
 
     const/4 v13, 0x0
@@ -2486,7 +2486,7 @@
     aget-object v11, v12, v13
 
     .line 591
-    .local v11, shiftTableToChar:Ljava/lang/String;
+    .local v11, "shiftTableToChar":Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
     move/from16 v0, p2
@@ -2494,18 +2494,18 @@
     invoke-direct {v9, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 592
-    .local v9, ret:Ljava/lang/StringBuilder;
+    .local v9, "ret":Ljava/lang/StringBuilder;
     const/4 v8, 0x0
 
     .line 593
-    .local v8, prevWasEscape:Z
+    .local v8, "prevWasEscape":Z
     move v3, p1
 
-    .local v3, i:I
+    .local v3, "i":I
     move v4, v3
 
-    .end local v3           #i:I
-    .local v4, i:I
+    .end local v3    # "i":I
+    .local v4, "i":I
     :goto_0
     add-int v12, p1, p2
 
@@ -2517,13 +2517,13 @@
     and-int/lit16 v1, v12, 0xff
 
     .line 598
-    .local v1, c:I
+    .local v1, "c":I
     const/16 v12, 0xff
 
     if-ne v1, v12, :cond_2
 
     .line 634
-    .end local v1           #c:I
+    .end local v1    # "c":I
     :cond_1
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2532,7 +2532,7 @@
     return-object v12
 
     .line 600
-    .restart local v1       #c:I
+    .restart local v1    # "c":I
     :cond_2
     const/16 v12, 0x1b
 
@@ -2552,15 +2552,15 @@
     move v3, v4
 
     .line 593
-    .end local v4           #i:I
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .restart local v3    # "i":I
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     move v4, v3
 
-    .end local v3           #i:I
-    .restart local v4       #i:I
+    .end local v3    # "i":I
+    .restart local v4    # "i":I
     goto :goto_0
 
     .line 608
@@ -2569,13 +2569,13 @@
 
     move v3, v4
 
-    .end local v4           #i:I
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .restart local v3    # "i":I
     goto :goto_1
 
     .line 611
-    .end local v3           #i:I
-    .restart local v4       #i:I
+    .end local v3    # "i":I
+    .restart local v4    # "i":I
     :cond_4
     if-eqz v8, :cond_6
 
@@ -2585,7 +2585,7 @@
     move-result v10
 
     .line 613
-    .local v10, shiftChar:C
+    .local v10, "shiftChar":C
     const/16 v12, 0x20
 
     if-ne v10, v12, :cond_5
@@ -2601,25 +2601,25 @@
     move v3, v4
 
     .line 630
-    .end local v4           #i:I
-    .end local v10           #shiftChar:C
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .end local v10    # "shiftChar":C
+    .restart local v3    # "i":I
     :goto_3
     const/4 v8, 0x0
 
     goto :goto_1
 
     .line 617
-    .end local v3           #i:I
-    .restart local v4       #i:I
-    .restart local v10       #shiftChar:C
+    .end local v3    # "i":I
+    .restart local v4    # "i":I
+    .restart local v10    # "shiftChar":C
     :cond_5
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
     .line 620
-    .end local v10           #shiftChar:C
+    .end local v10    # "shiftChar":C
     :cond_6
     if-eqz v5, :cond_7
 
@@ -2643,21 +2643,21 @@
 
     move v3, v4
 
-    .end local v4           #i:I
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .restart local v3    # "i":I
     goto :goto_3
 
     .line 624
-    .end local v3           #i:I
-    .restart local v4       #i:I
+    .end local v3    # "i":I
+    .restart local v4    # "i":I
     :cond_8
     invoke-virtual {v7}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     .line 625
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #i:I
-    .restart local v3       #i:I
+    .end local v4    # "i":I
+    .restart local v3    # "i":I
     const/4 v12, 0x2
 
     invoke-virtual {v7, p0, v4, v12}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
@@ -2681,7 +2681,7 @@
 
 .method public static gsmExtendedToChar(I)C
     .locals 4
-    .parameter "gsmChar"
+    .param p0, "gsmChar"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -2718,7 +2718,7 @@
     move-result v0
 
     .line 246
-    .local v0, c:C
+    .local v0, "c":C
     if-ne v0, v1, :cond_0
 
     .line 247
@@ -2732,7 +2732,7 @@
 
     goto :goto_0
 
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_2
     move v0, v1
 
@@ -2742,7 +2742,7 @@
 
 .method public static gsmToChar(I)C
     .locals 2
-    .parameter "gsmChar"
+    .param p0, "gsmChar"    # I
 
     .prologue
     .line 220
@@ -2775,20 +2775,20 @@
 
 .method private static packSmsChar([BII)V
     .locals 4
-    .parameter "packedChars"
-    .parameter "bitOffset"
-    .parameter "value"
+    .param p0, "packedChars"    # [B
+    .param p1, "bitOffset"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 433
     div-int/lit8 v0, p1, 0x8
 
     .line 434
-    .local v0, byteOffset:I
+    .local v0, "byteOffset":I
     rem-int/lit8 v1, p1, 0x8
 
     .line 436
-    .local v1, shift:I
+    .local v1, "shift":I
     add-int/lit8 v0, v0, 0x1
 
     aget-byte v2, p0, v0
@@ -2824,7 +2824,7 @@
 
 .method static declared-synchronized setEnabledLockingShiftTables([I)V
     .locals 2
-    .parameter "tables"
+    .param p0, "tables"    # [I
 
     .prologue
     .line 1013
@@ -2858,7 +2858,7 @@
 
 .method static declared-synchronized setEnabledSingleShiftTables([I)V
     .locals 2
-    .parameter "tables"
+    .param p0, "tables"    # [I
 
     .prologue
     .line 995
@@ -2918,7 +2918,7 @@
 
 .method public static stringToGsm7BitPacked(Ljava/lang/String;)[B
     .locals 2
-    .parameter "data"
+    .param p0, "data"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -2940,9 +2940,9 @@
 
 .method public static stringToGsm7BitPacked(Ljava/lang/String;II)[B
     .locals 2
-    .parameter "data"
-    .parameter "languageTable"
-    .parameter "languageShiftTable"
+    .param p0, "data"    # Ljava/lang/String;
+    .param p1, "languageTable"    # I
+    .param p2, "languageShiftTable"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -2964,11 +2964,11 @@
 
 .method public static stringToGsm7BitPacked(Ljava/lang/String;IZII)[B
     .locals 15
-    .parameter "data"
-    .parameter "startingSeptetOffset"
-    .parameter "throwException"
-    .parameter "languageTable"
-    .parameter "languageShiftTable"
+    .param p0, "data"    # Ljava/lang/String;
+    .param p1, "startingSeptetOffset"    # I
+    .param p2, "throwException"    # Z
+    .param p3, "languageTable"    # I
+    .param p4, "languageShiftTable"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -2982,7 +2982,7 @@
     move-result v7
 
     .line 384
-    .local v7, dataLen:I
+    .local v7, "dataLen":I
     if-nez p2, :cond_0
 
     const/4 v13, 0x1
@@ -2997,7 +2997,7 @@
     move-result v10
 
     .line 386
-    .local v10, septetCount:I
+    .local v10, "septetCount":I
     const/4 v13, -0x1
 
     if-ne v10, v13, :cond_1
@@ -3012,14 +3012,14 @@
     throw v13
 
     .line 384
-    .end local v10           #septetCount:I
+    .end local v10    # "septetCount":I
     :cond_0
     const/4 v13, 0x0
 
     goto :goto_0
 
     .line 389
-    .restart local v10       #septetCount:I
+    .restart local v10    # "septetCount":I
     :cond_1
     add-int v10, v10, p1
 
@@ -3046,35 +3046,35 @@
     div-int/lit8 v3, v13, 0x8
 
     .line 394
-    .local v3, byteCount:I
+    .local v3, "byteCount":I
     add-int/lit8 v13, v3, 0x1
 
     new-array v9, v13, [B
 
     .line 395
-    .local v9, ret:[B
+    .local v9, "ret":[B
     sget-object v13, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aget-object v5, v13, p3
 
     .line 396
-    .local v5, charToLanguageTable:Landroid/util/SparseIntArray;
+    .local v5, "charToLanguageTable":Landroid/util/SparseIntArray;
     sget-object v13, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
     aget-object v6, v13, p4
 
     .line 397
-    .local v6, charToShiftTable:Landroid/util/SparseIntArray;
+    .local v6, "charToShiftTable":Landroid/util/SparseIntArray;
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     move/from16 v11, p1
 
-    .local v11, septets:I
+    .local v11, "septets":I
     mul-int/lit8 v2, p1, 0x7
 
     .line 398
-    .local v2, bitOffset:I
+    .local v2, "bitOffset":I
     :goto_1
     if-ge v8, v7, :cond_6
 
@@ -3086,7 +3086,7 @@
     move-result v4
 
     .line 401
-    .local v4, c:C
+    .local v4, "c":C
     const/4 v13, -0x1
 
     invoke-virtual {v5, v4, v13}, Landroid/util/SparseIntArray;->get(II)I
@@ -3094,7 +3094,7 @@
     move-result v12
 
     .line 402
-    .local v12, v:I
+    .local v12, "v":I
     const/4 v13, -0x1
 
     if-ne v12, v13, :cond_4
@@ -3163,8 +3163,8 @@
     goto :goto_2
 
     .line 419
-    .end local v4           #c:C
-    .end local v12           #v:I
+    .end local v4    # "c":C
+    .end local v12    # "v":I
     :cond_6
     const/4 v13, 0x0
 
@@ -3178,8 +3178,8 @@
 
 .method public static stringToGsm7BitPackedWithHeader(Ljava/lang/String;[B)[B
     .locals 1
-    .parameter "data"
-    .parameter "header"
+    .param p0, "data"    # Ljava/lang/String;
+    .param p1, "header"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -3199,10 +3199,10 @@
 
 .method public static stringToGsm7BitPackedWithHeader(Ljava/lang/String;[BII)[B
     .locals 6
-    .parameter "data"
-    .parameter "header"
-    .parameter "languageTable"
-    .parameter "languageShiftTable"
+    .param p0, "data"    # Ljava/lang/String;
+    .param p1, "header"    # [B
+    .param p2, "languageTable"    # I
+    .param p3, "languageShiftTable"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/EncodeException;
@@ -3238,19 +3238,19 @@
     mul-int/lit8 v0, v3, 0x8
 
     .line 304
-    .local v0, headerBits:I
+    .local v0, "headerBits":I
     add-int/lit8 v3, v0, 0x6
 
     div-int/lit8 v1, v3, 0x7
 
     .line 306
-    .local v1, headerSeptets:I
+    .local v1, "headerSeptets":I
     invoke-static {p0, v1, v4, p2, p3}, Lcom/android/internal/telephony/GsmAlphabet;->stringToGsm7BitPacked(Ljava/lang/String;IZII)[B
 
     move-result-object v2
 
     .line 310
-    .local v2, ret:[B
+    .local v2, "ret":[B
     array-length v3, p1
 
     int-to-byte v3, v3
@@ -3271,7 +3271,7 @@
 
 .method public static stringToGsm8BitPacked(Ljava/lang/String;)[B
     .locals 4
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -3284,11 +3284,11 @@
     move-result v1
 
     .line 650
-    .local v1, septets:I
+    .local v1, "septets":I
     new-array v0, v1, [B
 
     .line 652
-    .local v0, ret:[B
+    .local v0, "ret":[B
     array-length v2, v0
 
     invoke-static {p0, v0, v3, v2}, Lcom/android/internal/telephony/GsmAlphabet;->stringToGsm8BitUnpackedField(Ljava/lang/String;[BII)V
@@ -3299,10 +3299,10 @@
 
 .method public static stringToGsm8BitUnpackedField(Ljava/lang/String;[BII)V
     .locals 12
-    .parameter "s"
-    .parameter "dest"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "s"    # Ljava/lang/String;
+    .param p1, "dest"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     const/16 v11, 0x20
@@ -3315,32 +3315,32 @@
     move v4, p2
 
     .line 670
-    .local v4, outByteIndex:I
+    .local v4, "outByteIndex":I
     sget-object v8, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToGsmTables:[Landroid/util/SparseIntArray;
 
     aget-object v1, v8, v10
 
     .line 671
-    .local v1, charToLanguageTable:Landroid/util/SparseIntArray;
+    .local v1, "charToLanguageTable":Landroid/util/SparseIntArray;
     sget-object v8, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
     aget-object v2, v8, v10
 
     .line 674
-    .local v2, charToShiftTable:Landroid/util/SparseIntArray;
+    .local v2, "charToShiftTable":Landroid/util/SparseIntArray;
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v6
 
-    .local v6, sz:I
+    .local v6, "sz":I
     move v5, v4
 
     .line 675
-    .end local v4           #outByteIndex:I
-    .local v5, outByteIndex:I
+    .end local v4    # "outByteIndex":I
+    .local v5, "outByteIndex":I
     :goto_0
     if-ge v3, v6, :cond_1
 
@@ -3354,13 +3354,13 @@
     move-result v0
 
     .line 680
-    .local v0, c:C
+    .local v0, "c":C
     invoke-virtual {v1, v0, v9}, Landroid/util/SparseIntArray;->get(II)I
 
     move-result v7
 
     .line 682
-    .local v7, v:I
+    .local v7, "v":I
     if-ne v7, v9, :cond_4
 
     .line 683
@@ -3379,13 +3379,13 @@
     move v4, v5
 
     .line 696
-    .end local v5           #outByteIndex:I
-    .restart local v4       #outByteIndex:I
+    .end local v5    # "outByteIndex":I
+    .restart local v4    # "outByteIndex":I
     :goto_1
     add-int/lit8 v5, v4, 0x1
 
-    .end local v4           #outByteIndex:I
-    .restart local v5       #outByteIndex:I
+    .end local v4    # "outByteIndex":I
+    .restart local v5    # "outByteIndex":I
     int-to-byte v8, v7
 
     aput-byte v8, p1, v4
@@ -3404,8 +3404,8 @@
     if-lt v8, p3, :cond_2
 
     .line 700
-    .end local v0           #c:C
-    .end local v7           #v:I
+    .end local v0    # "c":C
+    .end local v7    # "v":I
     :cond_1
     :goto_2
     sub-int v8, v5, p2
@@ -3415,24 +3415,24 @@
     .line 701
     add-int/lit8 v4, v5, 0x1
 
-    .end local v5           #outByteIndex:I
-    .restart local v4       #outByteIndex:I
+    .end local v5    # "outByteIndex":I
+    .restart local v4    # "outByteIndex":I
     aput-byte v9, p1, v5
 
     move v5, v4
 
-    .end local v4           #outByteIndex:I
-    .restart local v5       #outByteIndex:I
+    .end local v4    # "outByteIndex":I
+    .restart local v5    # "outByteIndex":I
     goto :goto_2
 
     .line 692
-    .restart local v0       #c:C
-    .restart local v7       #v:I
+    .restart local v0    # "c":C
+    .restart local v7    # "v":I
     :cond_2
     add-int/lit8 v4, v5, 0x1
 
-    .end local v5           #outByteIndex:I
-    .restart local v4       #outByteIndex:I
+    .end local v5    # "outByteIndex":I
+    .restart local v4    # "outByteIndex":I
     const/16 v8, 0x1b
 
     aput-byte v8, p1, v5
@@ -3440,19 +3440,19 @@
     goto :goto_1
 
     .line 703
-    .end local v0           #c:C
-    .end local v4           #outByteIndex:I
-    .end local v7           #v:I
-    .restart local v5       #outByteIndex:I
+    .end local v0    # "c":C
+    .end local v4    # "outByteIndex":I
+    .end local v7    # "v":I
+    .restart local v5    # "outByteIndex":I
     :cond_3
     return-void
 
-    .restart local v0       #c:C
-    .restart local v7       #v:I
+    .restart local v0    # "c":C
+    .restart local v7    # "v":I
     :cond_4
     move v4, v5
 
-    .end local v5           #outByteIndex:I
-    .restart local v4       #outByteIndex:I
+    .end local v5    # "outByteIndex":I
+    .restart local v4    # "outByteIndex":I
     goto :goto_1
 .end method

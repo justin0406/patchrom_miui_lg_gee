@@ -27,7 +27,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -83,7 +83,7 @@
 
     const/4 v7, 0x0
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     .line 155
     iget-object v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mProgram:Landroid/filterfw/core/Program;
@@ -94,7 +94,7 @@
     new-array v1, v9, [F
 
     .line 157
-    .local v1, scale:[F
+    .local v1, "scale":[F
     iget v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mWidth:I
 
     iget v4, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mHeight:I
@@ -141,12 +141,12 @@
 
     double-to-float v3, v3
 
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
     mul-float v0, v3, v4
 
     .line 166
-    .local v0, max_dist:F
+    .local v0, "max_dist":F
     iget-object v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v4, "scale"
@@ -233,7 +233,7 @@
     aput v3, v2, v8
 
     .line 174
-    .local v2, seed:[F
+    .local v2, "seed":[F
     iget-object v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v4, "seed"
@@ -241,14 +241,14 @@
     invoke-virtual {v3, v4, v2}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 176
-    .end local v0           #max_dist:F
-    .end local v1           #scale:[F
-    .end local v2           #seed:[F
+    .end local v0    # "max_dist":F
+    .end local v1    # "scale":[F
+    .end local v2    # "seed":[F
     :cond_0
     return-void
 
     .line 161
-    .restart local v1       #scale:[F
+    .restart local v1    # "scale":[F
     :cond_1
     iget v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mWidth:I
 
@@ -272,8 +272,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 136
@@ -282,8 +282,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 140
@@ -329,7 +329,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 143
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -352,7 +352,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 181
@@ -363,13 +363,13 @@
     move-result-object v0
 
     .line 182
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 185
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0
@@ -437,7 +437,7 @@
     move-result-object v2
 
     .line 200
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/LomoishFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

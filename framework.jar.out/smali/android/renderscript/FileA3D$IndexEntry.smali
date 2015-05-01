@@ -31,11 +31,11 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/RenderScript;IILjava/lang/String;Landroid/renderscript/FileA3D$EntryType;)V
     .locals 1
-    .parameter "rs"
-    .parameter "index"
-    .parameter "id"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
+    .param p2, "index"    # I
+    .param p3, "id"    # I
+    .param p4, "name"    # Ljava/lang/String;
+    .param p5, "type"    # Landroid/renderscript/FileA3D$EntryType;
 
     .prologue
     .line 159
@@ -67,8 +67,8 @@
 
 .method static declared-synchronized internalCreate(Landroid/renderscript/RenderScript;Landroid/renderscript/FileA3D$IndexEntry;)Landroid/renderscript/BaseObj;
     .locals 5
-    .parameter "rs"
-    .parameter "entry"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "entry"    # Landroid/renderscript/FileA3D$IndexEntry;
 
     .prologue
     const/4 v1, 0x0
@@ -114,7 +114,7 @@
     move-result v0
 
     .line 145
-    .local v0, objectID:I
+    .local v0, "objectID":I
     if-eqz v0, :cond_0
 
     .line 149
@@ -154,7 +154,7 @@
     goto :goto_1
 
     .line 135
-    .end local v0           #objectID:I
+    .end local v0    # "objectID":I
     :catchall_0
     move-exception v1
 
@@ -222,6 +222,6 @@
     move-result-object v0
 
     .line 120
-    .local v0, obj:Landroid/renderscript/BaseObj;
+    .local v0, "obj":Landroid/renderscript/BaseObj;
     return-object v0
 .end method

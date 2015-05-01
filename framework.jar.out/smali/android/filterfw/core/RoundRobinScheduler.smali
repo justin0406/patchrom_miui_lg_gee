@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
     .locals 1
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 33
@@ -54,7 +54,7 @@
     move-result-object v0
 
     .line 44
-    .local v0, all_filters:Ljava/util/Set;,"Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
+    .local v0, "all_filters":Ljava/util/Set;, "Ljava/util/Set<Landroid/filterfw/core/Filter;>;"
     iget v6, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -72,20 +72,20 @@
     const/4 v5, 0x0
 
     .line 46
-    .local v5, pos:I
+    .local v5, "pos":I
     const/4 v2, 0x0
 
     .line 47
-    .local v2, first:Landroid/filterfw/core/Filter;
+    .local v2, "first":Landroid/filterfw/core/Filter;
     const/4 v3, -0x1
 
     .line 48
-    .local v3, firstNdx:I
+    .local v3, "firstNdx":I
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    .local v4, i$:Ljava/util/Iterator;
+    .local v4, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -100,7 +100,7 @@
     check-cast v1, Landroid/filterfw/core/Filter;
 
     .line 49
-    .local v1, filter:Landroid/filterfw/core/Filter;
+    .local v1, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v1}, Landroid/filterfw/core/Filter;->canProcess()Z
 
     move-result v6
@@ -132,7 +132,7 @@
     iput v5, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
 
     .line 71
-    .end local v1           #filter:Landroid/filterfw/core/Filter;
+    .end local v1    # "filter":Landroid/filterfw/core/Filter;
     :goto_1
     return-object v1
 

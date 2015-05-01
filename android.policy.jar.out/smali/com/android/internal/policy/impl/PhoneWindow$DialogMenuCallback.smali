@@ -29,8 +29,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow;I)V
     .locals 0
-    .parameter
-    .parameter "featureId"
+    .param p2, "featureId"    # I
 
     .prologue
     .line 3828
@@ -49,8 +48,8 @@
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 2
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 3833
@@ -75,7 +74,7 @@
     move-result-object v0
 
     .line 3839
-    .local v0, callback:Landroid/view/Window$Callback;
+    .local v0, "callback":Landroid/view/Window$Callback;
     if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -95,7 +94,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
-    #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
+    # getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
     invoke-static {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->access$1100(Lcom/android/internal/policy/impl/PhoneWindow;)Lcom/android/internal/view/menu/ContextMenuBuilder;
 
     move-result-object v1
@@ -105,7 +104,7 @@
     .line 3844
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
-    #calls: Lcom/android/internal/policy/impl/PhoneWindow;->dismissContextMenu()V
+    # invokes: Lcom/android/internal/policy/impl/PhoneWindow;->dismissContextMenu()V
     invoke-static {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->access$2200(Lcom/android/internal/policy/impl/PhoneWindow;)V
 
     .line 3848
@@ -125,14 +124,14 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
     .line 3853
-    .end local v0           #callback:Landroid/view/Window$Callback;
+    .end local v0    # "callback":Landroid/view/Window$Callback;
     :cond_3
     return-void
 .end method
 
 .method public onCloseSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 3
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 3856
@@ -143,7 +142,7 @@
     move-result-object v0
 
     .line 3857
-    .local v0, callback:Landroid/view/Window$Callback;
+    .local v0, "callback":Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -170,8 +169,8 @@
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 2
-    .parameter "menu"
-    .parameter "item"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 3863
@@ -182,7 +181,7 @@
     move-result-object v0
 
     .line 3864
-    .local v0, callback:Landroid/view/Window$Callback;
+    .local v0, "callback":Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -214,7 +213,7 @@
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 3869
@@ -223,7 +222,7 @@
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 2
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 3872

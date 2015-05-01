@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/print/ILayoutResultCallback;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/print/ILayoutResultCallback;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/print/ILayoutResultCallback$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/print/ILayoutResultCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -161,7 +161,7 @@
     check-cast v0, Landroid/print/PrintDocumentInfo;
 
     .line 61
-    .local v0, _arg0:Landroid/print/PrintDocumentInfo;
+    .local v0, "_arg0":Landroid/print/PrintDocumentInfo;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -172,26 +172,26 @@
     move v1, v3
 
     .line 63
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 64
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/print/ILayoutResultCallback$Stub;->onLayoutFinished(Landroid/print/PrintDocumentInfo;ZI)V
 
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:Landroid/print/PrintDocumentInfo;
-    .end local v1           #_arg1:Z
-    .end local v2           #_arg2:I
+    .end local v0    # "_arg0":Landroid/print/PrintDocumentInfo;
+    .end local v1    # "_arg1":Z
+    .end local v2    # "_arg2":I
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrintDocumentInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintDocumentInfo;
     goto :goto_1
 
     .line 61
@@ -201,7 +201,7 @@
     goto :goto_2
 
     .line 69
-    .end local v0           #_arg0:Landroid/print/PrintDocumentInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintDocumentInfo;
     :sswitch_2
     const-string v4, "android.print.ILayoutResultCallback"
 
@@ -224,25 +224,25 @@
     check-cast v0, Ljava/lang/CharSequence;
 
     .line 78
-    .local v0, _arg0:Ljava/lang/CharSequence;
+    .local v0, "_arg0":Ljava/lang/CharSequence;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 79
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/print/ILayoutResultCallback$Stub;->onLayoutFailed(Ljava/lang/CharSequence;I)V
 
     goto :goto_0
 
     .line 75
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
+    .end local v1    # "_arg1":I
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
+    .restart local v0    # "_arg0":Ljava/lang/CharSequence;
     goto :goto_3
 
     .line 43

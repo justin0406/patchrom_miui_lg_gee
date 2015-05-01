@@ -25,7 +25,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 7
-    .parameter "code"
+    .param p1, "code"    # I
 
     .prologue
     const/4 v6, 0x2
@@ -41,12 +41,13 @@
     iput p1, p0, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
 
     .line 1085
+    # getter for: Lcom/android/internal/telephony/GsmAlphabet;->sHighestEnabledSingleShiftCode:I
     invoke-static {}, Lcom/android/internal/telephony/GsmAlphabet;->access$000()I
 
     move-result v1
 
     .line 1086
-    .local v1, maxSingleShiftCode:I
+    .local v1, "maxSingleShiftCode":I
     add-int/lit8 v3, v1, 0x1
 
     new-array v3, v3, [I
@@ -63,14 +64,15 @@
     .line 1090
     const/4 v0, 0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     const/4 v2, 0x0
 
-    .local v2, tableOffset:I
+    .local v2, "tableOffset":I
     :goto_0
     if-gt v0, v1, :cond_1
 
     .line 1091
+    # getter for: Lcom/android/internal/telephony/GsmAlphabet;->sEnabledSingleShiftTables:[I
     invoke-static {}, Lcom/android/internal/telephony/GsmAlphabet;->access$100()[I
 
     move-result-object v3

@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">حذف نصب میان‌برها</string>
     <string name="permdesc_uninstall_shortcut">به برنامه اجازه می‌دهد میان‌برهای صفحه اصلی را بدون دخالت کاربر حذف کند.</string>
     <string name="permlab_processOutgoingCalls">ترسیم مجدد مسیر تماس‌های خروجی</string>
-    <string name="permdesc_processOutgoingCalls">‏به برنامه اجازه می‎دهد تماس‌های خروجی را پردازش کند و شماره‎هایی که باید گرفته شوند را تغییر دهد. این مجوز به برنامه امکان می‌دهد به کنترل، هدایت مجدد یا جلوگیری از تماس‌های خروجی بپردازد.</string>
+    <string name="permdesc_processOutgoingCalls">به برنامه اجازه می‌دهد عددی را که در طی یک تماس خروجی شماره‌گیری شده، ببیند و این اختیار را دارد که تماس را به شماره دیگری هدایت کند یا کلاً تماس را قطع کند.</string>
     <string name="permlab_receiveSms">دریافت پیام‌های نوشتاری (پیامک)</string>
     <string name="permdesc_receiveSms">به برنامه اجازه می‌دهد پیامک‌ها را دریافت و پردازش کند. این یعنی برنامه می‌تواند پیام‌های ارسالی به دستگاه شما را بدون نمایش آن‌ها به شما حذف یا کنترل کند.</string>
     <string name="permlab_receiveMms">‏دریافت پیام‌های نوشتاری (MMS)</string>
@@ -650,7 +650,7 @@
     <string name="policylab_encryptedStorage">تنظیم رمزگذاری حافظه</string>
     <string name="policydesc_encryptedStorage">باید اطلاعات ذخیره شده برنامه رمزگذاری شود.</string>
     <string name="policylab_disableCamera">غیر فعال کردن دوربین ها</string>
-    <string name="policydesc_disableCamera">‏از استفاده از تمام دوربین‎های دستگاه جلوگیری کنید.</string>
+    <string name="policydesc_disableCamera">جلوگیری از استفاده از همه دوربین‌های دستگاه.</string>
     <string name="policylab_disableKeyguardFeatures">غیرفعال کردن ویژگی‌‌ها در محافظ کلید</string>
     <string name="policydesc_disableKeyguardFeatures">از استفاده از برخی ویژگی‌ها در محافظ کلید جلوگیری شود.</string>
     <string name="phoneTypeCustom">سفارشی</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">صفحهٔ اصلی</string>
     <string name="sipAddressTypeWork">محل کار</string>
     <string name="sipAddressTypeOther">سایر موارد</string>
+    <string name="quick_contacts_not_available">هیچ برنامه‌ای برای مشاهده این مخاطب پیدا نشد.</string>
     <string name="keyguard_password_enter_pin_code">پین کد را وارد کنید</string>
     <string name="keyguard_password_enter_puk_code">‏PUK و پین کد جدید را تایپ کنید</string>
     <string name="keyguard_password_enter_puk_prompt">‏کد PUK</string>
@@ -1462,10 +1463,17 @@
     <string name="webviewchromium_actionbar_share">اشتراک‌گذاری</string>
     <string name="webviewchromium_actionbar_web_search">جستجوی وب</string>
     <string name="webviewchromium_accessibility_content_view">نمای وب</string>
+    <string name="webviewchromium_date_picker_dialog_title">تنظیم تاریخ</string>
     <string name="webviewchromium_date_picker_dialog_set">تنظیم</string>
     <string name="webviewchromium_date_picker_dialog_clear">پاک کردن</string>
-    <string name="webviewchromium_date_picker_dialog_title">تنظیم تاریخ</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">موارد دیگر</string>
     <string name="webviewchromium_date_time_picker_dialog_title">تنظیم تاریخ و زمان</string>
+    <string name="webviewchromium_time_picker_dialog_title">تنظیم زمان</string>
+    <string name="webviewchromium_time_picker_dialog_am">ق‌ظ</string>
+    <string name="webviewchromium_time_picker_dialog_pm">ب‌ظ</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">تنظیم ماه</string>
     <string name="webviewchromium_week_picker_dialog_title">تنظیم هفته</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">تاریخ</string>
@@ -1473,6 +1481,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">ماه</string>
     <string name="webviewchromium_accessibility_date_picker_week">هفته</string>
     <string name="webviewchromium_accessibility_date_picker_year">سال</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">ساعت</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">دقیقه</string>
+    <string name="webviewchromium_accessibility_time_picker_second">ثانیه</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">میلی‌ثانیه</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">قبل از ظهر/بعد از ظهر</string>
     <string name="webviewchromium_media_player_error_title">ویدیو قابل پخش نیست</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">متأسفیم، این ویدیو برای پخش جریانی در این دستگاه معتبر نیست.</string>
     <string name="webviewchromium_media_player_error_text_unknown">متأسفیم، این ویدیو قابل پخش نیست.</string>
@@ -1485,7 +1498,20 @@
     <string name="webviewchromium_color_picker_button_set">تنظیم</string>
     <string name="webviewchromium_color_picker_button_cancel">لغو</string>
     <string name="webviewchromium_color_picker_dialog_title">انتخاب رنگ</string>
+    <string name="webviewchromium_color_picker_button_red">قرمز</string>
+    <string name="webviewchromium_color_picker_button_cyan">فیروزه‌ای</string>
+    <string name="webviewchromium_color_picker_button_blue">آبی</string>
+    <string name="webviewchromium_color_picker_button_green">سبز</string>
+    <string name="webviewchromium_color_picker_button_magenta">سرخابی</string>
+    <string name="webviewchromium_color_picker_button_yellow">زرد</string>
+    <string name="webviewchromium_color_picker_button_black">مشکی</string>
+    <string name="webviewchromium_color_picker_button_white">سفید</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">کپی در کلیپ‌بورد ناموفق بود</string>
     <string name="webviewchromium_low_memory_error">عملکرد قبلی به علت کم بودن حافظه کامل نشد</string>
     <string name="webviewchromium_opening_file_error">باز کردن فایل انتخابی انجام نشد</string>
     <string name="webviewchromium_private_browsing_warning">‏این عملکرد در این نسخه از Android پشتیبانی نمی‌شود.</string>
+    <string name="webviewchromium_profiler_started_toast">تحلیل‌گر داده شروع به کار کرد</string>
+    <string name="webviewchromium_profiler_stopped_toast">‏کار تحلیل‌گر داده به پایان رسید. نتایج در %1$s موجود هستند.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">شروع به کار تحلیل‌گر داده ممکن نیست زیرا فضای ذخیره‌سازی خارجی آماده نمی‌باشد</string>
+    <string name="webviewchromium_profiler_error_toast">تحلیل‌گر داده شروع به کار نکرد</string>
 </resources>

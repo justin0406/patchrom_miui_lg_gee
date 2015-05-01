@@ -23,8 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;Landroid/os/Handler;)V
     .locals 3
-    .parameter
-    .parameter "handler"
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     const/4 v2, 0x0
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 398
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v1, "default_input_method"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -83,7 +82,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 407
@@ -97,7 +96,7 @@
     const/4 v0, 0x0
 
     .line 409
-    .local v0, enabledChanged:Z
+    .local v0, "enabledChanged":Z
     :try_start_0
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$SettingsObserver;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -108,7 +107,7 @@
     move-result-object v1
 
     .line 410
-    .local v1, newEnabled:Ljava/lang/String;
+    .local v1, "newEnabled":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$SettingsObserver;->mLastEnabled:Ljava/lang/String;
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -136,7 +135,7 @@
     return-void
 
     .line 415
-    .end local v1           #newEnabled:Ljava/lang/String;
+    .end local v1    # "newEnabled":Ljava/lang/String;
     :catchall_0
     move-exception v2
 

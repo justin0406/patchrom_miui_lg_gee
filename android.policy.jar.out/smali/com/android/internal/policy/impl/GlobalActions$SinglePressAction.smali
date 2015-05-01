@@ -30,8 +30,8 @@
 # direct methods
 .method protected constructor <init>(II)V
     .locals 1
-    .parameter "iconResId"
-    .parameter "messageResId"
+    .param p1, "iconResId"    # I
+    .param p2, "messageResId"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -57,9 +57,9 @@
 
 .method protected constructor <init>(ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "iconResId"
-    .parameter "icon"
-    .parameter "message"
+    .param p1, "iconResId"    # I
+    .param p2, "icon"    # Landroid/graphics/drawable/Drawable;
+    .param p3, "message"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 558
@@ -85,8 +85,8 @@
 
 .method protected constructor <init>(ILjava/lang/CharSequence;)V
     .locals 1
-    .parameter "iconResId"
-    .parameter "message"
+    .param p1, "iconResId"    # I
+    .param p2, "message"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 565
@@ -116,10 +116,10 @@
 # virtual methods
 .method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 5
-    .parameter "context"
-    .parameter "convertView"
-    .parameter "parent"
-    .parameter "inflater"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .param p4, "inflater"    # Landroid/view/LayoutInflater;
 
     .prologue
     .line 584
@@ -132,7 +132,7 @@
     move-result-object v2
 
     .line 586
-    .local v2, v:Landroid/view/View;
+    .local v2, "v":Landroid/view/View;
     const v3, 0x1020006
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -142,7 +142,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 587
-    .local v0, icon:Landroid/widget/ImageView;
+    .local v0, "icon":Landroid/widget/ImageView;
     const v3, 0x102000b
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -152,7 +152,7 @@
     check-cast v1, Landroid/widget/TextView;
 
     .line 589
-    .local v1, messageView:Landroid/widget/TextView;
+    .local v1, "messageView":Landroid/widget/TextView;
     const v3, 0x102029a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;

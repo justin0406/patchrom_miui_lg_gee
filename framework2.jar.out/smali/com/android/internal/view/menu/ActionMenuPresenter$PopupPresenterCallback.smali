@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 717
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
+    .param p2, "x1"    # Lcom/android/internal/view/menu/ActionMenuPresenter$1;
 
     .prologue
     .line 717
@@ -51,8 +50,8 @@
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 3
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 730
@@ -82,7 +81,7 @@
     move-result-object v0
 
     .line 734
-    .local v0, cb:Lcom/android/internal/view/menu/MenuPresenter$Callback;
+    .local v0, "cb":Lcom/android/internal/view/menu/MenuPresenter$Callback;
     if-eqz v0, :cond_1
 
     .line 735
@@ -95,7 +94,7 @@
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 4
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     const/4 v2, 0x0
@@ -133,7 +132,7 @@
     move-result-object v0
 
     .line 725
-    .local v0, cb:Lcom/android/internal/view/menu/MenuPresenter$Callback;
+    .local v0, "cb":Lcom/android/internal/view/menu/MenuPresenter$Callback;
     if-eqz v0, :cond_1
 
     invoke-interface {v0, p1}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z

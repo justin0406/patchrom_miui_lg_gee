@@ -47,8 +47,8 @@
 # virtual methods
 .method public varargs append(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/internal/content/SelectionBuilder;
     .locals 6
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "selection"    # Ljava/lang/String;
+    .param p2, "selectionArgs"    # [Ljava/lang/Object;
 
     .prologue
     .line 51
@@ -115,20 +115,20 @@
     .line 67
     move-object v1, p2
 
-    .local v1, arr$:[Ljava/lang/Object;
+    .local v1, "arr$":[Ljava/lang/Object;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_2
 
     aget-object v0, v1, v2
 
     .line 70
-    .local v0, arg:Ljava/lang/Object;
+    .local v0, "arg":Ljava/lang/Object;
     iget-object v4, p0, Lcom/android/internal/content/SelectionBuilder;->mSelectionArgs:Ljava/util/ArrayList;
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -143,18 +143,18 @@
     goto :goto_0
 
     .line 74
-    .end local v0           #arg:Ljava/lang/Object;
-    .end local v1           #arr$:[Ljava/lang/Object;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
+    .end local v0    # "arg":Ljava/lang/Object;
+    .end local v1    # "arr$":[Ljava/lang/Object;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
     :cond_2
     return-object p0
 .end method
 
 .method public delete(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)I
     .locals 2
-    .parameter "db"
-    .parameter "table"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "table"    # Ljava/lang/String;
 
     .prologue
     .line 123
@@ -213,10 +213,10 @@
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 8
-    .parameter "db"
-    .parameter "table"
-    .parameter "columns"
-    .parameter "orderBy"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "table"    # Ljava/lang/String;
+    .param p3, "columns"    # [Ljava/lang/String;
+    .param p4, "orderBy"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -245,13 +245,13 @@
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 9
-    .parameter "db"
-    .parameter "table"
-    .parameter "columns"
-    .parameter "groupBy"
-    .parameter "having"
-    .parameter "orderBy"
-    .parameter "limit"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "table"    # Ljava/lang/String;
+    .param p3, "columns"    # [Ljava/lang/String;
+    .param p4, "groupBy"    # Ljava/lang/String;
+    .param p5, "having"    # Ljava/lang/String;
+    .param p6, "orderBy"    # Ljava/lang/String;
+    .param p7, "limit"    # Ljava/lang/String;
 
     .prologue
     .line 108
@@ -306,9 +306,9 @@
 
 .method public update(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;)I
     .locals 2
-    .parameter "db"
-    .parameter "table"
-    .parameter "values"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "table"    # Ljava/lang/String;
+    .param p3, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 116

@@ -27,7 +27,6 @@
 # direct methods
 .method private constructor <init>(Landroid/os/MemoryFile;)V
     .locals 1
-    .parameter
 
     .prologue
     const/4 v0, 0x0
@@ -48,8 +47,8 @@
 
 .method synthetic constructor <init>(Landroid/os/MemoryFile;Landroid/os/MemoryFile$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/MemoryFile;
+    .param p2, "x1"    # Landroid/os/MemoryFile$1;
 
     .prologue
     .line 256
@@ -74,7 +73,7 @@
 
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
-    #getter for: Landroid/os/MemoryFile;->mLength:I
+    # getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v1}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v1
@@ -91,7 +90,7 @@
     :cond_0
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
-    #getter for: Landroid/os/MemoryFile;->mLength:I
+    # getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v0}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v0
@@ -105,7 +104,7 @@
 
 .method public mark(I)V
     .locals 1
-    .parameter "readlimit"
+    .param p1, "readlimit"    # I
 
     .prologue
     .line 277
@@ -159,7 +158,7 @@
     move-result v0
 
     .line 291
-    .local v0, result:I
+    .local v0, "result":I
     if-eq v0, v2, :cond_1
 
     .line 292
@@ -179,9 +178,9 @@
 
 .method public read([BII)I
     .locals 3
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -242,7 +241,7 @@
     move-result v0
 
     .line 309
-    .local v0, result:I
+    .local v0, "result":I
     if-lez v0, :cond_2
 
     .line 310
@@ -275,7 +274,7 @@
 
 .method public skip(J)J
     .locals 4
-    .parameter "n"
+    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -292,7 +291,7 @@
 
     iget-object v2, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
-    #getter for: Landroid/os/MemoryFile;->mLength:I
+    # getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v2}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v2
@@ -306,7 +305,7 @@
     .line 318
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
-    #getter for: Landroid/os/MemoryFile;->mLength:I
+    # getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v0}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v0

@@ -35,7 +35,7 @@
 
 .method public static sleep(J)V
     .locals 10
-    .parameter "ms"
+    .param p0, "ms"    # J
 
     .prologue
     .line 110
@@ -44,15 +44,15 @@
     move-result-wide v4
 
     .line 111
-    .local v4, start:J
+    .local v4, "start":J
     move-wide v0, p0
 
     .line 112
-    .local v0, duration:J
+    .local v0, "duration":J
     const/4 v3, 0x0
 
     .line 115
-    .local v3, interrupted:Z
+    .local v3, "interrupted":Z
     :cond_0
     :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
@@ -95,7 +95,7 @@
     move-exception v2
 
     .line 118
-    .local v2, e:Ljava/lang/InterruptedException;
+    .local v2, "e":Ljava/lang/InterruptedException;
     const/4 v3, 0x1
 
     goto :goto_0

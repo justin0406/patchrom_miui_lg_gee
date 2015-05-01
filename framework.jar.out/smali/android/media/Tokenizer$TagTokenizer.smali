@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/Tokenizer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 230
@@ -63,7 +62,7 @@
     .line 277
     iget-object v5, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
+    # getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
     invoke-static {v5}, Landroid/media/Tokenizer;->access$400(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$OnTokenListener;
 
     move-result-object v5
@@ -111,10 +110,10 @@
     move-result-wide v3
 
     .line 282
-    .local v3, timestampMs:J
+    .local v3, "timestampMs":J
     iget-object v5, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
+    # getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
     invoke-static {v5}, Landroid/media/Tokenizer;->access$400(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$OnTokenListener;
 
     move-result-object v5
@@ -126,12 +125,12 @@
     goto :goto_0
 
     .line 283
-    .end local v3           #timestampMs:J
+    .end local v3    # "timestampMs":J
     :catch_0
     move-exception v2
 
     .line 284
-    .local v2, e:Ljava/lang/NumberFormatException;
+    .local v2, "e":Ljava/lang/NumberFormatException;
     const-string v5, "Tokenizer"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -165,7 +164,7 @@
     goto :goto_0
 
     .line 287
-    .end local v2           #e:Ljava/lang/NumberFormatException;
+    .end local v2    # "e":Ljava/lang/NumberFormatException;
     :cond_1
     iget-object v5, p0, Landroid/media/Tokenizer$TagTokenizer;->mAnnotation:Ljava/lang/String;
 
@@ -233,7 +232,7 @@
     const/4 v0, 0x0
 
     .line 296
-    .local v0, classes:[Ljava/lang/String;
+    .local v0, "classes":[Ljava/lang/String;
     iget-object v5, p0, Landroid/media/Tokenizer$TagTokenizer;->mName:Ljava/lang/String;
 
     const/16 v6, 0x2e
@@ -243,7 +242,7 @@
     move-result v1
 
     .line 297
-    .local v1, dotAt:I
+    .local v1, "dotAt":I
     if-ltz v1, :cond_4
 
     .line 298
@@ -274,7 +273,7 @@
     :cond_4
     iget-object v5, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
+    # getter for: Landroid/media/Tokenizer;->mListener:Landroid/media/Tokenizer$OnTokenListener;
     invoke-static {v5}, Landroid/media/Tokenizer;->access$400(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$OnTokenListener;
 
     move-result-object v5
@@ -324,20 +323,21 @@
     .line 243
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
+    # operator++ for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v2}, Landroid/media/Tokenizer;->access$108(Landroid/media/Tokenizer;)I
 
     .line 244
     :cond_0
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v2}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v3}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v3
@@ -355,14 +355,14 @@
 
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v2}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v3}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v3
@@ -379,14 +379,14 @@
     :cond_1
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v2}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v3}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v3
@@ -402,25 +402,25 @@
     move-result-object v1
 
     .line 255
-    .local v1, parts:[Ljava/lang/String;
+    .local v1, "parts":[Ljava/lang/String;
     :goto_0
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v2}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v3}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v3
 
     iget-object v4, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v4}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v4
@@ -438,7 +438,7 @@
     move-result-object v0
 
     .line 257
-    .local v0, part:Ljava/lang/String;
+    .local v0, "part":Ljava/lang/String;
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
     aget-object v3, v1, v6
@@ -447,6 +447,7 @@
 
     move-result v3
 
+    # += operator for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v2, v3}, Landroid/media/Tokenizer;->access$112(Landroid/media/Tokenizer;I)I
 
     .line 259
@@ -482,8 +483,8 @@
     iput-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->mAnnotation:Ljava/lang/String;
 
     .line 266
-    .end local v0           #part:Ljava/lang/String;
-    .end local v1           #parts:[Ljava/lang/String;
+    .end local v0    # "part":Ljava/lang/String;
+    .end local v1    # "parts":[Ljava/lang/String;
     :cond_2
     :goto_1
     const/4 v2, 0x1
@@ -493,14 +494,14 @@
     .line 268
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v2}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v3}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v3
@@ -513,14 +514,14 @@
 
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v2}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v3}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v3
@@ -541,7 +542,7 @@
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mDataTokenizer:Landroid/media/Tokenizer$TokenizerPhase;
+    # getter for: Landroid/media/Tokenizer;->mDataTokenizer:Landroid/media/Tokenizer$TokenizerPhase;
     invoke-static {v3}, Landroid/media/Tokenizer;->access$500(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$TokenizerPhase;
 
     move-result-object v3
@@ -550,12 +551,13 @@
 
     move-result-object v3
 
-    #setter for: Landroid/media/Tokenizer;->mPhase:Landroid/media/Tokenizer$TokenizerPhase;
+    # setter for: Landroid/media/Tokenizer;->mPhase:Landroid/media/Tokenizer$TokenizerPhase;
     invoke-static {v2, v3}, Landroid/media/Tokenizer;->access$202(Landroid/media/Tokenizer;Landroid/media/Tokenizer$TokenizerPhase;)Landroid/media/Tokenizer$TokenizerPhase;
 
     .line 271
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
+    # operator++ for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v2}, Landroid/media/Tokenizer;->access$108(Landroid/media/Tokenizer;)I
 
     .line 273
@@ -566,14 +568,14 @@
     :cond_4
     iget-object v2, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
+    # getter for: Landroid/media/Tokenizer;->mLine:Ljava/lang/String;
     invoke-static {v2}, Landroid/media/Tokenizer;->access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/media/Tokenizer$TagTokenizer;->this$0:Landroid/media/Tokenizer;
 
-    #getter for: Landroid/media/Tokenizer;->mHandledLen:I
+    # getter for: Landroid/media/Tokenizer;->mHandledLen:I
     invoke-static {v3}, Landroid/media/Tokenizer;->access$100(Landroid/media/Tokenizer;)I
 
     move-result v3
@@ -588,11 +590,11 @@
 
     move-result-object v1
 
-    .restart local v1       #parts:[Ljava/lang/String;
+    .restart local v1    # "parts":[Ljava/lang/String;
     goto/16 :goto_0
 
     .line 262
-    .restart local v0       #part:Ljava/lang/String;
+    .restart local v0    # "part":Ljava/lang/String;
     :cond_5
     iput-object v0, p0, Landroid/media/Tokenizer$TagTokenizer;->mName:Ljava/lang/String;
 

@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter "name"
-    .parameter "sdkVersion"
-    .parameter "fileVersion"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "sdkVersion"    # I
+    .param p3, "fileVersion"    # I
 
     .prologue
     .line 88

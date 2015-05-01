@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
     .locals 2
-    .parameter "fd"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 15

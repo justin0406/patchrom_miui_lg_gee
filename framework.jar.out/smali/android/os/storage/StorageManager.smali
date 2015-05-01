@@ -57,8 +57,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;Landroid/os/Looper;)V
     .locals 2
-    .parameter "resolver"
-    .parameter "tgtLooper"
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "tgtLooper"    # Landroid/os/Looper;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -132,7 +132,7 @@
 
 .method static synthetic access$000(Landroid/os/storage/StorageManager;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/storage/StorageManager;
 
     .prologue
     .line 60
@@ -143,7 +143,7 @@
 
 .method static synthetic access$300(Landroid/os/storage/StorageManager;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/storage/StorageManager;
 
     .prologue
     .line 60
@@ -156,7 +156,7 @@
 
 .method static synthetic access$400(Landroid/os/storage/StorageManager;)Landroid/os/Looper;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/storage/StorageManager;
 
     .prologue
     .line 60
@@ -167,7 +167,7 @@
 
 .method public static from(Landroid/content/Context;)Landroid/os/storage/StorageManager;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 299
@@ -198,26 +198,26 @@
 
 .method public static getPrimaryVolume([Landroid/os/storage/StorageVolume;)Landroid/os/storage/StorageVolume;
     .locals 6
-    .parameter "volumes"
+    .param p0, "volumes"    # [Landroid/os/storage/StorageVolume;
 
     .prologue
     .line 608
     move-object v0, p0
 
-    .local v0, arr$:[Landroid/os/storage/StorageVolume;
+    .local v0, "arr$":[Landroid/os/storage/StorageVolume;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 609
-    .local v3, volume:Landroid/os/storage/StorageVolume;
+    .local v3, "volume":Landroid/os/storage/StorageVolume;
     invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->isPrimary()Z
 
     move-result v4
@@ -225,19 +225,19 @@
     if-eqz v4, :cond_0
 
     .line 614
-    .end local v3           #volume:Landroid/os/storage/StorageVolume;
+    .end local v3    # "volume":Landroid/os/storage/StorageVolume;
     :goto_1
     return-object v3
 
     .line 608
-    .restart local v3       #volume:Landroid/os/storage/StorageVolume;
+    .restart local v3    # "volume":Landroid/os/storage/StorageVolume;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 613
-    .end local v3           #volume:Landroid/os/storage/StorageVolume;
+    .end local v3    # "volume":Landroid/os/storage/StorageVolume;
     :cond_1
     const-string v4, "StorageManager"
 
@@ -276,7 +276,7 @@
     move-exception v0
 
     .line 404
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to disable UMS"
@@ -309,7 +309,7 @@
     move-exception v0
 
     .line 391
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to enable UMS"
@@ -321,7 +321,7 @@
 
 .method public getMountedObbPath(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "rawPath"
+    .param p1, "rawPath"    # Ljava/lang/String;
 
     .prologue
     .line 540
@@ -348,7 +348,7 @@
     move-exception v0
 
     .line 545
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to find mounted path for OBB"
@@ -379,7 +379,7 @@
 
 .method public getStorageFullBytes(Ljava/io/File;)J
     .locals 4
-    .parameter "path"
+    .param p1, "path"    # Ljava/io/File;
 
     .prologue
     .line 645
@@ -398,7 +398,7 @@
 
 .method public getStorageLowBytes(Ljava/io/File;)J
     .locals 10
-    .parameter "path"
+    .param p1, "path"    # Ljava/io/File;
 
     .prologue
     .line 628
@@ -415,7 +415,7 @@
     int-to-long v2, v6
 
     .line 630
-    .local v2, lowPercent:J
+    .local v2, "lowPercent":J
     invoke-virtual {p1}, Ljava/io/File;->getTotalSpace()J
 
     move-result-wide v6
@@ -427,7 +427,7 @@
     div-long v0, v6, v8
 
     .line 632
-    .local v0, lowBytes:J
+    .local v0, "lowBytes":J
     iget-object v6, p0, Landroid/os/storage/StorageManager;->mResolver:Landroid/content/ContentResolver;
 
     const-string/jumbo v7, "sys_storage_threshold_max_bytes"
@@ -439,7 +439,7 @@
     move-result-wide v4
 
     .line 635
-    .local v4, maxLowBytes:J
+    .local v4, "maxLowBytes":J
     invoke-static {v0, v1, v4, v5}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v6
@@ -475,7 +475,7 @@
     move-result-object v3
 
     .line 573
-    .local v3, list:[Landroid/os/Parcelable;
+    .local v3, "list":[Landroid/os/Parcelable;
     if-nez v3, :cond_2
 
     const/4 v5, 0x0
@@ -489,14 +489,14 @@
     array-length v2, v3
 
     .line 575
-    .local v2, length:I
+    .local v2, "length":I
     new-array v4, v2, [Landroid/os/storage/StorageVolume;
 
     .line 576
-    .local v4, result:[Landroid/os/storage/StorageVolume;
+    .local v4, "result":[Landroid/os/storage/StorageVolume;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v2, :cond_0
 
@@ -515,15 +515,15 @@
     goto :goto_1
 
     .line 580
-    .end local v1           #i:I
-    .end local v2           #length:I
-    .end local v3           #list:[Landroid/os/Parcelable;
-    .end local v4           #result:[Landroid/os/storage/StorageVolume;
+    .end local v1    # "i":I
+    .end local v2    # "length":I
+    .end local v3    # "list":[Landroid/os/Parcelable;
+    .end local v4    # "result":[Landroid/os/storage/StorageVolume;
     :catch_0
     move-exception v0
 
     .line 581
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v5, "StorageManager"
 
     const-string v6, "Failed to get volume list"
@@ -546,7 +546,7 @@
     move-result-object v3
 
     .line 592
-    .local v3, volumes:[Landroid/os/storage/StorageVolume;
+    .local v3, "volumes":[Landroid/os/storage/StorageVolume;
     if-nez v3, :cond_1
 
     const/4 v2, 0x0
@@ -560,14 +560,14 @@
     array-length v0, v3
 
     .line 594
-    .local v0, count:I
+    .local v0, "count":I
     new-array v2, v0, [Ljava/lang/String;
 
     .line 595
-    .local v2, paths:[Ljava/lang/String;
+    .local v2, "paths":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -588,7 +588,7 @@
 
 .method public getVolumeState(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "mountPoint"
+    .param p1, "mountPoint"    # Ljava/lang/String;
 
     .prologue
     .line 556
@@ -620,7 +620,7 @@
     move-exception v0
 
     .line 560
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to get volume state"
@@ -635,7 +635,7 @@
 
 .method public isObbMounted(Ljava/lang/String;)Z
     .locals 3
-    .parameter "rawPath"
+    .param p1, "rawPath"    # Ljava/lang/String;
 
     .prologue
     .line 519
@@ -662,7 +662,7 @@
     move-exception v0
 
     .line 524
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to check if OBB is mounted"
@@ -698,7 +698,7 @@
     move-exception v0
 
     .line 418
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to get UMS connection state"
@@ -734,7 +734,7 @@
     move-exception v0
 
     .line 433
-    .local v0, rex:Landroid/os/RemoteException;
+    .local v0, "rex":Landroid/os/RemoteException;
     const-string v1, "StorageManager"
 
     const-string v2, "Failed to get UMS enable state"
@@ -749,9 +749,9 @@
 
 .method public mountObb(Ljava/lang/String;Ljava/lang/String;Landroid/os/storage/OnObbStateChangeListener;)Z
     .locals 7
-    .parameter "rawPath"
-    .parameter "key"
-    .parameter "listener"
+    .param p1, "rawPath"    # Ljava/lang/String;
+    .param p2, "key"    # Ljava/lang/String;
+    .param p3, "listener"    # Landroid/os/storage/OnObbStateChangeListener;
 
     .prologue
     .line 460
@@ -775,7 +775,7 @@
     move-result-object v2
 
     .line 465
-    .local v2, canonicalPath:Ljava/lang/String;
+    .local v2, "canonicalPath":Ljava/lang/String;
     iget-object v0, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
 
     invoke-virtual {v0, p3}, Landroid/os/storage/StorageManager$ObbActionListener;->addListener(Landroid/os/storage/OnObbStateChangeListener;)I
@@ -783,7 +783,7 @@
     move-result v5
 
     .line 466
-    .local v5, nonce:I
+    .local v5, "nonce":I
     iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
 
     iget-object v4, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
@@ -801,8 +801,8 @@
     const/4 v0, 0x1
 
     .line 474
-    .end local v2           #canonicalPath:Ljava/lang/String;
-    .end local v5           #nonce:I
+    .end local v2    # "canonicalPath":Ljava/lang/String;
+    .end local v5    # "nonce":I
     :goto_0
     return v0
 
@@ -811,7 +811,7 @@
     move-exception v6
 
     .line 469
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -837,12 +837,12 @@
     throw v0
 
     .line 470
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v6
 
     .line 471
-    .local v6, e:Landroid/os/RemoteException;
+    .local v6, "e":Landroid/os/RemoteException;
     const-string v0, "StorageManager"
 
     const-string v1, "Failed to mount OBB"
@@ -857,7 +857,7 @@
 
 .method public registerListener(Landroid/os/storage/StorageEventListener;)V
     .locals 4
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/storage/StorageEventListener;
 
     .prologue
     .line 332
@@ -898,8 +898,8 @@
 
     invoke-interface {v1, v3}, Landroid/os/storage/IMountService;->registerListener(Landroid/os/storage/IMountServiceListener;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 346
     :cond_1
@@ -931,7 +931,7 @@
     move-exception v0
 
     .line 342
-    .local v0, rex:Landroid/os/RemoteException;
+    .local v0, "rex":Landroid/os/RemoteException;
     :try_start_3
     const-string v1, "StorageManager"
 
@@ -949,9 +949,9 @@
 
 .method public unmountObb(Ljava/lang/String;ZLandroid/os/storage/OnObbStateChangeListener;)Z
     .locals 4
-    .parameter "rawPath"
-    .parameter "force"
-    .parameter "listener"
+    .param p1, "rawPath"    # Ljava/lang/String;
+    .param p2, "force"    # Z
+    .param p3, "listener"    # Landroid/os/storage/OnObbStateChangeListener;
 
     .prologue
     .line 498
@@ -973,7 +973,7 @@
     move-result v1
 
     .line 503
-    .local v1, nonce:I
+    .local v1, "nonce":I
     iget-object v2, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
 
     iget-object v3, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
@@ -986,7 +986,7 @@
     const/4 v2, 0x1
 
     .line 509
-    .end local v1           #nonce:I
+    .end local v1    # "nonce":I
     :goto_0
     return v2
 
@@ -995,7 +995,7 @@
     move-exception v0
 
     .line 506
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "StorageManager"
 
     const-string v3, "Failed to mount OBB"
@@ -1010,7 +1010,7 @@
 
 .method public unregisterListener(Landroid/os/storage/StorageEventListener;)V
     .locals 7
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/storage/StorageEventListener;
 
     .prologue
     .line 358
@@ -1035,10 +1035,10 @@
     move-result v3
 
     .line 364
-    .local v3, size:I
+    .local v3, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v3, :cond_1
 
@@ -1052,7 +1052,7 @@
     check-cast v1, Landroid/os/storage/StorageManager$ListenerDelegate;
 
     .line 366
-    .local v1, l:Landroid/os/storage/StorageManager$ListenerDelegate;
+    .local v1, "l":Landroid/os/storage/StorageManager$ListenerDelegate;
     invoke-virtual {v1}, Landroid/os/storage/StorageManager$ListenerDelegate;->getListener()Landroid/os/storage/StorageEventListener;
 
     move-result-object v4
@@ -1065,7 +1065,7 @@
     invoke-interface {v4, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 371
-    .end local v1           #l:Landroid/os/storage/StorageManager$ListenerDelegate;
+    .end local v1    # "l":Landroid/os/storage/StorageManager$ListenerDelegate;
     :cond_1
     iget-object v4, p0, Landroid/os/storage/StorageManager;->mListeners:Ljava/util/List;
 
@@ -1089,8 +1089,8 @@
 
     invoke-interface {v4, v6}, Landroid/os/storage/IMountService;->unregisterListener(Landroid/os/storage/IMountServiceListener;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 379
     :cond_2
@@ -1099,8 +1099,8 @@
 
     goto :goto_0
 
-    .end local v0           #i:I
-    .end local v3           #size:I
+    .end local v0    # "i":I
+    .end local v3    # "size":I
     :catchall_0
     move-exception v4
 
@@ -1111,21 +1111,21 @@
     throw v4
 
     .line 364
-    .restart local v0       #i:I
-    .restart local v1       #l:Landroid/os/storage/StorageManager$ListenerDelegate;
-    .restart local v3       #size:I
+    .restart local v0    # "i":I
+    .restart local v1    # "l":Landroid/os/storage/StorageManager$ListenerDelegate;
+    .restart local v3    # "size":I
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     .line 374
-    .end local v1           #l:Landroid/os/storage/StorageManager$ListenerDelegate;
+    .end local v1    # "l":Landroid/os/storage/StorageManager$ListenerDelegate;
     :catch_0
     move-exception v2
 
     .line 375
-    .local v2, rex:Landroid/os/RemoteException;
+    .local v2, "rex":Landroid/os/RemoteException;
     :try_start_3
     const-string v4, "StorageManager"
 

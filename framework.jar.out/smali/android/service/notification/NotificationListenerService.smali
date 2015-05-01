@@ -88,7 +88,7 @@
 
 .method static synthetic access$100(Landroid/service/notification/NotificationListenerService;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/service/notification/NotificationListenerService;
 
     .prologue
     .line 42
@@ -153,7 +153,7 @@
     move-exception v0
 
     .line 137
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
 
     const-string v2, "Unable to contact notification manager"
@@ -165,9 +165,9 @@
 
 .method public final cancelNotification(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 3
-    .parameter "pkg"
-    .parameter "tag"
-    .parameter "id"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "id"    # I
 
     .prologue
     .line 116
@@ -191,7 +191,7 @@
     move-exception v0
 
     .line 118
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
 
     const-string v2, "Unable to contact notification manager"
@@ -228,7 +228,7 @@
     move-exception v0
 
     .line 151
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
 
     const-string v2, "Unable to contact notification manager"
@@ -243,7 +243,7 @@
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 158

@@ -41,9 +41,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/SubtitleTrack$CueList;JJ)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 445
@@ -136,7 +133,7 @@
 
     iget-object v3, p0, Landroid/media/SubtitleTrack$CueList$1;->this$0:Landroid/media/SubtitleTrack$CueList;
 
-    #getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
+    # getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
     invoke-static {v3}, Landroid/media/SubtitleTrack$CueList;->access$200(Landroid/media/SubtitleTrack$CueList;)Ljava/util/SortedMap;
 
     move-result-object v3
@@ -174,7 +171,7 @@
     move-exception v0
 
     .line 453
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     new-instance v1, Landroid/media/SubtitleTrack$CueList$EntryIterator;
 
     iget-object v2, p0, Landroid/media/SubtitleTrack$CueList$1;->this$0:Landroid/media/SubtitleTrack$CueList;

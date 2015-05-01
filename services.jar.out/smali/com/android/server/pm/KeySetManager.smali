@@ -84,7 +84,6 @@
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +97,7 @@
 
     .prologue
     .line 65
-    .local p1, packages:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
+    .local p1, "packages":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 51
@@ -138,7 +137,6 @@
 
 .method private addKeySetLocked(Ljava/util/Set;)Landroid/content/pm/KeySet;
     .locals 10
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,7 +150,7 @@
 
     .prologue
     .line 241
-    .local p1, keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/security/PublicKey;>;"
+    .local p1, "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/PublicKey;>;"
     if-nez p1, :cond_0
 
     .line 242
@@ -175,12 +173,12 @@
     invoke-direct {v0, v8}, Ljava/util/HashSet;-><init>(I)V
 
     .line 246
-    .local v0, addedKeyIds:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v0, "addedKeyIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -195,13 +193,13 @@
     check-cast v6, Ljava/security/PublicKey;
 
     .line 247
-    .local v6, k:Ljava/security/PublicKey;
+    .local v6, "k":Ljava/security/PublicKey;
     invoke-direct {p0, v6}, Lcom/android/server/pm/KeySetManager;->addPublicKeyLocked(Ljava/security/PublicKey;)J
 
     move-result-wide v4
 
     .line 248
-    .local v4, id:J
+    .local v4, "id":J
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v8
@@ -211,15 +209,15 @@
     goto :goto_0
 
     .line 252
-    .end local v4           #id:J
-    .end local v6           #k:Ljava/security/PublicKey;
+    .end local v4    # "id":J
+    .end local v6    # "k":Ljava/security/PublicKey;
     :cond_1
     invoke-direct {p0, v0}, Lcom/android/server/pm/KeySetManager;->getIdFromKeyIdsLocked(Ljava/util/Set;)J
 
     move-result-wide v1
 
     .line 253
-    .local v1, existingKeySetId:J
+    .local v1, "existingKeySetId":J
     const-wide/16 v8, -0x1
 
     cmp-long v8, v1, v8
@@ -250,13 +248,13 @@
     invoke-direct {v7, v8}, Landroid/content/pm/KeySet;-><init>(Landroid/os/Binder;)V
 
     .line 260
-    .local v7, ks:Landroid/content/pm/KeySet;
+    .local v7, "ks":Landroid/content/pm/KeySet;
     invoke-direct {p0}, Lcom/android/server/pm/KeySetManager;->getFreeKeySetIDLocked()J
 
     move-result-wide v4
 
     .line 262
-    .restart local v4       #id:J
+    .restart local v4    # "id":J
     iget-object v8, p0, Lcom/android/server/pm/KeySetManager;->mKeySets:Landroid/util/LongSparseArray;
 
     invoke-virtual {v8, v4, v5, v7}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
@@ -274,7 +272,7 @@
 
 .method private addPublicKeyLocked(Ljava/security/PublicKey;)J
     .locals 6
-    .parameter "key"
+    .param p1, "key"    # Ljava/security/PublicKey;
 
     .prologue
     .line 274
@@ -283,7 +281,7 @@
     move-result-wide v0
 
     .line 275
-    .local v0, existingKeyId:J
+    .local v0, "existingKeyId":J
     const-wide/16 v4, -0x1
 
     cmp-long v4, v0, v4
@@ -291,19 +289,19 @@
     if-eqz v4, :cond_0
 
     .line 283
-    .end local v0           #existingKeyId:J
+    .end local v0    # "existingKeyId":J
     :goto_0
     return-wide v0
 
     .line 279
-    .restart local v0       #existingKeyId:J
+    .restart local v0    # "existingKeyId":J
     :cond_0
     invoke-direct {p0}, Lcom/android/server/pm/KeySetManager;->getFreePublicKeyIdLocked()J
 
     move-result-wide v2
 
     .line 281
-    .local v2, id:J
+    .local v2, "id":J
     iget-object v4, p0, Lcom/android/server/pm/KeySetManager;->mPublicKeys:Landroid/util/LongSparseArray;
 
     invoke-virtual {v4, v2, v3, p1}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
@@ -354,13 +352,13 @@
 
 .method private getIdByKeySetLocked(Landroid/content/pm/KeySet;)J
     .locals 4
-    .parameter "ks"
+    .param p1, "ks"    # Landroid/content/pm/KeySet;
 
     .prologue
     .line 167
     const/4 v0, 0x0
 
-    .local v0, keySetIndex:I
+    .local v0, "keySetIndex":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/pm/KeySetManager;->mKeySets:Landroid/util/LongSparseArray;
 
@@ -380,7 +378,7 @@
     check-cast v1, Landroid/content/pm/KeySet;
 
     .line 169
-    .local v1, value:Landroid/content/pm/KeySet;
+    .local v1, "value":Landroid/content/pm/KeySet;
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
@@ -395,19 +393,19 @@
     move-result-wide v2
 
     .line 173
-    .end local v1           #value:Landroid/content/pm/KeySet;
+    .end local v1    # "value":Landroid/content/pm/KeySet;
     :goto_1
     return-wide v2
 
     .line 167
-    .restart local v1       #value:Landroid/content/pm/KeySet;
+    .restart local v1    # "value":Landroid/content/pm/KeySet;
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 173
-    .end local v1           #value:Landroid/content/pm/KeySet;
+    .end local v1    # "value":Landroid/content/pm/KeySet;
     :cond_1
     const-wide/16 v2, -0x1
 
@@ -416,7 +414,7 @@
 
 .method private getIdForPublicKeyLocked(Ljava/security/PublicKey;)J
     .locals 6
-    .parameter "k"
+    .param p1, "k"    # Ljava/security/PublicKey;
 
     .prologue
     .line 305
@@ -429,10 +427,10 @@
     invoke-direct {v1, v4}, Ljava/lang/String;-><init>([B)V
 
     .line 306
-    .local v1, encodedPublicKey:Ljava/lang/String;
+    .local v1, "encodedPublicKey":Ljava/lang/String;
     const/4 v2, 0x0
 
-    .local v2, publicKeyIndex:I
+    .local v2, "publicKeyIndex":I
     :goto_0
     iget-object v4, p0, Lcom/android/server/pm/KeySetManager;->mPublicKeys:Landroid/util/LongSparseArray;
 
@@ -452,7 +450,7 @@
     check-cast v3, Ljava/security/PublicKey;
 
     .line 308
-    .local v3, value:Ljava/security/PublicKey;
+    .local v3, "value":Ljava/security/PublicKey;
     new-instance v0, Ljava/lang/String;
 
     invoke-interface {v3}, Ljava/security/PublicKey;->getEncoded()[B
@@ -462,7 +460,7 @@
     invoke-direct {v0, v4}, Ljava/lang/String;-><init>([B)V
 
     .line 309
-    .local v0, encodedExistingKey:Ljava/lang/String;
+    .local v0, "encodedExistingKey":Ljava/lang/String;
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
@@ -477,22 +475,22 @@
     move-result-wide v4
 
     .line 313
-    .end local v0           #encodedExistingKey:Ljava/lang/String;
-    .end local v3           #value:Ljava/security/PublicKey;
+    .end local v0    # "encodedExistingKey":Ljava/lang/String;
+    .end local v3    # "value":Ljava/security/PublicKey;
     :goto_1
     return-wide v4
 
     .line 306
-    .restart local v0       #encodedExistingKey:Ljava/lang/String;
-    .restart local v3       #value:Ljava/security/PublicKey;
+    .restart local v0    # "encodedExistingKey":Ljava/lang/String;
+    .restart local v3    # "value":Ljava/security/PublicKey;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 313
-    .end local v0           #encodedExistingKey:Ljava/lang/String;
-    .end local v3           #value:Ljava/security/PublicKey;
+    .end local v0    # "encodedExistingKey":Ljava/lang/String;
+    .end local v3    # "value":Ljava/security/PublicKey;
     :cond_1
     const-wide/16 v4, -0x1
 
@@ -501,7 +499,6 @@
 
 .method private getIdFromKeyIdsLocked(Ljava/util/Set;)J
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -514,10 +511,10 @@
 
     .prologue
     .line 292
-    .local p1, publicKeyIds:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local p1, "publicKeyIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     const/4 v0, 0x0
 
-    .local v0, keyMapIndex:I
+    .local v0, "keyMapIndex":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
@@ -537,7 +534,7 @@
     check-cast v1, Ljava/util/Set;
 
     .line 294
-    .local v1, value:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v1, "value":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
@@ -552,19 +549,19 @@
     move-result-wide v2
 
     .line 298
-    .end local v1           #value:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v1    # "value":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :goto_1
     return-wide v2
 
     .line 292
-    .restart local v1       #value:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v1    # "value":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 298
-    .end local v1           #value:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v1    # "value":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :cond_1
     const-wide/16 v2, -0x1
 
@@ -573,7 +570,7 @@
 
 .method private getKnownKeySetsByPackageNameLocked(Ljava/lang/String;)Ljava/util/Set;
     .locals 9
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -597,7 +594,7 @@
     check-cast v6, Lcom/android/server/pm/PackageSetting;
 
     .line 384
-    .local v6, p:Lcom/android/server/pm/PackageSetting;
+    .local v6, "p":Lcom/android/server/pm/PackageSetting;
     if-nez v6, :cond_0
 
     .line 385
@@ -631,27 +628,27 @@
     invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     .line 391
-    .local v2, knownKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v2, "knownKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     iget-object v7, v6, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v7}, Lcom/android/server/pm/PackageKeySetData;->getSigningKeySets()[J
 
     move-result-object v0
 
-    .local v0, arr$:[J
+    .local v0, "arr$":[J
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v5, :cond_2
 
     aget-wide v3, v0, v1
 
     .line 392
-    .local v3, ks:J
+    .local v3, "ks":J
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v7
@@ -664,7 +661,7 @@
     goto :goto_0
 
     .line 394
-    .end local v3           #ks:J
+    .end local v3    # "ks":J
     :cond_2
     iget-object v7, v6, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
@@ -682,7 +679,7 @@
     aget-wide v3, v0, v1
 
     .line 395
-    .restart local v3       #ks:J
+    .restart local v3    # "ks":J
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v7
@@ -695,7 +692,7 @@
     goto :goto_1
 
     .line 397
-    .end local v3           #ks:J
+    .end local v3    # "ks":J
     :cond_3
     return-object v2
 .end method
@@ -704,9 +701,8 @@
 # virtual methods
 .method public addDefinedKeySetToPackage(Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;)V
     .locals 7
-    .parameter "packageName"
-    .parameter
-    .parameter "alias"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p3, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -722,7 +718,7 @@
 
     .prologue
     .line 104
-    .local p2, keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/security/PublicKey;>;"
+    .local p2, "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/PublicKey;>;"
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
@@ -747,7 +743,7 @@
     move-result-object v2
 
     .line 110
-    .local v2, ks:Landroid/content/pm/KeySet;
+    .local v2, "ks":Landroid/content/pm/KeySet;
     iget-object v4, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
 
     invoke-interface {v4, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -757,7 +753,7 @@
     check-cast v3, Lcom/android/server/pm/PackageSetting;
 
     .line 111
-    .local v3, pkg:Lcom/android/server/pm/PackageSetting;
+    .local v3, "pkg":Lcom/android/server/pm/PackageSetting;
     if-nez v3, :cond_2
 
     .line 112
@@ -770,8 +766,8 @@
     throw v4
 
     .line 116
-    .end local v2           #ks:Landroid/content/pm/KeySet;
-    .end local v3           #pkg:Lcom/android/server/pm/PackageSetting;
+    .end local v2    # "ks":Landroid/content/pm/KeySet;
+    .end local v3    # "pkg":Lcom/android/server/pm/PackageSetting;
     :catchall_0
     move-exception v4
 
@@ -782,8 +778,8 @@
     throw v4
 
     .line 114
-    .restart local v2       #ks:Landroid/content/pm/KeySet;
-    .restart local v3       #pkg:Lcom/android/server/pm/PackageSetting;
+    .restart local v2    # "ks":Landroid/content/pm/KeySet;
+    .restart local v3    # "pkg":Lcom/android/server/pm/PackageSetting;
     :cond_2
     :try_start_1
     invoke-direct {p0, v2}, Lcom/android/server/pm/KeySetManager;->getIdByKeySetLocked(Landroid/content/pm/KeySet;)J
@@ -791,7 +787,7 @@
     move-result-wide v0
 
     .line 115
-    .local v0, id:J
+    .local v0, "id":J
     iget-object v4, v3, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v4, v0, v1, p3}, Lcom/android/server/pm/PackageKeySetData;->addDefinedKeySet(JLjava/lang/String;)V
@@ -806,8 +802,7 @@
 
 .method public addSigningKeySetToPackage(Ljava/lang/String;Ljava/util/Set;)V
     .locals 15
-    .parameter "packageName"
-    .parameter
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -821,7 +816,7 @@
 
     .prologue
     .line 125
-    .local p2, signingKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/security/PublicKey;>;"
+    .local p2, "signingKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/PublicKey;>;"
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
@@ -846,13 +841,13 @@
     move-result-object v7
 
     .line 132
-    .local v7, ks:Landroid/content/pm/KeySet;
+    .local v7, "ks":Landroid/content/pm/KeySet;
     invoke-direct {p0, v7}, Lcom/android/server/pm/KeySetManager;->getIdByKeySetLocked(Landroid/content/pm/KeySet;)J
 
     move-result-wide v4
 
     .line 133
-    .local v4, id:J
+    .local v4, "id":J
     iget-object v11, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v11, v4, v5}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -862,7 +857,7 @@
     check-cast v10, Ljava/util/Set;
 
     .line 134
-    .local v10, publicKeyIds:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v10, "publicKeyIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     if-nez v10, :cond_2
 
     .line 135
@@ -875,9 +870,9 @@
     throw v11
 
     .line 153
-    .end local v4           #id:J
-    .end local v7           #ks:Landroid/content/pm/KeySet;
-    .end local v10           #publicKeyIds:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v4    # "id":J
+    .end local v7    # "ks":Landroid/content/pm/KeySet;
+    .end local v10    # "publicKeyIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :catchall_0
     move-exception v11
 
@@ -888,9 +883,9 @@
     throw v11
 
     .line 139
-    .restart local v4       #id:J
-    .restart local v7       #ks:Landroid/content/pm/KeySet;
-    .restart local v10       #publicKeyIds:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v4    # "id":J
+    .restart local v7    # "ks":Landroid/content/pm/KeySet;
+    .restart local v10    # "publicKeyIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :cond_2
     :try_start_1
     iget-object v11, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
@@ -904,7 +899,7 @@
     check-cast v9, Lcom/android/server/pm/PackageSetting;
 
     .line 140
-    .local v9, pkg:Lcom/android/server/pm/PackageSetting;
+    .local v9, "pkg":Lcom/android/server/pm/PackageSetting;
     if-nez v9, :cond_3
 
     .line 141
@@ -929,13 +924,13 @@
 
     move-result-object v1
 
-    .local v1, arr$:[J
+    .local v1, "arr$":[J
     array-length v8, v1
 
-    .local v8, len$:I
+    .local v8, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_1
     if-ge v3, v8, :cond_5
 
@@ -946,7 +941,7 @@
     move-result-object v6
 
     .line 148
-    .local v6, keySetID:Ljava/lang/Long;
+    .local v6, "keySetID":Ljava/lang/Long;
     iget-object v11, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
@@ -960,7 +955,7 @@
     check-cast v2, Ljava/util/Set;
 
     .line 149
-    .local v2, definedKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v2, "definedKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-interface {v10, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v11
@@ -983,8 +978,8 @@
     goto :goto_1
 
     .line 153
-    .end local v2           #definedKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .end local v6           #keySetID:Ljava/lang/Long;
+    .end local v2    # "definedKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v6    # "keySetID":Ljava/lang/Long;
     :cond_5
     monitor-exit v12
     :try_end_1
@@ -995,9 +990,9 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$DumpState;)V
     .locals 17
-    .parameter "pw"
-    .parameter "packageName"
-    .parameter "dumpState"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "dumpState"    # Lcom/android/server/pm/PackageManagerService$DumpState;
 
     .prologue
     .line 406
@@ -1011,7 +1006,7 @@
     const/4 v11, 0x0
 
     .line 408
-    .local v11, printedHeader:Z
+    .local v11, "printedHeader":Z
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1040,7 +1035,7 @@
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 409
-    .local v2, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
+    .local v2, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v8
@@ -1048,7 +1043,7 @@
     check-cast v8, Ljava/lang/String;
 
     .line 410
-    .local v8, keySetPackage:Ljava/lang/String;
+    .local v8, "keySetPackage":Ljava/lang/String;
     if-eqz p2, :cond_1
 
     move-object/from16 v0, p2
@@ -1093,7 +1088,7 @@
     check-cast v10, Lcom/android/server/pm/PackageSetting;
 
     .line 420
-    .local v10, pkg:Lcom/android/server/pm/PackageSetting;
+    .local v10, "pkg":Lcom/android/server/pm/PackageSetting;
     const-string v13, "  ["
 
     move-object/from16 v0, p1
@@ -1119,7 +1114,7 @@
     const/4 v12, 0x0
 
     .line 423
-    .local v12, printedLabel:Z
+    .local v12, "printedLabel":Z
     iget-object v13, v10, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v13}, Lcom/android/server/pm/PackageKeySetData;->getAliases()Ljava/util/Map;
@@ -1134,7 +1129,7 @@
 
     move-result-object v5
 
-    .local v5, i$:Ljava/util/Iterator;
+    .local v5, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1149,7 +1144,7 @@
     check-cast v3, Ljava/util/Map$Entry;
 
     .line 424
-    .local v3, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .local v3, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     if-nez v12, :cond_4
 
     .line 425
@@ -1203,12 +1198,12 @@
     goto :goto_1
 
     .line 465
-    .end local v2           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
-    .end local v3           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
-    .end local v5           #i$:Ljava/util/Iterator;
-    .end local v8           #keySetPackage:Ljava/lang/String;
-    .end local v10           #pkg:Lcom/android/server/pm/PackageSetting;
-    .end local v12           #printedLabel:Z
+    .end local v2    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
+    .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .end local v5    # "i$":Ljava/util/Iterator;
+    .end local v8    # "keySetPackage":Ljava/lang/String;
+    .end local v10    # "pkg":Lcom/android/server/pm/PackageSetting;
+    .end local v12    # "printedLabel":Z
     :catchall_0
     move-exception v13
 
@@ -1219,12 +1214,12 @@
     throw v13
 
     .line 428
-    .restart local v2       #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
-    .restart local v3       #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
-    .restart local v5       #i$:Ljava/util/Iterator;
-    .restart local v8       #keySetPackage:Ljava/lang/String;
-    .restart local v10       #pkg:Lcom/android/server/pm/PackageSetting;
-    .restart local v12       #printedLabel:Z
+    .restart local v2    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
+    .restart local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .restart local v5    # "i$":Ljava/util/Iterator;
+    .restart local v8    # "keySetPackage":Ljava/lang/String;
+    .restart local v10    # "pkg":Lcom/android/server/pm/PackageSetting;
+    .restart local v12    # "printedLabel":Z
     :cond_4
     :try_start_1
     const-string v13, ", "
@@ -1236,7 +1231,7 @@
     goto :goto_2
 
     .line 434
-    .end local v3           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     :cond_5
     if-eqz v12, :cond_6
 
@@ -1258,20 +1253,20 @@
 
     move-result-object v1
 
-    .local v1, arr$:[J
+    .local v1, "arr$":[J
     array-length v9, v1
 
-    .local v9, len$:I
+    .local v9, "len$":I
     const/4 v5, 0x0
 
-    .local v5, i$:I
+    .local v5, "i$":I
     :goto_3
     if-ge v5, v9, :cond_8
 
     aget-wide v6, v1, v5
 
     .line 439
-    .local v6, keySetId:J
+    .local v6, "keySetId":J
     if-nez v12, :cond_7
 
     .line 440
@@ -1310,7 +1305,7 @@
     goto :goto_4
 
     .line 447
-    .end local v6           #keySetId:J
+    .end local v6    # "keySetId":J
     :cond_8
     if-eqz v12, :cond_9
 
@@ -1342,7 +1337,7 @@
     aget-wide v6, v1, v5
 
     .line 452
-    .restart local v6       #keySetId:J
+    .restart local v6    # "keySetId":J
     if-nez v12, :cond_a
 
     .line 453
@@ -1381,7 +1376,7 @@
     goto :goto_6
 
     .line 460
-    .end local v6           #keySetId:J
+    .end local v6    # "keySetId":J
     :cond_b
     if-eqz v12, :cond_0
 
@@ -1395,13 +1390,13 @@
     goto/16 :goto_0
 
     .line 465
-    .end local v1           #arr$:[J
-    .end local v2           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
-    .end local v5           #i$:I
-    .end local v8           #keySetPackage:Ljava/lang/String;
-    .end local v9           #len$:I
-    .end local v10           #pkg:Lcom/android/server/pm/PackageSetting;
-    .end local v12           #printedLabel:Z
+    .end local v1    # "arr$":[J
+    .end local v2    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/pm/PackageSetting;>;"
+    .end local v5    # "i$":I
+    .end local v8    # "keySetPackage":Ljava/lang/String;
+    .end local v9    # "len$":I
+    .end local v10    # "pkg":Lcom/android/server/pm/PackageSetting;
+    .end local v12    # "printedLabel":Z
     :cond_c
     monitor-exit v14
     :try_end_1
@@ -1413,7 +1408,7 @@
 
 .method public encodePublicKey(Ljava/security/PublicKey;)Ljava/lang/String;
     .locals 3
-    .parameter "k"
+    .param p1, "k"    # Ljava/security/PublicKey;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1441,7 +1436,7 @@
 
 .method public getIdByKeySet(Landroid/content/pm/KeySet;)J
     .locals 4
-    .parameter "ks"
+    .param p1, "ks"    # Landroid/content/pm/KeySet;
 
     .prologue
     .line 161
@@ -1472,8 +1467,8 @@
 
 .method public getKeySetByAliasAndPackageName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/pm/KeySet;
     .locals 6
-    .parameter "packageName"
-    .parameter "alias"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 195
@@ -1492,7 +1487,7 @@
     check-cast v2, Lcom/android/server/pm/PackageSetting;
 
     .line 197
-    .local v2, p:Lcom/android/server/pm/PackageSetting;
+    .local v2, "p":Lcom/android/server/pm/PackageSetting;
     if-nez v2, :cond_0
 
     .line 198
@@ -1505,7 +1500,7 @@
     throw v3
 
     .line 205
-    .end local v2           #p:Lcom/android/server/pm/PackageSetting;
+    .end local v2    # "p":Lcom/android/server/pm/PackageSetting;
     :catchall_0
     move-exception v3
 
@@ -1516,7 +1511,7 @@
     throw v3
 
     .line 200
-    .restart local v2       #p:Lcom/android/server/pm/PackageSetting;
+    .restart local v2    # "p":Lcom/android/server/pm/PackageSetting;
     :cond_0
     :try_start_1
     iget-object v3, v2, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
@@ -1551,7 +1546,7 @@
     move-result-wide v0
 
     .line 204
-    .local v0, keySetId:J
+    .local v0, "keySetId":J
     iget-object v3, p0, Lcom/android/server/pm/KeySetManager;->mKeySets:Landroid/util/LongSparseArray;
 
     invoke-virtual {v3, v0, v1}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -1569,7 +1564,7 @@
 
 .method public getKeySetById(J)Landroid/content/pm/KeySet;
     .locals 2
-    .parameter "id"
+    .param p1, "id"    # J
 
     .prologue
     .line 183
@@ -1604,7 +1599,7 @@
 
 .method public getSigningKeySetsByPackageName(Ljava/lang/String;)Ljava/util/Set;
     .locals 10
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1630,7 +1625,7 @@
     invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
     .line 215
-    .local v6, signingKeySets:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/pm/KeySet;>;"
+    .local v6, "signingKeySets":Ljava/util/Set;, "Ljava/util/Set<Landroid/content/pm/KeySet;>;"
     iget-object v7, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
 
     invoke-interface {v7, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1640,7 +1635,7 @@
     check-cast v5, Lcom/android/server/pm/PackageSetting;
 
     .line 216
-    .local v5, p:Lcom/android/server/pm/PackageSetting;
+    .local v5, "p":Lcom/android/server/pm/PackageSetting;
     if-nez v5, :cond_0
 
     .line 217
@@ -1653,8 +1648,8 @@
     throw v7
 
     .line 226
-    .end local v5           #p:Lcom/android/server/pm/PackageSetting;
-    .end local v6           #signingKeySets:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/pm/KeySet;>;"
+    .end local v5    # "p":Lcom/android/server/pm/PackageSetting;
+    .end local v6    # "signingKeySets":Ljava/util/Set;, "Ljava/util/Set<Landroid/content/pm/KeySet;>;"
     :catchall_0
     move-exception v7
 
@@ -1665,8 +1660,8 @@
     throw v7
 
     .line 219
-    .restart local v5       #p:Lcom/android/server/pm/PackageSetting;
-    .restart local v6       #signingKeySets:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/pm/KeySet;>;"
+    .restart local v5    # "p":Lcom/android/server/pm/PackageSetting;
+    .restart local v6    # "signingKeySets":Ljava/util/Set;, "Ljava/util/Set<Landroid/content/pm/KeySet;>;"
     :cond_0
     :try_start_1
     iget-object v7, v5, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
@@ -1690,20 +1685,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[J
+    .local v0, "arr$":[J
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v4, :cond_2
 
     aget-wide v2, v0, v1
 
     .line 223
-    .local v2, l:J
+    .local v2, "l":J
     iget-object v7, p0, Lcom/android/server/pm/KeySetManager;->mKeySets:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7, v2, v3}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -1718,7 +1713,7 @@
     goto :goto_0
 
     .line 225
-    .end local v2           #l:J
+    .end local v2    # "l":J
     :cond_2
     monitor-exit v8
     :try_end_1
@@ -1729,8 +1724,8 @@
 
 .method public packageIsSignedBy(Ljava/lang/String;Landroid/content/pm/KeySet;)Z
     .locals 6
-    .parameter "packageName"
-    .parameter "ks"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "ks"    # Landroid/content/pm/KeySet;
 
     .prologue
     .line 84
@@ -1749,7 +1744,7 @@
     check-cast v2, Lcom/android/server/pm/PackageSetting;
 
     .line 86
-    .local v2, pkg:Lcom/android/server/pm/PackageSetting;
+    .local v2, "pkg":Lcom/android/server/pm/PackageSetting;
     if-nez v2, :cond_0
 
     .line 87
@@ -1762,7 +1757,7 @@
     throw v3
 
     .line 94
-    .end local v2           #pkg:Lcom/android/server/pm/PackageSetting;
+    .end local v2    # "pkg":Lcom/android/server/pm/PackageSetting;
     :catchall_0
     move-exception v3
 
@@ -1773,7 +1768,7 @@
     throw v3
 
     .line 89
-    .restart local v2       #pkg:Lcom/android/server/pm/PackageSetting;
+    .restart local v2    # "pkg":Lcom/android/server/pm/PackageSetting;
     :cond_0
     :try_start_1
     iget-object v3, v2, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
@@ -1796,7 +1791,7 @@
     move-result-wide v0
 
     .line 93
-    .local v0, id:J
+    .local v0, "id":J
     iget-object v3, v2, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v3, v0, v1}, Lcom/android/server/pm/PackageKeySetData;->packageIsSignedBy(J)Z
@@ -1812,7 +1807,7 @@
 
 .method readIdentifierLPw(Lorg/xmlpull/v1/XmlPullParser;)J
     .locals 2
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;
@@ -1838,7 +1833,7 @@
 
 .method readKeySetListLPw(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 11
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1855,18 +1850,18 @@
     move-result v4
 
     .line 553
-    .local v4, outerDepth:I
+    .local v4, "outerDepth":I
     const-wide/16 v0, 0x0
 
     .line 555
-    .local v0, currentKeySetId:J
+    .local v0, "currentKeySetId":J
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v6
 
-    .local v6, type:I
+    .local v6, "type":I
     const/4 v7, 0x1
 
     if-eq v6, v7, :cond_3
@@ -1893,7 +1888,7 @@
     move-result-object v5
 
     .line 560
-    .local v5, tagName:Ljava/lang/String;
+    .local v5, "tagName":Ljava/lang/String;
     const-string v7, "keyset"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1947,7 +1942,7 @@
     move-result-wide v2
 
     .line 566
-    .local v2, id:J
+    .local v2, "id":J
     iget-object v7, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7, v0, v1}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -1965,15 +1960,15 @@
     goto :goto_0
 
     .line 569
-    .end local v2           #id:J
-    .end local v5           #tagName:Ljava/lang/String;
+    .end local v2    # "id":J
+    .end local v5    # "tagName":Ljava/lang/String;
     :cond_3
     return-void
 .end method
 
 .method readKeySetsLPw(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 5
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1986,14 +1981,14 @@
     const-wide/16 v0, 0x0
 
     .line 516
-    .local v0, currentKeySetId:J
+    .local v0, "currentKeySetId":J
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
 
-    .local v3, type:I
+    .local v3, "type":I
     const/4 v4, 0x1
 
     if-eq v3, v4, :cond_2
@@ -2013,7 +2008,7 @@
     move-result-object v2
 
     .line 521
-    .local v2, tagName:Ljava/lang/String;
+    .local v2, "tagName":Ljava/lang/String;
     const-string v4, "keys"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2043,14 +2038,14 @@
     goto :goto_0
 
     .line 527
-    .end local v2           #tagName:Ljava/lang/String;
+    .end local v2    # "tagName":Ljava/lang/String;
     :cond_2
     return-void
 .end method
 
 .method readKeysLPw(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 7
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2069,14 +2064,14 @@
     move-result v0
 
     .line 534
-    .local v0, outerDepth:I
+    .local v0, "outerDepth":I
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v2
 
-    .local v2, type:I
+    .local v2, "type":I
     const/4 v3, 0x1
 
     if-eq v2, v3, :cond_4
@@ -2103,7 +2098,7 @@
     move-result-object v1
 
     .line 539
-    .local v1, tagName:Ljava/lang/String;
+    .local v1, "tagName":Ljava/lang/String;
     const-string v3, "public-key"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2168,14 +2163,14 @@
     goto :goto_0
 
     .line 547
-    .end local v1           #tagName:Ljava/lang/String;
+    .end local v1    # "tagName":Ljava/lang/String;
     :cond_4
     return-void
 .end method
 
 .method readPublicKeyLPw(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 7
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;
@@ -2193,13 +2188,13 @@
     move-result-object v0
 
     .line 579
-    .local v0, encodedID:Ljava/lang/String;
+    .local v0, "encodedID":Ljava/lang/String;
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
     .line 580
-    .local v2, identifier:J
+    .local v2, "identifier":J
     const-string v5, "value"
 
     invoke-interface {p1, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -2207,13 +2202,13 @@
     move-result-object v1
 
     .line 581
-    .local v1, encodedPublicKey:Ljava/lang/String;
+    .local v1, "encodedPublicKey":Ljava/lang/String;
     invoke-static {v1}, Landroid/content/pm/PackageParser;->parsePublicKey(Ljava/lang/String;)Ljava/security/PublicKey;
 
     move-result-object v4
 
     .line 582
-    .local v4, pub:Ljava/security/PublicKey;
+    .local v4, "pub":Ljava/security/PublicKey;
     if-eqz v4, :cond_0
 
     .line 583
@@ -2228,7 +2223,7 @@
 
 .method public removeAppKeySetData(Ljava/lang/String;)V
     .locals 14
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 333
@@ -2243,22 +2238,22 @@
     move-result-object v0
 
     .line 336
-    .local v0, deletableKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v0, "deletableKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     .line 337
-    .local v1, deletableKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v1, "deletableKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     const/4 v6, 0x0
 
     .line 338
-    .local v6, knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v6, "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -2274,7 +2269,7 @@
     check-cast v7, Ljava/lang/Long;
 
     .line 339
-    .local v7, ks:Ljava/lang/Long;
+    .local v7, "ks":Ljava/lang/Long;
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
@@ -2285,11 +2280,11 @@
 
     move-result-object v6
 
-    .end local v6           #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     check-cast v6, Ljava/util/Set;
 
     .line 340
-    .restart local v6       #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     if-eqz v6, :cond_0
 
     .line 341
@@ -2298,11 +2293,11 @@
     goto :goto_0
 
     .line 379
-    .end local v0           #deletableKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .end local v1           #deletableKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .end local v2           #i$:Ljava/util/Iterator;
-    .end local v6           #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .end local v7           #ks:Ljava/lang/Long;
+    .end local v0    # "deletableKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v1    # "deletableKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v7    # "ks":Ljava/lang/Long;
     :catchall_0
     move-exception v10
 
@@ -2313,10 +2308,10 @@
     throw v10
 
     .line 346
-    .restart local v0       #deletableKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .restart local v1       #deletableKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .restart local v2       #i$:Ljava/util/Iterator;
-    .restart local v6       #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v0    # "deletableKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v1    # "deletableKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v2    # "i$":Ljava/util/Iterator;
+    .restart local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :cond_1
     :try_start_1
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
@@ -2329,7 +2324,7 @@
 
     move-result-object v2
 
-    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v2    # "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2344,7 +2339,7 @@
     check-cast v9, Ljava/lang/String;
 
     .line 347
-    .local v9, pkgName:Ljava/lang/String;
+    .local v9, "pkgName":Ljava/lang/String;
     invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
@@ -2357,22 +2352,22 @@
     move-result-object v5
 
     .line 351
-    .local v5, knownKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v5, "knownKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-interface {v0, v5}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
 
     .line 352
     new-instance v6, Ljava/util/HashSet;
 
-    .end local v6           #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
     .line 353
-    .restart local v6       #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_3
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -2388,7 +2383,7 @@
     check-cast v7, Ljava/lang/Long;
 
     .line 354
-    .restart local v7       #ks:Ljava/lang/Long;
+    .restart local v7    # "ks":Ljava/lang/Long;
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
@@ -2399,11 +2394,11 @@
 
     move-result-object v6
 
-    .end local v6           #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     check-cast v6, Ljava/util/Set;
 
     .line 355
-    .restart local v6       #knownKeys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v6    # "knownKeys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     if-eqz v6, :cond_3
 
     .line 356
@@ -2412,16 +2407,16 @@
     goto :goto_1
 
     .line 363
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v5           #knownKeySets:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
-    .end local v7           #ks:Ljava/lang/Long;
-    .end local v9           #pkgName:Ljava/lang/String;
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v5    # "knownKeySets":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v7    # "ks":Ljava/lang/Long;
+    .end local v9    # "pkgName":Ljava/lang/String;
     :cond_4
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .restart local v2       #i$:Ljava/util/Iterator;
+    .restart local v2    # "i$":Ljava/util/Iterator;
     :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2436,7 +2431,7 @@
     check-cast v7, Ljava/lang/Long;
 
     .line 364
-    .restart local v7       #ks:Ljava/lang/Long;
+    .restart local v7    # "ks":Ljava/lang/Long;
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mKeySets:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
@@ -2457,7 +2452,7 @@
     goto :goto_2
 
     .line 367
-    .end local v7           #ks:Ljava/lang/Long;
+    .end local v7    # "ks":Ljava/lang/Long;
     :cond_5
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
@@ -2477,7 +2472,7 @@
     check-cast v4, Ljava/lang/Long;
 
     .line 368
-    .local v4, keyId:Ljava/lang/Long;
+    .local v4, "keyId":Ljava/lang/Long;
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mPublicKeys:Landroid/util/LongSparseArray;
 
     invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
@@ -2489,7 +2484,7 @@
     goto :goto_3
 
     .line 372
-    .end local v4           #keyId:Ljava/lang/Long;
+    .end local v4    # "keyId":Ljava/lang/Long;
     :cond_6
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
 
@@ -2501,7 +2496,7 @@
 
     move-result-object v2
 
-    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v2    # "i$":Ljava/util/Iterator;
     :cond_7
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2516,7 +2511,7 @@
     check-cast v9, Ljava/lang/String;
 
     .line 373
-    .restart local v9       #pkgName:Ljava/lang/String;
+    .restart local v9    # "pkgName":Ljava/lang/String;
     iget-object v10, p0, Lcom/android/server/pm/KeySetManager;->mPackages:Ljava/util/Map;
 
     invoke-interface {v10, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2526,12 +2521,12 @@
     check-cast v8, Lcom/android/server/pm/PackageSetting;
 
     .line 374
-    .local v8, p:Lcom/android/server/pm/PackageSetting;
+    .local v8, "p":Lcom/android/server/pm/PackageSetting;
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .restart local v3       #i$:Ljava/util/Iterator;
+    .restart local v3    # "i$":Ljava/util/Iterator;
     :goto_4
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2546,7 +2541,7 @@
     check-cast v7, Ljava/lang/Long;
 
     .line 375
-    .restart local v7       #ks:Ljava/lang/Long;
+    .restart local v7    # "ks":Ljava/lang/Long;
     iget-object v10, v8, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
@@ -2567,10 +2562,10 @@
     goto :goto_4
 
     .line 379
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v7           #ks:Ljava/lang/Long;
-    .end local v8           #p:Lcom/android/server/pm/PackageSetting;
-    .end local v9           #pkgName:Ljava/lang/String;
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v7    # "ks":Ljava/lang/Long;
+    .end local v8    # "p":Lcom/android/server/pm/PackageSetting;
+    .end local v9    # "pkgName":Ljava/lang/String;
     :cond_8
     monitor-exit v11
     :try_end_1
@@ -2582,7 +2577,7 @@
 
 .method writeKeySetManagerLPr(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 4
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2656,7 +2651,7 @@
 
 .method writeKeySetsLPr(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 10
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2674,7 +2669,7 @@
     .line 497
     const/4 v5, 0x0
 
-    .local v5, keySetIndex:I
+    .local v5, "keySetIndex":I
     :goto_0
     iget-object v7, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
@@ -2692,7 +2687,7 @@
     move-result-wide v1
 
     .line 499
-    .local v1, id:J
+    .local v1, "id":J
     iget-object v7, p0, Lcom/android/server/pm/KeySetManager;->mKeySetMapping:Landroid/util/LongSparseArray;
 
     invoke-virtual {v7, v5}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -2702,7 +2697,7 @@
     check-cast v6, Ljava/util/Set;
 
     .line 500
-    .local v6, keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .local v6, "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     const-string v7, "keyset"
 
     invoke-interface {p1, v9, v7}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -2721,7 +2716,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2740,7 +2735,7 @@
     move-result-wide v3
 
     .line 503
-    .local v3, keyId:J
+    .local v3, "keyId":J
     const-string v7, "key-id"
 
     invoke-interface {p1, v9, v7}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -2762,7 +2757,7 @@
     goto :goto_1
 
     .line 507
-    .end local v3           #keyId:J
+    .end local v3    # "keyId":J
     :cond_0
     const-string v7, "keyset"
 
@@ -2774,9 +2769,9 @@
     goto :goto_0
 
     .line 509
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #id:J
-    .end local v6           #keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "id":J
+    .end local v6    # "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     :cond_1
     const-string v7, "keysets"
 
@@ -2788,7 +2783,7 @@
 
 .method writePublicKeysLPr(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 8
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2806,7 +2801,7 @@
     .line 483
     const/4 v4, 0x0
 
-    .local v4, pKeyIndex:I
+    .local v4, "pKeyIndex":I
     :goto_0
     iget-object v5, p0, Lcom/android/server/pm/KeySetManager;->mPublicKeys:Landroid/util/LongSparseArray;
 
@@ -2824,7 +2819,7 @@
     move-result-wide v1
 
     .line 485
-    .local v1, id:J
+    .local v1, "id":J
     iget-object v5, p0, Lcom/android/server/pm/KeySetManager;->mPublicKeys:Landroid/util/LongSparseArray;
 
     invoke-virtual {v5, v4}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -2834,13 +2829,13 @@
     check-cast v3, Ljava/security/PublicKey;
 
     .line 486
-    .local v3, key:Ljava/security/PublicKey;
+    .local v3, "key":Ljava/security/PublicKey;
     invoke-virtual {p0, v3}, Lcom/android/server/pm/KeySetManager;->encodePublicKey(Ljava/security/PublicKey;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 487
-    .local v0, encodedKey:Ljava/lang/String;
+    .local v0, "encodedKey":Ljava/lang/String;
     const-string v5, "public-key"
 
     invoke-interface {p1, v7, v5}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -2870,9 +2865,9 @@
     goto :goto_0
 
     .line 492
-    .end local v0           #encodedKey:Ljava/lang/String;
-    .end local v1           #id:J
-    .end local v3           #key:Ljava/security/PublicKey;
+    .end local v0    # "encodedKey":Ljava/lang/String;
+    .end local v1    # "id":J
+    .end local v3    # "key":Ljava/security/PublicKey;
     :cond_0
     const-string v5, "keys"
 

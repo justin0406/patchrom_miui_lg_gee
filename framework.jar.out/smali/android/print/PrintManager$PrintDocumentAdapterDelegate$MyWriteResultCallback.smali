@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/IWriteResultCallback;Landroid/os/ParcelFileDescriptor;I)V
     .locals 0
-    .parameter
-    .parameter "callback"
-    .parameter "fd"
-    .parameter "sequence"
+    .param p2, "callback"    # Landroid/print/IWriteResultCallback;
+    .param p3, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p4, "sequence"    # I
 
     .prologue
     .line 926
@@ -60,7 +59,7 @@
     .line 993
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
+    # setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
     invoke-static {v0, v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$602(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/CancellationSignal;)Landroid/os/CancellationSignal;
 
     .line 994
@@ -77,7 +76,7 @@
     .line 997
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #calls: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->doPendingWorkLocked()V
+    # invokes: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->doPendingWorkLocked()V
     invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1100(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
 
     .line 998
@@ -93,7 +92,7 @@
     .line 982
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v1
@@ -104,7 +103,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
     invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
 
     move-result v0
@@ -146,13 +145,13 @@
 
 .method public onWriteFailed(Ljava/lang/CharSequence;)V
     .locals 5
-    .parameter "error"
+    .param p1, "error"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 962
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v3
@@ -163,7 +162,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
     invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
 
     move-result v2
@@ -190,7 +189,7 @@
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->mCallback:Landroid/print/IWriteResultCallback;
 
     .line 969
-    .local v0, callback:Landroid/print/IWriteResultCallback;
+    .local v0, "callback":Landroid/print/IWriteResultCallback;
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->clearLocked()V
 
     .line 970
@@ -216,7 +215,7 @@
     move-exception v1
 
     .line 975
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error calling onWriteFailed"
@@ -226,8 +225,8 @@
     goto :goto_0
 
     .line 970
-    .end local v0           #callback:Landroid/print/IWriteResultCallback;
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v0    # "callback":Landroid/print/IWriteResultCallback;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
 
@@ -241,13 +240,13 @@
 
 .method public onWriteFinished([Landroid/print/PageRange;)V
     .locals 5
-    .parameter "pages"
+    .param p1, "pages"    # [Landroid/print/PageRange;
 
     .prologue
     .line 935
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v3
@@ -258,7 +257,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
     invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
 
     move-result v2
@@ -285,7 +284,7 @@
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->mCallback:Landroid/print/IWriteResultCallback;
 
     .line 942
-    .local v0, callback:Landroid/print/IWriteResultCallback;
+    .local v0, "callback":Landroid/print/IWriteResultCallback;
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;->clearLocked()V
 
     .line 943
@@ -306,7 +305,7 @@
     throw v2
 
     .line 943
-    .end local v0           #callback:Landroid/print/IWriteResultCallback;
+    .end local v0    # "callback":Landroid/print/IWriteResultCallback;
     :catchall_0
     move-exception v2
 
@@ -318,7 +317,7 @@
     throw v2
 
     .line 947
-    .restart local v0       #callback:Landroid/print/IWriteResultCallback;
+    .restart local v0    # "callback":Landroid/print/IWriteResultCallback;
     :cond_2
     array-length v2, p1
 
@@ -352,7 +351,7 @@
     move-exception v1
 
     .line 954
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error calling onWriteFinished"

@@ -33,8 +33,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 0
-    .parameter "base"
-    .parameter "themeres"
+    .param p1, "base"    # Landroid/content/Context;
+    .param p2, "themeres"    # I
 
     .prologue
     .line 42
@@ -62,7 +62,7 @@
     const/4 v0, 0x1
 
     .line 137
-    .local v0, first:Z
+    .local v0, "first":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -85,7 +85,7 @@
     move-result-object v1
 
     .line 140
-    .local v1, theme:Landroid/content/res/Resources$Theme;
+    .local v1, "theme":Landroid/content/res/Resources$Theme;
     if-eqz v1, :cond_0
 
     .line 141
@@ -94,7 +94,7 @@
     invoke-virtual {v2, v1}, Landroid/content/res/Resources$Theme;->setTo(Landroid/content/res/Resources$Theme;)V
 
     .line 144
-    .end local v1           #theme:Landroid/content/res/Resources$Theme;
+    .end local v1    # "theme":Landroid/content/res/Resources$Theme;
     :cond_0
     iget-object v2, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
@@ -106,7 +106,7 @@
     return-void
 
     .line 136
-    .end local v0           #first:Z
+    .end local v0    # "first":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -117,7 +117,7 @@
 # virtual methods
 .method public applyOverrideConfiguration(Landroid/content/res/Configuration;)V
     .locals 2
-    .parameter "overrideConfiguration"
+    .param p1, "overrideConfiguration"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 63
@@ -163,7 +163,7 @@
 
 .method protected attachBaseContext(Landroid/content/Context;)V
     .locals 0
-    .parameter "newBase"
+    .param p1, "newBase"    # Landroid/content/Context;
 
     .prologue
     .line 48
@@ -219,7 +219,7 @@
     move-result-object v0
 
     .line 82
-    .local v0, resc:Landroid/content/Context;
+    .local v0, "resc":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -234,7 +234,7 @@
 
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 111
@@ -335,9 +335,9 @@
 
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 1
-    .parameter "theme"
-    .parameter "resid"
-    .parameter "first"
+    .param p1, "theme"    # Landroid/content/res/Resources$Theme;
+    .param p2, "resid"    # I
+    .param p3, "first"    # Z
 
     .prologue
     .line 132
@@ -351,7 +351,7 @@
 
 .method public setTheme(I)V
     .locals 0
-    .parameter "resid"
+    .param p1, "resid"    # I
 
     .prologue
     .line 88

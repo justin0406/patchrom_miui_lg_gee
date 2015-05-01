@@ -79,7 +79,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/input/PersistentDataStore$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/server/input/PersistentDataStore$1;
 
     .prologue
     .line 277
@@ -90,8 +90,8 @@
 
 .method private updateCurrentKeyboardLayoutIfRemoved(Ljava/lang/String;I)V
     .locals 2
-    .parameter "removedKeyboardLayout"
-    .parameter "removedIndex"
+    .param p1, "removedKeyboardLayout"    # Ljava/lang/String;
+    .param p2, "removedIndex"    # I
 
     .prologue
     .line 325
@@ -116,7 +116,7 @@
     move v0, p2
 
     .line 328
-    .local v0, index:I
+    .local v0, "index":I
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -141,7 +141,7 @@
     iput-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     .line 336
-    .end local v0           #index:I
+    .end local v0    # "index":I
     :cond_1
     :goto_0
     return-void
@@ -159,7 +159,7 @@
 # virtual methods
 .method public addKeyboardLayout(Ljava/lang/String;)Z
     .locals 3
-    .parameter "keyboardLayout"
+    .param p1, "keyboardLayout"    # Ljava/lang/String;
 
     .prologue
     .line 302
@@ -170,7 +170,7 @@
     move-result v0
 
     .line 303
-    .local v0, index:I
+    .local v0, "index":I
     if-ltz v0, :cond_0
 
     .line 304
@@ -265,7 +265,7 @@
 
 .method public loadFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 6
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -282,7 +282,7 @@
     move-result v2
 
     .line 371
-    .local v2, outerDepth:I
+    .local v2, "outerDepth":I
     :cond_0
     :goto_0
     invoke-static {p1, v2}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
@@ -312,7 +312,7 @@
     move-result-object v1
 
     .line 374
-    .local v1, descriptor:Ljava/lang/String;
+    .local v1, "descriptor":Ljava/lang/String;
     if-nez v1, :cond_1
 
     .line 375
@@ -333,7 +333,7 @@
     move-result-object v0
 
     .line 379
-    .local v0, current:Ljava/lang/String;
+    .local v0, "current":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -389,8 +389,8 @@
     goto :goto_0
 
     .line 396
-    .end local v0           #current:Ljava/lang/String;
-    .end local v1           #descriptor:Ljava/lang/String;
+    .end local v0    # "current":Ljava/lang/String;
+    .end local v1    # "descriptor":Ljava/lang/String;
     :cond_4
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
@@ -429,7 +429,7 @@
 
 .method public removeKeyboardLayout(Ljava/lang/String;)Z
     .locals 2
-    .parameter "keyboardLayout"
+    .param p1, "keyboardLayout"    # Ljava/lang/String;
 
     .prologue
     .line 314
@@ -440,7 +440,7 @@
     move-result v0
 
     .line 315
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_0
 
     .line 316
@@ -467,7 +467,6 @@
 
 .method public removeUninstalledKeyboardLayouts(Ljava/util/Set;)Z
     .locals 7
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -480,27 +479,27 @@
 
     .prologue
     .line 355
-    .local p1, availableKeyboardLayouts:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p1, "availableKeyboardLayouts":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v0, 0x0
 
     .line 356
-    .local v0, changed:Z
+    .local v0, "changed":Z
     iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .local v1, i:I
+    .local v1, "i":I
     move v2, v1
 
-    .end local v1           #i:I
-    .local v2, i:I
+    .end local v1    # "i":I
+    .local v2, "i":I
     :goto_0
     add-int/lit8 v1, v2, -0x1
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     if-lez v2, :cond_1
 
     .line 357
@@ -513,7 +512,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 358
-    .local v3, keyboardLayout:Ljava/lang/String;
+    .local v3, "keyboardLayout":Ljava/lang/String;
     invoke-interface {p1, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v4
@@ -558,21 +557,21 @@
     move v2, v1
 
     .line 364
-    .end local v1           #i:I
-    .restart local v2       #i:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
     goto :goto_0
 
     .line 365
-    .end local v2           #i:I
-    .end local v3           #keyboardLayout:Ljava/lang/String;
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .end local v3    # "keyboardLayout":Ljava/lang/String;
+    .restart local v1    # "i":I
     :cond_1
     return v0
 .end method
 
 .method public saveToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 5
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -589,7 +588,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -604,7 +603,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 407
-    .local v1, layout:Ljava/lang/String;
+    .local v1, "layout":Ljava/lang/String;
     const-string v2, "keyboard-layout"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -639,14 +638,14 @@
     goto :goto_0
 
     .line 414
-    .end local v1           #layout:Ljava/lang/String;
+    .end local v1    # "layout":Ljava/lang/String;
     :cond_1
     return-void
 .end method
 
 .method public setCurrentKeyboardLayout(Ljava/lang/String;)Z
     .locals 1
-    .parameter "keyboardLayout"
+    .param p1, "keyboardLayout"    # Ljava/lang/String;
 
     .prologue
     .line 286
@@ -680,7 +679,7 @@
 
 .method public switchKeyboardLayout(I)Z
     .locals 4
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 339
@@ -691,7 +690,7 @@
     move-result v1
 
     .line 340
-    .local v1, size:I
+    .local v1, "size":I
     const/4 v2, 0x2
 
     if-ge v1, v2, :cond_0
@@ -714,7 +713,7 @@
     move-result v0
 
     .line 344
-    .local v0, index:I
+    .local v0, "index":I
     sget-boolean v2, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->$assertionsDisabled:Z
 
     if-nez v2, :cond_1

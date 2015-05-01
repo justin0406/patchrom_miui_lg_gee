@@ -29,9 +29,9 @@
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 0
-    .parameter "camera"
-    .parameter "request"
-    .parameter "result"
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "result"    # Landroid/hardware/camera2/CaptureResult;
 
     .prologue
     .line 683
@@ -40,9 +40,9 @@
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
     .locals 0
-    .parameter "camera"
-    .parameter "request"
-    .parameter "failure"
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;
 
     .prologue
     .line 712
@@ -51,9 +51,9 @@
 
 .method public onCapturePartial(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 0
-    .parameter "camera"
-    .parameter "request"
-    .parameter "result"
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "result"    # Landroid/hardware/camera2/CaptureResult;
 
     .prologue
     .line 661
@@ -62,9 +62,9 @@
 
 .method public onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraDevice;II)V
     .locals 0
-    .parameter "camera"
-    .parameter "sequenceId"
-    .parameter "frameNumber"
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "sequenceId"    # I
+    .param p3, "frameNumber"    # I
 
     .prologue
     .line 735
@@ -73,9 +73,9 @@
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;J)V
     .locals 0
-    .parameter "camera"
-    .parameter "request"
-    .parameter "timestamp"
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "timestamp"    # J
 
     .prologue
     .line 631

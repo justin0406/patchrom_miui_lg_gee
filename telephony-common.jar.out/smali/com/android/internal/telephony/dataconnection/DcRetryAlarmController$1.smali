@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 48
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const v4, 0x7fffffff
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 52
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -82,7 +81,7 @@
 
     move-result-object v4
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$000(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;Ljava/lang/String;)V
 
     .line 75
@@ -93,7 +92,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$100(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Ljava/lang/String;
 
     move-result-object v3
@@ -122,7 +121,7 @@
 
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$100(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Ljava/lang/String;
 
     move-result-object v5
@@ -164,7 +163,7 @@
 
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$100(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Ljava/lang/String;
 
     move-result-object v5
@@ -196,7 +195,7 @@
     move-result v2
 
     .line 65
-    .local v2, what:I
+    .local v2, "what":I
     const-string v3, "tag"
 
     invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -204,7 +203,7 @@
     move-result v1
 
     .line 67
-    .local v1, tag:I
+    .local v1, "tag":I
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -229,7 +228,7 @@
 
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
     invoke-static {v5}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$200(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     move-result-object v5
@@ -262,20 +261,20 @@
 
     move-result-object v4
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$000(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;Ljava/lang/String;)V
 
     .line 71
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$200(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
     invoke-static {v4}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$200(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     move-result-object v4
@@ -291,8 +290,8 @@
     goto/16 :goto_0
 
     .line 73
-    .end local v1           #tag:I
-    .end local v2           #what:I
+    .end local v1    # "tag":I
+    .end local v2    # "what":I
     :cond_3
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
@@ -314,7 +313,7 @@
 
     move-result-object v4
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->log(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->access$000(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;Ljava/lang/String;)V
 
     goto/16 :goto_0

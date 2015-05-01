@@ -39,8 +39,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 86
@@ -54,9 +54,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 61
@@ -86,7 +86,7 @@
 
     move-result-object v1
 
-    const v2, 0x10403c2
+    const v2, 0x10403c3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -105,10 +105,10 @@
     move-result-object v0
 
     .line 76
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x6
 
-    const v2, 0x3f4ccccd
+    const v2, 0x3f4ccccd    # 0.8f
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
@@ -157,7 +157,7 @@
     iget-object v6, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mPositionIconOutput:Landroid/graphics/Rect;
 
     .line 282
-    .local v6, tmpRect:Landroid/graphics/Rect;
+    .local v6, "tmpRect":Landroid/graphics/Rect;
     invoke-virtual {p0, v3, v6}, Lcom/android/internal/view/menu/IconMenuItemView;->getLineBounds(ILandroid/graphics/Rect;)I
 
     .line 283
@@ -177,7 +177,7 @@
     move-result v5
 
     .line 285
-    .local v5, layoutDirection:I
+    .local v5, "layoutDirection":I
     const v0, 0x800013
 
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -251,7 +251,7 @@
     const/4 v0, 0x1
 
     .line 233
-    .local v0, isInAlphaState:Z
+    .local v0, "isInAlphaState":Z
     :goto_0
     iget-object v2, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
 
@@ -259,7 +259,7 @@
 
     iget v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mDisabledAlpha:F
 
-    const/high16 v3, 0x437f
+    const/high16 v3, 0x437f0000    # 255.0f
 
     mul-float/2addr v1, v3
 
@@ -269,7 +269,7 @@
     invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 235
-    .end local v0           #isInAlphaState:Z
+    .end local v0    # "isInAlphaState":Z
     :cond_1
     return-void
 
@@ -280,7 +280,7 @@
     goto :goto_0
 
     .line 233
-    .restart local v0       #isInAlphaState:Z
+    .restart local v0    # "isInAlphaState":Z
     :cond_3
     const/16 v1, 0xff
 
@@ -314,17 +314,17 @@
     check-cast v0, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
 
     .line 258
-    .local v0, lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
+    .local v0, "lp":Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     if-nez v0, :cond_0
 
     .line 260
     new-instance v0, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
 
-    .end local v0           #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
+    .end local v0    # "lp":Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     invoke-direct {v0, v1, v1}, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;-><init>(II)V
 
     .line 265
-    .restart local v0       #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
+    .restart local v0    # "lp":Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/view/menu/IconMenuItemView;->getText()Ljava/lang/CharSequence;
 
@@ -348,8 +348,8 @@
 
 .method public initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
     .locals 2
-    .parameter "itemData"
-    .parameter "menuType"
+    .param p1, "itemData"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "menuType"    # I
 
     .prologue
     .line 107
@@ -397,8 +397,8 @@
 
 .method initialize(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .parameter "title"
-    .parameter "icon"
+    .param p1, "title"    # Ljava/lang/CharSequence;
+    .param p2, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v0, 0x1
@@ -436,11 +436,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 0
-    .parameter "changed"
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "changed"    # Z
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
 
     .prologue
     .line 239
@@ -455,10 +455,10 @@
 
 .method protected onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
-    .parameter "text"
-    .parameter "start"
-    .parameter "before"
-    .parameter "after"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 246
@@ -534,7 +534,7 @@
 
 .method setCaptionMode(Z)V
     .locals 2
-    .parameter "shortcut"
+    .param p1, "shortcut"    # Z
 
     .prologue
     .line 154
@@ -571,7 +571,7 @@
     move-result-object v0
 
     .line 162
-    .local v0, text:Ljava/lang/CharSequence;
+    .local v0, "text":Ljava/lang/CharSequence;
     iget-boolean v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mShortcutCaptionMode:Z
 
     if-eqz v1, :cond_2
@@ -601,7 +601,7 @@
     goto :goto_0
 
     .line 158
-    .end local v0           #text:Ljava/lang/CharSequence;
+    .end local v0    # "text":Ljava/lang/CharSequence;
     :cond_3
     const/4 v1, 0x0
 
@@ -610,7 +610,7 @@
 
 .method public setCheckable(Z)V
     .locals 0
-    .parameter "checkable"
+    .param p1, "checkable"    # Z
 
     .prologue
     .line 292
@@ -619,7 +619,7 @@
 
 .method public setChecked(Z)V
     .locals 0
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 295
@@ -628,7 +628,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 4
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v3, 0x0
@@ -681,7 +681,7 @@
 
 .method setIconMenuView(Lcom/android/internal/view/menu/IconMenuView;)V
     .locals 0
-    .parameter "iconMenuView"
+    .param p1, "iconMenuView"    # Lcom/android/internal/view/menu/IconMenuView;
 
     .prologue
     .line 222
@@ -693,7 +693,7 @@
 
 .method public setItemData(Lcom/android/internal/view/menu/MenuItemImpl;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 116
@@ -705,7 +705,7 @@
 
 .method public setItemInvoker(Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;)V
     .locals 0
-    .parameter "itemInvoker"
+    .param p1, "itemInvoker"    # Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
 
     .prologue
     .line 203
@@ -717,8 +717,8 @@
 
 .method public setShortcut(ZC)V
     .locals 1
-    .parameter "showShortcut"
-    .parameter "shortcutKey"
+    .param p1, "showShortcut"    # Z
+    .param p2, "shortcutKey"    # C
 
     .prologue
     .line 299
@@ -743,7 +743,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 136
@@ -773,7 +773,7 @@
 
 .method public setVisibility(I)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # I
 
     .prologue
     .line 213

@@ -37,7 +37,6 @@
 
 .method public static varargs newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -50,7 +49,7 @@
 
     .prologue
     .line 59
-    .local p0, elements:[Ljava/lang/Object;,"[TE;"
+    .local p0, "elements":[Ljava/lang/Object;, "[TE;"
     array-length v2, p0
 
     mul-int/lit8 v2, v2, 0x6e
@@ -60,13 +59,13 @@
     add-int/lit8 v0, v2, 0x5
 
     .line 60
-    .local v0, capacity:I
+    .local v0, "capacity":I
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 61
-    .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TE;>;"
+    .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TE;>;"
     invoke-static {v1, p0}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     .line 62

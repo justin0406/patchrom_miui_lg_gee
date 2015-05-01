@@ -37,8 +37,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 150
@@ -50,7 +50,7 @@
 
 .method public static BLEND_ALPHA_DEPTH_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
     .locals 4
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     const/4 v3, 0x0
@@ -66,7 +66,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramStore$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 308
-    .local v0, builder:Landroid/renderscript/ProgramStore$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramStore$Builder;
     sget-object v1, Landroid/renderscript/ProgramStore$DepthFunc;->ALWAYS:Landroid/renderscript/ProgramStore$DepthFunc;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramStore$Builder;->setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
@@ -92,7 +92,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
     .line 314
-    .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramStore$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
@@ -101,7 +101,7 @@
 
 .method public static BLEND_ALPHA_DEPTH_TEST(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
     .locals 3
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 284
@@ -115,7 +115,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramStore$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 286
-    .local v0, builder:Landroid/renderscript/ProgramStore$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramStore$Builder;
     sget-object v1, Landroid/renderscript/ProgramStore$DepthFunc;->LESS:Landroid/renderscript/ProgramStore$DepthFunc;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramStore$Builder;->setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
@@ -145,7 +145,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
     .line 292
-    .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramStore$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
@@ -154,7 +154,7 @@
 
 .method public static BLEND_NONE_DEPTH_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
     .locals 4
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     const/4 v3, 0x0
@@ -170,7 +170,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramStore$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 262
-    .local v0, builder:Landroid/renderscript/ProgramStore$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramStore$Builder;
     sget-object v1, Landroid/renderscript/ProgramStore$DepthFunc;->ALWAYS:Landroid/renderscript/ProgramStore$DepthFunc;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramStore$Builder;->setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
@@ -196,7 +196,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
     .line 268
-    .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramStore$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
@@ -205,7 +205,7 @@
 
 .method public static BLEND_NONE_DEPTH_TEST(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
     .locals 3
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 239
@@ -219,7 +219,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramStore$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 241
-    .local v0, builder:Landroid/renderscript/ProgramStore$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramStore$Builder;
     sget-object v1, Landroid/renderscript/ProgramStore$DepthFunc;->LESS:Landroid/renderscript/ProgramStore$DepthFunc;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramStore$Builder;->setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
@@ -249,7 +249,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
     .line 247
-    .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramStore$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 

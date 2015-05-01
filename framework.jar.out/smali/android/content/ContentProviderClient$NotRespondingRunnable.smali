@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/content/ContentProviderClient;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 453
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/content/ContentProviderClient;Landroid/content/ContentProviderClient$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/content/ContentProviderClient;
+    .param p2, "x1"    # Landroid/content/ContentProviderClient$1;
 
     .prologue
     .line 453
@@ -68,7 +67,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProviderClient$NotRespondingRunnable;->this$0:Landroid/content/ContentProviderClient;
 
-    #getter for: Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
+    # getter for: Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
     invoke-static {v2}, Landroid/content/ContentProviderClient;->access$100(Landroid/content/ContentProviderClient;)Landroid/content/IContentProvider;
 
     move-result-object v2
@@ -86,14 +85,14 @@
     .line 457
     iget-object v0, p0, Landroid/content/ContentProviderClient$NotRespondingRunnable;->this$0:Landroid/content/ContentProviderClient;
 
-    #getter for: Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
+    # getter for: Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {v0}, Landroid/content/ContentProviderClient;->access$200(Landroid/content/ContentProviderClient;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/content/ContentProviderClient$NotRespondingRunnable;->this$0:Landroid/content/ContentProviderClient;
 
-    #getter for: Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
+    # getter for: Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
     invoke-static {v1}, Landroid/content/ContentProviderClient;->access$100(Landroid/content/ContentProviderClient;)Landroid/content/IContentProvider;
 
     move-result-object v1

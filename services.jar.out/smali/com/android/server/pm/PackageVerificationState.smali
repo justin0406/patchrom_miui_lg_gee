@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(ILcom/android/server/pm/PackageManagerService$InstallArgs;)V
     .locals 1
-    .parameter "requiredVerifierUid"
-    .parameter "args"
+    .param p1, "requiredVerifierUid"    # I
+    .param p2, "args"    # Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     .prologue
     .line 56
@@ -57,7 +57,7 @@
 # virtual methods
 .method public addSufficientVerifier(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 73
@@ -174,8 +174,8 @@
 
 .method public setVerifierResponse(II)Z
     .locals 3
-    .parameter "uid"
-    .parameter "code"
+    .param p1, "uid"    # I
+    .param p2, "code"    # I
 
     .prologue
     const/4 v1, 0x0

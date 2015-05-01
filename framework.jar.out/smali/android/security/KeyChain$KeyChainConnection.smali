@@ -28,9 +28,9 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;)V
     .locals 0
-    .parameter "context"
-    .parameter "serviceConnection"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "serviceConnection"    # Landroid/content/ServiceConnection;
+    .param p3, "service"    # Landroid/security/IKeyChainService;
 
     .prologue
     .line 410
@@ -51,10 +51,10 @@
 
 .method synthetic constructor <init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;Landroid/security/KeyChain$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Landroid/content/Context;
+    .param p2, "x1"    # Landroid/content/ServiceConnection;
+    .param p3, "x2"    # Landroid/security/IKeyChainService;
+    .param p4, "x3"    # Landroid/security/KeyChain$1;
 
     .prologue
     .line 404

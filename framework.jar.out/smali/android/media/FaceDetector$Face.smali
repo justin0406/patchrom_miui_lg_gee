@@ -45,7 +45,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/FaceDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 89
@@ -59,8 +58,8 @@
 
 .method synthetic constructor <init>(Landroid/media/FaceDetector;Landroid/media/FaceDetector$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/FaceDetector;
+    .param p2, "x1"    # Landroid/media/FaceDetector$1;
 
     .prologue
     .line 35
@@ -93,7 +92,7 @@
 
 .method public getMidPoint(Landroid/graphics/PointF;)V
     .locals 2
-    .parameter "point"
+    .param p1, "point"    # Landroid/graphics/PointF;
 
     .prologue
     .line 60
@@ -109,7 +108,7 @@
 
 .method public pose(I)F
     .locals 1
-    .parameter "euler"
+    .param p1, "euler"    # I
 
     .prologue
     .line 79

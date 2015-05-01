@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 238
@@ -41,8 +41,8 @@
 # virtual methods
 .method public addKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "inputDeviceDescriptor"
-    .parameter "keyboardLayoutDescriptor"
+    .param p1, "inputDeviceDescriptor"    # Ljava/lang/String;
+    .param p2, "keyboardLayoutDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,13 +56,13 @@
     move-result-object v0
 
     .line 462
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 464
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -121,8 +121,8 @@
 
 .method public cancelVibrate(ILandroid/os/IBinder;)V
     .locals 5
-    .parameter "deviceId"
-    .parameter "token"
+    .param p1, "deviceId"    # I
+    .param p2, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -136,13 +136,13 @@
     move-result-object v0
 
     .line 531
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 533
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -191,7 +191,7 @@
 
 .method public getCurrentKeyboardLayoutForInputDevice(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "inputDeviceDescriptor"
+    .param p1, "inputDeviceDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -205,13 +205,13 @@
     move-result-object v0
 
     .line 410
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 413
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -240,7 +240,7 @@
     move-result-object v2
 
     .line 420
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 421
@@ -250,7 +250,7 @@
     return-object v2
 
     .line 420
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -264,7 +264,7 @@
 
 .method public getInputDevice(I)Landroid/view/InputDevice;
     .locals 6
-    .parameter "deviceId"
+    .param p1, "deviceId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -278,13 +278,13 @@
     move-result-object v0
 
     .line 254
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 257
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -324,7 +324,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 269
-    .local v2, _result:Landroid/view/InputDevice;
+    .local v2, "_result":Landroid/view/InputDevice;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -335,15 +335,15 @@
     return-object v2
 
     .line 265
-    .end local v2           #_result:Landroid/view/InputDevice;
+    .end local v2    # "_result":Landroid/view/InputDevice;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/view/InputDevice;
+    .restart local v2    # "_result":Landroid/view/InputDevice;
     goto :goto_0
 
     .line 269
-    .end local v2           #_result:Landroid/view/InputDevice;
+    .end local v2    # "_result":Landroid/view/InputDevice;
     :catchall_0
     move-exception v3
 
@@ -370,13 +370,13 @@
     move-result-object v0
 
     .line 277
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 280
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -402,7 +402,7 @@
     move-result-object v2
 
     .line 286
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 287
@@ -412,7 +412,7 @@
     return-object v2
 
     .line 286
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -436,7 +436,7 @@
 
 .method public getKeyboardLayout(Ljava/lang/String;)Landroid/hardware/input/KeyboardLayout;
     .locals 6
-    .parameter "keyboardLayoutDescriptor"
+    .param p1, "keyboardLayoutDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -450,13 +450,13 @@
     move-result-object v0
 
     .line 387
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 390
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -496,7 +496,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 402
-    .local v2, _result:Landroid/hardware/input/KeyboardLayout;
+    .local v2, "_result":Landroid/hardware/input/KeyboardLayout;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -507,15 +507,15 @@
     return-object v2
 
     .line 398
-    .end local v2           #_result:Landroid/hardware/input/KeyboardLayout;
+    .end local v2    # "_result":Landroid/hardware/input/KeyboardLayout;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/hardware/input/KeyboardLayout;
+    .restart local v2    # "_result":Landroid/hardware/input/KeyboardLayout;
     goto :goto_0
 
     .line 402
-    .end local v2           #_result:Landroid/hardware/input/KeyboardLayout;
+    .end local v2    # "_result":Landroid/hardware/input/KeyboardLayout;
     :catchall_0
     move-exception v3
 
@@ -542,13 +542,13 @@
     move-result-object v0
 
     .line 370
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 373
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -578,7 +578,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 379
-    .local v2, _result:[Landroid/hardware/input/KeyboardLayout;
+    .local v2, "_result":[Landroid/hardware/input/KeyboardLayout;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 380
@@ -588,7 +588,7 @@
     return-object v2
 
     .line 379
-    .end local v2           #_result:[Landroid/hardware/input/KeyboardLayout;
+    .end local v2    # "_result":[Landroid/hardware/input/KeyboardLayout;
     :catchall_0
     move-exception v3
 
@@ -602,7 +602,7 @@
 
 .method public getKeyboardLayoutsForInputDevice(Ljava/lang/String;)[Ljava/lang/String;
     .locals 6
-    .parameter "inputDeviceDescriptor"
+    .param p1, "inputDeviceDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -616,13 +616,13 @@
     move-result-object v0
 
     .line 444
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 447
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -651,7 +651,7 @@
     move-result-object v2
 
     .line 454
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 455
@@ -661,7 +661,7 @@
     return-object v2
 
     .line 454
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -675,10 +675,10 @@
 
 .method public hasKeys(II[I[Z)Z
     .locals 6
-    .parameter "deviceId"
-    .parameter "sourceMask"
-    .parameter "keyCodes"
-    .parameter "keyExists"
+    .param p1, "deviceId"    # I
+    .param p2, "sourceMask"    # I
+    .param p3, "keyCodes"    # [I
+    .param p4, "keyExists"    # [Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -694,13 +694,13 @@
     move-result-object v0
 
     .line 296
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 299
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.input.IInputManager"
 
@@ -746,7 +746,7 @@
     const/4 v2, 0x1
 
     .line 312
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->readBooleanArray([Z)V
     :try_end_0
@@ -762,7 +762,7 @@
     return v2
 
     .line 307
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     :try_start_1
     array-length v3, p4
@@ -787,8 +787,8 @@
 
 .method public injectInputEvent(Landroid/view/InputEvent;I)Z
     .locals 7
-    .parameter "ev"
-    .parameter "mode"
+    .param p1, "ev"    # Landroid/view/InputEvent;
+    .param p2, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -806,13 +806,13 @@
     move-result-object v0
 
     .line 343
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 346
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.hardware.input.IInputManager"
 
@@ -857,7 +857,7 @@
     if-eqz v4, :cond_1
 
     .line 360
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -868,7 +868,7 @@
     return v2
 
     .line 352
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -899,7 +899,7 @@
 
 .method public registerInputDevicesChangedListener(Landroid/hardware/input/IInputDevicesChangedListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/hardware/input/IInputDevicesChangedListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -913,13 +913,13 @@
     move-result-object v0
 
     .line 496
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 498
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -978,8 +978,8 @@
 
 .method public removeKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "inputDeviceDescriptor"
-    .parameter "keyboardLayoutDescriptor"
+    .param p1, "inputDeviceDescriptor"    # Ljava/lang/String;
+    .param p2, "keyboardLayoutDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -993,13 +993,13 @@
     move-result-object v0
 
     .line 478
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 480
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -1048,8 +1048,8 @@
 
 .method public setCurrentKeyboardLayoutForInputDevice(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "inputDeviceDescriptor"
-    .parameter "keyboardLayoutDescriptor"
+    .param p1, "inputDeviceDescriptor"    # Ljava/lang/String;
+    .param p2, "keyboardLayoutDescriptor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1063,13 +1063,13 @@
     move-result-object v0
 
     .line 428
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 430
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -1118,7 +1118,7 @@
 
 .method public tryPointerSpeed(I)V
     .locals 5
-    .parameter "speed"
+    .param p1, "speed"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1132,13 +1132,13 @@
     move-result-object v0
 
     .line 325
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 327
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 
@@ -1184,10 +1184,10 @@
 
 .method public vibrate(I[JILandroid/os/IBinder;)V
     .locals 5
-    .parameter "deviceId"
-    .parameter "pattern"
-    .parameter "repeat"
-    .parameter "token"
+    .param p1, "deviceId"    # I
+    .param p2, "pattern"    # [J
+    .param p3, "repeat"    # I
+    .param p4, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1201,13 +1201,13 @@
     move-result-object v0
 
     .line 513
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 515
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.input.IInputManager"
 

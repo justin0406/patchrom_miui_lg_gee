@@ -14,7 +14,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 1
-    .parameter "decoder"
+    .param p1, "decoder"    # I
 
     .prologue
     .line 168
@@ -41,7 +41,7 @@
 
 .method private checkRecycled(Ljava/lang/String;)V
     .locals 1
-    .parameter "errorMessage"
+    .param p1, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 243
@@ -87,8 +87,8 @@
 
 .method public static newInstance(Ljava/io/FileDescriptor;Z)Landroid/graphics/BitmapRegionDecoder;
     .locals 1
-    .parameter "fd"
-    .parameter "isShareable"
+    .param p0, "fd"    # Ljava/io/FileDescriptor;
+    .param p1, "isShareable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -106,8 +106,8 @@
 
 .method public static newInstance(Ljava/io/InputStream;Z)Landroid/graphics/BitmapRegionDecoder;
     .locals 2
-    .parameter "is"
-    .parameter "isShareable"
+    .param p0, "is"    # Ljava/io/InputStream;
+    .param p1, "isShareable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,7 +123,7 @@
     .line 116
     check-cast p0, Landroid/content/res/AssetManager$AssetInputStream;
 
-    .end local p0
+    .end local p0    # "is":Ljava/io/InputStream;
     invoke-virtual {p0}, Landroid/content/res/AssetManager$AssetInputStream;->getAssetInt()I
 
     move-result v1
@@ -137,14 +137,14 @@
     return-object v1
 
     .line 123
-    .restart local p0
+    .restart local p0    # "is":Ljava/io/InputStream;
     :cond_0
     const/16 v1, 0x4000
 
     new-array v0, v1, [B
 
     .line 124
-    .local v0, tempStorage:[B
+    .local v0, "tempStorage":[B
     invoke-static {p0, v0, p1}, Landroid/graphics/BitmapRegionDecoder;->nativeNewInstance(Ljava/io/InputStream;[BZ)Landroid/graphics/BitmapRegionDecoder;
 
     move-result-object v1
@@ -154,8 +154,8 @@
 
 .method public static newInstance(Ljava/lang/String;Z)Landroid/graphics/BitmapRegionDecoder;
     .locals 5
-    .parameter "pathName"
-    .parameter "isShareable"
+    .param p0, "pathName"    # Ljava/lang/String;
+    .param p1, "isShareable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -167,11 +167,11 @@
     const/4 v0, 0x0
 
     .line 146
-    .local v0, decoder:Landroid/graphics/BitmapRegionDecoder;
+    .local v0, "decoder":Landroid/graphics/BitmapRegionDecoder;
     const/4 v1, 0x0
 
     .line 149
-    .local v1, stream:Ljava/io/InputStream;
+    .local v1, "stream":Ljava/io/InputStream;
     :try_start_0
     new-instance v2, Ljava/io/FileInputStream;
 
@@ -180,8 +180,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 150
-    .end local v1           #stream:Ljava/io/InputStream;
-    .local v2, stream:Ljava/io/InputStream;
+    .end local v1    # "stream":Ljava/io/InputStream;
+    .local v2, "stream":Ljava/io/InputStream;
     :try_start_1
     invoke-static {v2, p1}, Landroid/graphics/BitmapRegionDecoder;->newInstance(Ljava/io/InputStream;Z)Landroid/graphics/BitmapRegionDecoder;
     :try_end_1
@@ -204,8 +204,8 @@
     return-object v0
 
     .line 152
-    .end local v2           #stream:Ljava/io/InputStream;
-    .restart local v1       #stream:Ljava/io/InputStream;
+    .end local v2    # "stream":Ljava/io/InputStream;
+    .restart local v1    # "stream":Ljava/io/InputStream;
     :catchall_0
     move-exception v3
 
@@ -224,39 +224,39 @@
     throw v3
 
     .line 155
-    .end local v1           #stream:Ljava/io/InputStream;
-    .restart local v2       #stream:Ljava/io/InputStream;
+    .end local v1    # "stream":Ljava/io/InputStream;
+    .restart local v2    # "stream":Ljava/io/InputStream;
     :catch_0
     move-exception v3
 
     goto :goto_0
 
-    .end local v2           #stream:Ljava/io/InputStream;
-    .restart local v1       #stream:Ljava/io/InputStream;
+    .end local v2    # "stream":Ljava/io/InputStream;
+    .restart local v1    # "stream":Ljava/io/InputStream;
     :catch_1
     move-exception v4
 
     goto :goto_2
 
     .line 152
-    .end local v1           #stream:Ljava/io/InputStream;
-    .restart local v2       #stream:Ljava/io/InputStream;
+    .end local v1    # "stream":Ljava/io/InputStream;
+    .restart local v2    # "stream":Ljava/io/InputStream;
     :catchall_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #stream:Ljava/io/InputStream;
-    .restart local v1       #stream:Ljava/io/InputStream;
+    .end local v2    # "stream":Ljava/io/InputStream;
+    .restart local v1    # "stream":Ljava/io/InputStream;
     goto :goto_1
 .end method
 
 .method public static newInstance([BIIZ)Landroid/graphics/BitmapRegionDecoder;
     .locals 2
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "isShareable"
+    .param p0, "data"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
+    .param p3, "isShareable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -296,8 +296,8 @@
 # virtual methods
 .method public decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 7
-    .parameter "rect"
-    .parameter "options"
+    .param p1, "rect"    # Landroid/graphics/Rect;
+    .param p2, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 183

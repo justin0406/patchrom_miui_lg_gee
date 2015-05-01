@@ -47,7 +47,7 @@
     move-exception v0
 
     .line 121
-    .local v0, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V

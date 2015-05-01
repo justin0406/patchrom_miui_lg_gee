@@ -18,8 +18,8 @@
 # direct methods
 .method constructor <init>(Landroid/print/PrintJobInfo;Landroid/printservice/IPrintServiceClient;)V
     .locals 3
-    .parameter "jobInfo"
-    .parameter "client"
+    .param p1, "jobInfo"    # Landroid/print/PrintJobInfo;
+    .param p2, "client"    # Landroid/printservice/IPrintServiceClient;
 
     .prologue
     .line 44
@@ -64,7 +64,7 @@
     move-result v0
 
     .line 372
-    .local v0, state:I
+    .local v0, "state":I
     const/4 v1, 0x5
 
     if-eq v0, v1, :cond_0
@@ -91,8 +91,8 @@
 
 .method private setState(ILjava/lang/String;)Z
     .locals 4
-    .parameter "state"
-    .parameter "error"
+    .param p1, "state"    # I
+    .param p2, "error"    # Ljava/lang/String;
 
     .prologue
     .line 379
@@ -135,7 +135,7 @@
     move-exception v0
 
     .line 388
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "PrintJob"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -165,7 +165,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 390
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -176,7 +176,7 @@
 # virtual methods
 .method public block(Ljava/lang/String;)Z
     .locals 4
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x4
@@ -190,13 +190,13 @@
     move-result-object v0
 
     .line 216
-    .local v0, info:Landroid/print/PrintJobInfo;
+    .local v0, "info":Landroid/print/PrintJobInfo;
     invoke-virtual {v0}, Landroid/print/PrintJobInfo;->getState()I
 
     move-result v1
 
     .line 217
-    .local v1, state:I
+    .local v1, "state":I
     const/4 v2, 0x3
 
     if-eq v1, v2, :cond_0
@@ -297,7 +297,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -334,7 +334,7 @@
     check-cast v0, Landroid/printservice/PrintJob;
 
     .line 362
-    .local v0, other:Landroid/printservice/PrintJob;
+    .local v0, "other":Landroid/printservice/PrintJob;
     iget-object v1, p0, Landroid/printservice/PrintJob;->mCachedInfo:Landroid/print/PrintJobInfo;
 
     invoke-virtual {v1}, Landroid/print/PrintJobInfo;->getId()Landroid/print/PrintJobId;
@@ -356,7 +356,7 @@
 
 .method public fail(Ljava/lang/String;)Z
     .locals 1
-    .parameter "error"
+    .param p1, "error"    # Ljava/lang/String;
 
     .prologue
     .line 255
@@ -388,7 +388,7 @@
 
 .method public getAdvancedIntOption(Ljava/lang/String;)I
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 346
@@ -408,7 +408,7 @@
 
 .method public getAdvancedStringOption(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 323
@@ -482,7 +482,7 @@
     const/4 v0, 0x0
 
     .line 78
-    .local v0, info:Landroid/print/PrintJobInfo;
+    .local v0, "info":Landroid/print/PrintJobInfo;
     :try_start_0
     iget-object v2, p0, Landroid/printservice/PrintJob;->mPrintServiceClient:Landroid/printservice/IPrintServiceClient;
 
@@ -516,7 +516,7 @@
     move-exception v1
 
     .line 80
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintJob"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -569,7 +569,7 @@
 
 .method public hasAdvancedOption(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 335
@@ -793,7 +793,7 @@
 
 .method public setTag(Ljava/lang/String;)Z
     .locals 5
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -836,7 +836,7 @@
     move-exception v0
 
     .line 299
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v2, "PrintJob"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -885,7 +885,7 @@
     move-result v0
 
     .line 194
-    .local v0, state:I
+    .local v0, "state":I
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0

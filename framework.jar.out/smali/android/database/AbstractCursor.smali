@@ -189,8 +189,8 @@
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
     .locals 5
-    .parameter "columnIndex"
-    .parameter "buffer"
+    .param p1, "columnIndex"    # I
+    .param p2, "buffer"    # Landroid/database/CharArrayBuffer;
 
     .prologue
     const/4 v4, 0x0
@@ -201,14 +201,14 @@
     move-result-object v1
 
     .line 169
-    .local v1, result:Ljava/lang/String;
+    .local v1, "result":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 170
     iget-object v0, p2, Landroid/database/CharArrayBuffer;->data:[C
 
     .line 171
-    .local v0, data:[C
+    .local v0, "data":[C
     if-eqz v0, :cond_0
 
     array-length v2, v0
@@ -236,12 +236,12 @@
     iput v2, p2, Landroid/database/CharArrayBuffer;->sizeCopied:I
 
     .line 180
-    .end local v0           #data:[C
+    .end local v0    # "data":[C
     :goto_1
     return-void
 
     .line 174
-    .restart local v0       #data:[C
+    .restart local v0    # "data":[C
     :cond_1
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
@@ -252,7 +252,7 @@
     goto :goto_0
 
     .line 178
-    .end local v0           #data:[C
+    .end local v0    # "data":[C
     :cond_2
     iput v4, p2, Landroid/database/CharArrayBuffer;->sizeCopied:I
 
@@ -272,8 +272,8 @@
 
 .method public fillWindow(ILandroid/database/CursorWindow;)V
     .locals 0
-    .parameter "position"
-    .parameter "window"
+    .param p1, "position"    # I
+    .param p2, "window"    # Landroid/database/CursorWindow;
 
     .prologue
     .line 229
@@ -330,7 +330,7 @@
 
 .method public getBlob(I)[B
     .locals 2
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 100
@@ -359,7 +359,7 @@
 
 .method public getColumnIndex(Ljava/lang/String;)I
     .locals 9
-    .parameter "columnName"
+    .param p1, "columnName"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, -0x1
@@ -372,7 +372,7 @@
     move-result v4
 
     .line 278
-    .local v4, periodIndex:I
+    .local v4, "periodIndex":I
     if-eq v4, v5, :cond_0
 
     .line 279
@@ -381,7 +381,7 @@
     invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
 
     .line 280
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const-string v6, "Cursor"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -412,21 +412,21 @@
     move-result-object p1
 
     .line 284
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_0
     invoke-virtual {p0}, Landroid/database/AbstractCursor;->getColumnNames()[Ljava/lang/String;
 
     move-result-object v0
 
     .line 285
-    .local v0, columnNames:[Ljava/lang/String;
+    .local v0, "columnNames":[Ljava/lang/String;
     array-length v3, v0
 
     .line 286
-    .local v3, length:I
+    .local v3, "length":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v3, :cond_2
 
@@ -440,12 +440,12 @@
     if-eqz v6, :cond_1
 
     .line 297
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :goto_1
     return v2
 
     .line 286
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
@@ -460,7 +460,7 @@
 
 .method public getColumnIndexOrThrow(Ljava/lang/String;)I
     .locals 4
-    .parameter "columnName"
+    .param p1, "columnName"    # Ljava/lang/String;
 
     .prologue
     .line 301
@@ -469,7 +469,7 @@
     move-result v0
 
     .line 302
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_0
 
     .line 303
@@ -510,7 +510,7 @@
 
 .method public getColumnName(I)Ljava/lang/String;
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 309
@@ -597,7 +597,7 @@
 
 .method public getType(I)I
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 95
@@ -608,7 +608,7 @@
 
 .method protected getUpdatedField(I)Ljava/lang/Object;
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -713,7 +713,7 @@
 
 .method protected isFieldUpdated(I)Z
     .locals 1
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -760,7 +760,7 @@
     move-result v0
 
     .line 258
-    .local v0, cnt:I
+    .local v0, "cnt":I
     iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
 
     add-int/lit8 v2, v0, -0x1
@@ -785,7 +785,7 @@
 
 .method public final move(I)Z
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     .line 233
@@ -850,12 +850,14 @@
 
 .method public final moveToPosition(I)Z
     .locals 4
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     const/4 v1, 0x0
 
     const/4 v3, -0x1
+
+    invoke-static {p0, p1}, Landroid/database/AbstractCursorInjector;->before_moveToPosition(Landroid/database/AbstractCursor;I)V
 
     .line 197
     invoke-virtual {p0}, Landroid/database/AbstractCursor;->getCount()I
@@ -863,7 +865,7 @@
     move-result v0
 
     .line 198
-    .local v0, count:I
+    .local v0, "count":I
     if-lt p1, v0, :cond_1
 
     .line 199
@@ -903,7 +905,7 @@
     move-result v1
 
     .line 215
-    .local v1, result:Z
+    .local v1, "result":Z
     if-nez v1, :cond_4
 
     .line 216
@@ -954,7 +956,7 @@
 
 .method protected onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 338
@@ -1037,8 +1039,8 @@
 
 .method public onMove(II)Z
     .locals 1
-    .parameter "oldPosition"
-    .parameter "newPosition"
+    .param p1, "oldPosition"    # I
+    .param p2, "newPosition"    # I
 
     .prologue
     .line 162
@@ -1049,7 +1051,7 @@
 
 .method public registerContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 313
@@ -1063,7 +1065,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 324
@@ -1114,7 +1116,7 @@
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 397
@@ -1125,7 +1127,7 @@
 
 .method public setExtras(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 389
@@ -1133,7 +1135,7 @@
 
     sget-object p1, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
 
-    .end local p1
+    .end local p1    # "extras":Landroid/os/Bundle;
     :cond_0
     iput-object p1, p0, Landroid/database/AbstractCursor;->mExtras:Landroid/os/Bundle;
 
@@ -1143,8 +1145,8 @@
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
     .locals 1
-    .parameter "cr"
-    .parameter "notifyUri"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
+    .param p2, "notifyUri"    # Landroid/net/Uri;
 
     .prologue
     .line 354
@@ -1160,9 +1162,9 @@
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;I)V
     .locals 5
-    .parameter "cr"
-    .parameter "notifyUri"
-    .parameter "userHandle"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
+    .param p2, "notifyUri"    # Landroid/net/Uri;
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 359
@@ -1232,7 +1234,7 @@
 
 .method public unregisterContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 318
@@ -1252,7 +1254,7 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 328

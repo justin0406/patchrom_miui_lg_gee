@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 500

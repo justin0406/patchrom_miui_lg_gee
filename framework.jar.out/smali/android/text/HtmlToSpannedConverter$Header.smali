@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 849
@@ -36,7 +36,7 @@
 
 .method static synthetic access$900(Landroid/text/HtmlToSpannedConverter$Header;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/text/HtmlToSpannedConverter$Header;
 
     .prologue
     .line 846

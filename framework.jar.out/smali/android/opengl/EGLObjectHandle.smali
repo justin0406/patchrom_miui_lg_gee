@@ -10,7 +10,7 @@
 # direct methods
 .method protected constructor <init>(I)V
     .locals 0
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 27

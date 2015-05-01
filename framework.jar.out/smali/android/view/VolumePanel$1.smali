@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/VolumePanel;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 274
@@ -39,14 +38,14 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "v"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 276
     iget-object v0, p0, Landroid/view/VolumePanel$1;->this$0:Landroid/view/VolumePanel;
 
-    #calls: Landroid/view/VolumePanel;->resetTimeout()V
+    # invokes: Landroid/view/VolumePanel;->resetTimeout()V
     invoke-static {v0}, Landroid/view/VolumePanel;->access$300(Landroid/view/VolumePanel;)V
 
     .line 277

@@ -3,8 +3,8 @@
 .source "NativeActivity.java"
 
 # interfaces
-.implements Landroid/view/SurfaceHolder$Callback2;
 .implements Landroid/view/InputQueue$Callback;
+.implements Landroid/view/SurfaceHolder$Callback2;
 .implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
 
@@ -71,7 +71,7 @@
 
 .method private static getAbsolutePath(Ljava/io/File;)Ljava/lang/String;
     .locals 1
-    .parameter "file"
+    .param p0, "file"    # Ljava/io/File;
 
     .prologue
     .line 189
@@ -145,7 +145,7 @@
 # virtual methods
 .method hideIme(I)V
     .locals 2
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 336
@@ -165,7 +165,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 242
@@ -188,18 +188,18 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 16
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 130
     const-string v13, "main"
 
     .line 131
-    .local v13, libname:Ljava/lang/String;
+    .local v13, "libname":Ljava/lang/String;
     const-string v3, "ANativeActivity_onCreate"
 
     .line 134
-    .local v3, funcname:Ljava/lang/String;
+    .local v3, "funcname":Ljava/lang/String;
     const-string v1, "input_method"
 
     move-object/from16 v0, p0
@@ -320,7 +320,7 @@
     move-result-object v11
 
     .line 152
-    .local v11, ai:Landroid/content/pm/ActivityInfo;
+    .local v11, "ai":Landroid/content/pm/ActivityInfo;
     iget-object v1, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v1, :cond_1
@@ -335,7 +335,7 @@
     move-result-object v15
 
     .line 154
-    .local v15, ln:Ljava/lang/String;
+    .local v15, "ln":Ljava/lang/String;
     if-eqz v15, :cond_0
 
     move-object v13, v15
@@ -358,12 +358,12 @@
     move-object v3, v15
 
     .line 162
-    .end local v15           #ln:Ljava/lang/String;
+    .end local v15    # "ln":Ljava/lang/String;
     :cond_1
     const/4 v2, 0x0
 
     .line 164
-    .local v2, path:Ljava/lang/String;
+    .local v2, "path":Ljava/lang/String;
     new-instance v14, Ljava/io/File;
 
     iget-object v1, v11, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -377,7 +377,7 @@
     invoke-direct {v14, v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 166
-    .local v14, libraryFile:Ljava/io/File;
+    .local v14, "libraryFile":Ljava/io/File;
     invoke-virtual {v14}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -419,14 +419,14 @@
     throw v1
 
     .line 158
-    .end local v2           #path:Ljava/lang/String;
-    .end local v11           #ai:Landroid/content/pm/ActivityInfo;
-    .end local v14           #libraryFile:Ljava/io/File;
+    .end local v2    # "path":Ljava/lang/String;
+    .end local v11    # "ai":Landroid/content/pm/ActivityInfo;
+    .end local v14    # "libraryFile":Ljava/io/File;
     :catch_0
     move-exception v12
 
     .line 159
-    .local v12, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v12, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v4, "Error getting activity info"
@@ -436,10 +436,10 @@
     throw v1
 
     .line 174
-    .end local v12           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v2       #path:Ljava/lang/String;
-    .restart local v11       #ai:Landroid/content/pm/ActivityInfo;
-    .restart local v14       #libraryFile:Ljava/io/File;
+    .end local v12    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v2    # "path":Ljava/lang/String;
+    .restart local v11    # "ai":Landroid/content/pm/ActivityInfo;
+    .restart local v14    # "libraryFile":Ljava/io/File;
     :cond_3
     if-eqz p1, :cond_4
 
@@ -452,7 +452,7 @@
     move-result-object v10
 
     .line 177
-    .local v10, nativeSavedState:[B
+    .local v10, "nativeSavedState":[B
     :goto_0
     invoke-static {}, Landroid/os/Looper;->myQueue()Landroid/os/MessageQueue;
 
@@ -535,14 +535,14 @@
     throw v1
 
     .line 174
-    .end local v10           #nativeSavedState:[B
+    .end local v10    # "nativeSavedState":[B
     :cond_4
     const/4 v10, 0x0
 
     goto :goto_0
 
     .line 185
-    .restart local v10       #nativeSavedState:[B
+    .restart local v10    # "nativeSavedState":[B
     :cond_5
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -630,7 +630,7 @@
     move-result v7
 
     .line 309
-    .local v7, w:I
+    .local v7, "w":I
     iget-object v0, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
     invoke-virtual {v0}, Landroid/app/NativeActivity$NativeContentView;->getHeight()I
@@ -638,7 +638,7 @@
     move-result v6
 
     .line 310
-    .local v6, h:I
+    .local v6, "h":I
     iget-object v0, p0, Landroid/app/NativeActivity;->mLocation:[I
 
     aget v0, v0, v2
@@ -711,7 +711,7 @@
 
 .method public onInputQueueCreated(Landroid/view/InputQueue;)V
     .locals 2
-    .parameter "queue"
+    .param p1, "queue"    # Landroid/view/InputQueue;
 
     .prologue
     .line 293
@@ -738,7 +738,7 @@
 
 .method public onInputQueueDestroyed(Landroid/view/InputQueue;)V
     .locals 2
-    .parameter "queue"
+    .param p1, "queue"    # Landroid/view/InputQueue;
 
     .prologue
     .line 300
@@ -821,7 +821,7 @@
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 221
@@ -835,7 +835,7 @@
     move-result-object v0
 
     .line 223
-    .local v0, state:[B
+    .local v0, "state":[B
     if-eqz v0, :cond_0
 
     .line 224
@@ -882,7 +882,7 @@
 
 .method public onWindowFocusChanged(Z)V
     .locals 1
-    .parameter "hasFocus"
+    .param p1, "hasFocus"    # Z
 
     .prologue
     .line 258
@@ -905,8 +905,8 @@
 
 .method setWindowFlags(II)V
     .locals 1
-    .parameter "flags"
-    .parameter "mask"
+    .param p1, "flags"    # I
+    .param p2, "mask"    # I
 
     .prologue
     .line 324
@@ -922,7 +922,7 @@
 
 .method setWindowFormat(I)V
     .locals 1
-    .parameter "format"
+    .param p1, "format"    # I
 
     .prologue
     .line 328
@@ -938,7 +938,7 @@
 
 .method showIme(I)V
     .locals 2
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 332
@@ -954,10 +954,10 @@
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 6
-    .parameter "holder"
-    .parameter "format"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 272
@@ -992,7 +992,7 @@
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 2
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 265
@@ -1019,7 +1019,7 @@
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 286
@@ -1044,7 +1044,7 @@
 
 .method public surfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
     .locals 2
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 279

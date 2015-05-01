@@ -20,8 +20,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 31
@@ -33,13 +33,13 @@
 
 .method private static bounce(F)F
     .locals 2
-    .parameter "t"
+    .param p0, "t"    # F
 
     .prologue
     .line 35
     mul-float v0, p0, p0
 
-    const/high16 v1, 0x4100
+    const/high16 v1, 0x41000000    # 8.0f
 
     mul-float/2addr v0, v1
 
@@ -50,16 +50,16 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 2
-    .parameter "t"
+    .param p1, "t"    # F
 
     .prologue
     .line 45
-    const v0, 0x3f8fb15b
+    const v0, 0x3f8fb15b    # 1.1226f
 
     mul-float/2addr p1, v0
 
     .line 46
-    const v0, 0x3eb4fdf4
+    const v0, 0x3eb4fdf4    # 0.3535f
 
     cmpg-float v0, p1, v0
 
@@ -75,7 +75,7 @@
 
     .line 47
     :cond_0
-    const v0, 0x3f3da512
+    const v0, 0x3f3da512    # 0.7408f
 
     cmpg-float v0, p1, v0
 
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    const v1, 0x3f333333
+    const v1, 0x3f333333    # 0.7f
 
     add-float/2addr v0, v1
 
@@ -97,13 +97,13 @@
 
     .line 48
     :cond_1
-    const v0, 0x3f76e2eb
+    const v0, 0x3f76e2eb    # 0.9644f
 
     cmpg-float v0, p1, v0
 
     if-gez v0, :cond_2
 
-    const v0, 0x3f5a43fe
+    const v0, 0x3f5a43fe    # 0.8526f
 
     sub-float v0, p1, v0
 
@@ -111,7 +111,7 @@
 
     move-result v0
 
-    const v1, 0x3f666666
+    const v1, 0x3f666666    # 0.9f
 
     add-float/2addr v0, v1
 
@@ -119,7 +119,7 @@
 
     .line 49
     :cond_2
-    const v0, 0x3f859168
+    const v0, 0x3f859168    # 1.0435f
 
     sub-float v0, p1, v0
 
@@ -127,7 +127,7 @@
 
     move-result v0
 
-    const v1, 0x3f733333
+    const v1, 0x3f733333    # 0.95f
 
     add-float/2addr v0, v1
 

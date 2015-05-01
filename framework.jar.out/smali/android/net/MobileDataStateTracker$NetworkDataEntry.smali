@@ -27,27 +27,27 @@
 # direct methods
 .method constructor <init>(IIII)V
     .locals 0
-    .parameter "i1"
-    .parameter "i2"
-    .parameter "i3"
-    .parameter "i4"
+    .param p1, "i1"    # I
+    .param p2, "i2"    # I
+    .param p3, "i3"    # I
+    .param p4, "i4"    # I
 
     .prologue
-    .line 838
+    .line 849
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 839
+    .line 850
     iput p1, p0, Landroid/net/MobileDataStateTracker$NetworkDataEntry;->networkType:I
 
-    .line 840
+    .line 851
     iput p2, p0, Landroid/net/MobileDataStateTracker$NetworkDataEntry;->downloadBandwidth:I
 
-    .line 841
+    .line 852
     iput p3, p0, Landroid/net/MobileDataStateTracker$NetworkDataEntry;->uploadBandwidth:I
 
-    .line 842
+    .line 853
     iput p4, p0, Landroid/net/MobileDataStateTracker$NetworkDataEntry;->latency:I
 
-    .line 843
+    .line 854
     return-void
 .end method

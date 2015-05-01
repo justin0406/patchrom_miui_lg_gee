@@ -71,8 +71,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/io/File;)V
     .locals 6
-    .parameter "context"
-    .parameter "path"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "path"    # Ljava/io/File;
 
     .prologue
     const/4 v1, 0x0
@@ -131,7 +131,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 145
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -176,8 +176,8 @@
 
 .method static synthetic access$002(Lcom/android/server/DropBoxManagerService;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 61
@@ -188,8 +188,8 @@
 
 .method static synthetic access$102(Lcom/android/server/DropBoxManagerService;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
+    .param p1, "x1"    # J
 
     .prologue
     .line 61
@@ -200,7 +200,7 @@
 
 .method static synthetic access$200(Lcom/android/server/DropBoxManagerService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -216,7 +216,7 @@
 
 .method static synthetic access$300(Lcom/android/server/DropBoxManagerService;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
 
     .prologue
     .line 61
@@ -229,7 +229,7 @@
 
 .method static synthetic access$400(Lcom/android/server/DropBoxManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
 
     .prologue
     .line 61
@@ -240,7 +240,7 @@
 
 .method static synthetic access$500(Lcom/android/server/DropBoxManagerService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/DropBoxManagerService;
 
     .prologue
     .line 61
@@ -251,9 +251,9 @@
 
 .method private declared-synchronized createEntry(Ljava/io/File;Ljava/lang/String;I)J
     .locals 18
-    .parameter "temp"
-    .parameter "tag"
-    .parameter "flags"
+    .param p1, "temp"    # Ljava/io/File;
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -270,7 +270,7 @@
     move-result-wide v5
 
     .line 655
-    .local v5, t:J
+    .local v5, "t":J
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/DropBoxManagerService;->mAllFiles:Lcom/android/server/DropBoxManagerService$FileList;
@@ -290,11 +290,11 @@
     move-result-object v17
 
     .line 656
-    .local v17, tail:Ljava/util/SortedSet;,"Ljava/util/SortedSet<Lcom/android/server/DropBoxManagerService$EntryFile;>;"
+    .local v17, "tail":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Lcom/android/server/DropBoxManagerService$EntryFile;>;"
     const/4 v10, 0x0
 
     .line 657
-    .local v10, future:[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v10, "future":[Lcom/android/server/DropBoxManagerService$EntryFile;
     invoke-interface/range {v17 .. v17}, Ljava/util/SortedSet;->isEmpty()Z
 
     move-result v1
@@ -314,11 +314,11 @@
 
     move-result-object v10
 
-    .end local v10           #future:[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v10    # "future":[Lcom/android/server/DropBoxManagerService$EntryFile;
     check-cast v10, [Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .line 659
-    .restart local v10       #future:[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .restart local v10    # "future":[Lcom/android/server/DropBoxManagerService$EntryFile;
     invoke-interface/range {v17 .. v17}, Ljava/util/SortedSet;->clear()V
 
     .line 662
@@ -365,20 +365,20 @@
     .line 667
     move-object v9, v10
 
-    .local v9, arr$:[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v9, "arr$":[Lcom/android/server/DropBoxManagerService$EntryFile;
     array-length v13, v9
 
-    .local v13, len$:I
+    .local v13, "len$":I
     const/4 v11, 0x0
 
-    .local v11, i$:I
+    .local v11, "i$":I
     :goto_0
     if-ge v11, v13, :cond_4
 
     aget-object v12, v9, v11
 
     .line 668
-    .local v12, late:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v12, "late":Lcom/android/server/DropBoxManagerService$EntryFile;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/DropBoxManagerService;->mAllFiles:Lcom/android/server/DropBoxManagerService$FileList;
@@ -405,7 +405,7 @@
     check-cast v16, Lcom/android/server/DropBoxManagerService$FileList;
 
     .line 670
-    .local v16, tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .local v16, "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     if-eqz v16, :cond_2
 
     move-object/from16 v0, v16
@@ -454,8 +454,8 @@
 
     add-long v14, v5, v7
 
-    .end local v5           #t:J
-    .local v14, t:J
+    .end local v5    # "t":J
+    .local v14, "t":J
     iget v7, v12, Lcom/android/server/DropBoxManagerService$EntryFile;->flags:I
 
     move-object/from16 v0, p0
@@ -471,8 +471,8 @@
     move-wide v5, v14
 
     .line 667
-    .end local v14           #t:J
-    .restart local v5       #t:J
+    .end local v14    # "t":J
+    .restart local v5    # "t":J
     :goto_1
     add-int/lit8 v11, v11, 0x1
 
@@ -492,8 +492,8 @@
 
     add-long v14, v5, v7
 
-    .end local v5           #t:J
-    .restart local v14       #t:J
+    .end local v5    # "t":J
+    .restart local v14    # "t":J
     invoke-direct {v1, v2, v3, v5, v6}, Lcom/android/server/DropBoxManagerService$EntryFile;-><init>(Ljava/io/File;Ljava/lang/String;J)V
 
     move-object/from16 v0, p0
@@ -502,16 +502,16 @@
 
     move-wide v5, v14
 
-    .end local v14           #t:J
-    .restart local v5       #t:J
+    .end local v14    # "t":J
+    .restart local v5    # "t":J
     goto :goto_1
 
     .line 682
-    .end local v9           #arr$:[Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v11           #i$:I
-    .end local v12           #late:Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v13           #len$:I
-    .end local v16           #tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v9    # "arr$":[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v11    # "i$":I
+    .end local v12    # "late":Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v13    # "len$":I
+    .end local v16    # "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     :cond_4
     if-nez p1, :cond_5
 
@@ -568,9 +568,9 @@
     goto :goto_2
 
     .line 649
-    .end local v5           #t:J
-    .end local v10           #future:[Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v17           #tail:Ljava/util/SortedSet;,"Ljava/util/SortedSet<Lcom/android/server/DropBoxManagerService$EntryFile;>;"
+    .end local v5    # "t":J
+    .end local v10    # "future":[Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v17    # "tail":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Lcom/android/server/DropBoxManagerService$EntryFile;>;"
     :catchall_0
     move-exception v1
 
@@ -581,7 +581,7 @@
 
 .method private declared-synchronized enrollEntry(Lcom/android/server/DropBoxManagerService$EntryFile;)V
     .locals 4
-    .parameter "entry"
+    .param p1, "entry"    # Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .prologue
     .line 630
@@ -630,19 +630,19 @@
     check-cast v0, Lcom/android/server/DropBoxManagerService$FileList;
 
     .line 638
-    .local v0, tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .local v0, "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     if-nez v0, :cond_0
 
     .line 639
     new-instance v0, Lcom/android/server/DropBoxManagerService$FileList;
 
-    .end local v0           #tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v0    # "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/android/server/DropBoxManagerService$FileList;-><init>(Lcom/android/server/DropBoxManagerService$1;)V
 
     .line 640
-    .restart local v0       #tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .restart local v0    # "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     iget-object v1, p0, Lcom/android/server/DropBoxManagerService;->mFilesByTag:Ljava/util/HashMap;
 
     iget-object v2, p1, Lcom/android/server/DropBoxManagerService$EntryFile;->tag:Ljava/lang/String;
@@ -667,7 +667,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 645
-    .end local v0           #tagFiles:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v0    # "tagFiles":Lcom/android/server/DropBoxManagerService$FileList;
     :cond_1
     monitor-exit p0
 
@@ -777,8 +777,8 @@
 
     iput v7, p0, Lcom/android/server/DropBoxManagerService;->mBlockSize:I
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 598
     :cond_1
@@ -795,7 +795,7 @@
     move-result-object v4
 
     .line 600
-    .local v4, files:[Ljava/io/File;
+    .local v4, "files":[Ljava/io/File;
     if-nez v4, :cond_2
 
     new-instance v7, Ljava/io/IOException;
@@ -825,12 +825,12 @@
     throw v7
 
     .line 593
-    .end local v4           #files:[Ljava/io/File;
+    .end local v4    # "files":[Ljava/io/File;
     :catch_0
     move-exception v1
 
     .line 594
-    .local v1, e:Ljava/lang/IllegalArgumentException;
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     new-instance v7, Ljava/io/IOException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -858,8 +858,8 @@
     throw v7
 
     .line 602
-    .end local v1           #e:Ljava/lang/IllegalArgumentException;
-    .restart local v4       #files:[Ljava/io/File;
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
+    .restart local v4    # "files":[Ljava/io/File;
     :cond_2
     new-instance v7, Lcom/android/server/DropBoxManagerService$FileList;
 
@@ -879,20 +879,20 @@
     .line 606
     move-object v0, v4
 
-    .local v0, arr$:[Ljava/io/File;
+    .local v0, "arr$":[Ljava/io/File;
     array-length v6, v0
 
-    .local v6, len$:I
+    .local v6, "len$":I
     const/4 v5, 0x0
 
-    .local v5, i$:I
+    .local v5, "i$":I
     :goto_0
     if-ge v5, v6, :cond_6
 
     aget-object v3, v0, v5
 
     .line 607
-    .local v3, file:Ljava/io/File;
+    .local v3, "file":Ljava/io/File;
     invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v7
@@ -946,7 +946,7 @@
     invoke-direct {v2, v3, v7}, Lcom/android/server/DropBoxManagerService$EntryFile;-><init>(Ljava/io/File;I)V
 
     .line 614
-    .local v2, entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v2, "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     iget-object v7, v2, Lcom/android/server/DropBoxManagerService$EntryFile;->tag:Ljava/lang/String;
 
     if-nez v7, :cond_4
@@ -1023,12 +1023,12 @@
     goto :goto_1
 
     .line 626
-    .end local v0           #arr$:[Ljava/io/File;
-    .end local v2           #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v3           #file:Ljava/io/File;
-    .end local v4           #files:[Ljava/io/File;
-    .end local v5           #i$:I
-    .end local v6           #len$:I
+    .end local v0    # "arr$":[Ljava/io/File;
+    .end local v2    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v3    # "file":Ljava/io/File;
+    .end local v4    # "files":[Ljava/io/File;
+    .end local v5    # "i$":I
+    .end local v6    # "len$":I
     :cond_6
     monitor-exit p0
 
@@ -1058,7 +1058,7 @@
     move-result v3
 
     .line 699
-    .local v3, ageSeconds:I
+    .local v3, "ageSeconds":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mContentResolver:Landroid/content/ContentResolver;
@@ -1074,7 +1074,7 @@
     move-result v10
 
     .line 701
-    .local v10, maxFiles:I
+    .local v10, "maxFiles":I
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v23
@@ -1092,7 +1092,7 @@
     sub-long v5, v23, v25
 
     .line 702
-    .local v5, cutoffMillis:J
+    .local v5, "cutoffMillis":J
     :cond_0
     :goto_0
     move-object/from16 v0, p0
@@ -1133,7 +1133,7 @@
     check-cast v8, Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .line 704
-    .local v8, entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v8, "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     iget-wide v0, v8, Lcom/android/server/DropBoxManagerService$EntryFile;->timestampMillis:J
 
     move-wide/from16 v23, v0
@@ -1163,14 +1163,14 @@
     if-ge v0, v10, :cond_6
 
     .line 717
-    .end local v8           #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v8    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v21
 
     .line 718
-    .local v21, uptimeMillis:J
+    .local v21, "uptimeMillis":J
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/DropBoxManagerService;->mCachedQuotaUptimeMillis:J
@@ -1201,7 +1201,7 @@
     move-result v14
 
     .line 721
-    .local v14, quotaPercent:I
+    .local v14, "quotaPercent":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mContentResolver:Landroid/content/ContentResolver;
@@ -1217,7 +1217,7 @@
     move-result v15
 
     .line 723
-    .local v15, reservePercent:I
+    .local v15, "reservePercent":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mContentResolver:Landroid/content/ContentResolver;
@@ -1233,7 +1233,7 @@
     move-result v13
 
     .line 726
-    .local v13, quotaKb:I
+    .local v13, "quotaKb":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mStatFs:Landroid/os/StatFs;
@@ -1264,7 +1264,7 @@
     move-result v4
 
     .line 728
-    .local v4, available:I
+    .local v4, "available":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mStatFs:Landroid/os/StatFs;
@@ -1282,7 +1282,7 @@
     sub-int v12, v4, v23
 
     .line 729
-    .local v12, nonreserved:I
+    .local v12, "nonreserved":I
     mul-int/lit16 v0, v13, 0x400
 
     move/from16 v23, v0
@@ -1296,7 +1296,7 @@
     div-int v11, v23, v24
 
     .line 730
-    .local v11, maximum:I
+    .local v11, "maximum":I
     const/16 v23, 0x0
 
     mul-int v24, v12, v14
@@ -1327,12 +1327,12 @@
     iput-wide v0, v2, Lcom/android/server/DropBoxManagerService;->mCachedQuotaUptimeMillis:J
 
     .line 748
-    .end local v4           #available:I
-    .end local v11           #maximum:I
-    .end local v12           #nonreserved:I
-    .end local v13           #quotaKb:I
-    .end local v14           #quotaPercent:I
-    .end local v15           #reservePercent:I
+    .end local v4    # "available":I
+    .end local v11    # "maximum":I
+    .end local v12    # "nonreserved":I
+    .end local v13    # "quotaKb":I
+    .end local v14    # "quotaPercent":I
+    .end local v15    # "reservePercent":I
     :cond_2
     move-object/from16 v0, p0
 
@@ -1371,11 +1371,11 @@
 
     move/from16 v20, v0
 
-    .local v20, unsqueezed:I
+    .local v20, "unsqueezed":I
     const/16 v16, 0x0
 
     .line 751
-    .local v16, squeezed:I
+    .local v16, "squeezed":I
     new-instance v19, Ljava/util/TreeSet;
 
     move-object/from16 v0, p0
@@ -1395,12 +1395,12 @@
     invoke-direct {v0, v1}, Ljava/util/TreeSet;-><init>(Ljava/util/Collection;)V
 
     .line 752
-    .local v19, tags:Ljava/util/TreeSet;,"Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
+    .local v19, "tags":Ljava/util/TreeSet;, "Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
     invoke-virtual/range {v19 .. v19}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    .local v9, i$:Ljava/util/Iterator;
+    .local v9, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1415,7 +1415,7 @@
     check-cast v17, Lcom/android/server/DropBoxManagerService$FileList;
 
     .line 753
-    .local v17, tag:Lcom/android/server/DropBoxManagerService$FileList;
+    .local v17, "tag":Lcom/android/server/DropBoxManagerService$FileList;
     if-lez v16, :cond_9
 
     move-object/from16 v0, v17
@@ -1441,7 +1441,7 @@
     if-gt v0, v1, :cond_9
 
     .line 759
-    .end local v17           #tag:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
     :cond_3
     move-object/from16 v0, p0
 
@@ -1454,7 +1454,7 @@
     div-int v18, v23, v16
 
     .line 762
-    .local v18, tagQuota:I
+    .local v18, "tagQuota":I
     invoke-virtual/range {v19 .. v19}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
@@ -1473,7 +1473,7 @@
     check-cast v17, Lcom/android/server/DropBoxManagerService$FileList;
 
     .line 763
-    .restart local v17       #tag:Lcom/android/server/DropBoxManagerService$FileList;
+    .restart local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService;->mAllFiles:Lcom/android/server/DropBoxManagerService$FileList;
@@ -1499,12 +1499,12 @@
     if-ge v0, v1, :cond_a
 
     .line 779
-    .end local v9           #i$:Ljava/util/Iterator;
-    .end local v16           #squeezed:I
-    .end local v17           #tag:Lcom/android/server/DropBoxManagerService$FileList;
-    .end local v18           #tagQuota:I
-    .end local v19           #tags:Ljava/util/TreeSet;,"Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
-    .end local v20           #unsqueezed:I
+    .end local v9    # "i$":Ljava/util/Iterator;
+    .end local v16    # "squeezed":I
+    .end local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v18    # "tagQuota":I
+    .end local v19    # "tags":Ljava/util/TreeSet;, "Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
+    .end local v20    # "unsqueezed":I
     :cond_5
     move-object/from16 v0, p0
 
@@ -1533,8 +1533,8 @@
     return-wide v23
 
     .line 706
-    .end local v21           #uptimeMillis:J
-    .restart local v8       #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v21    # "uptimeMillis":J
+    .restart local v8    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     :cond_6
     :try_start_1
     move-object/from16 v0, p0
@@ -1554,7 +1554,7 @@
     check-cast v17, Lcom/android/server/DropBoxManagerService$FileList;
 
     .line 707
-    .restart local v17       #tag:Lcom/android/server/DropBoxManagerService$FileList;
+    .restart local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
     if-eqz v17, :cond_7
 
     move-object/from16 v0, v17
@@ -1654,11 +1654,11 @@
     goto/16 :goto_0
 
     .line 697
-    .end local v3           #ageSeconds:I
-    .end local v5           #cutoffMillis:J
-    .end local v8           #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v10           #maxFiles:I
-    .end local v17           #tag:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v3    # "ageSeconds":I
+    .end local v5    # "cutoffMillis":J
+    .end local v8    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v10    # "maxFiles":I
+    .end local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
     :catchall_0
     move-exception v23
 
@@ -1667,15 +1667,15 @@
     throw v23
 
     .line 756
-    .restart local v3       #ageSeconds:I
-    .restart local v5       #cutoffMillis:J
-    .restart local v9       #i$:Ljava/util/Iterator;
-    .restart local v10       #maxFiles:I
-    .restart local v16       #squeezed:I
-    .restart local v17       #tag:Lcom/android/server/DropBoxManagerService$FileList;
-    .restart local v19       #tags:Ljava/util/TreeSet;,"Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
-    .restart local v20       #unsqueezed:I
-    .restart local v21       #uptimeMillis:J
+    .restart local v3    # "ageSeconds":I
+    .restart local v5    # "cutoffMillis":J
+    .restart local v9    # "i$":Ljava/util/Iterator;
+    .restart local v10    # "maxFiles":I
+    .restart local v16    # "squeezed":I
+    .restart local v17    # "tag":Lcom/android/server/DropBoxManagerService$FileList;
+    .restart local v19    # "tags":Ljava/util/TreeSet;, "Ljava/util/TreeSet<Lcom/android/server/DropBoxManagerService$FileList;>;"
+    .restart local v20    # "unsqueezed":I
+    .restart local v21    # "uptimeMillis":J
     :cond_9
     :try_start_2
     move-object/from16 v0, v17
@@ -1692,7 +1692,7 @@
     goto/16 :goto_1
 
     .line 764
-    .restart local v18       #tagQuota:I
+    .restart local v18    # "tagQuota":I
     :cond_a
     :goto_2
     move-object/from16 v0, v17
@@ -1733,7 +1733,7 @@
     check-cast v8, Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .line 766
-    .restart local v8       #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .restart local v8    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/server/DropBoxManagerService$FileList;->contents:Ljava/util/TreeSet;
@@ -1855,8 +1855,8 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/DropBoxManagerService;->enrollEntry(Lcom/android/server/DropBoxManagerService$EntryFile;)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_2
 
@@ -1865,7 +1865,7 @@
     move-exception v7
 
     .line 773
-    .local v7, e:Ljava/io/IOException;
+    .local v7, "e":Ljava/io/IOException;
     :try_start_4
     const-string v23, "DropBoxManagerService"
 
@@ -1886,31 +1886,31 @@
 # virtual methods
 .method public add(Landroid/os/DropBoxManager$Entry;)V
     .locals 31
-    .parameter "entry"
+    .param p1, "entry"    # Landroid/os/DropBoxManager$Entry;
 
     .prologue
     .line 179
     const/16 v23, 0x0
 
     .line 180
-    .local v23, temp:Ljava/io/File;
+    .local v23, "temp":Ljava/io/File;
     const/16 v19, 0x0
 
     .line 181
-    .local v19, output:Ljava/io/OutputStream;
+    .local v19, "output":Ljava/io/OutputStream;
     invoke-virtual/range {p1 .. p1}, Landroid/os/DropBoxManager$Entry;->getTag()Ljava/lang/String;
 
     move-result-object v22
 
     .line 183
-    .local v22, tag:Ljava/lang/String;
+    .local v22, "tag":Ljava/lang/String;
     :try_start_0
     invoke-virtual/range {p1 .. p1}, Landroid/os/DropBoxManager$Entry;->getFlags()I
 
     move-result v7
 
     .line 184
-    .local v7, flags:I
+    .local v7, "flags":I
     and-int/lit8 v27, v7, 0x1
 
     if-eqz v27, :cond_2
@@ -1921,16 +1921,16 @@
 
     throw v27
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 259
-    .end local v7           #flags:I
+    .end local v7    # "flags":I
     :catch_0
     move-exception v6
 
     .line 260
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     :goto_0
     :try_start_1
     const-string v27, "DropBoxManagerService"
@@ -1981,7 +1981,7 @@
     .line 264
     if-eqz v23, :cond_1
 
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :goto_2
     invoke-virtual/range {v23 .. v23}, Ljava/io/File;->delete()Z
 
@@ -1990,7 +1990,7 @@
     return-void
 
     .line 186
-    .restart local v7       #flags:I
+    .restart local v7    # "flags":I
     :cond_2
     :try_start_3
     invoke-direct/range {p0 .. p0}, Lcom/android/server/DropBoxManagerService;->init()V
@@ -2002,8 +2002,8 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/DropBoxManagerService;->isTagEnabled(Ljava/lang/String;)Z
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result v27
 
@@ -2035,13 +2035,13 @@
     move-result-wide v14
 
     .line 189
-    .local v14, max:J
+    .local v14, "max":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v10
 
     .line 191
-    .local v10, lastTrim:J
+    .local v10, "lastTrim":J
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/DropBoxManagerService;->mBlockSize:I
@@ -2053,17 +2053,17 @@
     new-array v3, v0, [B
 
     .line 192
-    .local v3, buffer:[B
+    .local v3, "buffer":[B
     invoke-virtual/range {p1 .. p1}, Landroid/os/DropBoxManager$Entry;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v9
 
     .line 197
-    .local v9, input:Ljava/io/InputStream;
+    .local v9, "input":Ljava/io/InputStream;
     const/16 v21, 0x0
 
     .line 198
-    .local v21, read:I
+    .local v21, "read":I
     :goto_4
     array-length v0, v3
 
@@ -2091,11 +2091,11 @@
     move-result v16
 
     .line 200
-    .local v16, n:I
+    .local v16, "n":I
     if-gtz v16, :cond_c
 
     .line 207
-    .end local v16           #n:I
+    .end local v16    # "n":I
     :cond_5
     new-instance v24, Ljava/io/File;
 
@@ -2145,19 +2145,19 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 208
-    .end local v23           #temp:Ljava/io/File;
-    .local v24, temp:Ljava/io/File;
+    .end local v23    # "temp":Ljava/io/File;
+    .local v24, "temp":Ljava/io/File;
     :try_start_6
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/server/DropBoxManagerService;->mBlockSize:I
 
     .line 209
-    .local v4, bufferSize:I
+    .local v4, "bufferSize":I
     const/16 v27, 0x1000
 
     move/from16 v0, v27
@@ -2185,19 +2185,19 @@
     invoke-direct {v8, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 212
-    .local v8, foutput:Ljava/io/FileOutputStream;
+    .local v8, "foutput":Ljava/io/FileOutputStream;
     new-instance v20, Ljava/io/BufferedOutputStream;
 
     move-object/from16 v0, v20
 
     invoke-direct {v0, v8, v4}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     .line 213
-    .end local v19           #output:Ljava/io/OutputStream;
-    .local v20, output:Ljava/io/OutputStream;
+    .end local v19    # "output":Ljava/io/OutputStream;
+    .local v20, "output":Ljava/io/OutputStream;
     :try_start_7
     array-length v0, v3
 
@@ -2218,12 +2218,12 @@
 
     invoke-direct/range {v19 .. v20}, Ljava/util/zip/GZIPOutputStream;-><init>(Ljava/io/OutputStream;)V
     :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_6
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     .line 215
-    .end local v20           #output:Ljava/io/OutputStream;
-    .restart local v19       #output:Ljava/io/OutputStream;
+    .end local v20    # "output":Ljava/io/OutputStream;
+    .restart local v19    # "output":Ljava/io/OutputStream;
     or-int/lit8 v7, v7, 0x4
 
     .line 219
@@ -2246,7 +2246,7 @@
     move-result-wide v17
 
     .line 222
-    .local v17, now:J
+    .local v17, "now":J
     sub-long v27, v17, v10
 
     const-wide/16 v29, 0x7530
@@ -2288,7 +2288,7 @@
     move-result-wide v12
 
     .line 237
-    .local v12, len:J
+    .local v12, "len":J
     cmp-long v27, v12, v14
 
     if-lez v27, :cond_e
@@ -2355,15 +2355,15 @@
     .line 239
     invoke-virtual/range {v24 .. v24}, Ljava/io/File;->delete()Z
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_1
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     .line 240
     const/16 v23, 0x0
 
     .line 245
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     :goto_7
     :try_start_9
     move-object/from16 v0, p0
@@ -2377,7 +2377,7 @@
     move-result-wide v25
 
     .line 246
-    .local v25, time:J
+    .local v25, "time":J
     const/16 v23, 0x0
 
     .line 248
@@ -2390,7 +2390,7 @@
     invoke-direct {v5, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 249
-    .local v5, dropboxIntent:Landroid/content/Intent;
+    .local v5, "dropboxIntent":Landroid/content/Intent;
     const-string v27, "tag"
 
     move-object/from16 v0, v27
@@ -2418,7 +2418,7 @@
     if-nez v27, :cond_a
 
     .line 252
-    const/high16 v27, 0x4000
+    const/high16 v27, 0x40000000    # 2.0f
 
     move/from16 v0, v27
 
@@ -2450,8 +2450,8 @@
 
     invoke-virtual/range {v27 .. v28}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     .line 262
     if-eqz v19, :cond_b
@@ -2472,13 +2472,13 @@
     goto/16 :goto_2
 
     .line 201
-    .end local v4           #bufferSize:I
-    .end local v5           #dropboxIntent:Landroid/content/Intent;
-    .end local v8           #foutput:Ljava/io/FileOutputStream;
-    .end local v12           #len:J
-    .end local v17           #now:J
-    .end local v25           #time:J
-    .restart local v16       #n:I
+    .end local v4    # "bufferSize":I
+    .end local v5    # "dropboxIntent":Landroid/content/Intent;
+    .end local v8    # "foutput":Ljava/io/FileOutputStream;
+    .end local v12    # "len":J
+    .end local v17    # "now":J
+    .end local v25    # "time":J
+    .restart local v16    # "n":I
     :cond_c
     add-int v21, v21, v16
 
@@ -2486,61 +2486,61 @@
     goto/16 :goto_4
 
     .line 233
-    .end local v16           #n:I
-    .end local v23           #temp:Ljava/io/File;
-    .restart local v4       #bufferSize:I
-    .restart local v8       #foutput:Ljava/io/FileOutputStream;
-    .restart local v17       #now:J
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v16    # "n":I
+    .end local v23    # "temp":Ljava/io/File;
+    .restart local v4    # "bufferSize":I
+    .restart local v8    # "foutput":Ljava/io/FileOutputStream;
+    .restart local v17    # "now":J
+    .restart local v24    # "temp":Ljava/io/File;
     :cond_d
     :try_start_b
     invoke-virtual/range {v19 .. v19}, Ljava/io/OutputStream;->flush()V
     :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_1
+    .catchall {:try_start_b .. :try_end_b} :catchall_1
 
     goto/16 :goto_6
 
     .line 259
-    .end local v4           #bufferSize:I
-    .end local v8           #foutput:Ljava/io/FileOutputStream;
-    .end local v17           #now:J
+    .end local v4    # "bufferSize":I
+    .end local v8    # "foutput":Ljava/io/FileOutputStream;
+    .end local v17    # "now":J
     :catch_1
     move-exception v6
 
     move-object/from16 v23, v24
 
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     goto/16 :goto_0
 
     .line 243
-    .end local v23           #temp:Ljava/io/File;
-    .restart local v4       #bufferSize:I
-    .restart local v8       #foutput:Ljava/io/FileOutputStream;
-    .restart local v12       #len:J
-    .restart local v17       #now:J
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v23    # "temp":Ljava/io/File;
+    .restart local v4    # "bufferSize":I
+    .restart local v8    # "foutput":Ljava/io/FileOutputStream;
+    .restart local v12    # "len":J
+    .restart local v17    # "now":J
+    .restart local v24    # "temp":Ljava/io/File;
     :cond_e
     if-gtz v21, :cond_8
 
     move-object/from16 v23, v24
 
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     goto :goto_7
 
     .line 262
-    .end local v3           #buffer:[B
-    .end local v4           #bufferSize:I
-    .end local v7           #flags:I
-    .end local v8           #foutput:Ljava/io/FileOutputStream;
-    .end local v9           #input:Ljava/io/InputStream;
-    .end local v10           #lastTrim:J
-    .end local v12           #len:J
-    .end local v14           #max:J
-    .end local v17           #now:J
-    .end local v21           #read:I
+    .end local v3    # "buffer":[B
+    .end local v4    # "bufferSize":I
+    .end local v7    # "flags":I
+    .end local v8    # "foutput":Ljava/io/FileOutputStream;
+    .end local v9    # "input":Ljava/io/InputStream;
+    .end local v10    # "lastTrim":J
+    .end local v12    # "len":J
+    .end local v14    # "max":J
+    .end local v17    # "now":J
+    .end local v21    # "read":I
     :catchall_0
     move-exception v27
 
@@ -2571,106 +2571,106 @@
 
     goto :goto_a
 
-    .restart local v6       #e:Ljava/io/IOException;
+    .restart local v6    # "e":Ljava/io/IOException;
     :catch_3
     move-exception v27
 
     goto/16 :goto_1
 
-    .end local v6           #e:Ljava/io/IOException;
-    .restart local v7       #flags:I
+    .end local v6    # "e":Ljava/io/IOException;
+    .restart local v7    # "flags":I
     :catch_4
     move-exception v27
 
     goto/16 :goto_3
 
-    .restart local v3       #buffer:[B
-    .restart local v4       #bufferSize:I
-    .restart local v5       #dropboxIntent:Landroid/content/Intent;
-    .restart local v8       #foutput:Ljava/io/FileOutputStream;
-    .restart local v9       #input:Ljava/io/InputStream;
-    .restart local v10       #lastTrim:J
-    .restart local v12       #len:J
-    .restart local v14       #max:J
-    .restart local v17       #now:J
-    .restart local v21       #read:I
-    .restart local v25       #time:J
+    .restart local v3    # "buffer":[B
+    .restart local v4    # "bufferSize":I
+    .restart local v5    # "dropboxIntent":Landroid/content/Intent;
+    .restart local v8    # "foutput":Ljava/io/FileOutputStream;
+    .restart local v9    # "input":Ljava/io/InputStream;
+    .restart local v10    # "lastTrim":J
+    .restart local v12    # "len":J
+    .restart local v14    # "max":J
+    .restart local v17    # "now":J
+    .restart local v21    # "read":I
+    .restart local v25    # "time":J
     :catch_5
     move-exception v27
 
     goto :goto_8
 
-    .end local v4           #bufferSize:I
-    .end local v5           #dropboxIntent:Landroid/content/Intent;
-    .end local v8           #foutput:Ljava/io/FileOutputStream;
-    .end local v12           #len:J
-    .end local v17           #now:J
-    .end local v23           #temp:Ljava/io/File;
-    .end local v25           #time:J
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v4    # "bufferSize":I
+    .end local v5    # "dropboxIntent":Landroid/content/Intent;
+    .end local v8    # "foutput":Ljava/io/FileOutputStream;
+    .end local v12    # "len":J
+    .end local v17    # "now":J
+    .end local v23    # "temp":Ljava/io/File;
+    .end local v25    # "time":J
+    .restart local v24    # "temp":Ljava/io/File;
     :catchall_1
     move-exception v27
 
     move-object/from16 v23, v24
 
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     goto :goto_9
 
-    .end local v19           #output:Ljava/io/OutputStream;
-    .end local v23           #temp:Ljava/io/File;
-    .restart local v4       #bufferSize:I
-    .restart local v8       #foutput:Ljava/io/FileOutputStream;
-    .restart local v20       #output:Ljava/io/OutputStream;
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v19    # "output":Ljava/io/OutputStream;
+    .end local v23    # "temp":Ljava/io/File;
+    .restart local v4    # "bufferSize":I
+    .restart local v8    # "foutput":Ljava/io/FileOutputStream;
+    .restart local v20    # "output":Ljava/io/OutputStream;
+    .restart local v24    # "temp":Ljava/io/File;
     :catchall_2
     move-exception v27
 
     move-object/from16 v19, v20
 
-    .end local v20           #output:Ljava/io/OutputStream;
-    .restart local v19       #output:Ljava/io/OutputStream;
+    .end local v20    # "output":Ljava/io/OutputStream;
+    .restart local v19    # "output":Ljava/io/OutputStream;
     move-object/from16 v23, v24
 
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     goto :goto_9
 
     .line 259
-    .end local v19           #output:Ljava/io/OutputStream;
-    .end local v23           #temp:Ljava/io/File;
-    .restart local v20       #output:Ljava/io/OutputStream;
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v19    # "output":Ljava/io/OutputStream;
+    .end local v23    # "temp":Ljava/io/File;
+    .restart local v20    # "output":Ljava/io/OutputStream;
+    .restart local v24    # "temp":Ljava/io/File;
     :catch_6
     move-exception v6
 
     move-object/from16 v19, v20
 
-    .end local v20           #output:Ljava/io/OutputStream;
-    .restart local v19       #output:Ljava/io/OutputStream;
+    .end local v20    # "output":Ljava/io/OutputStream;
+    .restart local v19    # "output":Ljava/io/OutputStream;
     move-object/from16 v23, v24
 
-    .end local v24           #temp:Ljava/io/File;
-    .restart local v23       #temp:Ljava/io/File;
+    .end local v24    # "temp":Ljava/io/File;
+    .restart local v23    # "temp":Ljava/io/File;
     goto/16 :goto_0
 
-    .end local v19           #output:Ljava/io/OutputStream;
-    .end local v23           #temp:Ljava/io/File;
-    .restart local v20       #output:Ljava/io/OutputStream;
-    .restart local v24       #temp:Ljava/io/File;
+    .end local v19    # "output":Ljava/io/OutputStream;
+    .end local v23    # "temp":Ljava/io/File;
+    .restart local v20    # "output":Ljava/io/OutputStream;
+    .restart local v24    # "temp":Ljava/io/File;
     :cond_11
     move-object/from16 v19, v20
 
-    .end local v20           #output:Ljava/io/OutputStream;
-    .restart local v19       #output:Ljava/io/OutputStream;
+    .end local v20    # "output":Ljava/io/OutputStream;
+    .restart local v19    # "output":Ljava/io/OutputStream;
     goto/16 :goto_5
 .end method
 
 .method public declared-synchronized dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 31
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 312
@@ -2709,8 +2709,8 @@
     :try_start_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/DropBoxManagerService;->init()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 328
     :try_start_2
@@ -2719,23 +2719,23 @@
     invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 329
-    .local v26, out:Ljava/lang/StringBuilder;
+    .local v26, "out":Ljava/lang/StringBuilder;
     const/4 v14, 0x0
 
-    .local v14, doPrint:Z
+    .local v14, "doPrint":Z
     const/4 v13, 0x0
 
     .line 330
-    .local v13, doFile:Z
+    .local v13, "doFile":Z
     new-instance v27, Ljava/util/ArrayList;
 
     invoke-direct/range {v27 .. v27}, Ljava/util/ArrayList;-><init>()V
 
     .line 331
-    .local v27, searchArgs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v27, "searchArgs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/16 v17, 0x0
 
-    .local v17, i:I
+    .local v17, "i":I
     :goto_1
     if-eqz p3, :cond_6
 
@@ -2779,16 +2779,16 @@
     goto :goto_1
 
     .line 320
-    .end local v13           #doFile:Z
-    .end local v14           #doPrint:Z
-    .end local v17           #i:I
-    .end local v26           #out:Ljava/lang/StringBuilder;
-    .end local v27           #searchArgs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v13    # "doFile":Z
+    .end local v14    # "doPrint":Z
+    .end local v17    # "i":I
+    .end local v26    # "out":Ljava/lang/StringBuilder;
+    .end local v27    # "searchArgs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :catch_0
     move-exception v15
 
     .line 321
-    .local v15, e:Ljava/io/IOException;
+    .local v15, "e":Ljava/io/IOException;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2823,7 +2823,7 @@
     goto :goto_0
 
     .line 312
-    .end local v15           #e:Ljava/io/IOException;
+    .end local v15    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v3
 
@@ -2832,11 +2832,11 @@
     throw v3
 
     .line 334
-    .restart local v13       #doFile:Z
-    .restart local v14       #doPrint:Z
-    .restart local v17       #i:I
-    .restart local v26       #out:Ljava/lang/StringBuilder;
-    .restart local v27       #searchArgs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v13    # "doFile":Z
+    .restart local v14    # "doPrint":Z
+    .restart local v17    # "i":I
+    .restart local v26    # "out":Ljava/lang/StringBuilder;
+    .restart local v27    # "searchArgs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :cond_2
     :try_start_3
     aget-object v3, p3, v17
@@ -2955,7 +2955,7 @@
 
     move-result-object v18
 
-    .local v18, i$:Ljava/util/Iterator;
+    .local v18, "i$":Ljava/util/Iterator;
     :goto_3
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2969,7 +2969,7 @@
 
     check-cast v8, Ljava/lang/String;
 
-    .local v8, a:Ljava/lang/String;
+    .local v8, "a":Ljava/lang/String;
     const-string v3, " "
 
     move-object/from16 v0, v26
@@ -2983,7 +2983,7 @@
     goto :goto_3
 
     .line 348
-    .end local v8           #a:Ljava/lang/String;
+    .end local v8    # "a":Ljava/lang/String;
     :cond_7
     const-string v3, "\n"
 
@@ -2992,23 +2992,23 @@
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 351
-    .end local v18           #i$:Ljava/util/Iterator;
+    .end local v18    # "i$":Ljava/util/Iterator;
     :cond_8
     const/16 v25, 0x0
 
-    .local v25, numFound:I
+    .local v25, "numFound":I
     invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->size()I
 
     move-result v24
 
     .line 352
-    .local v24, numArgs:I
+    .local v24, "numArgs":I
     new-instance v29, Landroid/text/format/Time;
 
     invoke-direct/range {v29 .. v29}, Landroid/text/format/Time;-><init>()V
 
     .line 353
-    .local v29, time:Landroid/text/format/Time;
+    .local v29, "time":Landroid/text/format/Time;
     const-string v3, "\n"
 
     move-object/from16 v0, v26
@@ -3026,7 +3026,7 @@
 
     move-result-object v18
 
-    .restart local v18       #i$:Ljava/util/Iterator;
+    .restart local v18    # "i$":Ljava/util/Iterator;
     :cond_9
     :goto_4
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
@@ -3042,7 +3042,7 @@
     check-cast v16, Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .line 355
-    .local v16, entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v16, "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     move-object/from16 v0, v16
 
     iget-wide v3, v0, Lcom/android/server/DropBoxManagerService$EntryFile;->timestampMillis:J
@@ -3061,11 +3061,11 @@
     move-result-object v11
 
     .line 357
-    .local v11, date:Ljava/lang/String;
+    .local v11, "date":Ljava/lang/String;
     const/16 v21, 0x1
 
     .line 358
-    .local v21, match:Z
+    .local v21, "match":Z
     const/16 v17, 0x0
 
     :goto_5
@@ -3089,7 +3089,7 @@
     check-cast v9, Ljava/lang/String;
 
     .line 360
-    .local v9, arg:Ljava/lang/String;
+    .local v9, "arg":Ljava/lang/String;
     invoke-virtual {v11, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -3122,7 +3122,7 @@
     goto :goto_6
 
     .line 362
-    .end local v9           #arg:Ljava/lang/String;
+    .end local v9    # "arg":Ljava/lang/String;
     :cond_c
     if-eqz v21, :cond_9
 
@@ -3335,11 +3335,11 @@
     const/4 v12, 0x0
 
     .line 387
-    .local v12, dbe:Landroid/os/DropBoxManager$Entry;
+    .local v12, "dbe":Landroid/os/DropBoxManager$Entry;
     const/16 v19, 0x0
 
     .line 389
-    .local v19, isr:Ljava/io/InputStreamReader;
+    .local v19, "isr":Ljava/io/InputStreamReader;
     :try_start_4
     new-instance v2, Landroid/os/DropBoxManager$Entry;
 
@@ -3361,12 +3361,12 @@
 
     invoke-direct/range {v2 .. v7}, Landroid/os/DropBoxManager$Entry;-><init>(Ljava/lang/String;JLjava/io/File;I)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_5
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 392
-    .end local v12           #dbe:Landroid/os/DropBoxManager$Entry;
-    .local v2, dbe:Landroid/os/DropBoxManager$Entry;
+    .end local v12    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .local v2, "dbe":Landroid/os/DropBoxManager$Entry;
     if-eqz v14, :cond_1e
 
     .line 393
@@ -3381,23 +3381,23 @@
 
     invoke-direct {v0, v3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     .line 394
-    .end local v19           #isr:Ljava/io/InputStreamReader;
-    .local v20, isr:Ljava/io/InputStreamReader;
+    .end local v19    # "isr":Ljava/io/InputStreamReader;
+    .local v20, "isr":Ljava/io/InputStreamReader;
     const/16 v3, 0x1000
 
     :try_start_6
     new-array v10, v3, [C
 
     .line 395
-    .local v10, buf:[C
+    .local v10, "buf":[C
     const/16 v23, 0x0
 
     .line 397
-    .local v23, newline:Z
+    .local v23, "newline":Z
     :cond_16
     :goto_9
     move-object/from16 v0, v20
@@ -3407,7 +3407,7 @@
     move-result v22
 
     .line 398
-    .local v22, n:I
+    .local v22, "n":I
     if-gtz v22, :cond_1b
 
     .line 408
@@ -3419,18 +3419,18 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_3
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
     :cond_17
     move-object/from16 v19, v20
 
     .line 420
-    .end local v10           #buf:[C
-    .end local v20           #isr:Ljava/io/InputStreamReader;
-    .end local v22           #n:I
-    .end local v23           #newline:Z
-    .restart local v19       #isr:Ljava/io/InputStreamReader;
+    .end local v10    # "buf":[C
+    .end local v20    # "isr":Ljava/io/InputStreamReader;
+    .end local v22    # "n":I
+    .end local v23    # "newline":Z
+    .restart local v19    # "isr":Ljava/io/InputStreamReader;
     :goto_a
     if-eqz v2, :cond_18
 
@@ -3447,12 +3447,12 @@
     :try_start_8
     invoke-virtual/range {v19 .. v19}, Ljava/io/InputStreamReader;->close()V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     .line 430
-    .end local v2           #dbe:Landroid/os/DropBoxManager$Entry;
-    .end local v19           #isr:Ljava/io/InputStreamReader;
+    .end local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .end local v19    # "isr":Ljava/io/InputStreamReader;
     :cond_19
     :goto_b
     if-eqz v14, :cond_9
@@ -3475,11 +3475,11 @@
     goto/16 :goto_8
 
     .line 399
-    .restart local v2       #dbe:Landroid/os/DropBoxManager$Entry;
-    .restart local v10       #buf:[C
-    .restart local v20       #isr:Ljava/io/InputStreamReader;
-    .restart local v22       #n:I
-    .restart local v23       #newline:Z
+    .restart local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .restart local v10    # "buf":[C
+    .restart local v20    # "isr":Ljava/io/InputStreamReader;
+    .restart local v22    # "n":I
+    .restart local v23    # "newline":Z
     :cond_1b
     const/4 v3, 0x0
 
@@ -3507,7 +3507,7 @@
 
     move-result v3
 
-    const/high16 v4, 0x1
+    const/high16 v4, 0x10000
 
     if-le v3, v4, :cond_16
 
@@ -3527,24 +3527,24 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->setLength(I)V
     :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_3
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_1
+    .catchall {:try_start_a .. :try_end_a} :catchall_3
 
     goto :goto_9
 
     .line 416
-    .end local v10           #buf:[C
-    .end local v22           #n:I
-    .end local v23           #newline:Z
+    .end local v10    # "buf":[C
+    .end local v22    # "n":I
+    .end local v23    # "newline":Z
     :catch_1
     move-exception v15
 
     move-object/from16 v19, v20
 
     .line 417
-    .end local v20           #isr:Ljava/io/InputStreamReader;
-    .restart local v15       #e:Ljava/io/IOException;
-    .restart local v19       #isr:Ljava/io/InputStreamReader;
+    .end local v20    # "isr":Ljava/io/InputStreamReader;
+    .restart local v15    # "e":Ljava/io/IOException;
+    .restart local v19    # "isr":Ljava/io/InputStreamReader;
     :goto_d
     :try_start_b
     const-string v3, "*** "
@@ -3612,35 +3612,35 @@
     :try_start_d
     invoke-virtual/range {v19 .. v19}, Ljava/io/InputStreamReader;->close()V
     :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_0
     .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_2
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
     goto :goto_b
 
     .line 424
-    .end local v15           #e:Ljava/io/IOException;
+    .end local v15    # "e":Ljava/io/IOException;
     :catch_2
     move-exception v3
 
     goto :goto_b
 
     .line 400
-    .end local v19           #isr:Ljava/io/InputStreamReader;
-    .restart local v10       #buf:[C
-    .restart local v20       #isr:Ljava/io/InputStreamReader;
-    .restart local v22       #n:I
-    .restart local v23       #newline:Z
+    .end local v19    # "isr":Ljava/io/InputStreamReader;
+    .restart local v10    # "buf":[C
+    .restart local v20    # "isr":Ljava/io/InputStreamReader;
+    .restart local v22    # "n":I
+    .restart local v23    # "newline":Z
     :cond_1d
     const/16 v23, 0x0
 
     goto :goto_c
 
     .line 410
-    .end local v10           #buf:[C
-    .end local v20           #isr:Ljava/io/InputStreamReader;
-    .end local v22           #n:I
-    .end local v23           #newline:Z
-    .restart local v19       #isr:Ljava/io/InputStreamReader;
+    .end local v10    # "buf":[C
+    .end local v20    # "isr":Ljava/io/InputStreamReader;
+    .end local v22    # "n":I
+    .end local v23    # "newline":Z
+    .restart local v19    # "isr":Ljava/io/InputStreamReader;
     :cond_1e
     const/16 v3, 0x46
 
@@ -3650,7 +3650,7 @@
     move-result-object v28
 
     .line 411
-    .local v28, text:Ljava/lang/String;
+    .local v28, "text":Ljava/lang/String;
     invoke-virtual/range {v28 .. v28}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -3662,7 +3662,7 @@
     const/16 v30, 0x1
 
     .line 412
-    .local v30, truncated:Z
+    .local v30, "truncated":Z
     :goto_e
     const-string v3, "    "
 
@@ -3703,37 +3703,37 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_2
     .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_3
+    .catchall {:try_start_e .. :try_end_e} :catchall_2
 
     goto/16 :goto_a
 
     .line 416
-    .end local v28           #text:Ljava/lang/String;
-    .end local v30           #truncated:Z
+    .end local v28    # "text":Ljava/lang/String;
+    .end local v30    # "truncated":Z
     :catch_3
     move-exception v15
 
     goto :goto_d
 
     .line 411
-    .restart local v28       #text:Ljava/lang/String;
+    .restart local v28    # "text":Ljava/lang/String;
     :cond_20
     const/16 v30, 0x0
 
     goto :goto_e
 
     .line 420
-    .end local v2           #dbe:Landroid/os/DropBoxManager$Entry;
-    .end local v28           #text:Ljava/lang/String;
-    .restart local v12       #dbe:Landroid/os/DropBoxManager$Entry;
+    .end local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .end local v28    # "text":Ljava/lang/String;
+    .restart local v12    # "dbe":Landroid/os/DropBoxManager$Entry;
     :catchall_1
     move-exception v3
 
     move-object v2, v12
 
-    .end local v12           #dbe:Landroid/os/DropBoxManager$Entry;
-    .restart local v2       #dbe:Landroid/os/DropBoxManager$Entry;
+    .end local v12    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .restart local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
     :goto_f
     if-eqz v2, :cond_21
 
@@ -3750,8 +3750,8 @@
     :try_start_10
     invoke-virtual/range {v19 .. v19}, Ljava/io/InputStreamReader;->close()V
     :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_0
     .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_4
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
     .line 420
     :cond_22
@@ -3760,11 +3760,11 @@
     throw v3
 
     .line 433
-    .end local v2           #dbe:Landroid/os/DropBoxManager$Entry;
-    .end local v11           #date:Ljava/lang/String;
-    .end local v16           #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
-    .end local v19           #isr:Ljava/io/InputStreamReader;
-    .end local v21           #match:Z
+    .end local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .end local v11    # "date":Ljava/lang/String;
+    .end local v16    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v19    # "isr":Ljava/io/InputStreamReader;
+    .end local v21    # "match":Z
     :cond_23
     if-nez v25, :cond_24
 
@@ -3817,11 +3817,11 @@
     goto/16 :goto_0
 
     .line 424
-    .restart local v2       #dbe:Landroid/os/DropBoxManager$Entry;
-    .restart local v11       #date:Ljava/lang/String;
-    .restart local v16       #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
-    .restart local v19       #isr:Ljava/io/InputStreamReader;
-    .restart local v21       #match:Z
+    .restart local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .restart local v11    # "date":Ljava/lang/String;
+    .restart local v16    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
+    .restart local v19    # "isr":Ljava/io/InputStreamReader;
+    .restart local v21    # "match":Z
     :catch_4
     move-exception v4
 
@@ -3833,34 +3833,34 @@
 
     goto :goto_f
 
-    .end local v19           #isr:Ljava/io/InputStreamReader;
-    .restart local v20       #isr:Ljava/io/InputStreamReader;
+    .end local v19    # "isr":Ljava/io/InputStreamReader;
+    .restart local v20    # "isr":Ljava/io/InputStreamReader;
     :catchall_3
     move-exception v3
 
     move-object/from16 v19, v20
 
-    .end local v20           #isr:Ljava/io/InputStreamReader;
-    .restart local v19       #isr:Ljava/io/InputStreamReader;
+    .end local v20    # "isr":Ljava/io/InputStreamReader;
+    .restart local v19    # "isr":Ljava/io/InputStreamReader;
     goto :goto_f
 
     .line 416
-    .end local v2           #dbe:Landroid/os/DropBoxManager$Entry;
-    .restart local v12       #dbe:Landroid/os/DropBoxManager$Entry;
+    .end local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .restart local v12    # "dbe":Landroid/os/DropBoxManager$Entry;
     :catch_5
     move-exception v15
 
     move-object v2, v12
 
-    .end local v12           #dbe:Landroid/os/DropBoxManager$Entry;
-    .restart local v2       #dbe:Landroid/os/DropBoxManager$Entry;
+    .end local v12    # "dbe":Landroid/os/DropBoxManager$Entry;
+    .restart local v2    # "dbe":Landroid/os/DropBoxManager$Entry;
     goto/16 :goto_d
 .end method
 
 .method public declared-synchronized getNextEntry(Ljava/lang/String;J)Landroid/os/DropBoxManager$Entry;
     .locals 11
-    .parameter "tag"
-    .parameter "millis"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "millis"    # J
 
     .prologue
     const/4 v10, 0x0
@@ -3903,8 +3903,8 @@
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/DropBoxManagerService;->init()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 291
     if-nez p1, :cond_1
@@ -3915,14 +3915,14 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 292
-    .local v9, list:Lcom/android/server/DropBoxManagerService$FileList;
+    .local v9, "list":Lcom/android/server/DropBoxManagerService$FileList;
     :goto_0
     if-nez v9, :cond_2
 
     move-object v0, v10
 
     .line 308
-    .end local v9           #list:Lcom/android/server/DropBoxManagerService$FileList;
+    .end local v9    # "list":Lcom/android/server/DropBoxManagerService$FileList;
     :goto_1
     monitor-exit p0
 
@@ -3933,7 +3933,7 @@
     move-exception v6
 
     .line 287
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     :try_start_3
     const-string v0, "DropBoxManagerService"
 
@@ -3947,7 +3947,7 @@
     goto :goto_1
 
     .line 291
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :cond_1
     iget-object v0, p0, Lcom/android/server/DropBoxManagerService;->mFilesByTag:Ljava/util/HashMap;
 
@@ -3962,7 +3962,7 @@
     goto :goto_0
 
     .line 294
-    .restart local v9       #list:Lcom/android/server/DropBoxManagerService$FileList;
+    .restart local v9    # "list":Lcom/android/server/DropBoxManagerService$FileList;
     :cond_2
     iget-object v0, v9, Lcom/android/server/DropBoxManagerService$FileList;->contents:Ljava/util/TreeSet;
 
@@ -3982,7 +3982,7 @@
 
     move-result-object v8
 
-    .local v8, i$:Ljava/util/Iterator;
+    .local v8, "i$":Ljava/util/Iterator;
     :cond_3
     :goto_2
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
@@ -3998,7 +3998,7 @@
     check-cast v7, Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .line 295
-    .local v7, entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .local v7, "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     iget-object v0, v7, Lcom/android/server/DropBoxManagerService$EntryFile;->tag:Ljava/lang/String;
 
     if-eqz v0, :cond_3
@@ -4038,8 +4038,8 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/os/DropBoxManager$Entry;-><init>(Ljava/lang/String;JLjava/io/File;I)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_1
 
@@ -4048,7 +4048,7 @@
     move-exception v6
 
     .line 303
-    .restart local v6       #e:Ljava/io/IOException;
+    .restart local v6    # "e":Ljava/io/IOException;
     :try_start_5
     const-string v0, "DropBoxManagerService"
 
@@ -4078,8 +4078,8 @@
 
     goto :goto_2
 
-    .end local v6           #e:Ljava/io/IOException;
-    .end local v7           #entry:Lcom/android/server/DropBoxManagerService$EntryFile;
+    .end local v6    # "e":Ljava/io/IOException;
+    .end local v7    # "entry":Lcom/android/server/DropBoxManagerService$EntryFile;
     :cond_5
     move-object v0, v10
 
@@ -4089,7 +4089,7 @@
 
 .method public isTagEnabled(Ljava/lang/String;)Z
     .locals 6
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 269
@@ -4098,7 +4098,7 @@
     move-result-wide v0
 
     .line 271
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     const-string v2, "disabled"
 

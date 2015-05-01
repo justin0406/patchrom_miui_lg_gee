@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1029
@@ -41,8 +39,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1037

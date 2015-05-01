@@ -22,7 +22,7 @@
 
 .field public static final COLOR_MODE_MONOCHROME:I = 0x1
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -74,7 +74,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x0
@@ -151,8 +151,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrintAttributes$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/print/PrintAttributes$1;
 
     .prologue
     .line 39
@@ -163,7 +163,7 @@
 
 .method static colorModeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "colorMode"
+    .param p0, "colorMode"    # I
 
     .prologue
     .line 1165
@@ -197,7 +197,7 @@
 
 .method static enforceValidColorMode(I)V
     .locals 3
-    .parameter "colorMode"
+    .param p0, "colorMode"    # I
 
     .prologue
     .line 1178
@@ -271,7 +271,7 @@
 
 .method public copyFrom(Landroid/print/PrintAttributes;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/print/PrintAttributes;
 
     .prologue
     .line 262
@@ -310,7 +310,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -358,7 +358,7 @@
     check-cast v0, Landroid/print/PrintAttributes;
 
     .line 205
-    .local v0, other:Landroid/print/PrintAttributes;
+    .local v0, "other":Landroid/print/PrintAttributes;
     iget v3, p0, Landroid/print/PrintAttributes;->mColorMode:I
 
     iget v4, v0, Landroid/print/PrintAttributes;->mColorMode:I
@@ -520,11 +520,11 @@
     const/16 v0, 0x1f
 
     .line 185
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 186
-    .local v1, result:I
+    .local v1, "result":I
     iget v2, p0, Landroid/print/PrintAttributes;->mColorMode:I
 
     add-int/lit8 v1, v2, 0x1f
@@ -599,7 +599,7 @@
 
 .method public setColorMode(I)V
     .locals 0
-    .parameter "colorMode"
+    .param p1, "colorMode"    # I
 
     .prologue
     .line 150
@@ -614,7 +614,7 @@
 
 .method public setMediaSize(Landroid/print/PrintAttributes$MediaSize;)V
     .locals 0
-    .parameter "mediaSize"
+    .param p1, "mediaSize"    # Landroid/print/PrintAttributes$MediaSize;
 
     .prologue
     .line 82
@@ -626,7 +626,7 @@
 
 .method public setMinMargins(Landroid/print/PrintAttributes$Margins;)V
     .locals 0
-    .parameter "margins"
+    .param p1, "margins"    # Landroid/print/PrintAttributes$Margins;
 
     .prologue
     .line 124
@@ -638,7 +638,7 @@
 
 .method public setResolution(Landroid/print/PrintAttributes$Resolution;)V
     .locals 0
-    .parameter "resolution"
+    .param p1, "resolution"    # Landroid/print/PrintAttributes$Resolution;
 
     .prologue
     .line 102
@@ -658,7 +658,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 235
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "PrintAttributes{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -772,8 +772,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v2, 0x1

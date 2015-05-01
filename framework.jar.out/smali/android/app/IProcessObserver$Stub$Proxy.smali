@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 87
@@ -61,9 +61,9 @@
 
 .method public onForegroundActivitiesChanged(IIZ)V
     .locals 5
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "foregroundActivities"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "foregroundActivities"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -79,7 +79,7 @@
     move-result-object v0
 
     .line 102
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IProcessObserver"
 
@@ -133,9 +133,9 @@
 
 .method public onImportanceChanged(III)V
     .locals 5
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "importance"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "importance"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -149,7 +149,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.IProcessObserver"
 
@@ -194,8 +194,8 @@
 
 .method public onProcessDied(II)V
     .locals 5
-    .parameter "pid"
-    .parameter "uid"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -209,7 +209,7 @@
     move-result-object v0
 
     .line 130
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.IProcessObserver"
 

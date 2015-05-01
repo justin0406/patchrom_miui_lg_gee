@@ -28,10 +28,9 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaScanner;Ljava/lang/String;Landroid/net/Uri;Landroid/database/Cursor;)V
     .locals 5
-    .parameter
-    .parameter "playListDirectory"
-    .parameter "uri"
-    .parameter "fileList"
+    .param p2, "playListDirectory"    # Ljava/lang/String;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "fileList"    # Landroid/database/Cursor;
 
     .prologue
     .line 1686
@@ -50,7 +49,7 @@
     invoke-direct {v2, v4}, Landroid/sax/RootElement;-><init>(Ljava/lang/String;)V
 
     .line 1690
-    .local v2, root:Landroid/sax/RootElement;
+    .local v2, "root":Landroid/sax/RootElement;
     const-string v4, "body"
 
     invoke-virtual {v2, v4}, Landroid/sax/RootElement;->getChild(Ljava/lang/String;)Landroid/sax/Element;
@@ -58,7 +57,7 @@
     move-result-object v0
 
     .line 1691
-    .local v0, body:Landroid/sax/Element;
+    .local v0, "body":Landroid/sax/Element;
     const-string/jumbo v4, "seq"
 
     invoke-virtual {v0, v4}, Landroid/sax/Element;->getChild(Ljava/lang/String;)Landroid/sax/Element;
@@ -66,7 +65,7 @@
     move-result-object v3
 
     .line 1692
-    .local v3, seq:Landroid/sax/Element;
+    .local v3, "seq":Landroid/sax/Element;
     const-string v4, "media"
 
     invoke-virtual {v3, v4}, Landroid/sax/Element;->getChild(Ljava/lang/String;)Landroid/sax/Element;
@@ -74,7 +73,7 @@
     move-result-object v1
 
     .line 1693
-    .local v1, media:Landroid/sax/Element;
+    .local v1, "media":Landroid/sax/Element;
     invoke-virtual {v1, p0}, Landroid/sax/Element;->setElementListener(Landroid/sax/ElementListener;)V
 
     .line 1695
@@ -110,7 +109,7 @@
 
 .method public start(Lorg/xml/sax/Attributes;)V
     .locals 3
-    .parameter "attributes"
+    .param p1, "attributes"    # Lorg/xml/sax/Attributes;
 
     .prologue
     .line 1700
@@ -123,7 +122,7 @@
     move-result-object v0
 
     .line 1701
-    .local v0, path:Ljava/lang/String;
+    .local v0, "path":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 1702
@@ -131,7 +130,7 @@
 
     iget-object v2, p0, Landroid/media/MediaScanner$WplHandler;->playListDirectory:Ljava/lang/String;
 
-    #calls: Landroid/media/MediaScanner;->cachePlaylistEntry(Ljava/lang/String;Ljava/lang/String;)V
+    # invokes: Landroid/media/MediaScanner;->cachePlaylistEntry(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, v0, v2}, Landroid/media/MediaScanner;->access$2900(Landroid/media/MediaScanner;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1704

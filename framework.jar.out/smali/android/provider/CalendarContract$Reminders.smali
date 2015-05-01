@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/CalendarContract$RemindersColumns;
 .implements Landroid/provider/CalendarContract$EventsColumns;
+.implements Landroid/provider/CalendarContract$RemindersColumns;
 
 
 # annotations
@@ -20,7 +20,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final REMINDERS_WHERE:Ljava/lang/String; = "event_id=?"
 
@@ -54,9 +54,9 @@
 
 .method public static final query(Landroid/content/ContentResolver;J[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "eventId"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "eventId"    # J
+    .param p3, "projection"    # [Ljava/lang/String;
 
     .prologue
     .line 2115
@@ -73,7 +73,7 @@
     aput-object v1, v4, v0
 
     .line 2116
-    .local v4, remArgs:[Ljava/lang/String;
+    .local v4, "remArgs":[Ljava/lang/String;
     sget-object v1, Landroid/provider/CalendarContract$Reminders;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v3, "event_id=?"

@@ -414,7 +414,7 @@
 
     const/16 v6, 0x18
 
-    const/high16 v7, 0x1
+    const/high16 v7, 0x10000
 
     invoke-direct {v4, v5, v6, v7}, Lcom/android/internal/telephony/dataconnection/DcFailCause;-><init>(Ljava/lang/String;II)V
 
@@ -668,20 +668,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    .local v0, "arr$":[Lcom/android/internal/telephony/dataconnection/DcFailCause;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v1, v0, v2
 
     .line 70
-    .local v1, fc:Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    .local v1, "fc":Lcom/android/internal/telephony/dataconnection/DcFailCause;
     sget-object v4, Lcom/android/internal/telephony/dataconnection/DcFailCause;->sErrorCodeToFailCauseMap:Ljava/util/HashMap;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/dataconnection/DcFailCause;->getErrorCode()I
@@ -700,16 +700,14 @@
     goto :goto_0
 
     .line 72
-    .end local v1           #fc:Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    .end local v1    # "fc":Lcom/android/internal/telephony/dataconnection/DcFailCause;
     :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "errorCode"
+    .param p3, "errorCode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -729,7 +727,7 @@
 
 .method public static fromInt(I)Lcom/android/internal/telephony/dataconnection/DcFailCause;
     .locals 3
-    .parameter "errorCode"
+    .param p0, "errorCode"    # I
 
     .prologue
     .line 112
@@ -746,7 +744,7 @@
     check-cast v0, Lcom/android/internal/telephony/dataconnection/DcFailCause;
 
     .line 113
-    .local v0, fc:Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    .local v0, "fc":Lcom/android/internal/telephony/dataconnection/DcFailCause;
     if-nez v0, :cond_0
 
     .line 114
@@ -759,7 +757,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/dataconnection/DcFailCause;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 24

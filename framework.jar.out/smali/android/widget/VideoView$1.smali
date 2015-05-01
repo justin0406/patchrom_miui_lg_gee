@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 386
@@ -39,9 +38,9 @@
 # virtual methods
 .method public onVideoSizeChanged(Landroid/media/MediaPlayer;II)V
     .locals 3
-    .parameter "mp"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     .line 388
@@ -51,7 +50,7 @@
 
     move-result v1
 
-    #setter for: Landroid/widget/VideoView;->mVideoWidth:I
+    # setter for: Landroid/widget/VideoView;->mVideoWidth:I
     invoke-static {v0, v1}, Landroid/widget/VideoView;->access$002(Landroid/widget/VideoView;I)I
 
     .line 389
@@ -61,13 +60,13 @@
 
     move-result v1
 
-    #setter for: Landroid/widget/VideoView;->mVideoHeight:I
+    # setter for: Landroid/widget/VideoView;->mVideoHeight:I
     invoke-static {v0, v1}, Landroid/widget/VideoView;->access$102(Landroid/widget/VideoView;I)I
 
     .line 390
     iget-object v0, p0, Landroid/widget/VideoView$1;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mVideoWidth:I
+    # getter for: Landroid/widget/VideoView;->mVideoWidth:I
     invoke-static {v0}, Landroid/widget/VideoView;->access$000(Landroid/widget/VideoView;)I
 
     move-result v0
@@ -76,7 +75,7 @@
 
     iget-object v0, p0, Landroid/widget/VideoView$1;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mVideoHeight:I
+    # getter for: Landroid/widget/VideoView;->mVideoHeight:I
     invoke-static {v0}, Landroid/widget/VideoView;->access$100(Landroid/widget/VideoView;)I
 
     move-result v0
@@ -92,14 +91,14 @@
 
     iget-object v1, p0, Landroid/widget/VideoView$1;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mVideoWidth:I
+    # getter for: Landroid/widget/VideoView;->mVideoWidth:I
     invoke-static {v1}, Landroid/widget/VideoView;->access$000(Landroid/widget/VideoView;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/VideoView$1;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mVideoHeight:I
+    # getter for: Landroid/widget/VideoView;->mVideoHeight:I
     invoke-static {v2}, Landroid/widget/VideoView;->access$100(Landroid/widget/VideoView;)I
 
     move-result v2

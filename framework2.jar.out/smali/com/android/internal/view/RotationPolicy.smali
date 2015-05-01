@@ -29,7 +29,7 @@
 
 .method public static isRotationLockToggleSupported(Landroid/content/Context;)Z
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 67
@@ -66,7 +66,7 @@
 
 .method public static isRotationLockToggleVisible(Landroid/content/Context;)Z
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -100,7 +100,7 @@
 
 .method public static isRotationLocked(Landroid/content/Context;)Z
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -128,7 +128,7 @@
 
 .method public static isRotationSupported(Landroid/content/Context;)Z
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 52
@@ -137,7 +137,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, pm:Landroid/content/pm/PackageManager;
+    .local v0, "pm":Landroid/content/pm/PackageManager;
     const-string v1, "android.hardware.sensor.accelerometer"
 
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
@@ -175,8 +175,8 @@
 
 .method public static registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
     .locals 1
-    .parameter "context"
-    .parameter "listener"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "listener"    # Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     .prologue
     .line 149
@@ -192,9 +192,9 @@
 
 .method public static registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;I)V
     .locals 4
-    .parameter "context"
-    .parameter "listener"
-    .parameter "userHandle"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "listener"    # Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    .param p2, "userHandle"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -235,8 +235,8 @@
 
 .method public static setRotationLock(Landroid/content/Context;Z)V
     .locals 4
-    .parameter "context"
-    .parameter "enabled"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 95
@@ -265,8 +265,8 @@
 
 .method public static setRotationLockForAccessibility(Landroid/content/Context;Z)V
     .locals 4
-    .parameter "context"
-    .parameter "enabled"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 123
@@ -304,8 +304,8 @@
 
 .method public static unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
     .locals 2
-    .parameter "context"
-    .parameter "listener"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "listener"    # Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     .prologue
     .line 171

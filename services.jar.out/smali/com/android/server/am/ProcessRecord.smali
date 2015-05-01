@@ -252,8 +252,6 @@
 
 .field shortStringName:Ljava/lang/String;
 
-.field startedViaBroadcast:Z
-
 .field starting:Z
 
 .field stringName:Ljava/lang/String;
@@ -280,10 +278,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;Landroid/content/pm/ApplicationInfo;Ljava/lang/String;I)V
     .locals 5
-    .parameter "_batteryStats"
-    .parameter "_info"
-    .parameter "_processName"
-    .parameter "_uid"
+    .param p1, "_batteryStats"    # Lcom/android/internal/os/BatteryStatsImpl;
+    .param p2, "_info"    # Landroid/content/pm/ApplicationInfo;
+    .param p3, "_processName"    # Ljava/lang/String;
+    .param p4, "_uid"    # I
 
     .prologue
     const/16 v4, -0x64
@@ -447,8 +445,8 @@
 # virtual methods
 .method public addPackage(Ljava/lang/String;Lcom/android/server/am/ProcessStatsService;)Z
     .locals 3
-    .parameter "pkg"
-    .parameter "tracker"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "tracker"    # Lcom/android/server/am/ProcessStatsService;
 
     .prologue
     .line 571
@@ -477,7 +475,7 @@
     move-result-object v0
 
     .line 575
-    .local v0, state:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v0, "state":Lcom/android/internal/app/ProcessStats$ProcessState;
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -491,7 +489,7 @@
     invoke-virtual {v0}, Lcom/android/internal/app/ProcessStats$ProcessState;->makeActive()V
 
     .line 582
-    .end local v0           #state:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v0    # "state":Lcom/android/internal/app/ProcessStats$ProcessState;
     :cond_0
     :goto_0
     const/4 v1, 0x1
@@ -519,8 +517,8 @@
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 13
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 173
@@ -529,7 +527,7 @@
     move-result-wide v1
 
     .line 175
-    .local v1, now:J
+    .local v1, "now":J
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "user #"
@@ -661,7 +659,7 @@
     .line 192
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v7, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
@@ -1322,7 +1320,7 @@
     move-result-wide v5
 
     .line 279
-    .local v5, wtime:J
+    .local v5, "wtime":J
     monitor-exit v8
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1333,7 +1331,7 @@
     sub-long v3, v5, v7
 
     .line 281
-    .local v3, timeUsed:J
+    .local v3, "timeUsed":J
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "lastWakeTime="
@@ -1386,8 +1384,8 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 288
-    .end local v3           #timeUsed:J
-    .end local v5           #wtime:J
+    .end local v3    # "timeUsed":J
+    .end local v5    # "wtime":J
     :cond_12
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1965,7 +1963,7 @@
 
 .method public forceProcessStateUpTo(I)V
     .locals 1
-    .parameter "newState"
+    .param p1, "newState"    # I
 
     .prologue
     .line 597
@@ -1995,7 +1993,7 @@
     move-result v2
 
     .line 635
-    .local v2, size:I
+    .local v2, "size":I
     if-nez v2, :cond_1
 
     .line 636
@@ -2010,10 +2008,10 @@
     new-array v1, v2, [Ljava/lang/String;
 
     .line 639
-    .local v1, list:[Ljava/lang/String;
+    .local v1, "list":[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v3, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
@@ -2081,10 +2079,10 @@
     move-result v2
 
     .line 437
-    .local v2, size:I
+    .local v2, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
@@ -2098,7 +2096,7 @@
     check-cast v1, Lcom/android/server/am/ActivityRecord;
 
     .line 439
-    .local v1, r:Lcom/android/server/am/ActivityRecord;
+    .local v1, "r":Lcom/android/server/am/ActivityRecord;
     invoke-virtual {v1}, Lcom/android/server/am/ActivityRecord;->isInterestingToUserLocked()Z
 
     move-result v3
@@ -2109,19 +2107,19 @@
     const/4 v3, 0x1
 
     .line 443
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :goto_1
     return v3
 
     .line 437
-    .restart local v1       #r:Lcom/android/server/am/ActivityRecord;
+    .restart local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 443
-    .end local v1           #r:Lcom/android/server/am/ActivityRecord;
+    .end local v1    # "r":Lcom/android/server/am/ActivityRecord;
     :cond_1
     const/4 v3, 0x0
 
@@ -2130,8 +2128,8 @@
 
 .method public makeActive(Landroid/app/IApplicationThread;Lcom/android/server/am/ProcessStatsService;)V
     .locals 8
-    .parameter "_thread"
-    .parameter "tracker"
+    .param p1, "_thread"    # Landroid/app/IApplicationThread;
+    .param p2, "tracker"    # Lcom/android/server/am/ProcessStatsService;
 
     .prologue
     .line 386
@@ -2143,7 +2141,7 @@
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .line 388
-    .local v0, origBase:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v0, "origBase":Lcom/android/internal/app/ProcessStats$ProcessState;
     if-eqz v0, :cond_0
 
     .line 389
@@ -2190,7 +2188,7 @@
     .line 396
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
@@ -2210,7 +2208,7 @@
     check-cast v7, Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .line 398
-    .local v7, ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v7, "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     if-eqz v7, :cond_1
 
     if-eq v7, v0, :cond_1
@@ -2258,9 +2256,9 @@
     goto :goto_0
 
     .line 408
-    .end local v0           #origBase:Lcom/android/internal/app/ProcessStats$ProcessState;
-    .end local v6           #i:I
-    .end local v7           #ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v0    # "origBase":Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v6    # "i":I
+    .end local v7    # "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     :cond_3
     iput-object p1, p0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
@@ -2290,7 +2288,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 544
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const/16 v1, 0x20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -2354,12 +2352,12 @@
     move-result-object v1
 
     .line 564
-    .end local v0           #sb:Ljava/lang/StringBuilder;
+    .end local v0    # "sb":Ljava/lang/StringBuilder;
     :goto_2
     return-object v1
 
     .line 547
-    .restart local v0       #sb:Ljava/lang/StringBuilder;
+    .restart local v0    # "sb":Ljava/lang/StringBuilder;
     :cond_1
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->adjTarget:Ljava/lang/Object;
 
@@ -2410,7 +2408,7 @@
     goto :goto_1
 
     .line 564
-    .end local v0           #sb:Ljava/lang/StringBuilder;
+    .end local v0    # "sb":Ljava/lang/StringBuilder;
     :cond_5
     const/4 v1, 0x0
 
@@ -2419,7 +2417,7 @@
 
 .method public makeInactive(Lcom/android/server/am/ProcessStatsService;)V
     .locals 9
-    .parameter "tracker"
+    .param p1, "tracker"    # Lcom/android/server/am/ProcessStatsService;
 
     .prologue
     const/4 v8, 0x0
@@ -2431,7 +2429,7 @@
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .line 414
-    .local v0, origBase:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v0, "origBase":Lcom/android/internal/app/ProcessStats$ProcessState;
     if-eqz v0, :cond_2
 
     .line 415
@@ -2462,7 +2460,7 @@
     .line 421
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
@@ -2482,7 +2480,7 @@
     check-cast v7, Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .line 423
-    .local v7, ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v7, "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     if-eqz v7, :cond_1
 
     if-eq v7, v0, :cond_1
@@ -2502,15 +2500,15 @@
     goto :goto_0
 
     .line 429
-    .end local v6           #i:I
-    .end local v7           #ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v6    # "i":I
+    .end local v7    # "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     :cond_2
     return-void
 .end method
 
 .method modifyRawOomAdj(I)I
     .locals 1
-    .parameter "adj"
+    .param p1, "adj"    # I
 
     .prologue
     .line 473
@@ -2573,7 +2571,7 @@
 
 .method public resetPackageList(Lcom/android/server/am/ProcessStatsService;)V
     .locals 10
-    .parameter "tracker"
+    .param p1, "tracker"    # Lcom/android/server/am/ProcessStatsService;
 
     .prologue
     const/4 v9, 0x1
@@ -2586,7 +2584,7 @@
     move-result v6
 
     .line 607
-    .local v6, N:I
+    .local v6, "N":I
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
 
     if-eqz v0, :cond_3
@@ -2597,7 +2595,7 @@
     move-result-wide v3
 
     .line 609
-    .local v3, now:J
+    .local v3, "now":J
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
 
     const/4 v1, -0x1
@@ -2616,7 +2614,7 @@
     .line 612
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v6, :cond_1
 
@@ -2630,7 +2628,7 @@
     check-cast v8, Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .line 614
-    .local v8, ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .local v8, "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     if-eqz v8, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
@@ -2647,7 +2645,7 @@
     goto :goto_0
 
     .line 619
-    .end local v8           #ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v8    # "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     :cond_1
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
@@ -2669,7 +2667,7 @@
     move-result-object v8
 
     .line 622
-    .restart local v8       #ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .restart local v8    # "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
@@ -2687,9 +2685,9 @@
     invoke-virtual {v8}, Lcom/android/internal/app/ProcessStats$ProcessState;->makeActive()V
 
     .line 631
-    .end local v3           #now:J
-    .end local v7           #i:I
-    .end local v8           #ps:Lcom/android/internal/app/ProcessStats$ProcessState;
+    .end local v3    # "now":J
+    .end local v7    # "i":I
+    .end local v8    # "ps":Lcom/android/internal/app/ProcessStats$ProcessState;
     :cond_2
     :goto_1
     return-void
@@ -2719,7 +2717,7 @@
 
 .method public setPid(I)V
     .locals 1
-    .parameter "_pid"
+    .param p1, "_pid"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -2749,7 +2747,7 @@
     move-result v0
 
     .line 448
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-lez v0, :cond_0
 
@@ -2801,7 +2799,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 499
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/android/server/am/ProcessRecord;->toShortString(Ljava/lang/StringBuilder;)V
 
     .line 500
@@ -2816,7 +2814,7 @@
 
 .method toShortString(Ljava/lang/StringBuilder;)V
     .locals 3
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     const/16 v2, 0x2710
@@ -2879,7 +2877,7 @@
     move-result v0
 
     .line 514
-    .local v0, appId:I
+    .local v0, "appId":I
     if-lt v0, v2, :cond_2
 
     .line 515
@@ -2959,7 +2957,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 533
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ProcessRecord{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3052,7 +3050,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -3066,7 +3064,7 @@
     check-cast v0, Lcom/android/server/am/ConnectionRecord;
 
     .line 465
-    .local v0, cr:Lcom/android/server/am/ConnectionRecord;
+    .local v0, "cr":Lcom/android/server/am/ConnectionRecord;
     iget v2, v0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
     and-int/lit8 v2, v2, 0x8
@@ -3079,12 +3077,12 @@
     iput-boolean v2, p0, Lcom/android/server/am/ProcessRecord;->hasAboveClient:Z
 
     .line 470
-    .end local v0           #cr:Lcom/android/server/am/ConnectionRecord;
+    .end local v0    # "cr":Lcom/android/server/am/ConnectionRecord;
     :cond_0
     return-void
 
     .line 463
-    .restart local v0       #cr:Lcom/android/server/am/ConnectionRecord;
+    .restart local v0    # "cr":Lcom/android/server/am/ConnectionRecord;
     :cond_1
     add-int/lit8 v1, v1, -0x1
 

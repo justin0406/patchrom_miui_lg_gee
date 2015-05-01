@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ISyncContext;)V
     .locals 2
-    .parameter "syncContextInterface"
+    .param p1, "syncContextInterface"    # Landroid/content/ISyncContext;
 
     .prologue
     .line 32
@@ -44,7 +44,7 @@
     move-result-wide v0
 
     .line 56
-    .local v0, now:J
+    .local v0, "now":J
     iget-wide v2, p0, Landroid/content/SyncContext;->mLastHeartbeatSendTime:J
 
     const-wide/16 v4, 0x3e8
@@ -114,7 +114,7 @@
 
 .method public onFinished(Landroid/content/SyncResult;)V
     .locals 1
-    .parameter "result"
+    .param p1, "result"    # Landroid/content/SyncResult;
 
     .prologue
     .line 69
@@ -144,7 +144,7 @@
 
 .method public setStatusText(Ljava/lang/String;)V
     .locals 0
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 46

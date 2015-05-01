@@ -34,11 +34,3 @@
 
 .method public abstract vibrate([JI)V
 .end method
-
-.method public vibrateEx([B)V
-    .locals 0
-    .parameter "params"
-
-    .prologue
-    return-void
-.end method

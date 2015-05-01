@@ -17,7 +17,7 @@
 
 
 # static fields
-.field static final ACTIVE:Ljava/lang/Object; = null
+.field static final ACTIVE:Ljava/lang/Object;
 
 .field static final AUTO_CAP:I = 0x1
 
@@ -25,11 +25,11 @@
 
 .field static final AUTO_TEXT:I = 0x2
 
-.field static final CAPPED:Ljava/lang/Object; = null
+.field static final CAPPED:Ljava/lang/Object;
 
-.field static final INHIBIT_REPLACEMENT:Ljava/lang/Object; = null
+.field static final INHIBIT_REPLACEMENT:Ljava/lang/Object;
 
-.field static final LAST_TYPED:Ljava/lang/Object; = null
+.field static final LAST_TYPED:Ljava/lang/Object;
 
 .field static final SHOW_PASSWORD:I = 0x8
 
@@ -110,8 +110,8 @@
 
 .method public constructor <init>(Landroid/text/method/TextKeyListener$Capitalize;Z)V
     .locals 0
-    .parameter "cap"
-    .parameter "autotext"
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p2, "autotext"    # Z
 
     .prologue
     .line 70
@@ -129,7 +129,7 @@
 
 .method static synthetic access$000(Landroid/text/method/TextKeyListener;)Ljava/lang/ref/WeakReference;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/text/method/TextKeyListener;
 
     .prologue
     .line 41
@@ -140,8 +140,8 @@
 
 .method static synthetic access$102(Landroid/text/method/TextKeyListener;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/text/method/TextKeyListener;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 41
@@ -152,8 +152,8 @@
 
 .method static synthetic access$200(Landroid/text/method/TextKeyListener;Landroid/content/ContentResolver;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/text/method/TextKeyListener;
+    .param p1, "x1"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 41
@@ -164,7 +164,7 @@
 
 .method public static clear(Landroid/text/Editable;)V
     .locals 6
-    .parameter "e"
+    .param p0, "e"    # Landroid/text/Editable;
 
     .prologue
     .line 162
@@ -206,14 +206,14 @@
     check-cast v2, [Landroid/text/method/QwertyKeyListener$Replaced;
 
     .line 170
-    .local v2, repl:[Landroid/text/method/QwertyKeyListener$Replaced;
+    .local v2, "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
     array-length v0, v2
 
     .line 171
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -250,8 +250,8 @@
 
 .method public static getInstance(ZLandroid/text/method/TextKeyListener$Capitalize;)Landroid/text/method/TextKeyListener;
     .locals 3
-    .parameter "autotext"
-    .parameter "cap"
+    .param p0, "autotext"    # Z
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
 
     .prologue
     .line 84
@@ -269,7 +269,7 @@
     add-int v0, v2, v1
 
     .line 86
-    .local v0, off:I
+    .local v0, "off":I
     sget-object v1, Landroid/text/method/TextKeyListener;->sInstance:[Landroid/text/method/TextKeyListener;
 
     aget-object v1, v1, v0
@@ -294,7 +294,7 @@
     return-object v1
 
     .line 84
-    .end local v0           #off:I
+    .end local v0    # "off":I
     :cond_1
     const/4 v1, 0x0
 
@@ -303,7 +303,7 @@
 
 .method private getKeyListener(Landroid/view/KeyEvent;)Landroid/text/method/KeyListener;
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 187
@@ -312,13 +312,13 @@
     move-result-object v1
 
     .line 188
-    .local v1, kmap:Landroid/view/KeyCharacterMap;
+    .local v1, "kmap":Landroid/view/KeyCharacterMap;
     invoke-virtual {v1}, Landroid/view/KeyCharacterMap;->getKeyboardType()I
 
     move-result v0
 
     .line 190
-    .local v0, kind:I
+    .local v0, "kind":I
     const/4 v2, 0x3
 
     if-ne v0, v2, :cond_0
@@ -382,7 +382,7 @@
 
 .method private initPrefs(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v3, 0x1
@@ -393,7 +393,7 @@
     move-result-object v0
 
     .line 260
-    .local v0, contentResolver:Landroid/content/ContentResolver;
+    .local v0, "contentResolver":Landroid/content/ContentResolver;
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, v0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -432,9 +432,9 @@
 
 .method public static shouldCap(Landroid/text/method/TextKeyListener$Capitalize;Ljava/lang/CharSequence;I)Z
     .locals 3
-    .parameter "cap"
-    .parameter "cs"
-    .parameter "off"
+    .param p0, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p1, "cs"    # Ljava/lang/CharSequence;
+    .param p2, "off"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -496,7 +496,7 @@
 
 .method private updatePrefs(Landroid/content/ContentResolver;)V
     .locals 7
-    .parameter "resolver"
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
 
     .prologue
     const/4 v5, 0x0
@@ -515,7 +515,7 @@
     move v0, v4
 
     .line 292
-    .local v0, cap:Z
+    .local v0, "cap":Z
     :goto_0
     const-string v6, "auto_replace"
 
@@ -528,7 +528,7 @@
     move v3, v4
 
     .line 293
-    .local v3, text:Z
+    .local v3, "text":Z
     :goto_1
     const-string v6, "auto_punctuate"
 
@@ -541,7 +541,7 @@
     move v1, v4
 
     .line 294
-    .local v1, period:Z
+    .local v1, "period":Z
     :goto_2
     const-string/jumbo v6, "show_password"
 
@@ -554,7 +554,7 @@
     move v2, v4
 
     .line 296
-    .local v2, pw:Z
+    .local v2, "pw":Z
     :goto_3
     if-eqz v0, :cond_5
 
@@ -587,38 +587,38 @@
     .line 300
     return-void
 
-    .end local v0           #cap:Z
-    .end local v1           #period:Z
-    .end local v2           #pw:Z
-    .end local v3           #text:Z
+    .end local v0    # "cap":Z
+    .end local v1    # "period":Z
+    .end local v2    # "pw":Z
+    .end local v3    # "text":Z
     :cond_1
     move v0, v5
 
     .line 291
     goto :goto_0
 
-    .restart local v0       #cap:Z
+    .restart local v0    # "cap":Z
     :cond_2
     move v3, v5
 
     .line 292
     goto :goto_1
 
-    .restart local v3       #text:Z
+    .restart local v3    # "text":Z
     :cond_3
     move v1, v5
 
     .line 293
     goto :goto_2
 
-    .restart local v1       #period:Z
+    .restart local v1    # "period":Z
     :cond_4
     move v2, v5
 
     .line 294
     goto :goto_3
 
-    .restart local v2       #pw:Z
+    .restart local v2    # "pw":Z
     :cond_5
     move v6, v5
 
@@ -656,7 +656,7 @@
 
 .method getPrefs(Landroid/content/Context;)I
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 303
@@ -705,10 +705,10 @@
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 134
@@ -717,7 +717,7 @@
     move-result-object v0
 
     .line 136
-    .local v0, im:Landroid/text/method/KeyListener;
+    .local v0, "im":Landroid/text/method/KeyListener;
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/text/method/KeyListener;->onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v1
@@ -727,9 +727,9 @@
 
 .method public onKeyOther(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "view"
-    .parameter "content"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 149
@@ -738,7 +738,7 @@
     move-result-object v0
 
     .line 151
-    .local v0, im:Landroid/text/method/KeyListener;
+    .local v0, "im":Landroid/text/method/KeyListener;
     invoke-interface {v0, p1, p2, p3}, Landroid/text/method/KeyListener;->onKeyOther(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z
 
     move-result v1
@@ -748,10 +748,10 @@
 
 .method public onKeyUp(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 142
@@ -760,7 +760,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, im:Landroid/text/method/KeyListener;
+    .local v0, "im":Landroid/text/method/KeyListener;
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/text/method/KeyListener;->onKeyUp(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v1
@@ -770,10 +770,10 @@
 
 .method public onSpanAdded(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 0
-    .parameter "s"
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 176
@@ -782,12 +782,12 @@
 
 .method public onSpanChanged(Landroid/text/Spannable;Ljava/lang/Object;IIII)V
     .locals 1
-    .parameter "s"
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
-    .parameter "st"
-    .parameter "en"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
+    .param p5, "st"    # I
+    .param p6, "en"    # I
 
     .prologue
     .line 181
@@ -807,10 +807,10 @@
 
 .method public onSpanRemoved(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 0
-    .parameter "s"
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 177
@@ -838,7 +838,7 @@
     check-cast v0, Landroid/content/ContentResolver;
 
     .line 248
-    .local v0, contentResolver:Landroid/content/ContentResolver;
+    .local v0, "contentResolver":Landroid/content/ContentResolver;
     if-eqz v0, :cond_0
 
     .line 249
@@ -864,7 +864,7 @@
     iput-boolean v1, p0, Landroid/text/method/TextKeyListener;->mPrefsInited:Z
 
     .line 256
-    .end local v0           #contentResolver:Landroid/content/ContentResolver;
+    .end local v0    # "contentResolver":Landroid/content/ContentResolver;
     :cond_1
     return-void
 .end method

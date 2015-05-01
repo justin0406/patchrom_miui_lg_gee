@@ -58,7 +58,7 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/Script;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/renderscript/Script;
 
     .prologue
     .line 86

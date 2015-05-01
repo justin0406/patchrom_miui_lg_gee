@@ -30,13 +30,13 @@
 
 .field public static final ALIGN_MARGINS:I = 0x1
 
-.field public static final BASELINE:Landroid/widget/GridLayout$Alignment; = null
+.field public static final BASELINE:Landroid/widget/GridLayout$Alignment;
 
-.field public static final BOTTOM:Landroid/widget/GridLayout$Alignment; = null
+.field public static final BOTTOM:Landroid/widget/GridLayout$Alignment;
 
 .field private static final CAN_STRETCH:I = 0x2
 
-.field public static final CENTER:Landroid/widget/GridLayout$Alignment; = null
+.field public static final CENTER:Landroid/widget/GridLayout$Alignment;
 
 .field private static final COLUMN_COUNT:I = 0x3
 
@@ -54,41 +54,41 @@
 
 .field private static final DEFAULT_USE_DEFAULT_MARGINS:Z = false
 
-.field public static final END:Landroid/widget/GridLayout$Alignment; = null
+.field public static final END:Landroid/widget/GridLayout$Alignment;
 
-.field public static final FILL:Landroid/widget/GridLayout$Alignment; = null
+.field public static final FILL:Landroid/widget/GridLayout$Alignment;
 
 .field public static final HORIZONTAL:I = 0x0
 
 .field private static final INFLEXIBLE:I = 0x0
 
-.field private static final LEADING:Landroid/widget/GridLayout$Alignment; = null
+.field private static final LEADING:Landroid/widget/GridLayout$Alignment;
 
-.field public static final LEFT:Landroid/widget/GridLayout$Alignment; = null
+.field public static final LEFT:Landroid/widget/GridLayout$Alignment;
 
-.field static final LOG_PRINTER:Landroid/util/Printer; = null
+.field static final LOG_PRINTER:Landroid/util/Printer;
 
 .field static final MAX_SIZE:I = 0x186a0
 
-.field static final NO_PRINTER:Landroid/util/Printer; = null
+.field static final NO_PRINTER:Landroid/util/Printer;
 
 .field private static final ORIENTATION:I = 0x0
 
-.field public static final RIGHT:Landroid/widget/GridLayout$Alignment; = null
+.field public static final RIGHT:Landroid/widget/GridLayout$Alignment;
 
 .field private static final ROW_COUNT:I = 0x1
 
 .field private static final ROW_ORDER_PRESERVED:I = 0x2
 
-.field public static final START:Landroid/widget/GridLayout$Alignment; = null
+.field public static final START:Landroid/widget/GridLayout$Alignment;
 
-.field public static final TOP:Landroid/widget/GridLayout$Alignment; = null
+.field public static final TOP:Landroid/widget/GridLayout$Alignment;
 
-.field private static final TRAILING:Landroid/widget/GridLayout$Alignment; = null
+.field private static final TRAILING:Landroid/widget/GridLayout$Alignment;
 
 .field public static final UNDEFINED:I = -0x80000000
 
-.field static final UNDEFINED_ALIGNMENT:Landroid/widget/GridLayout$Alignment; = null
+.field static final UNDEFINED_ALIGNMENT:Landroid/widget/GridLayout$Alignment;
 
 .field static final UNINITIALIZED_HASH:I = 0x0
 
@@ -231,7 +231,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 297
@@ -245,8 +245,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 289
@@ -260,9 +260,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -326,10 +326,10 @@
     move-result-object v0
 
     .line 273
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x1
 
-    const/high16 v2, -0x8000
+    const/high16 v2, -0x80000000
 
     :try_start_0
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -341,7 +341,7 @@
     .line 274
     const/4 v1, 0x3
 
-    const/high16 v2, -0x8000
+    const/high16 v2, -0x80000000
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -423,7 +423,7 @@
 
 .method static synthetic access$100(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 164
@@ -434,8 +434,8 @@
 
 .method static adjust(II)I
     .locals 2
-    .parameter "measureSpec"
-    .parameter "delta"
+    .param p0, "measureSpec"    # I
+    .param p1, "delta"    # I
 
     .prologue
     .line 1031
@@ -458,8 +458,6 @@
 
 .method static append([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 5
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -469,8 +467,8 @@
     .end annotation
 
     .prologue
-    .local p0, a:[Ljava/lang/Object;,"[TT;"
-    .local p1, b:[Ljava/lang/Object;,"[TT;"
+    .local p0, "a":[Ljava/lang/Object;, "[TT;"
+    .local p1, "b":[Ljava/lang/Object;, "[TT;"
     const/4 v4, 0x0
 
     .line 617
@@ -499,7 +497,7 @@
     check-cast v0, [Ljava/lang/Object;
 
     .line 618
-    .local v0, result:[Ljava/lang/Object;,"[TT;"
+    .local v0, "result":[Ljava/lang/Object;, "[TT;"
     array-length v1, p0
 
     invoke-static {p0, v4, v0, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -517,7 +515,7 @@
 
 .method static canStretch(I)Z
     .locals 1
-    .parameter "flexibility"
+    .param p0, "flexibility"    # I
 
     .prologue
     .line 2787
@@ -538,11 +536,11 @@
 
 .method private checkLayoutParams(Landroid/widget/GridLayout$LayoutParams;Z)V
     .locals 8
-    .parameter "lp"
-    .parameter "horizontal"
+    .param p1, "lp"    # Landroid/widget/GridLayout$LayoutParams;
+    .param p2, "horizontal"    # Z
 
     .prologue
-    const/high16 v7, -0x8000
+    const/high16 v7, -0x80000000
 
     .line 823
     if-eqz p2, :cond_3
@@ -550,19 +548,19 @@
     const-string v2, "column"
 
     .line 824
-    .local v2, groupName:Ljava/lang/String;
+    .local v2, "groupName":Ljava/lang/String;
     :goto_0
     if-eqz p2, :cond_4
 
     iget-object v4, p1, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
 
     .line 825
-    .local v4, spec:Landroid/widget/GridLayout$Spec;
+    .local v4, "spec":Landroid/widget/GridLayout$Spec;
     :goto_1
     iget-object v3, v4, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
     .line 826
-    .local v3, span:Landroid/widget/GridLayout$Interval;
+    .local v3, "span":Landroid/widget/GridLayout$Interval;
     iget v5, v3, Landroid/widget/GridLayout$Interval;->min:I
 
     if-eq v5, v7, :cond_0
@@ -599,12 +597,12 @@
     iget-object v0, p0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
 
     .line 830
-    .local v0, axis:Landroid/widget/GridLayout$Axis;
+    .local v0, "axis":Landroid/widget/GridLayout$Axis;
     :goto_2
     iget v1, v0, Landroid/widget/GridLayout$Axis;->definedCount:I
 
     .line 831
-    .local v1, count:I
+    .local v1, "count":I
     if-eq v1, v7, :cond_2
 
     .line 832
@@ -687,26 +685,26 @@
     return-void
 
     .line 823
-    .end local v0           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v1           #count:I
-    .end local v2           #groupName:Ljava/lang/String;
-    .end local v3           #span:Landroid/widget/GridLayout$Interval;
-    .end local v4           #spec:Landroid/widget/GridLayout$Spec;
+    .end local v0    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v1    # "count":I
+    .end local v2    # "groupName":Ljava/lang/String;
+    .end local v3    # "span":Landroid/widget/GridLayout$Interval;
+    .end local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_3
     const-string/jumbo v2, "row"
 
     goto :goto_0
 
     .line 824
-    .restart local v2       #groupName:Ljava/lang/String;
+    .restart local v2    # "groupName":Ljava/lang/String;
     :cond_4
     iget-object v4, p1, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
     goto :goto_1
 
     .line 829
-    .restart local v3       #span:Landroid/widget/GridLayout$Interval;
-    .restart local v4       #spec:Landroid/widget/GridLayout$Spec;
+    .restart local v3    # "span":Landroid/widget/GridLayout$Interval;
+    .restart local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_5
     iget-object v0, p0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
 
@@ -715,9 +713,9 @@
 
 .method private static clip(Landroid/widget/GridLayout$Interval;ZI)I
     .locals 3
-    .parameter "minorRange"
-    .parameter "minorWasDefined"
-    .parameter "count"
+    .param p0, "minorRange"    # Landroid/widget/GridLayout$Interval;
+    .param p1, "minorWasDefined"    # Z
+    .param p2, "count"    # I
 
     .prologue
     .line 719
@@ -726,16 +724,16 @@
     move-result v1
 
     .line 720
-    .local v1, size:I
+    .local v1, "size":I
     if-nez p2, :cond_0
 
     .line 724
-    .end local v1           #size:I
+    .end local v1    # "size":I
     :goto_0
     return v1
 
     .line 723
-    .restart local v1       #size:I
+    .restart local v1    # "size":I
     :cond_0
     if-eqz p1, :cond_1
 
@@ -746,7 +744,7 @@
     move-result v0
 
     .line 724
-    .local v0, min:I
+    .local v0, "min":I
     :goto_1
     sub-int v2, p2, v0
 
@@ -757,7 +755,7 @@
     goto :goto_0
 
     .line 723
-    .end local v0           #min:I
+    .end local v0    # "min":I
     :cond_1
     const/4 v0, 0x0
 
@@ -772,15 +770,15 @@
     const/4 v4, 0x1
 
     .line 970
-    .local v4, result:I
+    .local v4, "result":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     invoke-virtual {p0}, Landroid/widget/GridLayout;->getChildCount()I
 
     move-result v0
 
-    .local v0, N:I
+    .local v0, "N":I
     :goto_0
     if-ge v2, v0, :cond_1
 
@@ -790,7 +788,7 @@
     move-result-object v1
 
     .line 972
-    .local v1, c:Landroid/view/View;
+    .local v1, "c":Landroid/view/View;
     invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
 
     move-result v5
@@ -814,7 +812,7 @@
     check-cast v3, Landroid/widget/GridLayout$LayoutParams;
 
     .line 974
-    .local v3, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v3, "lp":Landroid/widget/GridLayout$LayoutParams;
     mul-int/lit8 v5, v4, 0x1f
 
     invoke-virtual {v3}, Landroid/widget/GridLayout$LayoutParams;->hashCode()I
@@ -826,8 +824,8 @@
     goto :goto_1
 
     .line 976
-    .end local v1           #c:Landroid/view/View;
-    .end local v3           #lp:Landroid/widget/GridLayout$LayoutParams;
+    .end local v1    # "c":Landroid/view/View;
+    .end local v3    # "lp":Landroid/widget/GridLayout$LayoutParams;
     :cond_1
     return v4
 .end method
@@ -884,8 +882,8 @@
 
 .method private static createSwitchingAlignment(Landroid/widget/GridLayout$Alignment;Landroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Alignment;
     .locals 1
-    .parameter "ltr"
-    .parameter "rtl"
+    .param p0, "ltr"    # Landroid/widget/GridLayout$Alignment;
+    .param p1, "rtl"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2664
@@ -898,12 +896,12 @@
 
 .method private drawLine(Landroid/graphics/Canvas;IIIILandroid/graphics/Paint;)V
     .locals 7
-    .parameter "graphics"
-    .parameter "x1"
-    .parameter "y1"
-    .parameter "x2"
-    .parameter "y2"
-    .parameter "paint"
+    .param p1, "graphics"    # Landroid/graphics/Canvas;
+    .param p2, "x1"    # I
+    .param p3, "y1"    # I
+    .param p4, "x2"    # I
+    .param p5, "y2"    # I
+    .param p6, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 873
@@ -919,7 +917,7 @@
     move-result v6
 
     .line 875
-    .local v6, width:I
+    .local v6, "width":I
     sub-int v0, v6, p2
 
     int-to-float v1, v0
@@ -939,7 +937,7 @@
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
     .line 879
-    .end local v6           #width:I
+    .end local v6    # "width":I
     :goto_0
     return-void
 
@@ -964,10 +962,10 @@
 
 .method private static fits([IIII)Z
     .locals 3
-    .parameter "a"
-    .parameter "value"
-    .parameter "start"
-    .parameter "end"
+    .param p0, "a"    # [I
+    .param p1, "value"    # I
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -986,7 +984,7 @@
     :cond_1
     move v0, p2
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, p3, :cond_2
 
@@ -1009,8 +1007,8 @@
 
 .method static getAlignment(IZ)Landroid/widget/GridLayout$Alignment;
     .locals 4
-    .parameter "gravity"
-    .parameter "horizontal"
+    .param p0, "gravity"    # I
+    .param p1, "horizontal"    # Z
 
     .prologue
     .line 624
@@ -1019,21 +1017,21 @@
     const/4 v1, 0x7
 
     .line 625
-    .local v1, mask:I
+    .local v1, "mask":I
     :goto_0
     if-eqz p1, :cond_1
 
     const/4 v2, 0x0
 
     .line 626
-    .local v2, shift:I
+    .local v2, "shift":I
     :goto_1
     and-int v3, p0, v1
 
     shr-int v0, v3, v2
 
     .line 627
-    .local v0, flags:I
+    .local v0, "flags":I
     sparse-switch v0, :sswitch_data_0
 
     .line 641
@@ -1043,24 +1041,24 @@
     return-object v3
 
     .line 624
-    .end local v0           #flags:I
-    .end local v1           #mask:I
-    .end local v2           #shift:I
+    .end local v0    # "flags":I
+    .end local v1    # "mask":I
+    .end local v2    # "shift":I
     :cond_0
     const/16 v1, 0x70
 
     goto :goto_0
 
     .line 625
-    .restart local v1       #mask:I
+    .restart local v1    # "mask":I
     :cond_1
     const/4 v2, 0x4
 
     goto :goto_1
 
     .line 629
-    .restart local v0       #flags:I
-    .restart local v2       #shift:I
+    .restart local v0    # "flags":I
+    .restart local v2    # "shift":I
     :sswitch_0
     if-eqz p1, :cond_2
 
@@ -1126,10 +1124,10 @@
 
 .method private getDefaultMargin(Landroid/view/View;Landroid/widget/GridLayout$LayoutParams;ZZ)I
     .locals 8
-    .parameter "c"
-    .parameter "p"
-    .parameter "horizontal"
-    .parameter "leading"
+    .param p1, "c"    # Landroid/view/View;
+    .param p2, "p"    # Landroid/widget/GridLayout$LayoutParams;
+    .param p3, "horizontal"    # Z
+    .param p4, "leading"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -1152,19 +1150,19 @@
     iget-object v4, p2, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
 
     .line 662
-    .local v4, spec:Landroid/widget/GridLayout$Spec;
+    .local v4, "spec":Landroid/widget/GridLayout$Spec;
     :goto_1
     if-eqz p3, :cond_3
 
     iget-object v0, p0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
 
     .line 663
-    .local v0, axis:Landroid/widget/GridLayout$Axis;
+    .local v0, "axis":Landroid/widget/GridLayout$Axis;
     :goto_2
     iget-object v3, v4, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
     .line 664
-    .local v3, span:Landroid/widget/GridLayout$Interval;
+    .local v3, "span":Landroid/widget/GridLayout$Interval;
     if-eqz p3, :cond_5
 
     invoke-virtual {p0}, Landroid/widget/GridLayout;->isLayoutRtl()Z
@@ -1178,7 +1176,7 @@
     move v2, v1
 
     .line 665
-    .local v2, leading1:Z
+    .local v2, "leading1":Z
     :goto_3
     if-eqz v2, :cond_7
 
@@ -1187,7 +1185,7 @@
     if-nez v6, :cond_6
 
     .line 667
-    .local v1, isAtEdge:Z
+    .local v1, "isAtEdge":Z
     :cond_1
     :goto_4
     invoke-direct {p0, p1, v1, p3, p4}, Landroid/widget/GridLayout;->getDefaultMargin(Landroid/view/View;ZZZ)I
@@ -1197,25 +1195,25 @@
     goto :goto_0
 
     .line 661
-    .end local v0           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v1           #isAtEdge:Z
-    .end local v2           #leading1:Z
-    .end local v3           #span:Landroid/widget/GridLayout$Interval;
-    .end local v4           #spec:Landroid/widget/GridLayout$Spec;
+    .end local v0    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v1    # "isAtEdge":Z
+    .end local v2    # "leading1":Z
+    .end local v3    # "span":Landroid/widget/GridLayout$Interval;
+    .end local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_2
     iget-object v4, p2, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
     goto :goto_1
 
     .line 662
-    .restart local v4       #spec:Landroid/widget/GridLayout$Spec;
+    .restart local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_3
     iget-object v0, p0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
 
     goto :goto_2
 
-    .restart local v0       #axis:Landroid/widget/GridLayout$Axis;
-    .restart local v3       #span:Landroid/widget/GridLayout$Interval;
+    .restart local v0    # "axis":Landroid/widget/GridLayout$Axis;
+    .restart local v3    # "span":Landroid/widget/GridLayout$Interval;
     :cond_4
     move v2, v5
 
@@ -1227,7 +1225,7 @@
 
     goto :goto_3
 
-    .restart local v2       #leading1:Z
+    .restart local v2    # "leading1":Z
     :cond_6
     move v1, v5
 
@@ -1250,9 +1248,9 @@
 
 .method private getDefaultMargin(Landroid/view/View;ZZ)I
     .locals 2
-    .parameter "c"
-    .parameter "horizontal"
-    .parameter "leading"
+    .param p1, "c"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
+    .param p3, "leading"    # Z
 
     .prologue
     .line 647
@@ -1281,10 +1279,10 @@
 
 .method private getDefaultMargin(Landroid/view/View;ZZZ)I
     .locals 1
-    .parameter "c"
-    .parameter "isAtEdge"
-    .parameter "horizontal"
-    .parameter "leading"
+    .param p1, "c"    # Landroid/view/View;
+    .param p2, "isAtEdge"    # Z
+    .param p3, "horizontal"    # Z
+    .param p4, "leading"    # Z
 
     .prologue
     .line 654
@@ -1297,9 +1295,9 @@
 
 .method private getMargin(Landroid/view/View;ZZ)I
     .locals 7
-    .parameter "view"
-    .parameter "horizontal"
-    .parameter "leading"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
+    .param p3, "leading"    # Z
 
     .prologue
     .line 679
@@ -1325,7 +1323,7 @@
     iget-object v0, p0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
 
     .line 683
-    .local v0, axis:Landroid/widget/GridLayout$Axis;
+    .local v0, "axis":Landroid/widget/GridLayout$Axis;
     :goto_1
     if-eqz p3, :cond_2
 
@@ -1334,20 +1332,20 @@
     move-result-object v3
 
     .line 684
-    .local v3, margins:[I
+    .local v3, "margins":[I
     :goto_2
     invoke-virtual {p0, p1}, Landroid/widget/GridLayout;->getLayoutParams(Landroid/view/View;)Landroid/widget/GridLayout$LayoutParams;
 
     move-result-object v2
 
     .line 685
-    .local v2, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v2, "lp":Landroid/widget/GridLayout$LayoutParams;
     if-eqz p2, :cond_3
 
     iget-object v4, v2, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
 
     .line 686
-    .local v4, spec:Landroid/widget/GridLayout$Spec;
+    .local v4, "spec":Landroid/widget/GridLayout$Spec;
     :goto_3
     if-eqz p3, :cond_4
 
@@ -1356,25 +1354,25 @@
     iget v1, v5, Landroid/widget/GridLayout$Interval;->min:I
 
     .line 687
-    .local v1, index:I
+    .local v1, "index":I
     :goto_4
     aget v5, v3, v1
 
     goto :goto_0
 
     .line 682
-    .end local v0           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v1           #index:I
-    .end local v2           #lp:Landroid/widget/GridLayout$LayoutParams;
-    .end local v3           #margins:[I
-    .end local v4           #spec:Landroid/widget/GridLayout$Spec;
+    .end local v0    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v1    # "index":I
+    .end local v2    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .end local v3    # "margins":[I
+    .end local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_1
     iget-object v0, p0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
 
     goto :goto_1
 
     .line 683
-    .restart local v0       #axis:Landroid/widget/GridLayout$Axis;
+    .restart local v0    # "axis":Landroid/widget/GridLayout$Axis;
     :cond_2
     invoke-virtual {v0}, Landroid/widget/GridLayout$Axis;->getTrailingMargins()[I
 
@@ -1383,15 +1381,15 @@
     goto :goto_2
 
     .line 685
-    .restart local v2       #lp:Landroid/widget/GridLayout$LayoutParams;
-    .restart local v3       #margins:[I
+    .restart local v2    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .restart local v3    # "margins":[I
     :cond_3
     iget-object v4, v2, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
     goto :goto_3
 
     .line 686
-    .restart local v4       #spec:Landroid/widget/GridLayout$Spec;
+    .restart local v4    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_4
     iget-object v5, v4, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
@@ -1402,8 +1400,8 @@
 
 .method private getMeasurement(Landroid/view/View;Z)I
     .locals 1
-    .parameter "c"
-    .parameter "horizontal"
+    .param p1, "c"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
 
     .prologue
     .line 1074
@@ -1426,8 +1424,8 @@
 
 .method private getTotalMargin(Landroid/view/View;Z)I
     .locals 2
-    .parameter "child"
-    .parameter "horizontal"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
 
     .prologue
     .line 692
@@ -1450,7 +1448,7 @@
 
 .method private static handleInvalidParams(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 819
@@ -1535,21 +1533,21 @@
 
 .method static max2([II)I
     .locals 4
-    .parameter "a"
-    .parameter "valueIfEmpty"
+    .param p0, "a"    # [I
+    .param p1, "valueIfEmpty"    # I
 
     .prologue
     .line 608
     move v2, p1
 
     .line 609
-    .local v2, result:I
+    .local v2, "result":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     array-length v0, p0
 
-    .local v0, N:I
+    .local v0, "N":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -1572,11 +1570,11 @@
 
 .method private measureChildWithMargins2(Landroid/view/View;IIII)V
     .locals 3
-    .parameter "child"
-    .parameter "parentWidthSpec"
-    .parameter "parentHeightSpec"
-    .parameter "childWidth"
-    .parameter "childHeight"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "parentWidthSpec"    # I
+    .param p3, "parentHeightSpec"    # I
+    .param p4, "childWidth"    # I
+    .param p5, "childHeight"    # I
 
     .prologue
     .line 996
@@ -1591,7 +1589,7 @@
     move-result v1
 
     .line 998
-    .local v1, childWidthSpec:I
+    .local v1, "childWidthSpec":I
     const/4 v2, 0x0
 
     invoke-direct {p0, p1, v2}, Landroid/widget/GridLayout;->getTotalMargin(Landroid/view/View;Z)I
@@ -1603,7 +1601,7 @@
     move-result v0
 
     .line 1000
-    .local v0, childHeightSpec:I
+    .local v0, "childHeightSpec":I
     invoke-virtual {p1, v1, v0}, Landroid/view/View;->measure(II)V
 
     .line 1001
@@ -1612,20 +1610,20 @@
 
 .method private measureChildrenWithMargins(IIZ)V
     .locals 22
-    .parameter "widthSpec"
-    .parameter "heightSpec"
-    .parameter "firstPass"
+    .param p1, "widthSpec"    # I
+    .param p2, "heightSpec"    # I
+    .param p3, "firstPass"    # Z
 
     .prologue
     .line 1005
     const/16 v17, 0x0
 
-    .local v17, i:I
+    .local v17, "i":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getChildCount()I
 
     move-result v13
 
-    .local v13, N:I
+    .local v13, "N":I
     :goto_0
     move/from16 v0, v17
 
@@ -1641,7 +1639,7 @@
     move-result-object v3
 
     .line 1007
-    .local v3, c:Landroid/view/View;
+    .local v3, "c":Landroid/view/View;
     invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
 
     move-result v2
@@ -1666,7 +1664,7 @@
     move-result-object v19
 
     .line 1009
-    .local v19, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v19, "lp":Landroid/widget/GridLayout$LayoutParams;
     if-eqz p3, :cond_2
 
     .line 1010
@@ -1699,7 +1697,7 @@
     const/16 v16, 0x1
 
     .line 1013
-    .local v16, horizontal:Z
+    .local v16, "horizontal":Z
     :goto_2
     if-eqz v16, :cond_4
 
@@ -1710,7 +1708,7 @@
     move-object/from16 v21, v0
 
     .line 1014
-    .local v21, spec:Landroid/widget/GridLayout$Spec;
+    .local v21, "spec":Landroid/widget/GridLayout$Spec;
     :goto_3
     move-object/from16 v0, v21
 
@@ -1728,7 +1726,7 @@
     move-object/from16 v20, v0
 
     .line 1016
-    .local v20, span:Landroid/widget/GridLayout$Interval;
+    .local v20, "span":Landroid/widget/GridLayout$Interval;
     if-eqz v16, :cond_5
 
     move-object/from16 v0, p0
@@ -1736,14 +1734,14 @@
     iget-object v14, v0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
 
     .line 1017
-    .local v14, axis:Landroid/widget/GridLayout$Axis;
+    .local v14, "axis":Landroid/widget/GridLayout$Axis;
     :goto_4
     invoke-virtual {v14}, Landroid/widget/GridLayout$Axis;->getLocations()[I
 
     move-result-object v18
 
     .line 1018
-    .local v18, locations:[I
+    .local v18, "locations":[I
     move-object/from16 v0, v20
 
     iget v2, v0, Landroid/widget/GridLayout$Interval;->max:I
@@ -1759,7 +1757,7 @@
     sub-int v15, v2, v4
 
     .line 1019
-    .local v15, cellSize:I
+    .local v15, "cellSize":I
     move-object/from16 v0, p0
 
     move/from16 v1, v16
@@ -1771,7 +1769,7 @@
     sub-int v6, v15, v2
 
     .line 1020
-    .local v6, viewSize:I
+    .local v6, "viewSize":I
     if-eqz v16, :cond_6
 
     .line 1021
@@ -1790,20 +1788,20 @@
     goto :goto_1
 
     .line 1012
-    .end local v6           #viewSize:I
-    .end local v14           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v15           #cellSize:I
-    .end local v16           #horizontal:Z
-    .end local v18           #locations:[I
-    .end local v20           #span:Landroid/widget/GridLayout$Interval;
-    .end local v21           #spec:Landroid/widget/GridLayout$Spec;
+    .end local v6    # "viewSize":I
+    .end local v14    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v15    # "cellSize":I
+    .end local v16    # "horizontal":Z
+    .end local v18    # "locations":[I
+    .end local v20    # "span":Landroid/widget/GridLayout$Interval;
+    .end local v21    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_3
     const/16 v16, 0x0
 
     goto :goto_2
 
     .line 1013
-    .restart local v16       #horizontal:Z
+    .restart local v16    # "horizontal":Z
     :cond_4
     move-object/from16 v0, v19
 
@@ -1814,8 +1812,8 @@
     goto :goto_3
 
     .line 1016
-    .restart local v20       #span:Landroid/widget/GridLayout$Interval;
-    .restart local v21       #spec:Landroid/widget/GridLayout$Spec;
+    .restart local v20    # "span":Landroid/widget/GridLayout$Interval;
+    .restart local v21    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_5
     move-object/from16 v0, p0
 
@@ -1824,10 +1822,10 @@
     goto :goto_4
 
     .line 1023
-    .restart local v6       #viewSize:I
-    .restart local v14       #axis:Landroid/widget/GridLayout$Axis;
-    .restart local v15       #cellSize:I
-    .restart local v18       #locations:[I
+    .restart local v6    # "viewSize":I
+    .restart local v14    # "axis":Landroid/widget/GridLayout$Axis;
+    .restart local v15    # "cellSize":I
+    .restart local v18    # "locations":[I
     :cond_6
     move-object/from16 v0, v19
 
@@ -1848,32 +1846,32 @@
     goto/16 :goto_1
 
     .line 1028
-    .end local v3           #c:Landroid/view/View;
-    .end local v6           #viewSize:I
-    .end local v14           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v15           #cellSize:I
-    .end local v16           #horizontal:Z
-    .end local v18           #locations:[I
-    .end local v19           #lp:Landroid/widget/GridLayout$LayoutParams;
-    .end local v20           #span:Landroid/widget/GridLayout$Interval;
-    .end local v21           #spec:Landroid/widget/GridLayout$Spec;
+    .end local v3    # "c":Landroid/view/View;
+    .end local v6    # "viewSize":I
+    .end local v14    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v15    # "cellSize":I
+    .end local v16    # "horizontal":Z
+    .end local v18    # "locations":[I
+    .end local v19    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .end local v20    # "span":Landroid/widget/GridLayout$Interval;
+    .end local v21    # "spec":Landroid/widget/GridLayout$Spec;
     :cond_7
     return-void
 .end method
 
 .method private static procrusteanFill([IIII)V
     .locals 3
-    .parameter "a"
-    .parameter "start"
-    .parameter "end"
-    .parameter "value"
+    .param p0, "a"    # [I
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "value"    # I
 
     .prologue
     .line 708
     array-length v0, p0
 
     .line 709
-    .local v0, length:I
+    .local v0, "length":I
     invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
     move-result v1
@@ -1890,11 +1888,11 @@
 
 .method private static setCellGroup(Landroid/widget/GridLayout$LayoutParams;IIII)V
     .locals 2
-    .parameter "lp"
-    .parameter "row"
-    .parameter "rowSpan"
-    .parameter "col"
-    .parameter "colSpan"
+    .param p0, "lp"    # Landroid/widget/GridLayout$LayoutParams;
+    .param p1, "row"    # I
+    .param p2, "rowSpan"    # I
+    .param p3, "col"    # I
+    .param p4, "colSpan"    # I
 
     .prologue
     .line 713
@@ -1921,7 +1919,7 @@
 
 .method public static spec(I)Landroid/widget/GridLayout$Spec;
     .locals 1
-    .parameter "start"
+    .param p0, "start"    # I
 
     .prologue
     .line 2531
@@ -1936,8 +1934,8 @@
 
 .method public static spec(II)Landroid/widget/GridLayout$Spec;
     .locals 1
-    .parameter "start"
-    .parameter "size"
+    .param p0, "start"    # I
+    .param p1, "size"    # I
 
     .prologue
     .line 2515
@@ -1952,15 +1950,15 @@
 
 .method public static spec(IILandroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;
     .locals 6
-    .parameter "start"
-    .parameter "size"
-    .parameter "alignment"
+    .param p0, "start"    # I
+    .param p1, "size"    # I
+    .param p2, "alignment"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2480
     new-instance v0, Landroid/widget/GridLayout$Spec;
 
-    const/high16 v1, -0x8000
+    const/high16 v1, -0x80000000
 
     if-eq p0, v1, :cond_0
 
@@ -1987,8 +1985,8 @@
 
 .method public static spec(ILandroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;
     .locals 1
-    .parameter "start"
-    .parameter "alignment"
+    .param p0, "start"    # I
+    .param p1, "alignment"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2498
@@ -2017,7 +2015,7 @@
     const/4 v5, 0x1
 
     .line 730
-    .local v5, horizontal:Z
+    .local v5, "horizontal":Z
     :goto_0
     if-eqz v5, :cond_4
 
@@ -2026,13 +2024,13 @@
     iget-object v3, v0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
 
     .line 731
-    .local v3, axis:Landroid/widget/GridLayout$Axis;
+    .local v3, "axis":Landroid/widget/GridLayout$Axis;
     :goto_1
     iget v0, v3, Landroid/widget/GridLayout$Axis;->definedCount:I
 
     move/from16 v19, v0
 
-    const/high16 v20, -0x8000
+    const/high16 v20, -0x80000000
 
     move/from16 v0, v19
 
@@ -2043,28 +2041,28 @@
     iget v4, v3, Landroid/widget/GridLayout$Axis;->definedCount:I
 
     .line 733
-    .local v4, count:I
+    .local v4, "count":I
     :goto_2
     const/4 v8, 0x0
 
     .line 734
-    .local v8, major:I
+    .local v8, "major":I
     const/4 v14, 0x0
 
     .line 735
-    .local v14, minor:I
+    .local v14, "minor":I
     new-array v13, v4, [I
 
     .line 737
-    .local v13, maxSizes:[I
+    .local v13, "maxSizes":[I
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getChildCount()I
 
     move-result v2
 
-    .local v2, N:I
+    .local v2, "N":I
     :goto_3
     if-ge v6, v2, :cond_d
 
@@ -2082,28 +2080,28 @@
     check-cast v7, Landroid/widget/GridLayout$LayoutParams;
 
     .line 740
-    .local v7, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v7, "lp":Landroid/widget/GridLayout$LayoutParams;
     if-eqz v5, :cond_6
 
     iget-object v11, v7, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
     .line 741
-    .local v11, majorSpec:Landroid/widget/GridLayout$Spec;
+    .local v11, "majorSpec":Landroid/widget/GridLayout$Spec;
     :goto_4
     iget-object v9, v11, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
     .line 742
-    .local v9, majorRange:Landroid/widget/GridLayout$Interval;
+    .local v9, "majorRange":Landroid/widget/GridLayout$Interval;
     iget-boolean v12, v11, Landroid/widget/GridLayout$Spec;->startDefined:Z
 
     .line 743
-    .local v12, majorWasDefined:Z
+    .local v12, "majorWasDefined":Z
     invoke-virtual {v9}, Landroid/widget/GridLayout$Interval;->size()I
 
     move-result v10
 
     .line 744
-    .local v10, majorSpan:I
+    .local v10, "majorSpan":I
     if-eqz v12, :cond_0
 
     .line 745
@@ -2118,14 +2116,14 @@
     move-object/from16 v17, v0
 
     .line 749
-    .local v17, minorSpec:Landroid/widget/GridLayout$Spec;
+    .local v17, "minorSpec":Landroid/widget/GridLayout$Spec;
     :goto_5
     move-object/from16 v0, v17
 
     iget-object v15, v0, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
     .line 750
-    .local v15, minorRange:Landroid/widget/GridLayout$Interval;
+    .local v15, "minorRange":Landroid/widget/GridLayout$Interval;
     move-object/from16 v0, v17
 
     iget-boolean v0, v0, Landroid/widget/GridLayout$Spec;->startDefined:Z
@@ -2133,7 +2131,7 @@
     move/from16 v18, v0
 
     .line 751
-    .local v18, minorWasDefined:Z
+    .local v18, "minorWasDefined":Z
     move/from16 v0, v18
 
     invoke-static {v15, v0, v4}, Landroid/widget/GridLayout;->clip(Landroid/widget/GridLayout$Interval;ZI)I
@@ -2141,7 +2139,7 @@
     move-result v16
 
     .line 752
-    .local v16, minorSpan:I
+    .local v16, "minorSpan":I
     if-eqz v18, :cond_1
 
     .line 753
@@ -2178,30 +2176,30 @@
     goto :goto_6
 
     .line 729
-    .end local v2           #N:I
-    .end local v3           #axis:Landroid/widget/GridLayout$Axis;
-    .end local v4           #count:I
-    .end local v5           #horizontal:Z
-    .end local v6           #i:I
-    .end local v7           #lp:Landroid/widget/GridLayout$LayoutParams;
-    .end local v8           #major:I
-    .end local v9           #majorRange:Landroid/widget/GridLayout$Interval;
-    .end local v10           #majorSpan:I
-    .end local v11           #majorSpec:Landroid/widget/GridLayout$Spec;
-    .end local v12           #majorWasDefined:Z
-    .end local v13           #maxSizes:[I
-    .end local v14           #minor:I
-    .end local v15           #minorRange:Landroid/widget/GridLayout$Interval;
-    .end local v16           #minorSpan:I
-    .end local v17           #minorSpec:Landroid/widget/GridLayout$Spec;
-    .end local v18           #minorWasDefined:Z
+    .end local v2    # "N":I
+    .end local v3    # "axis":Landroid/widget/GridLayout$Axis;
+    .end local v4    # "count":I
+    .end local v5    # "horizontal":Z
+    .end local v6    # "i":I
+    .end local v7    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .end local v8    # "major":I
+    .end local v9    # "majorRange":Landroid/widget/GridLayout$Interval;
+    .end local v10    # "majorSpan":I
+    .end local v11    # "majorSpec":Landroid/widget/GridLayout$Spec;
+    .end local v12    # "majorWasDefined":Z
+    .end local v13    # "maxSizes":[I
+    .end local v14    # "minor":I
+    .end local v15    # "minorRange":Landroid/widget/GridLayout$Interval;
+    .end local v16    # "minorSpan":I
+    .end local v17    # "minorSpec":Landroid/widget/GridLayout$Spec;
+    .end local v18    # "minorWasDefined":Z
     :cond_3
     const/4 v5, 0x0
 
     goto :goto_0
 
     .line 730
-    .restart local v5       #horizontal:Z
+    .restart local v5    # "horizontal":Z
     :cond_4
     move-object/from16 v0, p0
 
@@ -2210,30 +2208,30 @@
     goto :goto_1
 
     .line 731
-    .restart local v3       #axis:Landroid/widget/GridLayout$Axis;
+    .restart local v3    # "axis":Landroid/widget/GridLayout$Axis;
     :cond_5
     const/4 v4, 0x0
 
     goto :goto_2
 
     .line 740
-    .restart local v2       #N:I
-    .restart local v4       #count:I
-    .restart local v6       #i:I
-    .restart local v7       #lp:Landroid/widget/GridLayout$LayoutParams;
-    .restart local v8       #major:I
-    .restart local v13       #maxSizes:[I
-    .restart local v14       #minor:I
+    .restart local v2    # "N":I
+    .restart local v4    # "count":I
+    .restart local v6    # "i":I
+    .restart local v7    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .restart local v8    # "major":I
+    .restart local v13    # "maxSizes":[I
+    .restart local v14    # "minor":I
     :cond_6
     iget-object v11, v7, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
 
     goto :goto_4
 
     .line 748
-    .restart local v9       #majorRange:Landroid/widget/GridLayout$Interval;
-    .restart local v10       #majorSpan:I
-    .restart local v11       #majorSpec:Landroid/widget/GridLayout$Spec;
-    .restart local v12       #majorWasDefined:Z
+    .restart local v9    # "majorRange":Landroid/widget/GridLayout$Interval;
+    .restart local v10    # "majorSpan":I
+    .restart local v11    # "majorSpec":Landroid/widget/GridLayout$Spec;
+    .restart local v12    # "majorWasDefined":Z
     :cond_7
     iget-object v0, v7, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
@@ -2242,10 +2240,10 @@
     goto :goto_5
 
     .line 763
-    .restart local v15       #minorRange:Landroid/widget/GridLayout$Interval;
-    .restart local v16       #minorSpan:I
-    .restart local v17       #minorSpec:Landroid/widget/GridLayout$Spec;
-    .restart local v18       #minorWasDefined:Z
+    .restart local v15    # "minorRange":Landroid/widget/GridLayout$Interval;
+    .restart local v16    # "minorSpan":I
+    .restart local v17    # "minorSpec":Landroid/widget/GridLayout$Spec;
+    .restart local v18    # "minorWasDefined":Z
     :cond_8
     add-int v19, v14, v16
 
@@ -2306,15 +2304,15 @@
     goto :goto_7
 
     .line 783
-    .end local v7           #lp:Landroid/widget/GridLayout$LayoutParams;
-    .end local v9           #majorRange:Landroid/widget/GridLayout$Interval;
-    .end local v10           #majorSpan:I
-    .end local v11           #majorSpec:Landroid/widget/GridLayout$Spec;
-    .end local v12           #majorWasDefined:Z
-    .end local v15           #minorRange:Landroid/widget/GridLayout$Interval;
-    .end local v16           #minorSpan:I
-    .end local v17           #minorSpec:Landroid/widget/GridLayout$Spec;
-    .end local v18           #minorWasDefined:Z
+    .end local v7    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .end local v9    # "majorRange":Landroid/widget/GridLayout$Interval;
+    .end local v10    # "majorSpan":I
+    .end local v11    # "majorSpec":Landroid/widget/GridLayout$Spec;
+    .end local v12    # "majorWasDefined":Z
+    .end local v15    # "minorRange":Landroid/widget/GridLayout$Interval;
+    .end local v16    # "minorSpan":I
+    .end local v17    # "minorSpec":Landroid/widget/GridLayout$Spec;
+    .end local v18    # "minorWasDefined":Z
     :cond_d
     return-void
 .end method
@@ -2323,7 +2321,7 @@
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
     .locals 4
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     const/4 v2, 0x1
@@ -2346,7 +2344,7 @@
     check-cast v0, Landroid/widget/GridLayout$LayoutParams;
 
     .line 849
-    .local v0, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v0, "lp":Landroid/widget/GridLayout$LayoutParams;
     invoke-direct {p0, v0, v2}, Landroid/widget/GridLayout;->checkLayoutParams(Landroid/widget/GridLayout$LayoutParams;Z)V
 
     .line 850
@@ -2384,7 +2382,7 @@
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 163
@@ -2397,7 +2395,7 @@
 
 .method protected bridge synthetic generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 163
@@ -2410,7 +2408,7 @@
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/GridLayout$LayoutParams;
     .locals 2
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 862
@@ -2427,7 +2425,7 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/GridLayout$LayoutParams;
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 867
@@ -2440,8 +2438,8 @@
 
 .method final getAlignment(Landroid/widget/GridLayout$Alignment;Z)Landroid/widget/GridLayout$Alignment;
     .locals 1
-    .parameter "alignment"
-    .parameter "horizontal"
+    .param p1, "alignment"    # Landroid/widget/GridLayout$Alignment;
+    .param p2, "horizontal"    # Z
 
     .prologue
     .line 1091
@@ -2449,11 +2447,11 @@
 
     if-eq p1, v0, :cond_0
 
-    .end local p1
+    .end local p1    # "alignment":Landroid/widget/GridLayout$Alignment;
     :goto_0
     return-object p1
 
-    .restart local p1
+    .restart local p1    # "alignment":Landroid/widget/GridLayout$Alignment;
     :cond_0
     if-eqz p2, :cond_1
 
@@ -2493,7 +2491,7 @@
 
 .method final getLayoutParams(Landroid/view/View;)Landroid/widget/GridLayout$LayoutParams;
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # Landroid/view/View;
 
     .prologue
     .line 815
@@ -2508,9 +2506,9 @@
 
 .method getMargin1(Landroid/view/View;ZZ)I
     .locals 3
-    .parameter "view"
-    .parameter "horizontal"
-    .parameter "leading"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
+    .param p3, "leading"    # Z
 
     .prologue
     .line 671
@@ -2519,7 +2517,7 @@
     move-result-object v0
 
     .line 672
-    .local v0, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v0, "lp":Landroid/widget/GridLayout$LayoutParams;
     if-eqz p2, :cond_2
 
     if-eqz p3, :cond_1
@@ -2527,9 +2525,9 @@
     iget v1, v0, Landroid/widget/GridLayout$LayoutParams;->leftMargin:I
 
     .line 675
-    .local v1, margin:I
+    .local v1, "margin":I
     :goto_0
-    const/high16 v2, -0x8000
+    const/high16 v2, -0x80000000
 
     if-ne v1, v2, :cond_0
 
@@ -2537,7 +2535,7 @@
 
     move-result v1
 
-    .end local v1           #margin:I
+    .end local v1    # "margin":I
     :cond_0
     return v1
 
@@ -2562,8 +2560,8 @@
 
 .method final getMeasurementIncludingMargin(Landroid/view/View;Z)I
     .locals 2
-    .parameter "c"
-    .parameter "horizontal"
+    .param p1, "c"    # Landroid/view/View;
+    .param p2, "horizontal"    # Z
 
     .prologue
     .line 1078
@@ -2670,9 +2668,9 @@
 
 .method protected onChildVisibilityChanged(Landroid/view/View;II)V
     .locals 1
-    .parameter "child"
-    .parameter "oldVisibility"
-    .parameter "newVisibility"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "oldVisibility"    # I
+    .param p3, "newVisibility"    # I
 
     .prologue
     const/16 v0, 0x8
@@ -2696,7 +2694,7 @@
 
 .method protected onDebugDraw(Landroid/graphics/Canvas;)V
     .locals 20
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 904
@@ -2705,7 +2703,7 @@
     invoke-direct {v7}, Landroid/graphics/Paint;-><init>()V
 
     .line 905
-    .local v7, paint:Landroid/graphics/Paint;
+    .local v7, "paint":Landroid/graphics/Paint;
     sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v7, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -2731,7 +2729,7 @@
     move-result-object v16
 
     .line 910
-    .local v16, insets:Landroid/graphics/Insets;
+    .local v16, "insets":Landroid/graphics/Insets;
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingTop()I
 
     move-result v1
@@ -2743,7 +2741,7 @@
     add-int v4, v1, v2
 
     .line 911
-    .local v4, top:I
+    .local v4, "top":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingLeft()I
 
     move-result v1
@@ -2755,7 +2753,7 @@
     add-int v10, v1, v2
 
     .line 912
-    .local v10, left:I
+    .local v10, "left":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getWidth()I
 
     move-result v1
@@ -2773,7 +2771,7 @@
     sub-int v12, v1, v2
 
     .line 913
-    .local v12, right:I
+    .local v12, "right":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getHeight()I
 
     move-result v1
@@ -2791,7 +2789,7 @@
     sub-int v6, v1, v2
 
     .line 915
-    .local v6, bottom:I
+    .local v6, "bottom":I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
@@ -2801,20 +2799,20 @@
     move-object/from16 v18, v0
 
     .line 916
-    .local v18, xs:[I
+    .local v18, "xs":[I
     if-eqz v18, :cond_0
 
     .line 917
     const/4 v15, 0x0
 
-    .local v15, i:I
+    .local v15, "i":I
     move-object/from16 v0, v18
 
     array-length v0, v0
 
     move/from16 v17, v0
 
-    .local v17, length:I
+    .local v17, "length":I
     :goto_0
     move/from16 v0, v17
 
@@ -2825,7 +2823,7 @@
 
     add-int v3, v10, v1
 
-    .local v3, x:I
+    .local v3, "x":I
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
@@ -2841,9 +2839,9 @@
     goto :goto_0
 
     .line 923
-    .end local v3           #x:I
-    .end local v15           #i:I
-    .end local v17           #length:I
+    .end local v3    # "x":I
+    .end local v15    # "i":I
+    .end local v17    # "length":I
     :cond_0
     move-object/from16 v0, p0
 
@@ -2854,20 +2852,20 @@
     move-object/from16 v19, v0
 
     .line 924
-    .local v19, ys:[I
+    .local v19, "ys":[I
     if-eqz v19, :cond_1
 
     .line 925
     const/4 v15, 0x0
 
-    .restart local v15       #i:I
+    .restart local v15    # "i":I
     move-object/from16 v0, v19
 
     array-length v0, v0
 
     move/from16 v17, v0
 
-    .restart local v17       #length:I
+    .restart local v17    # "length":I
     :goto_1
     move/from16 v0, v17
 
@@ -2878,7 +2876,7 @@
 
     add-int v11, v4, v1
 
-    .local v11, y:I
+    .local v11, "y":I
     move-object/from16 v8, p0
 
     move-object/from16 v9, p1
@@ -2896,9 +2894,9 @@
     goto :goto_1
 
     .line 931
-    .end local v11           #y:I
-    .end local v15           #i:I
-    .end local v17           #length:I
+    .end local v11    # "y":I
+    .end local v15    # "i":I
+    .end local v17    # "length":I
     :cond_1
     invoke-super/range {p0 .. p1}, Landroid/view/ViewGroup;->onDebugDraw(Landroid/graphics/Canvas;)V
 
@@ -2908,8 +2906,8 @@
 
 .method protected onDebugDrawMargins(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 9
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     const/4 v8, 0x1
@@ -2922,10 +2920,10 @@
     invoke-direct {v2}, Landroid/widget/GridLayout$LayoutParams;-><init>()V
 
     .line 888
-    .local v2, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v2, "lp":Landroid/widget/GridLayout$LayoutParams;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     invoke-virtual {p0}, Landroid/widget/GridLayout;->getChildCount()I
 
@@ -2939,7 +2937,7 @@
     move-result-object v0
 
     .line 890
-    .local v0, c:Landroid/view/View;
+    .local v0, "c":Landroid/view/View;
     invoke-virtual {p0, v0, v8, v8}, Landroid/widget/GridLayout;->getMargin1(Landroid/view/View;ZZ)I
 
     move-result v3
@@ -2967,14 +2965,14 @@
     goto :goto_0
 
     .line 897
-    .end local v0           #c:Landroid/view/View;
+    .end local v0    # "c":Landroid/view/View;
     :cond_0
     return-void
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 1189
@@ -2995,7 +2993,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 1195
@@ -3016,11 +3014,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 51
-    .parameter "changed"
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "changed"    # Z
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
 
     .prologue
     .line 1111
@@ -3030,35 +3028,35 @@
     sub-int v43, p4, p2
 
     .line 1114
-    .local v43, targetWidth:I
+    .local v43, "targetWidth":I
     sub-int v42, p5, p3
 
     .line 1116
-    .local v42, targetHeight:I
+    .local v42, "targetHeight":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingLeft()I
 
     move-result v34
 
     .line 1117
-    .local v34, paddingLeft:I
+    .local v34, "paddingLeft":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingTop()I
 
     move-result v36
 
     .line 1118
-    .local v36, paddingTop:I
+    .local v36, "paddingTop":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingRight()I
 
     move-result v35
 
     .line 1119
-    .local v35, paddingRight:I
+    .local v35, "paddingRight":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getPaddingBottom()I
 
     move-result v33
 
     .line 1121
-    .local v33, paddingBottom:I
+    .local v33, "paddingBottom":I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
@@ -3090,7 +3088,7 @@
     move-result-object v26
 
     .line 1125
-    .local v26, hLocations:[I
+    .local v26, "hLocations":[I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
@@ -3100,15 +3098,15 @@
     move-result-object v45
 
     .line 1127
-    .local v45, vLocations:[I
+    .local v45, "vLocations":[I
     const/16 v28, 0x0
 
-    .local v28, i:I
+    .local v28, "i":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->getChildCount()I
 
     move-result v12
 
-    .local v12, N:I
+    .local v12, "N":I
     :goto_0
     move/from16 v0, v28
 
@@ -3124,7 +3122,7 @@
     move-result-object v4
 
     .line 1129
-    .local v4, c:Landroid/view/View;
+    .local v4, "c":Landroid/view/View;
     invoke-virtual {v4}, Landroid/view/View;->getVisibility()I
 
     move-result v3
@@ -3148,7 +3146,7 @@
     move-result-object v30
 
     .line 1131
-    .local v30, lp:Landroid/widget/GridLayout$LayoutParams;
+    .local v30, "lp":Landroid/widget/GridLayout$LayoutParams;
     move-object/from16 v0, v30
 
     iget-object v0, v0, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
@@ -3156,7 +3154,7 @@
     move-object/from16 v20, v0
 
     .line 1132
-    .local v20, columnSpec:Landroid/widget/GridLayout$Spec;
+    .local v20, "columnSpec":Landroid/widget/GridLayout$Spec;
     move-object/from16 v0, v30
 
     iget-object v0, v0, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
@@ -3164,7 +3162,7 @@
     move-object/from16 v39, v0
 
     .line 1134
-    .local v39, rowSpec:Landroid/widget/GridLayout$Spec;
+    .local v39, "rowSpec":Landroid/widget/GridLayout$Spec;
     move-object/from16 v0, v20
 
     iget-object v0, v0, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
@@ -3172,7 +3170,7 @@
     move-object/from16 v19, v0
 
     .line 1135
-    .local v19, colSpan:Landroid/widget/GridLayout$Interval;
+    .local v19, "colSpan":Landroid/widget/GridLayout$Interval;
     move-object/from16 v0, v39
 
     iget-object v0, v0, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
@@ -3180,7 +3178,7 @@
     move-object/from16 v38, v0
 
     .line 1137
-    .local v38, rowSpan:Landroid/widget/GridLayout$Interval;
+    .local v38, "rowSpan":Landroid/widget/GridLayout$Interval;
     move-object/from16 v0, v19
 
     iget v3, v0, Landroid/widget/GridLayout$Interval;->min:I
@@ -3188,7 +3186,7 @@
     aget v47, v26, v3
 
     .line 1138
-    .local v47, x1:I
+    .local v47, "x1":I
     move-object/from16 v0, v38
 
     iget v3, v0, Landroid/widget/GridLayout$Interval;->min:I
@@ -3196,7 +3194,7 @@
     aget v49, v45, v3
 
     .line 1140
-    .local v49, y1:I
+    .local v49, "y1":I
     move-object/from16 v0, v19
 
     iget v3, v0, Landroid/widget/GridLayout$Interval;->max:I
@@ -3204,7 +3202,7 @@
     aget v48, v26, v3
 
     .line 1141
-    .local v48, x2:I
+    .local v48, "x2":I
     move-object/from16 v0, v38
 
     iget v3, v0, Landroid/widget/GridLayout$Interval;->max:I
@@ -3212,15 +3210,15 @@
     aget v50, v45, v3
 
     .line 1143
-    .local v50, y2:I
+    .local v50, "y2":I
     sub-int v18, v48, v47
 
     .line 1144
-    .local v18, cellWidth:I
+    .local v18, "cellWidth":I
     sub-int v17, v50, v49
 
     .line 1146
-    .local v17, cellHeight:I
+    .local v17, "cellHeight":I
     const/4 v3, 0x1
 
     move-object/from16 v0, p0
@@ -3230,7 +3228,7 @@
     move-result v32
 
     .line 1147
-    .local v32, pWidth:I
+    .local v32, "pWidth":I
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -3240,7 +3238,7 @@
     move-result v31
 
     .line 1149
-    .local v31, pHeight:I
+    .local v31, "pHeight":I
     move-object/from16 v0, v20
 
     iget-object v3, v0, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;
@@ -3254,7 +3252,7 @@
     move-result-object v5
 
     .line 1150
-    .local v5, hAlign:Landroid/widget/GridLayout$Alignment;
+    .local v5, "hAlign":Landroid/widget/GridLayout$Alignment;
     move-object/from16 v0, v39
 
     iget-object v3, v0, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;
@@ -3268,7 +3266,7 @@
     move-result-object v9
 
     .line 1152
-    .local v9, vAlign:Landroid/widget/GridLayout$Alignment;
+    .local v9, "vAlign":Landroid/widget/GridLayout$Alignment;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/widget/GridLayout;->mHorizontalAxis:Landroid/widget/GridLayout$Axis;
@@ -3286,7 +3284,7 @@
     check-cast v2, Landroid/widget/GridLayout$Bounds;
 
     .line 1153
-    .local v2, boundsX:Landroid/widget/GridLayout$Bounds;
+    .local v2, "boundsX":Landroid/widget/GridLayout$Bounds;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
@@ -3304,7 +3302,7 @@
     check-cast v16, Landroid/widget/GridLayout$Bounds;
 
     .line 1156
-    .local v16, boundsY:Landroid/widget/GridLayout$Bounds;
+    .local v16, "boundsY":Landroid/widget/GridLayout$Bounds;
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/widget/GridLayout$Bounds;->size(Z)I
@@ -3318,7 +3316,7 @@
     move-result v24
 
     .line 1157
-    .local v24, gravityOffsetX:I
+    .local v24, "gravityOffsetX":I
     const/4 v3, 0x1
 
     move-object/from16 v0, v16
@@ -3334,7 +3332,7 @@
     move-result v25
 
     .line 1159
-    .local v25, gravityOffsetY:I
+    .local v25, "gravityOffsetY":I
     const/4 v3, 0x1
 
     const/4 v6, 0x1
@@ -3346,7 +3344,7 @@
     move-result v29
 
     .line 1160
-    .local v29, leftMargin:I
+    .local v29, "leftMargin":I
     const/4 v3, 0x0
 
     const/4 v6, 0x1
@@ -3358,7 +3356,7 @@
     move-result v44
 
     .line 1161
-    .local v44, topMargin:I
+    .local v44, "topMargin":I
     const/4 v3, 0x1
 
     const/4 v6, 0x0
@@ -3370,7 +3368,7 @@
     move-result v37
 
     .line 1162
-    .local v37, rightMargin:I
+    .local v37, "rightMargin":I
     const/4 v3, 0x0
 
     const/4 v6, 0x0
@@ -3382,15 +3380,15 @@
     move-result v15
 
     .line 1164
-    .local v15, bottomMargin:I
+    .local v15, "bottomMargin":I
     add-int v40, v29, v37
 
     .line 1165
-    .local v40, sumMarginsX:I
+    .local v40, "sumMarginsX":I
     add-int v41, v44, v15
 
     .line 1168
-    .local v41, sumMarginsY:I
+    .local v41, "sumMarginsY":I
     add-int v6, v32, v40
 
     const/4 v7, 0x1
@@ -3402,7 +3400,7 @@
     move-result v13
 
     .line 1169
-    .local v13, alignmentOffsetX:I
+    .local v13, "alignmentOffsetX":I
     add-int v10, v31, v41
 
     const/4 v11, 0x0
@@ -3418,7 +3416,7 @@
     move-result v14
 
     .line 1171
-    .local v14, alignmentOffsetY:I
+    .local v14, "alignmentOffsetY":I
     sub-int v3, v18, v40
 
     move/from16 v0, v32
@@ -3428,7 +3426,7 @@
     move-result v46
 
     .line 1172
-    .local v46, width:I
+    .local v46, "width":I
     sub-int v3, v17, v41
 
     move/from16 v0, v31
@@ -3438,13 +3436,13 @@
     move-result v27
 
     .line 1174
-    .local v27, height:I
+    .local v27, "height":I
     add-int v3, v47, v24
 
     add-int v23, v3, v13
 
     .line 1176
-    .local v23, dx:I
+    .local v23, "dx":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridLayout;->isLayoutRtl()Z
 
     move-result v3
@@ -3456,7 +3454,7 @@
     add-int v21, v3, v23
 
     .line 1178
-    .local v21, cx:I
+    .local v21, "cx":I
     :goto_2
     add-int v3, v36, v49
 
@@ -3467,7 +3465,7 @@
     add-int v22, v3, v44
 
     .line 1180
-    .local v22, cy:I
+    .local v22, "cy":I
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v3
@@ -3486,7 +3484,7 @@
 
     .line 1181
     :cond_1
-    const/high16 v3, 0x4000
+    const/high16 v3, 0x40000000    # 2.0f
 
     move/from16 v0, v46
 
@@ -3494,7 +3492,7 @@
 
     move-result v3
 
-    const/high16 v6, 0x4000
+    const/high16 v6, 0x40000000    # 2.0f
 
     move/from16 v0, v27
 
@@ -3519,8 +3517,8 @@
     goto/16 :goto_1
 
     .line 1176
-    .end local v21           #cx:I
-    .end local v22           #cy:I
+    .end local v21    # "cx":I
+    .end local v22    # "cy":I
     :cond_3
     sub-int v3, v43, v46
 
@@ -3533,45 +3531,45 @@
     goto :goto_2
 
     .line 1185
-    .end local v2           #boundsX:Landroid/widget/GridLayout$Bounds;
-    .end local v4           #c:Landroid/view/View;
-    .end local v5           #hAlign:Landroid/widget/GridLayout$Alignment;
-    .end local v9           #vAlign:Landroid/widget/GridLayout$Alignment;
-    .end local v13           #alignmentOffsetX:I
-    .end local v14           #alignmentOffsetY:I
-    .end local v15           #bottomMargin:I
-    .end local v16           #boundsY:Landroid/widget/GridLayout$Bounds;
-    .end local v17           #cellHeight:I
-    .end local v18           #cellWidth:I
-    .end local v19           #colSpan:Landroid/widget/GridLayout$Interval;
-    .end local v20           #columnSpec:Landroid/widget/GridLayout$Spec;
-    .end local v23           #dx:I
-    .end local v24           #gravityOffsetX:I
-    .end local v25           #gravityOffsetY:I
-    .end local v27           #height:I
-    .end local v29           #leftMargin:I
-    .end local v30           #lp:Landroid/widget/GridLayout$LayoutParams;
-    .end local v31           #pHeight:I
-    .end local v32           #pWidth:I
-    .end local v37           #rightMargin:I
-    .end local v38           #rowSpan:Landroid/widget/GridLayout$Interval;
-    .end local v39           #rowSpec:Landroid/widget/GridLayout$Spec;
-    .end local v40           #sumMarginsX:I
-    .end local v41           #sumMarginsY:I
-    .end local v44           #topMargin:I
-    .end local v46           #width:I
-    .end local v47           #x1:I
-    .end local v48           #x2:I
-    .end local v49           #y1:I
-    .end local v50           #y2:I
+    .end local v2    # "boundsX":Landroid/widget/GridLayout$Bounds;
+    .end local v4    # "c":Landroid/view/View;
+    .end local v5    # "hAlign":Landroid/widget/GridLayout$Alignment;
+    .end local v9    # "vAlign":Landroid/widget/GridLayout$Alignment;
+    .end local v13    # "alignmentOffsetX":I
+    .end local v14    # "alignmentOffsetY":I
+    .end local v15    # "bottomMargin":I
+    .end local v16    # "boundsY":Landroid/widget/GridLayout$Bounds;
+    .end local v17    # "cellHeight":I
+    .end local v18    # "cellWidth":I
+    .end local v19    # "colSpan":Landroid/widget/GridLayout$Interval;
+    .end local v20    # "columnSpec":Landroid/widget/GridLayout$Spec;
+    .end local v23    # "dx":I
+    .end local v24    # "gravityOffsetX":I
+    .end local v25    # "gravityOffsetY":I
+    .end local v27    # "height":I
+    .end local v29    # "leftMargin":I
+    .end local v30    # "lp":Landroid/widget/GridLayout$LayoutParams;
+    .end local v31    # "pHeight":I
+    .end local v32    # "pWidth":I
+    .end local v37    # "rightMargin":I
+    .end local v38    # "rowSpan":Landroid/widget/GridLayout$Interval;
+    .end local v39    # "rowSpec":Landroid/widget/GridLayout$Spec;
+    .end local v40    # "sumMarginsX":I
+    .end local v41    # "sumMarginsY":I
+    .end local v44    # "topMargin":I
+    .end local v46    # "width":I
+    .end local v47    # "x1":I
+    .end local v48    # "x2":I
+    .end local v49    # "y1":I
+    .end local v50    # "y2":I
     :cond_4
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 11
-    .parameter "widthSpec"
-    .parameter "heightSpec"
+    .param p1, "widthSpec"    # I
+    .param p2, "heightSpec"    # I
 
     .prologue
     const/4 v10, 0x0
@@ -3594,7 +3592,7 @@
     add-int v0, v8, v9
 
     .line 1044
-    .local v0, hPadding:I
+    .local v0, "hPadding":I
     invoke-virtual {p0}, Landroid/widget/GridLayout;->getPaddingTop()I
 
     move-result v8
@@ -3606,7 +3604,7 @@
     add-int v5, v8, v9
 
     .line 1046
-    .local v5, vPadding:I
+    .local v5, "vPadding":I
     neg-int v8, v0
 
     invoke-static {p1, v8}, Landroid/widget/GridLayout;->adjust(II)I
@@ -3614,7 +3612,7 @@
     move-result v7
 
     .line 1047
-    .local v7, widthSpecSansPadding:I
+    .local v7, "widthSpecSansPadding":I
     neg-int v8, v5
 
     invoke-static {p2, v8}, Landroid/widget/GridLayout;->adjust(II)I
@@ -3622,7 +3620,7 @@
     move-result v2
 
     .line 1049
-    .local v2, heightSpecSansPadding:I
+    .local v2, "heightSpecSansPadding":I
     const/4 v8, 0x1
 
     invoke-direct {p0, v7, v2, v8}, Landroid/widget/GridLayout;->measureChildrenWithMargins(IIZ)V
@@ -3640,7 +3638,7 @@
     move-result v6
 
     .line 1057
-    .local v6, widthSansPadding:I
+    .local v6, "widthSansPadding":I
     invoke-direct {p0, v7, v2, v10}, Landroid/widget/GridLayout;->measureChildrenWithMargins(IIZ)V
 
     .line 1058
@@ -3651,7 +3649,7 @@
     move-result v1
 
     .line 1065
-    .local v1, heightSansPadding:I
+    .local v1, "heightSansPadding":I
     :goto_0
     add-int v8, v6, v0
 
@@ -3664,7 +3662,7 @@
     move-result v4
 
     .line 1066
-    .local v4, measuredWidth:I
+    .local v4, "measuredWidth":I
     add-int v8, v1, v5
 
     invoke-virtual {p0}, Landroid/widget/GridLayout;->getSuggestedMinimumHeight()I
@@ -3676,7 +3674,7 @@
     move-result v3
 
     .line 1068
-    .local v3, measuredHeight:I
+    .local v3, "measuredHeight":I
     invoke-static {v4, p1, v10}, Landroid/widget/GridLayout;->resolveSizeAndState(III)I
 
     move-result v8
@@ -3691,10 +3689,10 @@
     return-void
 
     .line 1060
-    .end local v1           #heightSansPadding:I
-    .end local v3           #measuredHeight:I
-    .end local v4           #measuredWidth:I
-    .end local v6           #widthSansPadding:I
+    .end local v1    # "heightSansPadding":I
+    .end local v3    # "measuredHeight":I
+    .end local v4    # "measuredWidth":I
+    .end local v6    # "widthSansPadding":I
     :cond_0
     iget-object v8, p0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
 
@@ -3703,7 +3701,7 @@
     move-result v1
 
     .line 1061
-    .restart local v1       #heightSansPadding:I
+    .restart local v1    # "heightSansPadding":I
     invoke-direct {p0, v7, v2, v10}, Landroid/widget/GridLayout;->measureChildrenWithMargins(IIZ)V
 
     .line 1062
@@ -3713,14 +3711,14 @@
 
     move-result v6
 
-    .restart local v6       #widthSansPadding:I
+    .restart local v6    # "widthSansPadding":I
     goto :goto_0
 .end method
 
 .method protected onSetLayoutParams(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .parameter "child"
-    .parameter "layoutParams"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "layoutParams"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 805
@@ -3748,7 +3746,7 @@
 
 .method protected onViewAdded(Landroid/view/View;)V
     .locals 0
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 941
@@ -3763,7 +3761,7 @@
 
 .method protected onViewRemoved(Landroid/view/View;)V
     .locals 0
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 950
@@ -3792,7 +3790,7 @@
 
 .method public setAlignmentMode(I)V
     .locals 0
-    .parameter "alignmentMode"
+    .param p1, "alignmentMode"    # I
 
     .prologue
     .line 502
@@ -3807,7 +3805,7 @@
 
 .method public setColumnCount(I)V
     .locals 1
-    .parameter "columnCount"
+    .param p1, "columnCount"    # I
 
     .prologue
     .line 420
@@ -3827,7 +3825,7 @@
 
 .method public setColumnOrderPreserved(Z)V
     .locals 1
-    .parameter "columnOrderPreserved"
+    .param p1, "columnOrderPreserved"    # Z
 
     .prologue
     .line 573
@@ -3847,7 +3845,7 @@
 
 .method public setOrientation(I)V
     .locals 1
-    .parameter "orientation"
+    .param p1, "orientation"    # I
 
     .prologue
     .line 352
@@ -3871,7 +3869,7 @@
 
 .method public setPrinter(Landroid/util/Printer;)V
     .locals 0
-    .parameter "printer"
+    .param p1, "printer"    # Landroid/util/Printer;
 
     .prologue
     .line 602
@@ -3879,7 +3877,7 @@
 
     sget-object p1, Landroid/widget/GridLayout;->NO_PRINTER:Landroid/util/Printer;
 
-    .end local p1
+    .end local p1    # "printer":Landroid/util/Printer;
     :cond_0
     iput-object p1, p0, Landroid/widget/GridLayout;->mPrinter:Landroid/util/Printer;
 
@@ -3889,7 +3887,7 @@
 
 .method public setRowCount(I)V
     .locals 1
-    .parameter "rowCount"
+    .param p1, "rowCount"    # I
 
     .prologue
     .line 387
@@ -3909,7 +3907,7 @@
 
 .method public setRowOrderPreserved(Z)V
     .locals 1
-    .parameter "rowOrderPreserved"
+    .param p1, "rowOrderPreserved"    # Z
 
     .prologue
     .line 537
@@ -3929,7 +3927,7 @@
 
 .method public setUseDefaultMargins(Z)V
     .locals 0
-    .parameter "useDefaultMargins"
+    .param p1, "useDefaultMargins"    # Z
 
     .prologue
     .line 466

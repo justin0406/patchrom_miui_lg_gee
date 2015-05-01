@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/RemoteCallback;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 40
@@ -36,7 +35,7 @@
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 42

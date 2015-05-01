@@ -29,7 +29,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 38
@@ -91,7 +91,7 @@
 
 .method public setSpellCheckInProgress(Z)V
     .locals 0
-    .parameter "inProgress"
+    .param p1, "inProgress"    # Z
 
     .prologue
     .line 43
@@ -103,8 +103,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 57

@@ -28,10 +28,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "updateDir"
-    .parameter "updateContentPath"
-    .parameter "updateMetadataPath"
-    .parameter "updateVersionPath"
+    .param p1, "updateDir"    # Ljava/lang/String;
+    .param p2, "updateContentPath"    # Ljava/lang/String;
+    .param p3, "updateMetadataPath"    # Ljava/lang/String;
+    .param p4, "updateVersionPath"    # Ljava/lang/String;
 
     .prologue
     .line 64
@@ -57,7 +57,7 @@
     invoke-direct {v0, p1, p3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 68
-    .local v0, updateMetadataDir:Ljava/io/File;
+    .local v0, "updateMetadataDir":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0, p4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
@@ -70,8 +70,8 @@
 
 .method static synthetic access$000(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/ContentResolver;)Ljava/security/cert/X509Certificate;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 48
@@ -84,8 +84,8 @@
 
 .method static synthetic access$100(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)[B
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -103,12 +103,12 @@
 
 .method static synthetic access$1000(Lcom/android/server/updates/ConfigUpdateInstallReceiver;[BILjava/lang/String;Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # I
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # Ljava/lang/String;
+    .param p5, "x5"    # Ljava/security/cert/X509Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -126,8 +126,8 @@
 
 .method static synthetic access$200(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -145,8 +145,8 @@
 
 .method static synthetic access$300(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Landroid/content/Intent;
 
     .prologue
     .line 48
@@ -159,8 +159,8 @@
 
 .method static synthetic access$400(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Landroid/content/Intent;
 
     .prologue
     .line 48
@@ -173,7 +173,7 @@
 
 .method static synthetic access$500(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -191,7 +191,7 @@
 
 .method static synthetic access$600(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)[B
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
     .prologue
     .line 48
@@ -204,7 +204,7 @@
 
 .method static synthetic access$700([B)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # [B
 
     .prologue
     .line 48
@@ -217,9 +217,9 @@
 
 .method static synthetic access$800(Lcom/android/server/updates/ConfigUpdateInstallReceiver;II)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
 
     .prologue
     .line 48
@@ -232,9 +232,9 @@
 
 .method static synthetic access$900(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/server/updates/ConfigUpdateInstallReceiver;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 48
@@ -247,7 +247,7 @@
 
 .method private getAltContent(Landroid/content/Intent;)[B
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -269,7 +269,7 @@
 
 .method private getCert(Landroid/content/ContentResolver;)Ljava/security/cert/X509Certificate;
     .locals 7
-    .parameter "cr"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 122
@@ -280,7 +280,7 @@
     move-result-object v0
 
     .line 125
-    .local v0, cert:Ljava/lang/String;
+    .local v0, "cert":Ljava/lang/String;
     :try_start_0
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
@@ -293,13 +293,13 @@
     move-result-object v2
 
     .line 126
-    .local v2, derCert:[B
+    .local v2, "derCert":[B
     new-instance v4, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v4, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
     .line 127
-    .local v4, istream:Ljava/io/InputStream;
+    .local v4, "istream":Ljava/io/InputStream;
     const-string v5, "X.509"
 
     invoke-static {v5}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
@@ -307,7 +307,7 @@
     move-result-object v1
 
     .line 128
-    .local v1, cf:Ljava/security/cert/CertificateFactory;
+    .local v1, "cf":Ljava/security/cert/CertificateFactory;
     invoke-virtual {v1, v4}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
 
     move-result-object v5
@@ -319,14 +319,14 @@
     return-object v5
 
     .line 129
-    .end local v1           #cf:Ljava/security/cert/CertificateFactory;
-    .end local v2           #derCert:[B
-    .end local v4           #istream:Ljava/io/InputStream;
+    .end local v1    # "cf":Ljava/security/cert/CertificateFactory;
+    .end local v2    # "derCert":[B
+    .end local v4    # "istream":Ljava/io/InputStream;
     :catch_0
     move-exception v3
 
     .line 130
-    .local v3, e:Ljava/security/cert/CertificateException;
+    .local v3, "e":Ljava/security/cert/CertificateException;
     new-instance v5, Ljava/lang/IllegalStateException;
 
     const-string v6, "Got malformed certificate from settings, ignoring"
@@ -338,7 +338,7 @@
 
 .method private getContentFromIntent(Landroid/content/Intent;)Ljava/lang/String;
     .locals 3
-    .parameter "i"
+    .param p1, "i"    # Landroid/content/Intent;
 
     .prologue
     .line 135
@@ -349,7 +349,7 @@
     move-result-object v0
 
     .line 136
-    .local v0, extraValue:Ljava/lang/String;
+    .local v0, "extraValue":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 137
@@ -393,7 +393,7 @@
     move-exception v0
 
     .line 184
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "ConfigUpdateInstallReceiver"
 
     const-string v2, "Failed to read current content, assuming first update!"
@@ -408,7 +408,7 @@
 
 .method private static getCurrentHash([B)Ljava/lang/String;
     .locals 4
-    .parameter "content"
+    .param p0, "content"    # [B
 
     .prologue
     .line 190
@@ -431,13 +431,13 @@
     move-result-object v0
 
     .line 195
-    .local v0, dgst:Ljava/security/MessageDigest;
+    .local v0, "dgst":Ljava/security/MessageDigest;
     invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->digest([B)[B
 
     move-result-object v2
 
     .line 196
-    .local v2, fingerprint:[B
+    .local v2, "fingerprint":[B
     const/4 v3, 0x0
 
     invoke-static {v2, v3}, Ljava/lang/IntegralToString;->bytesToHexString([BZ)Ljava/lang/String;
@@ -449,13 +449,13 @@
     goto :goto_0
 
     .line 197
-    .end local v0           #dgst:Ljava/security/MessageDigest;
-    .end local v2           #fingerprint:[B
+    .end local v0    # "dgst":Ljava/security/MessageDigest;
+    .end local v2    # "fingerprint":[B
     :catch_0
     move-exception v1
 
     .line 198
-    .local v1, e:Ljava/security/NoSuchAlgorithmException;
+    .local v1, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v3, Ljava/lang/AssertionError;
 
     invoke-direct {v3, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -489,7 +489,7 @@
     move-result-object v1
 
     .line 169
-    .local v1, strVersion:Ljava/lang/String;
+    .local v1, "strVersion":Ljava/lang/String;
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -497,7 +497,7 @@
     move-result v2
 
     .line 172
-    .end local v1           #strVersion:Ljava/lang/String;
+    .end local v1    # "strVersion":Ljava/lang/String;
     :goto_0
     return v2
 
@@ -506,7 +506,7 @@
     move-exception v0
 
     .line 171
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "ConfigUpdateInstallReceiver"
 
     const-string v3, "Couldn\'t find current metadata, assuming first update"
@@ -521,7 +521,7 @@
 
 .method private getRequiredHashFromIntent(Landroid/content/Intent;)Ljava/lang/String;
     .locals 3
-    .parameter "i"
+    .param p1, "i"    # Landroid/content/Intent;
 
     .prologue
     .line 151
@@ -532,7 +532,7 @@
     move-result-object v0
 
     .line 152
-    .local v0, extraValue:Ljava/lang/String;
+    .local v0, "extraValue":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 153
@@ -555,7 +555,7 @@
 
 .method private getSignatureFromIntent(Landroid/content/Intent;)Ljava/lang/String;
     .locals 3
-    .parameter "i"
+    .param p1, "i"    # Landroid/content/Intent;
 
     .prologue
     .line 159
@@ -566,7 +566,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, extraValue:Ljava/lang/String;
+    .local v0, "extraValue":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 161
@@ -589,7 +589,7 @@
 
 .method private getVersionFromIntent(Landroid/content/Intent;)I
     .locals 3
-    .parameter "i"
+    .param p1, "i"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -605,7 +605,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, extraValue:Ljava/lang/String;
+    .local v0, "extraValue":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 145
@@ -632,8 +632,8 @@
 
 .method private verifyPreviousHash(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "current"
-    .parameter "required"
+    .param p1, "current"    # Ljava/lang/String;
+    .param p2, "required"    # Ljava/lang/String;
 
     .prologue
     .line 208
@@ -662,11 +662,11 @@
 
 .method private verifySignature([BILjava/lang/String;Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
     .locals 3
-    .parameter "content"
-    .parameter "version"
-    .parameter "requiredPrevious"
-    .parameter "signature"
-    .parameter "cert"
+    .param p1, "content"    # [B
+    .param p2, "version"    # I
+    .param p3, "requiredPrevious"    # Ljava/lang/String;
+    .param p4, "signature"    # Ljava/lang/String;
+    .param p5, "cert"    # Ljava/security/cert/X509Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -682,7 +682,7 @@
     move-result-object v0
 
     .line 218
-    .local v0, signer:Ljava/security/Signature;
+    .local v0, "signer":Ljava/security/Signature;
     invoke-virtual {v0, p5}, Ljava/security/Signature;->initVerify(Ljava/security/cert/Certificate;)V
 
     .line 219
@@ -728,8 +728,8 @@
 
 .method private verifyVersion(II)Z
     .locals 1
-    .parameter "current"
-    .parameter "alternative"
+    .param p1, "current"    # I
+    .param p2, "alternative"    # I
 
     .prologue
     .line 203
@@ -750,8 +750,8 @@
 # virtual methods
 .method protected install([BI)V
     .locals 4
-    .parameter "content"
-    .parameter "version"
+    .param p1, "content"    # [B
+    .param p2, "version"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -789,8 +789,8 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 73
@@ -806,8 +806,8 @@
 
 .method protected postInstall(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 263
@@ -816,9 +816,9 @@
 
 .method protected writeUpdate(Ljava/io/File;Ljava/io/File;[B)V
     .locals 7
-    .parameter "dir"
-    .parameter "file"
-    .parameter "content"
+    .param p1, "dir"    # Ljava/io/File;
+    .param p2, "file"    # Ljava/io/File;
+    .param p3, "content"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -830,18 +830,18 @@
     const/4 v0, 0x0
 
     .line 227
-    .local v0, out:Ljava/io/FileOutputStream;
+    .local v0, "out":Ljava/io/FileOutputStream;
     const/4 v3, 0x0
 
     .line 230
-    .local v3, tmp:Ljava/io/File;
+    .local v3, "tmp":Ljava/io/File;
     :try_start_0
     invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v2
 
     .line 231
-    .local v2, parent:Ljava/io/File;
+    .local v2, "parent":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
     .line 233
@@ -883,7 +883,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 250
-    .end local v2           #parent:Ljava/io/File;
+    .end local v2    # "parent":Ljava/io/File;
     :catchall_0
     move-exception v4
 
@@ -901,7 +901,7 @@
     throw v4
 
     .line 237
-    .restart local v2       #parent:Ljava/io/File;
+    .restart local v2    # "parent":Ljava/io/File;
     :cond_1
     :try_start_1
     const-string v4, "journal"
@@ -927,8 +927,8 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 242
-    .end local v0           #out:Ljava/io/FileOutputStream;
-    .local v1, out:Ljava/io/FileOutputStream;
+    .end local v0    # "out":Ljava/io/FileOutputStream;
+    .local v1, "out":Ljava/io/FileOutputStream;
     :try_start_2
     invoke-virtual {v1, p3}, Ljava/io/FileOutputStream;->write([B)V
 
@@ -983,12 +983,12 @@
 
     move-object v0, v1
 
-    .end local v1           #out:Ljava/io/FileOutputStream;
-    .restart local v0       #out:Ljava/io/FileOutputStream;
+    .end local v1    # "out":Ljava/io/FileOutputStream;
+    .restart local v0    # "out":Ljava/io/FileOutputStream;
     goto :goto_0
 
-    .end local v0           #out:Ljava/io/FileOutputStream;
-    .restart local v1       #out:Ljava/io/FileOutputStream;
+    .end local v0    # "out":Ljava/io/FileOutputStream;
+    .restart local v1    # "out":Ljava/io/FileOutputStream;
     :cond_2
     if-eqz v3, :cond_3
 

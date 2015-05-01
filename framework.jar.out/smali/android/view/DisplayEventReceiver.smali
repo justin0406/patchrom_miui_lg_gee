@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 2
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 55
@@ -73,9 +73,9 @@
 
 .method private dispatchHotplug(JIZ)V
     .locals 0
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "connected"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "connected"    # Z
 
     .prologue
     .line 145
@@ -87,9 +87,9 @@
 
 .method private dispatchVsync(JII)V
     .locals 0
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "frame"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "frame"    # I
 
     .prologue
     .line 139
@@ -101,7 +101,7 @@
 
 .method private dispose(Z)V
     .locals 1
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     .line 83
@@ -207,9 +207,9 @@
 
 .method public onHotplug(JIZ)V
     .locals 0
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "connected"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "connected"    # Z
 
     .prologue
     .line 121
@@ -218,9 +218,9 @@
 
 .method public onVsync(JII)V
     .locals 0
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "frame"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "frame"    # I
 
     .prologue
     .line 109

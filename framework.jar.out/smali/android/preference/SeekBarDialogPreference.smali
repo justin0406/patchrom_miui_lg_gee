@@ -14,8 +14,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 36
@@ -47,7 +47,7 @@
 
 .method protected static getSeekBar(Landroid/view/View;)Landroid/widget/SeekBar;
     .locals 1
-    .parameter "dialogView"
+    .param p0, "dialogView"    # Landroid/view/View;
 
     .prologue
     .line 65
@@ -74,7 +74,7 @@
     invoke-virtual {p0, v0}, Landroid/preference/SeekBarDialogPreference;->setPositiveButtonText(I)V
 
     .line 49
-    const/high16 v0, 0x104
+    const/high16 v0, 0x1040000
 
     invoke-virtual {p0, v0}, Landroid/preference/SeekBarDialogPreference;->setNegativeButtonText(I)V
 
@@ -84,7 +84,7 @@
 
 .method protected onBindDialogView(Landroid/view/View;)V
     .locals 2
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 54
@@ -100,7 +100,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 57
-    .local v0, iconView:Landroid/widget/ImageView;
+    .local v0, "iconView":Landroid/widget/ImageView;
     iget-object v1, p0, Landroid/preference/SeekBarDialogPreference;->mMyIcon:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_0

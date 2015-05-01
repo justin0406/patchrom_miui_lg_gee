@@ -36,15 +36,15 @@
 
 .field public static final CACHED_PHOTO_ID:Ljava/lang/String; = "photo_id"
 
-.field public static final CONTENT_FILTER_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URI:Landroid/net/Uri;
 
 .field public static final CONTENT_ITEM_TYPE:Ljava/lang/String; = "vnd.android.cursor.item/calls"
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/calls"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI_WITH_VOICEMAIL:Landroid/net/Uri; = null
+.field public static final CONTENT_URI_WITH_VOICEMAIL:Landroid/net/Uri;
 
 .field public static final COUNTRY_ISO:Ljava/lang/String; = "countryiso"
 
@@ -88,18 +88,13 @@
 
 .field public static final VOICEMAIL_URI:Ljava/lang/String; = "voicemail_uri"
 
-.field static sExtraCallLogValues:Landroid/content/ContentValues;
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
     .prologue
-    const/4 v0, 0x0
-
-    sput-object v0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
-
+    .line 52
     const-string v0, "content://call_log/calls"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -153,13 +148,13 @@
 
 .method public static addCall(Lcom/android/internal/telephony/CallerInfo;Landroid/content/Context;Ljava/lang/String;IIJI)Landroid/net/Uri;
     .locals 16
-    .parameter "ci"
-    .parameter "context"
-    .parameter "number"
-    .parameter "presentation"
-    .parameter "callType"
-    .parameter "start"
-    .parameter "duration"
+    .param p0, "ci"    # Lcom/android/internal/telephony/CallerInfo;
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "number"    # Ljava/lang/String;
+    .param p3, "presentation"    # I
+    .param p4, "callType"    # I
+    .param p5, "start"    # J
+    .param p7, "duration"    # I
 
     .prologue
     .line 307
@@ -168,11 +163,11 @@
     move-result-object v1
 
     .line 308
-    .local v1, resolver:Landroid/content/ContentResolver;
+    .local v1, "resolver":Landroid/content/ContentResolver;
     const/4 v10, 0x1
 
     .line 315
-    .local v10, numberPresentation:I
+    .local v10, "numberPresentation":I
     sget v2, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_RESTRICTED:I
 
     move/from16 v0, p3
@@ -210,12 +205,8 @@
 
     invoke-direct {v13, v2}, Landroid/content/ContentValues;-><init>(I)V
 
-    invoke-static {v13}, Landroid/provider/CallLog$Calls;->getExtraCallLogValues(Landroid/content/ContentValues;)Landroid/content/ContentValues;
-
-    move-result-object v13
-
     .line 332
-    .local v13, values:Landroid/content/ContentValues;
+    .local v13, "values":Landroid/content/ContentValues;
     const-string/jumbo v2, "number"
 
     move-object/from16 v0, p2
@@ -353,7 +344,7 @@
     iget-object v9, v0, Lcom/android/internal/telephony/CallerInfo;->normalizedNumber:Ljava/lang/String;
 
     .line 358
-    .local v9, normalizedPhoneNumber:Ljava/lang/String;
+    .local v9, "normalizedPhoneNumber":Ljava/lang/String;
     sget-object v2, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v3, 0x1
@@ -395,8 +386,8 @@
     move-result-object v7
 
     .line 374
-    .end local v9           #normalizedPhoneNumber:Ljava/lang/String;
-    .local v7, cursor:Landroid/database/Cursor;
+    .end local v9    # "normalizedPhoneNumber":Ljava/lang/String;
+    .local v7, "cursor":Landroid/database/Cursor;
     :goto_1
     if-eqz v7, :cond_5
 
@@ -444,7 +435,7 @@
     move-result-object v8
 
     .line 382
-    .local v8, feedbackUri:Landroid/net/Uri;
+    .local v8, "feedbackUri":Landroid/net/Uri;
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
@@ -458,12 +449,12 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 385
-    .end local v8           #feedbackUri:Landroid/net/Uri;
+    .end local v8    # "feedbackUri":Landroid/net/Uri;
     :cond_4
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 390
-    .end local v7           #cursor:Landroid/database/Cursor;
+    .end local v7    # "cursor":Landroid/database/Cursor;
     :cond_5
     sget-object v2, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
 
@@ -471,11 +462,16 @@
 
     move-result-object v12
 
-    .local v12, result:Landroid/net/Uri;
+    .line 392
+    .local v12, "result":Landroid/net/Uri;
+    invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Calls;->removeExpiredEntries(Landroid/content/Context;)V
+
+    .line 394
     return-object v12
 
-    .end local v12           #result:Landroid/net/Uri;
-    .end local v13           #values:Landroid/content/ContentValues;
+    .line 317
+    .end local v12    # "result":Landroid/net/Uri;
+    .end local v13    # "values":Landroid/content/ContentValues;
     :cond_6
     sget v2, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_PAYPHONE:I
 
@@ -509,7 +505,7 @@
     goto/16 :goto_0
 
     .line 364
-    .restart local v13       #values:Landroid/content/ContentValues;
+    .restart local v13    # "values":Landroid/content/ContentValues;
     :cond_9
     move-object/from16 v0, p0
 
@@ -522,7 +518,7 @@
     iget-object v11, v0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
     .line 365
-    .local v11, phoneNumber:Ljava/lang/String;
+    .local v11, "phoneNumber":Ljava/lang/String;
     :goto_2
     sget-object v2, Landroid/provider/ContactsContract$CommonDataKinds$Callable;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
@@ -568,11 +564,11 @@
 
     move-result-object v7
 
-    .restart local v7       #cursor:Landroid/database/Cursor;
+    .restart local v7    # "cursor":Landroid/database/Cursor;
     goto/16 :goto_1
 
-    .end local v7           #cursor:Landroid/database/Cursor;
-    .end local v11           #phoneNumber:Ljava/lang/String;
+    .end local v7    # "cursor":Landroid/database/Cursor;
+    .end local v11    # "phoneNumber":Ljava/lang/String;
     :cond_a
     move-object/from16 v11, p2
 
@@ -580,7 +576,7 @@
     goto :goto_2
 
     .line 385
-    .restart local v7       #cursor:Landroid/database/Cursor;
+    .restart local v7    # "cursor":Landroid/database/Cursor;
     :catchall_0
     move-exception v2
 
@@ -589,36 +585,9 @@
     throw v2
 .end method
 
-.method public static getExtraCallLogValues(Landroid/content/ContentValues;)Landroid/content/ContentValues;
-    .locals 2
-    .parameter "contentValues"
-
-    .prologue
-    sget-object v1, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
-
-    if-nez v1, :cond_0
-
-    move-object v0, p0
-
-    .local v0, values:Landroid/content/ContentValues;
-    :goto_0
-    return-object v0
-
-    .end local v0           #values:Landroid/content/ContentValues;
-    :cond_0
-    sget-object v0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
-
-    .restart local v0       #values:Landroid/content/ContentValues;
-    const/4 v1, 0x0
-
-    sput-object v1, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
-
-    goto :goto_0
-.end method
-
 .method public static getLastOutgoingCall(Landroid/content/Context;)Ljava/lang/String;
     .locals 7
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 404
@@ -627,11 +596,11 @@
     move-result-object v0
 
     .line 405
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const/4 v6, 0x0
 
     .line 407
-    .local v6, c:Landroid/database/Cursor;
+    .local v6, "c":Landroid/database/Cursor;
     :try_start_0
     sget-object v1, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
 
@@ -710,7 +679,7 @@
 
 .method private static removeExpiredEntries(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 423
@@ -719,7 +688,7 @@
     move-result-object v0
 
     .line 424
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     sget-object v1, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v2, "_id IN (SELECT _id FROM calls ORDER BY date DESC LIMIT -1 OFFSET 500)"
@@ -729,15 +698,5 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
     .line 427
-    return-void
-.end method
-
-.method public static setExtraCallLogValues(Landroid/content/ContentValues;)V
-    .locals 0
-    .parameter "extraCallLogValues"
-
-    .prologue
-    sput-object p0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
-
     return-void
 .end method

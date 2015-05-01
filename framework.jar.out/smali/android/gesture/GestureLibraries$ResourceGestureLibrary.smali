@@ -32,8 +32,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceId"    # I
 
     .prologue
     .line 112
@@ -73,7 +73,7 @@
     const/4 v3, 0x0
 
     .line 128
-    .local v3, result:Z
+    .local v3, "result":Z
     iget-object v4, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mContext:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -83,7 +83,7 @@
     check-cast v0, Landroid/content/Context;
 
     .line 129
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     if-eqz v0, :cond_0
 
     .line 130
@@ -98,7 +98,7 @@
     move-result-object v2
 
     .line 132
-    .local v2, in:Ljava/io/InputStream;
+    .local v2, "in":Ljava/io/InputStream;
     :try_start_0
     iget-object v4, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mStore:Landroid/gesture/GestureStore;
 
@@ -112,18 +112,18 @@
     const/4 v3, 0x1
 
     .line 140
-    .end local v2           #in:Ljava/io/InputStream;
+    .end local v2    # "in":Ljava/io/InputStream;
     :cond_0
     :goto_0
     return v3
 
     .line 134
-    .restart local v2       #in:Ljava/io/InputStream;
+    .restart local v2    # "in":Ljava/io/InputStream;
     :catch_0
     move-exception v1
 
     .line 135
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     const-string v4, "Gestures"
 
     new-instance v5, Ljava/lang/StringBuilder;

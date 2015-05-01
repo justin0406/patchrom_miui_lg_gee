@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -131,7 +131,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 385
@@ -153,8 +153,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/os/Debug$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/os/Debug$1;
 
     .prologue
     .line 111
@@ -165,7 +165,7 @@
 
 .method public static getOtherLabel(I)Ljava/lang/String;
     .locals 1
-    .parameter "which"
+    .param p0, "which"    # I
 
     .prologue
     .line 296
@@ -346,7 +346,7 @@
 
 .method public getOtherPrivateClean(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 281
@@ -363,7 +363,7 @@
 
 .method public getOtherPrivateDirty(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 271
@@ -380,7 +380,7 @@
 
 .method public getOtherPss(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 259
@@ -397,7 +397,7 @@
 
 .method public getOtherSharedClean(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 286
@@ -414,7 +414,7 @@
 
 .method public getOtherSharedDirty(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 276
@@ -431,7 +431,7 @@
 
 .method public getOtherSwappablePss(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 265
@@ -448,7 +448,7 @@
 
 .method public getOtherSwappedOut(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 291
@@ -621,7 +621,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 352
@@ -784,8 +784,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 327

@@ -38,7 +38,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/Writer;
 
     .prologue
     .line 148
@@ -98,7 +98,7 @@
     move-result-object v0
 
     .line 478
-    .local v0, context:Landroid/util/JsonScope;
+    .local v0, "context":Landroid/util/JsonScope;
     sget-object v1, Landroid/util/JsonScope;->NONEMPTY_OBJECT:Landroid/util/JsonScope;
 
     if-ne v0, v1, :cond_1
@@ -158,7 +158,7 @@
 
 .method private beforeValue(Z)V
     .locals 3
-    .parameter "root"
+    .param p1, "root"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -299,9 +299,9 @@
 
 .method private close(Landroid/util/JsonScope;Landroid/util/JsonScope;Ljava/lang/String;)Landroid/util/JsonWriter;
     .locals 4
-    .parameter "empty"
-    .parameter "nonempty"
-    .parameter "closeBracket"
+    .param p1, "empty"    # Landroid/util/JsonScope;
+    .param p2, "nonempty"    # Landroid/util/JsonScope;
+    .param p3, "closeBracket"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -315,7 +315,7 @@
     move-result-object v0
 
     .line 252
-    .local v0, context:Landroid/util/JsonScope;
+    .local v0, "context":Landroid/util/JsonScope;
     if-eq v0, p2, :cond_0
 
     if-eq v0, p1, :cond_0
@@ -406,7 +406,7 @@
     .line 467
     const/4 v0, 0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/util/JsonWriter;->stack:Ljava/util/List;
 
@@ -431,8 +431,8 @@
 
 .method private open(Landroid/util/JsonScope;Ljava/lang/String;)Landroid/util/JsonWriter;
     .locals 1
-    .parameter "empty"
-    .parameter "openBracket"
+    .param p1, "empty"    # Landroid/util/JsonScope;
+    .param p2, "openBracket"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -485,7 +485,7 @@
 
 .method private replaceTop(Landroid/util/JsonScope;)V
     .locals 2
-    .parameter "topOfStack"
+    .param p1, "topOfStack"    # Landroid/util/JsonScope;
 
     .prologue
     .line 275
@@ -507,7 +507,7 @@
 
 .method private string(Ljava/lang/String;)V
     .locals 9
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -529,12 +529,12 @@
     .line 402
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .local v2, length:I
+    .local v2, "length":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -544,7 +544,7 @@
     move-result v0
 
     .line 416
-    .local v0, c:C
+    .local v0, "c":C
     sparse-switch v0, :sswitch_data_0
 
     .line 449
@@ -673,7 +673,7 @@
     goto :goto_1
 
     .line 458
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_1
     iget-object v3, p0, Landroid/util/JsonWriter;->out:Ljava/io/Writer;
 
@@ -856,7 +856,7 @@
 
 .method public name(Ljava/lang/String;)Landroid/util/JsonWriter;
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -914,7 +914,7 @@
 
 .method public setIndent(Ljava/lang/String;)V
     .locals 1
-    .parameter "indent"
+    .param p1, "indent"    # Ljava/lang/String;
 
     .prologue
     .line 164
@@ -952,7 +952,7 @@
 
 .method public setLenient(Z)V
     .locals 0
-    .parameter "lenient"
+    .param p1, "lenient"    # Z
 
     .prologue
     .line 186
@@ -964,7 +964,7 @@
 
 .method public value(D)Landroid/util/JsonWriter;
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1036,7 +1036,7 @@
 
 .method public value(J)Landroid/util/JsonWriter;
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1064,7 +1064,7 @@
 
 .method public value(Ljava/lang/Number;)Landroid/util/JsonWriter;
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/Number;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1081,19 +1081,19 @@
     move-result-object p0
 
     .line 376
-    .end local p0
+    .end local p0    # "this":Landroid/util/JsonWriter;
     :goto_0
     return-object p0
 
     .line 369
-    .restart local p0
+    .restart local p0    # "this":Landroid/util/JsonWriter;
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 370
-    .local v0, string:Ljava/lang/String;
+    .local v0, "string":Ljava/lang/String;
     iget-boolean v1, p0, Landroid/util/JsonWriter;->lenient:Z
 
     if-nez v1, :cond_2
@@ -1164,7 +1164,7 @@
 
 .method public value(Ljava/lang/String;)Landroid/util/JsonWriter;
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1181,12 +1181,12 @@
     move-result-object p0
 
     .line 305
-    .end local p0
+    .end local p0    # "this":Landroid/util/JsonWriter;
     :goto_0
     return-object p0
 
     .line 303
-    .restart local p0
+    .restart local p0    # "this":Landroid/util/JsonWriter;
     :cond_0
     const/4 v0, 0x0
 
@@ -1200,7 +1200,7 @@
 
 .method public value(Z)Landroid/util/JsonWriter;
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

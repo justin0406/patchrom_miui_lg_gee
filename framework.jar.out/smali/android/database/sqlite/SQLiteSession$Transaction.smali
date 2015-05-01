@@ -39,7 +39,7 @@
 
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteSession$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/database/sqlite/SQLiteSession$1;
 
     .prologue
     .line 956

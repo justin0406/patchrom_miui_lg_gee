@@ -27,7 +27,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/sip/SipPhone;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 988
@@ -40,8 +39,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/sip/SipPhone;Lcom/android/internal/telephony/sip/SipPhone$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/sip/SipPhone;
+    .param p2, "x1"    # Lcom/android/internal/telephony/sip/SipPhone$1;
 
     .prologue
     .line 988
@@ -52,7 +51,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 1049
@@ -68,7 +67,7 @@
 # virtual methods
 .method public onCallBusy(Landroid/net/sip/SipAudioCall;)V
     .locals 2
-    .parameter "call"
+    .param p1, "call"    # Landroid/net/sip/SipAudioCall;
 
     .prologue
     .line 1004
@@ -103,7 +102,7 @@
 
 .method public onCallEnded(Landroid/net/sip/SipAudioCall;)V
     .locals 2
-    .parameter "call"
+    .param p1, "call"    # Landroid/net/sip/SipAudioCall;
 
     .prologue
     .line 996
@@ -154,9 +153,9 @@
 
 .method public onError(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
     .locals 2
-    .parameter "call"
-    .parameter "errorCode"
-    .parameter "errorMessage"
+    .param p1, "call"    # Landroid/net/sip/SipAudioCall;
+    .param p2, "errorCode"    # I
+    .param p3, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 1012

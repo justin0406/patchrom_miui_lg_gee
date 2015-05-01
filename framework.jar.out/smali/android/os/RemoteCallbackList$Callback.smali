@@ -34,9 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/RemoteCallbackList;Landroid/os/IInterface;Ljava/lang/Object;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "cookie"
+    .param p3, "cookie"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -47,8 +45,8 @@
 
     .prologue
     .line 60
-    .local p0, this:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
-    .local p2, callback:Landroid/os/IInterface;,"TE;"
+    .local p0, "this":Landroid/os/RemoteCallbackList$Callback;, "Landroid/os/RemoteCallbackList<TE;>.Callback;"
+    .local p2, "callback":Landroid/os/IInterface;, "TE;"
     iput-object p1, p0, Landroid/os/RemoteCallbackList$Callback;->this$0:Landroid/os/RemoteCallbackList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +68,7 @@
 
     .prologue
     .line 66
-    .local p0, this:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
+    .local p0, "this":Landroid/os/RemoteCallbackList$Callback;, "Landroid/os/RemoteCallbackList<TE;>.Callback;"
     iget-object v0, p0, Landroid/os/RemoteCallbackList$Callback;->this$0:Landroid/os/RemoteCallbackList;
 
     iget-object v1, v0, Landroid/os/RemoteCallbackList;->mCallbacks:Landroid/util/ArrayMap;

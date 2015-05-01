@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 93
@@ -57,14 +57,14 @@
 
 .method public setInput(Landroid/renderscript/Script$KernelID;Landroid/renderscript/Allocation;)V
     .locals 5
-    .parameter "s"
-    .parameter "a"
+    .param p1, "s"    # Landroid/renderscript/Script$KernelID;
+    .param p2, "a"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 106
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/ScriptGroup;->mInputs:[Landroid/renderscript/ScriptGroup$IO;
 
@@ -133,14 +133,14 @@
 
 .method public setOutput(Landroid/renderscript/Script$KernelID;Landroid/renderscript/Allocation;)V
     .locals 5
-    .parameter "s"
-    .parameter "a"
+    .param p1, "s"    # Landroid/renderscript/Script$KernelID;
+    .param p2, "a"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 126
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/ScriptGroup;->mOutputs:[Landroid/renderscript/ScriptGroup$IO;
 

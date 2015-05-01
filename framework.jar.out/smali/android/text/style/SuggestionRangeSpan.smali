@@ -29,7 +29,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 38
@@ -70,7 +70,7 @@
 
 .method public setBackgroundColor(I)V
     .locals 0
-    .parameter "backgroundColor"
+    .param p1, "backgroundColor"    # I
 
     .prologue
     .line 58
@@ -82,7 +82,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 63
@@ -96,8 +96,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 49

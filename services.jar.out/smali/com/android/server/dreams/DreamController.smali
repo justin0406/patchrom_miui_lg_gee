@@ -41,12 +41,12 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/dreams/DreamController$Listener;)V
     .locals 3
-    .parameter "context"
-    .parameter "handler"
-    .parameter "listener"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "listener"    # Lcom/android/server/dreams/DreamController$Listener;
 
     .prologue
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,7 +115,7 @@
 
 .method static synthetic access$000(Lcom/android/server/dreams/DreamController;)Lcom/android/server/dreams/DreamController$DreamRecord;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamController;
 
     .prologue
     .line 44
@@ -126,7 +126,7 @@
 
 .method static synthetic access$100(Lcom/android/server/dreams/DreamController;)Lcom/android/server/dreams/DreamController$Listener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamController;
 
     .prologue
     .line 44
@@ -137,7 +137,7 @@
 
 .method static synthetic access$200(Lcom/android/server/dreams/DreamController;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamController;
 
     .prologue
     .line 44
@@ -148,8 +148,8 @@
 
 .method static synthetic access$300(Lcom/android/server/dreams/DreamController;Landroid/service/dreams/IDreamService;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamController;
+    .param p1, "x1"    # Landroid/service/dreams/IDreamService;
 
     .prologue
     .line 44
@@ -160,7 +160,7 @@
 
 .method private attach(Landroid/service/dreams/IDreamService;)V
     .locals 4
-    .parameter "service"
+    .param p1, "service"    # Landroid/service/dreams/IDreamService;
 
     .prologue
     .line 189
@@ -222,7 +222,7 @@
     move-exception v0
 
     .line 192
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "DreamController"
 
     const-string v2, "The dream service died unexpectedly."
@@ -239,7 +239,7 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 82
@@ -447,10 +447,10 @@
 
 .method public startDream(Landroid/os/Binder;Landroid/content/ComponentName;ZI)V
     .locals 9
-    .parameter "token"
-    .parameter "name"
-    .parameter "isTest"
-    .parameter "userId"
+    .param p1, "token"    # Landroid/os/Binder;
+    .param p2, "name"    # Landroid/content/ComponentName;
+    .param p3, "isTest"    # Z
+    .param p4, "userId"    # I
 
     .prologue
     const/4 v8, 0x1
@@ -545,11 +545,11 @@
     invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 116
-    .local v7, intent:Landroid/content/Intent;
+    .local v7, "intent":Landroid/content/Intent;
     invoke-virtual {v7, p2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 117
-    const/high16 v0, 0x80
+    const/high16 v0, 0x800000
 
     invoke-virtual {v7, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -600,7 +600,7 @@
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 133
-    .end local v7           #intent:Landroid/content/Intent;
+    .end local v7    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
@@ -609,7 +609,7 @@
     move-exception v6
 
     .line 110
-    .local v6, ex:Landroid/os/RemoteException;
+    .local v6, "ex":Landroid/os/RemoteException;
     const-string v0, "DreamController"
 
     const-string v1, "Unable to add window token for dream."
@@ -622,13 +622,13 @@
     goto :goto_0
 
     .line 125
-    .end local v6           #ex:Landroid/os/RemoteException;
-    .restart local v7       #intent:Landroid/content/Intent;
+    .end local v6    # "ex":Landroid/os/RemoteException;
+    .restart local v7    # "intent":Landroid/content/Intent;
     :catch_1
     move-exception v6
 
     .line 126
-    .local v6, ex:Ljava/lang/SecurityException;
+    .local v6, "ex":Ljava/lang/SecurityException;
     const-string v0, "DreamController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -657,7 +657,7 @@
     goto :goto_0
 
     .line 131
-    .end local v6           #ex:Ljava/lang/SecurityException;
+    .end local v6    # "ex":Ljava/lang/SecurityException;
     :cond_0
     iget-object v0, p0, Lcom/android/server/dreams/DreamController;->mCurrentDream:Lcom/android/server/dreams/DreamController$DreamRecord;
 
@@ -695,7 +695,7 @@
     iget-object v1, p0, Lcom/android/server/dreams/DreamController;->mCurrentDream:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     .line 141
-    .local v1, oldDream:Lcom/android/server/dreams/DreamController$DreamRecord;
+    .local v1, "oldDream":Lcom/android/server/dreams/DreamController$DreamRecord;
     iput-object v5, p0, Lcom/android/server/dreams/DreamController;->mCurrentDream:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     .line 142
@@ -840,7 +840,7 @@
     move-exception v0
 
     .line 176
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v2, "DreamController"
 
     const-string v3, "Error removing window token for dream."
@@ -850,7 +850,7 @@
     goto :goto_3
 
     .line 163
-    .end local v0           #ex:Landroid/os/RemoteException;
+    .end local v0    # "ex":Landroid/os/RemoteException;
     :catch_1
     move-exception v2
 

@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/nsd/NsdServiceInfo;
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 134
@@ -51,12 +51,12 @@
     invoke-direct {v0}, Landroid/net/nsd/NsdServiceInfo;-><init>()V
 
     .line 135
-    .local v0, info:Landroid/net/nsd/NsdServiceInfo;
+    .local v0, "info":Landroid/net/nsd/NsdServiceInfo;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    #setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceName:Ljava/lang/String;
+    # setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceName:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$002(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 136
@@ -64,7 +64,7 @@
 
     move-result-object v1
 
-    #setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceType:Ljava/lang/String;
+    # setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceType:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$102(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 137
@@ -76,7 +76,7 @@
 
     check-cast v1, Landroid/net/nsd/DnsSdTxtRecord;
 
-    #setter for: Landroid/net/nsd/NsdServiceInfo;->mTxtRecord:Landroid/net/nsd/DnsSdTxtRecord;
+    # setter for: Landroid/net/nsd/NsdServiceInfo;->mTxtRecord:Landroid/net/nsd/DnsSdTxtRecord;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$202(Landroid/net/nsd/NsdServiceInfo;Landroid/net/nsd/DnsSdTxtRecord;)Landroid/net/nsd/DnsSdTxtRecord;
 
     .line 139
@@ -98,7 +98,7 @@
 
     move-result-object v1
 
-    #setter for: Landroid/net/nsd/NsdServiceInfo;->mHost:Ljava/net/InetAddress;
+    # setter for: Landroid/net/nsd/NsdServiceInfo;->mHost:Ljava/net/InetAddress;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$302(Landroid/net/nsd/NsdServiceInfo;Ljava/net/InetAddress;)Ljava/net/InetAddress;
     :try_end_0
     .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
@@ -110,7 +110,7 @@
 
     move-result v1
 
-    #setter for: Landroid/net/nsd/NsdServiceInfo;->mPort:I
+    # setter for: Landroid/net/nsd/NsdServiceInfo;->mPort:I
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$402(Landroid/net/nsd/NsdServiceInfo;I)I
 
     .line 146
@@ -125,7 +125,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 132
@@ -138,7 +138,7 @@
 
 .method public newArray(I)[Landroid/net/nsd/NsdServiceInfo;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 150
@@ -149,7 +149,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 132

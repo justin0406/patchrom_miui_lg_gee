@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/SubtitleTrack;Landroid/media/SubtitleTrack;J)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 333
@@ -62,7 +59,7 @@
 
     const/4 v2, 0x0
 
-    #setter for: Landroid/media/SubtitleTrack;->mRunnable:Ljava/lang/Runnable;
+    # setter for: Landroid/media/SubtitleTrack;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v0, v2}, Landroid/media/SubtitleTrack;->access$102(Landroid/media/SubtitleTrack;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     .line 341

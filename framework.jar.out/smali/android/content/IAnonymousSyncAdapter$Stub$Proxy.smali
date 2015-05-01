@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 81
@@ -51,7 +51,7 @@
 
 .method public cancelSync(Landroid/content/ISyncContext;)V
     .locals 5
-    .parameter "syncContext"
+    .param p1, "syncContext"    # Landroid/content/ISyncContext;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +67,7 @@
     move-result-object v0
 
     .line 127
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IAnonymousSyncAdapter"
 
@@ -123,8 +123,8 @@
 
 .method public startSync(Landroid/content/ISyncContext;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "syncContext"
-    .parameter "extras"
+    .param p1, "syncContext"    # Landroid/content/ISyncContext;
+    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 105
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IAnonymousSyncAdapter"
 

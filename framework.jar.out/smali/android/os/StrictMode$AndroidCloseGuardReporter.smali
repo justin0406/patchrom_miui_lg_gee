@@ -30,7 +30,7 @@
 
 .method synthetic constructor <init>(Landroid/os/StrictMode$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/StrictMode$1;
 
     .prologue
     .line 1422
@@ -43,8 +43,8 @@
 # virtual methods
 .method public report(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "message"
-    .parameter "allocationSite"
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "allocationSite"    # Ljava/lang/Throwable;
 
     .prologue
     .line 1424

@@ -18,8 +18,8 @@
 # virtual methods
 .method public onIndexChanged(Landroid/webkit/WebHistoryItem;I)V
     .locals 0
-    .parameter "item"
-    .parameter "index"
+    .param p1, "item"    # Landroid/webkit/WebHistoryItem;
+    .param p2, "index"    # I
 
     .prologue
     .line 39
@@ -28,7 +28,7 @@
 
 .method public onNewHistoryItem(Landroid/webkit/WebHistoryItem;)V
     .locals 0
-    .parameter "item"
+    .param p1, "item"    # Landroid/webkit/WebHistoryItem;
 
     .prologue
     .line 31

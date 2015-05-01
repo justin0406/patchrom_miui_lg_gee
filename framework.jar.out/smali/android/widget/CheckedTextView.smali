@@ -47,7 +47,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 54
@@ -61,8 +61,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 58
@@ -76,9 +76,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -94,7 +94,7 @@
     move-result-object v0
 
     .line 67
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -102,7 +102,7 @@
     move-result-object v2
 
     .line 68
-    .local v2, d:Landroid/graphics/drawable/Drawable;
+    .local v2, "d":Landroid/graphics/drawable/Drawable;
     if-eqz v2, :cond_0
 
     .line 69
@@ -115,7 +115,7 @@
     move-result v1
 
     .line 73
-    .local v1, checked:Z
+    .local v1, "checked":Z
     invoke-virtual {p0, v1}, Landroid/widget/CheckedTextView;->setChecked(Z)V
 
     .line 75
@@ -127,7 +127,7 @@
 
 .method private setBasePadding(Z)V
     .locals 1
-    .parameter "isLayoutRtl"
+    .param p1, "isLayoutRtl"    # Z
 
     .prologue
     .line 206
@@ -174,7 +174,7 @@
     add-int v0, v3, v4
 
     .line 192
-    .local v0, newPadding:I
+    .local v0, "newPadding":I
     :goto_0
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->isLayoutRtl()Z
 
@@ -214,13 +214,13 @@
     return-void
 
     .line 190
-    .end local v0           #newPadding:I
+    .end local v0    # "newPadding":I
     :cond_1
     iget v0, p0, Landroid/widget/CheckedTextView;->mBasePadding:I
 
     goto :goto_0
 
-    .restart local v0       #newPadding:I
+    .restart local v0    # "newPadding":I
     :cond_2
     move v1, v2
 
@@ -272,7 +272,7 @@
     move-result-object v0
 
     .line 268
-    .local v0, myDrawableState:[I
+    .local v0, "myDrawableState":[I
     iget-object v1, p0, Landroid/widget/CheckedTextView;->mCheckMarkDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
@@ -281,7 +281,7 @@
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->invalidate()V
 
     .line 272
-    .end local v0           #myDrawableState:[I
+    .end local v0    # "myDrawableState":[I
     :cond_0
     return-void
 .end method
@@ -298,10 +298,10 @@
 
 .method protected internalSetPadding(IIII)V
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 178
@@ -332,7 +332,7 @@
 
 .method protected onCreateDrawableState(I)[I
     .locals 2
-    .parameter "extraSpace"
+    .param p1, "extraSpace"    # I
 
     .prologue
     .line 253
@@ -343,7 +343,7 @@
     move-result-object v0
 
     .line 254
-    .local v0, drawableState:[I
+    .local v0, "drawableState":[I
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->isChecked()Z
 
     move-result v1
@@ -362,7 +362,7 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 12
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 215
@@ -372,7 +372,7 @@
     iget-object v1, p0, Landroid/widget/CheckedTextView;->mCheckMarkDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 218
-    .local v1, checkMarkDrawable:Landroid/graphics/drawable/Drawable;
+    .local v1, "checkMarkDrawable":Landroid/graphics/drawable/Drawable;
     if-eqz v1, :cond_0
 
     .line 219
@@ -383,17 +383,17 @@
     and-int/lit8 v7, v10, 0x70
 
     .line 220
-    .local v7, verticalGravity:I
+    .local v7, "verticalGravity":I
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v2
 
     .line 222
-    .local v2, height:I
+    .local v2, "height":I
     const/4 v9, 0x0
 
     .line 224
-    .local v9, y:I
+    .local v9, "y":I
     sparse-switch v7, :sswitch_data_0
 
     .line 233
@@ -403,34 +403,34 @@
     move-result v3
 
     .line 234
-    .local v3, isLayoutRtl:Z
+    .local v3, "isLayoutRtl":Z
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getWidth()I
 
     move-result v8
 
     .line 235
-    .local v8, width:I
+    .local v8, "width":I
     move v6, v9
 
     .line 236
-    .local v6, top:I
+    .local v6, "top":I
     add-int v0, v6, v2
 
     .line 239
-    .local v0, bottom:I
+    .local v0, "bottom":I
     if-eqz v3, :cond_1
 
     .line 240
     iget v4, p0, Landroid/widget/CheckedTextView;->mBasePadding:I
 
     .line 241
-    .local v4, left:I
+    .local v4, "left":I
     iget v10, p0, Landroid/widget/CheckedTextView;->mCheckMarkWidth:I
 
     add-int v5, v4, v10
 
     .line 246
-    .local v5, right:I
+    .local v5, "right":I
     :goto_1
     iget v10, p0, Landroid/widget/CheckedTextView;->mScrollX:I
 
@@ -446,22 +446,22 @@
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 249
-    .end local v0           #bottom:I
-    .end local v2           #height:I
-    .end local v3           #isLayoutRtl:Z
-    .end local v4           #left:I
-    .end local v5           #right:I
-    .end local v6           #top:I
-    .end local v7           #verticalGravity:I
-    .end local v8           #width:I
-    .end local v9           #y:I
+    .end local v0    # "bottom":I
+    .end local v2    # "height":I
+    .end local v3    # "isLayoutRtl":Z
+    .end local v4    # "left":I
+    .end local v5    # "right":I
+    .end local v6    # "top":I
+    .end local v7    # "verticalGravity":I
+    .end local v8    # "width":I
+    .end local v9    # "y":I
     :cond_0
     return-void
 
     .line 226
-    .restart local v2       #height:I
-    .restart local v7       #verticalGravity:I
-    .restart local v9       #y:I
+    .restart local v2    # "height":I
+    .restart local v7    # "verticalGravity":I
+    .restart local v9    # "y":I
     :sswitch_0
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getHeight()I
 
@@ -485,22 +485,22 @@
     goto :goto_0
 
     .line 243
-    .restart local v0       #bottom:I
-    .restart local v3       #isLayoutRtl:Z
-    .restart local v6       #top:I
-    .restart local v8       #width:I
+    .restart local v0    # "bottom":I
+    .restart local v3    # "isLayoutRtl":Z
+    .restart local v6    # "top":I
+    .restart local v8    # "width":I
     :cond_1
     iget v10, p0, Landroid/widget/CheckedTextView;->mBasePadding:I
 
     sub-int v5, v8, v10
 
     .line 244
-    .restart local v5       #right:I
+    .restart local v5    # "right":I
     iget v10, p0, Landroid/widget/CheckedTextView;->mCheckMarkWidth:I
 
     sub-int v4, v5, v10
 
-    .restart local v4       #left:I
+    .restart local v4    # "left":I
     goto :goto_1
 
     .line 224
@@ -515,7 +515,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 276
@@ -541,7 +541,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 283
@@ -572,7 +572,7 @@
 
 .method public onRtlPropertiesChanged(I)V
     .locals 0
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 184
@@ -587,7 +587,7 @@
 
 .method public setCheckMarkDrawable(I)V
     .locals 3
-    .parameter "resid"
+    .param p1, "resid"    # I
 
     .prologue
     .line 114
@@ -609,7 +609,7 @@
     const/4 v0, 0x0
 
     .line 121
-    .local v0, d:Landroid/graphics/drawable/Drawable;
+    .local v0, "d":Landroid/graphics/drawable/Drawable;
     iget v1, p0, Landroid/widget/CheckedTextView;->mCheckMarkResource:I
 
     if-eqz v1, :cond_1
@@ -634,7 +634,7 @@
 
 .method public setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 4
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v1, 0x1
@@ -742,7 +742,7 @@
 
 .method public setChecked(Z)V
     .locals 1
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 93

@@ -23,9 +23,9 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;Ljava/util/concurrent/atomic/AtomicInteger;Landroid/content/Context;)V
     .locals 1
-    .parameter "handler"
-    .parameter "premiumSmsRule"
-    .parameter "context"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "premiumSmsRule"    # Ljava/util/concurrent/atomic/AtomicInteger;
+    .param p3, "context"    # Landroid/content/Context;
 
     .prologue
     .line 202
@@ -50,7 +50,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 210

@@ -38,12 +38,12 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
     .locals 5
-    .parameter "context"
-    .parameter "theme"
-    .parameter "callBack"
-    .parameter "hourOfDay"
-    .parameter "minute"
-    .parameter "is24HourView"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
+    .param p3, "callBack"    # Landroid/app/TimePickerDialog$OnTimeSetListener;
+    .param p4, "hourOfDay"    # I
+    .param p5, "minute"    # I
+    .param p6, "is24HourView"    # Z
 
     .prologue
     .line 89
@@ -67,7 +67,7 @@
     invoke-virtual {p0, v3}, Landroid/app/TimePickerDialog;->setIcon(I)V
 
     .line 96
-    const v3, 0x1040458
+    const v3, 0x1040459
 
     invoke-virtual {p0, v3}, Landroid/app/TimePickerDialog;->setTitle(I)V
 
@@ -77,10 +77,10 @@
     move-result-object v1
 
     .line 99
-    .local v1, themeContext:Landroid/content/Context;
+    .local v1, "themeContext":Landroid/content/Context;
     const/4 v3, -0x1
 
-    const v4, 0x104045b
+    const v4, 0x104045c
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -98,7 +98,7 @@
     check-cast v0, Landroid/view/LayoutInflater;
 
     .line 103
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v3, 0x10900b3
 
     const/4 v4, 0x0
@@ -108,7 +108,7 @@
     move-result-object v2
 
     .line 104
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     invoke-virtual {p0, v2}, Landroid/app/TimePickerDialog;->setView(Landroid/view/View;)V
 
     .line 105
@@ -166,11 +166,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
     .locals 7
-    .parameter "context"
-    .parameter "callBack"
-    .parameter "hourOfDay"
-    .parameter "minute"
-    .parameter "is24HourView"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "callBack"    # Landroid/app/TimePickerDialog$OnTimeSetListener;
+    .param p3, "hourOfDay"    # I
+    .param p4, "minute"    # I
+    .param p5, "is24HourView"    # Z
 
     .prologue
     .line 74
@@ -244,8 +244,8 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 115
@@ -257,7 +257,7 @@
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 4
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 152
@@ -271,7 +271,7 @@
     move-result v0
 
     .line 154
-    .local v0, hour:I
+    .local v0, "hour":I
     const-string v2, "minute"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -279,7 +279,7 @@
     move-result v1
 
     .line 155
-    .local v1, minute:I
+    .local v1, "minute":I
     iget-object v2, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
 
     const-string v3, "is24hour"
@@ -326,7 +326,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, state:Landroid/os/Bundle;
+    .local v0, "state":Landroid/os/Bundle;
     const-string v1, "hour"
 
     iget-object v2, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
@@ -387,9 +387,9 @@
 
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
     .locals 0
-    .parameter "view"
-    .parameter "hourOfDay"
-    .parameter "minute"
+    .param p1, "view"    # Landroid/widget/TimePicker;
+    .param p2, "hourOfDay"    # I
+    .param p3, "minute"    # I
 
     .prologue
     .line 125
@@ -398,8 +398,8 @@
 
 .method public updateTime(II)V
     .locals 2
-    .parameter "hourOfDay"
-    .parameter "minutOfHour"
+    .param p1, "hourOfDay"    # I
+    .param p2, "minutOfHour"    # I
 
     .prologue
     .line 119

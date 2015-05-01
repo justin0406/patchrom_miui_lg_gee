@@ -23,9 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/PrintManagerService;Landroid/os/Handler;Landroid/net/Uri;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 383
@@ -42,8 +40,8 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 386
@@ -58,7 +56,7 @@
     .line 387
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$2;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/server/print/PrintManagerService;->access$000(Lcom/android/server/print/PrintManagerService;)Ljava/lang/Object;
 
     move-result-object v2
@@ -69,20 +67,20 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$2;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #calls: Lcom/android/server/print/PrintManagerService;->getCurrentUserStateLocked()Lcom/android/server/print/UserState;
+    # invokes: Lcom/android/server/print/PrintManagerService;->getCurrentUserStateLocked()Lcom/android/server/print/UserState;
     invoke-static {v1}, Lcom/android/server/print/PrintManagerService;->access$100(Lcom/android/server/print/PrintManagerService;)Lcom/android/server/print/UserState;
 
     move-result-object v0
 
     .line 389
-    .local v0, userState:Lcom/android/server/print/UserState;
+    .local v0, "userState":Lcom/android/server/print/UserState;
     invoke-virtual {v0}, Lcom/android/server/print/UserState;->updateIfNeededLocked()V
 
     .line 390
     monitor-exit v2
 
     .line 392
-    .end local v0           #userState:Lcom/android/server/print/UserState;
+    .end local v0    # "userState":Lcom/android/server/print/UserState;
     :cond_0
     return-void
 

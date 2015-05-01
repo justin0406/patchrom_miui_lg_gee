@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 437
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 3
-    .parameter "state"
-    .parameter "incomingNumber"
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x1
@@ -46,6 +45,7 @@
     if-ne p1, v0, :cond_1
 
     .line 442
+    # getter for: Landroid/media/MediaFocusControl;->mRingingLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/MediaFocusControl;->access$2300()Ljava/lang/Object;
 
     move-result-object v1
@@ -58,7 +58,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Landroid/media/MediaFocusControl;->mIsRinging:Z
+    # setter for: Landroid/media/MediaFocusControl;->mIsRinging:Z
     invoke-static {v0, v2}, Landroid/media/MediaFocusControl;->access$2402(Landroid/media/MediaFocusControl;Z)Z
 
     .line 444
@@ -89,6 +89,7 @@
 
     .line 447
     :cond_2
+    # getter for: Landroid/media/MediaFocusControl;->mRingingLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/MediaFocusControl;->access$2300()Ljava/lang/Object;
 
     move-result-object v1
@@ -101,7 +102,7 @@
 
     const/4 v2, 0x0
 
-    #setter for: Landroid/media/MediaFocusControl;->mIsRinging:Z
+    # setter for: Landroid/media/MediaFocusControl;->mIsRinging:Z
     invoke-static {v0, v2}, Landroid/media/MediaFocusControl;->access$2402(Landroid/media/MediaFocusControl;Z)Z
 
     .line 449

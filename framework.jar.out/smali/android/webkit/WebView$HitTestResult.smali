@@ -89,7 +89,7 @@
 
 .method public setExtra(Ljava/lang/String;)V
     .locals 0
-    .parameter "extra"
+    .param p1, "extra"    # Ljava/lang/String;
 
     .prologue
     .line 403
@@ -101,7 +101,7 @@
 
 .method public setType(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 396

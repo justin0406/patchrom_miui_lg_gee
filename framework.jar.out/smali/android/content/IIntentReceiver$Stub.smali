@@ -48,7 +48,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/IIntentReceiver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 30
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 34
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/IIntentReceiver;
@@ -86,7 +86,7 @@
     :cond_1
     new-instance v0, Landroid/content/IIntentReceiver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/IIntentReceiver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -104,10 +104,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 10
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -161,20 +161,20 @@
     check-cast v1, Landroid/content/Intent;
 
     .line 63
-    .local v1, _arg0:Landroid/content/Intent;
+    .local v1, "_arg0":Landroid/content/Intent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 65
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 67
-    .local v3, _arg2:Ljava/lang/String;
+    .local v3, "_arg2":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
@@ -191,7 +191,7 @@
     check-cast v4, Landroid/os/Bundle;
 
     .line 74
-    .local v4, _arg3:Landroid/os/Bundle;
+    .local v4, "_arg3":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -202,7 +202,7 @@
     move v5, v8
 
     .line 76
-    .local v5, _arg4:Z
+    .local v5, "_arg4":Z
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -213,13 +213,13 @@
     move v6, v8
 
     .line 78
-    .local v6, _arg5:Z
+    .local v6, "_arg5":Z
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
-    .local v7, _arg6:I
+    .local v7, "_arg6":I
     move-object v0, p0
 
     .line 79
@@ -228,26 +228,26 @@
     goto :goto_0
 
     .line 60
-    .end local v1           #_arg0:Landroid/content/Intent;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:Ljava/lang/String;
-    .end local v4           #_arg3:Landroid/os/Bundle;
-    .end local v5           #_arg4:Z
-    .end local v6           #_arg5:Z
-    .end local v7           #_arg6:I
+    .end local v1    # "_arg0":Landroid/content/Intent;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":Ljava/lang/String;
+    .end local v4    # "_arg3":Landroid/os/Bundle;
+    .end local v5    # "_arg4":Z
+    .end local v6    # "_arg5":Z
+    .end local v7    # "_arg6":I
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/content/Intent;
+    .restart local v1    # "_arg0":Landroid/content/Intent;
     goto :goto_1
 
     .line 71
-    .restart local v2       #_arg1:I
-    .restart local v3       #_arg2:Ljava/lang/String;
+    .restart local v2    # "_arg1":I
+    .restart local v3    # "_arg2":Ljava/lang/String;
     :cond_1
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/Bundle;
+    .restart local v4    # "_arg3":Landroid/os/Bundle;
     goto :goto_2
 
     :cond_2
@@ -256,7 +256,7 @@
     .line 74
     goto :goto_3
 
-    .restart local v5       #_arg4:Z
+    .restart local v5    # "_arg4":Z
     :cond_3
     move v6, v0
 

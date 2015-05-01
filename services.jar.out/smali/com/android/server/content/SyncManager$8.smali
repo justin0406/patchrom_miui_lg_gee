@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 385
@@ -39,11 +38,11 @@
 # virtual methods
 .method public onSyncRequest(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;)V
     .locals 11
-    .parameter "account"
-    .parameter "userId"
-    .parameter "reason"
-    .parameter "authority"
-    .parameter "extras"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
+    .param p3, "reason"    # I
+    .param p4, "authority"    # Ljava/lang/String;
+    .param p5, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 389

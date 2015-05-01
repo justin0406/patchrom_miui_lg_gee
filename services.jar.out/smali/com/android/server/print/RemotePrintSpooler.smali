@@ -60,9 +60,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILcom/android/server/print/RemotePrintSpooler$PrintSpoolerCallbacks;)V
     .locals 4
-    .parameter "context"
-    .parameter "userId"
-    .parameter "callbacks"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "userId"    # I
+    .param p3, "callbacks"    # Lcom/android/server/print/RemotePrintSpooler$PrintSpoolerCallbacks;
 
     .prologue
     .line 95
@@ -158,7 +158,7 @@
 
 .method static synthetic access$100(Lcom/android/server/print/RemotePrintSpooler;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
 
     .prologue
     .line 52
@@ -169,8 +169,8 @@
 
 .method static synthetic access$202(Lcom/android/server/print/RemotePrintSpooler;Landroid/print/IPrintSpooler;)Landroid/print/IPrintSpooler;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
+    .param p1, "x1"    # Landroid/print/IPrintSpooler;
 
     .prologue
     .line 52
@@ -181,7 +181,7 @@
 
 .method static synthetic access$300(Lcom/android/server/print/RemotePrintSpooler;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
 
     .prologue
     .line 52
@@ -192,7 +192,7 @@
 
 .method static synthetic access$400(Lcom/android/server/print/RemotePrintSpooler;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
 
     .prologue
     .line 52
@@ -203,7 +203,7 @@
 
 .method static synthetic access$600(Lcom/android/server/print/RemotePrintSpooler;)Lcom/android/server/print/RemotePrintSpooler$PrintSpoolerCallbacks;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
 
     .prologue
     .line 52
@@ -214,7 +214,7 @@
 
 .method static synthetic access$700(Lcom/android/server/print/RemotePrintSpooler;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
 
     .prologue
     .line 52
@@ -225,8 +225,8 @@
 
 .method static synthetic access$800(Lcom/android/server/print/RemotePrintSpooler;Landroid/print/PrintJobInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintSpooler;
+    .param p1, "x1"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 52
@@ -273,7 +273,7 @@
     move-result-wide v4
 
     .line 370
-    .local v4, startMillis:J
+    .local v4, "startMillis":J
     :goto_1
     iget-object v6, p0, Lcom/android/server/print/RemotePrintSpooler;->mRemoteInstance:Landroid/print/IPrintSpooler;
 
@@ -298,13 +298,13 @@
     sub-long v0, v6, v4
 
     .line 374
-    .local v0, elapsedMillis:J
+    .local v0, "elapsedMillis":J
     const-wide/16 v6, 0x2710
 
     sub-long v2, v6, v0
 
     .line 375
-    .local v2, remainingMillis:J
+    .local v2, "remainingMillis":J
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
@@ -361,7 +361,7 @@
     move-exception v0
 
     .line 424
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintSpooler"
 
     const-string v2, "Error clearing print spooler client"
@@ -457,7 +457,7 @@
 
 .method private onPrintJobStateChanged(Landroid/print/PrintJobInfo;)V
     .locals 1
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 344
@@ -492,7 +492,7 @@
     move-exception v0
 
     .line 416
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintSpooler"
 
     const-string v2, "Error setting print spooler client"
@@ -617,7 +617,7 @@
 # virtual methods
 .method public final createPrintJob(Landroid/print/PrintJobInfo;)V
     .locals 5
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 132
@@ -650,9 +650,9 @@
 
     invoke-interface {v2, p1}, Landroid/print/IPrintSpooler;->createPrintJob(Landroid/print/PrintJobInfo;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 147
     iget-object v3, p0, Lcom/android/server/print/RemotePrintSpooler;->mLock:Ljava/lang/Object;
@@ -695,7 +695,7 @@
     move-exception v0
 
     .line 140
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -736,12 +736,12 @@
     throw v2
 
     .line 141
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 142
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -782,7 +782,7 @@
     throw v2
 
     .line 144
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 
@@ -880,9 +880,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 4
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 318
@@ -963,9 +963,9 @@
 
     invoke-interface {v0, p1, v2}, Landroid/os/IBinder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 333
     :goto_1
@@ -1006,8 +1006,8 @@
 
 .method public final getPrintJobInfo(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
     .locals 5
-    .parameter "printJobId"
-    .parameter "appId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "appId"    # I
 
     .prologue
     .line 181
@@ -1042,9 +1042,9 @@
 
     invoke-virtual {v2, v3, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;->getPrintJobInfo(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     move-result-object v2
 
@@ -1089,7 +1089,7 @@
     move-exception v0
 
     .line 190
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -1121,7 +1121,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_4
 
     .line 202
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :goto_1
     const/4 v2, 0x0
 
@@ -1132,7 +1132,7 @@
     move-exception v1
 
     .line 192
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -1173,7 +1173,7 @@
     throw v2
 
     .line 194
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_2
     move-exception v2
 
@@ -1212,7 +1212,7 @@
 
     throw v2
 
-    .restart local v0       #re:Landroid/os/RemoteException;
+    .restart local v0    # "re":Landroid/os/RemoteException;
     :catchall_4
     move-exception v2
 
@@ -1223,7 +1223,7 @@
 
     throw v2
 
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catchall_5
     move-exception v2
 
@@ -1237,9 +1237,9 @@
 
 .method public final getPrintJobInfos(Landroid/content/ComponentName;II)Ljava/util/List;
     .locals 5
-    .parameter "componentName"
-    .parameter "state"
-    .parameter "appId"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .param p2, "state"    # I
+    .param p3, "appId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1285,9 +1285,9 @@
 
     invoke-virtual {v2, v3, p1, p2, p3}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->getPrintJobInfos(Landroid/print/IPrintSpooler;Landroid/content/ComponentName;II)Ljava/util/List;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     move-result-object v2
 
@@ -1332,7 +1332,7 @@
     move-exception v0
 
     .line 116
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -1364,7 +1364,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_4
 
     .line 128
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :goto_1
     const/4 v2, 0x0
 
@@ -1375,7 +1375,7 @@
     move-exception v1
 
     .line 118
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -1416,7 +1416,7 @@
     throw v2
 
     .line 120
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_2
     move-exception v2
 
@@ -1455,7 +1455,7 @@
 
     throw v2
 
-    .restart local v0       #re:Landroid/os/RemoteException;
+    .restart local v0    # "re":Landroid/os/RemoteException;
     :catchall_4
     move-exception v2
 
@@ -1466,7 +1466,7 @@
 
     throw v2
 
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catchall_5
     move-exception v2
 
@@ -1512,9 +1512,9 @@
 
     invoke-interface {v2}, Landroid/print/IPrintSpooler;->removeObsoletePrintJobs()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 297
     iget-object v3, p0, Lcom/android/server/print/RemotePrintSpooler;->mLock:Ljava/lang/Object;
@@ -1557,7 +1557,7 @@
     move-exception v0
 
     .line 289
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -1598,12 +1598,12 @@
     throw v2
 
     .line 290
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 291
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -1644,7 +1644,7 @@
     throw v2
 
     .line 293
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 
@@ -1696,8 +1696,8 @@
 
 .method public final setPrintJobCancelling(Landroid/print/PrintJobId;Z)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "cancelling"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "cancelling"    # Z
 
     .prologue
     .line 256
@@ -1730,9 +1730,9 @@
 
     invoke-interface {v2, p1, p2}, Landroid/print/IPrintSpooler;->setPrintJobCancelling(Landroid/print/PrintJobId;Z)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 273
     iget-object v3, p0, Lcom/android/server/print/RemotePrintSpooler;->mLock:Ljava/lang/Object;
@@ -1775,7 +1775,7 @@
     move-exception v0
 
     .line 265
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -1816,12 +1816,12 @@
     throw v2
 
     .line 266
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 267
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -1862,7 +1862,7 @@
     throw v2
 
     .line 269
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 
@@ -1914,9 +1914,9 @@
 
 .method public final setPrintJobState(Landroid/print/PrintJobId;ILjava/lang/String;)Z
     .locals 5
-    .parameter "printJobId"
-    .parameter "state"
-    .parameter "error"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "state"    # I
+    .param p3, "error"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -1953,9 +1953,9 @@
 
     invoke-virtual {v3, v4, p1, p2, p3}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->setPrintJobState(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;ILjava/lang/String;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     move-result v2
 
@@ -2000,7 +2000,7 @@
     move-exception v0
 
     .line 215
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v3, "RemotePrintSpooler"
 
@@ -2041,12 +2041,12 @@
     throw v2
 
     .line 216
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 217
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v3, "RemotePrintSpooler"
 
@@ -2087,7 +2087,7 @@
     throw v2
 
     .line 219
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 
@@ -2139,8 +2139,8 @@
 
 .method public final setPrintJobTag(Landroid/print/PrintJobId;Ljava/lang/String;)Z
     .locals 5
-    .parameter "printJobId"
-    .parameter "tag"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -2177,9 +2177,9 @@
 
     invoke-virtual {v3, v4, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobTagCaller;->setPrintJobTag(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;Ljava/lang/String;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     move-result v2
 
@@ -2224,7 +2224,7 @@
     move-exception v0
 
     .line 240
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v3, "RemotePrintSpooler"
 
@@ -2265,12 +2265,12 @@
     throw v2
 
     .line 241
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 242
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v3, "RemotePrintSpooler"
 
@@ -2311,7 +2311,7 @@
     throw v2
 
     .line 244
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 
@@ -2363,8 +2363,8 @@
 
 .method public final writePrintJobData(Landroid/os/ParcelFileDescriptor;Landroid/print/PrintJobId;)V
     .locals 5
-    .parameter "fd"
-    .parameter "printJobId"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 155
@@ -2397,9 +2397,9 @@
 
     invoke-interface {v2, p1, p2}, Landroid/print/IPrintSpooler;->writePrintJobData(Landroid/os/ParcelFileDescriptor;Landroid/print/PrintJobId;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 172
     invoke-static {p1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
@@ -2445,7 +2445,7 @@
     move-exception v0
 
     .line 163
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     :try_start_4
     const-string v2, "RemotePrintSpooler"
 
@@ -2489,12 +2489,12 @@
     throw v2
 
     .line 164
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 165
-    .local v1, te:Ljava/util/concurrent/TimeoutException;
+    .local v1, "te":Ljava/util/concurrent/TimeoutException;
     :try_start_6
     const-string v2, "RemotePrintSpooler"
 
@@ -2538,7 +2538,7 @@
     throw v2
 
     .line 167
-    .end local v1           #te:Ljava/util/concurrent/TimeoutException;
+    .end local v1    # "te":Ljava/util/concurrent/TimeoutException;
     :catchall_3
     move-exception v2
 

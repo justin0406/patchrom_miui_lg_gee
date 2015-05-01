@@ -35,13 +35,12 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IZIILandroid/graphics/PorterDuff$Mode;I)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "targetBackground"
-    .parameter "alpha"
-    .parameter "colorFilter"
-    .parameter "mode"
-    .parameter "level"
+    .param p2, "id"    # I
+    .param p3, "targetBackground"    # Z
+    .param p4, "alpha"    # I
+    .param p5, "colorFilter"    # I
+    .param p6, "mode"    # Landroid/graphics/PorterDuff$Mode;
+    .param p7, "level"    # I
 
     .prologue
     .line 814
@@ -75,8 +74,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 5
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v4, 0x0
@@ -133,7 +131,7 @@
     move v0, v2
 
     .line 829
-    .local v0, hasMode:Z
+    .local v0, "hasMode":Z
     :goto_1
     if-eqz v0, :cond_2
 
@@ -159,7 +157,7 @@
     .line 835
     return-void
 
-    .end local v0           #hasMode:Z
+    .end local v0    # "hasMode":Z
     :cond_0
     move v1, v3
 
@@ -173,7 +171,7 @@
     goto :goto_1
 
     .line 832
-    .restart local v0       #hasMode:Z
+    .restart local v0    # "hasMode":Z
     :cond_2
     iput-object v4, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->filterMode:Landroid/graphics/PorterDuff$Mode;
 
@@ -184,9 +182,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     const/4 v5, -0x1
@@ -199,7 +197,7 @@
     move-result-object v1
 
     .line 855
-    .local v1, target:Landroid/view/View;
+    .local v1, "target":Landroid/view/View;
     if-nez v1, :cond_1
 
     .line 878
@@ -212,7 +210,7 @@
     const/4 v2, 0x0
 
     .line 859
-    .local v2, targetDrawable:Landroid/graphics/drawable/Drawable;
+    .local v2, "targetDrawable":Landroid/graphics/drawable/Drawable;
     iget-boolean v3, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->targetBackground:Z
 
     if-eqz v3, :cond_5
@@ -279,7 +277,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 863
-    .local v0, imageView:Landroid/widget/ImageView;
+    .local v0, "imageView":Landroid/widget/ImageView;
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
@@ -299,8 +297,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

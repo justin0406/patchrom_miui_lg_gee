@@ -25,10 +25,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/internal/os/HandlerCaller$Callback;Z)V
     .locals 2
-    .parameter "context"
-    .parameter "looper"
-    .parameter "callback"
-    .parameter "asyncHandler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "callback"    # Lcom/android/internal/os/HandlerCaller$Callback;
+    .param p4, "asyncHandler"    # Z
 
     .prologue
     .line 49
@@ -40,7 +40,7 @@
     .line 51
     if-eqz p2, :cond_0
 
-    .end local p2
+    .end local p2    # "looper":Landroid/os/Looper;
     :goto_0
     iput-object p2, p0, Lcom/android/internal/os/HandlerCaller;->mMainLooper:Landroid/os/Looper;
 
@@ -60,7 +60,7 @@
     return-void
 
     .line 51
-    .restart local p2
+    .restart local p2    # "looper":Landroid/os/Looper;
     :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
 
@@ -73,7 +73,7 @@
 # virtual methods
 .method public executeOrSendMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 60
@@ -108,7 +108,7 @@
 
 .method public hasMessages(I)Z
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 74
@@ -123,7 +123,7 @@
 
 .method public obtainMessage(I)Landroid/os/Message;
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 90
@@ -138,9 +138,9 @@
 
 .method public obtainMessageBO(IZLjava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Z
+    .param p3, "arg2"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -167,10 +167,10 @@
 
 .method public obtainMessageBOO(IZLjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 4
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Z
+    .param p3, "arg2"    # Ljava/lang/Object;
+    .param p4, "arg3"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -181,7 +181,7 @@
     move-result-object v0
 
     .line 99
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 100
@@ -209,8 +209,8 @@
 
 .method public obtainMessageI(II)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
 
     .prologue
     .line 109
@@ -227,9 +227,9 @@
 
 .method public obtainMessageII(III)Landroid/os/Message;
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 113
@@ -244,11 +244,11 @@
 
 .method public obtainMessageIIII(IIIII)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
-    .parameter "arg4"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "arg3"    # I
+    .param p5, "arg4"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -259,7 +259,7 @@
     move-result-object v0
 
     .line 167
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput p2, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     .line 168
@@ -283,13 +283,13 @@
 
 .method public obtainMessageIIIIII(IIIIIII)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
-    .parameter "arg4"
-    .parameter "arg5"
-    .parameter "arg6"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "arg3"    # I
+    .param p5, "arg4"    # I
+    .param p6, "arg5"    # I
+    .param p7, "arg6"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -300,7 +300,7 @@
     move-result-object v0
 
     .line 177
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput p2, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     .line 178
@@ -330,12 +330,12 @@
 
 .method public obtainMessageIIIIO(IIIIILjava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
-    .parameter "arg4"
-    .parameter "arg5"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "arg3"    # I
+    .param p5, "arg4"    # I
+    .param p6, "arg5"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -346,7 +346,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 190
@@ -373,10 +373,10 @@
 
 .method public obtainMessageIIO(IIILjava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "arg3"    # Ljava/lang/Object;
 
     .prologue
     .line 121
@@ -391,11 +391,11 @@
 
 .method public obtainMessageIIOO(IIILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
-    .parameter "arg4"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "arg3"    # Ljava/lang/Object;
+    .param p5, "arg4"    # Ljava/lang/Object;
 
     .prologue
     .line 126
@@ -404,7 +404,7 @@
     move-result-object v0
 
     .line 127
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 128
@@ -422,9 +422,9 @@
 
 .method public obtainMessageIO(IILjava/lang/Object;)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # Ljava/lang/Object;
 
     .prologue
     .line 117
@@ -441,10 +441,10 @@
 
 .method public obtainMessageIOO(IILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # Ljava/lang/Object;
+    .param p4, "arg3"    # Ljava/lang/Object;
 
     .prologue
     .line 133
@@ -453,7 +453,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 135
@@ -473,8 +473,8 @@
 
 .method public obtainMessageO(ILjava/lang/Object;)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -491,9 +491,9 @@
 
 .method public obtainMessageOO(ILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Ljava/lang/Object;
+    .param p3, "arg2"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -504,7 +504,7 @@
     move-result-object v0
 
     .line 141
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 142
@@ -522,10 +522,10 @@
 
 .method public obtainMessageOOO(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Ljava/lang/Object;
+    .param p3, "arg2"    # Ljava/lang/Object;
+    .param p4, "arg3"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -536,7 +536,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 149
@@ -557,11 +557,11 @@
 
 .method public obtainMessageOOOO(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
     .locals 3
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "arg3"
-    .parameter "arg4"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # Ljava/lang/Object;
+    .param p3, "arg2"    # Ljava/lang/Object;
+    .param p4, "arg3"    # Ljava/lang/Object;
+    .param p5, "arg4"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -572,7 +572,7 @@
     move-result-object v0
 
     .line 157
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 158
@@ -596,7 +596,7 @@
 
 .method public removeMessages(I)V
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 78
@@ -610,8 +610,8 @@
 
 .method public removeMessages(ILjava/lang/Object;)V
     .locals 1
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 82
@@ -625,7 +625,7 @@
 
 .method public sendMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 86
@@ -639,8 +639,8 @@
 
 .method public sendMessageDelayed(Landroid/os/Message;J)V
     .locals 1
-    .parameter "msg"
-    .parameter "delayMillis"
+    .param p1, "msg"    # Landroid/os/Message;
+    .param p2, "delayMillis"    # J
 
     .prologue
     .line 70

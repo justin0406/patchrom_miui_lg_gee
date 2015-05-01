@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 360
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
     .locals 2
-    .parameter "detector"
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
     .prologue
     .line 363
@@ -46,6 +45,7 @@
 
     move-result v1
 
+    # *= operator for: Lcom/android/server/display/OverlayDisplayWindow;->mLiveScale:F
     invoke-static {v0, v1}, Lcom/android/server/display/OverlayDisplayWindow;->access$932(Lcom/android/server/display/OverlayDisplayWindow;F)F
 
     .line 364

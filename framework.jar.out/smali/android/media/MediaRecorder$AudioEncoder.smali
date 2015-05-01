@@ -35,7 +35,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/MediaRecorder;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 284

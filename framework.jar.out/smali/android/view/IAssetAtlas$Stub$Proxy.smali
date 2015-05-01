@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 92
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 136
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IAssetAtlas"
 
@@ -107,7 +107,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
-    .local v2, _result:Landroid/view/GraphicBuffer;
+    .local v2, "_result":Landroid/view/GraphicBuffer;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -118,15 +118,15 @@
     return-object v2
 
     .line 143
-    .end local v2           #_result:Landroid/view/GraphicBuffer;
+    .end local v2    # "_result":Landroid/view/GraphicBuffer;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/view/GraphicBuffer;
+    .restart local v2    # "_result":Landroid/view/GraphicBuffer;
     goto :goto_0
 
     .line 147
-    .end local v2           #_result:Landroid/view/GraphicBuffer;
+    .end local v2    # "_result":Landroid/view/GraphicBuffer;
     :catchall_0
     move-exception v3
 
@@ -163,13 +163,13 @@
     move-result-object v0
 
     .line 165
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 168
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IAssetAtlas"
 
@@ -195,7 +195,7 @@
     move-result-object v2
 
     .line 174
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 175
@@ -205,7 +205,7 @@
     return-object v2
 
     .line 174
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -219,7 +219,7 @@
 
 .method public isCompatible(I)Z
     .locals 7
-    .parameter "ppid"
+    .param p1, "ppid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -237,13 +237,13 @@
     move-result-object v0
 
     .line 111
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 114
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IAssetAtlas"
 
@@ -274,7 +274,7 @@
     if-eqz v4, :cond_0
 
     .line 121
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -284,7 +284,7 @@
     .line 124
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 

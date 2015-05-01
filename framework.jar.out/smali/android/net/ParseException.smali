@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Ljava/lang/String;
 
     .prologue
     .line 26

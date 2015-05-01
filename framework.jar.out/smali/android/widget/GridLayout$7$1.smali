@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/GridLayout$7;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 2730
@@ -40,11 +39,11 @@
 # virtual methods
 .method protected getOffset(Landroid/widget/GridLayout;Landroid/view/View;Landroid/widget/GridLayout$Alignment;IZ)I
     .locals 2
-    .parameter "gl"
-    .parameter "c"
-    .parameter "a"
-    .parameter "size"
-    .parameter "hrz"
+    .param p1, "gl"    # Landroid/widget/GridLayout;
+    .param p2, "c"    # Landroid/view/View;
+    .param p3, "a"    # Landroid/widget/GridLayout$Alignment;
+    .param p4, "size"    # I
+    .param p5, "hrz"    # Z
 
     .prologue
     .line 2758
@@ -63,8 +62,8 @@
 
 .method protected include(II)V
     .locals 2
-    .parameter "before"
-    .parameter "after"
+    .param p1, "before"    # I
+    .param p2, "after"    # I
 
     .prologue
     .line 2747
@@ -93,7 +92,7 @@
     invoke-super {p0}, Landroid/widget/GridLayout$Bounds;->reset()V
 
     .line 2742
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     iput v0, p0, Landroid/widget/GridLayout$7$1;->size:I
 
@@ -103,7 +102,7 @@
 
 .method protected size(Z)I
     .locals 2
-    .parameter "min"
+    .param p1, "min"    # Z
 
     .prologue
     .line 2753

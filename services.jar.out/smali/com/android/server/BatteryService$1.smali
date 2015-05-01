@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 248
@@ -56,7 +55,7 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 253
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "android.intent.extra.KEY_CONFIRM"
 
     const/4 v2, 0x0
@@ -64,14 +63,14 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 254
-    const/high16 v1, 0x1000
+    const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     .line 255
     iget-object v1, p0, Lcom/android/server/BatteryService$1;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/BatteryService;->access$100(Lcom/android/server/BatteryService;)Landroid/content/Context;
 
     move-result-object v1
@@ -81,7 +80,7 @@
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     .line 257
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     return-void
 .end method

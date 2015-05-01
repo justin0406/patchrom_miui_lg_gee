@@ -36,7 +36,7 @@
 
 .method public constructor <init>(Landroid/net/LinkSocketNotifier;)V
     .locals 1
-    .parameter "notifier"
+    .param p1, "notifier"    # Landroid/net/LinkSocketNotifier;
 
     .prologue
     .line 49
@@ -53,8 +53,8 @@
 
 .method public constructor <init>(Landroid/net/LinkSocketNotifier;Landroid/net/Proxy;)V
     .locals 1
-    .parameter "notifier"
-    .parameter "proxy"
+    .param p1, "notifier"    # Landroid/net/LinkSocketNotifier;
+    .param p2, "proxy"    # Landroid/net/Proxy;
 
     .prologue
     .line 61
@@ -71,7 +71,7 @@
 
 .method protected static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 274
@@ -87,7 +87,7 @@
 # virtual methods
 .method public bind(Ljava/net/SocketAddress;)V
     .locals 2
-    .parameter "localAddr"
+    .param p1, "localAddr"    # Ljava/net/SocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/UnsupportedOperationException;
@@ -166,7 +166,7 @@
 
 .method public connect(I)V
     .locals 1
-    .parameter "timeout"
+    .param p1, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -185,8 +185,8 @@
 
 .method public connect(Ljava/lang/String;I)V
     .locals 1
-    .parameter "dstName"
-    .parameter "dstPort"
+    .param p1, "dstName"    # Ljava/lang/String;
+    .param p2, "dstPort"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;,
@@ -206,9 +206,9 @@
 
 .method public connect(Ljava/lang/String;II)V
     .locals 1
-    .parameter "dstName"
-    .parameter "dstPort"
-    .parameter "timeout"
+    .param p1, "dstName"    # Ljava/lang/String;
+    .param p2, "dstPort"    # I
+    .param p3, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;,
@@ -229,7 +229,7 @@
 
 .method public connect(Ljava/net/SocketAddress;)V
     .locals 1
-    .parameter "remoteAddr"
+    .param p1, "remoteAddr"    # Ljava/net/SocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -251,8 +251,8 @@
 
 .method public connect(Ljava/net/SocketAddress;I)V
     .locals 1
-    .parameter "remoteAddr"
-    .parameter "timeout"
+    .param p1, "remoteAddr"    # Ljava/net/SocketAddress;
+    .param p2, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -290,7 +290,6 @@
 
 .method public getCapabilities(Ljava/util/Set;)Landroid/net/LinkCapabilities;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -304,7 +303,7 @@
 
     .prologue
     .line 111
-    .local p1, capabilities:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Integer;>;"
+    .local p1, "capabilities":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
     const-string v0, "getCapabilities(capabilities) EX"
 
     invoke-static {v0}, Landroid/net/LinkSocket;->log(Ljava/lang/String;)V
@@ -377,7 +376,7 @@
 
 .method public requestNewLink(Landroid/net/LinkSocket$LinkRequestReason;)V
     .locals 1
-    .parameter "linkRequestReason"
+    .param p1, "linkRequestReason"    # Landroid/net/LinkSocket$LinkRequestReason;
 
     .prologue
     .line 239
@@ -391,7 +390,7 @@
 
 .method public setNeededCapabilities(Landroid/net/LinkCapabilities;)Z
     .locals 1
-    .parameter "needs"
+    .param p1, "needs"    # Landroid/net/LinkCapabilities;
 
     .prologue
     .line 82
@@ -407,7 +406,6 @@
 
 .method public setTrackedCapabilities(Ljava/util/Set;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -420,7 +418,7 @@
 
     .prologue
     .line 121
-    .local p1, capabilities:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/Integer;>;"
+    .local p1, "capabilities":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
     const-string/jumbo v0, "setTrackedCapabilities(capabilities) EX"
 
     invoke-static {v0}, Landroid/net/LinkSocket;->log(Ljava/lang/String;)V

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 170
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 173
@@ -52,7 +51,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
-    #calls: Landroid/widget/ZoomButtonsController;->onPostConfigurationChanged()V
+    # invokes: Landroid/widget/ZoomButtonsController;->onPostConfigurationChanged()V
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$200(Landroid/widget/ZoomButtonsController;)V
 
     goto :goto_0
@@ -71,7 +70,7 @@
     :pswitch_2
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
-    #getter for: Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
+    # getter for: Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$300(Landroid/widget/ZoomButtonsController;)Landroid/view/View;
 
     move-result-object v0

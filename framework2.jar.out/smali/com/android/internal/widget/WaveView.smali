@@ -131,7 +131,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 107
@@ -145,8 +145,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/16 v3, 0x14
@@ -176,7 +176,7 @@
     iput-boolean v2, p0, Lcom/android/internal/widget/WaveView;->mFingerDown:Z
 
     .line 89
-    const/high16 v0, 0x4336
+    const/high16 v0, 0x43360000    # 182.0f
 
     iput v0, p0, Lcom/android/internal/widget/WaveView;->mRingRadius:F
 
@@ -225,7 +225,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/widget/WaveView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -236,8 +236,8 @@
 
 .method static synthetic access$002(Lcom/android/internal/widget/WaveView;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
+    .param p1, "x1"    # I
 
     .prologue
     .line 45
@@ -248,7 +248,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/widget/WaveView;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -259,7 +259,7 @@
 
 .method static synthetic access$1000(Lcom/android/internal/widget/WaveView;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -270,8 +270,8 @@
 
 .method static synthetic access$1102(Lcom/android/internal/widget/WaveView;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 45
@@ -282,7 +282,7 @@
 
 .method static synthetic access$1200(Lcom/android/internal/widget/WaveView;)Ljava/lang/Runnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -293,7 +293,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/widget/WaveView;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -304,7 +304,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/widget/WaveView;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -315,7 +315,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/widget/WaveView;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -326,7 +326,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/widget/WaveView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -337,7 +337,7 @@
 
 .method static synthetic access$600(Lcom/android/internal/widget/WaveView;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -348,8 +348,8 @@
 
 .method static synthetic access$602(Lcom/android/internal/widget/WaveView;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
+    .param p1, "x1"    # J
 
     .prologue
     .line 45
@@ -360,8 +360,8 @@
 
 .method static synthetic access$614(Lcom/android/internal/widget/WaveView;J)J
     .locals 2
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
+    .param p1, "x1"    # J
 
     .prologue
     .line 45
@@ -376,7 +376,7 @@
 
 .method static synthetic access$700(Lcom/android/internal/widget/WaveView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -387,8 +387,8 @@
 
 .method static synthetic access$702(Lcom/android/internal/widget/WaveView;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
+    .param p1, "x1"    # I
 
     .prologue
     .line 45
@@ -399,7 +399,7 @@
 
 .method static synthetic access$800(Lcom/android/internal/widget/WaveView;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -410,7 +410,7 @@
 
 .method static synthetic access$900(Lcom/android/internal/widget/WaveView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/WaveView;
 
     .prologue
     .line 45
@@ -426,7 +426,7 @@
     .line 569
     iget-object v0, p0, Lcom/android/internal/widget/WaveView;->mContext:Landroid/content/Context;
 
-    const v1, 0x104050e
+    const v1, 0x104050f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
 .method private dispatchTriggerEvent(I)V
     .locals 2
-    .parameter "whichHandle"
+    .param p1, "whichHandle"    # I
 
     .prologue
     .line 604
@@ -491,7 +491,7 @@
     if-eqz v0, :cond_0
 
     .line 559
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iget-object v1, p0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
@@ -508,7 +508,7 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3f00
+    const/high16 v0, 0x3f000000    # 0.5f
 
     iget-object v1, p0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
@@ -529,7 +529,7 @@
     .prologue
     const/4 v6, 0x0
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     .line 168
     new-instance v3, Lcom/android/internal/widget/DrawableHolder;
@@ -686,10 +686,10 @@
     move-result-object v2
 
     .line 193
-    .local v2, wave:Landroid/graphics/drawable/BitmapDrawable;
+    .local v2, "wave":Landroid/graphics/drawable/BitmapDrawable;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Lcom/android/internal/widget/WaveView;->mWaveCount:I
 
@@ -701,7 +701,7 @@
     invoke-direct {v0, v2}, Lcom/android/internal/widget/DrawableHolder;-><init>(Landroid/graphics/drawable/BitmapDrawable;)V
 
     .line 195
-    .local v0, holder:Lcom/android/internal/widget/DrawableHolder;
+    .local v0, "holder":Lcom/android/internal/widget/DrawableHolder;
     iget-object v3, p0, Lcom/android/internal/widget/WaveView;->mLightWaves:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -715,14 +715,14 @@
     goto :goto_0
 
     .line 198
-    .end local v0           #holder:Lcom/android/internal/widget/DrawableHolder;
+    .end local v0    # "holder":Lcom/android/internal/widget/DrawableHolder;
     :cond_0
     return-void
 .end method
 
 .method private setGrabbedState(I)V
     .locals 2
-    .parameter "newState"
+    .param p1, "newState"    # I
 
     .prologue
     .line 615
@@ -752,7 +752,7 @@
 
 .method private tryTransitionToStartAttemptState(Landroid/view/MotionEvent;)V
     .locals 7
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 539
@@ -769,7 +769,7 @@
     sub-float v1, v3, v4
 
     .line 540
-    .local v1, dx:F
+    .local v1, "dx":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
@@ -783,7 +783,7 @@
     sub-float v2, v3, v4
 
     .line 541
-    .local v2, dy:F
+    .local v2, "dy":F
     float-to-double v3, v1
 
     float-to-double v5, v2
@@ -795,7 +795,7 @@
     double-to-float v0, v3
 
     .line 542
-    .local v0, dist:F
+    .local v0, "dist":F
     invoke-direct {p0}, Lcom/android/internal/widget/WaveView;->getScaledGrabHandleRadius()F
 
     move-result v3
@@ -844,7 +844,7 @@
 
 .method private declared-synchronized vibrate(J)V
     .locals 5
-    .parameter "duration"
+    .param p1, "duration"    # J
 
     .prologue
     const/4 v0, 0x1
@@ -872,7 +872,7 @@
     if-eqz v1, :cond_2
 
     .line 581
-    .local v0, hapticEnabled:Z
+    .local v0, "hapticEnabled":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -911,7 +911,7 @@
     return-void
 
     .line 578
-    .end local v0           #hapticEnabled:Z
+    .end local v0    # "hapticEnabled":Z
     :cond_2
     const/4 v0, 0x0
 
@@ -927,9 +927,9 @@
 
 .method private waveUpdateFrame(FFZ)V
     .locals 34
-    .parameter "mouseX"
-    .parameter "mouseY"
-    .parameter "fingerDown"
+    .param p1, "mouseX"    # F
+    .param p2, "mouseY"    # F
+    .param p3, "fingerDown"    # Z
 
     .prologue
     .line 201
@@ -944,7 +944,7 @@
     move-wide/from16 v25, v0
 
     .line 202
-    .local v25, distX:D
+    .local v25, "distX":D
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/internal/widget/WaveView;->mLockCenterY:F
@@ -956,7 +956,7 @@
     move-wide/from16 v27, v0
 
     .line 203
-    .local v27, distY:D
+    .local v27, "distY":D
     invoke-static/range {v25 .. v28}, Ljava/lang/Math;->hypot(DD)D
 
     move-result-wide v4
@@ -970,13 +970,13 @@
     move/from16 v29, v0
 
     .line 204
-    .local v29, dragDistance:I
+    .local v29, "dragDistance":I
     invoke-static/range {v25 .. v28}, Ljava/lang/Math;->atan2(DD)D
 
     move-result-wide v32
 
     .line 205
-    .local v32, touchA:D
+    .local v32, "touchA":D
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/internal/widget/WaveView;->mLockCenterX:F
@@ -1000,7 +1000,7 @@
     double-to-float v9, v4
 
     .line 206
-    .local v9, ringX:F
+    .local v9, "ringX":F
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/internal/widget/WaveView;->mLockCenterY:F
@@ -1026,7 +1026,7 @@
     move/from16 v16, v0
 
     .line 208
-    .local v16, ringY:F
+    .local v16, "ringY":F
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/internal/widget/WaveView;->mLockState:I
@@ -1034,7 +1034,7 @@
     packed-switch v4, :pswitch_data_0
 
     .line 392
-    .end local v9           #ringX:F
+    .end local v9    # "ringX":F
     :goto_0
     move-object/from16 v0, p0
 
@@ -1066,7 +1066,7 @@
     return-void
 
     .line 211
-    .restart local v9       #ringX:F
+    .restart local v9    # "ringX":F
     :pswitch_0
     const-wide/16 v4, 0x64
 
@@ -1077,8 +1077,8 @@
     .line 212
     const/16 v30, 0x0
 
-    .end local v9           #ringX:F
-    .local v30, i:I
+    .end local v9    # "ringX":F
+    .local v30, "i":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -1106,7 +1106,7 @@
     check-cast v2, Lcom/android/internal/widget/DrawableHolder;
 
     .line 214
-    .local v2, holder:Lcom/android/internal/widget/DrawableHolder;
+    .local v2, "holder":Lcom/android/internal/widget/DrawableHolder;
     const-wide/16 v3, 0x12c
 
     const-wide/16 v5, 0x0
@@ -1125,7 +1125,7 @@
     goto :goto_1
 
     .line 216
-    .end local v2           #holder:Lcom/android/internal/widget/DrawableHolder;
+    .end local v2    # "holder":Lcom/android/internal/widget/DrawableHolder;
     :cond_0
     const/16 v30, 0x0
 
@@ -1214,7 +1214,7 @@
 
     const-string v8, "scaleX"
 
-    const v9, 0x3dcccccd
+    const v9, 0x3dcccccd    # 0.1f
 
     const/4 v10, 0x1
 
@@ -1231,7 +1231,7 @@
 
     const-string v8, "scaleY"
 
-    const v9, 0x3dcccccd
+    const v9, 0x3dcccccd    # 0.1f
 
     const/4 v10, 0x1
 
@@ -1326,7 +1326,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleX(F)V
 
@@ -1335,7 +1335,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleY(F)V
 
@@ -1359,7 +1359,7 @@
 
     const-string v8, "scaleX"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1376,7 +1376,7 @@
 
     const-string v8, "scaleY"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1393,7 +1393,7 @@
 
     const-string v8, "alpha"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1471,7 +1471,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleX(F)V
 
@@ -1480,7 +1480,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleY(F)V
 
@@ -1542,7 +1542,7 @@
 
     const-string v8, "scaleX"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1559,7 +1559,7 @@
 
     const-string v8, "scaleY"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1576,7 +1576,7 @@
 
     const-string v8, "alpha"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1601,8 +1601,8 @@
     goto/16 :goto_0
 
     .line 263
-    .end local v30           #i:I
-    .restart local v9       #ringX:F
+    .end local v30    # "i":I
+    .restart local v9    # "ringX":F
     :pswitch_1
     const-wide/16 v4, 0x64
 
@@ -1667,7 +1667,7 @@
 
     iget v5, v0, Lcom/android/internal/widget/WaveView;->mLockCenterX:F
 
-    const/high16 v8, 0x4336
+    const/high16 v8, 0x43360000    # 182.0f
 
     add-float/2addr v5, v8
 
@@ -1689,7 +1689,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleX(F)V
 
@@ -1698,7 +1698,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleY(F)V
 
@@ -1722,14 +1722,14 @@
 
     const-string v8, "scaleX"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x0
 
     invoke-virtual/range {v3 .. v10}, Lcom/android/internal/widget/DrawableHolder;->addAnimTo(JJLjava/lang/String;FZ)Landroid/animation/ObjectAnimator;
 
     .line 280
-    .end local v9           #ringX:F
+    .end local v9    # "ringX":F
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
@@ -1740,7 +1740,7 @@
 
     const-string v8, "scaleY"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x0
 
@@ -1757,7 +1757,7 @@
 
     const-string v8, "alpha"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x0
 
@@ -1774,7 +1774,7 @@
 
     const-string v8, "scaleX"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1791,7 +1791,7 @@
 
     const-string v8, "scaleY"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1808,7 +1808,7 @@
 
     const-string v8, "alpha"
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1824,7 +1824,7 @@
     goto/16 :goto_0
 
     .line 292
-    .restart local v9       #ringX:F
+    .restart local v9    # "ringX":F
     :pswitch_3
     move-object/from16 v0, p0
 
@@ -1887,7 +1887,7 @@
 
     const-string v22, "scaleX"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -1906,7 +1906,7 @@
 
     const-string v22, "scaleY"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -1925,7 +1925,7 @@
 
     const-string v22, "alpha"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2030,7 +2030,7 @@
 
     const-string v22, "scaleX"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2049,7 +2049,7 @@
 
     const-string v22, "scaleY"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2068,7 +2068,7 @@
 
     const-string v22, "alpha"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2089,7 +2089,7 @@
     .line 323
     const/16 v31, 0x0
 
-    .local v31, n:I
+    .local v31, "n":I
     :goto_3
     move-object/from16 v0, p0
 
@@ -2117,7 +2117,7 @@
     check-cast v3, Lcom/android/internal/widget/DrawableHolder;
 
     .line 325
-    .local v3, wave:Lcom/android/internal/widget/DrawableHolder;
+    .local v3, "wave":Lcom/android/internal/widget/DrawableHolder;
     const-wide/16 v4, 0x3e8
 
     add-int/lit8 v8, v31, 0x6
@@ -2137,7 +2137,7 @@
     div-long v6, v4, v10
 
     .line 326
-    .local v6, delay:J
+    .local v6, "delay":J
     const-wide/16 v4, 0xc8
 
     const-string v8, "x"
@@ -2164,7 +2164,7 @@
 
     const-string v22, "scaleX"
 
-    const v23, 0x3dcccccd
+    const v23, 0x3dcccccd    # 0.1f
 
     const/16 v24, 0x1
 
@@ -2179,7 +2179,7 @@
 
     const-string v22, "scaleY"
 
-    const v23, 0x3dcccccd
+    const v23, 0x3dcccccd    # 0.1f
 
     const/16 v24, 0x1
 
@@ -2210,12 +2210,12 @@
     goto :goto_3
 
     .line 332
-    .end local v3           #wave:Lcom/android/internal/widget/DrawableHolder;
-    .end local v6           #delay:J
+    .end local v3    # "wave":Lcom/android/internal/widget/DrawableHolder;
+    .end local v6    # "delay":J
     :cond_5
     const/16 v30, 0x0
 
-    .restart local v30       #i:I
+    .restart local v30    # "i":I
     :goto_4
     move-object/from16 v0, p0
 
@@ -2299,7 +2299,7 @@
 
     const-string v22, "scaleX"
 
-    const v23, 0x3dcccccd
+    const v23, 0x3dcccccd    # 0.1f
 
     const/16 v24, 0x0
 
@@ -2318,7 +2318,7 @@
 
     const-string v22, "scaleY"
 
-    const v23, 0x3dcccccd
+    const v23, 0x3dcccccd    # 0.1f
 
     const/16 v24, 0x0
 
@@ -2428,7 +2428,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleX(F)V
 
@@ -2437,7 +2437,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const v5, 0x3dcccccd
+    const v5, 0x3dcccccd    # 0.1f
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->setScaleY(F)V
 
@@ -2497,7 +2497,7 @@
 
     const-string v22, "scaleX"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2516,7 +2516,7 @@
 
     const-string v22, "scaleY"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2535,7 +2535,7 @@
 
     const-string v22, "alpha"
 
-    const/high16 v23, 0x3f80
+    const/high16 v23, 0x3f800000    # 1.0f
 
     const/16 v24, 0x1
 
@@ -2554,7 +2554,7 @@
 
     const-string v22, "scaleX"
 
-    const/high16 v23, 0x4040
+    const/high16 v23, 0x40400000    # 3.0f
 
     const/16 v24, 0x0
 
@@ -2573,7 +2573,7 @@
 
     const-string v22, "scaleY"
 
-    const/high16 v23, 0x4040
+    const/high16 v23, 0x40400000    # 3.0f
 
     const/16 v24, 0x0
 
@@ -2645,7 +2645,7 @@
 
     const-string v22, "scaleX"
 
-    const/high16 v23, 0x4040
+    const/high16 v23, 0x40400000    # 3.0f
 
     const/16 v24, 0x0
 
@@ -2664,7 +2664,7 @@
 
     const-string v22, "scaleY"
 
-    const/high16 v23, 0x4040
+    const/high16 v23, 0x40400000    # 3.0f
 
     const/16 v24, 0x0
 
@@ -2726,8 +2726,8 @@
     goto/16 :goto_0
 
     .line 379
-    .end local v30           #i:I
-    .end local v31           #n:I
+    .end local v30    # "i":I
+    .end local v31    # "n":I
     :cond_7
     const/4 v4, 0x0
 
@@ -2765,7 +2765,7 @@
 # virtual methods
 .method createDrawable(I)Landroid/graphics/drawable/BitmapDrawable;
     .locals 3
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 398
@@ -2774,13 +2774,13 @@
     move-result-object v1
 
     .line 399
-    .local v1, res:Landroid/content/res/Resources;
+    .local v1, "res":Landroid/content/res/Resources;
     invoke-static {v1, p1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
     .line 400
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-direct {v2, v1, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
@@ -2834,7 +2834,7 @@
 
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .prologue
     .line 650
@@ -2846,7 +2846,7 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 4
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 405
@@ -2861,7 +2861,7 @@
     .line 406
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/WaveView;->mDrawables:Ljava/util/ArrayList;
 
@@ -2923,7 +2923,7 @@
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 472
@@ -2945,7 +2945,7 @@
     move-result v0
 
     .line 474
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     .line 485
@@ -2957,7 +2957,7 @@
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->setAction(I)V
 
     .line 488
-    .end local v0           #action:I
+    .end local v0    # "action":I
     :cond_0
     invoke-super {p0, p1}, Landroid/view/View;->onHoverEvent(Landroid/view/MotionEvent;)Z
 
@@ -2966,7 +2966,7 @@
     return v1
 
     .line 476
-    .restart local v0       #action:I
+    .restart local v0    # "action":I
     :pswitch_1
     const/4 v1, 0x0
 
@@ -3004,13 +3004,13 @@
 
 .method protected onMeasure(II)V
     .locals 9
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    const/high16 v8, 0x4000
+    const/high16 v8, 0x40000000    # 2.0f
 
-    const/high16 v7, -0x8000
+    const/high16 v7, -0x80000000
 
     .line 141
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -3018,25 +3018,25 @@
     move-result v4
 
     .line 142
-    .local v4, widthSpecMode:I
+    .local v4, "widthSpecMode":I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
     .line 143
-    .local v1, heightSpecMode:I
+    .local v1, "heightSpecMode":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v5
 
     .line 144
-    .local v5, widthSpecSize:I
+    .local v5, "widthSpecSize":I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v2
 
     .line 148
-    .local v2, heightSpecSize:I
+    .local v2, "heightSpecSize":I
     if-ne v4, v7, :cond_0
 
     .line 149
@@ -3049,7 +3049,7 @@
     move-result v3
 
     .line 156
-    .local v3, width:I
+    .local v3, "width":I
     :goto_0
     if-ne v1, v7, :cond_2
 
@@ -3063,7 +3063,7 @@
     move-result v0
 
     .line 164
-    .local v0, height:I
+    .local v0, "height":I
     :goto_1
     invoke-virtual {p0, v3, v0}, Lcom/android/internal/widget/WaveView;->setMeasuredDimension(II)V
 
@@ -3071,25 +3071,25 @@
     return-void
 
     .line 150
-    .end local v0           #height:I
-    .end local v3           #width:I
+    .end local v0    # "height":I
+    .end local v3    # "width":I
     :cond_0
     if-ne v4, v8, :cond_1
 
     .line 151
     move v3, v5
 
-    .restart local v3       #width:I
+    .restart local v3    # "width":I
     goto :goto_0
 
     .line 153
-    .end local v3           #width:I
+    .end local v3    # "width":I
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/widget/WaveView;->getSuggestedMinimumWidth()I
 
     move-result v3
 
-    .restart local v3       #width:I
+    .restart local v3    # "width":I
     goto :goto_0
 
     .line 158
@@ -3099,29 +3099,29 @@
     .line 159
     move v0, v2
 
-    .restart local v0       #height:I
+    .restart local v0    # "height":I
     goto :goto_1
 
     .line 161
-    .end local v0           #height:I
+    .end local v0    # "height":I
     :cond_3
     invoke-virtual {p0}, Lcom/android/internal/widget/WaveView;->getSuggestedMinimumHeight()I
 
     move-result v0
 
-    .restart local v0       #height:I
+    .restart local v0    # "height":I
     goto :goto_1
 .end method
 
 .method protected onSizeChanged(IIII)V
     .locals 2
-    .parameter "w"
-    .parameter "h"
-    .parameter "oldw"
-    .parameter "oldh"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "oldw"    # I
+    .param p4, "oldh"    # I
 
     .prologue
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     .line 122
     int-to-float v0, p1
@@ -3146,7 +3146,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 7
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v2, 0x1
@@ -3159,7 +3159,7 @@
     move-result v0
 
     .line 494
-    .local v0, action:I
+    .local v0, "action":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
@@ -3177,7 +3177,7 @@
     const/4 v1, 0x0
 
     .line 497
-    .local v1, handled:Z
+    .local v1, "handled":Z
     packed-switch v0, :pswitch_data_0
 
     .line 529
@@ -3294,7 +3294,7 @@
 
 .method public setOnTriggerListener(Lcom/android/internal/widget/WaveView$OnTriggerListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Lcom/android/internal/widget/WaveView$OnTriggerListener;
 
     .prologue
     .line 596

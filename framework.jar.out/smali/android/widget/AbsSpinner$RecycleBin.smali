@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsSpinner;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 438
@@ -60,16 +59,16 @@
     iget-object v2, p0, Landroid/widget/AbsSpinner$RecycleBin;->mScrapHeap:Landroid/util/SparseArray;
 
     .line 459
-    .local v2, scrapHeap:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/view/View;>;"
+    .local v2, "scrapHeap":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/view/View;>;"
     invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
     move-result v0
 
     .line 460
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -81,7 +80,7 @@
     check-cast v3, Landroid/view/View;
 
     .line 462
-    .local v3, view:Landroid/view/View;
+    .local v3, "view":Landroid/view/View;
     if-eqz v3, :cond_0
 
     .line 463
@@ -89,7 +88,7 @@
 
     const/4 v5, 0x1
 
-    #calls: Landroid/widget/AbsSpinner;->removeDetachedView(Landroid/view/View;Z)V
+    # invokes: Landroid/widget/AbsSpinner;->removeDetachedView(Landroid/view/View;Z)V
     invoke-static {v4, v3, v5}, Landroid/widget/AbsSpinner;->access$000(Landroid/widget/AbsSpinner;Landroid/view/View;Z)V
 
     .line 460
@@ -99,7 +98,7 @@
     goto :goto_0
 
     .line 466
-    .end local v3           #view:Landroid/view/View;
+    .end local v3    # "view":Landroid/view/View;
     :cond_1
     invoke-virtual {v2}, Landroid/util/SparseArray;->clear()V
 
@@ -109,7 +108,7 @@
 
 .method get(I)Landroid/view/View;
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 447
@@ -122,7 +121,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 448
-    .local v0, result:Landroid/view/View;
+    .local v0, "result":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 450
@@ -137,8 +136,8 @@
 
 .method public put(ILandroid/view/View;)V
     .locals 1
-    .parameter "position"
-    .parameter "v"
+    .param p1, "position"    # I
+    .param p2, "v"    # Landroid/view/View;
 
     .prologue
     .line 442

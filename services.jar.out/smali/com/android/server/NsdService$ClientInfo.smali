@@ -42,9 +42,8 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/NsdService;Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)V
     .locals 3
-    .parameter
-    .parameter "c"
-    .parameter "m"
+    .param p2, "c"    # Lcom/android/internal/util/AsyncChannel;
+    .param p3, "m"    # Landroid/os/Messenger;
 
     .prologue
     .line 830
@@ -104,10 +103,10 @@
 
 .method synthetic constructor <init>(Lcom/android/server/NsdService;Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;Lcom/android/server/NsdService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Lcom/android/server/NsdService;
+    .param p2, "x1"    # Lcom/android/internal/util/AsyncChannel;
+    .param p3, "x2"    # Landroid/os/Messenger;
+    .param p4, "x3"    # Lcom/android/server/NsdService$1;
 
     .prologue
     .line 819
@@ -118,7 +117,7 @@
 
 .method static synthetic access$1200(Lcom/android/server/NsdService$ClientInfo;)Landroid/util/SparseArray;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NsdService$ClientInfo;
 
     .prologue
     .line 819
@@ -129,7 +128,7 @@
 
 .method static synthetic access$2300(Lcom/android/server/NsdService$ClientInfo;)Landroid/net/nsd/NsdServiceInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NsdService$ClientInfo;
 
     .prologue
     .line 819
@@ -140,8 +139,8 @@
 
 .method static synthetic access$2302(Lcom/android/server/NsdService$ClientInfo;Landroid/net/nsd/NsdServiceInfo;)Landroid/net/nsd/NsdServiceInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/NsdService$ClientInfo;
+    .param p1, "x1"    # Landroid/net/nsd/NsdServiceInfo;
 
     .prologue
     .line 819
@@ -152,7 +151,7 @@
 
 .method static synthetic access$2500(Lcom/android/server/NsdService$ClientInfo;)Lcom/android/internal/util/AsyncChannel;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NsdService$ClientInfo;
 
     .prologue
     .line 819
@@ -173,7 +172,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 839
-    .local v1, sb:Ljava/lang/StringBuffer;
+    .local v1, "sb":Ljava/lang/StringBuffer;
     const-string v2, "mChannel "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -227,7 +226,7 @@
     .line 842
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/NsdService$ClientInfo;->mClientIds:Landroid/util/SparseArray;
 

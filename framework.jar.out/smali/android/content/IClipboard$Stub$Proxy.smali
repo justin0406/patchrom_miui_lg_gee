@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 145
@@ -41,8 +41,8 @@
 # virtual methods
 .method public addPrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;Ljava/lang/String;)V
     .locals 5
-    .parameter "listener"
-    .parameter "callingPackage"
+    .param p1, "listener"    # Landroid/content/IOnPrimaryClipChangedListener;
+    .param p2, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,13 +56,13 @@
     move-result-object v0
 
     .line 245
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 247
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IClipboard"
 
@@ -144,7 +144,7 @@
 
 .method public getPrimaryClip(Ljava/lang/String;)Landroid/content/ClipData;
     .locals 6
-    .parameter "pkg"
+    .param p1, "pkg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,13 +158,13 @@
     move-result-object v0
 
     .line 181
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 184
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IClipboard"
 
@@ -204,7 +204,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 196
-    .local v2, _result:Landroid/content/ClipData;
+    .local v2, "_result":Landroid/content/ClipData;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -215,15 +215,15 @@
     return-object v2
 
     .line 192
-    .end local v2           #_result:Landroid/content/ClipData;
+    .end local v2    # "_result":Landroid/content/ClipData;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ClipData;
+    .restart local v2    # "_result":Landroid/content/ClipData;
     goto :goto_0
 
     .line 196
-    .end local v2           #_result:Landroid/content/ClipData;
+    .end local v2    # "_result":Landroid/content/ClipData;
     :catchall_0
     move-exception v3
 
@@ -237,7 +237,7 @@
 
 .method public getPrimaryClipDescription(Ljava/lang/String;)Landroid/content/ClipDescription;
     .locals 6
-    .parameter "callingPackage"
+    .param p1, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -251,13 +251,13 @@
     move-result-object v0
 
     .line 204
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 207
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IClipboard"
 
@@ -297,7 +297,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 219
-    .local v2, _result:Landroid/content/ClipDescription;
+    .local v2, "_result":Landroid/content/ClipDescription;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -308,15 +308,15 @@
     return-object v2
 
     .line 215
-    .end local v2           #_result:Landroid/content/ClipDescription;
+    .end local v2    # "_result":Landroid/content/ClipDescription;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ClipDescription;
+    .restart local v2    # "_result":Landroid/content/ClipDescription;
     goto :goto_0
 
     .line 219
-    .end local v2           #_result:Landroid/content/ClipDescription;
+    .end local v2    # "_result":Landroid/content/ClipDescription;
     :catchall_0
     move-exception v3
 
@@ -330,7 +330,7 @@
 
 .method public hasClipboardText(Ljava/lang/String;)Z
     .locals 6
-    .parameter "callingPackage"
+    .param p1, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -346,13 +346,13 @@
     move-result-object v0
 
     .line 279
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 282
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IClipboard"
 
@@ -385,7 +385,7 @@
     const/4 v2, 0x1
 
     .line 289
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -396,7 +396,7 @@
     return v2
 
     .line 289
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -410,7 +410,7 @@
 
 .method public hasPrimaryClip(Ljava/lang/String;)Z
     .locals 6
-    .parameter "callingPackage"
+    .param p1, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -426,13 +426,13 @@
     move-result-object v0
 
     .line 227
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 230
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IClipboard"
 
@@ -465,7 +465,7 @@
     const/4 v2, 0x1
 
     .line 237
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -476,7 +476,7 @@
     return v2
 
     .line 237
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -490,7 +490,7 @@
 
 .method public removePrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/content/IOnPrimaryClipChangedListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -504,13 +504,13 @@
     move-result-object v0
 
     .line 261
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 263
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IClipboard"
 
@@ -569,8 +569,8 @@
 
 .method public setPrimaryClip(Landroid/content/ClipData;Ljava/lang/String;)V
     .locals 5
-    .parameter "clip"
-    .parameter "callingPackage"
+    .param p1, "clip"    # Landroid/content/ClipData;
+    .param p2, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -584,13 +584,13 @@
     move-result-object v0
 
     .line 159
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 161
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IClipboard"
 

@@ -21,7 +21,7 @@
 
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 40
@@ -47,7 +47,7 @@
 
 .method public static newInstance(Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
     .locals 6
-    .parameter "st"
+    .param p0, "st"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -69,7 +69,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 78
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v2, "%02x"

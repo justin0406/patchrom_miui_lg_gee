@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 89
@@ -61,8 +61,8 @@
 
 .method public onLayoutFailed(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "error"
-    .parameter "sequence"
+    .param p1, "error"    # Ljava/lang/CharSequence;
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 124
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.ILayoutResultCallback"
 
@@ -140,9 +140,9 @@
 
 .method public onLayoutFinished(Landroid/print/PrintDocumentInfo;ZI)V
     .locals 5
-    .parameter "info"
-    .parameter "changed"
-    .parameter "sequence"
+    .param p1, "info"    # Landroid/print/PrintDocumentInfo;
+    .param p2, "changed"    # Z
+    .param p3, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -160,7 +160,7 @@
     move-result-object v0
 
     .line 104
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.ILayoutResultCallback"
 

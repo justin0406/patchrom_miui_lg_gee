@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1031
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1033
@@ -55,7 +54,7 @@
     move-result-object v0
 
     .line 1037
-    .local v0, extras:Landroid/os/Bundle;
+    .local v0, "extras":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 1040
@@ -70,7 +69,7 @@
     .line 1041
     iget-object v1, p0, Landroid/media/MediaFocusControl$2;->this$0:Landroid/media/MediaFocusControl;
 
-    #getter for: Landroid/media/MediaFocusControl;->mMediaEventWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Landroid/media/MediaFocusControl;->mMediaEventWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v1}, Landroid/media/MediaFocusControl;->access$2800(Landroid/media/MediaFocusControl;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1

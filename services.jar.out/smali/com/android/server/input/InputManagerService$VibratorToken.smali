@@ -32,10 +32,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/os/IBinder;I)V
     .locals 0
-    .parameter
-    .parameter "deviceId"
-    .parameter "token"
-    .parameter "tokenValue"
+    .param p2, "deviceId"    # I
+    .param p3, "token"    # Landroid/os/IBinder;
+    .param p4, "tokenValue"    # I
 
     .prologue
     .line 1628

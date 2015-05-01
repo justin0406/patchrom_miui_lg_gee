@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 6
-    .parameter
 
     .prologue
     .line 736
@@ -50,7 +49,7 @@
 # virtual methods
 .method onToggle(Z)V
     .locals 2
-    .parameter "on"
+    .param p1, "on"    # Z
 
     .prologue
     .line 745
@@ -59,7 +58,7 @@
     .line 746
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeToggleAction;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/media/AudioManager;
 
     move-result-object v0
@@ -76,7 +75,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeToggleAction;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/media/AudioManager;
 
     move-result-object v0

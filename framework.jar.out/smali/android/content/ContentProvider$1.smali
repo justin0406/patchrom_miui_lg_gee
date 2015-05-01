@@ -44,13 +44,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentProvider;Landroid/content/ContentProvider$PipeDataWriter;[Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 1507
@@ -77,7 +70,7 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 7
-    .parameter "params"
+    .param p1, "params"    # [Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x1
@@ -122,7 +115,7 @@
     move-exception v6
 
     .line 1514
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     const-string v0, "ContentProvider"
 
     const-string v1, "Failure closing pipe"

@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "track"
+    .param p1, "track"    # Ljava/lang/String;
 
     .prologue
     .line 773
@@ -57,7 +57,7 @@
     move-result-object v0
 
     .line 783
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$MusicTrack;->getTrack()Ljava/lang/String;
 
     move-result-object v1

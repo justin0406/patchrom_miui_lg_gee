@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "cfNumber"
-    .parameter "onComplete"
+    .param p1, "cfNumber"    # Ljava/lang/String;
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 132

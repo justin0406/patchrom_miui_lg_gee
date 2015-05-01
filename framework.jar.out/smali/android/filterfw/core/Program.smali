@@ -21,8 +21,8 @@
 
 .method public process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
     .locals 2
-    .parameter "input"
-    .parameter "output"
+    .param p1, "input"    # Landroid/filterfw/core/Frame;
+    .param p2, "output"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 30
@@ -31,7 +31,7 @@
     new-array v0, v1, [Landroid/filterfw/core/Frame;
 
     .line 31
-    .local v0, inputs:[Landroid/filterfw/core/Frame;
+    .local v0, "inputs":[Landroid/filterfw/core/Frame;
     const/4 v1, 0x0
 
     aput-object p1, v0, v1

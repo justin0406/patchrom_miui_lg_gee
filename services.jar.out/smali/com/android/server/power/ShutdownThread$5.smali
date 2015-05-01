@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/ShutdownThread;J[Z)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 380
@@ -64,7 +61,7 @@
     move-result-object v3
 
     .line 388
-    .local v3, nfc:Landroid/nfc/INfcAdapter;
+    .local v3, "nfc":Landroid/nfc/INfcAdapter;
     const-string v9, "phone"
 
     invoke-static {v9}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -76,7 +73,7 @@
     move-result-object v5
 
     .line 390
-    .local v5, phone:Lcom/android/internal/telephony/ITelephony;
+    .local v5, "phone":Lcom/android/internal/telephony/ITelephony;
     const-string v9, "bluetooth_manager"
 
     invoke-static {v9}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -88,7 +85,7 @@
     move-result-object v0
 
     .line 395
-    .local v0, bluetooth:Landroid/bluetooth/IBluetoothManager;
+    .local v0, "bluetooth":Landroid/bluetooth/IBluetoothManager;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -102,7 +99,7 @@
     move v4, v7
 
     .line 397
-    .local v4, nfcOff:Z
+    .local v4, "nfcOff":Z
     :goto_0
     if-nez v4, :cond_1
 
@@ -136,7 +133,7 @@
     move v1, v7
 
     .line 408
-    .local v1, bluetoothOff:Z
+    .local v1, "bluetoothOff":Z
     :goto_2
     if-nez v1, :cond_3
 
@@ -170,7 +167,7 @@
     move v6, v7
 
     .line 419
-    .local v6, radioOff:Z
+    .local v6, "radioOff":Z
     :goto_4
     if-nez v6, :cond_5
 
@@ -313,9 +310,9 @@
     :cond_9
     return-void
 
-    .end local v1           #bluetoothOff:Z
-    .end local v4           #nfcOff:Z
-    .end local v6           #radioOff:Z
+    .end local v1    # "bluetoothOff":Z
+    .end local v4    # "nfcOff":Z
+    .end local v6    # "radioOff":Z
     :cond_a
     move v4, v8
 
@@ -327,7 +324,7 @@
     move-exception v2
 
     .line 402
-    .local v2, ex:Landroid/os/RemoteException;
+    .local v2, "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during NFC shutdown"
@@ -337,10 +334,10 @@
     .line 403
     const/4 v4, 0x1
 
-    .restart local v4       #nfcOff:Z
+    .restart local v4    # "nfcOff":Z
     goto/16 :goto_1
 
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_b
     move v1, v8
 
@@ -352,7 +349,7 @@
     move-exception v2
 
     .line 413
-    .restart local v2       #ex:Landroid/os/RemoteException;
+    .restart local v2    # "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during bluetooth shutdown"
@@ -362,10 +359,10 @@
     .line 414
     const/4 v1, 0x1
 
-    .restart local v1       #bluetoothOff:Z
+    .restart local v1    # "bluetoothOff":Z
     goto/16 :goto_3
 
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_c
     move v6, v8
 
@@ -377,7 +374,7 @@
     move-exception v2
 
     .line 424
-    .restart local v2       #ex:Landroid/os/RemoteException;
+    .restart local v2    # "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during radio shutdown"
@@ -387,10 +384,10 @@
     .line 425
     const/4 v6, 0x1
 
-    .restart local v6       #radioOff:Z
+    .restart local v6    # "radioOff":Z
     goto/16 :goto_5
 
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_d
     move v1, v8
 
@@ -402,7 +399,7 @@
     move-exception v2
 
     .line 435
-    .restart local v2       #ex:Landroid/os/RemoteException;
+    .restart local v2    # "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during bluetooth shutdown"
@@ -414,7 +411,7 @@
 
     goto :goto_7
 
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_e
     move v6, v8
 
@@ -426,7 +423,7 @@
     move-exception v2
 
     .line 446
-    .restart local v2       #ex:Landroid/os/RemoteException;
+    .restart local v2    # "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during radio shutdown"
@@ -438,7 +435,7 @@
 
     goto :goto_8
 
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_f
     move v4, v8
 
@@ -450,7 +447,7 @@
     move-exception v2
 
     .line 457
-    .restart local v2       #ex:Landroid/os/RemoteException;
+    .restart local v2    # "ex":Landroid/os/RemoteException;
     const-string v9, "ShutdownThread"
 
     const-string v10, "RemoteException during NFC shutdown"
@@ -463,7 +460,7 @@
     goto :goto_9
 
     .line 470
-    .end local v2           #ex:Landroid/os/RemoteException;
+    .end local v2    # "ex":Landroid/os/RemoteException;
     :cond_10
     const-wide/16 v9, 0x1f4
 

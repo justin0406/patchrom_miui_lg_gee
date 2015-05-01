@@ -39,7 +39,7 @@
 
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 2
-    .parameter "inputStream"
+    .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .prologue
     const/4 v1, 0x0
@@ -332,7 +332,7 @@
     move-result v0
 
     .line 67
-    .local v0, rtn:I
+    .local v0, "rtn":I
     if-ne v0, v3, :cond_0
 
     iget-object v1, p0, Landroid/media/AmrInputStream;->mOneByte:[B
@@ -352,7 +352,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -374,9 +374,9 @@
 
 .method public read([BII)I
     .locals 7
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -418,7 +418,7 @@
     .line 86
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v3, 0x140
 
@@ -436,18 +436,18 @@
     move-result v1
 
     .line 88
-    .local v1, n:I
+    .local v1, "n":I
     if-ne v1, v2, :cond_1
 
     .line 101
-    .end local v0           #i:I
-    .end local v1           #n:I
+    .end local v0    # "i":I
+    .end local v1    # "n":I
     :goto_1
     return v2
 
     .line 89
-    .restart local v0       #i:I
-    .restart local v1       #n:I
+    .restart local v0    # "i":I
+    .restart local v1    # "n":I
     :cond_1
     add-int/2addr v0, v1
 
@@ -455,7 +455,7 @@
     goto :goto_0
 
     .line 93
-    .end local v1           #n:I
+    .end local v1    # "n":I
     :cond_2
     iget v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
@@ -470,7 +470,7 @@
     iput v2, p0, Landroid/media/AmrInputStream;->mBufIn:I
 
     .line 97
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_3
     iget v2, p0, Landroid/media/AmrInputStream;->mBufIn:I
 

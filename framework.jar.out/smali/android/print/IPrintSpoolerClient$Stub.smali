@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/print/IPrintSpoolerClient;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/print/IPrintSpoolerClient;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/print/IPrintSpoolerClient$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/print/IPrintSpoolerClient$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,22 +165,22 @@
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 60
-    .local v0, _arg0:Landroid/print/PrintJobInfo;
+    .local v0, "_arg0":Landroid/print/PrintJobInfo;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/print/IPrintSpoolerClient$Stub;->onPrintJobQueued(Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrintJobInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintJobInfo;
     goto :goto_1
 
     .line 65
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :sswitch_2
     const-string v2, "android.print.IPrintSpoolerClient"
 
@@ -203,22 +203,22 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 73
-    .local v0, _arg0:Landroid/content/ComponentName;
+    .local v0, "_arg0":Landroid/content/ComponentName;
     :goto_2
     invoke-virtual {p0, v0}, Landroid/print/IPrintSpoolerClient$Stub;->onAllPrintJobsForServiceHandled(Landroid/content/ComponentName;)V
 
     goto :goto_0
 
     .line 71
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_2
 
     .line 78
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :sswitch_3
     const-string v2, "android.print.IPrintSpoolerClient"
 
@@ -252,18 +252,18 @@
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 92
-    .local v0, _arg0:Landroid/print/PrintJobInfo;
+    .local v0, "_arg0":Landroid/print/PrintJobInfo;
     :goto_3
     invoke-virtual {p0, v0}, Landroid/print/IPrintSpoolerClient$Stub;->onPrintJobStateChanged(Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 90
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrintJobInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintJobInfo;
     goto :goto_3
 
     .line 43

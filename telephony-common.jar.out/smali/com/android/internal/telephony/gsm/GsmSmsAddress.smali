@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>([BII)V
     .locals 8
-    .parameter "data"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "data"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/text/ParseException;
@@ -49,7 +49,7 @@
     and-int/lit16 v0, v4, 0xff
 
     .line 48
-    .local v0, addressLength:I
+    .local v0, "addressLength":I
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
 
     aget-byte v4, v4, v7
@@ -57,7 +57,7 @@
     and-int/lit16 v3, v4, 0xff
 
     .line 49
-    .local v3, toa:I
+    .local v3, "toa":I
     shr-int/lit8 v4, v3, 0x4
 
     and-int/lit8 v4, v4, 0x7
@@ -112,7 +112,7 @@
     div-int/lit8 v1, v4, 0x7
 
     .line 61
-    .local v1, countSeptets:I
+    .local v1, "countSeptets":I
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
 
     const/4 v5, 0x2
@@ -124,7 +124,7 @@
     iput-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->address:Ljava/lang/String;
 
     .line 80
-    .end local v1           #countSeptets:I
+    .end local v1    # "countSeptets":I
     :goto_0
     return-void
 
@@ -137,7 +137,7 @@
     aget-byte v2, v4, v5
 
     .line 70
-    .local v2, lastByte:B
+    .local v2, "lastByte":B
     and-int/lit8 v4, v0, 0x1
 
     if-ne v4, v7, :cond_2

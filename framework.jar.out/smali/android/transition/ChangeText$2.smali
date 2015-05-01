@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeText;Landroid/widget/TextView;I)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 214
@@ -49,7 +46,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 5
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .prologue
     .line 217
@@ -64,14 +61,14 @@
     move-result v0
 
     .line 218
-    .local v0, currAlpha:I
+    .local v0, "currAlpha":I
     iget-object v1, p0, Landroid/transition/ChangeText$2;->val$view:Landroid/widget/TextView;
 
     shl-int/lit8 v2, v0, 0x18
 
     iget v3, p0, Landroid/transition/ChangeText$2;->val$startColor:I
 
-    const/high16 v4, 0xff
+    const/high16 v4, 0xff0000
 
     and-int/2addr v3, v4
 

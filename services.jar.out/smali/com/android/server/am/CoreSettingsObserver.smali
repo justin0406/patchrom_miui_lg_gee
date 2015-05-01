@@ -61,7 +61,7 @@
 
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 1
-    .parameter "activityManagerService"
+    .param p1, "activityManagerService"    # Lcom/android/server/am/ActivityManagerService;
 
     .prologue
     .line 52
@@ -104,7 +104,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -119,13 +119,13 @@
     check-cast v1, Ljava/lang/String;
 
     .line 76
-    .local v1, setting:Ljava/lang/String;
+    .local v1, "setting":Ljava/lang/String;
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v2
 
     .line 77
-    .local v2, uri:Landroid/net/Uri;
+    .local v2, "uri":Landroid/net/Uri;
     iget-object v3, p0, Lcom/android/server/am/CoreSettingsObserver;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
@@ -141,15 +141,15 @@
     goto :goto_0
 
     .line 80
-    .end local v1           #setting:Ljava/lang/String;
-    .end local v2           #uri:Landroid/net/Uri;
+    .end local v1    # "setting":Ljava/lang/String;
+    .end local v2    # "uri":Landroid/net/Uri;
     :cond_0
     return-void
 .end method
 
 .method private populateCoreSettings(Landroid/os/Bundle;)V
     .locals 11
-    .parameter "snapshot"
+    .param p1, "snapshot"    # Landroid/os/Bundle;
 
     .prologue
     .line 83
@@ -158,7 +158,7 @@
     iget-object v0, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
     .line 84
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     sget-object v8, Lcom/android/server/am/CoreSettingsObserver;->sCoreSettingToTypeMap:Ljava/util/Map;
 
     invoke-interface {v8}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -169,7 +169,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -185,7 +185,7 @@
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 85
-    .local v1, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Class<*>;>;"
+    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Class<*>;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -193,7 +193,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 86
-    .local v3, setting:Ljava/lang/String;
+    .local v3, "setting":Ljava/lang/String;
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v5
@@ -201,7 +201,7 @@
     check-cast v5, Ljava/lang/Class;
 
     .line 88
-    .local v5, type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v5, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     const-class v8, Ljava/lang/String;
 
@@ -217,7 +217,7 @@
     move-result-object v6
 
     .line 91
-    .local v6, value:Ljava/lang/String;
+    .local v6, "value":Ljava/lang/String;
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -225,12 +225,12 @@
     goto :goto_0
 
     .line 105
-    .end local v6           #value:Ljava/lang/String;
+    .end local v6    # "value":Ljava/lang/String;
     :catch_0
     move-exception v4
 
     .line 106
-    .local v4, snfe:Landroid/provider/Settings$SettingNotFoundException;
+    .local v4, "snfe":Landroid/provider/Settings$SettingNotFoundException;
     sget-object v8, Lcom/android/server/am/CoreSettingsObserver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -262,7 +262,7 @@
     goto :goto_0
 
     .line 92
-    .end local v4           #snfe:Landroid/provider/Settings$SettingNotFoundException;
+    .end local v4    # "snfe":Landroid/provider/Settings$SettingNotFoundException;
     :cond_1
     :try_start_1
     sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -279,13 +279,13 @@
     move-result v6
 
     .line 95
-    .local v6, value:I
+    .local v6, "value":I
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     goto :goto_0
 
     .line 96
-    .end local v6           #value:I
+    .end local v6    # "value":I
     :cond_2
     sget-object v8, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
@@ -301,13 +301,13 @@
     move-result v6
 
     .line 99
-    .local v6, value:F
+    .local v6, "value":F
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
     goto :goto_0
 
     .line 100
-    .end local v6           #value:F
+    .end local v6    # "value":F
     :cond_3
     sget-object v8, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
@@ -323,7 +323,7 @@
     move-result-wide v6
 
     .line 103
-    .local v6, value:J
+    .local v6, "value":J
     invoke-virtual {p1, v3, v6, v7}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
     :try_end_1
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
@@ -331,10 +331,10 @@
     goto :goto_0
 
     .line 109
-    .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Class<*>;>;"
-    .end local v3           #setting:Ljava/lang/String;
-    .end local v5           #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    .end local v6           #value:J
+    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Class<*>;>;"
+    .end local v3    # "setting":Ljava/lang/String;
+    .end local v5    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v6    # "value":J
     :cond_4
     return-void
 .end method
@@ -379,7 +379,7 @@
 
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 64

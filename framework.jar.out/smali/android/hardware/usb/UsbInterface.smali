@@ -48,11 +48,11 @@
 
 .method public constructor <init>(IIII[Landroid/os/Parcelable;)V
     .locals 0
-    .parameter "id"
-    .parameter "Class"
-    .parameter "subClass"
-    .parameter "protocol"
-    .parameter "endpoints"
+    .param p1, "id"    # I
+    .param p2, "Class"    # I
+    .param p3, "subClass"    # I
+    .param p4, "protocol"    # I
+    .param p5, "endpoints"    # [Landroid/os/Parcelable;
 
     .prologue
     .line 49
@@ -91,7 +91,7 @@
 
 .method public getEndpoint(I)Landroid/hardware/usb/UsbEndpoint;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 110
@@ -240,8 +240,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 141

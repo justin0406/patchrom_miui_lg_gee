@@ -35,8 +35,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 10
-    .parameter "nativeLibName"
-    .parameter "nativeFunctionPrefix"
+    .param p1, "nativeLibName"    # Ljava/lang/String;
+    .param p2, "nativeFunctionPrefix"    # Ljava/lang/String;
 
     .prologue
     const/4 v7, 0x0
@@ -91,7 +91,7 @@
     move-result-object v0
 
     .line 42
-    .local v0, fullLibName:Ljava/lang/String;
+    .local v0, "fullLibName":Ljava/lang/String;
     invoke-direct {p0, v0}, Landroid/filterfw/core/NativeProgram;->openNativeLibrary(Ljava/lang/String;)Z
 
     move-result v7
@@ -156,7 +156,7 @@
     move-result-object v3
 
     .line 49
-    .local v3, processFuncName:Ljava/lang/String;
+    .local v3, "processFuncName":Ljava/lang/String;
     invoke-direct {p0, v3}, Landroid/filterfw/core/NativeProgram;->bindProcessFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -231,7 +231,7 @@
     move-result-object v2
 
     .line 56
-    .local v2, initFuncName:Ljava/lang/String;
+    .local v2, "initFuncName":Ljava/lang/String;
     invoke-direct {p0, v2}, Landroid/filterfw/core/NativeProgram;->bindInitFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -258,7 +258,7 @@
     move-result-object v6
 
     .line 59
-    .local v6, teardownFuncName:Ljava/lang/String;
+    .local v6, "teardownFuncName":Ljava/lang/String;
     invoke-direct {p0, v6}, Landroid/filterfw/core/NativeProgram;->bindTeardownFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -285,7 +285,7 @@
     move-result-object v5
 
     .line 62
-    .local v5, setValueFuncName:Ljava/lang/String;
+    .local v5, "setValueFuncName":Ljava/lang/String;
     invoke-direct {p0, v5}, Landroid/filterfw/core/NativeProgram;->bindSetValueFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -312,7 +312,7 @@
     move-result-object v1
 
     .line 65
-    .local v1, getValueFuncName:Ljava/lang/String;
+    .local v1, "getValueFuncName":Ljava/lang/String;
     invoke-direct {p0, v1}, Landroid/filterfw/core/NativeProgram;->bindGetValueFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -339,7 +339,7 @@
     move-result-object v4
 
     .line 68
-    .local v4, resetFuncName:Ljava/lang/String;
+    .local v4, "resetFuncName":Ljava/lang/String;
     invoke-direct {p0, v4}, Landroid/filterfw/core/NativeProgram;->bindResetFunction(Ljava/lang/String;)Z
 
     move-result v7
@@ -439,7 +439,7 @@
 
 .method public getHostValue(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
-    .parameter "variableName"
+    .param p1, "variableName"    # Ljava/lang/String;
 
     .prologue
     .line 141
@@ -482,8 +482,8 @@
 
 .method public process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
     .locals 6
-    .parameter "inputs"
-    .parameter "output"
+    .param p1, "inputs"    # [Landroid/filterfw/core/Frame;
+    .param p2, "output"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 99
@@ -507,10 +507,10 @@
     new-array v1, v3, [Landroid/filterfw/core/NativeFrame;
 
     .line 103
-    .local v1, nativeInputs:[Landroid/filterfw/core/NativeFrame;
+    .local v1, "nativeInputs":[Landroid/filterfw/core/NativeFrame;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, p1
 
@@ -577,7 +577,7 @@
     const/4 v2, 0x0
 
     .line 113
-    .local v2, nativeOutput:Landroid/filterfw/core/NativeFrame;
+    .local v2, "nativeOutput":Landroid/filterfw/core/NativeFrame;
     if-eqz p2, :cond_4
 
     instance-of v3, p2, Landroid/filterfw/core/NativeFrame;
@@ -652,8 +652,8 @@
 
 .method public setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .parameter "variableName"
-    .parameter "value"
+    .param p1, "variableName"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 127

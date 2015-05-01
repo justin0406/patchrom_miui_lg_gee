@@ -15,8 +15,8 @@
 # direct methods
 .method private constructor <init>(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 0
-    .parameter "printer"
-    .parameter "prefix"
+    .param p1, "printer"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -34,8 +34,8 @@
 
 .method public static create(Landroid/util/Printer;Ljava/lang/String;)Landroid/util/Printer;
     .locals 1
-    .parameter "printer"
-    .parameter "prefix"
+    .param p0, "printer"    # Landroid/util/Printer;
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 36
@@ -50,12 +50,12 @@
     if-eqz v0, :cond_1
 
     .line 39
-    .end local p0
+    .end local p0    # "printer":Landroid/util/Printer;
     :cond_0
     :goto_0
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "printer":Landroid/util/Printer;
     :cond_1
     new-instance v0, Landroid/util/PrefixPrinter;
 
@@ -70,7 +70,7 @@
 # virtual methods
 .method public println(Ljava/lang/String;)V
     .locals 3
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 48

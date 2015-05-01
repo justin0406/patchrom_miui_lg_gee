@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 125
@@ -269,7 +269,7 @@
 
 .method static getConstantInputType(Landroid/renderscript/RenderScript;)Landroid/renderscript/Type;
     .locals 4
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 140
@@ -278,7 +278,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Element$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 141
-    .local v0, b:Landroid/renderscript/Element$Builder;
+    .local v0, "b":Landroid/renderscript/Element$Builder;
     invoke-static {p0}, Landroid/renderscript/Element;->MATRIX4X4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
     move-result-object v2
@@ -324,7 +324,7 @@
     invoke-direct {v1, p0, v2}, Landroid/renderscript/Type$Builder;-><init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
 
     .line 147
-    .local v1, typeBuilder:Landroid/renderscript/Type$Builder;
+    .local v1, "typeBuilder":Landroid/renderscript/Type$Builder;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/renderscript/Type$Builder;->setX(I)Landroid/renderscript/Type$Builder;
@@ -354,7 +354,7 @@
     invoke-direct {v1, v2}, Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 181
-    .local v1, sb:Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;
+    .local v1, "sb":Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;
     iget-object v2, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mShader:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;->setShader(Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
@@ -376,7 +376,7 @@
     invoke-direct {v0, v2}, Landroid/renderscript/Element$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 185
-    .local v0, b:Landroid/renderscript/Element$Builder;
+    .local v0, "b":Landroid/renderscript/Element$Builder;
     iget-object v2, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v2}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -437,7 +437,7 @@
 
 .method public setTextureMatrixEnable(Z)Landroid/renderscript/ProgramVertexFixedFunction$Builder;
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 136

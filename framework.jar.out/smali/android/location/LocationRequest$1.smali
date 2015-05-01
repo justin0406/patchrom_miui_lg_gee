@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/LocationRequest;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 579
@@ -51,7 +51,7 @@
     invoke-direct {v1}, Landroid/location/LocationRequest;-><init>()V
 
     .line 580
-    .local v1, request:Landroid/location/LocationRequest;
+    .local v1, "request":Landroid/location/LocationRequest;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -111,7 +111,7 @@
     move-result-object v0
 
     .line 588
-    .local v0, provider:Ljava/lang/String;
+    .local v0, "provider":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     invoke-virtual {v1, v0}, Landroid/location/LocationRequest;->setProvider(Ljava/lang/String;)Landroid/location/LocationRequest;
@@ -127,7 +127,7 @@
     check-cast v2, Landroid/os/WorkSource;
 
     .line 590
-    .local v2, workSource:Landroid/os/WorkSource;
+    .local v2, "workSource":Landroid/os/WorkSource;
     if-eqz v2, :cond_1
 
     invoke-virtual {v1, v2}, Landroid/location/LocationRequest;->setWorkSource(Landroid/os/WorkSource;)V
@@ -137,8 +137,8 @@
     return-object v1
 
     .line 586
-    .end local v0           #provider:Ljava/lang/String;
-    .end local v2           #workSource:Landroid/os/WorkSource;
+    .end local v0    # "provider":Ljava/lang/String;
+    .end local v2    # "workSource":Landroid/os/WorkSource;
     :cond_2
     const/4 v3, 0x0
 
@@ -147,7 +147,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 576
@@ -160,7 +160,7 @@
 
 .method public newArray(I)[Landroid/location/LocationRequest;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 595
@@ -171,7 +171,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 576

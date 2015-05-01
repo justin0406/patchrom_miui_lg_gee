@@ -40,7 +40,7 @@
 
 .method public constructor <init>(Landroid/accounts/IAccountManagerResponse;)V
     .locals 0
-    .parameter "response"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
 
     .prologue
     .line 32
@@ -55,7 +55,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 37
@@ -90,8 +90,8 @@
 
 .method public onError(ILjava/lang/String;)V
     .locals 1
-    .parameter "errorCode"
-    .parameter "errorMessage"
+    .param p1, "errorCode"    # I
+    .param p2, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 52
@@ -115,7 +115,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 44
@@ -139,8 +139,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 65

@@ -45,8 +45,7 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/NfcActivityManager;Landroid/app/Activity;)V
     .locals 2
-    .parameter
-    .parameter "activity"
+    .param p2, "activity"    # Landroid/app/Activity;
 
     .prologue
     const/4 v1, 0x0
@@ -207,7 +206,7 @@
     move-result-object v3
 
     .line 148
-    .local v3, s:Ljava/lang/StringBuilder;
+    .local v3, "s":Ljava/lang/StringBuilder;
     iget-object v5, p0, Landroid/nfc/NfcActivityManager$NfcActivityState;->ndefMessage:Landroid/nfc/NdefMessage;
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
@@ -249,20 +248,20 @@
     .line 151
     iget-object v0, p0, Landroid/nfc/NfcActivityManager$NfcActivityState;->uris:[Landroid/net/Uri;
 
-    .local v0, arr$:[Landroid/net/Uri;
+    .local v0, "arr$":[Landroid/net/Uri;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-object v4, v0, v1
 
     .line 152
-    .local v4, uri:Landroid/net/Uri;
+    .local v4, "uri":Landroid/net/Uri;
     iget-object v5, p0, Landroid/nfc/NfcActivityManager$NfcActivityState;->onNdefPushCompleteCallback:Landroid/nfc/NfcAdapter$OnNdefPushCompleteCallback;
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
@@ -289,10 +288,10 @@
     goto :goto_0
 
     .line 155
-    .end local v0           #arr$:[Landroid/net/Uri;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v4           #uri:Landroid/net/Uri;
+    .end local v0    # "arr$":[Landroid/net/Uri;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v4    # "uri":Landroid/net/Uri;
     :cond_0
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

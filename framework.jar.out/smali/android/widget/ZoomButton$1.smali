@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButton;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 32
@@ -52,7 +51,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    #getter for: Landroid/widget/ZoomButton;->mIsInLongpress:Z
+    # getter for: Landroid/widget/ZoomButton;->mIsInLongpress:Z
     invoke-static {v0}, Landroid/widget/ZoomButton;->access$000(Landroid/widget/ZoomButton;)Z
 
     move-result v0
@@ -75,14 +74,14 @@
     .line 36
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    #getter for: Landroid/widget/ZoomButton;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/widget/ZoomButton;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/ZoomButton;->access$200(Landroid/widget/ZoomButton;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    #getter for: Landroid/widget/ZoomButton;->mZoomSpeed:J
+    # getter for: Landroid/widget/ZoomButton;->mZoomSpeed:J
     invoke-static {v1}, Landroid/widget/ZoomButton;->access$100(Landroid/widget/ZoomButton;)J
 
     move-result-wide v1

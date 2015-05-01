@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService$1;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 191
@@ -61,7 +59,7 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/server/DevicePolicyManagerService;->handlePasswordExpirationNotification(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
+    # invokes: Lcom/android/server/DevicePolicyManagerService;->handlePasswordExpirationNotification(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
     invoke-static {v0, v1}, Lcom/android/server/DevicePolicyManagerService;->access$000(Lcom/android/server/DevicePolicyManagerService;Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
 
     .line 194

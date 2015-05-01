@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/location/ICountryDetector;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Landroid/location/ICountryDetector;
 
     .prologue
     .line 93
@@ -58,8 +58,8 @@
 # virtual methods
 .method public addCountryListener(Landroid/location/CountryListener;Landroid/os/Looper;)V
     .locals 5
-    .parameter "listener"
-    .parameter "looper"
+    .param p1, "listener"    # Landroid/location/CountryListener;
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 123
@@ -85,7 +85,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 127
-    .local v1, transport:Landroid/location/CountryDetector$ListenerTransport;
+    .local v1, "transport":Landroid/location/CountryDetector$ListenerTransport;
     :try_start_1
     iget-object v2, p0, Landroid/location/CountryDetector;->mService:Landroid/location/ICountryDetector;
 
@@ -96,11 +96,11 @@
 
     invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 133
-    .end local v1           #transport:Landroid/location/CountryDetector$ListenerTransport;
+    .end local v1    # "transport":Landroid/location/CountryDetector$ListenerTransport;
     :cond_0
     :goto_0
     :try_start_2
@@ -110,12 +110,12 @@
     return-void
 
     .line 129
-    .restart local v1       #transport:Landroid/location/CountryDetector$ListenerTransport;
+    .restart local v1    # "transport":Landroid/location/CountryDetector$ListenerTransport;
     :catch_0
     move-exception v0
 
     .line 130
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CountryDetector"
 
     const-string v4, "addCountryListener: RemoteException"
@@ -125,8 +125,8 @@
     goto :goto_0
 
     .line 133
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #transport:Landroid/location/CountryDetector$ListenerTransport;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "transport":Landroid/location/CountryDetector$ListenerTransport;
     :catchall_0
     move-exception v2
 
@@ -160,7 +160,7 @@
     move-exception v0
 
     .line 108
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "CountryDetector"
 
     const-string v2, "detectCountry: RemoteException"
@@ -175,7 +175,7 @@
 
 .method public removeCountryListener(Landroid/location/CountryListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/CountryListener;
 
     .prologue
     .line 140
@@ -196,7 +196,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 142
-    .local v1, transport:Landroid/location/CountryDetector$ListenerTransport;
+    .local v1, "transport":Landroid/location/CountryDetector$ListenerTransport;
     if-eqz v1, :cond_0
 
     .line 144
@@ -210,8 +210,8 @@
 
     invoke-interface {v2, v1}, Landroid/location/ICountryDetector;->removeCountryListener(Landroid/location/ICountryListener;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 150
     :cond_0
@@ -227,7 +227,7 @@
     move-exception v0
 
     .line 147
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CountryDetector"
 
     const-string/jumbo v4, "removeCountryListener: RemoteException"
@@ -237,8 +237,8 @@
     goto :goto_0
 
     .line 150
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #transport:Landroid/location/CountryDetector$ListenerTransport;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "transport":Landroid/location/CountryDetector$ListenerTransport;
     :catchall_0
     move-exception v2
 

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 306
@@ -36,36 +35,36 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 309
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #getter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
+    # getter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$400(Lcom/android/server/content/SyncManager;)Z
 
     move-result v0
 
     .line 313
-    .local v0, wasConnected:Z
+    .local v0, "wasConnected":Z
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
     iget-object v2, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->readDataConnectionState()Z
+    # invokes: Lcom/android/server/content/SyncManager;->readDataConnectionState()Z
     invoke-static {v2}, Lcom/android/server/content/SyncManager;->access$500(Lcom/android/server/content/SyncManager;)Z
 
     move-result v2
 
-    #setter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
+    # setter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$402(Lcom/android/server/content/SyncManager;Z)Z
 
     .line 314
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #getter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
+    # getter for: Lcom/android/server/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$400(Lcom/android/server/content/SyncManager;)Z
 
     move-result v1
@@ -97,7 +96,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #getter for: Lcom/android/server/content/SyncManager;->mSyncQueue:Lcom/android/server/content/SyncQueue;
+    # getter for: Lcom/android/server/content/SyncManager;->mSyncQueue:Lcom/android/server/content/SyncQueue;
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$600(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncQueue;
 
     move-result-object v2
@@ -108,14 +107,14 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #getter for: Lcom/android/server/content/SyncManager;->mSyncStorageEngine:Lcom/android/server/content/SyncStorageEngine;
+    # getter for: Lcom/android/server/content/SyncManager;->mSyncStorageEngine:Lcom/android/server/content/SyncStorageEngine;
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$700(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncStorageEngine;
 
     move-result-object v1
 
     iget-object v3, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #getter for: Lcom/android/server/content/SyncManager;->mSyncQueue:Lcom/android/server/content/SyncQueue;
+    # getter for: Lcom/android/server/content/SyncManager;->mSyncQueue:Lcom/android/server/content/SyncQueue;
     invoke-static {v3}, Lcom/android/server/content/SyncManager;->access$600(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncQueue;
 
     move-result-object v3
@@ -131,7 +130,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
+    # invokes: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)V
 
     .line 325

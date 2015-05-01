@@ -67,9 +67,9 @@
 # virtual methods
 .method public getClassLoader(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;
     .locals 7
-    .parameter "zip"
-    .parameter "libPath"
-    .parameter "parent"
+    .param p1, "zip"    # Ljava/lang/String;
+    .param p2, "libPath"    # Ljava/lang/String;
+    .param p3, "parent"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 38
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 40
-    .local v0, baseParent:Ljava/lang/ClassLoader;
+    .local v0, "baseParent":Ljava/lang/ClassLoader;
     iget-object v4, p0, Landroid/app/ApplicationLoaders;->mLoaders:Landroid/util/ArrayMap;
 
     monitor-enter v4
@@ -108,7 +108,7 @@
     check-cast v1, Ljava/lang/ClassLoader;
 
     .line 52
-    .local v1, loader:Ljava/lang/ClassLoader;
+    .local v1, "loader":Ljava/lang/ClassLoader;
     if-eqz v1, :cond_1
 
     .line 53
@@ -117,12 +117,12 @@
     move-object v2, v1
 
     .line 68
-    .end local v1           #loader:Ljava/lang/ClassLoader;
+    .end local v1    # "loader":Ljava/lang/ClassLoader;
     :goto_0
     return-object v2
 
     .line 56
-    .restart local v1       #loader:Ljava/lang/ClassLoader;
+    .restart local v1    # "loader":Ljava/lang/ClassLoader;
     :cond_1
     const-wide/16 v5, 0x40
 
@@ -134,7 +134,7 @@
     invoke-direct {v2, p1, p2, p3}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
 
     .line 59
-    .local v2, pathClassloader:Ldalvik/system/PathClassLoader;
+    .local v2, "pathClassloader":Ldalvik/system/PathClassLoader;
     const-wide/16 v5, 0x40
 
     invoke-static {v5, v6}, Landroid/os/Trace;->traceEnd(J)V
@@ -150,8 +150,8 @@
     goto :goto_0
 
     .line 69
-    .end local v1           #loader:Ljava/lang/ClassLoader;
-    .end local v2           #pathClassloader:Ldalvik/system/PathClassLoader;
+    .end local v1    # "loader":Ljava/lang/ClassLoader;
+    .end local v2    # "pathClassloader":Ldalvik/system/PathClassLoader;
     :catchall_0
     move-exception v3
 
@@ -174,7 +174,7 @@
     invoke-direct {v2, p1, p3}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
 
     .line 67
-    .restart local v2       #pathClassloader:Ldalvik/system/PathClassLoader;
+    .restart local v2    # "pathClassloader":Ldalvik/system/PathClassLoader;
     const-wide/16 v5, 0x40
 
     invoke-static {v5, v6}, Landroid/os/Trace;->traceEnd(J)V

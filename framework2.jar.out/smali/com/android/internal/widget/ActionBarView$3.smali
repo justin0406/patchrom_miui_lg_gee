@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 163
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 165
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mMenuPrepared:Z
+    # getter for: Lcom/android/internal/widget/ActionBarView;->mMenuPrepared:Z
     invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$200(Lcom/android/internal/widget/ActionBarView;)Z
 
     move-result v0
@@ -61,7 +60,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
+    # getter for: Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
     invoke-static {v2}, Lcom/android/internal/widget/ActionBarView;->access$300(Lcom/android/internal/widget/ActionBarView;)Lcom/android/internal/view/menu/ActionMenuItem;
 
     move-result-object v2

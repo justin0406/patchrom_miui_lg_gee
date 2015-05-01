@@ -14,8 +14,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "parameterName"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "parameterName"    # Ljava/lang/String;
 
     .prologue
     .line 45
@@ -40,8 +40,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 65
@@ -53,7 +53,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 71
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 72
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 75
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -80,7 +80,7 @@
     move-result-object v2
 
     .line 78
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -124,7 +124,7 @@
     move-result-object v3
 
     .line 54
-    .local v3, programField:Ljava/lang/reflect/Field;
+    .local v3, "programField":Ljava/lang/reflect/Field;
     iget-object v1, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mParameterName:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mParameterName:Ljava/lang/String;
@@ -140,7 +140,7 @@
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 59
-    .end local v3           #programField:Ljava/lang/reflect/Field;
+    .end local v3    # "programField":Ljava/lang/reflect/Field;
     :cond_0
     const-string v0, "image"
 
@@ -167,7 +167,7 @@
     move-exception v6
 
     .line 56
-    .local v6, e:Ljava/lang/NoSuchFieldException;
+    .local v6, "e":Ljava/lang/NoSuchFieldException;
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Internal Error: mProgram field not found!"
@@ -179,8 +179,8 @@
 
 .method protected updateProgramWithTarget(ILandroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "target"
-    .parameter "context"
+    .param p1, "target"    # I
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 91

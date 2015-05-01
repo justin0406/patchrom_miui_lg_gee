@@ -44,7 +44,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,8 +54,8 @@
 
     .prologue
     .line 39
-    .local p0, this:Landroid/text/SpanSet;,"Landroid/text/SpanSet<TE;>;"
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<+TE;>;"
+    .local p0, "this":Landroid/text/SpanSet;, "Landroid/text/SpanSet<TE;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
@@ -75,15 +74,15 @@
 # virtual methods
 .method getNextTransition(II)I
     .locals 4
-    .parameter "start"
-    .parameter "limit"
+    .param p1, "start"    # I
+    .param p2, "limit"    # I
 
     .prologue
     .line 93
-    .local p0, this:Landroid/text/SpanSet;,"Landroid/text/SpanSet<TE;>;"
+    .local p0, "this":Landroid/text/SpanSet;, "Landroid/text/SpanSet<TE;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v3, p0, Landroid/text/SpanSet;->numberOfSpans:I
 
@@ -95,13 +94,13 @@
     aget v2, v3, v0
 
     .line 95
-    .local v2, spanStart:I
+    .local v2, "spanStart":I
     iget-object v3, p0, Landroid/text/SpanSet;->spanEnds:[I
 
     aget v1, v3, v0
 
     .line 96
-    .local v1, spanEnd:I
+    .local v1, "spanEnd":I
     if-le v2, p1, :cond_0
 
     if-ge v2, p2, :cond_0
@@ -123,23 +122,23 @@
     goto :goto_0
 
     .line 99
-    .end local v1           #spanEnd:I
-    .end local v2           #spanStart:I
+    .end local v1    # "spanEnd":I
+    .end local v2    # "spanStart":I
     :cond_2
     return p2
 .end method
 
 .method public hasSpansIntersecting(II)Z
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 81
-    .local p0, this:Landroid/text/SpanSet;,"Landroid/text/SpanSet<TE;>;"
+    .local p0, "this":Landroid/text/SpanSet;, "Landroid/text/SpanSet<TE;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/text/SpanSet;->numberOfSpans:I
 
@@ -180,13 +179,13 @@
 
 .method public init(Landroid/text/Spanned;II)V
     .locals 9
-    .parameter "spanned"
-    .parameter "start"
-    .parameter "limit"
+    .param p1, "spanned"    # Landroid/text/Spanned;
+    .param p2, "start"    # I
+    .param p3, "limit"    # I
 
     .prologue
     .line 46
-    .local p0, this:Landroid/text/SpanSet;,"Landroid/text/SpanSet<TE;>;"
+    .local p0, "this":Landroid/text/SpanSet;, "Landroid/text/SpanSet<TE;>;"
     iget-object v7, p0, Landroid/text/SpanSet;->classType:Ljava/lang/Class;
 
     invoke-interface {p1, p2, p3, v7}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
@@ -194,11 +193,11 @@
     move-result-object v0
 
     .line 47
-    .local v0, allSpans:[Ljava/lang/Object;,"[TE;"
+    .local v0, "allSpans":[Ljava/lang/Object;, "[TE;"
     array-length v2, v0
 
     .line 49
-    .local v2, length:I
+    .local v2, "length":I
     if-lez v2, :cond_1
 
     iget-object v7, p0, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
@@ -249,7 +248,7 @@
     .line 58
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_3
 
@@ -257,19 +256,19 @@
     aget-object v3, v0, v1
 
     .line 61
-    .local v3, span:Ljava/lang/Object;,"TE;"
+    .local v3, "span":Ljava/lang/Object;, "TE;"
     invoke-interface {p1, v3}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v6
 
     .line 62
-    .local v6, spanStart:I
+    .local v6, "spanStart":I
     invoke-interface {p1, v3}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v4
 
     .line 63
-    .local v4, spanEnd:I
+    .local v4, "spanEnd":I
     if-ne v6, v4, :cond_2
 
     .line 58
@@ -285,7 +284,7 @@
     move-result v5
 
     .line 67
-    .local v5, spanFlag:I
+    .local v5, "spanFlag":I
     iget-object v7, p0, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
 
     iget v8, p0, Landroid/text/SpanSet;->numberOfSpans:I
@@ -323,10 +322,10 @@
     goto :goto_1
 
     .line 74
-    .end local v3           #span:Ljava/lang/Object;,"TE;"
-    .end local v4           #spanEnd:I
-    .end local v5           #spanFlag:I
-    .end local v6           #spanStart:I
+    .end local v3    # "span":Ljava/lang/Object;, "TE;"
+    .end local v4    # "spanEnd":I
+    .end local v5    # "spanFlag":I
+    .end local v6    # "spanStart":I
     :cond_3
     return-void
 .end method
@@ -336,10 +335,10 @@
 
     .prologue
     .line 107
-    .local p0, this:Landroid/text/SpanSet;,"Landroid/text/SpanSet<TE;>;"
+    .local p0, "this":Landroid/text/SpanSet;, "Landroid/text/SpanSet<TE;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/text/SpanSet;->numberOfSpans:I
 

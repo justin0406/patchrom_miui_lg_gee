@@ -31,10 +31,9 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;ILjava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter
-    .parameter "viewId"
-    .parameter "methodName"
-    .parameter "bitmap"
+    .param p2, "viewId"    # I
+    .param p3, "methodName"    # Ljava/lang/String;
+    .param p4, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1010
@@ -54,7 +53,7 @@
     iput-object p3, p0, Landroid/widget/RemoteViews$BitmapReflectionAction;->methodName:Ljava/lang/String;
 
     .line 1014
-    #getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    # getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$400(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
 
     move-result-object v0
@@ -71,8 +70,7 @@
 
 .method constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 2
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 1017
@@ -104,7 +102,7 @@
     iput v0, p0, Landroid/widget/RemoteViews$BitmapReflectionAction;->bitmapId:I
 
     .line 1021
-    #getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    # getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$400(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
 
     move-result-object v0
@@ -125,9 +123,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/widget/RemoteViews$ActionException;
@@ -151,7 +149,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/widget/RemoteViews$ReflectionAction;-><init>(Landroid/widget/RemoteViews;ILjava/lang/String;ILjava/lang/Object;)V
 
     .line 1037
-    .local v0, ra:Landroid/widget/RemoteViews$ReflectionAction;
+    .local v0, "ra":Landroid/widget/RemoteViews$ReflectionAction;
     invoke-virtual {v0, p1, p2, p3}, Landroid/widget/RemoteViews$ReflectionAction;->apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
 
     .line 1038
@@ -170,7 +168,7 @@
 
 .method public setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
     .locals 1
-    .parameter "bitmapCache"
+    .param p1, "bitmapCache"    # Landroid/widget/RemoteViews$BitmapCache;
 
     .prologue
     .line 1042
@@ -188,8 +186,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1026

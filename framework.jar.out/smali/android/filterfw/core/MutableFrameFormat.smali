@@ -17,8 +17,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "baseType"
-    .parameter "target"
+    .param p1, "baseType"    # I
+    .param p2, "target"    # I
 
     .prologue
     .line 35
@@ -32,7 +32,7 @@
 # virtual methods
 .method public setBaseType(I)V
     .locals 1
-    .parameter "baseType"
+    .param p1, "baseType"    # I
 
     .prologue
     .line 39
@@ -51,7 +51,7 @@
 
 .method public setBytesPerSample(I)V
     .locals 1
-    .parameter "bytesPerSample"
+    .param p1, "bytesPerSample"    # I
 
     .prologue
     .line 48
@@ -68,7 +68,7 @@
 
 .method public setDimensionCount(I)V
     .locals 1
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 82
@@ -82,7 +82,7 @@
 
 .method public setDimensions(I)V
     .locals 2
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 58
@@ -91,7 +91,7 @@
     new-array v0, v1, [I
 
     .line 59
-    .local v0, dimensions:[I
+    .local v0, "dimensions":[I
     const/4 v1, 0x0
 
     aput p1, v0, v1
@@ -110,8 +110,8 @@
 
 .method public setDimensions(II)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 65
@@ -120,7 +120,7 @@
     new-array v0, v1, [I
 
     .line 66
-    .local v0, dimensions:[I
+    .local v0, "dimensions":[I
     const/4 v1, 0x0
 
     aput p1, v0, v1
@@ -144,9 +144,9 @@
 
 .method public setDimensions(III)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
-    .parameter "depth"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "depth"    # I
 
     .prologue
     .line 73
@@ -155,7 +155,7 @@
     new-array v0, v1, [I
 
     .line 74
-    .local v0, dimensions:[I
+    .local v0, "dimensions":[I
     const/4 v1, 0x0
 
     aput p1, v0, v1
@@ -184,7 +184,7 @@
 
 .method public setDimensions([I)V
     .locals 1
-    .parameter "dimensions"
+    .param p1, "dimensions"    # [I
 
     .prologue
     .line 53
@@ -216,8 +216,8 @@
 
 .method public setMetaValue(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 90
@@ -244,7 +244,7 @@
 
 .method public setObjectClass(Ljava/lang/Class;)V
     .locals 0
-    .parameter "objectClass"
+    .param p1, "objectClass"    # Ljava/lang/Class;
 
     .prologue
     .line 86
@@ -256,7 +256,7 @@
 
 .method public setTarget(I)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # I
 
     .prologue
     .line 44

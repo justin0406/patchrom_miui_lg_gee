@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/power/Notifier;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 525
@@ -43,7 +42,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 531
@@ -59,7 +58,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    #calls: Lcom/android/server/power/Notifier;->sendUserActivity()V
+    # invokes: Lcom/android/server/power/Notifier;->sendUserActivity()V
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$600(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0
@@ -68,7 +67,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    #calls: Lcom/android/server/power/Notifier;->sendNextBroadcast()V
+    # invokes: Lcom/android/server/power/Notifier;->sendNextBroadcast()V
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$500(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0
@@ -77,7 +76,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    #calls: Lcom/android/server/power/Notifier;->playWirelessChargingStartedSound()V
+    # invokes: Lcom/android/server/power/Notifier;->playWirelessChargingStartedSound()V
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$700(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0

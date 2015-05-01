@@ -16,7 +16,7 @@
 
 .method static from(Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;)Landroid/speech/tts/UtteranceProgressListener;
     .locals 1
-    .parameter "listener"
+    .param p0, "listener"    # Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;
 
     .prologue
     .line 54

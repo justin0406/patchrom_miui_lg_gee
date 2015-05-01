@@ -40,9 +40,9 @@
 # direct methods
 .method constructor <init>(IILandroid/os/Message;)V
     .locals 1
-    .parameter "efid"
-    .parameter "recordNum"
-    .parameter "onLoaded"
+    .param p1, "efid"    # I
+    .param p2, "recordNum"    # I
+    .param p3, "onLoaded"    # Landroid/os/Message;
 
     .prologue
     .line 110
@@ -68,8 +68,8 @@
 
 .method constructor <init>(ILandroid/os/Message;)V
     .locals 1
-    .parameter "efid"
-    .parameter "onLoaded"
+    .param p1, "efid"    # I
+    .param p2, "onLoaded"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x1

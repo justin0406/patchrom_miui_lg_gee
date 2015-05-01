@@ -24,8 +24,8 @@
 
 .method public static getInitialScrollX(Landroid/widget/TextView;Landroid/text/Spannable;)I
     .locals 4
-    .parameter "widget"
-    .parameter "buffer"
+    .param p0, "widget"    # Landroid/widget/TextView;
+    .param p1, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     const/4 v3, 0x0
@@ -44,7 +44,7 @@
     check-cast v0, [Landroid/text/method/Touch$DragState;
 
     .line 185
-    .local v0, ds:[Landroid/text/method/Touch$DragState;
+    .local v0, "ds":[Landroid/text/method/Touch$DragState;
     array-length v1, v0
 
     if-lez v1, :cond_0
@@ -64,8 +64,8 @@
 
 .method public static getInitialScrollY(Landroid/widget/TextView;Landroid/text/Spannable;)I
     .locals 4
-    .parameter "widget"
-    .parameter "buffer"
+    .param p0, "widget"    # Landroid/widget/TextView;
+    .param p1, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     const/4 v3, 0x0
@@ -84,7 +84,7 @@
     check-cast v0, [Landroid/text/method/Touch$DragState;
 
     .line 194
-    .local v0, ds:[Landroid/text/method/Touch$DragState;
+    .local v0, "ds":[Landroid/text/method/Touch$DragState;
     array-length v1, v0
 
     if-lez v1, :cond_0
@@ -104,9 +104,9 @@
 
 .method public static onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 22
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "event"
+    .param p0, "widget"    # Landroid/widget/TextView;
+    .param p1, "buffer"    # Landroid/text/Spannable;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 92
@@ -148,10 +148,10 @@
     check-cast v6, [Landroid/text/method/Touch$DragState;
 
     .line 96
-    .local v6, ds:[Landroid/text/method/Touch$DragState;
+    .local v6, "ds":[Landroid/text/method/Touch$DragState;
     const/4 v9, 0x0
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_1
     array-length v0, v6
 
@@ -221,8 +221,8 @@
     goto :goto_0
 
     .line 106
-    .end local v6           #ds:[Landroid/text/method/Touch$DragState;
-    .end local v9           #i:I
+    .end local v6    # "ds":[Landroid/text/method/Touch$DragState;
+    .end local v9    # "i":I
     :pswitch_1
     const/16 v17, 0x0
 
@@ -247,10 +247,10 @@
     check-cast v6, [Landroid/text/method/Touch$DragState;
 
     .line 108
-    .restart local v6       #ds:[Landroid/text/method/Touch$DragState;
+    .restart local v6    # "ds":[Landroid/text/method/Touch$DragState;
     const/4 v9, 0x0
 
-    .restart local v9       #i:I
+    .restart local v9    # "i":I
     :goto_2
     array-length v0, v6
 
@@ -306,8 +306,8 @@
     goto/16 :goto_0
 
     .line 119
-    .end local v6           #ds:[Landroid/text/method/Touch$DragState;
-    .end local v9           #i:I
+    .end local v6    # "ds":[Landroid/text/method/Touch$DragState;
+    .end local v9    # "i":I
     :pswitch_2
     const/16 v17, 0x0
 
@@ -332,7 +332,7 @@
     check-cast v6, [Landroid/text/method/Touch$DragState;
 
     .line 121
-    .restart local v6       #ds:[Landroid/text/method/Touch$DragState;
+    .restart local v6    # "ds":[Landroid/text/method/Touch$DragState;
     array-length v0, v6
 
     move/from16 v17, v0
@@ -366,7 +366,7 @@
     move-result v16
 
     .line 125
-    .local v16, slop:I
+    .local v16, "slop":I
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v17
@@ -442,7 +442,7 @@
     iput-boolean v0, v1, Landroid/text/method/Touch$DragState;->mFarEnough:Z
 
     .line 131
-    .end local v16           #slop:I
+    .end local v16    # "slop":I
     :cond_5
     const/16 v17, 0x0
 
@@ -512,7 +512,7 @@
     const/4 v5, 0x1
 
     .line 140
-    .local v5, cap:Z
+    .local v5, "cap":Z
     :goto_3
     if-eqz v5, :cond_a
 
@@ -534,7 +534,7 @@
     sub-float v7, v17, v18
 
     .line 144
-    .local v7, dx:F
+    .local v7, "dx":F
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v17
@@ -552,7 +552,7 @@
     sub-float v8, v17, v18
 
     .line 149
-    .local v8, dy:F
+    .local v8, "dy":F
     :goto_4
     const/16 v17, 0x0
 
@@ -595,7 +595,7 @@
     add-int v11, v17, v18
 
     .line 153
-    .local v11, nx:I
+    .local v11, "nx":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v17
@@ -607,7 +607,7 @@
     add-int v12, v17, v18
 
     .line 155
-    .local v12, ny:I
+    .local v12, "ny":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getTotalPaddingTop()I
 
     move-result v17
@@ -619,13 +619,13 @@
     add-int v15, v17, v18
 
     .line 156
-    .local v15, padding:I
+    .local v15, "padding":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v10
 
     .line 158
-    .local v10, layout:Landroid/text/Layout;
+    .local v10, "layout":Landroid/text/Layout;
     invoke-virtual {v10}, Landroid/text/Layout;->getHeight()I
 
     move-result v17
@@ -659,13 +659,13 @@
     move-result v13
 
     .line 162
-    .local v13, oldX:I
+    .local v13, "oldX":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v14
 
     .line 164
-    .local v14, oldY:I
+    .local v14, "oldY":I
     move-object/from16 v0, p0
 
     invoke-static {v0, v10, v11, v12}, Landroid/text/method/Touch;->scrollTo(Landroid/widget/TextView;Landroid/text/Layout;II)V
@@ -698,22 +698,22 @@
     goto/16 :goto_0
 
     .line 133
-    .end local v5           #cap:Z
-    .end local v7           #dx:F
-    .end local v8           #dy:F
-    .end local v10           #layout:Landroid/text/Layout;
-    .end local v11           #nx:I
-    .end local v12           #ny:I
-    .end local v13           #oldX:I
-    .end local v14           #oldY:I
-    .end local v15           #padding:I
+    .end local v5    # "cap":Z
+    .end local v7    # "dx":F
+    .end local v8    # "dy":F
+    .end local v10    # "layout":Landroid/text/Layout;
+    .end local v11    # "nx":I
+    .end local v12    # "ny":I
+    .end local v13    # "oldX":I
+    .end local v14    # "oldY":I
+    .end local v15    # "padding":I
     :cond_9
     const/4 v5, 0x0
 
     goto/16 :goto_3
 
     .line 146
-    .restart local v5       #cap:Z
+    .restart local v5    # "cap":Z
     :cond_a
     const/16 v17, 0x0
 
@@ -732,7 +732,7 @@
     sub-float v7, v17, v18
 
     .line 147
-    .restart local v7       #dx:F
+    .restart local v7    # "dx":F
     const/16 v17, 0x0
 
     aget-object v17, v6, v17
@@ -749,7 +749,7 @@
 
     sub-float v8, v17, v18
 
-    .restart local v8       #dy:F
+    .restart local v8    # "dy":F
     goto/16 :goto_4
 
     .line 92
@@ -765,10 +765,10 @@
 
 .method public static scrollTo(Landroid/widget/TextView;Landroid/text/Layout;II)V
     .locals 15
-    .parameter "widget"
-    .parameter "layout"
-    .parameter "x"
-    .parameter "y"
+    .param p0, "widget"    # Landroid/widget/TextView;
+    .param p1, "layout"    # Landroid/text/Layout;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
 
     .prologue
     .line 38
@@ -783,7 +783,7 @@
     add-int v6, v13, v14
 
     .line 39
-    .local v6, horizontalPadding:I
+    .local v6, "horizontalPadding":I
     invoke-virtual {p0}, Landroid/widget/TextView;->getWidth()I
 
     move-result v13
@@ -791,7 +791,7 @@
     sub-int v4, v13, v6
 
     .line 41
-    .local v4, availableWidth:I
+    .local v4, "availableWidth":I
     move-object/from16 v0, p1
 
     move/from16 v1, p3
@@ -801,7 +801,7 @@
     move-result v11
 
     .line 42
-    .local v11, top:I
+    .local v11, "top":I
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v11}, Landroid/text/Layout;->getParagraphAlignment(I)Landroid/text/Layout$Alignment;
@@ -809,7 +809,7 @@
     move-result-object v2
 
     .line 43
-    .local v2, a:Landroid/text/Layout$Alignment;
+    .local v2, "a":Landroid/text/Layout$Alignment;
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v11}, Landroid/text/Layout;->getParagraphDirection(I)I
@@ -821,7 +821,7 @@
     const/4 v9, 0x1
 
     .line 46
-    .local v9, ltr:Z
+    .local v9, "ltr":Z
     :goto_0
     invoke-virtual {p0}, Landroid/widget/TextView;->getHorizontallyScrolling()Z
 
@@ -841,7 +841,7 @@
     add-int v12, v13, v14
 
     .line 48
-    .local v12, verticalPadding:I
+    .local v12, "verticalPadding":I
     invoke-virtual {p0}, Landroid/widget/TextView;->getHeight()I
 
     move-result v13
@@ -857,18 +857,18 @@
     move-result v5
 
     .line 50
-    .local v5, bottom:I
+    .local v5, "bottom":I
     const v8, 0x7fffffff
 
     .line 51
-    .local v8, left:I
+    .local v8, "left":I
     const/4 v10, 0x0
 
     .line 53
-    .local v10, right:I
+    .local v10, "right":I
     move v7, v11
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_1
     if-gt v7, v5, :cond_2
 
@@ -908,33 +908,33 @@
     goto :goto_1
 
     .line 43
-    .end local v5           #bottom:I
-    .end local v7           #i:I
-    .end local v8           #left:I
-    .end local v9           #ltr:Z
-    .end local v10           #right:I
-    .end local v12           #verticalPadding:I
+    .end local v5    # "bottom":I
+    .end local v7    # "i":I
+    .end local v8    # "left":I
+    .end local v9    # "ltr":Z
+    .end local v10    # "right":I
+    .end local v12    # "verticalPadding":I
     :cond_0
     const/4 v9, 0x0
 
     goto :goto_0
 
     .line 58
-    .restart local v9       #ltr:Z
+    .restart local v9    # "ltr":Z
     :cond_1
     const/4 v8, 0x0
 
     .line 59
-    .restart local v8       #left:I
+    .restart local v8    # "left":I
     move v10, v4
 
     .line 62
-    .restart local v10       #right:I
+    .restart local v10    # "right":I
     :cond_2
     sub-int v3, v10, v8
 
     .line 64
-    .local v3, actualWidth:I
+    .local v3, "actualWidth":I
     if-ge v3, v4, :cond_8
 
     .line 65

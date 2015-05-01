@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 540
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 546
@@ -50,7 +49,7 @@
     move-result v1
 
     .line 547
-    .local v1, reason:I
+    .local v1, "reason":I
     const/4 v3, 0x1
 
     if-ne v1, v3, :cond_1
@@ -65,7 +64,7 @@
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
     .line 550
-    .local v0, config:Landroid/net/wifi/WifiConfiguration;
+    .local v0, "config":Landroid/net/wifi/WifiConfiguration;
     iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
     if-eqz v3, :cond_1
@@ -78,10 +77,10 @@
     move-result-object v2
 
     .line 552
-    .local v2, template:Landroid/net/NetworkTemplate;
+    .local v2, "template":Landroid/net/NetworkTemplate;
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$9;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$100(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/lang/Object;
 
     move-result-object v4
@@ -92,7 +91,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$9;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$1100(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -106,7 +105,7 @@
     .line 554
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$9;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$1100(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -116,7 +115,7 @@
     .line 555
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$9;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #calls: Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
+    # invokes: Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$400(Lcom/android/server/net/NetworkPolicyManagerService;)V
 
     .line 557
@@ -124,14 +123,14 @@
     monitor-exit v4
 
     .line 560
-    .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
-    .end local v2           #template:Landroid/net/NetworkTemplate;
+    .end local v0    # "config":Landroid/net/wifi/WifiConfiguration;
+    .end local v2    # "template":Landroid/net/NetworkTemplate;
     :cond_1
     return-void
 
     .line 557
-    .restart local v0       #config:Landroid/net/wifi/WifiConfiguration;
-    .restart local v2       #template:Landroid/net/NetworkTemplate;
+    .restart local v0    # "config":Landroid/net/wifi/WifiConfiguration;
+    .restart local v2    # "template":Landroid/net/NetworkTemplate;
     :catchall_0
     move-exception v3
 

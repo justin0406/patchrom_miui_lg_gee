@@ -28,7 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 65
@@ -61,7 +61,7 @@
 
 .method private makeTag(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 109
@@ -124,8 +124,8 @@
 # virtual methods
 .method public acquireUpdateLock(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 3
-    .parameter "token"
-    .parameter "tag"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -157,9 +157,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 116
@@ -227,7 +227,7 @@
 
 .method public releaseUpdateLock(Landroid/os/IBinder;)V
     .locals 3
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +255,7 @@
 
 .method sendLockChangedBroadcast(Z)V
     .locals 7
-    .parameter "state"
+    .param p1, "state"    # Z
 
     .prologue
     .line 76
@@ -264,7 +264,7 @@
     move-result-wide v1
 
     .line 78
-    .local v1, oldIdent:J
+    .local v1, "oldIdent":J
     :try_start_0
     new-instance v3, Landroid/content/Intent;
 
@@ -288,14 +288,14 @@
 
     move-result-object v3
 
-    const/high16 v4, 0x400
+    const/high16 v4, 0x4000000
 
     invoke-virtual {v3, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     move-result-object v0
 
     .line 82
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/server/UpdateLockService;->mContext:Landroid/content/Context;
 
     sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
@@ -311,7 +311,7 @@
     return-void
 
     .line 84
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     :catchall_0
     move-exception v3
 

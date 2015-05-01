@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;)V
     .locals 0
-    .parameter "filter"
-    .parameter "name"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 29
@@ -27,8 +27,8 @@
 # virtual methods
 .method protected declared-synchronized assignFrame(Landroid/filterfw/core/Frame;Z)V
     .locals 3
-    .parameter "frame"
-    .parameter "persistent"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "persistent"    # Z
 
     .prologue
     .line 51
@@ -242,7 +242,7 @@
     iget-object v0, p0, Landroid/filterfw/core/StreamPort;->mFrame:Landroid/filterfw/core/Frame;
 
     .line 76
-    .local v0, result:Landroid/filterfw/core/Frame;
+    .local v0, "result":Landroid/filterfw/core/Frame;
     iget-boolean v1, p0, Landroid/filterfw/core/StreamPort;->mPersistent:Z
 
     if-eqz v1, :cond_1
@@ -274,7 +274,7 @@
 
 .method public pushFrame(Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 47
@@ -288,7 +288,7 @@
 
 .method public setFrame(Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 42
@@ -332,7 +332,7 @@
 
 .method public declared-synchronized transfer(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 96

@@ -45,7 +45,7 @@
 
 .method protected constructor <init>(I)V
     .locals 0
-    .parameter "verticalAlignment"
+    .param p1, "verticalAlignment"    # I
 
     .prologue
     .line 57
@@ -66,11 +66,11 @@
     iget-object v1, p0, Landroid/text/style/DynamicDrawableSpan;->mDrawableRef:Ljava/lang/ref/WeakReference;
 
     .line 113
-    .local v1, wr:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable;>;"
+    .local v1, "wr":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable;>;"
     const/4 v0, 0x0
 
     .line 115
-    .local v0, d:Landroid/graphics/drawable/Drawable;
+    .local v0, "d":Landroid/graphics/drawable/Drawable;
     if-eqz v1, :cond_0
 
     .line 116
@@ -78,11 +78,11 @@
 
     move-result-object v0
 
-    .end local v0           #d:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "d":Landroid/graphics/drawable/Drawable;
     check-cast v0, Landroid/graphics/drawable/Drawable;
 
     .line 118
-    .restart local v0       #d:Landroid/graphics/drawable/Drawable;
+    .restart local v0    # "d":Landroid/graphics/drawable/Drawable;
     :cond_0
     if-nez v0, :cond_1
 
@@ -107,15 +107,15 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/lang/CharSequence;IIFIIILandroid/graphics/Paint;)V
     .locals 4
-    .parameter "canvas"
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "x"
-    .parameter "top"
-    .parameter "y"
-    .parameter "bottom"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "text"    # Ljava/lang/CharSequence;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
+    .param p5, "x"    # F
+    .param p6, "top"    # I
+    .param p7, "y"    # I
+    .param p8, "bottom"    # I
+    .param p9, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 98
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 99
-    .local v0, b:Landroid/graphics/drawable/Drawable;
+    .local v0, "b":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 101
@@ -137,7 +137,7 @@
     sub-int v1, p8, v2
 
     .line 102
-    .local v1, transY:I
+    .local v1, "transY":I
     iget v2, p0, Landroid/text/style/DynamicDrawableSpan;->mVerticalAlignment:I
 
     const/4 v3, 0x1
@@ -174,11 +174,11 @@
 
 .method public getSize(Landroid/graphics/Paint;Ljava/lang/CharSequence;IILandroid/graphics/Paint$FontMetricsInt;)I
     .locals 4
-    .parameter "paint"
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "fm"
+    .param p1, "paint"    # Landroid/graphics/Paint;
+    .param p2, "text"    # Ljava/lang/CharSequence;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
+    .param p5, "fm"    # Landroid/graphics/Paint$FontMetricsInt;
 
     .prologue
     const/4 v3, 0x0
@@ -189,13 +189,13 @@
     move-result-object v0
 
     .line 81
-    .local v0, d:Landroid/graphics/drawable/Drawable;
+    .local v0, "d":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v1
 
     .line 83
-    .local v1, rect:Landroid/graphics/Rect;
+    .local v1, "rect":Landroid/graphics/Rect;
     if-eqz p5, :cond_0
 
     .line 84

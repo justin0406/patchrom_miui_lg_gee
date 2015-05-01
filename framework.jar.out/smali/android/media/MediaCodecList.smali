@@ -41,7 +41,7 @@
 
 .method public static final getCodecInfoAt(I)Landroid/media/MediaCodecInfo;
     .locals 1
-    .parameter "index"
+    .param p0, "index"    # I
 
     .prologue
     .line 34

@@ -58,7 +58,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/ISearchManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/ISearchManager;
@@ -96,7 +96,7 @@
     :cond_1
     new-instance v0, Landroid/app/ISearchManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/ISearchManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -114,10 +114,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -171,14 +171,14 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 56
-    .local v0, _arg0:Landroid/content/ComponentName;
+    .local v0, "_arg0":Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/app/ISearchManager$Stub;->getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
 
     move-result-object v1
 
     .line 57
-    .local v1, _result:Landroid/app/SearchableInfo;
+    .local v1, "_result":Landroid/app/SearchableInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 58
@@ -193,24 +193,24 @@
     goto :goto_0
 
     .line 54
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_result:Landroid/app/SearchableInfo;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_result":Landroid/app/SearchableInfo;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_1
 
     .line 63
-    .restart local v1       #_result:Landroid/app/SearchableInfo;
+    .restart local v1    # "_result":Landroid/app/SearchableInfo;
     :cond_1
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     .line 69
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_result:Landroid/app/SearchableInfo;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_result":Landroid/app/SearchableInfo;
     :sswitch_2
     const-string v5, "android.app.ISearchManager"
 
@@ -222,7 +222,7 @@
     move-result-object v2
 
     .line 71
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/app/SearchableInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 72
@@ -231,7 +231,7 @@
     goto :goto_0
 
     .line 77
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/app/SearchableInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     :sswitch_3
     const-string v5, "android.app.ISearchManager"
 
@@ -243,7 +243,7 @@
     move-result-object v3
 
     .line 79
-    .local v3, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v3, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 80
@@ -252,7 +252,7 @@
     goto :goto_0
 
     .line 85
-    .end local v3           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .end local v3    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     :sswitch_4
     const-string v5, "android.app.ISearchManager"
 
@@ -264,7 +264,7 @@
     move-result-object v1
 
     .line 87
-    .local v1, _result:Landroid/content/ComponentName;
+    .local v1, "_result":Landroid/content/ComponentName;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 88
@@ -285,7 +285,7 @@
     goto :goto_0
 
     .line 99
-    .end local v1           #_result:Landroid/content/ComponentName;
+    .end local v1    # "_result":Landroid/content/ComponentName;
     :sswitch_5
     const-string v5, "android.app.ISearchManager"
 
@@ -297,7 +297,7 @@
     move-result-object v1
 
     .line 101
-    .restart local v1       #_result:Landroid/content/ComponentName;
+    .restart local v1    # "_result":Landroid/content/ComponentName;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 102
@@ -318,7 +318,7 @@
     goto/16 :goto_0
 
     .line 113
-    .end local v1           #_result:Landroid/content/ComponentName;
+    .end local v1    # "_result":Landroid/content/ComponentName;
     :sswitch_6
     const-string v5, "android.app.ISearchManager"
 
@@ -330,13 +330,13 @@
     move-result v0
 
     .line 116
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/ISearchManager$Stub;->getAssistIntent(I)Landroid/content/ComponentName;
 
     move-result-object v1
 
     .line 117
-    .restart local v1       #_result:Landroid/content/ComponentName;
+    .restart local v1    # "_result":Landroid/content/ComponentName;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 118

@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 36
@@ -32,7 +32,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "url"
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     .line 32
@@ -79,7 +79,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/view/View;
 
     .prologue
     .line 58
@@ -92,13 +92,13 @@
     move-result-object v2
 
     .line 59
-    .local v2, uri:Landroid/net/Uri;
+    .local v2, "uri":Landroid/net/Uri;
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     .line 60
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.VIEW"
@@ -106,7 +106,7 @@
     invoke-direct {v1, v3, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 61
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     const-string v3, "com.android.browser.application_id"
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -124,8 +124,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 49

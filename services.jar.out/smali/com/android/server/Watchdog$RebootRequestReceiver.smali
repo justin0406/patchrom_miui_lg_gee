@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/Watchdog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 190
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "c"
-    .parameter "intent"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 193

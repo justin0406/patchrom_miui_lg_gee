@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/connectivity/Tethering;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 498
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/connectivity/Tethering;Lcom/android/server/connectivity/Tethering$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/connectivity/Tethering;
+    .param p2, "x1"    # Lcom/android/server/connectivity/Tethering$1;
 
     .prologue
     .line 498
@@ -48,8 +47,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "content"
-    .parameter "intent"
+    .param p1, "content"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 500
@@ -58,7 +57,7 @@
     move-result-object v0
 
     .line 501
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.hardware.usb.action.USB_STATE"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -70,7 +69,7 @@
     .line 502
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$StateReceiver;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    #getter for: Lcom/android/server/connectivity/Tethering;->mPublicSync:Ljava/lang/Object;
+    # getter for: Lcom/android/server/connectivity/Tethering;->mPublicSync:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering;->access$100(Lcom/android/server/connectivity/Tethering;)Ljava/lang/Object;
 
     move-result-object v4
@@ -88,7 +87,7 @@
     move-result v2
 
     .line 504
-    .local v2, usbConnected:Z
+    .local v2, "usbConnected":Z
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$StateReceiver;->this$0:Lcom/android/server/connectivity/Tethering;
 
     const-string v5, "rndis"
@@ -99,7 +98,7 @@
 
     move-result v5
 
-    #setter for: Lcom/android/server/connectivity/Tethering;->mRndisEnabled:Z
+    # setter for: Lcom/android/server/connectivity/Tethering;->mRndisEnabled:Z
     invoke-static {v3, v5}, Lcom/android/server/connectivity/Tethering;->access$202(Lcom/android/server/connectivity/Tethering;Z)Z
 
     .line 506
@@ -107,7 +106,7 @@
 
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$StateReceiver;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    #getter for: Lcom/android/server/connectivity/Tethering;->mRndisEnabled:Z
+    # getter for: Lcom/android/server/connectivity/Tethering;->mRndisEnabled:Z
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering;->access$200(Lcom/android/server/connectivity/Tethering;)Z
 
     move-result v3
@@ -116,7 +115,7 @@
 
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$StateReceiver;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    #getter for: Lcom/android/server/connectivity/Tethering;->mUsbTetherRequested:Z
+    # getter for: Lcom/android/server/connectivity/Tethering;->mUsbTetherRequested:Z
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering;->access$300(Lcom/android/server/connectivity/Tethering;)Z
 
     move-result v3
@@ -128,7 +127,7 @@
 
     const/4 v5, 0x1
 
-    #calls: Lcom/android/server/connectivity/Tethering;->tetherUsb(Z)V
+    # invokes: Lcom/android/server/connectivity/Tethering;->tetherUsb(Z)V
     invoke-static {v3, v5}, Lcom/android/server/connectivity/Tethering;->access$400(Lcom/android/server/connectivity/Tethering;Z)V
 
     .line 509
@@ -137,14 +136,14 @@
 
     const/4 v5, 0x0
 
-    #setter for: Lcom/android/server/connectivity/Tethering;->mUsbTetherRequested:Z
+    # setter for: Lcom/android/server/connectivity/Tethering;->mUsbTetherRequested:Z
     invoke-static {v3, v5}, Lcom/android/server/connectivity/Tethering;->access$302(Lcom/android/server/connectivity/Tethering;Z)Z
 
     .line 510
     monitor-exit v4
 
     .line 522
-    .end local v2           #usbConnected:Z
+    .end local v2    # "usbConnected":Z
     :cond_1
     :goto_0
     return-void
@@ -179,7 +178,7 @@
     check-cast v1, Landroid/net/NetworkInfo;
 
     .line 514
-    .local v1, networkInfo:Landroid/net/NetworkInfo;
+    .local v1, "networkInfo":Landroid/net/NetworkInfo;
     if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
@@ -193,7 +192,7 @@
     .line 517
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$StateReceiver;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    #getter for: Lcom/android/server/connectivity/Tethering;->mTetherMasterSM:Lcom/android/internal/util/StateMachine;
+    # getter for: Lcom/android/server/connectivity/Tethering;->mTetherMasterSM:Lcom/android/internal/util/StateMachine;
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering;->access$500(Lcom/android/server/connectivity/Tethering;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v3
@@ -205,7 +204,7 @@
     goto :goto_0
 
     .line 519
-    .end local v1           #networkInfo:Landroid/net/NetworkInfo;
+    .end local v1    # "networkInfo":Landroid/net/NetworkInfo;
     :cond_3
     const-string v3, "android.intent.action.CONFIGURATION_CHANGED"
 

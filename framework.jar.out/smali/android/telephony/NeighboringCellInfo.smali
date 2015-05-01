@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -86,8 +86,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "rssi"
-    .parameter "cid"
+    .param p1, "rssi"    # I
+    .param p2, "cid"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -107,9 +107,9 @@
 
 .method public constructor <init>(ILjava/lang/String;I)V
     .locals 7
-    .parameter "rssi"
-    .parameter "location"
-    .parameter "radioType"
+    .param p1, "rssi"    # I
+    .param p2, "location"    # Ljava/lang/String;
+    .param p3, "radioType"    # I
 
     .prologue
     const/16 v3, 0x8
@@ -142,7 +142,7 @@
     move-result v2
 
     .line 124
-    .local v2, l:I
+    .local v2, "l":I
     if-le v2, v3, :cond_1
 
     .line 157
@@ -157,7 +157,7 @@
     .line 126
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     rsub-int/lit8 v3, v2, 0x8
 
@@ -188,7 +188,7 @@
     goto :goto_1
 
     .line 132
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_2
     packed-switch p3, :pswitch_data_0
 
@@ -258,7 +258,7 @@
     move-exception v0
 
     .line 152
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     iput v5, p0, Landroid/telephony/NeighboringCellInfo;->mPsc:I
 
     .line 153
@@ -273,7 +273,7 @@
     goto :goto_0
 
     .line 146
-    .end local v0           #e:Ljava/lang/NumberFormatException;
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
     :pswitch_2
     :try_start_1
     iput p3, p0, Landroid/telephony/NeighboringCellInfo;->mNetworkType:I
@@ -313,7 +313,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 162
@@ -422,7 +422,7 @@
 
 .method public setCid(I)V
     .locals 0
-    .parameter "cid"
+    .param p1, "cid"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -436,7 +436,7 @@
 
 .method public setRssi(I)V
     .locals 0
-    .parameter "rssi"
+    .param p1, "rssi"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -462,7 +462,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 263
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -582,8 +582,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 282

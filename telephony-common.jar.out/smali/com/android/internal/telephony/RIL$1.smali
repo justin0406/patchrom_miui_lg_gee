@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/RIL;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 268
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 271
@@ -58,7 +57,7 @@
 
     const/4 v1, 0x1
 
-    #calls: Lcom/android/internal/telephony/RIL;->sendScreenState(Z)V
+    # invokes: Lcom/android/internal/telephony/RIL;->sendScreenState(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/RIL;->access$000(Lcom/android/internal/telephony/RIL;Z)V
 
     .line 278
@@ -84,7 +83,7 @@
 
     const/4 v1, 0x0
 
-    #calls: Lcom/android/internal/telephony/RIL;->sendScreenState(Z)V
+    # invokes: Lcom/android/internal/telephony/RIL;->sendScreenState(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/RIL;->access$000(Lcom/android/internal/telephony/RIL;Z)V
 
     goto :goto_0

@@ -50,10 +50,10 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/Account;ILjava/lang/String;I)V
     .locals 9
-    .parameter "account"
-    .parameter "userId"
-    .parameter "authority"
-    .parameter "ident"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
+    .param p3, "authority"    # Ljava/lang/String;
+    .param p4, "ident"    # I
 
     .prologue
     const-wide/32 v4, 0x15180
@@ -130,9 +130,9 @@
 
 .method constructor <init>(Landroid/content/ComponentName;II)V
     .locals 9
-    .parameter "cname"
-    .parameter "userId"
-    .parameter "ident"
+    .param p1, "cname"    # Landroid/content/ComponentName;
+    .param p2, "userId"    # I
+    .param p3, "ident"    # I
 
     .prologue
     const-wide/32 v4, 0x15180
@@ -209,7 +209,7 @@
 
 .method constructor <init>(Lcom/android/server/content/SyncStorageEngine$AuthorityInfo;)V
     .locals 4
-    .parameter "toCopy"
+    .param p1, "toCopy"    # Lcom/android/server/content/SyncStorageEngine$AuthorityInfo;
 
     .prologue
     .line 226
@@ -279,7 +279,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -294,7 +294,7 @@
     check-cast v1, Landroid/content/PeriodicSync;
 
     .line 240
-    .local v1, sync:Landroid/content/PeriodicSync;
+    .local v1, "sync":Landroid/content/PeriodicSync;
     iget-object v2, p0, Lcom/android/server/content/SyncStorageEngine$AuthorityInfo;->periodicSyncs:Ljava/util/ArrayList;
 
     new-instance v3, Landroid/content/PeriodicSync;
@@ -306,7 +306,7 @@
     goto :goto_0
 
     .line 242
-    .end local v1           #sync:Landroid/content/PeriodicSync;
+    .end local v1    # "sync":Landroid/content/PeriodicSync;
     :cond_0
     return-void
 .end method

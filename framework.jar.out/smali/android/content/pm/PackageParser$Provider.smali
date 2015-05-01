@@ -32,8 +32,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$ParseComponentArgs;Landroid/content/pm/ProviderInfo;)V
     .locals 2
-    .parameter "args"
-    .parameter "_info"
+    .param p1, "args"    # Landroid/content/pm/PackageParser$ParseComponentArgs;
+    .param p2, "_info"    # Landroid/content/pm/ProviderInfo;
 
     .prologue
     .line 4001
@@ -62,7 +62,7 @@
 
 .method public constructor <init>(Landroid/content/pm/PackageParser$Provider;)V
     .locals 1
-    .parameter "existingProvider"
+    .param p1, "existingProvider"    # Landroid/content/pm/PackageParser$Provider;
 
     .prologue
     .line 4008
@@ -86,7 +86,7 @@
 # virtual methods
 .method public setPackageName(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 4014
@@ -113,7 +113,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 4020
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Provider{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

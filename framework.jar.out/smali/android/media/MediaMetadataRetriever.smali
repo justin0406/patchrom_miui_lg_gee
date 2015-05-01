@@ -190,7 +190,7 @@
 
 .method public getFrameAtTime(J)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "timeUs"
+    .param p1, "timeUs"    # J
 
     .prologue
     .line 271
@@ -205,8 +205,8 @@
 
 .method public getFrameAtTime(JI)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "timeUs"
-    .parameter "option"
+    .param p1, "timeUs"    # J
+    .param p3, "option"    # I
 
     .prologue
     .line 242
@@ -256,8 +256,8 @@
 
 .method public setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 10
-    .parameter "context"
-    .parameter "uri"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -283,7 +283,7 @@
     move-result-object v9
 
     .line 158
-    .local v9, scheme:Ljava/lang/String;
+    .local v9, "scheme":Ljava/lang/String;
     if-eqz v9, :cond_1
 
     const-string v0, "file"
@@ -312,25 +312,25 @@
     const/4 v7, 0x0
 
     .line 165
-    .local v7, fd:Landroid/content/res/AssetFileDescriptor;
+    .local v7, "fd":Landroid/content/res/AssetFileDescriptor;
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v8
 
     .line 167
-    .local v8, resolver:Landroid/content/ContentResolver;
+    .local v8, "resolver":Landroid/content/ContentResolver;
     :try_start_1
     const-string/jumbo v0, "r"
 
     invoke-virtual {v8, p2, v0}, Landroid/content/ContentResolver;->openAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v7
 
@@ -345,11 +345,11 @@
 
     throw v0
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 187
-    .end local v8           #resolver:Landroid/content/ContentResolver;
+    .end local v8    # "resolver":Landroid/content/ContentResolver;
     :catch_0
     move-exception v0
 
@@ -374,12 +374,12 @@
     goto :goto_0
 
     .line 168
-    .restart local v8       #resolver:Landroid/content/ContentResolver;
+    .restart local v8    # "resolver":Landroid/content/ContentResolver;
     :catch_1
     move-exception v6
 
     .line 169
-    .local v6, e:Ljava/io/FileNotFoundException;
+    .local v6, "e":Ljava/io/FileNotFoundException;
     :try_start_4
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -387,12 +387,12 @@
 
     throw v0
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 189
-    .end local v6           #e:Ljava/io/FileNotFoundException;
-    .end local v8           #resolver:Landroid/content/ContentResolver;
+    .end local v6    # "e":Ljava/io/FileNotFoundException;
+    .end local v8    # "resolver":Landroid/content/ContentResolver;
     :catchall_0
     move-exception v0
 
@@ -411,7 +411,7 @@
     throw v0
 
     .line 174
-    .restart local v8       #resolver:Landroid/content/ContentResolver;
+    .restart local v8    # "resolver":Landroid/content/ContentResolver;
     :cond_6
     :try_start_6
     invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -419,7 +419,7 @@
     move-result-object v1
 
     .line 175
-    .local v1, descriptor:Ljava/io/FileDescriptor;
+    .local v1, "descriptor":Ljava/io/FileDescriptor;
     invoke-virtual {v1}, Ljava/io/FileDescriptor;->valid()Z
 
     move-result v0
@@ -448,8 +448,8 @@
     .line 182
     invoke-virtual {p0, v1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 190
     :goto_3
@@ -484,14 +484,14 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;JJ)V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     goto :goto_3
 
     .line 193
-    .end local v1           #descriptor:Ljava/io/FileDescriptor;
-    .end local v8           #resolver:Landroid/content/ContentResolver;
+    .end local v1    # "descriptor":Ljava/io/FileDescriptor;
+    .end local v8    # "resolver":Landroid/content/ContentResolver;
     :catch_3
     move-exception v0
 
@@ -505,7 +505,7 @@
 
 .method public setDataSource(Ljava/io/FileDescriptor;)V
     .locals 6
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -538,7 +538,7 @@
 
 .method public setDataSource(Ljava/lang/String;)V
     .locals 10
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -561,7 +561,7 @@
     const/4 v8, 0x0
 
     .line 68
-    .local v8, is:Ljava/io/FileInputStream;
+    .local v8, "is":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v9, Ljava/io/FileInputStream;
 
@@ -571,15 +571,15 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 69
-    .end local v8           #is:Ljava/io/FileInputStream;
-    .local v9, is:Ljava/io/FileInputStream;
+    .end local v8    # "is":Ljava/io/FileInputStream;
+    .local v9, "is":Ljava/io/FileInputStream;
     :try_start_1
     invoke-virtual {v9}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
 
     move-result-object v1
 
     .line 70
-    .local v1, fd:Ljava/io/FileDescriptor;
+    .local v1, "fd":Ljava/io/FileDescriptor;
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7ffffffffffffffL
@@ -606,14 +606,14 @@
     return-void
 
     .line 71
-    .end local v1           #fd:Ljava/io/FileDescriptor;
-    .end local v9           #is:Ljava/io/FileInputStream;
-    .restart local v8       #is:Ljava/io/FileInputStream;
+    .end local v1    # "fd":Ljava/io/FileDescriptor;
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .restart local v8    # "is":Ljava/io/FileInputStream;
     :catch_0
     move-exception v6
 
     .line 72
-    .local v6, fileEx:Ljava/io/FileNotFoundException;
+    .local v6, "fileEx":Ljava/io/FileNotFoundException;
     :goto_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -622,12 +622,12 @@
     throw v0
 
     .line 73
-    .end local v6           #fileEx:Ljava/io/FileNotFoundException;
+    .end local v6    # "fileEx":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v7
 
     .line 74
-    .local v7, ioEx:Ljava/io/IOException;
+    .local v7, "ioEx":Ljava/io/IOException;
     :goto_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -636,43 +636,42 @@
     throw v0
 
     .line 81
-    .end local v7           #ioEx:Ljava/io/IOException;
-    .end local v8           #is:Ljava/io/FileInputStream;
-    .restart local v1       #fd:Ljava/io/FileDescriptor;
-    .restart local v9       #is:Ljava/io/FileInputStream;
+    .end local v7    # "ioEx":Ljava/io/IOException;
+    .end local v8    # "is":Ljava/io/FileInputStream;
+    .restart local v1    # "fd":Ljava/io/FileDescriptor;
+    .restart local v9    # "is":Ljava/io/FileInputStream;
     :catch_2
     move-exception v0
 
     goto :goto_0
 
     .line 73
-    .end local v1           #fd:Ljava/io/FileDescriptor;
+    .end local v1    # "fd":Ljava/io/FileDescriptor;
     :catch_3
     move-exception v7
 
     move-object v8, v9
 
-    .end local v9           #is:Ljava/io/FileInputStream;
-    .restart local v8       #is:Ljava/io/FileInputStream;
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .restart local v8    # "is":Ljava/io/FileInputStream;
     goto :goto_2
 
     .line 71
-    .end local v8           #is:Ljava/io/FileInputStream;
-    .restart local v9       #is:Ljava/io/FileInputStream;
+    .end local v8    # "is":Ljava/io/FileInputStream;
+    .restart local v9    # "is":Ljava/io/FileInputStream;
     :catch_4
     move-exception v6
 
     move-object v8, v9
 
-    .end local v9           #is:Ljava/io/FileInputStream;
-    .restart local v8       #is:Ljava/io/FileInputStream;
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .restart local v8    # "is":Ljava/io/FileInputStream;
     goto :goto_1
 .end method
 
 .method public setDataSource(Ljava/lang/String;Ljava/util/Map;)V
     .locals 6
-    .parameter "uri"
-    .parameter
+    .param p1, "uri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -693,11 +692,11 @@
 
     .prologue
     .line 95
-    .local p2, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p2, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v1, 0x0
 
     .line 96
-    .local v1, i:I
+    .local v1, "i":I
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v5
@@ -705,7 +704,7 @@
     new-array v3, v5, [Ljava/lang/String;
 
     .line 97
-    .local v3, keys:[Ljava/lang/String;
+    .local v3, "keys":[Ljava/lang/String;
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v5
@@ -713,7 +712,7 @@
     new-array v4, v5, [Ljava/lang/String;
 
     .line 98
-    .local v4, values:[Ljava/lang/String;
+    .local v4, "values":[Ljava/lang/String;
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v5
@@ -722,7 +721,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -737,7 +736,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 99
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v5
@@ -761,7 +760,7 @@
     goto :goto_0
 
     .line 103
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     invoke-direct {p0, p1, v3, v4}, Landroid/media/MediaMetadataRetriever;->_setDataSource(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 

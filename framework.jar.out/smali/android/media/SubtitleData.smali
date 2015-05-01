@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 52
@@ -49,7 +49,7 @@
 
 .method private parseParcel(Landroid/os/Parcel;)Z
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x0

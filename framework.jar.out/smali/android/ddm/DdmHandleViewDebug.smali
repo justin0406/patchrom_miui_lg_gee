@@ -4,17 +4,13 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field public static final CHUNK_VUGL:I = 0x0
+.field public static final CHUNK_VUGL:I
 
-#the value of this static final field might be set in the static constructor
-.field private static final CHUNK_VULW:I = 0x0
+.field private static final CHUNK_VULW:I
 
-#the value of this static final field might be set in the static constructor
-.field private static final CHUNK_VUOP:I = 0x0
+.field private static final CHUNK_VUOP:I
 
-#the value of this static final field might be set in the static constructor
-.field private static final CHUNK_VURT:I = 0x0
+.field private static final CHUNK_VURT:I
 
 .field private static final ERR_EXCEPTION:I = -0x3
 
@@ -104,7 +100,7 @@
 
 .method private captureLayers(Landroid/view/View;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 8
-    .parameter "rootView"
+    .param p1, "rootView"    # Landroid/view/View;
 
     .prologue
     .line 242
@@ -115,18 +111,18 @@
     invoke-direct {v0, v4}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 243
-    .local v0, b:Ljava/io/ByteArrayOutputStream;
+    .local v0, "b":Ljava/io/ByteArrayOutputStream;
     new-instance v2, Ljava/io/DataOutputStream;
 
     invoke-direct {v2, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     .line 245
-    .local v2, dos:Ljava/io/DataOutputStream;
+    .local v2, "dos":Ljava/io/DataOutputStream;
     :try_start_0
     invoke-static {p1, v2}, Landroid/view/ViewDebug;->captureLayers(Landroid/view/View;Ljava/io/DataOutputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 251
     :try_start_1
@@ -141,7 +137,7 @@
     move-result-object v1
 
     .line 258
-    .local v1, data:[B
+    .local v1, "data":[B
     new-instance v4, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v5, Landroid/ddm/DdmHandleViewDebug;->CHUNK_VURT:I
@@ -152,7 +148,7 @@
 
     invoke-direct {v4, v5, v1, v6, v7}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
-    .end local v1           #data:[B
+    .end local v1    # "data":[B
     :goto_1
     return-object v4
 
@@ -161,7 +157,7 @@
     move-exception v3
 
     .line 247
-    .local v3, e:Ljava/io/IOException;
+    .local v3, "e":Ljava/io/IOException;
     const/4 v4, 0x1
 
     :try_start_2
@@ -208,7 +204,7 @@
     goto :goto_1
 
     .line 250
-    .end local v3           #e:Ljava/io/IOException;
+    .end local v3    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
@@ -236,8 +232,8 @@
 
 .method private captureView(Landroid/view/View;Landroid/view/View;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 7
-    .parameter "rootView"
-    .parameter "targetView"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "targetView"    # Landroid/view/View;
 
     .prologue
     .line 262
@@ -248,7 +244,7 @@
     invoke-direct {v0, v3}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 264
-    .local v0, b:Ljava/io/ByteArrayOutputStream;
+    .local v0, "b":Ljava/io/ByteArrayOutputStream;
     :try_start_0
     invoke-static {p1, v0, p2}, Landroid/view/ViewDebug;->capture(Landroid/view/View;Ljava/io/OutputStream;Landroid/view/View;)V
     :try_end_0
@@ -260,7 +256,7 @@
     move-result-object v1
 
     .line 271
-    .local v1, data:[B
+    .local v1, "data":[B
     new-instance v3, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v4, Landroid/ddm/DdmHandleViewDebug;->CHUNK_VUOP:I
@@ -271,7 +267,7 @@
 
     invoke-direct {v3, v4, v1, v5, v6}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
-    .end local v1           #data:[B
+    .end local v1    # "data":[B
     :goto_0
     return-object v3
 
@@ -280,7 +276,7 @@
     move-exception v2
 
     .line 266
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     const/4 v3, 0x1
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -314,8 +310,8 @@
 
 .method private dumpDisplayLists(Landroid/view/View;Landroid/view/View;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 1
-    .parameter "rootView"
-    .parameter "targetView"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "targetView"    # Landroid/view/View;
 
     .prologue
     .line 276
@@ -333,8 +329,8 @@
 
 .method private dumpHierarchy(Landroid/view/View;Ljava/nio/ByteBuffer;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 9
-    .parameter "rootView"
-    .parameter "in"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "in"    # Ljava/nio/ByteBuffer;
 
     .prologue
     const/4 v5, 0x1
@@ -351,7 +347,7 @@
     move v4, v5
 
     .line 226
-    .local v4, skipChildren:Z
+    .local v4, "skipChildren":Z
     :goto_0
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
@@ -362,7 +358,7 @@
     move v3, v5
 
     .line 228
-    .local v3, includeProperties:Z
+    .local v3, "includeProperties":Z
     :goto_1
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
@@ -371,7 +367,7 @@
     invoke-direct {v0, v7}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 230
-    .local v0, b:Ljava/io/ByteArrayOutputStream;
+    .local v0, "b":Ljava/io/ByteArrayOutputStream;
     :try_start_0
     invoke-static {p1, v4, v3, v0}, Landroid/view/ViewDebug;->dump(Landroid/view/View;ZZLjava/io/OutputStream;)V
     :try_end_0
@@ -383,7 +379,7 @@
     move-result-object v1
 
     .line 237
-    .local v1, data:[B
+    .local v1, "data":[B
     new-instance v5, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v7, Landroid/ddm/DdmHandleViewDebug;->CHUNK_VURT:I
@@ -392,20 +388,20 @@
 
     invoke-direct {v5, v7, v1, v6, v8}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
-    .end local v1           #data:[B
+    .end local v1    # "data":[B
     :goto_2
     return-object v5
 
-    .end local v0           #b:Ljava/io/ByteArrayOutputStream;
-    .end local v3           #includeProperties:Z
-    .end local v4           #skipChildren:Z
+    .end local v0    # "b":Ljava/io/ByteArrayOutputStream;
+    .end local v3    # "includeProperties":Z
+    .end local v4    # "skipChildren":Z
     :cond_0
     move v4, v6
 
     .line 225
     goto :goto_0
 
-    .restart local v4       #skipChildren:Z
+    .restart local v4    # "skipChildren":Z
     :cond_1
     move v3, v6
 
@@ -413,13 +409,13 @@
     goto :goto_1
 
     .line 231
-    .restart local v0       #b:Ljava/io/ByteArrayOutputStream;
-    .restart local v3       #includeProperties:Z
+    .restart local v0    # "b":Ljava/io/ByteArrayOutputStream;
+    .restart local v3    # "includeProperties":Z
     :catch_0
     move-exception v2
 
     .line 232
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -451,7 +447,7 @@
 
 .method private getRootView(Ljava/nio/ByteBuffer;)Landroid/view/View;
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 193
@@ -461,13 +457,13 @@
     move-result v2
 
     .line 194
-    .local v2, viewRootNameLength:I
+    .local v2, "viewRootNameLength":I
     invoke-static {p1, v2}, Landroid/ddm/DdmHandleViewDebug;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
 
     move-result-object v1
 
     .line 195
-    .local v1, viewRootName:Ljava/lang/String;
+    .local v1, "viewRootName":Ljava/lang/String;
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getInstance()Landroid/view/WindowManagerGlobal;
 
     move-result-object v3
@@ -479,8 +475,8 @@
     move-result-object v3
 
     .line 197
-    .end local v1           #viewRootName:Ljava/lang/String;
-    .end local v2           #viewRootNameLength:I
+    .end local v1    # "viewRootName":Ljava/lang/String;
+    .end local v2    # "viewRootNameLength":I
     :goto_0
     return-object v3
 
@@ -489,7 +485,7 @@
     move-exception v0
 
     .line 197
-    .local v0, e:Ljava/nio/BufferUnderflowException;
+    .local v0, "e":Ljava/nio/BufferUnderflowException;
     const/4 v3, 0x0
 
     goto :goto_0
@@ -497,8 +493,8 @@
 
 .method private getTargetView(Landroid/view/View;Ljava/nio/ByteBuffer;)Landroid/view/View;
     .locals 4
-    .parameter "root"
-    .parameter "in"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "in"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 206
@@ -508,7 +504,7 @@
     move-result v1
 
     .line 207
-    .local v1, viewLength:I
+    .local v1, "viewLength":I
     invoke-static {p2, v1}, Landroid/ddm/DdmHandleViewDebug;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
     :try_end_0
     .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
@@ -516,13 +512,13 @@
     move-result-object v2
 
     .line 212
-    .local v2, viewName:Ljava/lang/String;
+    .local v2, "viewName":Ljava/lang/String;
     invoke-static {p1, v2}, Landroid/view/ViewDebug;->findView(Landroid/view/View;Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v3
 
-    .end local v1           #viewLength:I
-    .end local v2           #viewName:Ljava/lang/String;
+    .end local v1    # "viewLength":I
+    .end local v2    # "viewName":Ljava/lang/String;
     :goto_0
     return-object v3
 
@@ -531,7 +527,7 @@
     move-exception v0
 
     .line 209
-    .local v0, e:Ljava/nio/BufferUnderflowException;
+    .local v0, "e":Ljava/nio/BufferUnderflowException;
     const/4 v3, 0x0
 
     goto :goto_0
@@ -539,7 +535,7 @@
 
 .method private handleOpenGlTrace(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 2
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 164
@@ -548,7 +544,7 @@
     move-result-object v0
 
     .line 165
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
@@ -563,9 +559,9 @@
 
 .method private invokeViewMethod(Landroid/view/View;Landroid/view/View;Ljava/nio/ByteBuffer;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 14
-    .parameter "rootView"
-    .parameter "targetView"
-    .parameter "in"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "targetView"    # Landroid/view/View;
+    .param p3, "in"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 302
@@ -574,7 +570,7 @@
     move-result v6
 
     .line 303
-    .local v6, l:I
+    .local v6, "l":I
     move-object/from16 v0, p3
 
     invoke-static {v0, v6}, Landroid/ddm/DdmHandleViewDebug;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
@@ -582,7 +578,7 @@
     move-result-object v8
 
     .line 307
-    .local v8, methodName:Ljava/lang/String;
+    .local v8, "methodName":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v11
@@ -595,18 +591,18 @@
     new-array v1, v11, [Ljava/lang/Class;
 
     .line 309
-    .local v1, argTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
+    .local v1, "argTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     const/4 v11, 0x0
 
     new-array v2, v11, [Ljava/lang/Object;
 
     .line 359
-    .local v2, args:[Ljava/lang/Object;
+    .local v2, "args":[Ljava/lang/Object;
     :cond_0
     const/4 v7, 0x0
 
     .line 361
-    .local v7, method:Ljava/lang/reflect/Method;
+    .local v7, "method":Ljava/lang/reflect/Method;
     :try_start_0
     invoke-virtual/range {p2 .. p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -629,31 +625,31 @@
     .line 379
     const/4 v11, 0x0
 
-    .end local v7           #method:Ljava/lang/reflect/Method;
+    .end local v7    # "method":Ljava/lang/reflect/Method;
     :goto_0
     return-object v11
 
     .line 311
-    .end local v1           #argTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
-    .end local v2           #args:[Ljava/lang/Object;
+    .end local v1    # "argTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
+    .end local v2    # "args":[Ljava/lang/Object;
     :cond_1
     invoke-virtual/range {p3 .. p3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v10
 
     .line 313
-    .local v10, nArgs:I
+    .local v10, "nArgs":I
     new-array v1, v10, [Ljava/lang/Class;
 
     .line 314
-    .restart local v1       #argTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
+    .restart local v1    # "argTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     new-array v2, v10, [Ljava/lang/Object;
 
     .line 316
-    .restart local v2       #args:[Ljava/lang/Object;
+    .restart local v2    # "args":[Ljava/lang/Object;
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_1
     if-ge v5, v10, :cond_0
 
@@ -663,7 +659,7 @@
     move-result v3
 
     .line 318
-    .local v3, c:C
+    .local v3, "c":C
     sparse-switch v3, :sswitch_data_0
 
     .line 352
@@ -900,15 +896,15 @@
     goto :goto_3
 
     .line 362
-    .end local v3           #c:C
-    .end local v5           #i:I
-    .end local v10           #nArgs:I
-    .restart local v7       #method:Ljava/lang/reflect/Method;
+    .end local v3    # "c":C
+    .end local v5    # "i":I
+    .end local v10    # "nArgs":I
+    .restart local v7    # "method":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v4
 
     .line 363
-    .local v4, e:Ljava/lang/NoSuchMethodException;
+    .local v4, "e":Ljava/lang/NoSuchMethodException;
     const-string v11, "DdmViewDebug"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -967,12 +963,12 @@
     goto/16 :goto_0
 
     .line 370
-    .end local v4           #e:Ljava/lang/NoSuchMethodException;
+    .end local v4    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v4
 
     .line 371
-    .local v4, e:Ljava/lang/Exception;
+    .local v4, "e":Ljava/lang/Exception;
     const-string v11, "DdmViewDebug"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -1013,7 +1009,7 @@
     move-result-object v9
 
     .line 373
-    .local v9, msg:Ljava/lang/String;
+    .local v9, "msg":Ljava/lang/String;
     if-nez v9, :cond_3
 
     .line 374
@@ -1065,27 +1061,27 @@
     move-result-object v6
 
     .line 173
-    .local v6, windowNames:[Ljava/lang/String;
+    .local v6, "windowNames":[Ljava/lang/String;
     const/4 v5, 0x4
 
     .line 174
-    .local v5, responseLength:I
+    .local v5, "responseLength":I
     move-object v0, v6
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
     .line 175
-    .local v3, name:Ljava/lang/String;
+    .local v3, "name":Ljava/lang/String;
     add-int/lit8 v5, v5, 0x4
 
     .line 176
@@ -1103,14 +1099,14 @@
     goto :goto_0
 
     .line 179
-    .end local v3           #name:Ljava/lang/String;
+    .end local v3    # "name":Ljava/lang/String;
     :cond_0
     invoke-static {v5}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
     .line 180
-    .local v4, out:Ljava/nio/ByteBuffer;
+    .local v4, "out":Ljava/nio/ByteBuffer;
     sget-object v7, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
     invoke-virtual {v4, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -1133,7 +1129,7 @@
     aget-object v3, v0, v1
 
     .line 184
-    .restart local v3       #name:Ljava/lang/String;
+    .restart local v3    # "name":Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v7
@@ -1149,7 +1145,7 @@
     goto :goto_1
 
     .line 188
-    .end local v3           #name:Ljava/lang/String;
+    .end local v3    # "name":Ljava/lang/String;
     :cond_1
     new-instance v7, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -1162,8 +1158,8 @@
 
 .method private profileView(Landroid/view/View;Landroid/view/View;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 8
-    .parameter "rootView"
-    .parameter "targetView"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "targetView"    # Landroid/view/View;
 
     .prologue
     const v5, 0x8000
@@ -1174,7 +1170,7 @@
     invoke-direct {v0, v5}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 400
-    .local v0, b:Ljava/io/ByteArrayOutputStream;
+    .local v0, "b":Ljava/io/ByteArrayOutputStream;
     new-instance v1, Ljava/io/BufferedWriter;
 
     new-instance v4, Ljava/io/OutputStreamWriter;
@@ -1184,12 +1180,12 @@
     invoke-direct {v1, v4, v5}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
 
     .line 402
-    .local v1, bw:Ljava/io/BufferedWriter;
+    .local v1, "bw":Ljava/io/BufferedWriter;
     :try_start_0
     invoke-static {p2, v1}, Landroid/view/ViewDebug;->profileViewAndChildren(Landroid/view/View;Ljava/io/BufferedWriter;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 407
     :try_start_1
@@ -1204,7 +1200,7 @@
     move-result-object v2
 
     .line 414
-    .local v2, data:[B
+    .local v2, "data":[B
     new-instance v4, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v5, Landroid/ddm/DdmHandleViewDebug;->CHUNK_VUOP:I
@@ -1215,7 +1211,7 @@
 
     invoke-direct {v4, v5, v2, v6, v7}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
-    .end local v2           #data:[B
+    .end local v2    # "data":[B
     :goto_1
     return-object v4
 
@@ -1224,7 +1220,7 @@
     move-exception v3
 
     .line 404
-    .local v3, e:Ljava/io/IOException;
+    .local v3, "e":Ljava/io/IOException;
     const/4 v4, 0x1
 
     :try_start_2
@@ -1271,7 +1267,7 @@
     goto :goto_1
 
     .line 406
-    .end local v3           #e:Ljava/io/IOException;
+    .end local v3    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
@@ -1335,9 +1331,9 @@
 
 .method private setLayoutParameter(Landroid/view/View;Landroid/view/View;Ljava/nio/ByteBuffer;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 7
-    .parameter "rootView"
-    .parameter "targetView"
-    .parameter "in"
+    .param p1, "rootView"    # Landroid/view/View;
+    .param p2, "targetView"    # Landroid/view/View;
+    .param p3, "in"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 383
@@ -1346,19 +1342,19 @@
     move-result v1
 
     .line 384
-    .local v1, l:I
+    .local v1, "l":I
     invoke-static {p3, v1}, Landroid/ddm/DdmHandleViewDebug;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
 
     move-result-object v2
 
     .line 385
-    .local v2, param:Ljava/lang/String;
+    .local v2, "param":Ljava/lang/String;
     invoke-virtual {p3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
 
     .line 387
-    .local v3, value:I
+    .local v3, "value":I
     :try_start_0
     invoke-static {p2, v2, v3}, Landroid/view/ViewDebug;->setLayoutParameter(Landroid/view/View;Ljava/lang/String;I)V
     :try_end_0
@@ -1375,7 +1371,7 @@
     move-exception v0
 
     .line 389
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     const-string v4, "DdmViewDebug"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1460,7 +1456,7 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 8
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     const/4 v7, -0x1
@@ -1471,7 +1467,7 @@
     iget v4, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
     .line 115
-    .local v4, type:I
+    .local v4, "type":I
     sget v5, Landroid/ddm/DdmHandleViewDebug;->CHUNK_VUGL:I
 
     if-ne v4, v5, :cond_0
@@ -1505,19 +1501,19 @@
     move-result-object v0
 
     .line 122
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
 
     .line 124
-    .local v1, op:I
+    .local v1, "op":I
     invoke-direct {p0, v0}, Landroid/ddm/DdmHandleViewDebug;->getRootView(Ljava/nio/ByteBuffer;)Landroid/view/View;
 
     move-result-object v2
 
     .line 125
-    .local v2, rootView:Landroid/view/View;
+    .local v2, "rootView":Landroid/view/View;
     if-nez v2, :cond_2
 
     .line 126
@@ -1593,7 +1589,7 @@
     move-result-object v3
 
     .line 139
-    .local v3, targetView:Landroid/view/View;
+    .local v3, "targetView":Landroid/view/View;
     if-nez v3, :cond_6
 
     .line 140

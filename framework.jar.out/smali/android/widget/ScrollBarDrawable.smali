@@ -54,7 +54,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 18
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 102
@@ -65,27 +65,27 @@
     move/from16 v17, v0
 
     .line 103
-    .local v17, vertical:Z
+    .local v17, "vertical":Z
     move-object/from16 v0, p0
 
     iget v11, v0, Landroid/widget/ScrollBarDrawable;->mExtent:I
 
     .line 104
-    .local v11, extent:I
+    .local v11, "extent":I
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/ScrollBarDrawable;->mRange:I
 
     .line 106
-    .local v14, range:I
+    .local v14, "range":I
     const/4 v10, 0x1
 
     .line 107
-    .local v10, drawTrack:Z
+    .local v10, "drawTrack":Z
     const/4 v9, 0x1
 
     .line 108
-    .local v9, drawThumb:Z
+    .local v9, "drawThumb":Z
     if-lez v11, :cond_0
 
     if-gt v14, v11, :cond_1
@@ -109,7 +109,7 @@
     move-result-object v13
 
     .line 114
-    .local v13, r:Landroid/graphics/Rect;
+    .local v13, "r":Landroid/graphics/Rect;
     iget v3, v13, Landroid/graphics/Rect;->left:I
 
     int-to-float v4, v3
@@ -142,7 +142,7 @@
     return-void
 
     .line 109
-    .end local v13           #r:Landroid/graphics/Rect;
+    .end local v13    # "r":Landroid/graphics/Rect;
     :cond_3
     move-object/from16 v0, p0
 
@@ -151,7 +151,7 @@
     goto :goto_0
 
     .line 117
-    .restart local v13       #r:Landroid/graphics/Rect;
+    .restart local v13    # "r":Landroid/graphics/Rect;
     :cond_4
     if-eqz v10, :cond_5
 
@@ -176,7 +176,7 @@
     move-result v15
 
     .line 123
-    .local v15, size:I
+    .local v15, "size":I
     :goto_2
     if-eqz v17, :cond_9
 
@@ -185,7 +185,7 @@
     move-result v16
 
     .line 124
-    .local v16, thickness:I
+    .local v16, "thickness":I
     :goto_3
     int-to-float v3, v15
 
@@ -202,7 +202,7 @@
     move-result v7
 
     .line 125
-    .local v7, length:I
+    .local v7, "length":I
     sub-int v3, v15, v7
 
     int-to-float v3, v3
@@ -226,11 +226,11 @@
     move-result v6
 
     .line 128
-    .local v6, offset:I
+    .local v6, "offset":I
     mul-int/lit8 v12, v16, 0x2
 
     .line 129
-    .local v12, minLength:I
+    .local v12, "minLength":I
     if-ge v7, v12, :cond_6
 
     .line 130
@@ -260,11 +260,11 @@
     goto :goto_1
 
     .line 122
-    .end local v6           #offset:I
-    .end local v7           #length:I
-    .end local v12           #minLength:I
-    .end local v15           #size:I
-    .end local v16           #thickness:I
+    .end local v6    # "offset":I
+    .end local v7    # "length":I
+    .end local v12    # "minLength":I
+    .end local v15    # "size":I
+    .end local v16    # "thickness":I
     :cond_8
     invoke-virtual {v13}, Landroid/graphics/Rect;->width()I
 
@@ -273,7 +273,7 @@
     goto :goto_2
 
     .line 123
-    .restart local v15       #size:I
+    .restart local v15    # "size":I
     :cond_9
     invoke-virtual {v13}, Landroid/graphics/Rect;->height()I
 
@@ -284,18 +284,18 @@
 
 .method protected drawThumb(Landroid/graphics/Canvas;Landroid/graphics/Rect;IIZ)V
     .locals 7
-    .parameter "canvas"
-    .parameter "bounds"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "vertical"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "bounds"    # Landroid/graphics/Rect;
+    .param p3, "offset"    # I
+    .param p4, "length"    # I
+    .param p5, "vertical"    # Z
 
     .prologue
     .line 163
     iget-object v2, p0, Landroid/widget/ScrollBarDrawable;->mTempBounds:Landroid/graphics/Rect;
 
     .line 164
-    .local v2, thumbRect:Landroid/graphics/Rect;
+    .local v2, "thumbRect":Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/widget/ScrollBarDrawable;->mRangeChanged:Z
 
     if-nez v3, :cond_0
@@ -308,7 +308,7 @@
     const/4 v0, 0x1
 
     .line 165
-    .local v0, changed:Z
+    .local v0, "changed":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -341,7 +341,7 @@
     iget-object v1, p0, Landroid/widget/ScrollBarDrawable;->mVerticalThumb:Landroid/graphics/drawable/Drawable;
 
     .line 177
-    .local v1, thumb:Landroid/graphics/drawable/Drawable;
+    .local v1, "thumb":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_2
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
@@ -355,15 +355,15 @@
     return-void
 
     .line 164
-    .end local v0           #changed:Z
-    .end local v1           #thumb:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "changed":Z
+    .end local v1    # "thumb":Landroid/graphics/drawable/Drawable;
     :cond_3
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 170
-    .restart local v0       #changed:Z
+    .restart local v0    # "changed":Z
     :cond_4
     iget v3, p2, Landroid/graphics/Rect;->left:I
 
@@ -388,7 +388,7 @@
     iget-object v1, p0, Landroid/widget/ScrollBarDrawable;->mHorizontalThumb:Landroid/graphics/drawable/Drawable;
 
     .line 181
-    .restart local v1       #thumb:Landroid/graphics/drawable/Drawable;
+    .restart local v1    # "thumb":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_6
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
@@ -402,9 +402,9 @@
 
 .method protected drawTrack(Landroid/graphics/Canvas;Landroid/graphics/Rect;Z)V
     .locals 2
-    .parameter "canvas"
-    .parameter "bounds"
-    .parameter "vertical"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "bounds"    # Landroid/graphics/Rect;
+    .param p3, "vertical"    # Z
 
     .prologue
     .line 149
@@ -414,7 +414,7 @@
     iget-object v0, p0, Landroid/widget/ScrollBarDrawable;->mVerticalTrack:Landroid/graphics/drawable/Drawable;
 
     .line 154
-    .local v0, track:Landroid/graphics/drawable/Drawable;
+    .local v0, "track":Landroid/graphics/drawable/Drawable;
     :goto_0
     if-eqz v0, :cond_1
 
@@ -435,11 +435,11 @@
     return-void
 
     .line 152
-    .end local v0           #track:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "track":Landroid/graphics/drawable/Drawable;
     :cond_2
     iget-object v0, p0, Landroid/widget/ScrollBarDrawable;->mHorizontalTrack:Landroid/graphics/drawable/Drawable;
 
-    .restart local v0       #track:Landroid/graphics/drawable/Drawable;
+    .restart local v0    # "track":Landroid/graphics/drawable/Drawable;
     goto :goto_0
 .end method
 
@@ -489,7 +489,7 @@
 
 .method public getSize(Z)I
     .locals 1
-    .parameter "vertical"
+    .param p1, "vertical"    # Z
 
     .prologue
     .line 207
@@ -540,7 +540,7 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 143
@@ -557,7 +557,7 @@
 
 .method public setAlpha(I)V
     .locals 1
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 218
@@ -598,7 +598,7 @@
 
 .method public setAlwaysDrawHorizontalTrack(Z)V
     .locals 0
-    .parameter "alwaysDrawTrack"
+    .param p1, "alwaysDrawTrack"    # Z
 
     .prologue
     .line 56
@@ -610,7 +610,7 @@
 
 .method public setAlwaysDrawVerticalTrack(Z)V
     .locals 0
-    .parameter "alwaysDrawTrack"
+    .param p1, "alwaysDrawTrack"    # Z
 
     .prologue
     .line 66
@@ -622,7 +622,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .parameter "cf"
+    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 236
@@ -663,7 +663,7 @@
 
 .method public setHorizontalThumbDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "thumb"
+    .param p1, "thumb"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 197
@@ -679,7 +679,7 @@
 
 .method public setHorizontalTrackDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "track"
+    .param p1, "track"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 203
@@ -691,10 +691,10 @@
 
 .method public setParameters(IIIZ)V
     .locals 2
-    .parameter "range"
-    .parameter "offset"
-    .parameter "extent"
-    .parameter "vertical"
+    .param p1, "range"    # I
+    .param p2, "offset"    # I
+    .param p3, "extent"    # I
+    .param p4, "vertical"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -744,7 +744,7 @@
 
 .method public setVerticalThumbDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "thumb"
+    .param p1, "thumb"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 187
@@ -760,7 +760,7 @@
 
 .method public setVerticalTrackDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "track"
+    .param p1, "track"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 193

@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 284
+    .line 290
     iput-object p1, p0, Landroid/media/AudioService$1;->this$0:Landroid/media/AudioService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,23 +38,23 @@
 # virtual methods
 .method public onError(I)V
     .locals 7
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     const/4 v3, 0x0
 
-    .line 286
+    .line 292
     packed-switch p1, :pswitch_data_0
 
-    .line 294
+    .line 300
     :goto_0
     return-void
 
-    .line 288
+    .line 294
     :pswitch_0
     iget-object v0, p0, Landroid/media/AudioService$1;->this$0:Landroid/media/AudioService;
 
-    #getter for: Landroid/media/AudioService;->mAudioHandler:Landroid/media/AudioService$AudioHandler;
+    # getter for: Landroid/media/AudioService;->mAudioHandler:Landroid/media/AudioService$AudioHandler;
     invoke-static {v0}, Landroid/media/AudioService;->access$000(Landroid/media/AudioService;)Landroid/media/AudioService$AudioHandler;
 
     move-result-object v0
@@ -70,12 +69,12 @@
 
     move v6, v3
 
-    #calls: Landroid/media/AudioService;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/AudioService;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/AudioService;->access$100(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
 
-    .line 286
+    .line 292
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

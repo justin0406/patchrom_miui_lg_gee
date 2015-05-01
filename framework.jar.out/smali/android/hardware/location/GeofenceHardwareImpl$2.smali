@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardwareImpl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 638
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 11
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 645
@@ -56,25 +55,25 @@
     check-cast v5, Landroid/location/Location;
 
     .line 648
-    .local v5, location:Landroid/location/Location;
+    .local v5, "location":Landroid/location/Location;
     iget v7, p1, Landroid/os/Message;->arg1:I
 
     .line 649
-    .local v7, val:I
+    .local v7, "val":I
     iget v6, p1, Landroid/os/Message;->arg2:I
 
     .line 651
-    .local v6, monitoringType:I
+    .local v6, "monitoringType":I
     if-nez v7, :cond_2
 
     const/4 v0, 0x1
 
     .line 653
-    .local v0, available:Z
+    .local v0, "available":Z
     :goto_1
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$800(Landroid/hardware/location/GeofenceHardwareImpl;)[Ljava/util/ArrayList;
 
     move-result-object v8
@@ -82,10 +81,11 @@
     aget-object v3, v8, v6
 
     .line 654
-    .local v3, callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .local v3, "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     if-eqz v3, :cond_3
 
     .line 655
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->DEBUG:Z
     invoke-static {}, Landroid/hardware/location/GeofenceHardwareImpl;->access$300()Z
 
     move-result v8
@@ -120,7 +120,7 @@
 
     move-result-object v4
 
-    .local v4, i$:Ljava/util/Iterator;
+    .local v4, "i$":Ljava/util/Iterator;
     :goto_2
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -135,7 +135,7 @@
     check-cast v1, Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .line 659
-    .local v1, c:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .local v1, "c":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
     :try_start_0
     invoke-interface {v1, v6, v0, v5}, Landroid/hardware/location/IGeofenceHardwareMonitorCallback;->onMonitoringSystemChange(IZLandroid/location/Location;)V
     :try_end_0
@@ -150,46 +150,46 @@
     goto :goto_2
 
     .line 651
-    .end local v0           #available:Z
-    .end local v1           #c:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
-    .end local v3           #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
-    .end local v4           #i$:Ljava/util/Iterator;
+    .end local v0    # "available":Z
+    .end local v1    # "c":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .end local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .end local v4    # "i$":Ljava/util/Iterator;
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_1
 
     .line 663
-    .restart local v0       #available:Z
-    .restart local v3       #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .restart local v0    # "available":Z
+    .restart local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     :cond_3
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto :goto_0
 
     .line 666
-    .end local v0           #available:Z
-    .end local v3           #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
-    .end local v5           #location:Landroid/location/Location;
-    .end local v6           #monitoringType:I
-    .end local v7           #val:I
+    .end local v0    # "available":Z
+    .end local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .end local v5    # "location":Landroid/location/Location;
+    .end local v6    # "monitoringType":I
+    .end local v7    # "val":I
     :pswitch_1
     iget v6, p1, Landroid/os/Message;->arg1:I
 
     .line 667
-    .restart local v6       #monitoringType:I
+    .restart local v6    # "monitoringType":I
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .line 668
-    .local v2, callback:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .local v2, "callback":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$800(Landroid/hardware/location/GeofenceHardwareImpl;)[Ljava/util/ArrayList;
 
     move-result-object v8
@@ -197,20 +197,20 @@
     aget-object v3, v8, v6
 
     .line 669
-    .restart local v3       #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .restart local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     if-nez v3, :cond_4
 
     .line 670
     new-instance v3, Ljava/util/ArrayList;
 
-    .end local v3           #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .end local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 671
-    .restart local v3       #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .restart local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$800(Landroid/hardware/location/GeofenceHardwareImpl;)[Ljava/util/ArrayList;
 
     move-result-object v8
@@ -230,23 +230,23 @@
     goto :goto_0
 
     .line 676
-    .end local v2           #callback:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
-    .end local v3           #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
-    .end local v6           #monitoringType:I
+    .end local v2    # "callback":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .end local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .end local v6    # "monitoringType":I
     :pswitch_2
     iget v6, p1, Landroid/os/Message;->arg1:I
 
     .line 677
-    .restart local v6       #monitoringType:I
+    .restart local v6    # "monitoringType":I
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .line 678
-    .restart local v2       #callback:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .restart local v2    # "callback":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$800(Landroid/hardware/location/GeofenceHardwareImpl;)[Ljava/util/ArrayList;
 
     move-result-object v8
@@ -254,7 +254,7 @@
     aget-object v3, v8, v6
 
     .line 679
-    .restart local v3       #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .restart local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     if-eqz v3, :cond_0
 
     .line 680
@@ -263,16 +263,17 @@
     goto/16 :goto_0
 
     .line 684
-    .end local v2           #callback:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
-    .end local v3           #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
-    .end local v6           #monitoringType:I
+    .end local v2    # "callback":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .end local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .end local v6    # "monitoringType":I
     :pswitch_3
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .line 685
-    .restart local v2       #callback:Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    .restart local v2    # "callback":Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->DEBUG:Z
     invoke-static {}, Landroid/hardware/location/GeofenceHardwareImpl;->access$300()Z
 
     move-result v8
@@ -305,7 +306,7 @@
     :cond_5
     iget-object v8, p0, Landroid/hardware/location/GeofenceHardwareImpl$2;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mCallbacks:[Ljava/util/ArrayList;
     invoke-static {v8}, Landroid/hardware/location/GeofenceHardwareImpl;->access$800(Landroid/hardware/location/GeofenceHardwareImpl;)[Ljava/util/ArrayList;
 
     move-result-object v8
@@ -315,7 +316,7 @@
     aget-object v3, v8, v9
 
     .line 687
-    .restart local v3       #callbackList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
+    .restart local v3    # "callbackList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/location/IGeofenceHardwareMonitorCallback;>;"
     if-eqz v3, :cond_0
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z

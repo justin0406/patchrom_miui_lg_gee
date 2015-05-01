@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 54
@@ -36,7 +35,7 @@
 # virtual methods
 .method public declared-synchronized onDone(Ljava/lang/String;)V
     .locals 1
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -65,7 +64,7 @@
 
 .method public onError(Ljava/lang/String;)V
     .locals 1
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
     .prologue
     .line 62
@@ -79,7 +78,7 @@
 
 .method public onStart(Ljava/lang/String;)V
     .locals 0
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
     .prologue
     .line 69

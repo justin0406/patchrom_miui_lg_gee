@@ -49,7 +49,7 @@
     invoke-direct {v0}, Landroid/graphics/Shader;-><init>()V
 
     .line 98
-    .local v0, copy:Landroid/graphics/Shader;
+    .local v0, "copy":Landroid/graphics/Shader;
     invoke-virtual {p0, v0}, Landroid/graphics/Shader;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
     .line 99
@@ -58,7 +58,7 @@
 
 .method protected copyLocalMatrix(Landroid/graphics/Shader;)V
     .locals 2
-    .parameter "dest"
+    .param p1, "dest"    # Landroid/graphics/Shader;
 
     .prologue
     .line 106
@@ -72,14 +72,14 @@
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     .line 108
-    .local v0, lm:Landroid/graphics/Matrix;
+    .local v0, "lm":Landroid/graphics/Matrix;
     invoke-virtual {p0, v0}, Landroid/graphics/Shader;->getLocalMatrix(Landroid/graphics/Matrix;)Z
 
     .line 109
     invoke-virtual {p1, v0}, Landroid/graphics/Shader;->setLocalMatrix(Landroid/graphics/Matrix;)V
 
     .line 113
-    .end local v0           #lm:Landroid/graphics/Matrix;
+    .end local v0    # "lm":Landroid/graphics/Matrix;
     :goto_0
     return-void
 
@@ -132,7 +132,7 @@
 
 .method public getLocalMatrix(Landroid/graphics/Matrix;)Z
     .locals 2
-    .parameter "localM"
+    .param p1, "localM"    # Landroid/graphics/Matrix;
 
     .prologue
     const/4 v0, 0x0
@@ -165,7 +165,7 @@
 
 .method public setLocalMatrix(Landroid/graphics/Matrix;)V
     .locals 3
-    .parameter "localM"
+    .param p1, "localM"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 80

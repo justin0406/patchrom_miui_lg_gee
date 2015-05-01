@@ -32,8 +32,8 @@
 # direct methods
 .method private constructor <init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;)V
     .locals 1
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/media/RemoteDisplay$Listener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 48
@@ -58,7 +58,7 @@
 
 .method static synthetic access$000(Landroid/media/RemoteDisplay;)Landroid/media/RemoteDisplay$Listener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/RemoteDisplay;
 
     .prologue
     .line 29
@@ -69,7 +69,7 @@
 
 .method private dispose(Z)V
     .locals 1
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     .line 101
@@ -117,9 +117,9 @@
 
 .method public static listen(Ljava/lang/String;Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;)Landroid/media/RemoteDisplay;
     .locals 3
-    .parameter "iface"
-    .parameter "listener"
-    .parameter "handler"
+    .param p0, "iface"    # Ljava/lang/String;
+    .param p1, "listener"    # Landroid/media/RemoteDisplay$Listener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 70
@@ -167,7 +167,7 @@
     invoke-direct {v0, p1, p2}, Landroid/media/RemoteDisplay;-><init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;)V
 
     .line 81
-    .local v0, display:Landroid/media/RemoteDisplay;
+    .local v0, "display":Landroid/media/RemoteDisplay;
     invoke-direct {v0, p0}, Landroid/media/RemoteDisplay;->startListening(Ljava/lang/String;)V
 
     .line 82
@@ -188,11 +188,11 @@
 
 .method private notifyDisplayConnected(Landroid/view/Surface;IIII)V
     .locals 8
-    .parameter "surface"
-    .parameter "width"
-    .parameter "height"
-    .parameter "flags"
-    .parameter "session"
+    .param p1, "surface"    # Landroid/view/Surface;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "flags"    # I
+    .param p5, "session"    # I
 
     .prologue
     .line 127
@@ -239,7 +239,7 @@
 
 .method private notifyDisplayError(I)V
     .locals 2
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     .line 147
@@ -257,7 +257,7 @@
 
 .method private startListening(Ljava/lang/String;)V
     .locals 3
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 116

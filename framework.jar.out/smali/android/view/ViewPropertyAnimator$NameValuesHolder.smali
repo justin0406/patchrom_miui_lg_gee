@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(IFF)V
     .locals 0
-    .parameter "nameConstant"
-    .parameter "fromValue"
-    .parameter "deltaValue"
+    .param p1, "nameConstant"    # I
+    .param p2, "fromValue"    # F
+    .param p3, "deltaValue"    # F
 
     .prologue
     .line 232

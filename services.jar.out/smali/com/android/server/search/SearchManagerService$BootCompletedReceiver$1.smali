@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/search/SearchManagerService$BootCompletedReceiver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 118
@@ -48,7 +47,7 @@
 
     iget-object v0, v0, Lcom/android/server/search/SearchManagerService$BootCompletedReceiver;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/search/SearchManagerService;->access$200(Lcom/android/server/search/SearchManagerService;)Landroid/content/Context;
 
     move-result-object v0
@@ -64,7 +63,7 @@
 
     const/4 v1, 0x0
 
-    #calls: Lcom/android/server/search/SearchManagerService;->getSearchables(I)Lcom/android/server/search/Searchables;
+    # invokes: Lcom/android/server/search/SearchManagerService;->getSearchables(I)Lcom/android/server/search/Searchables;
     invoke-static {v0, v1}, Lcom/android/server/search/SearchManagerService;->access$300(Lcom/android/server/search/SearchManagerService;I)Lcom/android/server/search/Searchables;
 
     .line 124

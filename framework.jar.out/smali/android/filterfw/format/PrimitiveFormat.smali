@@ -16,7 +16,7 @@
 
 .method public static createByteFormat(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 49
@@ -31,8 +31,8 @@
 
 .method public static createByteFormat(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "count"
-    .parameter "target"
+    .param p0, "count"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 29
@@ -47,7 +47,7 @@
 
 .method public static createDoubleFormat(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 65
@@ -62,8 +62,8 @@
 
 .method public static createDoubleFormat(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "count"
-    .parameter "target"
+    .param p0, "count"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 45
@@ -78,7 +78,7 @@
 
 .method public static createFloatFormat(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 61
@@ -93,8 +93,8 @@
 
 .method public static createFloatFormat(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "count"
-    .parameter "target"
+    .param p0, "count"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 41
@@ -109,8 +109,8 @@
 
 .method private static createFormat(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "baseType"
-    .parameter "target"
+    .param p0, "baseType"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 75
@@ -119,7 +119,7 @@
     invoke-direct {v0, p0, p1}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 76
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensionCount(I)V
@@ -130,9 +130,9 @@
 
 .method private static createFormat(III)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "baseType"
-    .parameter "count"
-    .parameter "target"
+    .param p0, "baseType"    # I
+    .param p1, "count"    # I
+    .param p2, "target"    # I
 
     .prologue
     .line 69
@@ -141,7 +141,7 @@
     invoke-direct {v0, p0, p2}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 70
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(I)V
 
     .line 71
@@ -150,7 +150,7 @@
 
 .method public static createInt16Format(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 53
@@ -165,8 +165,8 @@
 
 .method public static createInt16Format(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "count"
-    .parameter "target"
+    .param p0, "count"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 33
@@ -181,7 +181,7 @@
 
 .method public static createInt32Format(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 57
@@ -196,8 +196,8 @@
 
 .method public static createInt32Format(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "count"
-    .parameter "target"
+    .param p0, "count"    # I
+    .param p1, "target"    # I
 
     .prologue
     .line 37

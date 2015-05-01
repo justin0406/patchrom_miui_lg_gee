@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 63
@@ -61,8 +61,8 @@
 
 .method public onDisplayEvent(II)V
     .locals 5
-    .parameter "displayId"
-    .parameter "event"
+    .param p1, "displayId"    # I
+    .param p2, "event"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 78
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.display.IDisplayManagerCallback"
 

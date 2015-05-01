@@ -3,8 +3,8 @@
 .source "HeaderViewListAdapter.java"
 
 # interfaces
-.implements Landroid/widget/WrapperListAdapter;
 .implements Landroid/widget/Filterable;
+.implements Landroid/widget/WrapperListAdapter;
 
 
 # static fields
@@ -67,9 +67,7 @@
 
 .method public constructor <init>(Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/widget/ListAdapter;)V
     .locals 1
-    .parameter
-    .parameter
-    .parameter "adapter"
+    .param p3, "adapter"    # Landroid/widget/ListAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,8 +86,8 @@
 
     .prologue
     .line 52
-    .local p1, headerViewInfos:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
-    .local p2, footerViewInfos:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
+    .local p1, "headerViewInfos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
+    .local p2, "footerViewInfos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
@@ -164,7 +162,6 @@
 
 .method private areAllListInfosSelectable(Ljava/util/ArrayList;)Z
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -177,7 +174,7 @@
 
     .prologue
     .line 86
-    .local p1, infos:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
+    .local p1, "infos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/widget/ListView$FixedViewInfo;>;"
     if-eqz p1, :cond_1
 
     .line 87
@@ -185,7 +182,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -200,7 +197,7 @@
     check-cast v1, Landroid/widget/ListView$FixedViewInfo;
 
     .line 88
-    .local v1, info:Landroid/widget/ListView$FixedViewInfo;
+    .local v1, "info":Landroid/widget/ListView$FixedViewInfo;
     iget-boolean v2, v1, Landroid/widget/ListView$FixedViewInfo;->isSelectable:Z
 
     if-nez v2, :cond_0
@@ -209,8 +206,8 @@
     const/4 v2, 0x0
 
     .line 93
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #info:Landroid/widget/ListView$FixedViewInfo;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :goto_0
     return v2
 
@@ -362,7 +359,7 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 169
@@ -371,7 +368,7 @@
     move-result v2
 
     .line 170
-    .local v2, numHeaders:I
+    .local v2, "numHeaders":I
     if-ge p1, v2, :cond_0
 
     .line 171
@@ -394,11 +391,11 @@
     sub-int v1, p1, v2
 
     .line 176
-    .local v1, adjPosition:I
+    .local v1, "adjPosition":I
     const/4 v0, 0x0
 
     .line 177
-    .local v0, adapterCount:I
+    .local v0, "adapterCount":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v3, :cond_1
@@ -441,7 +438,7 @@
 
 .method public getItemId(I)J
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 189
@@ -450,7 +447,7 @@
     move-result v2
 
     .line 190
-    .local v2, numHeaders:I
+    .local v2, "numHeaders":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v3, :cond_0
@@ -461,7 +458,7 @@
     sub-int v1, p1, v2
 
     .line 192
-    .local v1, adjPosition:I
+    .local v1, "adjPosition":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     invoke-interface {v3}, Landroid/widget/ListAdapter;->getCount()I
@@ -469,7 +466,7 @@
     move-result v0
 
     .line 193
-    .local v0, adapterCount:I
+    .local v0, "adapterCount":I
     if-ge v1, v0, :cond_0
 
     .line 194
@@ -480,8 +477,8 @@
     move-result-wide v3
 
     .line 197
-    .end local v0           #adapterCount:I
-    .end local v1           #adjPosition:I
+    .end local v0    # "adapterCount":I
+    .end local v1    # "adjPosition":I
     :goto_0
     return-wide v3
 
@@ -493,7 +490,7 @@
 
 .method public getItemViewType(I)I
     .locals 4
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 229
@@ -502,7 +499,7 @@
     move-result v2
 
     .line 230
-    .local v2, numHeaders:I
+    .local v2, "numHeaders":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v3, :cond_0
@@ -513,7 +510,7 @@
     sub-int v1, p1, v2
 
     .line 232
-    .local v1, adjPosition:I
+    .local v1, "adjPosition":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     invoke-interface {v3}, Landroid/widget/ListAdapter;->getCount()I
@@ -521,7 +518,7 @@
     move-result v0
 
     .line 233
-    .local v0, adapterCount:I
+    .local v0, "adapterCount":I
     if-ge v1, v0, :cond_0
 
     .line 234
@@ -532,8 +529,8 @@
     move-result v3
 
     .line 238
-    .end local v0           #adapterCount:I
-    .end local v1           #adjPosition:I
+    .end local v0    # "adapterCount":I
+    .end local v1    # "adjPosition":I
     :goto_0
     return v3
 
@@ -545,9 +542,9 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 5
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 209
@@ -556,7 +553,7 @@
     move-result v2
 
     .line 210
-    .local v2, numHeaders:I
+    .local v2, "numHeaders":I
     if-ge p1, v2, :cond_0
 
     .line 211
@@ -579,11 +576,11 @@
     sub-int v1, p1, v2
 
     .line 216
-    .local v1, adjPosition:I
+    .local v1, "adjPosition":I
     const/4 v0, 0x0
 
     .line 217
-    .local v0, adapterCount:I
+    .local v0, "adapterCount":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v3, :cond_1
@@ -717,7 +714,7 @@
 
 .method public isEnabled(I)Z
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 148
@@ -726,7 +723,7 @@
     move-result v2
 
     .line 149
-    .local v2, numHeaders:I
+    .local v2, "numHeaders":I
     if-ge p1, v2, :cond_0
 
     .line 150
@@ -749,11 +746,11 @@
     sub-int v1, p1, v2
 
     .line 155
-    .local v1, adjPosition:I
+    .local v1, "adjPosition":I
     const/4 v0, 0x0
 
     .line 156
-    .local v0, adapterCount:I
+    .local v0, "adapterCount":I
     iget-object v3, p0, Landroid/widget/HeaderViewListAdapter;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v3, :cond_1
@@ -796,7 +793,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 249
@@ -816,7 +813,7 @@
 
 .method public removeFooter(Landroid/view/View;)Z
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v3, 0x1
@@ -826,7 +823,7 @@
     .line 114
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v4, p0, Landroid/widget/HeaderViewListAdapter;->mFooterViewInfos:Ljava/util/ArrayList;
 
@@ -846,7 +843,7 @@
     check-cast v1, Landroid/widget/ListView$FixedViewInfo;
 
     .line 116
-    .local v1, info:Landroid/widget/ListView$FixedViewInfo;
+    .local v1, "info":Landroid/widget/ListView$FixedViewInfo;
     iget-object v4, v1, Landroid/widget/ListView$FixedViewInfo;->view:Landroid/view/View;
 
     if-ne v4, p1, :cond_1
@@ -879,18 +876,18 @@
     iput-boolean v2, p0, Landroid/widget/HeaderViewListAdapter;->mAreAllFixedViewsSelectable:Z
 
     .line 127
-    .end local v1           #info:Landroid/widget/ListView$FixedViewInfo;
+    .end local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :goto_1
     return v3
 
     .line 114
-    .restart local v1       #info:Landroid/widget/ListView$FixedViewInfo;
+    .restart local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .end local v1           #info:Landroid/widget/ListView$FixedViewInfo;
+    .end local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :cond_2
     move v3, v2
 
@@ -900,7 +897,7 @@
 
 .method public removeHeader(Landroid/view/View;)Z
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v3, 0x1
@@ -910,7 +907,7 @@
     .line 97
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v4, p0, Landroid/widget/HeaderViewListAdapter;->mHeaderViewInfos:Ljava/util/ArrayList;
 
@@ -930,7 +927,7 @@
     check-cast v1, Landroid/widget/ListView$FixedViewInfo;
 
     .line 99
-    .local v1, info:Landroid/widget/ListView$FixedViewInfo;
+    .local v1, "info":Landroid/widget/ListView$FixedViewInfo;
     iget-object v4, v1, Landroid/widget/ListView$FixedViewInfo;->view:Landroid/view/View;
 
     if-ne v4, p1, :cond_1
@@ -963,18 +960,18 @@
     iput-boolean v2, p0, Landroid/widget/HeaderViewListAdapter;->mAreAllFixedViewsSelectable:Z
 
     .line 110
-    .end local v1           #info:Landroid/widget/ListView$FixedViewInfo;
+    .end local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :goto_1
     return v3
 
     .line 97
-    .restart local v1       #info:Landroid/widget/ListView$FixedViewInfo;
+    .restart local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .end local v1           #info:Landroid/widget/ListView$FixedViewInfo;
+    .end local v1    # "info":Landroid/widget/ListView$FixedViewInfo;
     :cond_2
     move v3, v2
 
@@ -984,7 +981,7 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 255

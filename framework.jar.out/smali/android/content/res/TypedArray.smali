@@ -22,10 +22,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;[I[II)V
     .locals 1
-    .parameter "resources"
-    .parameter "data"
-    .parameter "indices"
-    .parameter "len"
+    .param p1, "resources"    # Landroid/content/res/Resources;
+    .param p2, "data"    # [I
+    .param p3, "indices"    # [I
+    .param p4, "len"    # I
 
     .prologue
     .line 731
@@ -56,21 +56,21 @@
 
 .method private getValueAt(ILandroid/util/TypedValue;)Z
     .locals 3
-    .parameter "index"
-    .parameter "outValue"
+    .param p1, "index"    # I
+    .param p2, "outValue"    # Landroid/util/TypedValue;
 
     .prologue
     .line 701
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 702
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 703
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 704
@@ -145,20 +145,20 @@
 
 .method private loadStringValueAt(I)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 717
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 718
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v2, p1, 0x2
 
     aget v0, v1, v2
 
     .line 719
-    .local v0, cookie:I
+    .local v0, "cookie":I
     if-gez v0, :cond_1
 
     .line 720
@@ -208,8 +208,8 @@
 # virtual methods
 .method public getBoolean(IZ)Z
     .locals 6
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # Z
 
     .prologue
     .line 212
@@ -219,22 +219,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 214
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v1, v0, v3
 
     .line 215
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 230
-    .end local p2
+    .end local p2    # "defValue":Z
     :goto_0
     return p2
 
     .line 217
-    .restart local p2
+    .restart local p2    # "defValue":Z
     :cond_0
     const/16 v3, 0x10
 
@@ -268,7 +268,7 @@
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 223
-    .local v2, v:Landroid/util/TypedValue;
+    .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v3
@@ -342,8 +342,8 @@
 
 .method public getColor(II)I
     .locals 7
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 309
@@ -353,23 +353,23 @@
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 311
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v2, v1, v4
 
     .line 312
-    .local v2, type:I
+    .local v2, "type":I
     if-nez v2, :cond_1
 
     .line 324
-    .end local p2
+    .end local p2    # "defValue":I
     :cond_0
     :goto_0
     return p2
 
     .line 314
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_1
     const/16 v4, 0x10
 
@@ -396,7 +396,7 @@
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 319
-    .local v3, value:Landroid/util/TypedValue;
+    .local v3, "value":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v4
@@ -413,7 +413,7 @@
     move-result-object v0
 
     .line 322
-    .local v0, csl:Landroid/content/res/ColorStateList;
+    .local v0, "csl":Landroid/content/res/ColorStateList;
     invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result p2
@@ -421,8 +421,8 @@
     goto :goto_0
 
     .line 327
-    .end local v0           #csl:Landroid/content/res/ColorStateList;
-    .end local v3           #value:Landroid/util/TypedValue;
+    .end local v0    # "csl":Landroid/content/res/ColorStateList;
+    .end local v3    # "value":Landroid/util/TypedValue;
     :cond_3
     new-instance v4, Ljava/lang/UnsupportedOperationException;
 
@@ -455,14 +455,14 @@
 
 .method public getColorStateList(I)Landroid/content/res/ColorStateList;
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 341
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 342
-    .local v0, value:Landroid/util/TypedValue;
+    .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
     invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
@@ -492,8 +492,8 @@
 
 .method public getDimension(IF)F
     .locals 5
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # F
 
     .prologue
     .line 389
@@ -503,22 +503,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 391
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 392
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 395
-    .end local p2
+    .end local p2    # "defValue":F
     :goto_0
     return p2
 
     .line 394
-    .restart local p2
+    .restart local p2    # "defValue":F
     :cond_0
     const/4 v2, 0x5
 
@@ -572,8 +572,8 @@
 
 .method public getDimensionPixelOffset(II)I
     .locals 5
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 421
@@ -583,22 +583,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 423
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 424
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 427
-    .end local p2
+    .end local p2    # "defValue":I
     :goto_0
     return p2
 
     .line 426
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_0
     const/4 v2, 0x5
 
@@ -652,8 +652,8 @@
 
 .method public getDimensionPixelSize(II)I
     .locals 5
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 454
@@ -663,22 +663,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 456
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 457
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 460
-    .end local p2
+    .end local p2    # "defValue":I
     :goto_0
     return p2
 
     .line 459
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_0
     const/4 v2, 0x5
 
@@ -732,14 +732,14 @@
 
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 591
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 592
-    .local v0, value:Landroid/util/TypedValue;
+    .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
     invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
@@ -769,8 +769,8 @@
 
 .method public getFloat(IF)F
     .locals 7
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # F
 
     .prologue
     .line 271
@@ -780,22 +780,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 273
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v2, v0, v4
 
     .line 274
-    .local v2, type:I
+    .local v2, "type":I
     if-nez v2, :cond_0
 
     .line 293
-    .end local p2
+    .end local p2    # "defValue":F
     :goto_0
     return p2
 
     .line 276
-    .restart local p2
+    .restart local p2    # "defValue":F
     :cond_0
     const/4 v4, 0x4
 
@@ -836,7 +836,7 @@
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 284
-    .local v3, v:Landroid/util/TypedValue;
+    .local v3, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v4
@@ -872,7 +872,7 @@
     move-result-object v1
 
     .line 287
-    .local v1, str:Ljava/lang/CharSequence;
+    .local v1, "str":Ljava/lang/CharSequence;
     if-eqz v1, :cond_3
 
     .line 288
@@ -887,7 +887,7 @@
     goto :goto_0
 
     .line 291
-    .end local v1           #str:Ljava/lang/CharSequence;
+    .end local v1    # "str":Ljava/lang/CharSequence;
     :cond_3
     const-string v4, "Resources"
 
@@ -920,10 +920,10 @@
 
 .method public getFraction(IIIF)F
     .locals 5
-    .parameter "index"
-    .parameter "base"
-    .parameter "pbase"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "base"    # I
+    .param p3, "pbase"    # I
+    .param p4, "defValue"    # F
 
     .prologue
     .line 540
@@ -933,22 +933,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 542
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 543
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 546
-    .end local p4
+    .end local p4    # "defValue":F
     :goto_0
     return p4
 
     .line 545
-    .restart local p4
+    .restart local p4    # "defValue":F
     :cond_0
     const/4 v2, 0x6
 
@@ -1002,7 +1002,7 @@
 
 .method public getIndex(I)I
     .locals 2
-    .parameter "at"
+    .param p1, "at"    # I
 
     .prologue
     .line 72
@@ -1031,8 +1031,8 @@
 
 .method public getInt(II)I
     .locals 6
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 242
@@ -1042,22 +1042,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 244
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v1, v0, v3
 
     .line 245
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 260
-    .end local p2
+    .end local p2    # "defValue":I
     :goto_0
     return p2
 
     .line 247
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_0
     const/16 v3, 0x10
 
@@ -1079,7 +1079,7 @@
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 253
-    .local v2, v:Landroid/util/TypedValue;
+    .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v3
@@ -1153,8 +1153,8 @@
 
 .method public getInteger(II)I
     .locals 5
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 358
@@ -1164,22 +1164,22 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 360
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 361
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 365
-    .end local p2
+    .end local p2    # "defValue":I
     :goto_0
     return p2
 
     .line 363
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_0
     const/16 v2, 0x10
 
@@ -1229,8 +1229,8 @@
 
 .method public getLayoutDimension(II)I
     .locals 4
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 510
@@ -1240,13 +1240,13 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 512
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 513
-    .local v1, type:I
+    .local v1, "type":I
     const/16 v2, 0x10
 
     if-lt v1, v2, :cond_1
@@ -1261,13 +1261,13 @@
     aget p2, v0, v2
 
     .line 521
-    .end local p2
+    .end local p2    # "defValue":I
     :cond_0
     :goto_0
     return p2
 
     .line 516
-    .restart local p2
+    .restart local p2    # "defValue":I
     :cond_1
     const/4 v2, 0x5
 
@@ -1291,8 +1291,8 @@
 
 .method public getLayoutDimension(ILjava/lang/String;)I
     .locals 5
-    .parameter "index"
-    .parameter "name"
+    .param p1, "index"    # I
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 481
@@ -1302,13 +1302,13 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 483
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 484
-    .local v1, type:I
+    .local v1, "type":I
     const/16 v2, 0x10
 
     if-lt v1, v2, :cond_0
@@ -1390,8 +1390,8 @@
 
 .method public getNonConfigurationString(II)Ljava/lang/String;
     .locals 8
-    .parameter "index"
-    .parameter "allowedChangingConfigs"
+    .param p1, "index"    # I
+    .param p2, "allowedChangingConfigs"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -1403,13 +1403,13 @@
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 182
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v5, p1, 0x0
 
     aget v2, v1, v5
 
     .line 183
-    .local v2, type:I
+    .local v2, "type":I
     add-int/lit8 v5, p1, 0x4
 
     aget v5, v1, v5
@@ -1450,7 +1450,7 @@
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 193
-    .local v3, v:Landroid/util/TypedValue;
+    .local v3, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v5
@@ -1486,7 +1486,7 @@
     move-result-object v0
 
     .line 196
-    .local v0, cs:Ljava/lang/CharSequence;
+    .local v0, "cs":Ljava/lang/CharSequence;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1496,7 +1496,7 @@
     goto :goto_0
 
     .line 198
-    .end local v0           #cs:Ljava/lang/CharSequence;
+    .end local v0    # "cs":Ljava/lang/CharSequence;
     :cond_3
     const-string v5, "Resources"
 
@@ -1529,7 +1529,7 @@
 
 .method public getNonResourceString(I)Ljava/lang/String;
     .locals 5
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 154
@@ -1539,13 +1539,13 @@
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 156
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v2, v1, v3
 
     .line 157
-    .local v2, type:I
+    .local v2, "type":I
     const/4 v3, 0x3
 
     if-ne v2, v3, :cond_0
@@ -1556,7 +1556,7 @@
     aget v0, v1, v3
 
     .line 159
-    .local v0, cookie:I
+    .local v0, "cookie":I
     if-gez v0, :cond_0
 
     .line 160
@@ -1575,7 +1575,7 @@
     move-result-object v3
 
     .line 164
-    .end local v0           #cookie:I
+    .end local v0    # "cookie":I
     :goto_0
     return-object v3
 
@@ -1611,8 +1611,8 @@
 
 .method public getResourceId(II)I
     .locals 3
-    .parameter "index"
-    .parameter "defValue"
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
 
     .prologue
     .line 569
@@ -1622,7 +1622,7 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 571
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v2, v0, v2
@@ -1635,11 +1635,11 @@
     aget v1, v0, v2
 
     .line 573
-    .local v1, resid:I
+    .local v1, "resid":I
     if-eqz v1, :cond_0
 
     .line 577
-    .end local v1           #resid:I
+    .end local v1    # "resid":I
     :goto_0
     return v1
 
@@ -1661,7 +1661,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 8
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -1673,13 +1673,13 @@
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 121
-    .local v1, data:[I
+    .local v1, "data":[I
     add-int/lit8 v5, p1, 0x0
 
     aget v2, v1, v5
 
     .line 122
-    .local v2, type:I
+    .local v2, "type":I
     if-nez v2, :cond_1
 
     .line 136
@@ -1709,7 +1709,7 @@
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 129
-    .local v3, v:Landroid/util/TypedValue;
+    .local v3, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v5
@@ -1745,7 +1745,7 @@
     move-result-object v0
 
     .line 132
-    .local v0, cs:Ljava/lang/CharSequence;
+    .local v0, "cs":Ljava/lang/CharSequence;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1755,7 +1755,7 @@
     goto :goto_0
 
     .line 134
-    .end local v0           #cs:Ljava/lang/CharSequence;
+    .end local v0    # "cs":Ljava/lang/CharSequence;
     :cond_3
     const-string v5, "Resources"
 
@@ -1788,7 +1788,7 @@
 
 .method public getText(I)Ljava/lang/CharSequence;
     .locals 7
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -1800,13 +1800,13 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 93
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v1, v0, v4
 
     .line 94
-    .local v1, type:I
+    .local v1, "type":I
     if-nez v1, :cond_0
 
     .line 107
@@ -1831,7 +1831,7 @@
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 101
-    .local v2, v:Landroid/util/TypedValue;
+    .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
     move-result v4
@@ -1901,14 +1901,14 @@
 
 .method public getTextArray(I)[Ljava/lang/CharSequence;
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 618
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 619
-    .local v0, value:Landroid/util/TypedValue;
+    .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
     invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
@@ -1938,8 +1938,8 @@
 
 .method public getValue(ILandroid/util/TypedValue;)Z
     .locals 1
-    .parameter "index"
-    .parameter "outValue"
+    .param p1, "index"    # I
+    .param p2, "outValue"    # Landroid/util/TypedValue;
 
     .prologue
     .line 644
@@ -1954,7 +1954,7 @@
 
 .method public hasValue(I)Z
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 655
@@ -1964,13 +1964,13 @@
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     .line 657
-    .local v0, data:[I
+    .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
     .line 658
-    .local v1, type:I
+    .local v1, "type":I
     if-eqz v1, :cond_0
 
     const/4 v2, 0x1
@@ -1996,14 +1996,14 @@
 
 .method public peekValue(I)Landroid/util/TypedValue;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 673
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 674
-    .local v0, value:Landroid/util/TypedValue;
+    .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
     invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
@@ -2013,11 +2013,11 @@
     if-eqz v1, :cond_0
 
     .line 677
-    .end local v0           #value:Landroid/util/TypedValue;
+    .end local v0    # "value":Landroid/util/TypedValue;
     :goto_0
     return-object v0
 
-    .restart local v0       #value:Landroid/util/TypedValue;
+    .restart local v0    # "value":Landroid/util/TypedValue;
     :cond_0
     const/4 v0, 0x0
 
@@ -2042,7 +2042,7 @@
     iget-object v0, v1, Landroid/content/res/Resources;->mCachedStyledAttributes:Landroid/content/res/TypedArray;
 
     .line 693
-    .local v0, cached:Landroid/content/res/TypedArray;
+    .local v0, "cached":Landroid/content/res/TypedArray;
     if-eqz v0, :cond_0
 
     iget-object v1, v0, Landroid/content/res/TypedArray;->mData:[I
@@ -2074,7 +2074,7 @@
     return-void
 
     .line 697
-    .end local v0           #cached:Landroid/content/res/TypedArray;
+    .end local v0    # "cached":Landroid/content/res/TypedArray;
     :catchall_0
     move-exception v1
 

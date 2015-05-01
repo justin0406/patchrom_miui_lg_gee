@@ -469,9 +469,7 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "value"
+    .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -491,7 +489,7 @@
 
 .method public static fromInt(I)Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     .locals 5
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 89
@@ -499,38 +497,38 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+    .local v0, "arr$":[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 90
-    .local v1, e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+    .local v1, "e":Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     iget v4, v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->mValue:I
 
     if-ne v4, p0, :cond_0
 
     .line 94
-    .end local v1           #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+    .end local v1    # "e":Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :goto_1
     return-object v1
 
     .line 89
-    .restart local v1       #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+    .restart local v1    # "e":Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 94
-    .end local v1           #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+    .end local v1    # "e":Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :cond_1
     const/4 v1, 0x0
 
@@ -539,7 +537,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 47

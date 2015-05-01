@@ -10,14 +10,14 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;Ljava/lang/String;III)V
     .locals 8
-    .parameter "name"
-    .parameter "realName"
-    .parameter "codePath"
-    .parameter "resourcePath"
-    .parameter "nativeLibraryPathString"
-    .parameter "sharedId"
-    .parameter "pVersionCode"
-    .parameter "pkgFlags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "realName"    # Ljava/lang/String;
+    .param p3, "codePath"    # Ljava/io/File;
+    .param p4, "resourcePath"    # Ljava/io/File;
+    .param p5, "nativeLibraryPathString"    # Ljava/lang/String;
+    .param p6, "sharedId"    # I
+    .param p7, "pVersionCode"    # I
+    .param p8, "pkgFlags"    # I
 
     .prologue
     .line 26

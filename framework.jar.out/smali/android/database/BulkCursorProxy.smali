@@ -15,7 +15,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 145
@@ -60,13 +60,13 @@
     move-result-object v0
 
     .line 210
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 212
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
@@ -122,13 +122,13 @@
     move-result-object v0
 
     .line 195
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 197
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
@@ -189,13 +189,13 @@
     move-result-object v0
 
     .line 249
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 251
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
@@ -229,16 +229,16 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 262
-    .end local v0           #data:Landroid/os/Parcel;
-    .end local v1           #reply:Landroid/os/Parcel;
+    .end local v0    # "data":Landroid/os/Parcel;
+    .end local v1    # "reply":Landroid/os/Parcel;
     :cond_0
     iget-object v2, p0, Landroid/database/BulkCursorProxy;->mExtras:Landroid/os/Bundle;
 
     return-object v2
 
     .line 258
-    .restart local v0       #data:Landroid/os/Parcel;
-    .restart local v1       #reply:Landroid/os/Parcel;
+    .restart local v0    # "data":Landroid/os/Parcel;
+    .restart local v1    # "reply":Landroid/os/Parcel;
     :catchall_0
     move-exception v2
 
@@ -252,7 +252,7 @@
 
 .method public getWindow(I)Landroid/database/CursorWindow;
     .locals 7
-    .parameter "position"
+    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -268,13 +268,13 @@
     move-result-object v0
 
     .line 158
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 160
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IBulkCursor"
 
@@ -299,7 +299,7 @@
     const/4 v2, 0x0
 
     .line 167
-    .local v2, window:Landroid/database/CursorWindow;
+    .local v2, "window":Landroid/database/CursorWindow;
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -323,7 +323,7 @@
     return-object v2
 
     .line 172
-    .end local v2           #window:Landroid/database/CursorWindow;
+    .end local v2    # "window":Landroid/database/CursorWindow;
     :catchall_0
     move-exception v3
 
@@ -337,7 +337,7 @@
 
 .method public onMove(I)V
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -351,13 +351,13 @@
     move-result-object v0
 
     .line 179
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 181
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
@@ -403,7 +403,7 @@
 
 .method public requery(Landroid/database/IContentObserver;)I
     .locals 7
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/IContentObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -417,13 +417,13 @@
     move-result-object v1
 
     .line 224
-    .local v1, data:Landroid/os/Parcel;
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 226
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IBulkCursor"
 
@@ -444,7 +444,7 @@
     move-result v3
 
     .line 230
-    .local v3, result:Z
+    .local v3, "result":Z
     invoke-static {v2}, Landroid/database/DatabaseUtils;->readExceptionFromParcel(Landroid/os/Parcel;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -456,7 +456,7 @@
     const/4 v0, -0x1
 
     .line 241
-    .local v0, count:I
+    .local v0, "count":I
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -466,7 +466,7 @@
     return v0
 
     .line 236
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :cond_0
     :try_start_1
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
@@ -474,7 +474,7 @@
     move-result v0
 
     .line 237
-    .restart local v0       #count:I
+    .restart local v0    # "count":I
     invoke-virtual {v2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v4
@@ -486,8 +486,8 @@
     goto :goto_0
 
     .line 241
-    .end local v0           #count:I
-    .end local v3           #result:Z
+    .end local v0    # "count":I
+    .end local v3    # "result":Z
     :catchall_0
     move-exception v4
 
@@ -501,7 +501,7 @@
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 6
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -515,13 +515,13 @@
     move-result-object v0
 
     .line 267
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 269
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IBulkCursor"
 
@@ -550,7 +550,7 @@
     move-result-object v2
 
     .line 278
-    .local v2, returnExtras:Landroid/os/Bundle;
+    .local v2, "returnExtras":Landroid/os/Bundle;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 279
@@ -559,7 +559,7 @@
     return-object v2
 
     .line 278
-    .end local v2           #returnExtras:Landroid/os/Bundle;
+    .end local v2    # "returnExtras":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 

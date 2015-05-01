@@ -21,16 +21,16 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .parameter "nativeBitmap"
+    .param p1, "nativeBitmap"    # I
 
     .prologue
-    .line 1550
+    .line 1563
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1551
+    .line 1564
     iput p1, p0, Landroid/graphics/Bitmap$BitmapFinalizer;->mNativeBitmap:I
 
-    .line 1552
+    .line 1565
     return-void
 .end method
 
@@ -40,31 +40,31 @@
     .locals 2
 
     .prologue
-    .line 1557
+    .line 1570
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1561
+    .line 1574
     iget v0, p0, Landroid/graphics/Bitmap$BitmapFinalizer;->mNativeBitmap:I
 
-    #calls: Landroid/graphics/Bitmap;->nativeDestructor(I)V
+    # invokes: Landroid/graphics/Bitmap;->nativeDestructor(I)V
     invoke-static {v0}, Landroid/graphics/Bitmap;->access$100(I)V
 
-    .line 1563
+    .line 1576
     :goto_0
     return-void
 
-    .line 1558
+    .line 1571
     :catch_0
     move-exception v0
 
-    .line 1561
+    .line 1574
     iget v0, p0, Landroid/graphics/Bitmap$BitmapFinalizer;->mNativeBitmap:I
 
-    #calls: Landroid/graphics/Bitmap;->nativeDestructor(I)V
+    # invokes: Landroid/graphics/Bitmap;->nativeDestructor(I)V
     invoke-static {v0}, Landroid/graphics/Bitmap;->access$100(I)V
 
     goto :goto_0
@@ -74,7 +74,7 @@
 
     iget v1, p0, Landroid/graphics/Bitmap$BitmapFinalizer;->mNativeBitmap:I
 
-    #calls: Landroid/graphics/Bitmap;->nativeDestructor(I)V
+    # invokes: Landroid/graphics/Bitmap;->nativeDestructor(I)V
     invoke-static {v1}, Landroid/graphics/Bitmap;->access$100(I)V
 
     throw v0

@@ -23,9 +23,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/LevelListDrawable$LevelListState;Landroid/graphics/drawable/LevelListDrawable;Landroid/content/res/Resources;)V
     .locals 1
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/LevelListDrawable$LevelListState;
+    .param p2, "owner"    # Landroid/graphics/drawable/LevelListDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 161
@@ -72,7 +72,7 @@
 
 .method static synthetic access$000(Landroid/graphics/drawable/LevelListDrawable$LevelListState;)[I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/drawable/LevelListDrawable$LevelListState;
 
     .prologue
     .line 156
@@ -83,8 +83,8 @@
 
 .method static synthetic access$002(Landroid/graphics/drawable/LevelListDrawable$LevelListState;[I)[I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/drawable/LevelListDrawable$LevelListState;
+    .param p1, "x1"    # [I
 
     .prologue
     .line 156
@@ -95,7 +95,7 @@
 
 .method static synthetic access$100(Landroid/graphics/drawable/LevelListDrawable$LevelListState;)[I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/drawable/LevelListDrawable$LevelListState;
 
     .prologue
     .line 156
@@ -106,8 +106,8 @@
 
 .method static synthetic access$102(Landroid/graphics/drawable/LevelListDrawable$LevelListState;[I)[I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/drawable/LevelListDrawable$LevelListState;
+    .param p1, "x1"    # [I
 
     .prologue
     .line 156
@@ -120,9 +120,9 @@
 # virtual methods
 .method public addLevel(IILandroid/graphics/drawable/Drawable;)V
     .locals 2
-    .parameter "low"
-    .parameter "high"
-    .parameter "drawable"
+    .param p1, "low"    # I
+    .param p2, "high"    # I
+    .param p3, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 173
@@ -131,7 +131,7 @@
     move-result v0
 
     .line 174
-    .local v0, pos:I
+    .local v0, "pos":I
     iget-object v1, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mLows:[I
 
     aput p1, v1, v0
@@ -147,8 +147,8 @@
 
 .method public growArray(II)V
     .locals 3
-    .parameter "oldSize"
-    .parameter "newSize"
+    .param p1, "oldSize"    # I
+    .param p2, "newSize"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -160,7 +160,7 @@
     new-array v0, p2, [I
 
     .line 204
-    .local v0, newInts:[I
+    .local v0, "newInts":[I
     iget-object v1, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mLows:[I
 
     invoke-static {v1, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -185,27 +185,27 @@
 
 .method public indexOfLevel(I)I
     .locals 5
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 179
     iget-object v3, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mLows:[I
 
     .line 180
-    .local v3, lows:[I
+    .local v3, "lows":[I
     iget-object v1, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mHighs:[I
 
     .line 181
-    .local v1, highs:[I
+    .local v1, "highs":[I
     invoke-virtual {p0}, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->getChildCount()I
 
     move-result v0
 
     .line 182
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_1
 
@@ -219,12 +219,12 @@
     if-gt p1, v4, :cond_0
 
     .line 187
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :goto_1
     return v2
 
     .line 182
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
@@ -253,7 +253,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 197

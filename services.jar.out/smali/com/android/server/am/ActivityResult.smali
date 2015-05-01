@@ -10,11 +10,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IILandroid/content/Intent;)V
     .locals 0
-    .parameter "from"
-    .parameter "resultWho"
-    .parameter "requestCode"
-    .parameter "resultCode"
-    .parameter "data"
+    .param p1, "from"    # Lcom/android/server/am/ActivityRecord;
+    .param p2, "resultWho"    # Ljava/lang/String;
+    .param p3, "requestCode"    # I
+    .param p4, "resultCode"    # I
+    .param p5, "data"    # Landroid/content/Intent;
 
     .prologue
     .line 31

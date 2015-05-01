@@ -17,9 +17,9 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
     .locals 0
-    .parameter "policyState"
-    .parameter "policyViolated"
-    .parameter "message"
+    .param p1, "policyState"    # I
+    .param p2, "policyViolated"    # I
+    .param p3, "message"    # Ljava/lang/String;
 
     .prologue
     .line 811

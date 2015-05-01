@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 121
@@ -41,14 +41,14 @@
 # virtual methods
 .method public addCircularHardwareGeofence(IDDDIIII)Z
     .locals 7
-    .parameter "geofenceId"
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "radius"
-    .parameter "lastTransition"
-    .parameter "monitorTransition"
-    .parameter "notificationResponsiveness"
-    .parameter "unknownTimer"
+    .param p1, "geofenceId"    # I
+    .param p2, "latitude"    # D
+    .param p4, "longitude"    # D
+    .param p6, "radius"    # D
+    .param p8, "lastTransition"    # I
+    .param p9, "monitorTransition"    # I
+    .param p10, "notificationResponsiveness"    # I
+    .param p11, "unknownTimer"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -62,13 +62,13 @@
     move-result-object v1
 
     .line 152
-    .local v1, _data:Landroid/os/Parcel;
+    .local v1, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 155
-    .local v2, _reply:Landroid/os/Parcel;
+    .local v2, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.IGpsGeofenceHardware"
 
@@ -128,7 +128,7 @@
     const/4 v3, 0x1
 
     .line 169
-    .local v3, _result:Z
+    .local v3, "_result":Z
     :goto_0
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
@@ -139,7 +139,7 @@
     return v3
 
     .line 166
-    .end local v3           #_result:Z
+    .end local v3    # "_result":Z
     :cond_0
     const/4 v3, 0x0
 
@@ -196,13 +196,13 @@
     move-result-object v0
 
     .line 135
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 138
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.IGpsGeofenceHardware"
 
@@ -230,7 +230,7 @@
     if-eqz v4, :cond_0
 
     .line 144
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -240,7 +240,7 @@
     .line 147
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -261,7 +261,7 @@
 
 .method public pauseHardwareGeofence(I)Z
     .locals 6
-    .parameter "geofenceId"
+    .param p1, "geofenceId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -277,13 +277,13 @@
     move-result-object v0
 
     .line 195
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 198
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.IGpsGeofenceHardware"
 
@@ -316,7 +316,7 @@
     const/4 v2, 0x1
 
     .line 205
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -327,7 +327,7 @@
     return v2
 
     .line 205
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -341,7 +341,7 @@
 
 .method public removeHardwareGeofence(I)Z
     .locals 6
-    .parameter "geofenceId"
+    .param p1, "geofenceId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -357,13 +357,13 @@
     move-result-object v0
 
     .line 177
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 180
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.IGpsGeofenceHardware"
 
@@ -396,7 +396,7 @@
     const/4 v2, 0x1
 
     .line 187
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -407,7 +407,7 @@
     return v2
 
     .line 187
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -421,8 +421,8 @@
 
 .method public resumeHardwareGeofence(II)Z
     .locals 6
-    .parameter "geofenceId"
-    .parameter "monitorTransition"
+    .param p1, "geofenceId"    # I
+    .param p2, "monitorTransition"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -438,13 +438,13 @@
     move-result-object v0
 
     .line 213
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 216
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.IGpsGeofenceHardware"
 
@@ -480,7 +480,7 @@
     const/4 v2, 0x1
 
     .line 224
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -491,7 +491,7 @@
     return v2
 
     .line 224
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 

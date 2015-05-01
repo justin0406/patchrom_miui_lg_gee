@@ -1212,12 +1212,12 @@
 
 .method public static glVertexAttribPointer(IIIZILjava/nio/Buffer;)V
     .locals 7
-    .parameter "indx"
-    .parameter "size"
-    .parameter "type"
-    .parameter "normalized"
-    .parameter "stride"
-    .parameter "ptr"
+    .param p0, "indx"    # I
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "normalized"    # Z
+    .param p4, "stride"    # I
+    .param p5, "ptr"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1903

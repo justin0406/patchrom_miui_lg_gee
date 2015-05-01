@@ -133,7 +133,7 @@
     <string name="contentServiceSyncNotificationTitle">Синхр.</string>
     <string name="contentServiceTooManyDeletesNotificationDesc">Забагато видалень %s.</string>
     <string name="low_memory">Пам’ять телефону заповнено. Видаліть якісь файли, щоб звільнити місце.</string>
-    <string name="ssl_ca_cert_warning">Мережу можуть відстежувати</string>
+    <string name="ssl_ca_cert_warning">Мережа може відстежуватися</string>
     <string name="ssl_ca_cert_noti_by_unknown">Невідомою третьою стороною</string>
     <string name="ssl_ca_cert_noti_managed">Доменом %s</string>
     <string name="me">Я</string>
@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">видаляти ярлики</string>
     <string name="permdesc_uninstall_shortcut">Дозволяє програмі самостійно вилучати ярлики з головного екрана.</string>
     <string name="permlab_processOutgoingCalls">переадресовувати вихідні виклики</string>
-    <string name="permdesc_processOutgoingCalls">Дозволяє програмі обробляти вихідні дзвінки та змінювати номер для виклику. Такий дозвіл дає програмі змогу відстежувати, переадресовувати чи блокувати вихідні дзвінки.</string>
+    <string name="permdesc_processOutgoingCalls">Дозволяє додатку читати номер вихідного дзвінка, переспрямовувати дзвінок на інший номер або переривати його.</string>
     <string name="permlab_receiveSms">отримувати текстові повідомлення (SMS)</string>
     <string name="permdesc_receiveSms">Дозволяє програмі отримувати й обробляти SMS-повідомлення. Це означає, що програма може відстежувати чи видаляти повідомлення, надіслані на ваш пристрій, навіть не показуючи їх вам.</string>
     <string name="permlab_receiveMms">отримувати текстові повідомлення (MMS)</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">Головна</string>
     <string name="sipAddressTypeWork">Робоча</string>
     <string name="sipAddressTypeOther">Інша</string>
+    <string name="quick_contacts_not_available">Не знайдено програму для перегляду цього контакта.</string>
     <string name="keyguard_password_enter_pin_code">Введіть PIN-код</string>
     <string name="keyguard_password_enter_puk_code">Введіть PUK-код і новий PIN-код</string>
     <string name="keyguard_password_enter_puk_prompt">PUK-код</string>
@@ -1462,10 +1463,17 @@
     <string name="webviewchromium_actionbar_share">Поділитися</string>
     <string name="webviewchromium_actionbar_web_search">Веб-пошук</string>
     <string name="webviewchromium_accessibility_content_view">Веб-перегляд</string>
+    <string name="webviewchromium_date_picker_dialog_title">Установити дату</string>
     <string name="webviewchromium_date_picker_dialog_set">Установити</string>
     <string name="webviewchromium_date_picker_dialog_clear">Видалити</string>
-    <string name="webviewchromium_date_picker_dialog_title">Установити дату</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Інше</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Установити дату та час</string>
+    <string name="webviewchromium_time_picker_dialog_title">Установити час</string>
+    <string name="webviewchromium_time_picker_dialog_am">дп</string>
+    <string name="webviewchromium_time_picker_dialog_pm">пп</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Вибрати місяць</string>
     <string name="webviewchromium_week_picker_dialog_title">Вибрати тиждень</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Дата</string>
@@ -1473,6 +1481,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">Місяць</string>
     <string name="webviewchromium_accessibility_date_picker_week">Тиждень</string>
     <string name="webviewchromium_accessibility_date_picker_year">Рік</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Година</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Хвилина</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Секунда</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Мілісекунда</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">дп/пп</string>
     <string name="webviewchromium_media_player_error_title">Неможливо відтворити відео</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">На жаль, відео непридатне для потокового передавання на цей пристрій.</string>
     <string name="webviewchromium_media_player_error_text_unknown">На жаль, неможливо відтворити це відео.</string>
@@ -1485,7 +1498,20 @@
     <string name="webviewchromium_color_picker_button_set">Вибрати</string>
     <string name="webviewchromium_color_picker_button_cancel">Скасувати</string>
     <string name="webviewchromium_color_picker_dialog_title">Вибрати колір</string>
+    <string name="webviewchromium_color_picker_button_red">Червоний</string>
+    <string name="webviewchromium_color_picker_button_cyan">Бірюзовий</string>
+    <string name="webviewchromium_color_picker_button_blue">Синій</string>
+    <string name="webviewchromium_color_picker_button_green">Зелений</string>
+    <string name="webviewchromium_color_picker_button_magenta">Пурпуровий</string>
+    <string name="webviewchromium_color_picker_button_yellow">Жовтий</string>
+    <string name="webviewchromium_color_picker_button_black">Чорний</string>
+    <string name="webviewchromium_color_picker_button_white">Білий</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Не вдалося скопіювати в буфер обміну</string>
     <string name="webviewchromium_low_memory_error">Не вдалося завершити попередню дію через недостатній обсяг пам’яті</string>
     <string name="webviewchromium_opening_file_error">Не вдалося відкрити вибраний файл</string>
     <string name="webviewchromium_private_browsing_warning">Функція не підтримується в цій версії Android.</string>
+    <string name="webviewchromium_profiler_started_toast">Профілювальник запущено</string>
+    <string name="webviewchromium_profiler_stopped_toast">Профілювальник закінчив роботу. Результати у файлі %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Неможливо запустити профілювальник, оскільки зовнішня пам’ять не готова</string>
+    <string name="webviewchromium_profiler_error_toast">Не вдалося запустити профілювальник</string>
 </resources>

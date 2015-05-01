@@ -95,7 +95,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 783
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     .line 784
@@ -219,7 +219,7 @@
 
 .method public final getResultExtras(Z)Landroid/os/Bundle;
     .locals 2
-    .parameter "makeMap"
+    .param p1, "makeMap"    # Z
 
     .prologue
     .line 626
@@ -242,7 +242,7 @@
     iget-object v0, v1, Landroid/content/BroadcastReceiver$PendingResult;->mResultExtras:Landroid/os/Bundle;
 
     .line 630
-    .local v0, e:Landroid/os/Bundle;
+    .local v0, "e":Landroid/os/Bundle;
     if-eqz p1, :cond_0
 
     .line 631
@@ -252,10 +252,10 @@
 
     new-instance v0, Landroid/os/Bundle;
 
-    .end local v0           #e:Landroid/os/Bundle;
+    .end local v0    # "e":Landroid/os/Bundle;
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .restart local v0       #e:Landroid/os/Bundle;
+    .restart local v0    # "e":Landroid/os/Bundle;
     iput-object v0, v1, Landroid/content/BroadcastReceiver$PendingResult;->mResultExtras:Landroid/os/Bundle;
 
     goto :goto_0
@@ -281,7 +281,7 @@
     iget-object v0, p0, Landroid/content/BroadcastReceiver;->mPendingResult:Landroid/content/BroadcastReceiver$PendingResult;
 
     .line 506
-    .local v0, res:Landroid/content/BroadcastReceiver$PendingResult;
+    .local v0, "res":Landroid/content/BroadcastReceiver$PendingResult;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/content/BroadcastReceiver;->mPendingResult:Landroid/content/BroadcastReceiver$PendingResult;
@@ -339,8 +339,8 @@
 
 .method public peekService(Landroid/content/Context;Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 3
-    .parameter "myContext"
-    .parameter "service"
+    .param p1, "myContext"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/content/Intent;
 
     .prologue
     .line 520
@@ -349,11 +349,11 @@
     move-result-object v0
 
     .line 521
-    .local v0, am:Landroid/app/IActivityManager;
+    .local v0, "am":Landroid/app/IActivityManager;
     const/4 v1, 0x0
 
     .line 523
-    .local v1, binder:Landroid/os/IBinder;
+    .local v1, "binder":Landroid/os/IBinder;
     :try_start_0
     invoke-virtual {p2}, Landroid/content/Intent;->prepareToLeaveProcess()V
 
@@ -385,7 +385,7 @@
 
 .method public final setDebugUnregister(Z)V
     .locals 0
-    .parameter "debug"
+    .param p1, "debug"    # Z
 
     .prologue
     .line 760
@@ -397,7 +397,7 @@
 
 .method public final setOrderedHint(Z)V
     .locals 0
-    .parameter "isOrdered"
+    .param p1, "isOrdered"    # Z
 
     .prologue
     .line 727
@@ -406,7 +406,7 @@
 
 .method public final setPendingResult(Landroid/content/BroadcastReceiver$PendingResult;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/content/BroadcastReceiver$PendingResult;
 
     .prologue
     .line 733
@@ -418,9 +418,9 @@
 
 .method public final setResult(ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "code"
-    .parameter "data"
-    .parameter "extras"
+    .param p1, "code"    # I
+    .param p2, "data"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 658
@@ -447,7 +447,7 @@
 
 .method public final setResultCode(I)V
     .locals 1
-    .parameter "code"
+    .param p1, "code"    # I
 
     .prologue
     .line 549
@@ -464,7 +464,7 @@
 
 .method public final setResultData(Ljava/lang/String;)V
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     .line 578
@@ -481,7 +481,7 @@
 
 .method public final setResultExtras(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 610

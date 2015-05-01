@@ -21,31 +21,31 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AlarmManagerService;)V
     .locals 2
-    .parameter
 
     .prologue
+    .line 1322
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 1323
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .local v0, filter:Landroid/content/IntentFilter;
+    .line 1324
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 1325
     const-string v1, "android.intent.action.DATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const/16 v1, 0x3e8
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->setPriority(I)V
-
-    #getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
+    .line 1326
+    # getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/server/AlarmManagerService;->access$600(Lcom/android/server/AlarmManagerService;)Landroid/content/Context;
 
     move-result-object v1
@@ -60,8 +60,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1331
@@ -111,7 +111,7 @@
     move-result-object v1
 
     .line 1342
-    .local v1, zone:Ljava/util/TimeZone;
+    .local v1, "zone":Ljava/util/TimeZone;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -121,12 +121,12 @@
     move-result v0
 
     .line 1343
-    .local v0, gmtOffset:I
+    .local v0, "gmtOffset":I
     iget-object v2, p0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     iget-object v3, p0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    #getter for: Lcom/android/server/AlarmManagerService;->mDescriptor:I
+    # getter for: Lcom/android/server/AlarmManagerService;->mDescriptor:I
     invoke-static {v3}, Lcom/android/server/AlarmManagerService;->access$200(Lcom/android/server/AlarmManagerService;)I
 
     move-result v3
@@ -137,7 +137,7 @@
 
     neg-int v4, v4
 
-    #calls: Lcom/android/server/AlarmManagerService;->setKernelTimezone(II)I
+    # invokes: Lcom/android/server/AlarmManagerService;->setKernelTimezone(II)I
     invoke-static {v2, v3, v4}, Lcom/android/server/AlarmManagerService;->access$1600(Lcom/android/server/AlarmManagerService;II)I
 
     .line 1344
@@ -162,7 +162,7 @@
     move-result-object v11
 
     .line 1363
-    .local v11, calendar:Ljava/util/Calendar;
+    .local v11, "calendar":Ljava/util/Calendar;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -198,7 +198,7 @@
     const/4 v10, 0x0
 
     .line 1371
-    .local v10, workSource:Landroid/os/WorkSource;
+    .local v10, "workSource":Landroid/os/WorkSource;
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-virtual {v11}, Ljava/util/Calendar;->getTimeInMillis()J
@@ -207,7 +207,7 @@
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    #getter for: Lcom/android/server/AlarmManagerService;->mDateChangeSender:Landroid/app/PendingIntent;
+    # getter for: Lcom/android/server/AlarmManagerService;->mDateChangeSender:Landroid/app/PendingIntent;
     invoke-static {v6}, Lcom/android/server/AlarmManagerService;->access$1700(Lcom/android/server/AlarmManagerService;)Landroid/app/PendingIntent;
 
     move-result-object v8
@@ -232,7 +232,7 @@
     move-result-wide v12
 
     .line 1350
-    .local v12, currentTime:J
+    .local v12, "currentTime":J
     const-wide/32 v1, 0xea60
 
     const-wide/32 v3, 0xea60
@@ -246,15 +246,15 @@
     mul-long v14, v1, v3
 
     .line 1354
-    .local v14, nextTime:J
+    .local v14, "nextTime":J
     sub-long v16, v14, v12
 
     .line 1356
-    .local v16, tickEventDelay:J
+    .local v16, "tickEventDelay":J
     const/4 v11, 0x0
 
     .line 1357
-    .local v11, workSource:Landroid/os/WorkSource;
+    .local v11, "workSource":Landroid/os/WorkSource;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
@@ -275,7 +275,7 @@
 
     iget-object v9, v0, Lcom/android/server/AlarmManagerService$ClockReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    #getter for: Lcom/android/server/AlarmManagerService;->mTimeTickSender:Landroid/app/PendingIntent;
+    # getter for: Lcom/android/server/AlarmManagerService;->mTimeTickSender:Landroid/app/PendingIntent;
     invoke-static {v9}, Lcom/android/server/AlarmManagerService;->access$400(Lcom/android/server/AlarmManagerService;)Landroid/app/PendingIntent;
 
     move-result-object v9

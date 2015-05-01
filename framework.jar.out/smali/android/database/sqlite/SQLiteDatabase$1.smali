@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 81

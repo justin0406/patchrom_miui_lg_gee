@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 630
@@ -44,7 +43,7 @@
     .line 632
     iget-object v0, p0, Lcom/android/server/NsdService$NativeCallbackReceiver;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mNativeDaemonConnected:Ljava/util/concurrent/CountDownLatch;
+    # getter for: Lcom/android/server/NsdService;->mNativeDaemonConnected:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0}, Lcom/android/server/NsdService;->access$2900(Lcom/android/server/NsdService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
@@ -57,9 +56,9 @@
 
 .method public onEvent(ILjava/lang/String;[Ljava/lang/String;)Z
     .locals 3
-    .parameter "code"
-    .parameter "raw"
-    .parameter "cooked"
+    .param p1, "code"    # I
+    .param p2, "raw"    # Ljava/lang/String;
+    .param p3, "cooked"    # [Ljava/lang/String;
 
     .prologue
     .line 638
@@ -70,10 +69,10 @@
     invoke-direct {v0, v1, p1, p2}, Lcom/android/server/NsdService$NativeEvent;-><init>(Lcom/android/server/NsdService;ILjava/lang/String;)V
 
     .line 639
-    .local v0, event:Lcom/android/server/NsdService$NativeEvent;
+    .local v0, "event":Lcom/android/server/NsdService$NativeEvent;
     iget-object v1, p0, Lcom/android/server/NsdService$NativeCallbackReceiver;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mNsdStateMachine:Lcom/android/server/NsdService$NsdStateMachine;
+    # getter for: Lcom/android/server/NsdService;->mNsdStateMachine:Lcom/android/server/NsdService$NsdStateMachine;
     invoke-static {v1}, Lcom/android/server/NsdService;->access$200(Lcom/android/server/NsdService;)Lcom/android/server/NsdService$NsdStateMachine;
 
     move-result-object v1

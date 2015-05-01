@@ -126,7 +126,6 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 182

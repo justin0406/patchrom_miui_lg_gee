@@ -6,35 +6,35 @@
 # static fields
 .field protected static final BOUNDARY:Ljava/lang/String; = "----------------314159265358979323846"
 
-.field protected static final BOUNDARY_BYTES:[B = null
+.field protected static final BOUNDARY_BYTES:[B
 
 .field protected static final CHARSET:Ljava/lang/String; = "; charset="
 
-.field protected static final CHARSET_BYTES:[B = null
+.field protected static final CHARSET_BYTES:[B
 
 .field protected static final CONTENT_DISPOSITION:Ljava/lang/String; = "Content-Disposition: form-data; name="
 
-.field protected static final CONTENT_DISPOSITION_BYTES:[B = null
+.field protected static final CONTENT_DISPOSITION_BYTES:[B
 
 .field protected static final CONTENT_TRANSFER_ENCODING:Ljava/lang/String; = "Content-Transfer-Encoding: "
 
-.field protected static final CONTENT_TRANSFER_ENCODING_BYTES:[B = null
+.field protected static final CONTENT_TRANSFER_ENCODING_BYTES:[B
 
 .field protected static final CONTENT_TYPE:Ljava/lang/String; = "Content-Type: "
 
-.field protected static final CONTENT_TYPE_BYTES:[B = null
+.field protected static final CONTENT_TYPE_BYTES:[B
 
 .field protected static final CRLF:Ljava/lang/String; = "\r\n"
 
-.field protected static final CRLF_BYTES:[B = null
+.field protected static final CRLF_BYTES:[B
 
-.field private static final DEFAULT_BOUNDARY_BYTES:[B = null
+.field private static final DEFAULT_BOUNDARY_BYTES:[B
 
 .field protected static final EXTRA:Ljava/lang/String; = "--"
 
-.field protected static final EXTRA_BYTES:[B = null
+.field protected static final EXTRA_BYTES:[B
 
-.field private static final LOG:Lorg/apache/commons/logging/Log; = null
+.field private static final LOG:Lorg/apache/commons/logging/Log;
 
 .field protected static final QUOTE:Ljava/lang/String; = "\""
 
@@ -161,7 +161,7 @@
 
 .method public static getLengthOfParts([Lcom/android/internal/http/multipart/Part;)J
     .locals 2
-    .parameter "parts"
+    .param p0, "parts"    # [Lcom/android/internal/http/multipart/Part;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -181,8 +181,8 @@
 
 .method public static getLengthOfParts([Lcom/android/internal/http/multipart/Part;[B)J
     .locals 7
-    .parameter "parts"
-    .parameter "partBoundary"
+    .param p0, "parts"    # [Lcom/android/internal/http/multipart/Part;
+    .param p1, "partBoundary"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -214,10 +214,10 @@
     const-wide/16 v3, 0x0
 
     .line 424
-    .local v3, total:J
+    .local v3, "total":J
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v5, p0
 
@@ -236,7 +236,7 @@
     move-result-wide v1
 
     .line 428
-    .local v1, l:J
+    .local v1, "l":J
     const-wide/16 v5, 0x0
 
     cmp-long v5, v1, v5
@@ -247,12 +247,12 @@
     const-wide/16 v5, -0x1
 
     .line 437
-    .end local v1           #l:J
+    .end local v1    # "l":J
     :goto_1
     return-wide v5
 
     .line 431
-    .restart local v1       #l:J
+    .restart local v1    # "l":J
     :cond_1
     add-long/2addr v3, v1
 
@@ -262,7 +262,7 @@
     goto :goto_0
 
     .line 433
-    .end local v1           #l:J
+    .end local v1    # "l":J
     :cond_2
     sget-object v5, Lcom/android/internal/http/multipart/Part;->EXTRA_BYTES:[B
 
@@ -305,8 +305,8 @@
 
 .method public static sendParts(Ljava/io/OutputStream;[Lcom/android/internal/http/multipart/Part;)V
     .locals 1
-    .parameter "out"
-    .parameter "parts"
+    .param p0, "out"    # Ljava/io/OutputStream;
+    .param p1, "parts"    # [Lcom/android/internal/http/multipart/Part;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -325,9 +325,9 @@
 
 .method public static sendParts(Ljava/io/OutputStream;[Lcom/android/internal/http/multipart/Part;[B)V
     .locals 3
-    .parameter "out"
-    .parameter "parts"
-    .parameter "partBoundary"
+    .param p0, "out"    # Ljava/io/OutputStream;
+    .param p1, "parts"    # [Lcom/android/internal/http/multipart/Part;
+    .param p2, "partBoundary"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -369,7 +369,7 @@
     :cond_2
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v1, p1
 
@@ -500,7 +500,7 @@
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 331
-    .local v0, overhead:Ljava/io/ByteArrayOutputStream;
+    .local v0, "overhead":Ljava/io/ByteArrayOutputStream;
     invoke-virtual {p0, v0}, Lcom/android/internal/http/multipart/Part;->sendStart(Ljava/io/OutputStream;)V
 
     .line 332
@@ -544,7 +544,7 @@
 
 .method public send(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -586,7 +586,7 @@
 
 .method protected sendContentTypeHeader(Ljava/io/OutputStream;)V
     .locals 4
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -607,7 +607,7 @@
     move-result-object v1
 
     .line 232
-    .local v1, contentType:Ljava/lang/String;
+    .local v1, "contentType":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     .line 233
@@ -633,7 +633,7 @@
     move-result-object v0
 
     .line 237
-    .local v0, charSet:Ljava/lang/String;
+    .local v0, "charSet":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 238
@@ -649,7 +649,7 @@
     invoke-virtual {p1, v2}, Ljava/io/OutputStream;->write([B)V
 
     .line 242
-    .end local v0           #charSet:Ljava/lang/String;
+    .end local v0    # "charSet":Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -664,7 +664,7 @@
 
 .method protected sendDispositionHeader(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -711,7 +711,7 @@
 
 .method protected sendEnd(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -737,7 +737,7 @@
 
 .method protected sendEndOfHeader(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -768,7 +768,7 @@
 
 .method protected sendStart(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -806,7 +806,7 @@
 
 .method protected sendTransferEncodingHeader(Ljava/io/OutputStream;)V
     .locals 3
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -827,7 +827,7 @@
     move-result-object v0
 
     .line 254
-    .local v0, transferEncoding:Ljava/lang/String;
+    .local v0, "transferEncoding":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 255
@@ -854,7 +854,7 @@
 
 .method setPartBoundary([B)V
     .locals 0
-    .parameter "boundaryBytes"
+    .param p1, "boundaryBytes"    # [B
 
     .prologue
     .line 185

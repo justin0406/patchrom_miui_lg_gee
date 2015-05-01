@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/RecognitionManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 49
@@ -46,7 +45,7 @@
     move-result v2
 
     .line 53
-    .local v2, userHandle:I
+    .local v2, "userHandle":I
     iget-object v3, p0, Lcom/android/server/RecognitionManagerService$MyPackageMonitor;->this$0:Lcom/android/server/RecognitionManagerService;
 
     invoke-virtual {v3, v2}, Lcom/android/server/RecognitionManagerService;->getCurRecognizer(I)Landroid/content/ComponentName;
@@ -54,7 +53,7 @@
     move-result-object v1
 
     .line 54
-    .local v1, comp:Landroid/content/ComponentName;
+    .local v1, "comp":Landroid/content/ComponentName;
     if-nez v1, :cond_1
 
     .line 55
@@ -95,7 +94,7 @@
     move-result v0
 
     .line 65
-    .local v0, change:I
+    .local v0, "change":I
     const/4 v3, 0x3
 
     if-eq v0, v3, :cond_2

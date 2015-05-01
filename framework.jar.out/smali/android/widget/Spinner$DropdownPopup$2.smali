@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner$DropdownPopup;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1128
@@ -46,7 +45,7 @@
 
     iget-object v0, v0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
 
-    #calls: Landroid/widget/Spinner;->isVisibleToUser()Z
+    # invokes: Landroid/widget/Spinner;->isVisibleToUser()Z
     invoke-static {v0}, Landroid/widget/Spinner;->access$600(Landroid/widget/Spinner;)Z
 
     move-result v0
@@ -71,7 +70,7 @@
     .line 1138
     iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
-    #calls: Landroid/widget/ListPopupWindow;->show()V
+    # invokes: Landroid/widget/ListPopupWindow;->show()V
     invoke-static {v0}, Landroid/widget/Spinner$DropdownPopup;->access$701(Landroid/widget/Spinner$DropdownPopup;)V
 
     goto :goto_0

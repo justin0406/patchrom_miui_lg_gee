@@ -201,8 +201,8 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DataConnection;Ljava/lang/String;)V
     .locals 2
-    .parameter "dc"
-    .parameter "logTag"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
+    .param p2, "logTag"    # Ljava/lang/String;
 
     .prologue
     .line 113
@@ -241,7 +241,7 @@
 
 .method protected static cmdToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "cmd"
+    .param p0, "cmd"    # I
 
     .prologue
     const v1, 0x41000
@@ -291,7 +291,7 @@
     move-result-wide v0
 
     .line 425
-    .local v0, curThreadId:J
+    .local v0, "curThreadId":J
     iget-wide v3, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDcThreadId:J
 
     cmp-long v3, v3, v0
@@ -301,12 +301,12 @@
     const/4 v2, 0x1
 
     .line 427
-    .local v2, value:Z
+    .local v2, "value":Z
     :goto_0
     return v2
 
     .line 425
-    .end local v2           #value:Z
+    .end local v2    # "value":Z
     :cond_0
     const/4 v2, 0x0
 
@@ -315,7 +315,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 431
@@ -349,15 +349,15 @@
 # virtual methods
 .method public bringUp(Lcom/android/internal/telephony/dataconnection/ApnContext;IIILandroid/os/Message;)V
     .locals 7
-    .parameter "apnContext"
-    .parameter "initialMaxRetry"
-    .parameter "profileId"
-    .parameter "rilRadioTechnology"
-    .parameter "onCompletedMsg"
+    .param p1, "apnContext"    # Lcom/android/internal/telephony/dataconnection/ApnContext;
+    .param p2, "initialMaxRetry"    # I
+    .param p3, "profileId"    # I
+    .param p4, "rilRadioTechnology"    # I
+    .param p5, "onCompletedMsg"    # Landroid/os/Message;
 
     .prologue
     .line 377
-    const/high16 v6, 0x4
+    const/high16 v6, 0x40000
 
     new-instance v0, Lcom/android/internal/telephony/dataconnection/DataConnection$ConnectionParams;
 
@@ -398,7 +398,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v2, v0, Landroid/os/Message;->what:I
@@ -413,14 +413,14 @@
     move-result-object v1
 
     .line 238
-    .end local v0           #response:Landroid/os/Message;
-    .local v1, value:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .end local v0    # "response":Landroid/os/Message;
+    .local v1, "value":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :goto_0
     return-object v1
 
     .line 232
-    .end local v1           #value:Lcom/android/internal/telephony/dataconnection/ApnSetting;
-    .restart local v0       #response:Landroid/os/Message;
+    .end local v1    # "value":Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -445,12 +445,12 @@
     .line 233
     const/4 v1, 0x0
 
-    .restart local v1       #value:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .restart local v1    # "value":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     goto :goto_0
 
     .line 236
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #value:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "value":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -458,7 +458,7 @@
 
     move-result-object v1
 
-    .restart local v1       #value:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .restart local v1    # "value":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     goto :goto_0
 .end method
 
@@ -481,7 +481,7 @@
     move-result-object v0
 
     .line 187
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v2, v0, Landroid/os/Message;->what:I
@@ -496,14 +496,14 @@
     move-result v1
 
     .line 196
-    .end local v0           #response:Landroid/os/Message;
-    .local v1, value:I
+    .end local v0    # "response":Landroid/os/Message;
+    .local v1, "value":I
     :goto_0
     return v1
 
     .line 190
-    .end local v1           #value:I
-    .restart local v0       #response:Landroid/os/Message;
+    .end local v1    # "value":I
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -528,12 +528,12 @@
     .line 191
     const/4 v1, -0x1
 
-    .restart local v1       #value:I
+    .restart local v1    # "value":I
     goto :goto_0
 
     .line 194
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #value:I
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "value":I
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -541,7 +541,7 @@
 
     move-result v1
 
-    .restart local v1       #value:I
+    .restart local v1    # "value":I
     goto :goto_0
 .end method
 
@@ -578,7 +578,7 @@
     move-result-object v0
 
     .line 339
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v2, v0, Landroid/os/Message;->what:I
@@ -593,23 +593,23 @@
     move-result-object v1
 
     .line 347
-    .end local v0           #response:Landroid/os/Message;
-    .local v1, value:Landroid/net/LinkCapabilities;
+    .end local v0    # "response":Landroid/os/Message;
+    .local v1, "value":Landroid/net/LinkCapabilities;
     :goto_0
     return-object v1
 
     .line 342
-    .end local v1           #value:Landroid/net/LinkCapabilities;
-    .restart local v0       #response:Landroid/os/Message;
+    .end local v1    # "value":Landroid/net/LinkCapabilities;
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #value:Landroid/net/LinkCapabilities;
+    .restart local v1    # "value":Landroid/net/LinkCapabilities;
     goto :goto_0
 
     .line 345
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #value:Landroid/net/LinkCapabilities;
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "value":Landroid/net/LinkCapabilities;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -617,7 +617,7 @@
 
     move-result-object v1
 
-    .restart local v1       #value:Landroid/net/LinkCapabilities;
+    .restart local v1    # "value":Landroid/net/LinkCapabilities;
     goto :goto_0
 .end method
 
@@ -640,7 +640,7 @@
     move-result-object v0
 
     .line 271
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v2, v0, Landroid/os/Message;->what:I
@@ -655,14 +655,14 @@
     move-result-object v1
 
     .line 280
-    .end local v0           #response:Landroid/os/Message;
-    .local v1, value:Landroid/net/LinkProperties;
+    .end local v0    # "response":Landroid/os/Message;
+    .local v1, "value":Landroid/net/LinkProperties;
     :goto_0
     return-object v1
 
     .line 274
-    .end local v1           #value:Landroid/net/LinkProperties;
-    .restart local v0       #response:Landroid/os/Message;
+    .end local v1    # "value":Landroid/net/LinkProperties;
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -687,12 +687,12 @@
     .line 275
     const/4 v1, 0x0
 
-    .restart local v1       #value:Landroid/net/LinkProperties;
+    .restart local v1    # "value":Landroid/net/LinkProperties;
     goto :goto_0
 
     .line 278
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #value:Landroid/net/LinkProperties;
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "value":Landroid/net/LinkProperties;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -700,7 +700,7 @@
 
     move-result-object v1
 
-    .restart local v1       #value:Landroid/net/LinkProperties;
+    .restart local v1    # "value":Landroid/net/LinkProperties;
     goto :goto_0
 .end method
 
@@ -723,7 +723,7 @@
     move-result-object v0
 
     .line 147
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v2, v0, Landroid/os/Message;->what:I
@@ -738,14 +738,14 @@
     move-result v1
 
     .line 156
-    .end local v0           #response:Landroid/os/Message;
-    .local v1, value:Z
+    .end local v0    # "response":Landroid/os/Message;
+    .local v1, "value":Z
     :goto_0
     return v1
 
     .line 150
-    .end local v1           #value:Z
-    .restart local v0       #response:Landroid/os/Message;
+    .end local v1    # "value":Z
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -770,12 +770,12 @@
     .line 151
     const/4 v1, 0x0
 
-    .restart local v1       #value:Z
+    .restart local v1    # "value":Z
     goto :goto_0
 
     .line 154
-    .end local v0           #response:Landroid/os/Message;
-    .end local v1           #value:Z
+    .end local v0    # "response":Landroid/os/Message;
+    .end local v1    # "value":Z
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -783,7 +783,7 @@
 
     move-result v1
 
-    .restart local v1       #value:Z
+    .restart local v1    # "value":Z
     goto :goto_0
 .end method
 
@@ -867,7 +867,7 @@
 
 .method public reqSetLinkPropertiesHttpProxy(Landroid/net/ProxyProperties;)V
     .locals 1
-    .parameter "proxy"
+    .param p1, "proxy"    # Landroid/net/ProxyProperties;
 
     .prologue
     .line 288
@@ -881,7 +881,7 @@
 
 .method public rspApnSetting(Landroid/os/Message;)Lcom/android/internal/telephony/dataconnection/ApnSetting;
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 215
@@ -890,26 +890,26 @@
     check-cast v0, Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
     .line 217
-    .local v0, retVal:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .local v0, "retVal":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     return-object v0
 .end method
 
 .method public rspCid(Landroid/os/Message;)I
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 175
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     .line 177
-    .local v0, retVal:I
+    .local v0, "retVal":I
     return v0
 .end method
 
 .method public rspIsInactive(Landroid/os/Message;)Z
     .locals 2
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x1
@@ -920,12 +920,12 @@
     if-ne v1, v0, :cond_0
 
     .line 136
-    .local v0, retVal:Z
+    .local v0, "retVal":Z
     :goto_0
     return v0
 
     .line 134
-    .end local v0           #retVal:Z
+    .end local v0    # "retVal":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -934,7 +934,7 @@
 
 .method public rspLinkCapabilities(Landroid/os/Message;)Landroid/net/LinkCapabilities;
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 325
@@ -943,13 +943,13 @@
     check-cast v0, Landroid/net/LinkCapabilities;
 
     .line 327
-    .local v0, retVal:Landroid/net/LinkCapabilities;
+    .local v0, "retVal":Landroid/net/LinkCapabilities;
     return-object v0
 .end method
 
 .method public rspLinkProperties(Landroid/os/Message;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "response"
+    .param p1, "response"    # Landroid/os/Message;
 
     .prologue
     .line 257
@@ -958,13 +958,13 @@
     check-cast v0, Landroid/net/LinkProperties;
 
     .line 259
-    .local v0, retVal:Landroid/net/LinkProperties;
+    .local v0, "retVal":Landroid/net/LinkProperties;
     return-object v0
 .end method
 
 .method public setLinkPropertiesHttpProxySync(Landroid/net/ProxyProperties;)V
     .locals 3
-    .parameter "proxy"
+    .param p1, "proxy"    # Landroid/net/ProxyProperties;
 
     .prologue
     .line 296
@@ -982,7 +982,7 @@
     move-result-object v0
 
     .line 299
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     if-eqz v0, :cond_0
 
     iget v1, v0, Landroid/os/Message;->what:I
@@ -992,12 +992,12 @@
     if-ne v1, v2, :cond_0
 
     .line 307
-    .end local v0           #response:Landroid/os/Message;
+    .end local v0    # "response":Landroid/os/Message;
     :goto_0
     return-void
 
     .line 302
-    .restart local v0       #response:Landroid/os/Message;
+    .restart local v0    # "response":Landroid/os/Message;
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1022,7 +1022,7 @@
     goto :goto_0
 
     .line 305
-    .end local v0           #response:Landroid/os/Message;
+    .end local v0    # "response":Landroid/os/Message;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
@@ -1033,9 +1033,9 @@
 
 .method public tearDown(Lcom/android/internal/telephony/dataconnection/ApnContext;Ljava/lang/String;Landroid/os/Message;)V
     .locals 2
-    .parameter "apnContext"
-    .parameter "reason"
-    .parameter "onCompletedMsg"
+    .param p1, "apnContext"    # Lcom/android/internal/telephony/dataconnection/ApnContext;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "onCompletedMsg"    # Landroid/os/Message;
 
     .prologue
     .line 393
@@ -1053,8 +1053,8 @@
 
 .method public tearDownAll(Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "reason"
-    .parameter "onCompletedMsg"
+    .param p1, "reason"    # Ljava/lang/String;
+    .param p2, "onCompletedMsg"    # Landroid/os/Message;
 
     .prologue
     .line 406

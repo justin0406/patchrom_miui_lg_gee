@@ -73,9 +73,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActiveServices;Landroid/os/Looper;I)V
     .locals 1
-    .parameter
-    .parameter "looper"
-    .parameter "userId"
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "userId"    # I
 
     .prologue
     .line 171
@@ -123,7 +122,7 @@
 # virtual methods
 .method ensureNotStartingBackground(Lcom/android/server/am/ServiceRecord;)V
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Lcom/android/server/am/ServiceRecord;
 
     .prologue
     .line 188
@@ -155,7 +154,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 178
@@ -219,17 +218,17 @@
     move-result-wide v10
 
     .line 200
-    .local v10, now:J
+    .local v10, "now":J
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mStartingBackground:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v6
 
-    .local v6, N:I
+    .local v6, "N":I
     :goto_0
     if-ge v7, v6, :cond_1
 
@@ -243,7 +242,7 @@
     check-cast v3, Lcom/android/server/am/ServiceRecord;
 
     .line 202
-    .local v3, r:Lcom/android/server/am/ServiceRecord;
+    .local v3, "r":Lcom/android/server/am/ServiceRecord;
     iget-wide v0, v3, Lcom/android/server/am/ServiceRecord;->startingBgTimeout:J
 
     cmp-long v0, v0, v10
@@ -288,7 +287,7 @@
     goto :goto_0
 
     .line 209
-    .end local v3           #r:Lcom/android/server/am/ServiceRecord;
+    .end local v3    # "r":Lcom/android/server/am/ServiceRecord;
     :cond_1
     :goto_1
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mDelayedStartList:Ljava/util/ArrayList;
@@ -321,7 +320,7 @@
     check-cast v3, Lcom/android/server/am/ServiceRecord;
 
     .line 212
-    .restart local v3       #r:Lcom/android/server/am/ServiceRecord;
+    .restart local v3    # "r":Lcom/android/server/am/ServiceRecord;
     iget-object v0, v3, Lcom/android/server/am/ServiceRecord;->pendingStarts:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -401,7 +400,7 @@
     goto :goto_1
 
     .line 227
-    .end local v3           #r:Lcom/android/server/am/ServiceRecord;
+    .end local v3    # "r":Lcom/android/server/am/ServiceRecord;
     :cond_3
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mStartingBackground:Ljava/util/ArrayList;
 
@@ -421,7 +420,7 @@
     check-cast v9, Lcom/android/server/am/ServiceRecord;
 
     .line 229
-    .local v9, next:Lcom/android/server/am/ServiceRecord;
+    .local v9, "next":Lcom/android/server/am/ServiceRecord;
     iget-wide v0, v9, Lcom/android/server/am/ServiceRecord;->startingBgTimeout:J
 
     cmp-long v0, v0, v10
@@ -431,20 +430,20 @@
     iget-wide v12, v9, Lcom/android/server/am/ServiceRecord;->startingBgTimeout:J
 
     .line 232
-    .local v12, when:J
+    .local v12, "when":J
     :goto_2
     invoke-virtual {p0, v5}, Lcom/android/server/am/ActiveServices$ServiceMap;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v8
 
     .line 233
-    .local v8, msg:Landroid/os/Message;
+    .local v8, "msg":Landroid/os/Message;
     invoke-virtual {p0, v8, v12, v13}, Lcom/android/server/am/ActiveServices$ServiceMap;->sendMessageAtTime(Landroid/os/Message;J)Z
 
     .line 235
-    .end local v8           #msg:Landroid/os/Message;
-    .end local v9           #next:Lcom/android/server/am/ServiceRecord;
-    .end local v12           #when:J
+    .end local v8    # "msg":Landroid/os/Message;
+    .end local v9    # "next":Lcom/android/server/am/ServiceRecord;
+    .end local v12    # "when":J
     :cond_4
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mStartingBackground:Ljava/util/ArrayList;
 
@@ -471,7 +470,7 @@
     :cond_5
     return-void
 
-    .restart local v9       #next:Lcom/android/server/am/ServiceRecord;
+    .restart local v9    # "next":Lcom/android/server/am/ServiceRecord;
     :cond_6
     move-wide v12, v10
 

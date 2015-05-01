@@ -50,6 +50,7 @@
 
     const/4 v1, 0x0
 
+    # getter for: Landroid/os/StrictMode;->EMPTY_CLASS_LIMIT_MAP:Ljava/util/HashMap;
     invoke-static {}, Landroid/os/StrictMode;->access$100()Ljava/util/HashMap;
 
     move-result-object v2
@@ -63,8 +64,7 @@
 
 .method private constructor <init>(ILjava/util/HashMap;)V
     .locals 2
-    .parameter "mask"
-    .parameter
+    .param p1, "mask"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -78,7 +78,7 @@
 
     .prologue
     .line 547
-    .local p2, classInstanceLimit:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Class;Ljava/lang/Integer;>;"
+    .local p2, "classInstanceLimit":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/Class;Ljava/lang/Integer;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 548
@@ -106,9 +106,9 @@
 
 .method synthetic constructor <init>(ILjava/util/HashMap;Landroid/os/StrictMode$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Ljava/util/HashMap;
+    .param p3, "x2"    # Landroid/os/StrictMode$1;
 
     .prologue
     .line 536

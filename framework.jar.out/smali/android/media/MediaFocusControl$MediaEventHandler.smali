@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 355
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 361
@@ -59,7 +58,7 @@
 
     check-cast v0, Landroid/content/ComponentName;
 
-    #calls: Landroid/media/MediaFocusControl;->onHandlePersistMediaButtonReceiver(Landroid/content/ComponentName;)V
+    # invokes: Landroid/media/MediaFocusControl;->onHandlePersistMediaButtonReceiver(Landroid/content/ComponentName;)V
     invoke-static {v1, v0}, Landroid/media/MediaFocusControl;->access$1100(Landroid/media/MediaFocusControl;Landroid/content/ComponentName;)V
 
     goto :goto_0
@@ -68,7 +67,7 @@
     :pswitch_1
     iget-object v0, p0, Landroid/media/MediaFocusControl$MediaEventHandler;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->onRcDisplayClear()V
+    # invokes: Landroid/media/MediaFocusControl;->onRcDisplayClear()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$1200(Landroid/media/MediaFocusControl;)V
 
     goto :goto_0
@@ -83,7 +82,7 @@
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/media/MediaFocusControl;->onRcDisplayUpdate(Landroid/media/MediaFocusControl$RemoteControlStackEntry;I)V
+    # invokes: Landroid/media/MediaFocusControl;->onRcDisplayUpdate(Landroid/media/MediaFocusControl$RemoteControlStackEntry;I)V
     invoke-static {v1, v0, v2}, Landroid/media/MediaFocusControl;->access$1300(Landroid/media/MediaFocusControl;Landroid/media/MediaFocusControl$RemoteControlStackEntry;I)V
 
     goto :goto_0
@@ -92,7 +91,7 @@
     :pswitch_3
     iget-object v0, p0, Landroid/media/MediaFocusControl$MediaEventHandler;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->onReevaluateRemote()V
+    # invokes: Landroid/media/MediaFocusControl;->onReevaluateRemote()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$1400(Landroid/media/MediaFocusControl;)V
 
     goto :goto_0
@@ -113,7 +112,7 @@
 
     move-result v0
 
-    #calls: Landroid/media/MediaFocusControl;->onNewPlaybackInfoForRcc(III)V
+    # invokes: Landroid/media/MediaFocusControl;->onNewPlaybackInfoForRcc(III)V
     invoke-static {v1, v2, v3, v0}, Landroid/media/MediaFocusControl;->access$1500(Landroid/media/MediaFocusControl;III)V
 
     goto :goto_0
@@ -128,7 +127,7 @@
 
     check-cast v0, Landroid/media/IRemoteVolumeObserver;
 
-    #calls: Landroid/media/MediaFocusControl;->onRegisterVolumeObserverForRcc(ILandroid/media/IRemoteVolumeObserver;)V
+    # invokes: Landroid/media/MediaFocusControl;->onRegisterVolumeObserverForRcc(ILandroid/media/IRemoteVolumeObserver;)V
     invoke-static {v1, v2, v0}, Landroid/media/MediaFocusControl;->access$1600(Landroid/media/MediaFocusControl;ILandroid/media/IRemoteVolumeObserver;)V
 
     goto :goto_0
@@ -145,7 +144,7 @@
 
     check-cast v0, Landroid/media/MediaFocusControl$RccPlaybackState;
 
-    #calls: Landroid/media/MediaFocusControl;->onNewPlaybackStateForRcc(IILandroid/media/MediaFocusControl$RccPlaybackState;)V
+    # invokes: Landroid/media/MediaFocusControl;->onNewPlaybackStateForRcc(IILandroid/media/MediaFocusControl$RccPlaybackState;)V
     invoke-static {v1, v2, v3, v0}, Landroid/media/MediaFocusControl;->access$1700(Landroid/media/MediaFocusControl;IILandroid/media/MediaFocusControl$RccPlaybackState;)V
 
     goto :goto_0
@@ -164,7 +163,7 @@
 
     move-result-wide v3
 
-    #calls: Landroid/media/MediaFocusControl;->onSetRemoteControlClientPlaybackPosition(IJ)V
+    # invokes: Landroid/media/MediaFocusControl;->onSetRemoteControlClientPlaybackPosition(IJ)V
     invoke-static {v1, v2, v3, v4}, Landroid/media/MediaFocusControl;->access$1800(Landroid/media/MediaFocusControl;IJ)V
 
     goto :goto_0
@@ -181,7 +180,7 @@
 
     check-cast v0, Landroid/media/Rating;
 
-    #calls: Landroid/media/MediaFocusControl;->onUpdateRemoteControlClientMetadata(IILandroid/media/Rating;)V
+    # invokes: Landroid/media/MediaFocusControl;->onUpdateRemoteControlClientMetadata(IILandroid/media/Rating;)V
     invoke-static {v1, v2, v3, v0}, Landroid/media/MediaFocusControl;->access$1900(Landroid/media/MediaFocusControl;IILandroid/media/Rating;)V
 
     goto :goto_0
@@ -192,7 +191,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/media/MediaFocusControl;->onPromoteRcc(I)V
+    # invokes: Landroid/media/MediaFocusControl;->onPromoteRcc(I)V
     invoke-static {v0, v1}, Landroid/media/MediaFocusControl;->access$2000(Landroid/media/MediaFocusControl;I)V
 
     goto :goto_0
@@ -209,7 +208,7 @@
 
     iget v3, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/MediaFocusControl;->onRcDisplayInitInfo(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/MediaFocusControl;->onRcDisplayInitInfo(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/media/MediaFocusControl;->access$2100(Landroid/media/MediaFocusControl;Landroid/media/IRemoteControlDisplay;II)V
 
     goto/16 :goto_0
@@ -218,7 +217,7 @@
     :pswitch_b
     iget-object v0, p0, Landroid/media/MediaFocusControl$MediaEventHandler;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->onReevaluateRemoteControlDisplays()V
+    # invokes: Landroid/media/MediaFocusControl;->onReevaluateRemoteControlDisplays()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$2200(Landroid/media/MediaFocusControl;)V
 
     goto/16 :goto_0

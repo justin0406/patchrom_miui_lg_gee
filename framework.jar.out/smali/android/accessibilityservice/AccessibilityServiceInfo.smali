@@ -23,7 +23,7 @@
 
 .field public static final CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT:I = 0x1
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -193,8 +193,8 @@
 
 .method public constructor <init>(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)V
     .locals 17
-    .parameter "resolveInfo"
-    .parameter "context"
+    .param p1, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
+    .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -212,7 +212,7 @@
     iget-object v12, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 411
-    .local v12, serviceInfo:Landroid/content/pm/ServiceInfo;
+    .local v12, "serviceInfo":Landroid/content/pm/ServiceInfo;
     new-instance v14, Landroid/content/ComponentName;
 
     iget-object v15, v12, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -242,20 +242,20 @@
     const/4 v9, 0x0
 
     .line 417
-    .local v9, parser:Landroid/content/res/XmlResourceParser;
+    .local v9, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
     .line 418
-    .local v7, packageManager:Landroid/content/pm/PackageManager;
+    .local v7, "packageManager":Landroid/content/pm/PackageManager;
     const-string v14, "android.accessibilityservice"
 
     invoke-virtual {v12, v7, v14}, Landroid/content/pm/ServiceInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v9
 
@@ -278,7 +278,7 @@
     const/4 v13, 0x0
 
     .line 425
-    .local v13, type:I
+    .local v13, "type":I
     :goto_1
     const/4 v14, 0x1
 
@@ -303,7 +303,7 @@
     move-result-object v5
 
     .line 430
-    .local v5, nodeName:Ljava/lang/String;
+    .local v5, "nodeName":Ljava/lang/String;
     const-string v14, "accessibility-service"
 
     invoke-virtual {v14, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -321,18 +321,18 @@
 
     throw v14
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 484
-    .end local v5           #nodeName:Ljava/lang/String;
-    .end local v7           #packageManager:Landroid/content/pm/PackageManager;
-    .end local v13           #type:I
+    .end local v5    # "nodeName":Ljava/lang/String;
+    .end local v7    # "packageManager":Landroid/content/pm/PackageManager;
+    .end local v13    # "type":I
     :catch_0
     move-exception v4
 
     .line 485
-    .local v4, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v4, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_2
     new-instance v14, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -365,7 +365,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 488
-    .end local v4           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v4    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v14
 
@@ -378,9 +378,9 @@
     throw v14
 
     .line 435
-    .restart local v5       #nodeName:Ljava/lang/String;
-    .restart local v7       #packageManager:Landroid/content/pm/PackageManager;
-    .restart local v13       #type:I
+    .restart local v5    # "nodeName":Ljava/lang/String;
+    .restart local v7    # "packageManager":Landroid/content/pm/PackageManager;
+    .restart local v13    # "type":I
     :cond_4
     :try_start_3
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
@@ -388,7 +388,7 @@
     move-result-object v2
 
     .line 436
-    .local v2, allAttributes:Landroid/util/AttributeSet;
+    .local v2, "allAttributes":Landroid/util/AttributeSet;
     iget-object v14, v12, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v7, v14}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
@@ -396,7 +396,7 @@
     move-result-object v11
 
     .line 438
-    .local v11, resources:Landroid/content/res/Resources;
+    .local v11, "resources":Landroid/content/res/Resources;
     sget-object v14, Lcom/android/internal/R$styleable;->AccessibilityService:[I
 
     invoke-virtual {v11, v2, v14}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
@@ -404,7 +404,7 @@
     move-result-object v3
 
     .line 440
-    .local v3, asAttributes:Landroid/content/res/TypedArray;
+    .local v3, "asAttributes":Landroid/content/res/TypedArray;
     const/4 v14, 0x2
 
     const/4 v15, 0x0
@@ -425,7 +425,7 @@
     move-result-object v8
 
     .line 445
-    .local v8, packageNamez:Ljava/lang/String;
+    .local v8, "packageNamez":Ljava/lang/String;
     if-eqz v8, :cond_5
 
     .line 446
@@ -592,7 +592,7 @@
     move-result-object v10
 
     .line 476
-    .local v10, peekedValue:Landroid/util/TypedValue;
+    .local v10, "peekedValue":Landroid/util/TypedValue;
     if-eqz v10, :cond_a
 
     .line 477
@@ -608,7 +608,7 @@
     move-result-object v6
 
     .line 479
-    .local v6, nonLocalizedDescription:Ljava/lang/CharSequence;
+    .local v6, "nonLocalizedDescription":Ljava/lang/CharSequence;
     if-eqz v6, :cond_a
 
     .line 480
@@ -625,12 +625,12 @@
     iput-object v14, v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mNonLocalizedDescription:Ljava/lang/String;
 
     .line 483
-    .end local v6           #nonLocalizedDescription:Ljava/lang/CharSequence;
+    .end local v6    # "nonLocalizedDescription":Ljava/lang/CharSequence;
     :cond_a
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 488
     if-eqz v9, :cond_0
@@ -643,8 +643,8 @@
 
 .method static synthetic access$000(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/os/Parcel;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .param p1, "x1"    # Landroid/os/Parcel;
 
     .prologue
     .line 77
@@ -655,8 +655,8 @@
 
 .method private static appendCapabilities(Ljava/lang/StringBuilder;I)V
     .locals 3
-    .parameter "stringBuilder"
-    .parameter "capabilities"
+    .param p0, "stringBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "capabilities"    # I
 
     .prologue
     .line 774
@@ -684,7 +684,7 @@
     shl-int v0, v1, v2
 
     .line 778
-    .local v0, capabilityBit:I
+    .local v0, "capabilityBit":I
     invoke-static {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->capabilityToString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -707,7 +707,7 @@
     goto :goto_0
 
     .line 784
-    .end local v0           #capabilityBit:I
+    .end local v0    # "capabilityBit":I
     :cond_1
     const-string v1, "]"
 
@@ -719,8 +719,8 @@
 
 .method private static appendEventTypes(Ljava/lang/StringBuilder;I)V
     .locals 3
-    .parameter "stringBuilder"
-    .parameter "eventTypes"
+    .param p0, "stringBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "eventTypes"    # I
 
     .prologue
     .line 746
@@ -748,7 +748,7 @@
     shl-int v0, v1, v2
 
     .line 750
-    .local v0, eventTypeBit:I
+    .local v0, "eventTypeBit":I
     invoke-static {v0}, Landroid/view/accessibility/AccessibilityEvent;->eventTypeToString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -771,7 +771,7 @@
     goto :goto_0
 
     .line 756
-    .end local v0           #eventTypeBit:I
+    .end local v0    # "eventTypeBit":I
     :cond_1
     const-string v1, "]"
 
@@ -783,8 +783,8 @@
 
 .method private static appendFeedbackTypes(Ljava/lang/StringBuilder;I)V
     .locals 3
-    .parameter "stringBuilder"
-    .parameter "feedbackTypes"
+    .param p0, "stringBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "feedbackTypes"    # I
 
     .prologue
     .line 717
@@ -812,7 +812,7 @@
     shl-int v0, v1, v2
 
     .line 721
-    .local v0, feedbackTypeBit:I
+    .local v0, "feedbackTypeBit":I
     invoke-static {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->feedbackTypeToString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -835,7 +835,7 @@
     goto :goto_0
 
     .line 727
-    .end local v0           #feedbackTypeBit:I
+    .end local v0    # "feedbackTypeBit":I
     :cond_1
     const-string v1, "]"
 
@@ -847,8 +847,8 @@
 
 .method private static appendFlags(Ljava/lang/StringBuilder;I)V
     .locals 3
-    .parameter "stringBuilder"
-    .parameter "flags"
+    .param p0, "stringBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "flags"    # I
 
     .prologue
     .line 760
@@ -876,7 +876,7 @@
     shl-int v0, v1, v2
 
     .line 764
-    .local v0, flagBit:I
+    .local v0, "flagBit":I
     invoke-static {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->flagToString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -899,7 +899,7 @@
     goto :goto_0
 
     .line 770
-    .end local v0           #flagBit:I
+    .end local v0    # "flagBit":I
     :cond_1
     const-string v1, "]"
 
@@ -911,8 +911,8 @@
 
 .method private static appendPackageNames(Ljava/lang/StringBuilder;[Ljava/lang/String;)V
     .locals 3
-    .parameter "stringBuilder"
-    .parameter "packageNames"
+    .param p0, "stringBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "packageNames"    # [Ljava/lang/String;
 
     .prologue
     .line 731
@@ -932,10 +932,10 @@
     array-length v1, p1
 
     .line 735
-    .local v1, packageNameCount:I
+    .local v1, "packageNameCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -961,8 +961,8 @@
     goto :goto_0
 
     .line 742
-    .end local v0           #i:I
-    .end local v1           #packageNameCount:I
+    .end local v0    # "i":I
+    .end local v1    # "packageNameCount":I
     :cond_1
     const-string v2, "]"
 
@@ -974,7 +974,7 @@
 
 .method public static capabilityToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "capability"
+    .param p0, "capability"    # I
 
     .prologue
     .line 878
@@ -1027,7 +1027,7 @@
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
     .locals 4
-    .parameter "feedbackType"
+    .param p0, "feedbackType"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -1038,7 +1038,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 796
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v2, "["
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1055,7 +1055,7 @@
     shl-int v1, v3, v2
 
     .line 799
-    .local v1, feedbackTypeFlag:I
+    .local v1, "feedbackTypeFlag":I
     xor-int/lit8 v2, v1, -0x1
 
     and-int/2addr p0, v2
@@ -1192,7 +1192,7 @@
     goto :goto_0
 
     .line 839
-    .end local v1           #feedbackTypeFlag:I
+    .end local v1    # "feedbackTypeFlag":I
     :cond_6
     const-string v2, "]"
 
@@ -1219,7 +1219,7 @@
 
 .method public static flagToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "flag"
+    .param p0, "flag"    # I
 
     .prologue
     .line 851
@@ -1283,7 +1283,7 @@
 
 .method private initFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 653
@@ -1385,7 +1385,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -1433,7 +1433,7 @@
     check-cast v0, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .line 683
-    .local v0, other:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v0, "other":Landroid/accessibilityservice/AccessibilityServiceInfo;
     iget-object v3, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mId:Ljava/lang/String;
 
     if-nez v3, :cond_4
@@ -1530,13 +1530,13 @@
     iget v0, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mCapabilities:I
 
     .line 901
-    .local v0, capabilities:I
+    .local v0, "capabilities":I
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 902
-    .local v3, capabilityInfos:Ljava/util/List;,"Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;>;"
+    .local v3, "capabilityInfos":Ljava/util/List;, "Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;>;"
     :cond_2
     :goto_0
     if-eqz v0, :cond_0
@@ -1551,7 +1551,7 @@
     shl-int v1, v4, v5
 
     .line 904
-    .local v1, capabilityBit:I
+    .local v1, "capabilityBit":I
     xor-int/lit8 v4, v1, -0x1
 
     and-int/2addr v0, v4
@@ -1566,7 +1566,7 @@
     check-cast v2, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
     .line 906
-    .local v2, capabilityInfo:Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
+    .local v2, "capabilityInfo":Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
     if-eqz v2, :cond_2
 
     .line 907
@@ -1643,7 +1643,7 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
     .locals 5
-    .parameter "packageManager"
+    .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 619
@@ -1665,7 +1665,7 @@
     iget-object v1, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 623
-    .local v1, serviceInfo:Landroid/content/pm/ServiceInfo;
+    .local v1, "serviceInfo":Landroid/content/pm/ServiceInfo;
     iget-object v2, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     iget v3, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mDescriptionResId:I
@@ -1677,7 +1677,7 @@
     move-result-object v0
 
     .line 625
-    .local v0, description:Ljava/lang/CharSequence;
+    .local v0, "description":Ljava/lang/CharSequence;
     if-eqz v0, :cond_1
 
     .line 626
@@ -1700,7 +1700,7 @@
 
 .method public setCapabilities(I)V
     .locals 0
-    .parameter "capabilities"
+    .param p1, "capabilities"    # I
 
     .prologue
     .line 593
@@ -1712,7 +1712,7 @@
 
 .method public setComponentName(Landroid/content/ComponentName;)V
     .locals 1
-    .parameter "component"
+    .param p1, "component"    # Landroid/content/ComponentName;
 
     .prologue
     .line 513
@@ -1736,7 +1736,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 696
-    .local v0, stringBuilder:Ljava/lang/StringBuilder;
+    .local v0, "stringBuilder":Ljava/lang/StringBuilder;
     iget v1, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->eventTypes:I
 
     invoke-static {v0, v1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->appendEventTypes(Ljava/lang/StringBuilder;I)V
@@ -1855,7 +1855,7 @@
 
 .method public updateDynamicallyConfigurableProperties(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .prologue
     .line 502
@@ -1889,8 +1889,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flagz"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flagz"    # I
 
     .prologue
     .line 639

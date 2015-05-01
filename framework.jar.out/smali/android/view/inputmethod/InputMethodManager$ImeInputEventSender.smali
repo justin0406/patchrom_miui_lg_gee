@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/view/inputmethod/InputMethodManager;Landroid/view/InputChannel;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p2, "inputChannel"    # Landroid/view/InputChannel;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 1981
@@ -40,8 +39,8 @@
 # virtual methods
 .method public onInputEventFinished(IZ)V
     .locals 2
-    .parameter "seq"
-    .parameter "handled"
+    .param p1, "seq"    # I
+    .param p2, "handled"    # Z
 
     .prologue
     .line 1987

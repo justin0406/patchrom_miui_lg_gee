@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/DigitalClock;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 108
@@ -42,13 +41,13 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 114
     iget-object v0, p0, Landroid/widget/DigitalClock$FormatChangeObserver;->this$0:Landroid/widget/DigitalClock;
 
-    #calls: Landroid/widget/DigitalClock;->setFormat()V
+    # invokes: Landroid/widget/DigitalClock;->setFormat()V
     invoke-static {v0}, Landroid/widget/DigitalClock;->access$300(Landroid/widget/DigitalClock;)V
 
     .line 115

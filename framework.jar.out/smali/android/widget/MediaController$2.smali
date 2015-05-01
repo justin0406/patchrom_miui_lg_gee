@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 194
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "v"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 196
@@ -53,7 +52,7 @@
     .line 197
     iget-object v0, p0, Landroid/widget/MediaController$2;->this$0:Landroid/widget/MediaController;
 
-    #getter for: Landroid/widget/MediaController;->mShowing:Z
+    # getter for: Landroid/widget/MediaController;->mShowing:Z
     invoke-static {v0}, Landroid/widget/MediaController;->access$100(Landroid/widget/MediaController;)Z
 
     move-result v0

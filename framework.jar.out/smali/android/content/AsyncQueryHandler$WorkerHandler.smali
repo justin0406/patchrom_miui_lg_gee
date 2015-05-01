@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/AsyncQueryHandler;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 61
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 67
@@ -54,7 +53,7 @@
     check-cast v0, Landroid/content/ContentResolver;
 
     .line 68
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     if-nez v0, :cond_0
 
     .line 121
@@ -68,15 +67,15 @@
     check-cast v6, Landroid/content/AsyncQueryHandler$WorkerArgs;
 
     .line 72
-    .local v6, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v6, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iget v11, p1, Landroid/os/Message;->what:I
 
     .line 73
-    .local v11, token:I
+    .local v11, "token":I
     iget v9, p1, Landroid/os/Message;->arg1:I
 
     .line 75
-    .local v9, event:I
+    .local v9, "event":I
     packed-switch v9, :pswitch_data_0
 
     .line 111
@@ -88,7 +87,7 @@
     move-result-object v10
 
     .line 112
-    .local v10, reply:Landroid/os/Message;
+    .local v10, "reply":Landroid/os/Message;
     iput-object v6, v10, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 113
@@ -102,7 +101,7 @@
     goto :goto_0
 
     .line 79
-    .end local v10           #reply:Landroid/os/Message;
+    .end local v10    # "reply":Landroid/os/Message;
     :pswitch_0
     :try_start_0
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
@@ -120,7 +119,7 @@
     move-result-object v7
 
     .line 84
-    .local v7, cursor:Landroid/database/Cursor;
+    .local v7, "cursor":Landroid/database/Cursor;
     if-eqz v7, :cond_1
 
     .line 85
@@ -136,12 +135,12 @@
     goto :goto_1
 
     .line 87
-    .end local v7           #cursor:Landroid/database/Cursor;
+    .end local v7    # "cursor":Landroid/database/Cursor;
     :catch_0
     move-exception v8
 
     .line 88
-    .local v8, e:Ljava/lang/Exception;
+    .local v8, "e":Ljava/lang/Exception;
     const-string v1, "AsyncQuery"
 
     const-string v2, "Exception thrown during handling EVENT_ARG_QUERY"
@@ -151,12 +150,12 @@
     .line 89
     const/4 v7, 0x0
 
-    .restart local v7       #cursor:Landroid/database/Cursor;
+    .restart local v7    # "cursor":Landroid/database/Cursor;
     goto :goto_2
 
     .line 96
-    .end local v7           #cursor:Landroid/database/Cursor;
-    .end local v8           #e:Ljava/lang/Exception;
+    .end local v7    # "cursor":Landroid/database/Cursor;
+    .end local v8    # "e":Ljava/lang/Exception;
     :pswitch_1
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 

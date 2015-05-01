@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetFileDescriptor;)V
     .locals 4
-    .parameter "fd"
+    .param p1, "fd"    # Landroid/content/res/AssetFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,7 +84,7 @@
 # virtual methods
 .method public write(I)V
     .locals 4
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -136,7 +136,7 @@
 
 .method public write([B)V
     .locals 5
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -169,7 +169,7 @@
     array-length v0, p1
 
     .line 317
-    .local v0, count:I
+    .local v0, "count":I
     int-to-long v1, v0
 
     iget-wide v3, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
@@ -198,7 +198,7 @@
     goto :goto_0
 
     .line 323
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :cond_2
     invoke-super {p0, p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write([B)V
 
@@ -207,9 +207,9 @@
 
 .method public write([BII)V
     .locals 4
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

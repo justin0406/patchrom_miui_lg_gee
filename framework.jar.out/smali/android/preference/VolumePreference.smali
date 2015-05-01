@@ -30,8 +30,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -47,7 +47,7 @@
     move-result-object v0
 
     .line 59
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -85,7 +85,7 @@
     move-result-object v0
 
     .line 133
-    .local v0, dialog:Landroid/app/Dialog;
+    .local v0, "dialog":Landroid/app/Dialog;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
@@ -110,7 +110,7 @@
     move-result-object v1
 
     .line 136
-    .local v1, view:Landroid/view/View;
+    .local v1, "view":Landroid/view/View;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
@@ -122,7 +122,7 @@
     invoke-virtual {v2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->revertVolume()V
 
     .line 140
-    .end local v1           #view:Landroid/view/View;
+    .end local v1    # "view":Landroid/view/View;
     :cond_1
     iget-object v2, p0, Landroid/preference/VolumePreference;->mSeekBarVolumizer:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
@@ -132,7 +132,7 @@
     iput-object v4, p0, Landroid/preference/VolumePreference;->mSeekBarVolumizer:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
     .line 144
-    .end local v0           #dialog:Landroid/app/Dialog;
+    .end local v0    # "dialog":Landroid/app/Dialog;
     :cond_2
     return-void
 .end method
@@ -151,7 +151,7 @@
     .line 121
     iget-object v0, p0, Landroid/preference/VolumePreference;->mSeekBarVolumizer:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
-    #calls: Landroid/preference/VolumePreference$SeekBarVolumizer;->postStopSample()V
+    # invokes: Landroid/preference/VolumePreference$SeekBarVolumizer;->postStopSample()V
     invoke-static {v0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$000(Landroid/preference/VolumePreference$SeekBarVolumizer;)V
 
     .line 123
@@ -161,7 +161,7 @@
 
 .method protected onBindDialogView(Landroid/view/View;)V
     .locals 4
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 69
@@ -177,7 +177,7 @@
     check-cast v0, Landroid/widget/SeekBar;
 
     .line 72
-    .local v0, seekBar:Landroid/widget/SeekBar;
+    .local v0, "seekBar":Landroid/widget/SeekBar;
     new-instance v1, Landroid/preference/VolumePreference$SeekBarVolumizer;
 
     invoke-virtual {p0}, Landroid/preference/VolumePreference;->getContext()Landroid/content/Context;
@@ -214,7 +214,7 @@
 
 .method protected onDialogClosed(Z)V
     .locals 1
-    .parameter "positiveResult"
+    .param p1, "positiveResult"    # Z
 
     .prologue
     .line 110
@@ -242,9 +242,9 @@
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 4
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v2, 0x0
@@ -272,7 +272,7 @@
     move v0, v1
 
     .line 87
-    .local v0, isdown:Z
+    .local v0, "isdown":Z
     :goto_1
     sparse-switch p2, :sswitch_data_0
 
@@ -281,7 +281,7 @@
     .line 104
     goto :goto_0
 
-    .end local v0           #isdown:Z
+    .end local v0    # "isdown":Z
     :cond_2
     move v0, v2
 
@@ -289,7 +289,7 @@
     goto :goto_1
 
     .line 89
-    .restart local v0       #isdown:Z
+    .restart local v0    # "isdown":Z
     :sswitch_0
     if-eqz v0, :cond_0
 
@@ -335,7 +335,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 169
@@ -369,7 +369,7 @@
     check-cast v0, Landroid/preference/VolumePreference$SavedState;
 
     .line 176
-    .local v0, myState:Landroid/preference/VolumePreference$SavedState;
+    .local v0, "myState":Landroid/preference/VolumePreference$SavedState;
     invoke-virtual {v0}, Landroid/preference/VolumePreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -395,7 +395,7 @@
 
 .method protected onSampleStarting(Landroid/preference/VolumePreference$SeekBarVolumizer;)V
     .locals 1
-    .parameter "volumizer"
+    .param p1, "volumizer"    # Landroid/preference/VolumePreference$SeekBarVolumizer;
 
     .prologue
     .line 147
@@ -427,7 +427,7 @@
     move-result-object v1
 
     .line 155
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Landroid/preference/VolumePreference;->isPersistent()Z
 
     move-result v2
@@ -435,19 +435,19 @@
     if-eqz v2, :cond_0
 
     .line 164
-    .end local v1           #superState:Landroid/os/Parcelable;
+    .end local v1    # "superState":Landroid/os/Parcelable;
     :goto_0
     return-object v1
 
     .line 160
-    .restart local v1       #superState:Landroid/os/Parcelable;
+    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
     new-instance v0, Landroid/preference/VolumePreference$SavedState;
 
     invoke-direct {v0, v1}, Landroid/preference/VolumePreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 161
-    .local v0, myState:Landroid/preference/VolumePreference$SavedState;
+    .local v0, "myState":Landroid/preference/VolumePreference$SavedState;
     iget-object v2, p0, Landroid/preference/VolumePreference;->mSeekBarVolumizer:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
     if-eqz v2, :cond_1
@@ -470,7 +470,7 @@
 
 .method public setStreamType(I)V
     .locals 0
-    .parameter "streamType"
+    .param p1, "streamType"    # I
 
     .prologue
     .line 64

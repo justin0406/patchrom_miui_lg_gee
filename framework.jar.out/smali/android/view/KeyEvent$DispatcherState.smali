@@ -44,7 +44,7 @@
 # virtual methods
 .method public handleUpEvent(Landroid/view/KeyEvent;)V
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 2763
@@ -53,7 +53,7 @@
     move-result v1
 
     .line 2765
-    .local v1, keyCode:I
+    .local v1, "keyCode":I
     iget-object v2, p0, Landroid/view/KeyEvent$DispatcherState;->mActiveLongPresses:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v1}, Landroid/util/SparseIntArray;->indexOfKey(I)I
@@ -61,12 +61,13 @@
     move-result v0
 
     .line 2766
-    .local v0, index:I
+    .local v0, "index":I
     if-ltz v0, :cond_0
 
     .line 2768
     const/16 v2, 0x120
 
+    # |= operator for: Landroid/view/KeyEvent;->mFlags:I
     invoke-static {p1, v2}, Landroid/view/KeyEvent;->access$076(Landroid/view/KeyEvent;I)I
 
     .line 2769
@@ -83,6 +84,7 @@
     .line 2773
     const/16 v2, 0x200
 
+    # |= operator for: Landroid/view/KeyEvent;->mFlags:I
     invoke-static {p1, v2}, Landroid/view/KeyEvent;->access$076(Landroid/view/KeyEvent;I)I
 
     .line 2774
@@ -102,7 +104,7 @@
 
 .method public isTracking(Landroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 2743
@@ -127,7 +129,7 @@
 
 .method public performedLongPress(Landroid/view/KeyEvent;)V
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 2753
@@ -170,7 +172,7 @@
 
 .method public reset(Ljava/lang/Object;)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # Ljava/lang/Object;
 
     .prologue
     .line 2711
@@ -195,8 +197,8 @@
 
 .method public startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
     .locals 2
-    .parameter "event"
-    .parameter "target"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "target"    # Ljava/lang/Object;
 
     .prologue
     .line 2729

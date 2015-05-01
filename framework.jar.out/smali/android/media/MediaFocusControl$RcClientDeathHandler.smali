@@ -28,9 +28,8 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;Landroid/os/IBinder;Landroid/app/PendingIntent;)V
     .locals 0
-    .parameter
-    .parameter "cb"
-    .parameter "pi"
+    .param p2, "cb"    # Landroid/os/IBinder;
+    .param p3, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1084
@@ -50,7 +49,7 @@
 
 .method static synthetic access$3100(Landroid/media/MediaFocusControl$RcClientDeathHandler;)Landroid/os/IBinder;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl$RcClientDeathHandler;
 
     .prologue
     .line 1080
@@ -84,7 +83,7 @@
     .line 1095
     iget-object v0, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->postReevaluateRemote()V
+    # invokes: Landroid/media/MediaFocusControl;->postReevaluateRemote()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$2900(Landroid/media/MediaFocusControl;)V
 
     .line 1096

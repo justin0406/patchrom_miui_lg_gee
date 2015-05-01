@@ -74,7 +74,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 1356
@@ -101,7 +101,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -233,7 +233,7 @@
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 1361
@@ -244,7 +244,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1362
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -474,8 +474,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

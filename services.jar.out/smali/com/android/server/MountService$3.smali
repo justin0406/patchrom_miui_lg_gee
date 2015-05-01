@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 611
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 614
     iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
-    #calls: Lcom/android/server/MountService;->waitForReady()V
+    # invokes: Lcom/android/server/MountService;->waitForReady()V
     invoke-static {v2}, Lcom/android/server/MountService;->access$1100(Lcom/android/server/MountService;)V
 
     .line 615
@@ -52,7 +51,7 @@
     move-result-object v0
 
     .line 619
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.ACTION_IDLE_MAINTENANCE_START"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -65,7 +64,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
+    # getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
     invoke-static {v2}, Lcom/android/server/MountService;->access$1200(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v2
@@ -103,7 +102,7 @@
     move-exception v1
 
     .line 626
-    .local v1, ndce:Lcom/android/server/NativeDaemonConnectorException;
+    .local v1, "ndce":Lcom/android/server/NativeDaemonConnectorException;
     const-string v2, "MountService"
 
     const-string v3, "Failed to run fstrim!"

@@ -38,8 +38,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x0
@@ -55,7 +55,7 @@
     move-result-object v0
 
     .line 106
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -67,7 +67,7 @@
     move-result-object v1
 
     .line 108
-    .local v1, d:Landroid/view/animation/Animation$Description;
+    .local v1, "d":Landroid/view/animation/Animation$Description;
     iget v3, v1, Landroid/view/animation/Animation$Description;->value:F
 
     iput v3, p0, Landroid/view/animation/LayoutAnimationController;->mDelay:F
@@ -89,7 +89,7 @@
     move-result v2
 
     .line 113
-    .local v2, resource:I
+    .local v2, "resource":I
     if-lez v2, :cond_0
 
     .line 114
@@ -117,11 +117,11 @@
 
 .method public constructor <init>(Landroid/view/animation/Animation;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .prologue
     .line 132
-    const/high16 v0, 0x3f00
+    const/high16 v0, 0x3f000000    # 0.5f
 
     invoke-direct {p0, p1, v0}, Landroid/view/animation/LayoutAnimationController;-><init>(Landroid/view/animation/Animation;F)V
 
@@ -131,8 +131,8 @@
 
 .method public constructor <init>(Landroid/view/animation/Animation;F)V
     .locals 0
-    .parameter "animation"
-    .parameter "delay"
+    .param p1, "animation"    # Landroid/view/animation/Animation;
+    .param p2, "delay"    # F
 
     .prologue
     .line 142
@@ -162,7 +162,7 @@
 
 .method public final getAnimationForView(Landroid/view/View;)Landroid/view/animation/Animation;
     .locals 8
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 321
@@ -179,7 +179,7 @@
     add-long v1, v4, v6
 
     .line 322
-    .local v1, delay:J
+    .local v1, "delay":J
     iget-wide v4, p0, Landroid/view/animation/LayoutAnimationController;->mMaxDelay:J
 
     invoke-static {v4, v5, v1, v2}, Ljava/lang/Math;->max(JJ)J
@@ -197,13 +197,13 @@
     move-result-object v0
 
     .line 326
-    .local v0, animation:Landroid/view/animation/Animation;
+    .local v0, "animation":Landroid/view/animation/Animation;
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setStartOffset(J)V
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 329
-    .end local v0           #animation:Landroid/view/animation/Animation;
+    .end local v0    # "animation":Landroid/view/animation/Animation;
     :goto_0
     return-object v0
 
@@ -212,7 +212,7 @@
     move-exception v3
 
     .line 329
-    .local v3, e:Ljava/lang/CloneNotSupportedException;
+    .local v3, "e":Ljava/lang/CloneNotSupportedException;
     const/4 v0, 0x0
 
     goto :goto_0
@@ -230,7 +230,7 @@
 
 .method protected getDelayForView(Landroid/view/View;)J
     .locals 10
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 369
@@ -239,11 +239,11 @@
     move-result-object v1
 
     .line 370
-    .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
+    .local v1, "lp":Landroid/view/ViewGroup$LayoutParams;
     iget-object v3, v1, Landroid/view/ViewGroup$LayoutParams;->layoutAnimationParameters:Landroid/view/animation/LayoutAnimationController$AnimationParameters;
 
     .line 372
-    .local v3, params:Landroid/view/animation/LayoutAnimationController$AnimationParameters;
+    .local v3, "params":Landroid/view/animation/LayoutAnimationController$AnimationParameters;
     if-nez v3, :cond_0
 
     .line 373
@@ -268,7 +268,7 @@
     mul-float v0, v7, v8
 
     .line 377
-    .local v0, delay:F
+    .local v0, "delay":F
     invoke-virtual {p0, v3}, Landroid/view/animation/LayoutAnimationController;->getTransformedIndex(Landroid/view/animation/LayoutAnimationController$AnimationParameters;)I
 
     move-result v7
@@ -280,7 +280,7 @@
     float-to-long v5, v7
 
     .line 378
-    .local v5, viewDelay:J
+    .local v5, "viewDelay":J
     iget v7, v3, Landroid/view/animation/LayoutAnimationController$AnimationParameters;->count:I
 
     int-to-float v7, v7
@@ -288,7 +288,7 @@
     mul-float v4, v0, v7
 
     .line 380
-    .local v4, totalDelay:F
+    .local v4, "totalDelay":F
     iget-object v7, p0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     if-nez v7, :cond_1
@@ -307,7 +307,7 @@
     div-float v2, v7, v4
 
     .line 385
-    .local v2, normalizedDelay:F
+    .local v2, "normalizedDelay":F
     iget-object v7, p0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-interface {v7, v2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
@@ -344,7 +344,7 @@
 
 .method protected getTransformedIndex(Landroid/view/animation/LayoutAnimationController$AnimationParameters;)I
     .locals 2
-    .parameter "params"
+    .param p1, "params"    # Landroid/view/animation/LayoutAnimationController$AnimationParameters;
 
     .prologue
     .line 402
@@ -453,8 +453,8 @@
 
 .method public setAnimation(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceID"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceID"    # I
 
     .prologue
     .line 184
@@ -470,7 +470,7 @@
 
 .method public setAnimation(Landroid/view/animation/Animation;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .prologue
     .line 199
@@ -489,7 +489,7 @@
 
 .method public setDelay(F)V
     .locals 0
-    .parameter "delay"
+    .param p1, "delay"    # F
 
     .prologue
     .line 282
@@ -501,8 +501,8 @@
 
 .method public setInterpolator(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceID"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceID"    # I
 
     .prologue
     .line 229
@@ -518,7 +518,7 @@
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)V
     .locals 0
-    .parameter "interpolator"
+    .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
 
     .prologue
     .line 244
@@ -530,7 +530,7 @@
 
 .method public setOrder(I)V
     .locals 0
-    .parameter "order"
+    .param p1, "order"    # I
 
     .prologue
     .line 168
@@ -554,7 +554,7 @@
     iput-wide v0, p0, Landroid/view/animation/LayoutAnimationController;->mDuration:J
 
     .line 300
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     iput-wide v0, p0, Landroid/view/animation/LayoutAnimationController;->mMaxDelay:J
 
@@ -576,7 +576,7 @@
     .line 292
     iget v0, p0, Landroid/view/animation/LayoutAnimationController;->mDelay:F
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     cmpg-float v0, v0, v1
 

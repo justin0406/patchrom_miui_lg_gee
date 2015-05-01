@@ -77,8 +77,8 @@
 
 .method static synthetic access$000(Lcom/android/internal/app/NetInitiatedActivity;Landroid/content/Intent;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/app/NetInitiatedActivity;
+    .param p1, "x1"    # Landroid/content/Intent;
 
     .prologue
     .line 39
@@ -89,7 +89,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/app/NetInitiatedActivity;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/NetInitiatedActivity;
 
     .prologue
     .line 39
@@ -100,7 +100,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/app/NetInitiatedActivity;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/NetInitiatedActivity;
 
     .prologue
     .line 39
@@ -111,8 +111,8 @@
 
 .method static synthetic access$300(Lcom/android/internal/app/NetInitiatedActivity;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/app/NetInitiatedActivity;
+    .param p1, "x1"    # I
 
     .prologue
     .line 39
@@ -123,7 +123,7 @@
 
 .method private handleNIVerify(Landroid/content/Intent;)V
     .locals 4
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 146
@@ -136,7 +136,7 @@
     move-result v0
 
     .line 147
-    .local v0, notifId:I
+    .local v0, "notifId":I
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
     .line 149
@@ -172,7 +172,7 @@
 
 .method private sendUserResponse(I)V
     .locals 4
-    .parameter "response"
+    .param p1, "response"    # I
 
     .prologue
     .line 139
@@ -208,7 +208,7 @@
     check-cast v0, Landroid/location/LocationManager;
 
     .line 142
-    .local v0, locationManager:Landroid/location/LocationManager;
+    .local v0, "locationManager":Landroid/location/LocationManager;
     iget v1, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
     invoke-virtual {v0, v1, p1}, Landroid/location/LocationManager;->sendNiResponse(II)Z
@@ -240,8 +240,8 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -278,7 +278,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 7
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v6, 0x1
@@ -294,17 +294,17 @@
     move-result-object v1
 
     .line 88
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     iget-object v2, p0, Lcom/android/internal/app/NetInitiatedActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 89
-    .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
+    .local v2, "p":Lcom/android/internal/app/AlertController$AlertParams;
     invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     .line 90
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     const v3, 0x10802d7
 
     iput v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mIconId:I
@@ -328,7 +328,7 @@
     iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     .line 93
-    const v3, 0x10404df
+    const v3, 0x10404e0
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
     iput-object p0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 95
-    const v3, 0x10404e0
+    const v3, 0x10404e1
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

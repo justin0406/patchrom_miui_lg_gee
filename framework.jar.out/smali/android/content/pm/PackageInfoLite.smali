@@ -59,7 +59,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 89
@@ -99,7 +99,7 @@
     move-result v0
 
     .line 96
-    .local v0, verifiersLength:I
+    .local v0, "verifiersLength":I
     if-nez v0, :cond_0
 
     .line 97
@@ -131,8 +131,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageInfoLite$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/PackageInfoLite$1;
 
     .prologue
     .line 27
@@ -207,8 +207,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 65

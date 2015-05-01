@@ -17,7 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 56
@@ -30,7 +30,7 @@
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
     .locals 11
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -45,11 +45,11 @@
     const/4 v2, -0x1
 
     .line 61
-    .local v2, lowerBound:I
+    .local v2, "lowerBound":I
     const/4 v4, -0x1
 
     .line 63
-    .local v4, upperBound:I
+    .local v4, "upperBound":I
     const-string v7, "equals"
 
     invoke-interface {p1, v10, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -57,7 +57,7 @@
     move-result-object v0
 
     .line 64
-    .local v0, equalsValue:Ljava/lang/String;
+    .local v0, "equalsValue":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 67
@@ -69,14 +69,14 @@
     move-result v6
 
     .line 72
-    .local v6, value:I
+    .local v6, "value":I
     move v2, v6
 
     .line 73
     move v4, v6
 
     .line 76
-    .end local v6           #value:I
+    .end local v6    # "value":I
     :cond_0
     const-string v7, "min"
 
@@ -85,7 +85,7 @@
     move-result-object v3
 
     .line 77
-    .local v3, lowerBoundString:Ljava/lang/String;
+    .local v3, "lowerBoundString":Ljava/lang/String;
     const-string v7, "max"
 
     invoke-interface {p1, v10, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -93,7 +93,7 @@
     move-result-object v5
 
     .line 78
-    .local v5, upperBoundString:Ljava/lang/String;
+    .local v5, "upperBoundString":Ljava/lang/String;
     if-nez v3, :cond_1
 
     if-eqz v5, :cond_4
@@ -112,13 +112,13 @@
     throw v7
 
     .line 68
-    .end local v3           #lowerBoundString:Ljava/lang/String;
-    .end local v5           #upperBoundString:Ljava/lang/String;
+    .end local v3    # "lowerBoundString":Ljava/lang/String;
+    .end local v5    # "upperBoundString":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 69
-    .local v1, ex:Ljava/lang/NumberFormatException;
+    .local v1, "ex":Ljava/lang/NumberFormatException;
     new-instance v7, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -144,9 +144,9 @@
     throw v7
 
     .line 85
-    .end local v1           #ex:Ljava/lang/NumberFormatException;
-    .restart local v3       #lowerBoundString:Ljava/lang/String;
-    .restart local v5       #upperBoundString:Ljava/lang/String;
+    .end local v1    # "ex":Ljava/lang/NumberFormatException;
+    .restart local v3    # "lowerBoundString":Ljava/lang/String;
+    .restart local v5    # "upperBoundString":Ljava/lang/String;
     :cond_2
     if-eqz v3, :cond_3
 
@@ -183,7 +183,7 @@
     move-exception v1
 
     .line 89
-    .restart local v1       #ex:Ljava/lang/NumberFormatException;
+    .restart local v1    # "ex":Ljava/lang/NumberFormatException;
     new-instance v7, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -209,12 +209,12 @@
     throw v7
 
     .line 98
-    .end local v1           #ex:Ljava/lang/NumberFormatException;
+    .end local v1    # "ex":Ljava/lang/NumberFormatException;
     :catch_2
     move-exception v1
 
     .line 99
-    .restart local v1       #ex:Ljava/lang/NumberFormatException;
+    .restart local v1    # "ex":Ljava/lang/NumberFormatException;
     new-instance v7, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v8, Ljava/lang/StringBuilder;

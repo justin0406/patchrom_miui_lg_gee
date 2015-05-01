@@ -4,9 +4,9 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/CalendarContract$SyncColumns;
-.implements Landroid/provider/CalendarContract$EventsColumns;
 .implements Landroid/provider/CalendarContract$CalendarColumns;
+.implements Landroid/provider/CalendarContract$EventsColumns;
+.implements Landroid/provider/CalendarContract$SyncColumns;
 
 
 # annotations
@@ -21,9 +21,9 @@
 
 
 # static fields
-.field public static final CONTENT_EXCEPTION_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_EXCEPTION_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final DEFAULT_SORT_ORDER:Ljava/lang/String; = ""
 

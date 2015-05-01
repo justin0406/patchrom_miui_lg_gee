@@ -8,9 +8,9 @@
 
 .field public static final BOLD_ITALIC:I = 0x3
 
-.field public static final DEFAULT:Landroid/graphics/Typeface; = null
+.field public static final DEFAULT:Landroid/graphics/Typeface;
 
-.field public static final DEFAULT_BOLD:Landroid/graphics/Typeface; = null
+.field public static final DEFAULT_BOLD:Landroid/graphics/Typeface;
 
 .field public static final ITALIC:I = 0x2
 
@@ -154,7 +154,7 @@
 
 .method private constructor <init>(I)V
     .locals 2
-    .parameter "ni"
+    .param p1, "ni"    # I
 
     .prologue
     .line 173
@@ -194,15 +194,15 @@
 
 .method public static create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
     .locals 4
-    .parameter "family"
-    .parameter "style"
+    .param p0, "family"    # Landroid/graphics/Typeface;
+    .param p1, "style"    # I
 
     .prologue
     .line 103
     const/4 v0, 0x0
 
     .line 104
-    .local v0, ni:I
+    .local v0, "ni":I
     if-eqz p0, :cond_2
 
     .line 106
@@ -232,7 +232,7 @@
     check-cast v1, Landroid/util/SparseArray;
 
     .line 116
-    .local v1, styles:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
+    .local v1, "styles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
     if-eqz v1, :cond_3
 
     .line 117
@@ -243,11 +243,11 @@
     check-cast v2, Landroid/graphics/Typeface;
 
     .line 118
-    .local v2, typeface:Landroid/graphics/Typeface;
+    .local v2, "typeface":Landroid/graphics/Typeface;
     if-nez v2, :cond_0
 
     .line 123
-    .end local v2           #typeface:Landroid/graphics/Typeface;
+    .end local v2    # "typeface":Landroid/graphics/Typeface;
     :cond_3
     new-instance v2, Landroid/graphics/Typeface;
 
@@ -258,19 +258,19 @@
     invoke-direct {v2, v3}, Landroid/graphics/Typeface;-><init>(I)V
 
     .line 124
-    .restart local v2       #typeface:Landroid/graphics/Typeface;
+    .restart local v2    # "typeface":Landroid/graphics/Typeface;
     if-nez v1, :cond_4
 
     .line 125
     new-instance v1, Landroid/util/SparseArray;
 
-    .end local v1           #styles:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
+    .end local v1    # "styles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
     const/4 v3, 0x4
 
     invoke-direct {v1, v3}, Landroid/util/SparseArray;-><init>(I)V
 
     .line 126
-    .restart local v1       #styles:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
+    .restart local v1    # "styles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
     sget-object v3, Landroid/graphics/Typeface;->sTypefaceCache:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -284,8 +284,8 @@
 
 .method public static create(Ljava/lang/String;I)Landroid/graphics/Typeface;
     .locals 2
-    .parameter "familyName"
-    .parameter "style"
+    .param p0, "familyName"    # Ljava/lang/String;
+    .param p1, "style"    # I
 
     .prologue
     .line 88
@@ -302,8 +302,8 @@
 
 .method public static createFromAsset(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;
     .locals 2
-    .parameter "mgr"
-    .parameter "path"
+    .param p0, "mgr"    # Landroid/content/res/AssetManager;
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 149
@@ -320,7 +320,7 @@
 
 .method public static createFromFile(Ljava/io/File;)Landroid/graphics/Typeface;
     .locals 2
-    .parameter "path"
+    .param p0, "path"    # Ljava/io/File;
 
     .prologue
     .line 159
@@ -341,7 +341,7 @@
 
 .method public static createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
     .locals 2
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
 
     .prologue
     .line 169
@@ -358,7 +358,7 @@
 
 .method public static defaultFromStyle(I)Landroid/graphics/Typeface;
     .locals 1
-    .parameter "style"
+    .param p0, "style"    # I
 
     .prologue
     .line 139
@@ -391,7 +391,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -432,7 +432,7 @@
     check-cast v0, Landroid/graphics/Typeface;
 
     .line 212
-    .local v0, typeface:Landroid/graphics/Typeface;
+    .local v0, "typeface":Landroid/graphics/Typeface;
     iget v3, p0, Landroid/graphics/Typeface;->mStyle:I
 
     iget v4, v0, Landroid/graphics/Typeface;->mStyle:I
@@ -501,7 +501,7 @@
     iget v0, p0, Landroid/graphics/Typeface;->native_instance:I
 
     .line 218
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/Typeface;->mStyle:I

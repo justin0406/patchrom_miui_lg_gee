@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 244
@@ -76,14 +76,14 @@
     move-result-object v2
 
     .line 248
-    .local v2, strings:[Ljava/lang/String;
+    .local v2, "strings":[Ljava/lang/String;
     array-length v1, v2
 
     .line 249
-    .local v1, stringCount:I
+    .local v1, "stringCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -106,7 +106,7 @@
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .parameter "superState"
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .prologue
     .line 255
@@ -120,8 +120,8 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 260

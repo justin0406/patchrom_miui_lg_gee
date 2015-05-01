@@ -44,7 +44,6 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/Iterable;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,8 +56,8 @@
 
     .prologue
     .line 83
-    .local p0, this:Lcom/android/internal/util/Predicates$AndPredicate;,"Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
-    .local p1, components:Ljava/lang/Iterable;,"Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
+    .local p0, "this":Lcom/android/internal/util/Predicates$AndPredicate;, "Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
+    .local p1, "components":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 84
@@ -70,12 +69,12 @@
 
 .method synthetic constructor <init>(Ljava/lang/Iterable;Lcom/android/internal/util/Predicates$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Iterable;
+    .param p2, "x1"    # Lcom/android/internal/util/Predicates$1;
 
     .prologue
     .line 80
-    .local p0, this:Lcom/android/internal/util/Predicates$AndPredicate;,"Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
+    .local p0, "this":Lcom/android/internal/util/Predicates$AndPredicate;, "Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
     invoke-direct {p0, p1}, Lcom/android/internal/util/Predicates$AndPredicate;-><init>(Ljava/lang/Iterable;)V
 
     return-void
@@ -85,7 +84,6 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -94,15 +92,15 @@
 
     .prologue
     .line 88
-    .local p0, this:Lcom/android/internal/util/Predicates$AndPredicate;,"Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
-    .local p1, t:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Lcom/android/internal/util/Predicates$AndPredicate;, "Lcom/android/internal/util/Predicates$AndPredicate<TT;>;"
+    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v2, p0, Lcom/android/internal/util/Predicates$AndPredicate;->components:Ljava/lang/Iterable;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -117,7 +115,7 @@
     check-cast v1, Lcom/android/internal/util/Predicate;
 
     .line 89
-    .local v1, predicate:Lcom/android/internal/util/Predicate;,"Lcom/android/internal/util/Predicate<-TT;>;"
+    .local v1, "predicate":Lcom/android/internal/util/Predicate;, "Lcom/android/internal/util/Predicate<-TT;>;"
     invoke-interface {v1, p1}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z
 
     move-result v2
@@ -128,7 +126,7 @@
     const/4 v2, 0x0
 
     .line 93
-    .end local v1           #predicate:Lcom/android/internal/util/Predicate;,"Lcom/android/internal/util/Predicate<-TT;>;"
+    .end local v1    # "predicate":Lcom/android/internal/util/Predicate;, "Lcom/android/internal/util/Predicate<-TT;>;"
     :goto_0
     return v2
 

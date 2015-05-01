@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/os/ParcelFileDescriptor;Landroid/content/IContentProvider;)V
     .locals 0
-    .parameter
-    .parameter "pfd"
-    .parameter "icp"
+    .param p2, "pfd"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "icp"    # Landroid/content/IContentProvider;
 
     .prologue
     .line 2292

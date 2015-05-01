@@ -39,10 +39,9 @@
 # direct methods
 .method constructor <init>(Landroid/os/PowerManager;ILjava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "packageName"
+    .param p2, "flags"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 640
@@ -180,7 +179,7 @@
 
 .method public acquire(J)V
     .locals 3
-    .parameter "timeout"
+    .param p1, "timeout"    # J
 
     .prologue
     .line 703
@@ -277,8 +276,8 @@
 
     invoke-interface {v0, v2, v3}, Landroid/os/IPowerManager;->releaseWakeLock(Landroid/os/IBinder;I)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 657
     :cond_0
@@ -349,7 +348,7 @@
 
 .method public release(I)V
     .locals 4
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 752
@@ -398,8 +397,8 @@
 
     invoke-interface {v0, v2, p1}, Landroid/os/IPowerManager;->releaseWakeLock(Landroid/os/IBinder;I)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 760
     :goto_0
@@ -469,7 +468,7 @@
 
 .method public setReferenceCounted(Z)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 674
@@ -500,7 +499,7 @@
 
 .method public setWorkSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 792
@@ -533,7 +532,7 @@
     const/4 v0, 0x1
 
     .line 800
-    .local v0, changed:Z
+    .local v0, "changed":Z
     :goto_0
     const/4 v1, 0x0
 
@@ -562,8 +561,8 @@
 
     invoke-interface {v1, v3, v4}, Landroid/os/IPowerManager;->updateWakeLockWorkSource(Landroid/os/IBinder;Landroid/os/WorkSource;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 817
     :cond_2
@@ -575,7 +574,7 @@
     return-void
 
     .line 799
-    .end local v0           #changed:Z
+    .end local v0    # "changed":Z
     :cond_3
     const/4 v0, 0x0
 
@@ -591,7 +590,7 @@
     const/4 v0, 0x1
 
     .line 803
-    .restart local v0       #changed:Z
+    .restart local v0    # "changed":Z
     new-instance v1, Landroid/os/WorkSource;
 
     invoke-direct {v1, p1}, Landroid/os/WorkSource;-><init>(Landroid/os/WorkSource;)V
@@ -601,7 +600,7 @@
     goto :goto_1
 
     .line 817
-    .end local v0           #changed:Z
+    .end local v0    # "changed":Z
     :catchall_0
     move-exception v1
 
@@ -621,7 +620,7 @@
     move-result v0
 
     .line 806
-    .restart local v0       #changed:Z
+    .restart local v0    # "changed":Z
     if-eqz v0, :cond_1
 
     .line 807

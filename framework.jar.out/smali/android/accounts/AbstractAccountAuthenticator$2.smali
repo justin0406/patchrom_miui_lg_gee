@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/AccountAuthenticatorResponse;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 545
@@ -52,7 +50,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 548
-    .local v0, result:Landroid/os/Bundle;
+    .local v0, "result":Landroid/os/Bundle;
     const-string v1, "booleanResult"
 
     const/4 v2, 0x0

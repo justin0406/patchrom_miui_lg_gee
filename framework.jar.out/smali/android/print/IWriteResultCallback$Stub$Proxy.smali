@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 82
@@ -61,8 +61,8 @@
 
 .method public onWriteFailed(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "error"
-    .parameter "sequence"
+    .param p1, "error"    # Ljava/lang/CharSequence;
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 110
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IWriteResultCallback"
 
@@ -140,8 +140,8 @@
 
 .method public onWriteFinished([Landroid/print/PageRange;I)V
     .locals 5
-    .parameter "pages"
-    .parameter "sequence"
+    .param p1, "pages"    # [Landroid/print/PageRange;
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,7 +155,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IWriteResultCallback"
 

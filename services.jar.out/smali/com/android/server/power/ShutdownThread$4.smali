@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/ShutdownThread;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 335
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onShutDownComplete(I)V
     .locals 3
-    .parameter "statusCode"
+    .param p1, "statusCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

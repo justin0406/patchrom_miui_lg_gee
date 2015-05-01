@@ -6,9 +6,9 @@
 # direct methods
 .method constructor <init>(I[BZ)V
     .locals 8
-    .parameter "transId"
-    .parameter "clientMac"
-    .parameter "broadcast"
+    .param p1, "transId"    # I
+    .param p2, "clientMac"    # [B
+    .param p3, "broadcast"    # Z
 
     .prologue
     .line 31
@@ -38,9 +38,9 @@
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
     .locals 10
-    .parameter "encap"
-    .parameter "destUdp"
-    .parameter "srcUdp"
+    .param p1, "encap"    # I
+    .param p2, "destUdp"    # S
+    .param p3, "srcUdp"    # S
 
     .prologue
     const/4 v7, 0x1
@@ -53,11 +53,11 @@
     move-result-object v6
 
     .line 46
-    .local v6, result:Ljava/nio/ByteBuffer;
+    .local v6, "result":Ljava/nio/ByteBuffer;
     sget-object v9, Ljava/net/Inet4Address;->ALL:Ljava/net/InetAddress;
 
     .line 48
-    .local v9, destIp:Ljava/net/InetAddress;
+    .local v9, "destIp":Ljava/net/InetAddress;
     sget-object v2, Ljava/net/Inet4Address;->ALL:Ljava/net/InetAddress;
 
     sget-object v3, Ljava/net/Inet4Address;->ANY:Ljava/net/InetAddress;
@@ -83,7 +83,7 @@
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
     .locals 4
-    .parameter "machine"
+    .param p1, "machine"    # Landroid/net/dhcp/DhcpStateMachine;
 
     .prologue
     .line 68
@@ -103,7 +103,7 @@
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 58
@@ -137,7 +137,7 @@
     move-result-object v0
 
     .line 37
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

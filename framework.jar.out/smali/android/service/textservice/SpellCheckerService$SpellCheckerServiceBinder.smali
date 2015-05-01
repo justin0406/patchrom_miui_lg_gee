@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/service/textservice/SpellCheckerService;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Landroid/service/textservice/SpellCheckerService;
 
     .prologue
     .line 311
@@ -51,9 +51,9 @@
 # virtual methods
 .method public getISpellCheckerSession(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)Lcom/android/internal/textservice/ISpellCheckerSession;
     .locals 4
-    .parameter "locale"
-    .parameter "listener"
-    .parameter "bundle"
+    .param p1, "locale"    # Ljava/lang/String;
+    .param p2, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p3, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 318
@@ -66,7 +66,7 @@
     check-cast v1, Landroid/service/textservice/SpellCheckerService;
 
     .line 319
-    .local v1, service:Landroid/service/textservice/SpellCheckerService;
+    .local v1, "service":Landroid/service/textservice/SpellCheckerService;
     if-nez v1, :cond_0
 
     const/4 v0, 0x0
@@ -82,13 +82,13 @@
     move-result-object v2
 
     .line 321
-    .local v2, session:Landroid/service/textservice/SpellCheckerService$Session;
+    .local v2, "session":Landroid/service/textservice/SpellCheckerService$Session;
     new-instance v0, Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;
 
     invoke-direct {v0, p1, p2, p3, v2}, Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;-><init>(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;Landroid/service/textservice/SpellCheckerService$Session;)V
 
     .line 323
-    .local v0, internalSession:Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;
+    .local v0, "internalSession":Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;
     invoke-virtual {v2}, Landroid/service/textservice/SpellCheckerService$Session;->onCreate()V
 
     goto :goto_0

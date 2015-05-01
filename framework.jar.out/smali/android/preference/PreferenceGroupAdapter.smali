@@ -57,7 +57,7 @@
 # direct methods
 .method public constructor <init>(Landroid/preference/PreferenceGroup;)V
     .locals 3
-    .parameter "preferenceGroup"
+    .param p1, "preferenceGroup"    # Landroid/preference/PreferenceGroup;
 
     .prologue
     const/4 v2, 0x0
@@ -125,7 +125,7 @@
 
 .method static synthetic access$100(Landroid/preference/PreferenceGroupAdapter;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/preference/PreferenceGroupAdapter;
 
     .prologue
     .line 49
@@ -136,7 +136,7 @@
 
 .method private addPreferenceClassName(Landroid/preference/Preference;)V
     .locals 3
-    .parameter "preference"
+    .param p1, "preference"    # Landroid/preference/Preference;
 
     .prologue
     .line 185
@@ -147,7 +147,7 @@
     move-result-object v1
 
     .line 186
-    .local v1, pl:Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
+    .local v1, "pl":Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
     iget-object v2, p0, Landroid/preference/PreferenceGroupAdapter;->mPreferenceLayouts:Ljava/util/ArrayList;
 
     invoke-static {v2, v1}, Ljava/util/Collections;->binarySearch(Ljava/util/List;Ljava/lang/Object;)I
@@ -155,7 +155,7 @@
     move-result v0
 
     .line 189
-    .local v0, insertPos:I
+    .local v0, "insertPos":I
     if-gez v0, :cond_0
 
     .line 191
@@ -175,8 +175,8 @@
 
 .method private createPreferenceLayout(Landroid/preference/Preference;Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
     .locals 2
-    .parameter "preference"
-    .parameter "in"
+    .param p1, "preference"    # Landroid/preference/Preference;
+    .param p2, "in"    # Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
 
     .prologue
     .line 177
@@ -185,7 +185,7 @@
     move-object v0, p2
 
     .line 178
-    .local v0, pl:Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
+    .local v0, "pl":Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
     :goto_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -195,7 +195,7 @@
 
     move-result-object v1
 
-    #setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->name:Ljava/lang/String;
+    # setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->name:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->access$202(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;Ljava/lang/String;)Ljava/lang/String;
 
     .line 179
@@ -203,7 +203,7 @@
 
     move-result v1
 
-    #setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
+    # setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
     invoke-static {v0, v1}, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->access$302(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;I)I
 
     .line 180
@@ -211,14 +211,14 @@
 
     move-result v1
 
-    #setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
+    # setter for: Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
     invoke-static {v0, v1}, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->access$402(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;I)I
 
     .line 181
     return-object v0
 
     .line 177
-    .end local v0           #pl:Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
+    .end local v0    # "pl":Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
     :cond_0
     new-instance v0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
 
@@ -231,8 +231,7 @@
 
 .method private flattenPreferenceGroup(Ljava/util/List;Landroid/preference/PreferenceGroup;)V
     .locals 5
-    .parameter
-    .parameter "group"
+    .param p2, "group"    # Landroid/preference/PreferenceGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,7 +246,7 @@
 
     .prologue
     .line 148
-    .local p1, preferences:Ljava/util/List;,"Ljava/util/List<Landroid/preference/Preference;>;"
+    .local p1, "preferences":Ljava/util/List;, "Ljava/util/List<Landroid/preference/Preference;>;"
     invoke-virtual {p2}, Landroid/preference/PreferenceGroup;->sortPreferences()V
 
     .line 150
@@ -256,10 +255,10 @@
     move-result v0
 
     .line 151
-    .local v0, groupSize:I
+    .local v0, "groupSize":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_2
 
@@ -269,7 +268,7 @@
     move-result-object v2
 
     .line 154
-    .local v2, preference:Landroid/preference/Preference;
+    .local v2, "preference":Landroid/preference/Preference;
     invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 156
@@ -298,7 +297,7 @@
     check-cast v3, Landroid/preference/PreferenceGroup;
 
     .line 162
-    .local v3, preferenceAsGroup:Landroid/preference/PreferenceGroup;
+    .local v3, "preferenceAsGroup":Landroid/preference/PreferenceGroup;
     invoke-virtual {v3}, Landroid/preference/PreferenceGroup;->isOnSameScreenAsChildren()Z
 
     move-result v4
@@ -309,7 +308,7 @@
     invoke-direct {p0, p1, v3}, Landroid/preference/PreferenceGroupAdapter;->flattenPreferenceGroup(Ljava/util/List;Landroid/preference/PreferenceGroup;)V
 
     .line 167
-    .end local v3           #preferenceAsGroup:Landroid/preference/PreferenceGroup;
+    .end local v3    # "preferenceAsGroup":Landroid/preference/PreferenceGroup;
     :cond_1
     invoke-virtual {v2, p0}, Landroid/preference/Preference;->setOnPreferenceChangeInternalListener(Landroid/preference/Preference$OnPreferenceChangeInternalListener;)V
 
@@ -319,7 +318,7 @@
     goto :goto_0
 
     .line 169
-    .end local v2           #preference:Landroid/preference/Preference;
+    .end local v2    # "preference":Landroid/preference/Preference;
     :cond_2
     return-void
 .end method
@@ -367,7 +366,7 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 135
-    .local v0, newPreferenceList:Ljava/util/List;,"Ljava/util/List<Landroid/preference/Preference;>;"
+    .local v0, "newPreferenceList":Ljava/util/List;, "Ljava/util/List<Landroid/preference/Preference;>;"
     iget-object v1, p0, Landroid/preference/PreferenceGroupAdapter;->mPreferenceGroup:Landroid/preference/PreferenceGroup;
 
     invoke-direct {p0, v0, v1}, Landroid/preference/PreferenceGroupAdapter;->flattenPreferenceGroup(Ljava/util/List;Landroid/preference/PreferenceGroup;)V
@@ -405,7 +404,7 @@
     throw v1
 
     .line 132
-    .end local v0           #newPreferenceList:Ljava/util/List;,"Ljava/util/List<Landroid/preference/Preference;>;"
+    .end local v0    # "newPreferenceList":Ljava/util/List;, "Ljava/util/List<Landroid/preference/Preference;>;"
     :catchall_1
     move-exception v1
 
@@ -445,7 +444,7 @@
 
 .method public getItem(I)Landroid/preference/Preference;
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 201
@@ -478,7 +477,7 @@
 
 .method public bridge synthetic getItem(I)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 49
@@ -491,7 +490,7 @@
 
 .method public getItemId(I)J
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 206
@@ -504,7 +503,7 @@
     if-lt p1, v0, :cond_1
 
     :cond_0
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     .line 207
     :goto_0
@@ -524,7 +523,7 @@
 
 .method public getItemViewType(I)I
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     const/4 v2, -0x1
@@ -546,7 +545,7 @@
     move-result-object v0
 
     .line 258
-    .local v0, preference:Landroid/preference/Preference;
+    .local v0, "preference":Landroid/preference/Preference;
     invoke-virtual {v0}, Landroid/preference/Preference;->canRecycleLayout()Z
 
     move-result v3
@@ -580,7 +579,7 @@
     move-result v1
 
     .line 265
-    .local v1, viewType:I
+    .local v1, "viewType":I
     if-gez v1, :cond_1
 
     move v1, v2
@@ -591,9 +590,9 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 211
@@ -602,7 +601,7 @@
     move-result-object v0
 
     .line 213
-    .local v0, preference:Landroid/preference/Preference;
+    .local v0, "preference":Landroid/preference/Preference;
     iget-object v1, p0, Landroid/preference/PreferenceGroupAdapter;->mTempPreferenceLayout:Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
 
     invoke-direct {p0, v0, v1}, Landroid/preference/PreferenceGroupAdapter;->createPreferenceLayout(Landroid/preference/Preference;Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
@@ -675,7 +674,7 @@
 
 .method public isEnabled(I)Z
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 226
@@ -708,7 +707,7 @@
 
 .method public onPreferenceChange(Landroid/preference/Preference;)V
     .locals 0
-    .parameter "preference"
+    .param p1, "preference"    # Landroid/preference/Preference;
 
     .prologue
     .line 238
@@ -720,7 +719,7 @@
 
 .method public onPreferenceHierarchyChange(Landroid/preference/Preference;)V
     .locals 2
-    .parameter "preference"
+    .param p1, "preference"    # Landroid/preference/Preference;
 
     .prologue
     .line 242

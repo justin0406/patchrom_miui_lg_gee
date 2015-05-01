@@ -38,7 +38,7 @@
 
 .method public onWriteFailed(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "error"
+    .param p1, "error"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 285
@@ -47,7 +47,7 @@
 
 .method public onWriteFinished([Landroid/print/PageRange;)V
     .locals 0
-    .parameter "pages"
+    .param p1, "pages"    # [Landroid/print/PageRange;
 
     .prologue
     .line 275

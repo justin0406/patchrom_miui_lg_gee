@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 358
@@ -44,7 +43,7 @@
     .line 361
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService$7;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStopPrinterDiscovery()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStopPrinterDiscovery()V
     invoke-static {v0}, Lcom/android/server/print/RemotePrintService;->access$700(Lcom/android/server/print/RemotePrintService;)V
 
     .line 362

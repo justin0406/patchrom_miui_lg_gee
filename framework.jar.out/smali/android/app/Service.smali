@@ -78,12 +78,12 @@
 # virtual methods
 .method public final attach(Landroid/content/Context;Landroid/app/ActivityThread;Ljava/lang/String;Landroid/os/IBinder;Landroid/app/Application;Ljava/lang/Object;)V
     .locals 2
-    .parameter "context"
-    .parameter "thread"
-    .parameter "className"
-    .parameter "token"
-    .parameter "application"
-    .parameter "activityManager"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "thread"    # Landroid/app/ActivityThread;
+    .param p3, "className"    # Ljava/lang/String;
+    .param p4, "token"    # Landroid/os/IBinder;
+    .param p5, "application"    # Landroid/app/Application;
+    .param p6, "activityManager"    # Ljava/lang/Object;
 
     .prologue
     .line 694
@@ -104,7 +104,7 @@
     .line 699
     check-cast p6, Landroid/app/IActivityManager;
 
-    .end local p6
+    .end local p6    # "activityManager":Ljava/lang/Object;
     iput-object p6, p0, Landroid/app/Service;->mActivityManager:Landroid/app/IActivityManager;
 
     .line 700
@@ -135,9 +135,9 @@
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "fd"
-    .parameter "writer"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "writer"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 682
@@ -174,7 +174,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 464
@@ -207,7 +207,7 @@
 
 .method public onRebind(Landroid/content/Intent;)V
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 524
@@ -216,8 +216,8 @@
 
 .method public onStart(Landroid/content/Intent;I)V
     .locals 0
-    .parameter "intent"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "startId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -228,9 +228,9 @@
 
 .method public onStartCommand(Landroid/content/Intent;II)I
     .locals 1
-    .parameter "intent"
-    .parameter "flags"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "startId"    # I
 
     .prologue
     .line 450
@@ -254,7 +254,7 @@
 
 .method public onTaskRemoved(Landroid/content/Intent;)V
     .locals 0
-    .parameter "rootIntent"
+    .param p1, "rootIntent"    # Landroid/content/Intent;
 
     .prologue
     .line 537
@@ -263,7 +263,7 @@
 
 .method public onTrimMemory(I)V
     .locals 0
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 470
@@ -272,7 +272,7 @@
 
 .method public onUnbind(Landroid/content/Intent;)Z
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 509
@@ -283,7 +283,7 @@
 
 .method public final setForeground(Z)V
     .locals 3
-    .parameter "isForeground"
+    .param p1, "isForeground"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -325,8 +325,8 @@
 
 .method public final startForeground(ILandroid/app/Notification;)V
     .locals 6
-    .parameter "id"
-    .parameter "notification"
+    .param p1, "id"    # I
+    .param p2, "notification"    # Landroid/app/Notification;
 
     .prologue
     .line 643
@@ -364,7 +364,7 @@
 
 .method public final stopForeground(Z)V
     .locals 6
-    .parameter "removeNotification"
+    .param p1, "removeNotification"    # Z
 
     .prologue
     .line 660
@@ -415,7 +415,7 @@
 
 .method public final stopSelf(I)V
     .locals 3
-    .parameter "startId"
+    .param p1, "startId"    # I
 
     .prologue
     .line 555
@@ -455,7 +455,7 @@
 
 .method public final stopSelfResult(I)Z
     .locals 4
-    .parameter "startId"
+    .param p1, "startId"    # I
 
     .prologue
     const/4 v0, 0x0

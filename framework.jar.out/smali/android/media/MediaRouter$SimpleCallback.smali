@@ -29,8 +29,8 @@
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2734
@@ -39,8 +39,8 @@
 
 .method public onRouteChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2742
@@ -49,10 +49,10 @@
 
 .method public onRouteGrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;I)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
-    .parameter "group"
-    .parameter "index"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
+    .param p4, "index"    # I
 
     .prologue
     .line 2747
@@ -61,8 +61,8 @@
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2738
@@ -71,9 +71,9 @@
 
 .method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "type"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "type"    # I
+    .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2726
@@ -82,9 +82,9 @@
 
 .method public onRouteUngrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
-    .parameter "group"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p3, "group"    # Landroid/media/MediaRouter$RouteGroup;
 
     .prologue
     .line 2751
@@ -93,9 +93,9 @@
 
 .method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "type"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "type"    # I
+    .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2730
@@ -104,8 +104,8 @@
 
 .method public onRouteVolumeChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2755

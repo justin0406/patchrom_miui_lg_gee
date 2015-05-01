@@ -88,7 +88,7 @@
 
     array-length v0, v2
 
-    .local v0, i:I
+    .local v0, "i":I
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
@@ -107,7 +107,7 @@
     aget-object v1, v2, v0
 
     .line 57
-    .local v1, mt:Landroid/text/MeasuredText;
+    .local v1, "mt":Landroid/text/MeasuredText;
     sget-object v2, Landroid/text/MeasuredText;->sCached:[Landroid/text/MeasuredText;
 
     const/4 v4, 0x0
@@ -122,7 +122,7 @@
     return-object v1
 
     .line 61
-    .end local v1           #mt:Landroid/text/MeasuredText;
+    .end local v1    # "mt":Landroid/text/MeasuredText;
     :cond_1
     monitor-exit v3
     :try_end_0
@@ -134,11 +134,11 @@
     invoke-direct {v1}, Landroid/text/MeasuredText;-><init>()V
 
     .line 66
-    .restart local v1       #mt:Landroid/text/MeasuredText;
+    .restart local v1    # "mt":Landroid/text/MeasuredText;
     goto :goto_0
 
     .line 61
-    .end local v1           #mt:Landroid/text/MeasuredText;
+    .end local v1    # "mt":Landroid/text/MeasuredText;
     :catchall_0
     move-exception v2
 
@@ -152,7 +152,7 @@
 
 .method static recycle(Landroid/text/MeasuredText;)Landroid/text/MeasuredText;
     .locals 4
-    .parameter "mt"
+    .param p0, "mt"    # Landroid/text/MeasuredText;
 
     .prologue
     const/4 v3, 0x0
@@ -175,7 +175,7 @@
     .line 73
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     :try_start_0
     sget-object v1, Landroid/text/MeasuredText;->sCached:[Landroid/text/MeasuredText;
@@ -206,12 +206,12 @@
     monitor-exit v2
 
     .line 82
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-object v3
 
     .line 73
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
@@ -232,9 +232,9 @@
 # virtual methods
 .method addStyleRun(Landroid/text/TextPaint;ILandroid/graphics/Paint$FontMetricsInt;)F
     .locals 22
-    .parameter "paint"
-    .parameter "len"
-    .parameter "fm"
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "len"    # I
+    .param p3, "fm"    # Landroid/graphics/Paint$FontMetricsInt;
 
     .prologue
     .line 154
@@ -254,7 +254,7 @@
     iget v4, v0, Landroid/text/MeasuredText;->mPos:I
 
     .line 159
-    .local v4, p:I
+    .local v4, "p":I
     add-int v2, v4, p2
 
     move-object/from16 v0, p0
@@ -280,7 +280,7 @@
     const/4 v8, 0x0
 
     .line 164
-    .local v8, flags:I
+    .local v8, "flags":I
     :goto_0
     move-object/from16 v0, p0
 
@@ -309,7 +309,7 @@
     return v21
 
     .line 162
-    .end local v8           #flags:I
+    .end local v8    # "flags":I
     :cond_2
     const/4 v8, 0x1
 
@@ -320,7 +320,7 @@
     const/16 v21, 0x0
 
     .line 168
-    .local v21, totalAdvance:F
+    .local v21, "totalAdvance":F
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/MeasuredText;->mLevels:[B
@@ -328,17 +328,17 @@
     aget-byte v20, v2, v4
 
     .line 169
-    .local v20, level:I
+    .local v20, "level":I
     move v11, v4
 
-    .local v11, q:I
+    .local v11, "q":I
     add-int/lit8 v19, v4, 0x1
 
-    .local v19, i:I
+    .local v19, "i":I
     add-int v18, v4, p2
 
     .line 170
-    .local v18, e:I
+    .local v18, "e":I
     :goto_1
     move/from16 v0, v19
 
@@ -365,7 +365,7 @@
     const/4 v8, 0x0
 
     .line 172
-    .restart local v8       #flags:I
+    .restart local v8    # "flags":I
     :goto_2
     move-object/from16 v0, p0
 
@@ -413,7 +413,7 @@
     aget-byte v20, v2, v19
 
     .line 169
-    .end local v8           #flags:I
+    .end local v8    # "flags":I
     :cond_5
     add-int/lit8 v19, v19, 0x1
 
@@ -428,17 +428,17 @@
 
 .method addStyleRun(Landroid/text/TextPaint;[Landroid/text/style/MetricAffectingSpan;ILandroid/graphics/Paint$FontMetricsInt;)F
     .locals 11
-    .parameter "paint"
-    .parameter "spans"
-    .parameter "len"
-    .parameter "fm"
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "spans"    # [Landroid/text/style/MetricAffectingSpan;
+    .param p3, "len"    # I
+    .param p4, "fm"    # Landroid/graphics/Paint$FontMetricsInt;
 
     .prologue
     .line 187
     iget-object v1, p0, Landroid/text/MeasuredText;->mWorkPaint:Landroid/text/TextPaint;
 
     .line 188
-    .local v1, workPaint:Landroid/text/TextPaint;
+    .local v1, "workPaint":Landroid/text/TextPaint;
     invoke-virtual {v1, p1}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
 
     .line 190
@@ -450,10 +450,10 @@
     const/4 v0, 0x0
 
     .line 193
-    .local v0, replacement:Landroid/text/style/ReplacementSpan;
+    .local v0, "replacement":Landroid/text/style/ReplacementSpan;
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     array-length v2, p2
 
@@ -463,7 +463,7 @@
     aget-object v8, p2, v7
 
     .line 195
-    .local v8, span:Landroid/text/style/MetricAffectingSpan;
+    .local v8, "span":Landroid/text/style/MetricAffectingSpan;
     instance-of v2, v8, Landroid/text/style/ReplacementSpan;
 
     if-eqz v2, :cond_0
@@ -486,7 +486,7 @@
     goto :goto_1
 
     .line 203
-    .end local v8           #span:Landroid/text/style/MetricAffectingSpan;
+    .end local v8    # "span":Landroid/text/style/MetricAffectingSpan;
     :cond_1
     if-nez v0, :cond_3
 
@@ -496,7 +496,7 @@
     move-result v10
 
     .line 216
-    .local v10, wid:F
+    .local v10, "wid":F
     :goto_2
     if-eqz p4, :cond_2
 
@@ -529,7 +529,7 @@
     return v10
 
     .line 207
-    .end local v10           #wid:F
+    .end local v10    # "wid":F
     :cond_3
     iget-object v2, p0, Landroid/text/MeasuredText;->mText:Ljava/lang/CharSequence;
 
@@ -556,11 +556,11 @@
     int-to-float v10, v2
 
     .line 209
-    .restart local v10       #wid:F
+    .restart local v10    # "wid":F
     iget-object v9, p0, Landroid/text/MeasuredText;->mWidths:[F
 
     .line 210
-    .local v9, w:[F
+    .local v9, "w":[F
     iget v2, p0, Landroid/text/MeasuredText;->mPos:I
 
     aput v10, v9, v2
@@ -574,7 +574,7 @@
 
     add-int v6, v2, p3
 
-    .local v6, e:I
+    .local v6, "e":I
     :goto_4
     if-ge v7, v6, :cond_4
 
@@ -599,8 +599,8 @@
     goto :goto_2
 
     .line 221
-    .end local v6           #e:I
-    .end local v9           #w:[F
+    .end local v6    # "e":I
+    .end local v9    # "w":[F
     :cond_5
     iget v2, p4, Landroid/graphics/Paint$FontMetricsInt;->descent:I
 
@@ -624,9 +624,9 @@
 
 .method breakText(IZF)I
     .locals 5
-    .parameter "limit"
-    .parameter "forwards"
-    .parameter "width"
+    .param p1, "limit"    # I
+    .param p2, "forwards"    # Z
+    .param p3, "width"    # F
 
     .prologue
     const/16 v4, 0x20
@@ -637,14 +637,14 @@
     iget-object v1, p0, Landroid/text/MeasuredText;->mWidths:[F
 
     .line 231
-    .local v1, w:[F
+    .local v1, "w":[F
     if-eqz p2, :cond_3
 
     .line 232
     const/4 v0, 0x0
 
     .line 233
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p1, :cond_0
 
@@ -689,12 +689,12 @@
     return v2
 
     .line 241
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_3
     add-int/lit8 v0, p1, -0x1
 
     .line 242
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :goto_3
     if-ltz v0, :cond_4
 
@@ -744,22 +744,22 @@
 
 .method measure(II)F
     .locals 4
-    .parameter "start"
-    .parameter "limit"
+    .param p1, "start"    # I
+    .param p2, "limit"    # I
 
     .prologue
     .line 253
     const/4 v2, 0x0
 
     .line 254
-    .local v2, width:F
+    .local v2, "width":F
     iget-object v1, p0, Landroid/text/MeasuredText;->mWidths:[F
 
     .line 255
-    .local v1, w:[F
+    .local v1, "w":[F
     move v0, p1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p2, :cond_0
 
@@ -780,10 +780,10 @@
 
 .method setPara(Ljava/lang/CharSequence;IILandroid/text/TextDirectionHeuristic;)V
     .locals 13
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "textDir"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "textDir"    # Landroid/text/TextDirectionHeuristic;
 
     .prologue
     .line 93
@@ -796,7 +796,7 @@
     sub-int v6, p3, p2
 
     .line 97
-    .local v6, len:I
+    .local v6, "len":I
     iput v6, p0, Landroid/text/MeasuredText;->mLen:I
 
     .line 98
@@ -868,7 +868,7 @@
     check-cast v7, Landroid/text/Spanned;
 
     .line 110
-    .local v7, spanned:Landroid/text/Spanned;
+    .local v7, "spanned":Landroid/text/Spanned;
     const-class v10, Landroid/text/style/ReplacementSpan;
 
     move/from16 v0, p3
@@ -880,10 +880,10 @@
     check-cast v8, [Landroid/text/style/ReplacementSpan;
 
     .line 113
-    .local v8, spans:[Landroid/text/style/ReplacementSpan;
+    .local v8, "spans":[Landroid/text/style/ReplacementSpan;
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     array-length v10, v8
 
@@ -899,7 +899,7 @@
     sub-int v9, v10, p2
 
     .line 115
-    .local v9, startInPara:I
+    .local v9, "startInPara":I
     aget-object v10, v8, v3
 
     invoke-interface {v7, v10}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
@@ -909,7 +909,7 @@
     sub-int v2, v10, p2
 
     .line 117
-    .local v2, endInPara:I
+    .local v2, "endInPara":I
     if-gez v9, :cond_4
 
     const/4 v9, 0x0
@@ -924,7 +924,7 @@
     :cond_5
     move v5, v9
 
-    .local v5, j:I
+    .local v5, "j":I
     :goto_1
     if-ge v5, v2, :cond_6
 
@@ -947,12 +947,12 @@
     goto :goto_0
 
     .line 125
-    .end local v2           #endInPara:I
-    .end local v3           #i:I
-    .end local v5           #j:I
-    .end local v7           #spanned:Landroid/text/Spanned;
-    .end local v8           #spans:[Landroid/text/style/ReplacementSpan;
-    .end local v9           #startInPara:I
+    .end local v2    # "endInPara":I
+    .end local v3    # "i":I
+    .end local v5    # "j":I
+    .end local v7    # "spanned":Landroid/text/Spanned;
+    .end local v8    # "spans":[Landroid/text/style/ReplacementSpan;
+    .end local v9    # "startInPara":I
     :cond_7
     sget-object v10, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
 
@@ -1031,7 +1031,7 @@
     const/4 v1, 0x1
 
     .line 148
-    .local v1, bidiRequest:I
+    .local v1, "bidiRequest":I
     :goto_3
     iget-object v10, p0, Landroid/text/MeasuredText;->mChars:[C
 
@@ -1053,7 +1053,7 @@
     goto :goto_2
 
     .line 138
-    .end local v1           #bidiRequest:I
+    .end local v1    # "bidiRequest":I
     :cond_c
     sget-object v10, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
 
@@ -1064,11 +1064,11 @@
     .line 139
     const/4 v1, -0x1
 
-    .restart local v1       #bidiRequest:I
+    .restart local v1    # "bidiRequest":I
     goto :goto_3
 
     .line 140
-    .end local v1           #bidiRequest:I
+    .end local v1    # "bidiRequest":I
     :cond_d
     sget-object v10, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
@@ -1079,11 +1079,11 @@
     .line 141
     const/4 v1, 0x2
 
-    .restart local v1       #bidiRequest:I
+    .restart local v1    # "bidiRequest":I
     goto :goto_3
 
     .line 142
-    .end local v1           #bidiRequest:I
+    .end local v1    # "bidiRequest":I
     :cond_e
     sget-object v10, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_RTL:Landroid/text/TextDirectionHeuristic;
 
@@ -1094,11 +1094,11 @@
     .line 143
     const/4 v1, -0x2
 
-    .restart local v1       #bidiRequest:I
+    .restart local v1    # "bidiRequest":I
     goto :goto_3
 
     .line 145
-    .end local v1           #bidiRequest:I
+    .end local v1    # "bidiRequest":I
     :cond_f
     iget-object v10, p0, Landroid/text/MeasuredText;->mChars:[C
 
@@ -1111,16 +1111,16 @@
     move-result v4
 
     .line 146
-    .local v4, isRtl:Z
+    .local v4, "isRtl":Z
     if-eqz v4, :cond_10
 
     const/4 v1, -0x1
 
-    .restart local v1       #bidiRequest:I
+    .restart local v1    # "bidiRequest":I
     :goto_4
     goto :goto_3
 
-    .end local v1           #bidiRequest:I
+    .end local v1    # "bidiRequest":I
     :cond_10
     const/4 v1, 0x1
 
@@ -1129,7 +1129,7 @@
 
 .method setPos(I)V
     .locals 1
-    .parameter "pos"
+    .param p1, "pos"    # I
 
     .prologue
     .line 86

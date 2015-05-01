@@ -39,7 +39,7 @@
 
 .method public constructor <init>(Landroid/content/pm/ComponentInfo;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/ComponentInfo;
 
     .prologue
     .line 70
@@ -86,7 +86,7 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -169,8 +169,8 @@
 # virtual methods
 .method protected dumpBack(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 141
@@ -256,8 +256,8 @@
 
 .method protected dumpFront(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 132
@@ -433,7 +433,7 @@
 
 .method protected loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 172
@@ -448,7 +448,7 @@
 
 .method protected loadDefaultLogo(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 180
@@ -463,7 +463,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 79
@@ -484,7 +484,7 @@
     iget-object v0, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 84
-    .local v0, ai:Landroid/content/pm/ApplicationInfo;
+    .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     iget v2, p0, Landroid/content/pm/ComponentInfo;->labelRes:I
 
     if-eqz v2, :cond_2
@@ -499,11 +499,11 @@
     move-result-object v1
 
     .line 86
-    .local v1, label:Ljava/lang/CharSequence;
+    .local v1, "label":Ljava/lang/CharSequence;
     if-nez v1, :cond_0
 
     .line 90
-    .end local v1           #label:Ljava/lang/CharSequence;
+    .end local v1    # "label":Ljava/lang/CharSequence;
     :cond_2
     iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
@@ -530,11 +530,11 @@
     move-result-object v1
 
     .line 95
-    .restart local v1       #label:Ljava/lang/CharSequence;
+    .restart local v1    # "label":Ljava/lang/CharSequence;
     if-nez v1, :cond_0
 
     .line 99
-    .end local v1           #label:Ljava/lang/CharSequence;
+    .end local v1    # "label":Ljava/lang/CharSequence;
     :cond_4
     iget-object v1, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
@@ -543,8 +543,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     const/4 v1, 0x1

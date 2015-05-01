@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "base"
+    .param p1, "base"    # Landroid/content/Context;
 
     .prologue
     .line 25
@@ -20,7 +20,7 @@
 # virtual methods
 .method public setBaseContext(Landroid/content/Context;)V
     .locals 0
-    .parameter "base"
+    .param p1, "base"    # Landroid/content/Context;
 
     .prologue
     .line 36

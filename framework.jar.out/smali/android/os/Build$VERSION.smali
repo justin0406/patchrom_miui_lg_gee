@@ -41,7 +41,7 @@
     .line 85
     const-string/jumbo v1, "ro.build.version.incremental"
 
-    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -51,7 +51,7 @@
     .line 90
     const-string/jumbo v1, "ro.build.version.release"
 
-    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -61,7 +61,7 @@
     .line 99
     const-string/jumbo v1, "ro.build.version.sdk"
 
-    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -80,7 +80,7 @@
     .line 112
     const-string/jumbo v1, "ro.build.version.codename"
 
-    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1

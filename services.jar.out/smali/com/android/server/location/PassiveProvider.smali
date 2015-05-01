@@ -7,7 +7,7 @@
 
 
 # static fields
-.field private static final PROPERTIES:Lcom/android/internal/location/ProviderProperties; = null
+.field private static final PROPERTIES:Lcom/android/internal/location/ProviderProperties;
 
 .field private static final TAG:Ljava/lang/String; = "PassiveProvider"
 
@@ -53,7 +53,7 @@
 
 .method public constructor <init>(Landroid/location/ILocationManager;)V
     .locals 0
-    .parameter "locationManager"
+    .param p1, "locationManager"    # Landroid/location/ILocationManager;
 
     .prologue
     .line 53
@@ -78,9 +78,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 117
@@ -140,7 +140,7 @@
 
 .method public getStatus(Landroid/os/Bundle;)I
     .locals 1
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 82
@@ -183,8 +183,8 @@
 
 .method public sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .parameter "command"
-    .parameter "extras"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 112
@@ -195,8 +195,8 @@
 
 .method public setRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
     .locals 1
-    .parameter "request"
-    .parameter "source"
+    .param p1, "request"    # Lcom/android/internal/location/ProviderRequest;
+    .param p2, "source"    # Landroid/os/WorkSource;
 
     .prologue
     .line 96
@@ -210,7 +210,7 @@
 
 .method public updateLocation(Landroid/location/Location;)V
     .locals 3
-    .parameter "location"
+    .param p1, "location"    # Landroid/location/Location;
 
     .prologue
     .line 100
@@ -238,7 +238,7 @@
     move-exception v0
 
     .line 105
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "PassiveProvider"
 
     const-string v2, "RemoteException calling reportLocation"

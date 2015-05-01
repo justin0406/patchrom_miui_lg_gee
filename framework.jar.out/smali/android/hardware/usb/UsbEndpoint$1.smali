@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/usb/UsbEndpoint;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 140
@@ -51,25 +51,25 @@
     move-result v0
 
     .line 141
-    .local v0, address:I
+    .local v0, "address":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 142
-    .local v1, attributes:I
+    .local v1, "attributes":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 143
-    .local v3, maxPacketSize:I
+    .local v3, "maxPacketSize":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 144
-    .local v2, interval:I
+    .local v2, "interval":I
     new-instance v4, Landroid/hardware/usb/UsbEndpoint;
 
     invoke-direct {v4, v0, v1, v3, v2}, Landroid/hardware/usb/UsbEndpoint;-><init>(IIII)V
@@ -79,7 +79,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 138
@@ -92,7 +92,7 @@
 
 .method public newArray(I)[Landroid/hardware/usb/UsbEndpoint;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 148
@@ -103,7 +103,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 138

@@ -355,9 +355,7 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "value"
+    .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -377,7 +375,7 @@
 
 .method public static fromInt(I)Lcom/android/internal/telephony/cat/TextColor;
     .locals 5
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 56
@@ -385,38 +383,38 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Lcom/android/internal/telephony/cat/TextColor;
+    .local v0, "arr$":[Lcom/android/internal/telephony/cat/TextColor;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 57
-    .local v1, e:Lcom/android/internal/telephony/cat/TextColor;
+    .local v1, "e":Lcom/android/internal/telephony/cat/TextColor;
     iget v4, v1, Lcom/android/internal/telephony/cat/TextColor;->mValue:I
 
     if-ne v4, p0, :cond_0
 
     .line 61
-    .end local v1           #e:Lcom/android/internal/telephony/cat/TextColor;
+    .end local v1    # "e":Lcom/android/internal/telephony/cat/TextColor;
     :goto_1
     return-object v1
 
     .line 56
-    .restart local v1       #e:Lcom/android/internal/telephony/cat/TextColor;
+    .restart local v1    # "e":Lcom/android/internal/telephony/cat/TextColor;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 61
-    .end local v1           #e:Lcom/android/internal/telephony/cat/TextColor;
+    .end local v1    # "e":Lcom/android/internal/telephony/cat/TextColor;
     :cond_1
     const/4 v1, 0x0
 
@@ -425,7 +423,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/cat/TextColor;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 25

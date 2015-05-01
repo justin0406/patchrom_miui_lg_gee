@@ -10,7 +10,7 @@
 # static fields
 .field static final BUNDLE_MAGIC:I = 0x4c444e42
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -23,9 +23,9 @@
 
 .field static final DEBUG:Z = false
 
-.field public static final EMPTY:Landroid/os/Bundle; = null
+.field public static final EMPTY:Landroid/os/Bundle;
 
-.field static final EMPTY_PARCEL:Landroid/os/Parcel; = null
+.field static final EMPTY_PARCEL:Landroid/os/Parcel;
 
 .field private static final TAG:Ljava/lang/String; = "Bundle"
 
@@ -142,7 +142,7 @@
 
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "capacity"
+    .param p1, "capacity"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -193,7 +193,7 @@
 
 .method public constructor <init>(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "b"
+    .param p1, "b"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v0, 0x1
@@ -314,7 +314,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcelledData"
+    .param p1, "parcelledData"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x0
@@ -350,8 +350,8 @@
 
 .method constructor <init>(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcelledData"
-    .parameter "length"
+    .param p1, "parcelledData"    # Landroid/os/Parcel;
+    .param p2, "length"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -387,7 +387,7 @@
 
 .method public constructor <init>(Ljava/lang/ClassLoader;)V
     .locals 2
-    .parameter "loader"
+    .param p1, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     const/4 v0, 0x0
@@ -430,8 +430,8 @@
 
 .method public static forPair(Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 149
@@ -442,7 +442,7 @@
     invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(I)V
 
     .line 150
-    .local v0, b:Landroid/os/Bundle;
+    .local v0, "b":Landroid/os/Bundle;
     invoke-virtual {v0, p0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 151
@@ -451,10 +451,10 @@
 
 .method private typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
     .locals 6
-    .parameter "key"
-    .parameter "value"
-    .parameter "className"
-    .parameter "e"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
+    .param p3, "className"    # Ljava/lang/String;
+    .param p4, "e"    # Ljava/lang/ClassCastException;
 
     .prologue
     .line 846
@@ -478,11 +478,11 @@
 
 .method private typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ClassCastException;)V
     .locals 3
-    .parameter "key"
-    .parameter "value"
-    .parameter "className"
-    .parameter "defaultValue"
-    .parameter "e"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
+    .param p3, "className"    # Ljava/lang/String;
+    .param p4, "defaultValue"    # Ljava/lang/Object;
+    .param p5, "e"    # Ljava/lang/ClassCastException;
 
     .prologue
     .line 830
@@ -491,7 +491,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 831
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Key "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -598,7 +598,7 @@
 
 .method public containsKey(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 299
@@ -622,7 +622,7 @@
     const/4 v0, 0x0
 
     .line 1658
-    .local v0, mask:I
+    .local v0, "mask":I
     invoke-virtual {p0}, Landroid/os/Bundle;->hasFileDescriptors()Z
 
     move-result v1
@@ -639,7 +639,7 @@
 
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 310
@@ -657,7 +657,7 @@
 
 .method public getBinder(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -673,18 +673,18 @@
     move-result-object v1
 
     .line 1605
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1612
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1609
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Landroid/os/IBinder;
@@ -698,7 +698,7 @@
     move-exception v0
 
     .line 1611
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "IBinder"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -711,7 +711,7 @@
 
 .method public getBoolean(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 821
@@ -729,8 +729,8 @@
 
 .method public getBoolean(Ljava/lang/String;Z)Z
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Z
 
     .prologue
     .line 858
@@ -744,16 +744,16 @@
     move-result-object v3
 
     .line 860
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 867
-    .end local p2
+    .end local p2    # "defaultValue":Z
     :goto_0
     return p2
 
     .line 864
-    .restart local p2
+    .restart local p2    # "defaultValue":Z
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -775,7 +775,7 @@
     move-exception v6
 
     .line 866
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Boolean"
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -793,7 +793,7 @@
 
 .method public getBooleanArray(Ljava/lang/String;)[Z
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -809,7 +809,7 @@
     move-result-object v2
 
     .line 1385
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -838,7 +838,7 @@
     move-exception v1
 
     .line 1391
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "byte[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -851,7 +851,7 @@
 
 .method public getBundle(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -867,18 +867,18 @@
     move-result-object v1
 
     .line 1186
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1193
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1190
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Landroid/os/Bundle;
@@ -892,7 +892,7 @@
     move-exception v0
 
     .line 1192
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "Bundle"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -905,7 +905,7 @@
 
 .method public getByte(Ljava/lang/String;)B
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 879
@@ -927,8 +927,8 @@
 
 .method public getByte(Ljava/lang/String;B)Ljava/lang/Byte;
     .locals 6
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # B
 
     .prologue
     .line 892
@@ -942,7 +942,7 @@
     move-result-object v2
 
     .line 894
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     .line 895
@@ -951,12 +951,12 @@
     move-result-object v2
 
     .line 901
-    .end local v2           #o:Ljava/lang/Object;
+    .end local v2    # "o":Ljava/lang/Object;
     :goto_0
     return-object v2
 
     .line 898
-    .restart local v2       #o:Ljava/lang/Object;
+    .restart local v2    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v2, Ljava/lang/Byte;
@@ -970,7 +970,7 @@
     move-exception v5
 
     .line 900
-    .local v5, e:Ljava/lang/ClassCastException;
+    .local v5, "e":Ljava/lang/ClassCastException;
     const-string v3, "Byte"
 
     invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
@@ -993,7 +993,7 @@
 
 .method public getByteArray(Ljava/lang/String;)[B
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1009,7 +1009,7 @@
     move-result-object v2
 
     .line 1407
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1038,7 +1038,7 @@
     move-exception v1
 
     .line 1413
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "byte[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1051,7 +1051,7 @@
 
 .method public getChar(Ljava/lang/String;)C
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 913
@@ -1069,8 +1069,8 @@
 
 .method public getChar(Ljava/lang/String;C)C
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # C
 
     .prologue
     .line 926
@@ -1084,16 +1084,16 @@
     move-result-object v3
 
     .line 928
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 935
-    .end local p2
+    .end local p2    # "defaultValue":C
     :goto_0
     return p2
 
     .line 932
-    .restart local p2
+    .restart local p2    # "defaultValue":C
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -1115,7 +1115,7 @@
     move-exception v6
 
     .line 934
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Character"
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -1133,7 +1133,7 @@
 
 .method public getCharArray(Ljava/lang/String;)[C
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1149,7 +1149,7 @@
     move-result-object v2
 
     .line 1451
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1178,7 +1178,7 @@
     move-exception v1
 
     .line 1457
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "char[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1191,7 +1191,7 @@
 
 .method public getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1151
@@ -1205,24 +1205,24 @@
     move-result-object v1
 
     .line 1154
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     :try_start_0
     check-cast v1, Ljava/lang/CharSequence;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1157
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1155
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :catch_0
     move-exception v0
 
     .line 1156
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v2, "CharSequence"
 
     invoke-direct {p0, p1, v1, v2, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1235,8 +1235,8 @@
 
 .method public getCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1171
@@ -1245,14 +1245,14 @@
     move-result-object v0
 
     .line 1172
-    .local v0, cs:Ljava/lang/CharSequence;
+    .local v0, "cs":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/CharSequence;
     :cond_0
     move-object p2, v0
 
@@ -1261,7 +1261,7 @@
 
 .method public getCharSequenceArray(Ljava/lang/String;)[Ljava/lang/CharSequence;
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1277,7 +1277,7 @@
     move-result-object v2
 
     .line 1583
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1306,7 +1306,7 @@
     move-exception v1
 
     .line 1589
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "CharSequence[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1319,7 +1319,7 @@
 
 .method public getCharSequenceArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1346,18 +1346,18 @@
     move-result-object v1
 
     .line 1363
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1370
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1367
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Ljava/util/ArrayList;
@@ -1371,7 +1371,7 @@
     move-exception v0
 
     .line 1369
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "ArrayList<CharSequence>"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1394,7 +1394,7 @@
 
 .method public getDouble(Ljava/lang/String;)D
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1083
@@ -1412,8 +1412,8 @@
 
 .method public getDouble(Ljava/lang/String;D)D
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # D
 
     .prologue
     .line 1096
@@ -1427,16 +1427,16 @@
     move-result-object v3
 
     .line 1098
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 1105
-    .end local p2
+    .end local p2    # "defaultValue":D
     :goto_0
     return-wide p2
 
     .line 1102
-    .restart local p2
+    .restart local p2    # "defaultValue":D
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -1458,7 +1458,7 @@
     move-exception v6
 
     .line 1104
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Double"
 
     invoke-static {p2, p3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -1476,7 +1476,7 @@
 
 .method public getDoubleArray(Ljava/lang/String;)[D
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1492,7 +1492,7 @@
     move-result-object v2
 
     .line 1539
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1521,7 +1521,7 @@
     move-exception v1
 
     .line 1545
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "double[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1534,7 +1534,7 @@
 
 .method public getFloat(Ljava/lang/String;)F
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1049
@@ -1552,8 +1552,8 @@
 
 .method public getFloat(Ljava/lang/String;F)F
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # F
 
     .prologue
     .line 1062
@@ -1567,16 +1567,16 @@
     move-result-object v3
 
     .line 1064
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 1071
-    .end local p2
+    .end local p2    # "defaultValue":F
     :goto_0
     return p2
 
     .line 1068
-    .restart local p2
+    .restart local p2    # "defaultValue":F
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -1598,7 +1598,7 @@
     move-exception v6
 
     .line 1070
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Float"
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -1616,7 +1616,7 @@
 
 .method public getFloatArray(Ljava/lang/String;)[F
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1632,7 +1632,7 @@
     move-result-object v2
 
     .line 1517
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1661,7 +1661,7 @@
     move-exception v1
 
     .line 1523
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "float[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1674,7 +1674,7 @@
 
 .method public getIBinder(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1692,18 +1692,18 @@
     move-result-object v1
 
     .line 1631
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1638
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1635
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Landroid/os/IBinder;
@@ -1717,7 +1717,7 @@
     move-exception v0
 
     .line 1637
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "IBinder"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1730,7 +1730,7 @@
 
 .method public getInt(Ljava/lang/String;)I
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 981
@@ -1748,8 +1748,8 @@
 
 .method public getInt(Ljava/lang/String;I)I
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 994
@@ -1763,16 +1763,16 @@
     move-result-object v3
 
     .line 996
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 1003
-    .end local p2
+    .end local p2    # "defaultValue":I
     :goto_0
     return p2
 
     .line 1000
-    .restart local p2
+    .restart local p2    # "defaultValue":I
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -1794,7 +1794,7 @@
     move-exception v6
 
     .line 1002
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Integer"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1812,7 +1812,7 @@
 
 .method public getIntArray(Ljava/lang/String;)[I
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -1828,7 +1828,7 @@
     move-result-object v2
 
     .line 1473
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -1857,7 +1857,7 @@
     move-exception v1
 
     .line 1479
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "int[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1870,7 +1870,7 @@
 
 .method public getIntegerArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1897,18 +1897,18 @@
     move-result-object v1
 
     .line 1319
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1326
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1323
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Ljava/util/ArrayList;
@@ -1922,7 +1922,7 @@
     move-exception v0
 
     .line 1325
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "ArrayList<Integer>"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -1935,7 +1935,7 @@
 
 .method public getLong(Ljava/lang/String;)J
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1015
@@ -1953,8 +1953,8 @@
 
 .method public getLong(Ljava/lang/String;J)J
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # J
 
     .prologue
     .line 1028
@@ -1968,16 +1968,16 @@
     move-result-object v3
 
     .line 1030
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 1037
-    .end local p2
+    .end local p2    # "defaultValue":J
     :goto_0
     return-wide p2
 
     .line 1034
-    .restart local p2
+    .restart local p2    # "defaultValue":J
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -1999,7 +1999,7 @@
     move-exception v6
 
     .line 1036
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Long"
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -2017,7 +2017,7 @@
 
 .method public getLongArray(Ljava/lang/String;)[J
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -2033,7 +2033,7 @@
     move-result-object v2
 
     .line 1495
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -2062,7 +2062,7 @@
     move-exception v1
 
     .line 1501
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "long[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2090,7 +2090,7 @@
     move-result v2
 
     .line 166
-    .local v2, size:I
+    .local v2, "size":I
     const/4 v4, 0x1
 
     if-le v2, v4, :cond_0
@@ -2123,7 +2123,7 @@
     move-result-object v1
 
     .line 174
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     :try_start_0
     check-cast v1, Ljava/lang/String;
     :try_end_0
@@ -2136,7 +2136,7 @@
     move-exception v0
 
     .line 176
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v4, "getPairValue()"
 
     const-string v5, "String"
@@ -2151,7 +2151,7 @@
 
 .method public getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -2176,18 +2176,18 @@
     move-result-object v1
 
     .line 1208
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1215
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1212
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Landroid/os/Parcelable;
@@ -2201,7 +2201,7 @@
     move-exception v0
 
     .line 1214
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "Parcelable"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2214,7 +2214,7 @@
 
 .method public getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -2230,7 +2230,7 @@
     move-result-object v2
 
     .line 1230
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -2259,7 +2259,7 @@
     move-exception v1
 
     .line 1236
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "Parcelable[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2272,7 +2272,7 @@
 
 .method public getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -2299,18 +2299,18 @@
     move-result-object v1
 
     .line 1252
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1259
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1256
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Ljava/util/ArrayList;
@@ -2324,7 +2324,7 @@
     move-exception v0
 
     .line 1258
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "ArrayList"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2337,7 +2337,7 @@
 
 .method public getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -2353,18 +2353,18 @@
     move-result-object v1
 
     .line 1297
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1304
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1301
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Ljava/io/Serializable;
@@ -2378,7 +2378,7 @@
     move-exception v0
 
     .line 1303
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "Serializable"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2391,7 +2391,7 @@
 
 .method public getShort(Ljava/lang/String;)S
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 947
@@ -2409,8 +2409,8 @@
 
 .method public getShort(Ljava/lang/String;S)S
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # S
 
     .prologue
     .line 960
@@ -2424,16 +2424,16 @@
     move-result-object v3
 
     .line 962
-    .local v3, o:Ljava/lang/Object;
+    .local v3, "o":Ljava/lang/Object;
     if-nez v3, :cond_0
 
     .line 969
-    .end local p2
+    .end local p2    # "defaultValue":S
     :goto_0
     return p2
 
     .line 966
-    .restart local p2
+    .restart local p2    # "defaultValue":S
     :cond_0
     :try_start_0
     move-object v0, v3
@@ -2455,7 +2455,7 @@
     move-exception v6
 
     .line 968
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     const-string v4, "Short"
 
     invoke-static {p2}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
@@ -2473,7 +2473,7 @@
 
 .method public getShortArray(Ljava/lang/String;)[S
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -2489,7 +2489,7 @@
     move-result-object v2
 
     .line 1429
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -2518,7 +2518,7 @@
     move-exception v1
 
     .line 1435
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string/jumbo v3, "short[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2531,7 +2531,7 @@
 
 .method public getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -2558,18 +2558,18 @@
     move-result-object v1
 
     .line 1275
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1282
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1279
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Landroid/util/SparseArray;
@@ -2583,7 +2583,7 @@
     move-exception v0
 
     .line 1281
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "SparseArray"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2596,7 +2596,7 @@
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1118
@@ -2610,24 +2610,24 @@
     move-result-object v1
 
     .line 1121
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     :try_start_0
     check-cast v1, Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1124
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1122
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :catch_0
     move-exception v0
 
     .line 1123
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v2, "String"
 
     invoke-direct {p0, p1, v1, v2, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2640,8 +2640,8 @@
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Ljava/lang/String;
 
     .prologue
     .line 1138
@@ -2650,14 +2650,14 @@
     move-result-object v0
 
     .line 1139
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/String;
     :goto_0
     return-object p2
 
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/String;
     :cond_0
     move-object p2, v0
 
@@ -2666,7 +2666,7 @@
 
 .method public getStringArray(Ljava/lang/String;)[Ljava/lang/String;
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -2682,7 +2682,7 @@
     move-result-object v2
 
     .line 1561
-    .local v2, o:Ljava/lang/Object;
+    .local v2, "o":Ljava/lang/Object;
     if-nez v2, :cond_0
 
     move-object v3, v4
@@ -2711,7 +2711,7 @@
     move-exception v1
 
     .line 1567
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     const-string v3, "String[]"
 
     invoke-direct {p0, p1, v2, v3, v1}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2724,7 +2724,7 @@
 
 .method public getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2751,18 +2751,18 @@
     move-result-object v1
 
     .line 1341
-    .local v1, o:Ljava/lang/Object;
+    .local v1, "o":Ljava/lang/Object;
     if-nez v1, :cond_0
 
     move-object v1, v2
 
     .line 1348
-    .end local v1           #o:Ljava/lang/Object;
+    .end local v1    # "o":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 1345
-    .restart local v1       #o:Ljava/lang/Object;
+    .restart local v1    # "o":Ljava/lang/Object;
     :cond_0
     :try_start_0
     check-cast v1, Ljava/util/ArrayList;
@@ -2776,7 +2776,7 @@
     move-exception v0
 
     .line 1347
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v3, "ArrayList<String>"
 
     invoke-direct {p0, p1, v1, v3, v0}, Landroid/os/Bundle;->typeWarning(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/ClassCastException;)V
@@ -2800,7 +2800,7 @@
     const/4 v2, 0x0
 
     .line 356
-    .local v2, fdFound:Z
+    .local v2, "fdFound":Z
     iget-object v7, p0, Landroid/os/Bundle;->mParcelledData:Landroid/os/Parcel;
 
     if-eqz v7, :cond_2
@@ -2828,14 +2828,14 @@
     iput-boolean v7, p0, Landroid/os/Bundle;->mFdsKnown:Z
 
     .line 411
-    .end local v2           #fdFound:Z
+    .end local v2    # "fdFound":Z
     :cond_1
     iget-boolean v7, p0, Landroid/os/Bundle;->mHasFds:Z
 
     return v7
 
     .line 362
-    .restart local v2       #fdFound:Z
+    .restart local v2    # "fdFound":Z
     :cond_2
     iget-object v7, p0, Landroid/os/Bundle;->mMap:Landroid/util/ArrayMap;
 
@@ -2845,7 +2845,7 @@
 
     add-int/lit8 v3, v7, -0x1
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ltz v3, :cond_0
 
@@ -2857,7 +2857,7 @@
     move-result-object v5
 
     .line 364
-    .local v5, obj:Ljava/lang/Object;
+    .local v5, "obj":Ljava/lang/Object;
     instance-of v7, v5, Landroid/os/Parcelable;
 
     if-eqz v7, :cond_3
@@ -2865,7 +2865,7 @@
     .line 365
     check-cast v5, Landroid/os/Parcelable;
 
-    .end local v5           #obj:Ljava/lang/Object;
+    .end local v5    # "obj":Ljava/lang/Object;
     invoke-interface {v5}, Landroid/os/Parcelable;->describeContents()I
 
     move-result v7
@@ -2881,7 +2881,7 @@
     goto :goto_0
 
     .line 370
-    .restart local v5       #obj:Ljava/lang/Object;
+    .restart local v5    # "obj":Ljava/lang/Object;
     :cond_3
     instance-of v7, v5, [Landroid/os/Parcelable;
 
@@ -2890,18 +2890,18 @@
     .line 371
     check-cast v5, [Landroid/os/Parcelable;
 
-    .end local v5           #obj:Ljava/lang/Object;
+    .end local v5    # "obj":Ljava/lang/Object;
     move-object v0, v5
 
     check-cast v0, [Landroid/os/Parcelable;
 
     .line 372
-    .local v0, array:[Landroid/os/Parcelable;
+    .local v0, "array":[Landroid/os/Parcelable;
     array-length v7, v0
 
     add-int/lit8 v4, v7, -0x1
 
-    .local v4, n:I
+    .local v4, "n":I
     :goto_2
     if-ltz v4, :cond_4
 
@@ -2920,8 +2920,8 @@
     const/4 v2, 0x1
 
     .line 362
-    .end local v0           #array:[Landroid/os/Parcelable;
-    .end local v4           #n:I
+    .end local v0    # "array":[Landroid/os/Parcelable;
+    .end local v4    # "n":I
     :cond_4
     :goto_3
     add-int/lit8 v3, v3, -0x1
@@ -2929,17 +2929,17 @@
     goto :goto_1
 
     .line 372
-    .restart local v0       #array:[Landroid/os/Parcelable;
-    .restart local v4       #n:I
+    .restart local v0    # "array":[Landroid/os/Parcelable;
+    .restart local v4    # "n":I
     :cond_5
     add-int/lit8 v4, v4, -0x1
 
     goto :goto_2
 
     .line 379
-    .end local v0           #array:[Landroid/os/Parcelable;
-    .end local v4           #n:I
-    .restart local v5       #obj:Ljava/lang/Object;
+    .end local v0    # "array":[Landroid/os/Parcelable;
+    .end local v4    # "n":I
+    .restart local v5    # "obj":Ljava/lang/Object;
     :cond_6
     instance-of v7, v5, Landroid/util/SparseArray;
 
@@ -2951,14 +2951,14 @@
     check-cast v1, Landroid/util/SparseArray;
 
     .line 382
-    .local v1, array:Landroid/util/SparseArray;,"Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
+    .local v1, "array":Landroid/util/SparseArray;, "Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v7
 
     add-int/lit8 v4, v7, -0x1
 
-    .restart local v4       #n:I
+    .restart local v4    # "n":I
     :goto_4
     if-ltz v4, :cond_4
 
@@ -2990,8 +2990,8 @@
     goto :goto_4
 
     .line 389
-    .end local v1           #array:Landroid/util/SparseArray;,"Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
-    .end local v4           #n:I
+    .end local v1    # "array":Landroid/util/SparseArray;, "Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
+    .end local v4    # "n":I
     :cond_8
     instance-of v7, v5, Ljava/util/ArrayList;
 
@@ -3003,7 +3003,7 @@
     check-cast v0, Ljava/util/ArrayList;
 
     .line 393
-    .local v0, array:Ljava/util/ArrayList;
+    .local v0, "array":Ljava/util/ArrayList;
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -3027,7 +3027,7 @@
 
     add-int/lit8 v4, v7, -0x1
 
-    .restart local v4       #n:I
+    .restart local v4    # "n":I
     :goto_5
     if-ltz v4, :cond_4
 
@@ -3039,7 +3039,7 @@
     check-cast v6, Landroid/os/Parcelable;
 
     .line 397
-    .local v6, p:Landroid/os/Parcelable;
+    .local v6, "p":Landroid/os/Parcelable;
     if-eqz v6, :cond_9
 
     invoke-interface {v6}, Landroid/os/Parcelable;->describeContents()I
@@ -3128,7 +3128,7 @@
 
 .method public putAll(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "map"
+    .param p1, "map"    # Landroid/os/Bundle;
 
     .prologue
     .line 330
@@ -3179,8 +3179,8 @@
 
 .method public putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/os/IBinder;
 
     .prologue
     .line 793
@@ -3197,8 +3197,8 @@
 
 .method public putBoolean(Ljava/lang/String;Z)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Z
 
     .prologue
     .line 422
@@ -3219,8 +3219,8 @@
 
 .method public putBooleanArray(Ljava/lang/String;[Z)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [Z
 
     .prologue
     .line 654
@@ -3237,8 +3237,8 @@
 
 .method public putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/os/Bundle;
 
     .prologue
     .line 774
@@ -3255,8 +3255,8 @@
 
 .method public putByte(Ljava/lang/String;B)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # B
 
     .prologue
     .line 434
@@ -3277,8 +3277,8 @@
 
 .method public putByteArray(Ljava/lang/String;[B)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [B
 
     .prologue
     .line 666
@@ -3295,8 +3295,8 @@
 
 .method public putChar(Ljava/lang/String;C)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # C
 
     .prologue
     .line 446
@@ -3317,8 +3317,8 @@
 
 .method public putCharArray(Ljava/lang/String;[C)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [C
 
     .prologue
     .line 690
@@ -3335,8 +3335,8 @@
 
 .method public putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 530
@@ -3353,8 +3353,8 @@
 
 .method public putCharSequenceArray(Ljava/lang/String;[Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [Ljava/lang/CharSequence;
 
     .prologue
     .line 762
@@ -3371,8 +3371,7 @@
 
 .method public putCharSequenceArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3386,7 +3385,7 @@
 
     .prologue
     .line 630
-    .local p2, value:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/CharSequence;>;"
+    .local p2, "value":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/CharSequence;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 631
@@ -3400,8 +3399,8 @@
 
 .method public putDouble(Ljava/lang/String;D)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # D
 
     .prologue
     .line 506
@@ -3422,8 +3421,8 @@
 
 .method public putDoubleArray(Ljava/lang/String;[D)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [D
 
     .prologue
     .line 738
@@ -3440,8 +3439,8 @@
 
 .method public putFloat(Ljava/lang/String;F)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # F
 
     .prologue
     .line 494
@@ -3462,8 +3461,8 @@
 
 .method public putFloatArray(Ljava/lang/String;[F)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [F
 
     .prologue
     .line 726
@@ -3480,8 +3479,8 @@
 
 .method public putIBinder(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/os/IBinder;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -3500,8 +3499,8 @@
 
 .method public putInt(Ljava/lang/String;I)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 470
@@ -3522,8 +3521,8 @@
 
 .method public putIntArray(Ljava/lang/String;[I)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [I
 
     .prologue
     .line 702
@@ -3540,8 +3539,7 @@
 
 .method public putIntegerArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3555,7 +3553,7 @@
 
     .prologue
     .line 606
-    .local p2, value:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .local p2, "value":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 607
@@ -3569,8 +3567,8 @@
 
 .method public putLong(Ljava/lang/String;J)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # J
 
     .prologue
     .line 482
@@ -3591,8 +3589,8 @@
 
 .method public putLongArray(Ljava/lang/String;[J)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [J
 
     .prologue
     .line 714
@@ -3609,8 +3607,8 @@
 
 .method public putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/os/Parcelable;
 
     .prologue
     .line 542
@@ -3632,8 +3630,8 @@
 
 .method public putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [Landroid/os/Parcelable;
 
     .prologue
     .line 556
@@ -3655,8 +3653,7 @@
 
 .method public putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3670,7 +3667,7 @@
 
     .prologue
     .line 571
-    .local p2, value:Ljava/util/ArrayList;,"Ljava/util/ArrayList<+Landroid/os/Parcelable;>;"
+    .local p2, "value":Ljava/util/ArrayList;, "Ljava/util/ArrayList<+Landroid/os/Parcelable;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 572
@@ -3689,8 +3686,7 @@
 
 .method public putParcelableList(Ljava/lang/String;Ljava/util/List;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3704,7 +3700,7 @@
 
     .prologue
     .line 578
-    .local p2, value:Ljava/util/List;,"Ljava/util/List<+Landroid/os/Parcelable;>;"
+    .local p2, "value":Ljava/util/List;, "Ljava/util/List<+Landroid/os/Parcelable;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 579
@@ -3723,8 +3719,8 @@
 
 .method public putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/io/Serializable;
 
     .prologue
     .line 642
@@ -3741,8 +3737,8 @@
 
 .method public putShort(Ljava/lang/String;S)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # S
 
     .prologue
     .line 458
@@ -3763,8 +3759,8 @@
 
 .method public putShortArray(Ljava/lang/String;[S)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [S
 
     .prologue
     .line 678
@@ -3781,8 +3777,7 @@
 
 .method public putSparseParcelableArray(Ljava/lang/String;Landroid/util/SparseArray;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3796,7 +3791,7 @@
 
     .prologue
     .line 593
-    .local p2, value:Landroid/util/SparseArray;,"Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
+    .local p2, "value":Landroid/util/SparseArray;, "Landroid/util/SparseArray<+Landroid/os/Parcelable;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 594
@@ -3815,8 +3810,8 @@
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 518
@@ -3833,8 +3828,8 @@
 
 .method public putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [Ljava/lang/String;
 
     .prologue
     .line 750
@@ -3851,8 +3846,7 @@
 
 .method public putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3866,7 +3860,7 @@
 
     .prologue
     .line 618
-    .local p2, value:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p2, "value":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-virtual {p0}, Landroid/os/Bundle;->unparcel()V
 
     .line 619
@@ -3880,7 +3874,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 1712
@@ -3889,7 +3883,7 @@
     move-result v0
 
     .line 1713
-    .local v0, length:I
+    .local v0, "length":I
     if-gez v0, :cond_0
 
     .line 1714
@@ -3927,8 +3921,8 @@
 
 .method readFromParcelInner(Landroid/os/Parcel;I)V
     .locals 6
-    .parameter "parcel"
-    .parameter "length"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "length"    # I
 
     .prologue
     const/4 v5, 0x1
@@ -3960,8 +3954,8 @@
     move-result v0
 
     .line 1728
-    .local v0, magic:I
-    const v3, 0x4c444e42
+    .local v0, "magic":I
+    const v3, 0x4c444e42    # 5.146036E7f
 
     if-eq v0, v3, :cond_1
 
@@ -4001,7 +3995,7 @@
     move-result v1
 
     .line 1736
-    .local v1, offset:I
+    .local v1, "offset":I
     add-int v3, v1, p2
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->setDataPosition(I)V
@@ -4012,7 +4006,7 @@
     move-result-object v2
 
     .line 1739
-    .local v2, p:Landroid/os/Parcel;
+    .local v2, "p":Landroid/os/Parcel;
     invoke-virtual {v2, v4}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 1740
@@ -4039,7 +4033,7 @@
 
 .method public remove(Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 320
@@ -4056,14 +4050,14 @@
 
 .method public setAllowFds(Z)Z
     .locals 1
-    .parameter "allowFds"
+    .param p1, "allowFds"    # Z
 
     .prologue
     .line 200
     iget-boolean v0, p0, Landroid/os/Bundle;->mAllowFds:Z
 
     .line 201
-    .local v0, orig:Z
+    .local v0, "orig":Z
     iput-boolean p1, p0, Landroid/os/Bundle;->mAllowFds:Z
 
     .line 202
@@ -4072,7 +4066,7 @@
 
 .method public setClassLoader(Ljava/lang/ClassLoader;)V
     .locals 0
-    .parameter "loader"
+    .param p1, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 188
@@ -4289,7 +4283,7 @@
     move-result v0
 
     .line 240
-    .local v0, N:I
+    .local v0, "N":I
     if-ltz v0, :cond_0
 
     .line 243
@@ -4344,8 +4338,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 7
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1670
@@ -4356,7 +4350,7 @@
     move-result v3
 
     .line 1672
-    .local v3, oldAllowFds:Z
+    .local v3, "oldAllowFds":Z
     :try_start_0
     iget-object v5, p0, Landroid/os/Bundle;->mParcelledData:Landroid/os/Parcel;
 
@@ -4394,11 +4388,11 @@
     move-result v1
 
     .line 1677
-    .local v1, length:I
+    .local v1, "length":I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1678
-    const v5, 0x4c444e42
+    const v5, 0x4c444e42    # 5.146036E7f
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -4414,7 +4408,7 @@
     goto :goto_0
 
     .line 1702
-    .end local v1           #length:I
+    .end local v1    # "length":I
     :catchall_0
     move-exception v5
 
@@ -4458,13 +4452,13 @@
     move-result v2
 
     .line 1688
-    .local v2, lengthPos:I
+    .local v2, "lengthPos":I
     const/4 v5, -0x1
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1689
-    const v5, 0x4c444e42
+    const v5, 0x4c444e42    # 5.146036E7f
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -4474,7 +4468,7 @@
     move-result v4
 
     .line 1692
-    .local v4, startPos:I
+    .local v4, "startPos":I
     iget-object v5, p0, Landroid/os/Bundle;->mMap:Landroid/util/ArrayMap;
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeArrayMapInternal(Landroid/util/ArrayMap;)V
@@ -4485,14 +4479,14 @@
     move-result v0
 
     .line 1696
-    .local v0, endPos:I
+    .local v0, "endPos":I
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 1697
     sub-int v1, v0, v4
 
     .line 1698
-    .restart local v1       #length:I
+    .restart local v1    # "length":I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1699

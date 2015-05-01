@@ -88,7 +88,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/policy/IKeyguardService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 23
@@ -110,7 +110,7 @@
     move-result-object v0
 
     .line 27
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/policy/IKeyguardService;
@@ -126,7 +126,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/policy/IKeyguardService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/policy/IKeyguardService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -144,10 +144,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -190,7 +190,7 @@
     move-result v2
 
     .line 49
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 50
@@ -204,7 +204,7 @@
     goto :goto_0
 
     .line 55
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_2
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -216,7 +216,7 @@
     move-result v2
 
     .line 57
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 58
@@ -230,7 +230,7 @@
     goto :goto_0
 
     .line 63
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_3
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -242,7 +242,7 @@
     move-result v2
 
     .line 65
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 66
@@ -256,7 +256,7 @@
     goto :goto_0
 
     .line 71
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_4
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -268,7 +268,7 @@
     move-result v2
 
     .line 73
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 74
@@ -282,7 +282,7 @@
     goto :goto_0
 
     .line 79
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_5
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -294,7 +294,7 @@
     move-result v2
 
     .line 81
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 82
@@ -308,7 +308,7 @@
     goto :goto_0
 
     .line 87
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_6
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -324,13 +324,13 @@
     move-result-object v0
 
     .line 90
-    .local v0, _arg0:Lcom/android/internal/policy/IKeyguardExitCallback;
+    .local v0, "_arg0":Lcom/android/internal/policy/IKeyguardExitCallback;
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->verifyUnlock(Lcom/android/internal/policy/IKeyguardExitCallback;)V
 
     goto :goto_0
 
     .line 95
-    .end local v0           #_arg0:Lcom/android/internal/policy/IKeyguardExitCallback;
+    .end local v0    # "_arg0":Lcom/android/internal/policy/IKeyguardExitCallback;
     :sswitch_7
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -346,7 +346,7 @@
     move v0, v4
 
     .line 99
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -357,21 +357,21 @@
     move v1, v4
 
     .line 100
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :goto_2
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/policy/IKeyguardService$Stub;->keyguardDone(ZZ)V
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
-    .end local v1           #_arg1:Z
+    .end local v0    # "_arg0":Z
+    .end local v1    # "_arg1":Z
     :cond_5
     move v0, v3
 
     .line 97
     goto :goto_1
 
-    .restart local v0       #_arg0:Z
+    .restart local v0    # "_arg0":Z
     :cond_6
     move v1, v3
 
@@ -379,7 +379,7 @@
     goto :goto_2
 
     .line 105
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :sswitch_8
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -395,13 +395,13 @@
     move v0, v4
 
     .line 108
-    .restart local v0       #_arg0:Z
+    .restart local v0    # "_arg0":Z
     :goto_3
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->setHidden(Z)V
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :cond_7
     move v0, v3
 
@@ -453,13 +453,13 @@
     move-result v0
 
     .line 134
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->onScreenTurnedOff(I)V
 
     goto/16 :goto_0
 
     .line 139
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_d
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -475,13 +475,13 @@
     move-result-object v0
 
     .line 142
-    .local v0, _arg0:Lcom/android/internal/policy/IKeyguardShowCallback;
+    .local v0, "_arg0":Lcom/android/internal/policy/IKeyguardShowCallback;
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->onScreenTurnedOn(Lcom/android/internal/policy/IKeyguardShowCallback;)V
 
     goto/16 :goto_0
 
     .line 147
-    .end local v0           #_arg0:Lcom/android/internal/policy/IKeyguardShowCallback;
+    .end local v0    # "_arg0":Lcom/android/internal/policy/IKeyguardShowCallback;
     :sswitch_e
     const-string v5, "com.android.internal.policy.IKeyguardService"
 
@@ -497,13 +497,13 @@
     move v0, v4
 
     .line 150
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_4
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->setKeyguardEnabled(Z)V
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :cond_8
     move v0, v3
 
@@ -544,22 +544,22 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 169
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     :goto_5
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->doKeyguardTimeout(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
     .line 167
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :cond_9
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_5
 
     .line 174
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_11
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -571,13 +571,13 @@
     move-result v0
 
     .line 177
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->setCurrentUser(I)V
 
     goto/16 :goto_0
 
     .line 182
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_12
     const-string v3, "com.android.internal.policy.IKeyguardService"
 
@@ -611,22 +611,22 @@
     check-cast v0, Landroid/view/MotionEvent;
 
     .line 196
-    .local v0, _arg0:Landroid/view/MotionEvent;
+    .local v0, "_arg0":Landroid/view/MotionEvent;
     :goto_6
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardService$Stub;->dispatch(Landroid/view/MotionEvent;)V
 
     goto/16 :goto_0
 
     .line 194
-    .end local v0           #_arg0:Landroid/view/MotionEvent;
+    .end local v0    # "_arg0":Landroid/view/MotionEvent;
     :cond_a
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/MotionEvent;
+    .restart local v0    # "_arg0":Landroid/view/MotionEvent;
     goto :goto_6
 
     .line 201
-    .end local v0           #_arg0:Landroid/view/MotionEvent;
+    .end local v0    # "_arg0":Landroid/view/MotionEvent;
     :sswitch_14
     const-string v3, "com.android.internal.policy.IKeyguardService"
 

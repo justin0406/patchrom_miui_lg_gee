@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Picture;I)V
     .locals 0
-    .parameter "pict"
-    .parameter "nativeCanvas"
+    .param p1, "pict"    # Landroid/graphics/Picture;
+    .param p2, "nativeCanvas"    # I
 
     .prologue
     .line 195
@@ -39,7 +39,7 @@
 # virtual methods
 .method public drawPicture(Landroid/graphics/Picture;)V
     .locals 2
-    .parameter "picture"
+    .param p1, "picture"    # Landroid/graphics/Picture;
 
     .prologue
     .line 207
@@ -66,7 +66,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 201

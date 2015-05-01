@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 44
@@ -32,8 +32,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 40
@@ -47,9 +47,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 36
@@ -73,7 +73,7 @@
 
 .method protected onDialogClosed(Z)V
     .locals 1
-    .parameter "positiveResult"
+    .param p1, "positiveResult"    # Z
 
     .prologue
     .line 49
@@ -100,8 +100,8 @@
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 81
@@ -120,7 +120,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 110
@@ -150,7 +150,7 @@
     check-cast v0, Lcom/android/internal/preference/YesNoPreference$SavedState;
 
     .line 117
-    .local v0, myState:Lcom/android/internal/preference/YesNoPreference$SavedState;
+    .local v0, "myState":Lcom/android/internal/preference/YesNoPreference$SavedState;
     invoke-virtual {v0}, Lcom/android/internal/preference/YesNoPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -175,7 +175,7 @@
     move-result-object v1
 
     .line 98
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Lcom/android/internal/preference/YesNoPreference;->isPersistent()Z
 
     move-result v2
@@ -183,19 +183,19 @@
     if-eqz v2, :cond_0
 
     .line 105
-    .end local v1           #superState:Landroid/os/Parcelable;
+    .end local v1    # "superState":Landroid/os/Parcelable;
     :goto_0
     return-object v1
 
     .line 103
-    .restart local v1       #superState:Landroid/os/Parcelable;
+    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
     new-instance v0, Lcom/android/internal/preference/YesNoPreference$SavedState;
 
     invoke-direct {v0, v1}, Lcom/android/internal/preference/YesNoPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 104
-    .local v0, myState:Lcom/android/internal/preference/YesNoPreference$SavedState;
+    .local v0, "myState":Lcom/android/internal/preference/YesNoPreference$SavedState;
     invoke-virtual {p0}, Lcom/android/internal/preference/YesNoPreference;->getValue()Z
 
     move-result v2
@@ -210,8 +210,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 1
-    .parameter "restorePersistedValue"
-    .parameter "defaultValue"
+    .param p1, "restorePersistedValue"    # Z
+    .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 86
@@ -223,7 +223,7 @@
 
     move-result v0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/preference/YesNoPreference;->setValue(Z)V
 
@@ -231,11 +231,11 @@
     return-void
 
     .line 86
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :cond_0
     check-cast p2, Ljava/lang/Boolean;
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
@@ -245,7 +245,7 @@
 
 .method public setValue(Z)V
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 63

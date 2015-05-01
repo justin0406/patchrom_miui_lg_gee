@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/app/Notification$Builder;)V
     .locals 2
-    .parameter "builder"
+    .param p1, "builder"    # Landroid/app/Notification$Builder;
 
     .prologue
     .line 2218
@@ -85,7 +85,7 @@
 
     const/4 v11, 0x0
 
-    #setter for: Landroid/app/Notification$Builder;->mContentText:Ljava/lang/CharSequence;
+    # setter for: Landroid/app/Notification$Builder;->mContentText:Ljava/lang/CharSequence;
     invoke-static {v8, v11}, Landroid/app/Notification$Builder;->access$502(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     .line 2259
@@ -96,7 +96,7 @@
     move-result-object v1
 
     .line 2261
-    .local v1, contentView:Landroid/widget/RemoteViews;
+    .local v1, "contentView":Landroid/widget/RemoteViews;
     const v8, 0x1020015
 
     invoke-virtual {v1, v8, v10}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
@@ -109,23 +109,23 @@
     fill-array-data v6, :array_0
 
     .line 2267
-    .local v6, rowIds:[I
+    .local v6, "rowIds":[I
     move-object v0, v6
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget v5, v0, v3
 
     .line 2268
-    .local v5, rowId:I
+    .local v5, "rowId":I
     invoke-virtual {v1, v5, v10}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 2267
@@ -134,12 +134,12 @@
     goto :goto_0
 
     .line 2272
-    .end local v5           #rowId:I
+    .end local v5    # "rowId":I
     :cond_0
     const/4 v2, 0x0
 
     .line 2273
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     iget-object v8, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
@@ -163,7 +163,7 @@
     check-cast v7, Ljava/lang/CharSequence;
 
     .line 2275
-    .local v7, str:Ljava/lang/CharSequence;
+    .local v7, "str":Ljava/lang/CharSequence;
     if-eqz v7, :cond_1
 
     const-string v8, ""
@@ -192,7 +192,7 @@
     goto :goto_1
 
     .line 2282
-    .end local v7           #str:Ljava/lang/CharSequence;
+    .end local v7    # "str":Ljava/lang/CharSequence;
     :cond_2
     const v11, 0x10202e7
 
@@ -244,14 +244,14 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0xdft 0x2t 0x2t 0x1t
-        0xe0t 0x2t 0x2t 0x1t
-        0xe1t 0x2t 0x2t 0x1t
-        0xe2t 0x2t 0x2t 0x1t
-        0xe3t 0x2t 0x2t 0x1t
-        0xe4t 0x2t 0x2t 0x1t
-        0xe5t 0x2t 0x2t 0x1t
+    .array-data 4
+        0x10202df
+        0x10202e0
+        0x10202e1
+        0x10202e2
+        0x10202e3
+        0x10202e4
+        0x10202e5
     .end array-data
 .end method
 
@@ -259,7 +259,7 @@
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 2251
@@ -275,7 +275,7 @@
     new-array v0, v1, [Ljava/lang/CharSequence;
 
     .line 2253
-    .local v0, a:[Ljava/lang/CharSequence;
+    .local v0, "a":[Ljava/lang/CharSequence;
     const-string v2, "android.textLines"
 
     iget-object v1, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
@@ -294,7 +294,7 @@
 
 .method public addLine(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
     .locals 2
-    .parameter "cs"
+    .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2243
@@ -312,7 +312,7 @@
 
 .method public buildStyled(Landroid/app/Notification;)Landroid/app/Notification;
     .locals 1
-    .parameter "wip"
+    .param p1, "wip"    # Landroid/app/Notification;
 
     .prologue
     .line 2296
@@ -328,7 +328,7 @@
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2227
@@ -344,7 +344,7 @@
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
     .locals 1
-    .parameter "cs"
+    .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2235

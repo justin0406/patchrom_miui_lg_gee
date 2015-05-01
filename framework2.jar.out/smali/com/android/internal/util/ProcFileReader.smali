@@ -19,7 +19,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .parameter "stream"
+    .param p1, "stream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -38,8 +38,8 @@
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
     .locals 1
-    .parameter "stream"
-    .parameter "bufferSize"
+    .param p1, "stream"    # Ljava/io/InputStream;
+    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -67,7 +67,7 @@
 
 .method private consumeBuf(I)V
     .locals 4
-    .parameter "count"
+    .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -127,7 +127,7 @@
     sub-int v0, v2, v3
 
     .line 60
-    .local v0, length:I
+    .local v0, "length":I
     if-nez v0, :cond_0
 
     .line 61
@@ -152,7 +152,7 @@
     move-result v1
 
     .line 65
-    .local v1, read:I
+    .local v1, "read":I
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_1
@@ -171,7 +171,7 @@
 
 .method private invalidLong(I)Ljava/lang/NumberFormatException;
     .locals 6
-    .parameter "tokenIndex"
+    .param p1, "tokenIndex"    # I
 
     .prologue
     .line 214
@@ -237,7 +237,7 @@
     const/4 v1, 0x0
 
     .line 100
-    .local v1, i:I
+    .local v1, "i":I
     :cond_2
     :goto_1
     iget v2, p0, Lcom/android/internal/util/ProcFileReader;->mTail:I
@@ -250,7 +250,7 @@
     aget-byte v0, v2, v1
 
     .line 102
-    .local v0, b:B
+    .local v0, "b":B
     const/16 v2, 0xa
 
     if-ne v0, v2, :cond_3
@@ -274,7 +274,7 @@
     goto :goto_1
 
     .line 110
-    .end local v0           #b:B
+    .end local v0    # "b":B
     :cond_4
     invoke-direct {p0}, Lcom/android/internal/util/ProcFileReader;->fillBuf()I
 
@@ -294,7 +294,7 @@
 
 .method private parseAndConsumeLong(I)J
     .locals 11
-    .parameter "tokenIndex"
+    .param p1, "tokenIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -318,15 +318,15 @@
     move v2, v1
 
     .line 193
-    .local v2, negative:Z
+    .local v2, "negative":Z
     :goto_0
     const-wide/16 v5, 0x0
 
     .line 194
-    .local v5, result:J
+    .local v5, "result":J
     if-eqz v2, :cond_2
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, p1, :cond_5
 
@@ -338,7 +338,7 @@
     add-int/lit8 v0, v7, -0x30
 
     .line 196
-    .local v0, digit:I
+    .local v0, "digit":I
     if-ltz v0, :cond_0
 
     const/16 v7, 0x9
@@ -353,18 +353,18 @@
 
     throw v7
 
-    .end local v0           #digit:I
-    .end local v1           #i:I
-    .end local v2           #negative:Z
-    .end local v5           #result:J
+    .end local v0    # "digit":I
+    .end local v1    # "i":I
+    .end local v2    # "negative":Z
+    .end local v5    # "result":J
     :cond_1
     move v2, v7
 
     .line 190
     goto :goto_0
 
-    .restart local v2       #negative:Z
-    .restart local v5       #result:J
+    .restart local v2    # "negative":Z
+    .restart local v5    # "result":J
     :cond_2
     move v1, v7
 
@@ -372,8 +372,8 @@
     goto :goto_1
 
     .line 202
-    .restart local v0       #digit:I
-    .restart local v1       #i:I
+    .restart local v0    # "digit":I
+    .restart local v1    # "i":I
     :cond_3
     const-wide/16 v7, 0xa
 
@@ -384,7 +384,7 @@
     sub-long v3, v7, v9
 
     .line 203
-    .local v3, next:J
+    .local v3, "next":J
     cmp-long v7, v3, v5
 
     if-lez v7, :cond_4
@@ -406,8 +406,8 @@
     goto :goto_1
 
     .line 209
-    .end local v0           #digit:I
-    .end local v3           #next:J
+    .end local v0    # "digit":I
+    .end local v3    # "next":J
     :cond_5
     add-int/lit8 v7, p1, 0x1
 
@@ -416,11 +416,11 @@
     .line 210
     if-eqz v2, :cond_6
 
-    .end local v5           #result:J
+    .end local v5    # "result":J
     :goto_2
     return-wide v5
 
-    .restart local v5       #result:J
+    .restart local v5    # "result":J
     :cond_6
     neg-long v5, v5
 
@@ -429,7 +429,7 @@
 
 .method private parseAndConsumeString(I)Ljava/lang/String;
     .locals 4
-    .parameter "tokenIndex"
+    .param p1, "tokenIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -449,7 +449,7 @@
     invoke-direct {v0, v1, v2, p1, v3}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
     .line 185
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     add-int/lit8 v1, p1, 0x1
 
     invoke-direct {p0, v1}, Lcom/android/internal/util/ProcFileReader;->consumeBuf(I)V
@@ -506,7 +506,7 @@
     const/4 v0, 0x0
 
     .line 135
-    .local v0, i:I
+    .local v0, "i":I
     :cond_1
     :goto_1
     iget v1, p0, Lcom/android/internal/util/ProcFileReader;->mTail:I
@@ -588,7 +588,7 @@
     move-result-wide v0
 
     .line 223
-    .local v0, value:J
+    .local v0, "value":J
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v2, v0, v2
@@ -633,7 +633,7 @@
     move-result v0
 
     .line 163
-    .local v0, tokenIndex:I
+    .local v0, "tokenIndex":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
@@ -658,7 +658,7 @@
 
 .method public nextOptionalLong(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -672,17 +672,17 @@
     move-result v0
 
     .line 176
-    .local v0, tokenIndex:I
+    .local v0, "tokenIndex":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
     .line 179
-    .end local p1
+    .end local p1    # "def":J
     :goto_0
     return-wide p1
 
-    .restart local p1
+    .restart local p1    # "def":J
     :cond_0
     invoke-direct {p0, v0}, Lcom/android/internal/util/ProcFileReader;->parseAndConsumeLong(I)J
 
@@ -706,7 +706,7 @@
     move-result v0
 
     .line 151
-    .local v0, tokenIndex:I
+    .local v0, "tokenIndex":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/SpeechRecognizer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 126
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 129
@@ -56,7 +55,7 @@
 
     check-cast v0, Landroid/content/Intent;
 
-    #calls: Landroid/speech/SpeechRecognizer;->handleStartListening(Landroid/content/Intent;)V
+    # invokes: Landroid/speech/SpeechRecognizer;->handleStartListening(Landroid/content/Intent;)V
     invoke-static {v1, v0}, Landroid/speech/SpeechRecognizer;->access$000(Landroid/speech/SpeechRecognizer;Landroid/content/Intent;)V
 
     goto :goto_0
@@ -65,7 +64,7 @@
     :pswitch_1
     iget-object v0, p0, Landroid/speech/SpeechRecognizer$1;->this$0:Landroid/speech/SpeechRecognizer;
 
-    #calls: Landroid/speech/SpeechRecognizer;->handleStopMessage()V
+    # invokes: Landroid/speech/SpeechRecognizer;->handleStopMessage()V
     invoke-static {v0}, Landroid/speech/SpeechRecognizer;->access$100(Landroid/speech/SpeechRecognizer;)V
 
     goto :goto_0
@@ -74,7 +73,7 @@
     :pswitch_2
     iget-object v0, p0, Landroid/speech/SpeechRecognizer$1;->this$0:Landroid/speech/SpeechRecognizer;
 
-    #calls: Landroid/speech/SpeechRecognizer;->handleCancelMessage()V
+    # invokes: Landroid/speech/SpeechRecognizer;->handleCancelMessage()V
     invoke-static {v0}, Landroid/speech/SpeechRecognizer;->access$200(Landroid/speech/SpeechRecognizer;)V
 
     goto :goto_0
@@ -87,7 +86,7 @@
 
     check-cast v0, Landroid/speech/RecognitionListener;
 
-    #calls: Landroid/speech/SpeechRecognizer;->handleChangeListener(Landroid/speech/RecognitionListener;)V
+    # invokes: Landroid/speech/SpeechRecognizer;->handleChangeListener(Landroid/speech/RecognitionListener;)V
     invoke-static {v1, v0}, Landroid/speech/SpeechRecognizer;->access$300(Landroid/speech/SpeechRecognizer;Landroid/speech/RecognitionListener;)V
 
     goto :goto_0

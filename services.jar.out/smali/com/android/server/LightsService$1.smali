@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LightsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 140
@@ -53,13 +52,13 @@
     invoke-direct {v1, v4}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
     .line 147
-    .local v1, fis:Ljava/io/FileInputStream;
+    .local v1, "fis":Ljava/io/FileInputStream;
     invoke-virtual {v1}, Ljava/io/FileInputStream;->read()I
 
     move-result v2
 
     .line 148
-    .local v2, result:I
+    .local v2, "result":I
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -72,8 +71,8 @@
     const/4 v3, 0x1
 
     .line 151
-    .end local v1           #fis:Ljava/io/FileInputStream;
-    .end local v2           #result:I
+    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .end local v2    # "result":I
     :cond_0
     :goto_0
     return v3
@@ -83,19 +82,51 @@
     move-exception v0
 
     .line 151
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     goto :goto_0
+.end method
+
+.method public setButtonLightEnabled(Z)V
+    .locals 2
+    .param p1, "on"    # Z
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
+
+    # getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/LightsService;->access$300(Lcom/android/server/LightsService;)Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "android.permission.HARDWARE_TEST"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    const-string v1, "Requires FLASHLIGHT permission"
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method public setFlashlightEnabled(Z)V
     .locals 4
-    .parameter "on"
+    .param p1, "on"    # Z
 
     .prologue
     .line 156
     iget-object v2, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
 
-    #getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/LightsService;->access$300(Lcom/android/server/LightsService;)Landroid/content/Context;
 
     move-result-object v2
@@ -110,7 +141,7 @@
 
     iget-object v2, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
 
-    #getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/LightsService;->access$300(Lcom/android/server/LightsService;)Landroid/content/Context;
 
     move-result-object v2
@@ -142,13 +173,13 @@
     invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 164
-    .local v1, fos:Ljava/io/FileOutputStream;
+    .local v1, "fos":Ljava/io/FileOutputStream;
     const/4 v2, 0x2
 
     new-array v0, v2, [B
 
     .line 165
-    .local v0, bytes:[B
+    .local v0, "bytes":[B
     const/4 v3, 0x0
 
     if-eqz p1, :cond_1
@@ -176,22 +207,22 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 172
-    .end local v0           #bytes:[B
-    .end local v1           #fos:Ljava/io/FileOutputStream;
+    .end local v0    # "bytes":[B
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
     :goto_1
     return-void
 
     .line 165
-    .restart local v0       #bytes:[B
-    .restart local v1       #fos:Ljava/io/FileOutputStream;
+    .restart local v0    # "bytes":[B
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     :cond_1
     const/16 v2, 0x30
 
     goto :goto_0
 
     .line 169
-    .end local v0           #bytes:[B
-    .end local v1           #fos:Ljava/io/FileOutputStream;
+    .end local v0    # "bytes":[B
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v2
 

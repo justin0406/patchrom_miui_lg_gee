@@ -28,7 +28,7 @@
 
 .method public static bytesPerSampleForColorspace(I)I
     .locals 3
-    .parameter "colorspace"
+    .param p0, "colorspace"    # I
 
     .prologue
     const/4 v0, 0x3
@@ -96,7 +96,7 @@
 
 .method public static create(I)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "colorspace"
+    .param p0, "colorspace"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -115,8 +115,8 @@
 
 .method public static create(II)Landroid/filterfw/core/MutableFrameFormat;
     .locals 2
-    .parameter "colorspace"
-    .parameter "target"
+    .param p0, "colorspace"    # I
+    .param p1, "target"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -135,10 +135,10 @@
 
 .method public static create(IIII)Landroid/filterfw/core/MutableFrameFormat;
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "colorspace"
-    .parameter "target"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
+    .param p2, "colorspace"    # I
+    .param p3, "target"    # I
 
     .prologue
     .line 55
@@ -155,11 +155,11 @@
 
 .method public static create(IIIII)Landroid/filterfw/core/MutableFrameFormat;
     .locals 3
-    .parameter "width"
-    .parameter "height"
-    .parameter "colorspace"
-    .parameter "bytesPerSample"
-    .parameter "target"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
+    .param p2, "colorspace"    # I
+    .param p3, "bytesPerSample"    # I
+    .param p4, "target"    # I
 
     .prologue
     .line 41
@@ -170,7 +170,7 @@
     invoke-direct {v0, v1, p4}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 42
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {v0, p0, p1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 43

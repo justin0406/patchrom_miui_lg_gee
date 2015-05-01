@@ -26,7 +26,7 @@
 
 .method public constructor <init>(Z)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Z
 
     .prologue
     .line 51
@@ -61,8 +61,8 @@
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -93,7 +93,7 @@
 
 .method public block(J)Z
     .locals 6
-    .parameter "timeout"
+    .param p1, "timeout"    # J
 
     .prologue
     .line 122
@@ -113,11 +113,11 @@
     move-result-wide v2
 
     .line 125
-    .local v2, now:J
+    .local v2, "now":J
     add-long v0, v2, p1
 
     .line 126
-    .local v0, end:J
+    .local v0, "end":J
     :goto_0
     iget-boolean v4, p0, Landroid/os/ConditionVariable;->mCondition:Z
     :try_end_0
@@ -135,8 +135,8 @@
     :try_start_1
     invoke-virtual {p0, v4, v5}, Ljava/lang/Object;->wait(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 132
     :goto_1
@@ -154,8 +154,8 @@
     monitor-exit p0
 
     .line 138
-    .end local v0           #end:J
-    .end local v2           #now:J
+    .end local v0    # "end":J
+    .end local v2    # "now":J
     :goto_2
     return v4
 
@@ -179,8 +179,8 @@
     goto :goto_2
 
     .line 130
-    .restart local v0       #end:J
-    .restart local v2       #now:J
+    .restart local v0    # "end":J
+    .restart local v2    # "now":J
     :catch_0
     move-exception v4
 
@@ -229,7 +229,7 @@
     iget-boolean v0, p0, Landroid/os/ConditionVariable;->mCondition:Z
 
     .line 66
-    .local v0, old:Z
+    .local v0, "old":Z
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/os/ConditionVariable;->mCondition:Z
@@ -248,7 +248,7 @@
     return-void
 
     .line 70
-    .end local v0           #old:Z
+    .end local v0    # "old":Z
     :catchall_0
     move-exception v1
 

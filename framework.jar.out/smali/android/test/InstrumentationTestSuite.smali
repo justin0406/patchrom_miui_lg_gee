@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;)V
     .locals 0
-    .parameter "instr"
+    .param p1, "instr"    # Landroid/app/Instrumentation;
 
     .prologue
     .line 37
@@ -25,8 +25,8 @@
 
 .method public constructor <init>(Ljava/lang/Class;Landroid/app/Instrumentation;)V
     .locals 0
-    .parameter "theClass"
-    .parameter "instr"
+    .param p1, "theClass"    # Ljava/lang/Class;
+    .param p2, "instr"    # Landroid/app/Instrumentation;
 
     .prologue
     .line 53
@@ -41,8 +41,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Landroid/app/Instrumentation;)V
     .locals 0
-    .parameter "name"
-    .parameter "instr"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "instr"    # Landroid/app/Instrumentation;
 
     .prologue
     .line 43
@@ -59,7 +59,7 @@
 # virtual methods
 .method public addTestSuite(Ljava/lang/Class;)V
     .locals 2
-    .parameter "testClass"
+    .param p1, "testClass"    # Ljava/lang/Class;
 
     .prologue
     .line 60
@@ -77,8 +77,8 @@
 
 .method public runTest(Ljunit/framework/Test;Ljunit/framework/TestResult;)V
     .locals 2
-    .parameter "test"
-    .parameter "result"
+    .param p1, "test"    # Ljunit/framework/Test;
+    .param p2, "result"    # Ljunit/framework/TestResult;
 
     .prologue
     .line 67

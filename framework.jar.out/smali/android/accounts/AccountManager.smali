@@ -107,8 +107,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/accounts/IAccountManager;)V
     .locals 2
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/accounts/IAccountManager;
 
     .prologue
     .line 250
@@ -153,9 +153,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/accounts/IAccountManager;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "service"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/accounts/IAccountManager;
+    .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 259
@@ -190,7 +190,7 @@
 
 .method static synthetic access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
 
     .prologue
     .line 144
@@ -201,7 +201,7 @@
 
 .method static synthetic access$1300(Landroid/accounts/AccountManager;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
 
     .prologue
     .line 144
@@ -212,10 +212,10 @@
 
 .method static synthetic access$1400(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
+    .param p1, "x1"    # Landroid/os/Handler;
+    .param p2, "x2"    # Landroid/accounts/OnAccountsUpdateListener;
+    .param p3, "x3"    # [Landroid/accounts/Account;
 
     .prologue
     .line 144
@@ -226,7 +226,7 @@
 
 .method static synthetic access$200(Landroid/accounts/AccountManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
 
     .prologue
     .line 144
@@ -237,10 +237,10 @@
 
 .method static synthetic access$300(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/AccountManagerFuture;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
+    .param p1, "x1"    # Landroid/os/Handler;
+    .param p2, "x2"    # Landroid/accounts/AccountManagerCallback;
+    .param p3, "x3"    # Landroid/accounts/AccountManagerFuture;
 
     .prologue
     .line 144
@@ -251,9 +251,9 @@
 
 .method static synthetic access$400(Landroid/accounts/AccountManager;ILjava/lang/String;)Ljava/lang/Exception;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 144
@@ -266,7 +266,7 @@
 
 .method static synthetic access$600(Landroid/accounts/AccountManager;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/accounts/AccountManager;
 
     .prologue
     .line 144
@@ -277,8 +277,8 @@
 
 .method private convertErrorToException(ILjava/lang/String;)Ljava/lang/Exception;
     .locals 1
-    .parameter "code"
-    .parameter "message"
+    .param p1, "code"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 1710
@@ -353,7 +353,7 @@
     move-result-object v1
 
     .line 1411
-    .local v1, looper:Landroid/os/Looper;
+    .local v1, "looper":Landroid/os/Looper;
     if-eqz v1, :cond_0
 
     iget-object v2, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
@@ -372,7 +372,7 @@
     invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     .line 1414
-    .local v0, exception:Ljava/lang/IllegalStateException;
+    .local v0, "exception":Ljava/lang/IllegalStateException;
     const-string v2, "AccountManager"
 
     const-string v3, "calling this from your main thread can lead to deadlock and/or ANRs"
@@ -396,14 +396,14 @@
     throw v0
 
     .line 1420
-    .end local v0           #exception:Ljava/lang/IllegalStateException;
+    .end local v0    # "exception":Ljava/lang/IllegalStateException;
     :cond_0
     return-void
 .end method
 
 .method public static get(Landroid/content/Context;)Landroid/accounts/AccountManager;
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 295
@@ -432,14 +432,13 @@
 
 .method public static newChooseAccountIntent(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
     .locals 4
-    .parameter "selectedAccount"
-    .parameter
-    .parameter "allowableAccountTypes"
-    .parameter "alwaysPromptForAccount"
-    .parameter "descriptionOverrideText"
-    .parameter "addAccountAuthTokenType"
-    .parameter "addAccountRequiredFeatures"
-    .parameter "addAccountOptions"
+    .param p0, "selectedAccount"    # Landroid/accounts/Account;
+    .param p2, "allowableAccountTypes"    # [Ljava/lang/String;
+    .param p3, "alwaysPromptForAccount"    # Z
+    .param p4, "descriptionOverrideText"    # Ljava/lang/String;
+    .param p5, "addAccountAuthTokenType"    # Ljava/lang/String;
+    .param p6, "addAccountRequiredFeatures"    # [Ljava/lang/String;
+    .param p7, "addAccountOptions"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -462,13 +461,13 @@
 
     .prologue
     .line 1980
-    .local p1, allowableAccounts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/accounts/Account;>;"
+    .local p1, "allowableAccounts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/accounts/Account;>;"
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
     .line 1981
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -484,7 +483,7 @@
     move-result-object v0
 
     .line 1983
-    .local v0, componentName:Landroid/content/ComponentName;
+    .local v0, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -541,9 +540,7 @@
 
 .method private postToHandler(Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/AccountManagerFuture;)V
     .locals 1
-    .parameter "handler"
-    .parameter
-    .parameter
+    .param p1, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -561,8 +558,8 @@
 
     .prologue
     .line 1424
-    .local p2, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
-    .local p3, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
+    .local p2, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p3, "future":Landroid/accounts/AccountManagerFuture;, "Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     iget-object p1, p0, Landroid/accounts/AccountManager;->mMainHandler:Landroid/os/Handler;
@@ -581,9 +578,9 @@
 
 .method private postToHandler(Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     .locals 3
-    .parameter "handler"
-    .parameter "listener"
-    .parameter "accounts"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "listener"    # Landroid/accounts/OnAccountsUpdateListener;
+    .param p3, "accounts"    # [Landroid/accounts/Account;
 
     .prologue
     const/4 v2, 0x0
@@ -594,7 +591,7 @@
     new-array v0, v1, [Landroid/accounts/Account;
 
     .line 1437
-    .local v0, accountsCopy:[Landroid/accounts/Account;
+    .local v0, "accountsCopy":[Landroid/accounts/Account;
     array-length v1, v0
 
     invoke-static {p3, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -618,7 +615,7 @@
 
 .method public static sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 3
-    .parameter "result"
+    .param p0, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 269
@@ -651,7 +648,7 @@
     invoke-direct {v0, p0}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     .line 273
-    .local v0, newResult:Landroid/os/Bundle;
+    .local v0, "newResult":Landroid/os/Bundle;
     const-string v1, "authtoken"
 
     const-string v2, "<omitted for logging purposes>"
@@ -659,7 +656,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 277
-    .end local v0           #newResult:Landroid/os/Bundle;
+    .end local v0    # "newResult":Landroid/os/Bundle;
     :goto_0
     return-object v0
 
@@ -673,13 +670,12 @@
 # virtual methods
 .method public addAccount(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 10
-    .parameter "accountType"
-    .parameter "authTokenType"
-    .parameter "requiredFeatures"
-    .parameter "addAccountOptions"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "requiredFeatures"    # [Ljava/lang/String;
+    .param p4, "addAccountOptions"    # Landroid/os/Bundle;
+    .param p5, "activity"    # Landroid/app/Activity;
+    .param p7, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -704,7 +700,7 @@
 
     .prologue
     .line 1151
-    .local p6, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p6, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -722,7 +718,7 @@
     invoke-direct {v9}, Landroid/os/Bundle;-><init>()V
 
     .line 1153
-    .local v9, optionsIn:Landroid/os/Bundle;
+    .local v9, "optionsIn":Landroid/os/Bundle;
     if-eqz p4, :cond_1
 
     .line 1154
@@ -770,9 +766,9 @@
 
 .method public addAccountExplicitly(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 3
-    .parameter "account"
-    .parameter "password"
-    .parameter "userdata"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "userdata"    # Landroid/os/Bundle;
 
     .prologue
     .line 610
@@ -804,7 +800,7 @@
     move-exception v0
 
     .line 615
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -814,9 +810,9 @@
 
 .method public addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z)V
     .locals 5
-    .parameter "listener"
-    .parameter "handler"
-    .parameter "updateImmediately"
+    .param p1, "listener"    # Landroid/accounts/OnAccountsUpdateListener;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "updateImmediately"    # Z
 
     .prologue
     .line 2052
@@ -876,7 +872,7 @@
     move-result v1
 
     .line 2061
-    .local v1, wasEmpty:Z
+    .local v1, "wasEmpty":Z
     iget-object v2, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -890,7 +886,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 2066
-    .local v0, intentFilter:Landroid/content/IntentFilter;
+    .local v0, "intentFilter":Landroid/content/IntentFilter;
     const-string v2, "android.accounts.LOGIN_ACCOUNTS_CHANGED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -908,7 +904,7 @@
     invoke-virtual {v2, v4, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 2071
-    .end local v0           #intentFilter:Landroid/content/IntentFilter;
+    .end local v0    # "intentFilter":Landroid/content/IntentFilter;
     :cond_2
     monitor-exit v3
     :try_end_1
@@ -931,8 +927,8 @@
 
 .method public addSharedAccount(Landroid/accounts/Account;Landroid/os/UserHandle;)Z
     .locals 4
-    .parameter "account"
-    .parameter "user"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1178
@@ -950,16 +946,16 @@
     move-result v1
 
     .line 1179
-    .local v1, val:Z
+    .local v1, "val":Z
     return v1
 
     .line 1180
-    .end local v1           #val:Z
+    .end local v1    # "val":Z
     :catch_0
     move-exception v0
 
     .line 1182
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -969,9 +965,9 @@
 
 .method public blockingGetAuthToken(Landroid/accounts/Account;Ljava/lang/String;Z)Ljava/lang/String;
     .locals 7
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "notifyAuthFailure"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "notifyAuthFailure"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/OperationCanceledException;,
@@ -1029,7 +1025,7 @@
     check-cast v6, Landroid/os/Bundle;
 
     .line 844
-    .local v6, bundle:Landroid/os/Bundle;
+    .local v6, "bundle":Landroid/os/Bundle;
     if-nez v6, :cond_2
 
     .line 849
@@ -1081,7 +1077,7 @@
 
 .method public clearPassword(Landroid/accounts/Account;)V
     .locals 3
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
 
     .prologue
     .line 752
@@ -1112,7 +1108,7 @@
     move-exception v0
 
     .line 757
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1122,11 +1118,10 @@
 
 .method public confirmCredentials(Landroid/accounts/Account;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 7
-    .parameter "account"
-    .parameter "options"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "activity"    # Landroid/app/Activity;
+    .param p5, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1148,7 +1143,7 @@
 
     .prologue
     .line 1276
-    .local p4, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p4, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
 
     move-result-object v6
@@ -1174,12 +1169,11 @@
 
 .method public confirmCredentialsAsUser(Landroid/accounts/Account;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;Landroid/os/UserHandle;)Landroid/accounts/AccountManagerFuture;
     .locals 9
-    .parameter "account"
-    .parameter "options"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
-    .parameter "userHandle"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "activity"    # Landroid/app/Activity;
+    .param p5, "handler"    # Landroid/os/Handler;
+    .param p6, "userHandle"    # Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1202,7 +1196,7 @@
 
     .prologue
     .line 1290
-    .local p4, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p4, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1220,7 +1214,7 @@
     move-result v8
 
     .line 1292
-    .local v8, userId:I
+    .local v8, "userId":I
     new-instance v0, Landroid/accounts/AccountManager$8;
 
     move-object v1, p0
@@ -1248,10 +1242,9 @@
 
 .method public editProperties(Ljava/lang/String;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 7
-    .parameter "accountType"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p4, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1272,7 +1265,7 @@
 
     .prologue
     .line 1401
-    .local p3, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p3, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1331,7 +1324,7 @@
     move-exception v0
 
     .line 386
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1341,7 +1334,7 @@
 
 .method public getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 441
@@ -1358,10 +1351,9 @@
 
 .method public getAccountsByTypeAndFeatures(Ljava/lang/String;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 6
-    .parameter "type"
-    .parameter "features"
-    .parameter
-    .parameter "handler"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "features"    # [Ljava/lang/String;
+    .param p4, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1383,7 +1375,7 @@
 
     .prologue
     .line 574
-    .local p3, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<[Landroid/accounts/Account;>;"
+    .local p3, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<[Landroid/accounts/Account;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1419,8 +1411,8 @@
 
 .method public getAccountsByTypeAsUser(Ljava/lang/String;Landroid/os/UserHandle;)[Landroid/accounts/Account;
     .locals 3
-    .parameter "type"
-    .parameter "userHandle"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 447
@@ -1444,7 +1436,7 @@
     move-exception v0
 
     .line 450
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1454,8 +1446,8 @@
 
 .method public getAccountsByTypeForPackage(Ljava/lang/String;Ljava/lang/String;)[Landroid/accounts/Account;
     .locals 2
-    .parameter "type"
-    .parameter "packageName"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 417
@@ -1475,7 +1467,7 @@
     move-exception v0
 
     .line 420
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1485,8 +1477,8 @@
 
 .method public getAccountsForPackage(Ljava/lang/String;I)[Landroid/accounts/Account;
     .locals 2
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 400
@@ -1506,7 +1498,7 @@
     move-exception v0
 
     .line 403
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1516,12 +1508,11 @@
 
 .method public getAuthToken(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 8
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "options"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "activity"    # Landroid/app/Activity;
+    .param p6, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1544,7 +1535,7 @@
 
     .prologue
     .line 914
-    .local p5, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p5, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1574,7 +1565,7 @@
     invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
     .line 917
-    .local v7, optionsIn:Landroid/os/Bundle;
+    .local v7, "optionsIn":Landroid/os/Bundle;
     if-eqz p3, :cond_2
 
     .line 918
@@ -1618,12 +1609,11 @@
 
 .method public getAuthToken(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;ZLandroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 9
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "options"
-    .parameter "notifyAuthFailure"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "notifyAuthFailure"    # Z
+    .param p6, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1646,7 +1636,7 @@
 
     .prologue
     .line 1084
-    .local p5, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p5, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1676,7 +1666,7 @@
     invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
 
     .line 1087
-    .local v8, optionsIn:Landroid/os/Bundle;
+    .local v8, "optionsIn":Landroid/os/Bundle;
     if-eqz p3, :cond_2
 
     .line 1088
@@ -1722,11 +1712,10 @@
 
 .method public getAuthToken(Landroid/accounts/Account;Ljava/lang/String;ZLandroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 7
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "notifyAuthFailure"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "notifyAuthFailure"    # Z
+    .param p5, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1751,7 +1740,7 @@
 
     .prologue
     .line 1005
-    .local p4, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p4, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -1775,14 +1764,13 @@
 
 .method public getAuthTokenByFeatures(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 10
-    .parameter "accountType"
-    .parameter "authTokenType"
-    .parameter "features"
-    .parameter "activity"
-    .parameter "addAccountOptions"
-    .parameter "getAuthTokenOptions"
-    .parameter
-    .parameter "handler"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "features"    # [Ljava/lang/String;
+    .param p4, "activity"    # Landroid/app/Activity;
+    .param p5, "addAccountOptions"    # Landroid/os/Bundle;
+    .param p6, "getAuthTokenOptions"    # Landroid/os/Bundle;
+    .param p8, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1808,7 +1796,7 @@
 
     .prologue
     .line 1931
-    .local p7, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p7, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -1856,7 +1844,7 @@
     invoke-direct/range {v0 .. v9}, Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask;-><init>(Landroid/accounts/AccountManager;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)V
 
     .line 1936
-    .local v0, task:Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask;
+    .local v0, "task":Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask;
     invoke-virtual {v0}, Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask;->start()Landroid/accounts/AccountManagerFuture;
 
     .line 1937
@@ -1865,10 +1853,9 @@
 
 .method public getAuthTokenLabel(Ljava/lang/String;Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 6
-    .parameter "accountType"
-    .parameter "authTokenType"
-    .parameter
-    .parameter "handler"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p4, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1889,7 +1876,7 @@
 
     .prologue
     .line 486
-    .local p3, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
+    .local p3, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1956,7 +1943,7 @@
     move-exception v0
 
     .line 365
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1966,7 +1953,7 @@
 
 .method public getPassword(Landroid/accounts/Account;)Ljava/lang/String;
     .locals 3
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
 
     .prologue
     .line 314
@@ -1998,7 +1985,7 @@
     move-exception v0
 
     .line 319
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2008,7 +1995,7 @@
 
 .method public getSharedAccounts(Landroid/os/UserHandle;)[Landroid/accounts/Account;
     .locals 3
-    .parameter "user"
+    .param p1, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1210
@@ -2032,7 +2019,7 @@
     move-exception v0
 
     .line 1213
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2042,8 +2029,8 @@
 
 .method public getUserData(Landroid/accounts/Account;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "account"
-    .parameter "key"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "key"    # Ljava/lang/String;
 
     .prologue
     .line 339
@@ -2087,7 +2074,7 @@
     move-exception v0
 
     .line 345
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2097,10 +2084,9 @@
 
 .method public hasFeatures(Landroid/accounts/Account;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 6
-    .parameter "account"
-    .parameter "features"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "features"    # [Ljava/lang/String;
+    .param p4, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2122,7 +2108,7 @@
 
     .prologue
     .line 529
-    .local p3, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/Boolean;>;"
+    .local p3, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/Boolean;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2170,8 +2156,8 @@
 
 .method public invalidateAuthToken(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "accountType"
-    .parameter "authToken"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "authToken"    # Ljava/lang/String;
 
     .prologue
     .line 673
@@ -2206,7 +2192,7 @@
     move-exception v0
 
     .line 680
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2216,8 +2202,8 @@
 
 .method public peekAuthToken(Landroid/accounts/Account;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "account"
-    .parameter "authTokenType"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
 
     .prologue
     .line 702
@@ -2261,7 +2247,7 @@
     move-exception v0
 
     .line 708
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2271,9 +2257,8 @@
 
 .method public removeAccount(Landroid/accounts/Account;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 2
-    .parameter "account"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p3, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2293,7 +2278,7 @@
 
     .prologue
     .line 642
-    .local p2, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/Boolean;>;"
+    .local p2, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/Boolean;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2319,7 +2304,7 @@
 
 .method public removeOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;)V
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/accounts/OnAccountsUpdateListener;
 
     .prologue
     .line 2092
@@ -2403,8 +2388,8 @@
 
 .method public removeSharedAccount(Landroid/accounts/Account;Landroid/os/UserHandle;)Z
     .locals 4
-    .parameter "account"
-    .parameter "user"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1195
@@ -2422,16 +2407,16 @@
     move-result v1
 
     .line 1196
-    .local v1, val:Z
+    .local v1, "val":Z
     return v1
 
     .line 1197
-    .end local v1           #val:Z
+    .end local v1    # "val":Z
     :catch_0
     move-exception v0
 
     .line 1199
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2441,9 +2426,9 @@
 
 .method public setAuthToken(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "authToken"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "authToken"    # Ljava/lang/String;
 
     .prologue
     .line 804
@@ -2486,7 +2471,7 @@
     move-exception v0
 
     .line 810
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2496,8 +2481,8 @@
 
 .method public setPassword(Landroid/accounts/Account;Ljava/lang/String;)V
     .locals 3
-    .parameter "account"
-    .parameter "password"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "password"    # Ljava/lang/String;
 
     .prologue
     .line 728
@@ -2528,7 +2513,7 @@
     move-exception v0
 
     .line 733
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2538,9 +2523,9 @@
 
 .method public setUserData(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "account"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "key"    # Ljava/lang/String;
+    .param p3, "value"    # Ljava/lang/String;
 
     .prologue
     .line 777
@@ -2583,7 +2568,7 @@
     move-exception v0
 
     .line 783
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2593,10 +2578,10 @@
 
 .method public updateAppPermission(Landroid/accounts/Account;Ljava/lang/String;IZ)V
     .locals 2
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "uid"
-    .parameter "value"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "uid"    # I
+    .param p4, "value"    # Z
 
     .prologue
     .line 467
@@ -2615,7 +2600,7 @@
     move-exception v0
 
     .line 470
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -2625,12 +2610,11 @@
 
 .method public updateCredentials(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 9
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "options"
-    .parameter "activity"
-    .parameter
-    .parameter "handler"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "activity"    # Landroid/app/Activity;
+    .param p6, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2653,7 +2637,7 @@
 
     .prologue
     .line 1352
-    .local p5, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
+    .local p5, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;

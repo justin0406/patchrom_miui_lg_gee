@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 93
@@ -61,8 +61,8 @@
 
 .method public setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
     .locals 5
-    .parameter "info"
-    .parameter "interactionId"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .param p2, "interactionId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 114
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnectionCallback"
 
@@ -140,8 +140,7 @@
 
 .method public setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
     .locals 5
-    .parameter
-    .parameter "interactionId"
+    .param p2, "interactionId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,13 +159,13 @@
 
     .prologue
     .line 137
-    .local p1, infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p1, "infos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 139
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnectionCallback"
 
@@ -208,8 +207,8 @@
 
 .method public setPerformAccessibilityActionResult(ZI)V
     .locals 5
-    .parameter "succeeded"
-    .parameter "interactionId"
+    .param p1, "succeeded"    # Z
+    .param p2, "interactionId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -225,7 +224,7 @@
     move-result-object v0
 
     .line 158
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.accessibility.IAccessibilityInteractionConnectionCallback"
 

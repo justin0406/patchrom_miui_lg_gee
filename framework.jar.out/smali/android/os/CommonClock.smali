@@ -187,7 +187,7 @@
 
 .method static synthetic access$000(Landroid/os/CommonClock;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CommonClock;
 
     .prologue
     .line 41
@@ -198,7 +198,7 @@
 
 .method static synthetic access$100(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnServerDiedListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CommonClock;
 
     .prologue
     .line 41
@@ -209,7 +209,7 @@
 
 .method static synthetic access$200(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnTimelineChangedListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CommonClock;
 
     .prologue
     .line 41
@@ -231,20 +231,20 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 145
-    .local v1, retVal:Landroid/os/CommonClock;
+    .local v1, "retVal":Landroid/os/CommonClock;
     :goto_0
     return-object v1
 
     .line 141
-    .end local v1           #retVal:Landroid/os/CommonClock;
+    .end local v1    # "retVal":Landroid/os/CommonClock;
     :catch_0
     move-exception v0
 
     .line 142
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .restart local v1       #retVal:Landroid/os/CommonClock;
+    .restart local v1    # "retVal":Landroid/os/CommonClock;
     goto :goto_0
 .end method
 
@@ -276,19 +276,19 @@
     const/4 v3, 0x0
 
     .line 351
-    .local v3, success:Z
+    .local v3, "success":Z
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 352
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 353
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     new-instance v5, Landroid/os/CommonClock$TimelineChangedListener;
 
     invoke-direct {v5, p0, v8}, Landroid/os/CommonClock$TimelineChangedListener;-><init>(Landroid/os/CommonClock;Landroid/os/CommonClock$1;)V
@@ -318,8 +318,8 @@
     .line 359
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v5
 
@@ -360,7 +360,7 @@
     move-exception v1
 
     .line 362
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v3, 0x0
 
     .line 365
@@ -372,7 +372,7 @@
     goto :goto_2
 
     .line 365
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v4
 
@@ -437,13 +437,13 @@
     move-result-object v0
 
     .line 384
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 387
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v2, p0, Landroid/os/CommonClock;->mInterfaceDesc:Ljava/lang/String;
 
@@ -463,8 +463,8 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 393
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -698,7 +698,7 @@
 
 .method public setServerDiedListener(Landroid/os/CommonClock$OnServerDiedListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/CommonClock$OnServerDiedListener;
 
     .prologue
     .line 294
@@ -729,7 +729,7 @@
 
 .method public setTimelineChangedListener(Landroid/os/CommonClock$OnTimelineChangedListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/CommonClock$OnTimelineChangedListener;
 
     .prologue
     .line 266

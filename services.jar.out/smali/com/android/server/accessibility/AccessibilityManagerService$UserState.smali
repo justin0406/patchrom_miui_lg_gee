@@ -145,8 +145,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
     .locals 1
-    .parameter
-    .parameter "userId"
+    .param p2, "userId"    # I
 
     .prologue
     .line 2973
@@ -243,7 +242,7 @@
 
 .method static synthetic access$1200(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Landroid/os/IBinder$DeathRecipient;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     .prologue
     .line 2915
@@ -254,7 +253,7 @@
 
 .method static synthetic access$1300(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Landroid/os/IBinder;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     .prologue
     .line 2915
@@ -265,8 +264,8 @@
 
 .method static synthetic access$1302(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;Landroid/os/IBinder;)Landroid/os/IBinder;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+    .param p1, "x1"    # Landroid/os/IBinder;
 
     .prologue
     .line 2915
@@ -277,7 +276,7 @@
 
 .method static synthetic access$1400(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Landroid/accessibilityservice/IAccessibilityServiceClient;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     .prologue
     .line 2915
@@ -288,8 +287,8 @@
 
 .method static synthetic access$1402(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;Landroid/accessibilityservice/IAccessibilityServiceClient;)Landroid/accessibilityservice/IAccessibilityServiceClient;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+    .param p1, "x1"    # Landroid/accessibilityservice/IAccessibilityServiceClient;
 
     .prologue
     .line 2915
@@ -300,7 +299,7 @@
 
 .method static synthetic access$300(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Lcom/android/server/accessibility/AccessibilityManagerService$Service;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     .prologue
     .line 2915
@@ -311,8 +310,8 @@
 
 .method static synthetic access$302(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;Lcom/android/server/accessibility/AccessibilityManagerService$Service;)Lcom/android/server/accessibility/AccessibilityManagerService$Service;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+    .param p1, "x1"    # Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
     .prologue
     .line 2915
@@ -365,7 +364,7 @@
     const/4 v0, 0x0
 
     .line 2979
-    .local v0, clientState:I
+    .local v0, "clientState":I
     iget-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsAccessibilityEnabled:Z
 
     if-eqz v1, :cond_0
@@ -411,7 +410,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #calls: Lcom/android/server/accessibility/AccessibilityManagerService;->unbindAllServicesLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+    # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->unbindAllServicesLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
     invoke-static {v0, p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$4300(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
 
     .line 2999

@@ -18,7 +18,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 11
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 27
@@ -27,7 +27,7 @@
     move-result-object v8
 
     .line 28
-    .local v8, intent:Landroid/content/Intent;
+    .local v8, "intent":Landroid/content/Intent;
     const-string v0, "android.intent.extra.INTENT"
 
     invoke-virtual {v8, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -35,7 +35,7 @@
     move-result-object v10
 
     .line 29
-    .local v10, targetParcelable:Landroid/os/Parcelable;
+    .local v10, "targetParcelable":Landroid/os/Parcelable;
     instance-of v0, v10, Landroid/content/Intent;
 
     if-nez v0, :cond_0
@@ -77,7 +77,7 @@
     check-cast v2, Landroid/content/Intent;
 
     .line 35
-    .local v2, target:Landroid/content/Intent;
+    .local v2, "target":Landroid/content/Intent;
     const-string v0, "android.intent.extra.TITLE"
 
     invoke-virtual {v8, v0}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -85,7 +85,7 @@
     move-result-object v3
 
     .line 36
-    .local v3, title:Ljava/lang/CharSequence;
+    .local v3, "title":Ljava/lang/CharSequence;
     if-nez v3, :cond_1
 
     .line 37
@@ -93,7 +93,7 @@
 
     move-result-object v0
 
-    const v1, 0x10403f9
+    const v1, 0x10403fa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -108,11 +108,11 @@
     move-result-object v9
 
     .line 40
-    .local v9, pa:[Landroid/os/Parcelable;
+    .local v9, "pa":[Landroid/os/Parcelable;
     const/4 v4, 0x0
 
     .line 41
-    .local v4, initialIntents:[Landroid/content/Intent;
+    .local v4, "initialIntents":[Landroid/content/Intent;
     if-eqz v9, :cond_3
 
     .line 42
@@ -123,7 +123,7 @@
     .line 43
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_1
     array-length v0, v9
 
@@ -190,7 +190,7 @@
     goto :goto_1
 
     .line 53
-    .end local v7           #i:I
+    .end local v7    # "i":I
     :cond_3
     const/4 v5, 0x0
 

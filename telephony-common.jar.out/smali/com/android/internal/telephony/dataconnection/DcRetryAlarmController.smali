@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/PhoneBase;Lcom/android/internal/telephony/dataconnection/DataConnection;)V
     .locals 5
-    .parameter "phone"
-    .parameter "dc"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
+    .param p2, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .prologue
     .line 78
@@ -130,7 +130,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 86
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mActionRetry:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -183,8 +183,8 @@
 
 .method static synthetic access$000(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -195,7 +195,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
     .prologue
     .line 35
@@ -206,7 +206,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;)Lcom/android/internal/telephony/dataconnection/DataConnection;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;
 
     .prologue
     .line 35
@@ -217,7 +217,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 167
@@ -289,8 +289,8 @@
 
 .method getSuggestedRetryTime(Lcom/android/internal/telephony/dataconnection/DataConnection;Landroid/os/AsyncResult;)I
     .locals 4
-    .parameter "dc"
-    .parameter "ar"
+    .param p1, "dc"    # Lcom/android/internal/telephony/dataconnection/DataConnection;
+    .param p2, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 115
@@ -299,11 +299,11 @@
     check-cast v0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;
 
     .line 116
-    .local v0, response:Lcom/android/internal/telephony/dataconnection/DataCallResponse;
+    .local v0, "response":Lcom/android/internal/telephony/dataconnection/DataCallResponse;
     iget v1, v0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->suggestedRetryTime:I
 
     .line 117
-    .local v1, retryDelay:I
+    .local v1, "retryDelay":I
     const v2, 0x7fffffff
 
     if-ne v1, v2, :cond_0
@@ -417,9 +417,9 @@
 
 .method public startRetryAlarm(III)V
     .locals 8
-    .parameter "what"
-    .parameter "tag"
-    .parameter "delay"
+    .param p1, "what"    # I
+    .param p2, "tag"    # I
+    .param p3, "delay"    # I
 
     .prologue
     .line 140
@@ -430,7 +430,7 @@
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 141
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "what"
 
     invoke-virtual {v0, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -498,14 +498,14 @@
 
     const/4 v3, 0x0
 
-    const/high16 v4, 0x800
+    const/high16 v4, 0x8000000
 
     invoke-static {v2, v3, v0, v4}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v1
 
     .line 151
-    .local v1, retryIntent:Landroid/app/PendingIntent;
+    .local v1, "retryIntent":Landroid/app/PendingIntent;
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mAlarmManager:Landroid/app/AlarmManager;
 
     const/4 v3, 0x2
@@ -534,7 +534,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 158
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mLogTag:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "nativeCanvas"
+    .param p1, "nativeCanvas"    # I
 
     .prologue
     .line 89
@@ -36,8 +36,8 @@
 
 .method static synthetic access$102(Landroid/graphics/Canvas$CanvasFinalizer;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/Canvas$CanvasFinalizer;
+    .param p1, "x1"    # I
 
     .prologue
     .line 86
@@ -60,7 +60,7 @@
     .line 104
     iget v0, p0, Landroid/graphics/Canvas$CanvasFinalizer;->mNativeCanvas:I
 
-    #calls: Landroid/graphics/Canvas;->finalizer(I)V
+    # invokes: Landroid/graphics/Canvas;->finalizer(I)V
     invoke-static {v0}, Landroid/graphics/Canvas;->access$000(I)V
 
     .line 105

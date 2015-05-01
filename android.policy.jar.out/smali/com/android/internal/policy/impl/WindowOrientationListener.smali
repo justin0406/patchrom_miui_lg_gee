@@ -12,8 +12,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final LOG:Z = false
+.field private static final LOG:Z
 
 .field private static final TAG:Ljava/lang/String; = "WindowOrientationListener"
 
@@ -59,22 +58,24 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    const/4 v0, 0x3
+    .line 68
+    const/4 v0, 0x2
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/policy/impl/WindowOrientationListener;-><init>(Landroid/content/Context;Landroid/os/Handler;I)V
 
+    .line 69
     return-void
 .end method
 
 .method private constructor <init>(Landroid/content/Context;Landroid/os/Handler;I)V
     .locals 2
-    .parameter "context"
-    .parameter "handler"
-    .parameter "rate"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "rate"    # I
 
     .prologue
     .line 83
@@ -139,7 +140,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/WindowOrientationListener;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     .prologue
     .line 44
@@ -160,7 +161,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/policy/impl/WindowOrientationListener;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     .prologue
     .line 44
@@ -338,7 +339,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/WindowOrientationListener;->mSensorEventListener:Lcom/android/internal/policy/impl/WindowOrientationListener$SensorEventListenerImpl;
 
-    #calls: Lcom/android/internal/policy/impl/WindowOrientationListener$SensorEventListenerImpl;->resetLocked()V
+    # invokes: Lcom/android/internal/policy/impl/WindowOrientationListener$SensorEventListenerImpl;->resetLocked()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/WindowOrientationListener$SensorEventListenerImpl;->access$000(Lcom/android/internal/policy/impl/WindowOrientationListener$SensorEventListenerImpl;)V
 
     .line 110
@@ -426,7 +427,7 @@
 
 .method public setCurrentRotation(I)V
     .locals 2
-    .parameter "rotation"
+    .param p1, "rotation"    # I
 
     .prologue
     .line 141

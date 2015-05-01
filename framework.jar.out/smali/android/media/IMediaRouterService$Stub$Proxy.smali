@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 145
@@ -61,7 +61,7 @@
 
 .method public getState(Landroid/media/IMediaRouterClient;)Landroid/media/MediaRouterClientState;
     .locals 6
-    .parameter "client"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,13 +75,13 @@
     move-result-object v0
 
     .line 191
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 194
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IMediaRouterService"
 
@@ -128,7 +128,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 206
-    .local v2, _result:Landroid/media/MediaRouterClientState;
+    .local v2, "_result":Landroid/media/MediaRouterClientState;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -139,7 +139,7 @@
     return-object v2
 
     .line 195
-    .end local v2           #_result:Landroid/media/MediaRouterClientState;
+    .end local v2    # "_result":Landroid/media/MediaRouterClientState;
     :cond_0
     const/4 v3, 0x0
 
@@ -149,11 +149,11 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/media/MediaRouterClientState;
+    .restart local v2    # "_result":Landroid/media/MediaRouterClientState;
     goto :goto_1
 
     .line 206
-    .end local v2           #_result:Landroid/media/MediaRouterClientState;
+    .end local v2    # "_result":Landroid/media/MediaRouterClientState;
     :catchall_0
     move-exception v3
 
@@ -167,9 +167,9 @@
 
 .method public registerClientAsUser(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 5
-    .parameter "client"
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -183,13 +183,13 @@
     move-result-object v0
 
     .line 159
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 161
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IMediaRouterService"
 
@@ -254,9 +254,9 @@
 
 .method public requestSetVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "volume"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "volume"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -270,13 +270,13 @@
     move-result-object v0
 
     .line 248
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 250
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IMediaRouterService"
 
@@ -341,9 +341,9 @@
 
 .method public requestUpdateVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "direction"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "direction"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -357,13 +357,13 @@
     move-result-object v0
 
     .line 265
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 267
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IMediaRouterService"
 
@@ -428,9 +428,9 @@
 
 .method public setDiscoveryRequest(Landroid/media/IMediaRouterClient;IZ)V
     .locals 5
-    .parameter "client"
-    .parameter "routeTypes"
-    .parameter "activeScan"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeTypes"    # I
+    .param p3, "activeScan"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -446,13 +446,13 @@
     move-result-object v0
 
     .line 214
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 216
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IMediaRouterService"
 
@@ -522,9 +522,9 @@
 
 .method public setSelectedRoute(Landroid/media/IMediaRouterClient;Ljava/lang/String;Z)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "explicit"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "explicit"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -540,13 +540,13 @@
     move-result-object v0
 
     .line 231
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 233
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IMediaRouterService"
 
@@ -616,7 +616,7 @@
 
 .method public unregisterClient(Landroid/media/IMediaRouterClient;)V
     .locals 5
-    .parameter "client"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -630,13 +630,13 @@
     move-result-object v0
 
     .line 176
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 178
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IMediaRouterService"
 

@@ -91,7 +91,7 @@
     check-cast v0, Landroid/widget/ExpandableListPosition;
 
     .line 123
-    .local v0, elp:Landroid/widget/ExpandableListPosition;
+    .local v0, "elp":Landroid/widget/ExpandableListPosition;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -100,7 +100,7 @@
     invoke-direct {v0}, Landroid/widget/ExpandableListPosition;->resetState()V
 
     .line 125
-    .end local v0           #elp:Landroid/widget/ExpandableListPosition;
+    .end local v0    # "elp":Landroid/widget/ExpandableListPosition;
     :goto_0
     return-object v0
 
@@ -128,10 +128,10 @@
 
 .method static obtain(IIII)Landroid/widget/ExpandableListPosition;
     .locals 1
-    .parameter "type"
-    .parameter "groupPos"
-    .parameter "childPos"
-    .parameter "flatListPos"
+    .param p0, "type"    # I
+    .param p1, "groupPos"    # I
+    .param p2, "childPos"    # I
+    .param p3, "flatListPos"    # I
 
     .prologue
     .line 107
@@ -140,7 +140,7 @@
     move-result-object v0
 
     .line 108
-    .local v0, elp:Landroid/widget/ExpandableListPosition;
+    .local v0, "elp":Landroid/widget/ExpandableListPosition;
     iput p0, v0, Landroid/widget/ExpandableListPosition;->type:I
 
     .line 109
@@ -158,8 +158,8 @@
 
 .method static obtainChildPosition(II)Landroid/widget/ExpandableListPosition;
     .locals 2
-    .parameter "groupPosition"
-    .parameter "childPosition"
+    .param p0, "groupPosition"    # I
+    .param p1, "childPosition"    # I
 
     .prologue
     .line 86
@@ -176,7 +176,7 @@
 
 .method static obtainGroupPosition(I)Landroid/widget/ExpandableListPosition;
     .locals 2
-    .parameter "groupPosition"
+    .param p0, "groupPosition"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -193,7 +193,7 @@
 
 .method static obtainPosition(J)Landroid/widget/ExpandableListPosition;
     .locals 4
-    .parameter "packedPosition"
+    .param p0, "packedPosition"    # J
 
     .prologue
     const/4 v3, 0x1
@@ -219,7 +219,7 @@
     move-result-object v0
 
     .line 95
-    .local v0, elp:Landroid/widget/ExpandableListPosition;
+    .local v0, "elp":Landroid/widget/ExpandableListPosition;
     invoke-static {p0, p1}, Landroid/widget/ExpandableListView;->getPackedPositionGroup(J)I
 
     move-result v1

@@ -82,8 +82,7 @@
 
 .method public static getCacheFile(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
     .locals 1
-    .parameter "url"
-    .parameter
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +101,7 @@
 
     .prologue
     .line 298
-    .local p1, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p1, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v0, 0x0
 
     return-object v0
@@ -122,9 +121,9 @@
 
 .method static saveCacheFile(Ljava/lang/String;JLandroid/webkit/CacheManager$CacheResult;)V
     .locals 2
-    .parameter "url"
-    .parameter "postIdentifier"
-    .parameter "cacheRet"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "postIdentifier"    # J
+    .param p3, "cacheRet"    # Landroid/webkit/CacheManager$CacheResult;
 
     .prologue
     .line 317
@@ -157,8 +156,8 @@
 
 .method public static saveCacheFile(Ljava/lang/String;Landroid/webkit/CacheManager$CacheResult;)V
     .locals 2
-    .parameter "url"
-    .parameter "cacheResult"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "cacheResult"    # Landroid/webkit/CacheManager$CacheResult;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

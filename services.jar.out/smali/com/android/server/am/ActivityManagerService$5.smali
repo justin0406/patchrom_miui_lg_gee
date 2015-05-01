@@ -17,8 +17,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
 
     .prologue
     .line 3814
@@ -31,8 +31,8 @@
 # virtual methods
 .method public declared-synchronized onEvent(ILjava/lang/String;)V
     .locals 1
-    .parameter "event"
-    .parameter "path"
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
     .line 3816

@@ -16,9 +16,9 @@
 # static fields
 .field private static final DEFAULT_FLAGS:I = 0x2
 
-.field private static final DEFAULT_LTR_INSTANCE:Landroid/text/BidiFormatter; = null
+.field private static final DEFAULT_LTR_INSTANCE:Landroid/text/BidiFormatter;
 
-.field private static final DEFAULT_RTL_INSTANCE:Landroid/text/BidiFormatter; = null
+.field private static final DEFAULT_RTL_INSTANCE:Landroid/text/BidiFormatter;
 
 .field private static DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/text/TextDirectionHeuristic; = null
 
@@ -36,7 +36,7 @@
 
 .field private static final LRM:C = '\u200e'
 
-.field private static final LRM_STRING:Ljava/lang/String; = null
+.field private static final LRM_STRING:Ljava/lang/String;
 
 .field private static final PDF:C = '\u202c'
 
@@ -112,9 +112,9 @@
 
 .method private constructor <init>(ZILandroid/text/TextDirectionHeuristic;)V
     .locals 0
-    .parameter "isRtlContext"
-    .parameter "flags"
-    .parameter "heuristic"
+    .param p1, "isRtlContext"    # Z
+    .param p2, "flags"    # I
+    .param p3, "heuristic"    # Landroid/text/TextDirectionHeuristic;
 
     .prologue
     .line 264
@@ -135,10 +135,10 @@
 
 .method synthetic constructor <init>(ZILandroid/text/TextDirectionHeuristic;Landroid/text/BidiFormatter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Z
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Landroid/text/TextDirectionHeuristic;
+    .param p4, "x3"    # Landroid/text/BidiFormatter$1;
 
     .prologue
     .line 82
@@ -149,7 +149,7 @@
 
 .method static synthetic access$000(Ljava/util/Locale;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/util/Locale;
 
     .prologue
     .line 82
@@ -192,7 +192,7 @@
 
 .method private static getEntryDir(Ljava/lang/String;)I
     .locals 2
-    .parameter "str"
+    .param p0, "str"    # Ljava/lang/String;
 
     .prologue
     .line 489
@@ -211,7 +211,7 @@
 
 .method private static getExitDir(Ljava/lang/String;)I
     .locals 2
-    .parameter "str"
+    .param p0, "str"    # Ljava/lang/String;
 
     .prologue
     .line 472
@@ -246,7 +246,7 @@
 
 .method public static getInstance(Ljava/util/Locale;)Landroid/text/BidiFormatter;
     .locals 1
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 256
@@ -263,7 +263,7 @@
 
 .method public static getInstance(Z)Landroid/text/BidiFormatter;
     .locals 1
-    .parameter "rtlContext"
+    .param p0, "rtlContext"    # Z
 
     .prologue
     .line 247
@@ -280,7 +280,7 @@
 
 .method private static isRtlLocale(Ljava/util/Locale;)Z
     .locals 2
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     const/4 v0, 0x1
@@ -327,7 +327,7 @@
 
 .method public isRtl(Ljava/lang/String;)Z
     .locals 3
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 351
@@ -358,8 +358,8 @@
 
 .method public markAfter(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
     .locals 3
-    .parameter "str"
-    .parameter "heuristic"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "heuristic"    # Landroid/text/TextDirectionHeuristic;
 
     .prologue
     .line 303
@@ -374,7 +374,7 @@
     move-result v0
 
     .line 305
-    .local v0, isRtl:Z
+    .local v0, "isRtl":Z
     iget-boolean v1, p0, Landroid/text/BidiFormatter;->mIsRtlContext:Z
 
     if-nez v1, :cond_1
@@ -428,8 +428,8 @@
 
 .method public markBefore(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
     .locals 3
-    .parameter "str"
-    .parameter "heuristic"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "heuristic"    # Landroid/text/TextDirectionHeuristic;
 
     .prologue
     .line 332
@@ -444,7 +444,7 @@
     move-result v0
 
     .line 334
-    .local v0, isRtl:Z
+    .local v0, "isRtl":Z
     iget-boolean v1, p0, Landroid/text/BidiFormatter;->mIsRtlContext:Z
 
     if-nez v1, :cond_1
@@ -498,7 +498,7 @@
 
 .method public unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 437
@@ -515,8 +515,8 @@
 
 .method public unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;)Ljava/lang/String;
     .locals 1
-    .parameter "str"
-    .parameter "heuristic"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "heuristic"    # Landroid/text/TextDirectionHeuristic;
 
     .prologue
     .line 413
@@ -531,9 +531,9 @@
 
 .method public unicodeWrap(Ljava/lang/String;Landroid/text/TextDirectionHeuristic;Z)Ljava/lang/String;
     .locals 4
-    .parameter "str"
-    .parameter "heuristic"
-    .parameter "isolate"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "heuristic"    # Landroid/text/TextDirectionHeuristic;
+    .param p3, "isolate"    # Z
 
     .prologue
     .line 383
@@ -548,13 +548,13 @@
     move-result v0
 
     .line 384
-    .local v0, isRtl:Z
+    .local v0, "isRtl":Z
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 385
-    .local v1, result:Ljava/lang/StringBuilder;
+    .local v1, "result":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Landroid/text/BidiFormatter;->getStereoReset()Z
 
     move-result v2
@@ -648,8 +648,8 @@
 
 .method public unicodeWrap(Ljava/lang/String;Z)Ljava/lang/String;
     .locals 1
-    .parameter "str"
-    .parameter "isolate"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "isolate"    # Z
 
     .prologue
     .line 426

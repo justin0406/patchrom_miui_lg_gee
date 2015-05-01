@@ -16,10 +16,10 @@
 # direct methods
 .method public constructor <init>(IIIZ)V
     .locals 0
-    .parameter "fromServiceCategory"
-    .parameter "toServiceCategory"
-    .parameter "language"
-    .parameter "selected"
+    .param p1, "fromServiceCategory"    # I
+    .param p2, "toServiceCategory"    # I
+    .param p3, "language"    # I
+    .param p4, "selected"    # Z
 
     .prologue
     .line 46

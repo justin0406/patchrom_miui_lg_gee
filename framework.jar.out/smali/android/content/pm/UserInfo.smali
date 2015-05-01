@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -77,9 +77,9 @@
 
 .method public constructor <init>(ILjava/lang/String;I)V
     .locals 1
-    .parameter "id"
-    .parameter "name"
-    .parameter "flags"
+    .param p1, "id"    # I
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "flags"    # I
 
     .prologue
     .line 78
@@ -93,10 +93,10 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;I)V
     .locals 0
-    .parameter "id"
-    .parameter "name"
-    .parameter "iconPath"
-    .parameter "flags"
+    .param p1, "id"    # I
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "iconPath"    # Ljava/lang/String;
+    .param p4, "flags"    # I
 
     .prologue
     .line 81
@@ -120,7 +120,7 @@
 
 .method public constructor <init>(Landroid/content/pm/UserInfo;)V
     .locals 2
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/UserInfo;
 
     .prologue
     .line 107
@@ -172,7 +172,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 152
@@ -251,8 +251,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/UserInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/UserInfo$1;
 
     .prologue
     .line 27
@@ -445,8 +445,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 132

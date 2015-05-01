@@ -30,7 +30,7 @@
 # direct methods
 .method private constructor <init>(Ljava/util/Locale;)V
     .locals 0
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 84
@@ -51,8 +51,8 @@
 
 .method synthetic constructor <init>(Ljava/util/Locale;Landroid/view/AccessibilityIterators$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/util/Locale;
+    .param p2, "x1"    # Landroid/view/AccessibilityIterators$1;
 
     .prologue
     .line 69
@@ -63,7 +63,7 @@
 
 .method public static getInstance(Ljava/util/Locale;)Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
     .locals 1
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 78
@@ -89,7 +89,7 @@
 # virtual methods
 .method public following(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v5, -0x1
@@ -104,7 +104,7 @@
     move-result v2
 
     .line 99
-    .local v2, textLegth:I
+    .local v2, "textLegth":I
     if-gtz v2, :cond_1
 
     .line 119
@@ -120,7 +120,7 @@
     move v1, p1
 
     .line 106
-    .local v1, start:I
+    .local v1, "start":I
     if-gez v1, :cond_2
 
     .line 107
@@ -157,7 +157,7 @@
     move-result v0
 
     .line 116
-    .local v0, end:I
+    .local v0, "end":I
     if-eq v0, v5, :cond_0
 
     .line 119
@@ -170,7 +170,7 @@
 
 .method public initialize(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 92
@@ -187,14 +187,14 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 150
     iget-object v0, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     .line 151
-    .local v0, locale:Ljava/util/Locale;
+    .local v0, "locale":Ljava/util/Locale;
     iget-object v1, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mLocale:Ljava/util/Locale;
 
     invoke-virtual {v1, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
@@ -216,7 +216,7 @@
 
 .method protected onLocaleChanged(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 163
@@ -240,7 +240,7 @@
 
 .method public preceding(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v5, -0x1
@@ -255,7 +255,7 @@
     move-result v2
 
     .line 125
-    .local v2, textLegth:I
+    .local v2, "textLegth":I
     if-gtz v2, :cond_1
 
     .line 145
@@ -271,7 +271,7 @@
     move v0, p1
 
     .line 132
-    .local v0, end:I
+    .local v0, "end":I
     if-le v0, v2, :cond_2
 
     .line 133
@@ -308,7 +308,7 @@
     move-result v1
 
     .line 142
-    .local v1, start:I
+    .local v1, "start":I
     if-eq v1, v5, :cond_0
 
     .line 145

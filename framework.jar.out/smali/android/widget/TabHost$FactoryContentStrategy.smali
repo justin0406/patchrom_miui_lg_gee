@@ -30,9 +30,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;Landroid/widget/TabHost$TabContentFactory;)V
     .locals 0
-    .parameter
-    .parameter "tag"
-    .parameter "factory"
+    .param p2, "tag"    # Ljava/lang/CharSequence;
+    .param p3, "factory"    # Landroid/widget/TabHost$TabContentFactory;
 
     .prologue
     .line 711

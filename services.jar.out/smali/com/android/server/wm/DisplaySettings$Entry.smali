@@ -29,7 +29,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "_name"
+    .param p1, "_name"    # Ljava/lang/String;
 
     .prologue
     .line 55

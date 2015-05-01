@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 275
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onDisplayAdded(I)V
     .locals 0
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 278
@@ -48,13 +47,13 @@
 
 .method public onDisplayChanged(I)V
     .locals 1
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 282
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$1;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    #getter for: Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplay:Landroid/view/Display;
+    # getter for: Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplay:Landroid/view/Display;
     invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$000(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/Display;
 
     move-result-object v0
@@ -68,7 +67,7 @@
     .line 283
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$1;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    #calls: Lcom/android/server/display/OverlayDisplayWindow;->updateDefaultDisplayInfo()Z
+    # invokes: Lcom/android/server/display/OverlayDisplayWindow;->updateDefaultDisplayInfo()Z
     invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$100(Lcom/android/server/display/OverlayDisplayWindow;)Z
 
     move-result v0
@@ -96,13 +95,13 @@
 
 .method public onDisplayRemoved(I)V
     .locals 1
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 293
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$1;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    #getter for: Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplay:Landroid/view/Display;
+    # getter for: Lcom/android/server/display/OverlayDisplayWindow;->mDefaultDisplay:Landroid/view/Display;
     invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$000(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/Display;
 
     move-result-object v0

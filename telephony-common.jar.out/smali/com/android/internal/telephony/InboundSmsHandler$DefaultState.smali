@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/InboundSmsHandler;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 226
@@ -36,7 +35,7 @@
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 229
@@ -66,7 +65,7 @@
     move-result-object v0
 
     .line 236
-    .local v0, errorText:Ljava/lang/String;
+    .local v0, "errorText":Ljava/lang/String;
     sget-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     if-eqz v1, :cond_0
@@ -79,7 +78,7 @@
     throw v1
 
     .line 231
-    .end local v0           #errorText:Ljava/lang/String;
+    .end local v0    # "errorText":Ljava/lang/String;
     :pswitch_0
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$DefaultState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -96,7 +95,7 @@
     return v1
 
     .line 239
-    .restart local v0       #errorText:Ljava/lang/String;
+    .restart local v0    # "errorText":Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/InboundSmsHandler$DefaultState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 

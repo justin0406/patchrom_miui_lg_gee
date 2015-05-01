@@ -32,21 +32,21 @@
 # virtual methods
 .method public findTokenEnd(Ljava/lang/CharSequence;I)I
     .locals 4
-    .parameter "text"
-    .parameter "cursor"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "cursor"    # I
 
     .prologue
     .line 251
     move v0, p2
 
     .line 252
-    .local v0, i:I
+    .local v0, "i":I
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
     .line 254
-    .local v1, len:I
+    .local v1, "len":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -60,12 +60,12 @@
     if-ne v2, v3, :cond_0
 
     .line 262
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 258
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -80,15 +80,15 @@
 
 .method public findTokenStart(Ljava/lang/CharSequence;I)I
     .locals 3
-    .parameter "text"
-    .parameter "cursor"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "cursor"    # I
 
     .prologue
     .line 238
     move v0, p2
 
     .line 240
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-lez v0, :cond_0
 
@@ -132,7 +132,7 @@
 
 .method public terminateToken(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 7
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v1, 0x0
@@ -143,7 +143,7 @@
     move-result v6
 
     .line 268
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     if-lez v6, :cond_0
 
@@ -177,12 +177,12 @@
     if-ne v0, v2, :cond_1
 
     .line 281
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     :goto_1
     return-object p1
 
     .line 275
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_1
     instance-of v0, p1, Landroid/text/Spanned;
 
@@ -211,7 +211,7 @@
 
     invoke-direct {v4, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .local v4, sp:Landroid/text/SpannableString;
+    .local v4, "sp":Landroid/text/SpannableString;
     move-object v0, p1
 
     .line 277
@@ -233,7 +233,7 @@
     goto :goto_1
 
     .line 281
-    .end local v4           #sp:Landroid/text/SpannableString;
+    .end local v4    # "sp":Landroid/text/SpannableString;
     :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 

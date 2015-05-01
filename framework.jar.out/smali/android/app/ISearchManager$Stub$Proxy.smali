@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 134
@@ -51,7 +51,7 @@
 
 .method public getAssistIntent(I)Landroid/content/ComponentName;
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 255
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 258
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -111,7 +111,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 270
-    .local v2, _result:Landroid/content/ComponentName;
+    .local v2, "_result":Landroid/content/ComponentName;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -122,15 +122,15 @@
     return-object v2
 
     .line 266
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ComponentName;
+    .restart local v2    # "_result":Landroid/content/ComponentName;
     goto :goto_0
 
     .line 270
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :catchall_0
     move-exception v3
 
@@ -167,13 +167,13 @@
     move-result-object v0
 
     .line 194
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 197
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -201,7 +201,7 @@
     move-result-object v2
 
     .line 203
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 204
@@ -211,7 +211,7 @@
     return-object v2
 
     .line 203
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -238,13 +238,13 @@
     move-result-object v0
 
     .line 211
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 214
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -281,7 +281,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 225
-    .local v2, _result:Landroid/content/ComponentName;
+    .local v2, "_result":Landroid/content/ComponentName;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -292,15 +292,15 @@
     return-object v2
 
     .line 221
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ComponentName;
+    .restart local v2    # "_result":Landroid/content/ComponentName;
     goto :goto_0
 
     .line 225
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :catchall_0
     move-exception v3
 
@@ -324,7 +324,7 @@
 
 .method public getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
     .locals 6
-    .parameter "launchActivity"
+    .param p1, "launchActivity"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -338,13 +338,13 @@
     move-result-object v0
 
     .line 148
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 151
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -395,7 +395,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 169
-    .local v2, _result:Landroid/app/SearchableInfo;
+    .local v2, "_result":Landroid/app/SearchableInfo;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -406,7 +406,7 @@
     return-object v2
 
     .line 157
-    .end local v2           #_result:Landroid/app/SearchableInfo;
+    .end local v2    # "_result":Landroid/app/SearchableInfo;
     :cond_0
     const/4 v3, 0x0
 
@@ -432,7 +432,7 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/app/SearchableInfo;
+    .restart local v2    # "_result":Landroid/app/SearchableInfo;
     goto :goto_1
 .end method
 
@@ -461,13 +461,13 @@
     move-result-object v0
 
     .line 177
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 180
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -495,7 +495,7 @@
     move-result-object v2
 
     .line 186
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/app/SearchableInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 187
@@ -505,7 +505,7 @@
     return-object v2
 
     .line 186
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/app/SearchableInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -532,13 +532,13 @@
     move-result-object v0
 
     .line 233
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 236
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.ISearchManager"
 
@@ -575,7 +575,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 247
-    .local v2, _result:Landroid/content/ComponentName;
+    .local v2, "_result":Landroid/content/ComponentName;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -586,15 +586,15 @@
     return-object v2
 
     .line 243
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ComponentName;
+    .restart local v2    # "_result":Landroid/content/ComponentName;
     goto :goto_0
 
     .line 247
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :catchall_0
     move-exception v3
 

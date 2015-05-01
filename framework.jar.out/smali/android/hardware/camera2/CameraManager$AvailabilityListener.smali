@@ -29,7 +29,7 @@
 # virtual methods
 .method public onCameraAvailable(Ljava/lang/String;)V
     .locals 0
-    .parameter "cameraId"
+    .param p1, "cameraId"    # Ljava/lang/String;
 
     .prologue
     .line 337
@@ -38,7 +38,7 @@
 
 .method public onCameraUnavailable(Ljava/lang/String;)V
     .locals 0
-    .parameter "cameraId"
+    .param p1, "cameraId"    # Ljava/lang/String;
 
     .prologue
     .line 352

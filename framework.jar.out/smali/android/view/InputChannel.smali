@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -76,7 +76,7 @@
 
 .method public static openInputChannelPair(Ljava/lang/String;)[Landroid/view/InputChannel;
     .locals 2
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 87
@@ -135,7 +135,7 @@
     invoke-direct {v0}, Landroid/view/InputChannel;-><init>()V
 
     .line 134
-    .local v0, target:Landroid/view/InputChannel;
+    .local v0, "target":Landroid/view/InputChannel;
     invoke-direct {p0, v0}, Landroid/view/InputChannel;->nativeDup(Landroid/view/InputChannel;)V
 
     .line 135
@@ -184,14 +184,14 @@
     move-result-object v0
 
     .line 103
-    .local v0, name:Ljava/lang/String;
+    .local v0, "name":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .end local v0           #name:Ljava/lang/String;
+    .end local v0    # "name":Ljava/lang/String;
     :goto_0
     return-object v0
 
-    .restart local v0       #name:Ljava/lang/String;
+    .restart local v0    # "name":Ljava/lang/String;
     :cond_0
     const-string/jumbo v0, "uninitialized"
 
@@ -200,7 +200,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 144
@@ -237,7 +237,7 @@
 
 .method public transferTo(Landroid/view/InputChannel;)V
     .locals 2
-    .parameter "outParameter"
+    .param p1, "outParameter"    # Landroid/view/InputChannel;
 
     .prologue
     .line 122
@@ -262,8 +262,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 153

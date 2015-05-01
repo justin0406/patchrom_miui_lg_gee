@@ -69,7 +69,7 @@
     .line 57
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -94,7 +94,7 @@
 
 .method static synthetic access$100(Landroid/net/http/IdleCache;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/IdleCache;
 
     .prologue
     .line 30
@@ -105,7 +105,7 @@
 
 .method static synthetic access$200(Landroid/net/http/IdleCache;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/IdleCache;
 
     .prologue
     .line 30
@@ -116,8 +116,8 @@
 
 .method static synthetic access$302(Landroid/net/http/IdleCache;Landroid/net/http/IdleCache$IdleReaper;)Landroid/net/http/IdleCache$IdleReaper;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/http/IdleCache;
+    .param p1, "x1"    # Landroid/net/http/IdleCache$IdleReaper;
 
     .prologue
     .line 30
@@ -144,10 +144,10 @@
     move-result-wide v2
 
     .line 132
-    .local v2, time:J
+    .local v2, "time":J
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     const/16 v4, 0x8
 
@@ -159,7 +159,7 @@
     aget-object v0, v4, v1
 
     .line 134
-    .local v0, entry:Landroid/net/http/IdleCache$Entry;
+    .local v0, "entry":Landroid/net/http/IdleCache$Entry;
     iget-object v4, v0, Landroid/net/http/IdleCache$Entry;->mHost:Lorg/apache/http/HttpHost;
 
     if-eqz v4, :cond_0
@@ -201,9 +201,9 @@
     goto :goto_0
 
     .line 142
-    .end local v0           #entry:Landroid/net/http/IdleCache$Entry;
-    .end local v1           #i:I
-    .end local v2           #time:J
+    .end local v0    # "entry":Landroid/net/http/IdleCache$Entry;
+    .end local v1    # "i":I
+    .end local v2    # "time":J
     :cond_1
     monitor-exit p0
 
@@ -222,8 +222,8 @@
 # virtual methods
 .method declared-synchronized cacheConnection(Lorg/apache/http/HttpHost;Landroid/net/http/Connection;)Z
     .locals 7
-    .parameter "host"
-    .parameter "connection"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
+    .param p2, "connection"    # Landroid/net/http/Connection;
 
     .prologue
     const/16 v6, 0x8
@@ -234,7 +234,7 @@
     const/4 v2, 0x0
 
     .line 75
-    .local v2, ret:Z
+    .local v2, "ret":Z
     :try_start_0
     iget v5, p0, Landroid/net/http/IdleCache;->mCount:I
 
@@ -246,10 +246,10 @@
     move-result-wide v3
 
     .line 77
-    .local v3, time:J
+    .local v3, "time":J
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v6, :cond_0
 
@@ -259,7 +259,7 @@
     aget-object v0, v5, v1
 
     .line 79
-    .local v0, entry:Landroid/net/http/IdleCache$Entry;
+    .local v0, "entry":Landroid/net/http/IdleCache$Entry;
     iget-object v5, v0, Landroid/net/http/IdleCache$Entry;->mHost:Lorg/apache/http/HttpHost;
 
     if-nez v5, :cond_1
@@ -309,27 +309,27 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 94
-    .end local v0           #entry:Landroid/net/http/IdleCache$Entry;
-    .end local v1           #i:I
-    .end local v3           #time:J
+    .end local v0    # "entry":Landroid/net/http/IdleCache$Entry;
+    .end local v1    # "i":I
+    .end local v3    # "time":J
     :cond_0
     monitor-exit p0
 
     return v2
 
     .line 77
-    .restart local v0       #entry:Landroid/net/http/IdleCache$Entry;
-    .restart local v1       #i:I
-    .restart local v3       #time:J
+    .restart local v0    # "entry":Landroid/net/http/IdleCache$Entry;
+    .restart local v1    # "i":I
+    .restart local v3    # "time":J
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 69
-    .end local v0           #entry:Landroid/net/http/IdleCache$Entry;
-    .end local v1           #i:I
-    .end local v3           #time:J
+    .end local v0    # "entry":Landroid/net/http/IdleCache$Entry;
+    .end local v1    # "i":I
+    .end local v3    # "time":J
     :catchall_0
     move-exception v5
 
@@ -347,7 +347,7 @@
 
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     :try_start_0
     iget v2, p0, Landroid/net/http/IdleCache;->mCount:I
@@ -364,7 +364,7 @@
     aget-object v0, v2, v1
 
     .line 120
-    .local v0, entry:Landroid/net/http/IdleCache$Entry;
+    .local v0, "entry":Landroid/net/http/IdleCache$Entry;
     iget-object v2, v0, Landroid/net/http/IdleCache$Entry;->mHost:Lorg/apache/http/HttpHost;
 
     if-eqz v2, :cond_0
@@ -400,7 +400,7 @@
     goto :goto_0
 
     .line 127
-    .end local v0           #entry:Landroid/net/http/IdleCache$Entry;
+    .end local v0    # "entry":Landroid/net/http/IdleCache$Entry;
     :cond_1
     monitor-exit p0
 
@@ -417,7 +417,7 @@
 
 .method declared-synchronized getConnection(Lorg/apache/http/HttpHost;)Landroid/net/http/Connection;
     .locals 5
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 98
@@ -426,7 +426,7 @@
     const/4 v3, 0x0
 
     .line 100
-    .local v3, ret:Landroid/net/http/Connection;
+    .local v3, "ret":Landroid/net/http/Connection;
     :try_start_0
     iget v4, p0, Landroid/net/http/IdleCache;->mCount:I
 
@@ -435,7 +435,7 @@
     .line 101
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     const/16 v4, 0x8
 
@@ -447,11 +447,11 @@
     aget-object v1, v4, v2
 
     .line 103
-    .local v1, entry:Landroid/net/http/IdleCache$Entry;
+    .local v1, "entry":Landroid/net/http/IdleCache$Entry;
     iget-object v0, v1, Landroid/net/http/IdleCache$Entry;->mHost:Lorg/apache/http/HttpHost;
 
     .line 104
-    .local v0, eHost:Lorg/apache/http/HttpHost;
+    .local v0, "eHost":Lorg/apache/http/HttpHost;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0, p1}, Lorg/apache/http/HttpHost;->equals(Ljava/lang/Object;)Z
@@ -483,27 +483,27 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 114
-    .end local v0           #eHost:Lorg/apache/http/HttpHost;
-    .end local v1           #entry:Landroid/net/http/IdleCache$Entry;
-    .end local v2           #i:I
+    .end local v0    # "eHost":Lorg/apache/http/HttpHost;
+    .end local v1    # "entry":Landroid/net/http/IdleCache$Entry;
+    .end local v2    # "i":I
     :cond_0
     monitor-exit p0
 
     return-object v3
 
     .line 101
-    .restart local v0       #eHost:Lorg/apache/http/HttpHost;
-    .restart local v1       #entry:Landroid/net/http/IdleCache$Entry;
-    .restart local v2       #i:I
+    .restart local v0    # "eHost":Lorg/apache/http/HttpHost;
+    .restart local v1    # "entry":Landroid/net/http/IdleCache$Entry;
+    .restart local v2    # "i":I
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 98
-    .end local v0           #eHost:Lorg/apache/http/HttpHost;
-    .end local v1           #entry:Landroid/net/http/IdleCache$Entry;
-    .end local v2           #i:I
+    .end local v0    # "eHost":Lorg/apache/http/HttpHost;
+    .end local v1    # "entry":Landroid/net/http/IdleCache$Entry;
+    .end local v2    # "i":I
     :catchall_0
     move-exception v4
 

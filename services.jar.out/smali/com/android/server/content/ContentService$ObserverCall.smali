@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/ContentService$ObserverNode;Landroid/database/IContentObserver;Z)V
     .locals 0
-    .parameter "node"
-    .parameter "observer"
-    .parameter "selfChange"
+    .param p1, "node"    # Lcom/android/server/content/ContentService$ObserverNode;
+    .param p2, "observer"    # Landroid/database/IContentObserver;
+    .param p3, "selfChange"    # Z
 
     .prologue
     .line 311

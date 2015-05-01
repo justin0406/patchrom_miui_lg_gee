@@ -25,7 +25,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/database/IBulkCursor;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 45
@@ -50,13 +50,13 @@
     check-cast v0, Landroid/database/IBulkCursor;
 
     .line 49
-    .local v0, in:Landroid/database/IBulkCursor;
+    .local v0, "in":Landroid/database/IBulkCursor;
     if-nez v0, :cond_0
 
     .line 53
     new-instance v0, Landroid/database/BulkCursorProxy;
 
-    .end local v0           #in:Landroid/database/IBulkCursor;
+    .end local v0    # "in":Landroid/database/IBulkCursor;
     invoke-direct {v0, p0}, Landroid/database/BulkCursorProxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -74,10 +74,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 10
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,13 +111,13 @@
     move-result v6
 
     .line 64
-    .local v6, startPos:I
+    .local v6, "startPos":I
     invoke-virtual {p0, v6}, Landroid/database/BulkCursorNative;->getWindow(I)Landroid/database/CursorWindow;
 
     move-result-object v7
 
     .line 65
-    .local v7, window:Landroid/database/CursorWindow;
+    .local v7, "window":Landroid/database/CursorWindow;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 66
@@ -133,21 +133,21 @@
     goto :goto_0
 
     .line 125
-    .end local v6           #startPos:I
-    .end local v7           #window:Landroid/database/CursorWindow;
+    .end local v6    # "startPos":I
+    .end local v7    # "window":Landroid/database/CursorWindow;
     :catch_0
     move-exception v1
 
     .line 126
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     invoke-static {p3, v1}, Landroid/database/DatabaseUtils;->writeExceptionToParcel(Landroid/os/Parcel;Ljava/lang/Exception;)V
 
     goto :goto_0
 
     .line 69
-    .end local v1           #e:Ljava/lang/Exception;
-    .restart local v6       #startPos:I
-    .restart local v7       #window:Landroid/database/CursorWindow;
+    .end local v1    # "e":Ljava/lang/Exception;
+    .restart local v6    # "startPos":I
+    .restart local v7    # "window":Landroid/database/CursorWindow;
     :cond_0
     const/4 v9, 0x1
 
@@ -162,8 +162,8 @@
     goto :goto_0
 
     .line 76
-    .end local v6           #startPos:I
-    .end local v7           #window:Landroid/database/CursorWindow;
+    .end local v6    # "startPos":I
+    .end local v7    # "window":Landroid/database/CursorWindow;
     :pswitch_1
     const-string v9, "android.content.IBulkCursor"
 
@@ -207,13 +207,13 @@
     move-result-object v3
 
     .line 93
-    .local v3, observer:Landroid/database/IContentObserver;
+    .local v3, "observer":Landroid/database/IContentObserver;
     invoke-virtual {p0, v3}, Landroid/database/BulkCursorNative;->requery(Landroid/database/IContentObserver;)I
 
     move-result v0
 
     .line 94
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 95
@@ -229,8 +229,8 @@
     goto :goto_0
 
     .line 101
-    .end local v0           #count:I
-    .end local v3           #observer:Landroid/database/IContentObserver;
+    .end local v0    # "count":I
+    .end local v3    # "observer":Landroid/database/IContentObserver;
     :pswitch_4
     const-string v9, "android.content.IBulkCursor"
 
@@ -242,7 +242,7 @@
     move-result v4
 
     .line 103
-    .local v4, position:I
+    .local v4, "position":I
     invoke-virtual {p0, v4}, Landroid/database/BulkCursorNative;->onMove(I)V
 
     .line 104
@@ -251,7 +251,7 @@
     goto :goto_0
 
     .line 109
-    .end local v4           #position:I
+    .end local v4    # "position":I
     :pswitch_5
     const-string v9, "android.content.IBulkCursor"
 
@@ -263,7 +263,7 @@
     move-result-object v2
 
     .line 111
-    .local v2, extras:Landroid/os/Bundle;
+    .local v2, "extras":Landroid/os/Bundle;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 112
@@ -272,7 +272,7 @@
     goto :goto_0
 
     .line 117
-    .end local v2           #extras:Landroid/os/Bundle;
+    .end local v2    # "extras":Landroid/os/Bundle;
     :pswitch_6
     const-string v9, "android.content.IBulkCursor"
 
@@ -284,13 +284,13 @@
     move-result-object v2
 
     .line 119
-    .restart local v2       #extras:Landroid/os/Bundle;
+    .restart local v2    # "extras":Landroid/os/Bundle;
     invoke-virtual {p0, v2}, Landroid/database/BulkCursorNative;->respond(Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v5
 
     .line 120
-    .local v5, returnExtras:Landroid/os/Bundle;
+    .local v5, "returnExtras":Landroid/os/Bundle;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 121

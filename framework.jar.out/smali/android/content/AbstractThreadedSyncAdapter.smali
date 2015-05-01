@@ -49,8 +49,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
     .locals 1
-    .parameter "context"
-    .parameter "autoInitialize"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "autoInitialize"    # Z
 
     .prologue
     .line 113
@@ -64,9 +64,9 @@
 
 .method public constructor <init>(Landroid/content/Context;ZZ)V
     .locals 2
-    .parameter "context"
-    .parameter "autoInitialize"
-    .parameter "allowParallelSyncs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "autoInitialize"    # Z
+    .param p3, "allowParallelSyncs"    # Z
 
     .prologue
     .line 129
@@ -119,8 +119,8 @@
 
 .method static synthetic access$100(Landroid/content/AbstractThreadedSyncAdapter;Landroid/accounts/Account;)Landroid/accounts/Account;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
+    .param p1, "x1"    # Landroid/accounts/Account;
 
     .prologue
     .line 84
@@ -133,7 +133,7 @@
 
 .method static synthetic access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -144,7 +144,7 @@
 
 .method static synthetic access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -155,7 +155,7 @@
 
 .method static synthetic access$400(Landroid/content/AbstractThreadedSyncAdapter;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -166,7 +166,7 @@
 
 .method static synthetic access$500(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/concurrent/atomic/AtomicInteger;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -177,7 +177,7 @@
 
 .method static synthetic access$800(Landroid/content/AbstractThreadedSyncAdapter;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -188,7 +188,7 @@
 
 .method static synthetic access$900(Landroid/content/AbstractThreadedSyncAdapter;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
 
     .prologue
     .line 84
@@ -199,7 +199,7 @@
 
 .method private toSyncKey(Landroid/accounts/Account;)Landroid/accounts/Account;
     .locals 1
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
 
     .prologue
     .line 142
@@ -208,11 +208,11 @@
     if-eqz v0, :cond_0
 
     .line 145
-    .end local p1
+    .end local p1    # "account":Landroid/accounts/Account;
     :goto_0
     return-object p1
 
-    .restart local p1
+    .restart local p1    # "account":Landroid/accounts/Account;
     :cond_0
     const/4 p1, 0x0
 
@@ -270,7 +270,7 @@
     check-cast v0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
 
     .line 320
-    .local v0, syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
+    .local v0, "syncThread":Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -286,7 +286,7 @@
     return-void
 
     .line 320
-    .end local v0           #syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
+    .end local v0    # "syncThread":Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     :catchall_0
     move-exception v1
 
@@ -300,7 +300,7 @@
 
 .method public onSyncCanceled(Ljava/lang/Thread;)V
     .locals 0
-    .parameter "thread"
+    .param p1, "thread"    # Ljava/lang/Thread;
 
     .prologue
     .line 336

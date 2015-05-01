@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "color"
-    .parameter "face"
+    .param p1, "color"    # Ljava/lang/String;
+    .param p2, "face"    # Ljava/lang/String;
 
     .prologue
     .line 832

@@ -4,9 +4,9 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/ContactsContract$PhoneLookupColumns;
-.implements Landroid/provider/ContactsContract$ContactsColumns;
 .implements Landroid/provider/ContactsContract$ContactOptionsColumns;
+.implements Landroid/provider/ContactsContract$ContactsColumns;
+.implements Landroid/provider/ContactsContract$PhoneLookupColumns;
 
 
 # annotations
@@ -21,7 +21,7 @@
 
 
 # static fields
-.field public static final CONTENT_FILTER_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URI:Landroid/net/Uri;
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/phone_lookup"
 
@@ -33,7 +33,7 @@
     .locals 2
 
     .prologue
-    .line 4785
+    .line 4787
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phone_lookup"
@@ -51,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 4775
+    .line 4777
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

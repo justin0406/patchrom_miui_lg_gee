@@ -7,9 +7,9 @@
 
 
 # static fields
-.field public static final ALL:Landroid/os/UserHandle; = null
+.field public static final ALL:Landroid/os/UserHandle;
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -20,13 +20,13 @@
     .end annotation
 .end field
 
-.field public static final CURRENT:Landroid/os/UserHandle; = null
+.field public static final CURRENT:Landroid/os/UserHandle;
 
-.field public static final CURRENT_OR_SELF:Landroid/os/UserHandle; = null
+.field public static final CURRENT_OR_SELF:Landroid/os/UserHandle;
 
 .field public static final MU_ENABLED:Z = true
 
-.field public static final OWNER:Landroid/os/UserHandle; = null
+.field public static final OWNER:Landroid/os/UserHandle;
 
 .field public static final PER_USER_RANGE:I = 0x186a0
 
@@ -98,7 +98,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "h"
+    .param p1, "h"    # I
 
     .prologue
     .line 216
@@ -113,7 +113,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 309
@@ -132,8 +132,8 @@
 
 .method public static formatUid(Ljava/io/PrintWriter;I)V
     .locals 4
-    .parameter "pw"
-    .parameter "uid"
+    .param p0, "pw"    # Ljava/io/PrintWriter;
+    .param p1, "uid"    # I
 
     .prologue
     const v3, 0x182b8
@@ -169,7 +169,7 @@
     move-result v0
 
     .line 193
-    .local v0, appId:I
+    .local v0, "appId":I
     if-lt v0, v3, :cond_1
 
     const v1, 0x1869f
@@ -218,8 +218,8 @@
 
 .method public static formatUid(Ljava/lang/StringBuilder;I)V
     .locals 4
-    .parameter "sb"
-    .parameter "uid"
+    .param p0, "sb"    # Ljava/lang/StringBuilder;
+    .param p1, "uid"    # I
 
     .prologue
     const v3, 0x182b8
@@ -255,7 +255,7 @@
     move-result v0
 
     .line 168
-    .local v0, appId:I
+    .local v0, "appId":I
     if-lt v0, v3, :cond_1
 
     const v1, 0x1869f
@@ -304,7 +304,7 @@
 
 .method public static final getAppId(I)I
     .locals 1
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     .line 144
@@ -333,7 +333,7 @@
 
 .method public static final getSharedAppGid(I)I
     .locals 2
-    .parameter "id"
+    .param p0, "id"    # I
 
     .prologue
     .line 152
@@ -352,8 +352,8 @@
 
 .method public static final getUid(II)I
     .locals 2
-    .parameter "userId"
-    .parameter "appId"
+    .param p0, "userId"    # I
+    .param p1, "appId"    # I
 
     .prologue
     const v1, 0x186a0
@@ -370,7 +370,7 @@
 
 .method public static final getUserId(I)I
     .locals 1
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     .line 116
@@ -383,7 +383,7 @@
 
 .method public static isApp(I)Z
     .locals 3
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -397,7 +397,7 @@
     move-result v0
 
     .line 104
-    .local v0, appId:I
+    .local v0, "appId":I
     const/16 v2, 0x2710
 
     if-lt v0, v2, :cond_0
@@ -409,14 +409,14 @@
     const/4 v1, 0x1
 
     .line 106
-    .end local v0           #appId:I
+    .end local v0    # "appId":I
     :cond_0
     return v1
 .end method
 
 .method public static final isIsolated(I)Z
     .locals 3
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -430,7 +430,7 @@
     move-result v0
 
     .line 94
-    .local v0, appId:I
+    .local v0, "appId":I
     const v2, 0x182b8
 
     if-lt v0, v2, :cond_0
@@ -442,15 +442,15 @@
     const/4 v1, 0x1
 
     .line 96
-    .end local v0           #appId:I
+    .end local v0    # "appId":I
     :cond_0
     return v1
 .end method
 
 .method public static final isSameApp(II)Z
     .locals 2
-    .parameter "uid1"
-    .parameter "uid2"
+    .param p0, "uid1"    # I
+    .param p1, "uid2"    # I
 
     .prologue
     .line 87
@@ -477,8 +477,8 @@
 
 .method public static final isSameUser(II)Z
     .locals 2
-    .parameter "uid1"
-    .parameter "uid2"
+    .param p0, "uid1"    # I
+    .param p1, "uid2"    # I
 
     .prologue
     .line 75
@@ -521,7 +521,7 @@
 
 .method public static readFromParcel(Landroid/os/Parcel;)Landroid/os/UserHandle;
     .locals 2
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 284
@@ -530,7 +530,7 @@
     move-result v0
 
     .line 285
-    .local v0, h:I
+    .local v0, "h":I
     const/16 v1, -0x2710
 
     if-eq v0, v1, :cond_0
@@ -550,8 +550,8 @@
 
 .method public static writeToParcel(Landroid/os/UserHandle;Landroid/os/Parcel;)V
     .locals 1
-    .parameter "h"
-    .parameter "out"
+    .param p0, "h"    # Landroid/os/UserHandle;
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 265
@@ -589,7 +589,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -606,7 +606,7 @@
     move-object v1, v0
 
     .line 235
-    .local v1, other:Landroid/os/UserHandle;
+    .local v1, "other":Landroid/os/UserHandle;
     iget v3, p0, Landroid/os/UserHandle;->mHandle:I
 
     iget v4, v1, Landroid/os/UserHandle;->mHandle:I
@@ -618,7 +618,7 @@
     const/4 v2, 0x1
 
     .line 239
-    .end local v1           #other:Landroid/os/UserHandle;
+    .end local v1    # "other":Landroid/os/UserHandle;
     :cond_0
     :goto_0
     return v2
@@ -686,8 +686,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 252

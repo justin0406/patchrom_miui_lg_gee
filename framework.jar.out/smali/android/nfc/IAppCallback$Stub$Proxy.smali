@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 90
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 104
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 107
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.nfc.IAppCallback"
 
@@ -107,7 +107,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 118
-    .local v2, _result:Landroid/nfc/BeamShareData;
+    .local v2, "_result":Landroid/nfc/BeamShareData;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -118,15 +118,15 @@
     return-object v2
 
     .line 114
-    .end local v2           #_result:Landroid/nfc/BeamShareData;
+    .end local v2    # "_result":Landroid/nfc/BeamShareData;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/nfc/BeamShareData;
+    .restart local v2    # "_result":Landroid/nfc/BeamShareData;
     goto :goto_0
 
     .line 118
-    .end local v2           #_result:Landroid/nfc/BeamShareData;
+    .end local v2    # "_result":Landroid/nfc/BeamShareData;
     :catchall_0
     move-exception v3
 
@@ -163,13 +163,13 @@
     move-result-object v0
 
     .line 126
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 128
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.nfc.IAppCallback"
 
@@ -212,7 +212,7 @@
 
 .method public onTagDiscovered(Landroid/nfc/Tag;)V
     .locals 5
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -226,13 +226,13 @@
     move-result-object v0
 
     .line 140
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 142
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.nfc.IAppCallback"
 

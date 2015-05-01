@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/NetworkTimeUpdateService;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "l"
+    .param p2, "l"    # Landroid/os/Looper;
 
     .prologue
     .line 270
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 276
@@ -57,7 +56,7 @@
 
     iget v1, p1, Landroid/os/Message;->what:I
 
-    #calls: Lcom/android/server/NetworkTimeUpdateService;->onPollNetworkTime(I)V
+    # invokes: Lcom/android/server/NetworkTimeUpdateService;->onPollNetworkTime(I)V
     invoke-static {v0, v1}, Lcom/android/server/NetworkTimeUpdateService;->access$300(Lcom/android/server/NetworkTimeUpdateService;I)V
 
     goto :goto_0

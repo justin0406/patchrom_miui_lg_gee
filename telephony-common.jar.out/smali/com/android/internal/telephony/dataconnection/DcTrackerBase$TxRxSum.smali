@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 438
@@ -42,9 +41,8 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;JJ)V
     .locals 0
-    .parameter
-    .parameter "txPkts"
-    .parameter "rxPkts"
+    .param p2, "txPkts"    # J
+    .param p4, "rxPkts"    # J
 
     .prologue
     .line 442
@@ -64,8 +62,7 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;Lcom/android/internal/telephony/dataconnection/DcTrackerBase$TxRxSum;)V
     .locals 2
-    .parameter
-    .parameter "sum"
+    .param p2, "sum"    # Lcom/android/internal/telephony/dataconnection/DcTrackerBase$TxRxSum;
 
     .prologue
     .line 447

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView$5;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 518
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .parameter "dialog"
-    .parameter "whichButton"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "whichButton"    # I
 
     .prologue
     .line 523
@@ -48,7 +47,7 @@
 
     iget-object v0, v0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mOnCompletionListener:Landroid/media/MediaPlayer$OnCompletionListener;
+    # getter for: Landroid/widget/VideoView;->mOnCompletionListener:Landroid/media/MediaPlayer$OnCompletionListener;
     invoke-static {v0}, Landroid/widget/VideoView;->access$1300(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnCompletionListener;
 
     move-result-object v0
@@ -60,7 +59,7 @@
 
     iget-object v0, v0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mOnCompletionListener:Landroid/media/MediaPlayer$OnCompletionListener;
+    # getter for: Landroid/widget/VideoView;->mOnCompletionListener:Landroid/media/MediaPlayer$OnCompletionListener;
     invoke-static {v0}, Landroid/widget/VideoView;->access$1300(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnCompletionListener;
 
     move-result-object v0
@@ -69,7 +68,7 @@
 
     iget-object v1, v1, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mMediaPlayer:Landroid/media/MediaPlayer;
+    # getter for: Landroid/widget/VideoView;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v1}, Landroid/widget/VideoView;->access$700(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
 
     move-result-object v1

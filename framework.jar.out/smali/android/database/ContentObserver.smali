@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;)V
     .locals 1
-    .parameter "handler"
+    .param p1, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 37
@@ -57,7 +57,7 @@
 
 .method public final dispatchChange(Z)V
     .locals 1
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -73,8 +73,8 @@
 
 .method public final dispatchChange(ZLandroid/net/Uri;)V
     .locals 2
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 162
@@ -145,7 +145,7 @@
 
 .method public onChange(Z)V
     .locals 0
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 95
@@ -154,8 +154,8 @@
 
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 0
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 129
@@ -179,7 +179,7 @@
     iget-object v0, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
     .line 64
-    .local v0, oldTransport:Landroid/database/ContentObserver$Transport;
+    .local v0, "oldTransport":Landroid/database/ContentObserver$Transport;
     if-eqz v0, :cond_0
 
     .line 65
@@ -197,7 +197,7 @@
     return-object v0
 
     .line 69
-    .end local v0           #oldTransport:Landroid/database/ContentObserver$Transport;
+    .end local v0    # "oldTransport":Landroid/database/ContentObserver$Transport;
     :catchall_0
     move-exception v1
 

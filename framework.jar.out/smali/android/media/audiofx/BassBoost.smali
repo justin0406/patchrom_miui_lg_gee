@@ -35,8 +35,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 6
-    .parameter "priority"
-    .parameter "audioSession"
+    .param p1, "priority"    # I
+    .param p2, "audioSession"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -91,7 +91,7 @@
     new-array v0, v1, [I
 
     .line 108
-    .local v0, value:[I
+    .local v0, "value":[I
     invoke-virtual {p0, v2, v0}, Landroid/media/audiofx/BassBoost;->getParameter(I[I)I
 
     move-result v3
@@ -118,7 +118,7 @@
 
 .method static synthetic access$000(Landroid/media/audiofx/BassBoost;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/BassBoost;
 
     .prologue
     .line 48
@@ -129,7 +129,7 @@
 
 .method static synthetic access$100(Landroid/media/audiofx/BassBoost;)Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/BassBoost;
 
     .prologue
     .line 48
@@ -159,11 +159,11 @@
     invoke-direct {v0}, Landroid/media/audiofx/BassBoost$Settings;-><init>()V
 
     .line 276
-    .local v0, settings:Landroid/media/audiofx/BassBoost$Settings;
+    .local v0, "settings":Landroid/media/audiofx/BassBoost$Settings;
     new-array v1, v2, [S
 
     .line 277
-    .local v1, value:[S
+    .local v1, "value":[S
     invoke-virtual {p0, v2, v1}, Landroid/media/audiofx/BassBoost;->getParameter(I[S)I
 
     move-result v2
@@ -198,7 +198,7 @@
     new-array v0, v1, [S
 
     .line 148
-    .local v0, value:[S
+    .local v0, "value":[S
     invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/BassBoost;->getParameter(I[S)I
 
     move-result v1
@@ -225,7 +225,7 @@
 
 .method public setParameterListener(Landroid/media/audiofx/BassBoost$OnParameterChangeListener;)V
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
 
     .prologue
     .line 207
@@ -276,7 +276,7 @@
 
 .method public setProperties(Landroid/media/audiofx/BassBoost$Settings;)V
     .locals 2
-    .parameter "settings"
+    .param p1, "settings"    # Landroid/media/audiofx/BassBoost$Settings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -303,7 +303,7 @@
 
 .method public setStrength(S)V
     .locals 1
-    .parameter "strength"
+    .param p1, "strength"    # S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,

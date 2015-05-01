@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/AbstractInputMethodService;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 90
@@ -48,9 +47,9 @@
 # virtual methods
 .method public dispatchGenericMotionEvent(ILandroid/view/MotionEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
     .locals 2
-    .parameter "seq"
-    .parameter "event"
-    .parameter "callback"
+    .param p1, "seq"    # I
+    .param p2, "event"    # Landroid/view/MotionEvent;
+    .param p3, "callback"    # Landroid/view/inputmethod/InputMethodSession$EventCallback;
 
     .prologue
     .line 161
@@ -61,7 +60,7 @@
     move-result v0
 
     .line 162
-    .local v0, handled:Z
+    .local v0, "handled":Z
     if-eqz p3, :cond_0
 
     .line 163
@@ -74,9 +73,9 @@
 
 .method public dispatchKeyEvent(ILandroid/view/KeyEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
     .locals 3
-    .parameter "seq"
-    .parameter "event"
-    .parameter "callback"
+    .param p1, "seq"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
+    .param p3, "callback"    # Landroid/view/inputmethod/InputMethodSession$EventCallback;
 
     .prologue
     .line 136
@@ -91,7 +90,7 @@
     move-result v0
 
     .line 138
-    .local v0, handled:Z
+    .local v0, "handled":Z
     if-eqz p3, :cond_0
 
     .line 139
@@ -104,9 +103,9 @@
 
 .method public dispatchTrackballEvent(ILandroid/view/MotionEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
     .locals 2
-    .parameter "seq"
-    .parameter "event"
-    .parameter "callback"
+    .param p1, "seq"    # I
+    .param p2, "event"    # Landroid/view/MotionEvent;
+    .param p3, "callback"    # Landroid/view/inputmethod/InputMethodSession$EventCallback;
 
     .prologue
     .line 149
@@ -117,7 +116,7 @@
     move-result v0
 
     .line 150
-    .local v0, handled:Z
+    .local v0, "handled":Z
     if-eqz p3, :cond_0
 
     .line 151
@@ -168,7 +167,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 116

@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
     .locals 1
-    .parameter "sw1"
-    .parameter "sw2"
-    .parameter "hexString"
+    .param p1, "sw1"    # I
+    .param p2, "sw2"    # I
+    .param p3, "hexString"    # Ljava/lang/String;
 
     .prologue
     .line 37
@@ -32,9 +32,9 @@
 
 .method public constructor <init>(II[B)V
     .locals 0
-    .parameter "sw1"
-    .parameter "sw2"
-    .parameter "payload"
+    .param p1, "sw1"    # I
+    .param p2, "sw2"    # I
+    .param p3, "payload"    # [B
 
     .prologue
     .line 30

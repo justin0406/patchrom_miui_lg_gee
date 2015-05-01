@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/print/PrintFileDocumentAdapter$WriteFileAsyncTask;Landroid/print/PrintFileDocumentAdapter;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 107

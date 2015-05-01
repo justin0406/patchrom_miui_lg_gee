@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">деинсталирање пречица</string>
     <string name="permdesc_uninstall_shortcut">Омогућава апликацији да уклања пречице са почетног екрана без интервенције корисника.</string>
     <string name="permlab_processOutgoingCalls">преусмеравање одлазних позива</string>
-    <string name="permdesc_processOutgoingCalls">Дозвољава апликацији да обрађује одлазне позиве и промени број који се бира. Ова дозвола омогућава апликацији да надгледа, преусмерава или спречава одлазне позиве.</string>
+    <string name="permdesc_processOutgoingCalls">Дозвољава апликацији да види који број се бира при одлазном позиву уз опцију да преусмери позив на други број или га потпуно прекине.</string>
     <string name="permlab_receiveSms">пријем текстуалних порука (SMS)</string>
     <string name="permdesc_receiveSms">Дозвољава апликацији да прима и обрађује SMS поруке. То значи да апликација може да надгледа или брише поруке које се шаљу уређају, а да вам их не прикаже.</string>
     <string name="permlab_receiveMms">пријем текстуалних порука (MMS)</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">Почетна</string>
     <string name="sipAddressTypeWork">Посао</string>
     <string name="sipAddressTypeOther">Други</string>
+    <string name="quick_contacts_not_available">Није пронађена ниједна апликација за приказ овог контакта.</string>
     <string name="keyguard_password_enter_pin_code">Унесите PIN кôд</string>
     <string name="keyguard_password_enter_puk_code">Унесите PUK и нови PIN кôд</string>
     <string name="keyguard_password_enter_puk_prompt">PUK кôд</string>
@@ -1042,7 +1043,7 @@
     <string name="sim_removed_message">Мобилна мрежа неће бити доступна док не покренете систем поново уз уметање важеће SIM картице.</string>
     <string name="sim_done_button">Готово</string>
     <string name="sim_added_title">SIM картица је додата</string>
-    <string name="sim_added_message">Поново покрените уређај да бисте могли да приступите мобилној мрежи.</string>
+    <string name="sim_added_message">Рестартујте уређај да бисте могли да приступите мобилној мрежи.</string>
     <string name="sim_restart_button">Поново покрени</string>
     <string name="time_picker_dialog_title">Подешавање времена</string>
     <string name="date_picker_dialog_title">Подешавање датума</string>
@@ -1462,10 +1463,17 @@
     <string name="webviewchromium_actionbar_share">Дели</string>
     <string name="webviewchromium_actionbar_web_search">Веб-претрага</string>
     <string name="webviewchromium_accessibility_content_view">Веб-приказ</string>
+    <string name="webviewchromium_date_picker_dialog_title">Подешавање датума</string>
     <string name="webviewchromium_date_picker_dialog_set">Подеси</string>
     <string name="webviewchromium_date_picker_dialog_clear">Обриши</string>
-    <string name="webviewchromium_date_picker_dialog_title">Подешавање датума</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Остало</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Подешавање датума и времена</string>
+    <string name="webviewchromium_time_picker_dialog_title">Подешавање времена</string>
+    <string name="webviewchromium_time_picker_dialog_am">AM</string>
+    <string name="webviewchromium_time_picker_dialog_pm">PM</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Подешавање месеца</string>
     <string name="webviewchromium_week_picker_dialog_title">Подешавање недеље</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Датум</string>
@@ -1473,6 +1481,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">Месец</string>
     <string name="webviewchromium_accessibility_date_picker_week">Недеља</string>
     <string name="webviewchromium_accessibility_date_picker_year">Година</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Сат</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Минут</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Секунд</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Милисекунд</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">пре подне/по подне</string>
     <string name="webviewchromium_media_player_error_title">Није могуће пустити видео</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Жао нам је, овај видео не може да се стримује на овом уређају.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Жао нам је, овај видео не може да се пусти.</string>
@@ -1485,7 +1498,20 @@
     <string name="webviewchromium_color_picker_button_set">Подеси</string>
     <string name="webviewchromium_color_picker_button_cancel">Откажи</string>
     <string name="webviewchromium_color_picker_dialog_title">Изаберите боју</string>
+    <string name="webviewchromium_color_picker_button_red">Црвена</string>
+    <string name="webviewchromium_color_picker_button_cyan">Тиркизна</string>
+    <string name="webviewchromium_color_picker_button_blue">Плава</string>
+    <string name="webviewchromium_color_picker_button_green">Зелена</string>
+    <string name="webviewchromium_color_picker_button_magenta">Циклама</string>
+    <string name="webviewchromium_color_picker_button_yellow">Жута</string>
+    <string name="webviewchromium_color_picker_button_black">Црна</string>
+    <string name="webviewchromium_color_picker_button_white">Бела</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Није успело копирање у оставу</string>
     <string name="webviewchromium_low_memory_error">Није могуће довршити претходну радњу због недовољне количине слободне меморије</string>
     <string name="webviewchromium_opening_file_error">Отварање те датотеке није могуће</string>
     <string name="webviewchromium_private_browsing_warning">Ова функција није подржана у овој верзији Android-а.</string>
+    <string name="webviewchromium_profiler_started_toast">Програм за оптимизацију покренут</string>
+    <string name="webviewchromium_profiler_stopped_toast">Програм за оптимизацију је завршио са радом. Резултати су у датотеци %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Није могуће покренути програм за оптимизацију јер спољна меморија није спремна</string>
+    <string name="webviewchromium_profiler_error_toast">Покретање програма за оптимизацију није успело</string>
 </resources>

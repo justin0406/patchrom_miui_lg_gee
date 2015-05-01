@@ -20,7 +20,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final IS_BOOKMARK:Ljava/lang/String; = "bookmark"
 

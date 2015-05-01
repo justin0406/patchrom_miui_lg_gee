@@ -10,7 +10,7 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 27

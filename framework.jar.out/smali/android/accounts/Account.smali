@@ -42,7 +42,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 57
@@ -68,8 +68,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
-    .parameter "type"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "type"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -165,7 +165,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -197,7 +197,7 @@
     check-cast v0, Landroid/accounts/Account;
 
     .line 36
-    .local v0, other:Landroid/accounts/Account;
+    .local v0, "other":Landroid/accounts/Account;
     iget-object v3, p0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/accounts/Account;->name:Ljava/lang/String;
@@ -232,7 +232,7 @@
     const/16 v0, 0x11
 
     .line 41
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -304,8 +304,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 67

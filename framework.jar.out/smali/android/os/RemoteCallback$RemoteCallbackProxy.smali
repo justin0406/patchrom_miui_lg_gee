@@ -17,7 +17,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IRemoteCallback;)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # Landroid/os/IRemoteCallback;
 
     .prologue
     .line 48
@@ -31,7 +31,7 @@
 # virtual methods
 .method protected onResult(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 52

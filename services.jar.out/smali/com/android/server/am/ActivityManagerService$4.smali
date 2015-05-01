@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 2008
@@ -54,7 +53,7 @@
     move-result-wide v5
 
     .line 2016
-    .local v5, now:J
+    .local v5, "now":J
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
@@ -70,7 +69,7 @@
     sub-long v1, v7, v5
 
     .line 2017
-    .local v1, nextCpuDelay:J
+    .local v1, "nextCpuDelay":J
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-wide v7, v7, Lcom/android/server/am/ActivityManagerService;->mLastWriteTime:J
@@ -82,7 +81,7 @@
     sub-long v3, v7, v5
 
     .line 2020
-    .local v3, nextWriteDelay:J
+    .local v3, "nextWriteDelay":J
     cmp-long v7, v3, v1
 
     if-gez v7, :cond_0
@@ -117,9 +116,9 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 2030
-    .end local v1           #nextCpuDelay:J
-    .end local v3           #nextWriteDelay:J
-    .end local v5           #now:J
+    .end local v1    # "nextCpuDelay":J
+    .end local v3    # "nextWriteDelay":J
+    .end local v5    # "now":J
     :goto_1
     :try_start_2
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -135,7 +134,7 @@
     move-exception v0
 
     .line 2032
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     const-string v7, "ActivityManager"
 
     const-string v8, "Unexpected exception collecting process stats"
@@ -145,7 +144,7 @@
     goto :goto_0
 
     .line 2027
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v7
 

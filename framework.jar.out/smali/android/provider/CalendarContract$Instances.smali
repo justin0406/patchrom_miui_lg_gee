@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/CalendarContract$EventsColumns;
 .implements Landroid/provider/CalendarContract$CalendarColumns;
+.implements Landroid/provider/CalendarContract$EventsColumns;
 
 
 # annotations
@@ -22,13 +22,13 @@
 # static fields
 .field public static final BEGIN:Ljava/lang/String; = "begin"
 
-.field public static final CONTENT_BY_DAY_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_BY_DAY_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_SEARCH_BY_DAY_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_SEARCH_BY_DAY_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_SEARCH_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_SEARCH_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "begin ASC"
 
@@ -44,7 +44,7 @@
 
 .field public static final START_MINUTE:Ljava/lang/String; = "startMinute"
 
-.field private static final WHERE_CALENDARS_ARGS:[Ljava/lang/String; = null
+.field private static final WHERE_CALENDARS_ARGS:[Ljava/lang/String;
 
 .field private static final WHERE_CALENDARS_SELECTED:Ljava/lang/String; = "visible=?"
 
@@ -118,10 +118,10 @@
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;JJ)Landroid/database/Cursor;
     .locals 7
-    .parameter "cr"
-    .parameter "projection"
-    .parameter "begin"
-    .parameter "end"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
+    .param p2, "begin"    # J
+    .param p4, "end"    # J
 
     .prologue
     .line 1753
@@ -132,7 +132,7 @@
     move-result-object v6
 
     .line 1754
-    .local v6, builder:Landroid/net/Uri$Builder;
+    .local v6, "builder":Landroid/net/Uri$Builder;
     invoke-static {v6, p2, p3}, Landroid/content/ContentUris;->appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;
 
     .line 1755
@@ -162,11 +162,11 @@
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;JJLjava/lang/String;)Landroid/database/Cursor;
     .locals 7
-    .parameter "cr"
-    .parameter "projection"
-    .parameter "begin"
-    .parameter "end"
-    .parameter "searchQuery"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
+    .param p2, "begin"    # J
+    .param p4, "end"    # J
+    .param p6, "searchQuery"    # Ljava/lang/String;
 
     .prologue
     .line 1782
@@ -177,7 +177,7 @@
     move-result-object v6
 
     .line 1783
-    .local v6, builder:Landroid/net/Uri$Builder;
+    .local v6, "builder":Landroid/net/Uri$Builder;
     invoke-static {v6, p2, p3}, Landroid/content/ContentUris;->appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;
 
     .line 1784

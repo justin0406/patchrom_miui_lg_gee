@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/SyncRunner;Landroid/filterfw/core/Filter;Landroid/os/ConditionVariable;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 181

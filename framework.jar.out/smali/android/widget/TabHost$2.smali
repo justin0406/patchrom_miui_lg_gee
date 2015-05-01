@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TabHost;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 152
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onTabSelectionChanged(IZ)V
     .locals 2
-    .parameter "tabIndex"
-    .parameter "clicked"
+    .param p1, "tabIndex"    # I
+    .param p2, "clicked"    # Z
 
     .prologue
     .line 154
@@ -54,7 +53,7 @@
     .line 156
     iget-object v0, p0, Landroid/widget/TabHost$2;->this$0:Landroid/widget/TabHost;
 
-    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
+    # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0

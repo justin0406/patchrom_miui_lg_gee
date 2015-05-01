@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/ExtractEditLayout;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 87
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .parameter "clicked"
+    .param p1, "clicked"    # Landroid/view/View;
 
     .prologue
     .line 89

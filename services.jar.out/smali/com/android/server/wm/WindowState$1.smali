@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowState;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 315
@@ -50,7 +49,7 @@
 
 .method public registerFocusObserver(Landroid/view/IWindowFocusObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/view/IWindowFocusObserver;
 
     .prologue
     .line 318
@@ -64,7 +63,7 @@
 
 .method public unregisterFocusObserver(Landroid/view/IWindowFocusObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/view/IWindowFocusObserver;
 
     .prologue
     .line 322

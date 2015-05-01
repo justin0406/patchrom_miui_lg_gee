@@ -3,8 +3,8 @@
 .source "SMSDispatcher.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 .implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
@@ -36,9 +36,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/SMSDispatcher;Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;Landroid/widget/TextView;)V
     .locals 0
-    .parameter
-    .parameter "tracker"
-    .parameter "textView"
+    .param p2, "tracker"    # Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
+    .param p3, "textView"    # Landroid/widget/TextView;
 
     .prologue
     .line 1129
@@ -60,7 +59,7 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 4
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 1174
@@ -91,8 +90,8 @@
 
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 4
-    .parameter "buttonView"
-    .parameter "isChecked"
+    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
+    .param p2, "isChecked"    # Z
 
     .prologue
     const/4 v3, 0x0
@@ -129,14 +128,14 @@
     .line 1183
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;->mPositiveButton:Landroid/widget/Button;
 
-    const v1, 0x1040450
+    const v1, 0x1040451
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
     .line 1184
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;->mNegativeButton:Landroid/widget/Button;
 
-    const v1, 0x1040451
+    const v1, 0x1040452
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -148,7 +147,7 @@
     .line 1186
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;->mRememberUndoInstruction:Landroid/widget/TextView;
 
-    const v1, 0x104044f
+    const v1, 0x1040450
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -168,14 +167,14 @@
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;->mPositiveButton:Landroid/widget/Button;
 
-    const v1, 0x104044c
+    const v1, 0x104044d
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
     .line 1192
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;->mNegativeButton:Landroid/widget/Button;
 
-    const v1, 0x104044d
+    const v1, 0x104044e
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -201,8 +200,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -211,7 +210,7 @@
     const/4 v0, 0x1
 
     .line 1148
-    .local v0, newSmsPermission:I
+    .local v0, "newSmsPermission":I
     if-ne p2, v1, :cond_2
 
     .line 1149
@@ -353,7 +352,7 @@
 
 .method setNegativeButton(Landroid/widget/Button;)V
     .locals 0
-    .parameter "button"
+    .param p1, "button"    # Landroid/widget/Button;
 
     .prologue
     .line 1139
@@ -365,7 +364,7 @@
 
 .method setPositiveButton(Landroid/widget/Button;)V
     .locals 0
-    .parameter "button"
+    .param p1, "button"    # Landroid/widget/Button;
 
     .prologue
     .line 1135

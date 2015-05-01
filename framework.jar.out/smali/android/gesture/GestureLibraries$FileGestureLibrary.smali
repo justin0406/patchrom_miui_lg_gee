@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
     .locals 0
-    .parameter "path"
+    .param p1, "path"    # Ljava/io/File;
 
     .prologue
     .line 54
@@ -68,11 +68,11 @@
     const/4 v2, 0x0
 
     .line 92
-    .local v2, result:Z
+    .local v2, "result":Z
     iget-object v1, p0, Landroid/gesture/GestureLibraries$FileGestureLibrary;->mPath:Ljava/io/File;
 
     .line 93
-    .local v1, file:Ljava/io/File;
+    .local v1, "file":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -113,7 +113,7 @@
     move-exception v0
 
     .line 98
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v3, "Gestures"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -141,12 +141,12 @@
     goto :goto_0
 
     .line 99
-    .end local v0           #e:Ljava/io/FileNotFoundException;
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
     .line 100
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v3, "Gestures"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -198,13 +198,13 @@
     iget-object v1, p0, Landroid/gesture/GestureLibraries$FileGestureLibrary;->mPath:Ljava/io/File;
 
     .line 68
-    .local v1, file:Ljava/io/File;
+    .local v1, "file":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v2
 
     .line 69
-    .local v2, parentFile:Ljava/io/File;
+    .local v2, "parentFile":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v4
@@ -228,7 +228,7 @@
     const/4 v3, 0x0
 
     .line 78
-    .local v3, result:Z
+    .local v3, "result":Z
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
@@ -256,7 +256,7 @@
     move-exception v0
 
     .line 82
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v4, "Gestures"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -284,12 +284,12 @@
     goto :goto_0
 
     .line 83
-    .end local v0           #e:Ljava/io/FileNotFoundException;
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
     .line 84
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v4, "Gestures"
 
     new-instance v5, Ljava/lang/StringBuilder;

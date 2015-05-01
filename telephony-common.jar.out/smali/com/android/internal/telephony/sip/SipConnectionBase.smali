@@ -44,7 +44,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "dialString"
+    .param p1, "dialString"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -106,7 +106,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 179
@@ -190,12 +190,12 @@
     const-wide/16 v0, 0x0
 
     .line 115
-    .local v0, dur:J
+    .local v0, "dur":J
     :goto_0
     return-wide v0
 
     .line 109
-    .end local v0           #dur:J
+    .end local v0    # "dur":J
     :cond_0
     iget-wide v2, p0, Lcom/android/internal/telephony/sip/SipConnectionBase;->mDuration:J
 
@@ -212,15 +212,15 @@
 
     sub-long v0, v2, v4
 
-    .restart local v0       #dur:J
+    .restart local v0    # "dur":J
     goto :goto_0
 
     .line 112
-    .end local v0           #dur:J
+    .end local v0    # "dur":J
     :cond_1
     iget-wide v0, p0, Lcom/android/internal/telephony/sip/SipConnectionBase;->mDuration:J
 
-    .restart local v0       #dur:J
+    .restart local v0    # "dur":J
     goto :goto_0
 .end method
 
@@ -241,12 +241,12 @@
     const-wide/16 v0, 0x0
 
     .line 128
-    .local v0, dur:J
+    .local v0, "dur":J
     :goto_0
     return-wide v0
 
     .line 125
-    .end local v0           #dur:J
+    .end local v0    # "dur":J
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -256,7 +256,7 @@
 
     sub-long v0, v2, v4
 
-    .restart local v0       #dur:J
+    .restart local v0    # "dur":J
     goto :goto_0
 .end method
 
@@ -364,7 +364,7 @@
 
 .method public proceedAfterWildChar(Ljava/lang/String;)V
     .locals 1
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 155
@@ -378,7 +378,7 @@
 
 .method setDisconnectCause(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
     .locals 2
-    .parameter "cause"
+    .param p1, "cause"    # Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     .prologue
     .line 138
@@ -423,7 +423,7 @@
 
 .method protected setState(Lcom/android/internal/telephony/Call$State;)V
     .locals 4
-    .parameter "state"
+    .param p1, "state"    # Lcom/android/internal/telephony/Call$State;
 
     .prologue
     .line 65

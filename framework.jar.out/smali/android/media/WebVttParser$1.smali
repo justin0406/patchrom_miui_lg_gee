@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/WebVttParser;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 686
@@ -39,7 +38,7 @@
 # virtual methods
 .method public parse(Ljava/lang/String;)V
     .locals 0
-    .parameter "line"
+    .param p1, "line"    # Ljava/lang/String;
 
     .prologue
     .line 688

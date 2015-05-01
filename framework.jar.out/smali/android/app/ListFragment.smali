@@ -82,7 +82,7 @@
     move-result-object v2
 
     .line 385
-    .local v2, root:Landroid/view/View;
+    .local v2, "root":Landroid/view/View;
     if-nez v2, :cond_1
 
     .line 386
@@ -103,7 +103,7 @@
     .line 389
     check-cast v2, Landroid/widget/ListView;
 
-    .end local v2           #root:Landroid/view/View;
+    .end local v2    # "root":Landroid/view/View;
     iput-object v2, p0, Landroid/app/ListFragment;->mList:Landroid/widget/ListView;
 
     .line 419
@@ -129,7 +129,7 @@
     iget-object v0, p0, Landroid/app/ListFragment;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 423
-    .local v0, adapter:Landroid/widget/ListAdapter;
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/app/ListFragment;->mAdapter:Landroid/widget/ListAdapter;
@@ -138,7 +138,7 @@
     invoke-virtual {p0, v0}, Landroid/app/ListFragment;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 432
-    .end local v0           #adapter:Landroid/widget/ListAdapter;
+    .end local v0    # "adapter":Landroid/widget/ListAdapter;
     :cond_3
     :goto_2
     iget-object v3, p0, Landroid/app/ListFragment;->mHandler:Landroid/os/Handler;
@@ -150,7 +150,7 @@
     goto :goto_0
 
     .line 391
-    .restart local v2       #root:Landroid/view/View;
+    .restart local v2    # "root":Landroid/view/View;
     :cond_4
     const v3, 0x10202c0
 
@@ -203,7 +203,7 @@
     move-result-object v1
 
     .line 401
-    .local v1, rawListView:Landroid/view/View;
+    .local v1, "rawListView":Landroid/view/View;
     instance-of v3, v1, Landroid/widget/ListView;
 
     if-nez v3, :cond_6
@@ -218,7 +218,7 @@
     throw v3
 
     .line 396
-    .end local v1           #rawListView:Landroid/view/View;
+    .end local v1    # "rawListView":Landroid/view/View;
     :cond_5
     iget-object v3, p0, Landroid/app/ListFragment;->mStandardEmptyView:Landroid/widget/TextView;
 
@@ -229,11 +229,11 @@
     goto :goto_3
 
     .line 406
-    .restart local v1       #rawListView:Landroid/view/View;
+    .restart local v1    # "rawListView":Landroid/view/View;
     :cond_6
     check-cast v1, Landroid/widget/ListView;
 
-    .end local v1           #rawListView:Landroid/view/View;
+    .end local v1    # "rawListView":Landroid/view/View;
     iput-object v1, p0, Landroid/app/ListFragment;->mList:Landroid/widget/ListView;
 
     .line 407
@@ -288,7 +288,7 @@
     goto/16 :goto_1
 
     .line 428
-    .end local v2           #root:Landroid/view/View;
+    .end local v2    # "root":Landroid/view/View;
     :cond_9
     iget-object v3, p0, Landroid/app/ListFragment;->mProgressContainer:Landroid/view/View;
 
@@ -302,13 +302,13 @@
 
 .method private setListShown(ZZ)V
     .locals 6
-    .parameter "shown"
-    .parameter "animate"
+    .param p1, "shown"    # Z
+    .param p2, "animate"    # Z
 
     .prologue
     const v5, 0x10a0001
 
-    const/high16 v4, 0x10a
+    const/high16 v4, 0x10a0000
 
     const/16 v3, 0x8
 
@@ -521,9 +521,9 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
-    .parameter "inflater"
-    .parameter "container"
-    .parameter "savedInstanceState"
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 193
@@ -578,10 +578,10 @@
 
 .method public onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
     .locals 0
-    .parameter "l"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "l"    # Landroid/widget/ListView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 231
@@ -590,8 +590,8 @@
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 0
-    .parameter "view"
-    .parameter "savedInstanceState"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 202
@@ -606,7 +606,7 @@
 
 .method public setEmptyText(Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 290
@@ -654,7 +654,7 @@
 
 .method public setListAdapter(Landroid/widget/ListAdapter;)V
     .locals 4
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/ListAdapter;
 
     .prologue
     const/4 v2, 0x0
@@ -669,7 +669,7 @@
     move v0, v1
 
     .line 238
-    .local v0, hadAdapter:Z
+    .local v0, "hadAdapter":Z
     :goto_0
     iput-object p1, p0, Landroid/app/ListFragment;->mAdapter:Landroid/widget/ListAdapter;
 
@@ -710,7 +710,7 @@
     :cond_1
     return-void
 
-    .end local v0           #hadAdapter:Z
+    .end local v0    # "hadAdapter":Z
     :cond_2
     move v0, v2
 
@@ -720,7 +720,7 @@
 
 .method public setListShown(Z)V
     .locals 1
-    .parameter "shown"
+    .param p1, "shown"    # Z
 
     .prologue
     .line 316
@@ -734,7 +734,7 @@
 
 .method public setListShownNoAnimation(Z)V
     .locals 1
-    .parameter "shown"
+    .param p1, "shown"    # Z
 
     .prologue
     .line 324
@@ -748,7 +748,7 @@
 
 .method public setSelection(I)V
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 256

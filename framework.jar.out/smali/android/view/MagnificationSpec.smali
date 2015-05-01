@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -72,7 +72,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/view/MagnificationSpec;->scale:F
 
@@ -82,8 +82,8 @@
 
 .method static synthetic access$000(Landroid/view/MagnificationSpec;Landroid/os/Parcel;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/MagnificationSpec;
+    .param p1, "x1"    # Landroid/os/Parcel;
 
     .prologue
     .line 28
@@ -94,7 +94,7 @@
 
 .method private initFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 105
@@ -136,18 +136,18 @@
     check-cast v0, Landroid/view/MagnificationSpec;
 
     .line 64
-    .local v0, spec:Landroid/view/MagnificationSpec;
+    .local v0, "spec":Landroid/view/MagnificationSpec;
     if-eqz v0, :cond_0
 
-    .end local v0           #spec:Landroid/view/MagnificationSpec;
+    .end local v0    # "spec":Landroid/view/MagnificationSpec;
     :goto_0
     return-object v0
 
-    .restart local v0       #spec:Landroid/view/MagnificationSpec;
+    .restart local v0    # "spec":Landroid/view/MagnificationSpec;
     :cond_0
     new-instance v0, Landroid/view/MagnificationSpec;
 
-    .end local v0           #spec:Landroid/view/MagnificationSpec;
+    .end local v0    # "spec":Landroid/view/MagnificationSpec;
     invoke-direct {v0}, Landroid/view/MagnificationSpec;-><init>()V
 
     goto :goto_0
@@ -155,7 +155,7 @@
 
 .method public static obtain(Landroid/view/MagnificationSpec;)Landroid/view/MagnificationSpec;
     .locals 2
-    .parameter "other"
+    .param p0, "other"    # Landroid/view/MagnificationSpec;
 
     .prologue
     .line 55
@@ -164,7 +164,7 @@
     move-result-object v0
 
     .line 56
-    .local v0, info:Landroid/view/MagnificationSpec;
+    .local v0, "info":Landroid/view/MagnificationSpec;
     iget v1, p0, Landroid/view/MagnificationSpec;->scale:F
 
     iput v1, v0, Landroid/view/MagnificationSpec;->scale:F
@@ -192,7 +192,7 @@
     const/4 v1, 0x0
 
     .line 73
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/view/MagnificationSpec;->scale:F
 
@@ -218,13 +218,13 @@
 
 .method public initialize(FFF)V
     .locals 2
-    .parameter "scale"
-    .parameter "offsetX"
-    .parameter "offsetY"
+    .param p1, "scale"    # F
+    .param p2, "offsetX"    # F
+    .param p3, "offsetY"    # F
 
     .prologue
     .line 42
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     cmpg-float v0, p1, v0
 
@@ -262,7 +262,7 @@
     .line 51
     iget v0, p0, Landroid/view/MagnificationSpec;->scale:F
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v0, v0, v1
 
@@ -317,7 +317,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 94
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "<scale:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -362,8 +362,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 85

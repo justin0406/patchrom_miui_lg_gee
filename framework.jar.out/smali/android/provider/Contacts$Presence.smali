@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/Contacts$PresenceColumns;
 .implements Landroid/provider/Contacts$PeopleColumns;
+.implements Landroid/provider/Contacts$PresenceColumns;
 
 
 # annotations
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -63,7 +63,7 @@
 
 .method public static final getPresenceIconResourceId(I)I
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -116,8 +116,8 @@
 
 .method public static final setPresenceIcon(Landroid/widget/ImageView;I)V
     .locals 1
-    .parameter "icon"
-    .parameter "serverStatus"
+    .param p0, "icon"    # Landroid/widget/ImageView;
+    .param p1, "serverStatus"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

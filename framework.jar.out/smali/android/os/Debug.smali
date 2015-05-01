@@ -19,9 +19,9 @@
 
 .field private static final DEFAULT_TRACE_EXTENSION:Ljava/lang/String; = ".trace"
 
-.field private static final DEFAULT_TRACE_FILE_PATH:Ljava/lang/String; = null
+.field private static final DEFAULT_TRACE_FILE_PATH:Ljava/lang/String;
 
-.field private static final DEFAULT_TRACE_PATH_PREFIX:Ljava/lang/String; = null
+.field private static final DEFAULT_TRACE_PATH_PREFIX:Ljava/lang/String;
 
 .field public static final MEMINFO_BUFFERS:I = 0x2
 
@@ -153,7 +153,7 @@
 
 .method public static final cacheRegisterMap(Ljava/lang/String;)Z
     .locals 1
-    .parameter "classAndMethodDesc"
+    .param p0, "classAndMethodDesc"    # Ljava/lang/String;
 
     .prologue
     .line 1222
@@ -166,7 +166,7 @@
 
 .method public static changeDebugPort(I)V
     .locals 0
-    .parameter "port"
+    .param p0, "port"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -177,7 +177,7 @@
 
 .method public static countInstancesOfClass(Ljava/lang/Class;)J
     .locals 2
-    .parameter "cls"
+    .param p0, "cls"    # Ljava/lang/Class;
 
     .prologue
     .line 1173
@@ -192,7 +192,7 @@
 
 .method public static dumpHprofData(Ljava/lang/String;)V
     .locals 0
-    .parameter "fileName"
+    .param p0, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -209,8 +209,8 @@
 
 .method public static dumpHprofData(Ljava/lang/String;Ljava/io/FileDescriptor;)V
     .locals 0
-    .parameter "fileName"
-    .parameter "fd"
+    .param p0, "fileName"    # Ljava/lang/String;
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -255,9 +255,9 @@
 
 .method public static dumpService(Ljava/lang/String;Ljava/io/FileDescriptor;[Ljava/lang/String;)Z
     .locals 6
-    .parameter "name"
-    .parameter "fd"
-    .parameter "args"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "args"    # [Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -268,7 +268,7 @@
     move-result-object v1
 
     .line 1561
-    .local v1, service:Landroid/os/IBinder;
+    .local v1, "service":Landroid/os/IBinder;
     if-nez v1, :cond_0
 
     .line 1562
@@ -315,7 +315,7 @@
     move-exception v0
 
     .line 1570
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "Debug"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -354,8 +354,7 @@
 
 .method private static fieldTypeMatches(Ljava/lang/reflect/Field;Ljava/lang/Class;)Z
     .locals 6
-    .parameter "field"
-    .parameter
+    .param p0, "field"    # Ljava/lang/reflect/Field;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -366,7 +365,7 @@
     .end annotation
 
     .prologue
-    .local p1, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p1, "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -377,7 +376,7 @@
     move-result-object v1
 
     .line 1374
-    .local v1, fieldClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v1, "fieldClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-ne v1, p1, :cond_0
 
     move v5, v4
@@ -398,7 +397,7 @@
     move-result-object v2
 
     .line 1388
-    .local v2, primitiveTypeField:Ljava/lang/reflect/Field;
+    .local v2, "primitiveTypeField":Ljava/lang/reflect/Field;
     const/4 v3, 0x0
 
     :try_start_1
@@ -420,16 +419,16 @@
     goto :goto_0
 
     .line 1384
-    .end local v2           #primitiveTypeField:Ljava/lang/reflect/Field;
+    .end local v2    # "primitiveTypeField":Ljava/lang/reflect/Field;
     :catch_0
     move-exception v0
 
     .line 1385
-    .local v0, ex:Ljava/lang/NoSuchFieldException;
+    .local v0, "ex":Ljava/lang/NoSuchFieldException;
     goto :goto_0
 
-    .end local v0           #ex:Ljava/lang/NoSuchFieldException;
-    .restart local v2       #primitiveTypeField:Ljava/lang/reflect/Field;
+    .end local v0    # "ex":Ljava/lang/NoSuchFieldException;
+    .restart local v2    # "primitiveTypeField":Ljava/lang/reflect/Field;
     :cond_1
     move v3, v5
 
@@ -441,7 +440,7 @@
     move-exception v0
 
     .line 1390
-    .local v0, ex:Ljava/lang/IllegalAccessException;
+    .local v0, "ex":Ljava/lang/IllegalAccessException;
     goto :goto_0
 .end method
 
@@ -484,8 +483,8 @@
 
 .method private static getCaller([Ljava/lang/StackTraceElement;I)Ljava/lang/String;
     .locals 3
-    .parameter "callStack"
-    .parameter "depth"
+    .param p0, "callStack"    # [Ljava/lang/StackTraceElement;
+    .param p1, "depth"    # I
 
     .prologue
     .line 1590
@@ -509,7 +508,7 @@
     aget-object v0, p0, v1
 
     .line 1594
-    .local v0, caller:Ljava/lang/StackTraceElement;
+    .local v0, "caller":Ljava/lang/StackTraceElement;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -559,7 +558,7 @@
 
 .method public static getCallers(I)Ljava/lang/String;
     .locals 5
-    .parameter "depth"
+    .param p0, "depth"    # I
 
     .prologue
     .line 1604
@@ -572,16 +571,16 @@
     move-result-object v0
 
     .line 1605
-    .local v0, callStack:[Ljava/lang/StackTraceElement;
+    .local v0, "callStack":[Ljava/lang/StackTraceElement;
     new-instance v2, Ljava/lang/StringBuffer;
 
     invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 1606
-    .local v2, sb:Ljava/lang/StringBuffer;
+    .local v2, "sb":Ljava/lang/StringBuffer;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p0, :cond_0
 
@@ -614,8 +613,8 @@
 
 .method public static getCallers(II)Ljava/lang/String;
     .locals 5
-    .parameter "start"
-    .parameter "depth"
+    .param p0, "start"    # I
+    .param p1, "depth"    # I
 
     .prologue
     .line 1619
@@ -628,19 +627,19 @@
     move-result-object v0
 
     .line 1620
-    .local v0, callStack:[Ljava/lang/StackTraceElement;
+    .local v0, "callStack":[Ljava/lang/StackTraceElement;
     new-instance v2, Ljava/lang/StringBuffer;
 
     invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 1621
-    .local v2, sb:Ljava/lang/StringBuffer;
+    .local v2, "sb":Ljava/lang/StringBuffer;
     add-int/2addr p1, p0
 
     .line 1622
     move v1, p0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p1, :cond_0
 
@@ -673,8 +672,8 @@
 
 .method public static getCallers(ILjava/lang/String;)Ljava/lang/String;
     .locals 5
-    .parameter "depth"
-    .parameter "linePrefix"
+    .param p0, "depth"    # I
+    .param p1, "linePrefix"    # Ljava/lang/String;
 
     .prologue
     .line 1637
@@ -687,16 +686,16 @@
     move-result-object v0
 
     .line 1638
-    .local v0, callStack:[Ljava/lang/StackTraceElement;
+    .local v0, "callStack":[Ljava/lang/StackTraceElement;
     new-instance v2, Ljava/lang/StringBuffer;
 
     invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 1639
-    .local v2, sb:Ljava/lang/StringBuffer;
+    .local v2, "sb":Ljava/lang/StringBuffer;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p0, :cond_0
 
@@ -930,7 +929,7 @@
 
     .prologue
     .line 923
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->getAllocCount(I)I
 
@@ -944,7 +943,7 @@
 
     .prologue
     .line 940
-    const/high16 v0, 0x2
+    const/high16 v0, 0x20000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->getAllocCount(I)I
 
@@ -982,7 +981,7 @@
 
     .prologue
     .line 988
-    const/high16 v0, 0x10
+    const/high16 v0, 0x100000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->getAllocCount(I)I
 
@@ -1017,9 +1016,9 @@
 
 .method private static modifyFieldIfSet(Ljava/lang/reflect/Field;Lcom/android/internal/util/TypedProperties;Ljava/lang/String;)V
     .locals 6
-    .parameter "field"
-    .parameter "properties"
-    .parameter "propertyName"
+    .param p0, "field"    # Ljava/lang/reflect/Field;
+    .param p1, "properties"    # Lcom/android/internal/util/TypedProperties;
+    .param p2, "propertyName"    # Ljava/lang/String;
 
     .prologue
     .line 1401
@@ -1037,7 +1036,7 @@
     move-result v1
 
     .line 1403
-    .local v1, stringInfo:I
+    .local v1, "stringInfo":I
     packed-switch v1, :pswitch_data_0
 
     .line 1422
@@ -1087,19 +1086,19 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1441
-    .end local v1           #stringInfo:I
+    .end local v1    # "stringInfo":I
     :cond_0
     :goto_0
     :pswitch_1
     return-void
 
     .line 1410
-    .restart local v1       #stringInfo:I
+    .restart local v1    # "stringInfo":I
     :catch_0
     move-exception v0
 
     .line 1411
-    .local v0, ex:Ljava/lang/IllegalAccessException;
+    .local v0, "ex":Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1125,7 +1124,7 @@
     throw v3
 
     .line 1418
-    .end local v0           #ex:Ljava/lang/IllegalAccessException;
+    .end local v0    # "ex":Ljava/lang/IllegalAccessException;
     :pswitch_2
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -1178,7 +1177,7 @@
     throw v3
 
     .line 1427
-    .end local v1           #stringInfo:I
+    .end local v1    # "stringInfo":I
     :cond_1
     :pswitch_3
     invoke-virtual {p1, p2}, Lcom/android/internal/util/TypedProperties;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1186,7 +1185,7 @@
     move-result-object v2
 
     .line 1428
-    .local v2, value:Ljava/lang/Object;
+    .local v2, "value":Ljava/lang/Object;
     if-eqz v2, :cond_0
 
     .line 1429
@@ -1281,7 +1280,7 @@
     move-exception v0
 
     .line 1437
-    .restart local v0       #ex:Ljava/lang/IllegalAccessException;
+    .restart local v0    # "ex":Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1318,7 +1317,7 @@
 
 .method public static printLoadedClasses(I)V
     .locals 0
-    .parameter "flags"
+    .param p0, "flags"    # I
 
     .prologue
     .line 1112
@@ -1477,7 +1476,7 @@
 
     .prologue
     .line 931
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->resetAllocCount(I)V
 
@@ -1490,7 +1489,7 @@
 
     .prologue
     .line 948
-    const/high16 v0, 0x2
+    const/high16 v0, 0x20000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->resetAllocCount(I)V
 
@@ -1523,7 +1522,7 @@
 
     .prologue
     .line 996
-    const/high16 v0, 0x10
+    const/high16 v0, 0x100000
 
     invoke-static {v0}, Ldalvik/system/VMDebug;->resetAllocCount(I)V
 
@@ -1533,7 +1532,7 @@
 
 .method public static setAllocationLimit(I)I
     .locals 1
-    .parameter "limit"
+    .param p0, "limit"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1546,7 +1545,6 @@
 
 .method public static setFieldsOn(Ljava/lang/Class;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1557,7 +1555,7 @@
 
     .prologue
     .line 1452
-    .local p0, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p0, "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroid/os/Debug;->setFieldsOn(Ljava/lang/Class;Z)V
@@ -1568,8 +1566,7 @@
 
 .method public static setFieldsOn(Ljava/lang/Class;Z)V
     .locals 3
-    .parameter
-    .parameter "partial"
+    .param p1, "partial"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1580,7 +1577,7 @@
 
     .prologue
     .line 1531
-    .local p0, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p0, "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v1, "Debug"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1628,7 +1625,7 @@
 
 .method public static setGlobalAllocationLimit(I)I
     .locals 1
-    .parameter "limit"
+    .param p0, "limit"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1669,7 +1666,7 @@
 
 .method public static startMethodTracing(Ljava/lang/String;)V
     .locals 1
-    .parameter "traceName"
+    .param p0, "traceName"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -1683,8 +1680,8 @@
 
 .method public static startMethodTracing(Ljava/lang/String;I)V
     .locals 1
-    .parameter "traceName"
-    .parameter "bufferSize"
+    .param p0, "traceName"    # Ljava/lang/String;
+    .param p1, "bufferSize"    # I
 
     .prologue
     .line 614
@@ -1698,16 +1695,16 @@
 
 .method public static startMethodTracing(Ljava/lang/String;II)V
     .locals 3
-    .parameter "traceName"
-    .parameter "bufferSize"
-    .parameter "flags"
+    .param p0, "traceName"    # Ljava/lang/String;
+    .param p1, "bufferSize"    # I
+    .param p2, "flags"    # I
 
     .prologue
     .line 643
     move-object v0, p0
 
     .line 644
-    .local v0, pathName:Ljava/lang/String;
+    .local v0, "pathName":Ljava/lang/String;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
@@ -1776,10 +1773,10 @@
 
 .method public static startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;II)V
     .locals 0
-    .parameter "traceName"
-    .parameter "fd"
-    .parameter "bufferSize"
-    .parameter "flags"
+    .param p0, "traceName"    # Ljava/lang/String;
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "bufferSize"    # I
+    .param p3, "flags"    # I
 
     .prologue
     .line 663
@@ -1791,10 +1788,10 @@
 
 .method public static startMethodTracingDdms(IIZI)V
     .locals 0
-    .parameter "bufferSize"
-    .parameter "flags"
-    .parameter "samplingEnabled"
-    .parameter "intervalUs"
+    .param p0, "bufferSize"    # I
+    .param p1, "flags"    # I
+    .param p2, "samplingEnabled"    # Z
+    .param p3, "intervalUs"    # I
 
     .prologue
     .line 675
@@ -1812,7 +1809,7 @@
     const/4 v1, 0x0
 
     .line 518
-    .local v1, outStream:Ljava/io/PrintWriter;
+    .local v1, "outStream":Ljava/io/PrintWriter;
     :try_start_0
     new-instance v0, Ljava/io/FileOutputStream;
 
@@ -1821,24 +1818,24 @@
     invoke-direct {v0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 519
-    .local v0, fos:Ljava/io/FileOutputStream;
+    .local v0, "fos":Ljava/io/FileOutputStream;
     new-instance v2, Lcom/android/internal/util/FastPrintWriter;
 
     invoke-direct {v2, v0}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/OutputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 520
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .local v2, outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .local v2, "outStream":Ljava/io/PrintWriter;
     :try_start_1
     const-string v3, "1"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 523
     if-eqz v2, :cond_2
@@ -1849,9 +1846,9 @@
     move-object v1, v2
 
     .line 527
-    .end local v0           #fos:Ljava/io/FileOutputStream;
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v0    # "fos":Ljava/io/FileOutputStream;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     :cond_0
     :goto_0
     invoke-static {}, Ldalvik/system/VMDebug;->startEmulatorTracing()V
@@ -1886,37 +1883,37 @@
     throw v3
 
     .line 523
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v0       #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v0    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :catchall_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_2
 
     .line 521
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :catch_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_1
 
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :cond_2
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_0
 .end method
 
@@ -1955,7 +1952,7 @@
     const/4 v1, 0x0
 
     .line 546
-    .local v1, outStream:Ljava/io/PrintWriter;
+    .local v1, "outStream":Ljava/io/PrintWriter;
     :try_start_0
     new-instance v0, Ljava/io/FileOutputStream;
 
@@ -1964,24 +1961,24 @@
     invoke-direct {v0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 547
-    .local v0, fos:Ljava/io/FileOutputStream;
+    .local v0, "fos":Ljava/io/FileOutputStream;
     new-instance v2, Lcom/android/internal/util/FastPrintWriter;
 
     invoke-direct {v2, v0}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/OutputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 548
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .local v2, outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .local v2, "outStream":Ljava/io/PrintWriter;
     :try_start_1
     const-string v3, "0"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 553
     if-eqz v2, :cond_2
@@ -1992,9 +1989,9 @@
     move-object v1, v2
 
     .line 556
-    .end local v0           #fos:Ljava/io/FileOutputStream;
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v0    # "fos":Ljava/io/FileOutputStream;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     :cond_0
     :goto_0
     return-void
@@ -2026,37 +2023,37 @@
     throw v3
 
     .line 553
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v0       #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v0    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :catchall_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_2
 
     .line 549
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :catch_1
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_1
 
-    .end local v1           #outStream:Ljava/io/PrintWriter;
-    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    .end local v1    # "outStream":Ljava/io/PrintWriter;
+    .restart local v2    # "outStream":Ljava/io/PrintWriter;
     :cond_2
     move-object v1, v2
 
-    .end local v2           #outStream:Ljava/io/PrintWriter;
-    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    .end local v2    # "outStream":Ljava/io/PrintWriter;
+    .restart local v1    # "outStream":Ljava/io/PrintWriter;
     goto :goto_0
 .end method
 
@@ -2088,17 +2085,17 @@
     if-nez v4, :cond_1
 
     .line 444
-    .local v0, data:[B
-    .local v1, delta:J
-    .local v3, waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .local v0, "data":[B
+    .local v1, "delta":J
+    .local v3, "waitChunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     :cond_0
     :goto_0
     return-void
 
     .line 401
-    .end local v0           #data:[B
-    .end local v1           #delta:J
-    .end local v3           #waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .end local v0    # "data":[B
+    .end local v1    # "delta":J
+    .end local v3    # "waitChunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     :cond_1
     invoke-static {}, Landroid/os/Debug;->isDebuggerConnected()Z
 
@@ -2119,7 +2116,7 @@
     aput-byte v6, v0, v6
 
     .line 407
-    .restart local v0       #data:[B
+    .restart local v0    # "data":[B
     new-instance v3, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     const-string v4, "WAIT"
@@ -2131,7 +2128,7 @@
     invoke-direct {v3, v4, v0, v6, v7}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
     .line 408
-    .restart local v3       #waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .restart local v3    # "waitChunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {v3}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->sendChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)V
 
     .line 410
@@ -2179,7 +2176,7 @@
     move-result-wide v1
 
     .line 430
-    .restart local v1       #delta:J
+    .restart local v1    # "delta":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v1, v4

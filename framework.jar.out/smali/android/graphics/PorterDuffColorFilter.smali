@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(ILandroid/graphics/PorterDuff$Mode;)V
     .locals 2
-    .parameter "srcColor"
-    .parameter "mode"
+    .param p1, "srcColor"    # I
+    .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
     .line 27

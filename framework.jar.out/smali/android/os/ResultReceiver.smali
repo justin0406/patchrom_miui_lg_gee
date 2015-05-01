@@ -53,7 +53,7 @@
 
 .method public constructor <init>(Landroid/os/Handler;)V
     .locals 1
-    .parameter "handler"
+    .param p1, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 62
@@ -73,7 +73,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 115
@@ -118,8 +118,8 @@
 
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 0
-    .parameter "resultCode"
-    .parameter "resultData"
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/os/Bundle;
 
     .prologue
     .line 100
@@ -128,8 +128,8 @@
 
 .method public send(ILandroid/os/Bundle;)V
     .locals 2
-    .parameter "resultCode"
-    .parameter "resultData"
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/os/Bundle;
 
     .prologue
     .line 75
@@ -187,8 +187,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 107

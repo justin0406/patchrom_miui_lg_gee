@@ -68,7 +68,6 @@
 
 .method private constructor <init>(Ljava/util/List;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +80,7 @@
 
     .prologue
     .line 77
-    .local p1, queryList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local p1, "queryList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0, p1}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;-><init>(Ljava/util/List;)V
 
     .line 78
@@ -90,7 +89,7 @@
 
 .method private static compressDnsName(Ljava/lang/String;)Ljava/lang/String;
     .locals 10
-    .parameter "dnsName"
+    .param p0, "dnsName"    # Ljava/lang/String;
 
     .prologue
     const/4 v9, 0x1
@@ -103,7 +102,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 210
-    .local v3, sb:Ljava/lang/StringBuffer;
+    .local v3, "sb":Ljava/lang/StringBuffer;
     :goto_0
     sget-object v4, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceInfo;->sVmPacket:Ljava/util/Map;
 
@@ -114,7 +113,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 211
-    .local v0, data:Ljava/lang/String;
+    .local v0, "data":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 212
@@ -137,7 +136,7 @@
     move-result v1
 
     .line 216
-    .local v1, i:I
+    .local v1, "i":I
     const/4 v4, -0x1
 
     if-ne v1, v4, :cond_2
@@ -198,7 +197,7 @@
     move-result-object v2
 
     .line 227
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     add-int/lit8 v4, v1, 0x1
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -244,8 +243,8 @@
 
 .method private static createPtrServiceQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .parameter "instanceName"
-    .parameter "serviceType"
+    .param p0, "instanceName"    # Ljava/lang/String;
+    .param p1, "serviceType"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -256,7 +255,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 125
-    .local v1, sb:Ljava/lang/StringBuffer;
+    .local v1, "sb":Ljava/lang/StringBuffer;
     const-string v2, "bonjour "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -299,7 +298,7 @@
     move-result-object v0
 
     .line 130
-    .local v0, data:[B
+    .local v0, "data":[B
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v3, "%02x"
@@ -344,9 +343,9 @@
 
 .method static createRequest(Ljava/lang/String;II)Ljava/lang/String;
     .locals 7
-    .parameter "dnsName"
-    .parameter "dnsType"
-    .parameter "version"
+    .param p0, "dnsName"    # Ljava/lang/String;
+    .param p1, "dnsType"    # I
+    .param p2, "version"    # I
 
     .prologue
     const/4 v6, 0x1
@@ -359,7 +358,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 186
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const/16 v1, 0x10
 
     if-ne p1, v1, :cond_0
@@ -427,9 +426,9 @@
 
 .method private static createTxtServiceQuery(Ljava/lang/String;Ljava/lang/String;Landroid/net/nsd/DnsSdTxtRecord;)Ljava/lang/String;
     .locals 5
-    .parameter "instanceName"
-    .parameter "serviceType"
-    .parameter "txtRecord"
+    .param p0, "instanceName"    # Ljava/lang/String;
+    .param p1, "serviceType"    # Ljava/lang/String;
+    .param p2, "txtRecord"    # Landroid/net/nsd/DnsSdTxtRecord;
 
     .prologue
     .line 153
@@ -438,7 +437,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 154
-    .local v1, sb:Ljava/lang/StringBuffer;
+    .local v1, "sb":Ljava/lang/StringBuffer;
     const-string v2, "bonjour "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -493,7 +492,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, rawData:[B
+    .local v0, "rawData":[B
     array-length v2, v0
 
     if-nez v2, :cond_0
@@ -524,9 +523,8 @@
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceInfo;
     .locals 6
-    .parameter "instanceName"
-    .parameter "serviceType"
-    .parameter
+    .param p0, "instanceName"    # Ljava/lang/String;
+    .param p1, "serviceType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -543,7 +541,7 @@
 
     .prologue
     .line 93
-    .local p2, txtMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p2, "txtMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
@@ -573,7 +571,7 @@
     invoke-direct {v3}, Landroid/net/nsd/DnsSdTxtRecord;-><init>()V
 
     .line 99
-    .local v3, txtRecord:Landroid/net/nsd/DnsSdTxtRecord;
+    .local v3, "txtRecord":Landroid/net/nsd/DnsSdTxtRecord;
     if-eqz p2, :cond_2
 
     .line 100
@@ -585,7 +583,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -600,7 +598,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 101
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
@@ -612,15 +610,15 @@
     goto :goto_0
 
     .line 105
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #key:Ljava/lang/String;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "key":Ljava/lang/String;
     :cond_2
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 106
-    .local v2, queries:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v2, "queries":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-static {p0, p1}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceInfo;->createPtrServiceQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4

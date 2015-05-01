@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/IconMenuPresenter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 176
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 2
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 179
@@ -78,7 +77,7 @@
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 2
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 188
@@ -89,7 +88,7 @@
 
     check-cast p1, Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    .end local p1
+    .end local p1    # "subMenu":Lcom/android/internal/view/menu/MenuBuilder;
     invoke-virtual {p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getItem()Landroid/view/MenuItem;
 
     move-result-object v1

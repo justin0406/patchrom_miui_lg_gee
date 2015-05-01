@@ -12,7 +12,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "detailMessage"
+    .param p1, "detailMessage"    # Ljava/lang/String;
 
     .prologue
     .line 30
@@ -24,8 +24,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
     .locals 2
-    .parameter "cmd"
-    .parameter "event"
+    .param p1, "cmd"    # Ljava/lang/String;
+    .param p2, "event"    # Lcom/android/server/NativeDaemonEvent;
 
     .prologue
     .line 38
@@ -77,8 +77,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "detailMessage"
-    .parameter "throwable"
+    .param p1, "detailMessage"    # Ljava/lang/String;
+    .param p2, "throwable"    # Ljava/lang/Throwable;
 
     .prologue
     .line 34

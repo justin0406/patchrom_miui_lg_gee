@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Landroid/net/http/AndroidHttpClient;Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
+    .param p2, "x0"    # Lorg/apache/http/conn/ClientConnectionManager;
+    .param p3, "x1"    # Lorg/apache/http/params/HttpParams;
 
     .prologue
     .line 162
@@ -46,7 +45,7 @@
     invoke-direct {v0}, Lorg/apache/http/protocol/BasicHttpContext;-><init>()V
 
     .line 178
-    .local v0, context:Lorg/apache/http/protocol/HttpContext;
+    .local v0, "context":Lorg/apache/http/protocol/HttpContext;
     const-string v1, "http.authscheme-registry"
 
     invoke-virtual {p0}, Landroid/net/http/AndroidHttpClient$2;->getAuthSchemes()Lorg/apache/http/auth/AuthSchemeRegistry;
@@ -87,7 +86,8 @@
     move-result-object v0
 
     .line 167
-    .local v0, processor:Lorg/apache/http/protocol/BasicHttpProcessor;
+    .local v0, "processor":Lorg/apache/http/protocol/BasicHttpProcessor;
+    # getter for: Landroid/net/http/AndroidHttpClient;->sThreadCheckInterceptor:Lorg/apache/http/HttpRequestInterceptor;
     invoke-static {}, Landroid/net/http/AndroidHttpClient;->access$000()Lorg/apache/http/HttpRequestInterceptor;
 
     move-result-object v1

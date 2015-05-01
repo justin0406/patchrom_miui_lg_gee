@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;)V
     .locals 2
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 371
@@ -67,30 +67,42 @@
 # virtual methods
 .method public final compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
     .locals 5
-    .parameter "a"
-    .parameter "b"
+    .param p1, "a"    # Landroid/content/pm/ResolveInfo;
+    .param p2, "b"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
-    invoke-static {p1, p2}, Landroid/content/pm/Injector$ResolveInfoHook$DisplayNameComparator;->before_compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
+    iget-boolean v2, p1, Landroid/content/pm/ResolveInfo;->system:Z
 
-    move-result v0
+    iget-boolean v3, p2, Landroid/content/pm/ResolveInfo;->system:Z
 
-    .local v0, ret:I
-    if-eqz v0, :cond_miui
+    if-eq v2, v3, :cond_miui_0
 
-    .end local v0           #ret:I
-    return v0
+    iget-boolean v2, p1, Landroid/content/pm/ResolveInfo;->system:Z
 
-    .restart local v0       #ret:I
-    :cond_miui
+    if-eqz v2, :cond_miui_1
 
+    iget-boolean v2, p2, Landroid/content/pm/ResolveInfo;->system:Z
+
+    if-nez v2, :cond_miui_1
+
+    const/4 v2, -0x1
+
+    :goto_miui_0
+    return v2
+
+    :cond_miui_1
+    const/4 v2, 0x1
+
+    goto :goto_miui_0
+
+    :cond_miui_0
     iget-object v2, p0, Landroid/content/pm/ResolveInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
 
     invoke-virtual {p1, v2}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .local v0, sa:Ljava/lang/CharSequence;
+    .local v0, "sa":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
     iget-object v2, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -106,7 +118,7 @@
     move-result-object v1
 
     .line 380
-    .local v1, sb:Ljava/lang/CharSequence;
+    .local v1, "sb":Ljava/lang/CharSequence;
     if-nez v1, :cond_1
 
     iget-object v2, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -134,17 +146,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 369
     check-cast p1, Landroid/content/pm/ResolveInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/content/pm/ResolveInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/ResolveInfo$DisplayNameComparator;->compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
 
     move-result v0

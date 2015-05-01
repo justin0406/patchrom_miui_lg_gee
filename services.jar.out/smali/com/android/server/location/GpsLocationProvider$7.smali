@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1588
@@ -36,11 +35,12 @@
 # virtual methods
 .method public sendNiResponse(II)Z
     .locals 3
-    .parameter "notificationId"
-    .parameter "userResponse"
+    .param p1, "notificationId"    # I
+    .param p2, "userResponse"    # I
 
     .prologue
     .line 1595
+    # getter for: Lcom/android/server/location/GpsLocationProvider;->DEBUG:Z
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v0
@@ -83,7 +83,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$7;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_send_ni_response(II)V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_send_ni_response(II)V
     invoke-static {v0, p1, p2}, Lcom/android/server/location/GpsLocationProvider;->access$2100(Lcom/android/server/location/GpsLocationProvider;II)V
 
     .line 1598

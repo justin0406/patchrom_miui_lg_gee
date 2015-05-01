@@ -36,7 +36,7 @@
 
 .method private static close(Ljava/io/Closeable;)V
     .locals 3
-    .parameter "c"
+    .param p0, "c"    # Ljava/io/Closeable;
 
     .prologue
     .line 93
@@ -60,7 +60,7 @@
     move-exception v0
 
     .line 98
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "RandomBlock"
 
     const-string v2, "IOException thrown while closing Closeable"
@@ -72,7 +72,7 @@
 
 .method static fromFile(Ljava/lang/String;)Lcom/android/server/RandomBlock;
     .locals 3
-    .parameter "filename"
+    .param p0, "filename"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,7 +84,7 @@
     const/4 v0, 0x0
 
     .line 45
-    .local v0, stream:Ljava/io/InputStream;
+    .local v0, "stream":Ljava/io/InputStream;
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
@@ -93,8 +93,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 46
-    .end local v0           #stream:Ljava/io/InputStream;
-    .local v1, stream:Ljava/io/InputStream;
+    .end local v0    # "stream":Ljava/io/InputStream;
+    .local v1, "stream":Ljava/io/InputStream;
     :try_start_1
     invoke-static {v1}, Lcom/android/server/RandomBlock;->fromStream(Ljava/io/InputStream;)Lcom/android/server/RandomBlock;
     :try_end_1
@@ -109,8 +109,8 @@
     return-object v2
 
     .line 48
-    .end local v1           #stream:Ljava/io/InputStream;
-    .restart local v0       #stream:Ljava/io/InputStream;
+    .end local v1    # "stream":Ljava/io/InputStream;
+    .restart local v0    # "stream":Ljava/io/InputStream;
     :catchall_0
     move-exception v2
 
@@ -119,21 +119,21 @@
 
     throw v2
 
-    .end local v0           #stream:Ljava/io/InputStream;
-    .restart local v1       #stream:Ljava/io/InputStream;
+    .end local v0    # "stream":Ljava/io/InputStream;
+    .restart local v1    # "stream":Ljava/io/InputStream;
     :catchall_1
     move-exception v2
 
     move-object v0, v1
 
-    .end local v1           #stream:Ljava/io/InputStream;
-    .restart local v0       #stream:Ljava/io/InputStream;
+    .end local v1    # "stream":Ljava/io/InputStream;
+    .restart local v0    # "stream":Ljava/io/InputStream;
     goto :goto_0
 .end method
 
 .method private static fromStream(Ljava/io/InputStream;)Lcom/android/server/RandomBlock;
     .locals 5
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -147,11 +147,11 @@
     invoke-direct {v1}, Lcom/android/server/RandomBlock;-><init>()V
 
     .line 54
-    .local v1, retval:Lcom/android/server/RandomBlock;
+    .local v1, "retval":Lcom/android/server/RandomBlock;
     const/4 v2, 0x0
 
     .line 55
-    .local v2, total:I
+    .local v2, "total":I
     :goto_0
     const/16 v3, 0x1000
 
@@ -167,7 +167,7 @@
     move-result v0
 
     .line 57
-    .local v0, result:I
+    .local v0, "result":I
     const/4 v3, -0x1
 
     if-ne v0, v3, :cond_0
@@ -187,14 +187,14 @@
     goto :goto_0
 
     .line 62
-    .end local v0           #result:I
+    .end local v0    # "result":I
     :cond_1
     return-object v1
 .end method
 
 .method private toDataOut(Ljava/io/DataOutput;)V
     .locals 1
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/DataOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -213,7 +213,7 @@
 
 .method private static truncateIfPossible(Ljava/io/RandomAccessFile;)V
     .locals 2
-    .parameter "f"
+    .param p0, "f"    # Ljava/io/RandomAccessFile;
 
     .prologue
     .line 79
@@ -239,8 +239,8 @@
 # virtual methods
 .method toFile(Ljava/lang/String;Z)V
     .locals 3
-    .parameter "filename"
-    .parameter "sync"
+    .param p1, "filename"    # Ljava/lang/String;
+    .param p2, "sync"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -252,7 +252,7 @@
     const/4 v0, 0x0
 
     .line 69
-    .local v0, out:Ljava/io/RandomAccessFile;
+    .local v0, "out":Ljava/io/RandomAccessFile;
     :try_start_0
     new-instance v1, Ljava/io/RandomAccessFile;
 
@@ -266,8 +266,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 70
-    .end local v0           #out:Ljava/io/RandomAccessFile;
-    .local v1, out:Ljava/io/RandomAccessFile;
+    .end local v0    # "out":Ljava/io/RandomAccessFile;
+    .local v1, "out":Ljava/io/RandomAccessFile;
     :try_start_1
     invoke-direct {p0, v1}, Lcom/android/server/RandomBlock;->toDataOut(Ljava/io/DataOutput;)V
 
@@ -283,8 +283,8 @@
     return-void
 
     .line 69
-    .end local v1           #out:Ljava/io/RandomAccessFile;
-    .restart local v0       #out:Ljava/io/RandomAccessFile;
+    .end local v1    # "out":Ljava/io/RandomAccessFile;
+    .restart local v0    # "out":Ljava/io/RandomAccessFile;
     :cond_0
     :try_start_2
     const-string v2, "rw"
@@ -302,14 +302,14 @@
 
     throw v2
 
-    .end local v0           #out:Ljava/io/RandomAccessFile;
-    .restart local v1       #out:Ljava/io/RandomAccessFile;
+    .end local v0    # "out":Ljava/io/RandomAccessFile;
+    .restart local v1    # "out":Ljava/io/RandomAccessFile;
     :catchall_1
     move-exception v2
 
     move-object v0, v1
 
-    .end local v1           #out:Ljava/io/RandomAccessFile;
-    .restart local v0       #out:Ljava/io/RandomAccessFile;
+    .end local v1    # "out":Ljava/io/RandomAccessFile;
+    .restart local v0    # "out":Ljava/io/RandomAccessFile;
     goto :goto_1
 .end method

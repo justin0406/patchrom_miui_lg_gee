@@ -21,7 +21,7 @@
 
 .field public static final SHARED:I = 0x1
 
-.field public static final strings:[Ljava/lang/String; = null
+.field public static final strings:[Ljava/lang/String;
 
 .field public static final varName:Ljava/lang/String; = "auth_alg"
 

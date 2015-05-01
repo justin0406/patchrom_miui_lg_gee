@@ -28,7 +28,7 @@
 
 .method public static getContantForFocusDirection(I)I
     .locals 2
-    .parameter "direction"
+    .param p0, "direction"    # I
 
     .prologue
     .line 42

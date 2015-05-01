@@ -63,8 +63,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener$Callbacks;)V
     .locals 2
-    .parameter "context"
-    .parameter "callbacks"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "callbacks"    # Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener$Callbacks;
 
     .prologue
     const/16 v1, 0x20
@@ -135,8 +135,8 @@
 
 .method private captureDown(Landroid/view/MotionEvent;I)V
     .locals 5
-    .parameter "event"
-    .parameter "pointerIndex"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "pointerIndex"    # I
 
     .prologue
     .line 116
@@ -145,13 +145,13 @@
     move-result v1
 
     .line 117
-    .local v1, pointerId:I
+    .local v1, "pointerId":I
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->findIndex(I)I
 
     move-result v0
 
     .line 120
-    .local v0, i:I
+    .local v0, "i":I
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_0
@@ -190,8 +190,7 @@
 
 .method private static checkNull(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .parameter "name"
-    .parameter
+    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -204,7 +203,7 @@
 
     .prologue
     .line 64
-    .local p1, arg:Ljava/lang/Object;,"TT;"
+    .local p1, "arg":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
     .line 65
@@ -239,10 +238,10 @@
 
 .method private detectSwipe(IJFF)I
     .locals 8
-    .parameter "i"
-    .parameter "time"
-    .parameter "x"
-    .parameter "y"
+    .param p1, "i"    # I
+    .param p2, "time"    # J
+    .param p4, "x"    # F
+    .param p5, "y"    # F
 
     .prologue
     const-wide/16 v6, 0x1f4
@@ -253,13 +252,13 @@
     aget v2, v4, p1
 
     .line 169
-    .local v2, fromX:F
+    .local v2, "fromX":F
     iget-object v4, p0, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->mDownY:[F
 
     aget v3, v4, p1
 
     .line 170
-    .local v3, fromY:F
+    .local v3, "fromY":F
     iget-object v4, p0, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->mDownTime:[J
 
     aget-wide v4, v4, p1
@@ -267,7 +266,7 @@
     sub-long v0, p2, v4
 
     .line 173
-    .local v0, elapsed:J
+    .local v0, "elapsed":J
     iget v4, p0, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->mSwipeStartThreshold:I
 
     int-to-float v4, v4
@@ -372,7 +371,7 @@
 
 .method private detectSwipe(Landroid/view/MotionEvent;)I
     .locals 20
-    .parameter "move"
+    .param p1, "move"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 143
@@ -381,16 +380,16 @@
     move-result v15
 
     .line 144
-    .local v15, historySize:I
+    .local v15, "historySize":I
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v17
 
     .line 145
-    .local v17, pointerCount:I
+    .local v17, "pointerCount":I
     const/16 v16, 0x0
 
-    .local v16, p:I
+    .local v16, "p":I
     :goto_0
     move/from16 v0, v16
 
@@ -408,7 +407,7 @@
     move-result v18
 
     .line 147
-    .local v18, pointerId:I
+    .local v18, "pointerId":I
     move-object/from16 v0, p0
 
     move/from16 v1, v18
@@ -418,7 +417,7 @@
     move-result v3
 
     .line 148
-    .local v3, i:I
+    .local v3, "i":I
     const/4 v2, -0x1
 
     if-eq v3, v2, :cond_3
@@ -426,7 +425,7 @@
     .line 149
     const/4 v14, 0x0
 
-    .local v14, h:I
+    .local v14, "h":I
     :goto_1
     if-ge v14, v15, :cond_2
 
@@ -438,7 +437,7 @@
     move-result-wide v4
 
     .line 151
-    .local v4, time:J
+    .local v4, "time":J
     move-object/from16 v0, p1
 
     move/from16 v1, v16
@@ -448,7 +447,7 @@
     move-result v6
 
     .line 152
-    .local v6, x:F
+    .local v6, "x":F
     move-object/from16 v0, p1
 
     move/from16 v1, v16
@@ -457,7 +456,7 @@
 
     move-result v7
 
-    .local v7, y:F
+    .local v7, "y":F
     move-object/from16 v2, p0
 
     .line 153
@@ -466,39 +465,39 @@
     move-result v19
 
     .line 154
-    .local v19, swipe:I
+    .local v19, "swipe":I
     if-eqz v19, :cond_1
 
     .line 164
-    .end local v3           #i:I
-    .end local v4           #time:J
-    .end local v6           #x:F
-    .end local v7           #y:F
-    .end local v14           #h:I
-    .end local v18           #pointerId:I
-    .end local v19           #swipe:I
+    .end local v3    # "i":I
+    .end local v4    # "time":J
+    .end local v6    # "x":F
+    .end local v7    # "y":F
+    .end local v14    # "h":I
+    .end local v18    # "pointerId":I
+    .end local v19    # "swipe":I
     :cond_0
     :goto_2
     return v19
 
     .line 149
-    .restart local v3       #i:I
-    .restart local v4       #time:J
-    .restart local v6       #x:F
-    .restart local v7       #y:F
-    .restart local v14       #h:I
-    .restart local v18       #pointerId:I
-    .restart local v19       #swipe:I
+    .restart local v3    # "i":I
+    .restart local v4    # "time":J
+    .restart local v6    # "x":F
+    .restart local v7    # "y":F
+    .restart local v14    # "h":I
+    .restart local v18    # "pointerId":I
+    .restart local v19    # "swipe":I
     :cond_1
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_1
 
     .line 158
-    .end local v4           #time:J
-    .end local v6           #x:F
-    .end local v7           #y:F
-    .end local v19           #swipe:I
+    .end local v4    # "time":J
+    .end local v6    # "x":F
+    .end local v7    # "y":F
+    .end local v19    # "swipe":I
     :cond_2
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
 
@@ -529,20 +528,20 @@
     move-result v19
 
     .line 159
-    .restart local v19       #swipe:I
+    .restart local v19    # "swipe":I
     if-nez v19, :cond_0
 
     .line 145
-    .end local v14           #h:I
-    .end local v19           #swipe:I
+    .end local v14    # "h":I
+    .end local v19    # "swipe":I
     :cond_3
     add-int/lit8 v16, v16, 0x1
 
     goto :goto_0
 
     .line 164
-    .end local v3           #i:I
-    .end local v18           #pointerId:I
+    .end local v3    # "i":I
+    .end local v18    # "pointerId":I
     :cond_4
     const/16 v19, 0x0
 
@@ -551,7 +550,7 @@
 
 .method private findIndex(I)I
     .locals 4
-    .parameter "pointerId"
+    .param p1, "pointerId"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -559,7 +558,7 @@
     .line 130
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v2, p0, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->mDownPointers:I
 
@@ -573,12 +572,12 @@
     if-ne v2, p1, :cond_0
 
     .line 139
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 130
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -624,7 +623,7 @@
 # virtual methods
 .method public onPointerEvent(Landroid/view/MotionEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -714,7 +713,7 @@
     move-result v0
 
     .line 92
-    .local v0, swipe:I
+    .local v0, "swipe":I
     if-nez v0, :cond_2
 
     move v2, v1
@@ -759,7 +758,7 @@
     goto :goto_0
 
     .line 107
-    .end local v0           #swipe:I
+    .end local v0    # "swipe":I
     :pswitch_4
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/SystemGesturesPointerEventListener;->mSwipeFireable:Z
 

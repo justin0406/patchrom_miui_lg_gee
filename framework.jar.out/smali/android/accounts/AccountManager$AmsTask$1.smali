@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1458

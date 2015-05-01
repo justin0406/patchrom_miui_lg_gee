@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 5679
@@ -39,11 +38,11 @@
 # virtual methods
 .method public checkComponentPermission(Ljava/lang/String;IIIZ)I
     .locals 6
-    .parameter "permission"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "owningUid"
-    .parameter "exported"
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
+    .param p4, "owningUid"    # I
+    .param p5, "exported"    # Z
 
     .prologue
     .line 5683

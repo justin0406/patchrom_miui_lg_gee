@@ -56,7 +56,7 @@
 
 .method public getNativeSize(I)I
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     .line 65
@@ -67,7 +67,7 @@
 
 .method public isNativeTypeSupported(I)Z
     .locals 1
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -86,10 +86,10 @@
 
 .method public marshal(Landroid/graphics/Rect;Ljava/nio/ByteBuffer;IZ)I
     .locals 2
-    .parameter "value"
-    .parameter "buffer"
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "value"    # Landroid/graphics/Rect;
+    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
 
     .prologue
     const/16 v1, 0x10
@@ -131,16 +131,16 @@
 
 .method public bridge synthetic marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;IZ)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/nio/ByteBuffer;
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Z
 
     .prologue
     .line 22
     check-cast p1, Landroid/graphics/Rect;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/hardware/camera2/impl/MetadataMarshalRect;->marshal(Landroid/graphics/Rect;Ljava/nio/ByteBuffer;IZ)I
 
     move-result v0
@@ -150,8 +150,8 @@
 
 .method public unmarshal(Ljava/nio/ByteBuffer;I)Landroid/graphics/Rect;
     .locals 7
-    .parameter "buffer"
-    .parameter "nativeType"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
 
     .prologue
     .line 42
@@ -160,33 +160,33 @@
     move-result v2
 
     .line 43
-    .local v2, left:I
+    .local v2, "left":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v4
 
     .line 44
-    .local v4, top:I
+    .local v4, "top":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v5
 
     .line 45
-    .local v5, width:I
+    .local v5, "width":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
 
     .line 47
-    .local v1, height:I
+    .local v1, "height":I
     add-int v3, v2, v5
 
     .line 48
-    .local v3, right:I
+    .local v3, "right":I
     add-int v0, v4, v1
 
     .line 50
-    .local v0, bottom:I
+    .local v0, "bottom":I
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6, v2, v4, v3, v0}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -196,8 +196,8 @@
 
 .method public bridge synthetic unmarshal(Ljava/nio/ByteBuffer;I)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/nio/ByteBuffer;
+    .param p2, "x1"    # I
 
     .prologue
     .line 22

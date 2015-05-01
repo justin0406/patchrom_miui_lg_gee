@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GeofenceProxy;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 60
@@ -44,7 +43,7 @@
     .line 63
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$1;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$000(Lcom/android/server/location/GeofenceProxy;)Landroid/os/Handler;
 
     move-result-object v0

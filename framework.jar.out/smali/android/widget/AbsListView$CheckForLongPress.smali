@@ -24,10 +24,9 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AbsListView;)V
     .locals 1
-    .parameter
 
     .prologue
-    .line 2910
+    .line 2917
     iput-object p1, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     const/4 v0, 0x0
@@ -39,11 +38,11 @@
 
 .method synthetic constructor <init>(Landroid/widget/AbsListView;Landroid/widget/AbsListView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/AbsListView;
+    .param p2, "x1"    # Landroid/widget/AbsListView$1;
 
     .prologue
-    .line 2910
+    .line 2917
     invoke-direct {p0, p1}, Landroid/widget/AbsListView$CheckForLongPress;-><init>(Landroid/widget/AbsListView;)V
 
     return-void
@@ -57,13 +56,13 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 2913
+    .line 2920
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     iget v5, v6, Landroid/widget/AbsListView;->mMotionPosition:I
 
-    .line 2914
-    .local v5, motionPosition:I
+    .line 2921
+    .local v5, "motionPosition":I
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     iget-object v7, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
@@ -76,17 +75,17 @@
 
     move-result-object v0
 
-    .line 2915
-    .local v0, child:Landroid/view/View;
+    .line 2922
+    .local v0, "child":Landroid/view/View;
     if-eqz v0, :cond_1
 
-    .line 2916
+    .line 2923
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     iget v4, v6, Landroid/widget/AbsListView;->mMotionPosition:I
 
-    .line 2917
-    .local v4, longPressPosition:I
+    .line 2924
+    .local v4, "longPressPosition":I
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     iget-object v6, v6, Landroid/widget/AbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -99,12 +98,12 @@
 
     move-result-wide v2
 
-    .line 2919
-    .local v2, longPressId:J
+    .line 2926
+    .local v2, "longPressId":J
     const/4 v1, 0x0
 
-    .line 2920
-    .local v1, handled:Z
+    .line 2927
+    .local v1, "handled":Z
     invoke-virtual {p0}, Landroid/widget/AbsListView$CheckForLongPress;->sameWindow()Z
 
     move-result v6
@@ -117,44 +116,44 @@
 
     if-nez v6, :cond_0
 
-    .line 2921
+    .line 2928
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v6, v0, v4, v2, v3}, Landroid/widget/AbsListView;->performLongPress(Landroid/view/View;IJ)Z
 
     move-result v1
 
-    .line 2923
+    .line 2930
     :cond_0
     if-eqz v1, :cond_2
 
-    .line 2924
+    .line 2931
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     const/4 v7, -0x1
 
     iput v7, v6, Landroid/widget/AbsListView;->mTouchMode:I
 
-    .line 2925
+    .line 2932
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v6, v8}, Landroid/widget/AbsListView;->setPressed(Z)V
 
-    .line 2926
+    .line 2933
     invoke-virtual {v0, v8}, Landroid/view/View;->setPressed(Z)V
 
-    .line 2931
-    .end local v1           #handled:Z
-    .end local v2           #longPressId:J
-    .end local v4           #longPressPosition:I
+    .line 2938
+    .end local v1    # "handled":Z
+    .end local v2    # "longPressId":J
+    .end local v4    # "longPressPosition":I
     :cond_1
     :goto_0
     return-void
 
-    .line 2928
-    .restart local v1       #handled:Z
-    .restart local v2       #longPressId:J
-    .restart local v4       #longPressPosition:I
+    .line 2935
+    .restart local v1    # "handled":Z
+    .restart local v2    # "longPressId":J
+    .restart local v4    # "longPressPosition":I
     :cond_2
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 

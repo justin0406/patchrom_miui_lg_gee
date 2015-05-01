@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/ddm/DdmHandleViewDebug;Landroid/view/View;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 276

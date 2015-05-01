@@ -61,8 +61,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/IUserManager;)V
     .locals 0
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/os/IUserManager;
 
     .prologue
     .line 161
@@ -80,7 +80,7 @@
 
 .method public static declared-synchronized get(Landroid/content/Context;)Landroid/os/UserManager;
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 154
@@ -190,7 +190,7 @@
 # virtual methods
 .method public checkRestrictionsChallenge(Ljava/lang/String;)I
     .locals 3
-    .parameter "pin"
+    .param p1, "pin"    # Ljava/lang/String;
 
     .prologue
     .line 668
@@ -212,7 +212,7 @@
     move-exception v0
 
     .line 670
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not check restrictions pin"
@@ -227,8 +227,8 @@
 
 .method public createUser(Ljava/lang/String;I)Landroid/content/pm/UserInfo;
     .locals 3
-    .parameter "name"
-    .parameter "flags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "flags"    # I
 
     .prologue
     .line 404
@@ -250,7 +250,7 @@
     move-exception v0
 
     .line 406
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not create a user"
@@ -265,7 +265,7 @@
 
 .method public getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 4
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 611
@@ -287,7 +287,7 @@
     move-exception v0
 
     .line 613
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -318,8 +318,8 @@
 
 .method public getApplicationRestrictions(Ljava/lang/String;Landroid/os/UserHandle;)Landroid/os/Bundle;
     .locals 4
-    .parameter "packageName"
-    .parameter "user"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 623
@@ -345,7 +345,7 @@
     move-exception v0
 
     .line 625
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -380,7 +380,7 @@
 
 .method public getSerialNumberForUser(Landroid/os/UserHandle;)J
     .locals 2
-    .parameter "user"
+    .param p1, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 374
@@ -407,7 +407,7 @@
     move-result-object v0
 
     .line 416
-    .local v0, users:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
+    .local v0, "users":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -425,7 +425,7 @@
 
 .method public getUserForSerialNumber(J)Landroid/os/UserHandle;
     .locals 2
-    .parameter "serialNumber"
+    .param p1, "serialNumber"    # J
 
     .prologue
     .line 387
@@ -436,7 +436,7 @@
     move-result v0
 
     .line 388
-    .local v0, ident:I
+    .local v0, "ident":I
     if-ltz v0, :cond_0
 
     new-instance v1, Landroid/os/UserHandle;
@@ -466,7 +466,7 @@
 
 .method public getUserHandle(I)I
     .locals 4
-    .parameter "userSerialNumber"
+    .param p1, "userSerialNumber"    # I
 
     .prologue
     .line 594
@@ -488,7 +488,7 @@
     move-exception v0
 
     .line 596
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -519,7 +519,7 @@
 
 .method public getUserIcon(I)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 503
@@ -541,7 +541,7 @@
     move-exception v0
 
     .line 505
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get the user icon "
@@ -556,7 +556,7 @@
 
 .method public getUserInfo(I)Landroid/content/pm/UserInfo;
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 265
@@ -578,7 +578,7 @@
     move-exception v0
 
     .line 267
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get user info"
@@ -620,7 +620,7 @@
     move-exception v0
 
     .line 194
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get user name"
@@ -651,7 +651,7 @@
 
 .method public getUserRestrictions(Landroid/os/UserHandle;)Landroid/os/Bundle;
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 287
@@ -677,7 +677,7 @@
     move-exception v0
 
     .line 289
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get user restrictions"
@@ -692,7 +692,7 @@
 
 .method public getUserSerialNumber(I)I
     .locals 4
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 576
@@ -714,7 +714,7 @@
     move-exception v0
 
     .line 578
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -777,7 +777,7 @@
     move-exception v0
 
     .line 429
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get user list"
@@ -792,7 +792,7 @@
 
 .method public getUsers(Z)Ljava/util/List;
     .locals 3
-    .parameter "excludeDying"
+    .param p1, "excludeDying"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -823,7 +823,7 @@
     move-exception v0
 
     .line 445
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not get user list"
@@ -859,7 +859,7 @@
     move-exception v0
 
     .line 688
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not change restrictions pin"
@@ -874,7 +874,7 @@
 
 .method public hasUserRestriction(Ljava/lang/String;)Z
     .locals 1
-    .parameter "restrictionKey"
+    .param p1, "restrictionKey"    # Ljava/lang/String;
 
     .prologue
     .line 350
@@ -891,8 +891,8 @@
 
 .method public hasUserRestriction(Ljava/lang/String;Landroid/os/UserHandle;)Z
     .locals 2
-    .parameter "restrictionKey"
-    .parameter "userHandle"
+    .param p1, "restrictionKey"    # Ljava/lang/String;
+    .param p2, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 361
@@ -932,7 +932,7 @@
     move-exception v0
 
     .line 535
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not retrieve guest enabled state"
@@ -968,7 +968,7 @@
     move-exception v0
 
     .line 218
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not check if user is limited "
@@ -993,7 +993,7 @@
 
 .method public isUserRunning(Landroid/os/UserHandle;)Z
     .locals 5
-    .parameter "user"
+    .param p1, "user"    # Landroid/os/UserHandle;
 
     .prologue
     const/4 v1, 0x0
@@ -1025,13 +1025,13 @@
     move-exception v0
 
     .line 236
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method public isUserRunningOrStopping(Landroid/os/UserHandle;)Z
     .locals 4
-    .parameter "user"
+    .param p1, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 249
@@ -1061,7 +1061,7 @@
     move-exception v0
 
     .line 252
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1088,7 +1088,7 @@
     move-exception v0
 
     .line 698
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not change restrictions pin"
@@ -1100,7 +1100,7 @@
 
 .method public removeUser(I)Z
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 458
@@ -1122,7 +1122,7 @@
     move-exception v0
 
     .line 460
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not remove user "
@@ -1137,9 +1137,9 @@
 
 .method public setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 4
-    .parameter "packageName"
-    .parameter "restrictions"
-    .parameter "user"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "restrictions"    # Landroid/os/Bundle;
+    .param p3, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 636
@@ -1163,7 +1163,7 @@
     move-exception v0
 
     .line 638
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1195,7 +1195,7 @@
 
 .method public setGuestEnabled(Z)V
     .locals 4
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 519
@@ -1215,7 +1215,7 @@
     move-exception v0
 
     .line 521
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1243,7 +1243,7 @@
 
 .method public setRestrictionsChallenge(Ljava/lang/String;)Z
     .locals 3
-    .parameter "newPin"
+    .param p1, "newPin"    # Ljava/lang/String;
 
     .prologue
     .line 650
@@ -1265,7 +1265,7 @@
     move-exception v0
 
     .line 652
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not change restrictions pin"
@@ -1280,8 +1280,8 @@
 
 .method public setUserIcon(ILandroid/graphics/Bitmap;)V
     .locals 3
-    .parameter "userHandle"
-    .parameter "icon"
+    .param p1, "userHandle"    # I
+    .param p2, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 489
@@ -1301,7 +1301,7 @@
     move-exception v0
 
     .line 491
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not set the user icon "
@@ -1313,8 +1313,8 @@
 
 .method public setUserName(ILjava/lang/String;)V
     .locals 3
-    .parameter "userHandle"
-    .parameter "name"
+    .param p1, "userHandle"    # I
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 475
@@ -1334,7 +1334,7 @@
     move-exception v0
 
     .line 477
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not set the user name "
@@ -1346,8 +1346,8 @@
 
 .method public setUserRestriction(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Z
 
     .prologue
     .line 324
@@ -1356,7 +1356,7 @@
     move-result-object v0
 
     .line 325
-    .local v0, bundle:Landroid/os/Bundle;
+    .local v0, "bundle":Landroid/os/Bundle;
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 326
@@ -1368,9 +1368,9 @@
 
 .method public setUserRestriction(Ljava/lang/String;ZLandroid/os/UserHandle;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Z
+    .param p3, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 338
@@ -1379,7 +1379,7 @@
     move-result-object v0
 
     .line 339
-    .local v0, bundle:Landroid/os/Bundle;
+    .local v0, "bundle":Landroid/os/Bundle;
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 340
@@ -1391,7 +1391,7 @@
 
 .method public setUserRestrictions(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "restrictions"
+    .param p1, "restrictions"    # Landroid/os/Bundle;
 
     .prologue
     .line 300
@@ -1407,8 +1407,8 @@
 
 .method public setUserRestrictions(Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 3
-    .parameter "restrictions"
-    .parameter "userHandle"
+    .param p1, "restrictions"    # Landroid/os/Bundle;
+    .param p2, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 311
@@ -1432,7 +1432,7 @@
     move-exception v0
 
     .line 313
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Could not set user restrictions"
@@ -1444,7 +1444,7 @@
 
 .method public wipeUser(I)V
     .locals 4
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 548
@@ -1464,7 +1464,7 @@
     move-exception v0
 
     .line 550
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/os/UserManager;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;

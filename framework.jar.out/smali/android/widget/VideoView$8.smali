@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 872
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onChanged(Landroid/media/SubtitleTrack$RenderingWidget;)V
     .locals 1
-    .parameter "renderingWidget"
+    .param p1, "renderingWidget"    # Landroid/media/SubtitleTrack$RenderingWidget;
 
     .prologue
     .line 875

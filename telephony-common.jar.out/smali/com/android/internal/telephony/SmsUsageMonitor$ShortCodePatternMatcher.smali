@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "shortCodeRegex"
-    .parameter "premiumShortCodeRegex"
-    .parameter "freeShortCodeRegex"
-    .parameter "standardShortCodeRegex"
+    .param p1, "shortCodeRegex"    # Ljava/lang/String;
+    .param p2, "premiumShortCodeRegex"    # Ljava/lang/String;
+    .param p3, "freeShortCodeRegex"    # Ljava/lang/String;
+    .param p4, "standardShortCodeRegex"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -104,7 +104,7 @@
 # virtual methods
 .method getNumberCategory(Ljava/lang/String;)I
     .locals 1
-    .parameter "phoneNumber"
+    .param p1, "phoneNumber"    # Ljava/lang/String;
 
     .prologue
     .line 203

@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
     .locals 0
-    .parameter "command"
-    .parameter "event"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "event"    # Lcom/android/server/NativeDaemonEvent;
 
     .prologue
     .line 428

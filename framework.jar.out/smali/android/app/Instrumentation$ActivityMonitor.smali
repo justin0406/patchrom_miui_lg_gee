@@ -31,9 +31,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/IntentFilter;Landroid/app/Instrumentation$ActivityResult;Z)V
     .locals 2
-    .parameter "which"
-    .parameter "result"
-    .parameter "block"
+    .param p1, "which"    # Landroid/content/IntentFilter;
+    .param p2, "result"    # Landroid/app/Instrumentation$ActivityResult;
+    .param p3, "block"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -67,9 +67,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Landroid/app/Instrumentation$ActivityResult;Z)V
     .locals 2
-    .parameter "cls"
-    .parameter "result"
-    .parameter "block"
+    .param p1, "cls"    # Ljava/lang/String;
+    .param p2, "result"    # Landroid/app/Instrumentation$ActivityResult;
+    .param p3, "block"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -155,9 +155,9 @@
 
 .method final match(Landroid/content/Context;Landroid/app/Activity;Landroid/content/Intent;)Z
     .locals 7
-    .parameter "who"
-    .parameter "activity"
-    .parameter "intent"
+    .param p1, "who"    # Landroid/content/Context;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v2, 0x1
@@ -206,7 +206,7 @@
     const/4 v0, 0x0
 
     .line 575
-    .local v0, cls:Ljava/lang/String;
+    .local v0, "cls":Ljava/lang/String;
     if-eqz p2, :cond_3
 
     .line 576
@@ -238,7 +238,7 @@
     goto :goto_0
 
     .line 589
-    .end local v0           #cls:Ljava/lang/String;
+    .end local v0    # "cls":Ljava/lang/String;
     :catchall_0
     move-exception v1
 
@@ -249,7 +249,7 @@
     throw v1
 
     .line 577
-    .restart local v0       #cls:Ljava/lang/String;
+    .restart local v0    # "cls":Ljava/lang/String;
     :cond_3
     :try_start_1
     invoke-virtual {p3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
@@ -270,7 +270,7 @@
     goto :goto_1
 
     .line 584
-    .end local v0           #cls:Ljava/lang/String;
+    .end local v0    # "cls":Ljava/lang/String;
     :cond_4
     if-eqz p2, :cond_5
 
@@ -311,8 +311,8 @@
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -328,7 +328,7 @@
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityMonitor;->mLastActivity:Landroid/app/Activity;
 
     .line 532
-    .local v0, res:Landroid/app/Activity;
+    .local v0, "res":Landroid/app/Activity;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/app/Instrumentation$ActivityMonitor;->mLastActivity:Landroid/app/Activity;
@@ -339,7 +339,7 @@
     return-object v0
 
     .line 534
-    .end local v0           #res:Landroid/app/Activity;
+    .end local v0    # "res":Landroid/app/Activity;
     :catchall_0
     move-exception v1
 
@@ -352,7 +352,7 @@
 
 .method public final waitForActivityWithTimeout(J)Landroid/app/Activity;
     .locals 2
-    .parameter "timeOut"
+    .param p1, "timeOut"    # J
 
     .prologue
     const/4 v0, 0x0
@@ -372,8 +372,8 @@
     :try_start_1
     invoke-virtual {p0, p1, p2}, Ljava/lang/Object;->wait(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 554
     :cond_0
@@ -395,7 +395,7 @@
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityMonitor;->mLastActivity:Landroid/app/Activity;
 
     .line 558
-    .local v0, res:Landroid/app/Activity;
+    .local v0, "res":Landroid/app/Activity;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/app/Instrumentation$ActivityMonitor;->mLastActivity:Landroid/app/Activity;
@@ -406,7 +406,7 @@
     goto :goto_1
 
     .line 561
-    .end local v0           #res:Landroid/app/Activity;
+    .end local v0    # "res":Landroid/app/Activity;
     :catchall_0
     move-exception v1
 

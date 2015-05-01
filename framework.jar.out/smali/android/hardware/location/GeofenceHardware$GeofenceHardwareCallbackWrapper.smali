@@ -32,8 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardware;Landroid/hardware/location/GeofenceHardwareCallback;)V
     .locals 1
-    .parameter
-    .parameter "c"
+    .param p2, "c"    # Landroid/hardware/location/GeofenceHardwareCallback;
 
     .prologue
     .line 469
@@ -56,8 +55,8 @@
 # virtual methods
 .method public onGeofenceAdd(II)V
     .locals 2
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 483
@@ -70,7 +69,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareCallback;
 
     .line 484
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareCallback;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/location/GeofenceHardwareCallback;->onGeofenceAdd(II)V
@@ -82,8 +81,8 @@
 
 .method public onGeofencePause(II)V
     .locals 2
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 496
@@ -96,7 +95,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareCallback;
 
     .line 497
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareCallback;
     if-eqz v0, :cond_0
 
     .line 498
@@ -109,8 +108,8 @@
 
 .method public onGeofenceRemove(II)V
     .locals 2
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 488
@@ -123,7 +122,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareCallback;
 
     .line 489
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareCallback;
     if-eqz v0, :cond_0
 
     .line 490
@@ -132,7 +131,7 @@
     .line 491
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardware$GeofenceHardwareCallbackWrapper;->this$0:Landroid/hardware/location/GeofenceHardware;
 
-    #calls: Landroid/hardware/location/GeofenceHardware;->removeCallback(Landroid/hardware/location/GeofenceHardwareCallback;)V
+    # invokes: Landroid/hardware/location/GeofenceHardware;->removeCallback(Landroid/hardware/location/GeofenceHardwareCallback;)V
     invoke-static {v1, v0}, Landroid/hardware/location/GeofenceHardware;->access$000(Landroid/hardware/location/GeofenceHardware;Landroid/hardware/location/GeofenceHardwareCallback;)V
 
     .line 493
@@ -142,8 +141,8 @@
 
 .method public onGeofenceResume(II)V
     .locals 2
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 503
@@ -156,7 +155,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareCallback;
 
     .line 504
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareCallback;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/location/GeofenceHardwareCallback;->onGeofenceResume(II)V
@@ -168,11 +167,11 @@
 
 .method public onGeofenceTransition(IILandroid/location/Location;JI)V
     .locals 7
-    .parameter "geofenceId"
-    .parameter "transition"
-    .parameter "location"
-    .parameter "timestamp"
-    .parameter "monitoringType"
+    .param p1, "geofenceId"    # I
+    .param p2, "transition"    # I
+    .param p3, "location"    # Landroid/location/Location;
+    .param p4, "timestamp"    # J
+    .param p6, "monitoringType"    # I
 
     .prologue
     .line 475
@@ -185,7 +184,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareCallback;
 
     .line 476
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareCallback;
     if-eqz v0, :cond_0
 
     move v1, p1

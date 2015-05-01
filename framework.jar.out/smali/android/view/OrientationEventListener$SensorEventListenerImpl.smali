@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/OrientationEventListener;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 113
@@ -47,8 +46,8 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
-    .parameter "sensor"
-    .parameter "accuracy"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
     .prologue
     .line 149
@@ -57,7 +56,7 @@
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 13
-    .parameter "event"
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
     .prologue
     const/4 v12, 0x1
@@ -66,11 +65,11 @@
     iget-object v7, p1, Landroid/hardware/SensorEvent;->values:[F
 
     .line 120
-    .local v7, values:[F
+    .local v7, "values":[F
     const/4 v6, -0x1
 
     .line 121
-    .local v6, orientation:I
+    .local v6, "orientation":I
     const/4 v8, 0x0
 
     aget v8, v7, v8
@@ -78,13 +77,13 @@
     neg-float v1, v8
 
     .line 122
-    .local v1, X:F
+    .local v1, "X":F
     aget v8, v7, v12
 
     neg-float v2, v8
 
     .line 123
-    .local v2, Y:F
+    .local v2, "Y":F
     const/4 v8, 0x2
 
     aget v8, v7, v8
@@ -92,7 +91,7 @@
     neg-float v3, v8
 
     .line 124
-    .local v3, Z:F
+    .local v3, "Z":F
     mul-float v8, v1, v1
 
     mul-float v9, v2, v2
@@ -100,8 +99,8 @@
     add-float v5, v8, v9
 
     .line 126
-    .local v5, magnitude:F
-    const/high16 v8, 0x4080
+    .local v5, "magnitude":F
+    const/high16 v8, 0x40800000    # 4.0f
 
     mul-float/2addr v8, v5
 
@@ -115,7 +114,7 @@
     const v0, 0x42652ee1
 
     .line 128
-    .local v0, OneEightyOverPi:F
+    .local v0, "OneEightyOverPi":F
     neg-float v8, v2
 
     float-to-double v8, v8
@@ -131,7 +130,7 @@
     mul-float v4, v8, v0
 
     .line 129
-    .local v4, angle:F
+    .local v4, "angle":F
     invoke-static {v4}, Ljava/lang/Math;->round(F)I
 
     move-result v8
@@ -160,12 +159,12 @@
     goto :goto_1
 
     .line 138
-    .end local v0           #OneEightyOverPi:F
-    .end local v4           #angle:F
+    .end local v0    # "OneEightyOverPi":F
+    .end local v4    # "angle":F
     :cond_1
     iget-object v8, p0, Landroid/view/OrientationEventListener$SensorEventListenerImpl;->this$0:Landroid/view/OrientationEventListener;
 
-    #getter for: Landroid/view/OrientationEventListener;->mOldListener:Landroid/view/OrientationListener;
+    # getter for: Landroid/view/OrientationEventListener;->mOldListener:Landroid/view/OrientationListener;
     invoke-static {v8}, Landroid/view/OrientationEventListener;->access$000(Landroid/view/OrientationEventListener;)Landroid/view/OrientationListener;
 
     move-result-object v8
@@ -175,7 +174,7 @@
     .line 139
     iget-object v8, p0, Landroid/view/OrientationEventListener$SensorEventListenerImpl;->this$0:Landroid/view/OrientationEventListener;
 
-    #getter for: Landroid/view/OrientationEventListener;->mOldListener:Landroid/view/OrientationListener;
+    # getter for: Landroid/view/OrientationEventListener;->mOldListener:Landroid/view/OrientationListener;
     invoke-static {v8}, Landroid/view/OrientationEventListener;->access$000(Landroid/view/OrientationEventListener;)Landroid/view/OrientationListener;
 
     move-result-object v8
@@ -188,7 +187,7 @@
     :cond_2
     iget-object v8, p0, Landroid/view/OrientationEventListener$SensorEventListenerImpl;->this$0:Landroid/view/OrientationEventListener;
 
-    #getter for: Landroid/view/OrientationEventListener;->mOrientation:I
+    # getter for: Landroid/view/OrientationEventListener;->mOrientation:I
     invoke-static {v8}, Landroid/view/OrientationEventListener;->access$100(Landroid/view/OrientationEventListener;)I
 
     move-result v8
@@ -198,7 +197,7 @@
     .line 142
     iget-object v8, p0, Landroid/view/OrientationEventListener$SensorEventListenerImpl;->this$0:Landroid/view/OrientationEventListener;
 
-    #setter for: Landroid/view/OrientationEventListener;->mOrientation:I
+    # setter for: Landroid/view/OrientationEventListener;->mOrientation:I
     invoke-static {v8, v6}, Landroid/view/OrientationEventListener;->access$102(Landroid/view/OrientationEventListener;I)I
 
     .line 143

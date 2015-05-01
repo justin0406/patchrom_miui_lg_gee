@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/RestrictionsPinActivity;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 163
@@ -46,7 +45,7 @@
 
     const/4 v1, -0x1
 
-    #calls: Lcom/android/internal/app/RestrictionsPinActivity;->updatePinTimer(I)Z
+    # invokes: Lcom/android/internal/app/RestrictionsPinActivity;->updatePinTimer(I)Z
     invoke-static {v0, v1}, Lcom/android/internal/app/RestrictionsPinActivity;->access$000(Lcom/android/internal/app/RestrictionsPinActivity;I)Z
 
     move-result v0

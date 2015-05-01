@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/IHardwareService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/IHardwareService;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/os/IHardwareService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/IHardwareService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,7 +152,7 @@
     move-result v1
 
     .line 50
-    .local v1, _result:Z
+    .local v1, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 51
@@ -166,7 +166,7 @@
     goto :goto_0
 
     .line 56
-    .end local v1           #_result:Z
+    .end local v1    # "_result":Z
     :sswitch_2
     const-string v4, "android.os.IHardwareService"
 
@@ -182,7 +182,7 @@
     move v0, v3
 
     .line 59
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_1
     invoke-virtual {p0, v0}, Landroid/os/IHardwareService$Stub;->setFlashlightEnabled(Z)V
 
@@ -191,7 +191,7 @@
 
     goto :goto_0
 
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :cond_1
     move v0, v2
 

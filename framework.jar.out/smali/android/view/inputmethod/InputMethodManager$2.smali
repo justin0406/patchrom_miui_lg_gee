@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1106

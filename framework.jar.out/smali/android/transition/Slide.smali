@@ -45,11 +45,11 @@
 # virtual methods
 .method public onAppear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 6
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     .line 45
@@ -58,7 +58,7 @@
     iget-object v1, p4, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 46
-    .local v1, endView:Landroid/view/View;
+    .local v1, "endView":Landroid/view/View;
     :goto_0
     invoke-virtual {v1}, Landroid/view/View;->getHeight()I
 
@@ -100,7 +100,7 @@
     move-result-object v0
 
     .line 49
-    .local v0, anim:Landroid/animation/ObjectAnimator;
+    .local v0, "anim":Landroid/animation/ObjectAnimator;
     sget-object v2, Landroid/transition/Slide;->sDecelerator:Landroid/animation/TimeInterpolator;
 
     invoke-virtual {v0, v2}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
@@ -109,8 +109,8 @@
     return-object v0
 
     .line 45
-    .end local v0           #anim:Landroid/animation/ObjectAnimator;
-    .end local v1           #endView:Landroid/view/View;
+    .end local v0    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v1    # "endView":Landroid/view/View;
     :cond_0
     const/4 v1, 0x0
 
@@ -119,11 +119,11 @@
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 6
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -134,7 +134,7 @@
     iget-object v1, p2, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 58
-    .local v1, startView:Landroid/view/View;
+    .local v1, "startView":Landroid/view/View;
     :goto_0
     invoke-virtual {v1, v5}, Landroid/view/View;->setTranslationY(F)V
 
@@ -166,7 +166,7 @@
     move-result-object v0
 
     .line 61
-    .local v0, anim:Landroid/animation/ObjectAnimator;
+    .local v0, "anim":Landroid/animation/ObjectAnimator;
     sget-object v2, Landroid/transition/Slide;->sAccelerator:Landroid/animation/TimeInterpolator;
 
     invoke-virtual {v0, v2}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
@@ -175,8 +175,8 @@
     return-object v0
 
     .line 57
-    .end local v0           #anim:Landroid/animation/ObjectAnimator;
-    .end local v1           #startView:Landroid/view/View;
+    .end local v0    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v1    # "startView":Landroid/view/View;
     :cond_0
     const/4 v1, 0x0
 

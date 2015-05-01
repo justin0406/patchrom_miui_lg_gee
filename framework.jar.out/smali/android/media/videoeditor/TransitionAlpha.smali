@@ -49,14 +49,14 @@
 
 .method public constructor <init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JILjava/lang/String;IZ)V
     .locals 17
-    .parameter "transitionId"
-    .parameter "afterMediaItem"
-    .parameter "beforeMediaItem"
-    .parameter "durationMs"
-    .parameter "behavior"
-    .parameter "maskFilename"
-    .parameter "blendingPercent"
-    .parameter "invert"
+    .param p1, "transitionId"    # Ljava/lang/String;
+    .param p2, "afterMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p3, "beforeMediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p4, "durationMs"    # J
+    .param p6, "behavior"    # I
+    .param p7, "maskFilename"    # Ljava/lang/String;
+    .param p8, "blendingPercent"    # I
+    .param p9, "invert"    # Z
 
     .prologue
     .line 93
@@ -68,7 +68,7 @@
     invoke-direct {v12}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
     .line 99
-    .local v12, dbo:Landroid/graphics/BitmapFactory$Options;
+    .local v12, "dbo":Landroid/graphics/BitmapFactory$Options;
     const/4 v4, 0x1
 
     iput-boolean v4, v12, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
@@ -194,7 +194,7 @@
     const/4 v14, 0x0
 
     .line 114
-    .local v14, fl:Ljava/io/FileOutputStream;
+    .local v14, "fl":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v15, Ljava/io/FileOutputStream;
 
@@ -206,20 +206,20 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .end local v14           #fl:Ljava/io/FileOutputStream;
-    .local v15, fl:Ljava/io/FileOutputStream;
+    .end local v14    # "fl":Ljava/io/FileOutputStream;
+    .local v15, "fl":Ljava/io/FileOutputStream;
     move-object v14, v15
 
     .line 118
-    .end local v15           #fl:Ljava/io/FileOutputStream;
-    .restart local v14       #fl:Ljava/io/FileOutputStream;
+    .end local v15    # "fl":Ljava/io/FileOutputStream;
+    .restart local v14    # "fl":Ljava/io/FileOutputStream;
     :goto_0
     new-instance v13, Ljava/io/DataOutputStream;
 
     invoke-direct {v13, v14}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     .line 120
-    .local v13, dos:Ljava/io/DataOutputStream;
+    .local v13, "dos":Ljava/io/DataOutputStream;
     if-eqz v14, :cond_2
 
     .line 124
@@ -228,7 +228,7 @@
     move-result-object v2
 
     .line 125
-    .local v2, imageBitmap:Landroid/graphics/Bitmap;
+    .local v2, "imageBitmap":Landroid/graphics/Bitmap;
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/media/videoeditor/TransitionAlpha;->mWidth:I
@@ -236,7 +236,7 @@
     new-array v3, v4, [I
 
     .line 126
-    .local v3, framingBuffer:[I
+    .local v3, "framingBuffer":[I
     array-length v4, v3
 
     mul-int/lit8 v4, v4, 0x4
@@ -246,17 +246,17 @@
     move-result-object v11
 
     .line 129
-    .local v11, byteBuffer:Ljava/nio/ByteBuffer;
+    .local v11, "byteBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {v11}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v10
 
     .line 130
-    .local v10, array:[B
+    .local v10, "array":[B
     const/4 v7, 0x0
 
     .line 131
-    .local v7, tmp:I
+    .local v7, "tmp":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -287,7 +287,7 @@
     move-result-object v16
 
     .line 134
-    .local v16, intBuffer:Ljava/nio/IntBuffer;
+    .local v16, "intBuffer":Ljava/nio/IntBuffer;
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
@@ -311,7 +311,7 @@
     goto :goto_1
 
     .line 143
-    .end local v16           #intBuffer:Ljava/nio/IntBuffer;
+    .end local v16    # "intBuffer":Ljava/nio/IntBuffer;
     :cond_1
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
@@ -322,11 +322,11 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 154
-    .end local v2           #imageBitmap:Landroid/graphics/Bitmap;
-    .end local v3           #framingBuffer:[I
-    .end local v7           #tmp:I
-    .end local v10           #array:[B
-    .end local v11           #byteBuffer:Ljava/nio/ByteBuffer;
+    .end local v2    # "imageBitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "framingBuffer":[I
+    .end local v7    # "tmp":I
+    .end local v10    # "array":[B
+    .end local v11    # "byteBuffer":Ljava/nio/ByteBuffer;
     :cond_2
     :goto_3
     move-object/from16 v0, p7
@@ -353,31 +353,31 @@
     return-void
 
     .line 137
-    .restart local v2       #imageBitmap:Landroid/graphics/Bitmap;
-    .restart local v3       #framingBuffer:[I
-    .restart local v7       #tmp:I
-    .restart local v10       #array:[B
-    .restart local v11       #byteBuffer:Ljava/nio/ByteBuffer;
-    .restart local v16       #intBuffer:Ljava/nio/IntBuffer;
+    .restart local v2    # "imageBitmap":Landroid/graphics/Bitmap;
+    .restart local v3    # "framingBuffer":[I
+    .restart local v7    # "tmp":I
+    .restart local v10    # "array":[B
+    .restart local v11    # "byteBuffer":Ljava/nio/ByteBuffer;
+    .restart local v16    # "intBuffer":Ljava/nio/IntBuffer;
     :catch_0
     move-exception v4
 
     goto :goto_2
 
     .line 146
-    .end local v16           #intBuffer:Ljava/nio/IntBuffer;
+    .end local v16    # "intBuffer":Ljava/nio/IntBuffer;
     :catch_1
     move-exception v4
 
     goto :goto_3
 
     .line 115
-    .end local v2           #imageBitmap:Landroid/graphics/Bitmap;
-    .end local v3           #framingBuffer:[I
-    .end local v7           #tmp:I
-    .end local v10           #array:[B
-    .end local v11           #byteBuffer:Ljava/nio/ByteBuffer;
-    .end local v13           #dos:Ljava/io/DataOutputStream;
+    .end local v2    # "imageBitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "framingBuffer":[I
+    .end local v7    # "tmp":I
+    .end local v10    # "array":[B
+    .end local v11    # "byteBuffer":Ljava/nio/ByteBuffer;
+    .end local v13    # "dos":Ljava/io/DataOutputStream;
     :catch_2
     move-exception v4
 

@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/am/ActiveServices;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 930
@@ -39,8 +38,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ActiveServices$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/am/ActiveServices;
+    .param p2, "x1"    # Lcom/android/server/am/ActiveServices$1;
 
     .prologue
     .line 930
@@ -89,7 +88,7 @@
 
 .method setService(Lcom/android/server/am/ServiceRecord;)V
     .locals 0
-    .parameter "service"
+    .param p1, "service"    # Lcom/android/server/am/ServiceRecord;
 
     .prologue
     .line 934

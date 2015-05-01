@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "problem"
+    .param p1, "problem"    # I
 
     .prologue
     .line 98
@@ -45,8 +45,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "problem"
-    .parameter "message"
+    .param p1, "problem"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 103
@@ -61,9 +61,9 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "problem"
-    .parameter "message"
-    .parameter "cause"
+    .param p1, "problem"    # I
+    .param p2, "message"    # Ljava/lang/String;
+    .param p3, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 108
@@ -78,8 +78,8 @@
 
 .method public constructor <init>(ILjava/lang/Throwable;)V
     .locals 1
-    .parameter "problem"
-    .parameter "cause"
+    .param p1, "problem"    # I
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 113
@@ -98,7 +98,7 @@
 
 .method private static getDefaultMessage(I)Ljava/lang/String;
     .locals 1
-    .parameter "problem"
+    .param p0, "problem"    # I
 
     .prologue
     .line 118

@@ -17,7 +17,7 @@
 
 .method public constructor <init>(Ljava/lang/Exception;)V
     .locals 0
-    .parameter "cause"
+    .param p1, "cause"    # Ljava/lang/Exception;
 
     .prologue
     .line 35
@@ -29,7 +29,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 27
@@ -41,8 +41,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "name"
-    .parameter "cause"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 31

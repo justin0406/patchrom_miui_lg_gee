@@ -29,10 +29,10 @@
 # direct methods
 .method constructor <init>(JLjava/lang/String;JI)V
     .locals 1
-    .parameter "rowId"
-    .parameter "path"
-    .parameter "lastModified"
-    .parameter "format"
+    .param p1, "rowId"    # J
+    .param p3, "path"    # Ljava/lang/String;
+    .param p4, "lastModified"    # J
+    .param p6, "format"    # I
 
     .prologue
     .line 361

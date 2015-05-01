@@ -28,9 +28,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/TokenWatcher;Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "token"
-    .parameter "tag"
+    .param p2, "token"    # Landroid/os/IBinder;
+    .param p3, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 186
@@ -85,7 +84,7 @@
     .line 200
     iget-object v0, p0, Landroid/os/TokenWatcher$Death;->this$0:Landroid/os/TokenWatcher;
 
-    #getter for: Landroid/os/TokenWatcher;->mTag:Ljava/lang/String;
+    # getter for: Landroid/os/TokenWatcher;->mTag:Ljava/lang/String;
     invoke-static {v0}, Landroid/os/TokenWatcher;->access$200(Landroid/os/TokenWatcher;)Ljava/lang/String;
 
     move-result-object v0

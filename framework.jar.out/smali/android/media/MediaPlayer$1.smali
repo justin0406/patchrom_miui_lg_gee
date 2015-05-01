@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaPlayer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1741
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onSubtitleData(Landroid/media/MediaPlayer;Landroid/media/SubtitleData;)V
     .locals 9
-    .parameter "mp"
-    .parameter "data"
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "data"    # Landroid/media/SubtitleData;
 
     .prologue
     .line 1744
@@ -49,10 +48,10 @@
     move-result v1
 
     .line 1745
-    .local v1, index:I
+    .local v1, "index":I
     iget-object v5, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mInbandSubtitleTracks:[Landroid/media/SubtitleTrack;
+    # getter for: Landroid/media/MediaPlayer;->mInbandSubtitleTracks:[Landroid/media/SubtitleTrack;
     invoke-static {v5}, Landroid/media/MediaPlayer;->access$000(Landroid/media/MediaPlayer;)[Landroid/media/SubtitleTrack;
 
     move-result-object v5
@@ -70,7 +69,7 @@
     :cond_1
     iget-object v5, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mInbandSubtitleTracks:[Landroid/media/SubtitleTrack;
+    # getter for: Landroid/media/MediaPlayer;->mInbandSubtitleTracks:[Landroid/media/SubtitleTrack;
     invoke-static {v5}, Landroid/media/MediaPlayer;->access$000(Landroid/media/MediaPlayer;)[Landroid/media/SubtitleTrack;
 
     move-result-object v5
@@ -78,7 +77,7 @@
     aget-object v4, v5, v1
 
     .line 1749
-    .local v4, track:Landroid/media/SubtitleTrack;
+    .local v4, "track":Landroid/media/SubtitleTrack;
     if-eqz v4, :cond_0
 
     .line 1751
@@ -92,7 +91,7 @@
     add-long v2, v5, v7
 
     .line 1753
-    .local v2, runID:J
+    .local v2, "runID":J
     new-instance v5, Ljava/lang/String;
 
     invoke-virtual {p2}, Landroid/media/SubtitleData;->getData()[B
@@ -129,12 +128,12 @@
     goto :goto_0
 
     .line 1757
-    .end local v2           #runID:J
+    .end local v2    # "runID":J
     :catch_0
     move-exception v0
 
     .line 1758
-    .local v0, e:Ljava/io/UnsupportedEncodingException;
+    .local v0, "e":Ljava/io/UnsupportedEncodingException;
     const-string v5, "MediaPlayer"
 
     new-instance v6, Ljava/lang/StringBuilder;

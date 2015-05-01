@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(F)V
     .locals 1
-    .parameter "radius"
+    .param p1, "radius"    # F
 
     .prologue
     .line 27

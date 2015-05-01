@@ -36,9 +36,9 @@
 # direct methods
 .method protected constructor <init>(IILjava/lang/String;)V
     .locals 1
-    .parameter "uniqueId"
-    .parameter "type"
-    .parameter "message"
+    .param p1, "uniqueId"    # I
+    .param p2, "type"    # I
+    .param p3, "message"    # Ljava/lang/String;
 
     .prologue
     .line 83
@@ -75,10 +75,9 @@
 
 .method protected constructor <init>(IILjava/lang/String;Ljava/util/HashMap;)V
     .locals 1
-    .parameter "uniqueId"
-    .parameter "type"
-    .parameter "message"
-    .parameter
+    .param p1, "uniqueId"    # I
+    .param p2, "type"    # I
+    .param p3, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -93,7 +92,7 @@
 
     .prologue
     .line 63
-    .local p4, attributes:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local p4, "attributes":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
@@ -136,7 +135,7 @@
 # virtual methods
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 126

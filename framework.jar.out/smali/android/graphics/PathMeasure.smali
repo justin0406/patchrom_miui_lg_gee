@@ -43,8 +43,8 @@
 
 .method public constructor <init>(Landroid/graphics/Path;Z)V
     .locals 1
-    .parameter "path"
-    .parameter "forceClosed"
+    .param p1, "path"    # Landroid/graphics/Path;
+    .param p2, "forceClosed"    # Z
 
     .prologue
     .line 50
@@ -140,9 +140,9 @@
 
 .method public getMatrix(FLandroid/graphics/Matrix;I)Z
     .locals 2
-    .parameter "distance"
-    .parameter "matrix"
-    .parameter "flags"
+    .param p1, "distance"    # F
+    .param p2, "matrix"    # Landroid/graphics/Matrix;
+    .param p3, "flags"    # I
 
     .prologue
     .line 108
@@ -159,9 +159,9 @@
 
 .method public getPosTan(F[F[F)Z
     .locals 2
-    .parameter "distance"
-    .parameter "pos"
-    .parameter "tan"
+    .param p1, "distance"    # F
+    .param p2, "pos"    # [F
+    .param p3, "tan"    # [F
 
     .prologue
     const/4 v1, 0x2
@@ -201,10 +201,10 @@
 
 .method public getSegment(FFLandroid/graphics/Path;Z)Z
     .locals 2
-    .parameter "startD"
-    .parameter "stopD"
-    .parameter "dst"
-    .parameter "startWithMoveTo"
+    .param p1, "startD"    # F
+    .param p2, "stopD"    # F
+    .param p3, "dst"    # Landroid/graphics/Path;
+    .param p4, "startWithMoveTo"    # Z
 
     .prologue
     .line 119
@@ -251,8 +251,8 @@
 
 .method public setPath(Landroid/graphics/Path;Z)V
     .locals 2
-    .parameter "path"
-    .parameter "forceClosed"
+    .param p1, "path"    # Landroid/graphics/Path;
+    .param p2, "forceClosed"    # Z
 
     .prologue
     .line 61

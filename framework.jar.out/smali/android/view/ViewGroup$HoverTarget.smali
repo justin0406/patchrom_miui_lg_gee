@@ -58,7 +58,7 @@
 
 .method public static obtain(Landroid/view/View;)Landroid/view/ViewGroup$HoverTarget;
     .locals 3
-    .parameter "child"
+    .param p0, "child"    # Landroid/view/View;
 
     .prologue
     .line 6538
@@ -78,7 +78,7 @@
     invoke-direct {v0}, Landroid/view/ViewGroup$HoverTarget;-><init>()V
 
     .line 6547
-    .local v0, target:Landroid/view/ViewGroup$HoverTarget;
+    .local v0, "target":Landroid/view/ViewGroup$HoverTarget;
     :goto_0
     monitor-exit v2
     :try_end_0
@@ -91,13 +91,13 @@
     return-object v0
 
     .line 6542
-    .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
+    .end local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
     :cond_0
     :try_start_1
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
     .line 6543
-    .restart local v0       #target:Landroid/view/ViewGroup$HoverTarget;
+    .restart local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
     iget-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
     sput-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
@@ -117,7 +117,7 @@
     goto :goto_0
 
     .line 6547
-    .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
+    .end local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
     :catchall_0
     move-exception v1
 

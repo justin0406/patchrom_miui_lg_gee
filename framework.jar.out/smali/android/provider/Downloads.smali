@@ -28,9 +28,9 @@
 
 .method public static final removeAllDownloadsByPackage(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "context"
-    .parameter "notification_package"
-    .parameter "notification_class"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "notification_package"    # Ljava/lang/String;
+    .param p2, "notification_class"    # Ljava/lang/String;
 
     .prologue
     .line 805

@@ -129,13 +129,13 @@
     const/4 v6, 0x0
 
     .line 208
-    .local v6, psshMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/util/UUID;[B>;"
+    .local v6, "psshMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/UUID;[B>;"
     invoke-direct {p0}, Landroid/media/MediaExtractor;->getFileFormatNative()Ljava/util/Map;
 
     move-result-object v1
 
     .line 209
-    .local v1, formatMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v1, "formatMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     if-eqz v1, :cond_0
 
     const-string/jumbo v10, "pssh"
@@ -156,7 +156,7 @@
     check-cast v8, Ljava/nio/ByteBuffer;
 
     .line 211
-    .local v8, rawpssh:Ljava/nio/ByteBuffer;
+    .local v8, "rawpssh":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v10
@@ -174,11 +174,11 @@
     .line 215
     new-instance v6, Ljava/util/HashMap;
 
-    .end local v6           #psshMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/util/UUID;[B>;"
+    .end local v6    # "psshMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/UUID;[B>;"
     invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
 
     .line 216
-    .restart local v6       #psshMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/util/UUID;[B>;"
+    .restart local v6    # "psshMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/UUID;[B>;"
     :goto_0
     invoke-virtual {v8}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -197,19 +197,19 @@
     move-result-wide v4
 
     .line 219
-    .local v4, msb:J
+    .local v4, "msb":J
     invoke-virtual {v8}, Ljava/nio/ByteBuffer;->getLong()J
 
     move-result-wide v2
 
     .line 220
-    .local v2, lsb:J
+    .local v2, "lsb":J
     new-instance v9, Ljava/util/UUID;
 
     invoke-direct {v9, v4, v5, v2, v3}, Ljava/util/UUID;-><init>(JJ)V
 
     .line 221
-    .local v9, uuid:Ljava/util/UUID;
+    .local v9, "uuid":Ljava/util/UUID;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v10
@@ -222,11 +222,11 @@
     move-result v0
 
     .line 223
-    .local v0, datalen:I
+    .local v0, "datalen":I
     new-array v7, v0, [B
 
     .line 224
-    .local v7, psshdata:[B
+    .local v7, "psshdata":[B
     invoke-virtual {v8, v7}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 225
@@ -235,12 +235,12 @@
     goto :goto_0
 
     .line 228
-    .end local v0           #datalen:I
-    .end local v2           #lsb:J
-    .end local v4           #msb:J
-    .end local v7           #psshdata:[B
-    .end local v8           #rawpssh:Ljava/nio/ByteBuffer;
-    .end local v9           #uuid:Ljava/util/UUID;
+    .end local v0    # "datalen":I
+    .end local v2    # "lsb":J
+    .end local v4    # "msb":J
+    .end local v7    # "psshdata":[B
+    .end local v8    # "rawpssh":Ljava/nio/ByteBuffer;
+    .end local v9    # "uuid":Ljava/util/UUID;
     :cond_0
     return-object v6
 .end method
@@ -262,7 +262,7 @@
 
 .method public getTrackFormat(I)Landroid/media/MediaFormat;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 238
@@ -294,9 +294,8 @@
 
 .method public final setDataSource(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Map;)V
     .locals 9
-    .parameter "context"
-    .parameter "uri"
-    .parameter
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -318,13 +317,13 @@
 
     .prologue
     .line 82
-    .local p3, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p3, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v8
 
     .line 83
-    .local v8, scheme:Ljava/lang/String;
+    .local v8, "scheme":Ljava/lang/String;
     if-eqz v8, :cond_0
 
     const-string v0, "file"
@@ -353,21 +352,21 @@
     const/4 v6, 0x0
 
     .line 90
-    .local v6, fd:Landroid/content/res/AssetFileDescriptor;
+    .local v6, "fd":Landroid/content/res/AssetFileDescriptor;
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
     .line 91
-    .local v7, resolver:Landroid/content/ContentResolver;
+    .local v7, "resolver":Landroid/content/ContentResolver;
     const-string/jumbo v0, "r"
 
     invoke-virtual {v7, p2, v0}, Landroid/content/ContentResolver;->openAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v6
 
@@ -402,9 +401,9 @@
 
     invoke-virtual {p0, v0}, Landroid/media/MediaExtractor;->setDataSource(Ljava/io/FileDescriptor;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 110
     :goto_1
@@ -434,14 +433,14 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaExtractor;->setDataSource(Ljava/io/FileDescriptor;JJ)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
     .line 107
-    .end local v7           #resolver:Landroid/content/ContentResolver;
+    .end local v7    # "resolver":Landroid/content/ContentResolver;
     :catch_0
     move-exception v0
 
@@ -497,7 +496,7 @@
 
 .method public final setDataSource(Ljava/io/FileDescriptor;)V
     .locals 6
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -530,7 +529,7 @@
 
 .method public final setDataSource(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -549,8 +548,7 @@
 
 .method public final setDataSource(Ljava/lang/String;Ljava/util/Map;)V
     .locals 6
-    .parameter "path"
-    .parameter
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -571,15 +569,15 @@
 
     .prologue
     .line 126
-    .local p2, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p2, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
     .line 127
-    .local v3, keys:[Ljava/lang/String;
+    .local v3, "keys":[Ljava/lang/String;
     const/4 v4, 0x0
 
     .line 129
-    .local v4, values:[Ljava/lang/String;
+    .local v4, "values":[Ljava/lang/String;
     if-eqz p2, :cond_0
 
     .line 130
@@ -600,7 +598,7 @@
     const/4 v1, 0x0
 
     .line 134
-    .local v1, i:I
+    .local v1, "i":I
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v5
@@ -609,7 +607,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -624,7 +622,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 135
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v5
@@ -648,9 +646,9 @@
     goto :goto_0
 
     .line 140
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
-    .end local v1           #i:I
-    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v1    # "i":I
+    .end local v2    # "i$":Ljava/util/Iterator;
     :cond_0
     invoke-direct {p0, p1, v3, v4}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 

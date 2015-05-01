@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">mencopot pemasangan pintasan</string>
     <string name="permdesc_uninstall_shortcut">Mengizinkan aplikasi menghapus pintasan Layar Utama tanpa tindakan dari pengguna.</string>
     <string name="permlab_processOutgoingCalls">ubah rute panggilan keluar</string>
-    <string name="permdesc_processOutgoingCalls">Memungkinkan aplikasi memproses panggilan keluar dan mengubah nomor yang akan dipanggil. Izin ini memungkinkan aplikasi memantau, mengalihkan, atau mencegah panggilan keluar.</string>
+    <string name="permdesc_processOutgoingCalls">Memungkinkan aplikasi melihat nomor yang dihubungi saat melakukan panggilan keluar dengan opsi untuk mengalihkan panggilan ke nomor lain atau membatalkan panggilan sepenuhnya.</string>
     <string name="permlab_receiveSms">terima pesan teks (SMS)</string>
     <string name="permdesc_receiveSms">Memungkinkan aplikasi menerima dan memproses pesan SMS. Ini artinya aplikasi dapat memantau atau menghapus pesan yang dikirim ke perangkat Anda tanpa menunjukkannya kepada Anda.</string>
     <string name="permlab_receiveMms">terima pesan teks (MMS)</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">Beranda</string>
     <string name="sipAddressTypeWork">Kerjaan</string>
     <string name="sipAddressTypeOther">Lainnya</string>
+    <string name="quick_contacts_not_available">Tidak ada aplikasi yang ditemukan untuk melihat kontak ini.</string>
     <string name="keyguard_password_enter_pin_code">Ketik kode PIN</string>
     <string name="keyguard_password_enter_puk_code">Ketik kode PUK dan PIN baru</string>
     <string name="keyguard_password_enter_puk_prompt">Kode PUK</string>
@@ -886,7 +887,7 @@ Yakin ingin beranjak dari laman ini?"</string>
     <string name="save_password_remember">Ingat</string>
     <string name="save_password_never">Jangan</string>
     <string name="open_permission_deny">Anda tidak memiliki izin untuk membuka laman ini.</string>
-    <string name="text_copied">Teks disalin ke clipboard.</string>
+    <string name="text_copied">Teks disalin ke papan klip.</string>
     <string name="more_item_label">Lainnya</string>
     <string name="prepend_shortcut_label">Menu+</string>
     <string name="menu_space_shortcut_label">spasi</string>
@@ -1462,10 +1463,17 @@ Mendengarkan volume tinggi dalam jangka waktu yang lama dapat merusak pendengara
     <string name="webviewchromium_actionbar_share">Bagikan</string>
     <string name="webviewchromium_actionbar_web_search">Penelusuran web</string>
     <string name="webviewchromium_accessibility_content_view">Tampilan Web</string>
+    <string name="webviewchromium_date_picker_dialog_title">Setel tanggal</string>
     <string name="webviewchromium_date_picker_dialog_set">Setel</string>
     <string name="webviewchromium_date_picker_dialog_clear">Hapus</string>
-    <string name="webviewchromium_date_picker_dialog_title">Setel tanggal</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Lainnya</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Setel tanggal dan waktu</string>
+    <string name="webviewchromium_time_picker_dialog_title">Setel waktu</string>
+    <string name="webviewchromium_time_picker_dialog_am">AM</string>
+    <string name="webviewchromium_time_picker_dialog_pm">PM</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">.</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">.</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Setel bulan</string>
     <string name="webviewchromium_week_picker_dialog_title">Setel minggu</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Tanggal</string>
@@ -1473,6 +1481,11 @@ Mendengarkan volume tinggi dalam jangka waktu yang lama dapat merusak pendengara
     <string name="webviewchromium_accessibility_date_picker_month">Bulan</string>
     <string name="webviewchromium_accessibility_date_picker_week">Minggu</string>
     <string name="webviewchromium_accessibility_date_picker_year">Tahun</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Jam</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Menit</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Detik</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Milidetik</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">AM/PM</string>
     <string name="webviewchromium_media_player_error_title">Tidak dapat memutar video</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Maaf, video ini tidak valid untuk streaming pada perangkat ini.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Maaf, video ini tidak dapat diputar.</string>
@@ -1485,7 +1498,20 @@ Mendengarkan volume tinggi dalam jangka waktu yang lama dapat merusak pendengara
     <string name="webviewchromium_color_picker_button_set">Setel</string>
     <string name="webviewchromium_color_picker_button_cancel">Batal</string>
     <string name="webviewchromium_color_picker_dialog_title">Pilih warna</string>
+    <string name="webviewchromium_color_picker_button_red">Merah</string>
+    <string name="webviewchromium_color_picker_button_cyan">Sian</string>
+    <string name="webviewchromium_color_picker_button_blue">Biru</string>
+    <string name="webviewchromium_color_picker_button_green">Hijau</string>
+    <string name="webviewchromium_color_picker_button_magenta">Magenta</string>
+    <string name="webviewchromium_color_picker_button_yellow">Kuning</string>
+    <string name="webviewchromium_color_picker_button_black">Hitam</string>
+    <string name="webviewchromium_color_picker_button_white">Putih</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Gagal menyalin ke papan klip</string>
     <string name="webviewchromium_low_memory_error">Tidak dapat menyelesaikan operasi sebelumnya karena memori terlalu kecil</string>
     <string name="webviewchromium_opening_file_error">Gagal membuka file terpilih</string>
     <string name="webviewchromium_private_browsing_warning">Fungsi ini tidak didukung oleh versi Android ini.</string>
+    <string name="webviewchromium_profiler_started_toast">Profiler dimulai</string>
+    <string name="webviewchromium_profiler_stopped_toast">Profiler selesai. Hasil dalam %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Tidak dapat memulai profiler karena penyimpanan eksternal belum siap</string>
+    <string name="webviewchromium_profiler_error_toast">Gagal memulai profiler</string>
 </resources>

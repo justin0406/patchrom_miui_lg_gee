@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/SlidingDrawer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 964
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/SlidingDrawer;Landroid/widget/SlidingDrawer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/SlidingDrawer;
+    .param p2, "x1"    # Landroid/widget/SlidingDrawer$1;
 
     .prologue
     .line 964
@@ -48,7 +47,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Message;
 
     .prologue
     .line 966
@@ -64,7 +63,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/widget/SlidingDrawer$SlidingHandler;->this$0:Landroid/widget/SlidingDrawer;
 
-    #calls: Landroid/widget/SlidingDrawer;->doAnimation()V
+    # invokes: Landroid/widget/SlidingDrawer;->doAnimation()V
     invoke-static {v0}, Landroid/widget/SlidingDrawer;->access$400(Landroid/widget/SlidingDrawer;)V
 
     goto :goto_0

@@ -3,8 +3,8 @@
 .source "DreamController.java"
 
 # interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
 .implements Landroid/content/ServiceConnection;
+.implements Landroid/os/IBinder$DeathRecipient;
 
 
 # annotations
@@ -41,11 +41,10 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/dreams/DreamController;Landroid/os/Binder;Landroid/content/ComponentName;ZI)V
     .locals 0
-    .parameter
-    .parameter "token"
-    .parameter "name"
-    .parameter "isTest"
-    .parameter "userId"
+    .param p2, "token"    # Landroid/os/Binder;
+    .param p3, "name"    # Landroid/content/ComponentName;
+    .param p4, "isTest"    # Z
+    .param p5, "userId"    # I
 
     .prologue
     .line 224
@@ -78,7 +77,7 @@
     .line 234
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
 
-    #getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->access$200(Lcom/android/server/dreams/DreamController;)Landroid/os/Handler;
 
     move-result-object v0
@@ -95,14 +94,14 @@
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 248
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
 
-    #getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->access$200(Lcom/android/server/dreams/DreamController;)Landroid/os/Handler;
 
     move-result-object v0
@@ -119,13 +118,13 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 262
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
 
-    #getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/dreams/DreamController;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->access$200(Lcom/android/server/dreams/DreamController;)Landroid/os/Handler;
 
     move-result-object v0

@@ -16,8 +16,8 @@
 
 .method public static checkFlagsArgument(II)V
     .locals 3
-    .parameter "requestedFlags"
-    .parameter "allowedFlags"
+    .param p0, "requestedFlags"    # I
+    .param p1, "allowedFlags"    # I
 
     .prologue
     .line 75
@@ -81,7 +81,6 @@
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -92,7 +91,7 @@
 
     .prologue
     .line 34
-    .local p0, reference:Ljava/lang/Object;,"TT;"
+    .local p0, "reference":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     .line 35
@@ -109,8 +108,7 @@
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .parameter
-    .parameter "errorMessage"
+    .param p1, "errorMessage"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -123,7 +121,7 @@
 
     .prologue
     .line 51
-    .local p0, reference:Ljava/lang/Object;,"TT;"
+    .local p0, "reference":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     .line 52
@@ -144,7 +142,7 @@
 
 .method public static checkState(Z)V
     .locals 1
-    .parameter "expression"
+    .param p0, "expression"    # Z
 
     .prologue
     .line 65

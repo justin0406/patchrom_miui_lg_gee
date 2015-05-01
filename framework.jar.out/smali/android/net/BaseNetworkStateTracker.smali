@@ -67,7 +67,7 @@
 
 .method public constructor <init>(I)V
     .locals 4
-    .parameter "networkType"
+    .param p1, "networkType"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -133,7 +133,7 @@
 # virtual methods
 .method public addStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 178
@@ -155,7 +155,7 @@
 
 .method public captivePortalCheckCompleted(Z)V
     .locals 0
-    .parameter "isCaptivePortal"
+    .param p1, "isCaptivePortal"    # Z
 
     .prologue
     .line 118
@@ -164,7 +164,7 @@
 
 .method public defaultRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 158
@@ -206,7 +206,7 @@
     .line 71
     iget-object v0, p0, Landroid/net/BaseNetworkStateTracker;->mTarget:Landroid/os/Handler;
 
-    const/high16 v1, 0x7
+    const/high16 v1, 0x70000
 
     invoke-virtual {p0}, Landroid/net/BaseNetworkStateTracker;->getNetworkInfo()Landroid/net/NetworkInfo;
 
@@ -370,7 +370,7 @@
 
 .method public privateDnsRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 148
@@ -384,7 +384,7 @@
 
 .method public removeStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 183
@@ -398,7 +398,7 @@
 
 .method public setDependencyMet(Z)V
     .locals 0
-    .parameter "met"
+    .param p1, "met"    # Z
 
     .prologue
     .line 174
@@ -407,7 +407,7 @@
 
 .method public setPolicyDataEnable(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 139
@@ -416,7 +416,7 @@
 
 .method public setRadio(Z)Z
     .locals 1
-    .parameter "turnOn"
+    .param p1, "turnOn"    # Z
 
     .prologue
     .line 123
@@ -427,7 +427,7 @@
 
 .method public setTeardownRequested(Z)V
     .locals 1
-    .parameter "isRequested"
+    .param p1, "isRequested"    # Z
 
     .prologue
     .line 168
@@ -441,7 +441,7 @@
 
 .method public setUserDataEnable(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 134
@@ -450,8 +450,8 @@
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 81
@@ -489,7 +489,7 @@
 
 .method public startSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 203
@@ -498,7 +498,7 @@
 
 .method public stopSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 208
@@ -507,7 +507,7 @@
 
 .method public supplyMessenger(Landroid/os/Messenger;)V
     .locals 0
-    .parameter "messenger"
+    .param p1, "messenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 189

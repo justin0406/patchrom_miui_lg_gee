@@ -46,10 +46,10 @@
 
 .method public constructor <init>(ILandroid/accounts/Account;Ljava/lang/String;J)V
     .locals 0
-    .parameter "authorityId"
-    .parameter "account"
-    .parameter "authority"
-    .parameter "startTime"
+    .param p1, "authorityId"    # I
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "authority"    # Ljava/lang/String;
+    .param p4, "startTime"    # J
 
     .prologue
     .line 50
@@ -73,7 +73,7 @@
 
 .method public constructor <init>(Landroid/content/SyncInfo;)V
     .locals 3
-    .parameter "other"
+    .param p1, "other"    # Landroid/content/SyncInfo;
 
     .prologue
     .line 58
@@ -115,7 +115,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 79
@@ -167,8 +167,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 72

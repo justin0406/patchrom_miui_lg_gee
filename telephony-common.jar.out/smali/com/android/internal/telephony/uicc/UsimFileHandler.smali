@@ -13,9 +13,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/uicc/UiccCardApplication;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 0
-    .parameter "app"
-    .parameter "aid"
-    .parameter "ci"
+    .param p1, "app"    # Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .param p2, "aid"    # Ljava/lang/String;
+    .param p3, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 32
@@ -29,7 +29,7 @@
 # virtual methods
 .method protected getEFPath(I)Ljava/lang/String;
     .locals 1
-    .parameter "efid"
+    .param p1, "efid"    # I
 
     .prologue
     .line 37
@@ -41,14 +41,14 @@
     move-result-object v0
 
     .line 68
-    .local v0, path:Ljava/lang/String;
+    .local v0, "path":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 72
     const-string v0, "3F007F105F3A"
 
     .line 74
-    .end local v0           #path:Ljava/lang/String;
+    .end local v0    # "path":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v0
@@ -97,7 +97,7 @@
 
 .method protected logd(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -111,7 +111,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 84

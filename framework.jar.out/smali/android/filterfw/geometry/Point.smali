@@ -23,8 +23,8 @@
 
 .method public constructor <init>(FF)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 33
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
@@ -88,7 +88,7 @@
 
 .method public distanceTo(Landroid/filterfw/geometry/Point;)F
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/filterfw/geometry/Point;
 
     .prologue
     .line 77
@@ -135,8 +135,8 @@
 
 .method public minus(FF)Landroid/filterfw/geometry/Point;
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 57
@@ -157,7 +157,7 @@
 
 .method public minus(Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Point;
     .locals 2
-    .parameter "point"
+    .param p1, "point"    # Landroid/filterfw/geometry/Point;
 
     .prologue
     .line 61
@@ -174,8 +174,8 @@
 
 .method public mult(FF)Landroid/filterfw/geometry/Point;
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 69
@@ -199,7 +199,7 @@
 
     .prologue
     .line 85
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     invoke-virtual {p0, v0}, Landroid/filterfw/geometry/Point;->scaledTo(F)Landroid/filterfw/geometry/Point;
 
@@ -210,8 +210,8 @@
 
 .method public plus(FF)Landroid/filterfw/geometry/Point;
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 49
@@ -232,7 +232,7 @@
 
 .method public plus(Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Point;
     .locals 2
-    .parameter "point"
+    .param p1, "point"    # Landroid/filterfw/geometry/Point;
 
     .prologue
     .line 53
@@ -249,7 +249,7 @@
 
 .method public rotated(F)Landroid/filterfw/geometry/Point;
     .locals 8
-    .parameter "radians"
+    .param p1, "radians"    # F
 
     .prologue
     .line 101
@@ -318,21 +318,21 @@
 
 .method public rotated90(I)Landroid/filterfw/geometry/Point;
     .locals 5
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 89
     iget v1, p0, Landroid/filterfw/geometry/Point;->x:F
 
     .line 90
-    .local v1, nx:F
+    .local v1, "nx":F
     iget v2, p0, Landroid/filterfw/geometry/Point;->y:F
 
     .line 91
-    .local v2, ny:F
+    .local v2, "ny":F
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p1, :cond_0
 
@@ -340,7 +340,7 @@
     move v3, v1
 
     .line 93
-    .local v3, ox:F
+    .local v3, "ox":F
     move v1, v2
 
     .line 94
@@ -352,7 +352,7 @@
     goto :goto_0
 
     .line 96
-    .end local v3           #ox:F
+    .end local v3    # "ox":F
     :cond_0
     new-instance v4, Landroid/filterfw/geometry/Point;
 
@@ -363,8 +363,8 @@
 
 .method public rotatedAround(Landroid/filterfw/geometry/Point;F)Landroid/filterfw/geometry/Point;
     .locals 1
-    .parameter "center"
-    .parameter "radians"
+    .param p1, "center"    # Landroid/filterfw/geometry/Point;
+    .param p2, "radians"    # F
 
     .prologue
     .line 106
@@ -385,7 +385,7 @@
 
 .method public scaledTo(F)Landroid/filterfw/geometry/Point;
     .locals 1
-    .parameter "length"
+    .param p1, "length"    # F
 
     .prologue
     .line 81
@@ -404,8 +404,8 @@
 
 .method public set(FF)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 39
@@ -420,7 +420,7 @@
 
 .method public times(F)Landroid/filterfw/geometry/Point;
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # F
 
     .prologue
     .line 65

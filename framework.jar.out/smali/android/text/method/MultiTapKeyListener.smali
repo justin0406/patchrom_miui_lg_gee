@@ -165,8 +165,8 @@
 
 .method public constructor <init>(Landroid/text/method/TextKeyListener$Capitalize;Z)V
     .locals 0
-    .parameter "cap"
-    .parameter "autotext"
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p2, "autotext"    # Z
 
     .prologue
     .line 61
@@ -184,8 +184,8 @@
 
 .method public static getInstance(ZLandroid/text/method/TextKeyListener$Capitalize;)Landroid/text/method/MultiTapKeyListener;
     .locals 3
-    .parameter "autotext"
-    .parameter "cap"
+    .param p0, "autotext"    # Z
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
 
     .prologue
     .line 72
@@ -203,7 +203,7 @@
     add-int v0, v2, v1
 
     .line 74
-    .local v0, off:I
+    .local v0, "off":I
     sget-object v1, Landroid/text/method/MultiTapKeyListener;->sInstance:[Landroid/text/method/MultiTapKeyListener;
 
     aget-object v1, v1, v0
@@ -228,7 +228,7 @@
     return-object v1
 
     .line 72
-    .end local v0           #off:I
+    .end local v0    # "off":I
     :cond_1
     const/4 v1, 0x0
 
@@ -237,7 +237,7 @@
 
 .method private static removeTimeouts(Landroid/text/Spannable;)V
     .locals 6
-    .parameter "buf"
+    .param p0, "buf"    # Landroid/text/Spannable;
 
     .prologue
     .line 243
@@ -256,10 +256,10 @@
     check-cast v2, [Landroid/text/method/MultiTapKeyListener$Timeout;
 
     .line 245
-    .local v2, timeout:[Landroid/text/method/MultiTapKeyListener$Timeout;
+    .local v2, "timeout":[Landroid/text/method/MultiTapKeyListener$Timeout;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -269,13 +269,13 @@
     aget-object v1, v2, v0
 
     .line 248
-    .local v1, t:Landroid/text/method/MultiTapKeyListener$Timeout;
+    .local v1, "t":Landroid/text/method/MultiTapKeyListener$Timeout;
     invoke-virtual {v1, v1}, Landroid/text/method/MultiTapKeyListener$Timeout;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 249
     const/4 v3, 0x0
 
-    #setter for: Landroid/text/method/MultiTapKeyListener$Timeout;->mBuffer:Landroid/text/Editable;
+    # setter for: Landroid/text/method/MultiTapKeyListener$Timeout;->mBuffer:Landroid/text/Editable;
     invoke-static {v1, v3}, Landroid/text/method/MultiTapKeyListener$Timeout;->access$002(Landroid/text/method/MultiTapKeyListener$Timeout;Landroid/text/Editable;)Landroid/text/Editable;
 
     .line 250
@@ -287,7 +287,7 @@
     goto :goto_0
 
     .line 252
-    .end local v1           #t:Landroid/text/method/MultiTapKeyListener$Timeout;
+    .end local v1    # "t":Landroid/text/method/MultiTapKeyListener$Timeout;
     :cond_0
     return-void
 .end method
@@ -312,17 +312,17 @@
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 28
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 88
     const/16 v26, 0x0
 
     .line 90
-    .local v26, pref:I
+    .local v26, "pref":I
     if-eqz p1, :cond_0
 
     .line 91
@@ -345,13 +345,13 @@
     move-result v13
 
     .line 96
-    .local v13, a:I
+    .local v13, "a":I
     invoke-static/range {p2 .. p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v17
 
     .line 98
-    .local v17, b:I
+    .local v17, "b":I
     move/from16 v0, v17
 
     invoke-static {v13, v0}, Ljava/lang/Math;->min(II)I
@@ -359,7 +359,7 @@
     move-result v3
 
     .line 99
-    .local v3, selStart:I
+    .local v3, "selStart":I
     move/from16 v0, v17
 
     invoke-static {v13, v0}, Ljava/lang/Math;->max(II)I
@@ -367,7 +367,7 @@
     move-result v4
 
     .line 102
-    .local v4, selEnd:I
+    .local v4, "selEnd":I
     sget-object v2, Landroid/text/method/TextKeyListener;->ACTIVE:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -377,7 +377,7 @@
     move-result v15
 
     .line 103
-    .local v15, activeStart:I
+    .local v15, "activeStart":I
     sget-object v2, Landroid/text/method/TextKeyListener;->ACTIVE:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -387,7 +387,7 @@
     move-result v14
 
     .line 110
-    .local v14, activeEnd:I
+    .local v14, "activeEnd":I
     sget-object v2, Landroid/text/method/TextKeyListener;->ACTIVE:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -396,14 +396,14 @@
 
     move-result v2
 
-    const/high16 v7, -0x100
+    const/high16 v7, -0x1000000
 
     and-int/2addr v2, v7
 
     ushr-int/lit8 v27, v2, 0x18
 
     .line 113
-    .local v27, rec:I
+    .local v27, "rec":I
     if-ne v15, v3, :cond_8
 
     if-ne v14, v4, :cond_8
@@ -441,7 +441,7 @@
     move-result v19
 
     .line 119
-    .local v19, current:C
+    .local v19, "current":C
     invoke-static/range {v19 .. v19}, Ljava/lang/Character;->isLowerCase(C)Z
 
     move-result v2
@@ -477,12 +477,12 @@
     const/4 v2, 0x1
 
     .line 231
-    .end local v19           #current:C
+    .end local v19    # "current":C
     :goto_0
     return v2
 
     .line 127
-    .restart local v19       #current:C
+    .restart local v19    # "current":C
     :cond_1
     invoke-static/range {v19 .. v19}, Ljava/lang/Character;->isUpperCase(C)Z
 
@@ -521,7 +521,7 @@
     goto :goto_0
 
     .line 137
-    .end local v19           #current:C
+    .end local v19    # "current":C
     :cond_2
     sget-object v2, Landroid/text/method/MultiTapKeyListener;->sRecs:Landroid/util/SparseArray;
 
@@ -547,7 +547,7 @@
     check-cast v5, Ljava/lang/String;
 
     .line 139
-    .local v5, val:Ljava/lang/String;
+    .local v5, "val":Ljava/lang/String;
     move-object/from16 v0, p2
 
     invoke-interface {v0, v3}, Landroid/text/Editable;->charAt(I)C
@@ -555,7 +555,7 @@
     move-result v18
 
     .line 140
-    .local v18, ch:C
+    .local v18, "ch":C
     move/from16 v0, v18
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->indexOf(I)I
@@ -563,7 +563,7 @@
     move-result v6
 
     .line 142
-    .local v6, ix:I
+    .local v6, "ix":I
     if-ltz v6, :cond_3
 
     .line 143
@@ -600,9 +600,9 @@
     goto :goto_0
 
     .line 158
-    .end local v5           #val:Ljava/lang/String;
-    .end local v6           #ix:I
-    .end local v18           #ch:C
+    .end local v5    # "val":Ljava/lang/String;
+    .end local v6    # "ix":I
+    .end local v18    # "ch":C
     :cond_3
     sget-object v2, Landroid/text/method/MultiTapKeyListener;->sRecs:Landroid/util/SparseArray;
 
@@ -640,11 +640,11 @@
     check-cast v5, Ljava/lang/String;
 
     .line 175
-    .restart local v5       #val:Ljava/lang/String;
+    .restart local v5    # "val":Ljava/lang/String;
     const/4 v11, 0x0
 
     .line 176
-    .local v11, off:I
+    .local v11, "off":I
     and-int/lit8 v2, v26, 0x1
 
     if-eqz v2, :cond_5
@@ -664,7 +664,7 @@
     .line 178
     const/16 v20, 0x0
 
-    .local v20, i:I
+    .local v20, "i":I
     :goto_2
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -691,7 +691,7 @@
     move/from16 v11, v20
 
     .line 186
-    .end local v20           #i:I
+    .end local v20    # "i":I
     :cond_5
     if-eq v3, v4, :cond_6
 
@@ -733,7 +733,7 @@
     move-result v25
 
     .line 196
-    .local v25, oldStart:I
+    .local v25, "oldStart":I
     invoke-static/range {p2 .. p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v4
@@ -816,20 +816,20 @@
     check-cast v24, [Landroid/text/method/KeyListener;
 
     .line 221
-    .local v24, methods:[Landroid/text/method/KeyListener;
+    .local v24, "methods":[Landroid/text/method/KeyListener;
     move-object/from16 v16, v24
 
-    .local v16, arr$:[Landroid/text/method/KeyListener;
+    .local v16, "arr$":[Landroid/text/method/KeyListener;
     move-object/from16 v0, v16
 
     array-length v0, v0
 
     move/from16 v22, v0
 
-    .local v22, len$:I
+    .local v22, "len$":I
     const/16 v21, 0x0
 
-    .local v21, i$:I
+    .local v21, "i$":I
     :goto_3
     move/from16 v0, v21
 
@@ -840,7 +840,7 @@
     aget-object v23, v16, v21
 
     .line 222
-    .local v23, method:Landroid/text/method/KeyListener;
+    .local v23, "method":Landroid/text/method/KeyListener;
     move-object/from16 v0, p2
 
     move-object/from16 v1, v23
@@ -853,14 +853,14 @@
     goto :goto_3
 
     .line 165
-    .end local v5           #val:Ljava/lang/String;
-    .end local v11           #off:I
-    .end local v16           #arr$:[Landroid/text/method/KeyListener;
-    .end local v21           #i$:I
-    .end local v22           #len$:I
-    .end local v23           #method:Landroid/text/method/KeyListener;
-    .end local v24           #methods:[Landroid/text/method/KeyListener;
-    .end local v25           #oldStart:I
+    .end local v5    # "val":Ljava/lang/String;
+    .end local v11    # "off":I
+    .end local v16    # "arr$":[Landroid/text/method/KeyListener;
+    .end local v21    # "i$":I
+    .end local v22    # "len$":I
+    .end local v23    # "method":Landroid/text/method/KeyListener;
+    .end local v24    # "methods":[Landroid/text/method/KeyListener;
+    .end local v25    # "oldStart":I
     :cond_8
     sget-object v2, Landroid/text/method/MultiTapKeyListener;->sRecs:Landroid/util/SparseArray;
 
@@ -873,21 +873,21 @@
     goto/16 :goto_1
 
     .line 178
-    .restart local v5       #val:Ljava/lang/String;
-    .restart local v11       #off:I
-    .restart local v20       #i:I
+    .restart local v5    # "val":Ljava/lang/String;
+    .restart local v11    # "off":I
+    .restart local v20    # "i":I
     :cond_9
     add-int/lit8 v20, v20, 0x1
 
     goto/16 :goto_2
 
     .line 224
-    .end local v20           #i:I
-    .restart local v16       #arr$:[Landroid/text/method/KeyListener;
-    .restart local v21       #i$:I
-    .restart local v22       #len$:I
-    .restart local v24       #methods:[Landroid/text/method/KeyListener;
-    .restart local v25       #oldStart:I
+    .end local v20    # "i":I
+    .restart local v16    # "arr$":[Landroid/text/method/KeyListener;
+    .restart local v21    # "i$":I
+    .restart local v22    # "len$":I
+    .restart local v24    # "methods":[Landroid/text/method/KeyListener;
+    .restart local v25    # "oldStart":I
     :cond_a
     const/4 v2, 0x0
 
@@ -904,19 +904,19 @@
     invoke-interface {v0, v1, v2, v7, v8}, Landroid/text/Editable;->setSpan(Ljava/lang/Object;III)V
 
     .line 228
-    .end local v16           #arr$:[Landroid/text/method/KeyListener;
-    .end local v21           #i$:I
-    .end local v22           #len$:I
-    .end local v24           #methods:[Landroid/text/method/KeyListener;
+    .end local v16    # "arr$":[Landroid/text/method/KeyListener;
+    .end local v21    # "i$":I
+    .end local v22    # "len$":I
+    .end local v24    # "methods":[Landroid/text/method/KeyListener;
     :cond_b
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
     .line 231
-    .end local v5           #val:Ljava/lang/String;
-    .end local v11           #off:I
-    .end local v25           #oldStart:I
+    .end local v5    # "val":Ljava/lang/String;
+    .end local v11    # "off":I
+    .end local v25    # "oldStart":I
     :cond_c
     invoke-super/range {p0 .. p4}, Landroid/text/method/BaseKeyListener;->onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
@@ -927,10 +927,10 @@
 
 .method public onSpanAdded(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 0
-    .parameter "s"
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 287
@@ -939,12 +939,12 @@
 
 .method public onSpanChanged(Landroid/text/Spannable;Ljava/lang/Object;IIII)V
     .locals 1
-    .parameter "buf"
-    .parameter "what"
-    .parameter "s"
-    .parameter "e"
-    .parameter "start"
-    .parameter "stop"
+    .param p1, "buf"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "s"    # I
+    .param p4, "e"    # I
+    .param p5, "start"    # I
+    .param p6, "stop"    # I
 
     .prologue
     .line 236
@@ -967,10 +967,10 @@
 
 .method public onSpanRemoved(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 0
-    .parameter "s"
-    .parameter "what"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "what"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 288

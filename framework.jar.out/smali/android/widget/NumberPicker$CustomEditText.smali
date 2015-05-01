@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 2150
@@ -32,7 +32,7 @@
 # virtual methods
 .method public onEditorAction(I)V
     .locals 1
-    .parameter "actionCode"
+    .param p1, "actionCode"    # I
 
     .prologue
     .line 2155

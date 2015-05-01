@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .parameter "appWindowToken"
+    .param p1, "appWindowToken"    # Ljava/lang/Object;
 
     .prologue
     .line 42

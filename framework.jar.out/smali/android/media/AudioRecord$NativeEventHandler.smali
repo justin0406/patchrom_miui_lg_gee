@@ -23,9 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioRecord;Landroid/media/AudioRecord;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "recorder"
-    .parameter "looper"
+    .param p2, "recorder"    # Landroid/media/AudioRecord;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 746
@@ -45,17 +44,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 753
     const/4 v0, 0x0
 
     .line 754
-    .local v0, listener:Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
+    .local v0, "listener":Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->this$0:Landroid/media/AudioRecord;
 
-    #getter for: Landroid/media/AudioRecord;->mPositionListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/AudioRecord;->mPositionListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/AudioRecord;->access$000(Landroid/media/AudioRecord;)Ljava/lang/Object;
 
     move-result-object v2
@@ -66,7 +65,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->mAudioRecord:Landroid/media/AudioRecord;
 
-    #getter for: Landroid/media/AudioRecord;->mPositionListener:Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
+    # getter for: Landroid/media/AudioRecord;->mPositionListener:Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
     invoke-static {v1}, Landroid/media/AudioRecord;->access$100(Landroid/media/AudioRecord;)Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
 
     move-result-object v0
@@ -102,7 +101,7 @@
 
     move-result-object v1
 
-    #calls: Landroid/media/AudioRecord;->loge(Ljava/lang/String;)V
+    # invokes: Landroid/media/AudioRecord;->loge(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/media/AudioRecord;->access$200(Ljava/lang/String;)V
 
     .line 773

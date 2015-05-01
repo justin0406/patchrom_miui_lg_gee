@@ -40,7 +40,7 @@
 
 .method public constructor <init>(Landroid/os/Handler;)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 36
@@ -59,7 +59,7 @@
 
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # Landroid/os/IBinder;
 
     .prologue
     .line 138
@@ -78,7 +78,7 @@
 
 .method public static readMessengerOrNullFromParcel(Landroid/os/Parcel;)Landroid/os/Messenger;
     .locals 2
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 128
@@ -87,7 +87,7 @@
     move-result-object v0
 
     .line 129
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/Messenger;
@@ -105,8 +105,8 @@
 
 .method public static writeMessengerOrNullToParcel(Landroid/os/Messenger;Landroid/os/Parcel;)V
     .locals 1
-    .parameter "messenger"
-    .parameter "out"
+    .param p0, "messenger"    # Landroid/os/Messenger;
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 113
@@ -145,7 +145,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "otherObj"
+    .param p1, "otherObj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v0, 0x0
@@ -154,12 +154,12 @@
     if-nez p1, :cond_0
 
     .line 76
-    .end local p1
+    .end local p1    # "otherObj":Ljava/lang/Object;
     :goto_0
     return v0
 
     .line 72
-    .restart local p1
+    .restart local p1    # "otherObj":Ljava/lang/Object;
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/os/Messenger;->mTarget:Landroid/os/IMessenger;
@@ -170,7 +170,7 @@
 
     check-cast p1, Landroid/os/Messenger;
 
-    .end local p1
+    .end local p1    # "otherObj":Ljava/lang/Object;
     iget-object v2, p1, Landroid/os/Messenger;->mTarget:Landroid/os/IMessenger;
 
     invoke-interface {v2}, Landroid/os/IMessenger;->asBinder()Landroid/os/IBinder;
@@ -226,7 +226,7 @@
 
 .method public send(Landroid/os/Message;)V
     .locals 1
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -245,8 +245,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 88

@@ -4,8 +4,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field static final synthetic $assertionsDisabled:Z = false
+.field static final synthetic $assertionsDisabled:Z
 
 .field public static final SSL_DATE_INVALID:I = 0x4
 
@@ -62,8 +61,8 @@
 
 .method public constructor <init>(ILandroid/net/http/SslCertificate;)V
     .locals 1
-    .parameter "error"
-    .parameter "certificate"
+    .param p1, "error"    # I
+    .param p2, "certificate"    # Landroid/net/http/SslCertificate;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -79,9 +78,9 @@
 
 .method public constructor <init>(ILandroid/net/http/SslCertificate;Ljava/lang/String;)V
     .locals 1
-    .parameter "error"
-    .parameter "certificate"
-    .parameter "url"
+    .param p1, "error"    # I
+    .param p2, "certificate"    # Landroid/net/http/SslCertificate;
+    .param p3, "url"    # Ljava/lang/String;
 
     .prologue
     .line 113
@@ -130,8 +129,8 @@
 
 .method public constructor <init>(ILjava/security/cert/X509Certificate;)V
     .locals 1
-    .parameter "error"
-    .parameter "certificate"
+    .param p1, "error"    # I
+    .param p2, "certificate"    # Ljava/security/cert/X509Certificate;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -147,9 +146,9 @@
 
 .method public constructor <init>(ILjava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 1
-    .parameter "error"
-    .parameter "certificate"
-    .parameter "url"
+    .param p1, "error"    # I
+    .param p2, "certificate"    # Ljava/security/cert/X509Certificate;
+    .param p3, "url"    # Ljava/lang/String;
 
     .prologue
     .line 129
@@ -165,9 +164,9 @@
 
 .method public static SslErrorFromChromiumErrorCode(ILandroid/net/http/SslCertificate;Ljava/lang/String;)Landroid/net/http/SslError;
     .locals 2
-    .parameter "error"
-    .parameter "cert"
-    .parameter "url"
+    .param p0, "error"    # I
+    .param p1, "cert"    # Landroid/net/http/SslCertificate;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     const/16 v1, -0xc8
@@ -250,7 +249,7 @@
 # virtual methods
 .method public addError(I)Z
     .locals 3
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -265,7 +264,7 @@
     move v0, v1
 
     .line 178
-    .local v0, rval:Z
+    .local v0, "rval":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -283,7 +282,7 @@
     return v0
 
     .line 177
-    .end local v0           #rval:Z
+    .end local v0    # "rval":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -312,7 +311,7 @@
     .line 207
     const/4 v0, 0x5
 
-    .local v0, error:I
+    .local v0, "error":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -328,12 +327,12 @@
     if-eqz v1, :cond_0
 
     .line 216
-    .end local v0           #error:I
+    .end local v0    # "error":I
     :goto_1
     return v0
 
     .line 207
-    .restart local v0       #error:I
+    .restart local v0    # "error":I
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
@@ -352,7 +351,7 @@
     throw v1
 
     .line 216
-    .end local v0           #error:I
+    .end local v0    # "error":I
     :cond_2
     const/4 v0, -0x1
 
@@ -371,7 +370,7 @@
 
 .method public hasError(I)Z
     .locals 5
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -388,7 +387,7 @@
     move v0, v1
 
     .line 192
-    .local v0, rval:Z
+    .local v0, "rval":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -408,14 +407,14 @@
     :goto_1
     return v0
 
-    .end local v0           #rval:Z
+    .end local v0    # "rval":Z
     :cond_1
     move v0, v2
 
     .line 191
     goto :goto_0
 
-    .restart local v0       #rval:Z
+    .restart local v0    # "rval":Z
     :cond_2
     move v0, v2
 

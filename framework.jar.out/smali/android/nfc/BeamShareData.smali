@@ -44,9 +44,9 @@
 
 .method public constructor <init>(Landroid/nfc/NdefMessage;[Landroid/net/Uri;I)V
     .locals 0
-    .parameter "msg"
-    .parameter "uris"
-    .parameter "flags"
+    .param p1, "msg"    # Landroid/nfc/NdefMessage;
+    .param p2, "uris"    # [Landroid/net/Uri;
+    .param p3, "flags"    # I
 
     .prologue
     .line 19
@@ -79,8 +79,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -95,7 +95,7 @@
     array-length v0, v2
 
     .line 33
-    .local v0, urisLength:I
+    .local v0, "urisLength":I
     :goto_0
     iget-object v2, p0, Landroid/nfc/BeamShareData;->ndefMessage:Landroid/nfc/NdefMessage;
 
@@ -121,7 +121,7 @@
     .line 39
     return-void
 
-    .end local v0           #urisLength:I
+    .end local v0    # "urisLength":I
     :cond_1
     move v0, v1
 

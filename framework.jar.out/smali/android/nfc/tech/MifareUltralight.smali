@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
     .locals 5
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     move-result-object v0
 
     .line 109
-    .local v0, a:Landroid/nfc/tech/NfcA;
+    .local v0, "a":Landroid/nfc/tech/NfcA;
     const/4 v2, -0x1
 
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
@@ -77,7 +77,7 @@
     move-result-object v1
 
     .line 113
-    .local v1, extras:Landroid/os/Bundle;
+    .local v1, "extras":Landroid/os/Bundle;
     const-string v2, "isulc"
 
     invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -92,13 +92,13 @@
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
     .line 119
-    .end local v1           #extras:Landroid/os/Bundle;
+    .end local v1    # "extras":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
     .line 116
-    .restart local v1       #extras:Landroid/os/Bundle;
+    .restart local v1    # "extras":Landroid/os/Bundle;
     :cond_1
     const/4 v2, 0x1
 
@@ -109,7 +109,7 @@
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareUltralight;
     .locals 3
-    .parameter "tag"
+    .param p0, "tag"    # Landroid/nfc/Tag;
 
     .prologue
     const/4 v1, 0x0
@@ -145,13 +145,13 @@
     move-exception v0
 
     .line 98
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method private static validatePageIndex(I)V
     .locals 3
-    .parameter "pageIndex"
+    .param p0, "pageIndex"    # I
 
     .prologue
     .line 274
@@ -277,7 +277,7 @@
     move-exception v0
 
     .line 263
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
@@ -314,7 +314,7 @@
 
 .method public readPages(I)[B
     .locals 4
-    .parameter "pageOffset"
+    .param p1, "pageOffset"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -346,7 +346,7 @@
     aput-byte v2, v0, v1
 
     .line 164
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/MifareUltralight;->transceive([BZ)[B
 
     move-result-object v1
@@ -371,7 +371,7 @@
 
 .method public setTimeout(I)V
     .locals 4
-    .parameter "timeout"
+    .param p1, "timeout"    # I
 
     .prologue
     .line 242
@@ -389,7 +389,7 @@
     move-result v1
 
     .line 244
-    .local v1, err:I
+    .local v1, "err":I
     if-eqz v1, :cond_0
 
     .line 245
@@ -404,12 +404,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 247
-    .end local v1           #err:I
+    .end local v1    # "err":I
     :catch_0
     move-exception v0
 
     .line 248
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "NFC service dead"
@@ -417,14 +417,14 @@
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 250
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -444,8 +444,8 @@
 
 .method public writePage(I[B)V
     .locals 4
-    .parameter "pageOffset"
-    .parameter "data"
+    .param p1, "pageOffset"    # I
+    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -469,7 +469,7 @@
     new-array v0, v1, [B
 
     .line 189
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     const/16 v1, -0x5e
 
     aput-byte v1, v0, v3

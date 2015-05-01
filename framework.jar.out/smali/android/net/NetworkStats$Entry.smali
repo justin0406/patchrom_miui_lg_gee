@@ -68,11 +68,11 @@
 
 .method public constructor <init>(JJJJJ)V
     .locals 15
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
+    .param p1, "rxBytes"    # J
+    .param p3, "rxPackets"    # J
+    .param p5, "txBytes"    # J
+    .param p7, "txPackets"    # J
+    .param p9, "operations"    # J
 
     .prologue
     .line 90
@@ -104,15 +104,15 @@
 
 .method public constructor <init>(Ljava/lang/String;IIIJJJJJ)V
     .locals 0
-    .parameter "iface"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
+    .param p5, "rxBytes"    # J
+    .param p7, "rxPackets"    # J
+    .param p9, "txBytes"    # J
+    .param p11, "txPackets"    # J
+    .param p13, "operations"    # J
 
     .prologue
     .line 95
@@ -153,7 +153,7 @@
 # virtual methods
 .method public add(Landroid/net/NetworkStats$Entry;)V
     .locals 4
-    .parameter "another"
+    .param p1, "another"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 117
@@ -207,7 +207,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -223,7 +223,7 @@
     check-cast v0, Landroid/net/NetworkStats$Entry;
 
     .line 143
-    .local v0, e:Landroid/net/NetworkStats$Entry;
+    .local v0, "e":Landroid/net/NetworkStats$Entry;
     iget v2, p0, Landroid/net/NetworkStats$Entry;->uid:I
 
     iget v3, v0, Landroid/net/NetworkStats$Entry;->uid:I
@@ -295,7 +295,7 @@
     const/4 v1, 0x1
 
     .line 148
-    .end local v0           #e:Landroid/net/NetworkStats$Entry;
+    .end local v0    # "e":Landroid/net/NetworkStats$Entry;
     :cond_0
     return v1
 .end method
@@ -407,7 +407,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 127
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "iface="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/input/InputManager$InputDeviceListener;Landroid/os/Handler;)V
     .locals 1
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/hardware/input/InputManager$InputDeviceListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 783
@@ -54,7 +54,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 789

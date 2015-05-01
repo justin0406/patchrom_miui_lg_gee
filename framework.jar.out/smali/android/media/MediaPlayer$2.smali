@@ -30,10 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaPlayer;Ljava/io/InputStream;Landroid/media/MediaFormat;Landroid/os/HandlerThread;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 1811
@@ -63,7 +59,7 @@
 
     iget-object v4, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mSubtitleController:Landroid/media/SubtitleController;
+    # getter for: Landroid/media/MediaPlayer;->mSubtitleController:Landroid/media/SubtitleController;
     invoke-static {v4}, Landroid/media/MediaPlayer;->access$100(Landroid/media/MediaPlayer;)Landroid/media/SubtitleController;
 
     move-result-object v4
@@ -79,7 +75,7 @@
     :cond_1
     iget-object v4, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mSubtitleController:Landroid/media/SubtitleController;
+    # getter for: Landroid/media/MediaPlayer;->mSubtitleController:Landroid/media/SubtitleController;
     invoke-static {v4}, Landroid/media/MediaPlayer;->access$100(Landroid/media/MediaPlayer;)Landroid/media/SubtitleController;
 
     move-result-object v4
@@ -91,7 +87,7 @@
     move-result-object v2
 
     .line 1818
-    .local v2, track:Landroid/media/SubtitleTrack;
+    .local v2, "track":Landroid/media/SubtitleTrack;
     if-eqz v2, :cond_0
 
     .line 1823
@@ -104,7 +100,7 @@
     invoke-direct {v1, v3, v4}, Ljava/util/Scanner;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 1824
-    .local v1, scanner:Ljava/util/Scanner;
+    .local v1, "scanner":Ljava/util/Scanner;
     const-string v3, "\\A"
 
     invoke-virtual {v1, v3}, Ljava/util/Scanner;->useDelimiter(Ljava/lang/String;)Ljava/util/Scanner;
@@ -116,10 +112,10 @@
     move-result-object v0
 
     .line 1825
-    .local v0, contents:Ljava/lang/String;
+    .local v0, "contents":Ljava/lang/String;
     iget-object v3, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mOpenSubtitleSources:Ljava/util/Vector;
+    # getter for: Landroid/media/MediaPlayer;->mOpenSubtitleSources:Ljava/util/Vector;
     invoke-static {v3}, Landroid/media/MediaPlayer;->access$200(Landroid/media/MediaPlayer;)Ljava/util/Vector;
 
     move-result-object v4
@@ -130,7 +126,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mOpenSubtitleSources:Ljava/util/Vector;
+    # getter for: Landroid/media/MediaPlayer;->mOpenSubtitleSources:Ljava/util/Vector;
     invoke-static {v3}, Landroid/media/MediaPlayer;->access$200(Landroid/media/MediaPlayer;)Ljava/util/Vector;
 
     move-result-object v3
@@ -150,7 +146,7 @@
     .line 1829
     iget-object v3, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mOutOfBandSubtitleTracks:Ljava/util/Vector;
+    # getter for: Landroid/media/MediaPlayer;->mOutOfBandSubtitleTracks:Ljava/util/Vector;
     invoke-static {v3}, Landroid/media/MediaPlayer;->access$300(Landroid/media/MediaPlayer;)Ljava/util/Vector;
 
     move-result-object v3
@@ -193,10 +189,10 @@
     move-result v1
 
     .line 1836
-    .local v1, res:I
+    .local v1, "res":I
     iget-object v2, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
+    # getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
     invoke-static {v2}, Landroid/media/MediaPlayer;->access$400(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer$EventHandler;
 
     move-result-object v2
@@ -206,7 +202,7 @@
     .line 1837
     iget-object v2, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
+    # getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
     invoke-static {v2}, Landroid/media/MediaPlayer;->access$400(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer$EventHandler;
 
     move-result-object v2
@@ -222,10 +218,10 @@
     move-result-object v0
 
     .line 1838
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v2, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
-    #getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
+    # getter for: Landroid/media/MediaPlayer;->mEventHandler:Landroid/media/MediaPlayer$EventHandler;
     invoke-static {v2}, Landroid/media/MediaPlayer;->access$400(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer$EventHandler;
 
     move-result-object v2
@@ -233,7 +229,7 @@
     invoke-virtual {v2, v0}, Landroid/media/MediaPlayer$EventHandler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1840
-    .end local v0           #m:Landroid/os/Message;
+    .end local v0    # "m":Landroid/os/Message;
     :cond_0
     iget-object v2, p0, Landroid/media/MediaPlayer$2;->val$thread:Landroid/os/HandlerThread;
 

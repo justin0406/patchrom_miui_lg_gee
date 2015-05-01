@@ -21,7 +21,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -34,7 +34,7 @@
 
 .field public static final DENSITY_DPI_UNDEFINED:I = 0x0
 
-.field public static final EMPTY:Landroid/content/res/Configuration; = null
+.field public static final EMPTY:Landroid/content/res/Configuration;
 
 .field public static final HARDKEYBOARDHIDDEN_NO:I = 0x1
 
@@ -186,14 +186,6 @@
 
 .field public static final UI_MODE_TYPE_NORMAL:I = 0x1
 
-.field public static final UI_MODE_TYPE_SCALE_HUGE:I = 0xf
-
-.field public static final UI_MODE_TYPE_SCALE_LARGE:I = 0xe
-
-.field public static final UI_MODE_TYPE_SCALE_MEDIUM:I = 0xd
-
-.field public static final UI_MODE_TYPE_SCALE_SMALL:I = 0xc
-
 .field public static final UI_MODE_TYPE_TELEVISION:I = 0x4
 
 .field public static final UI_MODE_TYPE_UNDEFINED:I
@@ -208,7 +200,7 @@
 
 .field public densityDpi:I
 
-.field public extraConfig:Lmiui/content/res/ExtraConfiguration;
+.field public extraConfig:Landroid/content/res/MiuiConfiguration;
 
 .field public fontScale:F
 
@@ -275,11 +267,11 @@
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
 
     invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
 
@@ -288,16 +280,16 @@
 
 .method public constructor <init>(Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Landroid/content/res/Configuration;
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
 
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
 
@@ -306,16 +298,16 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+    new-instance v0, Landroid/content/res/MiuiConfiguration;
 
-    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/MiuiConfiguration;-><init>()V
 
-    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
 
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
 
@@ -324,8 +316,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/res/Configuration$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/res/Configuration$1;
 
     .prologue
     .line 37
@@ -336,7 +328,7 @@
 
 .method private static getScreenLayoutNoDirection(I)I
     .locals 1
-    .parameter "screenLayout"
+    .param p0, "screenLayout"    # I
 
     .prologue
     .line 1301
@@ -347,32 +339,32 @@
 
 .method public static needNewResources(II)Z
     .locals 1
-    .parameter "configChanges"
-    .parameter "interestingChanges"
+    .param p0, "configChanges"    # I
+    .param p1, "interestingChanges"    # I
 
     .prologue
     .line 1050
-    const/high16 v0, 0x4000
+    const/high16 v0, 0x40000000    # 2.0f
 
     or-int/2addr v0, p1
 
     and-int/2addr v0, p0
 
-    if-nez v0, :cond_miui
+    if-nez v0, :cond_0
 
-    invoke-static {p0}, Lmiui/content/res/ExtraConfiguration;->needNewResources(I)Z
+    invoke-static {p0}, Landroid/content/res/MiuiConfiguration;->needNewResources(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    :cond_miui
+    :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -380,9 +372,9 @@
 
 .method public static reduceScreenLayout(III)I
     .locals 6
-    .parameter "curLayout"
-    .parameter "longSizeDp"
-    .parameter "shortSizeDp"
+    .param p0, "curLayout"    # I
+    .param p1, "longSizeDp"    # I
+    .param p2, "shortSizeDp"    # I
 
     .prologue
     .line 200
@@ -394,15 +386,15 @@
     const/4 v3, 0x1
 
     .line 204
-    .local v3, screenLayoutSize:I
+    .local v3, "screenLayoutSize":I
     const/4 v2, 0x0
 
     .line 205
-    .local v2, screenLayoutLong:Z
+    .local v2, "screenLayoutLong":Z
     const/4 v1, 0x0
 
     .line 240
-    .local v1, screenLayoutCompatNeeded:Z
+    .local v1, "screenLayoutCompatNeeded":Z
     :goto_0
     if-nez v2, :cond_0
 
@@ -416,7 +408,7 @@
     if-eqz v1, :cond_1
 
     .line 244
-    const/high16 v4, 0x1000
+    const/high16 v4, 0x10000000
 
     or-int/2addr p0, v4
 
@@ -425,7 +417,7 @@
     and-int/lit8 v0, p0, 0xf
 
     .line 247
-    .local v0, curSize:I
+    .local v0, "curSize":I
     if-ge v3, v0, :cond_2
 
     .line 248
@@ -438,10 +430,10 @@
     return p0
 
     .line 208
-    .end local v0           #curSize:I
-    .end local v1           #screenLayoutCompatNeeded:Z
-    .end local v2           #screenLayoutLong:Z
-    .end local v3           #screenLayoutSize:I
+    .end local v0    # "curSize":I
+    .end local v1    # "screenLayoutCompatNeeded":Z
+    .end local v2    # "screenLayoutLong":Z
+    .end local v3    # "screenLayoutSize":I
     :cond_3
     const/16 v4, 0x3c0
 
@@ -455,7 +447,7 @@
     const/4 v3, 0x4
 
     .line 223
-    .restart local v3       #screenLayoutSize:I
+    .restart local v3    # "screenLayoutSize":I
     :goto_1
     const/16 v4, 0x141
 
@@ -470,7 +462,7 @@
     const/4 v1, 0x1
 
     .line 230
-    .restart local v1       #screenLayoutCompatNeeded:Z
+    .restart local v1    # "screenLayoutCompatNeeded":Z
     :goto_2
     mul-int/lit8 v4, p1, 0x3
 
@@ -483,13 +475,13 @@
     .line 232
     const/4 v2, 0x1
 
-    .restart local v2       #screenLayoutLong:Z
+    .restart local v2    # "screenLayoutLong":Z
     goto :goto_0
 
     .line 212
-    .end local v1           #screenLayoutCompatNeeded:Z
-    .end local v2           #screenLayoutLong:Z
-    .end local v3           #screenLayoutSize:I
+    .end local v1    # "screenLayoutCompatNeeded":Z
+    .end local v2    # "screenLayoutLong":Z
+    .end local v3    # "screenLayoutSize":I
     :cond_5
     const/16 v4, 0x280
 
@@ -502,35 +494,35 @@
     .line 215
     const/4 v3, 0x3
 
-    .restart local v3       #screenLayoutSize:I
+    .restart local v3    # "screenLayoutSize":I
     goto :goto_1
 
     .line 217
-    .end local v3           #screenLayoutSize:I
+    .end local v3    # "screenLayoutSize":I
     :cond_6
     const/4 v3, 0x2
 
-    .restart local v3       #screenLayoutSize:I
+    .restart local v3    # "screenLayoutSize":I
     goto :goto_1
 
     .line 226
     :cond_7
     const/4 v1, 0x0
 
-    .restart local v1       #screenLayoutCompatNeeded:Z
+    .restart local v1    # "screenLayoutCompatNeeded":Z
     goto :goto_2
 
     .line 234
     :cond_8
     const/4 v2, 0x0
 
-    .restart local v2       #screenLayoutLong:Z
+    .restart local v2    # "screenLayoutLong":Z
     goto :goto_0
 .end method
 
 .method public static resetScreenLayout(I)I
     .locals 1
-    .parameter "curLayout"
+    .param p0, "curLayout"    # I
 
     .prologue
     .line 185
@@ -547,7 +539,7 @@
 # virtual methods
 .method public compareTo(Landroid/content/res/Configuration;)I
     .locals 7
-    .parameter "that"
+    .param p1, "that"    # Landroid/content/res/Configuration;
 
     .prologue
     const/4 v4, 0x1
@@ -558,11 +550,11 @@
     iget v0, p0, Landroid/content/res/Configuration;->fontScale:F
 
     .line 1174
-    .local v0, a:F
+    .local v0, "a":F
     iget v1, p1, Landroid/content/res/Configuration;->fontScale:F
 
     .line 1175
-    .local v1, b:F
+    .local v1, "b":F
     cmpg-float v5, v0, v1
 
     if-gez v5, :cond_1
@@ -593,7 +585,7 @@
     sub-int v2, v5, v6
 
     .line 1178
-    .local v2, n:I
+    .local v2, "n":I
     if-nez v2, :cond_0
 
     .line 1179
@@ -796,7 +788,11 @@
 
     sub-int v2, v3, v4
 
-    invoke-static {p0, v2, p1}, Landroid/content/res/Injector$ConfigurationHook;->compareTo(Landroid/content/res/Configuration;ILandroid/content/res/Configuration;)I
+    iget-object v3, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v4, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v3, v4}, Landroid/content/res/MiuiConfiguration;->compareTo(Landroid/content/res/MiuiConfiguration;)I
 
     move-result v2
 
@@ -805,13 +801,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 37
     check-cast p1, Landroid/content/res/Configuration;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->compareTo(Landroid/content/res/Configuration;)I
 
     move-result v0
@@ -831,14 +827,14 @@
 
 .method public diff(Landroid/content/res/Configuration;)I
     .locals 4
-    .parameter "delta"
+    .param p1, "delta"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 960
     const/4 v0, 0x0
 
     .line 961
-    .local v0, changed:I
+    .local v0, "changed":I
     iget v2, p1, Landroid/content/res/Configuration;->fontScale:F
 
     const/4 v3, 0x0
@@ -856,7 +852,7 @@
     if-eqz v2, :cond_0
 
     .line 962
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     or-int/2addr v0, v2
 
@@ -924,7 +920,7 @@
     and-int/lit16 v1, v2, 0xc0
 
     .line 976
-    .local v1, deltaScreenLayoutDir:I
+    .local v1, "deltaScreenLayoutDir":I
     if-eqz v1, :cond_5
 
     iget v2, p0, Landroid/content/res/Configuration;->screenLayout:I
@@ -1145,16 +1141,22 @@
 
     .line 1035
     :cond_12
-    invoke-static {p0, p1, v0}, Landroid/content/res/Injector$ConfigurationHook;->diff(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->diff(Landroid/content/res/MiuiConfiguration;)I
 
     move-result v2
 
-    return v2
+    or-int/2addr v0, v2
+
+    return v0
 .end method
 
 .method public equals(Landroid/content/res/Configuration;)Z
     .locals 3
-    .parameter "that"
+    .param p1, "that"    # Landroid/content/res/Configuration;
 
     .prologue
     const/4 v0, 0x1
@@ -1189,14 +1191,14 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "that"
+    .param p1, "that"    # Ljava/lang/Object;
 
     .prologue
     .line 1230
     :try_start_0
     check-cast p1, Landroid/content/res/Configuration;
 
-    .end local p1
+    .end local p1    # "that":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->equals(Landroid/content/res/Configuration;)Z
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1249,7 +1251,7 @@
     const/16 v0, 0x11
 
     .line 1238
-    .local v0, result:I
+    .local v0, "result":I
     iget v1, p0, Landroid/content/res/Configuration;->fontScale:F
 
     invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -1366,13 +1368,17 @@
 
     add-int v0, v1, v2
 
-    invoke-static {p0}, Landroid/content/res/Injector$ConfigurationHook;->hashCode(Landroid/content/res/Configuration;)I
+    mul-int/lit8 v1, v0, 0x1f
 
-    move-result v1
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
 
-    add-int/2addr v1, v0
+    invoke-virtual {v2}, Landroid/content/res/MiuiConfiguration;->hashCode()I
 
-    return v1
+    move-result v2
+
+    add-int v0, v1, v2
+
+    return v0
 
     :cond_0
     const/4 v1, 0x0
@@ -1382,7 +1388,7 @@
 
 .method public isLayoutSizeAtLeast(I)Z
     .locals 3
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -1393,7 +1399,7 @@
     and-int/lit8 v0, v2, 0xf
 
     .line 265
-    .local v0, cur:I
+    .local v0, "cur":I
     if-nez v0, :cond_1
 
     .line 266
@@ -1411,7 +1417,7 @@
 
 .method public isOtherSeqNewer(Landroid/content/res/Configuration;)Z
     .locals 5
-    .parameter "other"
+    .param p1, "other"    # Landroid/content/res/Configuration;
 
     .prologue
     const/4 v1, 0x1
@@ -1447,8 +1453,8 @@
     sub-int v0, v3, v4
 
     .line 1074
-    .local v0, diff:I
-    const/high16 v3, 0x1
+    .local v0, "diff":I
+    const/high16 v3, 0x10000
 
     if-le v0, v3, :cond_2
 
@@ -1481,7 +1487,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -1646,7 +1652,9 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0, p1}, Landroid/content/res/Injector$ConfigurationHook;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, p1}, Landroid/content/res/MiuiConfiguration;->readFromParcel(Landroid/os/Parcel;)V
 
     return-void
 
@@ -1658,7 +1666,7 @@
 
 .method public setLayoutDirection(Ljava/util/Locale;)V
     .locals 3
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 1295
@@ -1669,7 +1677,7 @@
     add-int/lit8 v0, v1, 0x1
 
     .line 1296
-    .local v0, layoutDirection:I
+    .local v0, "layoutDirection":I
     iget v1, p0, Landroid/content/res/Configuration;->screenLayout:I
 
     and-int/lit16 v1, v1, -0xc1
@@ -1686,7 +1694,7 @@
 
 .method public setLocale(Ljava/util/Locale;)V
     .locals 1
-    .parameter "loc"
+    .param p1, "loc"    # Ljava/util/Locale;
 
     .prologue
     .line 1266
@@ -1707,8 +1715,8 @@
 .end method
 
 .method public setTo(Landroid/content/res/Configuration;)V
-    .locals 1
-    .parameter "o"
+    .locals 2
+    .param p1, "o"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 597
@@ -1815,7 +1823,11 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0, p1}, Landroid/content/res/Injector$ConfigurationHook;->setTo(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v1, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, v1}, Landroid/content/res/MiuiConfiguration;->setTo(Landroid/content/res/MiuiConfiguration;)V
 
     return-void
 .end method
@@ -1826,7 +1838,7 @@
     .prologue
     const/4 v1, 0x0
 
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/content/res/Configuration;->fontScale:F
 
@@ -1874,7 +1886,9 @@
 
     iput v1, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0}, Landroid/content/res/Injector$ConfigurationHook;->setToDefaults(Landroid/content/res/Configuration;)V
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0}, Landroid/content/res/MiuiConfiguration;->setToDefaults()V
 
     return-void
 .end method
@@ -1891,7 +1905,7 @@
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 625
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const-string/jumbo v2, "{"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1960,7 +1974,7 @@
     and-int/lit16 v0, v2, 0xc0
 
     .line 647
-    .local v0, layoutDir:I
+    .local v0, "layoutDir":I
     sparse-switch v0, :sswitch_data_0
 
     .line 651
@@ -2249,6 +2263,14 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_0
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2}, Landroid/content/res/MiuiConfiguration;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     const/16 v2, 0x7d
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -2257,13 +2279,9 @@
 
     move-result-object v2
 
-    invoke-static {p0, v2}, Landroid/content/res/Injector$ConfigurationHook;->toString(Landroid/content/res/Configuration;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
     return-object v2
 
-    .end local v0           #layoutDir:I
+    .end local v0    # "layoutDir":I
     :cond_1
     const-string v2, "?mcc"
 
@@ -2288,7 +2306,7 @@
     goto/16 :goto_2
 
     .line 648
-    .restart local v0       #layoutDir:I
+    .restart local v0    # "layoutDir":I
     :sswitch_2
     const-string v2, " ?layoutDir"
 
@@ -2775,14 +2793,14 @@
 
 .method public updateFrom(Landroid/content/res/Configuration;)I
     .locals 4
-    .parameter "delta"
+    .param p1, "delta"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 798
     const/4 v0, 0x0
 
     .line 799
-    .local v0, changed:I
+    .local v0, "changed":I
     iget v2, p1, Landroid/content/res/Configuration;->fontScale:F
 
     const/4 v3, 0x0
@@ -2800,7 +2818,7 @@
     if-eqz v2, :cond_0
 
     .line 800
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     or-int/2addr v0, v2
 
@@ -2904,7 +2922,7 @@
     and-int/lit16 v1, v2, 0xc0
 
     .line 823
-    .local v1, deltaScreenLayoutDir:I
+    .local v1, "deltaScreenLayoutDir":I
     if-eqz v1, :cond_5
 
     iget v2, p0, Landroid/content/res/Configuration;->screenLayout:I
@@ -3305,19 +3323,25 @@
     iput v2, p0, Landroid/content/res/Configuration;->seq:I
 
     :cond_19
-    invoke-static {p0, p1, v0}, Landroid/content/res/Injector$ConfigurationHook;->updateFrom(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+    iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->updateFrom(Landroid/content/res/MiuiConfiguration;)I
 
     move-result v2
 
-    return v2
+    or-int/2addr v0, v2
 
-    .end local v1           #deltaScreenLayoutDir:I
+    return v0
+
+    .end local v1    # "deltaScreenLayoutDir":I
     :cond_1a
     const/4 v2, 0x0
 
     goto/16 :goto_0
 
-    .restart local v1       #deltaScreenLayoutDir:I
+    .restart local v1    # "deltaScreenLayoutDir":I
     :cond_1b
     iget v2, p1, Landroid/content/res/Configuration;->screenLayout:I
 
@@ -3328,8 +3352,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -3430,7 +3454,9 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-static {p0, p1, p2}, Landroid/content/res/Injector$ConfigurationHook;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;I)V
+    iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
+
+    invoke-virtual {v0, p1, p2}, Landroid/content/res/MiuiConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void
 

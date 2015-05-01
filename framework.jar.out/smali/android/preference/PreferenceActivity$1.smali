@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceActivity;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 223
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 226
@@ -53,7 +52,7 @@
     :pswitch_0
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #calls: Landroid/preference/PreferenceActivity;->bindPreferences()V
+    # invokes: Landroid/preference/PreferenceActivity;->bindPreferences()V
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$000(Landroid/preference/PreferenceActivity;)V
 
     goto :goto_0
@@ -64,7 +63,7 @@
 
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
+    # getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$100(Landroid/preference/PreferenceActivity;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -72,10 +71,10 @@
     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 232
-    .local v2, oldHeaders:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
+    .local v2, "oldHeaders":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
+    # getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$100(Landroid/preference/PreferenceActivity;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -87,7 +86,7 @@
 
     iget-object v4, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
+    # getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/preference/PreferenceActivity;->access$100(Landroid/preference/PreferenceActivity;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -97,7 +96,7 @@
     .line 234
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
+    # getter for: Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$200(Landroid/preference/PreferenceActivity;)Landroid/widget/ListAdapter;
 
     move-result-object v3
@@ -109,7 +108,7 @@
     .line 235
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
+    # getter for: Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$300(Landroid/preference/PreferenceActivity;)Landroid/widget/ListAdapter;
 
     move-result-object v3
@@ -127,7 +126,7 @@
     move-result-object v0
 
     .line 238
-    .local v0, header:Landroid/preference/PreferenceActivity$Header;
+    .local v0, "header":Landroid/preference/PreferenceActivity$Header;
     if-eqz v0, :cond_3
 
     iget-object v3, v0, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
@@ -142,12 +141,12 @@
     move-result-object v1
 
     .line 240
-    .local v1, mappedHeader:Landroid/preference/PreferenceActivity$Header;
+    .local v1, "mappedHeader":Landroid/preference/PreferenceActivity$Header;
     if-eqz v1, :cond_2
 
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
+    # getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$400(Landroid/preference/PreferenceActivity;)Landroid/preference/PreferenceActivity$Header;
 
     move-result-object v3
@@ -163,11 +162,11 @@
     goto :goto_0
 
     .line 243
-    .end local v1           #mappedHeader:Landroid/preference/PreferenceActivity$Header;
+    .end local v1    # "mappedHeader":Landroid/preference/PreferenceActivity$Header;
     :cond_3
     iget-object v3, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
+    # getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v3}, Landroid/preference/PreferenceActivity;->access$400(Landroid/preference/PreferenceActivity;)Landroid/preference/PreferenceActivity$Header;
 
     move-result-object v3
@@ -179,14 +178,14 @@
 
     iget-object v4, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
+    # getter for: Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v4}, Landroid/preference/PreferenceActivity;->access$400(Landroid/preference/PreferenceActivity;)Landroid/preference/PreferenceActivity$Header;
 
     move-result-object v4
 
     iget-object v5, p0, Landroid/preference/PreferenceActivity$1;->this$0:Landroid/preference/PreferenceActivity;
 
-    #getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
+    # getter for: Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
     invoke-static {v5}, Landroid/preference/PreferenceActivity;->access$100(Landroid/preference/PreferenceActivity;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -196,7 +195,7 @@
     move-result-object v1
 
     .line 245
-    .restart local v1       #mappedHeader:Landroid/preference/PreferenceActivity$Header;
+    .restart local v1    # "mappedHeader":Landroid/preference/PreferenceActivity$Header;
     if-eqz v1, :cond_0
 
     .line 246

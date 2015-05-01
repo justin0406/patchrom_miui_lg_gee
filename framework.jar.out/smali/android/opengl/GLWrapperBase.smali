@@ -3,12 +3,12 @@
 .source "GLWrapperBase.java"
 
 # interfaces
-.implements Ljavax/microedition/khronos/opengles/GL;
 .implements Ljavax/microedition/khronos/opengles/GL10;
 .implements Ljavax/microedition/khronos/opengles/GL10Ext;
 .implements Ljavax/microedition/khronos/opengles/GL11;
 .implements Ljavax/microedition/khronos/opengles/GL11Ext;
 .implements Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+.implements Ljavax/microedition/khronos/opengles/GL;
 
 
 # instance fields
@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Ljavax/microedition/khronos/opengles/GL;)V
     .locals 1
-    .parameter "gl"
+    .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL;
 
     .prologue
     .line 32
@@ -86,7 +86,7 @@
     .line 44
     check-cast p1, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
-    .end local p1
+    .end local p1    # "gl":Ljavax/microedition/khronos/opengles/GL;
     iput-object p1, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     .line 46

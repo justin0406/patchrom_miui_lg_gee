@@ -66,9 +66,9 @@
 
 .method private constructor <init>(Ljava/lang/String;ZZ)V
     .locals 0
-    .parameter "name"
-    .parameter "nameIsType"
-    .parameter "encoder"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "nameIsType"    # Z
+    .param p3, "encoder"    # Z
 
     .prologue
     .line 209
@@ -83,7 +83,7 @@
 
 .method public static createByCodecName(Ljava/lang/String;)Landroid/media/MediaCodec;
     .locals 2
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -98,7 +98,7 @@
 
 .method public static createDecoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
     .locals 3
-    .parameter "type"
+    .param p0, "type"    # Ljava/lang/String;
 
     .prologue
     .line 186
@@ -115,7 +115,7 @@
 
 .method public static createEncoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
     .locals 2
-    .parameter "type"
+    .param p0, "type"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -163,10 +163,10 @@
 # virtual methods
 .method public configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
     .locals 10
-    .parameter "format"
-    .parameter "surface"
-    .parameter "crypto"
-    .parameter "flags"
+    .param p1, "format"    # Landroid/media/MediaFormat;
+    .param p2, "surface"    # Landroid/view/Surface;
+    .param p3, "crypto"    # Landroid/media/MediaCrypto;
+    .param p4, "flags"    # I
 
     .prologue
     .line 245
@@ -175,15 +175,15 @@
     move-result-object v7
 
     .line 247
-    .local v7, formatMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v7, "formatMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v1, 0x0
 
     .line 248
-    .local v1, keys:[Ljava/lang/String;
+    .local v1, "keys":[Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 250
-    .local v2, values:[Ljava/lang/Object;
+    .local v2, "values":[Ljava/lang/Object;
     if-eqz p1, :cond_0
 
     .line 251
@@ -204,7 +204,7 @@
     const/4 v8, 0x0
 
     .line 255
-    .local v8, i:I
+    .local v8, "i":I
     invoke-interface {v7}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -213,7 +213,7 @@
 
     move-result-object v9
 
-    .local v9, i$:Ljava/util/Iterator;
+    .local v9, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
@@ -228,7 +228,7 @@
     check-cast v6, Ljava/util/Map$Entry;
 
     .line 256
-    .local v6, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v6, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -249,9 +249,9 @@
 
     goto :goto_0
 
-    .end local v6           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v8           #i:I
-    .end local v9           #i$:Ljava/util/Iterator;
+    .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v8    # "i":I
+    .end local v9    # "i$":Ljava/util/Iterator;
     :cond_0
     move-object v0, p0
 
@@ -382,7 +382,7 @@
 
 .method public final setParameters(Landroid/os/Bundle;)V
     .locals 6
-    .parameter "params"
+    .param p1, "params"    # Landroid/os/Bundle;
 
     .prologue
     .line 604
@@ -401,7 +401,7 @@
     new-array v3, v5, [Ljava/lang/String;
 
     .line 609
-    .local v3, keys:[Ljava/lang/String;
+    .local v3, "keys":[Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Bundle;->size()I
 
     move-result v5
@@ -409,11 +409,11 @@
     new-array v4, v5, [Ljava/lang/Object;
 
     .line 611
-    .local v4, values:[Ljava/lang/Object;
+    .local v4, "values":[Ljava/lang/Object;
     const/4 v0, 0x0
 
     .line 612
-    .local v0, i:I
+    .local v0, "i":I
     invoke-virtual {p1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v5
@@ -422,7 +422,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -437,7 +437,7 @@
     check-cast v2, Ljava/lang/String;
 
     .line 613
-    .local v2, key:Ljava/lang/String;
+    .local v2, "key":Ljava/lang/String;
     aput-object v2, v3, v0
 
     .line 614
@@ -453,7 +453,7 @@
     goto :goto_1
 
     .line 618
-    .end local v2           #key:Ljava/lang/String;
+    .end local v2    # "key":Ljava/lang/String;
     :cond_1
     invoke-direct {p0, v3, v4}, Landroid/media/MediaCodec;->setParameters([Ljava/lang/String;[Ljava/lang/Object;)V
 

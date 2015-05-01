@@ -20,8 +20,8 @@
 # direct methods
 .method public constructor <init>(JJ)V
     .locals 1
-    .parameter "millisInFuture"
-    .parameter "countDownInterval"
+    .param p1, "millisInFuture"    # J
+    .param p3, "countDownInterval"    # J
 
     .prologue
     .line 67
@@ -46,7 +46,7 @@
 
 .method static synthetic access$000(Landroid/os/CountDownTimer;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CountDownTimer;
 
     .prologue
     .line 46
@@ -57,7 +57,7 @@
 
 .method static synthetic access$100(Landroid/os/CountDownTimer;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/CountDownTimer;
 
     .prologue
     .line 46
@@ -113,16 +113,16 @@
     move-object v0, p0
 
     .line 89
-    .end local p0
-    .local v0, this:Landroid/os/CountDownTimer;
+    .end local p0    # "this":Landroid/os/CountDownTimer;
+    .local v0, "this":Landroid/os/CountDownTimer;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
     .line 87
-    .end local v0           #this:Landroid/os/CountDownTimer;
-    .restart local p0
+    .end local v0    # "this":Landroid/os/CountDownTimer;
+    .restart local p0    # "this":Landroid/os/CountDownTimer;
     :cond_0
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -153,13 +153,13 @@
     move-object v0, p0
 
     .line 89
-    .end local p0
-    .restart local v0       #this:Landroid/os/CountDownTimer;
+    .end local p0    # "this":Landroid/os/CountDownTimer;
+    .restart local v0    # "this":Landroid/os/CountDownTimer;
     goto :goto_0
 
     .line 83
-    .end local v0           #this:Landroid/os/CountDownTimer;
-    .restart local p0
+    .end local v0    # "this":Landroid/os/CountDownTimer;
+    .restart local p0    # "this":Landroid/os/CountDownTimer;
     :catchall_0
     move-exception v1
 

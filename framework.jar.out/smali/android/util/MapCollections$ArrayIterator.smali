@@ -43,12 +43,11 @@
 # direct methods
 .method constructor <init>(Landroid/util/MapCollections;I)V
     .locals 1
-    .parameter
-    .parameter "offset"
+    .param p2, "offset"    # I
 
     .prologue
     .line 43
-    .local p0, this:Landroid/util/MapCollections$ArrayIterator;,"Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
+    .local p0, "this":Landroid/util/MapCollections$ArrayIterator;, "Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
     iput-object p1, p0, Landroid/util/MapCollections$ArrayIterator;->this$0:Landroid/util/MapCollections;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +78,7 @@
 
     .prologue
     .line 50
-    .local p0, this:Landroid/util/MapCollections$ArrayIterator;,"Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
+    .local p0, "this":Landroid/util/MapCollections$ArrayIterator;, "Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
     iget v0, p0, Landroid/util/MapCollections$ArrayIterator;->mIndex:I
 
     iget v1, p0, Landroid/util/MapCollections$ArrayIterator;->mSize:I
@@ -107,7 +106,7 @@
 
     .prologue
     .line 55
-    .local p0, this:Landroid/util/MapCollections$ArrayIterator;,"Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
+    .local p0, "this":Landroid/util/MapCollections$ArrayIterator;, "Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
     iget-object v1, p0, Landroid/util/MapCollections$ArrayIterator;->this$0:Landroid/util/MapCollections;
 
     iget v2, p0, Landroid/util/MapCollections$ArrayIterator;->mIndex:I
@@ -119,7 +118,7 @@
     move-result-object v0
 
     .line 56
-    .local v0, res:Ljava/lang/Object;
+    .local v0, "res":Ljava/lang/Object;
     iget v1, p0, Landroid/util/MapCollections$ArrayIterator;->mIndex:I
 
     add-int/lit8 v1, v1, 0x1
@@ -140,7 +139,7 @@
 
     .prologue
     .line 63
-    .local p0, this:Landroid/util/MapCollections$ArrayIterator;,"Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
+    .local p0, "this":Landroid/util/MapCollections$ArrayIterator;, "Landroid/util/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
     iget-boolean v0, p0, Landroid/util/MapCollections$ArrayIterator;->mCanRemove:Z
 
     if-nez v0, :cond_0

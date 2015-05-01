@@ -36,9 +36,9 @@
 # direct methods
 .method constructor <init>(Landroid/content/IntentSender;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
     .locals 0
-    .parameter "pi"
-    .parameter "who"
-    .parameter "handler"
+    .param p1, "pi"    # Landroid/content/IntentSender;
+    .param p2, "who"    # Landroid/content/IntentSender$OnFinished;
+    .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 112
@@ -61,13 +61,13 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 1
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "data"
-    .parameter "extras"
-    .parameter "serialized"
-    .parameter "sticky"
-    .parameter "sendingUser"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "serialized"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
     .prologue
     .line 119

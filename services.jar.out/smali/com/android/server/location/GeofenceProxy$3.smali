@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GeofenceProxy;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 150
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 154
@@ -52,7 +51,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$100(Lcom/android/server/location/GeofenceProxy;)Ljava/lang/Object;
 
     move-result-object v1
@@ -63,7 +62,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$200(Lcom/android/server/location/GeofenceProxy;)Landroid/hardware/location/IGeofenceHardware;
 
     move-result-object v0
@@ -73,7 +72,7 @@
     .line 158
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #calls: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
+    # invokes: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
     .line 162
@@ -95,7 +94,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$100(Lcom/android/server/location/GeofenceProxy;)Ljava/lang/Object;
 
     move-result-object v1
@@ -106,7 +105,7 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$200(Lcom/android/server/location/GeofenceProxy;)Landroid/hardware/location/IGeofenceHardware;
 
     move-result-object v0
@@ -116,19 +115,19 @@
     .line 170
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #calls: Lcom/android/server/location/GeofenceProxy;->setGpsGeofenceLocked()V
+    # invokes: Lcom/android/server/location/GeofenceProxy;->setGpsGeofenceLocked()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$400(Lcom/android/server/location/GeofenceProxy;)V
 
     .line 171
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #calls: Lcom/android/server/location/GeofenceProxy;->setFusedGeofenceLocked()V
+    # invokes: Lcom/android/server/location/GeofenceProxy;->setFusedGeofenceLocked()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$500(Lcom/android/server/location/GeofenceProxy;)V
 
     .line 172
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #calls: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
+    # invokes: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
     .line 174
@@ -150,7 +149,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$100(Lcom/android/server/location/GeofenceProxy;)Ljava/lang/Object;
 
     move-result-object v1
@@ -161,7 +160,7 @@
     :try_start_2
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$200(Lcom/android/server/location/GeofenceProxy;)Landroid/hardware/location/IGeofenceHardware;
 
     move-result-object v0
@@ -171,7 +170,7 @@
     .line 179
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #calls: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
+    # invokes: Lcom/android/server/location/GeofenceProxy;->setGeofenceHardwareInProviderLocked()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
     .line 181

@@ -29,7 +29,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "day"
+    .param p1, "day"    # I
 
     .prologue
     .line 319

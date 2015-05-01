@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 1930
@@ -36,7 +35,7 @@
 
     move-result-object v0
 
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-nez v0, :cond_0
 
     .line 1933

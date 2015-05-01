@@ -12,8 +12,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 34
@@ -32,8 +32,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicBlur;
     .locals 4
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 49
@@ -79,14 +79,14 @@
     move-result v0
 
     .line 53
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ScriptIntrinsicBlur;
 
     invoke-direct {v1, v0, p0}, Landroid/renderscript/ScriptIntrinsicBlur;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 54
-    .local v1, sib:Landroid/renderscript/ScriptIntrinsicBlur;
-    const/high16 v2, 0x40a0
+    .local v1, "sib":Landroid/renderscript/ScriptIntrinsicBlur;
+    const/high16 v2, 0x40a00000    # 5.0f
 
     invoke-virtual {v1, v2}, Landroid/renderscript/ScriptIntrinsicBlur;->setRadius(F)V
 
@@ -98,7 +98,7 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "aout"
+    .param p1, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v1, 0x0
@@ -148,7 +148,7 @@
 
 .method public setInput(Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 65
@@ -165,7 +165,7 @@
 
 .method public setRadius(F)V
     .locals 2
-    .parameter "radius"
+    .param p1, "radius"    # F
 
     .prologue
     .line 77
@@ -175,7 +175,7 @@
 
     if-lez v0, :cond_0
 
-    const/high16 v0, 0x41c8
+    const/high16 v0, 0x41c80000    # 25.0f
 
     cmpl-float v0, p1, v0
 

@@ -1119,11 +1119,11 @@
 
 .method public static glVertexAttribIPointer(IIIILjava/nio/Buffer;)V
     .locals 6
-    .parameter "index"
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "index"    # I
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 941

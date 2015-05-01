@@ -48,7 +48,7 @@
 
 .method private handleNHGT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 78
@@ -57,7 +57,7 @@
     move-result-object v0
 
     .line 80
-    .local v0, data:[B
+    .local v0, "data":[B
     if-eqz v0, :cond_0
 
     .line 82
@@ -157,7 +157,7 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 4
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 61
@@ -199,7 +199,7 @@
     iget v0, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
     .line 64
-    .local v0, type:I
+    .local v0, "type":I
     sget v1, Landroid/ddm/DdmHandleNativeHeap;->CHUNK_NHGT:I
 
     if-ne v0, v1, :cond_0

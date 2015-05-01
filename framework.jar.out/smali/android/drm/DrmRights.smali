@@ -16,8 +16,8 @@
 # direct methods
 .method public constructor <init>(Landroid/drm/ProcessedData;Ljava/lang/String;)V
     .locals 3
-    .parameter "data"
-    .parameter "mimeType"
+    .param p1, "data"    # Landroid/drm/ProcessedData;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 118
@@ -107,7 +107,7 @@
     move-result-object v0
 
     .line 131
-    .local v0, msg:Ljava/lang/String;
+    .local v0, "msg":Ljava/lang/String;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -115,15 +115,15 @@
     throw v1
 
     .line 133
-    .end local v0           #msg:Ljava/lang/String;
+    .end local v0    # "msg":Ljava/lang/String;
     :cond_1
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;)V
     .locals 0
-    .parameter "rightsFile"
-    .parameter "mimeType"
+    .param p1, "rightsFile"    # Ljava/io/File;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 92
@@ -138,8 +138,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "rightsFilePath"
-    .parameter "mimeType"
+    .param p1, "rightsFilePath"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 52
@@ -151,7 +151,7 @@
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 54
-    .local v0, file:Ljava/io/File;
+    .local v0, "file":Ljava/io/File;
     invoke-direct {p0, v0, p2}, Landroid/drm/DrmRights;->instantiate(Ljava/io/File;Ljava/lang/String;)V
 
     .line 55
@@ -160,9 +160,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "rightsFilePath"
-    .parameter "mimeType"
-    .parameter "accountId"
+    .param p1, "rightsFilePath"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "accountId"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -177,10 +177,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "rightsFilePath"
-    .parameter "mimeType"
-    .parameter "accountId"
-    .parameter "subscriptionId"
+    .param p1, "rightsFilePath"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "accountId"    # Ljava/lang/String;
+    .param p4, "subscriptionId"    # Ljava/lang/String;
 
     .prologue
     .line 80
@@ -198,8 +198,8 @@
 
 .method private instantiate(Ljava/io/File;Ljava/lang/String;)V
     .locals 4
-    .parameter "rightsFile"
-    .parameter "mimeType"
+    .param p1, "rightsFile"    # Ljava/io/File;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 98
@@ -263,7 +263,7 @@
     move-result-object v1
 
     .line 107
-    .local v1, msg:Ljava/lang/String;
+    .local v1, "msg":Ljava/lang/String;
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -271,18 +271,18 @@
     throw v2
 
     .line 99
-    .end local v1           #msg:Ljava/lang/String;
+    .end local v1    # "msg":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 100
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
     .line 109
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     return-void
 .end method

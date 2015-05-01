@@ -28,7 +28,7 @@
 
 .method public static getEGLErrorString(I)Ljava/lang/String;
     .locals 2
-    .parameter "error"
+    .param p0, "error"    # I
 
     .prologue
     .line 236
@@ -173,7 +173,7 @@
 
 .method public static getInternalFormat(Landroid/graphics/Bitmap;)I
     .locals 3
-    .parameter "bitmap"
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 49
@@ -212,7 +212,7 @@
     move-result v0
 
     .line 56
-    .local v0, result:I
+    .local v0, "result":I
     if-gez v0, :cond_2
 
     .line 57
@@ -231,7 +231,7 @@
 
 .method public static getType(Landroid/graphics/Bitmap;)I
     .locals 3
-    .parameter "bitmap"
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 71
@@ -270,7 +270,7 @@
     move-result v0
 
     .line 78
-    .local v0, result:I
+    .local v0, "result":I
     if-gez v0, :cond_2
 
     .line 79
@@ -307,11 +307,11 @@
 
 .method public static texImage2D(IIILandroid/graphics/Bitmap;I)V
     .locals 6
-    .parameter "target"
-    .parameter "level"
-    .parameter "internalformat"
-    .parameter "bitmap"
-    .parameter "border"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "internalformat"    # I
+    .param p3, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p4, "border"    # I
 
     .prologue
     .line 108
@@ -379,12 +379,12 @@
 
 .method public static texImage2D(IIILandroid/graphics/Bitmap;II)V
     .locals 2
-    .parameter "target"
-    .parameter "level"
-    .parameter "internalformat"
-    .parameter "bitmap"
-    .parameter "type"
-    .parameter "border"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "internalformat"    # I
+    .param p3, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p4, "type"    # I
+    .param p5, "border"    # I
 
     .prologue
     .line 134
@@ -440,10 +440,10 @@
 
 .method public static texImage2D(IILandroid/graphics/Bitmap;I)V
     .locals 6
-    .parameter "target"
-    .parameter "level"
-    .parameter "bitmap"
-    .parameter "border"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p3, "border"    # I
 
     .prologue
     const/4 v2, -0x1
@@ -511,11 +511,11 @@
 
 .method public static texSubImage2D(IIIILandroid/graphics/Bitmap;)V
     .locals 7
-    .parameter "target"
-    .parameter "level"
-    .parameter "xoffset"
-    .parameter "yoffset"
-    .parameter "bitmap"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "xoffset"    # I
+    .param p3, "yoffset"    # I
+    .param p4, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 191
@@ -554,7 +554,7 @@
     move-result v6
 
     .line 198
-    .local v6, type:I
+    .local v6, "type":I
     const/4 v5, -0x1
 
     move v0, p0
@@ -589,13 +589,13 @@
 
 .method public static texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
     .locals 2
-    .parameter "target"
-    .parameter "level"
-    .parameter "xoffset"
-    .parameter "yoffset"
-    .parameter "bitmap"
-    .parameter "format"
-    .parameter "type"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "xoffset"    # I
+    .param p3, "yoffset"    # I
+    .param p4, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p5, "format"    # I
+    .param p6, "type"    # I
 
     .prologue
     .line 216

@@ -29,7 +29,7 @@
 
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
     .locals 0
-    .parameter "device"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
     .line 45
@@ -96,7 +96,7 @@
 
 .method public deleteObject(I)Z
     .locals 1
-    .parameter "objectHandle"
+    .param p1, "objectHandle"    # I
 
     .prologue
     .line 201
@@ -179,8 +179,8 @@
 
 .method public getObject(II)[B
     .locals 1
-    .parameter "objectHandle"
-    .parameter "objectSize"
+    .param p1, "objectHandle"    # I
+    .param p2, "objectSize"    # I
 
     .prologue
     .line 155
@@ -193,9 +193,9 @@
 
 .method public getObjectHandles(III)[I
     .locals 1
-    .parameter "storageId"
-    .parameter "format"
-    .parameter "objectHandle"
+    .param p1, "storageId"    # I
+    .param p2, "format"    # I
+    .param p3, "objectHandle"    # I
 
     .prologue
     .line 141
@@ -208,7 +208,7 @@
 
 .method public getObjectInfo(I)Landroid/mtp/MtpObjectInfo;
     .locals 1
-    .parameter "objectHandle"
+    .param p1, "objectHandle"    # I
 
     .prologue
     .line 189
@@ -221,7 +221,7 @@
 
 .method public getParent(I)J
     .locals 2
-    .parameter "objectHandle"
+    .param p1, "objectHandle"    # I
 
     .prologue
     .line 211
@@ -234,7 +234,7 @@
 
 .method public getStorageId(I)J
     .locals 2
-    .parameter "objectHandle"
+    .param p1, "objectHandle"    # I
 
     .prologue
     .line 221
@@ -259,7 +259,7 @@
 
 .method public getStorageInfo(I)Landroid/mtp/MtpStorageInfo;
     .locals 1
-    .parameter "storageId"
+    .param p1, "storageId"    # I
 
     .prologue
     .line 179
@@ -272,7 +272,7 @@
 
 .method public getThumbnail(I)[B
     .locals 1
-    .parameter "objectHandle"
+    .param p1, "objectHandle"    # I
 
     .prologue
     .line 169
@@ -285,8 +285,8 @@
 
 .method public importFile(ILjava/lang/String;)Z
     .locals 1
-    .parameter "objectHandle"
-    .parameter "destPath"
+    .param p1, "objectHandle"    # I
+    .param p2, "destPath"    # Ljava/lang/String;
 
     .prologue
     .line 236
@@ -299,7 +299,7 @@
 
 .method public open(Landroid/hardware/usb/UsbDeviceConnection;)Z
     .locals 3
-    .parameter "connection"
+    .param p1, "connection"    # Landroid/hardware/usb/UsbDeviceConnection;
 
     .prologue
     .line 59
@@ -318,7 +318,7 @@
     move-result v0
 
     .line 60
-    .local v0, result:Z
+    .local v0, "result":Z
     if-nez v0, :cond_0
 
     .line 61

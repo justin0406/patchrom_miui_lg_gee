@@ -19,10 +19,10 @@
 # direct methods
 .method constructor <init>(IZZI)V
     .locals 8
-    .parameter "type"
-    .parameter "auth"
-    .parameter "encrypt"
-    .parameter "port"
+    .param p1, "type"    # I
+    .param p2, "auth"    # Z
+    .param p3, "encrypt"    # Z
+    .param p4, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -63,10 +63,10 @@
 
 .method constructor <init>(IZZLandroid/os/ParcelUuid;)V
     .locals 8
-    .parameter "type"
-    .parameter "auth"
-    .parameter "encrypt"
-    .parameter "uuid"
+    .param p1, "type"    # I
+    .param p2, "auth"    # Z
+    .param p3, "encrypt"    # Z
+    .param p4, "uuid"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -134,7 +134,7 @@
 
 .method public accept(I)Landroid/bluetooth/BluetoothSocket;
     .locals 1
-    .parameter "timeout"
+    .param p1, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -219,8 +219,8 @@
 
 .method declared-synchronized setCloseHandler(Landroid/os/Handler;I)V
     .locals 1
-    .parameter "handler"
-    .parameter "message"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "message"    # I
 
     .prologue
     .line 151
@@ -250,7 +250,7 @@
 
 .method setServiceName(Ljava/lang/String;)V
     .locals 1
-    .parameter "ServiceName"
+    .param p1, "ServiceName"    # Ljava/lang/String;
 
     .prologue
     .line 155

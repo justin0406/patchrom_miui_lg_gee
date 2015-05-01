@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1511

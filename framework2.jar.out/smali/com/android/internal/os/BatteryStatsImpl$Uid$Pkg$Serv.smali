@@ -58,7 +58,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 4118
@@ -116,7 +115,7 @@
 
 .method getLaunchTimeToNowLocked(J)J
     .locals 4
-    .parameter "batteryUptime"
+    .param p1, "batteryUptime"    # J
 
     .prologue
     .line 4173
@@ -144,7 +143,7 @@
 
 .method public getLaunches(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 4230
@@ -156,18 +155,18 @@
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastLaunches:I
 
     .line 4241
-    .local v0, val:I
+    .local v0, "val":I
     :cond_0
     :goto_0
     return v0
 
     .line 4233
-    .end local v0           #val:I
+    .end local v0    # "val":I
     :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
 
     .line 4234
-    .restart local v0       #val:I
+    .restart local v0    # "val":I
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_2
@@ -195,8 +194,8 @@
 
 .method public getStartTime(JI)J
     .locals 4
-    .parameter "now"
-    .parameter "which"
+    .param p1, "now"    # J
+    .param p3, "which"    # I
 
     .prologue
     .line 4247
@@ -208,20 +207,20 @@
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastStartTime:J
 
     .line 4258
-    .local v0, val:J
+    .local v0, "val":J
     :cond_0
     :goto_0
     return-wide v0
 
     .line 4250
-    .end local v0           #val:J
+    .end local v0    # "val":J
     :cond_1
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->getStartTimeToNowLocked(J)J
 
     move-result-wide v0
 
     .line 4251
-    .restart local v0       #val:J
+    .restart local v0    # "val":J
     const/4 v2, 0x2
 
     if-ne p3, v2, :cond_2
@@ -249,7 +248,7 @@
 
 .method getStartTimeToNowLocked(J)J
     .locals 4
-    .parameter "batteryUptime"
+    .param p1, "batteryUptime"    # J
 
     .prologue
     .line 4178
@@ -277,7 +276,7 @@
 
 .method public getStarts(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 4264
@@ -289,18 +288,18 @@
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastStarts:I
 
     .line 4275
-    .local v0, val:I
+    .local v0, "val":I
     :cond_0
     :goto_0
     return v0
 
     .line 4267
-    .end local v0           #val:I
+    .end local v0    # "val":I
     :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
 
     .line 4268
-    .restart local v0       #val:I
+    .restart local v0    # "val":I
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_2
@@ -328,9 +327,9 @@
 
 .method public plug(JJJ)V
     .locals 0
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 4129
@@ -339,7 +338,7 @@
 
 .method readFromParcelLocked(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -582,7 +581,7 @@
     sub-long v0, v2, v4
 
     .line 4193
-    .local v0, time:J
+    .local v0, "time":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -603,12 +602,12 @@
     iput-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
     .line 4200
-    .end local v0           #time:J
+    .end local v0    # "time":J
     :cond_0
     return-void
 
     .line 4196
-    .restart local v0       #time:J
+    .restart local v0    # "time":J
     :cond_1
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
 
@@ -644,7 +643,7 @@
     sub-long v0, v2, v4
 
     .line 4213
-    .local v0, time:J
+    .local v0, "time":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -665,12 +664,12 @@
     iput-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
     .line 4220
-    .end local v0           #time:J
+    .end local v0    # "time":J
     :cond_0
     return-void
 
     .line 4216
-    .restart local v0       #time:J
+    .restart local v0    # "time":J
     :cond_1
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
 
@@ -683,9 +682,9 @@
 
 .method public unplug(JJJ)V
     .locals 2
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 4123
@@ -711,7 +710,7 @@
 
 .method writeToParcelLocked(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1

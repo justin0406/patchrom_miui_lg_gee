@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/ComprehensiveCountryDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 414
@@ -52,7 +51,7 @@
 
     const/4 v2, 0x1
 
-    #calls: Lcom/android/server/location/ComprehensiveCountryDetector;->detectCountry(ZZ)Landroid/location/Country;
+    # invokes: Lcom/android/server/location/ComprehensiveCountryDetector;->detectCountry(ZZ)Landroid/location/Country;
     invoke-static {v0, v1, v2}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$100(Lcom/android/server/location/ComprehensiveCountryDetector;ZZ)Landroid/location/Country;
 
     .line 422

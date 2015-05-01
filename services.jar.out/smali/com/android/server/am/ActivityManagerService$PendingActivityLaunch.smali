@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ILcom/android/server/am/ActivityStack;)V
     .locals 0
-    .parameter "_r"
-    .parameter "_sourceRecord"
-    .parameter "_startFlags"
-    .parameter "_stack"
+    .param p1, "_r"    # Lcom/android/server/am/ActivityRecord;
+    .param p2, "_sourceRecord"    # Lcom/android/server/am/ActivityRecord;
+    .param p3, "_startFlags"    # I
+    .param p4, "_stack"    # Lcom/android/server/am/ActivityStack;
 
     .prologue
     .line 352

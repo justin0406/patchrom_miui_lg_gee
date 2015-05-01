@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 163
@@ -61,9 +61,9 @@
 
 .method public setAllMetadata(ILandroid/os/Bundle;Landroid/graphics/Bitmap;)V
     .locals 5
-    .parameter "generationId"
-    .parameter "metadata"
-    .parameter "artwork"
+    .param p1, "generationId"    # I
+    .param p2, "metadata"    # Landroid/os/Bundle;
+    .param p3, "artwork"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 329
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
@@ -166,8 +166,8 @@
 
 .method public setArtwork(ILandroid/graphics/Bitmap;)V
     .locals 5
-    .parameter "generationId"
-    .parameter "artwork"
+    .param p1, "generationId"    # I
+    .param p2, "artwork"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -181,7 +181,7 @@
     move-result-object v0
 
     .line 307
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
@@ -245,9 +245,9 @@
 
 .method public setCurrentClientId(ILandroid/app/PendingIntent;Z)V
     .locals 5
-    .parameter "clientGeneration"
-    .parameter "clientMediaIntent"
-    .parameter "clearing"
+    .param p1, "clientGeneration"    # I
+    .param p2, "clientMediaIntent"    # Landroid/app/PendingIntent;
+    .param p3, "clearing"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -265,7 +265,7 @@
     move-result-object v0
 
     .line 186
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IRemoteControlDisplay"
 
@@ -341,7 +341,7 @@
 
 .method public setEnabled(Z)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -357,7 +357,7 @@
     move-result-object v0
 
     .line 210
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteControlDisplay"
 
@@ -405,8 +405,8 @@
 
 .method public setMetadata(ILandroid/os/Bundle;)V
     .locals 5
-    .parameter "generationId"
-    .parameter "metadata"
+    .param p1, "generationId"    # I
+    .param p2, "metadata"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -420,7 +420,7 @@
     move-result-object v0
 
     .line 288
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
@@ -484,11 +484,11 @@
 
 .method public setPlaybackState(IIJJF)V
     .locals 5
-    .parameter "generationId"
-    .parameter "state"
-    .parameter "stateChangeTimeMs"
-    .parameter "currentPosMs"
-    .parameter "speed"
+    .param p1, "generationId"    # I
+    .param p2, "state"    # I
+    .param p3, "stateChangeTimeMs"    # J
+    .param p5, "currentPosMs"    # J
+    .param p7, "speed"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -502,7 +502,7 @@
     move-result-object v0
 
     .line 249
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
@@ -553,9 +553,9 @@
 
 .method public setTransportControlInfo(III)V
     .locals 5
-    .parameter "generationId"
-    .parameter "transportControlFlags"
-    .parameter "posCapabilities"
+    .param p1, "generationId"    # I
+    .param p2, "transportControlFlags"    # I
+    .param p3, "posCapabilities"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -569,7 +569,7 @@
     move-result-object v0
 
     .line 274
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 

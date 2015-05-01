@@ -21,7 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/net/EthernetDataTracker;)V
     .locals 0
-    .parameter "tracker"
+    .param p1, "tracker"    # Landroid/net/EthernetDataTracker;
 
     .prologue
     .line 67
@@ -38,13 +38,13 @@
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
     .locals 1
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 94
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
-    #calls: Landroid/net/EthernetDataTracker;->interfaceAdded(Ljava/lang/String;)V
+    # invokes: Landroid/net/EthernetDataTracker;->interfaceAdded(Ljava/lang/String;)V
     invoke-static {v0, p1}, Landroid/net/EthernetDataTracker;->access$200(Landroid/net/EthernetDataTracker;Ljava/lang/String;)V
 
     .line 95
@@ -53,11 +53,12 @@
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
     .locals 3
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 78
+    # getter for: Landroid/net/EthernetDataTracker;->mIface:Ljava/lang/String;
     invoke-static {}, Landroid/net/EthernetDataTracker;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -107,6 +108,7 @@
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 80
+    # setter for: Landroid/net/EthernetDataTracker;->mLinkUp:Z
     invoke-static {p2}, Landroid/net/EthernetDataTracker;->access$102(Z)Z
 
     .line 81
@@ -146,13 +148,13 @@
 
 .method public interfaceRemoved(Ljava/lang/String;)V
     .locals 1
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 99
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
-    #calls: Landroid/net/EthernetDataTracker;->interfaceRemoved(Ljava/lang/String;)V
+    # invokes: Landroid/net/EthernetDataTracker;->interfaceRemoved(Ljava/lang/String;)V
     invoke-static {v0, p1}, Landroid/net/EthernetDataTracker;->access$300(Landroid/net/EthernetDataTracker;Ljava/lang/String;)V
 
     .line 100
@@ -161,8 +163,8 @@
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
     .locals 3
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 73

@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/usb/UsbAccessory;)V
     .locals 1
-    .parameter "accessory"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
     .line 269
@@ -58,9 +58,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "manufacturer"
-    .parameter "model"
-    .parameter "version"
+    .param p1, "manufacturer"    # Ljava/lang/String;
+    .param p2, "model"    # Ljava/lang/String;
+    .param p3, "version"    # Ljava/lang/String;
 
     .prologue
     .line 263
@@ -81,7 +81,7 @@
 
 .method public static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     .locals 8
-    .parameter "parser"
+    .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -94,24 +94,24 @@
     const/4 v2, 0x0
 
     .line 278
-    .local v2, manufacturer:Ljava/lang/String;
+    .local v2, "manufacturer":Ljava/lang/String;
     const/4 v3, 0x0
 
     .line 279
-    .local v3, model:Ljava/lang/String;
+    .local v3, "model":Ljava/lang/String;
     const/4 v6, 0x0
 
     .line 281
-    .local v6, version:Ljava/lang/String;
+    .local v6, "version":Ljava/lang/String;
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v0
 
     .line 282
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_3
 
@@ -121,13 +121,13 @@
     move-result-object v4
 
     .line 284
-    .local v4, name:Ljava/lang/String;
+    .local v4, "name":Ljava/lang/String;
     invoke-interface {p0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
     move-result-object v5
 
     .line 286
-    .local v5, value:Ljava/lang/String;
+    .local v5, "value":Ljava/lang/String;
     const-string v7, "manufacturer"
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -177,8 +177,8 @@
     goto :goto_1
 
     .line 294
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #value:Ljava/lang/String;
+    .end local v4    # "name":Ljava/lang/String;
+    .end local v5    # "value":Ljava/lang/String;
     :cond_3
     new-instance v7, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
@@ -191,7 +191,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x1
@@ -231,7 +231,7 @@
     check-cast v1, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     .line 333
-    .local v1, filter:Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
+    .local v1, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->mManufacturer:Ljava/lang/String;
 
     iget-object v5, v1, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->mManufacturer:Ljava/lang/String;
@@ -268,7 +268,7 @@
     goto :goto_0
 
     .line 337
-    .end local v1           #filter:Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
+    .end local v1    # "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     :cond_4
     instance-of v4, p1, Landroid/hardware/usb/UsbAccessory;
 
@@ -280,7 +280,7 @@
     check-cast v0, Landroid/hardware/usb/UsbAccessory;
 
     .line 339
-    .local v0, accessory:Landroid/hardware/usb/UsbAccessory;
+    .local v0, "accessory":Landroid/hardware/usb/UsbAccessory;
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->mManufacturer:Ljava/lang/String;
 
     invoke-virtual {v0}, Landroid/hardware/usb/UsbAccessory;->getManufacturer()Ljava/lang/String;
@@ -322,7 +322,7 @@
 
     goto :goto_0
 
-    .end local v0           #accessory:Landroid/hardware/usb/UsbAccessory;
+    .end local v0    # "accessory":Landroid/hardware/usb/UsbAccessory;
     :cond_6
     move v2, v3
 
@@ -392,7 +392,7 @@
 
 .method public matches(Landroid/hardware/usb/UsbAccessory;)Z
     .locals 3
-    .parameter "acc"
+    .param p1, "acc"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
     const/4 v0, 0x0
@@ -464,7 +464,7 @@
 
 .method public matches(Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;)Z
     .locals 3
-    .parameter "f"
+    .param p1, "f"    # Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     .prologue
     const/4 v0, 0x0
@@ -588,7 +588,7 @@
 
 .method public write(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 3
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

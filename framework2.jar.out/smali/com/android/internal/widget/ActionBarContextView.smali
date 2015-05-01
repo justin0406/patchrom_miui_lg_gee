@@ -49,7 +49,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 70
@@ -63,8 +63,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 74
@@ -78,9 +78,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -96,7 +96,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -154,7 +154,7 @@
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
     .line 269
-    .local v0, a:Landroid/animation/Animator;
+    .local v0, "a":Landroid/animation/Animator;
     if-eqz v0, :cond_0
 
     .line 270
@@ -180,19 +180,12 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->miuiInitTitle()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_miui
-
-    return-void
-
-    :cond_miui
+    .line 177
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-nez v3, :cond_1
 
+    .line 178
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -202,7 +195,7 @@
     move-result-object v2
 
     .line 179
-    .local v2, inflater:Landroid/view/LayoutInflater;
+    .local v2, "inflater":Landroid/view/LayoutInflater;
     const v3, 0x1090019
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
@@ -278,7 +271,7 @@
     invoke-virtual {v3, v7, v8}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 191
-    .end local v2           #inflater:Landroid/view/LayoutInflater;
+    .end local v2    # "inflater":Landroid/view/LayoutInflater;
     :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
 
@@ -305,7 +298,7 @@
     move v1, v4
 
     .line 195
-    .local v1, hasTitle:Z
+    .local v1, "hasTitle":Z
     :goto_0
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
 
@@ -318,7 +311,7 @@
     move v0, v4
 
     .line 196
-    .local v0, hasSubtitle:Z
+    .local v0, "hasSubtitle":Z
     :goto_1
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
@@ -360,22 +353,22 @@
     :cond_4
     return-void
 
-    .end local v0           #hasSubtitle:Z
-    .end local v1           #hasTitle:Z
+    .end local v0    # "hasSubtitle":Z
+    .end local v1    # "hasTitle":Z
     :cond_5
     move v1, v5
 
     .line 194
     goto :goto_0
 
-    .restart local v1       #hasTitle:Z
+    .restart local v1    # "hasTitle":Z
     :cond_6
     move v0, v5
 
     .line 195
     goto :goto_1
 
-    .restart local v0       #hasSubtitle:Z
+    .restart local v0    # "hasSubtitle":Z
     :cond_7
     move v3, v6
 
@@ -434,7 +427,7 @@
     move-result-object v2
 
     .line 406
-    .local v2, buttonAnimator:Landroid/animation/ObjectAnimator;
+    .local v2, "buttonAnimator":Landroid/animation/ObjectAnimator;
     const-wide/16 v8, 0xc8
 
     invoke-virtual {v2, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
@@ -455,13 +448,13 @@
     invoke-direct {v7}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 411
-    .local v7, set:Landroid/animation/AnimatorSet;
+    .local v7, "set":Landroid/animation/AnimatorSet;
     invoke-virtual {v7, v2}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     move-result-object v1
 
     .line 413
-    .local v1, b:Landroid/animation/AnimatorSet$Builder;
+    .local v1, "b":Landroid/animation/AnimatorSet$Builder;
     iget-object v8, p0, Lcom/android/internal/widget/ActionBarContextView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     if-eqz v8, :cond_0
@@ -474,16 +467,16 @@
     move-result v4
 
     .line 415
-    .local v4, count:I
+    .local v4, "count":I
     if-lez v4, :cond_0
 
     .line 416
     add-int/lit8 v5, v4, -0x1
 
-    .local v5, i:I
+    .local v5, "i":I
     const/4 v6, 0x0
 
-    .local v6, j:I
+    .local v6, "j":I
     :goto_0
     if-ltz v5, :cond_0
 
@@ -495,7 +488,7 @@
     move-result-object v3
 
     .line 418
-    .local v3, child:Landroid/view/View;
+    .local v3, "child":Landroid/view/View;
     invoke-virtual {v3, v12}, Landroid/view/View;->setScaleY(F)V
 
     .line 419
@@ -512,7 +505,7 @@
     move-result-object v0
 
     .line 420
-    .local v0, a:Landroid/animation/ObjectAnimator;
+    .local v0, "a":Landroid/animation/ObjectAnimator;
     const-wide/16 v8, 0x12c
 
     invoke-virtual {v0, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
@@ -528,11 +521,11 @@
     goto :goto_0
 
     .line 426
-    .end local v0           #a:Landroid/animation/ObjectAnimator;
-    .end local v3           #child:Landroid/view/View;
-    .end local v4           #count:I
-    .end local v5           #i:I
-    .end local v6           #j:I
+    .end local v0    # "a":Landroid/animation/ObjectAnimator;
+    .end local v3    # "child":Landroid/view/View;
+    .end local v4    # "count":I
+    .end local v5    # "i":I
+    .end local v6    # "j":I
     :cond_0
     return-object v7
 
@@ -540,9 +533,9 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 .end method
 
@@ -592,7 +585,7 @@
     move-result-object v2
 
     .line 432
-    .local v2, buttonAnimator:Landroid/animation/ObjectAnimator;
+    .local v2, "buttonAnimator":Landroid/animation/ObjectAnimator;
     const-wide/16 v7, 0xc8
 
     invoke-virtual {v2, v7, v8}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
@@ -613,13 +606,13 @@
     invoke-direct {v6}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 437
-    .local v6, set:Landroid/animation/AnimatorSet;
+    .local v6, "set":Landroid/animation/AnimatorSet;
     invoke-virtual {v6, v2}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     move-result-object v1
 
     .line 439
-    .local v1, b:Landroid/animation/AnimatorSet$Builder;
+    .local v1, "b":Landroid/animation/AnimatorSet$Builder;
     iget-object v7, p0, Lcom/android/internal/widget/ActionBarContextView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     if-eqz v7, :cond_0
@@ -632,13 +625,13 @@
     move-result v4
 
     .line 441
-    .local v4, count:I
+    .local v4, "count":I
     if-lez v4, :cond_0
 
     .line 442
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_0
     if-gez v5, :cond_0
 
@@ -650,7 +643,7 @@
     move-result-object v3
 
     .line 444
-    .local v3, child:Landroid/view/View;
+    .local v3, "child":Landroid/view/View;
     invoke-virtual {v3, v12}, Landroid/view/View;->setScaleY(F)V
 
     .line 445
@@ -665,7 +658,7 @@
     move-result-object v0
 
     .line 446
-    .local v0, a:Landroid/animation/ObjectAnimator;
+    .local v0, "a":Landroid/animation/ObjectAnimator;
     const-wide/16 v7, 0x12c
 
     invoke-virtual {v0, v7, v8}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
@@ -679,10 +672,10 @@
     goto :goto_0
 
     .line 452
-    .end local v0           #a:Landroid/animation/ObjectAnimator;
-    .end local v3           #child:Landroid/view/View;
-    .end local v4           #count:I
-    .end local v5           #i:I
+    .end local v0    # "a":Landroid/animation/ObjectAnimator;
+    .end local v3    # "child":Landroid/view/View;
+    .end local v4    # "count":I
+    .end local v5    # "i":I
     :cond_0
     return-object v6
 .end method
@@ -755,7 +748,7 @@
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     .locals 2
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 319
@@ -768,15 +761,6 @@
     invoke-direct {v0, v1, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     return-object v0
-.end method
-
-.method protected getAnimationMode()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mAnimationMode:I
-
-    return v0
 .end method
 
 .method public getSubtitle()Ljava/lang/CharSequence;
@@ -795,33 +779,6 @@
     .prologue
     .line 169
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
-
-    return-object v0
-.end method
-
-.method public getTitleLayout()Landroid/widget/LinearLayout;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
-
-    return-object v0
-.end method
-
-.method public getTitleStyleRes()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleStyleRes:I
-
-    return v0
-.end method
-
-.method public getTitleView()Landroid/widget/TextView;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
 
     return-object v0
 .end method
@@ -854,7 +811,7 @@
 
 .method public initForMode(Landroid/view/ActionMode;)V
     .locals 8
-    .parameter "mode"
+    .param p1, "mode"    # Landroid/view/ActionMode;
 
     .prologue
     const/4 v7, -0x1
@@ -874,7 +831,7 @@
     move-result-object v1
 
     .line 206
-    .local v1, inflater:Landroid/view/LayoutInflater;
+    .local v1, "inflater":Landroid/view/LayoutInflater;
     const v4, 0x109001e
 
     const/4 v5, 0x0
@@ -891,7 +848,7 @@
     invoke-virtual {p0, v4}, Lcom/android/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
     .line 212
-    .end local v1           #inflater:Landroid/view/LayoutInflater;
+    .end local v1    # "inflater":Landroid/view/LayoutInflater;
     :cond_0
     :goto_0
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mClose:Landroid/view/View;
@@ -903,7 +860,7 @@
     move-result-object v0
 
     .line 213
-    .local v0, closeButton:Landroid/view/View;
+    .local v0, "closeButton":Landroid/view/View;
     new-instance v4, Lcom/android/internal/widget/ActionBarContextView$1;
 
     invoke-direct {v4, p0, p1}, Lcom/android/internal/widget/ActionBarContextView$1;-><init>(Lcom/android/internal/widget/ActionBarContextView;Landroid/view/ActionMode;)V
@@ -918,7 +875,7 @@
     check-cast v3, Lcom/android/internal/view/menu/MenuBuilder;
 
     .line 220
-    .local v3, menu:Lcom/android/internal/view/menu/MenuBuilder;
+    .local v3, "menu":Lcom/android/internal/view/menu/MenuBuilder;
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v4, :cond_1
@@ -951,7 +908,7 @@
     invoke-direct {v2, v4, v7}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
     .line 228
-    .local v2, layoutParams:Landroid/view/ViewGroup$LayoutParams;
+    .local v2, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     iget-boolean v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mSplitActionBar:Z
 
     if-nez v4, :cond_3
@@ -992,9 +949,9 @@
     return-void
 
     .line 208
-    .end local v0           #closeButton:Landroid/view/View;
-    .end local v2           #layoutParams:Landroid/view/ViewGroup$LayoutParams;
-    .end local v3           #menu:Lcom/android/internal/view/menu/MenuBuilder;
+    .end local v0    # "closeButton":Landroid/view/View;
+    .end local v2    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
+    .end local v3    # "menu":Lcom/android/internal/view/menu/MenuBuilder;
     :cond_2
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mClose:Landroid/view/View;
 
@@ -1012,9 +969,9 @@
     goto :goto_0
 
     .line 235
-    .restart local v0       #closeButton:Landroid/view/View;
-    .restart local v2       #layoutParams:Landroid/view/ViewGroup$LayoutParams;
-    .restart local v3       #menu:Lcom/android/internal/view/menu/MenuBuilder;
+    .restart local v0    # "closeButton":Landroid/view/View;
+    .restart local v2    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
+    .restart local v3    # "menu":Lcom/android/internal/view/menu/MenuBuilder;
     :cond_3
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
@@ -1158,18 +1115,9 @@
     return-void
 .end method
 
-.method protected miuiInitTitle()Z
-    .locals 1
-
-    .prologue
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 507
@@ -1178,7 +1126,7 @@
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 499
@@ -1203,7 +1151,7 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 511
@@ -1212,7 +1160,7 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 495
@@ -1248,7 +1196,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 520
@@ -1303,11 +1251,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 15
-    .parameter "changed"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
     .prologue
     .line 457
@@ -1316,7 +1264,7 @@
     move-result v5
 
     .line 458
-    .local v5, isLayoutRtl:Z
+    .local v5, "isLayoutRtl":Z
     if-eqz v5, :cond_4
 
     sub-int v0, p4, p2
@@ -1328,14 +1276,14 @@
     sub-int v2, v0, v1
 
     .line 459
-    .local v2, x:I
+    .local v2, "x":I
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->getPaddingTop()I
 
     move-result v3
 
     .line 460
-    .local v3, y:I
+    .local v3, "y":I
     sub-int v0, p5, p3
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->getPaddingTop()I
@@ -1351,7 +1299,7 @@
     sub-int v4, v0, v1
 
     .line 462
-    .local v4, contentHeight:I
+    .local v4, "contentHeight":I
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mClose:Landroid/view/View;
 
     if-eqz v0, :cond_0
@@ -1376,20 +1324,20 @@
     check-cast v13, Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 464
-    .local v13, lp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .local v13, "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     if-eqz v5, :cond_5
 
     iget v14, v13, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     .line 465
-    .local v14, startMargin:I
+    .local v14, "startMargin":I
     :goto_1
     if-eqz v5, :cond_6
 
     iget v12, v13, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     .line 466
-    .local v12, endMargin:I
+    .local v12, "endMargin":I
     :goto_2
     invoke-static {v2, v14, v5}, Lcom/android/internal/widget/ActionBarContextView;->next(IIZ)I
 
@@ -1439,9 +1387,9 @@
     iput-boolean v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mAnimateInOnLayout:Z
 
     .line 478
-    .end local v12           #endMargin:I
-    .end local v13           #lp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v14           #startMargin:I
+    .end local v12    # "endMargin":I
+    .end local v13    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v14    # "startMargin":I
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
@@ -1530,9 +1478,9 @@
     return-void
 
     .line 458
-    .end local v2           #x:I
-    .end local v3           #y:I
-    .end local v4           #contentHeight:I
+    .end local v2    # "x":I
+    .end local v3    # "y":I
+    .end local v4    # "contentHeight":I
     :cond_4
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->getPaddingLeft()I
 
@@ -1541,25 +1489,25 @@
     goto/16 :goto_0
 
     .line 464
-    .restart local v2       #x:I
-    .restart local v3       #y:I
-    .restart local v4       #contentHeight:I
-    .restart local v13       #lp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .restart local v2    # "x":I
+    .restart local v3    # "y":I
+    .restart local v4    # "contentHeight":I
+    .restart local v13    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_5
     iget v14, v13, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     goto :goto_1
 
     .line 465
-    .restart local v14       #startMargin:I
+    .restart local v14    # "startMargin":I
     :cond_6
     iget v12, v13, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     goto :goto_2
 
     .line 486
-    .end local v13           #lp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v14           #startMargin:I
+    .end local v13    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v14    # "startMargin":I
     :cond_7
     sub-int v0, p4, p2
 
@@ -1580,8 +1528,8 @@
 
 .method protected onMeasure(II)V
     .locals 27
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 324
@@ -1590,8 +1538,8 @@
     move-result v23
 
     .line 325
-    .local v23, widthMode:I
-    const/high16 v24, 0x4000
+    .local v23, "widthMode":I
+    const/high16 v24, 0x40000000    # 2.0f
 
     move/from16 v0, v23
 
@@ -1645,7 +1593,7 @@
     move-result v12
 
     .line 331
-    .local v12, heightMode:I
+    .local v12, "heightMode":I
     if-nez v12, :cond_1
 
     .line 332
@@ -1694,7 +1642,7 @@
     move-result v5
 
     .line 338
-    .local v5, contentWidth:I
+    .local v5, "contentWidth":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarContextView;->mContentHeight:I
@@ -1708,7 +1656,7 @@
     iget v15, v0, Lcom/android/internal/widget/ActionBarContextView;->mContentHeight:I
 
     .line 341
-    .local v15, maxHeight:I
+    .local v15, "maxHeight":I
     :goto_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarContextView;->getPaddingTop()I
 
@@ -1721,7 +1669,7 @@
     add-int v22, v24, v25
 
     .line 342
-    .local v22, verticalPadding:I
+    .local v22, "verticalPadding":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarContextView;->getPaddingLeft()I
 
     move-result v24
@@ -1735,12 +1683,12 @@
     sub-int v3, v24, v25
 
     .line 343
-    .local v3, availableWidth:I
+    .local v3, "availableWidth":I
     sub-int v11, v15, v22
 
     .line 344
-    .local v11, height:I
-    const/high16 v24, -0x8000
+    .local v11, "height":I
+    const/high16 v24, -0x80000000
 
     move/from16 v0, v24
 
@@ -1749,7 +1697,7 @@
     move-result v4
 
     .line 346
-    .local v4, childSpecHeight:I
+    .local v4, "childSpecHeight":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView;->mClose:Landroid/view/View;
@@ -1791,7 +1739,7 @@
     check-cast v14, Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 349
-    .local v14, lp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .local v14, "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     iget v0, v14, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     move/from16 v24, v0
@@ -1805,7 +1753,7 @@
     sub-int v3, v3, v24
 
     .line 352
-    .end local v14           #lp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v14    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_2
     move-object/from16 v0, p0
 
@@ -1887,7 +1835,7 @@
     move-result v20
 
     .line 360
-    .local v20, titleWidthSpec:I
+    .local v20, "titleWidthSpec":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
@@ -1912,7 +1860,7 @@
     move-result v19
 
     .line 362
-    .local v19, titleWidth:I
+    .local v19, "titleWidth":I
     move/from16 v0, v19
 
     if-gt v0, v3, :cond_9
@@ -1920,7 +1868,7 @@
     const/16 v18, 0x1
 
     .line 363
-    .local v18, titleFits:Z
+    .local v18, "titleFits":Z
     :goto_1
     if-eqz v18, :cond_4
 
@@ -1947,9 +1895,9 @@
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     .line 372
-    .end local v18           #titleFits:Z
-    .end local v19           #titleWidth:I
-    .end local v20           #titleWidthSpec:I
+    .end local v18    # "titleFits":Z
+    .end local v19    # "titleWidth":I
+    .end local v20    # "titleWidthSpec":I
     :cond_5
     :goto_3
     move-object/from16 v0, p0
@@ -1972,7 +1920,7 @@
     move-result-object v14
 
     .line 374
-    .local v14, lp:Landroid/view/ViewGroup$LayoutParams;
+    .local v14, "lp":Landroid/view/ViewGroup$LayoutParams;
     iget v0, v14, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     move/from16 v24, v0
@@ -1985,10 +1933,10 @@
 
     if-eq v0, v1, :cond_c
 
-    const/high16 v10, 0x4000
+    const/high16 v10, 0x40000000    # 2.0f
 
     .line 376
-    .local v10, customWidthMode:I
+    .local v10, "customWidthMode":I
     :goto_4
     iget v0, v14, Landroid/view/ViewGroup$LayoutParams;->width:I
 
@@ -2007,7 +1955,7 @@
     move-result v9
 
     .line 378
-    .local v9, customWidth:I
+    .local v9, "customWidth":I
     :goto_5
     iget v0, v14, Landroid/view/ViewGroup$LayoutParams;->height:I
 
@@ -2021,10 +1969,10 @@
 
     if-eq v0, v1, :cond_e
 
-    const/high16 v8, 0x4000
+    const/high16 v8, 0x40000000    # 2.0f
 
     .line 380
-    .local v8, customHeightMode:I
+    .local v8, "customHeightMode":I
     :goto_6
     iget v0, v14, Landroid/view/ViewGroup$LayoutParams;->height:I
 
@@ -2043,7 +1991,7 @@
     move-result v7
 
     .line 382
-    .local v7, customHeight:I
+    .local v7, "customHeight":I
     :goto_7
     move-object/from16 v0, p0
 
@@ -2062,11 +2010,11 @@
     invoke-virtual/range {v24 .. v26}, Landroid/view/View;->measure(II)V
 
     .line 386
-    .end local v7           #customHeight:I
-    .end local v8           #customHeightMode:I
-    .end local v9           #customWidth:I
-    .end local v10           #customWidthMode:I
-    .end local v14           #lp:Landroid/view/ViewGroup$LayoutParams;
+    .end local v7    # "customHeight":I
+    .end local v8    # "customHeightMode":I
+    .end local v9    # "customWidth":I
+    .end local v10    # "customWidthMode":I
+    .end local v14    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_6
     move-object/from16 v0, p0
 
@@ -2080,16 +2028,16 @@
     const/16 v16, 0x0
 
     .line 388
-    .local v16, measuredHeight:I
+    .local v16, "measuredHeight":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarContextView;->getChildCount()I
 
     move-result v6
 
     .line 389
-    .local v6, count:I
+    .local v6, "count":I
     const/4 v13, 0x0
 
-    .local v13, i:I
+    .local v13, "i":I
     :goto_8
     if-ge v13, v6, :cond_10
 
@@ -2101,7 +2049,7 @@
     move-result-object v21
 
     .line 391
-    .local v21, v:Landroid/view/View;
+    .local v21, "v":Landroid/view/View;
     invoke-virtual/range {v21 .. v21}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v24
@@ -2109,7 +2057,7 @@
     add-int v17, v24, v22
 
     .line 392
-    .local v17, paddedViewHeight:I
+    .local v17, "paddedViewHeight":I
     move/from16 v0, v17
 
     move/from16 v1, v16
@@ -2126,16 +2074,16 @@
     goto :goto_8
 
     .line 338
-    .end local v3           #availableWidth:I
-    .end local v4           #childSpecHeight:I
-    .end local v6           #count:I
-    .end local v11           #height:I
-    .end local v13           #i:I
-    .end local v15           #maxHeight:I
-    .end local v16           #measuredHeight:I
-    .end local v17           #paddedViewHeight:I
-    .end local v21           #v:Landroid/view/View;
-    .end local v22           #verticalPadding:I
+    .end local v3    # "availableWidth":I
+    .end local v4    # "childSpecHeight":I
+    .end local v6    # "count":I
+    .end local v11    # "height":I
+    .end local v13    # "i":I
+    .end local v15    # "maxHeight":I
+    .end local v16    # "measuredHeight":I
+    .end local v17    # "paddedViewHeight":I
+    .end local v21    # "v":Landroid/view/View;
+    .end local v22    # "verticalPadding":I
     :cond_8
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -2144,29 +2092,29 @@
     goto/16 :goto_0
 
     .line 362
-    .restart local v3       #availableWidth:I
-    .restart local v4       #childSpecHeight:I
-    .restart local v11       #height:I
-    .restart local v15       #maxHeight:I
-    .restart local v19       #titleWidth:I
-    .restart local v20       #titleWidthSpec:I
-    .restart local v22       #verticalPadding:I
+    .restart local v3    # "availableWidth":I
+    .restart local v4    # "childSpecHeight":I
+    .restart local v11    # "height":I
+    .restart local v15    # "maxHeight":I
+    .restart local v19    # "titleWidth":I
+    .restart local v20    # "titleWidthSpec":I
+    .restart local v22    # "verticalPadding":I
     :cond_9
     const/16 v18, 0x0
 
     goto/16 :goto_1
 
     .line 366
-    .restart local v18       #titleFits:Z
+    .restart local v18    # "titleFits":Z
     :cond_a
     const/16 v24, 0x8
 
     goto/16 :goto_2
 
     .line 368
-    .end local v18           #titleFits:Z
-    .end local v19           #titleWidth:I
-    .end local v20           #titleWidthSpec:I
+    .end local v18    # "titleFits":Z
+    .end local v19    # "titleWidth":I
+    .end local v20    # "titleWidthSpec":I
     :cond_b
     move-object/from16 v0, p0
 
@@ -2189,13 +2137,13 @@
     goto/16 :goto_3
 
     .line 374
-    .restart local v14       #lp:Landroid/view/ViewGroup$LayoutParams;
+    .restart local v14    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_c
-    const/high16 v10, -0x8000
+    const/high16 v10, -0x80000000
 
     goto/16 :goto_4
 
-    .restart local v10       #customWidthMode:I
+    .restart local v10    # "customWidthMode":I
     :cond_d
     move v9, v3
 
@@ -2203,13 +2151,13 @@
     goto :goto_5
 
     .line 378
-    .restart local v9       #customWidth:I
+    .restart local v9    # "customWidth":I
     :cond_e
-    const/high16 v8, -0x8000
+    const/high16 v8, -0x80000000
 
     goto :goto_6
 
-    .restart local v8       #customHeightMode:I
+    .restart local v8    # "customHeightMode":I
     :cond_f
     move v7, v11
 
@@ -2217,13 +2165,13 @@
     goto :goto_7
 
     .line 396
-    .end local v8           #customHeightMode:I
-    .end local v9           #customWidth:I
-    .end local v10           #customWidthMode:I
-    .end local v14           #lp:Landroid/view/ViewGroup$LayoutParams;
-    .restart local v6       #count:I
-    .restart local v13       #i:I
-    .restart local v16       #measuredHeight:I
+    .end local v8    # "customHeightMode":I
+    .end local v9    # "customWidth":I
+    .end local v10    # "customWidthMode":I
+    .end local v14    # "lp":Landroid/view/ViewGroup$LayoutParams;
+    .restart local v6    # "count":I
+    .restart local v13    # "i":I
+    .restart local v16    # "measuredHeight":I
     :cond_10
     move-object/from16 v0, p0
 
@@ -2232,9 +2180,9 @@
     invoke-virtual {v0, v5, v1}, Lcom/android/internal/widget/ActionBarContextView;->setMeasuredDimension(II)V
 
     .line 400
-    .end local v6           #count:I
-    .end local v13           #i:I
-    .end local v16           #measuredHeight:I
+    .end local v6    # "count":I
+    .end local v13    # "i":I
+    .end local v16    # "measuredHeight":I
     :goto_9
     return-void
 
@@ -2247,19 +2195,9 @@
     goto :goto_9
 .end method
 
-.method protected setAnimationMode(I)V
-    .locals 0
-    .parameter "mode"
-
-    .prologue
-    iput p1, p0, Lcom/android/internal/widget/ActionBarContextView;->mAnimationMode:I
-
-    return-void
-.end method
-
 .method public setContentHeight(I)V
     .locals 0
-    .parameter "height"
+    .param p1, "height"    # I
 
     .prologue
     .line 140
@@ -2271,7 +2209,7 @@
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 144
@@ -2320,7 +2258,7 @@
 
 .method public setSplitActionBar(Z)V
     .locals 6
-    .parameter "split"
+    .param p1, "split"    # Z
 
     .prologue
     const/4 v5, -0x1
@@ -2343,7 +2281,7 @@
     invoke-direct {v0, v2, v5}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
     .line 113
-    .local v0, layoutParams:Landroid/view/ViewGroup$LayoutParams;
+    .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     if-nez p1, :cond_3
 
     .line 114
@@ -2374,7 +2312,7 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 117
-    .local v1, oldParent:Landroid/view/ViewGroup;
+    .local v1, "oldParent":Landroid/view/ViewGroup;
     if-eqz v1, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarContextView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -2388,8 +2326,8 @@
     invoke-virtual {p0, v2, v0}, Lcom/android/internal/widget/ActionBarContextView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 135
-    .end local v0           #layoutParams:Landroid/view/ViewGroup$LayoutParams;
-    .end local v1           #oldParent:Landroid/view/ViewGroup;
+    .end local v0    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
+    .end local v1    # "oldParent":Landroid/view/ViewGroup;
     :cond_1
     :goto_0
     invoke-super {p0, p1}, Lcom/android/internal/widget/AbsActionBarView;->setSplitActionBar(Z)V
@@ -2399,7 +2337,7 @@
     return-void
 
     .line 121
-    .restart local v0       #layoutParams:Landroid/view/ViewGroup$LayoutParams;
+    .restart local v0    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     :cond_3
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
@@ -2464,7 +2402,7 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 131
-    .restart local v1       #oldParent:Landroid/view/ViewGroup;
+    .restart local v1    # "oldParent":Landroid/view/ViewGroup;
     if-eqz v1, :cond_4
 
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarContextView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -2484,7 +2422,7 @@
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "subtitle"
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 164
@@ -2499,7 +2437,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 159
@@ -2512,19 +2450,9 @@
     return-void
 .end method
 
-.method public setTitleLayout(Landroid/widget/LinearLayout;)V
-    .locals 0
-    .parameter "titleLayout"
-
-    .prologue
-    iput-object p1, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
-
-    return-void
-.end method
-
 .method public setTitleOptional(Z)V
     .locals 1
-    .parameter "titleOptional"
+    .param p1, "titleOptional"    # Z
 
     .prologue
     .line 532
@@ -2540,16 +2468,6 @@
     iput-boolean p1, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleOptional:Z
 
     .line 536
-    return-void
-.end method
-
-.method public setTitleView(Landroid/widget/TextView;)V
-    .locals 0
-    .parameter "titleView"
-
-    .prologue
-    iput-object p1, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
-
     return-void
 .end method
 

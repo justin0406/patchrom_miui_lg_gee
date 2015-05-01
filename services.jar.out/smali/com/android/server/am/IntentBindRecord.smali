@@ -36,8 +36,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Landroid/content/Intent$FilterComparison;)V
     .locals 1
-    .parameter "_service"
-    .parameter "_intent"
+    .param p1, "_service"    # Lcom/android/server/am/ServiceRecord;
+    .param p2, "_intent"    # Landroid/content/Intent$FilterComparison;
 
     .prologue
     .line 75
@@ -70,7 +70,7 @@
     const/4 v2, 0x0
 
     .line 82
-    .local v2, flags:I
+    .local v2, "flags":I
     iget-object v5, p0, Lcom/android/server/am/IntentBindRecord;->apps:Landroid/util/ArrayMap;
 
     invoke-virtual {v5}, Landroid/util/ArrayMap;->size()I
@@ -79,7 +79,7 @@
 
     add-int/lit8 v3, v5, -0x1
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ltz v3, :cond_1
 
@@ -93,7 +93,7 @@
     check-cast v0, Lcom/android/server/am/AppBindRecord;
 
     .line 84
-    .local v0, app:Lcom/android/server/am/AppBindRecord;
+    .local v0, "app":Lcom/android/server/am/AppBindRecord;
     iget-object v5, v0, Lcom/android/server/am/AppBindRecord;->connections:Ljava/util/HashSet;
 
     invoke-virtual {v5}, Ljava/util/HashSet;->size()I
@@ -109,7 +109,7 @@
 
     move-result-object v4
 
-    .local v4, i$:Ljava/util/Iterator;
+    .local v4, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -124,7 +124,7 @@
     check-cast v1, Lcom/android/server/am/ConnectionRecord;
 
     .line 86
-    .local v1, conn:Lcom/android/server/am/ConnectionRecord;
+    .local v1, "conn":Lcom/android/server/am/ConnectionRecord;
     iget v5, v1, Lcom/android/server/am/ConnectionRecord;->flags:I
 
     or-int/2addr v2, v5
@@ -132,23 +132,23 @@
     goto :goto_1
 
     .line 82
-    .end local v1           #conn:Lcom/android/server/am/ConnectionRecord;
-    .end local v4           #i$:Ljava/util/Iterator;
+    .end local v1    # "conn":Lcom/android/server/am/ConnectionRecord;
+    .end local v4    # "i$":Ljava/util/Iterator;
     :cond_0
     add-int/lit8 v3, v3, -0x1
 
     goto :goto_0
 
     .line 90
-    .end local v0           #app:Lcom/android/server/am/AppBindRecord;
+    .end local v0    # "app":Lcom/android/server/am/AppBindRecord;
     :cond_1
     return v2
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 1
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 53
@@ -171,8 +171,8 @@
 
 .method dumpInService(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 6
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     const/16 v5, 0x7d
@@ -256,7 +256,7 @@
     .line 66
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/am/IntentBindRecord;->apps:Landroid/util/ArrayMap;
 
@@ -276,7 +276,7 @@
     check-cast v0, Lcom/android/server/am/AppBindRecord;
 
     .line 68
-    .local v0, a:Lcom/android/server/am/AppBindRecord;
+    .local v0, "a":Lcom/android/server/am/AppBindRecord;
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v2, "* Client AppBindRecord{"
@@ -332,7 +332,7 @@
     goto :goto_0
 
     .line 73
-    .end local v0           #a:Lcom/android/server/am/AppBindRecord;
+    .end local v0    # "a":Lcom/android/server/am/AppBindRecord;
     :cond_0
     return-void
 .end method
@@ -364,7 +364,7 @@
     invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 98
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const-string v0, "IntentBindRecord{"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

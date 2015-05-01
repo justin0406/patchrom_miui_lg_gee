@@ -23,9 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/ParcelFileDescriptor$ListenerBridge;Landroid/os/Looper;Landroid/os/ParcelFileDescriptor$OnCloseListener;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
+    .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
     .line 1006
@@ -42,7 +40,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 1009
@@ -51,7 +49,7 @@
     check-cast v0, Landroid/os/ParcelFileDescriptor$Status;
 
     .line 1010
-    .local v0, s:Landroid/os/ParcelFileDescriptor$Status;
+    .local v0, "s":Landroid/os/ParcelFileDescriptor$Status;
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge$1;->val$listener:Landroid/os/ParcelFileDescriptor$OnCloseListener;
 
     if-eqz v0, :cond_0

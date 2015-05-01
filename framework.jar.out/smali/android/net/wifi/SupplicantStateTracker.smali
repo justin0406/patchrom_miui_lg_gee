@@ -64,10 +64,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/wifi/WifiStateMachine;Landroid/net/wifi/WifiConfigStore;Landroid/os/Handler;)V
     .locals 3
-    .parameter "c"
-    .parameter "wsm"
-    .parameter "wcs"
-    .parameter "t"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "wsm"    # Landroid/net/wifi/WifiStateMachine;
+    .param p3, "wcs"    # Landroid/net/wifi/WifiConfigStore;
+    .param p4, "t"    # Landroid/os/Handler;
 
     .prologue
     const/4 v2, 0x0
@@ -236,7 +236,7 @@
 
 .method static synthetic access$000(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -247,8 +247,8 @@
 
 .method static synthetic access$002(Landroid/net/wifi/SupplicantStateTracker;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # I
 
     .prologue
     .line 40
@@ -259,7 +259,7 @@
 
 .method static synthetic access$008(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -274,7 +274,7 @@
 
 .method static synthetic access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -285,7 +285,7 @@
 
 .method static synthetic access$1000(Landroid/net/wifi/SupplicantStateTracker;)Landroid/net/wifi/WifiConfigStore;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -296,8 +296,8 @@
 
 .method static synthetic access$102(Landroid/net/wifi/SupplicantStateTracker;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -308,8 +308,8 @@
 
 .method static synthetic access$1100(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 40
@@ -320,9 +320,9 @@
 
 .method static synthetic access$200(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Landroid/net/wifi/SupplicantState;
+    .param p2, "x2"    # Z
 
     .prologue
     .line 40
@@ -333,8 +333,8 @@
 
 .method static synthetic access$300(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Landroid/net/wifi/StateChangeResult;
 
     .prologue
     .line 40
@@ -345,7 +345,7 @@
 
 .method static synthetic access$400(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -356,8 +356,8 @@
 
 .method static synthetic access$500(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 40
@@ -368,7 +368,7 @@
 
 .method static synthetic access$600(Landroid/net/wifi/SupplicantStateTracker;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -379,8 +379,8 @@
 
 .method static synthetic access$602(Landroid/net/wifi/SupplicantStateTracker;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 40
@@ -391,7 +391,7 @@
 
 .method static synthetic access$700(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -402,8 +402,8 @@
 
 .method static synthetic access$702(Landroid/net/wifi/SupplicantStateTracker;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # I
 
     .prologue
     .line 40
@@ -414,7 +414,7 @@
 
 .method static synthetic access$708(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -429,7 +429,7 @@
 
 .method static synthetic access$800(Landroid/net/wifi/SupplicantStateTracker;)Landroid/os/Message;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
 
     .prologue
     .line 40
@@ -442,9 +442,9 @@
 
 .method static synthetic access$900(Landroid/net/wifi/SupplicantStateTracker;II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/net/wifi/SupplicantStateTracker;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
 
     .prologue
     .line 40
@@ -455,8 +455,8 @@
 
 .method private handleNetworkConnectionFailure(II)V
     .locals 1
-    .parameter "netId"
-    .parameter "disableReason"
+    .param p1, "netId"    # I
+    .param p2, "disableReason"    # I
 
     .prologue
     .line 98
@@ -486,8 +486,8 @@
 
 .method private sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;Z)V
     .locals 3
-    .parameter "state"
-    .parameter "failedAuth"
+    .param p1, "state"    # Landroid/net/wifi/SupplicantState;
+    .param p2, "failedAuth"    # Z
 
     .prologue
     .line 148
@@ -498,13 +498,13 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 149
-    .local v0, intent:Landroid/content/Intent;
-    const/high16 v1, 0x2400
+    .local v0, "intent":Landroid/content/Intent;
+    const/high16 v1, 0x24000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 151
-    const-string v1, "newState"
+    const-string/jumbo v1, "newState"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
@@ -532,14 +532,14 @@
 
 .method private transitionOnSupplicantStateChange(Landroid/net/wifi/StateChangeResult;)V
     .locals 4
-    .parameter "stateChangeResult"
+    .param p1, "stateChangeResult"    # Landroid/net/wifi/StateChangeResult;
 
     .prologue
     .line 107
     iget-object v0, p1, Landroid/net/wifi/StateChangeResult;->state:Landroid/net/wifi/SupplicantState;
 
     .line 111
-    .local v0, supState:Landroid/net/wifi/SupplicantState;
+    .local v0, "supState":Landroid/net/wifi/SupplicantState;
     sget-object v1, Landroid/net/wifi/SupplicantStateTracker$1;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     invoke-virtual {v0}, Landroid/net/wifi/SupplicantState;->ordinal()I
@@ -657,9 +657,9 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 355

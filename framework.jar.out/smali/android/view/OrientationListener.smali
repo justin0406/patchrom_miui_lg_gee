@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 45
@@ -47,8 +47,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "rate"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "rate"    # I
 
     .prologue
     .line 58
@@ -95,8 +95,8 @@
 
 .method public onAccuracyChanged(II)V
     .locals 0
-    .parameter "sensor"
-    .parameter "accuracy"
+    .param p1, "sensor"    # I
+    .param p2, "accuracy"    # I
 
     .prologue
     .line 94
@@ -108,8 +108,8 @@
 
 .method public onSensorChanged(I[F)V
     .locals 0
-    .parameter "sensor"
-    .parameter "values"
+    .param p1, "sensor"    # I
+    .param p2, "values"    # [F
 
     .prologue
     .line 98

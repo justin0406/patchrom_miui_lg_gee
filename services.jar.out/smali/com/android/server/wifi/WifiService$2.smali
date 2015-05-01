@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1136
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v5, 0x0
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 1140
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v4, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -60,7 +59,7 @@
     .line 1141
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v4}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v4
@@ -87,7 +86,7 @@
     .line 1143
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v4}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v4
@@ -111,7 +110,7 @@
     .line 1145
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v4}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v4
@@ -140,10 +139,10 @@
     move-result v2
 
     .line 1148
-    .local v2, pluggedType:I
+    .local v2, "pluggedType":I
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v4}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v4
@@ -157,7 +156,7 @@
     goto :goto_0
 
     .line 1149
-    .end local v2           #pluggedType:I
+    .end local v2    # "pluggedType":I
     :cond_4
     const-string v4, "android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED"
 
@@ -175,7 +174,7 @@
     move-result v3
 
     .line 1152
-    .local v3, state:I
+    .local v3, "state":I
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget-object v4, v4, Lcom/android/server/wifi/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -185,7 +184,7 @@
     goto :goto_0
 
     .line 1153
-    .end local v3           #state:I
+    .end local v3    # "state":I
     :cond_5
     const-string v4, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
 
@@ -203,10 +202,10 @@
     move-result v1
 
     .line 1155
-    .local v1, emergencyMode:Z
+    .local v1, "emergencyMode":Z
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
+    # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
     invoke-static {v4}, Lcom/android/server/wifi/WifiService;->access$400(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
     move-result-object v6

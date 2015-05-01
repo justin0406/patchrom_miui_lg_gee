@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/media/IMediaRouterService;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Landroid/media/IMediaRouterService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/media/IMediaRouterService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -166,19 +166,19 @@
     move-result-object v0
 
     .line 54
-    .local v0, _arg0:Landroid/media/IMediaRouterClient;
+    .local v0, "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 56
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 57
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IMediaRouterService$Stub;->registerClientAsUser(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
 
     .line 58
@@ -187,9 +187,9 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
-    .end local v1           #_arg1:Ljava/lang/String;
-    .end local v2           #_arg2:I
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
+    .end local v1    # "_arg1":Ljava/lang/String;
+    .end local v2    # "_arg2":I
     :sswitch_2
     const-string v5, "android.media.IMediaRouterService"
 
@@ -205,7 +205,7 @@
     move-result-object v0
 
     .line 66
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p0, v0}, Landroid/media/IMediaRouterService$Stub;->unregisterClient(Landroid/media/IMediaRouterClient;)V
 
     .line 67
@@ -214,7 +214,7 @@
     goto :goto_0
 
     .line 72
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     :sswitch_3
     const-string v5, "android.media.IMediaRouterService"
 
@@ -230,13 +230,13 @@
     move-result-object v0
 
     .line 75
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p0, v0}, Landroid/media/IMediaRouterService$Stub;->getState(Landroid/media/IMediaRouterClient;)Landroid/media/MediaRouterClientState;
 
     move-result-object v3
 
     .line 76
-    .local v3, _result:Landroid/media/MediaRouterClientState;
+    .local v3, "_result":Landroid/media/MediaRouterClientState;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 77
@@ -257,8 +257,8 @@
     goto :goto_0
 
     .line 88
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
-    .end local v3           #_result:Landroid/media/MediaRouterClientState;
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
+    .end local v3    # "_result":Landroid/media/MediaRouterClientState;
     :sswitch_4
     const-string v5, "android.media.IMediaRouterService"
 
@@ -274,13 +274,13 @@
     move-result-object v0
 
     .line 92
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 94
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -290,7 +290,7 @@
     move v2, v4
 
     .line 95
-    .local v2, _arg2:Z
+    .local v2, "_arg2":Z
     :cond_1
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IMediaRouterService$Stub;->setDiscoveryRequest(Landroid/media/IMediaRouterClient;IZ)V
 
@@ -300,9 +300,9 @@
     goto :goto_0
 
     .line 101
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Z
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":Z
     :sswitch_5
     const-string v5, "android.media.IMediaRouterService"
 
@@ -318,13 +318,13 @@
     move-result-object v0
 
     .line 105
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 107
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -334,7 +334,7 @@
     move v2, v4
 
     .line 108
-    .restart local v2       #_arg2:Z
+    .restart local v2    # "_arg2":Z
     :cond_2
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IMediaRouterService$Stub;->setSelectedRoute(Landroid/media/IMediaRouterClient;Ljava/lang/String;Z)V
 
@@ -344,9 +344,9 @@
     goto/16 :goto_0
 
     .line 114
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
-    .end local v1           #_arg1:Ljava/lang/String;
-    .end local v2           #_arg2:Z
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
+    .end local v1    # "_arg1":Ljava/lang/String;
+    .end local v2    # "_arg2":Z
     :sswitch_6
     const-string v5, "android.media.IMediaRouterService"
 
@@ -362,19 +362,19 @@
     move-result-object v0
 
     .line 118
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 120
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 121
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IMediaRouterService$Stub;->requestSetVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
 
     .line 122
@@ -383,9 +383,9 @@
     goto/16 :goto_0
 
     .line 127
-    .end local v0           #_arg0:Landroid/media/IMediaRouterClient;
-    .end local v1           #_arg1:Ljava/lang/String;
-    .end local v2           #_arg2:I
+    .end local v0    # "_arg0":Landroid/media/IMediaRouterClient;
+    .end local v1    # "_arg1":Ljava/lang/String;
+    .end local v2    # "_arg2":I
     :sswitch_7
     const-string v5, "android.media.IMediaRouterService"
 
@@ -401,19 +401,19 @@
     move-result-object v0
 
     .line 131
-    .restart local v0       #_arg0:Landroid/media/IMediaRouterClient;
+    .restart local v0    # "_arg0":Landroid/media/IMediaRouterClient;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 133
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 134
-    .restart local v2       #_arg2:I
+    .restart local v2    # "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IMediaRouterService$Stub;->requestUpdateVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
 
     .line 135

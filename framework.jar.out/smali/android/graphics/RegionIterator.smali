@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Region;)V
     .locals 1
-    .parameter "region"
+    .param p1, "region"    # Landroid/graphics/Region;
 
     .prologue
     .line 28
@@ -62,7 +62,7 @@
 
 .method public final next(Landroid/graphics/Rect;)Z
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 38

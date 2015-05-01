@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "localName"
+    .param p1, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 87
@@ -32,8 +32,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "uri"
-    .parameter "localName"
+    .param p1, "uri"    # Ljava/lang/String;
+    .param p2, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 77

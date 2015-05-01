@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;II)V
     .locals 0
-    .parameter
-    .parameter "_pid"
-    .parameter "_uid"
+    .param p2, "_pid"    # I
+    .param p3, "_uid"    # I
 
     .prologue
     .line 744

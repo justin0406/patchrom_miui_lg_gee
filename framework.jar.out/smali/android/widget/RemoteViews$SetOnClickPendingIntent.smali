@@ -27,9 +27,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "pendingIntent"
+    .param p2, "id"    # I
+    .param p3, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 663
@@ -51,8 +50,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 668
@@ -92,9 +90,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 690
@@ -105,7 +103,7 @@
     move-result-object v2
 
     .line 691
-    .local v2, target:Landroid/view/View;
+    .local v2, "target":Landroid/view/View;
     if-nez v2, :cond_1
 
     .line 724
@@ -117,7 +115,7 @@
     :cond_1
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickPendingIntent;->this$0:Landroid/widget/RemoteViews;
 
-    #getter for: Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
+    # getter for: Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
     invoke-static {v3}, Landroid/widget/RemoteViews;->access$100(Landroid/widget/RemoteViews;)Z
 
     move-result v3
@@ -165,7 +163,7 @@
     move-result-object v0
 
     .line 702
-    .local v0, appInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
     if-eqz v0, :cond_2
 
     iget v3, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
@@ -175,12 +173,12 @@
     if-ge v3, v4, :cond_0
 
     .line 709
-    .end local v0           #appInfo:Landroid/content/pm/ApplicationInfo;
+    .end local v0    # "appInfo":Landroid/content/pm/ApplicationInfo;
     :cond_2
     const/4 v1, 0x0
 
     .line 710
-    .local v1, listener:Landroid/view/View$OnClickListener;
+    .local v1, "listener":Landroid/view/View$OnClickListener;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickPendingIntent;->pendingIntent:Landroid/app/PendingIntent;
 
     if-eqz v3, :cond_3
@@ -188,11 +186,11 @@
     .line 711
     new-instance v1, Landroid/widget/RemoteViews$SetOnClickPendingIntent$1;
 
-    .end local v1           #listener:Landroid/view/View$OnClickListener;
+    .end local v1    # "listener":Landroid/view/View$OnClickListener;
     invoke-direct {v1, p0, p3}, Landroid/widget/RemoteViews$SetOnClickPendingIntent$1;-><init>(Landroid/widget/RemoteViews$SetOnClickPendingIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
 
     .line 723
-    .restart local v1       #listener:Landroid/view/View$OnClickListener;
+    .restart local v1    # "listener":Landroid/view/View$OnClickListener;
     :cond_3
     invoke-virtual {v2, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -211,8 +209,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x1

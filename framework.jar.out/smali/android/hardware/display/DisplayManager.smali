@@ -62,7 +62,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 175
@@ -105,8 +105,7 @@
 
 .method private addAllDisplaysLocked(Ljava/util/ArrayList;[I)V
     .locals 4
-    .parameter
-    .parameter "displayIds"
+    .param p2, "displayIds"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,10 +118,10 @@
 
     .prologue
     .line 240
-    .local p1, displays:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/Display;>;"
+    .local p1, "displays":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/Display;>;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, p2
 
@@ -138,7 +137,7 @@
     move-result-object v0
 
     .line 242
-    .local v0, display:Landroid/view/Display;
+    .local v0, "display":Landroid/view/Display;
     if-eqz v0, :cond_0
 
     .line 243
@@ -151,16 +150,15 @@
     goto :goto_0
 
     .line 246
-    .end local v0           #display:Landroid/view/Display;
+    .end local v0    # "display":Landroid/view/Display;
     :cond_1
     return-void
 .end method
 
 .method private addPresentationDisplaysLocked(Ljava/util/ArrayList;[II)V
     .locals 4
-    .parameter
-    .parameter "displayIds"
-    .parameter "matchType"
+    .param p2, "displayIds"    # [I
+    .param p3, "matchType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,10 +171,10 @@
 
     .prologue
     .line 250
-    .local p1, displays:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/Display;>;"
+    .local p1, "displays":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/Display;>;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, p2
 
@@ -192,7 +190,7 @@
     move-result-object v0
 
     .line 252
-    .local v0, display:Landroid/view/Display;
+    .local v0, "display":Landroid/view/Display;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/Display;->getFlags()I
@@ -219,15 +217,15 @@
     goto :goto_0
 
     .line 258
-    .end local v0           #display:Landroid/view/Display;
+    .end local v0    # "display":Landroid/view/Display;
     :cond_1
     return-void
 .end method
 
 .method private getOrCreateDisplayLocked(IZ)Landroid/view/Display;
     .locals 3
-    .parameter "displayId"
-    .parameter "assumeValid"
+    .param p1, "displayId"    # I
+    .param p2, "assumeValid"    # Z
 
     .prologue
     .line 261
@@ -240,7 +238,7 @@
     check-cast v0, Landroid/view/Display;
 
     .line 262
-    .local v0, display:Landroid/view/Display;
+    .local v0, "display":Landroid/view/Display;
     if-nez v0, :cond_1
 
     .line 263
@@ -289,7 +287,7 @@
 # virtual methods
 .method public connectWifiDisplay(Ljava/lang/String;)V
     .locals 1
-    .parameter "deviceAddress"
+    .param p1, "deviceAddress"    # Ljava/lang/String;
 
     .prologue
     .line 341
@@ -303,12 +301,12 @@
 
 .method public createVirtualDisplay(Ljava/lang/String;IIILandroid/view/Surface;I)Landroid/hardware/display/VirtualDisplay;
     .locals 8
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "densityDpi"
-    .parameter "surface"
-    .parameter "flags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "densityDpi"    # I
+    .param p5, "surface"    # Landroid/view/Surface;
+    .param p6, "flags"    # I
 
     .prologue
     .line 442
@@ -350,7 +348,7 @@
 
 .method public forgetWifiDisplay(Ljava/lang/String;)V
     .locals 1
-    .parameter "deviceAddress"
+    .param p1, "deviceAddress"    # Ljava/lang/String;
 
     .prologue
     .line 394
@@ -364,7 +362,7 @@
 
 .method public getDisplay(I)Landroid/view/Display;
     .locals 2
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 190
@@ -411,7 +409,7 @@
 
 .method public getDisplays(Ljava/lang/String;)[Landroid/view/Display;
     .locals 4
-    .parameter "category"
+    .param p1, "category"    # Ljava/lang/String;
 
     .prologue
     .line 221
@@ -422,7 +420,7 @@
     move-result-object v0
 
     .line 222
-    .local v0, displayIds:[I
+    .local v0, "displayIds":[I
     iget-object v2, p0, Landroid/hardware/display/DisplayManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
@@ -563,8 +561,8 @@
 
 .method public registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
     .locals 1
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/hardware/display/DisplayManager$DisplayListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 285
@@ -578,8 +576,8 @@
 
 .method public renameWifiDisplay(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "deviceAddress"
-    .parameter "alias"
+    .param p1, "deviceAddress"    # Ljava/lang/String;
+    .param p2, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 379
@@ -632,7 +630,7 @@
 
 .method public unregisterDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/hardware/display/DisplayManager$DisplayListener;
 
     .prologue
     .line 296

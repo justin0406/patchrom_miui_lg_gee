@@ -45,7 +45,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v3, 0x1
@@ -152,7 +152,7 @@
     .line 1391
     new-instance v0, Landroid/graphics/BlurMaskFilter;
 
-    const/high16 v1, 0x4000
+    const/high16 v1, 0x40000000    # 2.0f
 
     iget v2, p0, Landroid/widget/StackView$HolographicHelper;->mDensity:F
 
@@ -167,7 +167,7 @@
     .line 1392
     new-instance v0, Landroid/graphics/BlurMaskFilter;
 
-    const/high16 v1, 0x4080
+    const/high16 v1, 0x40800000    # 4.0f
 
     iget v2, p0, Landroid/widget/StackView$HolographicHelper;->mDensity:F
 
@@ -187,8 +187,8 @@
 # virtual methods
 .method createClickOutline(Landroid/view/View;I)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "v"
-    .parameter "color"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "color"    # I
 
     .prologue
     .line 1396
@@ -203,9 +203,9 @@
 
 .method createOutline(Landroid/view/View;II)Landroid/graphics/Bitmap;
     .locals 11
-    .parameter "v"
-    .parameter "type"
-    .parameter "color"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "type"    # I
+    .param p3, "color"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -289,7 +289,7 @@
     move-result-object v0
 
     .line 1417
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     iget-object v6, p0, Landroid/widget/StackView$HolographicHelper;->mCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v6, v0}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
@@ -300,25 +300,25 @@
     move-result v2
 
     .line 1420
-    .local v2, rotationX:F
+    .local v2, "rotationX":F
     invoke-virtual {p1}, Landroid/view/View;->getRotation()F
 
     move-result v1
 
     .line 1421
-    .local v1, rotation:F
+    .local v1, "rotation":F
     invoke-virtual {p1}, Landroid/view/View;->getTranslationY()F
 
     move-result v4
 
     .line 1422
-    .local v4, translationY:F
+    .local v4, "translationY":F
     invoke-virtual {p1}, Landroid/view/View;->getTranslationX()F
 
     move-result v3
 
     .line 1423
-    .local v3, translationX:F
+    .local v3, "translationX":F
     invoke-virtual {p1, v10}, Landroid/view/View;->setRotationX(F)V
 
     .line 1424
@@ -362,8 +362,8 @@
 
 .method createResOutline(Landroid/view/View;I)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "v"
-    .parameter "color"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "color"    # I
 
     .prologue
     .line 1400
@@ -378,8 +378,8 @@
 
 .method drawOutline(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
     .locals 8
-    .parameter "dest"
-    .parameter "src"
+    .param p1, "dest"    # Landroid/graphics/Canvas;
+    .param p2, "src"    # Landroid/graphics/Bitmap;
 
     .prologue
     const/4 v7, 0x1
@@ -390,7 +390,7 @@
     iget-object v1, p0, Landroid/widget/StackView$HolographicHelper;->mTmpXY:[I
 
     .line 1440
-    .local v1, xy:[I
+    .local v1, "xy":[I
     iget-object v2, p0, Landroid/widget/StackView$HolographicHelper;->mBlurPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v2, v1}, Landroid/graphics/Bitmap;->extractAlpha(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;
@@ -398,7 +398,7 @@
     move-result-object v0
 
     .line 1441
-    .local v0, mask:Landroid/graphics/Bitmap;
+    .local v0, "mask":Landroid/graphics/Bitmap;
     iget-object v2, p0, Landroid/widget/StackView$HolographicHelper;->mMaskCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v2, v0}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V

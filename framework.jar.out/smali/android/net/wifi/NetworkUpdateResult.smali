@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -42,8 +42,8 @@
 
 .method public constructor <init>(ZZ)V
     .locals 1
-    .parameter "ip"
-    .parameter "proxy"
+    .param p1, "ip"    # Z
+    .param p2, "proxy"    # Z
 
     .prologue
     .line 33
@@ -113,7 +113,7 @@
 
 .method public setIpChanged(Z)V
     .locals 0
-    .parameter "ip"
+    .param p1, "ip"    # Z
 
     .prologue
     .line 48
@@ -125,7 +125,7 @@
 
 .method public setIsNewNetwork(Z)V
     .locals 0
-    .parameter "isNew"
+    .param p1, "isNew"    # Z
 
     .prologue
     .line 68
@@ -137,7 +137,7 @@
 
 .method public setNetworkId(I)V
     .locals 0
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 40
@@ -149,7 +149,7 @@
 
 .method public setProxyChanged(Z)V
     .locals 0
-    .parameter "proxy"
+    .param p1, "proxy"    # Z
 
     .prologue
     .line 56

@@ -38,7 +38,7 @@
 
 .method private static final sendDeathNotice(Landroid/os/IBinder$DeathRecipient;)V
     .locals 3
-    .parameter "recipient"
+    .param p0, "recipient"    # Landroid/os/IBinder$DeathRecipient;
 
     .prologue
     .line 493
@@ -56,7 +56,7 @@
     move-exception v0
 
     .line 496
-    .local v0, exc:Ljava/lang/RuntimeException;
+    .local v0, "exc":Ljava/lang/RuntimeException;
     const-string v1, "BinderNative"
 
     const-string v2, "Uncaught exception from death notification"
@@ -70,8 +70,8 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 4
-    .parameter "fd"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -85,13 +85,13 @@
     move-result-object v0
 
     .line 450
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 451
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeFileDescriptor(Ljava/io/FileDescriptor;)V
 
     .line 452
@@ -133,8 +133,8 @@
 
 .method public dumpAsync(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 4
-    .parameter "fd"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -148,13 +148,13 @@
     move-result-object v0
 
     .line 464
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 465
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeFileDescriptor(Ljava/io/FileDescriptor;)V
 
     .line 466
@@ -245,7 +245,7 @@
 
 .method public queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
     .locals 1
-    .parameter "descriptor"
+    .param p1, "descriptor"    # Ljava/lang/String;
 
     .prologue
     .line 438

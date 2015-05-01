@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 374
@@ -44,13 +43,13 @@
     .line 376
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$5;->this$0:Landroid/widget/ZoomButtonsController;
 
-    #calls: Landroid/widget/ZoomButtonsController;->refreshPositioningVariables()V
+    # invokes: Landroid/widget/ZoomButtonsController;->refreshPositioningVariables()V
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$700(Landroid/widget/ZoomButtonsController;)V
 
     .line 378
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$5;->this$0:Landroid/widget/ZoomButtonsController;
 
-    #getter for: Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
+    # getter for: Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$600(Landroid/widget/ZoomButtonsController;)Landroid/widget/ZoomButtonsController$OnZoomListener;
 
     move-result-object v0
@@ -60,7 +59,7 @@
     .line 379
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$5;->this$0:Landroid/widget/ZoomButtonsController;
 
-    #getter for: Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
+    # getter for: Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$600(Landroid/widget/ZoomButtonsController;)Landroid/widget/ZoomButtonsController$OnZoomListener;
 
     move-result-object v0

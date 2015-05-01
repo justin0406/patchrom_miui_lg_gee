@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/StringWriter;Lcom/android/internal/util/DumpUtils$Dump;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 40
@@ -54,7 +52,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;)V
 
     .line 44
-    .local v0, lpw:Ljava/io/PrintWriter;
+    .local v0, "lpw":Ljava/io/PrintWriter;
     iget-object v1, p0, Lcom/android/internal/util/DumpUtils$1;->val$dump:Lcom/android/internal/util/DumpUtils$Dump;
 
     invoke-interface {v1, v0}, Lcom/android/internal/util/DumpUtils$Dump;->dump(Ljava/io/PrintWriter;)V

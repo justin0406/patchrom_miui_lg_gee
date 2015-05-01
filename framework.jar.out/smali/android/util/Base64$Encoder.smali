@@ -15,12 +15,11 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field static final synthetic $assertionsDisabled:Z = false
+.field static final synthetic $assertionsDisabled:Z
 
-.field private static final ENCODE:[B = null
+.field private static final ENCODE:[B
 
-.field private static final ENCODE_WEBSAFE:[B = null
+.field private static final ENCODE_WEBSAFE:[B
 
 .field public static final LINE_GROUPS:I = 0x13
 
@@ -86,7 +85,7 @@
 
     .line 554
     :array_0
-    .array-data 0x1
+    .array-data 1
         0x41t
         0x42t
         0x43t
@@ -155,7 +154,7 @@
 
     .line 565
     :array_1
-    .array-data 0x1
+    .array-data 1
         0x41t
         0x42t
         0x43t
@@ -225,8 +224,8 @@
 
 .method public constructor <init>(I[B)V
     .locals 3
-    .parameter "flags"
-    .parameter "output"
+    .param p1, "flags"    # I
+    .param p2, "output"    # [B
 
     .prologue
     const/4 v1, 0x1
@@ -335,7 +334,7 @@
 # virtual methods
 .method public maxOutputSize(I)I
     .locals 1
-    .parameter "len"
+    .param p1, "len"    # I
 
     .prologue
     .line 600
@@ -350,40 +349,40 @@
 
 .method public process([BIIZ)Z
     .locals 14
-    .parameter "input"
-    .parameter "offset"
-    .parameter "len"
-    .parameter "finish"
+    .param p1, "input"    # [B
+    .param p2, "offset"    # I
+    .param p3, "len"    # I
+    .param p4, "finish"    # Z
 
     .prologue
     .line 605
     iget-object v1, p0, Landroid/util/Base64$Encoder;->alphabet:[B
 
     .line 606
-    .local v1, alphabet:[B
+    .local v1, "alphabet":[B
     iget-object v5, p0, Landroid/util/Base64$Encoder;->output:[B
 
     .line 607
-    .local v5, output:[B
+    .local v5, "output":[B
     const/4 v3, 0x0
 
     .line 608
-    .local v3, op:I
+    .local v3, "op":I
     iget v2, p0, Landroid/util/Base64$Encoder;->count:I
 
     .line 610
-    .local v2, count:I
+    .local v2, "count":I
     move/from16 v6, p2
 
     .line 611
-    .local v6, p:I
+    .local v6, "p":I
     add-int p3, p3, p2
 
     .line 612
     const/4 v10, -0x1
 
     .line 618
-    .local v10, v:I
+    .local v10, "v":I
     iget v11, p0, Landroid/util/Base64$Encoder;->tailLen:I
 
     packed-switch v11, :pswitch_data_0
@@ -399,8 +398,8 @@
     .line 646
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .local v4, op:I
+    .end local v3    # "op":I
+    .local v4, "op":I
     shr-int/lit8 v11, v10, 0x12
 
     and-int/lit8 v11, v11, 0x3f
@@ -412,8 +411,8 @@
     .line 647
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     shr-int/lit8 v11, v10, 0xc
 
     and-int/lit8 v11, v11, 0x3f
@@ -425,8 +424,8 @@
     .line 648
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     shr-int/lit8 v11, v10, 0x6
 
     and-int/lit8 v11, v11, 0x3f
@@ -438,8 +437,8 @@
     .line 649
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     and-int/lit8 v11, v10, 0x3f
 
     aget-byte v11, v1, v11
@@ -458,8 +457,8 @@
 
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xd
 
     aput-byte v11, v5, v3
@@ -467,13 +466,13 @@
     move v3, v4
 
     .line 652
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_1
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xa
 
     aput-byte v11, v5, v3
@@ -484,8 +483,8 @@
     move v7, v6
 
     .line 662
-    .end local v6           #p:I
-    .local v7, p:I
+    .end local v6    # "p":I
+    .local v7, "p":I
     :goto_1
     add-int/lit8 v11, v7, 0x3
 
@@ -562,13 +561,13 @@
     add-int/lit8 v6, v7, 0x3
 
     .line 671
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     add-int/lit8 v3, v4, 0x4
 
     .line 672
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     add-int/lit8 v2, v2, -0x1
 
     if-nez v2, :cond_15
@@ -580,8 +579,8 @@
 
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xd
 
     aput-byte v11, v5, v3
@@ -589,13 +588,13 @@
     move v3, v4
 
     .line 674
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_2
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xa
 
     aput-byte v11, v5, v3
@@ -605,15 +604,15 @@
 
     move v7, v6
 
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     goto :goto_1
 
     .line 624
-    .end local v4           #op:I
-    .end local v7           #p:I
-    .restart local v3       #op:I
-    .restart local v6       #p:I
+    .end local v4    # "op":I
+    .end local v7    # "p":I
+    .restart local v3    # "op":I
+    .restart local v6    # "p":I
     :pswitch_1
     add-int/lit8 v11, v6, 0x2
 
@@ -634,8 +633,8 @@
 
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     aget-byte v12, p1, v6
 
     and-int/lit16 v12, v12, 0xff
@@ -646,8 +645,8 @@
 
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     aget-byte v12, p1, v7
 
     and-int/lit16 v12, v12, 0xff
@@ -694,8 +693,8 @@
 
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     aget-byte v12, p1, v6
 
     and-int/lit16 v12, v12, 0xff
@@ -709,15 +708,15 @@
 
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     goto/16 :goto_0
 
     .line 679
-    .end local v3           #op:I
-    .end local v6           #p:I
-    .restart local v4       #op:I
-    .restart local v7       #p:I
+    .end local v3    # "op":I
+    .end local v6    # "p":I
+    .restart local v4    # "op":I
+    .restart local v7    # "p":I
     :cond_3
     if-eqz p4, :cond_10
 
@@ -734,7 +733,7 @@
     const/4 v8, 0x0
 
     .line 687
-    .local v8, t:I
+    .local v8, "t":I
     iget v11, p0, Landroid/util/Base64$Encoder;->tailLen:I
 
     if-lez v11, :cond_7
@@ -743,18 +742,18 @@
 
     add-int/lit8 v9, v8, 0x1
 
-    .end local v8           #t:I
-    .local v9, t:I
+    .end local v8    # "t":I
+    .local v9, "t":I
     aget-byte v11, v11, v8
 
     move v8, v9
 
-    .end local v9           #t:I
-    .restart local v8       #t:I
+    .end local v9    # "t":I
+    .restart local v8    # "t":I
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     :goto_2
     and-int/lit16 v11, v11, 0xff
 
@@ -770,8 +769,8 @@
     .line 689
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     shr-int/lit8 v11, v10, 0x6
 
     and-int/lit8 v11, v11, 0x3f
@@ -783,8 +782,8 @@
     .line 690
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     and-int/lit8 v11, v10, 0x3f
 
     aget-byte v11, v1, v11
@@ -799,8 +798,8 @@
     .line 692
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     const/16 v11, 0x3d
 
     aput-byte v11, v5, v4
@@ -808,8 +807,8 @@
     .line 693
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0x3d
 
     aput-byte v11, v5, v3
@@ -818,8 +817,8 @@
     move v3, v4
 
     .line 695
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     iget-boolean v11, p0, Landroid/util/Base64$Encoder;->do_newline:Z
 
     if-eqz v11, :cond_6
@@ -831,8 +830,8 @@
 
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xd
 
     aput-byte v11, v5, v3
@@ -840,13 +839,13 @@
     move v3, v4
 
     .line 697
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_5
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xa
 
     aput-byte v11, v5, v3
@@ -855,9 +854,9 @@
     move v3, v4
 
     .line 719
-    .end local v4           #op:I
-    .end local v8           #t:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .end local v8    # "t":I
+    .restart local v3    # "op":I
     :cond_6
     :goto_4
     sget-boolean v11, Landroid/util/Base64$Encoder;->$assertionsDisabled:Z
@@ -875,24 +874,24 @@
     throw v11
 
     .line 687
-    .end local v3           #op:I
-    .end local v6           #p:I
-    .restart local v4       #op:I
-    .restart local v7       #p:I
-    .restart local v8       #t:I
+    .end local v3    # "op":I
+    .end local v6    # "p":I
+    .restart local v4    # "op":I
+    .restart local v7    # "p":I
+    .restart local v8    # "t":I
     :cond_7
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     aget-byte v11, p1, v7
 
     goto :goto_2
 
     .line 699
-    .end local v6           #p:I
-    .end local v8           #t:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .end local v8    # "t":I
+    .restart local v7    # "p":I
     :cond_8
     iget v11, p0, Landroid/util/Base64$Encoder;->tailLen:I
 
@@ -906,7 +905,7 @@
     const/4 v8, 0x0
 
     .line 701
-    .restart local v8       #t:I
+    .restart local v8    # "t":I
     iget v11, p0, Landroid/util/Base64$Encoder;->tailLen:I
 
     const/4 v12, 0x1
@@ -917,18 +916,18 @@
 
     add-int/lit8 v9, v8, 0x1
 
-    .end local v8           #t:I
-    .restart local v9       #t:I
+    .end local v8    # "t":I
+    .restart local v9    # "t":I
     aget-byte v11, v11, v8
 
     move v8, v9
 
-    .end local v9           #t:I
-    .restart local v8       #t:I
+    .end local v9    # "t":I
+    .restart local v8    # "t":I
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     :goto_5
     and-int/lit16 v11, v11, 0xff
 
@@ -942,14 +941,14 @@
 
     add-int/lit8 v9, v8, 0x1
 
-    .end local v8           #t:I
-    .restart local v9       #t:I
+    .end local v8    # "t":I
+    .restart local v9    # "t":I
     aget-byte v11, v11, v8
 
     move v8, v9
 
-    .end local v9           #t:I
-    .restart local v8       #t:I
+    .end local v9    # "t":I
+    .restart local v8    # "t":I
     :goto_6
     and-int/lit16 v11, v11, 0xff
 
@@ -967,8 +966,8 @@
     .line 704
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     shr-int/lit8 v11, v10, 0xc
 
     and-int/lit8 v11, v11, 0x3f
@@ -980,8 +979,8 @@
     .line 705
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     shr-int/lit8 v11, v10, 0x6
 
     and-int/lit8 v11, v11, 0x3f
@@ -993,8 +992,8 @@
     .line 706
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     and-int/lit8 v11, v10, 0x3f
 
     aget-byte v11, v1, v11
@@ -1009,8 +1008,8 @@
     .line 708
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0x3d
 
     aput-byte v11, v5, v3
@@ -1018,8 +1017,8 @@
     move v3, v4
 
     .line 710
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_9
     iget-boolean v11, p0, Landroid/util/Base64$Encoder;->do_newline:Z
 
@@ -1032,8 +1031,8 @@
 
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xd
 
     aput-byte v11, v5, v3
@@ -1041,13 +1040,13 @@
     move v3, v4
 
     .line 712
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_a
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xa
 
     aput-byte v11, v5, v3
@@ -1055,13 +1054,13 @@
     goto :goto_3
 
     .line 701
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     :cond_b
     add-int/lit8 v6, v7, 0x1
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     aget-byte v11, p1, v7
 
     goto :goto_5
@@ -1069,20 +1068,20 @@
     :cond_c
     add-int/lit8 v7, v6, 0x1
 
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     aget-byte v11, p1, v6
 
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     goto :goto_6
 
     .line 714
-    .end local v6           #p:I
-    .end local v8           #t:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .end local v8    # "t":I
+    .restart local v7    # "p":I
     :cond_d
     iget-boolean v11, p0, Landroid/util/Base64$Encoder;->do_newline:Z
 
@@ -1101,8 +1100,8 @@
 
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     const/16 v11, 0xd
 
     aput-byte v11, v5, v4
@@ -1111,8 +1110,8 @@
     :goto_7
     add-int/lit8 v4, v3, 0x1
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     const/16 v11, 0xa
 
     aput-byte v11, v5, v3
@@ -1120,12 +1119,12 @@
     :cond_e
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     move v3, v4
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     goto/16 :goto_4
 
     .line 720
@@ -1145,10 +1144,10 @@
     throw v11
 
     .line 725
-    .end local v3           #op:I
-    .end local v6           #p:I
-    .restart local v4       #op:I
-    .restart local v7       #p:I
+    .end local v3    # "op":I
+    .end local v6    # "p":I
+    .restart local v4    # "op":I
+    .restart local v7    # "p":I
     :cond_10
     add-int/lit8 v11, p3, -0x1
 
@@ -1169,13 +1168,13 @@
 
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     move v3, v4
 
     .line 733
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     :cond_11
     :goto_8
     iput v3, p0, Landroid/util/Base64$Encoder;->op:I
@@ -1189,10 +1188,10 @@
     return v11
 
     .line 727
-    .end local v3           #op:I
-    .end local v6           #p:I
-    .restart local v4       #op:I
-    .restart local v7       #p:I
+    .end local v3    # "op":I
+    .end local v6    # "p":I
+    .restart local v4    # "op":I
+    .restart local v7    # "p":I
     :cond_12
     add-int/lit8 v11, p3, -0x2
 
@@ -1229,36 +1228,36 @@
     :cond_13
     move v6, v7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     move v3, v4
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     goto :goto_8
 
-    .end local v3           #op:I
-    .end local v6           #p:I
-    .restart local v4       #op:I
-    .restart local v7       #p:I
+    .end local v3    # "op":I
+    .end local v6    # "p":I
+    .restart local v4    # "op":I
+    .restart local v7    # "p":I
     :cond_14
     move v3, v4
 
-    .end local v4           #op:I
-    .restart local v3       #op:I
+    .end local v4    # "op":I
+    .restart local v3    # "op":I
     goto :goto_7
 
-    .end local v7           #p:I
-    .restart local v6       #p:I
+    .end local v7    # "p":I
+    .restart local v6    # "p":I
     :cond_15
     move v7, v6
 
-    .end local v6           #p:I
-    .restart local v7       #p:I
+    .end local v6    # "p":I
+    .restart local v7    # "p":I
     move v4, v3
 
-    .end local v3           #op:I
-    .restart local v4       #op:I
+    .end local v3    # "op":I
+    .restart local v4    # "op":I
     goto/16 :goto_1
 
     .line 618

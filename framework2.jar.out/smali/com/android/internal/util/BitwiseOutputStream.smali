@@ -22,7 +22,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "startingLength"
+    .param p1, "startingLength"    # I
 
     .prologue
     .line 52
@@ -49,7 +49,7 @@
 
 .method private possExpand(I)V
     .locals 4
-    .parameter "bits"
+    .param p1, "bits"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -78,7 +78,7 @@
     new-array v0, v1, [B
 
     .line 78
-    .local v0, newBuf:[B
+    .local v0, "newBuf":[B
     iget-object v1, p0, Lcom/android/internal/util/BitwiseOutputStream;->mBuf:[B
 
     iget v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mEnd:I
@@ -104,7 +104,7 @@
 # virtual methods
 .method public skip(I)V
     .locals 1
-    .parameter "bits"
+    .param p1, "bits"    # I
 
     .prologue
     .line 127
@@ -144,11 +144,11 @@
     add-int v0, v4, v2
 
     .line 65
-    .local v0, len:I
+    .local v0, "len":I
     new-array v1, v0, [B
 
     .line 66
-    .local v1, newBuf:[B
+    .local v1, "newBuf":[B
     iget-object v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mBuf:[B
 
     invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -156,8 +156,8 @@
     .line 67
     return-object v1
 
-    .end local v0           #len:I
-    .end local v1           #newBuf:[B
+    .end local v0    # "len":I
+    .end local v1    # "newBuf":[B
     :cond_0
     move v2, v3
 
@@ -167,8 +167,8 @@
 
 .method public write(II)V
     .locals 6
-    .parameter "bits"
-    .parameter "data"
+    .param p1, "bits"    # I
+    .param p2, "data"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/util/BitwiseOutputStream$AccessException;
@@ -234,7 +234,7 @@
     ushr-int/lit8 v0, v2, 0x3
 
     .line 99
-    .local v0, index:I
+    .local v0, "index":I
     iget v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mPos:I
 
     and-int/lit8 v2, v2, 0x7
@@ -244,7 +244,7 @@
     sub-int v1, v2, p1
 
     .line 100
-    .local v1, offset:I
+    .local v1, "offset":I
     shl-int/2addr p2, v1
 
     .line 101
@@ -291,8 +291,8 @@
 
 .method public writeByteArray(I[B)V
     .locals 4
-    .parameter "bits"
-    .parameter "arr"
+    .param p1, "bits"    # I
+    .param p2, "arr"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/util/BitwiseOutputStream$AccessException;
@@ -303,7 +303,7 @@
     .line 113
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v2, p2
 
@@ -321,7 +321,7 @@
     move-result v1
 
     .line 115
-    .local v1, increment:I
+    .local v1, "increment":I
     if-lez v1, :cond_0
 
     .line 116
@@ -342,7 +342,7 @@
     goto :goto_0
 
     .line 119
-    .end local v1           #increment:I
+    .end local v1    # "increment":I
     :cond_1
     return-void
 .end method

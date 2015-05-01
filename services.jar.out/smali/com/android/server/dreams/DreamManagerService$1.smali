@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 77
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 80
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    #getter for: Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$000(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -54,7 +53,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    #calls: Lcom/android/server/dreams/DreamManagerService;->stopDreamLocked()V
+    # invokes: Lcom/android/server/dreams/DreamManagerService;->stopDreamLocked()V
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$100(Lcom/android/server/dreams/DreamManagerService;)V
 
     .line 82

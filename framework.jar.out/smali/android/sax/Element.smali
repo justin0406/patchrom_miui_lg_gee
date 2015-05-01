@@ -37,10 +37,10 @@
 # direct methods
 .method constructor <init>(Landroid/sax/Element;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 0
-    .parameter "parent"
-    .parameter "uri"
-    .parameter "localName"
-    .parameter "depth"
+    .param p1, "parent"    # Landroid/sax/Element;
+    .param p2, "uri"    # Ljava/lang/String;
+    .param p3, "localName"    # Ljava/lang/String;
+    .param p4, "depth"    # I
 
     .prologue
     .line 48
@@ -64,8 +64,8 @@
 
 .method static toString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "uri"
-    .parameter "localName"
+    .param p0, "uri"    # Ljava/lang/String;
+    .param p1, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 172
@@ -87,7 +87,7 @@
 
     if-eqz v1, :cond_0
 
-    .end local p1
+    .end local p1    # "localName":Ljava/lang/String;
     :goto_0
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -105,7 +105,7 @@
 
     return-object v0
 
-    .restart local p1
+    .restart local p1    # "localName":Ljava/lang/String;
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -136,7 +136,7 @@
 # virtual methods
 .method checkRequiredChildren(Lorg/xml/sax/Locator;)V
     .locals 6
-    .parameter "locator"
+    .param p1, "locator"    # Lorg/xml/sax/Locator;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXParseException;
@@ -148,7 +148,7 @@
     iget-object v2, p0, Landroid/sax/Element;->requiredChilden:Ljava/util/ArrayList;
 
     .line 192
-    .local v2, requiredChildren:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/sax/Element;>;"
+    .local v2, "requiredChildren":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/sax/Element;>;"
     if-eqz v2, :cond_1
 
     .line 193
@@ -158,7 +158,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_1
 
@@ -170,7 +170,7 @@
     check-cast v0, Landroid/sax/Element;
 
     .line 195
-    .local v0, child:Landroid/sax/Element;
+    .local v0, "child":Landroid/sax/Element;
     iget-boolean v3, v0, Landroid/sax/Element;->visited:Z
 
     if-nez v3, :cond_0
@@ -229,15 +229,15 @@
     goto :goto_0
 
     .line 203
-    .end local v0           #child:Landroid/sax/Element;
-    .end local v1           #i:I
+    .end local v0    # "child":Landroid/sax/Element;
+    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public getChild(Ljava/lang/String;)Landroid/sax/Element;
     .locals 1
-    .parameter "localName"
+    .param p1, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 60
@@ -252,8 +252,8 @@
 
 .method public getChild(Ljava/lang/String;Ljava/lang/String;)Landroid/sax/Element;
     .locals 2
-    .parameter "uri"
-    .parameter "localName"
+    .param p1, "uri"    # Ljava/lang/String;
+    .param p2, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 67
@@ -296,7 +296,7 @@
 
 .method public requireChild(Ljava/lang/String;)Landroid/sax/Element;
     .locals 1
-    .parameter "localName"
+    .param p1, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -311,8 +311,8 @@
 
 .method public requireChild(Ljava/lang/String;Ljava/lang/String;)Landroid/sax/Element;
     .locals 2
-    .parameter "uri"
-    .parameter "localName"
+    .param p1, "uri"    # Ljava/lang/String;
+    .param p2, "localName"    # Ljava/lang/String;
 
     .prologue
     .line 95
@@ -321,7 +321,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, child:Landroid/sax/Element;
+    .local v0, "child":Landroid/sax/Element;
     iget-object v1, p0, Landroid/sax/Element;->requiredChilden:Ljava/util/ArrayList;
 
     if-nez v1, :cond_1
@@ -369,7 +369,7 @@
     iget-object v1, p0, Landroid/sax/Element;->requiredChilden:Ljava/util/ArrayList;
 
     .line 180
-    .local v1, requiredChildren:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/sax/Element;>;"
+    .local v1, "requiredChildren":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/sax/Element;>;"
     if-eqz v1, :cond_0
 
     .line 181
@@ -379,7 +379,7 @@
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -400,14 +400,14 @@
     goto :goto_0
 
     .line 185
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public setElementListener(Landroid/sax/ElementListener;)V
     .locals 0
-    .parameter "elementListener"
+    .param p1, "elementListener"    # Landroid/sax/ElementListener;
 
     .prologue
     .line 113
@@ -422,7 +422,7 @@
 
 .method public setEndElementListener(Landroid/sax/EndElementListener;)V
     .locals 2
-    .parameter "endElementListener"
+    .param p1, "endElementListener"    # Landroid/sax/EndElementListener;
 
     .prologue
     .line 141
@@ -449,7 +449,7 @@
 
 .method public setEndTextElementListener(Landroid/sax/EndTextElementListener;)V
     .locals 2
-    .parameter "endTextElementListener"
+    .param p1, "endTextElementListener"    # Landroid/sax/EndTextElementListener;
 
     .prologue
     .line 153
@@ -491,7 +491,7 @@
 
 .method public setStartElementListener(Landroid/sax/StartElementListener;)V
     .locals 2
-    .parameter "startElementListener"
+    .param p1, "startElementListener"    # Landroid/sax/StartElementListener;
 
     .prologue
     .line 130
@@ -518,7 +518,7 @@
 
 .method public setTextElementListener(Landroid/sax/TextElementListener;)V
     .locals 0
-    .parameter "elementListener"
+    .param p1, "elementListener"    # Landroid/sax/TextElementListener;
 
     .prologue
     .line 121

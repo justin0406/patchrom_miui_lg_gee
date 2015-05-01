@@ -42,8 +42,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 3
-    .parameter "context"
-    .parameter "mainHandler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "mainHandler"    # Landroid/os/Handler;
 
     .prologue
     .line 68
@@ -105,7 +105,7 @@
 
 .method static synthetic access$000(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamManagerService;
 
     .prologue
     .line 52
@@ -116,7 +116,7 @@
 
 .method static synthetic access$100(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamManagerService;
 
     .prologue
     .line 52
@@ -127,7 +127,7 @@
 
 .method static synthetic access$200(Lcom/android/server/dreams/DreamManagerService;)Lcom/android/server/dreams/DreamController;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamManagerService;
 
     .prologue
     .line 52
@@ -138,7 +138,7 @@
 
 .method static synthetic access$300(Lcom/android/server/dreams/DreamManagerService;)Landroid/os/Binder;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamManagerService;
 
     .prologue
     .line 52
@@ -149,7 +149,7 @@
 
 .method static synthetic access$400(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/dreams/DreamManagerService;
 
     .prologue
     .line 52
@@ -160,7 +160,7 @@
 
 .method private checkPermission(Ljava/lang/String;)V
     .locals 3
-    .parameter "permission"
+    .param p1, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 373
@@ -218,7 +218,7 @@
 
 .method private chooseDreamForUser(I)Landroid/content/ComponentName;
     .locals 2
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 283
@@ -227,7 +227,7 @@
     move-result-object v0
 
     .line 284
-    .local v0, dreams:[Landroid/content/ComponentName;
+    .local v0, "dreams":[Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
     array-length v1, v0
@@ -273,7 +273,7 @@
 
 .method private static componentsFromString(Ljava/lang/String;)[Landroid/content/ComponentName;
     .locals 4
-    .parameter "names"
+    .param p0, "names"    # Ljava/lang/String;
 
     .prologue
     .line 394
@@ -295,16 +295,16 @@
     move-result-object v2
 
     .line 398
-    .local v2, namesArray:[Ljava/lang/String;
+    .local v2, "namesArray":[Ljava/lang/String;
     array-length v3, v2
 
     new-array v0, v3, [Landroid/content/ComponentName;
 
     .line 399
-    .local v0, componentNames:[Landroid/content/ComponentName;
+    .local v0, "componentNames":[Landroid/content/ComponentName;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v3, v2
 
@@ -327,7 +327,7 @@
 
 .method private static componentsToString([Landroid/content/ComponentName;)Ljava/lang/String;
     .locals 6
-    .parameter "componentNames"
+    .param p0, "componentNames"    # [Landroid/content/ComponentName;
 
     .prologue
     .line 381
@@ -336,26 +336,26 @@
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 382
-    .local v4, names:Ljava/lang/StringBuilder;
+    .local v4, "names":Ljava/lang/StringBuilder;
     if-eqz p0, :cond_1
 
     .line 383
     move-object v0, p0
 
-    .local v0, arr$:[Landroid/content/ComponentName;
+    .local v0, "arr$":[Landroid/content/ComponentName;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 384
-    .local v1, componentName:Landroid/content/ComponentName;
+    .local v1, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
@@ -381,10 +381,10 @@
     goto :goto_0
 
     .line 390
-    .end local v0           #arr$:[Landroid/content/ComponentName;
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
+    .end local v0    # "arr$":[Landroid/content/ComponentName;
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
     :cond_1
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -395,7 +395,7 @@
 
 .method private getDreamComponentsForUser(I)[Landroid/content/ComponentName;
     .locals 11
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 288
@@ -412,38 +412,38 @@
     move-result-object v6
 
     .line 291
-    .local v6, names:Ljava/lang/String;
+    .local v6, "names":Ljava/lang/String;
     invoke-static {v6}, Lcom/android/server/dreams/DreamManagerService;->componentsFromString(Ljava/lang/String;)[Landroid/content/ComponentName;
 
     move-result-object v2
 
     .line 294
-    .local v2, components:[Landroid/content/ComponentName;
+    .local v2, "components":[Landroid/content/ComponentName;
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     .line 295
-    .local v7, validComponents:Ljava/util/List;,"Ljava/util/List<Landroid/content/ComponentName;>;"
+    .local v7, "validComponents":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
     if-eqz v2, :cond_1
 
     .line 296
     move-object v0, v2
 
-    .local v0, arr$:[Landroid/content/ComponentName;
+    .local v0, "arr$":[Landroid/content/ComponentName;
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_1
 
     aget-object v1, v0, v4
 
     .line 297
-    .local v1, component:Landroid/content/ComponentName;
+    .local v1, "component":Landroid/content/ComponentName;
     invoke-direct {p0, v1}, Lcom/android/server/dreams/DreamManagerService;->serviceExists(Landroid/content/ComponentName;)Z
 
     move-result v8
@@ -492,10 +492,10 @@
     goto :goto_1
 
     .line 306
-    .end local v0           #arr$:[Landroid/content/ComponentName;
-    .end local v1           #component:Landroid/content/ComponentName;
-    .end local v4           #i$:I
-    .end local v5           #len$:I
+    .end local v0    # "arr$":[Landroid/content/ComponentName;
+    .end local v1    # "component":Landroid/content/ComponentName;
+    .end local v4    # "i$":I
+    .end local v5    # "len$":I
     :cond_1
     invoke-interface {v7}, Ljava/util/List;->isEmpty()Z
 
@@ -509,7 +509,7 @@
     move-result-object v3
 
     .line 308
-    .local v3, defaultDream:Landroid/content/ComponentName;
+    .local v3, "defaultDream":Landroid/content/ComponentName;
     if-eqz v3, :cond_2
 
     .line 309
@@ -539,7 +539,7 @@
     invoke-interface {v7, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 313
-    .end local v3           #defaultDream:Landroid/content/ComponentName;
+    .end local v3    # "defaultDream":Landroid/content/ComponentName;
     :cond_2
     invoke-interface {v7}, Ljava/util/List;->size()I
 
@@ -558,7 +558,7 @@
 
 .method private serviceExists(Landroid/content/ComponentName;)Z
     .locals 4
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     const/4 v1, 0x0
@@ -595,15 +595,15 @@
     move-exception v0
 
     .line 320
-    .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     goto :goto_0
 .end method
 
 .method private startDreamLocked(Landroid/content/ComponentName;ZI)V
     .locals 7
-    .parameter "name"
-    .parameter "isTest"
-    .parameter "userId"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "isTest"    # Z
+    .param p3, "userId"    # I
 
     .prologue
     .line 326
@@ -637,7 +637,7 @@
     invoke-direct {v2}, Landroid/os/Binder;-><init>()V
 
     .line 337
-    .local v2, newToken:Landroid/os/Binder;
+    .local v2, "newToken":Landroid/os/Binder;
     iput-object v2, p0, Lcom/android/server/dreams/DreamManagerService;->mCurrentDreamToken:Landroid/os/Binder;
 
     .line 338
@@ -712,14 +712,14 @@
     move-result-wide v0
 
     .line 222
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     .line 223
-    .local v2, time:J
+    .local v2, "time":J
     iget-object v4, p0, Lcom/android/server/dreams/DreamManagerService;->mPowerManager:Landroid/os/PowerManager;
 
     const/4 v5, 0x0
@@ -738,7 +738,7 @@
     return-void
 
     .line 226
-    .end local v2           #time:J
+    .end local v2    # "time":J
     :catchall_0
     move-exception v4
 
@@ -762,14 +762,14 @@
     move-result-wide v0
 
     .line 178
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     .line 179
-    .local v2, time:J
+    .local v2, "time":J
     iget-object v4, p0, Lcom/android/server/dreams/DreamManagerService;->mPowerManager:Landroid/os/PowerManager;
 
     const/4 v5, 0x1
@@ -790,7 +790,7 @@
     return-void
 
     .line 182
-    .end local v2           #time:J
+    .end local v2    # "time":J
     :catchall_0
     move-exception v4
 
@@ -801,9 +801,9 @@
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 89
@@ -980,7 +980,7 @@
 
 .method public finishSelf(Landroid/os/IBinder;)V
     .locals 4
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 233
@@ -1002,7 +1002,7 @@
     move-result-wide v0
 
     .line 250
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
 
@@ -1069,13 +1069,13 @@
     move-result v3
 
     .line 148
-    .local v3, userId:I
+    .local v3, "userId":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
     .line 150
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     iget-object v4, p0, Lcom/android/server/dreams/DreamManagerService;->mContext:Landroid/content/Context;
 
@@ -1092,7 +1092,7 @@
     move-result-object v2
 
     .line 153
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     if-nez v2, :cond_0
 
     const/4 v4, 0x0
@@ -1115,7 +1115,7 @@
     goto :goto_0
 
     .line 155
-    .end local v2           #name:Ljava/lang/String;
+    .end local v2    # "name":Ljava/lang/String;
     :catchall_0
     move-exception v4
 
@@ -1139,13 +1139,13 @@
     move-result v2
 
     .line 119
-    .local v2, userId:I
+    .local v2, "userId":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
     .line 121
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     invoke-direct {p0, v2}, Lcom/android/server/dreams/DreamManagerService;->getDreamComponentsForUser(I)[Landroid/content/ComponentName;
     :try_end_0
@@ -1215,7 +1215,7 @@
 
 .method public setDreamComponents([Landroid/content/ComponentName;)V
     .locals 6
-    .parameter "componentNames"
+    .param p1, "componentNames"    # [Landroid/content/ComponentName;
 
     .prologue
     .line 129
@@ -1229,13 +1229,13 @@
     move-result v2
 
     .line 132
-    .local v2, userId:I
+    .local v2, "userId":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
     .line 134
-    .local v0, ident:J
+    .local v0, "ident":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/dreams/DreamManagerService;->mContext:Landroid/content/Context;
 
@@ -1278,13 +1278,13 @@
     move-result v1
 
     .line 265
-    .local v1, userId:I
+    .local v1, "userId":I
     invoke-direct {p0, v1}, Lcom/android/server/dreams/DreamManagerService;->chooseDreamForUser(I)Landroid/content/ComponentName;
 
     move-result-object v0
 
     .line 266
-    .local v0, dream:Landroid/content/ComponentName;
+    .local v0, "dream":Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
     .line 267
@@ -1375,7 +1375,7 @@
 
 .method public testDream(Landroid/content/ComponentName;)V
     .locals 7
-    .parameter "dream"
+    .param p1, "dream"    # Landroid/content/ComponentName;
 
     .prologue
     .line 188
@@ -1402,13 +1402,13 @@
     move-result v0
 
     .line 195
-    .local v0, callingUserId:I
+    .local v0, "callingUserId":I
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v1
 
     .line 196
-    .local v1, currentUserId:I
+    .local v1, "currentUserId":I
     if-eq v0, v1, :cond_1
 
     .line 198
@@ -1455,7 +1455,7 @@
     move-result-wide v2
 
     .line 205
-    .local v2, ident:J
+    .local v2, "ident":J
     :try_start_0
     iget-object v5, p0, Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
 

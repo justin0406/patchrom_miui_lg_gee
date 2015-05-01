@@ -3,8 +3,8 @@
 .source "ContactsContract.java"
 
 # interfaces
-.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 .implements Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;
+.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 
 
 # annotations
@@ -35,7 +35,7 @@
     .locals 0
 
     .prologue
-    .line 6495
+    .line 6497
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,20 +43,20 @@
 
 .method public static getTypeResource(Ljava/lang/Integer;)I
     .locals 2
-    .parameter "type"
+    .param p0, "type"    # Ljava/lang/Integer;
 
     .prologue
     const v0, 0x10402d0
 
-    .line 6515
+    .line 6517
     if-nez p0, :cond_0
 
-    .line 6523
+    .line 6525
     :goto_0
     :pswitch_0
     return v0
 
-    .line 6518
+    .line 6520
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
@@ -64,24 +64,24 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 6523
+    .line 6525
     const v0, 0x10402cd
 
     goto :goto_0
 
-    .line 6520
+    .line 6522
     :pswitch_1
     const v0, 0x10402cf
 
     goto :goto_0
 
-    .line 6521
+    .line 6523
     :pswitch_2
     const v0, 0x10402ce
 
     goto :goto_0
 
-    .line 6518
+    .line 6520
     nop
 
     :pswitch_data_0

@@ -17,8 +17,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "msg"
-    .parameter "cause"
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 90

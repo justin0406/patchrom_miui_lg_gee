@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "view"
-    .parameter "name"
-    .parameter "values"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "values"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 1638

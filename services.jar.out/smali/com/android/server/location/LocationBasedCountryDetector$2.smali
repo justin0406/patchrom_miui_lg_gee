@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 184
@@ -59,7 +58,7 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/server/location/LocationBasedCountryDetector;->queryCountryCode(Landroid/location/Location;)V
+    # invokes: Lcom/android/server/location/LocationBasedCountryDetector;->queryCountryCode(Landroid/location/Location;)V
     invoke-static {v0, v1}, Lcom/android/server/location/LocationBasedCountryDetector;->access$000(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
 
     .line 192

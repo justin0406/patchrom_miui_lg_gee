@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljavax/net/ssl/X509TrustManager;)V
     .locals 2
-    .parameter "tm"
+    .param p1, "tm"    # Ljavax/net/ssl/X509TrustManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -29,14 +29,14 @@
     .line 46
     check-cast p1, Lcom/android/org/conscrypt/TrustManagerImpl;
 
-    .end local p1
+    .end local p1    # "tm":Ljavax/net/ssl/X509TrustManager;
     iput-object p1, p0, Landroid/net/http/X509TrustManagerExtensions;->mDelegate:Lcom/android/org/conscrypt/TrustManagerImpl;
 
     .line 50
     return-void
 
     .line 48
-    .restart local p1
+    .restart local p1    # "tm":Ljavax/net/ssl/X509TrustManager;
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -51,9 +51,9 @@
 # virtual methods
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .parameter "chain"
-    .parameter "authType"
-    .parameter "host"
+    .param p1, "chain"    # [Ljava/security/cert/X509Certificate;
+    .param p2, "authType"    # Ljava/lang/String;
+    .param p3, "host"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",

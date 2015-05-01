@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Chronometer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 267
@@ -36,13 +35,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Message;
 
     .prologue
     .line 269
     iget-object v0, p0, Landroid/widget/Chronometer$1;->this$0:Landroid/widget/Chronometer;
 
-    #getter for: Landroid/widget/Chronometer;->mRunning:Z
+    # getter for: Landroid/widget/Chronometer;->mRunning:Z
     invoke-static {v0}, Landroid/widget/Chronometer;->access$000(Landroid/widget/Chronometer;)Z
 
     move-result v0
@@ -56,7 +55,7 @@
 
     move-result-wide v1
 
-    #calls: Landroid/widget/Chronometer;->updateText(J)V
+    # invokes: Landroid/widget/Chronometer;->updateText(J)V
     invoke-static {v0, v1, v2}, Landroid/widget/Chronometer;->access$100(Landroid/widget/Chronometer;J)V
 
     .line 271

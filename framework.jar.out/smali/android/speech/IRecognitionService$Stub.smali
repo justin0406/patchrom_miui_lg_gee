@@ -52,7 +52,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/speech/IRecognitionService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 32
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 36
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/speech/IRecognitionService;
@@ -90,7 +90,7 @@
     :cond_1
     new-instance v0, Landroid/speech/IRecognitionService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/speech/IRecognitionService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -108,10 +108,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -163,7 +163,7 @@
     check-cast v0, Landroid/content/Intent;
 
     .line 65
-    .local v0, _arg0:Landroid/content/Intent;
+    .local v0, "_arg0":Landroid/content/Intent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -174,22 +174,22 @@
     move-result-object v1
 
     .line 66
-    .local v1, _arg1:Landroid/speech/IRecognitionListener;
+    .local v1, "_arg1":Landroid/speech/IRecognitionListener;
     invoke-virtual {p0, v0, v1}, Landroid/speech/IRecognitionService$Stub;->startListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0
 
     .line 62
-    .end local v0           #_arg0:Landroid/content/Intent;
-    .end local v1           #_arg1:Landroid/speech/IRecognitionListener;
+    .end local v0    # "_arg0":Landroid/content/Intent;
+    .end local v1    # "_arg1":Landroid/speech/IRecognitionListener;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/Intent;
+    .restart local v0    # "_arg0":Landroid/content/Intent;
     goto :goto_1
 
     .line 71
-    .end local v0           #_arg0:Landroid/content/Intent;
+    .end local v0    # "_arg0":Landroid/content/Intent;
     :sswitch_2
     const-string v3, "android.speech.IRecognitionService"
 
@@ -205,13 +205,13 @@
     move-result-object v0
 
     .line 74
-    .local v0, _arg0:Landroid/speech/IRecognitionListener;
+    .local v0, "_arg0":Landroid/speech/IRecognitionListener;
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionService$Stub;->stopListening(Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0
 
     .line 79
-    .end local v0           #_arg0:Landroid/speech/IRecognitionListener;
+    .end local v0    # "_arg0":Landroid/speech/IRecognitionListener;
     :sswitch_3
     const-string v3, "android.speech.IRecognitionService"
 
@@ -227,7 +227,7 @@
     move-result-object v0
 
     .line 82
-    .restart local v0       #_arg0:Landroid/speech/IRecognitionListener;
+    .restart local v0    # "_arg0":Landroid/speech/IRecognitionListener;
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionService$Stub;->cancel(Landroid/speech/IRecognitionListener;)V
 
     goto :goto_0

@@ -25,8 +25,8 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "timeout"
-    .parameter "label"
+    .param p1, "timeout"    # I
+    .param p2, "label"    # Ljava/lang/String;
 
     .prologue
     .line 176

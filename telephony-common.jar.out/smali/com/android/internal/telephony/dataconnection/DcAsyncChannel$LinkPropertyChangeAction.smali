@@ -93,8 +93,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -110,7 +108,7 @@
 
 .method public static fromInt(I)Lcom/android/internal/telephony/dataconnection/DcAsyncChannel$LinkPropertyChangeAction;
     .locals 3
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 101
@@ -188,7 +186,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/dataconnection/DcAsyncChannel$LinkPropertyChangeAction;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 97

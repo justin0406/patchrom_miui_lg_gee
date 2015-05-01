@@ -48,7 +48,7 @@
 
 .method private getKeyFile(Ljava/lang/String;)Ljava/io/File;
     .locals 4
-    .parameter "keyName"
+    .param p1, "keyName"    # Ljava/lang/String;
 
     .prologue
     .line 108
@@ -63,7 +63,7 @@
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 110
-    .local v1, sysKeystoreDir:Ljava/io/File;
+    .local v1, "sysKeystoreDir":Ljava/io/File;
     new-instance v0, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -87,13 +87,13 @@
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 111
-    .local v0, keyFile:Ljava/io/File;
+    .local v0, "keyFile":Ljava/io/File;
     return-object v0
 .end method
 
 .method public static toHexString([B)Ljava/lang/String;
     .locals 7
-    .parameter "keyData"
+    .param p0, "keyData"    # [B
 
     .prologue
     .line 51
@@ -111,22 +111,22 @@
     array-length v3, p0
 
     .line 55
-    .local v3, keyLen:I
+    .local v3, "keyLen":I
     array-length v5, p0
 
     mul-int/lit8 v0, v5, 0x2
 
     .line 56
-    .local v0, expectedStringLen:I
+    .local v0, "expectedStringLen":I
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 57
-    .local v4, sb:Ljava/lang/StringBuilder;
+    .local v4, "sb":Ljava/lang/StringBuilder;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     array-length v5, p0
 
@@ -144,7 +144,7 @@
     move-result-object v1
 
     .line 59
-    .local v1, hexStr:Ljava/lang/String;
+    .local v1, "hexStr":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -182,7 +182,7 @@
     goto :goto_1
 
     .line 64
-    .end local v1           #hexStr:Ljava/lang/String;
+    .end local v1    # "hexStr":Ljava/lang/String;
     :cond_2
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 # virtual methods
 .method public deleteKey(Ljava/lang/String;)V
     .locals 2
-    .parameter "keyName"
+    .param p1, "keyName"    # Ljava/lang/String;
 
     .prologue
     .line 129
@@ -204,7 +204,7 @@
     move-result-object v0
 
     .line 130
-    .local v0, keyFile:Ljava/io/File;
+    .local v0, "keyFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -228,9 +228,9 @@
 
 .method public generateNewKey(ILjava/lang/String;Ljava/lang/String;)[B
     .locals 11
-    .parameter "numBits"
-    .parameter "algName"
-    .parameter "keyName"
+    .param p1, "numBits"    # I
+    .param p2, "algName"    # Ljava/lang/String;
+    .param p3, "keyName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
@@ -244,7 +244,7 @@
     move-result-object v2
 
     .line 77
-    .local v2, keyFile:Ljava/io/File;
+    .local v2, "keyFile":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v7
@@ -265,7 +265,7 @@
     move-result-object v5
 
     .line 82
-    .local v5, skg:Ljavax/crypto/KeyGenerator;
+    .local v5, "skg":Ljavax/crypto/KeyGenerator;
     const-string v7, "SHA1PRNG"
 
     invoke-static {v7}, Ljava/security/SecureRandom;->getInstance(Ljava/lang/String;)Ljava/security/SecureRandom;
@@ -273,7 +273,7 @@
     move-result-object v6
 
     .line 83
-    .local v6, srng:Ljava/security/SecureRandom;
+    .local v6, "srng":Ljava/security/SecureRandom;
     invoke-virtual {v5, p1, v6}, Ljavax/crypto/KeyGenerator;->init(ILjava/security/SecureRandom;)V
 
     .line 85
@@ -282,13 +282,13 @@
     move-result-object v4
 
     .line 86
-    .local v4, sk:Ljavax/crypto/SecretKey;
+    .local v4, "sk":Ljavax/crypto/SecretKey;
     invoke-interface {v4}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
     move-result-object v3
 
     .line 90
-    .local v3, retKey:[B
+    .local v3, "retKey":[B
     :try_start_0
     invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
 
@@ -308,24 +308,24 @@
     move-exception v1
 
     .line 102
-    .local v1, ioe:Ljava/io/IOException;
+    .local v1, "ioe":Ljava/io/IOException;
     const/4 v3, 0x0
 
     .line 104
-    .end local v1           #ioe:Ljava/io/IOException;
-    .end local v3           #retKey:[B
+    .end local v1    # "ioe":Ljava/io/IOException;
+    .end local v3    # "retKey":[B
     :goto_0
     return-object v3
 
     .line 94
-    .restart local v3       #retKey:[B
+    .restart local v3    # "retKey":[B
     :cond_1
     new-instance v0, Ljava/io/FileOutputStream;
 
     invoke-direct {v0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 95
-    .local v0, fos:Ljava/io/FileOutputStream;
+    .local v0, "fos":Ljava/io/FileOutputStream;
     invoke-virtual {v0, v3}, Ljava/io/FileOutputStream;->write([B)V
 
     .line 96
@@ -357,9 +357,9 @@
 
 .method public generateNewKeyHexString(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "numBits"
-    .parameter "algName"
-    .parameter "keyName"
+    .param p1, "numBits"    # I
+    .param p2, "algName"    # Ljava/lang/String;
+    .param p3, "keyName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
@@ -381,7 +381,7 @@
 
 .method public retrieveKey(Ljava/lang/String;)[B
     .locals 2
-    .parameter "keyName"
+    .param p1, "keyName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -395,7 +395,7 @@
     move-result-object v0
 
     .line 120
-    .local v0, keyFile:Ljava/io/File;
+    .local v0, "keyFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -423,7 +423,7 @@
 
 .method public retrieveKeyHexString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "keyName"
+    .param p1, "keyName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

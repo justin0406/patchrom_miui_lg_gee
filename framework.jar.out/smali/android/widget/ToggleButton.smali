@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 68
@@ -34,8 +34,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 64
@@ -49,9 +49,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -67,7 +67,7 @@
     move-result-object v0
 
     .line 56
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -86,7 +86,7 @@
     iput-object v1, p0, Landroid/widget/ToggleButton;->mTextOff:Ljava/lang/CharSequence;
 
     .line 58
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
@@ -114,7 +114,7 @@
     move-result v0
 
     .line 80
-    .local v0, checked:Z
+    .local v0, "checked":Z
     if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/widget/ToggleButton;->mTextOn:Ljava/lang/CharSequence;
@@ -149,7 +149,7 @@
 
 .method private updateReferenceToIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .parameter "backgroundDrawable"
+    .param p1, "backgroundDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 138
@@ -163,7 +163,7 @@
     check-cast v0, Landroid/graphics/drawable/LayerDrawable;
 
     .line 140
-    .local v0, layerDrawable:Landroid/graphics/drawable/LayerDrawable;
+    .local v0, "layerDrawable":Landroid/graphics/drawable/LayerDrawable;
     const v1, 0x1020017
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
@@ -173,7 +173,7 @@
     iput-object v1, p0, Landroid/widget/ToggleButton;->mIndicatorDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 145
-    .end local v0           #layerDrawable:Landroid/graphics/drawable/LayerDrawable;
+    .end local v0    # "layerDrawable":Landroid/graphics/drawable/LayerDrawable;
     :goto_0
     return-void
 
@@ -220,7 +220,7 @@
 
     .line 152
     :cond_1
-    const/high16 v0, 0x437f
+    const/high16 v0, 0x437f0000    # 255.0f
 
     iget v2, p0, Landroid/widget/ToggleButton;->mDisabledAlpha:F
 
@@ -271,7 +271,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 158
@@ -292,7 +292,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 164
@@ -313,7 +313,7 @@
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 132
@@ -328,7 +328,7 @@
 
 .method public setChecked(Z)V
     .locals 0
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 73
@@ -343,7 +343,7 @@
 
 .method public setTextOff(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "textOff"
+    .param p1, "textOff"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 120
@@ -355,7 +355,7 @@
 
 .method public setTextOn(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "textOn"
+    .param p1, "textOn"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 102

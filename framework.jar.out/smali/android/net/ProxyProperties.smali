@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -54,7 +54,7 @@
 
 .method public constructor <init>(Landroid/net/ProxyProperties;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/ProxyProperties;
 
     .prologue
     .line 74
@@ -103,7 +103,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "pacFileUrl"
+    .param p1, "pacFileUrl"    # Ljava/lang/String;
 
     .prologue
     .line 50
@@ -133,8 +133,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter "pacFileUrl"
-    .parameter "localProxyPort"
+    .param p1, "pacFileUrl"    # Ljava/lang/String;
+    .param p2, "localProxyPort"    # I
 
     .prologue
     .line 58
@@ -162,9 +162,9 @@
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .parameter "host"
-    .parameter "port"
-    .parameter "exclList"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # I
+    .param p3, "exclList"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -185,10 +185,10 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;)V
     .locals 1
-    .parameter "host"
-    .parameter "port"
-    .parameter "exclList"
-    .parameter "parsedExclList"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # I
+    .param p3, "exclList"    # Ljava/lang/String;
+    .param p4, "parsedExclList"    # [Ljava/lang/String;
 
     .prologue
     .line 65
@@ -217,11 +217,11 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Landroid/net/ProxyProperties$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/String;
+    .param p4, "x3"    # [Ljava/lang/String;
+    .param p5, "x4"    # Landroid/net/ProxyProperties$1;
 
     .prologue
     .line 32
@@ -232,7 +232,7 @@
 
 .method private setExclusionList(Ljava/lang/String;)V
     .locals 7
-    .parameter "exclusionList"
+    .param p1, "exclusionList"    # Ljava/lang/String;
 
     .prologue
     .line 111
@@ -269,7 +269,7 @@
     move-result-object v2
 
     .line 116
-    .local v2, splitExclusionList:[Ljava/lang/String;
+    .local v2, "splitExclusionList":[Ljava/lang/String;
     array-length v3, v2
 
     mul-int/lit8 v3, v3, 0x2
@@ -281,7 +281,7 @@
     .line 117
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -295,7 +295,7 @@
     move-result-object v1
 
     .line 119
-    .local v1, s:Ljava/lang/String;
+    .local v1, "s":Ljava/lang/String;
     const-string v3, "."
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -365,7 +365,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -389,7 +389,7 @@
     check-cast v0, Landroid/net/ProxyProperties;
 
     .line 191
-    .local v0, p:Landroid/net/ProxyProperties;
+    .local v0, "p":Landroid/net/ProxyProperties;
     iget-object v3, p0, Landroid/net/ProxyProperties;->mPacFileUrl:Ljava/lang/String;
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -562,7 +562,7 @@
     const/4 v0, 0x0
 
     .line 87
-    .local v0, inetSocketAddress:Ljava/net/InetSocketAddress;
+    .local v0, "inetSocketAddress":Ljava/net/InetSocketAddress;
     :try_start_0
     new-instance v1, Ljava/net/InetSocketAddress;
 
@@ -574,13 +574,13 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v0           #inetSocketAddress:Ljava/net/InetSocketAddress;
-    .local v1, inetSocketAddress:Ljava/net/InetSocketAddress;
+    .end local v0    # "inetSocketAddress":Ljava/net/InetSocketAddress;
+    .local v1, "inetSocketAddress":Ljava/net/InetSocketAddress;
     move-object v0, v1
 
     .line 89
-    .end local v1           #inetSocketAddress:Ljava/net/InetSocketAddress;
-    .restart local v0       #inetSocketAddress:Ljava/net/InetSocketAddress;
+    .end local v1    # "inetSocketAddress":Ljava/net/InetSocketAddress;
+    .restart local v0    # "inetSocketAddress":Ljava/net/InetSocketAddress;
     :goto_0
     return-object v0
 
@@ -639,7 +639,7 @@
 
 .method public isExcluded(Ljava/lang/String;)Z
     .locals 6
-    .parameter "url"
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -673,19 +673,19 @@
     move-result-object v1
 
     .line 131
-    .local v1, u:Landroid/net/Uri;
+    .local v1, "u":Landroid/net/Uri;
     invoke-virtual {v1}, Landroid/net/Uri;->getHost()Ljava/lang/String;
 
     move-result-object v2
 
     .line 132
-    .local v2, urlDomain:Ljava/lang/String;
+    .local v2, "urlDomain":Ljava/lang/String;
     if-eqz v2, :cond_0
 
     .line 133
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
@@ -785,13 +785,13 @@
     move-exception v0
 
     .line 148
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const/4 v1, 0x0
 
     goto :goto_0
 
     .line 145
-    .end local v0           #e:Ljava/lang/IllegalArgumentException;
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :cond_1
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
@@ -826,7 +826,7 @@
     sget-object v1, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     .line 155
-    .local v1, proxy:Ljava/net/Proxy;
+    .local v1, "proxy":Ljava/net/Proxy;
     iget-object v3, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
     if-eqz v3, :cond_0
@@ -842,7 +842,7 @@
     invoke-direct {v0, v3, v4}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
 
     .line 158
-    .local v0, inetSocketAddress:Ljava/net/InetSocketAddress;
+    .local v0, "inetSocketAddress":Ljava/net/InetSocketAddress;
     new-instance v2, Ljava/net/Proxy;
 
     sget-object v3, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
@@ -851,14 +851,14 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v1           #proxy:Ljava/net/Proxy;
-    .local v2, proxy:Ljava/net/Proxy;
+    .end local v1    # "proxy":Ljava/net/Proxy;
+    .local v2, "proxy":Ljava/net/Proxy;
     move-object v1, v2
 
     .line 162
-    .end local v0           #inetSocketAddress:Ljava/net/InetSocketAddress;
-    .end local v2           #proxy:Ljava/net/Proxy;
-    .restart local v1       #proxy:Ljava/net/Proxy;
+    .end local v0    # "inetSocketAddress":Ljava/net/InetSocketAddress;
+    .end local v2    # "proxy":Ljava/net/Proxy;
+    .restart local v1    # "proxy":Ljava/net/Proxy;
     :cond_0
     :goto_0
     return-object v1
@@ -880,7 +880,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 168
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/net/ProxyProperties;->mPacFileUrl:Ljava/lang/String;
 
     if-eqz v1, :cond_1
@@ -963,8 +963,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v2, 0x1

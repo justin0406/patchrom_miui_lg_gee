@@ -18,10 +18,10 @@
 # direct methods
 .method private constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "cmdNumber"
-    .parameter "code"
-    .parameter "message"
-    .parameter "rawEvent"
+    .param p1, "cmdNumber"    # I
+    .param p2, "code"    # I
+    .param p3, "message"    # Ljava/lang/String;
+    .param p4, "rawEvent"    # Ljava/lang/String;
 
     .prologue
     .line 38
@@ -50,8 +50,8 @@
 
 .method public static filterMessageList([Lcom/android/server/NativeDaemonEvent;I)[Ljava/lang/String;
     .locals 6
-    .parameter "events"
-    .parameter "matchCode"
+    .param p0, "events"    # [Lcom/android/server/NativeDaemonEvent;
+    .param p1, "matchCode"    # I
 
     .prologue
     .line 164
@@ -60,23 +60,23 @@
     move-result-object v4
 
     .line 165
-    .local v4, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v4, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     move-object v0, p0
 
-    .local v0, arr$:[Lcom/android/server/NativeDaemonEvent;
+    .local v0, "arr$":[Lcom/android/server/NativeDaemonEvent;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 166
-    .local v1, event:Lcom/android/server/NativeDaemonEvent;
+    .local v1, "event":Lcom/android/server/NativeDaemonEvent;
     invoke-virtual {v1}, Lcom/android/server/NativeDaemonEvent;->getCode()I
 
     move-result v5
@@ -97,7 +97,7 @@
     goto :goto_0
 
     .line 170
-    .end local v1           #event:Lcom/android/server/NativeDaemonEvent;
+    .end local v1    # "event":Lcom/android/server/NativeDaemonEvent;
     :cond_1
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
@@ -116,7 +116,7 @@
 
 .method private static isClassUnsolicited(I)Z
     .locals 1
-    .parameter "code"
+    .param p0, "code"    # I
 
     .prologue
     .line 105
@@ -141,7 +141,7 @@
 
 .method public static parseRawEvent(Ljava/lang/String;)Lcom/android/server/NativeDaemonEvent;
     .locals 8
-    .parameter "rawEvent"
+    .param p0, "rawEvent"    # Ljava/lang/String;
 
     .prologue
     .line 126
@@ -152,7 +152,7 @@
     move-result-object v4
 
     .line 127
-    .local v4, parsed:[Ljava/lang/String;
+    .local v4, "parsed":[Ljava/lang/String;
     array-length v6, v4
 
     const/4 v7, 0x2
@@ -173,7 +173,7 @@
     const/4 v5, 0x0
 
     .line 135
-    .local v5, skiplength:I
+    .local v5, "skiplength":I
     const/4 v6, 0x0
 
     :try_start_0
@@ -184,7 +184,7 @@
     move-result v1
 
     .line 136
-    .local v1, code:I
+    .local v1, "code":I
     const/4 v6, 0x0
 
     aget-object v6, v4, v6
@@ -201,7 +201,7 @@
     const/4 v0, -0x1
 
     .line 142
-    .local v0, cmdNumber:I
+    .local v0, "cmdNumber":I
     invoke-static {v1}, Lcom/android/server/NativeDaemonEvent;->isClassUnsolicited(I)Z
 
     move-result v6
@@ -225,13 +225,13 @@
     throw v6
 
     .line 137
-    .end local v0           #cmdNumber:I
-    .end local v1           #code:I
+    .end local v0    # "cmdNumber":I
+    .end local v1    # "code":I
     :catch_0
     move-exception v2
 
     .line 138
-    .local v2, e:Ljava/lang/NumberFormatException;
+    .local v2, "e":Ljava/lang/NumberFormatException;
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "problem parsing code"
@@ -241,9 +241,9 @@
     throw v6
 
     .line 147
-    .end local v2           #e:Ljava/lang/NumberFormatException;
-    .restart local v0       #cmdNumber:I
-    .restart local v1       #code:I
+    .end local v2    # "e":Ljava/lang/NumberFormatException;
+    .restart local v0    # "cmdNumber":I
+    .restart local v1    # "code":I
     :cond_1
     const/4 v6, 0x1
 
@@ -276,7 +276,7 @@
     move-result-object v3
 
     .line 156
-    .local v3, message:Ljava/lang/String;
+    .local v3, "message":Ljava/lang/String;
     new-instance v6, Lcom/android/server/NativeDaemonEvent;
 
     invoke-direct {v6, v0, v1, v3, p0}, Lcom/android/server/NativeDaemonEvent;-><init>(IILjava/lang/String;Ljava/lang/String;)V
@@ -284,12 +284,12 @@
     return-object v6
 
     .line 149
-    .end local v3           #message:Ljava/lang/String;
+    .end local v3    # "message":Ljava/lang/String;
     :catch_1
     move-exception v2
 
     .line 150
-    .restart local v2       #e:Ljava/lang/NumberFormatException;
+    .restart local v2    # "e":Ljava/lang/NumberFormatException;
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "problem parsing cmdNumber"
@@ -301,7 +301,7 @@
 
 .method public static unescapeArgs(Ljava/lang/String;)[Ljava/lang/String;
     .locals 15
-    .parameter "rawEvent"
+    .param p0, "rawEvent"    # Ljava/lang/String;
 
     .prologue
     const/16 v14, 0x22
@@ -314,35 +314,35 @@
     const/4 v0, 0x0
 
     .line 190
-    .local v0, DEBUG_ROUTINE:Z
+    .local v0, "DEBUG_ROUTINE":Z
     const-string v1, "unescapeArgs"
 
     .line 191
-    .local v1, LOGTAG:Ljava/lang/String;
+    .local v1, "LOGTAG":Ljava/lang/String;
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
     .line 192
-    .local v6, parsed:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v6, "parsed":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
     .line 193
-    .local v3, length:I
+    .local v3, "length":I
     const/4 v2, 0x0
 
     .line 194
-    .local v2, current:I
+    .local v2, "current":I
     const/4 v9, -0x1
 
     .line 195
-    .local v9, wordEnd:I
+    .local v9, "wordEnd":I
     const/4 v7, 0x0
 
     .line 198
-    .local v7, quoted:Z
+    .local v7, "quoted":Z
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v10
@@ -399,7 +399,7 @@
     move-result-object v8
 
     .line 219
-    .local v8, word:Ljava/lang/String;
+    .local v8, "word":Ljava/lang/String;
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
     move-result v10
@@ -442,7 +442,7 @@
     move-result v5
 
     .line 234
-    .local v5, nextSpace:I
+    .local v5, "nextSpace":I
     const-string v10, " \""
 
     invoke-virtual {p0, v10, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
@@ -450,7 +450,7 @@
     move-result v4
 
     .line 238
-    .local v4, nextQuote:I
+    .local v4, "nextQuote":I
     if-le v4, v12, :cond_6
 
     if-gt v4, v5, :cond_6
@@ -464,9 +464,9 @@
     goto :goto_0
 
     .line 210
-    .end local v4           #nextQuote:I
-    .end local v5           #nextSpace:I
-    .end local v8           #word:Ljava/lang/String;
+    .end local v4    # "nextQuote":I
+    .end local v5    # "nextSpace":I
+    .end local v8    # "word":Ljava/lang/String;
     :cond_3
     add-int/lit8 v9, v9, 0x1
 
@@ -481,15 +481,15 @@
     goto :goto_2
 
     .line 223
-    .restart local v8       #word:Ljava/lang/String;
+    .restart local v8    # "word":Ljava/lang/String;
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
     .line 242
-    .restart local v4       #nextQuote:I
-    .restart local v5       #nextSpace:I
+    .restart local v4    # "nextQuote":I
+    .restart local v5    # "nextSpace":I
     :cond_6
     const/4 v7, 0x0
 
@@ -502,9 +502,9 @@
     goto :goto_0
 
     .line 252
-    .end local v4           #nextQuote:I
-    .end local v5           #nextSpace:I
-    .end local v8           #word:Ljava/lang/String;
+    .end local v4    # "nextQuote":I
+    .end local v5    # "nextSpace":I
+    .end local v8    # "word":Ljava/lang/String;
     :cond_7
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
@@ -525,7 +525,7 @@
 # virtual methods
 .method public checkCode(I)V
     .locals 3
-    .parameter "code"
+    .param p1, "code"    # I
 
     .prologue
     .line 114
@@ -595,7 +595,7 @@
 
 .method public getField(I)Ljava/lang/String;
     .locals 1
-    .parameter "n"
+    .param p1, "n"    # I
 
     .prologue
     .line 180

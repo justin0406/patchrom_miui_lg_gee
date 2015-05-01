@@ -33,9 +33,9 @@
 # virtual methods
 .method public evaluate(FLjava/lang/Number;Ljava/lang/Number;)Ljava/lang/Float;
     .locals 2
-    .parameter "fraction"
-    .parameter "startValue"
-    .parameter "endValue"
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # Ljava/lang/Number;
+    .param p3, "endValue"    # Ljava/lang/Number;
 
     .prologue
     .line 39
@@ -44,7 +44,7 @@
     move-result v0
 
     .line 40
-    .local v0, startFloat:F
+    .local v0, "startFloat":F
     invoke-virtual {p3}, Ljava/lang/Number;->floatValue()F
 
     move-result v1
@@ -64,18 +64,18 @@
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # F
+    .param p2, "x1"    # Ljava/lang/Object;
+    .param p3, "x2"    # Ljava/lang/Object;
 
     .prologue
     .line 22
     check-cast p2, Ljava/lang/Number;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     check-cast p3, Ljava/lang/Number;
 
-    .end local p3
+    .end local p3    # "x2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3}, Landroid/animation/FloatEvaluator;->evaluate(FLjava/lang/Number;Ljava/lang/Number;)Ljava/lang/Float;
 
     move-result-object v0

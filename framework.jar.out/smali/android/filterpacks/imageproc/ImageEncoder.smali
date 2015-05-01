@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 48
@@ -40,7 +40,7 @@
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 59
@@ -51,13 +51,13 @@
     move-result-object v1
 
     .line 60
-    .local v1, input:Landroid/filterfw/core/Frame;
+    .local v1, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
 
     .line 61
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     sget-object v2, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
     iget v3, p0, Landroid/filterpacks/imageproc/ImageEncoder;->mQuality:I

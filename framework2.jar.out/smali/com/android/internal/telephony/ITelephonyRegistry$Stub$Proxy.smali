@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 211
@@ -61,10 +61,10 @@
 
 .method public listen(Ljava/lang/String;Lcom/android/internal/telephony/IPhoneStateListener;IZ)V
     .locals 5
-    .parameter "pkg"
-    .parameter "callback"
-    .parameter "events"
-    .parameter "notifyNow"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "callback"    # Lcom/android/internal/telephony/IPhoneStateListener;
+    .param p3, "events"    # I
+    .param p4, "notifyNow"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -82,13 +82,13 @@
     move-result-object v0
 
     .line 225
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 227
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -165,7 +165,7 @@
 
 .method public notifyCallForwardingChanged(Z)V
     .locals 5
-    .parameter "cfi"
+    .param p1, "cfi"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -181,13 +181,13 @@
     move-result-object v0
 
     .line 316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 318
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -238,8 +238,8 @@
 
 .method public notifyCallState(ILjava/lang/String;)V
     .locals 5
-    .parameter "state"
-    .parameter "incomingNumber"
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -253,13 +253,13 @@
     move-result-object v0
 
     .line 243
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 245
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -308,7 +308,6 @@
 
 .method public notifyCellInfo(Ljava/util/List;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -327,19 +326,19 @@
 
     .prologue
     .line 432
-    .local p1, cellInfo:Ljava/util/List;,"Ljava/util/List<Landroid/telephony/CellInfo;>;"
+    .local p1, "cellInfo":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/CellInfo;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 433
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 435
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -385,7 +384,7 @@
 
 .method public notifyCellLocation(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "cellLocation"
+    .param p1, "cellLocation"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -399,13 +398,13 @@
     move-result-object v0
 
     .line 397
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 399
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -473,7 +472,7 @@
 
 .method public notifyDataActivity(I)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -487,13 +486,13 @@
     move-result-object v0
 
     .line 331
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 333
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -539,15 +538,15 @@
 
 .method public notifyDataConnection(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;IZ)V
     .locals 5
-    .parameter "state"
-    .parameter "isDataConnectivityPossible"
-    .parameter "reason"
-    .parameter "apn"
-    .parameter "apnType"
-    .parameter "linkProperties"
-    .parameter "linkCapabilities"
-    .parameter "networkType"
-    .parameter "roaming"
+    .param p1, "state"    # I
+    .param p2, "isDataConnectivityPossible"    # Z
+    .param p3, "reason"    # Ljava/lang/String;
+    .param p4, "apn"    # Ljava/lang/String;
+    .param p5, "apnType"    # Ljava/lang/String;
+    .param p6, "linkProperties"    # Landroid/net/LinkProperties;
+    .param p7, "linkCapabilities"    # Landroid/net/LinkCapabilities;
+    .param p8, "networkType"    # I
+    .param p9, "roaming"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -565,13 +564,13 @@
     move-result-object v0
 
     .line 346
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 348
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -705,8 +704,8 @@
 
 .method public notifyDataConnectionFailed(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "reason"
-    .parameter "apnType"
+    .param p1, "reason"    # Ljava/lang/String;
+    .param p2, "apnType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -720,13 +719,13 @@
     move-result-object v0
 
     .line 381
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 383
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -775,7 +774,7 @@
 
 .method public notifyMessageWaitingChanged(Z)V
     .locals 5
-    .parameter "mwi"
+    .param p1, "mwi"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -791,13 +790,13 @@
     move-result-object v0
 
     .line 301
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 303
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -848,7 +847,7 @@
 
 .method public notifyOtaspChanged(I)V
     .locals 5
-    .parameter "otaspMode"
+    .param p1, "otaspMode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -862,13 +861,13 @@
     move-result-object v0
 
     .line 418
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 420
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -914,7 +913,7 @@
 
 .method public notifyServiceState(Landroid/telephony/ServiceState;)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # Landroid/telephony/ServiceState;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -928,13 +927,13 @@
     move-result-object v0
 
     .line 259
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 261
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 
@@ -1002,7 +1001,7 @@
 
 .method public notifySignalStrength(Landroid/telephony/SignalStrength;)V
     .locals 5
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1016,13 +1015,13 @@
     move-result-object v0
 
     .line 280
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 282
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ITelephonyRegistry"
 

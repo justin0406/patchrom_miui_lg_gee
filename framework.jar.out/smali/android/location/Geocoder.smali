@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 95
@@ -32,8 +32,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/Locale;)V
     .locals 3
-    .parameter "context"
-    .parameter "locale"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 79
@@ -67,7 +67,7 @@
     move-result-object v0
 
     .line 85
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/location/ILocationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ILocationManager;
 
     move-result-object v1
@@ -90,13 +90,13 @@
     move-result-object v0
 
     .line 61
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/location/ILocationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ILocationManager;
 
     move-result-object v2
 
     .line 63
-    .local v2, lm:Landroid/location/ILocationManager;
+    .local v2, "lm":Landroid/location/ILocationManager;
     :try_start_0
     invoke-interface {v2}, Landroid/location/ILocationManager;->geocoderIsPresent()Z
     :try_end_0
@@ -113,7 +113,7 @@
     move-exception v1
 
     .line 65
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "Geocoder"
 
     const-string v4, "isPresent: got RemoteException"
@@ -130,9 +130,9 @@
 # virtual methods
 .method public getFromLocation(DDI)Ljava/util/List;
     .locals 10
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "maxResults"
+    .param p1, "latitude"    # D
+    .param p3, "longitude"    # D
+    .param p5, "maxResults"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(DDI)",
@@ -151,13 +151,13 @@
 
     .prologue
     .line 125
-    const-wide v0, -0x3fa9800000000000L
+    const-wide v0, -0x3fa9800000000000L    # -90.0
 
     cmpg-double v0, p1, v0
 
     if-ltz v0, :cond_0
 
-    const-wide v0, 0x4056800000000000L
+    const-wide v0, 0x4056800000000000L    # 90.0
 
     cmpl-double v0, p1, v0
 
@@ -191,13 +191,13 @@
 
     .line 128
     :cond_1
-    const-wide v0, -0x3f99800000000000L
+    const-wide v0, -0x3f99800000000000L    # -180.0
 
     cmpg-double v0, p3, v0
 
     if-ltz v0, :cond_2
 
-    const-wide v0, 0x4066800000000000L
+    const-wide v0, 0x4066800000000000L    # 180.0
 
     cmpl-double v0, p3, v0
 
@@ -237,7 +237,7 @@
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     .line 133
-    .local v7, results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local v7, "results":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     iget-object v0, p0, Landroid/location/Geocoder;->mService:Landroid/location/ILocationManager;
 
     iget-object v6, p0, Landroid/location/Geocoder;->mParams:Landroid/location/GeocoderParams;
@@ -253,7 +253,7 @@
     move-result-object v9
 
     .line 135
-    .local v9, ex:Ljava/lang/String;
+    .local v9, "ex":Ljava/lang/String;
     if-eqz v9, :cond_4
 
     .line 136
@@ -266,13 +266,13 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 140
-    .end local v7           #results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    .end local v9           #ex:Ljava/lang/String;
+    .end local v7    # "results":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
+    .end local v9    # "ex":Ljava/lang/String;
     :catch_0
     move-exception v8
 
     .line 141
-    .local v8, e:Landroid/os/RemoteException;
+    .local v8, "e":Landroid/os/RemoteException;
     const-string v0, "Geocoder"
 
     const-string v1, "getFromLocation: got RemoteException"
@@ -282,15 +282,15 @@
     .line 142
     const/4 v7, 0x0
 
-    .end local v8           #e:Landroid/os/RemoteException;
+    .end local v8    # "e":Landroid/os/RemoteException;
     :cond_4
     return-object v7
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;I)Ljava/util/List;
     .locals 15
-    .parameter "locationName"
-    .parameter "maxResults"
+    .param p1, "locationName"    # Ljava/lang/String;
+    .param p2, "maxResults"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -330,7 +330,7 @@
     invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
 
     .line 175
-    .local v12, results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local v12, "results":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     iget-object v0, p0, Landroid/location/Geocoder;->mService:Landroid/location/ILocationManager;
 
     const-wide/16 v2, 0x0
@@ -352,7 +352,7 @@
     move-result-object v14
 
     .line 177
-    .local v14, ex:Ljava/lang/String;
+    .local v14, "ex":Ljava/lang/String;
     if-eqz v14, :cond_1
 
     .line 178
@@ -365,13 +365,13 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 182
-    .end local v12           #results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    .end local v14           #ex:Ljava/lang/String;
+    .end local v12    # "results":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
+    .end local v14    # "ex":Ljava/lang/String;
     :catch_0
     move-exception v13
 
     .line 183
-    .local v13, e:Landroid/os/RemoteException;
+    .local v13, "e":Landroid/os/RemoteException;
     const-string v0, "Geocoder"
 
     const-string v1, "getFromLocationName: got RemoteException"
@@ -381,19 +381,19 @@
     .line 184
     const/4 v12, 0x0
 
-    .end local v13           #e:Landroid/os/RemoteException;
+    .end local v13    # "e":Landroid/os/RemoteException;
     :cond_1
     return-object v12
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;IDDDD)Ljava/util/List;
     .locals 17
-    .parameter "locationName"
-    .parameter "maxResults"
-    .parameter "lowerLeftLatitude"
-    .parameter "lowerLeftLongitude"
-    .parameter "upperRightLatitude"
-    .parameter "upperRightLongitude"
+    .param p1, "locationName"    # Ljava/lang/String;
+    .param p2, "maxResults"    # I
+    .param p3, "lowerLeftLatitude"    # D
+    .param p5, "lowerLeftLongitude"    # D
+    .param p7, "upperRightLatitude"    # D
+    .param p9, "upperRightLongitude"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -427,13 +427,13 @@
 
     .line 229
     :cond_0
-    const-wide v2, -0x3fa9800000000000L
+    const-wide v2, -0x3fa9800000000000L    # -90.0
 
     cmpg-double v2, p3, v2
 
     if-ltz v2, :cond_1
 
-    const-wide v2, 0x4056800000000000L
+    const-wide v2, 0x4056800000000000L    # 90.0
 
     cmpl-double v2, p3, v2
 
@@ -469,13 +469,13 @@
 
     .line 233
     :cond_2
-    const-wide v2, -0x3f99800000000000L
+    const-wide v2, -0x3f99800000000000L    # -180.0
 
     cmpg-double v2, p5, v2
 
     if-ltz v2, :cond_3
 
-    const-wide v2, 0x4066800000000000L
+    const-wide v2, 0x4066800000000000L    # 180.0
 
     cmpl-double v2, p5, v2
 
@@ -511,13 +511,13 @@
 
     .line 237
     :cond_4
-    const-wide v2, -0x3fa9800000000000L
+    const-wide v2, -0x3fa9800000000000L    # -90.0
 
     cmpg-double v2, p7, v2
 
     if-ltz v2, :cond_5
 
-    const-wide v2, 0x4056800000000000L
+    const-wide v2, 0x4056800000000000L    # 90.0
 
     cmpl-double v2, p7, v2
 
@@ -553,13 +553,13 @@
 
     .line 241
     :cond_6
-    const-wide v2, -0x3f99800000000000L
+    const-wide v2, -0x3f99800000000000L    # -180.0
 
     cmpg-double v2, p9, v2
 
     if-ltz v2, :cond_7
 
-    const-wide v2, 0x4066800000000000L
+    const-wide v2, 0x4066800000000000L    # 180.0
 
     cmpl-double v2, p9, v2
 
@@ -601,7 +601,7 @@
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
 
     .line 247
-    .local v14, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/location/Address;>;"
+    .local v14, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/location/Address;>;"
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/location/Geocoder;->mService:Landroid/location/ILocationManager;
@@ -627,7 +627,7 @@
     move-result-object v16
 
     .line 250
-    .local v16, ex:Ljava/lang/String;
+    .local v16, "ex":Ljava/lang/String;
     if-eqz v16, :cond_9
 
     .line 251
@@ -642,13 +642,13 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 255
-    .end local v14           #result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/location/Address;>;"
-    .end local v16           #ex:Ljava/lang/String;
+    .end local v14    # "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/location/Address;>;"
+    .end local v16    # "ex":Ljava/lang/String;
     :catch_0
     move-exception v15
 
     .line 256
-    .local v15, e:Landroid/os/RemoteException;
+    .local v15, "e":Landroid/os/RemoteException;
     const-string v2, "Geocoder"
 
     const-string v3, "getFromLocationName: got RemoteException"
@@ -658,7 +658,7 @@
     .line 257
     const/4 v14, 0x0
 
-    .end local v15           #e:Landroid/os/RemoteException;
+    .end local v15    # "e":Landroid/os/RemoteException;
     :cond_9
     return-object v14
 .end method

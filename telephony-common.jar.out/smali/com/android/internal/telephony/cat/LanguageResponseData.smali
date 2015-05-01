@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "lang"
+    .param p1, "lang"    # Ljava/lang/String;
 
     .prologue
     .line 166
@@ -27,7 +27,7 @@
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
     .locals 7
-    .parameter "buf"
+    .param p1, "buf"    # Ljava/io/ByteArrayOutputStream;
 
     .prologue
     .line 172
@@ -48,7 +48,7 @@
     or-int/lit16 v5, v6, 0x80
 
     .line 178
-    .local v5, tag:I
+    .local v5, "tag":I
     invoke-virtual {p1, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 182
@@ -72,7 +72,7 @@
     move-result-object v2
 
     .line 189
-    .local v2, data:[B
+    .local v2, "data":[B
     :goto_0
     array-length v6, v2
 
@@ -81,20 +81,20 @@
     .line 191
     move-object v0, v2
 
-    .local v0, arr$:[B
+    .local v0, "arr$":[B
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_1
     if-ge v3, v4, :cond_0
 
     aget-byte v1, v0, v3
 
     .line 192
-    .local v1, b:B
+    .local v1, "b":B
     invoke-virtual {p1, v1}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 191
@@ -103,16 +103,16 @@
     goto :goto_1
 
     .line 186
-    .end local v0           #arr$:[B
-    .end local v1           #b:B
-    .end local v2           #data:[B
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[B
+    .end local v1    # "b":B
+    .end local v2    # "data":[B
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :cond_2
     const/4 v6, 0x0
 
     new-array v2, v6, [B
 
-    .restart local v2       #data:[B
+    .restart local v2    # "data":[B
     goto :goto_0
 .end method

@@ -22,8 +22,8 @@
 
 .method private static getArgsForKeyType(ILjava/security/spec/AlgorithmParameterSpec;)[[B
     .locals 6
-    .parameter "keyType"
-    .parameter "spec"
+    .param p0, "keyType"    # I
+    .param p1, "spec"    # Ljava/security/spec/AlgorithmParameterSpec;
 
     .prologue
     const/4 v5, 0x1
@@ -54,7 +54,7 @@
     check-cast v1, Ljava/security/spec/RSAKeyGenParameterSpec;
 
     .line 174
-    .local v1, rsaSpec:Ljava/security/spec/RSAKeyGenParameterSpec;
+    .local v1, "rsaSpec":Ljava/security/spec/RSAKeyGenParameterSpec;
     new-array v2, v5, [[B
 
     invoke-virtual {v1}, Ljava/security/spec/RSAKeyGenParameterSpec;->getPublicExponent()Ljava/math/BigInteger;
@@ -70,7 +70,7 @@
     goto :goto_0
 
     .line 178
-    .end local v1           #rsaSpec:Ljava/security/spec/RSAKeyGenParameterSpec;
+    .end local v1    # "rsaSpec":Ljava/security/spec/RSAKeyGenParameterSpec;
     :sswitch_1
     instance-of v2, p1, Ljava/security/spec/DSAParameterSpec;
 
@@ -82,7 +82,7 @@
     check-cast v0, Ljava/security/spec/DSAParameterSpec;
 
     .line 180
-    .local v0, dsaSpec:Ljava/security/spec/DSAParameterSpec;
+    .local v0, "dsaSpec":Ljava/security/spec/DSAParameterSpec;
     const/4 v2, 0x3
 
     new-array v2, v2, [[B
@@ -133,7 +133,7 @@
 
 .method private static getDefaultSignatureAlgorithmForKeyType(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "keyType"
+    .param p0, "keyType"    # Ljava/lang/String;
 
     .prologue
     .line 158
@@ -284,7 +284,7 @@
     move-result-object v8
 
     .line 92
-    .local v8, alias:Ljava/lang/String;
+    .local v8, "alias":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -305,7 +305,7 @@
     move-result v4
 
     .line 95
-    .local v4, keyType:I
+    .local v4, "keyType":I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mSpec:Landroid/security/KeyPairGeneratorSpec;
@@ -319,7 +319,7 @@
     move-result-object v7
 
     .line 97
-    .local v7, args:[[B
+    .local v7, "args":[[B
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -339,7 +339,7 @@
     move-result-object v2
 
     .line 98
-    .local v2, privateKeyAlias:Ljava/lang/String;
+    .local v2, "privateKeyAlias":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -386,7 +386,7 @@
     move-result-object v13
 
     .line 106
-    .local v13, engine:Lcom/android/org/conscrypt/OpenSSLEngine;
+    .local v13, "engine":Lcom/android/org/conscrypt/OpenSSLEngine;
     :try_start_0
     invoke-virtual {v13, v2}, Lcom/android/org/conscrypt/OpenSSLEngine;->getPrivateKeyById(Ljava/lang/String;)Ljava/security/PrivateKey;
     :try_end_0
@@ -395,7 +395,7 @@
     move-result-object v15
 
     .line 111
-    .local v15, privKey:Ljava/security/PrivateKey;
+    .local v15, "privKey":Ljava/security/PrivateKey;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -405,7 +405,7 @@
     move-result-object v17
 
     .line 115
-    .local v17, pubKeyBytes:[B
+    .local v17, "pubKeyBytes":[B
     :try_start_1
     move-object/from16 v0, p0
 
@@ -420,7 +420,7 @@
     move-result-object v14
 
     .line 116
-    .local v14, keyFact:Ljava/security/KeyFactory;
+    .local v14, "keyFact":Ljava/security/KeyFactory;
     new-instance v1, Ljava/security/spec/X509EncodedKeySpec;
 
     move-object/from16 v0, v17
@@ -435,13 +435,13 @@
     move-result-object v16
 
     .line 123
-    .local v16, pubKey:Ljava/security/PublicKey;
+    .local v16, "pubKey":Ljava/security/PublicKey;
     new-instance v11, Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
 
     invoke-direct {v11}, Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;-><init>()V
 
     .line 124
-    .local v11, certGen:Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
+    .local v11, "certGen":Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
     move-object/from16 v0, v16
 
     invoke-virtual {v11, v0}, Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;->setPublicKey(Ljava/security/PublicKey;)V
@@ -525,7 +525,7 @@
     move-result-object v9
 
     .line 142
-    .local v9, cert:Ljava/security/cert/X509Certificate;
+    .local v9, "cert":Ljava/security/cert/X509Certificate;
     :try_start_3
     invoke-virtual {v9}, Ljava/security/cert/X509Certificate;->getEncoded()[B
     :try_end_3
@@ -534,7 +534,7 @@
     move-result-object v10
 
     .line 148
-    .local v10, certBytes:[B
+    .local v10, "certBytes":[B
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -590,18 +590,18 @@
     throw v1
 
     .line 107
-    .end local v9           #cert:Ljava/security/cert/X509Certificate;
-    .end local v10           #certBytes:[B
-    .end local v11           #certGen:Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
-    .end local v14           #keyFact:Ljava/security/KeyFactory;
-    .end local v15           #privKey:Ljava/security/PrivateKey;
-    .end local v16           #pubKey:Ljava/security/PublicKey;
-    .end local v17           #pubKeyBytes:[B
+    .end local v9    # "cert":Ljava/security/cert/X509Certificate;
+    .end local v10    # "certBytes":[B
+    .end local v11    # "certGen":Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
+    .end local v14    # "keyFact":Ljava/security/KeyFactory;
+    .end local v15    # "privKey":Ljava/security/PrivateKey;
+    .end local v16    # "pubKey":Ljava/security/PublicKey;
+    .end local v17    # "pubKeyBytes":[B
     :catch_0
     move-exception v12
 
     .line 108
-    .local v12, e:Ljava/security/InvalidKeyException;
+    .local v12, "e":Ljava/security/InvalidKeyException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v3, "Can\'t get key"
@@ -611,14 +611,14 @@
     throw v1
 
     .line 117
-    .end local v12           #e:Ljava/security/InvalidKeyException;
-    .restart local v15       #privKey:Ljava/security/PrivateKey;
-    .restart local v17       #pubKeyBytes:[B
+    .end local v12    # "e":Ljava/security/InvalidKeyException;
+    .restart local v15    # "privKey":Ljava/security/PrivateKey;
+    .restart local v17    # "pubKeyBytes":[B
     :catch_1
     move-exception v12
 
     .line 118
-    .local v12, e:Ljava/security/NoSuchAlgorithmException;
+    .local v12, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v3, "Can\'t instantiate key generator"
@@ -628,12 +628,12 @@
     throw v1
 
     .line 119
-    .end local v12           #e:Ljava/security/NoSuchAlgorithmException;
+    .end local v12    # "e":Ljava/security/NoSuchAlgorithmException;
     :catch_2
     move-exception v12
 
     .line 120
-    .local v12, e:Ljava/security/spec/InvalidKeySpecException;
+    .local v12, "e":Ljava/security/spec/InvalidKeySpecException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v3, "keystore returned invalid key encoding"
@@ -643,15 +643,15 @@
     throw v1
 
     .line 135
-    .end local v12           #e:Ljava/security/spec/InvalidKeySpecException;
-    .restart local v11       #certGen:Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
-    .restart local v14       #keyFact:Ljava/security/KeyFactory;
-    .restart local v16       #pubKey:Ljava/security/PublicKey;
+    .end local v12    # "e":Ljava/security/spec/InvalidKeySpecException;
+    .restart local v11    # "certGen":Lcom/android/org/bouncycastle/x509/X509V3CertificateGenerator;
+    .restart local v14    # "keyFact":Ljava/security/KeyFactory;
+    .restart local v16    # "pubKey":Ljava/security/PublicKey;
     :catch_3
     move-exception v12
 
     .line 136
-    .local v12, e:Ljava/lang/Exception;
+    .local v12, "e":Ljava/lang/Exception;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -668,13 +668,13 @@
     throw v1
 
     .line 143
-    .end local v12           #e:Ljava/lang/Exception;
-    .restart local v9       #cert:Ljava/security/cert/X509Certificate;
+    .end local v12    # "e":Ljava/lang/Exception;
+    .restart local v9    # "cert":Ljava/security/cert/X509Certificate;
     :catch_4
     move-exception v12
 
     .line 144
-    .local v12, e:Ljava/security/cert/CertificateEncodingException;
+    .local v12, "e":Ljava/security/cert/CertificateEncodingException;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/security/AndroidKeyPairGenerator;->mKeyStore:Landroid/security/KeyStore;
@@ -691,8 +691,8 @@
     throw v1
 
     .line 154
-    .end local v12           #e:Ljava/security/cert/CertificateEncodingException;
-    .restart local v10       #certBytes:[B
+    .end local v12    # "e":Ljava/security/cert/CertificateEncodingException;
+    .restart local v10    # "certBytes":[B
     :cond_4
     new-instance v1, Ljava/security/KeyPair;
 
@@ -705,8 +705,8 @@
 
 .method public initialize(ILjava/security/SecureRandom;)V
     .locals 2
-    .parameter "keysize"
-    .parameter "random"
+    .param p1, "keysize"    # I
+    .param p2, "random"    # Ljava/security/SecureRandom;
 
     .prologue
     .line 190
@@ -721,8 +721,8 @@
 
 .method public initialize(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V
     .locals 3
-    .parameter "params"
-    .parameter "random"
+    .param p1, "params"    # Ljava/security/spec/AlgorithmParameterSpec;
+    .param p2, "random"    # Ljava/security/SecureRandom;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
@@ -764,7 +764,7 @@
     check-cast v0, Landroid/security/KeyPairGeneratorSpec;
 
     .line 206
-    .local v0, spec:Landroid/security/KeyPairGeneratorSpec;
+    .local v0, "spec":Landroid/security/KeyPairGeneratorSpec;
     iput-object v0, p0, Landroid/security/AndroidKeyPairGenerator;->mSpec:Landroid/security/KeyPairGeneratorSpec;
 
     .line 207

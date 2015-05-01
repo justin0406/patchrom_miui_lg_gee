@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/HandlerCaller;Landroid/os/Looper;Z)V
     .locals 1
-    .parameter
-    .parameter "looper"
-    .parameter "async"
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "async"    # Z
 
     .prologue
     .line 34
@@ -42,7 +41,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 40

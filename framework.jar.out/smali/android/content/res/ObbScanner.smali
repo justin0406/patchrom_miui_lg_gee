@@ -16,7 +16,7 @@
 
 .method public static getObbInfo(Ljava/lang/String;)Landroid/content/res/ObbInfo;
     .locals 6
-    .parameter "filePath"
+    .param p0, "filePath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -43,7 +43,7 @@
     invoke-direct {v1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 44
-    .local v1, obbFile:Ljava/io/File;
+    .local v1, "obbFile":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -82,13 +82,13 @@
     move-result-object v0
 
     .line 54
-    .local v0, canonicalFilePath:Ljava/lang/String;
+    .local v0, "canonicalFilePath":Ljava/lang/String;
     new-instance v2, Landroid/content/res/ObbInfo;
 
     invoke-direct {v2}, Landroid/content/res/ObbInfo;-><init>()V
 
     .line 55
-    .local v2, obbInfo:Landroid/content/res/ObbInfo;
+    .local v2, "obbInfo":Landroid/content/res/ObbInfo;
     iput-object v0, v2, Landroid/content/res/ObbInfo;->filename:Ljava/lang/String;
 
     .line 56

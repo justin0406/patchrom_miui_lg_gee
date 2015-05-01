@@ -49,7 +49,7 @@
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 1977
@@ -127,7 +127,7 @@
 
 .method protected getStandardView(I)Landroid/widget/RemoteViews;
     .locals 9
-    .parameter "layoutId"
+    .param p1, "layoutId"    # I
 
     .prologue
     const v8, 0x10202de
@@ -159,13 +159,13 @@
     :cond_0
     iget-object v2, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    #calls: Landroid/app/Notification$Builder;->applyStandardTemplateWithActions(I)Landroid/widget/RemoteViews;
+    # invokes: Landroid/app/Notification$Builder;->applyStandardTemplateWithActions(I)Landroid/widget/RemoteViews;
     invoke-static {v2, p1}, Landroid/app/Notification$Builder;->access$200(Landroid/app/Notification$Builder;I)Landroid/widget/RemoteViews;
 
     move-result-object v0
 
     .line 1951
-    .local v0, contentView:Landroid/widget/RemoteViews;
+    .local v0, "contentView":Landroid/widget/RemoteViews;
     iget-object v2, p0, Landroid/app/Notification$Style;->mBigContentTitle:Ljava/lang/CharSequence;
 
     if-eqz v2, :cond_1
@@ -192,7 +192,7 @@
     iget-object v1, p0, Landroid/app/Notification$Style;->mSummaryText:Ljava/lang/CharSequence;
 
     .line 1961
-    .local v1, overflowText:Ljava/lang/CharSequence;
+    .local v1, "overflowText":Ljava/lang/CharSequence;
     :goto_1
     if-eqz v1, :cond_3
 
@@ -212,7 +212,7 @@
     return-object v0
 
     .line 1954
-    .end local v1           #overflowText:Ljava/lang/CharSequence;
+    .end local v1    # "overflowText":Ljava/lang/CharSequence;
     :cond_1
     invoke-virtual {v0, v6, v4}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
@@ -222,7 +222,7 @@
     :cond_2
     iget-object v2, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    #getter for: Landroid/app/Notification$Builder;->mSubText:Ljava/lang/CharSequence;
+    # getter for: Landroid/app/Notification$Builder;->mSubText:Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/app/Notification$Builder;->access$300(Landroid/app/Notification$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -230,7 +230,7 @@
     goto :goto_1
 
     .line 1966
-    .restart local v1       #overflowText:Ljava/lang/CharSequence;
+    .restart local v1    # "overflowText":Ljava/lang/CharSequence;
     :cond_3
     invoke-virtual {v0, v8, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
@@ -242,7 +242,7 @@
 
 .method protected internalSetBigContentTitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1916
@@ -254,7 +254,7 @@
 
 .method protected internalSetSummaryText(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "cs"
+    .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1923
@@ -271,7 +271,7 @@
 
 .method public setBuilder(Landroid/app/Notification$Builder;)V
     .locals 1
-    .parameter "builder"
+    .param p1, "builder"    # Landroid/app/Notification$Builder;
 
     .prologue
     .line 1928

@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Ljava/lang/String;)V
     .locals 1
-    .parameter "valueProvider"
-    .parameter "attrValue"
+    .param p1, "valueProvider"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
+    .param p2, "attrValue"    # Ljava/lang/String;
 
     .prologue
     .line 215
@@ -43,8 +43,8 @@
 
 .method public constructor <init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Z)V
     .locals 1
-    .parameter "valueProvider"
-    .parameter "isNull"
+    .param p1, "valueProvider"    # Lcom/android/server/firewall/StringFilter$ValueProvider;
+    .param p2, "isNull"    # Z
 
     .prologue
     .line 220
@@ -63,7 +63,7 @@
 # virtual methods
 .method public matchesValue(Ljava/lang/String;)Z
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1

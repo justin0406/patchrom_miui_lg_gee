@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AlarmManagerService;JILjava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "theTime"
-    .parameter "theUid"
-    .parameter "theAction"
+    .param p2, "theTime"    # J
+    .param p4, "theUid"    # I
+    .param p5, "theAction"    # Ljava/lang/String;
 
     .prologue
     .line 121

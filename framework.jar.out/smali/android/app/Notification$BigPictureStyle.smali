@@ -41,7 +41,7 @@
 
 .method public constructor <init>(Landroid/app/Notification$Builder;)V
     .locals 1
-    .parameter "builder"
+    .param p1, "builder"    # Landroid/app/Notification$Builder;
 
     .prologue
     .line 2027
@@ -71,7 +71,7 @@
     move-result-object v0
 
     .line 2068
-    .local v0, contentView:Landroid/widget/RemoteViews;
+    .local v0, "contentView":Landroid/widget/RemoteViews;
     const v1, 0x10202dd
 
     iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
@@ -86,7 +86,7 @@
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 2077
@@ -118,7 +118,7 @@
 
 .method public bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
     .locals 1
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 2060
@@ -135,7 +135,7 @@
 
 .method public bigPicture(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
     .locals 0
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 2052
@@ -147,7 +147,7 @@
 
 .method public buildStyled(Landroid/app/Notification;)Landroid/app/Notification;
     .locals 2
-    .parameter "wip"
+    .param p1, "wip"    # Landroid/app/Notification;
 
     .prologue
     .line 2090
@@ -160,7 +160,7 @@
 
     iget-object v1, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/Bitmap;
 
-    #setter for: Landroid/app/Notification$Builder;->mLargeIcon:Landroid/graphics/Bitmap;
+    # setter for: Landroid/app/Notification$Builder;->mLargeIcon:Landroid/graphics/Bitmap;
     invoke-static {v0, v1}, Landroid/app/Notification$Builder;->access$402(Landroid/app/Notification$Builder;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     .line 2093
@@ -177,7 +177,7 @@
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2036
@@ -193,7 +193,7 @@
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
     .locals 1
-    .parameter "cs"
+    .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2044

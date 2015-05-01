@@ -25,8 +25,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
     .locals 2
-    .parameter
-    .parameter "monitoredDir"
+    .param p2, "monitoredDir"    # Ljava/io/File;
 
     .prologue
     .line 548
@@ -49,8 +48,8 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 4
-    .parameter "event"
-    .parameter "path"
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0

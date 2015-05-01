@@ -8,7 +8,7 @@
 
 .field public static final KEY_EDITABLE_MASK:I = 0x1fffffff
 
-.field protected static final METADATA_KEYS_TYPE:Landroid/util/SparseIntArray; = null
+.field protected static final METADATA_KEYS_TYPE:Landroid/util/SparseIntArray;
 
 .field protected static final METADATA_TYPE_BITMAP:I = 0x2
 
@@ -204,7 +204,7 @@
 # virtual methods
 .method public declared-synchronized addEditableKey(I)V
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 135
@@ -360,8 +360,8 @@
 
 .method public declared-synchronized getBitmap(ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # I
+    .param p2, "defaultValue"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -423,7 +423,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .end local p2
+    .end local p2    # "defaultValue":Landroid/graphics/Bitmap;
     :cond_1
     monitor-exit p0
 
@@ -481,8 +481,8 @@
 
 .method public declared-synchronized getLong(IJ)J
     .locals 3
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # I
+    .param p2, "defaultValue"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -561,8 +561,8 @@
 
 .method public declared-synchronized getObject(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # I
+    .param p2, "defaultValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -653,7 +653,7 @@
     move-result-object p2
 
     .line 397
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     :cond_1
     :goto_0
     monitor-exit p0
@@ -661,7 +661,7 @@
     return-object p2
 
     .line 383
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :pswitch_1
     :try_start_2
     iget-object v0, p0, Landroid/media/MediaMetadataEditor;->mEditorMetadata:Landroid/os/Bundle;
@@ -745,8 +745,8 @@
 
 .method public declared-synchronized getString(ILjava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # I
+    .param p2, "defaultValue"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -827,8 +827,8 @@
 
 .method public declared-synchronized putBitmap(ILandroid/graphics/Bitmap;)Landroid/media/MediaMetadataEditor;
     .locals 4
-    .parameter "key"
-    .parameter "bitmap"
+    .param p1, "key"    # I
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -856,16 +856,16 @@
     move-object v0, p0
 
     .line 261
-    .end local p0
-    .local v0, this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .local v0, "this":Landroid/media/MediaMetadataEditor;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
     .line 256
-    .end local v0           #this:Landroid/media/MediaMetadataEditor;
-    .restart local p0
+    .end local v0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local p0    # "this":Landroid/media/MediaMetadataEditor;
     :cond_0
     const/16 v1, 0x64
 
@@ -922,15 +922,15 @@
     move-object v0, p0
 
     .line 261
-    .end local p0
-    .restart local v0       #this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local v0    # "this":Landroid/media/MediaMetadataEditor;
     goto :goto_0
 .end method
 
 .method public declared-synchronized putLong(IJ)Landroid/media/MediaMetadataEditor;
     .locals 4
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -958,16 +958,16 @@
     move-object v0, p0
 
     .line 237
-    .end local p0
-    .local v0, this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .local v0, "this":Landroid/media/MediaMetadataEditor;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
     .line 232
-    .end local v0           #this:Landroid/media/MediaMetadataEditor;
-    .restart local p0
+    .end local v0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local p0    # "this":Landroid/media/MediaMetadataEditor;
     :cond_0
     :try_start_1
     sget-object v1, Landroid/media/MediaMetadataEditor;->METADATA_KEYS_TYPE:Landroid/util/SparseIntArray;
@@ -1036,15 +1036,15 @@
     move-object v0, p0
 
     .line 237
-    .end local p0
-    .restart local v0       #this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local v0    # "this":Landroid/media/MediaMetadataEditor;
     goto :goto_0
 .end method
 
 .method public declared-synchronized putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
     .locals 3
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1072,14 +1072,14 @@
     move-object v0, p0
 
     .line 313
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
     .line 287
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_0
     :try_start_1
     sget-object v0, Landroid/media/MediaMetadataEditor;->METADATA_KEYS_TYPE:Landroid/util/SparseIntArray;
@@ -1120,7 +1120,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 283
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     :catchall_0
     move-exception v0
 
@@ -1129,7 +1129,7 @@
     throw v0
 
     .line 289
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :pswitch_0
     :try_start_2
     instance-of v0, p2, Ljava/lang/Long;
@@ -1139,7 +1139,7 @@
     .line 290
     check-cast p2, Ljava/lang/Long;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
@@ -1151,7 +1151,7 @@
     goto :goto_0
 
     .line 292
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1189,7 +1189,7 @@
     :cond_2
     check-cast p2, Ljava/lang/String;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/MediaMetadataEditor;->putString(ILjava/lang/String;)Landroid/media/MediaMetadataEditor;
 
     move-result-object v0
@@ -1197,7 +1197,7 @@
     goto :goto_0
 
     .line 298
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1233,7 +1233,7 @@
 
     check-cast p2, Landroid/os/Parcelable;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 302
@@ -1247,7 +1247,7 @@
     goto/16 :goto_0
 
     .line 305
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :pswitch_3
     if-eqz p2, :cond_4
 
@@ -1259,7 +1259,7 @@
     :cond_4
     check-cast p2, Landroid/graphics/Bitmap;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/MediaMetadataEditor;->putBitmap(ILandroid/graphics/Bitmap;)Landroid/media/MediaMetadataEditor;
 
     move-result-object v0
@@ -1267,7 +1267,7 @@
     goto/16 :goto_0
 
     .line 308
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1309,8 +1309,8 @@
 
 .method public declared-synchronized putString(ILjava/lang/String;)Landroid/media/MediaMetadataEditor;
     .locals 4
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1340,16 +1340,16 @@
     move-object v0, p0
 
     .line 208
-    .end local p0
-    .local v0, this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .local v0, "this":Landroid/media/MediaMetadataEditor;
     :goto_0
     monitor-exit p0
 
     return-object v0
 
     .line 203
-    .end local v0           #this:Landroid/media/MediaMetadataEditor;
-    .restart local p0
+    .end local v0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local p0    # "this":Landroid/media/MediaMetadataEditor;
     :cond_0
     :try_start_1
     sget-object v1, Landroid/media/MediaMetadataEditor;->METADATA_KEYS_TYPE:Landroid/util/SparseIntArray;
@@ -1418,8 +1418,8 @@
     move-object v0, p0
 
     .line 208
-    .end local p0
-    .restart local v0       #this:Landroid/media/MediaMetadataEditor;
+    .end local p0    # "this":Landroid/media/MediaMetadataEditor;
+    .restart local v0    # "this":Landroid/media/MediaMetadataEditor;
     goto :goto_0
 .end method
 

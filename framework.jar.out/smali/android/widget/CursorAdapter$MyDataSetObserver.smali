@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/CursorAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 467
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/CursorAdapter;Landroid/widget/CursorAdapter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/CursorAdapter;
+    .param p2, "x1"    # Landroid/widget/CursorAdapter$1;
 
     .prologue
     .line 467

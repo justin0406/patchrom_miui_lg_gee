@@ -65,9 +65,9 @@
 
 .method public constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
     .locals 0
-    .parameter "icon"
-    .parameter "title"
-    .parameter "intent"
+    .param p1, "icon"    # I
+    .param p2, "title"    # Ljava/lang/CharSequence;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 615
@@ -88,7 +88,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 605
@@ -139,8 +139,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/Notification$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/app/Notification$1;
 
     .prologue
     .line 589
@@ -198,8 +198,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 635

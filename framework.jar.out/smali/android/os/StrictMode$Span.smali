@@ -45,7 +45,7 @@
 
 .method constructor <init>(Landroid/os/StrictMode$ThreadSpanState;)V
     .locals 0
-    .parameter "threadState"
+    .param p1, "threadState"    # Landroid/os/StrictMode$ThreadSpanState;
 
     .prologue
     .line 1751
@@ -60,7 +60,7 @@
 
 .method static synthetic access$1800(Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
 
     .prologue
     .line 1744
@@ -71,8 +71,8 @@
 
 .method static synthetic access$1802(Landroid/os/StrictMode$Span;Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
+    .param p1, "x1"    # Landroid/os/StrictMode$Span;
 
     .prologue
     .line 1744
@@ -83,7 +83,7 @@
 
 .method static synthetic access$1900(Landroid/os/StrictMode$Span;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
 
     .prologue
     .line 1744
@@ -94,8 +94,8 @@
 
 .method static synthetic access$1902(Landroid/os/StrictMode$Span;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 1744
@@ -106,8 +106,8 @@
 
 .method static synthetic access$2002(Landroid/os/StrictMode$Span;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
+    .param p1, "x1"    # J
 
     .prologue
     .line 1744
@@ -118,8 +118,8 @@
 
 .method static synthetic access$2102(Landroid/os/StrictMode$Span;Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/StrictMode$Span;
+    .param p1, "x1"    # Landroid/os/StrictMode$Span;
 
     .prologue
     .line 1744
@@ -138,7 +138,7 @@
     iget-object v0, p0, Landroid/os/StrictMode$Span;->mContainerState:Landroid/os/StrictMode$ThreadSpanState;
 
     .line 1772
-    .local v0, state:Landroid/os/StrictMode$ThreadSpanState;
+    .local v0, "state":Landroid/os/StrictMode$ThreadSpanState;
     monitor-enter v0
 
     .line 1773
@@ -200,6 +200,7 @@
     iput v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mActiveSize:I
 
     .line 1791
+    # getter for: Landroid/os/StrictMode;->LOG_V:Z
     invoke-static {}, Landroid/os/StrictMode;->access$800()Z
 
     move-result v1

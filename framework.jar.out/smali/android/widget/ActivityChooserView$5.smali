@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 271
@@ -44,7 +43,7 @@
     .line 275
     iget-object v0, p0, Landroid/widget/ActivityChooserView$5;->this$0:Landroid/widget/ActivityChooserView;
 
-    #calls: Landroid/widget/ActivityChooserView;->updateAppearance()V
+    # invokes: Landroid/widget/ActivityChooserView;->updateAppearance()V
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$400(Landroid/widget/ActivityChooserView;)V
 
     .line 276

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .parameter "prn"
+    .param p1, "prn"    # I
 
     .prologue
     .line 34
@@ -101,7 +101,7 @@
 
 .method setStatus(Landroid/location/GpsSatellite;)V
     .locals 1
-    .parameter "satellite"
+    .param p1, "satellite"    # Landroid/location/GpsSatellite;
 
     .prologue
     .line 43

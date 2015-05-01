@@ -29,13 +29,13 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;JJIIII)V
     .locals 4
-    .parameter "dbName"
-    .parameter "pageCount"
-    .parameter "pageSize"
-    .parameter "lookaside"
-    .parameter "hits"
-    .parameter "misses"
-    .parameter "cachesize"
+    .param p1, "dbName"    # Ljava/lang/String;
+    .param p2, "pageCount"    # J
+    .param p4, "pageSize"    # J
+    .param p6, "lookaside"    # I
+    .param p7, "hits"    # I
+    .param p8, "misses"    # I
+    .param p9, "cachesize"    # I
 
     .prologue
     const-wide/16 v2, 0x400

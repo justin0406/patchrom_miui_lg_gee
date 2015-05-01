@@ -38,8 +38,8 @@
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
     .locals 1
-    .parameter "in"
-    .parameter "flags"
+    .param p1, "in"    # Ljava/io/InputStream;
+    .param p2, "flags"    # I
 
     .prologue
     .line 47
@@ -53,9 +53,9 @@
 
 .method public constructor <init>(Ljava/io/InputStream;IZ)V
     .locals 4
-    .parameter "in"
-    .parameter "flags"
-    .parameter "encode"
+    .param p1, "in"    # Ljava/io/InputStream;
+    .param p2, "flags"    # I
+    .param p3, "encode"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -152,7 +152,7 @@
     move-result v0
 
     .line 141
-    .local v0, bytesRead:I
+    .local v0, "bytesRead":I
     const/4 v2, -0x1
 
     if-ne v0, v2, :cond_1
@@ -170,7 +170,7 @@
     move-result v1
 
     .line 147
-    .local v1, success:Z
+    .local v1, "success":Z
     :goto_1
     if-nez v1, :cond_2
 
@@ -184,7 +184,7 @@
     throw v2
 
     .line 145
-    .end local v1           #success:Z
+    .end local v1    # "success":Z
     :cond_1
     iget-object v2, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
@@ -194,7 +194,7 @@
 
     move-result v1
 
-    .restart local v1       #success:Z
+    .restart local v1    # "success":Z
     goto :goto_1
 
     .line 150
@@ -252,7 +252,7 @@
 
 .method public mark(I)V
     .locals 1
-    .parameter "readlimit"
+    .param p1, "readlimit"    # I
 
     .prologue
     .line 80
@@ -327,9 +327,9 @@
 
 .method public read([BII)I
     .locals 3
-    .parameter "b"
-    .parameter "off"
-    .parameter "len"
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -375,7 +375,7 @@
     move-result v0
 
     .line 127
-    .local v0, bytes:I
+    .local v0, "bytes":I
     iget-object v1, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     iget-object v1, v1, Landroid/util/Base64$Coder;->output:[B
@@ -408,7 +408,7 @@
 
 .method public skip(J)J
     .locals 4
-    .parameter "n"
+    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -456,7 +456,7 @@
     move-result-wide v0
 
     .line 104
-    .local v0, bytes:J
+    .local v0, "bytes":J
     iget v2, p0, Landroid/util/Base64InputStream;->outputStart:I
 
     int-to-long v2, v2

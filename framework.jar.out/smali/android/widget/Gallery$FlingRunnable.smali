@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/Gallery;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 1431
@@ -53,8 +52,8 @@
 
 .method static synthetic access$100(Landroid/widget/Gallery$FlingRunnable;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/Gallery$FlingRunnable;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 1420
@@ -65,7 +64,7 @@
 
 .method static synthetic access$200(Landroid/widget/Gallery$FlingRunnable;)Landroid/widget/Scroller;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Gallery$FlingRunnable;
 
     .prologue
     .line 1420
@@ -76,7 +75,7 @@
 
 .method private endFling(Z)V
     .locals 2
-    .parameter "scrollIntoSlots"
+    .param p1, "scrollIntoSlots"    # Z
 
     .prologue
     .line 1472
@@ -91,7 +90,7 @@
 
     iget-object v0, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #calls: Landroid/widget/Gallery;->scrollIntoSlots()V
+    # invokes: Landroid/widget/Gallery;->scrollIntoSlots()V
     invoke-static {v0}, Landroid/widget/Gallery;->access$500(Landroid/widget/Gallery;)V
 
     .line 1475
@@ -140,32 +139,32 @@
 
     const/4 v6, 0x0
 
-    #setter for: Landroid/widget/Gallery;->mShouldStopFling:Z
+    # setter for: Landroid/widget/Gallery;->mShouldStopFling:Z
     invoke-static {v5, v6}, Landroid/widget/Gallery;->access$602(Landroid/widget/Gallery;Z)Z
 
     .line 1487
     iget-object v3, p0, Landroid/widget/Gallery$FlingRunnable;->mScroller:Landroid/widget/Scroller;
 
     .line 1488
-    .local v3, scroller:Landroid/widget/Scroller;
+    .local v3, "scroller":Landroid/widget/Scroller;
     invoke-virtual {v3}, Landroid/widget/Scroller;->computeScrollOffset()Z
 
     move-result v1
 
     .line 1489
-    .local v1, more:Z
+    .local v1, "more":Z
     invoke-virtual {v3}, Landroid/widget/Scroller;->getCurrX()I
 
     move-result v4
 
     .line 1493
-    .local v4, x:I
+    .local v4, "x":I
     iget v5, p0, Landroid/widget/Gallery$FlingRunnable;->mLastFlingX:I
 
     sub-int v0, v5, v4
 
     .line 1496
-    .local v0, delta:I
+    .local v0, "delta":I
     if-lez v0, :cond_2
 
     .line 1498
@@ -173,7 +172,7 @@
 
     iget-object v5, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mIsRtl:Z
+    # getter for: Landroid/widget/Gallery;->mIsRtl:Z
     invoke-static {v5}, Landroid/widget/Gallery;->access$800(Landroid/widget/Gallery;)Z
 
     move-result v5
@@ -195,7 +194,7 @@
     add-int/lit8 v5, v5, -0x1
 
     :goto_1
-    #setter for: Landroid/widget/Gallery;->mDownTouchPosition:I
+    # setter for: Landroid/widget/Gallery;->mDownTouchPosition:I
     invoke-static {v6, v5}, Landroid/widget/Gallery;->access$702(Landroid/widget/Gallery;I)I
 
     .line 1502
@@ -207,7 +206,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mPaddingLeft:I
+    # getter for: Landroid/widget/Gallery;->mPaddingLeft:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$900(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -216,7 +215,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mPaddingRight:I
+    # getter for: Landroid/widget/Gallery;->mPaddingRight:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$1000(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -240,7 +239,7 @@
 
     iget-object v5, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mShouldStopFling:Z
+    # getter for: Landroid/widget/Gallery;->mShouldStopFling:Z
     invoke-static {v5}, Landroid/widget/Gallery;->access$600(Landroid/widget/Gallery;)Z
 
     move-result v5
@@ -276,12 +275,12 @@
     add-int/lit8 v2, v5, -0x1
 
     .line 1506
-    .local v2, offsetToLast:I
+    .local v2, "offsetToLast":I
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
     iget-object v5, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mIsRtl:Z
+    # getter for: Landroid/widget/Gallery;->mIsRtl:Z
     invoke-static {v5}, Landroid/widget/Gallery;->access$800(Landroid/widget/Gallery;)Z
 
     move-result v5
@@ -293,7 +292,7 @@
     iget v5, v5, Landroid/widget/Gallery;->mFirstPosition:I
 
     :goto_3
-    #setter for: Landroid/widget/Gallery;->mDownTouchPosition:I
+    # setter for: Landroid/widget/Gallery;->mDownTouchPosition:I
     invoke-static {v6, v5}, Landroid/widget/Gallery;->access$702(Landroid/widget/Gallery;I)I
 
     .line 1510
@@ -305,7 +304,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mPaddingRight:I
+    # getter for: Landroid/widget/Gallery;->mPaddingRight:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$1100(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -314,7 +313,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mPaddingLeft:I
+    # getter for: Landroid/widget/Gallery;->mPaddingLeft:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$1200(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -350,7 +349,7 @@
     goto :goto_3
 
     .line 1519
-    .end local v2           #offsetToLast:I
+    .end local v2    # "offsetToLast":I
     :cond_4
     invoke-direct {p0, v8}, Landroid/widget/Gallery$FlingRunnable;->endFling(Z)V
 
@@ -359,7 +358,7 @@
 
 .method public startUsingDistance(I)V
     .locals 6
-    .parameter "distance"
+    .param p1, "distance"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -385,7 +384,7 @@
 
     iget-object v2, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/widget/Gallery;->mAnimationDuration:I
+    # getter for: Landroid/widget/Gallery;->mAnimationDuration:I
     invoke-static {v2}, Landroid/widget/Gallery;->access$400(Landroid/widget/Gallery;)I
 
     move-result v5
@@ -406,7 +405,7 @@
 
 .method public startUsingVelocity(I)V
     .locals 9
-    .parameter "initialVelocity"
+    .param p1, "initialVelocity"    # I
 
     .prologue
     const v6, 0x7fffffff
@@ -430,7 +429,7 @@
     move v1, v6
 
     .line 1446
-    .local v1, initialX:I
+    .local v1, "initialX":I
     :goto_1
     iput v1, p0, Landroid/widget/Gallery$FlingRunnable;->mLastFlingX:I
 
@@ -456,7 +455,7 @@
 
     goto :goto_0
 
-    .end local v1           #initialX:I
+    .end local v1    # "initialX":I
     :cond_1
     move v1, v2
 
@@ -466,7 +465,7 @@
 
 .method public stop(Z)V
     .locals 1
-    .parameter "scrollIntoSlots"
+    .param p1, "scrollIntoSlots"    # Z
 
     .prologue
     .line 1463

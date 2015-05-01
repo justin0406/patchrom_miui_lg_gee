@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -48,7 +48,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 93
@@ -74,8 +74,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "pattern"
-    .parameter "type"
+    .param p1, "pattern"    # Ljava/lang/String;
+    .param p2, "type"    # I
 
     .prologue
     .line 51
@@ -93,9 +93,9 @@
 
 .method static matchPattern(Ljava/lang/String;Ljava/lang/String;I)Z
     .locals 13
-    .parameter "pattern"
-    .parameter "match"
-    .parameter "type"
+    .param p0, "pattern"    # Ljava/lang/String;
+    .param p1, "match"    # Ljava/lang/String;
+    .param p2, "type"    # I
 
     .prologue
     const/16 v12, 0x5c
@@ -150,7 +150,7 @@
     move-result v1
 
     .line 120
-    .local v1, NP:I
+    .local v1, "NP":I
     if-gtz v1, :cond_5
 
     .line 121
@@ -177,20 +177,20 @@
     move-result v0
 
     .line 124
-    .local v0, NM:I
+    .local v0, "NM":I
     const/4 v5, 0x0
 
-    .local v5, ip:I
+    .local v5, "ip":I
     const/4 v4, 0x0
 
     .line 125
-    .local v4, im:I
+    .local v4, "im":I
     invoke-virtual {p0, v8}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
     .line 126
-    .local v6, nextChar:C
+    .local v6, "nextChar":C
     :goto_2
     if-ge v5, v1, :cond_14
 
@@ -200,7 +200,7 @@
     move v2, v6
 
     .line 128
-    .local v2, c:C
+    .local v2, "c":C
     add-int/lit8 v5, v5, 0x1
 
     .line 129
@@ -217,7 +217,7 @@
     move v3, v7
 
     .line 131
-    .local v3, escaped:Z
+    .local v3, "escaped":Z
     :goto_4
     if-eqz v3, :cond_6
 
@@ -254,7 +254,7 @@
     .line 141
     goto :goto_0
 
-    .end local v3           #escaped:Z
+    .end local v3    # "escaped":Z
     :cond_7
     move v6, v8
 
@@ -267,7 +267,7 @@
     .line 130
     goto :goto_4
 
-    .restart local v3       #escaped:Z
+    .restart local v3    # "escaped":Z
     :cond_9
     move v6, v8
 
@@ -400,8 +400,8 @@
     goto :goto_2
 
     .line 182
-    .end local v2           #c:C
-    .end local v3           #escaped:Z
+    .end local v2    # "c":C
+    .end local v3    # "escaped":Z
     :cond_14
     if-lt v5, v1, :cond_15
 
@@ -472,7 +472,7 @@
 
 .method public match(Ljava/lang/String;)Z
     .locals 2
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -495,7 +495,7 @@
     const-string v0, "? "
 
     .line 70
-    .local v0, type:Ljava/lang/String;
+    .local v0, "type":Ljava/lang/String;
     iget v1, p0, Landroid/os/PatternMatcher;->mType:I
 
     packed-switch v1, :pswitch_data_0
@@ -567,8 +567,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 89

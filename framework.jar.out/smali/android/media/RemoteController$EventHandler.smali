@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/RemoteController;Landroid/media/RemoteController;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "rc"
-    .parameter "looper"
+    .param p2, "rc"    # Landroid/media/RemoteController;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 667
@@ -40,7 +39,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x0
@@ -91,7 +90,7 @@
 
     check-cast v0, Landroid/app/PendingIntent;
 
-    #calls: Landroid/media/RemoteController;->onNewPendingIntent(ILandroid/app/PendingIntent;)V
+    # invokes: Landroid/media/RemoteController;->onNewPendingIntent(ILandroid/app/PendingIntent;)V
     invoke-static {v1, v2, v0}, Landroid/media/RemoteController;->access$600(Landroid/media/RemoteController;ILandroid/app/PendingIntent;)V
 
     goto :goto_0
@@ -106,7 +105,7 @@
 
     check-cast v0, Landroid/media/RemoteController$PlaybackInfo;
 
-    #calls: Landroid/media/RemoteController;->onNewPlaybackInfo(ILandroid/media/RemoteController$PlaybackInfo;)V
+    # invokes: Landroid/media/RemoteController;->onNewPlaybackInfo(ILandroid/media/RemoteController$PlaybackInfo;)V
     invoke-static {v1, v2, v0}, Landroid/media/RemoteController;->access$700(Landroid/media/RemoteController;ILandroid/media/RemoteController$PlaybackInfo;)V
 
     goto :goto_0
@@ -119,7 +118,7 @@
 
     iget v2, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/RemoteController;->onNewTransportInfo(II)V
+    # invokes: Landroid/media/RemoteController;->onNewTransportInfo(II)V
     invoke-static {v0, v1, v2}, Landroid/media/RemoteController;->access$800(Landroid/media/RemoteController;II)V
 
     goto :goto_0
@@ -134,7 +133,7 @@
 
     check-cast v0, Landroid/os/Bundle;
 
-    #calls: Landroid/media/RemoteController;->onNewMetadata(ILandroid/os/Bundle;)V
+    # invokes: Landroid/media/RemoteController;->onNewMetadata(ILandroid/os/Bundle;)V
     invoke-static {v1, v2, v0}, Landroid/media/RemoteController;->access$900(Landroid/media/RemoteController;ILandroid/os/Bundle;)V
 
     goto :goto_0
@@ -150,7 +149,7 @@
     if-ne v4, v0, :cond_0
 
     :goto_1
-    #calls: Landroid/media/RemoteController;->onClientChange(IZ)V
+    # invokes: Landroid/media/RemoteController;->onClientChange(IZ)V
     invoke-static {v2, v3, v0}, Landroid/media/RemoteController;->access$1000(Landroid/media/RemoteController;IZ)V
 
     goto :goto_0
@@ -169,7 +168,7 @@
     if-ne v3, v0, :cond_1
 
     :goto_2
-    #calls: Landroid/media/RemoteController;->onDisplayEnable(Z)V
+    # invokes: Landroid/media/RemoteController;->onDisplayEnable(Z)V
     invoke-static {v2, v0}, Landroid/media/RemoteController;->access$1100(Landroid/media/RemoteController;Z)V
 
     goto :goto_0

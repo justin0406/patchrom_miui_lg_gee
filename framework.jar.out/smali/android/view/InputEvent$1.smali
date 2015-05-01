@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/InputEvent;
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 221
@@ -51,7 +51,7 @@
     move-result v0
 
     .line 222
-    .local v0, token:I
+    .local v0, "token":I
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
@@ -91,7 +91,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 219
@@ -104,7 +104,7 @@
 
 .method public newArray(I)[Landroid/view/InputEvent;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 232
@@ -115,7 +115,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 219

@@ -62,7 +62,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/INetworkManagementEventObserver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -84,7 +84,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/INetworkManagementEventObserver;
@@ -100,7 +100,7 @@
     :cond_1
     new-instance v0, Landroid/net/INetworkManagementEventObserver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/INetworkManagementEventObserver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -118,10 +118,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -164,7 +164,7 @@
     move-result-object v0
 
     .line 56
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -174,7 +174,7 @@
     move v1, v4
 
     .line 57
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :cond_0
     invoke-virtual {p0, v0, v1}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceStatusChanged(Ljava/lang/String;Z)V
 
@@ -184,8 +184,8 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Z
     :sswitch_2
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -197,7 +197,7 @@
     move-result-object v0
 
     .line 67
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -207,7 +207,7 @@
     move v1, v4
 
     .line 68
-    .restart local v1       #_arg1:Z
+    .restart local v1    # "_arg1":Z
     :cond_1
     invoke-virtual {p0, v0, v1}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceLinkStateChanged(Ljava/lang/String;Z)V
 
@@ -217,8 +217,8 @@
     goto :goto_0
 
     .line 74
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Z
     :sswitch_3
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -230,7 +230,7 @@
     move-result-object v0
 
     .line 77
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceAdded(Ljava/lang/String;)V
 
     .line 78
@@ -239,7 +239,7 @@
     goto :goto_0
 
     .line 83
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_4
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -251,7 +251,7 @@
     move-result-object v0
 
     .line 86
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceRemoved(Ljava/lang/String;)V
 
     .line 87
@@ -260,7 +260,7 @@
     goto :goto_0
 
     .line 92
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_5
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -272,25 +272,25 @@
     move-result-object v0
 
     .line 96
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 98
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 100
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 101
-    .local v3, _arg3:I
+    .local v3, "_arg3":I
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/net/INetworkManagementEventObserver$Stub;->addressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
 
     .line 102
@@ -299,10 +299,10 @@
     goto :goto_0
 
     .line 107
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
-    .end local v2           #_arg2:I
-    .end local v3           #_arg3:I
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
+    .end local v2    # "_arg2":I
+    .end local v3    # "_arg3":I
     :sswitch_6
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -314,25 +314,25 @@
     move-result-object v0
 
     .line 111
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 113
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 115
-    .restart local v2       #_arg2:I
+    .restart local v2    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 116
-    .restart local v3       #_arg3:I
+    .restart local v3    # "_arg3":I
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/net/INetworkManagementEventObserver$Stub;->addressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
 
     .line 117
@@ -341,10 +341,10 @@
     goto/16 :goto_0
 
     .line 122
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
-    .end local v2           #_arg2:I
-    .end local v3           #_arg3:I
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
+    .end local v2    # "_arg2":I
+    .end local v3    # "_arg3":I
     :sswitch_7
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -356,13 +356,13 @@
     move-result-object v0
 
     .line 126
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 127
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/net/INetworkManagementEventObserver$Stub;->limitReached(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 128
@@ -371,8 +371,8 @@
     goto/16 :goto_0
 
     .line 133
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_8
     const-string v5, "android.net.INetworkManagementEventObserver"
 
@@ -384,7 +384,7 @@
     move-result-object v0
 
     .line 137
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -394,7 +394,7 @@
     move v1, v4
 
     .line 138
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :cond_2
     invoke-virtual {p0, v0, v1}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceClassDataActivityChanged(Ljava/lang/String;Z)V
 

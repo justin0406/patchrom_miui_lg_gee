@@ -3,8 +3,8 @@
 .source "ContactsContract.java"
 
 # interfaces
-.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 .implements Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;
+.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 
 
 # annotations
@@ -21,15 +21,15 @@
 # static fields
 .field public static final ADDRESS:Ljava/lang/String; = "data1"
 
-.field public static final CONTENT_FILTER_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URI:Landroid/net/Uri;
 
 .field public static final CONTENT_ITEM_TYPE:Ljava/lang/String; = "vnd.android.cursor.item/email_v2"
 
-.field public static final CONTENT_LOOKUP_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_LOOKUP_URI:Landroid/net/Uri;
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/email_v2"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DISPLAY_NAME:Ljava/lang/String; = "data4"
 
@@ -47,7 +47,7 @@
     .locals 2
 
     .prologue
-    .line 5682
+    .line 5684
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "emails"
@@ -58,7 +58,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 5700
+    .line 5702
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "lookup"
@@ -69,7 +69,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_LOOKUP_URI:Landroid/net/Uri;
 
-    .line 5720
+    .line 5722
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -87,7 +87,7 @@
     .locals 0
 
     .prologue
-    .line 5667
+    .line 5669
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -95,12 +95,12 @@
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
-    .parameter "res"
-    .parameter "type"
-    .parameter "label"
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 5761
+    .line 5763
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -109,20 +109,20 @@
 
     if-nez v1, :cond_0
 
-    .line 5765
-    .end local p2
+    .line 5767
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
-    .line 5764
-    .restart local p2
+    .line 5766
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Email;->getTypeLabelResource(I)I
 
     move-result v0
 
-    .line 5765
-    .local v0, labelRes:I
+    .line 5767
+    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
@@ -132,43 +132,43 @@
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
-    .line 5745
+    .line 5747
     packed-switch p0, :pswitch_data_0
 
-    .line 5750
+    .line 5752
     const v0, 0x10402d1
 
     :goto_0
     return v0
 
-    .line 5746
+    .line 5748
     :pswitch_0
     const v0, 0x10402d2
 
     goto :goto_0
 
-    .line 5747
+    .line 5749
     :pswitch_1
     const v0, 0x10402d3
 
     goto :goto_0
 
-    .line 5748
+    .line 5750
     :pswitch_2
     const v0, 0x10402d4
 
     goto :goto_0
 
-    .line 5749
+    .line 5751
     :pswitch_3
     const v0, 0x10402d5
 
     goto :goto_0
 
-    .line 5745
+    .line 5747
     nop
 
     :pswitch_data_0

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -71,7 +71,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 118
@@ -105,7 +105,7 @@
 
 .method public constructor <init>(Landroid/telephony/CellInfoCdma;)V
     .locals 1
-    .parameter "ci"
+    .param p1, "ci"    # Landroid/telephony/CellInfoCdma;
 
     .prologue
     .line 43
@@ -135,7 +135,7 @@
 
 .method protected static createFromParcelBody(Landroid/os/Parcel;)Landroid/telephony/CellInfoCdma;
     .locals 1
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 140
@@ -148,7 +148,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 147
@@ -174,7 +174,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -201,7 +201,7 @@
     move-object v2, v0
 
     .line 79
-    .local v2, o:Landroid/telephony/CellInfoCdma;
+    .local v2, "o":Landroid/telephony/CellInfoCdma;
     iget-object v4, p0, Landroid/telephony/CellInfoCdma;->mCellIdentityCdma:Landroid/telephony/CellIdentityCdma;
 
     iget-object v5, v2, Landroid/telephony/CellInfoCdma;->mCellIdentityCdma:Landroid/telephony/CellIdentityCdma;
@@ -229,12 +229,12 @@
     goto :goto_0
 
     .line 81
-    .end local v2           #o:Landroid/telephony/CellInfoCdma;
+    .end local v2    # "o":Landroid/telephony/CellInfoCdma;
     :catch_0
     move-exception v1
 
     .line 82
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     goto :goto_0
 .end method
 
@@ -288,7 +288,7 @@
 
 .method public setCellIdentity(Landroid/telephony/CellIdentityCdma;)V
     .locals 0
-    .parameter "cid"
+    .param p1, "cid"    # Landroid/telephony/CellIdentityCdma;
 
     .prologue
     .line 53
@@ -300,7 +300,7 @@
 
 .method public setCellSignalStrength(Landroid/telephony/CellSignalStrengthCdma;)V
     .locals 0
-    .parameter "css"
+    .param p1, "css"    # Landroid/telephony/CellSignalStrengthCdma;
 
     .prologue
     .line 61
@@ -320,7 +320,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 90
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string v1, "CellInfoCdma:{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -369,8 +369,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 108

@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiController;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 167
+    .line 177
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$1;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,17 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 170
+    .line 180
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 171
-    .local v0, action:Ljava/lang/String;
+    .line 181
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "com.android.server.WifiManager.action.DEVICE_IDLE"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -55,19 +54,19 @@
 
     if-eqz v1, :cond_1
 
-    .line 172
+    .line 182
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$1;->this$0:Lcom/android/server/wifi/WifiController;
 
     const v2, 0x26005
 
     invoke-virtual {v1, v2}, Lcom/android/server/wifi/WifiController;->sendMessage(I)V
 
-    .line 177
+    .line 187
     :cond_0
     :goto_0
     return-void
 
-    .line 173
+    .line 183
     :cond_1
     const-string v1, "android.net.wifi.STATE_CHANGE"
 
@@ -77,7 +76,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 174
+    .line 184
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$1;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v1, "networkInfo"

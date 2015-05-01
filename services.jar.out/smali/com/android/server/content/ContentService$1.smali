@@ -36,8 +36,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/ContentService;Landroid/util/SparseIntArray;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 108
@@ -54,8 +52,8 @@
 # virtual methods
 .method public compare(Ljava/lang/Integer;Ljava/lang/Integer;)I
     .locals 4
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Ljava/lang/Integer;
+    .param p2, "rhs"    # Ljava/lang/Integer;
 
     .prologue
     .line 111
@@ -70,7 +68,7 @@
     move-result v0
 
     .line 112
-    .local v0, lc:I
+    .local v0, "lc":I
     iget-object v2, p0, Lcom/android/server/content/ContentService$1;->val$pidCounts:Landroid/util/SparseIntArray;
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
@@ -82,7 +80,7 @@
     move-result v1
 
     .line 113
-    .local v1, rc:I
+    .local v1, "rc":I
     if-ge v0, v1, :cond_0
 
     .line 114
@@ -110,17 +108,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 108
     check-cast p1, Ljava/lang/Integer;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/content/ContentService$1;->compare(Ljava/lang/Integer;Ljava/lang/Integer;)I
 
     move-result v0

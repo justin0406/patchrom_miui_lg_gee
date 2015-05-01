@@ -50,7 +50,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x0
@@ -89,8 +89,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v1, 0x0
@@ -129,9 +129,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -170,7 +170,7 @@
 
 .method static synthetic access$000(Landroid/view/TextureView;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/TextureView;
 
     .prologue
     .line 105
@@ -181,7 +181,7 @@
 
 .method static synthetic access$100(Landroid/view/TextureView;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/TextureView;
 
     .prologue
     .line 105
@@ -328,7 +328,7 @@
     const/4 v0, 0x1
 
     .line 238
-    .local v0, shouldRelease:Z
+    .local v0, "shouldRelease":Z
     iget-object v1, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
     if-eqz v1, :cond_0
@@ -382,12 +382,12 @@
     iput-boolean v1, p0, Landroid/view/TextureView;->mHadSurface:Z
 
     .line 253
-    .end local v0           #shouldRelease:Z
+    .end local v0    # "shouldRelease":Z
     :cond_2
     return-void
 
     .line 244
-    .restart local v0       #shouldRelease:Z
+    .restart local v0    # "shouldRelease":Z
     :catchall_0
     move-exception v1
 
@@ -530,7 +530,7 @@
 
 .method destroyLayer(Z)Z
     .locals 1
-    .parameter "valid"
+    .param p1, "valid"    # Z
 
     .prologue
     .line 335
@@ -541,7 +541,7 @@
 
 .method public final draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 305
@@ -587,8 +587,8 @@
 
 .method public getBitmap(II)Landroid/graphics/Bitmap;
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 560
@@ -633,7 +633,7 @@
 
 .method public getBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 591
@@ -649,7 +649,7 @@
     iget-object v0, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     .line 593
-    .local v0, info:Landroid/view/View$AttachInfo;
+    .local v0, "info":Landroid/view/View$AttachInfo;
     if-eqz v0, :cond_0
 
     iget-object v1, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
@@ -713,7 +713,7 @@
     invoke-virtual {v1, p1}, Landroid/view/HardwareLayer;->copyInto(Landroid/graphics/Bitmap;)Z
 
     .line 615
-    .end local v0           #info:Landroid/view/View$AttachInfo;
+    .end local v0    # "info":Landroid/view/View$AttachInfo;
     :cond_2
     return-object p1
 .end method
@@ -949,7 +949,7 @@
 
 .method public getTransform(Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
     .locals 1
-    .parameter "transform"
+    .param p1, "transform"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 496
@@ -958,11 +958,11 @@
     .line 497
     new-instance p1, Landroid/graphics/Matrix;
 
-    .end local p1
+    .end local p1    # "transform":Landroid/graphics/Matrix;
     invoke-direct {p1}, Landroid/graphics/Matrix;-><init>()V
 
     .line 500
-    .restart local p1
+    .restart local p1    # "transform":Landroid/graphics/Matrix;
     :cond_0
     iget-object v0, p0, Landroid/view/TextureView;->mMatrix:Landroid/graphics/Matrix;
 
@@ -1028,7 +1028,7 @@
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 4
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v0, 0x0
@@ -1175,7 +1175,7 @@
     move-result v0
 
     .line 224
-    .local v0, success:Z
+    .local v0, "success":Z
     if-nez v0, :cond_0
 
     .line 225
@@ -1202,14 +1202,14 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 228
-    .end local v0           #success:Z
+    .end local v0    # "success":Z
     :cond_0
     return-void
 .end method
 
 .method protected final onDraw(Landroid/graphics/Canvas;)V
     .locals 0
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 319
@@ -1218,10 +1218,10 @@
 
 .method protected onSizeChanged(IIII)V
     .locals 4
-    .parameter "w"
-    .parameter "h"
-    .parameter "oldw"
-    .parameter "oldh"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "oldw"    # I
+    .param p4, "oldh"    # I
 
     .prologue
     .line 323
@@ -1275,8 +1275,8 @@
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
     .locals 2
-    .parameter "changedView"
-    .parameter "visibility"
+    .param p1, "changedView"    # Landroid/view/View;
+    .param p2, "visibility"    # I
 
     .prologue
     .line 413
@@ -1318,8 +1318,8 @@
 
 .method public setLayerType(ILandroid/graphics/Paint;)V
     .locals 1
-    .parameter "layerType"
-    .parameter "paint"
+    .param p1, "layerType"    # I
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 270
@@ -1332,7 +1332,7 @@
 
     new-instance p2, Landroid/graphics/Paint;
 
-    .end local p2
+    .end local p2    # "paint":Landroid/graphics/Paint;
     invoke-direct {p2}, Landroid/graphics/Paint;-><init>()V
 
     :cond_0
@@ -1348,7 +1348,7 @@
 
 .method public setOpaque(Z)V
     .locals 1
-    .parameter "opaque"
+    .param p1, "opaque"    # Z
 
     .prologue
     .line 190
@@ -1374,7 +1374,7 @@
 
 .method public setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
     .locals 2
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 739
@@ -1418,7 +1418,7 @@
 
 .method public setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/TextureView$SurfaceTextureListener;
 
     .prologue
     .line 769
@@ -1430,7 +1430,7 @@
 
 .method public setTransform(Landroid/graphics/Matrix;)V
     .locals 1
-    .parameter "transform"
+    .param p1, "transform"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 479
@@ -1452,7 +1452,7 @@
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     .locals 3
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 702

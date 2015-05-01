@@ -33,8 +33,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/CallerInfoAsyncQuery;Landroid/content/Context;)V
     .locals 1
-    .parameter
-    .parameter "context"
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     .line 180
@@ -53,9 +52,9 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/CallerInfoAsyncQuery;Landroid/content/Context;Lcom/android/internal/telephony/CallerInfoAsyncQuery$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery;
+    .param p2, "x1"    # Landroid/content/Context;
+    .param p3, "x2"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery$1;
 
     .prologue
     .line 94
@@ -66,8 +65,8 @@
 
 .method static synthetic access$302(Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/content/Context;)Landroid/content/Context;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/content/Context;
 
     .prologue
     .line 94
@@ -78,8 +77,8 @@
 
 .method static synthetic access$402(Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/net/Uri;
 
     .prologue
     .line 94
@@ -90,8 +89,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Lcom/android/internal/telephony/CallerInfo;)Lcom/android/internal/telephony/CallerInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Lcom/android/internal/telephony/CallerInfo;
 
     .prologue
     .line 94
@@ -104,7 +103,7 @@
 # virtual methods
 .method protected createHandler(Landroid/os/Looper;)Landroid/os/Handler;
     .locals 1
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 186
@@ -117,9 +116,9 @@
 
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
     .locals 10
-    .parameter "token"
-    .parameter "cookie"
-    .parameter "cursor"
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     const/4 v6, 0x3
@@ -132,7 +131,7 @@
     check-cast v8, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
 
     .line 205
-    .local v8, cw:Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
+    .local v8, "cw":Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
     if-nez v8, :cond_1
 
     .line 293
@@ -149,7 +148,7 @@
     .line 215
     iget-object v0, p0, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->this$0:Lcom/android/internal/telephony/CallerInfoAsyncQuery;
 
-    #calls: Lcom/android/internal/telephony/CallerInfoAsyncQuery;->release()V
+    # invokes: Lcom/android/internal/telephony/CallerInfoAsyncQuery;->release()V
     invoke-static {v0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery;->access$000(Lcom/android/internal/telephony/CallerInfoAsyncQuery;)V
 
     goto :goto_0
@@ -208,7 +207,7 @@
     invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;-><init>(Lcom/android/internal/telephony/CallerInfoAsyncQuery$1;)V
 
     .line 283
-    .local v2, endMarker:Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
+    .local v2, "endMarker":Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
     iput v6, v2, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;->event:I
 
     move-object v0, p0
@@ -227,7 +226,7 @@
     invoke-virtual/range {v0 .. v7}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
     .line 288
-    .end local v2           #endMarker:Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
+    .end local v2    # "endMarker":Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
     :cond_6
     iget-object v0, v8, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;->listener:Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;
 
@@ -289,7 +288,7 @@
     move-result-object v9
 
     .line 243
-    .local v9, newCallerInfo:Lcom/android/internal/telephony/CallerInfo;
+    .local v9, "newCallerInfo":Lcom/android/internal/telephony/CallerInfo;
     iget-object v0, p0, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/internal/telephony/CallerInfo;
 
     if-eq v9, v0, :cond_9

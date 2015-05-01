@@ -22,7 +22,7 @@
 # virtual methods
 .method public duplicateFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
     .locals 2
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 36
@@ -35,7 +35,7 @@
     move-result-object v0
 
     .line 37
-    .local v0, result:Landroid/filterfw/core/Frame;
+    .local v0, "result":Landroid/filterfw/core/Frame;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 38
@@ -44,8 +44,8 @@
 
 .method public duplicateFrameToTarget(Landroid/filterfw/core/Frame;I)Landroid/filterfw/core/Frame;
     .locals 3
-    .parameter "frame"
-    .parameter "newTarget"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "newTarget"    # I
 
     .prologue
     .line 42
@@ -58,7 +58,7 @@
     move-result-object v0
 
     .line 43
-    .local v0, newFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "newFormat":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {v0, p2}, Landroid/filterfw/core/MutableFrameFormat;->setTarget(I)V
 
     .line 44
@@ -67,7 +67,7 @@
     move-result-object v1
 
     .line 45
-    .local v1, result:Landroid/filterfw/core/Frame;
+    .local v1, "result":Landroid/filterfw/core/Frame;
     invoke-virtual {v1, p1}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 46
@@ -122,7 +122,7 @@
 
 .method setContext(Landroid/filterfw/core/FilterContext;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 65

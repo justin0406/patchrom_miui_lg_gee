@@ -24,11 +24,11 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;Landroid/content/Context;Landroid/net/Uri;I)V
     .locals 1
-    .parameter "dispatcher"
-    .parameter "callerIdentity"
-    .parameter "context"
-    .parameter "uri"
-    .parameter "streamType"
+    .param p1, "dispatcher"    # Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "context"    # Landroid/content/Context;
+    .param p4, "uri"    # Landroid/net/Uri;
+    .param p5, "streamType"    # I
 
     .prologue
     .line 39
@@ -66,7 +66,7 @@
 
 .method static synthetic access$000(Landroid/speech/tts/AudioPlaybackQueueItem;)Landroid/os/ConditionVariable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/AudioPlaybackQueueItem;
 
     .prologue
     .line 25
@@ -77,8 +77,8 @@
 
 .method static synthetic access$102(Landroid/speech/tts/AudioPlaybackQueueItem;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/tts/AudioPlaybackQueueItem;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 25
@@ -127,7 +127,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, dispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .local v0, "dispatcher":Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnStart()V
 
     .line 54
@@ -211,7 +211,7 @@
     move-exception v1
 
     .line 81
-    .local v1, ex:Ljava/lang/IllegalArgumentException;
+    .local v1, "ex":Ljava/lang/IllegalArgumentException;
     const-string v2, "TTS.AudioQueueItem"
 
     const-string v3, "MediaPlayer failed"
@@ -226,7 +226,7 @@
     goto :goto_1
 
     .line 88
-    .end local v1           #ex:Ljava/lang/IllegalArgumentException;
+    .end local v1    # "ex":Ljava/lang/IllegalArgumentException;
     :cond_1
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnError()V
 
@@ -235,7 +235,7 @@
 
 .method stop(Z)V
     .locals 1
-    .parameter "isError"
+    .param p1, "isError"    # Z
 
     .prologue
     .line 103

@@ -46,18 +46,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/videoeditor/MediaArtistNativeHelper;IILjava/nio/IntBuffer;[IIZLandroid/graphics/Bitmap;IIILandroid/media/videoeditor/MediaItem$GetThumbnailListCallback;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 3827
@@ -94,12 +82,12 @@
 # virtual methods
 .method public onThumbnail(I)V
     .locals 11
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
-    const/high16 v10, 0x3f80
+    const/high16 v10, 0x3f800000    # 1.0f
 
-    const/high16 v9, 0x3f00
+    const/high16 v9, 0x3f000000    # 0.5f
 
     .line 3830
     iget v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$outWidth:I
@@ -113,7 +101,7 @@
     move-result-object v2
 
     .line 3834
-    .local v2, outBitmap:Landroid/graphics/Bitmap;
+    .local v2, "outBitmap":Landroid/graphics/Bitmap;
     iget-object v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$decBuffer:Ljava/nio/IntBuffer;
 
     invoke-virtual {v5}, Ljava/nio/IntBuffer;->rewind()Ljava/nio/Buffer;
@@ -167,13 +155,13 @@
     invoke-direct {v0, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 3850
-    .local v0, canvas:Landroid/graphics/Canvas;
+    .local v0, "canvas":Landroid/graphics/Canvas;
     new-instance v1, Landroid/graphics/Matrix;
 
     invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
 
     .line 3851
-    .local v1, m:Landroid/graphics/Matrix;
+    .local v1, "m":Landroid/graphics/Matrix;
     iget v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$decWidth:I
 
     int-to-float v5, v5
@@ -181,7 +169,7 @@
     div-float v3, v10, v5
 
     .line 3852
-    .local v3, sx:F
+    .local v3, "sx":F
     iget v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$decHeight:I
 
     int-to-float v5, v5
@@ -189,7 +177,7 @@
     div-float v4, v10, v5
 
     .line 3853
-    .local v4, sy:F
+    .local v4, "sy":F
     invoke-virtual {v1, v3, v4}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 3854
@@ -213,6 +201,7 @@
     .line 3856
     iget-object v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$tmpBitmap:Landroid/graphics/Bitmap;
 
+    # getter for: Landroid/media/videoeditor/MediaArtistNativeHelper;->sResizePaint:Landroid/graphics/Paint;
     invoke-static {}, Landroid/media/videoeditor/MediaArtistNativeHelper;->access$000()Landroid/graphics/Paint;
 
     move-result-object v6

@@ -77,7 +77,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .parameter "featureId"
+    .param p1, "featureId"    # I
 
     .prologue
     .line 3566
@@ -165,8 +165,8 @@
 
 .method getIconMenuView(Landroid/content/Context;Lcom/android/internal/view/menu/MenuPresenter$Callback;)Lcom/android/internal/view/menu/MenuView;
     .locals 3
-    .parameter "context"
-    .parameter "cb"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cb"    # Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     .prologue
     .line 3654
@@ -223,14 +223,14 @@
     move-result-object v0
 
     .line 3665
-    .local v0, result:Lcom/android/internal/view/menu/MenuView;
+    .local v0, "result":Lcom/android/internal/view/menu/MenuView;
     goto :goto_0
 .end method
 
 .method getListMenuView(Landroid/content/Context;Lcom/android/internal/view/menu/MenuPresenter$Callback;)Lcom/android/internal/view/menu/MenuView;
     .locals 4
-    .parameter "context"
-    .parameter "cb"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cb"    # Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     .prologue
     .line 3630
@@ -317,7 +317,7 @@
     move-result-object v0
 
     .line 3650
-    .local v0, result:Lcom/android/internal/view/menu/MenuView;
+    .local v0, "result":Lcom/android/internal/view/menu/MenuView;
     goto :goto_0
 .end method
 
@@ -426,7 +426,7 @@
 
 .method onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     const/4 v2, 0x0
@@ -437,7 +437,7 @@
     check-cast v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
 
     .line 3684
-    .local v0, savedState:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
+    .local v0, "savedState":Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
     iget v1, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;->featureId:I
 
     iput v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->featureId:I
@@ -482,7 +482,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$1;)V
 
     .line 3670
-    .local v0, savedState:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
+    .local v0, "savedState":Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;
     iget v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->featureId:I
 
     iput v1, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState$SavedState;->featureId:I
@@ -523,7 +523,7 @@
 
 .method setMenu(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 2
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 3616
@@ -587,7 +587,7 @@
 
 .method setStyle(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x0
@@ -600,7 +600,7 @@
     move-result-object v0
 
     .line 3601
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/16 v1, 0x2e
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 294
@@ -41,9 +41,9 @@
 # virtual methods
 .method public addPrintJobStateChangeListener(Landroid/print/IPrintJobStateChangeListener;II)V
     .locals 5
-    .parameter "listener"
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "listener"    # Landroid/print/IPrintJobStateChangeListener;
+    .param p2, "appId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -57,13 +57,13 @@
     move-result-object v0
 
     .line 438
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 440
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -138,9 +138,9 @@
 
 .method public cancelPrintJob(Landroid/print/PrintJobId;II)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "appId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,13 +154,13 @@
     move-result-object v0
 
     .line 392
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 394
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -234,8 +234,8 @@
 
 .method public createPrinterDiscoverySession(Landroid/print/IPrinterDiscoveryObserver;I)V
     .locals 5
-    .parameter "observer"
-    .parameter "userId"
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -249,13 +249,13 @@
     move-result-object v0
 
     .line 507
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 509
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -317,8 +317,8 @@
 
 .method public destroyPrinterDiscoverySession(Landroid/print/IPrinterDiscoveryObserver;I)V
     .locals 5
-    .parameter "observer"
-    .parameter "userId"
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -332,13 +332,13 @@
     move-result-object v0
 
     .line 616
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 618
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -400,7 +400,7 @@
 
 .method public getEnabledPrintServices(I)Ljava/util/List;
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -424,13 +424,13 @@
     move-result-object v0
 
     .line 489
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 492
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintManager"
 
@@ -461,7 +461,7 @@
     move-result-object v2
 
     .line 499
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 500
@@ -471,7 +471,7 @@
     return-object v2
 
     .line 499
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -485,7 +485,7 @@
 
 .method public getInstalledPrintServices(I)Ljava/util/List;
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -509,13 +509,13 @@
     move-result-object v0
 
     .line 471
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 474
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintManager"
 
@@ -546,7 +546,7 @@
     move-result-object v2
 
     .line 481
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 482
@@ -556,7 +556,7 @@
     return-object v2
 
     .line 481
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -580,9 +580,9 @@
 
 .method public getPrintJobInfo(Landroid/print/PrintJobId;II)Landroid/print/PrintJobInfo;
     .locals 6
-    .parameter "printJobId"
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "appId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -596,13 +596,13 @@
     move-result-object v0
 
     .line 327
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 330
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintManager"
 
@@ -659,7 +659,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 350
-    .local v2, _result:Landroid/print/PrintJobInfo;
+    .local v2, "_result":Landroid/print/PrintJobInfo;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -670,7 +670,7 @@
     return-object v2
 
     .line 336
-    .end local v2           #_result:Landroid/print/PrintJobInfo;
+    .end local v2    # "_result":Landroid/print/PrintJobInfo;
     :cond_0
     const/4 v3, 0x0
 
@@ -696,14 +696,14 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/print/PrintJobInfo;
+    .restart local v2    # "_result":Landroid/print/PrintJobInfo;
     goto :goto_1
 .end method
 
 .method public getPrintJobInfos(II)Ljava/util/List;
     .locals 6
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "appId"    # I
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -727,13 +727,13 @@
     move-result-object v0
 
     .line 308
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 311
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintManager"
 
@@ -767,7 +767,7 @@
     move-result-object v2
 
     .line 319
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 320
@@ -777,7 +777,7 @@
     return-object v2
 
     .line 319
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -791,12 +791,12 @@
 
 .method public print(Ljava/lang/String;Landroid/print/IPrintDocumentAdapter;Landroid/print/PrintAttributes;Ljava/lang/String;II)Landroid/os/Bundle;
     .locals 6
-    .parameter "printJobName"
-    .parameter "printAdapter"
-    .parameter "attributes"
-    .parameter "packageName"
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "printJobName"    # Ljava/lang/String;
+    .param p2, "printAdapter"    # Landroid/print/IPrintDocumentAdapter;
+    .param p3, "attributes"    # Landroid/print/PrintAttributes;
+    .param p4, "packageName"    # Ljava/lang/String;
+    .param p5, "appId"    # I
+    .param p6, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -810,13 +810,13 @@
     move-result-object v0
 
     .line 358
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 361
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintManager"
 
@@ -889,7 +889,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 384
-    .local v2, _result:Landroid/os/Bundle;
+    .local v2, "_result":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -900,7 +900,7 @@
     return-object v2
 
     .line 363
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :cond_0
     const/4 v3, 0x0
 
@@ -932,14 +932,14 @@
     :cond_2
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Bundle;
+    .restart local v2    # "_result":Landroid/os/Bundle;
     goto :goto_2
 .end method
 
 .method public removePrintJobStateChangeListener(Landroid/print/IPrintJobStateChangeListener;I)V
     .locals 5
-    .parameter "listener"
-    .parameter "userId"
+    .param p1, "listener"    # Landroid/print/IPrintJobStateChangeListener;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -953,13 +953,13 @@
     move-result-object v0
 
     .line 455
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 457
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1021,9 +1021,9 @@
 
 .method public restartPrintJob(Landroid/print/PrintJobId;II)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "appId"
-    .parameter "userId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "appId"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1037,13 +1037,13 @@
     move-result-object v0
 
     .line 415
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 417
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1117,9 +1117,8 @@
 
 .method public startPrinterDiscovery(Landroid/print/IPrinterDiscoveryObserver;Ljava/util/List;I)V
     .locals 5
-    .parameter "observer"
-    .parameter
-    .parameter "userId"
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1139,19 +1138,19 @@
 
     .prologue
     .line 522
-    .local p2, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p2, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 523
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 525
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1216,8 +1215,8 @@
 
 .method public startPrinterStateTracking(Landroid/print/PrinterId;I)V
     .locals 5
-    .parameter "printerId"
-    .parameter "userId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1231,13 +1230,13 @@
     move-result-object v0
 
     .line 572
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 574
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1308,8 +1307,8 @@
 
 .method public stopPrinterDiscovery(Landroid/print/IPrinterDiscoveryObserver;I)V
     .locals 5
-    .parameter "observer"
-    .parameter "userId"
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1323,13 +1322,13 @@
     move-result-object v0
 
     .line 540
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 542
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1391,8 +1390,8 @@
 
 .method public stopPrinterStateTracking(Landroid/print/PrinterId;I)V
     .locals 5
-    .parameter "printerId"
-    .parameter "userId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1406,13 +1405,13 @@
     move-result-object v0
 
     .line 594
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 596
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 
@@ -1483,8 +1482,7 @@
 
 .method public validatePrinters(Ljava/util/List;I)V
     .locals 5
-    .parameter
-    .parameter "userId"
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1503,19 +1501,19 @@
 
     .prologue
     .line 555
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 556
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 558
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintManager"
 

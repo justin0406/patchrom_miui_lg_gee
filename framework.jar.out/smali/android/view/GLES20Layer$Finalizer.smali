@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "layerId"
+    .param p1, "layerId"    # I
 
     .prologue
     .line 80

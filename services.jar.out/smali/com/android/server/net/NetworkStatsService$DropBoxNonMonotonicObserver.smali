@@ -34,7 +34,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1242
@@ -47,8 +46,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/net/NetworkStatsService;Lcom/android/server/net/NetworkStatsService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/net/NetworkStatsService;
+    .param p2, "x1"    # Lcom/android/server/net/NetworkStatsService$1;
 
     .prologue
     .line 1242
@@ -61,11 +60,11 @@
 # virtual methods
 .method public bridge synthetic foundNonMonotonic(Landroid/net/NetworkStats;ILandroid/net/NetworkStats;ILjava/lang/Object;)V
     .locals 6
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Landroid/net/NetworkStats;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Landroid/net/NetworkStats;
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Ljava/lang/Object;
 
     .prologue
     .line 1242
@@ -90,11 +89,11 @@
 
 .method public foundNonMonotonic(Landroid/net/NetworkStats;ILandroid/net/NetworkStats;ILjava/lang/String;)V
     .locals 5
-    .parameter "left"
-    .parameter "leftIndex"
-    .parameter "right"
-    .parameter "rightIndex"
-    .parameter "cookie"
+    .param p1, "left"    # Landroid/net/NetworkStats;
+    .param p2, "leftIndex"    # I
+    .param p3, "right"    # Landroid/net/NetworkStats;
+    .param p4, "rightIndex"    # I
+    .param p5, "cookie"    # Ljava/lang/String;
 
     .prologue
     const/16 v4, 0xa
@@ -112,7 +111,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1250
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -188,7 +187,7 @@
     .line 1255
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$DropBoxNonMonotonicObserver;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/net/NetworkStatsService;->access$1300(Lcom/android/server/net/NetworkStatsService;)Landroid/content/Context;
 
     move-result-object v2
@@ -202,7 +201,7 @@
     check-cast v1, Landroid/os/DropBoxManager;
 
     .line 1257
-    .local v1, dropBox:Landroid/os/DropBoxManager;
+    .local v1, "dropBox":Landroid/os/DropBoxManager;
     const-string v2, "netstats_error"
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;

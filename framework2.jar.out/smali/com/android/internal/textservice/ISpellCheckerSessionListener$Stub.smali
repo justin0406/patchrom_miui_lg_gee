@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/textservice/ISpellCheckerSessionListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/textservice/ISpellCheckerSessionListener;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/textservice/ISpellCheckerSessionListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/textservice/ISpellCheckerSessionListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,13 +154,13 @@
     check-cast v0, [Landroid/view/textservice/SuggestionsInfo;
 
     .line 53
-    .local v0, _arg0:[Landroid/view/textservice/SuggestionsInfo;
+    .local v0, "_arg0":[Landroid/view/textservice/SuggestionsInfo;
     invoke-virtual {p0, v0}, Lcom/android/internal/textservice/ISpellCheckerSessionListener$Stub;->onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
 
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:[Landroid/view/textservice/SuggestionsInfo;
+    .end local v0    # "_arg0":[Landroid/view/textservice/SuggestionsInfo;
     :sswitch_2
     const-string v2, "com.android.internal.textservice.ISpellCheckerSessionListener"
 
@@ -176,7 +176,7 @@
     check-cast v0, [Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .line 61
-    .local v0, _arg0:[Landroid/view/textservice/SentenceSuggestionsInfo;
+    .local v0, "_arg0":[Landroid/view/textservice/SentenceSuggestionsInfo;
     invoke-virtual {p0, v0}, Lcom/android/internal/textservice/ISpellCheckerSessionListener$Stub;->onGetSentenceSuggestions([Landroid/view/textservice/SentenceSuggestionsInfo;)V
 
     goto :goto_0

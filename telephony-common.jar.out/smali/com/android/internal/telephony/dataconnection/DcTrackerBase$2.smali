@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 315
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v3, 0x1
@@ -50,7 +49,7 @@
     move-result-object v0
 
     .line 320
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$2;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -261,7 +260,7 @@
     check-cast v2, Landroid/net/NetworkInfo;
 
     .line 344
-    .local v2, networkInfo:Landroid/net/NetworkInfo;
+    .local v2, "networkInfo":Landroid/net/NetworkInfo;
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$2;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
     if-eqz v2, :cond_7
@@ -311,7 +310,7 @@
     goto :goto_1
 
     .line 346
-    .end local v2           #networkInfo:Landroid/net/NetworkInfo;
+    .end local v2    # "networkInfo":Landroid/net/NetworkInfo;
     :cond_8
     const-string v5, "android.net.wifi.WIFI_STATE_CHANGED"
 
@@ -337,7 +336,7 @@
     move v1, v3
 
     .line 350
-    .local v1, enabled:Z
+    .local v1, "enabled":Z
     :goto_2
     if-nez v1, :cond_9
 
@@ -386,7 +385,7 @@
 
     goto/16 :goto_0
 
-    .end local v1           #enabled:Z
+    .end local v1    # "enabled":Z
     :cond_a
     move v1, v4
 

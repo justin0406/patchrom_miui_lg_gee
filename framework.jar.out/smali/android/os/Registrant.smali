@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 30
@@ -87,8 +87,8 @@
 
 .method internalNotifyRegistrant(Ljava/lang/Object;Ljava/lang/Throwable;)V
     .locals 4
-    .parameter "result"
-    .parameter "exception"
+    .param p1, "result"    # Ljava/lang/Object;
+    .param p2, "exception"    # Ljava/lang/Throwable;
 
     .prologue
     .line 73
@@ -97,7 +97,7 @@
     move-result-object v0
 
     .line 75
-    .local v0, h:Landroid/os/Handler;
+    .local v0, "h":Landroid/os/Handler;
     if-nez v0, :cond_0
 
     .line 76
@@ -114,7 +114,7 @@
     move-result-object v1
 
     .line 80
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     iget v2, p0, Landroid/os/Registrant;->what:I
 
     iput v2, v1, Landroid/os/Message;->what:I
@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, h:Landroid/os/Handler;
+    .local v0, "h":Landroid/os/Handler;
     if-nez v0, :cond_0
 
     .line 98
@@ -164,7 +164,7 @@
     move-result-object v1
 
     .line 104
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     iget v2, p0, Landroid/os/Registrant;->what:I
 
     iput v2, v1, Landroid/os/Message;->what:I
@@ -179,7 +179,7 @@
 
 .method public notifyException(Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "exception"
+    .param p1, "exception"    # Ljava/lang/Throwable;
 
     .prologue
     .line 58
@@ -206,7 +206,7 @@
 
 .method public notifyRegistrant(Landroid/os/AsyncResult;)V
     .locals 2
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 67
@@ -222,7 +222,7 @@
 
 .method public notifyResult(Ljava/lang/Object;)V
     .locals 1
-    .parameter "result"
+    .param p1, "result"    # Ljava/lang/Object;
 
     .prologue
     .line 52

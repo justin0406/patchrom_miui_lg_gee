@@ -32,7 +32,7 @@
 
     .prologue
     .line 2398
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     invoke-static {v0}, Landroid/widget/GridLayout;->spec(I)Landroid/widget/GridLayout$Spec;
 
@@ -45,10 +45,10 @@
 
 .method private constructor <init>(ZIILandroid/widget/GridLayout$Alignment;)V
     .locals 2
-    .parameter "startDefined"
-    .parameter "start"
-    .parameter "size"
-    .parameter "alignment"
+    .param p1, "startDefined"    # Z
+    .param p2, "start"    # I
+    .param p3, "size"    # I
+    .param p4, "alignment"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2411
@@ -66,11 +66,11 @@
 
 .method synthetic constructor <init>(ZIILandroid/widget/GridLayout$Alignment;Landroid/widget/GridLayout$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Z
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Landroid/widget/GridLayout$Alignment;
+    .param p5, "x4"    # Landroid/widget/GridLayout$1;
 
     .prologue
     .line 2397
@@ -81,9 +81,9 @@
 
 .method private constructor <init>(ZLandroid/widget/GridLayout$Interval;Landroid/widget/GridLayout$Alignment;)V
     .locals 0
-    .parameter "startDefined"
-    .parameter "span"
-    .parameter "alignment"
+    .param p1, "startDefined"    # Z
+    .param p2, "span"    # Landroid/widget/GridLayout$Interval;
+    .param p3, "alignment"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2404
@@ -106,7 +106,7 @@
 # virtual methods
 .method final copyWriteAlignment(Landroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;
     .locals 3
-    .parameter "alignment"
+    .param p1, "alignment"    # Landroid/widget/GridLayout$Alignment;
 
     .prologue
     .line 2419
@@ -123,7 +123,7 @@
 
 .method final copyWriteSpan(Landroid/widget/GridLayout$Interval;)Landroid/widget/GridLayout$Spec;
     .locals 3
-    .parameter "span"
+    .param p1, "span"    # Landroid/widget/GridLayout$Interval;
 
     .prologue
     .line 2415
@@ -140,7 +140,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "that"
+    .param p1, "that"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -182,7 +182,7 @@
     check-cast v0, Landroid/widget/GridLayout$Spec;
 
     .line 2447
-    .local v0, spec:Landroid/widget/GridLayout$Spec;
+    .local v0, "spec":Landroid/widget/GridLayout$Spec;
     iget-object v3, p0, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;
 
     iget-object v4, v0, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;
@@ -250,7 +250,7 @@
     move-result v0
 
     .line 2461
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget-object v2, p0, Landroid/widget/GridLayout$Spec;->alignment:Landroid/widget/GridLayout$Alignment;

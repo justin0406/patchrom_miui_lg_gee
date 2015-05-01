@@ -27,9 +27,9 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$FieldID;)V
     .locals 0
-    .parameter "t"
-    .parameter "from"
-    .parameter "to"
+    .param p1, "t"    # Landroid/renderscript/Type;
+    .param p2, "from"    # Landroid/renderscript/Script$KernelID;
+    .param p3, "to"    # Landroid/renderscript/Script$FieldID;
 
     .prologue
     .line 65
@@ -50,9 +50,9 @@
 
 .method constructor <init>(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$KernelID;)V
     .locals 0
-    .parameter "t"
-    .parameter "from"
-    .parameter "to"
+    .param p1, "t"    # Landroid/renderscript/Type;
+    .param p2, "from"    # Landroid/renderscript/Script$KernelID;
+    .param p3, "to"    # Landroid/renderscript/Script$KernelID;
 
     .prologue
     .line 59

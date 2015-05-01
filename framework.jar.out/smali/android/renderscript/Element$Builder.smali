@@ -31,7 +31,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 2
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     const/16 v1, 0x8
@@ -70,8 +70,8 @@
 # virtual methods
 .method public add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
     .locals 1
-    .parameter "element"
-    .parameter "name"
+    .param p1, "element"    # Landroid/renderscript/Element;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 1073
@@ -86,9 +86,9 @@
 
 .method public add(Landroid/renderscript/Element;Ljava/lang/String;I)Landroid/renderscript/Element$Builder;
     .locals 7
-    .parameter "element"
-    .parameter "name"
-    .parameter "arraySize"
+    .param p1, "element"    # Landroid/renderscript/Element;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "arraySize"    # I
 
     .prologue
     const/4 v6, 0x1
@@ -158,7 +158,7 @@
     new-array v1, v3, [Landroid/renderscript/Element;
 
     .line 1050
-    .local v1, e:[Landroid/renderscript/Element;
+    .local v1, "e":[Landroid/renderscript/Element;
     iget v3, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
     add-int/lit8 v3, v3, 0x8
@@ -166,7 +166,7 @@
     new-array v2, v3, [Ljava/lang/String;
 
     .line 1051
-    .local v2, s:[Ljava/lang/String;
+    .local v2, "s":[Ljava/lang/String;
     iget v3, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
     add-int/lit8 v3, v3, 0x8
@@ -174,7 +174,7 @@
     new-array v0, v3, [I
 
     .line 1052
-    .local v0, as:[I
+    .local v0, "as":[I
     iget-object v3, p0, Landroid/renderscript/Element$Builder;->mElements:[Landroid/renderscript/Element;
 
     iget v4, p0, Landroid/renderscript/Element$Builder;->mCount:I
@@ -205,9 +205,9 @@
     iput-object v0, p0, Landroid/renderscript/Element$Builder;->mArraySizes:[I
 
     .line 1059
-    .end local v0           #as:[I
-    .end local v1           #e:[Landroid/renderscript/Element;
-    .end local v2           #s:[Ljava/lang/String;
+    .end local v0    # "as":[I
+    .end local v1    # "e":[Landroid/renderscript/Element;
+    .end local v2    # "s":[Ljava/lang/String;
     :cond_2
     iget-object v3, p0, Landroid/renderscript/Element$Builder;->mElements:[Landroid/renderscript/Element;
 
@@ -262,19 +262,19 @@
     new-array v3, v0, [Landroid/renderscript/Element;
 
     .line 1085
-    .local v3, ein:[Landroid/renderscript/Element;
+    .local v3, "ein":[Landroid/renderscript/Element;
     iget v0, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
     new-array v4, v0, [Ljava/lang/String;
 
     .line 1086
-    .local v4, sin:[Ljava/lang/String;
+    .local v4, "sin":[Ljava/lang/String;
     iget v0, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
     new-array v5, v0, [I
 
     .line 1087
-    .local v5, asin:[I
+    .local v5, "asin":[I
     iget-object v0, p0, Landroid/renderscript/Element$Builder;->mElements:[Landroid/renderscript/Element;
 
     iget v2, p0, Landroid/renderscript/Element$Builder;->mCount:I
@@ -301,10 +301,10 @@
     new-array v7, v0, [I
 
     .line 1092
-    .local v7, ids:[I
+    .local v7, "ids":[I
     const/4 v6, 0x0
 
-    .local v6, ct:I
+    .local v6, "ct":I
     :goto_0
     array-length v0, v3
 
@@ -335,7 +335,7 @@
     move-result v1
 
     .line 1096
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v0, Landroid/renderscript/Element;
 
     iget-object v2, p0, Landroid/renderscript/Element$Builder;->mRS:Landroid/renderscript/RenderScript;

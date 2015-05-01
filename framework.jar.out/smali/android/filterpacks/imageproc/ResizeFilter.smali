@@ -42,7 +42,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -69,8 +69,8 @@
 # virtual methods
 .method protected createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
     .locals 3
-    .parameter "context"
-    .parameter "format"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 72
@@ -131,7 +131,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, prog:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "prog":Landroid/filterfw/core/ShaderProgram;
     iput-object v0, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     goto :goto_0
@@ -148,8 +148,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 68
@@ -158,7 +158,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 91
@@ -169,7 +169,7 @@
     move-result-object v0
 
     .line 92
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v5
@@ -186,7 +186,7 @@
     move-result-object v4
 
     .line 96
-    .local v4, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v4, "outputFormat":Landroid/filterfw/core/MutableFrameFormat;
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mKeepAspectRatio:Z
 
     if-eqz v5, :cond_0
@@ -197,7 +197,7 @@
     move-result-object v1
 
     .line 98
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mOWidth:I
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
@@ -215,7 +215,7 @@
     iput v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mOHeight:I
 
     .line 100
-    .end local v1           #inputFormat:Landroid/filterfw/core/FrameFormat;
+    .end local v1    # "inputFormat":Landroid/filterfw/core/FrameFormat;
     :cond_0
     iget v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mOWidth:I
 
@@ -233,7 +233,7 @@
     move-result-object v3
 
     .line 104
-    .local v3, output:Landroid/filterfw/core/Frame;
+    .local v3, "output":Landroid/filterfw/core/Frame;
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mGenerateMipMap:Z
 
     if-eqz v5, :cond_1
@@ -254,7 +254,7 @@
     check-cast v2, Landroid/filterfw/core/GLFrame;
 
     .line 106
-    .local v2, mipmapped:Landroid/filterfw/core/GLFrame;
+    .local v2, "mipmapped":Landroid/filterfw/core/GLFrame;
     const/16 v5, 0x2801
 
     const/16 v6, 0x2701
@@ -276,7 +276,7 @@
     invoke-virtual {v2}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     .line 117
-    .end local v2           #mipmapped:Landroid/filterfw/core/GLFrame;
+    .end local v2    # "mipmapped":Landroid/filterfw/core/GLFrame;
     :goto_0
     const-string v5, "image"
 

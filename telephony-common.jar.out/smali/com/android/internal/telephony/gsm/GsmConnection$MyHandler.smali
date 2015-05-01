@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/gsm/GsmConnection;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "l"
+    .param p2, "l"    # Landroid/os/Looper;
 
     .prologue
     .line 99
@@ -37,7 +36,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 105
@@ -53,7 +52,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmConnection$MyHandler;->this$0:Lcom/android/internal/telephony/gsm/GsmConnection;
 
-    #calls: Lcom/android/internal/telephony/gsm/GsmConnection;->processNextPostDialChar()V
+    # invokes: Lcom/android/internal/telephony/gsm/GsmConnection;->processNextPostDialChar()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->access$000(Lcom/android/internal/telephony/gsm/GsmConnection;)V
 
     goto :goto_0
@@ -62,7 +61,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmConnection$MyHandler;->this$0:Lcom/android/internal/telephony/gsm/GsmConnection;
 
-    #calls: Lcom/android/internal/telephony/gsm/GsmConnection;->releaseWakeLock()V
+    # invokes: Lcom/android/internal/telephony/gsm/GsmConnection;->releaseWakeLock()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->access$100(Lcom/android/internal/telephony/gsm/GsmConnection;)V
 
     goto :goto_0

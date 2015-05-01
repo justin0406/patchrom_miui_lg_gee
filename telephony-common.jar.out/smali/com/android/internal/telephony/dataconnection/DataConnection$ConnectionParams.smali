@@ -31,11 +31,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/ApnContext;IIILandroid/os/Message;)V
     .locals 0
-    .parameter "apnContext"
-    .parameter "initialMaxRetry"
-    .parameter "profileId"
-    .parameter "rilRadioTechnology"
-    .parameter "onCompletedMsg"
+    .param p1, "apnContext"    # Lcom/android/internal/telephony/dataconnection/ApnContext;
+    .param p2, "initialMaxRetry"    # I
+    .param p3, "profileId"    # I
+    .param p4, "rilRadioTechnology"    # I
+    .param p5, "onCompletedMsg"    # Landroid/os/Message;
 
     .prologue
     .line 113
@@ -139,7 +139,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$ConnectionParams;->mOnCompletedMsg:Landroid/os/Message;
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DataConnection;->msgToString(Landroid/os/Message;)Ljava/lang/String;
+    # invokes: Lcom/android/internal/telephony/dataconnection/DataConnection;->msgToString(Landroid/os/Message;)Ljava/lang/String;
     invoke-static {v1}, Lcom/android/internal/telephony/dataconnection/DataConnection;->access$000(Landroid/os/Message;)Ljava/lang/String;
 
     move-result-object v1

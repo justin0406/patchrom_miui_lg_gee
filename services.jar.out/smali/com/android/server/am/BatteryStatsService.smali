@@ -22,7 +22,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "filename"
+    .param p1, "filename"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -48,7 +48,7 @@
 
 .method static synthetic access$000(Lcom/android/server/am/BatteryStatsService;)Landroid/bluetooth/BluetoothHeadset;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/BatteryStatsService;
 
     .prologue
     .line 49
@@ -59,8 +59,8 @@
 
 .method static synthetic access$002(Lcom/android/server/am/BatteryStatsService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/am/BatteryStatsService;
+    .param p1, "x1"    # Landroid/bluetooth/BluetoothHeadset;
 
     .prologue
     .line 49
@@ -71,7 +71,7 @@
 
 .method static synthetic access$100(Lcom/android/server/am/BatteryStatsService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/BatteryStatsService;
 
     .prologue
     .line 49
@@ -82,8 +82,8 @@
 
 .method static synthetic access$102(Lcom/android/server/am/BatteryStatsService;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/am/BatteryStatsService;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 49
@@ -94,7 +94,7 @@
 
 .method private dumpHelp(Ljava/io/PrintWriter;)V
     .locals 1
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 497
@@ -154,12 +154,12 @@
     sget-object v1, Lcom/android/server/am/BatteryStatsService;->sService:Lcom/android/internal/app/IBatteryStats;
 
     .line 83
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     :goto_0
     return-object v1
 
     .line 81
-    .end local v0           #b:Landroid/os/IBinder;
+    .end local v0    # "b":Landroid/os/IBinder;
     :cond_0
     const-string v1, "batterystats"
 
@@ -168,7 +168,7 @@
     move-result-object v0
 
     .line 82
-    .restart local v0       #b:Landroid/os/IBinder;
+    .restart local v0    # "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IBatteryStats;
 
     move-result-object v1
@@ -185,9 +185,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 13
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 509
@@ -262,42 +262,42 @@
     const/4 v6, 0x0
 
     .line 518
-    .local v6, isCheckin:Z
+    .local v6, "isCheckin":Z
     const/4 v5, 0x0
 
     .line 519
-    .local v5, includeHistory:Z
+    .local v5, "includeHistory":Z
     const/4 v7, 0x0
 
     .line 520
-    .local v7, isUnpluggedOnly:Z
+    .local v7, "isUnpluggedOnly":Z
     const/4 v9, 0x0
 
     .line 521
-    .local v9, noOutput:Z
+    .local v9, "noOutput":Z
     const/4 v10, -0x1
 
     .line 522
-    .local v10, reqUid:I
+    .local v10, "reqUid":I
     if-eqz p3, :cond_a
 
     .line 523
     move-object/from16 v2, p3
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v8, v2
 
-    .local v8, len$:I
+    .local v8, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_1
     if-ge v4, v8, :cond_a
 
     aget-object v1, v2, v4
 
     .line 524
-    .local v1, arg:Ljava/lang/String;
+    .local v1, "arg":Ljava/lang/String;
     const-string v11, "--checkin"
 
     invoke-virtual {v11, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -529,7 +529,7 @@
     move-exception v3
 
     .line 558
-    .local v3, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v3, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -556,11 +556,11 @@
     goto/16 :goto_0
 
     .line 565
-    .end local v1           #arg:Ljava/lang/String;
-    .end local v2           #arr$:[Ljava/lang/String;
-    .end local v3           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .end local v4           #i$:I
-    .end local v8           #len$:I
+    .end local v1    # "arg":Ljava/lang/String;
+    .end local v2    # "arr$":[Ljava/lang/String;
+    .end local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v4    # "i$":I
+    .end local v8    # "len$":I
     :cond_a
     if-nez v9, :cond_0
 
@@ -581,7 +581,7 @@
     move-result-object v0
 
     .line 570
-    .local v0, apps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
+    .local v0, "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     iget-object v12, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     monitor-enter v12
@@ -607,7 +607,7 @@
     throw v11
 
     .line 574
-    .end local v0           #apps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
+    .end local v0    # "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     :cond_b
     iget-object v12, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
@@ -749,7 +749,7 @@
     move-result-object v1
 
     .line 101
-    .local v1, out:Landroid/os/Parcel;
+    .local v1, "out":Landroid/os/Parcel;
     iget-object v2, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     const/4 v3, 0x0
@@ -762,7 +762,7 @@
     move-result-object v0
 
     .line 103
-    .local v0, data:[B
+    .local v0, "data":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 104
@@ -838,7 +838,7 @@
     move-result-object v0
 
     .line 312
-    .local v0, adapter:Landroid/bluetooth/BluetoothAdapter;
+    .local v0, "adapter":Landroid/bluetooth/BluetoothAdapter;
     if-eqz v0, :cond_0
 
     .line 313
@@ -900,7 +900,7 @@
 
 .method public noteFullWifiLockAcquired(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 353
@@ -936,7 +936,7 @@
 
 .method public noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 395
@@ -972,7 +972,7 @@
 
 .method public noteFullWifiLockReleased(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 360
@@ -1008,7 +1008,7 @@
 
 .method public noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 402
@@ -1060,8 +1060,8 @@
 
 .method public noteNetworkInterfaceType(Ljava/lang/String;I)V
     .locals 2
-    .parameter "iface"
-    .parameter "type"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "type"    # I
 
     .prologue
     .line 452
@@ -1132,8 +1132,8 @@
 
 .method public notePhoneDataConnectionState(IZ)V
     .locals 2
-    .parameter "dataType"
-    .parameter "hasData"
+    .param p1, "dataType"    # I
+    .param p2, "hasData"    # Z
 
     .prologue
     .line 232
@@ -1239,7 +1239,7 @@
 
 .method public notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
     .locals 2
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
 
     .prologue
     .line 225
@@ -1275,7 +1275,7 @@
 
 .method public notePhoneState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 239
@@ -1291,7 +1291,7 @@
     move-result v0
 
     .line 241
-    .local v0, simState:I
+    .local v0, "simState":I
     iget-object v2, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     monitor-enter v2
@@ -1321,7 +1321,7 @@
 
 .method public noteScreenBrightness(I)V
     .locals 2
-    .parameter "brightness"
+    .param p1, "brightness"    # I
 
     .prologue
     .line 185
@@ -1427,7 +1427,7 @@
 
 .method public noteStartAudio(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 261
@@ -1463,7 +1463,7 @@
 
 .method public noteStartGps(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 164
@@ -1499,8 +1499,8 @@
 
 .method public noteStartSensor(II)V
     .locals 2
-    .parameter "uid"
-    .parameter "sensor"
+    .param p1, "uid"    # I
+    .param p2, "sensor"    # I
 
     .prologue
     .line 136
@@ -1536,7 +1536,7 @@
 
 .method public noteStartVideo(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 275
@@ -1572,10 +1572,10 @@
 
 .method public noteStartWakelock(IILjava/lang/String;I)V
     .locals 2
-    .parameter "uid"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
 
     .prologue
     .line 108
@@ -1611,10 +1611,10 @@
 
 .method public noteStartWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
     .locals 2
-    .parameter "ws"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
 
     .prologue
     .line 122
@@ -1650,7 +1650,7 @@
 
 .method public noteStopAudio(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 268
@@ -1686,7 +1686,7 @@
 
 .method public noteStopGps(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 171
@@ -1722,8 +1722,8 @@
 
 .method public noteStopSensor(II)V
     .locals 2
-    .parameter "uid"
-    .parameter "sensor"
+    .param p1, "uid"    # I
+    .param p2, "sensor"    # I
 
     .prologue
     .line 143
@@ -1759,7 +1759,7 @@
 
 .method public noteStopVideo(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 282
@@ -1795,10 +1795,10 @@
 
 .method public noteStopWakelock(IILjava/lang/String;I)V
     .locals 2
-    .parameter "uid"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
 
     .prologue
     .line 115
@@ -1834,10 +1834,10 @@
 
 .method public noteStopWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
     .locals 2
-    .parameter "ws"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
 
     .prologue
     .line 129
@@ -1873,8 +1873,8 @@
 
 .method public noteUserActivity(II)V
     .locals 2
-    .parameter "uid"
-    .parameter "event"
+    .param p1, "uid"    # I
+    .param p2, "event"    # I
 
     .prologue
     .line 204
@@ -1910,7 +1910,7 @@
 
 .method public noteVibratorOff(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 157
@@ -1946,8 +1946,8 @@
 
 .method public noteVibratorOn(IJ)V
     .locals 2
-    .parameter "uid"
-    .parameter "durationMillis"
+    .param p1, "uid"    # I
+    .param p2, "durationMillis"    # J
 
     .prologue
     .line 150
@@ -1983,8 +1983,8 @@
 
 .method public noteWifiBatchedScanStartedFromSource(Landroid/os/WorkSource;I)V
     .locals 2
-    .parameter "ws"
-    .parameter "csph"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "csph"    # I
 
     .prologue
     .line 423
@@ -2020,7 +2020,7 @@
 
 .method public noteWifiBatchedScanStoppedFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 430
@@ -2056,7 +2056,7 @@
 
 .method public noteWifiMulticastDisabled(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 388
@@ -2092,7 +2092,7 @@
 
 .method public noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 444
@@ -2128,7 +2128,7 @@
 
 .method public noteWifiMulticastEnabled(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 381
@@ -2164,7 +2164,7 @@
 
 .method public noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 437
@@ -2270,7 +2270,7 @@
 
 .method public noteWifiRunning(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 289
@@ -2306,8 +2306,8 @@
 
 .method public noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "oldWs"
-    .parameter "newWs"
+    .param p1, "oldWs"    # Landroid/os/WorkSource;
+    .param p2, "newWs"    # Landroid/os/WorkSource;
 
     .prologue
     .line 296
@@ -2343,7 +2343,7 @@
 
 .method public noteWifiScanStarted(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 367
@@ -2379,7 +2379,7 @@
 
 .method public noteWifiScanStartedFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 409
@@ -2415,7 +2415,7 @@
 
 .method public noteWifiScanStopped(I)V
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 374
@@ -2451,7 +2451,7 @@
 
 .method public noteWifiScanStoppedFromSource(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 416
@@ -2487,7 +2487,7 @@
 
 .method public noteWifiStopped(Landroid/os/WorkSource;)V
     .locals 2
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 303
@@ -2523,7 +2523,7 @@
 
 .method public publish(Landroid/content/Context;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 62
@@ -2582,12 +2582,12 @@
 
 .method public setBatteryState(IIIIII)V
     .locals 7
-    .parameter "status"
-    .parameter "health"
-    .parameter "plugType"
-    .parameter "level"
-    .parameter "temp"
-    .parameter "volt"
+    .param p1, "status"    # I
+    .param p2, "health"    # I
+    .param p3, "plugType"    # I
+    .param p4, "level"    # I
+    .param p5, "temp"    # I
+    .param p6, "volt"    # I
 
     .prologue
     .line 472

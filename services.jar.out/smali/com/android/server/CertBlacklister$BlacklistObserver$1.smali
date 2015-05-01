@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/CertBlacklister$BlacklistObserver;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 77
@@ -42,7 +41,7 @@
     .line 79
     iget-object v5, p0, Lcom/android/server/CertBlacklister$BlacklistObserver$1;->this$0:Lcom/android/server/CertBlacklister$BlacklistObserver;
 
-    #getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mTmpDir:Ljava/io/File;
+    # getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mTmpDir:Ljava/io/File;
     invoke-static {v5}, Lcom/android/server/CertBlacklister$BlacklistObserver;->access$000(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/io/File;
 
     move-result-object v6
@@ -58,7 +57,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, blacklist:Ljava/lang/String;
+    .local v0, "blacklist":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 82
@@ -74,7 +73,7 @@
     const/4 v2, 0x0
 
     .line 86
-    .local v2, out:Ljava/io/FileOutputStream;
+    .local v2, "out":Ljava/io/FileOutputStream;
     :try_start_1
     const-string v5, "journal"
 
@@ -82,7 +81,7 @@
 
     iget-object v8, p0, Lcom/android/server/CertBlacklister$BlacklistObserver$1;->this$0:Lcom/android/server/CertBlacklister$BlacklistObserver;
 
-    #getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mTmpDir:Ljava/io/File;
+    # getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mTmpDir:Ljava/io/File;
     invoke-static {v8}, Lcom/android/server/CertBlacklister$BlacklistObserver;->access$000(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/io/File;
 
     move-result-object v8
@@ -92,7 +91,7 @@
     move-result-object v4
 
     .line 88
-    .local v4, tmp:Ljava/io/File;
+    .local v4, "tmp":Ljava/io/File;
     const/4 v5, 0x1
 
     const/4 v7, 0x0
@@ -104,12 +103,12 @@
 
     invoke-direct {v3, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 91
-    .end local v2           #out:Ljava/io/FileOutputStream;
-    .local v3, out:Ljava/io/FileOutputStream;
+    .end local v2    # "out":Ljava/io/FileOutputStream;
+    .local v3, "out":Ljava/io/FileOutputStream;
     :try_start_2
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
@@ -125,7 +124,7 @@
 
     iget-object v7, p0, Lcom/android/server/CertBlacklister$BlacklistObserver$1;->this$0:Lcom/android/server/CertBlacklister$BlacklistObserver;
 
-    #getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mPath:Ljava/lang/String;
+    # getter for: Lcom/android/server/CertBlacklister$BlacklistObserver;->mPath:Ljava/lang/String;
     invoke-static {v7}, Lcom/android/server/CertBlacklister$BlacklistObserver;->access$100(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/lang/String;
 
     move-result-object v7
@@ -141,16 +140,16 @@
 
     invoke-static {v5, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 100
     :try_start_3
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     .line 103
-    .end local v3           #out:Ljava/io/FileOutputStream;
-    .end local v4           #tmp:Ljava/io/File;
+    .end local v3    # "out":Ljava/io/FileOutputStream;
+    .end local v4    # "tmp":Ljava/io/File;
     :cond_0
     :goto_0
     monitor-exit v6
@@ -161,12 +160,12 @@
     return-void
 
     .line 97
-    .restart local v2       #out:Ljava/io/FileOutputStream;
+    .restart local v2    # "out":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v1
 
     .line 98
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     :goto_1
     :try_start_4
     const-string v5, "CertBlacklister"
@@ -184,9 +183,9 @@
     goto :goto_0
 
     .line 103
-    .end local v0           #blacklist:Ljava/lang/String;
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v2           #out:Ljava/io/FileOutputStream;
+    .end local v0    # "blacklist":Ljava/lang/String;
+    .end local v1    # "e":Ljava/io/IOException;
+    .end local v2    # "out":Ljava/io/FileOutputStream;
     :catchall_0
     move-exception v5
 
@@ -197,8 +196,8 @@
     throw v5
 
     .line 100
-    .restart local v0       #blacklist:Ljava/lang/String;
-    .restart local v2       #out:Ljava/io/FileOutputStream;
+    .restart local v0    # "blacklist":Ljava/lang/String;
+    .restart local v2    # "out":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v5
 
@@ -210,27 +209,27 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .end local v2           #out:Ljava/io/FileOutputStream;
-    .restart local v3       #out:Ljava/io/FileOutputStream;
-    .restart local v4       #tmp:Ljava/io/File;
+    .end local v2    # "out":Ljava/io/FileOutputStream;
+    .restart local v3    # "out":Ljava/io/FileOutputStream;
+    .restart local v4    # "tmp":Ljava/io/File;
     :catchall_2
     move-exception v5
 
     move-object v2, v3
 
-    .end local v3           #out:Ljava/io/FileOutputStream;
-    .restart local v2       #out:Ljava/io/FileOutputStream;
+    .end local v3    # "out":Ljava/io/FileOutputStream;
+    .restart local v2    # "out":Ljava/io/FileOutputStream;
     goto :goto_2
 
     .line 97
-    .end local v2           #out:Ljava/io/FileOutputStream;
-    .restart local v3       #out:Ljava/io/FileOutputStream;
+    .end local v2    # "out":Ljava/io/FileOutputStream;
+    .restart local v3    # "out":Ljava/io/FileOutputStream;
     :catch_1
     move-exception v1
 
     move-object v2, v3
 
-    .end local v3           #out:Ljava/io/FileOutputStream;
-    .restart local v2       #out:Ljava/io/FileOutputStream;
+    .end local v3    # "out":Ljava/io/FileOutputStream;
+    .restart local v2    # "out":Ljava/io/FileOutputStream;
     goto :goto_1
 .end method

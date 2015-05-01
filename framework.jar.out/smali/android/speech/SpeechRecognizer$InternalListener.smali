@@ -45,7 +45,6 @@
 # direct methods
 .method private constructor <init>(Landroid/speech/SpeechRecognizer;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 412
@@ -65,8 +64,8 @@
 
 .method synthetic constructor <init>(Landroid/speech/SpeechRecognizer;Landroid/speech/SpeechRecognizer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/speech/SpeechRecognizer;
+    .param p2, "x1"    # Landroid/speech/SpeechRecognizer$1;
 
     .prologue
     .line 412
@@ -77,7 +76,7 @@
 
 .method static synthetic access$1000(Landroid/speech/SpeechRecognizer$InternalListener;)Landroid/speech/RecognitionListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/SpeechRecognizer$InternalListener;
 
     .prologue
     .line 412
@@ -88,8 +87,8 @@
 
 .method static synthetic access$1002(Landroid/speech/SpeechRecognizer$InternalListener;Landroid/speech/RecognitionListener;)Landroid/speech/RecognitionListener;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/SpeechRecognizer$InternalListener;
+    .param p1, "x1"    # Landroid/speech/RecognitionListener;
 
     .prologue
     .line 412
@@ -121,7 +120,7 @@
 
 .method public onBufferReceived([B)V
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
 
     .prologue
     .line 468
@@ -160,7 +159,7 @@
 
 .method public onError(I)V
     .locals 3
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     .line 476
@@ -184,8 +183,8 @@
 
 .method public onEvent(ILandroid/os/Bundle;)V
     .locals 2
-    .parameter "eventType"
-    .parameter "params"
+    .param p1, "eventType"    # I
+    .param p2, "params"    # Landroid/os/Bundle;
 
     .prologue
     .line 496
@@ -205,7 +204,7 @@
 
 .method public onPartialResults(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "results"
+    .param p1, "results"    # Landroid/os/Bundle;
 
     .prologue
     .line 488
@@ -225,7 +224,7 @@
 
 .method public onReadyForSpeech(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "noiseParams"
+    .param p1, "noiseParams"    # Landroid/os/Bundle;
 
     .prologue
     .line 480
@@ -245,7 +244,7 @@
 
 .method public onResults(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "results"
+    .param p1, "results"    # Landroid/os/Bundle;
 
     .prologue
     .line 484
@@ -265,7 +264,7 @@
 
 .method public onRmsChanged(F)V
     .locals 3
-    .parameter "rmsdB"
+    .param p1, "rmsdB"    # F
 
     .prologue
     .line 492

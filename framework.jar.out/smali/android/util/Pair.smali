@@ -37,8 +37,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TS;)V"
@@ -47,9 +45,9 @@
 
     .prologue
     .line 36
-    .local p0, this:Landroid/util/Pair;,"Landroid/util/Pair<TF;TS;>;"
-    .local p1, first:Ljava/lang/Object;,"TF;"
-    .local p2, second:Ljava/lang/Object;,"TS;"
+    .local p0, "this":Landroid/util/Pair;, "Landroid/util/Pair<TF;TS;>;"
+    .local p1, "first":Ljava/lang/Object;, "TF;"
+    .local p2, "second":Ljava/lang/Object;, "TS;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
@@ -64,8 +62,6 @@
 
 .method public static create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -80,8 +76,8 @@
 
     .prologue
     .line 75
-    .local p0, a:Ljava/lang/Object;,"TA;"
-    .local p1, b:Ljava/lang/Object;,"TB;"
+    .local p0, "a":Ljava/lang/Object;, "TA;"
+    .local p1, "b":Ljava/lang/Object;, "TB;"
     new-instance v0, Landroid/util/Pair;
 
     invoke-direct {v0, p0, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -93,10 +89,10 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
-    .local p0, this:Landroid/util/Pair;,"Landroid/util/Pair<TF;TS;>;"
+    .local p0, "this":Landroid/util/Pair;, "Landroid/util/Pair<TF;TS;>;"
     const/4 v1, 0x0
 
     .line 51
@@ -116,7 +112,7 @@
     check-cast v0, Landroid/util/Pair;
 
     .line 55
-    .local v0, p:Landroid/util/Pair;,"Landroid/util/Pair<**>;"
+    .local v0, "p":Landroid/util/Pair;, "Landroid/util/Pair<**>;"
     iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     iget-object v3, p0, Landroid/util/Pair;->first:Ljava/lang/Object;
@@ -146,7 +142,7 @@
     .locals 3
 
     .prologue
-    .local p0, this:Landroid/util/Pair;,"Landroid/util/Pair<TF;TS;>;"
+    .local p0, "this":Landroid/util/Pair;, "Landroid/util/Pair<TF;TS;>;"
     const/4 v1, 0x0
 
     .line 65

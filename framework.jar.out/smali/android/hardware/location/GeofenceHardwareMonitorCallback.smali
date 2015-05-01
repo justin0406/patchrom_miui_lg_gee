@@ -18,9 +18,9 @@
 # virtual methods
 .method public onMonitoringSystemChange(IZLandroid/location/Location;)V
     .locals 0
-    .parameter "monitoringType"
-    .parameter "available"
-    .parameter "location"
+    .param p1, "monitoringType"    # I
+    .param p2, "available"    # Z
+    .param p3, "location"    # Landroid/location/Location;
 
     .prologue
     .line 36

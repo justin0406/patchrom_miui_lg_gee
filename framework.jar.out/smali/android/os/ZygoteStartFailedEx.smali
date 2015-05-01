@@ -16,7 +16,7 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 38
@@ -27,7 +27,7 @@
 
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "cause"
+    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .prologue
     .line 39

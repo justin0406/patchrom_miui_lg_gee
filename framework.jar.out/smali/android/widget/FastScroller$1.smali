@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/FastScroller;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 214
@@ -44,7 +43,7 @@
     .line 217
     iget-object v1, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
-    #getter for: Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
+    # getter for: Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
     invoke-static {v1}, Landroid/widget/FastScroller;->access$000(Landroid/widget/FastScroller;)Landroid/widget/AbsListView;
 
     move-result-object v1
@@ -58,7 +57,7 @@
     .line 218
     iget-object v1, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
-    #calls: Landroid/widget/FastScroller;->beginDrag()V
+    # invokes: Landroid/widget/FastScroller;->beginDrag()V
     invoke-static {v1}, Landroid/widget/FastScroller;->access$100(Landroid/widget/FastScroller;)V
 
     .line 220
@@ -66,31 +65,31 @@
 
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
-    #getter for: Landroid/widget/FastScroller;->mInitialTouchY:F
+    # getter for: Landroid/widget/FastScroller;->mInitialTouchY:F
     invoke-static {v2}, Landroid/widget/FastScroller;->access$200(Landroid/widget/FastScroller;)F
 
     move-result v2
 
-    #calls: Landroid/widget/FastScroller;->getPosFromMotionEvent(F)F
+    # invokes: Landroid/widget/FastScroller;->getPosFromMotionEvent(F)F
     invoke-static {v1, v2}, Landroid/widget/FastScroller;->access$300(Landroid/widget/FastScroller;F)F
 
     move-result v0
 
     .line 221
-    .local v0, pos:F
+    .local v0, "pos":F
     iget-object v1, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
-    #calls: Landroid/widget/FastScroller;->scrollTo(F)V
+    # invokes: Landroid/widget/FastScroller;->scrollTo(F)V
     invoke-static {v1, v0}, Landroid/widget/FastScroller;->access$400(Landroid/widget/FastScroller;F)V
 
     .line 224
-    .end local v0           #pos:F
+    .end local v0    # "pos":F
     :cond_0
     iget-object v1, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
     const/4 v2, 0x0
 
-    #setter for: Landroid/widget/FastScroller;->mHasPendingDrag:Z
+    # setter for: Landroid/widget/FastScroller;->mHasPendingDrag:Z
     invoke-static {v1, v2}, Landroid/widget/FastScroller;->access$502(Landroid/widget/FastScroller;Z)Z
 
     .line 225

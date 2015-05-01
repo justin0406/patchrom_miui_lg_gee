@@ -37,8 +37,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/widget/LockPatternUtils;)V
     .locals 4
-    .parameter "context"
-    .parameter "lockPatternUtils"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "lockPatternUtils"    # Lcom/android/internal/widget/LockPatternUtils;
 
     .prologue
     .line 105
@@ -64,7 +64,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 107
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "com.android.keyguard"
 
     const-string v2, "com.android.keyguard.KeyguardService"
@@ -115,7 +115,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;)Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     .prologue
     .line 31
@@ -126,7 +126,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;)Landroid/view/View;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     .prologue
     .line 31
@@ -137,7 +137,7 @@
 
 .method private static final createScrim(Landroid/content/Context;)Landroid/view/View;
     .locals 10
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, -0x1
@@ -148,19 +148,19 @@
     invoke-direct {v8, p0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 276
-    .local v8, view:Landroid/view/View;
+    .local v8, "view":Landroid/view/View;
     const v4, 0x110900
 
     .line 282
-    .local v4, flags:I
+    .local v4, "flags":I
     const/4 v6, -0x1
 
     .line 283
-    .local v6, stretch:I
+    .local v6, "stretch":I
     const/16 v7, 0x7ed
 
     .line 284
-    .local v7, type:I
+    .local v7, "type":I
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
     const/16 v3, 0x7ed
@@ -172,7 +172,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     .line 286
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     const/16 v1, 0x10
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
@@ -197,7 +197,7 @@
     check-cast v9, Landroid/view/WindowManager;
 
     .line 290
-    .local v9, wm:Landroid/view/WindowManager;
+    .local v9, "wm":Landroid/view/WindowManager;
     invoke-interface {v9, v8, v0}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 291
@@ -206,7 +206,7 @@
     invoke-virtual {v8, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 294
-    const/high16 v1, 0x361
+    const/high16 v1, 0x3610000
 
     invoke-virtual {v8, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
@@ -237,7 +237,7 @@
 
 .method public doKeyguardTimeout(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "options"
+    .param p1, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 255
@@ -419,8 +419,8 @@
 
 .method public keyguardDone(ZZ)V
     .locals 1
-    .parameter "authenticated"
-    .parameter "wakeup"
+    .param p1, "authenticated"    # Z
+    .param p2, "wakeup"    # Z
 
     .prologue
     .line 170
@@ -518,7 +518,7 @@
 
 .method public onScreenTurnedOff(I)V
     .locals 2
-    .parameter "why"
+    .param p1, "why"    # I
 
     .prologue
     .line 224
@@ -550,7 +550,7 @@
 
 .method public onScreenTurnedOn(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$ShowListener;)V
     .locals 3
-    .parameter "showListener"
+    .param p1, "showListener"    # Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$ShowListener;
 
     .prologue
     .line 210
@@ -661,7 +661,7 @@
 
 .method public setCurrentUser(I)V
     .locals 1
-    .parameter "newUserId"
+    .param p1, "newUserId"    # I
 
     .prologue
     .line 267
@@ -686,7 +686,7 @@
 
 .method public setHidden(Z)V
     .locals 1
-    .parameter "isHidden"
+    .param p1, "isHidden"    # Z
 
     .prologue
     .line 176
@@ -711,7 +711,7 @@
 
 .method public setKeyguardEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 232
@@ -772,7 +772,7 @@
 
 .method public verifyUnlock(Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;)V
     .locals 2
-    .parameter "onKeyguardExitResult"
+    .param p1, "onKeyguardExitResult"    # Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
 
     .prologue
     .line 164

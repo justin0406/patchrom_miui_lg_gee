@@ -101,10 +101,10 @@
 
 .method public eglCreateContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljavax/microedition/khronos/egl/EGLContext;[I)Ljavax/microedition/khronos/egl/EGLContext;
     .locals 2
-    .parameter "display"
-    .parameter "config"
-    .parameter "share_context"
-    .parameter "attrib_list"
+    .param p1, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p2, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
+    .param p3, "share_context"    # Ljavax/microedition/khronos/egl/EGLContext;
+    .param p4, "attrib_list"    # [I
 
     .prologue
     .line 54
@@ -113,7 +113,7 @@
     move-result v0
 
     .line 55
-    .local v0, eglContextId:I
+    .local v0, "eglContextId":I
     if-nez v0, :cond_0
 
     .line 56
@@ -133,9 +133,9 @@
 
 .method public eglCreatePbufferSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;[I)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 2
-    .parameter "display"
-    .parameter "config"
-    .parameter "attrib_list"
+    .param p1, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p2, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
+    .param p3, "attrib_list"    # [I
 
     .prologue
     .line 62
@@ -144,7 +144,7 @@
     move-result v0
 
     .line 63
-    .local v0, eglSurfaceId:I
+    .local v0, "eglSurfaceId":I
     if-nez v0, :cond_0
 
     .line 64
@@ -164,10 +164,10 @@
 
 .method public eglCreatePixmapSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljava/lang/Object;[I)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 6
-    .parameter "display"
-    .parameter "config"
-    .parameter "native_pixmap"
-    .parameter "attrib_list"
+    .param p1, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p2, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
+    .param p3, "native_pixmap"    # Ljava/lang/Object;
+    .param p4, "attrib_list"    # [I
 
     .prologue
     .line 70
@@ -175,7 +175,7 @@
 
     invoke-direct {v1}, Lcom/google/android/gles_jni/EGLSurfaceImpl;-><init>()V
 
-    .local v1, sur:Lcom/google/android/gles_jni/EGLSurfaceImpl;
+    .local v1, "sur":Lcom/google/android/gles_jni/EGLSurfaceImpl;
     move-object v0, p0
 
     move-object v2, p1
@@ -198,24 +198,24 @@
     sget-object v1, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 75
-    .end local v1           #sur:Lcom/google/android/gles_jni/EGLSurfaceImpl;
+    .end local v1    # "sur":Lcom/google/android/gles_jni/EGLSurfaceImpl;
     :cond_0
     return-object v1
 .end method
 
 .method public eglCreateWindowSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljava/lang/Object;[I)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 6
-    .parameter "display"
-    .parameter "config"
-    .parameter "native_window"
-    .parameter "attrib_list"
+    .param p1, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p2, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
+    .param p3, "native_window"    # Ljava/lang/Object;
+    .param p4, "attrib_list"    # [I
 
     .prologue
     .line 79
     const/4 v2, 0x0
 
     .line 80
-    .local v2, sur:Landroid/view/Surface;
+    .local v2, "sur":Landroid/view/Surface;
     instance-of v4, p3, Landroid/view/SurfaceView;
 
     if-eqz v4, :cond_1
@@ -226,7 +226,7 @@
     check-cast v3, Landroid/view/SurfaceView;
 
     .line 82
-    .local v3, surfaceView:Landroid/view/SurfaceView;
+    .local v3, "surfaceView":Landroid/view/SurfaceView;
     invoke-virtual {v3}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v4
@@ -236,7 +236,7 @@
     move-result-object v2
 
     .line 91
-    .end local v3           #surfaceView:Landroid/view/SurfaceView;
+    .end local v3    # "surfaceView":Landroid/view/SurfaceView;
     :cond_0
     :goto_0
     if-eqz v2, :cond_3
@@ -247,7 +247,7 @@
     move-result v0
 
     .line 102
-    .local v0, eglSurfaceId:I
+    .local v0, "eglSurfaceId":I
     :goto_1
     if-nez v0, :cond_5
 
@@ -259,7 +259,7 @@
     return-object v4
 
     .line 83
-    .end local v0           #eglSurfaceId:I
+    .end local v0    # "eglSurfaceId":I
     :cond_1
     instance-of v4, p3, Landroid/view/SurfaceHolder;
 
@@ -271,7 +271,7 @@
     check-cast v1, Landroid/view/SurfaceHolder;
 
     .line 85
-    .local v1, holder:Landroid/view/SurfaceHolder;
+    .local v1, "holder":Landroid/view/SurfaceHolder;
     invoke-interface {v1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
 
     move-result-object v2
@@ -279,7 +279,7 @@
     .line 86
     goto :goto_0
 
-    .end local v1           #holder:Landroid/view/SurfaceHolder;
+    .end local v1    # "holder":Landroid/view/SurfaceHolder;
     :cond_2
     instance-of v4, p3, Landroid/view/Surface;
 
@@ -303,11 +303,11 @@
 
     move-result v0
 
-    .restart local v0       #eglSurfaceId:I
+    .restart local v0    # "eglSurfaceId":I
     goto :goto_1
 
     .line 97
-    .end local v0           #eglSurfaceId:I
+    .end local v0    # "eglSurfaceId":I
     :cond_4
     new-instance v4, Ljava/lang/UnsupportedOperationException;
 
@@ -318,7 +318,7 @@
     throw v4
 
     .line 105
-    .restart local v0       #eglSurfaceId:I
+    .restart local v0    # "eglSurfaceId":I
     :cond_5
     new-instance v4, Lcom/google/android/gles_jni/EGLSurfaceImpl;
 
@@ -352,7 +352,7 @@
     move-result v0
 
     .line 120
-    .local v0, value:I
+    .local v0, "value":I
     if-nez v0, :cond_0
 
     .line 121
@@ -391,7 +391,7 @@
     goto :goto_0
 
     .line 119
-    .end local v0           #value:I
+    .end local v0    # "value":I
     :catchall_0
     move-exception v1
 
@@ -413,7 +413,7 @@
     move-result v0
 
     .line 130
-    .local v0, value:I
+    .local v0, "value":I
     if-nez v0, :cond_0
 
     .line 131
@@ -452,7 +452,7 @@
     goto :goto_0
 
     .line 129
-    .end local v0           #value:I
+    .end local v0    # "value":I
     :catchall_0
     move-exception v1
 
@@ -463,7 +463,7 @@
 
 .method public declared-synchronized eglGetCurrentSurface(I)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 2
-    .parameter "readdraw"
+    .param p1, "readdraw"    # I
 
     .prologue
     .line 139
@@ -475,7 +475,7 @@
     move-result v0
 
     .line 140
-    .local v0, value:I
+    .local v0, "value":I
     if-nez v0, :cond_0
 
     .line 141
@@ -514,7 +514,7 @@
     goto :goto_0
 
     .line 139
-    .end local v0           #value:I
+    .end local v0    # "value":I
     :catchall_0
     move-exception v1
 
@@ -525,7 +525,7 @@
 
 .method public declared-synchronized eglGetDisplay(Ljava/lang/Object;)Ljavax/microedition/khronos/egl/EGLDisplay;
     .locals 2
-    .parameter "native_display"
+    .param p1, "native_display"    # Ljava/lang/Object;
 
     .prologue
     .line 109
@@ -537,7 +537,7 @@
     move-result v0
 
     .line 110
-    .local v0, value:I
+    .local v0, "value":I
     if-nez v0, :cond_0
 
     .line 111
@@ -576,7 +576,7 @@
     goto :goto_0
 
     .line 109
-    .end local v0           #value:I
+    .end local v0    # "value":I
     :catchall_0
     move-exception v1
 

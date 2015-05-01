@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/nfc/INfcCardEmulation;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/nfc/INfcCardEmulation;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/nfc/INfcCardEmulation$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/nfc/INfcCardEmulation$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 8
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,7 +158,7 @@
     move-result v0
 
     .line 54
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
@@ -175,20 +175,20 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 61
-    .local v1, _arg1:Landroid/content/ComponentName;
+    .local v1, "_arg1":Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 62
-    .local v2, _arg2:Ljava/lang/String;
+    .local v2, "_arg2":Ljava/lang/String;
     invoke-virtual {p0, v0, v1, v2}, Landroid/nfc/INfcCardEmulation$Stub;->isDefaultServiceForCategory(ILandroid/content/ComponentName;Ljava/lang/String;)Z
 
     move-result v3
 
     .line 63
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 64
@@ -202,18 +202,18 @@
     goto :goto_0
 
     .line 58
-    .end local v1           #_arg1:Landroid/content/ComponentName;
-    .end local v2           #_arg2:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
+    .end local v2    # "_arg2":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     goto :goto_1
 
     .line 69
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
     :sswitch_2
     const-string v7, "android.nfc.INfcCardEmulation"
 
@@ -225,7 +225,7 @@
     move-result v0
 
     .line 73
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
@@ -242,20 +242,20 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 80
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 81
-    .restart local v2       #_arg2:Ljava/lang/String;
+    .restart local v2    # "_arg2":Ljava/lang/String;
     invoke-virtual {p0, v0, v1, v2}, Landroid/nfc/INfcCardEmulation$Stub;->isDefaultServiceForAid(ILandroid/content/ComponentName;Ljava/lang/String;)Z
 
     move-result v3
 
     .line 82
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 83
@@ -269,18 +269,18 @@
     goto :goto_0
 
     .line 77
-    .end local v1           #_arg1:Landroid/content/ComponentName;
-    .end local v2           #_arg2:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
+    .end local v2    # "_arg2":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :cond_3
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     goto :goto_2
 
     .line 88
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
     :sswitch_3
     const-string v7, "android.nfc.INfcCardEmulation"
 
@@ -292,7 +292,7 @@
     move-result v0
 
     .line 92
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
@@ -309,20 +309,20 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 99
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 100
-    .restart local v2       #_arg2:Ljava/lang/String;
+    .restart local v2    # "_arg2":Ljava/lang/String;
     invoke-virtual {p0, v0, v1, v2}, Landroid/nfc/INfcCardEmulation$Stub;->setDefaultServiceForCategory(ILandroid/content/ComponentName;Ljava/lang/String;)Z
 
     move-result v3
 
     .line 101
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 102
@@ -336,18 +336,18 @@
     goto/16 :goto_0
 
     .line 96
-    .end local v1           #_arg1:Landroid/content/ComponentName;
-    .end local v2           #_arg2:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
+    .end local v2    # "_arg2":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :cond_5
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     goto :goto_3
 
     .line 107
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
     :sswitch_4
     const-string v7, "android.nfc.INfcCardEmulation"
 
@@ -359,7 +359,7 @@
     move-result v0
 
     .line 111
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
@@ -376,14 +376,14 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 117
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     :goto_4
     invoke-virtual {p0, v0, v1}, Landroid/nfc/INfcCardEmulation$Stub;->setDefaultForNextTap(ILandroid/content/ComponentName;)Z
 
     move-result v3
 
     .line 118
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 119
@@ -397,17 +397,17 @@
     goto/16 :goto_0
 
     .line 115
-    .end local v1           #_arg1:Landroid/content/ComponentName;
-    .end local v3           #_result:Z
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
+    .end local v3    # "_result":Z
     :cond_7
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/content/ComponentName;
+    .restart local v1    # "_arg1":Landroid/content/ComponentName;
     goto :goto_4
 
     .line 124
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/content/ComponentName;
     :sswitch_5
     const-string v5, "android.nfc.INfcCardEmulation"
 
@@ -419,19 +419,19 @@
     move-result v0
 
     .line 128
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 129
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/nfc/INfcCardEmulation$Stub;->getServices(ILjava/lang/String;)Ljava/util/List;
 
     move-result-object v4
 
     .line 130
-    .local v4, _result:Ljava/util/List;,"Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
+    .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/nfc/cardemulation/ApduServiceInfo;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 131

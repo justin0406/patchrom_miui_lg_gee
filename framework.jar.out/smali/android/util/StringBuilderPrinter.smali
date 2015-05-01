@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/StringBuilder;)V
     .locals 0
-    .parameter "builder"
+    .param p1, "builder"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 31
@@ -30,7 +30,7 @@
 # virtual methods
 .method public println(Ljava/lang/String;)V
     .locals 3
-    .parameter "x"
+    .param p1, "x"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0xa
@@ -46,7 +46,7 @@
     move-result v0
 
     .line 38
-    .local v0, len:I
+    .local v0, "len":I
     if-lez v0, :cond_0
 
     add-int/lit8 v1, v0, -0x1

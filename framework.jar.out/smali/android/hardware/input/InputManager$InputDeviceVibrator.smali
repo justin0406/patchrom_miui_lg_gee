@@ -25,8 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/input/InputManager;I)V
     .locals 1
-    .parameter
-    .parameter "deviceId"
+    .param p2, "deviceId"    # I
 
     .prologue
     .line 807
@@ -58,7 +57,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
-    #getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    # getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
     invoke-static {v1}, Landroid/hardware/input/InputManager;->access$200(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
 
     move-result-object v1
@@ -80,7 +79,7 @@
     move-exception v0
 
     .line 855
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "InputManager"
 
     const-string v2, "Failed to cancel vibration."
@@ -102,9 +101,9 @@
 
 .method public vibrate(ILjava/lang/String;J)V
     .locals 0
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "milliseconds"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "milliseconds"    # J
 
     .prologue
     .line 839
@@ -116,10 +115,10 @@
 
 .method public vibrate(ILjava/lang/String;[JI)V
     .locals 0
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "pattern"    # [J
+    .param p4, "repeat"    # I
 
     .prologue
     .line 847
@@ -131,7 +130,7 @@
 
 .method public vibrate(J)V
     .locals 4
-    .parameter "milliseconds"
+    .param p1, "milliseconds"    # J
 
     .prologue
     .line 819
@@ -159,8 +158,8 @@
 
 .method public vibrate([JI)V
     .locals 4
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "pattern"    # [J
+    .param p2, "repeat"    # I
 
     .prologue
     .line 824
@@ -180,7 +179,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
-    #getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
+    # getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
     invoke-static {v1}, Landroid/hardware/input/InputManager;->access$200(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
 
     move-result-object v1
@@ -202,7 +201,7 @@
     move-exception v0
 
     .line 830
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "InputManager"
 
     const-string v2, "Failed to vibrate."

@@ -46,23 +46,23 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)V
     .locals 1
-    .parameter "id"
-    .parameter "numeric"
-    .parameter "carrier"
-    .parameter "apn"
-    .parameter "proxy"
-    .parameter "port"
-    .parameter "mmsc"
-    .parameter "mmsProxy"
-    .parameter "mmsPort"
-    .parameter "user"
-    .parameter "password"
-    .parameter "authType"
-    .parameter "types"
-    .parameter "protocol"
-    .parameter "roamingProtocol"
-    .parameter "carrierEnabled"
-    .parameter "bearer"
+    .param p1, "id"    # I
+    .param p2, "numeric"    # Ljava/lang/String;
+    .param p3, "carrier"    # Ljava/lang/String;
+    .param p4, "apn"    # Ljava/lang/String;
+    .param p5, "proxy"    # Ljava/lang/String;
+    .param p6, "port"    # Ljava/lang/String;
+    .param p7, "mmsc"    # Ljava/lang/String;
+    .param p8, "mmsProxy"    # Ljava/lang/String;
+    .param p9, "mmsPort"    # Ljava/lang/String;
+    .param p10, "user"    # Ljava/lang/String;
+    .param p11, "password"    # Ljava/lang/String;
+    .param p12, "authType"    # I
+    .param p13, "types"    # [Ljava/lang/String;
+    .param p14, "protocol"    # Ljava/lang/String;
+    .param p15, "roamingProtocol"    # Ljava/lang/String;
+    .param p16, "carrierEnabled"    # Z
+    .param p17, "bearer"    # I
 
     .prologue
     .line 61
@@ -131,7 +131,7 @@
 
 .method public static fromString(Ljava/lang/String;)Lcom/android/internal/telephony/dataconnection/ApnSetting;
     .locals 22
-    .parameter "data"
+    .param p0, "data"    # Ljava/lang/String;
 
     .prologue
     .line 103
@@ -159,7 +159,7 @@
     const/16 v21, 0x2
 
     .line 109
-    .local v21, version:I
+    .local v21, "version":I
     const-string v1, "^\\[ApnSettingV2\\]\\s*"
 
     const-string v2, ""
@@ -181,7 +181,7 @@
     move-result-object v19
 
     .line 115
-    .local v19, a:[Ljava/lang/String;
+    .local v19, "a":[Ljava/lang/String;
     move-object/from16 v0, v19
 
     array-length v1, v0
@@ -196,16 +196,16 @@
     goto :goto_0
 
     .line 111
-    .end local v19           #a:[Ljava/lang/String;
-    .end local v21           #version:I
+    .end local v19    # "a":[Ljava/lang/String;
+    .end local v21    # "version":I
     :cond_1
     const/16 v21, 0x1
 
-    .restart local v21       #version:I
+    .restart local v21    # "version":I
     goto :goto_1
 
     .line 121
-    .restart local v19       #a:[Ljava/lang/String;
+    .restart local v19    # "a":[Ljava/lang/String;
     :cond_2
     const/16 v1, 0xc
 
@@ -219,7 +219,7 @@
     move-result v13
 
     .line 130
-    .local v13, authType:I
+    .local v13, "authType":I
     :goto_2
     const/4 v1, 0x1
 
@@ -237,7 +237,7 @@
     new-array v14, v1, [Ljava/lang/String;
 
     .line 132
-    .local v14, typeArray:[Ljava/lang/String;
+    .local v14, "typeArray":[Ljava/lang/String;
     const/16 v1, 0xd
 
     const/4 v2, 0x0
@@ -256,19 +256,19 @@
     const-string v15, "IP"
 
     .line 134
-    .local v15, protocol:Ljava/lang/String;
+    .local v15, "protocol":Ljava/lang/String;
     const-string v16, "IP"
 
     .line 135
-    .local v16, roamingProtocol:Ljava/lang/String;
+    .local v16, "roamingProtocol":Ljava/lang/String;
     const/16 v17, 0x1
 
     .line 136
-    .local v17, carrierEnabled:Z
+    .local v17, "carrierEnabled":Z
     const/16 v18, 0x0
 
     .line 152
-    .local v18, bearer:I
+    .local v18, "bearer":I
     :goto_3
     new-instance v1, Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
@@ -339,24 +339,24 @@
     goto/16 :goto_0
 
     .line 122
-    .end local v13           #authType:I
-    .end local v14           #typeArray:[Ljava/lang/String;
-    .end local v15           #protocol:Ljava/lang/String;
-    .end local v16           #roamingProtocol:Ljava/lang/String;
-    .end local v17           #carrierEnabled:Z
-    .end local v18           #bearer:I
+    .end local v13    # "authType":I
+    .end local v14    # "typeArray":[Ljava/lang/String;
+    .end local v15    # "protocol":Ljava/lang/String;
+    .end local v16    # "roamingProtocol":Ljava/lang/String;
+    .end local v17    # "carrierEnabled":Z
+    .end local v18    # "bearer":I
     :catch_0
     move-exception v20
 
     .line 123
-    .local v20, e:Ljava/lang/Exception;
+    .local v20, "e":Ljava/lang/Exception;
     const/4 v13, 0x0
 
-    .restart local v13       #authType:I
+    .restart local v13    # "authType":I
     goto :goto_2
 
     .line 138
-    .end local v20           #e:Ljava/lang/Exception;
+    .end local v20    # "e":Ljava/lang/Exception;
     :cond_3
     move-object/from16 v0, v19
 
@@ -384,19 +384,19 @@
     move-result-object v14
 
     .line 142
-    .restart local v14       #typeArray:[Ljava/lang/String;
+    .restart local v14    # "typeArray":[Ljava/lang/String;
     const/16 v1, 0xe
 
     aget-object v15, v19, v1
 
     .line 143
-    .restart local v15       #protocol:Ljava/lang/String;
+    .restart local v15    # "protocol":Ljava/lang/String;
     const/16 v1, 0xf
 
     aget-object v16, v19, v1
 
     .line 145
-    .restart local v16       #roamingProtocol:Ljava/lang/String;
+    .restart local v16    # "roamingProtocol":Ljava/lang/String;
     const/16 v1, 0x10
 
     :try_start_1
@@ -409,7 +409,7 @@
     move-result v17
 
     .line 149
-    .restart local v17       #carrierEnabled:Z
+    .restart local v17    # "carrierEnabled":Z
     :goto_4
     const/16 v1, 0x11
 
@@ -419,20 +419,20 @@
 
     move-result v18
 
-    .restart local v18       #bearer:I
+    .restart local v18    # "bearer":I
     goto :goto_3
 
     .line 146
-    .end local v17           #carrierEnabled:Z
-    .end local v18           #bearer:I
+    .end local v17    # "carrierEnabled":Z
+    .end local v18    # "bearer":I
     :catch_1
     move-exception v20
 
     .line 147
-    .restart local v20       #e:Ljava/lang/Exception;
+    .restart local v20    # "e":Ljava/lang/Exception;
     const/16 v17, 0x1
 
-    .restart local v17       #carrierEnabled:Z
+    .restart local v17    # "carrierEnabled":Z
     goto :goto_4
 .end method
 
@@ -440,26 +440,26 @@
 # virtual methods
 .method public canHandleType(Ljava/lang/String;)Z
     .locals 5
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 184
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnSetting;->types:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_2
 
     aget-object v3, v0, v1
 
     .line 186
-    .local v3, t:Ljava/lang/String;
+    .local v3, "t":Ljava/lang/String;
     invoke-virtual {v3, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
@@ -495,19 +495,19 @@
     const/4 v4, 0x1
 
     .line 193
-    .end local v3           #t:Ljava/lang/String;
+    .end local v3    # "t":Ljava/lang/String;
     :goto_1
     return v4
 
     .line 184
-    .restart local v3       #t:Ljava/lang/String;
+    .restart local v3    # "t":Ljava/lang/String;
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 193
-    .end local v3           #t:Ljava/lang/String;
+    .end local v3    # "t":Ljava/lang/String;
     :cond_2
     const/4 v4, 0x0
 
@@ -516,7 +516,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 200
@@ -556,7 +556,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 159
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const-string v2, "[ApnSettingV2] "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -684,7 +684,7 @@
     .line 170
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/ApnSetting;->types:[Ljava/lang/String;
 

@@ -16,8 +16,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 35
@@ -31,7 +31,7 @@
 # virtual methods
 .method public bindConstants(Landroid/renderscript/ProgramVertexFixedFunction$Constants;)V
     .locals 2
-    .parameter "va"
+    .param p1, "va"    # Landroid/renderscript/ProgramVertexFixedFunction$Constants;
 
     .prologue
     .line 46

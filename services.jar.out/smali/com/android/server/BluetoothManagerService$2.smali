@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 146
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v6, 0x0
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.bluetooth.adapter.action.LOCAL_NAME_CHANGED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -65,7 +64,7 @@
     move-result-object v1
 
     .line 152
-    .local v1, newName:Ljava/lang/String;
+    .local v1, "newName":Ljava/lang/String;
     const-string v2, "BluetoothManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -96,11 +95,11 @@
 
     const/4 v3, 0x0
 
-    #calls: Lcom/android/server/BluetoothManagerService;->storeNameAndAddress(Ljava/lang/String;Ljava/lang/String;)V
+    # invokes: Lcom/android/server/BluetoothManagerService;->storeNameAndAddress(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, v1, v3}, Lcom/android/server/BluetoothManagerService;->access$100(Lcom/android/server/BluetoothManagerService;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 191
-    .end local v1           #newName:Ljava/lang/String;
+    .end local v1    # "newName":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
@@ -118,7 +117,7 @@
     .line 157
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
+    # getter for: Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$200(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
 
     move-result-object v3
@@ -129,7 +128,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->isBluetoothPersistedStateOn()Z
+    # invokes: Lcom/android/server/BluetoothManagerService;->isBluetoothPersistedStateOn()Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$300(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -139,7 +138,7 @@
     .line 159
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->isAirplaneModeOn()Z
+    # invokes: Lcom/android/server/BluetoothManagerService;->isAirplaneModeOn()Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$400(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -151,7 +150,7 @@
 
     const/4 v4, 0x2
 
-    #calls: Lcom/android/server/BluetoothManagerService;->persistBluetoothSetting(I)V
+    # invokes: Lcom/android/server/BluetoothManagerService;->persistBluetoothSetting(I)V
     invoke-static {v2, v4}, Lcom/android/server/BluetoothManagerService;->access$500(Lcom/android/server/BluetoothManagerService;I)V
 
     .line 165
@@ -159,7 +158,7 @@
     :goto_1
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->isAirplaneModeOn()Z
+    # invokes: Lcom/android/server/BluetoothManagerService;->isAirplaneModeOn()Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$400(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -169,7 +168,7 @@
     .line 167
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->sendDisableMsg()V
+    # invokes: Lcom/android/server/BluetoothManagerService;->sendDisableMsg()V
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$600(Lcom/android/server/BluetoothManagerService;)V
 
     .line 172
@@ -195,7 +194,7 @@
 
     const/4 v4, 0x1
 
-    #calls: Lcom/android/server/BluetoothManagerService;->persistBluetoothSetting(I)V
+    # invokes: Lcom/android/server/BluetoothManagerService;->persistBluetoothSetting(I)V
     invoke-static {v2, v4}, Lcom/android/server/BluetoothManagerService;->access$500(Lcom/android/server/BluetoothManagerService;I)V
 
     goto :goto_1
@@ -204,7 +203,7 @@
     :cond_5
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
+    # getter for: Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$700(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -216,12 +215,12 @@
 
     iget-object v4, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mQuietEnableExternal:Z
+    # getter for: Lcom/android/server/BluetoothManagerService;->mQuietEnableExternal:Z
     invoke-static {v4}, Lcom/android/server/BluetoothManagerService;->access$800(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v4
 
-    #calls: Lcom/android/server/BluetoothManagerService;->sendEnableMsg(Z)V
+    # invokes: Lcom/android/server/BluetoothManagerService;->sendEnableMsg(Z)V
     invoke-static {v2, v4}, Lcom/android/server/BluetoothManagerService;->access$900(Lcom/android/server/BluetoothManagerService;Z)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -241,14 +240,14 @@
     .line 174
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+    # getter for: Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$000(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+    # getter for: Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
     invoke-static {v3}, Lcom/android/server/BluetoothManagerService;->access$000(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
 
     move-result-object v3
@@ -282,7 +281,7 @@
     .line 177
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
+    # getter for: Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$200(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
 
     move-result-object v3
@@ -293,7 +292,7 @@
     :try_start_2
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
+    # getter for: Lcom/android/server/BluetoothManagerService;->mEnableExternal:Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$700(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -302,7 +301,7 @@
 
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->isBluetoothPersistedStateOnBluetooth()Z
+    # invokes: Lcom/android/server/BluetoothManagerService;->isBluetoothPersistedStateOnBluetooth()Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$1000(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2
@@ -321,12 +320,12 @@
 
     iget-object v4, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #getter for: Lcom/android/server/BluetoothManagerService;->mQuietEnableExternal:Z
+    # getter for: Lcom/android/server/BluetoothManagerService;->mQuietEnableExternal:Z
     invoke-static {v4}, Lcom/android/server/BluetoothManagerService;->access$800(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v4
 
-    #calls: Lcom/android/server/BluetoothManagerService;->sendEnableMsg(Z)V
+    # invokes: Lcom/android/server/BluetoothManagerService;->sendEnableMsg(Z)V
     invoke-static {v2, v4}, Lcom/android/server/BluetoothManagerService;->access$900(Lcom/android/server/BluetoothManagerService;Z)V
 
     .line 183
@@ -338,7 +337,7 @@
     .line 185
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService$2;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    #calls: Lcom/android/server/BluetoothManagerService;->isNameAndAddressSet()Z
+    # invokes: Lcom/android/server/BluetoothManagerService;->isNameAndAddressSet()Z
     invoke-static {v2}, Lcom/android/server/BluetoothManagerService;->access$1100(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v2

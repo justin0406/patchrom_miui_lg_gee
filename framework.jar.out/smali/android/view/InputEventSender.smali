@@ -20,8 +20,8 @@
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
     .locals 2
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p1, "inputChannel"    # Landroid/view/InputChannel;
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 55
@@ -96,8 +96,8 @@
 
 .method private dispatchInputEventFinished(IZ)V
     .locals 0
-    .parameter "seq"
-    .parameter "handled"
+    .param p1, "seq"    # I
+    .param p2, "handled"    # Z
 
     .prologue
     .line 141
@@ -109,7 +109,7 @@
 
 .method private dispose(Z)V
     .locals 2
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -233,8 +233,8 @@
 
 .method public onInputEventFinished(IZ)V
     .locals 0
-    .parameter "seq"
-    .parameter "handled"
+    .param p1, "seq"    # I
+    .param p2, "handled"    # Z
 
     .prologue
     .line 110
@@ -243,8 +243,8 @@
 
 .method public final sendInputEvent(ILandroid/view/InputEvent;)Z
     .locals 2
-    .parameter "seq"
-    .parameter "event"
+    .param p1, "seq"    # I
+    .param p2, "event"    # Landroid/view/InputEvent;
 
     .prologue
     .line 122
@@ -276,12 +276,12 @@
     const/4 v0, 0x0
 
     .line 134
-    .end local p2
+    .end local p2    # "event":Landroid/view/InputEvent;
     :goto_0
     return v0
 
     .line 131
-    .restart local p2
+    .restart local p2    # "event":Landroid/view/InputEvent;
     :cond_1
     instance-of v0, p2, Landroid/view/KeyEvent;
 
@@ -292,7 +292,7 @@
 
     check-cast p2, Landroid/view/KeyEvent;
 
-    .end local p2
+    .end local p2    # "event":Landroid/view/InputEvent;
     invoke-static {v0, p1, p2}, Landroid/view/InputEventSender;->nativeSendKeyEvent(IILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -300,13 +300,13 @@
     goto :goto_0
 
     .line 134
-    .restart local p2
+    .restart local p2    # "event":Landroid/view/InputEvent;
     :cond_2
     iget v0, p0, Landroid/view/InputEventSender;->mSenderPtr:I
 
     check-cast p2, Landroid/view/MotionEvent;
 
-    .end local p2
+    .end local p2    # "event":Landroid/view/InputEvent;
     invoke-static {v0, p1, p2}, Landroid/view/InputEventSender;->nativeSendMotionEvent(IILandroid/view/MotionEvent;)Z
 
     move-result v0

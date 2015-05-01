@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/accessibility/TouchExplorer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1271
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/TouchExplorer;Lcom/android/server/accessibility/TouchExplorer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/accessibility/TouchExplorer;
+    .param p2, "x1"    # Lcom/android/server/accessibility/TouchExplorer$1;
 
     .prologue
     .line 1271
@@ -56,7 +55,7 @@
     .line 1278
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer$ExitGestureDetectionModeDelayed;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/accessibility/TouchExplorer;->access$2000(Lcom/android/server/accessibility/TouchExplorer;)Landroid/os/Handler;
 
     move-result-object v0
@@ -74,7 +73,7 @@
     .line 1274
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer$ExitGestureDetectionModeDelayed;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/accessibility/TouchExplorer;->access$2000(Lcom/android/server/accessibility/TouchExplorer;)Landroid/os/Handler;
 
     move-result-object v0
@@ -94,9 +93,9 @@
     .line 1284
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer$ExitGestureDetectionModeDelayed;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    const/high16 v1, 0x8
+    const/high16 v1, 0x80000
 
-    #calls: Lcom/android/server/accessibility/TouchExplorer;->sendAccessibilityEvent(I)V
+    # invokes: Lcom/android/server/accessibility/TouchExplorer;->sendAccessibilityEvent(I)V
     invoke-static {v0, v1}, Lcom/android/server/accessibility/TouchExplorer;->access$2100(Lcom/android/server/accessibility/TouchExplorer;I)V
 
     .line 1287
@@ -104,7 +103,7 @@
 
     const/16 v1, 0x200
 
-    #calls: Lcom/android/server/accessibility/TouchExplorer;->sendAccessibilityEvent(I)V
+    # invokes: Lcom/android/server/accessibility/TouchExplorer;->sendAccessibilityEvent(I)V
     invoke-static {v0, v1}, Lcom/android/server/accessibility/TouchExplorer;->access$2100(Lcom/android/server/accessibility/TouchExplorer;I)V
 
     .line 1288

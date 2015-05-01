@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/AppWaitingForDebuggerDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 64
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 66

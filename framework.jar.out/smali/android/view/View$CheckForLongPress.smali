@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 18394
@@ -95,7 +94,7 @@
 
     const/4 v1, 0x1
 
-    #setter for: Landroid/view/View;->mHasPerformedLongPress:Z
+    # setter for: Landroid/view/View;->mHasPerformedLongPress:Z
     invoke-static {v0, v1}, Landroid/view/View;->access$2502(Landroid/view/View;Z)Z
 
     .line 18405

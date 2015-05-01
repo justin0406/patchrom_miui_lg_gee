@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 418
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/hardware/display/DisplayManagerGlobal$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/hardware/display/DisplayManagerGlobal;
+    .param p2, "x1"    # Landroid/hardware/display/DisplayManagerGlobal$1;
 
     .prologue
     .line 418
@@ -48,14 +47,14 @@
 # virtual methods
 .method public onDisplayEvent(II)V
     .locals 1
-    .parameter "displayId"
-    .parameter "event"
+    .param p1, "displayId"    # I
+    .param p2, "event"    # I
 
     .prologue
     .line 424
     iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
-    #calls: Landroid/hardware/display/DisplayManagerGlobal;->handleDisplayEvent(II)V
+    # invokes: Landroid/hardware/display/DisplayManagerGlobal;->handleDisplayEvent(II)V
     invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->access$100(Landroid/hardware/display/DisplayManagerGlobal;II)V
 
     .line 425

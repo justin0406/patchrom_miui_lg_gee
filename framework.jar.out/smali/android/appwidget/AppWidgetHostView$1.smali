@@ -32,7 +32,7 @@
 # virtual methods
 .method public onLoadClass(Ljava/lang/Class;)Z
     .locals 1
-    .parameter "clazz"
+    .param p1, "clazz"    # Ljava/lang/Class;
 
     .prologue
     .line 74

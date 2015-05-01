@@ -37,7 +37,7 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 91

@@ -51,7 +51,7 @@
 
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "strategy"
+    .param p1, "strategy"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -109,18 +109,18 @@
     check-cast v0, Landroid/view/VelocityTracker;
 
     .line 59
-    .local v0, instance:Landroid/view/VelocityTracker;
+    .local v0, "instance":Landroid/view/VelocityTracker;
     if-eqz v0, :cond_0
 
-    .end local v0           #instance:Landroid/view/VelocityTracker;
+    .end local v0    # "instance":Landroid/view/VelocityTracker;
     :goto_0
     return-object v0
 
-    .restart local v0       #instance:Landroid/view/VelocityTracker;
+    .restart local v0    # "instance":Landroid/view/VelocityTracker;
     :cond_0
     new-instance v0, Landroid/view/VelocityTracker;
 
-    .end local v0           #instance:Landroid/view/VelocityTracker;
+    .end local v0    # "instance":Landroid/view/VelocityTracker;
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Landroid/view/VelocityTracker;-><init>(Ljava/lang/String;)V
@@ -130,7 +130,7 @@
 
 .method public static obtain(Ljava/lang/String;)Landroid/view/VelocityTracker;
     .locals 1
-    .parameter "strategy"
+    .param p0, "strategy"    # Ljava/lang/String;
 
     .prologue
     .line 72
@@ -157,7 +157,7 @@
 # virtual methods
 .method public addMovement(Landroid/view/MotionEvent;)V
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 123
@@ -197,13 +197,13 @@
 
 .method public computeCurrentVelocity(I)V
     .locals 2
-    .parameter "units"
+    .param p1, "units"    # I
 
     .prologue
     .line 136
     iget v0, p0, Landroid/view/VelocityTracker;->mPtr:I
 
-    const v1, 0x7f7fffff
+    const v1, 0x7f7fffff    # Float.MAX_VALUE
 
     invoke-static {v0, p1, v1}, Landroid/view/VelocityTracker;->nativeComputeCurrentVelocity(IIF)V
 
@@ -213,8 +213,8 @@
 
 .method public computeCurrentVelocity(IF)V
     .locals 1
-    .parameter "units"
-    .parameter "maxVelocity"
+    .param p1, "units"    # I
+    .param p2, "maxVelocity"    # F
 
     .prologue
     .line 153
@@ -271,8 +271,8 @@
 
 .method public getEstimator(ILandroid/view/VelocityTracker$Estimator;)Z
     .locals 2
-    .parameter "id"
-    .parameter "outEstimator"
+    .param p1, "id"    # I
+    .param p2, "outEstimator"    # Landroid/view/VelocityTracker$Estimator;
 
     .prologue
     .line 213
@@ -316,7 +316,7 @@
 
 .method public getXVelocity(I)F
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 184
@@ -347,7 +347,7 @@
 
 .method public getYVelocity(I)F
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 195

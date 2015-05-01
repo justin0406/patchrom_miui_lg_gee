@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(IJF)V
     .locals 0
-    .parameter "state"
-    .parameter "positionMs"
-    .parameter "speed"
+    .param p1, "state"    # I
+    .param p2, "positionMs"    # J
+    .param p4, "speed"    # F
 
     .prologue
     .line 1146
@@ -218,7 +218,7 @@
     iput-wide v0, p0, Landroid/media/MediaFocusControl$RccPlaybackState;->mPositionMs:J
 
     .line 1155
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/media/MediaFocusControl$RccPlaybackState;->mSpeed:F
 

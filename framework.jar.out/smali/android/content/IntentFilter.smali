@@ -22,7 +22,7 @@
 
 .field private static final CAT_STR:Ljava/lang/String; = "cat"
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -232,7 +232,7 @@
 
 .method public constructor <init>(Landroid/content/IntentFilter;)V
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Landroid/content/IntentFilter;
 
     .prologue
     const/4 v0, 0x0
@@ -378,7 +378,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -487,7 +487,7 @@
     move-result v0
 
     .line 1602
-    .local v0, N:I
+    .local v0, "N":I
     if-lez v0, :cond_3
 
     .line 1603
@@ -500,7 +500,7 @@
     .line 1604
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_3
 
@@ -519,7 +519,7 @@
     goto :goto_0
 
     .line 1608
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -538,7 +538,7 @@
     .line 1611
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_1
     if-ge v1, v0, :cond_4
 
@@ -557,7 +557,7 @@
     goto :goto_1
 
     .line 1615
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_4
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -576,7 +576,7 @@
     .line 1618
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_2
     if-ge v1, v0, :cond_5
 
@@ -595,7 +595,7 @@
     goto :goto_2
 
     .line 1622
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_5
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -621,8 +621,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/IntentFilter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/IntentFilter$1;
 
     .prologue
     .line 139
@@ -633,7 +633,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -683,8 +683,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "action"
-    .parameter "dataType"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "dataType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentFilter$MalformedMimeTypeException;
@@ -742,10 +742,10 @@
 
 .method private static addStringToSet([Ljava/lang/String;Ljava/lang/String;[II)[Ljava/lang/String;
     .locals 4
-    .parameter "set"
-    .parameter "string"
-    .parameter "lengths"
-    .parameter "lenPos"
+    .param p0, "set"    # [Ljava/lang/String;
+    .param p1, "string"    # Ljava/lang/String;
+    .param p2, "lengths"    # [I
+    .param p3, "lenPos"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -785,7 +785,7 @@
     aget v0, p2, p3
 
     .line 283
-    .local v0, N:I
+    .local v0, "N":I
     array-length v2, p0
 
     if-ge v0, v2, :cond_2
@@ -811,7 +811,7 @@
     new-array v1, v2, [Ljava/lang/String;
 
     .line 290
-    .local v1, newSet:[Ljava/lang/String;
+    .local v1, "newSet":[Ljava/lang/String;
     invoke-static {p0, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 291
@@ -830,8 +830,8 @@
 
 .method public static create(Ljava/lang/String;Ljava/lang/String;)Landroid/content/IntentFilter;
     .locals 3
-    .parameter "action"
-    .parameter "dataType"
+    .param p0, "action"    # Ljava/lang/String;
+    .param p1, "dataType"    # Ljava/lang/String;
 
     .prologue
     .line 346
@@ -849,7 +849,7 @@
     move-exception v0
 
     .line 348
-    .local v0, e:Landroid/content/IntentFilter$MalformedMimeTypeException;
+    .local v0, "e":Landroid/content/IntentFilter$MalformedMimeTypeException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Bad MIME type"
@@ -861,7 +861,7 @@
 
 .method private final findMimeType(Ljava/lang/String;)Z
     .locals 10
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     const/4 v6, 0x1
@@ -872,7 +872,7 @@
     iget-object v3, p0, Landroid/content/IntentFilter;->mDataTypes:Ljava/util/ArrayList;
 
     .line 1629
-    .local v3, t:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v3, "t":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     if-nez p1, :cond_1
 
     move v6, v7
@@ -896,7 +896,7 @@
     move-result v4
 
     .line 1639
-    .local v4, typeLength:I
+    .local v4, "typeLength":I
     const/4 v8, 0x3
 
     if-ne v4, v8, :cond_2
@@ -943,7 +943,7 @@
     move-result v2
 
     .line 1649
-    .local v2, slashpos:I
+    .local v2, "slashpos":I
     if-lez v2, :cond_5
 
     .line 1650
@@ -983,10 +983,10 @@
     move-result v1
 
     .line 1657
-    .local v1, numTypes:I
+    .local v1, "numTypes":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_5
 
@@ -998,7 +998,7 @@
     check-cast v5, Ljava/lang/String;
 
     .line 1659
-    .local v5, v:Ljava/lang/String;
+    .local v5, "v":Ljava/lang/String;
     add-int/lit8 v8, v2, 0x1
 
     invoke-virtual {p1, v7, v5, v7, v8}, Ljava/lang/String;->regionMatches(ILjava/lang/String;II)Z
@@ -1012,9 +1012,9 @@
 
     goto :goto_1
 
-    .end local v0           #i:I
-    .end local v1           #numTypes:I
-    .end local v5           #v:Ljava/lang/String;
+    .end local v0    # "i":I
+    .end local v1    # "numTypes":I
+    .end local v5    # "v":Ljava/lang/String;
     :cond_5
     move v6, v7
 
@@ -1024,10 +1024,10 @@
 
 .method private static findStringInSet([Ljava/lang/String;Ljava/lang/String;[II)I
     .locals 4
-    .parameter "set"
-    .parameter "string"
-    .parameter "lengths"
-    .parameter "lenPos"
+    .param p0, "set"    # [Ljava/lang/String;
+    .param p1, "string"    # Ljava/lang/String;
+    .param p2, "lengths"    # [I
+    .param p3, "lenPos"    # I
 
     .prologue
     const/4 v2, -0x1
@@ -1047,10 +1047,10 @@
     aget v0, p2, p3
 
     .line 267
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_2
 
@@ -1077,10 +1077,10 @@
 
 .method private static removeStringFromSet([Ljava/lang/String;Ljava/lang/String;[II)[Ljava/lang/String;
     .locals 6
-    .parameter "set"
-    .parameter "string"
-    .parameter "lengths"
-    .parameter "lenPos"
+    .param p0, "set"    # [Ljava/lang/String;
+    .param p1, "string"    # Ljava/lang/String;
+    .param p2, "lengths"    # [I
+    .param p3, "lenPos"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -1091,21 +1091,21 @@
     move-result v3
 
     .line 300
-    .local v3, pos:I
+    .local v3, "pos":I
     if-gez v3, :cond_0
 
     .line 315
-    .end local p0
+    .end local p0    # "set":[Ljava/lang/String;
     :goto_0
     return-object p0
 
     .line 301
-    .restart local p0
+    .restart local p0    # "set":[Ljava/lang/String;
     :cond_0
     aget v0, p2, p3
 
     .line 302
-    .local v0, N:I
+    .local v0, "N":I
     array-length v4, p0
 
     div-int/lit8 v4, v4, 0x4
@@ -1118,7 +1118,7 @@
     sub-int v1, v0, v4
 
     .line 304
-    .local v1, copyLen:I
+    .local v1, "copyLen":I
     if-lez v1, :cond_1
 
     .line 305
@@ -1142,7 +1142,7 @@
     goto :goto_0
 
     .line 312
-    .end local v1           #copyLen:I
+    .end local v1    # "copyLen":I
     :cond_2
     array-length v4, p0
 
@@ -1151,7 +1151,7 @@
     new-array v2, v4, [Ljava/lang/String;
 
     .line 313
-    .local v2, newSet:[Ljava/lang/String;
+    .local v2, "newSet":[Ljava/lang/String;
     if-lez v3, :cond_3
 
     invoke-static {p0, v5, v2, v5, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -1214,7 +1214,7 @@
 
 .method public final addAction(Ljava/lang/String;)V
     .locals 2
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/String;
 
     .prologue
     .line 462
@@ -1242,7 +1242,7 @@
 
 .method public final addCategory(Ljava/lang/String;)V
     .locals 2
-    .parameter "category"
+    .param p1, "category"    # Ljava/lang/String;
 
     .prologue
     .line 1102
@@ -1282,7 +1282,7 @@
 
 .method public final addDataAuthority(Landroid/content/IntentFilter$AuthorityEntry;)V
     .locals 1
-    .parameter "ent"
+    .param p1, "ent"    # Landroid/content/IntentFilter$AuthorityEntry;
 
     .prologue
     .line 830
@@ -1308,8 +1308,8 @@
 
 .method public final addDataAuthority(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "host"
-    .parameter "port"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # Ljava/lang/String;
 
     .prologue
     .line 824
@@ -1337,7 +1337,7 @@
 
 .method public final addDataPath(Landroid/os/PatternMatcher;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Landroid/os/PatternMatcher;
 
     .prologue
     .line 902
@@ -1363,8 +1363,8 @@
 
 .method public final addDataPath(Ljava/lang/String;I)V
     .locals 2
-    .parameter "path"
-    .parameter "type"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "type"    # I
 
     .prologue
     .line 897
@@ -1384,7 +1384,7 @@
 
 .method public final addDataScheme(Ljava/lang/String;)V
     .locals 2
-    .parameter "scheme"
+    .param p1, "scheme"    # Ljava/lang/String;
 
     .prologue
     .line 605
@@ -1424,7 +1424,7 @@
 
 .method public final addDataSchemeSpecificPart(Landroid/os/PatternMatcher;)V
     .locals 1
-    .parameter "ssp"
+    .param p1, "ssp"    # Landroid/os/PatternMatcher;
 
     .prologue
     .line 751
@@ -1451,8 +1451,8 @@
 
 .method public final addDataSchemeSpecificPart(Ljava/lang/String;I)V
     .locals 1
-    .parameter "ssp"
-    .parameter "type"
+    .param p1, "ssp"    # Ljava/lang/String;
+    .param p2, "type"    # I
 
     .prologue
     .line 746
@@ -1468,7 +1468,7 @@
 
 .method public final addDataType(Ljava/lang/String;)V
     .locals 5
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentFilter$MalformedMimeTypeException;
@@ -1484,13 +1484,13 @@
     move-result v0
 
     .line 535
-    .local v0, slashpos:I
+    .local v0, "slashpos":I
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     .line 536
-    .local v2, typelen:I
+    .local v2, "typelen":I
     if-lez v0, :cond_4
 
     add-int/lit8 v3, v0, 0x2
@@ -1532,7 +1532,7 @@
     move-result-object v1
 
     .line 540
-    .local v1, str:Ljava/lang/String;
+    .local v1, "str":Ljava/lang/String;
     iget-object v3, p0, Landroid/content/IntentFilter;->mDataTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -1557,7 +1557,7 @@
     iput-boolean v3, p0, Landroid/content/IntentFilter;->mHasPartialTypes:Z
 
     .line 549
-    .end local v1           #str:Ljava/lang/String;
+    .end local v1    # "str":Ljava/lang/String;
     :cond_2
     :goto_0
     return-void
@@ -1838,8 +1838,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 8
-    .parameter "du"
-    .parameter "prefix"
+    .param p1, "du"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     const/4 v7, 0x0
@@ -1852,7 +1852,7 @@
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1418
-    .local v5, sb:Ljava/lang/StringBuilder;
+    .local v5, "sb":Ljava/lang/StringBuilder;
     iget-object v6, p0, Landroid/content/IntentFilter;->mActions:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
@@ -1869,7 +1869,7 @@
     move-result-object v3
 
     .line 1420
-    .local v3, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local v3, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1910,7 +1910,7 @@
     goto :goto_0
 
     .line 1427
-    .end local v3           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .end local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_0
     iget-object v6, p0, Landroid/content/IntentFilter;->mCategories:Ljava/util/ArrayList;
 
@@ -1924,7 +1924,7 @@
     move-result-object v3
 
     .line 1429
-    .restart local v3       #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .restart local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1965,7 +1965,7 @@
     goto :goto_1
 
     .line 1436
-    .end local v3           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .end local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_1
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataSchemes:Ljava/util/ArrayList;
 
@@ -1979,7 +1979,7 @@
     move-result-object v3
 
     .line 1438
-    .restart local v3       #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .restart local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_2
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2020,7 +2020,7 @@
     goto :goto_2
 
     .line 1445
-    .end local v3           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .end local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_2
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataSchemeSpecificParts:Ljava/util/ArrayList;
 
@@ -2034,7 +2034,7 @@
     move-result-object v2
 
     .line 1447
-    .local v2, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
+    .local v2, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
     :goto_3
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2050,7 +2050,7 @@
     check-cast v4, Landroid/os/PatternMatcher;
 
     .line 1449
-    .local v4, pe:Landroid/os/PatternMatcher;
+    .local v4, "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 1450
@@ -2077,8 +2077,8 @@
     goto :goto_3
 
     .line 1455
-    .end local v2           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
-    .end local v4           #pe:Landroid/os/PatternMatcher;
+    .end local v2    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
+    .end local v4    # "pe":Landroid/os/PatternMatcher;
     :cond_3
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataAuthorities:Ljava/util/ArrayList;
 
@@ -2092,7 +2092,7 @@
     move-result-object v1
 
     .line 1457
-    .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/IntentFilter$AuthorityEntry;>;"
     :goto_4
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2108,7 +2108,7 @@
     check-cast v0, Landroid/content/IntentFilter$AuthorityEntry;
 
     .line 1459
-    .local v0, ae:Landroid/content/IntentFilter$AuthorityEntry;
+    .local v0, "ae":Landroid/content/IntentFilter$AuthorityEntry;
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 1460
@@ -2119,7 +2119,7 @@
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1461
-    #getter for: Landroid/content/IntentFilter$AuthorityEntry;->mHost:Ljava/lang/String;
+    # getter for: Landroid/content/IntentFilter$AuthorityEntry;->mHost:Ljava/lang/String;
     invoke-static {v0}, Landroid/content/IntentFilter$AuthorityEntry;->access$000(Landroid/content/IntentFilter$AuthorityEntry;)Ljava/lang/String;
 
     move-result-object v6
@@ -2131,7 +2131,7 @@
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1462
-    #getter for: Landroid/content/IntentFilter$AuthorityEntry;->mPort:I
+    # getter for: Landroid/content/IntentFilter$AuthorityEntry;->mPort:I
     invoke-static {v0}, Landroid/content/IntentFilter$AuthorityEntry;->access$100(Landroid/content/IntentFilter$AuthorityEntry;)I
 
     move-result v6
@@ -2139,7 +2139,7 @@
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1463
-    #getter for: Landroid/content/IntentFilter$AuthorityEntry;->mWild:Z
+    # getter for: Landroid/content/IntentFilter$AuthorityEntry;->mWild:Z
     invoke-static {v0}, Landroid/content/IntentFilter$AuthorityEntry;->access$200(Landroid/content/IntentFilter$AuthorityEntry;)Z
 
     move-result v6
@@ -2161,8 +2161,8 @@
     goto :goto_4
 
     .line 1467
-    .end local v0           #ae:Landroid/content/IntentFilter$AuthorityEntry;
-    .end local v1           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .end local v0    # "ae":Landroid/content/IntentFilter$AuthorityEntry;
+    .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/IntentFilter$AuthorityEntry;>;"
     :cond_5
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataPaths:Ljava/util/ArrayList;
 
@@ -2176,7 +2176,7 @@
     move-result-object v2
 
     .line 1469
-    .restart local v2       #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
+    .restart local v2    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
     :goto_5
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2192,7 +2192,7 @@
     check-cast v4, Landroid/os/PatternMatcher;
 
     .line 1471
-    .restart local v4       #pe:Landroid/os/PatternMatcher;
+    .restart local v4    # "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 1472
@@ -2219,8 +2219,8 @@
     goto :goto_5
 
     .line 1477
-    .end local v2           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
-    .end local v4           #pe:Landroid/os/PatternMatcher;
+    .end local v2    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/os/PatternMatcher;>;"
+    .end local v4    # "pe":Landroid/os/PatternMatcher;
     :cond_6
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataTypes:Ljava/util/ArrayList;
 
@@ -2234,7 +2234,7 @@
     move-result-object v3
 
     .line 1479
-    .restart local v3       #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .restart local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_6
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2275,7 +2275,7 @@
     goto :goto_6
 
     .line 1486
-    .end local v3           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .end local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_7
     iget v6, p0, Landroid/content/IntentFilter;->mPriority:I
 
@@ -2323,7 +2323,7 @@
 
 .method public final getAction(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 478
@@ -2340,7 +2340,7 @@
 
 .method public final getCategory(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 1119
@@ -2357,7 +2357,7 @@
 
 .method public final getDataAuthority(I)Landroid/content/IntentFilter$AuthorityEntry;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 846
@@ -2374,7 +2374,7 @@
 
 .method public final getDataPath(I)Landroid/os/PatternMatcher;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 917
@@ -2391,7 +2391,7 @@
 
 .method public final getDataScheme(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 622
@@ -2408,7 +2408,7 @@
 
 .method public final getDataSchemeSpecificPart(I)Landroid/os/PatternMatcher;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 768
@@ -2425,7 +2425,7 @@
 
 .method public final getDataType(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 578
@@ -2452,7 +2452,7 @@
 
 .method public final hasAction(Ljava/lang/String;)Z
     .locals 1
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/String;
 
     .prologue
     .line 490
@@ -2479,7 +2479,7 @@
 
 .method public final hasCategory(Ljava/lang/String;)Z
     .locals 1
-    .parameter "category"
+    .param p1, "category"    # Ljava/lang/String;
 
     .prologue
     .line 1130
@@ -2508,7 +2508,7 @@
 
 .method public final hasDataAuthority(Landroid/net/Uri;)Z
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # Landroid/net/Uri;
 
     .prologue
     .line 860
@@ -2531,7 +2531,7 @@
 
 .method public final hasDataPath(Ljava/lang/String;)Z
     .locals 5
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -2555,10 +2555,10 @@
     move-result v1
 
     .line 936
-    .local v1, numDataPaths:I
+    .local v1, "numDataPaths":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_0
 
@@ -2572,7 +2572,7 @@
     check-cast v2, Landroid/os/PatternMatcher;
 
     .line 938
-    .local v2, pe:Landroid/os/PatternMatcher;
+    .local v2, "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v2, p1}, Landroid/os/PatternMatcher;->match(Ljava/lang/String;)Z
 
     move-result v4
@@ -2593,7 +2593,7 @@
 
 .method public final hasDataScheme(Ljava/lang/String;)Z
     .locals 1
-    .parameter "scheme"
+    .param p1, "scheme"    # Ljava/lang/String;
 
     .prologue
     .line 635
@@ -2622,7 +2622,7 @@
 
 .method public final hasDataSchemeSpecificPart(Ljava/lang/String;)Z
     .locals 5
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -2646,10 +2646,10 @@
     move-result v1
 
     .line 786
-    .local v1, numDataSchemeSpecificParts:I
+    .local v1, "numDataSchemeSpecificParts":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_0
 
@@ -2663,7 +2663,7 @@
     check-cast v2, Landroid/os/PatternMatcher;
 
     .line 788
-    .local v2, pe:Landroid/os/PatternMatcher;
+    .local v2, "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v2, p1}, Landroid/os/PatternMatcher;->match(Ljava/lang/String;)Z
 
     move-result v4
@@ -2684,7 +2684,7 @@
 
 .method public final hasDataType(Ljava/lang/String;)Z
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 564
@@ -2711,10 +2711,10 @@
 
 .method public final match(Landroid/content/ContentResolver;Landroid/content/Intent;ZLjava/lang/String;)I
     .locals 7
-    .parameter "resolver"
-    .parameter "intent"
-    .parameter "resolve"
-    .parameter "logTag"
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "resolve"    # Z
+    .param p4, "logTag"    # Ljava/lang/String;
 
     .prologue
     .line 1198
@@ -2725,7 +2725,7 @@
     move-result-object v2
 
     .line 1199
-    .local v2, type:Ljava/lang/String;
+    .local v2, "type":Ljava/lang/String;
     :goto_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -2754,7 +2754,7 @@
     return v0
 
     .line 1198
-    .end local v2           #type:Ljava/lang/String;
+    .end local v2    # "type":Ljava/lang/String;
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getType()Ljava/lang/String;
 
@@ -2765,12 +2765,11 @@
 
 .method public final match(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/util/Set;Ljava/lang/String;)I
     .locals 3
-    .parameter "action"
-    .parameter "type"
-    .parameter "scheme"
-    .parameter "data"
-    .parameter
-    .parameter "logTag"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "scheme"    # Ljava/lang/String;
+    .param p4, "data"    # Landroid/net/Uri;
+    .param p6, "logTag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2789,7 +2788,7 @@
 
     .prologue
     .line 1233
-    .local p5, categories:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p5, "categories":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     if-eqz p1, :cond_1
 
     invoke-virtual {p0, p1}, Landroid/content/IntentFilter;->matchAction(Ljava/lang/String;)Z
@@ -2813,7 +2812,7 @@
     move-result v1
 
     .line 1240
-    .local v1, dataMatch:I
+    .local v1, "dataMatch":I
     if-ltz v1, :cond_0
 
     .line 1254
@@ -2822,7 +2821,7 @@
     move-result-object v0
 
     .line 1255
-    .local v0, categoryMismatch:Ljava/lang/String;
+    .local v0, "categoryMismatch":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 1259
@@ -2833,7 +2832,7 @@
 
 .method public final matchAction(Ljava/lang/String;)Z
     .locals 1
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/String;
 
     .prologue
     .line 502
@@ -2846,7 +2845,6 @@
 
 .method public final matchCategories(Ljava/util/Set;)Ljava/lang/String;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2859,7 +2857,7 @@
     .end annotation
 
     .prologue
-    .local p1, categories:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p1, "categories":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v2, 0x0
 
     .line 1154
@@ -2877,7 +2875,7 @@
     move-result-object v1
 
     .line 1160
-    .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
+    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     iget-object v3, p0, Landroid/content/IntentFilter;->mCategories:Ljava/util/ArrayList;
 
     if-nez v3, :cond_2
@@ -2913,7 +2911,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 1166
-    .local v0, category:Ljava/lang/String;
+    .local v0, "category":Ljava/lang/String;
     iget-object v3, p0, Landroid/content/IntentFilter;->mCategories:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -2930,12 +2928,12 @@
 
 .method public final matchData(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)I
     .locals 11
-    .parameter "type"
-    .parameter "scheme"
-    .parameter "data"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "scheme"    # Ljava/lang/String;
+    .param p3, "data"    # Landroid/net/Uri;
 
     .prologue
-    const/high16 v8, 0x58
+    const/high16 v8, 0x580000
 
     const/4 v9, -0x1
 
@@ -2945,15 +2943,15 @@
     iget-object v6, p0, Landroid/content/IntentFilter;->mDataTypes:Ljava/util/ArrayList;
 
     .line 1017
-    .local v6, types:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v6, "types":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-object v5, p0, Landroid/content/IntentFilter;->mDataSchemes:Ljava/util/ArrayList;
 
     .line 1019
-    .local v5, schemes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    const/high16 v2, 0x10
+    .local v5, "schemes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    const/high16 v2, 0x100000
 
     .line 1021
-    .local v2, match:I
+    .local v2, "match":I
     if-nez v6, :cond_1
 
     if-nez v5, :cond_1
@@ -2966,20 +2964,20 @@
     const v7, 0x108000
 
     .line 1088
-    .end local p2
+    .end local p2    # "scheme":Ljava/lang/String;
     :cond_0
     :goto_0
     return v7
 
     .line 1026
-    .restart local p2
+    .restart local p2    # "scheme":Ljava/lang/String;
     :cond_1
     if-eqz v5, :cond_9
 
     .line 1027
     if-eqz p2, :cond_6
 
-    .end local p2
+    .end local p2    # "scheme":Ljava/lang/String;
     :goto_1
     invoke-virtual {v5, p2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
@@ -2988,13 +2986,13 @@
     if-eqz v10, :cond_0
 
     .line 1028
-    const/high16 v2, 0x20
+    const/high16 v2, 0x200000
 
     .line 1033
     iget-object v4, p0, Landroid/content/IntentFilter;->mDataSchemeSpecificParts:Ljava/util/ArrayList;
 
     .line 1034
-    .local v4, schemeSpecificParts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .local v4, "schemeSpecificParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     if-eqz v4, :cond_2
 
     .line 1035
@@ -3019,7 +3017,7 @@
     iget-object v1, p0, Landroid/content/IntentFilter;->mDataAuthorities:Ljava/util/ArrayList;
 
     .line 1041
-    .local v1, authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .local v1, "authorities":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
     if-eqz v1, :cond_3
 
     .line 1042
@@ -3028,29 +3026,29 @@
     move-result v0
 
     .line 1043
-    .local v0, authMatch:I
+    .local v0, "authMatch":I
     if-ltz v0, :cond_0
 
     .line 1044
     iget-object v3, p0, Landroid/content/IntentFilter;->mDataPaths:Ljava/util/ArrayList;
 
     .line 1045
-    .local v3, paths:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .local v3, "paths":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     if-nez v3, :cond_8
 
     .line 1046
     move v2, v0
 
     .line 1058
-    .end local v0           #authMatch:I
-    .end local v1           #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
-    .end local v3           #paths:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .end local v0    # "authMatch":I
+    .end local v1    # "authorities":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .end local v3    # "paths":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     :cond_3
     :goto_3
     if-eq v2, v7, :cond_0
 
     .line 1074
-    .end local v4           #schemeSpecificParts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .end local v4    # "schemeSpecificParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     :cond_4
     if-eqz v6, :cond_b
 
@@ -3062,7 +3060,7 @@
     if-eqz v7, :cond_a
 
     .line 1076
-    const/high16 v2, 0x60
+    const/high16 v2, 0x600000
 
     .line 1088
     :cond_5
@@ -3073,14 +3071,14 @@
     goto :goto_0
 
     .line 1027
-    .restart local p2
+    .restart local p2    # "scheme":Ljava/lang/String;
     :cond_6
     const-string p2, ""
 
     goto :goto_1
 
-    .end local p2
-    .restart local v4       #schemeSpecificParts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .end local p2    # "scheme":Ljava/lang/String;
+    .restart local v4    # "schemeSpecificParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     :cond_7
     move v2, v7
 
@@ -3088,9 +3086,9 @@
     goto :goto_2
 
     .line 1047
-    .restart local v0       #authMatch:I
-    .restart local v1       #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
-    .restart local v3       #paths:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .restart local v0    # "authMatch":I
+    .restart local v1    # "authorities":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .restart local v3    # "paths":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
     :cond_8
     invoke-virtual {p3}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
@@ -3103,16 +3101,16 @@
     if-eqz v8, :cond_0
 
     .line 1048
-    const/high16 v2, 0x50
+    const/high16 v2, 0x500000
 
     goto :goto_3
 
     .line 1067
-    .end local v0           #authMatch:I
-    .end local v1           #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
-    .end local v3           #paths:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
-    .end local v4           #schemeSpecificParts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
-    .restart local p2
+    .end local v0    # "authMatch":I
+    .end local v1    # "authorities":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/IntentFilter$AuthorityEntry;>;"
+    .end local v3    # "paths":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .end local v4    # "schemeSpecificParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/PatternMatcher;>;"
+    .restart local p2    # "scheme":Ljava/lang/String;
     :cond_9
     if-eqz p2, :cond_4
 
@@ -3142,7 +3140,7 @@
 
     goto :goto_0
 
-    .end local p2
+    .end local p2    # "scheme":Ljava/lang/String;
     :cond_a
     move v7, v9
 
@@ -3161,7 +3159,7 @@
 
 .method public final matchDataAuthority(Landroid/net/Uri;)I
     .locals 6
-    .parameter "data"
+    .param p1, "data"    # Landroid/net/Uri;
 
     .prologue
     const/4 v4, -0x2
@@ -3187,10 +3185,10 @@
     move-result v3
 
     .line 967
-    .local v3, numDataAuthorities:I
+    .local v3, "numDataAuthorities":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v3, :cond_2
 
@@ -3204,13 +3202,13 @@
     check-cast v0, Landroid/content/IntentFilter$AuthorityEntry;
 
     .line 969
-    .local v0, ae:Landroid/content/IntentFilter$AuthorityEntry;
+    .local v0, "ae":Landroid/content/IntentFilter$AuthorityEntry;
     invoke-virtual {v0, p1}, Landroid/content/IntentFilter$AuthorityEntry;->match(Landroid/net/Uri;)I
 
     move-result v2
 
     .line 970
-    .local v2, match:I
+    .local v2, "match":I
     if-gez v2, :cond_0
 
     .line 967
@@ -3218,8 +3216,8 @@
 
     goto :goto_1
 
-    .end local v0           #ae:Landroid/content/IntentFilter$AuthorityEntry;
-    .end local v2           #match:I
+    .end local v0    # "ae":Landroid/content/IntentFilter$AuthorityEntry;
+    .end local v2    # "match":I
     :cond_2
     move v2, v4
 
@@ -3262,7 +3260,7 @@
 
 .method public readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 11
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3277,14 +3275,14 @@
     move-result v2
 
     .line 1354
-    .local v2, outerDepth:I
+    .local v2, "outerDepth":I
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v7
 
-    .local v7, type:I
+    .local v7, "type":I
     const/4 v8, 0x1
 
     if-eq v7, v8, :cond_e
@@ -3315,7 +3313,7 @@
     move-result-object v6
 
     .line 1362
-    .local v6, tagName:Ljava/lang/String;
+    .local v6, "tagName":Ljava/lang/String;
     const-string v8, "action"
 
     invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3334,14 +3332,14 @@
     move-result-object v1
 
     .line 1364
-    .local v1, name:Ljava/lang/String;
+    .local v1, "name":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 1365
     invoke-virtual {p0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 1412
-    .end local v1           #name:Ljava/lang/String;
+    .end local v1    # "name":Ljava/lang/String;
     :cond_2
     :goto_1
     invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
@@ -3368,7 +3366,7 @@
     move-result-object v1
 
     .line 1369
-    .restart local v1       #name:Ljava/lang/String;
+    .restart local v1    # "name":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 1370
@@ -3377,7 +3375,7 @@
     goto :goto_1
 
     .line 1372
-    .end local v1           #name:Ljava/lang/String;
+    .end local v1    # "name":Ljava/lang/String;
     :cond_4
     const-string/jumbo v8, "type"
 
@@ -3397,7 +3395,7 @@
     move-result-object v1
 
     .line 1374
-    .restart local v1       #name:Ljava/lang/String;
+    .restart local v1    # "name":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 1376
@@ -3415,7 +3413,7 @@
     goto :goto_1
 
     .line 1380
-    .end local v1           #name:Ljava/lang/String;
+    .end local v1    # "name":Ljava/lang/String;
     :cond_5
     const-string/jumbo v8, "scheme"
 
@@ -3435,7 +3433,7 @@
     move-result-object v1
 
     .line 1382
-    .restart local v1       #name:Ljava/lang/String;
+    .restart local v1    # "name":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 1383
@@ -3444,7 +3442,7 @@
     goto :goto_1
 
     .line 1385
-    .end local v1           #name:Ljava/lang/String;
+    .end local v1    # "name":Ljava/lang/String;
     :cond_6
     const-string/jumbo v8, "ssp"
 
@@ -3464,7 +3462,7 @@
     move-result-object v5
 
     .line 1387
-    .local v5, ssp:Ljava/lang/String;
+    .local v5, "ssp":Ljava/lang/String;
     if-eqz v5, :cond_7
 
     .line 1388
@@ -3513,7 +3511,7 @@
     goto :goto_1
 
     .line 1394
-    .end local v5           #ssp:Ljava/lang/String;
+    .end local v5    # "ssp":Ljava/lang/String;
     :cond_9
     const-string v8, "auth"
 
@@ -3533,7 +3531,7 @@
     move-result-object v0
 
     .line 1396
-    .local v0, host:Ljava/lang/String;
+    .local v0, "host":Ljava/lang/String;
     const/4 v8, 0x0
 
     const-string/jumbo v9, "port"
@@ -3543,7 +3541,7 @@
     move-result-object v4
 
     .line 1397
-    .local v4, port:Ljava/lang/String;
+    .local v4, "port":Ljava/lang/String;
     if-eqz v0, :cond_2
 
     .line 1398
@@ -3552,8 +3550,8 @@
     goto/16 :goto_1
 
     .line 1400
-    .end local v0           #host:Ljava/lang/String;
-    .end local v4           #port:Ljava/lang/String;
+    .end local v0    # "host":Ljava/lang/String;
+    .end local v4    # "port":Ljava/lang/String;
     :cond_a
     const-string/jumbo v8, "path"
 
@@ -3573,7 +3571,7 @@
     move-result-object v3
 
     .line 1402
-    .local v3, path:Ljava/lang/String;
+    .local v3, "path":Ljava/lang/String;
     if-eqz v3, :cond_b
 
     .line 1403
@@ -3622,7 +3620,7 @@
     goto/16 :goto_1
 
     .line 1410
-    .end local v3           #path:Ljava/lang/String;
+    .end local v3    # "path":Ljava/lang/String;
     :cond_d
     const-string v8, "IntentFilter"
 
@@ -3649,7 +3647,7 @@
     goto/16 :goto_1
 
     .line 1414
-    .end local v6           #tagName:Ljava/lang/String;
+    .end local v6    # "tagName":Ljava/lang/String;
     :cond_e
     return-void
 .end method
@@ -3722,7 +3720,7 @@
 
 .method public final setPriority(I)V
     .locals 0
-    .parameter "priority"
+    .param p1, "priority"    # I
 
     .prologue
     .line 440
@@ -3767,8 +3765,8 @@
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -3835,13 +3833,13 @@
     move-result v0
 
     .line 1531
-    .local v0, N:I
+    .local v0, "N":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1532
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_3
     if-ge v1, v0, :cond_4
 
@@ -3862,8 +3860,8 @@
     goto :goto_3
 
     .line 1515
-    .end local v0           #N:I
-    .end local v1           #i:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -3899,13 +3897,13 @@
     move-result v0
 
     .line 1540
-    .restart local v0       #N:I
+    .restart local v0    # "N":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1541
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_4
     if-ge v1, v0, :cond_6
 
@@ -3926,8 +3924,8 @@
     goto :goto_4
 
     .line 1545
-    .end local v0           #N:I
-    .end local v1           #i:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
     :cond_5
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -3945,13 +3943,13 @@
     move-result v0
 
     .line 1549
-    .restart local v0       #N:I
+    .restart local v0    # "N":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1550
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_5
     if-ge v1, v0, :cond_8
 
@@ -3972,8 +3970,8 @@
     goto :goto_5
 
     .line 1554
-    .end local v0           #N:I
-    .end local v1           #i:I
+    .end local v0    # "N":I
+    .end local v1    # "i":I
     :cond_7
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -4005,7 +4003,7 @@
 
 .method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 8
-    .parameter "serializer"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4021,10 +4019,10 @@
     move-result v0
 
     .line 1278
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -4123,7 +4121,7 @@
     check-cast v4, Ljava/lang/String;
 
     .line 1293
-    .local v4, type:Ljava/lang/String;
+    .local v4, "type":Ljava/lang/String;
     const/16 v5, 0x2f
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->indexOf(I)I
@@ -4167,7 +4165,7 @@
     goto :goto_2
 
     .line 1297
-    .end local v4           #type:Ljava/lang/String;
+    .end local v4    # "type":Ljava/lang/String;
     :cond_3
     invoke-virtual {p0}, Landroid/content/IntentFilter;->countDataSchemes()I
 
@@ -4234,7 +4232,7 @@
     check-cast v3, Landroid/os/PatternMatcher;
 
     .line 1307
-    .local v3, pe:Landroid/os/PatternMatcher;
+    .local v3, "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v3}, Landroid/os/PatternMatcher;->getType()I
 
     move-result v5
@@ -4289,7 +4287,7 @@
     goto :goto_5
 
     .line 1320
-    .end local v3           #pe:Landroid/os/PatternMatcher;
+    .end local v3    # "pe":Landroid/os/PatternMatcher;
     :cond_5
     invoke-virtual {p0}, Landroid/content/IntentFilter;->countDataAuthorities()I
 
@@ -4316,7 +4314,7 @@
     check-cast v1, Landroid/content/IntentFilter$AuthorityEntry;
 
     .line 1324
-    .local v1, ae:Landroid/content/IntentFilter$AuthorityEntry;
+    .local v1, "ae":Landroid/content/IntentFilter$AuthorityEntry;
     const-string v5, "host"
 
     invoke-virtual {v1}, Landroid/content/IntentFilter$AuthorityEntry;->getHost()Ljava/lang/String;
@@ -4357,7 +4355,7 @@
     goto :goto_6
 
     .line 1330
-    .end local v1           #ae:Landroid/content/IntentFilter$AuthorityEntry;
+    .end local v1    # "ae":Landroid/content/IntentFilter$AuthorityEntry;
     :cond_7
     invoke-virtual {p0}, Landroid/content/IntentFilter;->countDataPaths()I
 
@@ -4384,7 +4382,7 @@
     check-cast v3, Landroid/os/PatternMatcher;
 
     .line 1334
-    .restart local v3       #pe:Landroid/os/PatternMatcher;
+    .restart local v3    # "pe":Landroid/os/PatternMatcher;
     invoke-virtual {v3}, Landroid/os/PatternMatcher;->getType()I
 
     move-result v5
@@ -4439,7 +4437,7 @@
     goto :goto_8
 
     .line 1347
-    .end local v3           #pe:Landroid/os/PatternMatcher;
+    .end local v3    # "pe":Landroid/os/PatternMatcher;
     :cond_8
     return-void
 

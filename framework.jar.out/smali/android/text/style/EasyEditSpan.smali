@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Landroid/app/PendingIntent;)V
     .locals 1
-    .parameter "pendingIntent"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 74
@@ -64,7 +64,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -149,7 +149,7 @@
 
 .method public setDeleteEnabled(Z)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 118
@@ -161,8 +161,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x0

@@ -68,7 +68,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 129
@@ -82,8 +82,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 133
@@ -97,9 +97,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 9
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v8, -0x2
@@ -156,7 +156,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v2, 0x2
 
     const/4 v3, 0x2
@@ -268,13 +268,13 @@
     move-result v1
 
     .line 182
-    .local v1, inputType:I
+    .local v1, "inputType":I
     and-int/lit8 v2, v1, 0xf
 
     if-ne v2, v4, :cond_0
 
     .line 184
-    const/high16 v2, 0x1
+    const/high16 v2, 0x10000
 
     or-int/2addr v1, v2
 
@@ -313,10 +313,10 @@
 
 .method static synthetic access$500(Landroid/widget/AutoCompleteTextView;Landroid/view/View;IJ)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p1, "x1"    # Landroid/view/View;
+    .param p2, "x2"    # I
+    .param p3, "x3"    # J
 
     .prologue
     .line 91
@@ -327,7 +327,7 @@
 
 .method static synthetic access$600(Landroid/widget/AutoCompleteTextView;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/AutoCompleteTextView;
 
     .prologue
     .line 91
@@ -338,7 +338,7 @@
 
 .method static synthetic access$700(Landroid/widget/AutoCompleteTextView;)Landroid/widget/ListAdapter;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/AutoCompleteTextView;
 
     .prologue
     .line 91
@@ -349,8 +349,8 @@
 
 .method static synthetic access$800(Landroid/widget/AutoCompleteTextView;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p1, "x1"    # I
 
     .prologue
     .line 91
@@ -369,7 +369,7 @@
     iget-object v0, p0, Landroid/widget/AutoCompleteTextView;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 1113
-    .local v0, adapter:Landroid/widget/ListAdapter;
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     if-eqz v0, :cond_3
 
     .line 1114
@@ -378,7 +378,7 @@
     move-result-object v6
 
     .line 1115
-    .local v6, imm:Landroid/view/inputmethod/InputMethodManager;
+    .local v6, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v6, :cond_3
 
     .line 1116
@@ -393,18 +393,18 @@
     move-result v2
 
     .line 1117
-    .local v2, count:I
+    .local v2, "count":I
     new-array v1, v2, [Landroid/view/inputmethod/CompletionInfo;
 
     .line 1118
-    .local v1, completions:[Landroid/view/inputmethod/CompletionInfo;
+    .local v1, "completions":[Landroid/view/inputmethod/CompletionInfo;
     const/4 v8, 0x0
 
     .line 1120
-    .local v8, realCount:I
+    .local v8, "realCount":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v2, :cond_1
 
@@ -421,13 +421,13 @@
     move-result-object v7
 
     .line 1123
-    .local v7, item:Ljava/lang/Object;
+    .local v7, "item":Ljava/lang/Object;
     invoke-interface {v0, v3}, Landroid/widget/ListAdapter;->getItemId(I)J
 
     move-result-wide v4
 
     .line 1124
-    .local v4, id:J
+    .local v4, "id":J
     new-instance v10, Landroid/view/inputmethod/CompletionInfo;
 
     invoke-virtual {p0, v7}, Landroid/widget/AutoCompleteTextView;->convertSelectionToString(Ljava/lang/Object;)Ljava/lang/CharSequence;
@@ -442,8 +442,8 @@
     add-int/lit8 v8, v8, 0x1
 
     .line 1120
-    .end local v4           #id:J
-    .end local v7           #item:Ljava/lang/Object;
+    .end local v4    # "id":J
+    .end local v7    # "item":Ljava/lang/Object;
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
@@ -457,23 +457,23 @@
     new-array v9, v8, [Landroid/view/inputmethod/CompletionInfo;
 
     .line 1132
-    .local v9, tmp:[Landroid/view/inputmethod/CompletionInfo;
+    .local v9, "tmp":[Landroid/view/inputmethod/CompletionInfo;
     invoke-static {v1, v12, v9, v12, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1133
     move-object v1, v9
 
     .line 1136
-    .end local v9           #tmp:[Landroid/view/inputmethod/CompletionInfo;
+    .end local v9    # "tmp":[Landroid/view/inputmethod/CompletionInfo;
     :cond_2
     invoke-virtual {v6, p0, v1}, Landroid/view/inputmethod/InputMethodManager;->displayCompletions(Landroid/view/View;[Landroid/view/inputmethod/CompletionInfo;)V
 
     .line 1139
-    .end local v1           #completions:[Landroid/view/inputmethod/CompletionInfo;
-    .end local v2           #count:I
-    .end local v3           #i:I
-    .end local v6           #imm:Landroid/view/inputmethod/InputMethodManager;
-    .end local v8           #realCount:I
+    .end local v1    # "completions":[Landroid/view/inputmethod/CompletionInfo;
+    .end local v2    # "count":I
+    .end local v3    # "i":I
+    .end local v6    # "imm":Landroid/view/inputmethod/InputMethodManager;
+    .end local v8    # "realCount":I
     :cond_3
     return-void
 .end method
@@ -501,9 +501,9 @@
 
 .method private performCompletion(Landroid/view/View;IJ)V
     .locals 8
-    .parameter "selectedView"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "selectedView"    # Landroid/view/View;
+    .param p2, "position"    # I
+    .param p3, "id"    # J
 
     .prologue
     .line 878
@@ -524,7 +524,7 @@
     move-result-object v7
 
     .line 885
-    .local v7, selectedItem:Ljava/lang/Object;
+    .local v7, "selectedItem":Ljava/lang/Object;
     :goto_0
     if-nez v7, :cond_2
 
@@ -536,7 +536,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 909
-    .end local v7           #selectedItem:Ljava/lang/Object;
+    .end local v7    # "selectedItem":Ljava/lang/Object;
     :cond_0
     :goto_1
     return-void
@@ -549,7 +549,7 @@
 
     move-result-object v7
 
-    .restart local v7       #selectedItem:Ljava/lang/Object;
+    .restart local v7    # "selectedItem":Ljava/lang/Object;
     goto :goto_0
 
     .line 890
@@ -579,7 +579,7 @@
     iget-object v6, p0, Landroid/widget/AutoCompleteTextView;->mPopup:Landroid/widget/ListPopupWindow;
 
     .line 897
-    .local v6, list:Landroid/widget/ListPopupWindow;
+    .local v6, "list":Landroid/widget/ListPopupWindow;
     if-eqz p1, :cond_3
 
     if-gez p2, :cond_4
@@ -617,8 +617,8 @@
     invoke-interface/range {v0 .. v5}, Landroid/widget/AdapterView$OnItemClickListener;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     .line 906
-    .end local v6           #list:Landroid/widget/ListPopupWindow;
-    .end local v7           #selectedItem:Ljava/lang/Object;
+    .end local v6    # "list":Landroid/widget/ListPopupWindow;
+    .end local v7    # "selectedItem":Ljava/lang/Object;
     :cond_5
     iget-boolean v0, p0, Landroid/widget/AutoCompleteTextView;->mDropDownDismissedOnCompletion:Z
 
@@ -640,7 +640,7 @@
 
 .method private updateDropDownForFilter(I)V
     .locals 4
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 958
@@ -666,13 +666,13 @@
     move-result v0
 
     .line 968
-    .local v0, dropDownAlwaysVisible:Z
+    .local v0, "dropDownAlwaysVisible":Z
     invoke-virtual {p0}, Landroid/widget/AutoCompleteTextView;->enoughToFilter()Z
 
     move-result v1
 
     .line 969
-    .local v1, enoughToFilter:Z
+    .local v1, "enoughToFilter":Z
     if-gtz p1, :cond_2
 
     if-eqz v0, :cond_3
@@ -740,7 +740,7 @@
 
 .method protected convertSelectionToString(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "selectedItem"
+    .param p1, "selectedItem"    # Ljava/lang/Object;
 
     .prologue
     .line 812
@@ -763,7 +763,7 @@
     move-result-object v0
 
     .line 1030
-    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
+    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
     .line 1031
@@ -924,7 +924,7 @@
 
 .method public ensureImeVisible(Z)V
     .locals 2
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 1064
@@ -1260,7 +1260,7 @@
 
 .method public onCommitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
     .locals 2
-    .parameter "completion"
+    .param p1, "completion"    # Landroid/view/inputmethod/CompletionInfo;
 
     .prologue
     .line 872
@@ -1300,7 +1300,7 @@
 
 .method protected onDisplayHint(I)V
     .locals 1
-    .parameter "hint"
+    .param p1, "hint"    # I
 
     .prologue
     .line 992
@@ -1340,7 +1340,7 @@
 
 .method public onFilterComplete(I)V
     .locals 0
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 953
@@ -1352,9 +1352,9 @@
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 1
-    .parameter "focused"
-    .parameter "direction"
-    .parameter "previouslyFocusedRect"
+    .param p1, "focused"    # Z
+    .param p2, "direction"    # I
+    .param p3, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1004
@@ -1388,8 +1388,8 @@
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v0, 0x1
@@ -1448,7 +1448,7 @@
     move-result v0
 
     .line 717
-    .local v0, handled:Z
+    .local v0, "handled":Z
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/widget/AutoCompleteTextView;->mLastKeyCode:I
@@ -1468,7 +1468,7 @@
     goto :goto_0
 
     .line 705
-    .end local v0           #handled:Z
+    .end local v0    # "handled":Z
     :pswitch_0
     invoke-virtual {p2}, Landroid/view/KeyEvent;->hasNoModifiers()Z
 
@@ -1490,8 +1490,8 @@
 
 .method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
     .locals 3
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -1534,14 +1534,14 @@
     move-result-object v0
 
     .line 652
-    .local v0, state:Landroid/view/KeyEvent$DispatcherState;
+    .local v0, "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_0
 
     .line 653
     invoke-virtual {v0, p2, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
 
     .line 667
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_0
     :goto_0
     return v1
@@ -1560,7 +1560,7 @@
     move-result-object v0
 
     .line 658
-    .restart local v0       #state:Landroid/view/KeyEvent$DispatcherState;
+    .restart local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_2
 
     .line 659
@@ -1586,7 +1586,7 @@
     goto :goto_0
 
     .line 667
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_3
     invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onKeyPreIme(ILandroid/view/KeyEvent;)Z
 
@@ -1597,8 +1597,8 @@
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 3
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -1611,7 +1611,7 @@
     move-result v0
 
     .line 673
-    .local v0, consumed:Z
+    .local v0, "consumed":Z
     if-eqz v0, :cond_0
 
     .line 674
@@ -1677,7 +1677,7 @@
 
 .method public onWindowFocusChanged(Z)V
     .locals 1
-    .parameter "hasWindowFocus"
+    .param p1, "hasWindowFocus"    # Z
 
     .prologue
     .line 984
@@ -1721,8 +1721,8 @@
 
 .method protected performFiltering(Ljava/lang/CharSequence;I)V
     .locals 1
-    .parameter "text"
-    .parameter "keyCode"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "keyCode"    # I
 
     .prologue
     .line 858
@@ -1755,7 +1755,7 @@
     move-result-object v0
 
     .line 1176
-    .local v0, text:Ljava/lang/CharSequence;
+    .local v0, "text":Ljava/lang/CharSequence;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -1784,7 +1784,7 @@
 
 .method protected replaceText(Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 943
@@ -1799,7 +1799,7 @@
     move-result-object v0
 
     .line 948
-    .local v0, spannable:Landroid/text/Editable;
+    .local v0, "spannable":Landroid/text/Editable;
     invoke-interface {v0}, Landroid/text/Editable;->length()I
 
     move-result v1
@@ -1812,7 +1812,6 @@
 
 .method public setAdapter(Landroid/widget/ListAdapter;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1824,7 +1823,7 @@
     .end annotation
 
     .prologue
-    .local p1, adapter:Landroid/widget/ListAdapter;,"TT;"
+    .local p1, "adapter":Landroid/widget/ListAdapter;, "TT;"
     const/4 v2, 0x0
 
     .line 627
@@ -1900,7 +1899,7 @@
 
 .method public setCompletionHint(Ljava/lang/CharSequence;)V
     .locals 4
-    .parameter "hint"
+    .param p1, "hint"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v3, 0x0
@@ -1940,7 +1939,7 @@
     check-cast v0, Landroid/widget/TextView;
 
     .line 231
-    .local v0, hintView:Landroid/widget/TextView;
+    .local v0, "hintView":Landroid/widget/TextView;
     iget-object v1, p0, Landroid/widget/AutoCompleteTextView;->mHintText:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -1954,7 +1953,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/ListPopupWindow;->setPromptView(Landroid/view/View;)V
 
     .line 241
-    .end local v0           #hintView:Landroid/widget/TextView;
+    .end local v0    # "hintView":Landroid/widget/TextView;
     :goto_0
     return-void
 
@@ -1980,7 +1979,7 @@
 
 .method public setDropDownAlwaysVisible(Z)V
     .locals 1
-    .parameter "dropDownAlwaysVisible"
+    .param p1, "dropDownAlwaysVisible"    # Z
 
     .prologue
     .line 455
@@ -1994,7 +1993,7 @@
 
 .method public setDropDownAnchor(I)V
     .locals 2
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 331
@@ -2013,7 +2012,7 @@
 
 .method public setDropDownAnimationStyle(I)V
     .locals 1
-    .parameter "animationStyle"
+    .param p1, "animationStyle"    # I
 
     .prologue
     .line 417
@@ -2027,7 +2026,7 @@
 
 .method public setDropDownBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 354
@@ -2041,7 +2040,7 @@
 
 .method public setDropDownBackgroundResource(I)V
     .locals 2
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 365
@@ -2063,7 +2062,7 @@
 
 .method public setDropDownDismissedOnCompletion(Z)V
     .locals 0
-    .parameter "dropDownDismissedOnCompletion"
+    .param p1, "dropDownDismissedOnCompletion"    # Z
 
     .prologue
     .line 476
@@ -2075,7 +2074,7 @@
 
 .method public setDropDownHeight(I)V
     .locals 1
-    .parameter "height"
+    .param p1, "height"    # I
 
     .prologue
     .line 307
@@ -2089,7 +2088,7 @@
 
 .method public setDropDownHorizontalOffset(I)V
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     .line 392
@@ -2103,7 +2102,7 @@
 
 .method public setDropDownVerticalOffset(I)V
     .locals 1
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     .line 374
@@ -2117,7 +2116,7 @@
 
 .method public setDropDownWidth(I)V
     .locals 1
-    .parameter "width"
+    .param p1, "width"    # I
 
     .prologue
     .line 279
@@ -2131,7 +2130,7 @@
 
 .method public setForceIgnoreOutsideTouch(Z)V
     .locals 1
-    .parameter "forceIgnoreOutsideTouch"
+    .param p1, "forceIgnoreOutsideTouch"    # Z
 
     .prologue
     .line 1108
@@ -2145,10 +2144,10 @@
 
 .method protected setFrame(IIII)Z
     .locals 2
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "l"    # I
+    .param p2, "t"    # I
+    .param p3, "r"    # I
+    .param p4, "b"    # I
 
     .prologue
     .line 1039
@@ -2157,7 +2156,7 @@
     move-result v0
 
     .line 1041
-    .local v0, result:Z
+    .local v0, "result":Z
     invoke-virtual {p0}, Landroid/widget/AutoCompleteTextView;->isPopupShowing()Z
 
     move-result v1
@@ -2174,7 +2173,7 @@
 
 .method public setListSelection(I)V
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 829
@@ -2188,13 +2187,13 @@
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 200
     iget-object v0, p0, Landroid/widget/AutoCompleteTextView;->mPassThroughClickListener:Landroid/widget/AutoCompleteTextView$PassThroughClickListener;
 
-    #setter for: Landroid/widget/AutoCompleteTextView$PassThroughClickListener;->mWrapped:Landroid/view/View$OnClickListener;
+    # setter for: Landroid/widget/AutoCompleteTextView$PassThroughClickListener;->mWrapped:Landroid/view/View$OnClickListener;
     invoke-static {v0, p1}, Landroid/widget/AutoCompleteTextView$PassThroughClickListener;->access$302(Landroid/widget/AutoCompleteTextView$PassThroughClickListener;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
 
     .line 201
@@ -2203,24 +2202,24 @@
 
 .method public setOnDismissListener(Landroid/widget/AutoCompleteTextView$OnDismissListener;)V
     .locals 2
-    .parameter "dismissListener"
+    .param p1, "dismissListener"    # Landroid/widget/AutoCompleteTextView$OnDismissListener;
 
     .prologue
     .line 587
     const/4 v0, 0x0
 
     .line 588
-    .local v0, wrappedListener:Landroid/widget/PopupWindow$OnDismissListener;
+    .local v0, "wrappedListener":Landroid/widget/PopupWindow$OnDismissListener;
     if-eqz p1, :cond_0
 
     .line 589
     new-instance v0, Landroid/widget/AutoCompleteTextView$1;
 
-    .end local v0           #wrappedListener:Landroid/widget/PopupWindow$OnDismissListener;
+    .end local v0    # "wrappedListener":Landroid/widget/PopupWindow$OnDismissListener;
     invoke-direct {v0, p0, p1}, Landroid/widget/AutoCompleteTextView$1;-><init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$OnDismissListener;)V
 
     .line 595
-    .restart local v0       #wrappedListener:Landroid/widget/PopupWindow$OnDismissListener;
+    .restart local v0    # "wrappedListener":Landroid/widget/PopupWindow$OnDismissListener;
     :cond_0
     iget-object v1, p0, Landroid/widget/AutoCompleteTextView;->mPopup:Landroid/widget/ListPopupWindow;
 
@@ -2232,7 +2231,7 @@
 
 .method public setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Landroid/widget/AdapterView$OnItemClickListener;
 
     .prologue
     .line 522
@@ -2244,7 +2243,7 @@
 
 .method public setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Landroid/widget/AdapterView$OnItemSelectedListener;
 
     .prologue
     .line 532
@@ -2256,8 +2255,8 @@
 
 .method public setText(Ljava/lang/CharSequence;Z)V
     .locals 1
-    .parameter "text"
-    .parameter "filter"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "filter"    # Z
 
     .prologue
     .line 926
@@ -2289,7 +2288,7 @@
 
 .method public setThreshold(I)V
     .locals 0
-    .parameter "threshold"
+    .param p1, "threshold"    # I
 
     .prologue
     .line 508
@@ -2308,7 +2307,7 @@
 
 .method public setValidator(Landroid/widget/AutoCompleteTextView$Validator;)V
     .locals 0
-    .parameter "validator"
+    .param p1, "validator"    # Landroid/widget/AutoCompleteTextView$Validator;
 
     .prologue
     .line 1150

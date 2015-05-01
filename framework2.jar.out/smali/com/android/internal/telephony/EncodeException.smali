@@ -17,7 +17,7 @@
 
 .method public constructor <init>(C)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 32
@@ -53,7 +53,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 28

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2130
@@ -39,8 +38,8 @@
 
 .method static synthetic access$500(Landroid/widget/NumberPicker$ChangeCurrentByOneFromLongPressCommand;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/NumberPicker$ChangeCurrentByOneFromLongPressCommand;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 2130
@@ -51,7 +50,7 @@
 
 .method private setStep(Z)V
     .locals 0
-    .parameter "increment"
+    .param p1, "increment"    # Z
 
     .prologue
     .line 2134
@@ -72,7 +71,7 @@
 
     iget-boolean v1, p0, Landroid/widget/NumberPicker$ChangeCurrentByOneFromLongPressCommand;->mIncrement:Z
 
-    #calls: Landroid/widget/NumberPicker;->changeValueByOne(Z)V
+    # invokes: Landroid/widget/NumberPicker;->changeValueByOne(Z)V
     invoke-static {v0, v1}, Landroid/widget/NumberPicker;->access$200(Landroid/widget/NumberPicker;Z)V
 
     .line 2140
@@ -80,7 +79,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mLongPressUpdateInterval:J
+    # getter for: Landroid/widget/NumberPicker;->mLongPressUpdateInterval:J
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$2600(Landroid/widget/NumberPicker;)J
 
     move-result-wide v1

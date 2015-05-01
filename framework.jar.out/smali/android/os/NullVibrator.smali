@@ -65,9 +65,9 @@
 
 .method public vibrate(ILjava/lang/String;J)V
     .locals 0
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "milliseconds"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "milliseconds"    # J
 
     .prologue
     .line 57
@@ -79,10 +79,10 @@
 
 .method public vibrate(ILjava/lang/String;[JI)V
     .locals 0
-    .parameter "owningUid"
-    .parameter "owningPackage"
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "owningUid"    # I
+    .param p2, "owningPackage"    # Ljava/lang/String;
+    .param p3, "pattern"    # [J
+    .param p4, "repeat"    # I
 
     .prologue
     .line 65
@@ -94,7 +94,7 @@
 
 .method public vibrate(J)V
     .locals 0
-    .parameter "milliseconds"
+    .param p1, "milliseconds"    # J
 
     .prologue
     .line 43
@@ -103,8 +103,8 @@
 
 .method public vibrate([JI)V
     .locals 1
-    .parameter "pattern"
-    .parameter "repeat"
+    .param p1, "pattern"    # [J
+    .param p2, "repeat"    # I
 
     .prologue
     .line 47

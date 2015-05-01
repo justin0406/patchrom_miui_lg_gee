@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(J[I)V
     .locals 1
-    .parameter "bucketDuration"
-    .parameter "uids"
+    .param p1, "bucketDuration"    # J
+    .param p3, "uids"    # [I
 
     .prologue
     .line 312
@@ -51,7 +51,7 @@
 # virtual methods
 .method public read(Ljava/io/InputStream;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -109,7 +109,7 @@
 
 .method public write(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -99,7 +99,7 @@
 
 .method public constructor <init>(Landroid/os/PerformanceCollector$PerformanceResultsWriter;)V
     .locals 0
-    .parameter "writer"
+    .param p1, "writer"    # Landroid/os/PerformanceCollector$PerformanceResultsWriter;
 
     .prologue
     .line 291
@@ -167,7 +167,7 @@
     div-long v19, v22, v24
 
     .line 489
-    .local v19, nativeMax:J
+    .local v19, "nativeMax":J
     invoke-static {}, Landroid/os/Debug;->getNativeHeapAllocatedSize()J
 
     move-result-wide v22
@@ -177,7 +177,7 @@
     div-long v15, v22, v24
 
     .line 490
-    .local v15, nativeAllocated:J
+    .local v15, "nativeAllocated":J
     invoke-static {}, Landroid/os/Debug;->getNativeHeapFreeSize()J
 
     move-result-wide v22
@@ -187,13 +187,13 @@
     div-long v17, v22, v24
 
     .line 492
-    .local v17, nativeFree:J
+    .local v17, "nativeFree":J
     new-instance v14, Landroid/os/Debug$MemoryInfo;
 
     invoke-direct {v14}, Landroid/os/Debug$MemoryInfo;-><init>()V
 
     .line 493
-    .local v14, memInfo:Landroid/os/Debug$MemoryInfo;
+    .local v14, "memInfo":Landroid/os/Debug$MemoryInfo;
     invoke-static {v14}, Landroid/os/Debug;->getMemoryInfo(Landroid/os/Debug$MemoryInfo;)V
 
     .line 495
@@ -202,7 +202,7 @@
     move-result-object v21
 
     .line 497
-    .local v21, runtime:Ljava/lang/Runtime;
+    .local v21, "runtime":Ljava/lang/Runtime;
     invoke-virtual/range {v21 .. v21}, Ljava/lang/Runtime;->totalMemory()J
 
     move-result-wide v22
@@ -212,7 +212,7 @@
     div-long v10, v22, v24
 
     .line 498
-    .local v10, dalvikMax:J
+    .local v10, "dalvikMax":J
     invoke-virtual/range {v21 .. v21}, Ljava/lang/Runtime;->freeMemory()J
 
     move-result-wide v22
@@ -222,17 +222,17 @@
     div-long v8, v22, v24
 
     .line 499
-    .local v8, dalvikFree:J
+    .local v8, "dalvikFree":J
     sub-long v6, v10, v8
 
     .line 502
-    .local v6, dalvikAllocated:J
+    .local v6, "dalvikAllocated":J
     invoke-static {}, Landroid/os/PerformanceCollector;->getBinderCounts()Landroid/os/Bundle;
 
     move-result-object v5
 
     .line 503
-    .local v5, binderCounts:Landroid/os/Bundle;
+    .local v5, "binderCounts":Landroid/os/Bundle;
     invoke-virtual {v5}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v22
@@ -241,7 +241,7 @@
 
     move-result-object v12
 
-    .local v12, i$:Ljava/util/Iterator;
+    .local v12, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
@@ -256,7 +256,7 @@
     check-cast v13, Ljava/lang/String;
 
     .line 504
-    .local v13, key:Ljava/lang/String;
+    .local v13, "key":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/os/PerformanceCollector;->mPerfSnapshot:Landroid/os/Bundle;
@@ -276,14 +276,14 @@
     goto :goto_0
 
     .line 508
-    .end local v13           #key:Ljava/lang/String;
+    .end local v13    # "key":Ljava/lang/String;
     :cond_0
     invoke-static {}, Landroid/os/PerformanceCollector;->getAllocCounts()Landroid/os/Bundle;
 
     move-result-object v4
 
     .line 509
-    .local v4, allocCounts:Landroid/os/Bundle;
+    .local v4, "allocCounts":Landroid/os/Bundle;
     invoke-virtual {v4}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v22
@@ -306,7 +306,7 @@
     check-cast v13, Ljava/lang/String;
 
     .line 510
-    .restart local v13       #key:Ljava/lang/String;
+    .restart local v13    # "key":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/os/PerformanceCollector;->mPerfSnapshot:Landroid/os/Bundle;
@@ -326,7 +326,7 @@
     goto :goto_1
 
     .line 513
-    .end local v13           #key:Ljava/lang/String;
+    .end local v13    # "key":Ljava/lang/String;
     :cond_1
     move-object/from16 v0, p0
 
@@ -660,7 +660,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 568
-    .local v0, results:Landroid/os/Bundle;
+    .local v0, "results":Landroid/os/Bundle;
     const-string v1, "global_alloc_count"
 
     invoke-static {}, Landroid/os/Debug;->getGlobalAllocCount()I
@@ -729,7 +729,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 583
-    .local v0, results:Landroid/os/Bundle;
+    .local v0, "results":Landroid/os/Bundle;
     const-string/jumbo v1, "sent_transactions"
 
     invoke-static {}, Landroid/os/Debug;->getBinderSentTransactions()I
@@ -807,7 +807,7 @@
     move-result-object v0
 
     .line 460
-    .local v0, binderCounts:Landroid/os/Bundle;
+    .local v0, "binderCounts":Landroid/os/Bundle;
     invoke-virtual {v0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v3
@@ -816,7 +816,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -831,7 +831,7 @@
     check-cast v2, Ljava/lang/String;
 
     .line 461
-    .local v2, key:Ljava/lang/String;
+    .local v2, "key":Ljava/lang/String;
     iget-object v3, p0, Landroid/os/PerformanceCollector;->mPerfSnapshot:Landroid/os/Bundle;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -861,7 +861,7 @@
     goto :goto_0
 
     .line 467
-    .end local v2           #key:Ljava/lang/String;
+    .end local v2    # "key":Ljava/lang/String;
     :cond_0
     invoke-static {}, Landroid/os/PerformanceCollector;->startAllocCounting()V
 
@@ -919,7 +919,7 @@
 # virtual methods
 .method public addIteration(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 5
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/String;
 
     .prologue
     .line 388
@@ -950,7 +950,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 392
-    .local v0, iteration:Landroid/os/Bundle;
+    .local v0, "iteration":Landroid/os/Bundle;
     const-string v1, "label"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -1000,8 +1000,8 @@
 
 .method public addMeasurement(Ljava/lang/String;F)V
     .locals 1
-    .parameter "label"
-    .parameter "value"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "value"    # F
 
     .prologue
     .line 436
@@ -1021,8 +1021,8 @@
 
 .method public addMeasurement(Ljava/lang/String;J)V
     .locals 1
-    .parameter "label"
-    .parameter "value"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "value"    # J
 
     .prologue
     .line 425
@@ -1042,8 +1042,8 @@
 
 .method public addMeasurement(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "label"
-    .parameter "value"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 447
@@ -1063,7 +1063,7 @@
 
 .method public beginSnapshot(Ljava/lang/String;)V
     .locals 1
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/String;
 
     .prologue
     .line 306
@@ -1112,7 +1112,7 @@
 
 .method public setPerformanceResultsWriter(Landroid/os/PerformanceCollector$PerformanceResultsWriter;)V
     .locals 0
-    .parameter "writer"
+    .param p1, "writer"    # Landroid/os/PerformanceCollector$PerformanceResultsWriter;
 
     .prologue
     .line 296
@@ -1124,7 +1124,7 @@
 
 .method public startTiming(Ljava/lang/String;)V
     .locals 3
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/String;
 
     .prologue
     .line 363
@@ -1176,7 +1176,7 @@
 
 .method public stopTiming(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 2
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/String;
 
     .prologue
     .line 412

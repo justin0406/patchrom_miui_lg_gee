@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiWatchdogStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 605

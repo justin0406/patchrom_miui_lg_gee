@@ -52,7 +52,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 816
@@ -85,8 +85,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/DatePicker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/widget/DatePicker$1;
 
     .prologue
     .line 794
@@ -97,10 +97,10 @@
 
 .method private constructor <init>(Landroid/os/Parcelable;III)V
     .locals 0
-    .parameter "superState"
-    .parameter "year"
-    .parameter "month"
-    .parameter "day"
+    .param p1, "superState"    # Landroid/os/Parcelable;
+    .param p2, "year"    # I
+    .param p3, "month"    # I
+    .param p4, "day"    # I
 
     .prologue
     .line 806
@@ -121,11 +121,11 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcelable;IIILandroid/widget/DatePicker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Landroid/os/Parcelable;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Landroid/widget/DatePicker$1;
 
     .prologue
     .line 794
@@ -136,7 +136,7 @@
 
 .method static synthetic access$1100(Landroid/widget/DatePicker$SavedState;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DatePicker$SavedState;
 
     .prologue
     .line 794
@@ -147,7 +147,7 @@
 
 .method static synthetic access$1200(Landroid/widget/DatePicker$SavedState;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DatePicker$SavedState;
 
     .prologue
     .line 794
@@ -158,7 +158,7 @@
 
 .method static synthetic access$1300(Landroid/widget/DatePicker$SavedState;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DatePicker$SavedState;
 
     .prologue
     .line 794
@@ -171,8 +171,8 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 824

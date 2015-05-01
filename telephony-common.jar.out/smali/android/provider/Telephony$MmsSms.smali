@@ -25,17 +25,17 @@
 
 
 # static fields
-.field public static final CONTENT_CONVERSATIONS_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_CONVERSATIONS_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_DRAFT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_DRAFT_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_FILTER_BYPHONE_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_BYPHONE_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_LOCKED_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_LOCKED_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_UNDELIVERED_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_UNDELIVERED_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final ERR_TYPE_GENERIC:I = 0x1
 
@@ -55,7 +55,7 @@
 
 .field public static final NO_ERROR:I = 0x0
 
-.field public static final SEARCH_URI:Landroid/net/Uri; = null
+.field public static final SEARCH_URI:Landroid/net/Uri;
 
 .field public static final SMS_PROTO:I = 0x0
 

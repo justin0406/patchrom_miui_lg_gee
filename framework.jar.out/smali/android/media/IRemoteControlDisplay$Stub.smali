@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/media/IRemoteControlDisplay;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/media/IRemoteControlDisplay;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Landroid/media/IRemoteControlDisplay$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/media/IRemoteControlDisplay$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 9
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,7 +162,7 @@
     move-result v1
 
     .line 57
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -179,7 +179,7 @@
     check-cast v2, Landroid/app/PendingIntent;
 
     .line 64
-    .local v2, _arg1:Landroid/app/PendingIntent;
+    .local v2, "_arg1":Landroid/app/PendingIntent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -190,24 +190,24 @@
     move v3, v8
 
     .line 65
-    .local v3, _arg2:Z
+    .local v3, "_arg2":Z
     :cond_0
     invoke-virtual {p0, v1, v2, v3}, Landroid/media/IRemoteControlDisplay$Stub;->setCurrentClientId(ILandroid/app/PendingIntent;Z)V
 
     goto :goto_0
 
     .line 61
-    .end local v2           #_arg1:Landroid/app/PendingIntent;
-    .end local v3           #_arg2:Z
+    .end local v2    # "_arg1":Landroid/app/PendingIntent;
+    .end local v3    # "_arg2":Z
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/app/PendingIntent;
+    .restart local v2    # "_arg1":Landroid/app/PendingIntent;
     goto :goto_1
 
     .line 70
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:Landroid/app/PendingIntent;
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Landroid/app/PendingIntent;
     :sswitch_2
     const-string v0, "android.media.IRemoteControlDisplay"
 
@@ -223,13 +223,13 @@
     move v1, v8
 
     .line 73
-    .local v1, _arg0:Z
+    .local v1, "_arg0":Z
     :goto_2
     invoke-virtual {p0, v1}, Landroid/media/IRemoteControlDisplay$Stub;->setEnabled(Z)V
 
     goto :goto_0
 
-    .end local v1           #_arg0:Z
+    .end local v1    # "_arg0":Z
     :cond_2
     move v1, v3
 
@@ -248,30 +248,30 @@
     move-result v1
 
     .line 82
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 84
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     .line 86
-    .local v3, _arg2:J
+    .local v3, "_arg2":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v5
 
     .line 88
-    .local v5, _arg3:J
+    .local v5, "_arg3":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v7
 
-    .local v7, _arg4:F
+    .local v7, "_arg4":F
     move-object v0, p0
 
     .line 89
@@ -280,11 +280,11 @@
     goto :goto_0
 
     .line 94
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:J
-    .end local v5           #_arg3:J
-    .end local v7           #_arg4:F
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":J
+    .end local v5    # "_arg3":J
+    .end local v7    # "_arg4":F
     :sswitch_4
     const-string v0, "android.media.IRemoteControlDisplay"
 
@@ -296,27 +296,27 @@
     move-result v1
 
     .line 98
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 100
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 101
-    .local v3, _arg2:I
+    .local v3, "_arg2":I
     invoke-virtual {p0, v1, v2, v3}, Landroid/media/IRemoteControlDisplay$Stub;->setTransportControlInfo(III)V
 
     goto :goto_0
 
     .line 106
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
     :sswitch_5
     const-string v0, "android.media.IRemoteControlDisplay"
 
@@ -328,7 +328,7 @@
     move-result v1
 
     .line 110
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -345,23 +345,23 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 116
-    .local v2, _arg1:Landroid/os/Bundle;
+    .local v2, "_arg1":Landroid/os/Bundle;
     :goto_3
     invoke-virtual {p0, v1, v2}, Landroid/media/IRemoteControlDisplay$Stub;->setMetadata(ILandroid/os/Bundle;)V
 
     goto/16 :goto_0
 
     .line 114
-    .end local v2           #_arg1:Landroid/os/Bundle;
+    .end local v2    # "_arg1":Landroid/os/Bundle;
     :cond_3
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/os/Bundle;
+    .restart local v2    # "_arg1":Landroid/os/Bundle;
     goto :goto_3
 
     .line 121
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:Landroid/os/Bundle;
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Landroid/os/Bundle;
     :sswitch_6
     const-string v0, "android.media.IRemoteControlDisplay"
 
@@ -373,7 +373,7 @@
     move-result v1
 
     .line 125
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -390,23 +390,23 @@
     check-cast v2, Landroid/graphics/Bitmap;
 
     .line 131
-    .local v2, _arg1:Landroid/graphics/Bitmap;
+    .local v2, "_arg1":Landroid/graphics/Bitmap;
     :goto_4
     invoke-virtual {p0, v1, v2}, Landroid/media/IRemoteControlDisplay$Stub;->setArtwork(ILandroid/graphics/Bitmap;)V
 
     goto/16 :goto_0
 
     .line 129
-    .end local v2           #_arg1:Landroid/graphics/Bitmap;
+    .end local v2    # "_arg1":Landroid/graphics/Bitmap;
     :cond_4
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/graphics/Bitmap;
+    .restart local v2    # "_arg1":Landroid/graphics/Bitmap;
     goto :goto_4
 
     .line 136
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:Landroid/graphics/Bitmap;
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Landroid/graphics/Bitmap;
     :sswitch_7
     const-string v0, "android.media.IRemoteControlDisplay"
 
@@ -418,7 +418,7 @@
     move-result v1
 
     .line 140
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -435,7 +435,7 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 147
-    .local v2, _arg1:Landroid/os/Bundle;
+    .local v2, "_arg1":Landroid/os/Bundle;
     :goto_5
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -453,26 +453,26 @@
     check-cast v3, Landroid/graphics/Bitmap;
 
     .line 153
-    .local v3, _arg2:Landroid/graphics/Bitmap;
+    .local v3, "_arg2":Landroid/graphics/Bitmap;
     :goto_6
     invoke-virtual {p0, v1, v2, v3}, Landroid/media/IRemoteControlDisplay$Stub;->setAllMetadata(ILandroid/os/Bundle;Landroid/graphics/Bitmap;)V
 
     goto/16 :goto_0
 
     .line 144
-    .end local v2           #_arg1:Landroid/os/Bundle;
-    .end local v3           #_arg2:Landroid/graphics/Bitmap;
+    .end local v2    # "_arg1":Landroid/os/Bundle;
+    .end local v3    # "_arg2":Landroid/graphics/Bitmap;
     :cond_5
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/os/Bundle;
+    .restart local v2    # "_arg1":Landroid/os/Bundle;
     goto :goto_5
 
     .line 151
     :cond_6
     const/4 v3, 0x0
 
-    .restart local v3       #_arg2:Landroid/graphics/Bitmap;
+    .restart local v3    # "_arg2":Landroid/graphics/Bitmap;
     goto :goto_6
 
     .line 44

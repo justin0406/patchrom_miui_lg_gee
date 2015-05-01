@@ -39,7 +39,7 @@
 
 .field public static final CONFIG_UI_MODE:I = 0x200
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -172,21 +172,21 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x2t 0x0t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x4t 0x0t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x10t 0x0t 0x0t 0x0t
-        0x20t 0x0t 0x0t 0x0t
-        0x40t 0x0t 0x0t 0x0t
-        0x80t 0x0t 0x0t 0x0t
-        0x0t 0x8t 0x0t 0x0t
-        0x0t 0x10t 0x0t 0x0t
-        0x0t 0x2t 0x0t 0x0t
-        0x0t 0x20t 0x0t 0x0t
-        0x0t 0x1t 0x0t 0x0t
-        0x0t 0x40t 0x0t 0x0t
+    .array-data 4
+        0x2
+        0x1
+        0x4
+        0x8
+        0x10
+        0x20
+        0x40
+        0x80
+        0x800
+        0x1000
+        0x200
+        0x2000
+        0x100
+        0x4000
     .end array-data
 .end method
 
@@ -213,7 +213,7 @@
 
 .method public constructor <init>(Landroid/content/pm/ActivityInfo;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/ActivityInfo;
 
     .prologue
     .line 532
@@ -290,7 +290,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 617
@@ -389,8 +389,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ActivityInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/ActivityInfo$1;
 
     .prologue
     .line 30
@@ -401,17 +401,17 @@
 
 .method public static activityInfoConfigToNative(I)I
     .locals 3
-    .parameter "input"
+    .param p0, "input"    # I
 
     .prologue
     .line 460
     const/4 v1, 0x0
 
     .line 461
-    .local v1, output:I
+    .local v1, "output":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     sget-object v2, Landroid/content/pm/ActivityInfo;->CONFIG_NATIVE_BITS:[I
 
@@ -460,8 +460,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 558
@@ -837,8 +837,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 592

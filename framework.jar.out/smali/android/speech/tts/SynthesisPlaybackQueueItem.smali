@@ -53,15 +53,15 @@
 # direct methods
 .method constructor <init>(IIIIFFLandroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;Landroid/speech/tts/EventLogger;)V
     .locals 8
-    .parameter "streamType"
-    .parameter "sampleRate"
-    .parameter "audioFormat"
-    .parameter "channelCount"
-    .parameter "volume"
-    .parameter "pan"
-    .parameter "dispatcher"
-    .parameter "callerIdentity"
-    .parameter "logger"
+    .param p1, "streamType"    # I
+    .param p2, "sampleRate"    # I
+    .param p3, "audioFormat"    # I
+    .param p4, "channelCount"    # I
+    .param p5, "volume"    # F
+    .param p6, "pan"    # F
+    .param p7, "dispatcher"    # Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .param p8, "callerIdentity"    # Ljava/lang/Object;
+    .param p9, "logger"    # Landroid/speech/tts/EventLogger;
 
     .prologue
     .line 70
@@ -234,7 +234,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 224
-    .local v0, entry:Landroid/speech/tts/SynthesisPlaybackQueueItem$ListEntry;
+    .local v0, "entry":Landroid/speech/tts/SynthesisPlaybackQueueItem$ListEntry;
     if-nez v0, :cond_2
 
     .line 236
@@ -325,7 +325,7 @@
 
 .method put([B)V
     .locals 4
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -343,7 +343,7 @@
     const-wide/16 v0, 0x0
 
     .line 183
-    .local v0, unconsumedAudioMs:J
+    .local v0, "unconsumedAudioMs":J
     :goto_0
     iget-object v2, p0, Landroid/speech/tts/SynthesisPlaybackQueueItem;->mAudioTrack:Landroid/speech/tts/BlockingAudioTrack;
 
@@ -373,7 +373,7 @@
     goto :goto_0
 
     .line 199
-    .end local v0           #unconsumedAudioMs:J
+    .end local v0    # "unconsumedAudioMs":J
     :catchall_0
     move-exception v2
 
@@ -384,7 +384,7 @@
     throw v2
 
     .line 191
-    .restart local v0       #unconsumedAudioMs:J
+    .restart local v0    # "unconsumedAudioMs":J
     :cond_0
     :try_start_1
     iget-boolean v2, p0, Landroid/speech/tts/SynthesisPlaybackQueueItem;->mStopped:Z
@@ -447,7 +447,7 @@
     move-result-object v1
 
     .line 87
-    .local v1, dispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .local v1, "dispatcher":Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
     invoke-interface {v1}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnStart()V
 
     .line 90
@@ -471,7 +471,7 @@
     const/4 v0, 0x0
 
     .line 104
-    .local v0, buffer:[B
+    .local v0, "buffer":[B
     :goto_1
     :try_start_0
     invoke-direct {p0}, Landroid/speech/tts/SynthesisPlaybackQueueItem;->take()[B
@@ -529,7 +529,7 @@
 
 .method stop(Z)V
     .locals 2
-    .parameter "isError"
+    .param p1, "isError"    # Z
 
     .prologue
     .line 127

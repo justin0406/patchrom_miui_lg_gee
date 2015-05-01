@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -47,7 +47,7 @@
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 53
@@ -58,7 +58,7 @@
     move-result-object v0
 
     .line 54
-    .local v0, output:Landroid/filterfw/core/Frame;
+    .local v0, "output":Landroid/filterfw/core/Frame;
     if-eqz v0, :cond_1
 
     .line 55

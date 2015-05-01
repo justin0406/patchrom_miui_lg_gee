@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 208
@@ -44,7 +43,7 @@
     .line 211
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$2;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
 
-    #calls: Lcom/android/server/media/RemoteDisplayProviderWatcher;->scanPackages()V
+    # invokes: Lcom/android/server/media/RemoteDisplayProviderWatcher;->scanPackages()V
     invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->access$100(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
 
     .line 212

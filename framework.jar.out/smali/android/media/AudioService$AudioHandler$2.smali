@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioService$AudioHandler;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 3455
+    .line 3461
     iput-object p1, p0, Landroid/media/AudioService$AudioHandler$2;->this$1:Landroid/media/AudioService$AudioHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,18 +38,18 @@
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
     .locals 1
-    .parameter "mp"
-    .parameter "what"
-    .parameter "extra"
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "what"    # I
+    .param p3, "extra"    # I
 
     .prologue
-    .line 3457
+    .line 3463
     iget-object v0, p0, Landroid/media/AudioService$AudioHandler$2;->this$1:Landroid/media/AudioService$AudioHandler;
 
-    #calls: Landroid/media/AudioService$AudioHandler;->cleanupPlayer(Landroid/media/MediaPlayer;)V
+    # invokes: Landroid/media/AudioService$AudioHandler;->cleanupPlayer(Landroid/media/MediaPlayer;)V
     invoke-static {v0, p1}, Landroid/media/AudioService$AudioHandler;->access$5100(Landroid/media/AudioService$AudioHandler;Landroid/media/MediaPlayer;)V
 
-    .line 3458
+    .line 3464
     const/4 v0, 0x1
 
     return v0

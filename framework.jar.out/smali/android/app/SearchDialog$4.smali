@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 681
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onQueryTextChange(Ljava/lang/String;)Z
     .locals 1
-    .parameter "newText"
+    .param p1, "newText"    # Ljava/lang/String;
 
     .prologue
     .line 689
@@ -50,7 +49,7 @@
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 684

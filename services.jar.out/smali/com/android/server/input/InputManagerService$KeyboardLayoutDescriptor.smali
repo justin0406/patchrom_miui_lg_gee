@@ -35,9 +35,9 @@
 
 .method public static format(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "packageName"
-    .parameter "receiverName"
-    .parameter "keyboardName"
+    .param p0, "packageName"    # Ljava/lang/String;
+    .param p1, "receiverName"    # Ljava/lang/String;
+    .param p2, "keyboardName"    # Ljava/lang/String;
 
     .prologue
     .line 1567
@@ -78,7 +78,7 @@
 
 .method public static parse(Ljava/lang/String;)Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
     .locals 6
-    .parameter "descriptor"
+    .param p0, "descriptor"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -91,7 +91,7 @@
     move-result v0
 
     .line 1572
-    .local v0, pos:I
+    .local v0, "pos":I
     if-ltz v0, :cond_0
 
     add-int/lit8 v3, v0, 0x1
@@ -116,7 +116,7 @@
     move-result v1
 
     .line 1576
-    .local v1, pos2:I
+    .local v1, "pos2":I
     add-int/lit8 v3, v0, 0x2
 
     if-lt v1, v3, :cond_0
@@ -135,7 +135,7 @@
     invoke-direct {v2}, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;-><init>()V
 
     .line 1581
-    .local v2, result:Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
+    .local v2, "result":Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;

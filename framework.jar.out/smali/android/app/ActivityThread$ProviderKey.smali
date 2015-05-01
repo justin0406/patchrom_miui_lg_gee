@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "authority"
-    .parameter "userId"
+    .param p1, "authority"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
     .prologue
     .line 215
@@ -44,7 +44,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     check-cast v0, Landroid/app/ActivityThread$ProviderKey;
 
     .line 224
-    .local v0, other:Landroid/app/ActivityThread$ProviderKey;
+    .local v0, "other":Landroid/app/ActivityThread$ProviderKey;
     iget-object v2, p0, Landroid/app/ActivityThread$ProviderKey;->authority:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/app/ActivityThread$ProviderKey;->authority:Ljava/lang/String;
@@ -80,7 +80,7 @@
     const/4 v1, 0x1
 
     .line 226
-    .end local v0           #other:Landroid/app/ActivityThread$ProviderKey;
+    .end local v0    # "other":Landroid/app/ActivityThread$ProviderKey;
     :cond_0
     return v1
 .end method

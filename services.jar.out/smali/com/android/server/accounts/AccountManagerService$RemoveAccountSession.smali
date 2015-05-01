@@ -23,10 +23,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;)V
     .locals 7
-    .parameter
-    .parameter "accounts"
-    .parameter "response"
-    .parameter "account"
+    .param p2, "accounts"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "account"    # Landroid/accounts/Account;
 
     .prologue
     .line 891
@@ -60,7 +59,7 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 6
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 910
@@ -90,7 +89,7 @@
     move-result v0
 
     .line 913
-    .local v0, removalAllowed:Z
+    .local v0, "removalAllowed":Z
     if-eqz v0, :cond_0
 
     .line 914
@@ -100,7 +99,7 @@
 
     iget-object v5, p0, Lcom/android/server/accounts/AccountManagerService$RemoveAccountSession;->mAccount:Landroid/accounts/Account;
 
-    #calls: Lcom/android/server/accounts/AccountManagerService;->removeAccountInternal(Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/Account;)V
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->removeAccountInternal(Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/Account;)V
     invoke-static {v3, v4, v5}, Lcom/android/server/accounts/AccountManagerService;->access$1000(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/Account;)V
 
     .line 916
@@ -110,7 +109,7 @@
     move-result-object v1
 
     .line 917
-    .local v1, response:Landroid/accounts/IAccountManagerResponse;
+    .local v1, "response":Landroid/accounts/IAccountManagerResponse;
     if-eqz v1, :cond_2
 
     .line 918
@@ -166,7 +165,7 @@
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
     .line 923
-    .local v2, result2:Landroid/os/Bundle;
+    .local v2, "result2":Landroid/os/Bundle;
     const-string v3, "booleanResult"
 
     invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
@@ -178,9 +177,9 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 931
-    .end local v0           #removalAllowed:Z
-    .end local v1           #response:Landroid/accounts/IAccountManagerResponse;
-    .end local v2           #result2:Landroid/os/Bundle;
+    .end local v0    # "removalAllowed":Z
+    .end local v1    # "response":Landroid/accounts/IAccountManagerResponse;
+    .end local v2    # "result2":Landroid/os/Bundle;
     :cond_2
     :goto_0
     invoke-super {p0, p1}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
@@ -189,9 +188,9 @@
     return-void
 
     .line 926
-    .restart local v0       #removalAllowed:Z
-    .restart local v1       #response:Landroid/accounts/IAccountManagerResponse;
-    .restart local v2       #result2:Landroid/os/Bundle;
+    .restart local v0    # "removalAllowed":Z
+    .restart local v1    # "response":Landroid/accounts/IAccountManagerResponse;
+    .restart local v2    # "result2":Landroid/os/Bundle;
     :catch_0
     move-exception v3
 
@@ -220,7 +219,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 2
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 899

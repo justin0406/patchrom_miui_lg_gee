@@ -27,7 +27,7 @@
 
 .method synthetic constructor <init>(Landroid/os/AsyncTask$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/AsyncTask$1;
 
     .prologue
     .line 637
@@ -40,7 +40,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 641
@@ -49,7 +49,7 @@
     check-cast v0, Landroid/os/AsyncTask$AsyncTaskResult;
 
     .line 642
-    .local v0, result:Landroid/os/AsyncTask$AsyncTaskResult;
+    .local v0, "result":Landroid/os/AsyncTask$AsyncTaskResult;
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
@@ -68,7 +68,7 @@
 
     aget-object v2, v2, v3
 
-    #calls: Landroid/os/AsyncTask;->finish(Ljava/lang/Object;)V
+    # invokes: Landroid/os/AsyncTask;->finish(Ljava/lang/Object;)V
     invoke-static {v1, v2}, Landroid/os/AsyncTask;->access$600(Landroid/os/AsyncTask;Ljava/lang/Object;)V
 
     goto :goto_0

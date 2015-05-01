@@ -34,10 +34,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/widget/ActionBarContextView;Landroid/view/ActionMode$Callback;Z)V
     .locals 2
-    .parameter "context"
-    .parameter "view"
-    .parameter "callback"
-    .parameter "isFocusable"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "view"    # Lcom/android/internal/widget/ActionBarContextView;
+    .param p3, "callback"    # Landroid/view/ActionMode$Callback;
+    .param p4, "isFocusable"    # Z
 
     .prologue
     .line 44
@@ -232,8 +232,8 @@
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 0
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 137
@@ -242,7 +242,7 @@
 
 .method public onCloseSubMenu(Lcom/android/internal/view/menu/SubMenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     .line 149
@@ -251,8 +251,8 @@
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
-    .parameter "menu"
-    .parameter "item"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 133
@@ -267,7 +267,7 @@
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 1
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 152
@@ -284,7 +284,7 @@
 
 .method public onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
     .locals 3
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     const/4 v2, 0x1
@@ -315,7 +315,7 @@
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 87
@@ -345,7 +345,7 @@
 
 .method public setSubtitle(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 71
@@ -363,7 +363,7 @@
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "subtitle"
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 61
@@ -377,7 +377,7 @@
 
 .method public setTitle(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 66
@@ -395,7 +395,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 56
@@ -409,7 +409,7 @@
 
 .method public setTitleOptionalHint(Z)V
     .locals 1
-    .parameter "titleOptional"
+    .param p1, "titleOptional"    # Z
 
     .prologue
     .line 76

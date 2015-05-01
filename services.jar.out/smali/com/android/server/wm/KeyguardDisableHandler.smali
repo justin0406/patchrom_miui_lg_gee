@@ -40,8 +40,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy;)V
     .locals 1
-    .parameter "context"
-    .parameter "policy"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "policy"    # Landroid/view/WindowManagerPolicy;
 
     .prologue
     .line 49
@@ -64,7 +64,7 @@
 
 .method static synthetic access$000(Lcom/android/server/wm/KeyguardDisableHandler;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wm/KeyguardDisableHandler;
 
     .prologue
     .line 32
@@ -75,8 +75,8 @@
 
 .method static synthetic access$002(Lcom/android/server/wm/KeyguardDisableHandler;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/wm/KeyguardDisableHandler;
+    .param p1, "x1"    # I
 
     .prologue
     .line 32
@@ -89,7 +89,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 57
@@ -121,7 +121,7 @@
     check-cast v0, Landroid/util/Pair;
 
     .line 64
-    .local v0, pair:Landroid/util/Pair;,"Landroid/util/Pair<Landroid/os/IBinder;Ljava/lang/String;>;"
+    .local v0, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/os/IBinder;Ljava/lang/String;>;"
     iget-object v3, p0, Lcom/android/server/wm/KeyguardDisableHandler;->mKeyguardTokenWatcher:Lcom/android/server/wm/KeyguardDisableHandler$KeyguardTokenWatcher;
 
     iget-object v1, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
@@ -137,7 +137,7 @@
     goto :goto_0
 
     .line 68
-    .end local v0           #pair:Landroid/util/Pair;,"Landroid/util/Pair<Landroid/os/IBinder;Ljava/lang/String;>;"
+    .end local v0    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/os/IBinder;Ljava/lang/String;>;"
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/wm/KeyguardDisableHandler;->mKeyguardTokenWatcher:Lcom/android/server/wm/KeyguardDisableHandler$KeyguardTokenWatcher;
 

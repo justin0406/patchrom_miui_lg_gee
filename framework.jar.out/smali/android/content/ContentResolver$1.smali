@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/SyncStatusObserver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2142
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onStatusChanged(I)V
     .locals 1
-    .parameter "which"
+    .param p1, "which"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

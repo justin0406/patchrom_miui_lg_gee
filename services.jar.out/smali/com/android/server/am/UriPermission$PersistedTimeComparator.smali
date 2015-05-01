@@ -42,8 +42,8 @@
 # virtual methods
 .method public compare(Lcom/android/server/am/UriPermission;Lcom/android/server/am/UriPermission;)I
     .locals 4
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Lcom/android/server/am/UriPermission;
+    .param p2, "rhs"    # Lcom/android/server/am/UriPermission;
 
     .prologue
     .line 324
@@ -60,17 +60,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 321
     check-cast p1, Lcom/android/server/am/UriPermission;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/am/UriPermission;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/UriPermission$PersistedTimeComparator;->compare(Lcom/android/server/am/UriPermission;Lcom/android/server/am/UriPermission;)I
 
     move-result v0

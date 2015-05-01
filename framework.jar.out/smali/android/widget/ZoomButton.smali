@@ -19,7 +19,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 45
@@ -33,8 +33,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 49
@@ -48,9 +48,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 53
@@ -84,7 +84,7 @@
 
 .method static synthetic access$000(Landroid/widget/ZoomButton;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/ZoomButton;
 
     .prologue
     .line 29
@@ -95,7 +95,7 @@
 
 .method static synthetic access$100(Landroid/widget/ZoomButton;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/ZoomButton;
 
     .prologue
     .line 29
@@ -106,7 +106,7 @@
 
 .method static synthetic access$200(Landroid/widget/ZoomButton;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/ZoomButton;
 
     .prologue
     .line 29
@@ -119,8 +119,8 @@
 # virtual methods
 .method public dispatchUnhandledMove(Landroid/view/View;I)Z
     .locals 1
-    .parameter "focused"
-    .parameter "direction"
+    .param p1, "focused"    # Landroid/view/View;
+    .param p2, "direction"    # I
 
     .prologue
     .line 98
@@ -136,7 +136,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 104
@@ -157,7 +157,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 110
@@ -178,8 +178,8 @@
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 79
@@ -197,7 +197,7 @@
 
 .method public onLongClick(Landroid/view/View;)Z
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v2, 0x1
@@ -218,7 +218,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 60
@@ -255,7 +255,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 85
@@ -276,7 +276,7 @@
 
 .method public setZoomSpeed(J)V
     .locals 0
-    .parameter "speed"
+    .param p1, "speed"    # J
 
     .prologue
     .line 68

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 209
@@ -51,8 +51,8 @@
 
 .method public checkPassword(Ljava/lang/String;I)Z
     .locals 6
-    .parameter "password"
-    .parameter "userId"
+    .param p1, "password"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -68,13 +68,13 @@
     move-result-object v0
 
     .line 385
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 388
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
@@ -110,7 +110,7 @@
     const/4 v2, 0x1
 
     .line 396
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -121,7 +121,7 @@
     return v2
 
     .line 396
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -135,8 +135,8 @@
 
 .method public checkPattern(Ljava/lang/String;I)Z
     .locals 6
-    .parameter "pattern"
-    .parameter "userId"
+    .param p1, "pattern"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,13 +152,13 @@
     move-result-object v0
 
     .line 350
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 353
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
@@ -194,7 +194,7 @@
     const/4 v2, 0x1
 
     .line 361
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -205,7 +205,7 @@
     return v2
 
     .line 361
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -219,9 +219,9 @@
 
 .method public getBoolean(Ljava/lang/String;ZI)Z
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Z
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,13 +239,13 @@
     move-result-object v0
 
     .line 274
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 277
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
@@ -287,7 +287,7 @@
     if-eqz v4, :cond_1
 
     .line 286
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -297,7 +297,7 @@
     .line 289
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v4, v3
 
@@ -334,9 +334,9 @@
 
 .method public getLong(Ljava/lang/String;JI)J
     .locals 7
-    .parameter "key"
-    .parameter "defaultValue"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # J
+    .param p4, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -350,13 +350,13 @@
     move-result-object v0
 
     .line 294
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 297
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
@@ -391,7 +391,7 @@
     move-result-wide v2
 
     .line 306
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 307
@@ -401,7 +401,7 @@
     return-wide v2
 
     .line 306
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -415,9 +415,9 @@
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
     .locals 6
-    .parameter "key"
-    .parameter "defaultValue"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -431,13 +431,13 @@
     move-result-object v0
 
     .line 314
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 317
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
@@ -472,7 +472,7 @@
     move-result-object v2
 
     .line 326
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 327
@@ -482,7 +482,7 @@
     return-object v2
 
     .line 326
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -496,7 +496,7 @@
 
 .method public havePassword(I)Z
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -512,13 +512,13 @@
     move-result-object v0
 
     .line 422
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 425
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
@@ -551,7 +551,7 @@
     const/4 v2, 0x1
 
     .line 432
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -562,7 +562,7 @@
     return v2
 
     .line 432
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -576,7 +576,7 @@
 
 .method public havePattern(I)Z
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -592,13 +592,13 @@
     move-result-object v0
 
     .line 404
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 407
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
@@ -631,7 +631,7 @@
     const/4 v2, 0x1
 
     .line 414
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -642,7 +642,7 @@
     return v2
 
     .line 414
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -656,7 +656,7 @@
 
 .method public removeUser(I)V
     .locals 5
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -670,13 +670,13 @@
     move-result-object v0
 
     .line 440
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 442
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
@@ -722,9 +722,9 @@
 
 .method public setBoolean(Ljava/lang/String;ZI)V
     .locals 5
-    .parameter "key"
-    .parameter "value"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Z
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -742,13 +742,13 @@
     move-result-object v0
 
     .line 223
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 225
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
@@ -809,8 +809,8 @@
 
 .method public setLockPassword(Ljava/lang/String;I)V
     .locals 5
-    .parameter "password"
-    .parameter "userId"
+    .param p1, "password"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -824,13 +824,13 @@
     move-result-object v0
 
     .line 369
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 371
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
@@ -879,8 +879,8 @@
 
 .method public setLockPattern(Ljava/lang/String;I)V
     .locals 5
-    .parameter "pattern"
-    .parameter "userId"
+    .param p1, "pattern"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -894,13 +894,13 @@
     move-result-object v0
 
     .line 334
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 336
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
@@ -949,9 +949,9 @@
 
 .method public setLong(Ljava/lang/String;JI)V
     .locals 5
-    .parameter "key"
-    .parameter "value"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # J
+    .param p4, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -965,13 +965,13 @@
     move-result-object v0
 
     .line 240
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 242
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
@@ -1023,8 +1023,8 @@
 
 .method public setRawLockPassword([BI)V
     .locals 5
-    .parameter "hash"
-    .parameter "userId"
+    .param p1, "hash"    # [B
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1036,12 +1036,12 @@
 
     move-result-object v0
 
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
@@ -1053,7 +1053,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/ILockSettings$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2a
+    sget v3, Lcom/android/internal/widget/ILockSettings$Stub;->TRANSACTION_setRawLockPassword:I
 
     const/4 v4, 0x0
 
@@ -1081,9 +1081,9 @@
 
 .method public setString(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 5
-    .parameter "key"
-    .parameter "value"
-    .parameter "userId"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1097,13 +1097,13 @@
     move-result-object v0
 
     .line 257
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 259
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 

@@ -12,9 +12,9 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
-    .parameter "e"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 34
@@ -29,8 +29,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsic3DLUT;
     .locals 3
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 49
@@ -45,7 +45,7 @@
     move-result v0
 
     .line 51
-    .local v0, id:I
+    .local v0, "id":I
     invoke-static {p0}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
     move-result-object v1
@@ -78,8 +78,8 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "ain"
-    .parameter "aout"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
+    .param p2, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 89
@@ -113,7 +113,7 @@
 
 .method public setLUT(Landroid/renderscript/Allocation;)V
     .locals 3
-    .parameter "lut"
+    .param p1, "lut"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 66
@@ -122,7 +122,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, t:Landroid/renderscript/Type;
+    .local v0, "t":Landroid/renderscript/Type;
     invoke-virtual {v0}, Landroid/renderscript/Type;->getZ()I
 
     move-result v1

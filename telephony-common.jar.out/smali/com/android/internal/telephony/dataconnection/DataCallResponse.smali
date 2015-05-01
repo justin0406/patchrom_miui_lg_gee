@@ -107,8 +107,8 @@
 # virtual methods
 .method public setLinkProperties(Landroid/net/LinkProperties;Z)Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     .locals 18
-    .parameter "linkProperties"
-    .parameter "okToUseSystemPropertyDns"
+    .param p1, "linkProperties"    # Landroid/net/LinkProperties;
+    .param p2, "okToUseSystemPropertyDns"    # Z
 
     .prologue
     .line 113
@@ -117,11 +117,11 @@
     .line 114
     new-instance p1, Landroid/net/LinkProperties;
 
-    .end local p1
+    .end local p1    # "linkProperties":Landroid/net/LinkProperties;
     invoke-direct/range {p1 .. p1}, Landroid/net/LinkProperties;-><init>()V
 
     .line 118
-    .restart local p1
+    .restart local p1    # "linkProperties":Landroid/net/LinkProperties;
     :goto_0
     move-object/from16 v0, p0
 
@@ -169,7 +169,7 @@
     move-result-object v12
 
     .line 123
-    .local v12, propertyPrefix:Ljava/lang/String;
+    .local v12, "propertyPrefix":Ljava/lang/String;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -199,20 +199,20 @@
 
     iget-object v4, v0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->addresses:[Ljava/lang/String;
 
-    .local v4, arr$:[Ljava/lang/String;
+    .local v4, "arr$":[Ljava/lang/String;
     array-length v11, v4
 
-    .local v11, len$:I
+    .local v11, "len$":I
     const/4 v8, 0x0
 
-    .local v8, i$:I
+    .local v8, "i$":I
     :goto_1
     if-ge v8, v11, :cond_8
 
     aget-object v1, v4, v8
 
     .line 128
-    .local v1, addr:Ljava/lang/String;
+    .local v1, "addr":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -234,22 +234,22 @@
     goto :goto_1
 
     .line 116
-    .end local v1           #addr:Ljava/lang/String;
-    .end local v4           #arr$:[Ljava/lang/String;
-    .end local v8           #i$:I
-    .end local v11           #len$:I
-    .end local v12           #propertyPrefix:Ljava/lang/String;
+    .end local v1    # "addr":Ljava/lang/String;
+    .end local v4    # "arr$":[Ljava/lang/String;
+    .end local v8    # "i$":I
+    .end local v11    # "len$":I
+    .end local v12    # "propertyPrefix":Ljava/lang/String;
     :cond_1
     invoke-virtual/range {p1 .. p1}, Landroid/net/LinkProperties;->clear()V
 
     goto :goto_0
 
     .line 133
-    .restart local v1       #addr:Ljava/lang/String;
-    .restart local v4       #arr$:[Ljava/lang/String;
-    .restart local v8       #i$:I
-    .restart local v11       #len$:I
-    .restart local v12       #propertyPrefix:Ljava/lang/String;
+    .restart local v1    # "addr":Ljava/lang/String;
+    .restart local v4    # "arr$":[Ljava/lang/String;
+    .restart local v8    # "i$":I
+    .restart local v11    # "len$":I
+    .restart local v12    # "propertyPrefix":Ljava/lang/String;
     :cond_2
     :try_start_1
     const-string v15, "/"
@@ -259,7 +259,7 @@
     move-result-object v3
 
     .line 134
-    .local v3, ap:[Ljava/lang/String;
+    .local v3, "ap":[Ljava/lang/String;
     array-length v15, v3
 
     const/16 v16, 0x2
@@ -285,7 +285,7 @@
     move-result v2
 
     .line 142
-    .local v2, addrPrefixLen:I
+    .local v2, "addrPrefixLen":I
     :goto_3
     :try_start_2
     invoke-static {v1}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
@@ -296,7 +296,7 @@
     move-result-object v9
 
     .line 146
-    .local v9, ia:Ljava/net/InetAddress;
+    .local v9, "ia":Ljava/net/InetAddress;
     :try_start_3
     invoke-virtual {v9}, Ljava/net/InetAddress;->isAnyLocalAddress()Z
 
@@ -359,7 +359,7 @@
     invoke-direct {v10, v9, v2}, Landroid/net/LinkAddress;-><init>(Ljava/net/InetAddress;I)V
 
     .line 153
-    .local v10, la:Landroid/net/LinkAddress;
+    .local v10, "la":Landroid/net/LinkAddress;
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Landroid/net/LinkProperties;->addLinkAddress(Landroid/net/LinkAddress;)Z
@@ -369,19 +369,19 @@
     goto :goto_2
 
     .line 219
-    .end local v1           #addr:Ljava/lang/String;
-    .end local v2           #addrPrefixLen:I
-    .end local v3           #ap:[Ljava/lang/String;
-    .end local v4           #arr$:[Ljava/lang/String;
-    .end local v8           #i$:I
-    .end local v9           #ia:Ljava/net/InetAddress;
-    .end local v10           #la:Landroid/net/LinkAddress;
-    .end local v11           #len$:I
+    .end local v1    # "addr":Ljava/lang/String;
+    .end local v2    # "addrPrefixLen":I
+    .end local v3    # "ap":[Ljava/lang/String;
+    .end local v4    # "arr$":[Ljava/lang/String;
+    .end local v8    # "i$":I
+    .end local v9    # "ia":Ljava/net/InetAddress;
+    .end local v10    # "la":Landroid/net/LinkAddress;
+    .end local v11    # "len$":I
     :catch_0
     move-exception v7
 
     .line 220
-    .local v7, e:Ljava/net/UnknownHostException;
+    .local v7, "e":Ljava/net/UnknownHostException;
     const-string v15, "DataCallResponse"
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -413,9 +413,9 @@
     sget-object v13, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->ERR_UnacceptableParameter:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
 
     .line 233
-    .end local v7           #e:Ljava/net/UnknownHostException;
-    .end local v12           #propertyPrefix:Ljava/lang/String;
-    .local v13, result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .end local v7    # "e":Ljava/net/UnknownHostException;
+    .end local v12    # "propertyPrefix":Ljava/lang/String;
+    .local v13, "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     :goto_5
     sget-object v15, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->SUCCESS:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
 
@@ -470,17 +470,17 @@
     return-object v13
 
     .line 138
-    .end local v13           #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
-    .restart local v1       #addr:Ljava/lang/String;
-    .restart local v3       #ap:[Ljava/lang/String;
-    .restart local v4       #arr$:[Ljava/lang/String;
-    .restart local v8       #i$:I
-    .restart local v11       #len$:I
-    .restart local v12       #propertyPrefix:Ljava/lang/String;
+    .end local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .restart local v1    # "addr":Ljava/lang/String;
+    .restart local v3    # "ap":[Ljava/lang/String;
+    .restart local v4    # "arr$":[Ljava/lang/String;
+    .restart local v8    # "i$":I
+    .restart local v11    # "len$":I
+    .restart local v12    # "propertyPrefix":Ljava/lang/String;
     :cond_5
     const/4 v2, 0x0
 
-    .restart local v2       #addrPrefixLen:I
+    .restart local v2    # "addrPrefixLen":I
     goto/16 :goto_3
 
     .line 143
@@ -488,7 +488,7 @@
     move-exception v7
 
     .line 144
-    .local v7, e:Ljava/lang/IllegalArgumentException;
+    .local v7, "e":Ljava/lang/IllegalArgumentException;
     :try_start_4
     new-instance v15, Ljava/net/UnknownHostException;
 
@@ -517,21 +517,21 @@
     throw v15
 
     .line 149
-    .end local v7           #e:Ljava/lang/IllegalArgumentException;
-    .restart local v9       #ia:Ljava/net/InetAddress;
+    .end local v7    # "e":Ljava/lang/IllegalArgumentException;
+    .restart local v9    # "ia":Ljava/net/InetAddress;
     :cond_6
     const/16 v2, 0x80
 
     goto/16 :goto_4
 
     .line 157
-    .end local v1           #addr:Ljava/lang/String;
-    .end local v2           #addrPrefixLen:I
-    .end local v3           #ap:[Ljava/lang/String;
-    .end local v4           #arr$:[Ljava/lang/String;
-    .end local v8           #i$:I
-    .end local v9           #ia:Ljava/net/InetAddress;
-    .end local v11           #len$:I
+    .end local v1    # "addr":Ljava/lang/String;
+    .end local v2    # "addrPrefixLen":I
+    .end local v3    # "ap":[Ljava/lang/String;
+    .end local v4    # "arr$":[Ljava/lang/String;
+    .end local v8    # "i$":I
+    .end local v9    # "ia":Ljava/net/InetAddress;
+    .end local v11    # "len$":I
     :cond_7
     new-instance v15, Ljava/net/UnknownHostException;
 
@@ -564,9 +564,9 @@
     throw v15
 
     .line 161
-    .restart local v4       #arr$:[Ljava/lang/String;
-    .restart local v8       #i$:I
-    .restart local v11       #len$:I
+    .restart local v4    # "arr$":[Ljava/lang/String;
+    .restart local v8    # "i$":I
+    .restart local v11    # "len$":I
     :cond_8
     move-object/from16 v0, p0
 
@@ -597,7 +597,7 @@
     aget-object v1, v4, v8
 
     .line 163
-    .restart local v1       #addr:Ljava/lang/String;
+    .restart local v1    # "addr":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -629,7 +629,7 @@
     move-result-object v9
 
     .line 171
-    .restart local v9       #ia:Ljava/net/InetAddress;
+    .restart local v9    # "ia":Ljava/net/InetAddress;
     :try_start_6
     invoke-virtual {v9}, Ljava/net/InetAddress;->isAnyLocalAddress()Z
 
@@ -645,12 +645,12 @@
     goto :goto_7
 
     .line 168
-    .end local v9           #ia:Ljava/net/InetAddress;
+    .end local v9    # "ia":Ljava/net/InetAddress;
     :catch_2
     move-exception v7
 
     .line 169
-    .restart local v7       #e:Ljava/lang/IllegalArgumentException;
+    .restart local v7    # "e":Ljava/lang/IllegalArgumentException;
     new-instance v15, Ljava/net/UnknownHostException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -678,8 +678,8 @@
     throw v15
 
     .line 175
-    .end local v1           #addr:Ljava/lang/String;
-    .end local v7           #e:Ljava/lang/IllegalArgumentException;
+    .end local v1    # "addr":Ljava/lang/String;
+    .end local v7    # "e":Ljava/lang/IllegalArgumentException;
     :cond_b
     if-eqz p2, :cond_e
 
@@ -689,7 +689,7 @@
     new-array v6, v15, [Ljava/lang/String;
 
     .line 177
-    .local v6, dnsServers:[Ljava/lang/String;
+    .local v6, "dnsServers":[Ljava/lang/String;
     const/4 v15, 0x0
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -760,7 +760,7 @@
     aget-object v5, v4, v8
 
     .line 180
-    .local v5, dnsAddr:Ljava/lang/String;
+    .local v5, "dnsAddr":Ljava/lang/String;
     invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v5
@@ -792,7 +792,7 @@
     move-result-object v9
 
     .line 188
-    .restart local v9       #ia:Ljava/net/InetAddress;
+    .restart local v9    # "ia":Ljava/net/InetAddress;
     :try_start_8
     invoke-virtual {v9}, Ljava/net/InetAddress;->isAnyLocalAddress()Z
 
@@ -808,12 +808,12 @@
     goto :goto_9
 
     .line 185
-    .end local v9           #ia:Ljava/net/InetAddress;
+    .end local v9    # "ia":Ljava/net/InetAddress;
     :catch_3
     move-exception v7
 
     .line 186
-    .restart local v7       #e:Ljava/lang/IllegalArgumentException;
+    .restart local v7    # "e":Ljava/lang/IllegalArgumentException;
     new-instance v15, Ljava/net/UnknownHostException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -841,9 +841,9 @@
     throw v15
 
     .line 193
-    .end local v5           #dnsAddr:Ljava/lang/String;
-    .end local v6           #dnsServers:[Ljava/lang/String;
-    .end local v7           #e:Ljava/lang/IllegalArgumentException;
+    .end local v5    # "dnsAddr":Ljava/lang/String;
+    .end local v6    # "dnsServers":[Ljava/lang/String;
+    .end local v7    # "e":Ljava/lang/IllegalArgumentException;
     :cond_e
     new-instance v15, Ljava/net/UnknownHostException;
 
@@ -894,7 +894,7 @@
     move-result-object v14
 
     .line 199
-    .local v14, sysGateways:Ljava/lang/String;
+    .local v14, "sysGateways":Ljava/lang/String;
     if-eqz v14, :cond_12
 
     .line 200
@@ -909,7 +909,7 @@
     iput-object v15, v0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->gateways:[Ljava/lang/String;
 
     .line 205
-    .end local v14           #sysGateways:Ljava/lang/String;
+    .end local v14    # "sysGateways":Ljava/lang/String;
     :cond_11
     :goto_a
     move-object/from16 v0, p0
@@ -926,7 +926,7 @@
     aget-object v1, v4, v8
 
     .line 206
-    .restart local v1       #addr:Ljava/lang/String;
+    .restart local v1    # "addr":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -945,8 +945,8 @@
     goto :goto_b
 
     .line 202
-    .end local v1           #addr:Ljava/lang/String;
-    .restart local v14       #sysGateways:Ljava/lang/String;
+    .end local v1    # "addr":Ljava/lang/String;
+    .restart local v14    # "sysGateways":Ljava/lang/String;
     :cond_12
     const/4 v15, 0x0
 
@@ -961,8 +961,8 @@
     goto :goto_a
 
     .line 210
-    .end local v14           #sysGateways:Ljava/lang/String;
-    .restart local v1       #addr:Ljava/lang/String;
+    .end local v14    # "sysGateways":Ljava/lang/String;
+    .restart local v1    # "addr":Ljava/lang/String;
     :cond_13
     :try_start_9
     invoke-static {v1}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
@@ -973,7 +973,7 @@
     move-result-object v9
 
     .line 215
-    .restart local v9       #ia:Ljava/net/InetAddress;
+    .restart local v9    # "ia":Ljava/net/InetAddress;
     :try_start_a
     new-instance v15, Landroid/net/RouteInfo;
 
@@ -986,12 +986,12 @@
     goto :goto_c
 
     .line 211
-    .end local v9           #ia:Ljava/net/InetAddress;
+    .end local v9    # "ia":Ljava/net/InetAddress;
     :catch_4
     move-exception v7
 
     .line 212
-    .restart local v7       #e:Ljava/lang/IllegalArgumentException;
+    .restart local v7    # "e":Ljava/lang/IllegalArgumentException;
     new-instance v15, Ljava/net/UnknownHostException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -1019,22 +1019,22 @@
     throw v15
 
     .line 218
-    .end local v1           #addr:Ljava/lang/String;
-    .end local v7           #e:Ljava/lang/IllegalArgumentException;
+    .end local v1    # "addr":Ljava/lang/String;
+    .end local v7    # "e":Ljava/lang/IllegalArgumentException;
     :cond_14
     sget-object v13, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->SUCCESS:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     :try_end_a
     .catch Ljava/net/UnknownHostException; {:try_start_a .. :try_end_a} :catch_0
 
-    .restart local v13       #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .restart local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     goto/16 :goto_5
 
     .line 225
-    .end local v4           #arr$:[Ljava/lang/String;
-    .end local v8           #i$:I
-    .end local v11           #len$:I
-    .end local v12           #propertyPrefix:Ljava/lang/String;
-    .end local v13           #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .end local v4    # "arr$":[Ljava/lang/String;
+    .end local v8    # "i$":I
+    .end local v11    # "len$":I
+    .end local v12    # "propertyPrefix":Ljava/lang/String;
+    .end local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     :cond_15
     move-object/from16 v0, p0
 
@@ -1049,15 +1049,15 @@
     .line 226
     sget-object v13, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->ERR_GetLastErrorFromRil:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
 
-    .restart local v13       #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .restart local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     goto/16 :goto_5
 
     .line 228
-    .end local v13           #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .end local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     :cond_16
     sget-object v13, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->ERR_RilError:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
 
-    .restart local v13       #result:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
+    .restart local v13    # "result":Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     goto/16 :goto_5
 .end method
 
@@ -1071,7 +1071,7 @@
     invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 77
-    .local v4, sb:Ljava/lang/StringBuffer;
+    .local v4, "sb":Ljava/lang/StringBuffer;
     const-string v5, "DataCallResponse: {"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -1168,20 +1168,20 @@
     .line 86
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->addresses:[Ljava/lang/String;
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v0, v1, v2
 
     .line 87
-    .local v0, addr:Ljava/lang/String;
+    .local v0, "addr":Ljava/lang/String;
     invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 88
@@ -1195,7 +1195,7 @@
     goto :goto_0
 
     .line 90
-    .end local v0           #addr:Ljava/lang/String;
+    .end local v0    # "addr":Ljava/lang/String;
     :cond_0
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->addresses:[Ljava/lang/String;
 
@@ -1230,7 +1230,7 @@
     aget-object v0, v1, v2
 
     .line 93
-    .restart local v0       #addr:Ljava/lang/String;
+    .restart local v0    # "addr":Ljava/lang/String;
     invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 94
@@ -1244,7 +1244,7 @@
     goto :goto_1
 
     .line 96
-    .end local v0           #addr:Ljava/lang/String;
+    .end local v0    # "addr":Ljava/lang/String;
     :cond_2
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->dnses:[Ljava/lang/String;
 
@@ -1279,7 +1279,7 @@
     aget-object v0, v1, v2
 
     .line 99
-    .restart local v0       #addr:Ljava/lang/String;
+    .restart local v0    # "addr":Ljava/lang/String;
     invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 100
@@ -1293,7 +1293,7 @@
     goto :goto_2
 
     .line 102
-    .end local v0           #addr:Ljava/lang/String;
+    .end local v0    # "addr":Ljava/lang/String;
     :cond_4
     iget-object v5, p0, Lcom/android/internal/telephony/dataconnection/DataCallResponse;->gateways:[Ljava/lang/String;
 

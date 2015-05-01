@@ -27,11 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/Binder;Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
-    .parameter
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 328

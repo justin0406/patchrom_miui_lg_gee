@@ -3,15 +3,15 @@
 .source "SpannedString.java"
 
 # interfaces
-.implements Ljava/lang/CharSequence;
 .implements Landroid/text/GetChars;
 .implements Landroid/text/Spanned;
+.implements Ljava/lang/CharSequence;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 30
@@ -29,9 +29,9 @@
 
 .method private constructor <init>(Ljava/lang/CharSequence;II)V
     .locals 0
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 34
@@ -43,7 +43,7 @@
 
 .method public static valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannedString;
     .locals 1
-    .parameter "source"
+    .param p0, "source"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 42
@@ -55,11 +55,11 @@
     check-cast p0, Landroid/text/SpannedString;
 
     .line 45
-    .end local p0
+    .end local p0    # "source":Ljava/lang/CharSequence;
     :goto_0
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "source":Ljava/lang/CharSequence;
     :cond_0
     new-instance v0, Landroid/text/SpannedString;
 
@@ -74,7 +74,7 @@
 # virtual methods
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 25
@@ -87,7 +87,7 @@
 
 .method public bridge synthetic getSpanEnd(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 25
@@ -100,7 +100,7 @@
 
 .method public bridge synthetic getSpanFlags(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 25
@@ -113,7 +113,7 @@
 
 .method public bridge synthetic getSpanStart(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 25
@@ -126,9 +126,9 @@
 
 .method public bridge synthetic getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/Class;
 
     .prologue
     .line 25
@@ -153,9 +153,9 @@
 
 .method public bridge synthetic nextSpanTransition(IILjava/lang/Class;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Ljava/lang/Class;
 
     .prologue
     .line 25
@@ -168,8 +168,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 38

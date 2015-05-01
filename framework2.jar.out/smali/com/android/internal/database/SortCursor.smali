@@ -30,8 +30,8 @@
 # direct methods
 .method public constructor <init>([Landroid/database/Cursor;Ljava/lang/String;)V
     .locals 8
-    .parameter "cursors"
-    .parameter "sortcolumn"
+    .param p1, "cursors"    # [Landroid/database/Cursor;
+    .param p2, "sortcolumn"    # Ljava/lang/String;
 
     .prologue
     const/16 v7, 0x40
@@ -73,7 +73,7 @@
     array-length v3, v5
 
     .line 60
-    .local v3, length:I
+    .local v3, "length":I
     new-array v5, v3, [I
 
     iput-object v5, p0, Lcom/android/internal/database/SortCursor;->mSortColumns:[I
@@ -81,7 +81,7 @@
     .line 61
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_1
 
@@ -140,10 +140,10 @@
     const-string v4, ""
 
     .line 74
-    .local v4, smallest:Ljava/lang/String;
+    .local v4, "smallest":Ljava/lang/String;
     const/4 v2, 0x0
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_2
     if-ge v2, v3, :cond_5
 
@@ -186,7 +186,7 @@
     move-result-object v0
 
     .line 78
-    .local v0, current:Ljava/lang/String;
+    .local v0, "current":Ljava/lang/String;
     iget-object v5, p0, Lcom/android/internal/database/SortCursor;->mCursor:Landroid/database/Cursor;
 
     if-eqz v5, :cond_4
@@ -211,7 +211,7 @@
     goto :goto_3
 
     .line 84
-    .end local v0           #current:Ljava/lang/String;
+    .end local v0    # "current":Ljava/lang/String;
     :cond_5
     iget-object v5, p0, Lcom/android/internal/database/SortCursor;->mRowNumCache:[I
 
@@ -256,8 +256,8 @@
 
 .method static synthetic access$002(Lcom/android/internal/database/SortCursor;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/database/SortCursor;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -268,8 +268,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/database/SortCursor;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/database/SortCursor;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -290,10 +290,10 @@
     array-length v1, v2
 
     .line 268
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -335,10 +335,10 @@
     array-length v1, v2
 
     .line 259
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -372,7 +372,7 @@
 
 .method public getBlob(I)[B
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 234
@@ -412,10 +412,10 @@
     array-length v1, v2
 
     .line 246
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_2
 
@@ -462,16 +462,16 @@
     const/4 v0, 0x0
 
     .line 94
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v3, p0, Lcom/android/internal/database/SortCursor;->mCursors:[Landroid/database/Cursor;
 
     array-length v2, v3
 
     .line 95
-    .local v2, length:I
+    .local v2, "length":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -506,7 +506,7 @@
 
 .method public getDouble(I)D
     .locals 2
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 217
@@ -521,7 +521,7 @@
 
 .method public getFloat(I)F
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 211
@@ -536,7 +536,7 @@
 
 .method public getInt(I)I
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 199
@@ -551,7 +551,7 @@
 
 .method public getLong(I)J
     .locals 2
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 205
@@ -566,7 +566,7 @@
 
 .method public getShort(I)S
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 193
@@ -581,7 +581,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 187
@@ -596,7 +596,7 @@
 
 .method public getType(I)I
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 222
@@ -611,7 +611,7 @@
 
 .method public isNull(I)Z
     .locals 1
-    .parameter "column"
+    .param p1, "column"    # I
 
     .prologue
     .line 228
@@ -626,8 +626,8 @@
 
 .method public onMove(II)Z
     .locals 13
-    .parameter "oldPosition"
-    .parameter "newPosition"
+    .param p1, "oldPosition"    # I
+    .param p2, "newPosition"    # I
 
     .prologue
     const/4 v12, -0x1
@@ -646,7 +646,7 @@
     rem-int/lit8 v0, p2, 0x40
 
     .line 119
-    .local v0, cache_entry:I
+    .local v0, "cache_entry":I
     iget-object v9, p0, Lcom/android/internal/database/SortCursor;->mRowNumCache:[I
 
     aget v9, v9, v0
@@ -659,7 +659,7 @@
     aget v7, v9, v0
 
     .line 121
-    .local v7, which:I
+    .local v7, "which":I
     iget-object v9, p0, Lcom/android/internal/database/SortCursor;->mCursors:[Landroid/database/Cursor;
 
     aget-object v9, v9, v7
@@ -701,7 +701,7 @@
     goto :goto_0
 
     .line 131
-    .end local v7           #which:I
+    .end local v7    # "which":I
     :cond_2
     const/4 v9, 0x0
 
@@ -713,7 +713,7 @@
     array-length v4, v9
 
     .line 134
-    .local v4, length:I
+    .local v4, "length":I
     iget v9, p0, Lcom/android/internal/database/SortCursor;->mLastCacheHit:I
 
     if-ltz v9, :cond_4
@@ -721,7 +721,7 @@
     .line 135
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v4, :cond_4
 
@@ -757,7 +757,7 @@
     goto :goto_2
 
     .line 141
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :cond_4
     if-lt p2, p1, :cond_5
 
@@ -767,7 +767,7 @@
     :cond_5
     const/4 v2, 0x0
 
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :goto_3
     if-ge v2, v4, :cond_7
 
@@ -799,7 +799,7 @@
     const/4 p1, 0x0
 
     .line 148
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :cond_8
     if-gez p1, :cond_9
 
@@ -811,10 +811,10 @@
     const/4 v6, -0x1
 
     .line 154
-    .local v6, smallestIdx:I
+    .local v6, "smallestIdx":I
     move v2, p1
 
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :goto_5
     if-gt v2, p2, :cond_e
 
@@ -822,13 +822,13 @@
     const-string v5, ""
 
     .line 156
-    .local v5, smallest:Ljava/lang/String;
+    .local v5, "smallest":Ljava/lang/String;
     const/4 v6, -0x1
 
     .line 157
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_6
     if-ge v3, v4, :cond_d
 
@@ -871,7 +871,7 @@
     move-result-object v1
 
     .line 162
-    .local v1, current:Ljava/lang/String;
+    .local v1, "current":Ljava/lang/String;
     if-ltz v6, :cond_c
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
@@ -890,13 +890,13 @@
     goto :goto_7
 
     .line 167
-    .end local v1           #current:Ljava/lang/String;
+    .end local v1    # "current":Ljava/lang/String;
     :cond_d
     if-ne v2, p2, :cond_10
 
     .line 172
-    .end local v3           #j:I
-    .end local v5           #smallest:Ljava/lang/String;
+    .end local v3    # "j":I
+    .end local v5    # "smallest":Ljava/lang/String;
     :cond_e
     iget-object v9, p0, Lcom/android/internal/database/SortCursor;->mCursors:[Landroid/database/Cursor;
 
@@ -949,8 +949,8 @@
     goto :goto_8
 
     .line 168
-    .restart local v3       #j:I
-    .restart local v5       #smallest:Ljava/lang/String;
+    .restart local v3    # "j":I
+    .restart local v5    # "smallest":Ljava/lang/String;
     :cond_10
     iget-object v9, p0, Lcom/android/internal/database/SortCursor;->mCursors:[Landroid/database/Cursor;
 
@@ -972,8 +972,8 @@
     goto :goto_5
 
     .line 180
-    .end local v3           #j:I
-    .end local v5           #smallest:Ljava/lang/String;
+    .end local v3    # "j":I
+    .end local v5    # "smallest":Ljava/lang/String;
     :cond_12
     iput v12, p0, Lcom/android/internal/database/SortCursor;->mLastCacheHit:I
 
@@ -982,7 +982,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 3
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 276
@@ -991,10 +991,10 @@
     array-length v1, v2
 
     .line 277
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -1033,10 +1033,10 @@
     array-length v1, v2
 
     .line 298
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_2
 
@@ -1080,7 +1080,7 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 3
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 286
@@ -1089,10 +1089,10 @@
     array-length v1, v2
 
     .line 287
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 

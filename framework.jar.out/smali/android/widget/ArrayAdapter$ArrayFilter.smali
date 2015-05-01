@@ -21,11 +21,10 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ArrayAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 449
-    .local p0, this:Landroid/widget/ArrayAdapter$ArrayFilter;,"Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
+    .local p0, "this":Landroid/widget/ArrayAdapter$ArrayFilter;, "Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
     iput-object p1, p0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
     invoke-direct {p0}, Landroid/widget/Filter;-><init>()V
@@ -35,12 +34,12 @@
 
 .method synthetic constructor <init>(Landroid/widget/ArrayAdapter;Landroid/widget/ArrayAdapter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/ArrayAdapter;
+    .param p2, "x1"    # Landroid/widget/ArrayAdapter$1;
 
     .prologue
     .line 449
-    .local p0, this:Landroid/widget/ArrayAdapter$ArrayFilter;,"Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
+    .local p0, "this":Landroid/widget/ArrayAdapter$ArrayFilter;, "Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
     invoke-direct {p0, p1}, Landroid/widget/ArrayAdapter$ArrayFilter;-><init>(Landroid/widget/ArrayAdapter;)V
 
     return-void
@@ -50,22 +49,22 @@
 # virtual methods
 .method protected performFiltering(Ljava/lang/CharSequence;)Landroid/widget/Filter$FilterResults;
     .locals 17
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 452
-    .local p0, this:Landroid/widget/ArrayAdapter$ArrayFilter;,"Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
+    .local p0, "this":Landroid/widget/ArrayAdapter$ArrayFilter;, "Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
     new-instance v7, Landroid/widget/Filter$FilterResults;
 
     invoke-direct {v7}, Landroid/widget/Filter$FilterResults;-><init>()V
 
     .line 454
-    .local v7, results:Landroid/widget/Filter$FilterResults;
+    .local v7, "results":Landroid/widget/Filter$FilterResults;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
+    # getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$100(Landroid/widget/ArrayAdapter;)Ljava/util/ArrayList;
 
     move-result-object v13
@@ -77,7 +76,7 @@
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$200(Landroid/widget/ArrayAdapter;)Ljava/lang/Object;
 
     move-result-object v14
@@ -98,14 +97,14 @@
 
     move-object/from16 v16, v0
 
-    #getter for: Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+    # getter for: Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
     invoke-static/range {v16 .. v16}, Landroid/widget/ArrayAdapter;->access$300(Landroid/widget/ArrayAdapter;)Ljava/util/List;
 
     move-result-object v16
 
     invoke-direct/range {v15 .. v16}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    #setter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
+    # setter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
     invoke-static {v13, v15}, Landroid/widget/ArrayAdapter;->access$102(Landroid/widget/ArrayAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
     .line 457
@@ -129,7 +128,7 @@
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$200(Landroid/widget/ArrayAdapter;)Ljava/lang/Object;
 
     move-result-object v14
@@ -144,7 +143,7 @@
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
+    # getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$100(Landroid/widget/ArrayAdapter;)Ljava/util/ArrayList;
 
     move-result-object v13
@@ -152,7 +151,7 @@
     invoke-direct {v4, v13}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 464
-    .local v4, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .local v4, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     monitor-exit v14
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -168,7 +167,7 @@
     iput v13, v7, Landroid/widget/Filter$FilterResults;->count:I
 
     .line 503
-    .end local v4           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .end local v4    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     :goto_0
     return-object v7
 
@@ -205,12 +204,12 @@
     move-result-object v6
 
     .line 471
-    .local v6, prefixString:Ljava/lang/String;
+    .local v6, "prefixString":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$200(Landroid/widget/ArrayAdapter;)Ljava/lang/Object;
 
     move-result-object v14
@@ -225,7 +224,7 @@
 
     iget-object v13, v0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
-    #getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
+    # getter for: Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
     invoke-static {v13}, Landroid/widget/ArrayAdapter;->access$100(Landroid/widget/ArrayAdapter;)Ljava/util/ArrayList;
 
     move-result-object v13
@@ -233,7 +232,7 @@
     invoke-direct {v10, v13}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 473
-    .local v10, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .local v10, "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     monitor-exit v14
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
@@ -244,16 +243,16 @@
     move-result v1
 
     .line 476
-    .local v1, count:I
+    .local v1, "count":I
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
     .line 478
-    .local v5, newValues:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .local v5, "newValues":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_6
 
@@ -263,7 +262,7 @@
     move-result-object v8
 
     .line 480
-    .local v8, value:Ljava/lang/Object;,"TT;"
+    .local v8, "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v13
@@ -273,7 +272,7 @@
     move-result-object v9
 
     .line 483
-    .local v9, valueText:Ljava/lang/String;
+    .local v9, "valueText":Ljava/lang/String;
     invoke-virtual {v9, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v13
@@ -291,12 +290,12 @@
     goto :goto_1
 
     .line 473
-    .end local v1           #count:I
-    .end local v2           #i:I
-    .end local v5           #newValues:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
-    .end local v8           #value:Ljava/lang/Object;,"TT;"
-    .end local v9           #valueText:Ljava/lang/String;
-    .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .end local v1    # "count":I
+    .end local v2    # "i":I
+    .end local v5    # "newValues":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
+    .end local v8    # "value":Ljava/lang/Object;, "TT;"
+    .end local v9    # "valueText":Ljava/lang/String;
+    .end local v10    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     :catchall_2
     move-exception v13
 
@@ -308,12 +307,12 @@
     throw v13
 
     .line 486
-    .restart local v1       #count:I
-    .restart local v2       #i:I
-    .restart local v5       #newValues:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
-    .restart local v8       #value:Ljava/lang/Object;,"TT;"
-    .restart local v9       #valueText:Ljava/lang/String;
-    .restart local v10       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
+    .restart local v1    # "count":I
+    .restart local v2    # "i":I
+    .restart local v5    # "newValues":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
+    .restart local v8    # "value":Ljava/lang/Object;, "TT;"
+    .restart local v9    # "valueText":Ljava/lang/String;
+    .restart local v10    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     :cond_4
     const-string v13, " "
 
@@ -322,14 +321,14 @@
     move-result-object v12
 
     .line 487
-    .local v12, words:[Ljava/lang/String;
+    .local v12, "words":[Ljava/lang/String;
     array-length v11, v12
 
     .line 490
-    .local v11, wordCount:I
+    .local v11, "wordCount":I
     const/4 v3, 0x0
 
-    .local v3, k:I
+    .local v3, "k":I
     :goto_3
     if-ge v3, v11, :cond_3
 
@@ -354,11 +353,11 @@
     goto :goto_3
 
     .line 499
-    .end local v3           #k:I
-    .end local v8           #value:Ljava/lang/Object;,"TT;"
-    .end local v9           #valueText:Ljava/lang/String;
-    .end local v11           #wordCount:I
-    .end local v12           #words:[Ljava/lang/String;
+    .end local v3    # "k":I
+    .end local v8    # "value":Ljava/lang/Object;, "TT;"
+    .end local v9    # "valueText":Ljava/lang/String;
+    .end local v11    # "wordCount":I
+    .end local v12    # "words":[Ljava/lang/String;
     :cond_6
     iput-object v5, v7, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
@@ -374,19 +373,19 @@
 
 .method protected publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
     .locals 2
-    .parameter "constraint"
-    .parameter "results"
+    .param p1, "constraint"    # Ljava/lang/CharSequence;
+    .param p2, "results"    # Landroid/widget/Filter$FilterResults;
 
     .prologue
     .line 509
-    .local p0, this:Landroid/widget/ArrayAdapter$ArrayFilter;,"Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
+    .local p0, "this":Landroid/widget/ArrayAdapter$ArrayFilter;, "Landroid/widget/ArrayAdapter<TT;>.ArrayFilter;"
     iget-object v1, p0, Landroid/widget/ArrayAdapter$ArrayFilter;->this$0:Landroid/widget/ArrayAdapter;
 
     iget-object v0, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/List;
 
-    #setter for: Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+    # setter for: Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
     invoke-static {v1, v0}, Landroid/widget/ArrayAdapter;->access$302(Landroid/widget/ArrayAdapter;Ljava/util/List;)Ljava/util/List;
 
     .line 510

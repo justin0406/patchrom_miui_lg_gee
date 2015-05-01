@@ -26,10 +26,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
     .locals 7
-    .parameter "context"
-    .parameter "service"
-    .parameter "result"
-    .parameter "app"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Lcom/android/server/am/ActivityManagerService;
+    .param p3, "result"    # Lcom/android/server/am/AppErrorResult;
+    .param p4, "app"    # Lcom/android/server/am/ProcessRecord;
 
     .prologue
     const/4 v6, 0x1
@@ -52,7 +52,7 @@
     move-result-object v1
 
     .line 48
-    .local v1, res:Landroid/content/res/Resources;
+    .local v1, "res":Landroid/content/res/Resources;
     iput-object p2, p0, Lcom/android/server/am/StrictModeViolationDialog;->mService:Lcom/android/server/am/ActivityManagerService;
 
     .line 49
@@ -80,11 +80,11 @@
 
     move-result-object v0
 
-    .local v0, name:Ljava/lang/CharSequence;
+    .local v0, "name":Ljava/lang/CharSequence;
     if-eqz v0, :cond_1
 
     .line 54
-    const v2, 0x104040e
+    const v2, 0x104040f
 
     const/4 v3, 0x2
 
@@ -115,7 +115,7 @@
     .line 66
     const/4 v2, -0x1
 
-    const v3, 0x1040470
+    const v3, 0x1040471
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -137,7 +137,7 @@
     .line 71
     const/4 v2, -0x2
 
-    const v3, 0x1040405
+    const v3, 0x1040406
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -153,7 +153,7 @@
 
     .line 76
     :cond_0
-    const v2, 0x10403fc
+    const v2, 0x10403fd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -216,13 +216,13 @@
     return-void
 
     .line 58
-    .end local v0           #name:Ljava/lang/CharSequence;
+    .end local v0    # "name":Ljava/lang/CharSequence;
     :cond_1
     iget-object v0, p4, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 59
-    .restart local v0       #name:Ljava/lang/CharSequence;
-    const v2, 0x104040f
+    .restart local v0    # "name":Ljava/lang/CharSequence;
+    const v2, 0x1040410
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -243,7 +243,7 @@
 
 .method static synthetic access$000(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ActivityManagerService;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/StrictModeViolationDialog;
 
     .prologue
     .line 27
@@ -254,7 +254,7 @@
 
 .method static synthetic access$100(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ProcessRecord;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/StrictModeViolationDialog;
 
     .prologue
     .line 27
@@ -265,7 +265,7 @@
 
 .method static synthetic access$200(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/AppErrorResult;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/StrictModeViolationDialog;
 
     .prologue
     .line 27

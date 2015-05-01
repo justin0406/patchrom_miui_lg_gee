@@ -6,12 +6,12 @@
 # direct methods
 .method constructor <init>(ILjava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V
     .locals 8
-    .parameter "transId"
-    .parameter "clientIp"
-    .parameter "yourIp"
-    .parameter "nextIp"
-    .parameter "relayIp"
-    .parameter "clientMac"
+    .param p1, "transId"    # I
+    .param p2, "clientIp"    # Ljava/net/InetAddress;
+    .param p3, "yourIp"    # Ljava/net/InetAddress;
+    .param p4, "nextIp"    # Ljava/net/InetAddress;
+    .param p5, "relayIp"    # Ljava/net/InetAddress;
+    .param p6, "clientMac"    # [B
 
     .prologue
     .line 32
@@ -41,9 +41,9 @@
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
     .locals 9
-    .parameter "encap"
-    .parameter "destUdp"
-    .parameter "srcUdp"
+    .param p1, "encap"    # I
+    .param p2, "destUdp"    # S
+    .param p3, "srcUdp"    # S
 
     .prologue
     .line 44
@@ -54,7 +54,7 @@
     move-result-object v6
 
     .line 46
-    .local v6, result:Ljava/nio/ByteBuffer;
+    .local v6, "result":Ljava/nio/ByteBuffer;
     iget-object v2, p0, Landroid/net/dhcp/DhcpInformPacket;->mClientIp:Ljava/net/InetAddress;
 
     iget-object v3, p0, Landroid/net/dhcp/DhcpInformPacket;->mYourIp:Ljava/net/InetAddress;
@@ -82,7 +82,7 @@
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
     .locals 4
-    .parameter "machine"
+    .param p1, "machine"    # Landroid/net/dhcp/DhcpStateMachine;
 
     .prologue
     .line 71
@@ -93,7 +93,7 @@
     iget-object v0, p0, Landroid/net/dhcp/DhcpInformPacket;->mClientIp:Ljava/net/InetAddress;
 
     .line 73
-    .local v0, clientRequest:Ljava/net/InetAddress;
+    .local v0, "clientRequest":Ljava/net/InetAddress;
     :goto_0
     iget v1, p0, Landroid/net/dhcp/DhcpInformPacket;->mTransId:I
 
@@ -107,7 +107,7 @@
     return-void
 
     .line 71
-    .end local v0           #clientRequest:Ljava/net/InetAddress;
+    .end local v0    # "clientRequest":Ljava/net/InetAddress;
     :cond_0
     iget-object v0, p0, Landroid/net/dhcp/DhcpInformPacket;->mRequestedIp:Ljava/net/InetAddress;
 
@@ -116,7 +116,7 @@
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
     .locals 5
-    .parameter "buffer"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .prologue
     const/4 v4, 0x1
@@ -129,7 +129,7 @@
     new-array v0, v1, [B
 
     .line 58
-    .local v0, clientId:[B
+    .local v0, "clientId":[B
     aput-byte v4, v0, v3
 
     .line 59
@@ -170,7 +170,7 @@
     move-result-object v0
 
     .line 37
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

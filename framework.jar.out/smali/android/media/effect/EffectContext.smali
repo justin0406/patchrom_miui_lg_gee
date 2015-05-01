@@ -89,7 +89,7 @@
     invoke-direct {v0}, Landroid/media/effect/EffectContext;-><init>()V
 
     .line 61
-    .local v0, result:Landroid/media/effect/EffectContext;
+    .local v0, "result":Landroid/media/effect/EffectContext;
     invoke-direct {v0}, Landroid/media/effect/EffectContext;->initInCurrentGlContext()V
 
     .line 62
@@ -123,7 +123,7 @@
     invoke-direct {v0}, Landroid/filterfw/core/GLEnvironment;-><init>()V
 
     .line 104
-    .local v0, glEnvironment:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnvironment":Landroid/filterfw/core/GLEnvironment;
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->initWithCurrentContext()V
 
     .line 105
@@ -149,7 +149,7 @@
     move-result-object v0
 
     .line 110
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->isContextActive()Z

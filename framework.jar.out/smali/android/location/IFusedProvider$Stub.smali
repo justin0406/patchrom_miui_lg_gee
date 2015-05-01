@@ -48,7 +48,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/IFusedProvider;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 27
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/IFusedProvider;
@@ -86,7 +86,7 @@
     :cond_1
     new-instance v0, Landroid/location/IFusedProvider$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/IFusedProvider$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -104,10 +104,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,7 +152,7 @@
     move-result-object v0
 
     .line 54
-    .local v0, _arg0:Landroid/hardware/location/IFusedLocationHardware;
+    .local v0, "_arg0":Landroid/hardware/location/IFusedLocationHardware;
     invoke-virtual {p0, v0}, Landroid/location/IFusedProvider$Stub;->onFusedLocationHardwareChange(Landroid/hardware/location/IFusedLocationHardware;)V
 
     .line 55

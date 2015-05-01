@@ -31,7 +31,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 53
@@ -51,8 +51,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 58
@@ -72,7 +72,7 @@
 
 .method static synthetic access$000(Landroid/widget/DigitalClock;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DigitalClock;
 
     .prologue
     .line 37
@@ -83,7 +83,7 @@
 
 .method static synthetic access$100(Landroid/widget/DigitalClock;)Ljava/lang/Runnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DigitalClock;
 
     .prologue
     .line 37
@@ -94,7 +94,7 @@
 
 .method static synthetic access$200(Landroid/widget/DigitalClock;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DigitalClock;
 
     .prologue
     .line 37
@@ -105,7 +105,7 @@
 
 .method static synthetic access$300(Landroid/widget/DigitalClock;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/DigitalClock;
 
     .prologue
     .line 37
@@ -236,7 +236,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 120
@@ -257,7 +257,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 127

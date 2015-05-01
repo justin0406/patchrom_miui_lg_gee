@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 39
@@ -28,7 +28,7 @@
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 8
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 49
@@ -39,7 +39,7 @@
     move-result-object v2
 
     .line 52
-    .local v2, input:Landroid/filterfw/core/Frame;
+    .local v2, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v4
@@ -60,7 +60,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 54
-    .local v3, stringVal:Ljava/lang/String;
+    .local v3, "stringVal":Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v4
@@ -70,8 +70,8 @@
     move-result-object v0
 
     .line 59
-    .end local v3           #stringVal:Ljava/lang/String;
-    .local v0, data:Ljava/nio/ByteBuffer;
+    .end local v3    # "stringVal":Ljava/lang/String;
+    .local v0, "data":Ljava/nio/ByteBuffer;
     :goto_0
     :try_start_0
     iget-object v4, p0, Landroid/filterpacks/base/OutputStreamTarget;->mOutputStream:Ljava/io/OutputStream;
@@ -99,13 +99,13 @@
     return-void
 
     .line 56
-    .end local v0           #data:Ljava/nio/ByteBuffer;
+    .end local v0    # "data":Ljava/nio/ByteBuffer;
     :cond_0
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getData()Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
-    .restart local v0       #data:Ljava/nio/ByteBuffer;
+    .restart local v0    # "data":Ljava/nio/ByteBuffer;
     goto :goto_0
 
     .line 61
@@ -113,7 +113,7 @@
     move-exception v1
 
     .line 62
-    .local v1, exception:Ljava/io/IOException;
+    .local v1, "exception":Ljava/io/IOException;
     new-instance v4, Ljava/lang/RuntimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;

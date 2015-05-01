@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>([FF)V
     .locals 2
-    .parameter "intervals"
-    .parameter "phase"
+    .param p1, "intervals"    # [F
+    .param p2, "phase"    # F
 
     .prologue
     .line 34

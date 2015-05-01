@@ -74,8 +74,8 @@
 
 .method private constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 65
@@ -103,8 +103,8 @@
 
 .method public static create(Landroid/content/Context;Landroid/os/Handler;)Landroid/app/admin/DevicePolicyManager;
     .locals 2
-    .parameter "context"
-    .parameter "handler"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 73
@@ -113,16 +113,16 @@
     invoke-direct {v0, p0, p1}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
     .line 74
-    .local v0, me:Landroid/app/admin/DevicePolicyManager;
+    .local v0, "me":Landroid/app/admin/DevicePolicyManager;
     iget-object v1, v0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     if-eqz v1, :cond_0
 
-    .end local v0           #me:Landroid/app/admin/DevicePolicyManager;
+    .end local v0    # "me":Landroid/app/admin/DevicePolicyManager;
     :goto_0
     return-object v0
 
-    .restart local v0       #me:Landroid/app/admin/DevicePolicyManager;
+    .restart local v0    # "me":Landroid/app/admin/DevicePolicyManager;
     :cond_0
     const/4 v0, 0x0
 
@@ -139,13 +139,13 @@
     invoke-direct {v1}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     .line 1377
-    .local v1, certStore:Lcom/android/org/conscrypt/TrustedCertificateStore;
+    .local v1, "certStore":Lcom/android/org/conscrypt/TrustedCertificateStore;
     invoke-virtual {v1}, Lcom/android/org/conscrypt/TrustedCertificateStore;->userAliases()Ljava/util/Set;
 
     move-result-object v0
 
     .line 1378
-    .local v0, aliases:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v0, "aliases":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
@@ -208,7 +208,7 @@
     move-exception v0
 
     .line 160
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -216,7 +216,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 163
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -225,7 +225,7 @@
 
 .method public getAdminInfo(Landroid/content/ComponentName;)Landroid/app/admin/DeviceAdminInfo;
     .locals 7
-    .parameter "cn"
+    .param p1, "cn"    # Landroid/content/ComponentName;
 
     .prologue
     const/4 v4, 0x0
@@ -247,13 +247,13 @@
     move-result-object v0
 
     .line 1520
-    .local v0, ai:Landroid/content/pm/ActivityInfo;
+    .local v0, "ai":Landroid/content/pm/ActivityInfo;
     new-instance v2, Landroid/content/pm/ResolveInfo;
 
     invoke-direct {v2}, Landroid/content/pm/ResolveInfo;-><init>()V
 
     .line 1521
-    .local v2, ri:Landroid/content/pm/ResolveInfo;
+    .local v2, "ri":Landroid/content/pm/ResolveInfo;
     iput-object v0, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 1524
@@ -268,8 +268,8 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 1530
-    .end local v0           #ai:Landroid/content/pm/ActivityInfo;
-    .end local v2           #ri:Landroid/content/pm/ResolveInfo;
+    .end local v0    # "ai":Landroid/content/pm/ActivityInfo;
+    .end local v2    # "ri":Landroid/content/pm/ResolveInfo;
     :goto_0
     return-object v3
 
@@ -278,7 +278,7 @@
     move-exception v1
 
     .line 1516
-    .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v1, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     sget-object v3, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -307,14 +307,14 @@
     goto :goto_0
 
     .line 1525
-    .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v0       #ai:Landroid/content/pm/ActivityInfo;
-    .restart local v2       #ri:Landroid/content/pm/ResolveInfo;
+    .end local v1    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v0    # "ai":Landroid/content/pm/ActivityInfo;
+    .restart local v2    # "ri":Landroid/content/pm/ResolveInfo;
     :catch_1
     move-exception v1
 
     .line 1526
-    .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     sget-object v3, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -343,12 +343,12 @@
     goto :goto_0
 
     .line 1528
-    .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catch_2
     move-exception v1
 
     .line 1529
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     sget-object v3, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -379,7 +379,7 @@
 
 .method public getCameraDisabled(Landroid/content/ComponentName;)Z
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1430
@@ -396,8 +396,8 @@
 
 .method public getCameraDisabled(Landroid/content/ComponentName;I)Z
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1435
@@ -424,7 +424,7 @@
     move-exception v0
 
     .line 1439
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -432,7 +432,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1442
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -471,7 +471,7 @@
     move-exception v0
 
     .line 907
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -479,7 +479,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 910
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, -0x1
 
@@ -514,7 +514,7 @@
     move-exception v0
 
     .line 1667
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed to get device owner"
@@ -522,7 +522,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1670
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -557,7 +557,7 @@
     move-exception v0
 
     .line 1679
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed to get device owner"
@@ -565,7 +565,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1682
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -604,7 +604,7 @@
     move-exception v0
 
     .line 1177
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -612,7 +612,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1180
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -621,7 +621,7 @@
 
 .method public getKeyguardDisabledFeatures(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1478
@@ -638,8 +638,8 @@
 
 .method public getKeyguardDisabledFeatures(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1483
@@ -666,7 +666,7 @@
     move-exception v0
 
     .line 1487
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -674,7 +674,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1490
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -683,7 +683,7 @@
 
 .method public getMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 950
@@ -700,8 +700,8 @@
 
 .method public getMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 955
@@ -728,7 +728,7 @@
     move-exception v0
 
     .line 959
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -736,7 +736,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 962
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -745,7 +745,7 @@
 
 .method public getMaximumTimeToLock(Landroid/content/ComponentName;)J
     .locals 2
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1034
@@ -762,8 +762,8 @@
 
 .method public getMaximumTimeToLock(Landroid/content/ComponentName;I)J
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1039
@@ -790,7 +790,7 @@
     move-exception v0
 
     .line 1043
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -798,7 +798,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1046
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const-wide/16 v1, 0x0
 
@@ -807,7 +807,7 @@
 
 .method public getPasswordExpiration(Landroid/content/ComponentName;)J
     .locals 3
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 827
@@ -838,7 +838,7 @@
     move-exception v0
 
     .line 831
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -846,7 +846,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 834
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const-wide/16 v1, 0x0
 
@@ -855,7 +855,7 @@
 
 .method public getPasswordExpirationTimeout(Landroid/content/ComponentName;)J
     .locals 3
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 807
@@ -886,7 +886,7 @@
     move-exception v0
 
     .line 811
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -894,7 +894,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 814
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const-wide/16 v1, 0x0
 
@@ -903,7 +903,7 @@
 
 .method public getPasswordHistoryLength(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 845
@@ -920,8 +920,8 @@
 
 .method public getPasswordHistoryLength(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 850
@@ -948,7 +948,7 @@
     move-exception v0
 
     .line 854
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -956,7 +956,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 857
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -965,7 +965,7 @@
 
 .method public getPasswordMaximumLength(I)I
     .locals 1
-    .parameter "quality"
+    .param p1, "quality"    # I
 
     .prologue
     .line 868
@@ -976,7 +976,7 @@
 
 .method public getPasswordMinimumLength(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 369
@@ -993,8 +993,8 @@
 
 .method public getPasswordMinimumLength(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 374
@@ -1021,7 +1021,7 @@
     move-exception v0
 
     .line 378
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1029,7 +1029,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 381
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1038,7 +1038,7 @@
 
 .method public getPasswordMinimumLetters(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 547
@@ -1055,8 +1055,8 @@
 
 .method public getPasswordMinimumLetters(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 552
@@ -1083,7 +1083,7 @@
     move-exception v0
 
     .line 556
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1091,7 +1091,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 559
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1100,7 +1100,7 @@
 
 .method public getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 489
@@ -1117,8 +1117,8 @@
 
 .method public getPasswordMinimumLowerCase(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 494
@@ -1145,7 +1145,7 @@
     move-exception v0
 
     .line 498
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1153,7 +1153,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 501
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1162,7 +1162,7 @@
 
 .method public getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 721
@@ -1179,8 +1179,8 @@
 
 .method public getPasswordMinimumNonLetter(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 726
@@ -1207,7 +1207,7 @@
     move-exception v0
 
     .line 730
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1215,7 +1215,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 733
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1224,7 +1224,7 @@
 
 .method public getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 605
@@ -1241,8 +1241,8 @@
 
 .method public getPasswordMinimumNumeric(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 610
@@ -1269,7 +1269,7 @@
     move-exception v0
 
     .line 614
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1277,7 +1277,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 617
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1286,7 +1286,7 @@
 
 .method public getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 663
@@ -1303,8 +1303,8 @@
 
 .method public getPasswordMinimumSymbols(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 668
@@ -1331,7 +1331,7 @@
     move-exception v0
 
     .line 672
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1339,7 +1339,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 675
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1348,7 +1348,7 @@
 
 .method public getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 429
@@ -1365,8 +1365,8 @@
 
 .method public getPasswordMinimumUpperCase(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 434
@@ -1393,7 +1393,7 @@
     move-exception v0
 
     .line 438
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1401,7 +1401,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 441
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1410,7 +1410,7 @@
 
 .method public getPasswordQuality(Landroid/content/ComponentName;)I
     .locals 1
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 316
@@ -1427,8 +1427,8 @@
 
 .method public getPasswordQuality(Landroid/content/ComponentName;I)I
     .locals 3
-    .parameter "admin"
-    .parameter "userHandle"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 321
@@ -1455,7 +1455,7 @@
     move-exception v0
 
     .line 325
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1463,7 +1463,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 328
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1472,8 +1472,8 @@
 
 .method public getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;)V
     .locals 3
-    .parameter "admin"
-    .parameter "result"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "result"    # Landroid/os/RemoteCallback;
 
     .prologue
     .line 1538
@@ -1503,7 +1503,7 @@
     move-exception v0
 
     .line 1542
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1515,7 +1515,7 @@
 
 .method public getStorageEncryption(Landroid/content/ComponentName;)Z
     .locals 3
-    .parameter "admin"
+    .param p1, "admin"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1295
@@ -1546,7 +1546,7 @@
     move-exception v0
 
     .line 1299
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1554,7 +1554,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1302
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1579,7 +1579,7 @@
 
 .method public getStorageEncryptionStatus(I)I
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 1327
@@ -1606,7 +1606,7 @@
     move-exception v0
 
     .line 1331
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1614,7 +1614,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1334
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1623,7 +1623,7 @@
 
 .method public hasCaCertInstalled([B)Z
     .locals 7
-    .parameter "certBuffer"
+    .param p1, "certBuffer"    # [B
 
     .prologue
     const/4 v4, 0x0
@@ -1634,7 +1634,7 @@
     invoke-direct {v3}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     .line 1391
-    .local v3, certStore:Lcom/android/org/conscrypt/TrustedCertificateStore;
+    .local v3, "certStore":Lcom/android/org/conscrypt/TrustedCertificateStore;
     :try_start_0
     const-string v5, "X.509"
 
@@ -1643,7 +1643,7 @@
     move-result-object v2
 
     .line 1392
-    .local v2, certFactory:Ljava/security/cert/CertificateFactory;
+    .local v2, "certFactory":Ljava/security/cert/CertificateFactory;
     new-instance v5, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v5, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
@@ -1655,7 +1655,7 @@
     check-cast v1, Ljava/security/cert/X509Certificate;
 
     .line 1394
-    .local v1, cert:Ljava/security/cert/X509Certificate;
+    .local v1, "cert":Ljava/security/cert/X509Certificate;
     invoke-virtual {v3, v1}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateAlias(Ljava/security/cert/Certificate;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1667,8 +1667,8 @@
     const/4 v4, 0x1
 
     .line 1398
-    .end local v1           #cert:Ljava/security/cert/X509Certificate;
-    .end local v2           #certFactory:Ljava/security/cert/CertificateFactory;
+    .end local v1    # "cert":Ljava/security/cert/X509Certificate;
+    .end local v2    # "certFactory":Ljava/security/cert/CertificateFactory;
     :cond_0
     :goto_0
     return v4
@@ -1678,7 +1678,7 @@
     move-exception v0
 
     .line 1396
-    .local v0, ce:Ljava/security/cert/CertificateException;
+    .local v0, "ce":Ljava/security/cert/CertificateException;
     sget-object v5, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v6, "Could not parse certificate"
@@ -1690,8 +1690,8 @@
 
 .method public hasGrantedPolicy(Landroid/content/ComponentName;I)Z
     .locals 3
-    .parameter "admin"
-    .parameter "usesPolicy"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "usesPolicy"    # I
 
     .prologue
     .line 208
@@ -1722,7 +1722,7 @@
     move-exception v0
 
     .line 212
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1730,7 +1730,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 215
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1739,7 +1739,7 @@
 
 .method public installCaCert([B)Z
     .locals 3
-    .parameter "certBuffer"
+    .param p1, "certBuffer"    # [B
 
     .prologue
     .line 1345
@@ -1766,7 +1766,7 @@
     move-exception v0
 
     .line 1349
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1774,7 +1774,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1352
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1813,7 +1813,7 @@
     move-exception v0
 
     .line 888
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1821,7 +1821,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 891
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1830,7 +1830,7 @@
 
 .method public isAdminActive(Landroid/content/ComponentName;)Z
     .locals 3
-    .parameter "who"
+    .param p1, "who"    # Landroid/content/ComponentName;
 
     .prologue
     .line 140
@@ -1861,7 +1861,7 @@
     move-exception v0
 
     .line 144
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1869,7 +1869,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 147
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1878,7 +1878,7 @@
 
 .method public isDeviceOwner(Ljava/lang/String;)Z
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1658
@@ -1891,7 +1891,7 @@
 
 .method public isDeviceOwnerApp(Ljava/lang/String;)Z
     .locals 3
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 1643
@@ -1918,7 +1918,7 @@
     move-exception v0
 
     .line 1647
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed to check device owner"
@@ -1926,7 +1926,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1650
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -1960,7 +1960,7 @@
     move-exception v0
 
     .line 1062
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -1972,7 +1972,7 @@
 
 .method public packageHasActiveAdmins(Ljava/lang/String;)Z
     .locals 3
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 172
@@ -2003,7 +2003,7 @@
     move-exception v0
 
     .line 176
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2011,7 +2011,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 179
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -2020,7 +2020,7 @@
 
 .method public removeActiveAdmin(Landroid/content/ComponentName;)V
     .locals 3
-    .parameter "who"
+    .param p1, "who"    # Landroid/content/ComponentName;
 
     .prologue
     .line 189
@@ -2050,7 +2050,7 @@
     move-exception v0
 
     .line 193
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2062,7 +2062,7 @@
 
 .method public reportFailedPasswordAttempt(I)V
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 1566
@@ -2088,7 +2088,7 @@
     move-exception v0
 
     .line 1570
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2100,7 +2100,7 @@
 
 .method public reportSuccessfulPasswordAttempt(I)V
     .locals 3
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     .line 1579
@@ -2126,7 +2126,7 @@
     move-exception v0
 
     .line 1583
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2138,8 +2138,8 @@
 
 .method public resetPassword(Ljava/lang/String;I)Z
     .locals 3
-    .parameter "password"
-    .parameter "flags"
+    .param p1, "password"    # Ljava/lang/String;
+    .param p2, "flags"    # I
 
     .prologue
     .line 994
@@ -2170,7 +2170,7 @@
     move-exception v0
 
     .line 998
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2178,7 +2178,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1001
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -2187,8 +2187,8 @@
 
 .method public setActiveAdmin(Landroid/content/ComponentName;Z)V
     .locals 3
-    .parameter "policyReceiver"
-    .parameter "refreshing"
+    .param p1, "policyReceiver"    # Landroid/content/ComponentName;
+    .param p2, "refreshing"    # Z
 
     .prologue
     .line 1497
@@ -2218,7 +2218,7 @@
     move-exception v0
 
     .line 1501
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2230,15 +2230,15 @@
 
 .method public setActivePasswordState(IIIIIIIII)V
     .locals 11
-    .parameter "quality"
-    .parameter "length"
-    .parameter "letters"
-    .parameter "uppercase"
-    .parameter "lowercase"
-    .parameter "numbers"
-    .parameter "symbols"
-    .parameter "nonletter"
-    .parameter "userHandle"
+    .param p1, "quality"    # I
+    .param p2, "length"    # I
+    .param p3, "letters"    # I
+    .param p4, "uppercase"    # I
+    .param p5, "lowercase"    # I
+    .param p6, "numbers"    # I
+    .param p7, "symbols"    # I
+    .param p8, "nonletter"    # I
+    .param p9, "userHandle"    # I
 
     .prologue
     .line 1552
@@ -2282,7 +2282,7 @@
     move-exception v10
 
     .line 1557
-    .local v10, e:Landroid/os/RemoteException;
+    .local v10, "e":Landroid/os/RemoteException;
     sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Failed talking with device policy service"
@@ -2294,8 +2294,8 @@
 
 .method public setCameraDisabled(Landroid/content/ComponentName;Z)V
     .locals 3
-    .parameter "admin"
-    .parameter "disabled"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "disabled"    # Z
 
     .prologue
     .line 1414
@@ -2325,7 +2325,7 @@
     move-exception v0
 
     .line 1418
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2337,7 +2337,7 @@
 
 .method public setDeviceOwner(Ljava/lang/String;)Z
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -2358,8 +2358,8 @@
 
 .method public setDeviceOwner(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
-    .parameter "packageName"
-    .parameter "ownerName"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "ownerName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -2392,7 +2392,7 @@
     move-exception v0
 
     .line 1622
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed to set device owner"
@@ -2400,7 +2400,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1625
-    .end local v0           #re:Landroid/os/RemoteException;
+    .end local v0    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -2409,9 +2409,8 @@
 
 .method public setGlobalProxy(Landroid/content/ComponentName;Ljava/net/Proxy;Ljava/util/List;)Landroid/content/ComponentName;
     .locals 13
-    .parameter "admin"
-    .parameter "proxySpec"
-    .parameter
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "proxySpec"    # Ljava/net/Proxy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2427,7 +2426,7 @@
 
     .prologue
     .line 1121
-    .local p3, exclusionList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local p3, "exclusionList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-nez p2, :cond_0
 
     .line 1122
@@ -2457,11 +2456,11 @@
     const/4 v6, 0x0
 
     .line 1130
-    .local v6, hostSpec:Ljava/lang/String;
+    .local v6, "hostSpec":Ljava/lang/String;
     const/4 v2, 0x0
 
     .line 1158
-    .local v2, exclSpec:Ljava/lang/String;
+    .local v2, "exclSpec":Ljava/lang/String;
     :goto_0
     iget-object v11, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
@@ -2474,8 +2473,8 @@
     move-result-object v11
 
     .line 1163
-    .end local v2           #exclSpec:Ljava/lang/String;
-    .end local v6           #hostSpec:Ljava/lang/String;
+    .end local v2    # "exclSpec":Ljava/lang/String;
+    .end local v6    # "hostSpec":Ljava/lang/String;
     :goto_1
     return-object v11
 
@@ -2507,7 +2506,7 @@
     move-exception v0
 
     .line 1160
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v11, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v12, "Failed talking with device policy service"
@@ -2515,7 +2514,7 @@
     invoke-static {v11, v12, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1163
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_2
     const/4 v11, 0x0
 
@@ -2531,25 +2530,25 @@
     check-cast v10, Ljava/net/InetSocketAddress;
 
     .line 1136
-    .local v10, sa:Ljava/net/InetSocketAddress;
+    .local v10, "sa":Ljava/net/InetSocketAddress;
     invoke-virtual {v10}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
 
     move-result-object v5
 
     .line 1137
-    .local v5, hostName:Ljava/lang/String;
+    .local v5, "hostName":Ljava/lang/String;
     invoke-virtual {v10}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v9
 
     .line 1138
-    .local v9, port:I
+    .local v9, "port":I
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1139
-    .local v4, hostBuilder:Ljava/lang/StringBuilder;
+    .local v4, "hostBuilder":Ljava/lang/StringBuilder;
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
@@ -2573,14 +2572,14 @@
     move-result-object v6
 
     .line 1141
-    .restart local v6       #hostSpec:Ljava/lang/String;
+    .restart local v6    # "hostSpec":Ljava/lang/String;
     if-nez p3, :cond_4
 
     .line 1142
     const-string v2, ""
 
     .line 1156
-    .restart local v2       #exclSpec:Ljava/lang/String;
+    .restart local v2    # "exclSpec":Ljava/lang/String;
     :goto_2
     invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -2591,23 +2590,23 @@
     goto :goto_0
 
     .line 1144
-    .end local v2           #exclSpec:Ljava/lang/String;
+    .end local v2    # "exclSpec":Ljava/lang/String;
     :cond_4
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1145
-    .local v8, listBuilder:Ljava/lang/StringBuilder;
+    .local v8, "listBuilder":Ljava/lang/StringBuilder;
     const/4 v3, 0x1
 
     .line 1146
-    .local v3, firstDomain:Z
+    .local v3, "firstDomain":Z
     invoke-interface/range {p3 .. p3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    .local v7, i$:Ljava/util/Iterator;
+    .local v7, "i$":Ljava/util/Iterator;
     :goto_3
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2622,7 +2621,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 1147
-    .local v1, exclDomain:Ljava/lang/String;
+    .local v1, "exclDomain":Ljava/lang/String;
     if-nez v3, :cond_5
 
     .line 1148
@@ -2651,7 +2650,7 @@
     goto :goto_4
 
     .line 1154
-    .end local v1           #exclDomain:Ljava/lang/String;
+    .end local v1    # "exclDomain":Ljava/lang/String;
     :cond_6
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_1
@@ -2659,14 +2658,14 @@
 
     move-result-object v2
 
-    .restart local v2       #exclSpec:Ljava/lang/String;
+    .restart local v2    # "exclSpec":Ljava/lang/String;
     goto :goto_2
 .end method
 
 .method public setKeyguardDisabledFeatures(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "which"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "which"    # I
 
     .prologue
     .line 1460
@@ -2696,7 +2695,7 @@
     move-exception v0
 
     .line 1464
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2708,8 +2707,8 @@
 
 .method public setMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "num"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "num"    # I
 
     .prologue
     .line 933
@@ -2739,7 +2738,7 @@
     move-exception v0
 
     .line 937
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2751,8 +2750,8 @@
 
 .method public setMaximumTimeToLock(Landroid/content/ComponentName;J)V
     .locals 3
-    .parameter "admin"
-    .parameter "timeMs"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "timeMs"    # J
 
     .prologue
     .line 1018
@@ -2782,7 +2781,7 @@
     move-exception v0
 
     .line 1022
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2794,8 +2793,8 @@
 
 .method public setPasswordExpirationTimeout(Landroid/content/ComponentName;J)V
     .locals 3
-    .parameter "admin"
-    .parameter "timeout"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "timeout"    # J
 
     .prologue
     .line 788
@@ -2825,7 +2824,7 @@
     move-exception v0
 
     .line 792
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2837,8 +2836,8 @@
 
 .method public setPasswordHistoryLength(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 759
@@ -2868,7 +2867,7 @@
     move-exception v0
 
     .line 763
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2880,8 +2879,8 @@
 
 .method public setPasswordMinimumLength(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 353
@@ -2911,7 +2910,7 @@
     move-exception v0
 
     .line 357
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2923,8 +2922,8 @@
 
 .method public setPasswordMinimumLetters(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 526
@@ -2954,7 +2953,7 @@
     move-exception v0
 
     .line 530
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -2966,8 +2965,8 @@
 
 .method public setPasswordMinimumLowerCase(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 467
@@ -2997,7 +2996,7 @@
     move-exception v0
 
     .line 471
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3009,8 +3008,8 @@
 
 .method public setPasswordMinimumNonLetter(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 700
@@ -3040,7 +3039,7 @@
     move-exception v0
 
     .line 704
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3052,8 +3051,8 @@
 
 .method public setPasswordMinimumNumeric(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 584
@@ -3083,7 +3082,7 @@
     move-exception v0
 
     .line 588
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3095,8 +3094,8 @@
 
 .method public setPasswordMinimumSymbols(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 642
@@ -3126,7 +3125,7 @@
     move-exception v0
 
     .line 646
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3138,8 +3137,8 @@
 
 .method public setPasswordMinimumUpperCase(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "length"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "length"    # I
 
     .prologue
     .line 407
@@ -3169,7 +3168,7 @@
     move-exception v0
 
     .line 411
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3181,8 +3180,8 @@
 
 .method public setPasswordQuality(Landroid/content/ComponentName;I)V
     .locals 3
-    .parameter "admin"
-    .parameter "quality"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "quality"    # I
 
     .prologue
     .line 300
@@ -3212,7 +3211,7 @@
     move-exception v0
 
     .line 304
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3224,8 +3223,8 @@
 
 .method public setStorageEncryption(Landroid/content/ComponentName;Z)I
     .locals 3
-    .parameter "admin"
-    .parameter "encrypt"
+    .param p1, "admin"    # Landroid/content/ComponentName;
+    .param p2, "encrypt"    # Z
 
     .prologue
     .line 1275
@@ -3256,7 +3255,7 @@
     move-exception v0
 
     .line 1279
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3264,7 +3263,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1282
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
 
@@ -3273,7 +3272,7 @@
 
 .method public uninstallCaCert([B)V
     .locals 3
-    .parameter "certBuffer"
+    .param p1, "certBuffer"    # [B
 
     .prologue
     .line 1361
@@ -3299,7 +3298,7 @@
     move-exception v0
 
     .line 1365
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"
@@ -3311,7 +3310,7 @@
 
 .method public wipeData(I)V
     .locals 3
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 1087
@@ -3341,7 +3340,7 @@
     move-exception v0
 
     .line 1091
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string v2, "Failed talking with device policy service"

@@ -29,7 +29,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -56,7 +56,7 @@
 
 .method private createBitmapFrame(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Frame;
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v4, 0x3
@@ -79,7 +79,7 @@
     move-result-object v0
 
     .line 138
-    .local v0, format:Landroid/filterfw/core/FrameFormat;
+    .local v0, "format":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v2
@@ -89,7 +89,7 @@
     move-result-object v1
 
     .line 139
-    .local v1, frame:Landroid/filterfw/core/Frame;
+    .local v1, "frame":Landroid/filterfw/core/Frame;
     iget-object v2, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v1, v2}, Landroid/filterfw/core/Frame;->setBitmap(Landroid/graphics/Bitmap;)V
@@ -112,8 +112,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 74
@@ -122,8 +122,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 78
@@ -169,7 +169,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 81
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -192,7 +192,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 103
@@ -203,13 +203,13 @@
     move-result-object v1
 
     .line 104
-    .local v1, input:Landroid/filterfw/core/Frame;
+    .local v1, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
 
     .line 107
-    .local v2, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v2, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v5
@@ -219,7 +219,7 @@
     move-result-object v4
 
     .line 110
-    .local v4, output:Landroid/filterfw/core/Frame;
+    .local v4, "output":Landroid/filterfw/core/Frame;
     iget-object v5, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v5, :cond_0
@@ -252,7 +252,7 @@
     move-result-object v0
 
     .line 117
-    .local v0, frame:Landroid/filterfw/core/Frame;
+    .local v0, "frame":Landroid/filterfw/core/Frame;
     const/4 v5, 0x2
 
     new-array v3, v5, [Landroid/filterfw/core/Frame;
@@ -266,7 +266,7 @@
     aput-object v0, v3, v5
 
     .line 118
-    .local v3, inputs:[Landroid/filterfw/core/Frame;
+    .local v3, "inputs":[Landroid/filterfw/core/Frame;
     iget-object v5, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v5, v3, v4}, Landroid/filterfw/core/Program;->process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -275,8 +275,8 @@
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
     .line 126
-    .end local v0           #frame:Landroid/filterfw/core/Frame;
-    .end local v3           #inputs:[Landroid/filterfw/core/Frame;
+    .end local v0    # "frame":Landroid/filterfw/core/Frame;
+    .end local v3    # "inputs":[Landroid/filterfw/core/Frame;
     :goto_0
     const-string v5, "image"
 
@@ -323,7 +323,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 94

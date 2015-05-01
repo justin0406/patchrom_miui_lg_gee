@@ -41,7 +41,7 @@
 
 .method public constructor <init>(Landroid/content/pm/PackageItemInfo;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/PackageItemInfo;
 
     .prologue
     .line 87
@@ -120,7 +120,7 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 248
@@ -187,8 +187,8 @@
 # virtual methods
 .method protected dumpBack(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 0
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 236
@@ -197,8 +197,8 @@
 
 .method protected dumpFront(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 223
@@ -351,7 +351,7 @@
 
 .method protected loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 160
@@ -364,7 +364,7 @@
 
 .method protected loadDefaultLogo(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 196
@@ -374,20 +374,44 @@
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .parameter "pm"
+    .locals 5
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
-    invoke-static {p0, p1}, Landroid/content/pm/Injector$PackageItemInfoHook;->loadIcon(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    iget-object v2, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    iget v3, p0, Landroid/content/pm/PackageItemInfo;->icon:I
+
+    invoke-virtual {p0}, Landroid/content/pm/PackageItemInfo;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v4
+
+    invoke-static {p1, v1, v2, v3, v4}, Landroid/app/MiuiThemeHelper;->getDrawable(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
+    .line 141
+    .local v0, "dr":Landroid/graphics/drawable/Drawable;
+    if-eqz v0, :cond_0
+
+    .line 145
+    .end local v0    # "dr":Landroid/graphics/drawable/Drawable;
+    :goto_0
     return-object v0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/content/pm/PackageItemInfo;->loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 111
@@ -422,7 +446,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, label:Ljava/lang/CharSequence;
+    .local v0, "label":Ljava/lang/CharSequence;
     if-eqz v0, :cond_1
 
     .line 117
@@ -437,7 +461,7 @@
     goto :goto_0
 
     .line 120
-    .end local v0           #label:Ljava/lang/CharSequence;
+    .end local v0    # "label":Ljava/lang/CharSequence;
     :cond_1
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
@@ -457,7 +481,7 @@
 
 .method public loadLogo(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 175
@@ -479,11 +503,11 @@
     move-result-object v0
 
     .line 177
-    .local v0, d:Landroid/graphics/drawable/Drawable;
+    .local v0, "d":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_0
 
     .line 181
-    .end local v0           #d:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "d":Landroid/graphics/drawable/Drawable;
     :goto_0
     return-object v0
 
@@ -497,8 +521,8 @@
 
 .method public loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
     .locals 3
-    .parameter "pm"
-    .parameter "name"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 213
@@ -514,7 +538,7 @@
     move-result v0
 
     .line 215
-    .local v0, resid:I
+    .local v0, "resid":I
     if-eqz v0, :cond_0
 
     .line 216
@@ -529,7 +553,7 @@
     move-result-object v1
 
     .line 219
-    .end local v0           #resid:I
+    .end local v0    # "resid":I
     :goto_0
     return-object v1
 
@@ -541,8 +565,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 239

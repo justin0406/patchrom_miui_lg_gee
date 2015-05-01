@@ -59,11 +59,11 @@
 
 .method public constructor <init>(IIJJI)V
     .locals 0
-    .parameter "op"
-    .parameter "mode"
-    .parameter "time"
-    .parameter "rejectTime"
-    .parameter "duration"
+    .param p1, "op"    # I
+    .param p2, "mode"    # I
+    .param p3, "time"    # J
+    .param p5, "rejectTime"    # J
+    .param p7, "duration"    # I
 
     .prologue
     .line 658
@@ -90,7 +90,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 704
@@ -241,8 +241,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 697

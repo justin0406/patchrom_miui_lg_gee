@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ProcessRecord;ZLjava/lang/String;)V
     .locals 0
-    .parameter "owner"
-    .parameter "oomAdj"
-    .parameter "reason"
+    .param p1, "owner"    # Lcom/android/server/am/ProcessRecord;
+    .param p2, "oomAdj"    # Z
+    .param p3, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 247

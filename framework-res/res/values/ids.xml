@@ -330,19 +330,33 @@
     <item type="id" name="webviewchromium_color_picker_gradient">false</item>
     <item type="id" name="webviewchromium_color_picker_seek_bar">false</item>
     <item type="id" name="webviewchromium_color_picker_advanced">false</item>
-    <item type="id" name="webviewchromium_color_picker_simple_border">false</item>
     <item type="id" name="webviewchromium_color_picker_simple">false</item>
     <item type="id" name="webviewchromium_color_picker_more_colors_button_border">false</item>
     <item type="id" name="webviewchromium_color_picker_more_colors_button">false</item>
     <item type="id" name="webviewchromium_color_picker_title">false</item>
     <item type="id" name="webviewchromium_color_picker_selected_color_view_border">false</item>
-    <item type="id" name="selected_color_view_border">false</item>
     <item type="id" name="webviewchromium_color_picker_selected_color_view">false</item>
     <item type="id" name="webviewchromium_date_picker">false</item>
     <item type="id" name="webviewchromium_time_picker">false</item>
+    <item type="id" name="webviewchromium_date_time_suggestion">false</item>
+    <item type="id" name="webviewchromium_date_time_suggestion_value">false</item>
+    <item type="id" name="webviewchromium_date_time_suggestion_label">false</item>
+    <item type="id" name="webviewchromium_hour">false</item>
+    <item type="id" name="webviewchromium_minute">false</item>
+    <item type="id" name="webviewchromium_second_colon">false</item>
+    <item type="id" name="webviewchromium_second">false</item>
+    <item type="id" name="webviewchromium_second_dot">false</item>
+    <item type="id" name="webviewchromium_milli">false</item>
+    <item type="id" name="webviewchromium_ampm">false</item>
     <item type="id" name="webviewchromium_pickers">false</item>
     <item type="id" name="webviewchromium_position_in_year">false</item>
     <item type="id" name="webviewchromium_year">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_top_view">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_icon_view">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_text_wrapper">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_arrow_image">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_main_text">false</item>
+    <item type="id" name="webviewchromium_validation_bubble_sub_text">false</item>
     <item type="id" name="enter_pin_section">false</item>
     <item type="id" name="wifi_p2p_wps_pin">false</item>
     <item type="id" name="name">false</item>
@@ -353,6 +367,7 @@
     <item type="id" name="zoomIn">false</item>
     <item type="id" name="zoomMagnify">false</item>
     <item type="id" name="mode_normal">false</item>
+    <item type="id" name="webviewchromium_color_button_swatch">false</item>
     <item type="id" name="select_all">false</item>
     <item type="id" name="share">false</item>
     <item type="id" name="find">false</item>

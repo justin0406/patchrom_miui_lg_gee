@@ -42,7 +42,7 @@
 
 .method public static getBitsPerPixel(I)I
     .locals 2
-    .parameter "format"
+    .param p0, "format"    # I
 
     .prologue
     const/16 v1, 0xc

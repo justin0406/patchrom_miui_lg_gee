@@ -35,7 +35,6 @@
 # direct methods
 .method public constructor <init>(Landroid/media/ImageReader;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 547
@@ -54,7 +53,7 @@
 
 .method static synthetic access$000(Landroid/media/ImageReader$SurfaceImage;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage;
 
     .prologue
     .line 546
@@ -65,8 +64,8 @@
 
 .method static synthetic access$100(Landroid/media/ImageReader$SurfaceImage;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 546
@@ -77,7 +76,7 @@
 
 .method static synthetic access$1100(Landroid/media/ImageReader$SurfaceImage;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage;
 
     .prologue
     .line 546
@@ -90,8 +89,8 @@
 
 .method static synthetic access$1200(Landroid/media/ImageReader$SurfaceImage;I)Ljava/nio/ByteBuffer;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage;
+    .param p1, "x1"    # I
 
     .prologue
     .line 546
@@ -104,7 +103,7 @@
 
 .method static synthetic access$200(Landroid/media/ImageReader$SurfaceImage;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage;
 
     .prologue
     .line 546
@@ -125,7 +124,7 @@
     .line 627
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/media/ImageReader$SurfaceImage;->mPlanes:[Landroid/media/ImageReader$SurfaceImage$SurfacePlane;
 
@@ -145,7 +144,7 @@
 
     aget-object v1, v1, v0
 
-    #calls: Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->clearBuffer()V
+    # invokes: Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->clearBuffer()V
     invoke-static {v1}, Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->access$900(Landroid/media/ImageReader$SurfaceImage$SurfacePlane;)V
 
     .line 630
@@ -162,7 +161,7 @@
     goto :goto_0
 
     .line 634
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
@@ -174,7 +173,7 @@
     .line 637
     iget-object v1, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mNumPlanes:I
+    # getter for: Landroid/media/ImageReader;->mNumPlanes:I
     invoke-static {v1}, Landroid/media/ImageReader;->access$1000(Landroid/media/ImageReader;)I
 
     move-result v1
@@ -186,11 +185,11 @@
     .line 638
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mNumPlanes:I
+    # getter for: Landroid/media/ImageReader;->mNumPlanes:I
     invoke-static {v1}, Landroid/media/ImageReader;->access$1000(Landroid/media/ImageReader;)I
 
     move-result v1
@@ -234,7 +233,7 @@
 
 .method private setImageValid(Z)V
     .locals 0
-    .parameter "isValid"
+    .param p1, "isValid"    # Z
 
     .prologue
     .line 618
@@ -258,7 +257,7 @@
     .line 554
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #calls: Landroid/media/ImageReader;->releaseImage(Landroid/media/Image;)V
+    # invokes: Landroid/media/ImageReader;->releaseImage(Landroid/media/Image;)V
     invoke-static {v0, p0}, Landroid/media/ImageReader;->access$500(Landroid/media/ImageReader;Landroid/media/Image;)V
 
     .line 556
@@ -308,7 +307,7 @@
     .line 565
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mFormat:I
+    # getter for: Landroid/media/ImageReader;->mFormat:I
     invoke-static {v0}, Landroid/media/ImageReader;->access$600(Landroid/media/ImageReader;)I
 
     move-result v0
@@ -338,7 +337,7 @@
     .line 583
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mHeight:I
+    # getter for: Landroid/media/ImageReader;->mHeight:I
     invoke-static {v0}, Landroid/media/ImageReader;->access$800(Landroid/media/ImageReader;)I
 
     move-result v0
@@ -434,7 +433,7 @@
     .line 574
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mWidth:I
+    # getter for: Landroid/media/ImageReader;->mWidth:I
     invoke-static {v0}, Landroid/media/ImageReader;->access$700(Landroid/media/ImageReader;)I
 
     move-result v0

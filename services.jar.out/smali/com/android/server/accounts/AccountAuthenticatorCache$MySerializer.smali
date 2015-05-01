@@ -40,7 +40,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accounts/AccountAuthenticatorCache$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/server/accounts/AccountAuthenticatorCache$1;
 
     .prologue
     .line 83
@@ -53,7 +53,7 @@
 # virtual methods
 .method public createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/accounts/AuthenticatorDescription;
     .locals 2
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -80,7 +80,7 @@
 
 .method public bridge synthetic createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -99,8 +99,8 @@
 
 .method public writeAsXml(Landroid/accounts/AuthenticatorDescription;Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 3
-    .parameter "item"
-    .parameter "out"
+    .param p1, "item"    # Landroid/accounts/AuthenticatorDescription;
+    .param p2, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,8 +123,8 @@
 
 .method public bridge synthetic writeAsXml(Ljava/lang/Object;Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,7 +135,7 @@
     .line 83
     check-cast p1, Landroid/accounts/AuthenticatorDescription;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/accounts/AccountAuthenticatorCache$MySerializer;->writeAsXml(Landroid/accounts/AuthenticatorDescription;Lorg/xmlpull/v1/XmlSerializer;)V
 
     return-void

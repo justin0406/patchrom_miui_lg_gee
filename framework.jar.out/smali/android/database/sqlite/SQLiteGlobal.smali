@@ -184,7 +184,7 @@
     move-result v0
 
     .line 113
-    .local v0, value:I
+    .local v0, "value":I
     const/4 v1, 0x1
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
@@ -216,7 +216,7 @@
     move-result v0
 
     .line 123
-    .local v0, value:I
+    .local v0, "value":I
     const/4 v1, 0x2
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I

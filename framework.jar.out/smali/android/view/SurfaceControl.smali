@@ -22,8 +22,7 @@
 
 .field public static final FX_SURFACE_NORMAL:I = 0x0
 
-#the value of this static final field might be set in the static constructor
-.field private static final HEADLESS:Z = false
+.field private static final HEADLESS:Z
 
 .field public static final HIDDEN:I = 0x4
 
@@ -75,12 +74,12 @@
 
 .method public constructor <init>(Landroid/view/SurfaceSession;Ljava/lang/String;IIII)V
     .locals 3
-    .parameter "session"
-    .parameter "name"
-    .parameter "w"
-    .parameter "h"
-    .parameter "format"
-    .parameter "flags"
+    .param p1, "session"    # Landroid/view/SurfaceSession;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "format"    # I
+    .param p6, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -198,7 +197,7 @@
 
 .method public static blankDisplay(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "displayToken"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 449
@@ -279,8 +278,8 @@
 
 .method public static createDisplay(Ljava/lang/String;Z)Landroid/os/IBinder;
     .locals 2
-    .parameter "name"
-    .parameter "secure"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "secure"    # Z
 
     .prologue
     .line 503
@@ -306,7 +305,7 @@
 
 .method public static destroyDisplay(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "displayToken"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 510
@@ -331,7 +330,7 @@
 
 .method public static getBuiltInDisplay(I)Landroid/os/IBinder;
     .locals 1
-    .parameter "builtInDisplayId"
+    .param p0, "builtInDisplayId"    # I
 
     .prologue
     .line 517
@@ -344,8 +343,8 @@
 
 .method public static getDisplayInfo(Landroid/os/IBinder;Landroid/view/SurfaceControl$PhysicalDisplayInfo;)Z
     .locals 2
-    .parameter "displayToken"
-    .parameter "outInfo"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
+    .param p1, "outInfo"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     .line 456
@@ -478,8 +477,8 @@
 
 .method public static screenshot(II)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "width"
-    .parameter "height"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -490,7 +489,7 @@
     move-result-object v0
 
     .line 609
-    .local v0, displayToken:Landroid/os/IBinder;
+    .local v0, "displayToken":Landroid/os/IBinder;
     const/4 v5, 0x1
 
     move v1, p0
@@ -508,10 +507,10 @@
 
 .method public static screenshot(IIII)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "width"
-    .parameter "height"
-    .parameter "minLayer"
-    .parameter "maxLayer"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
+    .param p2, "minLayer"    # I
+    .param p3, "maxLayer"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -521,7 +520,7 @@
 
     move-result-object v0
 
-    .local v0, displayToken:Landroid/os/IBinder;
+    .local v0, "displayToken":Landroid/os/IBinder;
     move v1, p0
 
     move v2, p1
@@ -540,8 +539,8 @@
 
 .method public static screenshot(Landroid/os/IBinder;Landroid/view/Surface;)V
     .locals 7
-    .parameter "display"
-    .parameter "consumer"
+    .param p0, "display"    # Landroid/os/IBinder;
+    .param p1, "consumer"    # Landroid/view/Surface;
 
     .prologue
     const/4 v2, 0x0
@@ -567,10 +566,10 @@
 
 .method public static screenshot(Landroid/os/IBinder;Landroid/view/Surface;II)V
     .locals 7
-    .parameter "display"
-    .parameter "consumer"
-    .parameter "width"
-    .parameter "height"
+    .param p0, "display"    # Landroid/os/IBinder;
+    .param p1, "consumer"    # Landroid/view/Surface;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -596,12 +595,12 @@
 
 .method public static screenshot(Landroid/os/IBinder;Landroid/view/Surface;IIII)V
     .locals 7
-    .parameter "display"
-    .parameter "consumer"
-    .parameter "width"
-    .parameter "height"
-    .parameter "minLayer"
-    .parameter "maxLayer"
+    .param p0, "display"    # Landroid/os/IBinder;
+    .param p1, "consumer"    # Landroid/view/Surface;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "minLayer"    # I
+    .param p5, "maxLayer"    # I
 
     .prologue
     .line 537
@@ -627,13 +626,13 @@
 
 .method private static screenshot(Landroid/os/IBinder;Landroid/view/Surface;IIIIZ)V
     .locals 2
-    .parameter "display"
-    .parameter "consumer"
-    .parameter "width"
-    .parameter "height"
-    .parameter "minLayer"
-    .parameter "maxLayer"
-    .parameter "allLayers"
+    .param p0, "display"    # Landroid/os/IBinder;
+    .param p1, "consumer"    # Landroid/view/Surface;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "minLayer"    # I
+    .param p5, "maxLayer"    # I
+    .param p6, "allLayers"    # Z
 
     .prologue
     .line 614
@@ -682,8 +681,8 @@
 
 .method public static setDisplayLayerStack(Landroid/os/IBinder;I)V
     .locals 2
-    .parameter "displayToken"
-    .parameter "layerStack"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
+    .param p1, "layerStack"    # I
 
     .prologue
     .line 482
@@ -708,10 +707,10 @@
 
 .method public static setDisplayProjection(Landroid/os/IBinder;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 10
-    .parameter "displayToken"
-    .parameter "orientation"
-    .parameter "layerStackRect"
-    .parameter "displayRect"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
+    .param p1, "orientation"    # I
+    .param p2, "layerStackRect"    # Landroid/graphics/Rect;
+    .param p3, "displayRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 467
@@ -782,8 +781,8 @@
 
 .method public static setDisplaySurface(Landroid/os/IBinder;Landroid/view/Surface;)V
     .locals 2
-    .parameter "displayToken"
-    .parameter "surface"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
+    .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
     .line 489
@@ -841,7 +840,7 @@
 
 .method public static unblankDisplay(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "displayToken"
+    .param p0, "displayToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 442
@@ -993,7 +992,7 @@
 
 .method public setAlpha(F)V
     .locals 1
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 348
@@ -1010,8 +1009,8 @@
 
 .method public setFlags(II)V
     .locals 1
-    .parameter "flags"
-    .parameter "mask"
+    .param p1, "flags"    # I
+    .param p2, "mask"    # I
 
     .prologue
     .line 358
@@ -1028,7 +1027,7 @@
 
 .method public setLayer(I)V
     .locals 1
-    .parameter "zorder"
+    .param p1, "zorder"    # I
 
     .prologue
     .line 318
@@ -1045,7 +1044,7 @@
 
 .method public setLayerStack(I)V
     .locals 1
-    .parameter "layerStack"
+    .param p1, "layerStack"    # I
 
     .prologue
     .line 373
@@ -1062,10 +1061,10 @@
 
 .method public setMatrix(FFFF)V
     .locals 1
-    .parameter "dsdx"
-    .parameter "dtdx"
-    .parameter "dsdy"
-    .parameter "dtdy"
+    .param p1, "dsdx"    # F
+    .param p2, "dtdx"    # F
+    .param p3, "dsdy"    # F
+    .param p4, "dtdy"    # F
 
     .prologue
     .line 353
@@ -1082,8 +1081,8 @@
 
 .method public setPosition(FF)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 323
@@ -1100,8 +1099,8 @@
 
 .method public setSize(II)V
     .locals 1
-    .parameter "w"
-    .parameter "h"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
 
     .prologue
     .line 328
@@ -1118,7 +1117,7 @@
 
 .method public setTransparentRegionHint(Landroid/graphics/Region;)V
     .locals 1
-    .parameter "region"
+    .param p1, "region"    # Landroid/graphics/Region;
 
     .prologue
     .line 343
@@ -1135,7 +1134,7 @@
 
 .method public setWindowCrop(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "crop"
+    .param p1, "crop"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v1, 0x0

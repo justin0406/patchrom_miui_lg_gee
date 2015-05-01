@@ -22,9 +22,9 @@
 # direct methods
 .method public constructor <init>([BII)V
     .locals 1
-    .parameter "record"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "record"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     .line 38
@@ -191,7 +191,7 @@
     move-exception v0
 
     .line 108
-    .local v0, ex:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "ex":Ljava/lang/ArrayIndexOutOfBoundsException;
     goto :goto_0
 .end method
 
@@ -219,7 +219,7 @@
     new-array v0, v1, [B
 
     .line 79
-    .local v0, ret:[B
+    .local v0, "ret":[B
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/SimTlv;->mRecord:[B
 
     iget v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->mCurDataOffset:I

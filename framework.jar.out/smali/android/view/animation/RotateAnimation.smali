@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(FF)V
     .locals 2
-    .parameter "fromDegrees"
-    .parameter "toDegrees"
+    .param p1, "fromDegrees"    # F
+    .param p2, "toDegrees"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -65,10 +65,10 @@
 
 .method public constructor <init>(FFFF)V
     .locals 2
-    .parameter "fromDegrees"
-    .parameter "toDegrees"
-    .parameter "pivotX"
-    .parameter "pivotY"
+    .param p1, "fromDegrees"    # F
+    .param p2, "toDegrees"    # F
+    .param p3, "pivotX"    # F
+    .param p4, "pivotY"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -117,12 +117,12 @@
 
 .method public constructor <init>(FFIFIF)V
     .locals 2
-    .parameter "fromDegrees"
-    .parameter "toDegrees"
-    .parameter "pivotXType"
-    .parameter "pivotXValue"
-    .parameter "pivotYType"
-    .parameter "pivotYValue"
+    .param p1, "fromDegrees"    # F
+    .param p2, "toDegrees"    # F
+    .param p3, "pivotXType"    # I
+    .param p4, "pivotXValue"    # F
+    .param p5, "pivotYType"    # I
+    .param p6, "pivotYValue"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -171,8 +171,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x0
@@ -202,7 +202,7 @@
     move-result-object v0
 
     .line 54
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v2
@@ -230,7 +230,7 @@
     move-result-object v1
 
     .line 60
-    .local v1, d:Landroid/view/animation/Animation$Description;
+    .local v1, "d":Landroid/view/animation/Animation$Description;
     iget v2, v1, Landroid/view/animation/Animation$Description;->type:I
 
     iput v2, p0, Landroid/view/animation/RotateAnimation;->mPivotXType:I
@@ -305,8 +305,8 @@
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 6
-    .parameter "interpolatedTime"
-    .parameter "t"
+    .param p1, "interpolatedTime"    # F
+    .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     const/4 v5, 0x0
@@ -325,13 +325,13 @@
     add-float v0, v2, v3
 
     .line 168
-    .local v0, degrees:F
+    .local v0, "degrees":F
     invoke-virtual {p0}, Landroid/view/animation/RotateAnimation;->getScaleFactor()F
 
     move-result v1
 
     .line 170
-    .local v1, scale:F
+    .local v1, "scale":F
     iget v2, p0, Landroid/view/animation/RotateAnimation;->mPivotX:F
 
     cmpl-float v2, v2, v5
@@ -376,10 +376,10 @@
 
 .method public initialize(IIII)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
-    .parameter "parentWidth"
-    .parameter "parentHeight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "parentWidth"    # I
+    .param p4, "parentHeight"    # I
 
     .prologue
     .line 179

@@ -24,7 +24,7 @@
 
 .method static e(Ljava/lang/String;)V
     .locals 1
-    .parameter "logMe"
+    .param p0, "logMe"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -38,7 +38,7 @@
 
 .method static v(Ljava/lang/String;)V
     .locals 4
-    .parameter "logMe"
+    .param p0, "logMe"    # Ljava/lang/String;
 
     .prologue
     .line 37

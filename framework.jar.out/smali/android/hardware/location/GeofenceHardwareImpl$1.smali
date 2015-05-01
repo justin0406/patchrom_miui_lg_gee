@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardwareImpl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 532
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 538
@@ -53,10 +52,10 @@
     iget v8, p1, Landroid/os/Message;->arg1:I
 
     .line 541
-    .local v8, geofenceId:I
+    .local v8, "geofenceId":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -67,7 +66,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -79,7 +78,7 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 543
-    .local v0, callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .local v0, "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -100,13 +99,13 @@
     :goto_1
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto :goto_0
 
     .line 543
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_0
     move-exception v1
 
@@ -118,11 +117,11 @@
     throw v1
 
     .line 548
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catch_0
     move-exception v7
 
-    .local v7, e:Landroid/os/RemoteException;
+    .local v7, "e":Landroid/os/RemoteException;
     const-string v1, "GeofenceHardwareImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -148,17 +147,17 @@
     goto :goto_1
 
     .line 553
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
-    .end local v7           #e:Landroid/os/RemoteException;
-    .end local v8           #geofenceId:I
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v7    # "e":Landroid/os/RemoteException;
+    .end local v8    # "geofenceId":I
     :pswitch_1
     iget v8, p1, Landroid/os/Message;->arg1:I
 
     .line 554
-    .restart local v8       #geofenceId:I
+    .restart local v8    # "geofenceId":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -169,7 +168,7 @@
     :try_start_3
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -181,7 +180,7 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 556
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     monitor-exit v2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
@@ -201,7 +200,7 @@
     :goto_2
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -212,7 +211,7 @@
     :try_start_5
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -228,13 +227,13 @@
     :cond_1
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto :goto_0
 
     .line 556
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_1
     move-exception v1
 
@@ -246,7 +245,7 @@
     throw v1
 
     .line 564
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_2
     move-exception v1
 
@@ -258,16 +257,16 @@
     throw v1
 
     .line 570
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
-    .end local v8           #geofenceId:I
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v8    # "geofenceId":I
     :pswitch_2
     iget v8, p1, Landroid/os/Message;->arg1:I
 
     .line 571
-    .restart local v8       #geofenceId:I
+    .restart local v8    # "geofenceId":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -278,7 +277,7 @@
     :try_start_8
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -290,7 +289,7 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 573
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     monitor-exit v2
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
@@ -311,13 +310,13 @@
     :goto_3
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto/16 :goto_0
 
     .line 573
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_3
     move-exception v1
 
@@ -329,15 +328,15 @@
     throw v1
 
     .line 584
-    .end local v8           #geofenceId:I
+    .end local v8    # "geofenceId":I
     :pswitch_3
     iget v8, p1, Landroid/os/Message;->arg1:I
 
     .line 585
-    .restart local v8       #geofenceId:I
+    .restart local v8    # "geofenceId":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -348,7 +347,7 @@
     :try_start_b
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -360,7 +359,7 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 587
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     monitor-exit v2
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_4
@@ -381,13 +380,13 @@
     :goto_4
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto/16 :goto_0
 
     .line 587
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_4
     move-exception v1
 
@@ -399,7 +398,7 @@
     throw v1
 
     .line 598
-    .end local v8           #geofenceId:I
+    .end local v8    # "geofenceId":I
     :pswitch_4
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -410,10 +409,10 @@
     check-cast v9, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .line 599
-    .local v9, geofenceTransition:Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
+    .local v9, "geofenceTransition":Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -424,12 +423,12 @@
     :try_start_e
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$200(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v3
@@ -441,7 +440,8 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 603
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->DEBUG:Z
     invoke-static {}, Landroid/hardware/location/GeofenceHardwareImpl;->access$300()Z
 
     move-result v1
@@ -460,7 +460,7 @@
 
     move-result-object v3
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$200(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v4
@@ -475,7 +475,7 @@
 
     move-result-object v3
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTransition:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTransition:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$400(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v4
@@ -490,7 +490,7 @@
 
     move-result-object v3
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mLocation:Landroid/location/Location;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mLocation:Landroid/location/Location;
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$500(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)Landroid/location/Location;
 
     move-result-object v4
@@ -507,7 +507,7 @@
 
     iget-object v4, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v4}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v4
@@ -533,27 +533,27 @@
 
     .line 611
     :try_start_f
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$200(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v1
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTransition:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTransition:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$400(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v2
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mLocation:Landroid/location/Location;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mLocation:Landroid/location/Location;
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$500(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)Landroid/location/Location;
 
     move-result-object v3
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTimestamp:J
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTimestamp:J
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$600(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)J
 
     move-result-wide v4
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mMonitoringType:I
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mMonitoringType:I
     invoke-static {v9}, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->access$700(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
 
     move-result v6
@@ -567,13 +567,13 @@
     :goto_5
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #calls: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
+    # invokes: Landroid/hardware/location/GeofenceHardwareImpl;->releaseWakeLock()V
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$100(Landroid/hardware/location/GeofenceHardwareImpl;)V
 
     goto/16 :goto_0
 
     .line 607
-    .end local v0           #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .end local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
     :catchall_5
     move-exception v1
 
@@ -585,7 +585,7 @@
     throw v1
 
     .line 621
-    .end local v9           #geofenceTransition:Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
+    .end local v9    # "geofenceTransition":Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
     :pswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -596,7 +596,8 @@
     check-cast v0, Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .line 622
-    .restart local v0       #callback:Landroid/hardware/location/IGeofenceHardwareCallback;
+    .restart local v0    # "callback":Landroid/hardware/location/IGeofenceHardwareCallback;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->DEBUG:Z
     invoke-static {}, Landroid/hardware/location/GeofenceHardwareImpl;->access$300()Z
 
     move-result v1
@@ -630,10 +631,10 @@
     iget v11, p1, Landroid/os/Message;->arg1:I
 
     .line 624
-    .local v11, monitoringType:I
+    .local v11, "monitoringType":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -643,12 +644,12 @@
     .line 625
     const/4 v10, 0x0
 
-    .local v10, i:I
+    .local v10, "i":I
     :goto_6
     :try_start_11
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -662,7 +663,7 @@
     .line 626
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -682,7 +683,7 @@
     .line 627
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -692,12 +693,12 @@
     move-result v8
 
     .line 628
-    .restart local v8       #geofenceId:I
+    .restart local v8    # "geofenceId":I
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
     iget-object v3, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v3}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v3
@@ -711,7 +712,7 @@
     .line 629
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$1;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
+    # getter for: Landroid/hardware/location/GeofenceHardwareImpl;->mGeofences:Landroid/util/SparseArray;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareImpl;->access$000(Landroid/hardware/location/GeofenceHardwareImpl;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -719,7 +720,7 @@
     invoke-virtual {v1, v8}, Landroid/util/SparseArray;->remove(I)V
 
     .line 625
-    .end local v8           #geofenceId:I
+    .end local v8    # "geofenceId":I
     :cond_7
     add-int/lit8 v10, v10, 0x1
 
@@ -741,17 +742,17 @@
     throw v1
 
     .line 615
-    .end local v10           #i:I
-    .end local v11           #monitoringType:I
-    .restart local v9       #geofenceTransition:Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
+    .end local v10    # "i":I
+    .end local v11    # "monitoringType":I
+    .restart local v9    # "geofenceTransition":Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
     :catch_1
     move-exception v1
 
     goto/16 :goto_5
 
     .line 592
-    .end local v9           #geofenceTransition:Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
-    .restart local v8       #geofenceId:I
+    .end local v9    # "geofenceTransition":Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
+    .restart local v8    # "geofenceId":I
     :catch_2
     move-exception v1
 

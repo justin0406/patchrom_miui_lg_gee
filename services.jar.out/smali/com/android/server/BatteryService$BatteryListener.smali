@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 745
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/BatteryService;
+    .param p2, "x1"    # Lcom/android/server/BatteryService$1;
 
     .prologue
     .line 745
@@ -48,13 +47,13 @@
 # virtual methods
 .method public batteryPropertiesChanged(Landroid/os/BatteryProperties;)V
     .locals 1
-    .parameter "props"
+    .param p1, "props"    # Landroid/os/BatteryProperties;
 
     .prologue
     .line 747
     iget-object v0, p0, Lcom/android/server/BatteryService$BatteryListener;->this$0:Lcom/android/server/BatteryService;
 
-    #calls: Lcom/android/server/BatteryService;->update(Landroid/os/BatteryProperties;)V
+    # invokes: Lcom/android/server/BatteryService;->update(Landroid/os/BatteryProperties;)V
     invoke-static {v0, p1}, Lcom/android/server/BatteryService;->access$600(Lcom/android/server/BatteryService;Landroid/os/BatteryProperties;)V
 
     .line 748

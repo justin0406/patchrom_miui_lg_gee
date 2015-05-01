@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/Display;)V
     .locals 1
-    .parameter "outerContext"
-    .parameter "display"
+    .param p1, "outerContext"    # Landroid/content/Context;
+    .param p2, "display"    # Landroid/view/Display;
 
     .prologue
     .line 159
@@ -37,9 +37,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/Display;I)V
     .locals 3
-    .parameter "outerContext"
-    .parameter "display"
-    .parameter "theme"
+    .param p1, "outerContext"    # Landroid/content/Context;
+    .param p2, "display"    # Landroid/view/Display;
+    .param p3, "theme"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -101,7 +101,7 @@
 
 .method static synthetic access$000(Landroid/app/Presentation;)Landroid/view/Display;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/Presentation;
 
     .prologue
     .line 141
@@ -112,7 +112,7 @@
 
 .method static synthetic access$100(Landroid/app/Presentation;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/Presentation;
 
     .prologue
     .line 141
@@ -123,7 +123,7 @@
 
 .method static synthetic access$200(Landroid/app/Presentation;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/Presentation;
 
     .prologue
     .line 141
@@ -134,9 +134,9 @@
 
 .method private static createPresentationContext(Landroid/content/Context;Landroid/view/Display;I)Landroid/content/Context;
     .locals 7
-    .parameter "outerContext"
-    .parameter "display"
-    .parameter "theme"
+    .param p0, "outerContext"    # Landroid/content/Context;
+    .param p1, "display"    # Landroid/view/Display;
+    .param p2, "theme"    # I
 
     .prologue
     .line 289
@@ -171,7 +171,7 @@
     move-result-object v0
 
     .line 297
-    .local v0, displayContext:Landroid/content/Context;
+    .local v0, "displayContext":Landroid/content/Context;
     if-nez p2, :cond_2
 
     .line 298
@@ -180,7 +180,7 @@
     invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
 
     .line 299
-    .local v2, outValue:Landroid/util/TypedValue;
+    .local v2, "outValue":Landroid/util/TypedValue;
     invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v4
@@ -195,7 +195,7 @@
     iget p2, v2, Landroid/util/TypedValue;->resourceId:I
 
     .line 308
-    .end local v2           #outValue:Landroid/util/TypedValue;
+    .end local v2    # "outValue":Landroid/util/TypedValue;
     :cond_2
     const-string/jumbo v4, "window"
 
@@ -206,13 +206,13 @@
     check-cast v3, Landroid/view/WindowManagerImpl;
 
     .line 310
-    .local v3, outerWindowManager:Landroid/view/WindowManagerImpl;
+    .local v3, "outerWindowManager":Landroid/view/WindowManagerImpl;
     invoke-virtual {v3, p1}, Landroid/view/WindowManagerImpl;->createPresentationWindowManager(Landroid/view/Display;)Landroid/view/WindowManagerImpl;
 
     move-result-object v1
 
     .line 312
-    .local v1, displayWindowManager:Landroid/view/WindowManagerImpl;
+    .local v1, "displayWindowManager":Landroid/view/WindowManagerImpl;
     new-instance v4, Landroid/app/Presentation$1;
 
     invoke-direct {v4, v0, p2, v1}, Landroid/app/Presentation$1;-><init>(Landroid/content/Context;ILandroid/view/WindowManagerImpl;)V
@@ -266,7 +266,7 @@
     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 283
-    .local v0, dm:Landroid/util/DisplayMetrics;
+    .local v0, "dm":Landroid/util/DisplayMetrics;
     iget-object v1, p0, Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v1, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V

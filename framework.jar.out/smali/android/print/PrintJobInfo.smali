@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -109,7 +109,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 7
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x1
@@ -199,7 +199,7 @@
     move-result-object v1
 
     .line 206
-    .local v1, parcelables:[Landroid/os/Parcelable;
+    .local v1, "parcelables":[Landroid/os/Parcelable;
     if-eqz v1, :cond_0
 
     .line 207
@@ -212,7 +212,7 @@
     .line 208
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v2, v1
 
@@ -233,7 +233,7 @@
     goto :goto_0
 
     .line 212
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
@@ -283,8 +283,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrintJobInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/print/PrintJobInfo$1;
 
     .prologue
     .line 31
@@ -295,7 +295,7 @@
 
 .method public constructor <init>(Landroid/print/PrintJobInfo;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 176
@@ -382,8 +382,8 @@
 
 .method static synthetic access$002(Landroid/print/PrintJobInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintJobInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 31
@@ -394,8 +394,8 @@
 
 .method static synthetic access$102(Landroid/print/PrintJobInfo;Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintJobInfo;
+    .param p1, "x1"    # Landroid/print/PrintAttributes;
 
     .prologue
     .line 31
@@ -406,8 +406,8 @@
 
 .method static synthetic access$202(Landroid/print/PrintJobInfo;[Landroid/print/PageRange;)[Landroid/print/PageRange;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintJobInfo;
+    .param p1, "x1"    # [Landroid/print/PageRange;
 
     .prologue
     .line 31
@@ -418,7 +418,7 @@
 
 .method static synthetic access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 31
@@ -429,8 +429,8 @@
 
 .method static synthetic access$302(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintJobInfo;
+    .param p1, "x1"    # Landroid/os/Bundle;
 
     .prologue
     .line 31
@@ -441,7 +441,7 @@
 
 .method public static stateToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "state"
+    .param p0, "state"    # I
 
     .prologue
     .line 640
@@ -524,7 +524,7 @@
 
 .method public getAdvancedIntOption(Ljava/lang/String;)I
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 563
@@ -561,7 +561,7 @@
 
 .method public getAdvancedStringOption(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 548
@@ -718,7 +718,7 @@
 
 .method public hasAdvancedOption(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 536
@@ -757,7 +757,7 @@
 
 .method public setAdvancedOptions(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "options"
+    .param p1, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 588
@@ -769,7 +769,7 @@
 
 .method public setAppId(I)V
     .locals 0
-    .parameter "appId"
+    .param p1, "appId"    # I
 
     .prologue
     .line 347
@@ -781,7 +781,7 @@
 
 .method public setAttributes(Landroid/print/PrintAttributes;)V
     .locals 0
-    .parameter "attributes"
+    .param p1, "attributes"    # Landroid/print/PrintAttributes;
 
     .prologue
     .line 479
@@ -793,7 +793,7 @@
 
 .method public setCancelling(Z)V
     .locals 0
-    .parameter "cancelling"
+    .param p1, "cancelling"    # Z
 
     .prologue
     .line 523
@@ -805,7 +805,7 @@
 
 .method public setCopies(I)V
     .locals 2
-    .parameter "copyCount"
+    .param p1, "copyCount"    # I
 
     .prologue
     .line 412
@@ -832,7 +832,7 @@
 
 .method public setCreationTime(J)V
     .locals 2
-    .parameter "creationTime"
+    .param p1, "creationTime"    # J
 
     .prologue
     .line 389
@@ -861,7 +861,7 @@
 
 .method public setDocumentInfo(Landroid/print/PrintDocumentInfo;)V
     .locals 0
-    .parameter "info"
+    .param p1, "info"    # Landroid/print/PrintDocumentInfo;
 
     .prologue
     .line 501
@@ -873,7 +873,7 @@
 
 .method public setId(Landroid/print/PrintJobId;)V
     .locals 0
-    .parameter "id"
+    .param p1, "id"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 235
@@ -885,7 +885,7 @@
 
 .method public setLabel(Ljava/lang/String;)V
     .locals 0
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/String;
 
     .prologue
     .line 255
@@ -897,7 +897,7 @@
 
 .method public setPages([Landroid/print/PageRange;)V
     .locals 0
-    .parameter "pageRanges"
+    .param p1, "pageRanges"    # [Landroid/print/PageRange;
 
     .prologue
     .line 459
@@ -909,7 +909,7 @@
 
 .method public setPrinterId(Landroid/print/PrinterId;)V
     .locals 0
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 275
@@ -921,7 +921,7 @@
 
 .method public setPrinterName(Ljava/lang/String;)V
     .locals 0
-    .parameter "printerName"
+    .param p1, "printerName"    # Ljava/lang/String;
 
     .prologue
     .line 297
@@ -933,7 +933,7 @@
 
 .method public setState(I)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 325
@@ -945,7 +945,7 @@
 
 .method public setStateReason(Ljava/lang/String;)V
     .locals 0
-    .parameter "stateReason"
+    .param p1, "stateReason"    # Ljava/lang/String;
 
     .prologue
     .line 439
@@ -957,7 +957,7 @@
 
 .method public setTag(Ljava/lang/String;)V
     .locals 0
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 369
@@ -979,7 +979,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 618
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "PrintJobInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1269,8 +1269,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x0

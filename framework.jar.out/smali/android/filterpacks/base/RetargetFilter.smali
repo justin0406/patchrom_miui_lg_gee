@@ -19,7 +19,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -38,8 +38,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 2
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 56
@@ -48,7 +48,7 @@
     move-result-object v0
 
     .line 57
-    .local v0, retargeted:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "retargeted":Landroid/filterfw/core/MutableFrameFormat;
     iget v1, p0, Landroid/filterpacks/base/RetargetFilter;->mTarget:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/MutableFrameFormat;->setTarget(I)V
@@ -59,7 +59,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 64
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 67
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v2
@@ -82,7 +82,7 @@
     move-result-object v1
 
     .line 70
-    .local v1, output:Landroid/filterfw/core/Frame;
+    .local v1, "output":Landroid/filterfw/core/Frame;
     const-string v2, "frame"
 
     invoke-virtual {p0, v2, v1}, Landroid/filterpacks/base/RetargetFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V

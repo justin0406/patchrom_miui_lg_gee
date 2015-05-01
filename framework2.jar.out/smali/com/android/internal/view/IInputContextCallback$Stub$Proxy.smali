@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 125
@@ -61,8 +61,8 @@
 
 .method public setCursorCapsMode(II)V
     .locals 5
-    .parameter "capsMode"
-    .parameter "seq"
+    .param p1, "capsMode"    # I
+    .param p2, "seq"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 178
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContextCallback"
 
@@ -118,8 +118,8 @@
 
 .method public setExtractedText(Landroid/view/inputmethod/ExtractedText;I)V
     .locals 5
-    .parameter "extractedText"
-    .parameter "seq"
+    .param p1, "extractedText"    # Landroid/view/inputmethod/ExtractedText;
+    .param p2, "seq"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 191
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContextCallback"
 
@@ -197,8 +197,8 @@
 
 .method public setSelectedText(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "selectedText"
-    .parameter "seq"
+    .param p1, "selectedText"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -212,7 +212,7 @@
     move-result-object v0
 
     .line 210
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContextCallback"
 
@@ -276,8 +276,8 @@
 
 .method public setTextAfterCursor(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "textAfterCursor"
-    .parameter "seq"
+    .param p1, "textAfterCursor"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -291,7 +291,7 @@
     move-result-object v0
 
     .line 159
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContextCallback"
 
@@ -355,8 +355,8 @@
 
 .method public setTextBeforeCursor(Ljava/lang/CharSequence;I)V
     .locals 5
-    .parameter "textBeforeCursor"
-    .parameter "seq"
+    .param p1, "textBeforeCursor"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -370,7 +370,7 @@
     move-result-object v0
 
     .line 140
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputContextCallback"
 

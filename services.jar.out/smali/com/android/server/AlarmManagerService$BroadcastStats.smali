@@ -47,7 +47,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 457

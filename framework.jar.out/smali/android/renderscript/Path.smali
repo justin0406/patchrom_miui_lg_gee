@@ -26,12 +26,12 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;F)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
-    .parameter "p"
-    .parameter "vtx"
-    .parameter "loop"
-    .parameter "q"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "p"    # Landroid/renderscript/Path$Primitive;
+    .param p4, "vtx"    # Landroid/renderscript/Allocation;
+    .param p5, "loop"    # Landroid/renderscript/Allocation;
+    .param p6, "q"    # F
 
     .prologue
     .line 45
@@ -55,10 +55,10 @@
 
 .method public static createDynamicPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;)Landroid/renderscript/Path;
     .locals 1
-    .parameter "rs"
-    .parameter "p"
-    .parameter "quality"
-    .parameter "vtx"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "p"    # Landroid/renderscript/Path$Primitive;
+    .param p2, "quality"    # F
+    .param p3, "vtx"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 80
@@ -69,11 +69,11 @@
 
 .method public static createDynamicPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;Landroid/renderscript/Allocation;)Landroid/renderscript/Path;
     .locals 1
-    .parameter "rs"
-    .parameter "p"
-    .parameter "quality"
-    .parameter "vtx"
-    .parameter "loops"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "p"    # Landroid/renderscript/Path$Primitive;
+    .param p2, "quality"    # F
+    .param p3, "vtx"    # Landroid/renderscript/Allocation;
+    .param p4, "loops"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 84
@@ -84,10 +84,10 @@
 
 .method public static createStaticPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;)Landroid/renderscript/Path;
     .locals 7
-    .parameter "rs"
-    .parameter "p"
-    .parameter "quality"
-    .parameter "vtx"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "p"    # Landroid/renderscript/Path$Primitive;
+    .param p2, "quality"    # F
+    .param p3, "vtx"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v6, 0x0
@@ -112,7 +112,7 @@
     move-result v1
 
     .line 71
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v0, Landroid/renderscript/Path;
 
     move-object v2, p0
@@ -128,17 +128,17 @@
     invoke-direct/range {v0 .. v6}, Landroid/renderscript/Path;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;F)V
 
     .line 72
-    .local v0, newPath:Landroid/renderscript/Path;
+    .local v0, "newPath":Landroid/renderscript/Path;
     return-object v0
 .end method
 
 .method public static createStaticPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;Landroid/renderscript/Allocation;)Landroid/renderscript/Path;
     .locals 1
-    .parameter "rs"
-    .parameter "p"
-    .parameter "quality"
-    .parameter "vtx"
-    .parameter "loops"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "p"    # Landroid/renderscript/Path$Primitive;
+    .param p2, "quality"    # F
+    .param p3, "vtx"    # Landroid/renderscript/Allocation;
+    .param p4, "loops"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 76

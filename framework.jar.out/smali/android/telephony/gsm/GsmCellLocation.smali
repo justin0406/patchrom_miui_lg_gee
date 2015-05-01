@@ -36,7 +36,7 @@
 
 .method public constructor <init>(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 42
@@ -81,8 +81,8 @@
 
 .method private static equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Ljava/lang/Object;
+    .param p1, "b"    # Ljava/lang/Object;
 
     .prologue
     .line 133
@@ -112,7 +112,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -128,11 +128,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 112
-    .local v2, s:Landroid/telephony/gsm/GsmCellLocation;
+    .local v2, "s":Landroid/telephony/gsm/GsmCellLocation;
     if-nez p1, :cond_1
 
     .line 116
-    .end local v2           #s:Landroid/telephony/gsm/GsmCellLocation;
+    .end local v2    # "s":Landroid/telephony/gsm/GsmCellLocation;
     :cond_0
     :goto_0
     return v3
@@ -142,12 +142,12 @@
     move-exception v1
 
     .line 109
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 116
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Landroid/telephony/gsm/GsmCellLocation;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Landroid/telephony/gsm/GsmCellLocation;
     :cond_1
     iget v4, p0, Landroid/telephony/gsm/GsmCellLocation;->mLac:I
 
@@ -210,7 +210,7 @@
 
 .method public fillInNotifierBundle(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Bundle;
 
     .prologue
     .line 142
@@ -314,8 +314,8 @@
 
 .method public setLacAndCid(II)V
     .locals 0
-    .parameter "lac"
-    .parameter "cid"
+    .param p1, "lac"    # I
+    .param p2, "cid"    # I
 
     .prologue
     .line 85
@@ -330,7 +330,7 @@
 
 .method public setPsc(I)V
     .locals 0
-    .parameter "psc"
+    .param p1, "psc"    # I
 
     .prologue
     .line 94

@@ -12,9 +12,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/view/KeyEvent$DispatcherState;)V
     .locals 1
-    .parameter "context"
-    .parameter "theme"
-    .parameter "dispatcherState"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
+    .param p3, "dispatcherState"    # Landroid/view/KeyEvent$DispatcherState;
 
     .prologue
     .line 58
@@ -51,7 +51,7 @@
     move-result-object v0
 
     .line 154
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     const/16 v1, 0x7db
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -97,7 +97,7 @@
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 6
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 71
@@ -192,13 +192,13 @@
     move-result-object v1
 
     .line 79
-    .local v1, temp:Landroid/view/MotionEvent;
+    .local v1, "temp":Landroid/view/MotionEvent;
     invoke-super {p0, v1}, Landroid/app/Dialog;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
     .line 80
-    .local v0, handled:Z
+    .local v0, "handled":Z
     invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
     goto :goto_0
@@ -218,7 +218,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     const/16 v2, 0x30
@@ -247,7 +247,7 @@
 
 .method public onWindowFocusChanged(Z)V
     .locals 1
-    .parameter "hasFocus"
+    .param p1, "hasFocus"    # Z
 
     .prologue
     .line 65
@@ -264,7 +264,7 @@
 
 .method public setGravity(I)V
     .locals 9
-    .parameter "gravity"
+    .param p1, "gravity"    # I
 
     .prologue
     const/16 v8, 0x50
@@ -285,7 +285,7 @@
     move-result-object v0
 
     .line 137
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     iget v6, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     if-eq v6, v7, :cond_0
@@ -298,7 +298,7 @@
     move v2, v5
 
     .line 139
-    .local v2, oldIsVertical:Z
+    .local v2, "oldIsVertical":Z
     :goto_0
     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
@@ -315,7 +315,7 @@
     move v1, v5
 
     .line 143
-    .local v1, newIsVertical:Z
+    .local v1, "newIsVertical":Z
     :goto_1
     if-eq v2, v1, :cond_2
 
@@ -323,7 +323,7 @@
     iget v3, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 145
-    .local v3, tmp:I
+    .local v3, "tmp":I
     iget v4, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     iput v4, v0, Landroid/view/WindowManager$LayoutParams;->width:I
@@ -339,19 +339,19 @@
     invoke-virtual {v4, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
     .line 149
-    .end local v3           #tmp:I
+    .end local v3    # "tmp":I
     :cond_2
     return-void
 
-    .end local v1           #newIsVertical:Z
-    .end local v2           #oldIsVertical:Z
+    .end local v1    # "newIsVertical":Z
+    .end local v2    # "oldIsVertical":Z
     :cond_3
     move v2, v4
 
     .line 137
     goto :goto_0
 
-    .restart local v2       #oldIsVertical:Z
+    .restart local v2    # "oldIsVertical":Z
     :cond_4
     move v1, v4
 
@@ -361,7 +361,7 @@
 
 .method public setSize(I)V
     .locals 4
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     const/4 v3, -0x1
@@ -376,7 +376,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     const/16 v2, 0x30
@@ -419,7 +419,7 @@
 
 .method public setToken(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 39
@@ -432,7 +432,7 @@
     move-result-object v0
 
     .line 40
-    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     iput-object p1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     .line 41

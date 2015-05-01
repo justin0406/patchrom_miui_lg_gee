@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 0
-    .parameter "commandsInterface"
+    .param p1, "commandsInterface"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 61
@@ -41,7 +41,7 @@
 
 .method private acknowledgeSmsWithError(I)V
     .locals 3
-    .parameter "cause"
+    .param p1, "cause"    # I
 
     .prologue
     .line 261
@@ -59,15 +59,15 @@
 
 .method private static getEnvelopeBodyLength(II)I
     .locals 2
-    .parameter "scAddressLength"
-    .parameter "tpduLength"
+    .param p0, "scAddressLength"    # I
+    .param p1, "tpduLength"    # I
 
     .prologue
     .line 184
     add-int/lit8 v0, p1, 0x5
 
     .line 186
-    .local v0, length:I
+    .local v0, "length":I
     const/16 v1, 0x7f
 
     if-le p1, v1, :cond_1
@@ -98,7 +98,7 @@
 
 .method private handleDataDownload(Lcom/android/internal/telephony/gsm/SmsMessage;)V
     .locals 17
-    .parameter "smsMessage"
+    .param p1, "smsMessage"    # Lcom/android/internal/telephony/gsm/SmsMessage;
 
     .prologue
     .line 114
@@ -107,19 +107,19 @@
     move-result v2
 
     .line 115
-    .local v2, dcs:I
+    .local v2, "dcs":I
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/gsm/SmsMessage;->getProtocolIdentifier()I
 
     move-result v8
 
     .line 116
-    .local v8, pid:I
+    .local v8, "pid":I
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/gsm/SmsMessage;->getPdu()[B
 
     move-result-object v7
 
     .line 118
-    .local v7, pdu:[B
+    .local v7, "pdu":[B
     const/4 v13, 0x0
 
     aget-byte v13, v7, v13
@@ -127,23 +127,23 @@
     and-int/lit16 v9, v13, 0xff
 
     .line 119
-    .local v9, scAddressLength:I
+    .local v9, "scAddressLength":I
     add-int/lit8 v11, v9, 0x1
 
     .line 120
-    .local v11, tpduIndex:I
+    .local v11, "tpduIndex":I
     array-length v13, v7
 
     sub-int v12, v13, v11
 
     .line 122
-    .local v12, tpduLength:I
+    .local v12, "tpduLength":I
     invoke-static {v9, v12}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->getEnvelopeBodyLength(II)I
 
     move-result v1
 
     .line 126
-    .local v1, bodyLength:I
+    .local v1, "bodyLength":I
     add-int/lit8 v14, v1, 0x1
 
     const/16 v13, 0x7f
@@ -156,19 +156,19 @@
     add-int v10, v14, v13
 
     .line 128
-    .local v10, totalLength:I
+    .local v10, "totalLength":I
     new-array v4, v10, [B
 
     .line 129
-    .local v4, envelope:[B
+    .local v4, "envelope":[B
     const/4 v5, 0x0
 
     .line 132
-    .local v5, index:I
+    .local v5, "index":I
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .local v6, index:I
+    .end local v5    # "index":I
+    .local v6, "index":I
     const/16 v13, -0x2f
 
     aput-byte v13, v4, v5
@@ -181,8 +181,8 @@
     .line 134
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     const/16 v13, -0x7f
 
     aput-byte v13, v4, v6
@@ -191,8 +191,8 @@
     :goto_1
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     int-to-byte v13, v1
 
     aput-byte v13, v4, v5
@@ -200,8 +200,8 @@
     .line 139
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     sget-object v13, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->DEVICE_IDENTITIES:Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
 
     invoke-virtual {v13}, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->value()I
@@ -217,8 +217,8 @@
     .line 140
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     const/4 v13, 0x2
 
     aput-byte v13, v4, v5
@@ -226,8 +226,8 @@
     .line 141
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     const/16 v13, -0x7d
 
     aput-byte v13, v4, v6
@@ -235,8 +235,8 @@
     .line 142
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     const/16 v13, -0x7f
 
     aput-byte v13, v4, v5
@@ -247,8 +247,8 @@
     .line 146
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     sget-object v13, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->ADDRESS:Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
 
     invoke-virtual {v13}, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->value()I
@@ -262,8 +262,8 @@
     .line 147
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     int-to-byte v13, v9
 
     aput-byte v13, v4, v5
@@ -277,13 +277,13 @@
     add-int v5, v6, v9
 
     .line 153
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     :goto_2
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     sget-object v13, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->SMS_TPDU:Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
 
     invoke-virtual {v13}, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->value()I
@@ -304,8 +304,8 @@
     .line 155
     add-int/lit8 v5, v6, 0x1
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     const/16 v13, -0x7f
 
     aput-byte v13, v4, v6
@@ -314,8 +314,8 @@
     :goto_3
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     int-to-byte v13, v12
 
     aput-byte v13, v4, v5
@@ -327,8 +327,8 @@
     add-int v5, v6, v12
 
     .line 162
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     array-length v13, v4
 
     if-eq v5, v13, :cond_1
@@ -352,25 +352,25 @@
     return-void
 
     .line 126
-    .end local v4           #envelope:[B
-    .end local v5           #index:I
-    .end local v10           #totalLength:I
+    .end local v4    # "envelope":[B
+    .end local v5    # "index":I
+    .end local v10    # "totalLength":I
     :cond_0
     const/4 v13, 0x1
 
     goto/16 :goto_0
 
     .line 168
-    .restart local v4       #envelope:[B
-    .restart local v5       #index:I
-    .restart local v10       #totalLength:I
+    .restart local v4    # "envelope":[B
+    .restart local v5    # "index":I
+    .restart local v10    # "totalLength":I
     :cond_1
     invoke-static {v4}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
 
     move-result-object v3
 
     .line 169
-    .local v3, encodedEnvelope:Ljava/lang/String;
+    .local v3, "encodedEnvelope":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->mCi:Lcom/android/internal/telephony/CommandsInterface;
@@ -399,38 +399,38 @@
 
     goto :goto_4
 
-    .end local v3           #encodedEnvelope:Ljava/lang/String;
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v3    # "encodedEnvelope":Ljava/lang/String;
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     :cond_2
     move v5, v6
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     goto :goto_3
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     :cond_3
     move v5, v6
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     goto :goto_2
 
-    .end local v5           #index:I
-    .restart local v6       #index:I
+    .end local v5    # "index":I
+    .restart local v6    # "index":I
     :cond_4
     move v5, v6
 
-    .end local v6           #index:I
-    .restart local v5       #index:I
+    .end local v6    # "index":I
+    .restart local v5    # "index":I
     goto/16 :goto_1
 .end method
 
 .method private static is7bitDcs(I)Z
     .locals 2
-    .parameter "dcs"
+    .param p0, "dcs"    # I
 
     .prologue
     .line 272
@@ -458,20 +458,20 @@
 
 .method private sendSmsAckForEnvelopeResponse(Lcom/android/internal/telephony/uicc/IccIoResult;II)V
     .locals 12
-    .parameter "response"
-    .parameter "dcs"
-    .parameter "pid"
+    .param p1, "response"    # Lcom/android/internal/telephony/uicc/IccIoResult;
+    .param p2, "dcs"    # I
+    .param p3, "pid"    # I
 
     .prologue
     .line 200
     iget v6, p1, Lcom/android/internal/telephony/uicc/IccIoResult;->sw1:I
 
     .line 201
-    .local v6, sw1:I
+    .local v6, "sw1":I
     iget v7, p1, Lcom/android/internal/telephony/uicc/IccIoResult;->sw2:I
 
     .line 204
-    .local v7, sw2:I
+    .local v7, "sw2":I
     const/16 v8, 0x90
 
     if-ne v6, v8, :cond_0
@@ -515,12 +515,12 @@
     const/4 v5, 0x1
 
     .line 219
-    .local v5, success:Z
+    .local v5, "success":Z
     :goto_0
     iget-object v2, p1, Lcom/android/internal/telephony/uicc/IccIoResult;->payload:[B
 
     .line 220
-    .local v2, responseBytes:[B
+    .local v2, "responseBytes":[B
     if-eqz v2, :cond_2
 
     array-length v8, v2
@@ -543,8 +543,8 @@
     invoke-interface {v8, v9, v10, v11}, Lcom/android/internal/telephony/CommandsInterface;->acknowledgeLastIncomingGsmSms(ZILandroid/os/Message;)V
 
     .line 258
-    .end local v2           #responseBytes:[B
-    .end local v5           #success:Z
+    .end local v2    # "responseBytes":[B
+    .end local v5    # "success":Z
     :goto_1
     return-void
 
@@ -611,11 +611,11 @@
     .line 213
     const/4 v5, 0x0
 
-    .restart local v5       #success:Z
+    .restart local v5    # "success":Z
     goto :goto_0
 
     .line 215
-    .end local v5           #success:Z
+    .end local v5    # "success":Z
     :cond_6
     const-string v8, "UsimDataDownloadHandler"
 
@@ -646,11 +646,11 @@
     .line 216
     const/4 v5, 0x0
 
-    .restart local v5       #success:Z
+    .restart local v5    # "success":Z
     goto :goto_0
 
     .line 224
-    .restart local v2       #responseBytes:[B
+    .restart local v2    # "responseBytes":[B
     :cond_7
     const/16 v8, 0xd5
 
@@ -663,7 +663,7 @@
     const/4 v0, 0x0
 
     .line 232
-    .local v0, index:I
+    .local v0, "index":I
     if-eqz v5, :cond_9
 
     .line 233
@@ -674,11 +674,11 @@
     new-array v4, v8, [B
 
     .line 234
-    .local v4, smsAckPdu:[B
+    .local v4, "smsAckPdu":[B
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .local v1, index:I
+    .end local v0    # "index":I
+    .local v1, "index":I
     const/4 v8, 0x0
 
     aput-byte v8, v4, v0
@@ -686,8 +686,8 @@
     .line 235
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     const/4 v8, 0x7
 
     aput-byte v8, v4, v1
@@ -696,8 +696,8 @@
     :goto_2
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     int-to-byte v8, p3
 
     aput-byte v8, v4, v0
@@ -705,8 +705,8 @@
     .line 245
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     int-to-byte v8, p2
 
     aput-byte v8, v4, v1
@@ -726,11 +726,11 @@
     div-int/lit8 v3, v8, 0x7
 
     .line 249
-    .local v3, septetCount:I
+    .local v3, "septetCount":I
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     int-to-byte v8, v3
 
     aput-byte v8, v4, v0
@@ -738,9 +738,9 @@
     move v0, v1
 
     .line 254
-    .end local v1           #index:I
-    .end local v3           #septetCount:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .end local v3    # "septetCount":I
+    .restart local v0    # "index":I
     :goto_3
     const/4 v8, 0x0
 
@@ -762,7 +762,7 @@
     goto/16 :goto_1
 
     .line 237
-    .end local v4           #smsAckPdu:[B
+    .end local v4    # "smsAckPdu":[B
     :cond_9
     array-length v8, v2
 
@@ -771,11 +771,11 @@
     new-array v4, v8, [B
 
     .line 238
-    .restart local v4       #smsAckPdu:[B
+    .restart local v4    # "smsAckPdu":[B
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     const/4 v8, 0x0
 
     aput-byte v8, v4, v0
@@ -783,8 +783,8 @@
     .line 239
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     const/16 v8, -0x2b
 
     aput-byte v8, v4, v1
@@ -792,24 +792,24 @@
     .line 241
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     const/4 v8, 0x7
 
     aput-byte v8, v4, v0
 
     move v0, v1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     goto :goto_2
 
     .line 251
     :cond_a
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .restart local v1       #index:I
+    .end local v0    # "index":I
+    .restart local v1    # "index":I
     array-length v8, v2
 
     int-to-byte v8, v8
@@ -818,8 +818,8 @@
 
     move v0, v1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     goto :goto_3
 .end method
 
@@ -827,7 +827,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v6, 0x0
@@ -887,7 +887,7 @@
     check-cast v0, Landroid/os/AsyncResult;
 
     .line 292
-    .local v0, ar:Landroid/os/AsyncResult;
+    .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v2, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v2, :cond_0
@@ -935,7 +935,7 @@
     check-cast v1, [I
 
     .line 300
-    .local v1, dcsPid:[I
+    .local v1, "dcsPid":[I
     iget-object v2, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, Lcom/android/internal/telephony/uicc/IccIoResult;
@@ -949,15 +949,15 @@
     goto :goto_0
 
     .line 304
-    .end local v0           #ar:Landroid/os/AsyncResult;
-    .end local v1           #dcsPid:[I
+    .end local v0    # "ar":Landroid/os/AsyncResult;
+    .end local v1    # "dcsPid":[I
     :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
     .line 305
-    .restart local v0       #ar:Landroid/os/AsyncResult;
+    .restart local v0    # "ar":Landroid/os/AsyncResult;
     iget-object v2, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_1
@@ -1006,8 +1006,8 @@
 
 .method handleUsimDataDownload(Lcom/android/internal/telephony/uicc/UsimServiceTable;Lcom/android/internal/telephony/gsm/SmsMessage;)I
     .locals 5
-    .parameter "ust"
-    .parameter "smsMessage"
+    .param p1, "ust"    # Lcom/android/internal/telephony/uicc/UsimServiceTable;
+    .param p2, "smsMessage"    # Lcom/android/internal/telephony/gsm/SmsMessage;
 
     .prologue
     const/4 v4, 0x3
@@ -1061,7 +1061,7 @@
     move-result-object v0
 
     .line 89
-    .local v0, smsc:Ljava/lang/String;
+    .local v0, "smsc":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-virtual {p2}, Lcom/android/internal/telephony/gsm/SmsMessage;->getPdu()[B
@@ -1086,7 +1086,7 @@
 
 .method public startDataDownload(Lcom/android/internal/telephony/gsm/SmsMessage;)I
     .locals 2
-    .parameter "smsMessage"
+    .param p1, "smsMessage"    # Lcom/android/internal/telephony/gsm/SmsMessage;
 
     .prologue
     .line 105

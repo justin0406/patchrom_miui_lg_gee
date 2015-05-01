@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 401
@@ -49,9 +48,9 @@
 # virtual methods
 .method public onServiceChanged(Landroid/content/SyncAdapterType;IZ)V
     .locals 11
-    .parameter "type"
-    .parameter "userId"
-    .parameter "removed"
+    .param p1, "type"    # Landroid/content/SyncAdapterType;
+    .param p2, "userId"    # I
+    .param p3, "removed"    # Z
 
     .prologue
     const-wide/16 v6, 0x0
@@ -85,15 +84,15 @@
 
 .method public bridge synthetic onServiceChanged(Ljava/lang/Object;IZ)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Z
 
     .prologue
     .line 401
     check-cast p1, Landroid/content/SyncAdapterType;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/content/SyncManager$9;->onServiceChanged(Landroid/content/SyncAdapterType;IZ)V
 
     return-void

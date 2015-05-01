@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 103
@@ -51,7 +51,7 @@
 
 .method public cancelSync(Landroid/content/ISyncContext;)V
     .locals 5
-    .parameter "syncContext"
+    .param p1, "syncContext"    # Landroid/content/ISyncContext;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +67,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.ISyncAdapter"
 
@@ -123,8 +123,8 @@
 
 .method public initialize(Landroid/accounts/Account;Ljava/lang/String;)V
     .locals 5
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -138,7 +138,7 @@
     move-result-object v0
 
     .line 178
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.content.ISyncAdapter"
 
@@ -202,10 +202,10 @@
 
 .method public startSync(Landroid/content/ISyncContext;Ljava/lang/String;Landroid/accounts/Account;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "syncContext"
-    .parameter "authority"
-    .parameter "account"
-    .parameter "extras"
+    .param p1, "syncContext"    # Landroid/content/ISyncContext;
+    .param p2, "authority"    # Ljava/lang/String;
+    .param p3, "account"    # Landroid/accounts/Account;
+    .param p4, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -221,7 +221,7 @@
     move-result-object v0
 
     .line 128
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.ISyncAdapter"
 

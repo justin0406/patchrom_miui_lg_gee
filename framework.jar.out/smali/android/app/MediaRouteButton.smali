@@ -74,7 +74,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 68
@@ -88,8 +88,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 72
@@ -103,9 +103,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 6
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyleAttr"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyleAttr"    # I
 
     .prologue
     const/4 v5, 0x1
@@ -143,7 +143,7 @@
     move-result-object v0
 
     .line 83
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v2, 0x3
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -174,7 +174,7 @@
     move-result v1
 
     .line 92
-    .local v1, routeTypes:I
+    .local v1, "routeTypes":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 94
@@ -192,7 +192,7 @@
 
 .method static synthetic access$100(Landroid/app/MediaRouteButton;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/MediaRouteButton;
 
     .prologue
     .line 39
@@ -211,7 +211,7 @@
     move-result-object v0
 
     .line 166
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     :goto_0
     instance-of v1, v0, Landroid/content/ContextWrapper;
 
@@ -225,20 +225,20 @@
     .line 168
     check-cast v0, Landroid/app/Activity;
 
-    .end local v0           #context:Landroid/content/Context;
+    .end local v0    # "context":Landroid/content/Context;
     return-object v0
 
     .line 170
-    .restart local v0       #context:Landroid/content/Context;
+    .restart local v0    # "context":Landroid/content/Context;
     :cond_0
     check-cast v0, Landroid/content/ContextWrapper;
 
-    .end local v0           #context:Landroid/content/Context;
+    .end local v0    # "context":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .restart local v0       #context:Landroid/content/Context;
+    .restart local v0    # "context":Landroid/content/Context;
     goto :goto_0
 
     .line 172
@@ -273,7 +273,7 @@
     move-result-object v3
 
     .line 388
-    .local v3, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v3, "route":Landroid/media/MediaRouter$RouteInfo;
     invoke-virtual {v3}, Landroid/media/MediaRouter$RouteInfo;->isDefault()Z
 
     move-result v5
@@ -291,7 +291,7 @@
     move v1, v4
 
     .line 389
-    .local v1, isRemote:Z
+    .local v1, "isRemote":Z
     :goto_0
     if-eqz v1, :cond_0
 
@@ -304,12 +304,12 @@
     move v0, v4
 
     .line 391
-    .local v0, isConnecting:Z
+    .local v0, "isConnecting":Z
     :cond_0
     const/4 v2, 0x0
 
     .line 392
-    .local v2, needsRefresh:Z
+    .local v2, "needsRefresh":Z
     iget-boolean v5, p0, Landroid/app/MediaRouteButton;->mRemoteActive:Z
 
     if-eq v5, v1, :cond_1
@@ -352,14 +352,14 @@
     invoke-virtual {p0, v4}, Landroid/app/MediaRouteButton;->setEnabled(Z)V
 
     .line 408
-    .end local v0           #isConnecting:Z
-    .end local v1           #isRemote:Z
-    .end local v2           #needsRefresh:Z
-    .end local v3           #route:Landroid/media/MediaRouter$RouteInfo;
+    .end local v0    # "isConnecting":Z
+    .end local v1    # "isRemote":Z
+    .end local v2    # "needsRefresh":Z
+    .end local v3    # "route":Landroid/media/MediaRouter$RouteInfo;
     :cond_4
     return-void
 
-    .restart local v3       #route:Landroid/media/MediaRouter$RouteInfo;
+    .restart local v3    # "route":Landroid/media/MediaRouter$RouteInfo;
     :cond_5
     move v1, v0
 
@@ -369,7 +369,7 @@
 
 .method private setRemoteIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 3
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v1, 0x0
@@ -454,7 +454,7 @@
     move-result-object v0
 
     .line 256
-    .local v0, myDrawableState:[I
+    .local v0, "myDrawableState":[I
     iget-object v1, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
@@ -463,7 +463,7 @@
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->invalidate()V
 
     .line 259
-    .end local v0           #myDrawableState:[I
+    .end local v0    # "myDrawableState":[I
     :cond_0
     return-void
 .end method
@@ -538,7 +538,7 @@
 
 .method protected onCreateDrawableState(I)[I
     .locals 2
-    .parameter "extraSpace"
+    .param p1, "extraSpace"    # I
 
     .prologue
     .line 236
@@ -549,7 +549,7 @@
     move-result-object v0
 
     .line 242
-    .local v0, drawableState:[I
+    .local v0, "drawableState":[I
     iget-boolean v1, p0, Landroid/app/MediaRouteButton;->mIsConnecting:Z
 
     if-eqz v1, :cond_1
@@ -609,7 +609,7 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 11
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 366
@@ -631,7 +631,7 @@
     move-result v5
 
     .line 371
-    .local v5, left:I
+    .local v5, "left":I
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getWidth()I
 
     move-result v8
@@ -643,13 +643,13 @@
     sub-int v6, v8, v9
 
     .line 372
-    .local v6, right:I
+    .local v6, "right":I
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingTop()I
 
     move-result v7
 
     .line 373
-    .local v7, top:I
+    .local v7, "top":I
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getHeight()I
 
     move-result v8
@@ -661,7 +661,7 @@
     sub-int v0, v8, v9
 
     .line 375
-    .local v0, bottom:I
+    .local v0, "bottom":I
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -669,7 +669,7 @@
     move-result v4
 
     .line 376
-    .local v4, drawWidth:I
+    .local v4, "drawWidth":I
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -677,7 +677,7 @@
     move-result v1
 
     .line 377
-    .local v1, drawHeight:I
+    .local v1, "drawHeight":I
     sub-int v8, v6, v5
 
     sub-int/2addr v8, v4
@@ -687,7 +687,7 @@
     add-int v2, v5, v8
 
     .line 378
-    .local v2, drawLeft:I
+    .local v2, "drawLeft":I
     sub-int v8, v0, v7
 
     sub-int/2addr v8, v1
@@ -697,7 +697,7 @@
     add-int v3, v7, v8
 
     .line 380
-    .local v3, drawTop:I
+    .local v3, "drawTop":I
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     add-int v9, v2, v4
@@ -716,8 +716,8 @@
 
 .method protected onMeasure(II)V
     .locals 11
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     const/4 v9, 0x0
@@ -728,25 +728,25 @@
     move-result v7
 
     .line 324
-    .local v7, widthSize:I
+    .local v7, "widthSize":I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v2
 
     .line 325
-    .local v2, heightSize:I
+    .local v2, "heightSize":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v6
 
     .line 326
-    .local v6, widthMode:I
+    .local v6, "widthMode":I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
     .line 328
-    .local v1, heightMode:I
+    .local v1, "heightMode":I
     iget v10, p0, Landroid/app/MediaRouteButton;->mMinWidth:I
 
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
@@ -765,7 +765,7 @@
     move-result v4
 
     .line 330
-    .local v4, minWidth:I
+    .local v4, "minWidth":I
     iget v8, p0, Landroid/app/MediaRouteButton;->mMinHeight:I
 
     iget-object v10, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
@@ -784,7 +784,7 @@
     move-result v3
 
     .line 334
-    .local v3, minHeight:I
+    .local v3, "minHeight":I
     sparse-switch v6, :sswitch_data_0
 
     .line 343
@@ -801,7 +801,7 @@
     add-int v5, v8, v9
 
     .line 348
-    .local v5, width:I
+    .local v5, "width":I
     :goto_1
     sparse-switch v1, :sswitch_data_1
 
@@ -819,17 +819,17 @@
     add-int v0, v8, v9
 
     .line 361
-    .local v0, height:I
+    .local v0, "height":I
     :goto_2
     invoke-virtual {p0, v5, v0}, Landroid/app/MediaRouteButton;->setMeasuredDimension(II)V
 
     .line 362
     return-void
 
-    .end local v0           #height:I
-    .end local v3           #minHeight:I
-    .end local v4           #minWidth:I
-    .end local v5           #width:I
+    .end local v0    # "height":I
+    .end local v3    # "minHeight":I
+    .end local v4    # "minWidth":I
+    .end local v5    # "width":I
     :cond_1
     move v8, v9
 
@@ -837,17 +837,17 @@
     goto :goto_0
 
     .line 336
-    .restart local v3       #minHeight:I
-    .restart local v4       #minWidth:I
+    .restart local v3    # "minHeight":I
+    .restart local v4    # "minWidth":I
     :sswitch_0
     move v5, v7
 
     .line 337
-    .restart local v5       #width:I
+    .restart local v5    # "width":I
     goto :goto_1
 
     .line 339
-    .end local v5           #width:I
+    .end local v5    # "width":I
     :sswitch_1
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingLeft()I
 
@@ -866,7 +866,7 @@
     move-result v5
 
     .line 340
-    .restart local v5       #width:I
+    .restart local v5    # "width":I
     goto :goto_1
 
     .line 350
@@ -874,11 +874,11 @@
     move v0, v2
 
     .line 351
-    .restart local v0       #height:I
+    .restart local v0    # "height":I
     goto :goto_2
 
     .line 353
-    .end local v0           #height:I
+    .end local v0    # "height":I
     :sswitch_3
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingTop()I
 
@@ -897,7 +897,7 @@
     move-result v0
 
     .line 354
-    .restart local v0       #height:I
+    .restart local v0    # "height":I
     goto :goto_2
 
     .line 334
@@ -929,7 +929,7 @@
     move-result v0
 
     .line 187
-    .local v0, handled:Z
+    .local v0, "handled":Z
     if-nez v0, :cond_0
 
     .line 188
@@ -989,7 +989,7 @@
     move-result-object v1
 
     .line 204
-    .local v1, contentDesc:Ljava/lang/CharSequence;
+    .local v1, "contentDesc":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v11
@@ -1008,13 +1008,13 @@
     new-array v6, v11, [I
 
     .line 210
-    .local v6, screenPos:[I
+    .local v6, "screenPos":[I
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
     .line 211
-    .local v3, displayFrame:Landroid/graphics/Rect;
+    .local v3, "displayFrame":Landroid/graphics/Rect;
     invoke-virtual {p0, v6}, Landroid/app/MediaRouteButton;->getLocationOnScreen([I)V
 
     .line 212
@@ -1026,19 +1026,19 @@
     move-result-object v2
 
     .line 215
-    .local v2, context:Landroid/content/Context;
+    .local v2, "context":Landroid/content/Context;
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getWidth()I
 
     move-result v8
 
     .line 216
-    .local v8, width:I
+    .local v8, "width":I
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getHeight()I
 
     move-result v4
 
     .line 217
-    .local v4, height:I
+    .local v4, "height":I
     aget v11, v6, v9
 
     div-int/lit8 v12, v4, 0x2
@@ -1046,7 +1046,7 @@
     add-int v5, v11, v12
 
     .line 218
-    .local v5, midy:I
+    .local v5, "midy":I
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
@@ -1058,13 +1058,13 @@
     iget v7, v11, Landroid/util/DisplayMetrics;->widthPixels:I
 
     .line 220
-    .local v7, screenWidth:I
+    .local v7, "screenWidth":I
     invoke-static {v2, v1, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
     .line 221
-    .local v0, cheatSheet:Landroid/widget/Toast;
+    .local v0, "cheatSheet":Landroid/widget/Toast;
     invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
 
     move-result v11
@@ -1104,7 +1104,7 @@
 
 .method setCheatSheetEnabled(Z)V
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 180
@@ -1116,7 +1116,7 @@
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 134
@@ -1128,7 +1128,7 @@
 
 .method public setRouteTypes(I)V
     .locals 3
-    .parameter "types"
+    .param p1, "types"    # I
 
     .prologue
     .line 117
@@ -1183,7 +1183,7 @@
 
 .method public setVisibility(I)V
     .locals 3
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -1263,7 +1263,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, f:Landroid/app/DialogFragment;
+    .local v0, "f":Landroid/app/DialogFragment;
     if-eqz v0, :cond_0
 
     const/4 v1, 0x1
@@ -1273,7 +1273,7 @@
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
     .locals 1
-    .parameter "who"
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 278

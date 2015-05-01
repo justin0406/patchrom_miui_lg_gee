@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/gsm/GSMPhone;)V
     .locals 0
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/gsm/GSMPhone;
 
     .prologue
     .line 37
@@ -59,7 +59,7 @@
     move-exception v0
 
     .line 51
-    .local v0, throwable:Ljava/lang/Throwable;
+    .local v0, "throwable":Ljava/lang/Throwable;
     const-string v1, "SimPhoneBookIM"
 
     const-string v2, "Error while finalizing:"
@@ -71,7 +71,7 @@
 
 .method public getAdnRecordsSize(I)[I
     .locals 6
-    .parameter "efid"
+    .param p1, "efid"    # I
 
     .prologue
     .line 58
@@ -119,7 +119,7 @@
     invoke-direct {v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 65
-    .local v2, status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .local v2, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v5, 0x1
@@ -129,7 +129,7 @@
     move-result-object v1
 
     .line 67
-    .local v1, response:Landroid/os/Message;
+    .local v1, "response":Landroid/os/Message;
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
@@ -137,7 +137,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, fh:Lcom/android/internal/telephony/uicc/IccFileHandler;
+    .local v0, "fh":Lcom/android/internal/telephony/uicc/IccFileHandler;
     if-eqz v0, :cond_0
 
     .line 69
@@ -158,9 +158,9 @@
     return-object v3
 
     .line 72
-    .end local v0           #fh:Lcom/android/internal/telephony/uicc/IccFileHandler;
-    .end local v1           #response:Landroid/os/Message;
-    .end local v2           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .end local v0    # "fh":Lcom/android/internal/telephony/uicc/IccFileHandler;
+    .end local v1    # "response":Landroid/os/Message;
+    .end local v2    # "status":Ljava/util/concurrent/atomic/AtomicBoolean;
     :catchall_0
     move-exception v3
 
@@ -174,7 +174,7 @@
 
 .method protected logd(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -206,7 +206,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 84

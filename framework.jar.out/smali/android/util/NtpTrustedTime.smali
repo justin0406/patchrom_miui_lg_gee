@@ -31,8 +31,8 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;J)V
     .locals 0
-    .parameter "server"
-    .parameter "timeout"
+    .param p1, "server"    # Ljava/lang/String;
+    .param p2, "timeout"    # J
 
     .prologue
     .line 46
@@ -50,7 +50,7 @@
 
 .method public static declared-synchronized getInstance(Landroid/content/Context;)Landroid/util/NtpTrustedTime;
     .locals 11
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 53
@@ -69,13 +69,13 @@
     move-result-object v3
 
     .line 55
-    .local v3, res:Landroid/content/res/Resources;
+    .local v3, "res":Landroid/content/res/Resources;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
     .line 57
-    .local v4, resolver:Landroid/content/ContentResolver;
+    .local v4, "resolver":Landroid/content/ContentResolver;
     const v9, 0x1040030
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -83,7 +83,7 @@
     move-result-object v0
 
     .line 59
-    .local v0, defaultServer:Ljava/lang/String;
+    .local v0, "defaultServer":Ljava/lang/String;
     const v9, 0x10e0040
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getInteger(I)I
@@ -93,7 +93,7 @@
     int-to-long v1, v9
 
     .line 62
-    .local v1, defaultTimeout:J
+    .local v1, "defaultTimeout":J
     const-string/jumbo v9, "ntp_server"
 
     invoke-static {v4, v9}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -101,7 +101,7 @@
     move-result-object v5
 
     .line 64
-    .local v5, secureServer:Ljava/lang/String;
+    .local v5, "secureServer":Ljava/lang/String;
     const-string/jumbo v9, "ntp_timeout"
 
     invoke-static {v4, v9, v1, v2}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
@@ -109,13 +109,13 @@
     move-result-wide v7
 
     .line 67
-    .local v7, timeout:J
+    .local v7, "timeout":J
     if-eqz v5, :cond_1
 
     move-object v6, v5
 
     .line 68
-    .local v6, server:Ljava/lang/String;
+    .local v6, "server":Ljava/lang/String;
     :goto_0
     new-instance v9, Landroid/util/NtpTrustedTime;
 
@@ -124,13 +124,13 @@
     sput-object v9, Landroid/util/NtpTrustedTime;->sSingleton:Landroid/util/NtpTrustedTime;
 
     .line 71
-    .end local v0           #defaultServer:Ljava/lang/String;
-    .end local v1           #defaultTimeout:J
-    .end local v3           #res:Landroid/content/res/Resources;
-    .end local v4           #resolver:Landroid/content/ContentResolver;
-    .end local v5           #secureServer:Ljava/lang/String;
-    .end local v6           #server:Ljava/lang/String;
-    .end local v7           #timeout:J
+    .end local v0    # "defaultServer":Ljava/lang/String;
+    .end local v1    # "defaultTimeout":J
+    .end local v3    # "res":Landroid/content/res/Resources;
+    .end local v4    # "resolver":Landroid/content/ContentResolver;
+    .end local v5    # "secureServer":Ljava/lang/String;
+    .end local v6    # "server":Ljava/lang/String;
+    .end local v7    # "timeout":J
     :cond_0
     sget-object v9, Landroid/util/NtpTrustedTime;->sSingleton:Landroid/util/NtpTrustedTime;
     :try_end_0
@@ -140,12 +140,12 @@
 
     return-object v9
 
-    .restart local v0       #defaultServer:Ljava/lang/String;
-    .restart local v1       #defaultTimeout:J
-    .restart local v3       #res:Landroid/content/res/Resources;
-    .restart local v4       #resolver:Landroid/content/ContentResolver;
-    .restart local v5       #secureServer:Ljava/lang/String;
-    .restart local v7       #timeout:J
+    .restart local v0    # "defaultServer":Ljava/lang/String;
+    .restart local v1    # "defaultTimeout":J
+    .restart local v3    # "res":Landroid/content/res/Resources;
+    .restart local v4    # "resolver":Landroid/content/ContentResolver;
+    .restart local v5    # "secureServer":Ljava/lang/String;
+    .restart local v7    # "timeout":J
     :cond_1
     move-object v6, v0
 
@@ -153,12 +153,12 @@
     goto :goto_0
 
     .line 53
-    .end local v0           #defaultServer:Ljava/lang/String;
-    .end local v1           #defaultTimeout:J
-    .end local v3           #res:Landroid/content/res/Resources;
-    .end local v4           #resolver:Landroid/content/ContentResolver;
-    .end local v5           #secureServer:Ljava/lang/String;
-    .end local v7           #timeout:J
+    .end local v0    # "defaultServer":Ljava/lang/String;
+    .end local v1    # "defaultTimeout":J
+    .end local v3    # "res":Landroid/content/res/Resources;
+    .end local v4    # "resolver":Landroid/content/ContentResolver;
+    .end local v5    # "secureServer":Ljava/lang/String;
+    .end local v7    # "timeout":J
     :catchall_0
     move-exception v9
 
@@ -225,7 +225,7 @@
     invoke-direct {v0}, Landroid/net/SntpClient;-><init>()V
 
     .line 83
-    .local v0, client:Landroid/net/SntpClient;
+    .local v0, "client":Landroid/net/SntpClient;
     iget-object v3, p0, Landroid/util/NtpTrustedTime;->mServer:Ljava/lang/String;
 
     iget-wide v4, p0, Landroid/util/NtpTrustedTime;->mTimeout:J

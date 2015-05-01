@@ -108,7 +108,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 213
@@ -130,8 +130,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 222
@@ -153,7 +153,7 @@
 
 .method static synthetic access$1000(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$Renderer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -164,7 +164,7 @@
 
 .method static synthetic access$200(Landroid/opengl/GLSurfaceView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -175,7 +175,7 @@
 
 .method static synthetic access$300(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLConfigChooser;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -186,7 +186,7 @@
 
 .method static synthetic access$400(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLContextFactory;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -197,7 +197,7 @@
 
 .method static synthetic access$500(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -208,7 +208,7 @@
 
 .method static synthetic access$600(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$GLWrapper;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -219,7 +219,7 @@
 
 .method static synthetic access$700(Landroid/opengl/GLSurfaceView;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -240,7 +240,7 @@
 
 .method static synthetic access$900(Landroid/opengl/GLSurfaceView;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView;
 
     .prologue
     .line 163
@@ -282,7 +282,7 @@
     move-result-object v0
 
     .line 243
-    .local v0, holder:Landroid/view/SurfaceHolder;
+    .local v0, "holder":Landroid/view/SurfaceHolder;
     invoke-interface {v0, p0}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
     .line 251
@@ -383,7 +383,7 @@
     const/4 v0, 0x1
 
     .line 586
-    .local v0, renderMode:I
+    .local v0, "renderMode":I
     iget-object v1, p0, Landroid/opengl/GLSurfaceView;->mGLThread:Landroid/opengl/GLSurfaceView$GLThread;
 
     if-eqz v1, :cond_0
@@ -422,7 +422,7 @@
     invoke-virtual {v1}, Landroid/opengl/GLSurfaceView$GLThread;->start()V
 
     .line 595
-    .end local v0           #renderMode:I
+    .end local v0    # "renderMode":I
     :cond_2
     const/4 v1, 0x0
 
@@ -487,7 +487,7 @@
 
 .method public queueEvent(Ljava/lang/Runnable;)V
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 571
@@ -514,7 +514,7 @@
 
 .method public setDebugFlags(I)V
     .locals 0
-    .parameter "debugFlags"
+    .param p1, "debugFlags"    # I
 
     .prologue
     .line 280
@@ -526,12 +526,12 @@
 
 .method public setEGLConfigChooser(IIIIII)V
     .locals 8
-    .parameter "redSize"
-    .parameter "greenSize"
-    .parameter "blueSize"
-    .parameter "alphaSize"
-    .parameter "depthSize"
-    .parameter "stencilSize"
+    .param p1, "redSize"    # I
+    .param p2, "greenSize"    # I
+    .param p3, "blueSize"    # I
+    .param p4, "alphaSize"    # I
+    .param p5, "depthSize"    # I
+    .param p6, "stencilSize"    # I
 
     .prologue
     .line 441
@@ -561,7 +561,7 @@
 
 .method public setEGLConfigChooser(Landroid/opengl/GLSurfaceView$EGLConfigChooser;)V
     .locals 0
-    .parameter "configChooser"
+    .param p1, "configChooser"    # Landroid/opengl/GLSurfaceView$EGLConfigChooser;
 
     .prologue
     .line 404
@@ -576,7 +576,7 @@
 
 .method public setEGLConfigChooser(Z)V
     .locals 1
-    .parameter "needDepth"
+    .param p1, "needDepth"    # Z
 
     .prologue
     .line 423
@@ -592,7 +592,7 @@
 
 .method public setEGLContextClientVersion(I)V
     .locals 0
-    .parameter "version"
+    .param p1, "version"    # I
 
     .prologue
     .line 472
@@ -607,7 +607,7 @@
 
 .method public setEGLContextFactory(Landroid/opengl/GLSurfaceView$EGLContextFactory;)V
     .locals 0
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/opengl/GLSurfaceView$EGLContextFactory;
 
     .prologue
     .line 373
@@ -622,7 +622,7 @@
 
 .method public setEGLWindowSurfaceFactory(Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;)V
     .locals 0
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
 
     .prologue
     .line 387
@@ -637,7 +637,7 @@
 
 .method public setGLWrapper(Landroid/opengl/GLSurfaceView$GLWrapper;)V
     .locals 0
-    .parameter "glWrapper"
+    .param p1, "glWrapper"    # Landroid/opengl/GLSurfaceView$GLWrapper;
 
     .prologue
     .line 267
@@ -649,7 +649,7 @@
 
 .method public setPreserveEGLContextOnPause(Z)V
     .locals 0
-    .parameter "preserveOnPause"
+    .param p1, "preserveOnPause"    # Z
 
     .prologue
     .line 310
@@ -661,7 +661,7 @@
 
 .method public setRenderMode(I)V
     .locals 1
-    .parameter "renderMode"
+    .param p1, "renderMode"    # I
 
     .prologue
     .line 493
@@ -675,7 +675,7 @@
 
 .method public setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
     .locals 3
-    .parameter "renderer"
+    .param p1, "renderer"    # Landroid/opengl/GLSurfaceView$Renderer;
 
     .prologue
     const/4 v2, 0x0
@@ -747,10 +747,10 @@
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 1
-    .parameter "holder"
-    .parameter "format"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
 
     .prologue
     .line 540
@@ -764,7 +764,7 @@
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 523
@@ -778,7 +778,7 @@
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 532

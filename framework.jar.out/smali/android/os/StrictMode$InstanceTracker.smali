@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 6
-    .parameter "instance"
+    .param p1, "instance"    # Ljava/lang/Object;
 
     .prologue
     .line 2244
@@ -88,7 +88,7 @@
     check-cast v1, Ljava/lang/Integer;
 
     .line 2249
-    .local v1, value:Ljava/lang/Integer;
+    .local v1, "value":Ljava/lang/Integer;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -98,7 +98,7 @@
     add-int/lit8 v0, v2, 0x1
 
     .line 2250
-    .local v0, newValue:I
+    .local v0, "newValue":I
     :goto_0
     sget-object v2, Landroid/os/StrictMode$InstanceTracker;->sInstanceCounts:Ljava/util/HashMap;
 
@@ -117,14 +117,14 @@
     return-void
 
     .line 2249
-    .end local v0           #newValue:I
+    .end local v0    # "newValue":I
     :cond_0
     const/4 v0, 0x1
 
     goto :goto_0
 
     .line 2251
-    .end local v1           #value:Ljava/lang/Integer;
+    .end local v1    # "value":Ljava/lang/Integer;
     :catchall_0
     move-exception v2
 
@@ -137,7 +137,6 @@
 
 .method public static getInstanceCount(Ljava/lang/Class;)I
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +147,7 @@
 
     .prologue
     .line 2274
-    .local p0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p0, "klass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     sget-object v2, Landroid/os/StrictMode$InstanceTracker;->sInstanceCounts:Ljava/util/HashMap;
 
     monitor-enter v2
@@ -164,7 +163,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 2276
-    .local v0, value:Ljava/lang/Integer;
+    .local v0, "value":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -182,7 +181,7 @@
     goto :goto_0
 
     .line 2277
-    .end local v0           #value:Ljava/lang/Integer;
+    .end local v0    # "value":Ljava/lang/Integer;
     :catchall_0
     move-exception v1
 
@@ -225,7 +224,7 @@
     check-cast v1, Ljava/lang/Integer;
 
     .line 2259
-    .local v1, value:Ljava/lang/Integer;
+    .local v1, "value":Ljava/lang/Integer;
     if-eqz v1, :cond_0
 
     .line 2260
@@ -236,7 +235,7 @@
     add-int/lit8 v0, v2, -0x1
 
     .line 2261
-    .local v0, newValue:I
+    .local v0, "newValue":I
     if-lez v0, :cond_1
 
     .line 2262
@@ -251,7 +250,7 @@
     invoke-virtual {v2, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 2267
-    .end local v0           #newValue:I
+    .end local v0    # "newValue":I
     :cond_0
     :goto_0
     monitor-exit v3
@@ -265,7 +264,7 @@
     return-void
 
     .line 2264
-    .restart local v0       #newValue:I
+    .restart local v0    # "newValue":I
     :cond_1
     :try_start_2
     sget-object v2, Landroid/os/StrictMode$InstanceTracker;->sInstanceCounts:Ljava/util/HashMap;
@@ -277,8 +276,8 @@
     goto :goto_0
 
     .line 2267
-    .end local v0           #newValue:I
-    .end local v1           #value:Ljava/lang/Integer;
+    .end local v0    # "newValue":I
+    .end local v1    # "value":Ljava/lang/Integer;
     :catchall_0
     move-exception v2
 

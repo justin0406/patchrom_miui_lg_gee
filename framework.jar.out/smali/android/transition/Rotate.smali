@@ -22,7 +22,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 3
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 41
@@ -48,7 +48,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 3
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 36
@@ -74,9 +74,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 6
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     const/4 v4, 0x0
@@ -98,7 +98,7 @@
     iget-object v2, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 51
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     iget-object v3, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v5, "android:rotate:rotation"
@@ -114,7 +114,7 @@
     move-result v1
 
     .line 52
-    .local v1, startRotation:F
+    .local v1, "startRotation":F
     iget-object v3, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v5, "android:rotate:rotation"
@@ -130,7 +130,7 @@
     move-result v0
 
     .line 53
-    .local v0, endRotation:F
+    .local v0, "endRotation":F
     cmpl-float v3, v1, v0
 
     if-eqz v3, :cond_2

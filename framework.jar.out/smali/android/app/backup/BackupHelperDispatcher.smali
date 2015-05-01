@@ -54,11 +54,11 @@
 
 .method private doOneBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupHelperDispatcher$Header;Landroid/app/backup/BackupHelper;)V
     .locals 6
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
-    .parameter "header"
-    .parameter "helper"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
+    .param p4, "header"    # Landroid/app/backup/BackupHelperDispatcher$Header;
+    .param p5, "helper"    # Landroid/app/backup/BackupHelper;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,13 +72,13 @@
     move-result-object v1
 
     .line 87
-    .local v1, newStateFD:Ljava/io/FileDescriptor;
+    .local v1, "newStateFD":Ljava/io/FileDescriptor;
     invoke-static {p4, v1}, Landroid/app/backup/BackupHelperDispatcher;->allocateHeader_native(Landroid/app/backup/BackupHelperDispatcher$Header;Ljava/io/FileDescriptor;)I
 
     move-result v2
 
     .line 88
-    .local v2, pos:I
+    .local v2, "pos":I
     if-gez v2, :cond_0
 
     .line 89
@@ -127,7 +127,7 @@
     move-result v0
 
     .line 100
-    .local v0, err:I
+    .local v0, "err":I
     if-eqz v0, :cond_1
 
     .line 101
@@ -179,8 +179,8 @@
 # virtual methods
 .method public addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
     .locals 1
-    .parameter "keyPrefix"
-    .parameter "helper"
+    .param p1, "keyPrefix"    # Ljava/lang/String;
+    .param p2, "helper"    # Landroid/app/backup/BackupHelper;
 
     .prologue
     .line 42
@@ -194,9 +194,9 @@
 
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 12
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,7 +212,7 @@
     invoke-direct {v4, v0}, Landroid/app/backup/BackupHelperDispatcher$Header;-><init>(Landroid/app/backup/BackupHelperDispatcher$1;)V
 
     .line 51
-    .local v4, header:Landroid/app/backup/BackupHelperDispatcher$Header;
+    .local v4, "header":Landroid/app/backup/BackupHelperDispatcher$Header;
     iget-object v0, p0, Landroid/app/backup/BackupHelperDispatcher;->mHelpers:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->clone()Ljava/lang/Object;
@@ -222,17 +222,17 @@
     check-cast v8, Ljava/util/TreeMap;
 
     .line 52
-    .local v8, helpers:Ljava/util/TreeMap;,"Ljava/util/TreeMap<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
+    .local v8, "helpers":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
     const/4 v11, 0x0
 
     .line 53
-    .local v11, oldStateFD:Ljava/io/FileDescriptor;
+    .local v11, "oldStateFD":Ljava/io/FileDescriptor;
     invoke-virtual {p3}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v10
 
     .line 55
-    .local v10, newStateFD:Ljava/io/FileDescriptor;
+    .local v10, "newStateFD":Ljava/io/FileDescriptor;
     if-eqz p1, :cond_2
 
     .line 56
@@ -247,7 +247,7 @@
 
     move-result v7
 
-    .local v7, err:I
+    .local v7, "err":I
     if-ltz v7, :cond_2
 
     .line 58
@@ -263,7 +263,7 @@
     check-cast v5, Landroid/app/backup/BackupHelper;
 
     .line 60
-    .local v5, helper:Landroid/app/backup/BackupHelper;
+    .local v5, "helper":Landroid/app/backup/BackupHelper;
     const-string v0, "BackupHelperDispatcher"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -328,8 +328,8 @@
     goto :goto_0
 
     .line 72
-    .end local v5           #helper:Landroid/app/backup/BackupHelper;
-    .end local v7           #err:I
+    .end local v5    # "helper":Landroid/app/backup/BackupHelper;
+    .end local v7    # "err":I
     :cond_2
     invoke-virtual {v8}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
@@ -339,7 +339,7 @@
 
     move-result-object v9
 
-    .local v9, i$:Ljava/util/Iterator;
+    .local v9, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
@@ -354,7 +354,7 @@
     check-cast v6, Ljava/util/Map$Entry;
 
     .line 73
-    .local v6, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
+    .local v6, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -401,7 +401,7 @@
 
     check-cast v5, Landroid/app/backup/BackupHelper;
 
-    .restart local v5       #helper:Landroid/app/backup/BackupHelper;
+    .restart local v5    # "helper":Landroid/app/backup/BackupHelper;
     move-object v0, p0
 
     move-object v1, p1
@@ -416,17 +416,17 @@
     goto :goto_1
 
     .line 78
-    .end local v5           #helper:Landroid/app/backup/BackupHelper;
-    .end local v6           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
+    .end local v5    # "helper":Landroid/app/backup/BackupHelper;
+    .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroid/app/backup/BackupHelper;>;"
     :cond_3
     return-void
 .end method
 
 .method public performRestore(Landroid/app/backup/BackupDataInput;ILandroid/os/ParcelFileDescriptor;)V
     .locals 10
-    .parameter "input"
-    .parameter "appVersionCode"
-    .parameter "newState"
+    .param p1, "input"    # Landroid/app/backup/BackupDataInput;
+    .param p2, "appVersionCode"    # I
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -438,13 +438,13 @@
     const/4 v0, 0x0
 
     .line 110
-    .local v0, alreadyComplained:Z
+    .local v0, "alreadyComplained":Z
     new-instance v6, Landroid/app/backup/BackupDataInputStream;
 
     invoke-direct {v6, p1}, Landroid/app/backup/BackupDataInputStream;-><init>(Landroid/app/backup/BackupDataInput;)V
 
     .line 111
-    .local v6, stream:Landroid/app/backup/BackupDataInputStream;
+    .local v6, "stream":Landroid/app/backup/BackupDataInputStream;
     :goto_0
     invoke-virtual {p1}, Landroid/app/backup/BackupDataInput;->readNextHeader()Z
 
@@ -458,7 +458,7 @@
     move-result-object v5
 
     .line 114
-    .local v5, rawKey:Ljava/lang/String;
+    .local v5, "rawKey":Ljava/lang/String;
     const/16 v7, 0x3a
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->indexOf(I)I
@@ -466,7 +466,7 @@
     move-result v3
 
     .line 115
-    .local v3, pos:I
+    .local v3, "pos":I
     if-lez v3, :cond_2
 
     .line 116
@@ -477,7 +477,7 @@
     move-result-object v4
 
     .line 117
-    .local v4, prefix:Ljava/lang/String;
+    .local v4, "prefix":Ljava/lang/String;
     iget-object v7, p0, Landroid/app/backup/BackupHelperDispatcher;->mHelpers:Ljava/util/TreeMap;
 
     invoke-virtual {v7, v4}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -487,7 +487,7 @@
     check-cast v1, Landroid/app/backup/BackupHelper;
 
     .line 118
-    .local v1, helper:Landroid/app/backup/BackupHelper;
+    .local v1, "helper":Landroid/app/backup/BackupHelper;
     if-eqz v1, :cond_1
 
     .line 119
@@ -510,8 +510,8 @@
     invoke-interface {v1, v6}, Landroid/app/backup/BackupHelper;->restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
 
     .line 134
-    .end local v1           #helper:Landroid/app/backup/BackupHelper;
-    .end local v4           #prefix:Ljava/lang/String;
+    .end local v1    # "helper":Landroid/app/backup/BackupHelper;
+    .end local v4    # "prefix":Ljava/lang/String;
     :cond_0
     :goto_1
     invoke-virtual {p1}, Landroid/app/backup/BackupDataInput;->skipEntityData()V
@@ -519,8 +519,8 @@
     goto :goto_0
 
     .line 123
-    .restart local v1       #helper:Landroid/app/backup/BackupHelper;
-    .restart local v4       #prefix:Ljava/lang/String;
+    .restart local v1    # "helper":Landroid/app/backup/BackupHelper;
+    .restart local v4    # "prefix":Ljava/lang/String;
     :cond_1
     if-nez v0, :cond_0
 
@@ -559,8 +559,8 @@
     goto :goto_1
 
     .line 129
-    .end local v1           #helper:Landroid/app/backup/BackupHelper;
-    .end local v4           #prefix:Ljava/lang/String;
+    .end local v1    # "helper":Landroid/app/backup/BackupHelper;
+    .end local v4    # "prefix":Ljava/lang/String;
     :cond_2
     if-nez v0, :cond_0
 
@@ -599,8 +599,8 @@
     goto :goto_1
 
     .line 138
-    .end local v3           #pos:I
-    .end local v5           #rawKey:Ljava/lang/String;
+    .end local v3    # "pos":I
+    .end local v5    # "rawKey":Ljava/lang/String;
     :cond_3
     iget-object v7, p0, Landroid/app/backup/BackupHelperDispatcher;->mHelpers:Ljava/util/TreeMap;
 
@@ -612,7 +612,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -627,13 +627,13 @@
     check-cast v1, Landroid/app/backup/BackupHelper;
 
     .line 139
-    .restart local v1       #helper:Landroid/app/backup/BackupHelper;
+    .restart local v1    # "helper":Landroid/app/backup/BackupHelper;
     invoke-interface {v1, p3}, Landroid/app/backup/BackupHelper;->writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
 
     goto :goto_2
 
     .line 141
-    .end local v1           #helper:Landroid/app/backup/BackupHelper;
+    .end local v1    # "helper":Landroid/app/backup/BackupHelper;
     :cond_4
     return-void
 .end method

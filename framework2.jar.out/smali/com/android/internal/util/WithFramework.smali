@@ -16,7 +16,7 @@
 
 .method public static main([Ljava/lang/String;)V
     .locals 8
-    .parameter "args"
+    .param p0, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -49,7 +49,7 @@
     move-result-object v0
 
     .line 38
-    .local v0, mainClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v0, "mainClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v3, "android_runtime"
 
     invoke-static {v3}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
@@ -79,7 +79,7 @@
     new-array v2, v3, [Ljava/lang/String;
 
     .line 44
-    .local v2, newArgs:[Ljava/lang/String;
+    .local v2, "newArgs":[Ljava/lang/String;
     array-length v3, v2
 
     invoke-static {p0, v7, v2, v6, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -98,7 +98,7 @@
     move-result-object v1
 
     .line 46
-    .local v1, mainMethod:Ljava/lang/reflect/Method;
+    .local v1, "mainMethod":Ljava/lang/reflect/Method;
     const/4 v3, 0x0
 
     new-array v4, v7, [Ljava/lang/Object;

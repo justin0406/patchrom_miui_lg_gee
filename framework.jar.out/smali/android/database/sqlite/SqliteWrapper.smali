@@ -23,8 +23,8 @@
 
 .method public static checkSQLiteException(Landroid/content/Context;Landroid/database/sqlite/SQLiteException;)V
     .locals 2
-    .parameter "context"
-    .parameter "e"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "e"    # Landroid/database/sqlite/SQLiteException;
 
     .prologue
     .line 48
@@ -55,11 +55,11 @@
 
 .method public static delete(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 3
-    .parameter "context"
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "where"
-    .parameter "selectionArgs"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "where"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 90
@@ -79,7 +79,7 @@
     move-exception v0
 
     .line 92
-    .local v0, e:Landroid/database/sqlite/SQLiteException;
+    .local v0, "e":Landroid/database/sqlite/SQLiteException;
     const-string v1, "SqliteWrapper"
 
     const-string v2, "Catch a SQLiteException when delete: "
@@ -97,10 +97,10 @@
 
 .method public static insert(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 3
-    .parameter "context"
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "values"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 101
@@ -120,7 +120,7 @@
     move-exception v0
 
     .line 103
-    .local v0, e:Landroid/database/sqlite/SQLiteException;
+    .local v0, "e":Landroid/database/sqlite/SQLiteException;
     const-string v1, "SqliteWrapper"
 
     const-string v2, "Catch a SQLiteException when insert: "
@@ -138,7 +138,7 @@
 
 .method private static isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
     .locals 2
-    .parameter "e"
+    .param p0, "e"    # Landroid/database/sqlite/SQLiteException;
 
     .prologue
     .line 44
@@ -157,13 +157,13 @@
 
 .method public static query(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 3
-    .parameter "context"
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "selectionArgs"
-    .parameter "sortOrder"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "projection"    # [Ljava/lang/String;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
+    .param p6, "sortOrder"    # Ljava/lang/String;
 
     .prologue
     .line 59
@@ -183,7 +183,7 @@
     move-exception v0
 
     .line 61
-    .local v0, e:Landroid/database/sqlite/SQLiteException;
+    .local v0, "e":Landroid/database/sqlite/SQLiteException;
     const-string v1, "SqliteWrapper"
 
     const-string v2, "Catch a SQLiteException when query: "
@@ -201,8 +201,8 @@
 
 .method public static requery(Landroid/content/Context;Landroid/database/Cursor;)Z
     .locals 3
-    .parameter "context"
-    .parameter "cursor"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 69
@@ -222,7 +222,7 @@
     move-exception v0
 
     .line 71
-    .local v0, e:Landroid/database/sqlite/SQLiteException;
+    .local v0, "e":Landroid/database/sqlite/SQLiteException;
     const-string v1, "SqliteWrapper"
 
     const-string v2, "Catch a SQLiteException when requery: "
@@ -240,12 +240,12 @@
 
 .method public static update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 3
-    .parameter "context"
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "values"
-    .parameter "where"
-    .parameter "selectionArgs"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "values"    # Landroid/content/ContentValues;
+    .param p4, "where"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 79
@@ -265,7 +265,7 @@
     move-exception v0
 
     .line 81
-    .local v0, e:Landroid/database/sqlite/SQLiteException;
+    .local v0, "e":Landroid/database/sqlite/SQLiteException;
     const-string v1, "SqliteWrapper"
 
     const-string v2, "Catch a SQLiteException when update: "

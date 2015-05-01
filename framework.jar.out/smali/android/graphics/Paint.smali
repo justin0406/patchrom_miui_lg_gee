@@ -227,7 +227,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 445
@@ -251,7 +251,7 @@
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->setFlags(I)V
 
     .line 452
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/graphics/Paint;->mInvCompatScaling:F
 
@@ -270,7 +270,7 @@
 
 .method public constructor <init>(Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 463
@@ -416,7 +416,7 @@
 
 .method private setClassVariablesFrom(Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 518
@@ -533,12 +533,12 @@
 
 .method public breakText(Ljava/lang/CharSequence;IIZF[F)I
     .locals 7
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "measureForwards"
-    .parameter "maxWidth"
-    .parameter "measuredWidth"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "measureForwards"    # Z
+    .param p5, "maxWidth"    # F
+    .param p6, "measuredWidth"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -594,12 +594,12 @@
     move v6, v2
 
     .line 1597
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     :goto_0
     return v6
 
     .line 1580
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_3
     if-nez p2, :cond_4
 
@@ -616,7 +616,7 @@
     .line 1581
     check-cast p1, Ljava/lang/String;
 
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     invoke-virtual {p0, p1, p4, p5, p6}, Landroid/graphics/Paint;->breakText(Ljava/lang/String;ZF[F)I
 
     move-result v6
@@ -624,7 +624,7 @@
     goto :goto_0
 
     .line 1585
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_4
     sub-int v0, p3, p2
 
@@ -633,7 +633,7 @@
     move-result-object v1
 
     .line 1588
-    .local v1, buf:[C
+    .local v1, "buf":[C
     invoke-static {p1, p2, p3, v1, v2}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 1590
@@ -653,14 +653,14 @@
     move-result v6
 
     .line 1596
-    .local v6, result:I
+    .local v6, "result":I
     :goto_1
     invoke-static {v1}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
 
     goto :goto_0
 
     .line 1593
-    .end local v6           #result:I
+    .end local v6    # "result":I
     :cond_5
     sub-int v0, p3, p2
 
@@ -676,16 +676,16 @@
 
     move-result v6
 
-    .restart local v6       #result:I
+    .restart local v6    # "result":I
     goto :goto_1
 .end method
 
 .method public breakText(Ljava/lang/String;ZF[F)I
     .locals 9
-    .parameter "text"
-    .parameter "measureForwards"
-    .parameter "maxWidth"
-    .parameter "measuredWidth"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "measureForwards"    # Z
+    .param p3, "maxWidth"    # F
+    .param p4, "measuredWidth"    # [F
 
     .prologue
     const/4 v8, 0x0
@@ -749,7 +749,7 @@
     move-result v6
 
     .line 1630
-    .local v6, oldSize:F
+    .local v6, "oldSize":F
     iget v0, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v0, v6
@@ -776,7 +776,7 @@
     move-result v7
 
     .line 1633
-    .local v7, res:I
+    .local v7, "res":I
     invoke-virtual {p0, v6}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1634
@@ -795,11 +795,11 @@
 
 .method public breakText([CIIF[F)I
     .locals 10
-    .parameter "text"
-    .parameter "index"
-    .parameter "count"
-    .parameter "maxWidth"
-    .parameter "measuredWidth"
+    .param p1, "text"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
+    .param p4, "maxWidth"    # F
+    .param p5, "measuredWidth"    # [F
 
     .prologue
     const/4 v9, 0x0
@@ -888,7 +888,7 @@
     move-result v7
 
     .line 1540
-    .local v7, oldSize:F
+    .local v7, "oldSize":F
     iget v0, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v0, v7
@@ -917,7 +917,7 @@
     move-result v8
 
     .line 1543
-    .local v8, res:I
+    .local v8, "res":I
     invoke-virtual {p0, v7}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1544
@@ -1015,8 +1015,8 @@
 
 .method public getFillPath(Landroid/graphics/Path;Landroid/graphics/Path;)Z
     .locals 3
-    .parameter "src"
-    .parameter "dst"
+    .param p1, "src"    # Landroid/graphics/Path;
+    .param p2, "dst"    # Landroid/graphics/Path;
 
     .prologue
     .line 924
@@ -1053,7 +1053,7 @@
     invoke-direct {v0}, Landroid/graphics/Paint$FontMetrics;-><init>()V
 
     .line 1329
-    .local v0, fm:Landroid/graphics/Paint$FontMetrics;
+    .local v0, "fm":Landroid/graphics/Paint$FontMetrics;
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->getFontMetrics(Landroid/graphics/Paint$FontMetrics;)F
 
     .line 1330
@@ -1073,7 +1073,7 @@
     invoke-direct {v0}, Landroid/graphics/Paint$FontMetricsInt;-><init>()V
 
     .line 1365
-    .local v0, fm:Landroid/graphics/Paint$FontMetricsInt;
+    .local v0, "fm":Landroid/graphics/Paint$FontMetricsInt;
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->getFontMetricsInt(Landroid/graphics/Paint$FontMetricsInt;)I
 
     .line 1366
@@ -1217,10 +1217,10 @@
 
 .method public getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
     .locals 6
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "bounds"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 2172
@@ -1282,10 +1282,10 @@
 
 .method public getTextBounds([CIILandroid/graphics/Rect;)V
     .locals 6
-    .parameter "text"
-    .parameter "index"
-    .parameter "count"
-    .parameter "bounds"
+    .param p1, "text"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
+    .param p4, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 2192
@@ -1342,13 +1342,13 @@
 
 .method public getTextGlyphs(Ljava/lang/String;IIIII[C)I
     .locals 8
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "glyphs"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "contextStart"    # I
+    .param p5, "contextEnd"    # I
+    .param p6, "flags"    # I
+    .param p7, "glyphs"    # [C
 
     .prologue
     .line 1794
@@ -1493,12 +1493,12 @@
 
 .method public getTextPath(Ljava/lang/String;IIFFLandroid/graphics/Path;)V
     .locals 8
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "x"
-    .parameter "y"
-    .parameter "path"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "x"    # F
+    .param p5, "y"    # F
+    .param p6, "path"    # Landroid/graphics/Path;
 
     .prologue
     .line 2154
@@ -1553,12 +1553,12 @@
 
 .method public getTextPath([CIIFFLandroid/graphics/Path;)V
     .locals 8
-    .parameter "text"
-    .parameter "index"
-    .parameter "count"
-    .parameter "x"
-    .parameter "y"
-    .parameter "path"
+    .param p1, "text"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
+    .param p4, "x"    # F
+    .param p5, "y"    # F
+    .param p6, "path"    # Landroid/graphics/Path;
 
     .prologue
     .line 2132
@@ -1608,14 +1608,14 @@
 
 .method public getTextRunAdvances(Ljava/lang/CharSequence;IIIII[FI)F
     .locals 11
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "advances"
-    .parameter "advancesIndex"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "contextStart"    # I
+    .param p5, "contextEnd"    # I
+    .param p6, "flags"    # I
+    .param p7, "advances"    # [F
+    .param p8, "advancesIndex"    # I
 
     .prologue
     .line 1871
@@ -1817,17 +1817,17 @@
     sub-int v6, p5, p4
 
     .line 1900
-    .local v6, contextLen:I
+    .local v6, "contextLen":I
     sub-int v4, p3, p2
 
     .line 1901
-    .local v4, len:I
+    .local v4, "len":I
     invoke-static {v6}, Landroid/graphics/TemporaryBuffer;->obtain(I)[C
 
     move-result-object v2
 
     .line 1902
-    .local v2, buf:[C
+    .local v2, "buf":[C
     const/4 v1, 0x0
 
     move/from16 v0, p5
@@ -1852,7 +1852,7 @@
     move-result v10
 
     .line 1905
-    .local v10, result:F
+    .local v10, "result":F
     invoke-static {v2}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
 
     goto :goto_1
@@ -1860,14 +1860,14 @@
 
 .method public getTextRunAdvances(Ljava/lang/String;IIIII[FI)F
     .locals 15
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "advances"
-    .parameter "advancesIndex"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "contextStart"    # I
+    .param p5, "contextEnd"    # I
+    .param p6, "flags"    # I
+    .param p7, "advances"    # [F
+    .param p8, "advancesIndex"    # I
 
     .prologue
     .line 1954
@@ -2039,7 +2039,7 @@
     move-result v13
 
     .line 1978
-    .local v13, oldSize:F
+    .local v13, "oldSize":F
     iget v2, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v2, v13
@@ -2070,7 +2070,7 @@
     move-result v14
 
     .line 1981
-    .local v14, totalAdvance:F
+    .local v14, "totalAdvance":F
     invoke-virtual {p0, v13}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1983
@@ -2079,12 +2079,12 @@
     .line 1984
     move/from16 v12, p8
 
-    .local v12, i:I
+    .local v12, "i":I
     sub-int v2, p3, p2
 
     add-int v11, v12, v2
 
-    .local v11, e:I
+    .local v11, "e":I
     :goto_2
     if-ge v12, v11, :cond_7
 
@@ -2103,8 +2103,8 @@
     goto :goto_2
 
     .line 1988
-    .end local v11           #e:I
-    .end local v12           #i:I
+    .end local v11    # "e":I
+    .end local v12    # "i":I
     :cond_7
     iget v2, p0, Landroid/graphics/Paint;->mInvCompatScaling:F
 
@@ -2115,14 +2115,14 @@
 
 .method public getTextRunAdvances([CIIIII[FI)F
     .locals 14
-    .parameter "chars"
-    .parameter "index"
-    .parameter "count"
-    .parameter "contextIndex"
-    .parameter "contextCount"
-    .parameter "flags"
-    .parameter "advances"
-    .parameter "advancesIndex"
+    .param p1, "chars"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
+    .param p4, "contextIndex"    # I
+    .param p5, "contextCount"    # I
+    .param p6, "flags"    # I
+    .param p7, "advances"    # [F
+    .param p8, "advancesIndex"    # I
 
     .prologue
     .line 1823
@@ -2290,7 +2290,7 @@
     move-result v12
 
     .line 1847
-    .local v12, oldSize:F
+    .local v12, "oldSize":F
     iget v1, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v1, v12
@@ -2321,7 +2321,7 @@
     move-result v13
 
     .line 1850
-    .local v13, res:F
+    .local v13, "res":F
     invoke-virtual {p0, v12}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1852
@@ -2330,10 +2330,10 @@
     .line 1853
     move/from16 v11, p8
 
-    .local v11, i:I
+    .local v11, "i":I
     add-int v10, v11, p3
 
-    .local v10, e:I
+    .local v10, "e":I
     :goto_2
     if-ge v11, v10, :cond_7
 
@@ -2352,8 +2352,8 @@
     goto :goto_2
 
     .line 1857
-    .end local v10           #e:I
-    .end local v11           #i:I
+    .end local v10    # "e":I
+    .end local v11    # "i":I
     :cond_7
     iget v1, p0, Landroid/graphics/Paint;->mInvCompatScaling:F
 
@@ -2364,12 +2364,12 @@
 
 .method public getTextRunCursor(Ljava/lang/CharSequence;IIIII)I
     .locals 8
-    .parameter "text"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "offset"
-    .parameter "cursorOpt"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "contextStart"    # I
+    .param p3, "contextEnd"    # I
+    .param p4, "flags"    # I
+    .param p5, "offset"    # I
+    .param p6, "cursorOpt"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -2447,13 +2447,13 @@
     sub-int v3, p3, p2
 
     .line 2071
-    .local v3, contextLen:I
+    .local v3, "contextLen":I
     invoke-static {v3}, Landroid/graphics/TemporaryBuffer;->obtain(I)[C
 
     move-result-object v1
 
     .line 2072
-    .local v1, buf:[C
+    .local v1, "buf":[C
     invoke-static {p1, p2, p3, v1, v2}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 2073
@@ -2470,7 +2470,7 @@
     move-result v7
 
     .line 2074
-    .local v7, result:I
+    .local v7, "result":I
     invoke-static {v1}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
 
     goto :goto_0
@@ -2478,12 +2478,12 @@
 
 .method public getTextRunCursor(Ljava/lang/String;IIIII)I
     .locals 8
-    .parameter "text"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "offset"
-    .parameter "cursorOpt"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "contextStart"    # I
+    .param p3, "contextEnd"    # I
+    .param p4, "flags"    # I
+    .param p5, "offset"    # I
+    .param p6, "cursorOpt"    # I
 
     .prologue
     .line 2106
@@ -2554,19 +2554,19 @@
 
 .method public getTextRunCursor([CIIIII)I
     .locals 9
-    .parameter "text"
-    .parameter "contextStart"
-    .parameter "contextLength"
-    .parameter "flags"
-    .parameter "offset"
-    .parameter "cursorOpt"
+    .param p1, "text"    # [C
+    .param p2, "contextStart"    # I
+    .param p3, "contextLength"    # I
+    .param p4, "flags"    # I
+    .param p5, "offset"    # I
+    .param p6, "cursorOpt"    # I
 
     .prologue
     .line 2019
     add-int v8, p2, p3
 
     .line 2020
-    .local v8, contextEnd:I
+    .local v8, "contextEnd":I
     or-int v0, p2, v8
 
     or-int/2addr v0, p5
@@ -2641,10 +2641,10 @@
 
 .method public getTextWidths(Ljava/lang/CharSequence;II[F)I
     .locals 4
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "widths"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "widths"    # [F
 
     .prologue
     const/4 v1, 0x0
@@ -2712,13 +2712,13 @@
     if-ne p2, p3, :cond_4
 
     .line 1719
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     :cond_3
     :goto_0
     return v1
 
     .line 1703
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_4
     instance-of v2, p1, Ljava/lang/String;
 
@@ -2727,7 +2727,7 @@
     .line 1704
     check-cast p1, Ljava/lang/String;
 
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/graphics/Paint;->getTextWidths(Ljava/lang/String;II[F)I
 
     move-result v1
@@ -2735,7 +2735,7 @@
     goto :goto_0
 
     .line 1706
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_5
     instance-of v2, p1, Landroid/text/SpannedString;
 
@@ -2766,7 +2766,7 @@
     .line 1711
     check-cast p1, Landroid/text/GraphicsOperations;
 
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     invoke-interface {p1, p2, p3, p4, p0}, Landroid/text/GraphicsOperations;->getTextWidths(II[FLandroid/graphics/Paint;)I
 
     move-result v1
@@ -2774,7 +2774,7 @@
     goto :goto_0
 
     .line 1715
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_8
     sub-int v2, p3, p2
 
@@ -2783,7 +2783,7 @@
     move-result-object v0
 
     .line 1716
-    .local v0, buf:[C
+    .local v0, "buf":[C
     invoke-static {p1, p2, p3, v0, v1}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 1717
@@ -2794,7 +2794,7 @@
     move-result v1
 
     .line 1718
-    .local v1, result:I
+    .local v1, "result":I
     invoke-static {v0}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
 
     goto :goto_0
@@ -2802,10 +2802,10 @@
 
 .method public getTextWidths(Ljava/lang/String;II[F)I
     .locals 9
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "widths"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "widths"    # [F
 
     .prologue
     .line 1733
@@ -2911,7 +2911,7 @@
     move-result v7
 
     .line 1751
-    .local v7, oldSize:F
+    .local v7, "oldSize":F
     iget v0, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v0, v7
@@ -2936,13 +2936,13 @@
     move-result v8
 
     .line 1753
-    .local v8, res:I
+    .local v8, "res":I
     invoke-virtual {p0, v7}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1754
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_1
     if-ge v6, v8, :cond_4
 
@@ -2963,8 +2963,8 @@
 
 .method public getTextWidths(Ljava/lang/String;[F)I
     .locals 2
-    .parameter "text"
-    .parameter "widths"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "widths"    # [F
 
     .prologue
     .line 1769
@@ -2983,10 +2983,10 @@
 
 .method public getTextWidths([CII[F)I
     .locals 9
-    .parameter "text"
-    .parameter "index"
-    .parameter "count"
-    .parameter "widths"
+    .param p1, "text"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
+    .param p4, "widths"    # [F
 
     .prologue
     .line 1653
@@ -3074,7 +3074,7 @@
     move-result v7
 
     .line 1669
-    .local v7, oldSize:F
+    .local v7, "oldSize":F
     iget v0, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v0, v7
@@ -3099,13 +3099,13 @@
     move-result v8
 
     .line 1671
-    .local v8, res:I
+    .local v8, "res":I
     invoke-virtual {p0, v7}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1672
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_1
     if-ge v6, v8, :cond_4
 
@@ -3338,9 +3338,9 @@
 
 .method public measureText(Ljava/lang/CharSequence;II)F
     .locals 5
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -3397,12 +3397,12 @@
     const/4 v1, 0x0
 
     .line 1505
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     :goto_0
     return v1
 
     .line 1490
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_3
     instance-of v2, p1, Ljava/lang/String;
 
@@ -3411,7 +3411,7 @@
     .line 1491
     check-cast p1, Ljava/lang/String;
 
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     invoke-virtual {p0, p1, p2, p3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;II)F
 
     move-result v1
@@ -3419,7 +3419,7 @@
     goto :goto_0
 
     .line 1493
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_4
     instance-of v2, p1, Landroid/text/SpannedString;
 
@@ -3450,7 +3450,7 @@
     .line 1498
     check-cast p1, Landroid/text/GraphicsOperations;
 
-    .end local p1
+    .end local p1    # "text":Ljava/lang/CharSequence;
     invoke-interface {p1, p2, p3, p0}, Landroid/text/GraphicsOperations;->measureText(IILandroid/graphics/Paint;)F
 
     move-result v1
@@ -3458,7 +3458,7 @@
     goto :goto_0
 
     .line 1501
-    .restart local p1
+    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_7
     sub-int v2, p3, p2
 
@@ -3467,7 +3467,7 @@
     move-result-object v0
 
     .line 1502
-    .local v0, buf:[C
+    .local v0, "buf":[C
     invoke-static {p1, p2, p3, v0, v4}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 1503
@@ -3478,7 +3478,7 @@
     move-result v1
 
     .line 1504
-    .local v1, result:F
+    .local v1, "result":F
     invoke-static {v0}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
 
     goto :goto_0
@@ -3486,7 +3486,7 @@
 
 .method public measureText(Ljava/lang/String;)F
     .locals 4
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 1451
@@ -3546,7 +3546,7 @@
     move-result v0
 
     .line 1463
-    .local v0, oldSize:F
+    .local v0, "oldSize":F
     iget v2, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v2, v0
@@ -3561,7 +3561,7 @@
     move-result v1
 
     .line 1465
-    .local v1, w:F
+    .local v1, "w":F
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1466
@@ -3582,9 +3582,9 @@
 
 .method public measureText(Ljava/lang/String;II)F
     .locals 4
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 1421
@@ -3672,7 +3672,7 @@
     move-result v0
 
     .line 1436
-    .local v0, oldSize:F
+    .local v0, "oldSize":F
     iget v2, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v2, v0
@@ -3687,7 +3687,7 @@
     move-result v1
 
     .line 1438
-    .local v1, w:F
+    .local v1, "w":F
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1439
@@ -3708,9 +3708,9 @@
 
 .method public measureText([CII)F
     .locals 4
-    .parameter "text"
-    .parameter "index"
-    .parameter "count"
+    .param p1, "text"    # [C
+    .param p2, "index"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 1389
@@ -3791,7 +3791,7 @@
     move-result v0
 
     .line 1404
-    .local v0, oldSize:F
+    .local v0, "oldSize":F
     iget v2, p0, Landroid/graphics/Paint;->mCompatScaling:F
 
     mul-float/2addr v2, v0
@@ -3806,7 +3806,7 @@
     move-result v1
 
     .line 1406
-    .local v1, w:F
+    .local v1, "w":F
     invoke-virtual {p0, v0}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 1407
@@ -3829,7 +3829,7 @@
     .locals 5
 
     .prologue
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
@@ -3910,7 +3910,7 @@
 
 .method public set(Landroid/graphics/Paint;)V
     .locals 2
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Paint;
 
     .prologue
     .line 506
@@ -3933,10 +3933,10 @@
 
 .method public setARGB(IIII)V
     .locals 2
-    .parameter "a"
-    .parameter "r"
-    .parameter "g"
-    .parameter "b"
+    .param p1, "a"    # I
+    .param p2, "r"    # I
+    .param p3, "g"    # I
+    .param p4, "b"    # I
 
     .prologue
     .line 830
@@ -3966,7 +3966,7 @@
 
 .method public setBidiFlags(I)V
     .locals 3
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 572
@@ -4015,14 +4015,14 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
     .locals 2
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 970
     const/4 v0, 0x0
 
     .line 971
-    .local v0, filterNative:I
+    .local v0, "filterNative":I
     if-eqz p1, :cond_0
 
     .line 972
@@ -4043,15 +4043,15 @@
 
 .method public setCompatibilityScaling(F)V
     .locals 5
-    .parameter "factor"
+    .param p1, "factor"    # F
 
     .prologue
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 546
     float-to-double v0, p1
 
-    const-wide/high16 v2, 0x3ff0
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
     cmpl-double v0, v0, v2
 
@@ -4108,14 +4108,14 @@
 
 .method public setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
     .locals 2
-    .parameter "maskfilter"
+    .param p1, "maskfilter"    # Landroid/graphics/MaskFilter;
 
     .prologue
     .line 1053
     const/4 v0, 0x0
 
     .line 1054
-    .local v0, maskfilterNative:I
+    .local v0, "maskfilterNative":I
     if-eqz p1, :cond_0
 
     .line 1055
@@ -4136,14 +4136,14 @@
 
 .method public setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
     .locals 2
-    .parameter "effect"
+    .param p1, "effect"    # Landroid/graphics/PathEffect;
 
     .prologue
     .line 1024
     const/4 v0, 0x0
 
     .line 1025
-    .local v0, effectNative:I
+    .local v0, "effectNative":I
     if-eqz p1, :cond_0
 
     .line 1026
@@ -4164,14 +4164,14 @@
 
 .method public setRasterizer(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;
     .locals 2
-    .parameter "rasterizer"
+    .param p1, "rasterizer"    # Landroid/graphics/Rasterizer;
 
     .prologue
     .line 1115
     const/4 v0, 0x0
 
     .line 1116
-    .local v0, rasterizerNative:I
+    .local v0, "rasterizerNative":I
     if-eqz p1, :cond_0
 
     .line 1117
@@ -4192,14 +4192,14 @@
 
 .method public setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
     .locals 2
-    .parameter "shader"
+    .param p1, "shader"    # Landroid/graphics/Shader;
 
     .prologue
     .line 946
     const/4 v0, 0x0
 
     .line 947
-    .local v0, shaderNative:I
+    .local v0, "shaderNative":I
     if-eqz p1, :cond_0
 
     .line 948
@@ -4220,10 +4220,10 @@
 
 .method public setShadowLayer(FFFI)V
     .locals 1
-    .parameter "radius"
-    .parameter "dx"
-    .parameter "dy"
-    .parameter "color"
+    .param p1, "radius"    # F
+    .param p2, "dx"    # F
+    .param p3, "dy"    # F
+    .param p4, "color"    # I
 
     .prologue
     .line 1130
@@ -4268,7 +4268,7 @@
 
 .method public setStrokeCap(Landroid/graphics/Paint$Cap;)V
     .locals 2
-    .parameter "cap"
+    .param p1, "cap"    # Landroid/graphics/Paint$Cap;
 
     .prologue
     .line 890
@@ -4284,7 +4284,7 @@
 
 .method public setStrokeJoin(Landroid/graphics/Paint$Join;)V
     .locals 2
-    .parameter "join"
+    .param p1, "join"    # Landroid/graphics/Paint$Join;
 
     .prologue
     .line 909
@@ -4306,7 +4306,7 @@
 
 .method public setStyle(Landroid/graphics/Paint$Style;)V
     .locals 2
-    .parameter "style"
+    .param p1, "style"    # Landroid/graphics/Paint$Style;
 
     .prologue
     .line 780
@@ -4325,7 +4325,7 @@
 
 .method public setTextAlign(Landroid/graphics/Paint$Align;)V
     .locals 2
-    .parameter "align"
+    .param p1, "align"    # Landroid/graphics/Paint$Align;
 
     .prologue
     .line 1169
@@ -4341,7 +4341,7 @@
 
 .method public setTextLocale(Ljava/util/Locale;)V
     .locals 2
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 1208
@@ -4397,14 +4397,14 @@
 
 .method public setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
     .locals 2
-    .parameter "typeface"
+    .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .prologue
     .line 1084
     const/4 v0, 0x0
 
     .line 1085
-    .local v0, typefaceNative:I
+    .local v0, "typefaceNative":I
     if-eqz p1, :cond_0
 
     .line 1086
@@ -4428,14 +4428,14 @@
 
 .method public setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
     .locals 2
-    .parameter "xfermode"
+    .param p1, "xfermode"    # Landroid/graphics/Xfermode;
 
     .prologue
     .line 997
     const/4 v0, 0x0
 
     .line 998
-    .local v0, xfermodeNative:I
+    .local v0, "xfermodeNative":I
     if-eqz p1, :cond_0
 
     .line 999

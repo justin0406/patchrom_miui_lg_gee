@@ -17,7 +17,7 @@
 # static fields
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/provider_status"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATA1:Ljava/lang/String; = "data1"
 
@@ -39,7 +39,7 @@
     .locals 2
 
     .prologue
-    .line 7555
+    .line 7557
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "provider_status"
@@ -57,9 +57,9 @@
     .locals 0
 
     .prologue
-    .line 7546
+    .line 7548
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7547
+    .line 7549
     return-void
 .end method

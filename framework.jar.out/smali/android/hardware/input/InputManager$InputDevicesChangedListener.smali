@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/input/InputManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 772
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/hardware/input/InputManager;Landroid/hardware/input/InputManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/hardware/input/InputManager;
+    .param p2, "x1"    # Landroid/hardware/input/InputManager$1;
 
     .prologue
     .line 772
@@ -48,7 +47,7 @@
 # virtual methods
 .method public onInputDevicesChanged([I)V
     .locals 1
-    .parameter "deviceIdAndGeneration"
+    .param p1, "deviceIdAndGeneration"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -59,7 +58,7 @@
     .line 775
     iget-object v0, p0, Landroid/hardware/input/InputManager$InputDevicesChangedListener;->this$0:Landroid/hardware/input/InputManager;
 
-    #calls: Landroid/hardware/input/InputManager;->onInputDevicesChanged([I)V
+    # invokes: Landroid/hardware/input/InputManager;->onInputDevicesChanged([I)V
     invoke-static {v0, p1}, Landroid/hardware/input/InputManager;->access$100(Landroid/hardware/input/InputManager;[I)V
 
     .line 776

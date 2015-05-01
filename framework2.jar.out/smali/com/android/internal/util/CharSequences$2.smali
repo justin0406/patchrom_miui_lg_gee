@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>([BII)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 64
@@ -49,7 +46,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 66
@@ -82,8 +79,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "newStart"
-    .parameter "newEnd"
+    .param p1, "newStart"    # I
+    .param p2, "newEnd"    # I
 
     .prologue
     .line 74

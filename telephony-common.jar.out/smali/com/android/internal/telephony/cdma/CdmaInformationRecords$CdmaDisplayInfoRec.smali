@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "id"
-    .parameter "alpha"
+    .param p1, "id"    # I
+    .param p2, "alpha"    # Ljava/lang/String;
 
     .prologue
     .line 135

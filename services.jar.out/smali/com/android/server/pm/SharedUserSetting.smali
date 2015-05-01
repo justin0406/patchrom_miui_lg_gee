@@ -27,8 +27,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter "_name"
-    .parameter "_pkgFlags"
+    .param p1, "_name"    # Ljava/lang/String;
+    .param p2, "_pkgFlags"    # I
 
     .prologue
     .line 37
@@ -62,7 +62,7 @@
 # virtual methods
 .method addPackage(Lcom/android/server/pm/PackageSetting;)V
     .locals 2
-    .parameter "packageSetting"
+    .param p1, "packageSetting"    # Lcom/android/server/pm/PackageSetting;
 
     .prologue
     .line 62
@@ -90,7 +90,7 @@
 
 .method removePackage(Lcom/android/server/pm/PackageSetting;)V
     .locals 5
-    .parameter "packageSetting"
+    .param p1, "packageSetting"    # Lcom/android/server/pm/PackageSetting;
 
     .prologue
     .line 49
@@ -115,14 +115,14 @@
     iget v0, p0, Lcom/android/server/pm/SharedUserSetting;->uidFlags:I
 
     .line 53
-    .local v0, aggregatedFlags:I
+    .local v0, "aggregatedFlags":I
     iget-object v3, p0, Lcom/android/server/pm/SharedUserSetting;->packages:Ljava/util/HashSet;
 
     invoke-virtual {v3}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -137,7 +137,7 @@
     check-cast v2, Lcom/android/server/pm/PackageSetting;
 
     .line 54
-    .local v2, ps:Lcom/android/server/pm/PackageSetting;
+    .local v2, "ps":Lcom/android/server/pm/PackageSetting;
     iget v3, v2, Lcom/android/server/pm/PackageSetting;->pkgFlags:I
 
     or-int/2addr v0, v3
@@ -145,13 +145,13 @@
     goto :goto_0
 
     .line 56
-    .end local v2           #ps:Lcom/android/server/pm/PackageSetting;
+    .end local v2    # "ps":Lcom/android/server/pm/PackageSetting;
     :cond_0
     invoke-virtual {p0, v0}, Lcom/android/server/pm/SharedUserSetting;->setFlags(I)V
 
     .line 59
-    .end local v0           #aggregatedFlags:I
-    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v0    # "aggregatedFlags":I
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method

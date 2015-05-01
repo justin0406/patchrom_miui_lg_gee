@@ -90,7 +90,6 @@
 
 .method constructor <init>(Ljava/util/Map;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +103,7 @@
 
     .prologue
     .line 256
-    .local p1, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 257
@@ -116,9 +115,9 @@
 
 .method public static final createAudioFormat(Ljava/lang/String;II)Landroid/media/MediaFormat;
     .locals 2
-    .parameter "mime"
-    .parameter "sampleRate"
-    .parameter "channelCount"
+    .param p0, "mime"    # Ljava/lang/String;
+    .param p1, "sampleRate"    # I
+    .param p2, "channelCount"    # I
 
     .prologue
     .line 372
@@ -127,7 +126,7 @@
     invoke-direct {v0}, Landroid/media/MediaFormat;-><init>()V
 
     .line 373
-    .local v0, format:Landroid/media/MediaFormat;
+    .local v0, "format":Landroid/media/MediaFormat;
     const-string v1, "mime"
 
     invoke-virtual {v0, v1, p0}, Landroid/media/MediaFormat;->setString(Ljava/lang/String;Ljava/lang/String;)V
@@ -148,8 +147,8 @@
 
 .method public static final createSubtitleFormat(Ljava/lang/String;Ljava/lang/String;)Landroid/media/MediaFormat;
     .locals 2
-    .parameter "mime"
-    .parameter "language"
+    .param p0, "mime"    # Ljava/lang/String;
+    .param p1, "language"    # Ljava/lang/String;
 
     .prologue
     .line 391
@@ -158,7 +157,7 @@
     invoke-direct {v0}, Landroid/media/MediaFormat;-><init>()V
 
     .line 392
-    .local v0, format:Landroid/media/MediaFormat;
+    .local v0, "format":Landroid/media/MediaFormat;
     const-string v1, "mime"
 
     invoke-virtual {v0, v1, p0}, Landroid/media/MediaFormat;->setString(Ljava/lang/String;Ljava/lang/String;)V
@@ -174,9 +173,9 @@
 
 .method public static final createVideoFormat(Ljava/lang/String;II)Landroid/media/MediaFormat;
     .locals 2
-    .parameter "mime"
-    .parameter "width"
-    .parameter "height"
+    .param p0, "mime"    # Ljava/lang/String;
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 408
@@ -185,7 +184,7 @@
     invoke-direct {v0}, Landroid/media/MediaFormat;-><init>()V
 
     .line 409
-    .local v0, format:Landroid/media/MediaFormat;
+    .local v0, "format":Landroid/media/MediaFormat;
     const-string v1, "mime"
 
     invoke-virtual {v0, v1, p0}, Landroid/media/MediaFormat;->setString(Ljava/lang/String;Ljava/lang/String;)V
@@ -208,7 +207,7 @@
 # virtual methods
 .method public final containsKey(Ljava/lang/String;)Z
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 275
@@ -223,7 +222,7 @@
 
 .method public final getByteBuffer(Ljava/lang/String;)Ljava/nio/ByteBuffer;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 324
@@ -240,7 +239,7 @@
 
 .method public final getFloat(Ljava/lang/String;)F
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 310
@@ -261,7 +260,7 @@
 
 .method public final getInteger(Ljava/lang/String;)I
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 282
@@ -282,8 +281,8 @@
 
 .method public final getInteger(Ljava/lang/String;I)I
     .locals 1
-    .parameter "name"
-    .parameter "defaultValue"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 292
@@ -296,12 +295,12 @@
     move-result p2
 
     .line 296
-    .end local p2
+    .end local p2    # "defaultValue":I
     :goto_0
     return p2
 
     .line 294
-    .restart local p2
+    .restart local p2    # "defaultValue":I
     :catch_0
     move-exception v0
 
@@ -316,7 +315,7 @@
 
 .method public final getLong(Ljava/lang/String;)J
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 303
@@ -357,7 +356,7 @@
 
 .method public final getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 317
@@ -374,8 +373,8 @@
 
 .method public final setByteBuffer(Ljava/lang/String;Ljava/nio/ByteBuffer;)V
     .locals 1
-    .parameter "name"
-    .parameter "bytes"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "bytes"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 359
@@ -389,8 +388,8 @@
 
 .method public final setFloat(Ljava/lang/String;F)V
     .locals 2
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # F
 
     .prologue
     .line 345
@@ -408,8 +407,8 @@
 
 .method public final setInteger(Ljava/lang/String;I)V
     .locals 2
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 331
@@ -427,8 +426,8 @@
 
 .method public final setLong(Ljava/lang/String;J)V
     .locals 2
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # J
 
     .prologue
     .line 338
@@ -446,8 +445,8 @@
 
 .method public final setString(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 352

@@ -42,8 +42,8 @@
 
 .method public constructor <init>(ILandroid/hardware/location/GeofenceHardwareRequest;)V
     .locals 0
-    .parameter "id"
-    .parameter "request"
+    .param p1, "id"    # I
+    .param p2, "request"    # Landroid/hardware/location/GeofenceHardwareRequest;
 
     .prologue
     .line 32
@@ -195,8 +195,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 141

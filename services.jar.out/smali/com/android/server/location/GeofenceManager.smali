@@ -3,8 +3,8 @@
 .source "GeofenceManager.java"
 
 # interfaces
-.implements Landroid/location/LocationListener;
 .implements Landroid/app/PendingIntent$OnFinished;
+.implements Landroid/location/LocationListener;
 
 
 # annotations
@@ -16,8 +16,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final D:Z = false
+.field private static final D:Z
 
 .field private static final MAX_AGE_NANOS:J = 0x45d964b800L
 
@@ -82,8 +81,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/location/LocationBlacklist;)V
     .locals 3
-    .parameter "context"
-    .parameter "blacklist"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "blacklist"    # Lcom/android/server/location/LocationBlacklist;
 
     .prologue
     .line 109
@@ -144,7 +143,7 @@
     check-cast v0, Landroid/os/PowerManager;
 
     .line 114
-    .local v0, powerManager:Landroid/os/PowerManager;
+    .local v0, "powerManager":Landroid/os/PowerManager;
     const/4 v1, 0x1
 
     const-string v2, "GeofenceManager"
@@ -171,7 +170,7 @@
 
 .method static synthetic access$000(Lcom/android/server/location/GeofenceManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/location/GeofenceManager;
 
     .prologue
     .line 42
@@ -194,7 +193,7 @@
     iget-object v0, p0, Lcom/android/server/location/GeofenceManager;->mLastLocationUpdate:Landroid/location/Location;
 
     .line 214
-    .local v0, location:Landroid/location/Location;
+    .local v0, "location":Landroid/location/Location;
     :goto_0
     if-nez v0, :cond_0
 
@@ -220,7 +219,7 @@
     move-object v0, v3
 
     .line 230
-    .end local v0           #location:Landroid/location/Location;
+    .end local v0    # "location":Landroid/location/Location;
     :cond_1
     :goto_1
     return-object v0
@@ -232,14 +231,14 @@
     goto :goto_0
 
     .line 224
-    .restart local v0       #location:Landroid/location/Location;
+    .restart local v0    # "location":Landroid/location/Location;
     :cond_3
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
     move-result-wide v1
 
     .line 225
-    .local v1, now:J
+    .local v1, "now":J
     invoke-virtual {v0}, Landroid/location/Location;->getElapsedRealtimeNanos()J
 
     move-result-wide v4
@@ -268,7 +267,7 @@
     move-result-wide v2
 
     .line 188
-    .local v2, time:J
+    .local v2, "time":J
     iget-object v4, p0, Lcom/android/server/location/GeofenceManager;->mFences:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -276,7 +275,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -293,7 +292,7 @@
     check-cast v1, Lcom/android/server/location/GeofenceState;
 
     .line 191
-    .local v1, state:Lcom/android/server/location/GeofenceState;
+    .local v1, "state":Lcom/android/server/location/GeofenceState;
     iget-wide v4, v1, Lcom/android/server/location/GeofenceState;->mExpireAt:J
 
     cmp-long v4, v4, v2
@@ -306,7 +305,7 @@
     goto :goto_0
 
     .line 195
-    .end local v1           #state:Lcom/android/server/location/GeofenceState;
+    .end local v1    # "state":Lcom/android/server/location/GeofenceState;
     :cond_1
     return-void
 .end method
@@ -337,8 +336,8 @@
 
 .method private sendIntent(Landroid/app/PendingIntent;Landroid/content/Intent;)V
     .locals 9
-    .parameter "pendingIntent"
-    .parameter "intent"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v8, 0x0
@@ -377,7 +376,7 @@
     move-exception v7
 
     .line 373
-    .local v7, e:Landroid/app/PendingIntent$CanceledException;
+    .local v7, "e":Landroid/app/PendingIntent$CanceledException;
     invoke-virtual {p0, v8, p1}, Lcom/android/server/location/GeofenceManager;->removeFence(Landroid/location/Geofence;Landroid/app/PendingIntent;)V
 
     .line 374
@@ -390,7 +389,7 @@
 
 .method private sendIntentEnter(Landroid/app/PendingIntent;)V
     .locals 4
-    .parameter "pendingIntent"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 348
@@ -428,7 +427,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 353
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "entering"
 
     const/4 v2, 0x1
@@ -444,7 +443,7 @@
 
 .method private sendIntentExit(Landroid/app/PendingIntent;)V
     .locals 4
-    .parameter "pendingIntent"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 358
@@ -482,7 +481,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 363
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "entering"
 
     const/4 v2, 0x0
@@ -506,13 +505,13 @@
     invoke-direct {v4}, Ljava/util/LinkedList;-><init>()V
 
     .line 242
-    .local v4, enterIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
+    .local v4, "enterIntents":Ljava/util/List;, "Ljava/util/List<Landroid/app/PendingIntent;>;"
     new-instance v6, Ljava/util/LinkedList;
 
     invoke-direct {v6}, Ljava/util/LinkedList;-><init>()V
 
     .line 244
-    .local v6, exitIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
+    .local v6, "exitIntents":Ljava/util/List;, "Ljava/util/List<Landroid/app/PendingIntent;>;"
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/location/GeofenceManager;->mLock:Ljava/lang/Object;
@@ -540,15 +539,15 @@
     move-result-object v13
 
     .line 256
-    .local v13, location:Landroid/location/Location;
-    const-wide v14, 0x7fefffffffffffffL
+    .local v13, "location":Landroid/location/Location;
+    const-wide v14, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
     .line 257
-    .local v14, minFenceDistance:D
+    .local v14, "minFenceDistance":D
     const/16 v16, 0x0
 
     .line 258
-    .local v16, needUpdates:Z
+    .local v16, "needUpdates":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/location/GeofenceManager;->mFences:Ljava/util/List;
@@ -559,7 +558,7 @@
 
     move-result-object v9
 
-    .local v9, i$:Ljava/util/Iterator;
+    .local v9, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
@@ -575,7 +574,7 @@
     check-cast v19, Lcom/android/server/location/GeofenceState;
 
     .line 259
-    .local v19, state:Lcom/android/server/location/GeofenceState;
+    .local v19, "state":Lcom/android/server/location/GeofenceState;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/location/GeofenceManager;->mBlacklist:Lcom/android/server/location/LocationBlacklist;
@@ -639,11 +638,11 @@
     goto :goto_0
 
     .line 336
-    .end local v9           #i$:Ljava/util/Iterator;
-    .end local v13           #location:Landroid/location/Location;
-    .end local v14           #minFenceDistance:D
-    .end local v16           #needUpdates:Z
-    .end local v19           #state:Lcom/android/server/location/GeofenceState;
+    .end local v9    # "i$":Ljava/util/Iterator;
+    .end local v13    # "location":Landroid/location/Location;
+    .end local v14    # "minFenceDistance":D
+    .end local v16    # "needUpdates":Z
+    .end local v19    # "state":Lcom/android/server/location/GeofenceState;
     :catchall_0
     move-exception v20
 
@@ -654,11 +653,11 @@
     throw v20
 
     .line 267
-    .restart local v9       #i$:Ljava/util/Iterator;
-    .restart local v13       #location:Landroid/location/Location;
-    .restart local v14       #minFenceDistance:D
-    .restart local v16       #needUpdates:Z
-    .restart local v19       #state:Lcom/android/server/location/GeofenceState;
+    .restart local v9    # "i$":Ljava/util/Iterator;
+    .restart local v13    # "location":Landroid/location/Location;
+    .restart local v14    # "minFenceDistance":D
+    .restart local v16    # "needUpdates":Z
+    .restart local v19    # "state":Lcom/android/server/location/GeofenceState;
     :cond_1
     :try_start_1
     move-object/from16 v0, v19
@@ -672,7 +671,7 @@
     move-result v17
 
     .line 268
-    .local v17, op:I
+    .local v17, "op":I
     if-ltz v17, :cond_2
 
     .line 269
@@ -765,7 +764,7 @@
     move-result v5
 
     .line 282
-    .local v5, event:I
+    .local v5, "event":I
     and-int/lit8 v20, v5, 0x1
 
     if-eqz v20, :cond_3
@@ -805,7 +804,7 @@
     move-result-wide v7
 
     .line 292
-    .local v7, fenceDistance:D
+    .local v7, "fenceDistance":D
     cmpg-double v20, v7, v14
 
     if-gez v20, :cond_0
@@ -816,17 +815,17 @@
     goto/16 :goto_0
 
     .line 299
-    .end local v5           #event:I
-    .end local v7           #fenceDistance:D
-    .end local v17           #op:I
-    .end local v19           #state:Lcom/android/server/location/GeofenceState;
+    .end local v5    # "event":I
+    .end local v7    # "fenceDistance":D
+    .end local v17    # "op":I
+    .end local v19    # "state":Lcom/android/server/location/GeofenceState;
     :cond_5
     if-eqz v16, :cond_a
 
     .line 303
     if-eqz v13, :cond_9
 
-    const-wide v22, 0x7fefffffffffffffL
+    const-wide v22, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
     move-wide/from16 v0, v22
 
@@ -837,15 +836,15 @@
     if-eqz v20, :cond_9
 
     .line 304
-    const-wide v22, 0x415b774000000000L
+    const-wide v22, 0x415b774000000000L    # 7200000.0
 
-    const-wide v24, 0x40ed4c0000000000L
+    const-wide v24, 0x40ed4c0000000000L    # 60000.0
 
-    const-wide v26, 0x408f400000000000L
+    const-wide v26, 0x408f400000000000L    # 1000.0
 
     mul-double v26, v26, v14
 
-    const-wide/high16 v28, 0x4059
+    const-wide/high16 v28, 0x4059000000000000L    # 100.0
 
     div-double v26, v26, v28
 
@@ -862,7 +861,7 @@
     double-to-long v11, v0
 
     .line 309
-    .local v11, intervalMs:J
+    .local v11, "intervalMs":J
     :goto_1
     move-object/from16 v0, p0
 
@@ -908,7 +907,7 @@
     invoke-direct/range {v18 .. v18}, Landroid/location/LocationRequest;-><init>()V
 
     .line 315
-    .local v18, request:Landroid/location/LocationRequest;
+    .local v18, "request":Landroid/location/LocationRequest;
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v11, v12}, Landroid/location/LocationRequest;->setInterval(J)Landroid/location/LocationRequest;
@@ -951,8 +950,8 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/location/LocationManager;->requestLocationUpdates(Landroid/location/LocationRequest;Landroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 329
-    .end local v11           #intervalMs:J
-    .end local v18           #request:Landroid/location/LocationRequest;
+    .end local v11    # "intervalMs":J
+    .end local v18    # "request":Landroid/location/LocationRequest;
     :cond_7
     :goto_2
     sget-boolean v20, Lcom/android/server/location/GeofenceManager;->D:Z
@@ -1081,7 +1080,7 @@
     check-cast v10, Landroid/app/PendingIntent;
 
     .line 340
-    .local v10, intent:Landroid/app/PendingIntent;
+    .local v10, "intent":Landroid/app/PendingIntent;
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10}, Lcom/android/server/location/GeofenceManager;->sendIntentExit(Landroid/app/PendingIntent;)V
@@ -1089,15 +1088,15 @@
     goto :goto_3
 
     .line 307
-    .end local v10           #intent:Landroid/app/PendingIntent;
+    .end local v10    # "intent":Landroid/app/PendingIntent;
     :cond_9
     const-wide/32 v11, 0xea60
 
-    .restart local v11       #intervalMs:J
+    .restart local v11    # "intervalMs":J
     goto/16 :goto_1
 
     .line 320
-    .end local v11           #intervalMs:J
+    .end local v11    # "intervalMs":J
     :cond_a
     :try_start_2
     move-object/from16 v0, p0
@@ -1172,7 +1171,7 @@
     check-cast v10, Landroid/app/PendingIntent;
 
     .line 343
-    .restart local v10       #intent:Landroid/app/PendingIntent;
+    .restart local v10    # "intent":Landroid/app/PendingIntent;
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10}, Lcom/android/server/location/GeofenceManager;->sendIntentEnter(Landroid/app/PendingIntent;)V
@@ -1180,7 +1179,7 @@
     goto :goto_4
 
     .line 345
-    .end local v10           #intent:Landroid/app/PendingIntent;
+    .end local v10    # "intent":Landroid/app/PendingIntent;
     :cond_c
     return-void
 .end method
@@ -1189,12 +1188,12 @@
 # virtual methods
 .method public addFence(Landroid/location/LocationRequest;Landroid/location/Geofence;Landroid/app/PendingIntent;IILjava/lang/String;)V
     .locals 11
-    .parameter "request"
-    .parameter "geofence"
-    .parameter "intent"
-    .parameter "allowedResolutionLevel"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "request"    # Landroid/location/LocationRequest;
+    .param p2, "geofence"    # Landroid/location/Geofence;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
+    .param p4, "allowedResolutionLevel"    # I
+    .param p5, "uid"    # I
+    .param p6, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 121
@@ -1290,7 +1289,7 @@
     invoke-direct/range {v1 .. v8}, Lcom/android/server/location/GeofenceState;-><init>(Landroid/location/Geofence;JIILjava/lang/String;Landroid/app/PendingIntent;)V
 
     .line 128
-    .local v1, state:Lcom/android/server/location/GeofenceState;
+    .local v1, "state":Lcom/android/server/location/GeofenceState;
     iget-object v3, p0, Lcom/android/server/location/GeofenceManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
@@ -1305,7 +1304,7 @@
 
     add-int/lit8 v9, v2, -0x1
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_0
     if-ltz v9, :cond_1
 
@@ -1319,7 +1318,7 @@
     check-cast v10, Lcom/android/server/location/GeofenceState;
 
     .line 132
-    .local v10, w:Lcom/android/server/location/GeofenceState;
+    .local v10, "w":Lcom/android/server/location/GeofenceState;
     iget-object v2, v10, Lcom/android/server/location/GeofenceState;->mFence:Landroid/location/Geofence;
 
     invoke-virtual {p2, v2}, Landroid/location/Geofence;->equals(Ljava/lang/Object;)Z
@@ -1342,7 +1341,7 @@
     invoke-interface {v2, v9}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 138
-    .end local v10           #w:Lcom/android/server/location/GeofenceState;
+    .end local v10    # "w":Lcom/android/server/location/GeofenceState;
     :cond_1
     iget-object v2, p0, Lcom/android/server/location/GeofenceManager;->mFences:Ljava/util/List;
 
@@ -1358,15 +1357,15 @@
     return-void
 
     .line 130
-    .restart local v10       #w:Lcom/android/server/location/GeofenceState;
+    .restart local v10    # "w":Lcom/android/server/location/GeofenceState;
     :cond_2
     add-int/lit8 v9, v9, -0x1
 
     goto :goto_0
 
     .line 140
-    .end local v9           #i:I
-    .end local v10           #w:Lcom/android/server/location/GeofenceState;
+    .end local v9    # "i":I
+    .end local v10    # "w":Lcom/android/server/location/GeofenceState;
     :catchall_0
     move-exception v2
 
@@ -1379,7 +1378,7 @@
 
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 3
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 414
@@ -1394,7 +1393,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1409,7 +1408,7 @@
     check-cast v1, Lcom/android/server/location/GeofenceState;
 
     .line 417
-    .local v1, state:Lcom/android/server/location/GeofenceState;
+    .local v1, "state":Lcom/android/server/location/GeofenceState;
     const-string v2, "    "
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
@@ -1441,14 +1440,14 @@
     goto :goto_0
 
     .line 423
-    .end local v1           #state:Lcom/android/server/location/GeofenceState;
+    .end local v1    # "state":Lcom/android/server/location/GeofenceState;
     :cond_0
     return-void
 .end method
 
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 3
-    .parameter "location"
+    .param p1, "location"    # Landroid/location/Location;
 
     .prologue
     .line 382
@@ -1512,7 +1511,7 @@
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 405
@@ -1521,7 +1520,7 @@
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 402
@@ -1530,11 +1529,11 @@
 
 .method public onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "pendingIntent"
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "resultData"
-    .parameter "resultExtras"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "resultCode"    # I
+    .param p4, "resultData"    # Ljava/lang/String;
+    .param p5, "resultExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 410
@@ -1548,9 +1547,9 @@
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .parameter "provider"
-    .parameter "status"
-    .parameter "extras"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 399
@@ -1559,8 +1558,8 @@
 
 .method public removeFence(Landroid/location/Geofence;Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "fence"
-    .parameter "intent"
+    .param p1, "fence"    # Landroid/location/Geofence;
+    .param p2, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 144
@@ -1616,7 +1615,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
     :cond_1
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -1633,7 +1632,7 @@
     check-cast v1, Lcom/android/server/location/GeofenceState;
 
     .line 152
-    .local v1, state:Lcom/android/server/location/GeofenceState;
+    .local v1, "state":Lcom/android/server/location/GeofenceState;
     iget-object v2, v1, Lcom/android/server/location/GeofenceState;->mIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v2, p2}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
@@ -1651,8 +1650,8 @@
     goto :goto_0
 
     .line 166
-    .end local v0           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
-    .end local v1           #state:Lcom/android/server/location/GeofenceState;
+    .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .end local v1    # "state":Lcom/android/server/location/GeofenceState;
     :catchall_0
     move-exception v2
 
@@ -1663,8 +1662,8 @@
     throw v2
 
     .line 159
-    .restart local v0       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
-    .restart local v1       #state:Lcom/android/server/location/GeofenceState;
+    .restart local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .restart local v1    # "state":Lcom/android/server/location/GeofenceState;
     :cond_2
     :try_start_1
     iget-object v2, v1, Lcom/android/server/location/GeofenceState;->mFence:Landroid/location/Geofence;
@@ -1681,7 +1680,7 @@
     goto :goto_0
 
     .line 165
-    .end local v1           #state:Lcom/android/server/location/GeofenceState;
+    .end local v1    # "state":Lcom/android/server/location/GeofenceState;
     :cond_3
     invoke-direct {p0}, Lcom/android/server/location/GeofenceManager;->scheduleUpdateFencesLocked()V
 
@@ -1696,7 +1695,7 @@
 
 .method public removeFence(Ljava/lang/String;)V
     .locals 5
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 170
@@ -1742,7 +1741,7 @@
     move-result-object v0
 
     .line 176
-    .local v0, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
     :cond_1
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -1759,7 +1758,7 @@
     check-cast v1, Lcom/android/server/location/GeofenceState;
 
     .line 178
-    .local v1, state:Lcom/android/server/location/GeofenceState;
+    .local v1, "state":Lcom/android/server/location/GeofenceState;
     iget-object v2, v1, Lcom/android/server/location/GeofenceState;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1774,8 +1773,8 @@
     goto :goto_0
 
     .line 183
-    .end local v0           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
-    .end local v1           #state:Lcom/android/server/location/GeofenceState;
+    .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .end local v1    # "state":Lcom/android/server/location/GeofenceState;
     :catchall_0
     move-exception v2
 
@@ -1786,7 +1785,7 @@
     throw v2
 
     .line 182
-    .restart local v0       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
+    .restart local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/location/GeofenceState;>;"
     :cond_2
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/location/GeofenceManager;->scheduleUpdateFencesLocked()V

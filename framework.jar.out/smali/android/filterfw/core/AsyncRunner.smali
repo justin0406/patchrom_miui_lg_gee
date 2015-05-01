@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 160
@@ -64,8 +64,8 @@
 
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Ljava/lang/Class;)V
     .locals 2
-    .parameter "context"
-    .parameter "schedulerClass"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "schedulerClass"    # Ljava/lang/Class;
 
     .prologue
     .line 148
@@ -91,7 +91,7 @@
 
 .method static synthetic access$100(Landroid/filterfw/core/AsyncRunner;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterfw/core/AsyncRunner;
 
     .prologue
     .line 35
@@ -102,8 +102,8 @@
 
 .method static synthetic access$200(Landroid/filterfw/core/AsyncRunner;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterfw/core/AsyncRunner;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 35
@@ -114,8 +114,8 @@
 
 .method static synthetic access$300(Landroid/filterfw/core/AsyncRunner;Ljava/lang/Exception;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/filterfw/core/AsyncRunner;
+    .param p1, "x1"    # Ljava/lang/Exception;
 
     .prologue
     .line 35
@@ -126,7 +126,7 @@
 
 .method static synthetic access$400(Landroid/filterfw/core/AsyncRunner;)Landroid/filterfw/core/SyncRunner;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterfw/core/AsyncRunner;
 
     .prologue
     .line 35
@@ -137,7 +137,7 @@
 
 .method static synthetic access$500(Landroid/filterfw/core/AsyncRunner;)Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/filterfw/core/AsyncRunner;
 
     .prologue
     .line 35
@@ -148,7 +148,7 @@
 
 .method private declared-synchronized setException(Ljava/lang/Exception;)V
     .locals 1
-    .parameter "exception"
+    .param p1, "exception"    # Ljava/lang/Exception;
 
     .prologue
     .line 244
@@ -175,7 +175,7 @@
 
 .method private declared-synchronized setRunning(Z)V
     .locals 1
-    .parameter "running"
+    .param p1, "running"    # Z
 
     .prologue
     .line 240
@@ -440,7 +440,7 @@
 
 .method public setDoneCallback(Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
     .prologue
     .line 172
@@ -452,7 +452,7 @@
 
 .method public declared-synchronized setGraph(Landroid/filterfw/core/FilterGraph;)V
     .locals 3
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 179

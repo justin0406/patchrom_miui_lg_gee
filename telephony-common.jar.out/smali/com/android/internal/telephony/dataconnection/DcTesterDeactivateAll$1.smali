@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 47
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 50
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 51
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,7 +64,7 @@
 
     move-result-object v3
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$000(Ljava/lang/String;)V
 
     .line 52
@@ -79,7 +78,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$100(Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v3
@@ -98,13 +97,13 @@
     :cond_0
     const-string v3, "Send DEACTIVATE to all Dcc\'s"
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$000(Ljava/lang/String;)V
 
     .line 55
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mDcc:Lcom/android/internal/telephony/dataconnection/DcController;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mDcc:Lcom/android/internal/telephony/dataconnection/DcController;
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$200(Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;)Lcom/android/internal/telephony/dataconnection/DcController;
 
     move-result-object v3
@@ -114,7 +113,7 @@
     .line 56
     iget-object v3, p0, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll$1;->this$0:Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;
 
-    #getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mDcc:Lcom/android/internal/telephony/dataconnection/DcController;
+    # getter for: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->mDcc:Lcom/android/internal/telephony/dataconnection/DcController;
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$200(Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;)Lcom/android/internal/telephony/dataconnection/DcController;
 
     move-result-object v3
@@ -125,7 +124,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -140,18 +139,18 @@
     check-cast v1, Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     .line 57
-    .local v1, dc:Lcom/android/internal/telephony/dataconnection/DataConnection;
+    .local v1, "dc":Lcom/android/internal/telephony/dataconnection/DataConnection;
     invoke-virtual {v1}, Lcom/android/internal/telephony/dataconnection/DataConnection;->tearDownNow()V
 
     goto :goto_0
 
     .line 60
-    .end local v1           #dc:Lcom/android/internal/telephony/dataconnection/DataConnection;
-    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v1    # "dc":Lcom/android/internal/telephony/dataconnection/DataConnection;
+    .end local v2    # "i$":Ljava/util/Iterator;
     :cond_1
     const-string v3, "onReceive: mDcc is null, ignoring"
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$000(Ljava/lang/String;)V
 
     .line 65
@@ -179,7 +178,7 @@
 
     move-result-object v3
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->log(Ljava/lang/String;)V
     invoke-static {v3}, Lcom/android/internal/telephony/dataconnection/DcTesterDeactivateAll;->access$000(Ljava/lang/String;)V
 
     goto :goto_1

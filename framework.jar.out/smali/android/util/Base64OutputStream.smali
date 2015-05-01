@@ -34,8 +34,8 @@
 
 .method public constructor <init>(Ljava/io/OutputStream;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Ljava/io/OutputStream;
+    .param p2, "flags"    # I
 
     .prologue
     .line 45
@@ -49,9 +49,9 @@
 
 .method public constructor <init>(Ljava/io/OutputStream;IZ)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
-    .parameter "encode"
+    .param p1, "out"    # Ljava/io/OutputStream;
+    .param p2, "flags"    # I
+    .param p3, "encode"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -97,8 +97,8 @@
 
 .method private embiggen([BI)[B
     .locals 1
-    .parameter "b"
-    .parameter "len"
+    .param p1, "b"    # [B
+    .param p2, "len"    # I
 
     .prologue
     .line 149
@@ -113,7 +113,7 @@
     new-array p1, p2, [B
 
     .line 152
-    .end local p1
+    .end local p1    # "b":[B
     :cond_1
     return-object p1
 .end method
@@ -151,10 +151,10 @@
 
 .method private internalWrite([BIIZ)V
     .locals 4
-    .parameter "b"
-    .parameter "off"
-    .parameter "len"
-    .parameter "finish"
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
+    .param p4, "finish"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,7 +234,7 @@
     const/4 v1, 0x0
 
     .line 107
-    .local v1, thrown:Ljava/io/IOException;
+    .local v1, "thrown":Ljava/io/IOException;
     :try_start_0
     invoke-direct {p0}, Landroid/util/Base64OutputStream;->flushBuffer()V
 
@@ -280,13 +280,13 @@
     move-exception v0
 
     .line 110
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     move-object v1, v0
 
     goto :goto_0
 
     .line 117
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_1
     :try_start_2
     iget-object v2, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
@@ -302,7 +302,7 @@
     move-exception v0
 
     .line 120
-    .restart local v0       #e:Ljava/io/IOException;
+    .restart local v0    # "e":Ljava/io/IOException;
     if-eqz v1, :cond_0
 
     .line 121
@@ -311,14 +311,14 @@
     goto :goto_1
 
     .line 128
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_2
     return-void
 .end method
 
 .method public write(I)V
     .locals 3
-    .parameter "b"
+    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -380,9 +380,9 @@
 
 .method public write([BII)V
     .locals 1
-    .parameter "b"
-    .parameter "off"
-    .parameter "len"
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

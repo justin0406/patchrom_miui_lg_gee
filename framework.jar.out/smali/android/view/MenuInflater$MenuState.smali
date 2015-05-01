@@ -89,8 +89,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/MenuInflater;Landroid/view/Menu;)V
     .locals 0
-    .parameter
-    .parameter "menu"
+    .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
     .line 304
@@ -110,7 +109,7 @@
 
 .method static synthetic access$000(Landroid/view/MenuInflater$MenuState;)Landroid/view/ActionProvider;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/MenuInflater$MenuState;
 
     .prologue
     .line 245
@@ -121,7 +120,7 @@
 
 .method private getShortcut(Ljava/lang/String;)C
     .locals 1
-    .parameter "shortcutString"
+    .param p1, "shortcutString"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -143,9 +142,8 @@
 
 .method private newInstance(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 6
-    .parameter "className"
-    .parameter
-    .parameter "arguments"
+    .param p1, "className"    # Ljava/lang/String;
+    .param p3, "arguments"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -162,11 +160,11 @@
 
     .prologue
     .line 469
-    .local p2, constructorSignature:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
+    .local p2, "constructorSignature":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     :try_start_0
     iget-object v3, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
+    # getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/view/MenuInflater;->access$100(Landroid/view/MenuInflater;)Landroid/content/Context;
 
     move-result-object v3
@@ -180,13 +178,13 @@
     move-result-object v0
 
     .line 470
-    .local v0, clazz:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v0, p2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
 
     .line 471
-    .local v1, constructor:Ljava/lang/reflect/Constructor;,"Ljava/lang/reflect/Constructor<*>;"
+    .local v1, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     invoke-virtual {v1, p3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -194,8 +192,8 @@
     move-result-object v3
 
     .line 475
-    .end local v0           #clazz:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    .end local v1           #constructor:Ljava/lang/reflect/Constructor;,"Ljava/lang/reflect/Constructor<*>;"
+    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v1    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     :goto_0
     return-object v3
 
@@ -204,7 +202,7 @@
     move-exception v2
 
     .line 473
-    .local v2, e:Ljava/lang/Exception;
+    .local v2, "e":Ljava/lang/Exception;
     const-string v3, "MenuInflater"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -235,7 +233,7 @@
 
 .method private setItem(Landroid/view/MenuItem;)V
     .locals 7
-    .parameter "item"
+    .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
     const/4 v4, 0x1
@@ -311,7 +309,7 @@
     .line 413
     iget-object v3, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
+    # getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/view/MenuInflater;->access$100(Landroid/view/MenuInflater;)Landroid/content/Context;
 
     move-result-object v3
@@ -343,7 +341,7 @@
 
     iget-object v5, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mRealOwner:Ljava/lang/Object;
+    # getter for: Landroid/view/MenuInflater;->mRealOwner:Ljava/lang/Object;
     invoke-static {v5}, Landroid/view/MenuInflater;->access$400(Landroid/view/MenuInflater;)Ljava/lang/Object;
 
     move-result-object v5
@@ -366,7 +364,7 @@
     check-cast v2, Lcom/android/internal/view/menu/MenuItemImpl;
 
     .line 423
-    .local v2, impl:Lcom/android/internal/view/menu/MenuItemImpl;
+    .local v2, "impl":Lcom/android/internal/view/menu/MenuItemImpl;
     iget v3, p0, Landroid/view/MenuInflater$MenuState;->itemCheckable:I
 
     const/4 v5, 0x2
@@ -377,12 +375,12 @@
     invoke-virtual {v2, v4}, Lcom/android/internal/view/menu/MenuItemImpl;->setExclusiveCheckable(Z)V
 
     .line 428
-    .end local v2           #impl:Lcom/android/internal/view/menu/MenuItemImpl;
+    .end local v2    # "impl":Lcom/android/internal/view/menu/MenuItemImpl;
     :cond_4
     const/4 v1, 0x0
 
     .line 429
-    .local v1, actionViewSpecified:Z
+    .local v1, "actionViewSpecified":Z
     iget-object v3, p0, Landroid/view/MenuInflater$MenuState;->itemActionViewClassName:Ljava/lang/String;
 
     if-eqz v3, :cond_5
@@ -390,13 +388,14 @@
     .line 430
     iget-object v3, p0, Landroid/view/MenuInflater$MenuState;->itemActionViewClassName:Ljava/lang/String;
 
+    # getter for: Landroid/view/MenuInflater;->ACTION_VIEW_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
     invoke-static {}, Landroid/view/MenuInflater;->access$500()[Ljava/lang/Class;
 
     move-result-object v4
 
     iget-object v5, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
+    # getter for: Landroid/view/MenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
     invoke-static {v5}, Landroid/view/MenuInflater;->access$600(Landroid/view/MenuInflater;)[Ljava/lang/Object;
 
     move-result-object v5
@@ -408,14 +407,14 @@
     check-cast v0, Landroid/view/View;
 
     .line 432
-    .local v0, actionView:Landroid/view/View;
+    .local v0, "actionView":Landroid/view/View;
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setActionView(Landroid/view/View;)Landroid/view/MenuItem;
 
     .line 433
     const/4 v1, 0x1
 
     .line 435
-    .end local v0           #actionView:Landroid/view/View;
+    .end local v0    # "actionView":Landroid/view/View;
     :cond_5
     iget v3, p0, Landroid/view/MenuInflater$MenuState;->itemActionViewLayout:I
 
@@ -516,7 +515,7 @@
     move-result-object v0
 
     .line 457
-    .local v0, subMenu:Landroid/view/SubMenu;
+    .local v0, "subMenu":Landroid/view/SubMenu;
     invoke-interface {v0}, Landroid/view/SubMenu;->getItem()Landroid/view/MenuItem;
 
     move-result-object v1
@@ -539,7 +538,7 @@
 
 .method public readGroup(Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x1
@@ -549,7 +548,7 @@
     .line 323
     iget-object v1, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
+    # getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/view/MenuInflater;->access$100(Landroid/view/MenuInflater;)Landroid/content/Context;
 
     move-result-object v1
@@ -561,7 +560,7 @@
     move-result-object v0
 
     .line 326
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
@@ -620,7 +619,7 @@
 
 .method public readItem(Landroid/util/AttributeSet;)V
     .locals 9
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/16 v8, 0xb
@@ -632,7 +631,7 @@
     .line 340
     iget-object v4, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
+    # getter for: Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
     invoke-static {v4}, Landroid/view/MenuInflater;->access$100(Landroid/view/MenuInflater;)Landroid/content/Context;
 
     move-result-object v4
@@ -644,7 +643,7 @@
     move-result-object v0
 
     .line 344
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v4, 0x2
 
     invoke-virtual {v0, v4, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -663,7 +662,7 @@
     move-result v1
 
     .line 346
-    .local v1, category:I
+    .local v1, "category":I
     const/4 v4, 0x6
 
     iget v7, p0, Landroid/view/MenuInflater$MenuState;->groupOrder:I
@@ -673,8 +672,8 @@
     move-result v3
 
     .line 347
-    .local v3, order:I
-    const/high16 v4, -0x1
+    .local v3, "order":I
+    const/high16 v4, -0x10000
 
     and-int/2addr v4, v1
 
@@ -841,7 +840,7 @@
     move v2, v5
 
     .line 373
-    .local v2, hasActionProvider:Z
+    .local v2, "hasActionProvider":Z
     :goto_2
     if-eqz v2, :cond_3
 
@@ -856,13 +855,14 @@
     .line 374
     iget-object v4, p0, Landroid/view/MenuInflater$MenuState;->itemActionProviderClassName:Ljava/lang/String;
 
+    # getter for: Landroid/view/MenuInflater;->ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
     invoke-static {}, Landroid/view/MenuInflater;->access$200()[Ljava/lang/Class;
 
     move-result-object v5
 
     iget-object v7, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    #getter for: Landroid/view/MenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
+    # getter for: Landroid/view/MenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
     invoke-static {v7}, Landroid/view/MenuInflater;->access$300(Landroid/view/MenuInflater;)[Ljava/lang/Object;
 
     move-result-object v7
@@ -885,7 +885,7 @@
     .line 388
     return-void
 
-    .end local v2           #hasActionProvider:Z
+    .end local v2    # "hasActionProvider":Z
     :cond_0
     move v4, v6
 
@@ -907,7 +907,7 @@
     goto :goto_2
 
     .line 378
-    .restart local v2       #hasActionProvider:Z
+    .restart local v2    # "hasActionProvider":Z
     :cond_3
     if-eqz v2, :cond_4
 

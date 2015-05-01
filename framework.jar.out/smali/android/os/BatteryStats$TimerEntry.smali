@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/os/BatteryStats$Timer;J)V
     .locals 0
-    .parameter "name"
-    .parameter "id"
-    .parameter "timer"
-    .parameter "time"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "timer"    # Landroid/os/BatteryStats$Timer;
+    .param p4, "time"    # J
 
     .prologue
     .line 1522

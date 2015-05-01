@@ -52,7 +52,7 @@
 
 .method private getAccountLabel(Landroid/accounts/Account;)Ljava/lang/String;
     .locals 7
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
 
     .prologue
     .line 136
@@ -65,13 +65,13 @@
     move-result-object v1
 
     .line 138
-    .local v1, authenticatorTypes:[Landroid/accounts/AuthenticatorDescription;
+    .local v1, "authenticatorTypes":[Landroid/accounts/AuthenticatorDescription;
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     array-length v0, v1
 
-    .local v0, N:I
+    .local v0, "N":I
     :goto_0
     if-ge v4, v0, :cond_1
 
@@ -79,7 +79,7 @@
     aget-object v2, v1, v4
 
     .line 140
-    .local v2, desc:Landroid/accounts/AuthenticatorDescription;
+    .local v2, "desc":Landroid/accounts/AuthenticatorDescription;
     iget-object v5, v2, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
     iget-object v6, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
@@ -110,41 +110,41 @@
     move-result-object v5
 
     .line 150
-    .end local v2           #desc:Landroid/accounts/AuthenticatorDescription;
+    .end local v2    # "desc":Landroid/accounts/AuthenticatorDescription;
     :goto_1
     return-object v5
 
     .line 143
-    .restart local v2       #desc:Landroid/accounts/AuthenticatorDescription;
+    .restart local v2    # "desc":Landroid/accounts/AuthenticatorDescription;
     :catch_0
     move-exception v3
 
     .line 144
-    .local v3, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v3, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     iget-object v5, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
 
     goto :goto_1
 
     .line 145
-    .end local v3           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v3
 
     .line 146
-    .local v3, e:Landroid/content/res/Resources$NotFoundException;
+    .local v3, "e":Landroid/content/res/Resources$NotFoundException;
     iget-object v5, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
 
     goto :goto_1
 
     .line 138
-    .end local v3           #e:Landroid/content/res/Resources$NotFoundException;
+    .end local v3    # "e":Landroid/content/res/Resources$NotFoundException;
     :cond_0
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 150
-    .end local v2           #desc:Landroid/accounts/AuthenticatorDescription;
+    .end local v2    # "desc":Landroid/accounts/AuthenticatorDescription;
     :cond_1
     iget-object v5, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
 
@@ -153,7 +153,7 @@
 
 .method private newPackageView(Ljava/lang/String;)Landroid/view/View;
     .locals 4
-    .parameter "packageLabel"
+    .param p1, "packageLabel"    # Ljava/lang/String;
 
     .prologue
     .line 154
@@ -168,7 +168,7 @@
     move-result-object v0
 
     .line 155
-    .local v0, view:Landroid/view/View;
+    .local v0, "view":Landroid/view/View;
     const v1, 0x10202ee
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -195,7 +195,7 @@
     move-result-object v0
 
     .line 187
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string/jumbo v2, "response"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -205,7 +205,7 @@
     check-cast v1, Landroid/accounts/AccountAuthenticatorResponse;
 
     .line 188
-    .local v1, response:Landroid/accounts/AccountAuthenticatorResponse;
+    .local v1, "response":Landroid/accounts/AccountAuthenticatorResponse;
     if-eqz v1, :cond_0
 
     .line 190
@@ -239,7 +239,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 7
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v6, 0x1
@@ -280,7 +280,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 164
-    .local v0, result:Landroid/content/Intent;
+    .local v0, "result":Landroid/content/Intent;
     const-string/jumbo v1, "retry"
 
     invoke-virtual {v0, v1, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
@@ -300,7 +300,7 @@
     goto :goto_0
 
     .line 170
-    .end local v0           #result:Landroid/content/Intent;
+    .end local v0    # "result":Landroid/content/Intent;
     :pswitch_1
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
@@ -329,7 +329,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 21
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 53
@@ -345,7 +345,7 @@
     invoke-virtual {v0, v1}, Landroid/accounts/GrantCredentialsPermissionActivity;->setContentView(I)V
 
     .line 55
-    const v17, 0x10404a9
+    const v17, 0x10404aa
 
     move-object/from16 v0, p0
 
@@ -382,7 +382,7 @@
     move-result-object v9
 
     .line 60
-    .local v9, extras:Landroid/os/Bundle;
+    .local v9, "extras":Landroid/os/Bundle;
     if-nez v9, :cond_0
 
     .line 62
@@ -455,7 +455,7 @@
     move-result-object v16
 
     .line 72
-    .local v16, pm:Landroid/content/pm/PackageManager;
+    .local v16, "pm":Landroid/content/pm/PackageManager;
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/accounts/GrantCredentialsPermissionActivity;->mUid:I
@@ -467,7 +467,7 @@
     move-result-object v13
 
     .line 74
-    .local v13, packages:[Ljava/lang/String;
+    .local v13, "packages":[Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/accounts/GrantCredentialsPermissionActivity;->mAccount:Landroid/accounts/Account;
@@ -521,7 +521,7 @@
     move-result-object v4
 
     .line 91
-    .local v4, accountTypeLabel:Ljava/lang/String;
+    .local v4, "accountTypeLabel":Ljava/lang/String;
     const v17, 0x10202a3
 
     move-object/from16 v0, p0
@@ -535,7 +535,7 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 92
-    .local v6, authTokenTypeView:Landroid/widget/TextView;
+    .local v6, "authTokenTypeView":Landroid/widget/TextView;
     const/16 v17, 0x8
 
     move/from16 v0, v17
@@ -550,7 +550,7 @@
     invoke-direct {v7, v0, v6}, Landroid/accounts/GrantCredentialsPermissionActivity$1;-><init>(Landroid/accounts/GrantCredentialsPermissionActivity;Landroid/widget/TextView;)V
 
     .line 114
-    .local v7, callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
+    .local v7, "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
     invoke-static/range {p0 .. p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v17
@@ -633,23 +633,23 @@
     check-cast v14, Landroid/widget/LinearLayout;
 
     .line 121
-    .local v14, packagesListView:Landroid/widget/LinearLayout;
+    .local v14, "packagesListView":Landroid/widget/LinearLayout;
     move-object v5, v13
 
-    .local v5, arr$:[Ljava/lang/String;
+    .local v5, "arr$":[Ljava/lang/String;
     array-length v11, v5
 
-    .local v11, len$:I
+    .local v11, "len$":I
     const/4 v10, 0x0
 
-    .local v10, i$:I
+    .local v10, "i$":I
     :goto_1
     if-ge v10, v11, :cond_3
 
     aget-object v15, v5, v10
 
     .line 124
-    .local v15, pkg:Ljava/lang/String;
+    .local v15, "pkg":Ljava/lang/String;
     const/16 v17, 0x0
 
     :try_start_1
@@ -672,7 +672,7 @@
     move-result-object v12
 
     .line 128
-    .local v12, packageLabel:Ljava/lang/String;
+    .local v12, "packageLabel":Ljava/lang/String;
     :goto_2
     move-object/from16 v0, p0
 
@@ -690,20 +690,20 @@
     goto :goto_1
 
     .line 84
-    .end local v4           #accountTypeLabel:Ljava/lang/String;
-    .end local v5           #arr$:[Ljava/lang/String;
-    .end local v6           #authTokenTypeView:Landroid/widget/TextView;
-    .end local v7           #callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
-    .end local v10           #i$:I
-    .end local v11           #len$:I
-    .end local v12           #packageLabel:Ljava/lang/String;
-    .end local v14           #packagesListView:Landroid/widget/LinearLayout;
-    .end local v15           #pkg:Ljava/lang/String;
+    .end local v4    # "accountTypeLabel":Ljava/lang/String;
+    .end local v5    # "arr$":[Ljava/lang/String;
+    .end local v6    # "authTokenTypeView":Landroid/widget/TextView;
+    .end local v7    # "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
+    .end local v10    # "i$":I
+    .end local v11    # "len$":I
+    .end local v12    # "packageLabel":Ljava/lang/String;
+    .end local v14    # "packagesListView":Landroid/widget/LinearLayout;
+    .end local v15    # "pkg":Ljava/lang/String;
     :catch_0
     move-exception v8
 
     .line 86
-    .local v8, e:Ljava/lang/IllegalArgumentException;
+    .local v8, "e":Ljava/lang/IllegalArgumentException;
     const/16 v17, 0x0
 
     move-object/from16 v0, p0
@@ -718,29 +718,29 @@
     goto/16 :goto_0
 
     .line 125
-    .end local v8           #e:Ljava/lang/IllegalArgumentException;
-    .restart local v4       #accountTypeLabel:Ljava/lang/String;
-    .restart local v5       #arr$:[Ljava/lang/String;
-    .restart local v6       #authTokenTypeView:Landroid/widget/TextView;
-    .restart local v7       #callback:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
-    .restart local v10       #i$:I
-    .restart local v11       #len$:I
-    .restart local v14       #packagesListView:Landroid/widget/LinearLayout;
-    .restart local v15       #pkg:Ljava/lang/String;
+    .end local v8    # "e":Ljava/lang/IllegalArgumentException;
+    .restart local v4    # "accountTypeLabel":Ljava/lang/String;
+    .restart local v5    # "arr$":[Ljava/lang/String;
+    .restart local v6    # "authTokenTypeView":Landroid/widget/TextView;
+    .restart local v7    # "callback":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
+    .restart local v10    # "i$":I
+    .restart local v11    # "len$":I
+    .restart local v14    # "packagesListView":Landroid/widget/LinearLayout;
+    .restart local v15    # "pkg":Ljava/lang/String;
     :catch_1
     move-exception v8
 
     .line 126
-    .local v8, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v8, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     move-object v12, v15
 
-    .restart local v12       #packageLabel:Ljava/lang/String;
+    .restart local v12    # "packageLabel":Ljava/lang/String;
     goto :goto_2
 
     .line 131
-    .end local v8           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .end local v12           #packageLabel:Ljava/lang/String;
-    .end local v15           #pkg:Ljava/lang/String;
+    .end local v8    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v12    # "packageLabel":Ljava/lang/String;
+    .end local v15    # "pkg":Ljava/lang/String;
     :cond_3
     const v17, 0x10202a2
 
@@ -790,7 +790,7 @@
 
 .method public final setAccountAuthenticatorResult(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 178

@@ -12,8 +12,8 @@
 # direct methods
 .method protected constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
     .locals 0
-    .parameter "context"
-    .parameter "name"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -64,9 +64,9 @@
 
 .method protected frameFromTexture(III)Landroid/filterfw/core/Frame;
     .locals 6
-    .parameter "texId"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "texId"    # I
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     const/4 v4, 0x3
@@ -81,13 +81,13 @@
     move-result-object v2
 
     .line 90
-    .local v2, manager:Landroid/filterfw/core/FrameManager;
+    .local v2, "manager":Landroid/filterfw/core/FrameManager;
     invoke-static {p2, p3, v4, v4}, Landroid/filterfw/format/ImageFormat;->create(IIII)Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v0
 
     .line 93
-    .local v0, format:Landroid/filterfw/core/FrameFormat;
+    .local v0, "format":Landroid/filterfw/core/FrameFormat;
     const/16 v3, 0x64
 
     int-to-long v4, p1
@@ -97,7 +97,7 @@
     move-result-object v1
 
     .line 96
-    .local v1, frame:Landroid/filterfw/core/Frame;
+    .local v1, "frame":Landroid/filterfw/core/Frame;
     const-wide/16 v3, -0x1
 
     invoke-virtual {v1, v3, v4}, Landroid/filterfw/core/Frame;->setTimestamp(J)V

@@ -43,8 +43,8 @@
 
 .method private constructor <init>(Landroid/graphics/drawable/ClipDrawable$ClipState;Landroid/content/res/Resources;)V
     .locals 1
-    .parameter "state"
-    .parameter "res"
+    .param p1, "state"    # Landroid/graphics/drawable/ClipDrawable$ClipState;
+    .param p2, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 303
@@ -70,9 +70,9 @@
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/ClipDrawable$ClipState;Landroid/content/res/Resources;Landroid/graphics/drawable/ClipDrawable$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/graphics/drawable/ClipDrawable$ClipState;
+    .param p2, "x1"    # Landroid/content/res/Resources;
+    .param p3, "x2"    # Landroid/graphics/drawable/ClipDrawable$1;
 
     .prologue
     .line 48
@@ -83,9 +83,9 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;II)V
     .locals 1
-    .parameter "drawable"
-    .parameter "gravity"
-    .parameter "orientation"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "gravity"    # I
+    .param p3, "orientation"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -123,7 +123,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 10
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 200
@@ -147,29 +147,29 @@
     iget-object v4, p0, Landroid/graphics/drawable/ClipDrawable;->mTmpRect:Landroid/graphics/Rect;
 
     .line 205
-    .local v4, r:Landroid/graphics/Rect;
+    .local v4, "r":Landroid/graphics/Rect;
     invoke-virtual {p0}, Landroid/graphics/drawable/ClipDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v3
 
     .line 206
-    .local v3, bounds:Landroid/graphics/Rect;
+    .local v3, "bounds":Landroid/graphics/Rect;
     invoke-virtual {p0}, Landroid/graphics/drawable/ClipDrawable;->getLevel()I
 
     move-result v8
 
     .line 207
-    .local v8, level:I
+    .local v8, "level":I
     invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
 
     move-result v1
 
     .line 208
-    .local v1, w:I
+    .local v1, "w":I
     const/4 v7, 0x0
 
     .line 209
-    .local v7, iw:I
+    .local v7, "iw":I
     iget-object v0, p0, Landroid/graphics/drawable/ClipDrawable;->mClipState:Landroid/graphics/drawable/ClipDrawable$ClipState;
 
     iget v0, v0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mOrientation:I
@@ -196,11 +196,11 @@
     move-result v2
 
     .line 213
-    .local v2, h:I
+    .local v2, "h":I
     const/4 v6, 0x0
 
     .line 214
-    .local v6, ih:I
+    .local v6, "ih":I
     iget-object v0, p0, Landroid/graphics/drawable/ClipDrawable;->mClipState:Landroid/graphics/drawable/ClipDrawable$ClipState;
 
     iget v0, v0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mOrientation:I
@@ -227,7 +227,7 @@
     move-result v5
 
     .line 218
-    .local v5, layoutDirection:I
+    .local v5, "layoutDirection":I
     iget-object v0, p0, Landroid/graphics/drawable/ClipDrawable;->mClipState:Landroid/graphics/drawable/ClipDrawable$ClipState;
 
     iget v0, v0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mGravity:I
@@ -387,7 +387,7 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "padding"
+    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .prologue
     .line 146
@@ -404,9 +404,9 @@
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
     .locals 10
-    .parameter "r"
-    .parameter "parser"
-    .parameter "attrs"
+    .param p1, "r"    # Landroid/content/res/Resources;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -432,13 +432,13 @@
     move-result-object v0
 
     .line 83
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v8, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v3
 
     .line 86
-    .local v3, orientation:I
+    .local v3, "orientation":I
     const/4 v6, 0x0
 
     invoke-virtual {v0, v6, v9}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -446,13 +446,13 @@
     move-result v2
 
     .line 87
-    .local v2, g:I
+    .local v2, "g":I
     invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     .line 89
-    .local v1, dr:Landroid/graphics/drawable/Drawable;
+    .local v1, "dr":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 91
@@ -461,14 +461,14 @@
     move-result v4
 
     .line 93
-    .local v4, outerDepth:I
+    .local v4, "outerDepth":I
     :cond_0
     :goto_0
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v5
 
-    .local v5, type:I
+    .local v5, "type":I
     if-eq v5, v7, :cond_2
 
     if-ne v5, v9, :cond_1
@@ -528,7 +528,7 @@
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "who"
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 114
@@ -537,7 +537,7 @@
     move-result-object v0
 
     .line 115
-    .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
+    .local v0, "callback":Landroid/graphics/drawable/Drawable$Callback;
     if-eqz v0, :cond_0
 
     .line 116
@@ -566,7 +566,7 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 194
@@ -582,7 +582,7 @@
 
 .method protected onLevelChange(I)Z
     .locals 1
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 187
@@ -603,7 +603,7 @@
 
 .method protected onStateChange([I)Z
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # [I
 
     .prologue
     .line 182
@@ -620,9 +620,9 @@
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
     .locals 1
-    .parameter "who"
-    .parameter "what"
-    .parameter "when"
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "what"    # Ljava/lang/Runnable;
+    .param p3, "when"    # J
 
     .prologue
     .line 121
@@ -631,7 +631,7 @@
     move-result-object v0
 
     .line 122
-    .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
+    .local v0, "callback":Landroid/graphics/drawable/Drawable$Callback;
     if-eqz v0, :cond_0
 
     .line 123
@@ -644,7 +644,7 @@
 
 .method public setAlpha(I)V
     .locals 1
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 157
@@ -660,7 +660,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .parameter "cf"
+    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 167
@@ -676,7 +676,7 @@
 
 .method public setLayoutDirection(I)V
     .locals 1
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 250
@@ -695,8 +695,8 @@
 
 .method public setVisible(ZZ)Z
     .locals 1
-    .parameter "visible"
-    .parameter "restart"
+    .param p1, "visible"    # Z
+    .param p2, "restart"    # Z
 
     .prologue
     .line 151
@@ -716,8 +716,8 @@
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
     .locals 1
-    .parameter "who"
-    .parameter "what"
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "what"    # Ljava/lang/Runnable;
 
     .prologue
     .line 128
@@ -726,7 +726,7 @@
     move-result-object v0
 
     .line 129
-    .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
+    .local v0, "callback":Landroid/graphics/drawable/Drawable$Callback;
     if-eqz v0, :cond_0
 
     .line 130

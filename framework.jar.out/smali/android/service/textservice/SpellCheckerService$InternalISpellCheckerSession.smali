@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;Landroid/service/textservice/SpellCheckerService$Session;)V
     .locals 0
-    .parameter "locale"
-    .parameter "listener"
-    .parameter "bundle"
-    .parameter "session"
+    .param p1, "locale"    # Ljava/lang/String;
+    .param p2, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p3, "bundle"    # Landroid/os/Bundle;
+    .param p4, "session"    # Landroid/service/textservice/SpellCheckerService$Session;
 
     .prologue
     .line 244
@@ -91,7 +91,7 @@
     move-result v0
 
     .line 280
-    .local v0, pri:I
+    .local v0, "pri":I
     const/16 v1, 0xa
 
     :try_start_0
@@ -135,7 +135,7 @@
     move-result v0
 
     .line 291
-    .local v0, pri:I
+    .local v0, "pri":I
     const/16 v1, 0xa
 
     :try_start_0
@@ -171,8 +171,8 @@
 
 .method public onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)V
     .locals 2
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
 
     .prologue
     .line 270
@@ -202,9 +202,9 @@
 
 .method public onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)V
     .locals 3
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "sequentialWords"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
+    .param p3, "sequentialWords"    # Z
 
     .prologue
     .line 255
@@ -217,7 +217,7 @@
     move-result v0
 
     .line 257
-    .local v0, pri:I
+    .local v0, "pri":I
     const/16 v1, 0xa
 
     :try_start_0
@@ -234,8 +234,8 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 263
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V

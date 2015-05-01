@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 699
@@ -41,7 +40,7 @@
 
 .method private final internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 10
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 806
@@ -55,7 +54,7 @@
     const/4 v0, 0x0
 
     .line 812
-    .local v0, c:Landroid/graphics/Canvas;
+    .local v0, "c":Landroid/graphics/Canvas;
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-boolean v6, v6, Landroid/view/SurfaceView;->mDrawingStopped:Z
@@ -95,17 +94,17 @@
     iput-wide v7, v6, Landroid/view/SurfaceView;->mLastLockTime:J
 
     .line 841
-    .end local v0           #c:Landroid/graphics/Canvas;
+    .end local v0    # "c":Landroid/graphics/Canvas;
     :goto_1
     return-object v0
 
     .line 815
-    .restart local v0       #c:Landroid/graphics/Canvas;
+    .restart local v0    # "c":Landroid/graphics/Canvas;
     :catch_0
     move-exception v1
 
     .line 816
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const-string v6, "SurfaceHolder"
 
     const-string v7, "Exception locking surface"
@@ -115,14 +114,14 @@
     goto :goto_0
 
     .line 829
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     .line 830
-    .local v4, now:J
+    .local v4, "now":J
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-wide v6, v6, Landroid/view/SurfaceView;->mLastLockTime:J
@@ -132,7 +131,7 @@
     add-long v2, v6, v8
 
     .line 831
-    .local v2, nextTime:J
+    .local v2, "nextTime":J
     cmp-long v6, v2, v4
 
     if-lez v6, :cond_2
@@ -180,7 +179,7 @@
 # virtual methods
 .method public addCallback(Landroid/view/SurfaceHolder$Callback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
     .line 710
@@ -279,7 +278,7 @@
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 1
-    .parameter "inOutDirty"
+    .param p1, "inOutDirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 802
@@ -292,7 +291,7 @@
 
 .method public removeCallback(Landroid/view/SurfaceHolder$Callback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
     .line 721
@@ -329,8 +328,8 @@
 
 .method public setFixedSize(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 728
@@ -369,7 +368,7 @@
 
 .method public setFormat(I)V
     .locals 2
-    .parameter "format"
+    .param p1, "format"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -398,7 +397,7 @@
     .line 753
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
-    #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
+    # invokes: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v1, v1}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
     .line 755
@@ -408,7 +407,7 @@
 
 .method public setKeepScreenOn(Z)V
     .locals 3
-    .parameter "screenOn"
+    .param p1, "screenOn"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -423,7 +422,7 @@
     move-result-object v0
 
     .line 767
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     if-eqz p1, :cond_0
 
     :goto_0
@@ -487,7 +486,7 @@
 
 .method public setType(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -498,7 +497,7 @@
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 852

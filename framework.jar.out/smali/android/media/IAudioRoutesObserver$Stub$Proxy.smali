@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 69
@@ -51,7 +51,7 @@
 
 .method public dispatchAudioRoutesChanged(Landroid/media/AudioRoutesInfo;)V
     .locals 5
-    .parameter "newRoutes"
+    .param p1, "newRoutes"    # Landroid/media/AudioRoutesInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
     move-result-object v0
 
     .line 84
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IAudioRoutesObserver"
 

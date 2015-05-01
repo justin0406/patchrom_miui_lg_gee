@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 129
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 157
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 159
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -126,13 +126,13 @@
     move-result-object v0
 
     .line 143
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 145
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -175,7 +175,7 @@
 
 .method public finishSelf(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -189,13 +189,13 @@
     move-result-object v0
 
     .line 263
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 265
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -254,13 +254,13 @@
     move-result-object v0
 
     .line 203
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 206
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.service.dreams.IDreamManager"
 
@@ -297,7 +297,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 217
-    .local v2, _result:Landroid/content/ComponentName;
+    .local v2, "_result":Landroid/content/ComponentName;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -308,15 +308,15 @@
     return-object v2
 
     .line 213
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/ComponentName;
+    .restart local v2    # "_result":Landroid/content/ComponentName;
     goto :goto_0
 
     .line 217
-    .end local v2           #_result:Landroid/content/ComponentName;
+    .end local v2    # "_result":Landroid/content/ComponentName;
     :catchall_0
     move-exception v3
 
@@ -343,13 +343,13 @@
     move-result-object v0
 
     .line 186
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 189
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.service.dreams.IDreamManager"
 
@@ -379,7 +379,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 195
-    .local v2, _result:[Landroid/content/ComponentName;
+    .local v2, "_result":[Landroid/content/ComponentName;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 196
@@ -389,7 +389,7 @@
     return-object v2
 
     .line 195
-    .end local v2           #_result:[Landroid/content/ComponentName;
+    .end local v2    # "_result":[Landroid/content/ComponentName;
     :catchall_0
     move-exception v3
 
@@ -428,13 +428,13 @@
     move-result-object v0
 
     .line 246
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 249
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.service.dreams.IDreamManager"
 
@@ -464,7 +464,7 @@
     const/4 v2, 0x1
 
     .line 255
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -475,7 +475,7 @@
     return v2
 
     .line 255
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -489,7 +489,7 @@
 
 .method public setDreamComponents([Landroid/content/ComponentName;)V
     .locals 5
-    .parameter "componentNames"
+    .param p1, "componentNames"    # [Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -503,13 +503,13 @@
     move-result-object v0
 
     .line 171
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 173
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -557,7 +557,7 @@
 
 .method public testDream(Landroid/content/ComponentName;)V
     .locals 5
-    .parameter "componentName"
+    .param p1, "componentName"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -571,13 +571,13 @@
     move-result-object v0
 
     .line 225
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 227
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/ScaleGestureDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 466
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "e"
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -44,13 +43,13 @@
     .line 470
     iget-object v0, p0, Landroid/view/ScaleGestureDetector$1;->this$0:Landroid/view/ScaleGestureDetector;
 
-    #setter for: Landroid/view/ScaleGestureDetector;->mDoubleTapEvent:Landroid/view/MotionEvent;
+    # setter for: Landroid/view/ScaleGestureDetector;->mDoubleTapEvent:Landroid/view/MotionEvent;
     invoke-static {v0, p1}, Landroid/view/ScaleGestureDetector;->access$002(Landroid/view/ScaleGestureDetector;Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     .line 471
     iget-object v0, p0, Landroid/view/ScaleGestureDetector$1;->this$0:Landroid/view/ScaleGestureDetector;
 
-    #setter for: Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
+    # setter for: Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
     invoke-static {v0, v1}, Landroid/view/ScaleGestureDetector;->access$102(Landroid/view/ScaleGestureDetector;I)I
 
     .line 472

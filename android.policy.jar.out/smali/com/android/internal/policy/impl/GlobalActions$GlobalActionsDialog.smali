@@ -34,8 +34,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/app/AlertController$AlertParams;)V
     .locals 3
-    .parameter "context"
-    .parameter "params"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "params"    # Lcom/android/internal/app/AlertController$AlertParams;
 
     .prologue
     .line 943
@@ -83,7 +83,7 @@
 
 .method private static getDialogTheme(Landroid/content/Context;)I
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 951
@@ -92,7 +92,7 @@
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     .line 952
-    .local v0, outValue:Landroid/util/TypedValue;
+    .local v0, "outValue":Landroid/util/TypedValue;
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v1
@@ -113,7 +113,7 @@
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 14
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v13, 0x1
@@ -131,7 +131,7 @@
     move-result v8
 
     .line 985
-    .local v8, action:I
+    .local v8, "action":I
     if-nez v8, :cond_1
 
     .line 986
@@ -144,7 +144,7 @@
     move-result-object v9
 
     .line 987
-    .local v9, decor:Landroid/view/View;
+    .local v9, "decor":Landroid/view/View;
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -152,7 +152,7 @@
     float-to-int v10, v2
 
     .line 988
-    .local v10, eventX:I
+    .local v10, "eventX":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v2
@@ -160,7 +160,7 @@
     float-to-int v11, v2
 
     .line 989
-    .local v11, eventY:I
+    .local v11, "eventY":I
     iget v2, p0, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->mWindowTouchSlop:I
 
     neg-int v2, v2
@@ -198,9 +198,9 @@
     iput-boolean v13, p0, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->mCancelOnUp:Z
 
     .line 997
-    .end local v9           #decor:Landroid/view/View;
-    .end local v10           #eventX:I
-    .end local v11           #eventY:I
+    .end local v9    # "decor":Landroid/view/View;
+    .end local v10    # "eventX":I
+    .end local v11    # "eventY":I
     :cond_1
     :try_start_0
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->mIntercepted:Z
@@ -227,7 +227,7 @@
     move-result-wide v0
 
     .line 1001
-    .local v0, now:J
+    .local v0, "now":J
     const/4 v4, 0x3
 
     const/4 v5, 0x0
@@ -255,7 +255,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1010
-    .end local v0           #now:J
+    .end local v0    # "now":J
     :cond_2
     if-ne v8, v13, :cond_4
 
@@ -275,7 +275,7 @@
     iput-boolean v12, p0, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->mIntercepted:Z
 
     .line 1019
-    .end local v8           #action:I
+    .end local v8    # "action":I
     :cond_4
     invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -286,7 +286,7 @@
     return v2
 
     .line 1007
-    .restart local v8       #action:I
+    .restart local v8    # "action":I
     :cond_6
     :try_start_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->mEnableAccessibilityController:Lcom/android/internal/policy/impl/EnableAccessibilityController;
@@ -358,7 +358,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 1028
@@ -375,8 +375,8 @@
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 1034
@@ -405,8 +405,8 @@
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 1042

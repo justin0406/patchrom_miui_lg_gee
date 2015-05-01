@@ -110,11 +110,11 @@
 
 .method public onChildClick(Landroid/widget/ExpandableListView;Landroid/view/View;IIJ)Z
     .locals 1
-    .parameter "parent"
-    .parameter "v"
-    .parameter "groupPosition"
-    .parameter "childPosition"
-    .parameter "id"
+    .param p1, "parent"    # Landroid/widget/ExpandableListView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "groupPosition"    # I
+    .param p4, "childPosition"    # I
+    .param p5, "id"    # J
 
     .prologue
     .line 183
@@ -138,7 +138,7 @@
     move-result-object v0
 
     .line 220
-    .local v0, emptyView:Landroid/view/View;
+    .local v0, "emptyView":Landroid/view/View;
     const v1, 0x102000a
 
     invoke-virtual {p0, v1}, Landroid/app/ExpandableListActivity;->findViewById(I)Landroid/view/View;
@@ -210,9 +210,9 @@
 
 .method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
     .locals 0
-    .parameter "menu"
-    .parameter "v"
-    .parameter "menuInfo"
+    .param p1, "menu"    # Landroid/view/ContextMenu;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "menuInfo"    # Landroid/view/ContextMenu$ContextMenuInfo;
 
     .prologue
     .line 174
@@ -221,7 +221,7 @@
 
 .method public onGroupCollapse(I)V
     .locals 0
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 190
@@ -230,7 +230,7 @@
 
 .method public onGroupExpand(I)V
     .locals 0
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 196
@@ -239,7 +239,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Bundle;
 
     .prologue
     .line 206
@@ -254,7 +254,7 @@
 
 .method public setListAdapter(Landroid/widget/ExpandableListAdapter;)V
     .locals 1
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/ExpandableListAdapter;
 
     .prologue
     .line 243
@@ -291,9 +291,9 @@
 
 .method public setSelectedChild(IIZ)Z
     .locals 1
-    .parameter "groupPosition"
-    .parameter "childPosition"
-    .parameter "shouldExpandGroup"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
+    .param p3, "shouldExpandGroup"    # Z
 
     .prologue
     .line 312
@@ -308,7 +308,7 @@
 
 .method public setSelectedGroup(I)V
     .locals 1
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 320

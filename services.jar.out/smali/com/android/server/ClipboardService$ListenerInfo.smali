@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ClipboardService;ILjava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "uid"
-    .parameter "packageName"
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 65

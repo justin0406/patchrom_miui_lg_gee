@@ -88,7 +88,7 @@
 # virtual methods
 .method public add(Lcom/google/android/util/AbstractMessageParser$Token;)V
     .locals 2
-    .parameter "token"
+    .param p1, "token"    # Lcom/google/android/util/AbstractMessageParser$Token;
 
     .prologue
     .line 1471
@@ -159,7 +159,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1484
-    .local v0, buf:Ljava/lang/StringBuilder;
+    .local v0, "buf":Ljava/lang/StringBuilder;
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->meText:Ljava/lang/String;
 
     if-eqz v2, :cond_0
@@ -173,7 +173,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
 
@@ -233,7 +233,7 @@
 
 .method public getType(Z)Ljava/lang/String;
     .locals 2
-    .parameter "isSend"
+    .param p1, "isSend"    # Z
 
     .prologue
     .line 1438
@@ -314,7 +314,7 @@
 
 .method public setMeText(Ljava/lang/String;)V
     .locals 0
-    .parameter "meText"
+    .param p1, "meText"    # Ljava/lang/String;
 
     .prologue
     .line 1478

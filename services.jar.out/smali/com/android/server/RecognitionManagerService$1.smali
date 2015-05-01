@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/RecognitionManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 155
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 157
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 159
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -65,17 +64,17 @@
     move-result v1
 
     .line 161
-    .local v1, userHandle:I
+    .local v1, "userHandle":I
     if-lez v1, :cond_0
 
     .line 162
     iget-object v2, p0, Lcom/android/server/RecognitionManagerService$1;->this$0:Lcom/android/server/RecognitionManagerService;
 
-    #calls: Lcom/android/server/RecognitionManagerService;->initForUser(I)V
+    # invokes: Lcom/android/server/RecognitionManagerService;->initForUser(I)V
     invoke-static {v2, v1}, Lcom/android/server/RecognitionManagerService;->access$000(Lcom/android/server/RecognitionManagerService;I)V
 
     .line 165
-    .end local v1           #userHandle:I
+    .end local v1    # "userHandle":I
     :cond_0
     return-void
 .end method

@@ -39,11 +39,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/AsyncTaskLoader;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 57
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     iput-object p1, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -64,14 +63,14 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # [Ljava/lang/Object;
 
     .prologue
     .line 57
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/content/AsyncTaskLoader$LoadTask;->doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
 
     move-result-object v0
@@ -81,7 +80,7 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
     .locals 3
-    .parameter "params"
+    .param p1, "params"    # [Ljava/lang/Void;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -92,7 +91,7 @@
 
     .prologue
     .line 69
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     :try_start_0
     iget-object v2, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
@@ -111,7 +110,7 @@
     move-exception v1
 
     .line 73
-    .local v1, ex:Landroid/os/OperationCanceledException;
+    .local v1, "ex":Landroid/os/OperationCanceledException;
     invoke-virtual {p0}, Landroid/content/AsyncTaskLoader$LoadTask;->isCancelled()Z
 
     move-result v2
@@ -130,7 +129,6 @@
 
 .method protected onCancelled(Ljava/lang/Object;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -139,8 +137,8 @@
 
     .prologue
     .line 103
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
-    .local p1, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p1, "data":Ljava/lang/Object;, "TD;"
     :try_start_0
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
@@ -169,7 +167,6 @@
 
 .method protected onPostExecute(Ljava/lang/Object;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -178,8 +175,8 @@
 
     .prologue
     .line 92
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
-    .local p1, data:Ljava/lang/Object;,"TD;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p1, "data":Ljava/lang/Object;, "TD;"
     :try_start_0
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
@@ -211,7 +208,7 @@
 
     .prologue
     .line 113
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->waiting:Z
@@ -230,7 +227,7 @@
 
     .prologue
     .line 120
-    .local p0, this:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
+    .local p0, "this":Landroid/content/AsyncTaskLoader$LoadTask;, "Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
     :try_start_0
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
 

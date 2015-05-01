@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AlarmManagerService;)V
     .locals 3
-    .parameter
 
     .prologue
     .line 1376
@@ -35,7 +34,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 1378
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -56,7 +55,7 @@
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     .line 1382
-    #getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/server/AlarmManagerService;->access$600(Lcom/android/server/AlarmManagerService;)Landroid/content/Context;
 
     move-result-object v2
@@ -69,7 +68,7 @@
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
     .line 1385
-    .local v1, sdFilter:Landroid/content/IntentFilter;
+    .local v1, "sdFilter":Landroid/content/IntentFilter;
     const-string v2, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -80,7 +79,7 @@
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 1387
-    #getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/server/AlarmManagerService;->access$600(Lcom/android/server/AlarmManagerService;)Landroid/content/Context;
 
     move-result-object v2
@@ -95,14 +94,14 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 12
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1392
     iget-object v9, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    #getter for: Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v9}, Lcom/android/server/AlarmManagerService;->access$700(Lcom/android/server/AlarmManagerService;)Ljava/lang/Object;
 
     move-result-object v10
@@ -116,11 +115,11 @@
     move-result-object v0
 
     .line 1394
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const/4 v7, 0x0
 
     .line 1395
-    .local v7, pkgList:[Ljava/lang/String;
+    .local v7, "pkgList":[Ljava/lang/String;
     const-string v9, "android.intent.action.QUERY_PACKAGE_RESTART"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -139,20 +138,20 @@
     .line 1397
     move-object v1, v7
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v4, v1
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v5, v1, v3
 
     .line 1398
-    .local v5, packageName:Ljava/lang/String;
+    .local v5, "packageName":Ljava/lang/String;
     iget-object v9, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-virtual {v9, v5}, Lcom/android/server/AlarmManagerService;->lookForPackageLocked(Ljava/lang/String;)Z
@@ -170,36 +169,36 @@
     monitor-exit v10
 
     .line 1432
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .end local v5           #packageName:Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v5    # "packageName":Ljava/lang/String;
     :goto_1
     return-void
 
     .line 1397
-    .restart local v1       #arr$:[Ljava/lang/String;
-    .restart local v3       #i$:I
-    .restart local v4       #len$:I
-    .restart local v5       #packageName:Ljava/lang/String;
+    .restart local v1    # "arr$":[Ljava/lang/String;
+    .restart local v3    # "i$":I
+    .restart local v4    # "len$":I
+    .restart local v5    # "packageName":Ljava/lang/String;
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 1403
-    .end local v5           #packageName:Ljava/lang/String;
+    .end local v5    # "packageName":Ljava/lang/String;
     :cond_1
     monitor-exit v10
 
     goto :goto_1
 
     .line 1431
-    .end local v0           #action:Ljava/lang/String;
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .end local v7           #pkgList:[Ljava/lang/String;
+    .end local v0    # "action":Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v7    # "pkgList":[Ljava/lang/String;
     :catchall_0
     move-exception v9
 
@@ -210,8 +209,8 @@
     throw v9
 
     .line 1404
-    .restart local v0       #action:Ljava/lang/String;
-    .restart local v7       #pkgList:[Ljava/lang/String;
+    .restart local v0    # "action":Ljava/lang/String;
+    .restart local v7    # "pkgList":[Ljava/lang/String;
     :cond_2
     :try_start_1
     const-string v9, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
@@ -245,20 +244,20 @@
     .line 1426
     move-object v1, v7
 
-    .restart local v1       #arr$:[Ljava/lang/String;
+    .restart local v1    # "arr$":[Ljava/lang/String;
     array-length v4, v1
 
-    .restart local v4       #len$:I
+    .restart local v4    # "len$":I
     const/4 v3, 0x0
 
-    .restart local v3       #i$:I
+    .restart local v3    # "i$":I
     :goto_3
     if-ge v3, v4, :cond_7
 
     aget-object v6, v1, v3
 
     .line 1427
-    .local v6, pkg:Ljava/lang/String;
+    .local v6, "pkg":Ljava/lang/String;
     iget-object v9, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-virtual {v9, v6}, Lcom/android/server/AlarmManagerService;->removeLocked(Ljava/lang/String;)V
@@ -266,7 +265,7 @@
     .line 1428
     iget-object v9, p0, Lcom/android/server/AlarmManagerService$UninstallReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    #getter for: Lcom/android/server/AlarmManagerService;->mBroadcastStats:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/AlarmManagerService;->mBroadcastStats:Ljava/util/HashMap;
     invoke-static {v9}, Lcom/android/server/AlarmManagerService;->access$1800(Lcom/android/server/AlarmManagerService;)Ljava/util/HashMap;
 
     move-result-object v9
@@ -279,10 +278,10 @@
     goto :goto_3
 
     .line 1406
-    .end local v1           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .end local v6           #pkg:Ljava/lang/String;
+    .end local v1    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v6    # "pkg":Ljava/lang/String;
     :cond_4
     const-string v9, "android.intent.action.USER_STOPPED"
 
@@ -302,7 +301,7 @@
     move-result v8
 
     .line 1408
-    .local v8, userHandle:I
+    .local v8, "userHandle":I
     if-ltz v8, :cond_3
 
     .line 1409
@@ -313,7 +312,7 @@
     goto :goto_2
 
     .line 1412
-    .end local v8           #userHandle:I
+    .end local v8    # "userHandle":I
     :cond_5
     const-string v9, "android.intent.action.PACKAGE_REMOVED"
 
@@ -345,7 +344,7 @@
     move-result-object v2
 
     .line 1418
-    .local v2, data:Landroid/net/Uri;
+    .local v2, "data":Landroid/net/Uri;
     if-eqz v2, :cond_3
 
     .line 1419
@@ -354,7 +353,7 @@
     move-result-object v6
 
     .line 1420
-    .restart local v6       #pkg:Ljava/lang/String;
+    .restart local v6    # "pkg":Ljava/lang/String;
     if-eqz v6, :cond_3
 
     .line 1421
@@ -362,17 +361,17 @@
 
     new-array v7, v9, [Ljava/lang/String;
 
-    .end local v7           #pkgList:[Ljava/lang/String;
+    .end local v7    # "pkgList":[Ljava/lang/String;
     const/4 v9, 0x0
 
     aput-object v6, v7, v9
 
-    .restart local v7       #pkgList:[Ljava/lang/String;
+    .restart local v7    # "pkgList":[Ljava/lang/String;
     goto :goto_2
 
     .line 1431
-    .end local v2           #data:Landroid/net/Uri;
-    .end local v6           #pkg:Ljava/lang/String;
+    .end local v2    # "data":Landroid/net/Uri;
+    .end local v6    # "pkg":Ljava/lang/String;
     :cond_7
     monitor-exit v10
     :try_end_1

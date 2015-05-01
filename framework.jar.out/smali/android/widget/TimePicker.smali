@@ -73,7 +73,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 127
@@ -87,8 +87,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 131
@@ -102,9 +102,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 11
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 135
@@ -132,7 +132,7 @@
     move-result-object v2
 
     .line 143
-    .local v2, attributesArray:Landroid/content/res/TypedArray;
+    .local v2, "attributesArray":Landroid/content/res/TypedArray;
     const/4 v8, 0x0
 
     const v9, 0x10900b2
@@ -142,7 +142,7 @@
     move-result v5
 
     .line 145
-    .local v5, layoutResourceId:I
+    .local v5, "layoutResourceId":I
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 147
@@ -155,7 +155,7 @@
     check-cast v4, Landroid/view/LayoutInflater;
 
     .line 149
-    .local v4, inflater:Landroid/view/LayoutInflater;
+    .local v4, "inflater":Landroid/view/LayoutInflater;
     const/4 v8, 0x1
 
     invoke-virtual {v4, v5, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -270,14 +270,6 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
 
-    iget-object v8, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    new-instance v9, Landroid/widget/TimePicker$OnMinuteChangeListener;
-
-    invoke-direct {v9, p0}, Landroid/widget/TimePicker$OnMinuteChangeListener;-><init>(Landroid/widget/TimePicker;)V
-
-    invoke-virtual {v8, v9}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
-
     .line 204
     iget-object v8, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
@@ -317,7 +309,7 @@
     move-result-object v1
 
     .line 212
-    .local v1, amPmView:Landroid/view/View;
+    .local v1, "amPmView":Landroid/view/View;
     instance-of v8, v1, Landroid/widget/Button;
 
     if-eqz v8, :cond_4
@@ -366,7 +358,7 @@
     check-cast v0, Landroid/view/ViewGroup;
 
     .line 246
-    .local v0, amPmParent:Landroid/view/ViewGroup;
+    .local v0, "amPmParent":Landroid/view/ViewGroup;
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 247
@@ -382,19 +374,19 @@
     check-cast v6, Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 251
-    .local v6, lp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .local v6, "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     invoke-virtual {v6}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginStart()I
 
     move-result v7
 
     .line 252
-    .local v7, startMargin:I
+    .local v7, "startMargin":I
     invoke-virtual {v6}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginEnd()I
 
     move-result v3
 
     .line 253
-    .local v3, endMargin:I
+    .local v3, "endMargin":I
     if-eq v7, v3, :cond_1
 
     .line 254
@@ -404,10 +396,10 @@
     invoke-virtual {v6, v7}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
     .line 259
-    .end local v0           #amPmParent:Landroid/view/ViewGroup;
-    .end local v3           #endMargin:I
-    .end local v6           #lp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v7           #startMargin:I
+    .end local v0    # "amPmParent":Landroid/view/ViewGroup;
+    .end local v3    # "endMargin":I
+    .end local v6    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v7    # "startMargin":I
     :cond_1
     invoke-direct {p0}, Landroid/widget/TimePicker;->getHourFormatData()V
 
@@ -555,7 +547,7 @@
 
 .method static synthetic access$000(Landroid/widget/TimePicker;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -566,7 +558,7 @@
 
 .method static synthetic access$100(Landroid/widget/TimePicker;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -577,8 +569,8 @@
 
 .method static synthetic access$102(Landroid/widget/TimePicker;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 58
@@ -589,7 +581,7 @@
 
 .method static synthetic access$200(Landroid/widget/TimePicker;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -600,7 +592,7 @@
 
 .method static synthetic access$300(Landroid/widget/TimePicker;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -611,7 +603,7 @@
 
 .method static synthetic access$400(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -622,7 +614,7 @@
 
 .method static synthetic access$500(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TimePicker;
 
     .prologue
     .line 58
@@ -641,7 +633,7 @@
     move-result-object v2
 
     .line 287
-    .local v2, defaultLocale:Ljava/util/Locale;
+    .local v2, "defaultLocale":Ljava/util/Locale;
     iget-boolean v6, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
 
     if-eqz v6, :cond_2
@@ -654,13 +646,13 @@
     move-result-object v0
 
     .line 289
-    .local v0, bestDateTimePattern:Ljava/lang/String;
+    .local v0, "bestDateTimePattern":Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
 
     .line 290
-    .local v5, lengthPattern:I
+    .local v5, "lengthPattern":I
     const/4 v6, 0x0
 
     iput-boolean v6, p0, Landroid/widget/TimePicker;->mHourWithTwoDigit:Z
@@ -669,10 +661,10 @@
     const/4 v3, 0x0
 
     .line 294
-    .local v3, hourFormat:C
+    .local v3, "hourFormat":C
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     if-ge v4, v5, :cond_1
 
@@ -682,7 +674,7 @@
     move-result v1
 
     .line 296
-    .local v1, c:C
+    .local v1, "c":C
     const/16 v6, 0x48
 
     if-eq v1, v6, :cond_0
@@ -722,26 +714,26 @@
     iput-boolean v6, p0, Landroid/widget/TimePicker;->mHourWithTwoDigit:Z
 
     .line 304
-    .end local v1           #c:C
+    .end local v1    # "c":C
     :cond_1
     return-void
 
     .line 287
-    .end local v0           #bestDateTimePattern:Ljava/lang/String;
-    .end local v3           #hourFormat:C
-    .end local v4           #i:I
-    .end local v5           #lengthPattern:I
+    .end local v0    # "bestDateTimePattern":Ljava/lang/String;
+    .end local v3    # "hourFormat":C
+    .end local v4    # "i":I
+    .end local v5    # "lengthPattern":I
     :cond_2
     const-string v6, "hm"
 
     goto :goto_0
 
     .line 294
-    .restart local v0       #bestDateTimePattern:Ljava/lang/String;
-    .restart local v1       #c:C
-    .restart local v3       #hourFormat:C
-    .restart local v4       #i:I
-    .restart local v5       #lengthPattern:I
+    .restart local v0    # "bestDateTimePattern":Ljava/lang/String;
+    .restart local v1    # "c":C
+    .restart local v3    # "hourFormat":C
+    .restart local v4    # "i":I
+    .restart local v5    # "lengthPattern":I
     :cond_3
     add-int/lit8 v4, v4, 0x1
 
@@ -758,7 +750,7 @@
     move-result-object v1
 
     .line 308
-    .local v1, defaultLocale:Ljava/util/Locale;
+    .local v1, "defaultLocale":Ljava/util/Locale;
     const-string v2, "hm"
 
     invoke-static {v1, v2}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
@@ -766,7 +758,7 @@
     move-result-object v0
 
     .line 311
-    .local v0, bestDateTimePattern:Ljava/lang/String;
+    .local v0, "bestDateTimePattern":Ljava/lang/String;
     const-string v2, "a"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -827,28 +819,28 @@
     .line 655
     iget-object v0, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404ed
+    const v1, 0x10404ee
 
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
     .line 657
     iget-object v0, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404ee
+    const v1, 0x10404ef
 
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
     .line 660
     iget-object v0, p0, Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404ef
+    const v1, 0x10404f0
 
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
     .line 662
     iget-object v0, p0, Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404f0
+    const v1, 0x10404f1
 
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
@@ -860,14 +852,14 @@
     .line 666
     iget-object v0, p0, Landroid/widget/TimePicker;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404f1
+    const v1, 0x10404f2
 
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
     .line 668
     iget-object v0, p0, Landroid/widget/TimePicker;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404f2
+    const v1, 0x10404f3
 
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePicker;->trySetContentDescription(Landroid/view/View;II)V
 
@@ -878,8 +870,8 @@
 
 .method private setCurrentHour(Ljava/lang/Integer;Z)V
     .locals 2
-    .parameter "currentHour"
-    .parameter "notifyTimeChanged"
+    .param p1, "currentHour"    # Ljava/lang/Integer;
+    .param p2, "notifyTimeChanged"    # Z
 
     .prologue
     const/16 v1, 0xc
@@ -982,7 +974,7 @@
 
 .method private setCurrentLocale(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 350
@@ -1024,7 +1016,7 @@
     move-result-object v1
 
     .line 533
-    .local v1, defaultLocale:Ljava/util/Locale;
+    .local v1, "defaultLocale":Ljava/util/Locale;
     iget-boolean v6, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
 
     if-eqz v6, :cond_1
@@ -1032,14 +1024,14 @@
     const-string v5, "Hm"
 
     .line 534
-    .local v5, skeleton:Ljava/lang/String;
+    .local v5, "skeleton":Ljava/lang/String;
     :goto_0
     invoke-static {v1, v5}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 537
-    .local v0, bestDateTimePattern:Ljava/lang/String;
+    .local v0, "bestDateTimePattern":Ljava/lang/String;
     const/16 v6, 0x48
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->lastIndexOf(I)I
@@ -1047,7 +1039,7 @@
     move-result v2
 
     .line 538
-    .local v2, hourIndex:I
+    .local v2, "hourIndex":I
     if-ne v2, v8, :cond_0
 
     .line 539
@@ -1065,7 +1057,7 @@
     const-string v4, ":"
 
     .line 552
-    .local v4, separatorText:Ljava/lang/String;
+    .local v4, "separatorText":Ljava/lang/String;
     :goto_1
     iget-object v6, p0, Landroid/widget/TimePicker;->mDivider:Landroid/widget/TextView;
 
@@ -1075,19 +1067,19 @@
     return-void
 
     .line 533
-    .end local v0           #bestDateTimePattern:Ljava/lang/String;
-    .end local v2           #hourIndex:I
-    .end local v4           #separatorText:Ljava/lang/String;
-    .end local v5           #skeleton:Ljava/lang/String;
+    .end local v0    # "bestDateTimePattern":Ljava/lang/String;
+    .end local v2    # "hourIndex":I
+    .end local v4    # "separatorText":Ljava/lang/String;
+    .end local v5    # "skeleton":Ljava/lang/String;
     :cond_1
     const-string v5, "hm"
 
     goto :goto_0
 
     .line 545
-    .restart local v0       #bestDateTimePattern:Ljava/lang/String;
-    .restart local v2       #hourIndex:I
-    .restart local v5       #skeleton:Ljava/lang/String;
+    .restart local v0    # "bestDateTimePattern":Ljava/lang/String;
+    .restart local v2    # "hourIndex":I
+    .restart local v5    # "skeleton":Ljava/lang/String;
     :cond_2
     const/16 v6, 0x6d
 
@@ -1098,7 +1090,7 @@
     move-result v3
 
     .line 546
-    .local v3, minuteIndex:I
+    .local v3, "minuteIndex":I
     if-ne v3, v8, :cond_3
 
     .line 547
@@ -1112,11 +1104,11 @@
 
     move-result-object v4
 
-    .restart local v4       #separatorText:Ljava/lang/String;
+    .restart local v4    # "separatorText":Ljava/lang/String;
     goto :goto_1
 
     .line 549
-    .end local v4           #separatorText:Ljava/lang/String;
+    .end local v4    # "separatorText":Ljava/lang/String;
     :cond_3
     add-int/lit8 v6, v2, 0x1
 
@@ -1124,15 +1116,15 @@
 
     move-result-object v4
 
-    .restart local v4       #separatorText:Ljava/lang/String;
+    .restart local v4    # "separatorText":Ljava/lang/String;
     goto :goto_1
 .end method
 
 .method private trySetContentDescription(Landroid/view/View;II)V
     .locals 2
-    .parameter "root"
-    .parameter "viewId"
-    .parameter "contDescResId"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "viewId"    # I
+    .param p3, "contDescResId"    # I
 
     .prologue
     .line 674
@@ -1141,7 +1133,7 @@
     move-result-object v0
 
     .line 675
-    .local v0, target:Landroid/view/View;
+    .local v0, "target":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 676
@@ -1209,7 +1201,7 @@
     move v0, v1
 
     .line 635
-    .local v0, index:I
+    .local v0, "index":I
     :goto_1
     iget-object v2, p0, Landroid/widget/TimePicker;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
@@ -1228,14 +1220,14 @@
     goto :goto_0
 
     .line 634
-    .end local v0           #index:I
+    .end local v0    # "index":I
     :cond_2
     const/4 v0, 0x1
 
     goto :goto_1
 
     .line 639
-    .restart local v0       #index:I
+    .restart local v0    # "index":I
     :cond_3
     iget-object v2, p0, Landroid/widget/TimePicker;->mAmPmButton:Landroid/widget/Button;
 
@@ -1376,7 +1368,7 @@
     move-result-object v0
 
     .line 687
-    .local v0, inputMethodManager:Landroid/view/inputmethod/InputMethodManager;
+    .local v0, "inputMethodManager":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
     .line 688
@@ -1489,27 +1481,9 @@
 
 
 # virtual methods
-.method callOnTimeChanged()V
-    .locals 0
-
-    .prologue
-    invoke-direct {p0}, Landroid/widget/TimePicker;->onTimeChanged()V
-
-    return-void
-.end method
-
-.method callUpdateInputState()V
-    .locals 0
-
-    .prologue
-    invoke-direct {p0}, Landroid/widget/TimePicker;->updateInputState()V
-
-    return-void
-.end method
-
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 562
@@ -1547,7 +1521,7 @@
     move-result v0
 
     .line 433
-    .local v0, currentHour:I
+    .local v0, "currentHour":I
     invoke-virtual {p0}, Landroid/widget/TimePicker;->is24HourView()Z
 
     move-result v1
@@ -1609,29 +1583,11 @@
     return-object v0
 .end method
 
-.method getIs24HourViewField()Z
-    .locals 1
-
-    .prologue
-    .line 502
-    iget-boolean v0, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
-
-    return v0
-.end method
-
-.method getMinuteSpinner()Landroid/widget/NumberPicker;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    return-object v0
-.end method
-
 .method public is24HourView()Z
     .locals 1
 
     .prologue
+    .line 502
     iget-boolean v0, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
 
     return v0
@@ -1649,7 +1605,7 @@
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 340
@@ -1666,7 +1622,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 585
@@ -1687,7 +1643,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 591
@@ -1708,7 +1664,7 @@
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 568
@@ -1718,7 +1674,7 @@
     const/4 v0, 0x1
 
     .line 571
-    .local v0, flags:I
+    .local v0, "flags":I
     iget-boolean v2, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
 
     if-eqz v2, :cond_0
@@ -1771,7 +1727,7 @@
     move-result-object v1
 
     .line 580
-    .local v1, selectedDateUtterance:Ljava/lang/String;
+    .local v1, "selectedDateUtterance":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v2
@@ -1782,7 +1738,7 @@
     return-void
 
     .line 574
-    .end local v1           #selectedDateUtterance:Ljava/lang/String;
+    .end local v1    # "selectedDateUtterance":Ljava/lang/String;
     :cond_0
     or-int/lit8 v0, v0, 0x40
 
@@ -1791,7 +1747,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 413
@@ -1800,7 +1756,7 @@
     check-cast v0, Landroid/widget/TimePicker$SavedState;
 
     .line 414
-    .local v0, ss:Landroid/widget/TimePicker$SavedState;
+    .local v0, "ss":Landroid/widget/TimePicker$SavedState;
     invoke-virtual {v0}, Landroid/widget/TimePicker$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -1843,7 +1799,7 @@
     move-result-object v0
 
     .line 408
-    .local v0, superState:Landroid/os/Parcelable;
+    .local v0, "superState":Landroid/os/Parcelable;
     new-instance v1, Landroid/widget/TimePicker$SavedState;
 
     invoke-virtual {p0}, Landroid/widget/TimePicker;->getCurrentHour()Ljava/lang/Integer;
@@ -1871,7 +1827,7 @@
 
 .method public setCurrentHour(Ljava/lang/Integer;)V
     .locals 1
-    .parameter "currentHour"
+    .param p1, "currentHour"    # Ljava/lang/Integer;
 
     .prologue
     .line 446
@@ -1885,7 +1841,7 @@
 
 .method public setCurrentMinute(Ljava/lang/Integer;)V
     .locals 2
-    .parameter "currentMinute"
+    .param p1, "currentMinute"    # Ljava/lang/Integer;
 
     .prologue
     .line 516
@@ -1917,7 +1873,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 316
@@ -1981,11 +1937,10 @@
 
 .method public setIs24HourView(Ljava/lang/Boolean;)V
     .locals 3
-    .parameter "is24HourView"
+    .param p1, "is24HourView"    # Ljava/lang/Boolean;
 
     .prologue
-    invoke-static {p0, p1}, Landroid/widget/Injector$TimePickerHook;->before_setIs24HourView(Landroid/widget/TimePicker;Ljava/lang/Boolean;)V
-
+    .line 481
     iget-boolean v1, p0, Landroid/widget/TimePicker;->mIs24HourView:Z
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -2009,7 +1964,7 @@
     move-result v0
 
     .line 487
-    .local v0, currentHour:I
+    .local v0, "currentHour":I
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2042,7 +1997,7 @@
 
 .method public setOnTimeChangedListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
     .locals 0
-    .parameter "onTimeChangedListener"
+    .param p1, "onTimeChangedListener"    # Landroid/widget/TimePicker$OnTimeChangedListener;
 
     .prologue
     .line 425

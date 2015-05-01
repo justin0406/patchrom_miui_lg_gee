@@ -48,9 +48,9 @@
 
 .method public constructor <init>(Landroid/net/NetworkInfo;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;)V
     .locals 6
-    .parameter "networkInfo"
-    .parameter "linkProperties"
-    .parameter "linkCapabilities"
+    .param p1, "networkInfo"    # Landroid/net/NetworkInfo;
+    .param p2, "linkProperties"    # Landroid/net/LinkProperties;
+    .param p3, "linkCapabilities"    # Landroid/net/LinkCapabilities;
 
     .prologue
     const/4 v4, 0x0
@@ -74,11 +74,11 @@
 
 .method public constructor <init>(Landroid/net/NetworkInfo;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "networkInfo"
-    .parameter "linkProperties"
-    .parameter "linkCapabilities"
-    .parameter "subscriberId"
-    .parameter "networkId"
+    .param p1, "networkInfo"    # Landroid/net/NetworkInfo;
+    .param p2, "linkProperties"    # Landroid/net/LinkProperties;
+    .param p3, "linkCapabilities"    # Landroid/net/LinkCapabilities;
+    .param p4, "subscriberId"    # Ljava/lang/String;
+    .param p5, "networkId"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -105,7 +105,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x0
@@ -172,8 +172,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 65

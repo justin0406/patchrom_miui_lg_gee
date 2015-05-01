@@ -52,7 +52,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 61
@@ -70,46 +70,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/service/notification/StatusBarNotification;IIILjava/lang/CharSequence;)V
-    .locals 7
-    .parameter "notification"
-    .parameter "iconId"
-    .parameter "iconLevel"
-    .parameter "number"
-    .parameter "contentDescription"
-
-    .prologue
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v2
-
-    move-object v0, p0
-
-    move v3, p2
-
-    move v4, p3
-
-    move v5, p4
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/internal/statusbar/StatusBarIcon;-><init>(Ljava/lang/String;Landroid/os/UserHandle;IIILjava/lang/CharSequence;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;Landroid/os/UserHandle;IIILjava/lang/CharSequence;)V
     .locals 1
-    .parameter "iconPackage"
-    .parameter "user"
-    .parameter "iconId"
-    .parameter "iconLevel"
-    .parameter "number"
-    .parameter "contentDescription"
+    .param p1, "iconPackage"    # Ljava/lang/String;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "iconId"    # I
+    .param p4, "iconLevel"    # I
+    .param p5, "number"    # I
+    .param p6, "contentDescription"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 33
@@ -166,7 +134,7 @@
     invoke-direct/range {v0 .. v6}, Lcom/android/internal/statusbar/StatusBarIcon;-><init>(Ljava/lang/String;Landroid/os/UserHandle;IIILjava/lang/CharSequence;)V
 
     .line 54
-    .local v0, that:Lcom/android/internal/statusbar/StatusBarIcon;
+    .local v0, "that":Lcom/android/internal/statusbar/StatusBarIcon;
     iget-boolean v1, p0, Lcom/android/internal/statusbar/StatusBarIcon;->visible:Z
 
     iput-boolean v1, v0, Lcom/android/internal/statusbar/StatusBarIcon;->visible:Z
@@ -204,7 +172,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 66
@@ -379,8 +347,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x0

@@ -23,9 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/audiofx/Visualizer;Landroid/media/audiofx/Visualizer;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "v"
-    .parameter "looper"
+    .param p2, "v"    # Landroid/media/audiofx/Visualizer;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 652
@@ -43,17 +42,17 @@
 
 .method private handleCaptureMessage(Landroid/os/Message;)V
     .locals 6
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 658
     const/4 v1, 0x0
 
     .line 659
-    .local v1, l:Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
+    .local v1, "l":Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
     iget-object v3, p0, Landroid/media/audiofx/Visualizer$NativeEventHandler;->this$0:Landroid/media/audiofx/Visualizer;
 
-    #getter for: Landroid/media/audiofx/Visualizer;->mListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/audiofx/Visualizer;->mListenerLock:Ljava/lang/Object;
     invoke-static {v3}, Landroid/media/audiofx/Visualizer;->access$000(Landroid/media/audiofx/Visualizer;)Ljava/lang/Object;
 
     move-result-object v4
@@ -64,7 +63,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/media/audiofx/Visualizer$NativeEventHandler;->mVisualizer:Landroid/media/audiofx/Visualizer;
 
-    #getter for: Landroid/media/audiofx/Visualizer;->mCaptureListener:Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
+    # getter for: Landroid/media/audiofx/Visualizer;->mCaptureListener:Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
     invoke-static {v3}, Landroid/media/audiofx/Visualizer;->access$100(Landroid/media/audiofx/Visualizer;)Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
 
     move-result-object v1
@@ -87,11 +86,11 @@
     check-cast v0, [B
 
     .line 665
-    .local v0, data:[B
+    .local v0, "data":[B
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     .line 667
-    .local v2, samplingRate:I
+    .local v2, "samplingRate":I
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
@@ -122,8 +121,8 @@
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 679
-    .end local v0           #data:[B
-    .end local v2           #samplingRate:I
+    .end local v0    # "data":[B
+    .end local v2    # "samplingRate":I
     :cond_0
     :goto_0
     return-void
@@ -140,8 +139,8 @@
     throw v3
 
     .line 669
-    .restart local v0       #data:[B
-    .restart local v2       #samplingRate:I
+    .restart local v0    # "data":[B
+    .restart local v2    # "samplingRate":I
     :pswitch_0
     iget-object v3, p0, Landroid/media/audiofx/Visualizer$NativeEventHandler;->mVisualizer:Landroid/media/audiofx/Visualizer;
 
@@ -169,17 +168,17 @@
 
 .method private handleServerDiedMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 682
     const/4 v0, 0x0
 
     .line 683
-    .local v0, l:Landroid/media/audiofx/Visualizer$OnServerDiedListener;
+    .local v0, "l":Landroid/media/audiofx/Visualizer$OnServerDiedListener;
     iget-object v1, p0, Landroid/media/audiofx/Visualizer$NativeEventHandler;->this$0:Landroid/media/audiofx/Visualizer;
 
-    #getter for: Landroid/media/audiofx/Visualizer;->mListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/audiofx/Visualizer;->mListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/audiofx/Visualizer;->access$000(Landroid/media/audiofx/Visualizer;)Ljava/lang/Object;
 
     move-result-object v2
@@ -190,7 +189,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/media/audiofx/Visualizer$NativeEventHandler;->mVisualizer:Landroid/media/audiofx/Visualizer;
 
-    #getter for: Landroid/media/audiofx/Visualizer;->mServerDiedListener:Landroid/media/audiofx/Visualizer$OnServerDiedListener;
+    # getter for: Landroid/media/audiofx/Visualizer;->mServerDiedListener:Landroid/media/audiofx/Visualizer$OnServerDiedListener;
     invoke-static {v1}, Landroid/media/audiofx/Visualizer;->access$200(Landroid/media/audiofx/Visualizer;)Landroid/media/audiofx/Visualizer$OnServerDiedListener;
 
     move-result-object v0
@@ -226,7 +225,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 693

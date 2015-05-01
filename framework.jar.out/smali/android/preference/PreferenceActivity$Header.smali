@@ -93,7 +93,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 498
@@ -125,7 +125,7 @@
 
 .method public getBreadCrumbShortTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 445
@@ -152,7 +152,7 @@
 
 .method public getBreadCrumbTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 432
@@ -179,7 +179,7 @@
 
 .method public getSummary(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 420
@@ -206,7 +206,7 @@
 
 .method public getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 408
@@ -233,7 +233,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 480
@@ -368,8 +368,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 458

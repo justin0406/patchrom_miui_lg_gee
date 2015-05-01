@@ -33,10 +33,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;II)V
     .locals 5
-    .parameter "_client"
-    .parameter "_inputContext"
-    .parameter "_uid"
-    .parameter "_pid"
+    .param p1, "_client"    # Lcom/android/internal/view/IInputMethodClient;
+    .param p2, "_inputContext"    # Lcom/android/internal/view/IInputContext;
+    .param p3, "_uid"    # I
+    .param p4, "_pid"    # I
 
     .prologue
     .line 248

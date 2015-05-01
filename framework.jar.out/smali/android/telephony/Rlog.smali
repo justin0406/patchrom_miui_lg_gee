@@ -17,8 +17,8 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -35,9 +35,9 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 50
@@ -80,8 +80,8 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 77
@@ -98,9 +98,9 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 81
@@ -143,8 +143,8 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 55
@@ -161,9 +161,9 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 59
@@ -206,8 +206,8 @@
 
 .method public static isLoggable(Ljava/lang/String;I)Z
     .locals 1
-    .parameter "tag"
-    .parameter "level"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "level"    # I
 
     .prologue
     .line 90
@@ -220,9 +220,9 @@
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .parameter "priority"
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "priority"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -237,8 +237,8 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 37
@@ -255,9 +255,9 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 41
@@ -300,8 +300,8 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 64
@@ -318,9 +318,9 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 68
@@ -363,8 +363,8 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 3
-    .parameter "tag"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 73

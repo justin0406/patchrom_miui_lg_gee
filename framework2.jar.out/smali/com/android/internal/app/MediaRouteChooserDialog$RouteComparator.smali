@@ -60,8 +60,8 @@
 # virtual methods
 .method public compare(Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteInfo;)I
     .locals 2
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p2, "rhs"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 270
@@ -90,17 +90,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 265
     check-cast p1, Landroid/media/MediaRouter$RouteInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/media/MediaRouter$RouteInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;->compare(Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteInfo;)I
 
     move-result v0

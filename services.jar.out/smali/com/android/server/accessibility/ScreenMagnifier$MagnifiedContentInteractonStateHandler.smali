@@ -40,8 +40,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;Landroid/content/Context;)V
     .locals 2
-    .parameter
-    .parameter "context"
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     .line 503
@@ -50,7 +49,7 @@
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
 
     .line 500
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->mInitialScaleFactor:F
 
@@ -81,7 +80,7 @@
 
 .method static synthetic access$700(Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;
 
     .prologue
     .line 490
@@ -95,7 +94,7 @@
 
     .prologue
     .line 580
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->mInitialScaleFactor:F
 
@@ -112,7 +111,7 @@
 # virtual methods
 .method public onMotionEvent(Landroid/view/MotionEvent;)V
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v3, 0x3
@@ -130,7 +129,7 @@
     .line 512
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
     invoke-static {v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$900(Lcom/android/server/accessibility/ScreenMagnifier;)I
 
     move-result v1
@@ -160,7 +159,7 @@
     .line 517
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v1
@@ -169,23 +168,23 @@
 
     move-result v1
 
-    const v2, 0x3fa66666
+    const v2, 0x3fa66666    # 1.3f
 
     invoke-static {v1, v2}, Ljava/lang/Math;->max(FF)F
 
     move-result v1
 
-    const/high16 v2, 0x40a0
+    const/high16 v2, 0x40a00000    # 5.0f
 
     invoke-static {v1, v2}, Ljava/lang/Math;->min(FF)F
 
     move-result v0
 
     .line 519
-    .local v0, scale:F
+    .local v0, "scale":F
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->getPersistedScale()F
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->getPersistedScale()F
     invoke-static {v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1100(Lcom/android/server/accessibility/ScreenMagnifier;)F
 
     move-result v1
@@ -197,14 +196,14 @@
     .line 520
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->persistScale(F)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->persistScale(F)V
     invoke-static {v1, v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1200(Lcom/android/server/accessibility/ScreenMagnifier;F)V
 
     .line 522
     :cond_2
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mPreviousState:I
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mPreviousState:I
     invoke-static {v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1300(Lcom/android/server/accessibility/ScreenMagnifier;)I
 
     move-result v1
@@ -214,7 +213,7 @@
     .line 523
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
     invoke-static {v1, v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1400(Lcom/android/server/accessibility/ScreenMagnifier;I)V
 
     goto :goto_0
@@ -225,7 +224,7 @@
 
     const/4 v2, 0x2
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
     invoke-static {v1, v2}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1400(Lcom/android/server/accessibility/ScreenMagnifier;I)V
 
     goto :goto_0
@@ -233,7 +232,7 @@
 
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
     .locals 8
-    .parameter "detector"
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
     .prologue
     const/4 v4, 0x0
@@ -279,12 +278,12 @@
     sub-float v0, v5, v6
 
     .line 551
-    .local v0, deltaScale:F
+    .local v0, "deltaScale":F
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v5
 
-    const v6, 0x3e99999a
+    const v6, 0x3e99999a    # 0.3f
 
     cmpl-float v5, v5, v6
 
@@ -296,11 +295,11 @@
     goto :goto_0
 
     .line 558
-    .end local v0           #deltaScale:F
+    .end local v0    # "deltaScale":F
     :cond_2
     iget-object v5, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v5}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v5
@@ -316,24 +315,24 @@
     mul-float v1, v5, v6
 
     .line 560
-    .local v1, newScale:F
-    const v5, 0x3fa66666
+    .local v1, "newScale":F
+    const v5, 0x3fa66666    # 1.3f
 
     invoke-static {v1, v5}, Ljava/lang/Math;->max(FF)F
 
     move-result v5
 
-    const/high16 v6, 0x40a0
+    const/high16 v6, 0x40a00000    # 5.0f
 
     invoke-static {v5, v6}, Ljava/lang/Math;->min(FF)F
 
     move-result v2
 
     .line 564
-    .local v2, normalizedNewScale:F
+    .local v2, "normalizedNewScale":F
     iget-object v5, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v5}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v5
@@ -353,13 +352,13 @@
 
 .method public onScaleBegin(Landroid/view/ScaleGestureDetector;)Z
     .locals 2
-    .parameter "detector"
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
     .prologue
     .line 571
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$900(Lcom/android/server/accessibility/ScreenMagnifier;)I
 
     move-result v0
@@ -381,7 +380,7 @@
 
 .method public onScaleEnd(Landroid/view/ScaleGestureDetector;)V
     .locals 0
-    .parameter "detector"
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
     .prologue
     .line 576
@@ -393,10 +392,10 @@
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 3
-    .parameter "first"
-    .parameter "second"
-    .parameter "distanceX"
-    .parameter "distanceY"
+    .param p1, "first"    # Landroid/view/MotionEvent;
+    .param p2, "second"    # Landroid/view/MotionEvent;
+    .param p3, "distanceX"    # F
+    .param p4, "distanceY"    # F
 
     .prologue
     const/4 v2, 0x1
@@ -404,7 +403,7 @@
     .line 533
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mCurrentState:I
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$900(Lcom/android/server/accessibility/ScreenMagnifier;)I
 
     move-result v0
@@ -421,7 +420,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnifiedContentInteractonStateHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v0

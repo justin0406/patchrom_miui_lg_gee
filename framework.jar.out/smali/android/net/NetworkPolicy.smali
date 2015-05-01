@@ -21,7 +21,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -80,15 +80,15 @@
 
 .method public constructor <init>(Landroid/net/NetworkTemplate;ILjava/lang/String;JJJJZZ)V
     .locals 1
-    .parameter "template"
-    .parameter "cycleDay"
-    .parameter "cycleTimezone"
-    .parameter "warningBytes"
-    .parameter "limitBytes"
-    .parameter "lastWarningSnooze"
-    .parameter "lastLimitSnooze"
-    .parameter "metered"
-    .parameter "inferred"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "cycleDay"    # I
+    .param p3, "cycleTimezone"    # Ljava/lang/String;
+    .param p4, "warningBytes"    # J
+    .param p6, "limitBytes"    # J
+    .param p8, "lastWarningSnooze"    # J
+    .param p10, "lastLimitSnooze"    # J
+    .param p12, "metered"    # Z
+    .param p13, "inferred"    # Z
 
     .prologue
     .line 59
@@ -143,12 +143,12 @@
 
 .method public constructor <init>(Landroid/net/NetworkTemplate;ILjava/lang/String;JJZ)V
     .locals 14
-    .parameter "template"
-    .parameter "cycleDay"
-    .parameter "cycleTimezone"
-    .parameter "warningBytes"
-    .parameter "limitBytes"
-    .parameter "metered"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "cycleDay"    # I
+    .param p3, "cycleTimezone"    # Ljava/lang/String;
+    .param p4, "warningBytes"    # J
+    .param p6, "limitBytes"    # J
+    .param p8, "metered"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -182,7 +182,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -303,7 +303,7 @@
 
 .method public compareTo(Landroid/net/NetworkPolicy;)I
     .locals 4
-    .parameter "another"
+    .param p1, "another"    # Landroid/net/NetworkPolicy;
 
     .prologue
     const-wide/16 v2, -0x1
@@ -356,13 +356,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 32
     check-cast p1, Landroid/net/NetworkPolicy;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/net/NetworkPolicy;->compareTo(Landroid/net/NetworkPolicy;)I
 
     move-result v0
@@ -382,7 +382,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -398,7 +398,7 @@
     check-cast v0, Landroid/net/NetworkPolicy;
 
     .line 157
-    .local v0, other:Landroid/net/NetworkPolicy;
+    .local v0, "other":Landroid/net/NetworkPolicy;
     iget v2, p0, Landroid/net/NetworkPolicy;->cycleDay:I
 
     iget v3, v0, Landroid/net/NetworkPolicy;->cycleDay:I
@@ -472,7 +472,7 @@
     const/4 v1, 0x1
 
     .line 165
-    .end local v0           #other:Landroid/net/NetworkPolicy;
+    .end local v0    # "other":Landroid/net/NetworkPolicy;
     :cond_0
     return v1
 .end method
@@ -599,7 +599,7 @@
 
 .method public isOverLimit(J)Z
     .locals 4
-    .parameter "totalBytes"
+    .param p1, "totalBytes"    # J
 
     .prologue
     .line 115
@@ -635,7 +635,7 @@
 
 .method public isOverWarning(J)Z
     .locals 4
-    .parameter "totalBytes"
+    .param p1, "totalBytes"    # J
 
     .prologue
     .line 105
@@ -676,7 +676,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 171
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -791,8 +791,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

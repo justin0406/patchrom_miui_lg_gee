@@ -18,7 +18,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 1
-    .parameter "eventType"
+    .param p1, "eventType"    # I
 
     .prologue
     .line 68
@@ -38,7 +38,7 @@
 
 .method public static createEvent(I)Landroid/media/MediaSyncEvent;
     .locals 3
-    .parameter "eventType"
+    .param p0, "eventType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -89,7 +89,7 @@
 
 .method private static isValidType(I)Z
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 114
@@ -141,7 +141,7 @@
 
 .method public setAudioSessionId(I)Landroid/media/MediaSyncEvent;
     .locals 3
-    .parameter "audioSessionId"
+    .param p1, "audioSessionId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;

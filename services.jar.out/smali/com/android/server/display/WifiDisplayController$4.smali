@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 345
@@ -49,7 +47,7 @@
     .line 348
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$4;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;
+    # getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$500(Lcom/android/server/display/WifiDisplayController;)Lcom/android/server/display/WifiDisplayController$Listener;
 
     move-result-object v0

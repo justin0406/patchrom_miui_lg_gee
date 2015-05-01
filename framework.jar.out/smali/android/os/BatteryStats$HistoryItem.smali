@@ -138,8 +138,8 @@
 
 .method public constructor <init>(JLandroid/os/Parcel;)V
     .locals 1
-    .parameter "time"
-    .parameter "src"
+    .param p1, "time"    # J
+    .param p3, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 509
@@ -169,7 +169,7 @@
 
     shl-int/lit8 v0, v0, 0x18
 
-    const/high16 v1, -0x100
+    const/high16 v1, -0x1000000
 
     and-int/2addr v0, v1
 
@@ -201,7 +201,7 @@
 
     shl-int/lit8 v0, v0, 0x1c
 
-    const/high16 v1, -0x1000
+    const/high16 v1, -0x10000000
 
     and-int/2addr v0, v1
 
@@ -209,7 +209,7 @@
 
     shl-int/lit8 v1, v1, 0x18
 
-    const/high16 v2, 0xf00
+    const/high16 v2, 0xf000000
 
     and-int/2addr v1, v2
 
@@ -219,7 +219,7 @@
 
     shl-int/lit8 v1, v1, 0x16
 
-    const/high16 v2, 0xc0
+    const/high16 v2, 0xc00000
 
     and-int/2addr v1, v2
 
@@ -238,7 +238,7 @@
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     const v2, 0xffff
@@ -249,7 +249,7 @@
     move-result v0
 
     .line 534
-    .local v0, bat:I
+    .local v0, "bat":I
     and-int/lit16 v1, v0, 0xff
 
     int-to-byte v1, v1
@@ -377,14 +377,14 @@
 
 .method public readDelta(Landroid/os/Parcel;)V
     .locals 12
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     const v11, 0x3fffff
 
     const v7, 0x3fffd
 
-    const/high16 v10, -0x40
+    const/high16 v10, -0x400000
 
     .line 637
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -392,13 +392,13 @@
     move-result v4
 
     .line 638
-    .local v4, firstToken:I
+    .local v4, "firstToken":I
     const v6, 0x3ffff
 
     and-int v3, v4, v6
 
     .line 639
-    .local v3, deltaTimeToken:I
+    .local v3, "deltaTimeToken":I
     shr-int/lit8 v6, v4, 0x12
 
     and-int/lit8 v6, v6, 0x3
@@ -421,7 +421,7 @@
 
     .line 659
     :goto_0
-    const/high16 v6, 0x10
+    const/high16 v6, 0x100000
 
     and-int/2addr v6, v4
 
@@ -433,7 +433,7 @@
     move-result v0
 
     .line 661
-    .local v0, batteryLevelInt:I
+    .local v0, "batteryLevelInt":I
     shr-int/lit8 v6, v0, 0x18
 
     and-int/lit16 v6, v6, 0xff
@@ -459,9 +459,9 @@
     iput-char v6, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     .line 671
-    .end local v0           #batteryLevelInt:I
+    .end local v0    # "batteryLevelInt":I
     :cond_0
-    const/high16 v6, 0x20
+    const/high16 v6, 0x200000
 
     and-int/2addr v6, v4
 
@@ -473,7 +473,7 @@
     move-result v5
 
     .line 673
-    .local v5, stateInt:I
+    .local v5, "stateInt":I
     and-int v6, v4, v10
 
     and-int v7, v5, v11
@@ -510,7 +510,7 @@
     iput-byte v6, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     .line 686
-    .end local v5           #stateInt:I
+    .end local v5    # "stateInt":I
     :goto_1
     return-void
 
@@ -542,7 +542,7 @@
     move-result v1
 
     .line 651
-    .local v1, delta:I
+    .local v1, "delta":I
     iget-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     int-to-long v8, v1
@@ -554,14 +554,14 @@
     goto :goto_0
 
     .line 654
-    .end local v1           #delta:I
+    .end local v1    # "delta":I
     :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
 
     .line 656
-    .local v1, delta:J
+    .local v1, "delta":J
     iget-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     add-long/2addr v6, v1
@@ -571,7 +571,7 @@
     goto :goto_0
 
     .line 684
-    .end local v1           #delta:J
+    .end local v1    # "delta":J
     :cond_4
     and-int v6, v4, v10
 
@@ -588,7 +588,7 @@
 
 .method public same(Landroid/os/BatteryStats$HistoryItem;)Z
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
     .line 725
@@ -647,9 +647,9 @@
 
 .method public setTo(JBLandroid/os/BatteryStats$HistoryItem;)V
     .locals 1
-    .parameter "time"
-    .parameter "cmd"
-    .parameter "o"
+    .param p1, "time"    # J
+    .param p3, "cmd"    # B
+    .param p4, "o"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
     .line 713
@@ -699,7 +699,7 @@
 
 .method public setTo(Landroid/os/BatteryStats$HistoryItem;)V
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
     .line 701
@@ -753,8 +753,8 @@
 
 .method public writeDelta(Landroid/os/Parcel;Landroid/os/BatteryStats$HistoryItem;)V
     .locals 15
-    .parameter "dest"
-    .parameter "last"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "last"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
     .line 560
@@ -799,19 +799,19 @@
     sub-long v3, v11, v13
 
     .line 567
-    .local v3, deltaTime:J
+    .local v3, "deltaTime":J
     invoke-direct/range {p2 .. p2}, Landroid/os/BatteryStats$HistoryItem;->buildBatteryLevelInt()I
 
     move-result v7
 
     .line 568
-    .local v7, lastBatteryLevelInt:I
+    .local v7, "lastBatteryLevelInt":I
     invoke-direct/range {p2 .. p2}, Landroid/os/BatteryStats$HistoryItem;->buildStateInt()I
 
     move-result v8
 
     .line 571
-    .local v8, lastStateInt:I
+    .local v8, "lastStateInt":I
     const-wide/16 v11, 0x0
 
     cmp-long v11, v3, v11
@@ -829,7 +829,7 @@
     const v5, 0x3ffff
 
     .line 578
-    .local v5, deltaTimeToken:I
+    .local v5, "deltaTimeToken":I
     :goto_1
     iget-byte v11, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
@@ -839,31 +839,31 @@
 
     iget v12, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    const/high16 v13, -0x40
+    const/high16 v13, -0x400000
 
     and-int/2addr v12, v13
 
     or-int v6, v11, v12
 
     .line 581
-    .local v6, firstToken:I
+    .local v6, "firstToken":I
     invoke-direct {p0}, Landroid/os/BatteryStats$HistoryItem;->buildBatteryLevelInt()I
 
     move-result v1
 
     .line 582
-    .local v1, batteryLevelInt:I
+    .local v1, "batteryLevelInt":I
     if-eq v1, v7, :cond_a
 
     const/4 v2, 0x1
 
     .line 583
-    .local v2, batteryLevelIntChanged:Z
+    .local v2, "batteryLevelIntChanged":Z
     :goto_2
     if-eqz v2, :cond_4
 
     .line 584
-    const/high16 v11, 0x10
+    const/high16 v11, 0x100000
 
     or-int/2addr v6, v11
 
@@ -874,18 +874,18 @@
     move-result v9
 
     .line 587
-    .local v9, stateInt:I
+    .local v9, "stateInt":I
     if-eq v9, v8, :cond_b
 
     const/4 v10, 0x1
 
     .line 588
-    .local v10, stateIntChanged:Z
+    .local v10, "stateIntChanged":Z
     :goto_3
     if-eqz v10, :cond_5
 
     .line 589
-    const/high16 v11, 0x20
+    const/high16 v11, 0x200000
 
     or-int/2addr v6, v11
 
@@ -934,12 +934,12 @@
     goto :goto_0
 
     .line 573
-    .end local v1           #batteryLevelInt:I
-    .end local v2           #batteryLevelIntChanged:Z
-    .end local v5           #deltaTimeToken:I
-    .end local v6           #firstToken:I
-    .end local v9           #stateInt:I
-    .end local v10           #stateIntChanged:Z
+    .end local v1    # "batteryLevelInt":I
+    .end local v2    # "batteryLevelIntChanged":Z
+    .end local v5    # "deltaTimeToken":I
+    .end local v6    # "firstToken":I
+    .end local v9    # "stateInt":I
+    .end local v10    # "stateIntChanged":Z
     :cond_8
     const-wide/32 v11, 0x3fffd
 
@@ -950,35 +950,35 @@
     .line 574
     const v5, 0x3fffe
 
-    .restart local v5       #deltaTimeToken:I
+    .restart local v5    # "deltaTimeToken":I
     goto :goto_1
 
     .line 576
-    .end local v5           #deltaTimeToken:I
+    .end local v5    # "deltaTimeToken":I
     :cond_9
     long-to-int v5, v3
 
-    .restart local v5       #deltaTimeToken:I
+    .restart local v5    # "deltaTimeToken":I
     goto :goto_1
 
     .line 582
-    .restart local v1       #batteryLevelInt:I
-    .restart local v6       #firstToken:I
+    .restart local v1    # "batteryLevelInt":I
+    .restart local v6    # "firstToken":I
     :cond_a
     const/4 v2, 0x0
 
     goto :goto_2
 
     .line 587
-    .restart local v2       #batteryLevelIntChanged:Z
-    .restart local v9       #stateInt:I
+    .restart local v2    # "batteryLevelIntChanged":Z
+    .restart local v9    # "stateInt":I
     :cond_b
     const/4 v10, 0x0
 
     goto :goto_3
 
     .line 601
-    .restart local v10       #stateIntChanged:Z
+    .restart local v10    # "stateIntChanged":Z
     :cond_c
     move-object/from16 v0, p1
 
@@ -989,8 +989,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 519
@@ -1017,7 +1017,7 @@
 
     shl-int/lit8 v2, v2, 0x10
 
-    const/high16 v3, 0xf
+    const/high16 v3, 0xf0000
 
     and-int/2addr v2, v3
 
@@ -1027,7 +1027,7 @@
 
     shl-int/lit8 v2, v2, 0x14
 
-    const/high16 v3, 0xf0
+    const/high16 v3, 0xf00000
 
     and-int/2addr v2, v3
 
@@ -1037,14 +1037,14 @@
 
     shl-int/lit8 v2, v2, 0x18
 
-    const/high16 v3, 0xf00
+    const/high16 v3, 0xf000000
 
     and-int/2addr v2, v3
 
     or-int v0, v1, v2
 
     .line 525
-    .local v0, bat:I
+    .local v0, "bat":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 526
@@ -1058,7 +1058,7 @@
 
     shl-int/lit8 v2, v2, 0x10
 
-    const/high16 v3, -0x1
+    const/high16 v3, -0x10000
 
     and-int/2addr v2, v3
 

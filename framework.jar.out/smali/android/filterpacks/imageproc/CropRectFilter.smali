@@ -47,7 +47,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -77,8 +77,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 87
@@ -100,8 +100,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 71
@@ -145,7 +145,7 @@
     move-result-object v0
 
     .line 74
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -168,7 +168,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v6, 0x3
@@ -181,13 +181,13 @@
     move-result-object v0
 
     .line 96
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 99
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget v4, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mOutputWidth:I
 
     iget v5, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mOutputHeight:I
@@ -197,7 +197,7 @@
     move-result-object v3
 
     .line 102
-    .local v3, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v3, "outputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v4
@@ -207,7 +207,7 @@
     move-result-object v2
 
     .line 105
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v4, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v4, :cond_0
@@ -304,8 +304,8 @@
 
 .method updateSourceRect(II)V
     .locals 6
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 125

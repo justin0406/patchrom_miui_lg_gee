@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/InputFilter;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 220
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v3, 0x0
@@ -61,13 +60,13 @@
 
     check-cast v1, Landroid/view/IInputFilterHost;
 
-    #setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
+    # setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
     invoke-static {v2, v1}, Landroid/view/InputFilter;->access$002(Landroid/view/InputFilter;Landroid/view/IInputFilterHost;)Landroid/view/IInputFilterHost;
 
     .line 229
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$100(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1
@@ -77,7 +76,7 @@
     .line 230
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$100(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1
@@ -88,7 +87,7 @@
     :cond_0
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$200(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1
@@ -98,7 +97,7 @@
     .line 233
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$200(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1
@@ -125,7 +124,7 @@
     .line 242
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
+    # setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
     invoke-static {v1, v3}, Landroid/view/InputFilter;->access$002(Landroid/view/InputFilter;Landroid/view/IInputFilterHost;)Landroid/view/IInputFilterHost;
 
     goto :goto_0
@@ -135,7 +134,7 @@
 
     iget-object v2, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
+    # setter for: Landroid/view/InputFilter;->mHost:Landroid/view/IInputFilterHost;
     invoke-static {v2, v3}, Landroid/view/InputFilter;->access$002(Landroid/view/InputFilter;Landroid/view/IInputFilterHost;)Landroid/view/IInputFilterHost;
 
     throw v1
@@ -147,11 +146,11 @@
     check-cast v0, Landroid/view/InputEvent;
 
     .line 249
-    .local v0, event:Landroid/view/InputEvent;
+    .local v0, "event":Landroid/view/InputEvent;
     :try_start_1
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$100(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1
@@ -161,7 +160,7 @@
     .line 250
     iget-object v1, p0, Landroid/view/InputFilter$H;->this$0:Landroid/view/InputFilter;
 
-    #getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    # getter for: Landroid/view/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
     invoke-static {v1}, Landroid/view/InputFilter;->access$100(Landroid/view/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
 
     move-result-object v1

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/CalendarView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1069
@@ -39,16 +38,16 @@
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
     .locals 1
-    .parameter "view"
-    .parameter "firstVisibleItem"
-    .parameter "visibleItemCount"
-    .parameter "totalItemCount"
+    .param p1, "view"    # Landroid/widget/AbsListView;
+    .param p2, "firstVisibleItem"    # I
+    .param p3, "visibleItemCount"    # I
+    .param p4, "totalItemCount"    # I
 
     .prologue
     .line 1077
     iget-object v0, p0, Landroid/widget/CalendarView$2;->this$0:Landroid/widget/CalendarView;
 
-    #calls: Landroid/widget/CalendarView;->onScroll(Landroid/widget/AbsListView;III)V
+    # invokes: Landroid/widget/CalendarView;->onScroll(Landroid/widget/AbsListView;III)V
     invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/CalendarView;->access$900(Landroid/widget/CalendarView;Landroid/widget/AbsListView;III)V
 
     .line 1079
@@ -57,14 +56,14 @@
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
     .locals 1
-    .parameter "view"
-    .parameter "scrollState"
+    .param p1, "view"    # Landroid/widget/AbsListView;
+    .param p2, "scrollState"    # I
 
     .prologue
     .line 1071
     iget-object v0, p0, Landroid/widget/CalendarView$2;->this$0:Landroid/widget/CalendarView;
 
-    #calls: Landroid/widget/CalendarView;->onScrollStateChanged(Landroid/widget/AbsListView;I)V
+    # invokes: Landroid/widget/CalendarView;->onScrollStateChanged(Landroid/widget/AbsListView;I)V
     invoke-static {v0, p1, p2}, Landroid/widget/CalendarView;->access$800(Landroid/widget/CalendarView;Landroid/widget/AbsListView;I)V
 
     .line 1072

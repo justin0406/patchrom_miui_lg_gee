@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Picture;)V
     .locals 0
-    .parameter "picture"
+    .param p1, "picture"    # Landroid/graphics/Picture;
 
     .prologue
     .line 44
@@ -27,7 +27,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 3
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 68
@@ -41,7 +41,7 @@
     move-result-object v0
 
     .line 70
-    .local v0, bounds:Landroid/graphics/Rect;
+    .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 71
@@ -67,7 +67,7 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 76
-    .end local v0           #bounds:Landroid/graphics/Rect;
+    .end local v0    # "bounds":Landroid/graphics/Rect;
     :cond_0
     return-void
 .end method
@@ -142,7 +142,7 @@
 
 .method public setAlpha(I)V
     .locals 0
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 104
@@ -151,7 +151,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
-    .parameter "colorFilter"
+    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 101
@@ -160,7 +160,7 @@
 
 .method public setDither(Z)V
     .locals 0
-    .parameter "dither"
+    .param p1, "dither"    # Z
 
     .prologue
     .line 98
@@ -169,7 +169,7 @@
 
 .method public setFilterBitmap(Z)V
     .locals 0
-    .parameter "filter"
+    .param p1, "filter"    # Z
 
     .prologue
     .line 95
@@ -178,7 +178,7 @@
 
 .method public setPicture(Landroid/graphics/Picture;)V
     .locals 0
-    .parameter "picture"
+    .param p1, "picture"    # Landroid/graphics/Picture;
 
     .prologue
     .line 63

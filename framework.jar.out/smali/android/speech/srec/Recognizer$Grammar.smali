@@ -23,8 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/srec/Recognizer;Ljava/lang/String;)V
     .locals 2
-    .parameter
-    .parameter "g2gFileName"
+    .param p2, "g2gFileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -43,7 +42,7 @@
     iput v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
     .line 184
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarLoad(Ljava/lang/String;)I
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarLoad(Ljava/lang/String;)I
     invoke-static {p2}, Landroid/speech/srec/Recognizer;->access$000(Ljava/lang/String;)I
 
     move-result v0
@@ -53,12 +52,12 @@
     .line 185
     iget v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
-    #getter for: Landroid/speech/srec/Recognizer;->mVocabulary:I
+    # getter for: Landroid/speech/srec/Recognizer;->mVocabulary:I
     invoke-static {p1}, Landroid/speech/srec/Recognizer;->access$100(Landroid/speech/srec/Recognizer;)I
 
     move-result v1
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarSetupVocabulary(II)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarSetupVocabulary(II)V
     invoke-static {v0, v1}, Landroid/speech/srec/Recognizer;->access$200(II)V
 
     .line 186
@@ -67,7 +66,7 @@
 
 .method static synthetic access$1100(Landroid/speech/srec/Recognizer$Grammar;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/srec/Recognizer$Grammar;
 
     .prologue
     .line 176
@@ -80,11 +79,11 @@
 # virtual methods
 .method public addWordToSlot(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 6
-    .parameter "slot"
-    .parameter "word"
-    .parameter "pron"
-    .parameter "weight"
-    .parameter "tag"
+    .param p1, "slot"    # Ljava/lang/String;
+    .param p2, "word"    # Ljava/lang/String;
+    .param p3, "pron"    # Ljava/lang/String;
+    .param p4, "weight"    # I
+    .param p5, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 205
@@ -100,7 +99,7 @@
 
     move-object v5, p5
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarAddWordToSlot(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarAddWordToSlot(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static/range {v0 .. v5}, Landroid/speech/srec/Recognizer;->access$400(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
     .line 206
@@ -114,7 +113,7 @@
     .line 212
     iget v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarCompile(I)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarCompile(I)V
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->access$500(I)V
 
     .line 213
@@ -133,7 +132,7 @@
     .line 239
     iget v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarDestroy(I)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarDestroy(I)V
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->access$1000(I)V
 
     .line 240
@@ -179,7 +178,7 @@
     .line 192
     iget v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarResetAllSlots(I)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarResetAllSlots(I)V
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->access$300(I)V
 
     .line 193
@@ -188,7 +187,7 @@
 
 .method public save(Ljava/lang/String;)V
     .locals 1
-    .parameter "g2gFileName"
+    .param p1, "g2gFileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -199,7 +198,7 @@
     .line 230
     iget v0, p0, Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarSave(ILjava/lang/String;)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarSave(ILjava/lang/String;)V
     invoke-static {v0, p1}, Landroid/speech/srec/Recognizer;->access$900(ILjava/lang/String;)V
 
     .line 231
@@ -215,18 +214,18 @@
 
     iget-object v1, p0, Landroid/speech/srec/Recognizer$Grammar;->this$0:Landroid/speech/srec/Recognizer;
 
-    #getter for: Landroid/speech/srec/Recognizer;->mRecognizer:I
+    # getter for: Landroid/speech/srec/Recognizer;->mRecognizer:I
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->access$600(Landroid/speech/srec/Recognizer;)I
 
     move-result v1
 
-    #calls: Landroid/speech/srec/Recognizer;->SR_GrammarSetupRecognizer(II)V
+    # invokes: Landroid/speech/srec/Recognizer;->SR_GrammarSetupRecognizer(II)V
     invoke-static {v0, v1}, Landroid/speech/srec/Recognizer;->access$700(II)V
 
     .line 220
     iget-object v0, p0, Landroid/speech/srec/Recognizer$Grammar;->this$0:Landroid/speech/srec/Recognizer;
 
-    #setter for: Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
+    # setter for: Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
     invoke-static {v0, p0}, Landroid/speech/srec/Recognizer;->access$802(Landroid/speech/srec/Recognizer;Landroid/speech/srec/Recognizer$Grammar;)Landroid/speech/srec/Recognizer$Grammar;
 
     .line 221

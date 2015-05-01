@@ -61,7 +61,7 @@
 # virtual methods
 .method uidMatches(I)Z
     .locals 2
-    .parameter "callingUid"
+    .param p1, "callingUid"    # I
 
     .prologue
     .line 124

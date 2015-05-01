@@ -23,8 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$ShowListener;)V
     .locals 0
-    .parameter
-    .parameter "showListener"
+    .param p2, "showListener"    # Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$ShowListener;
 
     .prologue
     .line 74
@@ -43,7 +42,7 @@
 # virtual methods
 .method public onShown(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "windowToken"
+    .param p1, "windowToken"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

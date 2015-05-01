@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/JsResult$ResultReceiver;)V
     .locals 0
-    .parameter "receiver"
+    .param p1, "receiver"    # Landroid/webkit/JsResult$ResultReceiver;
 
     .prologue
     .line 57

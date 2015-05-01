@@ -29,12 +29,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Landroid/content/Context;Landroid/database/Cursor;ZLcom/android/internal/app/AlertController$RecycleListView;Lcom/android/internal/app/AlertController;)V
     .locals 2
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # Landroid/database/Cursor;
+    .param p4, "x2"    # Z
 
     .prologue
     .line 890
@@ -52,7 +49,7 @@
     move-result-object v0
 
     .line 896
-    .local v0, cursor:Landroid/database/Cursor;
+    .local v0, "cursor":Landroid/database/Cursor;
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
@@ -82,9 +79,9 @@
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
     .locals 5
-    .parameter "view"
-    .parameter "context"
-    .parameter "cursor"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     const/4 v1, 0x1
@@ -99,7 +96,7 @@
     check-cast v0, Landroid/widget/CheckedTextView;
 
     .line 903
-    .local v0, text:Landroid/widget/CheckedTextView;
+    .local v0, "text":Landroid/widget/CheckedTextView;
     iget v2, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->mLabelIndex:I
 
     invoke-interface {p3, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -138,9 +135,9 @@
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "parent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 910
@@ -150,7 +147,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->val$dialog:Lcom/android/internal/app/AlertController;
 
-    #getter for: Lcom/android/internal/app/AlertController;->mMultiChoiceItemLayout:I
+    # getter for: Lcom/android/internal/app/AlertController;->mMultiChoiceItemLayout:I
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$900(Lcom/android/internal/app/AlertController;)I
 
     move-result v1

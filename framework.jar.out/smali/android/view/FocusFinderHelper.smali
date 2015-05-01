@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/FocusFinder;)V
     .locals 0
-    .parameter "focusFinder"
+    .param p1, "focusFinder"    # Landroid/view/FocusFinder;
 
     .prologue
     .line 32
@@ -25,9 +25,9 @@
 
 .method public static majorAxisDistance(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 1
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 53
@@ -40,9 +40,9 @@
 
 .method public static majorAxisDistanceToFarEdge(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 1
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 57
@@ -57,10 +57,10 @@
 # virtual methods
 .method public beamBeats(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "direction"
-    .parameter "source"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "source"    # Landroid/graphics/Rect;
+    .param p3, "rect1"    # Landroid/graphics/Rect;
+    .param p4, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     .line 41
@@ -75,9 +75,9 @@
 
 .method public beamsOverlap(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "direction"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "rect1"    # Landroid/graphics/Rect;
+    .param p3, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     .line 49
@@ -92,10 +92,10 @@
 
 .method public isBetterCandidate(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 1
-    .parameter "direction"
-    .parameter "source"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "source"    # Landroid/graphics/Rect;
+    .param p3, "rect1"    # Landroid/graphics/Rect;
+    .param p4, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     .line 37
@@ -110,9 +110,9 @@
 
 .method public isCandidate(Landroid/graphics/Rect;Landroid/graphics/Rect;I)Z
     .locals 1
-    .parameter "srcRect"
-    .parameter "destRect"
-    .parameter "direction"
+    .param p1, "srcRect"    # Landroid/graphics/Rect;
+    .param p2, "destRect"    # Landroid/graphics/Rect;
+    .param p3, "direction"    # I
 
     .prologue
     .line 45

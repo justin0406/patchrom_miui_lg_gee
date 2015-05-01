@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/WindowManagerGlobal;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 212
@@ -44,7 +43,7 @@
     .line 214
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$1;->this$0:Landroid/view/WindowManagerGlobal;
 
-    #getter for: Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$000(Landroid/view/WindowManagerGlobal;)Ljava/lang/Object;
 
     move-result-object v2
@@ -55,7 +54,7 @@
     :try_start_0
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$1;->this$0:Landroid/view/WindowManagerGlobal;
 
-    #getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
+    # getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$100(Landroid/view/WindowManagerGlobal;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -66,14 +65,14 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
     .line 216
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$1;->this$0:Landroid/view/WindowManagerGlobal;
 
-    #getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
+    # getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$100(Landroid/view/WindowManagerGlobal;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -99,7 +98,7 @@
     return-void
 
     .line 218
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 

@@ -128,12 +128,12 @@
 
 .method public constructor <init>(IIIIII)V
     .locals 0
-    .parameter "messageClass"
-    .parameter "category"
-    .parameter "responseType"
-    .parameter "severity"
-    .parameter "urgency"
-    .parameter "certainty"
+    .param p1, "messageClass"    # I
+    .param p2, "category"    # I
+    .param p3, "responseType"    # I
+    .param p4, "severity"    # I
+    .param p5, "urgency"    # I
+    .param p6, "certainty"    # I
 
     .prologue
     .line 198
@@ -163,7 +163,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 208
@@ -383,8 +383,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 225

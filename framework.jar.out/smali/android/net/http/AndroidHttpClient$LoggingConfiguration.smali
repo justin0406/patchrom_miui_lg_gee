@@ -23,8 +23,8 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "tag"
-    .parameter "level"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "level"    # I
 
     .prologue
     .line 335
@@ -42,9 +42,9 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;ILandroid/net/http/AndroidHttpClient$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Landroid/net/http/AndroidHttpClient$1;
 
     .prologue
     .line 330
@@ -55,7 +55,7 @@
 
 .method static synthetic access$400(Landroid/net/http/AndroidHttpClient$LoggingConfiguration;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/AndroidHttpClient$LoggingConfiguration;
 
     .prologue
     .line 330
@@ -68,8 +68,8 @@
 
 .method static synthetic access$600(Landroid/net/http/AndroidHttpClient$LoggingConfiguration;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/http/AndroidHttpClient$LoggingConfiguration;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 330
@@ -96,7 +96,7 @@
 
 .method private println(Ljava/lang/String;)V
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 351

@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ListPopupWindow$ForwardingListener;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1360
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/ListPopupWindow$ForwardingListener;Landroid/widget/ListPopupWindow$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/ListPopupWindow$ForwardingListener;
+    .param p2, "x1"    # Landroid/widget/ListPopupWindow$1;
 
     .prologue
     .line 1360
@@ -56,7 +55,7 @@
     .line 1363
     iget-object v1, p0, Landroid/widget/ListPopupWindow$ForwardingListener$DisallowIntercept;->this$0:Landroid/widget/ListPopupWindow$ForwardingListener;
 
-    #getter for: Landroid/widget/ListPopupWindow$ForwardingListener;->mSrc:Landroid/view/View;
+    # getter for: Landroid/widget/ListPopupWindow$ForwardingListener;->mSrc:Landroid/view/View;
     invoke-static {v1}, Landroid/widget/ListPopupWindow$ForwardingListener;->access$800(Landroid/widget/ListPopupWindow$ForwardingListener;)Landroid/view/View;
 
     move-result-object v1
@@ -66,7 +65,7 @@
     move-result-object v0
 
     .line 1364
-    .local v0, parent:Landroid/view/ViewParent;
+    .local v0, "parent":Landroid/view/ViewParent;
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V

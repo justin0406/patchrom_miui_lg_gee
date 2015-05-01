@@ -35,7 +35,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/Tokenizer$OnTokenListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/Tokenizer$OnTokenListener;
 
     .prologue
     .line 306
@@ -67,7 +67,7 @@
 
 .method static synthetic access$000(Landroid/media/Tokenizer;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -78,7 +78,7 @@
 
 .method static synthetic access$100(Landroid/media/Tokenizer;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -89,8 +89,8 @@
 
 .method static synthetic access$102(Landroid/media/Tokenizer;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
+    .param p1, "x1"    # I
 
     .prologue
     .line 168
@@ -101,7 +101,7 @@
 
 .method static synthetic access$108(Landroid/media/Tokenizer;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -116,8 +116,8 @@
 
 .method static synthetic access$112(Landroid/media/Tokenizer;I)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
+    .param p1, "x1"    # I
 
     .prologue
     .line 168
@@ -132,8 +132,8 @@
 
 .method static synthetic access$202(Landroid/media/Tokenizer;Landroid/media/Tokenizer$TokenizerPhase;)Landroid/media/Tokenizer$TokenizerPhase;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
+    .param p1, "x1"    # Landroid/media/Tokenizer$TokenizerPhase;
 
     .prologue
     .line 168
@@ -144,7 +144,7 @@
 
 .method static synthetic access$300(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$TokenizerPhase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -155,7 +155,7 @@
 
 .method static synthetic access$400(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$OnTokenListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -166,7 +166,7 @@
 
 .method static synthetic access$500(Landroid/media/Tokenizer;)Landroid/media/Tokenizer$TokenizerPhase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/Tokenizer;
 
     .prologue
     .line 168
@@ -196,7 +196,7 @@
 
 .method tokenize(Ljava/lang/String;)V
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 318

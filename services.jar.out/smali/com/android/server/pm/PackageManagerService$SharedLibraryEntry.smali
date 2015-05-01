@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "_path"
-    .parameter "_apk"
+    .param p1, "_path"    # Ljava/lang/String;
+    .param p2, "_apk"    # Ljava/lang/String;
 
     .prologue
     .line 361

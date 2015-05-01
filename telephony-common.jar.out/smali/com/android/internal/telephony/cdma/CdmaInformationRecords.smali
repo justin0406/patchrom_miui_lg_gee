@@ -48,7 +48,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 9
-    .parameter "p"
+    .param p1, "p"    # Landroid/os/Parcel;
 
     .prologue
     .line 39
@@ -60,7 +60,7 @@
     move-result v1
 
     .line 41
-    .local v1, id:I
+    .local v1, "id":I
     packed-switch v1, :pswitch_data_0
 
     .line 79
@@ -282,7 +282,7 @@
 
 .method public static idToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "id"
+    .param p0, "id"    # I
 
     .prologue
     .line 86

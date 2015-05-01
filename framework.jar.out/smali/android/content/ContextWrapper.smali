@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "base"
+    .param p1, "base"    # Landroid/content/Context;
 
     .prologue
     .line 56
@@ -27,7 +27,7 @@
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
     .locals 2
-    .parameter "base"
+    .param p1, "base"    # Landroid/content/Context;
 
     .prologue
     .line 68
@@ -54,9 +54,9 @@
 
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
     .locals 1
-    .parameter "service"
-    .parameter "conn"
-    .parameter "flags"
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
 
     .prologue
     .line 517
@@ -71,10 +71,10 @@
 
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
     .locals 1
-    .parameter "service"
-    .parameter "conn"
-    .parameter "flags"
-    .parameter "user"
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
+    .param p4, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 524
@@ -89,7 +89,7 @@
 
 .method public checkCallingOrSelfPermission(Ljava/lang/String;)I
     .locals 1
-    .parameter "permission"
+    .param p1, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 555
@@ -104,8 +104,8 @@
 
 .method public checkCallingOrSelfUriPermission(Landroid/net/Uri;I)I
     .locals 1
-    .parameter "uri"
-    .parameter "modeFlags"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
 
     .prologue
     .line 597
@@ -120,7 +120,7 @@
 
 .method public checkCallingPermission(Ljava/lang/String;)I
     .locals 1
-    .parameter "permission"
+    .param p1, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 550
@@ -135,8 +135,8 @@
 
 .method public checkCallingUriPermission(Landroid/net/Uri;I)I
     .locals 1
-    .parameter "uri"
-    .parameter "modeFlags"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
 
     .prologue
     .line 592
@@ -151,9 +151,9 @@
 
 .method public checkPermission(Ljava/lang/String;II)I
     .locals 1
-    .parameter "permission"
-    .parameter "pid"
-    .parameter "uid"
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
 
     .prologue
     .line 545
@@ -168,10 +168,10 @@
 
 .method public checkUriPermission(Landroid/net/Uri;III)I
     .locals 1
-    .parameter "uri"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "modeFlags"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
+    .param p4, "modeFlags"    # I
 
     .prologue
     .line 587
@@ -186,12 +186,12 @@
 
 .method public checkUriPermission(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;III)I
     .locals 7
-    .parameter "uri"
-    .parameter "readPermission"
-    .parameter "writePermission"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "modeFlags"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "readPermission"    # Ljava/lang/String;
+    .param p3, "writePermission"    # Ljava/lang/String;
+    .param p4, "pid"    # I
+    .param p5, "uid"    # I
+    .param p6, "modeFlags"    # I
 
     .prologue
     .line 603
@@ -236,7 +236,7 @@
 
 .method public createConfigurationContext(Landroid/content/res/Configuration;)Landroid/content/Context;
     .locals 1
-    .parameter "overrideConfiguration"
+    .param p1, "overrideConfiguration"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 655
@@ -251,7 +251,7 @@
 
 .method public createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
     .locals 1
-    .parameter "display"
+    .param p1, "display"    # Landroid/view/Display;
 
     .prologue
     .line 660
@@ -266,8 +266,8 @@
 
 .method public createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
     .locals 1
-    .parameter "packageName"
-    .parameter "flags"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -287,9 +287,9 @@
 
 .method public createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
     .locals 1
-    .parameter "packageName"
-    .parameter "flags"
-    .parameter "user"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "flags"    # I
+    .param p3, "user"    # Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -323,7 +323,7 @@
 
 .method public deleteDatabase(Ljava/lang/String;)Z
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 261
@@ -338,7 +338,7 @@
 
 .method public deleteFile(Ljava/lang/String;)Z
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 190
@@ -353,8 +353,8 @@
 
 .method public enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "permission"
-    .parameter "message"
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 572
@@ -368,9 +368,9 @@
 
 .method public enforceCallingOrSelfUriPermission(Landroid/net/Uri;ILjava/lang/String;)V
     .locals 1
-    .parameter "uri"
-    .parameter "modeFlags"
-    .parameter "message"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
+    .param p3, "message"    # Ljava/lang/String;
 
     .prologue
     .line 622
@@ -384,8 +384,8 @@
 
 .method public enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "permission"
-    .parameter "message"
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 566
@@ -399,9 +399,9 @@
 
 .method public enforceCallingUriPermission(Landroid/net/Uri;ILjava/lang/String;)V
     .locals 1
-    .parameter "uri"
-    .parameter "modeFlags"
-    .parameter "message"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
+    .param p3, "message"    # Ljava/lang/String;
 
     .prologue
     .line 616
@@ -415,10 +415,10 @@
 
 .method public enforcePermission(Ljava/lang/String;IILjava/lang/String;)V
     .locals 1
-    .parameter "permission"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "message"
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
+    .param p4, "message"    # Ljava/lang/String;
 
     .prologue
     .line 561
@@ -432,11 +432,11 @@
 
 .method public enforceUriPermission(Landroid/net/Uri;IIILjava/lang/String;)V
     .locals 6
-    .parameter "uri"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "modeFlags"
-    .parameter "message"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
+    .param p4, "modeFlags"    # I
+    .param p5, "message"    # Ljava/lang/String;
 
     .prologue
     .line 610
@@ -460,13 +460,13 @@
 
 .method public enforceUriPermission(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;IIILjava/lang/String;)V
     .locals 8
-    .parameter "uri"
-    .parameter "readPermission"
-    .parameter "writePermission"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "modeFlags"
-    .parameter "message"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "readPermission"    # Ljava/lang/String;
+    .param p3, "writePermission"    # Ljava/lang/String;
+    .param p4, "pid"    # I
+    .param p5, "uid"    # I
+    .param p6, "modeFlags"    # I
+    .param p7, "message"    # Ljava/lang/String;
 
     .prologue
     .line 629
@@ -616,7 +616,7 @@
 
 .method public getDatabasePath(Ljava/lang/String;)Ljava/io/File;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 266
@@ -631,8 +631,8 @@
 
 .method public getDir(Ljava/lang/String;I)Ljava/io/File;
     .locals 1
-    .parameter "name"
-    .parameter "mode"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mode"    # I
 
     .prologue
     .line 245
@@ -647,7 +647,7 @@
 
 .method public getDisplayAdjustments(I)Landroid/view/DisplayAdjustments;
     .locals 1
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 671
@@ -690,7 +690,7 @@
 
 .method public getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 210
@@ -705,7 +705,7 @@
 
 .method public getExternalFilesDirs(Ljava/lang/String;)[Ljava/io/File;
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 215
@@ -720,7 +720,7 @@
 
 .method public getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 195
@@ -875,8 +875,8 @@
 
 .method public getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
     .locals 1
-    .parameter "name"
-    .parameter "mode"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mode"    # I
 
     .prologue
     .line 173
@@ -891,7 +891,7 @@
 
 .method public getSharedPrefsFile(Ljava/lang/String;)Ljava/io/File;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 168
@@ -906,7 +906,7 @@
 
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 540
@@ -1005,9 +1005,9 @@
 
 .method public grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
     .locals 1
-    .parameter "toPackage"
-    .parameter "uri"
-    .parameter "modeFlags"
+    .param p1, "toPackage"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "modeFlags"    # I
 
     .prologue
     .line 577
@@ -1035,7 +1035,7 @@
 
 .method public openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1055,8 +1055,8 @@
 
 .method public openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
     .locals 1
-    .parameter "name"
-    .parameter "mode"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1076,9 +1076,9 @@
 
 .method public openOrCreateDatabase(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;
     .locals 1
-    .parameter "name"
-    .parameter "mode"
-    .parameter "factory"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mode"    # I
+    .param p3, "factory"    # Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
     .prologue
     .line 250
@@ -1093,10 +1093,10 @@
 
 .method public openOrCreateDatabase(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;Landroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
     .locals 1
-    .parameter "name"
-    .parameter "mode"
-    .parameter "factory"
-    .parameter "errorHandler"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mode"    # I
+    .param p3, "factory"    # Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
+    .param p4, "errorHandler"    # Landroid/database/DatabaseErrorHandler;
 
     .prologue
     .line 256
@@ -1125,8 +1125,8 @@
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
     .locals 1
-    .parameter "receiver"
-    .parameter "filter"
+    .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
+    .param p2, "filter"    # Landroid/content/IntentFilter;
 
     .prologue
     .line 467
@@ -1141,10 +1141,10 @@
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
     .locals 1
-    .parameter "receiver"
-    .parameter "filter"
-    .parameter "broadcastPermission"
-    .parameter "scheduler"
+    .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
+    .param p2, "filter"    # Landroid/content/IntentFilter;
+    .param p3, "broadcastPermission"    # Ljava/lang/String;
+    .param p4, "scheduler"    # Landroid/os/Handler;
 
     .prologue
     .line 474
@@ -1159,11 +1159,11 @@
 
 .method public registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
     .locals 6
-    .parameter "receiver"
-    .parameter "user"
-    .parameter "filter"
-    .parameter "broadcastPermission"
-    .parameter "scheduler"
+    .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "filter"    # Landroid/content/IntentFilter;
+    .param p4, "broadcastPermission"    # Ljava/lang/String;
+    .param p5, "scheduler"    # Landroid/os/Handler;
 
     .prologue
     .line 483
@@ -1188,7 +1188,7 @@
 
 .method public removeStickyBroadcast(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 442
@@ -1202,8 +1202,8 @@
 
 .method public removeStickyBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 461
@@ -1217,8 +1217,8 @@
 
 .method public revokeUriPermission(Landroid/net/Uri;I)V
     .locals 1
-    .parameter "uri"
-    .parameter "modeFlags"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
 
     .prologue
     .line 582
@@ -1232,7 +1232,7 @@
 
 .method public sendBroadcast(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 365
@@ -1246,8 +1246,8 @@
 
 .method public sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
     .locals 1
-    .parameter "intent"
-    .parameter "receiverPermission"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "receiverPermission"    # Ljava/lang/String;
 
     .prologue
     .line 370
@@ -1261,9 +1261,9 @@
 
 .method public sendBroadcast(Landroid/content/Intent;Ljava/lang/String;I)V
     .locals 1
-    .parameter "intent"
-    .parameter "receiverPermission"
-    .parameter "appOp"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "receiverPermission"    # Ljava/lang/String;
+    .param p3, "appOp"    # I
 
     .prologue
     .line 376
@@ -1277,8 +1277,8 @@
 
 .method public sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 408
@@ -1292,9 +1292,9 @@
 
 .method public sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
     .locals 1
-    .parameter "intent"
-    .parameter "user"
-    .parameter "receiverPermission"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "receiverPermission"    # Ljava/lang/String;
 
     .prologue
     .line 414
@@ -1308,8 +1308,8 @@
 
 .method public sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
     .locals 1
-    .parameter "intent"
-    .parameter "receiverPermission"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "receiverPermission"    # Ljava/lang/String;
 
     .prologue
     .line 382
@@ -1323,14 +1323,14 @@
 
 .method public sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;ILandroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 9
-    .parameter "intent"
-    .parameter "receiverPermission"
-    .parameter "appOp"
-    .parameter "resultReceiver"
-    .parameter "scheduler"
-    .parameter "initialCode"
-    .parameter "initialData"
-    .parameter "initialExtras"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "receiverPermission"    # Ljava/lang/String;
+    .param p3, "appOp"    # I
+    .param p4, "resultReceiver"    # Landroid/content/BroadcastReceiver;
+    .param p5, "scheduler"    # Landroid/os/Handler;
+    .param p6, "initialCode"    # I
+    .param p7, "initialData"    # Ljava/lang/String;
+    .param p8, "initialExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 401
@@ -1360,13 +1360,13 @@
 
 .method public sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 8
-    .parameter "intent"
-    .parameter "receiverPermission"
-    .parameter "resultReceiver"
-    .parameter "scheduler"
-    .parameter "initialCode"
-    .parameter "initialData"
-    .parameter "initialExtras"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "receiverPermission"    # Ljava/lang/String;
+    .param p3, "resultReceiver"    # Landroid/content/BroadcastReceiver;
+    .param p4, "scheduler"    # Landroid/os/Handler;
+    .param p5, "initialCode"    # I
+    .param p6, "initialData"    # Ljava/lang/String;
+    .param p7, "initialExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 390
@@ -1394,14 +1394,14 @@
 
 .method public sendOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 9
-    .parameter "intent"
-    .parameter "user"
-    .parameter "receiverPermission"
-    .parameter "resultReceiver"
-    .parameter "scheduler"
-    .parameter "initialCode"
-    .parameter "initialData"
-    .parameter "initialExtras"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "receiverPermission"    # Ljava/lang/String;
+    .param p4, "resultReceiver"    # Landroid/content/BroadcastReceiver;
+    .param p5, "scheduler"    # Landroid/os/Handler;
+    .param p6, "initialCode"    # I
+    .param p7, "initialData"    # Ljava/lang/String;
+    .param p8, "initialExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 421
@@ -1431,7 +1431,7 @@
 
 .method public sendStickyBroadcast(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 427
@@ -1445,8 +1445,8 @@
 
 .method public sendStickyBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 447
@@ -1460,12 +1460,12 @@
 
 .method public sendStickyOrderedBroadcast(Landroid/content/Intent;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 7
-    .parameter "intent"
-    .parameter "resultReceiver"
-    .parameter "scheduler"
-    .parameter "initialCode"
-    .parameter "initialData"
-    .parameter "initialExtras"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultReceiver"    # Landroid/content/BroadcastReceiver;
+    .param p3, "scheduler"    # Landroid/os/Handler;
+    .param p4, "initialCode"    # I
+    .param p5, "initialData"    # Ljava/lang/String;
+    .param p6, "initialExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 435
@@ -1491,13 +1491,13 @@
 
 .method public sendStickyOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 8
-    .parameter "intent"
-    .parameter "user"
-    .parameter "resultReceiver"
-    .parameter "scheduler"
-    .parameter "initialCode"
-    .parameter "initialData"
-    .parameter "initialExtras"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "resultReceiver"    # Landroid/content/BroadcastReceiver;
+    .param p4, "scheduler"    # Landroid/os/Handler;
+    .param p5, "initialCode"    # I
+    .param p6, "initialData"    # Ljava/lang/String;
+    .param p7, "initialExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 455
@@ -1525,7 +1525,7 @@
 
 .method public setTheme(I)V
     .locals 1
-    .parameter "resid"
+    .param p1, "resid"    # I
 
     .prologue
     .line 114
@@ -1539,7 +1539,7 @@
 
 .method public setWallpaper(Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1558,7 +1558,7 @@
 
 .method public setWallpaper(Ljava/io/InputStream;)V
     .locals 1
-    .parameter "data"
+    .param p1, "data"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1577,7 +1577,7 @@
 
 .method public startActivities([Landroid/content/Intent;)V
     .locals 1
-    .parameter "intents"
+    .param p1, "intents"    # [Landroid/content/Intent;
 
     .prologue
     .line 333
@@ -1591,8 +1591,8 @@
 
 .method public startActivities([Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "intents"
-    .parameter "options"
+    .param p1, "intents"    # [Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 338
@@ -1606,9 +1606,9 @@
 
 .method public startActivitiesAsUser([Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intents"
-    .parameter "options"
-    .parameter "userHandle"
+    .param p1, "intents"    # [Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 344
@@ -1622,7 +1622,7 @@
 
 .method public startActivity(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 311
@@ -1636,8 +1636,8 @@
 
 .method public startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "options"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 322
@@ -1651,9 +1651,9 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "options"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 328
@@ -1667,8 +1667,8 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 1
-    .parameter "intent"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 317
@@ -1682,9 +1682,9 @@
 
 .method public startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .parameter "className"
-    .parameter "profileFile"
-    .parameter "arguments"
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "profileFile"    # Ljava/lang/String;
+    .param p3, "arguments"    # Landroid/os/Bundle;
 
     .prologue
     .line 535
@@ -1699,11 +1699,11 @@
 
 .method public startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
     .locals 6
-    .parameter "intent"
-    .parameter "fillInIntent"
-    .parameter "flagsMask"
-    .parameter "flagsValues"
-    .parameter "extraFlags"
+    .param p1, "intent"    # Landroid/content/IntentSender;
+    .param p2, "fillInIntent"    # Landroid/content/Intent;
+    .param p3, "flagsMask"    # I
+    .param p4, "flagsValues"    # I
+    .param p5, "extraFlags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -1732,12 +1732,12 @@
 
 .method public startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 7
-    .parameter "intent"
-    .parameter "fillInIntent"
-    .parameter "flagsMask"
-    .parameter "flagsValues"
-    .parameter "extraFlags"
-    .parameter "options"
+    .param p1, "intent"    # Landroid/content/IntentSender;
+    .param p2, "fillInIntent"    # Landroid/content/Intent;
+    .param p3, "flagsMask"    # I
+    .param p4, "flagsValues"    # I
+    .param p5, "extraFlags"    # I
+    .param p6, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -1768,7 +1768,7 @@
 
 .method public startService(Landroid/content/Intent;)Landroid/content/ComponentName;
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Landroid/content/Intent;
 
     .prologue
     .line 494
@@ -1783,8 +1783,8 @@
 
 .method public startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
     .locals 1
-    .parameter "service"
-    .parameter "user"
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 505
@@ -1799,7 +1799,7 @@
 
 .method public stopService(Landroid/content/Intent;)Z
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/Intent;
 
     .prologue
     .line 499
@@ -1814,8 +1814,8 @@
 
 .method public stopServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Z
     .locals 1
-    .parameter "name"
-    .parameter "user"
+    .param p1, "name"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 511
@@ -1830,7 +1830,7 @@
 
 .method public unbindService(Landroid/content/ServiceConnection;)V
     .locals 1
-    .parameter "conn"
+    .param p1, "conn"    # Landroid/content/ServiceConnection;
 
     .prologue
     .line 529
@@ -1844,7 +1844,7 @@
 
 .method public unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     .locals 1
-    .parameter "receiver"
+    .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
 
     .prologue
     .line 489

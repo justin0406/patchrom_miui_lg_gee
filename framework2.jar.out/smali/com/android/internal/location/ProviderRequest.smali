@@ -101,7 +101,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 83
-    .local v0, s:Ljava/lang/StringBuilder;
+    .local v0, "s":Ljava/lang/StringBuilder;
     const-string v1, "ProviderRequest["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -150,8 +150,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 72
@@ -185,7 +185,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -200,21 +200,21 @@
     check-cast v1, Landroid/location/LocationRequest;
 
     .line 76
-    .local v1, request:Landroid/location/LocationRequest;
+    .local v1, "request":Landroid/location/LocationRequest;
     invoke-virtual {v1, p1, p2}, Landroid/location/LocationRequest;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_1
 
     .line 72
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #request:Landroid/location/LocationRequest;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "request":Landroid/location/LocationRequest;
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 78
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method

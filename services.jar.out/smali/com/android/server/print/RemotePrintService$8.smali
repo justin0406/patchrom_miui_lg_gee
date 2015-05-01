@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 385
@@ -51,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$8;->val$printerIds:Ljava/util/List;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleValidatePrinters(Ljava/util/List;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleValidatePrinters(Ljava/util/List;)V
     invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$800(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
     .line 389

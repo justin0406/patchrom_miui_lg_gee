@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 305
@@ -41,11 +41,11 @@
 # virtual methods
 .method public acknowledgeFullBackupOrRestore(IZLjava/lang/String;Ljava/lang/String;Landroid/app/backup/IFullBackupRestoreObserver;)V
     .locals 5
-    .parameter "token"
-    .parameter "allow"
-    .parameter "curPassword"
-    .parameter "encryptionPassword"
-    .parameter "observer"
+    .param p1, "token"    # I
+    .param p2, "allow"    # Z
+    .param p3, "curPassword"    # Ljava/lang/String;
+    .param p4, "encryptionPassword"    # Ljava/lang/String;
+    .param p5, "observer"    # Landroid/app/backup/IFullBackupRestoreObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -61,13 +61,13 @@
     move-result-object v0
 
     .line 687
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 689
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -143,8 +143,8 @@
 
 .method public agentConnected(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 5
-    .parameter "packageName"
-    .parameter "agent"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "agent"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,13 +158,13 @@
     move-result-object v0
 
     .line 370
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 372
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -213,7 +213,7 @@
 
 .method public agentDisconnected(Ljava/lang/String;)V
     .locals 5
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -227,13 +227,13 @@
     move-result-object v0
 
     .line 390
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 392
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -302,13 +302,13 @@
     move-result-object v0
 
     .line 578
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 580
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -351,8 +351,8 @@
 
 .method public beginRestoreSession(Ljava/lang/String;Ljava/lang/String;)Landroid/app/backup/IRestoreSession;
     .locals 6
-    .parameter "packageName"
-    .parameter "transportID"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "transportID"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -366,13 +366,13 @@
     move-result-object v0
 
     .line 853
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 856
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -408,7 +408,7 @@
     move-result-object v2
 
     .line 864
-    .local v2, _result:Landroid/app/backup/IRestoreSession;
+    .local v2, "_result":Landroid/app/backup/IRestoreSession;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 865
@@ -418,7 +418,7 @@
     return-object v2
 
     .line 864
-    .end local v2           #_result:Landroid/app/backup/IRestoreSession;
+    .end local v2    # "_result":Landroid/app/backup/IRestoreSession;
     :catchall_0
     move-exception v3
 
@@ -432,8 +432,8 @@
 
 .method public clearBackupData(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "transportName"
-    .parameter "packageName"
+    .param p1, "transportName"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -447,13 +447,13 @@
     move-result-object v0
 
     .line 350
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 352
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -502,7 +502,7 @@
 
 .method public dataChanged(Ljava/lang/String;)V
     .locals 5
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -516,13 +516,13 @@
     move-result-object v0
 
     .line 327
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 329
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -568,13 +568,13 @@
 
 .method public fullBackup(Landroid/os/ParcelFileDescriptor;ZZZZZ[Ljava/lang/String;)V
     .locals 5
-    .parameter "fd"
-    .parameter "includeApks"
-    .parameter "includeObbs"
-    .parameter "includeShared"
-    .parameter "allApps"
-    .parameter "allIncludesSystem"
-    .parameter "packageNames"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "includeApks"    # Z
+    .param p3, "includeObbs"    # Z
+    .param p4, "includeShared"    # Z
+    .param p5, "allApps"    # Z
+    .param p6, "allIncludesSystem"    # Z
+    .param p7, "packageNames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -592,13 +592,13 @@
     move-result-object v0
 
     .line 619
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 621
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.app.backup.IBackupManager"
 
@@ -737,7 +737,7 @@
 
 .method public fullRestore(Landroid/os/ParcelFileDescriptor;)V
     .locals 5
-    .parameter "fd"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -751,13 +751,13 @@
     move-result-object v0
 
     .line 652
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 654
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -825,7 +825,7 @@
 
 .method public getConfigurationIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 6
-    .parameter "transport"
+    .param p1, "transport"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -839,13 +839,13 @@
     move-result-object v0
 
     .line 785
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 788
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -885,7 +885,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 800
-    .local v2, _result:Landroid/content/Intent;
+    .local v2, "_result":Landroid/content/Intent;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -896,15 +896,15 @@
     return-object v2
 
     .line 796
-    .end local v2           #_result:Landroid/content/Intent;
+    .end local v2    # "_result":Landroid/content/Intent;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/Intent;
+    .restart local v2    # "_result":Landroid/content/Intent;
     goto :goto_0
 
     .line 800
-    .end local v2           #_result:Landroid/content/Intent;
+    .end local v2    # "_result":Landroid/content/Intent;
     :catchall_0
     move-exception v3
 
@@ -931,13 +931,13 @@
     move-result-object v0
 
     .line 710
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 713
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -963,7 +963,7 @@
     move-result-object v2
 
     .line 719
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 720
@@ -973,7 +973,7 @@
     return-object v2
 
     .line 719
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -987,7 +987,7 @@
 
 .method public getDestinationString(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "transport"
+    .param p1, "transport"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1001,13 +1001,13 @@
     move-result-object v0
 
     .line 816
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 819
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1036,7 +1036,7 @@
     move-result-object v2
 
     .line 826
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 827
@@ -1046,7 +1046,7 @@
     return-object v2
 
     .line 826
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -1085,13 +1085,13 @@
     move-result-object v0
 
     .line 551
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 554
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1121,7 +1121,7 @@
     const/4 v2, 0x1
 
     .line 560
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1132,7 +1132,7 @@
     return v2
 
     .line 560
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1161,13 +1161,13 @@
     move-result-object v0
 
     .line 502
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 505
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1197,7 +1197,7 @@
     const/4 v2, 0x1
 
     .line 511
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1208,7 +1208,7 @@
     return v2
 
     .line 511
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1235,13 +1235,13 @@
     move-result-object v0
 
     .line 731
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 734
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1267,7 +1267,7 @@
     move-result-object v2
 
     .line 740
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 741
@@ -1277,7 +1277,7 @@
     return-object v2
 
     .line 740
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -1291,7 +1291,7 @@
 
 .method public opComplete(I)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1305,13 +1305,13 @@
     move-result-object v0
 
     .line 880
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 882
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -1357,8 +1357,8 @@
 
 .method public restoreAtInstall(Ljava/lang/String;I)V
     .locals 5
-    .parameter "packageName"
-    .parameter "token"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1372,13 +1372,13 @@
     move-result-object v0
 
     .line 409
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 411
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IBackupManager"
 
@@ -1427,7 +1427,7 @@
 
 .method public selectBackupTransport(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "transport"
+    .param p1, "transport"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1441,13 +1441,13 @@
     move-result-object v0
 
     .line 758
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 761
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1476,7 +1476,7 @@
     move-result-object v2
 
     .line 768
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 769
@@ -1486,7 +1486,7 @@
     return-object v2
 
     .line 768
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -1500,7 +1500,7 @@
 
 .method public setAutoRestore(Z)V
     .locals 5
-    .parameter "doAutoRestore"
+    .param p1, "doAutoRestore"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1516,13 +1516,13 @@
     move-result-object v0
 
     .line 462
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 464
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1573,7 +1573,7 @@
 
 .method public setBackupEnabled(Z)V
     .locals 5
-    .parameter "isEnabled"
+    .param p1, "isEnabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1589,13 +1589,13 @@
     move-result-object v0
 
     .line 434
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 436
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1646,8 +1646,8 @@
 
 .method public setBackupPassword(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 6
-    .parameter "currentPw"
-    .parameter "newPw"
+    .param p1, "currentPw"    # Ljava/lang/String;
+    .param p2, "newPw"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1663,13 +1663,13 @@
     move-result-object v0
 
     .line 526
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 529
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 
@@ -1705,7 +1705,7 @@
     const/4 v2, 0x1
 
     .line 537
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1716,7 +1716,7 @@
     return v2
 
     .line 537
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1730,7 +1730,7 @@
 
 .method public setBackupProvisioned(Z)V
     .locals 5
-    .parameter "isProvisioned"
+    .param p1, "isProvisioned"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1746,13 +1746,13 @@
     move-result-object v0
 
     .line 482
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 484
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IBackupManager"
 

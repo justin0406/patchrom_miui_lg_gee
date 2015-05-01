@@ -44,7 +44,7 @@
 
 .method public static createFromParcelBody(Landroid/os/Parcel;)Landroid/net/WifiLinkQualityInfo;
     .locals 3
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 61
@@ -53,7 +53,7 @@
     invoke-direct {v0}, Landroid/net/WifiLinkQualityInfo;-><init>()V
 
     .line 63
-    .local v0, li:Landroid/net/WifiLinkQualityInfo;
+    .local v0, "li":Landroid/net/WifiLinkQualityInfo;
     invoke-virtual {v0, p0}, Landroid/net/WifiLinkQualityInfo;->initializeFromParcel(Landroid/os/Parcel;)V
 
     .line 65
@@ -149,7 +149,7 @@
 
 .method public setBssid(Ljava/lang/String;)V
     .locals 0
-    .parameter "bssid"
+    .param p1, "bssid"    # Ljava/lang/String;
 
     .prologue
     .line 102
@@ -161,7 +161,7 @@
 
 .method public setRssi(I)V
     .locals 0
-    .parameter "rssi"
+    .param p1, "rssi"    # I
 
     .prologue
     .line 117
@@ -173,7 +173,7 @@
 
 .method public setTxBad(J)V
     .locals 0
-    .parameter "txBad"
+    .param p1, "txBad"    # J
 
     .prologue
     .line 147
@@ -185,7 +185,7 @@
 
 .method public setTxGood(J)V
     .locals 0
-    .parameter "txGood"
+    .param p1, "txGood"    # J
 
     .prologue
     .line 132
@@ -197,7 +197,7 @@
 
 .method public setType(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 87
@@ -209,8 +209,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 46

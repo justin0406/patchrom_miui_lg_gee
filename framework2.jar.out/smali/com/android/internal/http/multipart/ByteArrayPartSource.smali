@@ -15,8 +15,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[B)V
     .locals 0
-    .parameter "fileName"
-    .parameter "bytes"
+    .param p1, "fileName"    # Ljava/lang/String;
+    .param p2, "bytes"    # [B
 
     .prologue
     .line 58

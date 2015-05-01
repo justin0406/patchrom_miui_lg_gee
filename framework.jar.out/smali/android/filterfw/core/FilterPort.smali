@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;)V
     .locals 2
-    .parameter "filter"
-    .parameter "name"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -118,8 +118,8 @@
 
 .method protected checkFrameManager(Landroid/filterfw/core/Frame;Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "frame"
-    .parameter "context"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 128
@@ -177,8 +177,8 @@
 
 .method protected checkFrameType(Landroid/filterfw/core/Frame;Z)V
     .locals 3
-    .parameter "frame"
-    .parameter "forceCheck"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "forceCheck"    # Z
 
     .prologue
     .line 119
@@ -449,7 +449,7 @@
 
 .method public setBlocking(Z)V
     .locals 0
-    .parameter "blocking"
+    .param p1, "blocking"    # Z
 
     .prologue
     .line 65
@@ -461,7 +461,7 @@
 
 .method public setChecksType(Z)V
     .locals 0
-    .parameter "checksType"
+    .param p1, "checksType"    # Z
 
     .prologue
     .line 69
@@ -476,7 +476,7 @@
 
 .method public setPortFormat(Landroid/filterfw/core/FrameFormat;)V
     .locals 0
-    .parameter "format"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 53

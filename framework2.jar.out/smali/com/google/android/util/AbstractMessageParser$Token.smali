@@ -29,8 +29,8 @@
 # direct methods
 .method protected constructor <init>(Lcom/google/android/util/AbstractMessageParser$Token$Type;Ljava/lang/String;)V
     .locals 0
-    .parameter "type"
-    .parameter "text"
+    .param p1, "type"    # Lcom/google/android/util/AbstractMessageParser$Token$Type;
+    .param p2, "text"    # Ljava/lang/String;
 
     .prologue
     .line 686
@@ -77,7 +77,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 702
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$Token;->getType()Lcom/google/android/util/AbstractMessageParser$Token$Type;
 
     move-result-object v1
@@ -159,7 +159,7 @@
 
 .method public toHtml(Z)Ljava/lang/String;
     .locals 2
-    .parameter "caps"
+    .param p1, "caps"    # Z
 
     .prologue
     .line 713

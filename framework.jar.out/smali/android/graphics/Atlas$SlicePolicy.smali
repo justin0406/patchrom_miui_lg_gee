@@ -38,10 +38,10 @@
 # direct methods
 .method constructor <init>(IIILandroid/graphics/Atlas$SlicePolicy$SplitDecision;)V
     .locals 5
-    .parameter "width"
-    .parameter "height"
-    .parameter "flags"
-    .parameter "splitDecision"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "flags"    # I
+    .param p4, "splitDecision"    # Landroid/graphics/Atlas$SlicePolicy$SplitDecision;
 
     .prologue
     const/4 v2, 0x1
@@ -84,7 +84,7 @@
     invoke-direct {v0, v4}, Landroid/graphics/Atlas$SlicePolicy$Cell;-><init>(Landroid/graphics/Atlas$1;)V
 
     .line 271
-    .local v0, first:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v0, "first":Landroid/graphics/Atlas$SlicePolicy$Cell;
     iget v1, p0, Landroid/graphics/Atlas$SlicePolicy;->mPadding:I
 
     iput v1, v0, Landroid/graphics/Atlas$SlicePolicy$Cell;->y:I
@@ -120,7 +120,7 @@
     .line 277
     return-void
 
-    .end local v0           #first:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .end local v0    # "first":Landroid/graphics/Atlas$SlicePolicy$Cell;
     :cond_0
     move v1, v3
 
@@ -136,11 +136,11 @@
 
 .method private insert(Landroid/graphics/Atlas$SlicePolicy$Cell;Landroid/graphics/Atlas$SlicePolicy$Cell;IILandroid/graphics/Atlas$Entry;)Z
     .locals 9
-    .parameter "cell"
-    .parameter "prev"
-    .parameter "width"
-    .parameter "height"
-    .parameter "entry"
+    .param p1, "cell"    # Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .param p2, "prev"    # Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .param p3, "width"    # I
+    .param p4, "height"    # I
+    .param p5, "entry"    # Landroid/graphics/Atlas$Entry;
 
     .prologue
     const/4 v6, 0x0
@@ -151,7 +151,7 @@
     const/4 v3, 0x0
 
     .line 369
-    .local v3, rotated:Z
+    .local v3, "rotated":Z
     iget v7, p1, Landroid/graphics/Atlas$SlicePolicy$Cell;->width:I
 
     if-lt v7, p3, :cond_0
@@ -185,7 +185,7 @@
     move v5, p3
 
     .line 377
-    .local v5, temp:I
+    .local v5, "temp":I
     move p3, p4
 
     .line 378
@@ -195,32 +195,32 @@
     const/4 v3, 0x1
 
     .line 386
-    .end local v5           #temp:I
+    .end local v5    # "temp":I
     :cond_3
     iget v6, p1, Landroid/graphics/Atlas$SlicePolicy$Cell;->width:I
 
     sub-int v1, v6, p3
 
     .line 387
-    .local v1, deltaWidth:I
+    .local v1, "deltaWidth":I
     iget v6, p1, Landroid/graphics/Atlas$SlicePolicy$Cell;->height:I
 
     sub-int v0, v6, p4
 
     .line 390
-    .local v0, deltaHeight:I
+    .local v0, "deltaHeight":I
     new-instance v2, Landroid/graphics/Atlas$SlicePolicy$Cell;
 
     invoke-direct {v2, v8}, Landroid/graphics/Atlas$SlicePolicy$Cell;-><init>(Landroid/graphics/Atlas$1;)V
 
     .line 391
-    .local v2, first:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v2, "first":Landroid/graphics/Atlas$SlicePolicy$Cell;
     new-instance v4, Landroid/graphics/Atlas$SlicePolicy$Cell;
 
     invoke-direct {v4, v8}, Landroid/graphics/Atlas$SlicePolicy$Cell;-><init>(Landroid/graphics/Atlas$1;)V
 
     .line 393
-    .local v4, second:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v4, "second":Landroid/graphics/Atlas$SlicePolicy$Cell;
     iget v6, p1, Landroid/graphics/Atlas$SlicePolicy$Cell;->x:I
 
     add-int/2addr v6, p3
@@ -352,7 +352,7 @@
     move-object v5, v2
 
     .line 413
-    .local v5, temp:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v5, "temp":Landroid/graphics/Atlas$SlicePolicy$Cell;
     move-object v2, v4
 
     .line 414
@@ -361,7 +361,7 @@
     goto :goto_1
 
     .line 427
-    .end local v5           #temp:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .end local v5    # "temp":Landroid/graphics/Atlas$SlicePolicy$Cell;
     :cond_6
     iget-object v6, p1, Landroid/graphics/Atlas$SlicePolicy$Cell;->next:Landroid/graphics/Atlas$SlicePolicy$Cell;
 
@@ -374,9 +374,9 @@
 # virtual methods
 .method pack(IILandroid/graphics/Atlas$Entry;)Landroid/graphics/Atlas$Entry;
     .locals 6
-    .parameter "width"
-    .parameter "height"
-    .parameter "entry"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "entry"    # Landroid/graphics/Atlas$Entry;
 
     .prologue
     .line 281
@@ -385,11 +385,11 @@
     iget-object v1, v0, Landroid/graphics/Atlas$SlicePolicy$Cell;->next:Landroid/graphics/Atlas$SlicePolicy$Cell;
 
     .line 282
-    .local v1, cell:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v1, "cell":Landroid/graphics/Atlas$SlicePolicy$Cell;
     iget-object v2, p0, Landroid/graphics/Atlas$SlicePolicy;->mRoot:Landroid/graphics/Atlas$SlicePolicy$Cell;
 
     .line 284
-    .local v2, prev:Landroid/graphics/Atlas$SlicePolicy$Cell;
+    .local v2, "prev":Landroid/graphics/Atlas$SlicePolicy$Cell;
     :goto_0
     if-eqz v1, :cond_1
 
@@ -409,12 +409,12 @@
     if-eqz v0, :cond_0
 
     .line 293
-    .end local p3
+    .end local p3    # "entry":Landroid/graphics/Atlas$Entry;
     :goto_1
     return-object p3
 
     .line 289
-    .restart local p3
+    .restart local p3    # "entry":Landroid/graphics/Atlas$Entry;
     :cond_0
     move-object v2, v1
 

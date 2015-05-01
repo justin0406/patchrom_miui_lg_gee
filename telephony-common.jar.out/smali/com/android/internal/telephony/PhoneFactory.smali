@@ -83,7 +83,7 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/cdma/CDMAPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
     .line 185
-    .local v0, phone:Lcom/android/internal/telephony/Phone;
+    .local v0, "phone":Lcom/android/internal/telephony/Phone;
     :goto_0
     monitor-exit v2
 
@@ -91,7 +91,7 @@
     return-object v0
 
     .line 175
-    .end local v0           #phone:Lcom/android/internal/telephony/Phone;
+    .end local v0    # "phone":Lcom/android/internal/telephony/Phone;
     :pswitch_0
     new-instance v0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;
 
@@ -104,11 +104,11 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/cdma/CDMALTEPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
     .line 176
-    .restart local v0       #phone:Lcom/android/internal/telephony/Phone;
+    .restart local v0    # "phone":Lcom/android/internal/telephony/Phone;
     goto :goto_0
 
     .line 185
-    .end local v0           #phone:Lcom/android/internal/telephony/Phone;
+    .end local v0    # "phone":Lcom/android/internal/telephony/Phone;
     :catchall_0
     move-exception v1
 
@@ -191,7 +191,7 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/gsm/GSMPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
     .line 192
-    .local v0, phone:Lcom/android/internal/telephony/Phone;
+    .local v0, "phone":Lcom/android/internal/telephony/Phone;
     monitor-exit v2
 
     return-object v0
@@ -209,7 +209,7 @@
 
 .method public static makeDefaultPhone(Landroid/content/Context;)V
     .locals 14
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v13, 0x1
@@ -264,12 +264,12 @@
     const/4 v8, 0x0
 
     .line 76
-    .local v8, retryCount:I
+    .local v8, "retryCount":I
     :goto_0
     const/4 v3, 0x0
 
     .line 77
-    .local v3, hasException:Z
+    .local v3, "hasException":Z
     add-int/lit8 v8, v8, 0x1
 
     .line 82
@@ -280,8 +280,8 @@
 
     invoke-direct {v9, v11}, Landroid/net/LocalServerSocket;-><init>(Ljava/lang/String;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 87
     :goto_1
@@ -299,7 +299,7 @@
     const/4 v7, 0x0
 
     .line 103
-    .local v7, preferredNetworkMode:I
+    .local v7, "preferredNetworkMode":I
     invoke-static {}, Landroid/telephony/TelephonyManager;->getLteOnCdmaModeStatic()I
 
     move-result v9
@@ -322,7 +322,7 @@
     move-result v4
 
     .line 108
-    .local v4, networkMode:I
+    .local v4, "networkMode":I
     const-string v9, "PhoneFactory"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -355,7 +355,7 @@
     move-result v0
 
     .line 111
-    .local v0, cdmaSubscription:I
+    .local v0, "cdmaSubscription":I
     const-string v9, "PhoneFactory"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -396,7 +396,7 @@
     move-result v6
 
     .line 120
-    .local v6, phoneType:I
+    .local v6, "phoneType":I
     if-ne v6, v13, :cond_7
 
     .line 121
@@ -431,11 +431,11 @@
     move-result-object v1
 
     .line 144
-    .local v1, componentName:Landroid/content/ComponentName;
+    .local v1, "componentName":Landroid/content/ComponentName;
     const-string v5, "NONE"
 
     .line 145
-    .local v5, packageName:Ljava/lang/String;
+    .local v5, "packageName":Ljava/lang/String;
     if-eqz v1, :cond_3
 
     .line 146
@@ -476,14 +476,14 @@
     sput-boolean v9, Lcom/android/internal/telephony/PhoneFactory;->sMadeDefaults:Z
 
     .line 155
-    .end local v0           #cdmaSubscription:I
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v3           #hasException:Z
-    .end local v4           #networkMode:I
-    .end local v5           #packageName:Ljava/lang/String;
-    .end local v6           #phoneType:I
-    .end local v7           #preferredNetworkMode:I
-    .end local v8           #retryCount:I
+    .end local v0    # "cdmaSubscription":I
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v3    # "hasException":Z
+    .end local v4    # "networkMode":I
+    .end local v5    # "packageName":Ljava/lang/String;
+    .end local v6    # "phoneType":I
+    .end local v7    # "preferredNetworkMode":I
+    .end local v8    # "retryCount":I
     :cond_4
     monitor-exit v10
 
@@ -491,19 +491,19 @@
     return-void
 
     .line 83
-    .restart local v3       #hasException:Z
-    .restart local v8       #retryCount:I
+    .restart local v3    # "hasException":Z
+    .restart local v8    # "retryCount":I
     :catch_0
     move-exception v2
 
     .line 84
-    .local v2, ex:Ljava/io/IOException;
+    .local v2, "ex":Ljava/io/IOException;
     const/4 v3, 0x1
 
     goto/16 :goto_1
 
     .line 89
-    .end local v2           #ex:Ljava/io/IOException;
+    .end local v2    # "ex":Ljava/io/IOException;
     :cond_5
     const/4 v9, 0x3
 
@@ -527,8 +527,8 @@
     :try_start_3
     invoke-static {v11, v12}, Ljava/lang/Thread;->sleep(J)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_0
 
@@ -539,10 +539,10 @@
     goto/16 :goto_0
 
     .line 124
-    .restart local v0       #cdmaSubscription:I
-    .restart local v4       #networkMode:I
-    .restart local v6       #phoneType:I
-    .restart local v7       #preferredNetworkMode:I
+    .restart local v0    # "cdmaSubscription":I
+    .restart local v4    # "networkMode":I
+    .restart local v6    # "phoneType":I
+    .restart local v7    # "preferredNetworkMode":I
     :cond_7
     const/4 v9, 0x2
 
@@ -616,7 +616,7 @@
 
 .method public static makeDefaultPhones(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 56
@@ -628,7 +628,7 @@
 
 .method public static makeSipPhone(Ljava/lang/String;)Lcom/android/internal/telephony/sip/SipPhone;
     .locals 2
-    .parameter "sipUri"
+    .param p0, "sipUri"    # Ljava/lang/String;
 
     .prologue
     .line 202

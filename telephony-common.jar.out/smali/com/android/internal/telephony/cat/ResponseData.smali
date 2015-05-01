@@ -16,8 +16,8 @@
 
 .method public static writeLength(Ljava/io/ByteArrayOutputStream;I)V
     .locals 1
-    .parameter "buf"
-    .parameter "length"
+    .param p0, "buf"    # Ljava/io/ByteArrayOutputStream;
+    .param p1, "length"    # I
 
     .prologue
     .line 42

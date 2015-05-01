@@ -25,22 +25,21 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/content/pm/PackageInfo;)V
     .locals 0
-    .parameter
-    .parameter "_transport"
-    .parameter "_info"
+    .param p2, "_transport"    # Lcom/android/internal/backup/IBackupTransport;
+    .param p3, "_info"    # Landroid/content/pm/PackageInfo;
 
     .prologue
-    .line 363
+    .line 368
     iput-object p1, p0, Lcom/android/server/BackupManagerService$ClearParams;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 364
+    .line 369
     iput-object p2, p0, Lcom/android/server/BackupManagerService$ClearParams;->transport:Lcom/android/internal/backup/IBackupTransport;
 
-    .line 365
+    .line 370
     iput-object p3, p0, Lcom/android/server/BackupManagerService$ClearParams;->packageInfo:Landroid/content/pm/PackageInfo;
 
-    .line 366
+    .line 371
     return-void
 .end method

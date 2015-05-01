@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/TextServicesManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 91
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onUserSwitchComplete(I)V
     .locals 0
-    .parameter "newUserId"
+    .param p1, "newUserId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -50,14 +49,14 @@
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 2
-    .parameter "newUserId"
-    .parameter "reply"
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
     .prologue
     .line 94
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService$1;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/server/TextServicesManagerService;->access$000(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -68,7 +67,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService$1;->this$0:Lcom/android/server/TextServicesManagerService;
 
-    #calls: Lcom/android/server/TextServicesManagerService;->switchUserLocked(I)V
+    # invokes: Lcom/android/server/TextServicesManagerService;->switchUserLocked(I)V
     invoke-static {v0, p1}, Lcom/android/server/TextServicesManagerService;->access$100(Lcom/android/server/TextServicesManagerService;I)V
 
     .line 96

@@ -46,10 +46,10 @@
 # direct methods
 .method public constructor <init>(FFFF)V
     .locals 2
-    .parameter "fromX"
-    .parameter "toX"
-    .parameter "fromY"
-    .parameter "toY"
+    .param p1, "fromX"    # F
+    .param p2, "toX"    # F
+    .param p3, "fromY"    # F
+    .param p4, "toY"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -124,12 +124,12 @@
 
 .method public constructor <init>(FFFFFF)V
     .locals 2
-    .parameter "fromX"
-    .parameter "toX"
-    .parameter "fromY"
-    .parameter "toY"
-    .parameter "pivotX"
-    .parameter "pivotY"
+    .param p1, "fromX"    # F
+    .param p2, "toX"    # F
+    .param p3, "fromY"    # F
+    .param p4, "toY"    # F
+    .param p5, "pivotX"    # F
+    .param p6, "pivotY"    # F
 
     .prologue
     const/4 v0, 0x0
@@ -213,14 +213,14 @@
 
 .method public constructor <init>(FFFFIFIF)V
     .locals 2
-    .parameter "fromX"
-    .parameter "toX"
-    .parameter "fromY"
-    .parameter "toY"
-    .parameter "pivotXType"
-    .parameter "pivotXValue"
-    .parameter "pivotYType"
-    .parameter "pivotYValue"
+    .param p1, "fromX"    # F
+    .param p2, "toX"    # F
+    .param p3, "fromY"    # F
+    .param p4, "toY"    # F
+    .param p5, "pivotXType"    # I
+    .param p6, "pivotXValue"    # F
+    .param p7, "pivotYType"    # I
+    .param p8, "pivotYValue"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -304,8 +304,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 7
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v6, 0x4
@@ -368,7 +368,7 @@
     move-result-object v0
 
     .line 70
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v3, 0x2
 
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -376,7 +376,7 @@
     move-result-object v2
 
     .line 72
-    .local v2, tv:Landroid/util/TypedValue;
+    .local v2, "tv":Landroid/util/TypedValue;
     iput v5, p0, Landroid/view/animation/ScaleAnimation;->mFromX:F
 
     .line 73
@@ -485,7 +485,7 @@
     move-result-object v1
 
     .line 122
-    .local v1, d:Landroid/view/animation/Animation$Description;
+    .local v1, "d":Landroid/view/animation/Animation$Description;
     iget v3, v1, Landroid/view/animation/Animation$Description;->type:I
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mPivotXType:I
@@ -526,7 +526,7 @@
     return-void
 
     .line 78
-    .end local v1           #d:Landroid/view/animation/Animation$Description;
+    .end local v1    # "d":Landroid/view/animation/Animation$Description;
     :cond_4
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
@@ -613,29 +613,29 @@
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 8
-    .parameter "interpolatedTime"
-    .parameter "t"
+    .param p1, "interpolatedTime"    # F
+    .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     const/4 v7, 0x0
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     .line 242
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     .line 243
-    .local v1, sx:F
-    const/high16 v2, 0x3f80
+    .local v1, "sx":F
+    const/high16 v2, 0x3f800000    # 1.0f
 
     .line 244
-    .local v2, sy:F
+    .local v2, "sy":F
     invoke-virtual {p0}, Landroid/view/animation/ScaleAnimation;->getScaleFactor()F
 
     move-result v0
 
     .line 246
-    .local v0, scale:F
+    .local v0, "scale":F
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mFromX:F
 
     cmpl-float v3, v3, v6
@@ -736,10 +736,10 @@
 
 .method public initialize(IIII)V
     .locals 6
-    .parameter "width"
-    .parameter "height"
-    .parameter "parentWidth"
-    .parameter "parentHeight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "parentWidth"    # I
+    .param p4, "parentHeight"    # I
 
     .prologue
     .line 279
@@ -849,11 +849,11 @@
 
 .method resolveScale(FIIII)F
     .locals 3
-    .parameter "scale"
-    .parameter "type"
-    .parameter "data"
-    .parameter "size"
-    .parameter "psize"
+    .param p1, "scale"    # F
+    .param p2, "type"    # I
+    .param p3, "data"    # I
+    .param p4, "size"    # I
+    .param p5, "psize"    # I
 
     .prologue
     .line 262
@@ -871,22 +871,22 @@
     move-result v0
 
     .line 270
-    .local v0, targetSize:F
+    .local v0, "targetSize":F
     :goto_0
     if-nez p4, :cond_2
 
     .line 271
-    const/high16 p1, 0x3f80
+    const/high16 p1, 0x3f800000    # 1.0f
 
     .line 274
-    .end local v0           #targetSize:F
-    .end local p1
+    .end local v0    # "targetSize":F
+    .end local p1    # "scale":F
     :cond_0
     :goto_1
     return p1
 
     .line 264
-    .restart local p1
+    .restart local p1    # "scale":F
     :cond_1
     const/4 v1, 0x5
 
@@ -903,7 +903,7 @@
 
     move-result v0
 
-    .restart local v0       #targetSize:F
+    .restart local v0    # "targetSize":F
     goto :goto_0
 
     .line 274

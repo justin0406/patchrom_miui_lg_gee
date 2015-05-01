@@ -74,7 +74,7 @@
 
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnection$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/database/sqlite/SQLiteConnection$1;
 
     .prologue
     .line 1439
@@ -85,7 +85,7 @@
 
 .method static synthetic access$600(Landroid/database/sqlite/SQLiteConnection$Operation;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/database/sqlite/SQLiteConnection$Operation;
 
     .prologue
     .line 1439
@@ -151,8 +151,8 @@
 # virtual methods
 .method public describe(Ljava/lang/StringBuilder;Z)V
     .locals 8
-    .parameter "msg"
-    .parameter "verbose"
+    .param p1, "msg"    # Ljava/lang/StringBuilder;
+    .param p2, "verbose"    # Z
 
     .prologue
     .line 1453
@@ -214,7 +214,7 @@
 
     iget-object v4, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mSql:Ljava/lang/String;
 
-    #calls: Landroid/database/sqlite/SQLiteConnection;->trimSqlForDisplay(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/database/sqlite/SQLiteConnection;->trimSqlForDisplay(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v4}, Landroid/database/sqlite/SQLiteConnection;->access$300(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
@@ -256,10 +256,10 @@
     move-result v1
 
     .line 1467
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_6
 
@@ -271,7 +271,7 @@
     move-result-object v0
 
     .line 1469
-    .local v0, arg:Ljava/lang/Object;
+    .local v0, "arg":Ljava/lang/Object;
     if-eqz v2, :cond_1
 
     .line 1470
@@ -289,15 +289,15 @@
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1467
-    .end local v0           #arg:Ljava/lang/Object;
+    .end local v0    # "arg":Ljava/lang/Object;
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     .line 1457
-    .end local v1           #count:I
-    .end local v2           #i:I
+    .end local v1    # "count":I
+    .end local v2    # "i":I
     :cond_2
     const-string v3, " started "
 
@@ -324,9 +324,9 @@
     goto :goto_0
 
     .line 1474
-    .restart local v0       #arg:Ljava/lang/Object;
-    .restart local v1       #count:I
-    .restart local v2       #i:I
+    .restart local v0    # "arg":Ljava/lang/Object;
+    .restart local v1    # "count":I
+    .restart local v2    # "i":I
     :cond_3
     instance-of v3, v0, [B
 
@@ -354,7 +354,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .end local v0           #arg:Ljava/lang/Object;
+    .end local v0    # "arg":Ljava/lang/Object;
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -366,22 +366,22 @@
     goto :goto_2
 
     .line 1479
-    .restart local v0       #arg:Ljava/lang/Object;
+    .restart local v0    # "arg":Ljava/lang/Object;
     :cond_5
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
     .line 1482
-    .end local v0           #arg:Ljava/lang/Object;
+    .end local v0    # "arg":Ljava/lang/Object;
     :cond_6
     const-string v3, "]"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1484
-    .end local v1           #count:I
-    .end local v2           #i:I
+    .end local v1    # "count":I
+    .end local v2    # "i":I
     :cond_7
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 

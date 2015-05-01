@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 2
-    .parameter "id"
-    .parameter "label"
-    .parameter "horizontalDpi"
-    .parameter "verticalDpi"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
+    .param p3, "horizontalDpi"    # I
+    .param p4, "verticalDpi"    # I
 
     .prologue
     .line 914
@@ -114,7 +114,7 @@
 
 .method static createFromParcel(Landroid/os/Parcel;)Landroid/print/PrintAttributes$Resolution;
     .locals 5
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 984
@@ -145,7 +145,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -193,7 +193,7 @@
     check-cast v0, Landroid/print/PrintAttributes$Resolution;
 
     .line 1012
-    .local v0, other:Landroid/print/PrintAttributes$Resolution;
+    .local v0, "other":Landroid/print/PrintAttributes$Resolution;
     iget v3, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
     iget v4, v0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
@@ -267,11 +267,11 @@
     const/16 v0, 0x1f
 
     .line 994
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 995
-    .local v1, result:I
+    .local v1, "result":I
     iget v2, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
     add-int/lit8 v1, v2, 0x1f
@@ -297,7 +297,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1024
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "Resolution{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -361,7 +361,7 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 977

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 416
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onFailure(I)V
     .locals 0
-    .parameter "reason"
+    .param p1, "reason"    # I
 
     .prologue
     .line 429

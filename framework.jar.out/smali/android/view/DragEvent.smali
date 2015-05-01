@@ -19,7 +19,7 @@
 
 .field public static final ACTION_DROP:I = 0x3
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -108,13 +108,13 @@
 
 .method private init(IFFLandroid/content/ClipDescription;Landroid/content/ClipData;Ljava/lang/Object;Z)V
     .locals 0
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "description"
-    .parameter "data"
-    .parameter "localState"
-    .parameter "result"
+    .param p1, "action"    # I
+    .param p2, "x"    # F
+    .param p3, "y"    # F
+    .param p4, "description"    # Landroid/content/ClipDescription;
+    .param p5, "data"    # Landroid/content/ClipData;
+    .param p6, "localState"    # Ljava/lang/Object;
+    .param p7, "result"    # Z
 
     .prologue
     .line 257
@@ -170,13 +170,13 @@
 
 .method public static obtain(IFFLjava/lang/Object;Landroid/content/ClipDescription;Landroid/content/ClipData;Z)Landroid/view/DragEvent;
     .locals 10
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "localState"
-    .parameter "description"
-    .parameter "data"
-    .parameter "result"
+    .param p0, "action"    # I
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "localState"    # Ljava/lang/Object;
+    .param p4, "description"    # Landroid/content/ClipDescription;
+    .param p5, "data"    # Landroid/content/ClipData;
+    .param p6, "result"    # Z
 
     .prologue
     .line 274
@@ -195,7 +195,7 @@
 
     invoke-direct {v0}, Landroid/view/DragEvent;-><init>()V
 
-    .local v0, ev:Landroid/view/DragEvent;
+    .local v0, "ev":Landroid/view/DragEvent;
     move v1, p0
 
     move v2, p1
@@ -219,18 +219,18 @@
     move-object v8, v0
 
     .line 290
-    .end local v0           #ev:Landroid/view/DragEvent;
-    .local v8, ev:Ljava/lang/Object;
+    .end local v0    # "ev":Landroid/view/DragEvent;
+    .local v8, "ev":Ljava/lang/Object;
     :goto_0
     return-object v8
 
     .line 280
-    .end local v8           #ev:Ljava/lang/Object;
+    .end local v8    # "ev":Ljava/lang/Object;
     :cond_0
     sget-object v0, Landroid/view/DragEvent;->gRecyclerTop:Landroid/view/DragEvent;
 
     .line 281
-    .restart local v0       #ev:Landroid/view/DragEvent;
+    .restart local v0    # "ev":Landroid/view/DragEvent;
     iget-object v1, v0, Landroid/view/DragEvent;->mNext:Landroid/view/DragEvent;
 
     sput-object v1, Landroid/view/DragEvent;->gRecyclerTop:Landroid/view/DragEvent;
@@ -282,12 +282,12 @@
     move-object v8, v0
 
     .line 290
-    .restart local v8       #ev:Ljava/lang/Object;
+    .restart local v8    # "ev":Ljava/lang/Object;
     goto :goto_0
 
     .line 283
-    .end local v0           #ev:Landroid/view/DragEvent;
-    .end local v8           #ev:Ljava/lang/Object;
+    .end local v0    # "ev":Landroid/view/DragEvent;
+    .end local v8    # "ev":Ljava/lang/Object;
     :catchall_0
     move-exception v1
 
@@ -301,7 +301,7 @@
 
 .method public static obtain(Landroid/view/DragEvent;)Landroid/view/DragEvent;
     .locals 7
-    .parameter "source"
+    .param p0, "source"    # Landroid/view/DragEvent;
 
     .prologue
     .line 295
@@ -635,8 +635,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

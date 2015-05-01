@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/CalendarView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1007
@@ -41,7 +40,7 @@
     .line 1010
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
-    #getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
+    # getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$600(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$OnDateChangeListener;
 
     move-result-object v1
@@ -51,7 +50,7 @@
     .line 1011
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
-    #getter for: Landroid/widget/CalendarView;->mAdapter:Landroid/widget/CalendarView$WeeksAdapter;
+    # getter for: Landroid/widget/CalendarView;->mAdapter:Landroid/widget/CalendarView$WeeksAdapter;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$700(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$WeeksAdapter;
 
     move-result-object v1
@@ -61,10 +60,10 @@
     move-result-object v0
 
     .line 1012
-    .local v0, selectedDay:Ljava/util/Calendar;
+    .local v0, "selectedDay":Ljava/util/Calendar;
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
-    #getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
+    # getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$600(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$OnDateChangeListener;
 
     move-result-object v1
@@ -92,7 +91,7 @@
     invoke-interface {v1, v2, v3, v4, v5}, Landroid/widget/CalendarView$OnDateChangeListener;->onSelectedDayChange(Landroid/widget/CalendarView;III)V
 
     .line 1017
-    .end local v0           #selectedDay:Ljava/util/Calendar;
+    .end local v0    # "selectedDay":Ljava/util/Calendar;
     :cond_0
     return-void
 .end method

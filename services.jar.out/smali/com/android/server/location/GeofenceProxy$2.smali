@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GeofenceProxy;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 102
@@ -39,14 +38,14 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 105
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$2;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$100(Lcom/android/server/location/GeofenceProxy;)Ljava/lang/Object;
 
     move-result-object v1
@@ -61,13 +60,13 @@
 
     move-result-object v2
 
-    #setter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
+    # setter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
     invoke-static {v0, v2}, Lcom/android/server/location/GeofenceProxy;->access$202(Lcom/android/server/location/GeofenceProxy;Landroid/hardware/location/IGeofenceHardware;)Landroid/hardware/location/IGeofenceHardware;
 
     .line 107
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$2;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$000(Lcom/android/server/location/GeofenceProxy;)Landroid/os/Handler;
 
     move-result-object v0
@@ -95,13 +94,13 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 113
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$2;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$100(Lcom/android/server/location/GeofenceProxy;)Ljava/lang/Object;
 
     move-result-object v1
@@ -114,13 +113,13 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
+    # setter for: Lcom/android/server/location/GeofenceProxy;->mGeofenceHardware:Landroid/hardware/location/IGeofenceHardware;
     invoke-static {v0, v2}, Lcom/android/server/location/GeofenceProxy;->access$202(Lcom/android/server/location/GeofenceProxy;Landroid/hardware/location/IGeofenceHardware;)Landroid/hardware/location/IGeofenceHardware;
 
     .line 115
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$2;->this$0:Lcom/android/server/location/GeofenceProxy;
 
-    #getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/location/GeofenceProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$000(Lcom/android/server/location/GeofenceProxy;)Landroid/os/Handler;
 
     move-result-object v0

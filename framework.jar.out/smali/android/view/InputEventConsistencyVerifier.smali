@@ -22,8 +22,7 @@
 
 .field public static final FLAG_RAW_DEVICE_INPUT:I = 0x1
 
-#the value of this static final field might be set in the static constructor
-.field private static final IS_ENG_BUILD:Z = false
+.field private static final IS_ENG_BUILD:Z
 
 .field private static final RECENT_EVENTS_TO_LOG:I = 0x5
 
@@ -93,8 +92,8 @@
 
 .method public constructor <init>(Ljava/lang/Object;I)V
     .locals 1
-    .parameter "caller"
-    .parameter "flags"
+    .param p1, "caller"    # Ljava/lang/Object;
+    .param p2, "flags"    # I
 
     .prologue
     .line 116
@@ -112,9 +111,9 @@
 
 .method public constructor <init>(Ljava/lang/Object;ILjava/lang/String;)V
     .locals 1
-    .parameter "caller"
-    .parameter "flags"
-    .parameter "logTag"
+    .param p1, "caller"    # Ljava/lang/Object;
+    .param p2, "flags"    # I
+    .param p3, "logTag"    # Ljava/lang/String;
 
     .prologue
     .line 125
@@ -134,7 +133,7 @@
     .line 128
     if-eqz p3, :cond_0
 
-    .end local p3
+    .end local p3    # "logTag":Ljava/lang/String;
     :goto_0
     iput-object p3, p0, Landroid/view/InputEventConsistencyVerifier;->mLogTag:Ljava/lang/String;
 
@@ -142,7 +141,7 @@
     return-void
 
     .line 128
-    .restart local p3
+    .restart local p3    # "logTag":Ljava/lang/String;
     :cond_0
     const-string p3, "InputEventConsistencyVerifier"
 
@@ -151,9 +150,9 @@
 
 .method private addKeyState(III)V
     .locals 2
-    .parameter "deviceId"
-    .parameter "source"
-    .parameter "keyCode"
+    .param p1, "deviceId"    # I
+    .param p2, "source"    # I
+    .param p3, "keyCode"    # I
 
     .prologue
     .line 691
@@ -162,7 +161,7 @@
     move-result-object v0
 
     .line 692
-    .local v0, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v0, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     iget-object v1, p0, Landroid/view/InputEventConsistencyVerifier;->mKeyStateList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     iput-object v1, v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
@@ -176,10 +175,10 @@
 
 .method private static appendEvent(Ljava/lang/StringBuilder;ILandroid/view/InputEvent;Z)V
     .locals 3
-    .parameter "message"
-    .parameter "index"
-    .parameter "event"
-    .parameter "unhandled"
+    .param p0, "message"    # Ljava/lang/StringBuilder;
+    .param p1, "index"    # I
+    .param p2, "event"    # Landroid/view/InputEvent;
+    .param p3, "unhandled"    # Z
 
     .prologue
     .line 648
@@ -222,7 +221,7 @@
 
 .method private ensureHistorySizeIsZeroForThisAction(Landroid/view/MotionEvent;)V
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 567
@@ -231,7 +230,7 @@
     move-result v0
 
     .line 568
-    .local v0, historySize:I
+    .local v0, "historySize":I
     if-eqz v0, :cond_0
 
     .line 569
@@ -280,7 +279,7 @@
 
 .method private ensureMetaStateIsNormalized(I)V
     .locals 5
-    .parameter "metaState"
+    .param p1, "metaState"    # I
 
     .prologue
     .line 551
@@ -289,7 +288,7 @@
     move-result v0
 
     .line 552
-    .local v0, normalizedMetaState:I
+    .local v0, "normalizedMetaState":I
     if-eq v0, p1, :cond_0
 
     .line 553
@@ -328,7 +327,7 @@
 
 .method private ensurePointerCountIsOneForThisAction(Landroid/view/MotionEvent;)V
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 559
@@ -337,7 +336,7 @@
     move-result v0
 
     .line 560
-    .local v0, pointerCount:I
+    .local v0, "pointerCount":I
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
@@ -388,10 +387,10 @@
 
 .method private findKeyState(IIIZ)Landroid/view/InputEventConsistencyVerifier$KeyState;
     .locals 4
-    .parameter "deviceId"
-    .parameter "source"
-    .parameter "keyCode"
-    .parameter "remove"
+    .param p1, "deviceId"    # I
+    .param p2, "source"    # I
+    .param p3, "keyCode"    # I
+    .param p4, "remove"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -400,11 +399,11 @@
     const/4 v0, 0x0
 
     .line 670
-    .local v0, last:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v0, "last":Landroid/view/InputEventConsistencyVerifier$KeyState;
     iget-object v1, p0, Landroid/view/InputEventConsistencyVerifier;->mKeyStateList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 671
-    .local v1, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v1, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :goto_0
     if-eqz v1, :cond_3
 
@@ -437,13 +436,13 @@
     iput-object v2, v1, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 687
-    .end local v1           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v1    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :cond_0
     :goto_2
     return-object v1
 
     .line 678
-    .restart local v1       #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .restart local v1    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :cond_1
     iget-object v3, v1, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
@@ -541,7 +540,7 @@
     .line 607
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v7, :cond_0
 
@@ -555,19 +554,19 @@
     rem-int/lit8 v2, v3, 0x5
 
     .line 610
-    .local v2, index:I
+    .local v2, "index":I
     iget-object v3, p0, Landroid/view/InputEventConsistencyVerifier;->mRecentEvents:[Landroid/view/InputEvent;
 
     aget-object v0, v3, v2
 
     .line 611
-    .local v0, event:Landroid/view/InputEvent;
+    .local v0, "event":Landroid/view/InputEvent;
     if-nez v0, :cond_5
 
     .line 619
-    .end local v0           #event:Landroid/view/InputEvent;
-    .end local v1           #i:I
-    .end local v2           #index:I
+    .end local v0    # "event":Landroid/view/InputEvent;
+    .end local v1    # "i":I
+    .end local v2    # "index":I
     :cond_0
     iget-object v3, p0, Landroid/view/InputEventConsistencyVerifier;->mLogTag:Ljava/lang/String;
 
@@ -617,7 +616,7 @@
     rem-int/lit8 v2, v3, 0x5
 
     .line 634
-    .restart local v2       #index:I
+    .restart local v2    # "index":I
     iput v2, p0, Landroid/view/InputEventConsistencyVerifier;->mMostRecentEventIndex:I
 
     .line 635
@@ -661,8 +660,8 @@
     return-void
 
     .line 614
-    .restart local v0       #event:Landroid/view/InputEvent;
-    .restart local v1       #i:I
+    .restart local v0    # "event":Landroid/view/InputEvent;
+    .restart local v1    # "i":I
     :cond_5
     iget-object v3, p0, Landroid/view/InputEventConsistencyVerifier;->mViolationMessage:Ljava/lang/StringBuilder;
 
@@ -699,7 +698,7 @@
 
 .method private problem(Ljava/lang/String;)V
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 657
@@ -759,9 +758,9 @@
 
 .method private startEvent(Landroid/view/InputEvent;ILjava/lang/String;)Z
     .locals 3
-    .parameter "event"
-    .parameter "nestingLevel"
-    .parameter "eventType"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "nestingLevel"    # I
+    .param p3, "eventType"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -772,7 +771,7 @@
     move-result v0
 
     .line 577
-    .local v0, seq:I
+    .local v0, "seq":I
     iget v2, p0, Landroid/view/InputEventConsistencyVerifier;->mLastEventSeq:I
 
     if-ne v0, v2, :cond_0
@@ -835,8 +834,8 @@
 # virtual methods
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;I)V
     .locals 3
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     .line 460
@@ -867,13 +866,13 @@
     move-result v0
 
     .line 468
-    .local v0, action:I
+    .local v0, "action":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v1
 
     .line 469
-    .local v1, source:I
+    .local v1, "source":I
     and-int/lit8 v2, v1, 0x2
 
     if-eqz v2, :cond_3
@@ -910,8 +909,8 @@
     goto :goto_1
 
     .line 504
-    .end local v0           #action:I
-    .end local v1           #source:I
+    .end local v0    # "action":I
+    .end local v1    # "source":I
     :catchall_0
     move-exception v2
 
@@ -920,8 +919,8 @@
     throw v2
 
     .line 476
-    .restart local v0       #action:I
-    .restart local v1       #source:I
+    .restart local v0    # "action":I
+    .restart local v1    # "source":I
     :pswitch_1
     :try_start_2
     invoke-direct {p0, p1}, Landroid/view/InputEventConsistencyVerifier;->ensurePointerCountIsOneForThisAction(Landroid/view/MotionEvent;)V
@@ -1001,8 +1000,8 @@
 
 .method public onInputEvent(Landroid/view/InputEvent;I)V
     .locals 3
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     .line 169
@@ -1016,11 +1015,11 @@
     check-cast v0, Landroid/view/KeyEvent;
 
     .line 171
-    .local v0, keyEvent:Landroid/view/KeyEvent;
+    .local v0, "keyEvent":Landroid/view/KeyEvent;
     invoke-virtual {p0, v0, p2}, Landroid/view/InputEventConsistencyVerifier;->onKeyEvent(Landroid/view/KeyEvent;I)V
 
     .line 182
-    .end local v0           #keyEvent:Landroid/view/KeyEvent;
+    .end local v0    # "keyEvent":Landroid/view/KeyEvent;
     :goto_0
     return-void
 
@@ -1031,7 +1030,7 @@
     check-cast v1, Landroid/view/MotionEvent;
 
     .line 174
-    .local v1, motionEvent:Landroid/view/MotionEvent;
+    .local v1, "motionEvent":Landroid/view/MotionEvent;
     invoke-virtual {v1}, Landroid/view/MotionEvent;->isTouchEvent()Z
 
     move-result v2
@@ -1067,8 +1066,8 @@
 
 .method public onKeyEvent(Landroid/view/KeyEvent;I)V
     .locals 7
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     .line 194
@@ -1099,25 +1098,25 @@
     move-result v0
 
     .line 202
-    .local v0, action:I
+    .local v0, "action":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getDeviceId()I
 
     move-result v1
 
     .line 203
-    .local v1, deviceId:I
+    .local v1, "deviceId":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getSource()I
 
     move-result v3
 
     .line 204
-    .local v3, source:I
+    .local v3, "source":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v2
 
     .line 205
-    .local v2, keyCode:I
+    .local v2, "keyCode":I
     packed-switch v0, :pswitch_data_0
 
     .line 237
@@ -1171,7 +1170,7 @@
     move-result-object v4
 
     .line 208
-    .local v4, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v4, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     if-eqz v4, :cond_3
 
     .line 213
@@ -1189,11 +1188,11 @@
     goto :goto_1
 
     .line 242
-    .end local v0           #action:I
-    .end local v1           #deviceId:I
-    .end local v2           #keyCode:I
-    .end local v3           #source:I
-    .end local v4           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v0    # "action":I
+    .end local v1    # "deviceId":I
+    .end local v2    # "keyCode":I
+    .end local v3    # "source":I
+    .end local v4    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :catchall_0
     move-exception v5
 
@@ -1202,11 +1201,11 @@
     throw v5
 
     .line 215
-    .restart local v0       #action:I
-    .restart local v1       #deviceId:I
-    .restart local v2       #keyCode:I
-    .restart local v3       #source:I
-    .restart local v4       #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .restart local v0    # "action":I
+    .restart local v1    # "deviceId":I
+    .restart local v2    # "keyCode":I
+    .restart local v3    # "source":I
+    .restart local v4    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :cond_2
     :try_start_2
     iget v5, p0, Landroid/view/InputEventConsistencyVerifier;->mFlags:I
@@ -1235,7 +1234,7 @@
     goto :goto_1
 
     .line 226
-    .end local v4           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v4    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :pswitch_2
     const/4 v5, 0x1
 
@@ -1244,7 +1243,7 @@
     move-result-object v4
 
     .line 227
-    .restart local v4       #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .restart local v4    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     if-nez v4, :cond_4
 
     .line 228
@@ -1273,8 +1272,8 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;I)V
     .locals 13
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     const/4 v10, 0x0
@@ -1301,7 +1300,7 @@
     move-result v0
 
     .line 324
-    .local v0, action:I
+    .local v0, "action":I
     if-eqz v0, :cond_1
 
     const/4 v12, 0x3
@@ -1316,7 +1315,7 @@
     move v7, v11
 
     .line 326
-    .local v7, newStream:Z
+    .local v7, "newStream":Z
     :goto_1
     if-eqz v7, :cond_3
 
@@ -1362,13 +1361,13 @@
     move-result v3
 
     .line 339
-    .local v3, deviceId:I
+    .local v3, "deviceId":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v9
 
     .line 341
-    .local v9, source:I
+    .local v9, "source":I
     if-nez v7, :cond_6
 
     iget v10, p0, Landroid/view/InputEventConsistencyVerifier;->mTouchEventStreamDeviceId:I
@@ -1462,7 +1461,7 @@
     move-result v8
 
     .line 354
-    .local v8, pointerCount:I
+    .local v8, "pointerCount":I
     and-int/lit8 v10, v9, 0x2
 
     if-eqz v10, :cond_14
@@ -1476,13 +1475,13 @@
     move-result v2
 
     .line 396
-    .local v2, actionMasked:I
+    .local v2, "actionMasked":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v1
 
     .line 397
-    .local v1, actionIndex:I
+    .local v1, "actionIndex":I
     const/4 v10, 0x5
 
     if-ne v2, v10, :cond_f
@@ -1558,18 +1557,18 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 446
-    .end local v1           #actionIndex:I
-    .end local v2           #actionMasked:I
+    .end local v1    # "actionIndex":I
+    .end local v2    # "actionMasked":I
     :cond_9
     :goto_3
     invoke-direct {p0}, Landroid/view/InputEventConsistencyVerifier;->finishEvent()V
 
     goto/16 :goto_0
 
-    .end local v3           #deviceId:I
-    .end local v7           #newStream:Z
-    .end local v8           #pointerCount:I
-    .end local v9           #source:I
+    .end local v3    # "deviceId":I
+    .end local v7    # "newStream":Z
+    .end local v8    # "pointerCount":I
+    .end local v9    # "source":I
     :cond_a
     move v7, v10
 
@@ -1577,10 +1576,10 @@
     goto/16 :goto_1
 
     .line 357
-    .restart local v3       #deviceId:I
-    .restart local v7       #newStream:Z
-    .restart local v8       #pointerCount:I
-    .restart local v9       #source:I
+    .restart local v3    # "deviceId":I
+    .restart local v7    # "newStream":Z
+    .restart local v8    # "pointerCount":I
+    .restart local v9    # "source":I
     :pswitch_0
     :try_start_1
     iget v10, p0, Landroid/view/InputEventConsistencyVerifier;->mTouchEventStreamPointers:I
@@ -1615,9 +1614,9 @@
     goto :goto_3
 
     .line 446
-    .end local v3           #deviceId:I
-    .end local v8           #pointerCount:I
-    .end local v9           #source:I
+    .end local v3    # "deviceId":I
+    .end local v8    # "pointerCount":I
+    .end local v9    # "source":I
     :catchall_0
     move-exception v10
 
@@ -1626,9 +1625,9 @@
     throw v10
 
     .line 366
-    .restart local v3       #deviceId:I
-    .restart local v8       #pointerCount:I
-    .restart local v9       #source:I
+    .restart local v3    # "deviceId":I
+    .restart local v8    # "pointerCount":I
+    .restart local v9    # "source":I
     :pswitch_1
     :try_start_2
     invoke-direct {p0, p1}, Landroid/view/InputEventConsistencyVerifier;->ensureHistorySizeIsZeroForThisAction(Landroid/view/MotionEvent;)V
@@ -1657,7 +1656,7 @@
     move-result v4
 
     .line 374
-    .local v4, expectedPointerCount:I
+    .local v4, "expectedPointerCount":I
     if-eq v8, v4, :cond_9
 
     .line 375
@@ -1705,7 +1704,7 @@
     goto :goto_3
 
     .line 383
-    .end local v4           #expectedPointerCount:I
+    .end local v4    # "expectedPointerCount":I
     :pswitch_3
     const/4 v10, 0x0
 
@@ -1744,19 +1743,19 @@
     goto :goto_3
 
     .line 407
-    .restart local v1       #actionIndex:I
-    .restart local v2       #actionMasked:I
+    .restart local v1    # "actionIndex":I
+    .restart local v2    # "actionMasked":I
     :cond_d
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v5
 
     .line 408
-    .local v5, id:I
+    .local v5, "id":I
     shl-int v6, v11, v5
 
     .line 409
-    .local v6, idBit:I
+    .local v6, "idBit":I
     iget v10, p0, Landroid/view/InputEventConsistencyVerifier;->mTouchEventStreamPointers:I
 
     and-int/2addr v10, v6
@@ -1808,8 +1807,8 @@
     goto/16 :goto_2
 
     .line 418
-    .end local v5           #id:I
-    .end local v6           #idBit:I
+    .end local v5    # "id":I
+    .end local v6    # "idBit":I
     :cond_f
     const/4 v10, 0x6
 
@@ -1876,11 +1875,11 @@
     move-result v5
 
     .line 425
-    .restart local v5       #id:I
+    .restart local v5    # "id":I
     shl-int v6, v11, v5
 
     .line 426
-    .restart local v6       #idBit:I
+    .restart local v6    # "idBit":I
     iget v10, p0, Landroid/view/InputEventConsistencyVerifier;->mTouchEventStreamPointers:I
 
     and-int/2addr v10, v6
@@ -1934,8 +1933,8 @@
     goto :goto_4
 
     .line 436
-    .end local v5           #id:I
-    .end local v6           #idBit:I
+    .end local v5    # "id":I
+    .end local v6    # "idBit":I
     :cond_13
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1970,8 +1969,8 @@
     goto/16 :goto_3
 
     .line 443
-    .end local v1           #actionIndex:I
-    .end local v2           #actionMasked:I
+    .end local v1    # "actionIndex":I
+    .end local v2    # "actionMasked":I
     :cond_14
     const-string v10, "Source was not SOURCE_CLASS_POINTER."
 
@@ -1994,8 +1993,8 @@
 
 .method public onTrackballEvent(Landroid/view/MotionEvent;I)V
     .locals 5
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -2028,13 +2027,13 @@
     move-result v0
 
     .line 264
-    .local v0, action:I
+    .local v0, "action":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v1
 
     .line 265
-    .local v1, source:I
+    .local v1, "source":I
     and-int/lit8 v2, v1, 0x4
 
     if-eqz v2, :cond_5
@@ -2129,8 +2128,8 @@
     goto :goto_1
 
     .line 305
-    .end local v0           #action:I
-    .end local v1           #source:I
+    .end local v0    # "action":I
+    .end local v1    # "source":I
     :catchall_0
     move-exception v2
 
@@ -2139,8 +2138,8 @@
     throw v2
 
     .line 271
-    .restart local v0       #action:I
-    .restart local v1       #source:I
+    .restart local v0    # "action":I
+    .restart local v1    # "source":I
     :cond_2
     const/4 v2, 0x1
 
@@ -2235,8 +2234,8 @@
 
 .method public onUnhandledEvent(Landroid/view/InputEvent;I)V
     .locals 9
-    .parameter "event"
-    .parameter "nestingLevel"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "nestingLevel"    # I
 
     .prologue
     const/4 v8, 0x1
@@ -2276,25 +2275,25 @@
     check-cast v2, Landroid/view/KeyEvent;
 
     .line 531
-    .local v2, keyEvent:Landroid/view/KeyEvent;
+    .local v2, "keyEvent":Landroid/view/KeyEvent;
     invoke-virtual {v2}, Landroid/view/KeyEvent;->getDeviceId()I
 
     move-result v0
 
     .line 532
-    .local v0, deviceId:I
+    .local v0, "deviceId":I
     invoke-virtual {v2}, Landroid/view/KeyEvent;->getSource()I
 
     move-result v4
 
     .line 533
-    .local v4, source:I
+    .local v4, "source":I
     invoke-virtual {v2}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
     .line 534
-    .local v1, keyCode:I
+    .local v1, "keyCode":I
     const/4 v6, 0x0
 
     invoke-direct {p0, v0, v4, v1, v6}, Landroid/view/InputEventConsistencyVerifier;->findKeyState(IIIZ)Landroid/view/InputEventConsistencyVerifier$KeyState;
@@ -2302,7 +2301,7 @@
     move-result-object v5
 
     .line 535
-    .local v5, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v5, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     if-eqz v5, :cond_0
 
     .line 536
@@ -2310,11 +2309,11 @@
 
     goto :goto_0
 
-    .end local v0           #deviceId:I
-    .end local v1           #keyCode:I
-    .end local v2           #keyEvent:Landroid/view/KeyEvent;
-    .end local v4           #source:I
-    .end local v5           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v0    # "deviceId":I
+    .end local v1    # "keyCode":I
+    .end local v2    # "keyEvent":Landroid/view/KeyEvent;
+    .end local v4    # "source":I
+    .end local v5    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :cond_3
     move-object v3, p1
 
@@ -2322,7 +2321,7 @@
     check-cast v3, Landroid/view/MotionEvent;
 
     .line 540
-    .local v3, motionEvent:Landroid/view/MotionEvent;
+    .local v3, "motionEvent":Landroid/view/MotionEvent;
     invoke-virtual {v3}, Landroid/view/MotionEvent;->isTouchEvent()Z
 
     move-result v6
@@ -2397,7 +2396,7 @@
     iget-object v0, p0, Landroid/view/InputEventConsistencyVerifier;->mKeyStateList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 154
-    .local v0, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v0, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     iget-object v1, v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     iput-object v1, p0, Landroid/view/InputEventConsistencyVerifier;->mKeyStateList:Landroid/view/InputEventConsistencyVerifier$KeyState;
@@ -2408,7 +2407,7 @@
     goto :goto_0
 
     .line 157
-    .end local v0           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v0    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :cond_0
     return-void
 .end method

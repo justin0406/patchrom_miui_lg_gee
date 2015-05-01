@@ -32,15 +32,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/RegisteredServicesCache;Landroid/content/pm/RegisteredServicesCacheListener;Ljava/lang/Object;IZ)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 213
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$3;,"Landroid/content/pm/RegisteredServicesCache.3;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$3;, "Landroid/content/pm/RegisteredServicesCache.3;"
     iput-object p1, p0, Landroid/content/pm/RegisteredServicesCache$3;->this$0:Landroid/content/pm/RegisteredServicesCache;
 
     iput-object p2, p0, Landroid/content/pm/RegisteredServicesCache$3;->val$listener2:Landroid/content/pm/RegisteredServicesCacheListener;
@@ -63,7 +58,7 @@
 
     .prologue
     .line 215
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$3;,"Landroid/content/pm/RegisteredServicesCache.3;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$3;, "Landroid/content/pm/RegisteredServicesCache.3;"
     iget-object v0, p0, Landroid/content/pm/RegisteredServicesCache$3;->val$listener2:Landroid/content/pm/RegisteredServicesCacheListener;
 
     iget-object v1, p0, Landroid/content/pm/RegisteredServicesCache$3;->val$type:Ljava/lang/Object;

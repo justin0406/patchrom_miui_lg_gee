@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>([C)V
     .locals 0
-    .parameter "text"
+    .param p1, "text"    # [C
 
     .prologue
     .line 517
@@ -39,7 +39,7 @@
 
 .method static synthetic access$000(Landroid/text/method/QwertyKeyListener$Replaced;)[C
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/text/method/QwertyKeyListener$Replaced;
 
     .prologue
     .line 515

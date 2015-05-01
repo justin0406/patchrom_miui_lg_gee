@@ -335,7 +335,7 @@
     .end annotation
 .end method
 
-.method public abstract requestRouteToHost(II)Z
+.method public abstract requestRouteToHost(IILjava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -343,7 +343,7 @@
     .end annotation
 .end method
 
-.method public abstract requestRouteToHostAddress(I[B)Z
+.method public abstract requestRouteToHostAddress(I[BLjava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -447,7 +447,23 @@
     .end annotation
 .end method
 
+.method public abstract startUsingNetworkFeatureMSim(ILjava/lang/String;Landroid/os/IBinder;I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract stopUsingNetworkFeature(ILjava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopUsingNetworkFeatureMSim(ILjava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

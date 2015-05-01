@@ -27,7 +27,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 718
@@ -40,8 +39,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/StateMachine$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/util/StateMachine$SmHandler;
+    .param p2, "x1"    # Lcom/android/internal/util/StateMachine$1;
 
     .prologue
     .line 718

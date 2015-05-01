@@ -18,9 +18,9 @@
 # virtual methods
 .method onStorageStateChange(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "path"
-    .parameter "oldState"
-    .parameter "newState"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "oldState"    # Ljava/lang/String;
+    .param p3, "newState"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -29,7 +29,7 @@
 
 .method onUsbMassStorageConnectionChanged(Z)V
     .locals 0
-    .parameter "connected"
+    .param p1, "connected"    # Z
 
     .prologue
     .line 31

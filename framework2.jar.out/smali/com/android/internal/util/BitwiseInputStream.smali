@@ -22,7 +22,7 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 1
-    .parameter "buf"
+    .param p1, "buf"    # [B
 
     .prologue
     .line 52
@@ -65,7 +65,7 @@
 
 .method public read(I)I
     .locals 6
-    .parameter "bits"
+    .param p1, "bits"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/util/BitwiseInputStream$AccessException;
@@ -81,7 +81,7 @@
     ushr-int/lit8 v1, v3, 0x3
 
     .line 76
-    .local v1, index:I
+    .local v1, "index":I
     iget v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mPos:I
 
     and-int/lit8 v3, v3, 0x7
@@ -91,7 +91,7 @@
     sub-int v2, v3, p1
 
     .line 77
-    .local v2, offset:I
+    .local v2, "offset":I
     if-ltz p1, :cond_0
 
     if-gt p1, v5, :cond_0
@@ -171,7 +171,7 @@
     shl-int/lit8 v0, v3, 0x8
 
     .line 82
-    .local v0, data:I
+    .local v0, "data":I
     if-ge v2, v5, :cond_2
 
     iget-object v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
@@ -210,7 +210,7 @@
 
 .method public readByteArray(I)[B
     .locals 6
-    .parameter "bits"
+    .param p1, "bits"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/util/BitwiseInputStream$AccessException;
@@ -231,14 +231,14 @@
     add-int v1, v5, v4
 
     .line 97
-    .local v1, bytes:I
+    .local v1, "bytes":I
     new-array v0, v1, [B
 
     .line 98
-    .local v0, arr:[B
+    .local v0, "arr":[B
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_1
 
@@ -254,7 +254,7 @@
     move-result v3
 
     .line 100
-    .local v3, increment:I
+    .local v3, "increment":I
     invoke-virtual {p0, v3}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
 
     move-result v4
@@ -273,26 +273,26 @@
     goto :goto_1
 
     .line 96
-    .end local v0           #arr:[B
-    .end local v1           #bytes:I
-    .end local v2           #i:I
-    .end local v3           #increment:I
+    .end local v0    # "arr":[B
+    .end local v1    # "bytes":I
+    .end local v2    # "i":I
+    .end local v3    # "increment":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
     .line 102
-    .restart local v0       #arr:[B
-    .restart local v1       #bytes:I
-    .restart local v2       #i:I
+    .restart local v0    # "arr":[B
+    .restart local v1    # "bytes":I
+    .restart local v2    # "i":I
     :cond_1
     return-object v0
 .end method
 
 .method public skip(I)V
     .locals 3
-    .parameter "bits"
+    .param p1, "bits"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/util/BitwiseInputStream$AccessException;

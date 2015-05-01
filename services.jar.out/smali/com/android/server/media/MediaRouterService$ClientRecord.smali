@@ -40,12 +40,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/media/MediaRouterService;Lcom/android/server/media/MediaRouterService$UserRecord;Landroid/media/IMediaRouterClient;ILjava/lang/String;Z)V
     .locals 0
-    .parameter
-    .parameter "userRecord"
-    .parameter "client"
-    .parameter "pid"
-    .parameter "packageName"
-    .parameter "trusted"
+    .param p2, "userRecord"    # Lcom/android/server/media/MediaRouterService$UserRecord;
+    .param p3, "client"    # Landroid/media/IMediaRouterClient;
+    .param p4, "pid"    # I
+    .param p5, "packageName"    # Ljava/lang/String;
+    .param p6, "trusted"    # Z
 
     .prologue
     .line 507
@@ -108,8 +107,8 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 529
@@ -151,7 +150,7 @@
     move-result-object v0
 
     .line 532
-    .local v0, indent:Ljava/lang/String;
+    .local v0, "indent":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

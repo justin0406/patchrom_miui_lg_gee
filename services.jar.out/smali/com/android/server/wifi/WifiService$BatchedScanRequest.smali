@@ -29,10 +29,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 6
-    .parameter
-    .parameter "settings"
-    .parameter "binder"
-    .parameter "ws"
+    .param p2, "settings"    # Landroid/net/wifi/BatchedScanSettings;
+    .param p3, "binder"    # Landroid/os/IBinder;
+    .param p4, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     const/4 v3, 0x0
@@ -92,7 +91,7 @@
 
     iget v3, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->pid:I
 
-    #calls: Lcom/android/server/wifi/WifiService;->stopBatchedScan(Landroid/net/wifi/BatchedScanSettings;II)V
+    # invokes: Lcom/android/server/wifi/WifiService;->stopBatchedScan(Landroid/net/wifi/BatchedScanSettings;II)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/wifi/WifiService;->access$500(Lcom/android/server/wifi/WifiService;Landroid/net/wifi/BatchedScanSettings;II)V
 
     .line 386
@@ -101,8 +100,8 @@
 
 .method public isSameApp(II)Z
     .locals 1
-    .parameter "uid"
-    .parameter "pid"
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
 
     .prologue
     .line 392

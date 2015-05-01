@@ -3,8 +3,8 @@
 .source "Plugin.java"
 
 # interfaces
-.implements Landroid/webkit/Plugin$PreferencesClickHandler;
 .implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/webkit/Plugin$PreferencesClickHandler;
 
 
 # annotations
@@ -30,7 +30,6 @@
 # direct methods
 .method private constructor <init>(Landroid/webkit/Plugin;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 195
@@ -43,8 +42,8 @@
 
 .method synthetic constructor <init>(Landroid/webkit/Plugin;Landroid/webkit/Plugin$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/webkit/Plugin;
+    .param p2, "x1"    # Landroid/webkit/Plugin$1;
 
     .prologue
     .line 195
@@ -57,7 +56,7 @@
 # virtual methods
 .method public handleClickEvent(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -74,7 +73,7 @@
 
     iget-object v1, p0, Landroid/webkit/Plugin$DefaultClickHandler;->this$0:Landroid/webkit/Plugin;
 
-    #getter for: Landroid/webkit/Plugin;->mName:Ljava/lang/String;
+    # getter for: Landroid/webkit/Plugin;->mName:Ljava/lang/String;
     invoke-static {v1}, Landroid/webkit/Plugin;->access$200(Landroid/webkit/Plugin;)Ljava/lang/String;
 
     move-result-object v1
@@ -85,7 +84,7 @@
 
     iget-object v1, p0, Landroid/webkit/Plugin$DefaultClickHandler;->this$0:Landroid/webkit/Plugin;
 
-    #getter for: Landroid/webkit/Plugin;->mDescription:Ljava/lang/String;
+    # getter for: Landroid/webkit/Plugin;->mDescription:Ljava/lang/String;
     invoke-static {v1}, Landroid/webkit/Plugin;->access$100(Landroid/webkit/Plugin;)Ljava/lang/String;
 
     move-result-object v1
@@ -119,8 +118,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

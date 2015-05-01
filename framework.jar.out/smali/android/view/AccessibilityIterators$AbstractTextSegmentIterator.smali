@@ -45,8 +45,8 @@
 # virtual methods
 .method protected getRange(II)[I
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 60
@@ -87,7 +87,7 @@
 
 .method public initialize(Ljava/lang/String;)V
     .locals 0
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 56

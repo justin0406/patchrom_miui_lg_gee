@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/usb/UsbService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 90
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 93
@@ -50,13 +49,13 @@
     move-result v1
 
     .line 94
-    .local v1, userId:I
+    .local v1, "userId":I
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
     .line 95
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,7 +67,7 @@
     .line 96
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
-    #calls: Lcom/android/server/usb/UsbService;->setCurrentUser(I)V
+    # invokes: Lcom/android/server/usb/UsbService;->setCurrentUser(I)V
     invoke-static {v2, v1}, Lcom/android/server/usb/UsbService;->access$000(Lcom/android/server/usb/UsbService;I)V
 
     .line 102
@@ -89,7 +88,7 @@
     .line 98
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
-    #getter for: Lcom/android/server/usb/UsbService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/usb/UsbService;->mLock:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/server/usb/UsbService;->access$100(Lcom/android/server/usb/UsbService;)Ljava/lang/Object;
 
     move-result-object v3
@@ -100,7 +99,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
-    #getter for: Lcom/android/server/usb/UsbService;->mSettingsByUser:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/usb/UsbService;->mSettingsByUser:Landroid/util/SparseArray;
     invoke-static {v2}, Lcom/android/server/usb/UsbService;->access$200(Lcom/android/server/usb/UsbService;)Landroid/util/SparseArray;
 
     move-result-object v2

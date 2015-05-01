@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/nsd/INsdManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/nsd/INsdManager;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/net/nsd/INsdManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/nsd/INsdManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,7 +152,7 @@
     move-result-object v1
 
     .line 54
-    .local v1, _result:Landroid/os/Messenger;
+    .local v1, "_result":Landroid/os/Messenger;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 55
@@ -173,7 +173,7 @@
     goto :goto_0
 
     .line 66
-    .end local v1           #_result:Landroid/os/Messenger;
+    .end local v1    # "_result":Landroid/os/Messenger;
     :sswitch_2
     const-string v3, "android.net.nsd.INsdManager"
 
@@ -189,7 +189,7 @@
     move v0, v2
 
     .line 69
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :cond_1
     invoke-virtual {p0, v0}, Landroid/net/nsd/INsdManager$Stub;->setEnabled(Z)V
 

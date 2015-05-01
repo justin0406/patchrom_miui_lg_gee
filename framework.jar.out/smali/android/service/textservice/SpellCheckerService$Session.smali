@@ -82,8 +82,8 @@
 
 .method public onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)[Landroid/view/textservice/SentenceSuggestionsInfo;
     .locals 11
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
 
     .prologue
     .line 166
@@ -123,7 +123,7 @@
     move-result-object v4
 
     .line 177
-    .local v4, localeStr:Ljava/lang/String;
+    .local v4, "localeStr":Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
@@ -142,7 +142,7 @@
     iput-object v9, p0, Landroid/service/textservice/SpellCheckerService$Session;->mSentenceLevelAdapter:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
 
     .line 181
-    .end local v4           #localeStr:Ljava/lang/String;
+    .end local v4    # "localeStr":Ljava/lang/String;
     :cond_3
     monitor-exit p0
     :try_end_0
@@ -175,14 +175,14 @@
     array-length v1, p1
 
     .line 187
-    .local v1, infosSize:I
+    .local v1, "infosSize":I
     new-array v6, v1, [Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .line 188
-    .local v6, retval:[Landroid/view/textservice/SentenceSuggestionsInfo;
+    .local v6, "retval":[Landroid/view/textservice/SentenceSuggestionsInfo;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_1
 
@@ -191,30 +191,30 @@
 
     aget-object v10, p1, v0
 
-    #calls: Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->getSplitWords(Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
+    # invokes: Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->getSplitWords(Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
     invoke-static {v9, v10}, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->access$000(Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
 
     move-result-object v8
 
     .line 191
-    .local v8, textInfoParams:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
+    .local v8, "textInfoParams":Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
     iget-object v5, v8, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;->mItems:Ljava/util/ArrayList;
 
     .line 193
-    .local v5, mItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;>;"
+    .local v5, "mItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceWordItem;>;"
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     .line 194
-    .local v2, itemsSize:I
+    .local v2, "itemsSize":I
     new-array v7, v2, [Landroid/view/textservice/TextInfo;
 
     .line 195
-    .local v7, splitTextInfos:[Landroid/view/textservice/TextInfo;
+    .local v7, "splitTextInfos":[Landroid/view/textservice/TextInfo;
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_2
     if-ge v3, v2, :cond_6
 
@@ -259,23 +259,23 @@
 
 .method public onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)[Landroid/view/textservice/SuggestionsInfo;
     .locals 6
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "sequentialWords"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
+    .param p3, "sequentialWords"    # Z
 
     .prologue
     .line 140
     array-length v1, p1
 
     .line 141
-    .local v1, length:I
+    .local v1, "length":I
     new-array v2, v1, [Landroid/view/textservice/SuggestionsInfo;
 
     .line 142
-    .local v2, retval:[Landroid/view/textservice/SuggestionsInfo;
+    .local v2, "retval":[Landroid/view/textservice/SuggestionsInfo;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -317,7 +317,7 @@
 
 .method public final setInternalISpellCheckerSession(Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;)V
     .locals 0
-    .parameter "session"
+    .param p1, "session"    # Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;
 
     .prologue
     .line 107

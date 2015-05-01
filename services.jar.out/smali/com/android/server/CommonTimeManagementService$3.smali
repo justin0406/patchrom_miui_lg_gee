@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 132
@@ -44,7 +43,7 @@
     .line 134
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$3;->this$0:Lcom/android/server/CommonTimeManagementService;
 
-    #calls: Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
+    # invokes: Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$100(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 135

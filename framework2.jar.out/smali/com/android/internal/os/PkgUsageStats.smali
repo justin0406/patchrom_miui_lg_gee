@@ -56,7 +56,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 7
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 60
@@ -89,7 +89,7 @@
     move-result v0
 
     .line 65
-    .local v0, N:I
+    .local v0, "N":I
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5, v0}, Ljava/util/HashMap;-><init>(I)V
@@ -99,7 +99,7 @@
     .line 66
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -109,13 +109,13 @@
     move-result-object v1
 
     .line 68
-    .local v1, component:Ljava/lang/String;
+    .local v1, "component":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     .line 69
-    .local v3, lastResumeTime:J
+    .local v3, "lastResumeTime":J
     iget-object v5, p0, Lcom/android/internal/os/PkgUsageStats;->componentResumeTimes:Ljava/util/Map;
 
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -130,15 +130,15 @@
     goto :goto_0
 
     .line 71
-    .end local v1           #component:Ljava/lang/String;
-    .end local v3           #lastResumeTime:J
+    .end local v1    # "component":Ljava/lang/String;
+    .end local v3    # "lastResumeTime":J
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/internal/os/PkgUsageStats;)V
     .locals 2
-    .parameter "pStats"
+    .param p1, "pStats"    # Lcom/android/internal/os/PkgUsageStats;
 
     .prologue
     .line 73
@@ -174,10 +174,9 @@
 
 .method public constructor <init>(Ljava/lang/String;IJLjava/util/Map;)V
     .locals 1
-    .parameter "pkgName"
-    .parameter "count"
-    .parameter "time"
-    .parameter
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "count"    # I
+    .param p3, "time"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +192,7 @@
 
     .prologue
     .line 53
-    .local p5, lastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
+    .local p5, "lastResumeTimes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
@@ -282,8 +281,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 85
@@ -321,7 +320,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -336,7 +335,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 90
-    .local v0, ent:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .local v0, "ent":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -361,7 +360,7 @@
     goto :goto_0
 
     .line 93
-    .end local v0           #ent:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
+    .end local v0    # "ent":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     :cond_0
     return-void
 .end method

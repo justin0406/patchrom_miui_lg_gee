@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterFunction;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 33

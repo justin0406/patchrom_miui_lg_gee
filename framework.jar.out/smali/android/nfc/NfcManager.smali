@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 46
@@ -43,7 +43,7 @@
     move-result-object v0
 
     .line 58
-    .local v0, adapter:Landroid/nfc/NfcAdapter;
+    .local v0, "adapter":Landroid/nfc/NfcAdapter;
     :goto_0
     iput-object v0, p0, Landroid/nfc/NfcManager;->mAdapter:Landroid/nfc/NfcAdapter;
 
@@ -51,15 +51,15 @@
     return-void
 
     .line 55
-    .end local v0           #adapter:Landroid/nfc/NfcAdapter;
+    .end local v0    # "adapter":Landroid/nfc/NfcAdapter;
     :catch_0
     move-exception v1
 
     .line 56
-    .local v1, e:Ljava/lang/UnsupportedOperationException;
+    .local v1, "e":Ljava/lang/UnsupportedOperationException;
     const/4 v0, 0x0
 
-    .restart local v0       #adapter:Landroid/nfc/NfcAdapter;
+    .restart local v0    # "adapter":Landroid/nfc/NfcAdapter;
     goto :goto_0
 .end method
 
@@ -73,14 +73,4 @@
     iget-object v0, p0, Landroid/nfc/NfcManager;->mAdapter:Landroid/nfc/NfcAdapter;
 
     return-object v0
-.end method
-
-.method public setPollDuration(I)I
-    .locals 1
-    .parameter "pollDurationMs"
-
-    .prologue
-    const/4 v0, 0x0
-
-    return v0
 .end method

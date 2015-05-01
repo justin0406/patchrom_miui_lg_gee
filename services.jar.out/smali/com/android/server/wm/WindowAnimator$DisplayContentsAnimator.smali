@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/wm/WindowAnimator;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 686
@@ -41,8 +40,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/wm/WindowAnimator;Lcom/android/server/wm/WindowAnimator$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/wm/WindowAnimator;
+    .param p2, "x1"    # Lcom/android/server/wm/WindowAnimator$1;
 
     .prologue
     .line 686

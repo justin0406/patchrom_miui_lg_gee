@@ -23,10 +23,9 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioTrack;Landroid/media/AudioTrack;Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;Landroid/os/Handler;)V
     .locals 6
-    .parameter
-    .parameter "track"
-    .parameter "listener"
-    .parameter "handler"
+    .param p2, "track"    # Landroid/media/AudioTrack;
+    .param p3, "listener"    # Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;
+    .param p4, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 1246
@@ -43,7 +42,7 @@
     move-result-object v2
 
     .line 1257
-    .local v2, looper:Landroid/os/Looper;
+    .local v2, "looper":Landroid/os/Looper;
     :goto_0
     if-eqz v2, :cond_1
 
@@ -67,14 +66,14 @@
     return-void
 
     .line 1253
-    .end local v2           #looper:Landroid/os/Looper;
+    .end local v2    # "looper":Landroid/os/Looper;
     :cond_0
-    #getter for: Landroid/media/AudioTrack;->mInitializationLooper:Landroid/os/Looper;
+    # getter for: Landroid/media/AudioTrack;->mInitializationLooper:Landroid/os/Looper;
     invoke-static {p1}, Landroid/media/AudioTrack;->access$000(Landroid/media/AudioTrack;)Landroid/os/Looper;
 
     move-result-object v2
 
-    .restart local v2       #looper:Landroid/os/Looper;
+    .restart local v2    # "looper":Landroid/os/Looper;
     goto :goto_0
 
     .line 1283

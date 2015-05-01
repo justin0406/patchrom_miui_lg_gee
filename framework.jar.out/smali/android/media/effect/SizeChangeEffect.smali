@@ -6,12 +6,12 @@
 # direct methods
 .method public varargs constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 0
-    .parameter "context"
-    .parameter "name"
-    .parameter "filterClass"
-    .parameter "inputName"
-    .parameter "outputName"
-    .parameter "finalParameters"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "filterClass"    # Ljava/lang/Class;
+    .param p4, "inputName"    # Ljava/lang/String;
+    .param p5, "outputName"    # Ljava/lang/String;
+    .param p6, "finalParameters"    # [Ljava/lang/Object;
 
     .prologue
     .line 43
@@ -25,10 +25,10 @@
 # virtual methods
 .method public apply(IIII)V
     .locals 9
-    .parameter "inputTexId"
-    .parameter "width"
-    .parameter "height"
-    .parameter "outputTexId"
+    .param p1, "inputTexId"    # I
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "outputTexId"    # I
 
     .prologue
     .line 48
@@ -40,7 +40,7 @@
     move-result-object v0
 
     .line 51
-    .local v0, inputFrame:Landroid/filterfw/core/Frame;
+    .local v0, "inputFrame":Landroid/filterfw/core/Frame;
     iget-object v5, p0, Landroid/media/effect/SizeChangeEffect;->mFunction:Landroid/filterfw/core/FilterFunction;
 
     const/4 v6, 0x2
@@ -62,7 +62,7 @@
     move-result-object v4
 
     .line 53
-    .local v4, resultFrame:Landroid/filterfw/core/Frame;
+    .local v4, "resultFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v4}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v5
@@ -72,7 +72,7 @@
     move-result v3
 
     .line 54
-    .local v3, outputWidth:I
+    .local v3, "outputWidth":I
     invoke-virtual {v4}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v5
@@ -82,13 +82,13 @@
     move-result v2
 
     .line 56
-    .local v2, outputHeight:I
+    .local v2, "outputHeight":I
     invoke-virtual {p0, p4, v3, v2}, Landroid/media/effect/SizeChangeEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v1
 
     .line 57
-    .local v1, outputFrame:Landroid/filterfw/core/Frame;
+    .local v1, "outputFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v1, v4}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 59

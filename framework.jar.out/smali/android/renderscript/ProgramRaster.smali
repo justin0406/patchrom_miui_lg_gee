@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 58
@@ -44,7 +44,7 @@
 
 .method public static CULL_BACK(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 87
@@ -58,7 +58,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramRaster$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 89
-    .local v0, builder:Landroid/renderscript/ProgramRaster$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramRaster$Builder;
     sget-object v1, Landroid/renderscript/ProgramRaster$CullMode;->BACK:Landroid/renderscript/ProgramRaster$CullMode;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramRaster$Builder;->setCullMode(Landroid/renderscript/ProgramRaster$CullMode;)Landroid/renderscript/ProgramRaster$Builder;
@@ -71,7 +71,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_BACK:Landroid/renderscript/ProgramRaster;
 
     .line 92
-    .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramRaster$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_BACK:Landroid/renderscript/ProgramRaster;
 
@@ -80,7 +80,7 @@
 
 .method public static CULL_FRONT(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 99
@@ -94,7 +94,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramRaster$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 101
-    .local v0, builder:Landroid/renderscript/ProgramRaster$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramRaster$Builder;
     sget-object v1, Landroid/renderscript/ProgramRaster$CullMode;->FRONT:Landroid/renderscript/ProgramRaster$CullMode;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramRaster$Builder;->setCullMode(Landroid/renderscript/ProgramRaster$CullMode;)Landroid/renderscript/ProgramRaster$Builder;
@@ -107,7 +107,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_FRONT:Landroid/renderscript/ProgramRaster;
 
     .line 104
-    .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramRaster$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_FRONT:Landroid/renderscript/ProgramRaster;
 
@@ -116,7 +116,7 @@
 
 .method public static CULL_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 111
@@ -130,7 +130,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/ProgramRaster$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 113
-    .local v0, builder:Landroid/renderscript/ProgramRaster$Builder;
+    .local v0, "builder":Landroid/renderscript/ProgramRaster$Builder;
     sget-object v1, Landroid/renderscript/ProgramRaster$CullMode;->NONE:Landroid/renderscript/ProgramRaster$CullMode;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/ProgramRaster$Builder;->setCullMode(Landroid/renderscript/ProgramRaster$CullMode;)Landroid/renderscript/ProgramRaster$Builder;
@@ -143,7 +143,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_NONE:Landroid/renderscript/ProgramRaster;
 
     .line 116
-    .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
+    .end local v0    # "builder":Landroid/renderscript/ProgramRaster$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_NONE:Landroid/renderscript/ProgramRaster;
 

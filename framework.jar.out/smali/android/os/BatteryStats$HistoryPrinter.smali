@@ -65,9 +65,9 @@
 # virtual methods
 .method public printNextItem(Ljava/io/PrintWriter;Landroid/os/BatteryStats$HistoryItem;J)V
     .locals 3
-    .parameter "pw"
-    .parameter "rec"
-    .parameter "now"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "rec"    # Landroid/os/BatteryStats$HistoryItem;
+    .param p3, "now"    # J
 
     .prologue
     .line 2190
@@ -365,7 +365,7 @@
     :cond_c
     iget v0, p2, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    const/high16 v1, 0x1
+    const/high16 v1, 0x10000
 
     if-ge v0, v1, :cond_d
 
@@ -379,7 +379,7 @@
     :cond_d
     iget v0, p2, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    const/high16 v1, 0x10
+    const/high16 v1, 0x100000
 
     if-ge v0, v1, :cond_e
 
@@ -393,7 +393,7 @@
     :cond_e
     iget v0, p2, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    const/high16 v1, 0x100
+    const/high16 v1, 0x1000000
 
     if-ge v0, v1, :cond_f
 
@@ -407,7 +407,7 @@
     :cond_f
     iget v0, p2, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    const/high16 v1, 0x1000
+    const/high16 v1, 0x10000000
 
     if-ge v0, v1, :cond_3
 
@@ -571,9 +571,9 @@
 
 .method public printNextItemCheckin(Ljava/io/PrintWriter;Landroid/os/BatteryStats$HistoryItem;J)V
     .locals 2
-    .parameter "pw"
-    .parameter "rec"
-    .parameter "now"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "rec"    # Landroid/os/BatteryStats$HistoryItem;
+    .param p3, "now"    # J
 
     .prologue
     .line 2300

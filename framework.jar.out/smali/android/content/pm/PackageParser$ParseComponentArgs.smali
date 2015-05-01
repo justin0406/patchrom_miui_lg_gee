@@ -29,16 +29,16 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIII[Ljava/lang/String;III)V
     .locals 0
-    .parameter "_owner"
-    .parameter "_outError"
-    .parameter "_nameRes"
-    .parameter "_labelRes"
-    .parameter "_iconRes"
-    .parameter "_logoRes"
-    .parameter "_sepProcesses"
-    .parameter "_processRes"
-    .parameter "_descriptionRes"
-    .parameter "_enabledRes"
+    .param p1, "_owner"    # Landroid/content/pm/PackageParser$Package;
+    .param p2, "_outError"    # [Ljava/lang/String;
+    .param p3, "_nameRes"    # I
+    .param p4, "_labelRes"    # I
+    .param p5, "_iconRes"    # I
+    .param p6, "_logoRes"    # I
+    .param p7, "_sepProcesses"    # [Ljava/lang/String;
+    .param p8, "_processRes"    # I
+    .param p9, "_descriptionRes"    # I
+    .param p10, "_enabledRes"    # I
 
     .prologue
     .line 196

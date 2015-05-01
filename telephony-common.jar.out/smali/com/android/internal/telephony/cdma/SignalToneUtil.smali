@@ -1063,9 +1063,9 @@
 
 .method public static getAudioToneFromSignalInfo(III)I
     .locals 3
-    .parameter "signalType"
-    .parameter "alertPitch"
-    .parameter "signal"
+    .param p0, "signalType"    # I
+    .param p1, "alertPitch"    # I
+    .param p2, "signal"    # I
 
     .prologue
     .line 100
@@ -1082,7 +1082,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 101
-    .local v0, result:Ljava/lang/Integer;
+    .local v0, "result":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
     .line 102
@@ -1102,9 +1102,9 @@
 
 .method private static signalParamHash(III)Ljava/lang/Integer;
     .locals 3
-    .parameter "signalType"
-    .parameter "alertPitch"
-    .parameter "signal"
+    .param p0, "signalType"    # I
+    .param p1, "alertPitch"    # I
+    .param p2, "signal"    # I
 
     .prologue
     const/16 v0, 0x100

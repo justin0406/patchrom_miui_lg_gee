@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -69,8 +69,8 @@
 
 .method private updateFrameSize(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 143
@@ -90,23 +90,23 @@
     .locals 14
 
     .prologue
-    const/high16 v13, 0x3f80
+    const/high16 v13, 0x3f800000    # 1.0f
 
     const/4 v12, 0x1
 
     const/4 v11, 0x0
 
     .line 150
-    const v5, 0x40490fdb
+    const v5, 0x40490fdb    # (float)Math.PI
 
     .line 151
-    .local v5, pi:F
+    .local v5, "pi":F
     const/4 v9, 0x2
 
     new-array v8, v9, [F
 
     .line 152
-    .local v8, scale:[F
+    .local v8, "scale":[F
     iget v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mWidth:I
 
     iget v10, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mHeight:I
@@ -133,17 +133,17 @@
     :goto_0
     iget v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mScale:F
 
-    const/high16 v10, 0x4000
+    const/high16 v10, 0x40000000    # 2.0f
 
     mul-float/2addr v9, v10
 
-    const/high16 v10, 0x3f40
+    const/high16 v10, 0x3f400000    # 0.75f
 
     add-float v0, v9, v10
 
     .line 160
-    .local v0, alpha:F
-    const/high16 v9, 0x3e80
+    .local v0, "alpha":F
+    const/high16 v9, 0x3e800000    # 0.25f
 
     aget v10, v8, v11
 
@@ -162,7 +162,7 @@
     mul-float v2, v9, v10
 
     .line 161
-    .local v2, bound2:F
+    .local v2, "bound2":F
     float-to-double v9, v2
 
     invoke-static {v9, v10}, Ljava/lang/Math;->sqrt(D)D
@@ -172,17 +172,17 @@
     double-to-float v1, v9
 
     .line 162
-    .local v1, bound:F
-    const v9, 0x3f933333
+    .local v1, "bound":F
+    const v9, 0x3f933333    # 1.15f
 
     mul-float v6, v9, v1
 
     .line 163
-    .local v6, radius:F
+    .local v6, "radius":F
     mul-float v7, v6, v6
 
     .line 164
-    .local v7, radius2:F
+    .local v7, "radius2":F
     const v9, 0x3fc90fdb
 
     div-float v10, v0, v1
@@ -210,11 +210,11 @@
     sub-float v4, v9, v10
 
     .line 166
-    .local v4, max_radian:F
+    .local v4, "max_radian":F
     div-float v3, v1, v4
 
     .line 168
-    .local v3, factor:F
+    .local v3, "factor":F
     iget-object v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v10, "scale"
@@ -258,13 +258,13 @@
     return-void
 
     .line 156
-    .end local v0           #alpha:F
-    .end local v1           #bound:F
-    .end local v2           #bound2:F
-    .end local v3           #factor:F
-    .end local v4           #max_radian:F
-    .end local v6           #radius:F
-    .end local v7           #radius2:F
+    .end local v0    # "alpha":F
+    .end local v1    # "bound":F
+    .end local v2    # "bound2":F
+    .end local v3    # "factor":F
+    .end local v4    # "max_radian":F
+    .end local v6    # "radius":F
+    .end local v7    # "radius2":F
     :cond_0
     iget v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mWidth:I
 
@@ -288,8 +288,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 137
@@ -307,8 +307,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 88
@@ -317,8 +317,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 92
@@ -364,7 +364,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 95
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -387,7 +387,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 109
@@ -398,13 +398,13 @@
     move-result-object v0
 
     .line 110
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 113
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -414,7 +414,7 @@
     move-result-object v2
 
     .line 116
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0

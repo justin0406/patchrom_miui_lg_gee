@@ -26,10 +26,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 9651
+    .line 9664
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$ClearStorageConnection;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +38,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/pm/PackageManagerService;
+    .param p2, "x1"    # Lcom/android/server/pm/PackageManagerService$1;
 
     .prologue
-    .line 9651
+    .line 9664
     invoke-direct {p0, p1}, Lcom/android/server/pm/PackageManagerService$ClearStorageConnection;-><init>(Lcom/android/server/pm/PackageManagerService;)V
 
     return-void
@@ -53,14 +52,14 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 9656
+    .line 9669
     monitor-enter p0
 
-    .line 9657
+    .line 9670
     :try_start_0
     invoke-static {p2}, Lcom/android/internal/app/IMediaContainerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IMediaContainerService;
 
@@ -68,16 +67,16 @@
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$ClearStorageConnection;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
 
-    .line 9658
+    .line 9671
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 9659
+    .line 9672
     monitor-exit p0
 
-    .line 9660
+    .line 9673
     return-void
 
-    .line 9659
+    .line 9672
     :catchall_0
     move-exception v0
 
@@ -90,9 +89,9 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 9664
+    .line 9677
     return-void
 .end method

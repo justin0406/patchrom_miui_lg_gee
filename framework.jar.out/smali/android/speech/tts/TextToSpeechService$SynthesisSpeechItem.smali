@@ -33,12 +33,11 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;Ljava/lang/String;)V
     .locals 3
-    .parameter
-    .parameter "callerIdentity"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
-    .parameter "text"
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
+    .param p6, "text"    # Ljava/lang/String;
 
     .prologue
     .line 563
@@ -65,7 +64,7 @@
     iput-object v0, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mSynthesisRequest:Landroid/speech/tts/SynthesisRequest;
 
     .line 568
-    #calls: Landroid/speech/tts/TextToSpeechService;->getSettingsLocale()[Ljava/lang/String;
+    # invokes: Landroid/speech/tts/TextToSpeechService;->getSettingsLocale()[Ljava/lang/String;
     invoke-static {p1}, Landroid/speech/tts/TextToSpeechService;->access$400(Landroid/speech/tts/TextToSpeechService;)[Ljava/lang/String;
 
     move-result-object v0
@@ -82,7 +81,7 @@
 
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mSynthesisRequest:Landroid/speech/tts/SynthesisRequest;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mPackageName:Ljava/lang/String;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mPackageName:Ljava/lang/String;
     invoke-static {p1}, Landroid/speech/tts/TextToSpeechService;->access$500(Landroid/speech/tts/TextToSpeechService;)Ljava/lang/String;
 
     move-result-object v2
@@ -153,7 +152,7 @@
 
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #calls: Landroid/speech/tts/TextToSpeechService;->getDefaultSpeechRate()I
+    # invokes: Landroid/speech/tts/TextToSpeechService;->getDefaultSpeechRate()I
     invoke-static {v1}, Landroid/speech/tts/TextToSpeechService;->access$600(Landroid/speech/tts/TextToSpeechService;)I
 
     move-result v1
@@ -230,7 +229,7 @@
 
 .method private setRequestParams(Landroid/speech/tts/SynthesisRequest;)V
     .locals 3
-    .parameter "request"
+    .param p1, "request"    # Landroid/speech/tts/SynthesisRequest;
 
     .prologue
     .line 614
@@ -294,7 +293,7 @@
 
     iget-object v4, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mAudioPlaybackHandler:Landroid/speech/tts/AudioPlaybackHandler;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mAudioPlaybackHandler:Landroid/speech/tts/AudioPlaybackHandler;
     invoke-static {v4}, Landroid/speech/tts/TextToSpeechService;->access$200(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/AudioPlaybackHandler;
 
     move-result-object v4
@@ -464,7 +463,7 @@
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mSynthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
 
     .line 603
-    .local v0, synthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
+    .local v0, "synthesisCallback":Landroid/speech/tts/AbstractSynthesisCallback;
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -488,7 +487,7 @@
     goto :goto_0
 
     .line 603
-    .end local v0           #synthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
+    .end local v0    # "synthesisCallback":Landroid/speech/tts/AbstractSynthesisCallback;
     :catchall_0
     move-exception v1
 
@@ -512,7 +511,7 @@
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mSynthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
 
     .line 625
-    .local v0, synthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
+    .local v0, "synthesisCallback":Landroid/speech/tts/AbstractSynthesisCallback;
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -533,7 +532,7 @@
     return-void
 
     .line 625
-    .end local v0           #synthesisCallback:Landroid/speech/tts/AbstractSynthesisCallback;
+    .end local v0    # "synthesisCallback":Landroid/speech/tts/AbstractSynthesisCallback;
     :catchall_0
     move-exception v1
 

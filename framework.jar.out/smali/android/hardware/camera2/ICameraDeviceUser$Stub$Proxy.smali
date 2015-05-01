@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 170
@@ -51,7 +51,7 @@
 
 .method public cancelRequest(I)I
     .locals 6
-    .parameter "requestId"
+    .param p1, "requestId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 229
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 232
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -100,7 +100,7 @@
     move-result v2
 
     .line 239
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 240
@@ -110,7 +110,7 @@
     return v2
 
     .line 239
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -124,8 +124,8 @@
 
 .method public createDefaultRequest(ILandroid/hardware/camera2/impl/CameraMetadataNative;)I
     .locals 6
-    .parameter "templateId"
-    .parameter "request"
+    .param p1, "templateId"    # I
+    .param p2, "request"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -139,13 +139,13 @@
     move-result-object v0
 
     .line 294
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 297
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -172,7 +172,7 @@
     move-result v2
 
     .line 302
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -195,7 +195,7 @@
     return v2
 
     .line 307
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -209,10 +209,10 @@
 
 .method public createStream(IIILandroid/view/Surface;)I
     .locals 6
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "surface"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "format"    # I
+    .param p4, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -226,13 +226,13 @@
     move-result-object v0
 
     .line 267
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 270
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -281,7 +281,7 @@
     move-result v2
 
     .line 286
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 287
@@ -291,7 +291,7 @@
     return v2
 
     .line 279
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -316,7 +316,7 @@
 
 .method public deleteStream(I)I
     .locals 6
-    .parameter "streamId"
+    .param p1, "streamId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -330,13 +330,13 @@
     move-result-object v0
 
     .line 247
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 250
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -365,7 +365,7 @@
     move-result v2
 
     .line 257
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 258
@@ -375,7 +375,7 @@
     return v2
 
     .line 257
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -402,13 +402,13 @@
     move-result-object v0
 
     .line 187
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 189
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -464,13 +464,13 @@
     move-result-object v0
 
     .line 352
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 355
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -496,7 +496,7 @@
     move-result v2
 
     .line 361
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 362
@@ -506,7 +506,7 @@
     return v2
 
     .line 361
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -520,7 +520,7 @@
 
 .method public getCameraInfo(Landroid/hardware/camera2/impl/CameraMetadataNative;)I
     .locals 6
-    .parameter "info"
+    .param p1, "info"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -534,13 +534,13 @@
     move-result-object v0
 
     .line 315
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 318
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -564,7 +564,7 @@
     move-result v2
 
     .line 322
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -587,7 +587,7 @@
     return v2
 
     .line 327
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -611,8 +611,8 @@
 
 .method public submitRequest(Landroid/hardware/camera2/CaptureRequest;Z)I
     .locals 6
-    .parameter "request"
-    .parameter "streaming"
+    .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p2, "streaming"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -630,13 +630,13 @@
     move-result-object v0
 
     .line 204
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 207
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -682,7 +682,7 @@
     move-result v2
 
     .line 221
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 222
@@ -692,7 +692,7 @@
     return v2
 
     .line 213
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v5, 0x0
 
@@ -736,13 +736,13 @@
     move-result-object v0
 
     .line 335
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 338
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -768,7 +768,7 @@
     move-result v2
 
     .line 344
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 345
@@ -778,7 +778,7 @@
     return v2
 
     .line 344
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 

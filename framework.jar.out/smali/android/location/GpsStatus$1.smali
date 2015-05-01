@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/location/GpsStatus;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 67
@@ -67,7 +66,7 @@
 
     iget-object v2, p0, Landroid/location/GpsStatus$1;->this$0:Landroid/location/GpsStatus;
 
-    #getter for: Landroid/location/GpsStatus;->mSatellites:[Landroid/location/GpsSatellite;
+    # getter for: Landroid/location/GpsStatus;->mSatellites:[Landroid/location/GpsSatellite;
     invoke-static {v2}, Landroid/location/GpsStatus;->access$000(Landroid/location/GpsStatus;)[Landroid/location/GpsSatellite;
 
     move-result-object v2

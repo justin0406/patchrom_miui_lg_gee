@@ -89,7 +89,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATA_ROAMING:Ljava/lang/String; = "data_roaming"
     .annotation runtime Ljava/lang/Deprecated;
@@ -103,11 +103,11 @@
     .end annotation
 .end field
 
-.field public static final DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri; = null
+.field public static final DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
-.field public static final DEFAULT_NOTIFICATION_URI:Landroid/net/Uri; = null
+.field public static final DEFAULT_NOTIFICATION_URI:Landroid/net/Uri;
 
-.field public static final DEFAULT_RINGTONE_URI:Landroid/net/Uri; = null
+.field public static final DEFAULT_RINGTONE_URI:Landroid/net/Uri;
 
 .field public static final DESK_DOCK_SOUND:Ljava/lang/String; = "desk_dock_sound"
     .annotation runtime Ljava/lang/Deprecated;
@@ -139,8 +139,6 @@
 .field public static final DTMF_TONE_WHEN_DIALING:Ljava/lang/String; = "dtmf_tone"
 
 .field public static final EGG_MODE:Ljava/lang/String; = "egg_mode"
-
-.field public static final EMERGENCY_TONE:Ljava/lang/String; = "emergency_tone"
 
 .field public static final END_BUTTON_BEHAVIOR:Ljava/lang/String; = "end_button_behavior"
 
@@ -216,7 +214,7 @@
 
 .field public static final MODE_RINGER_STREAMS_AFFECTED:Ljava/lang/String; = "mode_ringer_streams_affected"
 
-.field private static final MOVED_TO_GLOBAL:Ljava/util/HashSet; = null
+.field private static final MOVED_TO_GLOBAL:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -227,7 +225,7 @@
     .end annotation
 .end field
 
-.field private static final MOVED_TO_SECURE:Ljava/util/HashSet; = null
+.field private static final MOVED_TO_SECURE:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -238,7 +236,7 @@
     .end annotation
 .end field
 
-.field private static final MOVED_TO_SECURE_THEN_GLOBAL:Ljava/util/HashSet; = null
+.field private static final MOVED_TO_SECURE_THEN_GLOBAL:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -335,7 +333,7 @@
     .end annotation
 .end field
 
-.field public static final SETTINGS_TO_BACKUP:[Ljava/lang/String; = null
+.field public static final SETTINGS_TO_BACKUP:[Ljava/lang/String;
 
 .field public static final SETUP_WIZARD_HAS_RUN:Ljava/lang/String; = "setup_wizard_has_run"
 
@@ -428,7 +426,7 @@
 
 .field public static final VOLUME_RING:Ljava/lang/String; = "volume_ring"
 
-.field public static final VOLUME_SETTINGS:[Ljava/lang/String; = null
+.field public static final VOLUME_SETTINGS:[Ljava/lang/String;
 
 .field public static final VOLUME_SYSTEM:Ljava/lang/String; = "volume_system"
 
@@ -1556,7 +1554,7 @@
 
 .method public static clearConfiguration(Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "inoutConfig"
+    .param p0, "inoutConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 1478
@@ -1570,8 +1568,8 @@
 
 .method public static getConfiguration(Landroid/content/ContentResolver;Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "cr"
-    .parameter "outConfig"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "outConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 1460
@@ -1587,9 +1585,9 @@
 
 .method public static getConfigurationForUser(Landroid/content/ContentResolver;Landroid/content/res/Configuration;I)V
     .locals 2
-    .parameter "cr"
-    .parameter "outConfig"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "outConfig"    # Landroid/content/res/Configuration;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1466
@@ -1613,7 +1611,7 @@
     if-gez v0, :cond_0
 
     .line 1469
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p1, Landroid/content/res/Configuration;->fontScale:F
 
@@ -1624,8 +1622,8 @@
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
     .locals 1
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1647,9 +1645,9 @@
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # F
 
     .prologue
     .line 1377
@@ -1666,10 +1664,10 @@
 
 .method public static getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)F
     .locals 2
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # F
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 1383
@@ -1678,7 +1676,7 @@
     move-result-object v1
 
     .line 1385
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -1689,26 +1687,26 @@
     move-result p2
 
     .line 1387
-    .end local p2
+    .end local p2    # "def":F
     :cond_0
     :goto_0
     return p2
 
     .line 1386
-    .restart local p2
+    .restart local p2    # "def":F
     :catch_0
     move-exception v0
 
     .line 1387
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method public static getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)F
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1722,7 +1720,7 @@
     move-result-object v1
 
     .line 1418
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-nez v1, :cond_0
 
     .line 1419
@@ -1748,7 +1746,7 @@
     move-exception v0
 
     .line 1424
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -1758,8 +1756,8 @@
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
     .locals 1
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1781,9 +1779,9 @@
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # I
 
     .prologue
     .line 1205
@@ -1800,9 +1798,9 @@
 
 .method public static getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)I
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1816,7 +1814,7 @@
     move-result-object v1
 
     .line 1246
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -1831,7 +1829,7 @@
     move-exception v0
 
     .line 1248
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -1841,10 +1839,10 @@
 
 .method public static getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
     .locals 2
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # I
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 1210
@@ -1853,7 +1851,7 @@
     move-result-object v1
 
     .line 1212
-    .local v1, v:Ljava/lang/String;
+    .local v1, "v":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -1864,25 +1862,25 @@
     move-result p2
 
     .line 1214
-    .end local p2
+    .end local p2    # "def":I
     :cond_0
     :goto_0
     return p2
 
     .line 1213
-    .restart local p2
+    .restart local p2    # "def":I
     :catch_0
     move-exception v0
 
     .line 1214
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
     .locals 2
-    .parameter "cr"
-    .parameter "name"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1904,9 +1902,9 @@
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
     .locals 2
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # J
 
     .prologue
     .line 1290
@@ -1923,9 +1921,9 @@
 
 .method public static getLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)J
     .locals 4
-    .parameter "cr"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/provider/Settings$SettingNotFoundException;
@@ -1939,7 +1937,7 @@
     move-result-object v1
 
     .line 1333
-    .local v1, valString:Ljava/lang/String;
+    .local v1, "valString":Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_0
@@ -1954,7 +1952,7 @@
     move-exception v0
 
     .line 1335
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
@@ -1964,10 +1962,10 @@
 
 .method public static getLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;JI)J
     .locals 4
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # J
+    .param p4, "userHandle"    # I
 
     .prologue
     .line 1296
@@ -1976,7 +1974,7 @@
     move-result-object v1
 
     .line 1299
-    .local v1, valString:Ljava/lang/String;
+    .local v1, "valString":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     :try_start_0
@@ -1987,11 +1985,11 @@
     move-result-wide v2
 
     .line 1303
-    .local v2, value:J
+    .local v2, "value":J
     :goto_0
     return-wide v2
 
-    .end local v2           #value:J
+    .end local v2    # "value":J
     :cond_0
     move-wide v2, p2
 
@@ -2003,16 +2001,15 @@
     move-exception v0
 
     .line 1301
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     move-wide v2, p2
 
-    .restart local v2       #value:J
+    .restart local v2    # "value":J
     goto :goto_0
 .end method
 
 .method public static getMovedKeys(Ljava/util/HashSet;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2025,7 +2022,7 @@
 
     .prologue
     .line 1108
-    .local p0, outKeySet:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p0, "outKeySet":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
 
     invoke-virtual {p0, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
@@ -2041,7 +2038,6 @@
 
 .method public static getNonLegacyMovedKeys(Ljava/util/HashSet;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2054,7 +2050,7 @@
 
     .prologue
     .line 1114
-    .local p0, outKeySet:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p0, "outKeySet":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
 
     invoke-virtual {p0, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
@@ -2065,7 +2061,7 @@
 
 .method public static getShowGTalkServiceStatus(Landroid/content/ContentResolver;)Z
     .locals 1
-    .parameter "cr"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2084,8 +2080,8 @@
 
 .method public static getShowGTalkServiceStatusForUser(Landroid/content/ContentResolver;I)Z
     .locals 2
-    .parameter "cr"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "userHandle"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -2107,8 +2103,8 @@
 
 .method public static getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "resolver"
-    .parameter "name"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 1124
@@ -2125,9 +2121,9 @@
 
 .method public static getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
     .locals 3
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "userHandle"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1130
@@ -2257,7 +2253,7 @@
 
 .method public static getUriFor(Ljava/lang/String;)Landroid/net/Uri;
     .locals 3
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 1177
@@ -2391,11 +2387,11 @@
 
 .method public static hasInterestingConfigurationChanges(I)Z
     .locals 1
-    .parameter "changes"
+    .param p0, "changes"    # I
 
     .prologue
     .line 1501
-    const/high16 v0, 0x4000
+    const/high16 v0, 0x40000000    # 2.0f
 
     and-int/2addr v0, p0
 
@@ -2414,8 +2410,8 @@
 
 .method public static putConfiguration(Landroid/content/ContentResolver;Landroid/content/res/Configuration;)Z
     .locals 1
-    .parameter "cr"
-    .parameter "config"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "config"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 1490
@@ -2432,9 +2428,9 @@
 
 .method public static putConfigurationForUser(Landroid/content/ContentResolver;Landroid/content/res/Configuration;I)Z
     .locals 2
-    .parameter "cr"
-    .parameter "config"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "config"    # Landroid/content/res/Configuration;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 1496
@@ -2451,9 +2447,9 @@
 
 .method public static putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # F
 
     .prologue
     .line 1442
@@ -2470,10 +2466,10 @@
 
 .method public static putFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # F
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 1448
@@ -2490,9 +2486,9 @@
 
 .method public static putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 1266
@@ -2509,10 +2505,10 @@
 
 .method public static putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
+    .param p3, "userHandle"    # I
 
     .prologue
     .line 1272
@@ -2529,9 +2525,9 @@
 
 .method public static putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # J
 
     .prologue
     .line 1353
@@ -2548,10 +2544,10 @@
 
 .method public static putLongForUser(Landroid/content/ContentResolver;Ljava/lang/String;JI)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # J
+    .param p4, "userHandle"    # I
 
     .prologue
     .line 1359
@@ -2568,9 +2564,9 @@
 
 .method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 1151
@@ -2587,10 +2583,10 @@
 
 .method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
     .locals 4
-    .parameter "resolver"
-    .parameter "name"
-    .parameter "value"
-    .parameter "userHandle"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
+    .param p3, "userHandle"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -2638,10 +2634,6 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p0, p1, p2, p3}, Landroid/provider/Settings$Injector;->putSecureStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v0
 
     .line 1167
     :goto_0
@@ -2701,10 +2693,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {p0, p1, p2, p3}, Landroid/provider/Settings$Injector;->putGlobalStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v0
-
     goto :goto_0
 
     .line 1167
@@ -2720,8 +2708,8 @@
 
 .method public static setShowGTalkServiceStatus(Landroid/content/ContentResolver;Z)V
     .locals 1
-    .parameter "cr"
-    .parameter "flag"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "flag"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2739,9 +2727,9 @@
 
 .method public static setShowGTalkServiceStatusForUser(Landroid/content/ContentResolver;ZI)V
     .locals 2
-    .parameter "cr"
-    .parameter "flag"
-    .parameter "userHandle"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "flag"    # Z
+    .param p2, "userHandle"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

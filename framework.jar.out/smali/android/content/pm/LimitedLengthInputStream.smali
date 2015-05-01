@@ -12,9 +12,9 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;JJ)V
     .locals 3
-    .parameter "in"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "in"    # Ljava/io/InputStream;
+    .param p2, "offset"    # J
+    .param p4, "length"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -169,7 +169,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -191,9 +191,9 @@
 
 .method public read([BII)I
     .locals 8
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "byteCount"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -222,7 +222,7 @@
     array-length v0, p1
 
     .line 74
-    .local v0, arrayLength:I
+    .local v0, "arrayLength":I
     invoke-static {v0, p2, p3}, Ljava/util/Arrays;->checkOffsetAndCount(III)V
 
     .line 76
@@ -305,7 +305,7 @@
     move-result v1
 
     .line 85
-    .local v1, numRead:I
+    .local v1, "numRead":I
     iget-wide v2, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 
     int-to-long v4, v1

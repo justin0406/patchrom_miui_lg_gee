@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1171
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onPaused(Landroid/app/Activity;)V
     .locals 2
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 1174

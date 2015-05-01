@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/TextView;)V
     .locals 1
-    .parameter "textview"
+    .param p1, "textview"    # Landroid/widget/TextView;
 
     .prologue
     .line 44
@@ -91,7 +91,7 @@
 
 .method public clearMetaKeyStates(I)Z
     .locals 3
-    .parameter "states"
+    .param p1, "states"    # I
 
     .prologue
     .line 100
@@ -100,7 +100,7 @@
     move-result-object v0
 
     .line 101
-    .local v0, content:Landroid/text/Editable;
+    .local v0, "content":Landroid/text/Editable;
     if-nez v0, :cond_0
 
     const/4 v2, 0x0
@@ -118,7 +118,7 @@
     move-result-object v1
 
     .line 103
-    .local v1, kl:Landroid/text/method/KeyListener;
+    .local v1, "kl":Landroid/text/method/KeyListener;
     if-eqz v1, :cond_1
 
     .line 105
@@ -145,7 +145,7 @@
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Landroid/view/inputmethod/CompletionInfo;
 
     .prologue
     .line 117
@@ -171,7 +171,7 @@
 
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
     .locals 1
-    .parameter "correctionInfo"
+    .param p1, "correctionInfo"    # Landroid/view/inputmethod/CorrectionInfo;
 
     .prologue
     .line 129
@@ -197,8 +197,8 @@
 
 .method public commitText(Ljava/lang/CharSequence;I)Z
     .locals 6
-    .parameter "text"
-    .parameter "newCursorPosition"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "newCursorPosition"    # I
 
     .prologue
     .line 173
@@ -227,7 +227,7 @@
     check-cast v0, Landroid/text/Spanned;
 
     .line 178
-    .local v0, spanned:Landroid/text/Spanned;
+    .local v0, "spanned":Landroid/text/Spanned;
     const/4 v3, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -243,14 +243,14 @@
     check-cast v1, [Landroid/text/style/SuggestionSpan;
 
     .line 179
-    .local v1, spans:[Landroid/text/style/SuggestionSpan;
+    .local v1, "spans":[Landroid/text/style/SuggestionSpan;
     iget-object v3, p0, Lcom/android/internal/widget/EditableInputConnection;->mIMM:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {v3, v1}, Landroid/view/inputmethod/InputMethodManager;->registerSuggestionSpansForNotification([Landroid/text/style/SuggestionSpan;)V
 
     .line 182
-    .end local v0           #spanned:Landroid/text/Spanned;
-    .end local v1           #spans:[Landroid/text/style/SuggestionSpan;
+    .end local v0    # "spanned":Landroid/text/Spanned;
+    .end local v1    # "spans":[Landroid/text/style/SuggestionSpan;
     :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/EditableInputConnection;->mTextView:Landroid/widget/TextView;
 
@@ -262,7 +262,7 @@
     move-result v2
 
     .line 184
-    .local v2, success:Z
+    .local v2, "success":Z
     iget-object v3, p0, Lcom/android/internal/widget/EditableInputConnection;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->hideErrorIfUnchanged()V
@@ -332,7 +332,7 @@
     iget-object v0, p0, Lcom/android/internal/widget/EditableInputConnection;->mTextView:Landroid/widget/TextView;
 
     .line 51
-    .local v0, tv:Landroid/widget/TextView;
+    .local v0, "tv":Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
     .line 52
@@ -352,8 +352,8 @@
 
 .method public getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;
     .locals 2
-    .parameter "request"
-    .parameter "flags"
+    .param p1, "request"    # Landroid/view/inputmethod/ExtractedTextRequest;
+    .param p2, "flags"    # I
 
     .prologue
     .line 153
@@ -367,7 +367,7 @@
     invoke-direct {v0}, Landroid/view/inputmethod/ExtractedText;-><init>()V
 
     .line 155
-    .local v0, et:Landroid/view/inputmethod/ExtractedText;
+    .local v0, "et":Landroid/view/inputmethod/ExtractedText;
     iget-object v1, p0, Lcom/android/internal/widget/EditableInputConnection;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p1, v0}, Landroid/widget/TextView;->extractText(Landroid/view/inputmethod/ExtractedTextRequest;Landroid/view/inputmethod/ExtractedText;)Z
@@ -387,7 +387,7 @@
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setExtracting(Landroid/view/inputmethod/ExtractedTextRequest;)V
 
     .line 162
-    .end local v0           #et:Landroid/view/inputmethod/ExtractedText;
+    .end local v0    # "et":Landroid/view/inputmethod/ExtractedText;
     :cond_0
     :goto_0
     return-object v0
@@ -400,7 +400,7 @@
 
 .method public performContextMenuAction(I)Z
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 145
@@ -426,7 +426,7 @@
 
 .method public performEditorAction(I)Z
     .locals 1
-    .parameter "actionCode"
+    .param p1, "actionCode"    # I
 
     .prologue
     .line 138
@@ -442,8 +442,8 @@
 
 .method public performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 167

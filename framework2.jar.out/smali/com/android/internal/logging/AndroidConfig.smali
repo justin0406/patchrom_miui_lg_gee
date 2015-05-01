@@ -20,7 +20,7 @@
     move-result-object v1
 
     .line 38
-    .local v1, rootLogger:Ljava/util/logging/Logger;
+    .local v1, "rootLogger":Ljava/util/logging/Logger;
     new-instance v2, Lcom/android/internal/logging/AndroidHandler;
 
     invoke-direct {v2}, Lcom/android/internal/logging/AndroidHandler;-><init>()V
@@ -46,7 +46,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 46
-    .end local v1           #rootLogger:Ljava/util/logging/Logger;
+    .end local v1    # "rootLogger":Ljava/util/logging/Logger;
     :goto_0
     return-void
 
@@ -55,7 +55,7 @@
     move-exception v0
 
     .line 44
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0

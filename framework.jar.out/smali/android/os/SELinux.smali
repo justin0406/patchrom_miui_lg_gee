@@ -50,7 +50,7 @@
 
 .method public static restorecon(Ljava/io/File;)Z
     .locals 4
-    .parameter "file"
+    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NullPointerException;
@@ -79,7 +79,7 @@
     move-exception v0
 
     .line 171
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "SELinux"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -114,7 +114,7 @@
 
 .method public static restorecon(Ljava/lang/String;)Z
     .locals 1
-    .parameter "pathname"
+    .param p0, "pathname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NullPointerException;

@@ -52,8 +52,8 @@
 # direct methods
 .method public constructor <init>(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)V
     .locals 1
-    .parameter "db"
-    .parameter "tableName"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "tableName"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -100,7 +100,7 @@
     invoke-direct {v4, v7}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1020
-    .local v4, sb:Ljava/lang/StringBuilder;
+    .local v4, "sb":Ljava/lang/StringBuilder;
     const-string v6, "INSERT INTO "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -121,7 +121,7 @@
     invoke-direct {v5, v7}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1025
-    .local v5, sbv:Ljava/lang/StringBuilder;
+    .local v5, "sbv":Ljava/lang/StringBuilder;
     const-string v6, "VALUES ("
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -130,11 +130,11 @@
     const/4 v3, 0x1
 
     .line 1028
-    .local v3, i:I
+    .local v3, "i":I
     const/4 v1, 0x0
 
     .line 1030
-    .local v1, cur:Landroid/database/Cursor;
+    .local v1, "cur":Landroid/database/Cursor;
     :try_start_0
     iget-object v6, p0, Landroid/database/DatabaseUtils$InsertHelper;->mDb:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -197,7 +197,7 @@
     move-result-object v0
 
     .line 1034
-    .local v0, columnName:Ljava/lang/String;
+    .local v0, "columnName":Ljava/lang/String;
     const/4 v6, 0x4
 
     invoke-interface {v1, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -205,7 +205,7 @@
     move-result-object v2
 
     .line 1036
-    .local v2, defaultValue:Ljava/lang/String;
+    .local v2, "defaultValue":Ljava/lang/String;
     iget-object v6, p0, Landroid/database/DatabaseUtils$InsertHelper;->mColumns:Ljava/util/HashMap;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -285,8 +285,8 @@
     goto :goto_1
 
     .line 1054
-    .end local v0           #columnName:Ljava/lang/String;
-    .end local v2           #defaultValue:Ljava/lang/String;
+    .end local v0    # "columnName":Ljava/lang/String;
+    .end local v2    # "defaultValue":Ljava/lang/String;
     :catchall_0
     move-exception v6
 
@@ -298,8 +298,8 @@
     throw v6
 
     .line 1049
-    .restart local v0       #columnName:Ljava/lang/String;
-    .restart local v2       #defaultValue:Ljava/lang/String;
+    .restart local v0    # "columnName":Ljava/lang/String;
+    .restart local v2    # "defaultValue":Ljava/lang/String;
     :cond_2
     :try_start_1
     const-string v6, ", "
@@ -315,8 +315,8 @@
     goto :goto_3
 
     .line 1054
-    .end local v0           #columnName:Ljava/lang/String;
-    .end local v2           #defaultValue:Ljava/lang/String;
+    .end local v0    # "columnName":Ljava/lang/String;
+    .end local v2    # "defaultValue":Ljava/lang/String;
     :cond_4
     if-eqz v1, :cond_5
 
@@ -339,7 +339,7 @@
 
 .method private getStatement(Z)Landroid/database/sqlite/SQLiteStatement;
     .locals 4
-    .parameter "allowReplace"
+    .param p1, "allowReplace"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/database/SQLException;
@@ -391,7 +391,7 @@
     move-result-object v0
 
     .line 1069
-    .local v0, replaceSQL:Ljava/lang/String;
+    .local v0, "replaceSQL":Ljava/lang/String;
     iget-object v1, p0, Landroid/database/DatabaseUtils$InsertHelper;->mDb:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v1, v0}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
@@ -401,7 +401,7 @@
     iput-object v1, p0, Landroid/database/DatabaseUtils$InsertHelper;->mReplaceStatement:Landroid/database/sqlite/SQLiteStatement;
 
     .line 1071
-    .end local v0           #replaceSQL:Ljava/lang/String;
+    .end local v0    # "replaceSQL":Ljava/lang/String;
     :cond_1
     iget-object v1, p0, Landroid/database/DatabaseUtils$InsertHelper;->mReplaceStatement:Landroid/database/sqlite/SQLiteStatement;
 
@@ -443,8 +443,8 @@
 
 .method private insertInternal(Landroid/content/ContentValues;Z)J
     .locals 11
-    .parameter "values"
-    .parameter "allowReplace"
+    .param p1, "values"    # Landroid/content/ContentValues;
+    .param p2, "allowReplace"    # Z
 
     .prologue
     .line 1100
@@ -459,7 +459,7 @@
     move-result-object v7
 
     .line 1103
-    .local v7, stmt:Landroid/database/sqlite/SQLiteStatement;
+    .local v7, "stmt":Landroid/database/sqlite/SQLiteStatement;
     invoke-virtual {v7}, Landroid/database/sqlite/SQLiteStatement;->clearBindings()V
 
     .line 1105
@@ -471,7 +471,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -486,7 +486,7 @@
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 1106
-    .local v1, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v1, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
@@ -494,35 +494,35 @@
     check-cast v4, Ljava/lang/String;
 
     .line 1107
-    .local v4, key:Ljava/lang/String;
+    .local v4, "key":Ljava/lang/String;
     invoke-virtual {p0, v4}, Landroid/database/DatabaseUtils$InsertHelper;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v2
 
     .line 1108
-    .local v2, i:I
+    .local v2, "i":I
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v8
 
     invoke-static {v7, v2, v8}, Landroid/database/DatabaseUtils;->bindObjectToProgram(Landroid/database/sqlite/SQLiteProgram;ILjava/lang/Object;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     .line 1117
-    .end local v1           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v2           #i:I
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v4           #key:Ljava/lang/String;
-    .end local v7           #stmt:Landroid/database/sqlite/SQLiteStatement;
+    .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v2    # "i":I
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v4    # "key":Ljava/lang/String;
+    .end local v7    # "stmt":Landroid/database/sqlite/SQLiteStatement;
     :catch_0
     move-exception v0
 
     .line 1118
-    .local v0, e:Landroid/database/SQLException;
+    .local v0, "e":Landroid/database/SQLException;
     :try_start_1
     const-string v8, "DatabaseUtils"
 
@@ -568,13 +568,13 @@
 
     invoke-virtual {v8}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    .end local v0           #e:Landroid/database/SQLException;
+    .end local v0    # "e":Landroid/database/SQLException;
     :goto_1
     return-wide v5
 
     .line 1114
-    .restart local v3       #i$:Ljava/util/Iterator;
-    .restart local v7       #stmt:Landroid/database/sqlite/SQLiteStatement;
+    .restart local v3    # "i$":Ljava/util/Iterator;
+    .restart local v7    # "stmt":Landroid/database/sqlite/SQLiteStatement;
     :cond_0
     :try_start_2
     invoke-virtual {v7}, Landroid/database/sqlite/SQLiteStatement;->executeInsert()J
@@ -582,13 +582,13 @@
     move-result-wide v5
 
     .line 1115
-    .local v5, result:J
+    .local v5, "result":J
     iget-object v8, p0, Landroid/database/DatabaseUtils$InsertHelper;->mDb:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v8}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 1121
     iget-object v8, p0, Landroid/database/DatabaseUtils$InsertHelper;->mDb:Landroid/database/sqlite/SQLiteDatabase;
@@ -597,9 +597,9 @@
 
     goto :goto_1
 
-    .end local v3           #i$:Ljava/util/Iterator;
-    .end local v5           #result:J
-    .end local v7           #stmt:Landroid/database/sqlite/SQLiteStatement;
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v5    # "result":J
+    .end local v7    # "stmt":Landroid/database/sqlite/SQLiteStatement;
     :catchall_0
     move-exception v8
 
@@ -614,8 +614,8 @@
 # virtual methods
 .method public bind(ID)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # D
 
     .prologue
     .line 1147
@@ -629,8 +629,8 @@
 
 .method public bind(IF)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # F
 
     .prologue
     .line 1157
@@ -646,8 +646,8 @@
 
 .method public bind(II)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 1177
@@ -663,8 +663,8 @@
 
 .method public bind(IJ)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # J
 
     .prologue
     .line 1167
@@ -678,8 +678,8 @@
 
 .method public bind(ILjava/lang/String;)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 1220
@@ -705,8 +705,8 @@
 
 .method public bind(IZ)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # Z
 
     .prologue
     .line 1187
@@ -731,8 +731,8 @@
 
 .method public bind(I[B)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # [B
 
     .prologue
     .line 1206
@@ -758,7 +758,7 @@
 
 .method public bindNull(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 1196
@@ -841,8 +841,8 @@
 
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteStatement;->executeInsert()J
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v1
 
@@ -857,7 +857,7 @@
     move-exception v0
 
     .line 1261
-    .local v0, e:Landroid/database/SQLException;
+    .local v0, "e":Landroid/database/SQLException;
     :try_start_1
     const-string v1, "DatabaseUtils"
 
@@ -893,7 +893,7 @@
 
     goto :goto_0
 
-    .end local v0           #e:Landroid/database/SQLException;
+    .end local v0    # "e":Landroid/database/SQLException;
     :catchall_0
     move-exception v1
 
@@ -904,7 +904,7 @@
 
 .method public getColumnIndex(Ljava/lang/String;)I
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 1132
@@ -922,7 +922,7 @@
     check-cast v0, Ljava/lang/Integer;
 
     .line 1134
-    .local v0, index:Ljava/lang/Integer;
+    .local v0, "index":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
     .line 1135
@@ -967,7 +967,7 @@
 
 .method public insert(Landroid/content/ContentValues;)J
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 1239
@@ -1026,7 +1026,7 @@
 
 .method public replace(Landroid/content/ContentValues;)J
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 1313

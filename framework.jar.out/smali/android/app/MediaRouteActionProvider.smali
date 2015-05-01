@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 57
@@ -70,7 +70,7 @@
 
 .method static synthetic access$000(Landroid/app/MediaRouteActionProvider;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/MediaRouteActionProvider;
 
     .prologue
     .line 45
@@ -126,7 +126,7 @@
 
 .method public onCreateActionView(Landroid/view/MenuItem;)Landroid/view/View;
     .locals 4
-    .parameter "item"
+    .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 115
@@ -229,7 +229,7 @@
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 101
@@ -252,7 +252,7 @@
 
 .method public setRouteTypes(I)V
     .locals 3
-    .parameter "types"
+    .param p1, "types"    # I
 
     .prologue
     .line 76

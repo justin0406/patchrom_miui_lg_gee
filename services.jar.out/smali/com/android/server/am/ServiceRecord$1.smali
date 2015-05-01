@@ -34,12 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Landroid/app/Notification;Ljava/lang/String;III)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 428
@@ -74,7 +68,7 @@
     check-cast v0, Lcom/android/server/NotificationManagerService;
 
     .line 432
-    .local v0, nm:Lcom/android/server/NotificationManagerService;
+    .local v0, "nm":Lcom/android/server/NotificationManagerService;
     if-nez v0, :cond_0
 
     .line 495
@@ -135,7 +129,7 @@
     move-result-object v10
 
     .line 447
-    .local v10, appName:Ljava/lang/CharSequence;
+    .local v10, "appName":Ljava/lang/CharSequence;
     if-nez v10, :cond_1
 
     .line 448
@@ -152,7 +146,7 @@
     const/4 v11, 0x0
 
     .line 452
-    .local v11, ctx:Landroid/content/Context;
+    .local v11, "ctx":Landroid/content/Context;
     :try_start_1
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
 
@@ -180,7 +174,7 @@
     invoke-direct {v14, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 456
-    .local v14, runningIntent:Landroid/content/Intent;
+    .local v14, "runningIntent":Landroid/content/Intent;
     const-string v1, "package"
 
     iget-object v2, p0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
@@ -206,14 +200,14 @@
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x800
+    const/high16 v3, 0x8000000
 
     invoke-static {v1, v2, v14, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v13
 
     .line 460
-    .local v13, pi:Landroid/app/PendingIntent;
+    .local v13, "pi":Landroid/app/PendingIntent;
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$1;->val$localForegroundNoti:Landroid/app/Notification;
 
     iget-object v2, p0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
@@ -222,7 +216,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10403f0
+    const v3, 0x10403f1
 
     const/4 v4, 0x1
 
@@ -242,7 +236,7 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x10403f1
+    const v4, 0x10403f2
 
     const/4 v5, 0x1
 
@@ -262,10 +256,10 @@
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 474
-    .end local v10           #appName:Ljava/lang/CharSequence;
-    .end local v11           #ctx:Landroid/content/Context;
-    .end local v13           #pi:Landroid/app/PendingIntent;
-    .end local v14           #runningIntent:Landroid/content/Intent;
+    .end local v10    # "appName":Ljava/lang/CharSequence;
+    .end local v11    # "ctx":Landroid/content/Context;
+    .end local v13    # "pi":Landroid/app/PendingIntent;
+    .end local v14    # "runningIntent":Landroid/content/Intent;
     :cond_2
     :goto_1
     :try_start_2
@@ -291,7 +285,7 @@
     move-exception v12
 
     .line 486
-    .local v12, e:Ljava/lang/RuntimeException;
+    .local v12, "e":Ljava/lang/RuntimeException;
     const-string v1, "ActivityManager"
 
     const-string v2, "Error showing notification for service"
@@ -351,14 +345,14 @@
     goto/16 :goto_0
 
     .line 470
-    .end local v12           #e:Ljava/lang/RuntimeException;
-    .restart local v10       #appName:Ljava/lang/CharSequence;
-    .restart local v11       #ctx:Landroid/content/Context;
+    .end local v12    # "e":Ljava/lang/RuntimeException;
+    .restart local v10    # "appName":Ljava/lang/CharSequence;
+    .restart local v11    # "ctx":Landroid/content/Context;
     :catch_1
     move-exception v12
 
     .line 471
-    .local v12, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v12, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_3
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$1;->val$localForegroundNoti:Landroid/app/Notification;
 
@@ -369,16 +363,16 @@
     goto :goto_1
 
     .line 481
-    .end local v10           #appName:Ljava/lang/CharSequence;
-    .end local v11           #ctx:Landroid/content/Context;
-    .end local v12           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v10    # "appName":Ljava/lang/CharSequence;
+    .end local v11    # "ctx":Landroid/content/Context;
+    .end local v12    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_3
     const/4 v1, 0x1
 
     new-array v8, v1, [I
 
     .line 482
-    .local v8, outId:[I
+    .local v8, "outId":[I
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$1;->val$localPackageName:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/server/am/ServiceRecord$1;->val$localPackageName:Ljava/lang/String;

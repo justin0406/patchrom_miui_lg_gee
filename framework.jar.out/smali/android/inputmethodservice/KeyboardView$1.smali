@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/KeyboardView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 255
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 258
@@ -55,7 +54,7 @@
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/inputmethodservice/KeyboardView;->showKey(I)V
+    # invokes: Landroid/inputmethodservice/KeyboardView;->showKey(I)V
     invoke-static {v1, v2}, Landroid/inputmethodservice/KeyboardView;->access$100(Landroid/inputmethodservice/KeyboardView;I)V
 
     goto :goto_0
@@ -64,7 +63,7 @@
     :pswitch_1
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
-    #getter for: Landroid/inputmethodservice/KeyboardView;->mPreviewText:Landroid/widget/TextView;
+    # getter for: Landroid/inputmethodservice/KeyboardView;->mPreviewText:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/inputmethodservice/KeyboardView;->access$200(Landroid/inputmethodservice/KeyboardView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -79,7 +78,7 @@
     :pswitch_2
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
-    #calls: Landroid/inputmethodservice/KeyboardView;->repeatKey()Z
+    # invokes: Landroid/inputmethodservice/KeyboardView;->repeatKey()Z
     invoke-static {v1}, Landroid/inputmethodservice/KeyboardView;->access$300(Landroid/inputmethodservice/KeyboardView;)Z
 
     move-result v1
@@ -94,7 +93,7 @@
     move-result-object v0
 
     .line 268
-    .local v0, repeat:Landroid/os/Message;
+    .local v0, "repeat":Landroid/os/Message;
     const-wide/16 v1, 0x32
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/inputmethodservice/KeyboardView$1;->sendMessageDelayed(Landroid/os/Message;J)Z
@@ -102,7 +101,7 @@
     goto :goto_0
 
     .line 272
-    .end local v0           #repeat:Landroid/os/Message;
+    .end local v0    # "repeat":Landroid/os/Message;
     :pswitch_3
     iget-object v2, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
@@ -110,7 +109,7 @@
 
     check-cast v1, Landroid/view/MotionEvent;
 
-    #calls: Landroid/inputmethodservice/KeyboardView;->openPopupIfRequired(Landroid/view/MotionEvent;)Z
+    # invokes: Landroid/inputmethodservice/KeyboardView;->openPopupIfRequired(Landroid/view/MotionEvent;)Z
     invoke-static {v2, v1}, Landroid/inputmethodservice/KeyboardView;->access$400(Landroid/inputmethodservice/KeyboardView;Landroid/view/MotionEvent;)Z
 
     goto :goto_0

@@ -59,11 +59,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;ILjava/lang/String;ILjava/lang/Object;)V
     .locals 1
-    .parameter
-    .parameter "viewId"
-    .parameter "methodName"
-    .parameter "type"
-    .parameter "value"
+    .param p2, "viewId"    # I
+    .param p3, "methodName"    # Ljava/lang/String;
+    .param p4, "type"    # I
+    .param p5, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 1079
@@ -91,8 +90,7 @@
 
 .method constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 2
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 1086
@@ -500,9 +498,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 7
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 1259
@@ -513,7 +511,7 @@
     move-result-object v3
 
     .line 1260
-    .local v3, view:Landroid/view/View;
+    .local v3, "view":Landroid/view/View;
     if-nez v3, :cond_0
 
     .line 1274
@@ -527,7 +525,7 @@
     move-result-object v2
 
     .line 1263
-    .local v2, param:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v2, "param":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-nez v2, :cond_1
 
     .line 1264
@@ -564,14 +562,14 @@
 
     iget-object v5, p0, Landroid/widget/RemoteViews$ReflectionAction;->methodName:Ljava/lang/String;
 
-    #calls: Landroid/widget/RemoteViews;->getMethod(Landroid/view/View;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    # invokes: Landroid/widget/RemoteViews;->getMethod(Landroid/view/View;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
     invoke-static {v4, v3, v5, v2}, Landroid/widget/RemoteViews;->access$300(Landroid/widget/RemoteViews;Landroid/view/View;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v4
 
     iget-object v5, p0, Landroid/widget/RemoteViews$ReflectionAction;->value:Ljava/lang/Object;
 
-    #calls: Landroid/widget/RemoteViews;->wrapArg(Ljava/lang/Object;)[Ljava/lang/Object;
+    # invokes: Landroid/widget/RemoteViews;->wrapArg(Ljava/lang/Object;)[Ljava/lang/Object;
     invoke-static {v5}, Landroid/widget/RemoteViews;->access$500(Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v5
@@ -588,16 +586,16 @@
     move-exception v0
 
     .line 1270
-    .local v0, e:Landroid/widget/RemoteViews$ActionException;
+    .local v0, "e":Landroid/widget/RemoteViews$ActionException;
     throw v0
 
     .line 1271
-    .end local v0           #e:Landroid/widget/RemoteViews$ActionException;
+    .end local v0    # "e":Landroid/widget/RemoteViews$ActionException;
     :catch_1
     move-exception v1
 
     .line 1272
-    .local v1, ex:Ljava/lang/Exception;
+    .local v1, "ex":Ljava/lang/Exception;
     new-instance v4, Landroid/widget/RemoteViews$ActionException;
 
     invoke-direct {v4, v1}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/Exception;)V
@@ -669,8 +667,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

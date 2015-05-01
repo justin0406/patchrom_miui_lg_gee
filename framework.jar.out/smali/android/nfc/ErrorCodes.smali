@@ -64,7 +64,7 @@
 
 .method public static asString(I)Ljava/lang/String;
     .locals 1
-    .parameter "code"
+    .param p0, "code"    # I
 
     .prologue
     .line 37
@@ -238,7 +238,7 @@
 
 .method public static isError(I)Z
     .locals 1
-    .parameter "code"
+    .param p0, "code"    # I
 
     .prologue
     .line 29

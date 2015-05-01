@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 3
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
 
     .prologue
     .line 73
@@ -195,9 +195,9 @@
 
 .method public readEntityData([BII)I
     .locals 4
-    .parameter "data"
-    .parameter "offset"
-    .parameter "size"
+    .param p1, "data"    # [B
+    .param p2, "offset"    # I
+    .param p3, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -218,7 +218,7 @@
     move-result v0
 
     .line 162
-    .local v0, result:I
+    .local v0, "result":I
     if-ltz v0, :cond_0
 
     .line 163
@@ -255,7 +255,7 @@
     throw v1
 
     .line 168
-    .end local v0           #result:I
+    .end local v0    # "result":I
     :cond_1
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -289,7 +289,7 @@
     move-result v0
 
     .line 101
-    .local v0, result:I
+    .local v0, "result":I
     if-nez v0, :cond_0
 
     .line 103

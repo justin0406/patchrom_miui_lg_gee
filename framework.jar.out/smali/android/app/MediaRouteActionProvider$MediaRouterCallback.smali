@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/MediaRouteActionProvider;)V
     .locals 1
-    .parameter "provider"
+    .param p1, "provider"    # Landroid/app/MediaRouteActionProvider;
 
     .prologue
     .line 157
@@ -49,7 +49,7 @@
 
 .method private refreshRoute(Landroid/media/MediaRouter;)V
     .locals 2
-    .parameter "router"
+    .param p1, "router"    # Landroid/media/MediaRouter;
 
     .prologue
     .line 177
@@ -62,11 +62,11 @@
     check-cast v0, Landroid/app/MediaRouteActionProvider;
 
     .line 178
-    .local v0, provider:Landroid/app/MediaRouteActionProvider;
+    .local v0, "provider":Landroid/app/MediaRouteActionProvider;
     if-eqz v0, :cond_0
 
     .line 179
-    #calls: Landroid/app/MediaRouteActionProvider;->refreshRoute()V
+    # invokes: Landroid/app/MediaRouteActionProvider;->refreshRoute()V
     invoke-static {v0}, Landroid/app/MediaRouteActionProvider;->access$000(Landroid/app/MediaRouteActionProvider;)V
 
     .line 183
@@ -84,8 +84,8 @@
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 163
@@ -97,8 +97,8 @@
 
 .method public onRouteChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 173
@@ -110,8 +110,8 @@
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter "router"
-    .parameter "info"
+    .param p1, "router"    # Landroid/media/MediaRouter;
+    .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 168

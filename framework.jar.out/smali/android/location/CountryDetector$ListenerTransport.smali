@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/location/CountryListener;Landroid/os/Looper;)V
     .locals 1
-    .parameter "listener"
-    .parameter "looper"
+    .param p1, "listener"    # Landroid/location/CountryListener;
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 65
@@ -60,7 +60,7 @@
 
 .method static synthetic access$000(Landroid/location/CountryDetector$ListenerTransport;)Landroid/location/CountryListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/location/CountryDetector$ListenerTransport;
 
     .prologue
     .line 59
@@ -73,7 +73,7 @@
 # virtual methods
 .method public onCountryDetected(Landroid/location/Country;)V
     .locals 2
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
 
     .prologue
     .line 75

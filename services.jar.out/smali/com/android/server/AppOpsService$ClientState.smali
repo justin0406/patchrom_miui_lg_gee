@@ -39,8 +39,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AppOpsService;Landroid/os/IBinder;)V
     .locals 2
-    .parameter
-    .parameter "appToken"
+    .param p2, "appToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 155
@@ -120,7 +119,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -159,7 +158,7 @@
     return-void
 
     .line 185
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 

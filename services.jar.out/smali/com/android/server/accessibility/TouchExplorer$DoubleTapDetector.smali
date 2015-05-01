@@ -25,7 +25,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/accessibility/TouchExplorer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1075
@@ -38,8 +37,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/TouchExplorer;Lcom/android/server/accessibility/TouchExplorer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/accessibility/TouchExplorer;
+    .param p2, "x1"    # Lcom/android/server/accessibility/TouchExplorer$1;
 
     .prologue
     .line 1075
@@ -111,7 +110,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
     invoke-static {v2}, Lcom/android/server/accessibility/TouchExplorer;->access$800(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v2
@@ -135,8 +134,8 @@
 
 .method public onDoubleTap(Landroid/view/MotionEvent;I)V
     .locals 28
-    .parameter "secondTapUp"
-    .parameter "policyFlags"
+    .param p1, "secondTapUp"    # Landroid/view/MotionEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 1134
@@ -159,7 +158,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/TouchExplorer$SendHoverEnterAndMoveDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/TouchExplorer$SendHoverEnterAndMoveDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1000(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendHoverEnterAndMoveDelayed;
 
     move-result-object v3
@@ -171,7 +170,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/TouchExplorer$SendHoverExitDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/TouchExplorer$SendHoverExitDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1100(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendHoverExitDelayed;
 
     move-result-object v3
@@ -183,7 +182,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mPerformLongPressDelayed:Lcom/android/server/accessibility/TouchExplorer$PerformLongPressDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mPerformLongPressDelayed:Lcom/android/server/accessibility/TouchExplorer$PerformLongPressDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1200(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$PerformLongPressDelayed;
 
     move-result-object v3
@@ -195,7 +194,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1300(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
 
     move-result-object v3
@@ -211,7 +210,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1300(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
 
     move-result-object v3
@@ -224,7 +223,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1400(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
 
     move-result-object v3
@@ -240,7 +239,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1400(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;
 
     move-result-object v3
@@ -260,7 +259,7 @@
     move-result v26
 
     .line 1154
-    .local v26, pointerId:I
+    .local v26, "pointerId":I
     move-object/from16 v0, p1
 
     move/from16 v1, v26
@@ -270,12 +269,12 @@
     move-result v27
 
     .line 1156
-    .local v27, pointerIndex:I
+    .local v27, "pointerIndex":I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1500(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
 
     move-result-object v3
@@ -285,7 +284,7 @@
     move-result-object v24
 
     .line 1158
-    .local v24, lastExploreEvent:Landroid/view/MotionEvent;
+    .local v24, "lastExploreEvent":Landroid/view/MotionEvent;
     if-nez v24, :cond_5
 
     .line 1161
@@ -293,18 +292,18 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1600(Lcom/android/server/accessibility/TouchExplorer;)Landroid/graphics/Rect;
 
     move-result-object v23
 
     .line 1162
-    .local v23, focusBounds:Landroid/graphics/Rect;
+    .local v23, "focusBounds":Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1700(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v3
@@ -323,14 +322,14 @@
     move-result v20
 
     .line 1164
-    .local v20, clickLocationX:I
+    .local v20, "clickLocationX":I
     invoke-virtual/range {v23 .. v23}, Landroid/graphics/Rect;->centerY()I
 
     move-result v21
 
     .line 1191
-    .end local v23           #focusBounds:Landroid/graphics/Rect;
-    .local v21, clickLocationY:I
+    .end local v23    # "focusBounds":Landroid/graphics/Rect;
+    .local v21, "clickLocationY":I
     :cond_4
     :goto_1
     const/4 v3, 0x1
@@ -338,7 +337,7 @@
     new-array v9, v3, [Landroid/view/MotionEvent$PointerProperties;
 
     .line 1192
-    .local v9, properties:[Landroid/view/MotionEvent$PointerProperties;
+    .local v9, "properties":[Landroid/view/MotionEvent$PointerProperties;
     const/4 v3, 0x0
 
     new-instance v4, Landroid/view/MotionEvent$PointerProperties;
@@ -364,7 +363,7 @@
     new-array v10, v3, [Landroid/view/MotionEvent$PointerCoords;
 
     .line 1195
-    .local v10, coords:[Landroid/view/MotionEvent$PointerCoords;
+    .local v10, "coords":[Landroid/view/MotionEvent$PointerCoords;
     const/4 v3, 0x0
 
     new-instance v4, Landroid/view/MotionEvent$PointerCoords;
@@ -412,9 +411,9 @@
 
     const/4 v12, 0x0
 
-    const/high16 v13, 0x3f80
+    const/high16 v13, 0x3f800000    # 1.0f
 
-    const/high16 v14, 0x3f80
+    const/high16 v14, 0x3f800000    # 1.0f
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
 
@@ -435,7 +434,7 @@
     move-result-object v22
 
     .line 1202
-    .local v22, event:Landroid/view/MotionEvent;
+    .local v22, "event":Landroid/view/MotionEvent;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
@@ -444,7 +443,7 @@
 
     move/from16 v1, p2
 
-    #calls: Lcom/android/server/accessibility/TouchExplorer;->sendActionDownAndUp(Landroid/view/MotionEvent;I)V
+    # invokes: Lcom/android/server/accessibility/TouchExplorer;->sendActionDownAndUp(Landroid/view/MotionEvent;I)V
     invoke-static {v3, v0, v1}, Lcom/android/server/accessibility/TouchExplorer;->access$1900(Lcom/android/server/accessibility/TouchExplorer;Landroid/view/MotionEvent;I)V
 
     .line 1203
@@ -453,18 +452,18 @@
     goto/16 :goto_0
 
     .line 1172
-    .end local v9           #properties:[Landroid/view/MotionEvent$PointerProperties;
-    .end local v10           #coords:[Landroid/view/MotionEvent$PointerCoords;
-    .end local v20           #clickLocationX:I
-    .end local v21           #clickLocationY:I
-    .end local v22           #event:Landroid/view/MotionEvent;
+    .end local v9    # "properties":[Landroid/view/MotionEvent$PointerProperties;
+    .end local v10    # "coords":[Landroid/view/MotionEvent$PointerCoords;
+    .end local v20    # "clickLocationX":I
+    .end local v21    # "clickLocationY":I
+    .end local v22    # "event":Landroid/view/MotionEvent;
     :cond_5
     invoke-virtual/range {v24 .. v24}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v25
 
     .line 1173
-    .local v25, lastExplorePointerIndex:I
+    .local v25, "lastExplorePointerIndex":I
     invoke-virtual/range {v24 .. v25}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v3
@@ -474,7 +473,7 @@
     move/from16 v20, v0
 
     .line 1174
-    .restart local v20       #clickLocationX:I
+    .restart local v20    # "clickLocationX":I
     invoke-virtual/range {v24 .. v25}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v3
@@ -484,23 +483,23 @@
     move/from16 v21, v0
 
     .line 1175
-    .restart local v21       #clickLocationY:I
+    .restart local v21    # "clickLocationY":I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1600(Lcom/android/server/accessibility/TouchExplorer;)Landroid/graphics/Rect;
 
     move-result-object v19
 
     .line 1176
-    .local v19, activeWindowBounds:Landroid/graphics/Rect;
+    .local v19, "activeWindowBounds":Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mLastTouchedWindowId:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mLastTouchedWindowId:I
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1800(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v3
@@ -509,7 +508,7 @@
 
     iget-object v4, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v4}, Lcom/android/server/accessibility/TouchExplorer;->access$1700(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v4
@@ -525,7 +524,7 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1700(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v3
@@ -546,18 +545,18 @@
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1600(Lcom/android/server/accessibility/TouchExplorer;)Landroid/graphics/Rect;
 
     move-result-object v23
 
     .line 1180
-    .restart local v23       #focusBounds:Landroid/graphics/Rect;
+    .restart local v23    # "focusBounds":Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$1700(Lcom/android/server/accessibility/TouchExplorer;)Lcom/android/server/accessibility/AccessibilityManagerService;
 
     move-result-object v3
@@ -598,8 +597,8 @@
 
 .method public onMotionEvent(Landroid/view/MotionEvent;I)V
     .locals 6
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -610,13 +609,13 @@
     move-result v1
 
     .line 1081
-    .local v1, actionIndex:I
+    .local v1, "actionIndex":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     .line 1082
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     .line 1130
@@ -678,14 +677,14 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mTapTimeout:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mTapTimeout:I
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$600(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mTouchSlop:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mTouchSlop:I
     invoke-static {v4}, Lcom/android/server/accessibility/TouchExplorer;->access$700(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v4
@@ -705,7 +704,7 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$800(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v3
@@ -740,14 +739,14 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapTimeout:I
     invoke-static {v3}, Lcom/android/server/accessibility/TouchExplorer;->access$800(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/server/accessibility/TouchExplorer$DoubleTapDetector;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
-    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapSlop:I
+    # getter for: Lcom/android/server/accessibility/TouchExplorer;->mDoubleTapSlop:I
     invoke-static {v4}, Lcom/android/server/accessibility/TouchExplorer;->access$900(Lcom/android/server/accessibility/TouchExplorer;)I
 
     move-result v4

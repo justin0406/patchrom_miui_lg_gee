@@ -47,7 +47,7 @@
 
 .method public static addChangeCallback(Ljava/lang/Runnable;)V
     .locals 2
-    .parameter "callback"
+    .param p0, "callback"    # Ljava/lang/Runnable;
 
     .prologue
     .line 136
@@ -114,14 +114,14 @@
     monitor-exit v3
 
     .line 155
-    .local v0, callbacks:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
-    .local v1, i:I
+    .local v0, "callbacks":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
+    .local v1, "i":I
     :goto_0
     return-void
 
     .line 150
-    .end local v0           #callbacks:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
-    .end local v1           #i:I
+    .end local v0    # "callbacks":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
+    .end local v1    # "i":I
     :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
@@ -130,10 +130,10 @@
     invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 151
-    .restart local v0       #callbacks:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
+    .restart local v0    # "callbacks":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -173,7 +173,7 @@
 
 .method public static get(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "key"
+    .param p0, "key"    # Ljava/lang/String;
 
     .prologue
     .line 51
@@ -205,8 +205,8 @@
 
 .method public static get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "key"
-    .parameter "def"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "def"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -238,8 +238,8 @@
 
 .method public static getBoolean(Ljava/lang/String;Z)Z
     .locals 2
-    .parameter "key"
-    .parameter "def"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "def"    # Z
 
     .prologue
     .line 113
@@ -271,8 +271,8 @@
 
 .method public static getInt(Ljava/lang/String;I)I
     .locals 2
-    .parameter "key"
-    .parameter "def"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "def"    # I
 
     .prologue
     .line 78
@@ -304,8 +304,8 @@
 
 .method public static getLong(Ljava/lang/String;J)J
     .locals 2
-    .parameter "key"
-    .parameter "def"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "def"    # J
 
     .prologue
     .line 93
@@ -358,8 +358,8 @@
 
 .method public static set(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "key"
-    .parameter "val"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "val"    # Ljava/lang/String;
 
     .prologue
     .line 125

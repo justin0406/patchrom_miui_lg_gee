@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 245
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 249
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 250
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -65,13 +64,13 @@
     check-cast v1, Landroid/net/ConnectivityManager;
 
     .line 254
-    .local v1, connManager:Landroid/net/ConnectivityManager;
+    .local v1, "connManager":Landroid/net/ConnectivityManager;
     invoke-virtual {v1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v2
 
     .line 255
-    .local v2, netInfo:Landroid/net/NetworkInfo;
+    .local v2, "netInfo":Landroid/net/NetworkInfo;
     if-eqz v2, :cond_1
 
     .line 257
@@ -103,7 +102,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/server/NetworkTimeUpdateService$3;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    #getter for: Lcom/android/server/NetworkTimeUpdateService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/NetworkTimeUpdateService;->mHandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/server/NetworkTimeUpdateService;->access$000(Lcom/android/server/NetworkTimeUpdateService;)Landroid/os/Handler;
 
     move-result-object v3
@@ -117,8 +116,8 @@
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
     .line 264
-    .end local v1           #connManager:Landroid/net/ConnectivityManager;
-    .end local v2           #netInfo:Landroid/net/NetworkInfo;
+    .end local v1    # "connManager":Landroid/net/ConnectivityManager;
+    .end local v2    # "netInfo":Landroid/net/NetworkInfo;
     :cond_1
     return-void
 .end method

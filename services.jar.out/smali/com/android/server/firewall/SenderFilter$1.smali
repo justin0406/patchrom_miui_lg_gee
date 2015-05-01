@@ -17,7 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -30,7 +30,7 @@
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
     .locals 5
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -49,7 +49,7 @@
     move-result-object v0
 
     .line 61
-    .local v0, typeString:Ljava/lang/String;
+    .local v0, "typeString":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 62
@@ -72,6 +72,7 @@
     if-eqz v1, :cond_1
 
     .line 66
+    # getter for: Lcom/android/server/firewall/SenderFilter;->SYSTEM:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$000()Lcom/android/server/firewall/Filter;
 
     move-result-object v1
@@ -91,6 +92,7 @@
     if-eqz v1, :cond_2
 
     .line 68
+    # getter for: Lcom/android/server/firewall/SenderFilter;->SIGNATURE:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$100()Lcom/android/server/firewall/Filter;
 
     move-result-object v1
@@ -108,6 +110,7 @@
     if-eqz v1, :cond_3
 
     .line 70
+    # getter for: Lcom/android/server/firewall/SenderFilter;->SYSTEM_OR_SIGNATURE:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$200()Lcom/android/server/firewall/Filter;
 
     move-result-object v1
@@ -125,6 +128,7 @@
     if-eqz v1, :cond_4
 
     .line 72
+    # getter for: Lcom/android/server/firewall/SenderFilter;->USER_ID:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$300()Lcom/android/server/firewall/Filter;
 
     move-result-object v1

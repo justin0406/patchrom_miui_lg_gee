@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1065
@@ -49,7 +47,7 @@
     .line 1068
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #getter for: Lcom/android/server/pm/UserManagerService;->mPackagesLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/pm/UserManagerService;->mPackagesLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$100(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -60,7 +58,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #getter for: Lcom/android/server/pm/UserManagerService;->mRemovingUserIds:Landroid/util/SparseBooleanArray;
+    # getter for: Lcom/android/server/pm/UserManagerService;->mRemovingUserIds:Landroid/util/SparseBooleanArray;
     invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$300(Lcom/android/server/pm/UserManagerService;)Landroid/util/SparseBooleanArray;
 
     move-result-object v0

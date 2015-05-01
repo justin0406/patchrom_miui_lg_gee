@@ -25,9 +25,8 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;Ljava/lang/String;I)V
     .locals 1
-    .parameter
-    .parameter "path"
-    .parameter "state"
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "state"    # I
 
     .prologue
     .line 198

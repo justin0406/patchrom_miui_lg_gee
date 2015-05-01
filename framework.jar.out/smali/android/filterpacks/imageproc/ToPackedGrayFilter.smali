@@ -33,7 +33,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -61,8 +61,8 @@
 
 .method private checkOutputDimensions(II)V
     .locals 3
-    .parameter "outputWidth"
-    .parameter "outputHeight"
+    .param p1, "outputWidth"    # I
+    .param p2, "outputHeight"    # I
 
     .prologue
     .line 78
@@ -113,7 +113,7 @@
 
 .method private convertInputFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 6
-    .parameter "inputFormat"
+    .param p1, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     const/4 v4, 0x4
@@ -122,23 +122,23 @@
     iget v2, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
 
     .line 86
-    .local v2, ow:I
+    .local v2, "ow":I
     iget v1, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOHeight:I
 
     .line 87
-    .local v1, oh:I
+    .local v1, "oh":I
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     .line 88
-    .local v3, w:I
+    .local v3, "w":I
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
     move-result v0
 
     .line 89
-    .local v0, h:I
+    .local v0, "h":I
     iget v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
 
     if-nez v5, :cond_0
@@ -221,8 +221,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 1
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 74
@@ -235,7 +235,7 @@
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 114
@@ -253,7 +253,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 12
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 119
@@ -264,31 +264,31 @@
     move-result-object v0
 
     .line 120
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 121
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-direct {p0, v1}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->convertInputFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
 
     move-result-object v4
 
     .line 122
-    .local v4, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v4, "outputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {v4}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v5
 
     .line 123
-    .local v5, ow:I
+    .local v5, "ow":I
     invoke-virtual {v4}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
     move-result v2
 
     .line 124
-    .local v2, oh:I
+    .local v2, "oh":I
     invoke-direct {p0, v5, v2}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->checkOutputDimensions(II)V
 
     .line 125
@@ -296,7 +296,7 @@
 
     const-string/jumbo v9, "pix_stride"
 
-    const/high16 v10, 0x3f80
+    const/high16 v10, 0x3f800000    # 1.0f
 
     int-to-float v11, v5
 
@@ -314,7 +314,7 @@
     move-result-object v7
 
     .line 129
-    .local v7, tempFrameFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v7, "tempFrameFormat":Landroid/filterfw/core/MutableFrameFormat;
     div-int/lit8 v8, v5, 0x4
 
     invoke-virtual {v7, v8, v2}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
@@ -329,7 +329,7 @@
     move-result-object v6
 
     .line 131
-    .local v6, temp:Landroid/filterfw/core/Frame;
+    .local v6, "temp":Landroid/filterfw/core/Frame;
     iget-object v8, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v8, v0, v6}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -344,7 +344,7 @@
     move-result-object v3
 
     .line 135
-    .local v3, output:Landroid/filterfw/core/Frame;
+    .local v3, "output":Landroid/filterfw/core/Frame;
     invoke-virtual {v3, v6}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 136

@@ -29,7 +29,7 @@
 # virtual methods
 .method public onEnabledChanged(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 376
@@ -38,7 +38,7 @@
 
 .method public onFontScaleChanged(F)V
     .locals 0
-    .parameter "fontScale"
+    .param p1, "fontScale"    # F
 
     .prologue
     .line 403
@@ -47,7 +47,7 @@
 
 .method public onLocaleChanged(Ljava/util/Locale;)V
     .locals 0
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 394
@@ -56,7 +56,7 @@
 
 .method public onUserStyleChanged(Landroid/view/accessibility/CaptioningManager$CaptionStyle;)V
     .locals 0
-    .parameter "userStyle"
+    .param p1, "userStyle"    # Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     .prologue
     .line 385

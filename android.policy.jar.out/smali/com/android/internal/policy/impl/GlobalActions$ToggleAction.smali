@@ -40,11 +40,11 @@
 # direct methods
 .method public constructor <init>(IIIII)V
     .locals 1
-    .parameter "enabledIconResId"
-    .parameter "disabledIconResid"
-    .parameter "message"
-    .parameter "enabledStatusMessageResId"
-    .parameter "disabledStatusMessageResId"
+    .param p1, "enabledIconResId"    # I
+    .param p2, "disabledIconResid"    # I
+    .param p3, "message"    # I
+    .param p4, "enabledStatusMessageResId"    # I
+    .param p5, "disabledStatusMessageResId"    # I
 
     .prologue
     .line 649
@@ -78,7 +78,7 @@
 # virtual methods
 .method protected changeStateFromPress(Z)V
     .locals 1
-    .parameter "buttonOn"
+    .param p1, "buttonOn"    # Z
 
     .prologue
     .line 725
@@ -101,10 +101,10 @@
 
 .method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 9
-    .parameter "context"
-    .parameter "convertView"
-    .parameter "parent"
-    .parameter "inflater"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .param p4, "inflater"    # Landroid/view/LayoutInflater;
 
     .prologue
     const/4 v7, 0x0
@@ -120,7 +120,7 @@
     move-result-object v5
 
     .line 672
-    .local v5, v:Landroid/view/View;
+    .local v5, "v":Landroid/view/View;
     const v6, 0x1020006
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -130,7 +130,7 @@
     check-cast v1, Landroid/widget/ImageView;
 
     .line 673
-    .local v1, icon:Landroid/widget/ImageView;
+    .local v1, "icon":Landroid/widget/ImageView;
     const v6, 0x102000b
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -140,7 +140,7 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 674
-    .local v2, messageView:Landroid/widget/TextView;
+    .local v2, "messageView":Landroid/widget/TextView;
     const v6, 0x102029a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -150,13 +150,13 @@
     check-cast v4, Landroid/widget/TextView;
 
     .line 675
-    .local v4, statusView:Landroid/widget/TextView;
+    .local v4, "statusView":Landroid/widget/TextView;
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->isEnabled()Z
 
     move-result v0
 
     .line 677
-    .local v0, enabled:Z
+    .local v0, "enabled":Z
     if-eqz v2, :cond_0
 
     .line 678
@@ -185,7 +185,7 @@
     const/4 v3, 0x1
 
     .line 683
-    .local v3, on:Z
+    .local v3, "on":Z
     :goto_0
     if-eqz v1, :cond_2
 
@@ -233,7 +233,7 @@
     .line 696
     return-object v5
 
-    .end local v3           #on:Z
+    .end local v3    # "on":Z
     :cond_4
     move v3, v7
 
@@ -241,7 +241,7 @@
     goto :goto_0
 
     .line 684
-    .restart local v3       #on:Z
+    .restart local v3    # "on":Z
     :cond_5
     iget v6, p0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->mDisabledIconResid:I
 
@@ -323,7 +323,7 @@
     const/4 v0, 0x1
 
     .line 706
-    .local v0, nowOn:Z
+    .local v0, "nowOn":Z
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->onToggle(Z)V
 
@@ -333,7 +333,7 @@
     goto :goto_0
 
     .line 705
-    .end local v0           #nowOn:Z
+    .end local v0    # "nowOn":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -345,7 +345,7 @@
 
 .method public updateState(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
     .prologue
     .line 731

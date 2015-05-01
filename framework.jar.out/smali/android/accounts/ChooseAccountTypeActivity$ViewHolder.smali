@@ -33,7 +33,7 @@
 
 .method synthetic constructor <init>(Landroid/accounts/ChooseAccountTypeActivity$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/accounts/ChooseAccountTypeActivity$1;
 
     .prologue
     .line 166

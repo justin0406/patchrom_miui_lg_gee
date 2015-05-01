@@ -56,7 +56,7 @@
 
 .method static synthetic access$200(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -67,7 +67,7 @@
 
 .method static synthetic access$300(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -199,7 +199,7 @@
 
 .method public final startObserving(Ljava/lang/String;)V
     .locals 3
-    .parameter "match"
+    .param p1, "match"    # Ljava/lang/String;
 
     .prologue
     .line 97
@@ -228,7 +228,7 @@
     move-result-object v0
 
     .line 102
-    .local v0, t:Landroid/os/UEventObserver$UEventThread;
+    .local v0, "t":Landroid/os/UEventObserver$UEventThread;
     invoke-virtual {v0, p1, p0}, Landroid/os/UEventObserver$UEventThread;->addObserver(Ljava/lang/String;Landroid/os/UEventObserver;)V
 
     .line 103
@@ -245,7 +245,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, t:Landroid/os/UEventObserver$UEventThread;
+    .local v0, "t":Landroid/os/UEventObserver$UEventThread;
     if-eqz v0, :cond_0
 
     .line 113

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -18,7 +18,7 @@
     .end annotation
 .end field
 
-.field private static final DATA_USAGE_NETWORK_TYPES:[I = null
+.field private static final DATA_USAGE_NETWORK_TYPES:[I
 
 .field public static final MATCH_ETHERNET:I = 0x5
 
@@ -80,9 +80,9 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "matchRule"
-    .parameter "subscriberId"
-    .parameter "networkId"
+    .param p1, "matchRule"    # I
+    .param p2, "subscriberId"    # Ljava/lang/String;
+    .param p3, "networkId"    # Ljava/lang/String;
 
     .prologue
     .line 140
@@ -103,7 +103,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 146
@@ -136,8 +136,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/NetworkTemplate$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/net/NetworkTemplate$1;
 
     .prologue
     .line 46
@@ -164,7 +164,7 @@
 
 .method public static buildTemplateMobile3gLower(Ljava/lang/String;)Landroid/net/NetworkTemplate;
     .locals 3
-    .parameter "subscriberId"
+    .param p0, "subscriberId"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -183,7 +183,7 @@
 
 .method public static buildTemplateMobile4g(Ljava/lang/String;)Landroid/net/NetworkTemplate;
     .locals 3
-    .parameter "subscriberId"
+    .param p0, "subscriberId"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -202,7 +202,7 @@
 
 .method public static buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
     .locals 3
-    .parameter "subscriberId"
+    .param p0, "subscriberId"    # Ljava/lang/String;
 
     .prologue
     .line 78
@@ -249,7 +249,7 @@
 
 .method public static buildTemplateWifi(Ljava/lang/String;)Landroid/net/NetworkTemplate;
     .locals 3
-    .parameter "networkId"
+    .param p0, "networkId"    # Ljava/lang/String;
 
     .prologue
     .line 125
@@ -309,7 +309,7 @@
 
 .method private static getMatchRuleName(I)Ljava/lang/String;
     .locals 1
-    .parameter "matchRule"
+    .param p0, "matchRule"    # I
 
     .prologue
     .line 319
@@ -380,7 +380,7 @@
 
 .method private matchesEthernet(Landroid/net/NetworkIdentity;)Z
     .locals 2
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     .line 294
@@ -405,7 +405,7 @@
 
 .method private matchesMobile(Landroid/net/NetworkIdentity;)Z
     .locals 3
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     const/4 v0, 0x1
@@ -456,7 +456,7 @@
 
 .method private matchesMobile3gLower(Landroid/net/NetworkIdentity;)Z
     .locals 3
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     const/4 v0, 0x0
@@ -512,7 +512,7 @@
 
 .method private matchesMobile4g(Landroid/net/NetworkIdentity;)Z
     .locals 3
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     const/4 v0, 0x1
@@ -566,7 +566,7 @@
 
 .method private matchesMobileWildcard(Landroid/net/NetworkIdentity;)Z
     .locals 3
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     const/4 v0, 0x1
@@ -605,7 +605,7 @@
 
 .method private matchesWifi(Landroid/net/NetworkIdentity;)Z
     .locals 2
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     .line 281
@@ -648,7 +648,7 @@
 
 .method private matchesWifiWildcard(Landroid/net/NetworkIdentity;)Z
     .locals 1
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     .line 309
@@ -692,7 +692,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -708,7 +708,7 @@
     check-cast v0, Landroid/net/NetworkTemplate;
 
     .line 186
-    .local v0, other:Landroid/net/NetworkTemplate;
+    .local v0, "other":Landroid/net/NetworkTemplate;
     iget v2, p0, Landroid/net/NetworkTemplate;->mMatchRule:I
 
     iget v3, v0, Landroid/net/NetworkTemplate;->mMatchRule:I
@@ -738,7 +738,7 @@
     const/4 v1, 0x1
 
     .line 190
-    .end local v0           #other:Landroid/net/NetworkTemplate;
+    .end local v0    # "other":Landroid/net/NetworkTemplate;
     :cond_0
     return v1
 .end method
@@ -813,7 +813,7 @@
 
 .method public matches(Landroid/net/NetworkIdentity;)Z
     .locals 2
-    .parameter "ident"
+    .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
     .line 209
@@ -915,7 +915,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 167
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "matchRule="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -978,8 +978,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 154

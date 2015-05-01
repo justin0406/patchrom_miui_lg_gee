@@ -48,7 +48,7 @@
 
 .method protected clearOrCreateWindow(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 197
@@ -102,8 +102,8 @@
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
     .locals 2
-    .parameter "columnIndex"
-    .parameter "buffer"
+    .param p1, "columnIndex"    # I
+    .param p2, "buffer"    # Landroid/database/CharArrayBuffer;
 
     .prologue
     .line 56
@@ -122,7 +122,7 @@
 
 .method public getBlob(I)[B
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 44
@@ -142,7 +142,7 @@
 
 .method public getDouble(I)D
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 86
@@ -162,7 +162,7 @@
 
 .method public getFloat(I)F
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 80
@@ -182,7 +182,7 @@
 
 .method public getInt(I)I
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 68
@@ -202,7 +202,7 @@
 
 .method public getLong(I)J
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 74
@@ -222,7 +222,7 @@
 
 .method public getShort(I)S
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 62
@@ -242,7 +242,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 50
@@ -262,7 +262,7 @@
 
 .method public getType(I)I
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 130
@@ -312,7 +312,7 @@
 
 .method public isBlob(I)Z
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -339,7 +339,7 @@
 
 .method public isFloat(I)Z
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -366,7 +366,7 @@
 
 .method public isLong(I)Z
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -391,7 +391,7 @@
 
 .method public isNull(I)Z
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 92
@@ -421,7 +421,7 @@
 
 .method public isString(I)Z
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -462,7 +462,7 @@
 
 .method public setWindow(Landroid/database/CursorWindow;)V
     .locals 1
-    .parameter "window"
+    .param p1, "window"    # Landroid/database/CursorWindow;
 
     .prologue
     .line 163

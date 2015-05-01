@@ -50,7 +50,7 @@
 
 .method public static isMailTo(Ljava/lang/String;)Z
     .locals 1
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
 
     .prologue
     .line 52
@@ -79,7 +79,7 @@
 
 .method public static parse(Ljava/lang/String;)Landroid/net/MailTo;
     .locals 17
-    .parameter "url"
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/net/ParseException;
@@ -129,25 +129,25 @@
     move-result-object v9
 
     .line 74
-    .local v9, noScheme:Ljava/lang/String;
+    .local v9, "noScheme":Ljava/lang/String;
     invoke-static {v9}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v4
 
     .line 75
-    .local v4, email:Landroid/net/Uri;
+    .local v4, "email":Landroid/net/Uri;
     new-instance v7, Landroid/net/MailTo;
 
     invoke-direct {v7}, Landroid/net/MailTo;-><init>()V
 
     .line 78
-    .local v7, m:Landroid/net/MailTo;
+    .local v7, "m":Landroid/net/MailTo;
     invoke-virtual {v4}, Landroid/net/Uri;->getQuery()Ljava/lang/String;
 
     move-result-object v12
 
     .line 79
-    .local v12, query:Ljava/lang/String;
+    .local v12, "query":Ljava/lang/String;
     if-eqz v12, :cond_4
 
     .line 80
@@ -158,23 +158,23 @@
     move-result-object v11
 
     .line 81
-    .local v11, queries:[Ljava/lang/String;
+    .local v11, "queries":[Ljava/lang/String;
     move-object v3, v11
 
-    .local v3, arr$:[Ljava/lang/String;
+    .local v3, "arr$":[Ljava/lang/String;
     array-length v6, v3
 
-    .local v6, len$:I
+    .local v6, "len$":I
     const/4 v5, 0x0
 
-    .local v5, i$:I
+    .local v5, "i$":I
     :goto_0
     if-ge v5, v6, :cond_4
 
     aget-object v10, v3, v5
 
     .line 82
-    .local v10, q:Ljava/lang/String;
+    .local v10, "q":Ljava/lang/String;
     const-string v13, "="
 
     invoke-virtual {v10, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -182,7 +182,7 @@
     move-result-object v8
 
     .line 83
-    .local v8, nameval:[Ljava/lang/String;
+    .local v8, "nameval":[Ljava/lang/String;
     array-length v13, v8
 
     if-nez v13, :cond_2
@@ -238,19 +238,19 @@
     goto :goto_2
 
     .line 95
-    .end local v3           #arr$:[Ljava/lang/String;
-    .end local v5           #i$:I
-    .end local v6           #len$:I
-    .end local v8           #nameval:[Ljava/lang/String;
-    .end local v10           #q:Ljava/lang/String;
-    .end local v11           #queries:[Ljava/lang/String;
+    .end local v3    # "arr$":[Ljava/lang/String;
+    .end local v5    # "i$":I
+    .end local v6    # "len$":I
+    .end local v8    # "nameval":[Ljava/lang/String;
+    .end local v10    # "q":Ljava/lang/String;
+    .end local v11    # "queries":[Ljava/lang/String;
     :cond_4
     invoke-virtual {v4}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
     .line 96
-    .local v2, address:Ljava/lang/String;
+    .local v2, "address":Ljava/lang/String;
     if-eqz v2, :cond_6
 
     .line 97
@@ -259,7 +259,7 @@
     move-result-object v1
 
     .line 98
-    .local v1, addr:Ljava/lang/String;
+    .local v1, "addr":Ljava/lang/String;
     if-eqz v1, :cond_5
 
     .line 99
@@ -294,7 +294,7 @@
     invoke-virtual {v13, v14, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 104
-    .end local v1           #addr:Ljava/lang/String;
+    .end local v1    # "addr":Ljava/lang/String;
     :cond_6
     return-object v7
 .end method
@@ -405,7 +405,7 @@
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 156
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     const/16 v3, 0x3f
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -421,7 +421,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -436,7 +436,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 158
-    .local v0, header:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .local v0, "header":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -475,7 +475,7 @@
     goto :goto_0
 
     .line 163
-    .end local v0           #header:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v0    # "header":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

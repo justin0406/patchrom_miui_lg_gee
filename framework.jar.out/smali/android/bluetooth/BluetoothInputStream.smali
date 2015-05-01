@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothSocket;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/bluetooth/BluetoothSocket;
 
     .prologue
     .line 32
@@ -79,7 +79,7 @@
     new-array v0, v3, [B
 
     .line 60
-    .local v0, b:[B
+    .local v0, "b":[B
     iget-object v2, p0, Landroid/bluetooth/BluetoothInputStream;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v2, v0, v4, v3}, Landroid/bluetooth/BluetoothSocket;->read([BII)I
@@ -87,7 +87,7 @@
     move-result v1
 
     .line 61
-    .local v1, ret:I
+    .local v1, "ret":I
     if-ne v1, v3, :cond_0
 
     .line 62
@@ -107,9 +107,9 @@
 
 .method public read([BII)I
     .locals 2
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

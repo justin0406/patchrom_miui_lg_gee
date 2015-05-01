@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;I)V
     .locals 2
-    .parameter "in"
-    .parameter "max"
+    .param p1, "in"    # Ljava/io/InputStream;
+    .param p2, "max"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -67,12 +67,12 @@
 
 .method public static encode([BI[BIII)V
     .locals 8
-    .parameter "pcmBuf"
-    .parameter "pcmOffset"
-    .parameter "ulawBuf"
-    .parameter "ulawOffset"
-    .parameter "length"
-    .parameter "max"
+    .param p0, "pcmBuf"    # [B
+    .param p1, "pcmOffset"    # I
+    .param p2, "ulawBuf"    # [B
+    .param p3, "ulawOffset"    # I
+    .param p4, "length"    # I
+    .param p5, "max"    # I
 
     .prologue
     .line 76
@@ -82,39 +82,39 @@
 
     .line 78
     :cond_0
-    const/high16 v6, 0x2000
+    const/high16 v6, 0x20000000
 
     div-int v0, v6, p5
 
     .line 80
-    .local v0, coef:I
+    .local v0, "coef":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     move v5, p3
 
-    .end local p3
-    .local v5, ulawOffset:I
+    .end local p3    # "ulawOffset":I
+    .local v5, "ulawOffset":I
     move v3, p1
 
-    .end local p1
-    .local v3, pcmOffset:I
+    .end local p1    # "pcmOffset":I
+    .local v3, "pcmOffset":I
     :goto_0
     if-ge v1, p4, :cond_14
 
     .line 81
     add-int/lit8 p1, v3, 0x1
 
-    .end local v3           #pcmOffset:I
-    .restart local p1
+    .end local v3    # "pcmOffset":I
+    .restart local p1    # "pcmOffset":I
     aget-byte v6, p0, v3
 
     and-int/lit16 v6, v6, 0xff
 
     add-int/lit8 v3, p1, 0x1
 
-    .end local p1
-    .restart local v3       #pcmOffset:I
+    .end local p1    # "pcmOffset":I
+    .restart local v3    # "pcmOffset":I
     aget-byte v7, p0, p1
 
     shl-int/lit8 v7, v7, 0x8
@@ -122,7 +122,7 @@
     add-int v2, v6, v7
 
     .line 82
-    .local v2, pcm:I
+    .local v2, "pcm":I
     mul-int v6, v2, v0
 
     shr-int/lit8 v2, v6, 0x10
@@ -136,12 +136,12 @@
     const/16 v4, 0xff
 
     .line 108
-    .local v4, ulaw:I
+    .local v4, "ulaw":I
     :goto_1
     add-int/lit8 p3, v5, 0x1
 
-    .end local v5           #ulawOffset:I
-    .restart local p3
+    .end local v5    # "ulawOffset":I
+    .restart local p3    # "ulawOffset":I
     int-to-byte v6, v4
 
     aput-byte v6, p2, v5
@@ -151,12 +151,12 @@
 
     move v5, p3
 
-    .end local p3
-    .restart local v5       #ulawOffset:I
+    .end local p3    # "ulawOffset":I
+    .restart local v5    # "ulawOffset":I
     goto :goto_0
 
     .line 86
-    .end local v4           #ulaw:I
+    .end local v4    # "ulaw":I
     :cond_1
     const/16 v6, 0x1e
 
@@ -274,11 +274,11 @@
 
     const/16 v4, 0x7f
 
-    .restart local v4       #ulaw:I
+    .restart local v4    # "ulaw":I
     :goto_2
     goto :goto_1
 
-    .end local v4           #ulaw:I
+    .end local v4    # "ulaw":I
     :cond_b
     const/16 v6, -0x1f
 
@@ -389,46 +389,46 @@
     goto :goto_2
 
     .line 110
-    .end local v2           #pcm:I
+    .end local v2    # "pcm":I
     :cond_14
     return-void
 .end method
 
 .method public static maxAbsPcm([BII)I
     .locals 6
-    .parameter "pcmBuf"
-    .parameter "offset"
-    .parameter "length"
+    .param p0, "pcmBuf"    # [B
+    .param p1, "offset"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 121
     const/4 v1, 0x0
 
     .line 122
-    .local v1, max:I
+    .local v1, "max":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     move v2, p1
 
-    .end local p1
-    .local v2, offset:I
+    .end local p1    # "offset":I
+    .local v2, "offset":I
     :goto_0
     if-ge v0, p2, :cond_2
 
     .line 123
     add-int/lit8 p1, v2, 0x1
 
-    .end local v2           #offset:I
-    .restart local p1
+    .end local v2    # "offset":I
+    .restart local p1    # "offset":I
     aget-byte v4, p0, v2
 
     and-int/lit16 v4, v4, 0xff
 
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .restart local v2       #offset:I
+    .end local p1    # "offset":I
+    .restart local v2    # "offset":I
     aget-byte v5, p0, p1
 
     shl-int/lit8 v5, v5, 0x8
@@ -436,7 +436,7 @@
     add-int v3, v4, v5
 
     .line 124
-    .local v3, pcm:I
+    .local v3, "pcm":I
     if-gez v3, :cond_0
 
     neg-int v3, v3
@@ -454,7 +454,7 @@
     goto :goto_0
 
     .line 127
-    .end local v3           #pcm:I
+    .end local v3    # "pcm":I
     :cond_2
     return v1
 .end method
@@ -504,7 +504,7 @@
     iget-object v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
 
     .line 178
-    .local v0, in:Ljava/io/InputStream;
+    .local v0, "in":Ljava/io/InputStream;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
@@ -513,7 +513,7 @@
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
     .line 181
-    .end local v0           #in:Ljava/io/InputStream;
+    .end local v0    # "in":Ljava/io/InputStream;
     :cond_0
     return-void
 .end method
@@ -541,7 +541,7 @@
     move-result v0
 
     .line 170
-    .local v0, n:I
+    .local v0, "n":I
     if-ne v0, v1, :cond_0
 
     .line 171
@@ -560,7 +560,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "buf"
+    .param p1, "buf"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -582,9 +582,9 @@
 
 .method public read([BII)I
     .locals 9
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "buf"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -608,7 +608,7 @@
     throw v0
 
     .line 148
-    .local v4, n:I
+    .local v4, "n":I
     :cond_0
     iget v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
@@ -617,7 +617,7 @@
     iput v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
     .line 145
-    .end local v4           #n:I
+    .end local v4    # "n":I
     :cond_1
     iget v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
@@ -651,7 +651,7 @@
     move-result v4
 
     .line 147
-    .restart local v4       #n:I
+    .restart local v4    # "n":I
     if-ne v4, v0, :cond_0
 
     .line 159
@@ -659,7 +659,7 @@
     return v0
 
     .line 152
-    .end local v4           #n:I
+    .end local v4    # "n":I
     :cond_2
     iget v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
@@ -670,7 +670,7 @@
     move-result v4
 
     .line 153
-    .restart local v4       #n:I
+    .restart local v4    # "n":I
     iget-object v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBuf:[B
 
     const/4 v1, 0x0
@@ -695,7 +695,7 @@
     .line 157
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_1
     iget v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 

@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final GROUPING_PATTERN:Ljava/util/regex/Pattern; = null
+.field private static final GROUPING_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final SETS:Ljava/lang/String; = "sets"
 
@@ -62,11 +62,11 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "user"
-    .parameter "photo"
-    .parameter "grouping"
-    .parameter "groupingId"
-    .parameter "text"
+    .param p1, "user"    # Ljava/lang/String;
+    .param p2, "photo"    # Ljava/lang/String;
+    .param p3, "grouping"    # Ljava/lang/String;
+    .param p4, "groupingId"    # Ljava/lang/String;
+    .param p5, "text"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -97,7 +97,7 @@
 
     if-nez v1, :cond_0
 
-    .end local p2
+    .end local p2    # "photo":Ljava/lang/String;
     :goto_0
     iput-object p2, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->photo:Ljava/lang/String;
 
@@ -111,7 +111,7 @@
     :goto_1
     return-void
 
-    .restart local p2
+    .restart local p2    # "photo":Ljava/lang/String;
     :cond_0
     move-object p2, v0
 
@@ -138,8 +138,8 @@
 
 .method public static getPhotoURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
-    .parameter "photo"
+    .param p0, "user"    # Ljava/lang/String;
+    .param p1, "photo"    # Ljava/lang/String;
 
     .prologue
     .line 1123
@@ -176,7 +176,7 @@
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "user"
+    .param p0, "user"    # Ljava/lang/String;
 
     .prologue
     .line 1108
@@ -187,7 +187,7 @@
 
 .method public static getTagsURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "tag"
+    .param p0, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 1113
@@ -214,8 +214,8 @@
 
 .method public static getUserSetsURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
-    .parameter "setId"
+    .param p0, "user"    # Ljava/lang/String;
+    .param p1, "setId"    # Ljava/lang/String;
 
     .prologue
     .line 1133
@@ -252,8 +252,8 @@
 
 .method public static getUserTagsURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
-    .parameter "tagId"
+    .param p0, "user"    # Ljava/lang/String;
+    .param p1, "tagId"    # Ljava/lang/String;
 
     .prologue
     .line 1128
@@ -290,7 +290,7 @@
 
 .method public static getUserURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
+    .param p0, "user"    # Ljava/lang/String;
 
     .prologue
     .line 1118
@@ -317,8 +317,8 @@
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
     .locals 10
-    .parameter "url"
-    .parameter "text"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x2
@@ -335,7 +335,7 @@
     move-result-object v9
 
     .line 1068
-    .local v9, m:Ljava/util/regex/Matcher;
+    .local v9, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v9}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v0
@@ -453,7 +453,7 @@
     move-result-object v0
 
     .line 1082
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getUrl()Ljava/lang/String;
 
     move-result-object v1

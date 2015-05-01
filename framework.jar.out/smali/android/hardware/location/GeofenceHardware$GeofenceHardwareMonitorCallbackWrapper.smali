@@ -32,8 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardware;Landroid/hardware/location/GeofenceHardwareMonitorCallback;)V
     .locals 1
-    .parameter
-    .parameter "c"
+    .param p2, "c"    # Landroid/hardware/location/GeofenceHardwareMonitorCallback;
 
     .prologue
     .line 455
@@ -56,9 +55,9 @@
 # virtual methods
 .method public onMonitoringSystemChange(IZLandroid/location/Location;)V
     .locals 2
-    .parameter "monitoringType"
-    .parameter "available"
-    .parameter "location"
+    .param p1, "monitoringType"    # I
+    .param p2, "available"    # Z
+    .param p3, "location"    # Landroid/location/Location;
 
     .prologue
     .line 461
@@ -71,7 +70,7 @@
     check-cast v0, Landroid/hardware/location/GeofenceHardwareMonitorCallback;
 
     .line 462
-    .local v0, c:Landroid/hardware/location/GeofenceHardwareMonitorCallback;
+    .local v0, "c":Landroid/hardware/location/GeofenceHardwareMonitorCallback;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/hardware/location/GeofenceHardwareMonitorCallback;->onMonitoringSystemChange(IZLandroid/location/Location;)V

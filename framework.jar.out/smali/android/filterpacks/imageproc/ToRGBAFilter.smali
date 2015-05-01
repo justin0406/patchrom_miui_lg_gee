@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -33,8 +33,8 @@
 # virtual methods
 .method public createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
     .locals 3
-    .parameter "context"
-    .parameter "format"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 69
@@ -145,7 +145,7 @@
 
 .method public getConvertedFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 3
-    .parameter "format"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 62
@@ -154,7 +154,7 @@
     move-result-object v0
 
     .line 63
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     const-string v1, "colorspace"
 
     const/4 v2, 0x3
@@ -176,8 +176,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 1
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 58
@@ -190,7 +190,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 87
@@ -201,7 +201,7 @@
     move-result-object v0
 
     .line 88
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
@@ -226,7 +226,7 @@
     move-result-object v1
 
     .line 94
-    .local v1, output:Landroid/filterfw/core/Frame;
+    .local v1, "output":Landroid/filterfw/core/Frame;
     iget-object v2, p0, Landroid/filterpacks/imageproc/ToRGBAFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v2, v0, v1}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -255,7 +255,7 @@
     invoke-direct {v0, v1, v1}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
     .line 51
-    .local v0, mask:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "mask":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {v0, v1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensionCount(I)V
 
     .line 52

@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 130
@@ -73,7 +73,7 @@
     move-result v0
 
     .line 158
-    .local v0, id:I
+    .local v0, "id":I
     new-instance v1, Landroid/renderscript/ProgramRaster;
 
     iget-object v2, p0, Landroid/renderscript/ProgramRaster$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -81,7 +81,7 @@
     invoke-direct {v1, v0, v2}, Landroid/renderscript/ProgramRaster;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 159
-    .local v1, programRaster:Landroid/renderscript/ProgramRaster;
+    .local v1, "programRaster":Landroid/renderscript/ProgramRaster;
     iget-boolean v2, p0, Landroid/renderscript/ProgramRaster$Builder;->mPointSprite:Z
 
     iput-boolean v2, v1, Landroid/renderscript/ProgramRaster;->mPointSprite:Z
@@ -97,7 +97,7 @@
 
 .method public setCullMode(Landroid/renderscript/ProgramRaster$CullMode;)Landroid/renderscript/ProgramRaster$Builder;
     .locals 0
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/ProgramRaster$CullMode;
 
     .prologue
     .line 148
@@ -109,7 +109,7 @@
 
 .method public setPointSpriteEnabled(Z)Landroid/renderscript/ProgramRaster$Builder;
     .locals 0
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 140

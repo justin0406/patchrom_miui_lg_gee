@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/telephony/PhoneStateListener;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 299
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onCallForwardingIndicatorChanged(Z)V
     .locals 5
-    .parameter "cfi"
+    .param p1, "cfi"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -73,8 +72,8 @@
 
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 3
-    .parameter "state"
-    .parameter "incomingNumber"
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
     .prologue
     .line 324
@@ -98,7 +97,6 @@
 
 .method public onCellInfoChanged(Ljava/util/List;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +108,7 @@
     .end annotation
 
     .prologue
-    .local p1, cellInfo:Ljava/util/List;,"Ljava/util/List<Landroid/telephony/CellInfo;>;"
+    .local p1, "cellInfo":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/CellInfo;>;"
     const/4 v2, 0x0
 
     .line 345
@@ -132,7 +130,7 @@
 
 .method public onCellLocationChanged(Landroid/os/Bundle;)V
     .locals 4
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v3, 0x0
@@ -143,7 +141,7 @@
     move-result-object v0
 
     .line 320
-    .local v0, location:Landroid/telephony/CellLocation;
+    .local v0, "location":Landroid/telephony/CellLocation;
     iget-object v1, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
 
     iget-object v1, v1, Landroid/telephony/PhoneStateListener;->mHandler:Landroid/os/Handler;
@@ -162,7 +160,7 @@
 
 .method public onDataActivity(I)V
     .locals 4
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 333
@@ -188,8 +186,8 @@
 
 .method public onDataConnectionStateChanged(II)V
     .locals 2
-    .parameter "state"
-    .parameter "networkType"
+    .param p1, "state"    # I
+    .param p2, "networkType"    # I
 
     .prologue
     .line 328
@@ -211,7 +209,7 @@
 
 .method public onMessageWaitingIndicatorChanged(Z)V
     .locals 5
-    .parameter "mwi"
+    .param p1, "mwi"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -248,7 +246,7 @@
 
 .method public onOtaspChanged(I)V
     .locals 3
-    .parameter "otaspMode"
+    .param p1, "otaspMode"    # I
 
     .prologue
     .line 341
@@ -272,7 +270,7 @@
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 3
-    .parameter "serviceState"
+    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
 
     .prologue
     const/4 v2, 0x0
@@ -296,7 +294,7 @@
 
 .method public onSignalStrengthChanged(I)V
     .locals 4
-    .parameter "asu"
+    .param p1, "asu"    # I
 
     .prologue
     .line 305
@@ -322,7 +320,7 @@
 
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
     .locals 3
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
 
     .prologue
     const/4 v2, 0x0

@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ContentProviderRecord;Lcom/android/server/am/ProcessRecord;)V
     .locals 2
-    .parameter "_provider"
-    .parameter "_client"
+    .param p1, "_provider"    # Lcom/android/server/am/ContentProviderRecord;
+    .param p2, "_client"    # Lcom/android/server/am/ProcessRecord;
 
     .prologue
     .line 42
@@ -64,7 +64,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 64
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/android/server/am/ContentProviderConnection;->toClientString(Ljava/lang/StringBuilder;)V
 
     .line 65
@@ -77,7 +77,7 @@
 
 .method public toClientString(Ljava/lang/StringBuilder;)V
     .locals 4
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 75
@@ -157,7 +157,7 @@
     move-result-wide v0
 
     .line 91
-    .local v0, nowReal:J
+    .local v0, "nowReal":J
     const-string v2, " "
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -185,7 +185,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 58
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/android/server/am/ContentProviderConnection;->toShortString(Ljava/lang/StringBuilder;)V
 
     .line 59
@@ -198,7 +198,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
     .locals 1
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 69
@@ -234,7 +234,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 50
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ContentProviderConnection{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

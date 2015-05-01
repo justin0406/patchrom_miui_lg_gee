@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1758
@@ -39,8 +38,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/Editor;
+    .param p2, "x1"    # Landroid/widget/Editor$1;
 
     .prologue
     .line 1758
@@ -94,7 +93,7 @@
     .line 1768
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
-    #calls: Landroid/widget/Editor;->shouldBlink()Z
+    # invokes: Landroid/widget/Editor;->shouldBlink()Z
     invoke-static {v0}, Landroid/widget/Editor;->access$500(Landroid/widget/Editor;)Z
 
     move-result v0
@@ -104,7 +103,7 @@
     .line 1769
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -118,7 +117,7 @@
     .line 1770
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0

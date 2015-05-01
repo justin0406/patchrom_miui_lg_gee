@@ -23,8 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;)V
     .locals 0
-    .parameter
-    .parameter "onKeyguardExitResult"
+    .param p2, "onKeyguardExitResult"    # Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
 
     .prologue
     .line 92
@@ -43,7 +42,7 @@
 # virtual methods
 .method public onKeyguardExitResult(Z)V
     .locals 3
-    .parameter "success"
+    .param p1, "success"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

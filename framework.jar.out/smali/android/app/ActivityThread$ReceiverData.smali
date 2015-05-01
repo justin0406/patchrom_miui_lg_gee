@@ -25,14 +25,14 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZLandroid/os/IBinder;I)V
     .locals 9
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "resultData"
-    .parameter "resultExtras"
-    .parameter "ordered"
-    .parameter "sticky"
-    .parameter "token"
-    .parameter "sendingUser"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "resultData"    # Ljava/lang/String;
+    .param p4, "resultExtras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "token"    # Landroid/os/IBinder;
+    .param p8, "sendingUser"    # I
 
     .prologue
     .line 345

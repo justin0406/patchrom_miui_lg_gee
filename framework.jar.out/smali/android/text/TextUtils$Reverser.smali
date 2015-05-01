@@ -3,8 +3,8 @@
 .source "TextUtils.java"
 
 # interfaces
-.implements Ljava/lang/CharSequence;
 .implements Landroid/text/GetChars;
+.implements Ljava/lang/CharSequence;
 
 
 # annotations
@@ -29,9 +29,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;II)V
     .locals 0
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 509
@@ -54,7 +54,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 2
-    .parameter "off"
+    .param p1, "off"    # I
 
     .prologue
     .line 532
@@ -79,10 +79,10 @@
 
 .method public getChars(II[CI)V
     .locals 7
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "destoff"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "dest"    # [C
+    .param p4, "destoff"    # I
 
     .prologue
     .line 536
@@ -109,16 +109,16 @@
     sub-int v1, p2, p1
 
     .line 541
-    .local v1, len:I
+    .local v1, "len":I
     sub-int v4, p2, p1
 
     div-int/lit8 v2, v4, 0x2
 
     .line 542
-    .local v2, n:I
+    .local v2, "n":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -128,7 +128,7 @@
     aget-char v3, p3, v4
 
     .line 545
-    .local v3, tmp:C
+    .local v3, "tmp":C
     add-int v4, p4, v0
 
     add-int v5, p4, v1
@@ -156,7 +156,7 @@
     goto :goto_0
 
     .line 548
-    .end local v3           #tmp:C
+    .end local v3    # "tmp":C
     :cond_0
     return-void
 .end method
@@ -177,8 +177,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 520
@@ -187,7 +187,7 @@
     new-array v0, v1, [C
 
     .line 522
-    .local v0, buf:[C
+    .local v0, "buf":[C
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, p2, v0, v1}, Landroid/text/TextUtils$Reverser;->getChars(II[CI)V

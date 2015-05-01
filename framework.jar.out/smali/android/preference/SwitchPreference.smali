@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 97
@@ -37,8 +37,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 88
@@ -52,9 +52,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -79,7 +79,7 @@
     move-result-object v0
 
     .line 70
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -153,7 +153,7 @@
 
 .method protected onBindView(Landroid/view/View;)V
     .locals 4
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 102
@@ -167,7 +167,7 @@
     move-result-object v0
 
     .line 105
-    .local v0, checkableView:Landroid/view/View;
+    .local v0, "checkableView":Landroid/view/View;
     if-eqz v0, :cond_0
 
     instance-of v2, v0, Landroid/widget/Checkable;
@@ -197,7 +197,7 @@
     check-cast v1, Landroid/widget/Switch;
 
     .line 112
-    .local v1, switchView:Landroid/widget/Switch;
+    .local v1, "switchView":Landroid/widget/Switch;
     iget-object v2, p0, Landroid/preference/SwitchPreference;->mSwitchOn:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/widget/Switch;->setTextOn(Ljava/lang/CharSequence;)V
@@ -213,7 +213,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 118
-    .end local v1           #switchView:Landroid/widget/Switch;
+    .end local v1    # "switchView":Landroid/widget/Switch;
     :cond_0
     invoke-virtual {p0, p1}, Landroid/preference/SwitchPreference;->syncSummaryView(Landroid/view/View;)V
 
@@ -223,7 +223,7 @@
 
 .method public setSwitchTextOff(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 160
@@ -243,7 +243,7 @@
 
 .method public setSwitchTextOff(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "offText"
+    .param p1, "offText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 139
@@ -258,7 +258,7 @@
 
 .method public setSwitchTextOn(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 150
@@ -278,7 +278,7 @@
 
 .method public setSwitchTextOn(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "onText"
+    .param p1, "onText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 128

@@ -35,9 +35,8 @@
 # direct methods
 .method constructor <init>(Landroid/widget/StackView;Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .parameter
-    .parameter "c"
-    .parameter "attrs"
+    .param p2, "c"    # Landroid/content/Context;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v1, 0x0
@@ -94,8 +93,7 @@
 
 .method constructor <init>(Landroid/widget/StackView;Landroid/view/View;)V
     .locals 2
-    .parameter
-    .parameter "view"
+    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     const/4 v1, 0x0
@@ -167,8 +165,8 @@
 
 .method invalidateGlobalRegion(Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 8
-    .parameter "v"
-    .parameter "r"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "r"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v5, 0x0
@@ -199,7 +197,7 @@
     move-object v1, p1
 
     .line 1299
-    .local v1, p:Landroid/view/View;
+    .local v1, "p":Landroid/view/View;
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v2
@@ -224,7 +222,7 @@
     const/4 v0, 0x1
 
     .line 1302
-    .local v0, firstPass:Z
+    .local v0, "firstPass":Z
     iget-object v2, p0, Landroid/widget/StackView$LayoutParams;->parentRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2, v5, v5, v5, v5}, Landroid/graphics/Rect;->set(IIII)V
@@ -292,11 +290,11 @@
 
     move-result-object v1
 
-    .end local v1           #p:Landroid/view/View;
+    .end local v1    # "p":Landroid/view/View;
     check-cast v1, Landroid/view/View;
 
     .line 1311
-    .restart local v1       #p:Landroid/view/View;
+    .restart local v1    # "p":Landroid/view/View;
     iget-object v2, p0, Landroid/widget/StackView$LayoutParams;->parentRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1}, Landroid/view/View;->getScrollX()I
@@ -390,7 +388,7 @@
 
 .method public setHorizontalOffset(I)V
     .locals 1
-    .parameter "newHorizontalOffset"
+    .param p1, "newHorizontalOffset"    # I
 
     .prologue
     .line 1335
@@ -404,8 +402,8 @@
 
 .method public setOffsets(II)V
     .locals 15
-    .parameter "newHorizontalOffset"
-    .parameter "newVerticalOffset"
+    .param p1, "newHorizontalOffset"    # I
+    .param p2, "newVerticalOffset"    # I
 
     .prologue
     .line 1339
@@ -414,7 +412,7 @@
     sub-int v2, p1, v9
 
     .line 1340
-    .local v2, horizontalOffsetDelta:I
+    .local v2, "horizontalOffsetDelta":I
     move/from16 v0, p1
 
     iput v0, p0, Landroid/widget/StackView$LayoutParams;->horizontalOffset:I
@@ -425,7 +423,7 @@
     sub-int v6, p2, v9
 
     .line 1342
-    .local v6, verticalOffsetDelta:I
+    .local v6, "verticalOffsetDelta":I
     move/from16 v0, p2
 
     iput v0, p0, Landroid/widget/StackView$LayoutParams;->verticalOffset:I
@@ -460,7 +458,7 @@
     move-result v3
 
     .line 1347
-    .local v3, left:I
+    .local v3, "left":I
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->mView:Landroid/view/View;
 
     invoke-virtual {v9}, Landroid/view/View;->getRight()I
@@ -480,7 +478,7 @@
     move-result v4
 
     .line 1348
-    .local v4, right:I
+    .local v4, "right":I
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->mView:Landroid/view/View;
 
     invoke-virtual {v9}, Landroid/view/View;->getTop()I
@@ -500,7 +498,7 @@
     move-result v5
 
     .line 1349
-    .local v5, top:I
+    .local v5, "top":I
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->mView:Landroid/view/View;
 
     invoke-virtual {v9}, Landroid/view/View;->getBottom()I
@@ -520,7 +518,7 @@
     move-result v1
 
     .line 1351
-    .local v1, bottom:I
+    .local v1, "bottom":I
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->invalidateRectf:Landroid/graphics/RectF;
 
     int-to-float v10, v3
@@ -541,7 +539,7 @@
     neg-float v7, v9
 
     .line 1354
-    .local v7, xoffset:F
+    .local v7, "xoffset":F
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->invalidateRectf:Landroid/graphics/RectF;
 
     iget v9, v9, Landroid/graphics/RectF;->top:F
@@ -549,7 +547,7 @@
     neg-float v8, v9
 
     .line 1355
-    .local v8, yoffset:F
+    .local v8, "yoffset":F
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->invalidateRectf:Landroid/graphics/RectF;
 
     invoke-virtual {v9, v7, v8}, Landroid/graphics/RectF;->offset(FF)V
@@ -635,19 +633,19 @@
     invoke-virtual {p0, v9, v10}, Landroid/widget/StackView$LayoutParams;->invalidateGlobalRegion(Landroid/view/View;Landroid/graphics/Rect;)V
 
     .line 1366
-    .end local v1           #bottom:I
-    .end local v3           #left:I
-    .end local v4           #right:I
-    .end local v5           #top:I
-    .end local v7           #xoffset:F
-    .end local v8           #yoffset:F
+    .end local v1    # "bottom":I
+    .end local v3    # "left":I
+    .end local v4    # "right":I
+    .end local v5    # "top":I
+    .end local v7    # "xoffset":F
+    .end local v8    # "yoffset":F
     :cond_0
     return-void
 .end method
 
 .method public setVerticalOffset(I)V
     .locals 1
-    .parameter "newVerticalOffset"
+    .param p1, "newVerticalOffset"    # I
 
     .prologue
     .line 1331

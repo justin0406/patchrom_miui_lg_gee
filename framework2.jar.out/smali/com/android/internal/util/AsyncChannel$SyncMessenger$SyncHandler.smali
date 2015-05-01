@@ -25,8 +25,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/AsyncChannel$SyncMessenger;Landroid/os/Looper;)V
     .locals 1
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 763
@@ -48,9 +47,9 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/util/AsyncChannel$SyncMessenger;Landroid/os/Looper;Lcom/android/internal/util/AsyncChannel$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Lcom/android/internal/util/AsyncChannel$SyncMessenger;
+    .param p2, "x1"    # Landroid/os/Looper;
+    .param p3, "x2"    # Lcom/android/internal/util/AsyncChannel$1;
 
     .prologue
     .line 756
@@ -61,7 +60,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;
 
     .prologue
     .line 756
@@ -72,7 +71,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;)Landroid/os/Message;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;
 
     .prologue
     .line 756
@@ -83,8 +82,8 @@
 
 .method static synthetic access$402(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;Landroid/os/Message;)Landroid/os/Message;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;
+    .param p1, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 756
@@ -97,7 +96,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 770

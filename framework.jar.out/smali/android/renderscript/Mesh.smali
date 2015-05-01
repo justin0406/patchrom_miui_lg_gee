@@ -25,8 +25,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 95
@@ -40,7 +40,7 @@
 # virtual methods
 .method public getIndexSetAllocation(I)Landroid/renderscript/Allocation;
     .locals 1
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 139
@@ -53,7 +53,7 @@
 
 .method public getPrimitive(I)Landroid/renderscript/Mesh$Primitive;
     .locals 1
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 148
@@ -90,7 +90,7 @@
 
 .method public getVertexAllocation(I)Landroid/renderscript/Allocation;
     .locals 1
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 116
@@ -150,7 +150,7 @@
     move-result v4
 
     .line 155
-    .local v4, vtxCount:I
+    .local v4, "vtxCount":I
     iget-object v6, p0, Landroid/renderscript/Mesh;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v7, p0, Landroid/renderscript/Mesh;->mRS:Landroid/renderscript/RenderScript;
@@ -164,19 +164,19 @@
     move-result v1
 
     .line 157
-    .local v1, idxCount:I
+    .local v1, "idxCount":I
     new-array v5, v4, [I
 
     .line 158
-    .local v5, vtxIDs:[I
+    .local v5, "vtxIDs":[I
     new-array v2, v1, [I
 
     .line 159
-    .local v2, idxIDs:[I
+    .local v2, "idxIDs":[I
     new-array v3, v1, [I
 
     .line 161
-    .local v3, primitives:[I
+    .local v3, "primitives":[I
     iget-object v6, p0, Landroid/renderscript/Mesh;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v7, p0, Landroid/renderscript/Mesh;->mRS:Landroid/renderscript/RenderScript;
@@ -216,7 +216,7 @@
     .line 168
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v4, :cond_1
 

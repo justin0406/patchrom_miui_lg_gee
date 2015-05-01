@@ -14,7 +14,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageSetting;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Lcom/android/server/pm/PackageSetting;
 
     .prologue
     .line 43
@@ -41,13 +41,13 @@
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;Ljava/lang/String;II)V
     .locals 0
-    .parameter "name"
-    .parameter "realName"
-    .parameter "codePath"
-    .parameter "resourcePath"
-    .parameter "nativeLibraryPathString"
-    .parameter "pVersionCode"
-    .parameter "pkgFlags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "realName"    # Ljava/lang/String;
+    .param p3, "codePath"    # Ljava/io/File;
+    .param p4, "resourcePath"    # Ljava/io/File;
+    .param p5, "nativeLibraryPathString"    # Ljava/lang/String;
+    .param p6, "pVersionCode"    # I
+    .param p7, "pkgFlags"    # I
 
     .prologue
     .line 34
@@ -88,7 +88,7 @@
     .line 62
     iget v0, p0, Lcom/android/server/pm/PackageSetting;->pkgFlags:I
 
-    const/high16 v1, 0x4000
+    const/high16 v1, 0x40000000    # 2.0f
 
     and-int/2addr v0, v1
 

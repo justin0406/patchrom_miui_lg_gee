@@ -48,8 +48,7 @@
 # direct methods
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/GpsStatus$Listener;)V
     .locals 1
-    .parameter
-    .parameter "listener"
+    .param p2, "listener"    # Landroid/location/GpsStatus$Listener;
 
     .prologue
     .line 1384
@@ -78,8 +77,7 @@
 
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/GpsStatus$NmeaListener;)V
     .locals 1
-    .parameter
-    .parameter "listener"
+    .param p2, "listener"    # Landroid/location/GpsStatus$NmeaListener;
 
     .prologue
     .line 1389
@@ -115,7 +113,7 @@
 
 .method static synthetic access$300(Landroid/location/LocationManager$GpsStatusListenerTransport;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/location/LocationManager$GpsStatusListenerTransport;
 
     .prologue
     .line 1365
@@ -126,7 +124,7 @@
 
 .method static synthetic access$400(Landroid/location/LocationManager$GpsStatusListenerTransport;)Landroid/location/GpsStatus$NmeaListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/location/LocationManager$GpsStatusListenerTransport;
 
     .prologue
     .line 1365
@@ -137,7 +135,7 @@
 
 .method static synthetic access$500(Landroid/location/LocationManager$GpsStatusListenerTransport;)Landroid/location/GpsStatus$Listener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/location/LocationManager$GpsStatusListenerTransport;
 
     .prologue
     .line 1365
@@ -150,7 +148,7 @@
 # virtual methods
 .method public onFirstFix(I)V
     .locals 2
-    .parameter "ttff"
+    .param p1, "ttff"    # I
 
     .prologue
     .line 1415
@@ -161,7 +159,7 @@
     .line 1416
     iget-object v1, p0, Landroid/location/LocationManager$GpsStatusListenerTransport;->this$0:Landroid/location/LocationManager;
 
-    #getter for: Landroid/location/LocationManager;->mGpsStatus:Landroid/location/GpsStatus;
+    # getter for: Landroid/location/LocationManager;->mGpsStatus:Landroid/location/GpsStatus;
     invoke-static {v1}, Landroid/location/LocationManager;->access$200(Landroid/location/LocationManager;)Landroid/location/GpsStatus;
 
     move-result-object v1
@@ -174,7 +172,7 @@
     move-result-object v0
 
     .line 1418
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x3
 
     iput v1, v0, Landroid/os/Message;->what:I
@@ -185,7 +183,7 @@
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1421
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
@@ -205,7 +203,7 @@
     move-result-object v0
 
     .line 1399
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
@@ -216,7 +214,7 @@
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1402
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
@@ -236,7 +234,7 @@
     move-result-object v0
 
     .line 1408
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x2
 
     iput v1, v0, Landroid/os/Message;->what:I
@@ -247,15 +245,15 @@
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1411
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
 
 .method public onNmeaReceived(JLjava/lang/String;)V
     .locals 5
-    .parameter "timestamp"
-    .parameter "nmea"
+    .param p1, "timestamp"    # J
+    .param p3, "nmea"    # Ljava/lang/String;
 
     .prologue
     const/16 v4, 0x3e8
@@ -291,7 +289,7 @@
     move-result-object v0
 
     .line 1446
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput v4, v0, Landroid/os/Message;->what:I
 
     .line 1448
@@ -305,7 +303,7 @@
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1451
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 
@@ -323,14 +321,14 @@
 
 .method public onSvStatusChanged(I[I[F[F[FIII)V
     .locals 10
-    .parameter "svCount"
-    .parameter "prns"
-    .parameter "snrs"
-    .parameter "elevations"
-    .parameter "azimuths"
-    .parameter "ephemerisMask"
-    .parameter "almanacMask"
-    .parameter "usedInFixMask"
+    .param p1, "svCount"    # I
+    .param p2, "prns"    # [I
+    .param p3, "snrs"    # [F
+    .param p4, "elevations"    # [F
+    .param p5, "azimuths"    # [F
+    .param p6, "ephemerisMask"    # I
+    .param p7, "almanacMask"    # I
+    .param p8, "usedInFixMask"    # I
 
     .prologue
     .line 1427
@@ -341,7 +339,7 @@
     .line 1428
     iget-object v0, p0, Landroid/location/LocationManager$GpsStatusListenerTransport;->this$0:Landroid/location/LocationManager;
 
-    #getter for: Landroid/location/LocationManager;->mGpsStatus:Landroid/location/GpsStatus;
+    # getter for: Landroid/location/LocationManager;->mGpsStatus:Landroid/location/GpsStatus;
     invoke-static {v0}, Landroid/location/LocationManager;->access$200(Landroid/location/LocationManager;)Landroid/location/GpsStatus;
 
     move-result-object v0
@@ -370,7 +368,7 @@
     move-result-object v9
 
     .line 1432
-    .local v9, msg:Landroid/os/Message;
+    .local v9, "msg":Landroid/os/Message;
     const/4 v0, 0x4
 
     iput v0, v9, Landroid/os/Message;->what:I
@@ -388,7 +386,7 @@
     invoke-virtual {v0, v9}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1437
-    .end local v9           #msg:Landroid/os/Message;
+    .end local v9    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method

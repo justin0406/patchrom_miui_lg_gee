@@ -18,8 +18,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 32
@@ -31,9 +31,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 36
@@ -47,7 +47,7 @@
 # virtual methods
 .method public setShifted(Z)Z
     .locals 7
-    .parameter "shifted"
+    .param p1, "shifted"    # Z
 
     .prologue
     .line 41
@@ -56,7 +56,7 @@
     move-result v5
 
     .line 43
-    .local v5, result:Z
+    .local v5, "result":Z
     invoke-virtual {p0}, Lcom/android/internal/widget/PasswordEntryKeyboardView;->getKeyboard()Landroid/inputmethodservice/Keyboard;
 
     move-result-object v6
@@ -66,23 +66,23 @@
     move-result-object v3
 
     .line 44
-    .local v3, indices:[I
+    .local v3, "indices":[I
     move-object v0, v3
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v4, :cond_0
 
     aget v2, v0, v1
 
     .line 45
-    .local v2, index:I
+    .local v2, "index":I
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/PasswordEntryKeyboardView;->invalidateKey(I)V
 
     .line 44
@@ -91,7 +91,7 @@
     goto :goto_0
 
     .line 47
-    .end local v2           #index:I
+    .end local v2    # "index":I
     :cond_0
     return v5
 .end method

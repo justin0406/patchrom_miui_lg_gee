@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "numerator"
-    .parameter "denominator"
+    .param p1, "numerator"    # I
+    .param p2, "denominator"    # I
 
     .prologue
     .line 38
@@ -115,7 +115,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 11
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v7, 0x1
@@ -144,7 +144,7 @@
     check-cast v0, Landroid/hardware/camera2/Rational;
 
     .line 113
-    .local v0, other:Landroid/hardware/camera2/Rational;
+    .local v0, "other":Landroid/hardware/camera2/Rational;
     iget v9, p0, Landroid/hardware/camera2/Rational;->mDenominator:I
 
     if-eqz v9, :cond_2
@@ -221,37 +221,37 @@
     move-result v5
 
     .line 125
-    .local v5, thisGcd:I
+    .local v5, "thisGcd":I
     invoke-virtual {v0}, Landroid/hardware/camera2/Rational;->gcd()I
 
     move-result v2
 
     .line 127
-    .local v2, otherGcd:I
+    .local v2, "otherGcd":I
     iget v9, p0, Landroid/hardware/camera2/Rational;->mNumerator:I
 
     div-int v6, v9, v5
 
     .line 128
-    .local v6, thisNumerator:I
+    .local v6, "thisNumerator":I
     iget v9, p0, Landroid/hardware/camera2/Rational;->mDenominator:I
 
     div-int v4, v9, v5
 
     .line 130
-    .local v4, thisDenominator:I
+    .local v4, "thisDenominator":I
     iget v9, v0, Landroid/hardware/camera2/Rational;->mNumerator:I
 
     div-int v3, v9, v2
 
     .line 131
-    .local v3, otherNumerator:I
+    .local v3, "otherNumerator":I
     iget v9, v0, Landroid/hardware/camera2/Rational;->mDenominator:I
 
     div-int v1, v9, v2
 
     .line 133
-    .local v1, otherDenominator:I
+    .local v1, "otherDenominator":I
     if-ne v6, v3, :cond_8
 
     if-eq v4, v1, :cond_0
@@ -261,13 +261,13 @@
 
     goto :goto_0
 
-    .end local v0           #other:Landroid/hardware/camera2/Rational;
-    .end local v1           #otherDenominator:I
-    .end local v2           #otherGcd:I
-    .end local v3           #otherNumerator:I
-    .end local v4           #thisDenominator:I
-    .end local v5           #thisGcd:I
-    .end local v6           #thisNumerator:I
+    .end local v0    # "other":Landroid/hardware/camera2/Rational;
+    .end local v1    # "otherDenominator":I
+    .end local v2    # "otherGcd":I
+    .end local v3    # "otherNumerator":I
+    .end local v4    # "thisDenominator":I
+    .end local v5    # "thisGcd":I
+    .end local v6    # "thisNumerator":I
     :cond_9
     move v7, v8
 
@@ -283,11 +283,11 @@
     iget v0, p0, Landroid/hardware/camera2/Rational;->mNumerator:I
 
     .line 190
-    .local v0, a:I
+    .local v0, "a":I
     iget v1, p0, Landroid/hardware/camera2/Rational;->mDenominator:I
 
     .line 192
-    .local v1, b:I
+    .local v1, "b":I
     :goto_0
     if-eqz v1, :cond_0
 
@@ -295,7 +295,7 @@
     move v2, v1
 
     .line 195
-    .local v2, oldB:I
+    .local v2, "oldB":I
     rem-int v1, v0, v1
 
     .line 196
@@ -305,7 +305,7 @@
     goto :goto_0
 
     .line 199
-    .end local v2           #oldB:I
+    .end local v2    # "oldB":I
     :cond_0
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
 
@@ -356,7 +356,7 @@
     const-wide v0, 0xffffffffL
 
     .line 166
-    .local v0, INT_MASK:J
+    .local v0, "INT_MASK":J
     iget v4, p0, Landroid/hardware/camera2/Rational;->mNumerator:I
 
     int-to-long v4, v4
@@ -364,7 +364,7 @@
     and-long v2, v6, v4
 
     .line 167
-    .local v2, asLong:J
+    .local v2, "asLong":J
     const/16 v4, 0x20
 
     shl-long/2addr v2, v4

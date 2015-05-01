@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -41,7 +41,7 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 146
@@ -89,7 +89,7 @@
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     .line 108
-    .local v0, thread:Landroid/os/HandlerThread;
+    .local v0, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     .line 110
@@ -130,8 +130,8 @@
 
 .method public onStart(Landroid/content/Intent;I)V
     .locals 2
-    .parameter "intent"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "startId"    # I
 
     .prologue
     .line 116
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 117
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->arg1:I
 
     .line 118
@@ -159,9 +159,9 @@
 
 .method public onStartCommand(Landroid/content/Intent;II)I
     .locals 1
-    .parameter "intent"
-    .parameter "flags"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "startId"    # I
 
     .prologue
     .line 130
@@ -185,7 +185,7 @@
 
 .method public setIntentRedelivery(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 97

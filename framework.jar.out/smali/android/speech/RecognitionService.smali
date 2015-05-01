@@ -72,9 +72,9 @@
 
 .method static synthetic access$000(Landroid/speech/RecognitionService;Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
+    .param p1, "x1"    # Landroid/content/Intent;
+    .param p2, "x2"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 36
@@ -85,8 +85,8 @@
 
 .method static synthetic access$100(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
+    .param p1, "x1"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 36
@@ -97,8 +97,8 @@
 
 .method static synthetic access$200(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
+    .param p1, "x1"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 36
@@ -109,7 +109,7 @@
 
 .method static synthetic access$300(Landroid/speech/RecognitionService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
 
     .prologue
     .line 36
@@ -120,7 +120,7 @@
 
 .method static synthetic access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
 
     .prologue
     .line 36
@@ -131,8 +131,8 @@
 
 .method static synthetic access$700(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/RecognitionService;
+    .param p1, "x1"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 36
@@ -145,7 +145,7 @@
 
 .method private checkPermissions(Landroid/speech/IRecognitionListener;)Z
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 160
@@ -191,7 +191,7 @@
     move-exception v0
 
     .line 168
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RecognitionService"
 
     const-string/jumbo v2, "sending ERROR_INSUFFICIENT_PERMISSIONS message failed"
@@ -203,7 +203,7 @@
 
 .method private dispatchCancel(Landroid/speech/IRecognitionListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 126
@@ -219,7 +219,7 @@
     :cond_0
     iget-object v0, p0, Landroid/speech/RecognitionService;->mCurrentCallback:Landroid/speech/RecognitionService$Callback;
 
-    #getter for: Landroid/speech/RecognitionService$Callback;->mListener:Landroid/speech/IRecognitionListener;
+    # getter for: Landroid/speech/RecognitionService$Callback;->mListener:Landroid/speech/IRecognitionListener;
     invoke-static {v0}, Landroid/speech/RecognitionService$Callback;->access$500(Landroid/speech/RecognitionService$Callback;)Landroid/speech/IRecognitionListener;
 
     move-result-object v0
@@ -272,8 +272,8 @@
 
 .method private dispatchStartListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
     .locals 3
-    .parameter "intent"
-    .parameter "listener"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "listener"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 95
@@ -323,7 +323,7 @@
     move-exception v0
 
     .line 103
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "RecognitionService"
 
     const-string/jumbo v2, "onError call from startListening failed"
@@ -335,7 +335,7 @@
 
 .method private dispatchStopListening(Landroid/speech/IRecognitionListener;)V
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/speech/IRecognitionListener;
 
     .prologue
     .line 111
@@ -364,7 +364,7 @@
     :cond_0
     iget-object v1, p0, Landroid/speech/RecognitionService;->mCurrentCallback:Landroid/speech/RecognitionService$Callback;
 
-    #getter for: Landroid/speech/RecognitionService$Callback;->mListener:Landroid/speech/IRecognitionListener;
+    # getter for: Landroid/speech/RecognitionService$Callback;->mListener:Landroid/speech/IRecognitionListener;
     invoke-static {v1}, Landroid/speech/RecognitionService$Callback;->access$500(Landroid/speech/RecognitionService$Callback;)Landroid/speech/IRecognitionListener;
 
     move-result-object v1
@@ -400,7 +400,7 @@
     move-exception v0
 
     .line 121
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "RecognitionService"
 
     const-string/jumbo v2, "onError call from stopListening failed"
@@ -410,7 +410,7 @@
     goto :goto_0
 
     .line 118
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     :try_start_1
     iget-object v1, p0, Landroid/speech/RecognitionService;->mCurrentCallback:Landroid/speech/RecognitionService$Callback;
@@ -426,7 +426,7 @@
 # virtual methods
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 198

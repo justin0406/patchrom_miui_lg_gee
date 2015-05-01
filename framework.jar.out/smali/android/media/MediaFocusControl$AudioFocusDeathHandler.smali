@@ -26,8 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;Landroid/os/IBinder;)V
     .locals 0
-    .parameter
-    .parameter "cb"
+    .param p2, "cb"    # Landroid/os/IBinder;
 
     .prologue
     .line 604
@@ -49,6 +48,7 @@
 
     .prologue
     .line 609
+    # getter for: Landroid/media/MediaFocusControl;->mAudioFocusLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/MediaFocusControl;->access$2500()Ljava/lang/Object;
 
     move-result-object v1
@@ -68,7 +68,7 @@
 
     iget-object v2, p0, Landroid/media/MediaFocusControl$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
 
-    #calls: Landroid/media/MediaFocusControl;->removeFocusStackEntryForClient(Landroid/os/IBinder;)V
+    # invokes: Landroid/media/MediaFocusControl;->removeFocusStackEntryForClient(Landroid/os/IBinder;)V
     invoke-static {v0, v2}, Landroid/media/MediaFocusControl;->access$2600(Landroid/media/MediaFocusControl;Landroid/os/IBinder;)V
 
     .line 612

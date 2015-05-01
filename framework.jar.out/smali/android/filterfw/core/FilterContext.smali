@@ -70,7 +70,7 @@
 # virtual methods
 .method final addGraph(Landroid/filterfw/core/FilterGraph;)V
     .locals 1
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 124
@@ -84,7 +84,7 @@
 
 .method public declared-synchronized fetchFrame(Ljava/lang/String;)Landroid/filterfw/core/Frame;
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 82
@@ -100,7 +100,7 @@
     check-cast v0, Landroid/filterfw/core/Frame;
 
     .line 83
-    .local v0, frame:Landroid/filterfw/core/Frame;
+    .local v0, "frame":Landroid/filterfw/core/Frame;
     if-eqz v0, :cond_0
 
     .line 84
@@ -115,7 +115,7 @@
     return-object v0
 
     .line 82
-    .end local v0           #frame:Landroid/filterfw/core/Frame;
+    .end local v0    # "frame":Landroid/filterfw/core/Frame;
     :catchall_0
     move-exception v1
 
@@ -146,7 +146,7 @@
 
 .method public initGLEnvironment(Landroid/filterfw/core/GLEnvironment;)V
     .locals 2
-    .parameter "environment"
+    .param p1, "environment"    # Landroid/filterfw/core/GLEnvironment;
 
     .prologue
     .line 60
@@ -173,7 +173,7 @@
 
 .method public declared-synchronized removeFrame(Ljava/lang/String;)V
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 90
@@ -189,7 +189,7 @@
     check-cast v0, Landroid/filterfw/core/Frame;
 
     .line 91
-    .local v0, frame:Landroid/filterfw/core/Frame;
+    .local v0, "frame":Landroid/filterfw/core/Frame;
     if-eqz v0, :cond_0
 
     .line 92
@@ -209,7 +209,7 @@
     return-void
 
     .line 90
-    .end local v0           #frame:Landroid/filterfw/core/Frame;
+    .end local v0    # "frame":Landroid/filterfw/core/Frame;
     :catchall_0
     move-exception v1
 
@@ -220,7 +220,7 @@
 
 .method public setFrameManager(Landroid/filterfw/core/FrameManager;)V
     .locals 2
-    .parameter "manager"
+    .param p1, "manager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 44
@@ -267,8 +267,8 @@
 
 .method public declared-synchronized storeFrame(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
     .locals 3
-    .parameter "key"
-    .parameter "frame"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 73
@@ -280,7 +280,7 @@
     move-result-object v0
 
     .line 74
-    .local v0, storedFrame:Landroid/filterfw/core/Frame;
+    .local v0, "storedFrame":Landroid/filterfw/core/Frame;
     if-eqz v0, :cond_0
 
     .line 75
@@ -307,7 +307,7 @@
     return-void
 
     .line 73
-    .end local v0           #storedFrame:Landroid/filterfw/core/Frame;
+    .end local v0    # "storedFrame":Landroid/filterfw/core/Frame;
     :catchall_0
     move-exception v1
 
@@ -334,7 +334,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -349,7 +349,7 @@
     check-cast v0, Landroid/filterfw/core/Frame;
 
     .line 100
-    .local v0, frame:Landroid/filterfw/core/Frame;
+    .local v0, "frame":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -357,8 +357,8 @@
     goto :goto_0
 
     .line 99
-    .end local v0           #frame:Landroid/filterfw/core/Frame;
-    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v0    # "frame":Landroid/filterfw/core/Frame;
+    .end local v2    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v3
 
@@ -367,7 +367,7 @@
     throw v3
 
     .line 102
-    .restart local v2       #i$:Ljava/util/Iterator;
+    .restart local v2    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     iget-object v3, p0, Landroid/filterfw/core/FilterContext;->mStoredFrames:Ljava/util/HashMap;
@@ -395,13 +395,13 @@
     check-cast v1, Landroid/filterfw/core/FilterGraph;
 
     .line 106
-    .local v1, graph:Landroid/filterfw/core/FilterGraph;
+    .local v1, "graph":Landroid/filterfw/core/FilterGraph;
     invoke-virtual {v1, p0}, Landroid/filterfw/core/FilterGraph;->tearDown(Landroid/filterfw/core/FilterContext;)V
 
     goto :goto_1
 
     .line 108
-    .end local v1           #graph:Landroid/filterfw/core/FilterGraph;
+    .end local v1    # "graph":Landroid/filterfw/core/FilterGraph;
     :cond_1
     iget-object v3, p0, Landroid/filterfw/core/FilterContext;->mGraphs:Ljava/util/Set;
 

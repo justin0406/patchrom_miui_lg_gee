@@ -88,8 +88,8 @@
 
 .method protected onChildTitleChanged(Landroid/app/Activity;Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "childActivity"
-    .parameter "title"
+    .param p1, "childActivity"    # Landroid/app/Activity;
+    .param p2, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 148
@@ -111,7 +111,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, tabView:Landroid/view/View;
+    .local v0, "tabView":Landroid/view/View;
     if-eqz v0, :cond_0
 
     instance-of v1, v0, Landroid/widget/TextView;
@@ -121,7 +121,7 @@
     .line 151
     check-cast v0, Landroid/widget/TextView;
 
-    .end local v0           #tabView:Landroid/view/View;
+    .end local v0    # "tabView":Landroid/view/View;
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 154
@@ -177,7 +177,7 @@
 
 .method protected onPostCreate(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "icicle"
+    .param p1, "icicle"    # Landroid/os/Bundle;
 
     .prologue
     .line 101
@@ -211,7 +211,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Bundle;
 
     .prologue
     .line 84
@@ -228,7 +228,7 @@
     move-result-object v0
 
     .line 87
-    .local v0, cur:Ljava/lang/String;
+    .local v0, "cur":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 88
@@ -281,7 +281,7 @@
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 112
@@ -295,7 +295,7 @@
     move-result-object v0
 
     .line 114
-    .local v0, currentTabTag:Ljava/lang/String;
+    .local v0, "currentTabTag":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 115
@@ -310,7 +310,7 @@
 
 .method public setDefaultTab(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 78
@@ -327,7 +327,7 @@
 
 .method public setDefaultTab(Ljava/lang/String;)V
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 68

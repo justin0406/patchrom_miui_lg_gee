@@ -23,9 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 1144
@@ -61,7 +59,7 @@
 
     const/4 v5, 0x0
 
-    #calls: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
+    # invokes: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$200(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 1151
@@ -69,12 +67,12 @@
 
     iget-object v3, p0, Lcom/android/server/MountService$6;->val$path:Ljava/lang/String;
 
-    #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
+    # invokes: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
     invoke-static {v2, v3}, Lcom/android/server/MountService;->access$1900(Lcom/android/server/MountService;Ljava/lang/String;)I
 
     move-result v1
 
-    .local v1, rc:I
+    .local v1, "rc":I
     if-eqz v1, :cond_0
 
     .line 1152
@@ -109,7 +107,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1159
-    .end local v1           #rc:I
+    .end local v1    # "rc":I
     :cond_0
     :goto_0
     return-void
@@ -119,7 +117,7 @@
     move-exception v0
 
     .line 1157
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     const-string v2, "MountService"
 
     const-string v3, "Failed to mount media on UMS enabled-disconnect"

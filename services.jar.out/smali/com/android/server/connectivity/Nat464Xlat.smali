@@ -30,10 +30,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/INetworkManagementService;Landroid/net/IConnectivityManager;Landroid/os/Handler;)V
     .locals 1
-    .parameter "context"
-    .parameter "nmService"
-    .parameter "connService"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "nmService"    # Landroid/os/INetworkManagementService;
+    .param p3, "connService"    # Landroid/net/IConnectivityManager;
+    .param p4, "handler"    # Landroid/os/Handler;
 
     .prologue
     const/4 v0, 0x0
@@ -72,7 +72,7 @@
 
 .method public static isRunningClat(Landroid/net/LinkProperties;)Z
     .locals 2
-    .parameter "lp"
+    .param p0, "lp"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 91
@@ -105,7 +105,7 @@
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
     .locals 8
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 145
@@ -162,13 +162,13 @@
     move-result-object v1
 
     .line 161
-    .local v1, config:Landroid/net/InterfaceConfiguration;
+    .local v1, "config":Landroid/net/InterfaceConfiguration;
     invoke-virtual {v1}, Landroid/net/InterfaceConfiguration;->getLinkAddress()Landroid/net/LinkAddress;
 
     move-result-object v0
 
     .line 162
-    .local v0, clatAddress:Landroid/net/LinkAddress;
+    .local v0, "clatAddress":Landroid/net/LinkAddress;
     iget-object v5, p0, Lcom/android/server/connectivity/Nat464Xlat;->mLP:Landroid/net/LinkProperties;
 
     invoke-virtual {v5}, Landroid/net/LinkProperties;->clear()V
@@ -196,7 +196,7 @@
     invoke-direct {v3, v5, v6, p1}, Landroid/net/RouteInfo;-><init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;Ljava/lang/String;)V
 
     .line 166
-    .local v3, ipv4Default:Landroid/net/RouteInfo;
+    .local v3, "ipv4Default":Landroid/net/RouteInfo;
     iget-object v5, p0, Lcom/android/server/connectivity/Nat464Xlat;->mLP:Landroid/net/LinkProperties;
 
     invoke-virtual {v5, v3}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)V
@@ -245,9 +245,9 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 176
-    .end local v0           #clatAddress:Landroid/net/LinkAddress;
-    .end local v1           #config:Landroid/net/InterfaceConfiguration;
-    .end local v3           #ipv4Default:Landroid/net/RouteInfo;
+    .end local v0    # "clatAddress":Landroid/net/LinkAddress;
+    .end local v1    # "config":Landroid/net/InterfaceConfiguration;
+    .end local v3    # "ipv4Default":Landroid/net/RouteInfo;
     :goto_0
     iget-object v5, p0, Lcom/android/server/connectivity/Nat464Xlat;->mHandler:Landroid/os/Handler;
 
@@ -264,7 +264,7 @@
     move-result-object v4
 
     .line 179
-    .local v4, msg:Landroid/os/Message;
+    .local v4, "msg":Landroid/os/Message;
     const-string v5, "Nat464Xlat"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -291,7 +291,7 @@
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
     .line 182
-    .end local v4           #msg:Landroid/os/Message;
+    .end local v4    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 
@@ -300,7 +300,7 @@
     move-exception v2
 
     .line 172
-    .local v2, e:Landroid/os/RemoteException;
+    .local v2, "e":Landroid/os/RemoteException;
     const-string v5, "Nat464Xlat"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -328,7 +328,7 @@
 
 .method public interfaceRemoved(Ljava/lang/String;)V
     .locals 3
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 186
@@ -449,8 +449,8 @@
 
 .method public requiresClat(ILandroid/net/NetworkStateTracker;)Z
     .locals 4
-    .parameter "netType"
-    .parameter "tracker"
+    .param p1, "netType"    # I
+    .param p2, "tracker"    # Landroid/net/NetworkStateTracker;
 
     .prologue
     .line 83
@@ -459,7 +459,7 @@
     move-result-object v0
 
     .line 85
-    .local v0, lp:Landroid/net/LinkProperties;
+    .local v0, "lp":Landroid/net/LinkProperties;
     const-string v1, "Nat464Xlat"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -518,7 +518,7 @@
 
 .method public startClat(Landroid/net/NetworkStateTracker;)V
     .locals 6
-    .parameter "tracker"
+    .param p1, "tracker"    # Landroid/net/NetworkStateTracker;
 
     .prologue
     .line 99
@@ -549,13 +549,13 @@
     move-result-object v2
 
     .line 105
-    .local v2, lp:Landroid/net/LinkProperties;
+    .local v2, "lp":Landroid/net/LinkProperties;
     invoke-virtual {v2}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 106
-    .local v1, iface:Ljava/lang/String;
+    .local v1, "iface":Ljava/lang/String;
     const-string v3, "Nat464Xlat"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -609,7 +609,7 @@
     move-exception v0
 
     .line 110
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "Nat464Xlat"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -687,7 +687,7 @@
     move-exception v0
 
     .line 124
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "Nat464Xlat"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -713,7 +713,7 @@
     goto :goto_0
 
     .line 131
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const-string v1, "Nat464Xlat"
 

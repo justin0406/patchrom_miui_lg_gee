@@ -45,9 +45,9 @@
 # virtual methods
 .method public bulkRequestIconForPageUrl(Landroid/content/ContentResolver;Ljava/lang/String;Landroid/webkit/WebIconDatabase$IconListener;)V
     .locals 1
-    .parameter "cr"
-    .parameter "where"
-    .parameter "listener"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
+    .param p2, "where"    # Ljava/lang/String;
+    .param p3, "listener"    # Landroid/webkit/WebIconDatabase$IconListener;
 
     .prologue
     .line 87
@@ -72,7 +72,7 @@
 
 .method public open(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 56
@@ -85,7 +85,7 @@
 
 .method public releaseIconForPageUrl(Ljava/lang/String;)V
     .locals 1
-    .parameter "url"
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     .line 103
@@ -110,8 +110,8 @@
 
 .method public requestIconForPageUrl(Ljava/lang/String;Landroid/webkit/WebIconDatabase$IconListener;)V
     .locals 1
-    .parameter "url"
-    .parameter "listener"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "listener"    # Landroid/webkit/WebIconDatabase$IconListener;
 
     .prologue
     .line 80
@@ -124,7 +124,7 @@
 
 .method public retainIconForPageUrl(Ljava/lang/String;)V
     .locals 1
-    .parameter "url"
+    .param p1, "url"    # Ljava/lang/String;
 
     .prologue
     .line 95

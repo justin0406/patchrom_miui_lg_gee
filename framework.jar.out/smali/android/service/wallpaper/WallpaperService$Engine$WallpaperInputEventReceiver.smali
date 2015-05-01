@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/InputChannel;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p2, "inputChannel"    # Landroid/view/InputChannel;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 233
@@ -40,14 +39,14 @@
 # virtual methods
 .method public onInputEvent(Landroid/view/InputEvent;)V
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
     .line 239
     const/4 v2, 0x0
 
     .line 241
-    .local v2, handled:Z
+    .local v2, "handled":Z
     :try_start_0
     instance-of v3, p1, Landroid/view/MotionEvent;
 
@@ -73,10 +72,10 @@
     move-result-object v1
 
     .line 244
-    .local v1, dup:Landroid/view/MotionEvent;
+    .local v1, "dup":Landroid/view/MotionEvent;
     iget-object v3, p0, Landroid/service/wallpaper/WallpaperService$Engine$WallpaperInputEventReceiver;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
-    #calls: Landroid/service/wallpaper/WallpaperService$Engine;->dispatchPointer(Landroid/view/MotionEvent;)V
+    # invokes: Landroid/service/wallpaper/WallpaperService$Engine;->dispatchPointer(Landroid/view/MotionEvent;)V
     invoke-static {v3, v1}, Landroid/service/wallpaper/WallpaperService$Engine;->access$000(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/MotionEvent;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -85,7 +84,7 @@
     const/4 v2, 0x1
 
     .line 248
-    .end local v1           #dup:Landroid/view/MotionEvent;
+    .end local v1    # "dup":Landroid/view/MotionEvent;
     :cond_0
     invoke-virtual {p0, p1, v2}, Landroid/service/wallpaper/WallpaperService$Engine$WallpaperInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 

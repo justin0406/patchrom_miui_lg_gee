@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/DhcpStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 181
@@ -41,14 +40,14 @@
     .line 184
     iget-object v0, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
+    # getter for: Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/net/DhcpStateMachine;->access$200(Landroid/net/DhcpStateMachine;)Landroid/content/Context;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    # getter for: Landroid/net/DhcpStateMachine;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$100(Landroid/net/DhcpStateMachine;)Landroid/content/BroadcastReceiver;
 
     move-result-object v1
@@ -61,7 +60,7 @@
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 189
@@ -114,7 +113,7 @@
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
+    # getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$300(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
 
     move-result-object v2
@@ -132,7 +131,7 @@
     .line 192
     iget-object v0, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
-    #getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Landroid/net/DhcpStateMachine;->access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0

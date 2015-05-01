@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/view/IInputContextCallback;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/view/IInputContextCallback$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/view/IInputContextCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,29 +167,29 @@
     check-cast v0, Ljava/lang/CharSequence;
 
     .line 59
-    .local v0, _arg0:Ljava/lang/CharSequence;
+    .local v0, "_arg0":Ljava/lang/CharSequence;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 60
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/view/IInputContextCallback$Stub;->setTextBeforeCursor(Ljava/lang/CharSequence;I)V
 
     goto :goto_0
 
     .line 56
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
+    .end local v1    # "_arg1":I
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
+    .restart local v0    # "_arg0":Ljava/lang/CharSequence;
     goto :goto_1
 
     .line 65
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
     :sswitch_2
     const-string v3, "com.android.internal.view.IInputContextCallback"
 
@@ -212,29 +212,29 @@
     check-cast v0, Ljava/lang/CharSequence;
 
     .line 74
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
+    .restart local v0    # "_arg0":Ljava/lang/CharSequence;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 75
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/view/IInputContextCallback$Stub;->setTextAfterCursor(Ljava/lang/CharSequence;I)V
 
     goto :goto_0
 
     .line 71
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
+    .end local v1    # "_arg1":I
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
+    .restart local v0    # "_arg0":Ljava/lang/CharSequence;
     goto :goto_2
 
     .line 80
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
     :sswitch_3
     const-string v3, "com.android.internal.view.IInputContextCallback"
 
@@ -246,20 +246,20 @@
     move-result v0
 
     .line 84
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 85
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/view/IInputContextCallback$Stub;->setCursorCapsMode(II)V
 
     goto :goto_0
 
     .line 90
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":I
     :sswitch_4
     const-string v3, "com.android.internal.view.IInputContextCallback"
 
@@ -282,29 +282,29 @@
     check-cast v0, Landroid/view/inputmethod/ExtractedText;
 
     .line 99
-    .local v0, _arg0:Landroid/view/inputmethod/ExtractedText;
+    .local v0, "_arg0":Landroid/view/inputmethod/ExtractedText;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 100
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/view/IInputContextCallback$Stub;->setExtractedText(Landroid/view/inputmethod/ExtractedText;I)V
 
     goto :goto_0
 
     .line 96
-    .end local v0           #_arg0:Landroid/view/inputmethod/ExtractedText;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/view/inputmethod/ExtractedText;
+    .end local v1    # "_arg1":I
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/inputmethod/ExtractedText;
+    .restart local v0    # "_arg0":Landroid/view/inputmethod/ExtractedText;
     goto :goto_3
 
     .line 105
-    .end local v0           #_arg0:Landroid/view/inputmethod/ExtractedText;
+    .end local v0    # "_arg0":Landroid/view/inputmethod/ExtractedText;
     :sswitch_5
     const-string v3, "com.android.internal.view.IInputContextCallback"
 
@@ -327,25 +327,25 @@
     check-cast v0, Ljava/lang/CharSequence;
 
     .line 114
-    .local v0, _arg0:Ljava/lang/CharSequence;
+    .local v0, "_arg0":Ljava/lang/CharSequence;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 115
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/view/IInputContextCallback$Stub;->setSelectedText(Ljava/lang/CharSequence;I)V
 
     goto/16 :goto_0
 
     .line 111
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Ljava/lang/CharSequence;
+    .end local v1    # "_arg1":I
     :cond_3
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
+    .restart local v0    # "_arg0":Ljava/lang/CharSequence;
     goto :goto_4
 
     .line 41

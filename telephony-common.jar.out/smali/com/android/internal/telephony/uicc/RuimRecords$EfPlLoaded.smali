@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 228
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;Lcom/android/internal/telephony/uicc/RuimRecords$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p2, "x1"    # Lcom/android/internal/telephony/uicc/RuimRecords$1;
 
     .prologue
     .line 228
@@ -61,7 +60,7 @@
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
     .locals 3
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 236
@@ -73,7 +72,7 @@
 
     check-cast v0, [B
 
-    #setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFpl:[B
+    # setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFpl:[B
     invoke-static {v1, v0}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$002(Lcom/android/internal/telephony/uicc/RuimRecords;[B)[B
 
     .line 237
@@ -91,7 +90,7 @@
 
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfPlLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFpl:[B
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mEFpl:[B
     invoke-static {v2}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$000(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
 
     move-result-object v2

@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 17147
@@ -87,7 +87,7 @@
 
 .method public onDrawShadow(Landroid/graphics/Canvas;)V
     .locals 3
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 17216
@@ -100,7 +100,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 17217
-    .local v0, view:Landroid/view/View;
+    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 17218
@@ -123,8 +123,8 @@
 
 .method public onProvideShadowMetrics(Landroid/graphics/Point;Landroid/graphics/Point;)V
     .locals 3
-    .parameter "shadowSize"
-    .parameter "shadowTouchPoint"
+    .param p1, "shadowSize"    # Landroid/graphics/Point;
+    .param p2, "shadowTouchPoint"    # Landroid/graphics/Point;
 
     .prologue
     .line 17199
@@ -137,7 +137,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 17200
-    .local v0, view:Landroid/view/View;
+    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 17201

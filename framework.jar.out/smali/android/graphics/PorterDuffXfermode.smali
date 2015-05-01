@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
     .line 30

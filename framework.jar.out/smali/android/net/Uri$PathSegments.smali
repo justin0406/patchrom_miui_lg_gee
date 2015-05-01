@@ -58,8 +58,8 @@
 
 .method constructor <init>([Ljava/lang/String;I)V
     .locals 0
-    .parameter "segments"
-    .parameter "size"
+    .param p1, "segments"    # [Ljava/lang/String;
+    .param p2, "size"    # I
 
     .prologue
     .line 974
@@ -79,7 +79,7 @@
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 966
@@ -92,7 +92,7 @@
 
 .method public get(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 980

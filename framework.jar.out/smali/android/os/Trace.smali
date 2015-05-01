@@ -53,7 +53,7 @@
 
     .prologue
     .line 77
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     sput-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
@@ -93,9 +93,9 @@
 
 .method public static asyncTraceBegin(JLjava/lang/String;I)V
     .locals 1
-    .parameter "traceTag"
-    .parameter "methodName"
-    .parameter "cookie"
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
+    .param p3, "cookie"    # I
 
     .prologue
     .line 232
@@ -115,9 +115,9 @@
 
 .method public static asyncTraceEnd(JLjava/lang/String;I)V
     .locals 1
-    .parameter "traceTag"
-    .parameter "methodName"
-    .parameter "cookie"
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
+    .param p3, "cookie"    # I
 
     .prologue
     .line 249
@@ -137,7 +137,7 @@
 
 .method public static beginSection(Ljava/lang/String;)V
     .locals 4
-    .parameter "sectionName"
+    .param p0, "sectionName"    # Ljava/lang/String;
 
     .prologue
     const-wide/16 v2, 0x1000
@@ -186,7 +186,7 @@
     move-result-wide v0
 
     .line 123
-    .local v0, tags:J
+    .local v0, "tags":J
     sput-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
     .line 124
@@ -216,15 +216,15 @@
 
 .method public static isTagEnabled(J)Z
     .locals 6
-    .parameter "traceTag"
+    .param p0, "traceTag"    # J
 
     .prologue
     .line 136
     sget-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
     .line 137
-    .local v0, tags:J
-    const-wide/high16 v2, -0x8000
+    .local v0, "tags":J
+    const-wide/high16 v2, -0x8000000000000000L
 
     cmp-long v2, v0, v2
 
@@ -282,7 +282,7 @@
 
 .method public static setAppTracingAllowed(Z)V
     .locals 0
-    .parameter "allowed"
+    .param p0, "allowed"    # Z
 
     .prologue
     .line 165
@@ -297,7 +297,7 @@
 
 .method public static setTracingEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p0, "enabled"    # Z
 
     .prologue
     .line 181
@@ -312,8 +312,8 @@
 
 .method public static traceBegin(JLjava/lang/String;)V
     .locals 1
-    .parameter "traceTag"
-    .parameter "methodName"
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
 
     .prologue
     .line 199
@@ -333,9 +333,9 @@
 
 .method public static traceCounter(JLjava/lang/String;I)V
     .locals 1
-    .parameter "traceTag"
-    .parameter "counterName"
-    .parameter "counterValue"
+    .param p0, "traceTag"    # J
+    .param p2, "counterName"    # Ljava/lang/String;
+    .param p3, "counterValue"    # I
 
     .prologue
     .line 153
@@ -355,7 +355,7 @@
 
 .method public static traceEnd(J)V
     .locals 1
-    .parameter "traceTag"
+    .param p0, "traceTag"    # J
 
     .prologue
     .line 213

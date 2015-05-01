@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "countryCode"
-    .parameter "newIndex"
+    .param p1, "countryCode"    # I
+    .param p2, "newIndex"    # I
 
     .prologue
     .line 2420

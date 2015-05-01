@@ -131,7 +131,7 @@
     sget-object v0, Lcom/android/internal/os/SomeArgs;->sPool:Lcom/android/internal/os/SomeArgs;
 
     .line 58
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     sget-object v1, Lcom/android/internal/os/SomeArgs;->sPool:Lcom/android/internal/os/SomeArgs;
 
     iget-object v1, v1, Lcom/android/internal/os/SomeArgs;->mNext:Lcom/android/internal/os/SomeArgs;
@@ -159,7 +159,7 @@
     monitor-exit v2
 
     .line 64
-    .end local v0           #args:Lcom/android/internal/os/SomeArgs;
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :goto_0
     return-object v0
 

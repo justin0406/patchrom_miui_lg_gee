@@ -38,8 +38,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;Ljava/util/Locale;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 993
@@ -56,7 +54,7 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -74,7 +72,7 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Set;
     .locals 6
-    .parameter "service"
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +98,7 @@
     const/4 v2, 0x0
 
     .line 998
-    .local v2, features:[Ljava/lang/String;
+    .local v2, "features":[Ljava/lang/String;
     :try_start_0
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$5;->val$locale:Ljava/util/Locale;
 
@@ -135,11 +133,11 @@
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     .line 1008
-    .local v1, featureSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v1, "featureSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-static {v1, v2}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     .line 1011
-    .end local v1           #featureSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v1    # "featureSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_0
     :goto_0
     return-object v1
@@ -149,7 +147,7 @@
     move-exception v0
 
     .line 1001
-    .local v0, e:Ljava/util/MissingResourceException;
+    .local v0, "e":Ljava/util/MissingResourceException;
     const-string v3, "TextToSpeech"
 
     new-instance v4, Ljava/lang/StringBuilder;

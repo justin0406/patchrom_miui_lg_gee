@@ -23,7 +23,7 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;)V
     .locals 0
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -43,7 +43,7 @@
 
 .method private parseArgs([Ljava/lang/String;)V
     .locals 6
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -55,7 +55,7 @@
     const/4 v1, 0x0
 
     .line 399
-    .local v1, curArg:I
+    .local v1, "curArg":I
     :goto_0
     array-length v3, p1
 
@@ -65,7 +65,7 @@
     aget-object v0, p1, v1
 
     .line 402
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     const-string v3, "--"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -78,7 +78,7 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 410
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :cond_0
     array-length v3, p1
 
@@ -94,7 +94,7 @@
     throw v3
 
     .line 405
-    .restart local v0       #arg:Ljava/lang/String;
+    .restart local v0    # "arg":Ljava/lang/String;
     :cond_1
     const-string v3, "--"
 
@@ -110,12 +110,12 @@
     goto :goto_0
 
     .line 414
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :cond_2
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1           #curArg:I
-    .local v2, curArg:I
+    .end local v1    # "curArg":I
+    .local v2, "curArg":I
     aget-object v3, p1, v1
 
     iput-object v3, p0, Lcom/android/internal/os/RuntimeInit$Arguments;->startClass:Ljava/lang/String;

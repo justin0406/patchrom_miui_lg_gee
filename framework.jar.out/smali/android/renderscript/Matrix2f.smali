@@ -31,7 +31,7 @@
 
 .method public constructor <init>([F)V
     .locals 3
-    .parameter "dataArray"
+    .param p1, "dataArray"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -63,8 +63,8 @@
 # virtual methods
 .method public get(II)F
     .locals 2
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 68
@@ -91,7 +91,7 @@
 
 .method public load(Landroid/renderscript/Matrix2f;)V
     .locals 4
-    .parameter "src"
+    .param p1, "src"    # Landroid/renderscript/Matrix2f;
 
     .prologue
     const/4 v3, 0x0
@@ -117,7 +117,7 @@
     .locals 4
 
     .prologue
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     const/4 v2, 0x0
 
@@ -155,8 +155,8 @@
 
 .method public loadMultiply(Landroid/renderscript/Matrix2f;Landroid/renderscript/Matrix2f;)V
     .locals 9
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Landroid/renderscript/Matrix2f;
+    .param p2, "rhs"    # Landroid/renderscript/Matrix2f;
 
     .prologue
     const/4 v8, 0x2
@@ -168,7 +168,7 @@
     .line 137
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v8, :cond_1
 
@@ -176,14 +176,14 @@
     const/4 v3, 0x0
 
     .line 139
-    .local v3, ri0:F
+    .local v3, "ri0":F
     const/4 v4, 0x0
 
     .line 140
-    .local v4, ri1:F
+    .local v4, "ri1":F
     const/4 v1, 0x0
 
-    .local v1, j:I
+    .local v1, "j":I
     :goto_1
     if-ge v1, v8, :cond_0
 
@@ -193,7 +193,7 @@
     move-result v2
 
     .line 142
-    .local v2, rhs_ij:F
+    .local v2, "rhs_ij":F
     invoke-virtual {p1, v1, v6}, Landroid/renderscript/Matrix2f;->get(II)F
 
     move-result v5
@@ -217,7 +217,7 @@
     goto :goto_1
 
     .line 145
-    .end local v2           #rhs_ij:F
+    .end local v2    # "rhs_ij":F
     :cond_0
     invoke-virtual {p0, v0, v6, v3}, Landroid/renderscript/Matrix2f;->set(IIF)V
 
@@ -230,16 +230,16 @@
     goto :goto_0
 
     .line 148
-    .end local v1           #j:I
-    .end local v3           #ri0:F
-    .end local v4           #ri1:F
+    .end local v1    # "j":I
+    .end local v3    # "ri0":F
+    .end local v4    # "ri1":F
     :cond_1
     return-void
 .end method
 
 .method public loadRotate(F)V
     .locals 5
-    .parameter "rot"
+    .param p1, "rot"    # F
 
     .prologue
     .line 108
@@ -257,7 +257,7 @@
     double-to-float v0, v2
 
     .line 110
-    .local v0, c:F
+    .local v0, "c":F
     float-to-double v2, p1
 
     invoke-static {v2, v3}, Ljava/lang/Math;->sin(D)D
@@ -267,7 +267,7 @@
     double-to-float v1, v2
 
     .line 111
-    .local v1, s:F
+    .local v1, "s":F
     iget-object v2, p0, Landroid/renderscript/Matrix2f;->mMat:[F
 
     const/4 v3, 0x0
@@ -303,8 +303,8 @@
 
 .method public loadScale(FF)V
     .locals 2
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 124
@@ -330,7 +330,7 @@
 
 .method public multiply(Landroid/renderscript/Matrix2f;)V
     .locals 1
-    .parameter "rhs"
+    .param p1, "rhs"    # Landroid/renderscript/Matrix2f;
 
     .prologue
     .line 156
@@ -339,7 +339,7 @@
     invoke-direct {v0}, Landroid/renderscript/Matrix2f;-><init>()V
 
     .line 157
-    .local v0, tmp:Landroid/renderscript/Matrix2f;
+    .local v0, "tmp":Landroid/renderscript/Matrix2f;
     invoke-virtual {v0, p0, p1}, Landroid/renderscript/Matrix2f;->loadMultiply(Landroid/renderscript/Matrix2f;Landroid/renderscript/Matrix2f;)V
 
     .line 158
@@ -351,7 +351,7 @@
 
 .method public rotate(F)V
     .locals 1
-    .parameter "rot"
+    .param p1, "rot"    # F
 
     .prologue
     .line 167
@@ -360,7 +360,7 @@
     invoke-direct {v0}, Landroid/renderscript/Matrix2f;-><init>()V
 
     .line 168
-    .local v0, tmp:Landroid/renderscript/Matrix2f;
+    .local v0, "tmp":Landroid/renderscript/Matrix2f;
     invoke-virtual {v0, p1}, Landroid/renderscript/Matrix2f;->loadRotate(F)V
 
     .line 169
@@ -372,8 +372,8 @@
 
 .method public scale(FF)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 179
@@ -382,7 +382,7 @@
     invoke-direct {v0}, Landroid/renderscript/Matrix2f;-><init>()V
 
     .line 180
-    .local v0, tmp:Landroid/renderscript/Matrix2f;
+    .local v0, "tmp":Landroid/renderscript/Matrix2f;
     invoke-virtual {v0, p1, p2}, Landroid/renderscript/Matrix2f;->loadScale(FF)V
 
     .line 181
@@ -394,9 +394,9 @@
 
 .method public set(IIF)V
     .locals 2
-    .parameter "x"
-    .parameter "y"
-    .parameter "v"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "v"    # F
 
     .prologue
     .line 78
@@ -426,7 +426,7 @@
     aget v0, v1, v3
 
     .line 188
-    .local v0, temp:F
+    .local v0, "temp":F
     iget-object v1, p0, Landroid/renderscript/Matrix2f;->mMat:[F
 
     iget-object v2, p0, Landroid/renderscript/Matrix2f;->mMat:[F

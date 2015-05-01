@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 3956
@@ -130,7 +129,7 @@
 
 .method public getWakeups(I)I
     .locals 2
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 4010
@@ -142,18 +141,18 @@
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mLastWakeups:I
 
     .line 4021
-    .local v0, val:I
+    .local v0, "val":I
     :cond_0
     :goto_0
     return v0
 
     .line 4013
-    .end local v0           #val:I
+    .end local v0    # "val":I
     :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mWakeups:I
 
     .line 4014
-    .restart local v0       #val:I
+    .restart local v0    # "val":I
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_2
@@ -208,9 +207,9 @@
 
 .method public plug(JJJ)V
     .locals 0
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 3965
@@ -219,7 +218,7 @@
 
 .method readFromParcelLocked(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 3972
@@ -254,7 +253,7 @@
     move-result v1
 
     .line 3978
-    .local v1, numServs:I
+    .local v1, "numServs":I
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mServiceStats:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->clear()V
@@ -262,7 +261,7 @@
     .line 3979
     const/4 v0, 0x0
 
-    .local v0, m:I
+    .local v0, "m":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -272,13 +271,13 @@
     move-result-object v3
 
     .line 3981
-    .local v3, serviceName:Ljava/lang/String;
+    .local v3, "serviceName":Ljava/lang/String;
     new-instance v2, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
 
     invoke-direct {v2, p0}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;-><init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;)V
 
     .line 3982
-    .local v2, serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
+    .local v2, "serv":Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mServiceStats:Ljava/util/HashMap;
 
     invoke-virtual {v4, v3, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -292,17 +291,17 @@
     goto :goto_0
 
     .line 3986
-    .end local v2           #serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
-    .end local v3           #serviceName:Ljava/lang/String;
+    .end local v2    # "serv":Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
+    .end local v3    # "serviceName":Ljava/lang/String;
     :cond_0
     return-void
 .end method
 
 .method public unplug(JJJ)V
     .locals 1
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 3961
@@ -316,7 +315,7 @@
 
 .method writeToParcelLocked(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 3989
@@ -354,7 +353,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -369,7 +368,7 @@
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 3995
-    .local v2, servEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;>;"
+    .local v2, "servEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -386,14 +385,14 @@
     check-cast v1, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
 
     .line 3998
-    .local v1, serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
+    .local v1, "serv":Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
     invoke-virtual {v1, p1}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->writeToParcelLocked(Landroid/os/Parcel;)V
 
     goto :goto_0
 
     .line 4000
-    .end local v1           #serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
-    .end local v2           #servEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;>;"
+    .end local v1    # "serv":Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
+    .end local v2    # "servEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;>;"
     :cond_0
     return-void
 .end method

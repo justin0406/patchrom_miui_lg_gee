@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(JJJ)V
     .locals 0
-    .parameter "bucketDuration"
-    .parameter "rotateAgeMillis"
-    .parameter "deleteAgeMillis"
+    .param p1, "bucketDuration"    # J
+    .param p3, "rotateAgeMillis"    # J
+    .param p5, "deleteAgeMillis"    # J
 
     .prologue
     .line 196

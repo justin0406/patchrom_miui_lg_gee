@@ -12,8 +12,7 @@
 
 .field private static final MIN_SAMPLES:I = 0x3
 
-#the value of this static final field might be set in the static constructor
-.field private static final MOVEMENT_ANGLE_COS_THRESHOLD:D = 0.0
+.field private static final MOVEMENT_ANGLE_COS_THRESHOLD:D
 
 .field private static final SAMPLING_INTERVAL_MILLIS:I = 0x32
 
@@ -78,7 +77,7 @@
 
     .prologue
     .line 93
-    const-wide v0, 0x3fb657184ae74487L
+    const-wide v0, 0x3fb657184ae74487L    # 0.08726646259971647
 
     invoke-static {v0, v1}, Ljava/lang/Math;->cos(D)D
 
@@ -91,9 +90,9 @@
 
 .method public constructor <init>(Landroid/hardware/SensorManager;Lcom/android/server/power/SuspendBlocker;Landroid/os/Handler;)V
     .locals 1
-    .parameter "sensorManager"
-    .parameter "suspendBlocker"
-    .parameter "handler"
+    .param p1, "sensorManager"    # Landroid/hardware/SensorManager;
+    .param p2, "suspendBlocker"    # Lcom/android/server/power/SuspendBlocker;
+    .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 144
@@ -144,7 +143,7 @@
 
 .method static synthetic access$000(Lcom/android/server/power/WirelessChargerDetector;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
 
     .prologue
     .line 72
@@ -155,10 +154,10 @@
 
 .method static synthetic access$100(Lcom/android/server/power/WirelessChargerDetector;FFF)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
+    .param p1, "x1"    # F
+    .param p2, "x2"    # F
+    .param p3, "x3"    # F
 
     .prologue
     .line 72
@@ -169,7 +168,7 @@
 
 .method static synthetic access$200(Lcom/android/server/power/WirelessChargerDetector;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
 
     .prologue
     .line 72
@@ -356,12 +355,12 @@
 
 .method private static hasMoved(FFFFFF)Z
     .locals 11
-    .parameter "x1"
-    .parameter "y1"
-    .parameter "z1"
-    .parameter "x2"
-    .parameter "y2"
-    .parameter "z2"
+    .param p0, "x1"    # F
+    .param p1, "y1"    # F
+    .param p2, "z1"    # F
+    .param p3, "x2"    # F
+    .param p4, "y2"    # F
+    .param p5, "z2"    # F
 
     .prologue
     .line 314
@@ -378,7 +377,7 @@
     float-to-double v0, v7
 
     .line 315
-    .local v0, dotProduct:D
+    .local v0, "dotProduct":D
     mul-float v7, p0, p0
 
     mul-float v8, p1, p1
@@ -396,7 +395,7 @@
     move-result-wide v2
 
     .line 316
-    .local v2, mag1:D
+    .local v2, "mag1":D
     mul-float v7, p3, p3
 
     mul-float v8, p4, p4
@@ -414,26 +413,26 @@
     move-result-wide v4
 
     .line 317
-    .local v4, mag2:D
-    const-wide v7, 0x40219d0140000000L
+    .local v4, "mag2":D
+    const-wide v7, 0x40219d0140000000L    # 8.806650161743164
 
     cmpg-double v7, v2, v7
 
     if-ltz v7, :cond_0
 
-    const-wide v7, 0x40259d0140000000L
+    const-wide v7, 0x40259d0140000000L    # 10.806650161743164
 
     cmpl-double v7, v2, v7
 
     if-gtz v7, :cond_0
 
-    const-wide v7, 0x40219d0140000000L
+    const-wide v7, 0x40219d0140000000L    # 8.806650161743164
 
     cmpg-double v7, v4, v7
 
     if-ltz v7, :cond_0
 
-    const-wide v7, 0x40259d0140000000L
+    const-wide v7, 0x40259d0140000000L    # 10.806650161743164
 
     cmpl-double v7, v4, v7
 
@@ -462,12 +461,12 @@
     const/4 v6, 0x1
 
     .line 333
-    .local v6, moved:Z
+    .local v6, "moved":Z
     :goto_1
     goto :goto_0
 
     .line 324
-    .end local v6           #moved:Z
+    .end local v6    # "moved":Z
     :cond_2
     const/4 v6, 0x0
 
@@ -476,9 +475,9 @@
 
 .method private processSampleLocked(FFF)V
     .locals 6
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
     .prologue
     .line 275
@@ -643,7 +642,7 @@
     move-result-object v0
 
     .line 234
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0, v6}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 235
@@ -654,7 +653,7 @@
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 238
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
@@ -663,7 +662,7 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 7
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 153
@@ -1043,9 +1042,9 @@
 
 .method public update(ZII)Z
     .locals 6
-    .parameter "isPowered"
-    .parameter "plugType"
-    .parameter "batteryLevel"
+    .param p1, "isPowered"    # Z
+    .param p2, "plugType"    # I
+    .param p3, "batteryLevel"    # I
 
     .prologue
     const/4 v5, 0x4
@@ -1064,7 +1063,7 @@
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
     .line 186
-    .local v0, wasPoweredWirelessly:Z
+    .local v0, "wasPoweredWirelessly":Z
     if-eqz p1, :cond_1
 
     if-ne p2, v5, :cond_1
@@ -1131,7 +1130,7 @@
     goto :goto_0
 
     .line 220
-    .end local v0           #wasPoweredWirelessly:Z
+    .end local v0    # "wasPoweredWirelessly":Z
     :catchall_0
     move-exception v1
 
@@ -1142,7 +1141,7 @@
     throw v1
 
     .line 207
-    .restart local v0       #wasPoweredWirelessly:Z
+    .restart local v0    # "wasPoweredWirelessly":Z
     :cond_2
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->startDetectionLocked()V

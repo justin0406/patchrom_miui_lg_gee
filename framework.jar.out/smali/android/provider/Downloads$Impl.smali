@@ -28,7 +28,7 @@
 
 .field public static final ACTION_NOTIFICATION_CLICKED:Ljava/lang/String; = "android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"
 
-.field public static final ALL_DOWNLOADS_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final ALL_DOWNLOADS_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final COLUMN_ALLOWED_NETWORK_TYPES:Ljava/lang/String; = "allowed_network_types"
 
@@ -98,7 +98,7 @@
 
 .field public static final COLUMN_VISIBILITY:Ljava/lang/String; = "visibility"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final CONTROL_PAUSED:I = 0x1
 
@@ -138,7 +138,7 @@
 
 .field public static final PERMISSION_SEND_INTENTS:Ljava/lang/String; = "android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
 
-.field public static final PUBLICLY_ACCESSIBLE_DOWNLOADS_URI:Landroid/net/Uri; = null
+.field public static final PUBLICLY_ACCESSIBLE_DOWNLOADS_URI:Landroid/net/Uri;
 
 .field public static final PUBLICLY_ACCESSIBLE_DOWNLOADS_URI_SEGMENT:Ljava/lang/String; = "public_downloads"
 
@@ -249,7 +249,7 @@
 
 .method public static isNotificationToBeDisplayed(I)Z
     .locals 2
-    .parameter "visibility"
+    .param p0, "visibility"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -273,7 +273,7 @@
 
 .method public static isStatusClientError(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 535
@@ -298,7 +298,7 @@
 
 .method public static isStatusCompleted(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 561
@@ -333,7 +333,7 @@
 
 .method public static isStatusError(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 528
@@ -358,7 +358,7 @@
 
 .method public static isStatusInformational(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 514
@@ -383,7 +383,7 @@
 
 .method public static isStatusServerError(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 542
@@ -408,7 +408,7 @@
 
 .method public static isStatusSuccess(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 521
@@ -433,7 +433,7 @@
 
 .method public static statusToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 725

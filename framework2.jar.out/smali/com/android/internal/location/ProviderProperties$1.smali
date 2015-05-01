@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/location/ProviderProperties;
     .locals 12
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v10, 0x0
@@ -59,7 +59,7 @@
     move v1, v0
 
     .line 117
-    .local v1, requiresNetwork:Z
+    .local v1, "requiresNetwork":Z
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -70,7 +70,7 @@
     move v2, v0
 
     .line 118
-    .local v2, requiresSatellite:Z
+    .local v2, "requiresSatellite":Z
     :goto_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -81,7 +81,7 @@
     move v3, v0
 
     .line 119
-    .local v3, requiresCell:Z
+    .local v3, "requiresCell":Z
     :goto_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -92,7 +92,7 @@
     move v4, v0
 
     .line 120
-    .local v4, hasMonetaryCost:Z
+    .local v4, "hasMonetaryCost":Z
     :goto_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -103,7 +103,7 @@
     move v5, v0
 
     .line 121
-    .local v5, supportsAltitude:Z
+    .local v5, "supportsAltitude":Z
     :goto_4
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -114,7 +114,7 @@
     move v6, v0
 
     .line 122
-    .local v6, supportsSpeed:Z
+    .local v6, "supportsSpeed":Z
     :goto_5
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -125,77 +125,77 @@
     move v7, v0
 
     .line 123
-    .local v7, supportsBearing:Z
+    .local v7, "supportsBearing":Z
     :goto_6
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
     .line 124
-    .local v8, powerRequirement:I
+    .local v8, "powerRequirement":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
     .line 125
-    .local v9, accuracy:I
+    .local v9, "accuracy":I
     new-instance v0, Lcom/android/internal/location/ProviderProperties;
 
     invoke-direct/range {v0 .. v9}, Lcom/android/internal/location/ProviderProperties;-><init>(ZZZZZZZII)V
 
     return-object v0
 
-    .end local v1           #requiresNetwork:Z
-    .end local v2           #requiresSatellite:Z
-    .end local v3           #requiresCell:Z
-    .end local v4           #hasMonetaryCost:Z
-    .end local v5           #supportsAltitude:Z
-    .end local v6           #supportsSpeed:Z
-    .end local v7           #supportsBearing:Z
-    .end local v8           #powerRequirement:I
-    .end local v9           #accuracy:I
+    .end local v1    # "requiresNetwork":Z
+    .end local v2    # "requiresSatellite":Z
+    .end local v3    # "requiresCell":Z
+    .end local v4    # "hasMonetaryCost":Z
+    .end local v5    # "supportsAltitude":Z
+    .end local v6    # "supportsSpeed":Z
+    .end local v7    # "supportsBearing":Z
+    .end local v8    # "powerRequirement":I
+    .end local v9    # "accuracy":I
     :cond_0
     move v1, v10
 
     .line 116
     goto :goto_0
 
-    .restart local v1       #requiresNetwork:Z
+    .restart local v1    # "requiresNetwork":Z
     :cond_1
     move v2, v10
 
     .line 117
     goto :goto_1
 
-    .restart local v2       #requiresSatellite:Z
+    .restart local v2    # "requiresSatellite":Z
     :cond_2
     move v3, v10
 
     .line 118
     goto :goto_2
 
-    .restart local v3       #requiresCell:Z
+    .restart local v3    # "requiresCell":Z
     :cond_3
     move v4, v10
 
     .line 119
     goto :goto_3
 
-    .restart local v4       #hasMonetaryCost:Z
+    .restart local v4    # "hasMonetaryCost":Z
     :cond_4
     move v5, v10
 
     .line 120
     goto :goto_4
 
-    .restart local v5       #supportsAltitude:Z
+    .restart local v5    # "supportsAltitude":Z
     :cond_5
     move v6, v10
 
     .line 121
     goto :goto_5
 
-    .restart local v6       #supportsSpeed:Z
+    .restart local v6    # "supportsSpeed":Z
     :cond_6
     move v7, v10
 
@@ -205,7 +205,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 113
@@ -218,7 +218,7 @@
 
 .method public newArray(I)[Lcom/android/internal/location/ProviderProperties;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 131
@@ -229,7 +229,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 113

@@ -46,9 +46,9 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneBase;)V
     .locals 3
-    .parameter "debugTag"
-    .parameter "context"
-    .parameter "phone"
+    .param p1, "debugTag"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 65
@@ -98,7 +98,7 @@
     check-cast v0, Landroid/os/PowerManager;
 
     .line 71
-    .local v0, pm:Landroid/os/PowerManager;
+    .local v0, "pm":Landroid/os/PowerManager;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1, p1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
@@ -142,7 +142,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/telephony/WakeLockStateMachine;)Landroid/os/PowerManager$WakeLock;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
 
     .prologue
     .line 37
@@ -153,7 +153,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/WakeLockStateMachine;)Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
 
     .prologue
     .line 37
@@ -164,8 +164,8 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/WakeLockStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 37
@@ -176,8 +176,8 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/WakeLockStateMachine;Landroid/os/Message;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
+    .param p1, "x1"    # Landroid/os/Message;
 
     .prologue
     .line 37
@@ -188,7 +188,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/telephony/WakeLockStateMachine;)Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
 
     .prologue
     .line 37
@@ -199,8 +199,8 @@
 
 .method static synthetic access$500(Lcom/android/internal/telephony/WakeLockStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/WakeLockStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 37
@@ -213,7 +213,7 @@
 # virtual methods
 .method public final dispatchSmsMessage(Ljava/lang/Object;)V
     .locals 1
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 104
@@ -241,7 +241,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 233
@@ -257,7 +257,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 242
@@ -273,8 +273,8 @@
 
 .method protected loge(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "s"
-    .parameter "e"
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "e"    # Ljava/lang/Throwable;
 
     .prologue
     .line 252
@@ -316,7 +316,7 @@
 
 .method public updatePhoneObject(Lcom/android/internal/telephony/PhoneBase;)V
     .locals 1
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 81

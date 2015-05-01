@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "line"
+    .param p1, "line"    # Ljava/lang/String;
 
     .prologue
     .line 34
@@ -50,7 +50,7 @@
     move-result v3
 
     .line 100
-    .local v3, len:I
+    .local v3, "len":I
     iget v4, p0, Lcom/android/internal/telephony/ATResponseParser;->mNext:I
 
     if-nez v4, :cond_0
@@ -87,11 +87,11 @@
     move-result v0
 
     .line 112
-    .local v0, c:C
+    .local v0, "c":C
     const/4 v2, 0x0
 
     .line 114
-    .local v2, hasQuote:Z
+    .local v2, "hasQuote":Z
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ATResponseParser;->skipWhiteSpace(C)C
 
     move-result v0
@@ -114,13 +114,13 @@
     .catch Ljava/lang/StringIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 145
-    .end local v0           #c:C
-    .end local v2           #hasQuote:Z
+    .end local v0    # "c":C
+    .end local v2    # "hasQuote":Z
     :catch_0
     move-exception v1
 
     .line 146
-    .local v1, ex:Ljava/lang/StringIndexOutOfBoundsException;
+    .local v1, "ex":Ljava/lang/StringIndexOutOfBoundsException;
     new-instance v4, Lcom/android/internal/telephony/ATParseEx;
 
     invoke-direct {v4}, Lcom/android/internal/telephony/ATParseEx;-><init>()V
@@ -128,9 +128,9 @@
     throw v4
 
     .line 120
-    .end local v1           #ex:Ljava/lang/StringIndexOutOfBoundsException;
-    .restart local v0       #c:C
-    .restart local v2       #hasQuote:Z
+    .end local v1    # "ex":Ljava/lang/StringIndexOutOfBoundsException;
+    .restart local v0    # "c":C
+    .restart local v2    # "hasQuote":Z
     :cond_2
     :try_start_1
     iget-object v4, p0, Lcom/android/internal/telephony/ATResponseParser;->mLine:Ljava/lang/String;
@@ -295,7 +295,7 @@
     move-result v1
 
     .line 175
-    .local v1, s:I
+    .local v1, "s":I
     :cond_0
     iget v2, p0, Lcom/android/internal/telephony/ATResponseParser;->mNext:I
 
@@ -315,7 +315,7 @@
     move-result v0
 
     .line 178
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v2, 0x3a
 
     if-ne v0, v2, :cond_0
@@ -324,7 +324,7 @@
     return-void
 
     .line 183
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_1
     new-instance v2, Lcom/android/internal/telephony/ATParseEx;
 
@@ -337,7 +337,7 @@
 
 .method private skipWhiteSpace(C)C
     .locals 4
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 156
@@ -348,7 +348,7 @@
     move-result v0
 
     .line 157
-    .local v0, len:I
+    .local v0, "len":I
     :goto_0
     iget v1, p0, Lcom/android/internal/telephony/ATResponseParser;->mNext:I
 
@@ -459,7 +459,7 @@
     move-result v0
 
     .line 51
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v2, 0x30
 
     if-ne v0, v2, :cond_2
@@ -491,13 +491,13 @@
     const/4 v2, 0x0
 
     .line 64
-    .local v2, ret:I
+    .local v2, "ret":I
     invoke-direct {p0}, Lcom/android/internal/telephony/ATResponseParser;->nextTok()V
 
     .line 66
     iget v1, p0, Lcom/android/internal/telephony/ATResponseParser;->mTokStart:I
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v3, p0, Lcom/android/internal/telephony/ATResponseParser;->mTokEnd:I
 
@@ -511,7 +511,7 @@
     move-result v0
 
     .line 70
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v3, 0x30
 
     if-lt v0, v3, :cond_0
@@ -543,7 +543,7 @@
     goto :goto_0
 
     .line 78
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_2
     return v2
 .end method

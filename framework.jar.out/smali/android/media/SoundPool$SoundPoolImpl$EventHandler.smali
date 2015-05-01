@@ -23,9 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/SoundPool$SoundPoolImpl;Landroid/media/SoundPool;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "soundPool"
-    .parameter "looper"
+    .param p2, "soundPool"    # Landroid/media/SoundPool;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 576
@@ -45,7 +44,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 583
@@ -86,7 +85,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/media/SoundPool$SoundPoolImpl$EventHandler;->this$0:Landroid/media/SoundPool$SoundPoolImpl;
 
-    #getter for: Landroid/media/SoundPool$SoundPoolImpl;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/media/SoundPool$SoundPoolImpl;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/SoundPool$SoundPoolImpl;->access$000(Landroid/media/SoundPool$SoundPoolImpl;)Ljava/lang/Object;
 
     move-result-object v1
@@ -97,7 +96,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/media/SoundPool$SoundPoolImpl$EventHandler;->this$0:Landroid/media/SoundPool$SoundPoolImpl;
 
-    #getter for: Landroid/media/SoundPool$SoundPoolImpl;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
+    # getter for: Landroid/media/SoundPool$SoundPoolImpl;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
     invoke-static {v0}, Landroid/media/SoundPool$SoundPoolImpl;->access$100(Landroid/media/SoundPool$SoundPoolImpl;)Landroid/media/SoundPool$OnLoadCompleteListener;
 
     move-result-object v0
@@ -107,7 +106,7 @@
     .line 588
     iget-object v0, p0, Landroid/media/SoundPool$SoundPoolImpl$EventHandler;->this$0:Landroid/media/SoundPool$SoundPoolImpl;
 
-    #getter for: Landroid/media/SoundPool$SoundPoolImpl;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
+    # getter for: Landroid/media/SoundPool$SoundPoolImpl;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
     invoke-static {v0}, Landroid/media/SoundPool$SoundPoolImpl;->access$100(Landroid/media/SoundPool$SoundPoolImpl;)Landroid/media/SoundPool$OnLoadCompleteListener;
 
     move-result-object v0

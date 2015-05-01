@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "name"
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 1688
@@ -53,7 +52,7 @@
     :goto_0
     iget-object v1, p0, Landroid/app/Instrumentation$InstrumentationThread;->this$0:Landroid/app/Instrumentation;
 
-    #getter for: Landroid/app/Instrumentation;->mAutomaticPerformanceSnapshots:Z
+    # getter for: Landroid/app/Instrumentation;->mAutomaticPerformanceSnapshots:Z
     invoke-static {v1}, Landroid/app/Instrumentation;->access$100(Landroid/app/Instrumentation;)Z
 
     move-result v1
@@ -79,7 +78,7 @@
     move-exception v0
 
     .line 1695
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v1, "Instrumentation"
 
     new-instance v2, Ljava/lang/StringBuilder;

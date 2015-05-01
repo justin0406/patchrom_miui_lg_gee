@@ -21,7 +21,7 @@
 # direct methods
 .method private constructor <init>(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 178
@@ -35,7 +35,7 @@
 
 .method public static getInstance(Ljava/util/Locale;)Landroid/view/AccessibilityIterators$WordTextSegmentIterator;
     .locals 1
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 171
@@ -59,7 +59,7 @@
 
 .method private isEndBoundary(I)Z
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 244
@@ -101,7 +101,7 @@
 
 .method private isLetterOrDigit(I)Z
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 249
@@ -123,13 +123,13 @@
     move-result v0
 
     .line 251
-    .local v0, codePoint:I
+    .local v0, "codePoint":I
     invoke-static {v0}, Ljava/lang/Character;->isLetterOrDigit(I)Z
 
     move-result v1
 
     .line 253
-    .end local v0           #codePoint:I
+    .end local v0    # "codePoint":I
     :goto_0
     return v1
 
@@ -141,7 +141,7 @@
 
 .method private isStartBoundary(I)Z
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 239
@@ -177,7 +177,7 @@
 # virtual methods
 .method public following(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v5, -0x1
@@ -192,7 +192,7 @@
     move-result v2
 
     .line 189
-    .local v2, textLegth:I
+    .local v2, "textLegth":I
     if-gtz v2, :cond_1
 
     .line 209
@@ -214,7 +214,7 @@
     move v1, p1
 
     .line 196
-    .local v1, start:I
+    .local v1, "start":I
     if-gez v1, :cond_2
 
     .line 197
@@ -255,7 +255,7 @@
     move-result v0
 
     .line 206
-    .local v0, end:I
+    .local v0, "end":I
     if-eq v0, v5, :cond_0
 
     invoke-direct {p0, v0}, Landroid/view/AccessibilityIterators$WordTextSegmentIterator;->isEndBoundary(I)Z
@@ -274,7 +274,7 @@
 
 .method protected onLocaleChanged(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 183
@@ -290,7 +290,7 @@
 
 .method public preceding(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v5, -0x1
@@ -305,7 +305,7 @@
     move-result v2
 
     .line 215
-    .local v2, textLegth:I
+    .local v2, "textLegth":I
     if-gtz v2, :cond_1
 
     .line 235
@@ -321,7 +321,7 @@
     move v0, p1
 
     .line 222
-    .local v0, end:I
+    .local v0, "end":I
     if-le v0, v2, :cond_2
 
     .line 223
@@ -366,7 +366,7 @@
     move-result v1
 
     .line 232
-    .local v1, start:I
+    .local v1, "start":I
     if-eq v1, v5, :cond_0
 
     invoke-direct {p0, v1}, Landroid/view/AccessibilityIterators$WordTextSegmentIterator;->isStartBoundary(I)Z

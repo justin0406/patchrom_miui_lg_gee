@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl$RemoteControlStackEntry;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1264

@@ -87,7 +87,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/admin/DeviceAdminInfo;)V
     .locals 5
-    .parameter "_info"
+    .param p1, "_info"    # Landroid/app/admin/DeviceAdminInfo;
 
     .prologue
     const/4 v4, 0x0
@@ -169,8 +169,8 @@
 # virtual methods
 .method dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 4
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 461
@@ -201,13 +201,13 @@
     move-result-object v1
 
     .line 464
-    .local v1, pols:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/admin/DeviceAdminInfo$PolicyInfo;>;"
+    .local v1, "pols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/admin/DeviceAdminInfo$PolicyInfo;>;"
     if-eqz v1, :cond_0
 
     .line 465
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -238,7 +238,7 @@
     goto :goto_0
 
     .line 469
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -533,7 +533,7 @@
 
 .method readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 8
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -552,14 +552,14 @@
     move-result v0
 
     .line 389
-    .local v0, outerDepth:I
+    .local v0, "outerDepth":I
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v2
 
-    .local v2, type:I
+    .local v2, "type":I
     const/4 v3, 0x1
 
     if-eq v2, v3, :cond_16
@@ -586,7 +586,7 @@
     move-result-object v1
 
     .line 394
-    .local v1, tag:Ljava/lang/String;
+    .local v1, "tag":Ljava/lang/String;
     const-string v3, "policies"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1100,14 +1100,14 @@
     goto/16 :goto_1
 
     .line 458
-    .end local v1           #tag:Ljava/lang/String;
+    .end local v1    # "tag":Ljava/lang/String;
     :cond_16
     return-void
 .end method
 
 .method writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 6
-    .parameter "out"
+    .param p1, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,

@@ -47,7 +47,7 @@
     check-cast v0, Landroid/widget/TextView;
 
     .line 365
-    .local v0, alertTitle:Landroid/widget/TextView;
+    .local v0, "alertTitle":Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
     .line 366
@@ -76,7 +76,7 @@
     check-cast v0, Landroid/widget/Button;
 
     .line 372
-    .local v0, cancelButton:Landroid/widget/Button;
+    .local v0, "cancelButton":Landroid/widget/Button;
     if-eqz v0, :cond_0
 
     .line 373
@@ -107,7 +107,7 @@
 
 .method protected intentForPosition(I)Landroid/content/Intent;
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 413
@@ -116,7 +116,7 @@
     check-cast v0, Landroid/app/LauncherActivity$ActivityAdapter;
 
     .line 414
-    .local v0, adapter:Landroid/app/LauncherActivity$ActivityAdapter;
+    .local v0, "adapter":Landroid/app/LauncherActivity$ActivityAdapter;
     invoke-virtual {v0, p1}, Landroid/app/LauncherActivity$ActivityAdapter;->intentForPosition(I)Landroid/content/Intent;
 
     move-result-object v1
@@ -126,7 +126,7 @@
 
 .method protected itemForPosition(I)Landroid/app/LauncherActivity$ListItem;
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 423
@@ -135,7 +135,7 @@
     check-cast v0, Landroid/app/LauncherActivity$ActivityAdapter;
 
     .line 424
-    .local v0, adapter:Landroid/app/LauncherActivity$ActivityAdapter;
+    .local v0, "adapter":Landroid/app/LauncherActivity$ActivityAdapter;
     invoke-virtual {v0, p1}, Landroid/app/LauncherActivity$ActivityAdapter;->itemForPosition(I)Landroid/app/LauncherActivity$ListItem;
 
     move-result-object v1
@@ -164,7 +164,7 @@
     move-result-object v1
 
     .line 456
-    .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-virtual {p0, v1}, Landroid/app/LauncherActivity;->onSortResultList(Ljava/util/List;)V
 
     .line 458
@@ -177,16 +177,16 @@
     invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 459
-    .local v4, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
+    .local v4, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
 
     .line 460
-    .local v2, listSize:I
+    .local v2, "listSize":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -198,7 +198,7 @@
     check-cast v3, Landroid/content/pm/ResolveInfo;
 
     .line 462
-    .local v3, resolveInfo:Landroid/content/pm/ResolveInfo;
+    .local v3, "resolveInfo":Landroid/content/pm/ResolveInfo;
     new-instance v5, Landroid/app/LauncherActivity$ListItem;
 
     iget-object v6, p0, Landroid/app/LauncherActivity;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -215,14 +215,14 @@
     goto :goto_0
 
     .line 465
-    .end local v3           #resolveInfo:Landroid/content/pm/ResolveInfo;
+    .end local v3    # "resolveInfo":Landroid/content/pm/ResolveInfo;
     :cond_0
     return-object v4
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "icicle"
+    .param p1, "icicle"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v2, 0x1
@@ -321,10 +321,10 @@
 
 .method protected onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
     .locals 1
-    .parameter "l"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "l"    # Landroid/widget/ListView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 403
@@ -333,7 +333,7 @@
     move-result-object v0
 
     .line 404
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     invoke-virtual {p0, v0}, Landroid/app/LauncherActivity;->startActivity(Landroid/content/Intent;)V
 
     .line 405
@@ -342,7 +342,7 @@
 
 .method protected onQueryPackageManager(Landroid/content/Intent;)Ljava/util/List;
     .locals 2
-    .parameter "queryIntent"
+    .param p1, "queryIntent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -383,7 +383,6 @@
 
 .method protected onSortResultList(Ljava/util/List;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -396,7 +395,7 @@
 
     .prologue
     .line 447
-    .local p1, results:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local p1, "results":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     new-instance v0, Landroid/content/pm/ResolveInfo$DisplayNameComparator;
 
     iget-object v1, p0, Landroid/app/LauncherActivity;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -411,7 +410,7 @@
 
 .method public setTitle(I)V
     .locals 0
-    .parameter "titleId"
+    .param p1, "titleId"    # I
 
     .prologue
     .line 389
@@ -426,7 +425,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 383

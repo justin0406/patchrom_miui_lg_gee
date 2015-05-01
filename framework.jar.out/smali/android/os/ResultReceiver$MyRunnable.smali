@@ -28,9 +28,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/ResultReceiver;ILandroid/os/Bundle;)V
     .locals 0
-    .parameter
-    .parameter "resultCode"
-    .parameter "resultData"
+    .param p2, "resultCode"    # I
+    .param p3, "resultData"    # Landroid/os/Bundle;
 
     .prologue
     .line 37

@@ -64,7 +64,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 78
@@ -96,7 +96,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/view/menu/ActionMenuPresenter;)Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     .prologue
     .line 47
@@ -107,8 +107,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;)Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
+    .param p1, "x1"    # Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
 
     .prologue
     .line 47
@@ -119,7 +119,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/view/menu/ActionMenuPresenter;)Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     .prologue
     .line 47
@@ -130,8 +130,8 @@
 
 .method static synthetic access$202(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;)Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
+    .param p1, "x1"    # Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
 
     .prologue
     .line 47
@@ -142,7 +142,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/view/menu/ActionMenuPresenter;)Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     .prologue
     .line 47
@@ -153,8 +153,8 @@
 
 .method static synthetic access$302(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;)Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
+    .param p1, "x1"    # Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;
 
     .prologue
     .line 47
@@ -165,7 +165,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/view/menu/ActionMenuPresenter;)Landroid/view/View;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     .prologue
     .line 47
@@ -176,7 +176,7 @@
 
 .method private findViewForItem(Landroid/view/MenuItem;)Landroid/view/View;
     .locals 6
-    .parameter "item"
+    .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
     const/4 v5, 0x0
@@ -187,7 +187,7 @@
     check-cast v3, Landroid/view/ViewGroup;
 
     .line 292
-    .local v3, parent:Landroid/view/ViewGroup;
+    .local v3, "parent":Landroid/view/ViewGroup;
     if-nez v3, :cond_1
 
     move-object v0, v5
@@ -204,10 +204,10 @@
     move-result v1
 
     .line 295
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_3
 
@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 297
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     instance-of v4, v0, Lcom/android/internal/view/menu/MenuView$ItemView;
 
     if-eqz v4, :cond_2
@@ -238,7 +238,7 @@
 
     goto :goto_1
 
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_3
     move-object v0, v5
 
@@ -250,32 +250,55 @@
 # virtual methods
 .method public bindItemView(Lcom/android/internal/view/menu/MenuItemImpl;Lcom/android/internal/view/menu/MenuView$ItemView;)V
     .locals 3
-    .parameter "item"
-    .parameter "itemView"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "itemView"    # Lcom/android/internal/view/menu/MenuView$ItemView;
 
     .prologue
-    .line 198
+    .line 177
     const/4 v2, 0x0
 
     invoke-interface {p2, p1, v2}, Lcom/android/internal/view/menu/MenuView$ItemView;->initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
 
-    .line 200
+    .line 179
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
 
     check-cast v1, Lcom/android/internal/view/menu/ActionMenuView;
 
-    .local v1, menuView:Lcom/android/internal/view/menu/ActionMenuView;
+    .local v1, "menuView":Lcom/android/internal/view/menu/ActionMenuView;
     move-object v0, p2
 
-    .line 201
+    .line 180
     check-cast v0, Lcom/android/internal/view/menu/ActionMenuItemView;
 
-    .line 202
-    .local v0, actionItemView:Lcom/android/internal/view/menu/ActionMenuItemView;
+    .line 181
+    .local v0, "actionItemView":Lcom/android/internal/view/menu/ActionMenuItemView;
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/ActionMenuItemView;->setItemInvoker(Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;)V
 
+    .line 183
+    invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuItemImpl;->hasSubMenu()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 184
+    new-instance v2, Lcom/android/internal/view/menu/ActionMenuPresenter$1;
+
+    invoke-direct {v2, p0, v0, p1}, Lcom/android/internal/view/menu/ActionMenuPresenter$1;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Lcom/android/internal/view/menu/MenuItemImpl;)V
+
+    invoke-virtual {v0, v2}, Lcom/android/internal/view/menu/ActionMenuItemView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
     .line 203
+    :goto_0
     return-void
+
+    .line 201
+    :cond_0
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/android/internal/view/menu/ActionMenuItemView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    goto :goto_0
 .end method
 
 .method public dismissPopupMenus()Z
@@ -288,7 +311,7 @@
     move-result v0
 
     .line 352
-    .local v0, result:Z
+    .local v0, "result":Z
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->hideSubMenus()Z
 
     move-result v1
@@ -301,8 +324,8 @@
 
 .method public filterLeftoverView(Landroid/view/ViewGroup;I)Z
     .locals 2
-    .parameter "parent"
-    .parameter "childIndex"
+    .param p1, "parent"    # Landroid/view/ViewGroup;
+    .param p2, "childIndex"    # I
 
     .prologue
     .line 265
@@ -344,13 +367,13 @@
     move-result-object v25
 
     .line 389
-    .local v25, visibleItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .local v25, "visibleItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     invoke-virtual/range {v25 .. v25}, Ljava/util/ArrayList;->size()I
 
     move-result v15
 
     .line 390
-    .local v15, itemsSize:I
+    .local v15, "itemsSize":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMaxItems:I
@@ -358,7 +381,7 @@
     move/from16 v17, v0
 
     .line 391
-    .local v17, maxActions:I
+    .local v17, "maxActions":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mActionItemWidthLimit:I
@@ -366,7 +389,7 @@
     move/from16 v26, v0
 
     .line 392
-    .local v26, widthLimit:I
+    .local v26, "widthLimit":I
     const/16 v27, 0x0
 
     const/16 v28, 0x0
@@ -376,7 +399,7 @@
     move-result v20
 
     .line 393
-    .local v20, querySpec:I
+    .local v20, "querySpec":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
@@ -386,26 +409,26 @@
     check-cast v19, Landroid/view/ViewGroup;
 
     .line 395
-    .local v19, parent:Landroid/view/ViewGroup;
+    .local v19, "parent":Landroid/view/ViewGroup;
     const/16 v22, 0x0
 
     .line 396
-    .local v22, requiredItems:I
+    .local v22, "requiredItems":I
     const/16 v21, 0x0
 
     .line 397
-    .local v21, requestedItems:I
+    .local v21, "requestedItems":I
     const/4 v8, 0x0
 
     .line 398
-    .local v8, firstActionWidth:I
+    .local v8, "firstActionWidth":I
     const/4 v10, 0x0
 
     .line 399
-    .local v10, hasOverflow:Z
+    .local v10, "hasOverflow":Z
     const/4 v11, 0x0
 
-    .local v11, i:I
+    .local v11, "i":I
     :goto_0
     if-ge v11, v15, :cond_3
 
@@ -419,7 +442,7 @@
     check-cast v14, Lcom/android/internal/view/menu/MenuItemImpl;
 
     .line 401
-    .local v14, item:Lcom/android/internal/view/menu/MenuItemImpl;
+    .local v14, "item":Lcom/android/internal/view/menu/MenuItemImpl;
     invoke-virtual {v14}, Lcom/android/internal/view/menu/MenuItemImpl;->requiresActionButton()Z
 
     move-result v27
@@ -474,7 +497,7 @@
     goto :goto_1
 
     .line 416
-    .end local v14           #item:Lcom/android/internal/view/menu/MenuItemImpl;
+    .end local v14    # "item":Lcom/android/internal/view/menu/MenuItemImpl;
     :cond_3
     move-object/from16 v0, p0
 
@@ -510,18 +533,18 @@
     move-object/from16 v23, v0
 
     .line 423
-    .local v23, seenGroups:Landroid/util/SparseBooleanArray;
+    .local v23, "seenGroups":Landroid/util/SparseBooleanArray;
     invoke-virtual/range {v23 .. v23}, Landroid/util/SparseBooleanArray;->clear()V
 
     .line 425
     const/4 v4, 0x0
 
     .line 426
-    .local v4, cellSize:I
+    .local v4, "cellSize":I
     const/4 v7, 0x0
 
     .line 427
-    .local v7, cellsRemaining:I
+    .local v7, "cellsRemaining":I
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mStrictWidthLimit:Z
@@ -549,7 +572,7 @@
     rem-int v5, v26, v27
 
     .line 430
-    .local v5, cellSizeRemaining:I
+    .local v5, "cellSizeRemaining":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMinCellSize:I
@@ -561,7 +584,7 @@
     add-int v4, v27, v28
 
     .line 434
-    .end local v5           #cellSizeRemaining:I
+    .end local v5    # "cellSizeRemaining":I
     :cond_6
     const/4 v11, 0x0
 
@@ -578,7 +601,7 @@
     check-cast v14, Lcom/android/internal/view/menu/MenuItemImpl;
 
     .line 437
-    .restart local v14       #item:Lcom/android/internal/view/menu/MenuItemImpl;
+    .restart local v14    # "item":Lcom/android/internal/view/menu/MenuItemImpl;
     invoke-virtual {v14}, Lcom/android/internal/view/menu/MenuItemImpl;->requiresActionButton()Z
 
     move-result v27
@@ -603,7 +626,7 @@
     move-result-object v24
 
     .line 439
-    .local v24, v:Landroid/view/View;
+    .local v24, "v":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mScrapActionButtonView:Landroid/view/View;
@@ -651,7 +674,7 @@
     move-result v18
 
     .line 449
-    .local v18, measuredWidth:I
+    .local v18, "measuredWidth":I
     sub-int v26, v26, v18
 
     .line 450
@@ -667,7 +690,7 @@
     move-result v9
 
     .line 454
-    .local v9, groupId:I
+    .local v9, "groupId":I
     if-eqz v9, :cond_9
 
     .line 455
@@ -688,16 +711,16 @@
     invoke-virtual {v14, v0}, Lcom/android/internal/view/menu/MenuItemImpl;->setIsActionButton(Z)V
 
     .line 434
-    .end local v9           #groupId:I
-    .end local v18           #measuredWidth:I
-    .end local v24           #v:Landroid/view/View;
+    .end local v9    # "groupId":I
+    .end local v18    # "measuredWidth":I
+    .end local v24    # "v":Landroid/view/View;
     :goto_4
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_2
 
     .line 446
-    .restart local v24       #v:Landroid/view/View;
+    .restart local v24    # "v":Landroid/view/View;
     :cond_a
     move-object/from16 v0, v24
 
@@ -710,7 +733,7 @@
     goto :goto_3
 
     .line 458
-    .end local v24           #v:Landroid/view/View;
+    .end local v24    # "v":Landroid/view/View;
     :cond_b
     invoke-virtual {v14}, Lcom/android/internal/view/menu/MenuItemImpl;->requestsActionButton()Z
 
@@ -724,7 +747,7 @@
     move-result v9
 
     .line 462
-    .restart local v9       #groupId:I
+    .restart local v9    # "groupId":I
     move-object/from16 v0, v23
 
     invoke-virtual {v0, v9}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -732,7 +755,7 @@
     move-result v12
 
     .line 463
-    .local v12, inGroup:Z
+    .local v12, "inGroup":Z
     if-gtz v17, :cond_c
 
     if-eqz v12, :cond_14
@@ -754,7 +777,7 @@
     const/4 v13, 0x1
 
     .line 466
-    .local v13, isAction:Z
+    .local v13, "isAction":Z
     :goto_5
     if-eqz v13, :cond_11
 
@@ -776,7 +799,7 @@
     move-result-object v24
 
     .line 468
-    .restart local v24       #v:Landroid/view/View;
+    .restart local v24    # "v":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mScrapActionButtonView:Landroid/view/View;
@@ -816,7 +839,7 @@
     move-result v6
 
     .line 474
-    .local v6, cells:I
+    .local v6, "cells":I
     sub-int/2addr v7, v6
 
     .line 475
@@ -826,7 +849,7 @@
     const/4 v13, 0x0
 
     .line 481
-    .end local v6           #cells:I
+    .end local v6    # "cells":I
     :cond_f
     :goto_6
     invoke-virtual/range {v24 .. v24}, Landroid/view/View;->getMeasuredWidth()I
@@ -834,7 +857,7 @@
     move-result v18
 
     .line 482
-    .restart local v18       #measuredWidth:I
+    .restart local v18    # "measuredWidth":I
     sub-int v26, v26, v18
 
     .line 483
@@ -862,8 +885,8 @@
     and-int v13, v13, v27
 
     .line 495
-    .end local v18           #measuredWidth:I
-    .end local v24           #v:Landroid/view/View;
+    .end local v18    # "measuredWidth":I
+    .end local v24    # "v":Landroid/view/View;
     :cond_11
     :goto_8
     if-eqz v13, :cond_19
@@ -892,15 +915,15 @@
     goto/16 :goto_4
 
     .line 463
-    .end local v13           #isAction:Z
+    .end local v13    # "isAction":Z
     :cond_14
     const/4 v13, 0x0
 
     goto :goto_5
 
     .line 479
-    .restart local v13       #isAction:Z
-    .restart local v24       #v:Landroid/view/View;
+    .restart local v13    # "isAction":Z
+    .restart local v24    # "v":Landroid/view/View;
     :cond_15
     move-object/from16 v0, v24
 
@@ -913,7 +936,7 @@
     goto :goto_6
 
     .line 488
-    .restart local v18       #measuredWidth:I
+    .restart local v18    # "measuredWidth":I
     :cond_16
     const/16 v27, 0x0
 
@@ -938,8 +961,8 @@
     goto :goto_9
 
     .line 497
-    .end local v18           #measuredWidth:I
-    .end local v24           #v:Landroid/view/View;
+    .end local v18    # "measuredWidth":I
+    .end local v24    # "v":Landroid/view/View;
     :cond_19
     if-eqz v12, :cond_12
 
@@ -955,7 +978,7 @@
     .line 500
     const/16 v16, 0x0
 
-    .local v16, j:I
+    .local v16, "j":I
     :goto_a
     move/from16 v0, v16
 
@@ -973,7 +996,7 @@
     check-cast v3, Lcom/android/internal/view/menu/MenuItemImpl;
 
     .line 502
-    .local v3, areYouMyGroupie:Lcom/android/internal/view/menu/MenuItemImpl;
+    .local v3, "areYouMyGroupie":Lcom/android/internal/view/menu/MenuItemImpl;
     invoke-virtual {v3}, Lcom/android/internal/view/menu/MenuItemImpl;->getGroupId()I
 
     move-result v27
@@ -1006,11 +1029,11 @@
     goto :goto_a
 
     .line 515
-    .end local v3           #areYouMyGroupie:Lcom/android/internal/view/menu/MenuItemImpl;
-    .end local v9           #groupId:I
-    .end local v12           #inGroup:Z
-    .end local v13           #isAction:Z
-    .end local v16           #j:I
+    .end local v3    # "areYouMyGroupie":Lcom/android/internal/view/menu/MenuItemImpl;
+    .end local v9    # "groupId":I
+    .end local v12    # "inGroup":Z
+    .end local v13    # "isAction":Z
+    .end local v16    # "j":I
     :cond_1c
     const/16 v27, 0x0
 
@@ -1021,7 +1044,7 @@
     goto/16 :goto_4
 
     .line 518
-    .end local v14           #item:Lcom/android/internal/view/menu/MenuItemImpl;
+    .end local v14    # "item":Lcom/android/internal/view/menu/MenuItemImpl;
     :cond_1d
     const/16 v27, 0x1
 
@@ -1030,9 +1053,9 @@
 
 .method public getItemView(Lcom/android/internal/view/menu/MenuItemImpl;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "item"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 161
@@ -1041,7 +1064,7 @@
     move-result-object v0
 
     .line 162
-    .local v0, actionView:Landroid/view/View;
+    .local v0, "actionView":Landroid/view/View;
     if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuItemImpl;->hasCollapsibleActionView()Z
@@ -1069,71 +1092,48 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 167
-    invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuItemImpl;->hasSubMenu()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 168
-    new-instance v3, Lcom/android/internal/view/menu/ActionMenuPresenter$1;
-
-    invoke-direct {v3, p0, v0, p1}, Lcom/android/internal/view/menu/ActionMenuPresenter$1;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Lcom/android/internal/view/menu/MenuItemImpl;)V
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    :goto_1
     move-object v2, p3
 
-    .line 188
+    .line 167
     check-cast v2, Lcom/android/internal/view/menu/ActionMenuView;
 
-    .line 189
-    .local v2, menuParent:Lcom/android/internal/view/menu/ActionMenuView;
+    .line 168
+    .local v2, "menuParent":Lcom/android/internal/view/menu/ActionMenuView;
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    .line 190
-    .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
+    .line 169
+    .local v1, "lp":Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {v2, v1}, Lcom/android/internal/view/menu/ActionMenuView;->checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    .line 191
+    .line 170
     invoke-virtual {v2, v1}, Lcom/android/internal/view/menu/ActionMenuView;->generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 193
+    .line 172
     :cond_2
     return-object v0
 
     .line 165
-    .end local v1           #lp:Landroid/view/ViewGroup$LayoutParams;
-    .end local v2           #menuParent:Lcom/android/internal/view/menu/ActionMenuView;
+    .end local v1    # "lp":Landroid/view/ViewGroup$LayoutParams;
+    .end local v2    # "menuParent":Lcom/android/internal/view/menu/ActionMenuView;
     :cond_3
     const/4 v3, 0x0
 
     goto :goto_0
-
-    .line 185
-    :cond_4
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    goto :goto_1
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView;
     .locals 2
-    .parameter "root"
+    .param p1, "root"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 154
@@ -1141,7 +1141,7 @@
 
     move-result-object v0
 
-    .local v0, result:Lcom/android/internal/view/menu/MenuView;
+    .local v0, "result":Lcom/android/internal/view/menu/MenuView;
     move-object v1, v0
 
     .line 155
@@ -1193,7 +1193,7 @@
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
 
     .line 339
-    .local v0, popup:Lcom/android/internal/view/menu/MenuPopupHelper;
+    .local v0, "popup":Lcom/android/internal/view/menu/MenuPopupHelper;
     if-eqz v0, :cond_1
 
     .line 340
@@ -1240,8 +1240,8 @@
 
 .method public initForMenu(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 8
-    .parameter "context"
-    .parameter "menu"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     const/4 v7, 0x0
@@ -1257,13 +1257,13 @@
     move-result-object v1
 
     .line 88
-    .local v1, res:Landroid/content/res/Resources;
+    .local v1, "res":Landroid/content/res/Resources;
     invoke-static {p1}, Lcom/android/internal/view/ActionBarPolicy;->get(Landroid/content/Context;)Lcom/android/internal/view/ActionBarPolicy;
 
     move-result-object v0
 
     .line 89
-    .local v0, abp:Lcom/android/internal/view/ActionBarPolicy;
+    .local v0, "abp":Lcom/android/internal/view/ActionBarPolicy;
     iget-boolean v4, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mReserveOverflowSet:Z
 
     if-nez v4, :cond_0
@@ -1306,7 +1306,7 @@
     iget v3, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mWidthLimit:I
 
     .line 103
-    .local v3, width:I
+    .local v3, "width":I
     iget-boolean v4, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mReserveOverflow:Z
 
     if-eqz v4, :cond_4
@@ -1331,13 +1331,13 @@
     move-result v2
 
     .line 107
-    .local v2, spec:I
+    .local v2, "spec":I
     iget-object v4, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
 
     invoke-virtual {v4, v2, v2}, Landroid/view/View;->measure(II)V
 
     .line 109
-    .end local v2           #spec:I
+    .end local v2    # "spec":I
     :cond_3
     iget-object v4, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
 
@@ -1352,7 +1352,7 @@
     iput v3, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mActionItemWidthLimit:I
 
     .line 116
-    const/high16 v4, 0x4260
+    const/high16 v4, 0x42600000    # 56.0f
 
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -1446,8 +1446,8 @@
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 0
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 523
@@ -1462,7 +1462,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 123
@@ -1477,7 +1477,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0049
+    const v1, 0x10e004a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1505,7 +1505,7 @@
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 536
@@ -1514,7 +1514,7 @@
     check-cast v1, Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;
 
     .line 537
-    .local v1, saved:Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;
+    .local v1, "saved":Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;
     iget v3, v1, Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;->openSubMenuId:I
 
     if-lez v3, :cond_0
@@ -1529,7 +1529,7 @@
     move-result-object v0
 
     .line 539
-    .local v0, item:Landroid/view/MenuItem;
+    .local v0, "item":Landroid/view/MenuItem;
     if-eqz v0, :cond_0
 
     .line 540
@@ -1540,12 +1540,12 @@
     check-cast v2, Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .line 541
-    .local v2, subMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
+    .local v2, "subMenu":Lcom/android/internal/view/menu/SubMenuBuilder;
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter;->onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
 
     .line 544
-    .end local v0           #item:Landroid/view/MenuItem;
-    .end local v2           #subMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
+    .end local v0    # "item":Landroid/view/MenuItem;
+    .end local v2    # "subMenu":Lcom/android/internal/view/menu/SubMenuBuilder;
     :cond_0
     return-void
 .end method
@@ -1560,7 +1560,7 @@
     invoke-direct {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;-><init>()V
 
     .line 530
-    .local v0, state:Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;
+    .local v0, "state":Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;
     iget v1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOpenSubMenuId:I
 
     iput v1, v0, Lcom/android/internal/view/menu/ActionMenuPresenter$SavedState;->openSubMenuId:I
@@ -1571,7 +1571,7 @@
 
 .method public onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
     .locals 5
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     const/4 v2, 0x0
@@ -1593,7 +1593,7 @@
     move-object v1, p1
 
     .line 273
-    .local v1, topSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
+    .local v1, "topSubMenu":Lcom/android/internal/view/menu/SubMenuBuilder;
     :goto_1
     invoke-virtual {v1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getParentMenu()Landroid/view/Menu;
 
@@ -1608,10 +1608,10 @@
 
     move-result-object v1
 
-    .end local v1           #topSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
+    .end local v1    # "topSubMenu":Lcom/android/internal/view/menu/SubMenuBuilder;
     check-cast v1, Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    .restart local v1       #topSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
+    .restart local v1    # "topSubMenu":Lcom/android/internal/view/menu/SubMenuBuilder;
     goto :goto_1
 
     .line 276
@@ -1625,7 +1625,7 @@
     move-result-object v0
 
     .line 277
-    .local v0, anchor:Landroid/view/View;
+    .local v0, "anchor":Landroid/view/View;
     if-nez v0, :cond_3
 
     .line 278
@@ -1678,7 +1678,7 @@
 
 .method public onSubUiVisibilityChanged(Z)V
     .locals 2
-    .parameter "isVisible"
+    .param p1, "isVisible"    # Z
 
     .prologue
     .line 548
@@ -1706,7 +1706,7 @@
 
 .method public setExpandedActionViewsExclusive(Z)V
     .locals 0
-    .parameter "isExclusive"
+    .param p1, "isExclusive"    # Z
 
     .prologue
     .line 149
@@ -1718,7 +1718,7 @@
 
 .method public setItemLimit(I)V
     .locals 1
-    .parameter "itemCount"
+    .param p1, "itemCount"    # I
 
     .prologue
     .line 144
@@ -1735,7 +1735,7 @@
 
 .method public setReserveOverflow(Z)V
     .locals 1
-    .parameter "reserveOverflow"
+    .param p1, "reserveOverflow"    # Z
 
     .prologue
     .line 139
@@ -1752,8 +1752,8 @@
 
 .method public setWidthLimit(IZ)V
     .locals 1
-    .parameter "width"
-    .parameter "strict"
+    .param p1, "width"    # I
+    .param p2, "strict"    # Z
 
     .prologue
     .line 133
@@ -1773,8 +1773,8 @@
 
 .method public shouldIncludeItem(ILcom/android/internal/view/menu/MenuItemImpl;)Z
     .locals 1
-    .parameter "childIndex"
-    .parameter "item"
+    .param p1, "childIndex"    # I
+    .param p2, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 207
@@ -1840,7 +1840,7 @@
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
 
     .line 313
-    .local v0, popup:Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
+    .local v0, "popup":Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     new-instance v1, Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;
 
     invoke-direct {v1, p0, v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OpenOverflowRunnable;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;)V
@@ -1862,7 +1862,7 @@
     invoke-super {p0, v1}, Lcom/android/internal/view/menu/BaseMenuPresenter;->onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
 
     .line 323
-    .end local v0           #popup:Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
+    .end local v0    # "popup":Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     :goto_0
     return v5
 
@@ -1874,7 +1874,7 @@
 
 .method public updateMenuView(Z)V
     .locals 12
-    .parameter "cleared"
+    .param p1, "cleared"    # Z
 
     .prologue
     const/4 v10, 0x1
@@ -1893,7 +1893,7 @@
     check-cast v5, Landroid/view/ViewGroup;
 
     .line 213
-    .local v5, menuViewParent:Landroid/view/ViewGroup;
+    .local v5, "menuViewParent":Landroid/view/ViewGroup;
     if-eqz v5, :cond_0
 
     .line 214
@@ -1923,16 +1923,16 @@
     move-result-object v0
 
     .line 222
-    .local v0, actionItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .local v0, "actionItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     .line 223
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v1, :cond_2
 
@@ -1948,7 +1948,7 @@
     move-result-object v8
 
     .line 225
-    .local v8, provider:Landroid/view/ActionProvider;
+    .local v8, "provider":Landroid/view/ActionProvider;
     if-eqz v8, :cond_1
 
     .line 226
@@ -1961,10 +1961,10 @@
     goto :goto_0
 
     .line 231
-    .end local v0           #actionItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
-    .end local v1           #count:I
-    .end local v3           #i:I
-    .end local v8           #provider:Landroid/view/ActionProvider;
+    .end local v0    # "actionItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .end local v1    # "count":I
+    .end local v3    # "i":I
+    .end local v8    # "provider":Landroid/view/ActionProvider;
     :cond_2
     iget-object v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
@@ -1977,12 +1977,12 @@
     move-result-object v6
 
     .line 234
-    .local v6, nonActionItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .local v6, "nonActionItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     :goto_1
     const/4 v2, 0x0
 
     .line 235
-    .local v2, hasOverflow:Z
+    .local v2, "hasOverflow":Z
     iget-boolean v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mReserveOverflow:Z
 
     if-eqz v9, :cond_3
@@ -1995,7 +1995,7 @@
     move-result v1
 
     .line 237
-    .restart local v1       #count:I
+    .restart local v1    # "count":I
     if-ne v1, v10, :cond_9
 
     .line 238
@@ -2014,7 +2014,7 @@
     move v2, v10
 
     .line 244
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_3
     :goto_2
     if-eqz v2, :cond_b
@@ -2044,7 +2044,7 @@
     check-cast v7, Landroid/view/ViewGroup;
 
     .line 249
-    .local v7, parent:Landroid/view/ViewGroup;
+    .local v7, "parent":Landroid/view/ViewGroup;
     iget-object v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
 
     if-eq v7, v9, :cond_6
@@ -2064,7 +2064,7 @@
     check-cast v4, Lcom/android/internal/view/menu/ActionMenuView;
 
     .line 254
-    .local v4, menuView:Lcom/android/internal/view/menu/ActionMenuView;
+    .local v4, "menuView":Lcom/android/internal/view/menu/ActionMenuView;
     iget-object v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
 
     invoke-virtual {v4}, Lcom/android/internal/view/menu/ActionMenuView;->generateOverflowButtonLayoutParams()Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;
@@ -2074,8 +2074,8 @@
     invoke-virtual {v4, v9, v10}, Lcom/android/internal/view/menu/ActionMenuView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 260
-    .end local v4           #menuView:Lcom/android/internal/view/menu/ActionMenuView;
-    .end local v7           #parent:Landroid/view/ViewGroup;
+    .end local v4    # "menuView":Lcom/android/internal/view/menu/ActionMenuView;
+    .end local v7    # "parent":Landroid/view/ViewGroup;
     :cond_6
     :goto_3
     iget-object v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
@@ -2090,16 +2090,16 @@
     return-void
 
     .line 231
-    .end local v2           #hasOverflow:Z
-    .end local v6           #nonActionItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .end local v2    # "hasOverflow":Z
+    .end local v6    # "nonActionItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     :cond_7
     const/4 v6, 0x0
 
     goto :goto_1
 
-    .restart local v1       #count:I
-    .restart local v2       #hasOverflow:Z
-    .restart local v6       #nonActionItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .restart local v1    # "count":I
+    .restart local v2    # "hasOverflow":Z
+    .restart local v6    # "nonActionItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     :cond_8
     move v2, v11
 
@@ -2121,7 +2121,7 @@
     goto :goto_4
 
     .line 256
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_b
     iget-object v9, p0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowButton:Landroid/view/View;
 

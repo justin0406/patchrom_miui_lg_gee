@@ -78,16 +78,16 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/internal/app/IAppOpsService;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/power/ScreenOnBlocker;Landroid/view/WindowManagerPolicy;)V
     .locals 3
-    .parameter "looper"
-    .parameter "context"
-    .parameter "batteryStats"
-    .parameter "appOps"
-    .parameter "suspendBlocker"
-    .parameter "screenOnBlocker"
-    .parameter "policy"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "batteryStats"    # Lcom/android/internal/app/IBatteryStats;
+    .param p4, "appOps"    # Lcom/android/internal/app/IAppOpsService;
+    .param p5, "suspendBlocker"    # Lcom/android/server/power/SuspendBlocker;
+    .param p6, "screenOnBlocker"    # Lcom/android/server/power/ScreenOnBlocker;
+    .param p7, "policy"    # Landroid/view/WindowManagerPolicy;
 
     .prologue
-    const/high16 v2, 0x5000
+    const/high16 v2, 0x50000000
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -179,7 +179,7 @@
 
 .method static synthetic access$000(Lcom/android/server/power/Notifier;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -190,7 +190,7 @@
 
 .method static synthetic access$100(Lcom/android/server/power/Notifier;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -201,8 +201,8 @@
 
 .method static synthetic access$102(Lcom/android/server/power/Notifier;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 63
@@ -213,7 +213,7 @@
 
 .method static synthetic access$200(Lcom/android/server/power/Notifier;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -224,7 +224,7 @@
 
 .method static synthetic access$300(Lcom/android/server/power/Notifier;)Lcom/android/server/power/ScreenOnBlocker;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -235,7 +235,7 @@
 
 .method static synthetic access$400(Lcom/android/server/power/Notifier;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -246,7 +246,7 @@
 
 .method static synthetic access$500(Lcom/android/server/power/Notifier;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -257,7 +257,7 @@
 
 .method static synthetic access$600(Lcom/android/server/power/Notifier;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -268,7 +268,7 @@
 
 .method static synthetic access$700(Lcom/android/server/power/Notifier;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/Notifier;
 
     .prologue
     .line 63
@@ -297,7 +297,7 @@
 
 .method private static getBatteryStatsWakeLockMonitorType(I)I
     .locals 1
-    .parameter "flags"
+    .param p0, "flags"    # I
 
     .prologue
     .line 182
@@ -347,7 +347,7 @@
     move-result-object v1
 
     .line 510
-    .local v1, soundPath:Ljava/lang/String;
+    .local v1, "soundPath":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     .line 511
@@ -374,7 +374,7 @@
     move-result-object v2
 
     .line 512
-    .local v2, soundUri:Landroid/net/Uri;
+    .local v2, "soundUri":Landroid/net/Uri;
     if-eqz v2, :cond_0
 
     .line 513
@@ -385,7 +385,7 @@
     move-result-object v0
 
     .line 514
-    .local v0, sfx:Landroid/media/Ringtone;
+    .local v0, "sfx":Landroid/media/Ringtone;
     if-eqz v0, :cond_0
 
     .line 515
@@ -397,8 +397,8 @@
     invoke-virtual {v0}, Landroid/media/Ringtone;->play()V
 
     .line 521
-    .end local v0           #sfx:Landroid/media/Ringtone;
-    .end local v2           #soundUri:Landroid/net/Uri;
+    .end local v0    # "sfx":Landroid/media/Ringtone;
+    .end local v2    # "soundUri":Landroid/net/Uri;
     :cond_0
     iget-object v3, p0, Lcom/android/server/power/Notifier;->mSuspendBlocker:Lcom/android/server/power/SuspendBlocker;
 
@@ -410,7 +410,7 @@
 
 .method private sendGoToSleepBroadcast(I)V
     .locals 10
-    .parameter "reason"
+    .param p1, "reason"    # I
 
     .prologue
     const/4 v7, 0x3
@@ -427,7 +427,7 @@
     const/4 v9, 0x2
 
     .line 471
-    .local v9, why:I
+    .local v9, "why":I
     packed-switch p1, :pswitch_data_0
 
     .line 480
@@ -601,11 +601,11 @@
     iget v1, p0, Lcom/android/server/power/Notifier;->mBroadcastedPowerState:I
 
     .line 407
-    .local v1, powerState:I
+    .local v1, "powerState":I
     iget v0, p0, Lcom/android/server/power/Notifier;->mLastGoToSleepReason:I
 
     .line 408
-    .local v0, goToSleepReason:I
+    .local v0, "goToSleepReason":I
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -622,8 +622,8 @@
     invoke-direct {p0}, Lcom/android/server/power/Notifier;->sendWakeUpBroadcast()V
 
     .line 417
-    .end local v0           #goToSleepReason:I
-    .end local v1           #powerState:I
+    .end local v0    # "goToSleepReason":I
+    .end local v1    # "powerState":I
     :goto_1
     return-void
 
@@ -719,8 +719,8 @@
     goto :goto_1
 
     .line 415
-    .restart local v0       #goToSleepReason:I
-    .restart local v1       #powerState:I
+    .restart local v0    # "goToSleepReason":I
+    .restart local v1    # "powerState":I
     :cond_6
     invoke-direct {p0, v0}, Lcom/android/server/power/Notifier;->sendGoToSleepBroadcast(I)V
 
@@ -952,7 +952,7 @@
     move-result-object v0
 
     .line 354
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0, v3}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 355
@@ -961,7 +961,7 @@
     invoke-virtual {v1, v0}, Lcom/android/server/power/Notifier$NotifierHandler;->sendMessage(Landroid/os/Message;)Z
 
     .line 357
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_1
     return-void
 .end method
@@ -1036,7 +1036,7 @@
 
 .method public onGoToSleepStarted(I)V
     .locals 2
-    .parameter "reason"
+    .param p1, "reason"    # I
 
     .prologue
     .line 276
@@ -1067,7 +1067,7 @@
 
 .method public onScreenBrightness(I)V
     .locals 1
-    .parameter "brightness"
+    .param p1, "brightness"    # I
 
     .prologue
     .line 230
@@ -1137,8 +1137,8 @@
 
 .method public onUserActivity(II)V
     .locals 4
-    .parameter "event"
-    .parameter "uid"
+    .param p1, "event"    # I
+    .param p2, "uid"    # I
 
     .prologue
     .line 317
@@ -1176,7 +1176,7 @@
     move-result-object v0
 
     .line 326
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Message;->setAsynchronous(Z)V
@@ -1187,7 +1187,7 @@
     invoke-virtual {v1, v0}, Lcom/android/server/power/Notifier$NotifierHandler;->sendMessage(Landroid/os/Message;)Z
 
     .line 329
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     monitor-exit v2
 
@@ -1213,12 +1213,12 @@
 
 .method public onWakeLockAcquired(ILjava/lang/String;Ljava/lang/String;IILandroid/os/WorkSource;)V
     .locals 4
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "packageName"
-    .parameter "ownerUid"
-    .parameter "ownerPid"
-    .parameter "workSource"
+    .param p1, "flags"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "ownerUid"    # I
+    .param p5, "ownerPid"    # I
+    .param p6, "workSource"    # Landroid/os/WorkSource;
 
     .prologue
     .line 141
@@ -1228,7 +1228,7 @@
     move-result v0
 
     .line 142
-    .local v0, monitorType:I
+    .local v0, "monitorType":I
     if-eqz p6, :cond_0
 
     .line 143
@@ -1237,12 +1237,12 @@
     invoke-interface {v1, p6, p5, p2, v0}, Lcom/android/internal/app/IBatteryStats;->noteStartWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
 
     .line 153
-    .end local v0           #monitorType:I
+    .end local v0    # "monitorType":I
     :goto_0
     return-void
 
     .line 145
-    .restart local v0       #monitorType:I
+    .restart local v0    # "monitorType":I
     :cond_0
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
@@ -1266,7 +1266,7 @@
     goto :goto_0
 
     .line 150
-    .end local v0           #monitorType:I
+    .end local v0    # "monitorType":I
     :catch_0
     move-exception v1
 
@@ -1275,12 +1275,12 @@
 
 .method public onWakeLockReleased(ILjava/lang/String;Ljava/lang/String;IILandroid/os/WorkSource;)V
     .locals 4
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "packageName"
-    .parameter "ownerUid"
-    .parameter "ownerPid"
-    .parameter "workSource"
+    .param p1, "flags"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "ownerUid"    # I
+    .param p5, "ownerPid"    # I
+    .param p6, "workSource"    # Landroid/os/WorkSource;
 
     .prologue
     .line 168
@@ -1290,7 +1290,7 @@
     move-result v0
 
     .line 169
-    .local v0, monitorType:I
+    .local v0, "monitorType":I
     if-eqz p6, :cond_0
 
     .line 170
@@ -1299,12 +1299,12 @@
     invoke-interface {v1, p6, p5, p2, v0}, Lcom/android/internal/app/IBatteryStats;->noteStopWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
 
     .line 179
-    .end local v0           #monitorType:I
+    .end local v0    # "monitorType":I
     :goto_0
     return-void
 
     .line 172
-    .restart local v0       #monitorType:I
+    .restart local v0    # "monitorType":I
     :cond_0
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
@@ -1328,7 +1328,7 @@
     goto :goto_0
 
     .line 176
-    .end local v0           #monitorType:I
+    .end local v0    # "monitorType":I
     :catch_0
     move-exception v1
 
@@ -1426,7 +1426,7 @@
     move-result-object v0
 
     .line 342
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Message;->setAsynchronous(Z)V

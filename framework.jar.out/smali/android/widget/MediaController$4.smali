@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 503
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 505
     iget-object v0, p0, Landroid/widget/MediaController$4;->this$0:Landroid/widget/MediaController;
 
-    #calls: Landroid/widget/MediaController;->doPauseResume()V
+    # invokes: Landroid/widget/MediaController;->doPauseResume()V
     invoke-static {v0}, Landroid/widget/MediaController;->access$800(Landroid/widget/MediaController;)V
 
     .line 506

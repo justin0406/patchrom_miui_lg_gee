@@ -36,8 +36,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/storage/StorageManager;Landroid/os/storage/OnObbStateChangeListener;)V
     .locals 2
-    .parameter
-    .parameter "listener"
+    .param p2, "listener"    # Landroid/os/storage/OnObbStateChangeListener;
 
     .prologue
     .line 154
@@ -46,7 +45,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 155
-    #calls: Landroid/os/storage/StorageManager;->getNextNonce()I
+    # invokes: Landroid/os/storage/StorageManager;->getNextNonce()I
     invoke-static {p1}, Landroid/os/storage/StorageManager;->access$300(Landroid/os/storage/StorageManager;)I
 
     move-result v0
@@ -63,7 +62,7 @@
     .line 157
     new-instance v0, Landroid/os/storage/StorageManager$ObbListenerDelegate$1;
 
-    #getter for: Landroid/os/storage/StorageManager;->mTgtLooper:Landroid/os/Looper;
+    # getter for: Landroid/os/storage/StorageManager;->mTgtLooper:Landroid/os/Looper;
     invoke-static {p1}, Landroid/os/storage/StorageManager;->access$400(Landroid/os/storage/StorageManager;)Landroid/os/Looper;
 
     move-result-object v1
@@ -78,7 +77,7 @@
 
 .method static synthetic access$200(Landroid/os/storage/StorageManager$ObbListenerDelegate;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/storage/StorageManager$ObbListenerDelegate;
 
     .prologue
     .line 148
@@ -119,8 +118,8 @@
 
 .method sendObbStateChanged(Ljava/lang/String;I)V
     .locals 3
-    .parameter "path"
-    .parameter "state"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "state"    # I
 
     .prologue
     .line 185
@@ -131,7 +130,7 @@
     invoke-direct {v0, v1, p1, p2}, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;-><init>(Landroid/os/storage/StorageManager;Ljava/lang/String;I)V
 
     .line 186
-    .local v0, e:Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
+    .local v0, "e":Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
     iget-object v1, p0, Landroid/os/storage/StorageManager$ObbListenerDelegate;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0}, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->getMessage()Landroid/os/Message;

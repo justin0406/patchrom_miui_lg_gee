@@ -52,7 +52,7 @@
 
     const/4 v2, 0x0
 
-    .line 4371
+    .line 4457
     new-instance v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     const-string v1, "INITIAL"
@@ -61,7 +61,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestoreState;->INITIAL:Lcom/android/server/BackupManagerService$RestoreState;
 
-    .line 4372
+    .line 4458
     new-instance v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     const-string v1, "DOWNLOAD_DATA"
@@ -70,7 +70,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestoreState;->DOWNLOAD_DATA:Lcom/android/server/BackupManagerService$RestoreState;
 
-    .line 4373
+    .line 4459
     new-instance v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     const-string v1, "PM_METADATA"
@@ -79,7 +79,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestoreState;->PM_METADATA:Lcom/android/server/BackupManagerService$RestoreState;
 
-    .line 4374
+    .line 4460
     new-instance v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     const-string v1, "RUNNING_QUEUE"
@@ -88,7 +88,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestoreState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$RestoreState;
 
-    .line 4375
+    .line 4461
     new-instance v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     const-string v1, "FINAL"
@@ -97,7 +97,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
-    .line 4370
+    .line 4456
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/android/server/BackupManagerService$RestoreState;
@@ -129,8 +129,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -138,7 +136,7 @@
     .end annotation
 
     .prologue
-    .line 4370
+    .line 4456
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -146,10 +144,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/BackupManagerService$RestoreState;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 4370
+    .line 4456
     const-class v0, Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -165,7 +163,7 @@
     .locals 1
 
     .prologue
-    .line 4370
+    .line 4456
     sget-object v0, Lcom/android/server/BackupManagerService$RestoreState;->$VALUES:[Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {v0}, [Lcom/android/server/BackupManagerService$RestoreState;->clone()Ljava/lang/Object;

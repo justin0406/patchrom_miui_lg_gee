@@ -74,7 +74,7 @@
 # virtual methods
 .method public appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "newSegment"
+    .param p1, "newSegment"    # Ljava/lang/String;
 
     .prologue
     .line 1425
@@ -93,7 +93,7 @@
 
 .method public appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "newSegment"
+    .param p1, "newSegment"    # Ljava/lang/String;
 
     .prologue
     .line 1418
@@ -112,8 +112,8 @@
 
 .method public appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 5
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -153,7 +153,7 @@
     move-result-object v0
 
     .line 1483
-    .local v0, encodedParameter:Ljava/lang/String;
+    .local v0, "encodedParameter":Ljava/lang/String;
     iget-object v2, p0, Landroid/net/Uri$Builder;->query:Landroid/net/Uri$Part;
 
     if-nez v2, :cond_0
@@ -178,7 +178,7 @@
     move-result-object v1
 
     .line 1489
-    .local v1, oldQuery:Ljava/lang/String;
+    .local v1, "oldQuery":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -232,7 +232,7 @@
 
 .method authority(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "authority"
+    .param p1, "authority"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 1363
@@ -249,7 +249,7 @@
 
 .method public authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "authority"
+    .param p1, "authority"    # Ljava/lang/String;
 
     .prologue
     .line 1373
@@ -310,7 +310,7 @@
     iget-object v3, p0, Landroid/net/Uri$Builder;->path:Landroid/net/Uri$PathPart;
 
     .line 1522
-    .local v3, path:Landroid/net/Uri$PathPart;
+    .local v3, "path":Landroid/net/Uri$PathPart;
     if-eqz v3, :cond_2
 
     sget-object v0, Landroid/net/Uri$PathPart;->NULL:Landroid/net/Uri$PathPart;
@@ -372,7 +372,7 @@
 
 .method public encodedAuthority(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "authority"
+    .param p1, "authority"    # Ljava/lang/String;
 
     .prologue
     .line 1380
@@ -389,7 +389,7 @@
 
 .method public encodedFragment(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "fragment"
+    .param p1, "fragment"    # Ljava/lang/String;
 
     .prologue
     .line 1466
@@ -406,7 +406,7 @@
 
 .method public encodedOpaquePart(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "opaquePart"
+    .param p1, "opaquePart"    # Ljava/lang/String;
 
     .prologue
     .line 1358
@@ -423,7 +423,7 @@
 
 .method public encodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 1411
@@ -440,7 +440,7 @@
 
 .method public encodedQuery(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 1447
@@ -457,7 +457,7 @@
 
 .method fragment(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
     .locals 0
-    .parameter "fragment"
+    .param p1, "fragment"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 1451
@@ -469,7 +469,7 @@
 
 .method public fragment(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "fragment"
+    .param p1, "fragment"    # Ljava/lang/String;
 
     .prologue
     .line 1459
@@ -486,7 +486,7 @@
 
 .method opaquePart(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
     .locals 0
-    .parameter "opaquePart"
+    .param p1, "opaquePart"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 1339
@@ -498,7 +498,7 @@
 
 .method public opaquePart(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "opaquePart"
+    .param p1, "opaquePart"    # Ljava/lang/String;
 
     .prologue
     .line 1349
@@ -515,7 +515,7 @@
 
 .method path(Landroid/net/Uri$PathPart;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Landroid/net/Uri$PathPart;
 
     .prologue
     .line 1385
@@ -532,7 +532,7 @@
 
 .method public path(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 1400
@@ -549,7 +549,7 @@
 
 .method query(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 1430
@@ -566,7 +566,7 @@
 
 .method public query(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 1440
@@ -583,7 +583,7 @@
 
 .method public scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
     .locals 0
-    .parameter "scheme"
+    .param p1, "scheme"    # Ljava/lang/String;
 
     .prologue
     .line 1334

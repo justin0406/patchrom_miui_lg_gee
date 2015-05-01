@@ -31,8 +31,7 @@
 # direct methods
 .method private constructor <init>(Landroid/net/wifi/WifiManager;Ljava/lang/String;)V
     .locals 2
-    .parameter
-    .parameter "tag"
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -69,9 +68,9 @@
 
 .method synthetic constructor <init>(Landroid/net/wifi/WifiManager;Ljava/lang/String;Landroid/net/wifi/WifiManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/net/wifi/WifiManager;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/net/wifi/WifiManager$1;
 
     .prologue
     .line 1988
@@ -127,14 +126,14 @@
 
     monitor-enter v2
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 2029
     :try_start_2
     iget-object v0, p0, Landroid/net/wifi/WifiManager$MulticastLock;->this$0:Landroid/net/wifi/WifiManager;
 
-    #getter for: Landroid/net/wifi/WifiManager;->mActiveLockCount:I
+    # getter for: Landroid/net/wifi/WifiManager;->mActiveLockCount:I
     invoke-static {v0}, Landroid/net/wifi/WifiManager;->access$500(Landroid/net/wifi/WifiManager;)I
 
     move-result v0
@@ -170,8 +169,8 @@
     :try_start_3
     throw v0
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 2036
     :catch_0
@@ -206,6 +205,7 @@
     :try_start_5
     iget-object v0, p0, Landroid/net/wifi/WifiManager$MulticastLock;->this$0:Landroid/net/wifi/WifiManager;
 
+    # operator++ for: Landroid/net/wifi/WifiManager;->mActiveLockCount:I
     invoke-static {v0}, Landroid/net/wifi/WifiManager;->access$508(Landroid/net/wifi/WifiManager;)I
 
     .line 2035
@@ -318,13 +318,14 @@
 
     monitor-enter v2
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 2073
     :try_start_2
     iget-object v0, p0, Landroid/net/wifi/WifiManager$MulticastLock;->this$0:Landroid/net/wifi/WifiManager;
 
+    # operator-- for: Landroid/net/wifi/WifiManager;->mActiveLockCount:I
     invoke-static {v0}, Landroid/net/wifi/WifiManager;->access$510(Landroid/net/wifi/WifiManager;)I
 
     .line 2074
@@ -405,8 +406,8 @@
     :try_start_6
     throw v0
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 2075
     :catch_0
@@ -427,7 +428,7 @@
 
 .method public setReferenceCounted(Z)V
     .locals 0
-    .parameter "refCounted"
+    .param p1, "refCounted"    # Z
 
     .prologue
     .line 2102
@@ -457,7 +458,7 @@
     move-result-object v0
 
     .line 2120
-    .local v0, s1:Ljava/lang/String;
+    .local v0, "s1":Ljava/lang/String;
     iget-boolean v3, p0, Landroid/net/wifi/WifiManager$MulticastLock;->mHeld:Z
 
     if-eqz v3, :cond_0
@@ -465,7 +466,7 @@
     const-string v1, "held; "
 
     .line 2121
-    .local v1, s2:Ljava/lang/String;
+    .local v1, "s2":Ljava/lang/String;
     :goto_0
     iget-boolean v3, p0, Landroid/net/wifi/WifiManager$MulticastLock;->mRefCounted:Z
 
@@ -493,7 +494,7 @@
     move-result-object v2
 
     .line 2126
-    .local v2, s3:Ljava/lang/String;
+    .local v2, "s3":Ljava/lang/String;
     :goto_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -538,25 +539,25 @@
     return-object v3
 
     .line 2120
-    .end local v1           #s2:Ljava/lang/String;
-    .end local v2           #s3:Ljava/lang/String;
+    .end local v1    # "s2":Ljava/lang/String;
+    .end local v2    # "s3":Ljava/lang/String;
     :cond_0
     const-string v1, ""
 
     goto :goto_0
 
     .line 2124
-    .restart local v1       #s2:Ljava/lang/String;
+    .restart local v1    # "s2":Ljava/lang/String;
     :cond_1
     const-string/jumbo v2, "not refcounted"
 
-    .restart local v2       #s3:Ljava/lang/String;
+    .restart local v2    # "s3":Ljava/lang/String;
     goto :goto_1
 
     .line 2127
-    .end local v0           #s1:Ljava/lang/String;
-    .end local v1           #s2:Ljava/lang/String;
-    .end local v2           #s3:Ljava/lang/String;
+    .end local v0    # "s1":Ljava/lang/String;
+    .end local v1    # "s2":Ljava/lang/String;
+    .end local v2    # "s3":Ljava/lang/String;
     :catchall_0
     move-exception v3
 

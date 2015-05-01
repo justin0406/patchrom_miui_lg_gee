@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/bluetooth/BluetoothHealthCallback;)V
     .locals 0
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/bluetooth/BluetoothHealthCallback;
 
     .prologue
     .line 426
@@ -38,8 +38,8 @@
 # virtual methods
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
     .locals 1
-    .parameter "config"
-    .parameter "status"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "status"    # I
 
     .prologue
     .line 433
@@ -53,12 +53,12 @@
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
     .locals 7
-    .parameter "config"
-    .parameter "device"
-    .parameter "prevState"
-    .parameter "newState"
-    .parameter "fd"
-    .parameter "channelId"
+    .param p1, "config"    # Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .param p2, "device"    # Landroid/bluetooth/BluetoothDevice;
+    .param p3, "prevState"    # I
+    .param p4, "newState"    # I
+    .param p5, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p6, "channelId"    # I
 
     .prologue
     .line 440

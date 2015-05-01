@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(Landroid/accounts/Account;I)V
     .locals 0
-    .parameter "account"
-    .parameter "userId"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
 
     .prologue
     .line 28
@@ -33,7 +33,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -65,7 +65,7 @@
     check-cast v0, Landroid/accounts/AccountAndUser;
 
     .line 37
-    .local v0, other:Landroid/accounts/AccountAndUser;
+    .local v0, "other":Landroid/accounts/AccountAndUser;
     iget-object v3, p0, Landroid/accounts/AccountAndUser;->account:Landroid/accounts/Account;
 
     iget-object v4, v0, Landroid/accounts/AccountAndUser;->account:Landroid/accounts/Account;

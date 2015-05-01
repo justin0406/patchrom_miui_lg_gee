@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, -0x1
@@ -69,8 +69,8 @@
 # virtual methods
 .method protected createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
     .locals 3
-    .parameter "context"
-    .parameter "format"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 95
@@ -183,8 +183,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 2
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     const/4 v1, 0x0
@@ -195,7 +195,7 @@
     move-result-object v0
 
     .line 89
-    .local v0, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "outputFormat":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {v0, v1, v1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 90
@@ -204,7 +204,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 9
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v8, -0x1
@@ -217,7 +217,7 @@
     move-result-object v2
 
     .line 116
-    .local v2, imageFrame:Landroid/filterfw/core/Frame;
+    .local v2, "imageFrame":Landroid/filterfw/core/Frame;
     const-string v6, "box"
 
     invoke-virtual {p0, v6}, Landroid/filterpacks/imageproc/CropFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
@@ -225,7 +225,7 @@
     move-result-object v1
 
     .line 118
-    .local v1, boxFrame:Landroid/filterfw/core/Frame;
+    .local v1, "boxFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v6
@@ -240,7 +240,7 @@
     check-cast v0, Landroid/filterfw/geometry/Quad;
 
     .line 124
-    .local v0, box:Landroid/filterfw/geometry/Quad;
+    .local v0, "box":Landroid/filterfw/geometry/Quad;
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v6
@@ -250,7 +250,7 @@
     move-result-object v4
 
     .line 125
-    .local v4, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v4, "outputFormat":Landroid/filterfw/core/MutableFrameFormat;
     iget v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputWidth:I
 
     if-ne v6, v8, :cond_1
@@ -281,7 +281,7 @@
     move-result-object v3
 
     .line 132
-    .local v3, output:Landroid/filterfw/core/Frame;
+    .local v3, "output":Landroid/filterfw/core/Frame;
     iget-object v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
     instance-of v6, v6, Landroid/filterfw/core/ShaderProgram;
@@ -294,11 +294,11 @@
     check-cast v5, Landroid/filterfw/core/ShaderProgram;
 
     .line 134
-    .local v5, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v5, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     invoke-virtual {v5, v0}, Landroid/filterfw/core/ShaderProgram;->setSourceRegion(Landroid/filterfw/geometry/Quad;)V
 
     .line 137
-    .end local v5           #shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .end local v5    # "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     :cond_0
     iget-object v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
@@ -316,7 +316,7 @@
     return-void
 
     .line 125
-    .end local v3           #output:Landroid/filterfw/core/Frame;
+    .end local v3    # "output":Landroid/filterfw/core/Frame;
     :cond_1
     iget v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputWidth:I
 

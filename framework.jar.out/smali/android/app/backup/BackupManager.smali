@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 79
@@ -58,7 +58,7 @@
 
 .method public static dataChanged(Ljava/lang/String;)V
     .locals 3
-    .parameter "packageName"
+    .param p0, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 112
@@ -87,7 +87,7 @@
     move-exception v0
 
     .line 117
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BackupManager"
 
     const-string v2, "dataChanged(pkg) couldn\'t connect"
@@ -107,7 +107,7 @@
     const/4 v2, 0x0
 
     .line 170
-    .local v2, session:Landroid/app/backup/RestoreSession;
+    .local v2, "session":Landroid/app/backup/RestoreSession;
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
     .line 171
@@ -128,7 +128,7 @@
     move-result-object v0
 
     .line 175
-    .local v0, binder:Landroid/app/backup/IRestoreSession;
+    .local v0, "binder":Landroid/app/backup/IRestoreSession;
     if-eqz v0, :cond_0
 
     .line 176
@@ -140,14 +140,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v2           #session:Landroid/app/backup/RestoreSession;
-    .local v3, session:Landroid/app/backup/RestoreSession;
+    .end local v2    # "session":Landroid/app/backup/RestoreSession;
+    .local v3, "session":Landroid/app/backup/RestoreSession;
     move-object v2, v3
 
     .line 182
-    .end local v0           #binder:Landroid/app/backup/IRestoreSession;
-    .end local v3           #session:Landroid/app/backup/RestoreSession;
-    .restart local v2       #session:Landroid/app/backup/RestoreSession;
+    .end local v0    # "binder":Landroid/app/backup/IRestoreSession;
+    .end local v3    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v2    # "session":Landroid/app/backup/RestoreSession;
     :cond_0
     :goto_0
     return-object v2
@@ -157,7 +157,7 @@
     move-exception v1
 
     .line 179
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v4, "BackupManager"
 
     const-string v5, "beginRestoreSession() couldn\'t connect"
@@ -203,7 +203,7 @@
     move-exception v0
 
     .line 95
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BackupManager"
 
     const-string v2, "dataChanged() couldn\'t connect"
@@ -215,14 +215,14 @@
 
 .method public requestRestore(Landroid/app/backup/RestoreObserver;)I
     .locals 8
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/app/backup/RestoreObserver;
 
     .prologue
     .line 141
     const/4 v2, -0x1
 
     .line 142
-    .local v2, result:I
+    .local v2, "result":I
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
     .line 143
@@ -234,7 +234,7 @@
     const/4 v3, 0x0
 
     .line 146
-    .local v3, session:Landroid/app/backup/RestoreSession;
+    .local v3, "session":Landroid/app/backup/RestoreSession;
     :try_start_0
     sget-object v5, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -251,7 +251,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, binder:Landroid/app/backup/IRestoreSession;
+    .local v0, "binder":Landroid/app/backup/IRestoreSession;
     if-eqz v0, :cond_0
 
     .line 149
@@ -261,12 +261,12 @@
 
     invoke-direct {v4, v5, v0}, Landroid/app/backup/RestoreSession;-><init>(Landroid/content/Context;Landroid/app/backup/IRestoreSession;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 150
-    .end local v3           #session:Landroid/app/backup/RestoreSession;
-    .local v4, session:Landroid/app/backup/RestoreSession;
+    .end local v3    # "session":Landroid/app/backup/RestoreSession;
+    .local v4, "session":Landroid/app/backup/RestoreSession;
     :try_start_1
     iget-object v5, p0, Landroid/app/backup/BackupManager;->mContext:Landroid/content/Context;
 
@@ -276,16 +276,16 @@
 
     invoke-virtual {v4, v5, p1}, Landroid/app/backup/RestoreSession;->restorePackage(Ljava/lang/String;Landroid/app/backup/RestoreObserver;)I
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result v2
 
     move-object v3, v4
 
     .line 155
-    .end local v4           #session:Landroid/app/backup/RestoreSession;
-    .restart local v3       #session:Landroid/app/backup/RestoreSession;
+    .end local v4    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v3    # "session":Landroid/app/backup/RestoreSession;
     :cond_0
     if-eqz v3, :cond_1
 
@@ -293,19 +293,19 @@
     invoke-virtual {v3}, Landroid/app/backup/RestoreSession;->endRestoreSession()V
 
     .line 160
-    .end local v0           #binder:Landroid/app/backup/IRestoreSession;
-    .end local v3           #session:Landroid/app/backup/RestoreSession;
+    .end local v0    # "binder":Landroid/app/backup/IRestoreSession;
+    .end local v3    # "session":Landroid/app/backup/RestoreSession;
     :cond_1
     :goto_0
     return v2
 
     .line 152
-    .restart local v3       #session:Landroid/app/backup/RestoreSession;
+    .restart local v3    # "session":Landroid/app/backup/RestoreSession;
     :catch_0
     move-exception v1
 
     .line 153
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     :goto_1
     :try_start_2
     const-string v5, "BackupManager"
@@ -325,7 +325,7 @@
     goto :goto_0
 
     .line 155
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v5
 
@@ -339,27 +339,27 @@
     throw v5
 
     .line 155
-    .end local v3           #session:Landroid/app/backup/RestoreSession;
-    .restart local v0       #binder:Landroid/app/backup/IRestoreSession;
-    .restart local v4       #session:Landroid/app/backup/RestoreSession;
+    .end local v3    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v0    # "binder":Landroid/app/backup/IRestoreSession;
+    .restart local v4    # "session":Landroid/app/backup/RestoreSession;
     :catchall_1
     move-exception v5
 
     move-object v3, v4
 
-    .end local v4           #session:Landroid/app/backup/RestoreSession;
-    .restart local v3       #session:Landroid/app/backup/RestoreSession;
+    .end local v4    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v3    # "session":Landroid/app/backup/RestoreSession;
     goto :goto_2
 
     .line 152
-    .end local v3           #session:Landroid/app/backup/RestoreSession;
-    .restart local v4       #session:Landroid/app/backup/RestoreSession;
+    .end local v3    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v4    # "session":Landroid/app/backup/RestoreSession;
     :catch_1
     move-exception v1
 
     move-object v3, v4
 
-    .end local v4           #session:Landroid/app/backup/RestoreSession;
-    .restart local v3       #session:Landroid/app/backup/RestoreSession;
+    .end local v4    # "session":Landroid/app/backup/RestoreSession;
+    .restart local v3    # "session":Landroid/app/backup/RestoreSession;
     goto :goto_1
 .end method

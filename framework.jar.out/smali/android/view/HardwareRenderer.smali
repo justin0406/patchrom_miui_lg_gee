@@ -106,7 +106,7 @@
 
 .method static beginFrame([I)V
     .locals 0
-    .parameter "size"
+    .param p0, "size"    # [I
 
     .prologue
     .line 405
@@ -118,8 +118,8 @@
 
 .method static createGlRenderer(IZ)Landroid/view/HardwareRenderer;
     .locals 3
-    .parameter "glVersion"
-    .parameter "translucent"
+    .param p0, "glVersion"    # I
+    .param p1, "translucent"    # Z
 
     .prologue
     .line 630
@@ -169,7 +169,7 @@
 
 .method public static disable(Z)V
     .locals 1
-    .parameter "system"
+    .param p0, "system"    # Z
 
     .prologue
     const/4 v0, 0x1
@@ -267,7 +267,7 @@
 
 .method public static setupDiskCache(Ljava/io/File;)V
     .locals 2
-    .parameter "cacheDir"
+    .param p0, "cacheDir"    # Ljava/io/File;
 
     .prologue
     .line 395
@@ -289,7 +289,7 @@
 
 .method static startTrimMemory(I)V
     .locals 0
-    .parameter "level"
+    .param p0, "level"    # I
 
     .prologue
     .line 659
@@ -301,7 +301,7 @@
 
 .method static trimMemory(I)V
     .locals 0
-    .parameter "level"
+    .param p0, "level"    # I
 
     .prologue
     .line 646
@@ -377,9 +377,9 @@
 
 .method initializeIfNeeded(IILandroid/view/Surface;)Z
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "surface"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -458,7 +458,7 @@
 
 .method setEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 685
@@ -473,7 +473,7 @@
 
 .method setRequested(Z)V
     .locals 0
-    .parameter "requested"
+    .param p1, "requested"    # Z
 
     .prologue
     .line 705

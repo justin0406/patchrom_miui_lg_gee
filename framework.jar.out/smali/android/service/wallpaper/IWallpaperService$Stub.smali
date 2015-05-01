@@ -48,7 +48,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/service/wallpaper/IWallpaperService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/service/wallpaper/IWallpaperService;
@@ -86,7 +86,7 @@
     :cond_1
     new-instance v0, Landroid/service/wallpaper/IWallpaperService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/service/wallpaper/IWallpaperService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -104,10 +104,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 8
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,19 +152,19 @@
     move-result-object v1
 
     .line 54
-    .local v1, _arg0:Landroid/service/wallpaper/IWallpaperConnection;
+    .local v1, "_arg0":Landroid/service/wallpaper/IWallpaperConnection;
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     .line 56
-    .local v2, _arg1:Landroid/os/IBinder;
+    .local v2, "_arg1":Landroid/os/IBinder;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 58
-    .local v3, _arg2:I
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -174,19 +174,19 @@
     move v4, v7
 
     .line 60
-    .local v4, _arg3:Z
+    .local v4, "_arg3":Z
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 62
-    .local v5, _arg4:I
+    .local v5, "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     move-object v0, p0
 
     .line 63
@@ -195,9 +195,9 @@
     goto :goto_0
 
     .line 58
-    .end local v4           #_arg3:Z
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:I
+    .end local v4    # "_arg3":Z
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":I
     :cond_0
     const/4 v4, 0x0
 

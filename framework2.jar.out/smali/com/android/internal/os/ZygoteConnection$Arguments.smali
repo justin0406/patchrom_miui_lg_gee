@@ -66,7 +66,7 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;)V
     .locals 1
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -97,7 +97,7 @@
 
 .method private parseArgs([Ljava/lang/String;)V
     .locals 12
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -109,7 +109,7 @@
     const/4 v3, 0x0
 
     .line 380
-    .local v3, curArg:I
+    .local v3, "curArg":I
     :goto_0
     array-length v9, p1
 
@@ -119,7 +119,7 @@
     aget-object v0, p1, v3
 
     .line 383
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     const-string v9, "--"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -132,7 +132,7 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 517
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :cond_0
     iget-boolean v9, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->runtimeInit:Z
 
@@ -152,7 +152,7 @@
     throw v9
 
     .line 386
-    .restart local v0       #arg:Ljava/lang/String;
+    .restart local v0    # "arg":Ljava/lang/String;
     :cond_1
     const-string v9, "--setuid="
 
@@ -513,7 +513,7 @@
     move-result-object v1
 
     .line 437
-    .local v1, capString:Ljava/lang/String;
+    .local v1, "capString":Ljava/lang/String;
     const-string v9, ","
 
     const/4 v10, 0x2
@@ -523,7 +523,7 @@
     move-result-object v2
 
     .line 439
-    .local v2, capStrings:[Ljava/lang/String;
+    .local v2, "capStrings":[Ljava/lang/String;
     array-length v9, v2
 
     const/4 v10, 0x1
@@ -586,8 +586,8 @@
     goto/16 :goto_1
 
     .line 446
-    .end local v1           #capString:Ljava/lang/String;
-    .end local v2           #capStrings:[Ljava/lang/String;
+    .end local v1    # "capString":Ljava/lang/String;
+    .end local v2    # "capStrings":[Ljava/lang/String;
     :cond_13
     const-string v9, "--rlimit="
 
@@ -617,7 +617,7 @@
     move-result-object v6
 
     .line 451
-    .local v6, limitStrings:[Ljava/lang/String;
+    .local v6, "limitStrings":[Ljava/lang/String;
     array-length v9, v6
 
     const/4 v10, 0x3
@@ -640,10 +640,10 @@
     new-array v8, v9, [I
 
     .line 457
-    .local v8, rlimitTuple:[I
+    .local v8, "rlimitTuple":[I
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_2
     array-length v9, v6
 
@@ -685,9 +685,9 @@
     goto/16 :goto_1
 
     .line 466
-    .end local v5           #i:I
-    .end local v6           #limitStrings:[Ljava/lang/String;
-    .end local v8           #rlimitTuple:[I
+    .end local v5    # "i":I
+    .end local v6    # "limitStrings":[Ljava/lang/String;
+    .end local v8    # "rlimitTuple":[I
     :cond_17
     const-string v9, "-classpath"
 
@@ -729,7 +729,7 @@
     move-exception v4
 
     .line 474
-    .local v4, ex:Ljava/lang/IndexOutOfBoundsException;
+    .local v4, "ex":Ljava/lang/IndexOutOfBoundsException;
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
     const-string v10, "-classpath requires argument"
@@ -739,7 +739,7 @@
     throw v9
 
     .line 477
-    .end local v4           #ex:Ljava/lang/IndexOutOfBoundsException;
+    .end local v4    # "ex":Ljava/lang/IndexOutOfBoundsException;
     :cond_19
     const-string v9, "--setgroups="
 
@@ -784,7 +784,7 @@
     move-result-object v7
 
     .line 486
-    .local v7, params:[Ljava/lang/String;
+    .local v7, "params":[Ljava/lang/String;
     array-length v9, v7
 
     new-array v9, v9, [I
@@ -796,7 +796,7 @@
 
     add-int/lit8 v5, v9, -0x1
 
-    .restart local v5       #i:I
+    .restart local v5    # "i":I
     :goto_3
     if-ltz v5, :cond_3
 
@@ -817,8 +817,8 @@
     goto :goto_3
 
     .line 491
-    .end local v5           #i:I
-    .end local v7           #params:[Ljava/lang/String;
+    .end local v5    # "i":I
+    .end local v7    # "params":[Ljava/lang/String;
     :cond_1b
     const-string v9, "--invoke-with"
 
@@ -860,7 +860,7 @@
     move-exception v4
 
     .line 499
-    .restart local v4       #ex:Ljava/lang/IndexOutOfBoundsException;
+    .restart local v4    # "ex":Ljava/lang/IndexOutOfBoundsException;
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
     const-string v10, "--invoke-with requires argument"
@@ -870,7 +870,7 @@
     throw v9
 
     .line 502
-    .end local v4           #ex:Ljava/lang/IndexOutOfBoundsException;
+    .end local v4    # "ex":Ljava/lang/IndexOutOfBoundsException;
     :cond_1d
     const-string v9, "--nice-name="
 
@@ -947,7 +947,7 @@
     goto/16 :goto_1
 
     .line 522
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :cond_21
     array-length v9, p1
 

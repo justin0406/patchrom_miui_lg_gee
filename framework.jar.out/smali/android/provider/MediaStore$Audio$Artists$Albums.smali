@@ -30,8 +30,8 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "artistId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "artistId"    # J
 
     .prologue
     .line 1743

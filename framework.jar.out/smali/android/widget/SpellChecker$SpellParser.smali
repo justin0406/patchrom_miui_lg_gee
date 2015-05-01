@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/SpellChecker;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 506
@@ -43,8 +42,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/SpellChecker;Landroid/widget/SpellChecker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/SpellChecker;
+    .param p2, "x1"    # Landroid/widget/SpellChecker$1;
 
     .prologue
     .line 506
@@ -55,7 +54,7 @@
 
 .method private removeRangeSpan(Landroid/text/Editable;)V
     .locals 1
-    .parameter "editable"
+    .param p1, "editable"    # Landroid/text/Editable;
 
     .prologue
     .line 544
@@ -69,9 +68,8 @@
 
 .method private removeSpansAt(Landroid/text/Editable;I[Ljava/lang/Object;)V
     .locals 5
-    .parameter "editable"
-    .parameter "offset"
-    .parameter
+    .param p1, "editable"    # Landroid/text/Editable;
+    .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -83,66 +81,66 @@
     .end annotation
 
     .prologue
-    .line 745
-    .local p3, spans:[Ljava/lang/Object;,"[TT;"
+    .line 749
+    .local p3, "spans":[Ljava/lang/Object;, "[TT;"
     array-length v2, p3
 
-    .line 746
-    .local v2, length:I
+    .line 750
+    .local v2, "length":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 747
+    .line 751
     aget-object v3, p3, v1
 
-    .line 748
-    .local v3, span:Ljava/lang/Object;,"TT;"
+    .line 752
+    .local v3, "span":Ljava/lang/Object;, "TT;"
     invoke-interface {p1, v3}, Landroid/text/Editable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v4
 
-    .line 749
-    .local v4, start:I
+    .line 753
+    .local v4, "start":I
     if-le v4, p2, :cond_1
 
-    .line 746
+    .line 750
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 750
+    .line 754
     :cond_1
     invoke-interface {p1, v3}, Landroid/text/Editable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 751
-    .local v0, end:I
+    .line 755
+    .local v0, "end":I
     if-lt v0, p2, :cond_0
 
-    .line 752
+    .line 756
     invoke-interface {p1, v3}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 754
-    .end local v0           #end:I
-    .end local v3           #span:Ljava/lang/Object;,"TT;"
-    .end local v4           #start:I
+    .line 758
+    .end local v0    # "end":I
+    .end local v3    # "span":Ljava/lang/Object;, "TT;"
+    .end local v4    # "start":I
     :cond_2
     return-void
 .end method
 
 .method private setRangeSpan(Landroid/text/Editable;II)V
     .locals 2
-    .parameter "editable"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "editable"    # Landroid/text/Editable;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 536
@@ -165,7 +163,7 @@
     .line 525
     iget-object v0, p0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
-    #getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/SpellChecker;->access$200(Landroid/widget/SpellChecker;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -206,7 +204,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$200(Landroid/widget/SpellChecker;)Landroid/widget/TextView;
 
     move-result-object v22
@@ -218,14 +216,14 @@
     check-cast v5, Landroid/text/Editable;
 
     .line 551
-    .local v5, editable:Landroid/text/Editable;
+    .local v5, "editable":Landroid/text/Editable;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mIsSentenceSpellCheckSupported:Z
+    # getter for: Landroid/widget/SpellChecker;->mIsSentenceSpellCheckSupported:Z
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$400(Landroid/widget/SpellChecker;)Z
 
     move-result v22
@@ -254,7 +252,7 @@
     move-result v16
 
     .line 560
-    .local v16, start:I
+    .local v16, "start":I
     :goto_0
     move-object/from16 v0, p0
 
@@ -269,7 +267,7 @@
     move-result v6
 
     .line 562
-    .local v6, end:I
+    .local v6, "end":I
     move/from16 v0, v16
 
     add-int/lit16 v0, v0, 0x15e
@@ -283,14 +281,14 @@
     move-result v20
 
     .line 563
-    .local v20, wordIteratorWindowEnd:I
+    .local v20, "wordIteratorWindowEnd":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -310,7 +308,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -324,7 +322,7 @@
     move-result v21
 
     .line 568
-    .local v21, wordStart:I
+    .local v21, "wordStart":I
     const/16 v22, -0x1
 
     move/from16 v0, v21
@@ -340,7 +338,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -354,7 +352,7 @@
     move-result v19
 
     .line 570
-    .local v19, wordEnd:I
+    .local v19, "wordEnd":I
     const/16 v22, -0x1
 
     move/from16 v0, v19
@@ -370,7 +368,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -399,16 +397,16 @@
 
     invoke-direct {v0, v5}, Landroid/widget/SpellChecker$SpellParser;->removeRangeSpan(Landroid/text/Editable;)V
 
-    .line 742
+    .line 746
     :goto_2
     return-void
 
     .line 557
-    .end local v6           #end:I
-    .end local v16           #start:I
-    .end local v19           #wordEnd:I
-    .end local v20           #wordIteratorWindowEnd:I
-    .end local v21           #wordStart:I
+    .end local v6    # "end":I
+    .end local v16    # "start":I
+    .end local v19    # "wordEnd":I
+    .end local v20    # "wordIteratorWindowEnd":I
+    .end local v21    # "wordStart":I
     :cond_1
     move-object/from16 v0, p0
 
@@ -422,13 +420,13 @@
 
     move-result v16
 
-    .restart local v16       #start:I
+    .restart local v16    # "start":I
     goto/16 :goto_0
 
     .line 574
-    .restart local v6       #end:I
-    .restart local v20       #wordIteratorWindowEnd:I
-    .restart local v21       #wordStart:I
+    .restart local v6    # "end":I
+    .restart local v20    # "wordIteratorWindowEnd":I
+    .restart local v21    # "wordStart":I
     :cond_2
     move-object/from16 v0, p0
 
@@ -436,7 +434,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -449,7 +447,7 @@
 
     move-result v19
 
-    .restart local v19       #wordEnd:I
+    .restart local v19    # "wordEnd":I
     goto :goto_1
 
     .line 586
@@ -473,7 +471,7 @@
     check-cast v14, [Landroid/text/style/SpellCheckSpan;
 
     .line 588
-    .local v14, spellCheckSpans:[Landroid/text/style/SpellCheckSpan;
+    .local v14, "spellCheckSpans":[Landroid/text/style/SpellCheckSpan;
     add-int/lit8 v22, v16, -0x1
 
     add-int/lit8 v23, v6, 0x1
@@ -493,22 +491,22 @@
     check-cast v17, [Landroid/text/style/SuggestionSpan;
 
     .line 591
-    .local v17, suggestionSpans:[Landroid/text/style/SuggestionSpan;
+    .local v17, "suggestionSpans":[Landroid/text/style/SuggestionSpan;
     const/16 v18, 0x0
 
     .line 592
-    .local v18, wordCount:I
+    .local v18, "wordCount":I
     const/4 v9, 0x0
 
     .line 594
-    .local v9, scheduleOtherSpellCheck:Z
+    .local v9, "scheduleOtherSpellCheck":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mIsSentenceSpellCheckSupported:Z
+    # getter for: Landroid/widget/SpellChecker;->mIsSentenceSpellCheckSupported:Z
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$400(Landroid/widget/SpellChecker;)Z
 
     move-result v22
@@ -531,7 +529,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -545,7 +543,7 @@
     move-result v12
 
     .line 603
-    .local v12, spellCheckEnd:I
+    .local v12, "spellCheckEnd":I
     const/16 v22, -0x1
 
     move/from16 v0, v22
@@ -555,7 +553,7 @@
     const/4 v3, 0x1
 
     .line 604
-    .local v3, correct:Z
+    .local v3, "correct":Z
     :goto_3
     if-eqz v3, :cond_5
 
@@ -566,7 +564,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -599,14 +597,14 @@
     goto/16 :goto_2
 
     .line 603
-    .end local v3           #correct:Z
+    .end local v3    # "correct":Z
     :cond_6
     const/4 v3, 0x0
 
     goto :goto_3
 
     .line 606
-    .restart local v3       #correct:Z
+    .restart local v3    # "correct":Z
     :cond_7
     const/4 v3, 0x0
 
@@ -617,14 +615,14 @@
     move/from16 v15, v21
 
     .line 618
-    .local v15, spellCheckStart:I
+    .local v15, "spellCheckStart":I
     const/4 v4, 0x1
 
     .line 620
-    .local v4, createSpellCheckSpan:Z
+    .local v4, "createSpellCheckSpan":Z
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_5
     move-object/from16 v0, p0
 
@@ -632,7 +630,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mLength:I
+    # getter for: Landroid/widget/SpellChecker;->mLength:I
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$600(Landroid/widget/SpellChecker;)I
 
     move-result v22
@@ -648,7 +646,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mSpellCheckSpans:[Landroid/text/style/SpellCheckSpan;
+    # getter for: Landroid/widget/SpellChecker;->mSpellCheckSpans:[Landroid/text/style/SpellCheckSpan;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$700(Landroid/widget/SpellChecker;)[Landroid/text/style/SpellCheckSpan;
 
     move-result-object v22
@@ -656,14 +654,14 @@
     aget-object v13, v22, v7
 
     .line 622
-    .local v13, spellCheckSpan:Landroid/text/style/SpellCheckSpan;
+    .local v13, "spellCheckSpan":Landroid/text/style/SpellCheckSpan;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mIds:[I
+    # getter for: Landroid/widget/SpellChecker;->mIds:[I
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$800(Landroid/widget/SpellChecker;)[I
 
     move-result-object v22
@@ -692,13 +690,13 @@
     move-result v11
 
     .line 626
-    .local v11, spanStart:I
+    .local v11, "spanStart":I
     invoke-interface {v5, v13}, Landroid/text/Editable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v10
 
     .line 627
-    .local v10, spanEnd:I
+    .local v10, "spanEnd":I
     if-lt v10, v15, :cond_9
 
     if-lt v12, v11, :cond_9
@@ -712,9 +710,9 @@
     const/4 v4, 0x0
 
     .line 654
-    .end local v10           #spanEnd:I
-    .end local v11           #spanStart:I
-    .end local v13           #spellCheckSpan:Landroid/text/style/SpellCheckSpan;
+    .end local v10    # "spanEnd":I
+    .end local v11    # "spanStart":I
+    .end local v13    # "spellCheckSpan":Landroid/text/style/SpellCheckSpan;
     :cond_b
     move/from16 v0, v16
 
@@ -726,14 +724,18 @@
     move/from16 v21, v12
 
     .line 734
-    .end local v3           #correct:Z
-    .end local v4           #createSpellCheckSpan:Z
-    .end local v7           #i:I
-    .end local v12           #spellCheckEnd:I
-    .end local v15           #spellCheckStart:I
+    .end local v3    # "correct":Z
+    .end local v4    # "createSpellCheckSpan":Z
+    .end local v7    # "i":I
+    .end local v12    # "spellCheckEnd":I
+    .end local v15    # "spellCheckStart":I
     :cond_d
     :goto_8
     if-eqz v9, :cond_1d
+
+    move/from16 v0, v21
+
+    if-gt v0, v6, :cond_1d
 
     .line 736
     move-object/from16 v0, p0
@@ -742,7 +744,7 @@
 
     invoke-direct {v0, v5, v1, v6}, Landroid/widget/SpellChecker$SpellParser;->setRangeSpan(Landroid/text/Editable;II)V
 
-    .line 741
+    .line 745
     :goto_9
     move-object/from16 v0, p0
 
@@ -750,20 +752,20 @@
 
     move-object/from16 v22, v0
 
-    #calls: Landroid/widget/SpellChecker;->spellCheck()V
+    # invokes: Landroid/widget/SpellChecker;->spellCheck()V
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$1000(Landroid/widget/SpellChecker;)V
 
     goto/16 :goto_2
 
     .line 641
-    .restart local v3       #correct:Z
-    .restart local v4       #createSpellCheckSpan:Z
-    .restart local v7       #i:I
-    .restart local v10       #spanEnd:I
-    .restart local v11       #spanStart:I
-    .restart local v12       #spellCheckEnd:I
-    .restart local v13       #spellCheckSpan:Landroid/text/style/SpellCheckSpan;
-    .restart local v15       #spellCheckStart:I
+    .restart local v3    # "correct":Z
+    .restart local v4    # "createSpellCheckSpan":Z
+    .restart local v7    # "i":I
+    .restart local v10    # "spanEnd":I
+    .restart local v11    # "spanStart":I
+    .restart local v12    # "spellCheckEnd":I
+    .restart local v13    # "spellCheckSpan":Landroid/text/style/SpellCheckSpan;
+    .restart local v15    # "spellCheckStart":I
     :cond_e
     invoke-interface {v5, v13}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
 
@@ -780,13 +782,14 @@
     goto :goto_6
 
     .line 657
-    .end local v10           #spanEnd:I
-    .end local v11           #spanStart:I
-    .end local v13           #spellCheckSpan:Landroid/text/style/SpellCheckSpan;
+    .end local v10    # "spanEnd":I
+    .end local v11    # "spanStart":I
+    .end local v13    # "spellCheckSpan":Landroid/text/style/SpellCheckSpan;
     :cond_f
     if-gt v12, v15, :cond_10
 
     .line 658
+    # getter for: Landroid/widget/SpellChecker;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/widget/SpellChecker;->access$300()Ljava/lang/String;
 
     move-result-object v22
@@ -842,17 +845,17 @@
 
     move-object/from16 v0, v22
 
-    #calls: Landroid/widget/SpellChecker;->addSpellCheckSpan(Landroid/text/Editable;II)V
+    # invokes: Landroid/widget/SpellChecker;->addSpellCheckSpan(Landroid/text/Editable;II)V
     invoke-static {v0, v5, v15, v12}, Landroid/widget/SpellChecker;->access$900(Landroid/widget/SpellChecker;Landroid/text/Editable;II)V
 
     goto :goto_7
 
     .line 668
-    .end local v3           #correct:Z
-    .end local v4           #createSpellCheckSpan:Z
-    .end local v7           #i:I
-    .end local v12           #spellCheckEnd:I
-    .end local v15           #spellCheckStart:I
+    .end local v3    # "correct":Z
+    .end local v4    # "createSpellCheckSpan":Z
+    .end local v7    # "i":I
+    .end local v12    # "spellCheckEnd":I
+    .end local v15    # "spellCheckStart":I
     :cond_11
     move/from16 v0, v21
 
@@ -943,7 +946,7 @@
     const/4 v4, 0x1
 
     .line 689
-    .restart local v4       #createSpellCheckSpan:Z
+    .restart local v4    # "createSpellCheckSpan":Z
     move/from16 v0, v19
 
     move/from16 v1, v16
@@ -953,7 +956,7 @@
     .line 690
     const/4 v7, 0x0
 
-    .restart local v7       #i:I
+    .restart local v7    # "i":I
     :goto_a
     array-length v0, v14
 
@@ -973,7 +976,7 @@
     move-result v10
 
     .line 692
-    .restart local v10       #spanEnd:I
+    .restart local v10    # "spanEnd":I
     move/from16 v0, v16
 
     if-ne v10, v0, :cond_1b
@@ -982,8 +985,8 @@
     const/4 v4, 0x0
 
     .line 699
-    .end local v7           #i:I
-    .end local v10           #spanEnd:I
+    .end local v7    # "i":I
+    .end local v10    # "spanEnd":I
     :cond_15
     move/from16 v0, v21
 
@@ -992,7 +995,7 @@
     .line 700
     const/4 v7, 0x0
 
-    .restart local v7       #i:I
+    .restart local v7    # "i":I
     :goto_b
     array-length v0, v14
 
@@ -1012,15 +1015,15 @@
     move-result v11
 
     .line 702
-    .restart local v11       #spanStart:I
+    .restart local v11    # "spanStart":I
     if-ne v11, v6, :cond_1c
 
     .line 703
     const/4 v4, 0x0
 
     .line 709
-    .end local v7           #i:I
-    .end local v11           #spanStart:I
+    .end local v7    # "i":I
+    .end local v11    # "spanStart":I
     :cond_16
     if-eqz v4, :cond_17
 
@@ -1037,7 +1040,7 @@
 
     move/from16 v2, v19
 
-    #calls: Landroid/widget/SpellChecker;->addSpellCheckSpan(Landroid/text/Editable;II)V
+    # invokes: Landroid/widget/SpellChecker;->addSpellCheckSpan(Landroid/text/Editable;II)V
     invoke-static {v0, v5, v1, v2}, Landroid/widget/SpellChecker;->access$900(Landroid/widget/SpellChecker;Landroid/text/Editable;II)V
 
     .line 712
@@ -1045,19 +1048,19 @@
     add-int/lit8 v18, v18, 0x1
 
     .line 716
-    .end local v4           #createSpellCheckSpan:Z
+    .end local v4    # "createSpellCheckSpan":Z
     :cond_18
     move/from16 v8, v19
 
     .line 717
-    .local v8, originalWordEnd:I
+    .local v8, "originalWordEnd":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -1108,7 +1111,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -1126,7 +1129,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -1154,7 +1157,7 @@
 
     move-object/from16 v22, v0
 
-    #getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
+    # getter for: Landroid/widget/SpellChecker;->mWordIterator:Landroid/text/method/WordIterator;
     invoke-static/range {v22 .. v22}, Landroid/widget/SpellChecker;->access$500(Landroid/widget/SpellChecker;)Landroid/text/method/WordIterator;
 
     move-result-object v22
@@ -1179,27 +1182,27 @@
     goto/16 :goto_8
 
     .line 690
-    .end local v8           #originalWordEnd:I
-    .restart local v4       #createSpellCheckSpan:Z
-    .restart local v7       #i:I
-    .restart local v10       #spanEnd:I
+    .end local v8    # "originalWordEnd":I
+    .restart local v4    # "createSpellCheckSpan":Z
+    .restart local v7    # "i":I
+    .restart local v10    # "spanEnd":I
     :cond_1b
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_a
 
     .line 700
-    .end local v10           #spanEnd:I
-    .restart local v11       #spanStart:I
+    .end local v10    # "spanEnd":I
+    .restart local v11    # "spanStart":I
     :cond_1c
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_b
 
-    .line 738
-    .end local v4           #createSpellCheckSpan:Z
-    .end local v7           #i:I
-    .end local v11           #spanStart:I
+    .line 742
+    .end local v4    # "createSpellCheckSpan":Z
+    .end local v7    # "i":I
+    .end local v11    # "spanStart":I
     :cond_1d
     move-object/from16 v0, p0
 
@@ -1210,14 +1213,14 @@
 
 .method public parse(II)V
     .locals 5
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 510
     iget-object v2, p0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
-    #getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/SpellChecker;->access$200(Landroid/widget/SpellChecker;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -1227,10 +1230,11 @@
     move-result v0
 
     .line 512
-    .local v0, max:I
+    .local v0, "max":I
     if-le p2, v0, :cond_1
 
     .line 513
+    # getter for: Landroid/widget/SpellChecker;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/widget/SpellChecker;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -1269,14 +1273,14 @@
     move v1, v0
 
     .line 518
-    .local v1, parseEnd:I
+    .local v1, "parseEnd":I
     :goto_0
     if-le v1, p1, :cond_0
 
     .line 519
     iget-object v2, p0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
-    #getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/SpellChecker;->access$200(Landroid/widget/SpellChecker;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -1297,11 +1301,11 @@
     return-void
 
     .line 516
-    .end local v1           #parseEnd:I
+    .end local v1    # "parseEnd":I
     :cond_1
     move v1, p2
 
-    .restart local v1       #parseEnd:I
+    .restart local v1    # "parseEnd":I
     goto :goto_0
 .end method
 
@@ -1312,7 +1316,7 @@
     .line 529
     iget-object v0, p0, Landroid/widget/SpellChecker$SpellParser;->this$0:Landroid/widget/SpellChecker;
 
-    #getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/SpellChecker;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/SpellChecker;->access$200(Landroid/widget/SpellChecker;)Landroid/widget/TextView;
 
     move-result-object v0

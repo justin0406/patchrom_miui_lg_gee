@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 325
@@ -51,7 +51,7 @@
 
 .method public checkRestrictionsChallenge(Ljava/lang/String;)I
     .locals 6
-    .parameter "pin"
+    .param p1, "pin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 716
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 719
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -100,7 +100,7 @@
     move-result v2
 
     .line 726
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 727
@@ -110,7 +110,7 @@
     return v2
 
     .line 726
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -124,8 +124,8 @@
 
 .method public createUser(Ljava/lang/String;I)Landroid/content/pm/UserInfo;
     .locals 6
-    .parameter "name"
-    .parameter "flags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -139,13 +139,13 @@
     move-result-object v0
 
     .line 339
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 342
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -188,7 +188,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 355
-    .local v2, _result:Landroid/content/pm/UserInfo;
+    .local v2, "_result":Landroid/content/pm/UserInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -199,15 +199,15 @@
     return-object v2
 
     .line 351
-    .end local v2           #_result:Landroid/content/pm/UserInfo;
+    .end local v2    # "_result":Landroid/content/pm/UserInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/pm/UserInfo;
+    .restart local v2    # "_result":Landroid/content/pm/UserInfo;
     goto :goto_0
 
     .line 355
-    .end local v2           #_result:Landroid/content/pm/UserInfo;
+    .end local v2    # "_result":Landroid/content/pm/UserInfo;
     :catchall_0
     move-exception v3
 
@@ -221,7 +221,7 @@
 
 .method public getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 6
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -235,13 +235,13 @@
     move-result-object v0
 
     .line 651
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 654
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -281,7 +281,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 666
-    .local v2, _result:Landroid/os/Bundle;
+    .local v2, "_result":Landroid/os/Bundle;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -292,15 +292,15 @@
     return-object v2
 
     .line 662
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Bundle;
+    .restart local v2    # "_result":Landroid/os/Bundle;
     goto :goto_0
 
     .line 666
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 
@@ -314,8 +314,8 @@
 
 .method public getApplicationRestrictionsForUser(Ljava/lang/String;I)Landroid/os/Bundle;
     .locals 6
-    .parameter "packageName"
-    .parameter "userHandle"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -329,13 +329,13 @@
     move-result-object v0
 
     .line 674
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 677
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -378,7 +378,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 690
-    .local v2, _result:Landroid/os/Bundle;
+    .local v2, "_result":Landroid/os/Bundle;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -389,15 +389,15 @@
     return-object v2
 
     .line 686
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Bundle;
+    .restart local v2    # "_result":Landroid/os/Bundle;
     goto :goto_0
 
     .line 690
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 
@@ -421,7 +421,7 @@
 
 .method public getUserHandle(I)I
     .locals 6
-    .parameter "userSerialNumber"
+    .param p1, "userSerialNumber"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -435,13 +435,13 @@
     move-result-object v0
 
     .line 565
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 568
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -470,7 +470,7 @@
     move-result v2
 
     .line 575
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 576
@@ -480,7 +480,7 @@
     return v2
 
     .line 575
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -494,7 +494,7 @@
 
 .method public getUserIcon(I)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -508,13 +508,13 @@
     move-result-object v0
 
     .line 419
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 422
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -554,7 +554,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 434
-    .local v2, _result:Landroid/graphics/Bitmap;
+    .local v2, "_result":Landroid/graphics/Bitmap;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -565,15 +565,15 @@
     return-object v2
 
     .line 430
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/graphics/Bitmap;
+    .restart local v2    # "_result":Landroid/graphics/Bitmap;
     goto :goto_0
 
     .line 434
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception v3
 
@@ -587,7 +587,7 @@
 
 .method public getUserInfo(I)Landroid/content/pm/UserInfo;
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -601,13 +601,13 @@
     move-result-object v0
 
     .line 460
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 463
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -647,7 +647,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 475
-    .local v2, _result:Landroid/content/pm/UserInfo;
+    .local v2, "_result":Landroid/content/pm/UserInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -658,15 +658,15 @@
     return-object v2
 
     .line 471
-    .end local v2           #_result:Landroid/content/pm/UserInfo;
+    .end local v2    # "_result":Landroid/content/pm/UserInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/pm/UserInfo;
+    .restart local v2    # "_result":Landroid/content/pm/UserInfo;
     goto :goto_0
 
     .line 475
-    .end local v2           #_result:Landroid/content/pm/UserInfo;
+    .end local v2    # "_result":Landroid/content/pm/UserInfo;
     :catchall_0
     move-exception v3
 
@@ -680,7 +680,7 @@
 
 .method public getUserRestrictions(I)Landroid/os/Bundle;
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -694,13 +694,13 @@
     move-result-object v0
 
     .line 583
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 586
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -740,7 +740,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 598
-    .local v2, _result:Landroid/os/Bundle;
+    .local v2, "_result":Landroid/os/Bundle;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -751,15 +751,15 @@
     return-object v2
 
     .line 594
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Bundle;
+    .restart local v2    # "_result":Landroid/os/Bundle;
     goto :goto_0
 
     .line 598
-    .end local v2           #_result:Landroid/os/Bundle;
+    .end local v2    # "_result":Landroid/os/Bundle;
     :catchall_0
     move-exception v3
 
@@ -773,7 +773,7 @@
 
 .method public getUserSerialNumber(I)I
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -787,13 +787,13 @@
     move-result-object v0
 
     .line 547
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 550
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -822,7 +822,7 @@
     move-result v2
 
     .line 557
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 558
@@ -832,7 +832,7 @@
     return v2
 
     .line 557
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -846,7 +846,7 @@
 
 .method public getUsers(Z)Ljava/util/List;
     .locals 6
-    .parameter "excludeDying"
+    .param p1, "excludeDying"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -872,13 +872,13 @@
     move-result-object v0
 
     .line 442
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 445
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.os.IUserManager"
 
@@ -914,7 +914,7 @@
     move-result-object v2
 
     .line 452
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 453
@@ -924,7 +924,7 @@
     return-object v2
 
     .line 452
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -953,13 +953,13 @@
     move-result-object v0
 
     .line 734
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 737
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -989,7 +989,7 @@
     const/4 v2, 0x1
 
     .line 743
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1000,7 +1000,7 @@
     return v2
 
     .line 743
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1029,13 +1029,13 @@
     move-result-object v0
 
     .line 515
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 518
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -1065,7 +1065,7 @@
     const/4 v2, 0x1
 
     .line 524
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1076,7 +1076,7 @@
     return v2
 
     .line 524
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1105,13 +1105,13 @@
     move-result-object v0
 
     .line 483
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 486
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -1141,7 +1141,7 @@
     const/4 v2, 0x1
 
     .line 492
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1152,7 +1152,7 @@
     return v2
 
     .line 492
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1179,13 +1179,13 @@
     move-result-object v0
 
     .line 751
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 753
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 
@@ -1228,7 +1228,7 @@
 
 .method public removeUser(I)Z
     .locals 6
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1244,13 +1244,13 @@
     move-result-object v0
 
     .line 363
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 366
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -1283,7 +1283,7 @@
     const/4 v2, 0x1
 
     .line 373
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1294,7 +1294,7 @@
     return v2
 
     .line 373
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1308,9 +1308,9 @@
 
 .method public setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;I)V
     .locals 5
-    .parameter "packageName"
-    .parameter "restrictions"
-    .parameter "userHandle"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "restrictions"    # Landroid/os/Bundle;
+    .param p3, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1324,13 +1324,13 @@
     move-result-object v0
 
     .line 628
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 630
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 
@@ -1404,7 +1404,7 @@
 
 .method public setGuestEnabled(Z)V
     .locals 5
-    .parameter "enable"
+    .param p1, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1420,13 +1420,13 @@
     move-result-object v0
 
     .line 500
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 502
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -1477,7 +1477,7 @@
 
 .method public setRestrictionsChallenge(Ljava/lang/String;)Z
     .locals 6
-    .parameter "newPin"
+    .param p1, "newPin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1493,13 +1493,13 @@
     move-result-object v0
 
     .line 698
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 701
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IUserManager"
 
@@ -1532,7 +1532,7 @@
     const/4 v2, 0x1
 
     .line 708
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1543,7 +1543,7 @@
     return v2
 
     .line 708
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1557,8 +1557,8 @@
 
 .method public setUserIcon(ILandroid/graphics/Bitmap;)V
     .locals 5
-    .parameter "userHandle"
-    .parameter "icon"
+    .param p1, "userHandle"    # I
+    .param p2, "icon"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1572,13 +1572,13 @@
     move-result-object v0
 
     .line 397
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 399
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 
@@ -1649,8 +1649,8 @@
 
 .method public setUserName(ILjava/lang/String;)V
     .locals 5
-    .parameter "userHandle"
-    .parameter "name"
+    .param p1, "userHandle"    # I
+    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1664,13 +1664,13 @@
     move-result-object v0
 
     .line 381
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 383
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 
@@ -1719,8 +1719,8 @@
 
 .method public setUserRestrictions(Landroid/os/Bundle;I)V
     .locals 5
-    .parameter "restrictions"
-    .parameter "userHandle"
+    .param p1, "restrictions"    # Landroid/os/Bundle;
+    .param p2, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1734,13 +1734,13 @@
     move-result-object v0
 
     .line 606
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 608
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 
@@ -1811,7 +1811,7 @@
 
 .method public wipeUser(I)V
     .locals 5
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1825,13 +1825,13 @@
     move-result-object v0
 
     .line 532
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 534
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IUserManager"
 

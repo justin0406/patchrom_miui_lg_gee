@@ -16,7 +16,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -81,7 +81,7 @@
 
 .method public constructor <init>(Landroid/net/LinkCapabilities;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/LinkCapabilities;
 
     .prologue
     .line 183
@@ -116,7 +116,7 @@
 
 .method static synthetic access$000(Landroid/net/LinkCapabilities;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/LinkCapabilities;
 
     .prologue
     .line 34
@@ -127,7 +127,7 @@
 
 .method public static createNeedsMap(Ljava/lang/String;)Landroid/net/LinkCapabilities;
     .locals 1
-    .parameter "applicationRole"
+    .param p0, "applicationRole"    # Ljava/lang/String;
 
     .prologue
     .line 198
@@ -140,7 +140,7 @@
 
 .method protected static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 360
@@ -169,7 +169,7 @@
 
 .method public containsKey(I)Z
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 252
@@ -188,7 +188,7 @@
 
 .method public containsValue(Ljava/lang/String;)Z
     .locals 1
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 263
@@ -239,7 +239,7 @@
 
 .method public get(I)Ljava/lang/String;
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 231
@@ -297,8 +297,8 @@
 
 .method public put(ILjava/lang/String;)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 241
@@ -338,7 +338,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 305
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     const-string/jumbo v4, "{"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -347,7 +347,7 @@
     const/4 v1, 0x1
 
     .line 307
-    .local v1, firstTime:Z
+    .local v1, "firstTime":Z
     iget-object v4, p0, Landroid/net/LinkCapabilities;->mCapabilities:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -358,7 +358,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -373,7 +373,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 308
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     if-eqz v1, :cond_0
 
     .line 309
@@ -417,7 +417,7 @@
     goto :goto_1
 
     .line 318
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     :cond_1
     const-string/jumbo v4, "}"
 
@@ -456,8 +456,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 327
@@ -480,7 +480,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -495,7 +495,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 329
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -520,7 +520,7 @@
     goto :goto_0
 
     .line 332
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     :cond_0
     return-void
 .end method

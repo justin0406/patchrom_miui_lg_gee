@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
     .locals 0
-    .parameter "_intent"
+    .param p1, "_intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1742

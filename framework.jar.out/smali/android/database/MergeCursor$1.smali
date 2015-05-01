@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/database/MergeCursor;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 27

@@ -64,12 +64,12 @@
 
 .method public constructor <init>(Landroid/view/SurfaceSession;Ljava/lang/String;IIII)V
     .locals 3
-    .parameter "s"
-    .parameter "name"
-    .parameter "w"
-    .parameter "h"
-    .parameter "format"
-    .parameter "flags"
+    .param p1, "s"    # Landroid/view/SurfaceSession;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "format"    # I
+    .param p6, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -114,7 +114,7 @@
     .line 496
     if-eqz p2, :cond_0
 
-    .end local p2
+    .end local p2    # "name":Ljava/lang/String;
     :goto_0
     iput-object p2, p0, Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;->mName:Ljava/lang/String;
 
@@ -166,7 +166,7 @@
     return-void
 
     .line 496
-    .restart local p2
+    .restart local p2    # "name":Ljava/lang/String;
     :cond_0
     const-string p2, "Not named"
 
@@ -185,10 +185,10 @@
     move-result v0
 
     .line 609
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -406,7 +406,7 @@
 
 .method public setAlpha(F)V
     .locals 3
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 504
@@ -478,7 +478,7 @@
 
 .method public setLayer(I)V
     .locals 5
-    .parameter "zorder"
+    .param p1, "zorder"    # I
 
     .prologue
     .line 514
@@ -556,7 +556,7 @@
 
     add-int/lit8 v0, v2, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -570,13 +570,13 @@
     check-cast v1, Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
 
     .line 525
-    .local v1, s:Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
+    .local v1, "s":Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
     iget v2, v1, Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;->mLayer:I
 
     if-ge v2, p1, :cond_2
 
     .line 529
-    .end local v1           #s:Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
+    .end local v1    # "s":Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
     :cond_1
     sget-object v2, Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;->sSurfaces:Ljava/util/ArrayList;
 
@@ -588,7 +588,7 @@
     return-void
 
     .line 523
-    .restart local v1       #s:Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
+    .restart local v1    # "s":Lcom/android/server/wm/WindowStateAnimator$SurfaceTrace;
     :cond_2
     add-int/lit8 v0, v0, -0x1
 
@@ -597,7 +597,7 @@
 
 .method public setLayerStack(I)V
     .locals 3
-    .parameter "layerStack"
+    .param p1, "layerStack"    # I
 
     .prologue
     .line 566
@@ -667,8 +667,8 @@
 
 .method public setPosition(FF)V
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 534
@@ -763,8 +763,8 @@
 
 .method public setSize(II)V
     .locals 3
-    .parameter "w"
-    .parameter "h"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
 
     .prologue
     .line 544
@@ -855,7 +855,7 @@
 
 .method public setWindowCrop(Landroid/graphics/Rect;)V
     .locals 3
-    .parameter "crop"
+    .param p1, "crop"    # Landroid/graphics/Rect;
 
     .prologue
     .line 554

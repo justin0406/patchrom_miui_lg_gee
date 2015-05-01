@@ -88,7 +88,7 @@
 
 .method private handleFEAT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 6
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 158
@@ -97,7 +97,7 @@
     move-result-object v3
 
     .line 163
-    .local v3, vmFeatures:[Ljava/lang/String;
+    .local v3, "vmFeatures":[Ljava/lang/String;
     array-length v4, v3
 
     sget-object v5, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
@@ -111,12 +111,12 @@
     add-int/lit8 v2, v4, 0x4
 
     .line 164
-    .local v2, size:I
+    .local v2, "size":I
     array-length v4, v3
 
     add-int/lit8 v0, v4, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -172,7 +172,7 @@
     move-result-object v1
 
     .line 170
-    .local v1, out:Ljava/nio/ByteBuffer;
+    .local v1, "out":Ljava/nio/ByteBuffer;
     sget-object v4, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -262,7 +262,7 @@
 
 .method private handleHELO(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 10
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 111
@@ -271,13 +271,13 @@
     move-result-object v1
 
     .line 113
-    .local v1, in:Ljava/nio/ByteBuffer;
+    .local v1, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v4
 
     .line 120
-    .local v4, serverProtoVers:I
+    .local v4, "serverProtoVers":I
     const-string v8, "java.vm.name"
 
     const-string v9, "?"
@@ -287,7 +287,7 @@
     move-result-object v6
 
     .line 121
-    .local v6, vmName:Ljava/lang/String;
+    .local v6, "vmName":Ljava/lang/String;
     const-string v8, "java.vm.version"
 
     const-string v9, "?"
@@ -297,7 +297,7 @@
     move-result-object v7
 
     .line 122
-    .local v7, vmVersion:Ljava/lang/String;
+    .local v7, "vmVersion":Ljava/lang/String;
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -321,13 +321,13 @@
     move-result-object v5
 
     .line 127
-    .local v5, vmIdent:Ljava/lang/String;
+    .local v5, "vmIdent":Ljava/lang/String;
     invoke-static {}, Landroid/ddm/DdmHandleAppName;->getAppName()Ljava/lang/String;
 
     move-result-object v0
 
     .line 129
-    .local v0, appName:Ljava/lang/String;
+    .local v0, "appName":Ljava/lang/String;
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v8
@@ -349,7 +349,7 @@
     move-result-object v2
 
     .line 131
-    .local v2, out:Ljava/nio/ByteBuffer;
+    .local v2, "out":Ljava/nio/ByteBuffer;
     sget-object v8, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
     invoke-virtual {v2, v8}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -401,7 +401,7 @@
     invoke-direct {v3, v8, v2}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(ILjava/nio/ByteBuffer;)V
 
     .line 146
-    .local v3, reply:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .local v3, "reply":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {}, Landroid/os/Debug;->waitingForDebugger()Z
 
     move-result v8
@@ -442,7 +442,7 @@
 
 .method public static sendWAIT(I)V
     .locals 5
-    .parameter "reason"
+    .param p0, "reason"    # I
 
     .prologue
     const/4 v4, 0x1
@@ -457,7 +457,7 @@
     aput-byte v2, v0, v3
 
     .line 190
-    .local v0, data:[B
+    .local v0, "data":[B
     new-instance v1, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v2, Landroid/ddm/DdmHandleHello;->CHUNK_WAIT:I
@@ -465,7 +465,7 @@
     invoke-direct {v1, v2, v0, v3, v4}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
     .line 191
-    .local v1, waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .local v1, "waitChunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->sendChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)V
 
     .line 192
@@ -492,14 +492,14 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 4
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 87
     iget v0, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
     .line 89
-    .local v0, type:I
+    .local v0, "type":I
     sget v1, Landroid/ddm/DdmHandleHello;->CHUNK_HELO:I
 
     if-ne v0, v1, :cond_0

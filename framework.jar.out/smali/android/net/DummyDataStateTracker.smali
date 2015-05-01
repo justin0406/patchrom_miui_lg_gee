@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "netType"
-    .parameter "tag"
+    .param p1, "netType"    # I
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -60,7 +60,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 225
@@ -74,7 +74,7 @@
 
 .method private static loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 229
@@ -88,9 +88,9 @@
 
 .method private setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "state"
-    .parameter "reason"
-    .parameter "extraInfo"
+    .param p1, "state"    # Landroid/net/NetworkInfo$DetailedState;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "extraInfo"    # Ljava/lang/String;
 
     .prologue
     .line 140
@@ -138,7 +138,7 @@
     .line 143
     iget-object v1, p0, Landroid/net/DummyDataStateTracker;->mTarget:Landroid/os/Handler;
 
-    const/high16 v2, 0x7
+    const/high16 v2, 0x70000
 
     iget-object v3, p0, Landroid/net/DummyDataStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
@@ -147,7 +147,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 145
@@ -158,7 +158,7 @@
 # virtual methods
 .method public addStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 211
@@ -180,7 +180,7 @@
 
 .method public captivePortalCheckCompleted(Z)V
     .locals 0
-    .parameter "isCaptivePortal"
+    .param p1, "isCaptivePortal"    # Z
 
     .prologue
     .line 127
@@ -189,7 +189,7 @@
 
 .method public defaultRouteSet(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 84
@@ -289,7 +289,7 @@
 
 .method public privateDnsRouteSet(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 72
@@ -340,7 +340,7 @@
 
 .method public removeStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 216
@@ -354,7 +354,7 @@
 
 .method public setDependencyMet(Z)V
     .locals 0
-    .parameter "met"
+    .param p1, "met"    # Z
 
     .prologue
     .line 207
@@ -363,7 +363,7 @@
 
 .method public setPolicyDataEnable(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 183
@@ -372,7 +372,7 @@
 
 .method public setRadio(Z)Z
     .locals 1
-    .parameter "turnOn"
+    .param p1, "turnOn"    # Z
 
     .prologue
     .line 172
@@ -383,7 +383,7 @@
 
 .method public setTeardownRequested(Z)V
     .locals 0
-    .parameter "isRequested"
+    .param p1, "isRequested"    # Z
 
     .prologue
     .line 148
@@ -395,7 +395,7 @@
 
 .method public setUserDataEnable(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 178
@@ -404,8 +404,8 @@
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 63
@@ -420,7 +420,7 @@
 
 .method public supplyMessenger(Landroid/os/Messenger;)V
     .locals 0
-    .parameter "messenger"
+    .param p1, "messenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 222
@@ -465,7 +465,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 188
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1

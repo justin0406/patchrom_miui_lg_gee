@@ -35,9 +35,8 @@
 # direct methods
 .method constructor <init>(Landroid/app/backup/RestoreSession;Landroid/content/Context;Landroid/app/backup/RestoreObserver;)V
     .locals 2
-    .parameter
-    .parameter "context"
-    .parameter "appObserver"
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "appObserver"    # Landroid/app/backup/RestoreObserver;
 
     .prologue
     .line 193
@@ -67,8 +66,8 @@
 # virtual methods
 .method public onUpdate(ILjava/lang/String;)V
     .locals 4
-    .parameter "nowBeingRestored"
-    .parameter "currentPackage"
+    .param p1, "nowBeingRestored"    # I
+    .param p2, "currentPackage"    # Ljava/lang/String;
 
     .prologue
     .line 228
@@ -92,7 +91,7 @@
 
 .method public restoreFinished(I)V
     .locals 4
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     .line 233
@@ -116,7 +115,7 @@
 
 .method public restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # [Landroid/app/backup/RestoreSet;
 
     .prologue
     .line 218
@@ -138,7 +137,7 @@
 
 .method public restoreStarting(I)V
     .locals 4
-    .parameter "numPackages"
+    .param p1, "numPackages"    # I
 
     .prologue
     .line 223

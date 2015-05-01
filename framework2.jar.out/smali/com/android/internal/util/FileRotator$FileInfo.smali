@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 403
@@ -56,7 +56,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 444
-    .local v0, name:Ljava/lang/StringBuilder;
+    .local v0, "name":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/internal/util/FileRotator$FileInfo;->prefix:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -128,7 +128,7 @@
 
 .method public parse(Ljava/lang/String;)Z
     .locals 8
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -152,7 +152,7 @@
     move-result v1
 
     .line 416
-    .local v1, dotIndex:I
+    .local v1, "dotIndex":I
     const/16 v5, 0x2d
 
     invoke-virtual {p1, v5}, Ljava/lang/String;->lastIndexOf(I)I
@@ -160,7 +160,7 @@
     move-result v0
 
     .line 419
-    .local v0, dashIndex:I
+    .local v0, "dashIndex":I
     if-eq v1, v7, :cond_0
 
     if-ne v0, v7, :cond_1
@@ -241,6 +241,6 @@
     move-exception v2
 
     .line 435
-    .local v2, e:Ljava/lang/NumberFormatException;
+    .local v2, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method

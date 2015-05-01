@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Editor$SpanController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1941
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onDeleteClick(Landroid/text/style/EasyEditSpan;)V
     .locals 5
-    .parameter "span"
+    .param p1, "span"    # Landroid/text/style/EasyEditSpan;
 
     .prologue
     .line 1944
@@ -47,7 +46,7 @@
 
     iget-object v3, v3, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -59,19 +58,19 @@
     check-cast v0, Landroid/text/Editable;
 
     .line 1945
-    .local v0, editable:Landroid/text/Editable;
+    .local v0, "editable":Landroid/text/Editable;
     invoke-interface {v0, p1}, Landroid/text/Editable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v2
 
     .line 1946
-    .local v2, start:I
+    .local v2, "start":I
     invoke-interface {v0, p1}, Landroid/text/Editable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v1
 
     .line 1947
-    .local v1, end:I
+    .local v1, "end":I
     if-ltz v2, :cond_0
 
     if-ltz v1, :cond_0
@@ -81,7 +80,7 @@
 
     const/4 v4, 0x1
 
-    #calls: Landroid/widget/Editor$SpanController;->sendEasySpanNotification(ILandroid/text/style/EasyEditSpan;)V
+    # invokes: Landroid/widget/Editor$SpanController;->sendEasySpanNotification(ILandroid/text/style/EasyEditSpan;)V
     invoke-static {v3, v4, p1}, Landroid/widget/Editor$SpanController;->access$1000(Landroid/widget/Editor$SpanController;ILandroid/text/style/EasyEditSpan;)V
 
     .line 1949
@@ -89,7 +88,7 @@
 
     iget-object v3, v3, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3

@@ -22,8 +22,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/PhoneBase;Landroid/os/Handler;)V
     .locals 4
-    .parameter "phone"
-    .parameter "handler"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 77
@@ -86,7 +86,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 82
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;->mActionFailBringUp:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -198,15 +198,15 @@
     invoke-virtual {v1, v2, v0, v3, p2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     .line 93
-    .end local v0           #filter:Landroid/content/IntentFilter;
+    .end local v0    # "filter":Landroid/content/IntentFilter;
     :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 40
@@ -217,7 +217,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;
 
     .prologue
     .line 40
@@ -228,7 +228,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;)Lcom/android/internal/telephony/dataconnection/DcFailBringUp;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;
 
     .prologue
     .line 40
@@ -239,7 +239,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;)Lcom/android/internal/telephony/PhoneBase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/dataconnection/DcTesterFailBringUpAll;
 
     .prologue
     .line 40
@@ -250,7 +250,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 106

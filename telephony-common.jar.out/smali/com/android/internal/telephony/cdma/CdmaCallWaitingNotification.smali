@@ -76,7 +76,7 @@
 
 .method public static presentationFromCLIP(I)I
     .locals 3
-    .parameter "cli"
+    .param p0, "cli"    # I
 
     .prologue
     .line 59

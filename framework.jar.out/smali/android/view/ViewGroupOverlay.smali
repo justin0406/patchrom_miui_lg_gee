@@ -6,8 +6,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 0
-    .parameter "context"
-    .parameter "hostView"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "hostView"    # Landroid/view/View;
 
     .prologue
     .line 36
@@ -21,7 +21,7 @@
 # virtual methods
 .method public add(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 63
@@ -35,7 +35,7 @@
 
 .method public remove(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 74

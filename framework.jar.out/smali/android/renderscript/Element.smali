@@ -39,8 +39,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 799
@@ -52,12 +52,12 @@
 
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;Landroid/renderscript/Element$DataKind;ZI)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
-    .parameter "dt"
-    .parameter "dk"
-    .parameter "norm"
-    .parameter "size"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "dt"    # Landroid/renderscript/Element$DataType;
+    .param p4, "dk"    # Landroid/renderscript/Element$DataKind;
+    .param p5, "norm"    # Z
+    .param p6, "size"    # I
 
     .prologue
     .line 780
@@ -125,11 +125,11 @@
 
 .method constructor <init>(ILandroid/renderscript/RenderScript;[Landroid/renderscript/Element;[Ljava/lang/String;[I)V
     .locals 4
-    .parameter "id"
-    .parameter "rs"
-    .parameter "e"
-    .parameter "n"
-    .parameter "as"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
+    .param p3, "e"    # [Landroid/renderscript/Element;
+    .param p4, "n"    # [Ljava/lang/String;
+    .param p5, "as"    # [I
 
     .prologue
     .line 763
@@ -176,7 +176,7 @@
     .line 772
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/Element;->mElements:[Landroid/renderscript/Element;
 
@@ -225,7 +225,7 @@
 
 .method public static ALLOCATION(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 413
@@ -251,7 +251,7 @@
 
 .method public static A_8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 477
@@ -279,7 +279,7 @@
 
 .method public static BOOLEAN(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 308
@@ -305,7 +305,7 @@
 
 .method public static ELEMENT(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 399
@@ -331,7 +331,7 @@
 
 .method public static F32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 385
@@ -357,7 +357,7 @@
 
 .method public static F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 519
@@ -385,7 +385,7 @@
 
 .method public static F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 526
@@ -413,7 +413,7 @@
 
 .method public static F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 533
@@ -441,7 +441,7 @@
 
 .method public static F64(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 392
@@ -467,7 +467,7 @@
 
 .method public static F64_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 540
@@ -495,7 +495,7 @@
 
 .method public static F64_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 547
@@ -523,7 +523,7 @@
 
 .method public static F64_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 554
@@ -551,7 +551,7 @@
 
 .method public static FONT(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 469
@@ -577,7 +577,7 @@
 
 .method public static I16(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 350
@@ -603,7 +603,7 @@
 
 .method public static I16_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 624
@@ -631,7 +631,7 @@
 
 .method public static I16_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 631
@@ -659,7 +659,7 @@
 
 .method public static I16_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 638
@@ -687,7 +687,7 @@
 
 .method public static I32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 364
@@ -713,7 +713,7 @@
 
 .method public static I32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 666
@@ -741,7 +741,7 @@
 
 .method public static I32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 673
@@ -769,7 +769,7 @@
 
 .method public static I32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 680
@@ -797,7 +797,7 @@
 
 .method public static I64(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 378
@@ -823,7 +823,7 @@
 
 .method public static I64_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 708
@@ -851,7 +851,7 @@
 
 .method public static I64_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 715
@@ -879,7 +879,7 @@
 
 .method public static I64_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 722
@@ -907,7 +907,7 @@
 
 .method public static I8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 336
@@ -933,7 +933,7 @@
 
 .method public static I8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 582
@@ -961,7 +961,7 @@
 
 .method public static I8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 589
@@ -989,7 +989,7 @@
 
 .method public static I8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 596
@@ -1017,7 +1017,7 @@
 
 .method public static MATRIX4X4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 745
@@ -1030,7 +1030,7 @@
 
 .method public static MATRIX_2X2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 756
@@ -1056,7 +1056,7 @@
 
 .method public static MATRIX_3X3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 749
@@ -1082,7 +1082,7 @@
 
 .method public static MATRIX_4X4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 736
@@ -1108,7 +1108,7 @@
 
 .method public static MESH(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 434
@@ -1134,7 +1134,7 @@
 
 .method public static PROGRAM_FRAGMENT(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 441
@@ -1160,7 +1160,7 @@
 
 .method public static PROGRAM_RASTER(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 455
@@ -1186,7 +1186,7 @@
 
 .method public static PROGRAM_STORE(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 462
@@ -1212,7 +1212,7 @@
 
 .method public static PROGRAM_VERTEX(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 448
@@ -1238,7 +1238,7 @@
 
 .method public static RGBA_4444(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 505
@@ -1266,7 +1266,7 @@
 
 .method public static RGBA_5551(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 498
@@ -1294,7 +1294,7 @@
 
 .method public static RGBA_8888(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 512
@@ -1322,7 +1322,7 @@
 
 .method public static RGB_565(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 484
@@ -1350,7 +1350,7 @@
 
 .method public static RGB_888(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 491
@@ -1378,7 +1378,7 @@
 
 .method public static SAMPLER(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 420
@@ -1404,7 +1404,7 @@
 
 .method public static SCRIPT(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 427
@@ -1430,7 +1430,7 @@
 
 .method public static TYPE(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 406
@@ -1456,7 +1456,7 @@
 
 .method public static U16(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 343
@@ -1482,7 +1482,7 @@
 
 .method public static U16_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 603
@@ -1510,7 +1510,7 @@
 
 .method public static U16_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 610
@@ -1538,7 +1538,7 @@
 
 .method public static U16_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 617
@@ -1566,7 +1566,7 @@
 
 .method public static U32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 357
@@ -1592,7 +1592,7 @@
 
 .method public static U32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 645
@@ -1620,7 +1620,7 @@
 
 .method public static U32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 652
@@ -1648,7 +1648,7 @@
 
 .method public static U32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 659
@@ -1676,7 +1676,7 @@
 
 .method public static U64(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 371
@@ -1702,7 +1702,7 @@
 
 .method public static U64_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 687
@@ -1730,7 +1730,7 @@
 
 .method public static U64_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 694
@@ -1758,7 +1758,7 @@
 
 .method public static U64_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 701
@@ -1786,7 +1786,7 @@
 
 .method public static U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 1
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 322
@@ -1812,7 +1812,7 @@
 
 .method public static U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 561
@@ -1840,7 +1840,7 @@
 
 .method public static U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 568
@@ -1868,7 +1868,7 @@
 
 .method public static U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 575
@@ -1896,7 +1896,7 @@
 
 .method public static YUV(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 729
@@ -1924,9 +1924,9 @@
 
 .method public static createPixel(Landroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;Landroid/renderscript/Element$DataKind;)Landroid/renderscript/Element;
     .locals 7
-    .parameter "rs"
-    .parameter "dt"
-    .parameter "dk"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "dt"    # Landroid/renderscript/Element$DataType;
+    .param p2, "dk"    # Landroid/renderscript/Element$DataKind;
 
     .prologue
     .line 917
@@ -2079,7 +2079,7 @@
     const/4 v6, 0x1
 
     .line 948
-    .local v6, size:I
+    .local v6, "size":I
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
     invoke-virtual {p2}, Landroid/renderscript/Element$DataKind;->ordinal()I
@@ -2095,7 +2095,7 @@
     const/4 v5, 0x1
 
     .line 964
-    .local v5, norm:Z
+    .local v5, "norm":Z
     iget v0, p1, Landroid/renderscript/Element$DataType;->mID:I
 
     iget v2, p2, Landroid/renderscript/Element$DataKind;->mID:I
@@ -2105,7 +2105,7 @@
     move-result v1
 
     .line 965
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v0, Landroid/renderscript/Element;
 
     move-object v2, p0
@@ -2119,8 +2119,8 @@
     return-object v0
 
     .line 950
-    .end local v1           #id:I
-    .end local v5           #norm:Z
+    .end local v1    # "id":I
+    .end local v5    # "norm":Z
     :pswitch_0
     const/4 v6, 0x2
 
@@ -2159,23 +2159,23 @@
 
 .method static createUser(Landroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;)Landroid/renderscript/Element;
     .locals 7
-    .parameter "rs"
-    .parameter "dt"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "dt"    # Landroid/renderscript/Element$DataType;
 
     .prologue
     .line 853
     sget-object v4, Landroid/renderscript/Element$DataKind;->USER:Landroid/renderscript/Element$DataKind;
 
     .line 854
-    .local v4, dk:Landroid/renderscript/Element$DataKind;
+    .local v4, "dk":Landroid/renderscript/Element$DataKind;
     const/4 v5, 0x0
 
     .line 855
-    .local v5, norm:Z
+    .local v5, "norm":Z
     const/4 v6, 0x1
 
     .line 856
-    .local v6, vecSize:I
+    .local v6, "vecSize":I
     iget v0, p1, Landroid/renderscript/Element$DataType;->mID:I
 
     iget v2, v4, Landroid/renderscript/Element$DataKind;->mID:I
@@ -2185,7 +2185,7 @@
     move-result v1
 
     .line 857
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v0, Landroid/renderscript/Element;
 
     move-object v2, p0
@@ -2199,9 +2199,9 @@
 
 .method public static createVector(Landroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;I)Landroid/renderscript/Element;
     .locals 7
-    .parameter "rs"
-    .parameter "dt"
-    .parameter "size"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "dt"    # Landroid/renderscript/Element$DataType;
+    .param p2, "size"    # I
 
     .prologue
     .line 874
@@ -2249,11 +2249,11 @@
     sget-object v4, Landroid/renderscript/Element$DataKind;->USER:Landroid/renderscript/Element$DataKind;
 
     .line 892
-    .local v4, dk:Landroid/renderscript/Element$DataKind;
+    .local v4, "dk":Landroid/renderscript/Element$DataKind;
     const/4 v5, 0x0
 
     .line 893
-    .local v5, norm:Z
+    .local v5, "norm":Z
     iget v0, p1, Landroid/renderscript/Element$DataType;->mID:I
 
     iget v2, v4, Landroid/renderscript/Element$DataKind;->mID:I
@@ -2263,7 +2263,7 @@
     move-result v1
 
     .line 894
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v0, Landroid/renderscript/Element;
 
     move-object v2, p0
@@ -2317,16 +2317,16 @@
     const/4 v4, 0x0
 
     .line 76
-    .local v4, noPaddingFieldCount:I
+    .local v4, "noPaddingFieldCount":I
     iget-object v5, p0, Landroid/renderscript/Element;->mElementNames:[Ljava/lang/String;
 
     array-length v3, v5
 
     .line 78
-    .local v3, fieldCount:I
+    .local v3, "fieldCount":I
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     if-ge v0, v3, :cond_3
 
@@ -2361,11 +2361,11 @@
 
     const/4 v1, 0x0
 
-    .local v1, ctNoPadding:I
+    .local v1, "ctNoPadding":I
     move v2, v1
 
-    .end local v1           #ctNoPadding:I
-    .local v2, ctNoPadding:I
+    .end local v1    # "ctNoPadding":I
+    .local v2, "ctNoPadding":I
     :goto_1
     if-ge v0, v3, :cond_0
 
@@ -2385,8 +2385,8 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2           #ctNoPadding:I
-    .restart local v1       #ctNoPadding:I
+    .end local v2    # "ctNoPadding":I
+    .restart local v1    # "ctNoPadding":I
     aput v0, v5, v2
 
     .line 86
@@ -2395,15 +2395,15 @@
 
     move v2, v1
 
-    .end local v1           #ctNoPadding:I
-    .restart local v2       #ctNoPadding:I
+    .end local v1    # "ctNoPadding":I
+    .restart local v2    # "ctNoPadding":I
     goto :goto_1
 
     :cond_4
     move v1, v2
 
-    .end local v2           #ctNoPadding:I
-    .restart local v1       #ctNoPadding:I
+    .end local v2    # "ctNoPadding":I
+    .restart local v1    # "ctNoPadding":I
     goto :goto_2
 .end method
 
@@ -2441,7 +2441,7 @@
 
 .method public getSubElement(I)Landroid/renderscript/Element;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 228
@@ -2493,7 +2493,7 @@
 
 .method public getSubElementArraySize(I)I
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 261
@@ -2569,7 +2569,7 @@
 
 .method public getSubElementName(I)Ljava/lang/String;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 244
@@ -2621,7 +2621,7 @@
 
 .method public getSubElementOffsetBytes(I)I
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 277
@@ -2683,7 +2683,7 @@
 
 .method public isCompatible(Landroid/renderscript/Element;)Z
     .locals 3
-    .parameter "e"
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     const/4 v0, 0x1
@@ -2751,7 +2751,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_1
     iget-object v2, p0, Landroid/renderscript/Element;->mElements:[Landroid/renderscript/Element;
 
@@ -2797,7 +2797,7 @@
     new-array v1, v9, [I
 
     .line 808
-    .local v1, dataBuffer:[I
+    .local v1, "dataBuffer":[I
     iget-object v9, p0, Landroid/renderscript/Element;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v12, p0, Landroid/renderscript/Element;->mRS:Landroid/renderscript/RenderScript;
@@ -2835,20 +2835,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Landroid/renderscript/Element$DataType;
+    .local v0, "arr$":[Landroid/renderscript/Element$DataType;
     array-length v6, v0
 
-    .local v6, len$:I
+    .local v6, "len$":I
     const/4 v5, 0x0
 
-    .local v5, i$:I
+    .local v5, "i$":I
     :goto_1
     if-ge v5, v6, :cond_2
 
     aget-object v3, v0, v5
 
     .line 814
-    .local v3, dt:Landroid/renderscript/Element$DataType;
+    .local v3, "dt":Landroid/renderscript/Element$DataType;
     iget v9, v3, Landroid/renderscript/Element$DataType;->mID:I
 
     aget v12, v1, v11
@@ -2875,10 +2875,10 @@
 
     goto :goto_1
 
-    .end local v0           #arr$:[Landroid/renderscript/Element$DataType;
-    .end local v3           #dt:Landroid/renderscript/Element$DataType;
-    .end local v5           #i$:I
-    .end local v6           #len$:I
+    .end local v0    # "arr$":[Landroid/renderscript/Element$DataType;
+    .end local v3    # "dt":Landroid/renderscript/Element$DataType;
+    .end local v5    # "i$":I
+    .end local v6    # "len$":I
     :cond_1
     move v9, v11
 
@@ -2886,15 +2886,15 @@
     goto :goto_0
 
     .line 819
-    .restart local v0       #arr$:[Landroid/renderscript/Element$DataType;
-    .restart local v5       #i$:I
-    .restart local v6       #len$:I
+    .restart local v0    # "arr$":[Landroid/renderscript/Element$DataType;
+    .restart local v5    # "i$":I
+    .restart local v6    # "len$":I
     :cond_2
     invoke-static {}, Landroid/renderscript/Element$DataKind;->values()[Landroid/renderscript/Element$DataKind;
 
     move-result-object v0
 
-    .local v0, arr$:[Landroid/renderscript/Element$DataKind;
+    .local v0, "arr$":[Landroid/renderscript/Element$DataKind;
     array-length v6, v0
 
     const/4 v5, 0x0
@@ -2905,7 +2905,7 @@
     aget-object v2, v0, v5
 
     .line 820
-    .local v2, dk:Landroid/renderscript/Element$DataKind;
+    .local v2, "dk":Landroid/renderscript/Element$DataKind;
     iget v9, v2, Landroid/renderscript/Element$DataKind;->mID:I
 
     aget v11, v1, v10
@@ -2922,14 +2922,14 @@
     goto :goto_2
 
     .line 825
-    .end local v2           #dk:Landroid/renderscript/Element$DataKind;
+    .end local v2    # "dk":Landroid/renderscript/Element$DataKind;
     :cond_4
     const/4 v9, 0x4
 
     aget v7, v1, v9
 
     .line 826
-    .local v7, numSubElements:I
+    .local v7, "numSubElements":I
     if-lez v7, :cond_5
 
     .line 827
@@ -2956,7 +2956,7 @@
     new-array v8, v7, [I
 
     .line 833
-    .local v8, subElementIds:[I
+    .local v8, "subElementIds":[I
     iget-object v9, p0, Landroid/renderscript/Element;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v10, p0, Landroid/renderscript/Element;->mRS:Landroid/renderscript/RenderScript;
@@ -2974,7 +2974,7 @@
     .line 834
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_3
     if-ge v4, v7, :cond_5
 
@@ -3030,8 +3030,8 @@
     goto :goto_3
 
     .line 841
-    .end local v4           #i:I
-    .end local v8           #subElementIds:[I
+    .end local v4    # "i":I
+    .end local v8    # "subElementIds":[I
     :cond_5
     invoke-direct {p0}, Landroid/renderscript/Element;->updateVisibleSubElements()V
 

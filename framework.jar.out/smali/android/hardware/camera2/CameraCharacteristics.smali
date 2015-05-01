@@ -901,7 +901,7 @@
 
 .method public constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 0
-    .parameter "properties"
+    .param p1, "properties"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .prologue
     .line 45
@@ -916,7 +916,6 @@
 
 .method private getAvailableKeyList(Ljava/lang/Class;)Ljava/util/List;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -933,7 +932,7 @@
 
     .prologue
     .line 112
-    .local p1, metadataClass:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "metadataClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-class v0, Landroid/hardware/camera2/CameraMetadata;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -989,7 +988,6 @@
 # virtual methods
 .method public get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1002,7 +1000,7 @@
 
     .prologue
     .line 51
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics;->mProperties:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;

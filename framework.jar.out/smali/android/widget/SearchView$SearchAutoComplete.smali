@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 1655
@@ -42,8 +42,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 1660
@@ -62,9 +62,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 1665
@@ -83,7 +83,7 @@
 
 .method static synthetic access$1600(Landroid/widget/SearchView$SearchAutoComplete;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/SearchView$SearchAutoComplete;
 
     .prologue
     .line 1649
@@ -151,9 +151,9 @@
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 1
-    .parameter "focused"
-    .parameter "direction"
-    .parameter "previouslyFocusedRect"
+    .param p1, "focused"    # Z
+    .param p2, "direction"    # I
+    .param p3, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1726
@@ -170,8 +170,8 @@
 
 .method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
     .locals 4
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -200,14 +200,14 @@
     move-result-object v0
 
     .line 1746
-    .local v0, state:Landroid/view/KeyEvent$DispatcherState;
+    .local v0, "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_0
 
     .line 1747
     invoke-virtual {v0, p2, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
 
     .line 1762
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_0
     :goto_0
     return v1
@@ -226,7 +226,7 @@
     move-result-object v0
 
     .line 1752
-    .restart local v0       #state:Landroid/view/KeyEvent$DispatcherState;
+    .restart local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_2
 
     .line 1753
@@ -256,13 +256,13 @@
 
     const/4 v3, 0x0
 
-    #calls: Landroid/widget/SearchView;->setImeVisibility(Z)V
+    # invokes: Landroid/widget/SearchView;->setImeVisibility(Z)V
     invoke-static {v2, v3}, Landroid/widget/SearchView;->access$2100(Landroid/widget/SearchView;Z)V
 
     goto :goto_0
 
     .line 1762
-    .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
+    .end local v0    # "state":Landroid/view/KeyEvent$DispatcherState;
     :cond_3
     invoke-super {p0, p1, p2}, Landroid/widget/AutoCompleteTextView;->onKeyPreIme(ILandroid/view/KeyEvent;)Z
 
@@ -273,7 +273,7 @@
 
 .method public onWindowFocusChanged(Z)V
     .locals 3
-    .parameter "hasWindowFocus"
+    .param p1, "hasWindowFocus"    # Z
 
     .prologue
     .line 1710
@@ -310,7 +310,7 @@
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
     .line 1715
-    .local v0, inputManager:Landroid/view/inputmethod/InputMethodManager;
+    .local v0, "inputManager":Landroid/view/inputmethod/InputMethodManager;
     const/4 v1, 0x0
 
     invoke-virtual {v0, p0, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
@@ -332,7 +332,7 @@
     invoke-virtual {p0, v1}, Landroid/widget/SearchView$SearchAutoComplete;->ensureImeVisible(Z)V
 
     .line 1722
-    .end local v0           #inputManager:Landroid/view/inputmethod/InputMethodManager;
+    .end local v0    # "inputManager":Landroid/view/inputmethod/InputMethodManager;
     :cond_0
     return-void
 .end method
@@ -347,7 +347,7 @@
 
 .method protected replaceText(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1692
@@ -356,7 +356,7 @@
 
 .method setSearchView(Landroid/widget/SearchView;)V
     .locals 0
-    .parameter "searchView"
+    .param p1, "searchView"    # Landroid/widget/SearchView;
 
     .prologue
     .line 1670
@@ -368,7 +368,7 @@
 
 .method public setThreshold(I)V
     .locals 0
-    .parameter "threshold"
+    .param p1, "threshold"    # I
 
     .prologue
     .line 1675

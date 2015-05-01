@@ -51,7 +51,7 @@
 
 .method public static fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
     .locals 1
-    .parameter "transport"
+    .param p0, "transport"    # Landroid/os/ICancellationSignal;
 
     .prologue
     .line 185
@@ -62,14 +62,14 @@
     .line 186
     check-cast p0, Landroid/os/CancellationSignal$Transport;
 
-    .end local p0
+    .end local p0    # "transport":Landroid/os/ICancellationSignal;
     iget-object v0, p0, Landroid/os/CancellationSignal$Transport;->mCancellationSignal:Landroid/os/CancellationSignal;
 
     .line 188
     :goto_0
     return-object v0
 
-    .restart local p0
+    .restart local p0    # "transport":Landroid/os/ICancellationSignal;
     :cond_0
     const/4 v0, 0x0
 
@@ -142,11 +142,11 @@
     iget-object v0, p0, Landroid/os/CancellationSignal;->mOnCancelListener:Landroid/os/CancellationSignal$OnCancelListener;
 
     .line 72
-    .local v0, listener:Landroid/os/CancellationSignal$OnCancelListener;
+    .local v0, "listener":Landroid/os/CancellationSignal$OnCancelListener;
     iget-object v1, p0, Landroid/os/CancellationSignal;->mRemote:Landroid/os/ICancellationSignal;
 
     .line 73
-    .local v1, remote:Landroid/os/ICancellationSignal;
+    .local v1, "remote":Landroid/os/ICancellationSignal;
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
@@ -168,8 +168,8 @@
     :try_start_2
     invoke-interface {v1}, Landroid/os/ICancellationSignal;->cancel()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 86
     :cond_2
@@ -200,8 +200,8 @@
     throw v2
 
     .line 73
-    .end local v0           #listener:Landroid/os/CancellationSignal$OnCancelListener;
-    .end local v1           #remote:Landroid/os/ICancellationSignal;
+    .end local v0    # "listener":Landroid/os/CancellationSignal$OnCancelListener;
+    .end local v1    # "remote":Landroid/os/ICancellationSignal;
     :catchall_1
     move-exception v2
 
@@ -213,8 +213,8 @@
     throw v2
 
     .line 86
-    .restart local v0       #listener:Landroid/os/CancellationSignal$OnCancelListener;
-    .restart local v1       #remote:Landroid/os/ICancellationSignal;
+    .restart local v0    # "listener":Landroid/os/CancellationSignal$OnCancelListener;
+    .restart local v1    # "remote":Landroid/os/ICancellationSignal;
     :catchall_2
     move-exception v2
 
@@ -281,7 +281,7 @@
 
 .method public setOnCancelListener(Landroid/os/CancellationSignal$OnCancelListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/os/CancellationSignal$OnCancelListener;
 
     .prologue
     .line 110
@@ -344,7 +344,7 @@
 
 .method public setRemote(Landroid/os/ICancellationSignal;)V
     .locals 1
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/ICancellationSignal;
 
     .prologue
     .line 138

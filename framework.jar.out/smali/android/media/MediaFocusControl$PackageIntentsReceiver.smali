@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 911
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/media/MediaFocusControl;Landroid/media/MediaFocusControl$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/MediaFocusControl;
+    .param p2, "x1"    # Landroid/media/MediaFocusControl$1;
 
     .prologue
     .line 911
@@ -48,8 +47,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v3, 0x0
@@ -60,7 +59,7 @@
     move-result-object v0
 
     .line 915
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -97,7 +96,7 @@
     move-result-object v1
 
     .line 920
-    .local v1, packageName:Ljava/lang/String;
+    .local v1, "packageName":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 921
@@ -105,11 +104,11 @@
 
     const/4 v3, 0x1
 
-    #calls: Landroid/media/MediaFocusControl;->cleanupMediaButtonReceiverForPackage(Ljava/lang/String;Z)V
+    # invokes: Landroid/media/MediaFocusControl;->cleanupMediaButtonReceiverForPackage(Ljava/lang/String;Z)V
     invoke-static {v2, v1, v3}, Landroid/media/MediaFocusControl;->access$2700(Landroid/media/MediaFocusControl;Ljava/lang/String;Z)V
 
     .line 931
-    .end local v1           #packageName:Ljava/lang/String;
+    .end local v1    # "packageName":Ljava/lang/String;
     :cond_1
     :goto_0
     return-void
@@ -143,13 +142,13 @@
     move-result-object v1
 
     .line 927
-    .restart local v1       #packageName:Ljava/lang/String;
+    .restart local v1    # "packageName":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 928
     iget-object v2, p0, Landroid/media/MediaFocusControl$PackageIntentsReceiver;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->cleanupMediaButtonReceiverForPackage(Ljava/lang/String;Z)V
+    # invokes: Landroid/media/MediaFocusControl;->cleanupMediaButtonReceiverForPackage(Ljava/lang/String;Z)V
     invoke-static {v2, v1, v3}, Landroid/media/MediaFocusControl;->access$2700(Landroid/media/MediaFocusControl;Ljava/lang/String;Z)V
 
     goto :goto_0

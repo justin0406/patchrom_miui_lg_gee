@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStatsSession;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/INetworkStatsSession;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/net/INetworkStatsSession$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/INetworkStatsSession$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 15
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -174,19 +174,19 @@
     check-cast v2, Landroid/net/NetworkTemplate;
 
     .line 57
-    .local v2, _arg0:Landroid/net/NetworkTemplate;
+    .local v2, "_arg0":Landroid/net/NetworkTemplate;
     :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     .line 59
-    .local v3, _arg1:J
+    .local v3, "_arg1":J
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v5
 
-    .local v5, _arg2:J
+    .local v5, "_arg2":J
     move-object v1, p0
 
     .line 60
@@ -195,7 +195,7 @@
     move-result-object v14
 
     .line 61
-    .local v14, _result:Landroid/net/NetworkStats;
+    .local v14, "_result":Landroid/net/NetworkStats;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 62
@@ -222,20 +222,20 @@
     goto :goto_0
 
     .line 54
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:J
-    .end local v5           #_arg2:J
-    .end local v14           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":J
+    .end local v5    # "_arg2":J
+    .end local v14    # "_result":Landroid/net/NetworkStats;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_1
 
     .line 67
-    .restart local v3       #_arg1:J
-    .restart local v5       #_arg2:J
-    .restart local v14       #_result:Landroid/net/NetworkStats;
+    .restart local v3    # "_arg1":J
+    .restart local v5    # "_arg2":J
+    .restart local v14    # "_result":Landroid/net/NetworkStats;
     :cond_1
     const/4 v1, 0x0
 
@@ -246,10 +246,10 @@
     goto :goto_2
 
     .line 73
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:J
-    .end local v5           #_arg2:J
-    .end local v14           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":J
+    .end local v5    # "_arg2":J
+    .end local v14    # "_result":Landroid/net/NetworkStats;
     :sswitch_2
     const-string v1, "android.net.INetworkStatsSession"
 
@@ -276,20 +276,20 @@
     check-cast v2, Landroid/net/NetworkTemplate;
 
     .line 82
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 83
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/net/INetworkStatsSession$Stub;->getHistoryForNetwork(Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
 
     move-result-object v14
 
     .line 84
-    .local v14, _result:Landroid/net/NetworkStatsHistory;
+    .local v14, "_result":Landroid/net/NetworkStatsHistory;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 85
@@ -316,18 +316,18 @@
     goto :goto_0
 
     .line 79
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:I
-    .end local v14           #_result:Landroid/net/NetworkStatsHistory;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":I
+    .end local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :cond_2
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_3
 
     .line 90
-    .restart local v3       #_arg1:I
-    .restart local v14       #_result:Landroid/net/NetworkStatsHistory;
+    .restart local v3    # "_arg1":I
+    .restart local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :cond_3
     const/4 v1, 0x0
 
@@ -338,9 +338,9 @@
     goto :goto_4
 
     .line 96
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:I
-    .end local v14           #_result:Landroid/net/NetworkStatsHistory;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":I
+    .end local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :sswitch_3
     const-string v1, "android.net.INetworkStatsSession"
 
@@ -367,20 +367,20 @@
     check-cast v2, Landroid/net/NetworkTemplate;
 
     .line 105
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     :goto_5
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     .line 107
-    .local v3, _arg1:J
+    .local v3, "_arg1":J
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v5
 
     .line 109
-    .restart local v5       #_arg2:J
+    .restart local v5    # "_arg2":J
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -389,7 +389,7 @@
 
     const/4 v7, 0x1
 
-    .local v7, _arg3:Z
+    .local v7, "_arg3":Z
     :goto_6
     move-object v1, p0
 
@@ -399,7 +399,7 @@
     move-result-object v14
 
     .line 111
-    .local v14, _result:Landroid/net/NetworkStats;
+    .local v14, "_result":Landroid/net/NetworkStats;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 112
@@ -426,28 +426,28 @@
     goto/16 :goto_0
 
     .line 102
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:J
-    .end local v5           #_arg2:J
-    .end local v7           #_arg3:Z
-    .end local v14           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":J
+    .end local v5    # "_arg2":J
+    .end local v7    # "_arg3":Z
+    .end local v14    # "_result":Landroid/net/NetworkStats;
     :cond_4
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_5
 
     .line 109
-    .restart local v3       #_arg1:J
-    .restart local v5       #_arg2:J
+    .restart local v3    # "_arg1":J
+    .restart local v5    # "_arg2":J
     :cond_5
     const/4 v7, 0x0
 
     goto :goto_6
 
     .line 117
-    .restart local v7       #_arg3:Z
-    .restart local v14       #_result:Landroid/net/NetworkStats;
+    .restart local v7    # "_arg3":Z
+    .restart local v14    # "_result":Landroid/net/NetworkStats;
     :cond_6
     const/4 v1, 0x0
 
@@ -458,11 +458,11 @@
     goto :goto_7
 
     .line 123
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:J
-    .end local v5           #_arg2:J
-    .end local v7           #_arg3:Z
-    .end local v14           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":J
+    .end local v5    # "_arg2":J
+    .end local v7    # "_arg3":Z
+    .end local v14    # "_result":Landroid/net/NetworkStats;
     :sswitch_4
     const-string v1, "android.net.INetworkStatsSession"
 
@@ -489,31 +489,31 @@
     check-cast v2, Landroid/net/NetworkTemplate;
 
     .line 132
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     :goto_8
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 134
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 136
-    .local v5, _arg2:I
+    .local v5, "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 138
-    .local v7, _arg3:I
+    .local v7, "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v13
 
-    .local v13, _arg4:I
+    .local v13, "_arg4":I
     move-object v8, p0
 
     move-object v9, v2
@@ -530,7 +530,7 @@
     move-result-object v14
 
     .line 140
-    .local v14, _result:Landroid/net/NetworkStatsHistory;
+    .local v14, "_result":Landroid/net/NetworkStatsHistory;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 141
@@ -557,24 +557,24 @@
     goto/16 :goto_0
 
     .line 129
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:I
-    .end local v5           #_arg2:I
-    .end local v7           #_arg3:I
-    .end local v13           #_arg4:I
-    .end local v14           #_result:Landroid/net/NetworkStatsHistory;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":I
+    .end local v5    # "_arg2":I
+    .end local v7    # "_arg3":I
+    .end local v13    # "_arg4":I
+    .end local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :cond_7
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/net/NetworkTemplate;
+    .restart local v2    # "_arg0":Landroid/net/NetworkTemplate;
     goto :goto_8
 
     .line 146
-    .restart local v3       #_arg1:I
-    .restart local v5       #_arg2:I
-    .restart local v7       #_arg3:I
-    .restart local v13       #_arg4:I
-    .restart local v14       #_result:Landroid/net/NetworkStatsHistory;
+    .restart local v3    # "_arg1":I
+    .restart local v5    # "_arg2":I
+    .restart local v7    # "_arg3":I
+    .restart local v13    # "_arg4":I
+    .restart local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :cond_8
     const/4 v1, 0x0
 
@@ -585,12 +585,12 @@
     goto :goto_9
 
     .line 152
-    .end local v2           #_arg0:Landroid/net/NetworkTemplate;
-    .end local v3           #_arg1:I
-    .end local v5           #_arg2:I
-    .end local v7           #_arg3:I
-    .end local v13           #_arg4:I
-    .end local v14           #_result:Landroid/net/NetworkStatsHistory;
+    .end local v2    # "_arg0":Landroid/net/NetworkTemplate;
+    .end local v3    # "_arg1":I
+    .end local v5    # "_arg2":I
+    .end local v7    # "_arg3":I
+    .end local v13    # "_arg4":I
+    .end local v14    # "_result":Landroid/net/NetworkStatsHistory;
     :sswitch_5
     const-string v1, "android.net.INetworkStatsSession"
 

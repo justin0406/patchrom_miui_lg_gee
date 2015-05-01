@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -59,7 +59,6 @@
 
 .method protected constructor <init>(Ljava/util/List;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +71,7 @@
 
     .prologue
     .line 94
-    .local p1, queryList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local p1, "queryList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 95
@@ -97,7 +96,7 @@
 
 .method static bin2HexStr([B)Ljava/lang/String;
     .locals 9
-    .parameter "data"
+    .param p0, "data"    # [B
 
     .prologue
     .line 119
@@ -106,27 +105,27 @@
     invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 121
-    .local v6, sb:Ljava/lang/StringBuffer;
+    .local v6, "sb":Ljava/lang/StringBuffer;
     move-object v0, p0
 
-    .local v0, arr$:[B
+    .local v0, "arr$":[B
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-byte v1, v0, v3
 
     .line 122
-    .local v1, b:B
+    .local v1, "b":B
     const/4 v5, 0x0
 
     .line 124
-    .local v5, s:Ljava/lang/String;
+    .local v5, "s":Ljava/lang/String;
     and-int/lit16 v7, v1, 0xff
 
     :try_start_0
@@ -164,16 +163,16 @@
     move-exception v2
 
     .line 126
-    .local v2, e:Ljava/lang/Exception;
+    .local v2, "e":Ljava/lang/Exception;
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 127
     const/4 v7, 0x0
 
     .line 135
-    .end local v1           #b:B
-    .end local v2           #e:Ljava/lang/Exception;
-    .end local v5           #s:Ljava/lang/String;
+    .end local v1    # "b":B
+    .end local v2    # "e":Ljava/lang/Exception;
+    .end local v5    # "s":Ljava/lang/String;
     :goto_1
     return-object v7
 
@@ -199,7 +198,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 140
@@ -230,7 +229,7 @@
     check-cast v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;
 
     .line 148
-    .local v0, servInfo:Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;
+    .local v0, "servInfo":Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
     iget-object v2, v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
@@ -269,7 +268,7 @@
     const/16 v0, 0x11
 
     .line 154
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
     if-nez v1, :cond_0
@@ -295,8 +294,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 165

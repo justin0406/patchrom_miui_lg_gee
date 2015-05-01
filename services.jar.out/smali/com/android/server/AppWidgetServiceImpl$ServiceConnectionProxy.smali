@@ -24,8 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/util/Pair;Landroid/os/IBinder;)V
     .locals 0
-    .parameter
-    .parameter "connectionCb"
+    .param p2, "connectionCb"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,7 +40,7 @@
 
     .prologue
     .line 149
-    .local p1, key:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Landroid/content/Intent$FilterComparison;>;"
+    .local p1, "key":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Landroid/content/Intent$FilterComparison;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 150
@@ -65,7 +64,7 @@
     move-result-object v0
 
     .line 171
-    .local v0, cb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
+    .local v0, "cb":Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
     :try_start_0
     invoke-interface {v0}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection;->onServiceDisconnected()V
     :try_end_0
@@ -80,7 +79,7 @@
     move-exception v1
 
     .line 173
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -88,8 +87,8 @@
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 154
@@ -100,7 +99,7 @@
     move-result-object v0
 
     .line 157
-    .local v0, cb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
+    .local v0, "cb":Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
     :try_start_0
     invoke-interface {v0, p2}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection;->onServiceConnected(Landroid/os/IBinder;)V
     :try_end_0
@@ -115,7 +114,7 @@
     move-exception v1
 
     .line 159
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -123,7 +122,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 164

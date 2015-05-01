@@ -35,8 +35,8 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
     .locals 1
-    .parameter "rs"
-    .parameter "e"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
+    .param p2, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 239
@@ -205,7 +205,7 @@
     move-result v8
 
     .line 341
-    .local v8, id:I
+    .local v8, "id":I
     new-instance v9, Landroid/renderscript/Type;
 
     iget-object v0, p0, Landroid/renderscript/Type$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -213,7 +213,7 @@
     invoke-direct {v9, v8, v0}, Landroid/renderscript/Type;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 342
-    .local v9, t:Landroid/renderscript/Type;
+    .local v9, "t":Landroid/renderscript/Type;
     iget-object v0, p0, Landroid/renderscript/Type$Builder;->mElement:Landroid/renderscript/Element;
 
     iput-object v0, v9, Landroid/renderscript/Type;->mElement:Landroid/renderscript/Element;
@@ -257,7 +257,7 @@
 
 .method public setFaces(Z)Landroid/renderscript/Type$Builder;
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 281
@@ -269,7 +269,7 @@
 
 .method public setMipmaps(Z)Landroid/renderscript/Type$Builder;
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 276
@@ -281,7 +281,7 @@
 
 .method public setX(I)Landroid/renderscript/Type$Builder;
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 252
@@ -308,7 +308,7 @@
 
 .method public setY(I)Landroid/renderscript/Type$Builder;
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 260
@@ -335,7 +335,7 @@
 
 .method public setYuvFormat(I)Landroid/renderscript/Type$Builder;
     .locals 2
-    .parameter "yuvFormat"
+    .param p1, "yuvFormat"    # I
 
     .prologue
     .line 292
@@ -368,7 +368,7 @@
 
 .method public setZ(I)Landroid/renderscript/Type$Builder;
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 268

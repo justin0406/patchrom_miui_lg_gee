@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothGattCallback"
 
+.field static final TRANSACTION_onAdvertiseStateChange:I = 0x10
+
 .field static final TRANSACTION_onCharacteristicRead:I = 0x9
 
 .field static final TRANSACTION_onCharacteristicWrite:I = 0xa
@@ -47,8 +49,6 @@
 .field static final TRANSACTION_onGetIncludedService:I = 0x5
 
 .field static final TRANSACTION_onGetService:I = 0x4
-
-.field static final TRANSACTION_onListen:I = 0x10
 
 .field static final TRANSACTION_onNotify:I = 0xe
 
@@ -78,7 +78,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothGattCallback;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 27
@@ -100,7 +100,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/bluetooth/IBluetoothGattCallback;
@@ -116,7 +116,7 @@
     :cond_1
     new-instance v0, Landroid/bluetooth/IBluetoothGattCallback$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/bluetooth/IBluetoothGattCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -134,10 +134,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 11
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -148,7 +148,7 @@
     .line 42
     sparse-switch p1, :sswitch_data_0
 
-    .line 430
+    .line 431
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -179,13 +179,13 @@
     move-result v1
 
     .line 55
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 56
-    .local v2, _arg1:I
+    .local v2, "_arg1":I
     invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onClientRegistered(II)V
 
     .line 57
@@ -197,8 +197,8 @@
     goto :goto_0
 
     .line 62
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
     :sswitch_2
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -210,13 +210,13 @@
     move-result v1
 
     .line 66
-    .restart local v1       #_arg0:I
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 68
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -226,14 +226,14 @@
     const/4 v3, 0x1
 
     .line 70
-    .local v3, _arg2:Z
+    .local v3, "_arg2":Z
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
     .line 71
-    .local v4, _arg3:Ljava/lang/String;
+    .local v4, "_arg3":Ljava/lang/String;
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onClientConnectionState(IIZLjava/lang/String;)V
 
     .line 72
@@ -245,16 +245,16 @@
     goto :goto_0
 
     .line 68
-    .end local v3           #_arg2:Z
-    .end local v4           #_arg3:Ljava/lang/String;
+    .end local v3    # "_arg2":Z
+    .end local v4    # "_arg3":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_1
 
     .line 77
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
     :sswitch_3
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -266,19 +266,19 @@
     move-result-object v1
 
     .line 81
-    .local v1, _arg0:Ljava/lang/String;
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 83
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v3
 
     .line 84
-    .local v3, _arg2:[B
+    .local v3, "_arg2":[B
     invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onScanResult(Ljava/lang/String;I[B)V
 
     .line 85
@@ -290,9 +290,9 @@
     goto :goto_0
 
     .line 90
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:[B
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":[B
     :sswitch_4
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -304,19 +304,19 @@
     move-result-object v1
 
     .line 94
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 96
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 98
-    .local v3, _arg2:I
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -333,7 +333,7 @@
     check-cast v4, Landroid/os/ParcelUuid;
 
     .line 104
-    .local v4, _arg3:Landroid/os/ParcelUuid;
+    .local v4, "_arg3":Landroid/os/ParcelUuid;
     :goto_2
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onGetService(Ljava/lang/String;IILandroid/os/ParcelUuid;)V
 
@@ -346,18 +346,18 @@
     goto :goto_0
 
     .line 102
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
     :cond_1
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     goto :goto_2
 
     .line 110
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
     :sswitch_5
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -369,19 +369,19 @@
     move-result-object v1
 
     .line 114
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 116
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 118
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -398,20 +398,20 @@
     check-cast v4, Landroid/os/ParcelUuid;
 
     .line 125
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 127
-    .local v5, _arg4:I
+    .local v5, "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 129
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -427,7 +427,7 @@
 
     check-cast v7, Landroid/os/ParcelUuid;
 
-    .local v7, _arg6:Landroid/os/ParcelUuid;
+    .local v7, "_arg6":Landroid/os/ParcelUuid;
     :goto_4
     move-object v0, p0
 
@@ -443,33 +443,33 @@
     goto/16 :goto_0
 
     .line 122
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
     :cond_2
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     goto :goto_3
 
     .line 133
-    .restart local v5       #_arg4:I
-    .restart local v6       #_arg5:I
+    .restart local v5    # "_arg4":I
+    .restart local v6    # "_arg5":I
     :cond_3
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     goto :goto_4
 
     .line 141
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
     :sswitch_6
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -481,19 +481,19 @@
     move-result-object v1
 
     .line 145
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 147
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 149
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -510,14 +510,14 @@
     check-cast v4, Landroid/os/ParcelUuid;
 
     .line 156
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     :goto_5
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 158
-    .restart local v5       #_arg4:I
+    .restart local v5    # "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -534,13 +534,13 @@
     check-cast v6, Landroid/os/ParcelUuid;
 
     .line 165
-    .local v6, _arg5:Landroid/os/ParcelUuid;
+    .local v6, "_arg5":Landroid/os/ParcelUuid;
     :goto_6
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
-    .local v7, _arg6:I
+    .local v7, "_arg6":I
     move-object v0, p0
 
     .line 166
@@ -555,31 +555,31 @@
     goto/16 :goto_0
 
     .line 153
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
-    .end local v7           #_arg6:I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
+    .end local v7    # "_arg6":I
     :cond_4
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     goto :goto_5
 
     .line 162
-    .restart local v5       #_arg4:I
+    .restart local v5    # "_arg4":I
     :cond_5
     const/4 v6, 0x0
 
-    .restart local v6       #_arg5:Landroid/os/ParcelUuid;
+    .restart local v6    # "_arg5":Landroid/os/ParcelUuid;
     goto :goto_6
 
     .line 172
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
     :sswitch_7
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -591,19 +591,19 @@
     move-result-object v1
 
     .line 176
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 178
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 180
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -620,14 +620,14 @@
     check-cast v4, Landroid/os/ParcelUuid;
 
     .line 187
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     :goto_7
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 189
-    .restart local v5       #_arg4:I
+    .restart local v5    # "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -644,14 +644,14 @@
     check-cast v6, Landroid/os/ParcelUuid;
 
     .line 196
-    .restart local v6       #_arg5:Landroid/os/ParcelUuid;
+    .restart local v6    # "_arg5":Landroid/os/ParcelUuid;
     :goto_8
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 198
-    .restart local v7       #_arg6:I
+    .restart local v7    # "_arg6":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -667,7 +667,7 @@
 
     check-cast v8, Landroid/os/ParcelUuid;
 
-    .local v8, _arg7:Landroid/os/ParcelUuid;
+    .local v8, "_arg7":Landroid/os/ParcelUuid;
     :goto_9
     move-object v0, p0
 
@@ -683,42 +683,42 @@
     goto/16 :goto_0
 
     .line 184
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
-    .end local v7           #_arg6:I
-    .end local v8           #_arg7:Landroid/os/ParcelUuid;
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
+    .end local v7    # "_arg6":I
+    .end local v8    # "_arg7":Landroid/os/ParcelUuid;
     :cond_6
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     goto :goto_7
 
     .line 193
-    .restart local v5       #_arg4:I
+    .restart local v5    # "_arg4":I
     :cond_7
     const/4 v6, 0x0
 
-    .restart local v6       #_arg5:Landroid/os/ParcelUuid;
+    .restart local v6    # "_arg5":Landroid/os/ParcelUuid;
     goto :goto_8
 
     .line 202
-    .restart local v7       #_arg6:I
+    .restart local v7    # "_arg6":I
     :cond_8
     const/4 v8, 0x0
 
-    .restart local v8       #_arg7:Landroid/os/ParcelUuid;
+    .restart local v8    # "_arg7":Landroid/os/ParcelUuid;
     goto :goto_9
 
     .line 210
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
-    .end local v7           #_arg6:I
-    .end local v8           #_arg7:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
+    .end local v7    # "_arg6":I
+    .end local v8    # "_arg7":Landroid/os/ParcelUuid;
     :sswitch_8
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -730,13 +730,13 @@
     move-result-object v1
 
     .line 214
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 215
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onSearchComplete(Ljava/lang/String;I)V
 
     .line 216
@@ -748,8 +748,8 @@
     goto/16 :goto_0
 
     .line 221
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
     :sswitch_9
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -761,25 +761,25 @@
     move-result-object v1
 
     .line 225
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 227
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 229
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 231
-    .local v4, _arg3:I
+    .local v4, "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -796,14 +796,14 @@
     check-cast v5, Landroid/os/ParcelUuid;
 
     .line 238
-    .local v5, _arg4:Landroid/os/ParcelUuid;
+    .local v5, "_arg4":Landroid/os/ParcelUuid;
     :goto_a
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 240
-    .local v6, _arg5:I
+    .local v6, "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -820,13 +820,13 @@
     check-cast v7, Landroid/os/ParcelUuid;
 
     .line 247
-    .local v7, _arg6:Landroid/os/ParcelUuid;
+    .local v7, "_arg6":Landroid/os/ParcelUuid;
     :goto_b
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v8
 
-    .local v8, _arg7:[B
+    .local v8, "_arg7":[B
     move-object v0, p0
 
     .line 248
@@ -841,32 +841,32 @@
     goto/16 :goto_0
 
     .line 235
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
-    .end local v8           #_arg7:[B
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
+    .end local v8    # "_arg7":[B
     :cond_9
     const/4 v5, 0x0
 
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     goto :goto_a
 
     .line 244
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     :cond_a
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     goto :goto_b
 
     .line 254
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
     :sswitch_a
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -878,25 +878,25 @@
     move-result-object v1
 
     .line 258
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 260
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 262
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 264
-    .restart local v4       #_arg3:I
+    .restart local v4    # "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -913,14 +913,14 @@
     check-cast v5, Landroid/os/ParcelUuid;
 
     .line 271
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     :goto_c
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 273
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -936,7 +936,7 @@
 
     check-cast v7, Landroid/os/ParcelUuid;
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     :goto_d
     move-object v0, p0
 
@@ -952,31 +952,31 @@
     goto/16 :goto_0
 
     .line 268
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
     :cond_b
     const/4 v5, 0x0
 
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     goto :goto_c
 
     .line 277
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     :cond_c
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     goto :goto_d
 
     .line 285
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
     :sswitch_b
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -988,13 +988,13 @@
     move-result-object v1
 
     .line 289
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 290
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onExecuteWrite(Ljava/lang/String;I)V
 
     .line 291
@@ -1006,8 +1006,8 @@
     goto/16 :goto_0
 
     .line 296
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
     :sswitch_c
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -1019,25 +1019,25 @@
     move-result-object v1
 
     .line 300
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 302
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 304
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 306
-    .restart local v4       #_arg3:I
+    .restart local v4    # "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1054,14 +1054,14 @@
     check-cast v5, Landroid/os/ParcelUuid;
 
     .line 313
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     :goto_e
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 315
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1078,14 +1078,14 @@
     check-cast v7, Landroid/os/ParcelUuid;
 
     .line 322
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     :goto_f
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
     .line 324
-    .local v8, _arg7:I
+    .local v8, "_arg7":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1102,13 +1102,13 @@
     check-cast v9, Landroid/os/ParcelUuid;
 
     .line 331
-    .local v9, _arg8:Landroid/os/ParcelUuid;
+    .local v9, "_arg8":Landroid/os/ParcelUuid;
     :goto_10
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v10
 
-    .local v10, _arg9:[B
+    .local v10, "_arg9":[B
     move-object v0, p0
 
     .line 332
@@ -1123,44 +1123,44 @@
     goto/16 :goto_0
 
     .line 310
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
-    .end local v8           #_arg7:I
-    .end local v9           #_arg8:Landroid/os/ParcelUuid;
-    .end local v10           #_arg9:[B
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
+    .end local v8    # "_arg7":I
+    .end local v9    # "_arg8":Landroid/os/ParcelUuid;
+    .end local v10    # "_arg9":[B
     :cond_d
     const/4 v5, 0x0
 
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     goto :goto_e
 
     .line 319
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     :cond_e
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     goto :goto_f
 
     .line 328
-    .restart local v8       #_arg7:I
+    .restart local v8    # "_arg7":I
     :cond_f
     const/4 v9, 0x0
 
-    .restart local v9       #_arg8:Landroid/os/ParcelUuid;
+    .restart local v9    # "_arg8":Landroid/os/ParcelUuid;
     goto :goto_10
 
     .line 338
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
-    .end local v8           #_arg7:I
-    .end local v9           #_arg8:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
+    .end local v8    # "_arg7":I
+    .end local v9    # "_arg8":Landroid/os/ParcelUuid;
     :sswitch_d
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -1172,25 +1172,25 @@
     move-result-object v1
 
     .line 342
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 344
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 346
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 348
-    .restart local v4       #_arg3:I
+    .restart local v4    # "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1207,14 +1207,14 @@
     check-cast v5, Landroid/os/ParcelUuid;
 
     .line 355
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     :goto_11
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 357
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1231,14 +1231,14 @@
     check-cast v7, Landroid/os/ParcelUuid;
 
     .line 364
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     :goto_12
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
     .line 366
-    .restart local v8       #_arg7:I
+    .restart local v8    # "_arg7":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1254,7 +1254,7 @@
 
     check-cast v9, Landroid/os/ParcelUuid;
 
-    .restart local v9       #_arg8:Landroid/os/ParcelUuid;
+    .restart local v9    # "_arg8":Landroid/os/ParcelUuid;
     :goto_13
     move-object v0, p0
 
@@ -1270,43 +1270,43 @@
     goto/16 :goto_0
 
     .line 352
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
-    .end local v8           #_arg7:I
-    .end local v9           #_arg8:Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
+    .end local v8    # "_arg7":I
+    .end local v9    # "_arg8":Landroid/os/ParcelUuid;
     :cond_10
     const/4 v5, 0x0
 
-    .restart local v5       #_arg4:Landroid/os/ParcelUuid;
+    .restart local v5    # "_arg4":Landroid/os/ParcelUuid;
     goto :goto_11
 
     .line 361
-    .restart local v6       #_arg5:I
+    .restart local v6    # "_arg5":I
     :cond_11
     const/4 v7, 0x0
 
-    .restart local v7       #_arg6:Landroid/os/ParcelUuid;
+    .restart local v7    # "_arg6":Landroid/os/ParcelUuid;
     goto :goto_12
 
     .line 370
-    .restart local v8       #_arg7:I
+    .restart local v8    # "_arg7":I
     :cond_12
     const/4 v9, 0x0
 
-    .restart local v9       #_arg8:Landroid/os/ParcelUuid;
+    .restart local v9    # "_arg8":Landroid/os/ParcelUuid;
     goto :goto_13
 
     .line 378
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:Landroid/os/ParcelUuid;
-    .end local v6           #_arg5:I
-    .end local v7           #_arg6:Landroid/os/ParcelUuid;
-    .end local v8           #_arg7:I
-    .end local v9           #_arg8:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":Landroid/os/ParcelUuid;
+    .end local v6    # "_arg5":I
+    .end local v7    # "_arg6":Landroid/os/ParcelUuid;
+    .end local v8    # "_arg7":I
+    .end local v9    # "_arg8":Landroid/os/ParcelUuid;
     :sswitch_e
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -1318,19 +1318,19 @@
     move-result-object v1
 
     .line 382
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 384
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 386
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1347,14 +1347,14 @@
     check-cast v4, Landroid/os/ParcelUuid;
 
     .line 393
-    .local v4, _arg3:Landroid/os/ParcelUuid;
+    .local v4, "_arg3":Landroid/os/ParcelUuid;
     :goto_14
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 395
-    .local v5, _arg4:I
+    .local v5, "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1371,13 +1371,13 @@
     check-cast v6, Landroid/os/ParcelUuid;
 
     .line 402
-    .local v6, _arg5:Landroid/os/ParcelUuid;
+    .local v6, "_arg5":Landroid/os/ParcelUuid;
     :goto_15
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v7
 
-    .local v7, _arg6:[B
+    .local v7, "_arg6":[B
     move-object v0, p0
 
     .line 403
@@ -1392,31 +1392,31 @@
     goto/16 :goto_0
 
     .line 390
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
-    .end local v7           #_arg6:[B
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
+    .end local v7    # "_arg6":[B
     :cond_13
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/ParcelUuid;
+    .restart local v4    # "_arg3":Landroid/os/ParcelUuid;
     goto :goto_14
 
     .line 399
-    .restart local v5       #_arg4:I
+    .restart local v5    # "_arg4":I
     :cond_14
     const/4 v6, 0x0
 
-    .restart local v6       #_arg5:Landroid/os/ParcelUuid;
+    .restart local v6    # "_arg5":Landroid/os/ParcelUuid;
     goto :goto_15
 
     .line 409
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/ParcelUuid;
-    .end local v5           #_arg4:I
-    .end local v6           #_arg5:Landroid/os/ParcelUuid;
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Landroid/os/ParcelUuid;
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Landroid/os/ParcelUuid;
     :sswitch_f
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -1428,19 +1428,19 @@
     move-result-object v1
 
     .line 413
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v1    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 415
-    .restart local v2       #_arg1:I
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 416
-    .restart local v3       #_arg2:I
+    .restart local v3    # "_arg2":I
     invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onReadRemoteRssi(Ljava/lang/String;II)V
 
     .line 417
@@ -1452,9 +1452,9 @@
     goto/16 :goto_0
 
     .line 422
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
     :sswitch_10
     const-string v0, "android.bluetooth.IBluetoothGattCallback"
 
@@ -1465,19 +1465,24 @@
 
     move-result v1
 
-    .line 425
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onListen(I)V
-
     .line 426
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    .local v1, "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
 
     .line 427
+    .restart local v2    # "_arg1":I
+    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onAdvertiseStateChange(II)V
+
+    .line 428
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
     .line 42
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

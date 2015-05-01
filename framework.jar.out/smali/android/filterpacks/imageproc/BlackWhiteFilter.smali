@@ -37,7 +37,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -49,7 +49,7 @@
     iput v0, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mBlack:F
 
     .line 39
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mWhite:F
 
@@ -100,7 +100,7 @@
 
     if-eqz v3, :cond_0
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     iget v4, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mWhite:F
 
@@ -111,12 +111,12 @@
     div-float v0, v3, v4
 
     .line 122
-    .local v0, scale:F
+    .local v0, "scale":F
     :goto_0
     const v2, 0x3b808081
 
     .line 123
-    .local v2, stepsize:F
+    .local v2, "stepsize":F
     iget-object v3, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string v4, "black"
@@ -177,7 +177,7 @@
     aput v4, v1, v3
 
     .line 128
-    .local v1, seed:[F
+    .local v1, "seed":[F
     iget-object v3, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v4, "seed"
@@ -188,11 +188,11 @@
     return-void
 
     .line 121
-    .end local v0           #scale:F
-    .end local v1           #seed:[F
-    .end local v2           #stepsize:F
+    .end local v0    # "scale":F
+    .end local v1    # "seed":[F
+    .end local v2    # "stepsize":F
     :cond_0
-    const/high16 v0, 0x44fa
+    const/high16 v0, 0x44fa0000    # 2000.0f
 
     goto :goto_0
 .end method
@@ -201,8 +201,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 133
@@ -220,8 +220,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 101
@@ -230,8 +230,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 105
@@ -277,7 +277,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 108
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -305,7 +305,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 141
@@ -316,13 +316,13 @@
     move-result-object v0
 
     .line 142
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 145
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0
@@ -354,7 +354,7 @@
     move-result-object v2
 
     .line 153
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/BlackWhiteFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

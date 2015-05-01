@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .parameter "task"
+    .param p1, "task"    # Ljava/lang/Runnable;
 
     .prologue
     .line 746
@@ -43,8 +43,8 @@
 # virtual methods
 .method public postAndWait(Landroid/os/Handler;J)Z
     .locals 9
-    .parameter "handler"
-    .parameter "timeout"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "timeout"    # J
 
     .prologue
     const-wide/16 v7, 0x0
@@ -80,7 +80,7 @@
     add-long v2, v5, p2
 
     .line 770
-    .local v2, expirationTime:J
+    .local v2, "expirationTime":J
     :goto_1
     iget-boolean v5, p0, Landroid/os/Handler$BlockingRunnable;->mDone:Z
 
@@ -94,7 +94,7 @@
     sub-long v0, v2, v5
 
     .line 772
-    .local v0, delay:J
+    .local v0, "delay":J
     cmp-long v5, v0, v7
 
     if-gtz v5, :cond_1
@@ -105,8 +105,8 @@
     goto :goto_0
 
     .line 788
-    .end local v0           #delay:J
-    .end local v2           #expirationTime:J
+    .end local v0    # "delay":J
+    .end local v2    # "expirationTime":J
     :catchall_0
     move-exception v4
 
@@ -117,14 +117,14 @@
     throw v4
 
     .line 776
-    .restart local v0       #delay:J
-    .restart local v2       #expirationTime:J
+    .restart local v0    # "delay":J
+    .restart local v2    # "expirationTime":J
     :cond_1
     :try_start_1
     invoke-virtual {p0, v0, v1}, Ljava/lang/Object;->wait(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -135,8 +135,8 @@
     goto :goto_1
 
     .line 781
-    .end local v0           #delay:J
-    .end local v2           #expirationTime:J
+    .end local v0    # "delay":J
+    .end local v2    # "expirationTime":J
     :cond_2
     :goto_2
     :try_start_2
@@ -150,8 +150,8 @@
     :try_start_3
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_2
 

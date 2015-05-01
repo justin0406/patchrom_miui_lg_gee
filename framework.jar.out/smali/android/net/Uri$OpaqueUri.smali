@@ -31,9 +31,9 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$Part;)V
     .locals 1
-    .parameter "scheme"
-    .parameter "ssp"
-    .parameter "fragment"
+    .param p1, "scheme"    # Ljava/lang/String;
+    .param p2, "ssp"    # Landroid/net/Uri$Part;
+    .param p3, "fragment"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 833
@@ -42,6 +42,7 @@
     invoke-direct {p0, v0}, Landroid/net/Uri;-><init>(Landroid/net/Uri$1;)V
 
     .line 934
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -59,7 +60,7 @@
 
     sget-object p3, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
-    .end local p3
+    .end local p3    # "fragment":Landroid/net/Uri$Part;
     :cond_0
     iput-object p3, p0, Landroid/net/Uri$OpaqueUri;->fragment:Landroid/net/Uri$Part;
 
@@ -69,10 +70,10 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$Part;Landroid/net/Uri$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Landroid/net/Uri$Part;
+    .param p3, "x2"    # Landroid/net/Uri$Part;
+    .param p4, "x3"    # Landroid/net/Uri$1;
 
     .prologue
     .line 824
@@ -83,7 +84,7 @@
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
     .locals 4
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 840
@@ -140,13 +141,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 824
     check-cast p1, Landroid/net/Uri;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-super {p0, p1}, Landroid/net/Uri;->compareTo(Landroid/net/Uri;)I
 
     move-result v0
@@ -398,6 +399,7 @@
     .line 938
     iget-object v2, p0, Landroid/net/Uri$OpaqueUri;->cachedString:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -407,7 +409,7 @@
     const/4 v0, 0x1
 
     .line 939
-    .local v0, cached:Z
+    .local v0, "cached":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -419,21 +421,21 @@
     return-object v2
 
     .line 938
-    .end local v0           #cached:Z
+    .end local v0    # "cached":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 943
-    .restart local v0       #cached:Z
+    .restart local v0    # "cached":Z
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 945
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     iget-object v2, p0, Landroid/net/Uri$OpaqueUri;->scheme:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -488,8 +490,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 852

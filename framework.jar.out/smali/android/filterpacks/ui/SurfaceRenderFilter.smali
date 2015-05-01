@@ -50,7 +50,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x2
@@ -78,7 +78,7 @@
     iput v1, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mRenderMode:I
 
     .line 76
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mAspectRatio:F
 
@@ -101,9 +101,9 @@
     .prologue
     const/4 v6, 0x0
 
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     .line 242
     iget v2, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mScreenWidth:I
@@ -130,27 +130,27 @@
     div-float v1, v2, v3
 
     .line 244
-    .local v1, screenAspectRatio:F
+    .local v1, "screenAspectRatio":F
     iget v2, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mAspectRatio:F
 
     div-float v0, v1, v2
 
     .line 246
-    .local v0, relativeAspectRatio:F
+    .local v0, "relativeAspectRatio":F
     iget v2, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mRenderMode:I
 
     packed-switch v2, :pswitch_data_0
 
     .line 274
-    .end local v0           #relativeAspectRatio:F
-    .end local v1           #screenAspectRatio:F
+    .end local v0    # "relativeAspectRatio":F
+    .end local v1    # "screenAspectRatio":F
     :cond_0
     :goto_0
     return-void
 
     .line 248
-    .restart local v0       #relativeAspectRatio:F
-    .restart local v1       #screenAspectRatio:F
+    .restart local v0    # "relativeAspectRatio":F
+    .restart local v1    # "screenAspectRatio":F
     :pswitch_0
     iget-object v2, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mProgram:Landroid/filterfw/core/ShaderProgram;
 
@@ -235,7 +235,7 @@
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 206
@@ -249,8 +249,8 @@
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 0
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 201
@@ -262,7 +262,7 @@
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 141
@@ -285,12 +285,12 @@
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v5, 0x3
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
@@ -304,7 +304,7 @@
     .line 121
     iget-object v1, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mProgram:Landroid/filterfw/core/ShaderProgram;
 
-    const/high16 v2, -0x4080
+    const/high16 v2, -0x40800000    # -1.0f
 
     invoke-virtual {v1, v3, v4, v4, v2}, Landroid/filterfw/core/ShaderProgram;->setSourceRect(FFFF)V
 
@@ -341,7 +341,7 @@
     move-result-object v0
 
     .line 132
-    .local v0, screenFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "screenFormat":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v1
@@ -364,7 +364,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 10
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v9, 0x3
@@ -423,7 +423,7 @@
     move-result-object v2
 
     .line 157
-    .local v2, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v2, "glEnv":Landroid/filterfw/core/GLEnvironment;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v6
@@ -448,11 +448,11 @@
     move-result-object v4
 
     .line 164
-    .local v4, input:Landroid/filterfw/core/Frame;
+    .local v4, "input":Landroid/filterfw/core/Frame;
     const/4 v0, 0x0
 
     .line 166
-    .local v0, createdFrame:Z
+    .local v0, "createdFrame":Z
     invoke-virtual {v4}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v6
@@ -476,7 +476,7 @@
     div-float v1, v6, v7
 
     .line 167
-    .local v1, currentAspectRatio:F
+    .local v1, "currentAspectRatio":F
     iget v6, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mAspectRatio:F
 
     cmpl-float v6, v1, v6
@@ -534,7 +534,7 @@
     const/4 v3, 0x0
 
     .line 175
-    .local v3, gpuFrame:Landroid/filterfw/core/Frame;
+    .local v3, "gpuFrame":Landroid/filterfw/core/Frame;
     iget-boolean v6, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mLogVerbose:Z
 
     if-eqz v6, :cond_6
@@ -576,7 +576,7 @@
     move-result v5
 
     .line 177
-    .local v5, target:I
+    .local v5, "target":I
     if-eq v5, v9, :cond_7
 
     .line 178
@@ -662,10 +662,10 @@
 
 .method public declared-synchronized surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 5
-    .parameter "holder"
-    .parameter "format"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 228
@@ -717,7 +717,7 @@
 
 .method public declared-synchronized surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 218
@@ -746,7 +746,7 @@
 
 .method public declared-synchronized surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 238
@@ -775,7 +775,7 @@
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 211

@@ -25,10 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ProcessStatsService;Ljava/lang/String;[Landroid/os/ParcelFileDescriptor;[B)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 505
@@ -61,7 +58,7 @@
     invoke-direct {v1, v2}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
     .line 509
-    .local v1, fout:Ljava/io/FileOutputStream;
+    .local v1, "fout":Ljava/io/FileOutputStream;
     :try_start_0
     iget-object v2, p0, Lcom/android/server/am/ProcessStatsService$3;->val$outData:[B
 
@@ -81,7 +78,7 @@
     move-exception v0
 
     .line 512
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "ProcessStatsService"
 
     const-string v3, "Failure writing pipe"

@@ -6,10 +6,10 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;Ljava/lang/reflect/Field;Z)V
     .locals 0
-    .parameter "filter"
-    .parameter "name"
-    .parameter "field"
-    .parameter "hasDefault"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "field"    # Ljava/lang/reflect/Field;
+    .param p4, "hasDefault"    # Z
 
     .prologue
     .line 28
@@ -23,8 +23,8 @@
 # virtual methods
 .method protected declared-synchronized setFieldFrame(Landroid/filterfw/core/Frame;Z)V
     .locals 3
-    .parameter "frame"
-    .parameter "isAssignment"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "isAssignment"    # Z
 
     .prologue
     .line 33

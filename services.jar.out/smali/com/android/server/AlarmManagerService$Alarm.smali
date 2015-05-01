@@ -37,14 +37,14 @@
 # direct methods
 .method public constructor <init>(IJJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
     .locals 0
-    .parameter "_type"
-    .parameter "_when"
-    .parameter "_whenElapsed"
-    .parameter "_windowLength"
-    .parameter "_maxWhen"
-    .parameter "_interval"
-    .parameter "_op"
-    .parameter "_ws"
+    .param p1, "_type"    # I
+    .param p2, "_when"    # J
+    .param p4, "_whenElapsed"    # J
+    .param p6, "_windowLength"    # J
+    .param p8, "_maxWhen"    # J
+    .param p10, "_interval"    # J
+    .param p12, "_op"    # Landroid/app/PendingIntent;
+    .param p13, "_ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 1093
@@ -82,9 +82,9 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;J)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
-    .parameter "now"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
+    .param p3, "now"    # J
 
     .prologue
     .line 1119
@@ -170,7 +170,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1108
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Alarm{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

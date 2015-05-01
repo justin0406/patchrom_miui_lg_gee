@@ -71,30 +71,36 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/uicc/UiccCardApplication;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 4
-    .parameter "app"
-    .parameter "c"
-    .parameter "ci"
+    .param p1, "app"    # Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .param p2, "c"    # Landroid/content/Context;
+    .param p3, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x0
 
+    .line 101
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/telephony/uicc/IccRecords;-><init>(Lcom/android/internal/telephony/uicc/UiccCardApplication;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
 
+    .line 52
     iput-boolean v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mOtaCommited:Z
 
+    .line 61
     iput-object v3, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mEFpl:[B
 
+    .line 62
     iput-object v3, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
 
+    .line 63
     iput-boolean v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mCsimSpnDisplayCondition:Z
 
-    new-instance v0, Lcom/android/internal/telephony/uicc/MiuiAdnRecordCache;
+    .line 103
+    new-instance v0, Lcom/android/internal/telephony/uicc/AdnRecordCache;
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mFh:Lcom/android/internal/telephony/uicc/IccFileHandler;
 
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/MiuiAdnRecordCache;-><init>(Lcom/android/internal/telephony/uicc/IccFileHandler;)V
+    invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/AdnRecordCache;-><init>(Lcom/android/internal/telephony/uicc/IccFileHandler;)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mAdnCache:Lcom/android/internal/telephony/uicc/AdnRecordCache;
 
@@ -148,7 +154,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
 
     .prologue
     .line 49
@@ -159,8 +165,8 @@
 
 .method static synthetic access$002(Lcom/android/internal/telephony/uicc/RuimRecords;[B)[B
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # [B
 
     .prologue
     .line 49
@@ -171,7 +177,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/uicc/RuimRecords;)[B
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
 
     .prologue
     .line 49
@@ -182,8 +188,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/telephony/uicc/RuimRecords;[B)[B
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # [B
 
     .prologue
     .line 49
@@ -194,7 +200,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/uicc/RuimRecords;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
 
     .prologue
     .line 49
@@ -205,8 +211,8 @@
 
 .method static synthetic access$202(Lcom/android/internal/telephony/uicc/RuimRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -217,8 +223,8 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/uicc/RuimRecords;I)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # I
 
     .prologue
     .line 49
@@ -231,7 +237,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/telephony/uicc/RuimRecords;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
 
     .prologue
     .line 49
@@ -242,8 +248,8 @@
 
 .method static synthetic access$402(Lcom/android/internal/telephony/uicc/RuimRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -254,8 +260,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/telephony/uicc/RuimRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -266,8 +272,8 @@
 
 .method static synthetic access$602(Lcom/android/internal/telephony/uicc/RuimRecords;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -278,8 +284,8 @@
 
 .method static synthetic access$700(Lcom/android/internal/telephony/uicc/RuimRecords;Landroid/os/AsyncResult;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p1, "x1"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 49
@@ -290,7 +296,7 @@
 
 .method private adjstMinDigits(I)I
     .locals 1
-    .parameter "digits"
+    .param p1, "digits"    # I
 
     .prologue
     .line 198
@@ -338,10 +344,23 @@
 
     const/16 v4, 0x64
 
-    .line 664
+    iget-object v0, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mDestroyed:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_miui_0
+
+    const-string v0, "IccRecords has been disposed"
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/uicc/RuimRecords;->log(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_miui_0
     iput-boolean v3, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mRecordsRequested:Z
 
-    .line 666
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -605,7 +624,7 @@
 
 .method private findBestLanguage([B)Ljava/lang/String;
     .locals 11
-    .parameter "languages"
+    .param p1, "languages"    # [B
 
     .prologue
     const/4 v6, 0x0
@@ -616,7 +635,7 @@
     const/4 v0, 0x0
 
     .line 565
-    .local v0, bestMatch:Ljava/lang/String;
+    .local v0, "bestMatch":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
@@ -628,7 +647,7 @@
     move-result-object v5
 
     .line 567
-    .local v5, locales:[Ljava/lang/String;
+    .local v5, "locales":[Ljava/lang/String;
     if-eqz p1, :cond_0
 
     if-nez v5, :cond_2
@@ -645,7 +664,7 @@
     :cond_2
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     add-int/lit8 v7, v2, 0x1
 
@@ -664,10 +683,10 @@
     invoke-direct {v4, p1, v2, v7, v8}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
     .line 573
-    .local v4, lang:Ljava/lang/String;
+    .local v4, "lang":Ljava/lang/String;
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_2
     array-length v7, v5
 
@@ -714,8 +733,8 @@
     :cond_4
     if-eqz v0, :cond_6
 
-    .end local v3           #j:I
-    .end local v4           #lang:Ljava/lang/String;
+    .end local v3    # "j":I
+    .end local v4    # "lang":Ljava/lang/String;
     :cond_5
     move-object v4, v6
 
@@ -727,13 +746,13 @@
     move-exception v1
 
     .line 581
-    .local v1, e:Ljava/io/UnsupportedEncodingException;
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string v7, "Failed to parse SIM language records"
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/uicc/RuimRecords;->log(Ljava/lang/String;)V
 
     .line 570
-    .end local v1           #e:Ljava/io/UnsupportedEncodingException;
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
     :cond_6
     add-int/lit8 v2, v2, 0x2
 
@@ -742,7 +761,7 @@
 
 .method private handleRuimRefresh(Lcom/android/internal/telephony/uicc/IccRefreshResponse;)V
     .locals 3
-    .parameter "refreshResponse"
+    .param p1, "refreshResponse"    # Lcom/android/internal/telephony/uicc/IccRefreshResponse;
 
     .prologue
     .line 764
@@ -848,7 +867,7 @@
 
 .method private onGetCSimEprlDone(Landroid/os/AsyncResult;)V
     .locals 5
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     const/4 v4, 0x3
@@ -863,7 +882,7 @@
     check-cast v0, [B
 
     .line 429
-    .local v0, data:[B
+    .local v0, "data":[B
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -909,7 +928,7 @@
     or-int v1, v2, v3
 
     .line 434
-    .local v1, prlId:I
+    .local v1, "prlId":I
     invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v2
@@ -917,7 +936,7 @@
     iput-object v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mPrlVersion:Ljava/lang/String;
 
     .line 436
-    .end local v1           #prlId:I
+    .end local v1    # "prlId":I
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -953,7 +972,7 @@
     const/4 v2, 0x0
 
     .line 591
-    .local v2, prefLang:Ljava/lang/String;
+    .local v2, "prefLang":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mEFli:[B
 
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/uicc/RuimRecords;->findBestLanguage([B)Ljava/lang/String;
@@ -980,11 +999,11 @@
     move-result-object v1
 
     .line 600
-    .local v1, imsi:Ljava/lang/String;
+    .local v1, "imsi":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 601
-    .local v0, country:Ljava/lang/String;
+    .local v0, "country":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 602
@@ -1042,8 +1061,8 @@
     invoke-static {v3, v2, v0}, Lcom/android/internal/telephony/MccTable;->setSystemLocale(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 610
-    .end local v0           #country:Ljava/lang/String;
-    .end local v1           #imsi:Ljava/lang/String;
+    .end local v0    # "country":Ljava/lang/String;
+    .end local v1    # "imsi":Ljava/lang/String;
     :goto_0
     return-void
 
@@ -1105,9 +1124,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 835
@@ -1442,7 +1461,7 @@
 
 .method public getDisplayRule(Ljava/lang/String;)I
     .locals 1
-    .parameter "plmn"
+    .param p1, "plmn"    # Ljava/lang/String;
 
     .prologue
     .line 717
@@ -1569,7 +1588,7 @@
     move-result v0
 
     .line 224
-    .local v0, mcc:I
+    .local v0, "mcc":I
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mImsi:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/internal/telephony/MccTable;->smallestDigitsMccForMnc(I)I
@@ -1597,7 +1616,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v11, 0x6
@@ -1606,7 +1625,7 @@
     const/4 v4, 0x0
 
     .line 447
-    .local v4, isRecordLoadResponse:Z
+    .local v4, "isRecordLoadResponse":Z
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mDestroyed:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v7}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -1669,8 +1688,8 @@
     .line 550
     invoke-super {p0, p1}, Lcom/android/internal/telephony/uicc/IccRecords;->handleMessage(Landroid/os/Message;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 557
     :cond_2
@@ -1688,8 +1707,8 @@
     :try_start_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/uicc/RuimRecords;->onReady()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -1698,7 +1717,7 @@
     move-exception v3
 
     .line 554
-    .local v3, exc:Ljava/lang/RuntimeException;
+    .local v3, "exc":Ljava/lang/RuntimeException;
     :try_start_2
     const-string v7, "RuimRecords"
 
@@ -1714,15 +1733,15 @@
     goto :goto_2
 
     .line 459
-    .end local v3           #exc:Ljava/lang/RuntimeException;
+    .end local v3    # "exc":Ljava/lang/RuntimeException;
     :sswitch_1
     :try_start_3
     const-string v7, "Event EVENT_GET_DEVICE_IDENTITY_DONE Received"
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/uicc/RuimRecords;->log(Ljava/lang/String;)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
 
@@ -1750,7 +1769,7 @@
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 467
-    .local v1, ar:Landroid/os/AsyncResult;
+    .local v1, "ar":Landroid/os/AsyncResult;
     iget-object v7, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v7, :cond_4
@@ -1884,7 +1903,7 @@
     move-result-object v6
 
     .line 484
-    .local v6, operatorNumeric:Ljava/lang/String;
+    .local v6, "operatorNumeric":Ljava/lang/String;
     if-eqz v6, :cond_2
 
     .line 485
@@ -1897,20 +1916,22 @@
     .line 486
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords;->mContext:Landroid/content/Context;
 
-    invoke-static {v7, v6}, Lcom/android/internal/telephony/MccTable;->updateMccMncConfiguration(Landroid/content/Context;Ljava/lang/String;)V
+    const/4 v8, 0x0
+
+    invoke-static {v7, v6, v8}, Lcom/android/internal/telephony/MccTable;->updateMccMncConfiguration(Landroid/content/Context;Ljava/lang/String;Z)V
 
     goto/16 :goto_1
 
     .line 492
-    .end local v1           #ar:Landroid/os/AsyncResult;
-    .end local v6           #operatorNumeric:Ljava/lang/String;
+    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .end local v6    # "operatorNumeric":Ljava/lang/String;
     :sswitch_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 493
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v7, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v7, [Ljava/lang/String;
@@ -1922,7 +1943,7 @@
     move-object v5, v0
 
     .line 494
-    .local v5, localTemp:[Ljava/lang/String;
+    .local v5, "localTemp":[Ljava/lang/String;
     iget-object v7, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v7, :cond_2
@@ -1986,8 +2007,8 @@
     goto/16 :goto_1
 
     .line 507
-    .end local v1           #ar:Landroid/os/AsyncResult;
-    .end local v5           #localTemp:[Ljava/lang/String;
+    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .end local v5    # "localTemp":[Ljava/lang/String;
     :sswitch_4
     const/4 v4, 0x1
 
@@ -1997,7 +2018,7 @@
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 510
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v7, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v7, [B
@@ -2009,7 +2030,7 @@
     move-object v2, v0
 
     .line 512
-    .local v2, data:[B
+    .local v2, "data":[B
     iget-object v7, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v7, :cond_2
@@ -2051,15 +2072,15 @@
     goto/16 :goto_1
 
     .line 523
-    .end local v1           #ar:Landroid/os/AsyncResult;
-    .end local v2           #data:[B
+    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .end local v2    # "data":[B
     :sswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 524
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v7, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v7, :cond_2
@@ -2076,7 +2097,7 @@
     goto/16 :goto_1
 
     .line 533
-    .end local v1           #ar:Landroid/os/AsyncResult;
+    .end local v1    # "ar":Landroid/os/AsyncResult;
     :sswitch_6
     const-string v7, "RuimRecords"
 
@@ -2122,7 +2143,7 @@
     check-cast v1, Landroid/os/AsyncResult;
 
     .line 544
-    .restart local v1       #ar:Landroid/os/AsyncResult;
+    .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v7, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v7, :cond_2
@@ -2134,14 +2155,12 @@
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/uicc/RuimRecords;->handleRuimRefresh(Lcom/android/internal/telephony/uicc/IccRefreshResponse;)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto/16 :goto_1
 
     .line 453
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -2221,7 +2240,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 825
@@ -2253,7 +2272,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 830
@@ -2300,7 +2319,7 @@
     move-result-object v0
 
     .line 634
-    .local v0, operator:Ljava/lang/String;
+    .local v0, "operator":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -2536,8 +2555,8 @@
 
 .method public onRefresh(Z[I)V
     .locals 0
-    .parameter "fileChanged"
-    .parameter "fileList"
+    .param p1, "fileChanged"    # Z
+    .param p2, "fileList"    # [I
 
     .prologue
     .line 188
@@ -2584,9 +2603,9 @@
 
 .method public setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "alphaTag"
-    .parameter "voiceNumber"
-    .parameter "onComplete"
+    .param p1, "alphaTag"    # Ljava/lang/String;
+    .param p2, "voiceNumber"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 175
@@ -2616,8 +2635,8 @@
 
 .method public setVoiceMessageWaiting(II)V
     .locals 2
-    .parameter "line"
-    .parameter "countWaiting"
+    .param p1, "line"    # I
+    .param p2, "countWaiting"    # I
 
     .prologue
     .line 745

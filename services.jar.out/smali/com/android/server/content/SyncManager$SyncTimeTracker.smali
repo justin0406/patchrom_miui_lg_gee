@@ -27,7 +27,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 1732
@@ -50,8 +49,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/content/SyncManager;
+    .param p2, "x1"    # Lcom/android/server/content/SyncManager$1;
 
     .prologue
     .line 1732
@@ -92,7 +91,7 @@
     move-result-wide v0
 
     .line 1758
-    .local v0, now:J
+    .local v0, "now":J
     iget-wide v2, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
 
     iget-wide v4, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mWhenSyncStarted:J
@@ -106,7 +105,7 @@
     goto :goto_0
 
     .line 1755
-    .end local v0           #now:J
+    .end local v0    # "now":J
     :catchall_0
     move-exception v2
 
@@ -136,7 +135,7 @@
     const/4 v0, 0x1
 
     .line 1743
-    .local v0, isSyncInProgress:Z
+    .local v0, "isSyncInProgress":Z
     :goto_0
     iget-boolean v3, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mLastWasSyncing:Z
     :try_end_0
@@ -151,14 +150,14 @@
     return-void
 
     .line 1742
-    .end local v0           #isSyncInProgress:Z
+    .end local v0    # "isSyncInProgress":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 1744
-    .restart local v0       #isSyncInProgress:Z
+    .restart local v0    # "isSyncInProgress":Z
     :cond_1
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -166,7 +165,7 @@
     move-result-wide v1
 
     .line 1745
-    .local v1, now:J
+    .local v1, "now":J
     if-eqz v0, :cond_2
 
     .line 1746
@@ -181,8 +180,8 @@
     goto :goto_1
 
     .line 1742
-    .end local v0           #isSyncInProgress:Z
-    .end local v1           #now:J
+    .end local v0    # "isSyncInProgress":Z
+    .end local v1    # "now":J
     :catchall_0
     move-exception v3
 
@@ -191,8 +190,8 @@
     throw v3
 
     .line 1748
-    .restart local v0       #isSyncInProgress:Z
-    .restart local v1       #now:J
+    .restart local v0    # "isSyncInProgress":Z
+    .restart local v1    # "now":J
     :cond_2
     :try_start_2
     iget-wide v3, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J

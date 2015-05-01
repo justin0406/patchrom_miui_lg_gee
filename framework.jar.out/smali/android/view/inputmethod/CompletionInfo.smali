@@ -46,9 +46,9 @@
 
 .method public constructor <init>(JILjava/lang/CharSequence;)V
     .locals 1
-    .parameter "id"
-    .parameter "index"
-    .parameter "text"
+    .param p1, "id"    # J
+    .param p3, "index"    # I
+    .param p4, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 66
@@ -74,10 +74,10 @@
 
 .method public constructor <init>(JILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "id"
-    .parameter "index"
-    .parameter "text"
-    .parameter "label"
+    .param p1, "id"    # J
+    .param p3, "index"    # I
+    .param p4, "text"    # Ljava/lang/CharSequence;
+    .param p5, "label"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 87
@@ -101,7 +101,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 94
@@ -149,8 +149,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/inputmethod/CompletionInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/view/inputmethod/CompletionInfo$1;
 
     .prologue
     .line 51
@@ -283,8 +283,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 147

@@ -44,7 +44,7 @@
 
 .method private constructor <init>(Landroid/filterfw/core/NativeAllocatorTag;)V
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/filterfw/core/NativeAllocatorTag;
 
     .prologue
     .line 40
@@ -184,7 +184,7 @@
 
 .method public activateSurfaceWithId(I)V
     .locals 3
-    .parameter "surfaceId"
+    .param p1, "surfaceId"    # I
 
     .prologue
     .line 130
@@ -361,7 +361,7 @@
 
 .method public registerSurface(Landroid/view/Surface;)I
     .locals 4
-    .parameter "surface"
+    .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
     .line 103
@@ -370,7 +370,7 @@
     move-result v0
 
     .line 104
-    .local v0, result:I
+    .local v0, "result":I
     if-gez v0, :cond_0
 
     .line 105
@@ -411,7 +411,7 @@
 
 .method public registerSurfaceFromMediaRecorder(Landroid/media/MediaRecorder;)I
     .locals 4
-    .parameter "mediaRecorder"
+    .param p1, "mediaRecorder"    # Landroid/media/MediaRecorder;
 
     .prologue
     .line 121
@@ -420,7 +420,7 @@
     move-result v0
 
     .line 122
-    .local v0, result:I
+    .local v0, "result":I
     if-gez v0, :cond_0
 
     .line 123
@@ -461,9 +461,9 @@
 
 .method public registerSurfaceTexture(Landroid/graphics/SurfaceTexture;II)I
     .locals 5
-    .parameter "surfaceTexture"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     .line 111
@@ -472,13 +472,13 @@
     invoke-direct {v1, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
 
     .line 112
-    .local v1, surface:Landroid/view/Surface;
+    .local v1, "surface":Landroid/view/Surface;
     invoke-direct {p0, v1, p2, p3}, Landroid/filterfw/core/GLEnvironment;->nativeAddSurfaceWidthHeight(Landroid/view/Surface;II)I
 
     move-result v0
 
     .line 113
-    .local v0, result:I
+    .local v0, "result":I
     invoke-virtual {v1}, Landroid/view/Surface;->release()V
 
     .line 114
@@ -522,7 +522,7 @@
 
 .method public setSurfaceTimestamp(J)V
     .locals 2
-    .parameter "timestamp"
+    .param p1, "timestamp"    # J
 
     .prologue
     .line 142
@@ -612,7 +612,7 @@
 
 .method public unregisterSurfaceId(I)V
     .locals 3
-    .parameter "surfaceId"
+    .param p1, "surfaceId"    # I
 
     .prologue
     .line 136

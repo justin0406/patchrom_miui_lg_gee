@@ -71,13 +71,13 @@
 
 .field private static final GOOD_LINK_RSSI_RANGE_MIN:I = 0x3
 
-.field private static final GOOD_LINK_TARGET:[Landroid/net/wifi/WifiWatchdogStateMachine$GoodLinkTarget; = null
+.field private static final GOOD_LINK_TARGET:[Landroid/net/wifi/WifiWatchdogStateMachine$GoodLinkTarget;
 
 .field private static final LINK_MONITOR_LEVEL_THRESHOLD:I = 0x4
 
 .field private static final LINK_SAMPLING_INTERVAL_MS:J = 0x3e8L
 
-.field private static final MAX_AVOID_TIME:[Landroid/net/wifi/WifiWatchdogStateMachine$MaxAvoidTime; = null
+.field private static final MAX_AVOID_TIME:[Landroid/net/wifi/WifiWatchdogStateMachine$MaxAvoidTime;
 
 .field static final POOR_LINK_DETECTED:I = 0x21015
 
@@ -251,7 +251,7 @@
 
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v4, 0x1
@@ -494,7 +494,7 @@
 
 .method static synthetic access$000(Landroid/net/wifi/WifiWatchdogStateMachine;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -505,7 +505,7 @@
 
 .method static synthetic access$100(Landroid/net/wifi/WifiWatchdogStateMachine;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -516,7 +516,7 @@
 
 .method static synthetic access$1000(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -527,8 +527,8 @@
 
 .method static synthetic access$102(Landroid/net/wifi/WifiWatchdogStateMachine;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # I
 
     .prologue
     .line 76
@@ -539,8 +539,8 @@
 
 .method static synthetic access$1100(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -551,7 +551,7 @@
 
 .method static synthetic access$1200(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -562,8 +562,8 @@
 
 .method static synthetic access$1202(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/wifi/WifiInfo;)Landroid/net/wifi/WifiInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Landroid/net/wifi/WifiInfo;
 
     .prologue
     .line 76
@@ -574,8 +574,8 @@
 
 .method static synthetic access$1300(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -586,8 +586,8 @@
 
 .method static synthetic access$1402(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 76
@@ -598,7 +598,7 @@
 
 .method static synthetic access$1500(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -609,7 +609,7 @@
 
 .method static synthetic access$1600(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -620,8 +620,8 @@
 
 .method static synthetic access$1700(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -632,7 +632,7 @@
 
 .method static synthetic access$1800(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$VerifyingLinkState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -643,8 +643,8 @@
 
 .method static synthetic access$1900(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -655,8 +655,8 @@
 
 .method static synthetic access$200(Landroid/net/wifi/WifiWatchdogStateMachine;I)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # I
 
     .prologue
     .line 76
@@ -669,7 +669,7 @@
 
 .method static synthetic access$2000(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -680,8 +680,8 @@
 
 .method static synthetic access$2100(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -692,8 +692,8 @@
 
 .method static synthetic access$2200(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -704,7 +704,7 @@
 
 .method static synthetic access$2300(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -715,8 +715,8 @@
 
 .method static synthetic access$2400(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -727,7 +727,7 @@
 
 .method static synthetic access$2500(Landroid/net/wifi/WifiWatchdogStateMachine;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -738,7 +738,7 @@
 
 .method static synthetic access$2504(Landroid/net/wifi/WifiWatchdogStateMachine;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -753,8 +753,8 @@
 
 .method static synthetic access$2600(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -765,7 +765,7 @@
 
 .method static synthetic access$2700(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -776,7 +776,7 @@
 
 .method static synthetic access$300(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -787,8 +787,8 @@
 
 .method static synthetic access$302(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 76
@@ -799,8 +799,8 @@
 
 .method static synthetic access$3100(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -811,7 +811,7 @@
 
 .method static synthetic access$3200(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$OnlineState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -822,8 +822,8 @@
 
 .method static synthetic access$3300(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -834,8 +834,8 @@
 
 .method static synthetic access$3400(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -846,7 +846,7 @@
 
 .method static synthetic access$3500(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$LinkMonitoringState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -857,8 +857,8 @@
 
 .method static synthetic access$3600(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -869,7 +869,7 @@
 
 .method static synthetic access$3700(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -880,8 +880,8 @@
 
 .method static synthetic access$3702(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     .prologue
     .line 76
@@ -892,8 +892,8 @@
 
 .method static synthetic access$3800(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -904,8 +904,8 @@
 
 .method static synthetic access$3900(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -916,7 +916,7 @@
 
 .method static synthetic access$400(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/IState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -929,8 +929,8 @@
 
 .method static synthetic access$4000(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -941,8 +941,8 @@
 
 .method static synthetic access$4400(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -963,7 +963,7 @@
 
 .method static synthetic access$4802([D)[D
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # [D
 
     .prologue
     .line 76
@@ -984,8 +984,8 @@
 
 .method static synthetic access$500(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -1006,7 +1006,7 @@
 
 .method static synthetic access$600(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -1019,7 +1019,7 @@
 
 .method static synthetic access$700(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$NotConnectedState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
 
     .prologue
     .line 76
@@ -1030,8 +1030,8 @@
 
 .method static synthetic access$800(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 76
@@ -1042,8 +1042,8 @@
 
 .method static synthetic access$900(Landroid/net/wifi/WifiWatchdogStateMachine;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 76
@@ -1054,7 +1054,7 @@
 
 .method private calculateSignalLevel(I)I
     .locals 2
-    .parameter "rssi"
+    .param p1, "rssi"    # I
 
     .prologue
     .line 910
@@ -1065,15 +1065,15 @@
     move-result v0
 
     .line 913
-    .local v0, signalLevel:I
+    .local v0, "signalLevel":I
     return v0
 .end method
 
 .method private static getSettingsGlobalBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
     .locals 3
-    .parameter "cr"
-    .parameter "name"
-    .parameter "def"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -1122,13 +1122,13 @@
     move-result v0
 
     .line 433
-    .local v0, ret:Z
+    .local v0, "ret":Z
     return v0
 .end method
 
 .method public static makeWifiWatchdogStateMachine(Landroid/content/Context;)Landroid/net/wifi/WifiWatchdogStateMachine;
     .locals 6
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v4, 0x1
@@ -1141,7 +1141,7 @@
     move-result-object v1
 
     .line 342
-    .local v1, contentResolver:Landroid/content/ContentResolver;
+    .local v1, "contentResolver":Landroid/content/ContentResolver;
     const-string v5, "connectivity"
 
     invoke-virtual {p0, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1151,7 +1151,7 @@
     check-cast v0, Landroid/net/ConnectivityManager;
 
     .line 344
-    .local v0, cm:Landroid/net/ConnectivityManager;
+    .local v0, "cm":Landroid/net/ConnectivityManager;
     invoke-virtual {v0, v3}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
 
     move-result v5
@@ -1174,7 +1174,7 @@
     invoke-direct {v2, p0}, Landroid/net/wifi/WifiWatchdogStateMachine;-><init>(Landroid/content/Context;)V
 
     .line 352
-    .local v2, wwsm:Landroid/net/wifi/WifiWatchdogStateMachine;
+    .local v2, "wwsm":Landroid/net/wifi/WifiWatchdogStateMachine;
     invoke-virtual {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->start()V
 
     .line 353
@@ -1183,9 +1183,9 @@
 
 .method private static putSettingsGlobalBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
     .locals 1
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Z
 
     .prologue
     .line 963
@@ -1220,7 +1220,7 @@
     invoke-direct {v0, p0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine$3;-><init>(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/os/Handler;)V
 
     .line 416
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .local v0, "contentObserver":Landroid/database/ContentObserver;
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1255,7 +1255,7 @@
     invoke-direct {v0, p0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine$2;-><init>(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/os/Handler;)V
 
     .line 400
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .local v0, "contentObserver":Landroid/database/ContentObserver;
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1278,7 +1278,7 @@
 
 .method private sendLinkStatusNotification(Z)V
     .locals 3
-    .parameter "isGood"
+    .param p1, "isGood"    # Z
 
     .prologue
     .line 918
@@ -1303,7 +1303,7 @@
 
     move-result-wide v1
 
-    #setter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeGood:J
+    # setter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeGood:J
     invoke-static {v0, v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->access$4602(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
 
     .line 931
@@ -1331,7 +1331,7 @@
 
     move-result-wide v1
 
-    #setter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimePoor:J
+    # setter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimePoor:J
     invoke-static {v0, v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->access$4702(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
 
     .line 929
@@ -1418,7 +1418,7 @@
 
 .method private updateCurrentBssid(Ljava/lang/String;)V
     .locals 3
-    .parameter "bssid"
+    .param p1, "bssid"    # Ljava/lang/String;
 
     .prologue
     const v2, 0x21007
@@ -1455,7 +1455,7 @@
 
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentBssid:Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
 
-    #getter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssid:Ljava/lang/String;
+    # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssid:Ljava/lang/String;
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->access$4500(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)Ljava/lang/String;
 
     move-result-object v0
@@ -1546,9 +1546,9 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 422

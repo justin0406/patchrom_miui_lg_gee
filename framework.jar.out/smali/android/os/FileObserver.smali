@@ -74,7 +74,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 154
@@ -88,8 +88,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter "path"
-    .parameter "mask"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "mask"    # I
 
     .prologue
     .line 165

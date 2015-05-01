@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 361

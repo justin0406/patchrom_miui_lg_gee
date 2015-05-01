@@ -100,10 +100,10 @@
 
 .method public static writeAmActivityFullyDrawnTime(IILjava/lang/String;J)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "componentName"
-    .parameter "time"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "componentName"    # Ljava/lang/String;
+    .param p3, "time"    # J
 
     .prologue
     .line 297
@@ -149,10 +149,10 @@
 
 .method public static writeAmActivityLaunchTime(IILjava/lang/String;J)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "componentName"
-    .parameter "time"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "componentName"    # Ljava/lang/String;
+    .param p3, "time"    # J
 
     .prologue
     .line 185
@@ -198,11 +198,11 @@
 
 .method public static writeAmAnr(IILjava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "packageName"
-    .parameter "flags"
-    .parameter "reason"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 181
@@ -252,11 +252,11 @@
 
 .method public static writeAmBroadcastDiscardApp(IILjava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "broadcast"
-    .parameter "action"
-    .parameter "receiverNumber"
-    .parameter "app"
+    .param p0, "user"    # I
+    .param p1, "broadcast"    # I
+    .param p2, "action"    # Ljava/lang/String;
+    .param p3, "receiverNumber"    # I
+    .param p4, "app"    # Ljava/lang/String;
 
     .prologue
     .line 249
@@ -306,11 +306,11 @@
 
 .method public static writeAmBroadcastDiscardFilter(IILjava/lang/String;II)V
     .locals 4
-    .parameter "user"
-    .parameter "broadcast"
-    .parameter "action"
-    .parameter "receiverNumber"
-    .parameter "broadcastfilter"
+    .param p0, "user"    # I
+    .param p1, "broadcast"    # I
+    .param p2, "action"    # Ljava/lang/String;
+    .param p3, "receiverNumber"    # I
+    .param p4, "broadcastfilter"    # I
 
     .prologue
     .line 245
@@ -364,14 +364,14 @@
 
 .method public static writeAmCrash(IILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "processName"
-    .parameter "flags"
-    .parameter "exception"
-    .parameter "message"
-    .parameter "file"
-    .parameter "line"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "exception"    # Ljava/lang/String;
+    .param p5, "message"    # Ljava/lang/String;
+    .param p6, "file"    # Ljava/lang/String;
+    .param p7, "line"    # I
 
     .prologue
     .line 285
@@ -437,14 +437,14 @@
 
 .method public static writeAmCreateActivity(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
-    .parameter "action"
-    .parameter "mimeType"
-    .parameter "uri"
-    .parameter "flags"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
+    .param p4, "action"    # Ljava/lang/String;
+    .param p5, "mimeType"    # Ljava/lang/String;
+    .param p6, "uri"    # Ljava/lang/String;
+    .param p7, "flags"    # I
 
     .prologue
     .line 169
@@ -510,11 +510,11 @@
 
 .method public static writeAmCreateService(IILjava/lang/String;II)V
     .locals 4
-    .parameter "user"
-    .parameter "serviceRecord"
-    .parameter "name"
-    .parameter "uid"
-    .parameter "pid"
+    .param p0, "user"    # I
+    .param p1, "serviceRecord"    # I
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "uid"    # I
+    .param p4, "pid"    # I
 
     .prologue
     .line 253
@@ -568,8 +568,8 @@
 
 .method public static writeAmCreateTask(II)V
     .locals 4
-    .parameter "user"
-    .parameter "taskId"
+    .param p0, "user"    # I
+    .param p1, "taskId"    # I
 
     .prologue
     .line 165
@@ -603,11 +603,11 @@
 
 .method public static writeAmDestroyActivity(IIILjava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
-    .parameter "reason"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
+    .param p4, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 221
@@ -657,9 +657,9 @@
 
 .method public static writeAmDestroyService(III)V
     .locals 4
-    .parameter "user"
-    .parameter "serviceRecord"
-    .parameter "pid"
+    .param p0, "user"    # I
+    .param p1, "serviceRecord"    # I
+    .param p2, "pid"    # I
 
     .prologue
     .line 257
@@ -701,7 +701,7 @@
 
 .method public static writeAmDropProcess(I)V
     .locals 1
-    .parameter "pid"
+    .param p0, "pid"    # I
 
     .prologue
     .line 265
@@ -715,10 +715,10 @@
 
 .method public static writeAmFailedToPause(IILjava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "wantingToPause"
-    .parameter "currentlyPausing"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "wantingToPause"    # Ljava/lang/String;
+    .param p3, "currentlyPausing"    # Ljava/lang/String;
 
     .prologue
     .line 197
@@ -760,11 +760,11 @@
 
 .method public static writeAmFinishActivity(IIILjava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
-    .parameter "reason"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
+    .param p4, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 153
@@ -814,11 +814,11 @@
 
 .method public static writeAmKill(IILjava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "processName"
-    .parameter "oomadj"
-    .parameter "reason"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
+    .param p3, "oomadj"    # I
+    .param p4, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 241
@@ -868,7 +868,7 @@
 
 .method public static writeAmLowMemory(I)V
     .locals 1
-    .parameter "numProcesses"
+    .param p0, "numProcesses"    # I
 
     .prologue
     .line 217
@@ -882,14 +882,14 @@
 
 .method public static writeAmNewIntent(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
-    .parameter "action"
-    .parameter "mimeType"
-    .parameter "uri"
-    .parameter "flags"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
+    .param p4, "action"    # Ljava/lang/String;
+    .param p5, "mimeType"    # Ljava/lang/String;
+    .param p6, "uri"    # Ljava/lang/String;
+    .param p7, "flags"    # I
 
     .prologue
     .line 161
@@ -955,8 +955,8 @@
 
 .method public static writeAmOnPausedCalled(ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 233
@@ -986,8 +986,8 @@
 
 .method public static writeAmOnResumeCalled(ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 237
@@ -1017,9 +1017,9 @@
 
 .method public static writeAmPauseActivity(IILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 201
@@ -1057,9 +1057,9 @@
 
 .method public static writeAmProcBad(IILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "uid"
-    .parameter "processName"
+    .param p0, "user"    # I
+    .param p1, "uid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
 
     .prologue
     .line 209
@@ -1097,9 +1097,9 @@
 
 .method public static writeAmProcBound(IILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "processName"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
 
     .prologue
     .line 189
@@ -1137,9 +1137,9 @@
 
 .method public static writeAmProcDied(IILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "processName"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
 
     .prologue
     .line 193
@@ -1177,9 +1177,9 @@
 
 .method public static writeAmProcGood(IILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "uid"
-    .parameter "processName"
+    .param p0, "user"    # I
+    .param p1, "uid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
 
     .prologue
     .line 213
@@ -1217,12 +1217,12 @@
 
 .method public static writeAmProcStart(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "processName"
-    .parameter "type"
-    .parameter "component"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "processName"    # Ljava/lang/String;
+    .param p4, "type"    # Ljava/lang/String;
+    .param p5, "component"    # Ljava/lang/String;
 
     .prologue
     .line 205
@@ -1276,9 +1276,9 @@
 
 .method public static writeAmProcessCrashedTooMuch(ILjava/lang/String;I)V
     .locals 4
-    .parameter "user"
-    .parameter "name"
-    .parameter "pid"
+    .param p0, "user"    # I
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "pid"    # I
 
     .prologue
     .line 261
@@ -1316,10 +1316,10 @@
 
 .method public static writeAmProcessStartTimeout(IIILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "processName"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "processName"    # Ljava/lang/String;
 
     .prologue
     .line 281
@@ -1365,10 +1365,10 @@
 
 .method public static writeAmProviderLostProcess(ILjava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "packageName"
-    .parameter "uid"
-    .parameter "name"
+    .param p0, "user"    # I
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "name"    # Ljava/lang/String;
 
     .prologue
     .line 277
@@ -1410,10 +1410,10 @@
 
 .method public static writeAmRelaunchActivity(IIILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 229
@@ -1459,10 +1459,10 @@
 
 .method public static writeAmRelaunchResumeActivity(IIILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 225
@@ -1508,10 +1508,10 @@
 
 .method public static writeAmRestartActivity(IIILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 173
@@ -1557,10 +1557,10 @@
 
 .method public static writeAmResumeActivity(IIILjava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "token"
-    .parameter "taskId"
-    .parameter "componentName"
+    .param p0, "user"    # I
+    .param p1, "token"    # I
+    .param p2, "taskId"    # I
+    .param p3, "componentName"    # Ljava/lang/String;
 
     .prologue
     .line 177
@@ -1606,9 +1606,9 @@
 
 .method public static writeAmScheduleServiceRestart(ILjava/lang/String;J)V
     .locals 4
-    .parameter "user"
-    .parameter "componentName"
-    .parameter "time"
+    .param p0, "user"    # I
+    .param p1, "componentName"    # Ljava/lang/String;
+    .param p2, "time"    # J
 
     .prologue
     .line 273
@@ -1646,10 +1646,10 @@
 
 .method public static writeAmServiceCrashedTooMuch(IILjava/lang/String;I)V
     .locals 4
-    .parameter "user"
-    .parameter "crashCount"
-    .parameter "componentName"
-    .parameter "pid"
+    .param p0, "user"    # I
+    .param p1, "crashCount"    # I
+    .param p2, "componentName"    # Ljava/lang/String;
+    .param p3, "pid"    # I
 
     .prologue
     .line 269
@@ -1695,7 +1695,7 @@
 
 .method public static writeAmSwitchUser(I)V
     .locals 1
-    .parameter "id"
+    .param p0, "id"    # I
 
     .prologue
     .line 293
@@ -1709,8 +1709,8 @@
 
 .method public static writeAmTaskToFront(II)V
     .locals 4
-    .parameter "user"
-    .parameter "task"
+    .param p0, "user"    # I
+    .param p1, "task"    # I
 
     .prologue
     .line 157
@@ -1744,12 +1744,12 @@
 
 .method public static writeAmWtf(IILjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "user"
-    .parameter "pid"
-    .parameter "processName"
-    .parameter "flags"
-    .parameter "tag"
-    .parameter "message"
+    .param p0, "user"    # I
+    .param p1, "pid"    # I
+    .param p2, "processName"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "tag"    # Ljava/lang/String;
+    .param p5, "message"    # Ljava/lang/String;
 
     .prologue
     .line 289
@@ -1803,7 +1803,7 @@
 
 .method public static writeBootProgressAmsReady(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 145
@@ -1817,7 +1817,7 @@
 
 .method public static writeBootProgressEnableScreen(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 149
@@ -1831,7 +1831,7 @@
 
 .method public static writeConfigurationChanged(I)V
     .locals 1
-    .parameter "configMask"
+    .param p0, "configMask"    # I
 
     .prologue
     .line 137
@@ -1845,12 +1845,12 @@
 
 .method public static writeCpu(IIIIII)V
     .locals 4
-    .parameter "total"
-    .parameter "user"
-    .parameter "system"
-    .parameter "iowait"
-    .parameter "irq"
-    .parameter "softirq"
+    .param p0, "total"    # I
+    .param p1, "user"    # I
+    .param p2, "system"    # I
+    .param p3, "iowait"    # I
+    .param p4, "irq"    # I
+    .param p5, "softirq"    # I
 
     .prologue
     .line 141

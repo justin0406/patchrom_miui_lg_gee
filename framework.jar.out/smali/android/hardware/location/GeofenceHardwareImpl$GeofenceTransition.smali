@@ -33,13 +33,12 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardwareImpl;IIJLandroid/location/Location;II)V
     .locals 0
-    .parameter
-    .parameter "geofenceId"
-    .parameter "transition"
-    .parameter "timestamp"
-    .parameter "location"
-    .parameter "monitoringType"
-    .parameter "sourcesUsed"
+    .param p2, "geofenceId"    # I
+    .param p3, "transition"    # I
+    .param p4, "timestamp"    # J
+    .param p6, "location"    # Landroid/location/Location;
+    .param p7, "monitoringType"    # I
+    .param p8, "sourcesUsed"    # I
 
     .prologue
     .line 749
@@ -71,7 +70,7 @@
 
 .method static synthetic access$200(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .prologue
     .line 736
@@ -82,7 +81,7 @@
 
 .method static synthetic access$400(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .prologue
     .line 736
@@ -93,7 +92,7 @@
 
 .method static synthetic access$500(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)Landroid/location/Location;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .prologue
     .line 736
@@ -104,7 +103,7 @@
 
 .method static synthetic access$600(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .prologue
     .line 736
@@ -115,7 +114,7 @@
 
 .method static synthetic access$700(Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;
 
     .prologue
     .line 736

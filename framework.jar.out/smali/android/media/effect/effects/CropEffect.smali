@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
     .locals 7
-    .parameter "context"
-    .parameter "name"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 31

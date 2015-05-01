@@ -39,9 +39,9 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/AnimatedRotateDrawable$AnimatedRotateState;Landroid/graphics/drawable/AnimatedRotateDrawable;Landroid/content/res/Resources;)V
     .locals 2
-    .parameter "source"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "source"    # Landroid/graphics/drawable/AnimatedRotateDrawable$AnimatedRotateState;
+    .param p2, "owner"    # Landroid/graphics/drawable/AnimatedRotateDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 319
@@ -210,7 +210,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 345

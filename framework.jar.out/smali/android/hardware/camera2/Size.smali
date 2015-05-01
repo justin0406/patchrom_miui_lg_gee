@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 30
@@ -33,7 +33,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -69,7 +69,7 @@
     check-cast v0, Landroid/hardware/camera2/Size;
 
     .line 53
-    .local v0, other:Landroid/hardware/camera2/Size;
+    .local v0, "other":Landroid/hardware/camera2/Size;
     iget v3, p0, Landroid/hardware/camera2/Size;->mWidth:I
 
     iget v4, v0, Landroid/hardware/camera2/Size;->mWidth:I
@@ -123,7 +123,7 @@
     const-wide v0, 0xffffffffL
 
     .line 67
-    .local v0, INT_MASK:J
+    .local v0, "INT_MASK":J
     iget v4, p0, Landroid/hardware/camera2/Size;->mWidth:I
 
     int-to-long v4, v4
@@ -131,7 +131,7 @@
     and-long v2, v6, v4
 
     .line 68
-    .local v2, asLong:J
+    .local v2, "asLong":J
     const/16 v4, 0x20
 
     shl-long/2addr v2, v4

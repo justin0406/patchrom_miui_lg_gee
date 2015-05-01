@@ -14,10 +14,10 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Path;FFLandroid/graphics/PathDashPathEffect$Style;)V
     .locals 2
-    .parameter "shape"
-    .parameter "advance"
-    .parameter "phase"
-    .parameter "style"
+    .param p1, "shape"    # Landroid/graphics/Path;
+    .param p2, "advance"    # F
+    .param p3, "phase"    # F
+    .param p4, "style"    # Landroid/graphics/PathDashPathEffect$Style;
 
     .prologue
     .line 43

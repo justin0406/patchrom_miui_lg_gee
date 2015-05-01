@@ -40,7 +40,7 @@
 
 .field private static final INVALID_INDEX:I = -0x1
 
-.field private static final LOG_TAG:Ljava/lang/String; = null
+.field private static final LOG_TAG:Ljava/lang/String;
 
 .field private static final TAG_HISTORICAL_RECORD:Ljava/lang/String; = "historical-record"
 
@@ -142,8 +142,8 @@
 
 .method private constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 4
-    .parameter "context"
-    .parameter "historyFileName"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "historyFileName"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -270,7 +270,7 @@
 
 .method static synthetic access$300(Landroid/widget/ActivityChooserModel;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/ActivityChooserModel;
 
     .prologue
     .line 97
@@ -291,7 +291,7 @@
 
 .method static synthetic access$500(Landroid/widget/ActivityChooserModel;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/ActivityChooserModel;
 
     .prologue
     .line 97
@@ -302,8 +302,8 @@
 
 .method static synthetic access$602(Landroid/widget/ActivityChooserModel;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/ActivityChooserModel;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 97
@@ -314,8 +314,8 @@
 
 .method static synthetic access$702(Landroid/widget/ActivityChooserModel;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/ActivityChooserModel;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 97
@@ -326,7 +326,7 @@
 
 .method private addHisoricalRecord(Landroid/widget/ActivityChooserModel$HistoricalRecord;)Z
     .locals 2
-    .parameter "historicalRecord"
+    .param p1, "historicalRecord"    # Landroid/widget/ActivityChooserModel$HistoricalRecord;
 
     .prologue
     .line 751
@@ -337,7 +337,7 @@
     move-result v0
 
     .line 752
-    .local v0, added:Z
+    .local v0, "added":Z
     if-eqz v0, :cond_0
 
     .line 753
@@ -372,7 +372,7 @@
     move-result v0
 
     .line 674
-    .local v0, stateChanged:Z
+    .local v0, "stateChanged":Z
     invoke-direct {p0}, Landroid/widget/ActivityChooserModel;->readHistoricalDataIfNeeded()Z
 
     move-result v1
@@ -398,8 +398,8 @@
 
 .method public static get(Landroid/content/Context;Ljava/lang/String;)Landroid/widget/ActivityChooserModel;
     .locals 3
-    .parameter "context"
-    .parameter "historyFileName"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "historyFileName"    # Ljava/lang/String;
 
     .prologue
     .line 342
@@ -418,17 +418,17 @@
     check-cast v0, Landroid/widget/ActivityChooserModel;
 
     .line 344
-    .local v0, dataModel:Landroid/widget/ActivityChooserModel;
+    .local v0, "dataModel":Landroid/widget/ActivityChooserModel;
     if-nez v0, :cond_0
 
     .line 345
     new-instance v0, Landroid/widget/ActivityChooserModel;
 
-    .end local v0           #dataModel:Landroid/widget/ActivityChooserModel;
+    .end local v0    # "dataModel":Landroid/widget/ActivityChooserModel;
     invoke-direct {v0, p0, p1}, Landroid/widget/ActivityChooserModel;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 346
-    .restart local v0       #dataModel:Landroid/widget/ActivityChooserModel;
+    .restart local v0    # "dataModel":Landroid/widget/ActivityChooserModel;
     sget-object v1, Landroid/widget/ActivityChooserModel;->sDataModelRegistry:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -440,7 +440,7 @@
     return-object v0
 
     .line 349
-    .end local v0           #dataModel:Landroid/widget/ActivityChooserModel;
+    .end local v0    # "dataModel":Landroid/widget/ActivityChooserModel;
     :catchall_0
     move-exception v1
 
@@ -488,16 +488,16 @@
     move-result-object v4
 
     .line 711
-    .local v4, resolveInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v4, "resolveInfos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v3
 
     .line 712
-    .local v3, resolveInfoCount:I
+    .local v3, "resolveInfoCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_1
 
@@ -509,11 +509,11 @@
     check-cast v2, Landroid/content/pm/ResolveInfo;
 
     .line 714
-    .local v2, resolveInfo:Landroid/content/pm/ResolveInfo;
+    .local v2, "resolveInfo":Landroid/content/pm/ResolveInfo;
     iget-object v0, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 715
-    .local v0, activityInfo:Landroid/content/pm/ActivityInfo;
+    .local v0, "activityInfo":Landroid/content/pm/ActivityInfo;
     iget-object v5, v0, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
 
     invoke-static {}, Landroid/os/Process;->myUid()I
@@ -548,15 +548,15 @@
     goto :goto_0
 
     .line 721
-    .end local v0           #activityInfo:Landroid/content/pm/ActivityInfo;
-    .end local v2           #resolveInfo:Landroid/content/pm/ResolveInfo;
+    .end local v0    # "activityInfo":Landroid/content/pm/ActivityInfo;
+    .end local v2    # "resolveInfo":Landroid/content/pm/ResolveInfo;
     :cond_1
     const/4 v5, 0x1
 
     .line 723
-    .end local v1           #i:I
-    .end local v3           #resolveInfoCount:I
-    .end local v4           #resolveInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .end local v1    # "i":I
+    .end local v3    # "resolveInfoCount":I
+    .end local v4    # "resolveInfos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     :cond_2
     return v5
 .end method
@@ -653,7 +653,7 @@
     sub-int v1, v2, v3
 
     .line 767
-    .local v1, pruneCount:I
+    .local v1, "pruneCount":I
     if-gtz v1, :cond_1
 
     .line 777
@@ -669,7 +669,7 @@
     .line 771
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -742,7 +742,7 @@
     const/4 v2, 0x0
 
     .line 988
-    .local v2, fis:Ljava/io/FileInputStream;
+    .local v2, "fis":Ljava/io/FileInputStream;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -765,7 +765,7 @@
     move-result-object v7
 
     .line 997
-    .local v7, parser:Lorg/xmlpull/v1/XmlPullParser;
+    .local v7, "parser":Lorg/xmlpull/v1/XmlPullParser;
     const/4 v14, 0x0
 
     invoke-interface {v7, v2, v14}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
@@ -774,7 +774,7 @@
     const/4 v11, 0x0
 
     .line 1000
-    .local v11, type:I
+    .local v11, "type":I
     :goto_0
     const/4 v14, 0x1
 
@@ -792,8 +792,8 @@
     goto :goto_0
 
     .line 989
-    .end local v7           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v11           #type:I
+    .end local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v11    # "type":I
     :catch_0
     move-exception v3
 
@@ -803,8 +803,8 @@
     return-void
 
     .line 1004
-    .restart local v7       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v11       #type:I
+    .restart local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v11    # "type":I
     :cond_1
     const-string v14, "historical-records"
 
@@ -827,18 +827,18 @@
 
     throw v14
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1041
-    .end local v7           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v11           #type:I
+    .end local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v11    # "type":I
     :catch_1
     move-exception v13
 
     .line 1042
-    .local v13, xppe:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v13, "xppe":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_2
     sget-object v14, Landroid/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
@@ -888,9 +888,9 @@
     goto :goto_1
 
     .line 1009
-    .end local v13           #xppe:Lorg/xmlpull/v1/XmlPullParserException;
-    .restart local v7       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v11       #type:I
+    .end local v13    # "xppe":Lorg/xmlpull/v1/XmlPullParserException;
+    .restart local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v11    # "type":I
     :cond_2
     :try_start_4
     move-object/from16 v0, p0
@@ -898,7 +898,7 @@
     iget-object v4, v0, Landroid/widget/ActivityChooserModel;->mHistoricalRecords:Ljava/util/List;
 
     .line 1010
-    .local v4, historicalRecords:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
+    .local v4, "historicalRecords":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
     invoke-interface {v4}, Ljava/util/List;->clear()V
 
     .line 1013
@@ -906,9 +906,9 @@
     :goto_2
     invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->next()I
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_1
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     move-result v11
 
@@ -951,7 +951,7 @@
     move-result-object v6
 
     .line 1021
-    .local v6, nodeName:Ljava/lang/String;
+    .local v6, "nodeName":Ljava/lang/String;
     const-string v14, "historical-record"
 
     invoke-virtual {v14, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -969,20 +969,20 @@
 
     throw v14
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_1
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 1043
-    .end local v4           #historicalRecords:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
-    .end local v6           #nodeName:Ljava/lang/String;
-    .end local v7           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v11           #type:I
+    .end local v4    # "historicalRecords":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
+    .end local v6    # "nodeName":Ljava/lang/String;
+    .end local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v11    # "type":I
     :catch_4
     move-exception v5
 
     .line 1044
-    .local v5, ioe:Ljava/io/IOException;
+    .local v5, "ioe":Ljava/io/IOException;
     :try_start_7
     sget-object v14, Landroid/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
@@ -1032,11 +1032,11 @@
     goto/16 :goto_1
 
     .line 1025
-    .end local v5           #ioe:Ljava/io/IOException;
-    .restart local v4       #historicalRecords:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
-    .restart local v6       #nodeName:Ljava/lang/String;
-    .restart local v7       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v11       #type:I
+    .end local v5    # "ioe":Ljava/io/IOException;
+    .restart local v4    # "historicalRecords":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
+    .restart local v6    # "nodeName":Ljava/lang/String;
+    .restart local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v11    # "type":I
     :cond_5
     const/4 v14, 0x0
 
@@ -1048,7 +1048,7 @@
     move-result-object v1
 
     .line 1026
-    .local v1, activity:Ljava/lang/String;
+    .local v1, "activity":Ljava/lang/String;
     const/4 v14, 0x0
 
     const-string/jumbo v15, "time"
@@ -1062,7 +1062,7 @@
     move-result-wide v9
 
     .line 1028
-    .local v9, time:J
+    .local v9, "time":J
     const/4 v14, 0x0
 
     const-string/jumbo v15, "weight"
@@ -1076,30 +1076,30 @@
     move-result v12
 
     .line 1030
-    .local v12, weight:F
+    .local v12, "weight":F
     new-instance v8, Landroid/widget/ActivityChooserModel$HistoricalRecord;
 
     invoke-direct {v8, v1, v9, v10, v12}, Landroid/widget/ActivityChooserModel$HistoricalRecord;-><init>(Ljava/lang/String;JF)V
 
     .line 1031
-    .local v8, readRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .local v8, "readRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
     invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9 .. :try_end_9} :catch_1
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_4
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     goto :goto_2
 
     .line 1046
-    .end local v1           #activity:Ljava/lang/String;
-    .end local v4           #historicalRecords:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
-    .end local v6           #nodeName:Ljava/lang/String;
-    .end local v7           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v8           #readRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
-    .end local v9           #time:J
-    .end local v11           #type:I
-    .end local v12           #weight:F
+    .end local v1    # "activity":Ljava/lang/String;
+    .end local v4    # "historicalRecords":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$HistoricalRecord;>;"
+    .end local v6    # "nodeName":Ljava/lang/String;
+    .end local v7    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v8    # "readRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .end local v9    # "time":J
+    .end local v11    # "type":I
+    .end local v12    # "weight":F
     :catchall_0
     move-exception v14
 
@@ -1184,7 +1184,7 @@
 # virtual methods
 .method public chooseActivity(I)Landroid/content/Intent;
     .locals 10
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -1223,7 +1223,7 @@
     check-cast v2, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 479
-    .local v2, chosenActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .local v2, "chosenActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     new-instance v3, Landroid/content/ComponentName;
 
     iget-object v8, v2, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
@@ -1241,7 +1241,7 @@
     invoke-direct {v3, v8, v9}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 483
-    .local v3, chosenName:Landroid/content/ComponentName;
+    .local v3, "chosenName":Landroid/content/ComponentName;
     new-instance v0, Landroid/content/Intent;
 
     iget-object v8, p0, Landroid/widget/ActivityChooserModel;->mIntent:Landroid/content/Intent;
@@ -1249,7 +1249,7 @@
     invoke-direct {v0, v8}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     .line 484
-    .local v0, choiceIntent:Landroid/content/Intent;
+    .local v0, "choiceIntent":Landroid/content/Intent;
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 486
@@ -1263,7 +1263,7 @@
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     .line 489
-    .local v1, choiceIntentCopy:Landroid/content/Intent;
+    .local v1, "choiceIntentCopy":Landroid/content/Intent;
     iget-object v8, p0, Landroid/widget/ActivityChooserModel;->mActivityChoserModelPolicy:Landroid/widget/ActivityChooserModel$OnChooseActivityListener;
 
     invoke-interface {v8, p0, v1}, Landroid/widget/ActivityChooserModel$OnChooseActivityListener;->onChooseActivity(Landroid/widget/ActivityChooserModel;Landroid/content/Intent;)Z
@@ -1271,7 +1271,7 @@
     move-result v4
 
     .line 491
-    .local v4, handled:Z
+    .local v4, "handled":Z
     if-eqz v4, :cond_1
 
     .line 492
@@ -1282,8 +1282,8 @@
     goto :goto_0
 
     .line 496
-    .end local v1           #choiceIntentCopy:Landroid/content/Intent;
-    .end local v4           #handled:Z
+    .end local v1    # "choiceIntentCopy":Landroid/content/Intent;
+    .end local v4    # "handled":Z
     :cond_1
     new-instance v5, Landroid/widget/ActivityChooserModel$HistoricalRecord;
 
@@ -1291,12 +1291,12 @@
 
     move-result-wide v8
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     invoke-direct {v5, v3, v8, v9, v6}, Landroid/widget/ActivityChooserModel$HistoricalRecord;-><init>(Landroid/content/ComponentName;JF)V
 
     .line 498
-    .local v5, historicalRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .local v5, "historicalRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
     invoke-direct {p0, v5}, Landroid/widget/ActivityChooserModel;->addHisoricalRecord(Landroid/widget/ActivityChooserModel$HistoricalRecord;)Z
 
     .line 500
@@ -1305,10 +1305,10 @@
     goto :goto_0
 
     .line 501
-    .end local v0           #choiceIntent:Landroid/content/Intent;
-    .end local v2           #chosenActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    .end local v3           #chosenName:Landroid/content/ComponentName;
-    .end local v5           #historicalRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .end local v0    # "choiceIntent":Landroid/content/Intent;
+    .end local v2    # "chosenActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .end local v3    # "chosenName":Landroid/content/ComponentName;
+    .end local v5    # "historicalRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
     :catchall_0
     move-exception v6
 
@@ -1342,7 +1342,7 @@
 
 .method public getActivity(I)Landroid/content/pm/ResolveInfo;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 423
@@ -1417,7 +1417,7 @@
 
 .method public getActivityIndex(Landroid/content/pm/ResolveInfo;)I
     .locals 6
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
     .line 437
@@ -1433,16 +1433,16 @@
     iget-object v0, p0, Landroid/widget/ActivityChooserModel;->mActivities:Ljava/util/List;
 
     .line 440
-    .local v0, activities:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$ActivityResolveInfo;>;"
+    .local v0, "activities":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$ActivityResolveInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
     .line 441
-    .local v1, activityCount:I
+    .local v1, "activityCount":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v1, :cond_1
 
@@ -1454,7 +1454,7 @@
     check-cast v2, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 443
-    .local v2, currentActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .local v2, "currentActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     iget-object v4, v2, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
     if-ne v4, p1, :cond_0
@@ -1463,21 +1463,21 @@
     monitor-exit v5
 
     .line 447
-    .end local v2           #currentActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    .end local v3           #i:I
+    .end local v2    # "currentActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .end local v3    # "i":I
     :goto_1
     return v3
 
     .line 441
-    .restart local v2       #currentActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    .restart local v3       #i:I
+    .restart local v2    # "currentActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .restart local v3    # "i":I
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 447
-    .end local v2           #currentActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .end local v2    # "currentActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     :cond_1
     const/4 v3, -0x1
 
@@ -1486,9 +1486,9 @@
     goto :goto_1
 
     .line 448
-    .end local v0           #activities:Ljava/util/List;,"Ljava/util/List<Landroid/widget/ActivityChooserModel$ActivityResolveInfo;>;"
-    .end local v1           #activityCount:I
-    .end local v3           #i:I
+    .end local v0    # "activities":Ljava/util/List;, "Ljava/util/List<Landroid/widget/ActivityChooserModel$ActivityResolveInfo;>;"
+    .end local v1    # "activityCount":I
+    .end local v3    # "i":I
     :catchall_0
     move-exception v4
 
@@ -1653,7 +1653,7 @@
 
 .method public setActivitySorter(Landroid/widget/ActivityChooserModel$ActivitySorter;)V
     .locals 2
-    .parameter "activitySorter"
+    .param p1, "activitySorter"    # Landroid/widget/ActivityChooserModel$ActivitySorter;
 
     .prologue
     .line 600
@@ -1706,7 +1706,7 @@
 
 .method public setDefaultActivity(I)V
     .locals 9
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 545
@@ -1728,7 +1728,7 @@
     check-cast v2, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 549
-    .local v2, newDefaultActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .local v2, "newDefaultActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     iget-object v5, p0, Landroid/widget/ActivityChooserModel;->mActivities:Ljava/util/List;
 
     const/4 v7, 0x0
@@ -1740,7 +1740,7 @@
     check-cast v3, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 552
-    .local v3, oldDefaultActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .local v3, "oldDefaultActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     if-eqz v3, :cond_0
 
     .line 554
@@ -1750,12 +1750,12 @@
 
     sub-float/2addr v5, v7
 
-    const/high16 v7, 0x40a0
+    const/high16 v7, 0x40a00000    # 5.0f
 
     add-float v4, v5, v7
 
     .line 560
-    .local v4, weight:F
+    .local v4, "weight":F
     :goto_0
     new-instance v0, Landroid/content/ComponentName;
 
@@ -1774,7 +1774,7 @@
     invoke-direct {v0, v5, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 563
-    .local v0, defaultName:Landroid/content/ComponentName;
+    .local v0, "defaultName":Landroid/content/ComponentName;
     new-instance v1, Landroid/widget/ActivityChooserModel$HistoricalRecord;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1784,7 +1784,7 @@
     invoke-direct {v1, v0, v7, v8, v4}, Landroid/widget/ActivityChooserModel$HistoricalRecord;-><init>(Landroid/content/ComponentName;JF)V
 
     .line 565
-    .local v1, historicalRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .local v1, "historicalRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
     invoke-direct {p0, v1}, Landroid/widget/ActivityChooserModel;->addHisoricalRecord(Landroid/widget/ActivityChooserModel$HistoricalRecord;)Z
 
     .line 566
@@ -1794,19 +1794,19 @@
     return-void
 
     .line 557
-    .end local v0           #defaultName:Landroid/content/ComponentName;
-    .end local v1           #historicalRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
-    .end local v4           #weight:F
+    .end local v0    # "defaultName":Landroid/content/ComponentName;
+    .end local v1    # "historicalRecord":Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .end local v4    # "weight":F
     :cond_0
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    .restart local v4       #weight:F
+    .restart local v4    # "weight":F
     goto :goto_0
 
     .line 566
-    .end local v2           #newDefaultActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    .end local v3           #oldDefaultActivity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    .end local v4           #weight:F
+    .end local v2    # "newDefaultActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .end local v3    # "oldDefaultActivity":Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
+    .end local v4    # "weight":F
     :catchall_0
     move-exception v5
 
@@ -1819,7 +1819,7 @@
 
 .method public setHistoryMaxSize(I)V
     .locals 2
-    .parameter "historyMaxSize"
+    .param p1, "historyMaxSize"    # I
 
     .prologue
     .line 625
@@ -1875,7 +1875,7 @@
 
 .method public setIntent(Landroid/content/Intent;)V
     .locals 2
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 379
@@ -1925,7 +1925,7 @@
 
 .method public setOnChooseActivityListener(Landroid/widget/ActivityChooserModel$OnChooseActivityListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/widget/ActivityChooserModel$OnChooseActivityListener;
 
     .prologue
     .line 510

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/WebVttParser;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 691
@@ -39,7 +38,7 @@
 # virtual methods
 .method public parse(Ljava/lang/String;)V
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # Ljava/lang/String;
 
     .prologue
     .line 694
@@ -89,7 +88,7 @@
 
     const-string v1, "Not a WEBVTT header"
 
-    #calls: Landroid/media/WebVttParser;->log_warning(Ljava/lang/String;Ljava/lang/String;)V
+    # invokes: Landroid/media/WebVttParser;->log_warning(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, p1}, Landroid/media/WebVttParser;->access$000(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 701
@@ -97,12 +96,12 @@
 
     iget-object v1, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mSkipRest:Landroid/media/WebVttParser$Phase;
+    # getter for: Landroid/media/WebVttParser;->mSkipRest:Landroid/media/WebVttParser$Phase;
     invoke-static {v1}, Landroid/media/WebVttParser;->access$200(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v1
 
-    #setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
+    # setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->access$102(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
 
     .line 705
@@ -115,12 +114,12 @@
 
     iget-object v1, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
 
-    #getter for: Landroid/media/WebVttParser;->mParseHeader:Landroid/media/WebVttParser$Phase;
+    # getter for: Landroid/media/WebVttParser;->mParseHeader:Landroid/media/WebVttParser$Phase;
     invoke-static {v1}, Landroid/media/WebVttParser;->access$300(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v1
 
-    #setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
+    # setter for: Landroid/media/WebVttParser;->mPhase:Landroid/media/WebVttParser$Phase;
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->access$102(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
 
     goto :goto_0

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;I)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 2205

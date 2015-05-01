@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 291
@@ -56,7 +56,7 @@
     .line 296
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
-    #setter for: Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
+    # setter for: Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$102(Landroid/print/PrintDocumentInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 297
@@ -83,13 +83,13 @@
 
 .method public setContentType(I)Landroid/print/PrintDocumentInfo$Builder;
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 331
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
-    #setter for: Landroid/print/PrintDocumentInfo;->mContentType:I
+    # setter for: Landroid/print/PrintDocumentInfo;->mContentType:I
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$302(Landroid/print/PrintDocumentInfo;I)I
 
     .line 332
@@ -98,7 +98,7 @@
 
 .method public setPageCount(I)Landroid/print/PrintDocumentInfo$Builder;
     .locals 2
-    .parameter "pageCount"
+    .param p1, "pageCount"    # I
 
     .prologue
     .line 309
@@ -121,7 +121,7 @@
     :cond_0
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
-    #setter for: Landroid/print/PrintDocumentInfo;->mPageCount:I
+    # setter for: Landroid/print/PrintDocumentInfo;->mPageCount:I
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$202(Landroid/print/PrintDocumentInfo;I)I
 
     .line 315

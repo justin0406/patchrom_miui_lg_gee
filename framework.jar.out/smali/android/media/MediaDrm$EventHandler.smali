@@ -23,9 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaDrm;Landroid/media/MediaDrm;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "md"
-    .parameter "looper"
+    .param p2, "md"    # Landroid/media/MediaDrm;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 226
@@ -45,13 +44,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 233
     iget-object v0, p0, Landroid/media/MediaDrm$EventHandler;->mMediaDrm:Landroid/media/MediaDrm;
 
-    #getter for: Landroid/media/MediaDrm;->mNativeContext:I
+    # getter for: Landroid/media/MediaDrm;->mNativeContext:I
     invoke-static {v0}, Landroid/media/MediaDrm;->access$000(Landroid/media/MediaDrm;)I
 
     move-result v0
@@ -150,7 +149,7 @@
     .line 242
     iget-object v0, p0, Landroid/media/MediaDrm$EventHandler;->this$0:Landroid/media/MediaDrm;
 
-    #getter for: Landroid/media/MediaDrm;->mOnEventListener:Landroid/media/MediaDrm$OnEventListener;
+    # getter for: Landroid/media/MediaDrm;->mOnEventListener:Landroid/media/MediaDrm$OnEventListener;
     invoke-static {v0}, Landroid/media/MediaDrm;->access$100(Landroid/media/MediaDrm;)Landroid/media/MediaDrm$OnEventListener;
 
     move-result-object v0
@@ -174,13 +173,13 @@
     check-cast v6, Landroid/os/Parcel;
 
     .line 245
-    .local v6, parcel:Landroid/os/Parcel;
+    .local v6, "parcel":Landroid/os/Parcel;
     invoke-virtual {v6}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
 
     .line 246
-    .local v2, sessionId:[B
+    .local v2, "sessionId":[B
     array-length v0, v2
 
     if-nez v0, :cond_2
@@ -195,7 +194,7 @@
     move-result-object v5
 
     .line 250
-    .local v5, data:[B
+    .local v5, "data":[B
     array-length v0, v5
 
     if-nez v0, :cond_3
@@ -207,7 +206,7 @@
     :cond_3
     iget-object v0, p0, Landroid/media/MediaDrm$EventHandler;->this$0:Landroid/media/MediaDrm;
 
-    #getter for: Landroid/media/MediaDrm;->mOnEventListener:Landroid/media/MediaDrm$OnEventListener;
+    # getter for: Landroid/media/MediaDrm;->mOnEventListener:Landroid/media/MediaDrm$OnEventListener;
     invoke-static {v0}, Landroid/media/MediaDrm;->access$100(Landroid/media/MediaDrm;)Landroid/media/MediaDrm$OnEventListener;
 
     move-result-object v0

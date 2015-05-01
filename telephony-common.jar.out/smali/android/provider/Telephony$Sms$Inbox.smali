@@ -19,7 +19,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "date DESC"
 
@@ -54,12 +54,12 @@
 
 .method public static addMessage(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Z)Landroid/net/Uri;
     .locals 8
-    .parameter "resolver"
-    .parameter "address"
-    .parameter "body"
-    .parameter "subject"
-    .parameter "date"
-    .parameter "read"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "body"    # Ljava/lang/String;
+    .param p3, "subject"    # Ljava/lang/String;
+    .param p4, "date"    # Ljava/lang/Long;
+    .param p5, "read"    # Z
 
     .prologue
     .line 453

@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IAlarmManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IAlarmManager;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/app/IAlarmManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IAlarmManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 12
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,25 +155,25 @@
     move-result v1
 
     .line 56
-    .local v1, _arg0:I
+    .local v1, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     .line 58
-    .local v2, _arg1:J
+    .local v2, "_arg1":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     .line 60
-    .local v4, _arg2:J
+    .local v4, "_arg2":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v6
 
     .line 62
-    .local v6, _arg3:J
+    .local v6, "_arg3":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -190,7 +190,7 @@
     check-cast v8, Landroid/app/PendingIntent;
 
     .line 69
-    .local v8, _arg4:Landroid/app/PendingIntent;
+    .local v8, "_arg4":Landroid/app/PendingIntent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -207,7 +207,7 @@
 
     check-cast v9, Landroid/os/WorkSource;
 
-    .local v9, _arg5:Landroid/os/WorkSource;
+    .local v9, "_arg5":Landroid/os/WorkSource;
     :goto_2
     move-object v0, p0
 
@@ -223,28 +223,28 @@
     goto :goto_0
 
     .line 66
-    .end local v8           #_arg4:Landroid/app/PendingIntent;
-    .end local v9           #_arg5:Landroid/os/WorkSource;
+    .end local v8    # "_arg4":Landroid/app/PendingIntent;
+    .end local v9    # "_arg5":Landroid/os/WorkSource;
     :cond_0
     const/4 v8, 0x0
 
-    .restart local v8       #_arg4:Landroid/app/PendingIntent;
+    .restart local v8    # "_arg4":Landroid/app/PendingIntent;
     goto :goto_1
 
     .line 73
     :cond_1
     const/4 v9, 0x0
 
-    .restart local v9       #_arg5:Landroid/os/WorkSource;
+    .restart local v9    # "_arg5":Landroid/os/WorkSource;
     goto :goto_2
 
     .line 81
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:J
-    .end local v4           #_arg2:J
-    .end local v6           #_arg3:J
-    .end local v8           #_arg4:Landroid/app/PendingIntent;
-    .end local v9           #_arg5:Landroid/os/WorkSource;
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":J
+    .end local v4    # "_arg2":J
+    .end local v6    # "_arg3":J
+    .end local v8    # "_arg4":Landroid/app/PendingIntent;
+    .end local v9    # "_arg5":Landroid/os/WorkSource;
     :sswitch_2
     const-string v0, "android.app.IAlarmManager"
 
@@ -256,7 +256,7 @@
     move-result-wide v10
 
     .line 84
-    .local v10, _arg0:J
+    .local v10, "_arg0":J
     invoke-virtual {p0, v10, v11}, Landroid/app/IAlarmManager$Stub;->setTime(J)V
 
     .line 85
@@ -268,7 +268,7 @@
     goto :goto_0
 
     .line 90
-    .end local v10           #_arg0:J
+    .end local v10    # "_arg0":J
     :sswitch_3
     const-string v0, "android.app.IAlarmManager"
 
@@ -280,7 +280,7 @@
     move-result-object v1
 
     .line 93
-    .local v1, _arg0:Ljava/lang/String;
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/app/IAlarmManager$Stub;->setTimeZone(Ljava/lang/String;)V
 
     .line 94
@@ -292,7 +292,7 @@
     goto :goto_0
 
     .line 99
-    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v1    # "_arg0":Ljava/lang/String;
     :sswitch_4
     const-string v0, "android.app.IAlarmManager"
 
@@ -315,7 +315,7 @@
     check-cast v1, Landroid/app/PendingIntent;
 
     .line 107
-    .local v1, _arg0:Landroid/app/PendingIntent;
+    .local v1, "_arg0":Landroid/app/PendingIntent;
     :goto_3
     invoke-virtual {p0, v1}, Landroid/app/IAlarmManager$Stub;->remove(Landroid/app/PendingIntent;)V
 
@@ -328,11 +328,11 @@
     goto/16 :goto_0
 
     .line 105
-    .end local v1           #_arg0:Landroid/app/PendingIntent;
+    .end local v1    # "_arg0":Landroid/app/PendingIntent;
     :cond_2
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/app/PendingIntent;
+    .restart local v1    # "_arg0":Landroid/app/PendingIntent;
     goto :goto_3
 
     .line 43

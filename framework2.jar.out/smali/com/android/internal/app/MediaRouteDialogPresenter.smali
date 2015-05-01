@@ -24,9 +24,9 @@
 
 .method public static createDialog(Landroid/content/Context;ILandroid/view/View$OnClickListener;)Landroid/app/Dialog;
     .locals 5
-    .parameter "context"
-    .parameter "routeTypes"
-    .parameter "extendedSettingsClickListener"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "routeTypes"    # I
+    .param p2, "extendedSettingsClickListener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     const v4, 0x103012e
@@ -41,13 +41,13 @@
     check-cast v2, Landroid/media/MediaRouter;
 
     .line 74
-    .local v2, router:Landroid/media/MediaRouter;
+    .local v2, "router":Landroid/media/MediaRouter;
     invoke-virtual {v2}, Landroid/media/MediaRouter;->getSelectedRoute()Landroid/media/MediaRouter$RouteInfo;
 
     move-result-object v1
 
     .line 75
-    .local v1, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v1, "route":Landroid/media/MediaRouter$RouteInfo;
     invoke-virtual {v1}, Landroid/media/MediaRouter$RouteInfo;->isDefault()Z
 
     move-result v3
@@ -67,14 +67,14 @@
     invoke-direct {v0, p0, v4}, Lcom/android/internal/app/MediaRouteChooserDialog;-><init>(Landroid/content/Context;I)V
 
     .line 78
-    .local v0, d:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .local v0, "d":Lcom/android/internal/app/MediaRouteChooserDialog;
     invoke-virtual {v0, p1}, Lcom/android/internal/app/MediaRouteChooserDialog;->setRouteTypes(I)V
 
     .line 79
     invoke-virtual {v0, p2}, Lcom/android/internal/app/MediaRouteChooserDialog;->setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 84
-    .end local v0           #d:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .end local v0    # "d":Lcom/android/internal/app/MediaRouteChooserDialog;
     :goto_0
     return-object v0
 
@@ -85,15 +85,15 @@
     invoke-direct {v0, p0, v4}, Lcom/android/internal/app/MediaRouteControllerDialog;-><init>(Landroid/content/Context;I)V
 
     .line 84
-    .local v0, d:Lcom/android/internal/app/MediaRouteControllerDialog;
+    .local v0, "d":Lcom/android/internal/app/MediaRouteControllerDialog;
     goto :goto_0
 .end method
 
 .method public static showDialogFragment(Landroid/app/Activity;ILandroid/view/View$OnClickListener;)Landroid/app/DialogFragment;
     .locals 6
-    .parameter "activity"
-    .parameter "routeTypes"
-    .parameter "extendedSettingsClickListener"
+    .param p0, "activity"    # Landroid/app/Activity;
+    .param p1, "routeTypes"    # I
+    .param p2, "extendedSettingsClickListener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     const/4 v0, 0x0
@@ -108,19 +108,19 @@
     check-cast v3, Landroid/media/MediaRouter;
 
     .line 45
-    .local v3, router:Landroid/media/MediaRouter;
+    .local v3, "router":Landroid/media/MediaRouter;
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
     .line 47
-    .local v1, fm:Landroid/app/FragmentManager;
+    .local v1, "fm":Landroid/app/FragmentManager;
     invoke-virtual {v3}, Landroid/media/MediaRouter;->getSelectedRoute()Landroid/media/MediaRouter$RouteInfo;
 
     move-result-object v2
 
     .line 48
-    .local v2, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v2, "route":Landroid/media/MediaRouter$RouteInfo;
     invoke-virtual {v2}, Landroid/media/MediaRouter$RouteInfo;->isDefault()Z
 
     move-result v4
@@ -161,7 +161,7 @@
     invoke-direct {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;-><init>()V
 
     .line 54
-    .local v0, f:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
+    .local v0, "f":Lcom/android/internal/app/MediaRouteChooserDialogFragment;
     invoke-virtual {v0, p1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setRouteTypes(I)V
 
     .line 55
@@ -175,7 +175,7 @@
     goto :goto_0
 
     .line 59
-    .end local v0           #f:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
+    .end local v0    # "f":Lcom/android/internal/app/MediaRouteChooserDialogFragment;
     :cond_2
     const-string v4, "android.app.MediaRouteButton:MediaRouteControllerDialogFragment"
 
@@ -201,7 +201,7 @@
     invoke-direct {v0}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;-><init>()V
 
     .line 64
-    .local v0, f:Lcom/android/internal/app/MediaRouteControllerDialogFragment;
+    .local v0, "f":Lcom/android/internal/app/MediaRouteControllerDialogFragment;
     const-string v4, "android.app.MediaRouteButton:MediaRouteControllerDialogFragment"
 
     invoke-virtual {v0, v1, v4}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V

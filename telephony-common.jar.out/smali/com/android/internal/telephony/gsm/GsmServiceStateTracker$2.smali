@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 184
@@ -37,7 +36,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 187
@@ -50,7 +49,7 @@
     .line 188
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$2;->this$0:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
 
-    #calls: Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->revertToNitzTime()V
+    # invokes: Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->revertToNitzTime()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->access$000(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;)V
 
     .line 189

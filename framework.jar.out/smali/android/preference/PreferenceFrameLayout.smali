@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 41
@@ -50,8 +50,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 45
@@ -65,14 +65,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 10
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v9, 0x0
 
-    const/high16 v8, 0x3f00
+    const/high16 v8, 0x3f000000    # 0.5f
 
     const/4 v7, 0x0
 
@@ -87,7 +87,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -99,7 +99,7 @@
     iget v5, v6, Landroid/util/DisplayMetrics;->density:F
 
     .line 54
-    .local v5, density:F
+    .local v5, "density":F
     mul-float v6, v5, v7
 
     add-float/2addr v6, v8
@@ -107,7 +107,7 @@
     float-to-int v1, v6
 
     .line 55
-    .local v1, defaultBorderTop:I
+    .local v1, "defaultBorderTop":I
     mul-float v6, v5, v7
 
     add-float/2addr v6, v8
@@ -115,7 +115,7 @@
     float-to-int v2, v6
 
     .line 56
-    .local v2, defaultBottomPadding:I
+    .local v2, "defaultBottomPadding":I
     mul-float v6, v5, v7
 
     add-float/2addr v6, v8
@@ -123,7 +123,7 @@
     float-to-int v3, v6
 
     .line 57
-    .local v3, defaultLeftPadding:I
+    .local v3, "defaultLeftPadding":I
     mul-float v6, v5, v7
 
     add-float/2addr v6, v8
@@ -131,7 +131,7 @@
     float-to-int v4, v6
 
     .line 59
-    .local v4, defaultRightPadding:I
+    .local v4, "defaultRightPadding":I
     invoke-virtual {v0, v9, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v6
@@ -176,7 +176,7 @@
 # virtual methods
 .method public addView(Landroid/view/View;)V
     .locals 11
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 85
@@ -185,31 +185,31 @@
     move-result v3
 
     .line 86
-    .local v3, borderTop:I
+    .local v3, "borderTop":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingBottom()I
 
     move-result v0
 
     .line 87
-    .local v0, borderBottom:I
+    .local v0, "borderBottom":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingLeft()I
 
     move-result v1
 
     .line 88
-    .local v1, borderLeft:I
+    .local v1, "borderLeft":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingRight()I
 
     move-result v2
 
     .line 90
-    .local v2, borderRight:I
+    .local v2, "borderRight":I
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v5
 
     .line 91
-    .local v5, params:Landroid/view/ViewGroup$LayoutParams;
+    .local v5, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v10, v5, Landroid/preference/PreferenceFrameLayout$LayoutParams;
 
     if-eqz v10, :cond_3
@@ -223,7 +223,7 @@
     move-object v4, v10
 
     .line 94
-    .local v4, layoutParams:Landroid/preference/PreferenceFrameLayout$LayoutParams;
+    .local v4, "layoutParams":Landroid/preference/PreferenceFrameLayout$LayoutParams;
     :goto_0
     if-eqz v4, :cond_4
 
@@ -269,25 +269,25 @@
     move-result v9
 
     .line 115
-    .local v9, previousTop:I
+    .local v9, "previousTop":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingBottom()I
 
     move-result v6
 
     .line 116
-    .local v6, previousBottom:I
+    .local v6, "previousBottom":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingLeft()I
 
     move-result v7
 
     .line 117
-    .local v7, previousLeft:I
+    .local v7, "previousLeft":I
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingRight()I
 
     move-result v8
 
     .line 118
-    .local v8, previousRight:I
+    .local v8, "previousRight":I
     if-ne v9, v3, :cond_1
 
     if-ne v6, v0, :cond_1
@@ -308,18 +308,18 @@
     return-void
 
     .line 91
-    .end local v4           #layoutParams:Landroid/preference/PreferenceFrameLayout$LayoutParams;
-    .end local v6           #previousBottom:I
-    .end local v7           #previousLeft:I
-    .end local v8           #previousRight:I
-    .end local v9           #previousTop:I
+    .end local v4    # "layoutParams":Landroid/preference/PreferenceFrameLayout$LayoutParams;
+    .end local v6    # "previousBottom":I
+    .end local v7    # "previousLeft":I
+    .end local v8    # "previousRight":I
+    .end local v9    # "previousTop":I
     :cond_3
     const/4 v4, 0x0
 
     goto :goto_0
 
     .line 105
-    .restart local v4       #layoutParams:Landroid/preference/PreferenceFrameLayout$LayoutParams;
+    .restart local v4    # "layoutParams":Landroid/preference/PreferenceFrameLayout$LayoutParams;
     :cond_4
     iget-boolean v10, p0, Landroid/preference/PreferenceFrameLayout;->mPaddingApplied:Z
 
@@ -355,7 +355,7 @@
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/preference/PreferenceFrameLayout$LayoutParams;
     .locals 2
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 80
@@ -372,7 +372,7 @@
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 29
@@ -385,7 +385,7 @@
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 29

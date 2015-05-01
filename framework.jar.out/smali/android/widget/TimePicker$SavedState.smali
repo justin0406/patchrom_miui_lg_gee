@@ -50,7 +50,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 373
@@ -76,8 +76,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/TimePicker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/widget/TimePicker$1;
 
     .prologue
     .line 360
@@ -88,9 +88,9 @@
 
 .method private constructor <init>(Landroid/os/Parcelable;II)V
     .locals 0
-    .parameter "superState"
-    .parameter "hour"
-    .parameter "minute"
+    .param p1, "superState"    # Landroid/os/Parcelable;
+    .param p2, "hour"    # I
+    .param p3, "minute"    # I
 
     .prologue
     .line 367
@@ -108,10 +108,10 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcelable;IILandroid/widget/TimePicker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Landroid/os/Parcelable;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Landroid/widget/TimePicker$1;
 
     .prologue
     .line 360
@@ -144,8 +144,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 388

@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 80
@@ -34,8 +34,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Landroid/net/LocalSocketAddress$Namespace;)V
     .locals 0
-    .parameter "name"
-    .parameter "namespace"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "namespace"    # Landroid/net/LocalSocketAddress$Namespace;
 
     .prologue
     .line 68

@@ -51,7 +51,7 @@
 
 .method private flush(Z)V
     .locals 6
-    .parameter "completely"
+    .param p1, "completely"    # Z
 
     .prologue
     const/4 v5, 0x0
@@ -64,11 +64,11 @@
     move-result v0
 
     .line 88
-    .local v0, length:I
+    .local v0, "length":I
     const/4 v2, 0x0
 
     .line 93
-    .local v2, start:I
+    .local v2, "start":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -80,7 +80,7 @@
 
     move-result v1
 
-    .local v1, nextBreak:I
+    .local v1, "nextBreak":I
     const/4 v3, -0x1
 
     if-eq v1, v3, :cond_0
@@ -100,7 +100,7 @@
     goto :goto_0
 
     .line 98
-    .end local v1           #nextBreak:I
+    .end local v1    # "nextBreak":I
     :cond_0
     if-eqz p1, :cond_2
 
@@ -139,7 +139,7 @@
 # virtual methods
 .method public declared-synchronized append(C)Ljava/io/PrintStream;
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 327
@@ -166,7 +166,7 @@
 
 .method public declared-synchronized append(Ljava/lang/CharSequence;)Ljava/io/PrintStream;
     .locals 1
-    .parameter "csq"
+    .param p1, "csq"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 333
@@ -200,9 +200,9 @@
 
 .method public declared-synchronized append(Ljava/lang/CharSequence;II)Ljava/io/PrintStream;
     .locals 1
-    .parameter "csq"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "csq"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 341
@@ -236,7 +236,7 @@
 
 .method public bridge synthetic append(C)Ljava/lang/Appendable;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -254,7 +254,7 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -272,9 +272,9 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -338,8 +338,8 @@
 
 .method public varargs format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
     .locals 1
-    .parameter "format"
-    .parameter "args"
+    .param p1, "format"    # Ljava/lang/String;
+    .param p2, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 169
@@ -356,9 +356,9 @@
 
 .method public varargs declared-synchronized format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
     .locals 2
-    .parameter "l"
-    .parameter "format"
-    .parameter "args"
+    .param p1, "l"    # Ljava/util/Locale;
+    .param p2, "format"    # Ljava/lang/String;
+    .param p3, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 187
@@ -411,7 +411,7 @@
 
 .method public declared-synchronized print(C)V
     .locals 1
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 204
@@ -451,7 +451,7 @@
 
 .method public declared-synchronized print(D)V
     .locals 1
-    .parameter "dnum"
+    .param p1, "dnum"    # D
 
     .prologue
     .line 212
@@ -480,7 +480,7 @@
 
 .method public declared-synchronized print(F)V
     .locals 1
-    .parameter "fnum"
+    .param p1, "fnum"    # F
 
     .prologue
     .line 217
@@ -509,7 +509,7 @@
 
 .method public declared-synchronized print(I)V
     .locals 1
-    .parameter "inum"
+    .param p1, "inum"    # I
 
     .prologue
     .line 222
@@ -538,7 +538,7 @@
 
 .method public declared-synchronized print(J)V
     .locals 1
-    .parameter "lnum"
+    .param p1, "lnum"    # J
 
     .prologue
     .line 227
@@ -567,7 +567,7 @@
 
 .method public declared-synchronized print(Ljava/lang/Object;)V
     .locals 1
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 232
@@ -601,7 +601,7 @@
 
 .method public declared-synchronized print(Ljava/lang/String;)V
     .locals 1
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 238
@@ -635,7 +635,7 @@
 
 .method public declared-synchronized print(Z)V
     .locals 1
-    .parameter "bool"
+    .param p1, "bool"    # Z
 
     .prologue
     .line 244
@@ -664,7 +664,7 @@
 
 .method public declared-synchronized print([C)V
     .locals 1
-    .parameter "charArray"
+    .param p1, "charArray"    # [C
 
     .prologue
     .line 198
@@ -698,8 +698,8 @@
 
 .method public varargs printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
     .locals 1
-    .parameter "format"
-    .parameter "args"
+    .param p1, "format"    # Ljava/lang/String;
+    .param p2, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 174
@@ -712,9 +712,9 @@
 
 .method public varargs printf(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
     .locals 1
-    .parameter "l"
-    .parameter "format"
-    .parameter "args"
+    .param p1, "l"    # Ljava/util/Locale;
+    .param p2, "format"    # Ljava/lang/String;
+    .param p3, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 179
@@ -755,7 +755,7 @@
 
 .method public declared-synchronized println(C)V
     .locals 1
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 260
@@ -789,7 +789,7 @@
 
 .method public declared-synchronized println(D)V
     .locals 1
-    .parameter "dnum"
+    .param p1, "dnum"    # D
 
     .prologue
     .line 266
@@ -823,7 +823,7 @@
 
 .method public declared-synchronized println(F)V
     .locals 1
-    .parameter "fnum"
+    .param p1, "fnum"    # F
 
     .prologue
     .line 272
@@ -857,7 +857,7 @@
 
 .method public declared-synchronized println(I)V
     .locals 1
-    .parameter "inum"
+    .param p1, "inum"    # I
 
     .prologue
     .line 278
@@ -891,7 +891,7 @@
 
 .method public declared-synchronized println(J)V
     .locals 1
-    .parameter "lnum"
+    .param p1, "lnum"    # J
 
     .prologue
     .line 284
@@ -925,7 +925,7 @@
 
 .method public declared-synchronized println(Ljava/lang/Object;)V
     .locals 1
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 290
@@ -959,7 +959,7 @@
 
 .method public declared-synchronized println(Ljava/lang/String;)V
     .locals 4
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 296
@@ -980,11 +980,11 @@
     move-result v0
 
     .line 300
-    .local v0, length:I
+    .local v0, "length":I
     const/4 v2, 0x0
 
     .line 305
-    .local v2, start:I
+    .local v2, "start":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -994,7 +994,7 @@
 
     move-result v1
 
-    .local v1, nextBreak:I
+    .local v1, "nextBreak":I
     const/4 v3, -0x1
 
     if-eq v1, v3, :cond_0
@@ -1012,7 +1012,7 @@
     goto :goto_0
 
     .line 310
-    .end local v1           #nextBreak:I
+    .end local v1    # "nextBreak":I
     :cond_0
     if-ge v2, v0, :cond_1
 
@@ -1026,8 +1026,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 317
-    .end local v0           #length:I
-    .end local v2           #start:I
+    .end local v0    # "length":I
+    .end local v2    # "start":I
     :cond_1
     :goto_1
     monitor-exit p0
@@ -1061,7 +1061,7 @@
 
 .method public declared-synchronized println(Z)V
     .locals 1
-    .parameter "bool"
+    .param p1, "bool"    # Z
 
     .prologue
     .line 321
@@ -1095,7 +1095,7 @@
 
 .method public declared-synchronized println([C)V
     .locals 1
-    .parameter "charArray"
+    .param p1, "charArray"    # [C
 
     .prologue
     .line 254
@@ -1137,7 +1137,7 @@
 
 .method public write(I)V
     .locals 4
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -1159,7 +1159,7 @@
 
 .method public write([B)V
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
 
     .prologue
     .line 116
@@ -1175,9 +1175,9 @@
 
 .method public declared-synchronized write([BII)V
     .locals 7
-    .parameter "bytes"
-    .parameter "start"
-    .parameter "count"
+    .param p1, "bytes"    # [B
+    .param p2, "start"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 121
@@ -1234,7 +1234,7 @@
     add-int v1, p2, p3
 
     .line 130
-    .local v1, end:I
+    .local v1, "end":I
     :goto_0
     if-ge p2, v1, :cond_2
 
@@ -1252,7 +1252,7 @@
     move-result v2
 
     .line 134
-    .local v2, numBytes:I
+    .local v2, "numBytes":I
     iget-object v3, p0, Lcom/android/internal/os/LoggingPrintStream;->encodedBytes:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v3, p1, p2, v2}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
@@ -1280,7 +1280,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, coderResult:Ljava/nio/charset/CoderResult;
+    .local v0, "coderResult":Ljava/nio/charset/CoderResult;
     iget-object v3, p0, Lcom/android/internal/os/LoggingPrintStream;->decodedChars:Ljava/nio/CharBuffer;
 
     invoke-virtual {v3}, Ljava/nio/CharBuffer;->flip()Ljava/nio/Buffer;
@@ -1314,9 +1314,9 @@
     goto :goto_0
 
     .line 121
-    .end local v0           #coderResult:Ljava/nio/charset/CoderResult;
-    .end local v1           #end:I
-    .end local v2           #numBytes:I
+    .end local v0    # "coderResult":Ljava/nio/charset/CoderResult;
+    .end local v1    # "end":I
+    .end local v2    # "numBytes":I
     :catchall_0
     move-exception v3
 
@@ -1325,7 +1325,7 @@
     throw v3
 
     .line 150
-    .restart local v1       #end:I
+    .restart local v1    # "end":I
     :cond_2
     const/4 v3, 0x0
 

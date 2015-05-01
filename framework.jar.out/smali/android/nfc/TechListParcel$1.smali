@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/nfc/TechListParcel;
     .locals 4
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 53
@@ -51,14 +51,14 @@
     move-result v0
 
     .line 54
-    .local v0, count:I
+    .local v0, "count":I
     new-array v2, v0, [[Ljava/lang/String;
 
     .line 55
-    .local v2, techLists:[[Ljava/lang/String;
+    .local v2, "techLists":[[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -85,7 +85,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 50
@@ -98,7 +98,7 @@
 
 .method public newArray(I)[Landroid/nfc/TechListParcel;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 63
@@ -109,7 +109,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 50

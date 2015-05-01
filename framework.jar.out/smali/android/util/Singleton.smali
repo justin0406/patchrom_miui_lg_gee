@@ -30,7 +30,7 @@
 
     .prologue
     .line 26
-    .local p0, this:Landroid/util/Singleton;,"Landroid/util/Singleton<TT;>;"
+    .local p0, "this":Landroid/util/Singleton;, "Landroid/util/Singleton<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,7 +56,7 @@
 
     .prologue
     .line 32
-    .local p0, this:Landroid/util/Singleton;,"Landroid/util/Singleton<TT;>;"
+    .local p0, "this":Landroid/util/Singleton;, "Landroid/util/Singleton<TT;>;"
     monitor-enter p0
 
     .line 33

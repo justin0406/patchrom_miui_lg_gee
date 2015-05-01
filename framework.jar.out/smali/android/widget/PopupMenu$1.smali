@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/PopupMenu;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/view/View;
 
     .prologue
     .line 108
@@ -42,7 +41,7 @@
     .line 124
     iget-object v0, p0, Landroid/widget/PopupMenu$1;->this$0:Landroid/widget/PopupMenu;
 
-    #getter for: Landroid/widget/PopupMenu;->mPopup:Lcom/android/internal/view/menu/MenuPopupHelper;
+    # getter for: Landroid/widget/PopupMenu;->mPopup:Lcom/android/internal/view/menu/MenuPopupHelper;
     invoke-static {v0}, Landroid/widget/PopupMenu;->access$000(Landroid/widget/PopupMenu;)Lcom/android/internal/view/menu/MenuPopupHelper;
 
     move-result-object v0

@@ -27,8 +27,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/GraphEnvironment;Landroid/filterfw/core/FilterGraph;)V
     .locals 0
-    .parameter
-    .parameter "graph"
+    .param p2, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 59
@@ -47,7 +46,7 @@
 # virtual methods
 .method public getAsyncRunner(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/AsyncRunner;
     .locals 2
-    .parameter "environment"
+    .param p1, "environment"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 68
@@ -90,7 +89,7 @@
 
 .method public getSyncRunner(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/GraphRunner;
     .locals 3
-    .parameter "environment"
+    .param p1, "environment"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 76

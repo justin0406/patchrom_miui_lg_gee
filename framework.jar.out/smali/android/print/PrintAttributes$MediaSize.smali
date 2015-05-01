@@ -15,111 +15,111 @@
 
 
 # static fields
-.field public static final ISO_A0:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A0:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A1:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A1:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A10:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A10:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A3:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A3:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A4:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A5:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A5:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A6:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A6:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A7:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A7:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A8:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A8:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_A9:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_A9:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B0:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B0:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B1:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B1:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B10:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B10:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B3:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B3:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B4:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B5:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B5:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B6:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B6:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B7:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B7:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B8:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B8:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_B9:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_B9:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C0:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C0:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C1:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C1:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C10:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C10:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C3:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C3:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C4:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C5:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C5:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C6:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C6:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C7:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C7:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C8:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C8:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final ISO_C9:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final ISO_C9:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B0:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B0:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B1:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B1:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B10:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B10:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B3:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B3:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B4:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B5:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B5:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B6:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B6:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B7:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B7:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B8:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B8:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_B9:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_B9:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JIS_EXEC:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JIS_EXEC:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_CHOU2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_CHOU2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_CHOU3:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_CHOU3:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_CHOU4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_CHOU4:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_HAGAKI:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_HAGAKI:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_KAHU:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_KAHU:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_KAKU2:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_KAKU2:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_OUFUKU:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_OUFUKU:Landroid/print/PrintAttributes$MediaSize;
 
-.field public static final JPN_YOU4:Landroid/print/PrintAttributes$MediaSize; = null
+.field public static final JPN_YOU4:Landroid/print/PrintAttributes$MediaSize;
 
 .field private static final LOG_TAG:Ljava/lang/String; = "MediaSize"
 
@@ -239,7 +239,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d9
+    const v3, 0x10405da
 
     const v5, 0x7fffffff
 
@@ -254,7 +254,7 @@
 
     const-string v7, "android"
 
-    const v8, 0x10405da
+    const v8, 0x10405db
 
     const v9, 0x7fffffff
 
@@ -271,7 +271,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040588
+    const v3, 0x1040589
 
     const v4, 0x8156
 
@@ -288,7 +288,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040589
+    const v3, 0x104058a
 
     const/16 v4, 0x5b5e
 
@@ -305,7 +305,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058a
+    const v3, 0x104058b
 
     const/16 v4, 0x409c
 
@@ -322,7 +322,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058b
+    const v3, 0x104058c
 
     const/16 v4, 0x2daa
 
@@ -339,7 +339,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058c
+    const v3, 0x104058d
 
     const/16 v4, 0x204e
 
@@ -356,7 +356,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058d
+    const v3, 0x104058e
 
     const/16 v4, 0x16c6
 
@@ -373,7 +373,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058e
+    const v3, 0x104058f
 
     const/16 v4, 0x1022
 
@@ -390,7 +390,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104058f
+    const v3, 0x1040590
 
     const/16 v4, 0xb5e
 
@@ -407,7 +407,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040590
+    const v3, 0x1040591
 
     const/16 v4, 0x802
 
@@ -424,7 +424,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040591
+    const v3, 0x1040592
 
     const/16 v4, 0x5b4
 
@@ -441,7 +441,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040592
+    const v3, 0x1040593
 
     const/16 v4, 0x3fc
 
@@ -458,7 +458,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040593
+    const v3, 0x1040594
 
     const v4, 0x99ca
 
@@ -475,7 +475,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040594
+    const v3, 0x1040595
 
     const/16 v4, 0x6cb6
 
@@ -492,7 +492,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040595
+    const v3, 0x1040596
 
     const/16 v4, 0x4cea
 
@@ -509,7 +509,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040596
+    const v3, 0x1040597
 
     const/16 v4, 0x364c
 
@@ -526,7 +526,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040597
+    const v3, 0x1040598
 
     const/16 v4, 0x2670
 
@@ -543,7 +543,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040598
+    const v3, 0x1040599
 
     const/16 v4, 0x1b12
 
@@ -560,7 +560,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x1040599
+    const v3, 0x104059a
 
     const/16 v4, 0x1338
 
@@ -577,7 +577,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059a
+    const v3, 0x104059b
 
     const/16 v4, 0xd84
 
@@ -594,7 +594,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059b
+    const v3, 0x104059c
 
     const/16 v4, 0x988
 
@@ -611,7 +611,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059c
+    const v3, 0x104059d
 
     const/16 v4, 0x6c2
 
@@ -628,7 +628,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059d
+    const v3, 0x104059e
 
     const/16 v4, 0x4c4
 
@@ -645,7 +645,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059e
+    const v3, 0x104059f
 
     const v4, 0x8d04
 
@@ -662,7 +662,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x104059f
+    const v3, 0x10405a0
 
     const/16 v4, 0x63a6
 
@@ -679,7 +679,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a0
+    const v3, 0x10405a1
 
     const/16 v4, 0x466e
 
@@ -696,7 +696,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a1
+    const v3, 0x10405a2
 
     const/16 v4, 0x31d8
 
@@ -713,7 +713,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a2
+    const v3, 0x10405a3
 
     const/16 v4, 0x233c
 
@@ -730,7 +730,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a3
+    const v3, 0x10405a4
 
     const/16 v4, 0x18ec
 
@@ -747,7 +747,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a4
+    const v3, 0x10405a5
 
     const/16 v4, 0x118a
 
@@ -764,7 +764,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a5
+    const v3, 0x10405a6
 
     const/16 v4, 0xc76
 
@@ -781,7 +781,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a6
+    const v3, 0x10405a7
 
     const/16 v4, 0x8c0
 
@@ -798,7 +798,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a7
+    const v3, 0x10405a8
 
     const/16 v4, 0x622
 
@@ -815,7 +815,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a8
+    const v3, 0x10405a9
 
     const/16 v4, 0x44c
 
@@ -832,7 +832,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405a9
+    const v3, 0x10405aa
 
     const/16 v4, 0x2134
 
@@ -849,7 +849,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405aa
+    const v3, 0x10405ab
 
     const/16 v5, 0x2904
 
@@ -866,7 +866,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ab
+    const v3, 0x10405ac
 
     const/16 v4, 0x2134
 
@@ -883,7 +883,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ac
+    const v3, 0x10405ad
 
     move v4, v11
 
@@ -900,7 +900,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ad
+    const v3, 0x10405ae
 
     const/16 v4, 0x4268
 
@@ -917,7 +917,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ae
+    const v3, 0x10405af
 
     const/16 v5, 0x4268
 
@@ -934,7 +934,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405af
+    const v3, 0x10405b0
 
     const/16 v4, 0xbb8
 
@@ -951,7 +951,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b0
+    const v3, 0x10405b1
 
     const/16 v4, 0xfa0
 
@@ -968,7 +968,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b1
+    const v3, 0x10405b2
 
     move v4, v13
 
@@ -985,7 +985,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b2
+    const v3, 0x10405b3
 
     const/16 v4, 0x1c52
 
@@ -1002,7 +1002,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b3
+    const v3, 0x10405b4
 
     const/16 v5, 0x2710
 
@@ -1019,7 +1019,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b4
+    const v3, 0x10405b5
 
     const/16 v5, 0x32c8
 
@@ -1036,7 +1036,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b5
+    const v3, 0x10405b6
 
     const/16 v4, 0x2985
 
@@ -1053,7 +1053,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b6
+    const v3, 0x10405b7
 
     const/16 v4, 0x1dfd
 
@@ -1070,7 +1070,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b7
+    const v3, 0x10405b8
 
     const/16 v4, 0xfaf
 
@@ -1087,7 +1087,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b8
+    const v3, 0x10405b9
 
     const/16 v4, 0xfaf
 
@@ -1104,7 +1104,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405b9
+    const v3, 0x10405ba
 
     const/16 v4, 0x1339
 
@@ -1121,7 +1121,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ba
+    const v3, 0x10405bb
 
     const/16 v4, 0x10ea
 
@@ -1138,7 +1138,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405bb
+    const v3, 0x10405bc
 
     const/16 v4, 0x10ea
 
@@ -1155,7 +1155,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405bc
+    const v3, 0x10405bd
 
     const/16 v5, 0x3137
 
@@ -1172,7 +1172,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405bd
+    const v3, 0x10405be
 
     const/16 v4, 0x189b
 
@@ -1189,7 +1189,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405be
+    const v3, 0x10405bf
 
     const/16 v5, 0x2f85
 
@@ -1206,7 +1206,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405bf
+    const v3, 0x10405c0
 
     const/16 v4, 0x2338
 
@@ -1223,7 +1223,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c0
+    const v3, 0x10405c1
 
     const/16 v4, 0x31d4
 
@@ -1240,7 +1240,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c1
+    const v3, 0x10405c2
 
     const/16 v4, 0x1675
 
@@ -1257,7 +1257,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c2
+    const v3, 0x10405c3
 
     const/16 v4, 0x2910
 
@@ -1274,7 +1274,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c3
+    const v3, 0x10405c4
 
     const/16 v4, 0x2a4b
 
@@ -1291,7 +1291,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c4
+    const v3, 0x10405c5
 
     const/16 v4, 0x1e74
 
@@ -1308,7 +1308,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c5
+    const v3, 0x10405c6
 
     const/16 v4, 0x4eb
 
@@ -1325,7 +1325,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c6
+    const v3, 0x10405c7
 
     const/16 v4, 0x6ec
 
@@ -1342,7 +1342,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c7
+    const v3, 0x10405c8
 
     const/16 v4, 0x9d8
 
@@ -1359,7 +1359,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c8
+    const v3, 0x10405c9
 
     const/16 v4, 0xdff
 
@@ -1376,7 +1376,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405c9
+    const v3, 0x10405ca
 
     const/16 v4, 0x13b9
 
@@ -1393,7 +1393,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ca
+    const v3, 0x10405cb
 
     const/16 v4, 0x1bfd
 
@@ -1410,7 +1410,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405cb
+    const v3, 0x10405cc
 
     const/16 v4, 0x2786
 
@@ -1427,7 +1427,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405cc
+    const v3, 0x10405cd
 
     const/16 v4, 0x37fb
 
@@ -1444,7 +1444,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405cd
+    const v3, 0x10405ce
 
     const/16 v4, 0x4f34
 
@@ -1461,7 +1461,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405ce
+    const v3, 0x10405cf
 
     const/16 v4, 0x6ff5
 
@@ -1478,7 +1478,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405cf
+    const v3, 0x10405d0
 
     const v4, 0x9e67
 
@@ -1495,7 +1495,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d0
+    const v3, 0x10405d1
 
     const/16 v4, 0x2138
 
@@ -1512,7 +1512,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d1
+    const v3, 0x10405d2
 
     const/16 v4, 0xdd7
 
@@ -1529,7 +1529,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d2
+    const v3, 0x10405d3
 
     const/16 v5, 0x2424
 
@@ -1546,7 +1546,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d3
+    const v3, 0x10405d4
 
     const/16 v4, 0x1116
 
@@ -1563,7 +1563,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d4
+    const v3, 0x10405d5
 
     const/16 v4, 0xf61
 
@@ -1580,7 +1580,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d5
+    const v3, 0x10405d6
 
     const/16 v4, 0x16c3
 
@@ -1597,7 +1597,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d6
+    const v3, 0x10405d7
 
     const/16 v4, 0x24e9
 
@@ -1614,7 +1614,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d7
+    const v3, 0x10405d8
 
     const/16 v4, 0x24e9
 
@@ -1631,7 +1631,7 @@
 
     const-string v2, "android"
 
-    const v3, 0x10405d8
+    const v3, 0x10405d9
 
     const/16 v4, 0x1026
 
@@ -1646,10 +1646,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 2
-    .parameter "id"
-    .parameter "label"
-    .parameter "widthMils"
-    .parameter "heightMils"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
+    .param p3, "widthMils"    # I
+    .param p4, "heightMils"    # I
 
     .prologue
     .line 679
@@ -1743,11 +1743,11 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;III)V
     .locals 2
-    .parameter "id"
-    .parameter "packageName"
-    .parameter "labelResId"
-    .parameter "widthMils"
-    .parameter "heightMils"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "labelResId"    # I
+    .param p4, "widthMils"    # I
+    .param p5, "heightMils"    # I
 
     .prologue
     .line 637
@@ -1859,12 +1859,12 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V
     .locals 0
-    .parameter "id"
-    .parameter "label"
-    .parameter "packageName"
-    .parameter "widthMils"
-    .parameter "heightMils"
-    .parameter "labelResId"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "widthMils"    # I
+    .param p5, "heightMils"    # I
+    .param p6, "labelResId"    # I
 
     .prologue
     .line 704
@@ -1894,7 +1894,7 @@
 
 .method static createFromParcel(Landroid/os/Parcel;)Landroid/print/PrintAttributes$MediaSize;
     .locals 7
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 822
@@ -1931,7 +1931,7 @@
 
 .method public static getStandardMediaSizeById(Ljava/lang/String;)Landroid/print/PrintAttributes$MediaSize;
     .locals 1
-    .parameter "id"
+    .param p0, "id"    # Ljava/lang/String;
 
     .prologue
     .line 884
@@ -1960,11 +1960,11 @@
     if-nez v0, :cond_0
 
     .line 806
-    .end local p0
+    .end local p0    # "this":Landroid/print/PrintAttributes$MediaSize;
     :goto_0
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "this":Landroid/print/PrintAttributes$MediaSize;
     :cond_0
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
@@ -2011,11 +2011,11 @@
     if-eqz v0, :cond_0
 
     .line 789
-    .end local p0
+    .end local p0    # "this":Landroid/print/PrintAttributes$MediaSize;
     :goto_0
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "this":Landroid/print/PrintAttributes$MediaSize;
     :cond_0
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
@@ -2052,7 +2052,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -2100,7 +2100,7 @@
     check-cast v0, Landroid/print/PrintAttributes$MediaSize;
 
     .line 852
-    .local v0, other:Landroid/print/PrintAttributes$MediaSize;
+    .local v0, "other":Landroid/print/PrintAttributes$MediaSize;
     iget v3, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
     iget v4, v0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
@@ -2148,7 +2148,7 @@
 
 .method public getLabel(Landroid/content/pm/PackageManager;)Ljava/lang/String;
     .locals 5
-    .parameter "packageManager"
+    .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 734
@@ -2190,7 +2190,7 @@
     move-exception v0
 
     .line 739
-    .local v0, nfe:Landroid/content/res/Resources$NotFoundException;
+    .local v0, "nfe":Landroid/content/res/Resources$NotFoundException;
     const-string v2, "MediaSize"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2228,7 +2228,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 746
-    .end local v0           #nfe:Landroid/content/res/Resources$NotFoundException;
+    .end local v0    # "nfe":Landroid/content/res/Resources$NotFoundException;
     :cond_0
     :goto_1
     iget-object v2, p0, Landroid/print/PrintAttributes$MediaSize;->mLabel:Ljava/lang/String;
@@ -2240,7 +2240,7 @@
     move-exception v1
 
     .line 742
-    .local v1, nnfee:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v1, "nnfee":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v2, "MediaSize"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2298,11 +2298,11 @@
     const/16 v0, 0x1f
 
     .line 834
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 835
-    .local v1, result:I
+    .local v1, "result":I
     iget v2, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
     add-int/lit8 v1, v2, 0x1f
@@ -2350,7 +2350,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 864
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "MediaSize{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2436,7 +2436,7 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 813

@@ -33,8 +33,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/LightsService;I)V
     .locals 0
-    .parameter
-    .parameter "id"
+    .param p2, "id"    # I
 
     .prologue
     .line 62
@@ -51,9 +50,8 @@
 
 .method constructor <init>(Lcom/android/server/LightsService;II)V
     .locals 0
-    .parameter
-    .parameter "id"
-    .parameter "unused"
+    .param p2, "id"    # I
+    .param p3, "unused"    # I
 
     .prologue
     invoke-direct {p0, p1, p2}, Lcom/android/server/LightsService$Light;-><init>(Lcom/android/server/LightsService;I)V
@@ -63,9 +61,9 @@
 
 .method synthetic constructor <init>(Lcom/android/server/LightsService;ILcom/android/server/LightsService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Lcom/android/server/LightsService;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Lcom/android/server/LightsService$1;
 
     .prologue
     .line 60
@@ -76,7 +74,7 @@
 
 .method static synthetic access$500(Lcom/android/server/LightsService$Light;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/LightsService$Light;
 
     .prologue
     .line 60
@@ -87,11 +85,11 @@
 
 .method setLightLocked(IIIII)V
     .locals 7
-    .parameter "color"
-    .parameter "mode"
-    .parameter "onMS"
-    .parameter "offMS"
-    .parameter "brightnessMode"
+    .param p1, "color"    # I
+    .param p2, "mode"    # I
+    .param p3, "onMS"    # I
+    .param p4, "offMS"    # I
+    .param p5, "brightnessMode"    # I
 
     .prologue
     .line 117
@@ -127,7 +125,7 @@
     .line 124
     iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
 
-    #getter for: Lcom/android/server/LightsService;->mNativePointer:I
+    # getter for: Lcom/android/server/LightsService;->mNativePointer:I
     invoke-static {v0}, Lcom/android/server/LightsService;->access$100(Lcom/android/server/LightsService;)I
 
     move-result v0
@@ -144,7 +142,7 @@
 
     move v6, p5
 
-    #calls: Lcom/android/server/LightsService;->setLight_native(IIIIIII)V
+    # invokes: Lcom/android/server/LightsService;->setLight_native(IIIIIII)V
     invoke-static/range {v0 .. v6}, Lcom/android/server/LightsService;->access$200(IIIIIII)V
 
     .line 126
@@ -211,8 +209,8 @@
 
 .method public pulse(II)V
     .locals 6
-    .parameter "color"
-    .parameter "onMS"
+    .param p1, "color"    # I
+    .param p2, "onMS"    # I
 
     .prologue
     .line 96
@@ -246,14 +244,14 @@
     .line 99
     iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
 
-    #getter for: Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
+    # getter for: Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/LightsService;->access$000(Lcom/android/server/LightsService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
 
-    #getter for: Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
+    # getter for: Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/LightsService;->access$000(Lcom/android/server/LightsService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -288,7 +286,7 @@
 
 .method public setBrightness(I)V
     .locals 1
-    .parameter "brightness"
+    .param p1, "brightness"    # I
 
     .prologue
     .line 67
@@ -302,8 +300,8 @@
 
 .method public setBrightness(II)V
     .locals 6
-    .parameter "brightness"
-    .parameter "brightnessMode"
+    .param p1, "brightness"    # I
+    .param p2, "brightnessMode"    # I
 
     .prologue
     .line 71
@@ -313,8 +311,8 @@
     and-int/lit16 v1, p1, 0xff
 
     .line 73
-    .local v1, color:I
-    const/high16 v0, -0x100
+    .local v1, "color":I
+    const/high16 v0, -0x1000000
 
     shl-int/lit8 v2, v1, 0x10
 
@@ -359,7 +357,7 @@
 
 .method public setColor(I)V
     .locals 6
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 79
@@ -400,10 +398,10 @@
 
 .method public setFlashing(IIII)V
     .locals 6
-    .parameter "color"
-    .parameter "mode"
-    .parameter "onMS"
-    .parameter "offMS"
+    .param p1, "color"    # I
+    .param p2, "mode"    # I
+    .param p3, "onMS"    # I
+    .param p4, "offMS"    # I
 
     .prologue
     .line 85

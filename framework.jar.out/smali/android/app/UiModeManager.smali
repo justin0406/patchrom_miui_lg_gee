@@ -85,7 +85,7 @@
 # virtual methods
 .method public disableCarMode(I)V
     .locals 3
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 157
@@ -111,7 +111,7 @@
     move-exception v0
 
     .line 161
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string v2, "disableCarMode: RemoteException"
@@ -123,7 +123,7 @@
 
 .method public enableCarMode(I)V
     .locals 3
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 134
@@ -149,7 +149,7 @@
     move-exception v0
 
     .line 138
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string v2, "disableCarMode: RemoteException"
@@ -187,7 +187,7 @@
     move-exception v0
 
     .line 178
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string v2, "getCurrentModeType: RemoteException"
@@ -195,7 +195,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 181
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x1
 
@@ -230,7 +230,7 @@
     move-exception v0
 
     .line 219
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string v2, "getNightMode: RemoteException"
@@ -238,7 +238,7 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 222
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, -0x1
 
@@ -247,7 +247,7 @@
 
 .method public setNightMode(I)V
     .locals 3
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 199
@@ -273,7 +273,7 @@
     move-exception v0
 
     .line 203
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string/jumbo v2, "setNightMode: RemoteException"

@@ -56,7 +56,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;)V
     .locals 1
-    .parameter "handler"
+    .param p1, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 238
@@ -83,10 +83,10 @@
 
 .method static synthetic access$300(Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;Lcom/android/internal/textservice/ISpellCheckerSession;Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;
+    .param p1, "x1"    # Lcom/android/internal/textservice/ISpellCheckerSession;
+    .param p2, "x2"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .param p3, "x3"    # Z
 
     .prologue
     .line 224
@@ -97,7 +97,7 @@
 
 .method private processOrEnqueueTask(Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;)V
     .locals 5
-    .parameter "scp"
+    .param p1, "scp"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
 
     .prologue
     .line 394
@@ -108,14 +108,14 @@
     iget-object v1, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;->mISpellCheckerSession:Lcom/android/internal/textservice/ISpellCheckerSession;
 
     .line 396
-    .local v1, session:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .local v1, "session":Lcom/android/internal/textservice/ISpellCheckerSession;
     if-nez v1, :cond_3
 
     .line 397
     const/4 v0, 0x0
 
     .line 398
-    .local v0, closeTask:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .local v0, "closeTask":Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
     iget v3, p1, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mWhat:I
 
     const/4 v4, 0x1
@@ -143,7 +143,7 @@
     check-cast v2, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
 
     .line 401
-    .local v2, tmp:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .local v2, "tmp":Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
     iget v3, v2, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mWhat:I
 
     const/4 v4, 0x3
@@ -156,7 +156,7 @@
     goto :goto_0
 
     .line 408
-    .end local v2           #tmp:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .end local v2    # "tmp":Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
     :cond_1
     iget-object v3, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;->mPendingTasks:Ljava/util/Queue;
 
@@ -175,7 +175,7 @@
     monitor-exit p0
 
     .line 416
-    .end local v0           #closeTask:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .end local v0    # "closeTask":Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
     :goto_1
     return-void
 
@@ -193,7 +193,7 @@
     goto :goto_1
 
     .line 414
-    .end local v1           #session:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .end local v1    # "session":Lcom/android/internal/textservice/ISpellCheckerSession;
     :catchall_0
     move-exception v3
 
@@ -207,9 +207,9 @@
 
 .method private processTask(Lcom/android/internal/textservice/ISpellCheckerSession;Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;Z)V
     .locals 4
-    .parameter "session"
-    .parameter "scp"
-    .parameter "async"
+    .param p1, "session"    # Lcom/android/internal/textservice/ISpellCheckerSession;
+    .param p2, "scp"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;
+    .param p3, "async"    # Z
 
     .prologue
     .line 260
@@ -291,7 +291,8 @@
     move-exception v0
 
     .line 269
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
+    # getter for: Landroid/view/textservice/SpellCheckerSession;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/view/textservice/SpellCheckerSession;->access$200()Ljava/lang/String;
 
     move-result-object v1
@@ -319,7 +320,7 @@
     goto :goto_0
 
     .line 277
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :pswitch_1
     :try_start_2
     iget-object v1, p2, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mTextInfos:[Landroid/view/textservice/TextInfo;
@@ -339,7 +340,8 @@
     move-exception v0
 
     .line 280
-    .restart local v0       #e:Landroid/os/RemoteException;
+    .restart local v0    # "e":Landroid/os/RemoteException;
+    # getter for: Landroid/view/textservice/SpellCheckerSession;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/view/textservice/SpellCheckerSession;->access$200()Ljava/lang/String;
 
     move-result-object v1
@@ -367,7 +369,7 @@
     goto :goto_0
 
     .line 288
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :pswitch_2
     :try_start_3
     iget-object v1, p2, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mTextInfos:[Landroid/view/textservice/TextInfo;
@@ -385,7 +387,8 @@
     move-exception v0
 
     .line 291
-    .restart local v0       #e:Landroid/os/RemoteException;
+    .restart local v0    # "e":Landroid/os/RemoteException;
+    # getter for: Landroid/view/textservice/SpellCheckerSession;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/view/textservice/SpellCheckerSession;->access$200()Ljava/lang/String;
 
     move-result-object v1
@@ -413,7 +416,7 @@
     goto/16 :goto_0
 
     .line 299
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :pswitch_3
     :try_start_4
     invoke-interface {p1}, Lcom/android/internal/textservice/ISpellCheckerSession;->onClose()V
@@ -427,7 +430,8 @@
     move-exception v0
 
     .line 301
-    .restart local v0       #e:Landroid/os/RemoteException;
+    .restart local v0    # "e":Landroid/os/RemoteException;
+    # getter for: Landroid/view/textservice/SpellCheckerSession;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/view/textservice/SpellCheckerSession;->access$200()Ljava/lang/String;
 
     move-result-object v1
@@ -455,7 +459,7 @@
     goto/16 :goto_0
 
     .line 308
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_3
     iput-object p1, p2, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mSession:Lcom/android/internal/textservice/ISpellCheckerSession;
 
@@ -541,8 +545,8 @@
 
 .method public getSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)V
     .locals 3
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
 
     .prologue
     .line 373
@@ -562,9 +566,9 @@
 
 .method public getSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)V
     .locals 2
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "sequentialWords"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
+    .param p3, "sequentialWords"    # Z
 
     .prologue
     .line 364
@@ -606,7 +610,7 @@
 
 .method public onGetSentenceSuggestions([Landroid/view/textservice/SentenceSuggestionsInfo;)V
     .locals 3
-    .parameter "results"
+    .param p1, "results"    # [Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .prologue
     .line 430
@@ -628,7 +632,7 @@
 
 .method public onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
     .locals 3
-    .parameter "results"
+    .param p1, "results"    # [Landroid/view/textservice/SuggestionsInfo;
 
     .prologue
     .line 420
@@ -673,7 +677,7 @@
 
 .method public declared-synchronized onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerSession;)V
     .locals 3
-    .parameter "session"
+    .param p1, "session"    # Lcom/android/internal/textservice/ISpellCheckerSession;
 
     .prologue
     .line 328

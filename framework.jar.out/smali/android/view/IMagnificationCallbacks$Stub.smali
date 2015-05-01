@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/view/IMagnificationCallbacks;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/view/IMagnificationCallbacks;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/view/IMagnificationCallbacks$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/view/IMagnificationCallbacks$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,22 +165,22 @@
     check-cast v0, Landroid/graphics/Region;
 
     .line 58
-    .local v0, _arg0:Landroid/graphics/Region;
+    .local v0, "_arg0":Landroid/graphics/Region;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/view/IMagnificationCallbacks$Stub;->onMagnifedBoundsChanged(Landroid/graphics/Region;)V
 
     goto :goto_0
 
     .line 56
-    .end local v0           #_arg0:Landroid/graphics/Region;
+    .end local v0    # "_arg0":Landroid/graphics/Region;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/graphics/Region;
+    .restart local v0    # "_arg0":Landroid/graphics/Region;
     goto :goto_1
 
     .line 63
-    .end local v0           #_arg0:Landroid/graphics/Region;
+    .end local v0    # "_arg0":Landroid/graphics/Region;
     :sswitch_2
     const-string v5, "android.view.IMagnificationCallbacks"
 
@@ -192,34 +192,34 @@
     move-result v0
 
     .line 67
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 69
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 71
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 72
-    .local v3, _arg3:I
+    .local v3, "_arg3":I
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/view/IMagnificationCallbacks$Stub;->onRectangleOnScreenRequested(IIII)V
 
     goto :goto_0
 
     .line 77
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:I
-    .end local v3           #_arg3:I
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":I
+    .end local v3    # "_arg3":I
     :sswitch_3
     const-string v5, "android.view.IMagnificationCallbacks"
 
@@ -231,13 +231,13 @@
     move-result v0
 
     .line 80
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/view/IMagnificationCallbacks$Stub;->onRotationChanged(I)V
 
     goto :goto_0
 
     .line 85
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_4
     const-string v5, "android.view.IMagnificationCallbacks"
 

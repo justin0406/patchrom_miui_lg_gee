@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$Static$1;Landroid/media/AudioRoutesInfo;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 99

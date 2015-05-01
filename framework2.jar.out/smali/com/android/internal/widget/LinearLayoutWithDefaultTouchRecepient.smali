@@ -12,7 +12,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 40
@@ -31,8 +31,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 44
@@ -53,7 +53,7 @@
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 3
-    .parameter "ev"
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v1, 0x0
@@ -137,7 +137,7 @@
 
 .method public setDefaultTouchRecepient(Landroid/view/View;)V
     .locals 0
-    .parameter "defaultTouchRecepient"
+    .param p1, "defaultTouchRecepient"    # Landroid/view/View;
 
     .prologue
     .line 48

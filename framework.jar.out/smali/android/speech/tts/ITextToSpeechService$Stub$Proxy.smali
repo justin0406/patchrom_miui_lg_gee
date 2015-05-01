@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 240
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 493
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 496
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -96,7 +96,7 @@
     move-result-object v2
 
     .line 502
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 503
@@ -106,7 +106,7 @@
     return-object v2
 
     .line 502
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -120,9 +120,9 @@
 
 .method public getFeaturesForLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
     .locals 6
-    .parameter "lang"
-    .parameter "country"
-    .parameter "variant"
+    .param p1, "lang"    # Ljava/lang/String;
+    .param p2, "country"    # Ljava/lang/String;
+    .param p3, "variant"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -136,13 +136,13 @@
     move-result-object v0
 
     .line 556
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 559
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -177,7 +177,7 @@
     move-result-object v2
 
     .line 568
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 569
@@ -187,7 +187,7 @@
     return-object v2
 
     .line 568
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -224,13 +224,13 @@
     move-result-object v0
 
     .line 466
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 469
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -256,7 +256,7 @@
     move-result-object v2
 
     .line 475
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 476
@@ -266,7 +266,7 @@
     return-object v2
 
     .line 475
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -280,9 +280,9 @@
 
 .method public isLanguageAvailable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     .locals 6
-    .parameter "lang"
-    .parameter "country"
-    .parameter "variant"
+    .param p1, "lang"    # Ljava/lang/String;
+    .param p2, "country"    # Ljava/lang/String;
+    .param p3, "variant"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -296,13 +296,13 @@
     move-result-object v0
 
     .line 523
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 526
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -337,7 +337,7 @@
     move-result v2
 
     .line 535
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 536
@@ -347,7 +347,7 @@
     return v2
 
     .line 535
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -376,13 +376,13 @@
     move-result-object v0
 
     .line 414
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 417
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -412,7 +412,7 @@
     const/4 v2, 0x1
 
     .line 423
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -423,7 +423,7 @@
     return v2
 
     .line 423
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -437,10 +437,10 @@
 
 .method public loadLanguage(Landroid/os/IBinder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     .locals 6
-    .parameter "caller"
-    .parameter "lang"
-    .parameter "country"
-    .parameter "variant"
+    .param p1, "caller"    # Landroid/os/IBinder;
+    .param p2, "lang"    # Ljava/lang/String;
+    .param p3, "country"    # Ljava/lang/String;
+    .param p4, "variant"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -454,13 +454,13 @@
     move-result-object v0
 
     .line 591
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 594
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -498,7 +498,7 @@
     move-result v2
 
     .line 604
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 605
@@ -508,7 +508,7 @@
     return v2
 
     .line 604
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -522,10 +522,10 @@
 
 .method public playAudio(Landroid/os/IBinder;Landroid/net/Uri;ILandroid/os/Bundle;)I
     .locals 6
-    .parameter "callingInstance"
-    .parameter "audioUri"
-    .parameter "queueMode"
-    .parameter "params"
+    .param p1, "callingInstance"    # Landroid/os/IBinder;
+    .param p2, "audioUri"    # Landroid/net/Uri;
+    .param p3, "queueMode"    # I
+    .param p4, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -539,13 +539,13 @@
     move-result-object v0
 
     .line 342
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 345
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -605,7 +605,7 @@
     move-result v2
 
     .line 367
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 368
@@ -615,7 +615,7 @@
     return v2
 
     .line 352
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -651,10 +651,10 @@
 
 .method public playSilence(Landroid/os/IBinder;JILandroid/os/Bundle;)I
     .locals 6
-    .parameter "callingInstance"
-    .parameter "duration"
-    .parameter "queueMode"
-    .parameter "params"
+    .param p1, "callingInstance"    # Landroid/os/IBinder;
+    .param p2, "duration"    # J
+    .param p4, "queueMode"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -668,13 +668,13 @@
     move-result-object v0
 
     .line 384
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 387
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -723,7 +723,7 @@
     move-result v2
 
     .line 403
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 404
@@ -733,7 +733,7 @@
     return v2
 
     .line 396
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -758,8 +758,8 @@
 
 .method public setCallback(Landroid/os/IBinder;Landroid/speech/tts/ITextToSpeechCallback;)V
     .locals 5
-    .parameter "caller"
-    .parameter "cb"
+    .param p1, "caller"    # Landroid/os/IBinder;
+    .param p2, "cb"    # Landroid/speech/tts/ITextToSpeechCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -773,13 +773,13 @@
     move-result-object v0
 
     .line 620
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 622
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.speech.tts.ITextToSpeechService"
 
@@ -841,10 +841,10 @@
 
 .method public speak(Landroid/os/IBinder;Ljava/lang/String;ILandroid/os/Bundle;)I
     .locals 6
-    .parameter "callingInstance"
-    .parameter "text"
-    .parameter "queueMode"
-    .parameter "params"
+    .param p1, "callingInstance"    # Landroid/os/IBinder;
+    .param p2, "text"    # Ljava/lang/String;
+    .param p3, "queueMode"    # I
+    .param p4, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -858,13 +858,13 @@
     move-result-object v0
 
     .line 263
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 266
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -913,7 +913,7 @@
     move-result v2
 
     .line 282
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 283
@@ -923,7 +923,7 @@
     return v2
 
     .line 275
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -948,7 +948,7 @@
 
 .method public stop(Landroid/os/IBinder;)I
     .locals 6
-    .parameter "callingInstance"
+    .param p1, "callingInstance"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -962,13 +962,13 @@
     move-result-object v0
 
     .line 438
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 441
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -997,7 +997,7 @@
     move-result v2
 
     .line 448
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 449
@@ -1007,7 +1007,7 @@
     return v2
 
     .line 448
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1021,10 +1021,10 @@
 
 .method public synthesizeToFileDescriptor(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;Landroid/os/Bundle;)I
     .locals 6
-    .parameter "callingInstance"
-    .parameter "text"
-    .parameter "fileDescriptor"
-    .parameter "params"
+    .param p1, "callingInstance"    # Landroid/os/IBinder;
+    .param p2, "text"    # Ljava/lang/String;
+    .param p3, "fileDescriptor"    # Landroid/os/ParcelFileDescriptor;
+    .param p4, "params"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1038,13 +1038,13 @@
     move-result-object v0
 
     .line 300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 303
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
@@ -1104,7 +1104,7 @@
     move-result v2
 
     .line 325
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 326
@@ -1114,7 +1114,7 @@
     return v2
 
     .line 311
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 

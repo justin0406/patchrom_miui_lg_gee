@@ -42,7 +42,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/RemoteViews$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/RemoteViews$1;
 
     .prologue
     .line 238
@@ -116,7 +116,7 @@
 
 .method public setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
     .locals 0
-    .parameter "bitmapCache"
+    .param p1, "bitmapCache"    # Landroid/widget/RemoteViews$BitmapCache;
 
     .prologue
     .line 260
@@ -125,7 +125,7 @@
 
 .method public updateMemoryUsageEstimate(Landroid/widget/RemoteViews$MemoryUsageCounter;)V
     .locals 0
-    .parameter "counter"
+    .param p1, "counter"    # Landroid/widget/RemoteViews$MemoryUsageCounter;
 
     .prologue
     .line 256

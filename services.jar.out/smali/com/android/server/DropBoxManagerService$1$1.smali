@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DropBoxManagerService$1;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 117
@@ -44,7 +43,7 @@
 
     iget-object v1, v1, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    #calls: Lcom/android/server/DropBoxManagerService;->init()V
+    # invokes: Lcom/android/server/DropBoxManagerService;->init()V
     invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->access$200(Lcom/android/server/DropBoxManagerService;)V
 
     .line 121
@@ -52,7 +51,7 @@
 
     iget-object v1, v1, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    #calls: Lcom/android/server/DropBoxManagerService;->trimToFit()J
+    # invokes: Lcom/android/server/DropBoxManagerService;->trimToFit()J
     invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->access$300(Lcom/android/server/DropBoxManagerService;)J
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -66,7 +65,7 @@
     move-exception v0
 
     .line 123
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "DropBoxManagerService"
 
     const-string v2, "Can\'t init"

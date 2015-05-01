@@ -42,8 +42,8 @@
 # direct methods
 .method constructor <init>(Landroid/database/Cursor;Z)V
     .locals 12
-    .parameter "cursor"
-    .parameter "isCurrentFormat3gpp2"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "isCurrentFormat3gpp2"    # Z
 
     .prologue
     const/4 v11, 0x3
@@ -111,7 +111,7 @@
     move-result-wide v2
 
     .line 150
-    .local v2, rowId:J
+    .local v2, "rowId":J
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
@@ -146,7 +146,7 @@
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhereArgs:[Ljava/lang/String;
 
     .line 175
-    .end local v2           #rowId:J
+    .end local v2    # "rowId":J
     :goto_1
     return-void
 
@@ -157,8 +157,8 @@
     move-result v0
 
     .line 134
-    .local v0, destPort:I
-    const/high16 v4, 0x2
+    .local v0, "destPort":I
+    const/high16 v4, 0x20000
 
     and-int/2addr v4, v0
 
@@ -169,7 +169,7 @@
 
     .line 141
     :goto_2
-    const/high16 v4, 0x8
+    const/high16 v4, 0x80000
 
     and-int/2addr v4, v0
 
@@ -191,7 +191,7 @@
 
     .line 136
     :cond_1
-    const/high16 v4, 0x4
+    const/high16 v4, 0x40000
 
     and-int/2addr v4, v0
 
@@ -215,7 +215,7 @@
     goto :goto_3
 
     .line 158
-    .end local v0           #destPort:I
+    .end local v0    # "destPort":I
     :cond_4
     const/4 v4, 0x6
 
@@ -260,7 +260,7 @@
     sub-int v1, v4, v7
 
     .line 166
-    .local v1, index:I
+    .local v1, "index":I
     if-ltz v1, :cond_5
 
     iget v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
@@ -343,15 +343,15 @@
 
 .method public constructor <init>([BJIZLjava/lang/String;IIIZ)V
     .locals 0
-    .parameter "pdu"
-    .parameter "timestamp"
-    .parameter "destPort"
-    .parameter "is3gpp2"
-    .parameter "address"
-    .parameter "referenceNumber"
-    .parameter "sequenceNumber"
-    .parameter "messageCount"
-    .parameter "is3gpp2WapPdu"
+    .param p1, "pdu"    # [B
+    .param p2, "timestamp"    # J
+    .param p4, "destPort"    # I
+    .param p5, "is3gpp2"    # Z
+    .param p6, "address"    # Ljava/lang/String;
+    .param p7, "referenceNumber"    # I
+    .param p8, "sequenceNumber"    # I
+    .param p9, "messageCount"    # I
+    .param p10, "is3gpp2WapPdu"    # Z
 
     .prologue
     .line 107
@@ -390,11 +390,11 @@
 
 .method constructor <init>([BJIZZ)V
     .locals 1
-    .parameter "pdu"
-    .parameter "timestamp"
-    .parameter "destPort"
-    .parameter "is3gpp2"
-    .parameter "is3gpp2WapPdu"
+    .param p1, "pdu"    # [B
+    .param p2, "timestamp"    # J
+    .param p4, "destPort"    # I
+    .param p5, "is3gpp2"    # Z
+    .param p6, "is3gpp2WapPdu"    # Z
 
     .prologue
     .line 75
@@ -443,11 +443,11 @@
 
 .method static getRealDestPort(I)I
     .locals 1
-    .parameter "destPort"
+    .param p0, "destPort"    # I
 
     .prologue
     .line 213
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     and-int/2addr v0, p0
 
@@ -490,7 +490,7 @@
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 179
-    .local v1, values:Landroid/content/ContentValues;
+    .local v1, "values":Landroid/content/ContentValues;
     const-string v2, "pdu"
 
     iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mPdu:[B
@@ -520,17 +520,17 @@
     if-ne v2, v3, :cond_2
 
     .line 185
-    const/high16 v0, 0x1
+    const/high16 v0, 0x10000
 
     .line 189
-    .local v0, destPort:I
+    .local v0, "destPort":I
     :goto_0
     iget-boolean v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     if-eqz v2, :cond_3
 
     .line 190
-    const/high16 v2, 0x4
+    const/high16 v2, 0x40000
 
     or-int/2addr v0, v2
 
@@ -541,7 +541,7 @@
     if-eqz v2, :cond_0
 
     .line 195
-    const/high16 v2, 0x8
+    const/high16 v2, 0x80000
 
     or-int/2addr v0, v2
 
@@ -605,7 +605,7 @@
     return-object v1
 
     .line 187
-    .end local v0           #destPort:I
+    .end local v0    # "destPort":I
     :cond_2
     iget v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
@@ -613,12 +613,12 @@
 
     and-int v0, v2, v3
 
-    .restart local v0       #destPort:I
+    .restart local v0    # "destPort":I
     goto :goto_0
 
     .line 192
     :cond_3
-    const/high16 v2, 0x2
+    const/high16 v2, 0x20000
 
     or-int/2addr v0, v2
 
@@ -761,8 +761,8 @@
 
 .method setDeleteWhere(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 0
-    .parameter "deleteWhere"
-    .parameter "deleteWhereArgs"
+    .param p1, "deleteWhere"    # Ljava/lang/String;
+    .param p2, "deleteWhereArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 226
@@ -787,7 +787,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 232
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     new-instance v1, Ljava/util/Date;
 
     iget-wide v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J

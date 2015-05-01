@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IThumbnailReceiver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IThumbnailReceiver;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/app/IThumbnailReceiver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IThumbnailReceiver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +150,7 @@
     move-result v0
 
     .line 56
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -167,7 +167,7 @@
     check-cast v1, Landroid/graphics/Bitmap;
 
     .line 63
-    .local v1, _arg1:Landroid/graphics/Bitmap;
+    .local v1, "_arg1":Landroid/graphics/Bitmap;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -185,32 +185,32 @@
     check-cast v2, Ljava/lang/CharSequence;
 
     .line 69
-    .local v2, _arg2:Ljava/lang/CharSequence;
+    .local v2, "_arg2":Ljava/lang/CharSequence;
     :goto_2
     invoke-virtual {p0, v0, v1, v2}, Landroid/app/IThumbnailReceiver$Stub;->newThumbnail(ILandroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
     .line 60
-    .end local v1           #_arg1:Landroid/graphics/Bitmap;
-    .end local v2           #_arg2:Ljava/lang/CharSequence;
+    .end local v1    # "_arg1":Landroid/graphics/Bitmap;
+    .end local v2    # "_arg2":Ljava/lang/CharSequence;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/graphics/Bitmap;
+    .restart local v1    # "_arg1":Landroid/graphics/Bitmap;
     goto :goto_1
 
     .line 67
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_arg2:Ljava/lang/CharSequence;
+    .restart local v2    # "_arg2":Ljava/lang/CharSequence;
     goto :goto_2
 
     .line 74
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/graphics/Bitmap;
-    .end local v2           #_arg2:Ljava/lang/CharSequence;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/graphics/Bitmap;
+    .end local v2    # "_arg2":Ljava/lang/CharSequence;
     :sswitch_2
     const-string v4, "android.app.IThumbnailReceiver"
 

@@ -45,7 +45,6 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/camera2/CameraManager;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 401
@@ -65,8 +64,8 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/CameraManager;Landroid/hardware/camera2/CameraManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/hardware/camera2/CameraManager;
+    .param p2, "x1"    # Landroid/hardware/camera2/CameraManager$1;
 
     .prologue
     .line 401
@@ -77,7 +76,7 @@
 
 .method private isAvailable(I)Z
     .locals 1
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 427
@@ -106,7 +105,7 @@
 
 .method private validStatus(I)Z
     .locals 1
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 436
@@ -148,8 +147,8 @@
 
 .method public onStatusChanged(II)V
     .locals 12
-    .parameter "status"
-    .parameter "cameraId"
+    .param p1, "status"    # I
+    .param p2, "cameraId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -160,7 +159,7 @@
     .line 449
     iget-object v6, p0, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->this$0:Landroid/hardware/camera2/CameraManager;
 
-    #getter for: Landroid/hardware/camera2/CameraManager;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/hardware/camera2/CameraManager;->mLock:Ljava/lang/Object;
     invoke-static {v6}, Landroid/hardware/camera2/CameraManager;->access$100(Landroid/hardware/camera2/CameraManager;)Ljava/lang/Object;
 
     move-result-object v7
@@ -205,7 +204,7 @@
     move-result-object v2
 
     .line 456
-    .local v2, id:Ljava/lang/String;
+    .local v2, "id":Ljava/lang/String;
     invoke-direct {p0, p1}, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->validStatus(I)Z
 
     move-result v6
@@ -265,7 +264,7 @@
     check-cast v5, Ljava/lang/Integer;
 
     .line 464
-    .local v5, oldStatus:Ljava/lang/Integer;
+    .local v5, "oldStatus":Ljava/lang/Integer;
     if-eqz v5, :cond_1
 
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
@@ -303,8 +302,8 @@
     goto :goto_0
 
     .line 517
-    .end local v2           #id:Ljava/lang/String;
-    .end local v5           #oldStatus:Ljava/lang/Integer;
+    .end local v2    # "id":Ljava/lang/String;
+    .end local v5    # "oldStatus":Ljava/lang/Integer;
     :catchall_0
     move-exception v6
 
@@ -315,8 +314,8 @@
     throw v6
 
     .line 484
-    .restart local v2       #id:Ljava/lang/String;
-    .restart local v5       #oldStatus:Ljava/lang/Integer;
+    .restart local v2    # "id":Ljava/lang/String;
+    .restart local v5    # "oldStatus":Ljava/lang/Integer;
     :cond_1
     if-eqz v5, :cond_2
 
@@ -383,7 +382,7 @@
     :cond_2
     iget-object v6, p0, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->this$0:Landroid/hardware/camera2/CameraManager;
 
-    #getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
+    # getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
     invoke-static {v6}, Landroid/hardware/camera2/CameraManager;->access$200(Landroid/hardware/camera2/CameraManager;)Landroid/util/ArrayMap;
 
     move-result-object v6
@@ -393,17 +392,17 @@
     move-result v4
 
     .line 496
-    .local v4, listenerCount:I
+    .local v4, "listenerCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v4, :cond_4
 
     .line 497
     iget-object v6, p0, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->this$0:Landroid/hardware/camera2/CameraManager;
 
-    #getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
+    # getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
     invoke-static {v6}, Landroid/hardware/camera2/CameraManager;->access$200(Landroid/hardware/camera2/CameraManager;)Landroid/util/ArrayMap;
 
     move-result-object v6
@@ -415,10 +414,10 @@
     check-cast v0, Landroid/os/Handler;
 
     .line 498
-    .local v0, handler:Landroid/os/Handler;
+    .local v0, "handler":Landroid/os/Handler;
     iget-object v6, p0, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->this$0:Landroid/hardware/camera2/CameraManager;
 
-    #getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
+    # getter for: Landroid/hardware/camera2/CameraManager;->mListenerMap:Landroid/util/ArrayMap;
     invoke-static {v6}, Landroid/hardware/camera2/CameraManager;->access$200(Landroid/hardware/camera2/CameraManager;)Landroid/util/ArrayMap;
 
     move-result-object v6
@@ -430,7 +429,7 @@
     check-cast v3, Landroid/hardware/camera2/CameraManager$AvailabilityListener;
 
     .line 499
-    .local v3, listener:Landroid/hardware/camera2/CameraManager$AvailabilityListener;
+    .local v3, "listener":Landroid/hardware/camera2/CameraManager$AvailabilityListener;
     invoke-direct {p0, p1}, Landroid/hardware/camera2/CameraManager$CameraServiceListener;->isAvailable(I)Z
 
     move-result v6
@@ -461,8 +460,8 @@
     goto :goto_2
 
     .line 517
-    .end local v0           #handler:Landroid/os/Handler;
-    .end local v3           #listener:Landroid/hardware/camera2/CameraManager$AvailabilityListener;
+    .end local v0    # "handler":Landroid/os/Handler;
+    .end local v3    # "listener":Landroid/hardware/camera2/CameraManager$AvailabilityListener;
     :cond_4
     monitor-exit v7
     :try_end_1

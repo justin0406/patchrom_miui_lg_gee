@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/dreams/DreamManagerService;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 421

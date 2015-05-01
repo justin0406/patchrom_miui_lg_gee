@@ -30,7 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/RemoteController;)V
     .locals 1
-    .parameter "rc"
+    .param p1, "rc"    # Landroid/media/RemoteController;
 
     .prologue
     .line 513
@@ -51,9 +51,9 @@
 # virtual methods
 .method public setAllMetadata(ILandroid/os/Bundle;Landroid/graphics/Bitmap;)V
     .locals 8
-    .parameter "genId"
-    .parameter "metadata"
-    .parameter "artwork"
+    .param p1, "genId"    # I
+    .param p2, "metadata"    # Landroid/os/Bundle;
+    .param p3, "artwork"    # Landroid/graphics/Bitmap;
 
     .prologue
     const/4 v4, 0x0
@@ -68,7 +68,7 @@
     check-cast v7, Landroid/media/RemoteController;
 
     .line 630
-    .local v7, rc:Landroid/media/RemoteController;
+    .local v7, "rc":Landroid/media/RemoteController;
     if-nez v7, :cond_1
 
     .line 652
@@ -84,6 +84,7 @@
 
     .line 637
     :cond_2
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -92,7 +93,7 @@
 
     .line 638
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v7}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
@@ -126,13 +127,13 @@
     .line 643
     new-instance p2, Landroid/os/Bundle;
 
-    .end local p2
+    .end local p2    # "metadata":Landroid/os/Bundle;
     const/4 v0, 0x1
 
     invoke-direct {p2, v0}, Landroid/os/Bundle;-><init>(I)V
 
     .line 645
-    .restart local p2
+    .restart local p2    # "metadata":Landroid/os/Bundle;
     :cond_4
     if-eqz p3, :cond_5
 
@@ -147,7 +148,7 @@
 
     .line 649
     :cond_5
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v7}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -162,7 +163,7 @@
 
     move v6, v4
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -170,8 +171,8 @@
 
 .method public setArtwork(ILandroid/graphics/Bitmap;)V
     .locals 8
-    .parameter "genId"
-    .parameter "artwork"
+    .param p1, "genId"    # I
+    .param p2, "artwork"    # Landroid/graphics/Bitmap;
 
     .prologue
     const/4 v4, 0x0
@@ -186,7 +187,7 @@
     check-cast v7, Landroid/media/RemoteController;
 
     .line 612
-    .local v7, rc:Landroid/media/RemoteController;
+    .local v7, "rc":Landroid/media/RemoteController;
     if-nez v7, :cond_0
 
     .line 626
@@ -195,6 +196,7 @@
 
     .line 616
     :cond_0
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -203,7 +205,7 @@
 
     .line 617
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v7}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
@@ -239,7 +241,7 @@
     invoke-direct {v5, v0}, Landroid/os/Bundle;-><init>(I)V
 
     .line 622
-    .local v5, metadata:Landroid/os/Bundle;
+    .local v5, "metadata":Landroid/os/Bundle;
     const/16 v0, 0x64
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -249,7 +251,7 @@
     invoke-virtual {v5, v0, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 623
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v7}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -262,7 +264,7 @@
 
     move v6, v4
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -270,9 +272,9 @@
 
 .method public setCurrentClientId(ILandroid/app/PendingIntent;Z)V
     .locals 11
-    .parameter "genId"
-    .parameter "clientMediaIntent"
-    .parameter "clearing"
+    .param p1, "genId"    # I
+    .param p2, "clientMediaIntent"    # Landroid/app/PendingIntent;
+    .param p3, "clearing"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -287,7 +289,7 @@
     check-cast v10, Landroid/media/RemoteController;
 
     .line 520
-    .local v10, rc:Landroid/media/RemoteController;
+    .local v10, "rc":Landroid/media/RemoteController;
     if-nez v10, :cond_1
 
     .line 538
@@ -300,7 +302,8 @@
     const/4 v9, 0x0
 
     .line 524
-    .local v9, isNew:Z
+    .local v9, "isNew":Z
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v2
@@ -309,7 +312,7 @@
 
     .line 525
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v10}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
@@ -317,7 +320,7 @@
     if-eq v0, p1, :cond_2
 
     .line 526
-    #setter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # setter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v10, p1}, Landroid/media/RemoteController;->access$102(Landroid/media/RemoteController;I)I
 
     .line 527
@@ -333,7 +336,7 @@
     if-eqz p2, :cond_3
 
     .line 531
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v10}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -348,7 +351,7 @@
 
     move v6, v1
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     .line 534
@@ -359,7 +362,7 @@
 
     .line 535
     :cond_4
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v10}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v2
@@ -379,7 +382,7 @@
 
     move v8, v1
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v2 .. v8}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -404,7 +407,7 @@
 
 .method public setEnabled(Z)V
     .locals 8
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -419,7 +422,7 @@
     check-cast v7, Landroid/media/RemoteController;
 
     .line 542
-    .local v7, rc:Landroid/media/RemoteController;
+    .local v7, "rc":Landroid/media/RemoteController;
     if-nez v7, :cond_0
 
     .line 547
@@ -428,7 +431,7 @@
 
     .line 545
     :cond_0
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v7}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -446,7 +449,7 @@
 
     move v6, v2
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -459,8 +462,8 @@
 
 .method public setMetadata(ILandroid/os/Bundle;)V
     .locals 8
-    .parameter "genId"
-    .parameter "metadata"
+    .param p1, "genId"    # I
+    .param p2, "metadata"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v4, 0x0
@@ -475,7 +478,7 @@
     check-cast v7, Landroid/media/RemoteController;
 
     .line 593
-    .local v7, rc:Landroid/media/RemoteController;
+    .local v7, "rc":Landroid/media/RemoteController;
     if-nez v7, :cond_1
 
     .line 608
@@ -488,6 +491,7 @@
     if-eqz p2, :cond_0
 
     .line 600
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -496,7 +500,7 @@
 
     .line 601
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v7}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
@@ -525,7 +529,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 605
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v7}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -540,7 +544,7 @@
 
     move v6, v4
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -548,11 +552,11 @@
 
 .method public setPlaybackState(IIJJF)V
     .locals 9
-    .parameter "genId"
-    .parameter "state"
-    .parameter "stateChangeTimeMs"
-    .parameter "currentPosMs"
-    .parameter "speed"
+    .param p1, "genId"    # I
+    .param p2, "state"    # I
+    .param p3, "stateChangeTimeMs"    # J
+    .param p5, "currentPosMs"    # J
+    .param p7, "speed"    # F
 
     .prologue
     .line 551
@@ -565,7 +569,7 @@
     check-cast v8, Landroid/media/RemoteController;
 
     .line 552
-    .local v8, rc:Landroid/media/RemoteController;
+    .local v8, "rc":Landroid/media/RemoteController;
     if-nez v8, :cond_0
 
     .line 573
@@ -574,6 +578,7 @@
 
     .line 563
     :cond_0
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v2
@@ -582,7 +587,7 @@
 
     .line 564
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v8}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v1
@@ -624,8 +629,8 @@
     invoke-direct/range {v0 .. v6}, Landroid/media/RemoteController$PlaybackInfo;-><init>(IJJF)V
 
     .line 570
-    .local v0, playbackInfo:Landroid/media/RemoteController$PlaybackInfo;
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    .local v0, "playbackInfo":Landroid/media/RemoteController$PlaybackInfo;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v8}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v1
@@ -642,7 +647,7 @@
 
     move-object v6, v0
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v1 .. v7}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0
@@ -650,9 +655,9 @@
 
 .method public setTransportControlInfo(III)V
     .locals 8
-    .parameter "genId"
-    .parameter "transportControlFlags"
-    .parameter "posCapabilities"
+    .param p1, "genId"    # I
+    .param p2, "transportControlFlags"    # I
+    .param p3, "posCapabilities"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -667,7 +672,7 @@
     check-cast v7, Landroid/media/RemoteController;
 
     .line 578
-    .local v7, rc:Landroid/media/RemoteController;
+    .local v7, "rc":Landroid/media/RemoteController;
     if-nez v7, :cond_0
 
     .line 589
@@ -676,6 +681,7 @@
 
     .line 581
     :cond_0
+    # getter for: Landroid/media/RemoteController;->mGenLock:Ljava/lang/Object;
     invoke-static {}, Landroid/media/RemoteController;->access$000()Ljava/lang/Object;
 
     move-result-object v1
@@ -684,7 +690,7 @@
 
     .line 582
     :try_start_0
-    #getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
+    # getter for: Landroid/media/RemoteController;->mClientGenerationIdCurrent:I
     invoke-static {v7}, Landroid/media/RemoteController;->access$100(Landroid/media/RemoteController;)I
 
     move-result v0
@@ -713,7 +719,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 586
-    #getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
+    # getter for: Landroid/media/RemoteController;->mEventHandler:Landroid/media/RemoteController$EventHandler;
     invoke-static {v7}, Landroid/media/RemoteController;->access$400(Landroid/media/RemoteController;)Landroid/media/RemoteController$EventHandler;
 
     move-result-object v0
@@ -728,7 +734,7 @@
 
     move v6, v2
 
-    #calls: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    # invokes: Landroid/media/RemoteController;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v0 .. v6}, Landroid/media/RemoteController;->access$500(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     goto :goto_0

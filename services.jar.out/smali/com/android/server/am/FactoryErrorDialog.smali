@@ -10,8 +10,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/CharSequence;)V
     .locals 5
-    .parameter "context"
-    .parameter "msg"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "msg"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v4, 0x0
@@ -30,7 +30,7 @@
     invoke-virtual {p0, v4}, Lcom/android/server/am/FactoryErrorDialog;->setCancelable(Z)V
 
     .line 29
-    const v1, 0x104035e
+    const v1, 0x104035f
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -44,7 +44,7 @@
     .line 31
     const/4 v1, -0x1
 
-    const v2, 0x1040361
+    const v2, 0x1040362
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -68,7 +68,7 @@
     move-result-object v0
 
     .line 35
-    .local v0, attrs:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     const-string v1, "Factory Error"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V

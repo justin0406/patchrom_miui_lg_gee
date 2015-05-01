@@ -20,8 +20,8 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;)V
     .locals 1
-    .parameter "writer"
-    .parameter "singleIndent"
+    .param p1, "writer"    # Ljava/io/Writer;
+    .param p2, "singleIndent"    # Ljava/lang/String;
 
     .prologue
     .line 48
@@ -35,9 +35,9 @@
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;I)V
     .locals 1
-    .parameter "writer"
-    .parameter "singleIndent"
-    .parameter "wrapLength"
+    .param p1, "writer"    # Ljava/io/Writer;
+    .param p2, "singleIndent"    # Ljava/lang/String;
+    .param p3, "wrapLength"    # I
 
     .prologue
     .line 52
@@ -171,8 +171,8 @@
 
 .method public printHexPair(Ljava/lang/String;I)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 72
@@ -216,8 +216,8 @@
 
 .method public printPair(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 2
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 68
@@ -261,9 +261,9 @@
 
 .method public write([CII)V
     .locals 11
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buf"    # [C
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
 
     .prologue
     const/4 v10, 0x0
@@ -280,35 +280,35 @@
     move-result v2
 
     .line 78
-    .local v2, indentLength:I
+    .local v2, "indentLength":I
     add-int v0, p2, p3
 
     .line 79
-    .local v0, bufferEnd:I
+    .local v0, "bufferEnd":I
     move v5, p2
 
     .line 80
-    .local v5, lineStart:I
+    .local v5, "lineStart":I
     move v3, p2
 
-    .local v3, lineEnd:I
+    .local v3, "lineEnd":I
     move v4, v3
 
     .line 83
-    .end local v3           #lineEnd:I
-    .local v4, lineEnd:I
+    .end local v3    # "lineEnd":I
+    .local v4, "lineEnd":I
     :goto_0
     if-ge v4, v0, :cond_3
 
     .line 84
     add-int/lit8 v3, v4, 0x1
 
-    .end local v4           #lineEnd:I
-    .restart local v3       #lineEnd:I
+    .end local v4    # "lineEnd":I
+    .restart local v3    # "lineEnd":I
     aget-char v1, p1, v4
 
     .line 85
-    .local v1, ch:C
+    .local v1, "ch":C
     iget v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
 
     add-int/lit8 v6, v6, 0x1
@@ -370,13 +370,13 @@
     move v4, v3
 
     .line 111
-    .end local v3           #lineEnd:I
-    .restart local v4       #lineEnd:I
+    .end local v3    # "lineEnd":I
+    .restart local v4    # "lineEnd":I
     goto :goto_0
 
     .line 103
-    .end local v4           #lineEnd:I
-    .restart local v3       #lineEnd:I
+    .end local v4    # "lineEnd":I
+    .restart local v3    # "lineEnd":I
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/util/IndentingPrintWriter;->maybeWriteIndent()V
 
@@ -400,9 +400,9 @@
     goto :goto_1
 
     .line 113
-    .end local v1           #ch:C
-    .end local v3           #lineEnd:I
-    .restart local v4       #lineEnd:I
+    .end local v1    # "ch":C
+    .end local v3    # "lineEnd":I
+    .restart local v4    # "lineEnd":I
     :cond_3
     if-eq v5, v4, :cond_4
 

@@ -37,11 +37,11 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "maxPoolSize"
+    .param p1, "maxPoolSize"    # I
 
     .prologue
     .line 89
-    .local p0, this:Landroid/util/Pools$SimplePool;,"Landroid/util/Pools$SimplePool<TT;>;"
+    .local p0, "this":Landroid/util/Pools$SimplePool;, "Landroid/util/Pools$SimplePool<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
@@ -68,7 +68,6 @@
 
 .method private isInPool(Ljava/lang/Object;)Z
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -77,11 +76,11 @@
 
     .prologue
     .line 123
-    .local p0, this:Landroid/util/Pools$SimplePool;,"Landroid/util/Pools$SimplePool<TT;>;"
-    .local p1, instance:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/util/Pools$SimplePool;, "Landroid/util/Pools$SimplePool<TT;>;"
+    .local p1, "instance":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/util/Pools$SimplePool;->mPoolSize:I
 
@@ -125,7 +124,7 @@
     .end annotation
 
     .prologue
-    .local p0, this:Landroid/util/Pools$SimplePool;,"Landroid/util/Pools$SimplePool<TT;>;"
+    .local p0, "this":Landroid/util/Pools$SimplePool;, "Landroid/util/Pools$SimplePool<TT;>;"
     const/4 v2, 0x0
 
     .line 99
@@ -139,13 +138,13 @@
     add-int/lit8 v1, v3, -0x1
 
     .line 101
-    .local v1, lastPooledIndex:I
+    .local v1, "lastPooledIndex":I
     iget-object v3, p0, Landroid/util/Pools$SimplePool;->mPool:[Ljava/lang/Object;
 
     aget-object v0, v3, v1
 
     .line 102
-    .local v0, instance:Ljava/lang/Object;,"TT;"
+    .local v0, "instance":Ljava/lang/Object;, "TT;"
     iget-object v3, p0, Landroid/util/Pools$SimplePool;->mPool:[Ljava/lang/Object;
 
     aput-object v2, v3, v1
@@ -158,8 +157,8 @@
     iput v2, p0, Landroid/util/Pools$SimplePool;->mPoolSize:I
 
     .line 106
-    .end local v0           #instance:Ljava/lang/Object;,"TT;"
-    .end local v1           #lastPooledIndex:I
+    .end local v0    # "instance":Ljava/lang/Object;, "TT;"
+    .end local v1    # "lastPooledIndex":I
     :goto_0
     return-object v0
 
@@ -171,7 +170,6 @@
 
 .method public release(Ljava/lang/Object;)Z
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -180,8 +178,8 @@
 
     .prologue
     .line 111
-    .local p0, this:Landroid/util/Pools$SimplePool;,"Landroid/util/Pools$SimplePool<TT;>;"
-    .local p1, instance:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/util/Pools$SimplePool;, "Landroid/util/Pools$SimplePool<TT;>;"
+    .local p1, "instance":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1}, Landroid/util/Pools$SimplePool;->isInPool(Ljava/lang/Object;)Z
 
     move-result v0

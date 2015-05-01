@@ -27,9 +27,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "pendingIntentTemplate"
+    .param p2, "id"    # I
+    .param p3, "pendingIntentTemplate"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 440
@@ -51,8 +50,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 445
@@ -84,9 +82,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 458
@@ -97,7 +95,7 @@
     move-result-object v2
 
     .line 459
-    .local v2, target:Landroid/view/View;
+    .local v2, "target":Landroid/view/View;
     if-nez v2, :cond_0
 
     .line 505
@@ -116,13 +114,13 @@
     check-cast v0, Landroid/widget/AdapterView;
 
     .line 465
-    .local v0, av:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
+    .local v0, "av":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     new-instance v1, Landroid/widget/RemoteViews$SetPendingIntentTemplate$1;
 
     invoke-direct {v1, p0, p3}, Landroid/widget/RemoteViews$SetPendingIntentTemplate$1;-><init>(Landroid/widget/RemoteViews$SetPendingIntentTemplate;Landroid/widget/RemoteViews$OnClickHandler;)V
 
     .line 498
-    .local v1, listener:Landroid/widget/AdapterView$OnItemClickListener;
+    .local v1, "listener":Landroid/widget/AdapterView$OnItemClickListener;
     invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 499
@@ -133,8 +131,8 @@
     goto :goto_0
 
     .line 501
-    .end local v0           #av:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
-    .end local v1           #listener:Landroid/widget/AdapterView$OnItemClickListener;
+    .end local v0    # "av":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
+    .end local v1    # "listener":Landroid/widget/AdapterView$OnItemClickListener;
     :cond_1
     const-string v3, "RemoteViews"
 
@@ -181,8 +179,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 451

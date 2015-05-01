@@ -29,7 +29,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/multiwaveview/PointCloud;)V
     .locals 1
-    .parameter
 
     .prologue
     const/4 v0, 0x0
@@ -50,7 +49,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;
 
     .prologue
     .line 67
@@ -61,7 +60,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;
 
     .prologue
     .line 67
@@ -72,7 +71,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;
 
     .prologue
     .line 67
@@ -83,7 +82,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;
 
     .prologue
     .line 67
@@ -136,7 +135,7 @@
 
 .method public setAlpha(F)V
     .locals 0
-    .parameter "a"
+    .param p1, "a"    # F
 
     .prologue
     .line 90
@@ -148,7 +147,7 @@
 
 .method public setRadius(F)V
     .locals 0
-    .parameter "r"
+    .param p1, "r"    # F
 
     .prologue
     .line 98
@@ -160,7 +159,7 @@
 
 .method public setX(F)V
     .locals 0
-    .parameter "x1"
+    .param p1, "x1"    # F
 
     .prologue
     .line 74
@@ -172,7 +171,7 @@
 
 .method public setY(F)V
     .locals 0
-    .parameter "y1"
+    .param p1, "y1"    # F
 
     .prologue
     .line 82

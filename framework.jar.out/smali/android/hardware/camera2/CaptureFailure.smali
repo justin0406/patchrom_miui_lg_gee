@@ -24,11 +24,11 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/camera2/CaptureRequest;IZII)V
     .locals 0
-    .parameter "request"
-    .parameter "reason"
-    .parameter "dropped"
-    .parameter "sequenceId"
-    .parameter "frameNumber"
+    .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p2, "reason"    # I
+    .param p3, "dropped"    # Z
+    .param p4, "sequenceId"    # I
+    .param p5, "frameNumber"    # I
 
     .prologue
     .line 57

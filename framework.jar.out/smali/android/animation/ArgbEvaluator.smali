@@ -21,74 +21,74 @@
 # virtual methods
 .method public evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 12
-    .parameter "fraction"
-    .parameter "startValue"
-    .parameter "endValue"
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # Ljava/lang/Object;
+    .param p3, "endValue"    # Ljava/lang/Object;
 
     .prologue
     .line 42
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2
+    .end local p2    # "startValue":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
     .line 43
-    .local v8, startInt:I
+    .local v8, "startInt":I
     shr-int/lit8 v10, v8, 0x18
 
     and-int/lit16 v5, v10, 0xff
 
     .line 44
-    .local v5, startA:I
+    .local v5, "startA":I
     shr-int/lit8 v10, v8, 0x10
 
     and-int/lit16 v9, v10, 0xff
 
     .line 45
-    .local v9, startR:I
+    .local v9, "startR":I
     shr-int/lit8 v10, v8, 0x8
 
     and-int/lit16 v7, v10, 0xff
 
     .line 46
-    .local v7, startG:I
+    .local v7, "startG":I
     and-int/lit16 v6, v8, 0xff
 
     .line 48
-    .local v6, startB:I
+    .local v6, "startB":I
     check-cast p3, Ljava/lang/Integer;
 
-    .end local p3
+    .end local p3    # "endValue":Ljava/lang/Object;
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
     .line 49
-    .local v3, endInt:I
+    .local v3, "endInt":I
     shr-int/lit8 v10, v3, 0x18
 
     and-int/lit16 v0, v10, 0xff
 
     .line 50
-    .local v0, endA:I
+    .local v0, "endA":I
     shr-int/lit8 v10, v3, 0x10
 
     and-int/lit16 v4, v10, 0xff
 
     .line 51
-    .local v4, endR:I
+    .local v4, "endR":I
     shr-int/lit8 v10, v3, 0x8
 
     and-int/lit16 v2, v10, 0xff
 
     .line 52
-    .local v2, endG:I
+    .local v2, "endG":I
     and-int/lit16 v1, v3, 0xff
 
     .line 54
-    .local v1, endB:I
+    .local v1, "endB":I
     sub-int v10, v0, v5
 
     int-to-float v10, v10

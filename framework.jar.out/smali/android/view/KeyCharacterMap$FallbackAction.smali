@@ -79,7 +79,7 @@
     invoke-direct {v0}, Landroid/view/KeyCharacterMap$FallbackAction;-><init>()V
 
     .line 766
-    .local v0, target:Landroid/view/KeyCharacterMap$FallbackAction;
+    .local v0, "target":Landroid/view/KeyCharacterMap$FallbackAction;
     :goto_0
     monitor-exit v2
 
@@ -87,12 +87,12 @@
     return-object v0
 
     .line 761
-    .end local v0           #target:Landroid/view/KeyCharacterMap$FallbackAction;
+    .end local v0    # "target":Landroid/view/KeyCharacterMap$FallbackAction;
     :cond_0
     sget-object v0, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycleBin:Landroid/view/KeyCharacterMap$FallbackAction;
 
     .line 762
-    .restart local v0       #target:Landroid/view/KeyCharacterMap$FallbackAction;
+    .restart local v0    # "target":Landroid/view/KeyCharacterMap$FallbackAction;
     iget-object v1, v0, Landroid/view/KeyCharacterMap$FallbackAction;->next:Landroid/view/KeyCharacterMap$FallbackAction;
 
     sput-object v1, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycleBin:Landroid/view/KeyCharacterMap$FallbackAction;

@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 43
@@ -32,8 +32,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 47
@@ -45,9 +45,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 52
@@ -61,7 +61,7 @@
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 136
@@ -88,7 +88,7 @@
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     .locals 2
-    .parameter "attrs"
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 130
@@ -105,7 +105,7 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 141
@@ -118,11 +118,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 8
-    .parameter "changed"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
     .prologue
     .line 109
@@ -131,10 +131,10 @@
     move-result v3
 
     .line 111
-    .local v3, count:I
+    .local v3, "count":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v3, :cond_1
 
@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 113
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v6
@@ -161,7 +161,7 @@
     check-cast v5, Landroid/widget/AbsoluteLayout$LayoutParams;
 
     .line 118
-    .local v5, lp:Landroid/widget/AbsoluteLayout$LayoutParams;
+    .local v5, "lp":Landroid/widget/AbsoluteLayout$LayoutParams;
     iget v6, p0, Landroid/widget/AbsoluteLayout;->mPaddingLeft:I
 
     iget v7, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->x:I
@@ -169,7 +169,7 @@
     add-int v1, v6, v7
 
     .line 119
-    .local v1, childLeft:I
+    .local v1, "childLeft":I
     iget v6, p0, Landroid/widget/AbsoluteLayout;->mPaddingTop:I
 
     iget v7, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->y:I
@@ -177,7 +177,7 @@
     add-int v2, v6, v7
 
     .line 120
-    .local v2, childTop:I
+    .local v2, "childTop":I
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
@@ -193,24 +193,24 @@
     invoke-virtual {v0, v1, v2, v6, v7}, Landroid/view/View;->layout(IIII)V
 
     .line 111
-    .end local v1           #childLeft:I
-    .end local v2           #childTop:I
-    .end local v5           #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
+    .end local v1    # "childLeft":I
+    .end local v2    # "childTop":I
+    .end local v5    # "lp":Landroid/widget/AbsoluteLayout$LayoutParams;
     :cond_0
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 126
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_1
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 11
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     const/4 v10, 0x0
@@ -221,21 +221,21 @@
     move-result v3
 
     .line 59
-    .local v3, count:I
+    .local v3, "count":I
     const/4 v6, 0x0
 
     .line 60
-    .local v6, maxHeight:I
+    .local v6, "maxHeight":I
     const/4 v7, 0x0
 
     .line 63
-    .local v7, maxWidth:I
+    .local v7, "maxWidth":I
     invoke-virtual {p0, p1, p2}, Landroid/widget/AbsoluteLayout;->measureChildren(II)V
 
     .line 66
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v3, :cond_1
 
@@ -245,7 +245,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v8
@@ -262,7 +262,7 @@
     check-cast v5, Landroid/widget/AbsoluteLayout$LayoutParams;
 
     .line 75
-    .local v5, lp:Landroid/widget/AbsoluteLayout$LayoutParams;
+    .local v5, "lp":Landroid/widget/AbsoluteLayout$LayoutParams;
     iget v8, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->x:I
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
@@ -272,7 +272,7 @@
     add-int v2, v8, v9
 
     .line 76
-    .local v2, childRight:I
+    .local v2, "childRight":I
     iget v8, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->y:I
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
@@ -282,7 +282,7 @@
     add-int v1, v8, v9
 
     .line 78
-    .local v1, childBottom:I
+    .local v1, "childBottom":I
     invoke-static {v7, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v7
@@ -293,16 +293,16 @@
     move-result v6
 
     .line 66
-    .end local v1           #childBottom:I
-    .end local v2           #childRight:I
-    .end local v5           #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
+    .end local v1    # "childBottom":I
+    .end local v2    # "childRight":I
+    .end local v5    # "lp":Landroid/widget/AbsoluteLayout$LayoutParams;
     :cond_0
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 84
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_1
     iget v8, p0, Landroid/widget/AbsoluteLayout;->mPaddingLeft:I
 

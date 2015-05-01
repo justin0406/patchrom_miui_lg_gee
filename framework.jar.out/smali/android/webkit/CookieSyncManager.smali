@@ -60,7 +60,7 @@
 
 .method public static declared-synchronized createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;
     .locals 3
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 89
@@ -225,7 +225,7 @@
     move-result-object v0
 
     .line 104
-    .local v0, manager:Landroid/webkit/CookieManager;
+    .local v0, "manager":Landroid/webkit/CookieManager;
     invoke-virtual {v0}, Landroid/webkit/CookieManager;->acceptCookie()Z
 
     move-result v1

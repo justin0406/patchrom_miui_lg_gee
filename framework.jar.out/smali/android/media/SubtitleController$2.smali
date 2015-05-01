@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/SubtitleController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 73
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onEnabledChanged(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 77
@@ -50,7 +49,7 @@
 
 .method public onLocaleChanged(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 83

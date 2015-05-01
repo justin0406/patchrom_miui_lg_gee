@@ -77,31 +77,31 @@
 
 .method public static dump(Landroid/util/Printer;[Ljava/lang/String;)V
     .locals 6
-    .parameter "printer"
-    .parameter "args"
+    .param p0, "printer"    # Landroid/util/Printer;
+    .param p1, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 163
     const/4 v4, 0x0
 
     .line 164
-    .local v4, verbose:Z
+    .local v4, "verbose":Z
     move-object v1, p1
 
-    .local v1, arr$:[Ljava/lang/String;
+    .local v1, "arr$":[Ljava/lang/String;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v0, v1, v2
 
     .line 165
-    .local v0, arg:Ljava/lang/String;
+    .local v0, "arg":Ljava/lang/String;
     const-string v5, "-v"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -120,7 +120,7 @@
     goto :goto_0
 
     .line 170
-    .end local v0           #arg:Ljava/lang/String;
+    .end local v0    # "arg":Ljava/lang/String;
     :cond_1
     invoke-static {p0, v4}, Landroid/database/sqlite/SQLiteDatabase;->dumpAll(Landroid/util/Printer;Z)V
 
@@ -138,7 +138,7 @@
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteDebug$PagerStats;-><init>()V
 
     .line 152
-    .local v0, stats:Landroid/database/sqlite/SQLiteDebug$PagerStats;
+    .local v0, "stats":Landroid/database/sqlite/SQLiteDebug$PagerStats;
     invoke-static {v0}, Landroid/database/sqlite/SQLiteDebug;->nativeGetPagerStats(Landroid/database/sqlite/SQLiteDebug$PagerStats;)V
 
     .line 153
@@ -157,7 +157,7 @@
 
 .method public static final shouldLogSlowQuery(J)Z
     .locals 3
-    .parameter "elapsedTimeMillis"
+    .param p0, "elapsedTimeMillis"    # J
 
     .prologue
     .line 82
@@ -170,7 +170,7 @@
     move-result v0
 
     .line 83
-    .local v0, slowQueryMillis:I
+    .local v0, "slowQueryMillis":I
     if-ltz v0, :cond_0
 
     int-to-long v1, v0

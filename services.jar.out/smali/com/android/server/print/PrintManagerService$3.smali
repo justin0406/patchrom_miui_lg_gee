@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/PrintManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 400
@@ -34,9 +33,8 @@
 
 .method private persistComponentNamesToSettingLocked(Ljava/lang/String;Ljava/util/Set;I)V
     .locals 5
-    .parameter "settingName"
-    .parameter
-    .parameter "userId"
+    .param p1, "settingName"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,18 +48,18 @@
 
     .prologue
     .line 489
-    .local p2, componentNames:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/ComponentName;>;"
+    .local p2, "componentNames":Ljava/util/Set;, "Ljava/util/Set<Landroid/content/ComponentName;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 490
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -76,7 +74,7 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 491
-    .local v1, componentName:Landroid/content/ComponentName;
+    .local v1, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
@@ -99,11 +97,11 @@
     goto :goto_0
 
     .line 496
-    .end local v1           #componentName:Landroid/content/ComponentName;
+    .end local v1    # "componentName":Landroid/content/ComponentName;
     :cond_1
     iget-object v3, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/print/PrintManagerService;->access$300(Lcom/android/server/print/PrintManagerService;)Landroid/content/Context;
 
     move-result-object v3
@@ -126,16 +124,16 @@
 # virtual methods
 .method public onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
     .locals 12
-    .parameter "intent"
-    .parameter "stoppedPackages"
-    .parameter "uid"
-    .parameter "doit"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "stoppedPackages"    # [Ljava/lang/String;
+    .param p3, "uid"    # I
+    .param p4, "doit"    # Z
 
     .prologue
     .line 439
     iget-object v9, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v9}, Lcom/android/server/print/PrintManagerService;->access$000(Lcom/android/server/print/PrintManagerService;)Ljava/lang/Object;
 
     move-result-object v10
@@ -150,17 +148,17 @@
 
     move-result v11
 
-    #calls: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
+    # invokes: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
     invoke-static {v9, v11}, Lcom/android/server/print/PrintManagerService;->access$200(Lcom/android/server/print/PrintManagerService;I)Lcom/android/server/print/UserState;
 
     move-result-object v8
 
     .line 441
-    .local v8, userState:Lcom/android/server/print/UserState;
+    .local v8, "userState":Lcom/android/server/print/UserState;
     const/4 v7, 0x0
 
     .line 442
-    .local v7, stoppedSomePackages:Z
+    .local v7, "stoppedSomePackages":Z
     invoke-virtual {v8}, Lcom/android/server/print/UserState;->getEnabledServices()Ljava/util/Set;
 
     move-result-object v9
@@ -170,7 +168,7 @@
     move-result-object v4
 
     .line 443
-    .local v4, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .local v4, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
     :cond_0
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
@@ -187,29 +185,29 @@
     check-cast v1, Landroid/content/ComponentName;
 
     .line 445
-    .local v1, componentName:Landroid/content/ComponentName;
+    .local v1, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
     .line 446
-    .local v2, componentPackage:Ljava/lang/String;
+    .local v2, "componentPackage":Ljava/lang/String;
     move-object v0, p2
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_1
     if-ge v3, v5, :cond_0
 
     aget-object v6, v0, v3
 
     .line 447
-    .local v6, stoppedPackage:Ljava/lang/String;
+    .local v6, "stoppedPackage":Ljava/lang/String;
     invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
@@ -225,22 +223,22 @@
     monitor-exit v10
 
     .line 459
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v2           #componentPackage:Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v5           #len$:I
-    .end local v6           #stoppedPackage:Ljava/lang/String;
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v2    # "componentPackage":Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v5    # "len$":I
+    .end local v6    # "stoppedPackage":Ljava/lang/String;
     :goto_2
     return v9
 
     .line 451
-    .restart local v0       #arr$:[Ljava/lang/String;
-    .restart local v1       #componentName:Landroid/content/ComponentName;
-    .restart local v2       #componentPackage:Ljava/lang/String;
-    .restart local v3       #i$:I
-    .restart local v5       #len$:I
-    .restart local v6       #stoppedPackage:Ljava/lang/String;
+    .restart local v0    # "arr$":[Ljava/lang/String;
+    .restart local v1    # "componentName":Landroid/content/ComponentName;
+    .restart local v2    # "componentPackage":Ljava/lang/String;
+    .restart local v3    # "i$":I
+    .restart local v5    # "len$":I
+    .restart local v6    # "stoppedPackage":Ljava/lang/String;
     :cond_1
     const/4 v7, 0x1
 
@@ -254,12 +252,12 @@
     goto :goto_1
 
     .line 456
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v2           #componentPackage:Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v5           #len$:I
-    .end local v6           #stoppedPackage:Ljava/lang/String;
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v2    # "componentPackage":Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v5    # "len$":I
+    .end local v6    # "stoppedPackage":Ljava/lang/String;
     :cond_3
     if-eqz v7, :cond_4
 
@@ -275,9 +273,9 @@
     goto :goto_2
 
     .line 460
-    .end local v4           #iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
-    .end local v7           #stoppedSomePackages:Z
-    .end local v8           #userState:Lcom/android/server/print/UserState;
+    .end local v4    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .end local v7    # "stoppedSomePackages":Z
+    .end local v8    # "userState":Lcom/android/server/print/UserState;
     :catchall_0
     move-exception v9
 
@@ -290,8 +288,8 @@
 
 .method public onPackageAdded(Ljava/lang/String;I)V
     .locals 10
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 465
@@ -302,13 +300,13 @@
     invoke-direct {v4, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 466
-    .local v4, intent:Landroid/content/Intent;
+    .local v4, "intent":Landroid/content/Intent;
     invoke-virtual {v4, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 468
     iget-object v7, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
     invoke-static {v7}, Lcom/android/server/print/PrintManagerService;->access$300(Lcom/android/server/print/PrintManagerService;)Landroid/content/Context;
 
     move-result-object v7
@@ -328,7 +326,7 @@
     move-result-object v3
 
     .line 472
-    .local v3, installedServices:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v3, "installedServices":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     if-nez v3, :cond_1
 
     .line 485
@@ -342,10 +340,10 @@
     move-result v2
 
     .line 477
-    .local v2, installedServiceCount:I
+    .local v2, "installedServiceCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -359,7 +357,7 @@
     iget-object v6, v7, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 479
-    .local v6, serviceInfo:Landroid/content/pm/ServiceInfo;
+    .local v6, "serviceInfo":Landroid/content/pm/ServiceInfo;
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v7, v6, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -369,10 +367,10 @@
     invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 481
-    .local v0, component:Landroid/content/ComponentName;
+    .local v0, "component":Landroid/content/ComponentName;
     iget-object v7, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mContext:Landroid/content/Context;
     invoke-static {v7}, Lcom/android/server/print/PrintManagerService;->access$300(Lcom/android/server/print/PrintManagerService;)Landroid/content/Context;
 
     move-result-object v7
@@ -390,14 +388,14 @@
     move-result-object v5
 
     .line 482
-    .local v5, label:Ljava/lang/String;
+    .local v5, "label":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
     invoke-virtual {p0}, Lcom/android/server/print/PrintManagerService$3;->getChangingUserId()I
 
     move-result v8
 
-    #calls: Lcom/android/server/print/PrintManagerService;->showEnableInstalledPrintServiceNotification(Landroid/content/ComponentName;Ljava/lang/String;I)V
+    # invokes: Lcom/android/server/print/PrintManagerService;->showEnableInstalledPrintServiceNotification(Landroid/content/ComponentName;Ljava/lang/String;I)V
     invoke-static {v7, v0, v5, v8}, Lcom/android/server/print/PrintManagerService;->access$400(Lcom/android/server/print/PrintManagerService;Landroid/content/ComponentName;Ljava/lang/String;I)V
 
     .line 477
@@ -408,15 +406,15 @@
 
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
     .locals 6
-    .parameter "packageName"
-    .parameter "uid"
-    .parameter "components"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "components"    # [Ljava/lang/String;
 
     .prologue
     .line 403
     iget-object v3, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/print/PrintManagerService;->access$000(Lcom/android/server/print/PrintManagerService;)Ljava/lang/Object;
 
     move-result-object v4
@@ -431,13 +429,13 @@
 
     move-result v5
 
-    #calls: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
+    # invokes: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
     invoke-static {v3, v5}, Lcom/android/server/print/PrintManagerService;->access$200(Lcom/android/server/print/PrintManagerService;I)Lcom/android/server/print/UserState;
 
     move-result-object v2
 
     .line 405
-    .local v2, userState:Lcom/android/server/print/UserState;
+    .local v2, "userState":Lcom/android/server/print/UserState;
     invoke-virtual {v2}, Lcom/android/server/print/UserState;->getEnabledServices()Ljava/util/Set;
 
     move-result-object v3
@@ -447,7 +445,7 @@
     move-result-object v1
 
     .line 406
-    .local v1, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -463,7 +461,7 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 408
-    .local v0, componentName:Landroid/content/ComponentName;
+    .local v0, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -483,7 +481,7 @@
     monitor-exit v4
 
     .line 414
-    .end local v0           #componentName:Landroid/content/ComponentName;
+    .end local v0    # "componentName":Landroid/content/ComponentName;
     :goto_0
     return v3
 
@@ -497,8 +495,8 @@
     goto :goto_0
 
     .line 413
-    .end local v1           #iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
-    .end local v2           #userState:Lcom/android/server/print/UserState;
+    .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .end local v2    # "userState":Lcom/android/server/print/UserState;
     :catchall_0
     move-exception v3
 
@@ -511,14 +509,14 @@
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 7
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 419
     iget-object v3, p0, Lcom/android/server/print/PrintManagerService$3;->this$0:Lcom/android/server/print/PrintManagerService;
 
-    #getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/print/PrintManagerService;->access$000(Lcom/android/server/print/PrintManagerService;)Ljava/lang/Object;
 
     move-result-object v4
@@ -533,13 +531,13 @@
 
     move-result v5
 
-    #calls: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
+    # invokes: Lcom/android/server/print/PrintManagerService;->getOrCreateUserStateLocked(I)Lcom/android/server/print/UserState;
     invoke-static {v3, v5}, Lcom/android/server/print/PrintManagerService;->access$200(Lcom/android/server/print/PrintManagerService;I)Lcom/android/server/print/UserState;
 
     move-result-object v2
 
     .line 421
-    .local v2, userState:Lcom/android/server/print/UserState;
+    .local v2, "userState":Lcom/android/server/print/UserState;
     invoke-virtual {v2}, Lcom/android/server/print/UserState;->getEnabledServices()Ljava/util/Set;
 
     move-result-object v3
@@ -549,7 +547,7 @@
     move-result-object v1
 
     .line 422
-    .local v1, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -565,7 +563,7 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 424
-    .local v0, componentName:Landroid/content/ComponentName;
+    .local v0, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -599,7 +597,7 @@
     monitor-exit v4
 
     .line 434
-    .end local v0           #componentName:Landroid/content/ComponentName;
+    .end local v0    # "componentName":Landroid/content/ComponentName;
     :goto_0
     return-void
 
@@ -609,8 +607,8 @@
 
     goto :goto_0
 
-    .end local v1           #iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/content/ComponentName;>;"
-    .end local v2           #userState:Lcom/android/server/print/UserState;
+    .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/content/ComponentName;>;"
+    .end local v2    # "userState":Lcom/android/server/print/UserState;
     :catchall_0
     move-exception v3
 

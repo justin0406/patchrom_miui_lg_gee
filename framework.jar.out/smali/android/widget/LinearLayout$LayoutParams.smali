@@ -89,8 +89,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 1845
@@ -112,9 +112,9 @@
 
 .method public constructor <init>(IIF)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "weight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "weight"    # F
 
     .prologue
     .line 1860
@@ -134,8 +134,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v3, -0x1
@@ -154,7 +154,7 @@
     move-result-object v0
 
     .line 1835
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x3
 
     const/4 v2, 0x0
@@ -183,7 +183,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 1868
@@ -200,7 +200,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
     .line 1875
@@ -217,7 +217,7 @@
 
 .method public constructor <init>(Landroid/widget/LinearLayout$LayoutParams;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/widget/LinearLayout$LayoutParams;
 
     .prologue
     .line 1885
@@ -246,7 +246,7 @@
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "output"
+    .param p1, "output"    # Ljava/lang/String;
 
     .prologue
     .line 1893

@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;[Ljava/lang/String;)V
     .locals 0
-    .parameter "mask"
-    .parameter "shift"
-    .parameter "name"
-    .parameter "values"
+    .param p1, "mask"    # I
+    .param p2, "shift"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "values"    # [Ljava/lang/String;
 
     .prologue
     .line 748
@@ -54,8 +54,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "mask"
-    .parameter "name"
+    .param p1, "mask"    # I
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 741

@@ -23,9 +23,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Landroid/os/storage/IMountShutdownObserver;)V
     .locals 2
-    .parameter
-    .parameter "path"
-    .parameter "observer"
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "observer"    # Landroid/os/storage/IMountShutdownObserver;
 
     .prologue
     .line 388
@@ -60,13 +59,13 @@
 
     iget-boolean v5, p0, Lcom/android/server/MountService$ShutdownCallBack;->removeEncryption:Z
 
-    #calls: Lcom/android/server/MountService;->doUnmountVolume(Ljava/lang/String;ZZ)I
+    # invokes: Lcom/android/server/MountService;->doUnmountVolume(Ljava/lang/String;ZZ)I
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$100(Lcom/android/server/MountService;Ljava/lang/String;ZZ)I
 
     move-result v1
 
     .line 396
-    .local v1, ret:I
+    .local v1, "ret":I
     iget-object v2, p0, Lcom/android/server/MountService$ShutdownCallBack;->observer:Landroid/os/storage/IMountShutdownObserver;
 
     if-eqz v2, :cond_0
@@ -89,7 +88,7 @@
     move-exception v0
 
     .line 400
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "MountService"
 
     const-string v3, "RemoteException when shutting down"

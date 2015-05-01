@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -54,13 +54,13 @@
 
 .method public constructor <init>(Ljava/lang/String;IIIII[Landroid/os/Parcelable;)V
     .locals 0
-    .parameter "name"
-    .parameter "vendorId"
-    .parameter "productId"
-    .parameter "Class"
-    .parameter "subClass"
-    .parameter "protocol"
-    .parameter "interfaces"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "vendorId"    # I
+    .param p3, "productId"    # I
+    .param p4, "Class"    # I
+    .param p5, "subClass"    # I
+    .param p6, "protocol"    # I
+    .param p7, "interfaces"    # [Landroid/os/Parcelable;
 
     .prologue
     .line 61
@@ -93,7 +93,7 @@
 
 .method public static getDeviceId(Ljava/lang/String;)I
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 215
@@ -106,7 +106,7 @@
 
 .method public static getDeviceName(I)Ljava/lang/String;
     .locals 1
-    .parameter "id"
+    .param p0, "id"    # I
 
     .prologue
     .line 219
@@ -137,7 +137,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 160
@@ -148,7 +148,7 @@
     .line 161
     check-cast p1, Landroid/hardware/usb/UsbDevice;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v0, p1, Landroid/hardware/usb/UsbDevice;->mName:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/hardware/usb/UsbDevice;->mName:Ljava/lang/String;
@@ -162,7 +162,7 @@
     return v0
 
     .line 162
-    .restart local p1
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     instance-of v0, p1, Ljava/lang/String;
 
@@ -171,7 +171,7 @@
     .line 163
     check-cast p1, Ljava/lang/String;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v0, p0, Landroid/hardware/usb/UsbDevice;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -181,7 +181,7 @@
     goto :goto_0
 
     .line 165
-    .restart local p1
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_1
     const/4 v0, 0x0
 
@@ -244,7 +244,7 @@
 
 .method public getInterface(I)Landroid/hardware/usb/UsbInterface;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 155
@@ -411,8 +411,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 205

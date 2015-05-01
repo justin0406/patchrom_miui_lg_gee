@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TableRow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 522
@@ -39,8 +38,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/TableRow;Landroid/widget/TableRow$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/TableRow;
+    .param p2, "x1"    # Landroid/widget/TableRow$1;
 
     .prologue
     .line 522
@@ -51,8 +50,8 @@
 
 .method static synthetic access$100(Landroid/widget/TableRow$ChildrenTracker;Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/TableRow$ChildrenTracker;
+    .param p1, "x1"    # Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .prologue
     .line 522
@@ -63,7 +62,7 @@
 
 .method private setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .prologue
     .line 526
@@ -77,8 +76,8 @@
 # virtual methods
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .locals 2
-    .parameter "parent"
-    .parameter "child"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 531
@@ -86,7 +85,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/widget/TableRow;->mColumnToChildIndex:Landroid/util/SparseIntArray;
+    # setter for: Landroid/widget/TableRow;->mColumnToChildIndex:Landroid/util/SparseIntArray;
     invoke-static {v0, v1}, Landroid/widget/TableRow;->access$302(Landroid/widget/TableRow;Landroid/util/SparseIntArray;)Landroid/util/SparseIntArray;
 
     .line 533
@@ -106,8 +105,8 @@
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
     .locals 2
-    .parameter "parent"
-    .parameter "child"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .prologue
     .line 540
@@ -115,7 +114,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/widget/TableRow;->mColumnToChildIndex:Landroid/util/SparseIntArray;
+    # setter for: Landroid/widget/TableRow;->mColumnToChildIndex:Landroid/util/SparseIntArray;
     invoke-static {v0, v1}, Landroid/widget/TableRow;->access$302(Landroid/widget/TableRow;Landroid/util/SparseIntArray;)Landroid/util/SparseIntArray;
 
     .line 542

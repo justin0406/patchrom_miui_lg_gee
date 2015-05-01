@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(IJJF)V
     .locals 0
-    .parameter "state"
-    .parameter "stateChangeTimeMs"
-    .parameter "currentPosMs"
-    .parameter "speed"
+    .param p1, "state"    # I
+    .param p2, "stateChangeTimeMs"    # J
+    .param p4, "currentPosMs"    # J
+    .param p6, "speed"    # F
 
     .prologue
     .line 861

@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 47
@@ -123,8 +123,8 @@
 
 .method public open(Landroid/os/ParcelFileDescriptor;I)V
     .locals 1
-    .parameter "pfd"
-    .parameter "speed"
+    .param p1, "pfd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "speed"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -148,7 +148,7 @@
 
 .method public read(Ljava/nio/ByteBuffer;)I
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -223,8 +223,8 @@
 
 .method public write(Ljava/nio/ByteBuffer;I)V
     .locals 2
-    .parameter "buffer"
-    .parameter "length"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

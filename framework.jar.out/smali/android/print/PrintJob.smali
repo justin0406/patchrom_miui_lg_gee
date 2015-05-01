@@ -12,8 +12,8 @@
 # direct methods
 .method constructor <init>(Landroid/print/PrintJobInfo;Landroid/print/PrintManager;)V
     .locals 0
-    .parameter "info"
-    .parameter "printManager"
+    .param p1, "info"    # Landroid/print/PrintJobInfo;
+    .param p2, "printManager"    # Landroid/print/PrintManager;
 
     .prologue
     .line 34
@@ -41,7 +41,7 @@
     move-result v0
 
     .line 177
-    .local v0, state:I
+    .local v0, "state":I
     const/4 v1, 0x5
 
     if-eq v0, v1, :cond_0
@@ -78,7 +78,7 @@
     move-result v0
 
     .line 80
-    .local v0, state:I
+    .local v0, "state":I
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
@@ -114,7 +114,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -151,7 +151,7 @@
     check-cast v0, Landroid/print/PrintJob;
 
     .line 193
-    .local v0, other:Landroid/print/PrintJob;
+    .local v0, "other":Landroid/print/PrintJob;
     iget-object v1, p0, Landroid/print/PrintJob;->mCachedInfo:Landroid/print/PrintJobInfo;
 
     invoke-virtual {v1}, Landroid/print/PrintJobInfo;->getId()Landroid/print/PrintJobId;
@@ -218,7 +218,7 @@
     move-result-object v0
 
     .line 63
-    .local v0, info:Landroid/print/PrintJobInfo;
+    .local v0, "info":Landroid/print/PrintJobInfo;
     if-eqz v0, :cond_1
 
     .line 64

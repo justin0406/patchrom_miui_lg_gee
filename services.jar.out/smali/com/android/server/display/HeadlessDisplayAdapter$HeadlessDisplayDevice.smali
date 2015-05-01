@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/HeadlessDisplayAdapter;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 48
@@ -44,7 +43,7 @@
     .locals 4
 
     .prologue
-    const/high16 v3, 0x4320
+    const/high16 v3, 0x43200000    # 160.0f
 
     .line 54
     iget-object v0, p0, Lcom/android/server/display/HeadlessDisplayAdapter$HeadlessDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
@@ -71,7 +70,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040551
+    const v2, 0x1040552
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -96,7 +95,7 @@
     .line 60
     iget-object v0, p0, Lcom/android/server/display/HeadlessDisplayAdapter$HeadlessDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    const/high16 v1, 0x4270
+    const/high16 v1, 0x42700000    # 60.0f
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->refreshRate:F
 

@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneSubInfo;)V
     .locals 1
-    .parameter "phoneSubInfo"
+    .param p1, "phoneSubInfo"    # Lcom/android/internal/telephony/PhoneSubInfo;
 
     .prologue
     .line 28
@@ -42,9 +42,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 150
@@ -254,7 +254,7 @@
 
 .method public setmPhoneSubInfo(Lcom/android/internal/telephony/PhoneSubInfo;)V
     .locals 0
-    .parameter "phoneSubInfo"
+    .param p1, "phoneSubInfo"    # Lcom/android/internal/telephony/PhoneSubInfo;
 
     .prologue
     .line 36

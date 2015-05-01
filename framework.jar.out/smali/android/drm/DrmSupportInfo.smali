@@ -63,7 +63,7 @@
 # virtual methods
 .method public addFileSuffix(Ljava/lang/String;)V
     .locals 2
-    .parameter "fileSuffix"
+    .param p1, "fileSuffix"    # Ljava/lang/String;
 
     .prologue
     .line 60
@@ -92,7 +92,7 @@
 
 .method public addMimeType(Ljava/lang/String;)V
     .locals 2
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -134,7 +134,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -150,7 +150,7 @@
     check-cast v0, Landroid/drm/DrmSupportInfo;
 
     .line 147
-    .local v0, info:Landroid/drm/DrmSupportInfo;
+    .local v0, "info":Landroid/drm/DrmSupportInfo;
     iget-object v2, p0, Landroid/drm/DrmSupportInfo;->mFileSuffixList:Ljava/util/ArrayList;
 
     iget-object v3, v0, Landroid/drm/DrmSupportInfo;->mFileSuffixList:Ljava/util/ArrayList;
@@ -184,7 +184,7 @@
     const/4 v1, 0x1
 
     .line 151
-    .end local v0           #info:Landroid/drm/DrmSupportInfo;
+    .end local v0    # "info":Landroid/drm/DrmSupportInfo;
     :cond_0
     return v1
 .end method
@@ -287,7 +287,7 @@
 
 .method isSupportedFileSuffix(Ljava/lang/String;)Z
     .locals 1
-    .parameter "fileSuffix"
+    .param p1, "fileSuffix"    # Ljava/lang/String;
 
     .prologue
     .line 185
@@ -302,7 +302,7 @@
 
 .method isSupportedMimeType(Ljava/lang/String;)Z
     .locals 3
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 162
@@ -319,7 +319,7 @@
     .line 163
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Landroid/drm/DrmSupportInfo;->mMimeTypeList:Ljava/util/ArrayList;
 
@@ -339,7 +339,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 170
-    .local v0, completeMimeType:Ljava/lang/String;
+    .local v0, "completeMimeType":Ljava/lang/String;
     invoke-virtual {v0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
@@ -350,22 +350,22 @@
     const/4 v2, 0x1
 
     .line 175
-    .end local v0           #completeMimeType:Ljava/lang/String;
-    .end local v1           #i:I
+    .end local v0    # "completeMimeType":Ljava/lang/String;
+    .end local v1    # "i":I
     :goto_1
     return v2
 
     .line 163
-    .restart local v0       #completeMimeType:Ljava/lang/String;
-    .restart local v1       #i:I
+    .restart local v0    # "completeMimeType":Ljava/lang/String;
+    .restart local v1    # "i":I
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 175
-    .end local v0           #completeMimeType:Ljava/lang/String;
-    .end local v1           #i:I
+    .end local v0    # "completeMimeType":Ljava/lang/String;
+    .end local v1    # "i":I
     :cond_1
     const/4 v2, 0x0
 
@@ -374,7 +374,7 @@
 
 .method public setDescription(Ljava/lang/String;)V
     .locals 2
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/String;
 
     .prologue
     .line 94

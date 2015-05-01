@@ -10,9 +10,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/uicc/UiccCardApplication;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 0
-    .parameter "app"
-    .parameter "aid"
-    .parameter "ci"
+    .param p1, "app"    # Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .param p2, "aid"    # Ljava/lang/String;
+    .param p3, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 34
@@ -26,7 +26,7 @@
 # virtual methods
 .method protected getEFPath(I)Ljava/lang/String;
     .locals 1
-    .parameter "efid"
+    .param p1, "efid"    # I
 
     .prologue
     .line 58
@@ -64,11 +64,11 @@
 
 .method public loadEFImgTransparent(IIIILandroid/os/Message;)V
     .locals 12
-    .parameter "fileid"
-    .parameter "highOffset"
-    .parameter "lowOffset"
-    .parameter "length"
-    .parameter "onLoaded"
+    .param p1, "fileid"    # I
+    .param p2, "highOffset"    # I
+    .param p3, "lowOffset"    # I
+    .param p4, "length"    # I
+    .param p5, "onLoaded"    # Landroid/os/Message;
 
     .prologue
     .line 42
@@ -83,7 +83,7 @@
     move-result-object v11
 
     .line 51
-    .local v11, response:Landroid/os/Message;
+    .local v11, "response":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/RuimFileHandler;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     const/16 v2, 0xc0
@@ -116,7 +116,7 @@
 
 .method protected logd(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -148,7 +148,7 @@
 
 .method protected loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 79

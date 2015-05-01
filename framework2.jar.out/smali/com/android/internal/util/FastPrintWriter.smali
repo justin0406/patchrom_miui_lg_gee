@@ -48,7 +48,7 @@
 
 .method public constructor <init>(Landroid/util/Printer;)V
     .locals 1
-    .parameter "pr"
+    .param p1, "pr"    # Landroid/util/Printer;
 
     .prologue
     .line 198
@@ -62,8 +62,8 @@
 
 .method public constructor <init>(Landroid/util/Printer;I)V
     .locals 3
-    .parameter "pr"
-    .parameter "bufferLen"
+    .param p1, "pr"    # Landroid/util/Printer;
+    .param p2, "bufferLen"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -127,7 +127,7 @@
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/OutputStream;
 
     .prologue
     .line 64
@@ -143,8 +143,8 @@
 
 .method public constructor <init>(Ljava/io/OutputStream;Z)V
     .locals 1
-    .parameter "out"
-    .parameter "autoFlush"
+    .param p1, "out"    # Ljava/io/OutputStream;
+    .param p2, "autoFlush"    # Z
 
     .prologue
     .line 82
@@ -158,9 +158,9 @@
 
 .method public constructor <init>(Ljava/io/OutputStream;ZI)V
     .locals 2
-    .parameter "out"
-    .parameter "autoFlush"
-    .parameter "bufferLen"
+    .param p1, "out"    # Ljava/io/OutputStream;
+    .param p2, "autoFlush"    # Z
+    .param p3, "bufferLen"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -228,7 +228,7 @@
 
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 2
-    .parameter "wr"
+    .param p1, "wr"    # Ljava/io/Writer;
 
     .prologue
     .line 133
@@ -244,8 +244,8 @@
 
 .method public constructor <init>(Ljava/io/Writer;Z)V
     .locals 1
-    .parameter "wr"
-    .parameter "autoFlush"
+    .param p1, "wr"    # Ljava/io/Writer;
+    .param p2, "autoFlush"    # Z
 
     .prologue
     .line 151
@@ -259,9 +259,9 @@
 
 .method public constructor <init>(Ljava/io/Writer;ZI)V
     .locals 2
-    .parameter "wr"
-    .parameter "autoFlush"
-    .parameter "bufferLen"
+    .param p1, "wr"    # Ljava/io/Writer;
+    .param p2, "autoFlush"    # Z
+    .param p3, "bufferLen"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -323,7 +323,7 @@
 
 .method private appendLocked(C)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -335,7 +335,7 @@
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .line 282
-    .local v0, pos:I
+    .local v0, "pos":I
     iget v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
     add-int/lit8 v1, v1, -0x1
@@ -365,9 +365,9 @@
 
 .method private appendLocked(Ljava/lang/String;II)V
     .locals 6
-    .parameter "str"
-    .parameter "i"
-    .parameter "length"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "i"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -379,14 +379,14 @@
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
     .line 292
-    .local v0, BUFFER_LEN:I
+    .local v0, "BUFFER_LEN":I
     if-le p3, v0, :cond_1
 
     .line 293
     add-int v1, p2, p3
 
     .line 294
-    .local v1, end:I
+    .local v1, "end":I
     :goto_0
     if-ge p2, v1, :cond_3
 
@@ -394,7 +394,7 @@
     add-int v2, p2, v0
 
     .line 296
-    .local v2, next:I
+    .local v2, "next":I
     if-ge v2, v1, :cond_0
 
     move v4, v0
@@ -415,13 +415,13 @@
     goto :goto_1
 
     .line 301
-    .end local v1           #end:I
-    .end local v2           #next:I
+    .end local v1    # "end":I
+    .end local v2    # "next":I
     :cond_1
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .line 302
-    .local v3, pos:I
+    .local v3, "pos":I
     add-int v4, v3, p3
 
     if-le v4, v0, :cond_2
@@ -446,16 +446,16 @@
     iput v4, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .line 308
-    .end local v3           #pos:I
+    .end local v3    # "pos":I
     :cond_3
     return-void
 .end method
 
 .method private appendLocked([CII)V
     .locals 5
-    .parameter "buf"
-    .parameter "i"
-    .parameter "length"
+    .param p1, "buf"    # [C
+    .param p2, "i"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -467,14 +467,14 @@
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
     .line 312
-    .local v0, BUFFER_LEN:I
+    .local v0, "BUFFER_LEN":I
     if-le p3, v0, :cond_1
 
     .line 313
     add-int v1, p2, p3
 
     .line 314
-    .local v1, end:I
+    .local v1, "end":I
     :goto_0
     if-ge p2, v1, :cond_3
 
@@ -482,7 +482,7 @@
     add-int v2, p2, v0
 
     .line 316
-    .local v2, next:I
+    .local v2, "next":I
     if-ge v2, v1, :cond_0
 
     move v4, v0
@@ -503,13 +503,13 @@
     goto :goto_1
 
     .line 321
-    .end local v1           #end:I
-    .end local v2           #next:I
+    .end local v1    # "end":I
+    .end local v2    # "next":I
     :cond_1
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .line 322
-    .local v3, pos:I
+    .local v3, "pos":I
     add-int v4, v3, p3
 
     if-le v4, v0, :cond_2
@@ -532,7 +532,7 @@
     iput v4, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .line 328
-    .end local v3           #pos:I
+    .end local v3    # "pos":I
     :cond_3
     return-void
 .end method
@@ -553,7 +553,7 @@
 
     move-result v0
 
-    .local v0, position:I
+    .local v0, "position":I
     if-lez v0, :cond_0
 
     .line 333
@@ -617,7 +617,7 @@
     move-result-object v0
 
     .line 344
-    .local v0, charBuffer:Ljava/nio/CharBuffer;
+    .local v0, "charBuffer":Ljava/nio/CharBuffer;
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     iget-object v6, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
@@ -627,7 +627,7 @@
     move-result-object v3
 
     .line 346
-    .local v3, result:Ljava/nio/charset/CoderResult;
+    .local v3, "result":Ljava/nio/charset/CoderResult;
     :goto_0
     invoke-virtual {v3}, Ljava/nio/charset/CoderResult;->isError()Z
 
@@ -679,8 +679,8 @@
     invoke-virtual {v5}, Ljava/io/OutputStream;->flush()V
 
     .line 374
-    .end local v0           #charBuffer:Ljava/nio/CharBuffer;
-    .end local v3           #result:Ljava/nio/charset/CoderResult;
+    .end local v0    # "charBuffer":Ljava/nio/CharBuffer;
+    .end local v3    # "result":Ljava/nio/charset/CoderResult;
     :goto_1
     iput v9, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
@@ -715,7 +715,7 @@
     const/4 v2, 0x0
 
     .line 362
-    .local v2, nonEolOff:I
+    .local v2, "nonEolOff":I
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -723,7 +723,7 @@
     move-result v4
 
     .line 363
-    .local v4, sepLen:I
+    .local v4, "sepLen":I
     iget v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     if-ge v4, v5, :cond_5
@@ -731,7 +731,7 @@
     move v1, v4
 
     .line 365
-    .local v1, len:I
+    .local v1, "len":I
     :goto_2
     if-ge v2, v1, :cond_6
 
@@ -769,14 +769,14 @@
     goto :goto_2
 
     .line 363
-    .end local v1           #len:I
+    .end local v1    # "len":I
     :cond_5
     iget v1, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     goto :goto_2
 
     .line 368
-    .restart local v1       #len:I
+    .restart local v1    # "len":I
     :cond_6
     iget v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
@@ -845,7 +845,7 @@
 
 .method private final initEncoder(Ljava/lang/String;)V
     .locals 3
-    .parameter "csn"
+    .param p1, "csn"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
@@ -889,7 +889,7 @@
     move-exception v0
 
     .line 234
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/io/UnsupportedEncodingException;
 
     invoke-direct {v1, p1}, Ljava/io/UnsupportedEncodingException;-><init>(Ljava/lang/String;)V
@@ -901,9 +901,9 @@
 # virtual methods
 .method public append(Ljava/lang/CharSequence;II)Ljava/io/PrintWriter;
     .locals 3
-    .parameter "csq"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "csq"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 654
@@ -923,7 +923,7 @@
     move-result-object v0
 
     .line 658
-    .local v0, output:Ljava/lang/String;
+    .local v0, "output":Ljava/lang/String;
     const/4 v1, 0x0
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -938,9 +938,9 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/io/Writer;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -958,9 +958,9 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1062,8 +1062,8 @@
 
     invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 412
     :cond_0
@@ -1088,8 +1088,8 @@
 
     invoke-virtual {v1}, Ljava/io/Writer;->close()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
@@ -1098,14 +1098,14 @@
     move-exception v0
 
     .line 410
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :try_start_3
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
 
     goto :goto_0
 
     .line 412
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
 
@@ -1139,8 +1139,8 @@
 
     invoke-virtual {v1}, Ljava/io/OutputStream;->flush()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 396
     :cond_0
@@ -1165,8 +1165,8 @@
 
     invoke-virtual {v1}, Ljava/io/Writer;->flush()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
@@ -1175,14 +1175,14 @@
     move-exception v0
 
     .line 394
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :try_start_3
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
 
     goto :goto_0
 
     .line 396
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
 
@@ -1195,7 +1195,7 @@
 
 .method public print(C)V
     .locals 2
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 441
@@ -1207,8 +1207,8 @@
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(C)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 446
     :goto_0
@@ -1237,7 +1237,7 @@
 
 .method public print(I)V
     .locals 1
-    .parameter "inum"
+    .param p1, "inum"    # I
 
     .prologue
     .line 476
@@ -1261,7 +1261,7 @@
 
 .method public print(J)V
     .locals 2
-    .parameter "lnum"
+    .param p1, "lnum"    # J
 
     .prologue
     .line 485
@@ -1289,7 +1289,7 @@
 
 .method public print(Ljava/lang/String;)V
     .locals 4
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 461
@@ -1320,8 +1320,8 @@
 
     invoke-direct {p0, p1, v1, v3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 470
     :goto_0
@@ -1336,13 +1336,13 @@
     move-exception v0
 
     .line 468
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
 
     goto :goto_0
 
     .line 470
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
 
@@ -1355,7 +1355,7 @@
 
 .method public print([C)V
     .locals 3
-    .parameter "charArray"
+    .param p1, "charArray"    # [C
 
     .prologue
     .line 424
@@ -1371,8 +1371,8 @@
 
     invoke-direct {p0, p1, v0, v2}, Lcom/android/internal/util/FastPrintWriter;->appendLocked([CII)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 429
     :goto_0
@@ -1430,8 +1430,8 @@
     .line 500
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 505
     :cond_0
@@ -1447,13 +1447,13 @@
     move-exception v0
 
     .line 503
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
 
     goto :goto_0
 
     .line 505
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
 
@@ -1466,7 +1466,7 @@
 
 .method public println(C)V
     .locals 0
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 540
@@ -1481,7 +1481,7 @@
 
 .method public println(I)V
     .locals 1
-    .parameter "inum"
+    .param p1, "inum"    # I
 
     .prologue
     .line 510
@@ -1505,7 +1505,7 @@
 
 .method public println(J)V
     .locals 2
-    .parameter "lnum"
+    .param p1, "lnum"    # J
 
     .prologue
     .line 519
@@ -1533,7 +1533,7 @@
 
 .method public println([C)V
     .locals 0
-    .parameter "chars"
+    .param p1, "chars"    # [C
 
     .prologue
     .line 531
@@ -1580,7 +1580,7 @@
 
 .method public write(I)V
     .locals 2
-    .parameter "oneChar"
+    .param p1, "oneChar"    # I
 
     .prologue
     .line 583
@@ -1594,8 +1594,8 @@
     :try_start_0
     invoke-direct {p0, v0}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(C)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 588
     :goto_0
@@ -1624,7 +1624,7 @@
 
 .method public write(Ljava/lang/String;)V
     .locals 3
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
 
     .prologue
     .line 599
@@ -1642,8 +1642,8 @@
 
     invoke-direct {p0, p1, v0, v2}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 604
     :goto_0
@@ -1672,9 +1672,9 @@
 
 .method public write(Ljava/lang/String;II)V
     .locals 2
-    .parameter "str"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 623
@@ -1686,8 +1686,8 @@
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 628
     :goto_0
@@ -1716,9 +1716,9 @@
 
 .method public write([CII)V
     .locals 2
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buf"    # [C
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 563
@@ -1730,8 +1730,8 @@
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked([CII)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 568
     :goto_0

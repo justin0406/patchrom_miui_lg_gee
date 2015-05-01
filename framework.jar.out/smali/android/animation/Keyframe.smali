@@ -50,7 +50,7 @@
 
 .method public static ofFloat(F)Landroid/animation/Keyframe;
     .locals 1
-    .parameter "fraction"
+    .param p0, "fraction"    # F
 
     .prologue
     .line 122
@@ -63,8 +63,8 @@
 
 .method public static ofFloat(FF)Landroid/animation/Keyframe;
     .locals 1
-    .parameter "fraction"
-    .parameter "value"
+    .param p0, "fraction"    # F
+    .param p1, "value"    # F
 
     .prologue
     .line 106
@@ -77,7 +77,7 @@
 
 .method public static ofInt(F)Landroid/animation/Keyframe;
     .locals 1
-    .parameter "fraction"
+    .param p0, "fraction"    # F
 
     .prologue
     .line 90
@@ -90,8 +90,8 @@
 
 .method public static ofInt(FI)Landroid/animation/Keyframe;
     .locals 1
-    .parameter "fraction"
-    .parameter "value"
+    .param p0, "fraction"    # F
+    .param p1, "value"    # I
 
     .prologue
     .line 74
@@ -104,7 +104,7 @@
 
 .method public static ofObject(F)Landroid/animation/Keyframe;
     .locals 2
-    .parameter "fraction"
+    .param p0, "fraction"    # F
 
     .prologue
     .line 154
@@ -119,8 +119,8 @@
 
 .method public static ofObject(FLjava/lang/Object;)Landroid/animation/Keyframe;
     .locals 1
-    .parameter "fraction"
-    .parameter "value"
+    .param p0, "fraction"    # F
+    .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 138
@@ -198,7 +198,7 @@
 
 .method public setFraction(F)V
     .locals 0
-    .parameter "fraction"
+    .param p1, "fraction"    # F
 
     .prologue
     .line 199
@@ -210,7 +210,7 @@
 
 .method public setInterpolator(Landroid/animation/TimeInterpolator;)V
     .locals 0
-    .parameter "interpolator"
+    .param p1, "interpolator"    # Landroid/animation/TimeInterpolator;
 
     .prologue
     .line 219

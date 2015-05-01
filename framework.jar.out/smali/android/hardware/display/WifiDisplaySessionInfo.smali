@@ -71,11 +71,11 @@
 
 .method public constructor <init>(ZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "client"
-    .parameter "session"
-    .parameter "group"
-    .parameter "pp"
-    .parameter "ip"
+    .param p1, "client"    # Z
+    .param p2, "session"    # I
+    .param p3, "group"    # Ljava/lang/String;
+    .param p4, "pp"    # Ljava/lang/String;
+    .param p5, "ip"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -250,8 +250,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 93

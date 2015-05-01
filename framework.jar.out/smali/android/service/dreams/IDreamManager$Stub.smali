@@ -62,7 +62,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/service/dreams/IDreamManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -84,7 +84,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/service/dreams/IDreamManager;
@@ -100,7 +100,7 @@
     :cond_1
     new-instance v0, Landroid/service/dreams/IDreamManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/service/dreams/IDreamManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -118,10 +118,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -196,7 +196,7 @@
     check-cast v0, [Landroid/content/ComponentName;
 
     .line 65
-    .local v0, _arg0:[Landroid/content/ComponentName;
+    .local v0, "_arg0":[Landroid/content/ComponentName;
     invoke-virtual {p0, v0}, Landroid/service/dreams/IDreamManager$Stub;->setDreamComponents([Landroid/content/ComponentName;)V
 
     .line 66
@@ -205,7 +205,7 @@
     goto :goto_0
 
     .line 71
-    .end local v0           #_arg0:[Landroid/content/ComponentName;
+    .end local v0    # "_arg0":[Landroid/content/ComponentName;
     :sswitch_4
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -217,7 +217,7 @@
     move-result-object v1
 
     .line 73
-    .local v1, _result:[Landroid/content/ComponentName;
+    .local v1, "_result":[Landroid/content/ComponentName;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 74
@@ -226,7 +226,7 @@
     goto :goto_0
 
     .line 79
-    .end local v1           #_result:[Landroid/content/ComponentName;
+    .end local v1    # "_result":[Landroid/content/ComponentName;
     :sswitch_5
     const-string v4, "android.service.dreams.IDreamManager"
 
@@ -238,7 +238,7 @@
     move-result-object v1
 
     .line 81
-    .local v1, _result:Landroid/content/ComponentName;
+    .local v1, "_result":Landroid/content/ComponentName;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 82
@@ -259,7 +259,7 @@
     goto :goto_0
 
     .line 93
-    .end local v1           #_result:Landroid/content/ComponentName;
+    .end local v1    # "_result":Landroid/content/ComponentName;
     :sswitch_6
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -282,7 +282,7 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 101
-    .local v0, _arg0:Landroid/content/ComponentName;
+    .local v0, "_arg0":Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/service/dreams/IDreamManager$Stub;->testDream(Landroid/content/ComponentName;)V
 
@@ -292,15 +292,15 @@
     goto :goto_0
 
     .line 99
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_1
 
     .line 107
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :sswitch_7
     const-string v4, "android.service.dreams.IDreamManager"
 
@@ -312,7 +312,7 @@
     move-result v1
 
     .line 109
-    .local v1, _result:Z
+    .local v1, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 110
@@ -326,7 +326,7 @@
     goto/16 :goto_0
 
     .line 115
-    .end local v1           #_result:Z
+    .end local v1    # "_result":Z
     :sswitch_8
     const-string v2, "android.service.dreams.IDreamManager"
 
@@ -338,7 +338,7 @@
     move-result-object v0
 
     .line 118
-    .local v0, _arg0:Landroid/os/IBinder;
+    .local v0, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v0}, Landroid/service/dreams/IDreamManager$Stub;->finishSelf(Landroid/os/IBinder;)V
 
     .line 119

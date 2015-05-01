@@ -72,18 +72,18 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
     .locals 3
-    .parameter "v"
+    .param p1, "v"    # Landroid/widget/TextView;
 
     .prologue
-    .line 9047
+    .line 9051
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 9036
+    .line 9040
     const/4 v1, 0x0
 
     iput-byte v1, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
-    .line 9048
+    .line 9052
     invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -98,26 +98,26 @@
 
     iget v0, v1, Landroid/util/DisplayMetrics;->density:F
 
-    .line 9049
-    .local v0, density:F
-    const/high16 v1, 0x41f0
+    .line 9053
+    .local v0, "density":F
+    const/high16 v1, 0x41f00000    # 30.0f
 
     mul-float/2addr v1, v0
 
-    const/high16 v2, 0x4204
+    const/high16 v2, 0x42040000    # 33.0f
 
     div-float/2addr v1, v2
 
     iput v1, p0, Landroid/widget/TextView$Marquee;->mScrollUnit:F
 
-    .line 9050
+    .line 9054
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v1, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
-    .line 9051
+    .line 9055
     return-void
 .end method
 
@@ -125,12 +125,12 @@
     .locals 2
 
     .prologue
-    .line 9103
+    .line 9107
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
-    .line 9104
+    .line 9108
     iget-object v1, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -139,13 +139,13 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 9105
-    .local v0, textView:Landroid/widget/TextView;
+    .line 9109
+    .local v0, "textView":Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/widget/TextView;->invalidate()V
 
-    .line 9106
+    .line 9110
     :cond_0
     return-void
 .end method
@@ -156,7 +156,7 @@
     .locals 1
 
     .prologue
-    .line 9134
+    .line 9138
     iget v0, p0, Landroid/widget/TextView$Marquee;->mGhostOffset:F
 
     return v0
@@ -166,7 +166,7 @@
     .locals 1
 
     .prologue
-    .line 9142
+    .line 9146
     iget v0, p0, Landroid/widget/TextView$Marquee;->mMaxFadeScroll:F
 
     return v0
@@ -176,7 +176,7 @@
     .locals 1
 
     .prologue
-    .line 9138
+    .line 9142
     iget v0, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
     return v0
@@ -184,55 +184,55 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x2
 
-    .line 9055
+    .line 9059
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 9072
+    .line 9076
     :cond_0
     :goto_0
     return-void
 
-    .line 9057
+    .line 9061
     :pswitch_0
     iput-byte v1, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
-    .line 9058
+    .line 9062
     invoke-virtual {p0}, Landroid/widget/TextView$Marquee;->tick()V
 
     goto :goto_0
 
-    .line 9061
+    .line 9065
     :pswitch_1
     invoke-virtual {p0}, Landroid/widget/TextView$Marquee;->tick()V
 
     goto :goto_0
 
-    .line 9064
+    .line 9068
     :pswitch_2
     iget-byte v0, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
     if-ne v0, v1, :cond_0
 
-    .line 9065
+    .line 9069
     iget v0, p0, Landroid/widget/TextView$Marquee;->mRepeatLimit:I
 
     if-ltz v0, :cond_1
 
-    .line 9066
+    .line 9070
     iget v0, p0, Landroid/widget/TextView$Marquee;->mRepeatLimit:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/widget/TextView$Marquee;->mRepeatLimit:I
 
-    .line 9068
+    .line 9072
     :cond_1
     iget v0, p0, Landroid/widget/TextView$Marquee;->mRepeatLimit:I
 
@@ -240,7 +240,7 @@
 
     goto :goto_0
 
-    .line 9055
+    .line 9059
     nop
 
     :pswitch_data_0
@@ -255,7 +255,7 @@
     .locals 2
 
     .prologue
-    .line 9154
+    .line 9158
     iget-byte v0, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
     const/4 v1, 0x2
@@ -277,7 +277,7 @@
     .locals 1
 
     .prologue
-    .line 9158
+    .line 9162
     iget-byte v0, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
     if-nez v0, :cond_0
@@ -297,7 +297,7 @@
     .locals 2
 
     .prologue
-    .line 9150
+    .line 9154
     iget-byte v0, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
     const/4 v1, 0x2
@@ -327,7 +327,7 @@
     .locals 2
 
     .prologue
-    .line 9146
+    .line 9150
     iget v0, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
     iget v1, p0, Landroid/widget/TextView$Marquee;->mFadeStop:F
@@ -349,27 +349,27 @@
 
 .method start(I)V
     .locals 7
-    .parameter "repeatLimit"
+    .param p1, "repeatLimit"    # I
 
     .prologue
     const/4 v6, 0x1
 
-    .line 9109
+    .line 9113
     if-nez p1, :cond_1
 
-    .line 9110
+    .line 9114
     invoke-virtual {p0}, Landroid/widget/TextView$Marquee;->stop()V
 
-    .line 9131
+    .line 9135
     :cond_0
     :goto_0
     return-void
 
-    .line 9113
+    .line 9117
     :cond_1
     iput p1, p0, Landroid/widget/TextView$Marquee;->mRepeatLimit:I
 
-    .line 9114
+    .line 9118
     iget-object v4, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -378,26 +378,26 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 9115
-    .local v2, textView:Landroid/widget/TextView;
+    .line 9119
+    .local v2, "textView":Landroid/widget/TextView;
     if-eqz v2, :cond_0
 
-    #getter for: Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
+    # getter for: Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
     invoke-static {v2}, Landroid/widget/TextView;->access$400(Landroid/widget/TextView;)Landroid/text/Layout;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
-    .line 9116
+    .line 9120
     iput-byte v6, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
-    .line 9117
+    .line 9121
     const/4 v4, 0x0
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
-    .line 9118
+    .line 9122
     invoke-virtual {v2}, Landroid/widget/TextView;->getWidth()I
 
     move-result v4
@@ -414,9 +414,9 @@
 
     sub-int v3, v4, v5
 
-    .line 9120
-    .local v3, textWidth:I
-    #getter for: Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
+    .line 9124
+    .local v3, "textWidth":I
+    # getter for: Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
     invoke-static {v2}, Landroid/widget/TextView;->access$400(Landroid/widget/TextView;)Landroid/text/Layout;
 
     move-result-object v4
@@ -427,16 +427,16 @@
 
     move-result v1
 
-    .line 9121
-    .local v1, lineWidth:F
+    .line 9125
+    .local v1, "lineWidth":F
     int-to-float v4, v3
 
-    const/high16 v5, 0x4040
+    const/high16 v5, 0x40400000    # 3.0f
 
     div-float v0, v4, v5
 
-    .line 9122
-    .local v0, gap:F
+    .line 9126
+    .local v0, "gap":F
     int-to-float v4, v3
 
     sub-float v4, v1, v4
@@ -445,7 +445,7 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mGhostStart:F
 
-    .line 9123
+    .line 9127
     iget v4, p0, Landroid/widget/TextView$Marquee;->mGhostStart:F
 
     int-to-float v5, v3
@@ -454,15 +454,15 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mMaxScroll:F
 
-    .line 9124
+    .line 9128
     add-float v4, v1, v0
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mGhostOffset:F
 
-    .line 9125
+    .line 9129
     int-to-float v4, v3
 
-    const/high16 v5, 0x40c0
+    const/high16 v5, 0x40c00000    # 6.0f
 
     div-float/2addr v4, v5
 
@@ -470,7 +470,7 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mFadeStop:F
 
-    .line 9126
+    .line 9130
     iget v4, p0, Landroid/widget/TextView$Marquee;->mGhostStart:F
 
     add-float/2addr v4, v1
@@ -479,10 +479,10 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mMaxFadeScroll:F
 
-    .line 9128
+    .line 9132
     invoke-virtual {v2}, Landroid/widget/TextView;->invalidate()V
 
-    .line 9129
+    .line 9133
     const-wide/16 v4, 0x4b0
 
     invoke-virtual {p0, v6, v4, v5}, Landroid/widget/TextView$Marquee;->sendEmptyMessageDelayed(IJ)Z
@@ -494,30 +494,30 @@
     .locals 1
 
     .prologue
-    .line 9095
+    .line 9099
     const/4 v0, 0x0
 
     iput-byte v0, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
-    .line 9096
+    .line 9100
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView$Marquee;->removeMessages(I)V
 
-    .line 9097
+    .line 9101
     const/4 v0, 0x3
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView$Marquee;->removeMessages(I)V
 
-    .line 9098
+    .line 9102
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView$Marquee;->removeMessages(I)V
 
-    .line 9099
+    .line 9103
     invoke-direct {p0}, Landroid/widget/TextView$Marquee;->resetScroll()V
 
-    .line 9100
+    .line 9104
     return-void
 .end method
 
@@ -527,21 +527,21 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 9075
+    .line 9079
     iget-byte v1, p0, Landroid/widget/TextView$Marquee;->mStatus:B
 
     if-eq v1, v3, :cond_1
 
-    .line 9092
+    .line 9096
     :cond_0
     :goto_0
     return-void
 
-    .line 9079
+    .line 9083
     :cond_1
     invoke-virtual {p0, v3}, Landroid/widget/TextView$Marquee;->removeMessages(I)V
 
-    .line 9081
+    .line 9085
     iget-object v1, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -550,8 +550,8 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 9082
-    .local v0, textView:Landroid/widget/TextView;
+    .line 9086
+    .local v0, "textView":Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/widget/TextView;->isFocused()Z
@@ -566,7 +566,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 9083
+    .line 9087
     :cond_2
     iget v1, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
@@ -576,7 +576,7 @@
 
     iput v1, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
-    .line 9084
+    .line 9088
     iget v1, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
     iget v2, p0, Landroid/widget/TextView$Marquee;->mMaxScroll:F
@@ -585,25 +585,25 @@
 
     if-lez v1, :cond_3
 
-    .line 9085
+    .line 9089
     iget v1, p0, Landroid/widget/TextView$Marquee;->mMaxScroll:F
 
     iput v1, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
-    .line 9086
+    .line 9090
     const/4 v1, 0x3
 
     const-wide/16 v2, 0x4b0
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/widget/TextView$Marquee;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 9090
+    .line 9094
     :goto_1
     invoke-virtual {v0}, Landroid/widget/TextView;->invalidate()V
 
     goto :goto_0
 
-    .line 9088
+    .line 9092
     :cond_3
     const-wide/16 v1, 0x21
 

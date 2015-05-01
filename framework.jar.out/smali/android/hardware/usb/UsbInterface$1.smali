@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/usb/UsbInterface;
     .locals 6
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 123
@@ -51,25 +51,25 @@
     move-result v1
 
     .line 124
-    .local v1, id:I
+    .local v1, "id":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 125
-    .local v2, Class:I
+    .local v2, "Class":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 126
-    .local v3, subClass:I
+    .local v3, "subClass":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 127
-    .local v4, protocol:I
+    .local v4, "protocol":I
     const-class v0, Landroid/hardware/usb/UsbEndpoint;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -81,7 +81,7 @@
     move-result-object v5
 
     .line 128
-    .local v5, endpoints:[Landroid/os/Parcelable;
+    .local v5, "endpoints":[Landroid/os/Parcelable;
     new-instance v0, Landroid/hardware/usb/UsbInterface;
 
     invoke-direct/range {v0 .. v5}, Landroid/hardware/usb/UsbInterface;-><init>(IIII[Landroid/os/Parcelable;)V
@@ -91,7 +91,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 121
@@ -104,7 +104,7 @@
 
 .method public newArray(I)[Landroid/hardware/usb/UsbInterface;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 132
@@ -115,7 +115,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 121

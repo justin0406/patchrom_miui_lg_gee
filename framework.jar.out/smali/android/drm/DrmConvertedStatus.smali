@@ -22,9 +22,9 @@
 # direct methods
 .method public constructor <init>(I[BI)V
     .locals 3
-    .parameter "statusCode"
-    .parameter "convertedData"
-    .parameter "offset"
+    .param p1, "statusCode"    # I
+    .param p2, "convertedData"    # [B
+    .param p3, "offset"    # I
 
     .prologue
     .line 68
@@ -78,7 +78,7 @@
 
 .method private isValidStatusCode(I)Z
     .locals 2
-    .parameter "statusCode"
+    .param p1, "statusCode"    # I
 
     .prologue
     const/4 v0, 0x1

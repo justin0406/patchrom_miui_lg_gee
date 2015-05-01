@@ -375,8 +375,8 @@
 
 .method private setConnectionType(Lorg/apache/http/util/CharArrayBuffer;I)V
     .locals 1
-    .parameter "buffer"
-    .parameter "pos"
+    .param p1, "buffer"    # Lorg/apache/http/util/CharArrayBuffer;
+    .param p2, "pos"    # I
 
     .prologue
     .line 462
@@ -538,13 +538,13 @@
 
 .method public getHeaders(Landroid/net/http/Headers$HeaderCallback;)V
     .locals 5
-    .parameter "hcb"
+    .param p1, "hcb"    # Landroid/net/http/Headers$HeaderCallback;
 
     .prologue
     .line 443
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     const/16 v3, 0x13
 
@@ -556,7 +556,7 @@
     aget-object v1, v3, v2
 
     .line 445
-    .local v1, h:Ljava/lang/String;
+    .local v1, "h":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     .line 446
@@ -573,7 +573,7 @@
     goto :goto_0
 
     .line 449
-    .end local v1           #h:Ljava/lang/String;
+    .end local v1    # "h":Ljava/lang/String;
     :cond_1
     iget-object v3, p0, Landroid/net/http/Headers;->mExtraHeaderNames:Ljava/util/ArrayList;
 
@@ -582,7 +582,7 @@
     move-result v0
 
     .line 450
-    .local v0, extraLen:I
+    .local v0, "extraLen":I
     const/4 v2, 0x0
 
     :goto_1
@@ -746,7 +746,7 @@
 
 .method public parseHeader(Lorg/apache/http/util/CharArrayBuffer;)V
     .locals 11
-    .parameter "buffer"
+    .param p1, "buffer"    # Lorg/apache/http/util/CharArrayBuffer;
 
     .prologue
     const-wide/16 v9, -0x1
@@ -763,7 +763,7 @@
     move-result v3
 
     .line 162
-    .local v3, pos:I
+    .local v3, "pos":I
     const/4 v5, -0x1
 
     if-ne v3, v5, :cond_1
@@ -780,7 +780,7 @@
     move-result-object v2
 
     .line 166
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -800,7 +800,7 @@
     move-result-object v4
 
     .line 176
-    .local v4, val:Ljava/lang/String;
+    .local v4, "val":Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v5
@@ -850,11 +850,11 @@
     move-result-object v0
 
     .line 185
-    .local v0, encodings:[Lorg/apache/http/HeaderElement;
+    .local v0, "encodings":[Lorg/apache/http/HeaderElement;
     array-length v1, v0
 
     .line 186
-    .local v1, len:I
+    .local v1, "len":I
     const-string v5, "identity"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -902,8 +902,8 @@
     goto :goto_0
 
     .line 198
-    .end local v0           #encodings:[Lorg/apache/http/HeaderElement;
-    .end local v1           #len:I
+    .end local v0    # "encodings":[Lorg/apache/http/HeaderElement;
+    .end local v1    # "len":I
     :sswitch_1
     const-string v5, "content-length"
 
@@ -1346,7 +1346,7 @@
 
 .method public setAcceptRanges(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 412
@@ -1362,7 +1362,7 @@
 
 .method public setCacheControl(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 420
@@ -1378,7 +1378,7 @@
 
 .method public setContentDisposition(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 408
@@ -1394,7 +1394,7 @@
 
 .method public setContentEncoding(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 392
@@ -1410,7 +1410,7 @@
 
 .method public setContentLength(J)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # J
 
     .prologue
     .line 384
@@ -1422,7 +1422,7 @@
 
 .method public setContentType(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 388
@@ -1438,7 +1438,7 @@
 
 .method public setEtag(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 428
@@ -1454,7 +1454,7 @@
 
 .method public setExpires(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 416
@@ -1470,7 +1470,7 @@
 
 .method public setLastModified(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 424
@@ -1486,7 +1486,7 @@
 
 .method public setLocation(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 396
@@ -1502,7 +1502,7 @@
 
 .method public setProxyAuthenticate(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 404
@@ -1518,7 +1518,7 @@
 
 .method public setWwwAuthenticate(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 400
@@ -1534,7 +1534,7 @@
 
 .method public setXPermittedCrossDomainPolicies(Ljava/lang/String;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 432

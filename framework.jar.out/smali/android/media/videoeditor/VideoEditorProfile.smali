@@ -32,10 +32,10 @@
 
 .method private constructor <init>(IIII)V
     .locals 0
-    .parameter "inputWidth"
-    .parameter "inputHeight"
-    .parameter "outputWidth"
-    .parameter "outputHeight"
+    .param p1, "inputWidth"    # I
+    .param p2, "inputHeight"    # I
+    .param p3, "outputWidth"    # I
+    .param p4, "outputHeight"    # I
 
     .prologue
     .line 107
@@ -71,14 +71,14 @@
 
 .method public static getExportLevel(I)I
     .locals 4
-    .parameter "vidCodec"
+    .param p0, "vidCodec"    # I
 
     .prologue
     .line 88
     const/4 v0, -0x1
 
     .line 90
-    .local v0, level:I
+    .local v0, "level":I
     packed-switch p0, :pswitch_data_0
 
     .line 97
@@ -126,14 +126,14 @@
 
 .method public static getExportProfile(I)I
     .locals 4
-    .parameter "vidCodec"
+    .param p0, "vidCodec"    # I
 
     .prologue
     .line 69
     const/4 v0, -0x1
 
     .line 71
-    .local v0, profile:I
+    .local v0, "profile":I
     packed-switch p0, :pswitch_data_0
 
     .line 78

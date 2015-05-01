@@ -54,7 +54,7 @@
 
 .method static obtain(Landroid/view/GLES20DisplayList;)Landroid/view/GLES20RecordingCanvas;
     .locals 2
-    .parameter "displayList"
+    .param p0, "displayList"    # Landroid/view/GLES20DisplayList;
 
     .prologue
     .line 43
@@ -67,17 +67,17 @@
     check-cast v0, Landroid/view/GLES20RecordingCanvas;
 
     .line 44
-    .local v0, canvas:Landroid/view/GLES20RecordingCanvas;
+    .local v0, "canvas":Landroid/view/GLES20RecordingCanvas;
     if-nez v0, :cond_0
 
     .line 45
     new-instance v0, Landroid/view/GLES20RecordingCanvas;
 
-    .end local v0           #canvas:Landroid/view/GLES20RecordingCanvas;
+    .end local v0    # "canvas":Landroid/view/GLES20RecordingCanvas;
     invoke-direct {v0}, Landroid/view/GLES20RecordingCanvas;-><init>()V
 
     .line 47
-    .restart local v0       #canvas:Landroid/view/GLES20RecordingCanvas;
+    .restart local v0    # "canvas":Landroid/view/GLES20RecordingCanvas;
     :cond_0
     iput-object p0, v0, Landroid/view/GLES20RecordingCanvas;->mDisplayList:Landroid/view/GLES20DisplayList;
 
@@ -89,9 +89,9 @@
 # virtual methods
 .method public drawDisplayList(Landroid/view/DisplayList;Landroid/graphics/Rect;I)I
     .locals 2
-    .parameter "displayList"
-    .parameter "dirty"
-    .parameter "flags"
+    .param p1, "displayList"    # Landroid/view/DisplayList;
+    .param p2, "dirty"    # Landroid/graphics/Rect;
+    .param p3, "flags"    # I
 
     .prologue
     .line 67
@@ -100,7 +100,7 @@
     move-result v0
 
     .line 68
-    .local v0, status:I
+    .local v0, "status":I
     iget-object v1, p0, Landroid/view/GLES20RecordingCanvas;->mDisplayList:Landroid/view/GLES20DisplayList;
 
     invoke-virtual {v1}, Landroid/view/GLES20DisplayList;->getChildDisplayLists()Ljava/util/ArrayList;
@@ -115,7 +115,7 @@
 
 .method end(I)I
     .locals 1
-    .parameter "nativeDisplayList"
+    .param p1, "nativeDisplayList"    # I
 
     .prologue
     .line 62

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -244,7 +244,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/WifiInfo;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/WifiInfo;
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -301,8 +301,8 @@
 
 .method static synthetic access$002(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/WifiSsid;)Landroid/net/wifi/WifiSsid;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Landroid/net/wifi/WifiSsid;
 
     .prologue
     .line 35
@@ -313,8 +313,8 @@
 
 .method static synthetic access$102(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -325,8 +325,8 @@
 
 .method static synthetic access$202(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -337,8 +337,8 @@
 
 .method static synthetic access$302(Landroid/net/wifi/WifiInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 35
@@ -347,10 +347,21 @@
     return p1
 .end method
 
+.method static synthetic access_mVendorInfo(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Ljava/lang/String;
+
+    .prologue
+    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mVendorInfo:Ljava/lang/String;
+
+    return-object p1
+.end method
+
 .method static synthetic access$402(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiInfo;
+    .param p1, "x1"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 35
@@ -361,7 +372,7 @@
 
 .method public static getDetailedStateOf(Landroid/net/wifi/SupplicantState;)Landroid/net/NetworkInfo$DetailedState;
     .locals 1
-    .parameter "suppState"
+    .param p0, "suppState"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 261
@@ -378,7 +389,7 @@
 
 .method public static removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "string"
+    .param p0, "string"    # Ljava/lang/String;
 
     .prologue
     const/16 v3, 0x22
@@ -391,22 +402,22 @@
     const/4 p0, 0x0
 
     .line 293
-    .end local p0
-    .local v0, length:I
+    .end local p0    # "string":Ljava/lang/String;
+    .local v0, "length":I
     :cond_0
     :goto_0
     return-object p0
 
     .line 289
-    .end local v0           #length:I
-    .restart local p0
+    .end local v0    # "length":I
+    .restart local p0    # "string":Ljava/lang/String;
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
     .line 290
-    .restart local v0       #length:I
+    .restart local v0    # "length":I
     if-le v0, v2, :cond_0
 
     const/4 v1, 0x0
@@ -437,7 +448,7 @@
 
 .method static valueOf(Ljava/lang/String;)Landroid/net/wifi/SupplicantState;
     .locals 2
-    .parameter "stateName"
+    .param p0, "stateName"    # Ljava/lang/String;
 
     .prologue
     .line 275
@@ -478,7 +489,7 @@
     move-exception v0
 
     .line 281
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     sget-object v1, Landroid/net/wifi/SupplicantState;->INVALID:Landroid/net/wifi/SupplicantState;
 
     goto :goto_0
@@ -524,7 +535,7 @@
     const/4 v0, 0x0
 
     .line 236
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
     instance-of v1, v1, Ljava/net/Inet4Address;
@@ -612,7 +623,7 @@
     move-result-object v0
 
     .line 127
-    .local v0, unicode:Ljava/lang/String;
+    .local v0, "unicode":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -645,12 +656,12 @@
     move-result-object v1
 
     .line 133
-    .end local v0           #unicode:Ljava/lang/String;
+    .end local v0    # "unicode":Ljava/lang/String;
     :goto_0
     return-object v1
 
     .line 130
-    .restart local v0       #unicode:Ljava/lang/String;
+    .restart local v0    # "unicode":Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
 
@@ -661,7 +672,7 @@
     goto :goto_0
 
     .line 133
-    .end local v0           #unicode:Ljava/lang/String;
+    .end local v0    # "unicode":Ljava/lang/String;
     :cond_1
     const-string v1, "<unknown ssid>"
 
@@ -699,7 +710,7 @@
 
 .method setBSSID(Ljava/lang/String;)V
     .locals 0
-    .parameter "BSSID"
+    .param p1, "BSSID"    # Ljava/lang/String;
 
     .prologue
     .line 142
@@ -711,7 +722,7 @@
 
 .method public setHiddenSSID(Z)V
     .locals 0
-    .parameter "hiddenSSID"
+    .param p1, "hiddenSSID"    # Z
 
     .prologue
     .line 252
@@ -723,7 +734,7 @@
 
 .method setInetAddress(Ljava/net/InetAddress;)V
     .locals 0
-    .parameter "address"
+    .param p1, "address"    # Ljava/net/InetAddress;
 
     .prologue
     .line 231
@@ -735,7 +746,7 @@
 
 .method setLinkSpeed(I)V
     .locals 0
-    .parameter "linkSpeed"
+    .param p1, "linkSpeed"    # I
 
     .prologue
     .line 178
@@ -747,7 +758,7 @@
 
 .method setMacAddress(Ljava/lang/String;)V
     .locals 0
-    .parameter "macAddress"
+    .param p1, "macAddress"    # Ljava/lang/String;
 
     .prologue
     .line 186
@@ -759,7 +770,7 @@
 
 .method public setMeteredHint(Z)V
     .locals 0
-    .parameter "meteredHint"
+    .param p1, "meteredHint"    # Z
 
     .prologue
     .line 195
@@ -771,7 +782,7 @@
 
 .method setNetworkId(I)V
     .locals 0
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 204
@@ -783,7 +794,7 @@
 
 .method setRssi(I)V
     .locals 0
-    .parameter "rssi"
+    .param p1, "rssi"    # I
 
     .prologue
     .line 165
@@ -795,7 +806,7 @@
 
 .method setSSID(Landroid/net/wifi/WifiSsid;)V
     .locals 1
-    .parameter "wifiSsid"
+    .param p1, "wifiSsid"    # Landroid/net/wifi/WifiSsid;
 
     .prologue
     .line 112
@@ -812,7 +823,7 @@
 
 .method setSupplicantState(Landroid/net/wifi/SupplicantState;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 227
@@ -824,7 +835,7 @@
 
 .method setSupplicantState(Ljava/lang/String;)V
     .locals 1
-    .parameter "stateName"
+    .param p1, "stateName"    # Ljava/lang/String;
 
     .prologue
     .line 271
@@ -840,7 +851,7 @@
 
 .method public setVendorInfo(Ljava/lang/String;)V
     .locals 0
-    .parameter "vendorInfo"
+    .param p1, "vendorInfo"    # Ljava/lang/String;
 
     .prologue
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mVendorInfo:Ljava/lang/String;
@@ -858,11 +869,11 @@
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 299
-    .local v1, sb:Ljava/lang/StringBuffer;
+    .local v1, "sb":Ljava/lang/StringBuffer;
     const-string v0, "<none>"
 
     .line 301
-    .local v0, none:Ljava/lang/String;
+    .local v0, "none":Ljava/lang/String;
     const-string v2, "SSID: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -924,7 +935,7 @@
 
     if-nez v3, :cond_3
 
-    .end local v0           #none:Ljava/lang/String;
+    .end local v0    # "none":Ljava/lang/String;
     :goto_3
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
@@ -984,7 +995,7 @@
     return-object v2
 
     .line 301
-    .restart local v0       #none:Ljava/lang/String;
+    .restart local v0    # "none":Ljava/lang/String;
     :cond_0
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
 
@@ -1008,8 +1019,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x1

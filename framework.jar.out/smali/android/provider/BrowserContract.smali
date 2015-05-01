@@ -29,7 +29,7 @@
 # static fields
 .field public static final AUTHORITY:Ljava/lang/String; = "com.android.browser"
 
-.field public static final AUTHORITY_URI:Landroid/net/Uri; = null
+.field public static final AUTHORITY_URI:Landroid/net/Uri;
 
 .field public static final CALLER_IS_SYNCADAPTER:Ljava/lang/String; = "caller_is_syncadapter"
 

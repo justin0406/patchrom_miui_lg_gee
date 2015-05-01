@@ -40,7 +40,7 @@
 
 .method public varargs constructor <init>([[Ljava/lang/String;)V
     .locals 0
-    .parameter "strings"
+    .param p1, "strings"    # [[Ljava/lang/String;
 
     .prologue
     .line 27
@@ -77,8 +77,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 42
@@ -87,13 +87,13 @@
     array-length v0, v3
 
     .line 43
-    .local v0, count:I
+    .local v0, "count":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 44
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -103,7 +103,7 @@
     aget-object v2, v3, v1
 
     .line 46
-    .local v2, techList:[Ljava/lang/String;
+    .local v2, "techList":[Ljava/lang/String;
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
     .line 44
@@ -112,7 +112,7 @@
     goto :goto_0
 
     .line 48
-    .end local v2           #techList:[Ljava/lang/String;
+    .end local v2    # "techList":[Ljava/lang/String;
     :cond_0
     return-void
 .end method

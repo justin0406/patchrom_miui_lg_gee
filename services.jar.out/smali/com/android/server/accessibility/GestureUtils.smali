@@ -17,9 +17,9 @@
 
 .method public static computeDistance(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)D
     .locals 4
-    .parameter "first"
-    .parameter "second"
-    .parameter "pointerIndex"
+    .param p0, "first"    # Landroid/view/MotionEvent;
+    .param p1, "second"    # Landroid/view/MotionEvent;
+    .param p2, "pointerIndex"    # I
 
     .prologue
     .line 39
@@ -50,11 +50,11 @@
 
 .method private static eventsWithinTimeAndDistanceSlop(Landroid/view/MotionEvent;Landroid/view/MotionEvent;III)Z
     .locals 5
-    .parameter "first"
-    .parameter "second"
-    .parameter "timeout"
-    .parameter "distance"
-    .parameter "actionIndex"
+    .param p0, "first"    # Landroid/view/MotionEvent;
+    .param p1, "second"    # Landroid/view/MotionEvent;
+    .param p2, "timeout"    # I
+    .param p3, "distance"    # I
+    .param p4, "actionIndex"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -78,7 +78,7 @@
     move-result-wide v0
 
     .line 32
-    .local v0, deltaMove:D
+    .local v0, "deltaMove":D
     int-to-double v3, p3
 
     cmpl-double v3, v0, v3
@@ -93,26 +93,26 @@
 
 .method public static isDraggingGesture(FFFFFFFFF)Z
     .locals 13
-    .parameter "firstPtrDownX"
-    .parameter "firstPtrDownY"
-    .parameter "secondPtrDownX"
-    .parameter "secondPtrDownY"
-    .parameter "firstPtrX"
-    .parameter "firstPtrY"
-    .parameter "secondPtrX"
-    .parameter "secondPtrY"
-    .parameter "maxDraggingAngleCos"
+    .param p0, "firstPtrDownX"    # F
+    .param p1, "firstPtrDownY"    # F
+    .param p2, "secondPtrDownX"    # F
+    .param p3, "secondPtrDownY"    # F
+    .param p4, "firstPtrX"    # F
+    .param p5, "firstPtrY"    # F
+    .param p6, "secondPtrX"    # F
+    .param p7, "secondPtrY"    # F
+    .param p8, "maxDraggingAngleCos"    # F
 
     .prologue
     .line 65
     sub-float v1, p4, p0
 
     .line 66
-    .local v1, firstDeltaX:F
+    .local v1, "firstDeltaX":F
     sub-float v2, p5, p1
 
     .line 68
-    .local v2, firstDeltaY:F
+    .local v2, "firstDeltaY":F
     const/4 v11, 0x0
 
     cmpl-float v11, v1, v11
@@ -149,7 +149,7 @@
     double-to-float v3, v11
 
     .line 74
-    .local v3, firstMagnitude:F
+    .local v3, "firstMagnitude":F
     const/4 v11, 0x0
 
     cmpl-float v11, v3, v11
@@ -159,7 +159,7 @@
     div-float v4, v1, v3
 
     .line 76
-    .local v4, firstXNormalized:F
+    .local v4, "firstXNormalized":F
     :goto_1
     const/4 v11, 0x0
 
@@ -170,16 +170,16 @@
     div-float v5, v2, v3
 
     .line 79
-    .local v5, firstYNormalized:F
+    .local v5, "firstYNormalized":F
     :goto_2
     sub-float v6, p6, p2
 
     .line 80
-    .local v6, secondDeltaX:F
+    .local v6, "secondDeltaX":F
     sub-float v7, p7, p3
 
     .line 82
-    .local v7, secondDeltaY:F
+    .local v7, "secondDeltaY":F
     const/4 v11, 0x0
 
     cmpl-float v11, v6, v11
@@ -197,17 +197,17 @@
 
     goto :goto_0
 
-    .end local v4           #firstXNormalized:F
-    .end local v5           #firstYNormalized:F
-    .end local v6           #secondDeltaX:F
-    .end local v7           #secondDeltaY:F
+    .end local v4    # "firstXNormalized":F
+    .end local v5    # "firstYNormalized":F
+    .end local v6    # "secondDeltaX":F
+    .end local v7    # "secondDeltaY":F
     :cond_1
     move v4, v1
 
     .line 74
     goto :goto_1
 
-    .restart local v4       #firstXNormalized:F
+    .restart local v4    # "firstXNormalized":F
     :cond_2
     move v5, v2
 
@@ -215,9 +215,9 @@
     goto :goto_2
 
     .line 86
-    .restart local v5       #firstYNormalized:F
-    .restart local v6       #secondDeltaX:F
-    .restart local v7       #secondDeltaY:F
+    .restart local v5    # "firstYNormalized":F
+    .restart local v6    # "secondDeltaX":F
+    .restart local v7    # "secondDeltaY":F
     :cond_3
     mul-float v11, v6, v6
 
@@ -234,7 +234,7 @@
     double-to-float v8, v11
 
     .line 88
-    .local v8, secondMagnitude:F
+    .local v8, "secondMagnitude":F
     const/4 v11, 0x0
 
     cmpl-float v11, v8, v11
@@ -244,7 +244,7 @@
     div-float v9, v6, v8
 
     .line 90
-    .local v9, secondXNormalized:F
+    .local v9, "secondXNormalized":F
     :goto_3
     const/4 v11, 0x0
 
@@ -255,7 +255,7 @@
     div-float v10, v7, v8
 
     .line 93
-    .local v10, secondYNormalized:F
+    .local v10, "secondYNormalized":F
     :goto_4
     mul-float v11, v4, v9
 
@@ -264,7 +264,7 @@
     add-float v0, v11, v12
 
     .line 96
-    .local v0, angleCos:F
+    .local v0, "angleCos":F
     cmpg-float v11, v0, p8
 
     if-gez v11, :cond_6
@@ -274,16 +274,16 @@
 
     goto :goto_0
 
-    .end local v0           #angleCos:F
-    .end local v9           #secondXNormalized:F
-    .end local v10           #secondYNormalized:F
+    .end local v0    # "angleCos":F
+    .end local v9    # "secondXNormalized":F
+    .end local v10    # "secondYNormalized":F
     :cond_4
     move v9, v6
 
     .line 88
     goto :goto_3
 
-    .restart local v9       #secondXNormalized:F
+    .restart local v9    # "secondXNormalized":F
     :cond_5
     move v10, v7
 
@@ -291,8 +291,8 @@
     goto :goto_4
 
     .line 100
-    .restart local v0       #angleCos:F
-    .restart local v10       #secondYNormalized:F
+    .restart local v0    # "angleCos":F
+    .restart local v10    # "secondYNormalized":F
     :cond_6
     const/4 v11, 0x1
 
@@ -301,11 +301,11 @@
 
 .method public static isMultiTap(Landroid/view/MotionEvent;Landroid/view/MotionEvent;III)Z
     .locals 1
-    .parameter "firstUp"
-    .parameter "secondUp"
-    .parameter "multiTapTimeSlop"
-    .parameter "multiTapDistanceSlop"
-    .parameter "actionIndex"
+    .param p0, "firstUp"    # Landroid/view/MotionEvent;
+    .param p1, "secondUp"    # Landroid/view/MotionEvent;
+    .param p2, "multiTapTimeSlop"    # I
+    .param p3, "multiTapDistanceSlop"    # I
+    .param p4, "actionIndex"    # I
 
     .prologue
     .line 22
@@ -318,8 +318,8 @@
 
 .method public static isSamePointerContext(Landroid/view/MotionEvent;Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "first"
-    .parameter "second"
+    .param p0, "first"    # Landroid/view/MotionEvent;
+    .param p1, "second"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 49
@@ -364,11 +364,11 @@
 
 .method public static isTap(Landroid/view/MotionEvent;Landroid/view/MotionEvent;III)Z
     .locals 1
-    .parameter "down"
-    .parameter "up"
-    .parameter "tapTimeSlop"
-    .parameter "tapDistanceSlop"
-    .parameter "actionIndex"
+    .param p0, "down"    # Landroid/view/MotionEvent;
+    .param p1, "up"    # Landroid/view/MotionEvent;
+    .param p2, "tapTimeSlop"    # I
+    .param p3, "tapDistanceSlop"    # I
+    .param p4, "actionIndex"    # I
 
     .prologue
     .line 17
@@ -381,9 +381,9 @@
 
 .method public static isTimedOut(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)Z
     .locals 6
-    .parameter "firstUp"
-    .parameter "secondUp"
-    .parameter "timeout"
+    .param p0, "firstUp"    # Landroid/view/MotionEvent;
+    .param p1, "secondUp"    # Landroid/view/MotionEvent;
+    .param p2, "timeout"    # I
 
     .prologue
     .line 44
@@ -398,7 +398,7 @@
     sub-long v0, v2, v4
 
     .line 45
-    .local v0, deltaTime:J
+    .local v0, "deltaTime":J
     int-to-long v2, p2
 
     cmp-long v2, v0, v2

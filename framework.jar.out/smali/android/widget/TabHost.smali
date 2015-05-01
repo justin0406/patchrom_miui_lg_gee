@@ -66,7 +66,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x0
@@ -103,8 +103,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x0
@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -176,7 +176,7 @@
 
 .method static synthetic access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TabHost;
 
     .prologue
     .line 49
@@ -187,7 +187,7 @@
 
 .method static synthetic access$1000(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TabHost;
 
     .prologue
     .line 49
@@ -198,7 +198,7 @@
 
 .method static synthetic access$900(Landroid/widget/TabHost;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TabHost;
 
     .prologue
     .line 49
@@ -215,7 +215,7 @@
     const/4 v0, 0x1
 
     .line 308
-    .local v0, location:I
+    .local v0, "location":I
     iget-object v1, p0, Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
 
     invoke-virtual {v1}, Landroid/widget/TabWidget;->getOrientation()I
@@ -296,7 +296,7 @@
     invoke-virtual {p0, v0}, Landroid/widget/TabHost;->setFocusableInTouchMode(Z)V
 
     .line 100
-    const/high16 v0, 0x4
+    const/high16 v0, 0x40000
 
     invoke-virtual {p0, v0}, Landroid/widget/TabHost;->setDescendantFocusability(I)V
 
@@ -341,13 +341,13 @@
 # virtual methods
 .method public addTab(Landroid/widget/TabHost$TabSpec;)V
     .locals 4
-    .parameter "tabSpec"
+    .param p1, "tabSpec"    # Landroid/widget/TabHost$TabSpec;
 
     .prologue
     const/4 v3, 0x0
 
     .line 220
-    #getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
     invoke-static {p1}, Landroid/widget/TabHost$TabSpec;->access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
 
     move-result-object v1
@@ -365,7 +365,7 @@
 
     .line 224
     :cond_0
-    #getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
     invoke-static {p1}, Landroid/widget/TabHost$TabSpec;->access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
 
     move-result-object v1
@@ -383,7 +383,7 @@
 
     .line 227
     :cond_1
-    #getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
     invoke-static {p1}, Landroid/widget/TabHost$TabSpec;->access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
 
     move-result-object v1
@@ -393,13 +393,13 @@
     move-result-object v0
 
     .line 228
-    .local v0, tabIndicator:Landroid/view/View;
+    .local v0, "tabIndicator":Landroid/view/View;
     iget-object v1, p0, Landroid/widget/TabHost;->mTabKeyListener:Landroid/view/View$OnKeyListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     .line 232
-    #getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
     invoke-static {p1}, Landroid/widget/TabHost$TabSpec;->access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
 
     move-result-object v1
@@ -473,7 +473,7 @@
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 6
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 324
@@ -482,7 +482,7 @@
     move-result v1
 
     .line 329
-    .local v1, handled:Z
+    .local v1, "handled":Z
     if-nez v1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
@@ -515,15 +515,15 @@
     const/16 v2, 0x13
 
     .line 335
-    .local v2, keyCodeShouldChangeFocus:I
+    .local v2, "keyCodeShouldChangeFocus":I
     const/16 v0, 0x21
 
     .line 336
-    .local v0, directionShouldChangeFocus:I
+    .local v0, "directionShouldChangeFocus":I
     const/4 v3, 0x2
 
     .line 338
-    .local v3, soundEffect:I
+    .local v3, "soundEffect":I
     invoke-direct {p0}, Landroid/widget/TabHost;->getTabWidgetLocation()I
 
     move-result v4
@@ -578,18 +578,18 @@
     const/4 v1, 0x1
 
     .line 368
-    .end local v0           #directionShouldChangeFocus:I
-    .end local v1           #handled:Z
-    .end local v2           #keyCodeShouldChangeFocus:I
-    .end local v3           #soundEffect:I
+    .end local v0    # "directionShouldChangeFocus":I
+    .end local v1    # "handled":Z
+    .end local v2    # "keyCodeShouldChangeFocus":I
+    .end local v3    # "soundEffect":I
     :cond_0
     return v1
 
     .line 340
-    .restart local v0       #directionShouldChangeFocus:I
-    .restart local v1       #handled:Z
-    .restart local v2       #keyCodeShouldChangeFocus:I
-    .restart local v3       #soundEffect:I
+    .restart local v0    # "directionShouldChangeFocus":I
+    .restart local v1    # "handled":Z
+    .restart local v2    # "keyCodeShouldChangeFocus":I
+    .restart local v3    # "soundEffect":I
     :pswitch_1
     const/16 v2, 0x15
 
@@ -642,7 +642,7 @@
 
 .method public dispatchWindowFocusChanged(Z)V
     .locals 1
-    .parameter "hasFocus"
+    .param p1, "hasFocus"    # Z
 
     .prologue
     .line 374
@@ -784,7 +784,7 @@
 
 .method public newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
     .locals 2
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 111
@@ -810,7 +810,7 @@
     move-result-object v0
 
     .line 191
-    .local v0, treeObserver:Landroid/view/ViewTreeObserver;
+    .local v0, "treeObserver":Landroid/view/ViewTreeObserver;
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnTouchModeChangeListener(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V
 
     .line 192
@@ -830,7 +830,7 @@
     move-result-object v0
 
     .line 198
-    .local v0, treeObserver:Landroid/view/ViewTreeObserver;
+    .local v0, "treeObserver":Landroid/view/ViewTreeObserver;
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnTouchModeChangeListener(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V
 
     .line 199
@@ -839,7 +839,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 381
@@ -860,7 +860,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 387
@@ -881,7 +881,7 @@
 
 .method public onTouchModeChanged(Z)V
     .locals 2
-    .parameter "isInTouchMode"
+    .param p1, "isInTouchMode"    # Z
 
     .prologue
     .line 205
@@ -927,7 +927,7 @@
 
 .method public sendAccessibilityEvent(I)V
     .locals 0
-    .parameter "eventType"
+    .param p1, "eventType"    # I
 
     .prologue
     .line 172
@@ -936,7 +936,7 @@
 
 .method public setCurrentTab(I)V
     .locals 5
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/4 v4, -0x1
@@ -979,7 +979,7 @@
 
     check-cast v1, Landroid/widget/TabHost$TabSpec;
 
-    #getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
     invoke-static {v1}, Landroid/widget/TabHost$TabSpec;->access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
 
     move-result-object v1
@@ -1000,7 +1000,7 @@
     check-cast v0, Landroid/widget/TabHost$TabSpec;
 
     .line 410
-    .local v0, spec:Landroid/widget/TabHost$TabSpec;
+    .local v0, "spec":Landroid/widget/TabHost$TabSpec;
     iget-object v1, p0, Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
 
     iget v2, p0, Landroid/widget/TabHost;->mCurrentTab:I
@@ -1008,7 +1008,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TabWidget;->focusCurrentTab(I)V
 
     .line 413
-    #getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
+    # getter for: Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
     invoke-static {v0}, Landroid/widget/TabHost$TabSpec;->access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
 
     move-result-object v1
@@ -1063,13 +1063,13 @@
 
 .method public setCurrentTabByTag(Ljava/lang/String;)V
     .locals 2
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 285
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
 
@@ -1114,7 +1114,7 @@
 
 .method public setOnTabChangedListener(Landroid/widget/TabHost$OnTabChangeListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Landroid/widget/TabHost$OnTabChangeListener;
 
     .prologue
     .line 441
@@ -1202,7 +1202,7 @@
 
 .method public setup(Landroid/app/LocalActivityManager;)V
     .locals 0
-    .parameter "activityGroup"
+    .param p1, "activityGroup"    # Landroid/app/LocalActivityManager;
 
     .prologue
     .line 182

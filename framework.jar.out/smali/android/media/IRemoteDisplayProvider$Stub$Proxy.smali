@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 107
@@ -41,8 +41,8 @@
 # virtual methods
 .method public adjustVolume(Ljava/lang/String;I)V
     .locals 5
-    .parameter "id"
-    .parameter "delta"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "delta"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,7 +56,7 @@
     move-result-object v0
 
     .line 183
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteDisplayProvider"
 
@@ -108,7 +108,7 @@
 
 .method public connect(Ljava/lang/String;)V
     .locals 5
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -122,7 +122,7 @@
     move-result-object v0
 
     .line 146
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteDisplayProvider"
 
@@ -161,7 +161,7 @@
 
 .method public disconnect(Ljava/lang/String;)V
     .locals 5
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +175,7 @@
     move-result-object v0
 
     .line 158
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteDisplayProvider"
 
@@ -224,7 +224,7 @@
 
 .method public setCallback(Landroid/media/IRemoteDisplayCallback;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/media/IRemoteDisplayCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -240,7 +240,7 @@
     move-result-object v0
 
     .line 122
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteDisplayProvider"
 
@@ -286,7 +286,7 @@
 
 .method public setDiscoveryMode(I)V
     .locals 5
-    .parameter "mode"
+    .param p1, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -300,7 +300,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteDisplayProvider"
 
@@ -339,8 +339,8 @@
 
 .method public setVolume(Ljava/lang/String;I)V
     .locals 5
-    .parameter "id"
-    .parameter "volume"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "volume"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -354,7 +354,7 @@
     move-result-object v0
 
     .line 170
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteDisplayProvider"
 

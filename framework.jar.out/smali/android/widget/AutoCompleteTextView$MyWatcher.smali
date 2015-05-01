@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AutoCompleteTextView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 743
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p2, "x1"    # Landroid/widget/AutoCompleteTextView$1;
 
     .prologue
     .line 743
@@ -51,7 +50,7 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
     .line 745
@@ -65,10 +64,10 @@
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 748
@@ -82,10 +81,10 @@
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 751

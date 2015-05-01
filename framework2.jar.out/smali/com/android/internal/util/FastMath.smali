@@ -16,18 +16,18 @@
 
 .method public static round(F)I
     .locals 5
-    .parameter "value"
+    .param p0, "value"    # F
 
     .prologue
     .line 30
-    const/high16 v2, 0x4b80
+    const/high16 v2, 0x4b800000    # 1.6777216E7f
 
     mul-float/2addr v2, p0
 
     float-to-long v0, v2
 
     .line 31
-    .local v0, lx:J
+    .local v0, "lx":J
     const-wide/32 v2, 0x800000
 
     add-long/2addr v2, v0

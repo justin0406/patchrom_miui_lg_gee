@@ -48,7 +48,7 @@
 
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "target"
+    .param p1, "target"    # Landroid/os/IBinder;
 
     .prologue
     .line 221
@@ -67,7 +67,7 @@
 
 .method public constructor <init>(Landroid/view/IWindowId;)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # Landroid/view/IWindowId;
 
     .prologue
     .line 216
@@ -94,7 +94,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "otherObj"
+    .param p1, "otherObj"    # Ljava/lang/Object;
 
     .prologue
     .line 167
@@ -111,7 +111,7 @@
 
     check-cast p1, Landroid/view/WindowId;
 
-    .end local p1
+    .end local p1    # "otherObj":Ljava/lang/Object;
     iget-object v1, p1, Landroid/view/WindowId;->mToken:Landroid/view/IWindowId;
 
     invoke-interface {v1}, Landroid/view/IWindowId;->asBinder()Landroid/os/IBinder;
@@ -126,7 +126,7 @@
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "otherObj":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -184,7 +184,7 @@
     move-exception v0
 
     .line 124
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -192,7 +192,7 @@
 
 .method public registerFocusObserver(Landroid/view/WindowId$FocusObserver;)V
     .locals 3
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/view/WindowId$FocusObserver;
 
     .prologue
     .line 132
@@ -258,8 +258,8 @@
 
     invoke-interface {v0, v2}, Landroid/view/IWindowId;->registerFocusObserver(Landroid/view/IWindowFocusObserver;)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 142
     :goto_0
@@ -290,7 +290,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 182
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "IntentSender{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -346,7 +346,7 @@
 
 .method public unregisterFocusObserver(Landroid/view/WindowId$FocusObserver;)V
     .locals 3
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/view/WindowId$FocusObserver;
 
     .prologue
     .line 149
@@ -398,8 +398,8 @@
 
     invoke-interface {v0, v2}, Landroid/view/IWindowId;->unregisterFocusObserver(Landroid/view/IWindowFocusObserver;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 157
     :goto_0
@@ -420,8 +420,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 195

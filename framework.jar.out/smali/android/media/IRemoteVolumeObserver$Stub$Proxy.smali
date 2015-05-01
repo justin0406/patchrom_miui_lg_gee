@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 66
@@ -51,8 +51,8 @@
 
 .method public dispatchRemoteVolumeUpdate(II)V
     .locals 5
-    .parameter "direction"
-    .parameter "value"
+    .param p1, "direction"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -66,7 +66,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteVolumeObserver"
 

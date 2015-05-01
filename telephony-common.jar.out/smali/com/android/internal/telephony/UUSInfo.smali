@@ -66,9 +66,9 @@
 
 .method public constructor <init>(II[B)V
     .locals 0
-    .parameter "uusType"
-    .parameter "uusDcs"
-    .parameter "uusData"
+    .param p1, "uusType"    # I
+    .param p2, "uusDcs"    # I
+    .param p3, "uusData"    # [B
 
     .prologue
     .line 71
@@ -121,7 +121,7 @@
 
 .method public setDcs(I)V
     .locals 0
-    .parameter "uusDcs"
+    .param p1, "uusDcs"    # I
 
     .prologue
     .line 82
@@ -133,7 +133,7 @@
 
 .method public setType(I)V
     .locals 0
-    .parameter "uusType"
+    .param p1, "uusType"    # I
 
     .prologue
     .line 90
@@ -145,7 +145,7 @@
 
 .method public setUserData([B)V
     .locals 0
-    .parameter "uusData"
+    .param p1, "uusData"    # [B
 
     .prologue
     .line 98

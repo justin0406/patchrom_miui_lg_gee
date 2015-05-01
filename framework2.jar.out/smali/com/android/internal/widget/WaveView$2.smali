@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/WaveView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 431
@@ -44,14 +43,14 @@
     .line 433
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mMouseX:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mMouseX:F
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$100(Lcom/android/internal/widget/WaveView;)F
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockCenterX:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockCenterX:F
     invoke-static {v2}, Lcom/android/internal/widget/WaveView;->access$200(Lcom/android/internal/widget/WaveView;)F
 
     move-result v2
@@ -61,17 +60,17 @@
     float-to-double v8, v1
 
     .line 434
-    .local v8, distX:D
+    .local v8, "distX":D
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mMouseY:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mMouseY:F
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$300(Lcom/android/internal/widget/WaveView;)F
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockCenterY:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockCenterY:F
     invoke-static {v2}, Lcom/android/internal/widget/WaveView;->access$400(Lcom/android/internal/widget/WaveView;)F
 
     move-result v2
@@ -81,7 +80,7 @@
     float-to-double v10, v1
 
     .line 435
-    .local v10, distY:D
+    .local v10, "distY":D
     invoke-static {v8, v9, v10, v11}, Ljava/lang/Math;->hypot(DD)D
 
     move-result-wide v1
@@ -93,10 +92,10 @@
     double-to-int v12, v1
 
     .line 436
-    .local v12, dragDistance:I
+    .local v12, "dragDistance":I
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$000(Lcom/android/internal/widget/WaveView;)I
 
     move-result v1
@@ -107,7 +106,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mSnapRadius:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mSnapRadius:I
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$500(Lcom/android/internal/widget/WaveView;)I
 
     move-result v1
@@ -116,7 +115,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
+    # getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$600(Lcom/android/internal/widget/WaveView;)J
 
     move-result-wide v1
@@ -134,7 +133,7 @@
 
     iget-object v4, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
+    # getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
     invoke-static {v4}, Lcom/android/internal/widget/WaveView;->access$600(Lcom/android/internal/widget/WaveView;)J
 
     move-result-wide v4
@@ -147,20 +146,20 @@
 
     move-result-wide v2
 
-    #setter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
+    # setter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
     invoke-static {v1, v2, v3}, Lcom/android/internal/widget/WaveView;->access$602(Lcom/android/internal/widget/WaveView;J)J
 
     .line 440
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLightWaves:Ljava/util/ArrayList;
+    # getter for: Lcom/android/internal/widget/WaveView;->mLightWaves:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$800(Lcom/android/internal/widget/WaveView;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
     invoke-static {v2}, Lcom/android/internal/widget/WaveView;->access$700(Lcom/android/internal/widget/WaveView;)I
 
     move-result v2
@@ -172,25 +171,25 @@
     check-cast v0, Lcom/android/internal/widget/DrawableHolder;
 
     .line 441
-    .local v0, wave:Lcom/android/internal/widget/DrawableHolder;
+    .local v0, "wave":Lcom/android/internal/widget/DrawableHolder;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/DrawableHolder;->setAlpha(F)V
 
     .line 442
-    const v1, 0x3e4ccccd
+    const v1, 0x3e4ccccd    # 0.2f
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/DrawableHolder;->setScaleX(F)V
 
     .line 443
-    const v1, 0x3e4ccccd
+    const v1, 0x3e4ccccd    # 0.2f
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/DrawableHolder;->setScaleY(F)V
 
     .line 444
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mMouseX:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mMouseX:F
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$100(Lcom/android/internal/widget/WaveView;)F
 
     move-result v1
@@ -200,7 +199,7 @@
     .line 445
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mMouseY:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mMouseY:F
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$300(Lcom/android/internal/widget/WaveView;)F
 
     move-result v1
@@ -216,7 +215,7 @@
 
     iget-object v6, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockCenterX:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockCenterX:F
     invoke-static {v6}, Lcom/android/internal/widget/WaveView;->access$200(Lcom/android/internal/widget/WaveView;)F
 
     move-result v6
@@ -234,7 +233,7 @@
 
     iget-object v6, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockCenterY:F
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockCenterY:F
     invoke-static {v6}, Lcom/android/internal/widget/WaveView;->access$400(Lcom/android/internal/widget/WaveView;)F
 
     move-result v6
@@ -250,7 +249,7 @@
 
     const-string v5, "alpha"
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     const/4 v7, 0x1
 
@@ -263,7 +262,7 @@
 
     const-string v5, "scaleX"
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     const/4 v7, 0x1
 
@@ -276,7 +275,7 @@
 
     const-string v5, "scaleY"
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     const/4 v7, 0x1
 
@@ -305,7 +304,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
     invoke-static {v2}, Lcom/android/internal/widget/WaveView;->access$700(Lcom/android/internal/widget/WaveView;)I
 
     move-result v2
@@ -314,22 +313,22 @@
 
     iget-object v3, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mWaveCount:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mWaveCount:I
     invoke-static {v3}, Lcom/android/internal/widget/WaveView;->access$900(Lcom/android/internal/widget/WaveView;)I
 
     move-result v3
 
     rem-int/2addr v2, v3
 
-    #setter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
+    # setter for: Lcom/android/internal/widget/WaveView;->mCurrentWave:I
     invoke-static {v1, v2}, Lcom/android/internal/widget/WaveView;->access$702(Lcom/android/internal/widget/WaveView;I)I
 
     .line 461
-    .end local v0           #wave:Lcom/android/internal/widget/DrawableHolder;
+    .end local v0    # "wave":Lcom/android/internal/widget/DrawableHolder;
     :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mFinishWaves:Z
+    # getter for: Lcom/android/internal/widget/WaveView;->mFinishWaves:Z
     invoke-static {v1}, Lcom/android/internal/widget/WaveView;->access$1000(Lcom/android/internal/widget/WaveView;)Z
 
     move-result v1
@@ -341,7 +340,7 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/internal/widget/WaveView;->mWavesRunning:Z
+    # setter for: Lcom/android/internal/widget/WaveView;->mWavesRunning:Z
     invoke-static {v1, v2}, Lcom/android/internal/widget/WaveView;->access$1102(Lcom/android/internal/widget/WaveView;Z)Z
 
     .line 467
@@ -354,6 +353,7 @@
 
     const-wide/16 v2, 0xc
 
+    # += operator for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
     invoke-static {v1, v2, v3}, Lcom/android/internal/widget/WaveView;->access$614(Lcom/android/internal/widget/WaveView;J)J
 
     goto :goto_0
@@ -364,14 +364,14 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mAddWaveAction:Ljava/lang/Runnable;
+    # getter for: Lcom/android/internal/widget/WaveView;->mAddWaveAction:Ljava/lang/Runnable;
     invoke-static {v2}, Lcom/android/internal/widget/WaveView;->access$1200(Lcom/android/internal/widget/WaveView;)Ljava/lang/Runnable;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
+    # getter for: Lcom/android/internal/widget/WaveView;->mWaveTimerDelay:J
     invoke-static {v3}, Lcom/android/internal/widget/WaveView;->access$600(Lcom/android/internal/widget/WaveView;)J
 
     move-result-wide v3

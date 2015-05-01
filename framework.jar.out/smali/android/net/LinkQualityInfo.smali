@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -218,7 +218,7 @@
 
 .method protected initializeFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 139
@@ -290,7 +290,7 @@
 
 .method public setDataSampleDuration(I)V
     .locals 0
-    .parameter "dataSampleDuration"
+    .param p1, "dataSampleDuration"    # I
 
     .prologue
     .line 284
@@ -302,7 +302,7 @@
 
 .method public setLastDataSampleTime(J)V
     .locals 0
-    .parameter "lastDataSampleTime"
+    .param p1, "lastDataSampleTime"    # J
 
     .prologue
     .line 269
@@ -314,7 +314,7 @@
 
 .method public setNetworkType(I)V
     .locals 0
-    .parameter "networkType"
+    .param p1, "networkType"    # I
 
     .prologue
     .line 163
@@ -326,7 +326,7 @@
 
 .method public setNormalizedSignalStrength(I)V
     .locals 0
-    .parameter "normalizedSignalStrength"
+    .param p1, "normalizedSignalStrength"    # I
 
     .prologue
     .line 178
@@ -338,7 +338,7 @@
 
 .method public setPacketCount(J)V
     .locals 0
-    .parameter "packetCount"
+    .param p1, "packetCount"    # J
 
     .prologue
     .line 193
@@ -350,7 +350,7 @@
 
 .method public setPacketErrorCount(J)V
     .locals 0
-    .parameter "packetErrorCount"
+    .param p1, "packetErrorCount"    # J
 
     .prologue
     .line 208
@@ -362,7 +362,7 @@
 
 .method public setTheoreticalLatency(I)V
     .locals 0
-    .parameter "theoreticalLatency"
+    .param p1, "theoreticalLatency"    # I
 
     .prologue
     .line 253
@@ -374,7 +374,7 @@
 
 .method public setTheoreticalRxBandwidth(I)V
     .locals 0
-    .parameter "theoreticalRxBandwidth"
+    .param p1, "theoreticalRxBandwidth"    # I
 
     .prologue
     .line 238
@@ -386,7 +386,7 @@
 
 .method public setTheoreticalTxBandwidth(I)V
     .locals 0
-    .parameter "theoreticalTxBandwidth"
+    .param p1, "theoreticalTxBandwidth"    # I
 
     .prologue
     .line 223
@@ -398,8 +398,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 91
@@ -413,9 +413,9 @@
 
 .method public writeToParcel(Landroid/os/Parcel;II)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
-    .parameter "objectType"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
+    .param p3, "objectType"    # I
 
     .prologue
     .line 98

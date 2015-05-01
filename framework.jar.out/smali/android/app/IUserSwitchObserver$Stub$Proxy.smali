@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 71
@@ -61,7 +61,7 @@
 
 .method public onUserSwitchComplete(I)V
     .locals 5
-    .parameter "newUserId"
+    .param p1, "newUserId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 99
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.IUserSwitchObserver"
 
@@ -114,8 +114,8 @@
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 5
-    .parameter "newUserId"
-    .parameter "reply"
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -131,7 +131,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IUserSwitchObserver"
 

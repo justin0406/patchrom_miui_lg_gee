@@ -12,7 +12,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "ctx"
+    .param p1, "ctx"    # I
 
     .prologue
     .line 26
@@ -36,7 +36,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -77,7 +77,7 @@
     check-cast v0, Lcom/google/android/gles_jni/EGLContextImpl;
 
     .line 43
-    .local v0, that:Lcom/google/android/gles_jni/EGLContextImpl;
+    .local v0, "that":Lcom/google/android/gles_jni/EGLContextImpl;
     iget v3, p0, Lcom/google/android/gles_jni/EGLContextImpl;->mEGLContext:I
 
     iget v4, v0, Lcom/google/android/gles_jni/EGLContextImpl;->mEGLContext:I

@@ -96,10 +96,10 @@
 
 .method protected constructor <init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
     .locals 6
-    .parameter "status"
-    .parameter "tranId"
-    .parameter "dev"
-    .parameter "data"
+    .param p1, "status"    # I
+    .param p2, "tranId"    # I
+    .param p3, "dev"    # Landroid/net/wifi/p2p/WifiP2pDevice;
+    .param p4, "data"    # [B
 
     .prologue
     .line 154
@@ -147,10 +147,10 @@
 
 .method static newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
     .locals 3
-    .parameter "status"
-    .parameter "transId"
-    .parameter "dev"
-    .parameter "data"
+    .param p0, "status"    # I
+    .param p1, "transId"    # I
+    .param p2, "dev"    # Landroid/net/wifi/p2p/WifiP2pDevice;
+    .param p3, "data"    # [B
 
     .prologue
     const/4 v2, 0x0
@@ -183,7 +183,7 @@
     move-exception v0
 
     .line 305
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     move-object v1, v2
@@ -222,7 +222,7 @@
     invoke-direct {v0, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 183
-    .local v0, dis:Ljava/io/DataInputStream;
+    .local v0, "dis":Ljava/io/DataInputStream;
     invoke-direct {p0, v0}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->readDnsName(Ljava/io/DataInputStream;)Ljava/lang/String;
 
     move-result-object v5
@@ -270,7 +270,7 @@
     move-result-object v2
 
     .line 198
-    .local v2, rData:Ljava/lang/String;
+    .local v2, "rData":Ljava/lang/String;
     if-nez v2, :cond_2
 
     move v3, v4
@@ -279,12 +279,12 @@
     goto :goto_0
 
     .line 191
-    .end local v2           #rData:Ljava/lang/String;
+    .end local v2    # "rData":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 192
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     move v3, v4
@@ -293,8 +293,8 @@
     goto :goto_0
 
     .line 201
-    .end local v1           #e:Ljava/io/IOException;
-    .restart local v2       #rData:Ljava/lang/String;
+    .end local v1    # "e":Ljava/io/IOException;
+    .restart local v2    # "rData":Ljava/lang/String;
     :cond_2
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -338,7 +338,7 @@
     goto :goto_0
 
     .line 207
-    .end local v2           #rData:Ljava/lang/String;
+    .end local v2    # "rData":Ljava/lang/String;
     :cond_4
     iget v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsType:I
 
@@ -362,7 +362,7 @@
 
 .method private readDnsName(Ljava/io/DataInputStream;)Ljava/lang/String;
     .locals 9
-    .parameter "dis"
+    .param p1, "dis"    # Ljava/io/DataInputStream;
 
     .prologue
     const/4 v6, 0x0
@@ -373,7 +373,7 @@
     invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 226
-    .local v4, sb:Ljava/lang/StringBuffer;
+    .local v4, "sb":Ljava/lang/StringBuffer;
     new-instance v5, Ljava/util/HashMap;
 
     sget-object v7, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->sVmpack:Ljava/util/Map;
@@ -381,7 +381,7 @@
     invoke-direct {v5, v7}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
     .line 227
-    .local v5, vmpack:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/String;>;"
+    .local v5, "vmpack":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v7, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsQueryName:Ljava/lang/String;
 
     if-eqz v7, :cond_0
@@ -406,7 +406,7 @@
     move-result v2
 
     .line 233
-    .local v2, i:I
+    .local v2, "i":I
     if-nez v2, :cond_2
 
     .line 234
@@ -415,13 +415,13 @@
     move-result-object v6
 
     .line 254
-    .end local v2           #i:I
+    .end local v2    # "i":I
     :cond_1
     :goto_1
     return-object v6
 
     .line 235
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :cond_2
     const/16 v7, 0xc0
 
@@ -443,7 +443,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 238
-    .local v3, ref:Ljava/lang/String;
+    .local v3, "ref":Ljava/lang/String;
     if-eqz v3, :cond_1
 
     .line 242
@@ -457,12 +457,12 @@
     goto :goto_1
 
     .line 245
-    .end local v3           #ref:Ljava/lang/String;
+    .end local v3    # "ref":Ljava/lang/String;
     :cond_3
     new-array v0, v2, [B
 
     .line 246
-    .local v0, data:[B
+    .local v0, "data":[B
     invoke-virtual {p1, v0}, Ljava/io/DataInputStream;->readFully([B)V
 
     .line 247
@@ -482,13 +482,13 @@
     goto :goto_0
 
     .line 251
-    .end local v0           #data:[B
-    .end local v2           #i:I
+    .end local v0    # "data":[B
+    .end local v2    # "i":I
     :catch_0
     move-exception v1
 
     .line 252
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
@@ -496,7 +496,7 @@
 
 .method private readTxtData(Ljava/io/DataInputStream;)Z
     .locals 9
-    .parameter "dis"
+    .param p1, "dis"    # Ljava/io/DataInputStream;
 
     .prologue
     const/4 v5, 0x1
@@ -518,10 +518,10 @@
     move-result v3
 
     .line 267
-    .local v3, len:I
+    .local v3, "len":I
     if-nez v3, :cond_2
 
-    .end local v3           #len:I
+    .end local v3    # "len":I
     :cond_0
     move v4, v5
 
@@ -531,12 +531,12 @@
     return v4
 
     .line 270
-    .restart local v3       #len:I
+    .restart local v3    # "len":I
     :cond_2
     new-array v0, v3, [B
 
     .line 271
-    .local v0, data:[B
+    .local v0, "data":[B
     invoke-virtual {p1, v0}, Ljava/io/DataInputStream;->readFully([B)V
 
     .line 272
@@ -551,7 +551,7 @@
     move-result-object v2
 
     .line 273
-    .local v2, keyVal:[Ljava/lang/String;
+    .local v2, "keyVal":[Ljava/lang/String;
     array-length v6, v2
 
     const/4 v7, 0x2
@@ -576,14 +576,14 @@
     goto :goto_0
 
     .line 279
-    .end local v0           #data:[B
-    .end local v2           #keyVal:[Ljava/lang/String;
-    .end local v3           #len:I
+    .end local v0    # "data":[B
+    .end local v2    # "keyVal":[Ljava/lang/String;
+    .end local v3    # "len":I
     :catch_0
     move-exception v1
 
     .line 280
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
@@ -661,7 +661,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 130
-    .local v2, sbuf:Ljava/lang/StringBuffer;
+    .local v2, "sbuf":Ljava/lang/StringBuffer;
     const-string/jumbo v3, "serviceType:DnsSd("
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -762,7 +762,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -777,7 +777,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 137
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     const-string v3, " key:"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -807,7 +807,7 @@
     goto :goto_0
 
     .line 139
-    .end local v1           #key:Ljava/lang/String;
+    .end local v1    # "key":Ljava/lang/String;
     :cond_0
     iget-object v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mInstanceName:Ljava/lang/String;
 

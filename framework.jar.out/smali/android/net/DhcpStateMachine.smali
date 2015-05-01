@@ -83,9 +83,9 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)V
     .locals 6
-    .parameter "context"
-    .parameter "controller"
-    .parameter "intf"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "controller"    # Lcom/android/internal/util/StateMachine;
+    .param p3, "intf"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -165,7 +165,7 @@
     invoke-direct {v0, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 121
-    .local v0, dhcpRenewalIntent:Landroid/content/Intent;
+    .local v0, "dhcpRenewalIntent":Landroid/content/Intent;
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
     invoke-static {v2, v4, v0, v4}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
@@ -186,7 +186,7 @@
     check-cast v1, Landroid/os/PowerManager;
 
     .line 124
-    .local v1, powerManager:Landroid/os/PowerManager;
+    .local v1, "powerManager":Landroid/os/PowerManager;
     const/4 v2, 0x1
 
     const-string v3, "DHCP"
@@ -266,7 +266,7 @@
 
 .method static synthetic access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -277,7 +277,7 @@
 
 .method static synthetic access$100(Landroid/net/DhcpStateMachine;)Landroid/content/BroadcastReceiver;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -288,8 +288,8 @@
 
 .method static synthetic access$1000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -300,8 +300,8 @@
 
 .method static synthetic access$1100(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -312,7 +312,7 @@
 
 .method static synthetic access$1200(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -323,8 +323,8 @@
 
 .method static synthetic access$1300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -335,8 +335,8 @@
 
 .method static synthetic access$1400(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -347,7 +347,7 @@
 
 .method static synthetic access$1500(Landroid/net/DhcpStateMachine;)Landroid/app/PendingIntent;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -358,7 +358,7 @@
 
 .method static synthetic access$1600(Landroid/net/DhcpStateMachine;)Landroid/app/AlarmManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -369,8 +369,8 @@
 
 .method static synthetic access$1700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -381,7 +381,7 @@
 
 .method static synthetic access$1800(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -392,8 +392,8 @@
 
 .method static synthetic access$1900(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -404,7 +404,7 @@
 
 .method static synthetic access$200(Landroid/net/DhcpStateMachine;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -415,8 +415,8 @@
 
 .method static synthetic access$2000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -427,8 +427,8 @@
 
 .method static synthetic access$2100(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -439,8 +439,8 @@
 
 .method static synthetic access$2200(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -451,8 +451,8 @@
 
 .method static synthetic access$2300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -463,7 +463,7 @@
 
 .method static synthetic access$300(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -474,7 +474,7 @@
 
 .method static synthetic access$400(Landroid/net/DhcpStateMachine;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -485,7 +485,7 @@
 
 .method static synthetic access$500(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/StateMachine;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -496,7 +496,7 @@
 
 .method static synthetic access$600(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -507,8 +507,8 @@
 
 .method static synthetic access$700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 50
@@ -519,8 +519,8 @@
 
 .method static synthetic access$800(Landroid/net/DhcpStateMachine;Landroid/net/DhcpStateMachine$DhcpAction;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
+    .param p1, "x1"    # Landroid/net/DhcpStateMachine$DhcpAction;
 
     .prologue
     .line 50
@@ -533,7 +533,7 @@
 
 .method static synthetic access$900(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/DhcpStateMachine;
 
     .prologue
     .line 50
@@ -544,9 +544,9 @@
 
 .method public static makeDhcpStateMachine(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)Landroid/net/DhcpStateMachine;
     .locals 1
-    .parameter "context"
-    .parameter "controller"
-    .parameter "intf"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "controller"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "intf"    # Ljava/lang/String;
 
     .prologue
     .line 150
@@ -555,7 +555,7 @@
     invoke-direct {v0, p0, p1, p2}, Landroid/net/DhcpStateMachine;-><init>(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)V
 
     .line 151
-    .local v0, dsm:Landroid/net/DhcpStateMachine;
+    .local v0, "dsm":Landroid/net/DhcpStateMachine;
     invoke-virtual {v0}, Landroid/net/DhcpStateMachine;->start()V
 
     .line 152
@@ -564,7 +564,7 @@
 
 .method private runDhcp(Landroid/net/DhcpStateMachine$DhcpAction;)Z
     .locals 12
-    .parameter "dhcpAction"
+    .param p1, "dhcpAction"    # Landroid/net/DhcpStateMachine$DhcpAction;
 
     .prologue
     const v11, 0x30005
@@ -577,13 +577,13 @@
     const/4 v3, 0x0
 
     .line 351
-    .local v3, success:Z
+    .local v3, "success":Z
     new-instance v0, Landroid/net/DhcpResults;
 
     invoke-direct {v0}, Landroid/net/DhcpResults;-><init>()V
 
     .line 353
-    .local v0, dhcpResults:Landroid/net/DhcpResults;
+    .local v0, "dhcpResults":Landroid/net/DhcpResults;
     sget-object v4, Landroid/net/DhcpStateMachine$DhcpAction;->START:Landroid/net/DhcpStateMachine$DhcpAction;
 
     if-ne p1, v4, :cond_3
@@ -611,7 +611,7 @@
     int-to-long v1, v4
 
     .line 368
-    .local v1, leaseDuration:J
+    .local v1, "leaseDuration":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v1, v4
@@ -662,7 +662,7 @@
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
     .line 395
-    .end local v1           #leaseDuration:J
+    .end local v1    # "leaseDuration":J
     :goto_1
     return v3
 

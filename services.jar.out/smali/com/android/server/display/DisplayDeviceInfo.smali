@@ -73,7 +73,7 @@
 
 .method private static flagsToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "flags"
+    .param p0, "flags"    # I
 
     .prologue
     .line 278
@@ -82,7 +82,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 279
-    .local v0, msg:Ljava/lang/StringBuilder;
+    .local v0, "msg":Ljava/lang/StringBuilder;
     and-int/lit8 v1, p0, 0x1
 
     if-eqz v1, :cond_0
@@ -169,7 +169,7 @@
 
 .method private static touchToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "touch"
+    .param p0, "touch"    # I
 
     .prologue
     .line 265
@@ -216,7 +216,7 @@
 # virtual methods
 .method public copyFrom(Lcom/android/server/display/DisplayDeviceInfo;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/display/DisplayDeviceInfo;
 
     .prologue
     .line 224
@@ -295,7 +295,7 @@
 
 .method public equals(Lcom/android/server/display/DisplayDeviceInfo;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/display/DisplayDeviceInfo;
 
     .prologue
     .line 201
@@ -416,7 +416,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 197
@@ -426,7 +426,7 @@
 
     check-cast p1, Lcom/android/server/display/DisplayDeviceInfo;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayDeviceInfo;->equals(Lcom/android/server/display/DisplayDeviceInfo;)Z
 
     move-result v0
@@ -456,8 +456,8 @@
 
 .method public setAssumedDensityForExternalDisplay(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 188
@@ -499,7 +499,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 244
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "DisplayDeviceInfo{\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

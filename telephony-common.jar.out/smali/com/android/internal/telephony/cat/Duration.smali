@@ -50,8 +50,8 @@
 
 .method public constructor <init>(ILcom/android/internal/telephony/cat/Duration$TimeUnit;)V
     .locals 0
-    .parameter "timeInterval"
-    .parameter "timeUnit"
+    .param p1, "timeInterval"    # I
+    .param p2, "timeUnit"    # Lcom/android/internal/telephony/cat/Duration$TimeUnit;
 
     .prologue
     .line 51
@@ -69,7 +69,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 56
@@ -101,8 +101,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Duration$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Lcom/android/internal/telephony/cat/Duration$1;
 
     .prologue
     .line 28
@@ -125,8 +125,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 63

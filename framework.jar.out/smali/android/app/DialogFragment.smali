@@ -112,7 +112,7 @@
 
 .method dismissInternal(Z)V
     .locals 4
-    .parameter "allowStateLoss"
+    .param p1, "allowStateLoss"    # Z
 
     .prologue
     const/4 v3, 0x1
@@ -186,7 +186,7 @@
     move-result-object v0
 
     .line 288
-    .local v0, ft:Landroid/app/FragmentTransaction;
+    .local v0, "ft":Landroid/app/FragmentTransaction;
     invoke-virtual {v0, p0}, Landroid/app/FragmentTransaction;->remove(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
     .line 289
@@ -206,10 +206,10 @@
 
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
-    .parameter "prefix"
-    .parameter "fd"
-    .parameter "writer"
-    .parameter "args"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .param p3, "writer"    # Ljava/io/PrintWriter;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 546
@@ -331,7 +331,7 @@
 
 .method public getLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
     .locals 2
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 394
@@ -461,40 +461,37 @@
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 4
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 458
     invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 460
     iget-boolean v2, p0, Landroid/app/DialogFragment;->mShowsDialog:Z
 
     if-nez v2, :cond_1
 
-    .line 483
     :cond_0
     :goto_0
     return-void
 
-    .line 464
     :cond_1
+    iget-object v2, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    if-eqz v2, :cond_0
+
     invoke-virtual {p0}, Landroid/app/DialogFragment;->getView()Landroid/view/View;
 
     move-result-object v1
 
-    .line 465
-    .local v1, view:Landroid/view/View;
+    .local v1, "view":Landroid/view/View;
     if-eqz v1, :cond_3
 
-    .line 466
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v2
 
     if-eqz v2, :cond_2
 
-    .line 467
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "DialogFragment can not be attached to a container view"
@@ -558,7 +555,7 @@
     move-result-object v0
 
     .line 479
-    .local v0, dialogState:Landroid/os/Bundle;
+    .local v0, "dialogState":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 480
@@ -571,7 +568,7 @@
 
 .method public onAttach(Landroid/app/Activity;)V
     .locals 1
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 356
@@ -594,7 +591,7 @@
 
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 0
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 444
@@ -603,7 +600,7 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v1, 0x1
@@ -688,7 +685,7 @@
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 440
@@ -767,7 +764,7 @@
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 1
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 447
@@ -787,7 +784,7 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 496
@@ -806,7 +803,7 @@
     move-result-object v0
 
     .line 499
-    .local v0, dialogState:Landroid/os/Bundle;
+    .local v0, "dialogState":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 500
@@ -815,7 +812,7 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 503
-    .end local v0           #dialogState:Landroid/os/Bundle;
+    .end local v0    # "dialogState":Landroid/os/Bundle;
     :cond_0
     iget v1, p0, Landroid/app/DialogFragment;->mStyle:I
 
@@ -938,7 +935,7 @@
 
 .method public setCancelable(Z)V
     .locals 1
-    .parameter "cancelable"
+    .param p1, "cancelable"    # Z
 
     .prologue
     .line 315
@@ -960,7 +957,7 @@
 
 .method public setShowsDialog(Z)V
     .locals 0
-    .parameter "showsDialog"
+    .param p1, "showsDialog"    # Z
 
     .prologue
     .line 344
@@ -972,8 +969,8 @@
 
 .method public setStyle(II)V
     .locals 2
-    .parameter "style"
-    .parameter "theme"
+    .param p1, "style"    # I
+    .param p2, "theme"    # I
 
     .prologue
     .line 205
@@ -1012,8 +1009,8 @@
 
 .method public show(Landroid/app/FragmentTransaction;Ljava/lang/String;)I
     .locals 2
-    .parameter "transaction"
-    .parameter "tag"
+    .param p1, "transaction"    # Landroid/app/FragmentTransaction;
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -1047,8 +1044,8 @@
 
 .method public show(Landroid/app/FragmentManager;Ljava/lang/String;)V
     .locals 2
-    .parameter "manager"
-    .parameter "tag"
+    .param p1, "manager"    # Landroid/app/FragmentManager;
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 226
@@ -1067,7 +1064,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, ft:Landroid/app/FragmentTransaction;
+    .local v0, "ft":Landroid/app/FragmentTransaction;
     invoke-virtual {v0, p0, p2}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
     .line 230

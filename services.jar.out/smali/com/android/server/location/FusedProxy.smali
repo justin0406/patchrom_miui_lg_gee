@@ -14,12 +14,12 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/hardware/location/IFusedLocationHardware;III)V
     .locals 9
-    .parameter "context"
-    .parameter "handler"
-    .parameter "locationHardware"
-    .parameter "overlaySwitchResId"
-    .parameter "defaultServicePackageNameResId"
-    .parameter "initialPackageNameResId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "locationHardware"    # Landroid/hardware/location/IFusedLocationHardware;
+    .param p4, "overlaySwitchResId"    # I
+    .param p5, "defaultServicePackageNameResId"    # I
+    .param p6, "initialPackageNameResId"    # I
 
     .prologue
     .line 53
@@ -45,7 +45,7 @@
     invoke-direct {v7, p0}, Lcom/android/server/location/FusedProxy$1;-><init>(Lcom/android/server/location/FusedProxy;)V
 
     .line 66
-    .local v7, newServiceWork:Ljava/lang/Runnable;
+    .local v7, "newServiceWork":Ljava/lang/Runnable;
     new-instance v0, Lcom/android/server/ServiceWatcher;
 
     const-string v2, "FusedProxy"
@@ -72,7 +72,7 @@
 
 .method static synthetic access$000(Lcom/android/server/location/FusedProxy;)Lcom/android/server/location/FusedLocationHardwareSecure;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/location/FusedProxy;
 
     .prologue
     .line 34
@@ -83,8 +83,8 @@
 
 .method static synthetic access$100(Lcom/android/server/location/FusedProxy;Landroid/hardware/location/IFusedLocationHardware;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/location/FusedProxy;
+    .param p1, "x1"    # Landroid/hardware/location/IFusedLocationHardware;
 
     .prologue
     .line 34
@@ -95,7 +95,7 @@
 
 .method private bindProvider(Landroid/hardware/location/IFusedLocationHardware;)V
     .locals 4
-    .parameter "locationHardware"
+    .param p1, "locationHardware"    # Landroid/hardware/location/IFusedLocationHardware;
 
     .prologue
     .line 115
@@ -110,7 +110,7 @@
     move-result-object v1
 
     .line 117
-    .local v1, provider:Landroid/location/IFusedProvider;
+    .local v1, "provider":Landroid/location/IFusedProvider;
     if-nez v1, :cond_0
 
     .line 118
@@ -138,7 +138,7 @@
     move-exception v0
 
     .line 125
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "FusedProxy"
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
@@ -152,12 +152,12 @@
 
 .method public static createAndBind(Landroid/content/Context;Landroid/os/Handler;Landroid/hardware/location/IFusedLocationHardware;III)Lcom/android/server/location/FusedProxy;
     .locals 7
-    .parameter "context"
-    .parameter "handler"
-    .parameter "locationHardware"
-    .parameter "overlaySwitchResId"
-    .parameter "defaultServicePackageNameResId"
-    .parameter "initialPackageNameResId"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "locationHardware"    # Landroid/hardware/location/IFusedLocationHardware;
+    .param p3, "overlaySwitchResId"    # I
+    .param p4, "defaultServicePackageNameResId"    # I
+    .param p5, "initialPackageNameResId"    # I
 
     .prologue
     .line 93
@@ -178,7 +178,7 @@
     invoke-direct/range {v0 .. v6}, Lcom/android/server/location/FusedProxy;-><init>(Landroid/content/Context;Landroid/os/Handler;Landroid/hardware/location/IFusedLocationHardware;III)V
 
     .line 102
-    .local v0, fusedProxy:Lcom/android/server/location/FusedProxy;
+    .local v0, "fusedProxy":Lcom/android/server/location/FusedProxy;
     iget-object v1, v0, Lcom/android/server/location/FusedProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
 
     invoke-virtual {v1}, Lcom/android/server/ServiceWatcher;->start()Z
@@ -191,7 +191,7 @@
     const/4 v0, 0x0
 
     .line 106
-    .end local v0           #fusedProxy:Lcom/android/server/location/FusedProxy;
+    .end local v0    # "fusedProxy":Lcom/android/server/location/FusedProxy;
     :cond_0
     return-object v0
 .end method

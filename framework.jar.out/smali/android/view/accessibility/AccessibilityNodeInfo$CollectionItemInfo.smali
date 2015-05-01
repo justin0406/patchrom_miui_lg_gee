@@ -60,11 +60,11 @@
 
 .method private constructor <init>(IIIIZ)V
     .locals 0
-    .parameter "rowIndex"
-    .parameter "rowSpan"
-    .parameter "columnIndex"
-    .parameter "columnSpan"
-    .parameter "heading"
+    .param p1, "rowIndex"    # I
+    .param p2, "rowSpan"    # I
+    .param p3, "columnIndex"    # I
+    .param p4, "columnSpan"    # I
+    .param p5, "heading"    # Z
 
     .prologue
     .line 2824
@@ -116,11 +116,11 @@
 
 .method public static obtain(IIIIZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     .locals 7
-    .parameter "rowIndex"
-    .parameter "rowSpan"
-    .parameter "columnIndex"
-    .parameter "columnSpan"
-    .parameter "heading"
+    .param p0, "rowIndex"    # I
+    .param p1, "rowSpan"    # I
+    .param p2, "columnIndex"    # I
+    .param p3, "columnSpan"    # I
+    .param p4, "heading"    # Z
 
     .prologue
     .line 2803
@@ -133,14 +133,14 @@
     check-cast v6, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     .line 2804
-    .local v6, info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    .local v6, "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     if-eqz v6, :cond_0
 
-    .end local v6           #info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    .end local v6    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     :goto_0
     return-object v6
 
-    .restart local v6       #info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    .restart local v6    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
@@ -163,7 +163,7 @@
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     .locals 5
-    .parameter "other"
+    .param p0, "other"    # Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     .prologue
     .line 2788

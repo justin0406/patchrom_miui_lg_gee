@@ -21,17 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "handler"
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 275
+    .line 280
     iput-object p1, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
-    .line 276
+    .line 281
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 277
+    .line 282
     return-void
 .end method
 
@@ -39,24 +38,24 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 6
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
-    .line 280
+    .line 285
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v1, v2, Lcom/android/server/BackupManagerService;->mProvisioned:Z
 
-    .line 281
-    .local v1, wasProvisioned:Z
+    .line 286
+    .local v1, "wasProvisioned":Z
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/BackupManagerService;->deviceIsProvisioned()Z
 
     move-result v0
 
-    .line 283
-    .local v0, isProvisioned:Z
+    .line 288
+    .local v0, "isProvisioned":Z
     iget-object v3, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     if-nez v1, :cond_0
@@ -69,14 +68,14 @@
     :goto_0
     iput-boolean v2, v3, Lcom/android/server/BackupManagerService;->mProvisioned:Z
 
-    .line 289
+    .line 294
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v3, v2, Lcom/android/server/BackupManagerService;->mQueueLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 290
+    .line 295
     :try_start_0
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
@@ -92,28 +91,28 @@
 
     if-eqz v2, :cond_1
 
-    .line 293
+    .line 298
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     const-wide/32 v4, 0x2932e00
 
-    #calls: Lcom/android/server/BackupManagerService;->startBackupAlarmsLocked(J)V
+    # invokes: Lcom/android/server/BackupManagerService;->startBackupAlarmsLocked(J)V
     invoke-static {v2, v4, v5}, Lcom/android/server/BackupManagerService;->access$000(Lcom/android/server/BackupManagerService;J)V
 
-    .line 295
+    .line 300
     :cond_1
     monitor-exit v3
 
-    .line 296
+    .line 301
     return-void
 
-    .line 283
+    .line 288
     :cond_2
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .line 295
+    .line 300
     :catchall_0
     move-exception v2
 

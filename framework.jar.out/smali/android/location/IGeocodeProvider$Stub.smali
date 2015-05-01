@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/IGeocodeProvider;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/IGeocodeProvider;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/location/IGeocodeProvider$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/IGeocodeProvider$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 24
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,19 +155,19 @@
     move-result-wide v3
 
     .line 56
-    .local v3, _arg0:D
+    .local v3, "_arg0":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v5
 
     .line 58
-    .local v5, _arg1:D
+    .local v5, "_arg1":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 60
-    .local v7, _arg2:I
+    .local v7, "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -186,13 +186,13 @@
     check-cast v8, Landroid/location/GeocoderParams;
 
     .line 67
-    .local v8, _arg3:Landroid/location/GeocoderParams;
+    .local v8, "_arg3":Landroid/location/GeocoderParams;
     :goto_1
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    .local v9, _arg4:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local v9, "_arg4":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     move-object/from16 v2, p0
 
     .line 68
@@ -201,7 +201,7 @@
     move-result-object v23
 
     .line 69
-    .local v23, _result:Ljava/lang/String;
+    .local v23, "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 70
@@ -222,20 +222,20 @@
     goto :goto_0
 
     .line 64
-    .end local v8           #_arg3:Landroid/location/GeocoderParams;
-    .end local v9           #_arg4:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    .end local v23           #_result:Ljava/lang/String;
+    .end local v8    # "_arg3":Landroid/location/GeocoderParams;
+    .end local v9    # "_arg4":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
+    .end local v23    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v8, 0x0
 
-    .restart local v8       #_arg3:Landroid/location/GeocoderParams;
+    .restart local v8    # "_arg3":Landroid/location/GeocoderParams;
     goto :goto_1
 
     .line 76
-    .end local v3           #_arg0:D
-    .end local v5           #_arg1:D
-    .end local v7           #_arg2:I
-    .end local v8           #_arg3:Landroid/location/GeocoderParams;
+    .end local v3    # "_arg0":D
+    .end local v5    # "_arg1":D
+    .end local v7    # "_arg2":I
+    .end local v8    # "_arg3":Landroid/location/GeocoderParams;
     :sswitch_2
     const-string v2, "android.location.IGeocodeProvider"
 
@@ -249,37 +249,37 @@
     move-result-object v3
 
     .line 80
-    .local v3, _arg0:Ljava/lang/String;
+    .local v3, "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v5
 
     .line 82
-    .restart local v5       #_arg1:D
+    .restart local v5    # "_arg1":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v14
 
     .line 84
-    .local v14, _arg2:D
+    .local v14, "_arg2":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v16
 
     .line 86
-    .local v16, _arg3:D
+    .local v16, "_arg3":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v18
 
     .line 88
-    .local v18, _arg4:D
+    .local v18, "_arg4":D
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v20
 
     .line 90
-    .local v20, _arg5:I
+    .local v20, "_arg5":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -298,13 +298,13 @@
     check-cast v21, Landroid/location/GeocoderParams;
 
     .line 97
-    .local v21, _arg6:Landroid/location/GeocoderParams;
+    .local v21, "_arg6":Landroid/location/GeocoderParams;
     :goto_2
     new-instance v22, Ljava/util/ArrayList;
 
     invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
 
-    .local v22, _arg7:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local v22, "_arg7":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     move-object/from16 v10, p0
 
     move-object v11, v3
@@ -317,7 +317,7 @@
     move-result-object v23
 
     .line 99
-    .restart local v23       #_result:Ljava/lang/String;
+    .restart local v23    # "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 100
@@ -340,13 +340,13 @@
     goto/16 :goto_0
 
     .line 94
-    .end local v21           #_arg6:Landroid/location/GeocoderParams;
-    .end local v22           #_arg7:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    .end local v23           #_result:Ljava/lang/String;
+    .end local v21    # "_arg6":Landroid/location/GeocoderParams;
+    .end local v22    # "_arg7":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
+    .end local v23    # "_result":Ljava/lang/String;
     :cond_1
     const/16 v21, 0x0
 
-    .restart local v21       #_arg6:Landroid/location/GeocoderParams;
+    .restart local v21    # "_arg6":Landroid/location/GeocoderParams;
     goto :goto_2
 
     .line 43

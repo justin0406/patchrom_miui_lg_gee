@@ -40,7 +40,7 @@
 
 .method public constructor <init>(Ljava/util/UUID;)V
     .locals 0
-    .parameter "uuid"
+    .param p1, "uuid"    # Ljava/util/UUID;
 
     .prologue
     .line 36
@@ -55,7 +55,7 @@
 
 .method public static fromString(Ljava/lang/String;)Landroid/os/ParcelUuid;
     .locals 2
-    .parameter "uuid"
+    .param p0, "uuid"    # Ljava/lang/String;
 
     .prologue
     .line 52
@@ -84,7 +84,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -118,7 +118,7 @@
     check-cast v0, Landroid/os/ParcelUuid;
 
     .line 107
-    .local v0, that:Landroid/os/ParcelUuid;
+    .local v0, "that":Landroid/os/ParcelUuid;
     iget-object v1, p0, Landroid/os/ParcelUuid;->mUuid:Ljava/util/UUID;
 
     iget-object v2, v0, Landroid/os/ParcelUuid;->mUuid:Ljava/util/UUID;
@@ -170,8 +170,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 129

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 151
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 214
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -113,7 +113,7 @@
     move-result-object v0
 
     .line 296
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -159,7 +159,7 @@
 
 .method public onPrintJobQueued(Landroid/print/PrintJobInfo;)V
     .locals 5
-    .parameter "printJobInfo"
+    .param p1, "printJobInfo"    # Landroid/print/PrintJobInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -173,7 +173,7 @@
     move-result-object v0
 
     .line 196
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -234,7 +234,7 @@
 
 .method public requestCancelPrintJob(Landroid/print/PrintJobInfo;)V
     .locals 5
-    .parameter "printJobInfo"
+    .param p1, "printJobInfo"    # Landroid/print/PrintJobInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -248,7 +248,7 @@
     move-result-object v0
 
     .line 178
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -309,7 +309,7 @@
 
 .method public setClient(Landroid/printservice/IPrintServiceClient;)V
     .locals 5
-    .parameter "client"
+    .param p1, "client"    # Landroid/printservice/IPrintServiceClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -325,7 +325,7 @@
     move-result-object v0
 
     .line 166
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.printservice.IPrintService"
 
@@ -371,7 +371,6 @@
 
 .method public startPrinterDiscovery(Ljava/util/List;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -390,13 +389,13 @@
 
     .prologue
     .line 223
-    .local p1, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 225
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -435,7 +434,7 @@
 
 .method public startPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 5
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -449,7 +448,7 @@
     move-result-object v0
 
     .line 260
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -523,7 +522,7 @@
     move-result-object v0
 
     .line 237
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -559,7 +558,7 @@
 
 .method public stopPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 5
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -573,7 +572,7 @@
     move-result-object v0
 
     .line 278
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 
@@ -634,7 +633,6 @@
 
 .method public validatePrinters(Ljava/util/List;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -653,13 +651,13 @@
 
     .prologue
     .line 246
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 248
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.printservice.IPrintService"
 

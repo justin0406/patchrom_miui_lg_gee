@@ -21,8 +21,8 @@
 # direct methods
 .method public varargs constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
     .locals 0
-    .parameter "context"
-    .parameter "files"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "files"    # [Ljava/lang/String;
 
     .prologue
     .line 46
@@ -42,9 +42,9 @@
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 2
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 60
@@ -60,7 +60,7 @@
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
     .locals 3
-    .parameter "data"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInputStream;
 
     .prologue
     .line 68
@@ -69,7 +69,7 @@
     move-result-object v1
 
     .line 69
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     iget-object v2, p0, Landroid/app/backup/AbsoluteFileBackupHelper;->mFiles:[Ljava/lang/String;
 
     invoke-virtual {p0, v1, v2}, Landroid/app/backup/AbsoluteFileBackupHelper;->isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
@@ -84,18 +84,18 @@
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 71
-    .local v0, f:Ljava/io/File;
+    .local v0, "f":Ljava/io/File;
     invoke-virtual {p0, v0, p1}, Landroid/app/backup/AbsoluteFileBackupHelper;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
 
     .line 73
-    .end local v0           #f:Ljava/io/File;
+    .end local v0    # "f":Ljava/io/File;
     :cond_0
     return-void
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 31

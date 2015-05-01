@@ -44,7 +44,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 7
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -71,7 +71,7 @@
     move-result-object v0
 
     .line 64
-    .local v0, tokens:[Ljava/lang/String;
+    .local v0, "tokens":[Ljava/lang/String;
     array-length v1, v0
 
     if-ge v1, v4, :cond_0
@@ -233,7 +233,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 85
-    .local v0, sbuf:Ljava/lang/StringBuffer;
+    .local v0, "sbuf":Ljava/lang/StringBuffer;
     iget-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;

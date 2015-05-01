@@ -44,7 +44,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 59
@@ -61,7 +61,7 @@
 
 .method private calcOutputFormatForInput(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 3
-    .parameter "format"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 76
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 78
-    .local v0, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "outputFormat":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v1
@@ -139,8 +139,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 72
@@ -149,7 +149,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 13
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 94
@@ -160,13 +160,13 @@
     move-result-object v1
 
     .line 95
-    .local v1, input:Landroid/filterfw/core/Frame;
+    .local v1, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v0
 
     .line 98
-    .local v0, format:Landroid/filterfw/core/FrameFormat;
+    .local v0, "format":Landroid/filterfw/core/FrameFormat;
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceIndex:I
 
     if-nez v8, :cond_3
@@ -212,7 +212,7 @@
     div-float v6, v8, v9
 
     .line 115
-    .local v6, x0:F
+    .local v6, "x0":F
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mPadSize:I
 
     int-to-float v8, v8
@@ -224,7 +224,7 @@
     div-float v7, v8, v9
 
     .line 117
-    .local v7, y0:F
+    .local v7, "y0":F
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceIndex:I
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mXSlices:I
@@ -236,7 +236,7 @@
     mul-int v3, v8, v9
 
     .line 118
-    .local v3, outputOffsetX:I
+    .local v3, "outputOffsetX":I
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceIndex:I
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mXSlices:I
@@ -248,7 +248,7 @@
     mul-int v4, v8, v9
 
     .line 120
-    .local v4, outputOffsetY:I
+    .local v4, "outputOffsetY":I
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceWidth:I
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mImageWidth:I
@@ -262,7 +262,7 @@
     int-to-float v5, v8
 
     .line 121
-    .local v5, outputWidth:F
+    .local v5, "outputWidth":F
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceHeight:I
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mImageHeight:I
@@ -276,7 +276,7 @@
     int-to-float v2, v8
 
     .line 124
-    .local v2, outputHeight:F
+    .local v2, "outputHeight":F
     iget-object v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mProgram:Landroid/filterfw/core/Program;
 
     check-cast v8, Landroid/filterfw/core/ShaderProgram;
@@ -377,12 +377,12 @@
     return-void
 
     .line 101
-    .end local v2           #outputHeight:F
-    .end local v3           #outputOffsetX:I
-    .end local v4           #outputOffsetY:I
-    .end local v5           #outputWidth:F
-    .end local v6           #x0:F
-    .end local v7           #y0:F
+    .end local v2    # "outputHeight":F
+    .end local v3    # "outputOffsetX":I
+    .end local v4    # "outputOffsetY":I
+    .end local v5    # "outputWidth":F
+    .end local v6    # "x0":F
+    .end local v7    # "y0":F
     :cond_3
     invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 

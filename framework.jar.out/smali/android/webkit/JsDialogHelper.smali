@@ -40,11 +40,11 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/JsPromptResult;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "result"
-    .parameter "type"
-    .parameter "defaultValue"
-    .parameter "message"
-    .parameter "url"
+    .param p1, "result"    # Landroid/webkit/JsPromptResult;
+    .param p2, "type"    # I
+    .param p3, "defaultValue"    # Ljava/lang/String;
+    .param p4, "message"    # Ljava/lang/String;
+    .param p5, "url"    # Ljava/lang/String;
 
     .prologue
     .line 56
@@ -71,8 +71,8 @@
 
 .method public constructor <init>(Landroid/webkit/JsPromptResult;Landroid/os/Message;)V
     .locals 2
-    .parameter "result"
-    .parameter "msg"
+    .param p1, "result"    # Landroid/webkit/JsPromptResult;
+    .param p2, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 64
@@ -139,7 +139,7 @@
 
 .method static synthetic access$100(Landroid/webkit/JsDialogHelper;)Landroid/webkit/JsPromptResult;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/webkit/JsDialogHelper;
 
     .prologue
     .line 39
@@ -150,7 +150,7 @@
 
 .method private static canShowAlertDialog(Landroid/content/Context;)Z
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 183
@@ -161,14 +161,14 @@
 
 .method private getJsDialogTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 7
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 159
     iget-object v1, p0, Landroid/webkit/JsDialogHelper;->mUrl:Ljava/lang/String;
 
     .line 160
-    .local v1, title:Ljava/lang/String;
+    .local v1, "title":Ljava/lang/String;
     iget-object v2, p0, Landroid/webkit/JsDialogHelper;->mUrl:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/webkit/URLUtil;->isDataUrl(Ljava/lang/String;)Z
@@ -178,7 +178,7 @@
     if-eqz v2, :cond_0
 
     .line 162
-    const v2, 0x1040365
+    const v2, 0x1040366
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -198,8 +198,8 @@
     invoke-direct {v0, v2}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     .line 167
-    .local v0, alertUrl:Ljava/net/URL;
-    const v2, 0x1040364
+    .local v0, "alertUrl":Ljava/net/URL;
+    const v2, 0x1040365
 
     const/4 v3, 0x1
 
@@ -248,7 +248,7 @@
     goto :goto_0
 
     .line 169
-    .end local v0           #alertUrl:Ljava/net/URL;
+    .end local v0    # "alertUrl":Ljava/net/URL;
     :catch_0
     move-exception v2
 
@@ -259,8 +259,8 @@
 # virtual methods
 .method public invokeCallback(Landroid/webkit/WebChromeClient;Landroid/webkit/WebView;)Z
     .locals 6
-    .parameter "client"
-    .parameter "webView"
+    .param p1, "client"    # Landroid/webkit/WebChromeClient;
+    .param p2, "webView"    # Landroid/webkit/WebView;
 
     .prologue
     .line 73
@@ -371,7 +371,7 @@
 
 .method public showDialog(Landroid/content/Context;)V
     .locals 13
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v12, 0x1
@@ -410,15 +410,15 @@
     if-ne v7, v8, :cond_2
 
     .line 97
-    const v7, 0x1040366
+    const v7, 0x1040367
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     .line 98
-    .local v5, title:Ljava/lang/String;
-    const v7, 0x1040369
+    .local v5, "title":Ljava/lang/String;
+    const v7, 0x104036a
 
     new-array v8, v12, [Ljava/lang/Object;
 
@@ -433,22 +433,22 @@
     move-result-object v1
 
     .line 100
-    .local v1, displayMessage:Ljava/lang/String;
-    const v4, 0x1040367
+    .local v1, "displayMessage":Ljava/lang/String;
+    const v4, 0x1040368
 
     .line 101
-    .local v4, positiveTextId:I
-    const v3, 0x1040368
+    .local v4, "positiveTextId":I
+    const v3, 0x1040369
 
     .line 108
-    .local v3, negativeTextId:I
+    .local v3, "negativeTextId":I
     :goto_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 109
-    .local v0, builder:Landroid/app/AlertDialog$Builder;
+    .local v0, "builder":Landroid/app/AlertDialog$Builder;
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 110
@@ -495,33 +495,33 @@
     goto :goto_0
 
     .line 103
-    .end local v0           #builder:Landroid/app/AlertDialog$Builder;
-    .end local v1           #displayMessage:Ljava/lang/String;
-    .end local v3           #negativeTextId:I
-    .end local v4           #positiveTextId:I
-    .end local v5           #title:Ljava/lang/String;
+    .end local v0    # "builder":Landroid/app/AlertDialog$Builder;
+    .end local v1    # "displayMessage":Ljava/lang/String;
+    .end local v3    # "negativeTextId":I
+    .end local v4    # "positiveTextId":I
+    .end local v5    # "title":Ljava/lang/String;
     :cond_2
     invoke-direct {p0, p1}, Landroid/webkit/JsDialogHelper;->getJsDialogTitle(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v5
 
     .line 104
-    .restart local v5       #title:Ljava/lang/String;
+    .restart local v5    # "title":Ljava/lang/String;
     iget-object v1, p0, Landroid/webkit/JsDialogHelper;->mMessage:Ljava/lang/String;
 
     .line 105
-    .restart local v1       #displayMessage:Ljava/lang/String;
+    .restart local v1    # "displayMessage":Ljava/lang/String;
     const v4, 0x104000a
 
     .line 106
-    .restart local v4       #positiveTextId:I
-    const/high16 v3, 0x104
+    .restart local v4    # "positiveTextId":I
+    const/high16 v3, 0x1040000
 
-    .restart local v3       #negativeTextId:I
+    .restart local v3    # "negativeTextId":I
     goto :goto_1
 
     .line 115
-    .restart local v0       #builder:Landroid/app/AlertDialog$Builder;
+    .restart local v0    # "builder":Landroid/app/AlertDialog$Builder;
     :cond_3
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
@@ -534,7 +534,7 @@
     move-result-object v6
 
     .line 117
-    .local v6, view:Landroid/view/View;
+    .local v6, "view":Landroid/view/View;
     const v7, 0x10202b8
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -544,7 +544,7 @@
     check-cast v2, Landroid/widget/EditText;
 
     .line 118
-    .local v2, edit:Landroid/widget/EditText;
+    .local v2, "edit":Landroid/widget/EditText;
     iget-object v7, p0, Landroid/webkit/JsDialogHelper;->mDefaultValue:Ljava/lang/String;
 
     invoke-virtual {v2, v7}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V

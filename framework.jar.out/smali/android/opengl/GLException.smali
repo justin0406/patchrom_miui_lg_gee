@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "error"
+    .param p1, "error"    # I
 
     .prologue
     .line 26
@@ -29,8 +29,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "error"
-    .parameter "string"
+    .param p1, "error"    # I
+    .param p2, "string"    # Ljava/lang/String;
 
     .prologue
     .line 31
@@ -45,7 +45,7 @@
 
 .method private static getErrorString(I)Ljava/lang/String;
     .locals 3
-    .parameter "error"
+    .param p0, "error"    # I
 
     .prologue
     .line 36
@@ -54,7 +54,7 @@
     move-result-object v0
 
     .line 37
-    .local v0, errorString:Ljava/lang/String;
+    .local v0, "errorString":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 38

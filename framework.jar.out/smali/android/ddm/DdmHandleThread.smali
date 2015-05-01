@@ -89,8 +89,8 @@
 
 .method private createStackChunk([Ljava/lang/StackTraceElement;I)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 8
-    .parameter "trace"
-    .parameter "threadId"
+    .param p1, "trace"    # [Ljava/lang/StackTraceElement;
+    .param p2, "threadId"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -99,7 +99,7 @@
     const/4 v1, 0x0
 
     .line 148
-    .local v1, bufferSize:I
+    .local v1, "bufferSize":I
     add-int/lit8 v1, v1, 0x4
 
     .line 149
@@ -111,20 +111,20 @@
     .line 151
     move-object v0, p1
 
-    .local v0, arr$:[Ljava/lang/StackTraceElement;
+    .local v0, "arr$":[Ljava/lang/StackTraceElement;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v2, v0, v3
 
     .line 152
-    .local v2, elem:Ljava/lang/StackTraceElement;
+    .local v2, "elem":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v6
@@ -187,14 +187,14 @@
     goto :goto_0
 
     .line 160
-    .end local v2           #elem:Ljava/lang/StackTraceElement;
+    .end local v2    # "elem":Ljava/lang/StackTraceElement;
     :cond_1
     invoke-static {v1}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v5
 
     .line 161
-    .local v5, out:Ljava/nio/ByteBuffer;
+    .local v5, "out":Ljava/nio/ByteBuffer;
     invoke-virtual {v5, v7}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     .line 162
@@ -218,7 +218,7 @@
     aget-object v2, v0, v3
 
     .line 165
-    .restart local v2       #elem:Ljava/lang/StackTraceElement;
+    .restart local v2    # "elem":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v6
@@ -299,7 +299,7 @@
     goto :goto_2
 
     .line 178
-    .end local v2           #elem:Ljava/lang/StackTraceElement;
+    .end local v2    # "elem":Ljava/lang/StackTraceElement;
     :cond_3
     new-instance v6, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -312,7 +312,7 @@
 
 .method private handleSTKL(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 124
@@ -321,19 +321,19 @@
     move-result-object v0
 
     .line 127
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
 
     .line 131
-    .local v1, threadId:I
+    .local v1, "threadId":I
     invoke-static {v1}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->getStackTraceById(I)[Ljava/lang/StackTraceElement;
 
     move-result-object v2
 
     .line 132
-    .local v2, trace:[Ljava/lang/StackTraceElement;
+    .local v2, "trace":[Ljava/lang/StackTraceElement;
     if-nez v2, :cond_0
 
     .line 133
@@ -359,7 +359,7 @@
 
 .method private handleTHEN(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 3
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 88
@@ -368,7 +368,7 @@
     move-result-object v1
 
     .line 90
-    .local v1, in:Ljava/nio/ByteBuffer;
+    .local v1, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v2
@@ -378,7 +378,7 @@
     const/4 v0, 0x1
 
     .line 93
-    .local v0, enable:Z
+    .local v0, "enable":Z
     :goto_0
     invoke-static {v0}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->threadNotify(Z)V
 
@@ -388,7 +388,7 @@
     return-object v2
 
     .line 90
-    .end local v0           #enable:Z
+    .end local v0    # "enable":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -397,7 +397,7 @@
 
 .method private handleTHST(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 6
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 101
@@ -406,13 +406,13 @@
     move-result-object v0
 
     .line 106
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-static {}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->getThreadStats()[B
 
     move-result-object v1
 
     .line 107
-    .local v1, status:[B
+    .local v1, "status":[B
     if-eqz v1, :cond_0
 
     .line 108
@@ -491,14 +491,14 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 4
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 70
     iget v0, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
     .line 72
-    .local v0, type:I
+    .local v0, "type":I
     sget v1, Landroid/ddm/DdmHandleThread;->CHUNK_THEN:I
 
     if-ne v0, v1, :cond_0

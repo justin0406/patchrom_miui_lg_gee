@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViewsService$RemoteViewsFactory;Z)V
     .locals 0
-    .parameter "factory"
-    .parameter "isCreated"
+    .param p1, "factory"    # Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .param p2, "isCreated"    # Z
 
     .prologue
     .line 133
@@ -52,14 +52,14 @@
     const/4 v0, 0x0
 
     .line 154
-    .local v0, count:I
+    .local v0, "count":I
     :try_start_0
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getCount()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -74,14 +74,14 @@
     move-exception v1
 
     .line 156
-    .local v1, ex:Ljava/lang/Exception;
+    .local v1, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     .line 157
-    .local v2, t:Ljava/lang/Thread;
+    .local v2, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v3
@@ -93,8 +93,8 @@
     goto :goto_0
 
     .line 152
-    .end local v1           #ex:Ljava/lang/Exception;
-    .end local v2           #t:Ljava/lang/Thread;
+    .end local v1    # "ex":Ljava/lang/Exception;
+    .end local v2    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v3
 
@@ -105,7 +105,7 @@
 
 .method public declared-synchronized getItemId(I)J
     .locals 5
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 195
@@ -114,14 +114,14 @@
     const-wide/16 v1, 0x0
 
     .line 197
-    .local v1, id:J
+    .local v1, "id":J
     :try_start_0
     iget-object v4, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v4, p1}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getItemId(I)J
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v1
 
@@ -136,14 +136,14 @@
     move-exception v0
 
     .line 199
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v3
 
     .line 200
-    .local v3, t:Ljava/lang/Thread;
+    .local v3, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v4
@@ -155,8 +155,8 @@
     goto :goto_0
 
     .line 195
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v3           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v3    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v4
 
@@ -175,14 +175,14 @@
     const/4 v1, 0x0
 
     .line 177
-    .local v1, rv:Landroid/widget/RemoteViews;
+    .local v1, "rv":Landroid/widget/RemoteViews;
     :try_start_0
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getLoadingView()Landroid/widget/RemoteViews;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
@@ -197,14 +197,14 @@
     move-exception v0
 
     .line 179
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     .line 180
-    .local v2, t:Ljava/lang/Thread;
+    .local v2, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v3
@@ -216,8 +216,8 @@
     goto :goto_0
 
     .line 175
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v2           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v2    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v3
 
@@ -228,7 +228,7 @@
 
 .method public declared-synchronized getViewAt(I)Landroid/widget/RemoteViews;
     .locals 4
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 162
@@ -237,7 +237,7 @@
     const/4 v1, 0x0
 
     .line 164
-    .local v1, rv:Landroid/widget/RemoteViews;
+    .local v1, "rv":Landroid/widget/RemoteViews;
     :try_start_0
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
@@ -253,8 +253,8 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/RemoteViews;->setIsWidgetCollectionChild(Z)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 172
     :cond_0
@@ -268,14 +268,14 @@
     move-exception v0
 
     .line 169
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     .line 170
-    .local v2, t:Ljava/lang/Thread;
+    .local v2, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v3
@@ -287,8 +287,8 @@
     goto :goto_0
 
     .line 162
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v2           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v2    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v3
 
@@ -307,14 +307,14 @@
     const/4 v0, 0x0
 
     .line 187
-    .local v0, count:I
+    .local v0, "count":I
     :try_start_0
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getViewTypeCount()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -329,14 +329,14 @@
     move-exception v1
 
     .line 189
-    .local v1, ex:Ljava/lang/Exception;
+    .local v1, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     .line 190
-    .local v2, t:Ljava/lang/Thread;
+    .local v2, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v3
@@ -348,8 +348,8 @@
     goto :goto_0
 
     .line 185
-    .end local v1           #ex:Ljava/lang/Exception;
-    .end local v2           #t:Ljava/lang/Thread;
+    .end local v1    # "ex":Ljava/lang/Exception;
+    .end local v2    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v3
 
@@ -368,14 +368,14 @@
     const/4 v1, 0x0
 
     .line 207
-    .local v1, hasStableIds:Z
+    .local v1, "hasStableIds":Z
     :try_start_0
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->hasStableIds()Z
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v1
 
@@ -390,14 +390,14 @@
     move-exception v0
 
     .line 209
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     .line 210
-    .local v2, t:Ljava/lang/Thread;
+    .local v2, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v3
@@ -409,8 +409,8 @@
     goto :goto_0
 
     .line 205
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v2           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v2    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v3
 
@@ -455,8 +455,8 @@
 
     invoke-interface {v2}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->onDataSetChanged()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
     :goto_0
@@ -469,14 +469,14 @@
     move-exception v0
 
     .line 144
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
 
     .line 145
-    .local v1, t:Ljava/lang/Thread;
+    .local v1, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v2
@@ -488,8 +488,8 @@
     goto :goto_0
 
     .line 142
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v1           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v1    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v2
 
@@ -526,10 +526,11 @@
 
 .method public onDestroy(Landroid/content/Intent;)V
     .locals 6
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 215
+    # getter for: Landroid/widget/RemoteViewsService;->sLock:Ljava/lang/Object;
     invoke-static {}, Landroid/widget/RemoteViewsService;->access$000()Ljava/lang/Object;
 
     move-result-object v5
@@ -543,7 +544,8 @@
     invoke-direct {v2, p1}, Landroid/content/Intent$FilterComparison;-><init>(Landroid/content/Intent;)V
 
     .line 217
-    .local v2, fc:Landroid/content/Intent$FilterComparison;
+    .local v2, "fc":Landroid/content/Intent$FilterComparison;
+    # getter for: Landroid/widget/RemoteViewsService;->sRemoteViewFactories:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsService;->access$100()Ljava/util/HashMap;
 
     move-result-object v4
@@ -555,6 +557,7 @@
     if-eqz v4, :cond_0
 
     .line 218
+    # getter for: Landroid/widget/RemoteViewsService;->sRemoteViewFactories:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsService;->access$100()Ljava/util/HashMap;
 
     move-result-object v4
@@ -568,16 +571,17 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 220
-    .local v1, factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .local v1, "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     :try_start_1
     invoke-interface {v1}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->onDestroy()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 225
     :goto_0
     :try_start_2
+    # getter for: Landroid/widget/RemoteViewsService;->sRemoteViewFactories:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsService;->access$100()Ljava/util/HashMap;
 
     move-result-object v4
@@ -585,7 +589,7 @@
     invoke-virtual {v4, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 227
-    .end local v1           #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .end local v1    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     :cond_0
     monitor-exit v5
 
@@ -593,18 +597,18 @@
     return-void
 
     .line 221
-    .restart local v1       #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .restart local v1    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     :catch_0
     move-exception v0
 
     .line 222
-    .local v0, ex:Ljava/lang/Exception;
+    .local v0, "ex":Ljava/lang/Exception;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v3
 
     .line 223
-    .local v3, t:Ljava/lang/Thread;
+    .local v3, "t":Ljava/lang/Thread;
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object v4
@@ -614,10 +618,10 @@
     goto :goto_0
 
     .line 227
-    .end local v0           #ex:Ljava/lang/Exception;
-    .end local v1           #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
-    .end local v2           #fc:Landroid/content/Intent$FilterComparison;
-    .end local v3           #t:Ljava/lang/Thread;
+    .end local v0    # "ex":Ljava/lang/Exception;
+    .end local v1    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .end local v2    # "fc":Landroid/content/Intent$FilterComparison;
+    .end local v3    # "t":Ljava/lang/Thread;
     :catchall_0
     move-exception v4
 

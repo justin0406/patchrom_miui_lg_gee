@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 267
@@ -51,10 +51,10 @@
 
 .method public copyMessageToIccEf(Ljava/lang/String;I[B[B)Z
     .locals 6
-    .parameter "callingPkg"
-    .parameter "status"
-    .parameter "pdu"
-    .parameter "smsc"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "pdu"    # [B
+    .param p4, "smsc"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,13 +70,13 @@
     move-result-object v0
 
     .line 345
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 348
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -118,7 +118,7 @@
     const/4 v2, 0x1
 
     .line 358
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -129,7 +129,7 @@
     return v2
 
     .line 358
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -143,7 +143,7 @@
 
 .method public disableCellBroadcast(I)Z
     .locals 6
-    .parameter "messageIdentifier"
+    .param p1, "messageIdentifier"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,13 +159,13 @@
     move-result-object v0
 
     .line 561
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 564
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -198,7 +198,7 @@
     const/4 v2, 0x1
 
     .line 571
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -209,7 +209,7 @@
     return v2
 
     .line 571
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -223,8 +223,8 @@
 
 .method public disableCellBroadcastRange(II)Z
     .locals 6
-    .parameter "startMessageId"
-    .parameter "endMessageId"
+    .param p1, "startMessageId"    # I
+    .param p2, "endMessageId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -240,13 +240,13 @@
     move-result-object v0
 
     .line 626
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 629
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -282,7 +282,7 @@
     const/4 v2, 0x1
 
     .line 637
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -293,7 +293,7 @@
     return v2
 
     .line 637
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -307,7 +307,7 @@
 
 .method public enableCellBroadcast(I)Z
     .locals 6
-    .parameter "messageIdentifier"
+    .param p1, "messageIdentifier"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -323,13 +323,13 @@
     move-result-object v0
 
     .line 531
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 534
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -362,7 +362,7 @@
     const/4 v2, 0x1
 
     .line 541
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -373,7 +373,7 @@
     return v2
 
     .line 541
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -387,8 +387,8 @@
 
 .method public enableCellBroadcastRange(II)Z
     .locals 6
-    .parameter "startMessageId"
-    .parameter "endMessageId"
+    .param p1, "startMessageId"    # I
+    .param p2, "endMessageId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -404,13 +404,13 @@
     move-result-object v0
 
     .line 593
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 596
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -446,7 +446,7 @@
     const/4 v2, 0x1
 
     .line 604
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -457,7 +457,7 @@
     return v2
 
     .line 604
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -471,7 +471,7 @@
 
 .method public getAllMessagesFromIccEf(Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "callingPkg"
+    .param p1, "callingPkg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -497,13 +497,13 @@
     move-result-object v0
 
     .line 286
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 289
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -534,7 +534,7 @@
     move-result-object v2
 
     .line 296
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/SmsRawData;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/telephony/SmsRawData;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 297
@@ -544,7 +544,7 @@
     return-object v2
 
     .line 296
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/SmsRawData;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/telephony/SmsRawData;>;"
     :catchall_0
     move-exception v3
 
@@ -571,13 +571,13 @@
     move-result-object v0
 
     .line 722
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 725
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -603,7 +603,7 @@
     move-result-object v2
 
     .line 731
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 732
@@ -613,7 +613,7 @@
     return-object v2
 
     .line 731
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -637,7 +637,7 @@
 
 .method public getPremiumSmsPermission(Ljava/lang/String;)I
     .locals 6
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -651,13 +651,13 @@
     move-result-object v0
 
     .line 649
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 652
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -686,7 +686,7 @@
     move-result v2
 
     .line 659
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 660
@@ -696,7 +696,7 @@
     return v2
 
     .line 659
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -725,13 +725,13 @@
     move-result-object v0
 
     .line 695
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 698
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -761,7 +761,7 @@
     const/4 v2, 0x1
 
     .line 704
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -772,7 +772,7 @@
     return v2
 
     .line 704
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -786,13 +786,13 @@
 
 .method public sendData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "callingPkg"
-    .parameter "destAddr"
-    .parameter "scAddr"
-    .parameter "destPort"
-    .parameter "data"
-    .parameter "sentIntent"
-    .parameter "deliveryIntent"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "destAddr"    # Ljava/lang/String;
+    .param p3, "scAddr"    # Ljava/lang/String;
+    .param p4, "destPort"    # I
+    .param p5, "data"    # [B
+    .param p6, "sentIntent"    # Landroid/app/PendingIntent;
+    .param p7, "deliveryIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -806,13 +806,13 @@
     move-result-object v0
 
     .line 389
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 391
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
@@ -920,12 +920,9 @@
 
 .method public sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
     .locals 5
-    .parameter "callingPkg"
-    .parameter "destinationAddress"
-    .parameter "scAddress"
-    .parameter
-    .parameter
-    .parameter
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "destinationAddress"    # Ljava/lang/String;
+    .param p3, "scAddress"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -955,21 +952,21 @@
 
     .prologue
     .line 498
-    .local p4, parts:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
-    .local p5, sentIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
-    .local p6, deliveryIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
+    .local p4, "parts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .local p5, "sentIntents":Ljava/util/List;, "Ljava/util/List<Landroid/app/PendingIntent;>;"
+    .local p6, "deliveryIntents":Ljava/util/List;, "Ljava/util/List<Landroid/app/PendingIntent;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 499
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 501
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
@@ -1030,12 +1027,12 @@
 
 .method public sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "callingPkg"
-    .parameter "destAddr"
-    .parameter "scAddr"
-    .parameter "text"
-    .parameter "sentIntent"
-    .parameter "deliveryIntent"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "destAddr"    # Ljava/lang/String;
+    .param p3, "scAddr"    # Ljava/lang/String;
+    .param p4, "text"    # Ljava/lang/String;
+    .param p5, "sentIntent"    # Landroid/app/PendingIntent;
+    .param p6, "deliveryIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1049,13 +1046,13 @@
     move-result-object v0
 
     .line 445
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 447
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
@@ -1160,8 +1157,8 @@
 
 .method public setPremiumSmsPermission(Ljava/lang/String;I)V
     .locals 5
-    .parameter "packageName"
-    .parameter "permission"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "permission"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1175,13 +1172,13 @@
     move-result-object v0
 
     .line 671
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 673
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
@@ -1230,10 +1227,10 @@
 
 .method public updateMessageOnIccEf(Ljava/lang/String;II[B)Z
     .locals 6
-    .parameter "callingPkg"
-    .parameter "messageIndex"
-    .parameter "newStatus"
-    .parameter "pdu"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "messageIndex"    # I
+    .param p3, "newStatus"    # I
+    .param p4, "pdu"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1249,13 +1246,13 @@
     move-result-object v0
 
     .line 315
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 318
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
@@ -1297,7 +1294,7 @@
     const/4 v2, 0x1
 
     .line 328
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1308,7 +1305,7 @@
     return v2
 
     .line 328
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 75
@@ -41,7 +41,7 @@
 # virtual methods
 .method public addGpsStatusListener(Landroid/location/IGpsStatusListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/IGpsStatusListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,13 +55,13 @@
     move-result-object v0
 
     .line 89
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 91
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IGpsStatusProvider"
 
@@ -140,7 +140,7 @@
 
 .method public removeGpsStatusListener(Landroid/location/IGpsStatusListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/IGpsStatusListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,13 +154,13 @@
     move-result-object v0
 
     .line 104
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 106
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IGpsStatusProvider"
 

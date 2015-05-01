@@ -49,14 +49,14 @@
     .line 141
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v4, :cond_1
 
     .line 142
     const/4 v1, 0x0
 
-    .local v1, j:I
+    .local v1, "j":I
     :goto_1
     if-ge v1, v4, :cond_0
 
@@ -83,15 +83,15 @@
     goto :goto_0
 
     .line 146
-    .end local v1           #j:I
+    .end local v1    # "j":I
     :cond_1
     return-void
 .end method
 
 .method private constructor <init>(II)V
     .locals 0
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 152
@@ -112,8 +112,8 @@
 
 .method private static checkRange(II)V
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p0, "row"    # I
+    .param p1, "column"    # I
 
     .prologue
     const/4 v0, 0x2
@@ -156,8 +156,8 @@
 
 .method public static declared-synchronized of(II)Lcom/android/internal/widget/LockPatternView$Cell;
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p0, "row"    # I
+    .param p1, "column"    # I
 
     .prologue
     .line 171

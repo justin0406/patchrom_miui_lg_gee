@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/DrawableContainer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 379

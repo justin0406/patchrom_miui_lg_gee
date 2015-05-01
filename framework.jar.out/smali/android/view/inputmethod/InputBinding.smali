@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -48,7 +48,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 81
@@ -86,10 +86,10 @@
 
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Landroid/os/IBinder;II)V
     .locals 0
-    .parameter "conn"
-    .parameter "connToken"
-    .parameter "uid"
-    .parameter "pid"
+    .param p1, "conn"    # Landroid/view/inputmethod/InputConnection;
+    .param p2, "connToken"    # Landroid/os/IBinder;
+    .param p3, "uid"    # I
+    .param p4, "pid"    # I
 
     .prologue
     .line 60
@@ -113,8 +113,8 @@
 
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputBinding;)V
     .locals 1
-    .parameter "conn"
-    .parameter "binding"
+    .param p1, "conn"    # Landroid/view/inputmethod/InputConnection;
+    .param p2, "binding"    # Landroid/view/inputmethod/InputBinding;
 
     .prologue
     .line 74
@@ -260,8 +260,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 131

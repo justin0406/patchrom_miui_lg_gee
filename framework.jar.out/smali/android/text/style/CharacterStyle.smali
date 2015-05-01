@@ -25,7 +25,7 @@
 
 .method public static wrap(Landroid/text/style/CharacterStyle;)Landroid/text/style/CharacterStyle;
     .locals 1
-    .parameter "cs"
+    .param p0, "cs"    # Landroid/text/style/CharacterStyle;
 
     .prologue
     .line 37
@@ -38,11 +38,11 @@
 
     check-cast p0, Landroid/text/style/MetricAffectingSpan;
 
-    .end local p0
+    .end local p0    # "cs":Landroid/text/style/CharacterStyle;
     invoke-direct {v0, p0}, Landroid/text/style/MetricAffectingSpan$Passthrough;-><init>(Landroid/text/style/MetricAffectingSpan;)V
 
     .line 40
-    .restart local p0
+    .restart local p0    # "cs":Landroid/text/style/CharacterStyle;
     :goto_0
     return-object v0
 

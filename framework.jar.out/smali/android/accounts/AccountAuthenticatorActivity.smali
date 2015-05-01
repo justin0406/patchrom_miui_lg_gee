@@ -79,7 +79,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "icicle"
+    .param p1, "icicle"    # Landroid/os/Bundle;
 
     .prologue
     .line 57
@@ -117,7 +117,7 @@
 
 .method public final setAccountAuthenticatorResult(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 48

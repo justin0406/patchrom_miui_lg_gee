@@ -21,7 +21,7 @@
 
 .method public static getInstance(Landroid/content/Context;)Landroid/webkit/WebViewDatabase;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 44

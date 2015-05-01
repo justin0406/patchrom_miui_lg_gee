@@ -32,8 +32,8 @@
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
     .locals 2
-    .parameter "format"
-    .parameter "frameManager"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     const/4 v1, 0x0
@@ -81,10 +81,10 @@
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;IJ)V
     .locals 2
-    .parameter "format"
-    .parameter "frameManager"
-    .parameter "bindingType"
-    .parameter "bindingId"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
+    .param p3, "bindingType"    # I
+    .param p4, "bindingId"    # J
 
     .prologue
     const/4 v1, 0x0
@@ -138,7 +138,7 @@
 
 .method protected static convertBitmapToRGBA(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "bitmap"
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 182
@@ -151,12 +151,12 @@
     if-ne v1, v2, :cond_0
 
     .line 191
-    .end local p0
+    .end local p0    # "bitmap":Landroid/graphics/Bitmap;
     :goto_0
     return-object p0
 
     .line 185
-    .restart local p0
+    .restart local p0    # "bitmap":Landroid/graphics/Bitmap;
     :cond_0
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
@@ -167,7 +167,7 @@
     move-result-object v0
 
     .line 186
-    .local v0, result:Landroid/graphics/Bitmap;
+    .local v0, "result":Landroid/graphics/Bitmap;
     if-nez v0, :cond_1
 
     .line 187
@@ -430,7 +430,7 @@
     move-result-object p0
 
     .line 146
-    .end local p0
+    .end local p0    # "this":Landroid/filterfw/core/Frame;
     :cond_0
     return-object p0
 .end method
@@ -440,7 +440,7 @@
 
 .method protected requestResize([I)Z
     .locals 1
-    .parameter "newDimensions"
+    .param p1, "newDimensions"    # [I
 
     .prologue
     .line 135
@@ -451,7 +451,7 @@
 
 .method protected reset(Landroid/filterfw/core/FrameFormat;)V
     .locals 1
-    .parameter "newFormat"
+    .param p1, "newFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 196
@@ -492,7 +492,7 @@
     move-result-object p0
 
     .line 154
-    .end local p0
+    .end local p0    # "this":Landroid/filterfw/core/Frame;
     :cond_0
     return-object p0
 .end method
@@ -502,7 +502,7 @@
 
 .method public setData(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 109
@@ -523,9 +523,9 @@
 
 .method public setData([BII)V
     .locals 1
-    .parameter "bytes"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "bytes"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     .line 113
@@ -541,7 +541,7 @@
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 131
@@ -560,7 +560,7 @@
 
 .method protected setFormat(Landroid/filterfw/core/FrameFormat;)V
     .locals 1
-    .parameter "format"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 173
@@ -576,7 +576,7 @@
 
 .method protected setGenericObjectValue(Ljava/lang/Object;)V
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 177
@@ -614,7 +614,7 @@
 
 .method public setObjectValue(Ljava/lang/Object;)V
     .locals 1
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 79
@@ -628,7 +628,7 @@
     .line 84
     check-cast p1, [I
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     check-cast p1, [I
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setInts([I)V
@@ -638,7 +638,7 @@
     return-void
 
     .line 85
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_0
     instance-of v0, p1, [F
 
@@ -647,7 +647,7 @@
     .line 86
     check-cast p1, [F
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     check-cast p1, [F
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setFloats([F)V
@@ -655,7 +655,7 @@
     goto :goto_0
 
     .line 87
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_1
     instance-of v0, p1, Ljava/nio/ByteBuffer;
 
@@ -664,13 +664,13 @@
     .line 88
     check-cast p1, Ljava/nio/ByteBuffer;
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setData(Ljava/nio/ByteBuffer;)V
 
     goto :goto_0
 
     .line 89
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_2
     instance-of v0, p1, Landroid/graphics/Bitmap;
 
@@ -679,13 +679,13 @@
     .line 90
     check-cast p1, Landroid/graphics/Bitmap;
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setBitmap(Landroid/graphics/Bitmap;)V
 
     goto :goto_0
 
     .line 92
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_3
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -694,7 +694,7 @@
 
 .method protected setReusable(Z)V
     .locals 0
-    .parameter "reusable"
+    .param p1, "reusable"    # Z
 
     .prologue
     .line 169
@@ -706,7 +706,7 @@
 
 .method public setTimestamp(J)V
     .locals 0
-    .parameter "timestamp"
+    .param p1, "timestamp"    # J
 
     .prologue
     .line 123

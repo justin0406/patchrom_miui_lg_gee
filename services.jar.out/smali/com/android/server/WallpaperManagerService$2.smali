@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/WallpaperManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 492
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onUserSwitchComplete(I)V
     .locals 0
-    .parameter "newUserId"
+    .param p1, "newUserId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -50,8 +49,8 @@
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 1
-    .parameter "newUserId"
-    .parameter "reply"
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
     .prologue
     .line 495

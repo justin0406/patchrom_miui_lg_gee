@@ -31,36 +31,36 @@
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/pm/IPackageInstallObserver;ILjava/lang/String;Landroid/content/pm/ManifestDigest;Landroid/os/UserHandle;)V
     .locals 0
-    .parameter "packageURI"
-    .parameter "observer"
-    .parameter "flags"
-    .parameter "installerPackageName"
-    .parameter "manifestDigest"
-    .parameter "user"
+    .param p1, "packageURI"    # Landroid/net/Uri;
+    .param p2, "observer"    # Landroid/content/pm/IPackageInstallObserver;
+    .param p3, "flags"    # I
+    .param p4, "installerPackageName"    # Ljava/lang/String;
+    .param p5, "manifestDigest"    # Landroid/content/pm/ManifestDigest;
+    .param p6, "user"    # Landroid/os/UserHandle;
 
     .prologue
-    .line 7839
+    .line 7852
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7840
+    .line 7853
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->packageURI:Landroid/net/Uri;
 
-    .line 7841
+    .line 7854
     iput p3, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->flags:I
 
-    .line 7842
+    .line 7855
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->observer:Landroid/content/pm/IPackageInstallObserver;
 
-    .line 7843
+    .line 7856
     iput-object p4, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->installerPackageName:Ljava/lang/String;
 
-    .line 7844
+    .line 7857
     iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->manifestDigest:Landroid/content/pm/ManifestDigest;
 
-    .line 7845
+    .line 7858
     iput-object p6, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->user:Landroid/os/UserHandle;
 
-    .line 7846
+    .line 7859
     return-void
 .end method
 
@@ -90,10 +90,10 @@
 
 .method doPostCopy(I)I
     .locals 1
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
-    .line 7879
+    .line 7892
     const/4 v0, 0x1
 
     return v0
@@ -109,7 +109,7 @@
     .locals 1
 
     .prologue
-    .line 7868
+    .line 7881
     const/4 v0, 0x1
 
     return v0
@@ -134,7 +134,7 @@
     .locals 1
 
     .prologue
-    .line 7887
+    .line 7900
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->user:Landroid/os/UserHandle;
 
     return-object v0
@@ -144,7 +144,7 @@
     .locals 1
 
     .prologue
-    .line 7883
+    .line 7896
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->flags:I
 
     and-int/lit8 v0, v0, 0x1

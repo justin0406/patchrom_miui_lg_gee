@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Landroid/location/LocationManager$GpsStatusListenerTransport;JLjava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "timestamp"
-    .parameter "nmea"
+    .param p2, "timestamp"    # J
+    .param p4, "nmea"    # Ljava/lang/String;
 
     .prologue
     .line 1377

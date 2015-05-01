@@ -70,7 +70,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -111,7 +111,7 @@
     check-cast v0, Landroid/view/ViewTreeObserver$InternalInsetsInfo;
 
     .line 266
-    .local v0, other:Landroid/view/ViewTreeObserver$InternalInsetsInfo;
+    .local v0, "other":Landroid/view/ViewTreeObserver$InternalInsetsInfo;
     iget v3, p0, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->mTouchableInsets:I
 
     iget v4, v0, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->mTouchableInsets:I
@@ -166,7 +166,7 @@
     move-result v0
 
     .line 254
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget-object v2, p0, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
@@ -273,7 +273,7 @@
 
 .method set(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/ViewTreeObserver$InternalInsetsInfo;
 
     .prologue
     .line 273
@@ -308,7 +308,7 @@
 
 .method public setTouchableInsets(I)V
     .locals 0
-    .parameter "val"
+    .param p1, "val"    # I
 
     .prologue
     .line 232

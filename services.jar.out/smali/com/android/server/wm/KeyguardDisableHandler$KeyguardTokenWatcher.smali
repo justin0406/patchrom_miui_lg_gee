@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/KeyguardDisableHandler;Landroid/os/Handler;)V
     .locals 1
-    .parameter
-    .parameter "handler"
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 81
@@ -50,7 +49,7 @@
     .line 89
     iget-object v1, p0, Lcom/android/server/wm/KeyguardDisableHandler$KeyguardTokenWatcher;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
 
-    #getter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
+    # getter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
     invoke-static {v1}, Lcom/android/server/wm/KeyguardDisableHandler;->access$000(Lcom/android/server/wm/KeyguardDisableHandler;)I
 
     move-result v1
@@ -73,7 +72,7 @@
     check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
     .line 92
-    .local v0, dpm:Landroid/app/admin/DevicePolicyManager;
+    .local v0, "dpm":Landroid/app/admin/DevicePolicyManager;
     if-eqz v0, :cond_0
 
     .line 94
@@ -101,18 +100,18 @@
     move v1, v2
 
     :goto_0
-    #setter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
+    # setter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
     invoke-static {v4, v1}, Lcom/android/server/wm/KeyguardDisableHandler;->access$002(Lcom/android/server/wm/KeyguardDisableHandler;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 103
-    .end local v0           #dpm:Landroid/app/admin/DevicePolicyManager;
+    .end local v0    # "dpm":Landroid/app/admin/DevicePolicyManager;
     :cond_0
     :goto_1
     iget-object v1, p0, Lcom/android/server/wm/KeyguardDisableHandler$KeyguardTokenWatcher;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
 
-    #getter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
+    # getter for: Lcom/android/server/wm/KeyguardDisableHandler;->mAllowDisableKeyguard:I
     invoke-static {v1}, Lcom/android/server/wm/KeyguardDisableHandler;->access$000(Lcom/android/server/wm/KeyguardDisableHandler;)I
 
     move-result v1
@@ -130,7 +129,7 @@
     :goto_2
     return-void
 
-    .restart local v0       #dpm:Landroid/app/admin/DevicePolicyManager;
+    .restart local v0    # "dpm":Landroid/app/admin/DevicePolicyManager;
     :cond_1
     move v1, v3
 
@@ -138,7 +137,7 @@
     goto :goto_0
 
     .line 106
-    .end local v0           #dpm:Landroid/app/admin/DevicePolicyManager;
+    .end local v0    # "dpm":Landroid/app/admin/DevicePolicyManager;
     :cond_2
     const-string v1, "KeyguardDisableHandler"
 
@@ -149,7 +148,7 @@
     goto :goto_2
 
     .line 98
-    .restart local v0       #dpm:Landroid/app/admin/DevicePolicyManager;
+    .restart local v0    # "dpm":Landroid/app/admin/DevicePolicyManager;
     :catch_0
     move-exception v1
 

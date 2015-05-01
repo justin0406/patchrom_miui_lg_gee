@@ -30,9 +30,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService;ILandroid/hardware/display/IDisplayManagerCallback;)V
     .locals 0
-    .parameter
-    .parameter "pid"
-    .parameter "callback"
+    .param p2, "pid"    # I
+    .param p3, "callback"    # Landroid/hardware/display/IDisplayManagerCallback;
 
     .prologue
     .line 1308
@@ -59,7 +58,7 @@
     .line 1318
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$CallbackRecord;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    #calls: Lcom/android/server/display/DisplayManagerService;->onCallbackDied(Lcom/android/server/display/DisplayManagerService$CallbackRecord;)V
+    # invokes: Lcom/android/server/display/DisplayManagerService;->onCallbackDied(Lcom/android/server/display/DisplayManagerService$CallbackRecord;)V
     invoke-static {v0, p0}, Lcom/android/server/display/DisplayManagerService;->access$1500(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayManagerService$CallbackRecord;)V
 
     .line 1319
@@ -68,8 +67,8 @@
 
 .method public notifyDisplayEventAsync(II)V
     .locals 4
-    .parameter "displayId"
-    .parameter "event"
+    .param p1, "displayId"    # I
+    .param p2, "event"    # I
 
     .prologue
     .line 1323
@@ -89,7 +88,7 @@
     move-exception v0
 
     .line 1325
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "DisplayManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;

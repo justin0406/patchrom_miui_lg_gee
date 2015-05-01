@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/accounts/AccountManager$AmsTask;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1546
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/accounts/AccountManager$AmsTask;Landroid/accounts/AccountManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/accounts/AccountManager$AmsTask;
+    .param p2, "x1"    # Landroid/accounts/AccountManager$1;
 
     .prologue
     .line 1546
@@ -48,8 +47,8 @@
 # virtual methods
 .method public onError(ILjava/lang/String;)V
     .locals 2
-    .parameter "code"
-    .parameter "message"
+    .param p1, "code"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 1567
@@ -81,12 +80,12 @@
 
     iget-object v1, v1, Landroid/accounts/AccountManager$AmsTask;->this$0:Landroid/accounts/AccountManager;
 
-    #calls: Landroid/accounts/AccountManager;->convertErrorToException(ILjava/lang/String;)Ljava/lang/Exception;
+    # invokes: Landroid/accounts/AccountManager;->convertErrorToException(ILjava/lang/String;)Ljava/lang/Exception;
     invoke-static {v1, p1, p2}, Landroid/accounts/AccountManager;->access$400(Landroid/accounts/AccountManager;ILjava/lang/String;)Ljava/lang/Exception;
 
     move-result-object v1
 
-    #calls: Landroid/accounts/AccountManager$AmsTask;->setException(Ljava/lang/Throwable;)V
+    # invokes: Landroid/accounts/AccountManager$AmsTask;->setException(Ljava/lang/Throwable;)V
     invoke-static {v0, v1}, Landroid/accounts/AccountManager$AmsTask;->access$500(Landroid/accounts/AccountManager$AmsTask;Ljava/lang/Throwable;)V
 
     goto :goto_0
@@ -94,7 +93,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 1548
@@ -107,7 +106,7 @@
     check-cast v0, Landroid/content/Intent;
 
     .line 1549
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
@@ -116,20 +115,25 @@
 
     if-eqz v1, :cond_0
 
-    .line 1552
+    invoke-static {v0}, Lmiui/content/pm/ExtraPackageManager;->handleIfContainsXiaomiAccountType(Landroid/content/Intent;)Z
+
+    move-result v1
+    if-eqz v1, :cond_miui_0
+
+    return-void
+
+    :cond_miui_0
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
 
     iget-object v1, v1, Landroid/accounts/AccountManager$AmsTask;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 1564
     :goto_0
     return-void
 
-    .line 1554
     :cond_0
-    const-string/jumbo v1, "retry"
+    const-string v1, "retry"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 

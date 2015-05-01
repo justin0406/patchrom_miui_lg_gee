@@ -134,8 +134,8 @@
 
 .method static synthetic access$000(Lcom/android/internal/util/AsyncChannel;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel;
+    .param p1, "x1"    # I
 
     .prologue
     .line 86
@@ -146,8 +146,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)Landroid/os/Messenger;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel;
+    .param p1, "x1"    # Landroid/os/Messenger;
 
     .prologue
     .line 86
@@ -158,8 +158,8 @@
 
 .method static synthetic access$600(Lcom/android/internal/util/AsyncChannel;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/util/AsyncChannel;
+    .param p1, "x1"    # I
 
     .prologue
     .line 86
@@ -170,7 +170,7 @@
 
 .method protected static cmdToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "cmd"
+    .param p0, "cmd"    # I
 
     .prologue
     .line 163
@@ -204,7 +204,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 904
@@ -218,7 +218,7 @@
 
 .method private replyDisconnected(I)V
     .locals 3
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 871
@@ -231,7 +231,7 @@
     move-result-object v0
 
     .line 872
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->arg1:I
 
     .line 873
@@ -253,7 +253,7 @@
 
 .method private replyHalfConnected(I)V
     .locals 5
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 842
@@ -266,7 +266,7 @@
     move-result-object v1
 
     .line 843
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     iput p1, v1, Landroid/os/Message;->arg1:I
 
     .line 844
@@ -320,7 +320,7 @@
     move-exception v0
 
     .line 855
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/internal/util/AsyncChannel;->mDeathMonitor:Lcom/android/internal/util/AsyncChannel$DeathMonitor;
@@ -337,9 +337,9 @@
 # virtual methods
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)V
     .locals 1
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstHandler"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstHandler"    # Landroid/os/Handler;
 
     .prologue
     .line 418
@@ -355,9 +355,9 @@
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
     .locals 1
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstMessenger"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstMessenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 377
@@ -374,9 +374,8 @@
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/Class;)V
     .locals 2
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -389,7 +388,7 @@
 
     .prologue
     .line 359
-    .local p3, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p3, "klass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p3}, Ljava/lang/Class;->getPackage()Ljava/lang/Package;
 
     move-result-object v0
@@ -410,10 +409,10 @@
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)V
     .locals 6
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstPackageName"
-    .parameter "dstClassName"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstPackageName"    # Ljava/lang/String;
+    .param p4, "dstClassName"    # Ljava/lang/String;
 
     .prologue
     .line 341
@@ -432,7 +431,7 @@
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/util/AsyncChannel$1ConnectAsync;-><init>(Lcom/android/internal/util/AsyncChannel;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 342
-    .local v0, ca:Lcom/android/internal/util/AsyncChannel$1ConnectAsync;
+    .local v0, "ca":Lcom/android/internal/util/AsyncChannel$1ConnectAsync;
     new-instance v1, Ljava/lang/Thread;
 
     invoke-direct {v1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
@@ -445,8 +444,8 @@
 
 .method public connect(Lcom/android/internal/util/AsyncService;Landroid/os/Messenger;)V
     .locals 1
-    .parameter "srcAsyncService"
-    .parameter "dstMessenger"
+    .param p1, "srcAsyncService"    # Lcom/android/internal/util/AsyncService;
+    .param p2, "dstMessenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 432
@@ -462,10 +461,10 @@
 
 .method public connectSrcHandlerToPackageSync(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)I
     .locals 4
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstPackageName"
-    .parameter "dstClassName"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstPackageName"    # Ljava/lang/String;
+    .param p4, "dstClassName"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -503,7 +502,7 @@
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 242
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     invoke-virtual {v0, p3, p4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 243
@@ -514,7 +513,7 @@
     move-result v1
 
     .line 245
-    .local v1, result:Z
+    .local v1, "result":Z
     if-eqz v1, :cond_0
 
     const/4 v2, 0x0
@@ -525,9 +524,9 @@
 
 .method public connectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)I
     .locals 1
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstHandler"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstHandler"    # Landroid/os/Handler;
 
     .prologue
     .line 279
@@ -544,9 +543,9 @@
 
 .method public connectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)I
     .locals 1
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstMessenger"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstMessenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 262
@@ -560,9 +559,9 @@
 
 .method public connected(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
     .locals 2
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstMessenger"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstMessenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 399
@@ -617,7 +616,7 @@
     move-result-object v0
 
     .line 458
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const v1, 0x11004
 
     iput v1, v0, Landroid/os/Message;->what:I
@@ -635,7 +634,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 464
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :goto_0
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel;->mSrcHandler:Landroid/os/Handler;
 
@@ -710,9 +709,9 @@
 
 .method public fullyConnectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)I
     .locals 3
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstHandler"
+    .param p1, "srcContext"    # Landroid/content/Context;
+    .param p2, "srcHandler"    # Landroid/os/Handler;
+    .param p3, "dstHandler"    # Landroid/os/Handler;
 
     .prologue
     .line 293
@@ -721,7 +720,7 @@
     move-result v1
 
     .line 294
-    .local v1, status:I
+    .local v1, "status":I
     if-nez v1, :cond_0
 
     .line 295
@@ -732,19 +731,19 @@
     move-result-object v0
 
     .line 296
-    .local v0, response:Landroid/os/Message;
+    .local v0, "response":Landroid/os/Message;
     iget v1, v0, Landroid/os/Message;->arg1:I
 
     .line 298
-    .end local v0           #response:Landroid/os/Message;
+    .end local v0    # "response":Landroid/os/Message;
     :cond_0
     return v1
 .end method
 
 .method public replyToMessage(Landroid/os/Message;I)V
     .locals 1
-    .parameter "srcMsg"
-    .parameter "what"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "what"    # I
 
     .prologue
     .line 579
@@ -753,7 +752,7 @@
     move-result-object v0
 
     .line 580
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 581
@@ -765,9 +764,9 @@
 
 .method public replyToMessage(Landroid/os/Message;II)V
     .locals 1
-    .parameter "srcMsg"
-    .parameter "what"
-    .parameter "arg1"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "what"    # I
+    .param p3, "arg1"    # I
 
     .prologue
     .line 592
@@ -776,7 +775,7 @@
     move-result-object v0
 
     .line 593
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 594
@@ -791,10 +790,10 @@
 
 .method public replyToMessage(Landroid/os/Message;III)V
     .locals 1
-    .parameter "srcMsg"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "what"    # I
+    .param p3, "arg1"    # I
+    .param p4, "arg2"    # I
 
     .prologue
     .line 607
@@ -803,7 +802,7 @@
     move-result-object v0
 
     .line 608
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 609
@@ -821,11 +820,11 @@
 
 .method public replyToMessage(Landroid/os/Message;IIILjava/lang/Object;)V
     .locals 1
-    .parameter "srcMsg"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "what"    # I
+    .param p3, "arg1"    # I
+    .param p4, "arg2"    # I
+    .param p5, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 624
@@ -834,7 +833,7 @@
     move-result-object v0
 
     .line 625
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 626
@@ -855,9 +854,9 @@
 
 .method public replyToMessage(Landroid/os/Message;ILjava/lang/Object;)V
     .locals 1
-    .parameter "srcMsg"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 640
@@ -866,7 +865,7 @@
     move-result-object v0
 
     .line 641
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 642
@@ -881,8 +880,8 @@
 
 .method public replyToMessage(Landroid/os/Message;Landroid/os/Message;)V
     .locals 3
-    .parameter "srcMsg"
-    .parameter "dstMsg"
+    .param p1, "srcMsg"    # Landroid/os/Message;
+    .param p2, "dstMsg"    # Landroid/os/Message;
 
     .prologue
     .line 564
@@ -907,7 +906,7 @@
     move-exception v0
 
     .line 567
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -936,7 +935,7 @@
 
 .method public sendMessage(I)V
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 493
@@ -945,7 +944,7 @@
     move-result-object v0
 
     .line 494
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 495
@@ -957,8 +956,8 @@
 
 .method public sendMessage(II)V
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
 
     .prologue
     .line 505
@@ -967,7 +966,7 @@
     move-result-object v0
 
     .line 506
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 507
@@ -982,9 +981,9 @@
 
 .method public sendMessage(III)V
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 519
@@ -993,7 +992,7 @@
     move-result-object v0
 
     .line 520
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 521
@@ -1011,10 +1010,10 @@
 
 .method public sendMessage(IIILjava/lang/Object;)V
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 535
@@ -1023,7 +1022,7 @@
     move-result-object v0
 
     .line 536
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 537
@@ -1044,8 +1043,8 @@
 
 .method public sendMessage(ILjava/lang/Object;)V
     .locals 1
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 550
@@ -1054,7 +1053,7 @@
     move-result-object v0
 
     .line 551
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 552
@@ -1069,7 +1068,7 @@
 
 .method public sendMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 479
@@ -1094,7 +1093,7 @@
     move-exception v0
 
     .line 483
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x2
 
     invoke-direct {p0, v1}, Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
@@ -1104,7 +1103,7 @@
 
 .method public sendMessageSynchronously(I)Landroid/os/Message;
     .locals 2
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 664
@@ -1113,7 +1112,7 @@
     move-result-object v0
 
     .line 665
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 666
@@ -1122,14 +1121,14 @@
     move-result-object v1
 
     .line 667
-    .local v1, resultMsg:Landroid/os/Message;
+    .local v1, "resultMsg":Landroid/os/Message;
     return-object v1
 .end method
 
 .method public sendMessageSynchronously(II)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
 
     .prologue
     .line 678
@@ -1138,7 +1137,7 @@
     move-result-object v0
 
     .line 679
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 680
@@ -1150,15 +1149,15 @@
     move-result-object v1
 
     .line 682
-    .local v1, resultMsg:Landroid/os/Message;
+    .local v1, "resultMsg":Landroid/os/Message;
     return-object v1
 .end method
 
 .method public sendMessageSynchronously(III)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 694
@@ -1167,7 +1166,7 @@
     move-result-object v0
 
     .line 695
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 696
@@ -1182,16 +1181,16 @@
     move-result-object v1
 
     .line 699
-    .local v1, resultMsg:Landroid/os/Message;
+    .local v1, "resultMsg":Landroid/os/Message;
     return-object v1
 .end method
 
 .method public sendMessageSynchronously(IIILjava/lang/Object;)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 712
@@ -1200,7 +1199,7 @@
     move-result-object v0
 
     .line 713
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 714
@@ -1218,14 +1217,14 @@
     move-result-object v1
 
     .line 718
-    .local v1, resultMsg:Landroid/os/Message;
+    .local v1, "resultMsg":Landroid/os/Message;
     return-object v1
 .end method
 
 .method public sendMessageSynchronously(ILjava/lang/Object;)Landroid/os/Message;
     .locals 2
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 729
@@ -1234,7 +1233,7 @@
     move-result-object v0
 
     .line 730
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 731
@@ -1246,24 +1245,24 @@
     move-result-object v1
 
     .line 733
-    .local v1, resultMsg:Landroid/os/Message;
+    .local v1, "resultMsg":Landroid/os/Message;
     return-object v1
 .end method
 
 .method public sendMessageSynchronously(Landroid/os/Message;)Landroid/os/Message;
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 653
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel;->mDstMessenger:Landroid/os/Messenger;
 
-    #calls: Lcom/android/internal/util/AsyncChannel$SyncMessenger;->sendMessageSynchronously(Landroid/os/Messenger;Landroid/os/Message;)Landroid/os/Message;
+    # invokes: Lcom/android/internal/util/AsyncChannel$SyncMessenger;->sendMessageSynchronously(Landroid/os/Messenger;Landroid/os/Message;)Landroid/os/Message;
     invoke-static {v1, p1}, Lcom/android/internal/util/AsyncChannel$SyncMessenger;->access$100(Landroid/os/Messenger;Landroid/os/Message;)Landroid/os/Message;
 
     move-result-object v0
 
     .line 654
-    .local v0, resultMsg:Landroid/os/Message;
+    .local v0, "resultMsg":Landroid/os/Message;
     return-object v0
 .end method

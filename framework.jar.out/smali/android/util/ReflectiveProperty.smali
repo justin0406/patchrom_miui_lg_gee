@@ -36,9 +36,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V
     .locals 15
-    .parameter
-    .parameter
-    .parameter "name"
+    .param p3, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,9 +51,9 @@
 
     .prologue
     .line 47
-    .local p0, this:Landroid/util/ReflectiveProperty;,"Landroid/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, propertyHolder:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
-    .local p2, valueType:Ljava/lang/Class;,"Ljava/lang/Class<TV;>;"
+    .local p0, "this":Landroid/util/ReflectiveProperty;, "Landroid/util/ReflectiveProperty<TT;TV;>;"
+    .local p1, "propertyHolder":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p2, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     move-object/from16 v0, p2
 
     move-object/from16 v1, p3
@@ -76,7 +74,7 @@
     move-result v7
 
     .line 49
-    .local v7, firstLetter:C
+    .local v7, "firstLetter":C
     const/4 v12, 0x1
 
     move-object/from16 v0, p3
@@ -86,7 +84,7 @@
     move-result-object v11
 
     .line 50
-    .local v11, theRest:Ljava/lang/String;
+    .local v11, "theRest":Ljava/lang/String;
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -104,7 +102,7 @@
     move-result-object v2
 
     .line 51
-    .local v2, capitalizedName:Ljava/lang/String;
+    .local v2, "capitalizedName":Ljava/lang/String;
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -124,7 +122,7 @@
     move-result-object v8
 
     .line 53
-    .local v8, getterName:Ljava/lang/String;
+    .local v8, "getterName":Ljava/lang/String;
     const/4 v12, 0x0
 
     :try_start_0
@@ -149,7 +147,7 @@
     move-result-object v9
 
     .line 78
-    .local v9, getterType:Ljava/lang/Class;
+    .local v9, "getterType":Ljava/lang/Class;
     move-object/from16 v0, p2
 
     invoke-direct {p0, v0, v9}, Landroid/util/ReflectiveProperty;->typesMatch(Ljava/lang/Class;Ljava/lang/Class;)Z
@@ -208,12 +206,12 @@
     throw v12
 
     .line 54
-    .end local v9           #getterType:Ljava/lang/Class;
+    .end local v9    # "getterType":Ljava/lang/Class;
     :catch_0
     move-exception v3
 
     .line 56
-    .local v3, e:Ljava/lang/NoSuchMethodException;
+    .local v3, "e":Ljava/lang/NoSuchMethodException;
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -255,7 +253,7 @@
     move-exception v4
 
     .line 62
-    .local v4, e1:Ljava/lang/NoSuchMethodException;
+    .local v4, "e1":Ljava/lang/NoSuchMethodException;
     :try_start_2
     move-object/from16 v0, p1
 
@@ -275,7 +273,7 @@
     move-result-object v6
 
     .line 64
-    .local v6, fieldType:Ljava/lang/Class;
+    .local v6, "fieldType":Ljava/lang/Class;
     move-object/from16 v0, p2
 
     invoke-direct {p0, v0, v6}, Landroid/util/ReflectiveProperty;->typesMatch(Ljava/lang/Class;Ljava/lang/Class;)Z
@@ -336,12 +334,12 @@
     .catch Ljava/lang/NoSuchFieldException; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 69
-    .end local v6           #fieldType:Ljava/lang/Class;
+    .end local v6    # "fieldType":Ljava/lang/Class;
     :catch_2
     move-exception v5
 
     .line 71
-    .local v5, e2:Ljava/lang/NoSuchFieldException;
+    .local v5, "e2":Ljava/lang/NoSuchFieldException;
     new-instance v12, Landroid/util/NoSuchPropertyException;
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -369,10 +367,10 @@
     throw v12
 
     .line 82
-    .end local v3           #e:Ljava/lang/NoSuchMethodException;
-    .end local v4           #e1:Ljava/lang/NoSuchMethodException;
-    .end local v5           #e2:Ljava/lang/NoSuchFieldException;
-    .restart local v9       #getterType:Ljava/lang/Class;
+    .end local v3    # "e":Ljava/lang/NoSuchMethodException;
+    .end local v4    # "e1":Ljava/lang/NoSuchMethodException;
+    .end local v5    # "e2":Ljava/lang/NoSuchFieldException;
+    .restart local v9    # "getterType":Ljava/lang/Class;
     :cond_0
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -393,7 +391,7 @@
     move-result-object v10
 
     .line 84
-    .local v10, setterName:Ljava/lang/String;
+    .local v10, "setterName":Ljava/lang/String;
     const/4 v12, 0x1
 
     :try_start_3
@@ -414,15 +412,15 @@
     .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_3} :catch_3
 
     .line 88
-    .end local v9           #getterType:Ljava/lang/Class;
-    .end local v10           #setterName:Ljava/lang/String;
+    .end local v9    # "getterType":Ljava/lang/Class;
+    .end local v10    # "setterName":Ljava/lang/String;
     :cond_1
     :goto_1
     return-void
 
     .line 85
-    .restart local v9       #getterType:Ljava/lang/Class;
-    .restart local v10       #setterName:Ljava/lang/String;
+    .restart local v9    # "getterType":Ljava/lang/Class;
+    .restart local v10    # "setterName":Ljava/lang/String;
     :catch_3
     move-exception v12
 
@@ -431,8 +429,7 @@
 
 .method private typesMatch(Ljava/lang/Class;Ljava/lang/Class;)Z
     .locals 3
-    .parameter
-    .parameter "getterType"
+    .param p2, "getterType"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -444,8 +441,8 @@
     .end annotation
 
     .prologue
-    .local p0, this:Landroid/util/ReflectiveProperty;,"Landroid/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, valueType:Ljava/lang/Class;,"Ljava/lang/Class<TV;>;"
+    .local p0, "this":Landroid/util/ReflectiveProperty;, "Landroid/util/ReflectiveProperty<TT;TV;>;"
+    .local p1, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     const/4 v1, 0x1
 
     const/4 v0, 0x0
@@ -550,7 +547,6 @@
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TV;"
@@ -559,8 +555,8 @@
 
     .prologue
     .line 137
-    .local p0, this:Landroid/util/ReflectiveProperty;,"Landroid/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, object:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/util/ReflectiveProperty;, "Landroid/util/ReflectiveProperty<TT;TV;>;"
+    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Landroid/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -589,7 +585,7 @@
     move-exception v0
 
     .line 141
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -597,12 +593,12 @@
     throw v1
 
     .line 142
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
     .line 143
-    .local v0, e:Ljava/lang/reflect/InvocationTargetException;
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
@@ -614,7 +610,7 @@
     throw v1
 
     .line 145
-    .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
+    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :cond_0
     iget-object v1, p0, Landroid/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
@@ -637,7 +633,7 @@
     move-exception v0
 
     .line 149
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -645,7 +641,7 @@
     throw v1
 
     .line 153
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_1
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -659,7 +655,7 @@
 
     .prologue
     .line 161
-    .local p0, this:Landroid/util/ReflectiveProperty;,"Landroid/util/ReflectiveProperty<TT;TV;>;"
+    .local p0, "this":Landroid/util/ReflectiveProperty;, "Landroid/util/ReflectiveProperty<TT;TV;>;"
     iget-object v0, p0, Landroid/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
     if-nez v0, :cond_0
@@ -681,8 +677,6 @@
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 4
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TV;)V"
@@ -691,9 +685,9 @@
 
     .prologue
     .line 116
-    .local p0, this:Landroid/util/ReflectiveProperty;,"Landroid/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, object:Ljava/lang/Object;,"TT;"
-    .local p2, value:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/util/ReflectiveProperty;, "Landroid/util/ReflectiveProperty<TT;TV;>;"
+    .local p1, "object":Ljava/lang/Object;, "TT;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Landroid/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -724,7 +718,7 @@
     move-exception v0
 
     .line 120
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -732,12 +726,12 @@
     throw v1
 
     .line 121
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
     .line 122
-    .local v0, e:Ljava/lang/reflect/InvocationTargetException;
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
@@ -749,7 +743,7 @@
     throw v1
 
     .line 124
-    .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
+    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :cond_0
     iget-object v1, p0, Landroid/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
@@ -770,7 +764,7 @@
     move-exception v0
 
     .line 128
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -778,7 +772,7 @@
     throw v1
 
     .line 131
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_1
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 

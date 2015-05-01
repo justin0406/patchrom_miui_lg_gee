@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Landroid/view/Display;Landroid/view/SurfaceSession;)V
     .locals 8
-    .parameter "display"
-    .parameter "session"
+    .param p1, "display"    # Landroid/view/Display;
+    .param p2, "session"    # Landroid/view/SurfaceSession;
 
     .prologue
     .line 47
@@ -65,7 +65,7 @@
     const/4 v7, 0x0
 
     .line 54
-    .local v7, ctrl:Landroid/view/SurfaceControl;
+    .local v7, "ctrl":Landroid/view/SurfaceControl;
     :try_start_0
     new-instance v0, Landroid/view/SurfaceControl;
 
@@ -86,8 +86,8 @@
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 57
-    .end local v7           #ctrl:Landroid/view/SurfaceControl;
-    .local v0, ctrl:Landroid/view/SurfaceControl;
+    .end local v7    # "ctrl":Landroid/view/SurfaceControl;
+    .local v0, "ctrl":Landroid/view/SurfaceControl;
     :try_start_1
     invoke-virtual {p1}, Landroid/view/Display;->getLayerStack()I
 
@@ -96,7 +96,7 @@
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setLayerStack(I)V
 
     .line 58
-    const v1, 0x3e99999a
+    const v1, 0x3e99999a    # 0.3f
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setAlpha(F)V
 
@@ -115,15 +115,15 @@
     return-void
 
     .line 60
-    .end local v0           #ctrl:Landroid/view/SurfaceControl;
-    .restart local v7       #ctrl:Landroid/view/SurfaceControl;
+    .end local v0    # "ctrl":Landroid/view/SurfaceControl;
+    .restart local v7    # "ctrl":Landroid/view/SurfaceControl;
     :catch_0
     move-exception v1
 
     move-object v0, v7
 
-    .end local v7           #ctrl:Landroid/view/SurfaceControl;
-    .restart local v0       #ctrl:Landroid/view/SurfaceControl;
+    .end local v7    # "ctrl":Landroid/view/SurfaceControl;
+    .restart local v0    # "ctrl":Landroid/view/SurfaceControl;
     goto :goto_0
 
     :catch_1
@@ -134,8 +134,8 @@
 
 .method private draw(Landroid/graphics/Rect;I)V
     .locals 8
-    .parameter "bounds"
-    .parameter "color"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
+    .param p2, "color"    # I
 
     .prologue
     const/16 v7, 0xa
@@ -151,7 +151,7 @@
     const/4 v0, 0x0
 
     .line 71
-    .local v0, c:Landroid/graphics/Canvas;
+    .local v0, "c":Landroid/graphics/Canvas;
     :try_start_0
     iget-object v3, p0, Lcom/android/server/wm/FocusedStackFrame;->mSurface:Landroid/view/Surface;
 
@@ -179,13 +179,13 @@
     move-result v2
 
     .line 80
-    .local v2, w:I
+    .local v2, "w":I
     invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
     move-result v1
 
     .line 83
-    .local v1, h:I
+    .local v1, "h":I
     iget-object v3, p0, Lcom/android/server/wm/FocusedStackFrame;->mTmpDrawRect:Landroid/graphics/Rect;
 
     invoke-virtual {v3, v6, v6, v2, v7}, Landroid/graphics/Rect;->set(IIII)V
@@ -261,8 +261,8 @@
     goto :goto_1
 
     .line 73
-    .end local v1           #h:I
-    .end local v2           #w:I
+    .end local v1    # "h":I
+    .end local v2    # "w":I
     :catch_0
     move-exception v3
 
@@ -277,7 +277,7 @@
 
 .method private positionSurface(Landroid/graphics/Rect;)V
     .locals 3
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 104
@@ -314,7 +314,7 @@
 # virtual methods
 .method public setBounds(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 136
@@ -328,7 +328,7 @@
 
 .method public setLayer(I)V
     .locals 1
-    .parameter "layer"
+    .param p1, "layer"    # I
 
     .prologue
     .line 140
@@ -342,7 +342,7 @@
 
 .method public setVisibility(Z)V
     .locals 2
-    .parameter "on"
+    .param p1, "on"    # Z
 
     .prologue
     .line 114

@@ -80,7 +80,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -234,8 +234,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/SyncResult$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/SyncResult$1;
 
     .prologue
     .line 28
@@ -246,7 +246,7 @@
 
 .method private constructor <init>(Z)V
     .locals 2
-    .parameter "syncAlreadyInProgress"
+    .param p1, "syncAlreadyInProgress"    # Z
 
     .prologue
     const/4 v0, 0x0
@@ -528,7 +528,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 287
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     iget-boolean v1, p0, Landroid/content/SyncResult;->fullSyncRequested:Z
 
     if-eqz v1, :cond_0
@@ -730,7 +730,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 257
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "SyncResult:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -884,8 +884,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

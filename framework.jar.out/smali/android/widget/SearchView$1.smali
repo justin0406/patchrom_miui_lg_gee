@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 139
@@ -57,7 +56,7 @@
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
     .line 144
-    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
+    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
     .line 145

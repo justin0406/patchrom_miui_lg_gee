@@ -58,7 +58,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 49
@@ -91,8 +91,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/hardware/input/KeyboardLayout$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/hardware/input/KeyboardLayout$1;
 
     .prologue
     .line 27
@@ -103,9 +103,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "descriptor"
-    .parameter "label"
-    .parameter "collection"
+    .param p1, "descriptor"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/String;
+    .param p3, "collection"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -128,7 +128,7 @@
 # virtual methods
 .method public compareTo(Landroid/hardware/input/KeyboardLayout;)I
     .locals 3
-    .parameter "another"
+    .param p1, "another"    # Landroid/hardware/input/KeyboardLayout;
 
     .prologue
     .line 97
@@ -141,7 +141,7 @@
     move-result v0
 
     .line 98
-    .local v0, result:I
+    .local v0, "result":I
     if-nez v0, :cond_0
 
     .line 99
@@ -160,13 +160,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 27
     check-cast p1, Landroid/hardware/input/KeyboardLayout;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/hardware/input/KeyboardLayout;->compareTo(Landroid/hardware/input/KeyboardLayout;)I
 
     move-result v0
@@ -266,8 +266,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 90

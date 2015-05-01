@@ -69,20 +69,20 @@
     .line 50
     sget-object v0, Lcom/android/internal/policy/impl/Policy;->preload_classes:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v4, v0, v2
 
     .line 52
-    .local v4, s:Ljava/lang/String;
+    .local v4, "s":Ljava/lang/String;
     :try_start_0
     invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_0
@@ -99,7 +99,7 @@
     move-exception v1
 
     .line 54
-    .local v1, ex:Ljava/lang/ClassNotFoundException;
+    .local v1, "ex":Ljava/lang/ClassNotFoundException;
     const-string v5, "PhonePolicy"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -125,8 +125,8 @@
     goto :goto_1
 
     .line 57
-    .end local v1           #ex:Ljava/lang/ClassNotFoundException;
-    .end local v4           #s:Ljava/lang/String;
+    .end local v1    # "ex":Ljava/lang/ClassNotFoundException;
+    .end local v4    # "s":Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -145,37 +145,38 @@
 # virtual methods
 .method public makeNewFallbackEventHandler(Landroid/content/Context;)Landroid/view/FallbackEventHandler;
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;
+    .line 72
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;
 
-    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public makeNewLayoutInflater(Landroid/content/Context;)Landroid/view/LayoutInflater;
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneLayoutInflater;
+    .line 64
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneLayoutInflater;
 
-    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneLayoutInflater;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneLayoutInflater;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public makeNewWindow(Landroid/content/Context;)Landroid/view/Window;
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 60
-    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow;
+    new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneWindow;
 
-    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneWindow;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneWindow;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method

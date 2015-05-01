@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 95
@@ -64,7 +64,7 @@
 
 .method public setEncryptionRequired(Z)Landroid/security/KeyStoreParameter$Builder;
     .locals 1
-    .parameter "required"
+    .param p1, "required"    # Z
 
     .prologue
     .line 110

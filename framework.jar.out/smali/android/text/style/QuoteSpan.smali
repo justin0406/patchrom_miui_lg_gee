@@ -3,8 +3,8 @@
 .source "QuoteSpan.java"
 
 # interfaces
-.implements Landroid/text/style/LeadingMarginSpan;
 .implements Landroid/text/ParcelableSpan;
+.implements Landroid/text/style/LeadingMarginSpan;
 
 
 # static fields
@@ -36,7 +36,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 38
@@ -51,7 +51,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 42
@@ -82,18 +82,18 @@
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
     .locals 8
-    .parameter "c"
-    .parameter "p"
-    .parameter "x"
-    .parameter "dir"
-    .parameter "top"
-    .parameter "baseline"
-    .parameter "bottom"
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "first"
-    .parameter "layout"
+    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p2, "p"    # Landroid/graphics/Paint;
+    .param p3, "x"    # I
+    .param p4, "dir"    # I
+    .param p5, "top"    # I
+    .param p6, "baseline"    # I
+    .param p7, "bottom"    # I
+    .param p8, "text"    # Ljava/lang/CharSequence;
+    .param p9, "start"    # I
+    .param p10, "end"    # I
+    .param p11, "first"    # Z
+    .param p12, "layout"    # Landroid/text/Layout;
 
     .prologue
     .line 70
@@ -102,13 +102,13 @@
     move-result-object v7
 
     .line 71
-    .local v7, style:Landroid/graphics/Paint$Style;
+    .local v7, "style":Landroid/graphics/Paint$Style;
     invoke-virtual {p2}, Landroid/graphics/Paint;->getColor()I
 
     move-result v6
 
     .line 73
-    .local v6, color:I
+    .local v6, "color":I
     sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -159,7 +159,7 @@
 
 .method public getLeadingMargin(Z)I
     .locals 1
-    .parameter "first"
+    .param p1, "first"    # Z
 
     .prologue
     .line 63
@@ -180,8 +180,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 55

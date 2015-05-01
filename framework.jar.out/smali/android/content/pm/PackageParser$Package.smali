@@ -284,7 +284,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "_name"
+    .param p1, "_name"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -427,7 +427,7 @@
 # virtual methods
 .method public hasComponentClassName(Ljava/lang/String;)Z
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x1
@@ -441,7 +441,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -647,7 +647,7 @@
 
 .method public setPackageName(Ljava/lang/String;)V
     .locals 2
-    .parameter "newName"
+    .param p1, "newName"    # Ljava/lang/String;
 
     .prologue
     .line 3560
@@ -667,7 +667,7 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 

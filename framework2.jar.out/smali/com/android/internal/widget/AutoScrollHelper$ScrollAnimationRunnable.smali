@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/widget/AutoScrollHelper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 683
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/AutoScrollHelper;Lcom/android/internal/widget/AutoScrollHelper$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/widget/AutoScrollHelper;
+    .param p2, "x1"    # Lcom/android/internal/widget/AutoScrollHelper$1;
 
     .prologue
     .line 683
@@ -58,7 +57,7 @@
     .line 686
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mAnimating:Z
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mAnimating:Z
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$100(Lcom/android/internal/widget/AutoScrollHelper;)Z
 
     move-result v3
@@ -73,7 +72,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsReset:Z
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsReset:Z
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$200(Lcom/android/internal/widget/AutoScrollHelper;)Z
 
     move-result v3
@@ -83,13 +82,13 @@
     .line 691
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #setter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsReset:Z
+    # setter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsReset:Z
     invoke-static {v3, v4}, Lcom/android/internal/widget/AutoScrollHelper;->access$202(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
 
     .line 692
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$300(Lcom/android/internal/widget/AutoScrollHelper;)Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
 
     move-result-object v3
@@ -100,13 +99,13 @@
     :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mScroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$300(Lcom/android/internal/widget/AutoScrollHelper;)Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
 
     move-result-object v2
 
     .line 696
-    .local v2, scroller:Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
+    .local v2, "scroller":Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;
     invoke-virtual {v2}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->isFinished()Z
 
     move-result v3
@@ -115,7 +114,7 @@
 
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #calls: Lcom/android/internal/widget/AutoScrollHelper;->shouldAnimate()Z
+    # invokes: Lcom/android/internal/widget/AutoScrollHelper;->shouldAnimate()Z
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$400(Lcom/android/internal/widget/AutoScrollHelper;)Z
 
     move-result v3
@@ -126,7 +125,7 @@
     :cond_2
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #setter for: Lcom/android/internal/widget/AutoScrollHelper;->mAnimating:Z
+    # setter for: Lcom/android/internal/widget/AutoScrollHelper;->mAnimating:Z
     invoke-static {v3, v4}, Lcom/android/internal/widget/AutoScrollHelper;->access$102(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
 
     goto :goto_0
@@ -135,7 +134,7 @@
     :cond_3
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsCancel:Z
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsCancel:Z
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$500(Lcom/android/internal/widget/AutoScrollHelper;)Z
 
     move-result v3
@@ -145,13 +144,13 @@
     .line 702
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #setter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsCancel:Z
+    # setter for: Lcom/android/internal/widget/AutoScrollHelper;->mNeedsCancel:Z
     invoke-static {v3, v4}, Lcom/android/internal/widget/AutoScrollHelper;->access$502(Lcom/android/internal/widget/AutoScrollHelper;Z)Z
 
     .line 703
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #calls: Lcom/android/internal/widget/AutoScrollHelper;->cancelTargetTouch()V
+    # invokes: Lcom/android/internal/widget/AutoScrollHelper;->cancelTargetTouch()V
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$600(Lcom/android/internal/widget/AutoScrollHelper;)V
 
     .line 706
@@ -164,13 +163,13 @@
     move-result v0
 
     .line 709
-    .local v0, deltaX:I
+    .local v0, "deltaX":I
     invoke-virtual {v2}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->getDeltaY()I
 
     move-result v1
 
     .line 710
-    .local v1, deltaY:I
+    .local v1, "deltaY":I
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/widget/AutoScrollHelper;->scrollTargetBy(II)V
@@ -178,7 +177,7 @@
     .line 713
     iget-object v3, p0, Lcom/android/internal/widget/AutoScrollHelper$ScrollAnimationRunnable;->this$0:Lcom/android/internal/widget/AutoScrollHelper;
 
-    #getter for: Lcom/android/internal/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
+    # getter for: Lcom/android/internal/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
     invoke-static {v3}, Lcom/android/internal/widget/AutoScrollHelper;->access$700(Lcom/android/internal/widget/AutoScrollHelper;)Landroid/view/View;
 
     move-result-object v3

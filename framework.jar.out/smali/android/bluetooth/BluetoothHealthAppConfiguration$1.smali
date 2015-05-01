@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/BluetoothHealthAppConfiguration;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 145
@@ -51,25 +51,25 @@
     move-result-object v1
 
     .line 146
-    .local v1, name:Ljava/lang/String;
+    .local v1, "name":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 147
-    .local v3, type:I
+    .local v3, "type":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 148
-    .local v2, role:I
+    .local v2, "role":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     .line 149
-    .local v0, channelType:I
+    .local v0, "channelType":I
     new-instance v4, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
     invoke-direct {v4, v1, v3, v2, v0}, Landroid/bluetooth/BluetoothHealthAppConfiguration;-><init>(Ljava/lang/String;III)V
@@ -79,7 +79,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 142
@@ -92,7 +92,7 @@
 
 .method public newArray(I)[Landroid/bluetooth/BluetoothHealthAppConfiguration;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 155
@@ -103,7 +103,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 142

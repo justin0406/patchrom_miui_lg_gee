@@ -16,7 +16,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -63,7 +63,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "classInt"
+    .param p1, "classInt"    # I
 
     .prologue
     .line 61
@@ -90,10 +90,10 @@
 
 .method public doesClassMatch(I)Z
     .locals 4
-    .parameter "profile"
+    .param p1, "profile"    # I
 
     .prologue
-    const/high16 v2, 0x4
+    const/high16 v2, 0x40000
 
     const/4 v1, 0x0
 
@@ -158,7 +158,7 @@
     if-ne p1, v2, :cond_4
 
     .line 329
-    const/high16 v2, 0x10
+    const/high16 v2, 0x100000
 
     invoke-virtual {p0, v2}, Landroid/bluetooth/BluetoothClass;->hasService(I)Z
 
@@ -211,7 +211,7 @@
 
     .line 355
     :cond_6
-    const/high16 v2, 0x2
+    const/high16 v2, 0x20000
 
     invoke-virtual {p0, v2}, Landroid/bluetooth/BluetoothClass;->hasService(I)Z
 
@@ -278,7 +278,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v0, 0x0
@@ -293,7 +293,7 @@
 
     check-cast p1, Landroid/bluetooth/BluetoothClass;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     iget v2, p1, Landroid/bluetooth/BluetoothClass;->mClass:I
 
     if-ne v1, v2, :cond_0
@@ -331,7 +331,7 @@
 
 .method public hasService(I)Z
     .locals 2
-    .parameter "service"
+    .param p1, "service"    # I
 
     .prologue
     .line 130
@@ -382,8 +382,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 98

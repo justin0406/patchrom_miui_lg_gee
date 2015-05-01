@@ -33,7 +33,7 @@
 
 .method static parseValue(Landroid/util/TypedValue;)Landroid/view/animation/Animation$Description;
     .locals 6
-    .parameter "value"
+    .param p0, "value"    # Landroid/util/TypedValue;
 
     .prologue
     const/4 v1, 0x1
@@ -48,7 +48,7 @@
     invoke-direct {v0}, Landroid/view/animation/Animation$Description;-><init>()V
 
     .line 1099
-    .local v0, d:Landroid/view/animation/Animation$Description;
+    .local v0, "d":Landroid/view/animation/Animation$Description;
     if-nez p0, :cond_1
 
     .line 1100

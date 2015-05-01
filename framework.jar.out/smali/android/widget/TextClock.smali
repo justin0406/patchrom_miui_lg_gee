@@ -62,7 +62,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 174
@@ -102,8 +102,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 191
@@ -117,9 +117,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -160,7 +160,7 @@
     move-result-object v0
 
     .line 211
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
     :try_start_0
@@ -210,9 +210,9 @@
 
 .method private static abc(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 0
-    .parameter "a"
-    .parameter "b"
-    .parameter "c"
+    .param p0, "a"    # Ljava/lang/CharSequence;
+    .param p1, "b"    # Ljava/lang/CharSequence;
+    .param p2, "c"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 450
@@ -220,11 +220,11 @@
 
     if-nez p1, :cond_0
 
-    .end local p2
+    .end local p2    # "c":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
-    .restart local p2
+    .restart local p2    # "c":Ljava/lang/CharSequence;
     :cond_0
     move-object p2, p1
 
@@ -238,7 +238,7 @@
 
 .method static synthetic access$000(Landroid/widget/TextClock;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TextClock;
 
     .prologue
     .line 87
@@ -249,7 +249,7 @@
 
 .method static synthetic access$100(Landroid/widget/TextClock;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TextClock;
 
     .prologue
     .line 87
@@ -260,7 +260,7 @@
 
 .method static synthetic access$200(Landroid/widget/TextClock;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TextClock;
 
     .prologue
     .line 87
@@ -271,8 +271,8 @@
 
 .method static synthetic access$300(Landroid/widget/TextClock;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/TextClock;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 87
@@ -283,7 +283,7 @@
 
 .method static synthetic access$400(Landroid/widget/TextClock;)Ljava/lang/Runnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TextClock;
 
     .prologue
     .line 87
@@ -307,7 +307,7 @@
 
 .method private chooseFormat(Z)V
     .locals 6
-    .parameter "handleTicker"
+    .param p1, "handleTicker"    # Z
 
     .prologue
     .line 427
@@ -316,7 +316,7 @@
     move-result v0
 
     .line 429
-    .local v0, format24Requested:Z
+    .local v0, "format24Requested":Z
     invoke-virtual {p0}, Landroid/widget/TextClock;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -336,7 +336,7 @@
     move-result-object v2
 
     .line 431
-    .local v2, ld:Llibcore/icu/LocaleData;
+    .local v2, "ld":Llibcore/icu/LocaleData;
     if-eqz v0, :cond_1
 
     .line 432
@@ -357,7 +357,7 @@
     iget-boolean v1, p0, Landroid/widget/TextClock;->mHasSeconds:Z
 
     .line 438
-    .local v1, hadSeconds:Z
+    .local v1, "hadSeconds":Z
     iget-object v3, p0, Landroid/widget/TextClock;->mFormat:Ljava/lang/CharSequence;
 
     invoke-static {v3}, Landroid/text/format/DateFormat;->hasSeconds(Ljava/lang/CharSequence;)Z
@@ -394,7 +394,7 @@
     return-void
 
     .line 434
-    .end local v1           #hadSeconds:Z
+    .end local v1    # "hadSeconds":Z
     :cond_1
     iget-object v3, p0, Landroid/widget/TextClock;->mFormat12:Ljava/lang/CharSequence;
 
@@ -411,7 +411,7 @@
     goto :goto_0
 
     .line 442
-    .restart local v1       #hadSeconds:Z
+    .restart local v1    # "hadSeconds":Z
     :cond_2
     iget-object v3, p0, Landroid/widget/TextClock;->mTicker:Ljava/lang/Runnable;
 
@@ -422,7 +422,7 @@
 
 .method private createTime(Ljava/lang/String;)V
     .locals 1
-    .parameter "timeZone"
+    .param p1, "timeZone"    # Ljava/lang/String;
 
     .prologue
     .line 238
@@ -488,7 +488,7 @@
     move-result-object v0
 
     .line 224
-    .local v0, ld:Llibcore/icu/LocaleData;
+    .local v0, "ld":Llibcore/icu/LocaleData;
     iget-object v1, p0, Landroid/widget/TextClock;->mFormat12:Ljava/lang/CharSequence;
 
     if-nez v1, :cond_1
@@ -510,7 +510,7 @@
     iput-object v1, p0, Landroid/widget/TextClock;->mFormat24:Ljava/lang/CharSequence;
 
     .line 232
-    .end local v0           #ld:Llibcore/icu/LocaleData;
+    .end local v0    # "ld":Llibcore/icu/LocaleData;
     :cond_2
     iget-object v1, p0, Landroid/widget/TextClock;->mTimeZone:Ljava/lang/String;
 
@@ -567,7 +567,7 @@
     move-result-object v0
 
     .line 499
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     sget-object v1, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v2, 0x1
@@ -590,7 +590,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 490
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -638,7 +638,7 @@
     move-result-object v0
 
     .line 508
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v1, p0, Landroid/widget/TextClock;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
@@ -815,7 +815,7 @@
 
 .method public setFormat12Hour(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "format"
+    .param p1, "format"    # Ljava/lang/CharSequence;
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -835,7 +835,7 @@
 
 .method public setFormat24Hour(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "format"
+    .param p1, "format"    # Ljava/lang/CharSequence;
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -855,7 +855,7 @@
 
 .method public setTimeZone(Ljava/lang/String;)V
     .locals 0
-    .parameter "timeZone"
+    .param p1, "timeZone"    # Ljava/lang/String;
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 

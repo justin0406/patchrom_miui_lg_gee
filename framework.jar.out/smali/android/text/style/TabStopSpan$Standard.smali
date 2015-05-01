@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "where"
+    .param p1, "where"    # I
 
     .prologue
     .line 44

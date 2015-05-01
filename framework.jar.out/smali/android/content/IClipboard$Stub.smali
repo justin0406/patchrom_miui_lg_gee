@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/IClipboard;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/IClipboard;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Landroid/content/IClipboard$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/IClipboard$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -173,14 +173,14 @@
     check-cast v0, Landroid/content/ClipData;
 
     .line 61
-    .local v0, _arg0:Landroid/content/ClipData;
+    .local v0, "_arg0":Landroid/content/ClipData;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 62
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/content/IClipboard$Stub;->setPrimaryClip(Landroid/content/ClipData;Ljava/lang/String;)V
 
     .line 63
@@ -189,16 +189,16 @@
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:Landroid/content/ClipData;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Landroid/content/ClipData;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ClipData;
+    .restart local v0    # "_arg0":Landroid/content/ClipData;
     goto :goto_1
 
     .line 68
-    .end local v0           #_arg0:Landroid/content/ClipData;
+    .end local v0    # "_arg0":Landroid/content/ClipData;
     :sswitch_2
     const-string v5, "android.content.IClipboard"
 
@@ -210,13 +210,13 @@
     move-result-object v0
 
     .line 71
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->getPrimaryClip(Ljava/lang/String;)Landroid/content/ClipData;
 
     move-result-object v2
 
     .line 72
-    .local v2, _result:Landroid/content/ClipData;
+    .local v2, "_result":Landroid/content/ClipData;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 73
@@ -237,8 +237,8 @@
     goto :goto_0
 
     .line 84
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v2           #_result:Landroid/content/ClipData;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_result":Landroid/content/ClipData;
     :sswitch_3
     const-string v5, "android.content.IClipboard"
 
@@ -250,13 +250,13 @@
     move-result-object v0
 
     .line 87
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->getPrimaryClipDescription(Ljava/lang/String;)Landroid/content/ClipDescription;
 
     move-result-object v2
 
     .line 88
-    .local v2, _result:Landroid/content/ClipDescription;
+    .local v2, "_result":Landroid/content/ClipDescription;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 89
@@ -277,8 +277,8 @@
     goto :goto_0
 
     .line 100
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v2           #_result:Landroid/content/ClipDescription;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_result":Landroid/content/ClipDescription;
     :sswitch_4
     const-string v5, "android.content.IClipboard"
 
@@ -290,13 +290,13 @@
     move-result-object v0
 
     .line 103
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->hasPrimaryClip(Ljava/lang/String;)Z
 
     move-result v2
 
     .line 104
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 105
@@ -310,8 +310,8 @@
     goto :goto_0
 
     .line 110
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v2           #_result:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_result":Z
     :sswitch_5
     const-string v3, "android.content.IClipboard"
 
@@ -327,13 +327,13 @@
     move-result-object v0
 
     .line 114
-    .local v0, _arg0:Landroid/content/IOnPrimaryClipChangedListener;
+    .local v0, "_arg0":Landroid/content/IOnPrimaryClipChangedListener;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 115
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/content/IClipboard$Stub;->addPrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;Ljava/lang/String;)V
 
     .line 116
@@ -342,8 +342,8 @@
     goto/16 :goto_0
 
     .line 121
-    .end local v0           #_arg0:Landroid/content/IOnPrimaryClipChangedListener;
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":Landroid/content/IOnPrimaryClipChangedListener;
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_6
     const-string v3, "android.content.IClipboard"
 
@@ -359,7 +359,7 @@
     move-result-object v0
 
     .line 124
-    .restart local v0       #_arg0:Landroid/content/IOnPrimaryClipChangedListener;
+    .restart local v0    # "_arg0":Landroid/content/IOnPrimaryClipChangedListener;
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->removePrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;)V
 
     .line 125
@@ -368,7 +368,7 @@
     goto/16 :goto_0
 
     .line 130
-    .end local v0           #_arg0:Landroid/content/IOnPrimaryClipChangedListener;
+    .end local v0    # "_arg0":Landroid/content/IOnPrimaryClipChangedListener;
     :sswitch_7
     const-string v5, "android.content.IClipboard"
 
@@ -380,13 +380,13 @@
     move-result-object v0
 
     .line 133
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->hasClipboardText(Ljava/lang/String;)Z
 
     move-result v2
 
     .line 134
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 135

@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 713
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Handler;Landroid/os/Handler$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Handler;
+    .param p2, "x1"    # Landroid/os/Handler$1;
 
     .prologue
     .line 713
@@ -48,7 +47,7 @@
 # virtual methods
 .method public send(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 715

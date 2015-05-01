@@ -42,8 +42,8 @@
 
 .method public static set(Ljava/lang/Thread;Landroid/os/Looper;)V
     .locals 0
-    .parameter "thread"
-    .parameter "looper"
+    .param p0, "thread"    # Ljava/lang/Thread;
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 30

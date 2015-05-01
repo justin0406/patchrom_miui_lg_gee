@@ -16,8 +16,6 @@
 
 .field public static final ACTION_REQUEST_PERMISSION:Ljava/lang/String; = "android.content.pm.action.REQUEST_PERMISSION"
 
-.field public static final COMPONENT_ENABLED_STATE_ACCESS_CONTROL:I = -0x80000000
-
 .field public static final COMPONENT_ENABLED_STATE_DEFAULT:I = 0x0
 
 .field public static final COMPONENT_ENABLED_STATE_DISABLED:I = 0x2
@@ -26,11 +24,7 @@
 
 .field public static final COMPONENT_ENABLED_STATE_DISABLED_USER:I = 0x3
 
-.field public static final COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART:I = 0x40000000
-
 .field public static final COMPONENT_ENABLED_STATE_ENABLED:I = 0x1
-
-.field public static final COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW:I = 0x8000000
 
 .field public static final DELETE_ALL_USERS:I = 0x2
 
@@ -196,10 +190,6 @@
 
 .field public static final GET_URI_PERMISSION_PATTERNS:I = 0x800
 
-.field public static final HAS_ACTIVITY:I = 0x20000
-
-.field public static final HAS_ACTIVITY_OR_SERVICES:I = 0x40000
-
 .field public static final INSTALL_ALLOW_DOWNGRADE:I = 0x80
 
 .field public static final INSTALL_ALLOW_TEST:I = 0x4
@@ -213,8 +203,6 @@
 .field public static final INSTALL_FAILED_CONFLICTING_PROVIDER:I = -0xd
 
 .field public static final INSTALL_FAILED_CONTAINER_ERROR:I = -0x12
-
-.field public static final INSTALL_FAILED_CONTAIN_VIRUS:I = -0x19
 
 .field public static final INSTALL_FAILED_CPU_ABI_INCOMPATIBLE:I = -0x10
 
@@ -250,8 +238,6 @@
 
 .field public static final INSTALL_FAILED_SHARED_USER_INCOMPATIBLE:I = -0x8
 
-.field public static final INSTALL_FAILED_SYSTEM_INCOMPATIBLE:I = -0x1a
-
 .field public static final INSTALL_FAILED_TEST_ONLY:I = -0xf
 
 .field public static final INSTALL_FAILED_UID_CHANGED:I = -0x18
@@ -269,8 +255,6 @@
 .field public static final INSTALL_FORWARD_LOCK:I = 0x1
 
 .field public static final INSTALL_FROM_ADB:I = 0x20
-
-.field public static final INSTALL_FROM_XIAOMI:I = 0x100
 
 .field public static final INSTALL_INTERNAL:I = 0x10
 
@@ -359,8 +343,8 @@
 
 .method public static getDataDirForUser(ILjava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "userId"
-    .parameter "packageName"
+    .param p0, "userId"    # I
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 3218
@@ -427,11 +411,11 @@
 
 .method public addPreferredActivity(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;I)V
     .locals 2
-    .parameter "filter"
-    .parameter "match"
-    .parameter "set"
-    .parameter "activity"
-    .parameter "userId"
+    .param p1, "filter"    # Landroid/content/IntentFilter;
+    .param p2, "match"    # I
+    .param p3, "set"    # [Landroid/content/ComponentName;
+    .param p4, "activity"    # Landroid/content/ComponentName;
+    .param p5, "userId"    # I
 
     .prologue
     .line 3017
@@ -446,7 +430,7 @@
 
 .method public varargs buildPermissionRequestIntent([Ljava/lang/String;)Landroid/content/Intent;
     .locals 7
-    .parameter "permissions"
+    .param p1, "permissions"    # [Ljava/lang/String;
 
     .prologue
     .line 1820
@@ -465,20 +449,20 @@
     :cond_0
     move-object v0, p1
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_2
 
     aget-object v4, v0, v2
 
     .line 1824
-    .local v4, permission:Ljava/lang/String;
+    .local v4, "permission":Ljava/lang/String;
     if-nez v4, :cond_1
 
     .line 1825
@@ -497,7 +481,7 @@
     goto :goto_0
 
     .line 1829
-    .end local v4           #permission:Ljava/lang/String;
+    .end local v4    # "permission":Ljava/lang/String;
     :cond_2
     new-instance v1, Landroid/content/Intent;
 
@@ -506,7 +490,7 @@
     invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 1830
-    .local v1, i:Landroid/content/Intent;
+    .local v1, "i":Landroid/content/Intent;
     const-string v5, "android.content.pm.extra.PERMISSION_LIST"
 
     invoke-virtual {v1, v5, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
@@ -724,8 +708,8 @@
 
 .method public getPackageArchiveInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     .locals 12
-    .parameter "archiveFilePath"
-    .parameter "flags"
+    .param p1, "archiveFilePath"    # Ljava/lang/String;
+    .param p2, "flags"    # I
 
     .prologue
     const-wide/16 v3, 0x0
@@ -740,13 +724,13 @@
     invoke-direct {v10, p1}, Landroid/content/pm/PackageParser;-><init>(Ljava/lang/String;)V
 
     .line 2617
-    .local v10, packageParser:Landroid/content/pm/PackageParser;
+    .local v10, "packageParser":Landroid/content/pm/PackageParser;
     new-instance v9, Landroid/util/DisplayMetrics;
 
     invoke-direct {v9}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 2618
-    .local v9, metrics:Landroid/util/DisplayMetrics;
+    .local v9, "metrics":Landroid/util/DisplayMetrics;
     invoke-virtual {v9}, Landroid/util/DisplayMetrics;->setToDefaults()V
 
     .line 2619
@@ -755,13 +739,13 @@
     invoke-direct {v11, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 2620
-    .local v11, sourceFile:Ljava/io/File;
+    .local v11, "sourceFile":Ljava/io/File;
     invoke-virtual {v10, v11, p1, v9, v5}, Landroid/content/pm/PackageParser;->parsePackage(Ljava/io/File;Ljava/lang/String;Landroid/util/DisplayMetrics;I)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v0
 
     .line 2622
-    .local v0, pkg:Landroid/content/pm/PackageParser$Package;
+    .local v0, "pkg":Landroid/content/pm/PackageParser$Package;
     if-nez v0, :cond_0
 
     .line 2629
@@ -783,7 +767,7 @@
 
     invoke-direct {v8}, Landroid/content/pm/PackageUserState;-><init>()V
 
-    .local v8, state:Landroid/content/pm/PackageUserState;
+    .local v8, "state":Landroid/content/pm/PackageUserState;
     move v2, p2
 
     move-wide v5, v3
@@ -819,8 +803,8 @@
 
 .method public getPackageSizeInfo(Ljava/lang/String;Landroid/content/pm/IPackageStatsObserver;)V
     .locals 1
-    .parameter "packageName"
-    .parameter "observer"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "observer"    # Landroid/content/pm/IPackageStatsObserver;
 
     .prologue
     .line 2936
@@ -976,24 +960,6 @@
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
-.end method
-
-.method public getUsers()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/UserInfo;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    const/4 v0, 0x0
-
-    return-object v0
 .end method
 
 .method public abstract getVerifierDeviceIdentity()Landroid/content/pm/VerifierDeviceIdentity;

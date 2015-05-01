@@ -12,15 +12,15 @@
 
 
 # static fields
-.field private static final BLACKLIST_ROOT:Ljava/lang/String; = null
+.field private static final BLACKLIST_ROOT:Ljava/lang/String;
 
 .field public static final PUBKEY_BLACKLIST_KEY:Ljava/lang/String; = "pubkey_blacklist"
 
-.field public static final PUBKEY_PATH:Ljava/lang/String; = null
+.field public static final PUBKEY_PATH:Ljava/lang/String;
 
 .field public static final SERIAL_BLACKLIST_KEY:Ljava/lang/String; = "serial_blacklist"
 
-.field public static final SERIAL_PATH:Ljava/lang/String; = null
+.field public static final SERIAL_PATH:Ljava/lang/String;
 
 .field private static final TAG:Ljava/lang/String; = "CertBlacklister"
 
@@ -108,7 +108,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 109
@@ -127,7 +127,7 @@
 
 .method private buildPubkeyObserver(Landroid/content/ContentResolver;)Lcom/android/server/CertBlacklister$BlacklistObserver;
     .locals 4
-    .parameter "cr"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 114
@@ -146,7 +146,7 @@
 
 .method private buildSerialObserver(Landroid/content/ContentResolver;)Lcom/android/server/CertBlacklister$BlacklistObserver;
     .locals 4
-    .parameter "cr"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 121
@@ -165,7 +165,7 @@
 
 .method private registerObservers(Landroid/content/ContentResolver;)V
     .locals 3
-    .parameter "cr"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     const/4 v2, 0x1

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2160
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 2
-    .parameter "arg0"
+    .param p1, "arg0"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 2164

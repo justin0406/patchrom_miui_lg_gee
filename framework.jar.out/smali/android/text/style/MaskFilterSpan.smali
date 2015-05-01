@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/MaskFilter;)V
     .locals 0
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/graphics/MaskFilter;
 
     .prologue
     .line 26
@@ -40,7 +40,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 36

@@ -23,11 +23,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard$Row;IILandroid/content/res/XmlResourceParser;)V
     .locals 1
-    .parameter "res"
-    .parameter "parent"
-    .parameter "x"
-    .parameter "y"
-    .parameter "parser"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "parent"    # Landroid/inputmethodservice/Keyboard$Row;
+    .param p3, "x"    # I
+    .param p4, "y"    # I
+    .param p5, "parser"    # Landroid/content/res/XmlResourceParser;
 
     .prologue
     .line 225
@@ -78,8 +78,8 @@
 
 .method public isInside(II)Z
     .locals 5
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -104,7 +104,7 @@
     aget v0, v2, v1
 
     .line 258
-    .local v0, code:I
+    .local v0, "code":I
     if-eq v0, v4, :cond_1
 
     if-ne v0, v3, :cond_4
@@ -161,7 +161,7 @@
 
 .method public onReleased(Z)V
     .locals 1
-    .parameter "inside"
+    .param p1, "inside"    # Z
 
     .prologue
     .line 242
@@ -197,7 +197,7 @@
 
 .method setEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 233

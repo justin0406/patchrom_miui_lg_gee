@@ -77,7 +77,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/ref/WeakReference;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +88,7 @@
     .end annotation
 
     .prologue
-    .local p1, glSurfaceViewWeakRef:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/opengl/GLSurfaceView;>;"
+    .local p1, "glSurfaceViewWeakRef":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/opengl/GLSurfaceView;>;"
     const/4 v2, 0x0
 
     const/4 v1, 0x1
@@ -128,8 +127,8 @@
 
 .method static synthetic access$1102(Landroid/opengl/GLSurfaceView$GLThread;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/opengl/GLSurfaceView$GLThread;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 1222
@@ -186,54 +185,55 @@
     const/4 v8, 0x0
 
     .line 1276
-    .local v8, gl:Ljavax/microedition/khronos/opengles/GL10;
+    .local v8, "gl":Ljavax/microedition/khronos/opengles/GL10;
     const/4 v3, 0x0
 
     .line 1277
-    .local v3, createEglContext:Z
+    .local v3, "createEglContext":Z
     const/4 v4, 0x0
 
     .line 1278
-    .local v4, createEglSurface:Z
+    .local v4, "createEglSurface":Z
     const/4 v5, 0x0
 
     .line 1279
-    .local v5, createGlInterface:Z
+    .local v5, "createGlInterface":Z
     const/4 v10, 0x0
 
     .line 1280
-    .local v10, lostEglContext:Z
+    .local v10, "lostEglContext":Z
     const/4 v13, 0x0
 
     .line 1281
-    .local v13, sizeChanged:Z
+    .local v13, "sizeChanged":Z
     const/16 v18, 0x0
 
     .line 1282
-    .local v18, wantRenderNotification:Z
+    .local v18, "wantRenderNotification":Z
     const/4 v6, 0x0
 
     .line 1283
-    .local v6, doRenderNotification:Z
+    .local v6, "doRenderNotification":Z
     const/4 v2, 0x0
 
     .line 1284
-    .local v2, askedToReleaseEglContext:Z
+    .local v2, "askedToReleaseEglContext":Z
     const/16 v17, 0x0
 
     .line 1285
-    .local v17, w:I
+    .local v17, "w":I
     const/4 v9, 0x0
 
     .line 1286
-    .local v9, h:I
+    .local v9, "h":I
     const/4 v7, 0x0
 
     .line 1289
-    .local v7, event:Ljava/lang/Runnable;
+    .local v7, "event":Ljava/lang/Runnable;
     :cond_0
     :goto_0
     :try_start_0
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -259,6 +259,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 1559
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -350,7 +351,7 @@
     const/4 v11, 0x0
 
     .line 1302
-    .local v11, pausing:Z
+    .local v11, "pausing":Z
     :try_start_5
     move-object/from16 v0, p0
 
@@ -389,6 +390,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mPaused:Z
 
     .line 1305
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -477,16 +479,17 @@
     check-cast v16, Landroid/opengl/GLSurfaceView;
 
     .line 1340
-    .local v16, view:Landroid/opengl/GLSurfaceView;
+    .local v16, "view":Landroid/opengl/GLSurfaceView;
     if-nez v16, :cond_11
 
     const/4 v12, 0x0
 
     .line 1342
-    .local v12, preserveEglContextOnPause:Z
+    .local v12, "preserveEglContextOnPause":Z
     :goto_3
     if-eqz v12, :cond_7
 
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -502,12 +505,13 @@
     invoke-direct/range {p0 .. p0}, Landroid/opengl/GLSurfaceView$GLThread;->stopEglContextLocked()V
 
     .line 1351
-    .end local v12           #preserveEglContextOnPause:Z
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v12    # "preserveEglContextOnPause":Z
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :cond_8
     if-eqz v11, :cond_9
 
     .line 1352
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -577,6 +581,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mSurfaceIsBad:Z
 
     .line 1370
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -611,6 +616,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mWaitingForSurface:Z
 
     .line 1379
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -637,6 +643,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mRenderComplete:Z
 
     .line 1389
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -763,6 +770,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mRequestRender:Z
 
     .line 1438
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -772,7 +780,7 @@
     goto/16 :goto_2
 
     .line 1460
-    .end local v11           #pausing:Z
+    .end local v11    # "pausing":Z
     :catchall_1
     move-exception v19
 
@@ -789,6 +797,7 @@
     :catchall_2
     move-exception v19
 
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -810,11 +819,11 @@
     throw v19
 
     .line 1340
-    .restart local v11       #pausing:Z
-    .restart local v16       #view:Landroid/opengl/GLSurfaceView;
+    .restart local v11    # "pausing":Z
+    .restart local v16    # "view":Landroid/opengl/GLSurfaceView;
     :cond_11
     :try_start_8
-    #getter for: Landroid/opengl/GLSurfaceView;->mPreserveEGLContextOnPause:Z
+    # getter for: Landroid/opengl/GLSurfaceView;->mPreserveEGLContextOnPause:Z
     invoke-static/range {v16 .. v16}, Landroid/opengl/GLSurfaceView;->access$900(Landroid/opengl/GLSurfaceView;)Z
 
     move-result v12
@@ -822,8 +831,9 @@
     goto/16 :goto_3
 
     .line 1399
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :cond_12
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -850,8 +860,8 @@
 
     invoke-virtual/range {v19 .. v19}, Landroid/opengl/GLSurfaceView$EglHelper;->start()V
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
     .catch Ljava/lang/RuntimeException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     .line 1406
     const/16 v19, 0x1
@@ -867,6 +877,7 @@
     const/4 v3, 0x1
 
     .line 1409
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -880,7 +891,8 @@
     move-exception v15
 
     .line 1403
-    .local v15, t:Ljava/lang/RuntimeException;
+    .local v15, "t":Ljava/lang/RuntimeException;
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -895,8 +907,9 @@
     throw v15
 
     .line 1458
-    .end local v15           #t:Ljava/lang/RuntimeException;
+    .end local v15    # "t":Ljava/lang/RuntimeException;
     :cond_13
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -908,7 +921,7 @@
     goto/16 :goto_1
 
     .line 1468
-    .end local v11           #pausing:Z
+    .end local v11    # "pausing":Z
     :cond_14
     if-eqz v4, :cond_15
 
@@ -927,6 +940,7 @@
     if-eqz v19, :cond_1c
 
     .line 1473
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -946,6 +960,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mFinishedCreatingEglSurface:Z
 
     .line 1475
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -983,6 +998,7 @@
     move-object v8, v0
 
     .line 1491
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -1012,11 +1028,11 @@
     check-cast v16, Landroid/opengl/GLSurfaceView;
 
     .line 1500
-    .restart local v16       #view:Landroid/opengl/GLSurfaceView;
+    .restart local v16    # "view":Landroid/opengl/GLSurfaceView;
     if-eqz v16, :cond_17
 
     .line 1501
-    #getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
+    # getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
     invoke-static/range {v16 .. v16}, Landroid/opengl/GLSurfaceView;->access$1000(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$Renderer;
 
     move-result-object v19
@@ -1044,7 +1060,7 @@
     const/4 v3, 0x0
 
     .line 1506
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :cond_18
     if-eqz v13, :cond_1a
 
@@ -1062,11 +1078,11 @@
     check-cast v16, Landroid/opengl/GLSurfaceView;
 
     .line 1511
-    .restart local v16       #view:Landroid/opengl/GLSurfaceView;
+    .restart local v16    # "view":Landroid/opengl/GLSurfaceView;
     if-eqz v16, :cond_19
 
     .line 1512
-    #getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
+    # getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
     invoke-static/range {v16 .. v16}, Landroid/opengl/GLSurfaceView;->access$1000(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$Renderer;
 
     move-result-object v19
@@ -1082,7 +1098,7 @@
     const/4 v13, 0x0
 
     .line 1521
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :cond_1a
     move-object/from16 v0, p0
 
@@ -1097,11 +1113,11 @@
     check-cast v16, Landroid/opengl/GLSurfaceView;
 
     .line 1522
-    .restart local v16       #view:Landroid/opengl/GLSurfaceView;
+    .restart local v16    # "view":Landroid/opengl/GLSurfaceView;
     if-eqz v16, :cond_1b
 
     .line 1523
-    #getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
+    # getter for: Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
     invoke-static/range {v16 .. v16}, Landroid/opengl/GLSurfaceView;->access$1000(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$Renderer;
 
     move-result-object v19
@@ -1123,7 +1139,7 @@
     move-result v14
 
     .line 1527
-    .local v14, swapError:I
+    .local v14, "swapError":I
     sparse-switch v14, :sswitch_data_0
 
     .line 1541
@@ -1138,6 +1154,7 @@
     invoke-static {v0, v1, v14}, Landroid/opengl/GLSurfaceView$EglHelper;->logEglErrorAsWarning(Ljava/lang/String;Ljava/lang/String;I)V
 
     .line 1543
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -1157,6 +1174,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mSurfaceIsBad:Z
 
     .line 1545
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -1179,8 +1197,8 @@
     goto/16 :goto_0
 
     .line 1476
-    .end local v14           #swapError:I
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v14    # "swapError":I
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :catchall_3
     move-exception v19
 
@@ -1194,6 +1212,7 @@
 
     .line 1478
     :cond_1c
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v20
@@ -1222,6 +1241,7 @@
     iput-boolean v0, v1, Landroid/opengl/GLSurfaceView$GLThread;->mSurfaceIsBad:Z
 
     .line 1481
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v19
@@ -1246,8 +1266,8 @@
     .catchall {:try_start_12 .. :try_end_12} :catchall_2
 
     .line 1534
-    .restart local v14       #swapError:I
-    .restart local v16       #view:Landroid/opengl/GLSurfaceView;
+    .restart local v14    # "swapError":I
+    .restart local v16    # "view":Landroid/opengl/GLSurfaceView;
     :sswitch_1
     const/4 v10, 0x1
 
@@ -1269,8 +1289,8 @@
     .catchall {:try_start_14 .. :try_end_14} :catchall_2
 
     .line 1562
-    .end local v14           #swapError:I
-    .end local v16           #view:Landroid/opengl/GLSurfaceView;
+    .end local v14    # "swapError":I
+    .end local v16    # "view":Landroid/opengl/GLSurfaceView;
     :catchall_6
     move-exception v19
 
@@ -1356,6 +1376,7 @@
     iput-boolean v0, p0, Landroid/opengl/GLSurfaceView$GLThread;->mHaveEglContext:Z
 
     .line 1267
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -1428,6 +1449,7 @@
 
     .prologue
     .line 1587
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1458,6 +1480,7 @@
 
     .prologue
     .line 1637
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -1471,6 +1494,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mRequestPaused:Z
 
     .line 1642
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1491,14 +1515,15 @@
 
     .line 1648
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -1507,7 +1532,7 @@
     move-exception v0
 
     .line 1650
-    .local v0, ex:Ljava/lang/InterruptedException;
+    .local v0, "ex":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -1518,7 +1543,7 @@
     goto :goto_0
 
     .line 1653
-    .end local v0           #ex:Ljava/lang/InterruptedException;
+    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 
@@ -1543,6 +1568,7 @@
 
     .prologue
     .line 1657
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -1566,6 +1592,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mRenderComplete:Z
 
     .line 1664
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1590,14 +1617,15 @@
 
     .line 1670
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -1606,7 +1634,7 @@
     move-exception v0
 
     .line 1672
-    .local v0, ex:Ljava/lang/InterruptedException;
+    .local v0, "ex":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -1617,7 +1645,7 @@
     goto :goto_0
 
     .line 1675
-    .end local v0           #ex:Ljava/lang/InterruptedException;
+    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 
@@ -1639,11 +1667,12 @@
 
 .method public onWindowResize(II)V
     .locals 3
-    .parameter "w"
-    .parameter "h"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
 
     .prologue
     .line 1679
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -1673,6 +1702,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mRenderComplete:Z
 
     .line 1685
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1703,14 +1733,15 @@
 
     .line 1694
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -1719,7 +1750,7 @@
     move-exception v0
 
     .line 1696
-    .local v0, ex:Ljava/lang/InterruptedException;
+    .local v0, "ex":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -1730,7 +1761,7 @@
     goto :goto_0
 
     .line 1699
-    .end local v0           #ex:Ljava/lang/InterruptedException;
+    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 
@@ -1752,7 +1783,7 @@
 
 .method public queueEvent(Ljava/lang/Runnable;)V
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 1728
@@ -1769,6 +1800,7 @@
 
     .line 1731
     :cond_0
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1782,6 +1814,7 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1733
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -1810,6 +1843,7 @@
 
     .prologue
     .line 1705
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -1823,6 +1857,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mShouldExit:Z
 
     .line 1707
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1839,14 +1874,15 @@
 
     .line 1710
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -1855,7 +1891,7 @@
     move-exception v0
 
     .line 1712
-    .local v0, ex:Ljava/lang/InterruptedException;
+    .local v0, "ex":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -1866,7 +1902,7 @@
     goto :goto_0
 
     .line 1715
-    .end local v0           #ex:Ljava/lang/InterruptedException;
+    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 
@@ -1896,6 +1932,7 @@
     iput-boolean v0, p0, Landroid/opengl/GLSurfaceView$GLThread;->mShouldReleaseEglContext:Z
 
     .line 1720
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -1911,6 +1948,7 @@
 
     .prologue
     .line 1593
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -1924,6 +1962,7 @@
     iput-boolean v0, p0, Landroid/opengl/GLSurfaceView$GLThread;->mRequestRender:Z
 
     .line 1595
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -1980,10 +2019,11 @@
     :try_start_0
     invoke-direct {p0}, Landroid/opengl/GLSurfaceView$GLThread;->guardedRun()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1244
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -1999,6 +2039,7 @@
     move-exception v0
 
     .line 1244
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -2010,6 +2051,7 @@
     :catchall_0
     move-exception v0
 
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -2021,7 +2063,7 @@
 
 .method public setRenderMode(I)V
     .locals 2
-    .parameter "renderMode"
+    .param p1, "renderMode"    # I
 
     .prologue
     .line 1577
@@ -2043,6 +2085,7 @@
 
     .line 1580
     :cond_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -2054,6 +2097,7 @@
     iput p1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mRenderMode:I
 
     .line 1582
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v0
@@ -2082,6 +2126,7 @@
 
     .prologue
     .line 1600
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -2100,6 +2145,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mFinishedCreatingEglSurface:Z
 
     .line 1606
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -2124,14 +2170,15 @@
 
     .line 1611
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -2140,7 +2187,7 @@
     move-exception v0
 
     .line 1613
-    .local v0, e:Ljava/lang/InterruptedException;
+    .local v0, "e":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -2151,7 +2198,7 @@
     goto :goto_0
 
     .line 1616
-    .end local v0           #e:Ljava/lang/InterruptedException;
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 
@@ -2176,6 +2223,7 @@
 
     .prologue
     .line 1620
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v2
@@ -2189,6 +2237,7 @@
     iput-boolean v1, p0, Landroid/opengl/GLSurfaceView$GLThread;->mHasSurface:Z
 
     .line 1625
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
@@ -2209,14 +2258,15 @@
 
     .line 1628
     :try_start_1
+    # getter for: Landroid/opengl/GLSurfaceView;->sGLThreadManager:Landroid/opengl/GLSurfaceView$GLThreadManager;
     invoke-static {}, Landroid/opengl/GLSurfaceView;->access$800()Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -2225,7 +2275,7 @@
     move-exception v0
 
     .line 1630
-    .local v0, e:Ljava/lang/InterruptedException;
+    .local v0, "e":Ljava/lang/InterruptedException;
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -2236,7 +2286,7 @@
     goto :goto_0
 
     .line 1633
-    .end local v0           #e:Ljava/lang/InterruptedException;
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
 

@@ -12,8 +12,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 2
-    .parameter "context"
-    .parameter "commandsInterface"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "commandsInterface"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 54
@@ -42,8 +42,8 @@
 
 .method static synthetic access$000(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -54,8 +54,8 @@
 
 .method static synthetic access$100(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -66,8 +66,8 @@
 
 .method static synthetic access$200(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -78,8 +78,8 @@
 
 .method static synthetic access$300(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -90,8 +90,8 @@
 
 .method static synthetic access$400(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -102,9 +102,9 @@
 
 .method static synthetic access$500(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/Throwable;
 
     .prologue
     .line 46
@@ -115,7 +115,7 @@
 
 .method private handleServiceCategoryProgramData(Lcom/android/internal/telephony/cdma/SmsMessage;)Z
     .locals 10
-    .parameter "sms"
+    .param p1, "sms"    # Lcom/android/internal/telephony/cdma/SmsMessage;
 
     .prologue
     const/4 v7, 0x0
@@ -126,7 +126,7 @@
     move-result-object v9
 
     .line 98
-    .local v9, programDataList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/telephony/cdma/CdmaSmsCbProgramData;>;"
+    .local v9, "programDataList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/telephony/cdma/CdmaSmsCbProgramData;>;"
     if-nez v9, :cond_0
 
     .line 99
@@ -150,7 +150,7 @@
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 104
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     const-string v0, "sender"
 
     invoke-virtual {p1}, Lcom/android/internal/telephony/cdma/SmsMessage;->getOriginatingAddress()Ljava/lang/String;
@@ -191,8 +191,8 @@
 
 .method static makeScpHandler(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
     .locals 1
-    .parameter "context"
-    .parameter "commandsInterface"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "commandsInterface"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     .line 67
@@ -201,7 +201,7 @@
     invoke-direct {v0, p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
 
     .line 69
-    .local v0, handler:Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
+    .local v0, "handler":Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->start()V
 
     .line 70
@@ -212,7 +212,7 @@
 # virtual methods
 .method protected handleSmsMessage(Landroid/os/Message;)Z
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 82

@@ -32,10 +32,9 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;JLjava/util/Map;I)V
     .locals 0
-    .parameter "stream"
-    .parameter "length"
-    .parameter
-    .parameter "code"
+    .param p1, "stream"    # Ljava/io/InputStream;
+    .param p2, "length"    # J
+    .param p5, "code"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +54,7 @@
 
     .prologue
     .line 76
-    .local p4, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;"
+    .local p4, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 77

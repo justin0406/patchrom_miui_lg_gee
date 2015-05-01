@@ -87,7 +87,7 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 5
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 236
@@ -102,15 +102,15 @@
     invoke-direct {v1, p1}, Landroid/content/Intent$FilterComparison;-><init>(Landroid/content/Intent;)V
 
     .line 238
-    .local v1, fc:Landroid/content/Intent$FilterComparison;
+    .local v1, "fc":Landroid/content/Intent$FilterComparison;
     const/4 v0, 0x0
 
     .line 239
-    .local v0, factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .local v0, "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     const/4 v2, 0x0
 
     .line 240
-    .local v2, isCreated:Z
+    .local v2, "isCreated":Z
     sget-object v3, Landroid/widget/RemoteViewsService;->sRemoteViewFactories:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -153,19 +153,19 @@
 
     move-result-object v0
 
-    .end local v0           #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .end local v0    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     check-cast v0, Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     .line 247
-    .restart local v0       #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .restart local v0    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     const/4 v2, 0x1
 
     goto :goto_0
 
     .line 250
-    .end local v0           #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
-    .end local v1           #fc:Landroid/content/Intent$FilterComparison;
-    .end local v2           #isCreated:Z
+    .end local v0    # "factory":Landroid/widget/RemoteViewsService$RemoteViewsFactory;
+    .end local v1    # "fc":Landroid/content/Intent$FilterComparison;
+    .end local v2    # "isCreated":Z
     :catchall_0
     move-exception v3
 

@@ -36,8 +36,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;Ljava/util/Locale;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1220
@@ -54,7 +52,7 @@
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
     .locals 7
-    .parameter "service"
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,11 +65,11 @@
     .line 1223
     const/4 v2, 0x0
 
-    .local v2, language:Ljava/lang/String;
+    .local v2, "language":Ljava/lang/String;
     const/4 v0, 0x0
 
     .line 1226
-    .local v0, country:Ljava/lang/String;
+    .local v0, "country":Ljava/lang/String;
     :try_start_0
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$11;->val$loc:Ljava/util/Locale;
 
@@ -114,7 +112,7 @@
     move-exception v1
 
     .line 1228
-    .local v1, e:Ljava/util/MissingResourceException;
+    .local v1, "e":Ljava/util/MissingResourceException;
     const-string v3, "TextToSpeech"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -147,12 +145,12 @@
     goto :goto_0
 
     .line 1234
-    .end local v1           #e:Ljava/util/MissingResourceException;
+    .end local v1    # "e":Ljava/util/MissingResourceException;
     :catch_1
     move-exception v1
 
     .line 1235
-    .restart local v1       #e:Ljava/util/MissingResourceException;
+    .restart local v1    # "e":Ljava/util/MissingResourceException;
     const-string v3, "TextToSpeech"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -187,7 +185,7 @@
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -157,7 +157,7 @@
     <string name="global_action_lock">נעילת מסך</string>
     <string name="global_action_power_off">כיבוי</string>
     <string name="global_action_bug_report">דיווח על באג</string>
-    <string name="bugreport_title">מלא דיווח על באג</string>
+    <string name="bugreport_title">שלח דיווח על באג</string>
     <string name="bugreport_message">פעולה זו תאסוף מידע על מצב המכשיר הנוכחי שלך על מנת לשלוח אותו כהודעת דוא\"ל. היא תימשך זמן קצר מרגע פתיחת דיווח הבאג ועד שיהיה ניתן לבצע שליחה. התאזר בסבלנות.</string>
     <string name="global_action_toggle_silent_mode">מצב שקט</string>
     <string name="global_action_silent_mode_on_status">הקול כבוי</string>
@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">הסר התקנה של קיצורי דרך</string>
     <string name="permdesc_uninstall_shortcut">מאפשר לאפליקציה להסיר קיצורי דרך במסך דף הבית ללא התערבות המשתמש.</string>
     <string name="permlab_processOutgoingCalls">ניתוב מחדש של שיחות יוצאות</string>
-    <string name="permdesc_processOutgoingCalls">מאפשר לאפליקציה לעבד שיחות יוצאות ולשנות את המספר שיש לחייג. אישור זה מאפשר לאפליקציה לעקוב אחר שיחות יוצאות, לבצע הפניה מחדש שלהן או אף למנוע את ביצוען.</string>
+    <string name="permdesc_processOutgoingCalls">מאפשרת לאפליקציה לראות את המספר המחויג במהלך ביצוע שיחה יוצאת, עם האפשרות להפנות את השיחה למספר אחר או לבטל את השיחה לחלוטין.</string>
     <string name="permlab_receiveSms">‏קבלת הודעות טקסט (SMS)</string>
     <string name="permdesc_receiveSms">‏מאפשר לאפליקציה לקבל ולעבד הודעות SMS. משמעות הדבר היא שהאפליקציה יכולה לעקוב אחר הודעות שנשלחו למכשיר או למחוק אותן מבלי להציג לך אותן.</string>
     <string name="permlab_receiveMms">‏קבלת הודעות טקסט (MMS)</string>
@@ -558,7 +558,7 @@
     <string name="permlab_accessNetworkState">הצג חיבורי רשת</string>
     <string name="permdesc_accessNetworkState">מאפשר לאפליקציה להציג מידע לגבי חיבורי רשת, למשל, אילו רשתות קיימות ומחוברות.</string>
     <string name="permlab_createNetworkSockets">גישת רשת מלאה</string>
-    <string name="permdesc_createNetworkSockets">"‏מאפשר לאפליקציה ליצור Sockets ולהשתמש בפרוטוקולי רשת מותאמים אישית. הדפדפן ואפליקציות  אחרות מספקות אמצעים לשליחת נתונים לאינטרנט, כך שאישור זה אינו נחוץ לשליחת נתונים לאינטרנט."</string>
+    <string name="permdesc_createNetworkSockets">"‏מאפשר לאפליקציה ליצור Sockets ולהשתמש בפרוטוקולי רשת מותאמים אישית. הדפדפן, כמו אפליקציות  אחרות, מספק אמצעים לשליחת נתונים לאינטרנט, כך שאישור זה אינו נחוץ לשליחת נתונים לאינטרנט."</string>
     <string name="permlab_writeApnSettings">שנה/עכב הגדרות רשת ותנועה</string>
     <string name="permdesc_writeApnSettings">‏מאפשר לאפליקציה לשנות את הגדרות הרשת ולעכב ולבדוק את כל תנועת הרשת, לדוגמה, לשנות את ה-proxy והיציאה של כל רשת APN. אפליקציות זדוניות עלולות לעקוב אחר חבילות רשת, לבצע הפניה מחדש שלהן או לשנות אותן, ללא ידיעתך.</string>
     <string name="permlab_changeNetworkState">שנה את קישוריות הרשת</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">דף הבית</string>
     <string name="sipAddressTypeWork">עבודה</string>
     <string name="sipAddressTypeOther">אחר</string>
+    <string name="quick_contacts_not_available">לא נמצאה אפליקציה להצגת התוכן הזה.</string>
     <string name="keyguard_password_enter_pin_code">‏הקלד קוד PIN</string>
     <string name="keyguard_password_enter_puk_code">"‏הקלד את קוד ה-PUK וקוד  ה-PIN החדש"</string>
     <string name="keyguard_password_enter_puk_prompt">‏קוד PUK</string>
@@ -925,7 +926,7 @@
     <string name="Midnight">חצות</string>
     <string name="elapsed_time_short_format_mm_ss">%1$02d:%2$02d</string>
     <string name="elapsed_time_short_format_h_mm_ss">%1$d:%2$02d:%3$02d</string>
-    <string name="replace">להחליף...</string>
+    <string name="replace">החלף...</string>
     <string name="delete">מחק</string>
     <string name="textSelectionCABTitle">בחירת טקסט</string>
     <string name="addToDictionary">הוסף למילון</string>
@@ -1011,7 +1012,7 @@
     <string name="wifi_watchdog_network_disabled">‏אין אפשרות להתחבר ל-Wi-Fi</string>
     <string name="wifi_watchdog_network_disabled_detailed">" אינו מחובר היטב לאינטרנט."</string>
     <string name="wifi_p2p_dialog_title">‏Wi-Fi ישיר</string>
-    <string name="wifi_p2p_turnon_message">‏הפעל Wi-Fi ישיר. פעולה זו תכבה את הלקוח/הנקודה החמה של ה-Wi-Fi.</string>
+    <string name="wifi_p2p_turnon_message">‏הפעל Wi-Fi ישיר. פעולה זו תכבה את הנקודה לשיתוף אינטרנט ב-Wi-Fi.</string>
     <string name="wifi_p2p_failed_message">‏לא ניתן להפעיל Wi-Fi ישיר</string>
     <string name="wifi_p2p_enabled_notification_title">‏Wi-Fi ישיר מופעל</string>
     <string name="wifi_p2p_enabled_notification_message">גע עבור הגדרות</string>
@@ -1152,7 +1153,7 @@
     <string name="submit">שלח</string>
     <string name="car_mode_disable_notification_title">מצב מכונית מופעל</string>
     <string name="car_mode_disable_notification_message">גע כדי לצאת ממצב מכונית.</string>
-    <string name="tethered_notification_title">קשור או פעיל כנקודה חמה</string>
+    <string name="tethered_notification_title">שיתוף אינטרנט פעיל</string>
     <string name="tethered_notification_message">גע כדי להגדיר.</string>
     <string name="back_button_label">הקודם</string>
     <string name="next_button_label">הבא</string>
@@ -1462,10 +1463,17 @@
     <string name="webviewchromium_actionbar_share">שתף</string>
     <string name="webviewchromium_actionbar_web_search">חיפוש באינטרנט</string>
     <string name="webviewchromium_accessibility_content_view">תצוגת אינטרנט</string>
+    <string name="webviewchromium_date_picker_dialog_title">הגדרת תאריך</string>
     <string name="webviewchromium_date_picker_dialog_set">הגדר</string>
     <string name="webviewchromium_date_picker_dialog_clear">נקה</string>
-    <string name="webviewchromium_date_picker_dialog_title">הגדרת תאריך</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">אחר</string>
     <string name="webviewchromium_date_time_picker_dialog_title">הגדרת תאריך ושעה</string>
+    <string name="webviewchromium_time_picker_dialog_title">הגדרת שעה</string>
+    <string name="webviewchromium_time_picker_dialog_am">לפה\"צ</string>
+    <string name="webviewchromium_time_picker_dialog_pm">אחה\"צ</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">הגדרת חודש</string>
     <string name="webviewchromium_week_picker_dialog_title">הגדרת שבוע</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">תאריך</string>
@@ -1473,6 +1481,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">חודש</string>
     <string name="webviewchromium_accessibility_date_picker_week">שבוע</string>
     <string name="webviewchromium_accessibility_date_picker_year">שנה</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">שעה</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">דקה</string>
+    <string name="webviewchromium_accessibility_time_picker_second">שנייה</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">אלפית שנייה</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">לפה״צ/אחה״צ</string>
     <string name="webviewchromium_media_player_error_title">לא ניתן להפעיל את הסרטון</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">מצטערים. הזרמת הסרטון במכשיר הזה אינה חוקית.</string>
     <string name="webviewchromium_media_player_error_text_unknown">מצטערים. לא ניתן להפעיל את הסרטון הזה.</string>
@@ -1485,7 +1498,20 @@
     <string name="webviewchromium_color_picker_button_set">הגדר</string>
     <string name="webviewchromium_color_picker_button_cancel">בטל</string>
     <string name="webviewchromium_color_picker_dialog_title">בחירת צבע</string>
+    <string name="webviewchromium_color_picker_button_red">אדום</string>
+    <string name="webviewchromium_color_picker_button_cyan">ציאן</string>
+    <string name="webviewchromium_color_picker_button_blue">כחול</string>
+    <string name="webviewchromium_color_picker_button_green">ירוק</string>
+    <string name="webviewchromium_color_picker_button_magenta">מגנטה</string>
+    <string name="webviewchromium_color_picker_button_yellow">צהוב</string>
+    <string name="webviewchromium_color_picker_button_black">שחור</string>
+    <string name="webviewchromium_color_picker_button_white">לבן</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">ההעתקה אל הלוח נכשלה</string>
     <string name="webviewchromium_low_memory_error">לא ניתן להשלים את הפעולה האחרונה עקב מחסור בזיכרון</string>
     <string name="webviewchromium_opening_file_error">פתיחת הקובץ הנבחר נכשלה</string>
     <string name="webviewchromium_private_browsing_warning">‏הפונקציונליות הזו אינה נתמכת בגרסה הזו של Android.</string>
+    <string name="webviewchromium_profiler_started_toast">יוצר הפרופילים הופעל</string>
+    <string name="webviewchromium_profiler_stopped_toast">‏יוצר הפרופילים סיים. התוצאות נמצאות ב-%1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">לא ניתן להפעיל את יוצר הפרופילים מכיוון שהאחסון החיצוני לא מוכן</string>
+    <string name="webviewchromium_profiler_error_toast">הפעלת יוצר הפרופילים נכשלה</string>
 </resources>

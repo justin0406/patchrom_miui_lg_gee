@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 0
-    .parameter "remote"
-    .parameter "interfaceDesc"
+    .param p1, "remote"    # Landroid/os/IBinder;
+    .param p2, "interfaceDesc"    # Ljava/lang/String;
 
     .prologue
     .line 43
@@ -43,8 +43,8 @@
 # virtual methods
 .method public transactGetInt(II)I
     .locals 6
-    .parameter "method_code"
-    .parameter "error_ret_val"
+    .param p1, "method_code"    # I
+    .param p2, "error_ret_val"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,13 +58,13 @@
     move-result-object v0
 
     .line 51
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 56
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v4, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -83,7 +83,7 @@
     move-result v2
 
     .line 60
-    .local v2, res:I
+    .local v2, "res":I
     if-nez v2, :cond_0
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
@@ -93,7 +93,7 @@
     move-result v3
 
     .line 63
-    .local v3, ret_val:I
+    .local v3, "ret_val":I
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -103,7 +103,7 @@
     .line 67
     return v3
 
-    .end local v3           #ret_val:I
+    .end local v3    # "ret_val":I
     :cond_0
     move v3, p2
 
@@ -111,7 +111,7 @@
     goto :goto_0
 
     .line 63
-    .end local v2           #res:I
+    .end local v2    # "res":I
     :catchall_0
     move-exception v4
 
@@ -125,8 +125,8 @@
 
 .method public transactGetLong(IJ)J
     .locals 7
-    .parameter "method_code"
-    .parameter "error_ret_val"
+    .param p1, "method_code"    # I
+    .param p2, "error_ret_val"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -140,13 +140,13 @@
     move-result-object v0
 
     .line 93
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 98
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v5, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -165,7 +165,7 @@
     move-result v2
 
     .line 102
-    .local v2, res:I
+    .local v2, "res":I
     if-nez v2, :cond_0
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
@@ -175,7 +175,7 @@
     move-result-wide v3
 
     .line 105
-    .local v3, ret_val:J
+    .local v3, "ret_val":J
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -185,7 +185,7 @@
     .line 109
     return-wide v3
 
-    .end local v3           #ret_val:J
+    .end local v3    # "ret_val":J
     :cond_0
     move-wide v3, p2
 
@@ -193,7 +193,7 @@
     goto :goto_0
 
     .line 105
-    .end local v2           #res:I
+    .end local v2    # "res":I
     :catchall_0
     move-exception v5
 
@@ -207,7 +207,7 @@
 
 .method public transactGetSockaddr(I)Ljava/net/InetSocketAddress;
     .locals 23
-    .parameter "method_code"
+    .param p1, "method_code"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -221,17 +221,17 @@
     move-result-object v9
 
     .line 177
-    .local v9, data:Landroid/os/Parcel;
+    .local v9, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v12
 
     .line 178
-    .local v12, reply:Landroid/os/Parcel;
+    .local v12, "reply":Landroid/os/Parcel;
     const/4 v14, 0x0
 
     .line 182
-    .local v14, ret_val:Ljava/net/InetSocketAddress;
+    .local v14, "ret_val":Ljava/net/InetSocketAddress;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -266,24 +266,24 @@
     move-result v13
 
     .line 186
-    .local v13, res:I
+    .local v13, "res":I
     if-nez v13, :cond_1
 
     .line 188
     const/4 v11, 0x0
 
     .line 189
-    .local v11, port:I
+    .local v11, "port":I
     const/4 v8, 0x0
 
     .line 191
-    .local v8, addrStr:Ljava/lang/String;
+    .local v8, "addrStr":Ljava/lang/String;
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v16
 
     .line 193
-    .local v16, type:I
+    .local v16, "type":I
     sget v17, Llibcore/io/OsConstants;->AF_INET:I
 
     move/from16 v0, v17
@@ -298,7 +298,7 @@
     move-result v3
 
     .line 195
-    .local v3, addr:I
+    .local v3, "addr":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v11
@@ -381,7 +381,7 @@
     move-result-object v8
 
     .line 219
-    .end local v3           #addr:I
+    .end local v3    # "addr":I
     :cond_0
     :goto_0
     if-eqz v8, :cond_1
@@ -389,16 +389,16 @@
     .line 220
     new-instance v14, Ljava/net/InetSocketAddress;
 
-    .end local v14           #ret_val:Ljava/net/InetSocketAddress;
+    .end local v14    # "ret_val":Ljava/net/InetSocketAddress;
     invoke-direct {v14, v8, v11}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 225
-    .end local v8           #addrStr:Ljava/lang/String;
-    .end local v11           #port:I
-    .end local v16           #type:I
-    .restart local v14       #ret_val:Ljava/net/InetSocketAddress;
+    .end local v8    # "addrStr":Ljava/lang/String;
+    .end local v11    # "port":I
+    .end local v16    # "type":I
+    .restart local v14    # "ret_val":Ljava/net/InetSocketAddress;
     :cond_1
     invoke-virtual {v12}, Landroid/os/Parcel;->recycle()V
 
@@ -409,9 +409,9 @@
     return-object v14
 
     .line 201
-    .restart local v8       #addrStr:Ljava/lang/String;
-    .restart local v11       #port:I
-    .restart local v16       #type:I
+    .restart local v8    # "addrStr":Ljava/lang/String;
+    .restart local v11    # "port":I
+    .restart local v16    # "type":I
     :cond_2
     :try_start_1
     sget v17, Llibcore/io/OsConstants;->AF_INET6:I
@@ -428,25 +428,25 @@
     move-result v4
 
     .line 203
-    .local v4, addr1:I
+    .local v4, "addr1":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 204
-    .local v5, addr2:I
+    .local v5, "addr2":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 205
-    .local v6, addr3:I
+    .local v6, "addr3":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 207
-    .local v7, addr4:I
+    .local v7, "addr4":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v11
@@ -457,13 +457,13 @@
     move-result v10
 
     .line 210
-    .local v10, flowinfo:I
+    .local v10, "flowinfo":I
     invoke-virtual {v12}, Landroid/os/Parcel;->readInt()I
 
     move-result v15
 
     .line 212
-    .local v15, scope_id:I
+    .local v15, "scope_id":I
     sget-object v17, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v18, "[%04X:%04X:%04X:%04X:%04X:%04X:%04X:%04X]"
@@ -589,17 +589,17 @@
     goto/16 :goto_0
 
     .line 225
-    .end local v4           #addr1:I
-    .end local v5           #addr2:I
-    .end local v6           #addr3:I
-    .end local v7           #addr4:I
-    .end local v8           #addrStr:Ljava/lang/String;
-    .end local v10           #flowinfo:I
-    .end local v11           #port:I
-    .end local v13           #res:I
-    .end local v14           #ret_val:Ljava/net/InetSocketAddress;
-    .end local v15           #scope_id:I
-    .end local v16           #type:I
+    .end local v4    # "addr1":I
+    .end local v5    # "addr2":I
+    .end local v6    # "addr3":I
+    .end local v7    # "addr4":I
+    .end local v8    # "addrStr":Ljava/lang/String;
+    .end local v10    # "flowinfo":I
+    .end local v11    # "port":I
+    .end local v13    # "res":I
+    .end local v14    # "ret_val":Ljava/net/InetSocketAddress;
+    .end local v15    # "scope_id":I
+    .end local v16    # "type":I
     :catchall_0
     move-exception v17
 
@@ -613,8 +613,8 @@
 
 .method public transactGetString(ILjava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "method_code"
-    .parameter "error_ret_val"
+    .param p1, "method_code"    # I
+    .param p2, "error_ret_val"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -628,13 +628,13 @@
     move-result-object v0
 
     .line 135
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 140
-    .local v1, reply:Landroid/os/Parcel;
+    .local v1, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v4, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -653,7 +653,7 @@
     move-result v2
 
     .line 144
-    .local v2, res:I
+    .local v2, "res":I
     if-nez v2, :cond_0
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -663,7 +663,7 @@
     move-result-object v3
 
     .line 147
-    .local v3, ret_val:Ljava/lang/String;
+    .local v3, "ret_val":Ljava/lang/String;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -673,7 +673,7 @@
     .line 151
     return-object v3
 
-    .end local v3           #ret_val:Ljava/lang/String;
+    .end local v3    # "ret_val":Ljava/lang/String;
     :cond_0
     move-object v3, p2
 
@@ -681,7 +681,7 @@
     goto :goto_0
 
     .line 147
-    .end local v2           #res:I
+    .end local v2    # "res":I
     :catchall_0
     move-exception v4
 
@@ -695,8 +695,8 @@
 
 .method public transactSetInt(II)I
     .locals 5
-    .parameter "method_code"
-    .parameter "val"
+    .param p1, "method_code"    # I
+    .param p2, "val"    # I
 
     .prologue
     .line 71
@@ -705,13 +705,13 @@
     move-result-object v0
 
     .line 72
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 75
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v3, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -730,8 +730,8 @@
     .line 79
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -749,7 +749,7 @@
     move-exception v1
 
     .line 82
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v3, -0x7
 
     .line 85
@@ -761,7 +761,7 @@
     goto :goto_0
 
     .line 85
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
 
@@ -775,8 +775,8 @@
 
 .method public transactSetLong(IJ)I
     .locals 5
-    .parameter "method_code"
-    .parameter "val"
+    .param p1, "method_code"    # I
+    .param p2, "val"    # J
 
     .prologue
     .line 113
@@ -785,13 +785,13 @@
     move-result-object v0
 
     .line 114
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 117
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v3, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -810,8 +810,8 @@
     .line 121
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -829,7 +829,7 @@
     move-exception v1
 
     .line 124
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v3, -0x7
 
     .line 127
@@ -841,7 +841,7 @@
     goto :goto_0
 
     .line 127
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
 
@@ -855,8 +855,8 @@
 
 .method public transactSetSockaddr(ILjava/net/InetSocketAddress;)I
     .locals 14
-    .parameter "method_code"
-    .parameter "addr"
+    .param p1, "method_code"    # I
+    .param p2, "addr"    # Ljava/net/InetSocketAddress;
 
     .prologue
     .line 233
@@ -865,17 +865,17 @@
     move-result-object v4
 
     .line 234
-    .local v4, data:Landroid/os/Parcel;
+    .local v4, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v8
 
     .line 235
-    .local v8, reply:Landroid/os/Parcel;
+    .local v8, "reply":Landroid/os/Parcel;
     const/4 v9, -0x1
 
     .line 238
-    .local v9, ret_val:I
+    .local v9, "ret_val":I
     :try_start_0
     iget-object v12, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -900,8 +900,8 @@
     .line 278
     invoke-virtual {v8}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v9
 
@@ -931,19 +931,19 @@
     move-result-object v1
 
     .line 245
-    .local v1, a:Ljava/net/InetAddress;
+    .local v1, "a":Ljava/net/InetAddress;
     invoke-virtual {v1}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v3
 
     .line 246
-    .local v3, b:[B
+    .local v3, "b":[B
     invoke-virtual/range {p2 .. p2}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v7
 
     .line 248
-    .local v7, p:I
+    .local v7, "p":I
     instance-of v12, v1, Ljava/net/Inet4Address;
 
     if-eqz v12, :cond_1
@@ -986,7 +986,7 @@
     or-int v10, v12, v13
 
     .line 254
-    .local v10, v4addr:I
+    .local v10, "v4addr":I
     sget v12, Llibcore/io/OsConstants;->AF_INET:I
 
     invoke-virtual {v4, v12}, Landroid/os/Parcel;->writeInt(I)V
@@ -997,21 +997,21 @@
     .line 256
     invoke-virtual {v4, v7}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     .line 280
-    .end local v1           #a:Ljava/net/InetAddress;
-    .end local v3           #b:[B
-    .end local v7           #p:I
-    .end local v10           #v4addr:I
+    .end local v1    # "a":Ljava/net/InetAddress;
+    .end local v3    # "b":[B
+    .end local v7    # "p":I
+    .end local v10    # "v4addr":I
     :catch_0
     move-exception v5
 
     .line 281
-    .local v5, e:Landroid/os/RemoteException;
+    .local v5, "e":Landroid/os/RemoteException;
     const/4 v9, -0x7
 
     .line 284
@@ -1023,10 +1023,10 @@
     goto :goto_1
 
     .line 258
-    .end local v5           #e:Landroid/os/RemoteException;
-    .restart local v1       #a:Ljava/net/InetAddress;
-    .restart local v3       #b:[B
-    .restart local v7       #p:I
+    .end local v5    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "a":Ljava/net/InetAddress;
+    .restart local v3    # "b":[B
+    .restart local v7    # "p":I
     :cond_1
     :try_start_2
     instance-of v12, v1, Ljava/net/Inet6Address;
@@ -1041,7 +1041,7 @@
     move-object v11, v0
 
     .line 261
-    .local v11, v6:Ljava/net/Inet6Address;
+    .local v11, "v6":Ljava/net/Inet6Address;
     sget v12, Llibcore/io/OsConstants;->AF_INET6:I
 
     invoke-virtual {v4, v12}, Landroid/os/Parcel;->writeInt(I)V
@@ -1049,7 +1049,7 @@
     .line 262
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_3
     const/4 v12, 0x4
 
@@ -1101,7 +1101,7 @@
     or-int v2, v12, v13
 
     .line 267
-    .local v2, aword:I
+    .local v2, "aword":I
     invoke-virtual {v4, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 262
@@ -1110,7 +1110,7 @@
     goto :goto_3
 
     .line 269
-    .end local v2           #aword:I
+    .end local v2    # "aword":I
     :cond_2
     invoke-virtual {v4, v7}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1126,17 +1126,17 @@
 
     invoke-virtual {v4, v12}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto/16 :goto_0
 
     .line 284
-    .end local v1           #a:Ljava/net/InetAddress;
-    .end local v3           #b:[B
-    .end local v6           #i:I
-    .end local v7           #p:I
-    .end local v11           #v6:Ljava/net/Inet6Address;
+    .end local v1    # "a":Ljava/net/InetAddress;
+    .end local v3    # "b":[B
+    .end local v6    # "i":I
+    .end local v7    # "p":I
+    .end local v11    # "v6":Ljava/net/Inet6Address;
     :catchall_0
     move-exception v12
 
@@ -1148,9 +1148,9 @@
     throw v12
 
     .line 273
-    .restart local v1       #a:Ljava/net/InetAddress;
-    .restart local v3       #b:[B
-    .restart local v7       #p:I
+    .restart local v1    # "a":Ljava/net/InetAddress;
+    .restart local v3    # "b":[B
+    .restart local v7    # "p":I
     :cond_3
     const/4 v12, -0x4
 
@@ -1165,8 +1165,8 @@
 
 .method public transactSetString(ILjava/lang/String;)I
     .locals 5
-    .parameter "method_code"
-    .parameter "val"
+    .param p1, "method_code"    # I
+    .param p2, "val"    # Ljava/lang/String;
 
     .prologue
     .line 155
@@ -1175,13 +1175,13 @@
     move-result-object v0
 
     .line 156
-    .local v0, data:Landroid/os/Parcel;
+    .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 159
-    .local v2, reply:Landroid/os/Parcel;
+    .local v2, "reply":Landroid/os/Parcel;
     :try_start_0
     iget-object v3, p0, Landroid/os/CommonTimeUtils;->mInterfaceDesc:Ljava/lang/String;
 
@@ -1200,8 +1200,8 @@
     .line 163
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -1219,7 +1219,7 @@
     move-exception v1
 
     .line 166
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const/4 v3, -0x7
 
     .line 169
@@ -1231,7 +1231,7 @@
     goto :goto_0
 
     .line 169
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
 

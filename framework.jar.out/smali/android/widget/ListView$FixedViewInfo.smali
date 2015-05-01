@@ -27,7 +27,6 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ListView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 98

@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -74,8 +74,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v0, 0x0
@@ -113,9 +113,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -155,9 +155,9 @@
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 3
-    .parameter "child"
-    .parameter "index"
-    .parameter "params"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "index"    # I
+    .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 80
@@ -169,7 +169,7 @@
     move-result v0
 
     .line 83
-    .local v0, childId:I
+    .local v0, "childId":I
     const v1, 0x1020014
 
     if-ne v0, v1, :cond_2
@@ -181,7 +181,7 @@
     .line 84
     check-cast p1, Landroid/widget/Chronometer;
 
-    .end local p1
+    .end local p1    # "child":Landroid/view/View;
     iput-object p1, p0, Lcom/android/internal/widget/TextProgressBar;->mChronometer:Landroid/widget/Chronometer;
 
     .line 85
@@ -226,7 +226,7 @@
     goto :goto_0
 
     .line 92
-    .restart local p1
+    .restart local p1    # "child":Landroid/view/View;
     :cond_2
     const v1, 0x102000d
 
@@ -239,7 +239,7 @@
     .line 93
     check-cast p1, Landroid/widget/ProgressBar;
 
-    .end local p1
+    .end local p1    # "child":Landroid/view/View;
     iput-object p1, p0, Lcom/android/internal/widget/TextProgressBar;->mProgressBar:Landroid/widget/ProgressBar;
 
     goto :goto_1
@@ -247,7 +247,7 @@
 
 .method public onChronometerTick(Landroid/widget/Chronometer;)V
     .locals 12
-    .parameter "chronometer"
+    .param p1, "chronometer"    # Landroid/widget/Chronometer;
 
     .prologue
     .line 130
@@ -271,7 +271,7 @@
     move-result-wide v3
 
     .line 137
-    .local v3, now:J
+    .local v3, "now":J
     iget-wide v9, p0, Lcom/android/internal/widget/TextProgressBar;->mDurationBase:J
 
     cmp-long v9, v3, v9
@@ -292,7 +292,7 @@
     long-to-int v6, v9
 
     .line 143
-    .local v6, remaining:I
+    .local v6, "remaining":I
     iget-object v9, p0, Lcom/android/internal/widget/TextProgressBar;->mProgressBar:Landroid/widget/ProgressBar;
 
     iget v10, p0, Lcom/android/internal/widget/TextProgressBar;->mDuration:I
@@ -316,7 +316,7 @@
     check-cast v5, Landroid/widget/RelativeLayout$LayoutParams;
 
     .line 151
-    .local v5, params:Landroid/widget/RelativeLayout$LayoutParams;
+    .local v5, "params":Landroid/widget/RelativeLayout$LayoutParams;
     iget-object v9, p0, Lcom/android/internal/widget/TextProgressBar;->mProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v9}, Landroid/widget/ProgressBar;->getWidth()I
@@ -332,7 +332,7 @@
     sub-int v1, v9, v10
 
     .line 152
-    .local v1, contentWidth:I
+    .local v1, "contentWidth":I
     iget-object v9, p0, Lcom/android/internal/widget/TextProgressBar;->mProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v9}, Landroid/widget/ProgressBar;->getProgress()I
@@ -354,11 +354,11 @@
     add-int v2, v9, v10
 
     .line 156
-    .local v2, leadingEdge:I
+    .local v2, "leadingEdge":I
     const/4 v0, 0x0
 
     .line 157
-    .local v0, adjustLeft:I
+    .local v0, "adjustLeft":I
     iget-object v9, p0, Lcom/android/internal/widget/TextProgressBar;->mChronometer:Landroid/widget/Chronometer;
 
     invoke-virtual {v9}, Landroid/widget/Chronometer;->getWidth()I
@@ -366,7 +366,7 @@
     move-result v8
 
     .line 158
-    .local v8, textWidth:I
+    .local v8, "textWidth":I
     iget v9, p0, Lcom/android/internal/widget/TextProgressBar;->mChronometerGravity:I
 
     const v10, 0x800005
@@ -389,7 +389,7 @@
     sub-int v7, v9, v8
 
     .line 167
-    .local v7, rightLimit:I
+    .local v7, "rightLimit":I
     iget v9, v5, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
     if-ge v2, v9, :cond_6
@@ -406,11 +406,11 @@
 
     move-result-object v5
 
-    .end local v5           #params:Landroid/widget/RelativeLayout$LayoutParams;
+    .end local v5    # "params":Landroid/widget/RelativeLayout$LayoutParams;
     check-cast v5, Landroid/widget/RelativeLayout$LayoutParams;
 
     .line 174
-    .restart local v5       #params:Landroid/widget/RelativeLayout$LayoutParams;
+    .restart local v5    # "params":Landroid/widget/RelativeLayout$LayoutParams;
     iput v2, v5, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
     .line 177
@@ -419,21 +419,21 @@
     invoke-virtual {v9}, Landroid/widget/Chronometer;->requestLayout()V
 
     .line 180
-    .end local v0           #adjustLeft:I
-    .end local v1           #contentWidth:I
-    .end local v2           #leadingEdge:I
-    .end local v5           #params:Landroid/widget/RelativeLayout$LayoutParams;
-    .end local v7           #rightLimit:I
-    .end local v8           #textWidth:I
+    .end local v0    # "adjustLeft":I
+    .end local v1    # "contentWidth":I
+    .end local v2    # "leadingEdge":I
+    .end local v5    # "params":Landroid/widget/RelativeLayout$LayoutParams;
+    .end local v7    # "rightLimit":I
+    .end local v8    # "textWidth":I
     :cond_4
     return-void
 
     .line 160
-    .restart local v0       #adjustLeft:I
-    .restart local v1       #contentWidth:I
-    .restart local v2       #leadingEdge:I
-    .restart local v5       #params:Landroid/widget/RelativeLayout$LayoutParams;
-    .restart local v8       #textWidth:I
+    .restart local v0    # "adjustLeft":I
+    .restart local v1    # "contentWidth":I
+    .restart local v2    # "leadingEdge":I
+    .restart local v5    # "params":Landroid/widget/RelativeLayout$LayoutParams;
+    .restart local v8    # "textWidth":I
     :cond_5
     iget v9, p0, Lcom/android/internal/widget/TextProgressBar;->mChronometerGravity:I
 
@@ -449,7 +449,7 @@
     goto :goto_0
 
     .line 169
-    .restart local v7       #rightLimit:I
+    .restart local v7    # "rightLimit":I
     :cond_6
     if-le v2, v7, :cond_3
 
@@ -461,7 +461,7 @@
 
 .method public setDurationBase(J)V
     .locals 2
-    .parameter "durationBase"
+    .param p1, "durationBase"    # J
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 

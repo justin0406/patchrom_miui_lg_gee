@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
     .locals 0
-    .parameter "context"
-    .parameter "name"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 30
@@ -21,10 +21,10 @@
 # virtual methods
 .method public apply(IIII)V
     .locals 2
-    .parameter "inputTexId"
-    .parameter "width"
-    .parameter "height"
-    .parameter "outputTexId"
+    .param p1, "inputTexId"    # I
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "outputTexId"    # I
 
     .prologue
     .line 35
@@ -36,13 +36,13 @@
     move-result-object v0
 
     .line 38
-    .local v0, inputFrame:Landroid/filterfw/core/Frame;
+    .local v0, "inputFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {p0, p4, p2, p3}, Landroid/media/effect/effects/IdentityEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v1
 
     .line 40
-    .local v1, outputFrame:Landroid/filterfw/core/Frame;
+    .local v1, "outputFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v1, v0}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
     .line 42
@@ -68,8 +68,8 @@
 
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .parameter "parameterKey"
-    .parameter "value"
+    .param p1, "parameterKey"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 50

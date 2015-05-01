@@ -16,9 +16,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/AppWindowToken;Lcom/android/server/wm/TaskStack;I)V
     .locals 1
-    .parameter "wtoken"
-    .parameter "stack"
-    .parameter "userId"
+    .param p1, "wtoken"    # Lcom/android/server/wm/AppWindowToken;
+    .param p2, "stack"    # Lcom/android/server/wm/TaskStack;
+    .param p3, "userId"    # I
 
     .prologue
     .line 29
@@ -55,8 +55,8 @@
 # virtual methods
 .method addAppToken(ILcom/android/server/wm/AppWindowToken;)V
     .locals 1
-    .parameter "addPos"
-    .parameter "wtoken"
+    .param p1, "addPos"    # I
+    .param p2, "wtoken"    # Lcom/android/server/wm/AppWindowToken;
 
     .prologue
     .line 41
@@ -84,7 +84,7 @@
 
 .method removeAppToken(Lcom/android/server/wm/AppWindowToken;)Z
     .locals 5
-    .parameter "wtoken"
+    .param p1, "wtoken"    # Lcom/android/server/wm/AppWindowToken;
 
     .prologue
     const/4 v0, 0x1

@@ -56,7 +56,7 @@
 
 .method public constructor <init>(Landroid/view/MotionEvent$PointerCoords;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/MotionEvent$PointerCoords;
 
     .prologue
     .line 3185
@@ -71,17 +71,17 @@
 
 .method public static createArray(I)[Landroid/view/MotionEvent$PointerCoords;
     .locals 3
-    .parameter "size"
+    .param p0, "size"    # I
 
     .prologue
     .line 3191
     new-array v0, p0, [Landroid/view/MotionEvent$PointerCoords;
 
     .line 3192
-    .local v0, array:[Landroid/view/MotionEvent$PointerCoords;
+    .local v0, "array":[Landroid/view/MotionEvent$PointerCoords;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p0, :cond_0
 
@@ -148,7 +148,7 @@
 
 .method public copyFrom(Landroid/view/MotionEvent$PointerCoords;)V
     .locals 8
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/MotionEvent$PointerCoords;
 
     .prologue
     const/4 v7, 0x0
@@ -157,7 +157,7 @@
     iget-wide v0, p1, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisBits:J
 
     .line 3318
-    .local v0, bits:J
+    .local v0, "bits":J
     iput-wide v0, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisBits:J
 
     .line 3319
@@ -171,17 +171,17 @@
     iget-object v3, p1, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisValues:[F
 
     .line 3321
-    .local v3, otherValues:[F
+    .local v3, "otherValues":[F
     invoke-static {v0, v1}, Ljava/lang/Long;->bitCount(J)I
 
     move-result v2
 
     .line 3322
-    .local v2, count:I
+    .local v2, "count":I
     iget-object v4, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisValues:[F
 
     .line 3323
-    .local v4, values:[F
+    .local v4, "values":[F
     if-eqz v4, :cond_0
 
     array-length v5, v4
@@ -202,9 +202,9 @@
     invoke-static {v3, v7, v4, v7, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 3330
-    .end local v2           #count:I
-    .end local v3           #otherValues:[F
-    .end local v4           #values:[F
+    .end local v2    # "count":I
+    .end local v3    # "otherValues":[F
+    .end local v4    # "values":[F
     :cond_2
     iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->x:F
 
@@ -256,7 +256,7 @@
 
 .method public getAxisValue(I)F
     .locals 11
-    .parameter "axis"
+    .param p1, "axis"    # I
 
     .prologue
     const-wide/16 v9, 0x1
@@ -342,11 +342,11 @@
     iget-wide v2, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisBits:J
 
     .line 3375
-    .local v2, bits:J
+    .local v2, "bits":J
     shl-long v0, v9, p1
 
     .line 3376
-    .local v0, axisBit:J
+    .local v0, "axisBit":J
     and-long v5, v2, v0
 
     const-wide/16 v7, 0x0
@@ -371,7 +371,7 @@
     move-result v4
 
     .line 3380
-    .local v4, index:I
+    .local v4, "index":I
     iget-object v5, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisValues:[F
 
     aget v5, v5, v4
@@ -395,8 +395,8 @@
 
 .method public setAxisValue(IF)V
     .locals 13
-    .parameter "axis"
-    .parameter "value"
+    .param p1, "axis"    # I
+    .param p2, "value"    # F
 
     .prologue
     const-wide/16 v9, 0x1
@@ -484,11 +484,11 @@
     iget-wide v2, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisBits:J
 
     .line 3428
-    .local v2, bits:J
+    .local v2, "bits":J
     shl-long v0, v9, p1
 
     .line 3429
-    .local v0, axisBit:J
+    .local v0, "axisBit":J
     sub-long v8, v0, v9
 
     and-long/2addr v8, v2
@@ -498,11 +498,11 @@
     move-result v5
 
     .line 3430
-    .local v5, index:I
+    .local v5, "index":I
     iget-object v7, p0, Landroid/view/MotionEvent$PointerCoords;->mPackedAxisValues:[F
 
     .line 3431
-    .local v7, values:[F
+    .local v7, "values":[F
     and-long v8, v2, v0
 
     const-wide/16 v10, 0x0
@@ -542,7 +542,7 @@
     move-result v4
 
     .line 3437
-    .local v4, count:I
+    .local v4, "count":I
     array-length v8, v7
 
     if-ge v4, v8, :cond_5
@@ -566,7 +566,7 @@
     new-array v6, v8, [F
 
     .line 3444
-    .local v6, newValues:[F
+    .local v6, "newValues":[F
     invoke-static {v7, v12, v6, v12, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 3445

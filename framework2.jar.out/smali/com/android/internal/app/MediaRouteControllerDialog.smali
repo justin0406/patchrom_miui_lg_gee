@@ -46,8 +46,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "theme"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
 
     .prologue
     .line 74
@@ -93,7 +93,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/app/MediaRouteControllerDialog;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -104,8 +104,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/app/MediaRouteControllerDialog;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 49
@@ -116,7 +116,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/app/MediaRouteControllerDialog;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -127,7 +127,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/widget/SeekBar;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -138,7 +138,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/media/MediaRouter$RouteInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -149,7 +149,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/media/MediaRouter;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -160,7 +160,7 @@
 
 .method static synthetic access$600(Lcom/android/internal/app/MediaRouteControllerDialog;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteControllerDialog;
 
     .prologue
     .line 49
@@ -323,7 +323,7 @@
     move-result-object v0
 
     .line 249
-    .local v0, icon:Landroid/graphics/drawable/Drawable;
+    .local v0, "icon":Landroid/graphics/drawable/Drawable;
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mCurrentIconDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eq v0, v1, :cond_2
@@ -467,7 +467,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 135
@@ -567,7 +567,7 @@
     check-cast v0, Landroid/widget/FrameLayout;
 
     .line 195
-    .local v0, controlFrame:Landroid/widget/FrameLayout;
+    .local v0, "controlFrame":Landroid/widget/FrameLayout;
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mControlView:Landroid/view/View;
 
     if-eqz v1, :cond_1
@@ -583,13 +583,13 @@
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     .line 202
-    .end local v0           #controlFrame:Landroid/widget/FrameLayout;
+    .end local v0    # "controlFrame":Landroid/widget/FrameLayout;
     :cond_0
     :goto_0
     return-void
 
     .line 199
-    .restart local v0       #controlFrame:Landroid/widget/FrameLayout;
+    .restart local v0    # "controlFrame":Landroid/widget/FrameLayout;
     :cond_1
     const/16 v1, 0x8
 
@@ -600,7 +600,7 @@
 
 .method public onCreateMediaControlView(Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 97
@@ -629,8 +629,8 @@
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 4
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/16 v3, 0x19
@@ -676,8 +676,8 @@
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 232
@@ -707,7 +707,7 @@
 
 .method public setVolumeControlEnabled(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 117

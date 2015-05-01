@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/location/GeofenceHardwareRequestParcelable;
     .locals 9
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 107
@@ -51,7 +51,7 @@
     move-result v6
 
     .line 108
-    .local v6, geofenceType:I
+    .local v6, "geofenceType":I
     if-eqz v6, :cond_0
 
     .line 109
@@ -103,7 +103,7 @@
     move-result-object v8
 
     .line 119
-    .local v8, request:Landroid/hardware/location/GeofenceHardwareRequest;
+    .local v8, "request":Landroid/hardware/location/GeofenceHardwareRequest;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -137,7 +137,7 @@
     move-result v7
 
     .line 125
-    .local v7, id:I
+    .local v7, "id":I
     new-instance v0, Landroid/hardware/location/GeofenceHardwareRequestParcelable;
 
     invoke-direct {v0, v7, v8}, Landroid/hardware/location/GeofenceHardwareRequestParcelable;-><init>(ILandroid/hardware/location/GeofenceHardwareRequest;)V
@@ -147,7 +147,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 104
@@ -160,7 +160,7 @@
 
 .method public newArray(I)[Landroid/hardware/location/GeofenceHardwareRequestParcelable;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 130
@@ -171,7 +171,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 104

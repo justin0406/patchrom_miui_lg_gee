@@ -44,8 +44,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "id"
-    .parameter "text"
+    .param p1, "id"    # I
+    .param p2, "text"    # Ljava/lang/String;
 
     .prologue
     .line 36
@@ -68,7 +68,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 42
@@ -127,8 +127,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 55

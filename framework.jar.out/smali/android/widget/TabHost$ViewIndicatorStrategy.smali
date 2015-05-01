@@ -26,8 +26,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter "view"
+    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     .line 667
@@ -44,9 +43,9 @@
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Landroid/view/View;Landroid/widget/TabHost$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/widget/TabHost;
+    .param p2, "x1"    # Landroid/view/View;
+    .param p3, "x2"    # Landroid/widget/TabHost$1;
 
     .prologue
     .line 663

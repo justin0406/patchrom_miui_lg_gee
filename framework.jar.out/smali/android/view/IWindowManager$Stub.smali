@@ -198,7 +198,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/view/IWindowManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -220,7 +220,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/view/IWindowManager;
@@ -236,7 +236,7 @@
     :cond_1
     new-instance v0, Landroid/view/IWindowManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/view/IWindowManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -254,10 +254,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 14
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -303,13 +303,13 @@
     move-result v2
 
     .line 55
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->startViewServer(I)Z
 
     move-result v13
 
     .line 56
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 57
@@ -334,8 +334,8 @@
     goto :goto_1
 
     .line 62
-    .end local v2           #_arg0:I
-    .end local v13           #_result:Z
+    .end local v2    # "_arg0":I
+    .end local v13    # "_result":Z
     :sswitch_2
     const-string v1, "android.view.IWindowManager"
 
@@ -349,7 +349,7 @@
     move-result v13
 
     .line 64
-    .restart local v13       #_result:Z
+    .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 65
@@ -374,7 +374,7 @@
     goto :goto_2
 
     .line 70
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_3
     const-string v1, "android.view.IWindowManager"
 
@@ -388,7 +388,7 @@
     move-result v13
 
     .line 72
-    .restart local v13       #_result:Z
+    .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 73
@@ -413,7 +413,7 @@
     goto :goto_3
 
     .line 78
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_4
     const-string v1, "android.view.IWindowManager"
 
@@ -431,7 +431,7 @@
     move-result-object v2
 
     .line 82
-    .local v2, _arg0:Lcom/android/internal/view/IInputMethodClient;
+    .local v2, "_arg0":Lcom/android/internal/view/IInputMethodClient;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -441,13 +441,13 @@
     move-result-object v3
 
     .line 83
-    .local v3, _arg1:Lcom/android/internal/view/IInputContext;
+    .local v3, "_arg1":Lcom/android/internal/view/IInputContext;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->openSession(Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;)Landroid/view/IWindowSession;
 
     move-result-object v13
 
     .line 84
-    .local v13, _result:Landroid/view/IWindowSession;
+    .local v13, "_result":Landroid/view/IWindowSession;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 85
@@ -474,9 +474,9 @@
     goto :goto_4
 
     .line 90
-    .end local v2           #_arg0:Lcom/android/internal/view/IInputMethodClient;
-    .end local v3           #_arg1:Lcom/android/internal/view/IInputContext;
-    .end local v13           #_result:Landroid/view/IWindowSession;
+    .end local v2    # "_arg0":Lcom/android/internal/view/IInputMethodClient;
+    .end local v3    # "_arg1":Lcom/android/internal/view/IInputContext;
+    .end local v13    # "_result":Landroid/view/IWindowSession;
     :sswitch_5
     const-string v1, "android.view.IWindowManager"
 
@@ -494,13 +494,13 @@
     move-result-object v2
 
     .line 93
-    .restart local v2       #_arg0:Lcom/android/internal/view/IInputMethodClient;
+    .restart local v2    # "_arg0":Lcom/android/internal/view/IInputMethodClient;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->inputMethodClientHasFocus(Lcom/android/internal/view/IInputMethodClient;)Z
 
     move-result v13
 
     .line 94
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 95
@@ -525,8 +525,8 @@
     goto :goto_5
 
     .line 100
-    .end local v2           #_arg0:Lcom/android/internal/view/IInputMethodClient;
-    .end local v13           #_result:Z
+    .end local v2    # "_arg0":Lcom/android/internal/view/IInputMethodClient;
+    .end local v13    # "_result":Z
     :sswitch_6
     const-string v1, "android.view.IWindowManager"
 
@@ -540,13 +540,13 @@
     move-result v2
 
     .line 104
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     new-instance v3, Landroid/graphics/Point;
 
     invoke-direct {v3}, Landroid/graphics/Point;-><init>()V
 
     .line 105
-    .local v3, _arg1:Landroid/graphics/Point;
+    .local v3, "_arg1":Landroid/graphics/Point;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->getInitialDisplaySize(ILandroid/graphics/Point;)V
 
     .line 106
@@ -586,8 +586,8 @@
     goto :goto_6
 
     .line 118
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:Landroid/graphics/Point;
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":Landroid/graphics/Point;
     :sswitch_7
     const-string v1, "android.view.IWindowManager"
 
@@ -601,13 +601,13 @@
     move-result v2
 
     .line 122
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     new-instance v3, Landroid/graphics/Point;
 
     invoke-direct {v3}, Landroid/graphics/Point;-><init>()V
 
     .line 123
-    .restart local v3       #_arg1:Landroid/graphics/Point;
+    .restart local v3    # "_arg1":Landroid/graphics/Point;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->getBaseDisplaySize(ILandroid/graphics/Point;)V
 
     .line 124
@@ -647,8 +647,8 @@
     goto :goto_7
 
     .line 136
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:Landroid/graphics/Point;
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":Landroid/graphics/Point;
     :sswitch_8
     const-string v1, "android.view.IWindowManager"
 
@@ -662,19 +662,19 @@
     move-result v2
 
     .line 140
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 142
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 143
-    .local v4, _arg2:I
+    .local v4, "_arg2":I
     invoke-virtual {p0, v2, v3, v4}, Landroid/view/IWindowManager$Stub;->setForcedDisplaySize(III)V
 
     .line 144
@@ -686,9 +686,9 @@
     goto/16 :goto_0
 
     .line 149
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
     :sswitch_9
     const-string v1, "android.view.IWindowManager"
 
@@ -702,7 +702,7 @@
     move-result v2
 
     .line 152
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->clearForcedDisplaySize(I)V
 
     .line 153
@@ -714,7 +714,7 @@
     goto/16 :goto_0
 
     .line 158
-    .end local v2           #_arg0:I
+    .end local v2    # "_arg0":I
     :sswitch_a
     const-string v1, "android.view.IWindowManager"
 
@@ -728,13 +728,13 @@
     move-result v2
 
     .line 161
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->getInitialDisplayDensity(I)I
 
     move-result v13
 
     .line 162
-    .local v13, _result:I
+    .local v13, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 163
@@ -748,8 +748,8 @@
     goto/16 :goto_0
 
     .line 168
-    .end local v2           #_arg0:I
-    .end local v13           #_result:I
+    .end local v2    # "_arg0":I
+    .end local v13    # "_result":I
     :sswitch_b
     const-string v1, "android.view.IWindowManager"
 
@@ -763,13 +763,13 @@
     move-result v2
 
     .line 171
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->getBaseDisplayDensity(I)I
 
     move-result v13
 
     .line 172
-    .restart local v13       #_result:I
+    .restart local v13    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 173
@@ -783,8 +783,8 @@
     goto/16 :goto_0
 
     .line 178
-    .end local v2           #_arg0:I
-    .end local v13           #_result:I
+    .end local v2    # "_arg0":I
+    .end local v13    # "_result":I
     :sswitch_c
     const-string v1, "android.view.IWindowManager"
 
@@ -798,13 +798,13 @@
     move-result v2
 
     .line 182
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 183
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setForcedDisplayDensity(II)V
 
     .line 184
@@ -816,8 +816,8 @@
     goto/16 :goto_0
 
     .line 189
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
     :sswitch_d
     const-string v1, "android.view.IWindowManager"
 
@@ -831,7 +831,7 @@
     move-result v2
 
     .line 192
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->clearForcedDisplayDensity(I)V
 
     .line 193
@@ -843,7 +843,7 @@
     goto/16 :goto_0
 
     .line 198
-    .end local v2           #_arg0:I
+    .end local v2    # "_arg0":I
     :sswitch_e
     const-string v1, "android.view.IWindowManager"
 
@@ -857,30 +857,30 @@
     move-result v2
 
     .line 202
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 204
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 206
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 208
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .local v6, _arg4:I
+    .local v6, "_arg4":I
     move-object v1, p0
 
     .line 209
@@ -895,11 +895,11 @@
     goto/16 :goto_0
 
     .line 215
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
     :sswitch_f
     const-string v1, "android.view.IWindowManager"
 
@@ -913,7 +913,7 @@
     move-result-object v2
 
     .line 218
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->pauseKeyDispatching(Landroid/os/IBinder;)V
 
     .line 219
@@ -925,7 +925,7 @@
     goto/16 :goto_0
 
     .line 224
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_10
     const-string v1, "android.view.IWindowManager"
 
@@ -939,7 +939,7 @@
     move-result-object v2
 
     .line 227
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->resumeKeyDispatching(Landroid/os/IBinder;)V
 
     .line 228
@@ -951,7 +951,7 @@
     goto/16 :goto_0
 
     .line 233
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_11
     const-string v1, "android.view.IWindowManager"
 
@@ -969,7 +969,7 @@
     const/4 v2, 0x1
 
     .line 236
-    .local v2, _arg0:Z
+    .local v2, "_arg0":Z
     :goto_8
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setEventDispatching(Z)V
 
@@ -982,7 +982,7 @@
     goto/16 :goto_0
 
     .line 235
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :cond_7
     const/4 v2, 0x0
 
@@ -1002,13 +1002,13 @@
     move-result-object v2
 
     .line 246
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 247
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->addWindowToken(Landroid/os/IBinder;I)V
 
     .line 248
@@ -1020,8 +1020,8 @@
     goto/16 :goto_0
 
     .line 253
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":I
     :sswitch_13
     const-string v1, "android.view.IWindowManager"
 
@@ -1035,7 +1035,7 @@
     move-result-object v2
 
     .line 256
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->removeWindowToken(Landroid/os/IBinder;)V
 
     .line 257
@@ -1047,7 +1047,7 @@
     goto/16 :goto_0
 
     .line 262
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_14
     const-string v1, "android.view.IWindowManager"
 
@@ -1061,7 +1061,7 @@
     move-result v2
 
     .line 266
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -1071,25 +1071,25 @@
     move-result-object v3
 
     .line 268
-    .local v3, _arg1:Landroid/view/IApplicationToken;
+    .local v3, "_arg1":Landroid/view/IApplicationToken;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 270
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 272
-    .restart local v5       #_arg3:I
+    .restart local v5    # "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 274
-    .restart local v6       #_arg4:I
+    .restart local v6    # "_arg4":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1099,7 +1099,7 @@
     const/4 v7, 0x1
 
     .line 276
-    .local v7, _arg5:Z
+    .local v7, "_arg5":Z
     :goto_9
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1110,19 +1110,19 @@
     const/4 v8, 0x1
 
     .line 278
-    .local v8, _arg6:Z
+    .local v8, "_arg6":Z
     :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
     .line 280
-    .local v9, _arg7:I
+    .local v9, "_arg7":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    .local v10, _arg8:I
+    .local v10, "_arg8":I
     move-object v1, p0
 
     .line 281
@@ -1137,29 +1137,29 @@
     goto/16 :goto_0
 
     .line 274
-    .end local v7           #_arg5:Z
-    .end local v8           #_arg6:Z
-    .end local v9           #_arg7:I
-    .end local v10           #_arg8:I
+    .end local v7    # "_arg5":Z
+    .end local v8    # "_arg6":Z
+    .end local v9    # "_arg7":I
+    .end local v10    # "_arg8":I
     :cond_8
     const/4 v7, 0x0
 
     goto :goto_9
 
     .line 276
-    .restart local v7       #_arg5:Z
+    .restart local v7    # "_arg5":Z
     :cond_9
     const/4 v8, 0x0
 
     goto :goto_a
 
     .line 287
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:Landroid/view/IApplicationToken;
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:I
-    .end local v7           #_arg5:Z
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":Landroid/view/IApplicationToken;
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":I
+    .end local v7    # "_arg5":Z
     :sswitch_15
     const-string v1, "android.view.IWindowManager"
 
@@ -1173,13 +1173,13 @@
     move-result-object v2
 
     .line 291
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 292
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setAppGroupId(Landroid/os/IBinder;I)V
 
     .line 293
@@ -1191,8 +1191,8 @@
     goto/16 :goto_0
 
     .line 298
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":I
     :sswitch_16
     const-string v1, "android.view.IWindowManager"
 
@@ -1210,13 +1210,13 @@
     move-result-object v2
 
     .line 302
-    .local v2, _arg0:Landroid/view/IApplicationToken;
+    .local v2, "_arg0":Landroid/view/IApplicationToken;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 303
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setAppOrientation(Landroid/view/IApplicationToken;I)V
 
     .line 304
@@ -1228,8 +1228,8 @@
     goto/16 :goto_0
 
     .line 309
-    .end local v2           #_arg0:Landroid/view/IApplicationToken;
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":Landroid/view/IApplicationToken;
+    .end local v3    # "_arg1":I
     :sswitch_17
     const-string v1, "android.view.IWindowManager"
 
@@ -1247,13 +1247,13 @@
     move-result-object v2
 
     .line 312
-    .restart local v2       #_arg0:Landroid/view/IApplicationToken;
+    .restart local v2    # "_arg0":Landroid/view/IApplicationToken;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->getAppOrientation(Landroid/view/IApplicationToken;)I
 
     move-result v13
 
     .line 313
-    .restart local v13       #_result:I
+    .restart local v13    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 314
@@ -1267,8 +1267,8 @@
     goto/16 :goto_0
 
     .line 319
-    .end local v2           #_arg0:Landroid/view/IApplicationToken;
-    .end local v13           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IApplicationToken;
+    .end local v13    # "_result":I
     :sswitch_18
     const-string v1, "android.view.IWindowManager"
 
@@ -1282,7 +1282,7 @@
     move-result-object v2
 
     .line 323
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1292,7 +1292,7 @@
     const/4 v3, 0x1
 
     .line 324
-    .local v3, _arg1:Z
+    .local v3, "_arg1":Z
     :goto_b
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setFocusedApp(Landroid/os/IBinder;Z)V
 
@@ -1305,14 +1305,14 @@
     goto/16 :goto_0
 
     .line 323
-    .end local v3           #_arg1:Z
+    .end local v3    # "_arg1":Z
     :cond_a
     const/4 v3, 0x0
 
     goto :goto_b
 
     .line 330
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_19
     const-string v1, "android.view.IWindowManager"
 
@@ -1326,7 +1326,7 @@
     move-result v2
 
     .line 334
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1336,7 +1336,7 @@
     const/4 v3, 0x1
 
     .line 335
-    .restart local v3       #_arg1:Z
+    .restart local v3    # "_arg1":Z
     :goto_c
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->prepareAppTransition(IZ)V
 
@@ -1349,14 +1349,14 @@
     goto/16 :goto_0
 
     .line 334
-    .end local v3           #_arg1:Z
+    .end local v3    # "_arg1":Z
     :cond_b
     const/4 v3, 0x0
 
     goto :goto_c
 
     .line 341
-    .end local v2           #_arg0:I
+    .end local v2    # "_arg0":I
     :sswitch_1a
     const-string v1, "android.view.IWindowManager"
 
@@ -1370,7 +1370,7 @@
     move-result v13
 
     .line 343
-    .restart local v13       #_result:I
+    .restart local v13    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 344
@@ -1384,7 +1384,7 @@
     goto/16 :goto_0
 
     .line 349
-    .end local v13           #_result:I
+    .end local v13    # "_result":I
     :sswitch_1b
     const-string v1, "android.view.IWindowManager"
 
@@ -1398,19 +1398,19 @@
     move-result-object v2
 
     .line 353
-    .local v2, _arg0:Ljava/lang/String;
+    .local v2, "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 355
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 357
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -1420,7 +1420,7 @@
     move-result-object v5
 
     .line 358
-    .local v5, _arg3:Landroid/os/IRemoteCallback;
+    .local v5, "_arg3":Landroid/os/IRemoteCallback;
     invoke-virtual {p0, v2, v3, v4, v5}, Landroid/view/IWindowManager$Stub;->overridePendingAppTransition(Ljava/lang/String;IILandroid/os/IRemoteCallback;)V
 
     .line 359
@@ -1432,10 +1432,10 @@
     goto/16 :goto_0
 
     .line 364
-    .end local v2           #_arg0:Ljava/lang/String;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:Landroid/os/IRemoteCallback;
+    .end local v2    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":Landroid/os/IRemoteCallback;
     :sswitch_1c
     const-string v1, "android.view.IWindowManager"
 
@@ -1449,25 +1449,25 @@
     move-result v2
 
     .line 368
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 370
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 372
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 373
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     invoke-virtual {p0, v2, v3, v4, v5}, Landroid/view/IWindowManager$Stub;->overridePendingAppTransitionScaleUp(IIII)V
 
     .line 374
@@ -1479,10 +1479,10 @@
     goto/16 :goto_0
 
     .line 379
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
     :sswitch_1d
     const-string v1, "android.view.IWindowManager"
 
@@ -1509,20 +1509,20 @@
     check-cast v2, Landroid/graphics/Bitmap;
 
     .line 388
-    .local v2, _arg0:Landroid/graphics/Bitmap;
+    .local v2, "_arg0":Landroid/graphics/Bitmap;
     :goto_d
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 390
-    .restart local v3       #_arg1:I
+    .restart local v3    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 392
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -1532,7 +1532,7 @@
     move-result-object v5
 
     .line 394
-    .local v5, _arg3:Landroid/os/IRemoteCallback;
+    .local v5, "_arg3":Landroid/os/IRemoteCallback;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1541,7 +1541,7 @@
 
     const/4 v6, 0x1
 
-    .local v6, _arg4:Z
+    .local v6, "_arg4":Z
     :goto_e
     move-object v1, p0
 
@@ -1557,31 +1557,31 @@
     goto/16 :goto_0
 
     .line 385
-    .end local v2           #_arg0:Landroid/graphics/Bitmap;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:Landroid/os/IRemoteCallback;
-    .end local v6           #_arg4:Z
+    .end local v2    # "_arg0":Landroid/graphics/Bitmap;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":Landroid/os/IRemoteCallback;
+    .end local v6    # "_arg4":Z
     :cond_c
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/graphics/Bitmap;
+    .restart local v2    # "_arg0":Landroid/graphics/Bitmap;
     goto :goto_d
 
     .line 394
-    .restart local v3       #_arg1:I
-    .restart local v4       #_arg2:I
-    .restart local v5       #_arg3:Landroid/os/IRemoteCallback;
+    .restart local v3    # "_arg1":I
+    .restart local v4    # "_arg2":I
+    .restart local v5    # "_arg3":Landroid/os/IRemoteCallback;
     :cond_d
     const/4 v6, 0x0
 
     goto :goto_e
 
     .line 401
-    .end local v2           #_arg0:Landroid/graphics/Bitmap;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:Landroid/os/IRemoteCallback;
+    .end local v2    # "_arg0":Landroid/graphics/Bitmap;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":Landroid/os/IRemoteCallback;
     :sswitch_1e
     const-string v1, "android.view.IWindowManager"
 
@@ -1614,19 +1614,19 @@
     move-result-object v2
 
     .line 412
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 414
-    .local v3, _arg1:Ljava/lang/String;
+    .local v3, "_arg1":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 416
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1645,7 +1645,7 @@
     check-cast v5, Landroid/content/res/CompatibilityInfo;
 
     .line 423
-    .local v5, _arg3:Landroid/content/res/CompatibilityInfo;
+    .local v5, "_arg3":Landroid/content/res/CompatibilityInfo;
     :goto_f
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1665,38 +1665,38 @@
     check-cast v6, Ljava/lang/CharSequence;
 
     .line 430
-    .local v6, _arg4:Ljava/lang/CharSequence;
+    .local v6, "_arg4":Ljava/lang/CharSequence;
     :goto_10
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     .line 432
-    .local v7, _arg5:I
+    .local v7, "_arg5":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
     .line 434
-    .local v8, _arg6:I
+    .local v8, "_arg6":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
     .line 436
-    .restart local v9       #_arg7:I
+    .restart local v9    # "_arg7":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
     .line 438
-    .restart local v10       #_arg8:I
+    .restart local v10    # "_arg8":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v11
 
     .line 440
-    .local v11, _arg9:Landroid/os/IBinder;
+    .local v11, "_arg9":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1705,7 +1705,7 @@
 
     const/4 v12, 0x1
 
-    .local v12, _arg10:Z
+    .local v12, "_arg10":Z
     :goto_11
     move-object v1, p0
 
@@ -1721,49 +1721,49 @@
     goto/16 :goto_0
 
     .line 420
-    .end local v5           #_arg3:Landroid/content/res/CompatibilityInfo;
-    .end local v6           #_arg4:Ljava/lang/CharSequence;
-    .end local v7           #_arg5:I
-    .end local v8           #_arg6:I
-    .end local v9           #_arg7:I
-    .end local v10           #_arg8:I
-    .end local v11           #_arg9:Landroid/os/IBinder;
-    .end local v12           #_arg10:Z
+    .end local v5    # "_arg3":Landroid/content/res/CompatibilityInfo;
+    .end local v6    # "_arg4":Ljava/lang/CharSequence;
+    .end local v7    # "_arg5":I
+    .end local v8    # "_arg6":I
+    .end local v9    # "_arg7":I
+    .end local v10    # "_arg8":I
+    .end local v11    # "_arg9":Landroid/os/IBinder;
+    .end local v12    # "_arg10":Z
     :cond_e
     const/4 v5, 0x0
 
-    .restart local v5       #_arg3:Landroid/content/res/CompatibilityInfo;
+    .restart local v5    # "_arg3":Landroid/content/res/CompatibilityInfo;
     goto :goto_f
 
     .line 427
     :cond_f
     const/4 v6, 0x0
 
-    .restart local v6       #_arg4:Ljava/lang/CharSequence;
+    .restart local v6    # "_arg4":Ljava/lang/CharSequence;
     goto :goto_10
 
     .line 440
-    .restart local v7       #_arg5:I
-    .restart local v8       #_arg6:I
-    .restart local v9       #_arg7:I
-    .restart local v10       #_arg8:I
-    .restart local v11       #_arg9:Landroid/os/IBinder;
+    .restart local v7    # "_arg5":I
+    .restart local v8    # "_arg6":I
+    .restart local v9    # "_arg7":I
+    .restart local v10    # "_arg8":I
+    .restart local v11    # "_arg9":Landroid/os/IBinder;
     :cond_10
     const/4 v12, 0x0
 
     goto :goto_11
 
     .line 447
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Ljava/lang/String;
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:Landroid/content/res/CompatibilityInfo;
-    .end local v6           #_arg4:Ljava/lang/CharSequence;
-    .end local v7           #_arg5:I
-    .end local v8           #_arg6:I
-    .end local v9           #_arg7:I
-    .end local v10           #_arg8:I
-    .end local v11           #_arg9:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Ljava/lang/String;
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":Landroid/content/res/CompatibilityInfo;
+    .end local v6    # "_arg4":Ljava/lang/CharSequence;
+    .end local v7    # "_arg5":I
+    .end local v8    # "_arg6":I
+    .end local v9    # "_arg7":I
+    .end local v10    # "_arg8":I
+    .end local v11    # "_arg9":Landroid/os/IBinder;
     :sswitch_20
     const-string v1, "android.view.IWindowManager"
 
@@ -1777,7 +1777,7 @@
     move-result-object v2
 
     .line 450
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setAppWillBeHidden(Landroid/os/IBinder;)V
 
     .line 451
@@ -1789,7 +1789,7 @@
     goto/16 :goto_0
 
     .line 456
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_21
     const-string v1, "android.view.IWindowManager"
 
@@ -1803,7 +1803,7 @@
     move-result-object v2
 
     .line 460
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1813,7 +1813,7 @@
     const/4 v3, 0x1
 
     .line 461
-    .local v3, _arg1:Z
+    .local v3, "_arg1":Z
     :goto_12
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setAppVisibility(Landroid/os/IBinder;Z)V
 
@@ -1826,14 +1826,14 @@
     goto/16 :goto_0
 
     .line 460
-    .end local v3           #_arg1:Z
+    .end local v3    # "_arg1":Z
     :cond_11
     const/4 v3, 0x0
 
     goto :goto_12
 
     .line 467
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_22
     const-string v1, "android.view.IWindowManager"
 
@@ -1847,13 +1847,13 @@
     move-result-object v2
 
     .line 471
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 472
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->startAppFreezingScreen(Landroid/os/IBinder;I)V
 
     .line 473
@@ -1865,8 +1865,8 @@
     goto/16 :goto_0
 
     .line 478
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":I
     :sswitch_23
     const-string v1, "android.view.IWindowManager"
 
@@ -1880,7 +1880,7 @@
     move-result-object v2
 
     .line 482
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -1890,7 +1890,7 @@
     const/4 v3, 0x1
 
     .line 483
-    .local v3, _arg1:Z
+    .local v3, "_arg1":Z
     :goto_13
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->stopAppFreezingScreen(Landroid/os/IBinder;Z)V
 
@@ -1903,14 +1903,14 @@
     goto/16 :goto_0
 
     .line 482
-    .end local v3           #_arg1:Z
+    .end local v3    # "_arg1":Z
     :cond_12
     const/4 v3, 0x0
 
     goto :goto_13
 
     .line 489
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_24
     const-string v1, "android.view.IWindowManager"
 
@@ -1924,7 +1924,7 @@
     move-result-object v2
 
     .line 492
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->removeAppToken(Landroid/os/IBinder;)V
 
     .line 493
@@ -1936,7 +1936,7 @@
     goto/16 :goto_0
 
     .line 498
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_25
     const-string v1, "android.view.IWindowManager"
 
@@ -1963,20 +1963,20 @@
     check-cast v2, Landroid/content/res/Configuration;
 
     .line 507
-    .local v2, _arg0:Landroid/content/res/Configuration;
+    .local v2, "_arg0":Landroid/content/res/Configuration;
     :goto_14
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     .line 508
-    .local v3, _arg1:Landroid/os/IBinder;
+    .local v3, "_arg1":Landroid/os/IBinder;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->updateOrientationFromAppTokens(Landroid/content/res/Configuration;Landroid/os/IBinder;)Landroid/content/res/Configuration;
 
     move-result-object v13
 
     .line 509
-    .local v13, _result:Landroid/content/res/Configuration;
+    .local v13, "_result":Landroid/content/res/Configuration;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 510
@@ -2003,18 +2003,18 @@
     goto/16 :goto_0
 
     .line 504
-    .end local v2           #_arg0:Landroid/content/res/Configuration;
-    .end local v3           #_arg1:Landroid/os/IBinder;
-    .end local v13           #_result:Landroid/content/res/Configuration;
+    .end local v2    # "_arg0":Landroid/content/res/Configuration;
+    .end local v3    # "_arg1":Landroid/os/IBinder;
+    .end local v13    # "_result":Landroid/content/res/Configuration;
     :cond_13
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/content/res/Configuration;
+    .restart local v2    # "_arg0":Landroid/content/res/Configuration;
     goto :goto_14
 
     .line 515
-    .restart local v3       #_arg1:Landroid/os/IBinder;
-    .restart local v13       #_result:Landroid/content/res/Configuration;
+    .restart local v3    # "_arg1":Landroid/os/IBinder;
+    .restart local v13    # "_result":Landroid/content/res/Configuration;
     :cond_14
     const/4 v1, 0x0
 
@@ -2025,9 +2025,9 @@
     goto :goto_15
 
     .line 521
-    .end local v2           #_arg0:Landroid/content/res/Configuration;
-    .end local v3           #_arg1:Landroid/os/IBinder;
-    .end local v13           #_result:Landroid/content/res/Configuration;
+    .end local v2    # "_arg0":Landroid/content/res/Configuration;
+    .end local v3    # "_arg1":Landroid/os/IBinder;
+    .end local v13    # "_result":Landroid/content/res/Configuration;
     :sswitch_26
     const-string v1, "android.view.IWindowManager"
 
@@ -2054,7 +2054,7 @@
     check-cast v2, Landroid/content/res/Configuration;
 
     .line 529
-    .restart local v2       #_arg0:Landroid/content/res/Configuration;
+    .restart local v2    # "_arg0":Landroid/content/res/Configuration;
     :goto_16
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setNewConfiguration(Landroid/content/res/Configuration;)V
 
@@ -2067,15 +2067,15 @@
     goto/16 :goto_0
 
     .line 527
-    .end local v2           #_arg0:Landroid/content/res/Configuration;
+    .end local v2    # "_arg0":Landroid/content/res/Configuration;
     :cond_15
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/content/res/Configuration;
+    .restart local v2    # "_arg0":Landroid/content/res/Configuration;
     goto :goto_16
 
     .line 535
-    .end local v2           #_arg0:Landroid/content/res/Configuration;
+    .end local v2    # "_arg0":Landroid/content/res/Configuration;
     :sswitch_27
     const-string v1, "android.view.IWindowManager"
 
@@ -2089,13 +2089,13 @@
     move-result v2
 
     .line 539
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 540
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->startFreezingScreen(II)V
 
     .line 541
@@ -2107,8 +2107,8 @@
     goto/16 :goto_0
 
     .line 546
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:I
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":I
     :sswitch_28
     const-string v1, "android.view.IWindowManager"
 
@@ -2141,13 +2141,13 @@
     move-result-object v2
 
     .line 557
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 558
-    .local v3, _arg1:Ljava/lang/String;
+    .local v3, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->disableKeyguard(Landroid/os/IBinder;Ljava/lang/String;)V
 
     .line 559
@@ -2159,8 +2159,8 @@
     goto/16 :goto_0
 
     .line 564
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Ljava/lang/String;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Ljava/lang/String;
     :sswitch_2a
     const-string v1, "android.view.IWindowManager"
 
@@ -2174,7 +2174,7 @@
     move-result-object v2
 
     .line 567
-    .restart local v2       #_arg0:Landroid/os/IBinder;
+    .restart local v2    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->reenableKeyguard(Landroid/os/IBinder;)V
 
     .line 568
@@ -2186,7 +2186,7 @@
     goto/16 :goto_0
 
     .line 573
-    .end local v2           #_arg0:Landroid/os/IBinder;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
     :sswitch_2b
     const-string v1, "android.view.IWindowManager"
 
@@ -2204,7 +2204,7 @@
     move-result-object v2
 
     .line 576
-    .local v2, _arg0:Landroid/view/IOnKeyguardExitResult;
+    .local v2, "_arg0":Landroid/view/IOnKeyguardExitResult;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->exitKeyguardSecurely(Landroid/view/IOnKeyguardExitResult;)V
 
     .line 577
@@ -2216,7 +2216,7 @@
     goto/16 :goto_0
 
     .line 582
-    .end local v2           #_arg0:Landroid/view/IOnKeyguardExitResult;
+    .end local v2    # "_arg0":Landroid/view/IOnKeyguardExitResult;
     :sswitch_2c
     const-string v1, "android.view.IWindowManager"
 
@@ -2230,7 +2230,7 @@
     move-result v13
 
     .line 584
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 585
@@ -2255,7 +2255,7 @@
     goto :goto_17
 
     .line 590
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_2d
     const-string v1, "android.view.IWindowManager"
 
@@ -2269,7 +2269,7 @@
     move-result v13
 
     .line 592
-    .restart local v13       #_result:Z
+    .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 593
@@ -2294,7 +2294,7 @@
     goto :goto_18
 
     .line 598
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_2e
     const-string v1, "android.view.IWindowManager"
 
@@ -2308,7 +2308,7 @@
     move-result v13
 
     .line 600
-    .restart local v13       #_result:Z
+    .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 601
@@ -2333,7 +2333,7 @@
     goto :goto_19
 
     .line 606
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_2f
     const-string v1, "android.view.IWindowManager"
 
@@ -2366,7 +2366,7 @@
     move-result-object v2
 
     .line 616
-    .local v2, _arg0:Ljava/lang/String;
+    .local v2, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->closeSystemDialogs(Ljava/lang/String;)V
 
     .line 617
@@ -2378,7 +2378,7 @@
     goto/16 :goto_0
 
     .line 622
-    .end local v2           #_arg0:Ljava/lang/String;
+    .end local v2    # "_arg0":Ljava/lang/String;
     :sswitch_31
     const-string v1, "android.view.IWindowManager"
 
@@ -2392,13 +2392,13 @@
     move-result v2
 
     .line 625
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->getAnimationScale(I)F
 
     move-result v13
 
     .line 626
-    .local v13, _result:F
+    .local v13, "_result":F
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 627
@@ -2412,8 +2412,8 @@
     goto/16 :goto_0
 
     .line 632
-    .end local v2           #_arg0:I
-    .end local v13           #_result:F
+    .end local v2    # "_arg0":I
+    .end local v13    # "_result":F
     :sswitch_32
     const-string v1, "android.view.IWindowManager"
 
@@ -2427,7 +2427,7 @@
     move-result-object v13
 
     .line 634
-    .local v13, _result:[F
+    .local v13, "_result":[F
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 635
@@ -2441,7 +2441,7 @@
     goto/16 :goto_0
 
     .line 640
-    .end local v13           #_result:[F
+    .end local v13    # "_result":[F
     :sswitch_33
     const-string v1, "android.view.IWindowManager"
 
@@ -2455,13 +2455,13 @@
     move-result v2
 
     .line 644
-    .restart local v2       #_arg0:I
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v3
 
     .line 645
-    .local v3, _arg1:F
+    .local v3, "_arg1":F
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->setAnimationScale(IF)V
 
     .line 646
@@ -2473,8 +2473,8 @@
     goto/16 :goto_0
 
     .line 651
-    .end local v2           #_arg0:I
-    .end local v3           #_arg1:F
+    .end local v2    # "_arg0":I
+    .end local v3    # "_arg1":F
     :sswitch_34
     const-string v1, "android.view.IWindowManager"
 
@@ -2488,7 +2488,7 @@
     move-result-object v2
 
     .line 654
-    .local v2, _arg0:[F
+    .local v2, "_arg0":[F
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setAnimationScales([F)V
 
     .line 655
@@ -2500,7 +2500,7 @@
     goto/16 :goto_0
 
     .line 660
-    .end local v2           #_arg0:[F
+    .end local v2    # "_arg0":[F
     :sswitch_35
     const-string v1, "android.view.IWindowManager"
 
@@ -2518,7 +2518,7 @@
     const/4 v2, 0x1
 
     .line 663
-    .local v2, _arg0:Z
+    .local v2, "_arg0":Z
     :goto_1a
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setInTouchMode(Z)V
 
@@ -2531,7 +2531,7 @@
     goto/16 :goto_0
 
     .line 662
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :cond_19
     const/4 v2, 0x0
 
@@ -2555,7 +2555,7 @@
     const/4 v2, 0x1
 
     .line 672
-    .restart local v2       #_arg0:Z
+    .restart local v2    # "_arg0":Z
     :goto_1b
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->showStrictModeViolation(Z)V
 
@@ -2568,7 +2568,7 @@
     goto/16 :goto_0
 
     .line 671
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :cond_1a
     const/4 v2, 0x0
 
@@ -2588,7 +2588,7 @@
     move-result-object v2
 
     .line 681
-    .local v2, _arg0:Ljava/lang/String;
+    .local v2, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setStrictModeVisualIndicatorPreference(Ljava/lang/String;)V
 
     .line 682
@@ -2600,7 +2600,7 @@
     goto/16 :goto_0
 
     .line 687
-    .end local v2           #_arg0:Ljava/lang/String;
+    .end local v2    # "_arg0":Ljava/lang/String;
     :sswitch_38
     const-string v1, "android.view.IWindowManager"
 
@@ -2618,7 +2618,7 @@
     const/4 v2, 0x1
 
     .line 691
-    .local v2, _arg0:Z
+    .local v2, "_arg0":Z
     :goto_1c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2629,7 +2629,7 @@
     const/4 v3, 0x1
 
     .line 692
-    .local v3, _arg1:Z
+    .local v3, "_arg1":Z
     :goto_1d
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->updateRotation(ZZ)V
 
@@ -2642,22 +2642,22 @@
     goto/16 :goto_0
 
     .line 689
-    .end local v2           #_arg0:Z
-    .end local v3           #_arg1:Z
+    .end local v2    # "_arg0":Z
+    .end local v3    # "_arg1":Z
     :cond_1b
     const/4 v2, 0x0
 
     goto :goto_1c
 
     .line 691
-    .restart local v2       #_arg0:Z
+    .restart local v2    # "_arg0":Z
     :cond_1c
     const/4 v3, 0x0
 
     goto :goto_1d
 
     .line 698
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :sswitch_39
     const-string v1, "android.view.IWindowManager"
 
@@ -2671,7 +2671,7 @@
     move-result v13
 
     .line 700
-    .local v13, _result:I
+    .local v13, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 701
@@ -2685,7 +2685,7 @@
     goto/16 :goto_0
 
     .line 706
-    .end local v13           #_result:I
+    .end local v13    # "_result":I
     :sswitch_3a
     const-string v1, "android.view.IWindowManager"
 
@@ -2703,13 +2703,13 @@
     move-result-object v2
 
     .line 709
-    .local v2, _arg0:Landroid/view/IRotationWatcher;
+    .local v2, "_arg0":Landroid/view/IRotationWatcher;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->watchRotation(Landroid/view/IRotationWatcher;)I
 
     move-result v13
 
     .line 710
-    .restart local v13       #_result:I
+    .restart local v13    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 711
@@ -2723,8 +2723,8 @@
     goto/16 :goto_0
 
     .line 716
-    .end local v2           #_arg0:Landroid/view/IRotationWatcher;
-    .end local v13           #_result:I
+    .end local v2    # "_arg0":Landroid/view/IRotationWatcher;
+    .end local v13    # "_result":I
     :sswitch_3b
     const-string v1, "android.view.IWindowManager"
 
@@ -2742,7 +2742,7 @@
     move-result-object v2
 
     .line 719
-    .restart local v2       #_arg0:Landroid/view/IRotationWatcher;
+    .restart local v2    # "_arg0":Landroid/view/IRotationWatcher;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->removeRotationWatcher(Landroid/view/IRotationWatcher;)V
 
     .line 720
@@ -2754,7 +2754,7 @@
     goto/16 :goto_0
 
     .line 725
-    .end local v2           #_arg0:Landroid/view/IRotationWatcher;
+    .end local v2    # "_arg0":Landroid/view/IRotationWatcher;
     :sswitch_3c
     const-string v1, "android.view.IWindowManager"
 
@@ -2768,7 +2768,7 @@
     move-result v13
 
     .line 727
-    .restart local v13       #_result:I
+    .restart local v13    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 728
@@ -2782,7 +2782,7 @@
     goto/16 :goto_0
 
     .line 733
-    .end local v13           #_result:I
+    .end local v13    # "_result":I
     :sswitch_3d
     const-string v1, "android.view.IWindowManager"
 
@@ -2796,7 +2796,7 @@
     move-result v2
 
     .line 736
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->freezeRotation(I)V
 
     .line 737
@@ -2808,7 +2808,7 @@
     goto/16 :goto_0
 
     .line 742
-    .end local v2           #_arg0:I
+    .end local v2    # "_arg0":I
     :sswitch_3e
     const-string v1, "android.view.IWindowManager"
 
@@ -2841,7 +2841,7 @@
     move-result v13
 
     .line 751
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 752
@@ -2866,7 +2866,7 @@
     goto :goto_1e
 
     .line 757
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_40
     const-string v1, "android.view.IWindowManager"
 
@@ -2880,25 +2880,25 @@
     move-result-object v2
 
     .line 761
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 763
-    .local v3, _arg1:I
+    .local v3, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 765
-    .restart local v4       #_arg2:I
+    .restart local v4    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 767
-    .local v5, _arg3:I
+    .local v5, "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -2907,7 +2907,7 @@
 
     const/4 v6, 0x1
 
-    .local v6, _arg4:Z
+    .local v6, "_arg4":Z
     :goto_1f
     move-object v1, p0
 
@@ -2917,7 +2917,7 @@
     move-result-object v13
 
     .line 769
-    .local v13, _result:Landroid/graphics/Bitmap;
+    .local v13, "_result":Landroid/graphics/Bitmap;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 770
@@ -2944,16 +2944,16 @@
     goto/16 :goto_0
 
     .line 767
-    .end local v6           #_arg4:Z
-    .end local v13           #_result:Landroid/graphics/Bitmap;
+    .end local v6    # "_arg4":Z
+    .end local v13    # "_result":Landroid/graphics/Bitmap;
     :cond_1e
     const/4 v6, 0x0
 
     goto :goto_1f
 
     .line 775
-    .restart local v6       #_arg4:Z
-    .restart local v13       #_result:Landroid/graphics/Bitmap;
+    .restart local v6    # "_arg4":Z
+    .restart local v13    # "_result":Landroid/graphics/Bitmap;
     :cond_1f
     const/4 v1, 0x0
 
@@ -2964,12 +2964,12 @@
     goto :goto_20
 
     .line 781
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:I
-    .end local v4           #_arg2:I
-    .end local v5           #_arg3:I
-    .end local v6           #_arg4:Z
-    .end local v13           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":I
+    .end local v4    # "_arg2":I
+    .end local v5    # "_arg3":I
+    .end local v6    # "_arg4":Z
+    .end local v13    # "_result":Landroid/graphics/Bitmap;
     :sswitch_41
     const-string v1, "android.view.IWindowManager"
 
@@ -2983,7 +2983,7 @@
     move-result v2
 
     .line 784
-    .local v2, _arg0:I
+    .local v2, "_arg0":I
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->statusBarVisibilityChanged(I)V
 
     .line 785
@@ -2992,7 +2992,7 @@
     goto/16 :goto_0
 
     .line 789
-    .end local v2           #_arg0:I
+    .end local v2    # "_arg0":I
     :sswitch_42
     const-string v1, "android.view.IWindowManager"
 
@@ -3006,7 +3006,7 @@
     move-result-object v2
 
     .line 793
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -3016,13 +3016,13 @@
     move-result-object v3
 
     .line 794
-    .local v3, _arg1:Landroid/os/IRemoteCallback;
+    .local v3, "_arg1":Landroid/os/IRemoteCallback;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->waitForWindowDrawn(Landroid/os/IBinder;Landroid/os/IRemoteCallback;)Z
 
     move-result v13
 
     .line 795
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 796
@@ -3047,9 +3047,9 @@
     goto :goto_21
 
     .line 801
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Landroid/os/IRemoteCallback;
-    .end local v13           #_result:Z
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Landroid/os/IRemoteCallback;
+    .end local v13    # "_result":Z
     :sswitch_43
     const-string v1, "android.view.IWindowManager"
 
@@ -3063,7 +3063,7 @@
     move-result v13
 
     .line 803
-    .restart local v13       #_result:Z
+    .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 804
@@ -3088,7 +3088,7 @@
     goto :goto_22
 
     .line 809
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_44
     const-string v1, "android.view.IWindowManager"
 
@@ -3115,7 +3115,7 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 817
-    .local v2, _arg0:Landroid/os/Bundle;
+    .local v2, "_arg0":Landroid/os/Bundle;
     :goto_23
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->lockNow(Landroid/os/Bundle;)V
 
@@ -3128,15 +3128,15 @@
     goto/16 :goto_0
 
     .line 815
-    .end local v2           #_arg0:Landroid/os/Bundle;
+    .end local v2    # "_arg0":Landroid/os/Bundle;
     :cond_22
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/os/Bundle;
+    .restart local v2    # "_arg0":Landroid/os/Bundle;
     goto :goto_23
 
     .line 823
-    .end local v2           #_arg0:Landroid/os/Bundle;
+    .end local v2    # "_arg0":Landroid/os/Bundle;
     :sswitch_45
     const-string v1, "android.view.IWindowManager"
 
@@ -3150,7 +3150,7 @@
     move-result-object v13
 
     .line 825
-    .local v13, _result:Landroid/os/IBinder;
+    .local v13, "_result":Landroid/os/IBinder;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 826
@@ -3164,7 +3164,7 @@
     goto/16 :goto_0
 
     .line 831
-    .end local v13           #_result:Landroid/os/IBinder;
+    .end local v13    # "_result":Landroid/os/IBinder;
     :sswitch_46
     const-string v1, "android.view.IWindowManager"
 
@@ -3182,7 +3182,7 @@
     move-result-object v2
 
     .line 834
-    .local v2, _arg0:Landroid/view/IInputFilter;
+    .local v2, "_arg0":Landroid/view/IInputFilter;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setInputFilter(Landroid/view/IInputFilter;)V
 
     .line 835
@@ -3194,7 +3194,7 @@
     goto/16 :goto_0
 
     .line 840
-    .end local v2           #_arg0:Landroid/view/IInputFilter;
+    .end local v2    # "_arg0":Landroid/view/IInputFilter;
     :sswitch_47
     const-string v1, "android.view.IWindowManager"
 
@@ -3208,13 +3208,13 @@
     move-result-object v2
 
     .line 844
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
     .line 845
-    .local v3, _arg1:Landroid/graphics/Rect;
+    .local v3, "_arg1":Landroid/graphics/Rect;
     invoke-virtual {p0, v2, v3}, Landroid/view/IWindowManager$Stub;->getWindowFrame(Landroid/os/IBinder;Landroid/graphics/Rect;)V
 
     .line 846
@@ -3254,8 +3254,8 @@
     goto :goto_24
 
     .line 858
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v3           #_arg1:Landroid/graphics/Rect;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v3    # "_arg1":Landroid/graphics/Rect;
     :sswitch_48
     const-string v1, "android.view.IWindowManager"
 
@@ -3269,7 +3269,7 @@
     move-result v13
 
     .line 860
-    .local v13, _result:Z
+    .local v13, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 861
@@ -3294,7 +3294,7 @@
     goto :goto_25
 
     .line 866
-    .end local v13           #_result:Z
+    .end local v13    # "_result":Z
     :sswitch_49
     const-string v1, "android.view.IWindowManager"
 
@@ -3312,7 +3312,7 @@
     move-result-object v2
 
     .line 869
-    .local v2, _arg0:Landroid/view/IMagnificationCallbacks;
+    .local v2, "_arg0":Landroid/view/IMagnificationCallbacks;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setMagnificationCallbacks(Landroid/view/IMagnificationCallbacks;)V
 
     .line 870
@@ -3324,7 +3324,7 @@
     goto/16 :goto_0
 
     .line 875
-    .end local v2           #_arg0:Landroid/view/IMagnificationCallbacks;
+    .end local v2    # "_arg0":Landroid/view/IMagnificationCallbacks;
     :sswitch_4a
     const-string v1, "android.view.IWindowManager"
 
@@ -3351,7 +3351,7 @@
     check-cast v2, Landroid/view/MagnificationSpec;
 
     .line 883
-    .local v2, _arg0:Landroid/view/MagnificationSpec;
+    .local v2, "_arg0":Landroid/view/MagnificationSpec;
     :goto_26
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setMagnificationSpec(Landroid/view/MagnificationSpec;)V
 
@@ -3364,15 +3364,15 @@
     goto/16 :goto_0
 
     .line 881
-    .end local v2           #_arg0:Landroid/view/MagnificationSpec;
+    .end local v2    # "_arg0":Landroid/view/MagnificationSpec;
     :cond_25
     const/4 v2, 0x0
 
-    .restart local v2       #_arg0:Landroid/view/MagnificationSpec;
+    .restart local v2    # "_arg0":Landroid/view/MagnificationSpec;
     goto :goto_26
 
     .line 889
-    .end local v2           #_arg0:Landroid/view/MagnificationSpec;
+    .end local v2    # "_arg0":Landroid/view/MagnificationSpec;
     :sswitch_4b
     const-string v1, "android.view.IWindowManager"
 
@@ -3386,13 +3386,13 @@
     move-result-object v2
 
     .line 892
-    .local v2, _arg0:Landroid/os/IBinder;
+    .local v2, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->getCompatibleMagnificationSpecForWindow(Landroid/os/IBinder;)Landroid/view/MagnificationSpec;
 
     move-result-object v13
 
     .line 893
-    .local v13, _result:Landroid/view/MagnificationSpec;
+    .local v13, "_result":Landroid/view/MagnificationSpec;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 894
@@ -3429,8 +3429,8 @@
     goto :goto_27
 
     .line 905
-    .end local v2           #_arg0:Landroid/os/IBinder;
-    .end local v13           #_result:Landroid/view/MagnificationSpec;
+    .end local v2    # "_arg0":Landroid/os/IBinder;
+    .end local v13    # "_result":Landroid/view/MagnificationSpec;
     :sswitch_4c
     const-string v1, "android.view.IWindowManager"
 
@@ -3448,7 +3448,7 @@
     const/4 v2, 0x1
 
     .line 908
-    .local v2, _arg0:Z
+    .local v2, "_arg0":Z
     :goto_28
     invoke-virtual {p0, v2}, Landroid/view/IWindowManager$Stub;->setTouchExplorationEnabled(Z)V
 
@@ -3461,7 +3461,7 @@
     goto/16 :goto_0
 
     .line 907
-    .end local v2           #_arg0:Z
+    .end local v2    # "_arg0":Z
     :cond_27
     const/4 v2, 0x0
 

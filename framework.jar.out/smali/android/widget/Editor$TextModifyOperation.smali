@@ -61,7 +61,7 @@
 
 .method public constructor <init>(Landroid/content/UndoOwner;)V
     .locals 0
-    .parameter "owner"
+    .param p1, "owner"    # Landroid/content/UndoOwner;
 
     .prologue
     .line 4004
@@ -73,8 +73,8 @@
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 1
-    .parameter "src"
-    .parameter "loader"
+    .param p1, "src"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 4008
@@ -121,7 +121,7 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 4032
-    .local v2, tv:Landroid/widget/TextView;
+    .local v2, "tv":Landroid/widget/TextView;
     invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -129,7 +129,7 @@
     check-cast v1, Landroid/text/Editable;
 
     .line 4034
-    .local v1, editable:Landroid/text/Editable;
+    .local v1, "editable":Landroid/text/Editable;
     iget v3, p0, Landroid/widget/Editor$TextModifyOperation;->mRangeStart:I
 
     iget v4, p0, Landroid/widget/Editor$TextModifyOperation;->mRangeEnd:I
@@ -140,7 +140,7 @@
     const/4 v0, 0x0
 
     .line 4044
-    .local v0, curText:Ljava/lang/CharSequence;
+    .local v0, "curText":Ljava/lang/CharSequence;
     :goto_0
     iget-object v3, p0, Landroid/widget/Editor$TextModifyOperation;->mOldText:Ljava/lang/CharSequence;
 
@@ -166,7 +166,7 @@
     return-void
 
     .line 4037
-    .end local v0           #curText:Ljava/lang/CharSequence;
+    .end local v0    # "curText":Ljava/lang/CharSequence;
     :cond_0
     iget v3, p0, Landroid/widget/Editor$TextModifyOperation;->mRangeStart:I
 
@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    .restart local v0       #curText:Ljava/lang/CharSequence;
+    .restart local v0    # "curText":Ljava/lang/CharSequence;
     goto :goto_0
 
     .line 4048
@@ -239,8 +239,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 4056

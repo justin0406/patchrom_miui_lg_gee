@@ -41,9 +41,9 @@
 # direct methods
 .method public constructor <init>([I[I[I)V
     .locals 0
-    .parameter "_screenStates"
-    .parameter "_memStates"
-    .parameter "_procStates"
+    .param p1, "_screenStates"    # [I
+    .param p2, "_memStates"    # [I
+    .param p3, "_procStates"    # [I
 
     .prologue
     .line 3209
@@ -66,9 +66,9 @@
 # virtual methods
 .method print(Ljava/io/PrintWriter;JZ)V
     .locals 6
-    .parameter "pw"
-    .parameter "overallTime"
-    .parameter "full"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "overallTime"    # J
+    .param p4, "full"    # Z
 
     .prologue
     const-wide/16 v4, 0x400

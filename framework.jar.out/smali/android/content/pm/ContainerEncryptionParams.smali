@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -66,7 +66,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 6
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
@@ -90,13 +90,13 @@
     move-result v0
 
     .line 328
-    .local v0, encParamType:I
+    .local v0, "encParamType":I
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v1
 
     .line 329
-    .local v1, encParamsEncoded:[B
+    .local v1, "encParamsEncoded":[B
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
 
     move-result-object v3
@@ -118,7 +118,7 @@
     move-result v2
 
     .line 333
-    .local v2, macParamType:I
+    .local v2, "macParamType":I
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     .line 334
@@ -263,8 +263,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ContainerEncryptionParams$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/ContainerEncryptionParams$1;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
@@ -280,9 +280,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;)V
     .locals 14
-    .parameter "encryptionAlgorithm"
-    .parameter "encryptionSpec"
-    .parameter "encryptionKey"
+    .param p1, "encryptionAlgorithm"    # Ljava/lang/String;
+    .param p2, "encryptionSpec"    # Ljava/security/spec/AlgorithmParameterSpec;
+    .param p3, "encryptionKey"    # Ljavax/crypto/SecretKey;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
@@ -321,16 +321,16 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;[BJJJ)V
     .locals 2
-    .parameter "encryptionAlgorithm"
-    .parameter "encryptionSpec"
-    .parameter "encryptionKey"
-    .parameter "macAlgorithm"
-    .parameter "macSpec"
-    .parameter "macKey"
-    .parameter "macTag"
-    .parameter "authenticatedDataStart"
-    .parameter "encryptedDataStart"
-    .parameter "dataEnd"
+    .param p1, "encryptionAlgorithm"    # Ljava/lang/String;
+    .param p2, "encryptionSpec"    # Ljava/security/spec/AlgorithmParameterSpec;
+    .param p3, "encryptionKey"    # Ljavax/crypto/SecretKey;
+    .param p4, "macAlgorithm"    # Ljava/lang/String;
+    .param p5, "macSpec"    # Ljava/security/spec/AlgorithmParameterSpec;
+    .param p6, "macKey"    # Ljavax/crypto/SecretKey;
+    .param p7, "macTag"    # [B
+    .param p8, "authenticatedDataStart"    # J
+    .param p10, "encryptedDataStart"    # J
+    .param p12, "dataEnd"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
@@ -425,7 +425,7 @@
     .line 136
     check-cast p2, Ljavax/crypto/spec/IvParameterSpec;
 
-    .end local p2
+    .end local p2    # "encryptionSpec":Ljava/security/spec/AlgorithmParameterSpec;
     iput-object p2, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionSpec:Ljavax/crypto/spec/IvParameterSpec;
 
     .line 137
@@ -458,8 +458,8 @@
 
 .method private static final isSecretKeyEqual(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)Z
     .locals 5
-    .parameter "key1"
-    .parameter "key2"
+    .param p0, "key1"    # Ljavax/crypto/SecretKey;
+    .param p1, "key2"    # Ljavax/crypto/SecretKey;
 
     .prologue
     const/4 v2, 0x0
@@ -470,13 +470,13 @@
     move-result-object v0
 
     .line 235
-    .local v0, keyFormat:Ljava/lang/String;
+    .local v0, "keyFormat":Ljava/lang/String;
     invoke-interface {p1}, Ljavax/crypto/SecretKey;->getFormat()Ljava/lang/String;
 
     move-result-object v1
 
     .line 237
-    .local v1, otherKeyFormat:Ljava/lang/String;
+    .local v1, "otherKeyFormat":Ljava/lang/String;
     if-nez v0, :cond_3
 
     .line 238
@@ -549,7 +549,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -582,7 +582,7 @@
     check-cast v0, Landroid/content/pm/ContainerEncryptionParams;
 
     .line 207
-    .local v0, other:Landroid/content/pm/ContainerEncryptionParams;
+    .local v0, "other":Landroid/content/pm/ContainerEncryptionParams;
     iget-wide v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mAuthenticatedDataStart:J
 
     iget-wide v5, v0, Landroid/content/pm/ContainerEncryptionParams;->mAuthenticatedDataStart:J
@@ -820,7 +820,7 @@
     const/4 v0, 0x3
 
     .line 262
-    .local v0, hash:I
+    .local v0, "hash":I
     iget-object v1, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionAlgorithm:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -945,7 +945,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 279
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "mEncryptionAlgorithm=\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1076,8 +1076,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 258
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 261
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 262
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.USER_REMOVED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -58,7 +57,7 @@
     .line 263
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    #calls: Lcom/android/server/accounts/AccountManagerService;->onUserRemoved(Landroid/content/Intent;)V
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->onUserRemoved(Landroid/content/Intent;)V
     invoke-static {v1, p2}, Lcom/android/server/accounts/AccountManagerService;->access$100(Lcom/android/server/accounts/AccountManagerService;Landroid/content/Intent;)V
 
     .line 267
@@ -79,7 +78,7 @@
     .line 265
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    #calls: Lcom/android/server/accounts/AccountManagerService;->onUserStarted(Landroid/content/Intent;)V
+    # invokes: Lcom/android/server/accounts/AccountManagerService;->onUserStarted(Landroid/content/Intent;)V
     invoke-static {v1, p2}, Lcom/android/server/accounts/AccountManagerService;->access$200(Lcom/android/server/accounts/AccountManagerService;Landroid/content/Intent;)V
 
     goto :goto_0

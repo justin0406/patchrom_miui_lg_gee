@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Transition;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1333
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 1336

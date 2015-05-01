@@ -21,14 +21,14 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteCategory;)V
     .locals 1
-    .parameter "category"
+    .param p1, "category"    # Landroid/media/MediaRouter$RouteCategory;
 
     .prologue
     .line 1986
     invoke-direct {p0, p1}, Landroid/media/MediaRouter$RouteInfo;-><init>(Landroid/media/MediaRouter$RouteCategory;)V
 
     .line 1987
-    const/high16 v0, 0x80
+    const/high16 v0, 0x800000
 
     iput v0, p0, Landroid/media/MediaRouter$UserRouteInfo;->mSupportedTypes:I
 
@@ -48,8 +48,8 @@
 
 .method private setPlaybackInfoOnRcc(II)V
     .locals 1
-    .parameter "what"
-    .parameter "value"
+    .param p1, "what"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 2208
@@ -159,7 +159,7 @@
     move-exception v0
 
     .line 2202
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaRouter"
 
     const-string v2, "Error registering remote volume observer"
@@ -183,7 +183,7 @@
 
 .method public requestSetVolume(I)V
     .locals 2
-    .parameter "volume"
+    .param p1, "volume"    # I
 
     .prologue
     .line 2141
@@ -223,7 +223,7 @@
 
 .method public requestUpdateVolume(I)V
     .locals 2
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     .line 2152
@@ -263,7 +263,7 @@
 
 .method public setDescription(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2026
@@ -278,7 +278,7 @@
 
 .method public setIconDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 2074
@@ -290,7 +290,7 @@
 
 .method public setIconResource(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 2084
@@ -310,7 +310,7 @@
 
 .method public setName(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 2011
@@ -330,7 +330,7 @@
 
 .method public setName(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1997
@@ -345,7 +345,7 @@
 
 .method public setPlaybackStream(I)V
     .locals 1
-    .parameter "stream"
+    .param p1, "stream"    # I
 
     .prologue
     .line 2179
@@ -368,7 +368,7 @@
 
 .method public setPlaybackType(I)V
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 2102
@@ -391,7 +391,7 @@
 
 .method public setRemoteControlClient(Landroid/media/RemoteControlClient;)V
     .locals 0
-    .parameter "rcc"
+    .param p1, "rcc"    # Landroid/media/RemoteControlClient;
 
     .prologue
     .line 2053
@@ -406,7 +406,7 @@
 
 .method public setStatus(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "status"
+    .param p1, "status"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 2036
@@ -418,7 +418,7 @@
 
 .method public setVolume(I)V
     .locals 2
-    .parameter "volume"
+    .param p1, "volume"    # I
 
     .prologue
     .line 2128
@@ -469,7 +469,7 @@
 
 .method public setVolumeCallback(Landroid/media/MediaRouter$VolumeCallback;)V
     .locals 1
-    .parameter "vcb"
+    .param p1, "vcb"    # Landroid/media/MediaRouter$VolumeCallback;
 
     .prologue
     .line 2092
@@ -485,7 +485,7 @@
 
 .method public setVolumeHandling(I)V
     .locals 1
-    .parameter "volumeHandling"
+    .param p1, "volumeHandling"    # I
 
     .prologue
     .line 2115
@@ -508,7 +508,7 @@
 
 .method public setVolumeMax(I)V
     .locals 1
-    .parameter "volumeMax"
+    .param p1, "volumeMax"    # I
 
     .prologue
     .line 2168

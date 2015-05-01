@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 87
@@ -61,9 +61,9 @@
 
 .method public onObbResult(Ljava/lang/String;II)V
     .locals 5
-    .parameter "filename"
-    .parameter "nonce"
-    .parameter "status"
+    .param p1, "filename"    # Ljava/lang/String;
+    .param p2, "nonce"    # I
+    .param p3, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,13 +77,13 @@
     move-result-object v0
 
     .line 109
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 111
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "IObbActionListener"
 

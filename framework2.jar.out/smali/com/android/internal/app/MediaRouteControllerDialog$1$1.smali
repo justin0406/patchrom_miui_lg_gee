@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteControllerDialog$1;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 144
@@ -46,7 +45,7 @@
 
     iget-object v0, v0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
+    # getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$100(Lcom/android/internal/app/MediaRouteControllerDialog;)Z
 
     move-result v0
@@ -60,7 +59,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
+    # setter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
     invoke-static {v0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$102(Lcom/android/internal/app/MediaRouteControllerDialog;Z)Z
 
     .line 149
@@ -68,7 +67,7 @@
 
     iget-object v0, v0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #calls: Lcom/android/internal/app/MediaRouteControllerDialog;->updateVolume()V
+    # invokes: Lcom/android/internal/app/MediaRouteControllerDialog;->updateVolume()V
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$200(Lcom/android/internal/app/MediaRouteControllerDialog;)V
 
     .line 151

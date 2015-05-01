@@ -23,7 +23,7 @@
 
 
 # static fields
-.field static final NULL_STRING:Ljava/lang/String; = null
+.field static final NULL_STRING:Ljava/lang/String;
 
 .field public static final STRING_NOT_SET:I = -0x1
 
@@ -84,7 +84,7 @@
 
 .method static initTokenizer(Ljava/io/Reader;)Ljava/io/StreamTokenizer;
     .locals 8
-    .parameter "r"
+    .param p0, "r"    # Ljava/io/Reader;
 
     .prologue
     const/16 v7, 0x20
@@ -103,7 +103,7 @@
     invoke-direct {v0, p0}, Ljava/io/StreamTokenizer;-><init>(Ljava/io/Reader;)V
 
     .line 42
-    .local v0, st:Ljava/io/StreamTokenizer;
+    .local v0, "st":Ljava/io/StreamTokenizer;
     invoke-virtual {v0}, Ljava/io/StreamTokenizer;->resetSyntax()V
 
     .line 50
@@ -196,7 +196,7 @@
 
 .method static interpretType(Ljava/lang/String;)I
     .locals 1
-    .parameter "typeName"
+    .param p0, "typeName"    # Ljava/lang/String;
 
     .prologue
     .line 111
@@ -344,8 +344,7 @@
 
 .method static parse(Ljava/io/Reader;Ljava/util/Map;)V
     .locals 14
-    .parameter "r"
-    .parameter
+    .param p0, "r"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -366,7 +365,7 @@
     .end annotation
 
     .prologue
-    .local p1, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v13, 0x0
 
     const/16 v12, 0x78
@@ -381,11 +380,11 @@
     move-result-object v4
 
     .line 147
-    .local v4, st:Ljava/io/StreamTokenizer;
+    .local v4, "st":Ljava/io/StreamTokenizer;
     const-string v0, "[a-zA-Z_$][0-9a-zA-Z_$]*"
 
     .line 148
-    .local v0, identifierPattern:Ljava/lang/String;
+    .local v0, "identifierPattern":Ljava/lang/String;
     const-string v8, "([a-zA-Z_$][0-9a-zA-Z_$]*\\.)*[a-zA-Z_$][0-9a-zA-Z_$]*"
 
     invoke-static {v8}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -393,14 +392,14 @@
     move-result-object v3
 
     .line 156
-    .local v3, propertyNamePattern:Ljava/util/regex/Pattern;
+    .local v3, "propertyNamePattern":Ljava/util/regex/Pattern;
     :cond_0
     invoke-virtual {v4}, Ljava/io/StreamTokenizer;->nextToken()I
 
     move-result v5
 
     .line 157
-    .local v5, token:I
+    .local v5, "token":I
     if-ne v5, v11, :cond_1
 
     .line 222
@@ -428,7 +427,7 @@
     move-result v6
 
     .line 164
-    .local v6, type:I
+    .local v6, "type":I
     if-ne v6, v11, :cond_3
 
     .line 165
@@ -489,7 +488,7 @@
     iget-object v2, v4, Ljava/io/StreamTokenizer;->sval:Ljava/lang/String;
 
     .line 183
-    .local v2, propertyName:Ljava/lang/String;
+    .local v2, "propertyName":Ljava/lang/String;
     invoke-virtual {v3, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v8
@@ -586,13 +585,13 @@
     move-result-object v7
 
     .line 204
-    .local v7, value:Ljava/lang/Object;
+    .local v7, "value":Ljava/lang/Object;
     invoke-interface {p1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 205
-    .local v1, oldValue:Ljava/lang/Object;
+    .local v1, "oldValue":Ljava/lang/Object;
     if-eqz v1, :cond_a
 
     .line 208
@@ -624,8 +623,8 @@
 
 .method static parseValue(Ljava/io/StreamTokenizer;I)Ljava/lang/Object;
     .locals 10
-    .parameter "st"
-    .parameter "type"
+    .param p0, "st"    # Ljava/io/StreamTokenizer;
+    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -641,7 +640,7 @@
     move-result v3
 
     .line 236
-    .local v3, token:I
+    .local v3, "token":I
     const/16 v7, 0x5a
 
     if-ne p1, v7, :cond_3
@@ -740,13 +739,13 @@
     move-result-wide v4
 
     .line 265
-    .local v4, value:J
+    .local v4, "value":J
     shr-int/lit8 v7, p1, 0x8
 
     and-int/lit16 v6, v7, 0xff
 
     .line 266
-    .local v6, width:I
+    .local v6, "width":I
     packed-switch v6, :pswitch_data_0
 
     .line 288
@@ -776,13 +775,13 @@
     throw v7
 
     .line 260
-    .end local v4           #value:J
-    .end local v6           #width:I
+    .end local v4    # "value":J
+    .end local v6    # "width":I
     :catch_0
     move-exception v2
 
     .line 261
-    .local v2, ex:Ljava/lang/NumberFormatException;
+    .local v2, "ex":Ljava/lang/NumberFormatException;
     new-instance v7, Lcom/android/internal/util/TypedProperties$ParseException;
 
     const-string v8, "integer constant"
@@ -792,9 +791,9 @@
     throw v7
 
     .line 268
-    .end local v2           #ex:Ljava/lang/NumberFormatException;
-    .restart local v4       #value:J
-    .restart local v6       #width:I
+    .end local v2    # "ex":Ljava/lang/NumberFormatException;
+    .restart local v4    # "value":J
+    .restart local v6    # "width":I
     :pswitch_1
     const-wide/16 v7, -0x80
 
@@ -902,7 +901,7 @@
 
     .line 283
     :pswitch_4
-    const-wide/high16 v7, -0x8000
+    const-wide/high16 v7, -0x8000000000000000L
 
     cmp-long v7, v4, v7
 
@@ -933,8 +932,8 @@
     goto/16 :goto_0
 
     .line 291
-    .end local v4           #value:J
-    .end local v6           #width:I
+    .end local v4    # "value":J
+    .end local v6    # "width":I
     :cond_d
     and-int/lit16 v7, p1, 0xff
 
@@ -966,7 +965,7 @@
     move-result-wide v4
 
     .line 312
-    .local v4, value:D
+    .local v4, "value":D
     shr-int/lit8 v7, p1, 0x8
 
     and-int/lit16 v7, v7, 0xff
@@ -981,7 +980,7 @@
     move-result-wide v0
 
     .line 315
-    .local v0, absValue:D
+    .local v0, "absValue":D
     const-wide/16 v7, 0x0
 
     cmpl-double v7, v0, v7
@@ -1001,13 +1000,13 @@
     if-nez v7, :cond_10
 
     .line 316
-    const-wide/high16 v7, 0x36a0
+    const-wide/high16 v7, 0x36a0000000000000L    # 1.401298464324817E-45
 
     cmpg-double v7, v0, v7
 
     if-ltz v7, :cond_f
 
-    const-wide v7, 0x47efffffe0000000L
+    const-wide v7, 0x47efffffe0000000L    # 3.4028234663852886E38
 
     cmpl-double v7, v0, v7
 
@@ -1024,13 +1023,13 @@
     throw v7
 
     .line 307
-    .end local v0           #absValue:D
-    .end local v4           #value:D
+    .end local v0    # "absValue":D
+    .end local v4    # "value":D
     :catch_1
     move-exception v2
 
     .line 308
-    .restart local v2       #ex:Ljava/lang/NumberFormatException;
+    .restart local v2    # "ex":Ljava/lang/NumberFormatException;
     new-instance v7, Lcom/android/internal/util/TypedProperties$ParseException;
 
     const-string v8, "float constant"
@@ -1040,9 +1039,9 @@
     throw v7
 
     .line 320
-    .end local v2           #ex:Ljava/lang/NumberFormatException;
-    .restart local v0       #absValue:D
-    .restart local v4       #value:D
+    .end local v2    # "ex":Ljava/lang/NumberFormatException;
+    .restart local v0    # "absValue":D
+    .restart local v4    # "value":D
     :cond_10
     new-instance v7, Ljava/lang/Float;
 
@@ -1053,7 +1052,7 @@
     goto/16 :goto_0
 
     .line 323
-    .end local v0           #absValue:D
+    .end local v0    # "absValue":D
     :cond_11
     new-instance v7, Ljava/lang/Double;
 
@@ -1062,7 +1061,7 @@
     goto/16 :goto_0
 
     .line 325
-    .end local v4           #value:D
+    .end local v4    # "value":D
     :cond_12
     const/16 v7, 0x734c
 
@@ -1151,7 +1150,7 @@
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/Object;
 
     .prologue
     .line 403
@@ -1160,7 +1159,7 @@
     move-result-object v0
 
     .line 404
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     sget-object v1, Lcom/android/internal/util/TypedProperties;->NULL_STRING:Ljava/lang/String;
 
     if-ne v0, v1, :cond_0
@@ -1169,14 +1168,14 @@
     const/4 v0, 0x0
 
     .line 407
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     :cond_0
     return-object v0
 .end method
 
 .method public getBoolean(Ljava/lang/String;)Z
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 600
@@ -1191,8 +1190,8 @@
 
 .method public getBoolean(Ljava/lang/String;Z)Z
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # Z
 
     .prologue
     .line 435
@@ -1201,18 +1200,18 @@
     move-result-object v0
 
     .line 436
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 440
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":Z
     :goto_0
     return p2
 
     .line 439
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":Z
     :cond_0
     instance-of v1, v0, Ljava/lang/Boolean;
 
@@ -1221,7 +1220,7 @@
     .line 440
     check-cast v0, Ljava/lang/Boolean;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p2
@@ -1229,7 +1228,7 @@
     goto :goto_0
 
     .line 442
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1242,7 +1241,7 @@
 
 .method public getByte(Ljava/lang/String;)B
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 612
@@ -1257,8 +1256,8 @@
 
 .method public getByte(Ljava/lang/String;B)B
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # B
 
     .prologue
     .line 455
@@ -1267,18 +1266,18 @@
     move-result-object v0
 
     .line 456
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 460
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":B
     :goto_0
     return p2
 
     .line 459
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":B
     :cond_0
     instance-of v1, v0, Ljava/lang/Byte;
 
@@ -1287,7 +1286,7 @@
     .line 460
     check-cast v0, Ljava/lang/Byte;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Byte;->byteValue()B
 
     move-result p2
@@ -1295,7 +1294,7 @@
     goto :goto_0
 
     .line 462
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1308,7 +1307,7 @@
 
 .method public getDouble(Ljava/lang/String;)D
     .locals 2
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 672
@@ -1323,8 +1322,8 @@
 
 .method public getDouble(Ljava/lang/String;D)D
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # D
 
     .prologue
     .line 555
@@ -1333,18 +1332,18 @@
     move-result-object v0
 
     .line 556
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 560
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":D
     :goto_0
     return-wide p2
 
     .line 559
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":D
     :cond_0
     instance-of v1, v0, Ljava/lang/Double;
 
@@ -1353,7 +1352,7 @@
     .line 560
     check-cast v0, Ljava/lang/Double;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide p2
@@ -1361,7 +1360,7 @@
     goto :goto_0
 
     .line 562
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1374,7 +1373,7 @@
 
 .method public getFloat(Ljava/lang/String;)F
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 660
@@ -1389,8 +1388,8 @@
 
 .method public getFloat(Ljava/lang/String;F)F
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # F
 
     .prologue
     .line 535
@@ -1399,18 +1398,18 @@
     move-result-object v0
 
     .line 536
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 540
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":F
     :goto_0
     return p2
 
     .line 539
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":F
     :cond_0
     instance-of v1, v0, Ljava/lang/Float;
 
@@ -1419,7 +1418,7 @@
     .line 540
     check-cast v0, Ljava/lang/Float;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result p2
@@ -1427,7 +1426,7 @@
     goto :goto_0
 
     .line 542
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1440,7 +1439,7 @@
 
 .method public getInt(Ljava/lang/String;)I
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 636
@@ -1455,8 +1454,8 @@
 
 .method public getInt(Ljava/lang/String;I)I
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # I
 
     .prologue
     .line 495
@@ -1465,18 +1464,18 @@
     move-result-object v0
 
     .line 496
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 500
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":I
     :goto_0
     return p2
 
     .line 499
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":I
     :cond_0
     instance-of v1, v0, Ljava/lang/Integer;
 
@@ -1485,7 +1484,7 @@
     .line 500
     check-cast v0, Ljava/lang/Integer;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result p2
@@ -1493,7 +1492,7 @@
     goto :goto_0
 
     .line 502
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1506,7 +1505,7 @@
 
 .method public getLong(Ljava/lang/String;)J
     .locals 2
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 648
@@ -1521,8 +1520,8 @@
 
 .method public getLong(Ljava/lang/String;J)J
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # J
 
     .prologue
     .line 515
@@ -1531,18 +1530,18 @@
     move-result-object v0
 
     .line 516
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 520
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":J
     :goto_0
     return-wide p2
 
     .line 519
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":J
     :cond_0
     instance-of v1, v0, Ljava/lang/Long;
 
@@ -1551,7 +1550,7 @@
     .line 520
     check-cast v0, Ljava/lang/Long;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide p2
@@ -1559,7 +1558,7 @@
     goto :goto_0
 
     .line 522
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1572,7 +1571,7 @@
 
 .method public getShort(Ljava/lang/String;)S
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 624
@@ -1587,8 +1586,8 @@
 
 .method public getShort(Ljava/lang/String;S)S
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # S
 
     .prologue
     .line 475
@@ -1597,18 +1596,18 @@
     move-result-object v0
 
     .line 476
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 480
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":S
     :goto_0
     return p2
 
     .line 479
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":S
     :cond_0
     instance-of v1, v0, Ljava/lang/Short;
 
@@ -1617,7 +1616,7 @@
     .line 480
     check-cast v0, Ljava/lang/Short;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Short;->shortValue()S
 
     move-result p2
@@ -1625,7 +1624,7 @@
     goto :goto_0
 
     .line 482
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1638,7 +1637,7 @@
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 684
@@ -1653,8 +1652,8 @@
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "property"
-    .parameter "def"
+    .param p1, "property"    # Ljava/lang/String;
+    .param p2, "def"    # Ljava/lang/String;
 
     .prologue
     .line 575
@@ -1663,18 +1662,18 @@
     move-result-object v0
 
     .line 576
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 582
-    .end local v0           #value:Ljava/lang/Object;
-    .end local p2
+    .end local v0    # "value":Ljava/lang/Object;
+    .end local p2    # "def":Ljava/lang/String;
     :goto_0
     return-object p2
 
     .line 579
-    .restart local v0       #value:Ljava/lang/Object;
-    .restart local p2
+    .restart local v0    # "value":Ljava/lang/Object;
+    .restart local p2    # "def":Ljava/lang/String;
     :cond_0
     sget-object v1, Lcom/android/internal/util/TypedProperties;->NULL_STRING:Ljava/lang/String;
 
@@ -1694,13 +1693,13 @@
     .line 582
     check-cast v0, Ljava/lang/String;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     move-object p2, v0
 
     goto :goto_0
 
     .line 584
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_2
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
@@ -1713,7 +1712,7 @@
 
 .method public getStringInfo(Ljava/lang/String;)I
     .locals 2
-    .parameter "property"
+    .param p1, "property"    # Ljava/lang/String;
 
     .prologue
     .line 703
@@ -1722,7 +1721,7 @@
     move-result-object v0
 
     .line 704
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     .line 705
@@ -1763,7 +1762,7 @@
 
 .method public load(Ljava/io/Reader;)V
     .locals 0
-    .parameter "r"
+    .param p1, "r"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

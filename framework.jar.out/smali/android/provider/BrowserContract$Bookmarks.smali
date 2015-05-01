@@ -34,9 +34,9 @@
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/bookmark"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI_DEFAULT_FOLDER:Landroid/net/Uri; = null
+.field public static final CONTENT_URI_DEFAULT_FOLDER:Landroid/net/Uri;
 
 .field public static final INSERT_AFTER:Ljava/lang/String; = "insert_after"
 
@@ -103,7 +103,7 @@
 
 .method public static final buildFolderUri(J)Landroid/net/Uri;
     .locals 1
-    .parameter "folderId"
+    .param p0, "folderId"    # J
 
     .prologue
     .line 324

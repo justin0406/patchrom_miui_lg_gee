@@ -6,15 +6,15 @@
 # static fields
 .field private static final ATTR_TYPE:Ljava/lang/String; = "type"
 
-.field public static final FACTORY:Lcom/android/server/firewall/FilterFactory; = null
+.field public static final FACTORY:Lcom/android/server/firewall/FilterFactory;
 
-.field private static final SIGNATURE:Lcom/android/server/firewall/Filter; = null
+.field private static final SIGNATURE:Lcom/android/server/firewall/Filter;
 
-.field private static final SYSTEM:Lcom/android/server/firewall/Filter; = null
+.field private static final SYSTEM:Lcom/android/server/firewall/Filter;
 
-.field private static final SYSTEM_OR_SIGNATURE:Lcom/android/server/firewall/Filter; = null
+.field private static final SYSTEM_OR_SIGNATURE:Lcom/android/server/firewall/Filter;
 
-.field private static final USER_ID:Lcom/android/server/firewall/Filter; = null
+.field private static final USER_ID:Lcom/android/server/firewall/Filter;
 
 .field private static final VAL_SIGNATURE:Ljava/lang/String; = "signature"
 
@@ -122,8 +122,8 @@
 
 .method static isPrivilegedApp(II)Z
     .locals 6
-    .parameter "callerUid"
-    .parameter "callerPid"
+    .param p0, "callerUid"    # I
+    .param p1, "callerPid"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -157,7 +157,7 @@
     move-result-object v1
 
     .line 48
-    .local v1, pm:Landroid/content/pm/IPackageManager;
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     invoke-interface {v1, p0}, Landroid/content/pm/IPackageManager;->getFlagsForUid(I)I
     :try_end_0
@@ -165,7 +165,7 @@
 
     move-result v4
 
-    const/high16 v5, 0x4000
+    const/high16 v5, 0x40000000    # 2.0f
 
     and-int/2addr v4, v5
 
@@ -180,7 +180,7 @@
     move-exception v0
 
     .line 50
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v2, "IntentFirewall"
 
     const-string v4, "Remote exception while retrieving uid flags"

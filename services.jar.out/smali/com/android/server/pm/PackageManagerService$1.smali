@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;JLandroid/content/pm/IPackageDataObserver;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 2014
@@ -62,7 +59,7 @@
     const/4 v1, -0x1
 
     .line 2018
-    .local v1, retCode:I
+    .local v1, "retCode":I
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$1;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v3, v2, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
@@ -144,7 +141,7 @@
     move-exception v0
 
     .line 2028
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "PackageManager"
 
     const-string v3, "RemoveException when invoking call back"

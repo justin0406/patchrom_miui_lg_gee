@@ -68,8 +68,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
     .locals 21
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -105,7 +105,7 @@
     iget-object v14, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 68
-    .local v14, si:Landroid/content/pm/ServiceInfo;
+    .local v14, "si":Landroid/content/pm/ServiceInfo;
     new-instance v18, Landroid/content/ComponentName;
 
     iget-object v0, v14, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -134,19 +134,19 @@
     move-result-object v10
 
     .line 71
-    .local v10, pm:Landroid/content/pm/PackageManager;
+    .local v10, "pm":Landroid/content/pm/PackageManager;
     const/4 v7, 0x0
 
     .line 72
-    .local v7, label:I
+    .local v7, "label":I
     const/4 v13, 0x0
 
     .line 74
-    .local v13, settingsActivityComponent:Ljava/lang/String;
+    .local v13, "settingsActivityComponent":Ljava/lang/String;
     const/4 v9, 0x0
 
     .line 76
-    .local v9, parser:Landroid/content/res/XmlResourceParser;
+    .local v9, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string v18, "android.view.textservice.scs"
 
@@ -168,15 +168,15 @@
 
     throw v18
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 124
     :catch_0
     move-exception v6
 
     .line 125
-    .local v6, e:Ljava/lang/Exception;
+    .local v6, "e":Ljava/lang/Exception;
     :try_start_1
     sget-object v18, Landroid/view/textservice/SpellCheckerInfo;->TAG:Ljava/lang/String;
 
@@ -234,7 +234,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 129
-    .end local v6           #e:Ljava/lang/Exception;
+    .end local v6    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v18
 
@@ -259,19 +259,19 @@
     move-result-object v11
 
     .line 83
-    .local v11, res:Landroid/content/res/Resources;
+    .local v11, "res":Landroid/content/res/Resources;
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v4
 
     .line 86
-    .local v4, attrs:Landroid/util/AttributeSet;
+    .local v4, "attrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v17
 
-    .local v17, type:I
+    .local v17, "type":I
     const/16 v18, 0x1
 
     move/from16 v0, v17
@@ -295,7 +295,7 @@
     move-result-object v8
 
     .line 90
-    .local v8, nodeName:Ljava/lang/String;
+    .local v8, "nodeName":Ljava/lang/String;
     const-string/jumbo v18, "spell-checker"
 
     move-object/from16 v0, v18
@@ -326,7 +326,7 @@
     move-result-object v12
 
     .line 97
-    .local v12, sa:Landroid/content/res/TypedArray;
+    .local v12, "sa":Landroid/content/res/TypedArray;
     const/16 v18, 0x0
 
     const/16 v19, 0x0
@@ -357,7 +357,7 @@
     move-result v5
 
     .line 105
-    .local v5, depth:I
+    .local v5, "depth":I
     :cond_5
     :goto_0
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
@@ -404,7 +404,7 @@
     move-result-object v16
 
     .line 108
-    .local v16, subtypeNodeName:Ljava/lang/String;
+    .local v16, "subtypeNodeName":Ljava/lang/String;
     const-string/jumbo v18, "subtype"
 
     move-object/from16 v0, v18
@@ -437,7 +437,7 @@
     move-result-object v3
 
     .line 114
-    .local v3, a:Landroid/content/res/TypedArray;
+    .local v3, "a":Landroid/content/res/TypedArray;
     new-instance v15, Landroid/view/textservice/SpellCheckerSubtype;
 
     const/16 v18, 0x0
@@ -477,7 +477,7 @@
     invoke-direct {v15, v0, v1, v2}, Landroid/view/textservice/SpellCheckerSubtype;-><init>(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 121
-    .local v15, subtype:Landroid/view/textservice/SpellCheckerSubtype;
+    .local v15, "subtype":Landroid/view/textservice/SpellCheckerSubtype;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/textservice/SpellCheckerInfo;->mSubtypes:Ljava/util/ArrayList;
@@ -488,15 +488,15 @@
 
     invoke-virtual {v0, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
     .line 129
-    .end local v3           #a:Landroid/content/res/TypedArray;
-    .end local v15           #subtype:Landroid/view/textservice/SpellCheckerSubtype;
-    .end local v16           #subtypeNodeName:Ljava/lang/String;
+    .end local v3    # "a":Landroid/content/res/TypedArray;
+    .end local v15    # "subtype":Landroid/view/textservice/SpellCheckerSubtype;
+    .end local v16    # "subtypeNodeName":Ljava/lang/String;
     :cond_8
     if-eqz v9, :cond_9
 
@@ -519,7 +519,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 139
@@ -659,7 +659,7 @@
 
 .method public getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 256
@@ -690,7 +690,7 @@
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 218
@@ -705,7 +705,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 208
@@ -744,8 +744,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 178

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/VibratorService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 308
@@ -44,7 +43,7 @@
     .line 310
     iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
+    # getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v1
@@ -55,13 +54,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    #calls: Lcom/android/server/VibratorService;->doCancelVibrateLocked()V
+    # invokes: Lcom/android/server/VibratorService;->doCancelVibrateLocked()V
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$200(Lcom/android/server/VibratorService;)V
 
     .line 312
     iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    #calls: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
+    # invokes: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$300(Lcom/android/server/VibratorService;)V
 
     .line 313

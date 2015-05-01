@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Landroid/content/pm/ProviderInfo;)V
     .locals 0
-    .parameter "_info"
+    .param p1, "_info"    # Landroid/content/pm/ProviderInfo;
 
     .prologue
     .line 423
@@ -72,7 +72,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 457
@@ -131,8 +131,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/IActivityManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/app/IActivityManager$1;
 
     .prologue
     .line 417
@@ -155,8 +155,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x0

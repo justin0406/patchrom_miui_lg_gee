@@ -66,7 +66,7 @@
 
 .method public constructor <init>(Landroid/content/pm/PackageUserState;)V
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Landroid/content/pm/PackageUserState;
 
     .prologue
     const/4 v1, 0x0

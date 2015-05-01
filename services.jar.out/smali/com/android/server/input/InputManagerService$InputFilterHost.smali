@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/input/InputManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1537
@@ -36,8 +35,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/input/InputManagerService;Lcom/android/server/input/InputManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/input/InputManagerService;
+    .param p2, "x1"    # Lcom/android/server/input/InputManagerService$1;
 
     .prologue
     .line 1537
@@ -63,8 +62,8 @@
 
 .method public sendInputEvent(Landroid/view/InputEvent;I)V
     .locals 8
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 1546
@@ -96,7 +95,7 @@
     .line 1552
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
 
-    #getter for: Lcom/android/server/input/InputManagerService;->mPtr:I
+    # getter for: Lcom/android/server/input/InputManagerService;->mPtr:I
     invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$600(Lcom/android/server/input/InputManagerService;)I
 
     move-result v0
@@ -109,13 +108,13 @@
 
     const/4 v5, 0x0
 
-    const/high16 v1, 0x400
+    const/high16 v1, 0x4000000
 
     or-int v6, p2, v1
 
     move-object v1, p1
 
-    #calls: Lcom/android/server/input/InputManagerService;->nativeInjectInputEvent(ILandroid/view/InputEvent;IIIII)I
+    # invokes: Lcom/android/server/input/InputManagerService;->nativeInjectInputEvent(ILandroid/view/InputEvent;IIIII)I
     invoke-static/range {v0 .. v6}, Lcom/android/server/input/InputManagerService;->access$700(ILandroid/view/InputEvent;IIIII)I
 
     .line 1556

@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Program;Ljava/lang/String;)V
     .locals 0
-    .parameter "program"
-    .parameter "varName"
+    .param p1, "program"    # Landroid/filterfw/core/Program;
+    .param p2, "varName"    # Ljava/lang/String;
 
     .prologue
     .line 28
@@ -108,7 +108,7 @@
 
 .method public setValue(Ljava/lang/Object;)V
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 42

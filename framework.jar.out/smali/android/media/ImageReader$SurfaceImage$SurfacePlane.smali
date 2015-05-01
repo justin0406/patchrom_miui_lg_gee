@@ -29,10 +29,9 @@
 # direct methods
 .method private constructor <init>(Landroid/media/ImageReader$SurfaceImage;III)V
     .locals 0
-    .parameter
-    .parameter "index"
-    .parameter "rowStride"
-    .parameter "pixelStride"
+    .param p2, "index"    # I
+    .param p3, "rowStride"    # I
+    .param p4, "pixelStride"    # I
 
     .prologue
     .line 644
@@ -55,7 +54,7 @@
 
 .method static synthetic access$900(Landroid/media/ImageReader$SurfaceImage$SurfacePlane;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/ImageReader$SurfaceImage$SurfacePlane;
 
     .prologue
     .line 642
@@ -86,7 +85,7 @@
     .line 652
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->this$1:Landroid/media/ImageReader$SurfaceImage;
 
-    #calls: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
+    # invokes: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
     invoke-static {v0}, Landroid/media/ImageReader$SurfaceImage;->access$1100(Landroid/media/ImageReader$SurfaceImage;)Z
 
     move-result v0
@@ -121,7 +120,7 @@
 
     iget v1, p0, Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->mIndex:I
 
-    #calls: Landroid/media/ImageReader$SurfaceImage;->nativeImageGetBuffer(I)Ljava/nio/ByteBuffer;
+    # invokes: Landroid/media/ImageReader$SurfaceImage;->nativeImageGetBuffer(I)Ljava/nio/ByteBuffer;
     invoke-static {v0, v1}, Landroid/media/ImageReader$SurfaceImage;->access$1200(Landroid/media/ImageReader$SurfaceImage;I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
@@ -149,7 +148,7 @@
     .line 667
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->this$1:Landroid/media/ImageReader$SurfaceImage;
 
-    #calls: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
+    # invokes: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
     invoke-static {v0}, Landroid/media/ImageReader$SurfaceImage;->access$1100(Landroid/media/ImageReader$SurfaceImage;)Z
 
     move-result v0
@@ -179,7 +178,7 @@
     .line 676
     iget-object v0, p0, Landroid/media/ImageReader$SurfaceImage$SurfacePlane;->this$1:Landroid/media/ImageReader$SurfaceImage;
 
-    #calls: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
+    # invokes: Landroid/media/ImageReader$SurfaceImage;->isImageValid()Z
     invoke-static {v0}, Landroid/media/ImageReader$SurfaceImage;->access$1100(Landroid/media/ImageReader$SurfaceImage;)Z
 
     move-result v0

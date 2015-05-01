@@ -41,7 +41,7 @@
 
 .method synthetic constructor <init>(Landroid/transition/Visibility$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/transition/Visibility$1;
 
     .prologue
     .line 43

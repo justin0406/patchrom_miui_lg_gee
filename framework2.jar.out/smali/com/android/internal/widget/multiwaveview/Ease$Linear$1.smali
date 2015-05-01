@@ -32,7 +32,7 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 0
-    .parameter "input"
+    .param p1, "input"    # F
 
     .prologue
     .line 29

@@ -45,7 +45,7 @@
 
 .method public static dump([I)Ljava/lang/String;
     .locals 4
-    .parameter "states"
+    .param p0, "states"    # [I
 
     .prologue
     .line 154
@@ -54,14 +54,14 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 156
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     array-length v0, p0
 
     .line 157
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -137,7 +137,7 @@
 
 .method public static isWildCard([I)Z
     .locals 2
-    .parameter "stateSetOrSpec"
+    .param p0, "stateSetOrSpec"    # [I
 
     .prologue
     const/4 v0, 0x0
@@ -160,8 +160,8 @@
 
 .method public static stateSetMatches([II)Z
     .locals 6
-    .parameter "stateSpec"
-    .parameter "state"
+    .param p0, "stateSpec"    # [I
+    .param p1, "state"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -172,10 +172,10 @@
     array-length v1, p0
 
     .line 122
-    .local v1, stateSpecSize:I
+    .local v1, "stateSpecSize":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -183,17 +183,17 @@
     aget v2, p0, v0
 
     .line 124
-    .local v2, stateSpecState:I
+    .local v2, "stateSpecState":I
     if-nez v2, :cond_1
 
     .line 140
-    .end local v2           #stateSpecState:I
+    .end local v2    # "stateSpecState":I
     :cond_0
     :goto_1
     return v3
 
     .line 128
-    .restart local v2       #stateSpecState:I
+    .restart local v2    # "stateSpecState":I
     :cond_1
     if-lez v2, :cond_2
 
@@ -225,8 +225,8 @@
 
 .method public static stateSetMatches([I[I)Z
     .locals 11
-    .parameter "stateSpec"
-    .parameter "stateSet"
+    .param p0, "stateSpec"    # [I
+    .param p1, "stateSet"    # [I
 
     .prologue
     const/4 v9, 0x1
@@ -258,14 +258,14 @@
     array-length v6, p0
 
     .line 65
-    .local v6, stateSpecSize:I
+    .local v6, "stateSpecSize":I
     array-length v5, p1
 
     .line 66
-    .local v5, stateSetSize:I
+    .local v5, "stateSetSize":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v6, :cond_9
 
@@ -273,7 +273,7 @@
     aget v7, p0, v1
 
     .line 68
-    .local v7, stateSpecState:I
+    .local v7, "stateSpecState":I
     if-nez v7, :cond_3
 
     move v8, v9
@@ -289,15 +289,15 @@
     const/4 v3, 0x1
 
     .line 80
-    .local v3, mustMatch:Z
+    .local v3, "mustMatch":Z
     :goto_2
     const/4 v0, 0x0
 
     .line 81
-    .local v0, found:Z
+    .local v0, "found":Z
     const/4 v2, 0x0
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_3
     if-ge v2, v5, :cond_4
 
@@ -305,14 +305,14 @@
     aget v4, p1, v2
 
     .line 83
-    .local v4, state:I
+    .local v4, "state":I
     if-nez v4, :cond_7
 
     .line 85
     if-nez v3, :cond_1
 
     .line 104
-    .end local v4           #state:I
+    .end local v4    # "state":I
     :cond_4
     :goto_4
     if-eqz v3, :cond_5
@@ -326,22 +326,22 @@
     goto :goto_1
 
     .line 77
-    .end local v0           #found:Z
-    .end local v2           #j:I
-    .end local v3           #mustMatch:Z
+    .end local v0    # "found":Z
+    .end local v2    # "j":I
+    .end local v3    # "mustMatch":Z
     :cond_6
     const/4 v3, 0x0
 
     .line 78
-    .restart local v3       #mustMatch:Z
+    .restart local v3    # "mustMatch":Z
     neg-int v7, v7
 
     goto :goto_2
 
     .line 93
-    .restart local v0       #found:Z
-    .restart local v2       #j:I
-    .restart local v4       #state:I
+    .restart local v0    # "found":Z
+    .restart local v2    # "j":I
+    .restart local v4    # "state":I
     :cond_7
     if-ne v4, v7, :cond_8
 
@@ -360,11 +360,11 @@
 
     goto :goto_3
 
-    .end local v0           #found:Z
-    .end local v2           #j:I
-    .end local v3           #mustMatch:Z
-    .end local v4           #state:I
-    .end local v7           #stateSpecState:I
+    .end local v0    # "found":Z
+    .end local v2    # "j":I
+    .end local v3    # "mustMatch":Z
+    .end local v4    # "state":I
+    .end local v7    # "stateSpecState":I
     :cond_9
     move v8, v9
 
@@ -374,8 +374,8 @@
 
 .method public static trimStateSet([II)[I
     .locals 3
-    .parameter "states"
-    .parameter "newSize"
+    .param p0, "states"    # [I
+    .param p1, "newSize"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -386,17 +386,17 @@
     if-ne v1, p1, :cond_0
 
     .line 150
-    .end local p0
+    .end local p0    # "states":[I
     :goto_0
     return-object p0
 
     .line 148
-    .restart local p0
+    .restart local p0    # "states":[I
     :cond_0
     new-array v0, p1, [I
 
     .line 149
-    .local v0, trimmedStates:[I
+    .local v0, "trimmedStates":[I
     invoke-static {p0, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     move-object p0, v0

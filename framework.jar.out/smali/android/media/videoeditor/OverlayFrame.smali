@@ -67,11 +67,11 @@
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;Landroid/graphics/Bitmap;JJ)V
     .locals 7
-    .parameter "mediaItem"
-    .parameter "overlayId"
-    .parameter "bitmap"
-    .parameter "startTimeMs"
-    .parameter "durationMs"
+    .param p1, "mediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "overlayId"    # Ljava/lang/String;
+    .param p3, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p4, "startTimeMs"    # J
+    .param p6, "durationMs"    # J
 
     .prologue
     .line 88
@@ -116,11 +116,11 @@
 
 .method constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;Ljava/lang/String;JJ)V
     .locals 8
-    .parameter "mediaItem"
-    .parameter "overlayId"
-    .parameter "filename"
-    .parameter "startTimeMs"
-    .parameter "durationMs"
+    .param p1, "mediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "overlayId"    # Ljava/lang/String;
+    .param p3, "filename"    # Ljava/lang/String;
+    .param p4, "startTimeMs"    # J
+    .param p6, "durationMs"    # J
 
     .prologue
     const/4 v7, 0x0
@@ -169,10 +169,10 @@
 # virtual methods
 .method generateOverlayWithRenderingMode(Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/OverlayFrame;II)V
     .locals 34
-    .parameter "mediaItemsList"
-    .parameter "overlay"
-    .parameter "height"
-    .parameter "width"
+    .param p1, "mediaItemsList"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "overlay"    # Landroid/media/videoeditor/OverlayFrame;
+    .param p3, "height"    # I
+    .param p4, "width"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;,
@@ -185,31 +185,31 @@
     move-object/from16 v32, p1
 
     .line 316
-    .local v32, t:Landroid/media/videoeditor/MediaItem;
+    .local v32, "t":Landroid/media/videoeditor/MediaItem;
     invoke-virtual/range {v32 .. v32}, Landroid/media/videoeditor/MediaItem;->getRenderingMode()I
 
     move-result v27
 
     .line 318
-    .local v27, renderMode:I
+    .local v27, "renderMode":I
     invoke-virtual/range {p2 .. p2}, Landroid/media/videoeditor/OverlayFrame;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v25
 
     .line 324
-    .local v25, overlayBitmap:Landroid/graphics/Bitmap;
+    .local v25, "overlayBitmap":Landroid/graphics/Bitmap;
     invoke-virtual/range {p2 .. p2}, Landroid/media/videoeditor/OverlayFrame;->getResizedRGBSizeHeight()I
 
     move-result v28
 
     .line 325
-    .local v28, resizedRGBFileHeight:I
+    .local v28, "resizedRGBFileHeight":I
     invoke-virtual/range {p2 .. p2}, Landroid/media/videoeditor/OverlayFrame;->getResizedRGBSizeWidth()I
 
     move-result v29
 
     .line 328
-    .local v29, resizedRGBFileWidth:I
+    .local v29, "resizedRGBFileWidth":I
     if-nez v29, :cond_0
 
     .line 329
@@ -267,7 +267,7 @@
     move-result-object v4
 
     .line 344
-    .local v4, destBitmap:Landroid/graphics/Bitmap;
+    .local v4, "destBitmap":Landroid/graphics/Bitmap;
     new-instance v26, Landroid/graphics/Canvas;
 
     move-object/from16 v0, v26
@@ -275,7 +275,7 @@
     invoke-direct {v0, v4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 348
-    .local v26, overlayCanvas:Landroid/graphics/Canvas;
+    .local v26, "overlayCanvas":Landroid/graphics/Canvas;
     packed-switch v27, :pswitch_data_0
 
     .line 418
@@ -326,7 +326,7 @@
     invoke-direct {v0, v6, v7, v8, v10}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 352
-    .local v17, destRect:Landroid/graphics/Rect;
+    .local v17, "destRect":Landroid/graphics/Rect;
     new-instance v31, Landroid/graphics/Rect;
 
     const/4 v6, 0x0
@@ -346,7 +346,7 @@
     invoke-direct {v0, v6, v7, v8, v10}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 422
-    .local v31, srcRect:Landroid/graphics/Rect;
+    .local v31, "srcRect":Landroid/graphics/Rect;
     :goto_0
     sget-object v6, Landroid/media/videoeditor/OverlayFrame;->sResizePaint:Landroid/graphics/Paint;
 
@@ -373,7 +373,7 @@
     move-result-object v24
 
     .line 433
-    .local v24, outFileName:Ljava/lang/String;
+    .local v24, "outFileName":Ljava/lang/String;
     if-eqz v24, :cond_3
 
     .line 434
@@ -396,19 +396,19 @@
     invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 438
-    .local v19, fl:Ljava/io/FileOutputStream;
+    .local v19, "fl":Ljava/io/FileOutputStream;
     new-instance v18, Ljava/io/DataOutputStream;
 
     invoke-direct/range {v18 .. v19}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     .line 443
-    .local v18, dos:Ljava/io/DataOutputStream;
+    .local v18, "dos":Ljava/io/DataOutputStream;
     move/from16 v0, p4
 
     new-array v5, v0, [I
 
     .line 444
-    .local v5, framingBuffer:[I
+    .local v5, "framingBuffer":[I
     array-length v6, v5
 
     mul-int/lit8 v6, v6, 0x4
@@ -418,17 +418,17 @@
     move-result-object v16
 
     .line 447
-    .local v16, byteBuffer:Ljava/nio/ByteBuffer;
+    .local v16, "byteBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual/range {v16 .. v16}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v14
 
     .line 448
-    .local v14, array:[B
+    .local v14, "array":[B
     const/4 v9, 0x0
 
     .line 449
-    .local v9, tmp:I
+    .local v9, "tmp":I
     :goto_1
     move/from16 v0, p3
 
@@ -453,7 +453,7 @@
     move-result-object v20
 
     .line 452
-    .local v20, intBuffer:Ljava/nio/IntBuffer;
+    .local v20, "intBuffer":Ljava/nio/IntBuffer;
     const/4 v6, 0x0
 
     move-object/from16 v0, v20
@@ -473,16 +473,16 @@
     goto :goto_1
 
     .line 360
-    .end local v5           #framingBuffer:[I
-    .end local v9           #tmp:I
-    .end local v14           #array:[B
-    .end local v16           #byteBuffer:Ljava/nio/ByteBuffer;
-    .end local v17           #destRect:Landroid/graphics/Rect;
-    .end local v18           #dos:Ljava/io/DataOutputStream;
-    .end local v19           #fl:Ljava/io/FileOutputStream;
-    .end local v20           #intBuffer:Ljava/nio/IntBuffer;
-    .end local v24           #outFileName:Ljava/lang/String;
-    .end local v31           #srcRect:Landroid/graphics/Rect;
+    .end local v5    # "framingBuffer":[I
+    .end local v9    # "tmp":I
+    .end local v14    # "array":[B
+    .end local v16    # "byteBuffer":Ljava/nio/ByteBuffer;
+    .end local v17    # "destRect":Landroid/graphics/Rect;
+    .end local v18    # "dos":Ljava/io/DataOutputStream;
+    .end local v19    # "fl":Ljava/io/FileOutputStream;
+    .end local v20    # "intBuffer":Ljava/nio/IntBuffer;
+    .end local v24    # "outFileName":Ljava/lang/String;
+    .end local v31    # "srcRect":Landroid/graphics/Rect;
     :pswitch_1
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -499,7 +499,7 @@
     div-float v13, v6, v7
 
     .line 363
-    .local v13, aROverlayImage:F
+    .local v13, "aROverlayImage":F
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v6
@@ -515,7 +515,7 @@
     div-float v12, v6, v7
 
     .line 366
-    .local v12, aRCanvas:F
+    .local v12, "aRCanvas":F
     cmpl-float v6, v13, v12
 
     if-lez v6, :cond_4
@@ -538,11 +538,11 @@
     div-int v22, v6, v7
 
     .line 369
-    .local v22, newHeight:I
+    .local v22, "newHeight":I
     const/16 v21, 0x0
 
     .line 370
-    .local v21, left:I
+    .local v21, "left":I
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getHeight()I
 
     move-result v6
@@ -552,18 +552,18 @@
     div-int/lit8 v33, v6, 0x2
 
     .line 371
-    .local v33, top:I
+    .local v33, "top":I
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v30
 
     .line 372
-    .local v30, right:I
+    .local v30, "right":I
     add-int v15, v33, v22
 
     .line 382
-    .end local v22           #newHeight:I
-    .local v15, bottom:I
+    .end local v22    # "newHeight":I
+    .local v15, "bottom":I
     :goto_2
     new-instance v17, Landroid/graphics/Rect;
 
@@ -578,7 +578,7 @@
     invoke-direct {v0, v1, v2, v3, v15}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 383
-    .restart local v17       #destRect:Landroid/graphics/Rect;
+    .restart local v17    # "destRect":Landroid/graphics/Rect;
     new-instance v31, Landroid/graphics/Rect;
 
     const/4 v6, 0x0
@@ -598,16 +598,16 @@
     invoke-direct {v0, v6, v7, v8, v10}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 384
-    .restart local v31       #srcRect:Landroid/graphics/Rect;
+    .restart local v31    # "srcRect":Landroid/graphics/Rect;
     goto/16 :goto_0
 
     .line 374
-    .end local v15           #bottom:I
-    .end local v17           #destRect:Landroid/graphics/Rect;
-    .end local v21           #left:I
-    .end local v30           #right:I
-    .end local v31           #srcRect:Landroid/graphics/Rect;
-    .end local v33           #top:I
+    .end local v15    # "bottom":I
+    .end local v17    # "destRect":Landroid/graphics/Rect;
+    .end local v21    # "left":I
+    .end local v30    # "right":I
+    .end local v31    # "srcRect":Landroid/graphics/Rect;
+    .end local v33    # "top":I
     :cond_4
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getHeight()I
 
@@ -626,7 +626,7 @@
     div-int v23, v6, v7
 
     .line 376
-    .local v23, newWidth:I
+    .local v23, "newWidth":I
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v6
@@ -636,30 +636,30 @@
     div-int/lit8 v21, v6, 0x2
 
     .line 377
-    .restart local v21       #left:I
+    .restart local v21    # "left":I
     const/16 v33, 0x0
 
     .line 378
-    .restart local v33       #top:I
+    .restart local v33    # "top":I
     add-int v30, v21, v23
 
     .line 379
-    .restart local v30       #right:I
+    .restart local v30    # "right":I
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getHeight()I
 
     move-result v15
 
-    .restart local v15       #bottom:I
+    .restart local v15    # "bottom":I
     goto :goto_2
 
     .line 391
-    .end local v12           #aRCanvas:F
-    .end local v13           #aROverlayImage:F
-    .end local v15           #bottom:I
-    .end local v21           #left:I
-    .end local v23           #newWidth:I
-    .end local v30           #right:I
-    .end local v33           #top:I
+    .end local v12    # "aRCanvas":F
+    .end local v13    # "aROverlayImage":F
+    .end local v15    # "bottom":I
+    .end local v21    # "left":I
+    .end local v23    # "newWidth":I
+    .end local v30    # "right":I
+    .end local v33    # "top":I
     :pswitch_2
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -676,7 +676,7 @@
     div-float v13, v6, v7
 
     .line 393
-    .restart local v13       #aROverlayImage:F
+    .restart local v13    # "aROverlayImage":F
     invoke-virtual/range {v26 .. v26}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v6
@@ -692,7 +692,7 @@
     div-float v12, v6, v7
 
     .line 395
-    .restart local v12       #aRCanvas:F
+    .restart local v12    # "aRCanvas":F
     cmpg-float v6, v13, v12
 
     if-gez v6, :cond_5
@@ -715,11 +715,11 @@
     div-int v22, v6, v7
 
     .line 399
-    .restart local v22       #newHeight:I
+    .restart local v22    # "newHeight":I
     const/16 v21, 0x0
 
     .line 400
-    .restart local v21       #left:I
+    .restart local v21    # "left":I
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v6
@@ -729,18 +729,18 @@
     div-int/lit8 v33, v6, 0x2
 
     .line 401
-    .restart local v33       #top:I
+    .restart local v33    # "top":I
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v30
 
     .line 402
-    .restart local v30       #right:I
+    .restart local v30    # "right":I
     add-int v15, v33, v22
 
     .line 412
-    .end local v22           #newHeight:I
-    .restart local v15       #bottom:I
+    .end local v22    # "newHeight":I
+    .restart local v15    # "bottom":I
     :goto_3
     new-instance v31, Landroid/graphics/Rect;
 
@@ -755,7 +755,7 @@
     invoke-direct {v0, v1, v2, v3, v15}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 413
-    .restart local v31       #srcRect:Landroid/graphics/Rect;
+    .restart local v31    # "srcRect":Landroid/graphics/Rect;
     new-instance v17, Landroid/graphics/Rect;
 
     const/4 v6, 0x0
@@ -775,16 +775,16 @@
     invoke-direct {v0, v6, v7, v8, v10}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 414
-    .restart local v17       #destRect:Landroid/graphics/Rect;
+    .restart local v17    # "destRect":Landroid/graphics/Rect;
     goto/16 :goto_0
 
     .line 404
-    .end local v15           #bottom:I
-    .end local v17           #destRect:Landroid/graphics/Rect;
-    .end local v21           #left:I
-    .end local v30           #right:I
-    .end local v31           #srcRect:Landroid/graphics/Rect;
-    .end local v33           #top:I
+    .end local v15    # "bottom":I
+    .end local v17    # "destRect":Landroid/graphics/Rect;
+    .end local v21    # "left":I
+    .end local v30    # "right":I
+    .end local v31    # "srcRect":Landroid/graphics/Rect;
+    .end local v33    # "top":I
     :cond_5
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getHeight()I
 
@@ -803,7 +803,7 @@
     div-int v23, v6, v7
 
     .line 406
-    .restart local v23       #newWidth:I
+    .restart local v23    # "newWidth":I
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
@@ -813,39 +813,39 @@
     div-int/lit8 v21, v6, 0x2
 
     .line 407
-    .restart local v21       #left:I
+    .restart local v21    # "left":I
     const/16 v33, 0x0
 
     .line 408
-    .restart local v33       #top:I
+    .restart local v33    # "top":I
     add-int v30, v21, v23
 
     .line 409
-    .restart local v30       #right:I
+    .restart local v30    # "right":I
     invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v15
 
-    .restart local v15       #bottom:I
+    .restart local v15    # "bottom":I
     goto :goto_3
 
     .line 456
-    .end local v12           #aRCanvas:F
-    .end local v13           #aROverlayImage:F
-    .end local v15           #bottom:I
-    .end local v21           #left:I
-    .end local v23           #newWidth:I
-    .end local v30           #right:I
-    .end local v33           #top:I
-    .restart local v5       #framingBuffer:[I
-    .restart local v9       #tmp:I
-    .restart local v14       #array:[B
-    .restart local v16       #byteBuffer:Ljava/nio/ByteBuffer;
-    .restart local v17       #destRect:Landroid/graphics/Rect;
-    .restart local v18       #dos:Ljava/io/DataOutputStream;
-    .restart local v19       #fl:Ljava/io/FileOutputStream;
-    .restart local v24       #outFileName:Ljava/lang/String;
-    .restart local v31       #srcRect:Landroid/graphics/Rect;
+    .end local v12    # "aRCanvas":F
+    .end local v13    # "aROverlayImage":F
+    .end local v15    # "bottom":I
+    .end local v21    # "left":I
+    .end local v23    # "newWidth":I
+    .end local v30    # "right":I
+    .end local v33    # "top":I
+    .restart local v5    # "framingBuffer":[I
+    .restart local v9    # "tmp":I
+    .restart local v14    # "array":[B
+    .restart local v16    # "byteBuffer":Ljava/nio/ByteBuffer;
+    .restart local v17    # "destRect":Landroid/graphics/Rect;
+    .restart local v18    # "dos":Ljava/io/DataOutputStream;
+    .restart local v19    # "fl":Ljava/io/FileOutputStream;
+    .restart local v24    # "outFileName":Ljava/lang/String;
+    .restart local v31    # "srcRect":Landroid/graphics/Rect;
     :cond_6
     invoke-virtual/range {v19 .. v19}, Ljava/io/FileOutputStream;->flush()V
 
@@ -862,17 +862,17 @@
     invoke-virtual {v0, v1, v2}, Landroid/media/videoeditor/OverlayFrame;->setResizedRGBSize(II)V
 
     .line 464
-    .end local v4           #destBitmap:Landroid/graphics/Bitmap;
-    .end local v5           #framingBuffer:[I
-    .end local v9           #tmp:I
-    .end local v14           #array:[B
-    .end local v16           #byteBuffer:Ljava/nio/ByteBuffer;
-    .end local v17           #destRect:Landroid/graphics/Rect;
-    .end local v18           #dos:Ljava/io/DataOutputStream;
-    .end local v19           #fl:Ljava/io/FileOutputStream;
-    .end local v24           #outFileName:Ljava/lang/String;
-    .end local v26           #overlayCanvas:Landroid/graphics/Canvas;
-    .end local v31           #srcRect:Landroid/graphics/Rect;
+    .end local v4    # "destBitmap":Landroid/graphics/Bitmap;
+    .end local v5    # "framingBuffer":[I
+    .end local v9    # "tmp":I
+    .end local v14    # "array":[B
+    .end local v16    # "byteBuffer":Ljava/nio/ByteBuffer;
+    .end local v17    # "destRect":Landroid/graphics/Rect;
+    .end local v18    # "dos":Ljava/io/DataOutputStream;
+    .end local v19    # "fl":Ljava/io/FileOutputStream;
+    .end local v24    # "outFileName":Ljava/lang/String;
+    .end local v26    # "overlayCanvas":Landroid/graphics/Canvas;
+    .end local v31    # "srcRect":Landroid/graphics/Rect;
     :cond_7
     return-void
 
@@ -1065,7 +1065,7 @@
 
 .method save(Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;,
@@ -1149,7 +1149,7 @@
     invoke-direct {v2, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 195
-    .local v2, out:Ljava/io/FileOutputStream;
+    .local v2, "out":Ljava/io/FileOutputStream;
     iget-object v4, p0, Landroid/media/videoeditor/OverlayFrame;->mBitmap:Landroid/graphics/Bitmap;
 
     sget-object v5, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
@@ -1165,7 +1165,7 @@
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
     .line 200
-    .end local v2           #out:Ljava/io/FileOutputStream;
+    .end local v2    # "out":Ljava/io/FileOutputStream;
     :cond_1
     iget-object v4, p0, Landroid/media/videoeditor/OverlayFrame;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -1235,7 +1235,7 @@
     move-result-object v1
 
     .line 211
-    .local v1, nativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
+    .local v1, "nativeHelper":Landroid/media/videoeditor/MediaArtistNativeHelper;
     invoke-virtual {v1}, Landroid/media/videoeditor/MediaArtistNativeHelper;->nativeHelperGetAspectRatio()I
 
     move-result v4
@@ -1245,7 +1245,7 @@
     move-result-object v3
 
     .line 214
-    .local v3, resolutions:[Landroid/util/Pair;,"[Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
+    .local v3, "resolutions":[Landroid/util/Pair;, "[Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     array-length v4, v3
 
     add-int/lit8 v4, v4, -0x1
@@ -1253,7 +1253,7 @@
     aget-object v0, v3, v4
 
     .line 217
-    .local v0, maxResolution:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
+    .local v0, "maxResolution":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     invoke-super {p0}, Landroid/media/videoeditor/Overlay;->getMediaItem()Landroid/media/videoeditor/MediaItem;
 
     move-result-object v5
@@ -1284,7 +1284,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 5
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 142
@@ -1343,7 +1343,7 @@
 
 .method setFilename(Ljava/lang/String;)V
     .locals 0
-    .parameter "filename"
+    .param p1, "filename"    # Ljava/lang/String;
 
     .prologue
     .line 175
@@ -1355,7 +1355,7 @@
 
 .method setOverlayFrameHeight(I)V
     .locals 0
-    .parameter "height"
+    .param p1, "height"    # I
 
     .prologue
     .line 242
@@ -1367,7 +1367,7 @@
 
 .method setOverlayFrameWidth(I)V
     .locals 0
-    .parameter "width"
+    .param p1, "width"    # I
 
     .prologue
     .line 249
@@ -1379,8 +1379,8 @@
 
 .method setResizedRGBSize(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 256

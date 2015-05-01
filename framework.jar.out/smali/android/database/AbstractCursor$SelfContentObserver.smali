@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/database/AbstractCursor;)V
     .locals 1
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/AbstractCursor;
 
     .prologue
     .line 447
@@ -63,7 +63,7 @@
 
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 458
@@ -76,7 +76,7 @@
     check-cast v0, Landroid/database/AbstractCursor;
 
     .line 459
-    .local v0, cursor:Landroid/database/AbstractCursor;
+    .local v0, "cursor":Landroid/database/AbstractCursor;
     if-eqz v0, :cond_0
 
     .line 460

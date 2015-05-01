@@ -47,8 +47,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 606
@@ -69,7 +68,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 613
@@ -85,7 +84,7 @@
     :pswitch_0
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleCreatePrinterDiscoverySession()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleCreatePrinterDiscoverySession()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$400(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0
@@ -94,7 +93,7 @@
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleDestroyPrinterDiscoverySession()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleDestroyPrinterDiscoverySession()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$500(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0
@@ -106,20 +105,20 @@
     check-cast v3, Ljava/util/ArrayList;
 
     .line 624
-    .local v3, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local v3, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStartPrinterDiscovery(Ljava/util/List;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStartPrinterDiscovery(Ljava/util/List;)V
     invoke-static {v4, v3}, Lcom/android/server/print/RemotePrintService;->access$600(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
     goto :goto_0
 
     .line 628
-    .end local v3           #priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v3    # "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :pswitch_3
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStopPrinterDiscovery()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStopPrinterDiscovery()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$700(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0
@@ -131,52 +130,52 @@
     check-cast v2, Ljava/util/List;
 
     .line 633
-    .local v2, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local v2, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleValidatePrinters(Ljava/util/List;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleValidatePrinters(Ljava/util/List;)V
     invoke-static {v4, v2}, Lcom/android/server/print/RemotePrintService;->access$800(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
     goto :goto_0
 
     .line 637
-    .end local v2           #printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v2    # "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :pswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/print/PrinterId;
 
     .line 638
-    .local v1, printerId:Landroid/print/PrinterId;
+    .local v1, "printerId":Landroid/print/PrinterId;
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStartPrinterStateTracking(Landroid/print/PrinterId;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStartPrinterStateTracking(Landroid/print/PrinterId;)V
     invoke-static {v4, v1}, Lcom/android/server/print/RemotePrintService;->access$900(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     goto :goto_0
 
     .line 642
-    .end local v1           #printerId:Landroid/print/PrinterId;
+    .end local v1    # "printerId":Landroid/print/PrinterId;
     :pswitch_6
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/print/PrinterId;
 
     .line 643
-    .restart local v1       #printerId:Landroid/print/PrinterId;
+    .restart local v1    # "printerId":Landroid/print/PrinterId;
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStopPrinterStateTracking(Landroid/print/PrinterId;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStopPrinterStateTracking(Landroid/print/PrinterId;)V
     invoke-static {v4, v1}, Lcom/android/server/print/RemotePrintService;->access$1000(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     goto :goto_0
 
     .line 647
-    .end local v1           #printerId:Landroid/print/PrinterId;
+    .end local v1    # "printerId":Landroid/print/PrinterId;
     :pswitch_7
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleOnAllPrintJobsHandled()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleOnAllPrintJobsHandled()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$100(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0
@@ -188,36 +187,36 @@
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 652
-    .local v0, printJob:Landroid/print/PrintJobInfo;
+    .local v0, "printJob":Landroid/print/PrintJobInfo;
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleRequestCancelPrintJob(Landroid/print/PrintJobInfo;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleRequestCancelPrintJob(Landroid/print/PrintJobInfo;)V
     invoke-static {v4, v0}, Lcom/android/server/print/RemotePrintService;->access$200(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 656
-    .end local v0           #printJob:Landroid/print/PrintJobInfo;
+    .end local v0    # "printJob":Landroid/print/PrintJobInfo;
     :pswitch_9
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 657
-    .restart local v0       #printJob:Landroid/print/PrintJobInfo;
+    .restart local v0    # "printJob":Landroid/print/PrintJobInfo;
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleOnPrintJobQueued(Landroid/print/PrintJobInfo;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleOnPrintJobQueued(Landroid/print/PrintJobInfo;)V
     invoke-static {v4, v0}, Lcom/android/server/print/RemotePrintService;->access$300(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 661
-    .end local v0           #printJob:Landroid/print/PrintJobInfo;
+    .end local v0    # "printJob":Landroid/print/PrintJobInfo;
     :pswitch_a
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleDestroy()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleDestroy()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$2500(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0
@@ -226,7 +225,7 @@
     :pswitch_b
     iget-object v4, p0, Lcom/android/server/print/RemotePrintService$MyHandler;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleBinderDied()V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleBinderDied()V
     invoke-static {v4}, Lcom/android/server/print/RemotePrintService;->access$1600(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_0

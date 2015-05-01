@@ -63,16 +63,16 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;II)V
     .locals 5
-    .parameter "rs"
-    .parameter "vtxSize"
-    .parameter "flags"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
+    .param p2, "vtxSize"    # I
+    .param p3, "flags"    # I
 
     .prologue
     const/16 v4, 0x80
 
     const/4 v3, 0x0
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
@@ -86,7 +86,7 @@
     iput v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNY:F
 
     .line 560
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNZ:F
 
@@ -344,7 +344,7 @@
 
 .method private makeSpace(I)V
     .locals 4
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -370,7 +370,7 @@
     new-array v0, v1, [F
 
     .line 612
-    .local v0, t:[F
+    .local v0, "t":[F
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget-object v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
@@ -383,7 +383,7 @@
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     .line 615
-    .end local v0           #t:[F
+    .end local v0    # "t":[F
     :cond_0
     return-void
 .end method
@@ -392,9 +392,9 @@
 # virtual methods
 .method public addTriangle(III)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 4
-    .parameter "idx1"
-    .parameter "idx2"
-    .parameter "idx3"
+    .param p1, "idx1"    # I
+    .param p2, "idx2"    # I
+    .param p3, "idx3"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -450,7 +450,7 @@
     new-array v0, v1, [S
 
     .line 763
-    .local v0, t:[S
+    .local v0, "t":[S
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     iget-object v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
@@ -463,7 +463,7 @@
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     .line 766
-    .end local v0           #t:[S
+    .end local v0    # "t":[S
     :cond_2
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
@@ -509,8 +509,8 @@
 
 .method public addVertex(FF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 3
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     const/4 v1, 0x2
@@ -564,9 +564,9 @@
 
 .method public addVertex(FFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 3
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
     .prologue
     .line 673
@@ -633,7 +633,7 @@
 
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     aput v2, v0, v1
 
@@ -646,7 +646,7 @@
 
 .method public create(Z)Landroid/renderscript/Mesh;
     .locals 9
-    .parameter "uploadToBufferObject"
+    .param p1, "uploadToBufferObject"    # Z
 
     .prologue
     const/4 v8, 0x1
@@ -661,7 +661,7 @@
     invoke-direct {v0, v4}, Landroid/renderscript/Element$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 789
-    .local v0, b:Landroid/renderscript/Element$Builder;
+    .local v0, "b":Landroid/renderscript/Element$Builder;
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     sget-object v5, Landroid/renderscript/Element$DataType;->FLOAT_32:Landroid/renderscript/Element$DataType;
@@ -744,7 +744,7 @@
     const/4 v3, 0x1
 
     .line 804
-    .local v3, usage:I
+    .local v3, "usage":I
     if-eqz p1, :cond_3
 
     .line 805
@@ -759,7 +759,7 @@
     invoke-direct {v2, v4, v3}, Landroid/renderscript/Mesh$Builder;-><init>(Landroid/renderscript/RenderScript;I)V
 
     .line 809
-    .local v2, smb:Landroid/renderscript/Mesh$Builder;
+    .local v2, "smb":Landroid/renderscript/Mesh$Builder;
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mElement:Landroid/renderscript/Element;
 
     iget v5, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
@@ -785,7 +785,7 @@
     move-result-object v1
 
     .line 814
-    .local v1, sm:Landroid/renderscript/Mesh;
+    .local v1, "sm":Landroid/renderscript/Mesh;
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getVertexAllocation(I)Landroid/renderscript/Allocation;
 
     move-result-object v4
@@ -838,10 +838,10 @@
 
 .method public setColor(FFFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 2
-    .parameter "r"
-    .parameter "g"
-    .parameter "b"
-    .parameter "a"
+    .param p1, "r"    # F
+    .param p2, "g"    # F
+    .param p3, "b"    # F
+    .param p4, "a"    # F
 
     .prologue
     .line 735
@@ -879,9 +879,9 @@
 
 .method public setNormal(FFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 2
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
     .prologue
     .line 714
@@ -916,8 +916,8 @@
 
 .method public setTexture(FF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
     .locals 2
-    .parameter "s"
-    .parameter "t"
+    .param p1, "s"    # F
+    .param p2, "t"    # F
 
     .prologue
     .line 695

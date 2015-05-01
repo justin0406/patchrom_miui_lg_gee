@@ -32,7 +32,7 @@
 
 .field public static final CMAS_URGENCY:Ljava/lang/String; = "cmas_urgency"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "date DESC"
 
@@ -56,7 +56,7 @@
 
 .field public static final PLMN:Ljava/lang/String; = "plmn"
 
-.field public static final QUERY_COLUMNS:[Ljava/lang/String; = null
+.field public static final QUERY_COLUMNS:[Ljava/lang/String;
 
 .field public static final SERIAL_NUMBER:Ljava/lang/String; = "serial_number"
 

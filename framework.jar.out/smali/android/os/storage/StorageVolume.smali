@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -66,7 +66,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -223,8 +223,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/os/storage/StorageVolume$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/os/storage/StorageVolume$1;
 
     .prologue
     .line 35
@@ -235,15 +235,15 @@
 
 .method public constructor <init>(Ljava/io/File;IZZZIZJLandroid/os/UserHandle;)V
     .locals 0
-    .parameter "path"
-    .parameter "descriptionId"
-    .parameter "primary"
-    .parameter "removable"
-    .parameter "emulated"
-    .parameter "mtpReserveSpace"
-    .parameter "allowMassStorage"
-    .parameter "maxFileSize"
-    .parameter "owner"
+    .param p1, "path"    # Ljava/io/File;
+    .param p2, "descriptionId"    # I
+    .param p3, "primary"    # Z
+    .param p4, "removable"    # Z
+    .param p5, "emulated"    # Z
+    .param p6, "mtpReserveSpace"    # I
+    .param p7, "allowMassStorage"    # Z
+    .param p8, "maxFileSize"    # J
+    .param p10, "owner"    # Landroid/os/UserHandle;
 
     .prologue
     .line 63
@@ -282,9 +282,9 @@
 
 .method public static fromTemplate(Landroid/os/storage/StorageVolume;Ljava/io/File;Landroid/os/UserHandle;)Landroid/os/storage/StorageVolume;
     .locals 11
-    .parameter "template"
-    .parameter "path"
-    .parameter "owner"
+    .param p0, "template"    # Landroid/os/storage/StorageVolume;
+    .param p1, "path"    # Ljava/io/File;
+    .param p2, "owner"    # Landroid/os/UserHandle;
 
     .prologue
     .line 92
@@ -337,7 +337,7 @@
 
 .method public dump(Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 3
-    .parameter "pw"
+    .param p1, "pw"    # Lcom/android/internal/util/IndentingPrintWriter;
 
     .prologue
     .line 263
@@ -480,7 +480,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 243
@@ -498,7 +498,7 @@
     check-cast v0, Landroid/os/storage/StorageVolume;
 
     .line 245
-    .local v0, volume:Landroid/os/storage/StorageVolume;
+    .local v0, "volume":Landroid/os/storage/StorageVolume;
     iget-object v1, p0, Landroid/os/storage/StorageVolume;->mPath:Ljava/io/File;
 
     iget-object v2, v0, Landroid/os/storage/StorageVolume;->mPath:Ljava/io/File;
@@ -508,7 +508,7 @@
     move-result v1
 
     .line 247
-    .end local v0           #volume:Landroid/os/storage/StorageVolume;
+    .end local v0    # "volume":Landroid/os/storage/StorageVolume;
     :goto_0
     return v1
 
@@ -520,7 +520,7 @@
 
 .method public getDescription(Landroid/content/Context;)Ljava/lang/String;
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 116
@@ -601,7 +601,7 @@
     move-exception v0
 
     .line 221
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
@@ -745,7 +745,7 @@
 
 .method public setState(Ljava/lang/String;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Ljava/lang/String;
 
     .prologue
     .line 234
@@ -757,7 +757,7 @@
 
 .method public setStorageId(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 161
@@ -775,7 +775,7 @@
 
 .method public setUserLabel(Ljava/lang/String;)V
     .locals 0
-    .parameter "userLabel"
+    .param p1, "userLabel"    # Ljava/lang/String;
 
     .prologue
     .line 226
@@ -787,7 +787,7 @@
 
 .method public setUuid(Ljava/lang/String;)V
     .locals 0
-    .parameter "uuid"
+    .param p1, "uuid"    # Ljava/lang/String;
 
     .prologue
     .line 203
@@ -807,7 +807,7 @@
     invoke-direct {v0}, Ljava/io/CharArrayWriter;-><init>()V
 
     .line 258
-    .local v0, writer:Ljava/io/CharArrayWriter;
+    .local v0, "writer":Ljava/io/CharArrayWriter;
     new-instance v1, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string v2, "    "
@@ -828,8 +828,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

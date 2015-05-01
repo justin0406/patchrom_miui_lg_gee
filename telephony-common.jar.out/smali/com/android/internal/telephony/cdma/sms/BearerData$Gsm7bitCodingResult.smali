@@ -33,7 +33,7 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/cdma/sms/BearerData$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/internal/telephony/cdma/sms/BearerData$1;
 
     .prologue
     .line 541

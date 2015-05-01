@@ -43,8 +43,8 @@
 
 .method private closeSocketThrowException(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;)V
     .locals 2
-    .parameter "socket"
-    .parameter "errorMessage"
+    .param p1, "socket"    # Ljavax/net/ssl/SSLSocket;
+    .param p2, "errorMessage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,7 +61,7 @@
     move-result-object v0
 
     .line 211
-    .local v0, session:Ljavax/net/ssl/SSLSession;
+    .local v0, "session":Ljavax/net/ssl/SSLSession;
     if-eqz v0, :cond_0
 
     .line 212
@@ -72,7 +72,7 @@
     invoke-virtual {p1}, Ljavax/net/ssl/SSLSocket;->close()V
 
     .line 218
-    .end local v0           #session:Ljavax/net/ssl/SSLSession;
+    .end local v0    # "session":Ljavax/net/ssl/SSLSession;
     :cond_1
     new-instance v1, Ljavax/net/ssl/SSLHandshakeException;
 
@@ -83,9 +83,9 @@
 
 .method private closeSocketThrowException(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "socket"
-    .parameter "errorMessage"
-    .parameter "defaultErrorMessage"
+    .param p1, "socket"    # Ljavax/net/ssl/SSLSocket;
+    .param p2, "errorMessage"    # Ljava/lang/String;
+    .param p3, "defaultErrorMessage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -96,14 +96,14 @@
     .line 199
     if-eqz p2, :cond_0
 
-    .end local p2
+    .end local p2    # "errorMessage":Ljava/lang/String;
     :goto_0
     invoke-direct {p0, p1, p2}, Landroid/net/http/CertificateChainValidator;->closeSocketThrowException(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;)V
 
     .line 201
     return-void
 
-    .restart local p2
+    .restart local p2    # "errorMessage":Ljava/lang/String;
     :cond_0
     move-object p2, p3
 
@@ -132,7 +132,7 @@
     move-result-object v2
 
     .line 142
-    .local v2, x509TrustManager:Ljavax/net/ssl/X509TrustManager;
+    .local v2, "x509TrustManager":Ljavax/net/ssl/X509TrustManager;
     instance-of v3, v2, Lcom/android/org/conscrypt/TrustManagerImpl;
 
     if-eqz v3, :cond_0
@@ -145,13 +145,13 @@
     move-object v1, v0
 
     .line 144
-    .local v1, trustManager:Lcom/android/org/conscrypt/TrustManagerImpl;
+    .local v1, "trustManager":Lcom/android/org/conscrypt/TrustManagerImpl;
     invoke-virtual {v1}, Lcom/android/org/conscrypt/TrustManagerImpl;->handleTrustStorageUpdate()V
     :try_end_0
     .catch Ljava/security/KeyManagementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 148
-    .end local v1           #trustManager:Lcom/android/org/conscrypt/TrustManagerImpl;
+    .end local v1    # "trustManager":Lcom/android/org/conscrypt/TrustManagerImpl;
     :cond_0
     :goto_0
     return-void
@@ -165,9 +165,9 @@
 
 .method public static verifyServerCertificates([[BLjava/lang/String;Ljava/lang/String;)Landroid/net/http/SslError;
     .locals 6
-    .parameter "certChain"
-    .parameter "domain"
-    .parameter "authType"
+    .param p0, "certChain"    # [[B
+    .param p1, "domain"    # Ljava/lang/String;
+    .param p2, "authType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -199,7 +199,7 @@
     new-array v3, v4, [Ljava/security/cert/X509Certificate;
 
     .line 123
-    .local v3, serverCertificates:[Ljava/security/cert/X509Certificate;
+    .local v3, "serverCertificates":[Ljava/security/cert/X509Certificate;
     :try_start_0
     const-string v4, "X.509"
 
@@ -208,10 +208,10 @@
     move-result-object v0
 
     .line 124
-    .local v0, cf:Ljava/security/cert/CertificateFactory;
+    .local v0, "cf":Ljava/security/cert/CertificateFactory;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     array-length v4, p0
 
@@ -240,13 +240,13 @@
     goto :goto_0
 
     .line 128
-    .end local v0           #cf:Ljava/security/cert/CertificateFactory;
-    .end local v2           #i:I
+    .end local v0    # "cf":Ljava/security/cert/CertificateFactory;
+    .end local v2    # "i":I
     :catch_0
     move-exception v1
 
     .line 129
-    .local v1, e:Ljava/security/cert/CertificateException;
+    .local v1, "e":Ljava/security/cert/CertificateException;
     new-instance v4, Ljava/io/IOException;
 
     const-string v5, "can\'t read certificate"
@@ -256,9 +256,9 @@
     throw v4
 
     .line 132
-    .end local v1           #e:Ljava/security/cert/CertificateException;
-    .restart local v0       #cf:Ljava/security/cert/CertificateFactory;
-    .restart local v2       #i:I
+    .end local v1    # "e":Ljava/security/cert/CertificateException;
+    .restart local v0    # "cf":Ljava/security/cert/CertificateFactory;
+    .restart local v2    # "i":I
     :cond_2
     invoke-static {v3, p1, p2}, Landroid/net/http/CertificateChainValidator;->verifyServerDomainAndCertificates([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/lang/String;)Landroid/net/http/SslError;
 
@@ -269,9 +269,9 @@
 
 .method private static verifyServerDomainAndCertificates([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/lang/String;)Landroid/net/http/SslError;
     .locals 8
-    .parameter "chain"
-    .parameter "domain"
-    .parameter "authType"
+    .param p0, "chain"    # [Ljava/security/cert/X509Certificate;
+    .param p1, "domain"    # Ljava/lang/String;
+    .param p2, "authType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -285,7 +285,7 @@
     aget-object v1, p0, v4
 
     .line 163
-    .local v1, currCertificate:Ljava/security/cert/X509Certificate;
+    .local v1, "currCertificate":Ljava/security/cert/X509Certificate;
     if-nez v1, :cond_0
 
     .line 164
@@ -318,7 +318,7 @@
     const/4 v4, 0x1
 
     .line 170
-    .local v4, valid:Z
+    .local v4, "valid":Z
     :cond_1
     if-nez v4, :cond_2
 
@@ -341,7 +341,7 @@
     move-result-object v5
 
     .line 179
-    .local v5, x509TrustManager:Ljavax/net/ssl/X509TrustManager;
+    .local v5, "x509TrustManager":Ljavax/net/ssl/X509TrustManager;
     instance-of v6, v5, Lcom/android/org/conscrypt/TrustManagerImpl;
 
     if-eqz v6, :cond_3
@@ -354,11 +354,11 @@
     move-object v3, v0
 
     .line 181
-    .local v3, trustManager:Lcom/android/org/conscrypt/TrustManagerImpl;
+    .local v3, "trustManager":Lcom/android/org/conscrypt/TrustManagerImpl;
     invoke-virtual {v3, p0, p2, p1}, Lcom/android/org/conscrypt/TrustManagerImpl;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
     .line 185
-    .end local v3           #trustManager:Lcom/android/org/conscrypt/TrustManagerImpl;
+    .end local v3    # "trustManager":Lcom/android/org/conscrypt/TrustManagerImpl;
     :goto_1
     const/4 v6, 0x0
 
@@ -373,12 +373,12 @@
     goto :goto_1
 
     .line 186
-    .end local v5           #x509TrustManager:Ljavax/net/ssl/X509TrustManager;
+    .end local v5    # "x509TrustManager":Ljavax/net/ssl/X509TrustManager;
     :catch_0
     move-exception v2
 
     .line 191
-    .local v2, e:Ljava/security/GeneralSecurityException;
+    .local v2, "e":Ljava/security/GeneralSecurityException;
     new-instance v6, Landroid/net/http/SslError;
 
     const/4 v7, 0x3
@@ -392,9 +392,9 @@
 # virtual methods
 .method public doHandshakeAndValidateServerCertificates(Landroid/net/http/HttpsConnection;Ljavax/net/ssl/SSLSocket;Ljava/lang/String;)Landroid/net/http/SslError;
     .locals 5
-    .parameter "connection"
-    .parameter "sslSocket"
-    .parameter "domain"
+    .param p1, "connection"    # Landroid/net/http/HttpsConnection;
+    .param p2, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
+    .param p3, "domain"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -410,7 +410,7 @@
     move-result-object v1
 
     .line 80
-    .local v1, sslSession:Ljavax/net/ssl/SSLSession;
+    .local v1, "sslSession":Ljavax/net/ssl/SSLSession;
     invoke-interface {v1}, Ljavax/net/ssl/SSLSession;->isValid()Z
 
     move-result v2
@@ -433,7 +433,7 @@
     move-result-object v0
 
     .line 88
-    .local v0, peerCertificates:[Ljava/security/cert/Certificate;
+    .local v0, "peerCertificates":[Ljava/security/cert/Certificate;
     if-eqz v0, :cond_1
 
     array-length v2, v0
@@ -451,7 +451,7 @@
     :goto_0
     check-cast v0, [Ljava/security/cert/X509Certificate;
 
-    .end local v0           #peerCertificates:[Ljava/security/cert/Certificate;
+    .end local v0    # "peerCertificates":[Ljava/security/cert/Certificate;
     check-cast v0, [Ljava/security/cert/X509Certificate;
 
     const-string v2, "RSA"
@@ -463,7 +463,7 @@
     return-object v2
 
     .line 93
-    .restart local v0       #peerCertificates:[Ljava/security/cert/Certificate;
+    .restart local v0    # "peerCertificates":[Ljava/security/cert/Certificate;
     :cond_3
     if-eqz p1, :cond_2
 

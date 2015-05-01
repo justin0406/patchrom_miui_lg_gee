@@ -17,9 +17,9 @@
 # direct methods
 .method public constructor <init>(IILandroid/graphics/AvoidXfermode$Mode;)V
     .locals 2
-    .parameter "opColor"
-    .parameter "tolerance"
-    .parameter "mode"
+    .param p1, "opColor"    # I
+    .param p2, "tolerance"    # I
+    .param p3, "mode"    # Landroid/graphics/AvoidXfermode$Mode;
 
     .prologue
     .line 52

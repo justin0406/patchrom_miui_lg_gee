@@ -49,7 +49,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -96,7 +96,7 @@
 
 .method private createRedEyeFrame(Landroid/filterfw/core/FilterContext;)V
     .locals 11
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v10, 0x3
@@ -107,13 +107,13 @@
     div-int/lit8 v1, v5, 0x2
 
     .line 160
-    .local v1, bitmapWidth:I
+    .local v1, "bitmapWidth":I
     iget v5, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mHeight:I
 
     div-int/lit8 v0, v5, 0x2
 
     .line 162
-    .local v0, bitmapHeight:I
+    .local v0, "bitmapHeight":I
     sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v1, v0, v5}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -121,7 +121,7 @@
     move-result-object v4
 
     .line 163
-    .local v4, redEyeBitmap:Landroid/graphics/Bitmap;
+    .local v4, "redEyeBitmap":Landroid/graphics/Bitmap;
     iget-object v5, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v5, v4}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
@@ -134,9 +134,9 @@
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 165
-    const/high16 v5, 0x4120
+    const/high16 v5, 0x41200000    # 10.0f
 
-    const v6, 0x3d75c28f
+    const v6, 0x3d75c28f    # 0.06f
 
     invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
 
@@ -155,7 +155,7 @@
     .line 167
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     iget-object v5, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mCenters:[F
 
@@ -202,7 +202,7 @@
     move-result-object v2
 
     .line 175
-    .local v2, format:Landroid/filterfw/core/FrameFormat;
+    .local v2, "format":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v5
@@ -258,8 +258,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 153
@@ -277,8 +277,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 97
@@ -287,8 +287,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 101
@@ -334,7 +334,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 104
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -347,7 +347,7 @@
 
     const-string v2, "intensity"
 
-    const v3, 0x3fa66666
+    const v3, 0x3fa66666    # 1.3f
 
     invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -370,7 +370,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 118
@@ -381,13 +381,13 @@
     move-result-object v0
 
     .line 119
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 122
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v4
@@ -397,7 +397,7 @@
     move-result-object v3
 
     .line 125
-    .local v3, output:Landroid/filterfw/core/Frame;
+    .local v3, "output":Landroid/filterfw/core/Frame;
     iget-object v4, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v4, :cond_0
@@ -471,7 +471,7 @@
     aput-object v5, v2, v4
 
     .line 138
-    .local v2, inputs:[Landroid/filterfw/core/Frame;
+    .local v2, "inputs":[Landroid/filterfw/core/Frame;
     iget-object v4, p0, Landroid/filterpacks/imageproc/RedEyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v4, v2, v3}, Landroid/filterfw/core/Program;->process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

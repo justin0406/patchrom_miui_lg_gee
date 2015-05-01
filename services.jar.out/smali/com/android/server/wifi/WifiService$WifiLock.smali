@@ -21,11 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 0
-    .parameter
-    .parameter "lockMode"
-    .parameter "tag"
-    .parameter "binder"
-    .parameter "ws"
+    .param p2, "lockMode"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "binder"    # Landroid/os/IBinder;
+    .param p5, "ws"    # Landroid/os/WorkSource;
 
     .prologue
     .line 1240
@@ -57,7 +56,7 @@
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiService$WifiLock;->mBinder:Landroid/os/IBinder;
 
-    #calls: Lcom/android/server/wifi/WifiService;->releaseWifiLockLocked(Landroid/os/IBinder;)Z
+    # invokes: Lcom/android/server/wifi/WifiService;->releaseWifiLockLocked(Landroid/os/IBinder;)Z
     invoke-static {v0, v2}, Lcom/android/server/wifi/WifiService;->access$700(Lcom/android/server/wifi/WifiService;Landroid/os/IBinder;)Z
 
     .line 1247

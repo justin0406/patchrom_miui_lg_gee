@@ -39,7 +39,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 353
@@ -111,7 +111,7 @@
 
 .method public setAlgorithmParameterSpec(Ljava/security/spec/AlgorithmParameterSpec;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "spec"
+    .param p1, "spec"    # Ljava/security/spec/AlgorithmParameterSpec;
 
     .prologue
     .line 409
@@ -136,7 +136,7 @@
 
 .method public setAlias(Ljava/lang/String;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
 
     .prologue
     .line 366
@@ -176,7 +176,7 @@
 
 .method public setEndDate(Ljava/util/Date;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "endDate"
+    .param p1, "endDate"    # Ljava/util/Date;
 
     .prologue
     .line 457
@@ -201,7 +201,7 @@
 
 .method public setKeySize(I)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "keySize"
+    .param p1, "keySize"    # I
 
     .prologue
     .line 396
@@ -226,7 +226,7 @@
 
 .method public setKeyType(Ljava/lang/String;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 4
-    .parameter "keyType"
+    .param p1, "keyType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
@@ -264,7 +264,7 @@
     move-exception v0
 
     .line 383
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     new-instance v1, Ljava/security/NoSuchAlgorithmException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -292,7 +292,7 @@
 
 .method public setSerialNumber(Ljava/math/BigInteger;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "serialNumber"
+    .param p1, "serialNumber"    # Ljava/math/BigInteger;
 
     .prologue
     .line 433
@@ -317,7 +317,7 @@
 
 .method public setStartDate(Ljava/util/Date;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "startDate"
+    .param p1, "startDate"    # Ljava/util/Date;
 
     .prologue
     .line 445
@@ -342,7 +342,7 @@
 
 .method public setSubject(Ljavax/security/auth/x500/X500Principal;)Landroid/security/KeyPairGeneratorSpec$Builder;
     .locals 2
-    .parameter "subject"
+    .param p1, "subject"    # Ljavax/security/auth/x500/X500Principal;
 
     .prologue
     .line 421

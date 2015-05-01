@@ -30,9 +30,8 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
-    .parameter
-    .parameter "tag"
-    .parameter "intent"
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 740
@@ -52,10 +51,10 @@
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/content/Intent;Landroid/widget/TabHost$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Landroid/widget/TabHost;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/content/Intent;
+    .param p4, "x3"    # Landroid/widget/TabHost$1;
 
     .prologue
     .line 733
@@ -101,7 +100,7 @@
     move-result-object v0
 
     .line 751
-    .local v0, w:Landroid/view/Window;
+    .local v0, "w":Landroid/view/Window;
     if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -109,7 +108,7 @@
     move-result-object v1
 
     .line 752
-    .local v1, wd:Landroid/view/View;
+    .local v1, "wd":Landroid/view/View;
     :goto_0
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
@@ -131,7 +130,7 @@
     .line 754
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->this$0:Landroid/widget/TabHost;
 
-    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
+    # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v2}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v2
@@ -168,7 +167,7 @@
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    const/high16 v3, 0x4
+    const/high16 v3, 0x40000
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setDescendantFocusability(I)V
 
@@ -179,7 +178,7 @@
     return-object v2
 
     .line 751
-    .end local v1           #wd:Landroid/view/View;
+    .end local v1    # "wd":Landroid/view/View;
     :cond_3
     const/4 v1, 0x0
 

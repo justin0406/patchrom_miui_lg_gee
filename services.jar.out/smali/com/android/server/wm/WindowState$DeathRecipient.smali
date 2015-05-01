@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/wm/WindowState;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1042
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/wm/WindowState;
+    .param p2, "x1"    # Lcom/android/server/wm/WindowState$1;
 
     .prologue
     .line 1042
@@ -86,7 +85,7 @@
     move-result-object v0
 
     .line 1048
-    .local v0, win:Lcom/android/server/wm/WindowState;
+    .local v0, "win":Lcom/android/server/wm/WindowState;
     const-string v1, "WindowState"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -129,12 +128,12 @@
     monitor-exit v2
 
     .line 1060
-    .end local v0           #win:Lcom/android/server/wm/WindowState;
+    .end local v0    # "win":Lcom/android/server/wm/WindowState;
     :goto_1
     return-void
 
     .line 1051
-    .restart local v0       #win:Lcom/android/server/wm/WindowState;
+    .restart local v0    # "win":Lcom/android/server/wm/WindowState;
     :cond_1
     iget-object v1, p0, Lcom/android/server/wm/WindowState$DeathRecipient;->this$0:Lcom/android/server/wm/WindowState;
 
@@ -165,7 +164,7 @@
     goto :goto_0
 
     .line 1055
-    .end local v0           #win:Lcom/android/server/wm/WindowState;
+    .end local v0    # "win":Lcom/android/server/wm/WindowState;
     :catchall_0
     move-exception v1
 

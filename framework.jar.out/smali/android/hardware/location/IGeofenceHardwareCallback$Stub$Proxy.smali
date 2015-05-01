@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 114
@@ -61,8 +61,8 @@
 
 .method public onGeofenceAdd(II)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 151
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.location.IGeofenceHardwareCallback"
 
@@ -118,8 +118,8 @@
 
 .method public onGeofencePause(II)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 177
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.location.IGeofenceHardwareCallback"
 
@@ -175,8 +175,8 @@
 
 .method public onGeofenceRemove(II)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -190,7 +190,7 @@
     move-result-object v0
 
     .line 164
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.location.IGeofenceHardwareCallback"
 
@@ -232,8 +232,8 @@
 
 .method public onGeofenceResume(II)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -247,7 +247,7 @@
     move-result-object v0
 
     .line 190
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.location.IGeofenceHardwareCallback"
 
@@ -289,11 +289,11 @@
 
 .method public onGeofenceTransition(IILandroid/location/Location;JI)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "transition"
-    .parameter "location"
-    .parameter "timestamp"
-    .parameter "monitoringType"
+    .param p1, "geofenceId"    # I
+    .param p2, "transition"    # I
+    .param p3, "location"    # Landroid/location/Location;
+    .param p4, "timestamp"    # J
+    .param p6, "monitoringType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -307,7 +307,7 @@
     move-result-object v0
 
     .line 129
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.hardware.location.IGeofenceHardwareCallback"
 

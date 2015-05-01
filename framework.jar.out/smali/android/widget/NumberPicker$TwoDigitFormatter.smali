@@ -55,7 +55,7 @@
     move-result-object v0
 
     .line 163
-    .local v0, locale:Ljava/util/Locale;
+    .local v0, "locale":Ljava/util/Locale;
     invoke-direct {p0, v0}, Landroid/widget/NumberPicker$TwoDigitFormatter;->init(Ljava/util/Locale;)V
 
     .line 164
@@ -64,7 +64,7 @@
 
 .method private createFormatter(Ljava/util/Locale;)Ljava/util/Formatter;
     .locals 2
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 187
@@ -79,7 +79,7 @@
 
 .method private static getZeroDigit(Ljava/util/Locale;)C
     .locals 1
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 183
@@ -94,7 +94,7 @@
 
 .method private init(Ljava/util/Locale;)V
     .locals 1
-    .parameter "locale"
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 167
@@ -119,7 +119,7 @@
 # virtual methods
 .method public format(I)Ljava/lang/String;
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -130,7 +130,7 @@
     move-result-object v0
 
     .line 173
-    .local v0, currentLocale:Ljava/util/Locale;
+    .local v0, "currentLocale":Ljava/util/Locale;
     iget-char v1, p0, Landroid/widget/NumberPicker$TwoDigitFormatter;->mZeroDigit:C
 
     invoke-static {v0}, Landroid/widget/NumberPicker$TwoDigitFormatter;->getZeroDigit(Ljava/util/Locale;)C

@@ -52,7 +52,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/os/IDropBoxManagerService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 30
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 34
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/os/IDropBoxManagerService;
@@ -90,7 +90,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/os/IDropBoxManagerService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/os/IDropBoxManagerService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -108,10 +108,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,7 +165,7 @@
     check-cast v0, Landroid/os/DropBoxManager$Entry;
 
     .line 62
-    .local v0, _arg0:Landroid/os/DropBoxManager$Entry;
+    .local v0, "_arg0":Landroid/os/DropBoxManager$Entry;
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->add(Landroid/os/DropBoxManager$Entry;)V
 
@@ -175,15 +175,15 @@
     goto :goto_0
 
     .line 60
-    .end local v0           #_arg0:Landroid/os/DropBoxManager$Entry;
+    .end local v0    # "_arg0":Landroid/os/DropBoxManager$Entry;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/DropBoxManager$Entry;
+    .restart local v0    # "_arg0":Landroid/os/DropBoxManager$Entry;
     goto :goto_1
 
     .line 68
-    .end local v0           #_arg0:Landroid/os/DropBoxManager$Entry;
+    .end local v0    # "_arg0":Landroid/os/DropBoxManager$Entry;
     :sswitch_2
     const-string v6, "com.android.internal.os.IDropBoxManagerService"
 
@@ -195,13 +195,13 @@
     move-result-object v0
 
     .line 71
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->isTagEnabled(Ljava/lang/String;)Z
 
     move-result v3
 
     .line 72
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 73
@@ -215,8 +215,8 @@
     goto :goto_0
 
     .line 78
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :sswitch_3
     const-string v6, "com.android.internal.os.IDropBoxManagerService"
 
@@ -228,19 +228,19 @@
     move-result-object v0
 
     .line 82
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
 
     .line 83
-    .local v1, _arg1:J
+    .local v1, "_arg1":J
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->getNextEntry(Ljava/lang/String;J)Landroid/os/DropBoxManager$Entry;
 
     move-result-object v3
 
     .line 84
-    .local v3, _result:Landroid/os/DropBoxManager$Entry;
+    .local v3, "_result":Landroid/os/DropBoxManager$Entry;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 85

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/HardwareRenderer$Gl20Renderer;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 2279
@@ -64,7 +62,7 @@
     :cond_0
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer$2;->val$view:Landroid/view/View;
 
-    #calls: Landroid/view/HardwareRenderer$Gl20Renderer;->destroyResources(Landroid/view/View;)V
+    # invokes: Landroid/view/HardwareRenderer$Gl20Renderer;->destroyResources(Landroid/view/View;)V
     invoke-static {v0}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$800(Landroid/view/View;)V
 
     .line 2286

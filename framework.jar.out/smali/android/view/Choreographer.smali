@@ -28,7 +28,7 @@
 
 .field private static final DEFAULT_FRAME_DELAY:J = 0xaL
 
-.field private static final FRAME_CALLBACK_TOKEN:Ljava/lang/Object; = null
+.field private static final FRAME_CALLBACK_TOKEN:Ljava/lang/Object;
 
 .field private static final MSG_DO_FRAME:I = 0x0
 
@@ -38,8 +38,7 @@
 
 .field private static final NANOS_PER_MS:J = 0xf4240L
 
-#the value of this static final field might be set in the static constructor
-.field private static final SKIPPED_FRAME_WARNING_LIMIT:I = 0x0
+.field private static final SKIPPED_FRAME_WARNING_LIMIT:I
 
 .field private static final TAG:Ljava/lang/String; = "Choreographer"
 
@@ -143,7 +142,7 @@
 
 .method private constructor <init>(Landroid/os/Looper;)V
     .locals 5
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     const/4 v2, 0x0
@@ -181,12 +180,12 @@
     iput-object v1, p0, Landroid/view/Choreographer;->mDisplayEventReceiver:Landroid/view/Choreographer$FrameDisplayEventReceiver;
 
     .line 170
-    const-wide/high16 v3, -0x8000
+    const-wide/high16 v3, -0x8000000000000000L
 
     iput-wide v3, p0, Landroid/view/Choreographer;->mLastFrameTimeNanos:J
 
     .line 172
-    const v1, 0x4e6e6b28
+    const v1, 0x4e6e6b28    # 1.0E9f
 
     invoke-static {}, Landroid/view/Choreographer;->getRefreshRate()F
 
@@ -208,7 +207,7 @@
     .line 175
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     const/4 v1, 0x2
 
@@ -228,7 +227,7 @@
 
     goto :goto_1
 
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     move-object v1, v2
 
@@ -236,15 +235,15 @@
     goto :goto_0
 
     .line 178
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Looper;Landroid/view/Choreographer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Looper;
+    .param p2, "x1"    # Landroid/view/Choreographer$1;
 
     .prologue
     .line 72
@@ -255,7 +254,7 @@
 
 .method static synthetic access$300(Landroid/view/Choreographer;)Landroid/view/Choreographer$FrameHandler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/Choreographer;
 
     .prologue
     .line 72
@@ -276,10 +275,10 @@
 
 .method static synthetic access$500(Landroid/view/Choreographer;JLjava/lang/Object;Ljava/lang/Object;)Landroid/view/Choreographer$CallbackRecord;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/view/Choreographer;
+    .param p1, "x1"    # J
+    .param p3, "x2"    # Ljava/lang/Object;
+    .param p4, "x3"    # Ljava/lang/Object;
 
     .prologue
     .line 72
@@ -292,8 +291,8 @@
 
 .method static synthetic access$600(Landroid/view/Choreographer;Landroid/view/Choreographer$CallbackRecord;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/Choreographer;
+    .param p1, "x1"    # Landroid/view/Choreographer$CallbackRecord;
 
     .prologue
     .line 72
@@ -344,7 +343,7 @@
     move-result-object v0
 
     .line 183
-    .local v0, di:Landroid/view/DisplayInfo;
+    .local v0, "di":Landroid/view/DisplayInfo;
     iget v1, v0, Landroid/view/DisplayInfo;->refreshRate:F
 
     return v1
@@ -376,9 +375,9 @@
 
 .method private obtainCallbackLocked(JLjava/lang/Object;Ljava/lang/Object;)Landroid/view/Choreographer$CallbackRecord;
     .locals 3
-    .parameter "dueTime"
-    .parameter "action"
-    .parameter "token"
+    .param p1, "dueTime"    # J
+    .param p3, "action"    # Ljava/lang/Object;
+    .param p4, "token"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -387,17 +386,17 @@
     iget-object v0, p0, Landroid/view/Choreographer;->mCallbackPool:Landroid/view/Choreographer$CallbackRecord;
 
     .line 617
-    .local v0, callback:Landroid/view/Choreographer$CallbackRecord;
+    .local v0, "callback":Landroid/view/Choreographer$CallbackRecord;
     if-nez v0, :cond_0
 
     .line 618
     new-instance v0, Landroid/view/Choreographer$CallbackRecord;
 
-    .end local v0           #callback:Landroid/view/Choreographer$CallbackRecord;
+    .end local v0    # "callback":Landroid/view/Choreographer$CallbackRecord;
     invoke-direct {v0, v2}, Landroid/view/Choreographer$CallbackRecord;-><init>(Landroid/view/Choreographer$1;)V
 
     .line 623
-    .restart local v0       #callback:Landroid/view/Choreographer$CallbackRecord;
+    .restart local v0    # "callback":Landroid/view/Choreographer$CallbackRecord;
     :goto_0
     iput-wide p1, v0, Landroid/view/Choreographer$CallbackRecord;->dueTime:J
 
@@ -424,10 +423,10 @@
 
 .method private postCallbackDelayedInternal(ILjava/lang/Object;Ljava/lang/Object;J)V
     .locals 8
-    .parameter "callbackType"
-    .parameter "action"
-    .parameter "token"
-    .parameter "delayMillis"
+    .param p1, "callbackType"    # I
+    .param p2, "action"    # Ljava/lang/Object;
+    .param p3, "token"    # Ljava/lang/Object;
+    .param p4, "delayMillis"    # J
 
     .prologue
     .line 322
@@ -442,11 +441,11 @@
     move-result-wide v3
 
     .line 324
-    .local v3, now:J
+    .local v3, "now":J
     add-long v0, v3, p4
 
     .line 325
-    .local v0, dueTime:J
+    .local v0, "dueTime":J
     iget-object v5, p0, Landroid/view/Choreographer;->mCallbackQueues:[Landroid/view/Choreographer$CallbackQueue;
 
     aget-object v5, v5, p1
@@ -479,7 +478,7 @@
     move-result-object v2
 
     .line 331
-    .local v2, msg:Landroid/os/Message;
+    .local v2, "msg":Landroid/os/Message;
     iput p1, v2, Landroid/os/Message;->arg1:I
 
     .line 332
@@ -495,9 +494,9 @@
     goto :goto_0
 
     .line 335
-    .end local v0           #dueTime:J
-    .end local v2           #msg:Landroid/os/Message;
-    .end local v3           #now:J
+    .end local v0    # "dueTime":J
+    .end local v2    # "msg":Landroid/os/Message;
+    .end local v3    # "now":J
     :catchall_0
     move-exception v5
 
@@ -510,7 +509,7 @@
 
 .method private recycleCallbackLocked(Landroid/view/Choreographer$CallbackRecord;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/Choreographer$CallbackRecord;
 
     .prologue
     const/4 v0, 0x0
@@ -535,9 +534,9 @@
 
 .method private removeCallbacksInternal(ILjava/lang/Object;Ljava/lang/Object;)V
     .locals 3
-    .parameter "callbackType"
-    .parameter "action"
-    .parameter "token"
+    .param p1, "callbackType"    # I
+    .param p2, "action"    # Ljava/lang/Object;
+    .param p3, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 365
@@ -585,7 +584,7 @@
 
 .method private scheduleFrameLocked(J)V
     .locals 8
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     const/4 v7, 0x1
@@ -627,7 +626,7 @@
     move-result-object v0
 
     .line 487
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0, v7}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 488
@@ -638,7 +637,7 @@
     goto :goto_0
 
     .line 491
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_2
     iget-wide v3, p0, Landroid/view/Choreographer;->mLastFrameTimeNanos:J
 
@@ -655,7 +654,7 @@
     move-result-wide v1
 
     .line 496
-    .local v1, nextFrameTime:J
+    .local v1, "nextFrameTime":J
     iget-object v3, p0, Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
 
     const/4 v4, 0x0
@@ -665,7 +664,7 @@
     move-result-object v0
 
     .line 497
-    .restart local v0       #msg:Landroid/os/Message;
+    .restart local v0    # "msg":Landroid/os/Message;
     invoke-virtual {v0, v7}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 498
@@ -691,7 +690,7 @@
 
 .method public static setFrameDelay(J)V
     .locals 0
-    .parameter "frameDelay"
+    .param p0, "frameDelay"    # J
 
     .prologue
     .line 232
@@ -703,14 +702,14 @@
 
 .method public static subtractFrameDelay(J)J
     .locals 4
-    .parameter "delayMillis"
+    .param p0, "delayMillis"    # J
 
     .prologue
     .line 258
     sget-wide v0, Landroid/view/Choreographer;->sFrameDelay:J
 
     .line 259
-    .local v0, frameDelay:J
+    .local v0, "frameDelay":J
     cmp-long v2, p0, v0
 
     if-gtz v2, :cond_0
@@ -730,8 +729,8 @@
 # virtual methods
 .method doCallbacks(IJ)V
     .locals 8
-    .parameter "callbackType"
-    .parameter "frameTimeNanos"
+    .param p1, "callbackType"    # I
+    .param p2, "frameTimeNanos"    # J
 
     .prologue
     .line 556
@@ -746,7 +745,7 @@
     move-result-wide v3
 
     .line 561
-    .local v3, now:J
+    .local v3, "now":J
     iget-object v5, p0, Landroid/view/Choreographer;->mCallbackQueues:[Landroid/view/Choreographer$CallbackQueue;
 
     aget-object v5, v5, p1
@@ -756,7 +755,7 @@
     move-result-object v1
 
     .line 562
-    .local v1, callbacks:Landroid/view/Choreographer$CallbackRecord;
+    .local v1, "callbacks":Landroid/view/Choreographer$CallbackRecord;
     if-nez v1, :cond_0
 
     .line 563
@@ -780,7 +779,7 @@
     .line 568
     move-object v0, v1
 
-    .local v0, c:Landroid/view/Choreographer$CallbackRecord;
+    .local v0, "c":Landroid/view/Choreographer$CallbackRecord;
     :goto_1
     if-eqz v0, :cond_1
 
@@ -796,9 +795,9 @@
     goto :goto_1
 
     .line 566
-    .end local v0           #c:Landroid/view/Choreographer$CallbackRecord;
-    .end local v1           #callbacks:Landroid/view/Choreographer$CallbackRecord;
-    .end local v3           #now:J
+    .end local v0    # "c":Landroid/view/Choreographer$CallbackRecord;
+    .end local v1    # "callbacks":Landroid/view/Choreographer$CallbackRecord;
+    .end local v3    # "now":J
     :catchall_0
     move-exception v5
 
@@ -810,9 +809,9 @@
     throw v5
 
     .line 577
-    .restart local v0       #c:Landroid/view/Choreographer$CallbackRecord;
-    .restart local v1       #callbacks:Landroid/view/Choreographer$CallbackRecord;
-    .restart local v3       #now:J
+    .restart local v0    # "c":Landroid/view/Choreographer$CallbackRecord;
+    .restart local v1    # "callbacks":Landroid/view/Choreographer$CallbackRecord;
+    .restart local v3    # "now":J
     :cond_1
     iget-object v6, p0, Landroid/view/Choreographer;->mLock:Ljava/lang/Object;
 
@@ -829,7 +828,7 @@
     iget-object v2, v1, Landroid/view/Choreographer$CallbackRecord;->next:Landroid/view/Choreographer$CallbackRecord;
 
     .line 581
-    .local v2, next:Landroid/view/Choreographer$CallbackRecord;
+    .local v2, "next":Landroid/view/Choreographer$CallbackRecord;
     invoke-direct {p0, v1}, Landroid/view/Choreographer;->recycleCallbackLocked(Landroid/view/Choreographer$CallbackRecord;)V
 
     .line 582
@@ -843,7 +842,7 @@
 
     goto :goto_0
 
-    .end local v2           #next:Landroid/view/Choreographer$CallbackRecord;
+    .end local v2    # "next":Landroid/view/Choreographer$CallbackRecord;
     :catchall_1
     move-exception v5
 
@@ -872,7 +871,7 @@
     iget-object v2, v1, Landroid/view/Choreographer$CallbackRecord;->next:Landroid/view/Choreographer$CallbackRecord;
 
     .line 581
-    .restart local v2       #next:Landroid/view/Choreographer$CallbackRecord;
+    .restart local v2    # "next":Landroid/view/Choreographer$CallbackRecord;
     invoke-direct {p0, v1}, Landroid/view/Choreographer;->recycleCallbackLocked(Landroid/view/Choreographer$CallbackRecord;)V
 
     .line 582
@@ -888,7 +887,7 @@
 
     throw v5
 
-    .end local v2           #next:Landroid/view/Choreographer$CallbackRecord;
+    .end local v2    # "next":Landroid/view/Choreographer$CallbackRecord;
     :catchall_3
     move-exception v5
 
@@ -902,8 +901,8 @@
 
 .method doFrame(JI)V
     .locals 12
-    .parameter "frameTimeNanos"
-    .parameter "frame"
+    .param p1, "frameTimeNanos"    # J
+    .param p3, "frame"    # I
 
     .prologue
     .line 505
@@ -931,11 +930,11 @@
     move-result-wide v6
 
     .line 511
-    .local v6, startNanos:J
+    .local v6, "startNanos":J
     sub-long v0, v6, p1
 
     .line 512
-    .local v0, jitterNanos:J
+    .local v0, "jitterNanos":J
     iget-wide v10, p0, Landroid/view/Choreographer;->mFrameIntervalNanos:J
 
     cmp-long v8, v0, v10
@@ -948,7 +947,7 @@
     div-long v4, v0, v10
 
     .line 514
-    .local v4, skippedFrames:J
+    .local v4, "skippedFrames":J
     sget v8, Landroid/view/Choreographer;->SKIPPED_FRAME_WARNING_LIMIT:I
 
     int-to-long v10, v8
@@ -999,12 +998,12 @@
     rem-long v2, v0, v10
 
     .line 526
-    .local v2, lastFrameOffset:J
+    .local v2, "lastFrameOffset":J
     sub-long p1, v6, v2
 
     .line 529
-    .end local v2           #lastFrameOffset:J
-    .end local v4           #skippedFrames:J
+    .end local v2    # "lastFrameOffset":J
+    .end local v4    # "skippedFrames":J
     :cond_2
     iget-wide v10, p0, Landroid/view/Choreographer;->mLastFrameTimeNanos:J
 
@@ -1021,8 +1020,8 @@
     goto :goto_0
 
     .line 540
-    .end local v0           #jitterNanos:J
-    .end local v6           #startNanos:J
+    .end local v0    # "jitterNanos":J
+    .end local v6    # "startNanos":J
     :catchall_0
     move-exception v8
 
@@ -1033,8 +1032,8 @@
     throw v8
 
     .line 538
-    .restart local v0       #jitterNanos:J
-    .restart local v6       #startNanos:J
+    .restart local v0    # "jitterNanos":J
+    .restart local v6    # "startNanos":J
     :cond_3
     const/4 v8, 0x0
 
@@ -1069,7 +1068,7 @@
 
 .method doScheduleCallback(I)V
     .locals 4
-    .parameter "callbackType"
+    .param p1, "callbackType"    # I
 
     .prologue
     .line 597
@@ -1089,7 +1088,7 @@
     move-result-wide v0
 
     .line 600
-    .local v0, now:J
+    .local v0, "now":J
     iget-object v2, p0, Landroid/view/Choreographer;->mCallbackQueues:[Landroid/view/Choreographer$CallbackQueue;
 
     aget-object v2, v2, p1
@@ -1104,7 +1103,7 @@
     invoke-direct {p0, v0, v1}, Landroid/view/Choreographer;->scheduleFrameLocked(J)V
 
     .line 604
-    .end local v0           #now:J
+    .end local v0    # "now":J
     :cond_0
     monitor-exit v3
 
@@ -1160,8 +1159,8 @@
 
 .method dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 5
-    .parameter "prefix"
-    .parameter "writer"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "writer"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 263
@@ -1184,7 +1183,7 @@
     move-result-object v0
 
     .line 264
-    .local v0, innerPrefix:Ljava/lang/String;
+    .local v0, "innerPrefix":Ljava/lang/String;
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v1, "Choreographer:"
@@ -1303,9 +1302,9 @@
 
 .method public postCallback(ILjava/lang/Runnable;Ljava/lang/Object;)V
     .locals 6
-    .parameter "callbackType"
-    .parameter "action"
-    .parameter "token"
+    .param p1, "callbackType"    # I
+    .param p2, "action"    # Ljava/lang/Runnable;
+    .param p3, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 285
@@ -1327,10 +1326,10 @@
 
 .method public postCallbackDelayed(ILjava/lang/Runnable;Ljava/lang/Object;J)V
     .locals 2
-    .parameter "callbackType"
-    .parameter "action"
-    .parameter "token"
-    .parameter "delayMillis"
+    .param p1, "callbackType"    # I
+    .param p2, "action"    # Ljava/lang/Runnable;
+    .param p3, "token"    # Ljava/lang/Object;
+    .param p4, "delayMillis"    # J
 
     .prologue
     .line 304
@@ -1373,7 +1372,7 @@
 
 .method public postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/Choreographer$FrameCallback;
 
     .prologue
     .line 385
@@ -1387,8 +1386,8 @@
 
 .method public postFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
     .locals 6
-    .parameter "callback"
-    .parameter "delayMillis"
+    .param p1, "callback"    # Landroid/view/Choreographer$FrameCallback;
+    .param p2, "delayMillis"    # J
 
     .prologue
     .line 401
@@ -1423,9 +1422,9 @@
 
 .method public removeCallbacks(ILjava/lang/Runnable;Ljava/lang/Object;)V
     .locals 2
-    .parameter "callbackType"
-    .parameter "action"
-    .parameter "token"
+    .param p1, "callbackType"    # I
+    .param p2, "action"    # Ljava/lang/Runnable;
+    .param p3, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 352
@@ -1455,7 +1454,7 @@
 
 .method public removeFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
     .locals 2
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/Choreographer$FrameCallback;
 
     .prologue
     .line 418

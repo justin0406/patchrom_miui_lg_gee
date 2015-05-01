@@ -29,9 +29,9 @@
 # direct methods
 .method constructor <init>(IIZ)V
     .locals 0
-    .parameter "nameResId"
-    .parameter "types"
-    .parameter "groupable"
+    .param p1, "nameResId"    # I
+    .param p2, "types"    # I
+    .param p3, "groupable"    # Z
 
     .prologue
     .line 2496
@@ -52,9 +52,9 @@
 
 .method constructor <init>(Ljava/lang/CharSequence;IZ)V
     .locals 0
-    .parameter "name"
-    .parameter "types"
-    .parameter "groupable"
+    .param p1, "name"    # Ljava/lang/CharSequence;
+    .param p2, "types"    # I
+    .param p3, "groupable"    # Z
 
     .prologue
     .line 2490
@@ -93,7 +93,7 @@
 
 .method public getName(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 2516
@@ -110,7 +110,7 @@
 
 .method getName(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 2520
@@ -137,7 +137,6 @@
 
 .method public getRoutes(Ljava/util/List;)Ljava/util/List;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,27 +153,27 @@
 
     .prologue
     .line 2540
-    .local p1, out:Ljava/util/List;,"Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
+    .local p1, "out":Ljava/util/List;, "Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
     if-nez p1, :cond_1
 
     .line 2541
     new-instance p1, Ljava/util/ArrayList;
 
-    .end local p1           #out:Ljava/util/List;,"Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
+    .end local p1    # "out":Ljava/util/List;, "Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     .line 2546
-    .restart local p1       #out:Ljava/util/List;,"Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
+    .restart local p1    # "out":Ljava/util/List;, "Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
     :goto_0
     invoke-static {}, Landroid/media/MediaRouter;->getRouteCountStatic()I
 
     move-result v0
 
     .line 2547
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_2
 
@@ -184,7 +183,7 @@
     move-result-object v2
 
     .line 2549
-    .local v2, route:Landroid/media/MediaRouter$RouteInfo;
+    .local v2, "route":Landroid/media/MediaRouter$RouteInfo;
     iget-object v3, v2, Landroid/media/MediaRouter$RouteInfo;->mCategory:Landroid/media/MediaRouter$RouteCategory;
 
     if-ne v3, p0, :cond_0
@@ -199,17 +198,17 @@
     goto :goto_1
 
     .line 2543
-    .end local v0           #count:I
-    .end local v1           #i:I
-    .end local v2           #route:Landroid/media/MediaRouter$RouteInfo;
+    .end local v0    # "count":I
+    .end local v1    # "i":I
+    .end local v2    # "route":Landroid/media/MediaRouter$RouteInfo;
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->clear()V
 
     goto :goto_0
 
     .line 2553
-    .restart local v0       #count:I
-    .restart local v1       #i:I
+    .restart local v0    # "count":I
+    .restart local v1    # "i":I
     :cond_2
     return-object p1
 .end method

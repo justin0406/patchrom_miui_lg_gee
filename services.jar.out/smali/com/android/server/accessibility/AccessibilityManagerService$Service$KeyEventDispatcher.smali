@@ -29,7 +29,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
     .locals 3
-    .parameter
 
     .prologue
     .line 2547
@@ -69,8 +68,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Lcom/android/server/accessibility/AccessibilityManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    .param p2, "x1"    # Lcom/android/server/accessibility/AccessibilityManagerService$1;
 
     .prologue
     .line 2547
@@ -81,8 +80,8 @@
 
 .method private addPendingEventLocked(Landroid/view/KeyEvent;I)Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     .locals 3
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 2602
@@ -91,18 +90,18 @@
     move-result v1
 
     .line 2603
-    .local v1, sequence:I
+    .local v1, "sequence":I
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$KeyEventDispatcher;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
     iget-object v2, v2, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #calls: Lcom/android/server/accessibility/AccessibilityManagerService;->obtainPendingEventLocked(Landroid/view/KeyEvent;II)Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->obtainPendingEventLocked(Landroid/view/KeyEvent;II)Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     invoke-static {v2, p1, p2, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$4000(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/view/KeyEvent;II)Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
     move-result-object v0
 
     .line 2604
-    .local v0, pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v0, "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$KeyEventDispatcher;->mPendingEvents:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
     iput-object v2, v0, Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;->next:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
@@ -134,7 +133,7 @@
     move-result-object v0
 
     .line 2654
-    .local v0, pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v0, "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;->handled:Z
@@ -154,14 +153,14 @@
     goto :goto_0
 
     .line 2659
-    .end local v0           #pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .end local v0    # "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :cond_0
     return-void
 .end method
 
 .method private finishPendingEventLocked(Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;)V
     .locals 2
-    .parameter "pendingEvent"
+    .param p1, "pendingEvent"    # Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
     .prologue
     .line 2630
@@ -187,7 +186,7 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #calls: Lcom/android/server/accessibility/AccessibilityManagerService;->recyclePendingEventLocked(Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;)V
+    # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->recyclePendingEventLocked(Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;)V
     invoke-static {v0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$4100(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;)V
 
     .line 2637
@@ -196,7 +195,7 @@
 
 .method private removePendingEventLocked(I)Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     .locals 4
-    .parameter "sequence"
+    .param p1, "sequence"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -205,11 +204,11 @@
     const/4 v1, 0x0
 
     .line 2611
-    .local v1, previous:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v1, "previous":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$KeyEventDispatcher;->mPendingEvents:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
     .line 2613
-    .local v0, current:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v0, "current":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :goto_0
     if-eqz v0, :cond_2
 
@@ -231,12 +230,12 @@
     iput-object v2, v0, Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;->next:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
     .line 2626
-    .end local v0           #current:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .end local v0    # "current":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :goto_2
     return-object v0
 
     .line 2618
-    .restart local v0       #current:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .restart local v0    # "current":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :cond_0
     iget-object v3, v0, Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;->next:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
 
@@ -262,8 +261,8 @@
 
 .method private sendKeyEventToInputFilter(Landroid/view/KeyEvent;I)V
     .locals 3
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -280,7 +279,7 @@
 
     .line 2646
     :cond_0
-    const/high16 v0, 0x4000
+    const/high16 v0, 0x40000000    # 2.0f
 
     or-int/2addr p2, v0
 
@@ -289,7 +288,7 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mMainHandler:Lcom/android/server/accessibility/AccessibilityManagerService$MainHandler;
+    # getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mMainHandler:Lcom/android/server/accessibility/AccessibilityManagerService$MainHandler;
     invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$2700(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/AccessibilityManagerService$MainHandler;
 
     move-result-object v0
@@ -317,7 +316,7 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$000(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -358,8 +357,8 @@
 
 .method public notifyKeyEvent(Landroid/view/KeyEvent;I)V
     .locals 6
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     .line 2561
@@ -367,7 +366,7 @@
 
     iget-object v3, v3, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$000(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/lang/Object;
 
     move-result-object v4
@@ -381,7 +380,7 @@
     move-result-object v1
 
     .line 2563
-    .local v1, pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v1, "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -398,7 +397,7 @@
     move-result-object v0
 
     .line 2567
-    .local v0, message:Landroid/os/Message;
+    .local v0, "message":Landroid/os/Message;
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$KeyEventDispatcher;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
     iget-object v3, v3, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mInvocationHandler:Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;
@@ -426,8 +425,8 @@
     return-void
 
     .line 2563
-    .end local v0           #message:Landroid/os/Message;
-    .end local v1           #pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .end local v0    # "message":Landroid/os/Message;
+    .end local v1    # "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :catchall_0
     move-exception v3
 
@@ -439,13 +438,13 @@
     throw v3
 
     .line 2574
-    .restart local v0       #message:Landroid/os/Message;
-    .restart local v1       #pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .restart local v0    # "message":Landroid/os/Message;
+    .restart local v1    # "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :catch_0
     move-exception v2
 
     .line 2575
-    .local v2, re:Landroid/os/RemoteException;
+    .local v2, "re":Landroid/os/RemoteException;
     const/4 v3, 0x0
 
     iget v4, v1, Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;->sequence:I
@@ -457,8 +456,8 @@
 
 .method public setOnKeyEventResult(ZI)V
     .locals 4
-    .parameter "handled"
-    .parameter "sequence"
+    .param p1, "handled"    # Z
+    .param p2, "sequence"    # I
 
     .prologue
     .line 2580
@@ -466,7 +465,7 @@
 
     iget-object v1, v1, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$000(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/lang/Object;
 
     move-result-object v2
@@ -480,7 +479,7 @@
     move-result-object v0
 
     .line 2582
-    .local v0, pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .local v0, "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     if-eqz v0, :cond_0
 
     .line 2583
@@ -506,7 +505,7 @@
     return-void
 
     .line 2589
-    .end local v0           #pendingEvent:Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
+    .end local v0    # "pendingEvent":Lcom/android/server/accessibility/AccessibilityManagerService$PendingEvent;
     :catchall_0
     move-exception v1
 

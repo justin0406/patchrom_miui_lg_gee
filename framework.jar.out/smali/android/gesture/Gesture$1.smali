@@ -42,20 +42,20 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/gesture/Gesture;
     .locals 7
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 285
     const/4 v1, 0x0
 
     .line 286
-    .local v1, gesture:Landroid/gesture/Gesture;
+    .local v1, "gesture":Landroid/gesture/Gesture;
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     .line 288
-    .local v2, gestureID:J
+    .local v2, "gestureID":J
     new-instance v4, Ljava/io/DataInputStream;
 
     new-instance v5, Ljava/io/ByteArrayInputStream;
@@ -69,12 +69,12 @@
     invoke-direct {v4, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 292
-    .local v4, inStream:Ljava/io/DataInputStream;
+    .local v4, "inStream":Ljava/io/DataInputStream;
     :try_start_0
     invoke-static {v4}, Landroid/gesture/Gesture;->deserialize(Ljava/io/DataInputStream;)Landroid/gesture/Gesture;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
@@ -86,7 +86,7 @@
     if-eqz v1, :cond_0
 
     .line 300
-    #setter for: Landroid/gesture/Gesture;->mGestureID:J
+    # setter for: Landroid/gesture/Gesture;->mGestureID:J
     invoke-static {v1, v2, v3}, Landroid/gesture/Gesture;->access$002(Landroid/gesture/Gesture;J)J
 
     .line 303
@@ -98,7 +98,7 @@
     move-exception v0
 
     .line 294
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     :try_start_1
     const-string v5, "Gestures"
 
@@ -113,7 +113,7 @@
 
     goto :goto_0
 
-    .end local v0           #e:Ljava/io/IOException;
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v5
 
@@ -124,7 +124,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 283
@@ -137,7 +137,7 @@
 
 .method public newArray(I)[Landroid/gesture/Gesture;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 307
@@ -148,7 +148,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 283

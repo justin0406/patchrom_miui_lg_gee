@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 743
@@ -43,7 +42,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 749
@@ -59,7 +58,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    #calls: Lcom/android/server/display/WifiDisplayAdapter;->handleSendStatusChangeBroadcast()V
+    # invokes: Lcom/android/server/display/WifiDisplayAdapter;->handleSendStatusChangeBroadcast()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1800(Lcom/android/server/display/WifiDisplayAdapter;)V
 
     goto :goto_0
@@ -68,7 +67,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    #calls: Lcom/android/server/display/WifiDisplayAdapter;->handleUpdateNotification()V
+    # invokes: Lcom/android/server/display/WifiDisplayAdapter;->handleUpdateNotification()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1900(Lcom/android/server/display/WifiDisplayAdapter;)V
 
     goto :goto_0

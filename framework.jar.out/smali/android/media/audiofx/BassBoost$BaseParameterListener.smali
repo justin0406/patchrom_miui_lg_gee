@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/audiofx/BassBoost;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 174
@@ -38,8 +37,8 @@
 
 .method synthetic constructor <init>(Landroid/media/audiofx/BassBoost;Landroid/media/audiofx/BassBoost$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/audiofx/BassBoost;
+    .param p2, "x1"    # Landroid/media/audiofx/BassBoost$1;
 
     .prologue
     .line 173
@@ -52,10 +51,10 @@
 # virtual methods
 .method public onParameterChange(Landroid/media/audiofx/AudioEffect;I[B[B)V
     .locals 7
-    .parameter "effect"
-    .parameter "status"
-    .parameter "param"
-    .parameter "value"
+    .param p1, "effect"    # Landroid/media/audiofx/AudioEffect;
+    .param p2, "status"    # I
+    .param p3, "param"    # [B
+    .param p4, "value"    # [B
 
     .prologue
     const/4 v6, 0x0
@@ -66,10 +65,10 @@
     const/4 v0, 0x0
 
     .line 180
-    .local v0, l:Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
+    .local v0, "l":Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
     iget-object v3, p0, Landroid/media/audiofx/BassBoost$BaseParameterListener;->this$0:Landroid/media/audiofx/BassBoost;
 
-    #getter for: Landroid/media/audiofx/BassBoost;->mParamListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/audiofx/BassBoost;->mParamListenerLock:Ljava/lang/Object;
     invoke-static {v3}, Landroid/media/audiofx/BassBoost;->access$000(Landroid/media/audiofx/BassBoost;)Ljava/lang/Object;
 
     move-result-object v4
@@ -80,7 +79,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/media/audiofx/BassBoost$BaseParameterListener;->this$0:Landroid/media/audiofx/BassBoost;
 
-    #getter for: Landroid/media/audiofx/BassBoost;->mParamListener:Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
+    # getter for: Landroid/media/audiofx/BassBoost;->mParamListener:Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
     invoke-static {v3}, Landroid/media/audiofx/BassBoost;->access$100(Landroid/media/audiofx/BassBoost;)Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
 
     move-result-object v3
@@ -90,7 +89,7 @@
     .line 182
     iget-object v3, p0, Landroid/media/audiofx/BassBoost$BaseParameterListener;->this$0:Landroid/media/audiofx/BassBoost;
 
-    #getter for: Landroid/media/audiofx/BassBoost;->mParamListener:Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
+    # getter for: Landroid/media/audiofx/BassBoost;->mParamListener:Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
     invoke-static {v3}, Landroid/media/audiofx/BassBoost;->access$100(Landroid/media/audiofx/BassBoost;)Landroid/media/audiofx/BassBoost$OnParameterChangeListener;
 
     move-result-object v0
@@ -108,11 +107,11 @@
     const/4 v1, -0x1
 
     .line 187
-    .local v1, p:I
+    .local v1, "p":I
     const/4 v2, -0x1
 
     .line 189
-    .local v2, v:S
+    .local v2, "v":S
     array-length v3, p3
 
     const/4 v4, 0x4
@@ -153,8 +152,8 @@
     invoke-interface {v0, v3, p2, v1, v2}, Landroid/media/audiofx/BassBoost$OnParameterChangeListener;->onParameterChange(Landroid/media/audiofx/BassBoost;IIS)V
 
     .line 199
-    .end local v1           #p:I
-    .end local v2           #v:S
+    .end local v1    # "p":I
+    .end local v2    # "v":S
     :cond_3
     return-void
 

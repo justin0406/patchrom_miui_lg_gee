@@ -54,7 +54,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 8
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -136,8 +136,8 @@
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "authority"
-    .parameter "accountType"
+    .param p1, "authority"    # Ljava/lang/String;
+    .param p2, "accountType"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -245,10 +245,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZ)V
     .locals 3
-    .parameter "authority"
-    .parameter "accountType"
-    .parameter "userVisible"
-    .parameter "supportsUploading"
+    .param p1, "authority"    # Ljava/lang/String;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "userVisible"    # Z
+    .param p4, "supportsUploading"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -354,13 +354,13 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
     .locals 3
-    .parameter "authority"
-    .parameter "accountType"
-    .parameter "userVisible"
-    .parameter "supportsUploading"
-    .parameter "isAlwaysSyncable"
-    .parameter "allowParallelSyncs"
-    .parameter "settingsActivity"
+    .param p1, "authority"    # Ljava/lang/String;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "userVisible"    # Z
+    .param p4, "supportsUploading"    # Z
+    .param p5, "isAlwaysSyncable"    # Z
+    .param p6, "allowParallelSyncs"    # Z
+    .param p7, "settingsActivity"    # Ljava/lang/String;
 
     .prologue
     .line 60
@@ -464,8 +464,8 @@
 
 .method public static newKey(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SyncAdapterType;
     .locals 1
-    .parameter "authority"
-    .parameter "accountType"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "accountType"    # Ljava/lang/String;
 
     .prologue
     .line 152
@@ -515,7 +515,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -547,7 +547,7 @@
     check-cast v0, Landroid/content/SyncAdapterType;
 
     .line 160
-    .local v0, other:Landroid/content/SyncAdapterType;
+    .local v0, "other":Landroid/content/SyncAdapterType;
     iget-object v3, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
@@ -607,7 +607,7 @@
     const/16 v0, 0x11
 
     .line 165
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -862,8 +862,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

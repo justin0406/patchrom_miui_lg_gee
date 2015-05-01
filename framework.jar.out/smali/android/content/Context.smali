@@ -118,8 +118,6 @@
 
 .field public static final SEARCH_SERVICE:Ljava/lang/String; = "search"
 
-.field public static final SECURITY_SERVICE:Ljava/lang/String; = "security"
-
 .field public static final SENSOR_SERVICE:Ljava/lang/String; = "sensor"
 
 .field public static final SERIAL_SERVICE:Ljava/lang/String; = "serial"
@@ -171,10 +169,10 @@
 
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
     .locals 1
-    .parameter "service"
-    .parameter "conn"
-    .parameter "flags"
-    .parameter "userHandle"
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
+    .param p4, "userHandle"    # I
 
     .prologue
     new-instance v0, Landroid/os/UserHandle;
@@ -190,10 +188,10 @@
 
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
     .locals 2
-    .parameter "service"
-    .parameter "conn"
-    .parameter "flags"
-    .parameter "user"
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
+    .param p4, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1858
@@ -376,7 +374,7 @@
 
 .method public final getString(I)Ljava/lang/String;
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 343
@@ -393,8 +391,8 @@
 
 .method public final varargs getString(I[Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
-    .parameter "resId"
-    .parameter "formatArgs"
+    .param p1, "resId"    # I
+    .param p2, "formatArgs"    # [Ljava/lang/Object;
 
     .prologue
     .line 356
@@ -414,7 +412,7 @@
 
 .method public final getText(I)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 333
@@ -475,8 +473,8 @@
 
 .method public final obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
     .locals 1
-    .parameter "resid"
-    .parameter "attrs"
+    .param p1, "resid"    # I
+    .param p2, "attrs"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -498,8 +496,8 @@
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
     .locals 2
-    .parameter "set"
-    .parameter "attrs"
+    .param p1, "set"    # Landroid/util/AttributeSet;
+    .param p2, "attrs"    # [I
 
     .prologue
     const/4 v1, 0x0
@@ -518,10 +516,10 @@
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
     .locals 1
-    .parameter "set"
-    .parameter "attrs"
-    .parameter "defStyleAttr"
-    .parameter "defStyleRes"
+    .param p1, "set"    # Landroid/util/AttributeSet;
+    .param p2, "attrs"    # [I
+    .param p3, "defStyleAttr"    # I
+    .param p4, "defStyleRes"    # I
 
     .prologue
     .line 425
@@ -538,7 +536,7 @@
 
 .method public final obtainStyledAttributes([I)Landroid/content/res/TypedArray;
     .locals 1
-    .parameter "attrs"
+    .param p1, "attrs"    # [I
 
     .prologue
     .line 389
@@ -582,7 +580,7 @@
 
 .method public registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
     .prologue
     .line 315
@@ -686,9 +684,9 @@
 
 .method public startActivitiesAsUser([Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 2
-    .parameter "intents"
-    .parameter "options"
-    .parameter "userHandle"
+    .param p1, "intents"    # [Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "userHandle"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1195
@@ -709,9 +707,9 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 2
-    .parameter "intent"
-    .parameter "options"
-    .parameter "userId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "userId"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1126
@@ -726,8 +724,8 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 2
-    .parameter "intent"
-    .parameter "user"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 1081
@@ -776,7 +774,7 @@
 
 .method public unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
     .prologue
     .line 323

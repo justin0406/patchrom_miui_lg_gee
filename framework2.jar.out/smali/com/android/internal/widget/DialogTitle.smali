@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 42
@@ -18,8 +18,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 38
@@ -31,9 +31,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 34
@@ -47,8 +47,8 @@
 # virtual methods
 .method protected onMeasure(II)V
     .locals 11
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     const/4 v10, 0x0
@@ -62,7 +62,7 @@
     move-result-object v2
 
     .line 50
-    .local v2, layout:Landroid/text/Layout;
+    .local v2, "layout":Landroid/text/Layout;
     if-eqz v2, :cond_1
 
     .line 51
@@ -71,7 +71,7 @@
     move-result v3
 
     .line 52
-    .local v3, lineCount:I
+    .local v3, "lineCount":I
     if-lez v3, :cond_1
 
     .line 53
@@ -82,7 +82,7 @@
     move-result v1
 
     .line 54
-    .local v1, ellipsisCount:I
+    .local v1, "ellipsisCount":I
     if-lez v1, :cond_1
 
     .line 55
@@ -109,13 +109,13 @@
     move-result-object v0
 
     .line 61
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v10, v10}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
     .line 63
-    .local v4, textSize:I
+    .local v4, "textSize":I
     if-eqz v4, :cond_0
 
     .line 65
@@ -131,10 +131,10 @@
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
     .line 73
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #ellipsisCount:I
-    .end local v3           #lineCount:I
-    .end local v4           #textSize:I
+    .end local v0    # "a":Landroid/content/res/TypedArray;
+    .end local v1    # "ellipsisCount":I
+    .end local v3    # "lineCount":I
+    .end local v4    # "textSize":I
     :cond_1
     return-void
 .end method

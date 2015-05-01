@@ -52,7 +52,7 @@
 # virtual methods
 .method public start(Ljava/lang/String;)V
     .locals 2
-    .parameter "stopWatchName"
+    .param p1, "stopWatchName"    # Ljava/lang/String;
 
     .prologue
     .line 81
@@ -100,7 +100,7 @@
 
 .method public stop(Ljava/lang/String;)V
     .locals 3
-    .parameter "stopWatchName"
+    .param p1, "stopWatchName"    # Ljava/lang/String;
 
     .prologue
     .line 91

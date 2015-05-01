@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 163
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 166
@@ -55,10 +54,10 @@
     check-cast v2, Landroid/graphics/Region;
 
     .line 169
-    .local v2, bounds:Landroid/graphics/Region;
+    .local v2, "bounds":Landroid/graphics/Region;
     iget-object v7, p0, Lcom/android/server/accessibility/ScreenMagnifier$1;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnMagnifiedBoundsChanged(Landroid/graphics/Region;)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnMagnifiedBoundsChanged(Landroid/graphics/Region;)V
     invoke-static {v7, v2}, Lcom/android/server/accessibility/ScreenMagnifier;->access$000(Lcom/android/server/accessibility/ScreenMagnifier;Landroid/graphics/Region;)V
 
     .line 170
@@ -67,33 +66,33 @@
     goto :goto_0
 
     .line 173
-    .end local v2           #bounds:Landroid/graphics/Region;
+    .end local v2    # "bounds":Landroid/graphics/Region;
     :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
 
     .line 174
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iget v3, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     .line 175
-    .local v3, left:I
+    .local v3, "left":I
     iget v6, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
 
     .line 176
-    .local v6, top:I
+    .local v6, "top":I
     iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
 
     .line 177
-    .local v4, right:I
+    .local v4, "right":I
     iget v1, v0, Lcom/android/internal/os/SomeArgs;->argi4:I
 
     .line 178
-    .local v1, bottom:I
+    .local v1, "bottom":I
     iget-object v7, p0, Lcom/android/server/accessibility/ScreenMagnifier$1;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnRectangleOnScreenRequested(IIII)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnRectangleOnScreenRequested(IIII)V
     invoke-static {v7, v3, v6, v4, v1}, Lcom/android/server/accessibility/ScreenMagnifier;->access$100(Lcom/android/server/accessibility/ScreenMagnifier;IIII)V
 
     .line 179
@@ -102,15 +101,15 @@
     goto :goto_0
 
     .line 182
-    .end local v0           #args:Lcom/android/internal/os/SomeArgs;
-    .end local v1           #bottom:I
-    .end local v3           #left:I
-    .end local v4           #right:I
-    .end local v6           #top:I
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    .end local v1    # "bottom":I
+    .end local v3    # "left":I
+    .end local v4    # "right":I
+    .end local v6    # "top":I
     :pswitch_2
     iget-object v7, p0, Lcom/android/server/accessibility/ScreenMagnifier$1;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnUserContextChanged()V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnUserContextChanged()V
     invoke-static {v7}, Lcom/android/server/accessibility/ScreenMagnifier;->access$200(Lcom/android/server/accessibility/ScreenMagnifier;)V
 
     goto :goto_0
@@ -120,10 +119,10 @@
     iget v5, p1, Landroid/os/Message;->arg1:I
 
     .line 186
-    .local v5, rotation:I
+    .local v5, "rotation":I
     iget-object v7, p0, Lcom/android/server/accessibility/ScreenMagnifier$1;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnRotationChanged(I)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->handleOnRotationChanged(I)V
     invoke-static {v7, v5}, Lcom/android/server/accessibility/ScreenMagnifier;->access$300(Lcom/android/server/accessibility/ScreenMagnifier;I)V
 
     goto :goto_0

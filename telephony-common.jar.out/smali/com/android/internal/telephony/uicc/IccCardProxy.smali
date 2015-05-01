@@ -77,8 +77,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
     .locals 4
-    .parameter "context"
-    .parameter "ci"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
     const/4 v3, 0x1
@@ -203,8 +203,8 @@
 
 .method private broadcastIccStateChangedIntent(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "value"
-    .parameter "reason"
+    .param p1, "value"    # Ljava/lang/String;
+    .param p2, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 337
@@ -265,8 +265,8 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 345
-    .local v0, intent:Landroid/content/Intent;
-    const/high16 v1, 0x2000
+    .local v0, "intent":Landroid/content/Intent;
+    const/high16 v1, 0x20000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -330,7 +330,7 @@
 
     goto :goto_0
 
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     :catchall_0
     move-exception v1
 
@@ -343,7 +343,7 @@
 
 .method private getIccStateIntentString(Lcom/android/internal/telephony/IccCardConstants$State;)Ljava/lang/String;
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Lcom/android/internal/telephony/IccCardConstants$State;
 
     .prologue
     .line 414
@@ -422,7 +422,7 @@
 
 .method private getIccStateReason(Lcom/android/internal/telephony/IccCardConstants$State;)Ljava/lang/String;
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Lcom/android/internal/telephony/IccCardConstants$State;
 
     .prologue
     .line 431
@@ -483,7 +483,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 725
@@ -497,7 +497,7 @@
 
 .method private loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 729
@@ -540,7 +540,7 @@
     move-result-object v1
 
     .line 364
-    .local v1, pin1State:Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
+    .local v1, "pin1State":Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
     sget-object v2, Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;->PINSTATE_ENABLED_PERM_BLOCKED:Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
 
     if-ne v1, v2, :cond_1
@@ -556,7 +556,7 @@
     goto :goto_0
 
     .line 385
-    .end local v1           #pin1State:Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
+    .end local v1    # "pin1State":Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
     :catchall_0
     move-exception v2
 
@@ -567,7 +567,7 @@
     throw v2
 
     .line 369
-    .restart local v1       #pin1State:Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
+    .restart local v1    # "pin1State":Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
     :cond_1
     :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mUiccApplication:Lcom/android/internal/telephony/uicc/UiccCardApplication;
@@ -577,7 +577,7 @@
     move-result-object v0
 
     .line 370
-    .local v0, appState:Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;
+    .local v0, "appState":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;
     sget-object v2, Lcom/android/internal/telephony/uicc/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$uicc$IccCardApplicationStatus$AppState:[I
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;->ordinal()I
@@ -698,7 +698,7 @@
 
 .method private setExternalState(Lcom/android/internal/telephony/IccCardConstants$State;)V
     .locals 1
-    .parameter "newState"
+    .param p1, "newState"    # Lcom/android/internal/telephony/IccCardConstants$State;
 
     .prologue
     .line 401
@@ -712,8 +712,8 @@
 
 .method private setExternalState(Lcom/android/internal/telephony/IccCardConstants$State;Z)V
     .locals 3
-    .parameter "newState"
-    .parameter "override"
+    .param p1, "newState"    # Lcom/android/internal/telephony/IccCardConstants$State;
+    .param p2, "override"    # Z
 
     .prologue
     .line 389
@@ -868,24 +868,22 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 276
     :cond_0
-    iget-object v0, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mUiccCard:Lcom/android/internal/telephony/uicc/UiccCard;
-
-    iget-boolean v1, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mRadioOn:Z
-
-    invoke-static {v0, v1}, Lcom/android/internal/telephony/uicc/Injector$IccCardProxyHook;->isUiccCardReady(Lcom/android/internal/telephony/uicc/UiccCard;Z)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mRadioOn:Z
 
     if-eqz v0, :cond_1
 
+    .line 277
     sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/IccCardProxy;->setExternalState(Lcom/android/internal/telephony/IccCardConstants$State;)V
 
+    .line 312
     :goto_0
     return-void
 
+    .line 279
     :cond_1
     sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->NOT_READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
@@ -1026,19 +1024,19 @@
     move-result-object v1
 
     .line 250
-    .local v1, newCard:Lcom/android/internal/telephony/uicc/UiccCard;
+    .local v1, "newCard":Lcom/android/internal/telephony/uicc/UiccCard;
     sget-object v3, Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;->CARDSTATE_ABSENT:Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
 
     .line 251
-    .local v3, state:Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
+    .local v3, "state":Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
     const/4 v0, 0x0
 
     .line 252
-    .local v0, newApp:Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .local v0, "newApp":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     const/4 v2, 0x0
 
     .line 253
-    .local v2, newRecords:Lcom/android/internal/telephony/uicc/IccRecords;
+    .local v2, "newRecords":Lcom/android/internal/telephony/uicc/IccRecords;
     if-eqz v1, :cond_0
 
     .line 254
@@ -1107,10 +1105,10 @@
     return-void
 
     .line 271
-    .end local v0           #newApp:Lcom/android/internal/telephony/uicc/UiccCardApplication;
-    .end local v1           #newCard:Lcom/android/internal/telephony/uicc/UiccCard;
-    .end local v2           #newRecords:Lcom/android/internal/telephony/uicc/IccRecords;
-    .end local v3           #state:Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
+    .end local v0    # "newApp":Lcom/android/internal/telephony/uicc/UiccCardApplication;
+    .end local v1    # "newCard":Lcom/android/internal/telephony/uicc/UiccCard;
+    .end local v2    # "newRecords":Lcom/android/internal/telephony/uicc/IccRecords;
+    .end local v3    # "state":Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
     :catchall_0
     move-exception v4
 
@@ -1139,11 +1137,11 @@
     iget-boolean v3, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mQuietMode:Z
 
     .line 158
-    .local v3, oldQuietMode:Z
+    .local v3, "oldQuietMode":Z
     const/4 v0, -0x1
 
     .line 159
-    .local v0, cdmaSource:I
+    .local v0, "cdmaSource":I
     invoke-static {}, Landroid/telephony/TelephonyManager;->getLteOnCdmaModeStatic()I
 
     move-result v6
@@ -1153,7 +1151,7 @@
     move v1, v4
 
     .line 161
-    .local v1, isLteOnCdmaMode:Z
+    .local v1, "isLteOnCdmaMode":Z
     :goto_0
     iget v6, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mCurrentAppType:I
 
@@ -1163,7 +1161,7 @@
     const/4 v2, 0x0
 
     .line 163
-    .local v2, newQuietMode:Z
+    .local v2, "newQuietMode":Z
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -1288,8 +1286,8 @@
     .line 199
     return-void
 
-    .end local v1           #isLteOnCdmaMode:Z
-    .end local v2           #newQuietMode:Z
+    .end local v1    # "isLteOnCdmaMode":Z
+    .end local v2    # "newQuietMode":Z
     :cond_1
     move v1, v2
 
@@ -1297,7 +1295,7 @@
     goto :goto_0
 
     .line 165
-    .restart local v1       #isLteOnCdmaMode:Z
+    .restart local v1    # "isLteOnCdmaMode":Z
     :cond_2
     if-eqz v1, :cond_3
 
@@ -1337,19 +1335,19 @@
 
     move v2, v4
 
-    .restart local v2       #newQuietMode:Z
+    .restart local v2    # "newQuietMode":Z
     :cond_4
     goto :goto_1
 
     .line 169
-    .end local v2           #newQuietMode:Z
+    .end local v2    # "newQuietMode":Z
     :cond_5
     const/4 v0, -0x1
 
     goto :goto_3
 
     .line 183
-    .restart local v2       #newQuietMode:Z
+    .restart local v2    # "newQuietMode":Z
     :cond_6
     iget-boolean v6, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mQuietMode:Z
 
@@ -1393,10 +1391,10 @@
     goto/16 :goto_2
 
     .line 198
-    .end local v0           #cdmaSource:I
-    .end local v1           #isLteOnCdmaMode:Z
-    .end local v2           #newQuietMode:Z
-    .end local v3           #oldQuietMode:Z
+    .end local v0    # "cdmaSource":I
+    .end local v1    # "isLteOnCdmaMode":Z
+    .end local v2    # "newQuietMode":Z
+    .end local v3    # "oldQuietMode":Z
     :catchall_0
     move-exception v4
 
@@ -1411,9 +1409,9 @@
 # virtual methods
 .method public changeIccFdnPassword(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "oldPassword"
-    .parameter "newPassword"
-    .parameter "onComplete"
+    .param p1, "oldPassword"    # Ljava/lang/String;
+    .param p2, "newPassword"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 684
@@ -1452,7 +1450,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 689
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -1468,7 +1466,7 @@
     goto :goto_0
 
     .line 693
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -1481,9 +1479,9 @@
 
 .method public changeIccLockPassword(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "oldPassword"
-    .parameter "newPassword"
-    .parameter "onComplete"
+    .param p1, "oldPassword"    # Ljava/lang/String;
+    .param p2, "newPassword"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 670
@@ -1522,7 +1520,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 675
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -1538,7 +1536,7 @@
     goto :goto_0
 
     .line 679
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -1608,9 +1606,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 733
@@ -1710,7 +1708,7 @@
     .line 737
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mAbsentRegistrants:Landroid/os/RegistrantList;
 
@@ -2198,12 +2196,12 @@
     move-result v0
 
     .line 625
-    .local v0, retValue:Z
+    .local v0, "retValue":Z
     :goto_0
     return v0
 
     .line 624
-    .end local v0           #retValue:Z
+    .end local v0    # "retValue":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -2237,7 +2235,7 @@
     move-result-object v0
 
     .line 619
-    .local v0, retValue:Ljava/lang/Boolean;
+    .local v0, "retValue":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2247,7 +2245,7 @@
     return v1
 
     .line 617
-    .end local v0           #retValue:Ljava/lang/Boolean;
+    .end local v0    # "retValue":Ljava/lang/Boolean;
     :cond_0
     const/4 v1, 0x0
 
@@ -2337,7 +2335,7 @@
     move-result-object v0
 
     .line 610
-    .local v0, retValue:Ljava/lang/Boolean;
+    .local v0, "retValue":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2347,7 +2345,7 @@
     return v1
 
     .line 608
-    .end local v0           #retValue:Ljava/lang/Boolean;
+    .end local v0    # "retValue":Ljava/lang/Boolean;
     :cond_0
     const/4 v1, 0x0
 
@@ -2385,7 +2383,7 @@
     move-result-object v0
 
     .line 631
-    .local v0, retValue:Ljava/lang/Boolean;
+    .local v0, "retValue":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2393,7 +2391,7 @@
     return v1
 
     .line 630
-    .end local v0           #retValue:Ljava/lang/Boolean;
+    .end local v0    # "retValue":Ljava/lang/Boolean;
     :cond_0
     const/4 v1, 0x0
 
@@ -2421,7 +2419,7 @@
     move-result-object v0
 
     .line 637
-    .local v0, retValue:Ljava/lang/Boolean;
+    .local v0, "retValue":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2429,7 +2427,7 @@
     return v1
 
     .line 636
-    .end local v0           #retValue:Ljava/lang/Boolean;
+    .end local v0    # "retValue":Ljava/lang/Boolean;
     :cond_0
     const/4 v1, 0x0
 
@@ -2586,7 +2584,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x0
@@ -2793,7 +2791,7 @@
 
 .method public isApplicationOnIcc(Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppType;)Z
     .locals 3
-    .parameter "type"
+    .param p1, "type"    # Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppType;
 
     .prologue
     .line 708
@@ -2819,7 +2817,7 @@
     move-result-object v0
 
     .line 710
-    .local v0, retValue:Ljava/lang/Boolean;
+    .local v0, "retValue":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -2829,7 +2827,7 @@
     return v1
 
     .line 709
-    .end local v0           #retValue:Ljava/lang/Boolean;
+    .end local v0    # "retValue":Ljava/lang/Boolean;
     :cond_0
     const/4 v1, 0x0
 
@@ -2848,9 +2846,9 @@
 
 .method public registerForAbsent(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 4
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 470
@@ -2865,7 +2863,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 473
-    .local v0, r:Landroid/os/Registrant;
+    .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mAbsentRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -2890,7 +2888,7 @@
     return-void
 
     .line 478
-    .end local v0           #r:Landroid/os/Registrant;
+    .end local v0    # "r":Landroid/os/Registrant;
     :catchall_0
     move-exception v1
 
@@ -2903,9 +2901,9 @@
 
 .method public registerForLocked(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 3
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 516
@@ -2920,7 +2918,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 519
-    .local v0, r:Landroid/os/Registrant;
+    .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mPinLockedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -2947,7 +2945,7 @@
     return-void
 
     .line 524
-    .end local v0           #r:Landroid/os/Registrant;
+    .end local v0    # "r":Landroid/os/Registrant;
     :catchall_0
     move-exception v1
 
@@ -2960,9 +2958,9 @@
 
 .method public registerForNetworkLocked(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 4
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 493
@@ -2977,7 +2975,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 496
-    .local v0, r:Landroid/os/Registrant;
+    .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mNetworkLockedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -3002,7 +3000,7 @@
     return-void
 
     .line 501
-    .end local v0           #r:Landroid/os/Registrant;
+    .end local v0    # "r":Landroid/os/Registrant;
     :catchall_0
     move-exception v1
 
@@ -3015,9 +3013,9 @@
 
 .method public setIccFdnEnabled(ZLjava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "enabled"
-    .parameter "password"
-    .parameter "onComplete"
+    .param p1, "enabled"    # Z
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 656
@@ -3056,7 +3054,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 661
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3072,7 +3070,7 @@
     goto :goto_0
 
     .line 665
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3085,9 +3083,9 @@
 
 .method public setIccLockEnabled(ZLjava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "enabled"
-    .parameter "password"
-    .parameter "onComplete"
+    .param p1, "enabled"    # Z
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 642
@@ -3126,7 +3124,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 647
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3142,7 +3140,7 @@
     goto :goto_0
 
     .line 651
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3155,7 +3153,7 @@
 
 .method public setVoiceRadioTech(I)V
     .locals 3
-    .parameter "radioTech"
+    .param p1, "radioTech"    # I
 
     .prologue
     .line 137
@@ -3232,8 +3230,8 @@
 
 .method public supplyNetworkDepersonalization(Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "pin"
-    .parameter "onComplete"
+    .param p1, "pin"    # Ljava/lang/String;
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 592
@@ -3272,7 +3270,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 597
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p2}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3288,7 +3286,7 @@
     goto :goto_0
 
     .line 601
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3301,8 +3299,8 @@
 
 .method public supplyPin(Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "pin"
-    .parameter "onComplete"
+    .param p1, "pin"    # Ljava/lang/String;
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 536
@@ -3341,7 +3339,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 541
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p2}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3357,7 +3355,7 @@
     goto :goto_0
 
     .line 545
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3370,8 +3368,8 @@
 
 .method public supplyPin2(Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "pin2"
-    .parameter "onComplete"
+    .param p1, "pin2"    # Ljava/lang/String;
+    .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 564
@@ -3410,7 +3408,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 569
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p2}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3426,7 +3424,7 @@
     goto :goto_0
 
     .line 573
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3439,9 +3437,9 @@
 
 .method public supplyPuk(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "puk"
-    .parameter "newPin"
-    .parameter "onComplete"
+    .param p1, "puk"    # Ljava/lang/String;
+    .param p2, "newPin"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 550
@@ -3480,7 +3478,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 555
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3496,7 +3494,7 @@
     goto :goto_0
 
     .line 559
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3509,9 +3507,9 @@
 
 .method public supplyPuk2(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 3
-    .parameter "puk2"
-    .parameter "newPin2"
-    .parameter "onComplete"
+    .param p1, "puk2"    # Ljava/lang/String;
+    .param p2, "newPin2"    # Ljava/lang/String;
+    .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
     .line 578
@@ -3550,7 +3548,7 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 583
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
 
     move-result-object v1
@@ -3566,7 +3564,7 @@
     goto :goto_0
 
     .line 587
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -3579,7 +3577,7 @@
 
 .method public unregisterForAbsent(Landroid/os/Handler;)V
     .locals 2
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 483
@@ -3612,7 +3610,7 @@
 
 .method public unregisterForLocked(Landroid/os/Handler;)V
     .locals 2
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 529
@@ -3645,7 +3643,7 @@
 
 .method public unregisterForNetworkLocked(Landroid/os/Handler;)V
     .locals 2
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 506

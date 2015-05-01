@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ListPopupWindow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1028
@@ -49,7 +48,7 @@
     move-result-object v0
 
     .line 1032
-    .local v0, view:Landroid/view/View;
+    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;

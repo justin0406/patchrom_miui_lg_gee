@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/BroadcastReceiver$PendingResult;Landroid/app/IActivityManager;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 379

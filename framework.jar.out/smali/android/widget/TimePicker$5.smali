@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TimePicker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 230
@@ -39,15 +38,15 @@
 # virtual methods
 .method public onValueChange(Landroid/widget/NumberPicker;II)V
     .locals 2
-    .parameter "picker"
-    .parameter "oldVal"
-    .parameter "newVal"
+    .param p1, "picker"    # Landroid/widget/NumberPicker;
+    .param p2, "oldVal"    # I
+    .param p3, "newVal"    # I
 
     .prologue
     .line 232
     iget-object v0, p0, Landroid/widget/TimePicker$5;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->updateInputState()V
+    # invokes: Landroid/widget/TimePicker;->updateInputState()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$000(Landroid/widget/TimePicker;)V
 
     .line 233
@@ -58,7 +57,7 @@
 
     iget-object v0, p0, Landroid/widget/TimePicker$5;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # getter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v0}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)Z
 
     move-result v0
@@ -68,19 +67,19 @@
     const/4 v0, 0x1
 
     :goto_0
-    #setter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v1, v0}, Landroid/widget/TimePicker;->access$102(Landroid/widget/TimePicker;Z)Z
 
     .line 235
     iget-object v0, p0, Landroid/widget/TimePicker$5;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->updateAmPmControl()V
+    # invokes: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
     .line 236
     iget-object v0, p0, Landroid/widget/TimePicker$5;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->onTimeChanged()V
+    # invokes: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$300(Landroid/widget/TimePicker;)V
 
     .line 237

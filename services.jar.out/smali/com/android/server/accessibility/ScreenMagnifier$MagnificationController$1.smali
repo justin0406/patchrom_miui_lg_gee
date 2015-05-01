@@ -38,8 +38,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;Lcom/android/server/accessibility/ScreenMagnifier;)V
     .locals 1
-    .parameter
-    .parameter
 
     .prologue
     .line 969
@@ -63,16 +61,16 @@
 # virtual methods
 .method public evaluate(FLandroid/view/MagnificationSpec;Landroid/view/MagnificationSpec;)Landroid/view/MagnificationSpec;
     .locals 4
-    .parameter "fraction"
-    .parameter "fromSpec"
-    .parameter "toSpec"
+    .param p1, "fraction"    # F
+    .param p2, "fromSpec"    # Landroid/view/MagnificationSpec;
+    .param p3, "toSpec"    # Landroid/view/MagnificationSpec;
 
     .prologue
     .line 975
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController$1;->mTempTransformationSpec:Landroid/view/MagnificationSpec;
 
     .line 976
-    .local v0, result:Landroid/view/MagnificationSpec;
+    .local v0, "result":Landroid/view/MagnificationSpec;
     iget v1, p2, Landroid/view/MagnificationSpec;->scale:F
 
     iget v2, p3, Landroid/view/MagnificationSpec;->scale:F
@@ -123,18 +121,18 @@
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # F
+    .param p2, "x1"    # Ljava/lang/Object;
+    .param p3, "x2"    # Ljava/lang/Object;
 
     .prologue
     .line 969
     check-cast p2, Landroid/view/MagnificationSpec;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     check-cast p3, Landroid/view/MagnificationSpec;
 
-    .end local p3
+    .end local p3    # "x2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController$1;->evaluate(FLandroid/view/MagnificationSpec;Landroid/view/MagnificationSpec;)Landroid/view/MagnificationSpec;
 
     move-result-object v0

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiWatchdogStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 357
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 360
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 361
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.net.wifi.RSSI_CHANGED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -60,7 +59,7 @@
 
     const v2, 0x21003
 
-    const-string v3, "newRssi"
+    const-string/jumbo v3, "newRssi"
 
     const/16 v4, -0xc8
 

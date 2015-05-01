@@ -58,9 +58,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/input/InputApplicationHandle;Ljava/lang/Object;I)V
     .locals 1
-    .parameter "inputApplicationHandle"
-    .parameter "windowState"
-    .parameter "displayId"
+    .param p1, "inputApplicationHandle"    # Lcom/android/server/input/InputApplicationHandle;
+    .param p2, "windowState"    # Ljava/lang/Object;
+    .param p3, "displayId"    # I
 
     .prologue
     .line 97

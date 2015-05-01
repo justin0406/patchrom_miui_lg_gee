@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/TwilightService$TwilightListener;Landroid/os/Handler;)V
     .locals 0
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Lcom/android/server/TwilightService$TwilightListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 268

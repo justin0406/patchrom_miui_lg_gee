@@ -28,7 +28,6 @@
 
 .method public static and(Ljava/lang/Iterable;)Lcom/android/internal/util/Predicate;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -45,7 +44,7 @@
 
     .prologue
     .line 48
-    .local p0, components:Ljava/lang/Iterable;,"Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
+    .local p0, "components":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
     new-instance v0, Lcom/android/internal/util/Predicates$AndPredicate;
 
     const/4 v1, 0x0
@@ -57,7 +56,6 @@
 
 .method public static varargs and([Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -72,7 +70,7 @@
 
     .prologue
     .line 36
-    .local p0, components:[Lcom/android/internal/util/Predicate;,"[Lcom/android/internal/util/Predicate<-TT;>;"
+    .local p0, "components":[Lcom/android/internal/util/Predicate;, "[Lcom/android/internal/util/Predicate<-TT;>;"
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -86,7 +84,6 @@
 
 .method public static not(Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -101,7 +98,7 @@
 
     .prologue
     .line 77
-    .local p0, predicate:Lcom/android/internal/util/Predicate;,"Lcom/android/internal/util/Predicate<-TT;>;"
+    .local p0, "predicate":Lcom/android/internal/util/Predicate;, "Lcom/android/internal/util/Predicate<-TT;>;"
     new-instance v0, Lcom/android/internal/util/Predicates$NotPredicate;
 
     const/4 v1, 0x0
@@ -113,7 +110,6 @@
 
 .method public static or(Ljava/lang/Iterable;)Lcom/android/internal/util/Predicate;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -130,7 +126,7 @@
 
     .prologue
     .line 69
-    .local p0, components:Ljava/lang/Iterable;,"Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
+    .local p0, "components":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/android/internal/util/Predicate<-TT;>;>;"
     new-instance v0, Lcom/android/internal/util/Predicates$OrPredicate;
 
     const/4 v1, 0x0
@@ -142,7 +138,6 @@
 
 .method public static varargs or([Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -157,7 +152,7 @@
 
     .prologue
     .line 57
-    .local p0, components:[Lcom/android/internal/util/Predicate;,"[Lcom/android/internal/util/Predicate<-TT;>;"
+    .local p0, "components":[Lcom/android/internal/util/Predicate;, "[Lcom/android/internal/util/Predicate<-TT;>;"
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0

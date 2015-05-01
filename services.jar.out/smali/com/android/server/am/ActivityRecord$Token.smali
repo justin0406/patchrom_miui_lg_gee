@@ -30,7 +30,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityRecord;)V
     .locals 1
-    .parameter "activity"
+    .param p1, "activity"    # Lcom/android/server/am/ActivityRecord;
 
     .prologue
     .line 283
@@ -63,7 +63,7 @@
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
     .line 315
-    .local v0, activity:Lcom/android/server/am/ActivityRecord;
+    .local v0, "activity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
     .line 316
@@ -83,7 +83,7 @@
 
 .method public keyDispatchingTimedOut(Ljava/lang/String;)Z
     .locals 2
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 309
@@ -96,7 +96,7 @@
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
     .line 310
-    .local v0, activity:Lcom/android/server/am/ActivityRecord;
+    .local v0, "activity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityRecord;->keyDispatchingTimedOut(Ljava/lang/String;)Z
@@ -128,7 +128,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 324
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Token{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -185,7 +185,7 @@
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
     .line 289
-    .local v0, activity:Lcom/android/server/am/ActivityRecord;
+    .local v0, "activity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
     .line 290
@@ -210,7 +210,7 @@
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
     .line 303
-    .local v0, activity:Lcom/android/server/am/ActivityRecord;
+    .local v0, "activity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
     .line 304
@@ -235,7 +235,7 @@
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
     .line 296
-    .local v0, activity:Lcom/android/server/am/ActivityRecord;
+    .local v0, "activity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
     .line 297

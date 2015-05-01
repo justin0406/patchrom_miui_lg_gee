@@ -41,12 +41,11 @@
 # direct methods
 .method public constructor <init>(Landroid/accounts/AccountManager;Landroid/os/Handler;)V
     .locals 1
-    .parameter
-    .parameter "handler"
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 1582
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
     iput-object p1, p0, Landroid/accounts/AccountManager$BaseFutureTask;->this$0:Landroid/accounts/AccountManager;
 
     .line 1583
@@ -72,8 +71,8 @@
 
 .method static synthetic access$700(Landroid/accounts/AccountManager$BaseFutureTask;Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/accounts/AccountManager$BaseFutureTask;
+    .param p1, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 1578
@@ -84,8 +83,8 @@
 
 .method static synthetic access$800(Landroid/accounts/AccountManager$BaseFutureTask;Ljava/lang/Throwable;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/accounts/AccountManager$BaseFutureTask;
+    .param p1, "x1"    # Ljava/lang/Throwable;
 
     .prologue
     .line 1578
@@ -122,24 +121,24 @@
 
 .method protected postRunnableToHandler(Ljava/lang/Runnable;)V
     .locals 2
-    .parameter "runnable"
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .prologue
     .line 1597
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask;->mHandler:Landroid/os/Handler;
 
     if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask;->this$0:Landroid/accounts/AccountManager;
 
-    #getter for: Landroid/accounts/AccountManager;->mMainHandler:Landroid/os/Handler;
+    # getter for: Landroid/accounts/AccountManager;->mMainHandler:Landroid/os/Handler;
     invoke-static {v1}, Landroid/accounts/AccountManager;->access$600(Landroid/accounts/AccountManager;)Landroid/os/Handler;
 
     move-result-object v0
 
     .line 1598
-    .local v0, handler:Landroid/os/Handler;
+    .local v0, "handler":Landroid/os/Handler;
     :goto_0
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -147,7 +146,7 @@
     return-void
 
     .line 1597
-    .end local v0           #handler:Landroid/os/Handler;
+    .end local v0    # "handler":Landroid/os/Handler;
     :cond_0
     iget-object v0, p0, Landroid/accounts/AccountManager$BaseFutureTask;->mHandler:Landroid/os/Handler;
 
@@ -159,7 +158,7 @@
 
     .prologue
     .line 1603
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
     :try_start_0
     invoke-virtual {p0}, Landroid/accounts/AccountManager$BaseFutureTask;->doWork()V
     :try_end_0
@@ -174,7 +173,7 @@
     move-exception v0
 
     .line 1605
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/accounts/AccountManager$BaseFutureTask;->setException(Ljava/lang/Throwable;)V
 
     goto :goto_0

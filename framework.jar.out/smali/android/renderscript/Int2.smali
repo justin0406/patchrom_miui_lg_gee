@@ -23,8 +23,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "initX"
-    .parameter "initY"
+    .param p1, "initX"    # I
+    .param p2, "initY"    # I
 
     .prologue
     .line 31

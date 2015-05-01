@@ -50,7 +50,7 @@
 # direct methods
 .method private constructor <init>(Landroid/security/IKeystoreService;)V
     .locals 1
-    .parameter "binder"
+    .param p1, "binder"    # Landroid/security/IKeystoreService;
 
     .prologue
     .line 61
@@ -84,7 +84,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, keystore:Landroid/security/IKeystoreService;
+    .local v0, "keystore":Landroid/security/IKeystoreService;
     new-instance v1, Landroid/security/KeyStore;
 
     invoke-direct {v1, v0}, Landroid/security/KeyStore;-><init>(Landroid/security/IKeystoreService;)V
@@ -94,7 +94,7 @@
 
 .method static getKeyTypeForAlgorithm(Ljava/lang/String;)I
     .locals 3
-    .parameter "keyType"
+    .param p0, "keyType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -179,7 +179,7 @@
 # virtual methods
 .method public clearUid(I)Z
     .locals 6
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -215,7 +215,7 @@
     move-exception v0
 
     .line 329
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -230,7 +230,7 @@
 
 .method public contains(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 145
@@ -245,8 +245,8 @@
 
 .method public contains(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "key"
-    .parameter "uid"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -280,7 +280,7 @@
     move-exception v0
 
     .line 139
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -295,7 +295,7 @@
 
 .method public delKey(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 245
@@ -310,8 +310,8 @@
 
 .method public delKey(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "key"
-    .parameter "uid"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -345,7 +345,7 @@
     move-exception v0
 
     .line 239
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -360,7 +360,7 @@
 
 .method public delete(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 132
@@ -375,8 +375,8 @@
 
 .method public delete(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "key"
-    .parameter "uid"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -410,7 +410,7 @@
     move-exception v0
 
     .line 126
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -425,10 +425,10 @@
 
 .method public duplicate(Ljava/lang/String;ILjava/lang/String;I)Z
     .locals 4
-    .parameter "srcKey"
-    .parameter "srcUid"
-    .parameter "destKey"
-    .parameter "destUid"
+    .param p1, "srcKey"    # Ljava/lang/String;
+    .param p2, "srcUid"    # I
+    .param p3, "destKey"    # Ljava/lang/String;
+    .param p4, "destUid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -462,7 +462,7 @@
     move-exception v0
 
     .line 306
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -477,12 +477,12 @@
 
 .method public generate(Ljava/lang/String;IIII[[B)Z
     .locals 8
-    .parameter "key"
-    .parameter "uid"
-    .parameter "keyType"
-    .parameter "keySize"
-    .parameter "flags"
-    .parameter "args"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "keyType"    # I
+    .param p4, "keySize"    # I
+    .param p5, "flags"    # I
+    .param p6, "args"    # [[B
 
     .prologue
     .line 210
@@ -528,7 +528,7 @@
     move-exception v7
 
     .line 212
-    .local v7, e:Landroid/os/RemoteException;
+    .local v7, "e":Landroid/os/RemoteException;
     const-string v0, "KeyStore"
 
     const-string v1, "Cannot connect to keystore"
@@ -543,7 +543,7 @@
 
 .method public get(Ljava/lang/String;)[B
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 106
@@ -565,7 +565,7 @@
     move-exception v0
 
     .line 108
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v2, "Cannot connect to keystore"
@@ -590,7 +590,7 @@
 
 .method public getPubkey(Ljava/lang/String;)[B
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 228
@@ -612,7 +612,7 @@
     move-exception v0
 
     .line 230
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v2, "Cannot connect to keystore"
@@ -627,7 +627,7 @@
 
 .method public getmtime(Ljava/lang/String;)J
     .locals 7
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const-wide/16 v3, -0x1
@@ -643,18 +643,18 @@
     move-result-wide v1
 
     .line 291
-    .local v1, millis:J
+    .local v1, "millis":J
     cmp-long v5, v1, v3
 
     if-nez v5, :cond_0
 
     .line 298
-    .end local v1           #millis:J
+    .end local v1    # "millis":J
     :goto_0
     return-wide v3
 
     .line 295
-    .restart local v1       #millis:J
+    .restart local v1    # "millis":J
     :cond_0
     const-wide/16 v3, 0x3e8
 
@@ -663,12 +663,12 @@
     goto :goto_0
 
     .line 296
-    .end local v1           #millis:J
+    .end local v1    # "millis":J
     :catch_0
     move-exception v0
 
     .line 297
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v5, "KeyStore"
 
     const-string v6, "Cannot connect to keystore"
@@ -680,8 +680,8 @@
 
 .method public grant(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "key"
-    .parameter "uid"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -715,7 +715,7 @@
     move-exception v0
 
     .line 270
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -730,10 +730,10 @@
 
 .method public importKey(Ljava/lang/String;[BII)Z
     .locals 4
-    .parameter "keyName"
-    .parameter "key"
-    .parameter "uid"
-    .parameter "flags"
+    .param p1, "keyName"    # Ljava/lang/String;
+    .param p2, "key"    # [B
+    .param p3, "uid"    # I
+    .param p4, "flags"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -767,7 +767,7 @@
     move-exception v0
 
     .line 221
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -812,7 +812,7 @@
     move-exception v0
 
     .line 202
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -838,7 +838,7 @@
 
 .method public isHardwareBacked(Ljava/lang/String;)Z
     .locals 5
-    .parameter "keyType"
+    .param p1, "keyType"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -878,7 +878,7 @@
     move-exception v0
 
     .line 320
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -950,7 +950,7 @@
     move-exception v0
 
     .line 183
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -965,7 +965,7 @@
 
 .method public password(Ljava/lang/String;)Z
     .locals 4
-    .parameter "password"
+    .param p1, "password"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -999,7 +999,7 @@
     move-exception v0
 
     .line 174
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1014,10 +1014,10 @@
 
 .method public put(Ljava/lang/String;[BII)Z
     .locals 4
-    .parameter "key"
-    .parameter "value"
-    .parameter "uid"
-    .parameter "flags"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [B
+    .param p3, "uid"    # I
+    .param p4, "flags"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -1051,7 +1051,7 @@
     move-exception v0
 
     .line 117
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1099,7 +1099,7 @@
     move-exception v0
 
     .line 165
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1114,7 +1114,7 @@
 
 .method public saw(Ljava/lang/String;)[Ljava/lang/String;
     .locals 1
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 158
@@ -1129,8 +1129,8 @@
 
 .method public saw(Ljava/lang/String;I)[Ljava/lang/String;
     .locals 3
-    .parameter "prefix"
-    .parameter "uid"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 150
@@ -1152,7 +1152,7 @@
     move-exception v0
 
     .line 152
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v2, "Cannot connect to keystore"
@@ -1167,8 +1167,8 @@
 
 .method public sign(Ljava/lang/String;[B)[B
     .locals 3
-    .parameter "key"
-    .parameter "data"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "data"    # [B
 
     .prologue
     .line 250
@@ -1190,7 +1190,7 @@
     move-exception v0
 
     .line 252
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v2, "Cannot connect to keystore"
@@ -1218,7 +1218,7 @@
     move-result v1
 
     .line 92
-    .local v1, ret:I
+    .local v1, "ret":I
     packed-switch v1, :pswitch_data_0
 
     .line 96
@@ -1231,12 +1231,12 @@
     throw v2
 
     .line 87
-    .end local v1           #ret:I
+    .end local v1    # "ret":I
     :catch_0
     move-exception v0
 
     .line 88
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1251,8 +1251,8 @@
     throw v2
 
     .line 93
-    .end local v0           #e:Landroid/os/RemoteException;
-    .restart local v1       #ret:I
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "ret":I
     :pswitch_0
     sget-object v2, Landroid/security/KeyStore$State;->UNLOCKED:Landroid/security/KeyStore$State;
 
@@ -1283,8 +1283,8 @@
 
 .method public ungrant(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "key"
-    .parameter "uid"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -1318,7 +1318,7 @@
     move-exception v0
 
     .line 279
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1333,7 +1333,7 @@
 
 .method public unlock(Ljava/lang/String;)Z
     .locals 4
-    .parameter "password"
+    .param p1, "password"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -1372,7 +1372,7 @@
     move-exception v0
 
     .line 193
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"
@@ -1387,9 +1387,9 @@
 
 .method public verify(Ljava/lang/String;[B[B)Z
     .locals 4
-    .parameter "key"
-    .parameter "data"
-    .parameter "signature"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "data"    # [B
+    .param p3, "signature"    # [B
 
     .prologue
     const/4 v1, 0x1
@@ -1423,7 +1423,7 @@
     move-exception v0
 
     .line 261
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "KeyStore"
 
     const-string v3, "Cannot connect to keystore"

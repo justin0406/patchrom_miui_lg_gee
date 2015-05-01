@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/service/dreams/DreamService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 657
@@ -58,10 +57,10 @@
     move-exception v0
 
     .line 663
-    .local v0, t:Ljava/lang/Throwable;
+    .local v0, "t":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/service/dreams/DreamService$1;->this$0:Landroid/service/dreams/DreamService;
 
-    #getter for: Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
+    # getter for: Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
     invoke-static {v1}, Landroid/service/dreams/DreamService;->access$100(Landroid/service/dreams/DreamService;)Ljava/lang/String;
 
     move-result-object v1
@@ -73,7 +72,7 @@
     .line 664
     iget-object v1, p0, Landroid/service/dreams/DreamService$1;->this$0:Landroid/service/dreams/DreamService;
 
-    #calls: Landroid/service/dreams/DreamService;->safelyFinish()V
+    # invokes: Landroid/service/dreams/DreamService;->safelyFinish()V
     invoke-static {v1}, Landroid/service/dreams/DreamService;->access$200(Landroid/service/dreams/DreamService;)V
 
     goto :goto_0

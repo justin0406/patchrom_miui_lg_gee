@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 908
@@ -45,13 +44,13 @@
 # virtual methods
 .method public bridge synthetic onCallbackDied(Landroid/os/IInterface;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/IInterface;
 
     .prologue
     .line 908
     check-cast p1, Landroid/print/IPrinterDiscoveryObserver;
 
-    .end local p1
+    .end local p1    # "x0":Landroid/os/IInterface;
     invoke-virtual {p0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->onCallbackDied(Landroid/print/IPrinterDiscoveryObserver;)V
 
     return-void
@@ -59,7 +58,7 @@
 
 .method public onCallbackDied(Landroid/print/IPrinterDiscoveryObserver;)V
     .locals 2
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
 
     .prologue
     .line 911
@@ -67,7 +66,7 @@
 
     iget-object v0, v0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->this$0:Lcom/android/server/print/UserState;
 
-    #getter for: Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/print/UserState;->access$600(Lcom/android/server/print/UserState;)Ljava/lang/Object;
 
     move-result-object v1

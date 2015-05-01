@@ -54,8 +54,8 @@
 # virtual methods
 .method public final compare(Landroid/widget/AppSecurityPermissions$MyPermissionInfo;Landroid/widget/AppSecurityPermissions$MyPermissionInfo;)I
     .locals 3
-    .parameter "a"
-    .parameter "b"
+    .param p1, "a"    # Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
+    .param p2, "b"    # Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
 
     .prologue
     .line 601
@@ -74,17 +74,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 596
     check-cast p1, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/widget/AppSecurityPermissions$PermissionInfoComparator;->compare(Landroid/widget/AppSecurityPermissions$MyPermissionInfo;Landroid/widget/AppSecurityPermissions$MyPermissionInfo;)I
 
     move-result v0

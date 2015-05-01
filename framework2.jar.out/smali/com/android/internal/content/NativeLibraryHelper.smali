@@ -22,19 +22,19 @@
 
 .method public static copyNativeBinariesIfNeededLI(Ljava/io/File;Ljava/io/File;)I
     .locals 4
-    .parameter "apkFile"
-    .parameter "sharedLibraryDir"
+    .param p0, "apkFile"    # Ljava/io/File;
+    .param p1, "sharedLibraryDir"    # Ljava/io/File;
 
     .prologue
     .line 60
     sget-object v0, Landroid/os/Build;->CPU_ABI:Ljava/lang/String;
 
     .line 61
-    .local v0, cpuAbi:Ljava/lang/String;
+    .local v0, "cpuAbi":Ljava/lang/String;
     sget-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
     .line 62
-    .local v1, cpuAbi2:Ljava/lang/String;
+    .local v1, "cpuAbi2":Ljava/lang/String;
     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v2
@@ -58,14 +58,14 @@
 
 .method public static removeNativeBinariesFromDirLI(Ljava/io/File;)Z
     .locals 6
-    .parameter "nativeLibraryDir"
+    .param p0, "nativeLibraryDir"    # Ljava/io/File;
 
     .prologue
     .line 78
     const/4 v1, 0x0
 
     .line 85
-    .local v1, deletedFiles:Z
+    .local v1, "deletedFiles":Z
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -78,13 +78,13 @@
     move-result-object v0
 
     .line 87
-    .local v0, binaries:[Ljava/io/File;
+    .local v0, "binaries":[Ljava/io/File;
     if-eqz v0, :cond_1
 
     .line 88
     const/4 v2, 0x0
 
-    .local v2, nn:I
+    .local v2, "nn":I
     :goto_0
     array-length v3, v0
 
@@ -141,15 +141,15 @@
     goto :goto_1
 
     .line 104
-    .end local v0           #binaries:[Ljava/io/File;
-    .end local v2           #nn:I
+    .end local v0    # "binaries":[Ljava/io/File;
+    .end local v2    # "nn":I
     :cond_1
     return v1
 .end method
 
 .method public static removeNativeBinariesLI(Ljava/lang/String;)Z
     .locals 1
-    .parameter "nativeLibraryPath"
+    .param p0, "nativeLibraryPath"    # Ljava/lang/String;
 
     .prologue
     .line 68
@@ -166,18 +166,18 @@
 
 .method public static sumNativeBinariesLI(Ljava/io/File;)J
     .locals 4
-    .parameter "apkFile"
+    .param p0, "apkFile"    # Ljava/io/File;
 
     .prologue
     .line 43
     sget-object v0, Landroid/os/Build;->CPU_ABI:Ljava/lang/String;
 
     .line 44
-    .local v0, cpuAbi:Ljava/lang/String;
+    .local v0, "cpuAbi":Ljava/lang/String;
     sget-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
     .line 45
-    .local v1, cpuAbi2:Ljava/lang/String;
+    .local v1, "cpuAbi2":Ljava/lang/String;
     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v2

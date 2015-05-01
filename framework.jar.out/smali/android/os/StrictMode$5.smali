@@ -23,9 +23,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/os/StrictMode$ViolationInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter
-    .parameter
+    .param p1, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 1400
@@ -56,7 +54,7 @@
     move-result-object v0
 
     .line 1405
-    .local v0, am:Landroid/app/IActivityManager;
+    .local v0, "am":Landroid/app/IActivityManager;
     if-nez v0, :cond_1
 
     .line 1406
@@ -69,8 +67,9 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1416
-    .end local v0           #am:Landroid/app/IActivityManager;
+    .end local v0    # "am":Landroid/app/IActivityManager;
     :goto_0
+    # getter for: Landroid/os/StrictMode;->sDropboxCallsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
     invoke-static {}, Landroid/os/StrictMode;->access$1400()Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-result-object v3
@@ -80,7 +79,8 @@
     move-result v2
 
     .line 1417
-    .local v2, outstanding:I
+    .local v2, "outstanding":I
+    # getter for: Landroid/os/StrictMode;->LOG_V:Z
     invoke-static {}, Landroid/os/StrictMode;->access$800()Z
 
     move-result v3
@@ -114,8 +114,8 @@
     return-void
 
     .line 1408
-    .end local v2           #outstanding:I
-    .restart local v0       #am:Landroid/app/IActivityManager;
+    .end local v2    # "outstanding":I
+    .restart local v0    # "am":Landroid/app/IActivityManager;
     :cond_1
     :try_start_1
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->getApplicationObject()Landroid/os/IBinder;
@@ -133,12 +133,12 @@
     goto :goto_0
 
     .line 1413
-    .end local v0           #am:Landroid/app/IActivityManager;
+    .end local v0    # "am":Landroid/app/IActivityManager;
     :catch_0
     move-exception v1
 
     .line 1414
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "StrictMode"
 
     const-string v4, "RemoteException handling StrictMode violation"

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ListPopupWindow;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/view/View;
 
     .prologue
     .line 1001

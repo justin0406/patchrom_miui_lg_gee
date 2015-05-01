@@ -72,7 +72,7 @@
 
 .method public constructor <init>(Ljava/util/UUID;)V
     .locals 3
-    .parameter "uuid"
+    .param p1, "uuid"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/media/UnsupportedSchemeException;
@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
     .line 153
@@ -141,7 +141,7 @@
 
 .method static synthetic access$000(Landroid/media/MediaDrm;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
 
     .prologue
     .line 96
@@ -152,7 +152,7 @@
 
 .method static synthetic access$100(Landroid/media/MediaDrm;)Landroid/media/MediaDrm$OnEventListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
 
     .prologue
     .line 96
@@ -163,9 +163,9 @@
 
 .method static synthetic access$200(Landroid/media/MediaDrm;[BLjava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -176,9 +176,9 @@
 
 .method static synthetic access$300(Landroid/media/MediaDrm;[BLjava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -189,11 +189,11 @@
 
 .method static synthetic access$400(Landroid/media/MediaDrm;[B[B[B[B)[B
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # [B
+    .param p3, "x3"    # [B
+    .param p4, "x4"    # [B
 
     .prologue
     .line 96
@@ -206,11 +206,11 @@
 
 .method static synthetic access$500(Landroid/media/MediaDrm;[B[B[B[B)[B
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # [B
+    .param p3, "x3"    # [B
+    .param p4, "x4"    # [B
 
     .prologue
     .line 96
@@ -223,10 +223,10 @@
 
 .method static synthetic access$600(Landroid/media/MediaDrm;[B[B[B)[B
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # [B
+    .param p3, "x3"    # [B
 
     .prologue
     .line 96
@@ -239,11 +239,11 @@
 
 .method static synthetic access$700(Landroid/media/MediaDrm;[B[B[B[B)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/media/MediaDrm;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # [B
+    .param p3, "x3"    # [B
+    .param p4, "x4"    # [B
 
     .prologue
     .line 96
@@ -262,7 +262,7 @@
 
 .method private static final getByteArrayFromUUID(Ljava/util/UUID;)[B
     .locals 9
-    .parameter "uuid"
+    .param p0, "uuid"    # Ljava/util/UUID;
 
     .prologue
     .line 127
@@ -271,22 +271,22 @@
     move-result-wide v3
 
     .line 128
-    .local v3, msb:J
+    .local v3, "msb":J
     invoke-virtual {p0}, Ljava/util/UUID;->getLeastSignificantBits()J
 
     move-result-wide v1
 
     .line 130
-    .local v1, lsb:J
+    .local v1, "lsb":J
     const/16 v6, 0x10
 
     new-array v5, v6, [B
 
     .line 131
-    .local v5, uuidBytes:[B
+    .local v5, "uuidBytes":[B
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v6, 0x8
 
@@ -332,7 +332,7 @@
 
 .method public static final isCryptoSchemeSupported(Ljava/util/UUID;)Z
     .locals 2
-    .parameter "uuid"
+    .param p0, "uuid"    # Ljava/util/UUID;
 
     .prologue
     .line 111
@@ -351,8 +351,8 @@
 
 .method public static final isCryptoSchemeSupported(Ljava/util/UUID;Ljava/lang/String;)Z
     .locals 1
-    .parameter "uuid"
-    .parameter "mimeType"
+    .param p0, "uuid"    # Ljava/util/UUID;
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 123
@@ -381,16 +381,16 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IILjava/lang/Object;)V
     .locals 4
-    .parameter "mediadrm_ref"
-    .parameter "eventType"
-    .parameter "extra"
-    .parameter "obj"
+    .param p0, "mediadrm_ref"    # Ljava/lang/Object;
+    .param p1, "eventType"    # I
+    .param p2, "extra"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 275
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    .end local p0
+    .end local p0    # "mediadrm_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -398,7 +398,7 @@
     check-cast v1, Landroid/media/MediaDrm;
 
     .line 276
-    .local v1, md:Landroid/media/MediaDrm;
+    .local v1, "md":Landroid/media/MediaDrm;
     if-nez v1, :cond_1
 
     .line 283
@@ -422,7 +422,7 @@
     move-result-object v0
 
     .line 281
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v2, v1, Landroid/media/MediaDrm;->mEventHandler:Landroid/media/MediaDrm$EventHandler;
 
     invoke-virtual {v2, v0}, Landroid/media/MediaDrm$EventHandler;->sendMessage(Landroid/os/Message;)Z
@@ -460,9 +460,9 @@
 
 .method public getCryptoSession([BLjava/lang/String;Ljava/lang/String;)Landroid/media/MediaDrm$CryptoSession;
     .locals 6
-    .parameter "sessionId"
-    .parameter "cipherAlgorithm"
-    .parameter "macAlgorithm"
+    .param p1, "sessionId"    # [B
+    .param p2, "cipherAlgorithm"    # Ljava/lang/String;
+    .param p3, "macAlgorithm"    # Ljava/lang/String;
 
     .prologue
     .line 685
@@ -576,7 +576,7 @@
 
 .method public setOnEventListener(Landroid/media/MediaDrm$OnEventListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/MediaDrm$OnEventListener;
 
     .prologue
     .line 174

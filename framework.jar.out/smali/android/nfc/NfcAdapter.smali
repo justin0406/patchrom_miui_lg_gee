@@ -126,7 +126,7 @@
 
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 512
@@ -182,7 +182,7 @@
 
 .method public static getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
     .locals 3
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 475
@@ -226,7 +226,7 @@
     check-cast v0, Landroid/nfc/NfcManager;
 
     .line 485
-    .local v0, manager:Landroid/nfc/NfcManager;
+    .local v0, "manager":Landroid/nfc/NfcManager;
     if-nez v0, :cond_2
 
     .line 487
@@ -246,7 +246,7 @@
 
 .method public static declared-synchronized getNfcAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
     .locals 5
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 409
@@ -331,8 +331,8 @@
 
     sput-object v2, Landroid/nfc/NfcAdapter;->sTagService:Landroid/nfc/INfcTag;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 429
     :try_start_3
@@ -344,8 +344,8 @@
 
     sput-object v2, Landroid/nfc/NfcAdapter;->sCardEmulationService:Landroid/nfc/INfcCardEmulation;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 435
     const/4 v2, 0x1
@@ -389,7 +389,7 @@
     move-exception v1
 
     .line 424
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     :try_start_5
     const-string v2, "NFC"
 
@@ -405,12 +405,12 @@
     throw v2
 
     .line 430
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 431
-    .restart local v1       #e:Landroid/os/RemoteException;
+    .restart local v1    # "e":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v4, "could not retrieve card emulation service"
@@ -425,7 +425,7 @@
     throw v2
 
     .line 443
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :cond_5
     sget-object v2, Landroid/nfc/NfcAdapter;->sNfcAdapters:Ljava/util/HashMap;
 
@@ -436,17 +436,17 @@
     check-cast v0, Landroid/nfc/NfcAdapter;
 
     .line 444
-    .local v0, adapter:Landroid/nfc/NfcAdapter;
+    .local v0, "adapter":Landroid/nfc/NfcAdapter;
     if-nez v0, :cond_4
 
     .line 445
     new-instance v0, Landroid/nfc/NfcAdapter;
 
-    .end local v0           #adapter:Landroid/nfc/NfcAdapter;
+    .end local v0    # "adapter":Landroid/nfc/NfcAdapter;
     invoke-direct {v0, p0}, Landroid/nfc/NfcAdapter;-><init>(Landroid/content/Context;)V
 
     .line 446
-    .restart local v0       #adapter:Landroid/nfc/NfcAdapter;
+    .restart local v0    # "adapter":Landroid/nfc/NfcAdapter;
     sget-object v2, Landroid/nfc/NfcAdapter;->sNfcAdapters:Ljava/util/HashMap;
 
     invoke-virtual {v2, p0, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -468,7 +468,7 @@
     move-result-object v0
 
     .line 455
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     if-nez v0, :cond_0
 
     .line 456
@@ -498,7 +498,7 @@
     move-result-object v1
 
     .line 391
-    .local v1, pm:Landroid/content/pm/IPackageManager;
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     if-nez v1, :cond_0
 
     .line 392
@@ -530,7 +530,7 @@
     move-exception v0
 
     .line 398
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "NFC"
 
     const-string v4, "Package manager query failed, assuming no NFC feature"
@@ -544,7 +544,7 @@
 # virtual methods
 .method public attemptDeadServiceRecovery(Ljava/lang/Exception;)V
     .locals 4
-    .parameter "e"
+    .param p1, "e"    # Ljava/lang/Exception;
 
     .prologue
     .line 556
@@ -560,7 +560,7 @@
     move-result-object v1
 
     .line 558
-    .local v1, service:Landroid/nfc/INfcAdapter;
+    .local v1, "service":Landroid/nfc/INfcAdapter;
     if-nez v1, :cond_0
 
     .line 559
@@ -605,7 +605,7 @@
     move-exception v0
 
     .line 579
-    .local v0, ee:Landroid/os/RemoteException;
+    .local v0, "ee":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "could not retrieve NFC card emulation service during service recovery"
@@ -615,12 +615,12 @@
     goto :goto_0
 
     .line 569
-    .end local v0           #ee:Landroid/os/RemoteException;
+    .end local v0    # "ee":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
 
     .line 570
-    .restart local v0       #ee:Landroid/os/RemoteException;
+    .restart local v0    # "ee":Landroid/os/RemoteException;
     const-string v2, "NFC"
 
     const-string v3, "could not retrieve NFC tag service during service recovery"
@@ -655,7 +655,7 @@
     move-exception v0
 
     .line 676
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 677
@@ -666,7 +666,7 @@
 
 .method public disableForegroundDispatch(Landroid/app/Activity;)V
     .locals 2
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 1166
@@ -689,8 +689,8 @@
 
 .method disableForegroundDispatchInternal(Landroid/app/Activity;Z)V
     .locals 5
-    .parameter "activity"
-    .parameter "force"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "force"    # Z
 
     .prologue
     .line 1180
@@ -730,18 +730,18 @@
     move-exception v0
 
     .line 1186
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 1188
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public disableForegroundNdefPush(Landroid/app/Activity;)V
     .locals 3
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -806,7 +806,7 @@
     move-exception v0
 
     .line 1315
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 1316
@@ -817,7 +817,7 @@
 
 .method public disableReaderMode(Landroid/app/Activity;)V
     .locals 1
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 1224
@@ -831,7 +831,7 @@
 
 .method public dispatch(Landroid/nfc/Tag;)V
     .locals 3
-    .parameter "tag"
+    .param p1, "tag"    # Landroid/nfc/Tag;
 
     .prologue
     .line 1360
@@ -864,7 +864,7 @@
     move-exception v0
 
     .line 1366
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     goto :goto_0
@@ -893,7 +893,7 @@
     move-exception v0
 
     .line 648
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 649
@@ -904,10 +904,10 @@
 
 .method public enableForegroundDispatch(Landroid/app/Activity;Landroid/app/PendingIntent;[Landroid/content/IntentFilter;[[Ljava/lang/String;)V
     .locals 5
-    .parameter "activity"
-    .parameter "intent"
-    .parameter "filters"
-    .parameter "techLists"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "intent"    # Landroid/app/PendingIntent;
+    .param p3, "filters"    # [Landroid/content/IntentFilter;
+    .param p4, "techLists"    # [[Ljava/lang/String;
 
     .prologue
     .line 1131
@@ -945,7 +945,7 @@
     const/4 v1, 0x0
 
     .line 1140
-    .local v1, parcel:Landroid/nfc/TechListParcel;
+    .local v1, "parcel":Landroid/nfc/TechListParcel;
     if-eqz p4, :cond_3
 
     :try_start_0
@@ -958,13 +958,13 @@
 
     invoke-direct {v2, p4}, Landroid/nfc/TechListParcel;-><init>([[Ljava/lang/String;)V
 
-    .end local v1           #parcel:Landroid/nfc/TechListParcel;
-    .local v2, parcel:Landroid/nfc/TechListParcel;
+    .end local v1    # "parcel":Landroid/nfc/TechListParcel;
+    .local v2, "parcel":Landroid/nfc/TechListParcel;
     move-object v1, v2
 
     .line 1143
-    .end local v2           #parcel:Landroid/nfc/TechListParcel;
-    .restart local v1       #parcel:Landroid/nfc/TechListParcel;
+    .end local v2    # "parcel":Landroid/nfc/TechListParcel;
+    .restart local v1    # "parcel":Landroid/nfc/TechListParcel;
     :cond_3
     invoke-static {}, Landroid/app/ActivityThread;->currentActivityThread()Landroid/app/ActivityThread;
 
@@ -990,7 +990,7 @@
     move-exception v0
 
     .line 1147
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     goto :goto_0
@@ -998,8 +998,8 @@
 
 .method public enableForegroundNdefPush(Landroid/app/Activity;Landroid/nfc/NdefMessage;)V
     .locals 2
-    .parameter "activity"
-    .parameter "message"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "message"    # Landroid/nfc/NdefMessage;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1055,7 +1055,7 @@
     move-exception v0
 
     .line 1301
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 1302
@@ -1066,10 +1066,10 @@
 
 .method public enableReaderMode(Landroid/app/Activity;Landroid/nfc/NfcAdapter$ReaderCallback;ILandroid/os/Bundle;)V
     .locals 1
-    .parameter "activity"
-    .parameter "callback"
-    .parameter "flags"
-    .parameter "extras"
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "callback"    # Landroid/nfc/NfcAdapter$ReaderCallback;
+    .param p3, "flags"    # I
+    .param p4, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 1213
@@ -1083,7 +1083,7 @@
 
 .method enforceResumed(Landroid/app/Activity;)V
     .locals 2
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 1398
@@ -1130,7 +1130,7 @@
     move-exception v0
 
     .line 623
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 624
@@ -1206,7 +1206,7 @@
     move-exception v0
 
     .line 1392
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 1393
@@ -1301,7 +1301,7 @@
     move-exception v0
 
     .line 601
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     goto :goto_0
@@ -1330,7 +1330,7 @@
     move-exception v0
 
     .line 1347
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     .line 1348
@@ -1341,8 +1341,8 @@
 
 .method public setBeamPushUris([Landroid/net/Uri;Landroid/app/Activity;)V
     .locals 7
-    .parameter "uris"
-    .parameter "activity"
+    .param p1, "uris"    # [Landroid/net/Uri;
+    .param p2, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 742
@@ -1364,20 +1364,20 @@
     .line 746
     move-object v0, p1
 
-    .local v0, arr$:[Landroid/net/Uri;
+    .local v0, "arr$":[Landroid/net/Uri;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_4
 
     aget-object v4, v0, v1
 
     .line 747
-    .local v4, uri:Landroid/net/Uri;
+    .local v4, "uri":Landroid/net/Uri;
     if-nez v4, :cond_1
 
     new-instance v5, Ljava/lang/NullPointerException;
@@ -1395,7 +1395,7 @@
     move-result-object v3
 
     .line 750
-    .local v3, scheme:Ljava/lang/String;
+    .local v3, "scheme":Ljava/lang/String;
     if-eqz v3, :cond_2
 
     const-string v5, "file"
@@ -1431,11 +1431,11 @@
     goto :goto_0
 
     .line 757
-    .end local v0           #arr$:[Landroid/net/Uri;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v3           #scheme:Ljava/lang/String;
-    .end local v4           #uri:Landroid/net/Uri;
+    .end local v0    # "arr$":[Landroid/net/Uri;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v3    # "scheme":Ljava/lang/String;
+    .end local v4    # "uri":Landroid/net/Uri;
     :cond_4
     iget-object v5, p0, Landroid/nfc/NfcAdapter;->mNfcActivityManager:Landroid/nfc/NfcActivityManager;
 
@@ -1447,8 +1447,8 @@
 
 .method public setBeamPushUrisCallback(Landroid/nfc/NfcAdapter$CreateBeamUrisCallback;Landroid/app/Activity;)V
     .locals 2
-    .parameter "callback"
-    .parameter "activity"
+    .param p1, "callback"    # Landroid/nfc/NfcAdapter$CreateBeamUrisCallback;
+    .param p2, "activity"    # Landroid/app/Activity;
 
     .prologue
     .line 818
@@ -1475,9 +1475,9 @@
 
 .method public setNdefPushMessage(Landroid/nfc/NdefMessage;Landroid/app/Activity;I)V
     .locals 2
-    .parameter "message"
-    .parameter "activity"
-    .parameter "flags"
+    .param p1, "message"    # Landroid/nfc/NdefMessage;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "flags"    # I
 
     .prologue
     .line 925
@@ -1504,9 +1504,9 @@
 
 .method public varargs setNdefPushMessage(Landroid/nfc/NdefMessage;Landroid/app/Activity;[Landroid/app/Activity;)V
     .locals 8
-    .parameter "message"
-    .parameter "activity"
-    .parameter "activities"
+    .param p1, "message"    # Landroid/nfc/NdefMessage;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "activities"    # [Landroid/app/Activity;
 
     .prologue
     .line 897
@@ -1515,7 +1515,7 @@
     move-result v5
 
     .line 899
-    .local v5, targetSdkVersion:I
+    .local v5, "targetSdkVersion":I
     if-nez p2, :cond_1
 
     .line 900
@@ -1535,7 +1535,7 @@
     move-exception v2
 
     .line 910
-    .local v2, e:Ljava/lang/IllegalStateException;
+    .local v2, "e":Ljava/lang/IllegalStateException;
     const/16 v6, 0x10
 
     if-ge v5, v6, :cond_3
@@ -1548,7 +1548,7 @@
     invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 919
-    .end local v2           #e:Ljava/lang/IllegalStateException;
+    .end local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_0
     return-void
 
@@ -1564,20 +1564,20 @@
     .line 903
     move-object v1, p3
 
-    .local v1, arr$:[Landroid/app/Activity;
+    .local v1, "arr$":[Landroid/app/Activity;
     array-length v4, v1
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v0, v1, v3
 
     .line 904
-    .local v0, a:Landroid/app/Activity;
+    .local v0, "a":Landroid/app/Activity;
     if-nez v0, :cond_2
 
     .line 905
@@ -1605,20 +1605,20 @@
     goto :goto_0
 
     .line 916
-    .end local v0           #a:Landroid/app/Activity;
-    .end local v1           #arr$:[Landroid/app/Activity;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .restart local v2       #e:Ljava/lang/IllegalStateException;
+    .end local v0    # "a":Landroid/app/Activity;
+    .end local v1    # "arr$":[Landroid/app/Activity;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .restart local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_3
     throw v2
 .end method
 
 .method public setNdefPushMessageCallback(Landroid/nfc/NfcAdapter$CreateNdefMessageCallback;Landroid/app/Activity;I)V
     .locals 2
-    .parameter "callback"
-    .parameter "activity"
-    .parameter "flags"
+    .param p1, "callback"    # Landroid/nfc/NfcAdapter$CreateNdefMessageCallback;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "flags"    # I
 
     .prologue
     .line 1027
@@ -1645,9 +1645,9 @@
 
 .method public varargs setNdefPushMessageCallback(Landroid/nfc/NfcAdapter$CreateNdefMessageCallback;Landroid/app/Activity;[Landroid/app/Activity;)V
     .locals 8
-    .parameter "callback"
-    .parameter "activity"
-    .parameter "activities"
+    .param p1, "callback"    # Landroid/nfc/NfcAdapter$CreateNdefMessageCallback;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "activities"    # [Landroid/app/Activity;
 
     .prologue
     .line 998
@@ -1656,7 +1656,7 @@
     move-result v5
 
     .line 1000
-    .local v5, targetSdkVersion:I
+    .local v5, "targetSdkVersion":I
     if-nez p2, :cond_1
 
     .line 1001
@@ -1676,7 +1676,7 @@
     move-exception v2
 
     .line 1011
-    .local v2, e:Ljava/lang/IllegalStateException;
+    .local v2, "e":Ljava/lang/IllegalStateException;
     const/16 v6, 0x10
 
     if-ge v5, v6, :cond_3
@@ -1689,7 +1689,7 @@
     invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1020
-    .end local v2           #e:Ljava/lang/IllegalStateException;
+    .end local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_0
     return-void
 
@@ -1705,20 +1705,20 @@
     .line 1004
     move-object v1, p3
 
-    .local v1, arr$:[Landroid/app/Activity;
+    .local v1, "arr$":[Landroid/app/Activity;
     array-length v4, v1
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v0, v1, v3
 
     .line 1005
-    .local v0, a:Landroid/app/Activity;
+    .local v0, "a":Landroid/app/Activity;
     if-nez v0, :cond_2
 
     .line 1006
@@ -1746,20 +1746,20 @@
     goto :goto_0
 
     .line 1017
-    .end local v0           #a:Landroid/app/Activity;
-    .end local v1           #arr$:[Landroid/app/Activity;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .restart local v2       #e:Ljava/lang/IllegalStateException;
+    .end local v0    # "a":Landroid/app/Activity;
+    .end local v1    # "arr$":[Landroid/app/Activity;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .restart local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_3
     throw v2
 .end method
 
 .method public varargs setOnNdefPushCompleteCallback(Landroid/nfc/NfcAdapter$OnNdefPushCompleteCallback;Landroid/app/Activity;[Landroid/app/Activity;)V
     .locals 8
-    .parameter "callback"
-    .parameter "activity"
-    .parameter "activities"
+    .param p1, "callback"    # Landroid/nfc/NfcAdapter$OnNdefPushCompleteCallback;
+    .param p2, "activity"    # Landroid/app/Activity;
+    .param p3, "activities"    # [Landroid/app/Activity;
 
     .prologue
     .line 1072
@@ -1768,7 +1768,7 @@
     move-result v5
 
     .line 1074
-    .local v5, targetSdkVersion:I
+    .local v5, "targetSdkVersion":I
     if-nez p2, :cond_1
 
     .line 1075
@@ -1788,7 +1788,7 @@
     move-exception v2
 
     .line 1085
-    .local v2, e:Ljava/lang/IllegalStateException;
+    .local v2, "e":Ljava/lang/IllegalStateException;
     const/16 v6, 0x10
 
     if-ge v5, v6, :cond_3
@@ -1801,7 +1801,7 @@
     invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1094
-    .end local v2           #e:Ljava/lang/IllegalStateException;
+    .end local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_0
     return-void
 
@@ -1815,20 +1815,20 @@
     .line 1078
     move-object v1, p3
 
-    .local v1, arr$:[Landroid/app/Activity;
+    .local v1, "arr$":[Landroid/app/Activity;
     array-length v4, v1
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v0, v1, v3
 
     .line 1079
-    .local v0, a:Landroid/app/Activity;
+    .local v0, "a":Landroid/app/Activity;
     if-nez v0, :cond_2
 
     .line 1080
@@ -1854,19 +1854,19 @@
     goto :goto_0
 
     .line 1091
-    .end local v0           #a:Landroid/app/Activity;
-    .end local v1           #arr$:[Landroid/app/Activity;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .restart local v2       #e:Ljava/lang/IllegalStateException;
+    .end local v0    # "a":Landroid/app/Activity;
+    .end local v1    # "arr$":[Landroid/app/Activity;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .restart local v2    # "e":Ljava/lang/IllegalStateException;
     :cond_3
     throw v2
 .end method
 
 .method public setP2pModes(II)V
     .locals 2
-    .parameter "initiatorModes"
-    .parameter "targetModes"
+    .param p1, "initiatorModes"    # I
+    .param p2, "targetModes"    # I
 
     .prologue
     .line 1375
@@ -1886,7 +1886,7 @@
     move-exception v0
 
     .line 1377
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
 
     goto :goto_0

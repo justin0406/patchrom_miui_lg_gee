@@ -35,8 +35,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;Ljava/lang/String;)V
     .locals 2
-    .parameter
-    .parameter "name"
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 138
@@ -86,7 +85,7 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/server/NsdService$NsdStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
     .line 143
-    #calls: Lcom/android/server/NsdService;->isNsdEnabled()Z
+    # invokes: Lcom/android/server/NsdService;->isNsdEnabled()Z
     invoke-static {p1}, Lcom/android/server/NsdService;->access$100(Lcom/android/server/NsdService;)Z
 
     move-result v0
@@ -121,7 +120,7 @@
 
 .method static synthetic access$1400(Lcom/android/server/NsdService$NsdStateMachine;)Lcom/android/server/NsdService$NsdStateMachine$DisabledState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NsdService$NsdStateMachine;
 
     .prologue
     .line 107
@@ -132,8 +131,8 @@
 
 .method static synthetic access$1500(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/NsdService$NsdStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 107
@@ -144,7 +143,7 @@
 
 .method static synthetic access$800(Lcom/android/server/NsdService$NsdStateMachine;)Lcom/android/server/NsdService$NsdStateMachine$EnabledState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NsdService$NsdStateMachine;
 
     .prologue
     .line 107
@@ -155,8 +154,8 @@
 
 .method static synthetic access$900(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/NsdService$NsdStateMachine;
+    .param p1, "x1"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 107
@@ -179,10 +178,10 @@
     invoke-direct {v0, p0, v1}, Lcom/android/server/NsdService$NsdStateMachine$1;-><init>(Lcom/android/server/NsdService$NsdStateMachine;Landroid/os/Handler;)V
 
     .line 133
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .local v0, "contentObserver":Landroid/database/ContentObserver;
     iget-object v1, p0, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
 
-    #getter for: Lcom/android/server/NsdService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/NsdService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/NsdService;->access$300(Lcom/android/server/NsdService;)Landroid/content/Context;
 
     move-result-object v1
@@ -209,11 +208,11 @@
 # virtual methods
 .method protected getWhatToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 115
-    #calls: Lcom/android/server/NsdService;->cmdToString(I)Ljava/lang/String;
+    # invokes: Lcom/android/server/NsdService;->cmdToString(I)Ljava/lang/String;
     invoke-static {p1}, Lcom/android/server/NsdService;->access$000(I)Ljava/lang/String;
 
     move-result-object v0

@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/widget/ExpandableListConnector$GroupMetadata;
     .locals 6
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 934
@@ -67,13 +67,13 @@
     move-result-object v0
 
     .line 939
-    .local v0, gm:Landroid/widget/ExpandableListConnector$GroupMetadata;
+    .local v0, "gm":Landroid/widget/ExpandableListConnector$GroupMetadata;
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 931
@@ -86,7 +86,7 @@
 
 .method public newArray(I)[Landroid/widget/ExpandableListConnector$GroupMetadata;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 943
@@ -97,7 +97,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 931

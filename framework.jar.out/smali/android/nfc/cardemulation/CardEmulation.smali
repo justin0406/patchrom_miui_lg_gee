@@ -65,8 +65,8 @@
 
 .method private constructor <init>(Landroid/content/Context;Landroid/nfc/INfcCardEmulation;)V
     .locals 1
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/nfc/INfcCardEmulation;
 
     .prologue
     .line 132
@@ -88,7 +88,7 @@
 
 .method public static declared-synchronized getInstance(Landroid/nfc/NfcAdapter;)Landroid/nfc/cardemulation/CardEmulation;
     .locals 8
-    .parameter "adapter"
+    .param p0, "adapter"    # Landroid/nfc/NfcAdapter;
 
     .prologue
     .line 144
@@ -124,7 +124,7 @@
     move-result-object v0
 
     .line 146
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     if-nez v0, :cond_1
 
     .line 147
@@ -153,7 +153,7 @@
     move-result-object v3
 
     .line 152
-    .local v3, pm:Landroid/content/pm/IPackageManager;
+    .local v3, "pm":Landroid/content/pm/IPackageManager;
     if-nez v3, :cond_2
 
     .line 153
@@ -197,15 +197,15 @@
 
     throw v5
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 161
     :catch_0
     move-exception v1
 
     .line 162
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     :try_start_3
     const-string v5, "CardEmulation"
 
@@ -221,14 +221,14 @@
     throw v5
 
     .line 165
-    .end local v1           #e:Landroid/os/RemoteException;
+    .end local v1    # "e":Landroid/os/RemoteException;
     :cond_3
     const/4 v5, 0x1
 
     sput-boolean v5, Landroid/nfc/cardemulation/CardEmulation;->sIsInitialized:Z
 
     .line 167
-    .end local v3           #pm:Landroid/content/pm/IPackageManager;
+    .end local v3    # "pm":Landroid/content/pm/IPackageManager;
     :cond_4
     sget-object v5, Landroid/nfc/cardemulation/CardEmulation;->sCardEmus:Ljava/util/HashMap;
 
@@ -239,7 +239,7 @@
     check-cast v2, Landroid/nfc/cardemulation/CardEmulation;
 
     .line 168
-    .local v2, manager:Landroid/nfc/cardemulation/CardEmulation;
+    .local v2, "manager":Landroid/nfc/cardemulation/CardEmulation;
     if-nez v2, :cond_5
 
     .line 170
@@ -248,14 +248,14 @@
     move-result-object v4
 
     .line 171
-    .local v4, service:Landroid/nfc/INfcCardEmulation;
+    .local v4, "service":Landroid/nfc/INfcCardEmulation;
     new-instance v2, Landroid/nfc/cardemulation/CardEmulation;
 
-    .end local v2           #manager:Landroid/nfc/cardemulation/CardEmulation;
+    .end local v2    # "manager":Landroid/nfc/cardemulation/CardEmulation;
     invoke-direct {v2, v0, v4}, Landroid/nfc/cardemulation/CardEmulation;-><init>(Landroid/content/Context;Landroid/nfc/INfcCardEmulation;)V
 
     .line 172
-    .restart local v2       #manager:Landroid/nfc/cardemulation/CardEmulation;
+    .restart local v2    # "manager":Landroid/nfc/cardemulation/CardEmulation;
     sget-object v5, Landroid/nfc/cardemulation/CardEmulation;->sCardEmus:Ljava/util/HashMap;
 
     invoke-virtual {v5, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -263,7 +263,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 174
-    .end local v4           #service:Landroid/nfc/INfcCardEmulation;
+    .end local v4    # "service":Landroid/nfc/INfcCardEmulation;
     :cond_5
     monitor-exit v6
 
@@ -274,7 +274,7 @@
 # virtual methods
 .method public getSelectionModeForCategory(Ljava/lang/String;)I
     .locals 3
-    .parameter "category"
+    .param p1, "category"    # Ljava/lang/String;
 
     .prologue
     .line 259
@@ -300,26 +300,26 @@
     move-result-object v0
 
     .line 262
-    .local v0, defaultComponent:Ljava/lang/String;
+    .local v0, "defaultComponent":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 263
     const/4 v1, 0x0
 
     .line 269
-    .end local v0           #defaultComponent:Ljava/lang/String;
+    .end local v0    # "defaultComponent":Ljava/lang/String;
     :goto_0
     return v1
 
     .line 265
-    .restart local v0       #defaultComponent:Ljava/lang/String;
+    .restart local v0    # "defaultComponent":Ljava/lang/String;
     :cond_0
     const/4 v1, 0x1
 
     goto :goto_0
 
     .line 269
-    .end local v0           #defaultComponent:Ljava/lang/String;
+    .end local v0    # "defaultComponent":Ljava/lang/String;
     :cond_1
     const/4 v1, 0x2
 
@@ -328,7 +328,7 @@
 
 .method public getServices(Ljava/lang/String;)Ljava/util/List;
     .locals 5
-    .parameter "category"
+    .param p1, "category"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -367,7 +367,7 @@
     move-exception v0
 
     .line 326
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->recoverService()V
 
     .line 327
@@ -406,7 +406,7 @@
     move-exception v1
 
     .line 334
-    .local v1, ee:Landroid/os/RemoteException;
+    .local v1, "ee":Landroid/os/RemoteException;
     const-string v3, "CardEmulation"
 
     const-string v4, "Failed to reach CardEmulationService."
@@ -418,8 +418,8 @@
 
 .method public isDefaultServiceForAid(Landroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 5
-    .parameter "service"
-    .parameter "aid"
+    .param p1, "service"    # Landroid/content/ComponentName;
+    .param p2, "aid"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -447,7 +447,7 @@
     move-exception v0
 
     .line 232
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->recoverService()V
 
     .line 233
@@ -486,7 +486,7 @@
     move-exception v1
 
     .line 240
-    .local v1, ee:Landroid/os/RemoteException;
+    .local v1, "ee":Landroid/os/RemoteException;
     const-string v3, "CardEmulation"
 
     const-string v4, "Failed to reach CardEmulationService."
@@ -498,8 +498,8 @@
 
 .method public isDefaultServiceForCategory(Landroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 5
-    .parameter "service"
-    .parameter "category"
+    .param p1, "service"    # Landroid/content/ComponentName;
+    .param p2, "category"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -527,7 +527,7 @@
     move-exception v0
 
     .line 201
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->recoverService()V
 
     .line 202
@@ -566,7 +566,7 @@
     move-exception v1
 
     .line 210
-    .local v1, ee:Landroid/os/RemoteException;
+    .local v1, "ee":Landroid/os/RemoteException;
     const-string v3, "CardEmulation"
 
     const-string v4, "Failed to recover CardEmulationService."
@@ -588,7 +588,7 @@
     move-result-object v0
 
     .line 342
-    .local v0, adapter:Landroid/nfc/NfcAdapter;
+    .local v0, "adapter":Landroid/nfc/NfcAdapter;
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getCardEmulationService()Landroid/nfc/INfcCardEmulation;
 
     move-result-object v1
@@ -601,7 +601,7 @@
 
 .method public setDefaultForNextTap(Landroid/content/ComponentName;)Z
     .locals 5
-    .parameter "service"
+    .param p1, "service"    # Landroid/content/ComponentName;
 
     .prologue
     const/4 v2, 0x0
@@ -629,7 +629,7 @@
     move-exception v0
 
     .line 304
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->recoverService()V
 
     .line 305
@@ -668,7 +668,7 @@
     move-exception v1
 
     .line 312
-    .local v1, ee:Landroid/os/RemoteException;
+    .local v1, "ee":Landroid/os/RemoteException;
     const-string v3, "CardEmulation"
 
     const-string v4, "Failed to reach CardEmulationService."
@@ -680,8 +680,8 @@
 
 .method public setDefaultServiceForCategory(Landroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 5
-    .parameter "service"
-    .parameter "category"
+    .param p1, "service"    # Landroid/content/ComponentName;
+    .param p2, "category"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -709,7 +709,7 @@
     move-exception v0
 
     .line 281
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->recoverService()V
 
     .line 282
@@ -748,7 +748,7 @@
     move-exception v1
 
     .line 290
-    .local v1, ee:Landroid/os/RemoteException;
+    .local v1, "ee":Landroid/os/RemoteException;
     const-string v3, "CardEmulation"
 
     const-string v4, "Failed to reach CardEmulationService."

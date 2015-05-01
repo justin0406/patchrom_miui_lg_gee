@@ -16,8 +16,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
     .locals 8
-    .parameter "context"
-    .parameter "name"
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 83
@@ -59,7 +59,7 @@
     move-result-object v7
 
     .line 86
-    .local v7, replacer:Landroid/filterfw/core/Filter;
+    .local v7, "replacer":Landroid/filterfw/core/Filter;
     const-string v0, "learningDoneListener"
 
     iget-object v1, p0, Landroid/media/effect/effects/BackDropperEffect;->mLearningListener:Landroid/filterpacks/videoproc/BackDropperFilter$LearningDoneListener;
@@ -72,7 +72,7 @@
 
 .method static synthetic access$000(Landroid/media/effect/effects/BackDropperEffect;)Landroid/media/effect/EffectUpdateListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/effect/effects/BackDropperEffect;
 
     .prologue
     .line 41
@@ -85,8 +85,8 @@
 # virtual methods
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .parameter "parameterKey"
-    .parameter "value"
+    .param p1, "parameterKey"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 91
@@ -108,13 +108,13 @@
     move-result-object v0
 
     .line 93
-    .local v0, background:Landroid/filterfw/core/Filter;
+    .local v0, "background":Landroid/filterfw/core/Filter;
     const-string/jumbo v1, "sourceUrl"
 
     invoke-virtual {v0, v1, p2}, Landroid/filterfw/core/Filter;->setInputValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 98
-    .end local v0           #background:Landroid/filterfw/core/Filter;
+    .end local v0    # "background":Landroid/filterfw/core/Filter;
     :cond_0
     :goto_0
     return-void
@@ -139,7 +139,7 @@
     move-result-object v0
 
     .line 96
-    .restart local v0       #background:Landroid/filterfw/core/Filter;
+    .restart local v0    # "background":Landroid/filterfw/core/Filter;
     const-string v1, "context"
 
     invoke-virtual {v0, v1, p2}, Landroid/filterfw/core/Filter;->setInputValue(Ljava/lang/String;Ljava/lang/Object;)V
@@ -149,7 +149,7 @@
 
 .method public setUpdateListener(Landroid/media/effect/EffectUpdateListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/effect/EffectUpdateListener;
 
     .prologue
     .line 102

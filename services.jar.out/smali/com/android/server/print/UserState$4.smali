@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState;Landroid/content/ComponentName;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 808
@@ -51,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/UserState$4;->val$serviceName:Landroid/content/ComponentName;
 
-    #calls: Lcom/android/server/print/UserState;->failScheduledPrintJobsForServiceInternal(Landroid/content/ComponentName;)V
+    # invokes: Lcom/android/server/print/UserState;->failScheduledPrintJobsForServiceInternal(Landroid/content/ComponentName;)V
     invoke-static {v0, v1}, Lcom/android/server/print/UserState;->access$400(Lcom/android/server/print/UserState;Landroid/content/ComponentName;)V
 
     .line 812

@@ -34,13 +34,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;II[Lcom/android/internal/app/LocalePicker$LocaleInfo;Landroid/view/LayoutInflater;II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter
-    .parameter
-    .parameter
+    .param p1, "x0"    # Landroid/content/Context;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # [Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
     .prologue
     .line 197
@@ -59,9 +56,9 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 6
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 202
@@ -79,7 +76,7 @@
     move-result-object v2
 
     .line 204
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     iget v3, p0, Lcom/android/internal/app/LocalePicker$1;->val$fieldId:I
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -89,7 +86,7 @@
     check-cast v1, Landroid/widget/TextView;
 
     .line 205
-    .local v1, text:Landroid/widget/TextView;
+    .local v1, "text":Landroid/widget/TextView;
     invoke-virtual {v2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     .line 210
@@ -101,7 +98,7 @@
     check-cast v0, Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
     .line 211
-    .local v0, item:Lcom/android/internal/app/LocalePicker$LocaleInfo;
+    .local v0, "item":Lcom/android/internal/app/LocalePicker$LocaleInfo;
     invoke-virtual {v0}, Lcom/android/internal/app/LocalePicker$LocaleInfo;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -119,20 +116,20 @@
     return-object v2
 
     .line 207
-    .end local v0           #item:Lcom/android/internal/app/LocalePicker$LocaleInfo;
-    .end local v1           #text:Landroid/widget/TextView;
-    .end local v2           #view:Landroid/view/View;
+    .end local v0    # "item":Lcom/android/internal/app/LocalePicker$LocaleInfo;
+    .end local v1    # "text":Landroid/widget/TextView;
+    .end local v2    # "view":Landroid/view/View;
     :cond_0
     move-object v2, p2
 
     .line 208
-    .restart local v2       #view:Landroid/view/View;
+    .restart local v2    # "view":Landroid/view/View;
     invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/TextView;
 
-    .restart local v1       #text:Landroid/widget/TextView;
+    .restart local v1    # "text":Landroid/widget/TextView;
     goto :goto_0
 .end method

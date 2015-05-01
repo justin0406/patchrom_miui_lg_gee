@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "name"
-    .parameter "drawable"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 144

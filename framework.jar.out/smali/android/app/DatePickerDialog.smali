@@ -36,12 +36,12 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
     .locals 5
-    .parameter "context"
-    .parameter "theme"
-    .parameter "callBack"
-    .parameter "year"
-    .parameter "monthOfYear"
-    .parameter "dayOfMonth"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
+    .param p3, "callBack"    # Landroid/app/DatePickerDialog$OnDateSetListener;
+    .param p4, "year"    # I
+    .param p5, "monthOfYear"    # I
+    .param p6, "dayOfMonth"    # I
 
     .prologue
     .line 96
@@ -68,10 +68,10 @@
     move-result-object v1
 
     .line 103
-    .local v1, themeContext:Landroid/content/Context;
+    .local v1, "themeContext":Landroid/content/Context;
     const/4 v3, -0x1
 
-    const v4, 0x104045b
+    const v4, 0x104045c
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -94,7 +94,7 @@
     check-cast v0, Landroid/view/LayoutInflater;
 
     .line 108
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v3, 0x1090039
 
     const/4 v4, 0x0
@@ -104,7 +104,7 @@
     move-result-object v2
 
     .line 109
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     invoke-virtual {p0, v2}, Landroid/app/DatePickerDialog;->setView(Landroid/view/View;)V
 
     .line 110
@@ -132,11 +132,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
     .locals 7
-    .parameter "context"
-    .parameter "callBack"
-    .parameter "year"
-    .parameter "monthOfYear"
-    .parameter "dayOfMonth"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "callBack"    # Landroid/app/DatePickerDialog$OnDateSetListener;
+    .param p3, "year"    # I
+    .param p4, "monthOfYear"    # I
+    .param p5, "dayOfMonth"    # I
 
     .prologue
     .line 79
@@ -206,9 +206,9 @@
 
 .method private updateTitle(III)V
     .locals 6
-    .parameter "year"
-    .parameter "month"
-    .parameter "day"
+    .param p1, "year"    # I
+    .param p2, "month"    # I
+    .param p3, "day"    # I
 
     .prologue
     const/4 v5, 0x1
@@ -257,14 +257,14 @@
     move-result-object v0
 
     .line 171
-    .local v0, title:Ljava/lang/String;
+    .local v0, "title":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/app/DatePickerDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 172
     iput-boolean v5, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
     .line 179
-    .end local v0           #title:Ljava/lang/String;
+    .end local v0    # "title":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
@@ -281,7 +281,7 @@
     iput-boolean v1, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
     .line 176
-    const v1, 0x1040459
+    const v1, 0x104045a
 
     invoke-virtual {p0, v1}, Landroid/app/DatePickerDialog;->setTitle(I)V
 
@@ -302,8 +302,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 116
@@ -315,10 +315,10 @@
 
 .method public onDateChanged(Landroid/widget/DatePicker;III)V
     .locals 1
-    .parameter "view"
-    .parameter "year"
-    .parameter "month"
-    .parameter "day"
+    .param p1, "view"    # Landroid/widget/DatePicker;
+    .param p2, "year"    # I
+    .param p3, "month"    # I
+    .param p4, "day"    # I
 
     .prologue
     .line 121
@@ -335,7 +335,7 @@
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 4
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 192
@@ -349,7 +349,7 @@
     move-result v2
 
     .line 194
-    .local v2, year:I
+    .local v2, "year":I
     const-string v3, "month"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -357,7 +357,7 @@
     move-result v1
 
     .line 195
-    .local v1, month:I
+    .local v1, "month":I
     const-string v3, "day"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -365,7 +365,7 @@
     move-result v0
 
     .line 196
-    .local v0, day:I
+    .local v0, "day":I
     iget-object v3, p0, Landroid/app/DatePickerDialog;->mDatePicker:Landroid/widget/DatePicker;
 
     invoke-virtual {v3, v2, v1, v0, p0}, Landroid/widget/DatePicker;->init(IIILandroid/widget/DatePicker$OnDateChangedListener;)V
@@ -384,7 +384,7 @@
     move-result-object v0
 
     .line 184
-    .local v0, state:Landroid/os/Bundle;
+    .local v0, "state":Landroid/os/Bundle;
     const-string/jumbo v1, "year"
 
     iget-object v2, p0, Landroid/app/DatePickerDialog;->mDatePicker:Landroid/widget/DatePicker;
@@ -437,9 +437,9 @@
 
 .method public updateDate(III)V
     .locals 1
-    .parameter "year"
-    .parameter "monthOfYear"
-    .parameter "dayOfMonth"
+    .param p1, "year"    # I
+    .param p2, "monthOfYear"    # I
+    .param p3, "dayOfMonth"    # I
 
     .prologue
     .line 142

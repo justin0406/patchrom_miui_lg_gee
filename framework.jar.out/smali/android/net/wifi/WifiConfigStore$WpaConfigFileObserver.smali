@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/net/wifi/WifiConfigStore;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 180
@@ -42,8 +41,8 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 2
-    .parameter "event"
-    .parameter "path"
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
     .line 186

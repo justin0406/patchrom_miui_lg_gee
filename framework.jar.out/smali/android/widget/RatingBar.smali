@@ -22,7 +22,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 120
@@ -36,8 +36,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 116
@@ -51,16 +51,16 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 10
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v5, 0x1
 
     const/4 v9, 0x0
 
-    const/high16 v8, -0x4080
+    const/high16 v8, -0x40800000    # -1.0f
 
     const/4 v4, 0x0
 
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 90
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     iget v6, p0, Landroid/widget/RatingBar;->mNumStars:I
 
     invoke-virtual {v0, v4, v6}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -88,7 +88,7 @@
     move-result v1
 
     .line 91
-    .local v1, numStars:I
+    .local v1, "numStars":I
     const/4 v6, 0x3
 
     iget-boolean v7, p0, Landroid/widget/RatingBar;->mIsUserSeekable:Z
@@ -110,7 +110,7 @@
     move-result v2
 
     .line 93
-    .local v2, rating:F
+    .local v2, "rating":F
     const/4 v4, 0x2
 
     invoke-virtual {v0, v4, v8}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -118,7 +118,7 @@
     move-result v3
 
     .line 94
-    .local v3, stepSize:F
+    .local v3, "stepSize":F
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 96
@@ -151,7 +151,7 @@
 
     .line 112
     :cond_2
-    const v4, 0x3f8ccccd
+    const v4, 0x3f8ccccd    # 1.1f
 
     iput v4, p0, Landroid/widget/RatingBar;->mTouchProgressOffset:F
 
@@ -160,7 +160,7 @@
 
     .line 103
     :cond_3
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
     invoke-virtual {p0, v4}, Landroid/widget/RatingBar;->setStepSize(F)V
 
@@ -171,7 +171,7 @@
     .locals 2
 
     .prologue
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     .line 236
     iget v1, p0, Landroid/widget/RatingBar;->mNumStars:I
@@ -200,7 +200,7 @@
 
 .method private updateSecondaryProgress(I)V
     .locals 7
-    .parameter "progress"
+    .param p1, "progress"    # I
 
     .prologue
     .line 270
@@ -209,7 +209,7 @@
     move-result v1
 
     .line 271
-    .local v1, ratio:F
+    .local v1, "ratio":F
     const/4 v3, 0x0
 
     cmpl-float v3, v1, v3
@@ -222,7 +222,7 @@
     div-float v0, v3, v1
 
     .line 273
-    .local v0, progressInStars:F
+    .local v0, "progressInStars":F
     float-to-double v3, v0
 
     invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
@@ -236,12 +236,12 @@
     double-to-int v2, v3
 
     .line 274
-    .local v2, secondaryProgress:I
+    .local v2, "secondaryProgress":I
     invoke-virtual {p0, v2}, Landroid/widget/RatingBar;->setSecondaryProgress(I)V
 
     .line 276
-    .end local v0           #progressInStars:F
-    .end local v2           #secondaryProgress:I
+    .end local v0    # "progressInStars":F
+    .end local v2    # "secondaryProgress":I
     :cond_0
     return-void
 .end method
@@ -250,7 +250,7 @@
 # virtual methods
 .method dispatchRatingChange(Z)V
     .locals 2
-    .parameter "fromUser"
+    .param p1, "fromUser"    # Z
 
     .prologue
     .line 314
@@ -368,7 +368,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 332
@@ -389,7 +389,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 338
@@ -426,8 +426,8 @@
 
 .method protected declared-synchronized onMeasure(II)V
     .locals 3
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 280
@@ -453,7 +453,7 @@
     mul-int v0, v1, v2
 
     .line 286
-    .local v0, width:I
+    .local v0, "width":I
     const/4 v1, 0x0
 
     invoke-static {v0, p1, v1}, Landroid/widget/RatingBar;->resolveSizeAndState(III)I
@@ -469,7 +469,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 289
-    .end local v0           #width:I
+    .end local v0    # "width":I
     :cond_0
     monitor-exit p0
 
@@ -486,8 +486,8 @@
 
 .method onProgressRefresh(FZ)V
     .locals 1
-    .parameter "scale"
-    .parameter "fromUser"
+    .param p1, "scale"    # F
+    .param p2, "fromUser"    # Z
 
     .prologue
     .line 251
@@ -559,7 +559,7 @@
 
 .method public setIsIndicator(Z)V
     .locals 3
-    .parameter "isIndicator"
+    .param p1, "isIndicator"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -598,7 +598,7 @@
 
 .method public declared-synchronized setMax(I)V
     .locals 1
-    .parameter "max"
+    .param p1, "max"    # I
 
     .prologue
     .line 323
@@ -632,7 +632,7 @@
 
 .method public setNumStars(I)V
     .locals 0
-    .parameter "numStars"
+    .param p1, "numStars"    # I
 
     .prologue
     .line 170
@@ -654,7 +654,7 @@
 
 .method public setOnRatingBarChangeListener(Landroid/widget/RatingBar$OnRatingBarChangeListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/widget/RatingBar$OnRatingBarChangeListener;
 
     .prologue
     .line 129
@@ -666,7 +666,7 @@
 
 .method public setRating(F)V
     .locals 1
-    .parameter "rating"
+    .param p1, "rating"    # F
 
     .prologue
     .line 194
@@ -688,7 +688,7 @@
 
 .method public setStepSize(F)V
     .locals 4
-    .parameter "stepSize"
+    .param p1, "stepSize"    # F
 
     .prologue
     .line 213
@@ -711,7 +711,7 @@
     div-float v0, v2, p1
 
     .line 218
-    .local v0, newMax:F
+    .local v0, "newMax":F
     invoke-virtual {p0}, Landroid/widget/RatingBar;->getMax()I
 
     move-result v2
@@ -731,7 +731,7 @@
     float-to-int v1, v2
 
     .line 219
-    .local v1, newProgress:I
+    .local v1, "newProgress":I
     float-to-int v2, v0
 
     invoke-virtual {p0, v2}, Landroid/widget/RatingBar;->setMax(I)V

@@ -13,7 +13,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/okhttp/HttpResponseCache;)V
     .locals 0
-    .parameter "delegate"
+    .param p1, "delegate"    # Lcom/android/okhttp/HttpResponseCache;
 
     .prologue
     .line 158
@@ -36,7 +36,7 @@
     move-result-object v0
 
     .line 168
-    .local v0, installed:Ljava/net/ResponseCache;
+    .local v0, "installed":Ljava/net/ResponseCache;
     instance-of v1, v0, Lcom/android/okhttp/HttpResponseCache;
 
     if-eqz v1, :cond_0
@@ -46,14 +46,14 @@
 
     check-cast v0, Lcom/android/okhttp/HttpResponseCache;
 
-    .end local v0           #installed:Ljava/net/ResponseCache;
+    .end local v0    # "installed":Ljava/net/ResponseCache;
     invoke-direct {v1, v0}, Landroid/net/http/HttpResponseCache;-><init>(Lcom/android/okhttp/HttpResponseCache;)V
 
     .line 173
     :goto_0
     return-object v1
 
-    .restart local v0       #installed:Ljava/net/ResponseCache;
+    .restart local v0    # "installed":Ljava/net/ResponseCache;
     :cond_0
     const/4 v1, 0x0
 
@@ -62,8 +62,8 @@
 
 .method public static install(Ljava/io/File;J)Landroid/net/http/HttpResponseCache;
     .locals 5
-    .parameter "directory"
-    .parameter "maxSize"
+    .param p0, "directory"    # Ljava/io/File;
+    .param p1, "maxSize"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, installed:Ljava/net/ResponseCache;
+    .local v0, "installed":Ljava/net/ResponseCache;
     instance-of v3, v0, Lcom/android/okhttp/HttpResponseCache;
 
     if-eqz v3, :cond_1
@@ -88,7 +88,7 @@
     check-cast v1, Lcom/android/okhttp/HttpResponseCache;
 
     .line 193
-    .local v1, installedCache:Lcom/android/okhttp/HttpResponseCache;
+    .local v1, "installedCache":Lcom/android/okhttp/HttpResponseCache;
     invoke-virtual {v1}, Lcom/android/okhttp/HttpResponseCache;->getDirectory()Ljava/io/File;
 
     move-result-object v3
@@ -119,24 +119,24 @@
     invoke-direct {v3, v1}, Landroid/net/http/HttpResponseCache;-><init>(Lcom/android/okhttp/HttpResponseCache;)V
 
     .line 206
-    .end local v1           #installedCache:Lcom/android/okhttp/HttpResponseCache;
+    .end local v1    # "installedCache":Lcom/android/okhttp/HttpResponseCache;
     :goto_0
     return-object v3
 
     .line 199
-    .restart local v1       #installedCache:Lcom/android/okhttp/HttpResponseCache;
+    .restart local v1    # "installedCache":Lcom/android/okhttp/HttpResponseCache;
     :cond_0
     invoke-virtual {v1}, Lcom/android/okhttp/HttpResponseCache;->close()V
 
     .line 203
-    .end local v1           #installedCache:Lcom/android/okhttp/HttpResponseCache;
+    .end local v1    # "installedCache":Lcom/android/okhttp/HttpResponseCache;
     :cond_1
     new-instance v2, Lcom/android/okhttp/HttpResponseCache;
 
     invoke-direct {v2, p0, p1, p2}, Lcom/android/okhttp/HttpResponseCache;-><init>(Ljava/io/File;J)V
 
     .line 205
-    .local v2, responseCache:Lcom/android/okhttp/HttpResponseCache;
+    .local v2, "responseCache":Lcom/android/okhttp/HttpResponseCache;
     invoke-static {v2}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
 
     .line 206
@@ -240,9 +240,8 @@
 
 .method public get(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map;)Ljava/net/CacheResponse;
     .locals 1
-    .parameter "uri"
-    .parameter "requestMethod"
-    .parameter
+    .param p1, "uri"    # Ljava/net/URI;
+    .param p2, "requestMethod"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,7 +266,7 @@
 
     .prologue
     .line 211
-    .local p3, requestHeaders:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
+    .local p3, "requestHeaders":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/HttpResponseCache;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/okhttp/HttpResponseCache;->get(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map;)Ljava/net/CacheResponse;
@@ -335,8 +334,8 @@
 
 .method public put(Ljava/net/URI;Ljava/net/URLConnection;)Ljava/net/CacheRequest;
     .locals 1
-    .parameter "uri"
-    .parameter "urlConnection"
+    .param p1, "uri"    # Ljava/net/URI;
+    .param p2, "urlConnection"    # Ljava/net/URLConnection;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

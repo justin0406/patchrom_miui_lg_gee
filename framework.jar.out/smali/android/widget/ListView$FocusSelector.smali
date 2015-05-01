@@ -28,7 +28,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ListView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1097
@@ -41,8 +40,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/ListView;Landroid/widget/ListView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/ListView;
+    .param p2, "x1"    # Landroid/widget/ListView$1;
 
     .prologue
     .line 1097
@@ -72,8 +71,8 @@
 
 .method public setup(II)Landroid/widget/ListView$FocusSelector;
     .locals 0
-    .parameter "position"
-    .parameter "top"
+    .param p1, "position"    # I
+    .param p2, "top"    # I
 
     .prologue
     .line 1102

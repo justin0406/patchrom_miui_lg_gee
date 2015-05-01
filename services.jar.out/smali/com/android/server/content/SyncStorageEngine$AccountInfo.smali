@@ -33,7 +33,7 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountAndUser;)V
     .locals 1
-    .parameter "accountAndUser"
+    .param p1, "accountAndUser"    # Landroid/accounts/AccountAndUser;
 
     .prologue
     .line 202

@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "mul"
-    .parameter "add"
+    .param p1, "mul"    # I
+    .param p2, "add"    # I
 
     .prologue
     .line 31

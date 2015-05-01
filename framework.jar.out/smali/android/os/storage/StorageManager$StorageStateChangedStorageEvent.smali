@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter
-    .parameter "p"
-    .parameter "oldS"
-    .parameter "newS"
+    .param p2, "p"    # Ljava/lang/String;
+    .param p3, "oldS"    # Ljava/lang/String;
+    .param p4, "newS"    # Ljava/lang/String;
 
     .prologue
     .line 247

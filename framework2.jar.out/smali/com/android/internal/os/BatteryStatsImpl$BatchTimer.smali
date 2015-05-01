@@ -27,10 +27,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;ILjava/util/ArrayList;Z)V
     .locals 0
-    .parameter "uid"
-    .parameter "type"
-    .parameter
-    .parameter "inDischarge"
+    .param p1, "uid"    # Lcom/android/internal/os/BatteryStatsImpl$Uid;
+    .param p2, "type"    # I
+    .param p4, "inDischarge"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,7 +44,7 @@
 
     .prologue
     .line 965
-    .local p3, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p3, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;)V
 
     .line 966
@@ -60,11 +59,10 @@
 
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;ILjava/util/ArrayList;ZLandroid/os/Parcel;)V
     .locals 2
-    .parameter "uid"
-    .parameter "type"
-    .parameter
-    .parameter "inDischarge"
-    .parameter "in"
+    .param p1, "uid"    # Lcom/android/internal/os/BatteryStatsImpl$Uid;
+    .param p2, "type"    # I
+    .param p4, "inDischarge"    # Z
+    .param p5, "in"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +79,7 @@
 
     .prologue
     .line 956
-    .local p3, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
+    .local p3, "unpluggables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p2, p3, p5}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;Landroid/os/Parcel;)V
 
     .line 957
@@ -110,7 +108,7 @@
 
 .method private computeOverage(J)J
     .locals 4
-    .parameter "curTime"
+    .param p1, "curTime"    # J
 
     .prologue
     const-wide/16 v0, 0x0
@@ -138,8 +136,8 @@
 
 .method private recomputeLastDuration(JZ)V
     .locals 6
-    .parameter "curTime"
-    .parameter "abort"
+    .param p1, "curTime"    # J
+    .param p3, "abort"    # Z
 
     .prologue
     const-wide/16 v4, 0x0
@@ -150,7 +148,7 @@
     move-result-wide v0
 
     .line 1011
-    .local v0, overage:J
+    .local v0, "overage":J
     cmp-long v2, v0, v4
 
     if-lez v2, :cond_1
@@ -197,7 +195,7 @@
 # virtual methods
 .method public abortLastDuration(Lcom/android/internal/os/BatteryStatsImpl;)V
     .locals 6
-    .parameter "stats"
+    .param p1, "stats"    # Lcom/android/internal/os/BatteryStatsImpl;
 
     .prologue
     .line 1039
@@ -210,7 +208,7 @@
     mul-long v0, v2, v4
 
     .line 1040
-    .local v0, now:J
+    .local v0, "now":J
     const/4 v2, 0x1
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
@@ -221,8 +219,8 @@
 
 .method public addDuration(Lcom/android/internal/os/BatteryStatsImpl;J)V
     .locals 6
-    .parameter "stats"
-    .parameter "durationMillis"
+    .param p1, "stats"    # Lcom/android/internal/os/BatteryStatsImpl;
+    .param p2, "durationMillis"    # J
 
     .prologue
     const-wide/16 v4, 0x3e8
@@ -235,7 +233,7 @@
     mul-long v0, v2, v4
 
     .line 1029
-    .local v0, now:J
+    .local v0, "now":J
     const/4 v2, 0x1
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
@@ -286,7 +284,7 @@
 
 .method protected computeRunTimeLocked(J)J
     .locals 6
-    .parameter "curBatteryRealtime"
+    .param p1, "curBatteryRealtime"    # J
 
     .prologue
     .line 1050
@@ -303,7 +301,7 @@
     move-result-wide v0
 
     .line 1051
-    .local v0, overage:J
+    .local v0, "overage":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -314,11 +312,11 @@
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mTotalTime:J
 
     .line 1054
-    .end local v0           #overage:J
+    .end local v0    # "overage":J
     :goto_0
     return-wide v0
 
-    .restart local v0       #overage:J
+    .restart local v0    # "overage":J
     :cond_0
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mTotalTime:J
 
@@ -327,8 +325,8 @@
 
 .method public logState(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 997
@@ -379,9 +377,9 @@
 
 .method public plug(JJJ)V
     .locals 5
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     const/4 v4, 0x0
@@ -409,8 +407,8 @@
 
 .method reset(Lcom/android/internal/os/BatteryStatsImpl;Z)Z
     .locals 10
-    .parameter "stats"
-    .parameter "detachIfReset"
+    .param p1, "stats"    # Lcom/android/internal/os/BatteryStatsImpl;
+    .param p2, "detachIfReset"    # Z
 
     .prologue
     const/4 v5, 0x0
@@ -427,7 +425,7 @@
     mul-long v0, v6, v8
 
     .line 1060
-    .local v0, now:J
+    .local v0, "now":J
     invoke-direct {p0, v0, v1, v4}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
     .line 1061
@@ -440,7 +438,7 @@
     move v2, v4
 
     .line 1062
-    .local v2, stillActive:Z
+    .local v2, "stillActive":Z
     :goto_0
     if-nez v2, :cond_1
 
@@ -457,14 +455,14 @@
     :goto_2
     return v4
 
-    .end local v2           #stillActive:Z
+    .end local v2    # "stillActive":Z
     :cond_0
     move v2, v5
 
     .line 1061
     goto :goto_0
 
-    .restart local v2       #stillActive:Z
+    .restart local v2    # "stillActive":Z
     :cond_1
     move v3, v5
 
@@ -480,9 +478,9 @@
 
 .method public unplug(JJJ)V
     .locals 4
-    .parameter "elapsedRealtime"
-    .parameter "batteryUptime"
-    .parameter "batteryRealtime"
+    .param p1, "elapsedRealtime"    # J
+    .param p3, "batteryUptime"    # J
+    .param p5, "batteryRealtime"    # J
 
     .prologue
     .line 986
@@ -521,8 +519,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;J)V
     .locals 2
-    .parameter "out"
-    .parameter "batteryRealtime"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "batteryRealtime"    # J
 
     .prologue
     .line 972

@@ -47,10 +47,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/net/NetworkConfig;)V
     .locals 3
-    .parameter "context"
-    .parameter "apnType"
-    .parameter "logTag"
-    .parameter "config"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "apnType"    # Ljava/lang/String;
+    .param p3, "logTag"    # Ljava/lang/String;
+    .param p4, "config"    # Landroid/net/NetworkConfig;
 
     .prologue
     const/4 v2, 0x0
@@ -131,9 +131,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 254
@@ -272,11 +272,11 @@
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
     .line 135
-    .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
+    .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     const/4 v0, 0x0
 
     .line 137
-    .local v0, apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .local v0, "apn":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     if-eqz v1, :cond_0
 
     .line 138
@@ -293,21 +293,21 @@
 
     move-result-object v0
 
-    .end local v0           #apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .end local v0    # "apn":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     check-cast v0, Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 142
-    .restart local v0       #apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .restart local v0    # "apn":Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :cond_0
     monitor-exit p0
 
     return-object v0
 
     .line 134
-    .end local v0           #apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
-    .end local v1           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
+    .end local v0    # "apn":Lcom/android/internal/telephony/dataconnection/ApnSetting;
+    .end local v1    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     :catchall_0
     move-exception v2
 
@@ -539,7 +539,7 @@
     move-result-object v0
 
     .line 175
-    .local v0, currentState:Lcom/android/internal/telephony/DctConstants$State;
+    .local v0, "currentState":Lcom/android/internal/telephony/DctConstants$State;
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->IDLE:Lcom/android/internal/telephony/DctConstants$State;
 
     if-eq v0, v1, :cond_0
@@ -592,7 +592,7 @@
     move-result-object v0
 
     .line 233
-    .local v0, provisioningApn:Ljava/lang/String;
+    .local v0, "provisioningApn":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnSetting:Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
     if-eqz v1, :cond_0
@@ -656,7 +656,7 @@
 
 .method protected log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 250
@@ -700,7 +700,7 @@
 
 .method public declared-synchronized removeWaitingApn(Lcom/android/internal/telephony/dataconnection/ApnSetting;)V
     .locals 1
-    .parameter "apn"
+    .param p1, "apn"    # Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
     .prologue
     .line 146
@@ -735,7 +735,7 @@
 
 .method public declared-synchronized setApnSetting(Lcom/android/internal/telephony/dataconnection/ApnSetting;)V
     .locals 2
-    .parameter "apnSetting"
+    .param p1, "apnSetting"    # Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
     .prologue
     .line 116
@@ -783,7 +783,7 @@
 
 .method public declared-synchronized setDataConnectionAc(Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;)V
     .locals 1
-    .parameter "dcac"
+    .param p1, "dcac"    # Lcom/android/internal/telephony/dataconnection/DcAsyncChannel;
 
     .prologue
     .line 99
@@ -810,7 +810,7 @@
 
 .method public setDependencyMet(Z)V
     .locals 1
-    .parameter "met"
+    .param p1, "met"    # Z
 
     .prologue
     .line 223
@@ -824,7 +824,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 212
@@ -838,7 +838,7 @@
 
 .method public declared-synchronized setReason(Ljava/lang/String;)V
     .locals 1
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 183
@@ -865,7 +865,7 @@
 
 .method public declared-synchronized setReconnectIntent(Landroid/app/PendingIntent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 107
@@ -892,7 +892,7 @@
 
 .method public declared-synchronized setState(Lcom/android/internal/telephony/DctConstants$State;)V
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Lcom/android/internal/telephony/DctConstants$State;
 
     .prologue
     .line 160
@@ -937,7 +937,6 @@
 
 .method public declared-synchronized setWaitingApns(Ljava/util/ArrayList;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -950,7 +949,7 @@
 
     .prologue
     .line 121
-    .local p1, waitingApns:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
+    .local p1, "waitingApns":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     monitor-enter p0
 
     :try_start_0

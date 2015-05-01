@@ -3,8 +3,8 @@
 .source "DynamicLayout.java"
 
 # interfaces
-.implements Landroid/text/TextWatcher;
 .implements Landroid/text/SpanWatcher;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/text/DynamicLayout;)V
     .locals 1
-    .parameter "layout"
+    .param p1, "layout"    # Landroid/text/DynamicLayout;
 
     .prologue
     .line 636
@@ -53,10 +53,10 @@
 
 .method private reflow(Ljava/lang/CharSequence;III)V
     .locals 2
-    .parameter "s"
-    .parameter "where"
-    .parameter "before"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "where"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 641
@@ -69,21 +69,21 @@
     check-cast v0, Landroid/text/DynamicLayout;
 
     .line 643
-    .local v0, ml:Landroid/text/DynamicLayout;
+    .local v0, "ml":Landroid/text/DynamicLayout;
     if-eqz v0, :cond_1
 
     .line 644
-    #calls: Landroid/text/DynamicLayout;->reflow(Ljava/lang/CharSequence;III)V
+    # invokes: Landroid/text/DynamicLayout;->reflow(Ljava/lang/CharSequence;III)V
     invoke-static {v0, p1, p2, p3, p4}, Landroid/text/DynamicLayout;->access$000(Landroid/text/DynamicLayout;Ljava/lang/CharSequence;III)V
 
     .line 647
-    .end local p1
+    .end local p1    # "s":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-void
 
     .line 645
-    .restart local p1
+    .restart local p1    # "s":Ljava/lang/CharSequence;
     :cond_1
     instance-of v1, p1, Landroid/text/Spannable;
 
@@ -92,7 +92,7 @@
     .line 646
     check-cast p1, Landroid/text/Spannable;
 
-    .end local p1
+    .end local p1    # "s":Ljava/lang/CharSequence;
     invoke-interface {p1, p0}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
 
     goto :goto_0
@@ -102,7 +102,7 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
     .line 659
@@ -111,10 +111,10 @@
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .parameter "s"
-    .parameter "where"
-    .parameter "before"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "where"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 651
@@ -123,10 +123,10 @@
 
 .method public onSpanAdded(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 2
-    .parameter "s"
-    .parameter "o"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "o"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 662
@@ -148,12 +148,12 @@
 
 .method public onSpanChanged(Landroid/text/Spannable;Ljava/lang/Object;IIII)V
     .locals 2
-    .parameter "s"
-    .parameter "o"
-    .parameter "start"
-    .parameter "end"
-    .parameter "nstart"
-    .parameter "nend"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "o"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
+    .param p5, "nstart"    # I
+    .param p6, "nend"    # I
 
     .prologue
     .line 672
@@ -182,10 +182,10 @@
 
 .method public onSpanRemoved(Landroid/text/Spannable;Ljava/lang/Object;II)V
     .locals 2
-    .parameter "s"
-    .parameter "o"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "s"    # Landroid/text/Spannable;
+    .param p2, "o"    # Ljava/lang/Object;
+    .param p3, "start"    # I
+    .param p4, "end"    # I
 
     .prologue
     .line 667
@@ -207,10 +207,10 @@
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .parameter "s"
-    .parameter "where"
-    .parameter "before"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "where"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 654

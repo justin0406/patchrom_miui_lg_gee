@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 3577

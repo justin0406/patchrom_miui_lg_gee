@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/net/VpnConfig;
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 126
@@ -51,7 +51,7 @@
     invoke-direct {v0}, Lcom/android/internal/net/VpnConfig;-><init>()V
 
     .line 127
-    .local v0, config:Lcom/android/internal/net/VpnConfig;
+    .local v0, "config":Lcom/android/internal/net/VpnConfig;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -149,7 +149,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 123
@@ -162,7 +162,7 @@
 
 .method public newArray(I)[Lcom/android/internal/net/VpnConfig;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 143
@@ -173,7 +173,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 123

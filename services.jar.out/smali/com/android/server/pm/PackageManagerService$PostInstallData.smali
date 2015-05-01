@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$InstallArgs;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
     .locals 0
-    .parameter
-    .parameter "_a"
-    .parameter "_r"
+    .param p2, "_a"    # Lcom/android/server/pm/PackageManagerService$InstallArgs;
+    .param p3, "_r"    # Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
 
     .prologue
     .line 557

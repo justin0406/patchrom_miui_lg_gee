@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "code"
-    .parameter "callerUid"
+    .param p1, "code"    # I
+    .param p2, "callerUid"    # I
 
     .prologue
     .line 24

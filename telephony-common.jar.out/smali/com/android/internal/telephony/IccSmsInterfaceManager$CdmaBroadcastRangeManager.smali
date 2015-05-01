@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/IccSmsInterfaceManager;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 673
@@ -54,9 +53,9 @@
 # virtual methods
 .method protected addRange(IIZ)V
     .locals 3
-    .parameter "startId"
-    .parameter "endId"
-    .parameter "selected"
+    .param p1, "startId"    # I
+    .param p2, "endId"    # I
+    .param p3, "selected"    # Z
 
     .prologue
     .line 693
@@ -113,10 +112,10 @@
     check-cast v0, [Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;
 
     .line 708
-    .local v0, configs:[Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;
+    .local v0, "configs":[Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
-    #calls: Lcom/android/internal/telephony/IccSmsInterfaceManager;->setCdmaBroadcastConfig([Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;)Z
+    # invokes: Lcom/android/internal/telephony/IccSmsInterfaceManager;->setCdmaBroadcastConfig([Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;)Z
     invoke-static {v1, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->access$200(Lcom/android/internal/telephony/IccSmsInterfaceManager;[Lcom/android/internal/telephony/cdma/CdmaSmsBroadcastConfigInfo;)Z
 
     move-result v1

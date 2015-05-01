@@ -34,7 +34,7 @@
 # virtual methods
 .method public mark(Ljava/lang/String;)V
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -43,7 +43,7 @@
     move-result-wide v0
 
     .line 39
-    .local v0, now:J
+    .local v0, "now":J
     iput-wide v0, p0, Landroid/net/http/Timer;->mLast:J
 
     .line 40

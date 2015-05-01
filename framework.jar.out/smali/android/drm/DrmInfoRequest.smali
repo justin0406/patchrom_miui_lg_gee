@@ -38,8 +38,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 3
-    .parameter "infoType"
-    .parameter "mimeType"
+    .param p1, "infoType"    # I
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 67
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 73
-    .local v0, msg:Ljava/lang/String;
+    .local v0, "msg":Ljava/lang/String;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -109,21 +109,21 @@
     throw v1
 
     .line 75
-    .end local v0           #msg:Ljava/lang/String;
+    .end local v0    # "msg":Ljava/lang/String;
     :cond_0
     return-void
 .end method
 
 .method static isValidType(I)Z
     .locals 1
-    .parameter "infoType"
+    .param p0, "infoType"    # I
 
     .prologue
     .line 150
     const/4 v0, 0x0
 
     .line 152
-    .local v0, isValid:Z
+    .local v0, "isValid":Z
     packed-switch p0, :pswitch_data_0
 
     .line 160
@@ -152,7 +152,7 @@
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 114
@@ -283,8 +283,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 102

@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "clearBits"
-    .parameter "setBits"
+    .param p1, "clearBits"    # I
+    .param p2, "setBits"    # I
 
     .prologue
     .line 33

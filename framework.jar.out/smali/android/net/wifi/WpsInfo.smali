@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -78,7 +78,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/WpsInfo;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/WpsInfo;
 
     .prologue
     .line 74
@@ -131,7 +131,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 59
-    .local v0, sbuf:Ljava/lang/StringBuffer;
+    .local v0, "sbuf":Ljava/lang/StringBuffer;
     const-string v1, " setup: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -183,8 +183,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 84

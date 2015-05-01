@@ -25,14 +25,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "x2"    # Ljava/lang/String;
+    .param p5, "x3"    # Z
+    .param p6, "x4"    # Z
 
     .prologue
     .line 1254
@@ -51,7 +48,7 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 1269
@@ -65,13 +62,13 @@
     move-result-object v1
 
     .line 1271
-    .local v1, label:Ljava/lang/String;
+    .local v1, "label":Ljava/lang/String;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 1272
-    .local v0, bundle:Landroid/os/Bundle;
+    .local v0, "bundle":Landroid/os/Bundle;
     const-string v2, "authTokenLabelKey"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -80,8 +77,8 @@
     invoke-super {p0, v0}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
     .line 1278
-    .end local v0           #bundle:Landroid/os/Bundle;
-    .end local v1           #label:Ljava/lang/String;
+    .end local v0    # "bundle":Landroid/os/Bundle;
+    .end local v1    # "label":Ljava/lang/String;
     :goto_0
     return-void
 
@@ -114,7 +111,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 2
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 1257

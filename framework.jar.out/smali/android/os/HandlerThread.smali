@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 29
@@ -36,8 +36,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter "name"
-    .parameter "priority"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "priority"    # I
 
     .prologue
     .line 40
@@ -98,8 +98,8 @@
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -161,7 +161,7 @@
     move-result-object v0
 
     .line 109
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
     .line 110
@@ -190,7 +190,7 @@
     move-result-object v0
 
     .line 136
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
     .line 137

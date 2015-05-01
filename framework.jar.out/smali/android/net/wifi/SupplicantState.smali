@@ -300,8 +300,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -318,7 +316,7 @@
 
 .method static isConnecting(Landroid/net/wifi/SupplicantState;)Z
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 198
@@ -377,7 +375,7 @@
 
 .method static isDriverActive(Landroid/net/wifi/SupplicantState;)Z
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 220
@@ -436,7 +434,7 @@
 
 .method public static isHandshakeState(Landroid/net/wifi/SupplicantState;)Z
     .locals 2
-    .parameter "state"
+    .param p0, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 176
@@ -495,7 +493,7 @@
 
 .method public static isValidState(Landroid/net/wifi/SupplicantState;)Z
     .locals 1
-    .parameter "state"
+    .param p0, "state"    # Landroid/net/wifi/SupplicantState;
 
     .prologue
     .line 170
@@ -520,7 +518,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/net/wifi/SupplicantState;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 33
@@ -565,8 +563,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 248

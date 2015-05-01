@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -94,7 +94,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 155
@@ -109,9 +109,9 @@
 
 .method public static getErrorReportReceiver(Landroid/content/Context;Ljava/lang/String;I)Landroid/content/ComponentName;
     .locals 7
-    .parameter "context"
-    .parameter "packageName"
-    .parameter "appFlags"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "appFlags"    # I
 
     .prologue
     .line 162
@@ -128,7 +128,7 @@
     move-result v1
 
     .line 164
-    .local v1, enabled:I
+    .local v1, "enabled":I
     if-nez v1, :cond_1
 
     .line 165
@@ -146,19 +146,19 @@
     move-result-object v2
 
     .line 171
-    .local v2, pm:Landroid/content/pm/PackageManager;
+    .local v2, "pm":Landroid/content/pm/PackageManager;
     invoke-virtual {v2, p1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 172
-    .local v0, candidate:Ljava/lang/String;
+    .local v0, "candidate":Ljava/lang/String;
     invoke-static {v2, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v3
 
     .line 173
-    .local v3, result:Landroid/content/ComponentName;
+    .local v3, "result":Landroid/content/ComponentName;
     if-nez v3, :cond_0
 
     .line 179
@@ -199,9 +199,9 @@
 
 .method static getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
     .locals 4
-    .parameter "pm"
-    .parameter "errorPackage"
-    .parameter "receiverPackage"
+    .param p0, "pm"    # Landroid/content/pm/PackageManager;
+    .param p1, "errorPackage"    # Ljava/lang/String;
+    .param p2, "receiverPackage"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -236,7 +236,7 @@
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 213
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     invoke-virtual {v1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 214
@@ -247,7 +247,7 @@
     move-result-object v0
 
     .line 215
-    .local v0, info:Landroid/content/pm/ResolveInfo;
+    .local v0, "info":Landroid/content/pm/ResolveInfo;
     if-eqz v0, :cond_0
 
     iget-object v3, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -280,8 +280,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 584
@@ -503,7 +503,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -660,8 +660,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 222

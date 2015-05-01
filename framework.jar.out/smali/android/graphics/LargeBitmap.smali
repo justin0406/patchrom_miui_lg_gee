@@ -12,7 +12,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 1
-    .parameter "lbm"
+    .param p1, "lbm"    # I
 
     .prologue
     .line 48
@@ -32,7 +32,7 @@
 
 .method private checkRecycled(Ljava/lang/String;)V
     .locals 1
-    .parameter "errorMessage"
+    .param p1, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 113
@@ -68,8 +68,8 @@
 # virtual methods
 .method public decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "rect"
-    .parameter "options"
+    .param p1, "rect"    # Landroid/graphics/Rect;
+    .param p2, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 63

@@ -20,8 +20,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 32
@@ -35,17 +35,17 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 4
-    .parameter "input"
+    .param p1, "input"    # F
 
     .prologue
     .line 36
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     add-float/2addr v0, p1
 
     float-to-double v0, v0
 
-    const-wide v2, 0x400921fb54442d18L
+    const-wide v2, 0x400921fb54442d18L    # Math.PI
 
     mul-double/2addr v0, v2
 
@@ -53,13 +53,13 @@
 
     move-result-wide v0
 
-    const-wide/high16 v2, 0x4000
+    const-wide/high16 v2, 0x4000000000000000L    # 2.0
 
     div-double/2addr v0, v2
 
     double-to-float v0, v0
 
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     add-float/2addr v0, v1
 

@@ -113,7 +113,7 @@
 
 .method public static getVersion(Landroid/content/Context;)Ljava/lang/String;
     .locals 7
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x0
@@ -140,7 +140,7 @@
     move-result-object v6
 
     .line 2184
-    .local v6, c:Landroid/database/Cursor;
+    .local v6, "c":Landroid/database/Cursor;
     if-eqz v6, :cond_0
 
     .line 2186

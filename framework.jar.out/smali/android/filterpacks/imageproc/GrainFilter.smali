@@ -42,7 +42,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -100,11 +100,11 @@
 
 .method private updateFrameSize(II)V
     .locals 4
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
-    const/high16 v3, 0x3f00
+    const/high16 v3, 0x3f000000    # 0.5f
 
     .line 139
     iput p1, p0, Landroid/filterpacks/imageproc/GrainFilter;->mWidth:I
@@ -189,7 +189,7 @@
     aput v2, v0, v1
 
     .line 133
-    .local v0, seed:[F
+    .local v0, "seed":[F
     iget-object v1, p0, Landroid/filterpacks/imageproc/GrainFilter;->mNoiseProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v2, "seed"
@@ -217,8 +217,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 151
@@ -240,8 +240,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 109
@@ -250,8 +250,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 113
@@ -297,7 +297,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 116
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/GrainFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -308,13 +308,13 @@
     .line 119
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
-    .end local v0           #shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .end local v0    # "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform sampler2D tex_sampler_1;\nuniform float scale;\nuniform float stepX;\nuniform float stepY;\nvarying vec2 v_texcoord;\nvoid main() {\n  float noise = texture2D(tex_sampler_1, v_texcoord + vec2(-stepX, -stepY)).r * 0.224;\n  noise += texture2D(tex_sampler_1, v_texcoord + vec2(-stepX, stepY)).r * 0.224;\n  noise += texture2D(tex_sampler_1, v_texcoord + vec2(stepX, -stepY)).r * 0.224;\n  noise += texture2D(tex_sampler_1, v_texcoord + vec2(stepX, stepY)).r * 0.224;\n  noise += 0.4448;\n  noise *= scale;\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float energy = 0.33333 * color.r + 0.33333 * color.g + 0.33333 * color.b;\n  float mask = (1.0 - sqrt(energy));\n  float weight = 1.0 - 1.333 * mask * noise;\n  gl_FragColor = vec4(color.rgb * weight, color.a);\n}\n"
 
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 120
-    .restart local v0       #shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .restart local v0    # "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/GrainFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -339,7 +339,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 11
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v10, 0x3
@@ -354,13 +354,13 @@
     move-result-object v1
 
     .line 160
-    .local v1, input:Landroid/filterfw/core/Frame;
+    .local v1, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
 
     .line 162
-    .local v2, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v2, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v7
@@ -378,7 +378,7 @@
     move-result-object v4
 
     .line 168
-    .local v4, noiseFormat:Landroid/filterfw/core/FrameFormat;
+    .local v4, "noiseFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v7
@@ -388,7 +388,7 @@
     move-result-object v5
 
     .line 171
-    .local v5, noiseFrame:Landroid/filterfw/core/Frame;
+    .local v5, "noiseFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v7
@@ -398,7 +398,7 @@
     move-result-object v6
 
     .line 174
-    .local v6, output:Landroid/filterfw/core/Frame;
+    .local v6, "output":Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/GrainFilter;->mNoiseProgram:Landroid/filterfw/core/Program;
 
     if-eqz v7, :cond_0
@@ -461,7 +461,7 @@
     new-array v0, v9, [Landroid/filterfw/core/Frame;
 
     .line 185
-    .local v0, empty:[Landroid/filterfw/core/Frame;
+    .local v0, "empty":[Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/GrainFilter;->mNoiseProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v7, v0, v5}, Landroid/filterfw/core/Program;->process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -478,7 +478,7 @@
     aput-object v5, v3, v7
 
     .line 189
-    .local v3, inputs:[Landroid/filterfw/core/Frame;
+    .local v3, "inputs":[Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/GrainFilter;->mGrainProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v7, v3, v6}, Landroid/filterfw/core/Program;->process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

@@ -30,12 +30,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NotificationManagerService;Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
-    .line 722
+    .line 723
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$1;->this$0:Lcom/android/server/NotificationManagerService;
 
     iput-object p2, p0, Lcom/android/server/NotificationManagerService$1;->val$servicesBindingTag:Ljava/lang/String;
@@ -51,25 +48,25 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 7
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 726
+    .line 727
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$1;->this$0:Lcom/android/server/NotificationManagerService;
 
-    #getter for: Lcom/android/server/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/server/NotificationManagerService;->access$100(Lcom/android/server/NotificationManagerService;)Ljava/util/ArrayList;
 
     move-result-object v6
 
     monitor-enter v6
 
-    .line 727
+    .line 728
     :try_start_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$1;->this$0:Lcom/android/server/NotificationManagerService;
 
-    #getter for: Lcom/android/server/NotificationManagerService;->mServicesBinding:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/NotificationManagerService;->mServicesBinding:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/server/NotificationManagerService;->access$200(Lcom/android/server/NotificationManagerService;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -80,7 +77,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 729
+    .line 730
     :try_start_1
     invoke-static {p2}, Landroid/service/notification/INotificationListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/notification/INotificationListener;
 
@@ -88,7 +85,7 @@
 
     iput-object v1, p0, Lcom/android/server/NotificationManagerService$1;->mListener:Landroid/service/notification/INotificationListener;
 
-    .line 730
+    .line 731
     new-instance v0, Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
 
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$1;->this$0:Lcom/android/server/NotificationManagerService;
@@ -103,35 +100,35 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/NotificationManagerService$NotificationListenerInfo;-><init>(Lcom/android/server/NotificationManagerService;Landroid/service/notification/INotificationListener;Landroid/content/ComponentName;ILandroid/content/ServiceConnection;)V
 
-    .line 732
-    .local v0, info:Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
+    .line 733
+    .local v0, "info":Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
     const/4 v1, 0x0
 
     invoke-interface {p2, v0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    .line 733
+    .line 734
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$1;->this$0:Lcom/android/server/NotificationManagerService;
 
-    #getter for: Lcom/android/server/NotificationManagerService;->mListeners:Ljava/util/ArrayList;
+    # getter for: Lcom/android/server/NotificationManagerService;->mListeners:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/server/NotificationManagerService;->access$300(Lcom/android/server/NotificationManagerService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 737
-    .end local v0           #info:Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
+    .line 738
+    .end local v0    # "info":Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
     :goto_0
     :try_start_2
     monitor-exit v6
 
-    .line 738
+    .line 739
     return-void
 
-    .line 737
+    .line 738
     :catchall_0
     move-exception v1
 
@@ -141,7 +138,7 @@
 
     throw v1
 
-    .line 734
+    .line 735
     :catch_0
     move-exception v1
 
@@ -150,10 +147,10 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 742
+    .line 743
     const-string v0, "NotificationService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -176,6 +173,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 743
+    .line 744
     return-void
 .end method

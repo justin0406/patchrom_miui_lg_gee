@@ -18,7 +18,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final DAYS_KEPT:I = 0x1e
 
@@ -30,7 +30,7 @@
     .locals 2
 
     .prologue
-    .line 2162
+    .line 2164
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "deleted_contacts"
@@ -48,9 +48,9 @@
     .locals 0
 
     .prologue
-    .line 2155
+    .line 2157
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2156
+    .line 2158
     return-void
 .end method

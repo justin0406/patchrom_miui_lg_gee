@@ -27,9 +27,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/ApnContext;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
-    .parameter "apnContext"
-    .parameter "reason"
-    .parameter "onCompletedMsg"
+    .param p1, "apnContext"    # Lcom/android/internal/telephony/dataconnection/ApnContext;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "onCompletedMsg"    # Landroid/os/Message;
 
     .prologue
     .line 139
@@ -103,7 +103,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$DisconnectParams;->mOnCompletedMsg:Landroid/os/Message;
 
-    #calls: Lcom/android/internal/telephony/dataconnection/DataConnection;->msgToString(Landroid/os/Message;)Ljava/lang/String;
+    # invokes: Lcom/android/internal/telephony/dataconnection/DataConnection;->msgToString(Landroid/os/Message;)Ljava/lang/String;
     invoke-static {v1}, Lcom/android/internal/telephony/dataconnection/DataConnection;->access$000(Landroid/os/Message;)Ljava/lang/String;
 
     move-result-object v1

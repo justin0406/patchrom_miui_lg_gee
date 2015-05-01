@@ -39,8 +39,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 90
@@ -54,9 +54,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 73
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -148,7 +148,7 @@
 
 .method private requestInputMethod(Landroid/app/Dialog;)V
     .locals 2
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/app/Dialog;
 
     .prologue
     .line 325
@@ -157,7 +157,7 @@
     move-result-object v0
 
     .line 326
-    .local v0, window:Landroid/view/Window;
+    .local v0, "window":Landroid/view/Window;
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
@@ -281,7 +281,7 @@
 
 .method protected onBindDialogView(Landroid/view/View;)V
     .locals 4
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 354
@@ -292,7 +292,7 @@
     move-result-object v0
 
     .line 356
-    .local v0, dialogMessageView:Landroid/view/View;
+    .local v0, "dialogMessageView":Landroid/view/View;
     if-eqz v0, :cond_2
 
     .line 357
@@ -301,11 +301,11 @@
     move-result-object v1
 
     .line 358
-    .local v1, message:Ljava/lang/CharSequence;
+    .local v1, "message":Ljava/lang/CharSequence;
     const/16 v2, 0x8
 
     .line 360
-    .local v2, newVisibility:I
+    .local v2, "newVisibility":I
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -340,8 +340,8 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 372
-    .end local v1           #message:Ljava/lang/CharSequence;
-    .end local v2           #newVisibility:I
+    .end local v1    # "message":Ljava/lang/CharSequence;
+    .end local v2    # "newVisibility":I
     :cond_2
     return-void
 .end method
@@ -378,8 +378,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 375
@@ -417,7 +417,7 @@
     move-result-object v0
 
     .line 343
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     iget v2, p0, Landroid/preference/DialogPreference;->mDialogLayoutResId:I
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
@@ -429,7 +429,7 @@
 
 .method protected onDialogClosed(Z)V
     .locals 0
-    .parameter "positiveResult"
+    .param p1, "positiveResult"    # Z
 
     .prologue
     .line 394
@@ -438,7 +438,7 @@
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
     .line 380
@@ -477,7 +477,7 @@
 
 .method protected onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
     .locals 0
-    .parameter "builder"
+    .param p1, "builder"    # Landroid/app/AlertDialog$Builder;
 
     .prologue
     .line 260
@@ -486,7 +486,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 432
@@ -520,7 +520,7 @@
     check-cast v0, Landroid/preference/DialogPreference$SavedState;
 
     .line 439
-    .local v0, myState:Landroid/preference/DialogPreference$SavedState;
+    .local v0, "myState":Landroid/preference/DialogPreference$SavedState;
     invoke-virtual {v0}, Landroid/preference/DialogPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -550,7 +550,7 @@
     move-result-object v1
 
     .line 420
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     iget-object v2, p0, Landroid/preference/DialogPreference;->mDialog:Landroid/app/Dialog;
 
     if-eqz v2, :cond_0
@@ -577,7 +577,7 @@
     invoke-direct {v0, v1}, Landroid/preference/DialogPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 425
-    .local v0, myState:Landroid/preference/DialogPreference$SavedState;
+    .local v0, "myState":Landroid/preference/DialogPreference$SavedState;
     const/4 v2, 0x1
 
     iput-boolean v2, v0, Landroid/preference/DialogPreference$SavedState;->isDialogShowing:Z
@@ -596,7 +596,7 @@
 
 .method public setDialogIcon(I)V
     .locals 1
-    .parameter "dialogIconRes"
+    .param p1, "dialogIconRes"    # I
 
     .prologue
     .line 164
@@ -620,7 +620,7 @@
 
 .method public setDialogIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "dialogIcon"
+    .param p1, "dialogIcon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 154
@@ -632,7 +632,7 @@
 
 .method public setDialogLayoutResource(I)V
     .locals 0
-    .parameter "dialogLayoutResId"
+    .param p1, "dialogLayoutResId"    # I
 
     .prologue
     .line 239
@@ -644,7 +644,7 @@
 
 .method public setDialogMessage(I)V
     .locals 1
-    .parameter "dialogMessageResId"
+    .param p1, "dialogMessageResId"    # I
 
     .prologue
     .line 137
@@ -664,7 +664,7 @@
 
 .method public setDialogMessage(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "dialogMessage"
+    .param p1, "dialogMessage"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 129
@@ -676,7 +676,7 @@
 
 .method public setDialogTitle(I)V
     .locals 1
-    .parameter "dialogTitleResId"
+    .param p1, "dialogTitleResId"    # I
 
     .prologue
     .line 107
@@ -696,7 +696,7 @@
 
 .method public setDialogTitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "dialogTitle"
+    .param p1, "dialogTitle"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 99
@@ -708,7 +708,7 @@
 
 .method public setNegativeButtonText(I)V
     .locals 1
-    .parameter "negativeButtonTextResId"
+    .param p1, "negativeButtonTextResId"    # I
 
     .prologue
     .line 218
@@ -728,7 +728,7 @@
 
 .method public setNegativeButtonText(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "negativeButtonText"
+    .param p1, "negativeButtonText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 210
@@ -740,7 +740,7 @@
 
 .method public setPositiveButtonText(I)V
     .locals 1
-    .parameter "positiveButtonTextResId"
+    .param p1, "positiveButtonTextResId"    # I
 
     .prologue
     .line 190
@@ -760,7 +760,7 @@
 
 .method public setPositiveButtonText(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "positiveButtonText"
+    .param p1, "positiveButtonText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 182
@@ -772,7 +772,7 @@
 
 .method protected showDialog(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Bundle;
 
     .prologue
     .line 277
@@ -781,7 +781,7 @@
     move-result-object v1
 
     .line 279
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     const/4 v3, -0x2
 
     iput v3, p0, Landroid/preference/DialogPreference;->mWhichButtonClicked:I
@@ -823,7 +823,7 @@
     move-result-object v0
 
     .line 288
-    .local v0, contentView:Landroid/view/View;
+    .local v0, "contentView":Landroid/view/View;
     if-eqz v0, :cond_2
 
     .line 289
@@ -857,7 +857,7 @@
     iput-object v2, p0, Landroid/preference/DialogPreference;->mDialog:Landroid/app/Dialog;
 
     .line 301
-    .local v2, dialog:Landroid/app/Dialog;
+    .local v2, "dialog":Landroid/app/Dialog;
     if-eqz p1, :cond_0
 
     .line 302
@@ -885,7 +885,7 @@
     return-void
 
     .line 292
-    .end local v2           #dialog:Landroid/app/Dialog;
+    .end local v2    # "dialog":Landroid/app/Dialog;
     :cond_2
     iget-object v3, p0, Landroid/preference/DialogPreference;->mBuilder:Landroid/app/AlertDialog$Builder;
 

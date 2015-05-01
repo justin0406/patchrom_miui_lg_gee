@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/Looper;Landroid/bluetooth/BluetoothTetheringDataTracker;)V
     .locals 0
-    .parameter "looper"
-    .parameter "parent"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "parent"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 389
@@ -41,7 +41,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v4, 0x0
@@ -75,10 +75,10 @@
     check-cast v0, Lcom/android/internal/util/AsyncChannel;
 
     .line 400
-    .local v0, ac:Lcom/android/internal/util/AsyncChannel;
+    .local v0, "ac":Lcom/android/internal/util/AsyncChannel;
     iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker$BtdtHandler;->mBtdt:Landroid/bluetooth/BluetoothTetheringDataTracker;
 
-    #getter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mAsyncChannel:Ljava/util/concurrent/atomic/AtomicReference;
+    # getter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mAsyncChannel:Ljava/util/concurrent/atomic/AtomicReference;
     invoke-static {v2}, Landroid/bluetooth/BluetoothTetheringDataTracker;->access$900(Landroid/bluetooth/BluetoothTetheringDataTracker;)Ljava/util/concurrent/atomic/AtomicReference;
 
     move-result-object v2
@@ -107,7 +107,7 @@
     goto :goto_0
 
     .line 409
-    .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
+    .end local v0    # "ac":Lcom/android/internal/util/AsyncChannel;
     :sswitch_1
     const-string v2, "BluetoothTethering"
 
@@ -123,7 +123,7 @@
     .line 411
     iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker$BtdtHandler;->mBtdt:Landroid/bluetooth/BluetoothTetheringDataTracker;
 
-    #getter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mAsyncChannel:Ljava/util/concurrent/atomic/AtomicReference;
+    # getter for: Landroid/bluetooth/BluetoothTetheringDataTracker;->mAsyncChannel:Ljava/util/concurrent/atomic/AtomicReference;
     invoke-static {v2}, Landroid/bluetooth/BluetoothTetheringDataTracker;->access$900(Landroid/bluetooth/BluetoothTetheringDataTracker;)Ljava/util/concurrent/atomic/AtomicReference;
 
     move-result-object v2
@@ -143,7 +143,7 @@
     check-cast v1, Landroid/net/LinkProperties;
 
     .line 415
-    .local v1, linkProperties:Landroid/net/LinkProperties;
+    .local v1, "linkProperties":Landroid/net/LinkProperties;
     const-string v2, "BluetoothTethering"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -174,7 +174,7 @@
     goto :goto_0
 
     .line 419
-    .end local v1           #linkProperties:Landroid/net/LinkProperties;
+    .end local v1    # "linkProperties":Landroid/net/LinkProperties;
     :sswitch_3
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -185,7 +185,7 @@
     check-cast v1, Landroid/net/LinkProperties;
 
     .line 420
-    .restart local v1       #linkProperties:Landroid/net/LinkProperties;
+    .restart local v1    # "linkProperties":Landroid/net/LinkProperties;
     const-string v2, "BluetoothTethering"
 
     new-instance v3, Ljava/lang/StringBuilder;

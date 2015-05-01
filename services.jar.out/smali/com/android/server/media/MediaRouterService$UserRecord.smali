@@ -40,8 +40,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/media/MediaRouterService;I)V
     .locals 1
-    .parameter
-    .parameter "userId"
+    .param p2, "userId"    # I
 
     .prologue
     .line 555
@@ -74,8 +73,8 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 7
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 561
@@ -117,7 +116,7 @@
     move-result-object v2
 
     .line 564
-    .local v2, indent:Ljava/lang/String;
+    .local v2, "indent":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService$UserRecord;->mClientRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -125,13 +124,13 @@
     move-result v0
 
     .line 565
-    .local v0, clientCount:I
+    .local v0, "clientCount":I
     if-eqz v0, :cond_0
 
     .line 566
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -152,7 +151,7 @@
     goto :goto_0
 
     .line 570
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 

@@ -65,7 +65,7 @@
 
 .method public constructor <init>(Lcom/android/server/power/DisplayPowerRequest;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
     .prologue
     .line 74
@@ -82,7 +82,7 @@
 # virtual methods
 .method public copyFrom(Lcom/android/server/power/DisplayPowerRequest;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
     .prologue
     .line 79
@@ -121,7 +121,7 @@
 
 .method public equals(Lcom/android/server/power/DisplayPowerRequest;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
     .prologue
     .line 94
@@ -178,7 +178,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 89
@@ -188,7 +188,7 @@
 
     check-cast p1, Lcom/android/server/power/DisplayPowerRequest;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/power/DisplayPowerRequest;->equals(Lcom/android/server/power/DisplayPowerRequest;)Z
 
     move-result v0

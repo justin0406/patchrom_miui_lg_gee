@@ -39,7 +39,7 @@
 
 .method public constructor <init>(Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 59
@@ -122,14 +122,14 @@
     monitor-exit v5
 
     .line 135
-    .local v1, display:Ljavax/microedition/khronos/egl/EGLDisplay;
-    .local v2, egl:Ljavax/microedition/khronos/egl/EGL10;
+    .local v1, "display":Ljavax/microedition/khronos/egl/EGLDisplay;
+    .local v2, "egl":Ljavax/microedition/khronos/egl/EGL10;
     :goto_0
     return v4
 
     .line 113
-    .end local v1           #display:Ljavax/microedition/khronos/egl/EGLDisplay;
-    .end local v2           #egl:Ljavax/microedition/khronos/egl/EGL10;
+    .end local v1    # "display":Ljavax/microedition/khronos/egl/EGLDisplay;
+    .end local v2    # "egl":Ljavax/microedition/khronos/egl/EGL10;
     :cond_1
     invoke-static {}, Ljavax/microedition/khronos/egl/EGLContext;->getEGL()Ljavax/microedition/khronos/egl/EGL;
 
@@ -138,7 +138,7 @@
     check-cast v2, Ljavax/microedition/khronos/egl/EGL10;
 
     .line 114
-    .restart local v2       #egl:Ljavax/microedition/khronos/egl/EGL10;
+    .restart local v2    # "egl":Ljavax/microedition/khronos/egl/EGL10;
     sget-object v6, Ljavax/microedition/khronos/egl/EGL10;->EGL_DEFAULT_DISPLAY:Ljava/lang/Object;
 
     invoke-interface {v2, v6}, Ljavax/microedition/khronos/egl/EGL10;->eglGetDisplay(Ljava/lang/Object;)Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -146,7 +146,7 @@
     move-result-object v1
 
     .line 116
-    .restart local v1       #display:Ljavax/microedition/khronos/egl/EGLDisplay;
+    .restart local v1    # "display":Ljavax/microedition/khronos/egl/EGLDisplay;
     sget-object v6, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
     if-ne v1, v6, :cond_2
@@ -164,7 +164,7 @@
     goto :goto_0
 
     .line 129
-    .end local v1           #display:Ljavax/microedition/khronos/egl/EGLDisplay;
+    .end local v1    # "display":Ljavax/microedition/khronos/egl/EGLDisplay;
     :catchall_0
     move-exception v4
 
@@ -175,7 +175,7 @@
     throw v4
 
     .line 121
-    .restart local v1       #display:Ljavax/microedition/khronos/egl/EGLDisplay;
+    .restart local v1    # "display":Ljavax/microedition/khronos/egl/EGLDisplay;
     :cond_2
     :try_start_1
     invoke-static {v1}, Lcom/google/android/gles_jni/EGLImpl;->getInitCount(Ljavax/microedition/khronos/egl/EGLDisplay;)I
@@ -247,7 +247,7 @@
     invoke-direct {v0, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 128
-    .local v0, active:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/opengl/ManagedEGLContext;>;"
+    .local v0, "active":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/opengl/ManagedEGLContext;>;"
     sget-object v4, Landroid/opengl/ManagedEGLContext;->sActive:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
@@ -260,7 +260,7 @@
     .line 131
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask$1;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1805
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onError(ILjava/lang/String;)V
     .locals 1
-    .parameter "errorCode"
-    .parameter "errorMessage"
+    .param p1, "errorCode"    # I
+    .param p2, "errorMessage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -60,7 +59,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 8
-    .parameter "value"
+    .param p1, "value"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -86,7 +85,7 @@
     invoke-direct {v1, v0, v2}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1810
-    .local v1, account:Landroid/accounts/Account;
+    .local v1, "account":Landroid/accounts/Account;
     iget-object v0, p0, Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask$1$1;->this$2:Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask$1;
 
     iget-object v7, v0, Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask$1;->this$1:Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask;

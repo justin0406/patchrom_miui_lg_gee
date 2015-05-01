@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "href"
+    .param p1, "href"    # Ljava/lang/String;
 
     .prologue
     .line 841

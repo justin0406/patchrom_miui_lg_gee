@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 1485
+    .line 1552
     iput-object p1, p0, Lcom/android/server/BackupManagerService$TransportConnection;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +38,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
-    .parameter "component"
-    .parameter "service"
+    .param p1, "component"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 1488
+    .line 1555
     const-string v2, "BackupManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -66,14 +65,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1490
+    .line 1557
     :try_start_0
     invoke-static {p2}, Lcom/android/internal/backup/IBackupTransport$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v1
 
-    .line 1491
-    .local v1, transport:Lcom/android/internal/backup/IBackupTransport;
+    .line 1558
+    .local v1, "transport":Lcom/android/internal/backup/IBackupTransport;
     iget-object v2, p0, Lcom/android/server/BackupManagerService$TransportConnection;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-interface {v1}, Lcom/android/internal/backup/IBackupTransport;->name()Ljava/lang/String;
@@ -84,22 +83,22 @@
 
     move-result-object v4
 
-    #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
+    # invokes: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v2, v3, v4, v1}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1495
-    .end local v1           #transport:Lcom/android/internal/backup/IBackupTransport;
+    .line 1562
+    .end local v1    # "transport":Lcom/android/internal/backup/IBackupTransport;
     :goto_0
     return-void
 
-    .line 1492
+    .line 1559
     :catch_0
     move-exception v0
 
-    .line 1493
-    .local v0, e:Landroid/os/RemoteException;
+    .line 1560
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BackupManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -127,12 +126,12 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 4
-    .parameter "component"
+    .param p1, "component"    # Landroid/content/ComponentName;
 
     .prologue
     const/4 v3, 0x0
 
-    .line 1499
+    .line 1566
     const-string v0, "BackupManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -155,16 +154,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1500
+    .line 1567
     iget-object v0, p0, Lcom/android/server/BackupManagerService$TransportConnection;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
     move-result-object v1
 
-    #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
+    # invokes: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v0, v3, v1, v3}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 1501
+    .line 1568
     return-void
 .end method

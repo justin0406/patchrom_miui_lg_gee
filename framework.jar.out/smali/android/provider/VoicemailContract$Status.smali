@@ -26,7 +26,7 @@
 
 .field public static final CONFIGURATION_STATE_OK:I = 0x0
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATA_CHANNEL_STATE:Ljava/lang/String; = "data_channel_state"
 
@@ -83,7 +83,7 @@
 
 .method public static buildSourceUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "packageName"
+    .param p0, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 312

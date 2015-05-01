@@ -15,7 +15,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 49
@@ -30,8 +30,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 61
@@ -59,7 +59,7 @@
 # virtual methods
 .method public createRenderScriptGL(Landroid/renderscript/RenderScriptGL$SurfaceConfig;)Landroid/renderscript/RenderScriptGL;
     .locals 5
-    .parameter "sc"
+    .param p1, "sc"    # Landroid/renderscript/RenderScriptGL$SurfaceConfig;
 
     .prologue
     .line 159
@@ -72,7 +72,7 @@
     invoke-direct {v0, v1, p1}, Landroid/renderscript/RenderScriptGL;-><init>(Landroid/content/Context;Landroid/renderscript/RenderScriptGL$SurfaceConfig;)V
 
     .line 160
-    .local v0, rs:Landroid/renderscript/RenderScriptGL;
+    .local v0, "rs":Landroid/renderscript/RenderScriptGL;
     invoke-virtual {p0, v0}, Landroid/renderscript/RSTextureView;->setRenderScriptGL(Landroid/renderscript/RenderScriptGL;)V
 
     .line 161
@@ -130,9 +130,9 @@
 
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
     .locals 2
-    .parameter "surface"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     .line 77
@@ -157,7 +157,7 @@
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
     .locals 3
-    .parameter "surface"
+    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     const/4 v2, 0x0
@@ -186,9 +186,9 @@
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
     .locals 2
-    .parameter "surface"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     .line 90
@@ -213,7 +213,7 @@
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
     .locals 0
-    .parameter "surface"
+    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 118
@@ -263,7 +263,7 @@
 
 .method public setRenderScriptGL(Landroid/renderscript/RenderScriptGL;)V
     .locals 4
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScriptGL;
 
     .prologue
     .line 185

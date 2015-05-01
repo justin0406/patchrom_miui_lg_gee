@@ -30,8 +30,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "activityContext"
-    .parameter "attr"
+    .param p1, "activityContext"    # Landroid/content/Context;
+    .param p2, "attr"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -47,7 +47,7 @@
     move-result-object v0
 
     .line 405
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -128,7 +128,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 432
@@ -168,8 +168,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/SearchableInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/app/SearchableInfo$1;
 
     .prologue
     .line 386
@@ -232,8 +232,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 476

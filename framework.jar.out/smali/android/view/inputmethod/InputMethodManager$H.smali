@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 351
@@ -43,7 +42,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v10, 0x0
@@ -69,7 +68,7 @@
     check-cast v1, Lcom/android/internal/os/SomeArgs;
 
     .line 361
-    .local v1, args:Lcom/android/internal/os/SomeArgs;
+    .local v1, "args":Lcom/android/internal/os/SomeArgs;
     :try_start_0
     iget-object v9, p0, Landroid/view/inputmethod/InputMethodManager$H;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
@@ -120,7 +119,7 @@
     move-exception v2
 
     .line 364
-    .local v2, e:Ljava/lang/RuntimeException;
+    .local v2, "e":Ljava/lang/RuntimeException;
     iget-object v6, v1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v6, Ljava/io/PrintWriter;
@@ -148,7 +147,7 @@
     goto :goto_1
 
     .line 368
-    .end local v2           #e:Ljava/lang/RuntimeException;
+    .end local v2    # "e":Ljava/lang/RuntimeException;
     :catchall_0
     move-exception v6
 
@@ -160,14 +159,14 @@
     throw v6
 
     .line 373
-    .end local v1           #args:Lcom/android/internal/os/SomeArgs;
+    .end local v1    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_1
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Lcom/android/internal/view/InputBindResult;
 
     .line 377
-    .local v3, res:Lcom/android/internal/view/InputBindResult;
+    .local v3, "res":Lcom/android/internal/view/InputBindResult;
     iget-object v7, p0, Landroid/view/inputmethod/InputMethodManager$H;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v7, v7, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
@@ -307,16 +306,16 @@
     goto/16 :goto_0
 
     .line 396
-    .end local v3           #res:Lcom/android/internal/view/InputBindResult;
+    .end local v3    # "res":Lcom/android/internal/view/InputBindResult;
     :pswitch_2
     iget v4, p1, Landroid/os/Message;->arg1:I
 
     .line 400
-    .local v4, sequence:I
+    .local v4, "sequence":I
     const/4 v5, 0x0
 
     .line 401
-    .local v5, startInput:Z
+    .local v5, "startInput":Z
     iget-object v7, p0, Landroid/view/inputmethod/InputMethodManager$H;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v7, v7, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
@@ -399,15 +398,15 @@
     throw v6
 
     .line 431
-    .end local v4           #sequence:I
-    .end local v5           #startInput:Z
+    .end local v4    # "sequence":I
+    .end local v5    # "startInput":Z
     :pswitch_3
     iget v7, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v7, :cond_7
 
     .line 435
-    .local v0, active:Z
+    .local v0, "active":Z
     :goto_2
     iget-object v6, p0, Landroid/view/inputmethod/InputMethodManager$H;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
@@ -448,8 +447,8 @@
 
     invoke-interface {v6}, Lcom/android/internal/view/IInputContext;->finishComposingText()V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_3
     .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_1
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
     .line 451
     :goto_3
@@ -479,7 +478,7 @@
 
     const/4 v9, 0x0
 
-    #calls: Landroid/view/inputmethod/InputMethodManager;->checkFocusNoStartInput(ZZ)Z
+    # invokes: Landroid/view/inputmethod/InputMethodManager;->checkFocusNoStartInput(ZZ)Z
     invoke-static {v6, v8, v9}, Landroid/view/inputmethod/InputMethodManager;->access$000(Landroid/view/inputmethod/InputMethodManager;ZZ)Z
 
     move-result v6
@@ -514,7 +513,7 @@
 
     throw v6
 
-    .end local v0           #active:Z
+    .end local v0    # "active":Z
     :cond_7
     move v0, v6
 
@@ -554,7 +553,7 @@
     goto/16 :goto_0
 
     .line 447
-    .restart local v0       #active:Z
+    .restart local v0    # "active":Z
     :catch_1
     move-exception v6
 

@@ -25,11 +25,10 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaDrm;Landroid/media/MediaDrm;[BLjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "drm"
-    .parameter "sessionId"
-    .parameter "cipherAlgorithm"
-    .parameter "macAlgorithm"
+    .param p2, "drm"    # Landroid/media/MediaDrm;
+    .param p3, "sessionId"    # [B
+    .param p4, "cipherAlgorithm"    # Ljava/lang/String;
+    .param p5, "macAlgorithm"    # Ljava/lang/String;
 
     .prologue
     .line 608
@@ -44,11 +43,11 @@
     iput-object p2, p0, Landroid/media/MediaDrm$CryptoSession;->mDrm:Landroid/media/MediaDrm;
 
     .line 611
-    #calls: Landroid/media/MediaDrm;->setCipherAlgorithmNative(Landroid/media/MediaDrm;[BLjava/lang/String;)V
+    # invokes: Landroid/media/MediaDrm;->setCipherAlgorithmNative(Landroid/media/MediaDrm;[BLjava/lang/String;)V
     invoke-static {p2, p3, p4}, Landroid/media/MediaDrm;->access$200(Landroid/media/MediaDrm;[BLjava/lang/String;)V
 
     .line 612
-    #calls: Landroid/media/MediaDrm;->setMacAlgorithmNative(Landroid/media/MediaDrm;[BLjava/lang/String;)V
+    # invokes: Landroid/media/MediaDrm;->setMacAlgorithmNative(Landroid/media/MediaDrm;[BLjava/lang/String;)V
     invoke-static {p2, p3, p5}, Landroid/media/MediaDrm;->access$300(Landroid/media/MediaDrm;[BLjava/lang/String;)V
 
     .line 613
@@ -59,9 +58,9 @@
 # virtual methods
 .method public decrypt([B[B[B)[B
     .locals 2
-    .parameter "keyid"
-    .parameter "input"
-    .parameter "iv"
+    .param p1, "keyid"    # [B
+    .param p2, "input"    # [B
+    .param p3, "iv"    # [B
 
     .prologue
     .line 634
@@ -69,7 +68,7 @@
 
     iget-object v1, p0, Landroid/media/MediaDrm$CryptoSession;->mSessionId:[B
 
-    #calls: Landroid/media/MediaDrm;->decryptNative(Landroid/media/MediaDrm;[B[B[B[B)[B
+    # invokes: Landroid/media/MediaDrm;->decryptNative(Landroid/media/MediaDrm;[B[B[B[B)[B
     invoke-static {v0, v1, p1, p2, p3}, Landroid/media/MediaDrm;->access$500(Landroid/media/MediaDrm;[B[B[B[B)[B
 
     move-result-object v0
@@ -79,9 +78,9 @@
 
 .method public encrypt([B[B[B)[B
     .locals 2
-    .parameter "keyid"
-    .parameter "input"
-    .parameter "iv"
+    .param p1, "keyid"    # [B
+    .param p2, "input"    # [B
+    .param p3, "iv"    # [B
 
     .prologue
     .line 623
@@ -89,7 +88,7 @@
 
     iget-object v1, p0, Landroid/media/MediaDrm$CryptoSession;->mSessionId:[B
 
-    #calls: Landroid/media/MediaDrm;->encryptNative(Landroid/media/MediaDrm;[B[B[B[B)[B
+    # invokes: Landroid/media/MediaDrm;->encryptNative(Landroid/media/MediaDrm;[B[B[B[B)[B
     invoke-static {v0, v1, p1, p2, p3}, Landroid/media/MediaDrm;->access$400(Landroid/media/MediaDrm;[B[B[B[B)[B
 
     move-result-object v0
@@ -99,8 +98,8 @@
 
 .method public sign([B[B)[B
     .locals 2
-    .parameter "keyid"
-    .parameter "message"
+    .param p1, "keyid"    # [B
+    .param p2, "message"    # [B
 
     .prologue
     .line 644
@@ -108,7 +107,7 @@
 
     iget-object v1, p0, Landroid/media/MediaDrm$CryptoSession;->mSessionId:[B
 
-    #calls: Landroid/media/MediaDrm;->signNative(Landroid/media/MediaDrm;[B[B[B)[B
+    # invokes: Landroid/media/MediaDrm;->signNative(Landroid/media/MediaDrm;[B[B[B)[B
     invoke-static {v0, v1, p1, p2}, Landroid/media/MediaDrm;->access$600(Landroid/media/MediaDrm;[B[B[B)[B
 
     move-result-object v0
@@ -118,9 +117,9 @@
 
 .method public verify([B[B[B)Z
     .locals 2
-    .parameter "keyid"
-    .parameter "message"
-    .parameter "signature"
+    .param p1, "keyid"    # [B
+    .param p2, "message"    # [B
+    .param p3, "signature"    # [B
 
     .prologue
     .line 657
@@ -128,7 +127,7 @@
 
     iget-object v1, p0, Landroid/media/MediaDrm$CryptoSession;->mSessionId:[B
 
-    #calls: Landroid/media/MediaDrm;->verifyNative(Landroid/media/MediaDrm;[B[B[B[B)Z
+    # invokes: Landroid/media/MediaDrm;->verifyNative(Landroid/media/MediaDrm;[B[B[B[B)Z
     invoke-static {v0, v1, p1, p2, p3}, Landroid/media/MediaDrm;->access$700(Landroid/media/MediaDrm;[B[B[B[B)Z
 
     move-result v0

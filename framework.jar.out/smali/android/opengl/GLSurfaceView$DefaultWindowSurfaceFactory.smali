@@ -30,7 +30,7 @@
 
 .method synthetic constructor <init>(Landroid/opengl/GLSurfaceView$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/opengl/GLSurfaceView$1;
 
     .prologue
     .line 802
@@ -43,17 +43,17 @@
 # virtual methods
 .method public createWindowSurface(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljava/lang/Object;)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 4
-    .parameter "egl"
-    .parameter "display"
-    .parameter "config"
-    .parameter "nativeWindow"
+    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
+    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p3, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
+    .param p4, "nativeWindow"    # Ljava/lang/Object;
 
     .prologue
     .line 806
     const/4 v1, 0x0
 
     .line 808
-    .local v1, result:Ljavax/microedition/khronos/egl/EGLSurface;
+    .local v1, "result":Ljavax/microedition/khronos/egl/EGLSurface;
     const/4 v2, 0x0
 
     :try_start_0
@@ -72,7 +72,7 @@
     move-exception v0
 
     .line 816
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const-string v2, "GLSurfaceView"
 
     const-string v3, "eglCreateWindowSurface"
@@ -84,9 +84,9 @@
 
 .method public destroySurface(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLSurface;)V
     .locals 0
-    .parameter "egl"
-    .parameter "display"
-    .parameter "surface"
+    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
+    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
+    .param p3, "surface"    # Ljavax/microedition/khronos/egl/EGLSurface;
 
     .prologue
     .line 823

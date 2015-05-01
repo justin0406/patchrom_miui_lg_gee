@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "policyMask"
-    .parameter "name"
+    .param p1, "policyMask"    # I
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 847

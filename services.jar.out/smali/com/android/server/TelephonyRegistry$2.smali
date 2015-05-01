@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/TelephonyRegistry;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 150
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v5, 0x0
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 154
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -60,14 +59,14 @@
     .line 155
     iget-object v1, p0, Lcom/android/server/TelephonyRegistry$2;->this$0:Lcom/android/server/TelephonyRegistry;
 
-    #getter for: Lcom/android/server/TelephonyRegistry;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/TelephonyRegistry;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/TelephonyRegistry;->access$100(Lcom/android/server/TelephonyRegistry;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/TelephonyRegistry$2;->this$0:Lcom/android/server/TelephonyRegistry;
 
-    #getter for: Lcom/android/server/TelephonyRegistry;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/TelephonyRegistry;->mHandler:Landroid/os/Handler;
     invoke-static {v2}, Lcom/android/server/TelephonyRegistry;->access$100(Lcom/android/server/TelephonyRegistry;)Landroid/os/Handler;
 
     move-result-object v2

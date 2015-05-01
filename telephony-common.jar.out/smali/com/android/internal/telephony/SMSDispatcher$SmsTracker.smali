@@ -51,12 +51,11 @@
 # direct methods
 .method private constructor <init>(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/content/pm/PackageInfo;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter
-    .parameter "sentIntent"
-    .parameter "deliveryIntent"
-    .parameter "appInfo"
-    .parameter "destAddr"
-    .parameter "format"
+    .param p2, "sentIntent"    # Landroid/app/PendingIntent;
+    .param p3, "deliveryIntent"    # Landroid/app/PendingIntent;
+    .param p4, "appInfo"    # Landroid/content/pm/PackageInfo;
+    .param p5, "destAddr"    # Ljava/lang/String;
+    .param p6, "format"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +74,7 @@
     .end annotation
 
     .prologue
-    .local p1, data:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local p1, "data":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v2, 0x0
 
     .line 1016
@@ -121,13 +120,13 @@
 
 .method synthetic constructor <init>(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/content/pm/PackageInfo;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/SMSDispatcher$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
+    .param p1, "x0"    # Ljava/util/HashMap;
+    .param p2, "x1"    # Landroid/app/PendingIntent;
+    .param p3, "x2"    # Landroid/app/PendingIntent;
+    .param p4, "x3"    # Landroid/content/pm/PackageInfo;
+    .param p5, "x4"    # Ljava/lang/String;
+    .param p6, "x5"    # Ljava/lang/String;
+    .param p7, "x6"    # Lcom/android/internal/telephony/SMSDispatcher$1;
 
     .prologue
     .line 998
@@ -156,8 +155,8 @@
 
 .method public updateSentMessageStatus(Landroid/content/Context;I)V
     .locals 6
-    .parameter "context"
-    .parameter "status"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "status"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -175,7 +174,7 @@
     invoke-direct {v3, v0}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 1064
-    .local v3, values:Landroid/content/ContentValues;
+    .local v3, "values":Landroid/content/ContentValues;
     const-string v0, "status"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -198,14 +197,14 @@
     invoke-static/range {v0 .. v5}, Landroid/database/sqlite/SqliteWrapper;->update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     .line 1068
-    .end local v3           #values:Landroid/content/ContentValues;
+    .end local v3    # "values":Landroid/content/ContentValues;
     :cond_0
     return-void
 .end method
 
 .method writeSentMessage(Landroid/content/Context;)V
     .locals 10
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v6, 0x1
@@ -222,7 +221,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 1041
-    .local v3, text:Ljava/lang/String;
+    .local v3, "text":Ljava/lang/String;
     if-eqz v3, :cond_0
 
     .line 1042
@@ -233,7 +232,7 @@
     move v7, v6
 
     .line 1045
-    .local v7, deliveryReport:Z
+    .local v7, "deliveryReport":Z
     :goto_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -260,7 +259,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->mSentMessageUri:Landroid/net/Uri;
 
     .line 1055
-    .end local v7           #deliveryReport:Z
+    .end local v7    # "deliveryReport":Z
     :cond_0
     return-void
 

@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "uplink"
-    .parameter "downlink"
+    .param p1, "uplink"    # I
+    .param p2, "downlink"    # I
 
     .prologue
     .line 250

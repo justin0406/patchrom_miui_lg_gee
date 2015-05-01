@@ -35,7 +35,7 @@
 
     .prologue
     .line 99
-    #calls: Landroid/os/Trace;->cacheEnabledTags()J
+    # invokes: Landroid/os/Trace;->cacheEnabledTags()J
     invoke-static {}, Landroid/os/Trace;->access$000()J
 
     .line 100

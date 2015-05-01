@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 504
@@ -41,12 +41,12 @@
 # virtual methods
 .method public addAccount(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;ZLandroid/os/Bundle;)V
     .locals 5
-    .parameter "response"
-    .parameter "accountType"
-    .parameter "authTokenType"
-    .parameter "requiredFeatures"
-    .parameter "expectActivityLaunch"
-    .parameter "options"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "authTokenType"    # Ljava/lang/String;
+    .param p4, "requiredFeatures"    # [Ljava/lang/String;
+    .param p5, "expectActivityLaunch"    # Z
+    .param p6, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 939
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 941
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -175,9 +175,9 @@
 
 .method public addAccountExplicitly(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 7
-    .parameter "account"
-    .parameter "password"
-    .parameter "extras"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -195,13 +195,13 @@
     move-result-object v0
 
     .line 699
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 702
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -260,7 +260,7 @@
     if-eqz v4, :cond_2
 
     .line 723
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -271,7 +271,7 @@
     return v2
 
     .line 708
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -313,8 +313,8 @@
 
 .method public addSharedAccountAsUser(Landroid/accounts/Account;I)Z
     .locals 7
-    .parameter "account"
-    .parameter "userId"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -332,13 +332,13 @@
     move-result-object v0
 
     .line 1062
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1065
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -383,7 +383,7 @@
     if-eqz v4, :cond_1
 
     .line 1079
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -394,7 +394,7 @@
     return v2
 
     .line 1071
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -435,7 +435,7 @@
 
 .method public clearPassword(Landroid/accounts/Account;)V
     .locals 5
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -449,13 +449,13 @@
     move-result-object v0
 
     .line 839
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 841
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -523,11 +523,11 @@
 
 .method public confirmCredentialsAsUser(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Landroid/os/Bundle;ZI)V
     .locals 5
-    .parameter "response"
-    .parameter "account"
-    .parameter "options"
-    .parameter "expectActivityLaunch"
-    .parameter "userId"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "expectActivityLaunch"    # Z
+    .param p5, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -545,13 +545,13 @@
     move-result-object v0
 
     .line 1013
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1015
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -675,9 +675,9 @@
 
 .method public editProperties(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Z)V
     .locals 5
-    .parameter "response"
-    .parameter "accountType"
-    .parameter "expectActivityLaunch"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "expectActivityLaunch"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -693,13 +693,13 @@
     move-result-object v0
 
     .line 996
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 998
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -769,7 +769,7 @@
 
 .method public getAccounts(Ljava/lang/String;)[Landroid/accounts/Account;
     .locals 6
-    .parameter "accountType"
+    .param p1, "accountType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -783,13 +783,13 @@
     move-result-object v0
 
     .line 584
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 587
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -822,7 +822,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 594
-    .local v2, _result:[Landroid/accounts/Account;
+    .local v2, "_result":[Landroid/accounts/Account;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 595
@@ -832,7 +832,7 @@
     return-object v2
 
     .line 594
-    .end local v2           #_result:[Landroid/accounts/Account;
+    .end local v2    # "_result":[Landroid/accounts/Account;
     :catchall_0
     move-exception v3
 
@@ -846,8 +846,8 @@
 
 .method public getAccountsAsUser(Ljava/lang/String;I)[Landroid/accounts/Account;
     .locals 6
-    .parameter "accountType"
-    .parameter "userId"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -861,13 +861,13 @@
     move-result-object v0
 
     .line 640
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 643
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -903,7 +903,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 651
-    .local v2, _result:[Landroid/accounts/Account;
+    .local v2, "_result":[Landroid/accounts/Account;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 652
@@ -913,7 +913,7 @@
     return-object v2
 
     .line 651
-    .end local v2           #_result:[Landroid/accounts/Account;
+    .end local v2    # "_result":[Landroid/accounts/Account;
     :catchall_0
     move-exception v3
 
@@ -927,9 +927,9 @@
 
 .method public getAccountsByFeatures(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 5
-    .parameter "response"
-    .parameter "accountType"
-    .parameter "features"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "features"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -943,13 +943,13 @@
     move-result-object v0
 
     .line 682
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 684
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -1014,8 +1014,8 @@
 
 .method public getAccountsByTypeForPackage(Ljava/lang/String;Ljava/lang/String;)[Landroid/accounts/Account;
     .locals 6
-    .parameter "type"
-    .parameter "packageName"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1029,13 +1029,13 @@
     move-result-object v0
 
     .line 621
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 624
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1071,7 +1071,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 632
-    .local v2, _result:[Landroid/accounts/Account;
+    .local v2, "_result":[Landroid/accounts/Account;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 633
@@ -1081,7 +1081,7 @@
     return-object v2
 
     .line 632
-    .end local v2           #_result:[Landroid/accounts/Account;
+    .end local v2    # "_result":[Landroid/accounts/Account;
     :catchall_0
     move-exception v3
 
@@ -1095,8 +1095,8 @@
 
 .method public getAccountsForPackage(Ljava/lang/String;I)[Landroid/accounts/Account;
     .locals 6
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1110,13 +1110,13 @@
     move-result-object v0
 
     .line 602
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 605
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1152,7 +1152,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 613
-    .local v2, _result:[Landroid/accounts/Account;
+    .local v2, "_result":[Landroid/accounts/Account;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 614
@@ -1162,7 +1162,7 @@
     return-object v2
 
     .line 613
-    .end local v2           #_result:[Landroid/accounts/Account;
+    .end local v2    # "_result":[Landroid/accounts/Account;
     :catchall_0
     move-exception v3
 
@@ -1176,12 +1176,12 @@
 
 .method public getAuthToken(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Ljava/lang/String;ZZLandroid/os/Bundle;)V
     .locals 5
-    .parameter "response"
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "notifyOnAuthFailure"
-    .parameter "expectActivityLaunch"
-    .parameter "options"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "authTokenType"    # Ljava/lang/String;
+    .param p4, "notifyOnAuthFailure"    # Z
+    .param p5, "expectActivityLaunch"    # Z
+    .param p6, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1199,13 +1199,13 @@
     move-result-object v0
 
     .line 907
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 909
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -1343,9 +1343,9 @@
 
 .method public getAuthTokenLabel(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "response"
-    .parameter "accountType"
-    .parameter "authTokenType"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "accountType"    # Ljava/lang/String;
+    .param p3, "authTokenType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1359,13 +1359,13 @@
     move-result-object v0
 
     .line 1044
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1046
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -1443,13 +1443,13 @@
     move-result-object v0
 
     .line 567
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 570
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1479,7 +1479,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 576
-    .local v2, _result:[Landroid/accounts/AuthenticatorDescription;
+    .local v2, "_result":[Landroid/accounts/AuthenticatorDescription;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 577
@@ -1489,7 +1489,7 @@
     return-object v2
 
     .line 576
-    .end local v2           #_result:[Landroid/accounts/AuthenticatorDescription;
+    .end local v2    # "_result":[Landroid/accounts/AuthenticatorDescription;
     :catchall_0
     move-exception v3
 
@@ -1513,7 +1513,7 @@
 
 .method public getPassword(Landroid/accounts/Account;)Ljava/lang/String;
     .locals 6
-    .parameter "account"
+    .param p1, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1527,13 +1527,13 @@
     move-result-object v0
 
     .line 518
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 521
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1573,7 +1573,7 @@
     move-result-object v2
 
     .line 534
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 535
@@ -1583,7 +1583,7 @@
     return-object v2
 
     .line 527
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
@@ -1608,7 +1608,7 @@
 
 .method public getSharedAccountsAsUser(I)[Landroid/accounts/Account;
     .locals 6
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1622,13 +1622,13 @@
     move-result-object v0
 
     .line 1087
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1090
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1661,7 +1661,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1097
-    .local v2, _result:[Landroid/accounts/Account;
+    .local v2, "_result":[Landroid/accounts/Account;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1098
@@ -1671,7 +1671,7 @@
     return-object v2
 
     .line 1097
-    .end local v2           #_result:[Landroid/accounts/Account;
+    .end local v2    # "_result":[Landroid/accounts/Account;
     :catchall_0
     move-exception v3
 
@@ -1685,8 +1685,8 @@
 
 .method public getUserData(Landroid/accounts/Account;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "account"
-    .parameter "key"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1700,13 +1700,13 @@
     move-result-object v0
 
     .line 542
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 545
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -1749,7 +1749,7 @@
     move-result-object v2
 
     .line 559
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 560
@@ -1759,7 +1759,7 @@
     return-object v2
 
     .line 551
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
@@ -1784,9 +1784,9 @@
 
 .method public hasFeatures(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
     .locals 5
-    .parameter "response"
-    .parameter "account"
-    .parameter "features"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "features"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1800,13 +1800,13 @@
     move-result-object v0
 
     .line 659
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 661
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -1893,8 +1893,8 @@
 
 .method public invalidateAuthToken(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "accountType"
-    .parameter "authToken"
+    .param p1, "accountType"    # Ljava/lang/String;
+    .param p2, "authToken"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1908,13 +1908,13 @@
     move-result-object v0
 
     .line 753
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 755
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -1963,8 +1963,8 @@
 
 .method public peekAuthToken(Landroid/accounts/Account;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "account"
-    .parameter "authTokenType"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1978,13 +1978,13 @@
     move-result-object v0
 
     .line 769
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 772
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accounts.IAccountManager"
 
@@ -2027,7 +2027,7 @@
     move-result-object v2
 
     .line 786
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 787
@@ -2037,7 +2037,7 @@
     return-object v2
 
     .line 778
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
@@ -2062,8 +2062,8 @@
 
 .method public removeAccount(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;)V
     .locals 5
-    .parameter "response"
-    .parameter "account"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2077,13 +2077,13 @@
     move-result-object v0
 
     .line 731
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 733
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -2167,8 +2167,8 @@
 
 .method public removeSharedAccountAsUser(Landroid/accounts/Account;I)Z
     .locals 7
-    .parameter "account"
-    .parameter "userId"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2186,13 +2186,13 @@
     move-result-object v0
 
     .line 1105
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1108
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -2237,7 +2237,7 @@
     if-eqz v4, :cond_1
 
     .line 1122
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2248,7 +2248,7 @@
     return v2
 
     .line 1114
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -2279,9 +2279,9 @@
 
 .method public setAuthToken(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "authToken"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "authToken"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2295,13 +2295,13 @@
     move-result-object v0
 
     .line 794
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 796
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -2375,8 +2375,8 @@
 
 .method public setPassword(Landroid/accounts/Account;Ljava/lang/String;)V
     .locals 5
-    .parameter "account"
-    .parameter "password"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "password"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2390,13 +2390,13 @@
     move-result-object v0
 
     .line 817
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 819
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -2467,9 +2467,9 @@
 
 .method public setUserData(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "account"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "key"    # Ljava/lang/String;
+    .param p3, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2483,13 +2483,13 @@
     move-result-object v0
 
     .line 860
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 862
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accounts.IAccountManager"
 
@@ -2563,10 +2563,10 @@
 
 .method public updateAppPermission(Landroid/accounts/Account;Ljava/lang/String;IZ)V
     .locals 5
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "uid"
-    .parameter "value"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authTokenType"    # Ljava/lang/String;
+    .param p3, "uid"    # I
+    .param p4, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2584,13 +2584,13 @@
     move-result-object v0
 
     .line 883
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 885
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 
@@ -2676,11 +2676,11 @@
 
 .method public updateCredentials(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Ljava/lang/String;ZLandroid/os/Bundle;)V
     .locals 5
-    .parameter "response"
-    .parameter "account"
-    .parameter "authTokenType"
-    .parameter "expectActivityLaunch"
-    .parameter "options"
+    .param p1, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "authTokenType"    # Ljava/lang/String;
+    .param p4, "expectActivityLaunch"    # Z
+    .param p5, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2698,13 +2698,13 @@
     move-result-object v0
 
     .line 965
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 967
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.accounts.IAccountManager"
 

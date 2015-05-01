@@ -6,22 +6,23 @@
 local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
-local-out-zip-file := MIUI_Gee.zip
+local-out-zip-file := MIUI_gee.zip
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps :=
 
 local-density := XHDPI
 
-include phoneapps.mk
-
 PORT_PRODUCT := gee_justin
 
-# All apks from MIUI execept MIUISystemUI and framework-miui-res.apk
-local-miui-apps     := 
+local-miui-modified-apps := MiuiFramework SecurityCenter
 
-# All apps need to be removed from original ZIP file
-local-remove-apps   :=
+local-phone-apps := Camera2 Bluetooth HTMLViewer KeyChain LatinIME PacProcessor \
+        UserDictionaryProvider WAPPushManager
+
+local-phone-priv-apps := BackupRestoreConfirmation DefaultContainerService FusedLocation \
+        ExternalStorageProvider InputDevices OneTimeInitializer ProxyHandler SharedStorageBackup \
+        Shell Tag VpnDialogs
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -41,3 +42,6 @@ local-zip-misc:
 local-pre-zip-misc:
 	@echo boot.img
 	cp other/boot.img $(ZIP_DIR)/boot.img
+
+	@echo system
+	cp -a -rf other/system/* $(ZIP_DIR)/system/

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 134
@@ -54,12 +52,13 @@
 
     iget-object v1, p0, Lcom/android/internal/os/SamplingProfilerIntegration$2;->val$packageInfo:Landroid/content/pm/PackageInfo;
 
-    #calls: Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
+    # invokes: Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
     invoke-static {v0, v1}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$000(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 139
+    # getter for: Lcom/android/internal/os/SamplingProfilerIntegration;->pending:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
@@ -73,6 +72,7 @@
     :catchall_0
     move-exception v0
 
+    # getter for: Lcom/android/internal/os/SamplingProfilerIntegration;->pending:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v1

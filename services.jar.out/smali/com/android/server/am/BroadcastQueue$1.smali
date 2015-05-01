@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/BroadcastQueue;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 135
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x1

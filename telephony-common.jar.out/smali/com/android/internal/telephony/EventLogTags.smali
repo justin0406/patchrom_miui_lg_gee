@@ -70,7 +70,7 @@
 
 .method public static writeBadIpAddress(Ljava/lang/String;)V
     .locals 1
-    .parameter "ipAddress"
+    .param p0, "ipAddress"    # Ljava/lang/String;
 
     .prologue
     .line 160
@@ -84,9 +84,9 @@
 
 .method public static writeCallDrop(III)V
     .locals 4
-    .parameter "cause"
-    .parameter "cid"
-    .parameter "networkType"
+    .param p0, "cause"    # I
+    .param p1, "cid"    # I
+    .param p2, "networkType"    # I
 
     .prologue
     .line 116
@@ -128,8 +128,8 @@
 
 .method public static writeCdmaDataDrop(II)V
     .locals 4
-    .parameter "cid"
-    .parameter "networkType"
+    .param p0, "cid"    # I
+    .param p1, "networkType"    # I
 
     .prologue
     .line 136
@@ -163,9 +163,9 @@
 
 .method public static writeCdmaDataSetupFailed(III)V
     .locals 4
-    .parameter "cause"
-    .parameter "cid"
-    .parameter "networkType"
+    .param p0, "cause"    # I
+    .param p1, "cid"    # I
+    .param p2, "networkType"    # I
 
     .prologue
     .line 132
@@ -207,8 +207,8 @@
 
 .method public static writeCdmaDataStateChange(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "oldstate"
-    .parameter "newstate"
+    .param p0, "oldstate"    # Ljava/lang/String;
+    .param p1, "newstate"    # Ljava/lang/String;
 
     .prologue
     .line 152
@@ -234,10 +234,10 @@
 
 .method public static writeCdmaServiceStateChange(IIII)V
     .locals 4
-    .parameter "oldstate"
-    .parameter "olddatastate"
-    .parameter "newstate"
-    .parameter "newdatastate"
+    .param p0, "oldstate"    # I
+    .param p1, "olddatastate"    # I
+    .param p2, "newstate"    # I
+    .param p3, "newdatastate"    # I
 
     .prologue
     .line 156
@@ -287,8 +287,8 @@
 
 .method public static writeDataNetworkRegistrationFail(II)V
     .locals 4
-    .parameter "opNumeric"
-    .parameter "cid"
+    .param p0, "opNumeric"    # I
+    .param p1, "cid"    # I
 
     .prologue
     .line 120
@@ -322,8 +322,8 @@
 
 .method public static writeDataNetworkStatusOnRadioOff(Ljava/lang/String;I)V
     .locals 4
-    .parameter "dcState"
-    .parameter "enable"
+    .param p0, "dcState"    # Ljava/lang/String;
+    .param p1, "enable"    # I
 
     .prologue
     .line 124
@@ -353,7 +353,7 @@
 
 .method public static writeDataStallRecoveryCleanup(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 168
@@ -367,7 +367,7 @@
 
 .method public static writeDataStallRecoveryGetDataCallList(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 164
@@ -381,7 +381,7 @@
 
 .method public static writeDataStallRecoveryRadioRestart(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 176
@@ -395,7 +395,7 @@
 
 .method public static writeDataStallRecoveryRadioRestartWithProp(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 180
@@ -409,7 +409,7 @@
 
 .method public static writeDataStallRecoveryReregister(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 172
@@ -423,7 +423,7 @@
 
 .method public static writeExpDetSmsDeniedByUser(Ljava/lang/String;)V
     .locals 1
-    .parameter "appSignature"
+    .param p0, "appSignature"    # Ljava/lang/String;
 
     .prologue
     .line 188
@@ -437,7 +437,7 @@
 
 .method public static writeExpDetSmsSentByUser(Ljava/lang/String;)V
     .locals 1
-    .parameter "appSignature"
+    .param p0, "appSignature"    # Ljava/lang/String;
 
     .prologue
     .line 192
@@ -451,8 +451,8 @@
 
 .method public static writeGsmDataStateChange(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "oldstate"
-    .parameter "newstate"
+    .param p0, "oldstate"    # Ljava/lang/String;
+    .param p1, "newstate"    # Ljava/lang/String;
 
     .prologue
     .line 144
@@ -478,9 +478,9 @@
 
 .method public static writeGsmRatSwitched(III)V
     .locals 4
-    .parameter "cid"
-    .parameter "networkFrom"
-    .parameter "networkTo"
+    .param p0, "cid"    # I
+    .param p1, "networkFrom"    # I
+    .param p2, "networkTo"    # I
 
     .prologue
     .line 140
@@ -522,9 +522,9 @@
 
 .method public static writeGsmRatSwitchedNew(III)V
     .locals 4
-    .parameter "cid"
-    .parameter "networkFrom"
-    .parameter "networkTo"
+    .param p0, "cid"    # I
+    .param p1, "networkFrom"    # I
+    .param p2, "networkTo"    # I
 
     .prologue
     .line 184
@@ -566,10 +566,10 @@
 
 .method public static writeGsmServiceStateChange(IIII)V
     .locals 4
-    .parameter "oldstate"
-    .parameter "oldgprsstate"
-    .parameter "newstate"
-    .parameter "newgprsstate"
+    .param p0, "oldstate"    # I
+    .param p1, "oldgprsstate"    # I
+    .param p2, "newstate"    # I
+    .param p3, "newgprsstate"    # I
 
     .prologue
     .line 148
@@ -619,7 +619,7 @@
 
 .method public static writePdpBadDnsAddress(Ljava/lang/String;)V
     .locals 1
-    .parameter "dnsAddress"
+    .param p0, "dnsAddress"    # Ljava/lang/String;
 
     .prologue
     .line 92
@@ -633,7 +633,7 @@
 
 .method public static writePdpContextReset(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 104
@@ -647,8 +647,8 @@
 
 .method public static writePdpNetworkDrop(II)V
     .locals 4
-    .parameter "cid"
-    .parameter "networkType"
+    .param p0, "cid"    # I
+    .param p1, "networkType"    # I
 
     .prologue
     .line 128
@@ -682,7 +682,7 @@
 
 .method public static writePdpRadioReset(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 100
@@ -696,7 +696,7 @@
 
 .method public static writePdpRadioResetCountdownTriggered(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 96
@@ -710,7 +710,7 @@
 
 .method public static writePdpReregisterNetwork(I)V
     .locals 1
-    .parameter "outPacketCount"
+    .param p0, "outPacketCount"    # I
 
     .prologue
     .line 108
@@ -724,9 +724,9 @@
 
 .method public static writePdpSetupFail(III)V
     .locals 4
-    .parameter "cause"
-    .parameter "cid"
-    .parameter "networkType"
+    .param p0, "cause"    # I
+    .param p1, "cid"    # I
+    .param p2, "networkType"    # I
 
     .prologue
     .line 112

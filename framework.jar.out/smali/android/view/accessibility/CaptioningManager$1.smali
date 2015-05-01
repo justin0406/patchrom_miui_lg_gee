@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/CaptioningManager;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 216
@@ -37,8 +36,8 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 4
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 219
@@ -47,7 +46,7 @@
     move-result-object v1
 
     .line 220
-    .local v1, uriPath:Ljava/lang/String;
+    .local v1, "uriPath":Ljava/lang/String;
     const/16 v2, 0x2f
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->lastIndexOf(I)I
@@ -61,7 +60,7 @@
     move-result-object v0
 
     .line 221
-    .local v0, name:Ljava/lang/String;
+    .local v0, "name":Ljava/lang/String;
     const-string v2, "accessibility_captioning_enabled"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -73,7 +72,7 @@
     .line 222
     iget-object v2, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #calls: Landroid/view/accessibility/CaptioningManager;->notifyEnabledChanged()V
+    # invokes: Landroid/view/accessibility/CaptioningManager;->notifyEnabledChanged()V
     invoke-static {v2}, Landroid/view/accessibility/CaptioningManager;->access$000(Landroid/view/accessibility/CaptioningManager;)V
 
     .line 233
@@ -93,7 +92,7 @@
     .line 224
     iget-object v2, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #calls: Landroid/view/accessibility/CaptioningManager;->notifyLocaleChanged()V
+    # invokes: Landroid/view/accessibility/CaptioningManager;->notifyLocaleChanged()V
     invoke-static {v2}, Landroid/view/accessibility/CaptioningManager;->access$100(Landroid/view/accessibility/CaptioningManager;)V
 
     goto :goto_0
@@ -111,7 +110,7 @@
     .line 226
     iget-object v2, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #calls: Landroid/view/accessibility/CaptioningManager;->notifyFontScaleChanged()V
+    # invokes: Landroid/view/accessibility/CaptioningManager;->notifyFontScaleChanged()V
     invoke-static {v2}, Landroid/view/accessibility/CaptioningManager;->access$200(Landroid/view/accessibility/CaptioningManager;)V
 
     goto :goto_0
@@ -120,14 +119,14 @@
     :cond_2
     iget-object v2, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #getter for: Landroid/view/accessibility/CaptioningManager;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/view/accessibility/CaptioningManager;->mHandler:Landroid/os/Handler;
     invoke-static {v2}, Landroid/view/accessibility/CaptioningManager;->access$400(Landroid/view/accessibility/CaptioningManager;)Landroid/os/Handler;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #getter for: Landroid/view/accessibility/CaptioningManager;->mStyleChangedRunnable:Ljava/lang/Runnable;
+    # getter for: Landroid/view/accessibility/CaptioningManager;->mStyleChangedRunnable:Ljava/lang/Runnable;
     invoke-static {v3}, Landroid/view/accessibility/CaptioningManager;->access$300(Landroid/view/accessibility/CaptioningManager;)Ljava/lang/Runnable;
 
     move-result-object v3
@@ -137,14 +136,14 @@
     .line 231
     iget-object v2, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #getter for: Landroid/view/accessibility/CaptioningManager;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/view/accessibility/CaptioningManager;->mHandler:Landroid/os/Handler;
     invoke-static {v2}, Landroid/view/accessibility/CaptioningManager;->access$400(Landroid/view/accessibility/CaptioningManager;)Landroid/os/Handler;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/view/accessibility/CaptioningManager$1;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #getter for: Landroid/view/accessibility/CaptioningManager;->mStyleChangedRunnable:Ljava/lang/Runnable;
+    # getter for: Landroid/view/accessibility/CaptioningManager;->mStyleChangedRunnable:Ljava/lang/Runnable;
     invoke-static {v3}, Landroid/view/accessibility/CaptioningManager;->access$300(Landroid/view/accessibility/CaptioningManager;)Ljava/lang/Runnable;
 
     move-result-object v3

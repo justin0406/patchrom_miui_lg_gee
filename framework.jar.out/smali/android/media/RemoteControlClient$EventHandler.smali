@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/RemoteControlClient;Landroid/media/RemoteControlClient;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "rcc"
-    .parameter "looper"
+    .param p2, "rcc"    # Landroid/media/RemoteControlClient;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 1242
@@ -40,7 +39,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v2, 0x0
@@ -91,7 +90,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -106,7 +105,7 @@
 
     check-cast v0, Landroid/media/IRemoteControlDisplay;
 
-    #calls: Landroid/media/RemoteControlClient;->sendPlaybackState_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
+    # invokes: Landroid/media/RemoteControlClient;->sendPlaybackState_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
     invoke-static {v2, v0}, Landroid/media/RemoteControlClient;->access$800(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;)V
 
     .line 1252
@@ -127,7 +126,7 @@
     :pswitch_1
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -142,7 +141,7 @@
 
     check-cast v0, Landroid/media/IRemoteControlDisplay;
 
-    #calls: Landroid/media/RemoteControlClient;->sendMetadata_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
+    # invokes: Landroid/media/RemoteControlClient;->sendMetadata_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
     invoke-static {v2, v0}, Landroid/media/RemoteControlClient;->access$400(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;)V
 
     .line 1257
@@ -163,7 +162,7 @@
     :pswitch_2
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -178,7 +177,7 @@
 
     check-cast v0, Landroid/media/IRemoteControlDisplay;
 
-    #calls: Landroid/media/RemoteControlClient;->sendTransportControlInfo_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
+    # invokes: Landroid/media/RemoteControlClient;->sendTransportControlInfo_syncCacheLock(Landroid/media/IRemoteControlDisplay;)V
     invoke-static {v2, v0}, Landroid/media/RemoteControlClient;->access$900(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;)V
 
     .line 1262
@@ -199,7 +198,7 @@
     :pswitch_3
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -218,7 +217,7 @@
 
     iget v4, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/RemoteControlClient;->sendArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->sendArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v2, v0, v3, v4}, Landroid/media/RemoteControlClient;->access$500(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
 
     .line 1268
@@ -239,7 +238,7 @@
     :pswitch_4
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
+    # getter for: Landroid/media/RemoteControlClient;->mCacheLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$000(Landroid/media/RemoteControlClient;)Ljava/lang/Object;
 
     move-result-object v1
@@ -258,7 +257,7 @@
 
     iget v4, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/RemoteControlClient;->sendMetadataWithArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->sendMetadataWithArtwork_syncCacheLock(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v2, v0, v3, v4}, Landroid/media/RemoteControlClient;->access$300(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
 
     .line 1274
@@ -281,7 +280,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/media/RemoteControlClient;->onNewInternalClientGen(I)V
+    # invokes: Landroid/media/RemoteControlClient;->onNewInternalClientGen(I)V
     invoke-static {v0, v1}, Landroid/media/RemoteControlClient;->access$1000(Landroid/media/RemoteControlClient;I)V
 
     goto :goto_0
@@ -292,7 +291,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/media/RemoteControlClient;->onNewCurrentClientGen(I)V
+    # invokes: Landroid/media/RemoteControlClient;->onNewCurrentClientGen(I)V
     invoke-static {v0, v1}, Landroid/media/RemoteControlClient;->access$1100(Landroid/media/RemoteControlClient;I)V
 
     goto/16 :goto_0
@@ -309,7 +308,7 @@
 
     iget v3, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/RemoteControlClient;->onPlugDisplay(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->onPlugDisplay(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/media/RemoteControlClient;->access$1200(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
 
     goto/16 :goto_0
@@ -322,7 +321,7 @@
 
     check-cast v0, Landroid/media/IRemoteControlDisplay;
 
-    #calls: Landroid/media/RemoteControlClient;->onUnplugDisplay(Landroid/media/IRemoteControlDisplay;)V
+    # invokes: Landroid/media/RemoteControlClient;->onUnplugDisplay(Landroid/media/IRemoteControlDisplay;)V
     invoke-static {v1, v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;)V
 
     goto/16 :goto_0
@@ -339,7 +338,7 @@
 
     iget v3, p1, Landroid/os/Message;->arg2:I
 
-    #calls: Landroid/media/RemoteControlClient;->onUpdateDisplayArtworkSize(Landroid/media/IRemoteControlDisplay;II)V
+    # invokes: Landroid/media/RemoteControlClient;->onUpdateDisplayArtworkSize(Landroid/media/IRemoteControlDisplay;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/media/RemoteControlClient;->access$1400(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;II)V
 
     goto/16 :goto_0
@@ -358,7 +357,7 @@
 
     move-result-wide v3
 
-    #calls: Landroid/media/RemoteControlClient;->onSeekTo(IJ)V
+    # invokes: Landroid/media/RemoteControlClient;->onSeekTo(IJ)V
     invoke-static {v1, v2, v3, v4}, Landroid/media/RemoteControlClient;->access$1500(Landroid/media/RemoteControlClient;IJ)V
 
     goto/16 :goto_0
@@ -367,7 +366,7 @@
     :pswitch_b
     iget-object v0, p0, Landroid/media/RemoteControlClient$EventHandler;->this$0:Landroid/media/RemoteControlClient;
 
-    #calls: Landroid/media/RemoteControlClient;->onPositionDriftCheck()V
+    # invokes: Landroid/media/RemoteControlClient;->onPositionDriftCheck()V
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1600(Landroid/media/RemoteControlClient;)V
 
     goto/16 :goto_0
@@ -385,7 +384,7 @@
     if-ne v4, v1, :cond_0
 
     :goto_1
-    #calls: Landroid/media/RemoteControlClient;->onDisplayWantsSync(Landroid/media/IRemoteControlDisplay;Z)V
+    # invokes: Landroid/media/RemoteControlClient;->onDisplayWantsSync(Landroid/media/IRemoteControlDisplay;Z)V
     invoke-static {v3, v0, v1}, Landroid/media/RemoteControlClient;->access$1700(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;Z)V
 
     goto/16 :goto_0
@@ -405,7 +404,7 @@
 
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    #calls: Landroid/media/RemoteControlClient;->onUpdateMetadata(IILjava/lang/Object;)V
+    # invokes: Landroid/media/RemoteControlClient;->onUpdateMetadata(IILjava/lang/Object;)V
     invoke-static {v0, v1, v2, v3}, Landroid/media/RemoteControlClient;->access$1800(Landroid/media/RemoteControlClient;IILjava/lang/Object;)V
 
     goto/16 :goto_0
@@ -423,7 +422,7 @@
     if-ne v4, v1, :cond_1
 
     :goto_2
-    #calls: Landroid/media/RemoteControlClient;->onDisplayEnable(Landroid/media/IRemoteControlDisplay;Z)V
+    # invokes: Landroid/media/RemoteControlClient;->onDisplayEnable(Landroid/media/IRemoteControlDisplay;Z)V
     invoke-static {v3, v0, v1}, Landroid/media/RemoteControlClient;->access$1900(Landroid/media/RemoteControlClient;Landroid/media/IRemoteControlDisplay;Z)V
 
     goto/16 :goto_0

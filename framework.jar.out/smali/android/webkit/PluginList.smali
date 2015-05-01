@@ -46,7 +46,7 @@
 # virtual methods
 .method public declared-synchronized addPlugin(Landroid/webkit/Plugin;)V
     .locals 1
-    .parameter "plugin"
+    .param p1, "plugin"    # Landroid/webkit/Plugin;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -143,8 +143,8 @@
 
 .method public declared-synchronized pluginClicked(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "position"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "position"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -162,14 +162,14 @@
     check-cast v0, Landroid/webkit/Plugin;
 
     .line 112
-    .local v0, plugin:Landroid/webkit/Plugin;
+    .local v0, "plugin":Landroid/webkit/Plugin;
     invoke-virtual {v0, p1}, Landroid/webkit/Plugin;->dispatchClickEvent(Landroid/content/Context;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 117
-    .end local v0           #plugin:Landroid/webkit/Plugin;
+    .end local v0    # "plugin":Landroid/webkit/Plugin;
     :goto_0
     monitor-exit p0
 
@@ -192,7 +192,7 @@
 
 .method public declared-synchronized removePlugin(Landroid/webkit/Plugin;)V
     .locals 2
-    .parameter "plugin"
+    .param p1, "plugin"    # Landroid/webkit/Plugin;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -208,7 +208,7 @@
     move-result v0
 
     .line 84
-    .local v0, location:I
+    .local v0, "location":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
@@ -227,7 +227,7 @@
     return-void
 
     .line 83
-    .end local v0           #location:I
+    .end local v0    # "location":I
     :catchall_0
     move-exception v1
 

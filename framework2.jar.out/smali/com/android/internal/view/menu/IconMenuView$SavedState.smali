@@ -48,7 +48,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 721
@@ -67,8 +67,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/view/menu/IconMenuView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Lcom/android/internal/view/menu/IconMenuView$1;
 
     .prologue
     .line 706
@@ -79,8 +79,8 @@
 
 .method public constructor <init>(Landroid/os/Parcelable;I)V
     .locals 0
-    .parameter "superState"
-    .parameter "focusedPosition"
+    .param p1, "superState"    # Landroid/os/Parcelable;
+    .param p2, "focusedPosition"    # I
 
     .prologue
     .line 713
@@ -97,8 +97,8 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 727

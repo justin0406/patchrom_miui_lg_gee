@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1556
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 4
-    .parameter "pkg"
-    .parameter "uid"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 1559
@@ -46,7 +45,7 @@
     move-result v1
 
     .line 1562
-    .local v1, userId:I
+    .local v1, "userId":I
     invoke-virtual {p0, p1}, Lcom/android/server/pm/UserManagerService$5;->isPackageDisappearing(Ljava/lang/String;)I
 
     move-result v2
@@ -58,7 +57,7 @@
     const/4 v0, 0x1
 
     .line 1563
-    .local v0, uninstalled:Z
+    .local v0, "uninstalled":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -66,7 +65,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #calls: Lcom/android/server/pm/UserManagerService;->isPackageInstalled(Ljava/lang/String;I)Z
+    # invokes: Lcom/android/server/pm/UserManagerService;->isPackageInstalled(Ljava/lang/String;I)Z
     invoke-static {v2, p1, v1}, Lcom/android/server/pm/UserManagerService;->access$500(Lcom/android/server/pm/UserManagerService;Ljava/lang/String;I)Z
 
     move-result v2
@@ -76,7 +75,7 @@
     .line 1564
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #calls: Lcom/android/server/pm/UserManagerService;->cleanAppRestrictionsForPackage(Ljava/lang/String;I)V
+    # invokes: Lcom/android/server/pm/UserManagerService;->cleanAppRestrictionsForPackage(Ljava/lang/String;I)V
     invoke-static {v2, p1, v1}, Lcom/android/server/pm/UserManagerService;->access$600(Lcom/android/server/pm/UserManagerService;Ljava/lang/String;I)V
 
     .line 1566
@@ -84,7 +83,7 @@
     return-void
 
     .line 1562
-    .end local v0           #uninstalled:Z
+    .end local v0    # "uninstalled":Z
     :cond_1
     const/4 v0, 0x0
 

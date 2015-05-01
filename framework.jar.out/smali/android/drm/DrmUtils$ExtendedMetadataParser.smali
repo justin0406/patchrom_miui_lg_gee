@@ -31,7 +31,7 @@
 # direct methods
 .method private constructor <init>([B)V
     .locals 6
-    .parameter "constraintData"
+    .param p1, "constraintData"    # [B
 
     .prologue
     .line 151
@@ -48,7 +48,7 @@
     const/4 v0, 0x0
 
     .line 155
-    .local v0, index:I
+    .local v0, "index":I
     :goto_0
     array-length v5, p1
 
@@ -60,7 +60,7 @@
     move-result v1
 
     .line 158
-    .local v1, keyLength:I
+    .local v1, "keyLength":I
     add-int/lit8 v0, v0, 0x1
 
     .line 161
@@ -69,7 +69,7 @@
     move-result v4
 
     .line 162
-    .local v4, valueLength:I
+    .local v4, "valueLength":I
     add-int/lit8 v0, v0, 0x1
 
     .line 165
@@ -78,7 +78,7 @@
     move-result-object v2
 
     .line 166
-    .local v2, strKey:Ljava/lang/String;
+    .local v2, "strKey":Ljava/lang/String;
     add-int/2addr v0, v1
 
     .line 169
@@ -87,7 +87,7 @@
     move-result-object v3
 
     .line 170
-    .local v3, strValue:Ljava/lang/String;
+    .local v3, "strValue":Ljava/lang/String;
     const-string v5, " "
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -111,18 +111,18 @@
     goto :goto_0
 
     .line 176
-    .end local v1           #keyLength:I
-    .end local v2           #strKey:Ljava/lang/String;
-    .end local v3           #strValue:Ljava/lang/String;
-    .end local v4           #valueLength:I
+    .end local v1    # "keyLength":I
+    .end local v2    # "strKey":Ljava/lang/String;
+    .end local v3    # "strValue":Ljava/lang/String;
+    .end local v4    # "valueLength":I
     :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>([BLandroid/drm/DrmUtils$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # [B
+    .param p2, "x1"    # Landroid/drm/DrmUtils$1;
 
     .prologue
     .line 130
@@ -133,8 +133,8 @@
 
 .method private readByte([BI)I
     .locals 1
-    .parameter "constraintData"
-    .parameter "arrayIndex"
+    .param p1, "constraintData"    # [B
+    .param p2, "arrayIndex"    # I
 
     .prologue
     .line 135
@@ -145,22 +145,22 @@
 
 .method private readMultipleBytes([BII)Ljava/lang/String;
     .locals 4
-    .parameter "constraintData"
-    .parameter "numberOfBytes"
-    .parameter "arrayIndex"
+    .param p1, "constraintData"    # [B
+    .param p2, "numberOfBytes"    # I
+    .param p3, "arrayIndex"    # I
 
     .prologue
     .line 140
     new-array v2, p2, [B
 
     .line 141
-    .local v2, returnBytes:[B
+    .local v2, "returnBytes":[B
     move v1, p3
 
-    .local v1, j:I
+    .local v1, "j":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     add-int v3, p3, p2
 
@@ -191,7 +191,7 @@
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 207

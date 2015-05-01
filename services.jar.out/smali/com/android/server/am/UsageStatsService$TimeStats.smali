@@ -41,7 +41,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/16 v3, 0xa
@@ -65,10 +65,10 @@
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     .line 154
-    .local v1, localTimes:[I
+    .local v1, "localTimes":[I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -93,21 +93,22 @@
 # virtual methods
 .method add(I)V
     .locals 5
-    .parameter "val"
+    .param p1, "val"    # I
 
     .prologue
     const/16 v4, 0x9
 
     .line 141
+    # getter for: Lcom/android/server/am/UsageStatsService;->LAUNCH_TIME_BINS:[I
     invoke-static {}, Lcom/android/server/am/UsageStatsService;->access$000()[I
 
     move-result-object v0
 
     .line 142
-    .local v0, bins:[I
+    .local v0, "bins":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v4, :cond_1
 
@@ -165,7 +166,7 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 160
@@ -177,10 +178,10 @@
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     .line 162
-    .local v1, localTimes:[I
+    .local v1, "localTimes":[I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v2, 0xa
 

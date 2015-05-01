@@ -64,7 +64,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 626
@@ -97,10 +97,10 @@
     move-result v0
 
     .line 631
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -127,9 +127,8 @@
 
 .method public constructor <init>(Ljava/lang/String;ILjava/util/List;)V
     .locals 0
-    .parameter "packageName"
-    .parameter "uid"
-    .parameter
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,7 +143,7 @@
 
     .prologue
     .line 593
-    .local p3, entries:Ljava/util/List;,"Ljava/util/List<Landroid/app/AppOpsManager$OpEntry;>;"
+    .local p3, "entries":Ljava/util/List;, "Ljava/util/List<Landroid/app/AppOpsManager$OpEntry;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 594
@@ -213,8 +212,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 618
@@ -239,7 +238,7 @@
     .line 621
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/app/AppOpsManager$PackageOps;->mEntries:Ljava/util/List;
 

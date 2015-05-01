@@ -43,10 +43,10 @@
 
 .method public constructor <init>(Landroid/content/Intent;Ljava/lang/String;II)V
     .locals 1
-    .parameter "origIntent"
-    .parameter "sourcePackage"
-    .parameter "labelRes"
-    .parameter "icon"
+    .param p1, "origIntent"    # Landroid/content/Intent;
+    .param p2, "sourcePackage"    # Ljava/lang/String;
+    .param p3, "labelRes"    # I
+    .param p4, "icon"    # I
 
     .prologue
     .line 45
@@ -72,10 +72,10 @@
 
 .method public constructor <init>(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/CharSequence;I)V
     .locals 1
-    .parameter "origIntent"
-    .parameter "sourcePackage"
-    .parameter "nonLocalizedLabel"
-    .parameter "icon"
+    .param p1, "origIntent"    # Landroid/content/Intent;
+    .param p2, "sourcePackage"    # Ljava/lang/String;
+    .param p3, "nonLocalizedLabel"    # Ljava/lang/CharSequence;
+    .param p4, "icon"    # I
 
     .prologue
     .line 63
@@ -101,7 +101,7 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 171
@@ -116,9 +116,9 @@
 
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 1
-    .parameter "sourcePackage"
-    .parameter "labelRes"
-    .parameter "icon"
+    .param p1, "sourcePackage"    # Ljava/lang/String;
+    .param p2, "labelRes"    # I
+    .param p3, "icon"    # I
 
     .prologue
     .line 78
@@ -144,9 +144,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
     .locals 1
-    .parameter "sourcePackage"
-    .parameter "nonLocalizedLabel"
-    .parameter "icon"
+    .param p1, "sourcePackage"    # Ljava/lang/String;
+    .param p2, "nonLocalizedLabel"    # Ljava/lang/CharSequence;
+    .param p3, "icon"    # I
 
     .prologue
     .line 94
@@ -214,7 +214,7 @@
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     const/4 v1, 0x0
@@ -238,11 +238,11 @@
     move-result-object v0
 
     .line 155
-    .local v0, icon:Landroid/graphics/drawable/Drawable;
+    .local v0, "icon":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_0
 
     .line 159
-    .end local v0           #icon:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "icon":Landroid/graphics/drawable/Drawable;
     :goto_0
     return-object v0
 
@@ -254,7 +254,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     const/4 v1, 0x0
@@ -292,10 +292,10 @@
     move-result-object v0
 
     .line 140
-    .local v0, label:Ljava/lang/CharSequence;
+    .local v0, "label":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
-    .end local v0           #label:Ljava/lang/CharSequence;
+    .end local v0    # "label":Ljava/lang/CharSequence;
     :cond_2
     move-object v0, v1
 
@@ -305,7 +305,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 176
@@ -349,8 +349,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 163

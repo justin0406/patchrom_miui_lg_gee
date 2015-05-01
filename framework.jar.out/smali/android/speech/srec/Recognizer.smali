@@ -77,7 +77,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "configFile"
+    .param p1, "configFile"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -300,7 +300,7 @@
 
 .method static synthetic access$000(Ljava/lang/String;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 105
@@ -313,7 +313,7 @@
 
 .method static synthetic access$100(Landroid/speech/srec/Recognizer;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/srec/Recognizer;
 
     .prologue
     .line 105
@@ -324,7 +324,7 @@
 
 .method static synthetic access$1000(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 105
@@ -335,8 +335,8 @@
 
 .method static synthetic access$200(II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 105
@@ -347,7 +347,7 @@
 
 .method static synthetic access$300(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 105
@@ -358,12 +358,12 @@
 
 .method static synthetic access$400(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # I
+    .param p5, "x5"    # Ljava/lang/String;
 
     .prologue
     .line 105
@@ -374,7 +374,7 @@
 
 .method static synthetic access$500(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 105
@@ -385,7 +385,7 @@
 
 .method static synthetic access$600(Landroid/speech/srec/Recognizer;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/srec/Recognizer;
 
     .prologue
     .line 105
@@ -396,8 +396,8 @@
 
 .method static synthetic access$700(II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 105
@@ -408,8 +408,8 @@
 
 .method static synthetic access$802(Landroid/speech/srec/Recognizer;Landroid/speech/srec/Recognizer$Grammar;)Landroid/speech/srec/Recognizer$Grammar;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/srec/Recognizer;
+    .param p1, "x1"    # Landroid/speech/srec/Recognizer$Grammar;
 
     .prologue
     .line 105
@@ -420,8 +420,8 @@
 
 .method static synthetic access$900(ILjava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 105
@@ -432,7 +432,7 @@
 
 .method public static eventToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "event"
+    .param p0, "event"    # I
 
     .prologue
     .line 572
@@ -559,7 +559,7 @@
 
 .method public static getConfigDir(Ljava/util/Locale;)Ljava/lang/String;
     .locals 5
-    .parameter "locale"
+    .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 146
@@ -606,7 +606,7 @@
     move-result-object v0
 
     .line 149
-    .local v0, dir:Ljava/lang/String;
+    .local v0, "dir":Ljava/lang/String;
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -618,11 +618,11 @@
     if-eqz v1, :cond_1
 
     .line 150
-    .end local v0           #dir:Ljava/lang/String;
+    .end local v0    # "dir":Ljava/lang/String;
     :goto_0
     return-object v0
 
-    .restart local v0       #dir:Ljava/lang/String;
+    .restart local v0    # "dir":Ljava/lang/String;
     :cond_1
     const/4 v0, 0x0
 
@@ -994,8 +994,8 @@
 
 .method public getResult(ILjava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "index"
-    .parameter "key"
+    .param p1, "index"    # I
+    .param p2, "key"    # Ljava/lang/String;
 
     .prologue
     .line 359
@@ -1024,7 +1024,7 @@
 
 .method public getResultKeys(I)[Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 342
@@ -1039,10 +1039,10 @@
 
 .method public putAudio([BIIZ)I
     .locals 1
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "isLast"
+    .param p1, "buf"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
+    .param p4, "isLast"    # Z
 
     .prologue
     .line 296
@@ -1057,7 +1057,7 @@
 
 .method public putAudio(Ljava/io/InputStream;)V
     .locals 5
-    .parameter "audio"
+    .param p1, "audio"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1087,7 +1087,7 @@
     move-result v0
 
     .line 310
-    .local v0, nbytes:I
+    .local v0, "nbytes":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_2
@@ -1158,7 +1158,7 @@
 
 .method public setAcousticState(Ljava/lang/String;)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Ljava/lang/String;
 
     .prologue
     .line 386
@@ -1179,7 +1179,7 @@
 
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
 
-    #getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
+    # getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
     invoke-static {v1}, Landroid/speech/srec/Recognizer$Grammar;->access$1100(Landroid/speech/srec/Recognizer$Grammar;)I
 
     move-result v1
@@ -1213,7 +1213,7 @@
 
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
 
-    #getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
+    # getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
     invoke-static {v1}, Landroid/speech/srec/Recognizer$Grammar;->access$1100(Landroid/speech/srec/Recognizer$Grammar;)I
 
     move-result v1

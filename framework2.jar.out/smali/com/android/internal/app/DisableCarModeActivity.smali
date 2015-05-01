@@ -22,7 +22,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 32
@@ -41,7 +41,7 @@
     move-result-object v1
 
     .line 36
-    .local v1, uiModeManager:Landroid/app/IUiModeManager;
+    .local v1, "uiModeManager":Landroid/app/IUiModeManager;
     const/4 v2, 0x1
 
     invoke-interface {v1, v2}, Landroid/app/IUiModeManager;->disableCarMode(I)V
@@ -49,7 +49,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 40
-    .end local v1           #uiModeManager:Landroid/app/IUiModeManager;
+    .end local v1    # "uiModeManager":Landroid/app/IUiModeManager;
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/app/DisableCarModeActivity;->finish()V
 
@@ -61,7 +61,7 @@
     move-exception v0
 
     .line 38
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "DisableCarModeActivity"
 
     const-string v3, "Failed to disable car mode"

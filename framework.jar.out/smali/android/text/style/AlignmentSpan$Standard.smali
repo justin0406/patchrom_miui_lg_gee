@@ -3,8 +3,8 @@
 .source "AlignmentSpan.java"
 
 # interfaces
-.implements Landroid/text/style/AlignmentSpan;
 .implements Landroid/text/ParcelableSpan;
+.implements Landroid/text/style/AlignmentSpan;
 
 
 # annotations
@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 33
@@ -48,7 +48,7 @@
 
 .method public constructor <init>(Landroid/text/Layout$Alignment;)V
     .locals 0
-    .parameter "align"
+    .param p1, "align"    # Landroid/text/Layout$Alignment;
 
     .prologue
     .line 29
@@ -95,8 +95,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 46

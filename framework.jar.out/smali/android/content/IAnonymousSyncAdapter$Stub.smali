@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/IAnonymousSyncAdapter;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/IAnonymousSyncAdapter;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/content/IAnonymousSyncAdapter$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/IAnonymousSyncAdapter$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,7 +154,7 @@
     move-result-object v0
 
     .line 57
-    .local v0, _arg0:Landroid/content/ISyncContext;
+    .local v0, "_arg0":Landroid/content/ISyncContext;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -171,23 +171,23 @@
     check-cast v1, Landroid/os/Bundle;
 
     .line 63
-    .local v1, _arg1:Landroid/os/Bundle;
+    .local v1, "_arg1":Landroid/os/Bundle;
     :goto_1
     invoke-virtual {p0, v0, v1}, Landroid/content/IAnonymousSyncAdapter$Stub;->startSync(Landroid/content/ISyncContext;Landroid/os/Bundle;)V
 
     goto :goto_0
 
     .line 61
-    .end local v1           #_arg1:Landroid/os/Bundle;
+    .end local v1    # "_arg1":Landroid/os/Bundle;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/Bundle;
+    .restart local v1    # "_arg1":Landroid/os/Bundle;
     goto :goto_1
 
     .line 68
-    .end local v0           #_arg0:Landroid/content/ISyncContext;
-    .end local v1           #_arg1:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/content/ISyncContext;
+    .end local v1    # "_arg1":Landroid/os/Bundle;
     :sswitch_2
     const-string v3, "android.content.IAnonymousSyncAdapter"
 
@@ -203,7 +203,7 @@
     move-result-object v0
 
     .line 71
-    .restart local v0       #_arg0:Landroid/content/ISyncContext;
+    .restart local v0    # "_arg0":Landroid/content/ISyncContext;
     invoke-virtual {p0, v0}, Landroid/content/IAnonymousSyncAdapter$Stub;->cancelSync(Landroid/content/ISyncContext;)V
 
     goto :goto_0

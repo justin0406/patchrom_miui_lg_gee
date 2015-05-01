@@ -30,7 +30,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "initialCapacity"
+    .param p1, "initialCapacity"    # I
 
     .prologue
     .line 61
@@ -81,8 +81,8 @@
 # virtual methods
 .method public append(II)V
     .locals 7
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -114,7 +114,7 @@
     iget v3, p0, Landroid/util/SparseIntArray;->mSize:I
 
     .line 247
-    .local v3, pos:I
+    .local v3, "pos":I
     iget-object v4, p0, Landroid/util/SparseIntArray;->mKeys:[I
 
     array-length v4, v4
@@ -129,15 +129,15 @@
     move-result v0
 
     .line 250
-    .local v0, n:I
+    .local v0, "n":I
     new-array v1, v0, [I
 
     .line 251
-    .local v1, nkeys:[I
+    .local v1, "nkeys":[I
     new-array v2, v0, [I
 
     .line 254
-    .local v2, nvalues:[I
+    .local v2, "nvalues":[I
     iget-object v4, p0, Landroid/util/SparseIntArray;->mKeys:[I
 
     iget-object v5, p0, Landroid/util/SparseIntArray;->mKeys:[I
@@ -162,9 +162,9 @@
     iput-object v2, p0, Landroid/util/SparseIntArray;->mValues:[I
 
     .line 261
-    .end local v0           #n:I
-    .end local v1           #nkeys:[I
-    .end local v2           #nvalues:[I
+    .end local v0    # "n":I
+    .end local v1    # "nkeys":[I
+    .end local v2    # "nvalues":[I
     :cond_1
     iget-object v4, p0, Landroid/util/SparseIntArray;->mKeys:[I
 
@@ -204,7 +204,7 @@
     const/4 v1, 0x0
 
     .line 77
-    .local v1, clone:Landroid/util/SparseIntArray;
+    .local v1, "clone":Landroid/util/SparseIntArray;
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -270,7 +270,7 @@
 
 .method public delete(I)V
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 112
@@ -283,7 +283,7 @@
     move-result v0
 
     .line 114
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_0
 
     .line 115
@@ -296,7 +296,7 @@
 
 .method public get(I)I
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 91
@@ -311,8 +311,8 @@
 
 .method public get(II)I
     .locals 3
-    .parameter "key"
-    .parameter "valueIfKeyNotFound"
+    .param p1, "key"    # I
+    .param p2, "valueIfKeyNotFound"    # I
 
     .prologue
     .line 99
@@ -325,15 +325,15 @@
     move-result v0
 
     .line 101
-    .local v0, i:I
+    .local v0, "i":I
     if-gez v0, :cond_0
 
     .line 104
-    .end local p2
+    .end local p2    # "valueIfKeyNotFound":I
     :goto_0
     return p2
 
-    .restart local p2
+    .restart local p2    # "valueIfKeyNotFound":I
     :cond_0
     iget-object v1, p0, Landroid/util/SparseIntArray;->mValues:[I
 
@@ -344,7 +344,7 @@
 
 .method public indexOfKey(I)I
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 210
@@ -361,13 +361,13 @@
 
 .method public indexOfValue(I)I
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 222
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/util/SparseIntArray;->mSize:I
 
@@ -381,12 +381,12 @@
     if-ne v1, p1, :cond_0
 
     .line 226
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 222
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -401,7 +401,7 @@
 
 .method public keyAt(I)I
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 186
@@ -414,8 +414,8 @@
 
 .method public put(II)V
     .locals 8
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -430,7 +430,7 @@
     move-result v0
 
     .line 136
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_0
 
     .line 137
@@ -465,15 +465,15 @@
     move-result v1
 
     .line 144
-    .local v1, n:I
+    .local v1, "n":I
     new-array v2, v1, [I
 
     .line 145
-    .local v2, nkeys:[I
+    .local v2, "nkeys":[I
     new-array v3, v1, [I
 
     .line 148
-    .local v3, nvalues:[I
+    .local v3, "nvalues":[I
     iget-object v4, p0, Landroid/util/SparseIntArray;->mKeys:[I
 
     iget-object v5, p0, Landroid/util/SparseIntArray;->mKeys:[I
@@ -498,9 +498,9 @@
     iput-object v3, p0, Landroid/util/SparseIntArray;->mValues:[I
 
     .line 155
-    .end local v1           #n:I
-    .end local v2           #nkeys:[I
-    .end local v3           #nvalues:[I
+    .end local v1    # "n":I
+    .end local v2    # "nkeys":[I
+    .end local v3    # "nvalues":[I
     :cond_1
     iget v4, p0, Landroid/util/SparseIntArray;->mSize:I
 
@@ -557,7 +557,7 @@
 
 .method public removeAt(I)V
     .locals 5
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 123
@@ -640,7 +640,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 278
-    .local v0, buffer:Ljava/lang/StringBuilder;
+    .local v0, "buffer":Ljava/lang/StringBuilder;
     const/16 v4, 0x7b
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -648,7 +648,7 @@
     .line 279
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     iget v4, p0, Landroid/util/SparseIntArray;->mSize:I
 
@@ -669,7 +669,7 @@
     move-result v2
 
     .line 284
-    .local v2, key:I
+    .local v2, "key":I
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 285
@@ -683,7 +683,7 @@
     move-result v3
 
     .line 287
-    .local v3, value:I
+    .local v3, "value":I
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 279
@@ -692,8 +692,8 @@
     goto :goto_1
 
     .line 289
-    .end local v2           #key:I
-    .end local v3           #value:I
+    .end local v2    # "key":I
+    .end local v3    # "value":I
     :cond_2
     const/16 v4, 0x7d
 
@@ -709,7 +709,7 @@
 
 .method public valueAt(I)I
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 201

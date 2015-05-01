@@ -32,17 +32,17 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 5
-    .parameter "input"
+    .param p1, "input"    # F
 
     .prologue
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 122
     div-float v0, p1, v4
 
     float-to-double v0, v0
 
-    const-wide v2, 0x3ff921fb54442d18L
+    const-wide v2, 0x3ff921fb54442d18L    # 1.5707963267948966
 
     mul-double/2addr v0, v2
 

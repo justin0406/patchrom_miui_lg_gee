@@ -65,19 +65,19 @@
 # virtual methods
 .method public filter(JF)F
     .locals 24
-    .parameter "time"
-    .parameter "in"
+    .param p1, "time"    # J
+    .param p3, "in"    # F
 
     .prologue
     .line 382
     move/from16 v16, p3
 
     .line 383
-    .local v16, v:F
-    const v15, 0x3089705f
+    .local v16, "v":F
+    const v15, 0x3089705f    # 1.0E-9f
 
     .line 384
-    .local v15, ns:F
+    .local v15, "ns":F
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mV:[F
@@ -93,17 +93,17 @@
     aget v17, v18, v19
 
     .line 385
-    .local v17, v1:F
+    .local v17, "v1":F
     sub-float v18, v16, v17
 
-    const/high16 v19, 0x4334
+    const/high16 v19, 0x43340000    # 180.0f
 
     cmpl-float v18, v18, v19
 
     if-lez v18, :cond_2
 
     .line 386
-    const/high16 v18, 0x43b4
+    const/high16 v18, 0x43b40000    # 360.0f
 
     sub-float v16, v16, v18
 
@@ -216,23 +216,23 @@
     .line 406
     const/4 v6, 0x0
 
-    .local v6, E:F
+    .local v6, "E":F
     move v5, v6
 
-    .local v5, D:F
+    .local v5, "D":F
     move v4, v6
 
-    .local v4, C:F
+    .local v4, "C":F
     move v3, v6
 
-    .local v3, B:F
+    .local v3, "B":F
     move v2, v6
 
     .line 407
-    .local v2, A:F
+    .local v2, "A":F
     const/4 v13, 0x0
 
-    .local v13, i:I
+    .local v13, "i":I
     :goto_1
     const/16 v18, 0xb
 
@@ -252,7 +252,7 @@
     sub-int v14, v18, v13
 
     .line 409
-    .local v14, j:I
+    .local v14, "j":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mV:[F
@@ -262,7 +262,7 @@
     aget v8, v18, v14
 
     .line 410
-    .local v8, Z:F
+    .local v8, "Z":F
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mT:[J
@@ -299,12 +299,12 @@
 
     move/from16 v18, v0
 
-    const v19, 0x3089705f
+    const v19, 0x3089705f    # 1.0E-9f
 
     mul-float v7, v18, v19
 
     .line 411
-    .local v7, T:F
+    .local v7, "T":F
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mT:[J
@@ -331,12 +331,12 @@
 
     move/from16 v18, v0
 
-    const v19, 0x3089705f
+    const v19, 0x3089705f    # 1.0E-9f
 
     mul-float v11, v18, v19
 
     .line 412
-    .local v11, dT:F
+    .local v11, "dT":F
     mul-float/2addr v11, v11
 
     .line 413
@@ -372,39 +372,39 @@
     goto :goto_1
 
     .line 387
-    .end local v2           #A:F
-    .end local v3           #B:F
-    .end local v4           #C:F
-    .end local v5           #D:F
-    .end local v6           #E:F
-    .end local v7           #T:F
-    .end local v8           #Z:F
-    .end local v11           #dT:F
-    .end local v13           #i:I
-    .end local v14           #j:I
+    .end local v2    # "A":F
+    .end local v3    # "B":F
+    .end local v4    # "C":F
+    .end local v5    # "D":F
+    .end local v6    # "E":F
+    .end local v7    # "T":F
+    .end local v8    # "Z":F
+    .end local v11    # "dT":F
+    .end local v13    # "i":I
+    .end local v14    # "j":I
     :cond_2
     sub-float v18, v17, v16
 
-    const/high16 v19, 0x4334
+    const/high16 v19, 0x43340000    # 180.0f
 
     cmpl-float v18, v18, v19
 
     if-lez v18, :cond_0
 
     .line 388
-    const/high16 v18, 0x43b4
+    const/high16 v18, 0x43b40000    # 360.0f
 
     add-float v16, v16, v18
 
     goto/16 :goto_0
 
     .line 419
-    .restart local v2       #A:F
-    .restart local v3       #B:F
-    .restart local v4       #C:F
-    .restart local v5       #D:F
-    .restart local v6       #E:F
-    .restart local v13       #i:I
+    .restart local v2    # "A":F
+    .restart local v3    # "B":F
+    .restart local v4    # "C":F
+    .restart local v5    # "D":F
+    .restart local v6    # "E":F
+    .restart local v13    # "i":I
     :cond_3
     mul-float v18, v2, v3
 
@@ -421,7 +421,7 @@
     div-float v10, v18, v19
 
     .line 420
-    .local v10, b:F
+    .local v10, "b":F
     mul-float v18, v6, v10
 
     sub-float v18, v18, v2
@@ -429,15 +429,15 @@
     div-float v9, v18, v4
 
     .line 421
-    .local v9, a:F
-    const v18, 0x3da3d70a
+    .local v9, "a":F
+    const v18, 0x3da3d70a    # 0.08f
 
     mul-float v18, v18, v9
 
     add-float v12, v10, v18
 
     .line 424
-    .local v12, f:F
+    .local v12, "f":F
     const v18, 0x3b360b61
 
     mul-float v12, v12, v18
@@ -452,14 +452,14 @@
     move/from16 v18, v12
 
     :goto_2
-    const/high16 v19, 0x3f00
+    const/high16 v19, 0x3f000000    # 0.5f
 
     cmpl-float v18, v18, v19
 
     if-ltz v18, :cond_4
 
     .line 426
-    const/high16 v18, 0x3f00
+    const/high16 v18, 0x3f000000    # 0.5f
 
     add-float v18, v18, v12
 
@@ -481,7 +481,7 @@
 
     sub-float v18, v12, v18
 
-    const/high16 v19, 0x3f80
+    const/high16 v19, 0x3f800000    # 1.0f
 
     add-float v12, v18, v19
 
@@ -494,13 +494,13 @@
     if-gez v18, :cond_5
 
     .line 428
-    const/high16 v18, 0x3f80
+    const/high16 v18, 0x3f800000    # 1.0f
 
     add-float v12, v12, v18
 
     .line 429
     :cond_5
-    const/high16 v18, 0x43b4
+    const/high16 v18, 0x43b40000    # 360.0f
 
     mul-float v12, v12, v18
 

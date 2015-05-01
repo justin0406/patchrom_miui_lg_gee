@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/WirelessChargerDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 336
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
-    .parameter "sensor"
-    .parameter "accuracy"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
     .prologue
     .line 346
@@ -49,13 +48,13 @@
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 6
-    .parameter "event"
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
     .prologue
     .line 339
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector$1;->this$0:Lcom/android/server/power/WirelessChargerDetector;
 
-    #getter for: Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/power/WirelessChargerDetector;->access$000(Lcom/android/server/power/WirelessChargerDetector;)Ljava/lang/Object;
 
     move-result-object v1
@@ -84,7 +83,7 @@
 
     aget v4, v4, v5
 
-    #calls: Lcom/android/server/power/WirelessChargerDetector;->processSampleLocked(FFF)V
+    # invokes: Lcom/android/server/power/WirelessChargerDetector;->processSampleLocked(FFF)V
     invoke-static {v0, v2, v3, v4}, Lcom/android/server/power/WirelessChargerDetector;->access$100(Lcom/android/server/power/WirelessChargerDetector;FFF)V
 
     .line 341

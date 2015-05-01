@@ -57,8 +57,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
-    .parameter "context"
-    .parameter "iface"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "iface"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -106,7 +106,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 74
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -134,8 +134,8 @@
 
 .method static synthetic access$102(Lcom/android/server/wifi/WifiTrafficPoller;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
+    .param p1, "x1"    # Landroid/net/NetworkInfo;
 
     .prologue
     .line 42
@@ -146,7 +146,7 @@
 
 .method static synthetic access$200(Lcom/android/server/wifi/WifiTrafficPoller;)Ljava/util/concurrent/atomic/AtomicBoolean;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -157,7 +157,7 @@
 
 .method static synthetic access$300(Lcom/android/server/wifi/WifiTrafficPoller;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -168,7 +168,7 @@
 
 .method static synthetic access$400(Lcom/android/server/wifi/WifiTrafficPoller;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -179,8 +179,8 @@
 
 .method static synthetic access$402(Lcom/android/server/wifi/WifiTrafficPoller;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 42
@@ -191,7 +191,7 @@
 
 .method static synthetic access$500(Lcom/android/server/wifi/WifiTrafficPoller;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -202,7 +202,7 @@
 
 .method static synthetic access$508(Lcom/android/server/wifi/WifiTrafficPoller;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -217,7 +217,7 @@
 
 .method static synthetic access$600(Lcom/android/server/wifi/WifiTrafficPoller;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -228,7 +228,7 @@
 
 .method static synthetic access$700(Lcom/android/server/wifi/WifiTrafficPoller;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/wifi/WifiTrafficPoller;
 
     .prologue
     .line 42
@@ -282,14 +282,14 @@
     move-result-object v0
 
     .line 145
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     :goto_1
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     goto :goto_0
 
     .line 142
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_1
     iget-object v1, p0, Lcom/android/server/wifi/WifiTrafficPoller;->mTrafficHandler:Lcom/android/server/wifi/WifiTrafficPoller$TrafficHandler;
 
@@ -297,7 +297,7 @@
 
     move-result-object v0
 
-    .restart local v0       #msg:Landroid/os/Message;
+    .restart local v0    # "msg":Landroid/os/Message;
     goto :goto_1
 .end method
 
@@ -308,15 +308,15 @@
     .line 150
     iget-wide v6, p0, Lcom/android/server/wifi/WifiTrafficPoller;->mTxPkts:J
 
-    .local v6, preTxPkts:J
+    .local v6, "preTxPkts":J
     iget-wide v4, p0, Lcom/android/server/wifi/WifiTrafficPoller;->mRxPkts:J
 
     .line 151
-    .local v4, preRxPkts:J
+    .local v4, "preRxPkts":J
     const/4 v1, 0x0
 
     .line 153
-    .local v1, dataActivity:I
+    .local v1, "dataActivity":I
     iget-object v12, p0, Lcom/android/server/wifi/WifiTrafficPoller;->mInterface:Ljava/lang/String;
 
     invoke-static {v12}, Landroid/net/TrafficStats;->getTxPackets(Ljava/lang/String;)J
@@ -354,13 +354,13 @@
     sub-long v10, v12, v6
 
     .line 158
-    .local v10, sent:J
+    .local v10, "sent":J
     iget-wide v12, p0, Lcom/android/server/wifi/WifiTrafficPoller;->mRxPkts:J
 
     sub-long v8, v12, v4
 
     .line 159
-    .local v8, received:J
+    .local v8, "received":J
     const-wide/16 v12, 0x0
 
     cmp-long v12, v10, v12
@@ -405,7 +405,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -420,13 +420,13 @@
     check-cast v0, Landroid/os/Messenger;
 
     .line 169
-    .local v0, client:Landroid/os/Messenger;
+    .local v0, "client":Landroid/os/Messenger;
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v3
 
     .line 170
-    .local v3, msg:Landroid/os/Message;
+    .local v3, "msg":Landroid/os/Message;
     const/4 v12, 0x1
 
     iput v12, v3, Landroid/os/Message;->what:I
@@ -451,11 +451,11 @@
     goto :goto_0
 
     .line 181
-    .end local v0           #client:Landroid/os/Messenger;
-    .end local v2           #i$:Ljava/util/Iterator;
-    .end local v3           #msg:Landroid/os/Message;
-    .end local v8           #received:J
-    .end local v10           #sent:J
+    .end local v0    # "client":Landroid/os/Messenger;
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v3    # "msg":Landroid/os/Message;
+    .end local v8    # "received":J
+    .end local v10    # "sent":J
     :cond_3
     return-void
 .end method
@@ -464,7 +464,7 @@
 # virtual methods
 .method addClient(Landroid/os/Messenger;)V
     .locals 2
-    .parameter "client"
+    .param p1, "client"    # Landroid/os/Messenger;
 
     .prologue
     .line 97
@@ -484,9 +484,9 @@
 
 .method dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 184
@@ -610,7 +610,7 @@
 
 .method removeClient(Landroid/os/Messenger;)V
     .locals 2
-    .parameter "client"
+    .param p1, "client"    # Landroid/os/Messenger;
 
     .prologue
     .line 101

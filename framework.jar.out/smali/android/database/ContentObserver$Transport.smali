@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/database/ContentObserver;)V
     .locals 0
-    .parameter "contentObserver"
+    .param p1, "contentObserver"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 187
@@ -38,15 +38,15 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 193
     iget-object v0, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
 
     .line 194
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .local v0, "contentObserver":Landroid/database/ContentObserver;
     if-eqz v0, :cond_0
 
     .line 195

@@ -70,8 +70,8 @@
 
 .method private static sendAPNM(Ljava/lang/String;I)V
     .locals 3
-    .parameter "appName"
-    .parameter "userId"
+    .param p0, "appName"    # Ljava/lang/String;
+    .param p1, "userId"    # I
 
     .prologue
     .line 93
@@ -90,7 +90,7 @@
     move-result-object v1
 
     .line 97
-    .local v1, out:Ljava/nio/ByteBuffer;
+    .local v1, "out":Ljava/nio/ByteBuffer;
     sget-object v2, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -116,7 +116,7 @@
     invoke-direct {v0, v2, v1}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(ILjava/nio/ByteBuffer;)V
 
     .line 103
-    .local v0, chunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .local v0, "chunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {v0}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->sendChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)V
 
     .line 104
@@ -125,8 +125,8 @@
 
 .method public static setAppName(Ljava/lang/String;I)V
     .locals 1
-    .parameter "name"
-    .parameter "userId"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "userId"    # I
 
     .prologue
     .line 73
@@ -173,7 +173,7 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 1
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 62

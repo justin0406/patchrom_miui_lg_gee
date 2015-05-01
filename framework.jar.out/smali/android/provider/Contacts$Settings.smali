@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -72,9 +72,9 @@
 
 .method public static getSetting(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 8
-    .parameter "cr"
-    .parameter "account"
-    .parameter "key"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "account"    # Ljava/lang/String;
+    .param p2, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -89,13 +89,13 @@
     const-string v3, "key=?"
 
     .line 204
-    .local v3, selectString:Ljava/lang/String;
+    .local v3, "selectString":Ljava/lang/String;
     new-array v4, v0, [Ljava/lang/String;
 
     aput-object p2, v4, v7
 
     .line 206
-    .local v4, selectArgs:[Ljava/lang/String;
+    .local v4, "selectArgs":[Ljava/lang/String;
     sget-object v1, Landroid/provider/Contacts$Settings;->CONTENT_URI:Landroid/net/Uri;
 
     new-array v2, v0, [Ljava/lang/String;
@@ -111,7 +111,7 @@
     move-result-object v6
 
     .line 209
-    .local v6, cursor:Landroid/database/Cursor;
+    .local v6, "cursor":Landroid/database/Cursor;
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
@@ -153,10 +153,10 @@
 
 .method public static setSetting(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "cr"
-    .parameter "account"
-    .parameter "key"
-    .parameter "value"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "account"    # Ljava/lang/String;
+    .param p2, "key"    # Ljava/lang/String;
+    .param p3, "value"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -169,7 +169,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 229
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "key"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V

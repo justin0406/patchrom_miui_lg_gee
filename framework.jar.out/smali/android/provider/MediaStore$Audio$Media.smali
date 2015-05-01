@@ -22,13 +22,13 @@
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "title_key"
 
-.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-.field private static final EXTERNAL_PATHS:[Ljava/lang/String; = null
+.field private static final EXTERNAL_PATHS:[Ljava/lang/String;
 
 .field public static final EXTRA_MAX_BYTES:Ljava/lang/String; = "android.provider.MediaStore.extra.MAX_BYTES"
 
-.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final RECORD_SOUND_ACTION:Ljava/lang/String; = "android.provider.MediaStore.RECORD_SOUND"
 
@@ -46,7 +46,7 @@
     move-result-object v0
 
     .line 1343
-    .local v0, secondary_storage:Ljava/lang/String;
+    .local v0, "secondary_storage":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 1344
@@ -102,7 +102,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 1358
@@ -139,26 +139,26 @@
 
 .method public static getContentUriForPath(Ljava/lang/String;)Landroid/net/Uri;
     .locals 5
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
 
     .prologue
     .line 1363
     sget-object v0, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_PATHS:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 1364
-    .local v1, ep:Ljava/lang/String;
+    .local v1, "ep":Ljava/lang/String;
     invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
@@ -169,19 +169,19 @@
     sget-object v4, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     .line 1369
-    .end local v1           #ep:Ljava/lang/String;
+    .end local v1    # "ep":Ljava/lang/String;
     :goto_1
     return-object v4
 
     .line 1363
-    .restart local v1       #ep:Ljava/lang/String;
+    .restart local v1    # "ep":Ljava/lang/String;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 1369
-    .end local v1           #ep:Ljava/lang/String;
+    .end local v1    # "ep":Ljava/lang/String;
     :cond_1
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 

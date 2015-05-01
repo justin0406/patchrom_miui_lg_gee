@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 201
@@ -51,7 +51,7 @@
 
 .method public createPrintJob(Landroid/print/PrintJobInfo;)V
     .locals 5
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
     move-result-object v0
 
     .line 270
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintSpooler"
 
@@ -136,10 +136,10 @@
 
 .method public getPrintJobInfo(Landroid/print/PrintJobId;Landroid/print/IPrintSpoolerCallbacks;II)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "callback"
-    .parameter "appId"
-    .parameter "sequence"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "callback"    # Landroid/print/IPrintSpoolerCallbacks;
+    .param p3, "appId"    # I
+    .param p4, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,7 +155,7 @@
     move-result-object v0
 
     .line 249
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpooler"
 
@@ -232,11 +232,11 @@
 
 .method public getPrintJobInfos(Landroid/print/IPrintSpoolerCallbacks;Landroid/content/ComponentName;III)V
     .locals 5
-    .parameter "callback"
-    .parameter "componentName"
-    .parameter "state"
-    .parameter "appId"
-    .parameter "sequence"
+    .param p1, "callback"    # Landroid/print/IPrintSpoolerCallbacks;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "state"    # I
+    .param p4, "appId"    # I
+    .param p5, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -252,7 +252,7 @@
     move-result-object v0
 
     .line 227
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpooler"
 
@@ -345,7 +345,7 @@
     move-result-object v0
 
     .line 216
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintSpooler"
 
@@ -381,7 +381,7 @@
 
 .method public setClient(Landroid/print/IPrintSpoolerClient;)V
     .locals 5
-    .parameter "client"
+    .param p1, "client"    # Landroid/print/IPrintSpoolerClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -397,7 +397,7 @@
     move-result-object v0
 
     .line 356
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpooler"
 
@@ -443,8 +443,8 @@
 
 .method public setPrintJobCancelling(Landroid/print/PrintJobId;Z)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "cancelling"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "cancelling"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -462,7 +462,7 @@
     move-result-object v0
 
     .line 368
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.print.IPrintSpooler"
 
@@ -535,11 +535,11 @@
 
 .method public setPrintJobState(Landroid/print/PrintJobId;ILjava/lang/String;Landroid/print/IPrintSpoolerCallbacks;I)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "status"
-    .parameter "stateReason"
-    .parameter "callback"
-    .parameter "sequence"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "status"    # I
+    .param p3, "stateReason"    # Ljava/lang/String;
+    .param p4, "callback"    # Landroid/print/IPrintSpoolerCallbacks;
+    .param p5, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -555,7 +555,7 @@
     move-result-object v0
 
     .line 288
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpooler"
 
@@ -635,10 +635,10 @@
 
 .method public setPrintJobTag(Landroid/print/PrintJobId;Ljava/lang/String;Landroid/print/IPrintSpoolerCallbacks;I)V
     .locals 5
-    .parameter "printJobId"
-    .parameter "tag"
-    .parameter "callback"
-    .parameter "sequence"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "callback"    # Landroid/print/IPrintSpoolerCallbacks;
+    .param p4, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -654,7 +654,7 @@
     move-result-object v0
 
     .line 310
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpooler"
 
@@ -731,8 +731,8 @@
 
 .method public writePrintJobData(Landroid/os/ParcelFileDescriptor;Landroid/print/PrintJobId;)V
     .locals 5
-    .parameter "fd"
-    .parameter "printJobId"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "printJobId"    # Landroid/print/PrintJobId;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -746,7 +746,7 @@
     move-result-object v0
 
     .line 331
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintSpooler"
 

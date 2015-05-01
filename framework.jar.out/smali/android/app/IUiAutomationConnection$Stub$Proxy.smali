@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 129
@@ -51,7 +51,7 @@
 
 .method public connect(Landroid/accessibilityservice/IAccessibilityServiceClient;)V
     .locals 5
-    .parameter "client"
+    .param p1, "client"    # Landroid/accessibilityservice/IAccessibilityServiceClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 143
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 145
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IUiAutomationConnection"
 
@@ -143,13 +143,13 @@
     move-result-object v0
 
     .line 158
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 160
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IUiAutomationConnection"
 
@@ -202,8 +202,8 @@
 
 .method public injectInputEvent(Landroid/view/InputEvent;Z)Z
     .locals 7
-    .parameter "event"
-    .parameter "sync"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "sync"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -221,13 +221,13 @@
     move-result-object v0
 
     .line 172
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 175
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.app.IUiAutomationConnection"
 
@@ -277,7 +277,7 @@
     if-eqz v4, :cond_2
 
     .line 189
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -288,7 +288,7 @@
     return v2
 
     .line 181
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -325,7 +325,7 @@
 
 .method public setRotation(I)Z
     .locals 6
-    .parameter "rotation"
+    .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -341,13 +341,13 @@
     move-result-object v0
 
     .line 197
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 200
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.IUiAutomationConnection"
 
@@ -380,7 +380,7 @@
     const/4 v2, 0x1
 
     .line 207
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -391,7 +391,7 @@
     return v2
 
     .line 207
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -418,13 +418,13 @@
     move-result-object v0
 
     .line 239
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 241
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IUiAutomationConnection"
 
@@ -467,8 +467,8 @@
 
 .method public takeScreenshot(II)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -482,13 +482,13 @@
     move-result-object v0
 
     .line 215
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 218
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.IUiAutomationConnection"
 
@@ -531,7 +531,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 231
-    .local v2, _result:Landroid/graphics/Bitmap;
+    .local v2, "_result":Landroid/graphics/Bitmap;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -542,15 +542,15 @@
     return-object v2
 
     .line 227
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/graphics/Bitmap;
+    .restart local v2    # "_result":Landroid/graphics/Bitmap;
     goto :goto_0
 
     .line 231
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception v3
 

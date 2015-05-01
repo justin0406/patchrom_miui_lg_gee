@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 385
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 389
@@ -61,16 +60,16 @@
     :pswitch_1
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
-    #calls: Landroid/widget/MediaController;->setProgress()I
+    # invokes: Landroid/widget/MediaController;->setProgress()I
     invoke-static {v1}, Landroid/widget/MediaController;->access$500(Landroid/widget/MediaController;)I
 
     move-result v0
 
     .line 395
-    .local v0, pos:I
+    .local v0, "pos":I
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
-    #getter for: Landroid/widget/MediaController;->mDragging:Z
+    # getter for: Landroid/widget/MediaController;->mDragging:Z
     invoke-static {v1}, Landroid/widget/MediaController;->access$600(Landroid/widget/MediaController;)Z
 
     move-result v1
@@ -79,7 +78,7 @@
 
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
-    #getter for: Landroid/widget/MediaController;->mShowing:Z
+    # getter for: Landroid/widget/MediaController;->mShowing:Z
     invoke-static {v1}, Landroid/widget/MediaController;->access$100(Landroid/widget/MediaController;)Z
 
     move-result v1
@@ -88,7 +87,7 @@
 
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
-    #getter for: Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
+    # getter for: Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
     invoke-static {v1}, Landroid/widget/MediaController;->access$700(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1

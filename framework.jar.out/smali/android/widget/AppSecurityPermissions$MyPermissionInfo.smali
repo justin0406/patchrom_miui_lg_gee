@@ -27,7 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/PermissionInfo;)V
     .locals 0
-    .parameter "info"
+    .param p1, "info"    # Landroid/content/pm/PermissionInfo;
 
     .prologue
     .line 135

@@ -43,7 +43,7 @@
 
 .method static getAndroidLevel(Ljava/util/logging/Level;)I
     .locals 2
-    .parameter "level"
+    .param p0, "level"    # Ljava/util/logging/Level;
 
     .prologue
     .line 162
@@ -52,7 +52,7 @@
     move-result v0
 
     .line 163
-    .local v0, value:I
+    .local v0, "value":I
     const/16 v1, 0x3e8
 
     if-lt v0, v1, :cond_0
@@ -113,7 +113,7 @@
 
 .method public publish(Ljava/util/logging/LogRecord;)V
     .locals 6
-    .parameter "record"
+    .param p1, "record"    # Ljava/util/logging/LogRecord;
 
     .prologue
     .line 126
@@ -126,7 +126,7 @@
     move-result v1
 
     .line 127
-    .local v1, level:I
+    .local v1, "level":I
     invoke-virtual {p1}, Ljava/util/logging/LogRecord;->getLoggerName()Ljava/lang/String;
 
     move-result-object v4
@@ -136,7 +136,7 @@
     move-result-object v3
 
     .line 128
-    .local v3, tag:Ljava/lang/String;
+    .local v3, "tag":Ljava/lang/String;
     invoke-static {v3, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v4
@@ -159,7 +159,7 @@
     move-result-object v2
 
     .line 134
-    .local v2, message:Ljava/lang/String;
+    .local v2, "message":Ljava/lang/String;
     invoke-static {v1, v3, v2}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
@@ -167,12 +167,12 @@
     goto :goto_0
 
     .line 135
-    .end local v2           #message:Ljava/lang/String;
+    .end local v2    # "message":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 136
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v4, "AndroidHandler"
 
     const-string v5, "Error logging message."
@@ -184,10 +184,10 @@
 
 .method public publish(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/logging/Level;Ljava/lang/String;)V
     .locals 4
-    .parameter "source"
-    .parameter "tag"
-    .parameter "level"
-    .parameter "message"
+    .param p1, "source"    # Ljava/util/logging/Logger;
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "level"    # Ljava/util/logging/Level;
+    .param p4, "message"    # Ljava/lang/String;
 
     .prologue
     .line 142
@@ -196,7 +196,7 @@
     move-result v1
 
     .line 143
-    .local v1, priority:I
+    .local v1, "priority":I
     invoke-static {p2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v2
@@ -221,7 +221,7 @@
     move-exception v0
 
     .line 150
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "AndroidHandler"
 
     const-string v3, "Error logging message."

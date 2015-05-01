@@ -14,8 +14,6 @@
 # static fields
 .field public static final ACQUIRE_CAUSES_WAKEUP:I = 0x10000000
 
-.field public static final BRIGHTNESS_DIM:I = 0x14
-
 .field public static final BRIGHTNESS_OFF:I = 0x0
 
 .field public static final BRIGHTNESS_ON:I = 0xff
@@ -73,9 +71,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/IPowerManager;Landroid/os/Handler;)V
     .locals 0
-    .parameter "context"
-    .parameter "service"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/os/IPowerManager;
+    .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 300
@@ -128,8 +126,8 @@
 
 .method public static validateWakeLockParameters(ILjava/lang/String;)V
     .locals 2
-    .parameter "levelAndFlags"
-    .parameter "tag"
+    .param p0, "levelAndFlags"    # I
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 415
@@ -240,7 +238,7 @@
 
 .method public goToSleep(J)V
     .locals 2
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 481
@@ -287,7 +285,7 @@
     move-exception v0
 
     .line 588
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -295,7 +293,7 @@
 
 .method public isWakeLockLevelSupported(I)Z
     .locals 2
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 565
@@ -317,7 +315,7 @@
     move-exception v0
 
     .line 567
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -325,7 +323,7 @@
 
 .method public nap(J)V
     .locals 1
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 533
@@ -349,8 +347,8 @@
 
 .method public newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
     .locals 2
-    .parameter "levelAndFlags"
-    .parameter "tag"
+    .param p1, "levelAndFlags"    # I
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 409
@@ -372,7 +370,7 @@
 
 .method public reboot(Ljava/lang/String;)V
     .locals 3
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 603
@@ -400,7 +398,7 @@
 
 .method public setBacklightBrightness(I)V
     .locals 1
-    .parameter "brightness"
+    .param p1, "brightness"    # I
 
     .prologue
     .line 550
@@ -424,8 +422,8 @@
 
 .method public userActivity(JZ)V
     .locals 3
-    .parameter "when"
-    .parameter "noChangeLights"
+    .param p1, "when"    # J
+    .param p3, "noChangeLights"    # Z
 
     .prologue
     const/4 v0, 0x0
@@ -458,7 +456,7 @@
 
 .method public wakeUp(J)V
     .locals 1
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 505

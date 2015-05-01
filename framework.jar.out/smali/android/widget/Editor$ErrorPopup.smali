@@ -27,9 +27,9 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;II)V
     .locals 2
-    .parameter "v"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "v"    # Landroid/widget/TextView;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -73,8 +73,8 @@
 
 .method private getResourceId(II)I
     .locals 3
-    .parameter "currentId"
-    .parameter "index"
+    .param p1, "currentId"    # I
+    .param p2, "index"    # I
 
     .prologue
     .line 3872
@@ -94,7 +94,7 @@
     move-result-object v0
 
     .line 3875
-    .local v0, styledAttributes:Landroid/content/res/TypedArray;
+    .local v0, "styledAttributes":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
     invoke-virtual {v0, p2, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -105,7 +105,7 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 3878
-    .end local v0           #styledAttributes:Landroid/content/res/TypedArray;
+    .end local v0    # "styledAttributes":Landroid/content/res/TypedArray;
     :cond_0
     return p1
 .end method
@@ -114,7 +114,7 @@
 # virtual methods
 .method fixDirection(Z)V
     .locals 2
-    .parameter "above"
+    .param p1, "above"    # Z
 
     .prologue
     .line 3856
@@ -171,11 +171,11 @@
 
 .method public update(IIIIZ)V
     .locals 2
-    .parameter "x"
-    .parameter "y"
-    .parameter "w"
-    .parameter "h"
-    .parameter "force"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "w"    # I
+    .param p4, "h"    # I
+    .param p5, "force"    # Z
 
     .prologue
     .line 3883
@@ -187,7 +187,7 @@
     move-result v0
 
     .line 3886
-    .local v0, above:Z
+    .local v0, "above":Z
     iget-boolean v1, p0, Landroid/widget/Editor$ErrorPopup;->mAbove:Z
 
     if-eq v0, v1, :cond_0

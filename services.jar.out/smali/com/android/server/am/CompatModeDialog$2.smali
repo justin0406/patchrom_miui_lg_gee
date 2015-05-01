@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/CompatModeDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 65
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 4
-    .parameter "buttonView"
-    .parameter "isChecked"
+    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
+    .param p2, "isChecked"    # Z
 
     .prologue
     .line 68

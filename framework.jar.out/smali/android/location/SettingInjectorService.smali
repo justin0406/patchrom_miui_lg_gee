@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 140
@@ -43,7 +43,7 @@
 
 .method private onHandleIntent(Landroid/content/Intent;)V
     .locals 5
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v4, 0x1
@@ -57,7 +57,7 @@
     move-result-object v2
 
     .line 175
-    .local v2, summary:Ljava/lang/String;
+    .local v2, "summary":Ljava/lang/String;
     :try_start_1
     invoke-virtual {p0}, Landroid/location/SettingInjectorService;->onGetEnabled()Z
     :try_end_1
@@ -66,20 +66,20 @@
     move-result v1
 
     .line 183
-    .local v1, enabled:Z
+    .local v1, "enabled":Z
     invoke-direct {p0, p1, v2, v1}, Landroid/location/SettingInjectorService;->sendStatus(Landroid/content/Intent;Ljava/lang/String;Z)V
 
     .line 184
     return-void
 
     .line 166
-    .end local v1           #enabled:Z
-    .end local v2           #summary:Ljava/lang/String;
+    .end local v1    # "enabled":Z
+    .end local v2    # "summary":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 169
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const/4 v3, 0x0
 
     invoke-direct {p0, p1, v3, v4}, Landroid/location/SettingInjectorService;->sendStatus(Landroid/content/Intent;Ljava/lang/String;Z)V
@@ -88,13 +88,13 @@
     throw v0
 
     .line 176
-    .end local v0           #e:Ljava/lang/RuntimeException;
-    .restart local v2       #summary:Ljava/lang/String;
+    .end local v0    # "e":Ljava/lang/RuntimeException;
+    .restart local v2    # "summary":Ljava/lang/String;
     :catch_1
     move-exception v0
 
     .line 179
-    .restart local v0       #e:Ljava/lang/RuntimeException;
+    .restart local v0    # "e":Ljava/lang/RuntimeException;
     invoke-direct {p0, p1, v2, v4}, Landroid/location/SettingInjectorService;->sendStatus(Landroid/content/Intent;Ljava/lang/String;Z)V
 
     .line 180
@@ -103,9 +103,9 @@
 
 .method private sendStatus(Landroid/content/Intent;Ljava/lang/String;Z)V
     .locals 7
-    .parameter "intent"
-    .parameter "summary"
-    .parameter "enabled"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "summary"    # Ljava/lang/String;
+    .param p3, "enabled"    # Z
 
     .prologue
     .line 191
@@ -114,13 +114,13 @@
     move-result-object v2
 
     .line 192
-    .local v2, message:Landroid/os/Message;
+    .local v2, "message":Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 193
-    .local v0, bundle:Landroid/os/Bundle;
+    .local v0, "bundle":Landroid/os/Bundle;
     const-string/jumbo v4, "summary"
 
     invoke-virtual {v0, v4, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -214,7 +214,7 @@
     check-cast v3, Landroid/os/Messenger;
 
     .line 204
-    .local v3, messenger:Landroid/os/Messenger;
+    .local v3, "messenger":Landroid/os/Messenger;
     :try_start_0
     invoke-virtual {v3, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
     :try_end_0
@@ -229,7 +229,7 @@
     move-exception v1
 
     .line 206
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v4, "SettingInjectorService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -261,7 +261,7 @@
 # virtual methods
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 146
@@ -278,8 +278,8 @@
 
 .method public final onStart(Landroid/content/Intent;I)V
     .locals 0
-    .parameter "intent"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "startId"    # I
 
     .prologue
     .line 151
@@ -291,9 +291,9 @@
 
 .method public final onStartCommand(Landroid/content/Intent;II)I
     .locals 1
-    .parameter "intent"
-    .parameter "flags"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "startId"    # I
 
     .prologue
     .line 156

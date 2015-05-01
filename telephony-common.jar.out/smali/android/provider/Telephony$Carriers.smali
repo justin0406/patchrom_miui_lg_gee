@@ -26,7 +26,7 @@
 
 .field public static final CARRIER_ENABLED:Ljava/lang/String; = "carrier_enabled"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final CURRENT:Ljava/lang/String; = "current"
 

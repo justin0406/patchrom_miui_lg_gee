@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/effect/effects/BackDropperEffect;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 74
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onLearningDone(Landroid/filterpacks/videoproc/BackDropperFilter;)V
     .locals 3
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterpacks/videoproc/BackDropperFilter;
 
     .prologue
     .line 76
     iget-object v0, p0, Landroid/media/effect/effects/BackDropperEffect$1;->this$0:Landroid/media/effect/effects/BackDropperEffect;
 
-    #getter for: Landroid/media/effect/effects/BackDropperEffect;->mEffectListener:Landroid/media/effect/EffectUpdateListener;
+    # getter for: Landroid/media/effect/effects/BackDropperEffect;->mEffectListener:Landroid/media/effect/EffectUpdateListener;
     invoke-static {v0}, Landroid/media/effect/effects/BackDropperEffect;->access$000(Landroid/media/effect/effects/BackDropperEffect;)Landroid/media/effect/EffectUpdateListener;
 
     move-result-object v0
@@ -55,7 +54,7 @@
     .line 77
     iget-object v0, p0, Landroid/media/effect/effects/BackDropperEffect$1;->this$0:Landroid/media/effect/effects/BackDropperEffect;
 
-    #getter for: Landroid/media/effect/effects/BackDropperEffect;->mEffectListener:Landroid/media/effect/EffectUpdateListener;
+    # getter for: Landroid/media/effect/effects/BackDropperEffect;->mEffectListener:Landroid/media/effect/EffectUpdateListener;
     invoke-static {v0}, Landroid/media/effect/effects/BackDropperEffect;->access$000(Landroid/media/effect/effects/BackDropperEffect;)Landroid/media/effect/EffectUpdateListener;
 
     move-result-object v0

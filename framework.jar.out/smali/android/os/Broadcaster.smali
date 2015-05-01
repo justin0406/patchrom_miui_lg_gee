@@ -32,7 +32,7 @@
 # virtual methods
 .method public broadcast(Landroid/os/Message;)V
     .locals 10
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 173
@@ -56,15 +56,15 @@
     iget v4, p1, Landroid/os/Message;->what:I
 
     .line 179
-    .local v4, senderWhat:I
+    .local v4, "senderWhat":I
     iget-object v5, p0, Landroid/os/Broadcaster;->mReg:Landroid/os/Broadcaster$Registration;
 
     .line 180
-    .local v5, start:Landroid/os/Broadcaster$Registration;
+    .local v5, "start":Landroid/os/Broadcaster$Registration;
     move-object v3, v5
 
     .line 182
-    .local v3, r:Landroid/os/Broadcaster$Registration;
+    .local v3, "r":Landroid/os/Broadcaster$Registration;
     :cond_1
     iget v9, v3, Landroid/os/Broadcaster$Registration;->senderWhat:I
 
@@ -80,18 +80,18 @@
     iget-object v7, v3, Landroid/os/Broadcaster$Registration;->targets:[Landroid/os/Handler;
 
     .line 189
-    .local v7, targets:[Landroid/os/Handler;
+    .local v7, "targets":[Landroid/os/Handler;
     iget-object v8, v3, Landroid/os/Broadcaster$Registration;->targetWhats:[I
 
     .line 190
-    .local v8, whats:[I
+    .local v8, "whats":[I
     array-length v2, v7
 
     .line 191
-    .local v2, n:I
+    .local v2, "n":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_2
     if-ge v0, v2, :cond_3
 
@@ -99,13 +99,13 @@
     aget-object v6, v7, v0
 
     .line 193
-    .local v6, target:Landroid/os/Handler;
+    .local v6, "target":Landroid/os/Handler;
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v1
 
     .line 194
-    .local v1, m:Landroid/os/Message;
+    .local v1, "m":Landroid/os/Message;
     invoke-virtual {v1, p1}, Landroid/os/Message;->copyFrom(Landroid/os/Message;)V
 
     .line 195
@@ -122,12 +122,12 @@
     goto :goto_2
 
     .line 185
-    .end local v0           #i:I
-    .end local v1           #m:Landroid/os/Message;
-    .end local v2           #n:I
-    .end local v6           #target:Landroid/os/Handler;
-    .end local v7           #targets:[Landroid/os/Handler;
-    .end local v8           #whats:[I
+    .end local v0    # "i":I
+    .end local v1    # "m":Landroid/os/Message;
+    .end local v2    # "n":I
+    .end local v6    # "target":Landroid/os/Handler;
+    .end local v7    # "targets":[Landroid/os/Handler;
+    .end local v8    # "whats":[I
     :cond_2
     iget-object v3, v3, Landroid/os/Broadcaster$Registration;->next:Landroid/os/Broadcaster$Registration;
 
@@ -142,9 +142,9 @@
 
     goto :goto_0
 
-    .end local v3           #r:Landroid/os/Broadcaster$Registration;
-    .end local v4           #senderWhat:I
-    .end local v5           #start:Landroid/os/Broadcaster$Registration;
+    .end local v3    # "r":Landroid/os/Broadcaster$Registration;
+    .end local v4    # "senderWhat":I
+    .end local v5    # "start":Landroid/os/Broadcaster$Registration;
     :catchall_0
     move-exception v9
 
@@ -157,9 +157,9 @@
 
 .method public cancelRequest(ILandroid/os/Handler;I)V
     .locals 10
-    .parameter "senderWhat"
-    .parameter "target"
-    .parameter "targetWhat"
+    .param p1, "senderWhat"    # I
+    .param p2, "target"    # Landroid/os/Handler;
+    .param p3, "targetWhat"    # I
 
     .prologue
     .line 101
@@ -170,11 +170,11 @@
     iget-object v4, p0, Landroid/os/Broadcaster;->mReg:Landroid/os/Broadcaster$Registration;
 
     .line 103
-    .local v4, start:Landroid/os/Broadcaster$Registration;
+    .local v4, "start":Landroid/os/Broadcaster$Registration;
     move-object v2, v4
 
     .line 105
-    .local v2, r:Landroid/os/Broadcaster$Registration;
+    .local v2, "r":Landroid/os/Broadcaster$Registration;
     if-nez v2, :cond_0
 
     .line 106
@@ -200,18 +200,18 @@
     iget-object v5, v2, Landroid/os/Broadcaster$Registration;->targets:[Landroid/os/Handler;
 
     .line 118
-    .local v5, targets:[Landroid/os/Handler;
+    .local v5, "targets":[Landroid/os/Handler;
     iget-object v6, v2, Landroid/os/Broadcaster$Registration;->targetWhats:[I
 
     .line 119
-    .local v6, whats:[I
+    .local v6, "whats":[I
     array-length v1, v5
 
     .line 120
-    .local v1, oldLen:I
+    .local v1, "oldLen":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_2
     if-ge v0, v1, :cond_2
 
@@ -266,7 +266,7 @@
     add-int/lit8 v3, v7, -0x1
 
     .line 130
-    .local v3, remainingLen:I
+    .local v3, "remainingLen":I
     if-eqz v3, :cond_2
 
     .line 131
@@ -284,18 +284,18 @@
     invoke-static {v6, v7, v8, v0, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 140
-    .end local v0           #i:I
-    .end local v1           #oldLen:I
-    .end local v3           #remainingLen:I
-    .end local v5           #targets:[Landroid/os/Handler;
-    .end local v6           #whats:[I
+    .end local v0    # "i":I
+    .end local v1    # "oldLen":I
+    .end local v3    # "remainingLen":I
+    .end local v5    # "targets":[Landroid/os/Handler;
+    .end local v6    # "whats":[I
     :cond_2
     monitor-exit p0
 
     goto :goto_0
 
-    .end local v2           #r:Landroid/os/Broadcaster$Registration;
-    .end local v4           #start:Landroid/os/Broadcaster$Registration;
+    .end local v2    # "r":Landroid/os/Broadcaster$Registration;
+    .end local v4    # "start":Landroid/os/Broadcaster$Registration;
     :catchall_0
     move-exception v7
 
@@ -306,8 +306,8 @@
     throw v7
 
     .line 113
-    .restart local v2       #r:Landroid/os/Broadcaster$Registration;
-    .restart local v4       #start:Landroid/os/Broadcaster$Registration;
+    .restart local v2    # "r":Landroid/os/Broadcaster$Registration;
+    .restart local v4    # "start":Landroid/os/Broadcaster$Registration;
     :cond_3
     :try_start_1
     iget-object v2, v2, Landroid/os/Broadcaster$Registration;->next:Landroid/os/Broadcaster$Registration;
@@ -320,10 +320,10 @@
     goto :goto_1
 
     .line 120
-    .restart local v0       #i:I
-    .restart local v1       #oldLen:I
-    .restart local v5       #targets:[Landroid/os/Handler;
-    .restart local v6       #whats:[I
+    .restart local v0    # "i":I
+    .restart local v1    # "oldLen":I
+    .restart local v5    # "targets":[Landroid/os/Handler;
+    .restart local v6    # "whats":[I
     :cond_4
     add-int/lit8 v0, v0, 0x1
 
@@ -342,7 +342,7 @@
     iget-object v3, p0, Landroid/os/Broadcaster;->mReg:Landroid/os/Broadcaster$Registration;
 
     .line 150
-    .local v3, start:Landroid/os/Broadcaster$Registration;
+    .local v3, "start":Landroid/os/Broadcaster$Registration;
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -378,7 +378,7 @@
     move-object v2, v3
 
     .line 154
-    .local v2, r:Landroid/os/Broadcaster$Registration;
+    .local v2, "r":Landroid/os/Broadcaster$Registration;
     :cond_0
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -410,10 +410,10 @@
     array-length v1, v4
 
     .line 156
-    .local v1, n:I
+    .local v1, "n":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -471,9 +471,9 @@
     if-ne v2, v3, :cond_0
 
     .line 163
-    .end local v0           #i:I
-    .end local v1           #n:I
-    .end local v2           #r:Landroid/os/Broadcaster$Registration;
+    .end local v0    # "i":I
+    .end local v1    # "n":I
+    .end local v2    # "r":Landroid/os/Broadcaster$Registration;
     :cond_2
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -488,7 +488,7 @@
     return-void
 
     .line 164
-    .end local v3           #start:Landroid/os/Broadcaster$Registration;
+    .end local v3    # "start":Landroid/os/Broadcaster$Registration;
     :catchall_0
     move-exception v4
 
@@ -501,9 +501,9 @@
 
 .method public request(ILandroid/os/Handler;I)V
     .locals 11
-    .parameter "senderWhat"
-    .parameter "target"
-    .parameter "targetWhat"
+    .param p1, "senderWhat"    # I
+    .param p2, "target"    # Landroid/os/Handler;
+    .param p3, "targetWhat"    # I
 
     .prologue
     .line 34
@@ -513,7 +513,7 @@
     const/4 v4, 0x0
 
     .line 36
-    .local v4, r:Landroid/os/Broadcaster$Registration;
+    .local v4, "r":Landroid/os/Broadcaster$Registration;
     :try_start_0
     iget-object v8, p0, Landroid/os/Broadcaster;->mReg:Landroid/os/Broadcaster$Registration;
 
@@ -529,8 +529,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 38
-    .end local v4           #r:Landroid/os/Broadcaster$Registration;
-    .local v5, r:Landroid/os/Broadcaster$Registration;
+    .end local v4    # "r":Landroid/os/Broadcaster$Registration;
+    .local v5, "r":Landroid/os/Broadcaster$Registration;
     :try_start_1
     iput p1, v5, Landroid/os/Broadcaster$Registration;->senderWhat:I
 
@@ -576,8 +576,8 @@
     move-object v4, v5
 
     .line 93
-    .end local v5           #r:Landroid/os/Broadcaster$Registration;
-    .restart local v4       #r:Landroid/os/Broadcaster$Registration;
+    .end local v5    # "r":Landroid/os/Broadcaster$Registration;
+    .restart local v4    # "r":Landroid/os/Broadcaster$Registration;
     :goto_0
     :try_start_2
     monitor-exit p0
@@ -591,7 +591,7 @@
     iget-object v7, p0, Landroid/os/Broadcaster;->mReg:Landroid/os/Broadcaster$Registration;
 
     .line 49
-    .local v7, start:Landroid/os/Broadcaster$Registration;
+    .local v7, "start":Landroid/os/Broadcaster$Registration;
     move-object v4, v7
 
     .line 51
@@ -614,7 +614,7 @@
     invoke-direct {v6, p0, v8}, Landroid/os/Broadcaster$Registration;-><init>(Landroid/os/Broadcaster;Landroid/os/Broadcaster$1;)V
 
     .line 61
-    .local v6, reg:Landroid/os/Broadcaster$Registration;
+    .local v6, "reg":Landroid/os/Broadcaster$Registration;
     iput p1, v6, Landroid/os/Broadcaster$Registration;->senderWhat:I
 
     .line 62
@@ -669,8 +669,8 @@
     const/4 v1, 0x0
 
     .line 90
-    .end local v6           #reg:Landroid/os/Broadcaster$Registration;
-    .local v1, n:I
+    .end local v6    # "reg":Landroid/os/Broadcaster$Registration;
+    .local v1, "n":I
     :goto_3
     iget-object v8, v4, Landroid/os/Broadcaster$Registration;->targets:[Landroid/os/Handler;
 
@@ -684,8 +684,8 @@
     goto :goto_0
 
     .line 93
-    .end local v1           #n:I
-    .end local v7           #start:Landroid/os/Broadcaster$Registration;
+    .end local v1    # "n":I
+    .end local v7    # "start":Landroid/os/Broadcaster$Registration;
     :catchall_0
     move-exception v8
 
@@ -697,7 +697,7 @@
     throw v8
 
     .line 54
-    .restart local v7       #start:Landroid/os/Broadcaster$Registration;
+    .restart local v7    # "start":Landroid/os/Broadcaster$Registration;
     :cond_3
     :try_start_3
     iget-object v4, v4, Landroid/os/Broadcaster$Registration;->next:Landroid/os/Broadcaster$Registration;
@@ -714,18 +714,18 @@
     array-length v1, v8
 
     .line 77
-    .restart local v1       #n:I
+    .restart local v1    # "n":I
     iget-object v2, v4, Landroid/os/Broadcaster$Registration;->targets:[Landroid/os/Handler;
 
     .line 78
-    .local v2, oldTargets:[Landroid/os/Handler;
+    .local v2, "oldTargets":[Landroid/os/Handler;
     iget-object v3, v4, Landroid/os/Broadcaster$Registration;->targetWhats:[I
 
     .line 80
-    .local v3, oldWhats:[I
+    .local v3, "oldWhats":[I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_5
     if-ge v0, v1, :cond_6
 
@@ -787,19 +787,19 @@
     goto :goto_3
 
     .line 93
-    .end local v0           #i:I
-    .end local v1           #n:I
-    .end local v2           #oldTargets:[Landroid/os/Handler;
-    .end local v3           #oldWhats:[I
-    .end local v4           #r:Landroid/os/Broadcaster$Registration;
-    .end local v7           #start:Landroid/os/Broadcaster$Registration;
-    .restart local v5       #r:Landroid/os/Broadcaster$Registration;
+    .end local v0    # "i":I
+    .end local v1    # "n":I
+    .end local v2    # "oldTargets":[Landroid/os/Handler;
+    .end local v3    # "oldWhats":[I
+    .end local v4    # "r":Landroid/os/Broadcaster$Registration;
+    .end local v7    # "start":Landroid/os/Broadcaster$Registration;
+    .restart local v5    # "r":Landroid/os/Broadcaster$Registration;
     :catchall_1
     move-exception v8
 
     move-object v4, v5
 
-    .end local v5           #r:Landroid/os/Broadcaster$Registration;
-    .restart local v4       #r:Landroid/os/Broadcaster$Registration;
+    .end local v5    # "r":Landroid/os/Broadcaster$Registration;
+    .restart local v4    # "r":Landroid/os/Broadcaster$Registration;
     goto :goto_4
 .end method

@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;JF)V
     .locals 0
-    .parameter "activityName"
-    .parameter "time"
-    .parameter "weight"
+    .param p1, "activityName"    # Landroid/content/ComponentName;
+    .param p2, "time"    # J
+    .param p4, "weight"    # F
 
     .prologue
     .line 817
@@ -48,9 +48,9 @@
 
 .method public constructor <init>(Ljava/lang/String;JF)V
     .locals 1
-    .parameter "activityName"
-    .parameter "time"
-    .parameter "weight"
+    .param p1, "activityName"    # Ljava/lang/String;
+    .param p2, "time"    # J
+    .param p4, "weight"    # F
 
     .prologue
     .line 807
@@ -68,7 +68,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -116,7 +116,7 @@
     check-cast v0, Landroid/widget/ActivityChooserModel$HistoricalRecord;
 
     .line 845
-    .local v0, other:Landroid/widget/ActivityChooserModel$HistoricalRecord;
+    .local v0, "other":Landroid/widget/ActivityChooserModel$HistoricalRecord;
     iget-object v3, p0, Landroid/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
     if-nez v3, :cond_4
@@ -193,11 +193,11 @@
     const/16 v0, 0x1f
 
     .line 826
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 827
-    .local v1, result:I
+    .local v1, "result":I
     iget-object v2, p0, Landroid/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
     if-nez v2, :cond_0
@@ -259,7 +259,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 864
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

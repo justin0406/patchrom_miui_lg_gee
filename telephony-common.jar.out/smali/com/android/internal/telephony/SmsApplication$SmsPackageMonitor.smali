@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 445
@@ -36,7 +36,7 @@
 
 .method private onPackageChanged(Ljava/lang/String;)V
     .locals 4
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 465
@@ -47,7 +47,7 @@
     move-result-object v1
 
     .line 467
-    .local v1, packageManager:Landroid/content/pm/PackageManager;
+    .local v1, "packageManager":Landroid/content/pm/PackageManager;
     iget-object v2, p0, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->mContext:Landroid/content/Context;
 
     const/4 v3, 0x1
@@ -57,11 +57,11 @@
     move-result-object v0
 
     .line 468
-    .local v0, componentName:Landroid/content/ComponentName;
+    .local v0, "componentName":Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
     .line 469
-    #calls: Lcom/android/internal/telephony/SmsApplication;->configurePreferredActivity(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
+    # invokes: Lcom/android/internal/telephony/SmsApplication;->configurePreferredActivity(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
     invoke-static {v1, v0}, Lcom/android/internal/telephony/SmsApplication;->access$000(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
 
     .line 471
@@ -73,8 +73,8 @@
 # virtual methods
 .method public onPackageAppeared(Ljava/lang/String;I)V
     .locals 0
-    .parameter "packageName"
-    .parameter "reason"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "reason"    # I
 
     .prologue
     .line 456
@@ -86,8 +86,8 @@
 
 .method public onPackageDisappeared(Ljava/lang/String;I)V
     .locals 0
-    .parameter "packageName"
-    .parameter "reason"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "reason"    # I
 
     .prologue
     .line 451
@@ -99,7 +99,7 @@
 
 .method public onPackageModified(Ljava/lang/String;)V
     .locals 0
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 461

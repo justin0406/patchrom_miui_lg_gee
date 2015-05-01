@@ -31,12 +31,12 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;IIII)V
     .locals 1
-    .parameter "id"
-    .parameter "number"
-    .parameter "numberType"
-    .parameter "numberPlan"
-    .parameter "pi"
-    .parameter "si"
+    .param p1, "id"    # I
+    .param p2, "number"    # Ljava/lang/String;
+    .param p3, "numberType"    # I
+    .param p4, "numberPlan"    # I
+    .param p5, "pi"    # I
+    .param p6, "si"    # I
 
     .prologue
     .line 158

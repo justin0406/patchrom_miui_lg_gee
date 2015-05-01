@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/GeofenceHardwareService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 67
@@ -36,22 +35,22 @@
 # virtual methods
 .method public addCircularFence(IIDDDIIIILandroid/hardware/location/IGeofenceHardwareCallback;)Z
     .locals 15
-    .parameter "id"
-    .parameter "monitoringType"
-    .parameter "lat"
-    .parameter "longitude"
-    .parameter "radius"
-    .parameter "lastTransition"
-    .parameter "monitorTransitions"
-    .parameter "notificationResponsiveness"
-    .parameter "unknownTimer"
-    .parameter "callback"
+    .param p1, "id"    # I
+    .param p2, "monitoringType"    # I
+    .param p3, "lat"    # D
+    .param p5, "longitude"    # D
+    .param p7, "radius"    # D
+    .param p9, "lastTransition"    # I
+    .param p10, "monitorTransitions"    # I
+    .param p11, "notificationResponsiveness"    # I
+    .param p12, "unknownTimer"    # I
+    .param p13, "callback"    # Landroid/hardware/location/IGeofenceHardwareCallback;
 
     .prologue
     .line 92
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v1
@@ -75,13 +74,13 @@
 
     move/from16 v0, p2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v1, v2, v3, v0}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 95
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v1}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v1
@@ -120,7 +119,7 @@
     .line 77
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -134,7 +133,7 @@
     .line 80
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -148,13 +147,13 @@
 
 .method public getStatusOfMonitoringType(I)I
     .locals 3
-    .parameter "monitoringType"
+    .param p1, "monitoringType"    # I
 
     .prologue
     .line 84
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -168,7 +167,7 @@
     .line 87
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -182,14 +181,14 @@
 
 .method public pauseGeofence(II)Z
     .locals 3
-    .parameter "id"
-    .parameter "monitoringType"
+    .param p1, "id"    # I
+    .param p2, "monitoringType"    # I
 
     .prologue
     .line 109
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -211,13 +210,13 @@
 
     move-result v2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v0, v1, v2, p2}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 113
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -231,14 +230,14 @@
 
 .method public registerForMonitorStateChangeCallback(ILandroid/hardware/location/IGeofenceHardwareMonitorCallback;)Z
     .locals 3
-    .parameter "monitoringType"
-    .parameter "callback"
+    .param p1, "monitoringType"    # I
+    .param p2, "callback"    # Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .prologue
     .line 126
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -260,13 +259,13 @@
 
     move-result v2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v0, v1, v2, p1}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 130
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -280,14 +279,14 @@
 
 .method public removeGeofence(II)Z
     .locals 3
-    .parameter "id"
-    .parameter "monitoringType"
+    .param p1, "id"    # I
+    .param p2, "monitoringType"    # I
 
     .prologue
     .line 101
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -309,13 +308,13 @@
 
     move-result v2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v0, v1, v2, p2}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 105
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -329,15 +328,15 @@
 
 .method public resumeGeofence(III)Z
     .locals 3
-    .parameter "id"
-    .parameter "monitoringType"
-    .parameter "monitorTransitions"
+    .param p1, "id"    # I
+    .param p2, "monitoringType"    # I
+    .param p3, "monitorTransitions"    # I
 
     .prologue
     .line 117
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -359,13 +358,13 @@
 
     move-result v2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v0, v1, v2, p2}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 121
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -379,13 +378,13 @@
 
 .method public setFusedGeofenceHardware(Landroid/location/IFusedGeofenceHardware;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Landroid/location/IFusedGeofenceHardware;
 
     .prologue
     .line 73
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -398,13 +397,13 @@
 
 .method public setGpsGeofenceHardware(Landroid/location/IGpsGeofenceHardware;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Landroid/location/IGpsGeofenceHardware;
 
     .prologue
     .line 69
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0
@@ -417,14 +416,14 @@
 
 .method public unregisterForMonitorStateChangeCallback(ILandroid/hardware/location/IGeofenceHardwareMonitorCallback;)Z
     .locals 3
-    .parameter "monitoringType"
-    .parameter "callback"
+    .param p1, "monitoringType"    # I
+    .param p2, "callback"    # Landroid/hardware/location/IGeofenceHardwareMonitorCallback;
 
     .prologue
     .line 136
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$100(Landroid/hardware/location/GeofenceHardwareService;)Landroid/content/Context;
 
     move-result-object v0
@@ -446,13 +445,13 @@
 
     move-result v2
 
-    #calls: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
+    # invokes: Landroid/hardware/location/GeofenceHardwareService;->checkPermission(III)V
     invoke-static {v0, v1, v2, p1}, Landroid/hardware/location/GeofenceHardwareService;->access$200(Landroid/hardware/location/GeofenceHardwareService;III)V
 
     .line 140
     iget-object v0, p0, Landroid/hardware/location/GeofenceHardwareService$1;->this$0:Landroid/hardware/location/GeofenceHardwareService;
 
-    #getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
+    # getter for: Landroid/hardware/location/GeofenceHardwareService;->mGeofenceHardwareImpl:Landroid/hardware/location/GeofenceHardwareImpl;
     invoke-static {v0}, Landroid/hardware/location/GeofenceHardwareService;->access$000(Landroid/hardware/location/GeofenceHardwareService;)Landroid/hardware/location/GeofenceHardwareImpl;
 
     move-result-object v0

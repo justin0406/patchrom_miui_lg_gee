@@ -49,8 +49,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 6
-    .parameter "path"
-    .parameter "format"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "format"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -106,14 +106,14 @@
     const/4 v2, 0x0
 
     .line 130
-    .local v2, fos:Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 131
-    .local v1, file:Ljava/io/File;
+    .local v1, "file":Ljava/io/File;
     new-instance v3, Ljava/io/FileOutputStream;
 
     invoke-direct {v3, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -121,15 +121,15 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 132
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .local v3, fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .local v3, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->getFD()Ljava/io/FileDescriptor;
 
     move-result-object v0
 
     .line 133
-    .local v0, fd:Ljava/io/FileDescriptor;
+    .local v0, "fd":Ljava/io/FileDescriptor;
     invoke-static {v0, p2}, Landroid/media/MediaMuxer;->nativeSetup(Ljava/io/FileDescriptor;I)I
 
     move-result v4
@@ -161,10 +161,10 @@
     return-void
 
     .line 137
-    .end local v0           #fd:Ljava/io/FileDescriptor;
-    .end local v1           #file:Ljava/io/File;
-    .end local v3           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v0    # "fd":Ljava/io/FileDescriptor;
+    .end local v1    # "file":Ljava/io/File;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catchall_0
     move-exception v4
 
@@ -178,16 +178,16 @@
     throw v4
 
     .line 137
-    .end local v2           #fos:Ljava/io/FileOutputStream;
-    .restart local v1       #file:Ljava/io/File;
-    .restart local v3       #fos:Ljava/io/FileOutputStream;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "file":Ljava/io/File;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v4
 
     move-object v2, v3
 
-    .end local v3           #fos:Ljava/io/FileOutputStream;
-    .restart local v2       #fos:Ljava/io/FileOutputStream;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     goto :goto_0
 .end method
 
@@ -219,7 +219,7 @@
 # virtual methods
 .method public addTrack(Landroid/media/MediaFormat;)I
     .locals 10
-    .parameter "format"
+    .param p1, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 255
@@ -269,27 +269,27 @@
     const/4 v6, -0x1
 
     .line 266
-    .local v6, trackIndex:I
+    .local v6, "trackIndex":I
     invoke-virtual {p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
 
     move-result-object v1
 
     .line 268
-    .local v1, formatMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v1, "formatMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v4, 0x0
 
     .line 269
-    .local v4, keys:[Ljava/lang/String;
+    .local v4, "keys":[Ljava/lang/String;
     const/4 v7, 0x0
 
     .line 270
-    .local v7, values:[Ljava/lang/Object;
+    .local v7, "values":[Ljava/lang/Object;
     invoke-interface {v1}, Ljava/util/Map;->size()I
 
     move-result v5
 
     .line 271
-    .local v5, mapSize:I
+    .local v5, "mapSize":I
     if-lez v5, :cond_4
 
     .line 272
@@ -302,7 +302,7 @@
     const/4 v2, 0x0
 
     .line 275
-    .local v2, i:I
+    .local v2, "i":I
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v8
@@ -311,7 +311,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -326,7 +326,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 276
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v8
@@ -348,7 +348,7 @@
     goto :goto_0
 
     .line 280
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_3
     iget v8, p0, Landroid/media/MediaMuxer;->mNativeObject:I
 
@@ -371,8 +371,8 @@
     throw v8
 
     .line 282
-    .end local v2           #i:I
-    .end local v3           #i$:Ljava/util/Iterator;
+    .end local v2    # "i":I
+    .end local v3    # "i$":Ljava/util/Iterator;
     :cond_4
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
@@ -383,8 +383,8 @@
     throw v8
 
     .line 290
-    .restart local v2       #i:I
-    .restart local v3       #i$:Ljava/util/Iterator;
+    .restart local v2    # "i":I
+    .restart local v3    # "i$":Ljava/util/Iterator;
     :cond_5
     iput v6, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
@@ -493,13 +493,13 @@
 
 .method public setLocation(FF)V
     .locals 8
-    .parameter "latitude"
-    .parameter "longitude"
+    .param p1, "latitude"    # F
+    .param p2, "longitude"    # F
 
     .prologue
-    const v7, 0x461c4000
+    const v7, 0x461c4000    # 10000.0f
 
-    const-wide/high16 v5, 0x3fe0
+    const-wide/high16 v5, 0x3fe0000000000000L    # 0.5
 
     .line 184
     mul-float v3, p1, v7
@@ -511,7 +511,7 @@
     double-to-int v0, v3
 
     .line 185
-    .local v0, latitudex10000:I
+    .local v0, "latitudex10000":I
     mul-float v3, p2, v7
 
     float-to-double v3, v3
@@ -521,7 +521,7 @@
     double-to-int v1, v3
 
     .line 187
-    .local v1, longitudex10000:I
+    .local v1, "longitudex10000":I
     const v3, 0xdbba0
 
     if-gt v0, v3, :cond_0
@@ -557,7 +557,7 @@
     move-result-object v2
 
     .line 189
-    .local v2, msg:Ljava/lang/String;
+    .local v2, "msg":Ljava/lang/String;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v3, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -565,7 +565,7 @@
     throw v3
 
     .line 191
-    .end local v2           #msg:Ljava/lang/String;
+    .end local v2    # "msg":Ljava/lang/String;
     :cond_1
     const v3, 0x1b7740
 
@@ -602,7 +602,7 @@
     move-result-object v2
 
     .line 193
-    .restart local v2       #msg:Ljava/lang/String;
+    .restart local v2    # "msg":Ljava/lang/String;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v3, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -610,7 +610,7 @@
     throw v3
 
     .line 196
-    .end local v2           #msg:Ljava/lang/String;
+    .end local v2    # "msg":Ljava/lang/String;
     :cond_3
     iget v3, p0, Landroid/media/MediaMuxer;->mState:I
 
@@ -641,7 +641,7 @@
 
 .method public setOrientationHint(I)V
     .locals 3
-    .parameter "degrees"
+    .param p1, "degrees"    # I
 
     .prologue
     .line 157
@@ -794,9 +794,9 @@
 
 .method public writeSampleData(ILjava/nio/ByteBuffer;Landroid/media/MediaCodec$BufferInfo;)V
     .locals 8
-    .parameter "trackIndex"
-    .parameter "byteBuf"
-    .parameter "bufferInfo"
+    .param p1, "trackIndex"    # I
+    .param p2, "byteBuf"    # Ljava/nio/ByteBuffer;
+    .param p3, "bufferInfo"    # Landroid/media/MediaCodec$BufferInfo;
 
     .prologue
     .line 308

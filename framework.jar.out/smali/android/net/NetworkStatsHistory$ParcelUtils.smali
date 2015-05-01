@@ -27,7 +27,7 @@
 
 .method public static readLongArray(Landroid/os/Parcel;)[J
     .locals 5
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 714
@@ -36,7 +36,7 @@
     move-result v1
 
     .line 715
-    .local v1, size:I
+    .local v1, "size":I
     const/4 v3, -0x1
 
     if-ne v1, v3, :cond_1
@@ -52,10 +52,10 @@
     new-array v2, v1, [J
 
     .line 717
-    .local v2, values:[J
+    .local v2, "values":[J
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -76,9 +76,9 @@
 
 .method public static writeLongArray(Landroid/os/Parcel;[JI)V
     .locals 3
-    .parameter "out"
-    .parameter "values"
-    .parameter "size"
+    .param p0, "out"    # Landroid/os/Parcel;
+    .param p1, "values"    # [J
+    .param p2, "size"    # I
 
     .prologue
     .line 724
@@ -115,7 +115,7 @@
     .line 732
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p2, :cond_0
 

@@ -106,11 +106,11 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     .line 6179
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
@@ -163,13 +163,13 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 8
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v7, 0x0
 
-    const/high16 v6, -0x8000
+    const/high16 v6, -0x80000000
 
     .line 6114
     invoke-direct {p0}, Landroid/view/ViewGroup$LayoutParams;-><init>()V
@@ -188,7 +188,7 @@
     move-result-object v0
 
     .line 6117
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v4, 0x1
 
     invoke-virtual {p0, v0, v7, v4}, Landroid/view/ViewGroup$MarginLayoutParams;->setBaseAttributes(Landroid/content/res/TypedArray;II)V
@@ -203,7 +203,7 @@
     move-result v2
 
     .line 6123
-    .local v2, margin:I
+    .local v2, "margin":I
     if-ltz v2, :cond_3
 
     .line 6124
@@ -230,7 +230,7 @@
     move-result v1
 
     .line 6164
-    .local v1, hasRtlSupport:Z
+    .local v1, "hasRtlSupport":Z
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v4
@@ -238,7 +238,7 @@
     iget v3, v4, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     .line 6165
-    .local v3, targetSdkVersion:I
+    .local v3, "targetSdkVersion":I
     const/16 v4, 0x11
 
     if-lt v3, v4, :cond_1
@@ -272,8 +272,8 @@
     return-void
 
     .line 6129
-    .end local v1           #hasRtlSupport:Z
-    .end local v3           #targetSdkVersion:I
+    .end local v1    # "hasRtlSupport":Z
+    .end local v3    # "targetSdkVersion":I
     :cond_3
     const/4 v4, 0x3
 
@@ -385,10 +385,10 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     .line 6211
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
@@ -441,10 +441,10 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     .line 6193
     invoke-direct {p0}, Landroid/view/ViewGroup$LayoutParams;-><init>()V
@@ -510,7 +510,7 @@
     .prologue
     const/4 v1, 0x0
 
-    const/high16 v3, -0x8000
+    const/high16 v3, -0x80000000
 
     .line 6401
     iget-byte v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->mMarginFlags:B
@@ -667,7 +667,7 @@
     .line 6328
     iget v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->endMargin:I
 
-    const/high16 v1, -0x8000
+    const/high16 v1, -0x80000000
 
     if-eq v0, v1, :cond_0
 
@@ -725,7 +725,7 @@
     .line 6295
     iget v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->startMargin:I
 
-    const/high16 v1, -0x8000
+    const/high16 v1, -0x80000000
 
     if-eq v0, v1, :cond_0
 
@@ -802,7 +802,7 @@
     .locals 2
 
     .prologue
-    const/high16 v1, -0x8000
+    const/high16 v1, -0x80000000
 
     .line 6350
     iget v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->startMargin:I
@@ -827,9 +827,9 @@
 
 .method public onDebugDraw(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 11
-    .parameter "view"
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "canvas"    # Landroid/graphics/Canvas;
+    .param p3, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 6447
@@ -846,7 +846,7 @@
     move-result-object v10
 
     .line 6449
-    .local v10, oi:Landroid/graphics/Insets;
+    .local v10, "oi":Landroid/graphics/Insets;
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
@@ -892,14 +892,14 @@
 
     move-object v9, p3
 
-    #calls: Landroid/view/ViewGroup;->fillDifference(Landroid/graphics/Canvas;IIIIIIIILandroid/graphics/Paint;)V
+    # invokes: Landroid/view/ViewGroup;->fillDifference(Landroid/graphics/Canvas;IIIIIIIILandroid/graphics/Paint;)V
     invoke-static/range {v0 .. v9}, Landroid/view/ViewGroup;->access$500(Landroid/graphics/Canvas;IIIIIIIILandroid/graphics/Paint;)V
 
     .line 6459
     return-void
 
     .line 6447
-    .end local v10           #oi:Landroid/graphics/Insets;
+    .end local v10    # "oi":Landroid/graphics/Insets;
     :cond_0
     sget-object v10, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
 
@@ -908,7 +908,7 @@
 
 .method public resolveLayoutDirection(I)V
     .locals 2
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 6389
@@ -943,7 +943,7 @@
 
 .method public setLayoutDirection(I)V
     .locals 2
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 6360
@@ -1019,7 +1019,7 @@
 
 .method public setMarginEnd(I)V
     .locals 1
-    .parameter "end"
+    .param p1, "end"    # I
 
     .prologue
     .line 6316
@@ -1040,7 +1040,7 @@
 
 .method public setMarginStart(I)V
     .locals 1
-    .parameter "start"
+    .param p1, "start"    # I
 
     .prologue
     .line 6283
@@ -1061,10 +1061,10 @@
 
 .method public setMargins(IIII)V
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 6236
@@ -1132,10 +1132,10 @@
 
 .method public setMarginsRelative(IIII)V
     .locals 1
-    .parameter "start"
-    .parameter "top"
-    .parameter "end"
-    .parameter "bottom"
+    .param p1, "start"    # I
+    .param p2, "top"    # I
+    .param p3, "end"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 6268

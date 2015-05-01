@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 60
@@ -61,7 +61,7 @@
 
 .method public onKeyguardExitResult(Z)V
     .locals 5
-    .parameter "success"
+    .param p1, "success"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 75
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.policy.IKeyguardExitCallback"
 

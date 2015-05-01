@@ -49,7 +49,7 @@
 
     .prologue
     .line 76
-    .local p0, this:Landroid/net/LinkProperties$CompareResult;,"Landroid/net/LinkProperties$CompareResult<TT;>;"
+    .local p0, "this":Landroid/net/LinkProperties$CompareResult;, "Landroid/net/LinkProperties$CompareResult<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 77
@@ -76,18 +76,18 @@
 
     .prologue
     .line 82
-    .local p0, this:Landroid/net/LinkProperties$CompareResult;,"Landroid/net/LinkProperties$CompareResult<TT;>;"
+    .local p0, "this":Landroid/net/LinkProperties$CompareResult;, "Landroid/net/LinkProperties$CompareResult<TT;>;"
     const-string/jumbo v2, "removed=["
 
     .line 83
-    .local v2, retVal:Ljava/lang/String;
+    .local v2, "retVal":Ljava/lang/String;
     iget-object v3, p0, Landroid/net/LinkProperties$CompareResult;->removed:Ljava/util/Collection;
 
     invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    .local v0, addr:Ljava/lang/Object;,"TT;"
+    .local v0, "addr":Ljava/lang/Object;, "TT;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -129,7 +129,7 @@
     goto :goto_0
 
     .line 84
-    .end local v0           #addr:Ljava/lang/Object;,"TT;"
+    .end local v0    # "addr":Ljava/lang/Object;, "TT;"
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    .restart local v0       #addr:Ljava/lang/Object;,"TT;"
+    .restart local v0    # "addr":Ljava/lang/Object;, "TT;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -197,7 +197,7 @@
     goto :goto_1
 
     .line 86
-    .end local v0           #addr:Ljava/lang/Object;,"TT;"
+    .end local v0    # "addr":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 

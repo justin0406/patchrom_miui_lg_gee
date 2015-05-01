@@ -3,8 +3,8 @@
 .source "ContactsContract.java"
 
 # interfaces
-.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 .implements Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;
+.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 
 
 # annotations
@@ -19,9 +19,9 @@
 
 
 # static fields
-.field public static final CONTENT_FILTER_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final VISIBLE_CONTACTS_ONLY:Ljava/lang/String; = "visible_contacts_only"
 
@@ -31,7 +31,7 @@
     .locals 2
 
     .prologue
-    .line 6933
+    .line 6935
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "contactables"
@@ -42,7 +42,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Contactables;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 6940
+    .line 6942
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Contactables;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -60,7 +60,7 @@
     .locals 0
 
     .prologue
-    .line 6928
+    .line 6930
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -31,8 +31,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;)V
     .locals 3
-    .parameter "service"
-    .parameter "displayContent"
+    .param p1, "service"    # Lcom/android/server/wm/WindowManagerService;
+    .param p2, "displayContent"    # Lcom/android/server/wm/DisplayContent;
 
     .prologue
     .line 39
@@ -55,12 +55,12 @@
     move-result-object v0
 
     .line 44
-    .local v0, info:Landroid/view/DisplayInfo;
+    .local v0, "info":Landroid/view/DisplayInfo;
     iget v1, v0, Landroid/view/DisplayInfo;->logicalDensityDpi:I
 
     int-to-float v1, v1
 
-    const/high16 v2, 0x3e00
+    const/high16 v2, 0x3e000000    # 0.125f
 
     mul-float/2addr v1, v2
 
@@ -76,7 +76,7 @@
 # virtual methods
 .method public onPointerEvent(Landroid/view/MotionEvent;)V
     .locals 11
-    .parameter "motionEvent"
+    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
     .prologue
     const-wide/16 v9, 0x12c
@@ -89,7 +89,7 @@
     move-result v0
 
     .line 50
-    .local v0, action:I
+    .local v0, "action":I
     and-int/lit16 v4, v0, 0xff
 
     packed-switch v4, :pswitch_data_0
@@ -140,7 +140,7 @@
     move-result v1
 
     .line 59
-    .local v1, index:I
+    .local v1, "index":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v4
@@ -194,7 +194,7 @@
     goto :goto_0
 
     .line 68
-    .end local v1           #index:I
+    .end local v1    # "index":I
     :pswitch_3
     const v4, 0xff00
 
@@ -203,7 +203,7 @@
     shr-int/lit8 v1, v4, 0x8
 
     .line 71
-    .restart local v1       #index:I
+    .restart local v1    # "index":I
     iget v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
@@ -220,7 +220,7 @@
     float-to-int v2, v4
 
     .line 73
-    .local v2, x:I
+    .local v2, "x":I
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v4
@@ -228,7 +228,7 @@
     float-to-int v3, v4
 
     .line 74
-    .local v3, y:I
+    .local v3, "y":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v4

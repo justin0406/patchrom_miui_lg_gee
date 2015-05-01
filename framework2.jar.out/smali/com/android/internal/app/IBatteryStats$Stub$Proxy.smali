@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 577
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 1377
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1380
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.app.IBatteryStats"
 
@@ -96,7 +96,7 @@
     move-result-wide v2
 
     .line 1386
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1387
@@ -106,7 +106,7 @@
     return-wide v2
 
     .line 1386
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -133,13 +133,13 @@
     move-result-object v0
 
     .line 1394
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1397
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.app.IBatteryStats"
 
@@ -165,7 +165,7 @@
     move-result-wide v2
 
     .line 1403
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1404
@@ -175,7 +175,7 @@
     return-wide v2
 
     .line 1403
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -212,13 +212,13 @@
     move-result-object v0
 
     .line 591
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 594
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IBatteryStats"
 
@@ -244,7 +244,7 @@
     move-result-object v2
 
     .line 600
-    .local v2, _result:[B
+    .local v2, "_result":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 601
@@ -254,7 +254,7 @@
     return-object v2
 
     .line 600
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -281,13 +281,13 @@
     move-result-object v0
 
     .line 1054
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1056
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -343,13 +343,13 @@
     move-result-object v0
 
     .line 1040
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1042
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -392,7 +392,7 @@
 
 .method public noteFullWifiLockAcquired(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -406,13 +406,13 @@
     move-result-object v0
 
     .line 1068
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1070
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -458,7 +458,7 @@
 
 .method public noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -472,13 +472,13 @@
     move-result-object v0
 
     .line 1158
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1160
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -546,7 +546,7 @@
 
 .method public noteFullWifiLockReleased(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -560,13 +560,13 @@
     move-result-object v0
 
     .line 1083
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1085
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -612,7 +612,7 @@
 
 .method public noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -626,13 +626,13 @@
     move-result-object v0
 
     .line 1179
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1181
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -713,13 +713,13 @@
     move-result-object v0
 
     .line 832
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 834
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -762,8 +762,8 @@
 
 .method public noteNetworkInterfaceType(Ljava/lang/String;I)V
     .locals 5
-    .parameter "iface"
-    .parameter "type"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -777,13 +777,13 @@
     move-result-object v0
 
     .line 1327
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1329
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -845,13 +845,13 @@
     move-result-object v0
 
     .line 1343
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1345
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -894,8 +894,8 @@
 
 .method public notePhoneDataConnectionState(IZ)V
     .locals 5
-    .parameter "dataType"
-    .parameter "hasData"
+    .param p1, "dataType"    # I
+    .param p2, "hasData"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -911,13 +911,13 @@
     move-result-object v0
 
     .line 911
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 913
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IBatteryStats"
 
@@ -984,13 +984,13 @@
     move-result-object v0
 
     .line 876
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 878
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1046,13 +1046,13 @@
     move-result-object v0
 
     .line 862
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 864
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1095,7 +1095,7 @@
 
 .method public notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
     .locals 5
-    .parameter "signalStrength"
+    .param p1, "signalStrength"    # Landroid/telephony/SignalStrength;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1109,13 +1109,13 @@
     move-result-object v0
 
     .line 890
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 892
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1183,7 +1183,7 @@
 
 .method public notePhoneState(I)V
     .locals 5
-    .parameter "phoneState"
+    .param p1, "phoneState"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1197,13 +1197,13 @@
     move-result-object v0
 
     .line 927
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 929
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1249,7 +1249,7 @@
 
 .method public noteScreenBrightness(I)V
     .locals 5
-    .parameter "brightness"
+    .param p1, "brightness"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1263,13 +1263,13 @@
     move-result-object v0
 
     .line 803
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 805
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1328,13 +1328,13 @@
     move-result-object v0
 
     .line 818
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 820
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1390,13 +1390,13 @@
     move-result-object v0
 
     .line 789
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 791
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1439,7 +1439,7 @@
 
 .method public noteStartGps(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1453,13 +1453,13 @@
     move-result-object v0
 
     .line 759
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 761
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1505,8 +1505,8 @@
 
 .method public noteStartSensor(II)V
     .locals 5
-    .parameter "uid"
-    .parameter "sensor"
+    .param p1, "uid"    # I
+    .param p2, "sensor"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1520,13 +1520,13 @@
     move-result-object v0
 
     .line 646
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 648
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1575,10 +1575,10 @@
 
 .method public noteStartWakelock(IILjava/lang/String;I)V
     .locals 5
-    .parameter "uid"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1592,13 +1592,13 @@
     move-result-object v0
 
     .line 608
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 610
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1653,10 +1653,10 @@
 
 .method public noteStartWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
     .locals 5
-    .parameter "ws"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1670,13 +1670,13 @@
     move-result-object v0
 
     .line 680
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 682
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1753,7 +1753,7 @@
 
 .method public noteStopGps(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1767,13 +1767,13 @@
     move-result-object v0
 
     .line 774
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 776
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1819,8 +1819,8 @@
 
 .method public noteStopSensor(II)V
     .locals 5
-    .parameter "uid"
-    .parameter "sensor"
+    .param p1, "uid"    # I
+    .param p2, "sensor"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1834,13 +1834,13 @@
     move-result-object v0
 
     .line 664
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 666
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1889,10 +1889,10 @@
 
 .method public noteStopWakelock(IILjava/lang/String;I)V
     .locals 5
-    .parameter "uid"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1906,13 +1906,13 @@
     move-result-object v0
 
     .line 626
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 628
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -1967,10 +1967,10 @@
 
 .method public noteStopWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
     .locals 5
-    .parameter "ws"
-    .parameter "pid"
-    .parameter "name"
-    .parameter "type"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "pid"    # I
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1984,13 +1984,13 @@
     move-result-object v0
 
     .line 704
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 706
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2067,8 +2067,8 @@
 
 .method public noteUserActivity(II)V
     .locals 5
-    .parameter "uid"
-    .parameter "event"
+    .param p1, "uid"    # I
+    .param p2, "event"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2082,13 +2082,13 @@
     move-result-object v0
 
     .line 846
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 848
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2137,7 +2137,7 @@
 
 .method public noteVibratorOff(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2151,13 +2151,13 @@
     move-result-object v0
 
     .line 744
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 746
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2203,8 +2203,8 @@
 
 .method public noteVibratorOn(IJ)V
     .locals 5
-    .parameter "uid"
-    .parameter "durationMillis"
+    .param p1, "uid"    # I
+    .param p2, "durationMillis"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2218,13 +2218,13 @@
     move-result-object v0
 
     .line 728
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 730
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2273,8 +2273,8 @@
 
 .method public noteWifiBatchedScanStartedFromSource(Landroid/os/WorkSource;I)V
     .locals 5
-    .parameter "ws"
-    .parameter "csph"
+    .param p1, "ws"    # Landroid/os/WorkSource;
+    .param p2, "csph"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2288,13 +2288,13 @@
     move-result-object v0
 
     .line 1242
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1244
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2365,7 +2365,7 @@
 
 .method public noteWifiBatchedScanStoppedFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2379,13 +2379,13 @@
     move-result-object v0
 
     .line 1264
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1266
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2453,7 +2453,7 @@
 
 .method public noteWifiMulticastDisabled(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2467,13 +2467,13 @@
     move-result-object v0
 
     .line 1143
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1145
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2519,7 +2519,7 @@
 
 .method public noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2533,13 +2533,13 @@
     move-result-object v0
 
     .line 1306
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1308
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2607,7 +2607,7 @@
 
 .method public noteWifiMulticastEnabled(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2621,13 +2621,13 @@
     move-result-object v0
 
     .line 1128
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1130
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2673,7 +2673,7 @@
 
 .method public noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2687,13 +2687,13 @@
     move-result-object v0
 
     .line 1285
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1287
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2774,13 +2774,13 @@
     move-result-object v0
 
     .line 956
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 958
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2836,13 +2836,13 @@
     move-result-object v0
 
     .line 942
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 944
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2885,7 +2885,7 @@
 
 .method public noteWifiRunning(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2899,13 +2899,13 @@
     move-result-object v0
 
     .line 970
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 972
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -2973,8 +2973,8 @@
 
 .method public noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "oldWs"
-    .parameter "newWs"
+    .param p1, "oldWs"    # Landroid/os/WorkSource;
+    .param p2, "newWs"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2988,13 +2988,13 @@
     move-result-object v0
 
     .line 991
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 993
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3087,7 +3087,7 @@
 
 .method public noteWifiScanStarted(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3101,13 +3101,13 @@
     move-result-object v0
 
     .line 1098
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1100
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3153,7 +3153,7 @@
 
 .method public noteWifiScanStartedFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3167,13 +3167,13 @@
     move-result-object v0
 
     .line 1200
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1202
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3241,7 +3241,7 @@
 
 .method public noteWifiScanStopped(I)V
     .locals 5
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3255,13 +3255,13 @@
     move-result-object v0
 
     .line 1113
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1115
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3307,7 +3307,7 @@
 
 .method public noteWifiScanStoppedFromSource(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3321,13 +3321,13 @@
     move-result-object v0
 
     .line 1221
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1223
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3395,7 +3395,7 @@
 
 .method public noteWifiStopped(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3409,13 +3409,13 @@
     move-result-object v0
 
     .line 1019
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1021
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
@@ -3483,12 +3483,12 @@
 
 .method public setBatteryState(IIIIII)V
     .locals 5
-    .parameter "status"
-    .parameter "health"
-    .parameter "plugType"
-    .parameter "level"
-    .parameter "temp"
-    .parameter "volt"
+    .param p1, "status"    # I
+    .param p2, "health"    # I
+    .param p3, "plugType"    # I
+    .param p4, "level"    # I
+    .param p5, "temp"    # I
+    .param p6, "volt"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3502,13 +3502,13 @@
     move-result-object v0
 
     .line 1357
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1359
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 

@@ -129,7 +129,7 @@
     move-result v0
 
     .line 167
-    .local v0, buffSizeInBytes:I
+    .local v0, "buffSizeInBytes":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_1
@@ -164,7 +164,7 @@
 
 .method static synthetic access$000(Landroid/media/JetPlayer;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/JetPlayer;
 
     .prologue
     .line 63
@@ -175,7 +175,7 @@
 
 .method static synthetic access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/JetPlayer;
 
     .prologue
     .line 63
@@ -186,7 +186,7 @@
 
 .method static synthetic access$200(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -230,7 +230,7 @@
 
 .method private static logd(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 581
@@ -262,7 +262,7 @@
 
 .method private static loge(Ljava/lang/String;)V
     .locals 3
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 585
@@ -339,16 +339,16 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;III)V
     .locals 4
-    .parameter "jetplayer_ref"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p0, "jetplayer_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 564
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    .end local p0
+    .end local p0    # "jetplayer_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -356,7 +356,7 @@
     check-cast v0, Landroid/media/JetPlayer;
 
     .line 566
-    .local v0, jet:Landroid/media/JetPlayer;
+    .local v0, "jet":Landroid/media/JetPlayer;
     if-eqz v0, :cond_0
 
     iget-object v2, v0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
@@ -373,13 +373,13 @@
     move-result-object v1
 
     .line 569
-    .local v1, m:Landroid/os/Message;
+    .local v1, "m":Landroid/os/Message;
     iget-object v2, v0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
 
     invoke-virtual {v2, v1}, Landroid/media/JetPlayer$NativeEventHandler;->sendMessage(Landroid/os/Message;)Z
 
     .line 572
-    .end local v1           #m:Landroid/os/Message;
+    .end local v1    # "m":Landroid/os/Message;
     :cond_0
     return-void
 .end method
@@ -440,7 +440,7 @@
 
 .method public loadJetFile(Landroid/content/res/AssetFileDescriptor;)Z
     .locals 6
-    .parameter "afd"
+    .param p1, "afd"    # Landroid/content/res/AssetFileDescriptor;
 
     .prologue
     .line 225
@@ -449,7 +449,7 @@
     move-result-wide v4
 
     .line 226
-    .local v4, len:J
+    .local v4, "len":J
     const-wide/16 v0, 0x0
 
     cmp-long v0, v4, v0
@@ -486,7 +486,7 @@
 
 .method public loadJetFile(Ljava/lang/String;)Z
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 215
@@ -523,12 +523,12 @@
 
 .method public queueJetSegment(IIIIIB)Z
     .locals 1
-    .parameter "segmentNum"
-    .parameter "libNum"
-    .parameter "repeatCount"
-    .parameter "transpose"
-    .parameter "muteFlags"
-    .parameter "userID"
+    .param p1, "segmentNum"    # I
+    .param p2, "libNum"    # I
+    .param p3, "repeatCount"    # I
+    .param p4, "transpose"    # I
+    .param p5, "muteFlags"    # I
+    .param p6, "userID"    # B
 
     .prologue
     .line 283
@@ -541,12 +541,12 @@
 
 .method public queueJetSegmentMuteArray(IIII[ZB)Z
     .locals 2
-    .parameter "segmentNum"
-    .parameter "libNum"
-    .parameter "repeatCount"
-    .parameter "transpose"
-    .parameter "muteArray"
-    .parameter "userID"
+    .param p1, "segmentNum"    # I
+    .param p2, "libNum"    # I
+    .param p3, "repeatCount"    # I
+    .param p4, "transpose"    # I
+    .param p5, "muteArray"    # [Z
+    .param p6, "userID"    # B
 
     .prologue
     .line 312
@@ -591,7 +591,7 @@
 
 .method public setEventListener(Landroid/media/JetPlayer$OnJetEventListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/JetPlayer$OnJetEventListener;
 
     .prologue
     .line 461
@@ -605,8 +605,8 @@
 
 .method public setEventListener(Landroid/media/JetPlayer$OnJetEventListener;Landroid/os/Handler;)V
     .locals 3
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/media/JetPlayer$OnJetEventListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 473
@@ -678,8 +678,8 @@
 
 .method public setMuteArray([ZZ)Z
     .locals 2
-    .parameter "muteArray"
-    .parameter "sync"
+    .param p1, "muteArray"    # [Z
+    .param p2, "sync"    # Z
 
     .prologue
     .line 347
@@ -708,9 +708,9 @@
 
 .method public setMuteFlag(IZZ)Z
     .locals 1
-    .parameter "trackId"
-    .parameter "muteFlag"
-    .parameter "sync"
+    .param p1, "trackId"    # I
+    .param p2, "muteFlag"    # Z
+    .param p3, "sync"    # Z
 
     .prologue
     .line 364
@@ -723,8 +723,8 @@
 
 .method public setMuteFlags(IZ)Z
     .locals 1
-    .parameter "muteFlags"
-    .parameter "sync"
+    .param p1, "muteFlags"    # I
+    .param p2, "sync"    # Z
 
     .prologue
     .line 331
@@ -737,7 +737,7 @@
 
 .method public triggerClip(I)Z
     .locals 1
-    .parameter "clipId"
+    .param p1, "clipId"    # I
 
     .prologue
     .line 380

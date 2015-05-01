@@ -14,9 +14,9 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/view/Display;Landroid/os/IBinder;)V
     .locals 0
-    .parameter "global"
-    .parameter "display"
-    .parameter "token"
+    .param p1, "global"    # Landroid/hardware/display/DisplayManagerGlobal;
+    .param p2, "display"    # Landroid/view/Display;
+    .param p3, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 37

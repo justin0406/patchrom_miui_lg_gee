@@ -146,11 +146,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/wm/DisplayContent;Landroid/view/SurfaceSession;ZZ)V
     .locals 15
-    .parameter "context"
-    .parameter "displayContent"
-    .parameter "session"
-    .parameter "inTransaction"
-    .parameter "forceDefaultOrientation"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "displayContent"    # Lcom/android/server/wm/DisplayContent;
+    .param p3, "session"    # Landroid/view/SurfaceSession;
+    .param p4, "inTransaction"    # Z
+    .param p5, "forceDefaultOrientation"    # Z
 
     .prologue
     .line 202
@@ -340,19 +340,19 @@
     move-result-object v8
 
     .line 209
-    .local v8, display:Landroid/view/Display;
+    .local v8, "display":Landroid/view/Display;
     invoke-virtual {v8}, Landroid/view/Display;->getRotation()I
 
     move-result v12
 
     .line 212
-    .local v12, originalRotation:I
+    .local v12, "originalRotation":I
     invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/DisplayContent;->getDisplayInfo()Landroid/view/DisplayInfo;
 
     move-result-object v9
 
     .line 213
-    .local v9, displayInfo:Landroid/view/DisplayInfo;
+    .local v9, "displayInfo":Landroid/view/DisplayInfo;
     if-eqz p5, :cond_3
 
     .line 215
@@ -366,13 +366,13 @@
     iget v13, v0, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
     .line 217
-    .local v13, originalWidth:I
+    .local v13, "originalWidth":I
     move-object/from16 v0, p2
 
     iget v11, v0, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
     .line 223
-    .local v11, originalHeight:I
+    .local v11, "originalHeight":I
     :goto_0
     const/4 v1, 0x1
 
@@ -432,7 +432,7 @@
     invoke-direct {v14}, Landroid/view/Surface;-><init>()V
 
     .line 257
-    .local v14, sur:Landroid/view/Surface;
+    .local v14, "sur":Landroid/view/Surface;
     iget-object v1, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     invoke-virtual {v14, v1}, Landroid/view/Surface;->copyFrom(Landroid/view/SurfaceControl;)V
@@ -477,11 +477,11 @@
     .line 265
     invoke-virtual {v14}, Landroid/view/Surface;->destroy()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 274
-    .end local v14           #sur:Landroid/view/Surface;
+    .end local v14    # "sur":Landroid/view/Surface;
     :goto_2
     :try_start_1
     invoke-direct {p0, v12}, Lcom/android/server/wm/ScreenRotationAnimation;->setRotationInTransaction(I)V
@@ -499,16 +499,16 @@
     return-void
 
     .line 220
-    .end local v11           #originalHeight:I
-    .end local v13           #originalWidth:I
+    .end local v11    # "originalHeight":I
+    .end local v13    # "originalWidth":I
     :cond_3
     iget v13, v9, Landroid/view/DisplayInfo;->logicalWidth:I
 
     .line 221
-    .restart local v13       #originalWidth:I
+    .restart local v13    # "originalWidth":I
     iget v11, v9, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    .restart local v11       #originalHeight:I
+    .restart local v11    # "originalHeight":I
     goto :goto_0
 
     .line 228
@@ -525,7 +525,7 @@
     move-exception v10
 
     .line 267
-    .local v10, e:Landroid/view/Surface$OutOfResourcesException;
+    .local v10, "e":Landroid/view/Surface$OutOfResourcesException;
     :try_start_2
     const-string v1, "ScreenRotationAnimation"
 
@@ -538,7 +538,7 @@
     goto :goto_2
 
     .line 276
-    .end local v10           #e:Landroid/view/Surface$OutOfResourcesException;
+    .end local v10    # "e":Landroid/view/Surface$OutOfResourcesException;
     :catchall_0
     move-exception v1
 
@@ -553,10 +553,10 @@
 
 .method public static createRotationMatrix(IIILandroid/graphics/Matrix;)V
     .locals 2
-    .parameter "rotation"
-    .parameter "width"
-    .parameter "height"
-    .parameter "outMatrix"
+    .param p0, "rotation"    # I
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "outMatrix"    # Landroid/graphics/Matrix;
 
     .prologue
     const/4 v1, 0x0
@@ -576,7 +576,7 @@
 
     .line 328
     :pswitch_1
-    const/high16 v0, 0x42b4
+    const/high16 v0, 0x42b40000    # 90.0f
 
     invoke-virtual {p3, v0, v1, v1}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
@@ -589,7 +589,7 @@
 
     .line 332
     :pswitch_2
-    const/high16 v0, 0x4334
+    const/high16 v0, 0x43340000    # 180.0f
 
     invoke-virtual {p3, v0, v1, v1}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
@@ -604,7 +604,7 @@
 
     .line 336
     :pswitch_3
-    const/high16 v0, 0x4387
+    const/high16 v0, 0x43870000    # 270.0f
 
     invoke-virtual {p3, v0, v1, v1}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
@@ -627,15 +627,15 @@
 
 .method static deltaRotation(II)I
     .locals 1
-    .parameter "oldRotation"
-    .parameter "newRotation"
+    .param p0, "oldRotation"    # I
+    .param p1, "newRotation"    # I
 
     .prologue
     .line 289
     sub-int v0, p1, p0
 
     .line 290
-    .local v0, delta:I
+    .local v0, "delta":I
     if-gez v0, :cond_0
 
     add-int/lit8 v0, v0, 0x4
@@ -672,7 +672,7 @@
 
 .method private setRotationInTransaction(I)V
     .locals 4
-    .parameter "rotation"
+    .param p1, "rotation"    # I
 
     .prologue
     .line 344
@@ -686,7 +686,7 @@
     move-result v0
 
     .line 350
-    .local v0, delta:I
+    .local v0, "delta":I
     iget v1, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mWidth:I
 
     iget v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mHeight:I
@@ -698,7 +698,7 @@
     .line 353
     iget-object v1, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mSnapshotInitialMatrix:Landroid/graphics/Matrix;
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-direct {p0, v1, v2}, Lcom/android/server/wm/ScreenRotationAnimation;->setSnapshotTransformInTransaction(Landroid/graphics/Matrix;F)V
 
@@ -708,8 +708,8 @@
 
 .method private setSnapshotTransformInTransaction(Landroid/graphics/Matrix;F)V
     .locals 8
-    .parameter "matrix"
-    .parameter "alpha"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
+    .param p2, "alpha"    # F
 
     .prologue
     .line 295
@@ -730,7 +730,7 @@
     aget v0, v2, v3
 
     .line 298
-    .local v0, x:F
+    .local v0, "x":F
     iget-object v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mTmpFloats:[F
 
     const/4 v3, 0x5
@@ -738,7 +738,7 @@
     aget v1, v2, v3
 
     .line 299
-    .local v1, y:F
+    .local v1, "y":F
     iget-boolean v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mForceDefaultOrientation:Z
 
     if-eqz v2, :cond_0
@@ -809,22 +809,22 @@
     invoke-virtual {v2, p2}, Landroid/view/SurfaceControl;->setAlpha(F)V
 
     .line 319
-    .end local v0           #x:F
-    .end local v1           #y:F
+    .end local v0    # "x":F
+    .end local v1    # "y":F
     :cond_1
     return-void
 .end method
 
 .method private startAnimation(Landroid/view/SurfaceSession;JFIIZII)Z
     .locals 13
-    .parameter "session"
-    .parameter "maxAnimationDuration"
-    .parameter "animationScale"
-    .parameter "finalWidth"
-    .parameter "finalHeight"
-    .parameter "dismissing"
-    .parameter "exitAnim"
-    .parameter "enterAnim"
+    .param p1, "session"    # Landroid/view/SurfaceSession;
+    .param p2, "maxAnimationDuration"    # J
+    .param p4, "animationScale"    # F
+    .param p5, "finalWidth"    # I
+    .param p6, "finalHeight"    # I
+    .param p7, "dismissing"    # Z
+    .param p8, "exitAnim"    # I
+    .param p9, "enterAnim"    # I
 
     .prologue
     .line 375
@@ -860,7 +860,7 @@
     const/4 v12, 0x0
 
     .line 388
-    .local v12, firstStart:Z
+    .local v12, "firstStart":Z
     iget v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mCurRotation:I
 
     iget v3, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mOriginalRotation:I
@@ -870,7 +870,7 @@
     move-result v10
 
     .line 417
-    .local v10, delta:I
+    .local v10, "delta":I
     if-eqz p8, :cond_4
 
     if-eqz p9, :cond_4
@@ -879,7 +879,7 @@
     const/4 v9, 0x1
 
     .line 419
-    .local v9, customAnim:Z
+    .local v9, "customAnim":Z
     iget-object v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mContext:Landroid/content/Context;
 
     move/from16 v0, p8
@@ -983,7 +983,7 @@
     move-result v7
 
     .line 561
-    .local v7, layerStack:I
+    .local v7, "layerStack":I
     if-nez v9, :cond_2
 
     iget-object v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mExitingBlackFrame:Lcom/android/server/wm/BlackFrame;
@@ -1012,11 +1012,11 @@
     iget-object v4, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mCurrentDisplayRect:Landroid/graphics/Rect;
 
     .line 582
-    .local v4, outer:Landroid/graphics/Rect;
+    .local v4, "outer":Landroid/graphics/Rect;
     iget-object v5, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mOriginalDisplayRect:Landroid/graphics/Rect;
 
     .line 588
-    .local v5, inner:Landroid/graphics/Rect;
+    .local v5, "inner":Landroid/graphics/Rect;
     :goto_2
     new-instance v2, Lcom/android/server/wm/BlackFrame;
 
@@ -1037,15 +1037,15 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/wm/BlackFrame;->setMatrix(Landroid/graphics/Matrix;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 594
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
     .line 601
-    .end local v4           #outer:Landroid/graphics/Rect;
-    .end local v5           #inner:Landroid/graphics/Rect;
+    .end local v4    # "outer":Landroid/graphics/Rect;
+    .end local v5    # "inner":Landroid/graphics/Rect;
     :cond_2
     :goto_3
     if-eqz v9, :cond_3
@@ -1080,7 +1080,7 @@
     invoke-direct {v4, v2, v3, v6, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 610
-    .restart local v4       #outer:Landroid/graphics/Rect;
+    .restart local v4    # "outer":Landroid/graphics/Rect;
     new-instance v5, Landroid/graphics/Rect;
 
     const/4 v2, 0x0
@@ -1094,7 +1094,7 @@
     invoke-direct {v5, v2, v3, v0, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 611
-    .restart local v5       #inner:Landroid/graphics/Rect;
+    .restart local v5    # "inner":Landroid/graphics/Rect;
     new-instance v2, Lcom/android/server/wm/BlackFrame;
 
     const v6, 0x1e8480
@@ -1107,15 +1107,15 @@
 
     iput-object v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mEnteringBlackFrame:Lcom/android/server/wm/BlackFrame;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 616
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
     .line 623
-    .end local v4           #outer:Landroid/graphics/Rect;
-    .end local v5           #inner:Landroid/graphics/Rect;
+    .end local v4    # "outer":Landroid/graphics/Rect;
+    .end local v5    # "inner":Landroid/graphics/Rect;
     :cond_3
     :goto_4
     const/4 v2, 0x1
@@ -1123,13 +1123,13 @@
     goto/16 :goto_0
 
     .line 422
-    .end local v7           #layerStack:I
-    .end local v9           #customAnim:Z
+    .end local v7    # "layerStack":I
+    .end local v9    # "customAnim":Z
     :cond_4
     const/4 v9, 0x0
 
     .line 423
-    .restart local v9       #customAnim:Z
+    .restart local v9    # "customAnim":Z
     packed-switch v10, :pswitch_data_0
 
     goto/16 :goto_1
@@ -1235,7 +1235,7 @@
     goto/16 :goto_1
 
     .line 584
-    .restart local v7       #layerStack:I
+    .restart local v7    # "layerStack":I
     :cond_5
     :try_start_2
     new-instance v4, Landroid/graphics/Rect;
@@ -1263,7 +1263,7 @@
     invoke-direct {v4, v2, v3, v6, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 586
-    .restart local v4       #outer:Landroid/graphics/Rect;
+    .restart local v4    # "outer":Landroid/graphics/Rect;
     new-instance v5, Landroid/graphics/Rect;
 
     const/4 v2, 0x0
@@ -1276,20 +1276,20 @@
 
     invoke-direct {v5, v2, v3, v6, v8}, Landroid/graphics/Rect;-><init>(IIII)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .restart local v5       #inner:Landroid/graphics/Rect;
+    .restart local v5    # "inner":Landroid/graphics/Rect;
     goto/16 :goto_2
 
     .line 591
-    .end local v4           #outer:Landroid/graphics/Rect;
-    .end local v5           #inner:Landroid/graphics/Rect;
+    .end local v4    # "outer":Landroid/graphics/Rect;
+    .end local v5    # "inner":Landroid/graphics/Rect;
     :catch_0
     move-exception v11
 
     .line 592
-    .local v11, e:Landroid/view/Surface$OutOfResourcesException;
+    .local v11, "e":Landroid/view/Surface$OutOfResourcesException;
     :try_start_3
     const-string v2, "ScreenRotationAnimation"
 
@@ -1304,7 +1304,7 @@
 
     goto/16 :goto_3
 
-    .end local v11           #e:Landroid/view/Surface$OutOfResourcesException;
+    .end local v11    # "e":Landroid/view/Surface$OutOfResourcesException;
     :catchall_0
     move-exception v2
 
@@ -1317,7 +1317,7 @@
     move-exception v11
 
     .line 614
-    .restart local v11       #e:Landroid/view/Surface$OutOfResourcesException;
+    .restart local v11    # "e":Landroid/view/Surface$OutOfResourcesException;
     :try_start_4
     const-string v2, "ScreenRotationAnimation"
 
@@ -1332,7 +1332,7 @@
 
     goto/16 :goto_4
 
-    .end local v11           #e:Landroid/view/Surface$OutOfResourcesException;
+    .end local v11    # "e":Landroid/view/Surface$OutOfResourcesException;
     :catchall_1
     move-exception v2
 
@@ -1354,7 +1354,7 @@
 
 .method private stepAnimation(J)Z
     .locals 6
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     const-wide/16 v0, 0x0
@@ -1401,7 +1401,7 @@
     sub-long v0, p1, v3
 
     .line 783
-    .local v0, finishNow:J
+    .local v0, "finishNow":J
     :cond_2
     iput-boolean v2, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mMoreRotateExit:Z
 
@@ -1521,7 +1521,7 @@
     const/4 v2, 0x1
 
     .line 901
-    .local v2, more:Z
+    .local v2, "more":Z
     :cond_8
     iget-object v3, p0, Lcom/android/server/wm/ScreenRotationAnimation;->mSnapshotFinalMatrix:Landroid/graphics/Matrix;
 
@@ -1543,13 +1543,13 @@
 # virtual methods
 .method public dismiss(Landroid/view/SurfaceSession;JFIIII)Z
     .locals 10
-    .parameter "session"
-    .parameter "maxAnimationDuration"
-    .parameter "animationScale"
-    .parameter "finalWidth"
-    .parameter "finalHeight"
-    .parameter "exitAnim"
-    .parameter "enterAnim"
+    .param p1, "session"    # Landroid/view/SurfaceSession;
+    .param p2, "maxAnimationDuration"    # J
+    .param p4, "animationScale"    # F
+    .param p5, "finalWidth"    # I
+    .param p6, "finalHeight"    # I
+    .param p7, "exitAnim"    # I
+    .param p8, "enterAnim"    # I
 
     .prologue
     .line 632
@@ -1784,8 +1784,8 @@
 
 .method public printTo(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 3
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 135
@@ -2318,12 +2318,12 @@
 
 .method public setRotationInTransaction(ILandroid/view/SurfaceSession;JFII)Z
     .locals 1
-    .parameter "rotation"
-    .parameter "session"
-    .parameter "maxAnimationDuration"
-    .parameter "animationScale"
-    .parameter "finalWidth"
-    .parameter "finalHeight"
+    .param p1, "rotation"    # I
+    .param p2, "session"    # Landroid/view/SurfaceSession;
+    .param p3, "maxAnimationDuration"    # J
+    .param p5, "animationScale"    # F
+    .param p6, "finalWidth"    # I
+    .param p7, "finalHeight"    # I
 
     .prologue
     .line 359
@@ -2337,7 +2337,7 @@
 
 .method public stepAnimationLocked(J)Z
     .locals 4
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     const/4 v0, 0x0

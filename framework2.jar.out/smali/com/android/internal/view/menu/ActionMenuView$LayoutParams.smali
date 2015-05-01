@@ -51,8 +51,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 611
@@ -69,9 +69,9 @@
 
 .method public constructor <init>(IIZ)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOverflowButton"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOverflowButton"    # Z
 
     .prologue
     .line 616
@@ -86,8 +86,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 598
@@ -99,7 +99,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 602
@@ -111,7 +111,7 @@
 
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;
 
     .prologue
     .line 606

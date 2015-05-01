@@ -45,7 +45,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 602

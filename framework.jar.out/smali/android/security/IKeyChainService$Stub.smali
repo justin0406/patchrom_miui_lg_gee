@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/security/IKeyChainService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/security/IKeyChainService;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Landroid/security/IKeyChainService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/security/IKeyChainService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,13 +162,13 @@
     move-result-object v0
 
     .line 56
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/security/IKeyChainService$Stub;->requestPrivateKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 57
-    .local v3, _result:Ljava/lang/String;
+    .local v3, "_result":Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 58
@@ -177,8 +177,8 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":Ljava/lang/String;
     :sswitch_2
     const-string v4, "android.security.IKeyChainService"
 
@@ -190,13 +190,13 @@
     move-result-object v0
 
     .line 66
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/security/IKeyChainService$Stub;->getCertificate(Ljava/lang/String;)[B
 
     move-result-object v3
 
     .line 67
-    .local v3, _result:[B
+    .local v3, "_result":[B
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 68
@@ -205,8 +205,8 @@
     goto :goto_0
 
     .line 73
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:[B
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":[B
     :sswitch_3
     const-string v4, "android.security.IKeyChainService"
 
@@ -218,7 +218,7 @@
     move-result-object v0
 
     .line 76
-    .local v0, _arg0:[B
+    .local v0, "_arg0":[B
     invoke-virtual {p0, v0}, Landroid/security/IKeyChainService$Stub;->installCaCertificate([B)V
 
     .line 77
@@ -227,7 +227,7 @@
     goto :goto_0
 
     .line 82
-    .end local v0           #_arg0:[B
+    .end local v0    # "_arg0":[B
     :sswitch_4
     const-string v6, "android.security.IKeyChainService"
 
@@ -239,13 +239,13 @@
     move-result-object v0
 
     .line 85
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/security/IKeyChainService$Stub;->deleteCaCertificate(Ljava/lang/String;)Z
 
     move-result v3
 
     .line 86
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 87
@@ -259,8 +259,8 @@
     goto :goto_0
 
     .line 92
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :sswitch_5
     const-string v6, "android.security.IKeyChainService"
 
@@ -272,7 +272,7 @@
     move-result v3
 
     .line 94
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 95
@@ -286,7 +286,7 @@
     goto :goto_0
 
     .line 100
-    .end local v3           #_result:Z
+    .end local v3    # "_result":Z
     :sswitch_6
     const-string v6, "android.security.IKeyChainService"
 
@@ -298,13 +298,13 @@
     move-result v0
 
     .line 104
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 106
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
@@ -314,7 +314,7 @@
     move v2, v5
 
     .line 107
-    .local v2, _arg2:Z
+    .local v2, "_arg2":Z
     :goto_1
     invoke-virtual {p0, v0, v1, v2}, Landroid/security/IKeyChainService$Stub;->setGrant(ILjava/lang/String;Z)V
 
@@ -323,7 +323,7 @@
 
     goto/16 :goto_0
 
-    .end local v2           #_arg2:Z
+    .end local v2    # "_arg2":Z
     :cond_2
     move v2, v4
 
@@ -331,8 +331,8 @@
     goto :goto_1
 
     .line 113
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_7
     const-string v6, "android.security.IKeyChainService"
 
@@ -344,19 +344,19 @@
     move-result v0
 
     .line 117
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 118
-    .restart local v1       #_arg1:Ljava/lang/String;
+    .restart local v1    # "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/security/IKeyChainService$Stub;->hasGrant(ILjava/lang/String;)Z
 
     move-result v3
 
     .line 119
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 120

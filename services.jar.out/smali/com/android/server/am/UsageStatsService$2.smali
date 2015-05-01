@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 683
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onPackageRemovedAllUsers(Ljava/lang/String;I)V
     .locals 2
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 686
@@ -51,7 +50,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$2;->this$0:Lcom/android/server/am/UsageStatsService;
 
-    #getter for: Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Landroid/util/ArrayMap;
+    # getter for: Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Landroid/util/ArrayMap;
     invoke-static {v0}, Lcom/android/server/am/UsageStatsService;->access$300(Lcom/android/server/am/UsageStatsService;)Landroid/util/ArrayMap;
 
     move-result-object v0

@@ -29,9 +29,9 @@
 # virtual methods
 .method public getAlignmentValue(Landroid/view/View;II)I
     .locals 1
-    .parameter "view"
-    .parameter "viewSize"
-    .parameter "mode"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "viewSize"    # I
+    .param p3, "mode"    # I
 
     .prologue
     .line 2619
@@ -42,8 +42,8 @@
 
 .method getGravityOffset(Landroid/view/View;I)I
     .locals 1
-    .parameter "view"
-    .parameter "cellDelta"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "cellDelta"    # I
 
     .prologue
     .line 2614

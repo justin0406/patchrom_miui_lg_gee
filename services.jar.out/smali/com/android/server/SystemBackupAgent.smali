@@ -6,17 +6,17 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "SystemBackupAgent"
 
-.field private static final WALLPAPER_IMAGE:Ljava/lang/String; = null
+.field private static final WALLPAPER_IMAGE:Ljava/lang/String;
 
-.field private static final WALLPAPER_IMAGE_DIR:Ljava/lang/String; = null
+.field private static final WALLPAPER_IMAGE_DIR:Ljava/lang/String;
 
 .field private static final WALLPAPER_IMAGE_FILENAME:Ljava/lang/String; = "wallpaper"
 
 .field private static final WALLPAPER_IMAGE_KEY:Ljava/lang/String; = "/data/data/com.android.settings/files/wallpaper"
 
-.field private static final WALLPAPER_INFO:Ljava/lang/String; = null
+.field private static final WALLPAPER_INFO:Ljava/lang/String;
 
-.field private static final WALLPAPER_INFO_DIR:Ljava/lang/String; = null
+.field private static final WALLPAPER_INFO_DIR:Ljava/lang/String;
 
 .field private static final WALLPAPER_INFO_FILENAME:Ljava/lang/String; = "wallpaper_info.xml"
 
@@ -77,7 +77,7 @@
 
 .method private fullWallpaperBackup(Landroid/app/backup/FullBackupDataOutput;)V
     .locals 6
-    .parameter "output"
+    .param p1, "output"    # Landroid/app/backup/FullBackupDataOutput;
 
     .prologue
     const/4 v2, 0x0
@@ -124,9 +124,9 @@
 # virtual methods
 .method public onBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 7
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -150,7 +150,7 @@
     check-cast v2, Lcom/android/server/WallpaperManagerService;
 
     .line 68
-    .local v2, wallpaper:Lcom/android/server/WallpaperManagerService;
+    .local v2, "wallpaper":Lcom/android/server/WallpaperManagerService;
     new-array v0, v6, [Ljava/lang/String;
 
     sget-object v3, Lcom/android/server/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
@@ -162,7 +162,7 @@
     aput-object v3, v0, v5
 
     .line 69
-    .local v0, files:[Ljava/lang/String;
+    .local v0, "files":[Ljava/lang/String;
     new-array v1, v6, [Ljava/lang/String;
 
     const-string v3, "/data/data/com.android.settings/files/wallpaper"
@@ -174,7 +174,7 @@
     aput-object v3, v1, v5
 
     .line 70
-    .local v1, keys:[Ljava/lang/String;
+    .local v1, "keys":[Ljava/lang/String;
     if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Lcom/android/server/WallpaperManagerService;->getName()Ljava/lang/String;
@@ -196,22 +196,22 @@
     .line 74
     new-array v0, v5, [Ljava/lang/String;
 
-    .end local v0           #files:[Ljava/lang/String;
+    .end local v0    # "files":[Ljava/lang/String;
     sget-object v3, Lcom/android/server/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
 
     aput-object v3, v0, v4
 
     .line 75
-    .restart local v0       #files:[Ljava/lang/String;
+    .restart local v0    # "files":[Ljava/lang/String;
     new-array v1, v5, [Ljava/lang/String;
 
-    .end local v1           #keys:[Ljava/lang/String;
+    .end local v1    # "keys":[Ljava/lang/String;
     const-string v3, "/data/system/wallpaper_info.xml"
 
     aput-object v3, v1, v4
 
     .line 77
-    .restart local v1       #keys:[Ljava/lang/String;
+    .restart local v1    # "keys":[Ljava/lang/String;
     :cond_0
     const-string v3, "wallpaper"
 
@@ -230,7 +230,7 @@
 
 .method public onFullBackup(Landroid/app/backup/FullBackupDataOutput;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Landroid/app/backup/FullBackupDataOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -247,9 +247,9 @@
 
 .method public onRestore(Landroid/app/backup/BackupDataInput;ILandroid/os/ParcelFileDescriptor;)V
     .locals 9
-    .parameter "data"
-    .parameter "appVersionCode"
-    .parameter "newState"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInput;
+    .param p2, "appVersionCode"    # I
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -327,13 +327,13 @@
     check-cast v1, Lcom/android/server/WallpaperManagerService;
 
     .line 114
-    .local v1, wallpaper:Lcom/android/server/WallpaperManagerService;
+    .local v1, "wallpaper":Lcom/android/server/WallpaperManagerService;
     invoke-virtual {v1}, Lcom/android/server/WallpaperManagerService;->settingsRestored()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
-    .end local v1           #wallpaper:Lcom/android/server/WallpaperManagerService;
+    .end local v1    # "wallpaper":Lcom/android/server/WallpaperManagerService;
     :goto_0
     return-void
 
@@ -342,7 +342,7 @@
     move-exception v0
 
     .line 118
-    .local v0, ex:Ljava/io/IOException;
+    .local v0, "ex":Ljava/io/IOException;
     const-string v2, "SystemBackupAgent"
 
     const-string v3, "restore failed"
@@ -372,13 +372,13 @@
 
 .method public onRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJ)V
     .locals 13
-    .parameter "data"
-    .parameter "size"
-    .parameter "type"
-    .parameter "domain"
-    .parameter "path"
-    .parameter "mode"
-    .parameter "mtime"
+    .param p1, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "size"    # J
+    .param p4, "type"    # I
+    .param p5, "domain"    # Ljava/lang/String;
+    .param p6, "path"    # Ljava/lang/String;
+    .param p7, "mode"    # J
+    .param p9, "mtime"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -427,11 +427,11 @@
     const/4 v11, 0x0
 
     .line 133
-    .local v11, restoredWallpaper:Z
+    .local v11, "restoredWallpaper":Z
     const/4 v9, 0x0
 
     .line 135
-    .local v9, outFile:Ljava/io/File;
+    .local v9, "outFile":Ljava/io/File;
     const-string v1, "r"
 
     move-object/from16 v0, p5
@@ -456,13 +456,13 @@
     .line 137
     new-instance v9, Ljava/io/File;
 
-    .end local v9           #outFile:Ljava/io/File;
+    .end local v9    # "outFile":Ljava/io/File;
     sget-object v1, Lcom/android/server/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
 
     invoke-direct {v9, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 138
-    .restart local v9       #outFile:Ljava/io/File;
+    .restart local v9    # "outFile":Ljava/io/File;
     const/4 v11, 0x1
 
     .line 146
@@ -541,13 +541,13 @@
     check-cast v12, Lcom/android/server/WallpaperManagerService;
 
     .line 155
-    .local v12, wallpaper:Lcom/android/server/WallpaperManagerService;
+    .local v12, "wallpaper":Lcom/android/server/WallpaperManagerService;
     invoke-virtual {v12}, Lcom/android/server/WallpaperManagerService;->settingsRestored()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 164
-    .end local v12           #wallpaper:Lcom/android/server/WallpaperManagerService;
+    .end local v12    # "wallpaper":Lcom/android/server/WallpaperManagerService;
     :cond_2
     :goto_1
     return-void
@@ -567,13 +567,13 @@
     .line 140
     new-instance v9, Ljava/io/File;
 
-    .end local v9           #outFile:Ljava/io/File;
+    .end local v9    # "outFile":Ljava/io/File;
     sget-object v1, Lcom/android/server/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
 
     invoke-direct {v9, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 141
-    .restart local v9       #outFile:Ljava/io/File;
+    .restart local v9    # "outFile":Ljava/io/File;
     const/4 v11, 0x1
 
     goto :goto_0
@@ -583,7 +583,7 @@
     move-exception v10
 
     .line 158
-    .local v10, e:Ljava/io/IOException;
+    .local v10, "e":Ljava/io/IOException;
     if-eqz v11, :cond_2
 
     .line 160

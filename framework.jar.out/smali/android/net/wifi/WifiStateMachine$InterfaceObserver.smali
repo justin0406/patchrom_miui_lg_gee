@@ -23,20 +23,19 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;Landroid/net/wifi/WifiStateMachine;)V
     .locals 0
-    .parameter
-    .parameter "wifiStateMachine"
+    .param p2, "wifiStateMachine"    # Landroid/net/wifi/WifiStateMachine;
 
     .prologue
-    .line 239
+    .line 241
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    .line 240
+    .line 242
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
 
-    .line 241
+    .line 243
     iput-object p2, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
-    .line 242
+    .line 244
     return-void
 .end method
 
@@ -44,16 +43,16 @@
 # virtual methods
 .method public addressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 3
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
 
     .prologue
-    .line 257
+    .line 259
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
+    # getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
 
     move-result-object v0
@@ -64,7 +63,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 262
+    .line 264
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     const v1, 0x2008d
@@ -75,23 +74,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 264
+    .line 266
     :cond_0
     return-void
 .end method
 
 .method public addressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 3
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
 
     .prologue
-    .line 246
+    .line 248
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
+    # getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
 
     move-result-object v0
@@ -102,7 +101,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 251
+    .line 253
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     const v1, 0x2008c
@@ -113,7 +112,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 253
+    .line 255
     :cond_0
     return-void
 .end method

@@ -40,11 +40,11 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "type"
-    .parameter "uuid"
-    .parameter "connectMode"
-    .parameter "name"
-    .parameter "implementor"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "uuid"    # Ljava/lang/String;
+    .param p3, "connectMode"    # Ljava/lang/String;
+    .param p4, "name"    # Ljava/lang/String;
+    .param p5, "implementor"    # Ljava/lang/String;
 
     .prologue
     .line 235

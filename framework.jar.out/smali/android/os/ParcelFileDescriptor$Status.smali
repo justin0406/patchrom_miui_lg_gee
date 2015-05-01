@@ -37,7 +37,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 968
@@ -51,8 +51,8 @@
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "status"
-    .parameter "msg"
+    .param p1, "status"    # I
+    .param p2, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 971

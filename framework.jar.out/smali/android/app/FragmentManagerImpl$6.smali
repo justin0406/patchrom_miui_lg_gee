@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;Landroid/app/Fragment;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1184
@@ -41,7 +39,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 1187
@@ -52,6 +50,12 @@
     if-eqz v0, :cond_0
 
     .line 1188
+    iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
+
+    iget-boolean v0, v0, Landroid/app/Fragment;->mHidden:Z
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;

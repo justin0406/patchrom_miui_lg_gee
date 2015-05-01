@@ -42,7 +42,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 37
@@ -66,7 +66,7 @@
 
 .method public constructor <init>(Landroid/net/Uri;)V
     .locals 2
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 31
@@ -98,7 +98,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -112,7 +112,7 @@
     move-result v0
 
     .line 44
-    .local v0, type:I
+    .local v0, "type":I
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
@@ -241,8 +241,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 54

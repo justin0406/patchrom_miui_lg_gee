@@ -32,9 +32,9 @@
 # virtual methods
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
     .locals 0
-    .parameter "view"
-    .parameter "hourOfDay"
-    .parameter "minute"
+    .param p1, "view"    # Landroid/widget/TimePicker;
+    .param p2, "hourOfDay"    # I
+    .param p3, "minute"    # I
 
     .prologue
     .line 70

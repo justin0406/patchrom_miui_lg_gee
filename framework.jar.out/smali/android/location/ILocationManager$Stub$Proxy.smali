@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 506
@@ -41,8 +41,8 @@
 # virtual methods
 .method public addGpsStatusListener(Landroid/location/IGpsStatusListener;Ljava/lang/String;)Z
     .locals 6
-    .parameter "listener"
-    .parameter "packageName"
+    .param p1, "listener"    # Landroid/location/IGpsStatusListener;
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,13 +58,13 @@
     move-result-object v0
 
     .line 668
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 671
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -107,7 +107,7 @@
     const/4 v2, 0x1
 
     .line 679
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -118,7 +118,7 @@
     return v2
 
     .line 672
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -138,8 +138,8 @@
 
 .method public addTestProvider(Ljava/lang/String;Lcom/android/internal/location/ProviderProperties;)V
     .locals 5
-    .parameter "name"
-    .parameter "properties"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "properties"    # Lcom/android/internal/location/ProviderProperties;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -153,13 +153,13 @@
     move-result-object v0
 
     .line 932
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 934
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -240,7 +240,7 @@
 
 .method public clearTestProviderEnabled(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -254,13 +254,13 @@
     move-result-object v0
 
     .line 1022
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1024
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -306,7 +306,7 @@
 
 .method public clearTestProviderLocation(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -320,13 +320,13 @@
     move-result-object v0
 
     .line 991
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 993
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -372,7 +372,7 @@
 
 .method public clearTestProviderStatus(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -386,13 +386,13 @@
     move-result-object v0
 
     .line 1061
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1063
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -453,13 +453,13 @@
     move-result-object v0
 
     .line 702
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 705
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -489,7 +489,7 @@
     const/4 v2, 0x1
 
     .line 711
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -500,7 +500,7 @@
     return v2
 
     .line 711
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -537,13 +537,13 @@
     move-result-object v0
 
     .line 799
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 802
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -569,7 +569,7 @@
     move-result-object v2
 
     .line 808
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 809
@@ -579,7 +579,7 @@
     return-object v2
 
     .line 808
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
     move-exception v3
 
@@ -593,8 +593,8 @@
 
 .method public getBestProvider(Landroid/location/Criteria;Z)Ljava/lang/String;
     .locals 6
-    .parameter "criteria"
-    .parameter "enabledOnly"
+    .param p1, "criteria"    # Landroid/location/Criteria;
+    .param p2, "enabledOnly"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -612,13 +612,13 @@
     move-result-object v0
 
     .line 841
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 844
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.location.ILocationManager"
 
@@ -664,7 +664,7 @@
     move-result-object v2
 
     .line 858
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 859
@@ -674,7 +674,7 @@
     return-object v2
 
     .line 850
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v5, 0x0
 
@@ -705,11 +705,10 @@
 
 .method public getFromLocation(DDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
     .locals 6
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "maxResults"
-    .parameter "params"
-    .parameter
+    .param p1, "latitude"    # D
+    .param p3, "longitude"    # D
+    .param p5, "maxResults"    # I
+    .param p6, "params"    # Landroid/location/GeocoderParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(DDI",
@@ -730,19 +729,19 @@
 
     .prologue
     .line 718
-    .local p7, addrs:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local p7, "addrs":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 719
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 722
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -789,7 +788,7 @@
     move-result-object v2
 
     .line 736
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     sget-object v3, Landroid/location/Address;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, p7, v3}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
@@ -806,7 +805,7 @@
     return-object v2
 
     .line 731
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v3, 0x0
 
@@ -831,14 +830,13 @@
 
 .method public getFromLocationName(Ljava/lang/String;DDDDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
     .locals 8
-    .parameter "locationName"
-    .parameter "lowerLeftLatitude"
-    .parameter "lowerLeftLongitude"
-    .parameter "upperRightLatitude"
-    .parameter "upperRightLongitude"
-    .parameter "maxResults"
-    .parameter "params"
-    .parameter
+    .param p1, "locationName"    # Ljava/lang/String;
+    .param p2, "lowerLeftLatitude"    # D
+    .param p4, "lowerLeftLongitude"    # D
+    .param p6, "upperRightLatitude"    # D
+    .param p8, "upperRightLongitude"    # D
+    .param p10, "maxResults"    # I
+    .param p11, "params"    # Landroid/location/GeocoderParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -861,19 +859,19 @@
 
     .prologue
     .line 746
-    .local p12, addrs:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
+    .local p12, "addrs":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
     .line 747
-    .local v2, _data:Landroid/os/Parcel;
+    .local v2, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     .line 750
-    .local v3, _reply:Landroid/os/Parcel;
+    .local v3, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.location.ILocationManager"
 
@@ -935,7 +933,7 @@
     move-result-object v4
 
     .line 767
-    .local v4, _result:Ljava/lang/String;
+    .local v4, "_result":Ljava/lang/String;
     sget-object v5, Landroid/location/Address;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p12
@@ -954,7 +952,7 @@
     return-object v4
 
     .line 762
-    .end local v4           #_result:Ljava/lang/String;
+    .end local v4    # "_result":Ljava/lang/String;
     :cond_0
     const/4 v5, 0x0
 
@@ -989,8 +987,8 @@
 
 .method public getLastLocation(Landroid/location/LocationRequest;Ljava/lang/String;)Landroid/location/Location;
     .locals 6
-    .parameter "request"
-    .parameter "packageName"
+    .param p1, "request"    # Landroid/location/LocationRequest;
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1004,13 +1002,13 @@
     move-result-object v0
 
     .line 638
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 641
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -1064,7 +1062,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 660
-    .local v2, _result:Landroid/location/Location;
+    .local v2, "_result":Landroid/location/Location;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1075,7 +1073,7 @@
     return-object v2
 
     .line 647
-    .end local v2           #_result:Landroid/location/Location;
+    .end local v2    # "_result":Landroid/location/Location;
     :cond_0
     const/4 v3, 0x0
 
@@ -1101,13 +1099,13 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/location/Location;
+    .restart local v2    # "_result":Landroid/location/Location;
     goto :goto_1
 .end method
 
 .method public getProviderProperties(Ljava/lang/String;)Lcom/android/internal/location/ProviderProperties;
     .locals 6
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1121,13 +1119,13 @@
     move-result-object v0
 
     .line 891
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 894
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -1167,7 +1165,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 906
-    .local v2, _result:Lcom/android/internal/location/ProviderProperties;
+    .local v2, "_result":Lcom/android/internal/location/ProviderProperties;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1178,15 +1176,15 @@
     return-object v2
 
     .line 902
-    .end local v2           #_result:Lcom/android/internal/location/ProviderProperties;
+    .end local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Lcom/android/internal/location/ProviderProperties;
+    .restart local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     goto :goto_0
 
     .line 906
-    .end local v2           #_result:Lcom/android/internal/location/ProviderProperties;
+    .end local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     :catchall_0
     move-exception v3
 
@@ -1200,8 +1198,8 @@
 
 .method public getProviders(Landroid/location/Criteria;Z)Ljava/util/List;
     .locals 6
-    .parameter "criteria"
-    .parameter "enabledOnly"
+    .param p1, "criteria"    # Landroid/location/Criteria;
+    .param p2, "enabledOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1231,13 +1229,13 @@
     move-result-object v0
 
     .line 816
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 819
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v5, "android.location.ILocationManager"
 
@@ -1283,7 +1281,7 @@
     move-result-object v2
 
     .line 833
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 834
@@ -1293,7 +1291,7 @@
     return-object v2
 
     .line 825
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :cond_0
     const/4 v5, 0x0
 
@@ -1324,7 +1322,7 @@
 
 .method public isProviderEnabled(Ljava/lang/String;)Z
     .locals 6
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1340,13 +1338,13 @@
     move-result-object v0
 
     .line 914
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 917
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -1379,7 +1377,7 @@
     const/4 v2, 0x1
 
     .line 924
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1390,7 +1388,7 @@
     return v2
 
     .line 924
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1404,7 +1402,7 @@
 
 .method public locationCallbackFinished(Landroid/location/ILocationListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ILocationListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1418,13 +1416,13 @@
     move-result-object v0
 
     .line 1134
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1136
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -1483,8 +1481,8 @@
 
 .method public providerMeetsCriteria(Ljava/lang/String;Landroid/location/Criteria;)Z
     .locals 7
-    .parameter "provider"
-    .parameter "criteria"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "criteria"    # Landroid/location/Criteria;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1502,13 +1500,13 @@
     move-result-object v0
 
     .line 866
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 869
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.ILocationManager"
 
@@ -1553,7 +1551,7 @@
     if-eqz v4, :cond_1
 
     .line 883
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1564,7 +1562,7 @@
     return v2
 
     .line 876
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -1595,9 +1593,9 @@
 
 .method public removeGeofence(Landroid/location/Geofence;Landroid/app/PendingIntent;Ljava/lang/String;)V
     .locals 5
-    .parameter "fence"
-    .parameter "intent"
-    .parameter "packageName"
+    .param p1, "fence"    # Landroid/location/Geofence;
+    .param p2, "intent"    # Landroid/app/PendingIntent;
+    .param p3, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1611,13 +1609,13 @@
     move-result-object v0
 
     .line 609
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 611
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -1713,7 +1711,7 @@
 
 .method public removeGpsStatusListener(Landroid/location/IGpsStatusListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/IGpsStatusListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1727,13 +1725,13 @@
     move-result-object v0
 
     .line 687
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 689
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -1792,7 +1790,7 @@
 
 .method public removeTestProvider(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1806,13 +1804,13 @@
     move-result-object v0
 
     .line 954
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 956
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -1858,9 +1856,9 @@
 
 .method public removeUpdates(Landroid/location/ILocationListener;Landroid/app/PendingIntent;Ljava/lang/String;)V
     .locals 5
-    .parameter "listener"
-    .parameter "intent"
-    .parameter "packageName"
+    .param p1, "listener"    # Landroid/location/ILocationListener;
+    .param p2, "intent"    # Landroid/app/PendingIntent;
+    .param p3, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1874,13 +1872,13 @@
     move-result-object v0
 
     .line 550
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 552
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -1967,8 +1965,8 @@
 
 .method public reportLocation(Landroid/location/Location;Z)V
     .locals 5
-    .parameter "location"
-    .parameter "passive"
+    .param p1, "location"    # Landroid/location/Location;
+    .param p2, "passive"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1986,13 +1984,13 @@
     move-result-object v0
 
     .line 1110
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1112
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.ILocationManager"
 
@@ -2072,10 +2070,10 @@
 
 .method public requestGeofence(Landroid/location/LocationRequest;Landroid/location/Geofence;Landroid/app/PendingIntent;Ljava/lang/String;)V
     .locals 5
-    .parameter "request"
-    .parameter "geofence"
-    .parameter "intent"
-    .parameter "packageName"
+    .param p1, "request"    # Landroid/location/LocationRequest;
+    .param p2, "geofence"    # Landroid/location/Geofence;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
+    .param p4, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2089,13 +2087,13 @@
     move-result-object v0
 
     .line 573
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 575
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -2213,10 +2211,10 @@
 
 .method public requestLocationUpdates(Landroid/location/LocationRequest;Landroid/location/ILocationListener;Landroid/app/PendingIntent;Ljava/lang/String;)V
     .locals 5
-    .parameter "request"
-    .parameter "listener"
-    .parameter "intent"
-    .parameter "packageName"
+    .param p1, "request"    # Landroid/location/LocationRequest;
+    .param p2, "listener"    # Landroid/location/ILocationListener;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
+    .param p4, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2230,13 +2228,13 @@
     move-result-object v0
 
     .line 520
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 522
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -2348,9 +2346,9 @@
 
 .method public sendExtraCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 7
-    .parameter "provider"
-    .parameter "command"
-    .parameter "extras"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "command"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2368,13 +2366,13 @@
     move-result-object v0
 
     .line 1076
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1079
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.ILocationManager"
 
@@ -2420,7 +2418,7 @@
     if-eqz v4, :cond_2
 
     .line 1092
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
@@ -2444,7 +2442,7 @@
     return v2
 
     .line 1087
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v4, 0x0
 
@@ -2475,8 +2473,8 @@
 
 .method public sendNiResponse(II)Z
     .locals 6
-    .parameter "notifId"
-    .parameter "userResponse"
+    .param p1, "notifId"    # I
+    .param p2, "userResponse"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2492,13 +2490,13 @@
     move-result-object v0
 
     .line 778
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 781
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -2534,7 +2532,7 @@
     const/4 v2, 0x1
 
     .line 789
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2545,7 +2543,7 @@
     return v2
 
     .line 789
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2559,8 +2557,8 @@
 
 .method public setTestProviderEnabled(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "provider"
-    .parameter "enabled"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2576,13 +2574,13 @@
     move-result-object v0
 
     .line 1006
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1008
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.location.ILocationManager"
 
@@ -2636,8 +2634,8 @@
 
 .method public setTestProviderLocation(Ljava/lang/String;Landroid/location/Location;)V
     .locals 5
-    .parameter "provider"
-    .parameter "loc"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "loc"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2651,13 +2649,13 @@
     move-result-object v0
 
     .line 969
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 971
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 
@@ -2728,10 +2726,10 @@
 
 .method public setTestProviderStatus(Ljava/lang/String;ILandroid/os/Bundle;J)V
     .locals 5
-    .parameter "provider"
-    .parameter "status"
-    .parameter "extras"
-    .parameter "updateTime"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
+    .param p4, "updateTime"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2745,13 +2743,13 @@
     move-result-object v0
 
     .line 1037
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1039
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.ILocationManager"
 

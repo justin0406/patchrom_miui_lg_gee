@@ -32,7 +32,7 @@
     .locals 2
 
     .prologue
-    const/high16 v1, 0x42c8
+    const/high16 v1, 0x42c80000    # 100.0f
 
     .line 351
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -188,7 +188,7 @@
     move-result-object v0
 
     .line 373
-    .local v0, res:Ljava/lang/StringBuilder;
+    .local v0, "res":Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -196,7 +196,7 @@
     return-object v1
 
     .line 361
-    .end local v0           #res:Ljava/lang/StringBuilder;
+    .end local v0    # "res":Ljava/lang/StringBuilder;
     :cond_0
     iget v1, p0, Landroid/media/TextTrackRegion;->mScrollValue:I
 

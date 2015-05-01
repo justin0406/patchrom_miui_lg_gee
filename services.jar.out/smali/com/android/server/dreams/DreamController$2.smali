@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/dreams/DreamController;Lcom/android/server/dreams/DreamController$DreamRecord;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 179
@@ -49,7 +47,7 @@
     .line 182
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$2;->this$0:Lcom/android/server/dreams/DreamController;
 
-    #getter for: Lcom/android/server/dreams/DreamController;->mListener:Lcom/android/server/dreams/DreamController$Listener;
+    # getter for: Lcom/android/server/dreams/DreamController;->mListener:Lcom/android/server/dreams/DreamController$Listener;
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->access$100(Lcom/android/server/dreams/DreamController;)Lcom/android/server/dreams/DreamController$Listener;
 
     move-result-object v0

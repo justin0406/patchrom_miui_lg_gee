@@ -21,7 +21,7 @@
 
 .field public static final CONTENT_TYPE_UNKNOWN:I = -0x1
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -73,7 +73,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 133
@@ -113,8 +113,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrintDocumentInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/print/PrintDocumentInfo$1;
 
     .prologue
     .line 70
@@ -125,7 +125,7 @@
 
 .method synthetic constructor <init>(Landroid/print/PrintDocumentInfo$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/print/PrintDocumentInfo$1;
 
     .prologue
     .line 70
@@ -136,7 +136,7 @@
 
 .method private constructor <init>(Landroid/print/PrintDocumentInfo;)V
     .locals 2
-    .parameter "prototype"
+    .param p1, "prototype"    # Landroid/print/PrintDocumentInfo;
 
     .prologue
     .line 121
@@ -168,8 +168,8 @@
 
 .method synthetic constructor <init>(Landroid/print/PrintDocumentInfo;Landroid/print/PrintDocumentInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/print/PrintDocumentInfo;
+    .param p2, "x1"    # Landroid/print/PrintDocumentInfo$1;
 
     .prologue
     .line 70
@@ -180,8 +180,8 @@
 
 .method static synthetic access$102(Landroid/print/PrintDocumentInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintDocumentInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 70
@@ -192,8 +192,8 @@
 
 .method static synthetic access$202(Landroid/print/PrintDocumentInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintDocumentInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 70
@@ -204,8 +204,8 @@
 
 .method static synthetic access$302(Landroid/print/PrintDocumentInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/print/PrintDocumentInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 70
@@ -216,7 +216,7 @@
 
 .method private contentTyepToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "contentType"
+    .param p1, "contentType"    # I
 
     .prologue
     .line 259
@@ -262,7 +262,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -310,7 +310,7 @@
     check-cast v0, Landroid/print/PrintDocumentInfo;
 
     .line 231
-    .local v0, other:Landroid/print/PrintDocumentInfo;
+    .local v0, "other":Landroid/print/PrintDocumentInfo;
     iget-object v3, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
@@ -416,11 +416,11 @@
     const/16 v0, 0x1f
 
     .line 210
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 211
-    .local v1, result:I
+    .local v1, "result":I
     iget-object v2, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     if-eqz v2, :cond_0
@@ -480,7 +480,7 @@
 
 .method public setDataSize(J)V
     .locals 0
-    .parameter "dataSize"
+    .param p1, "dataSize"    # J
 
     .prologue
     .line 191
@@ -500,7 +500,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 249
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "PrintDocumentInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -568,8 +568,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 201

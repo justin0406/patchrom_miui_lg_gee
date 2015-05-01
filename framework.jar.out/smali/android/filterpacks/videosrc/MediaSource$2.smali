@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/filterpacks/videosrc/MediaSource;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 545
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onPrepared(Landroid/media/MediaPlayer;)V
     .locals 3
-    .parameter "mp"
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
 
     .prologue
     .line 547
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$2;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
-    #getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
+    # getter for: Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
 
     move-result v0
@@ -70,7 +69,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Landroid/filterpacks/videosrc/MediaSource;->mPrepared:Z
+    # setter for: Landroid/filterpacks/videosrc/MediaSource;->mPrepared:Z
     invoke-static {v0, v2}, Landroid/filterpacks/videosrc/MediaSource;->access$602(Landroid/filterpacks/videosrc/MediaSource;Z)Z
 
     .line 550

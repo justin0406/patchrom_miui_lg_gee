@@ -48,8 +48,8 @@
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "name"
-    .parameter "service"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 72
@@ -73,7 +73,7 @@
     move-exception v0
 
     .line 74
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "ServiceManager"
 
     const-string v2, "error in addService"
@@ -85,9 +85,9 @@
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
     .locals 3
-    .parameter "name"
-    .parameter "service"
-    .parameter "allowIsolated"
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "service"    # Landroid/os/IBinder;
+    .param p2, "allowIsolated"    # Z
 
     .prologue
     .line 89
@@ -109,7 +109,7 @@
     move-exception v0
 
     .line 91
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "ServiceManager"
 
     const-string v2, "error in addService"
@@ -121,7 +121,7 @@
 
 .method public static checkService(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 4
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 101
@@ -135,16 +135,16 @@
     check-cast v1, Landroid/os/IBinder;
 
     .line 102
-    .local v1, service:Landroid/os/IBinder;
+    .local v1, "service":Landroid/os/IBinder;
     if-eqz v1, :cond_0
 
     .line 109
-    .end local v1           #service:Landroid/os/IBinder;
+    .end local v1    # "service":Landroid/os/IBinder;
     :goto_0
     return-object v1
 
     .line 105
-    .restart local v1       #service:Landroid/os/IBinder;
+    .restart local v1    # "service":Landroid/os/IBinder;
     :cond_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -159,12 +159,12 @@
     goto :goto_0
 
     .line 107
-    .end local v1           #service:Landroid/os/IBinder;
+    .end local v1    # "service":Landroid/os/IBinder;
     :catch_0
     move-exception v0
 
     .line 108
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "ServiceManager"
 
     const-string v3, "error in checkService"
@@ -213,7 +213,7 @@
 
 .method public static getService(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 4
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 51
@@ -227,16 +227,16 @@
     check-cast v1, Landroid/os/IBinder;
 
     .line 52
-    .local v1, service:Landroid/os/IBinder;
+    .local v1, "service":Landroid/os/IBinder;
     if-eqz v1, :cond_0
 
     .line 60
-    .end local v1           #service:Landroid/os/IBinder;
+    .end local v1    # "service":Landroid/os/IBinder;
     :goto_0
     return-object v1
 
     .line 55
-    .restart local v1       #service:Landroid/os/IBinder;
+    .restart local v1    # "service":Landroid/os/IBinder;
     :cond_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -251,12 +251,12 @@
     goto :goto_0
 
     .line 57
-    .end local v1           #service:Landroid/os/IBinder;
+    .end local v1    # "service":Landroid/os/IBinder;
     :catch_0
     move-exception v0
 
     .line 58
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "ServiceManager"
 
     const-string v3, "error in getService"
@@ -271,7 +271,6 @@
 
 .method public static initServiceCache(Ljava/util/Map;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -285,7 +284,7 @@
 
     .prologue
     .line 134
-    .local p0, cache:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Landroid/os/IBinder;>;"
+    .local p0, "cache":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/os/IBinder;>;"
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->size()I
@@ -335,17 +334,17 @@
     move-result-object v1
 
     .line 121
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :goto_0
     return-object v1
 
     .line 119
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_0
     move-exception v0
 
     .line 120
-    .restart local v0       #e:Landroid/os/RemoteException;
+    .restart local v0    # "e":Landroid/os/RemoteException;
     const-string v1, "ServiceManager"
 
     const-string v2, "error in listServices"

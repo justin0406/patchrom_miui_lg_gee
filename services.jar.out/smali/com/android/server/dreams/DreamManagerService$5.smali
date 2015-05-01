@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 405
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onDreamStopped(Landroid/os/Binder;)V
     .locals 2
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/Binder;
 
     .prologue
     .line 408
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    #getter for: Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$000(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -56,7 +55,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    #getter for: Lcom/android/server/dreams/DreamManagerService;->mCurrentDreamToken:Landroid/os/Binder;
+    # getter for: Lcom/android/server/dreams/DreamManagerService;->mCurrentDreamToken:Landroid/os/Binder;
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$300(Lcom/android/server/dreams/DreamManagerService;)Landroid/os/Binder;
 
     move-result-object v0
@@ -66,7 +65,7 @@
     .line 410
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    #calls: Lcom/android/server/dreams/DreamManagerService;->cleanupDreamLocked()V
+    # invokes: Lcom/android/server/dreams/DreamManagerService;->cleanupDreamLocked()V
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$400(Lcom/android/server/dreams/DreamManagerService;)V
 
     .line 412

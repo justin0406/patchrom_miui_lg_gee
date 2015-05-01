@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$2;Ljava/util/ArrayList;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1443
@@ -59,10 +57,10 @@
     invoke-direct {v0, v4}, Landroid/util/SparseArray;-><init>(I)V
 
     .line 1447
-    .local v23, infoMap:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Lcom/android/server/am/ProcessMemInfo;>;"
+    .local v23, "infoMap":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Lcom/android/server/am/ProcessMemInfo;>;"
     const/16 v22, 0x0
 
-    .local v22, i:I
+    .local v22, "i":I
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
@@ -71,7 +69,7 @@
 
     move-result v18
 
-    .local v18, N:I
+    .local v18, "N":I
     :goto_0
     move/from16 v0, v22
 
@@ -93,7 +91,7 @@
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
     .line 1449
-    .local v3, mi:Lcom/android/server/am/ProcessMemInfo;
+    .local v3, "mi":Lcom/android/server/am/ProcessMemInfo;
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->pid:I
 
     move-object/from16 v0, v23
@@ -106,7 +104,7 @@
     goto :goto_0
 
     .line 1451
-    .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
+    .end local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
     :cond_0
     move-object/from16 v0, p0
 
@@ -167,7 +165,7 @@
     move-result-object v32
 
     .line 1456
-    .local v32, st:Lcom/android/internal/os/ProcessCpuTracker$Stats;
+    .local v32, "st":Lcom/android/internal/os/ProcessCpuTracker$Stats;
     move-object/from16 v0, v32
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->vsize:J
@@ -190,7 +188,7 @@
     move-result-wide v30
 
     .line 1458
-    .local v30, pss:J
+    .local v30, "pss":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v30, v4
@@ -232,7 +230,7 @@
     invoke-direct/range {v3 .. v9}, Lcom/android/server/am/ProcessMemInfo;-><init>(Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;)V
 
     .line 1462
-    .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
+    .restart local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
     move-wide/from16 v0, v30
 
     iput-wide v0, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
@@ -245,15 +243,15 @@
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1454
-    .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
-    .end local v30           #pss:J
+    .end local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
+    .end local v30    # "pss":J
     :cond_1
     add-int/lit8 v22, v22, 0x1
 
     goto :goto_1
 
     .line 1468
-    .end local v32           #st:Lcom/android/internal/os/ProcessCpuTracker$Stats;
+    .end local v32    # "st":Lcom/android/internal/os/ProcessCpuTracker$Stats;
     :cond_2
     monitor-exit v10
     :try_end_0
@@ -263,7 +261,7 @@
     const-wide/16 v35, 0x0
 
     .line 1471
-    .local v35, totalPss:J
+    .local v35, "totalPss":J
     const/16 v22, 0x0
 
     move-object/from16 v0, p0
@@ -295,7 +293,7 @@
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
     .line 1473
-    .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
+    .restart local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
     const-wide/16 v8, 0x0
@@ -327,8 +325,8 @@
     goto :goto_2
 
     .line 1468
-    .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
-    .end local v35           #totalPss:J
+    .end local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
+    .end local v35    # "totalPss":J
     :catchall_0
     move-exception v4
 
@@ -340,7 +338,7 @@
     throw v4
 
     .line 1478
-    .restart local v35       #totalPss:J
+    .restart local v35    # "totalPss":J
     :cond_4
     move-object/from16 v0, p0
 
@@ -364,7 +362,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1491
-    .local v34, tag:Ljava/lang/StringBuilder;
+    .local v34, "tag":Ljava/lang/StringBuilder;
     new-instance v33, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x80
@@ -374,7 +372,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1492
-    .local v33, stack:Ljava/lang/StringBuilder;
+    .local v33, "stack":Ljava/lang/StringBuilder;
     const-string v4, "Low on memory -- "
 
     move-object/from16 v0, v34
@@ -413,7 +411,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1497
-    .local v27, logBuilder:Ljava/lang/StringBuilder;
+    .local v27, "logBuilder":Ljava/lang/StringBuilder;
     const-string v4, "Low on memory:\n"
 
     move-object/from16 v0, v27
@@ -424,11 +422,11 @@
     const/16 v21, 0x1
 
     .line 1500
-    .local v21, firstLine:Z
-    const/high16 v26, -0x8000
+    .local v21, "firstLine":Z
+    const/high16 v26, -0x80000000
 
     .line 1501
-    .local v26, lastOomAdj:I
+    .local v26, "lastOomAdj":I
     const/16 v22, 0x0
 
     move-object/from16 v0, p0
@@ -460,7 +458,7 @@
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
     .line 1504
-    .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
+    .restart local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     const/16 v5, -0x11
@@ -606,7 +604,7 @@
     .line 1533
     const/16 v25, 0x0
 
-    .local v25, k:I
+    .local v25, "k":I
     :goto_5
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->DUMP_MEM_OOM_ADJ:[I
 
@@ -657,7 +655,7 @@
     goto :goto_5
 
     .line 1520
-    .end local v25           #k:I
+    .end local v25    # "k":I
     :cond_b
     const-string v4, "$"
 
@@ -685,7 +683,7 @@
     goto :goto_4
 
     .line 1540
-    .restart local v25       #k:I
+    .restart local v25    # "k":I
     :cond_d
     const-string v4, ")"
 
@@ -694,7 +692,7 @@
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1544
-    .end local v25           #k:I
+    .end local v25    # "k":I
     :cond_e
     const-string v4, "  "
 
@@ -827,7 +825,7 @@
     goto/16 :goto_3
 
     .line 1564
-    .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
+    .end local v3    # "mi":Lcom/android/server/am/ProcessMemInfo;
     :cond_10
     const-string v4, "           "
 
@@ -857,7 +855,7 @@
     move-object/from16 v24, v0
 
     .line 1569
-    .local v24, infos:[J
+    .local v24, "infos":[J
     invoke-static/range {v24 .. v24}, Landroid/os/Debug;->getMemInfo([J)V
 
     .line 1570
@@ -1028,7 +1026,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 1598
-    .local v20, dropBuilder:Ljava/lang/StringBuilder;
+    .local v20, "dropBuilder":Ljava/lang/StringBuilder;
     move-object/from16 v0, v20
 
     move-object/from16 v1, v33
@@ -1069,7 +1067,7 @@
     invoke-direct/range {v19 .. v19}, Ljava/io/StringWriter;-><init>()V
 
     .line 1608
-    .local v19, catSw:Ljava/io/StringWriter;
+    .local v19, "catSw":Ljava/io/StringWriter;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1091,13 +1089,13 @@
     invoke-direct {v6, v0, v4, v5}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
     .line 1610
-    .local v6, catPw:Ljava/io/PrintWriter;
+    .local v6, "catPw":Ljava/io/PrintWriter;
     const/4 v4, 0x0
 
     new-array v7, v4, [Ljava/lang/String;
 
     .line 1611
-    .local v7, emptyArgs:[Ljava/lang/String;
+    .local v7, "emptyArgs":[Ljava/lang/String;
     invoke-virtual {v6}, Ljava/io/PrintWriter;->println()V
 
     .line 1612
@@ -1227,7 +1225,7 @@
     move-result-wide v28
 
     .line 1627
-    .local v28, now:J
+    .local v28, "now":J
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1261,9 +1259,9 @@
     return-void
 
     .line 1619
-    .end local v6           #catPw:Ljava/io/PrintWriter;
-    .end local v7           #emptyArgs:[Ljava/lang/String;
-    .end local v28           #now:J
+    .end local v6    # "catPw":Ljava/io/PrintWriter;
+    .end local v7    # "emptyArgs":[Ljava/lang/String;
+    .end local v28    # "now":J
     :catchall_1
     move-exception v4
 
@@ -1275,8 +1273,8 @@
     throw v4
 
     .line 1630
-    .restart local v6       #catPw:Ljava/io/PrintWriter;
-    .restart local v7       #emptyArgs:[Ljava/lang/String;
+    .restart local v6    # "catPw":Ljava/io/PrintWriter;
+    .restart local v7    # "emptyArgs":[Ljava/lang/String;
     :catchall_2
     move-exception v4
 

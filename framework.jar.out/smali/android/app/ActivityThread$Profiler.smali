@@ -41,8 +41,8 @@
 # virtual methods
 .method public setProfiler(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
     .locals 1
-    .parameter "file"
-    .parameter "fd"
+    .param p1, "file"    # Ljava/lang/String;
+    .param p2, "fd"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 438
@@ -130,7 +130,7 @@
 
     move-result-object v3
 
-    const/high16 v4, 0x80
+    const/high16 v4, 0x800000
 
     const/4 v5, 0x0
 
@@ -150,7 +150,7 @@
     move-exception v0
 
     .line 467
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "ActivityThread"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -195,7 +195,7 @@
     move-exception v1
 
     .line 472
-    .local v1, e2:Ljava/io/IOException;
+    .local v1, "e2":Ljava/io/IOException;
     const-string v2, "ActivityThread"
 
     const-string v3, "Failure closing profile fd"

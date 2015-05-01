@@ -42,7 +42,7 @@
 # direct methods
 .method public constructor <init>(J)V
     .locals 2
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     const/4 v1, 0x0
@@ -75,8 +75,8 @@
 
 .method public constructor <init>(Ljava/io/File;I)V
     .locals 10
-    .parameter "file"
-    .parameter "blockSize"
+    .param p1, "file"    # Ljava/io/File;
+    .param p2, "blockSize"    # I
 
     .prologue
     .line 530
@@ -114,7 +114,7 @@
     move-result-object v5
 
     .line 535
-    .local v5, name:Ljava/lang/String;
+    .local v5, "name":Ljava/lang/String;
     const/16 v6, 0x40
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->lastIndexOf(I)I
@@ -122,7 +122,7 @@
     move-result v0
 
     .line 536
-    .local v0, at:I
+    .local v0, "at":I
     if-gez v0, :cond_0
 
     .line 537
@@ -149,7 +149,7 @@
     const/4 v2, 0x0
 
     .line 544
-    .local v2, flags:I
+    .local v2, "flags":I
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -230,14 +230,14 @@
     move-result-wide v3
 
     .line 566
-    .local v3, millis:J
+    .local v3, "millis":J
     :goto_2
     iput-wide v3, p0, Lcom/android/server/DropBoxManagerService$EntryFile;->timestampMillis:J
 
     goto :goto_0
 
     .line 552
-    .end local v3           #millis:J
+    .end local v3    # "millis":J
     :cond_2
     const-string v6, ".txt"
 
@@ -307,21 +307,21 @@
     :catch_0
     move-exception v1
 
-    .local v1, e:Ljava/lang/NumberFormatException;
+    .local v1, "e":Ljava/lang/NumberFormatException;
     const-wide/16 v3, 0x0
 
-    .restart local v3       #millis:J
+    .restart local v3    # "millis":J
     goto :goto_2
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;JII)V
     .locals 4
-    .parameter "temp"
-    .parameter "dir"
-    .parameter "tag"
-    .parameter "timestampMillis"
-    .parameter "flags"
-    .parameter "blockSize"
+    .param p1, "temp"    # Ljava/io/File;
+    .param p2, "dir"    # Ljava/io/File;
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "timestampMillis"    # J
+    .param p6, "flags"    # I
+    .param p7, "blockSize"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -495,9 +495,9 @@
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;J)V
     .locals 3
-    .parameter "dir"
-    .parameter "tag"
-    .parameter "timestampMillis"
+    .param p1, "dir"    # Ljava/io/File;
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "timestampMillis"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -580,7 +580,7 @@
 # virtual methods
 .method public final compareTo(Lcom/android/server/DropBoxManagerService$EntryFile;)I
     .locals 7
-    .parameter "o"
+    .param p1, "o"    # Lcom/android/server/DropBoxManagerService$EntryFile;
 
     .prologue
     const/4 v2, 0x0
@@ -696,13 +696,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 462
     check-cast p1, Lcom/android/server/DropBoxManagerService$EntryFile;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/DropBoxManagerService$EntryFile;->compareTo(Lcom/android/server/DropBoxManagerService$EntryFile;)I
 
     move-result v0

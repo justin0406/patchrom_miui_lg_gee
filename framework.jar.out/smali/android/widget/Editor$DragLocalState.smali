@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/TextView;II)V
     .locals 0
-    .parameter "sourceTextView"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "sourceTextView"    # Landroid/widget/TextView;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 1821

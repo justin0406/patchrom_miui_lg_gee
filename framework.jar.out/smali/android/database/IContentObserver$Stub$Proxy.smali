@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 70
@@ -61,8 +61,8 @@
 
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 5
-    .parameter "selfUpdate"
-    .parameter "uri"
+    .param p1, "selfUpdate"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 90
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.database.IContentObserver"
 

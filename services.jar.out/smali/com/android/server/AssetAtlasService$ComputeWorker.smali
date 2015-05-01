@@ -54,13 +54,11 @@
 # direct methods
 .method constructor <init>(IIILjava/util/List;ILjava/util/List;Ljava/util/concurrent/CountDownLatch;)V
     .locals 3
-    .parameter "start"
-    .parameter "end"
-    .parameter "step"
-    .parameter
-    .parameter "pixelCount"
-    .parameter
-    .parameter "signal"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "step"    # I
+    .param p5, "pixelCount"    # I
+    .param p7, "signal"    # Ljava/util/concurrent/CountDownLatch;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III",
@@ -79,8 +77,8 @@
 
     .prologue
     .line 674
-    .local p4, bitmaps:Ljava/util/List;,"Ljava/util/List<Landroid/graphics/Bitmap;>;"
-    .local p6, results:Ljava/util/List;,"Ljava/util/List<Lcom/android/server/AssetAtlasService$WorkerResult;>;"
+    .local p4, "bitmaps":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/Bitmap;>;"
+    .local p6, "results":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/AssetAtlasService$WorkerResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 675
@@ -104,16 +102,16 @@
     .line 683
     int-to-float v1, p5
 
-    const v2, 0x3f4ccccd
+    const v2, 0x3f4ccccd    # 0.8f
 
     mul-float/2addr v1, v2
 
     float-to-int v0, v1
 
     .line 685
-    .local v0, threshold:I
+    .local v0, "threshold":I
     :goto_0
-    const/high16 v1, 0x40
+    const/high16 v1, 0x400000
 
     if-le v0, v1, :cond_0
 
@@ -132,23 +130,23 @@
 
 .method private packBitmaps(Landroid/graphics/Atlas$Type;IILandroid/graphics/Atlas$Entry;)I
     .locals 7
-    .parameter "type"
-    .parameter "width"
-    .parameter "height"
-    .parameter "entry"
+    .param p1, "type"    # Landroid/graphics/Atlas$Type;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "entry"    # Landroid/graphics/Atlas$Entry;
 
     .prologue
     .line 721
     const/4 v4, 0x0
 
     .line 722
-    .local v4, total:I
+    .local v4, "total":I
     new-instance v0, Landroid/graphics/Atlas;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/graphics/Atlas;-><init>(Landroid/graphics/Atlas$Type;II)V
 
     .line 724
-    .local v0, atlas:Landroid/graphics/Atlas;
+    .local v0, "atlas":Landroid/graphics/Atlas;
     iget-object v5, p0, Lcom/android/server/AssetAtlasService$ComputeWorker;->mBitmaps:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->size()I
@@ -156,10 +154,10 @@
     move-result v2
 
     .line 725
-    .local v2, count:I
+    .local v2, "count":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v2, :cond_1
 
@@ -173,7 +171,7 @@
     check-cast v1, Landroid/graphics/Bitmap;
 
     .line 727
-    .local v1, bitmap:Landroid/graphics/Bitmap;
+    .local v1, "bitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v5
@@ -198,7 +196,7 @@
     goto :goto_0
 
     .line 732
-    .end local v1           #bitmap:Landroid/graphics/Bitmap;
+    .end local v1    # "bitmap":Landroid/graphics/Bitmap;
     :cond_1
     return v4
 .end method
@@ -246,28 +244,28 @@
     invoke-direct {v2}, Landroid/graphics/Atlas$Entry;-><init>()V
 
     .line 696
-    .local v2, entry:Landroid/graphics/Atlas$Entry;
+    .local v2, "entry":Landroid/graphics/Atlas$Entry;
     invoke-static {}, Landroid/graphics/Atlas$Type;->values()[Landroid/graphics/Atlas$Type;
 
     move-result-object v0
 
-    .local v0, arr$:[Landroid/graphics/Atlas$Type;
+    .local v0, "arr$":[Landroid/graphics/Atlas$Type;
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_4
 
     aget-object v6, v0, v4
 
     .line 697
-    .local v6, type:Landroid/graphics/Atlas$Type;
+    .local v6, "type":Landroid/graphics/Atlas$Type;
     iget v7, p0, Lcom/android/server/AssetAtlasService$ComputeWorker;->mStart:I
 
-    .local v7, width:I
+    .local v7, "width":I
     :goto_1
     iget v8, p0, Lcom/android/server/AssetAtlasService$ComputeWorker;->mEnd:I
 
@@ -276,7 +274,7 @@
     .line 698
     const/16 v3, 0x300
 
-    .local v3, height:I
+    .local v3, "height":I
     :goto_2
     const/16 v8, 0x800
 
@@ -302,7 +300,7 @@
     move-result v1
 
     .line 703
-    .local v1, count:I
+    .local v1, "count":I
     if-lez v1, :cond_0
 
     .line 704
@@ -324,7 +322,7 @@
     if-ne v1, v8, :cond_0
 
     .line 697
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_2
     iget v8, p0, Lcom/android/server/AssetAtlasService$ComputeWorker;->mStep:I
 
@@ -333,15 +331,15 @@
     goto :goto_1
 
     .line 696
-    .end local v3           #height:I
+    .end local v3    # "height":I
     :cond_3
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 715
-    .end local v6           #type:Landroid/graphics/Atlas$Type;
-    .end local v7           #width:I
+    .end local v6    # "type":Landroid/graphics/Atlas$Type;
+    .end local v7    # "width":I
     :cond_4
     iget-object v8, p0, Lcom/android/server/AssetAtlasService$ComputeWorker;->mSignal:Ljava/util/concurrent/CountDownLatch;
 

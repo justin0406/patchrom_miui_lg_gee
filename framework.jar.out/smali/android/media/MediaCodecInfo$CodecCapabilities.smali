@@ -135,7 +135,7 @@
 # virtual methods
 .method public final isFeatureSupported(Ljava/lang/String;)Z
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0

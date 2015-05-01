@@ -21,8 +21,7 @@
 
 .field static final CONNECTING_TIMEOUT:J = 0x1388L
 
-#the value of this static final field might be set in the static constructor
-.field private static final DEBUG:Z = false
+.field private static final DEBUG:Z
 
 .field private static final TAG:Ljava/lang/String; = "MediaRouterService"
 
@@ -79,7 +78,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 92
@@ -127,7 +126,7 @@
 
 .method static synthetic access$000(Lcom/android/server/media/MediaRouterService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/media/MediaRouterService;
 
     .prologue
     .line 64
@@ -138,7 +137,7 @@
 
 .method static synthetic access$100(Lcom/android/server/media/MediaRouterService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/media/MediaRouterService;
 
     .prologue
     .line 64
@@ -149,8 +148,8 @@
 
 .method private disposeClientLocked(Lcom/android/server/media/MediaRouterService$ClientRecord;Z)V
     .locals 3
-    .parameter "clientRecord"
-    .parameter "died"
+    .param p1, "clientRecord"    # Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .param p2, "died"    # Z
 
     .prologue
     .line 463
@@ -241,7 +240,7 @@
 
 .method private disposeUserIfNeededLocked(Lcom/android/server/media/MediaRouterService$UserRecord;)V
     .locals 3
-    .parameter "userRecord"
+    .param p1, "userRecord"    # Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .prologue
     .line 446
@@ -302,7 +301,7 @@
 
 .method private getStateLocked(Landroid/media/IMediaRouterClient;)Landroid/media/MediaRouterClientState;
     .locals 3
-    .parameter "client"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
 
     .prologue
     .line 351
@@ -319,7 +318,7 @@
     check-cast v0, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 352
-    .local v0, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v0, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v0, :cond_0
 
     .line 353
@@ -339,7 +338,7 @@
 
 .method private initializeClientLocked(Lcom/android/server/media/MediaRouterService$ClientRecord;)V
     .locals 3
-    .parameter "clientRecord"
+    .param p1, "clientRecord"    # Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .prologue
     .line 457
@@ -377,7 +376,7 @@
 
 .method private initializeUserLocked(Lcom/android/server/media/MediaRouterService$UserRecord;)V
     .locals 3
-    .parameter "userRecord"
+    .param p1, "userRecord"    # Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .prologue
     .line 433
@@ -430,11 +429,11 @@
 
 .method private registerClientLocked(Landroid/media/IMediaRouterClient;ILjava/lang/String;IZ)V
     .locals 10
-    .parameter "client"
-    .parameter "pid"
-    .parameter "packageName"
-    .parameter "userId"
-    .parameter "trusted"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "pid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "userId"    # I
+    .param p5, "trusted"    # Z
 
     .prologue
     .line 313
@@ -443,7 +442,7 @@
     move-result-object v7
 
     .line 314
-    .local v7, binder:Landroid/os/IBinder;
+    .local v7, "binder":Landroid/os/IBinder;
     iget-object v1, p0, Lcom/android/server/media/MediaRouterService;->mAllClientRecords:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -453,14 +452,14 @@
     check-cast v0, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 315
-    .local v0, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v0, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-nez v0, :cond_2
 
     .line 316
     const/4 v9, 0x0
 
     .line 317
-    .local v9, newUser:Z
+    .local v9, "newUser":Z
     iget-object v1, p0, Lcom/android/server/media/MediaRouterService;->mUserRecords:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -470,24 +469,24 @@
     check-cast v2, Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .line 318
-    .local v2, userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .local v2, "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     if-nez v2, :cond_0
 
     .line 319
     new-instance v2, Lcom/android/server/media/MediaRouterService$UserRecord;
 
-    .end local v2           #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v2    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     invoke-direct {v2, p0, p4}, Lcom/android/server/media/MediaRouterService$UserRecord;-><init>(Lcom/android/server/media/MediaRouterService;I)V
 
     .line 320
-    .restart local v2       #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .restart local v2    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     const/4 v9, 0x1
 
     .line 322
     :cond_0
     new-instance v0, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
-    .end local v0           #clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .end local v0    # "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     move-object v1, p0
 
     move-object v3, p1
@@ -501,7 +500,7 @@
     invoke-direct/range {v0 .. v6}, Lcom/android/server/media/MediaRouterService$ClientRecord;-><init>(Lcom/android/server/media/MediaRouterService;Lcom/android/server/media/MediaRouterService$UserRecord;Landroid/media/IMediaRouterClient;ILjava/lang/String;Z)V
 
     .line 324
-    .restart local v0       #clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .restart local v0    # "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     const/4 v1, 0x0
 
     :try_start_0
@@ -535,19 +534,19 @@
     invoke-direct {p0, v0}, Lcom/android/server/media/MediaRouterService;->initializeClientLocked(Lcom/android/server/media/MediaRouterService$ClientRecord;)V
 
     .line 338
-    .end local v2           #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
-    .end local v9           #newUser:Z
+    .end local v2    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v9    # "newUser":Z
     :cond_2
     return-void
 
     .line 325
-    .restart local v2       #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
-    .restart local v9       #newUser:Z
+    .restart local v2    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
+    .restart local v9    # "newUser":Z
     :catch_0
     move-exception v8
 
     .line 326
-    .local v8, ex:Landroid/os/RemoteException;
+    .local v8, "ex":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v3, "Media router client died prematurely."
@@ -559,9 +558,9 @@
 
 .method private requestSetVolumeLocked(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "volume"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "volume"    # I
 
     .prologue
     .line 414
@@ -570,7 +569,7 @@
     move-result-object v0
 
     .line 415
-    .local v0, binder:Landroid/os/IBinder;
+    .local v0, "binder":Landroid/os/IBinder;
     iget-object v2, p0, Lcom/android/server/media/MediaRouterService;->mAllClientRecords:Landroid/util/ArrayMap;
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -580,7 +579,7 @@
     check-cast v1, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 416
-    .local v1, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v1, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v1, :cond_0
 
     .line 417
@@ -605,9 +604,9 @@
 
 .method private requestUpdateVolumeLocked(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "direction"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "direction"    # I
 
     .prologue
     .line 424
@@ -616,7 +615,7 @@
     move-result-object v0
 
     .line 425
-    .local v0, binder:Landroid/os/IBinder;
+    .local v0, "binder":Landroid/os/IBinder;
     iget-object v2, p0, Lcom/android/server/media/MediaRouterService;->mAllClientRecords:Landroid/util/ArrayMap;
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -626,7 +625,7 @@
     check-cast v1, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 426
-    .local v1, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v1, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v1, :cond_0
 
     .line 427
@@ -651,9 +650,9 @@
 
 .method private setDiscoveryRequestLocked(Landroid/media/IMediaRouterClient;IZ)V
     .locals 5
-    .parameter "client"
-    .parameter "routeTypes"
-    .parameter "activeScan"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeTypes"    # I
+    .param p3, "activeScan"    # Z
 
     .prologue
     .line 360
@@ -662,7 +661,7 @@
     move-result-object v0
 
     .line 361
-    .local v0, binder:Landroid/os/IBinder;
+    .local v0, "binder":Landroid/os/IBinder;
     iget-object v2, p0, Lcom/android/server/media/MediaRouterService;->mAllClientRecords:Landroid/util/ArrayMap;
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -672,7 +671,7 @@
     check-cast v1, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 362
-    .local v1, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v1, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v1, :cond_3
 
     .line 364
@@ -763,9 +762,9 @@
 
 .method private setSelectedRouteLocked(Landroid/media/IMediaRouterClient;Ljava/lang/String;Z)V
     .locals 5
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "explicit"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "explicit"    # Z
 
     .prologue
     .line 384
@@ -782,14 +781,14 @@
     check-cast v0, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 385
-    .local v0, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v0, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v0, :cond_2
 
     .line 386
     iget-object v1, v0, Lcom/android/server/media/MediaRouterService$ClientRecord;->mSelectedRouteId:Ljava/lang/String;
 
     .line 387
-    .local v1, oldRouteId:Ljava/lang/String;
+    .local v1, "oldRouteId":Ljava/lang/String;
     invoke-static {p2, v1}, Lcom/android/internal/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
@@ -893,15 +892,15 @@
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
     .line 410
-    .end local v1           #oldRouteId:Ljava/lang/String;
+    .end local v1    # "oldRouteId":Ljava/lang/String;
     :cond_2
     return-void
 .end method
 
 .method private unregisterClientLocked(Landroid/media/IMediaRouterClient;Z)V
     .locals 4
-    .parameter "client"
-    .parameter "died"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "died"    # Z
 
     .prologue
     .line 341
@@ -918,14 +917,14 @@
     check-cast v0, Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .line 342
-    .local v0, clientRecord:Lcom/android/server/media/MediaRouterService$ClientRecord;
+    .local v0, "clientRecord":Lcom/android/server/media/MediaRouterService$ClientRecord;
     if-eqz v0, :cond_0
 
     .line 343
     iget-object v1, v0, Lcom/android/server/media/MediaRouterService$ClientRecord;->mUserRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .line 344
-    .local v1, userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .local v1, "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     iget-object v2, v1, Lcom/android/server/media/MediaRouterService$UserRecord;->mClientRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -937,15 +936,15 @@
     invoke-direct {p0, v1}, Lcom/android/server/media/MediaRouterService;->disposeUserIfNeededLocked(Lcom/android/server/media/MediaRouterService$UserRecord;)V
 
     .line 348
-    .end local v1           #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v1    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     :cond_0
     return-void
 .end method
 
 .method private validatePackageName(ILjava/lang/String;)Z
     .locals 6
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 478
@@ -963,26 +962,26 @@
     move-result-object v4
 
     .line 480
-    .local v4, packageNames:[Ljava/lang/String;
+    .local v4, "packageNames":[Ljava/lang/String;
     if-eqz v4, :cond_1
 
     .line 481
     move-object v0, v4
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 482
-    .local v3, n:Ljava/lang/String;
+    .local v3, "n":Ljava/lang/String;
     invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
@@ -993,31 +992,31 @@
     const/4 v5, 0x1
 
     .line 488
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v3           #n:Ljava/lang/String;
-    .end local v4           #packageNames:[Ljava/lang/String;
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v3    # "n":Ljava/lang/String;
+    .end local v4    # "packageNames":[Ljava/lang/String;
     :goto_1
     return v5
 
     .line 481
-    .restart local v0       #arr$:[Ljava/lang/String;
-    .restart local v1       #i$:I
-    .restart local v2       #len$:I
-    .restart local v3       #n:Ljava/lang/String;
-    .restart local v4       #packageNames:[Ljava/lang/String;
+    .restart local v0    # "arr$":[Ljava/lang/String;
+    .restart local v1    # "i$":I
+    .restart local v2    # "len$":I
+    .restart local v3    # "n":Ljava/lang/String;
+    .restart local v4    # "packageNames":[Ljava/lang/String;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 488
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v3           #n:Ljava/lang/String;
-    .end local v4           #packageNames:[Ljava/lang/String;
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v3    # "n":Ljava/lang/String;
+    .end local v4    # "packageNames":[Ljava/lang/String;
     :cond_1
     const/4 v5, 0x0
 
@@ -1028,7 +1027,7 @@
 # virtual methods
 .method clientDied(Lcom/android/server/media/MediaRouterService$ClientRecord;)V
     .locals 3
-    .parameter "clientRecord"
+    .param p1, "clientRecord"    # Lcom/android/server/media/MediaRouterService$ClientRecord;
 
     .prologue
     .line 306
@@ -1063,9 +1062,9 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 5
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 261
@@ -1173,10 +1172,10 @@
     move-result v0
 
     .line 276
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_1
 
@@ -1190,7 +1189,7 @@
     check-cast v2, Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .line 278
-    .local v2, userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .local v2, "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
     .line 279
@@ -1204,14 +1203,14 @@
     goto :goto_1
 
     .line 281
-    .end local v2           #userRecord:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v2    # "userRecord":Lcom/android/server/media/MediaRouterService$UserRecord;
     :cond_1
     monitor-exit v4
 
     goto :goto_0
 
-    .end local v0           #count:I
-    .end local v1           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "i":I
     :catchall_0
     move-exception v3
 
@@ -1224,7 +1223,7 @@
 
 .method public getState(Landroid/media/IMediaRouterClient;)Landroid/media/MediaRouterClientState;
     .locals 4
-    .parameter "client"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
 
     .prologue
     .line 164
@@ -1246,7 +1245,7 @@
     move-result-wide v0
 
     .line 170
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1321,9 +1320,9 @@
 
 .method public registerClientAsUser(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 11
-    .parameter "client"
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "userId"    # I
 
     .prologue
     const/4 v4, 0x1
@@ -1349,7 +1348,7 @@
     move-result v1
 
     .line 124
-    .local v1, uid:I
+    .local v1, "uid":I
     invoke-direct {p0, v1, p2}, Lcom/android/server/media/MediaRouterService;->validatePackageName(ILjava/lang/String;)Z
 
     move-result v2
@@ -1372,7 +1371,7 @@
     move-result v0
 
     .line 129
-    .local v0, pid:I
+    .local v0, "pid":I
     const-string v5, "registerClientAsUser"
 
     move v2, p3
@@ -1384,7 +1383,7 @@
     move-result v6
 
     .line 131
-    .local v6, resolvedUserId:I
+    .local v6, "resolvedUserId":I
     iget-object v2, p0, Lcom/android/server/media/MediaRouterService;->mContext:Landroid/content/Context;
 
     const-string v5, "android.permission.CONFIGURE_WIFI_DISPLAY"
@@ -1398,14 +1397,14 @@
     move v7, v4
 
     .line 134
-    .local v7, trusted:Z
+    .local v7, "trusted":Z
     :goto_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v8
 
     .line 136
-    .local v8, token:J
+    .local v8, "token":J
     :try_start_0
     iget-object v10, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1436,8 +1435,8 @@
     .line 142
     return-void
 
-    .end local v7           #trusted:Z
-    .end local v8           #token:J
+    .end local v7    # "trusted":Z
+    .end local v8    # "token":J
     :cond_2
     move v7, v3
 
@@ -1445,8 +1444,8 @@
     goto :goto_0
 
     .line 138
-    .restart local v7       #trusted:Z
-    .restart local v8       #token:J
+    .restart local v7    # "trusted":Z
+    .restart local v8    # "token":J
     :catchall_0
     move-exception v2
 
@@ -1471,9 +1470,9 @@
 
 .method public requestSetVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 4
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "volume"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "volume"    # I
 
     .prologue
     .line 221
@@ -1508,7 +1507,7 @@
     move-result-wide v0
 
     .line 230
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1556,9 +1555,9 @@
 
 .method public requestUpdateVolume(Landroid/media/IMediaRouterClient;Ljava/lang/String;I)V
     .locals 4
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "direction"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "direction"    # I
 
     .prologue
     .line 241
@@ -1593,7 +1592,7 @@
     move-result-wide v0
 
     .line 250
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1641,9 +1640,9 @@
 
 .method public setDiscoveryRequest(Landroid/media/IMediaRouterClient;IZ)V
     .locals 4
-    .parameter "client"
-    .parameter "routeTypes"
-    .parameter "activeScan"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeTypes"    # I
+    .param p3, "activeScan"    # Z
 
     .prologue
     .line 182
@@ -1665,7 +1664,7 @@
     move-result-wide v0
 
     .line 188
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1713,9 +1712,9 @@
 
 .method public setSelectedRoute(Landroid/media/IMediaRouterClient;Ljava/lang/String;Z)V
     .locals 4
-    .parameter "client"
-    .parameter "routeId"
-    .parameter "explicit"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
+    .param p2, "routeId"    # Ljava/lang/String;
+    .param p3, "explicit"    # Z
 
     .prologue
     .line 204
@@ -1737,7 +1736,7 @@
     move-result-wide v0
 
     .line 210
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 
@@ -1799,7 +1798,7 @@
     move-result v3
 
     .line 287
-    .local v3, userId:I
+    .local v3, "userId":I
     iget v4, p0, Lcom/android/server/media/MediaRouterService;->mCurrentUserId:I
 
     if-eq v4, v3, :cond_1
@@ -1808,7 +1807,7 @@
     iget v2, p0, Lcom/android/server/media/MediaRouterService;->mCurrentUserId:I
 
     .line 289
-    .local v2, oldUserId:I
+    .local v2, "oldUserId":I
     iput v3, p0, Lcom/android/server/media/MediaRouterService;->mCurrentUserId:I
 
     .line 291
@@ -1821,7 +1820,7 @@
     check-cast v1, Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .line 292
-    .local v1, oldUser:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .local v1, "oldUser":Lcom/android/server/media/MediaRouterService$UserRecord;
     if-eqz v1, :cond_0
 
     .line 293
@@ -1845,7 +1844,7 @@
     check-cast v0, Lcom/android/server/media/MediaRouterService$UserRecord;
 
     .line 298
-    .local v0, newUser:Lcom/android/server/media/MediaRouterService$UserRecord;
+    .local v0, "newUser":Lcom/android/server/media/MediaRouterService$UserRecord;
     if-eqz v0, :cond_1
 
     .line 299
@@ -1856,9 +1855,9 @@
     invoke-virtual {v4, v6}, Lcom/android/server/media/MediaRouterService$UserHandler;->sendEmptyMessage(I)Z
 
     .line 302
-    .end local v0           #newUser:Lcom/android/server/media/MediaRouterService$UserRecord;
-    .end local v1           #oldUser:Lcom/android/server/media/MediaRouterService$UserRecord;
-    .end local v2           #oldUserId:I
+    .end local v0    # "newUser":Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v1    # "oldUser":Lcom/android/server/media/MediaRouterService$UserRecord;
+    .end local v2    # "oldUserId":I
     :cond_1
     monitor-exit v5
 
@@ -1866,7 +1865,7 @@
     return-void
 
     .line 302
-    .end local v3           #userId:I
+    .end local v3    # "userId":I
     :catchall_0
     move-exception v4
 
@@ -1889,7 +1888,7 @@
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     .line 99
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/server/media/MediaRouterService;->mContext:Landroid/content/Context;
 
     new-instance v2, Lcom/android/server/media/MediaRouterService$1;
@@ -1907,7 +1906,7 @@
 
 .method public unregisterClient(Landroid/media/IMediaRouterClient;)V
     .locals 4
-    .parameter "client"
+    .param p1, "client"    # Landroid/media/IMediaRouterClient;
 
     .prologue
     .line 147
@@ -1929,7 +1928,7 @@
     move-result-wide v0
 
     .line 153
-    .local v0, token:J
+    .local v0, "token":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/media/MediaRouterService;->mLock:Ljava/lang/Object;
 

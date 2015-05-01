@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/media/ImageReader;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 530
@@ -43,13 +42,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 537
     iget-object v1, p0, Landroid/media/ImageReader$ListenerHandler;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/ImageReader;->mListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/ImageReader;->access$300(Landroid/media/ImageReader;)Ljava/lang/Object;
 
     move-result-object v2
@@ -60,13 +59,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/media/ImageReader$ListenerHandler;->this$0:Landroid/media/ImageReader;
 
-    #getter for: Landroid/media/ImageReader;->mListener:Landroid/media/ImageReader$OnImageAvailableListener;
+    # getter for: Landroid/media/ImageReader;->mListener:Landroid/media/ImageReader$OnImageAvailableListener;
     invoke-static {v1}, Landroid/media/ImageReader;->access$400(Landroid/media/ImageReader;)Landroid/media/ImageReader$OnImageAvailableListener;
 
     move-result-object v0
 
     .line 539
-    .local v0, listener:Landroid/media/ImageReader$OnImageAvailableListener;
+    .local v0, "listener":Landroid/media/ImageReader$OnImageAvailableListener;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -84,7 +83,7 @@
     return-void
 
     .line 539
-    .end local v0           #listener:Landroid/media/ImageReader$OnImageAvailableListener;
+    .end local v0    # "listener":Landroid/media/ImageReader$OnImageAvailableListener;
     :catchall_0
     move-exception v1
 

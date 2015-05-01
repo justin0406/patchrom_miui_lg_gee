@@ -60,8 +60,8 @@
 # virtual methods
 .method public compare(Landroid/speech/tts/TextToSpeech$EngineInfo;Landroid/speech/tts/TextToSpeech$EngineInfo;)I
     .locals 2
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Landroid/speech/tts/TextToSpeech$EngineInfo;
+    .param p2, "rhs"    # Landroid/speech/tts/TextToSpeech$EngineInfo;
 
     .prologue
     .line 269
@@ -108,17 +108,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 257
     check-cast p1, Landroid/speech/tts/TextToSpeech$EngineInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/speech/tts/TextToSpeech$EngineInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/speech/tts/TtsEngines$EngineInfoComparator;->compare(Landroid/speech/tts/TextToSpeech$EngineInfo;Landroid/speech/tts/TextToSpeech$EngineInfo;)I
 
     move-result v0

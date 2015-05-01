@@ -64,10 +64,10 @@
 
 .method private constructor <init>(IFFF)V
     .locals 0
-    .parameter "type"
-    .parameter "min"
-    .parameter "max"
-    .parameter "current"
+    .param p1, "type"    # I
+    .param p2, "min"    # F
+    .param p3, "max"    # F
+    .param p4, "current"    # F
 
     .prologue
     .line 2595
@@ -115,10 +115,10 @@
 
 .method public static obtain(IFFF)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     .locals 2
-    .parameter "type"
-    .parameter "min"
-    .parameter "max"
-    .parameter "current"
+    .param p0, "type"    # I
+    .param p1, "min"    # F
+    .param p2, "max"    # F
+    .param p3, "current"    # F
 
     .prologue
     .line 2583
@@ -131,18 +131,18 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
     .line 2584
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     if-eqz v0, :cond_0
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     :goto_0
     return-object v0
 
-    .restart local v0       #info:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    .restart local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     invoke-direct {v0, p0, p1, p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;-><init>(IFFF)V
 
     goto :goto_0
@@ -150,7 +150,7 @@
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
     .locals 4
-    .parameter "other"
+    .param p0, "other"    # Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
     .prologue
     .line 2571

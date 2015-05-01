@@ -28,7 +28,7 @@
     invoke-direct {p0}, Landroid/graphics/Paint;-><init>()V
 
     .line 32
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/text/TextPaint;->density:F
 
@@ -43,14 +43,14 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 49
     invoke-direct {p0, p1}, Landroid/graphics/Paint;-><init>(I)V
 
     .line 32
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/text/TextPaint;->density:F
 
@@ -65,14 +65,14 @@
 
 .method public constructor <init>(Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/graphics/Paint;
 
     .prologue
     .line 53
     invoke-direct {p0, p1}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
 
     .line 32
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/text/TextPaint;->density:F
 
@@ -89,7 +89,7 @@
 # virtual methods
 .method public set(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 61
@@ -136,8 +136,8 @@
 
 .method public setUnderlineText(IF)V
     .locals 0
-    .parameter "color"
-    .parameter "thickness"
+    .param p1, "color"    # I
+    .param p2, "thickness"    # F
 
     .prologue
     .line 79

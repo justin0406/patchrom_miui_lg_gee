@@ -21,11 +21,10 @@
 # direct methods
 .method protected constructor <init>(Landroid/accounts/AccountManager$BaseFutureTask;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1609
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask$Response;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
     iput-object p1, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
     invoke-direct {p0}, Landroid/accounts/IAccountManagerResponse$Stub;-><init>()V
@@ -37,12 +36,12 @@
 # virtual methods
 .method public onError(ILjava/lang/String;)V
     .locals 2
-    .parameter "code"
-    .parameter "message"
+    .param p1, "code"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
     .prologue
     .line 1627
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask$Response;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_0
@@ -66,12 +65,12 @@
 
     iget-object v1, v1, Landroid/accounts/AccountManager$BaseFutureTask;->this$0:Landroid/accounts/AccountManager;
 
-    #calls: Landroid/accounts/AccountManager;->convertErrorToException(ILjava/lang/String;)Ljava/lang/Exception;
+    # invokes: Landroid/accounts/AccountManager;->convertErrorToException(ILjava/lang/String;)Ljava/lang/Exception;
     invoke-static {v1, p1, p2}, Landroid/accounts/AccountManager;->access$400(Landroid/accounts/AccountManager;ILjava/lang/String;)Ljava/lang/Exception;
 
     move-result-object v1
 
-    #calls: Landroid/accounts/AccountManager$BaseFutureTask;->setException(Ljava/lang/Throwable;)V
+    # invokes: Landroid/accounts/AccountManager$BaseFutureTask;->setException(Ljava/lang/Throwable;)V
     invoke-static {v0, v1}, Landroid/accounts/AccountManager$BaseFutureTask;->access$800(Landroid/accounts/AccountManager$BaseFutureTask;Ljava/lang/Throwable;)V
 
     goto :goto_0
@@ -79,11 +78,11 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 1612
-    .local p0, this:Landroid/accounts/AccountManager$BaseFutureTask$Response;,"Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
     :try_start_0
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
@@ -92,20 +91,20 @@
     move-result-object v0
 
     .line 1613
-    .local v0, result:Ljava/lang/Object;,"TT;"
+    .local v0, "result":Ljava/lang/Object;, "TT;"
     if-nez v0, :cond_0
 
     .line 1624
-    .end local v0           #result:Ljava/lang/Object;,"TT;"
+    .end local v0    # "result":Ljava/lang/Object;, "TT;"
     :goto_0
     return-void
 
     .line 1616
-    .restart local v0       #result:Ljava/lang/Object;,"TT;"
+    .restart local v0    # "result":Ljava/lang/Object;, "TT;"
     :cond_0
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
-    #calls: Landroid/accounts/AccountManager$BaseFutureTask;->set(Ljava/lang/Object;)V
+    # invokes: Landroid/accounts/AccountManager$BaseFutureTask;->set(Ljava/lang/Object;)V
     invoke-static {v1, v0}, Landroid/accounts/AccountManager$BaseFutureTask;->access$700(Landroid/accounts/AccountManager$BaseFutureTask;Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
@@ -114,7 +113,7 @@
     goto :goto_0
 
     .line 1618
-    .end local v0           #result:Ljava/lang/Object;,"TT;"
+    .end local v0    # "result":Ljava/lang/Object;, "TT;"
     :catch_0
     move-exception v1
 

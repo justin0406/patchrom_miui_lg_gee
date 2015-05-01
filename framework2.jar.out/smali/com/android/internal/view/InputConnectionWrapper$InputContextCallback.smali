@@ -82,7 +82,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
 
     .prologue
     .line 34
@@ -161,7 +161,7 @@
     sget-object v0, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->sInstance:Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
 
     .line 61
-    .local v0, callback:Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
+    .local v0, "callback":Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->sInstance:Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
@@ -187,13 +187,13 @@
     return-object v0
 
     .line 66
-    .end local v0           #callback:Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
+    .end local v0    # "callback":Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
     :cond_0
     new-instance v0, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
 
     invoke-direct {v0}, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;-><init>()V
 
-    .restart local v0       #callback:Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
+    .restart local v0    # "callback":Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;
     goto :goto_0
 
     .line 72
@@ -211,8 +211,8 @@
 # virtual methods
 .method public setCursorCapsMode(II)V
     .locals 3
-    .parameter "capsMode"
-    .parameter "seq"
+    .param p1, "capsMode"    # I
+    .param p2, "seq"    # I
 
     .prologue
     .line 131
@@ -299,8 +299,8 @@
 
 .method public setExtractedText(Landroid/view/inputmethod/ExtractedText;I)V
     .locals 3
-    .parameter "extractedText"
-    .parameter "seq"
+    .param p1, "extractedText"    # Landroid/view/inputmethod/ExtractedText;
+    .param p2, "seq"    # I
 
     .prologue
     .line 144
@@ -387,8 +387,8 @@
 
 .method public setSelectedText(Ljava/lang/CharSequence;I)V
     .locals 3
-    .parameter "selectedText"
-    .parameter "seq"
+    .param p1, "selectedText"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
 
     .prologue
     .line 118
@@ -475,8 +475,8 @@
 
 .method public setTextAfterCursor(Ljava/lang/CharSequence;I)V
     .locals 3
-    .parameter "textAfterCursor"
-    .parameter "seq"
+    .param p1, "textAfterCursor"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
 
     .prologue
     .line 105
@@ -563,8 +563,8 @@
 
 .method public setTextBeforeCursor(Ljava/lang/CharSequence;I)V
     .locals 3
-    .parameter "textBeforeCursor"
-    .parameter "seq"
+    .param p1, "textBeforeCursor"    # Ljava/lang/CharSequence;
+    .param p2, "seq"    # I
 
     .prologue
     .line 92
@@ -659,13 +659,13 @@
     move-result-wide v4
 
     .line 163
-    .local v4, startTime:J
+    .local v4, "startTime":J
     const-wide/16 v6, 0x7d0
 
     add-long v0, v4, v6
 
     .line 165
-    .local v0, endTime:J
+    .local v0, "endTime":J
     :goto_0
     iget-boolean v6, p0, Lcom/android/internal/view/InputConnectionWrapper$InputContextCallback;->mHaveValue:Z
 
@@ -679,7 +679,7 @@
     sub-long v2, v0, v6
 
     .line 167
-    .local v2, remainingTime:J
+    .local v2, "remainingTime":J
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
@@ -694,12 +694,12 @@
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 176
-    .end local v2           #remainingTime:J
+    .end local v2    # "remainingTime":J
     :cond_0
     return-void
 
     .line 172
-    .restart local v2       #remainingTime:J
+    .restart local v2    # "remainingTime":J
     :cond_1
     :try_start_0
     invoke-virtual {p0, v2, v3}, Ljava/lang/Object;->wait(J)V

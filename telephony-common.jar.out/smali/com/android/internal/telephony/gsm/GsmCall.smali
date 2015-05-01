@@ -18,7 +18,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/gsm/GsmCallTracker;)V
     .locals 0
-    .parameter "owner"
+    .param p1, "owner"    # Lcom/android/internal/telephony/gsm/GsmCallTracker;
 
     .prologue
     .line 54
@@ -33,7 +33,7 @@
 
 .method static stateFromDCState(Lcom/android/internal/telephony/DriverCall$State;)Lcom/android/internal/telephony/Call$State;
     .locals 3
-    .parameter "dcState"
+    .param p0, "dcState"    # Lcom/android/internal/telephony/DriverCall$State;
 
     .prologue
     .line 40
@@ -126,8 +126,8 @@
 # virtual methods
 .method attach(Lcom/android/internal/telephony/Connection;Lcom/android/internal/telephony/DriverCall;)V
     .locals 1
-    .parameter "conn"
-    .parameter "dc"
+    .param p1, "conn"    # Lcom/android/internal/telephony/Connection;
+    .param p2, "dc"    # Lcom/android/internal/telephony/DriverCall;
 
     .prologue
     .line 102
@@ -150,8 +150,8 @@
 
 .method attachFake(Lcom/android/internal/telephony/Connection;Lcom/android/internal/telephony/Call$State;)V
     .locals 1
-    .parameter "conn"
-    .parameter "state"
+    .param p1, "conn"    # Lcom/android/internal/telephony/Connection;
+    .param p2, "state"    # Lcom/android/internal/telephony/Call$State;
 
     .prologue
     .line 109
@@ -179,7 +179,7 @@
 
     add-int/lit8 v1, v2, -0x1
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_1
 
@@ -193,7 +193,7 @@
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmConnection;
 
     .line 203
-    .local v0, cn:Lcom/android/internal/telephony/gsm/GsmConnection;
+    .local v0, "cn":Lcom/android/internal/telephony/gsm/GsmConnection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v2
@@ -214,7 +214,7 @@
     goto :goto_0
 
     .line 208
-    .end local v0           #cn:Lcom/android/internal/telephony/gsm/GsmConnection;
+    .end local v0    # "cn":Lcom/android/internal/telephony/gsm/GsmConnection;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mConnections:Ljava/util/ArrayList;
 
@@ -236,7 +236,7 @@
 
 .method connectionDisconnected(Lcom/android/internal/telephony/gsm/GsmConnection;)Z
     .locals 5
-    .parameter "conn"
+    .param p1, "conn"    # Lcom/android/internal/telephony/gsm/GsmConnection;
 
     .prologue
     .line 119
@@ -250,17 +250,17 @@
     const/4 v0, 0x1
 
     .line 124
-    .local v0, hasOnlyDisconnectedConnections:Z
+    .local v0, "hasOnlyDisconnectedConnections":Z
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    .local v2, s:I
+    .local v2, "s":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -297,25 +297,25 @@
     const/4 v3, 0x1
 
     .line 139
-    .end local v0           #hasOnlyDisconnectedConnections:Z
-    .end local v1           #i:I
-    .end local v2           #s:I
+    .end local v0    # "hasOnlyDisconnectedConnections":Z
+    .end local v1    # "i":I
+    .end local v2    # "s":I
     :goto_1
     return v3
 
     .line 124
-    .restart local v0       #hasOnlyDisconnectedConnections:Z
-    .restart local v1       #i:I
-    .restart local v2       #s:I
+    .restart local v0    # "hasOnlyDisconnectedConnections":Z
+    .restart local v1    # "i":I
+    .restart local v2    # "s":I
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 139
-    .end local v0           #hasOnlyDisconnectedConnections:Z
-    .end local v1           #i:I
-    .end local v2           #s:I
+    .end local v0    # "hasOnlyDisconnectedConnections":Z
+    .end local v1    # "i":I
+    .end local v2    # "s":I
     :cond_2
     const/4 v3, 0x0
 
@@ -324,7 +324,7 @@
 
 .method detach(Lcom/android/internal/telephony/gsm/GsmConnection;)V
     .locals 1
-    .parameter "conn"
+    .param p1, "conn"    # Lcom/android/internal/telephony/gsm/GsmConnection;
 
     .prologue
     .line 144
@@ -465,7 +465,7 @@
     .line 185
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -473,7 +473,7 @@
     move-result v2
 
     .line 186
-    .local v2, s:I
+    .local v2, "s":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -487,7 +487,7 @@
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmConnection;
 
     .line 190
-    .local v0, cn:Lcom/android/internal/telephony/gsm/GsmConnection;
+    .local v0, "cn":Lcom/android/internal/telephony/gsm/GsmConnection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->onHangupLocal()V
 
     .line 186
@@ -496,7 +496,7 @@
     goto :goto_0
 
     .line 192
-    .end local v0           #cn:Lcom/android/internal/telephony/gsm/GsmConnection;
+    .end local v0    # "cn":Lcom/android/internal/telephony/gsm/GsmConnection;
     :cond_0
     sget-object v3, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
 
@@ -522,15 +522,15 @@
 
 .method update(Lcom/android/internal/telephony/gsm/GsmConnection;Lcom/android/internal/telephony/DriverCall;)Z
     .locals 3
-    .parameter "conn"
-    .parameter "dc"
+    .param p1, "conn"    # Lcom/android/internal/telephony/gsm/GsmConnection;
+    .param p2, "dc"    # Lcom/android/internal/telephony/DriverCall;
 
     .prologue
     .line 154
     const/4 v0, 0x0
 
     .line 156
-    .local v0, changed:Z
+    .local v0, "changed":Z
     iget-object v2, p2, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
 
     invoke-static {v2}, Lcom/android/internal/telephony/gsm/GsmCall;->stateFromDCState(Lcom/android/internal/telephony/DriverCall$State;)Lcom/android/internal/telephony/Call$State;
@@ -538,7 +538,7 @@
     move-result-object v1
 
     .line 158
-    .local v1, newState:Lcom/android/internal/telephony/Call$State;
+    .local v1, "newState":Lcom/android/internal/telephony/Call$State;
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mState:Lcom/android/internal/telephony/Call$State;
 
     if-eq v1, v2, :cond_0

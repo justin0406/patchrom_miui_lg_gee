@@ -44,7 +44,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -96,8 +96,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/ToneSettings$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Lcom/android/internal/telephony/cat/ToneSettings$1;
 
     .prologue
     .line 26
@@ -108,9 +108,9 @@
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/Duration;Lcom/android/internal/telephony/cat/Tone;Z)V
     .locals 0
-    .parameter "duration"
-    .parameter "tone"
-    .parameter "vibrate"
+    .param p1, "duration"    # Lcom/android/internal/telephony/cat/Duration;
+    .param p2, "tone"    # Lcom/android/internal/telephony/cat/Tone;
+    .param p3, "vibrate"    # Z
 
     .prologue
     .line 31
@@ -143,8 +143,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x0

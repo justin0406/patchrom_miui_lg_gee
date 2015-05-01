@@ -27,8 +27,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "tag"
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 495
@@ -45,9 +44,9 @@
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/widget/TabHost$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/widget/TabHost;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/widget/TabHost$1;
 
     .prologue
     .line 488
@@ -58,7 +57,7 @@
 
 .method static synthetic access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TabHost$TabSpec;
 
     .prologue
     .line 488
@@ -69,7 +68,7 @@
 
 .method static synthetic access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/TabHost$TabSpec;
 
     .prologue
     .line 488
@@ -92,7 +91,7 @@
 
 .method public setContent(I)Landroid/widget/TabHost$TabSpec;
     .locals 3
-    .parameter "viewId"
+    .param p1, "viewId"    # I
 
     .prologue
     .line 528
@@ -112,7 +111,7 @@
 
 .method public setContent(Landroid/content/Intent;)Landroid/widget/TabHost$TabSpec;
     .locals 4
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 545
@@ -134,7 +133,7 @@
 
 .method public setContent(Landroid/widget/TabHost$TabContentFactory;)Landroid/widget/TabHost$TabSpec;
     .locals 3
-    .parameter "contentFactory"
+    .param p1, "contentFactory"    # Landroid/widget/TabHost$TabContentFactory;
 
     .prologue
     .line 537
@@ -154,7 +153,7 @@
 
 .method public setIndicator(Landroid/view/View;)Landroid/widget/TabHost$TabSpec;
     .locals 3
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 519
@@ -174,7 +173,7 @@
 
 .method public setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
     .locals 3
-    .parameter "label"
+    .param p1, "label"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 503
@@ -194,8 +193,8 @@
 
 .method public setIndicator(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)Landroid/widget/TabHost$TabSpec;
     .locals 3
-    .parameter "label"
-    .parameter "icon"
+    .param p1, "label"    # Ljava/lang/CharSequence;
+    .param p2, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 511

@@ -21,14 +21,13 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaFocusControl;)V
     .locals 3
-    .parameter
 
     .prologue
     .line 141
     iput-object p1, p0, Landroid/media/MediaFocusControl$NotificationListenerObserver;->this$0:Landroid/media/MediaFocusControl;
 
     .line 142
-    #getter for: Landroid/media/MediaFocusControl;->mEventHandler:Landroid/media/MediaFocusControl$MediaEventHandler;
+    # getter for: Landroid/media/MediaFocusControl;->mEventHandler:Landroid/media/MediaFocusControl$MediaEventHandler;
     invoke-static {p1}, Landroid/media/MediaFocusControl;->access$200(Landroid/media/MediaFocusControl;)Landroid/media/MediaFocusControl$MediaEventHandler;
 
     move-result-object v0
@@ -36,7 +35,7 @@
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     .line 143
-    #getter for: Landroid/media/MediaFocusControl;->mContentResolver:Landroid/content/ContentResolver;
+    # getter for: Landroid/media/MediaFocusControl;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {p1}, Landroid/media/MediaFocusControl;->access$300(Landroid/media/MediaFocusControl;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -59,11 +58,12 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 149
+    # getter for: Landroid/media/MediaFocusControl;->ENABLED_NOTIFICATION_LISTENERS_URI:Landroid/net/Uri;
     invoke-static {}, Landroid/media/MediaFocusControl;->access$400()Landroid/net/Uri;
 
     move-result-object v0
@@ -85,7 +85,7 @@
     :cond_1
     iget-object v0, p0, Landroid/media/MediaFocusControl$NotificationListenerObserver;->this$0:Landroid/media/MediaFocusControl;
 
-    #calls: Landroid/media/MediaFocusControl;->postReevaluateRemoteControlDisplays()V
+    # invokes: Landroid/media/MediaFocusControl;->postReevaluateRemoteControlDisplays()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$500(Landroid/media/MediaFocusControl;)V
 
     goto :goto_0

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/AccessibilityManager;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "mainLooper"
+    .param p2, "mainLooper"    # Landroid/os/Looper;
 
     .prologue
     .line 141
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 147
@@ -82,7 +81,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    #calls: Landroid/view/accessibility/AccessibilityManager;->setState(I)V
+    # invokes: Landroid/view/accessibility/AccessibilityManager;->setState(I)V
     invoke-static {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->access$000(Landroid/view/accessibility/AccessibilityManager;I)V
 
     goto :goto_0

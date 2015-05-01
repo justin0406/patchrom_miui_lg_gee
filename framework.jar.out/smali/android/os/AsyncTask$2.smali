@@ -28,11 +28,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/AsyncTask;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 282
-    .local p0, this:Landroid/os/AsyncTask$2;,"Landroid/os/AsyncTask.2;"
+    .local p0, "this":Landroid/os/AsyncTask$2;, "Landroid/os/AsyncTask.2;"
     iput-object p1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     const/4 v0, 0x0
@@ -60,10 +59,10 @@
 
     .prologue
     .line 284
-    .local p0, this:Landroid/os/AsyncTask$2;,"Landroid/os/AsyncTask.2;"
+    .local p0, "this":Landroid/os/AsyncTask$2;, "Landroid/os/AsyncTask.2;"
     iget-object v0, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
-    #getter for: Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
+    # getter for: Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v0}, Landroid/os/AsyncTask;->access$300(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
@@ -88,7 +87,7 @@
 
     move-result-object v1
 
-    #calls: Landroid/os/AsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
+    # invokes: Landroid/os/AsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, v1}, Landroid/os/AsyncTask;->access$400(Landroid/os/AsyncTask;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

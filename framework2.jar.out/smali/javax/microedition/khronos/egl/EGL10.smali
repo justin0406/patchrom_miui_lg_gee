@@ -51,7 +51,7 @@
 
 .field public static final EGL_CORE_NATIVE_ENGINE:I = 0x305b
 
-.field public static final EGL_DEFAULT_DISPLAY:Ljava/lang/Object; = null
+.field public static final EGL_DEFAULT_DISPLAY:Ljava/lang/Object;
 
 .field public static final EGL_DEPTH_SIZE:I = 0x3025
 
@@ -93,11 +93,11 @@
 
 .field public static final EGL_NOT_INITIALIZED:I = 0x3001
 
-.field public static final EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext; = null
+.field public static final EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
 
-.field public static final EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay; = null
+.field public static final EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-.field public static final EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface; = null
+.field public static final EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
 .field public static final EGL_PBUFFER_BIT:I = 0x1
 

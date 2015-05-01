@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 70
@@ -61,7 +61,7 @@
 
 .method public onPrintJobStateChanged(Landroid/print/PrintJobId;)V
     .locals 5
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 85
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintJobStateChangeListener"
 

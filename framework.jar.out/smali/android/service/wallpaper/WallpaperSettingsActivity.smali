@@ -22,7 +22,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "icicle"
+    .param p1, "icicle"    # Landroid/os/Bundle;
 
     .prologue
     .line 47

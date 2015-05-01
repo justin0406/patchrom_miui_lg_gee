@@ -55,8 +55,8 @@
 
 .method public constructor <init>(II)V
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 45
@@ -113,7 +113,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 60
@@ -133,8 +133,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PageRange$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/print/PageRange$1;
 
     .prologue
     .line 26
@@ -157,7 +157,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -205,7 +205,7 @@
     check-cast v0, Landroid/print/PageRange;
 
     .line 113
-    .local v0, other:Landroid/print/PageRange;
+    .local v0, "other":Landroid/print/PageRange;
     iget v3, p0, Landroid/print/PageRange;->mEnd:I
 
     iget v4, v0, Landroid/print/PageRange;->mEnd:I
@@ -259,11 +259,11 @@
     const/16 v0, 0x1f
 
     .line 95
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 96
-    .local v1, result:I
+    .local v1, "result":I
     iget v2, p0, Landroid/print/PageRange;->mEnd:I
 
     add-int/lit8 v1, v2, 0x1f
@@ -308,7 +308,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 128
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "PageRange["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -347,8 +347,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 88

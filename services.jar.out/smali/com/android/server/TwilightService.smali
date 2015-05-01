@@ -58,7 +58,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 72
@@ -143,8 +143,8 @@
 
 .method static synthetic access$100(Landroid/location/Location;Landroid/location/Location;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Location;
+    .param p1, "x1"    # Landroid/location/Location;
 
     .prologue
     .line 50
@@ -157,7 +157,7 @@
 
 .method static synthetic access$200(Lcom/android/server/TwilightService;)Landroid/location/LocationListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -168,7 +168,7 @@
 
 .method static synthetic access$300(Lcom/android/server/TwilightService;)Landroid/location/LocationManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -179,7 +179,7 @@
 
 .method static synthetic access$400(Lcom/android/server/TwilightService;)Landroid/location/LocationListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -190,8 +190,8 @@
 
 .method static synthetic access$500(Lcom/android/server/TwilightService;Lcom/android/server/TwilightService$TwilightState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
+    .param p1, "x1"    # Lcom/android/server/TwilightService$TwilightState;
 
     .prologue
     .line 50
@@ -202,7 +202,7 @@
 
 .method static synthetic access$600(Lcom/android/server/TwilightService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -213,7 +213,7 @@
 
 .method static synthetic access$700(Lcom/android/server/TwilightService;)Landroid/app/AlarmManager;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -224,7 +224,7 @@
 
 .method static synthetic access$800(Lcom/android/server/TwilightService;)Lcom/android/server/TwilightService$LocationHandler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/TwilightService;
 
     .prologue
     .line 50
@@ -235,8 +235,8 @@
 
 .method private static hasMoved(Landroid/location/Location;Landroid/location/Location;)Z
     .locals 8
-    .parameter "from"
-    .parameter "to"
+    .param p0, "from"    # Landroid/location/Location;
+    .param p1, "to"    # Landroid/location/Location;
 
     .prologue
     const/4 v2, 0x1
@@ -280,7 +280,7 @@
     move-result v0
 
     .line 158
-    .local v0, distance:F
+    .local v0, "distance":F
     invoke-virtual {p0}, Landroid/location/Location;->getAccuracy()F
 
     move-result v4
@@ -292,7 +292,7 @@
     add-float v1, v4, v5
 
     .line 162
-    .local v1, totalAccuracy:F
+    .local v1, "totalAccuracy":F
     cmpl-float v4, v0, v1
 
     if-ltz v4, :cond_3
@@ -310,7 +310,7 @@
 
 .method private setTwilightState(Lcom/android/server/TwilightService$TwilightState;)V
     .locals 4
-    .parameter "state"
+    .param p1, "state"    # Lcom/android/server/TwilightService$TwilightState;
 
     .prologue
     .line 124
@@ -339,10 +339,10 @@
     move-result v0
 
     .line 132
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -363,8 +363,8 @@
     goto :goto_0
 
     .line 136
-    .end local v0           #count:I
-    .end local v1           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "i":I
     :cond_0
     monitor-exit v3
 
@@ -414,8 +414,8 @@
 
 .method public registerListener(Lcom/android/server/TwilightService$TwilightListener;Landroid/os/Handler;)V
     .locals 3
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Lcom/android/server/TwilightService$TwilightListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 114
@@ -494,7 +494,7 @@
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     .line 85
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_SET"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -538,7 +538,7 @@
     return-void
 
     .line 93
-    .end local v0           #filter:Landroid/content/IntentFilter;
+    .end local v0    # "filter":Landroid/content/IntentFilter;
     :catchall_0
     move-exception v1
 

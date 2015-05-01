@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/usb/UsbSettingsManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 361
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/usb/UsbSettingsManager;Lcom/android/server/usb/UsbSettingsManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/usb/UsbSettingsManager;
+    .param p2, "x1"    # Lcom/android/server/usb/UsbSettingsManager$1;
 
     .prologue
     .line 361
@@ -48,14 +47,14 @@
 # virtual methods
 .method public onPackageAdded(Ljava/lang/String;I)V
     .locals 1
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 364
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;->this$0:Lcom/android/server/usb/UsbSettingsManager;
 
-    #calls: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
     invoke-static {v0, p1}, Lcom/android/server/usb/UsbSettingsManager;->access$000(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
 
     .line 365
@@ -64,15 +63,15 @@
 
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
     .locals 1
-    .parameter "packageName"
-    .parameter "uid"
-    .parameter "components"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "components"    # [Ljava/lang/String;
 
     .prologue
     .line 369
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;->this$0:Lcom/android/server/usb/UsbSettingsManager;
 
-    #calls: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
     invoke-static {v0, p1}, Lcom/android/server/usb/UsbSettingsManager;->access$000(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
 
     .line 370
@@ -83,8 +82,8 @@
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 1
-    .parameter "packageName"
-    .parameter "uid"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
     .prologue
     .line 375

@@ -33,13 +33,13 @@
 # direct methods
 .method private constructor <init>(IIIIIII)V
     .locals 0
-    .parameter "codec"
-    .parameter "minBitRate"
-    .parameter "maxBitRate"
-    .parameter "minSampleRate"
-    .parameter "maxSampleRate"
-    .parameter "minChannels"
-    .parameter "maxChannels"
+    .param p1, "codec"    # I
+    .param p2, "minBitRate"    # I
+    .param p3, "maxBitRate"    # I
+    .param p4, "minSampleRate"    # I
+    .param p5, "maxSampleRate"    # I
+    .param p6, "minChannels"    # I
+    .param p7, "maxChannels"    # I
 
     .prologue
     .line 92

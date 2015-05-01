@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1883
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/policy/impl/PhoneWindow$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/policy/impl/PhoneWindow;
+    .param p2, "x1"    # Lcom/android/internal/policy/impl/PhoneWindow$1;
 
     .prologue
     .line 1883
@@ -51,8 +50,8 @@
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 1
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 1896
@@ -66,7 +65,7 @@
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 2
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 1886
@@ -77,7 +76,7 @@
     move-result-object v0
 
     .line 1887
-    .local v0, cb:Landroid/view/Window$Callback;
+    .local v0, "cb":Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
     .line 1888

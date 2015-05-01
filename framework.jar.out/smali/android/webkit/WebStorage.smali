@@ -51,7 +51,7 @@
 
 .method public deleteOrigin(Ljava/lang/String;)V
     .locals 0
-    .parameter "origin"
+    .param p1, "origin"    # Ljava/lang/String;
 
     .prologue
     .line 185
@@ -60,7 +60,6 @@
 
 .method public getOrigins(Landroid/webkit/ValueCallback;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,14 +72,13 @@
 
     .prologue
     .line 142
-    .local p1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Map;>;"
+    .local p1, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/util/Map;>;"
     return-void
 .end method
 
 .method public getQuotaForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
     .locals 0
-    .parameter "origin"
-    .parameter
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,14 +92,13 @@
 
     .prologue
     .line 164
-    .local p2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
+    .local p2, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public getUsageForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
     .locals 0
-    .parameter "origin"
-    .parameter
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,14 +112,14 @@
 
     .prologue
     .line 153
-    .local p2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
+    .local p2, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public setQuotaForOrigin(Ljava/lang/String;J)V
     .locals 0
-    .parameter "origin"
-    .parameter "quota"
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

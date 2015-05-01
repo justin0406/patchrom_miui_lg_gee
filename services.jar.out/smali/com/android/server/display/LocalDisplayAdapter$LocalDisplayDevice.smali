@@ -31,10 +31,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/LocalDisplayAdapter;Landroid/os/IBinder;ILandroid/view/SurfaceControl$PhysicalDisplayInfo;)V
     .locals 1
-    .parameter
-    .parameter "displayToken"
-    .parameter "builtInDisplayId"
-    .parameter "phys"
+    .param p2, "displayToken"    # Landroid/os/IBinder;
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "phys"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     .line 108
@@ -105,7 +104,7 @@
 
 .method public dumpLocked(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 188
@@ -264,7 +263,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040551
+    const v2, 0x1040552
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,11 +292,11 @@
 
     iget v1, v1, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->density:F
 
-    const/high16 v2, 0x4320
+    const/high16 v2, 0x43200000    # 160.0f
 
     mul-float/2addr v1, v2
 
-    const/high16 v2, 0x3f00
+    const/high16 v2, 0x3f000000    # 0.5f
 
     add-float/2addr v1, v2
 
@@ -363,7 +362,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040552
+    const v2, 0x1040553
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -436,7 +435,7 @@
 
 .method public updatePhysicalDisplayInfoLocked(Landroid/view/SurfaceControl$PhysicalDisplayInfo;)Z
     .locals 2
-    .parameter "phys"
+    .param p1, "phys"    # Landroid/view/SurfaceControl$PhysicalDisplayInfo;
 
     .prologue
     const/4 v0, 0x1

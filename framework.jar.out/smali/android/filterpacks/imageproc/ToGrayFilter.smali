@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 61
@@ -54,7 +54,7 @@
 # virtual methods
 .method protected getNativeProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 73
@@ -69,10 +69,10 @@
 
 .method protected getShaderProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 78
     const-string v2, "image"
@@ -86,7 +86,7 @@
     move-result v0
 
     .line 79
-    .local v0, inputChannels:I
+    .local v0, "inputChannels":I
     const/4 v2, 0x4
 
     if-eq v0, v2, :cond_0
@@ -131,7 +131,7 @@
     invoke-direct {v1, p1, v2}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 84
-    .local v1, program:Landroid/filterfw/core/ShaderProgram;
+    .local v1, "program":Landroid/filterfw/core/ShaderProgram;
     iget v2, p0, Landroid/filterpacks/imageproc/ToGrayFilter;->mTileSize:I
 
     invoke-virtual {v1, v2}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -144,7 +144,7 @@
     .line 86
     const/4 v2, 0x0
 
-    const/high16 v3, -0x4080
+    const/high16 v3, -0x40800000    # -1.0f
 
     invoke-virtual {v1, v2, v4, v4, v3}, Landroid/filterfw/core/ShaderProgram;->setSourceRect(FFFF)V
 

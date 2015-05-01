@@ -88,7 +88,7 @@
 
 .method private registerUiTestAutomationServiceLocked(Landroid/accessibilityservice/IAccessibilityServiceClient;)V
     .locals 5
-    .parameter "client"
+    .param p1, "client"    # Landroid/accessibilityservice/IAccessibilityServiceClient;
 
     .prologue
     .line 161
@@ -103,13 +103,13 @@
     move-result-object v1
 
     .line 163
-    .local v1, manager:Landroid/view/accessibility/IAccessibilityManager;
+    .local v1, "manager":Landroid/view/accessibility/IAccessibilityManager;
     new-instance v0, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     invoke-direct {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;-><init>()V
 
     .line 164
-    .local v0, info:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v0, "info":Landroid/accessibilityservice/AccessibilityServiceInfo;
     const/4 v3, -0x1
 
     iput v3, v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->eventTypes:I
@@ -150,7 +150,7 @@
     move-exception v2
 
     .line 178
-    .local v2, re:Landroid/os/RemoteException;
+    .local v2, "re":Landroid/os/RemoteException;
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Error while registering UiTestAutomationService."
@@ -247,7 +247,7 @@
     move-result v0
 
     .line 242
-    .local v0, callingUid:I
+    .local v0, "callingUid":I
     iget v1, p0, Landroid/app/UiAutomationConnection;->mOwningUid:I
 
     if-eq v0, v1, :cond_0
@@ -338,7 +338,7 @@
     move-result-object v0
 
     .line 188
-    .local v0, manager:Landroid/view/accessibility/IAccessibilityManager;
+    .local v0, "manager":Landroid/view/accessibility/IAccessibilityManager;
     :try_start_0
     iget-object v2, p0, Landroid/app/UiAutomationConnection;->mClient:Landroid/accessibilityservice/IAccessibilityServiceClient;
 
@@ -359,7 +359,7 @@
     move-exception v1
 
     .line 191
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Error while unregistering UiTestAutomationService"
@@ -373,7 +373,7 @@
 # virtual methods
 .method public connect(Landroid/accessibilityservice/IAccessibilityServiceClient;)V
     .locals 3
-    .parameter "client"
+    .param p1, "client"    # Landroid/accessibilityservice/IAccessibilityServiceClient;
 
     .prologue
     .line 63
@@ -514,8 +514,8 @@
 
 .method public injectInputEvent(Landroid/view/InputEvent;Z)Z
     .locals 5
-    .parameter "event"
-    .parameter "sync"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "sync"    # Z
 
     .prologue
     .line 93
@@ -544,14 +544,14 @@
     const/4 v2, 0x2
 
     .line 100
-    .local v2, mode:I
+    .local v2, "mode":I
     :goto_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
     .line 102
-    .local v0, identity:J
+    .local v0, "identity":J
     :try_start_1
     invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
 
@@ -569,8 +569,8 @@
     return v3
 
     .line 97
-    .end local v0           #identity:J
-    .end local v2           #mode:I
+    .end local v0    # "identity":J
+    .end local v2    # "mode":I
     :catchall_0
     move-exception v3
 
@@ -588,8 +588,8 @@
     goto :goto_0
 
     .line 104
-    .restart local v0       #identity:J
-    .restart local v2       #mode:I
+    .restart local v0    # "identity":J
+    .restart local v2    # "mode":I
     :catchall_1
     move-exception v3
 
@@ -600,7 +600,7 @@
 
 .method public setRotation(I)Z
     .locals 4
-    .parameter "rotation"
+    .param p1, "rotation"    # I
 
     .prologue
     .line 110
@@ -629,7 +629,7 @@
     move-result-wide v0
 
     .line 117
-    .local v0, identity:J
+    .local v0, "identity":J
     const/4 v2, -0x2
 
     if-ne p1, v2, :cond_0
@@ -640,8 +640,8 @@
 
     invoke-interface {v2}, Landroid/view/IWindowManager;->thawRotation()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 122
     :goto_0
@@ -655,7 +655,7 @@
     return v2
 
     .line 114
-    .end local v0           #identity:J
+    .end local v0    # "identity":J
     :catchall_0
     move-exception v2
 
@@ -667,15 +667,15 @@
     throw v2
 
     .line 120
-    .restart local v0       #identity:J
+    .restart local v0    # "identity":J
     :cond_0
     :try_start_3
     iget-object v2, p0, Landroid/app/UiAutomationConnection;->mWindowManager:Landroid/view/IWindowManager;
 
     invoke-interface {v2, p1}, Landroid/view/IWindowManager;->freezeRotation(I)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     goto :goto_0
 
@@ -759,8 +759,8 @@
 
 .method public takeScreenshot(II)Landroid/graphics/Bitmap;
     .locals 4
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 133
@@ -789,7 +789,7 @@
     move-result-wide v0
 
     .line 140
-    .local v0, identity:J
+    .local v0, "identity":J
     :try_start_1
     invoke-static {p1, p2}, Landroid/view/SurfaceControl;->screenshot(II)Landroid/graphics/Bitmap;
     :try_end_1
@@ -803,7 +803,7 @@
     return-object v2
 
     .line 137
-    .end local v0           #identity:J
+    .end local v0    # "identity":J
     :catchall_0
     move-exception v2
 
@@ -815,7 +815,7 @@
     throw v2
 
     .line 142
-    .restart local v0       #identity:J
+    .restart local v0    # "identity":J
     :catchall_1
     move-exception v2
 

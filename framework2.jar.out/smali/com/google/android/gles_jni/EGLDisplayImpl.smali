@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "dpy"
+    .param p1, "dpy"    # I
 
     .prologue
     .line 24
@@ -27,7 +27,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -68,7 +68,7 @@
     check-cast v0, Lcom/google/android/gles_jni/EGLDisplayImpl;
 
     .line 35
-    .local v0, that:Lcom/google/android/gles_jni/EGLDisplayImpl;
+    .local v0, "that":Lcom/google/android/gles_jni/EGLDisplayImpl;
     iget v3, p0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:I
 
     iget v4, v0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:I

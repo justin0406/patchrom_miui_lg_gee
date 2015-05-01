@@ -4,8 +4,8 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/Contacts$PhonesColumns;
 .implements Landroid/provider/Contacts$PeopleColumns;
+.implements Landroid/provider/Contacts$PhonesColumns;
 
 
 # annotations
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field public static final CONTENT_FILTER_URL:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URL:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -92,9 +92,9 @@
 
 .method public static final getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "context"
-    .parameter "type"
-    .parameter "label"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -111,10 +111,10 @@
 
 .method public static final getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 5
-    .parameter "context"
-    .parameter "type"
-    .parameter "label"
-    .parameter "labelArray"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
+    .param p3, "labelArray"    # [Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -123,7 +123,7 @@
     const-string v0, ""
 
     .line 964
-    .local v0, display:Ljava/lang/CharSequence;
+    .local v0, "display":Ljava/lang/CharSequence;
     if-eqz p1, :cond_2
 
     .line 965
@@ -132,7 +132,7 @@
     move-object v2, p3
 
     .line 969
-    .local v2, labels:[Ljava/lang/CharSequence;
+    .local v2, "labels":[Ljava/lang/CharSequence;
     :goto_0
     add-int/lit8 v3, p1, -0x1
 
@@ -142,7 +142,7 @@
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 978
-    .end local v2           #labels:[Ljava/lang/CharSequence;
+    .end local v2    # "labels":[Ljava/lang/CharSequence;
     :cond_0
     :goto_1
     return-object v0
@@ -162,12 +162,12 @@
     goto :goto_0
 
     .line 970
-    .restart local v2       #labels:[Ljava/lang/CharSequence;
+    .restart local v2    # "labels":[Ljava/lang/CharSequence;
     :catch_0
     move-exception v1
 
     .line 971
-    .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     const/4 v3, 0x0
 
     aget-object v0, v2, v3
@@ -175,8 +175,8 @@
     goto :goto_1
 
     .line 974
-    .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
-    .end local v2           #labels:[Ljava/lang/CharSequence;
+    .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v2    # "labels":[Ljava/lang/CharSequence;
     :cond_2
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 

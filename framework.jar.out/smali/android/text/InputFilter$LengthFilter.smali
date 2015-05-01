@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "max"
+    .param p1, "max"    # I
 
     .prologue
     .line 78
@@ -41,12 +41,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     .line 84
@@ -63,7 +63,7 @@
     sub-int v0, v1, v2
 
     .line 86
-    .local v0, keep:I
+    .local v0, "keep":I
     if-gtz v0, :cond_0
 
     .line 87

@@ -30,8 +30,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ActivityRecord;)V
     .locals 1
-    .parameter
-    .parameter "_activity"
+    .param p2, "_activity"    # Lcom/android/server/am/ActivityRecord;
 
     .prologue
     .line 403

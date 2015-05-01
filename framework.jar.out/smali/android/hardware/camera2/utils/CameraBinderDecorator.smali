@@ -48,7 +48,6 @@
 
 .method public static newInstance(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -59,7 +58,7 @@
 
     .prologue
     .line 153
-    .local p0, obj:Ljava/lang/Object;,"TT;"
+    .local p0, "obj":Ljava/lang/Object;, "TT;"
     new-instance v0, Landroid/hardware/camera2/utils/CameraBinderDecorator$CameraBinderDecoratorListener;
 
     const/4 v1, 0x0

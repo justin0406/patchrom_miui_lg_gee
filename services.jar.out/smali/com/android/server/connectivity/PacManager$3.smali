@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 318
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "component"
-    .parameter "binder"
+    .param p1, "component"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
     .prologue
     .line 325
@@ -49,7 +48,7 @@
     move-result-object v0
 
     .line 326
-    .local v0, callbackService:Lcom/android/net/IProxyCallback;
+    .local v0, "callbackService":Lcom/android/net/IProxyCallback;
     if-eqz v0, :cond_0
 
     .line 328
@@ -72,7 +71,7 @@
     move-exception v1
 
     .line 346
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
@@ -80,7 +79,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "component"
+    .param p1, "component"    # Landroid/content/ComponentName;
 
     .prologue
     .line 321

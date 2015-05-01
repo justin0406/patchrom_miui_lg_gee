@@ -21,7 +21,7 @@
 # direct methods
 .method constructor <init>(F)V
     .locals 1
-    .parameter "fraction"
+    .param p1, "fraction"    # F
 
     .prologue
     .line 287
@@ -41,8 +41,8 @@
 
 .method constructor <init>(FI)V
     .locals 1
-    .parameter "fraction"
-    .parameter "value"
+    .param p1, "fraction"    # F
+    .param p2, "value"    # I
 
     .prologue
     .line 280
@@ -90,7 +90,7 @@
     invoke-direct {v0, v1, v2}, Landroid/animation/Keyframe$IntKeyframe;-><init>(FI)V
 
     .line 312
-    .local v0, kfClone:Landroid/animation/Keyframe$IntKeyframe;
+    .local v0, "kfClone":Landroid/animation/Keyframe$IntKeyframe;
     :goto_0
     invoke-virtual {p0}, Landroid/animation/Keyframe$IntKeyframe;->getInterpolator()Landroid/animation/TimeInterpolator;
 
@@ -102,7 +102,7 @@
     return-object v0
 
     .line 309
-    .end local v0           #kfClone:Landroid/animation/Keyframe$IntKeyframe;
+    .end local v0    # "kfClone":Landroid/animation/Keyframe$IntKeyframe;
     :cond_0
     new-instance v0, Landroid/animation/Keyframe$IntKeyframe;
 
@@ -170,7 +170,7 @@
 
 .method public setValue(Ljava/lang/Object;)V
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 301
@@ -187,7 +187,7 @@
     .line 302
     check-cast p1, Ljava/lang/Integer;
 
-    .end local p1
+    .end local p1    # "value":Ljava/lang/Object;
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0

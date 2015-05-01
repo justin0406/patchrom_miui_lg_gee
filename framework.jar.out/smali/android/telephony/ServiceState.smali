@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -169,7 +169,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -352,7 +352,7 @@
 
 .method public constructor <init>(Landroid/telephony/ServiceState;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/ServiceState;
 
     .prologue
     const/4 v0, 0x1
@@ -375,8 +375,8 @@
 
 .method private static equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Ljava/lang/Object;
+    .param p1, "b"    # Ljava/lang/Object;
 
     .prologue
     .line 678
@@ -404,7 +404,7 @@
 
 .method public static isCdma(I)Z
     .locals 1
-    .parameter "radioTechnology"
+    .param p0, "radioTechnology"    # I
 
     .prologue
     .line 854
@@ -450,7 +450,7 @@
 
 .method public static isGsm(I)Z
     .locals 2
-    .parameter "radioTechnology"
+    .param p0, "radioTechnology"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -502,7 +502,7 @@
 
 .method public static newFromBundle(Landroid/os/Bundle;)Landroid/telephony/ServiceState;
     .locals 1
-    .parameter "m"
+    .param p0, "m"    # Landroid/os/Bundle;
 
     .prologue
     .line 199
@@ -511,7 +511,7 @@
     invoke-direct {v0}, Landroid/telephony/ServiceState;-><init>()V
 
     .line 200
-    .local v0, ret:Landroid/telephony/ServiceState;
+    .local v0, "ret":Landroid/telephony/ServiceState;
     invoke-direct {v0, p0}, Landroid/telephony/ServiceState;->setFromNotifierBundle(Landroid/os/Bundle;)V
 
     .line 201
@@ -520,7 +520,7 @@
 
 .method private rilRadioTechnologyToNetworkType(I)I
     .locals 1
-    .parameter "rt"
+    .param p1, "rt"    # I
 
     .prologue
     .line 770
@@ -639,7 +639,7 @@
 
 .method public static rilRadioTechnologyToString(I)Ljava/lang/String;
     .locals 4
-    .parameter "rt"
+    .param p0, "rt"    # I
 
     .prologue
     .line 484
@@ -649,7 +649,7 @@
     const-string v0, "Unexpected"
 
     .line 538
-    .local v0, rtString:Ljava/lang/String;
+    .local v0, "rtString":Ljava/lang/String;
     const-string v1, "PHONE"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -677,156 +677,156 @@
     return-object v0
 
     .line 486
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_0
     const-string v0, "Unknown"
 
     .line 487
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 489
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_1
     const-string v0, "GPRS"
 
     .line 490
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 492
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_2
     const-string v0, "EDGE"
 
     .line 493
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 495
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_3
     const-string v0, "UMTS"
 
     .line 496
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 498
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_4
     const-string v0, "CDMA-IS95A"
 
     .line 499
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 501
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_5
     const-string v0, "CDMA-IS95B"
 
     .line 502
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 504
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_6
     const-string v0, "1xRTT"
 
     .line 505
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 507
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_7
     const-string v0, "EvDo-rev.0"
 
     .line 508
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 510
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_8
     const-string v0, "EvDo-rev.A"
 
     .line 511
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 513
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_9
     const-string v0, "HSDPA"
 
     .line 514
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 516
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_a
     const-string v0, "HSUPA"
 
     .line 517
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 519
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_b
     const-string v0, "HSPA"
 
     .line 520
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 522
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_c
     const-string v0, "EvDo-rev.B"
 
     .line 523
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 525
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_d
     const-string v0, "eHRPD"
 
     .line 526
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 528
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_e
     const-string v0, "LTE"
 
     .line 529
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 531
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_f
     const-string v0, "HSPAP"
 
     .line 532
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 534
-    .end local v0           #rtString:Ljava/lang/String;
+    .end local v0    # "rtString":Ljava/lang/String;
     :pswitch_10
     const-string v0, "GSM"
 
     .line 535
-    .restart local v0       #rtString:Ljava/lang/String;
+    .restart local v0    # "rtString":Ljava/lang/String;
     goto :goto_0
 
     .line 484
@@ -856,7 +856,7 @@
 
 .method private setFromNotifierBundle(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Bundle;
 
     .prologue
     .line 688
@@ -1000,7 +1000,7 @@
 
 .method private setNullState(I)V
     .locals 6
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -1091,7 +1091,7 @@
 # virtual methods
 .method protected copyFrom(Landroid/telephony/ServiceState;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/ServiceState;
 
     .prologue
     .line 220
@@ -1195,7 +1195,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -1211,11 +1211,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 451
-    .local v2, s:Landroid/telephony/ServiceState;
+    .local v2, "s":Landroid/telephony/ServiceState;
     if-nez p1, :cond_1
 
     .line 455
-    .end local v2           #s:Landroid/telephony/ServiceState;
+    .end local v2    # "s":Landroid/telephony/ServiceState;
     :cond_0
     :goto_0
     return v3
@@ -1225,12 +1225,12 @@
     move-exception v1
 
     .line 448
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 455
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Landroid/telephony/ServiceState;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Landroid/telephony/ServiceState;
     :cond_1
     iget v4, p0, Landroid/telephony/ServiceState;->mVoiceRegState:I
 
@@ -1425,7 +1425,7 @@
 
 .method public fillInNotifierBundle(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Bundle;
 
     .prologue
     .line 712
@@ -1947,7 +1947,7 @@
 
 .method public setCdmaDefaultRoamingIndicator(I)V
     .locals 0
-    .parameter "roaming"
+    .param p1, "roaming"    # I
 
     .prologue
     .line 633
@@ -1959,7 +1959,7 @@
 
 .method public setCdmaEriIconIndex(I)V
     .locals 0
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 640
@@ -1971,7 +1971,7 @@
 
 .method public setCdmaEriIconMode(I)V
     .locals 0
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 647
@@ -1983,7 +1983,7 @@
 
 .method public setCdmaRoamingIndicator(I)V
     .locals 0
-    .parameter "roaming"
+    .param p1, "roaming"    # I
 
     .prologue
     .line 626
@@ -1995,7 +1995,7 @@
 
 .method public setCssIndicator(I)V
     .locals 1
-    .parameter "css"
+    .param p1, "css"    # I
 
     .prologue
     .line 742
@@ -2018,7 +2018,7 @@
 
 .method public setDataRegState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 606
@@ -2055,7 +2055,7 @@
 
 .method public setEmergencyOnly(Z)V
     .locals 0
-    .parameter "emergencyOnly"
+    .param p1, "emergencyOnly"    # Z
 
     .prologue
     .line 619
@@ -2067,7 +2067,7 @@
 
 .method public setIsManualSelection(Z)V
     .locals 0
-    .parameter "isManual"
+    .param p1, "isManual"    # Z
 
     .prologue
     .line 667
@@ -2079,7 +2079,7 @@
 
 .method public setOperatorAlphaLong(Ljava/lang/String;)V
     .locals 0
-    .parameter "longName"
+    .param p1, "longName"    # Ljava/lang/String;
 
     .prologue
     .line 663
@@ -2091,9 +2091,9 @@
 
 .method public setOperatorName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "longName"
-    .parameter "shortName"
-    .parameter "numeric"
+    .param p1, "longName"    # Ljava/lang/String;
+    .param p2, "shortName"    # Ljava/lang/String;
+    .param p3, "numeric"    # Ljava/lang/String;
 
     .prologue
     .line 651
@@ -2111,7 +2111,7 @@
 
 .method public setRilDataRadioTechnology(I)V
     .locals 3
-    .parameter "rt"
+    .param p1, "rt"    # I
 
     .prologue
     .line 736
@@ -2148,7 +2148,7 @@
 
 .method public setRilVoiceRadioTechnology(I)V
     .locals 0
-    .parameter "rt"
+    .param p1, "rt"    # I
 
     .prologue
     .line 731
@@ -2160,7 +2160,7 @@
 
 .method public setRoaming(Z)V
     .locals 0
-    .parameter "roaming"
+    .param p1, "roaming"    # Z
 
     .prologue
     .line 611
@@ -2172,7 +2172,7 @@
 
 .method public setState(I)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 594
@@ -2217,8 +2217,8 @@
 
 .method public setSystemAndNetworkId(II)V
     .locals 0
-    .parameter "systemId"
-    .parameter "networkId"
+    .param p1, "systemId"    # I
+    .param p2, "networkId"    # I
 
     .prologue
     .line 747
@@ -2233,7 +2233,7 @@
 
 .method public setVoiceRegState(I)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 600
@@ -2280,7 +2280,7 @@
     move-result-object v1
 
     .line 547
-    .local v1, radioTechnology:Ljava/lang/String;
+    .local v1, "radioTechnology":Ljava/lang/String;
     iget v2, p0, Landroid/telephony/ServiceState;->mRilDataRadioTechnology:I
 
     invoke-static {v2}, Landroid/telephony/ServiceState;->rilRadioTechnologyToString(I)Ljava/lang/String;
@@ -2288,7 +2288,7 @@
     move-result-object v0
 
     .line 549
-    .local v0, dataRadioTechnology:Ljava/lang/String;
+    .local v0, "dataRadioTechnology":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2502,8 +2502,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

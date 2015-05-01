@@ -32,11 +32,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/util/AsyncChannel;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "srcContext"
-    .parameter "srcHandler"
-    .parameter "dstPackageName"
-    .parameter "dstClassName"
+    .param p2, "srcContext"    # Landroid/content/Context;
+    .param p3, "srcHandler"    # Landroid/os/Handler;
+    .param p4, "dstPackageName"    # Ljava/lang/String;
+    .param p5, "dstClassName"    # Ljava/lang/String;
 
     .prologue
     .line 326
@@ -82,10 +81,10 @@
     move-result v0
 
     .line 337
-    .local v0, result:I
+    .local v0, "result":I
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel$1ConnectAsync;->this$0:Lcom/android/internal/util/AsyncChannel;
 
-    #calls: Lcom/android/internal/util/AsyncChannel;->replyHalfConnected(I)V
+    # invokes: Lcom/android/internal/util/AsyncChannel;->replyHalfConnected(I)V
     invoke-static {v1, v0}, Lcom/android/internal/util/AsyncChannel;->access$000(Lcom/android/internal/util/AsyncChannel;I)V
 
     .line 338

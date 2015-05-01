@@ -36,10 +36,10 @@
 
 .method private constructor <init>(IIII)V
     .locals 0
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
     .line 36
@@ -63,10 +63,10 @@
 
 .method public static of(IIII)Landroid/graphics/Insets;
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p0, "left"    # I
+    .param p1, "top"    # I
+    .param p2, "right"    # I
+    .param p3, "bottom"    # I
 
     .prologue
     .line 56
@@ -95,7 +95,7 @@
 
 .method public static of(Landroid/graphics/Rect;)Landroid/graphics/Insets;
     .locals 4
-    .parameter "r"
+    .param p0, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 70
@@ -126,7 +126,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -167,7 +167,7 @@
     check-cast v0, Landroid/graphics/Insets;
 
     .line 88
-    .local v0, insets:Landroid/graphics/Insets;
+    .local v0, "insets":Landroid/graphics/Insets;
     iget v3, p0, Landroid/graphics/Insets;->bottom:I
 
     iget v4, v0, Landroid/graphics/Insets;->bottom:I
@@ -223,7 +223,7 @@
     iget v0, p0, Landroid/graphics/Insets;->left:I
 
     .line 99
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/Insets;->top:I

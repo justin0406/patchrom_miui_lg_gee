@@ -45,7 +45,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/TouchExplorer;)V
     .locals 2
-    .parameter
 
     .prologue
     const/16 v1, 0x20
@@ -81,15 +80,15 @@
     const/4 v6, -0x1
 
     .line 1900
-    .local v6, primaryPointerId:I
+    .local v6, "primaryPointerId":I
     const-wide v2, 0x7fffffffffffffffL
 
     .line 1903
-    .local v2, minDownTime:J
+    .local v2, "minDownTime":J
     iget v5, p0, Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;->mReceivedPointersDown:I
 
     .line 1904
-    .local v5, pointerIdBits:I
+    .local v5, "pointerIdBits":I
     :cond_0
     :goto_0
     if-lez v5, :cond_1
@@ -100,7 +99,7 @@
     move-result v4
 
     .line 1906
-    .local v4, pointerId:I
+    .local v4, "pointerId":I
     const/4 v7, 0x1
 
     shl-int/2addr v7, v4
@@ -115,7 +114,7 @@
     aget-wide v0, v7, v4
 
     .line 1908
-    .local v0, downPointerTime:J
+    .local v0, "downPointerTime":J
     cmp-long v7, v0, v2
 
     if-gez v7, :cond_0
@@ -129,16 +128,16 @@
     goto :goto_0
 
     .line 1913
-    .end local v0           #downPointerTime:J
-    .end local v4           #pointerId:I
+    .end local v0    # "downPointerTime":J
+    .end local v4    # "pointerId":I
     :cond_1
     return v6
 .end method
 
 .method private handleReceivedPointerDown(ILandroid/view/MotionEvent;)V
     .locals 5
-    .parameter "pointerIndex"
-    .parameter "event"
+    .param p1, "pointerIndex"    # I
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v4, 0x0
@@ -149,13 +148,13 @@
     move-result v1
 
     .line 1855
-    .local v1, pointerId:I
+    .local v1, "pointerId":I
     const/4 v2, 0x1
 
     shl-int v0, v2, v1
 
     .line 1857
-    .local v0, pointerFlag:I
+    .local v0, "pointerFlag":I
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;->mLastReceivedUpPointerDownTime:J
@@ -216,8 +215,8 @@
 
 .method private handleReceivedPointerUp(ILandroid/view/MotionEvent;)V
     .locals 5
-    .parameter "pointerIndex"
-    .parameter "event"
+    .param p1, "pointerIndex"    # I
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v4, 0x0
@@ -228,13 +227,13 @@
     move-result v1
 
     .line 1879
-    .local v1, pointerId:I
+    .local v1, "pointerId":I
     const/4 v2, 0x1
 
     shl-int v0, v2, v1
 
     .line 1881
-    .local v0, pointerFlag:I
+    .local v0, "pointerFlag":I
     invoke-virtual {p0, v1}, Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownTime(I)J
 
     move-result-wide v2
@@ -433,7 +432,7 @@
 
 .method public getReceivedPointerDownTime(I)J
     .locals 2
-    .parameter "pointerId"
+    .param p1, "pointerId"    # I
 
     .prologue
     .line 1806
@@ -446,7 +445,7 @@
 
 .method public getReceivedPointerDownX(I)F
     .locals 1
-    .parameter "pointerId"
+    .param p1, "pointerId"    # I
 
     .prologue
     .line 1790
@@ -459,7 +458,7 @@
 
 .method public getReceivedPointerDownY(I)F
     .locals 1
-    .parameter "pointerId"
+    .param p1, "pointerId"    # I
 
     .prologue
     .line 1798
@@ -472,7 +471,7 @@
 
 .method public isReceivedPointerDown(I)Z
     .locals 3
-    .parameter "pointerId"
+    .param p1, "pointerId"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -481,7 +480,7 @@
     shl-int v0, v1, p1
 
     .line 1782
-    .local v0, pointerFlag:I
+    .local v0, "pointerFlag":I
     iget v2, p0, Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;->mReceivedPointersDown:I
 
     and-int/2addr v2, v0
@@ -499,7 +498,7 @@
 
 .method public onMotionEvent(Landroid/view/MotionEvent;)V
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 1735
@@ -526,7 +525,7 @@
     move-result v0
 
     .line 1741
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     .line 1758
@@ -599,7 +598,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1919
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v2, "========================="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -624,7 +623,7 @@
     .line 1923
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     const/16 v2, 0x20
 

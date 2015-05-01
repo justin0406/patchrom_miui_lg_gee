@@ -38,7 +38,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -54,11 +54,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 96
-    .local v2, s:Lcom/android/internal/telephony/RestrictedState;
+    .local v2, "s":Lcom/android/internal/telephony/RestrictedState;
     if-nez p1, :cond_1
 
     .line 100
-    .end local v2           #s:Lcom/android/internal/telephony/RestrictedState;
+    .end local v2    # "s":Lcom/android/internal/telephony/RestrictedState;
     :cond_0
     :goto_0
     return v3
@@ -68,12 +68,12 @@
     move-exception v1
 
     .line 93
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 100
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Lcom/android/internal/telephony/RestrictedState;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Lcom/android/internal/telephony/RestrictedState;
     :cond_1
     iget-boolean v4, p0, Lcom/android/internal/telephony/RestrictedState;->mPsRestricted:Z
 
@@ -154,7 +154,7 @@
 
 .method public setCsEmergencyRestricted(Z)V
     .locals 0
-    .parameter "csEmergencyRestricted"
+    .param p1, "csEmergencyRestricted"    # Z
 
     .prologue
     .line 44
@@ -166,7 +166,7 @@
 
 .method public setCsNormalRestricted(Z)V
     .locals 0
-    .parameter "csNormalRestricted"
+    .param p1, "csNormalRestricted"    # Z
 
     .prologue
     .line 58
@@ -178,7 +178,7 @@
 
 .method public setPsRestricted(Z)V
     .locals 0
-    .parameter "psRestricted"
+    .param p1, "psRestricted"    # Z
 
     .prologue
     .line 72
@@ -196,7 +196,7 @@
     const-string v0, "none"
 
     .line 109
-    .local v0, csString:Ljava/lang/String;
+    .local v0, "csString":Ljava/lang/String;
     iget-boolean v1, p0, Lcom/android/internal/telephony/RestrictedState;->mCsEmergencyRestricted:Z
 
     if-eqz v1, :cond_1

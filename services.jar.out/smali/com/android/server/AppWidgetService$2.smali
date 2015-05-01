@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AppWidgetService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 331
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 333
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 335
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -65,13 +64,13 @@
     move-result v4
 
     .line 337
-    .local v4, userId:I
+    .local v4, "userId":I
     if-ltz v4, :cond_1
 
     .line 338
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #calls: Lcom/android/server/AppWidgetService;->getImplForUser(I)Lcom/android/server/AppWidgetServiceImpl;
+    # invokes: Lcom/android/server/AppWidgetService;->getImplForUser(I)Lcom/android/server/AppWidgetServiceImpl;
     invoke-static {v5, v4}, Lcom/android/server/AppWidgetService;->access$000(Lcom/android/server/AppWidgetService;I)Lcom/android/server/AppWidgetServiceImpl;
 
     move-result-object v5
@@ -79,13 +78,13 @@
     invoke-virtual {v5}, Lcom/android/server/AppWidgetServiceImpl;->sendInitialBroadcasts()V
 
     .line 361
-    .end local v4           #userId:I
+    .end local v4    # "userId":I
     :cond_0
     :goto_0
     return-void
 
     .line 340
-    .restart local v4       #userId:I
+    .restart local v4    # "userId":I
     :cond_1
     const-string v5, "AppWidgetService"
 
@@ -112,7 +111,7 @@
     goto :goto_0
 
     .line 342
-    .end local v4           #userId:I
+    .end local v4    # "userId":I
     :cond_2
     const-string v5, "android.intent.action.CONFIGURATION_CHANGED"
 
@@ -125,11 +124,11 @@
     .line 343
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AppWidgetService;->access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -143,7 +142,7 @@
     .line 344
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AppWidgetService;->access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -155,7 +154,7 @@
     check-cast v3, Lcom/android/server/AppWidgetServiceImpl;
 
     .line 345
-    .local v3, service:Lcom/android/server/AppWidgetServiceImpl;
+    .local v3, "service":Lcom/android/server/AppWidgetServiceImpl;
     invoke-virtual {v3}, Lcom/android/server/AppWidgetServiceImpl;->onConfigurationChanged()V
 
     .line 343
@@ -164,15 +163,15 @@
     goto :goto_1
 
     .line 348
-    .end local v1           #i:I
-    .end local v3           #service:Lcom/android/server/AppWidgetServiceImpl;
+    .end local v1    # "i":I
+    .end local v3    # "service":Lcom/android/server/AppWidgetServiceImpl;
     :cond_3
     invoke-virtual {p0}, Lcom/android/server/AppWidgetService$2;->getSendingUserId()I
 
     move-result v2
 
     .line 349
-    .local v2, sendingUser:I
+    .local v2, "sendingUser":I
     const/4 v5, -0x1
 
     if-ne v2, v5, :cond_4
@@ -180,11 +179,11 @@
     .line 350
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_2
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AppWidgetService;->access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -198,7 +197,7 @@
     .line 351
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AppWidgetService;->access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -210,7 +209,7 @@
     check-cast v3, Lcom/android/server/AppWidgetServiceImpl;
 
     .line 352
-    .restart local v3       #service:Lcom/android/server/AppWidgetServiceImpl;
+    .restart local v3    # "service":Lcom/android/server/AppWidgetServiceImpl;
     invoke-virtual {v3, p2}, Lcom/android/server/AppWidgetServiceImpl;->onBroadcastReceived(Landroid/content/Intent;)V
 
     .line 350
@@ -219,12 +218,12 @@
     goto :goto_2
 
     .line 355
-    .end local v1           #i:I
-    .end local v3           #service:Lcom/android/server/AppWidgetServiceImpl;
+    .end local v1    # "i":I
+    .end local v3    # "service":Lcom/android/server/AppWidgetServiceImpl;
     :cond_4
     iget-object v5, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
 
-    #getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AppWidgetService;->access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -236,7 +235,7 @@
     check-cast v3, Lcom/android/server/AppWidgetServiceImpl;
 
     .line 356
-    .restart local v3       #service:Lcom/android/server/AppWidgetServiceImpl;
+    .restart local v3    # "service":Lcom/android/server/AppWidgetServiceImpl;
     if-eqz v3, :cond_0
 
     .line 357

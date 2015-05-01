@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 109
@@ -36,13 +35,13 @@
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
     .locals 1
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 117
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
-    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
+    # invokes: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 118
@@ -51,14 +50,14 @@
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 114
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
-    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
+    # invokes: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 115
@@ -67,13 +66,13 @@
 
 .method public interfaceRemoved(Ljava/lang/String;)V
     .locals 1
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 120
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
-    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
+    # invokes: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 121
@@ -82,14 +81,14 @@
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 111
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
-    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
+    # invokes: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 112

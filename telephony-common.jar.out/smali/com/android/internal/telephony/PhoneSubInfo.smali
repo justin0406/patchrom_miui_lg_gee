@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/Phone;)V
     .locals 1
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
     .line 44
@@ -48,7 +48,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 218
@@ -62,8 +62,8 @@
 
 .method private loge(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 1
-    .parameter "s"
-    .parameter "e"
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "e"    # Ljava/lang/Throwable;
 
     .prologue
     .line 222
@@ -87,9 +87,9 @@
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 227
@@ -233,7 +233,7 @@
     move-exception v0
 
     .line 57
-    .local v0, throwable:Ljava/lang/Throwable;
+    .local v0, "throwable":Ljava/lang/Throwable;
     const-string v1, "Error while finalizing:"
 
     invoke-direct {p0, v1, v0}, Lcom/android/internal/telephony/PhoneSubInfo;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -262,7 +262,7 @@
     move-result-object v0
 
     .line 156
-    .local v0, number:Ljava/lang/String;
+    .local v0, "number":Ljava/lang/String;
     return-object v0
 .end method
 
@@ -379,7 +379,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, isim:Lcom/android/internal/telephony/uicc/IsimRecords;
+    .local v0, "isim":Lcom/android/internal/telephony/uicc/IsimRecords;
     if-eqz v0, :cond_0
 
     .line 194
@@ -418,7 +418,7 @@
     move-result-object v0
 
     .line 177
-    .local v0, isim:Lcom/android/internal/telephony/uicc/IsimRecords;
+    .local v0, "isim":Lcom/android/internal/telephony/uicc/IsimRecords;
     if-eqz v0, :cond_0
 
     .line 178
@@ -457,7 +457,7 @@
     move-result-object v0
 
     .line 210
-    .local v0, isim:Lcom/android/internal/telephony/uicc/IsimRecords;
+    .local v0, "isim":Lcom/android/internal/telephony/uicc/IsimRecords;
     if-eqz v0, :cond_0
 
     .line 211
@@ -615,6 +615,6 @@
     move-result-object v0
 
     .line 142
-    .local v0, number:Ljava/lang/String;
+    .local v0, "number":Ljava/lang/String;
     return-object v0
 .end method

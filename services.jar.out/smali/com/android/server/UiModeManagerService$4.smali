@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/UiModeManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 146
@@ -44,7 +43,7 @@
     .line 149
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$4;->this$0:Lcom/android/server/UiModeManagerService;
 
-    #calls: Lcom/android/server/UiModeManagerService;->updateTwilight()V
+    # invokes: Lcom/android/server/UiModeManagerService;->updateTwilight()V
     invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$500(Lcom/android/server/UiModeManagerService;)V
 
     .line 150

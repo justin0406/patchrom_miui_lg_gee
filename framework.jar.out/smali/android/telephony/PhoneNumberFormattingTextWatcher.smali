@@ -36,7 +36,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "countryCode"
+    .param p1, "countryCode"    # Ljava/lang/String;
 
     .prologue
     .line 71
@@ -74,8 +74,8 @@
 
 .method private getFormattedNumber(CZ)Ljava/lang/String;
     .locals 1
-    .parameter "lastNonSeparator"
-    .parameter "hasCursor"
+    .param p1, "lastNonSeparator"    # C
+    .param p2, "hasCursor"    # Z
 
     .prologue
     .line 157
@@ -102,15 +102,15 @@
 
 .method private hasSeparator(Ljava/lang/CharSequence;II)Z
     .locals 3
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 167
     move v1, p2
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     add-int v2, p2, p3
 
@@ -122,7 +122,7 @@
     move-result v0
 
     .line 169
-    .local v0, c:C
+    .local v0, "c":C
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
     move-result v2
@@ -133,19 +133,19 @@
     const/4 v2, 0x1
 
     .line 173
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :goto_1
     return v2
 
     .line 167
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 173
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_1
     const/4 v2, 0x0
 
@@ -154,19 +154,19 @@
 
 .method private reformat(Ljava/lang/CharSequence;I)Ljava/lang/String;
     .locals 8
-    .parameter "s"
-    .parameter "cursor"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "cursor"    # I
 
     .prologue
     .line 131
     add-int/lit8 v1, p2, -0x1
 
     .line 132
-    .local v1, curIndex:I
+    .local v1, "curIndex":I
     const/4 v2, 0x0
 
     .line 133
-    .local v2, formatted:Ljava/lang/String;
+    .local v2, "formatted":Ljava/lang/String;
     iget-object v7, p0, Landroid/telephony/PhoneNumberFormattingTextWatcher;->mFormatter:Lcom/android/i18n/phonenumbers/AsYouTypeFormatter;
 
     invoke-virtual {v7}, Lcom/android/i18n/phonenumbers/AsYouTypeFormatter;->clear()V
@@ -175,20 +175,20 @@
     const/4 v5, 0x0
 
     .line 135
-    .local v5, lastNonSeparator:C
+    .local v5, "lastNonSeparator":C
     const/4 v3, 0x0
 
     .line 136
-    .local v3, hasCursor:Z
+    .local v3, "hasCursor":Z
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
     .line 137
-    .local v6, len:I
+    .local v6, "len":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v6, :cond_3
 
@@ -198,7 +198,7 @@
     move-result v0
 
     .line 139
-    .local v0, c:C
+    .local v0, "c":C
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
     move-result v7
@@ -234,7 +234,7 @@
     goto :goto_0
 
     .line 150
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_3
     if-eqz v5, :cond_4
 
@@ -270,7 +270,7 @@
 # virtual methods
 .method public declared-synchronized afterTextChanged(Landroid/text/Editable;)V
     .locals 7
-    .parameter "s"
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
     const/4 v0, 0x1
@@ -327,7 +327,7 @@
     move-result-object v3
 
     .line 111
-    .local v3, formatted:Ljava/lang/String;
+    .local v3, "formatted":Ljava/lang/String;
     if-eqz v3, :cond_0
 
     .line 112
@@ -338,7 +338,7 @@
     move-result v6
 
     .line 113
-    .local v6, rememberedPos:I
+    .local v6, "rememberedPos":I
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/telephony/PhoneNumberFormattingTextWatcher;->mSelfChange:Z
@@ -385,8 +385,8 @@
     goto :goto_1
 
     .line 101
-    .end local v3           #formatted:Ljava/lang/String;
-    .end local v6           #rememberedPos:I
+    .end local v3    # "formatted":Ljava/lang/String;
+    .end local v6    # "rememberedPos":I
     :catchall_0
     move-exception v0
 
@@ -397,10 +397,10 @@
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 79
@@ -435,10 +435,10 @@
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 90

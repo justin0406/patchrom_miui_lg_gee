@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 1
-    .parameter "connection"
+    .param p1, "connection"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .prologue
     .line 427
@@ -64,7 +64,7 @@
 
 .method public onStateChanged(Landroid/media/RemoteDisplayState;)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Landroid/media/RemoteDisplayState;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -82,7 +82,7 @@
     check-cast v0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .line 438
-    .local v0, connection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .local v0, "connection":Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
     if-eqz v0, :cond_0
 
     .line 439

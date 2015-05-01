@@ -30,8 +30,8 @@
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
     .locals 2
-    .parameter "inputChannel"
-    .parameter "looper"
+    .param p1, "inputChannel"    # Landroid/view/InputChannel;
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 60
@@ -124,8 +124,8 @@
 
 .method private dispatchInputEvent(ILandroid/view/InputEvent;)V
     .locals 2
-    .parameter "seq"
-    .parameter "event"
+    .param p1, "seq"    # I
+    .param p2, "event"    # Landroid/view/InputEvent;
 
     .prologue
     .line 184
@@ -146,7 +146,7 @@
 
 .method private dispose(Z)V
     .locals 2
-    .parameter "finalized"
+    .param p1, "finalized"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -225,7 +225,7 @@
 # virtual methods
 .method public final consumeBatchedInputEvents(J)Z
     .locals 2
-    .parameter "frameTimeNanos"
+    .param p1, "frameTimeNanos"    # J
 
     .prologue
     .line 172
@@ -304,8 +304,8 @@
 
 .method public final finishInputEvent(Landroid/view/InputEvent;Z)V
     .locals 4
-    .parameter "event"
-    .parameter "handled"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "handled"    # Z
 
     .prologue
     .line 140
@@ -353,7 +353,7 @@
     move-result v0
 
     .line 148
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_2
 
     .line 149
@@ -374,7 +374,7 @@
     move-result v1
 
     .line 152
-    .local v1, seq:I
+    .local v1, "seq":I
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->removeAt(I)V
@@ -402,7 +402,7 @@
 
 .method public onInputEvent(Landroid/view/InputEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
     .line 117

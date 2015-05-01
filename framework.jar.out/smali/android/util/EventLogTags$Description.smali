@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "tag"
-    .parameter "name"
+    .param p1, "tag"    # I
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 38

@@ -36,7 +36,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/AccessibilityInteractionController;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 700
@@ -56,8 +55,8 @@
 
 .method synthetic constructor <init>(Landroid/view/AccessibilityInteractionController;Landroid/view/AccessibilityInteractionController$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/AccessibilityInteractionController;
+    .param p2, "x1"    # Landroid/view/AccessibilityInteractionController$1;
 
     .prologue
     .line 700
@@ -68,8 +67,7 @@
 
 .method private prefetchDescendantsOfRealNode(Landroid/view/View;Ljava/util/List;)V
     .locals 13
-    .parameter "root"
-    .parameter
+    .param p1, "root"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +80,7 @@
     .end annotation
 
     .prologue
-    .local p2, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p2, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     const/16 v12, 0x32
 
     .line 793
@@ -102,11 +100,11 @@
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     .line 798
-    .local v1, addedChildren:Ljava/util/HashMap;,"Ljava/util/HashMap<Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local v1, "addedChildren":Ljava/util/HashMap;, "Ljava/util/HashMap<Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     iget-object v4, p0, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->mTempViewList:Ljava/util/ArrayList;
 
     .line 799
-    .local v4, children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local v4, "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
     .line 801
@@ -119,10 +117,10 @@
     move-result v3
 
     .line 803
-    .local v3, childCount:I
+    .local v3, "childCount":I
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_1
     if-ge v6, v3, :cond_5
 
@@ -150,10 +148,10 @@
     check-cast v2, Landroid/view/View;
 
     .line 808
-    .local v2, child:Landroid/view/View;
+    .local v2, "child":Landroid/view/View;
     iget-object v11, p0, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->this$0:Landroid/view/AccessibilityInteractionController;
 
-    #calls: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
+    # invokes: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
     invoke-static {v11, v2}, Landroid/view/AccessibilityInteractionController;->access$200(Landroid/view/AccessibilityInteractionController;Landroid/view/View;)Z
 
     move-result v11
@@ -166,7 +164,7 @@
     move-result-object v9
 
     .line 810
-    .local v9, provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .local v9, "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     if-nez v9, :cond_4
 
     .line 811
@@ -175,7 +173,7 @@
     move-result-object v8
 
     .line 812
-    .local v8, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v8, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v8, :cond_3
 
     .line 813
@@ -187,8 +185,8 @@
     invoke-virtual {v1, v2, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 803
-    .end local v8           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v9           #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .end local v8    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v9    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :cond_3
     :goto_2
     add-int/lit8 v6, v6, 0x1
@@ -196,7 +194,7 @@
     goto :goto_1
 
     .line 817
-    .restart local v9       #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .restart local v9    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :cond_4
     const/4 v11, -0x1
 
@@ -205,7 +203,7 @@
     move-result-object v8
 
     .line 819
-    .restart local v8       #info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v8    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v8, :cond_3
 
     .line 820
@@ -219,11 +217,11 @@
     goto :goto_2
 
     .line 827
-    .end local v2           #child:Landroid/view/View;
-    .end local v3           #childCount:I
-    .end local v6           #i:I
-    .end local v8           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v9           #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .end local v2    # "child":Landroid/view/View;
+    .end local v3    # "childCount":I
+    .end local v6    # "i":I
+    .end local v8    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v9    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :catchall_0
     move-exception v11
 
@@ -231,8 +229,8 @@
 
     throw v11
 
-    .restart local v3       #childCount:I
-    .restart local v6       #i:I
+    .restart local v3    # "childCount":I
+    .restart local v6    # "i":I
     :cond_5
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
@@ -252,7 +250,7 @@
 
     move-result-object v7
 
-    .local v7, i$:Ljava/util/Iterator;
+    .local v7, "i$":Ljava/util/Iterator;
     :goto_3
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -267,7 +265,7 @@
     check-cast v5, Ljava/util/Map$Entry;
 
     .line 831
-    .local v5, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local v5, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -275,7 +273,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 832
-    .local v0, addedChild:Landroid/view/View;
+    .local v0, "addedChild":Landroid/view/View;
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v10
@@ -283,7 +281,7 @@
     check-cast v10, Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 833
-    .local v10, virtualRoot:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v10, "virtualRoot":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-nez v10, :cond_6
 
     .line 834
@@ -298,7 +296,7 @@
     move-result-object v9
 
     .line 838
-    .restart local v9       #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .restart local v9    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     invoke-direct {p0, v10, v9, p2}, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->prefetchDescendantsOfVirtualNode(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/AccessibilityNodeProvider;Ljava/util/List;)V
 
     goto :goto_3
@@ -306,9 +304,8 @@
 
 .method private prefetchDescendantsOfVirtualNode(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/AccessibilityNodeProvider;Ljava/util/List;)V
     .locals 10
-    .parameter "root"
-    .parameter "provider"
-    .parameter
+    .param p1, "root"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .param p2, "provider"    # Landroid/view/accessibility/AccessibilityNodeProvider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -322,7 +319,7 @@
     .end annotation
 
     .prologue
-    .local p3, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p3, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     const/16 v9, 0x32
 
     .line 909
@@ -331,22 +328,22 @@
     move-result-object v5
 
     .line 910
-    .local v5, childNodeIds:Landroid/util/SparseLongArray;
+    .local v5, "childNodeIds":Landroid/util/SparseLongArray;
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v7
 
     .line 911
-    .local v7, initialOutInfosSize:I
+    .local v7, "initialOutInfosSize":I
     invoke-virtual {v5}, Landroid/util/SparseLongArray;->size()I
 
     move-result v2
 
     .line 912
-    .local v2, childCount:I
+    .local v2, "childCount":I
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     if-ge v6, v2, :cond_3
 
@@ -368,7 +365,7 @@
     move-result-wide v3
 
     .line 917
-    .local v3, childNodeId:J
+    .local v3, "childNodeId":J
     invoke-static {v3, v4}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
 
     move-result v8
@@ -378,7 +375,7 @@
     move-result-object v1
 
     .line 919
-    .local v1, child:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v1, "child":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v1, :cond_2
 
     .line 920
@@ -391,8 +388,8 @@
     goto :goto_0
 
     .line 923
-    .end local v1           #child:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v3           #childNodeId:J
+    .end local v1    # "child":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v3    # "childNodeId":J
     :cond_3
     invoke-interface {p3}, Ljava/util/List;->size()I
 
@@ -408,7 +405,7 @@
     sub-int v0, v8, v7
 
     .line 925
-    .local v0, addedChildCount:I
+    .local v0, "addedChildCount":I
     const/4 v6, 0x0
 
     :goto_1
@@ -424,7 +421,7 @@
     check-cast v1, Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 927
-    .restart local v1       #child:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v1    # "child":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {p0, v1, p2, p3}, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->prefetchDescendantsOfVirtualNode(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/AccessibilityNodeProvider;Ljava/util/List;)V
 
     .line 925
@@ -435,8 +432,7 @@
 
 .method private prefetchPredecessorsOfRealNode(Landroid/view/View;Ljava/util/List;)V
     .locals 5
-    .parameter "view"
-    .parameter
+    .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -450,13 +446,13 @@
 
     .prologue
     .line 742
-    .local p2, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p2, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-virtual {p1}, Landroid/view/View;->getParentForAccessibility()Landroid/view/ViewParent;
 
     move-result-object v1
 
     .line 744
-    .local v1, parent:Landroid/view/ViewParent;
+    .local v1, "parent":Landroid/view/ViewParent;
     :goto_0
     instance-of v3, v1, Landroid/view/View;
 
@@ -476,13 +472,13 @@
     check-cast v2, Landroid/view/View;
 
     .line 746
-    .local v2, parentView:Landroid/view/View;
+    .local v2, "parentView":Landroid/view/View;
     invoke-virtual {v2}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v0
 
     .line 747
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v0, :cond_0
 
     .line 748
@@ -498,18 +494,17 @@
     goto :goto_0
 
     .line 752
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v2           #parentView:Landroid/view/View;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v2    # "parentView":Landroid/view/View;
     :cond_1
     return-void
 .end method
 
 .method private prefetchPredecessorsOfVirtualNode(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeProvider;Ljava/util/List;)V
     .locals 8
-    .parameter "root"
-    .parameter "providerHost"
-    .parameter "provider"
-    .parameter
+    .param p1, "root"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .param p2, "providerHost"    # Landroid/view/View;
+    .param p3, "provider"    # Landroid/view/accessibility/AccessibilityNodeProvider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -524,7 +519,7 @@
     .end annotation
 
     .prologue
-    .local p4, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p4, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     const/4 v7, -0x1
 
     .line 847
@@ -533,13 +528,13 @@
     move-result-wide v2
 
     .line 848
-    .local v2, parentNodeId:J
+    .local v2, "parentNodeId":J
     invoke-static {v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
     move-result v0
 
     .line 849
-    .local v0, accessibilityViewId:I
+    .local v0, "accessibilityViewId":I
     :goto_0
     if-eq v0, v7, :cond_0
 
@@ -564,7 +559,7 @@
     move-result v4
 
     .line 855
-    .local v4, virtualDescendantId:I
+    .local v4, "virtualDescendantId":I
     if-ne v4, v7, :cond_2
 
     invoke-virtual {p2}, Landroid/view/View;->getAccessibilityViewId()I
@@ -580,7 +575,7 @@
     move-result-object v1
 
     .line 859
-    .local v1, parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v1, "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v1, :cond_3
 
     .line 860
@@ -601,7 +596,7 @@
     goto :goto_0
 
     .line 866
-    .end local v1           #parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v1    # "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_4
     invoke-direct {p0, p2, p4}, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->prefetchPredecessorsOfRealNode(Landroid/view/View;Ljava/util/List;)V
 
@@ -610,8 +605,7 @@
 
 .method private prefetchSiblingsOfRealNode(Landroid/view/View;Ljava/util/List;)V
     .locals 10
-    .parameter "current"
-    .parameter
+    .param p1, "current"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -625,13 +619,13 @@
 
     .prologue
     .line 756
-    .local p2, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p2, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-virtual {p1}, Landroid/view/View;->getParentForAccessibility()Landroid/view/ViewParent;
 
     move-result-object v5
 
     .line 757
-    .local v5, parent:Landroid/view/ViewParent;
+    .local v5, "parent":Landroid/view/ViewParent;
     instance-of v8, v5, Landroid/view/ViewGroup;
 
     if-eqz v8, :cond_0
@@ -642,11 +636,11 @@
     check-cast v6, Landroid/view/ViewGroup;
 
     .line 759
-    .local v6, parentGroup:Landroid/view/ViewGroup;
+    .local v6, "parentGroup":Landroid/view/ViewGroup;
     iget-object v2, p0, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->mTempViewList:Ljava/util/ArrayList;
 
     .line 760
-    .local v2, children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local v2, "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 762
@@ -659,10 +653,10 @@
     move-result v1
 
     .line 764
-    .local v1, childCount:I
+    .local v1, "childCount":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v1, :cond_4
 
@@ -681,19 +675,19 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 789
-    .end local v1           #childCount:I
-    .end local v2           #children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
-    .end local v3           #i:I
-    .end local v6           #parentGroup:Landroid/view/ViewGroup;
+    .end local v1    # "childCount":I
+    .end local v2    # "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
+    .end local v3    # "i":I
+    .end local v6    # "parentGroup":Landroid/view/ViewGroup;
     :cond_0
     :goto_1
     return-void
 
     .line 768
-    .restart local v1       #childCount:I
-    .restart local v2       #children:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
-    .restart local v3       #i:I
-    .restart local v6       #parentGroup:Landroid/view/ViewGroup;
+    .restart local v1    # "childCount":I
+    .restart local v2    # "children":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
+    .restart local v3    # "i":I
+    .restart local v6    # "parentGroup":Landroid/view/ViewGroup;
     :cond_1
     :try_start_1
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -703,7 +697,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 769
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getAccessibilityViewId()I
 
     move-result v8
@@ -716,7 +710,7 @@
 
     iget-object v8, p0, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->this$0:Landroid/view/AccessibilityInteractionController;
 
-    #calls: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
+    # invokes: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
     invoke-static {v8, v0}, Landroid/view/AccessibilityInteractionController;->access$200(Landroid/view/AccessibilityInteractionController;Landroid/view/View;)Z
 
     move-result v8
@@ -727,13 +721,13 @@
     const/4 v4, 0x0
 
     .line 772
-    .local v4, info:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v4, "info":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-virtual {v0}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v7
 
     .line 774
-    .local v7, provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .local v7, "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     if-nez v7, :cond_3
 
     .line 775
@@ -749,16 +743,16 @@
     invoke-interface {p2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 764
-    .end local v4           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v7           #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .end local v4    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v7    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 777
-    .restart local v4       #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .restart local v7       #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .restart local v4    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v7    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :cond_3
     const/4 v8, -0x1
 
@@ -771,16 +765,16 @@
     goto :goto_2
 
     .line 786
-    .end local v0           #child:Landroid/view/View;
-    .end local v4           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v7           #provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .end local v0    # "child":Landroid/view/View;
+    .end local v4    # "info":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v7    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     :cond_4
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     goto :goto_1
 
-    .end local v1           #childCount:I
-    .end local v3           #i:I
+    .end local v1    # "childCount":I
+    .end local v3    # "i":I
     :catchall_0
     move-exception v8
 
@@ -791,10 +785,9 @@
 
 .method private prefetchSiblingsOfVirtualNode(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeProvider;Ljava/util/List;)V
     .locals 17
-    .parameter "current"
-    .parameter "providerHost"
-    .parameter "provider"
-    .parameter
+    .param p1, "current"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .param p2, "providerHost"    # Landroid/view/View;
+    .param p3, "provider"    # Landroid/view/accessibility/AccessibilityNodeProvider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -810,25 +803,25 @@
 
     .prologue
     .line 874
-    .local p4, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p4, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getParentNodeId()J
 
     move-result-wide v12
 
     .line 875
-    .local v12, parentNodeId:J
+    .local v12, "parentNodeId":J
     invoke-static {v12, v13}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
     move-result v11
 
     .line 877
-    .local v11, parentAccessibilityViewId:I
+    .local v11, "parentAccessibilityViewId":I
     invoke-static {v12, v13}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
 
     move-result v14
 
     .line 879
-    .local v14, parentVirtualDescendantId:I
+    .local v14, "parentVirtualDescendantId":I
     const/4 v15, -0x1
 
     if-ne v14, v15, :cond_0
@@ -848,7 +841,7 @@
     move-result-object v10
 
     .line 883
-    .local v10, parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v10, "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v10, :cond_1
 
     .line 884
@@ -857,16 +850,16 @@
     move-result-object v7
 
     .line 885
-    .local v7, childNodeIds:Landroid/util/SparseLongArray;
+    .local v7, "childNodeIds":Landroid/util/SparseLongArray;
     invoke-virtual {v7}, Landroid/util/SparseLongArray;->size()I
 
     move-result v4
 
     .line 886
-    .local v4, childCount:I
+    .local v4, "childCount":I
     const/4 v9, 0x0
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_0
     if-ge v9, v4, :cond_1
 
@@ -882,26 +875,26 @@
     if-lt v15, v0, :cond_2
 
     .line 905
-    .end local v4           #childCount:I
-    .end local v7           #childNodeIds:Landroid/util/SparseLongArray;
-    .end local v9           #i:I
-    .end local v10           #parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v4    # "childCount":I
+    .end local v7    # "childNodeIds":Landroid/util/SparseLongArray;
+    .end local v9    # "i":I
+    .end local v10    # "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_1
     :goto_1
     return-void
 
     .line 890
-    .restart local v4       #childCount:I
-    .restart local v7       #childNodeIds:Landroid/util/SparseLongArray;
-    .restart local v9       #i:I
-    .restart local v10       #parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v4    # "childCount":I
+    .restart local v7    # "childNodeIds":Landroid/util/SparseLongArray;
+    .restart local v9    # "i":I
+    .restart local v10    # "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_2
     invoke-virtual {v7, v9}, Landroid/util/SparseLongArray;->get(I)J
 
     move-result-wide v5
 
     .line 891
-    .local v5, childNodeId:J
+    .local v5, "childNodeId":J
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J
 
     move-result-wide v15
@@ -916,7 +909,7 @@
     move-result v8
 
     .line 894
-    .local v8, childVirtualDescendantId:I
+    .local v8, "childVirtualDescendantId":I
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v8}, Landroid/view/accessibility/AccessibilityNodeProvider;->createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -924,7 +917,7 @@
     move-result-object v3
 
     .line 896
-    .local v3, child:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v3, "child":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v3, :cond_3
 
     .line 897
@@ -933,19 +926,19 @@
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 886
-    .end local v3           #child:Landroid/view/accessibility/AccessibilityNodeInfo;
-    .end local v8           #childVirtualDescendantId:I
+    .end local v3    # "child":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v8    # "childVirtualDescendantId":I
     :cond_3
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
     .line 903
-    .end local v4           #childCount:I
-    .end local v5           #childNodeId:J
-    .end local v7           #childNodeIds:Landroid/util/SparseLongArray;
-    .end local v9           #i:I
-    .end local v10           #parent:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v4    # "childCount":I
+    .end local v5    # "childNodeId":J
+    .end local v7    # "childNodeIds":Landroid/util/SparseLongArray;
+    .end local v9    # "i":I
+    .end local v10    # "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_4
     move-object/from16 v0, p0
 
@@ -962,10 +955,9 @@
 # virtual methods
 .method public prefetchAccessibilityNodeInfos(Landroid/view/View;IILjava/util/List;)V
     .locals 3
-    .parameter "view"
-    .parameter "virtualViewId"
-    .parameter "fetchFlags"
-    .parameter
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "virtualViewId"    # I
+    .param p3, "fetchFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -980,13 +972,13 @@
 
     .prologue
     .line 708
-    .local p4, outInfos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p4, "outInfos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v0
 
     .line 709
-    .local v0, provider:Landroid/view/accessibility/AccessibilityNodeProvider;
+    .local v0, "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     if-nez v0, :cond_3
 
     .line 710
@@ -995,7 +987,7 @@
     move-result-object v1
 
     .line 711
-    .local v1, root:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .local v1, "root":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v1, :cond_2
 
     .line 712
@@ -1033,14 +1025,14 @@
     return-void
 
     .line 724
-    .end local v1           #root:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v1    # "root":Landroid/view/accessibility/AccessibilityNodeInfo;
     :cond_3
     invoke-virtual {v0, p2}, Landroid/view/accessibility/AccessibilityNodeProvider;->createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v1
 
     .line 725
-    .restart local v1       #root:Landroid/view/accessibility/AccessibilityNodeInfo;
+    .restart local v1    # "root":Landroid/view/accessibility/AccessibilityNodeInfo;
     if-eqz v1, :cond_2
 
     .line 726

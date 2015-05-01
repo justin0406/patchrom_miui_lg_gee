@@ -64,8 +64,8 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 139
@@ -82,9 +82,9 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 150
@@ -127,8 +127,8 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 232
@@ -145,9 +145,9 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 243
@@ -190,7 +190,7 @@
 
 .method public static getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
     .locals 5
-    .parameter "tr"
+    .param p0, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 318
@@ -208,7 +208,7 @@
     move-object v2, p0
 
     .line 325
-    .local v2, t:Ljava/lang/Throwable;
+    .local v2, "t":Ljava/lang/Throwable;
     :goto_1
     if-eqz v2, :cond_2
 
@@ -237,7 +237,7 @@
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
     .line 333
-    .local v1, sw:Ljava/io/StringWriter;
+    .local v1, "sw":Ljava/io/StringWriter;
     new-instance v0, Lcom/android/internal/util/FastPrintWriter;
 
     const/4 v3, 0x0
@@ -247,7 +247,7 @@
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
     .line 334
-    .local v0, pw:Ljava/io/PrintWriter;
+    .local v0, "pw":Ljava/io/PrintWriter;
     invoke-virtual {p0, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
     .line 335
@@ -263,8 +263,8 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 160
@@ -281,9 +281,9 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 171
@@ -329,9 +329,9 @@
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .parameter "priority"
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "priority"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 348
@@ -349,7 +349,7 @@
 
 .method public static setWtfHandler(Landroid/util/Log$TerribleFailureHandler;)Landroid/util/Log$TerribleFailureHandler;
     .locals 3
-    .parameter "handler"
+    .param p0, "handler"    # Landroid/util/Log$TerribleFailureHandler;
 
     .prologue
     .line 305
@@ -369,7 +369,7 @@
     sget-object v0, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
     .line 309
-    .local v0, oldHandler:Landroid/util/Log$TerribleFailureHandler;
+    .local v0, "oldHandler":Landroid/util/Log$TerribleFailureHandler;
     sput-object p0, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
     .line 310
@@ -378,8 +378,8 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 118
@@ -396,9 +396,9 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 129
@@ -441,8 +441,8 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 181
@@ -459,9 +459,9 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 192
@@ -504,8 +504,8 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 3
-    .parameter "tag"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     .line 222
@@ -526,11 +526,11 @@
 
 .method static wtf(ILjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Z)I
     .locals 5
-    .parameter "logId"
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
-    .parameter "localStack"
+    .param p0, "logId"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
+    .param p3, "tr"    # Ljava/lang/Throwable;
+    .param p4, "localStack"    # Z
 
     .prologue
     .line 290
@@ -539,7 +539,7 @@
     invoke-direct {v1, p2, p3}, Landroid/util/Log$TerribleFailure;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 291
-    .local v1, what:Landroid/util/Log$TerribleFailure;
+    .local v1, "what":Landroid/util/Log$TerribleFailure;
     const/4 v2, 0x7
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -560,7 +560,7 @@
 
     move-object p3, v1
 
-    .end local p3
+    .end local p3    # "tr":Ljava/lang/Throwable;
     :cond_0
     invoke-static {p3}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
@@ -579,7 +579,7 @@
     move-result v0
 
     .line 293
-    .local v0, bytes:I
+    .local v0, "bytes":I
     sget-object v2, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
     invoke-interface {v2, p1, v1}, Landroid/util/Log$TerribleFailureHandler;->onTerribleFailure(Ljava/lang/String;Landroid/util/Log$TerribleFailure;)V
@@ -590,8 +590,8 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -608,9 +608,9 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
-    .parameter "tag"
-    .parameter "msg"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     const/4 v0, 0x0
@@ -625,8 +625,8 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 2
-    .parameter "tag"
-    .parameter "tr"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
     .prologue
     const/4 v1, 0x0
@@ -645,8 +645,8 @@
 
 .method public static wtfStack(Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
-    .parameter "tag"
-    .parameter "msg"
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 265

@@ -52,8 +52,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 32
@@ -71,7 +71,7 @@
 
 .method public constructor <init>(Landroid/graphics/Point;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Point;
 
     .prologue
     .line 37
@@ -105,8 +105,8 @@
 
 .method public final equals(II)Z
     .locals 1
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 70
@@ -131,7 +131,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -172,7 +172,7 @@
     check-cast v0, Landroid/graphics/Point;
 
     .line 80
-    .local v0, point:Landroid/graphics/Point;
+    .local v0, "point":Landroid/graphics/Point;
     iget v3, p0, Landroid/graphics/Point;->x:I
 
     iget v4, v0, Landroid/graphics/Point;->x:I
@@ -204,7 +204,7 @@
     iget v0, p0, Landroid/graphics/Point;->x:I
 
     .line 89
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/Point;->y:I
@@ -239,8 +239,8 @@
 
 .method public final offset(II)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # I
+    .param p2, "dy"    # I
 
     .prologue
     .line 62
@@ -263,7 +263,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 142
@@ -286,8 +286,8 @@
 
 .method public set(II)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 46
@@ -348,8 +348,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 113

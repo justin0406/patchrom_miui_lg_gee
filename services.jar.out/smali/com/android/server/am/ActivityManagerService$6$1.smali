@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$6;Landroid/app/Dialog;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 4129

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 733
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 738
@@ -45,13 +44,13 @@
 
     const/4 v1, 0x3
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->performPoll(I)V
+    # invokes: Lcom/android/server/net/NetworkStatsService;->performPoll(I)V
     invoke-static {v0, v1}, Lcom/android/server/net/NetworkStatsService;->access$700(Lcom/android/server/net/NetworkStatsService;I)V
 
     .line 741
     iget-object v0, p0, Lcom/android/server/net/NetworkStatsService$4;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->registerGlobalAlert()V
+    # invokes: Lcom/android/server/net/NetworkStatsService;->registerGlobalAlert()V
     invoke-static {v0}, Lcom/android/server/net/NetworkStatsService;->access$800(Lcom/android/server/net/NetworkStatsService;)V
 
     .line 742

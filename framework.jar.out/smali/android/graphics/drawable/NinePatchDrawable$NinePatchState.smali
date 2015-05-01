@@ -33,8 +33,8 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;)V
     .locals 6
-    .parameter "ninePatch"
-    .parameter "padding"
+    .param p1, "ninePatch"    # Landroid/graphics/NinePatch;
+    .param p2, "padding"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v4, 0x0
@@ -60,9 +60,9 @@
 
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 6
-    .parameter "ninePatch"
-    .parameter "padding"
-    .parameter "opticalInsets"
+    .param p1, "ninePatch"    # Landroid/graphics/NinePatch;
+    .param p2, "padding"    # Landroid/graphics/Rect;
+    .param p3, "opticalInsets"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v4, 0x0
@@ -86,11 +86,11 @@
 
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZ)V
     .locals 1
-    .parameter "ninePatch"
-    .parameter "rect"
-    .parameter "opticalInsets"
-    .parameter "dither"
-    .parameter "autoMirror"
+    .param p1, "ninePatch"    # Landroid/graphics/NinePatch;
+    .param p2, "rect"    # Landroid/graphics/Rect;
+    .param p3, "opticalInsets"    # Landroid/graphics/Rect;
+    .param p4, "dither"    # Z
+    .param p5, "autoMirror"    # Z
 
     .prologue
     .line 460
@@ -126,7 +126,7 @@
 
 .method constructor <init>(Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;
 
     .prologue
     .line 470
@@ -218,7 +218,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 494

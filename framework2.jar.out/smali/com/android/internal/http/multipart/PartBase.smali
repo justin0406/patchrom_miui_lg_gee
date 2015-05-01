@@ -16,10 +16,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
-    .parameter "contentType"
-    .parameter "charSet"
-    .parameter "transferEncoding"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "contentType"    # Ljava/lang/String;
+    .param p3, "charSet"    # Ljava/lang/String;
+    .param p4, "transferEncoding"    # Ljava/lang/String;
 
     .prologue
     .line 61
@@ -98,7 +98,7 @@
 
 .method public setCharSet(Ljava/lang/String;)V
     .locals 0
-    .parameter "charSet"
+    .param p1, "charSet"    # Ljava/lang/String;
 
     .prologue
     .line 116
@@ -110,7 +110,7 @@
 
 .method public setContentType(Ljava/lang/String;)V
     .locals 0
-    .parameter "contentType"
+    .param p1, "contentType"    # Ljava/lang/String;
 
     .prologue
     .line 125
@@ -122,7 +122,7 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 134
@@ -147,7 +147,7 @@
 
 .method public setTransferEncoding(Ljava/lang/String;)V
     .locals 0
-    .parameter "transferEncoding"
+    .param p1, "transferEncoding"    # Ljava/lang/String;
 
     .prologue
     .line 147

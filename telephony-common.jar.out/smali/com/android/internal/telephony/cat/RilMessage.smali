@@ -14,8 +14,8 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .parameter "msgId"
-    .parameter "rawData"
+    .param p1, "msgId"    # I
+    .param p2, "rawData"    # Ljava/lang/String;
 
     .prologue
     .line 47
@@ -33,7 +33,7 @@
 
 .method constructor <init>(Lcom/android/internal/telephony/cat/RilMessage;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/telephony/cat/RilMessage;
 
     .prologue
     .line 52

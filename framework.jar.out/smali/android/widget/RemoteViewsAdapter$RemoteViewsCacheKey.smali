@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Landroid/content/Intent$FilterComparison;II)V
     .locals 0
-    .parameter "filter"
-    .parameter "widgetId"
-    .parameter "userId"
+    .param p1, "filter"    # Landroid/content/Intent$FilterComparison;
+    .param p2, "widgetId"    # I
+    .param p3, "userId"    # I
 
     .prologue
     .line 803
@@ -50,7 +50,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -72,7 +72,7 @@
     check-cast v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
 
     .line 815
-    .local v0, other:Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
+    .local v0, "other":Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
     iget-object v2, v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
 
     iget-object v3, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;

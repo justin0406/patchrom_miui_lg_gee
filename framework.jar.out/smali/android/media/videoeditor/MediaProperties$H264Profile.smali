@@ -39,7 +39,6 @@
 # direct methods
 .method public constructor <init>(Landroid/media/videoeditor/MediaProperties;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 153

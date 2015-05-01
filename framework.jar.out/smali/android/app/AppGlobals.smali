@@ -40,8 +40,8 @@
 
 .method public static getIntCoreSetting(Ljava/lang/String;I)I
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "defaultValue"    # I
 
     .prologue
     .line 58
@@ -50,7 +50,7 @@
     move-result-object v0
 
     .line 59
-    .local v0, currentActivityThread:Landroid/app/ActivityThread;
+    .local v0, "currentActivityThread":Landroid/app/ActivityThread;
     if-eqz v0, :cond_0
 
     .line 60
@@ -59,7 +59,7 @@
     move-result p1
 
     .line 62
-    .end local p1
+    .end local p1    # "defaultValue":I
     :cond_0
     return p1
 .end method

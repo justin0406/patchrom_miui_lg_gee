@@ -74,7 +74,7 @@
 
 .method public static forceGc(Ljava/lang/String;)V
     .locals 1
-    .parameter "reason"
+    .param p0, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 88

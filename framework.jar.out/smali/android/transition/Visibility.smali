@@ -60,7 +60,7 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 4
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 58
@@ -71,7 +71,7 @@
     move-result v0
 
     .line 59
-    .local v0, visibility:I
+    .local v0, "visibility":I
     iget-object v1, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v2, "android:visibility:visibility"
@@ -101,8 +101,8 @@
 
 .method private getVisibilityChangeInfo(Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/transition/Visibility$VisibilityInfo;
     .locals 7
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "startValues"    # Landroid/transition/TransitionValues;
+    .param p2, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     const/4 v6, -0x1
@@ -119,7 +119,7 @@
     invoke-direct {v0, v5}, Landroid/transition/Visibility$VisibilityInfo;-><init>(Landroid/transition/Visibility$1;)V
 
     .line 101
-    .local v0, visInfo:Landroid/transition/Visibility$VisibilityInfo;
+    .local v0, "visInfo":Landroid/transition/Visibility$VisibilityInfo;
     iput-boolean v4, v0, Landroid/transition/Visibility$VisibilityInfo;->visibilityChange:Z
 
     .line 102
@@ -332,7 +332,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 70
@@ -344,7 +344,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 65
@@ -356,9 +356,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 12
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     const/4 v6, -0x1
@@ -371,7 +371,7 @@
     move-result-object v11
 
     .line 156
-    .local v11, visInfo:Landroid/transition/Visibility$VisibilityInfo;
+    .local v11, "visInfo":Landroid/transition/Visibility$VisibilityInfo;
     iget-boolean v1, v11, Landroid/transition/Visibility$VisibilityInfo;->visibilityChange:Z
 
     if-eqz v1, :cond_5
@@ -380,7 +380,7 @@
     const/4 v8, 0x0
 
     .line 160
-    .local v8, isTarget:Z
+    .local v8, "isTarget":Z
     iget-object v1, p0, Landroid/transition/Visibility;->mTargets:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -404,14 +404,14 @@
     iget-object v10, p2, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 162
-    .local v10, startView:Landroid/view/View;
+    .local v10, "startView":Landroid/view/View;
     :goto_0
     if-eqz p3, :cond_7
 
     iget-object v7, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 163
-    .local v7, endView:Landroid/view/View;
+    .local v7, "endView":Landroid/view/View;
     :goto_1
     if-eqz v10, :cond_8
 
@@ -420,7 +420,7 @@
     move-result v9
 
     .line 164
-    .local v9, startId:I
+    .local v9, "startId":I
     :goto_2
     if-eqz v7, :cond_1
 
@@ -429,7 +429,7 @@
     move-result v6
 
     .line 165
-    .local v6, endId:I
+    .local v6, "endId":I
     :cond_1
     int-to-long v1, v9
 
@@ -451,10 +451,10 @@
     const/4 v8, 0x1
 
     .line 167
-    .end local v6           #endId:I
-    .end local v7           #endView:Landroid/view/View;
-    .end local v9           #startId:I
-    .end local v10           #startView:Landroid/view/View;
+    .end local v6    # "endId":I
+    .end local v7    # "endView":Landroid/view/View;
+    .end local v9    # "startId":I
+    .end local v10    # "startView":Landroid/view/View;
     :cond_3
     :goto_3
     if-nez v8, :cond_4
@@ -491,26 +491,26 @@
     move-result-object v0
 
     .line 178
-    .end local v8           #isTarget:Z
+    .end local v8    # "isTarget":Z
     :cond_5
     :goto_4
     return-object v0
 
-    .restart local v8       #isTarget:Z
+    .restart local v8    # "isTarget":Z
     :cond_6
     move-object v10, v0
 
     .line 161
     goto :goto_0
 
-    .restart local v10       #startView:Landroid/view/View;
+    .restart local v10    # "startView":Landroid/view/View;
     :cond_7
     move-object v7, v0
 
     .line 162
     goto :goto_1
 
-    .restart local v7       #endView:Landroid/view/View;
+    .restart local v7    # "endView":Landroid/view/View;
     :cond_8
     move v9, v6
 
@@ -518,18 +518,18 @@
     goto :goto_2
 
     .line 165
-    .restart local v6       #endId:I
-    .restart local v9       #startId:I
+    .restart local v6    # "endId":I
+    .restart local v9    # "startId":I
     :cond_9
     const/4 v8, 0x0
 
     goto :goto_3
 
     .line 172
-    .end local v6           #endId:I
-    .end local v7           #endView:Landroid/view/View;
-    .end local v9           #startId:I
-    .end local v10           #startView:Landroid/view/View;
+    .end local v6    # "endId":I
+    .end local v7    # "endView":Landroid/view/View;
+    .end local v9    # "startId":I
+    .end local v10    # "startView":Landroid/view/View;
     :cond_a
     iget v3, v11, Landroid/transition/Visibility$VisibilityInfo;->startVisibility:I
 
@@ -562,7 +562,7 @@
 
 .method public isVisible(Landroid/transition/TransitionValues;)Z
     .locals 5
-    .parameter "values"
+    .param p1, "values"    # Landroid/transition/TransitionValues;
 
     .prologue
     const/4 v3, 0x0
@@ -591,7 +591,7 @@
     move-result v1
 
     .line 93
-    .local v1, visibility:I
+    .local v1, "visibility":I
     iget-object v2, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v4, "android:visibility:parent"
@@ -603,7 +603,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 95
-    .local v0, parent:Landroid/view/View;
+    .local v0, "parent":Landroid/view/View;
     if-nez v1, :cond_1
 
     if-eqz v0, :cond_1
@@ -623,11 +623,11 @@
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 1
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     .line 199
@@ -638,11 +638,11 @@
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 1
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     .line 221

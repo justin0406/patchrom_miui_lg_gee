@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ShareActionProvider;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 318
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/ShareActionProvider;Landroid/widget/ShareActionProvider$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/ShareActionProvider;
+    .param p2, "x1"    # Landroid/widget/ShareActionProvider$1;
 
     .prologue
     .line 318
@@ -51,14 +50,14 @@
 # virtual methods
 .method public onChooseActivity(Landroid/widget/ActivityChooserModel;Landroid/content/Intent;)Z
     .locals 2
-    .parameter "host"
-    .parameter "intent"
+    .param p1, "host"    # Landroid/widget/ActivityChooserModel;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 321
     iget-object v0, p0, Landroid/widget/ShareActionProvider$ShareAcitivityChooserModelPolicy;->this$0:Landroid/widget/ShareActionProvider;
 
-    #getter for: Landroid/widget/ShareActionProvider;->mOnShareTargetSelectedListener:Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
+    # getter for: Landroid/widget/ShareActionProvider;->mOnShareTargetSelectedListener:Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
     invoke-static {v0}, Landroid/widget/ShareActionProvider;->access$400(Landroid/widget/ShareActionProvider;)Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
 
     move-result-object v0
@@ -68,7 +67,7 @@
     .line 322
     iget-object v0, p0, Landroid/widget/ShareActionProvider$ShareAcitivityChooserModelPolicy;->this$0:Landroid/widget/ShareActionProvider;
 
-    #getter for: Landroid/widget/ShareActionProvider;->mOnShareTargetSelectedListener:Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
+    # getter for: Landroid/widget/ShareActionProvider;->mOnShareTargetSelectedListener:Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
     invoke-static {v0}, Landroid/widget/ShareActionProvider;->access$400(Landroid/widget/ShareActionProvider;)Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;
 
     move-result-object v0

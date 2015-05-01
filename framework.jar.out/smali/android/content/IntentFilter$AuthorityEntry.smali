@@ -27,7 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 662
@@ -78,8 +78,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "host"
-    .parameter "port"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -125,7 +125,7 @@
 
     move-result-object p1
 
-    .end local p1
+    .end local p1    # "host":Ljava/lang/String;
     :cond_1
     iput-object p1, p0, Landroid/content/IntentFilter$AuthorityEntry;->mHost:Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
 .method static synthetic access$000(Landroid/content/IntentFilter$AuthorityEntry;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/IntentFilter$AuthorityEntry;
 
     .prologue
     .line 649
@@ -162,7 +162,7 @@
 
 .method static synthetic access$100(Landroid/content/IntentFilter$AuthorityEntry;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/IntentFilter$AuthorityEntry;
 
     .prologue
     .line 649
@@ -173,7 +173,7 @@
 
 .method static synthetic access$200(Landroid/content/IntentFilter$AuthorityEntry;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/IntentFilter$AuthorityEntry;
 
     .prologue
     .line 649
@@ -206,7 +206,7 @@
 
 .method public match(Landroid/net/Uri;)I
     .locals 4
-    .parameter "data"
+    .param p1, "data"    # Landroid/net/Uri;
 
     .prologue
     const/4 v1, -0x2
@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 696
-    .local v0, host:Ljava/lang/String;
+    .local v0, "host":Ljava/lang/String;
     if-nez v0, :cond_1
 
     .line 716
@@ -286,20 +286,20 @@
     if-ne v2, v3, :cond_0
 
     .line 714
-    const/high16 v1, 0x40
+    const/high16 v1, 0x400000
 
     goto :goto_0
 
     .line 716
     :cond_3
-    const/high16 v1, 0x30
+    const/high16 v1, 0x300000
 
     goto :goto_0
 .end method
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "dest"
+    .param p1, "dest"    # Landroid/os/Parcel;
 
     .prologue
     .line 670

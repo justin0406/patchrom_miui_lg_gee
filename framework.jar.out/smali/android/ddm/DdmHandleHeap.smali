@@ -133,7 +133,7 @@
 
 .method private handleHPDS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 6
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 190
@@ -142,11 +142,11 @@
     move-result-object v1
 
     .line 197
-    .local v1, in:Ljava/nio/ByteBuffer;
+    .local v1, "in":Ljava/nio/ByteBuffer;
     const/4 v0, 0x0
 
     .line 199
-    .local v0, failMsg:Ljava/lang/String;
+    .local v0, "failMsg":Ljava/lang/String;
     :try_start_0
     invoke-static {}, Landroid/os/Debug;->dumpHprofDataDdms()V
     :try_end_0
@@ -178,19 +178,19 @@
     move-exception v3
 
     .line 201
-    .local v3, uoe:Ljava/lang/UnsupportedOperationException;
+    .local v3, "uoe":Ljava/lang/UnsupportedOperationException;
     const-string v0, "hprof dumps not supported in this VM"
 
     .line 204
     goto :goto_0
 
     .line 202
-    .end local v3           #uoe:Ljava/lang/UnsupportedOperationException;
+    .end local v3    # "uoe":Ljava/lang/UnsupportedOperationException;
     :catch_1
     move-exception v2
 
     .line 203
-    .local v2, re:Ljava/lang/RuntimeException;
+    .local v2, "re":Ljava/lang/RuntimeException;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -216,7 +216,7 @@
     goto :goto_0
 
     .line 210
-    .end local v2           #re:Ljava/lang/RuntimeException;
+    .end local v2    # "re":Ljava/lang/RuntimeException;
     :cond_0
     const/4 v4, 0x0
 
@@ -225,7 +225,7 @@
 
 .method private handleHPDU(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 12
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     const/4 v11, 0x0
@@ -236,19 +236,19 @@
     move-result-object v1
 
     .line 160
-    .local v1, in:Ljava/nio/ByteBuffer;
+    .local v1, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
 
     .line 161
-    .local v3, len:I
+    .local v3, "len":I
     invoke-static {v1, v3}, Landroid/ddm/DdmHandleHeap;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
 
     move-result-object v0
 
     .line 166
-    .local v0, fileName:Ljava/lang/String;
+    .local v0, "fileName":Ljava/lang/String;
     :try_start_0
     invoke-static {v0}, Landroid/os/Debug;->dumpHprofData(Ljava/lang/String;)V
     :try_end_0
@@ -260,7 +260,7 @@
     const/4 v6, 0x0
 
     .line 178
-    .local v6, result:B
+    .local v6, "result":B
     :goto_0
     const/4 v8, 0x1
 
@@ -269,7 +269,7 @@
     aput-byte v6, v5, v11
 
     .line 179
-    .local v5, reply:[B
+    .local v5, "reply":[B
     new-instance v8, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v9, Landroid/ddm/DdmHandleHeap;->CHUNK_HPDU:I
@@ -281,13 +281,13 @@
     return-object v8
 
     .line 168
-    .end local v5           #reply:[B
-    .end local v6           #result:B
+    .end local v5    # "reply":[B
+    .end local v6    # "result":B
     :catch_0
     move-exception v7
 
     .line 169
-    .local v7, uoe:Ljava/lang/UnsupportedOperationException;
+    .local v7, "uoe":Ljava/lang/UnsupportedOperationException;
     const-string v8, "ddm-heap"
 
     const-string v9, "hprof dumps not supported in this VM"
@@ -298,40 +298,40 @@
     const/4 v6, -0x1
 
     .line 175
-    .restart local v6       #result:B
+    .restart local v6    # "result":B
     goto :goto_0
 
     .line 171
-    .end local v6           #result:B
-    .end local v7           #uoe:Ljava/lang/UnsupportedOperationException;
+    .end local v6    # "result":B
+    .end local v7    # "uoe":Ljava/lang/UnsupportedOperationException;
     :catch_1
     move-exception v2
 
     .line 172
-    .local v2, ioe:Ljava/io/IOException;
+    .local v2, "ioe":Ljava/io/IOException;
     const/4 v6, -0x1
 
     .line 175
-    .restart local v6       #result:B
+    .restart local v6    # "result":B
     goto :goto_0
 
     .line 173
-    .end local v2           #ioe:Ljava/io/IOException;
-    .end local v6           #result:B
+    .end local v2    # "ioe":Ljava/io/IOException;
+    .end local v6    # "result":B
     :catch_2
     move-exception v4
 
     .line 174
-    .local v4, re:Ljava/lang/RuntimeException;
+    .local v4, "re":Ljava/lang/RuntimeException;
     const/4 v6, -0x1
 
-    .restart local v6       #result:B
+    .restart local v6    # "result":B
     goto :goto_0
 .end method
 
 .method private handleHPGC(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 1
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 222
@@ -345,7 +345,7 @@
 
 .method private handleHPIF(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 112
@@ -354,19 +354,19 @@
     move-result-object v0
 
     .line 114
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v2
 
     .line 118
-    .local v2, when:I
+    .local v2, "when":I
     invoke-static {v2}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->heapInfoNotify(I)Z
 
     move-result v1
 
     .line 119
-    .local v1, ok:Z
+    .local v1, "ok":Z
     if-nez v1, :cond_0
 
     .line 120
@@ -390,8 +390,8 @@
 
 .method private handleHPSGNHSG(Lorg/apache/harmony/dalvik/ddmc/Chunk;Z)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 6
-    .parameter "request"
-    .parameter "isNative"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .param p2, "isNative"    # Z
 
     .prologue
     .line 130
@@ -400,25 +400,25 @@
     move-result-object v0
 
     .line 132
-    .local v0, in:Ljava/nio/ByteBuffer;
+    .local v0, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v3
 
     .line 133
-    .local v3, when:I
+    .local v3, "when":I
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v2
 
     .line 138
-    .local v2, what:I
+    .local v2, "what":I
     invoke-static {v3, v2, p2}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->heapSegmentNotify(IIZ)Z
 
     move-result v1
 
     .line 139
-    .local v1, ok:Z
+    .local v1, "ok":Z
     if-nez v1, :cond_0
 
     .line 140
@@ -442,7 +442,7 @@
 
 .method private handleREAE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 3
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 231
@@ -451,7 +451,7 @@
     move-result-object v1
 
     .line 234
-    .local v1, in:Ljava/nio/ByteBuffer;
+    .local v1, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v2
@@ -461,7 +461,7 @@
     const/4 v0, 0x1
 
     .line 239
-    .local v0, enable:Z
+    .local v0, "enable":Z
     :goto_0
     invoke-static {v0}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->enableRecentAllocations(Z)V
 
@@ -471,7 +471,7 @@
     return-object v2
 
     .line 234
-    .end local v0           #enable:Z
+    .end local v0    # "enable":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -480,7 +480,7 @@
 
 .method private handleREAL(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 265
@@ -489,7 +489,7 @@
     move-result-object v0
 
     .line 266
-    .local v0, reply:[B
+    .local v0, "reply":[B
     new-instance v1, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v2, Landroid/ddm/DdmHandleHeap;->CHUNK_REAL:I
@@ -505,7 +505,7 @@
 
 .method private handleREAQ(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     const/4 v1, 0x1
@@ -516,7 +516,7 @@
     new-array v0, v1, [B
 
     .line 251
-    .local v0, reply:[B
+    .local v0, "reply":[B
     invoke-static {}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->getRecentAllocationStatus()Z
 
     move-result v3
@@ -635,14 +635,14 @@
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 4
-    .parameter "request"
+    .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 82
     iget v0, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
     .line 84
-    .local v0, type:I
+    .local v0, "type":I
     sget v1, Landroid/ddm/DdmHandleHeap;->CHUNK_HPIF:I
 
     if-ne v0, v1, :cond_0

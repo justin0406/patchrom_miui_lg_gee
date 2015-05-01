@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -144,7 +144,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 50
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "com.android.vpndialogs"
 
     const-string v2, "com.android.vpndialogs.ConfirmDialog"
@@ -157,7 +157,7 @@
 
 .method public static getIntentForStatusPanel(Landroid/content/Context;)Landroid/app/PendingIntent;
     .locals 6
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x0
@@ -168,7 +168,7 @@
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
     .line 56
-    .local v2, intent:Landroid/content/Intent;
+    .local v2, "intent":Landroid/content/Intent;
     const-string v0, "com.android.vpndialogs"
 
     const-string v3, "com.android.vpndialogs.ManageDialog"
@@ -176,7 +176,7 @@
     invoke-virtual {v2, v0, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 57
-    const/high16 v0, 0x5080
+    const/high16 v0, 0x50800000
 
     invoke-virtual {v2, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -200,7 +200,7 @@
 # virtual methods
 .method public addLegacyAddresses(Ljava/lang/String;)V
     .locals 9
-    .parameter "addressesStr"
+    .param p1, "addressesStr"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -233,23 +233,23 @@
     move-result-object v2
 
     .line 93
-    .local v2, addresses:[Ljava/lang/String;
+    .local v2, "addresses":[Ljava/lang/String;
     move-object v3, v2
 
-    .local v3, arr$:[Ljava/lang/String;
+    .local v3, "arr$":[Ljava/lang/String;
     array-length v5, v3
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_0
 
     aget-object v1, v3, v4
 
     .line 95
-    .local v1, address:Ljava/lang/String;
+    .local v1, "address":Ljava/lang/String;
     const-string v7, "/"
 
     invoke-virtual {v1, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -257,7 +257,7 @@
     move-result-object v6
 
     .line 96
-    .local v6, split:[Ljava/lang/String;
+    .local v6, "split":[Ljava/lang/String;
     new-instance v0, Landroid/net/LinkAddress;
 
     const/4 v7, 0x0
@@ -279,7 +279,7 @@
     invoke-direct {v0, v7, v8}, Landroid/net/LinkAddress;-><init>(Ljava/net/InetAddress;I)V
 
     .line 98
-    .local v0, addr:Landroid/net/LinkAddress;
+    .local v0, "addr":Landroid/net/LinkAddress;
     iget-object v7, p0, Lcom/android/internal/net/VpnConfig;->addresses:Ljava/util/List;
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -292,7 +292,7 @@
 
 .method public addLegacyRoutes(Ljava/lang/String;)V
     .locals 10
-    .parameter "routesStr"
+    .param p1, "routesStr"    # Ljava/lang/String;
 
     .prologue
     .line 75
@@ -325,23 +325,23 @@
     move-result-object v5
 
     .line 79
-    .local v5, routes:[Ljava/lang/String;
+    .local v5, "routes":[Ljava/lang/String;
     move-object v0, v5
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v3, :cond_0
 
     aget-object v4, v0, v1
 
     .line 81
-    .local v4, route:Ljava/lang/String;
+    .local v4, "route":Ljava/lang/String;
     const-string v7, "/"
 
     invoke-virtual {v4, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -349,7 +349,7 @@
     move-result-object v6
 
     .line 82
-    .local v6, split:[Ljava/lang/String;
+    .local v6, "split":[Ljava/lang/String;
     new-instance v2, Landroid/net/RouteInfo;
 
     new-instance v7, Landroid/net/LinkAddress;
@@ -377,7 +377,7 @@
     invoke-direct {v2, v7, v8}, Landroid/net/RouteInfo;-><init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;)V
 
     .line 84
-    .local v2, info:Landroid/net/RouteInfo;
+    .local v2, "info":Landroid/net/RouteInfo;
     iget-object v7, p0, Lcom/android/internal/net/VpnConfig;->routes:Ljava/util/List;
 
     invoke-interface {v7, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -400,8 +400,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 109

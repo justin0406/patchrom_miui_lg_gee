@@ -22,13 +22,13 @@
 
 .method public static writeTtsSpeakFailure(Ljava/lang/String;IIILjava/lang/String;II)V
     .locals 4
-    .parameter "engine"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "length"
-    .parameter "locale"
-    .parameter "rate"
-    .parameter "pitch"
+    .param p0, "engine"    # Ljava/lang/String;
+    .param p1, "callerUid"    # I
+    .param p2, "callerPid"    # I
+    .param p3, "length"    # I
+    .param p4, "locale"    # Ljava/lang/String;
+    .param p5, "rate"    # I
+    .param p6, "pitch"    # I
 
     .prologue
     .line 24
@@ -94,16 +94,16 @@
 
 .method public static writeTtsSpeakSuccess(Ljava/lang/String;IIILjava/lang/String;IIJJJ)V
     .locals 4
-    .parameter "engine"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "length"
-    .parameter "locale"
-    .parameter "rate"
-    .parameter "pitch"
-    .parameter "engineLatency"
-    .parameter "engineTotal"
-    .parameter "audioLatency"
+    .param p0, "engine"    # Ljava/lang/String;
+    .param p1, "callerUid"    # I
+    .param p2, "callerPid"    # I
+    .param p3, "length"    # I
+    .param p4, "locale"    # Ljava/lang/String;
+    .param p5, "rate"    # I
+    .param p6, "pitch"    # I
+    .param p7, "engineLatency"    # J
+    .param p9, "engineTotal"    # J
+    .param p11, "audioLatency"    # J
 
     .prologue
     .line 20

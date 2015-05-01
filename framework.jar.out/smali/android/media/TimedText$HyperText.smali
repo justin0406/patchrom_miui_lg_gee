@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "startChar"
-    .parameter "endChar"
-    .parameter "url"
-    .parameter "alt"
+    .param p1, "startChar"    # I
+    .param p2, "endChar"    # I
+    .param p3, "url"    # Ljava/lang/String;
+    .param p4, "alt"    # Ljava/lang/String;
 
     .prologue
     .line 345

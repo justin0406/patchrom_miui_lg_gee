@@ -44,7 +44,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 64
@@ -93,7 +93,7 @@
 
 .method static synthetic access$000(Landroid/view/accessibility/CaptioningManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -104,7 +104,7 @@
 
 .method static synthetic access$100(Landroid/view/accessibility/CaptioningManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -115,7 +115,7 @@
 
 .method static synthetic access$200(Landroid/view/accessibility/CaptioningManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -126,7 +126,7 @@
 
 .method static synthetic access$300(Landroid/view/accessibility/CaptioningManager;)Ljava/lang/Runnable;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -137,7 +137,7 @@
 
 .method static synthetic access$400(Landroid/view/accessibility/CaptioningManager;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -148,7 +148,7 @@
 
 .method static synthetic access$500(Landroid/view/accessibility/CaptioningManager;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/accessibility/CaptioningManager;
 
     .prologue
     .line 43
@@ -167,7 +167,7 @@
     move-result v0
 
     .line 182
-    .local v0, enabled:Z
+    .local v0, "enabled":Z
     iget-object v4, p0, Landroid/view/accessibility/CaptioningManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
@@ -180,7 +180,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -195,14 +195,14 @@
     check-cast v2, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .line 184
-    .local v2, listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .local v2, "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     invoke-virtual {v2, v0}, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;->onEnabledChanged(Z)V
 
     goto :goto_0
 
     .line 186
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     :catchall_0
     move-exception v3
 
@@ -212,7 +212,7 @@
 
     throw v3
 
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     monitor-exit v4
@@ -233,7 +233,7 @@
     move-result v0
 
     .line 209
-    .local v0, fontScale:F
+    .local v0, "fontScale":F
     iget-object v4, p0, Landroid/view/accessibility/CaptioningManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
@@ -246,7 +246,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -261,14 +261,14 @@
     check-cast v2, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .line 211
-    .local v2, listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .local v2, "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     invoke-virtual {v2, v0}, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;->onFontScaleChanged(F)V
 
     goto :goto_0
 
     .line 213
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     :catchall_0
     move-exception v3
 
@@ -278,7 +278,7 @@
 
     throw v3
 
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     monitor-exit v4
@@ -299,7 +299,7 @@
     move-result-object v2
 
     .line 200
-    .local v2, locale:Ljava/util/Locale;
+    .local v2, "locale":Ljava/util/Locale;
     iget-object v4, p0, Landroid/view/accessibility/CaptioningManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
@@ -312,7 +312,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -327,14 +327,14 @@
     check-cast v1, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .line 202
-    .local v1, listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .local v1, "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     invoke-virtual {v1, v2}, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;->onLocaleChanged(Ljava/util/Locale;)V
 
     goto :goto_0
 
     .line 204
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     :catchall_0
     move-exception v3
 
@@ -344,7 +344,7 @@
 
     throw v3
 
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     monitor-exit v4
@@ -365,7 +365,7 @@
     move-result-object v2
 
     .line 191
-    .local v2, userStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .local v2, "userStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     iget-object v4, p0, Landroid/view/accessibility/CaptioningManager;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
@@ -378,7 +378,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -393,14 +393,14 @@
     check-cast v1, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .line 193
-    .local v1, listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .local v1, "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     invoke-virtual {v1, v2}, Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;->onUserStyleChanged(Landroid/view/accessibility/CaptioningManager$CaptionStyle;)V
 
     goto :goto_0
 
     .line 195
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #listener:Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "listener":Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
     :catchall_0
     move-exception v3
 
@@ -410,7 +410,7 @@
 
     throw v3
 
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     monitor-exit v4
@@ -423,7 +423,7 @@
 
 .method private registerObserver(Ljava/lang/String;)V
     .locals 4
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 161
@@ -447,7 +447,7 @@
 # virtual methods
 .method public addCaptioningChangeListener(Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .prologue
     .line 144
@@ -537,7 +537,7 @@
 
     const-string v1, "accessibility_captioning_font_scale"
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
@@ -560,7 +560,7 @@
     move-result-object v0
 
     .line 91
-    .local v0, rawLocale:Ljava/lang/String;
+    .local v0, "rawLocale":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -575,13 +575,13 @@
     move-result-object v1
 
     .line 93
-    .local v1, splitLocale:[Ljava/lang/String;
+    .local v1, "splitLocale":[Ljava/lang/String;
     array-length v2, v1
 
     packed-switch v2, :pswitch_data_0
 
     .line 103
-    .end local v1           #splitLocale:[Ljava/lang/String;
+    .end local v1    # "splitLocale":[Ljava/lang/String;
     :cond_0
     const/4 v2, 0x0
 
@@ -589,7 +589,7 @@
     return-object v2
 
     .line 95
-    .restart local v1       #splitLocale:[Ljava/lang/String;
+    .restart local v1    # "splitLocale":[Ljava/lang/String;
     :pswitch_0
     new-instance v2, Ljava/util/Locale;
 
@@ -682,7 +682,7 @@
     move-result v0
 
     .line 130
-    .local v0, preset:I
+    .local v0, "preset":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
@@ -736,7 +736,7 @@
 
 .method public removeCaptioningChangeListener(Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;)V
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/accessibility/CaptioningManager$CaptioningChangeListener;
 
     .prologue
     .line 171

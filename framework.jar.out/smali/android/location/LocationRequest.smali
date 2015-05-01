@@ -13,7 +13,7 @@
 
 .field public static final ACCURACY_FINE:I = 0x64
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -94,7 +94,7 @@
 
     long-to-double v0, v0
 
-    const-wide/high16 v2, 0x4018
+    const-wide/high16 v2, 0x4018000000000000L    # 6.0
 
     div-double/2addr v0, v2
 
@@ -139,7 +139,7 @@
 
 .method public constructor <init>(Landroid/location/LocationRequest;)V
     .locals 5
-    .parameter "src"
+    .param p1, "src"    # Landroid/location/LocationRequest;
 
     .prologue
     const/4 v4, 0x0
@@ -162,7 +162,7 @@
 
     long-to-double v0, v0
 
-    const-wide/high16 v2, 0x4018
+    const-wide/high16 v2, 0x4018000000000000L    # 6.0
 
     div-double/2addr v0, v2
 
@@ -257,7 +257,7 @@
 
 .method private static checkDisplacement(F)V
     .locals 3
-    .parameter "meters"
+    .param p0, "meters"    # F
 
     .prologue
     .line 564
@@ -299,7 +299,7 @@
 
 .method private static checkInterval(J)V
     .locals 3
-    .parameter "millis"
+    .param p0, "millis"    # J
 
     .prologue
     .line 544
@@ -341,7 +341,7 @@
 
 .method private static checkProvider(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 570
@@ -379,7 +379,7 @@
 
 .method private static checkQuality(I)V
     .locals 3
-    .parameter "quality"
+    .param p0, "quality"    # I
 
     .prologue
     .line 550
@@ -438,16 +438,16 @@
     invoke-direct {v0}, Landroid/location/LocationRequest;-><init>()V
 
     .line 165
-    .local v0, request:Landroid/location/LocationRequest;
+    .local v0, "request":Landroid/location/LocationRequest;
     return-object v0
 .end method
 
 .method public static createFromDeprecatedCriteria(Landroid/location/Criteria;JFZ)Landroid/location/LocationRequest;
     .locals 4
-    .parameter "criteria"
-    .parameter "minTime"
-    .parameter "minDistance"
-    .parameter "singleShot"
+    .param p0, "criteria"    # Landroid/location/Criteria;
+    .param p1, "minTime"    # J
+    .param p3, "minDistance"    # F
+    .param p4, "singleShot"    # Z
 
     .prologue
     .line 196
@@ -489,7 +489,7 @@
     const/16 v0, 0xc9
 
     .line 217
-    .local v0, quality:I
+    .local v0, "quality":I
     :goto_1
     new-instance v2, Landroid/location/LocationRequest;
 
@@ -512,7 +512,7 @@
     move-result-object v1
 
     .line 222
-    .local v1, request:Landroid/location/LocationRequest;
+    .local v1, "request":Landroid/location/LocationRequest;
     if-eqz p4, :cond_2
 
     const/4 v2, 0x1
@@ -524,30 +524,30 @@
     return-object v1
 
     .line 202
-    .end local v0           #quality:I
-    .end local v1           #request:Landroid/location/LocationRequest;
+    .end local v0    # "quality":I
+    .end local v1    # "request":Landroid/location/LocationRequest;
     :pswitch_0
     const/16 v0, 0x66
 
     .line 203
-    .restart local v0       #quality:I
+    .restart local v0    # "quality":I
     goto :goto_1
 
     .line 205
-    .end local v0           #quality:I
+    .end local v0    # "quality":I
     :pswitch_1
     const/16 v0, 0x64
 
     .line 206
-    .restart local v0       #quality:I
+    .restart local v0    # "quality":I
     goto :goto_1
 
     .line 210
-    .end local v0           #quality:I
+    .end local v0    # "quality":I
     :pswitch_2
     const/16 v0, 0xcb
 
-    .restart local v0       #quality:I
+    .restart local v0    # "quality":I
     goto :goto_0
 
     .line 200
@@ -568,10 +568,10 @@
 
 .method public static createFromDeprecatedProvider(Ljava/lang/String;JFZ)Landroid/location/LocationRequest;
     .locals 4
-    .parameter "provider"
-    .parameter "minTime"
-    .parameter "minDistance"
-    .parameter "singleShot"
+    .param p0, "provider"    # Ljava/lang/String;
+    .param p1, "minTime"    # J
+    .param p3, "minDistance"    # F
+    .param p4, "singleShot"    # Z
 
     .prologue
     .line 171
@@ -607,7 +607,7 @@
     const/16 v0, 0xc8
 
     .line 183
-    .local v0, quality:I
+    .local v0, "quality":I
     :goto_0
     new-instance v2, Landroid/location/LocationRequest;
 
@@ -634,7 +634,7 @@
     move-result-object v1
 
     .line 189
-    .local v1, request:Landroid/location/LocationRequest;
+    .local v1, "request":Landroid/location/LocationRequest;
     if-eqz p4, :cond_2
 
     const/4 v2, 0x1
@@ -646,8 +646,8 @@
     return-object v1
 
     .line 177
-    .end local v0           #quality:I
-    .end local v1           #request:Landroid/location/LocationRequest;
+    .end local v0    # "quality":I
+    .end local v1    # "request":Landroid/location/LocationRequest;
     :cond_3
     const-string v2, "gps"
 
@@ -660,21 +660,21 @@
     .line 178
     const/16 v0, 0x64
 
-    .restart local v0       #quality:I
+    .restart local v0    # "quality":I
     goto :goto_0
 
     .line 180
-    .end local v0           #quality:I
+    .end local v0    # "quality":I
     :cond_4
     const/16 v0, 0xc9
 
-    .restart local v0       #quality:I
+    .restart local v0    # "quality":I
     goto :goto_0
 .end method
 
 .method public static qualityToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "quality"
+    .param p0, "quality"    # I
 
     .prologue
     .line 619
@@ -872,7 +872,7 @@
 
 .method public setExpireAt(J)Landroid/location/LocationRequest;
     .locals 4
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     const-wide/16 v2, 0x0
@@ -896,7 +896,7 @@
 
 .method public setExpireIn(J)Landroid/location/LocationRequest;
     .locals 8
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     const-wide v6, 0x7fffffffffffffffL
@@ -909,7 +909,7 @@
     move-result-wide v0
 
     .line 394
-    .local v0, elapsedRealtime:J
+    .local v0, "elapsedRealtime":J
     sub-long v2, v6, v0
 
     cmp-long v2, p1, v2
@@ -944,7 +944,7 @@
 
 .method public setFastestInterval(J)Landroid/location/LocationRequest;
     .locals 1
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     .line 355
@@ -964,7 +964,7 @@
 
 .method public setHideFromAppOps(Z)V
     .locals 0
-    .parameter "hideFromAppOps"
+    .param p1, "hideFromAppOps"    # Z
 
     .prologue
     .line 535
@@ -976,7 +976,7 @@
 
 .method public setInterval(J)Landroid/location/LocationRequest;
     .locals 4
-    .parameter "millis"
+    .param p1, "millis"    # J
 
     .prologue
     .line 308
@@ -995,7 +995,7 @@
 
     long-to-double v0, v0
 
-    const-wide/high16 v2, 0x4018
+    const-wide/high16 v2, 0x4018000000000000L    # 6.0
 
     div-double/2addr v0, v2
 
@@ -1010,7 +1010,7 @@
 
 .method public setNumUpdates(I)Landroid/location/LocationRequest;
     .locals 3
-    .parameter "numUpdates"
+    .param p1, "numUpdates"    # I
 
     .prologue
     .line 450
@@ -1050,7 +1050,7 @@
 
 .method public setProvider(Ljava/lang/String;)Landroid/location/LocationRequest;
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 479
@@ -1065,7 +1065,7 @@
 
 .method public setQuality(I)Landroid/location/LocationRequest;
     .locals 0
-    .parameter "quality"
+    .param p1, "quality"    # I
 
     .prologue
     .line 265
@@ -1080,7 +1080,7 @@
 
 .method public setSmallestDisplacement(F)Landroid/location/LocationRequest;
     .locals 0
-    .parameter "meters"
+    .param p1, "meters"    # F
 
     .prologue
     .line 491
@@ -1095,7 +1095,7 @@
 
 .method public setWorkSource(Landroid/os/WorkSource;)V
     .locals 0
-    .parameter "workSource"
+    .param p1, "workSource"    # Landroid/os/WorkSource;
 
     .prologue
     .line 512
@@ -1115,7 +1115,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 640
-    .local v2, s:Ljava/lang/StringBuilder;
+    .local v2, "s":Ljava/lang/StringBuilder;
     const-string v3, "Request["
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1193,7 +1193,7 @@
     sub-long v0, v3, v5
 
     .line 650
-    .local v0, expireIn:J
+    .local v0, "expireIn":J
     const-string v3, " expireIn="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1202,7 +1202,7 @@
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
     .line 653
-    .end local v0           #expireIn:J
+    .end local v0    # "expireIn":J
     :cond_2
     iget v3, p0, Landroid/location/LocationRequest;->mNumUpdates:I
 
@@ -1237,8 +1237,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x0

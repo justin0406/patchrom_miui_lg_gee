@@ -56,10 +56,10 @@
 
 .method public constructor <init>(FFFF)V
     .locals 0
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 54
@@ -83,7 +83,7 @@
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
     .line 79
@@ -141,7 +141,7 @@
 
 .method public constructor <init>(Landroid/graphics/RectF;)V
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/RectF;
 
     .prologue
     .line 68
@@ -191,8 +191,8 @@
 
 .method public static intersects(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
     .locals 2
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Landroid/graphics/RectF;
+    .param p1, "b"    # Landroid/graphics/RectF;
 
     .prologue
     .line 435
@@ -252,7 +252,7 @@
 
     add-float/2addr v0, v1
 
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     mul-float/2addr v0, v1
 
@@ -270,7 +270,7 @@
 
     add-float/2addr v0, v1
 
-    const/high16 v1, 0x3f00
+    const/high16 v1, 0x3f000000    # 0.5f
 
     mul-float/2addr v0, v1
 
@@ -279,8 +279,8 @@
 
 .method public contains(FF)Z
     .locals 2
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 287
@@ -337,10 +337,10 @@
 
 .method public contains(FFFF)Z
     .locals 2
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 305
@@ -397,7 +397,7 @@
 
 .method public contains(Landroid/graphics/RectF;)Z
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/RectF;
 
     .prologue
     .line 321
@@ -472,7 +472,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -513,7 +513,7 @@
     check-cast v0, Landroid/graphics/RectF;
 
     .line 96
-    .local v0, r:Landroid/graphics/RectF;
+    .local v0, "r":Landroid/graphics/RectF;
     iget v3, p0, Landroid/graphics/RectF;->left:F
 
     iget v4, v0, Landroid/graphics/RectF;->left:F
@@ -574,7 +574,7 @@
     move-result v0
 
     .line 102
-    .local v0, result:I
+    .local v0, "result":I
     :goto_0
     mul-int/lit8 v3, v0, 0x1f
 
@@ -632,14 +632,14 @@
     .line 105
     return v0
 
-    .end local v0           #result:I
+    .end local v0    # "result":I
     :cond_1
     move v0, v1
 
     .line 101
     goto :goto_0
 
-    .restart local v0       #result:I
+    .restart local v0    # "result":I
     :cond_2
     move v2, v1
 
@@ -669,8 +669,8 @@
 
 .method public inset(FF)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 269
@@ -707,10 +707,10 @@
 
 .method public intersect(FFFF)Z
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 346
@@ -797,7 +797,7 @@
 
 .method public intersect(Landroid/graphics/RectF;)Z
     .locals 4
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/RectF;
 
     .prologue
     .line 377
@@ -818,10 +818,10 @@
 
 .method public intersects(FFFF)Z
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 420
@@ -895,8 +895,8 @@
 
 .method public offset(FF)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 239
@@ -933,8 +933,8 @@
 
 .method public offsetTo(FF)V
     .locals 2
-    .parameter "newLeft"
-    .parameter "newTop"
+    .param p1, "newLeft"    # F
+    .param p2, "newTop"    # F
 
     .prologue
     .line 253
@@ -971,7 +971,7 @@
 
 .method public printShortString(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     const/16 v1, 0x2c
@@ -1017,7 +1017,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 582
@@ -1054,7 +1054,7 @@
 
 .method public round(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "dst"
+    .param p1, "dst"    # Landroid/graphics/Rect;
 
     .prologue
     .line 444
@@ -1090,7 +1090,7 @@
 
 .method public roundOut(Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "dst"
+    .param p1, "dst"    # Landroid/graphics/Rect;
 
     .prologue
     .line 453
@@ -1134,10 +1134,10 @@
 
 .method public set(FFFF)V
     .locals 0
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 199
@@ -1158,7 +1158,7 @@
 
 .method public set(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Rect;
 
     .prologue
     .line 225
@@ -1195,7 +1195,7 @@
 
 .method public set(Landroid/graphics/RectF;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/RectF;
 
     .prologue
     .line 212
@@ -1243,8 +1243,8 @@
 
 .method public setIntersect(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
     .locals 2
-    .parameter "a"
-    .parameter "b"
+    .param p1, "a"    # Landroid/graphics/RectF;
+    .param p2, "b"    # Landroid/graphics/RectF;
 
     .prologue
     .line 393
@@ -1354,7 +1354,7 @@
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
     .line 528
-    .local v0, temp:F
+    .local v0, "temp":F
     iget v1, p0, Landroid/graphics/RectF;->right:F
 
     iput v1, p0, Landroid/graphics/RectF;->left:F
@@ -1363,7 +1363,7 @@
     iput v0, p0, Landroid/graphics/RectF;->right:F
 
     .line 531
-    .end local v0           #temp:F
+    .end local v0    # "temp":F
     :cond_0
     iget v1, p0, Landroid/graphics/RectF;->top:F
 
@@ -1377,7 +1377,7 @@
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     .line 533
-    .restart local v0       #temp:F
+    .restart local v0    # "temp":F
     iget v1, p0, Landroid/graphics/RectF;->bottom:F
 
     iput v1, p0, Landroid/graphics/RectF;->top:F
@@ -1386,7 +1386,7 @@
     iput v0, p0, Landroid/graphics/RectF;->bottom:F
 
     .line 536
-    .end local v0           #temp:F
+    .end local v0    # "temp":F
     :cond_1
     return-void
 .end method
@@ -1411,7 +1411,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)Ljava/lang/String;
     .locals 2
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     const/16 v1, 0x2c
@@ -1536,8 +1536,8 @@
 
 .method public union(FF)V
     .locals 1
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 506
@@ -1596,10 +1596,10 @@
 
 .method public union(FFFF)V
     .locals 2
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # F
+    .param p2, "top"    # F
+    .param p3, "right"    # F
+    .param p4, "bottom"    # F
 
     .prologue
     .line 468
@@ -1694,7 +1694,7 @@
 
 .method public union(Landroid/graphics/RectF;)V
     .locals 4
-    .parameter "r"
+    .param p1, "r"    # Landroid/graphics/RectF;
 
     .prologue
     .line 495
@@ -1728,8 +1728,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 551

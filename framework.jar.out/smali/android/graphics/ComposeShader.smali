@@ -24,9 +24,9 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/PorterDuff$Mode;)V
     .locals 4
-    .parameter "shaderA"
-    .parameter "shaderB"
-    .parameter "mode"
+    .param p1, "shaderA"    # Landroid/graphics/Shader;
+    .param p2, "shaderB"    # Landroid/graphics/Shader;
+    .param p3, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
     .line 75
@@ -80,9 +80,9 @@
 
 .method public constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/Xfermode;)V
     .locals 5
-    .parameter "shaderA"
-    .parameter "shaderB"
-    .parameter "mode"
+    .param p1, "shaderA"    # Landroid/graphics/Shader;
+    .param p2, "shaderB"    # Landroid/graphics/Shader;
+    .param p3, "mode"    # Landroid/graphics/Xfermode;
 
     .prologue
     const/4 v2, 0x0
@@ -128,11 +128,11 @@
     .line 59
     check-cast p3, Landroid/graphics/PorterDuffXfermode;
 
-    .end local p3
+    .end local p3    # "mode":Landroid/graphics/Xfermode;
     iget-object v0, p3, Landroid/graphics/PorterDuffXfermode;->mode:Landroid/graphics/PorterDuff$Mode;
 
     .line 60
-    .local v0, pdMode:Landroid/graphics/PorterDuff$Mode;
+    .local v0, "pdMode":Landroid/graphics/PorterDuff$Mode;
     iget v1, p0, Landroid/graphics/ComposeShader;->native_instance:I
 
     iget v3, p1, Landroid/graphics/Shader;->native_shader:I
@@ -151,11 +151,11 @@
     iput v1, p0, Landroid/graphics/ComposeShader;->native_shader:I
 
     .line 66
-    .end local v0           #pdMode:Landroid/graphics/PorterDuff$Mode;
+    .end local v0    # "pdMode":Landroid/graphics/PorterDuff$Mode;
     :goto_1
     return-void
 
-    .restart local p3
+    .restart local p3    # "mode":Landroid/graphics/Xfermode;
     :cond_1
     move v1, v2
 
@@ -237,7 +237,7 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/Xfermode;)V
 
     .line 103
-    .local v0, copy:Landroid/graphics/ComposeShader;
+    .local v0, "copy":Landroid/graphics/ComposeShader;
     :goto_0
     invoke-virtual {p0, v0}, Landroid/graphics/ComposeShader;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
@@ -245,7 +245,7 @@
     return-object v0
 
     .line 97
-    .end local v0           #copy:Landroid/graphics/ComposeShader;
+    .end local v0    # "copy":Landroid/graphics/ComposeShader;
     :pswitch_1
     new-instance v0, Landroid/graphics/ComposeShader;
 
@@ -266,7 +266,7 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 98
-    .restart local v0       #copy:Landroid/graphics/ComposeShader;
+    .restart local v0    # "copy":Landroid/graphics/ComposeShader;
     goto :goto_0
 
     .line 92

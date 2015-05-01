@@ -301,18 +301,18 @@
 
 .method public static eglCreateWindowSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Ljava/lang/Object;[II)Landroid/opengl/EGLSurface;
     .locals 6
-    .parameter "dpy"
-    .parameter "config"
-    .parameter "win"
-    .parameter "attrib_list"
-    .parameter "offset"
+    .param p0, "dpy"    # Landroid/opengl/EGLDisplay;
+    .param p1, "config"    # Landroid/opengl/EGLConfig;
+    .param p2, "win"    # Ljava/lang/Object;
+    .param p3, "attrib_list"    # [I
+    .param p4, "offset"    # I
 
     .prologue
     .line 243
     const/4 v1, 0x0
 
     .line 244
-    .local v1, sur:Landroid/view/Surface;
+    .local v1, "sur":Landroid/view/Surface;
     instance-of v4, p2, Landroid/view/SurfaceView;
 
     if-eqz v4, :cond_1
@@ -323,7 +323,7 @@
     check-cast v3, Landroid/view/SurfaceView;
 
     .line 246
-    .local v3, surfaceView:Landroid/view/SurfaceView;
+    .local v3, "surfaceView":Landroid/view/SurfaceView;
     invoke-virtual {v3}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v4
@@ -333,7 +333,7 @@
     move-result-object v1
 
     .line 255
-    .end local v3           #surfaceView:Landroid/view/SurfaceView;
+    .end local v3    # "surfaceView":Landroid/view/SurfaceView;
     :cond_0
     :goto_0
     if-eqz v1, :cond_3
@@ -344,12 +344,12 @@
     move-result-object v2
 
     .line 267
-    .local v2, surface:Landroid/opengl/EGLSurface;
+    .local v2, "surface":Landroid/opengl/EGLSurface;
     :goto_1
     return-object v2
 
     .line 247
-    .end local v2           #surface:Landroid/opengl/EGLSurface;
+    .end local v2    # "surface":Landroid/opengl/EGLSurface;
     :cond_1
     instance-of v4, p2, Landroid/view/SurfaceHolder;
 
@@ -361,7 +361,7 @@
     check-cast v0, Landroid/view/SurfaceHolder;
 
     .line 249
-    .local v0, holder:Landroid/view/SurfaceHolder;
+    .local v0, "holder":Landroid/view/SurfaceHolder;
     invoke-interface {v0}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
 
     move-result-object v1
@@ -369,7 +369,7 @@
     .line 250
     goto :goto_0
 
-    .end local v0           #holder:Landroid/view/SurfaceHolder;
+    .end local v0    # "holder":Landroid/view/SurfaceHolder;
     :cond_2
     instance-of v4, p2, Landroid/view/Surface;
 
@@ -393,11 +393,11 @@
 
     move-result-object v2
 
-    .restart local v2       #surface:Landroid/opengl/EGLSurface;
+    .restart local v2    # "surface":Landroid/opengl/EGLSurface;
     goto :goto_1
 
     .line 261
-    .end local v2           #surface:Landroid/opengl/EGLSurface;
+    .end local v2    # "surface":Landroid/opengl/EGLSurface;
     :cond_4
     new-instance v4, Ljava/lang/UnsupportedOperationException;
 

@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 583
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/server/InputMethodManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/InputMethodManagerService;
+    .param p2, "x1"    # Lcom/android/server/InputMethodManagerService$1;
 
     .prologue
     .line 583
@@ -51,8 +50,8 @@
 # virtual methods
 .method public handleHardKeyboardStatusChange(ZZ)V
     .locals 3
-    .parameter "available"
-    .parameter "enabled"
+    .param p1, "available"    # Z
+    .param p2, "enabled"    # Z
 
     .prologue
     .line 596
@@ -66,7 +65,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$700(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -75,7 +74,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$800(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
@@ -84,7 +83,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$700(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -98,7 +97,7 @@
     .line 599
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$800(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
@@ -142,8 +141,8 @@
 
 .method public onHardKeyboardStatusChange(ZZ)V
     .locals 6
-    .parameter "available"
-    .parameter "enabled"
+    .param p1, "available"    # Z
+    .param p2, "enabled"    # Z
 
     .prologue
     const/4 v0, 0x1

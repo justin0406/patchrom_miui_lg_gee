@@ -32,8 +32,8 @@
 # virtual methods
 .method public final transformUrl(Ljava/util/regex/Matcher;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "match"
-    .parameter "url"
+    .param p1, "match"    # Ljava/util/regex/Matcher;
+    .param p2, "url"    # Ljava/lang/String;
 
     .prologue
     .line 144

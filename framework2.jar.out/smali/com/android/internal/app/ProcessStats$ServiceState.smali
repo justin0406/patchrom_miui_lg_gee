@@ -67,11 +67,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/app/ProcessStats;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/app/ProcessStats$ProcessState;)V
     .locals 1
-    .parameter "processStats"
-    .parameter "pkg"
-    .parameter "name"
-    .parameter "processName"
-    .parameter "proc"
+    .param p1, "processStats"    # Lcom/android/internal/app/ProcessStats;
+    .param p2, "pkg"    # Ljava/lang/String;
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "processName"    # Ljava/lang/String;
+    .param p5, "proc"    # Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .prologue
     const/4 v0, -0x1
@@ -106,12 +106,12 @@
 
 .method static synthetic access$000(Lcom/android/internal/app/ProcessStats$ServiceState;IIJIJ)J
     .locals 2
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p0, "x0"    # Lcom/android/internal/app/ProcessStats$ServiceState;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # J
+    .param p5, "x4"    # I
+    .param p6, "x5"    # J
 
     .prologue
     .line 2909
@@ -124,11 +124,11 @@
 
 .method private getDuration(IIJIJ)J
     .locals 5
-    .parameter "opType"
-    .parameter "curState"
-    .parameter "startTime"
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "opType"    # I
+    .param p2, "curState"    # I
+    .param p3, "startTime"    # J
+    .param p5, "memFactor"    # I
+    .param p6, "now"    # J
 
     .prologue
     .line 3166
@@ -137,13 +137,13 @@
     add-int v0, p1, v3
 
     .line 3167
-    .local v0, state:I
+    .local v0, "state":I
     invoke-virtual {p0, v0, p6, p7}, Lcom/android/internal/app/ProcessStats$ServiceState;->getDuration(IJ)J
 
     move-result-wide v1
 
     .line 3168
-    .local v1, time:J
+    .local v1, "time":J
     if-ne p2, p5, :cond_0
 
     .line 3169
@@ -158,8 +158,8 @@
 
 .method private updateRunning(IJ)V
     .locals 4
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "memFactor"    # I
+    .param p2, "now"    # J
 
     .prologue
     const/4 v1, -0x1
@@ -181,7 +181,7 @@
     move v0, p1
 
     .line 3079
-    .local v0, state:I
+    .local v0, "state":I
     :goto_0
     iget v2, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mRunState:I
 
@@ -217,7 +217,7 @@
     :cond_2
     return-void
 
-    .end local v0           #state:I
+    .end local v0    # "state":I
     :cond_3
     move v0, v1
 
@@ -225,7 +225,7 @@
     goto :goto_0
 
     .line 3083
-    .restart local v0       #state:I
+    .restart local v0    # "state":I
     :cond_4
     if-eq v0, v1, :cond_1
 
@@ -243,7 +243,7 @@
 # virtual methods
 .method add(Lcom/android/internal/app/ProcessStats$ServiceState;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/app/ProcessStats$ServiceState;
 
     .prologue
     .line 3021
@@ -291,7 +291,7 @@
 
 .method public applyNewOwner(Ljava/lang/Object;)V
     .locals 5
-    .parameter "newOwner"
+    .param p1, "newOwner"    # Ljava/lang/Object;
 
     .prologue
     const/4 v4, -0x1
@@ -347,7 +347,7 @@
     move-result-wide v0
 
     .line 2959
-    .local v0, now:J
+    .local v0, "now":J
     iget-boolean v2, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mStarted:Z
 
     if-eqz v2, :cond_3
@@ -378,8 +378,8 @@
 
 .method public clearCurrentOwner(Ljava/lang/Object;Z)V
     .locals 7
-    .parameter "owner"
-    .parameter "silently"
+    .param p1, "owner"    # Ljava/lang/Object;
+    .param p2, "silently"    # Z
 
     .prologue
     const/4 v6, -0x1
@@ -418,7 +418,7 @@
     move-result-wide v0
 
     .line 2987
-    .local v0, now:J
+    .local v0, "now":J
     iget-boolean v2, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mStarted:Z
 
     if-eqz v2, :cond_2
@@ -634,7 +634,7 @@
     invoke-virtual {p0, v5, v5, v0, v1}, Lcom/android/internal/app/ProcessStats$ServiceState;->setExecuting(ZIJ)V
 
     .line 3012
-    .end local v0           #now:J
+    .end local v0    # "now":J
     :cond_6
     const/4 v2, 0x0
 
@@ -647,7 +647,7 @@
 
 .method commitStateTime(J)V
     .locals 4
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     const/4 v3, -0x1
@@ -751,14 +751,19 @@
     .line 3017
     iget-object v0, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mOwner:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    iget-boolean v0, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mRestarting:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -766,7 +771,7 @@
 
 .method readFromParcel(Landroid/os/Parcel;)Z
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 3046
@@ -820,7 +825,7 @@
 
 .method resetSafely(J)V
     .locals 4
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     const/4 v1, 0x1
@@ -909,9 +914,9 @@
 
 .method public setBound(ZIJ)V
     .locals 5
-    .parameter "bound"
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "bound"    # Z
+    .param p2, "memFactor"    # I
+    .param p3, "now"    # J
 
     .prologue
     const/4 v1, -0x1
@@ -957,7 +962,7 @@
     move v0, p2
 
     .line 3134
-    .local v0, state:I
+    .local v0, "state":I
     :goto_0
     iget v2, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mBoundState:I
 
@@ -996,7 +1001,7 @@
     :cond_2
     return-void
 
-    .end local v0           #state:I
+    .end local v0    # "state":I
     :cond_3
     move v0, v1
 
@@ -1004,7 +1009,7 @@
     goto :goto_0
 
     .line 3138
-    .restart local v0       #state:I
+    .restart local v0    # "state":I
     :cond_4
     if-eqz p1, :cond_1
 
@@ -1020,9 +1025,9 @@
 
 .method public setExecuting(ZIJ)V
     .locals 5
-    .parameter "executing"
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "executing"    # Z
+    .param p2, "memFactor"    # I
+    .param p3, "now"    # J
 
     .prologue
     const/4 v1, -0x1
@@ -1068,7 +1073,7 @@
     move v0, p2
 
     .line 3152
-    .local v0, state:I
+    .local v0, "state":I
     :goto_0
     iget v2, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mExecState:I
 
@@ -1107,7 +1112,7 @@
     :cond_2
     return-void
 
-    .end local v0           #state:I
+    .end local v0    # "state":I
     :cond_3
     move v0, v1
 
@@ -1115,7 +1120,7 @@
     goto :goto_0
 
     .line 3155
-    .restart local v0       #state:I
+    .restart local v0    # "state":I
     :cond_4
     if-eqz p1, :cond_1
 
@@ -1131,9 +1136,9 @@
 
 .method public setRestarting(ZIJ)V
     .locals 0
-    .parameter "restarting"
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "restarting"    # Z
+    .param p2, "memFactor"    # I
+    .param p3, "now"    # J
 
     .prologue
     .line 3100
@@ -1148,9 +1153,9 @@
 
 .method public setStarted(ZIJ)V
     .locals 3
-    .parameter "started"
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "started"    # Z
+    .param p2, "memFactor"    # I
+    .param p3, "now"    # J
 
     .prologue
     .line 3092
@@ -1282,8 +1287,8 @@
 
 .method updateStartedState(IJ)V
     .locals 7
-    .parameter "memFactor"
-    .parameter "now"
+    .param p1, "memFactor"    # I
+    .param p2, "now"    # J
 
     .prologue
     const/4 v3, 0x1
@@ -1300,7 +1305,7 @@
     move v2, v3
 
     .line 3106
-    .local v2, wasStarted:Z
+    .local v2, "wasStarted":Z
     :goto_0
     iget-boolean v6, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mStarted:Z
 
@@ -1314,14 +1319,14 @@
     move v0, v3
 
     .line 3107
-    .local v0, started:Z
+    .local v0, "started":Z
     :goto_1
     if-eqz v0, :cond_6
 
     move v1, p1
 
     .line 3108
-    .local v1, state:I
+    .local v1, "state":I
     :goto_2
     iget v3, p0, Lcom/android/internal/app/ProcessStats$ServiceState;->mStartedState:I
 
@@ -1386,23 +1391,23 @@
     :cond_3
     return-void
 
-    .end local v0           #started:Z
-    .end local v1           #state:I
-    .end local v2           #wasStarted:Z
+    .end local v0    # "started":Z
+    .end local v1    # "state":I
+    .end local v2    # "wasStarted":Z
     :cond_4
     move v2, v4
 
     .line 3105
     goto :goto_0
 
-    .restart local v2       #wasStarted:Z
+    .restart local v2    # "wasStarted":Z
     :cond_5
     move v0, v4
 
     .line 3106
     goto :goto_1
 
-    .restart local v0       #started:Z
+    .restart local v0    # "started":Z
     :cond_6
     move v1, v5
 
@@ -1410,7 +1415,7 @@
     goto :goto_2
 
     .line 3112
-    .restart local v1       #state:I
+    .restart local v1    # "state":I
     :cond_7
     if-eqz v0, :cond_1
 
@@ -1436,8 +1441,8 @@
 
 .method writeToParcel(Landroid/os/Parcel;J)V
     .locals 1
-    .parameter "out"
-    .parameter "now"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "now"    # J
 
     .prologue
     .line 3038

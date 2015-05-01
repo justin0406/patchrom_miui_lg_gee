@@ -39,15 +39,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeText;Landroid/widget/TextView;Ljava/lang/CharSequence;IIILjava/lang/CharSequence;II)V
     .locals 1
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 267
@@ -83,13 +74,13 @@
 # virtual methods
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 4
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 272
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
-    #getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
+    # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
     invoke-static {v0}, Landroid/transition/ChangeText;->access$100(Landroid/transition/ChangeText;)I
 
     move-result v0
@@ -123,14 +114,14 @@
 
     iget v3, p0, Landroid/transition/ChangeText$6;->val$endSelectionEnd:I
 
-    #calls: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
+    # invokes: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
     .line 278
     :cond_0
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
-    #getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
+    # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
     invoke-static {v0}, Landroid/transition/ChangeText;->access$100(Landroid/transition/ChangeText;)I
 
     move-result v0
@@ -160,13 +151,13 @@
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 4
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 286
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
-    #getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
+    # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
     invoke-static {v0}, Landroid/transition/ChangeText;->access$100(Landroid/transition/ChangeText;)I
 
     move-result v0
@@ -200,14 +191,14 @@
 
     iget v3, p0, Landroid/transition/ChangeText$6;->val$startSelectionEnd:I
 
-    #calls: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
+    # invokes: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
     .line 292
     :cond_0
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
-    #getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
+    # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
     invoke-static {v0}, Landroid/transition/ChangeText;->access$100(Landroid/transition/ChangeText;)I
 
     move-result v0

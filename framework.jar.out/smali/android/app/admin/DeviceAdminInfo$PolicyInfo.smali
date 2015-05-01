@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;II)V
     .locals 0
-    .parameter "identIn"
-    .parameter "tagIn"
-    .parameter "labelIn"
-    .parameter "descriptionIn"
+    .param p1, "identIn"    # I
+    .param p2, "tagIn"    # Ljava/lang/String;
+    .param p3, "labelIn"    # I
+    .param p4, "descriptionIn"    # I
 
     .prologue
     .line 156

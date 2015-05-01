@@ -83,11 +83,11 @@
 # direct methods
 .method public constructor <init>(IIIII)V
     .locals 9
-    .parameter "audioSource"
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
-    .parameter "bufferSizeInBytes"
+    .param p1, "audioSource"    # I
+    .param p2, "sampleRateInHz"    # I
+    .param p3, "channelConfig"    # I
+    .param p4, "audioFormat"    # I
+    .param p5, "bufferSizeInBytes"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -181,7 +181,7 @@
     new-array v7, v0, [I
 
     .line 224
-    .local v7, session:[I
+    .local v7, "session":[I
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -210,7 +210,7 @@
     move-result v8
 
     .line 230
-    .local v8, initResult:I
+    .local v8, "initResult":I
     if-eqz v8, :cond_1
 
     .line 231
@@ -262,7 +262,7 @@
 
 .method static synthetic access$000(Landroid/media/AudioRecord;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/AudioRecord;
 
     .prologue
     .line 41
@@ -273,7 +273,7 @@
 
 .method static synthetic access$100(Landroid/media/AudioRecord;)Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/AudioRecord;
 
     .prologue
     .line 41
@@ -284,7 +284,7 @@
 
 .method static synthetic access$200(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 41
@@ -295,7 +295,7 @@
 
 .method private audioBuffSizeCheck(I)V
     .locals 5
-    .parameter "audioBufferSize"
+    .param p1, "audioBufferSize"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -315,7 +315,7 @@
     mul-int v0, v3, v1
 
     .line 319
-    .local v0, frameSizeInBytes:I
+    .local v0, "frameSizeInBytes":I
     rem-int v1, p1, v0
 
     if-nez v1, :cond_0
@@ -333,14 +333,14 @@
     throw v1
 
     .line 317
-    .end local v0           #frameSizeInBytes:I
+    .end local v0    # "frameSizeInBytes":I
     :cond_1
     const/4 v1, 0x2
 
     goto :goto_0
 
     .line 323
-    .restart local v0       #frameSizeInBytes:I
+    .restart local v0    # "frameSizeInBytes":I
     :cond_2
     iput p1, p0, Landroid/media/AudioRecord;->mNativeBufferSizeInBytes:I
 
@@ -350,10 +350,10 @@
 
 .method private audioParamCheck(IIII)V
     .locals 3
-    .parameter "audioSource"
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
+    .param p1, "audioSource"    # I
+    .param p2, "sampleRateInHz"    # I
+    .param p3, "channelConfig"    # I
+    .param p4, "audioFormat"    # I
 
     .prologue
     const/4 v1, 0x2
@@ -516,9 +516,9 @@
 
 .method public static getMinBufferSize(III)I
     .locals 5
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
+    .param p0, "sampleRateInHz"    # I
+    .param p1, "channelConfig"    # I
+    .param p2, "audioFormat"    # I
 
     .prologue
     const/4 v3, -0x1
@@ -529,7 +529,7 @@
     const/4 v0, 0x0
 
     .line 452
-    .local v0, channelCount:I
+    .local v0, "channelCount":I
     sparse-switch p1, :sswitch_data_0
 
     .line 465
@@ -578,7 +578,7 @@
     move-result v1
 
     .line 476
-    .local v1, size:I
+    .local v1, "size":I
     if-nez v1, :cond_2
 
     move v1, v2
@@ -609,7 +609,7 @@
 
 .method private static logd(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 837
@@ -623,7 +623,7 @@
 
 .method private static loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 841
@@ -676,17 +676,17 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
     .locals 3
-    .parameter "audiorecord_ref"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p0, "audiorecord_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 784
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    .end local p0
+    .end local p0    # "audiorecord_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -694,7 +694,7 @@
     check-cast v1, Landroid/media/AudioRecord;
 
     .line 785
-    .local v1, recorder:Landroid/media/AudioRecord;
+    .local v1, "recorder":Landroid/media/AudioRecord;
     if-nez v1, :cond_1
 
     .line 795
@@ -716,7 +716,7 @@
     move-result-object v0
 
     .line 792
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v2, v1, Landroid/media/AudioRecord;->mEventHandler:Landroid/media/AudioRecord$NativeEventHandler;
 
     invoke-virtual {v2, v0}, Landroid/media/AudioRecord$NativeEventHandler;->sendMessage(Landroid/os/Message;)Z
@@ -861,8 +861,8 @@
 
 .method public read(Ljava/nio/ByteBuffer;I)I
     .locals 2
-    .parameter "audioBuffer"
-    .parameter "sizeInBytes"
+    .param p1, "audioBuffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "sizeInBytes"    # I
 
     .prologue
     .line 624
@@ -902,9 +902,9 @@
 
 .method public read([BII)I
     .locals 2
-    .parameter "audioData"
-    .parameter "offsetInBytes"
-    .parameter "sizeInBytes"
+    .param p1, "audioData"    # [B
+    .param p2, "offsetInBytes"    # I
+    .param p3, "sizeInBytes"    # I
 
     .prologue
     .line 572
@@ -956,9 +956,9 @@
 
 .method public read([SII)I
     .locals 2
-    .parameter "audioData"
-    .parameter "offsetInShorts"
-    .parameter "sizeInShorts"
+    .param p1, "audioData"    # [S
+    .param p2, "offsetInShorts"    # I
+    .param p3, "sizeInShorts"    # I
 
     .prologue
     .line 597
@@ -1039,7 +1039,7 @@
 
 .method public setNotificationMarkerPosition(I)I
     .locals 1
-    .parameter "markerInFrames"
+    .param p1, "markerInFrames"    # I
 
     .prologue
     .line 686
@@ -1064,7 +1064,7 @@
 
 .method public setPositionNotificationPeriod(I)I
     .locals 1
-    .parameter "periodInFrames"
+    .param p1, "periodInFrames"    # I
 
     .prologue
     .line 702
@@ -1089,7 +1089,7 @@
 
 .method public setRecordPositionUpdateListener(Landroid/media/AudioRecord$OnRecordPositionUpdateListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
 
     .prologue
     .line 645
@@ -1103,8 +1103,8 @@
 
 .method public setRecordPositionUpdateListener(Landroid/media/AudioRecord$OnRecordPositionUpdateListener;Landroid/os/Handler;)V
     .locals 3
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 658
@@ -1242,7 +1242,7 @@
 
 .method public startRecording(Landroid/media/MediaSyncEvent;)V
     .locals 3
-    .parameter "syncEvent"
+    .param p1, "syncEvent"    # Landroid/media/MediaSyncEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;

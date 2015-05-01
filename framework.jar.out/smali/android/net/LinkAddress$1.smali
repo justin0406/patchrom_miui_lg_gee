@@ -42,18 +42,18 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/LinkAddress;
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 161
     const/4 v0, 0x0
 
     .line 162
-    .local v0, address:Ljava/net/InetAddress;
+    .local v0, "address":Ljava/net/InetAddress;
     const/4 v1, 0x0
 
     .line 163
-    .local v1, prefixLength:I
+    .local v1, "prefixLength":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v2
@@ -97,7 +97,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 159
@@ -110,7 +110,7 @@
 
 .method public newArray(I)[Landroid/net/LinkAddress;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 173
@@ -121,7 +121,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 159

@@ -23,11 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/sax/Element;Ljava/lang/String;Ljava/lang/String;II)V
     .locals 0
-    .parameter "parent"
-    .parameter "uri"
-    .parameter "localName"
-    .parameter "depth"
-    .parameter "hash"
+    .param p1, "parent"    # Landroid/sax/Element;
+    .param p2, "uri"    # Ljava/lang/String;
+    .param p3, "localName"    # Ljava/lang/String;
+    .param p4, "depth"    # I
+    .param p5, "hash"    # I
 
     .prologue
     .line 93

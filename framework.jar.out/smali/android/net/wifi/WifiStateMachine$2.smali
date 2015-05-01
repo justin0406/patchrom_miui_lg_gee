@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 716
+    .line 718
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,21 +35,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 719
+    .line 721
     const/4 v0, 0x0
 
-    .line 720
-    .local v0, workSource:Landroid/os/WorkSource;
+    .line 722
+    .local v0, "workSource":Landroid/os/WorkSource;
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v2, -0x1
 
     invoke-virtual {v1, v2, v0}, Landroid/net/wifi/WifiStateMachine;->startScan(ILandroid/os/WorkSource;)V
 
-    .line 721
+    .line 723
     return-void
 .end method

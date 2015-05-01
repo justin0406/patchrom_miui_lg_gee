@@ -39,13 +39,13 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/Account;IIILjava/lang/String;Landroid/os/Bundle;Z)V
     .locals 1
-    .parameter "account"
-    .parameter "userId"
-    .parameter "reason"
-    .parameter "source"
-    .parameter "authority"
-    .parameter "extras"
-    .parameter "expedited"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
+    .param p3, "reason"    # I
+    .param p4, "source"    # I
+    .param p5, "authority"    # Ljava/lang/String;
+    .param p6, "extras"    # Landroid/os/Bundle;
+    .param p7, "expedited"    # Z
 
     .prologue
     .line 172
@@ -75,7 +75,7 @@
 
     move-object p6, v0
 
-    .end local p6
+    .end local p6    # "extras":Landroid/os/Bundle;
     :cond_0
     iput-object p6, p0, Lcom/android/server/content/SyncStorageEngine$PendingOperation;->extras:Landroid/os/Bundle;
 
@@ -98,7 +98,7 @@
 
 .method constructor <init>(Lcom/android/server/content/SyncStorageEngine$PendingOperation;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/content/SyncStorageEngine$PendingOperation;
 
     .prologue
     .line 184

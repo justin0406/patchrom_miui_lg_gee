@@ -214,8 +214,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "streamType"
-    .parameter "volume"
+    .param p1, "streamType"    # I
+    .param p2, "volume"    # I
 
     .prologue
     .line 739
@@ -254,7 +254,7 @@
 
 .method public startTone(I)Z
     .locals 1
-    .parameter "toneType"
+    .param p1, "toneType"    # I
 
     .prologue
     .line 850

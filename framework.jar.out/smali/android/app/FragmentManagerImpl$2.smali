@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 484

@@ -15,8 +15,8 @@
 # direct methods
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Z)V
     .locals 0
-    .parameter "target"
-    .parameter "mutable"
+    .param p1, "target"    # Landroid/view/inputmethod/InputConnection;
+    .param p2, "mutable"    # Z
 
     .prologue
     .line 30
@@ -50,7 +50,7 @@
 
 .method public clearMetaKeyStates(I)Z
     .locals 1
-    .parameter "states"
+    .param p1, "states"    # I
 
     .prologue
     .line 118
@@ -65,7 +65,7 @@
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Landroid/view/inputmethod/CompletionInfo;
 
     .prologue
     .line 86
@@ -80,7 +80,7 @@
 
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
     .locals 1
-    .parameter "correctionInfo"
+    .param p1, "correctionInfo"    # Landroid/view/inputmethod/CorrectionInfo;
 
     .prologue
     .line 90
@@ -95,8 +95,8 @@
 
 .method public commitText(Ljava/lang/CharSequence;I)Z
     .locals 1
-    .parameter "text"
-    .parameter "newCursorPosition"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "newCursorPosition"    # I
 
     .prologue
     .line 82
@@ -111,8 +111,8 @@
 
 .method public deleteSurroundingText(II)Z
     .locals 1
-    .parameter "beforeLength"
-    .parameter "afterLength"
+    .param p1, "beforeLength"    # I
+    .param p2, "afterLength"    # I
 
     .prologue
     .line 66
@@ -155,7 +155,7 @@
 
 .method public getCursorCapsMode(I)I
     .locals 1
-    .parameter "reqModes"
+    .param p1, "reqModes"    # I
 
     .prologue
     .line 58
@@ -170,8 +170,8 @@
 
 .method public getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;
     .locals 1
-    .parameter "request"
-    .parameter "flags"
+    .param p1, "request"    # Landroid/view/inputmethod/ExtractedTextRequest;
+    .param p2, "flags"    # I
 
     .prologue
     .line 62
@@ -186,7 +186,7 @@
 
 .method public getSelectedText(I)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "flags"
+    .param p1, "flags"    # I
 
     .prologue
     .line 54
@@ -201,8 +201,8 @@
 
 .method public getTextAfterCursor(II)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "n"
-    .parameter "flags"
+    .param p1, "n"    # I
+    .param p2, "flags"    # I
 
     .prologue
     .line 50
@@ -217,8 +217,8 @@
 
 .method public getTextBeforeCursor(II)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "n"
-    .parameter "flags"
+    .param p1, "n"    # I
+    .param p2, "flags"    # I
 
     .prologue
     .line 46
@@ -233,7 +233,7 @@
 
 .method public performContextMenuAction(I)Z
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 102
@@ -248,7 +248,7 @@
 
 .method public performEditorAction(I)Z
     .locals 1
-    .parameter "editorAction"
+    .param p1, "editorAction"    # I
 
     .prologue
     .line 98
@@ -263,8 +263,8 @@
 
 .method public performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 126
@@ -279,7 +279,7 @@
 
 .method public reportFullscreenMode(Z)Z
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 122
@@ -294,7 +294,7 @@
 
 .method public sendKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 114
@@ -309,8 +309,8 @@
 
 .method public setComposingRegion(II)Z
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 74
@@ -325,8 +325,8 @@
 
 .method public setComposingText(Ljava/lang/CharSequence;I)Z
     .locals 1
-    .parameter "text"
-    .parameter "newCursorPosition"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "newCursorPosition"    # I
 
     .prologue
     .line 70
@@ -341,8 +341,8 @@
 
 .method public setSelection(II)Z
     .locals 1
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 94
@@ -357,7 +357,7 @@
 
 .method public setTarget(Landroid/view/inputmethod/InputConnection;)V
     .locals 2
-    .parameter "target"
+    .param p1, "target"    # Landroid/view/inputmethod/InputConnection;
 
     .prologue
     .line 39

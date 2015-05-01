@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/Looper;Landroid/net/MobileDataStateTracker;)V
     .locals 0
-    .parameter "looper"
-    .parameter "mdst"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "mdst"    # Landroid/net/MobileDataStateTracker;
 
     .prologue
     .line 137
@@ -39,7 +39,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 143
@@ -65,7 +65,7 @@
 
     check-cast v0, Lcom/android/internal/util/AsyncChannel;
 
-    #setter for: Landroid/net/MobileDataStateTracker;->mDataConnectionTrackerAc:Lcom/android/internal/util/AsyncChannel;
+    # setter for: Landroid/net/MobileDataStateTracker;->mDataConnectionTrackerAc:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v1, v0}, Landroid/net/MobileDataStateTracker;->access$202(Landroid/net/MobileDataStateTracker;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_0
@@ -76,7 +76,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/net/MobileDataStateTracker;->mDataConnectionTrackerAc:Lcom/android/internal/util/AsyncChannel;
+    # setter for: Landroid/net/MobileDataStateTracker;->mDataConnectionTrackerAc:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v0, v1}, Landroid/net/MobileDataStateTracker;->access$202(Landroid/net/MobileDataStateTracker;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_0

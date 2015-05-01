@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "displayAdapter"
-    .parameter "displayToken"
+    .param p1, "displayAdapter"    # Lcom/android/server/display/DisplayAdapter;
+    .param p2, "displayToken"    # Landroid/os/IBinder;
 
     .prologue
     const/4 v0, -0x1
@@ -67,7 +67,7 @@
 
 .method public dumpLocked(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 205
@@ -286,7 +286,7 @@
 
 .method public final populateViewportLocked(Lcom/android/server/display/DisplayViewport;)V
     .locals 4
-    .parameter "viewport"
+    .param p1, "viewport"    # Lcom/android/server/display/DisplayViewport;
 
     .prologue
     const/4 v1, 0x1
@@ -334,7 +334,7 @@
     if-ne v2, v3, :cond_3
 
     .line 195
-    .local v1, isRotated:Z
+    .local v1, "isRotated":Z
     :cond_0
     :goto_2
     invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
@@ -342,7 +342,7 @@
     move-result-object v0
 
     .line 196
-    .local v0, info:Lcom/android/server/display/DisplayDeviceInfo;
+    .local v0, "info":Lcom/android/server/display/DisplayDeviceInfo;
     if-eqz v1, :cond_4
 
     iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->height:I
@@ -362,8 +362,8 @@
     return-void
 
     .line 184
-    .end local v0           #info:Lcom/android/server/display/DisplayDeviceInfo;
-    .end local v1           #isRotated:Z
+    .end local v0    # "info":Lcom/android/server/display/DisplayDeviceInfo;
+    .end local v1    # "isRotated":Z
     :cond_1
     iget-object v2, p1, Lcom/android/server/display/DisplayViewport;->logicalFrame:Landroid/graphics/Rect;
 
@@ -386,8 +386,8 @@
     goto :goto_2
 
     .line 196
-    .restart local v0       #info:Lcom/android/server/display/DisplayDeviceInfo;
-    .restart local v1       #isRotated:Z
+    .restart local v0    # "info":Lcom/android/server/display/DisplayDeviceInfo;
+    .restart local v1    # "isRotated":Z
     :cond_4
     iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
@@ -402,7 +402,7 @@
 
 .method public final setLayerStackInTransactionLocked(I)V
     .locals 1
-    .parameter "layerStack"
+    .param p1, "layerStack"    # I
 
     .prologue
     .line 124
@@ -425,9 +425,9 @@
 
 .method public final setProjectionInTransactionLocked(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "orientation"
-    .parameter "layerStackRect"
-    .parameter "displayRect"
+    .param p1, "orientation"    # I
+    .param p2, "layerStackRect"    # Landroid/graphics/Rect;
+    .param p3, "displayRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 142
@@ -511,7 +511,7 @@
 
 .method public final setSurfaceInTransactionLocked(Landroid/view/Surface;)V
     .locals 1
-    .parameter "surface"
+    .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
     .line 168

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityThread;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1473

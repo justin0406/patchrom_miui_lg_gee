@@ -40,8 +40,8 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 0
-    .parameter "event"
-    .parameter "path"
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
     .line 452

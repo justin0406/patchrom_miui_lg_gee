@@ -70,7 +70,7 @@
 
 .method public constructor <init>(Landroid/content/res/Resources;)V
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -109,8 +109,8 @@
 
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "res"
-    .parameter "bitmap"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 120
@@ -133,8 +133,8 @@
 
 .method public constructor <init>(Landroid/content/res/Resources;Ljava/io/InputStream;)V
     .locals 3
-    .parameter "res"
-    .parameter "is"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "is"    # Ljava/io/InputStream;
 
     .prologue
     .line 167
@@ -192,8 +192,8 @@
 
 .method public constructor <init>(Landroid/content/res/Resources;Ljava/lang/String;)V
     .locals 3
-    .parameter "res"
-    .parameter "filepath"
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "filepath"    # Ljava/lang/String;
 
     .prologue
     .line 142
@@ -251,7 +251,7 @@
 
 .method public constructor <init>(Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -271,8 +271,8 @@
 
 .method private constructor <init>(Landroid/graphics/drawable/BitmapDrawable$BitmapState;Landroid/content/res/Resources;)V
     .locals 1
-    .parameter "state"
-    .parameter "res"
+    .param p1, "state"    # Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .param p2, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 682
@@ -329,9 +329,9 @@
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/BitmapDrawable$BitmapState;Landroid/content/res/Resources;Landroid/graphics/drawable/BitmapDrawable$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .param p2, "x1"    # Landroid/content/res/Resources;
+    .param p3, "x2"    # Landroid/graphics/drawable/BitmapDrawable$1;
 
     .prologue
     .line 62
@@ -342,7 +342,7 @@
 
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 3
-    .parameter "is"
+    .param p1, "is"    # Ljava/io/InputStream;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -395,7 +395,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "filepath"
+    .param p1, "filepath"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -506,7 +506,7 @@
 
 .method private setBitmap(Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 194
@@ -544,7 +544,7 @@
 
 .method private updateMirrorMatrix(F)V
     .locals 3
-    .parameter "dx"
+    .param p1, "dx"    # F
 
     .prologue
     .line 430
@@ -570,9 +570,9 @@
     .line 434
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mMirrorMatrix:Landroid/graphics/Matrix;
 
-    const/high16 v1, -0x4080
+    const/high16 v1, -0x40800000    # -1.0f
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->preScale(FF)Z
 
@@ -584,7 +584,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 14
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     const/4 v13, 0x0
@@ -595,14 +595,14 @@
     iget-object v6, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 458
-    .local v6, bitmap:Landroid/graphics/Bitmap;
+    .local v6, "bitmap":Landroid/graphics/Bitmap;
     if-eqz v6, :cond_3
 
     .line 459
     iget-object v9, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
     .line 460
-    .local v9, state:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .local v9, "state":Landroid/graphics/drawable/BitmapDrawable$BitmapState;
     iget-boolean v0, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mRebuildShader:Z
 
     if-eqz v0, :cond_0
@@ -611,11 +611,11 @@
     iget-object v10, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeX:Landroid/graphics/Shader$TileMode;
 
     .line 462
-    .local v10, tmx:Landroid/graphics/Shader$TileMode;
+    .local v10, "tmx":Landroid/graphics/Shader$TileMode;
     iget-object v11, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeY:Landroid/graphics/Shader$TileMode;
 
     .line 464
-    .local v11, tmy:Landroid/graphics/Shader$TileMode;
+    .local v11, "tmy":Landroid/graphics/Shader$TileMode;
     if-nez v10, :cond_4
 
     if-nez v11, :cond_4
@@ -626,8 +626,8 @@
     invoke-virtual {v0, v13}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 471
-    .end local v10           #tmx:Landroid/graphics/Shader$TileMode;
-    .end local v11           #tmy:Landroid/graphics/Shader$TileMode;
+    .end local v10    # "tmx":Landroid/graphics/Shader$TileMode;
+    .end local v11    # "tmy":Landroid/graphics/Shader$TileMode;
     :goto_0
     iput-boolean v12, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mRebuildShader:Z
 
@@ -645,13 +645,13 @@
     move-result-object v8
 
     .line 476
-    .local v8, shader:Landroid/graphics/Shader;
+    .local v8, "shader":Landroid/graphics/Shader;
     invoke-direct {p0}, Landroid/graphics/drawable/BitmapDrawable;->needMirroring()Z
 
     move-result v7
 
     .line 477
-    .local v7, needMirroring:Z
+    .local v7, "needMirroring":Z
     if-nez v8, :cond_7
 
     .line 478
@@ -665,7 +665,7 @@
     move-result v5
 
     .line 480
-    .local v5, layoutDirection:I
+    .local v5, "layoutDirection":I
     iget v0, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mGravity:I
 
     iget v1, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapWidth:I
@@ -684,7 +684,7 @@
     iput-boolean v12, p0, Landroid/graphics/drawable/BitmapDrawable;->mApplyGravity:Z
 
     .line 484
-    .end local v5           #layoutDirection:I
+    .end local v5    # "layoutDirection":I
     :cond_1
     if-eqz v7, :cond_2
 
@@ -709,9 +709,9 @@
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 488
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
 
@@ -730,17 +730,17 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 512
-    .end local v7           #needMirroring:Z
-    .end local v8           #shader:Landroid/graphics/Shader;
-    .end local v9           #state:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .end local v7    # "needMirroring":Z
+    .end local v8    # "shader":Landroid/graphics/Shader;
+    .end local v9    # "state":Landroid/graphics/drawable/BitmapDrawable$BitmapState;
     :cond_3
     :goto_1
     return-void
 
     .line 467
-    .restart local v9       #state:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
-    .restart local v10       #tmx:Landroid/graphics/Shader$TileMode;
-    .restart local v11       #tmy:Landroid/graphics/Shader$TileMode;
+    .restart local v9    # "state":Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .restart local v10    # "tmx":Landroid/graphics/Shader$TileMode;
+    .restart local v11    # "tmy":Landroid/graphics/Shader$TileMode;
     :cond_4
     iget-object v0, v9, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mPaint:Landroid/graphics/Paint;
 
@@ -750,13 +750,13 @@
 
     sget-object v10, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
-    .end local v10           #tmx:Landroid/graphics/Shader$TileMode;
+    .end local v10    # "tmx":Landroid/graphics/Shader$TileMode;
     :cond_5
     if-nez v11, :cond_6
 
     sget-object v11, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
-    .end local v11           #tmy:Landroid/graphics/Shader$TileMode;
+    .end local v11    # "tmy":Landroid/graphics/Shader$TileMode;
     :cond_6
     invoke-direct {v1, v6, v10, v11}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
@@ -765,8 +765,8 @@
     goto :goto_0
 
     .line 495
-    .restart local v7       #needMirroring:Z
-    .restart local v8       #shader:Landroid/graphics/Shader;
+    .restart local v7    # "needMirroring":Z
+    .restart local v8    # "shader":Landroid/graphics/Shader;
     :cond_7
     iget-boolean v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mApplyGravity:Z
 
@@ -952,7 +952,7 @@
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 624
-    .local v0, bm:Landroid/graphics/Bitmap;
+    .local v0, "bm":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->hasAlpha()Z
@@ -1064,9 +1064,9 @@
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
     .locals 9
-    .parameter "r"
-    .parameter "parser"
-    .parameter "attrs"
+    .param p1, "r"    # Landroid/content/res/Resources;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1090,7 +1090,7 @@
     move-result-object v0
 
     .line 564
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v5, 0x1
 
     invoke-virtual {v0, v5, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1098,7 +1098,7 @@
     move-result v2
 
     .line 565
-    .local v2, id:I
+    .local v2, "id":I
     if-nez v2, :cond_0
 
     .line 566
@@ -1137,7 +1137,7 @@
     move-result-object v1
 
     .line 570
-    .local v1, bitmap:Landroid/graphics/Bitmap;
+    .local v1, "bitmap":Landroid/graphics/Bitmap;
     if-nez v1, :cond_1
 
     .line 571
@@ -1213,7 +1213,7 @@
     iget-object v3, v5, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mPaint:Landroid/graphics/Paint;
 
     .line 583
-    .local v3, paint:Landroid/graphics/Paint;
+    .local v3, "paint":Landroid/graphics/Paint;
     const/4 v5, 0x2
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->isAntiAlias()Z
@@ -1269,7 +1269,7 @@
     move-result v4
 
     .line 591
-    .local v4, tileMode:I
+    .local v4, "tileMode":I
     if-eq v4, v8, :cond_2
 
     .line 592
@@ -1372,7 +1372,7 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 3
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 439
@@ -1393,7 +1393,7 @@
     move-result-object v0
 
     .line 442
-    .local v0, shader:Landroid/graphics/Shader;
+    .local v0, "shader":Landroid/graphics/Shader;
     if-eqz v0, :cond_0
 
     .line 443
@@ -1445,7 +1445,7 @@
 
 .method public setAlpha(I)V
     .locals 2
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 516
@@ -1458,7 +1458,7 @@
     move-result v0
 
     .line 517
-    .local v0, oldAlpha:I
+    .local v0, "oldAlpha":I
     if-eq p1, v0, :cond_0
 
     .line 518
@@ -1478,7 +1478,7 @@
 
 .method public setAntiAlias(Z)V
     .locals 1
-    .parameter "aa"
+    .param p1, "aa"    # Z
 
     .prologue
     .line 308
@@ -1497,7 +1497,7 @@
 
 .method public setAutoMirrored(Z)V
     .locals 1
-    .parameter "mirrored"
+    .param p1, "mirrored"    # Z
 
     .prologue
     .line 409
@@ -1522,7 +1522,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .parameter "cf"
+    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .prologue
     .line 530
@@ -1541,7 +1541,7 @@
 
 .method public setDither(Z)V
     .locals 1
-    .parameter "dither"
+    .param p1, "dither"    # Z
 
     .prologue
     .line 331
@@ -1560,7 +1560,7 @@
 
 .method public setFilterBitmap(Z)V
     .locals 1
-    .parameter "filter"
+    .param p1, "filter"    # Z
 
     .prologue
     .line 325
@@ -1579,7 +1579,7 @@
 
 .method public setGravity(I)V
     .locals 1
-    .parameter "gravity"
+    .param p1, "gravity"    # I
 
     .prologue
     .line 262
@@ -1609,7 +1609,7 @@
 
 .method public setMipMap(Z)V
     .locals 1
-    .parameter "mipMap"
+    .param p1, "mipMap"    # Z
 
     .prologue
     .line 280
@@ -1636,7 +1636,7 @@
 
 .method public setTargetDensity(I)V
     .locals 1
-    .parameter "density"
+    .param p1, "density"    # I
 
     .prologue
     .line 240
@@ -1649,7 +1649,7 @@
 
     const/16 p1, 0xa0
 
-    .end local p1
+    .end local p1    # "density":I
     :cond_0
     iput p1, p0, Landroid/graphics/drawable/BitmapDrawable;->mTargetDensity:I
 
@@ -1672,7 +1672,7 @@
 
 .method public setTargetDensity(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 216
@@ -1688,7 +1688,7 @@
 
 .method public setTargetDensity(Landroid/util/DisplayMetrics;)V
     .locals 1
-    .parameter "metrics"
+    .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 228
@@ -1702,7 +1702,7 @@
 
 .method public setTileModeX(Landroid/graphics/Shader$TileMode;)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 367
@@ -1718,15 +1718,15 @@
 
 .method public setTileModeXY(Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
     .locals 2
-    .parameter "xmode"
-    .parameter "ymode"
+    .param p1, "xmode"    # Landroid/graphics/Shader$TileMode;
+    .param p2, "ymode"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 398
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
     .line 399
-    .local v0, state:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
+    .local v0, "state":Landroid/graphics/drawable/BitmapDrawable$BitmapState;
     iget-object v1, v0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeX:Landroid/graphics/Shader$TileMode;
 
     if-ne v1, p1, :cond_0
@@ -1757,7 +1757,7 @@
 
 .method public final setTileModeY(Landroid/graphics/Shader$TileMode;)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 382
@@ -1773,7 +1773,7 @@
 
 .method public setXfermode(Landroid/graphics/Xfermode;)V
     .locals 1
-    .parameter "xfermode"
+    .param p1, "xfermode"    # Landroid/graphics/Xfermode;
 
     .prologue
     .line 538

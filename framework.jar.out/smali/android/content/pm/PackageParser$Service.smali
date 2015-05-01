@@ -30,8 +30,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$ParseComponentArgs;Landroid/content/pm/ServiceInfo;)V
     .locals 2
-    .parameter "args"
-    .parameter "_info"
+    .param p1, "args"    # Landroid/content/pm/PackageParser$ParseComponentArgs;
+    .param p2, "_info"    # Landroid/content/pm/ServiceInfo;
 
     .prologue
     .line 3959
@@ -57,7 +57,7 @@
 # virtual methods
 .method public setPackageName(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 3965
@@ -84,7 +84,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 3971
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Service{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

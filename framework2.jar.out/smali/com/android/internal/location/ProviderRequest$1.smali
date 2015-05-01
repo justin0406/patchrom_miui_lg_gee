@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/location/ProviderRequest;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x1
@@ -53,7 +53,7 @@
     invoke-direct {v2}, Lcom/android/internal/location/ProviderRequest;-><init>()V
 
     .line 51
-    .local v2, request:Lcom/android/internal/location/ProviderRequest;
+    .local v2, "request":Lcom/android/internal/location/ProviderRequest;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -76,10 +76,10 @@
     move-result v0
 
     .line 54
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_1
 
@@ -100,23 +100,23 @@
     goto :goto_1
 
     .line 51
-    .end local v0           #count:I
-    .end local v1           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "i":I
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 57
-    .restart local v0       #count:I
-    .restart local v1       #i:I
+    .restart local v0    # "count":I
+    .restart local v1    # "i":I
     :cond_1
     return-object v2
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 47
@@ -129,7 +129,7 @@
 
 .method public newArray(I)[Lcom/android/internal/location/ProviderRequest;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 61
@@ -140,7 +140,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 47

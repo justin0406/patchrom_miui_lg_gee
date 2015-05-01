@@ -40,7 +40,7 @@
 # virtual methods
 .method add(Ljava/lang/String;)V
     .locals 4
-    .parameter "segment"
+    .param p1, "segment"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -95,7 +95,7 @@
     new-array v0, v1, [Ljava/lang/String;
 
     .line 1005
-    .local v0, expanded:[Ljava/lang/String;
+    .local v0, "expanded":[Ljava/lang/String;
     iget-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
     iget-object v2, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;

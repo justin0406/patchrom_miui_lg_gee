@@ -53,7 +53,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 178
@@ -91,8 +90,7 @@
 
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;Landroid/os/Parcel;)V
     .locals 7
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 183
@@ -134,7 +132,7 @@
     move-result v3
 
     .line 191
-    .local v3, numLaunchTimeStats:I
+    .local v3, "numLaunchTimeStats":I
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v3}, Landroid/util/ArrayMap;->ensureCapacity(I)V
@@ -142,7 +140,7 @@
     .line 192
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_0
 
@@ -152,13 +150,13 @@
     move-result-object v0
 
     .line 195
-    .local v0, comp:Ljava/lang/String;
+    .local v0, "comp":Ljava/lang/String;
     new-instance v4, Lcom/android/server/am/UsageStatsService$TimeStats;
 
     invoke-direct {v4, p2}, Lcom/android/server/am/UsageStatsService$TimeStats;-><init>(Landroid/os/Parcel;)V
 
     .line 196
-    .local v4, times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .local v4, "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -169,15 +167,15 @@
     goto :goto_0
 
     .line 199
-    .end local v0           #comp:Ljava/lang/String;
-    .end local v4           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .end local v0    # "comp":Ljava/lang/String;
+    .end local v4    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     :cond_0
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 201
-    .local v2, numFullyDrawnTimeStats:I
+    .local v2, "numFullyDrawnTimeStats":I
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mFullyDrawnTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->ensureCapacity(I)V
@@ -194,13 +192,13 @@
     move-result-object v0
 
     .line 205
-    .restart local v0       #comp:Ljava/lang/String;
+    .restart local v0    # "comp":Ljava/lang/String;
     new-instance v4, Lcom/android/server/am/UsageStatsService$TimeStats;
 
     invoke-direct {v4, p2}, Lcom/android/server/am/UsageStatsService$TimeStats;-><init>(Landroid/os/Parcel;)V
 
     .line 206
-    .restart local v4       #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .restart local v4    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mFullyDrawnTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -211,8 +209,8 @@
     goto :goto_1
 
     .line 208
-    .end local v0           #comp:Ljava/lang/String;
-    .end local v4           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .end local v0    # "comp":Ljava/lang/String;
+    .end local v4    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     :cond_1
     return-void
 .end method
@@ -221,8 +219,8 @@
 # virtual methods
 .method addFullyDrawnTime(Ljava/lang/String;I)V
     .locals 2
-    .parameter "comp"
-    .parameter "millis"
+    .param p1, "comp"    # Ljava/lang/String;
+    .param p2, "millis"    # I
 
     .prologue
     .line 241
@@ -235,17 +233,17 @@
     check-cast v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
     .line 242
-    .local v0, times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .local v0, "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     if-nez v0, :cond_0
 
     .line 243
     new-instance v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
-    .end local v0           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .end local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     invoke-direct {v0}, Lcom/android/server/am/UsageStatsService$TimeStats;-><init>()V
 
     .line 244
-    .restart local v0       #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .restart local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mFullyDrawnTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -260,7 +258,7 @@
 
 .method addLaunchCount(Ljava/lang/String;)V
     .locals 2
-    .parameter "comp"
+    .param p1, "comp"    # Ljava/lang/String;
 
     .prologue
     .line 223
@@ -273,17 +271,17 @@
     check-cast v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
     .line 224
-    .local v0, times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .local v0, "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     if-nez v0, :cond_0
 
     .line 225
     new-instance v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
-    .end local v0           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .end local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     invoke-direct {v0}, Lcom/android/server/am/UsageStatsService$TimeStats;-><init>()V
 
     .line 226
-    .restart local v0       #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .restart local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -298,8 +296,8 @@
 
 .method addLaunchTime(Ljava/lang/String;I)V
     .locals 2
-    .parameter "comp"
-    .parameter "millis"
+    .param p1, "comp"    # Ljava/lang/String;
+    .param p2, "millis"    # I
 
     .prologue
     .line 232
@@ -312,17 +310,17 @@
     check-cast v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
     .line 233
-    .local v0, times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .local v0, "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     if-nez v0, :cond_0
 
     .line 234
     new-instance v0, Lcom/android/server/am/UsageStatsService$TimeStats;
 
-    .end local v0           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .end local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     invoke-direct {v0}, Lcom/android/server/am/UsageStatsService$TimeStats;-><init>()V
 
     .line 235
-    .restart local v0       #times:Lcom/android/server/am/UsageStatsService$TimeStats;
+    .restart local v0    # "times":Lcom/android/server/am/UsageStatsService$TimeStats;
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -393,8 +391,8 @@
 
 .method updateResume(Ljava/lang/String;Z)V
     .locals 2
-    .parameter "comp"
-    .parameter "launched"
+    .param p1, "comp"    # Ljava/lang/String;
+    .param p2, "launched"    # Z
 
     .prologue
     .line 211
@@ -421,7 +419,7 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "out"
+    .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
     .line 250
@@ -442,13 +440,13 @@
     move-result v2
 
     .line 253
-    .local v2, numLaunchTimeStats:I
+    .local v2, "numLaunchTimeStats":I
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 254
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -488,7 +486,7 @@
     move-result v1
 
     .line 259
-    .local v1, numFullyDrawnTimeStats:I
+    .local v1, "numFullyDrawnTimeStats":I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 260

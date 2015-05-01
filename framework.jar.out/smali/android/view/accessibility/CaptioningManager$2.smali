@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/CaptioningManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 241
@@ -44,7 +43,7 @@
     .line 244
     iget-object v0, p0, Landroid/view/accessibility/CaptioningManager$2;->this$0:Landroid/view/accessibility/CaptioningManager;
 
-    #calls: Landroid/view/accessibility/CaptioningManager;->notifyUserStyleChanged()V
+    # invokes: Landroid/view/accessibility/CaptioningManager;->notifyUserStyleChanged()V
     invoke-static {v0}, Landroid/view/accessibility/CaptioningManager;->access$500(Landroid/view/accessibility/CaptioningManager;)V
 
     .line 245

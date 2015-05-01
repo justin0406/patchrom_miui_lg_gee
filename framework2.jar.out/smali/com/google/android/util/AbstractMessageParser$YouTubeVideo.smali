@@ -41,8 +41,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "docid"
-    .parameter "text"
+    .param p1, "docid"    # Ljava/lang/String;
+    .param p2, "text"    # Ljava/lang/String;
 
     .prologue
     .line 878
@@ -59,17 +59,17 @@
 
 .method public static getPrefixedURL(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "http"
-    .parameter "prefix"
-    .parameter "docid"
-    .parameter "extraParams"
+    .param p0, "http"    # Z
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "docid"    # Ljava/lang/String;
+    .param p3, "extraParams"    # Ljava/lang/String;
 
     .prologue
     .line 931
     const-string v0, ""
 
     .line 933
-    .local v0, protocol:Ljava/lang/String;
+    .local v0, "protocol":Ljava/lang/String;
     if-eqz p0, :cond_0
 
     .line 934
@@ -162,7 +162,7 @@
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "docid"
+    .param p0, "docid"    # Ljava/lang/String;
 
     .prologue
     .line 906
@@ -189,7 +189,7 @@
 
 .method public static getURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "docid"
+    .param p0, "docid"    # Ljava/lang/String;
 
     .prologue
     .line 911
@@ -204,8 +204,8 @@
 
 .method public static getURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "docid"
-    .parameter "extraParams"
+    .param p0, "docid"    # Ljava/lang/String;
+    .param p1, "extraParams"    # Ljava/lang/String;
 
     .prologue
     .line 916
@@ -279,8 +279,8 @@
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;
     .locals 3
-    .parameter "url"
-    .parameter "text"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 889
@@ -291,7 +291,7 @@
     move-result-object v0
 
     .line 890
-    .local v0, m:Ljava/util/regex/Matcher;
+    .local v0, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v1
@@ -350,7 +350,7 @@
     move-result-object v0
 
     .line 899
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v1, p0, Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;->docid:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;->getRssUrl(Ljava/lang/String;)Ljava/lang/String;

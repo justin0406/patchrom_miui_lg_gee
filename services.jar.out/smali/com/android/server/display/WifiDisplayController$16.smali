@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 890
@@ -44,7 +43,7 @@
     .line 893
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$16;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    #calls: Lcom/android/server/display/WifiDisplayController;->tryDiscoverPeers()V
+    # invokes: Lcom/android/server/display/WifiDisplayController;->tryDiscoverPeers()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$3000(Lcom/android/server/display/WifiDisplayController;)V
 
     .line 894

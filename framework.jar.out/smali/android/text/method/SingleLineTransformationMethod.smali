@@ -36,16 +36,16 @@
 
     .line 35
     :array_0
-    .array-data 0x2
-        0xat 0x0t
-        0xdt 0x0t
+    .array-data 2
+        0xas
+        0xds
     .end array-data
 
     .line 36
     :array_1
-    .array-data 0x2
-        0x20t 0x0t
-        0xfft 0xfet
+    .array-data 2
+        0x20s
+        -0x101s
     .end array-data
 .end method
 

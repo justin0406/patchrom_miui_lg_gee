@@ -47,7 +47,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 1345
@@ -69,16 +69,16 @@
 
 .method public static addToTrie(Lcom/google/android/util/AbstractMessageParser$TrieNode;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "root"
-    .parameter "str"
-    .parameter "value"
+    .param p0, "root"    # Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 1370
     const/4 v0, 0x0
 
     .line 1371
-    .local v0, index:I
+    .local v0, "index":I
     :goto_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -89,8 +89,8 @@
     .line 1372
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #index:I
-    .local v1, index:I
+    .end local v0    # "index":I
+    .local v1, "index":I
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -101,8 +101,8 @@
 
     move v0, v1
 
-    .end local v1           #index:I
-    .restart local v0       #index:I
+    .end local v1    # "index":I
+    .restart local v0    # "index":I
     goto :goto_0
 
     .line 1374
@@ -137,7 +137,7 @@
 
 .method public getChild(C)Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 2
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 1355
@@ -158,7 +158,7 @@
 
 .method public getOrCreateChild(C)Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 4
-    .parameter "ch"
+    .param p1, "ch"    # C
 
     .prologue
     .line 1359
@@ -167,7 +167,7 @@
     move-result-object v0
 
     .line 1360
-    .local v0, key:Ljava/lang/Character;
+    .local v0, "key":Ljava/lang/Character;
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$TrieNode;->children:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -177,13 +177,13 @@
     check-cast v1, Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
     .line 1361
-    .local v1, node:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .local v1, "node":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     if-nez v1, :cond_0
 
     .line 1362
     new-instance v1, Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
-    .end local v1           #node:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .end local v1    # "node":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -209,7 +209,7 @@
     invoke-direct {v1, v2}, Lcom/google/android/util/AbstractMessageParser$TrieNode;-><init>(Ljava/lang/String;)V
 
     .line 1363
-    .restart local v1       #node:Lcom/google/android/util/AbstractMessageParser$TrieNode;
+    .restart local v1    # "node":Lcom/google/android/util/AbstractMessageParser$TrieNode;
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$TrieNode;->children:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -241,7 +241,7 @@
 
 .method public setValue(Ljava/lang/String;)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 1352

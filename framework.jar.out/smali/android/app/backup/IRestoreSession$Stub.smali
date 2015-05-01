@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreSession;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/backup/IRestoreSession;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/app/backup/IRestoreSession$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/backup/IRestoreSession$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -160,13 +160,13 @@
     move-result-object v0
 
     .line 56
-    .local v0, _arg0:Landroid/app/backup/IRestoreObserver;
+    .local v0, "_arg0":Landroid/app/backup/IRestoreObserver;
     invoke-virtual {p0, v0}, Landroid/app/backup/IRestoreSession$Stub;->getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
 
     move-result v4
 
     .line 57
-    .local v4, _result:I
+    .local v4, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 58
@@ -175,8 +175,8 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:Landroid/app/backup/IRestoreObserver;
-    .end local v4           #_result:I
+    .end local v0    # "_arg0":Landroid/app/backup/IRestoreObserver;
+    .end local v4    # "_result":I
     :sswitch_2
     const-string v6, "android.app.backup.IRestoreSession"
 
@@ -188,7 +188,7 @@
     move-result-wide v0
 
     .line 67
-    .local v0, _arg0:J
+    .local v0, "_arg0":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -198,13 +198,13 @@
     move-result-object v2
 
     .line 68
-    .local v2, _arg1:Landroid/app/backup/IRestoreObserver;
+    .local v2, "_arg1":Landroid/app/backup/IRestoreObserver;
     invoke-virtual {p0, v0, v1, v2}, Landroid/app/backup/IRestoreSession$Stub;->restoreAll(JLandroid/app/backup/IRestoreObserver;)I
 
     move-result v4
 
     .line 69
-    .restart local v4       #_result:I
+    .restart local v4    # "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 70
@@ -213,9 +213,9 @@
     goto :goto_0
 
     .line 75
-    .end local v0           #_arg0:J
-    .end local v2           #_arg1:Landroid/app/backup/IRestoreObserver;
-    .end local v4           #_result:I
+    .end local v0    # "_arg0":J
+    .end local v2    # "_arg1":Landroid/app/backup/IRestoreObserver;
+    .end local v4    # "_result":I
     :sswitch_3
     const-string v6, "android.app.backup.IRestoreSession"
 
@@ -227,7 +227,7 @@
     move-result-wide v0
 
     .line 79
-    .restart local v0       #_arg0:J
+    .restart local v0    # "_arg0":J
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -237,19 +237,19 @@
     move-result-object v2
 
     .line 81
-    .restart local v2       #_arg1:Landroid/app/backup/IRestoreObserver;
+    .restart local v2    # "_arg1":Landroid/app/backup/IRestoreObserver;
     invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
 
     move-result-object v3
 
     .line 82
-    .local v3, _arg2:[Ljava/lang/String;
+    .local v3, "_arg2":[Ljava/lang/String;
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/app/backup/IRestoreSession$Stub;->restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
 
     move-result v4
 
     .line 83
-    .restart local v4       #_result:I
+    .restart local v4    # "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 84
@@ -258,10 +258,10 @@
     goto :goto_0
 
     .line 89
-    .end local v0           #_arg0:J
-    .end local v2           #_arg1:Landroid/app/backup/IRestoreObserver;
-    .end local v3           #_arg2:[Ljava/lang/String;
-    .end local v4           #_result:I
+    .end local v0    # "_arg0":J
+    .end local v2    # "_arg1":Landroid/app/backup/IRestoreObserver;
+    .end local v3    # "_arg2":[Ljava/lang/String;
+    .end local v4    # "_result":I
     :sswitch_4
     const-string v6, "android.app.backup.IRestoreSession"
 
@@ -273,7 +273,7 @@
     move-result-object v0
 
     .line 93
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -283,13 +283,13 @@
     move-result-object v2
 
     .line 94
-    .restart local v2       #_arg1:Landroid/app/backup/IRestoreObserver;
+    .restart local v2    # "_arg1":Landroid/app/backup/IRestoreObserver;
     invoke-virtual {p0, v0, v2}, Landroid/app/backup/IRestoreSession$Stub;->restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
 
     move-result v4
 
     .line 95
-    .restart local v4       #_result:I
+    .restart local v4    # "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 96
@@ -298,9 +298,9 @@
     goto :goto_0
 
     .line 101
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/app/backup/IRestoreObserver;
-    .end local v4           #_result:I
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":Landroid/app/backup/IRestoreObserver;
+    .end local v4    # "_result":I
     :sswitch_5
     const-string v6, "android.app.backup.IRestoreSession"
 

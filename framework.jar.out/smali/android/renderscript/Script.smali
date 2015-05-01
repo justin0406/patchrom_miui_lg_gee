@@ -42,8 +42,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 180
@@ -71,8 +71,8 @@
 # virtual methods
 .method public bindAllocation(Landroid/renderscript/Allocation;I)V
     .locals 3
-    .parameter "va"
-    .parameter "slot"
+    .param p1, "va"    # Landroid/renderscript/Allocation;
+    .param p2, "slot"    # I
 
     .prologue
     .line 189
@@ -123,8 +123,8 @@
 
 .method protected createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
     .locals 5
-    .parameter "slot"
-    .parameter "e"
+    .param p1, "slot"    # I
+    .param p2, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 90
@@ -137,20 +137,20 @@
     check-cast v0, Landroid/renderscript/Script$FieldID;
 
     .line 91
-    .local v0, f:Landroid/renderscript/Script$FieldID;
+    .local v0, "f":Landroid/renderscript/Script$FieldID;
     if-eqz v0, :cond_0
 
     move-object v1, v0
 
     .line 102
-    .end local v0           #f:Landroid/renderscript/Script$FieldID;
-    .local v1, f:Ljava/lang/Object;
+    .end local v0    # "f":Landroid/renderscript/Script$FieldID;
+    .local v1, "f":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 95
-    .end local v1           #f:Ljava/lang/Object;
-    .restart local v0       #f:Landroid/renderscript/Script$FieldID;
+    .end local v1    # "f":Ljava/lang/Object;
+    .restart local v0    # "f":Landroid/renderscript/Script$FieldID;
     :cond_0
     iget-object v3, p0, Landroid/renderscript/Script;->mRS:Landroid/renderscript/RenderScript;
 
@@ -165,7 +165,7 @@
     move-result v2
 
     .line 96
-    .local v2, id:I
+    .local v2, "id":I
     if-nez v2, :cond_1
 
     .line 97
@@ -181,13 +181,13 @@
     :cond_1
     new-instance v0, Landroid/renderscript/Script$FieldID;
 
-    .end local v0           #f:Landroid/renderscript/Script$FieldID;
+    .end local v0    # "f":Landroid/renderscript/Script$FieldID;
     iget-object v3, p0, Landroid/renderscript/Script;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-direct {v0, v2, v3, p0, p1}, Landroid/renderscript/Script$FieldID;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Script;I)V
 
     .line 101
-    .restart local v0       #f:Landroid/renderscript/Script$FieldID;
+    .restart local v0    # "f":Landroid/renderscript/Script$FieldID;
     iget-object v3, p0, Landroid/renderscript/Script;->mFIDs:Landroid/util/SparseArray;
 
     invoke-virtual {v3, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -195,16 +195,16 @@
     move-object v1, v0
 
     .line 102
-    .restart local v1       #f:Ljava/lang/Object;
+    .restart local v1    # "f":Ljava/lang/Object;
     goto :goto_0
 .end method
 
 .method protected createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
     .locals 7
-    .parameter "slot"
-    .parameter "sig"
-    .parameter "ein"
-    .parameter "eout"
+    .param p1, "slot"    # I
+    .param p2, "sig"    # I
+    .param p3, "ein"    # Landroid/renderscript/Element;
+    .param p4, "eout"    # Landroid/renderscript/Element;
 
     .prologue
     .line 52
@@ -217,20 +217,20 @@
     check-cast v0, Landroid/renderscript/Script$KernelID;
 
     .line 53
-    .local v0, k:Landroid/renderscript/Script$KernelID;
+    .local v0, "k":Landroid/renderscript/Script$KernelID;
     if-eqz v0, :cond_0
 
     move-object v6, v0
 
     .line 64
-    .end local v0           #k:Landroid/renderscript/Script$KernelID;
-    .local v6, k:Ljava/lang/Object;
+    .end local v0    # "k":Landroid/renderscript/Script$KernelID;
+    .local v6, "k":Ljava/lang/Object;
     :goto_0
     return-object v6
 
     .line 57
-    .end local v6           #k:Ljava/lang/Object;
-    .restart local v0       #k:Landroid/renderscript/Script$KernelID;
+    .end local v6    # "k":Ljava/lang/Object;
+    .restart local v0    # "k":Landroid/renderscript/Script$KernelID;
     :cond_0
     iget-object v2, p0, Landroid/renderscript/Script;->mRS:Landroid/renderscript/RenderScript;
 
@@ -245,7 +245,7 @@
     move-result v1
 
     .line 58
-    .local v1, id:I
+    .local v1, "id":I
     if-nez v1, :cond_1
 
     .line 59
@@ -261,7 +261,7 @@
     :cond_1
     new-instance v0, Landroid/renderscript/Script$KernelID;
 
-    .end local v0           #k:Landroid/renderscript/Script$KernelID;
+    .end local v0    # "k":Landroid/renderscript/Script$KernelID;
     iget-object v2, p0, Landroid/renderscript/Script;->mRS:Landroid/renderscript/RenderScript;
 
     move-object v3, p0
@@ -273,7 +273,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/renderscript/Script$KernelID;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Script;II)V
 
     .line 63
-    .restart local v0       #k:Landroid/renderscript/Script$KernelID;
+    .restart local v0    # "k":Landroid/renderscript/Script$KernelID;
     iget-object v2, p0, Landroid/renderscript/Script;->mKIDs:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -281,16 +281,16 @@
     move-object v6, v0
 
     .line 64
-    .restart local v6       #k:Ljava/lang/Object;
+    .restart local v6    # "k":Ljava/lang/Object;
     goto :goto_0
 .end method
 
 .method protected forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;)V
     .locals 6
-    .parameter "slot"
-    .parameter "ain"
-    .parameter "aout"
-    .parameter "v"
+    .param p1, "slot"    # I
+    .param p2, "ain"    # Landroid/renderscript/Allocation;
+    .param p3, "aout"    # Landroid/renderscript/Allocation;
+    .param p4, "v"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 131
@@ -312,7 +312,7 @@
     const/4 v3, 0x0
 
     .line 136
-    .local v3, in_id:I
+    .local v3, "in_id":I
     if-eqz p2, :cond_1
 
     .line 137
@@ -327,7 +327,7 @@
     const/4 v4, 0x0
 
     .line 140
-    .local v4, out_id:I
+    .local v4, "out_id":I
     if-eqz p3, :cond_2
 
     .line 141
@@ -342,7 +342,7 @@
     const/4 v5, 0x0
 
     .line 144
-    .local v5, params:[B
+    .local v5, "params":[B
     if-eqz p4, :cond_3
 
     .line 145
@@ -370,11 +370,11 @@
 
 .method protected forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
     .locals 12
-    .parameter "slot"
-    .parameter "ain"
-    .parameter "aout"
-    .parameter "v"
-    .parameter "sc"
+    .param p1, "slot"    # I
+    .param p2, "ain"    # Landroid/renderscript/Allocation;
+    .param p3, "aout"    # Landroid/renderscript/Allocation;
+    .param p4, "v"    # Landroid/renderscript/FieldPacker;
+    .param p5, "sc"    # Landroid/renderscript/Script$LaunchOptions;
 
     .prologue
     .line 155
@@ -407,7 +407,7 @@
     const/4 v3, 0x0
 
     .line 165
-    .local v3, in_id:I
+    .local v3, "in_id":I
     if-eqz p2, :cond_2
 
     .line 166
@@ -422,7 +422,7 @@
     const/4 v4, 0x0
 
     .line 169
-    .local v4, out_id:I
+    .local v4, "out_id":I
     if-eqz p3, :cond_3
 
     .line 170
@@ -437,7 +437,7 @@
     const/4 v5, 0x0
 
     .line 173
-    .local v5, params:[B
+    .local v5, "params":[B
     if-eqz p4, :cond_4
 
     .line 174
@@ -455,32 +455,32 @@
 
     move-result v1
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->xstart:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->xstart:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$000(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v6
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->xend:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->xend:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$100(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v7
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->ystart:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->ystart:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$200(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v8
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->yend:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->yend:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$300(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v9
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->zstart:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->zstart:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$400(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v10
 
-    #getter for: Landroid/renderscript/Script$LaunchOptions;->zend:I
+    # getter for: Landroid/renderscript/Script$LaunchOptions;->zend:I
     invoke-static/range {p5 .. p5}, Landroid/renderscript/Script$LaunchOptions;->access$500(Landroid/renderscript/Script$LaunchOptions;)I
 
     move-result v11
@@ -494,7 +494,7 @@
 
 .method public getVarB(I)Z
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 251
@@ -525,7 +525,7 @@
 
 .method public getVarD(I)D
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 216
@@ -546,7 +546,7 @@
 
 .method public getVarF(I)F
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 205
@@ -567,7 +567,7 @@
 
 .method public getVarI(I)I
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 227
@@ -588,7 +588,7 @@
 
 .method public getVarJ(I)J
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 239
@@ -609,8 +609,8 @@
 
 .method public getVarV(ILandroid/renderscript/FieldPacker;)V
     .locals 3
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 283
@@ -634,7 +634,7 @@
 
 .method protected invoke(I)V
     .locals 2
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 111
@@ -654,8 +654,8 @@
 
 .method protected invoke(ILandroid/renderscript/FieldPacker;)V
     .locals 3
-    .parameter "slot"
-    .parameter "v"
+    .param p1, "slot"    # I
+    .param p2, "v"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 119
@@ -697,7 +697,7 @@
 
 .method public setTimeZone(Ljava/lang/String;)V
     .locals 4
-    .parameter "timeZone"
+    .param p1, "timeZone"    # Ljava/lang/String;
 
     .prologue
     .line 287
@@ -733,7 +733,7 @@
     move-exception v0
 
     .line 291
-    .local v0, e:Ljava/io/UnsupportedEncodingException;
+    .local v0, "e":Ljava/io/UnsupportedEncodingException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -743,8 +743,8 @@
 
 .method public setVar(ID)V
     .locals 2
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # D
 
     .prologue
     .line 213
@@ -764,8 +764,8 @@
 
 .method public setVar(IF)V
     .locals 2
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # F
 
     .prologue
     .line 202
@@ -785,8 +785,8 @@
 
 .method public setVar(II)V
     .locals 2
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # I
 
     .prologue
     .line 224
@@ -806,8 +806,8 @@
 
 .method public setVar(IJ)V
     .locals 2
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # J
 
     .prologue
     .line 236
@@ -827,8 +827,8 @@
 
 .method public setVar(ILandroid/renderscript/BaseObj;)V
     .locals 3
-    .parameter "index"
-    .parameter "o"
+    .param p1, "index"    # I
+    .param p2, "o"    # Landroid/renderscript/BaseObj;
 
     .prologue
     .line 259
@@ -863,8 +863,8 @@
 
 .method public setVar(ILandroid/renderscript/FieldPacker;)V
     .locals 3
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # Landroid/renderscript/FieldPacker;
 
     .prologue
     .line 267
@@ -888,10 +888,10 @@
 
 .method public setVar(ILandroid/renderscript/FieldPacker;Landroid/renderscript/Element;[I)V
     .locals 6
-    .parameter "index"
-    .parameter "v"
-    .parameter "e"
-    .parameter "dims"
+    .param p1, "index"    # I
+    .param p2, "v"    # Landroid/renderscript/FieldPacker;
+    .param p3, "e"    # Landroid/renderscript/Element;
+    .param p4, "dims"    # [I
 
     .prologue
     .line 275
@@ -925,8 +925,8 @@
 
 .method public setVar(IZ)V
     .locals 3
-    .parameter "index"
-    .parameter "v"
+    .param p1, "index"    # I
+    .param p2, "v"    # Z
 
     .prologue
     .line 248

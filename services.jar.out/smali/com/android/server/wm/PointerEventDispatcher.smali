@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;)V
     .locals 1
-    .parameter "inputChannel"
+    .param p1, "inputChannel"    # Landroid/view/InputChannel;
 
     .prologue
     .line 35
@@ -57,7 +57,7 @@
 # virtual methods
 .method public onInputEvent(Landroid/view/InputEvent;)V
     .locals 8
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
     const/4 v7, 0x0
@@ -84,7 +84,7 @@
     move-object v3, v0
 
     .line 45
-    .local v3, motionEvent:Landroid/view/MotionEvent;
+    .local v3, "motionEvent":Landroid/view/MotionEvent;
     iget-object v5, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v5
@@ -120,7 +120,7 @@
     iget-object v2, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicy$PointerEventListener;
 
     .line 51
-    .local v2, listeners:[Landroid/view/WindowManagerPolicy$PointerEventListener;
+    .local v2, "listeners":[Landroid/view/WindowManagerPolicy$PointerEventListener;
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -128,7 +128,7 @@
     .line 52
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     :try_start_2
     array-length v4, v2
@@ -148,8 +148,8 @@
     goto :goto_0
 
     .line 51
-    .end local v1           #i:I
-    .end local v2           #listeners:[Landroid/view/WindowManagerPolicy$PointerEventListener;
+    .end local v1    # "i":I
+    .end local v2    # "listeners":[Landroid/view/WindowManagerPolicy$PointerEventListener;
     :catchall_0
     move-exception v4
 
@@ -164,7 +164,7 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 57
-    .end local v3           #motionEvent:Landroid/view/MotionEvent;
+    .end local v3    # "motionEvent":Landroid/view/MotionEvent;
     :catchall_1
     move-exception v4
 
@@ -181,7 +181,7 @@
 
 .method public registerInputEventListener(Landroid/view/WindowManagerPolicy$PointerEventListener;)V
     .locals 4
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/WindowManagerPolicy$PointerEventListener;
 
     .prologue
     .line 66
@@ -263,7 +263,7 @@
 
 .method public unregisterInputEventListener(Landroid/view/WindowManagerPolicy$PointerEventListener;)V
     .locals 4
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/WindowManagerPolicy$PointerEventListener;
 
     .prologue
     .line 81

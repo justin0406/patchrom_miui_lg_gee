@@ -109,7 +109,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x1
@@ -162,8 +162,8 @@
 
 .method static synthetic access$102(Landroid/app/Notification$Builder;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
+    .param p1, "x1"    # I
 
     .prologue
     .line 1137
@@ -174,8 +174,8 @@
 
 .method static synthetic access$200(Landroid/app/Notification$Builder;I)Landroid/widget/RemoteViews;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
+    .param p1, "x1"    # I
 
     .prologue
     .line 1137
@@ -188,7 +188,7 @@
 
 .method static synthetic access$300(Landroid/app/Notification$Builder;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
 
     .prologue
     .line 1137
@@ -199,8 +199,8 @@
 
 .method static synthetic access$402(Landroid/app/Notification$Builder;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
+    .param p1, "x1"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1137
@@ -211,7 +211,7 @@
 
 .method static synthetic access$500(Landroid/app/Notification$Builder;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
 
     .prologue
     .line 1137
@@ -222,8 +222,8 @@
 
 .method static synthetic access$502(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/app/Notification$Builder;
+    .param p1, "x1"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1137
@@ -234,8 +234,8 @@
 
 .method private applyStandardTemplate(IZ)Landroid/widget/RemoteViews;
     .locals 18
-    .parameter "resId"
-    .parameter "fitIn1U"
+    .param p1, "resId"    # I
+    .param p2, "fitIn1U"    # Z
 
     .prologue
     .line 1630
@@ -254,19 +254,19 @@
     invoke-direct {v1, v2, v0}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
     .line 1631
-    .local v1, contentView:Landroid/widget/RemoteViews;
+    .local v1, "contentView":Landroid/widget/RemoteViews;
     const/4 v10, 0x0
 
     .line 1632
-    .local v10, showLine3:Z
+    .local v10, "showLine3":Z
     const/4 v9, 0x0
 
     .line 1633
-    .local v9, showLine2:Z
+    .local v9, "showLine2":Z
     const v11, 0x1020006
 
     .line 1634
-    .local v11, smallIconImageViewId:I
+    .local v11, "smallIconImageViewId":I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/Notification$Builder;->mLargeIcon:Landroid/graphics/Bitmap;
@@ -300,7 +300,7 @@
 
     const-string/jumbo v3, "setBackgroundResource"
 
-    const v4, 0x1080689
+    const v4, 0x108068d
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -457,7 +457,7 @@
     move-result-object v8
 
     .line 1702
-    .local v8, res:Landroid/content/res/Resources;
+    .local v8, "res":Landroid/content/res/Resources;
     const v2, 0x1050059
 
     invoke-virtual {v8, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -467,7 +467,7 @@
     int-to-float v12, v2
 
     .line 1704
-    .local v12, subTextSize:F
+    .local v12, "subTextSize":F
     const v2, 0x1020046
 
     const/4 v3, 0x0
@@ -475,8 +475,8 @@
     invoke-virtual {v1, v2, v3, v12}, Landroid/widget/RemoteViews;->setTextViewTextSize(IIF)V
 
     .line 1707
-    .end local v8           #res:Landroid/content/res/Resources;
-    .end local v12           #subTextSize:F
+    .end local v8    # "res":Landroid/content/res/Resources;
+    .end local v12    # "subTextSize":F
     :cond_4
     const v2, 0x10202d7
 
@@ -610,7 +610,7 @@
     move-result v13
 
     .line 1664
-    .local v13, tooBig:I
+    .local v13, "tooBig":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/app/Notification$Builder;->mNumber:I
@@ -657,7 +657,7 @@
     move-result-object v7
 
     .line 1669
-    .local v7, f:Ljava/text/NumberFormat;
+    .local v7, "f":Ljava/text/NumberFormat;
     const v2, 0x10202da
 
     move-object/from16 v0, p0
@@ -675,8 +675,8 @@
     goto :goto_6
 
     .line 1674
-    .end local v7           #f:Ljava/text/NumberFormat;
-    .end local v13           #tooBig:I
+    .end local v7    # "f":Ljava/text/NumberFormat;
+    .end local v13    # "tooBig":I
     :cond_9
     const v2, 0x10202da
 
@@ -803,7 +803,7 @@
 
 .method private applyStandardTemplateWithActions(I)Landroid/widget/RemoteViews;
     .locals 7
-    .parameter "layoutId"
+    .param p1, "layoutId"    # I
 
     .prologue
     const v6, 0x10202d3
@@ -816,7 +816,7 @@
     move-result-object v1
 
     .line 1732
-    .local v1, big:Landroid/widget/RemoteViews;
+    .local v1, "big":Landroid/widget/RemoteViews;
     iget-object v4, p0, Landroid/app/Notification$Builder;->mActions:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
@@ -824,7 +824,7 @@
     move-result v0
 
     .line 1733
-    .local v0, N:I
+    .local v0, "N":I
     if-lez v0, :cond_1
 
     .line 1735
@@ -849,7 +849,7 @@
     .line 1739
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v0, :cond_1
 
@@ -867,7 +867,7 @@
     move-result-object v2
 
     .line 1742
-    .local v2, button:Landroid/widget/RemoteViews;
+    .local v2, "button":Landroid/widget/RemoteViews;
     invoke-virtual {v1, v6, v2}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
 
     .line 1739
@@ -876,15 +876,15 @@
     goto :goto_0
 
     .line 1745
-    .end local v2           #button:Landroid/widget/RemoteViews;
-    .end local v3           #i:I
+    .end local v2    # "button":Landroid/widget/RemoteViews;
+    .end local v3    # "i":I
     :cond_1
     return-object v1
 .end method
 
 .method private generateActionButton(Landroid/app/Notification$Action;)Landroid/widget/RemoteViews;
     .locals 7
-    .parameter "action"
+    .param p1, "action"    # Landroid/app/Notification$Action;
 
     .prologue
     const v1, 0x10202d2
@@ -899,7 +899,7 @@
     const/4 v6, 0x1
 
     .line 1778
-    .local v6, tombstone:Z
+    .local v6, "tombstone":Z
     :goto_0
     new-instance v0, Landroid/widget/RemoteViews;
 
@@ -917,14 +917,14 @@
     invoke-direct {v0, v4, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
     .line 1781
-    .local v0, button:Landroid/widget/RemoteViews;
+    .local v0, "button":Landroid/widget/RemoteViews;
     iget v2, p1, Landroid/app/Notification$Action;->icon:I
 
     move v4, v3
 
     move v5, v3
 
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setTextViewCompoundDrawables(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setTextViewCompoundDrawablesRelative(IIIII)V
 
     .line 1782
     iget-object v2, p1, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
@@ -948,8 +948,8 @@
     .line 1787
     return-object v0
 
-    .end local v0           #button:Landroid/widget/RemoteViews;
-    .end local v6           #tombstone:Z
+    .end local v0    # "button":Landroid/widget/RemoteViews;
+    .end local v6    # "tombstone":Z
     :cond_1
     move v6, v3
 
@@ -957,7 +957,7 @@
     goto :goto_0
 
     .line 1778
-    .restart local v6       #tombstone:Z
+    .restart local v6    # "tombstone":Z
     :cond_2
     const v2, 0x1090060
 
@@ -1073,8 +1073,8 @@
 
 .method private setFlag(IZ)V
     .locals 2
-    .parameter "mask"
-    .parameter "value"
+    .param p1, "mask"    # I
+    .param p2, "value"    # Z
 
     .prologue
     .line 1622
@@ -1108,9 +1108,9 @@
 # virtual methods
 .method public addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
     .locals 3
-    .parameter "icon"
-    .parameter "title"
-    .parameter "intent"
+    .param p1, "icon"    # I
+    .param p2, "title"    # Ljava/lang/CharSequence;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1602
@@ -1132,7 +1132,7 @@
 
 .method public addExtras(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 1844
@@ -1224,7 +1224,7 @@
 
 .method public addKind(Ljava/lang/String;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "k"
+    .param p1, "k"    # Ljava/lang/String;
 
     .prologue
     .line 1566
@@ -1246,7 +1246,7 @@
     move-result-object v0
 
     .line 1874
-    .local v0, n:Landroid/app/Notification;
+    .local v0, "n":Landroid/app/Notification;
     iget-object v1, p0, Landroid/app/Notification$Builder;->mStyle:Landroid/app/Notification$Style;
 
     if-eqz v1, :cond_0
@@ -1305,7 +1305,7 @@
 
 .method public buildInto(Landroid/app/Notification;)Landroid/app/Notification;
     .locals 2
-    .parameter "n"
+    .param p1, "n"    # Landroid/app/Notification;
 
     .prologue
     .line 1894
@@ -1331,7 +1331,7 @@
     invoke-direct {v0}, Landroid/app/Notification;-><init>()V
 
     .line 1796
-    .local v0, n:Landroid/app/Notification;
+    .local v0, "n":Landroid/app/Notification;
     iget-wide v1, p0, Landroid/app/Notification$Builder;->mWhen:J
 
     iput-wide v1, v0, Landroid/app/Notification;->when:J
@@ -1559,7 +1559,7 @@
 
 .method public setAutoCancel(Z)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "autoCancel"
+    .param p1, "autoCancel"    # Z
 
     .prologue
     .line 1530
@@ -1573,7 +1573,7 @@
 
 .method public setContent(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "views"
+    .param p1, "views"    # Landroid/widget/RemoteViews;
 
     .prologue
     .line 1342
@@ -1585,7 +1585,7 @@
 
 .method public setContentInfo(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1320
@@ -1601,7 +1601,7 @@
 
 .method public setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1358
@@ -1613,7 +1613,7 @@
 
 .method public setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1289
@@ -1629,7 +1629,7 @@
 
 .method public setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1281
@@ -1645,7 +1645,7 @@
 
 .method public setDefaults(I)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "defaults"
+    .param p1, "defaults"    # I
 
     .prologue
     .line 1544
@@ -1657,7 +1657,7 @@
 
 .method public setDeleteIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1368
@@ -1669,7 +1669,7 @@
 
 .method public setExtras(Landroid/os/Bundle;)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "bag"
+    .param p1, "bag"    # Landroid/os/Bundle;
 
     .prologue
     .line 1580
@@ -1681,8 +1681,8 @@
 
 .method public setFullScreenIntent(Landroid/app/PendingIntent;Z)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "intent"
-    .parameter "highPriority"
+    .param p1, "intent"    # Landroid/app/PendingIntent;
+    .param p2, "highPriority"    # Z
 
     .prologue
     .line 1388
@@ -1699,7 +1699,7 @@
 
 .method public setLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 1427
@@ -1711,9 +1711,9 @@
 
 .method public setLights(III)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "argb"
-    .parameter "onMs"
-    .parameter "offMs"
+    .param p1, "argb"    # I
+    .param p2, "onMs"    # I
+    .param p3, "offMs"    # I
 
     .prologue
     .line 1485
@@ -1731,7 +1731,7 @@
 
 .method public setNumber(I)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "number"
+    .param p1, "number"    # I
 
     .prologue
     .line 1309
@@ -1743,7 +1743,7 @@
 
 .method public setOngoing(Z)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "ongoing"
+    .param p1, "ongoing"    # Z
 
     .prologue
     .line 1508
@@ -1757,7 +1757,7 @@
 
 .method public setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "onlyAlertOnce"
+    .param p1, "onlyAlertOnce"    # Z
 
     .prologue
     .line 1519
@@ -1771,7 +1771,7 @@
 
 .method public setPriority(I)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "pri"
+    .param p1, "pri"    # I
 
     .prologue
     .line 1554
@@ -1783,9 +1783,9 @@
 
 .method public setProgress(IIZ)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "max"
-    .parameter "progress"
-    .parameter "indeterminate"
+    .param p1, "max"    # I
+    .param p2, "progress"    # I
+    .param p3, "indeterminate"    # Z
 
     .prologue
     .line 1330
@@ -1803,7 +1803,7 @@
 
 .method public setShowWhen(Z)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "show"
+    .param p1, "show"    # Z
 
     .prologue
     .line 1221
@@ -1815,7 +1815,7 @@
 
 .method public setSmallIcon(I)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "icon"
+    .param p1, "icon"    # I
 
     .prologue
     .line 1256
@@ -1827,8 +1827,8 @@
 
 .method public setSmallIcon(II)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "icon"
-    .parameter "level"
+    .param p1, "icon"    # I
+    .param p2, "level"    # I
 
     .prologue
     .line 1272
@@ -1843,7 +1843,7 @@
 
 .method public setSound(Landroid/net/Uri;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "sound"
+    .param p1, "sound"    # Landroid/net/Uri;
 
     .prologue
     .line 1439
@@ -1860,8 +1860,8 @@
 
 .method public setSound(Landroid/net/Uri;I)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "sound"
-    .parameter "streamType"
+    .param p1, "sound"    # Landroid/net/Uri;
+    .param p2, "streamType"    # I
 
     .prologue
     .line 1452
@@ -1876,7 +1876,7 @@
 
 .method public setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "style"
+    .param p1, "style"    # Landroid/app/Notification$Style;
 
     .prologue
     .line 1612
@@ -1904,7 +1904,7 @@
 
 .method public setSubText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1299
@@ -1920,7 +1920,7 @@
 
 .method public setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "tickerText"
+    .param p1, "tickerText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1400
@@ -1936,8 +1936,8 @@
 
 .method public setTicker(Ljava/lang/CharSequence;Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
     .locals 1
-    .parameter "tickerText"
-    .parameter "views"
+    .param p1, "tickerText"    # Ljava/lang/CharSequence;
+    .param p2, "views"    # Landroid/widget/RemoteViews;
 
     .prologue
     .line 1413
@@ -1956,7 +1956,7 @@
 
 .method public setUsesChronometer(Z)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "b"
+    .param p1, "b"    # Z
 
     .prologue
     .line 1237
@@ -1968,7 +1968,7 @@
 
 .method public setVibrate([J)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "pattern"
+    .param p1, "pattern"    # [J
 
     .prologue
     .line 1468
@@ -1980,7 +1980,7 @@
 
 .method public setWhen(J)Landroid/app/Notification$Builder;
     .locals 0
-    .parameter "when"
+    .param p1, "when"    # J
 
     .prologue
     .line 1212

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/ProgressDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 131
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v11, 0x1
@@ -49,7 +48,7 @@
     .line 137
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgress:Landroid/widget/ProgressBar;
+    # getter for: Landroid/app/ProgressDialog;->mProgress:Landroid/widget/ProgressBar;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$000(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
 
     move-result-object v6
@@ -59,10 +58,10 @@
     move-result v4
 
     .line 138
-    .local v4, progress:I
+    .local v4, "progress":I
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgress:Landroid/widget/ProgressBar;
+    # getter for: Landroid/app/ProgressDialog;->mProgress:Landroid/widget/ProgressBar;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$000(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
 
     move-result-object v6
@@ -72,10 +71,10 @@
     move-result v1
 
     .line 139
-    .local v1, max:I
+    .local v1, "max":I
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressNumberFormat:Ljava/lang/String;
+    # getter for: Landroid/app/ProgressDialog;->mProgressNumberFormat:Ljava/lang/String;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$100(Landroid/app/ProgressDialog;)Ljava/lang/String;
 
     move-result-object v6
@@ -85,16 +84,16 @@
     .line 140
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressNumberFormat:Ljava/lang/String;
+    # getter for: Landroid/app/ProgressDialog;->mProgressNumberFormat:Ljava/lang/String;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$100(Landroid/app/ProgressDialog;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 141
-    .local v0, format:Ljava/lang/String;
+    .local v0, "format":Ljava/lang/String;
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressNumber:Landroid/widget/TextView;
+    # getter for: Landroid/app/ProgressDialog;->mProgressNumber:Landroid/widget/TextView;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$200(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -122,11 +121,11 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 145
-    .end local v0           #format:Ljava/lang/String;
+    .end local v0    # "format":Ljava/lang/String;
     :goto_0
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressPercentFormat:Ljava/text/NumberFormat;
+    # getter for: Landroid/app/ProgressDialog;->mProgressPercentFormat:Ljava/text/NumberFormat;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$300(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
 
     move-result-object v6
@@ -141,12 +140,12 @@
     div-double v2, v6, v8
 
     .line 147
-    .local v2, percent:D
+    .local v2, "percent":D
     new-instance v5, Landroid/text/SpannableString;
 
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressPercentFormat:Ljava/text/NumberFormat;
+    # getter for: Landroid/app/ProgressDialog;->mProgressPercentFormat:Ljava/text/NumberFormat;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$300(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
 
     move-result-object v6
@@ -158,7 +157,7 @@
     invoke-direct {v5, v6}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     .line 148
-    .local v5, tmp:Landroid/text/SpannableString;
+    .local v5, "tmp":Landroid/text/SpannableString;
     new-instance v6, Landroid/text/style/StyleSpan;
 
     invoke-direct {v6, v11}, Landroid/text/style/StyleSpan;-><init>(I)V
@@ -174,7 +173,7 @@
     .line 150
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressPercent:Landroid/widget/TextView;
+    # getter for: Landroid/app/ProgressDialog;->mProgressPercent:Landroid/widget/TextView;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$400(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -182,8 +181,8 @@
     invoke-virtual {v6, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 154
-    .end local v2           #percent:D
-    .end local v5           #tmp:Landroid/text/SpannableString;
+    .end local v2    # "percent":D
+    .end local v5    # "tmp":Landroid/text/SpannableString;
     :goto_1
     return-void
 
@@ -191,7 +190,7 @@
     :cond_0
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressNumber:Landroid/widget/TextView;
+    # getter for: Landroid/app/ProgressDialog;->mProgressNumber:Landroid/widget/TextView;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$200(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -206,7 +205,7 @@
     :cond_1
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    #getter for: Landroid/app/ProgressDialog;->mProgressPercent:Landroid/widget/TextView;
+    # getter for: Landroid/app/ProgressDialog;->mProgressPercent:Landroid/widget/TextView;
     invoke-static {v6}, Landroid/app/ProgressDialog;->access$400(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6

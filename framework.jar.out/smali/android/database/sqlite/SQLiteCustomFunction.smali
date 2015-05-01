@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CustomFunction;)V
     .locals 2
-    .parameter "name"
-    .parameter "numArgs"
-    .parameter "callback"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "numArgs"    # I
+    .param p3, "callback"    # Landroid/database/sqlite/SQLiteDatabase$CustomFunction;
 
     .prologue
     .line 38
@@ -50,7 +50,7 @@
 
 .method private dispatchCallback([Ljava/lang/String;)V
     .locals 1
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 51

@@ -48,8 +48,8 @@
 
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     const/4 v0, -0x1
@@ -63,10 +63,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "minHeight"
-    .parameter "maxHeight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "minHeight"    # I
+    .param p4, "maxHeight"    # I
 
     .prologue
     .line 371
@@ -84,8 +84,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 345
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -140,7 +140,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     const/4 v0, -0x1
@@ -162,7 +162,7 @@
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "output"
+    .param p1, "output"    # Ljava/lang/String;
 
     .prologue
     .line 400

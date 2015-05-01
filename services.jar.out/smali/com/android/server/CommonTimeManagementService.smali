@@ -12,25 +12,21 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final ALLOW_WIFI:Z = false
+.field private static final ALLOW_WIFI:Z
 
 .field private static final ALLOW_WIFI_PROP:Ljava/lang/String; = "ro.common_time.allow_wifi"
 
-#the value of this static final field might be set in the static constructor
-.field private static final AUTO_DISABLE:Z = false
+.field private static final AUTO_DISABLE:Z
 
 .field private static final AUTO_DISABLE_PROP:Ljava/lang/String; = "ro.common_time.auto_disable"
 
-#the value of this static final field might be set in the static constructor
-.field private static final BASE_SERVER_PRIO:B = 0x0t
+.field private static final BASE_SERVER_PRIO:B
 
-.field private static final IFACE_SCORE_RULES:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule; = null
+.field private static final IFACE_SCORE_RULES:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
 
 .field private static final NATIVE_SERVICE_RECONNECT_TIMEOUT:I = 0x1388
 
-#the value of this static final field might be set in the static constructor
-.field private static final NO_INTERFACE_TIMEOUT:I = 0x0
+.field private static final NO_INTERFACE_TIMEOUT:I
 
 .field private static final NO_INTERFACE_TIMEOUT_PROP:Ljava/lang/String; = "ro.common_time.no_iface_timeout"
 
@@ -127,7 +123,7 @@
     move-result v0
 
     .line 71
-    .local v0, tmp:I
+    .local v0, "tmp":I
     const-string v1, "ro.common_time.no_iface_timeout"
 
     const v4, 0xea60
@@ -175,7 +171,7 @@
     :goto_3
     return-void
 
-    .end local v0           #tmp:I
+    .end local v0    # "tmp":I
     :cond_0
     move v1, v3
 
@@ -189,7 +185,7 @@
     goto :goto_1
 
     .line 76
-    .restart local v0       #tmp:I
+    .restart local v0    # "tmp":I
     :cond_2
     if-le v0, v5, :cond_3
 
@@ -225,7 +221,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 149
@@ -306,7 +302,7 @@
 
 .method static synthetic access$000(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CommonTimeManagementService;
 
     .prologue
     .line 50
@@ -317,7 +313,7 @@
 
 .method static synthetic access$100(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CommonTimeManagementService;
 
     .prologue
     .line 50
@@ -328,7 +324,7 @@
 
 .method static synthetic access$200(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CommonTimeManagementService;
 
     .prologue
     .line 50
@@ -339,7 +335,7 @@
 
 .method static synthetic access$300(Lcom/android/server/CommonTimeManagementService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CommonTimeManagementService;
 
     .prologue
     .line 50
@@ -490,7 +486,7 @@
     move-exception v0
 
     .line 255
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
 
     goto :goto_0
@@ -539,11 +535,11 @@
     const/4 v5, 0x0
 
     .line 278
-    .local v5, bindIface:Ljava/lang/String;
+    .local v5, "bindIface":Ljava/lang/String;
     const/4 v4, -0x1
 
     .line 303
-    .local v4, bestScore:B
+    .local v4, "bestScore":B
     :try_start_0
     move-object/from16 v0, p0
 
@@ -556,53 +552,53 @@
     move-result-object v12
 
     .line 304
-    .local v12, ifaceList:[Ljava/lang/String;
+    .local v12, "ifaceList":[Ljava/lang/String;
     if-eqz v12, :cond_4
 
     .line 305
     move-object v2, v12
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v13, v2
 
-    .local v13, len$:I
+    .local v13, "len$":I
     const/4 v9, 0x0
 
-    .local v9, i$:I
+    .local v9, "i$":I
     move v10, v9
 
-    .end local v2           #arr$:[Ljava/lang/String;
-    .end local v9           #i$:I
-    .end local v13           #len$:I
-    .local v10, i$:I
+    .end local v2    # "arr$":[Ljava/lang/String;
+    .end local v9    # "i$":I
+    .end local v13    # "len$":I
+    .local v10, "i$":I
     :goto_0
     if-ge v10, v13, :cond_4
 
     aget-object v11, v2, v10
 
     .line 307
-    .local v11, iface:Ljava/lang/String;
+    .local v11, "iface":Ljava/lang/String;
     const/16 v18, -0x1
 
     .line 308
-    .local v18, thisScore:B
+    .local v18, "thisScore":B
     sget-object v3, Lcom/android/server/CommonTimeManagementService;->IFACE_SCORE_RULES:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
 
-    .local v3, arr$:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .local v3, "arr$":[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
     array-length v14, v3
 
-    .local v14, len$:I
+    .local v14, "len$":I
     const/4 v9, 0x0
 
-    .end local v10           #i$:I
-    .restart local v9       #i$:I
+    .end local v10    # "i$":I
+    .restart local v9    # "i$":I
     :goto_1
     if-ge v9, v14, :cond_0
 
     aget-object v16, v3, v9
 
     .line 309
-    .local v16, r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .local v16, "r":Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
     move-object/from16 v0, v16
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;->mPrefix:Ljava/lang/String;
@@ -625,7 +621,7 @@
     move/from16 v18, v0
 
     .line 315
-    .end local v16           #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .end local v16    # "r":Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
     :cond_0
     move/from16 v0, v18
 
@@ -638,21 +634,21 @@
 
     move v10, v9
 
-    .end local v9           #i$:I
-    .restart local v10       #i$:I
+    .end local v9    # "i$":I
+    .restart local v10    # "i$":I
     goto :goto_0
 
     .line 308
-    .end local v10           #i$:I
-    .restart local v9       #i$:I
-    .restart local v16       #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .end local v10    # "i$":I
+    .restart local v9    # "i$":I
+    .restart local v16    # "r":Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
     :cond_2
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
     .line 318
-    .end local v16           #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .end local v16    # "r":Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
     :cond_3
     move-object/from16 v0, p0
 
@@ -667,7 +663,7 @@
     move-result-object v6
 
     .line 319
-    .local v6, config:Landroid/net/InterfaceConfiguration;
+    .local v6, "config":Landroid/net/InterfaceConfiguration;
     if-eqz v6, :cond_1
 
     .line 322
@@ -688,27 +684,27 @@
     goto :goto_2
 
     .line 329
-    .end local v3           #arr$:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
-    .end local v6           #config:Landroid/net/InterfaceConfiguration;
-    .end local v9           #i$:I
-    .end local v11           #iface:Ljava/lang/String;
-    .end local v12           #ifaceList:[Ljava/lang/String;
-    .end local v14           #len$:I
-    .end local v18           #thisScore:B
+    .end local v3    # "arr$":[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
+    .end local v6    # "config":Landroid/net/InterfaceConfiguration;
+    .end local v9    # "i$":I
+    .end local v11    # "iface":Ljava/lang/String;
+    .end local v12    # "ifaceList":[Ljava/lang/String;
+    .end local v14    # "len$":I
+    .end local v18    # "thisScore":B
     :catch_0
     move-exception v8
 
     .line 334
-    .local v8, e:Landroid/os/RemoteException;
+    .local v8, "e":Landroid/os/RemoteException;
     const/4 v5, 0x0
 
     .line 337
-    .end local v8           #e:Landroid/os/RemoteException;
+    .end local v8    # "e":Landroid/os/RemoteException;
     :cond_4
     const/4 v7, 0x1
 
     .line 338
-    .local v7, doRebind:Z
+    .local v7, "doRebind":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mLock:Ljava/lang/Object;
@@ -790,7 +786,7 @@
     int-to-byte v15, v0
 
     .line 360
-    .local v15, newPrio:B
+    .local v15, "newPrio":B
     :goto_4
     move-object/from16 v0, p0
 
@@ -841,15 +837,15 @@
     move-result v17
 
     .line 366
-    .local v17, res:I
+    .local v17, "res":I
     if-eqz v17, :cond_b
 
     .line 367
     invoke-direct/range {p0 .. p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
 
     .line 375
-    .end local v15           #newPrio:B
-    .end local v17           #res:I
+    .end local v15    # "newPrio":B
+    .end local v17    # "res":I
     :cond_6
     :goto_5
     return-void
@@ -985,8 +981,8 @@
     goto/16 :goto_4
 
     .line 369
-    .restart local v15       #newPrio:B
-    .restart local v17       #res:I
+    .restart local v15    # "newPrio":B
+    .restart local v17    # "res":I
     :cond_b
     sget v19, Lcom/android/server/CommonTimeManagementService;->NO_INTERFACE_TIMEOUT:I
 
@@ -1091,9 +1087,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 5
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -1395,7 +1391,7 @@
     move-result-object v0
 
     .line 163
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
 
     move-result-object v2
@@ -1419,7 +1415,7 @@
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
     .line 174
-    .local v1, filter:Landroid/content/IntentFilter;
+    .local v1, "filter":Landroid/content/IntentFilter;
     const-string v2, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -1437,7 +1433,7 @@
     goto :goto_0
 
     .line 170
-    .end local v1           #filter:Landroid/content/IntentFilter;
+    .end local v1    # "filter":Landroid/content/IntentFilter;
     :catch_0
     move-exception v2
 

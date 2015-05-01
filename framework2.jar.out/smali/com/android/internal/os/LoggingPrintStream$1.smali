@@ -29,7 +29,7 @@
 # virtual methods
 .method public write(I)V
     .locals 1
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

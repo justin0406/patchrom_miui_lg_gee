@@ -40,8 +40,8 @@
 # virtual methods
 .method public attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
     .locals 4
-    .parameter "context"
-    .parameter "info"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "info"    # Landroid/content/pm/ProviderInfo;
 
     .prologue
     .line 138
@@ -195,9 +195,9 @@
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 14
-    .parameter "method"
-    .parameter "arg"
-    .parameter "extras"
+    .param p1, "method"    # Ljava/lang/String;
+    .param p2, "arg"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 505
@@ -206,7 +206,7 @@
     move-result-object v2
 
     .line 507
-    .local v2, context:Landroid/content/Context;
+    .local v2, "context":Landroid/content/Context;
     const-string v11, "android:"
 
     invoke-virtual {p1, v11}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -236,7 +236,7 @@
     move-result-object v4
 
     .line 513
-    .local v4, documentId:Ljava/lang/String;
+    .local v4, "documentId":Ljava/lang/String;
     iget-object v11, p0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
 
     invoke-static {v11, v4}, Landroid/provider/DocumentsContract;->buildDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
@@ -244,7 +244,7 @@
     move-result-object v5
 
     .line 516
-    .local v5, documentUri:Landroid/net/Uri;
+    .local v5, "documentUri":Landroid/net/Uri;
     const-string v11, "android.permission.MANAGE_DOCUMENTS"
 
     invoke-virtual {v2, v11}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
@@ -256,7 +256,7 @@
     const/4 v1, 0x1
 
     .line 519
-    .local v1, callerHasManage:Z
+    .local v1, "callerHasManage":Z
     :goto_1
     invoke-virtual {p0, v5}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;)V
 
@@ -266,7 +266,7 @@
     invoke-direct {v10}, Landroid/os/Bundle;-><init>()V
 
     .line 523
-    .local v10, out:Landroid/os/Bundle;
+    .local v10, "out":Landroid/os/Bundle;
     :try_start_0
     const-string v11, "android:createDocument"
 
@@ -286,7 +286,7 @@
     move-result-object v7
 
     .line 525
-    .local v7, mimeType:Ljava/lang/String;
+    .local v7, "mimeType":Ljava/lang/String;
     const-string v11, "_display_name"
 
     move-object/from16 v0, p3
@@ -296,13 +296,13 @@
     move-result-object v3
 
     .line 527
-    .local v3, displayName:Ljava/lang/String;
+    .local v3, "displayName":Ljava/lang/String;
     invoke-virtual {p0, v4, v7, v3}, Landroid/provider/DocumentsProvider;->createDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
     .line 528
-    .local v8, newDocumentId:Ljava/lang/String;
+    .local v8, "newDocumentId":Ljava/lang/String;
     const-string v11, "document_id"
 
     invoke-virtual {v10, v11, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -318,7 +318,7 @@
     move-result-object v9
 
     .line 534
-    .local v9, newDocumentUri:Landroid/net/Uri;
+    .local v9, "newDocumentUri":Landroid/net/Uri;
     invoke-virtual {p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
     move-result-object v11
@@ -332,15 +332,15 @@
     goto :goto_0
 
     .line 551
-    .end local v3           #displayName:Ljava/lang/String;
-    .end local v7           #mimeType:Ljava/lang/String;
-    .end local v8           #newDocumentId:Ljava/lang/String;
-    .end local v9           #newDocumentUri:Landroid/net/Uri;
+    .end local v3    # "displayName":Ljava/lang/String;
+    .end local v7    # "mimeType":Ljava/lang/String;
+    .end local v8    # "newDocumentId":Ljava/lang/String;
+    .end local v9    # "newDocumentUri":Landroid/net/Uri;
     :catch_0
     move-exception v6
 
     .line 552
-    .local v6, e:Ljava/io/FileNotFoundException;
+    .local v6, "e":Ljava/io/FileNotFoundException;
     new-instance v11, Ljava/lang/IllegalStateException;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -366,17 +366,17 @@
     throw v11
 
     .line 516
-    .end local v1           #callerHasManage:Z
-    .end local v6           #e:Ljava/io/FileNotFoundException;
-    .end local v10           #out:Landroid/os/Bundle;
+    .end local v1    # "callerHasManage":Z
+    .end local v6    # "e":Ljava/io/FileNotFoundException;
+    .end local v10    # "out":Landroid/os/Bundle;
     :cond_2
     const/4 v1, 0x0
 
     goto :goto_1
 
     .line 540
-    .restart local v1       #callerHasManage:Z
-    .restart local v10       #out:Landroid/os/Bundle;
+    .restart local v1    # "callerHasManage":Z
+    .restart local v10    # "out":Landroid/os/Bundle;
     :cond_3
     :try_start_1
     const-string v11, "android:deleteDocument"
@@ -428,9 +428,9 @@
 
 .method public createDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "parentDocumentId"
-    .parameter "mimeType"
-    .parameter "displayName"
+    .param p1, "parentDocumentId"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "displayName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -450,9 +450,9 @@
 
 .method public final delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 2
-    .parameter "uri"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "selection"    # Ljava/lang/String;
+    .param p3, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 481
@@ -467,7 +467,7 @@
 
 .method public deleteDocument(Ljava/lang/String;)V
     .locals 2
-    .parameter "documentId"
+    .param p1, "documentId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -487,7 +487,7 @@
 
 .method public getDocumentType(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "documentId"
+    .param p1, "documentId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -503,7 +503,7 @@
     move-result-object v0
 
     .line 342
-    .local v0, cursor:Landroid/database/Cursor;
+    .local v0, "cursor":Landroid/database/Cursor;
     :try_start_0
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -545,7 +545,7 @@
 
 .method public final getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 4
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     const/4 v1, 0x0
@@ -590,7 +590,7 @@
     move-exception v0
 
     .line 457
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v2, "DocumentsProvider"
 
     const-string v3, "Failed during getType"
@@ -613,8 +613,8 @@
 
 .method public final insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 2
-    .parameter "uri"
-    .parameter "values"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 470
@@ -637,9 +637,9 @@
 
 .method public openDocumentThumbnail(Ljava/lang/String;Landroid/graphics/Point;Landroid/os/CancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 2
-    .parameter "documentId"
-    .parameter "sizeHint"
-    .parameter "signal"
+    .param p1, "documentId"    # Ljava/lang/String;
+    .param p2, "sizeHint"    # Landroid/graphics/Point;
+    .param p3, "signal"    # Landroid/os/CancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -659,8 +659,8 @@
 
 .method public final openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 2
-    .parameter "uri"
-    .parameter "mode"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "mode"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -684,9 +684,9 @@
 
 .method public final openFile(Landroid/net/Uri;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/os/ParcelFileDescriptor;
     .locals 1
-    .parameter "uri"
-    .parameter "mode"
-    .parameter "signal"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "mode"    # Ljava/lang/String;
+    .param p3, "signal"    # Landroid/os/CancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -708,9 +708,9 @@
 
 .method public final openTypedAssetFile(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/res/AssetFileDescriptor;
     .locals 3
-    .parameter "uri"
-    .parameter "mimeTypeFilter"
-    .parameter "opts"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "mimeTypeFilter"    # Ljava/lang/String;
+    .param p3, "opts"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -739,7 +739,7 @@
     check-cast v0, Landroid/graphics/Point;
 
     .line 588
-    .local v0, sizeHint:Landroid/graphics/Point;
+    .local v0, "sizeHint":Landroid/graphics/Point;
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
@@ -751,7 +751,7 @@
     move-result-object v1
 
     .line 590
-    .end local v0           #sizeHint:Landroid/graphics/Point;
+    .end local v0    # "sizeHint":Landroid/graphics/Point;
     :goto_0
     return-object v1
 
@@ -765,10 +765,10 @@
 
 .method public final openTypedAssetFile(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 2
-    .parameter "uri"
-    .parameter "mimeTypeFilter"
-    .parameter "opts"
-    .parameter "signal"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "mimeTypeFilter"    # Ljava/lang/String;
+    .param p3, "opts"    # Landroid/os/Bundle;
+    .param p4, "signal"    # Landroid/os/CancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -797,7 +797,7 @@
     check-cast v0, Landroid/graphics/Point;
 
     .line 605
-    .local v0, sizeHint:Landroid/graphics/Point;
+    .local v0, "sizeHint":Landroid/graphics/Point;
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
@@ -807,7 +807,7 @@
     move-result-object v1
 
     .line 607
-    .end local v0           #sizeHint:Landroid/graphics/Point;
+    .end local v0    # "sizeHint":Landroid/graphics/Point;
     :goto_0
     return-object v1
 
@@ -821,11 +821,11 @@
 
 .method public final query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 4
-    .parameter "uri"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "selectionArgs"
-    .parameter "sortOrder"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "sortOrder"    # Ljava/lang/String;
 
     .prologue
     .line 414
@@ -871,7 +871,7 @@
     move-exception v0
 
     .line 435
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v1, "DocumentsProvider"
 
     const-string v2, "Failed during query"
@@ -881,7 +881,7 @@
     .line 436
     const/4 v1, 0x0
 
-    .end local v0           #e:Ljava/io/FileNotFoundException;
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :goto_0
     return-object v1
 
@@ -989,9 +989,9 @@
 
 .method public queryChildDocumentsForManage(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 2
-    .parameter "parentDocumentId"
-    .parameter "projection"
-    .parameter "sortOrder"
+    .param p1, "parentDocumentId"    # Ljava/lang/String;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "sortOrder"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1019,8 +1019,8 @@
 
 .method public queryRecentDocuments(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 2
-    .parameter "rootId"
-    .parameter "projection"
+    .param p1, "rootId"    # Ljava/lang/String;
+    .param p2, "projection"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1048,9 +1048,9 @@
 
 .method public querySearchDocuments(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 2
-    .parameter "rootId"
-    .parameter "query"
-    .parameter "projection"
+    .param p1, "rootId"    # Ljava/lang/String;
+    .param p2, "query"    # Ljava/lang/String;
+    .param p3, "projection"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1070,10 +1070,10 @@
 
 .method public final update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 2
-    .parameter "uri"
-    .parameter "values"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 491

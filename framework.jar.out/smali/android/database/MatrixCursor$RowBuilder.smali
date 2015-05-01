@@ -27,8 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/database/MatrixCursor;I)V
     .locals 2
-    .parameter
-    .parameter "row"
+    .param p2, "row"    # I
 
     .prologue
     .line 201
@@ -40,7 +39,7 @@
     iput p2, p0, Landroid/database/MatrixCursor$RowBuilder;->row:I
 
     .line 203
-    #getter for: Landroid/database/MatrixCursor;->columnCount:I
+    # getter for: Landroid/database/MatrixCursor;->columnCount:I
     invoke-static {p1}, Landroid/database/MatrixCursor;->access$000(Landroid/database/MatrixCursor;)I
 
     move-result v0
@@ -52,7 +51,7 @@
     .line 204
     iget v0, p0, Landroid/database/MatrixCursor$RowBuilder;->index:I
 
-    #getter for: Landroid/database/MatrixCursor;->columnCount:I
+    # getter for: Landroid/database/MatrixCursor;->columnCount:I
     invoke-static {p1}, Landroid/database/MatrixCursor;->access$000(Landroid/database/MatrixCursor;)I
 
     move-result v1
@@ -69,7 +68,7 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Landroid/database/MatrixCursor$RowBuilder;
     .locals 3
-    .parameter "columnValue"
+    .param p1, "columnValue"    # Ljava/lang/Object;
 
     .prologue
     .line 215
@@ -92,7 +91,7 @@
     :cond_0
     iget-object v0, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
-    #getter for: Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
+    # getter for: Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
     invoke-static {v0}, Landroid/database/MatrixCursor;->access$100(Landroid/database/MatrixCursor;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -111,18 +110,18 @@
 
 .method public add(Ljava/lang/String;Ljava/lang/Object;)Landroid/database/MatrixCursor$RowBuilder;
     .locals 4
-    .parameter "columnName"
-    .parameter "value"
+    .param p1, "columnName"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 231
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
-    #getter for: Landroid/database/MatrixCursor;->columnNames:[Ljava/lang/String;
+    # getter for: Landroid/database/MatrixCursor;->columnNames:[Ljava/lang/String;
     invoke-static {v1}, Landroid/database/MatrixCursor;->access$200(Landroid/database/MatrixCursor;)[Ljava/lang/String;
 
     move-result-object v1
@@ -134,7 +133,7 @@
     .line 232
     iget-object v1, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
-    #getter for: Landroid/database/MatrixCursor;->columnNames:[Ljava/lang/String;
+    # getter for: Landroid/database/MatrixCursor;->columnNames:[Ljava/lang/String;
     invoke-static {v1}, Landroid/database/MatrixCursor;->access$200(Landroid/database/MatrixCursor;)[Ljava/lang/String;
 
     move-result-object v1
@@ -150,7 +149,7 @@
     .line 233
     iget-object v1, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
-    #getter for: Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
+    # getter for: Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
     invoke-static {v1}, Landroid/database/MatrixCursor;->access$100(Landroid/database/MatrixCursor;)[Ljava/lang/Object;
 
     move-result-object v1
@@ -159,7 +158,7 @@
 
     iget-object v3, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
-    #getter for: Landroid/database/MatrixCursor;->columnCount:I
+    # getter for: Landroid/database/MatrixCursor;->columnCount:I
     invoke-static {v3}, Landroid/database/MatrixCursor;->access$000(Landroid/database/MatrixCursor;)I
 
     move-result v3

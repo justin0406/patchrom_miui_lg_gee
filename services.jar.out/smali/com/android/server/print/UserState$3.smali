@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState;Landroid/print/IPrintJobStateChangeListener;I)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
+    .param p2, "x0"    # Landroid/print/IPrintJobStateChangeListener;
+    .param p3, "x1"    # I
 
     .prologue
     .line 457
@@ -43,7 +42,7 @@
     .line 460
     iget-object v0, p0, Lcom/android/server/print/UserState$3;->this$0:Lcom/android/server/print/UserState;
 
-    #getter for: Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
+    # getter for: Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
     invoke-static {v0}, Lcom/android/server/print/UserState;->access$300(Lcom/android/server/print/UserState;)Ljava/util/List;
 
     move-result-object v0

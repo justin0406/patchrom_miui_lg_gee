@@ -48,7 +48,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 100
@@ -151,7 +151,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/EnableAccessibilityController;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     .prologue
     .line 47
@@ -162,7 +162,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/EnableAccessibilityController;)Landroid/speech/tts/TextToSpeech;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     .prologue
     .line 47
@@ -173,7 +173,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/EnableAccessibilityController;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     .prologue
     .line 47
@@ -184,7 +184,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/policy/impl/EnableAccessibilityController;)Landroid/media/Ringtone;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     .prologue
     .line 47
@@ -195,7 +195,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/policy/impl/EnableAccessibilityController;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     .prologue
     .line 47
@@ -206,7 +206,7 @@
 
 .method public static canEnableAccessibilityViaGesture(Landroid/content/Context;)Z
     .locals 5
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x1
@@ -219,7 +219,7 @@
     move-result-object v0
 
     .line 121
-    .local v0, accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    .local v0, "accessibilityManager":Landroid/view/accessibility/AccessibilityManager;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
     move-result v3
@@ -341,7 +341,7 @@
     move-result-object v11
 
     .line 216
-    .local v11, services:Ljava/util/List;,"Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
+    .local v11, "services":Ljava/util/List;, "Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
     invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
 
     move-result v13
@@ -358,7 +358,7 @@
     const/4 v6, 0x0
 
     .line 221
-    .local v6, keyguardLocked:Z
+    .local v6, "keyguardLocked":Z
     :try_start_0
     iget-object v13, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -387,7 +387,7 @@
     const/4 v4, 0x1
 
     .line 228
-    .local v4, hasMoreThanOneUser:Z
+    .local v4, "hasMoreThanOneUser":Z
     :goto_2
     const/4 v13, 0x0
 
@@ -398,7 +398,7 @@
     check-cast v8, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .line 229
-    .local v8, service:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v8, "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
     iget v13, v8, Landroid/accessibilityservice/AccessibilityServiceInfo;->flags:I
 
     and-int/lit8 v13, v13, 0x4
@@ -408,7 +408,7 @@
     const/4 v2, 0x1
 
     .line 232
-    .local v2, enableTouchExploration:Z
+    .local v2, "enableTouchExploration":Z
     :goto_3
     if-nez v2, :cond_2
 
@@ -418,10 +418,10 @@
     move-result v9
 
     .line 234
-    .local v9, serviceCount:I
+    .local v9, "serviceCount":I
     const/4 v5, 0x1
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_4
     if-ge v5, v9, :cond_2
 
@@ -433,7 +433,7 @@
     check-cast v0, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .line 236
-    .local v0, candidate:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v0, "candidate":Landroid/accessibilityservice/AccessibilityServiceInfo;
     iget v13, v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->flags:I
 
     and-int/lit8 v13, v13, 0x4
@@ -447,9 +447,9 @@
     move-object v8, v0
 
     .line 245
-    .end local v0           #candidate:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .end local v5           #i:I
-    .end local v9           #serviceCount:I
+    .end local v0    # "candidate":Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v5    # "i":I
+    .end local v9    # "serviceCount":I
     :cond_2
     invoke-virtual {v8}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
@@ -458,7 +458,7 @@
     iget-object v10, v13, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 246
-    .local v10, serviceInfo:Landroid/content/pm/ServiceInfo;
+    .local v10, "serviceInfo":Landroid/content/pm/ServiceInfo;
     new-instance v1, Landroid/content/ComponentName;
 
     iget-object v13, v10, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -468,7 +468,7 @@
     invoke-direct {v1, v13, v14}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 247
-    .local v1, componentName:Landroid/content/ComponentName;
+    .local v1, "componentName":Landroid/content/ComponentName;
     if-eqz v6, :cond_3
 
     if-nez v4, :cond_8
@@ -480,13 +480,13 @@
     move-result v12
 
     .line 249
-    .local v12, userId:I
+    .local v12, "userId":I
     invoke-virtual {v1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v3
 
     .line 250
-    .local v3, enabledServiceString:Ljava/lang/String;
+    .local v3, "enabledServiceString":Ljava/lang/String;
     iget-object v13, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v13}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -494,7 +494,7 @@
     move-result-object v7
 
     .line 252
-    .local v7, resolver:Landroid/content/ContentResolver;
+    .local v7, "resolver":Landroid/content/ContentResolver;
     const-string v13, "enabled_accessibility_services"
 
     invoke-static {v7, v13, v3, v12}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
@@ -532,43 +532,43 @@
     goto :goto_0
 
     .line 226
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v2           #enableTouchExploration:Z
-    .end local v3           #enabledServiceString:Ljava/lang/String;
-    .end local v4           #hasMoreThanOneUser:Z
-    .end local v7           #resolver:Landroid/content/ContentResolver;
-    .end local v8           #service:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .end local v10           #serviceInfo:Landroid/content/pm/ServiceInfo;
-    .end local v12           #userId:I
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v2    # "enableTouchExploration":Z
+    .end local v3    # "enabledServiceString":Ljava/lang/String;
+    .end local v4    # "hasMoreThanOneUser":Z
+    .end local v7    # "resolver":Landroid/content/ContentResolver;
+    .end local v8    # "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v10    # "serviceInfo":Landroid/content/pm/ServiceInfo;
+    .end local v12    # "userId":I
     :cond_5
     const/4 v4, 0x0
 
     goto :goto_2
 
     .line 229
-    .restart local v4       #hasMoreThanOneUser:Z
-    .restart local v8       #service:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .restart local v4    # "hasMoreThanOneUser":Z
+    .restart local v8    # "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
     :cond_6
     const/4 v2, 0x0
 
     goto :goto_3
 
     .line 234
-    .restart local v0       #candidate:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .restart local v2       #enableTouchExploration:Z
-    .restart local v5       #i:I
-    .restart local v9       #serviceCount:I
+    .restart local v0    # "candidate":Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .restart local v2    # "enableTouchExploration":Z
+    .restart local v5    # "i":I
+    .restart local v9    # "serviceCount":I
     :cond_7
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_4
 
     .line 270
-    .end local v0           #candidate:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .end local v5           #i:I
-    .end local v9           #serviceCount:I
-    .restart local v1       #componentName:Landroid/content/ComponentName;
-    .restart local v10       #serviceInfo:Landroid/content/pm/ServiceInfo;
+    .end local v0    # "candidate":Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v5    # "i":I
+    .end local v9    # "serviceCount":I
+    .restart local v1    # "componentName":Landroid/content/ComponentName;
+    .restart local v10    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :cond_8
     if-eqz v6, :cond_0
 
@@ -589,11 +589,11 @@
     goto/16 :goto_0
 
     .line 222
-    .end local v1           #componentName:Landroid/content/ComponentName;
-    .end local v2           #enableTouchExploration:Z
-    .end local v4           #hasMoreThanOneUser:Z
-    .end local v8           #service:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .end local v10           #serviceInfo:Landroid/content/pm/ServiceInfo;
+    .end local v1    # "componentName":Landroid/content/ComponentName;
+    .end local v2    # "enableTouchExploration":Z
+    .end local v4    # "hasMoreThanOneUser":Z
+    .end local v8    # "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v10    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :catch_1
     move-exception v13
 
@@ -602,7 +602,7 @@
 
 .method private static getInstalledSpeakingAccessibilityServices(Landroid/content/Context;)Ljava/util/List;
     .locals 4
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -622,7 +622,7 @@
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 136
-    .local v2, services:Ljava/util/List;,"Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
+    .local v2, "services":Ljava/util/List;, "Ljava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
     invoke-static {p0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
     move-result-object v3
@@ -639,7 +639,7 @@
     move-result-object v0
 
     .line 139
-    .local v0, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/accessibilityservice/AccessibilityServiceInfo;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -656,7 +656,7 @@
     check-cast v1, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .line 141
-    .local v1, service:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v1, "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
     iget v3, v1, Landroid/accessibilityservice/AccessibilityServiceInfo;->feedbackType:I
 
     and-int/lit8 v3, v3, 0x1
@@ -669,7 +669,7 @@
     goto :goto_0
 
     .line 145
-    .end local v1           #service:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v1    # "service":Landroid/accessibilityservice/AccessibilityServiceInfo;
     :cond_1
     return-object v2
 .end method
@@ -691,7 +691,7 @@
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v1, 0x0
@@ -771,7 +771,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 9
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v5, 0x0
@@ -784,13 +784,13 @@
     move-result v2
 
     .line 170
-    .local v2, pointerCount:I
+    .local v2, "pointerCount":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     .line 171
-    .local v0, action:I
+    .local v0, "action":I
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController;->mCanceled:Z
 
     if-eqz v4, :cond_1
@@ -832,7 +832,7 @@
     move-result v1
 
     .line 186
-    .local v1, firstPointerMove:F
+    .local v1, "firstPointerMove":F
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v4
@@ -865,7 +865,7 @@
     move-result v3
 
     .line 191
-    .local v3, secondPointerMove:F
+    .local v3, "secondPointerMove":F
     invoke-static {v3}, Ljava/lang/Math;->abs(F)F
 
     move-result v4
@@ -882,8 +882,8 @@
     goto :goto_0
 
     .line 179
-    .end local v1           #firstPointerMove:F
-    .end local v3           #secondPointerMove:F
+    .end local v1    # "firstPointerMove":F
+    .end local v3    # "secondPointerMove":F
     :pswitch_2
     const/4 v4, 0x2
 

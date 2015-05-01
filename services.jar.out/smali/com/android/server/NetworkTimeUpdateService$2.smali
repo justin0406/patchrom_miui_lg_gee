@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 231
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 235
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 236
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.NETWORK_SET_TIME"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -62,7 +61,7 @@
 
     move-result-wide v2
 
-    #setter for: Lcom/android/server/NetworkTimeUpdateService;->mNitzTimeSetTime:J
+    # setter for: Lcom/android/server/NetworkTimeUpdateService;->mNitzTimeSetTime:J
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkTimeUpdateService;->access$102(Lcom/android/server/NetworkTimeUpdateService;J)J
 
     .line 241
@@ -87,7 +86,7 @@
 
     move-result-wide v2
 
-    #setter for: Lcom/android/server/NetworkTimeUpdateService;->mNitzZoneSetTime:J
+    # setter for: Lcom/android/server/NetworkTimeUpdateService;->mNitzZoneSetTime:J
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkTimeUpdateService;->access$202(Lcom/android/server/NetworkTimeUpdateService;J)J
 
     goto :goto_0

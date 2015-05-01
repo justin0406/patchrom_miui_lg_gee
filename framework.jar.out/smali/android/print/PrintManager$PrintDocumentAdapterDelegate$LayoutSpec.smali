@@ -31,7 +31,6 @@
 # direct methods
 .method private constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 730
@@ -44,8 +43,8 @@
 
 .method synthetic constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .param p2, "x1"    # Landroid/print/PrintManager$1;
 
     .prologue
     .line 730

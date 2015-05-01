@@ -34,7 +34,7 @@
     invoke-direct {v1}, Landroid/transition/ChangeText;-><init>()V
 
     .line 39
-    .local v1, tc:Landroid/transition/ChangeText;
+    .local v1, "tc":Landroid/transition/ChangeText;
     const/4 v3, 0x3
 
     invoke-virtual {v1, v3}, Landroid/transition/ChangeText;->setChangeBehavior(I)Landroid/transition/ChangeText;
@@ -45,7 +45,7 @@
     invoke-direct {v0}, Landroid/transition/TransitionSet;-><init>()V
 
     .line 41
-    .local v0, inner:Landroid/transition/TransitionSet;
+    .local v0, "inner":Landroid/transition/TransitionSet;
     invoke-virtual {v0, v1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     move-result-object v3
@@ -62,7 +62,7 @@
     invoke-direct {v2}, Landroid/transition/TransitionSet;-><init>()V
 
     .line 43
-    .local v2, tg:Landroid/transition/TransitionSet;
+    .local v2, "tg":Landroid/transition/TransitionSet;
     new-instance v3, Landroid/transition/Fade;
 
     const/4 v4, 0x2
@@ -99,9 +99,9 @@
     return-void
 
     .line 49
-    .end local v0           #inner:Landroid/transition/TransitionSet;
-    .end local v1           #tc:Landroid/transition/ChangeText;
-    .end local v2           #tg:Landroid/transition/TransitionSet;
+    .end local v0    # "inner":Landroid/transition/TransitionSet;
+    .end local v1    # "tc":Landroid/transition/ChangeText;
+    .end local v2    # "tg":Landroid/transition/TransitionSet;
     :cond_0
     const/4 v3, 0x0
 
@@ -122,7 +122,7 @@
 
 .method public static beginDelayedTransition(Landroid/view/ViewGroup;)V
     .locals 1
-    .parameter "sceneRoot"
+    .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 54

@@ -31,11 +31,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/pm/ResolveInfo;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
     .locals 0
-    .parameter
-    .parameter "pri"
-    .parameter "pLabel"
-    .parameter "pInfo"
-    .parameter "pOrigIntent"
+    .param p2, "pri"    # Landroid/content/pm/ResolveInfo;
+    .param p3, "pLabel"    # Ljava/lang/CharSequence;
+    .param p4, "pInfo"    # Ljava/lang/CharSequence;
+    .param p5, "pOrigIntent"    # Landroid/content/Intent;
 
     .prologue
     .line 427

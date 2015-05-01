@@ -32,8 +32,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ContentProviderRecord;Landroid/os/IBinder;)V
     .locals 4
-    .parameter
-    .parameter "token"
+    .param p2, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 229
@@ -61,7 +60,7 @@
     move-exception v0
 
     .line 234
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "ExternalProcessHanldle"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -91,7 +90,7 @@
 
 .method static synthetic access$000(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;
 
     .prologue
     .line 223
@@ -102,7 +101,7 @@
 
 .method static synthetic access$008(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;
 
     .prologue
     .line 223
@@ -117,7 +116,7 @@
 
 .method static synthetic access$010(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;
 
     .prologue
     .line 223
@@ -170,7 +169,7 @@
 
     iget-object v2, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->mToken:Landroid/os/IBinder;
 
-    #calls: Lcom/android/server/am/ContentProviderRecord;->removeExternalProcessHandleInternalLocked(Landroid/os/IBinder;)V
+    # invokes: Lcom/android/server/am/ContentProviderRecord;->removeExternalProcessHandleInternalLocked(Landroid/os/IBinder;)V
     invoke-static {v0, v2}, Lcom/android/server/am/ContentProviderRecord;->access$100(Lcom/android/server/am/ContentProviderRecord;Landroid/os/IBinder;)V
 
     .line 249

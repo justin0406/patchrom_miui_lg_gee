@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .parameter "arg"
+    .param p1, "arg"    # Ljava/lang/Object;
 
     .prologue
     .line 222

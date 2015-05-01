@@ -23,7 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/Script$KernelID;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/renderscript/Script$KernelID;
 
     .prologue
     .line 53

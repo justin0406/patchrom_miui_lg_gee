@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 131
@@ -41,13 +41,13 @@
 # virtual methods
 .method public addPackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZZ)Z
     .locals 7
-    .parameter "x_app_id"
-    .parameter "content_type"
-    .parameter "package_name"
-    .parameter "class_name"
-    .parameter "app_type"
-    .parameter "need_signature"
-    .parameter "further_processing"
+    .param p1, "x_app_id"    # Ljava/lang/String;
+    .param p2, "content_type"    # Ljava/lang/String;
+    .param p3, "package_name"    # Ljava/lang/String;
+    .param p4, "class_name"    # Ljava/lang/String;
+    .param p5, "app_type"    # I
+    .param p6, "need_signature"    # Z
+    .param p7, "further_processing"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 180
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 183
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.telephony.IWapPushManager"
 
@@ -130,7 +130,7 @@
     if-eqz v4, :cond_2
 
     .line 196
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -140,7 +140,7 @@
     .line 199
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v4, v3
 
@@ -183,10 +183,10 @@
 
 .method public deletePackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 6
-    .parameter "x_app_id"
-    .parameter "content_type"
-    .parameter "package_name"
-    .parameter "class_name"
+    .param p1, "x_app_id"    # Ljava/lang/String;
+    .param p2, "content_type"    # Ljava/lang/String;
+    .param p3, "package_name"    # Ljava/lang/String;
+    .param p4, "class_name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -202,13 +202,13 @@
     move-result-object v0
 
     .line 236
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 239
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IWapPushManager"
 
@@ -250,7 +250,7 @@
     const/4 v2, 0x1
 
     .line 249
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -261,7 +261,7 @@
     return v2
 
     .line 249
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -285,9 +285,9 @@
 
 .method public processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
     .locals 6
-    .parameter "app_id"
-    .parameter "content_type"
-    .parameter "intent"
+    .param p1, "app_id"    # Ljava/lang/String;
+    .param p2, "content_type"    # Ljava/lang/String;
+    .param p3, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -301,13 +301,13 @@
     move-result-object v0
 
     .line 149
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 152
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.telephony.IWapPushManager"
 
@@ -353,7 +353,7 @@
     move-result v2
 
     .line 167
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 168
@@ -363,7 +363,7 @@
     return v2
 
     .line 160
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -388,13 +388,13 @@
 
 .method public updatePackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZZ)Z
     .locals 7
-    .parameter "x_app_id"
-    .parameter "content_type"
-    .parameter "package_name"
-    .parameter "class_name"
-    .parameter "app_type"
-    .parameter "need_signature"
-    .parameter "further_processing"
+    .param p1, "x_app_id"    # Ljava/lang/String;
+    .param p2, "content_type"    # Ljava/lang/String;
+    .param p3, "package_name"    # Ljava/lang/String;
+    .param p4, "class_name"    # Ljava/lang/String;
+    .param p5, "app_type"    # I
+    .param p6, "need_signature"    # Z
+    .param p7, "further_processing"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -412,13 +412,13 @@
     move-result-object v0
 
     .line 208
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 211
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.telephony.IWapPushManager"
 
@@ -477,7 +477,7 @@
     if-eqz v4, :cond_2
 
     .line 224
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -487,7 +487,7 @@
     .line 227
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v4, v3
 

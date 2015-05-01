@@ -27,8 +27,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/SerializedFrame;I)V
     .locals 2
-    .parameter
-    .parameter "size"
+    .param p2, "size"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -60,7 +59,7 @@
 
 .method private final ensureFit(I)V
     .locals 4
-    .parameter "bytesToWrite"
+    .param p1, "bytesToWrite"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -80,7 +79,7 @@
     iget-object v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;->mBuffer:[B
 
     .line 73
-    .local v0, oldBuffer:[B
+    .local v0, "oldBuffer":[B
     iget v1, p0, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;->mOffset:I
 
     add-int/2addr v1, p1
@@ -107,7 +106,7 @@
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 77
-    .end local v0           #oldBuffer:[B
+    .end local v0    # "oldBuffer":[B
     :cond_0
     return-void
 .end method
@@ -180,7 +179,7 @@
 
 .method public final write(I)V
     .locals 3
-    .parameter "b"
+    .param p1, "b"    # I
 
     .prologue
     .line 105
@@ -207,7 +206,7 @@
 
 .method public final write([B)V
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # [B
 
     .prologue
     .line 93
@@ -223,9 +222,9 @@
 
 .method public final write([BII)V
     .locals 2
-    .parameter "b"
-    .parameter "off"
-    .parameter "len"
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
 
     .prologue
     .line 98

@@ -35,9 +35,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/InsetDrawable$InsetState;Landroid/graphics/drawable/InsetDrawable;Landroid/content/res/Resources;)V
     .locals 2
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/InsetDrawable$InsetState;
+    .param p2, "owner"    # Landroid/graphics/drawable/InsetDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 289
@@ -196,7 +196,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 313

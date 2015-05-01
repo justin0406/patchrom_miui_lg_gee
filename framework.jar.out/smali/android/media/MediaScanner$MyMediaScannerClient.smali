@@ -64,7 +64,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/MediaScanner;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 419
@@ -77,8 +76,8 @@
 
 .method synthetic constructor <init>(Landroid/media/MediaScanner;Landroid/media/MediaScanner$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/MediaScanner;
+    .param p2, "x1"    # Landroid/media/MediaScanner$1;
 
     .prologue
     .line 419
@@ -89,8 +88,8 @@
 
 .method private convertGenreCode(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 4
-    .parameter "input"
-    .parameter "expected"
+    .param p1, "input"    # Ljava/lang/String;
+    .param p2, "expected"    # Ljava/lang/String;
 
     .prologue
     .line 654
@@ -99,7 +98,7 @@
     move-result-object v0
 
     .line 655
-    .local v0, output:Ljava/lang/String;
+    .local v0, "output":Ljava/lang/String;
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
@@ -171,8 +170,8 @@
 
 .method private doesPathHaveFilename(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 5
-    .parameter "path"
-    .parameter "filename"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "filename"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -187,13 +186,13 @@
     add-int/lit8 v1, v3, 0x1
 
     .line 1019
-    .local v1, pathFilenameStart:I
+    .local v1, "pathFilenameStart":I
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v0
 
     .line 1020
-    .local v0, filenameLength:I
+    .local v0, "filenameLength":I
     invoke-virtual {p1, v1, p2, v2, v0}, Ljava/lang/String;->regionMatches(ILjava/lang/String;II)Z
 
     move-result v3
@@ -216,12 +215,12 @@
 
 .method private endFile(Landroid/media/MediaScanner$FileEntry;ZZZZZ)Landroid/net/Uri;
     .locals 30
-    .parameter "entry"
-    .parameter "ringtones"
-    .parameter "notifications"
-    .parameter "alarms"
-    .parameter "music"
-    .parameter "podcasts"
+    .param p1, "entry"    # Landroid/media/MediaScanner$FileEntry;
+    .param p2, "ringtones"    # Z
+    .param p3, "notifications"    # Z
+    .param p4, "alarms"    # Z
+    .param p5, "music"    # Z
+    .param p6, "podcasts"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -263,7 +262,7 @@
     move-result-object v7
 
     .line 823
-    .local v7, values:Landroid/content/ContentValues;
+    .local v7, "values":Landroid/content/ContentValues;
     const-string/jumbo v4, "title"
 
     invoke-virtual {v7, v4}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
@@ -271,7 +270,7 @@
     move-result-object v29
 
     .line 824
-    .local v29, title:Ljava/lang/String;
+    .local v29, "title":Ljava/lang/String;
     if-eqz v29, :cond_2
 
     invoke-virtual/range {v29 .. v29}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -312,7 +311,7 @@
     move-result-object v10
 
     .line 829
-    .local v10, album:Ljava/lang/String;
+    .local v10, "album":Ljava/lang/String;
     const-string v4, "<unknown>"
 
     invoke-virtual {v4, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -336,14 +335,14 @@
     move-result v18
 
     .line 833
-    .local v18, lastSlash:I
+    .local v18, "lastSlash":I
     if-ltz v18, :cond_5
 
     .line 834
     const/16 v23, 0x0
 
     .line 836
-    .local v23, previousSlash:I
+    .local v23, "previousSlash":I
     :goto_0
     const/16 v4, 0x2f
 
@@ -354,7 +353,7 @@
     move-result v16
 
     .line 837
-    .local v16, idx:I
+    .local v16, "idx":I
     if-ltz v16, :cond_4
 
     move/from16 v0, v16
@@ -382,9 +381,9 @@
     invoke-virtual {v7, v4, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 848
-    .end local v16           #idx:I
-    .end local v18           #lastSlash:I
-    .end local v23           #previousSlash:I
+    .end local v16    # "idx":I
+    .end local v18    # "lastSlash":I
+    .end local v23    # "previousSlash":I
     :cond_5
     move-object/from16 v0, p1
 
@@ -393,7 +392,7 @@
     move-wide/from16 v24, v0
 
     .line 849
-    .local v24, rowId:J
+    .local v24, "rowId":J
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->mFileType:I
@@ -414,7 +413,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
+    # getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
     invoke-static {v4}, Landroid/media/MediaScanner;->access$500(Landroid/media/MediaScanner;)I
 
     move-result v4
@@ -474,24 +473,24 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
+    # getter for: Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1200(Landroid/media/MediaScanner;)Landroid/net/Uri;
 
     move-result-object v26
 
     .line 912
-    .local v26, tableUri:Landroid/net/Uri;
+    .local v26, "tableUri":Landroid/net/Uri;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMediaInserter:Landroid/media/MediaInserter;
+    # getter for: Landroid/media/MediaScanner;->mMediaInserter:Landroid/media/MediaInserter;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1300(Landroid/media/MediaScanner;)Landroid/media/MediaInserter;
 
     move-result-object v17
 
     .line 913
-    .local v17, inserter:Landroid/media/MediaInserter;
+    .local v17, "inserter":Landroid/media/MediaInserter;
     move-object/from16 v0, p0
 
     iget-boolean v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->mNoMedia:Z
@@ -514,7 +513,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mVideoUri:Landroid/net/Uri;
+    # getter for: Landroid/media/MediaScanner;->mVideoUri:Landroid/net/Uri;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1400(Landroid/media/MediaScanner;)Landroid/net/Uri;
 
     move-result-object v26
@@ -525,11 +524,11 @@
     const/4 v6, 0x0
 
     .line 923
-    .local v6, result:Landroid/net/Uri;
+    .local v6, "result":Landroid/net/Uri;
     const/16 v21, 0x0
 
     .line 924
-    .local v21, needToSetSettings:Z
+    .local v21, "needToSetSettings":Z
     const-wide/16 v4, 0x0
 
     cmp-long v4, v24, v4
@@ -541,7 +540,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
+    # getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
     invoke-static {v4}, Landroid/media/MediaScanner;->access$500(Landroid/media/MediaScanner;)I
 
     move-result v4
@@ -555,7 +554,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
+    # getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
     invoke-static {v5}, Landroid/media/MediaScanner;->access$500(Landroid/media/MediaScanner;)I
 
     move-result v5
@@ -572,7 +571,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
+    # getter for: Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1200(Landroid/media/MediaScanner;)Landroid/net/Uri;
 
     move-result-object v4
@@ -587,7 +586,7 @@
     iget v15, v0, Landroid/media/MediaScanner$FileEntry;->mFormat:I
 
     .line 930
-    .local v15, format:I
+    .local v15, "format":I
     if-nez v15, :cond_a
 
     .line 931
@@ -614,13 +613,13 @@
     invoke-virtual {v7, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 938
-    .end local v15           #format:I
+    .end local v15    # "format":I
     :cond_b
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mWasEmptyPriorToScan:Z
+    # getter for: Landroid/media/MediaScanner;->mWasEmptyPriorToScan:Z
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1700(Landroid/media/MediaScanner;)Z
 
     move-result v4
@@ -634,7 +633,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultNotificationSet:Z
+    # getter for: Landroid/media/MediaScanner;->mDefaultNotificationSet:Z
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1800(Landroid/media/MediaScanner;)Z
 
     move-result v4
@@ -646,7 +645,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultNotificationFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultNotificationFilename:Ljava/lang/String;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1900(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v4
@@ -665,7 +664,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultNotificationFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultNotificationFilename:Ljava/lang/String;
     invoke-static {v5}, Landroid/media/MediaScanner;->access$1900(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v5
@@ -702,7 +701,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
+    # getter for: Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2500(Landroid/media/MediaScanner;)Landroid/content/IContentProvider;
 
     move-result-object v4
@@ -711,7 +710,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mPackageName:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mPackageName:Ljava/lang/String;
     invoke-static {v5}, Landroid/media/MediaScanner;->access$2400(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v5
@@ -764,7 +763,7 @@
 
     const/4 v5, 0x1
 
-    #setter for: Landroid/media/MediaScanner;->mDefaultNotificationSet:Z
+    # setter for: Landroid/media/MediaScanner;->mDefaultNotificationSet:Z
     invoke-static {v4, v5}, Landroid/media/MediaScanner;->access$1802(Landroid/media/MediaScanner;Z)Z
 
     .line 1014
@@ -773,14 +772,14 @@
     return-object v6
 
     .line 840
-    .end local v6           #result:Landroid/net/Uri;
-    .end local v17           #inserter:Landroid/media/MediaInserter;
-    .end local v21           #needToSetSettings:Z
-    .end local v24           #rowId:J
-    .end local v26           #tableUri:Landroid/net/Uri;
-    .restart local v16       #idx:I
-    .restart local v18       #lastSlash:I
-    .restart local v23       #previousSlash:I
+    .end local v6    # "result":Landroid/net/Uri;
+    .end local v17    # "inserter":Landroid/media/MediaInserter;
+    .end local v21    # "needToSetSettings":Z
+    .end local v24    # "rowId":J
+    .end local v26    # "tableUri":Landroid/net/Uri;
+    .restart local v16    # "idx":I
+    .restart local v18    # "lastSlash":I
+    .restart local v23    # "previousSlash":I
     :cond_12
     move/from16 v23, v16
 
@@ -788,10 +787,10 @@
     goto/16 :goto_0
 
     .line 859
-    .end local v16           #idx:I
-    .end local v18           #lastSlash:I
-    .end local v23           #previousSlash:I
-    .restart local v24       #rowId:J
+    .end local v16    # "idx":I
+    .end local v18    # "lastSlash":I
+    .end local v23    # "previousSlash":I
+    .restart local v24    # "rowId":J
     :cond_13
     move-object/from16 v0, p0
 
@@ -811,7 +810,7 @@
     const/4 v12, 0x0
 
     .line 862
-    .local v12, exif:Landroid/media/ExifInterface;
+    .local v12, "exif":Landroid/media/ExifInterface;
     :try_start_0
     new-instance v13, Landroid/media/ExifInterface;
 
@@ -823,13 +822,13 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v12           #exif:Landroid/media/ExifInterface;
-    .local v13, exif:Landroid/media/ExifInterface;
+    .end local v12    # "exif":Landroid/media/ExifInterface;
+    .local v13, "exif":Landroid/media/ExifInterface;
     move-object v12, v13
 
     .line 866
-    .end local v13           #exif:Landroid/media/ExifInterface;
-    .restart local v12       #exif:Landroid/media/ExifInterface;
+    .end local v13    # "exif":Landroid/media/ExifInterface;
+    .restart local v12    # "exif":Landroid/media/ExifInterface;
     :goto_7
     if-eqz v12, :cond_7
 
@@ -841,7 +840,7 @@
     move-object/from16 v19, v0
 
     .line 868
-    .local v19, latlng:[F
+    .local v19, "latlng":[F
     move-object/from16 v0, v19
 
     invoke-virtual {v12, v0}, Landroid/media/ExifInterface;->getLatLong([F)Z
@@ -883,7 +882,7 @@
     move-result-wide v27
 
     .line 874
-    .local v27, time:J
+    .local v27, "time":J
     const-wide/16 v4, -0x1
 
     cmp-long v4, v27, v4
@@ -911,7 +910,7 @@
     move-result v22
 
     .line 889
-    .local v22, orientation:I
+    .local v22, "orientation":I
     const/4 v4, -0x1
 
     move/from16 v0, v22
@@ -926,7 +925,7 @@
     const/4 v11, 0x0
 
     .line 906
-    .local v11, degree:I
+    .local v11, "degree":I
     :goto_9
     const-string/jumbo v4, "orientation"
 
@@ -939,8 +938,8 @@
     goto/16 :goto_1
 
     .line 881
-    .end local v11           #degree:I
-    .end local v22           #orientation:I
+    .end local v11    # "degree":I
+    .end local v22    # "orientation":I
     :cond_16
     invoke-virtual {v12}, Landroid/media/ExifInterface;->getDateTime()J
 
@@ -985,40 +984,40 @@
     goto :goto_8
 
     .line 894
-    .restart local v22       #orientation:I
+    .restart local v22    # "orientation":I
     :pswitch_1
     const/16 v11, 0x5a
 
     .line 895
-    .restart local v11       #degree:I
+    .restart local v11    # "degree":I
     goto :goto_9
 
     .line 897
-    .end local v11           #degree:I
+    .end local v11    # "degree":I
     :pswitch_2
     const/16 v11, 0xb4
 
     .line 898
-    .restart local v11       #degree:I
+    .restart local v11    # "degree":I
     goto :goto_9
 
     .line 900
-    .end local v11           #degree:I
+    .end local v11    # "degree":I
     :pswitch_3
     const/16 v11, 0x10e
 
     .line 901
-    .restart local v11       #degree:I
+    .restart local v11    # "degree":I
     goto :goto_9
 
     .line 916
-    .end local v11           #degree:I
-    .end local v12           #exif:Landroid/media/ExifInterface;
-    .end local v19           #latlng:[F
-    .end local v22           #orientation:I
-    .end local v27           #time:J
-    .restart local v17       #inserter:Landroid/media/MediaInserter;
-    .restart local v26       #tableUri:Landroid/net/Uri;
+    .end local v11    # "degree":I
+    .end local v12    # "exif":Landroid/media/ExifInterface;
+    .end local v19    # "latlng":[F
+    .end local v22    # "orientation":I
+    .end local v27    # "time":J
+    .restart local v17    # "inserter":Landroid/media/MediaInserter;
+    .restart local v26    # "tableUri":Landroid/net/Uri;
     :cond_17
     move-object/from16 v0, p0
 
@@ -1035,7 +1034,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mImagesUri:Landroid/net/Uri;
+    # getter for: Landroid/media/MediaScanner;->mImagesUri:Landroid/net/Uri;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1500(Landroid/media/MediaScanner;)Landroid/net/Uri;
 
     move-result-object v26
@@ -1059,7 +1058,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mAudioUri:Landroid/net/Uri;
+    # getter for: Landroid/media/MediaScanner;->mAudioUri:Landroid/net/Uri;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$1600(Landroid/media/MediaScanner;)Landroid/net/Uri;
 
     move-result-object v26
@@ -1067,8 +1066,8 @@
     goto/16 :goto_2
 
     .line 944
-    .restart local v6       #result:Landroid/net/Uri;
-    .restart local v21       #needToSetSettings:Z
+    .restart local v6    # "result":Landroid/net/Uri;
+    .restart local v21    # "needToSetSettings":Z
     :cond_19
     if-eqz p2, :cond_1b
 
@@ -1076,7 +1075,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultRingtoneSet:Z
+    # getter for: Landroid/media/MediaScanner;->mDefaultRingtoneSet:Z
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2000(Landroid/media/MediaScanner;)Z
 
     move-result v4
@@ -1088,7 +1087,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultRingtoneFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultRingtoneFilename:Ljava/lang/String;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2100(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v4
@@ -1107,7 +1106,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultRingtoneFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultRingtoneFilename:Ljava/lang/String;
     invoke-static {v5}, Landroid/media/MediaScanner;->access$2100(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v5
@@ -1134,7 +1133,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultAlarmSet:Z
+    # getter for: Landroid/media/MediaScanner;->mDefaultAlarmSet:Z
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2200(Landroid/media/MediaScanner;)Z
 
     move-result v4
@@ -1146,7 +1145,7 @@
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultAlarmAlertFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultAlarmAlertFilename:Ljava/lang/String;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2300(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v4
@@ -1165,7 +1164,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDefaultAlarmAlertFilename:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mDefaultAlarmAlertFilename:Ljava/lang/String;
     invoke-static {v5}, Landroid/media/MediaScanner;->access$2300(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v5
@@ -1232,7 +1231,7 @@
     const/16 v20, 0x0
 
     .line 985
-    .local v20, mediaType:I
+    .local v20, "mediaType":I
     move-object/from16 v0, p1
 
     iget-object v4, v0, Landroid/media/MediaScanner$FileEntry;->mPath:Ljava/lang/String;
@@ -1253,7 +1252,7 @@
     move-result v14
 
     .line 987
-    .local v14, fileType:I
+    .local v14, "fileType":I
     invoke-static {v14}, Landroid/media/MediaFile;->isAudioFileType(I)Z
 
     move-result v4
@@ -1275,13 +1274,13 @@
     invoke-virtual {v7, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 998
-    .end local v14           #fileType:I
+    .end local v14    # "fileType":I
     :cond_21
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
+    # getter for: Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2500(Landroid/media/MediaScanner;)Landroid/content/IContentProvider;
 
     move-result-object v4
@@ -1290,7 +1289,7 @@
 
     iget-object v5, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mPackageName:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mPackageName:Ljava/lang/String;
     invoke-static {v5}, Landroid/media/MediaScanner;->access$2400(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v5
@@ -1304,7 +1303,7 @@
     goto/16 :goto_5
 
     .line 989
-    .restart local v14       #fileType:I
+    .restart local v14    # "fileType":I
     :cond_22
     invoke-static {v14}, Landroid/media/MediaFile;->isVideoFileType(I)Z
 
@@ -1344,8 +1343,8 @@
     goto :goto_a
 
     .line 1005
-    .end local v14           #fileType:I
-    .end local v20           #mediaType:I
+    .end local v14    # "fileType":I
+    .end local v20    # "mediaType":I
     :cond_25
     if-eqz p2, :cond_26
 
@@ -1367,7 +1366,7 @@
 
     const/4 v5, 0x1
 
-    #setter for: Landroid/media/MediaScanner;->mDefaultRingtoneSet:Z
+    # setter for: Landroid/media/MediaScanner;->mDefaultRingtoneSet:Z
     invoke-static {v4, v5}, Landroid/media/MediaScanner;->access$2002(Landroid/media/MediaScanner;Z)Z
 
     goto/16 :goto_6
@@ -1394,17 +1393,17 @@
 
     const/4 v5, 0x1
 
-    #setter for: Landroid/media/MediaScanner;->mDefaultAlarmSet:Z
+    # setter for: Landroid/media/MediaScanner;->mDefaultAlarmSet:Z
     invoke-static {v4, v5}, Landroid/media/MediaScanner;->access$2202(Landroid/media/MediaScanner;Z)Z
 
     goto/16 :goto_6
 
     .line 863
-    .end local v6           #result:Landroid/net/Uri;
-    .end local v17           #inserter:Landroid/media/MediaInserter;
-    .end local v21           #needToSetSettings:Z
-    .end local v26           #tableUri:Landroid/net/Uri;
-    .restart local v12       #exif:Landroid/media/ExifInterface;
+    .end local v6    # "result":Landroid/net/Uri;
+    .end local v17    # "inserter":Landroid/media/MediaInserter;
+    .end local v21    # "needToSetSettings":Z
+    .end local v26    # "tableUri":Landroid/net/Uri;
+    .restart local v12    # "exif":Landroid/media/ExifInterface;
     :catch_0
     move-exception v4
 
@@ -1424,13 +1423,13 @@
 
 .method private getFileTypeFromDrm(Ljava/lang/String;)I
     .locals 5
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 1037
     iget-object v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #calls: Landroid/media/MediaScanner;->isDrmEnabled()Z
+    # invokes: Landroid/media/MediaScanner;->isDrmEnabled()Z
     invoke-static {v2}, Landroid/media/MediaScanner;->access$200(Landroid/media/MediaScanner;)Z
 
     move-result v2
@@ -1450,10 +1449,10 @@
     const/4 v1, 0x0
 
     .line 1043
-    .local v1, resultFileType:I
+    .local v1, "resultFileType":I
     iget-object v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
+    # getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
     invoke-static {v2}, Landroid/media/MediaScanner;->access$2700(Landroid/media/MediaScanner;)Landroid/drm/DrmManagerClient;
 
     move-result-object v2
@@ -1467,21 +1466,21 @@
 
     iget-object v4, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
+    # getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
     invoke-static {v4}, Landroid/media/MediaScanner;->access$2600(Landroid/media/MediaScanner;)Landroid/content/Context;
 
     move-result-object v4
 
     invoke-direct {v3, v4}, Landroid/drm/DrmManagerClient;-><init>(Landroid/content/Context;)V
 
-    #setter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
+    # setter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
     invoke-static {v2, v3}, Landroid/media/MediaScanner;->access$2702(Landroid/media/MediaScanner;Landroid/drm/DrmManagerClient;)Landroid/drm/DrmManagerClient;
 
     .line 1047
     :cond_2
     iget-object v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
+    # getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
     invoke-static {v2}, Landroid/media/MediaScanner;->access$2700(Landroid/media/MediaScanner;)Landroid/drm/DrmManagerClient;
 
     move-result-object v2
@@ -1502,7 +1501,7 @@
     .line 1049
     iget-object v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
+    # getter for: Landroid/media/MediaScanner;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
     invoke-static {v2}, Landroid/media/MediaScanner;->access$2700(Landroid/media/MediaScanner;)Landroid/drm/DrmManagerClient;
 
     move-result-object v2
@@ -1512,7 +1511,7 @@
     move-result-object v0
 
     .line 1050
-    .local v0, drmMimetype:Ljava/lang/String;
+    .local v0, "drmMimetype":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 1051
@@ -1528,9 +1527,9 @@
 
 .method private parseSubstring(Ljava/lang/String;II)I
     .locals 8
-    .parameter "s"
-    .parameter "start"
-    .parameter "defaultValue"
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "start"    # I
+    .param p3, "defaultValue"    # I
 
     .prologue
     const/16 v7, 0x39
@@ -1543,27 +1542,27 @@
     move-result v1
 
     .line 589
-    .local v1, length:I
+    .local v1, "length":I
     if-ne p2, v1, :cond_0
 
     .line 602
-    .end local p3
+    .end local p3    # "defaultValue":I
     :goto_0
     return p3
 
     .line 591
-    .restart local p3
+    .restart local p3    # "defaultValue":I
     :cond_0
     add-int/lit8 v3, p2, 0x1
 
-    .end local p2
-    .local v3, start:I
+    .end local p2    # "start":I
+    .local v3, "start":I
     invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     .line 593
-    .local v0, ch:C
+    .local v0, "ch":C
     if-lt v0, v6, :cond_1
 
     if-le v0, v7, :cond_2
@@ -1571,26 +1570,26 @@
     :cond_1
     move p2, v3
 
-    .end local v3           #start:I
-    .restart local p2
+    .end local v3    # "start":I
+    .restart local p2    # "start":I
     goto :goto_0
 
     .line 595
-    .end local p2
-    .restart local v3       #start:I
+    .end local p2    # "start":I
+    .restart local v3    # "start":I
     :cond_2
     add-int/lit8 v2, v0, -0x30
 
     .line 596
-    .local v2, result:I
+    .local v2, "result":I
     :goto_1
     if-ge v3, v1, :cond_5
 
     .line 597
     add-int/lit8 p2, v3, 0x1
 
-    .end local v3           #start:I
-    .restart local p2
+    .end local v3    # "start":I
+    .restart local p2    # "start":I
     invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -1615,15 +1614,15 @@
 
     move v3, p2
 
-    .end local p2
-    .restart local v3       #start:I
+    .end local p2    # "start":I
+    .restart local v3    # "start":I
     goto :goto_1
 
     :cond_5
     move p2, v3
 
-    .end local v3           #start:I
-    .restart local p2
+    .end local v3    # "start":I
+    .restart local p2    # "start":I
     move p3, v2
 
     .line 602
@@ -1632,14 +1631,14 @@
 
 .method private processImageFile(Ljava/lang/String;)V
     .locals 2
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 735
     :try_start_0
     iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    # getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
     invoke-static {v0}, Landroid/media/MediaScanner;->access$1100(Landroid/media/MediaScanner;)Landroid/graphics/BitmapFactory$Options;
 
     move-result-object v0
@@ -1651,7 +1650,7 @@
     .line 736
     iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    # getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
     invoke-static {v0}, Landroid/media/MediaScanner;->access$1100(Landroid/media/MediaScanner;)Landroid/graphics/BitmapFactory$Options;
 
     move-result-object v0
@@ -1663,7 +1662,7 @@
     .line 737
     iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    # getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
     invoke-static {v0}, Landroid/media/MediaScanner;->access$1100(Landroid/media/MediaScanner;)Landroid/graphics/BitmapFactory$Options;
 
     move-result-object v0
@@ -1673,7 +1672,7 @@
     .line 738
     iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    # getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
     invoke-static {v0}, Landroid/media/MediaScanner;->access$1100(Landroid/media/MediaScanner;)Landroid/graphics/BitmapFactory$Options;
 
     move-result-object v0
@@ -1685,7 +1684,7 @@
     .line 739
     iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    # getter for: Landroid/media/MediaScanner;->mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
     invoke-static {v0}, Landroid/media/MediaScanner;->access$1100(Landroid/media/MediaScanner;)Landroid/graphics/BitmapFactory$Options;
 
     move-result-object v0
@@ -1709,15 +1708,15 @@
 
 .method private setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
     .locals 3
-    .parameter "settingName"
-    .parameter "uri"
-    .parameter "rowId"
+    .param p1, "settingName"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "rowId"    # J
 
     .prologue
     .line 1026
     iget-object v1, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
+    # getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/media/MediaScanner;->access$2600(Landroid/media/MediaScanner;)Landroid/content/Context;
 
     move-result-object v1
@@ -1731,7 +1730,7 @@
     move-result-object v0
 
     .line 1029
-    .local v0, existingSettingValue:Ljava/lang/String;
+    .local v0, "existingSettingValue":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -1741,7 +1740,7 @@
     .line 1031
     iget-object v1, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
+    # getter for: Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/media/MediaScanner;->access$2600(Landroid/media/MediaScanner;)Landroid/content/Context;
 
     move-result-object v1
@@ -1881,7 +1880,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 766
-    .local v0, map:Landroid/content/ContentValues;
+    .local v0, "map":Landroid/content/ContentValues;
     const-string v2, "_data"
 
     iget-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mPath:Ljava/lang/String;
@@ -1939,7 +1938,7 @@
     const/4 v1, 0x0
 
     .line 774
-    .local v1, resolution:Ljava/lang/String;
+    .local v1, "resolution":Ljava/lang/String;
     iget v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mWidth:I
 
     if-lez v2, :cond_0
@@ -2256,12 +2255,12 @@
 # virtual methods
 .method public beginFile(Ljava/lang/String;Ljava/lang/String;JJZZ)Landroid/media/MediaScanner$FileEntry;
     .locals 13
-    .parameter "path"
-    .parameter "mimeType"
-    .parameter "lastModified"
-    .parameter "fileSize"
-    .parameter "isDirectory"
-    .parameter "noMedia"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "lastModified"    # J
+    .param p5, "fileSize"    # J
+    .param p7, "isDirectory"    # Z
+    .param p8, "noMedia"    # Z
 
     .prologue
     .line 444
@@ -2288,7 +2287,7 @@
     .line 450
     if-nez p8, :cond_0
 
-    #calls: Landroid/media/MediaScanner;->isNoMediaFile(Ljava/lang/String;)Z
+    # invokes: Landroid/media/MediaScanner;->isNoMediaFile(Ljava/lang/String;)Z
     invoke-static {p1}, Landroid/media/MediaScanner;->access$100(Ljava/lang/String;)Z
 
     move-result v3
@@ -2326,7 +2325,7 @@
     move-result-object v11
 
     .line 463
-    .local v11, mediaFileType:Landroid/media/MediaFile$MediaFileType;
+    .local v11, "mediaFileType":Landroid/media/MediaFile$MediaFileType;
     if-eqz v11, :cond_2
 
     .line 464
@@ -2345,11 +2344,11 @@
     iput-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mMimeType:Ljava/lang/String;
 
     .line 471
-    .end local v11           #mediaFileType:Landroid/media/MediaFile$MediaFileType;
+    .end local v11    # "mediaFileType":Landroid/media/MediaFile$MediaFileType;
     :cond_2
     iget-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #calls: Landroid/media/MediaScanner;->isDrmEnabled()Z
+    # invokes: Landroid/media/MediaScanner;->isDrmEnabled()Z
     invoke-static {v3}, Landroid/media/MediaScanner;->access$200(Landroid/media/MediaScanner;)Z
 
     move-result v3
@@ -2380,7 +2379,7 @@
     move-result-object v2
 
     .line 478
-    .local v2, entry:Landroid/media/MediaScanner$FileEntry;
+    .local v2, "entry":Landroid/media/MediaScanner$FileEntry;
     if-eqz v2, :cond_7
 
     iget-wide v3, v2, Landroid/media/MediaScanner$FileEntry;->mLastModified:J
@@ -2388,7 +2387,7 @@
     sub-long v9, p3, v3
 
     .line 479
-    .local v9, delta:J
+    .local v9, "delta":J
     :goto_0
     const-wide/16 v3, 0x1
 
@@ -2406,7 +2405,7 @@
     const/4 v12, 0x1
 
     .line 480
-    .local v12, wasModified:Z
+    .local v12, "wasModified":Z
     :goto_1
     if-eqz v2, :cond_5
 
@@ -2431,7 +2430,7 @@
     :cond_6
     iget-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mProcessPlaylists:Z
+    # getter for: Landroid/media/MediaScanner;->mProcessPlaylists:Z
     invoke-static {v3}, Landroid/media/MediaScanner;->access$300(Landroid/media/MediaScanner;)Z
 
     move-result v3
@@ -2449,7 +2448,7 @@
     .line 491
     iget-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mPlayLists:Ljava/util/ArrayList;
+    # getter for: Landroid/media/MediaScanner;->mPlayLists:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/media/MediaScanner;->access$400(Landroid/media/MediaScanner;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -2460,32 +2459,32 @@
     const/4 v2, 0x0
 
     .line 513
-    .end local v2           #entry:Landroid/media/MediaScanner$FileEntry;
+    .end local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     :goto_3
     return-object v2
 
     .line 478
-    .end local v9           #delta:J
-    .end local v12           #wasModified:Z
-    .restart local v2       #entry:Landroid/media/MediaScanner$FileEntry;
+    .end local v9    # "delta":J
+    .end local v12    # "wasModified":Z
+    .restart local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     :cond_7
     const-wide/16 v9, 0x0
 
     goto :goto_0
 
     .line 479
-    .restart local v9       #delta:J
+    .restart local v9    # "delta":J
     :cond_8
     const/4 v12, 0x0
 
     goto :goto_1
 
     .line 484
-    .restart local v12       #wasModified:Z
+    .restart local v12    # "wasModified":Z
     :cond_9
     new-instance v2, Landroid/media/MediaScanner$FileEntry;
 
-    .end local v2           #entry:Landroid/media/MediaScanner$FileEntry;
+    .end local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     const-wide/16 v3, 0x0
 
     if-eqz p7, :cond_a
@@ -2499,17 +2498,17 @@
 
     invoke-direct/range {v2 .. v8}, Landroid/media/MediaScanner$FileEntry;-><init>(JLjava/lang/String;JI)V
 
-    .restart local v2       #entry:Landroid/media/MediaScanner$FileEntry;
+    .restart local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     goto :goto_2
 
-    .end local v2           #entry:Landroid/media/MediaScanner$FileEntry;
+    .end local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     :cond_a
     const/4 v8, 0x0
 
     goto :goto_4
 
     .line 497
-    .restart local v2       #entry:Landroid/media/MediaScanner$FileEntry;
+    .restart local v2    # "entry":Landroid/media/MediaScanner$FileEntry;
     :cond_b
     const/4 v3, 0x0
 
@@ -2588,19 +2587,19 @@
 
 .method public doScanFile(Ljava/lang/String;Ljava/lang/String;JJZZZ)Landroid/net/Uri;
     .locals 20
-    .parameter "path"
-    .parameter "mimeType"
-    .parameter "lastModified"
-    .parameter "fileSize"
-    .parameter "isDirectory"
-    .parameter "scanAlways"
-    .parameter "noMedia"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "lastModified"    # J
+    .param p5, "fileSize"    # J
+    .param p7, "isDirectory"    # Z
+    .param p8, "scanAlways"    # Z
+    .param p9, "noMedia"    # Z
 
     .prologue
     .line 526
     const/16 v19, 0x0
 
-    .local v19, result:Landroid/net/Uri;
+    .local v19, "result":Landroid/net/Uri;
     move-object/from16 v3, p0
 
     move-object/from16 v4, p1
@@ -2622,12 +2621,12 @@
     move-result-object v4
 
     .line 535
-    .local v4, entry:Landroid/media/MediaScanner$FileEntry;
+    .local v4, "entry":Landroid/media/MediaScanner$FileEntry;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
+    # getter for: Landroid/media/MediaScanner;->mMtpObjectHandle:I
     invoke-static {v3}, Landroid/media/MediaScanner;->access$500(Landroid/media/MediaScanner;)I
 
     move-result v3
@@ -2671,13 +2670,13 @@
     move-result-object v19
 
     .line 584
-    .end local v4           #entry:Landroid/media/MediaScanner$FileEntry;
+    .end local v4    # "entry":Landroid/media/MediaScanner$FileEntry;
     :cond_2
     :goto_0
     return-object v19
 
     .line 543
-    .restart local v4       #entry:Landroid/media/MediaScanner$FileEntry;
+    .restart local v4    # "entry":Landroid/media/MediaScanner$FileEntry;
     :cond_3
     sget-object v3, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
@@ -2688,7 +2687,7 @@
     move-result-object v18
 
     .line 544
-    .local v18, lowpath:Ljava/lang/String;
+    .local v18, "lowpath":Ljava/lang/String;
     const-string v3, "/ringtones/"
 
     move-object/from16 v0, v18
@@ -2702,7 +2701,7 @@
     const/4 v5, 0x1
 
     .line 545
-    .local v5, ringtones:Z
+    .local v5, "ringtones":Z
     :goto_1
     const-string v3, "/notifications/"
 
@@ -2717,7 +2716,7 @@
     const/4 v6, 0x1
 
     .line 546
-    .local v6, notifications:Z
+    .local v6, "notifications":Z
     :goto_2
     const-string v3, "/alarms/"
 
@@ -2732,7 +2731,7 @@
     const/4 v7, 0x1
 
     .line 547
-    .local v7, alarms:Z
+    .local v7, "alarms":Z
     :goto_3
     const-string v3, "/podcasts/"
 
@@ -2747,7 +2746,7 @@
     const/4 v9, 0x1
 
     .line 548
-    .local v9, podcasts:Z
+    .local v9, "podcasts":Z
     :goto_4
     const-string v3, "/music/"
 
@@ -2771,7 +2770,7 @@
     const/4 v8, 0x1
 
     .line 551
-    .local v8, music:Z
+    .local v8, "music":Z
     :goto_5
     move-object/from16 v0, p0
 
@@ -2782,7 +2781,7 @@
     move-result v15
 
     .line 552
-    .local v15, isaudio:Z
+    .local v15, "isaudio":Z
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->mFileType:I
@@ -2792,7 +2791,7 @@
     move-result v17
 
     .line 553
-    .local v17, isvideo:Z
+    .local v17, "isvideo":Z
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->mFileType:I
@@ -2802,7 +2801,7 @@
     move-result v16
 
     .line 555
-    .local v16, isimage:Z
+    .local v16, "isimage":Z
     if-nez v15, :cond_5
 
     if-nez v17, :cond_5
@@ -2815,7 +2814,7 @@
 
     iget-object v3, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mExternalIsEmulated:Z
+    # getter for: Landroid/media/MediaScanner;->mExternalIsEmulated:Z
     invoke-static {v3}, Landroid/media/MediaScanner;->access$600(Landroid/media/MediaScanner;)Z
 
     move-result v3
@@ -2826,7 +2825,7 @@
 
     iget-object v3, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mExternalStoragePath:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mExternalStoragePath:Ljava/lang/String;
     invoke-static {v3}, Landroid/media/MediaScanner;->access$700(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v3
@@ -2856,7 +2855,7 @@
 
     iget-object v10, v0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mExternalStoragePath:Ljava/lang/String;
+    # getter for: Landroid/media/MediaScanner;->mExternalStoragePath:Ljava/lang/String;
     invoke-static {v10}, Landroid/media/MediaScanner;->access$700(Landroid/media/MediaScanner;)Ljava/lang/String;
 
     move-result-object v10
@@ -2880,13 +2879,13 @@
     move-result-object v12
 
     .line 560
-    .local v12, directPath:Ljava/lang/String;
+    .local v12, "directPath":Ljava/lang/String;
     new-instance v14, Ljava/io/File;
 
     invoke-direct {v14, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 561
-    .local v14, f:Ljava/io/File;
+    .local v14, "f":Ljava/io/File;
     invoke-virtual {v14}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -2897,8 +2896,8 @@
     move-object/from16 p1, v12
 
     .line 568
-    .end local v12           #directPath:Ljava/lang/String;
-    .end local v14           #f:Ljava/io/File;
+    .end local v12    # "directPath":Ljava/lang/String;
+    .end local v14    # "f":Ljava/io/File;
     :cond_6
     if-nez v15, :cond_7
 
@@ -2916,7 +2915,7 @@
 
     move-object/from16 v2, p0
 
-    #calls: Landroid/media/MediaScanner;->processFile(Ljava/lang/String;Ljava/lang/String;Landroid/media/MediaScannerClient;)V
+    # invokes: Landroid/media/MediaScanner;->processFile(Ljava/lang/String;Ljava/lang/String;Landroid/media/MediaScannerClient;)V
     invoke-static {v3, v0, v1, v2}, Landroid/media/MediaScanner;->access$800(Landroid/media/MediaScanner;Ljava/lang/String;Ljava/lang/String;Landroid/media/MediaScannerClient;)V
 
     .line 572
@@ -2939,59 +2938,59 @@
     goto/16 :goto_0
 
     .line 544
-    .end local v5           #ringtones:Z
-    .end local v6           #notifications:Z
-    .end local v7           #alarms:Z
-    .end local v8           #music:Z
-    .end local v9           #podcasts:Z
-    .end local v15           #isaudio:Z
-    .end local v16           #isimage:Z
-    .end local v17           #isvideo:Z
+    .end local v5    # "ringtones":Z
+    .end local v6    # "notifications":Z
+    .end local v7    # "alarms":Z
+    .end local v8    # "music":Z
+    .end local v9    # "podcasts":Z
+    .end local v15    # "isaudio":Z
+    .end local v16    # "isimage":Z
+    .end local v17    # "isvideo":Z
     :cond_a
     const/4 v5, 0x0
 
     goto/16 :goto_1
 
     .line 545
-    .restart local v5       #ringtones:Z
+    .restart local v5    # "ringtones":Z
     :cond_b
     const/4 v6, 0x0
 
     goto/16 :goto_2
 
     .line 546
-    .restart local v6       #notifications:Z
+    .restart local v6    # "notifications":Z
     :cond_c
     const/4 v7, 0x0
 
     goto/16 :goto_3
 
     .line 547
-    .restart local v7       #alarms:Z
+    .restart local v7    # "alarms":Z
     :cond_d
     const/4 v9, 0x0
 
     goto/16 :goto_4
 
     .line 548
-    .restart local v9       #podcasts:Z
+    .restart local v9    # "podcasts":Z
     :cond_e
     const/4 v8, 0x0
 
     goto/16 :goto_5
 
     .line 579
-    .end local v4           #entry:Landroid/media/MediaScanner$FileEntry;
-    .end local v5           #ringtones:Z
-    .end local v6           #notifications:Z
-    .end local v7           #alarms:Z
-    .end local v9           #podcasts:Z
-    .end local v18           #lowpath:Ljava/lang/String;
+    .end local v4    # "entry":Landroid/media/MediaScanner$FileEntry;
+    .end local v5    # "ringtones":Z
+    .end local v6    # "notifications":Z
+    .end local v7    # "alarms":Z
+    .end local v9    # "podcasts":Z
+    .end local v18    # "lowpath":Ljava/lang/String;
     :catch_0
     move-exception v13
 
     .line 580
-    .local v13, e:Landroid/os/RemoteException;
+    .local v13, "e":Landroid/os/RemoteException;
     const-string v3, "MediaScanner"
 
     const-string v10, "RemoteException in MediaScanner.scanFile()"
@@ -3003,7 +3002,7 @@
 
 .method public getGenreName(Ljava/lang/String;)Ljava/lang/String;
     .locals 11
-    .parameter "genreTagValue"
+    .param p1, "genreTagValue"    # Ljava/lang/String;
 
     .prologue
     const/4 v7, 0x0
@@ -3027,24 +3026,24 @@
     move-result v4
 
     .line 686
-    .local v4, length:I
+    .local v4, "length":I
     if-lez v4, :cond_9
 
     .line 687
     const/4 v6, 0x0
 
     .line 688
-    .local v6, parenthesized:Z
+    .local v6, "parenthesized":Z
     new-instance v5, Ljava/lang/StringBuffer;
 
     invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 689
-    .local v5, number:Ljava/lang/StringBuffer;
+    .local v5, "number":Ljava/lang/StringBuffer;
     const/4 v3, 0x0
 
     .line 690
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, v4, :cond_3
 
@@ -3054,7 +3053,7 @@
     move-result v0
 
     .line 692
-    .local v0, c:C
+    .local v0, "c":C
     if-nez v3, :cond_2
 
     const/16 v8, 0x28
@@ -3084,7 +3083,7 @@
     goto :goto_2
 
     .line 700
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_3
     if-ge v3, v4, :cond_6
 
@@ -3093,7 +3092,7 @@
     move-result v1
 
     .line 701
-    .local v1, charAfterNumber:C
+    .local v1, "charAfterNumber":C
     :goto_3
     if-eqz v6, :cond_4
 
@@ -3120,10 +3119,11 @@
     move-result v2
 
     .line 705
-    .local v2, genreIndex:S
+    .local v2, "genreIndex":S
     if-ltz v2, :cond_9
 
     .line 706
+    # getter for: Landroid/media/MediaScanner;->ID3_GENRES:[Ljava/lang/String;
     invoke-static {}, Landroid/media/MediaScanner;->access$1000()[Ljava/lang/String;
 
     move-result-object v8
@@ -3132,6 +3132,7 @@
 
     if-ge v2, v8, :cond_7
 
+    # getter for: Landroid/media/MediaScanner;->ID3_GENRES:[Ljava/lang/String;
     invoke-static {}, Landroid/media/MediaScanner;->access$1000()[Ljava/lang/String;
 
     move-result-object v8
@@ -3141,6 +3142,7 @@
     if-eqz v8, :cond_7
 
     .line 707
+    # getter for: Landroid/media/MediaScanner;->ID3_GENRES:[Ljava/lang/String;
     invoke-static {}, Landroid/media/MediaScanner;->access$1000()[Ljava/lang/String;
 
     move-result-object v8
@@ -3150,16 +3152,16 @@
     goto :goto_0
 
     .line 700
-    .end local v1           #charAfterNumber:C
-    .end local v2           #genreIndex:S
+    .end local v1    # "charAfterNumber":C
+    .end local v2    # "genreIndex":S
     :cond_6
     const/16 v1, 0x20
 
     goto :goto_3
 
     .line 708
-    .restart local v1       #charAfterNumber:C
-    .restart local v2       #genreIndex:S
+    .restart local v1    # "charAfterNumber":C
+    .restart local v2    # "genreIndex":S
     :cond_7
     if-eq v2, v10, :cond_0
 
@@ -3189,19 +3191,19 @@
     move-result-object v7
 
     .line 717
-    .local v7, ret:Ljava/lang/String;
+    .local v7, "ret":Ljava/lang/String;
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v8
 
     if-nez v8, :cond_0
 
-    .end local v1           #charAfterNumber:C
-    .end local v2           #genreIndex:S
-    .end local v3           #i:I
-    .end local v5           #number:Ljava/lang/StringBuffer;
-    .end local v6           #parenthesized:Z
-    .end local v7           #ret:Ljava/lang/String;
+    .end local v1    # "charAfterNumber":C
+    .end local v2    # "genreIndex":S
+    .end local v3    # "i":I
+    .end local v5    # "number":Ljava/lang/StringBuffer;
+    .end local v6    # "parenthesized":Z
+    .end local v7    # "ret":Ljava/lang/String;
     :cond_9
     :goto_4
     move-object v7, p1
@@ -3210,11 +3212,11 @@
     goto :goto_0
 
     .line 722
-    .restart local v1       #charAfterNumber:C
-    .restart local v2       #genreIndex:S
-    .restart local v3       #i:I
-    .restart local v5       #number:Ljava/lang/StringBuffer;
-    .restart local v6       #parenthesized:Z
+    .restart local v1    # "charAfterNumber":C
+    .restart local v2    # "genreIndex":S
+    .restart local v3    # "i":I
+    .restart local v5    # "number":Ljava/lang/StringBuffer;
+    .restart local v6    # "parenthesized":Z
     :cond_a
     invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
     :try_end_0
@@ -3225,7 +3227,7 @@
     goto :goto_0
 
     .line 725
-    .end local v2           #genreIndex:S
+    .end local v2    # "genreIndex":S
     :catch_0
     move-exception v8
 
@@ -3234,8 +3236,8 @@
 
 .method public handleStringTag(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x1
@@ -3400,7 +3402,7 @@
     :cond_a
     iget-object v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->this$0:Landroid/media/MediaScanner;
 
-    #getter for: Landroid/media/MediaScanner;->mProcessGenres:Z
+    # getter for: Landroid/media/MediaScanner;->mProcessGenres:Z
     invoke-static {v3}, Landroid/media/MediaScanner;->access$900(Landroid/media/MediaScanner;)Z
 
     move-result v3
@@ -3486,7 +3488,7 @@
     move-result v0
 
     .line 629
-    .local v0, num:I
+    .local v0, "num":I
     iget v1, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mTrack:I
 
     div-int/lit16 v1, v1, 0x3e8
@@ -3500,7 +3502,7 @@
     goto/16 :goto_0
 
     .line 630
-    .end local v0           #num:I
+    .end local v0    # "num":I
     :cond_10
     const-string v3, "discnumber"
 
@@ -3533,7 +3535,7 @@
     move-result v0
 
     .line 635
-    .restart local v0       #num:I
+    .restart local v0    # "num":I
     mul-int/lit16 v1, v0, 0x3e8
 
     iget v2, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mTrack:I
@@ -3547,7 +3549,7 @@
     goto/16 :goto_0
 
     .line 636
-    .end local v0           #num:I
+    .end local v0    # "num":I
     :cond_12
     const-string v3, "duration"
 
@@ -3681,11 +3683,11 @@
 
 .method public scanFile(Ljava/lang/String;JJZZ)V
     .locals 10
-    .parameter "path"
-    .parameter "lastModified"
-    .parameter "fileSize"
-    .parameter "isDirectory"
-    .parameter "noMedia"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "lastModified"    # J
+    .param p4, "fileSize"    # J
+    .param p6, "isDirectory"    # Z
+    .param p7, "noMedia"    # Z
 
     .prologue
     .line 521
@@ -3713,7 +3715,7 @@
 
 .method public setMimeType(Ljava/lang/String;)V
     .locals 2
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 746
@@ -3725,7 +3727,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "video"
 
@@ -3733,17 +3735,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 755
+    :cond_0
     :goto_0
     return-void
 
-    .line 753
-    :cond_0
+    :cond_1
+    iget-object v0, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mMimeType:Ljava/lang/String;
+
+    invoke-static {v0, p1}, Landroid/media/MediaScannerInjector;->keepMimeType(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iput-object p1, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mMimeType:Ljava/lang/String;
 
-    .line 754
     invoke-static {p1}, Landroid/media/MediaFile;->getFileTypeForMimeType(Ljava/lang/String;)I
 
     move-result v0

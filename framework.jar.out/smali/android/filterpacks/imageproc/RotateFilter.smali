@@ -33,7 +33,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -63,11 +63,11 @@
     .locals 11
 
     .prologue
-    const/high16 v8, -0x4080
+    const/high16 v8, -0x40800000    # -1.0f
 
-    const/high16 v10, 0x3f00
+    const/high16 v10, 0x3f000000    # 0.5f
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     .line 130
     iget v9, p0, Landroid/filterpacks/imageproc/RotateFilter;->mAngle:I
@@ -87,7 +87,7 @@
     const/4 v2, 0x0
 
     .line 133
-    .local v2, sinTheta:F
+    .local v2, "sinTheta":F
     iget v9, p0, Landroid/filterpacks/imageproc/RotateFilter;->mAngle:I
 
     rem-int/lit16 v9, v9, 0x168
@@ -97,7 +97,7 @@
     move v0, v7
 
     .line 145
-    .local v0, cosTheta:F
+    .local v0, "cosTheta":F
     :goto_0
     new-instance v3, Landroid/filterfw/geometry/Point;
 
@@ -120,7 +120,7 @@
     invoke-direct {v3, v8, v9}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 147
-    .local v3, x0:Landroid/filterfw/geometry/Point;
+    .local v3, "x0":Landroid/filterfw/geometry/Point;
     new-instance v4, Landroid/filterfw/geometry/Point;
 
     add-float v8, v0, v2
@@ -138,7 +138,7 @@
     invoke-direct {v4, v8, v9}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 149
-    .local v4, x1:Landroid/filterfw/geometry/Point;
+    .local v4, "x1":Landroid/filterfw/geometry/Point;
     new-instance v5, Landroid/filterfw/geometry/Point;
 
     neg-float v8, v0
@@ -160,7 +160,7 @@
     invoke-direct {v5, v8, v9}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 151
-    .local v5, x2:Landroid/filterfw/geometry/Point;
+    .local v5, "x2":Landroid/filterfw/geometry/Point;
     new-instance v6, Landroid/filterfw/geometry/Point;
 
     sub-float v8, v0, v2
@@ -178,13 +178,13 @@
     invoke-direct {v6, v8, v7}, Landroid/filterfw/geometry/Point;-><init>(FF)V
 
     .line 153
-    .local v6, x3:Landroid/filterfw/geometry/Point;
+    .local v6, "x3":Landroid/filterfw/geometry/Point;
     new-instance v1, Landroid/filterfw/geometry/Quad;
 
     invoke-direct {v1, v3, v4, v5, v6}, Landroid/filterfw/geometry/Quad;-><init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
 
     .line 154
-    .local v1, quad:Landroid/filterfw/geometry/Quad;
+    .local v1, "quad":Landroid/filterfw/geometry/Quad;
     iget-object v7, p0, Landroid/filterpacks/imageproc/RotateFilter;->mProgram:Landroid/filterfw/core/Program;
 
     check-cast v7, Landroid/filterfw/core/ShaderProgram;
@@ -194,12 +194,12 @@
     .line 155
     return-void
 
-    .end local v0           #cosTheta:F
-    .end local v1           #quad:Landroid/filterfw/geometry/Quad;
-    .end local v3           #x0:Landroid/filterfw/geometry/Point;
-    .end local v4           #x1:Landroid/filterfw/geometry/Point;
-    .end local v5           #x2:Landroid/filterfw/geometry/Point;
-    .end local v6           #x3:Landroid/filterfw/geometry/Point;
+    .end local v0    # "cosTheta":F
+    .end local v1    # "quad":Landroid/filterfw/geometry/Quad;
+    .end local v3    # "x0":Landroid/filterfw/geometry/Point;
+    .end local v4    # "x1":Landroid/filterfw/geometry/Point;
+    .end local v5    # "x2":Landroid/filterfw/geometry/Point;
+    .end local v6    # "x3":Landroid/filterfw/geometry/Point;
     :cond_0
     move v0, v8
 
@@ -207,12 +207,12 @@
     goto :goto_0
 
     .line 135
-    .end local v2           #sinTheta:F
+    .end local v2    # "sinTheta":F
     :cond_1
     const/4 v0, 0x0
 
     .line 136
-    .restart local v0       #cosTheta:F
+    .restart local v0    # "cosTheta":F
     iget v9, p0, Landroid/filterpacks/imageproc/RotateFilter;->mAngle:I
 
     add-int/lit8 v9, v9, 0x5a
@@ -224,7 +224,7 @@
     move v2, v8
 
     .line 138
-    .restart local v2       #sinTheta:F
+    .restart local v2    # "sinTheta":F
     :goto_1
     iget v8, p0, Landroid/filterpacks/imageproc/RotateFilter;->mHeight:I
 
@@ -237,7 +237,7 @@
 
     goto :goto_0
 
-    .end local v2           #sinTheta:F
+    .end local v2    # "sinTheta":F
     :cond_2
     move v2, v7
 
@@ -245,7 +245,7 @@
     goto :goto_1
 
     .line 142
-    .end local v0           #cosTheta:F
+    .end local v0    # "cosTheta":F
     :cond_3
     new-instance v7, Ljava/lang/RuntimeException;
 
@@ -260,8 +260,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 84
@@ -279,8 +279,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 67
@@ -324,7 +324,7 @@
     move-result-object v0
 
     .line 70
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/RotateFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -352,7 +352,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     const/4 v6, 0x3
@@ -365,13 +365,13 @@
     move-result-object v0
 
     .line 93
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 96
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget-object v4, p0, Landroid/filterpacks/imageproc/RotateFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v4, :cond_0
@@ -449,7 +449,7 @@
     move-result-object v3
 
     .line 114
-    .local v3, outputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v3, "outputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v4
@@ -459,7 +459,7 @@
     move-result-object v2
 
     .line 117
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v4, p0, Landroid/filterpacks/imageproc/RotateFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v4, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

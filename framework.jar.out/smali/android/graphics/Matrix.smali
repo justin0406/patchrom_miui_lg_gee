@@ -74,7 +74,7 @@
 
 .method public constructor <init>(Landroid/graphics/Matrix;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 235
@@ -104,11 +104,11 @@
 
 .method private static checkPointArrays([FI[FII)V
     .locals 3
-    .parameter "src"
-    .parameter "srcIndex"
-    .parameter "dst"
-    .parameter "dstIndex"
-    .parameter "pointCount"
+    .param p0, "src"    # [F
+    .param p1, "srcIndex"    # I
+    .param p2, "dst"    # [F
+    .param p3, "dstIndex"    # I
+    .param p4, "pointCount"    # I
 
     .prologue
     .line 551
@@ -117,13 +117,13 @@
     add-int v1, p1, v2
 
     .line 552
-    .local v1, srcStop:I
+    .local v1, "srcStop":I
     shl-int/lit8 v2, p4, 0x1
 
     add-int v0, p3, v2
 
     .line 553
-    .local v0, dstStop:I
+    .local v0, "dstStop":I
     or-int v2, p4, p1
 
     or-int/2addr v2, p3
@@ -282,7 +282,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 273
@@ -293,17 +293,17 @@
     const/4 v0, 0x0
 
     .line 274
-    .end local p1
+    .end local p1    # "obj":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_0
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     check-cast p1, Landroid/graphics/Matrix;
 
-    .end local p1
+    .end local p1    # "obj":Ljava/lang/Object;
     iget v1, p1, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_equals(II)Z
@@ -347,7 +347,7 @@
 
 .method public getValues([F)V
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # [F
 
     .prologue
     .line 727
@@ -386,7 +386,7 @@
 
 .method public invert(Landroid/graphics/Matrix;)Z
     .locals 2
-    .parameter "inverse"
+    .param p1, "inverse"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 588
@@ -417,7 +417,7 @@
 
 .method public mapPoints([F)V
     .locals 6
-    .parameter "pts"
+    .param p1, "pts"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -443,11 +443,11 @@
 
 .method public mapPoints([FI[FII)V
     .locals 7
-    .parameter "dst"
-    .parameter "dstIndex"
-    .parameter "src"
-    .parameter "srcIndex"
-    .parameter "pointCount"
+    .param p1, "dst"    # [F
+    .param p2, "dstIndex"    # I
+    .param p3, "src"    # [F
+    .param p4, "srcIndex"    # I
+    .param p5, "pointCount"    # I
 
     .prologue
     .line 604
@@ -476,8 +476,8 @@
 
 .method public mapPoints([F[F)V
     .locals 6
-    .parameter "dst"
-    .parameter "src"
+    .param p1, "dst"    # [F
+    .param p2, "src"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -518,7 +518,7 @@
 
 .method public mapRadius(F)F
     .locals 1
-    .parameter "radius"
+    .param p1, "radius"    # F
 
     .prologue
     .line 721
@@ -533,7 +533,7 @@
 
 .method public mapRect(Landroid/graphics/RectF;)Z
     .locals 1
-    .parameter "rect"
+    .param p1, "rect"    # Landroid/graphics/RectF;
 
     .prologue
     .line 712
@@ -546,8 +546,8 @@
 
 .method public mapRect(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
     .locals 1
-    .parameter "dst"
-    .parameter "src"
+    .param p1, "dst"    # Landroid/graphics/RectF;
+    .param p2, "src"    # Landroid/graphics/RectF;
 
     .prologue
     .line 697
@@ -576,7 +576,7 @@
 
 .method public mapVectors([F)V
     .locals 6
-    .parameter "vecs"
+    .param p1, "vecs"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -602,11 +602,11 @@
 
 .method public mapVectors([FI[FII)V
     .locals 7
-    .parameter "dst"
-    .parameter "dstIndex"
-    .parameter "src"
-    .parameter "srcIndex"
-    .parameter "vectorCount"
+    .param p1, "dst"    # [F
+    .param p2, "dstIndex"    # I
+    .param p3, "src"    # [F
+    .param p4, "srcIndex"    # I
+    .param p5, "vectorCount"    # I
 
     .prologue
     .line 626
@@ -635,8 +635,8 @@
 
 .method public mapVectors([F[F)V
     .locals 6
-    .parameter "dst"
-    .parameter "src"
+    .param p1, "dst"    # [F
+    .param p2, "src"    # [F
 
     .prologue
     const/4 v2, 0x0
@@ -687,7 +687,7 @@
 
 .method public postConcat(Landroid/graphics/Matrix;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 489
@@ -704,7 +704,7 @@
 
 .method public postRotate(F)Z
     .locals 1
-    .parameter "degrees"
+    .param p1, "degrees"    # F
 
     .prologue
     .line 465
@@ -719,9 +719,9 @@
 
 .method public postRotate(FFF)Z
     .locals 1
-    .parameter "degrees"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "degrees"    # F
+    .param p2, "px"    # F
+    .param p3, "py"    # F
 
     .prologue
     .line 457
@@ -736,8 +736,8 @@
 
 .method public postScale(FF)Z
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
 
     .prologue
     .line 449
@@ -752,10 +752,10 @@
 
 .method public postScale(FFFF)Z
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 441
@@ -770,8 +770,8 @@
 
 .method public postSkew(FF)Z
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
 
     .prologue
     .line 481
@@ -786,10 +786,10 @@
 
 .method public postSkew(FFFF)Z
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 473
@@ -804,8 +804,8 @@
 
 .method public postTranslate(FF)Z
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 433
@@ -820,7 +820,7 @@
 
 .method public preConcat(Landroid/graphics/Matrix;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 425
@@ -837,7 +837,7 @@
 
 .method public preRotate(F)Z
     .locals 1
-    .parameter "degrees"
+    .param p1, "degrees"    # F
 
     .prologue
     .line 401
@@ -852,9 +852,9 @@
 
 .method public preRotate(FFF)Z
     .locals 1
-    .parameter "degrees"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "degrees"    # F
+    .param p2, "px"    # F
+    .param p3, "py"    # F
 
     .prologue
     .line 393
@@ -869,8 +869,8 @@
 
 .method public preScale(FF)Z
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
 
     .prologue
     .line 385
@@ -885,10 +885,10 @@
 
 .method public preScale(FFFF)Z
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 377
@@ -903,8 +903,8 @@
 
 .method public preSkew(FF)Z
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
 
     .prologue
     .line 417
@@ -919,10 +919,10 @@
 
 .method public preSkew(FFFF)Z
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 409
@@ -937,8 +937,8 @@
 
 .method public preTranslate(FF)Z
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 369
@@ -953,7 +953,7 @@
 
 .method public printShortString(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 782
@@ -962,7 +962,7 @@
     new-array v0, v1, [F
 
     .line 783
-    .local v0, values:[F
+    .local v0, "values":[F
     invoke-virtual {p0, v0}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 784
@@ -1099,7 +1099,7 @@
 
 .method public set(Landroid/graphics/Matrix;)V
     .locals 2
-    .parameter "src"
+    .param p1, "src"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 261
@@ -1125,8 +1125,8 @@
 
 .method public setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
     .locals 3
-    .parameter "a"
-    .parameter "b"
+    .param p1, "a"    # Landroid/graphics/Matrix;
+    .param p2, "b"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 360
@@ -1145,11 +1145,11 @@
 
 .method public setPolyToPoly([FI[FII)Z
     .locals 6
-    .parameter "src"
-    .parameter "srcIndex"
-    .parameter "dst"
-    .parameter "dstIndex"
-    .parameter "pointCount"
+    .param p1, "src"    # [F
+    .param p2, "srcIndex"    # I
+    .param p3, "dst"    # [F
+    .param p4, "dstIndex"    # I
+    .param p5, "pointCount"    # I
 
     .prologue
     .line 574
@@ -1190,9 +1190,9 @@
 
 .method public setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
     .locals 2
-    .parameter "src"
-    .parameter "dst"
-    .parameter "stf"
+    .param p1, "src"    # Landroid/graphics/RectF;
+    .param p2, "dst"    # Landroid/graphics/RectF;
+    .param p3, "stf"    # Landroid/graphics/Matrix$ScaleToFit;
 
     .prologue
     .line 540
@@ -1223,7 +1223,7 @@
 
 .method public setRotate(F)V
     .locals 1
-    .parameter "degrees"
+    .param p1, "degrees"    # F
 
     .prologue
     .line 323
@@ -1237,9 +1237,9 @@
 
 .method public setRotate(FFF)V
     .locals 1
-    .parameter "degrees"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "degrees"    # F
+    .param p2, "px"    # F
+    .param p3, "py"    # F
 
     .prologue
     .line 316
@@ -1253,8 +1253,8 @@
 
 .method public setScale(FF)V
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
 
     .prologue
     .line 307
@@ -1268,10 +1268,10 @@
 
 .method public setScale(FFFF)V
     .locals 1
-    .parameter "sx"
-    .parameter "sy"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "sx"    # F
+    .param p2, "sy"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 302
@@ -1285,8 +1285,8 @@
 
 .method public setSinCos(FF)V
     .locals 1
-    .parameter "sinValue"
-    .parameter "cosValue"
+    .param p1, "sinValue"    # F
+    .param p2, "cosValue"    # F
 
     .prologue
     .line 337
@@ -1300,10 +1300,10 @@
 
 .method public setSinCos(FFFF)V
     .locals 1
-    .parameter "sinValue"
-    .parameter "cosValue"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "sinValue"    # F
+    .param p2, "cosValue"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 332
@@ -1317,8 +1317,8 @@
 
 .method public setSkew(FF)V
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
 
     .prologue
     .line 351
@@ -1332,10 +1332,10 @@
 
 .method public setSkew(FFFF)V
     .locals 1
-    .parameter "kx"
-    .parameter "ky"
-    .parameter "px"
-    .parameter "py"
+    .param p1, "kx"    # F
+    .param p2, "ky"    # F
+    .param p3, "px"    # F
+    .param p4, "py"    # F
 
     .prologue
     .line 346
@@ -1349,8 +1349,8 @@
 
 .method public setTranslate(FF)V
     .locals 1
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "dx"    # F
+    .param p2, "dy"    # F
 
     .prologue
     .line 293
@@ -1364,7 +1364,7 @@
 
 .method public setValues([F)V
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # [F
 
     .prologue
     .line 740
@@ -1403,7 +1403,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 758
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Landroid/graphics/Matrix;->toShortString(Ljava/lang/StringBuilder;)V
 
     .line 759
@@ -1416,7 +1416,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
     .locals 2
-    .parameter "sb"
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 766
@@ -1425,7 +1425,7 @@
     new-array v0, v1, [F
 
     .line 767
-    .local v0, values:[F
+    .local v0, "values":[F
     invoke-virtual {p0, v0}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 768
@@ -1545,7 +1545,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 749
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Matrix{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

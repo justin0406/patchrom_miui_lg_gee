@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/NetInitiatedActivity;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 67
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 69
@@ -52,7 +51,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
-    #getter for: Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
+    # getter for: Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
     invoke-static {v0}, Lcom/android/internal/app/NetInitiatedActivity;->access$100(Lcom/android/internal/app/NetInitiatedActivity;)I
 
     move-result v0
@@ -66,12 +65,12 @@
 
     iget-object v1, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
-    #getter for: Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
+    # getter for: Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
     invoke-static {v1}, Lcom/android/internal/app/NetInitiatedActivity;->access$200(Lcom/android/internal/app/NetInitiatedActivity;)I
 
     move-result v1
 
-    #calls: Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
+    # invokes: Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
     invoke-static {v0, v1}, Lcom/android/internal/app/NetInitiatedActivity;->access$300(Lcom/android/internal/app/NetInitiatedActivity;I)V
 
     .line 74

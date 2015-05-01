@@ -25,7 +25,6 @@
 # direct methods
 .method private constructor <init>(Landroid/os/MemoryFile;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 325
@@ -43,8 +42,8 @@
 
 .method synthetic constructor <init>(Landroid/os/MemoryFile;Landroid/os/MemoryFile$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/MemoryFile;
+    .param p2, "x1"    # Landroid/os/MemoryFile$1;
 
     .prologue
     .line 325
@@ -57,7 +56,7 @@
 # virtual methods
 .method public write(I)V
     .locals 4
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -98,9 +97,9 @@
 
 .method public write([BII)V
     .locals 2
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

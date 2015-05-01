@@ -7,7 +7,7 @@
 
 
 # static fields
-.field private static final CONTACTS_URI:Landroid/net/Uri; = null
+.field private static final CONTACTS_URI:Landroid/net/Uri;
 
 .field private static final DBG:Z = false
 
@@ -15,9 +15,9 @@
 
 .field private static final NOTIFICATION_PRIORITY_MULTIPLIER:I = 0xa
 
-.field private static final PROJECTION:[Ljava/lang/String; = null
+.field private static final PROJECTION:[Ljava/lang/String;
 
-.field private static final RELEVANT_KEYS_LIST:Ljava/util/List; = null
+.field private static final RELEVANT_KEYS_LIST:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -118,19 +118,19 @@
 
 .method private static final clamp(III)I
     .locals 0
-    .parameter "x"
-    .parameter "low"
-    .parameter "high"
+    .param p0, "x"    # I
+    .param p1, "low"    # I
+    .param p2, "high"    # I
 
     .prologue
     .line 139
     if-ge p0, p1, :cond_0
 
-    .end local p1
+    .end local p1    # "low":I
     :goto_0
     return p1
 
-    .restart local p1
+    .restart local p1    # "low":I
     :cond_0
     if-le p0, p2, :cond_1
 
@@ -146,7 +146,7 @@
 
 .method private static extractSpannedStrings(Ljava/lang/CharSequence;)Ljava/util/List;
     .locals 11
-    .parameter "charSequence"
+    .param p0, "charSequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -204,7 +204,7 @@
     check-cast v5, Landroid/text/SpannableString;
 
     .line 74
-    .local v5, spannableString:Landroid/text/SpannableString;
+    .local v5, "spannableString":Landroid/text/SpannableString;
     invoke-virtual {v5}, Landroid/text/SpannableString;->length()I
 
     move-result v8
@@ -216,29 +216,29 @@
     move-result-object v6
 
     .line 76
-    .local v6, ssArr:[Ljava/lang/Object;
+    .local v6, "ssArr":[Ljava/lang/Object;
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     .line 77
-    .local v7, sss:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v7, "sss":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     move-object v0, v6
 
-    .local v0, arr$:[Ljava/lang/Object;
+    .local v0, "arr$":[Ljava/lang/Object;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_1
     if-ge v2, v3, :cond_0
 
     aget-object v4, v0, v2
 
     .line 79
-    .local v4, spanObj:Ljava/lang/Object;
+    .local v4, "spanObj":Ljava/lang/Object;
     :try_start_0
     invoke-virtual {v5, v4}, Landroid/text/SpannableString;->getSpanStart(Ljava/lang/Object;)I
 
@@ -271,7 +271,7 @@
     move-exception v1
 
     .line 82
-    .local v1, e:Ljava/lang/StringIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/StringIndexOutOfBoundsException;
     const-string v8, "DemoContactNotificationScorer"
 
     const-string v9, "Bad indices when extracting spanned subsequence"
@@ -283,7 +283,7 @@
 
 .method private static getQuestionMarksInParens(I)Ljava/lang/String;
     .locals 4
-    .parameter "n"
+    .param p0, "n"    # I
 
     .prologue
     .line 89
@@ -294,10 +294,10 @@
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 90
-    .local v1, sb:Ljava/lang/StringBuilder;
+    .local v1, "sb":Ljava/lang/StringBuilder;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, p0, :cond_1
 
@@ -341,7 +341,7 @@
 
 .method private hasStarredContact(Landroid/os/Bundle;)Z
     .locals 16
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 99
@@ -361,7 +361,7 @@
     invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
 
     .line 102
-    .local v13, qStrings:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v13, "qStrings":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     sget-object v1, Lcom/android/internal/notification/DemoContactNotificationScorer;->RELEVANT_KEYS_LIST:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -383,7 +383,7 @@
     check-cast v14, Ljava/lang/String;
 
     .line 103
-    .local v14, rk:Ljava/lang/String;
+    .local v14, "rk":Ljava/lang/String;
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v14}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
@@ -445,20 +445,20 @@
 
     check-cast v7, [Ljava/lang/CharSequence;
 
-    .local v7, arr$:[Ljava/lang/CharSequence;
+    .local v7, "arr$":[Ljava/lang/CharSequence;
     array-length v11, v7
 
-    .local v11, len$:I
+    .local v11, "len$":I
     const/4 v10, 0x0
 
-    .local v10, i$:I
+    .local v10, "i$":I
     :goto_2
     if-ge v10, v11, :cond_2
 
     aget-object v12, v7, v10
 
     .line 110
-    .local v12, line:Ljava/lang/CharSequence;
+    .local v12, "line":Ljava/lang/CharSequence;
     invoke-static {v12}, Lcom/android/internal/notification/DemoContactNotificationScorer;->extractSpannedStrings(Ljava/lang/CharSequence;)Ljava/util/List;
 
     move-result-object v1
@@ -471,10 +471,10 @@
     goto :goto_2
 
     .line 113
-    .end local v7           #arr$:[Ljava/lang/CharSequence;
-    .end local v10           #i$:I
-    .end local v11           #len$:I
-    .end local v12           #line:Ljava/lang/CharSequence;
+    .end local v7    # "arr$":[Ljava/lang/CharSequence;
+    .end local v10    # "i$":I
+    .end local v11    # "len$":I
+    .end local v12    # "line":Ljava/lang/CharSequence;
     :cond_4
     const-string v1, "DemoContactNotificationScorer"
 
@@ -507,7 +507,7 @@
     goto :goto_1
 
     .line 116
-    .end local v14           #rk:Ljava/lang/String;
+    .end local v14    # "rk":Ljava/lang/String;
     :cond_5
     invoke-virtual {v13}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -534,7 +534,7 @@
     check-cast v5, [Ljava/lang/String;
 
     .line 119
-    .local v5, qStringsArr:[Ljava/lang/String;
+    .local v5, "qStringsArr":[Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -578,11 +578,11 @@
     move-result-object v4
 
     .line 123
-    .local v4, selection:Ljava/lang/String;
+    .local v4, "selection":Ljava/lang/String;
     const/4 v8, 0x0
 
     .line 125
-    .local v8, c:Landroid/database/Cursor;
+    .local v8, "c":Landroid/database/Cursor;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -607,8 +607,8 @@
 
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v1
 
@@ -650,7 +650,7 @@
     move-exception v15
 
     .line 129
-    .local v15, t:Ljava/lang/Throwable;
+    .local v15, "t":Ljava/lang/Throwable;
     :try_start_1
     const-string v1, "DemoContactNotificationScorer"
 
@@ -669,7 +669,7 @@
     goto :goto_4
 
     .line 131
-    .end local v15           #t:Ljava/lang/Throwable;
+    .end local v15    # "t":Ljava/lang/Throwable;
     :catchall_0
     move-exception v1
 
@@ -684,18 +684,18 @@
 
 .method private static priorityBumpMap(I)I
     .locals 8
-    .parameter "incomingScore"
+    .param p0, "incomingScore"    # I
 
     .prologue
     .line 144
     const/16 v0, 0xa
 
     .line 145
-    .local v0, pm:I
+    .local v0, "pm":I
     move v1, p0
 
     .line 147
-    .local v1, theScore:I
+    .local v1, "theScore":I
     const/16 v2, -0x14
 
     const/16 v3, 0x14
@@ -708,12 +708,12 @@
     if-eq v1, p0, :cond_0
 
     .line 158
-    .end local p0
+    .end local p0    # "incomingScore":I
     :goto_0
     return p0
 
     .line 150
-    .restart local p0
+    .restart local p0    # "incomingScore":I
     :cond_0
     neg-int v2, v0
 
@@ -722,7 +722,7 @@
     .line 151
     int-to-double v2, v1
 
-    const-wide/high16 v4, 0x3ff8
+    const-wide/high16 v4, 0x3ff8000000000000L    # 1.5
 
     add-int/lit8 v6, v1, 0x14
 
@@ -744,7 +744,7 @@
     :cond_1
     int-to-double v2, v1
 
-    const-wide/high16 v4, 0x3fe0
+    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
 
     rsub-int/lit8 v6, v1, 0x14
 
@@ -763,8 +763,8 @@
 # virtual methods
 .method public getScore(Landroid/app/Notification;I)I
     .locals 3
-    .parameter "notification"
-    .parameter "score"
+    .param p1, "notification"    # Landroid/app/Notification;
+    .param p2, "score"    # I
 
     .prologue
     .line 171
@@ -778,14 +778,14 @@
     move v1, p2
 
     .line 185
-    .end local p2
-    .local v1, score:I
+    .end local p2    # "score":I
+    .local v1, "score":I
     :goto_0
     return v1
 
     .line 175
-    .end local v1           #score:I
-    .restart local p2
+    .end local v1    # "score":I
+    .restart local p2    # "score":I
     :cond_1
     iget-object v2, p1, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
@@ -794,7 +794,7 @@
     move-result v0
 
     .line 184
-    .local v0, hasStarredPriority:Z
+    .local v0, "hasStarredPriority":Z
     if-eqz v0, :cond_2
 
     invoke-static {p2}, Lcom/android/internal/notification/DemoContactNotificationScorer;->priorityBumpMap(I)I
@@ -805,14 +805,14 @@
     move v1, p2
 
     .line 185
-    .end local p2
-    .restart local v1       #score:I
+    .end local p2    # "score":I
+    .restart local v1    # "score":I
     goto :goto_0
 .end method
 
 .method public initialize(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x1

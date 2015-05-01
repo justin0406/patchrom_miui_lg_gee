@@ -647,10 +647,8 @@
 
 .method private constructor <init>(Ljava/lang/String;III)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "id"
-    .parameter "size"
+    .param p3, "id"    # I
+    .param p4, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -673,7 +671,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/Element$DataType;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 122

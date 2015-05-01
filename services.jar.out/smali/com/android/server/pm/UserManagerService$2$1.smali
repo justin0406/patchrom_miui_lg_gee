@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/UserManagerService$2;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1037
@@ -43,7 +42,7 @@
 
     iget-object v0, v0, Lcom/android/server/pm/UserManagerService$2;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #getter for: Lcom/android/server/pm/UserManagerService;->mInstallLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/pm/UserManagerService;->mInstallLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$000(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -56,7 +55,7 @@
 
     iget-object v0, v0, Lcom/android/server/pm/UserManagerService$2;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    #getter for: Lcom/android/server/pm/UserManagerService;->mPackagesLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/pm/UserManagerService;->mPackagesLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$100(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
 
     move-result-object v2
@@ -75,7 +74,7 @@
 
     iget v3, v3, Lcom/android/server/pm/UserManagerService$2;->val$userHandle:I
 
-    #calls: Lcom/android/server/pm/UserManagerService;->removeUserStateLocked(I)V
+    # invokes: Lcom/android/server/pm/UserManagerService;->removeUserStateLocked(I)V
     invoke-static {v0, v3}, Lcom/android/server/pm/UserManagerService;->access$200(Lcom/android/server/pm/UserManagerService;I)V
 
     .line 1042

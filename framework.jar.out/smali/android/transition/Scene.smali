@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
     .locals 1
-    .parameter "sceneRoot"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 82
@@ -40,9 +40,9 @@
 
 .method private constructor <init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
     .locals 1
-    .parameter "sceneRoot"
-    .parameter "layoutId"
-    .parameter "context"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "layoutId"    # I
+    .param p3, "context"    # Landroid/content/Context;
 
     .prologue
     .line 101
@@ -68,8 +68,8 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
     .locals 1
-    .parameter "sceneRoot"
-    .parameter "layout"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "layout"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 117
@@ -92,7 +92,7 @@
 
 .method static getCurrentScene(Landroid/view/View;)Landroid/transition/Scene;
     .locals 1
-    .parameter "view"
+    .param p0, "view"    # Landroid/view/View;
 
     .prologue
     .line 200
@@ -109,9 +109,9 @@
 
 .method public static getSceneForLayout(Landroid/view/ViewGroup;ILandroid/content/Context;)Landroid/transition/Scene;
     .locals 4
-    .parameter "sceneRoot"
-    .parameter "layoutId"
-    .parameter "context"
+    .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p1, "layoutId"    # I
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     const v3, 0x1020263
@@ -124,17 +124,17 @@
     check-cast v2, Landroid/util/SparseArray;
 
     .line 58
-    .local v2, scenes:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/transition/Scene;>;"
+    .local v2, "scenes":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/transition/Scene;>;"
     if-nez v2, :cond_0
 
     .line 59
     new-instance v2, Landroid/util/SparseArray;
 
-    .end local v2           #scenes:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/transition/Scene;>;"
+    .end local v2    # "scenes":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/transition/Scene;>;"
     invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
 
     .line 60
-    .restart local v2       #scenes:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/transition/Scene;>;"
+    .restart local v2    # "scenes":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/transition/Scene;>;"
     invoke-virtual {p0, v3, v2}, Landroid/view/ViewGroup;->setTagInternal(ILjava/lang/Object;)V
 
     .line 62
@@ -146,41 +146,41 @@
     check-cast v0, Landroid/transition/Scene;
 
     .line 63
-    .local v0, scene:Landroid/transition/Scene;
+    .local v0, "scene":Landroid/transition/Scene;
     if-eqz v0, :cond_1
 
     move-object v1, v0
 
     .line 68
-    .end local v0           #scene:Landroid/transition/Scene;
-    .local v1, scene:Ljava/lang/Object;
+    .end local v0    # "scene":Landroid/transition/Scene;
+    .local v1, "scene":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 66
-    .end local v1           #scene:Ljava/lang/Object;
-    .restart local v0       #scene:Landroid/transition/Scene;
+    .end local v1    # "scene":Ljava/lang/Object;
+    .restart local v0    # "scene":Landroid/transition/Scene;
     :cond_1
     new-instance v0, Landroid/transition/Scene;
 
-    .end local v0           #scene:Landroid/transition/Scene;
+    .end local v0    # "scene":Landroid/transition/Scene;
     invoke-direct {v0, p0, p1, p2}, Landroid/transition/Scene;-><init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
 
     .line 67
-    .restart local v0       #scene:Landroid/transition/Scene;
+    .restart local v0    # "scene":Landroid/transition/Scene;
     invoke-virtual {v2, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     move-object v1, v0
 
     .line 68
-    .restart local v1       #scene:Ljava/lang/Object;
+    .restart local v1    # "scene":Ljava/lang/Object;
     goto :goto_0
 .end method
 
 .method static setCurrentScene(Landroid/view/View;Landroid/transition/Scene;)V
     .locals 1
-    .parameter "view"
-    .parameter "scene"
+    .param p0, "view"    # Landroid/view/View;
+    .param p1, "scene"    # Landroid/transition/Scene;
 
     .prologue
     .line 189
@@ -325,7 +325,7 @@
 
 .method public setEnterAction(Ljava/lang/Runnable;)V
     .locals 0
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/Runnable;
 
     .prologue
     .line 222
@@ -337,7 +337,7 @@
 
 .method public setExitAction(Ljava/lang/Runnable;)V
     .locals 0
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/Runnable;
 
     .prologue
     .line 243

@@ -31,8 +31,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;I)V
     .locals 1
-    .parameter
-    .parameter "what"
+    .param p2, "what"    # I
 
     .prologue
     .line 216

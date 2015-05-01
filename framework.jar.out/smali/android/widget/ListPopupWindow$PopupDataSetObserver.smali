@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ListPopupWindow;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1631
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/ListPopupWindow;Landroid/widget/ListPopupWindow$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/ListPopupWindow;
+    .param p2, "x1"    # Landroid/widget/ListPopupWindow$1;
 
     .prologue
     .line 1631

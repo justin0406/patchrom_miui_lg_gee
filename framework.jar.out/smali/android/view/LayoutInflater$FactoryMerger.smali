@@ -30,10 +30,10 @@
 # direct methods
 .method constructor <init>(Landroid/view/LayoutInflater$Factory;Landroid/view/LayoutInflater$Factory2;Landroid/view/LayoutInflater$Factory;Landroid/view/LayoutInflater$Factory2;)V
     .locals 0
-    .parameter "f1"
-    .parameter "f12"
-    .parameter "f2"
-    .parameter "f22"
+    .param p1, "f1"    # Landroid/view/LayoutInflater$Factory;
+    .param p2, "f12"    # Landroid/view/LayoutInflater$Factory2;
+    .param p3, "f2"    # Landroid/view/LayoutInflater$Factory;
+    .param p4, "f22"    # Landroid/view/LayoutInflater$Factory2;
 
     .prologue
     .line 155
@@ -59,10 +59,10 @@
 # virtual methods
 .method public onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 2
-    .parameter "parent"
-    .parameter "name"
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "context"    # Landroid/content/Context;
+    .param p4, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 169
@@ -77,12 +77,12 @@
     move-result-object v0
 
     .line 171
-    .local v0, v:Landroid/view/View;
+    .local v0, "v":Landroid/view/View;
     :goto_0
     if-eqz v0, :cond_1
 
     .line 172
-    .end local v0           #v:Landroid/view/View;
+    .end local v0    # "v":Landroid/view/View;
     :goto_1
     return-object v0
 
@@ -97,7 +97,7 @@
     goto :goto_0
 
     .line 172
-    .restart local v0       #v:Landroid/view/View;
+    .restart local v0    # "v":Landroid/view/View;
     :cond_1
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF22:Landroid/view/LayoutInflater$Factory2;
 
@@ -126,9 +126,9 @@
 
 .method public onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 2
-    .parameter "name"
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 163
@@ -139,15 +139,15 @@
     move-result-object v0
 
     .line 164
-    .local v0, v:Landroid/view/View;
+    .local v0, "v":Landroid/view/View;
     if-eqz v0, :cond_0
 
     .line 165
-    .end local v0           #v:Landroid/view/View;
+    .end local v0    # "v":Landroid/view/View;
     :goto_0
     return-object v0
 
-    .restart local v0       #v:Landroid/view/View;
+    .restart local v0    # "v":Landroid/view/View;
     :cond_0
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF2:Landroid/view/LayoutInflater$Factory;
 

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 253
@@ -72,7 +70,7 @@
     sub-int v0, v1, v2
 
     .line 256
-    .local v0, scrollPos:I
+    .local v0, "scrollPos":I
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     const/4 v2, 0x0

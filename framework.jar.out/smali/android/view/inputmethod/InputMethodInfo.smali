@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -65,8 +65,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
     .locals 1
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -86,9 +86,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;Ljava/util/Map;)V
     .locals 24
-    .parameter "context"
-    .parameter "service"
-    .parameter
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +112,7 @@
 
     .prologue
     .line 128
-    .local p3, additionalSubtypesMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;>;"
+    .local p3, "additionalSubtypesMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;>;"
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
@@ -142,7 +141,7 @@
     move-object/from16 v17, v0
 
     .line 131
-    .local v17, si:Landroid/content/pm/ServiceInfo;
+    .local v17, "si":Landroid/content/pm/ServiceInfo;
     new-instance v21, Landroid/content/ComponentName;
 
     move-object/from16 v0, v17
@@ -173,11 +172,11 @@
     const/4 v9, 0x1
 
     .line 133
-    .local v9, isAuxIme:Z
+    .local v9, "isAuxIme":Z
     const/16 v19, 0x0
 
     .line 134
-    .local v19, supportsSwitchingToNextInputMethod:Z
+    .local v19, "supportsSwitchingToNextInputMethod":Z
     const/16 v21, 0x0
 
     move/from16 v0, v21
@@ -192,19 +191,19 @@
     move-result-object v13
 
     .line 137
-    .local v13, pm:Landroid/content/pm/PackageManager;
+    .local v13, "pm":Landroid/content/pm/PackageManager;
     const/16 v16, 0x0
 
     .line 138
-    .local v16, settingsActivityComponent:Ljava/lang/String;
+    .local v16, "settingsActivityComponent":Ljava/lang/String;
     const/4 v10, 0x0
 
     .line 140
-    .local v10, isDefaultResId:I
+    .local v10, "isDefaultResId":I
     const/4 v12, 0x0
 
     .line 142
-    .local v12, parser:Landroid/content/res/XmlResourceParser;
+    .local v12, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string v21, "android.view.im"
 
@@ -228,15 +227,15 @@
 
     throw v21
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 212
     :catch_0
     move-exception v7
 
     .line 213
-    .local v7, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v7, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -271,7 +270,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 216
-    .end local v7           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v7    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v21
 
@@ -298,19 +297,19 @@
     move-result-object v14
 
     .line 150
-    .local v14, res:Landroid/content/res/Resources;
+    .local v14, "res":Landroid/content/res/Resources;
     invoke-static {v12}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v5
 
     .line 154
-    .local v5, attrs:Landroid/util/AttributeSet;
+    .local v5, "attrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v20
 
-    .local v20, type:I
+    .local v20, "type":I
     const/16 v21, 0x1
 
     move/from16 v0, v20
@@ -334,7 +333,7 @@
     move-result-object v11
 
     .line 158
-    .local v11, nodeName:Ljava/lang/String;
+    .local v11, "nodeName":Ljava/lang/String;
     const-string v21, "input-method"
 
     move-object/from16 v0, v21
@@ -365,7 +364,7 @@
     move-result-object v15
 
     .line 165
-    .local v15, sa:Landroid/content/res/TypedArray;
+    .local v15, "sa":Landroid/content/res/TypedArray;
     const/16 v21, 0x1
 
     move/from16 v0, v21
@@ -409,7 +408,7 @@
     move-result v6
 
     .line 177
-    .local v6, depth:I
+    .local v6, "depth":I
     :cond_5
     :goto_0
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->next()I
@@ -486,7 +485,7 @@
     move-result-object v3
 
     .line 186
-    .local v3, a:Landroid/content/res/TypedArray;
+    .local v3, "a":Landroid/content/res/TypedArray;
     new-instance v21, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     invoke-direct/range {v21 .. v21}, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;-><init>()V
@@ -628,7 +627,7 @@
     move-result-object v18
 
     .line 206
-    .local v18, subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v18, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
 
     move-result v21
@@ -652,14 +651,14 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto/16 :goto_0
 
     .line 216
-    .end local v3           #a:Landroid/content/res/TypedArray;
-    .end local v18           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v3    # "a":Landroid/content/res/TypedArray;
+    .end local v18    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_9
     if-eqz v12, :cond_a
 
@@ -720,16 +719,16 @@
     check-cast v4, Ljava/util/List;
 
     .line 225
-    .local v4, additionalSubtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v4, "additionalSubtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v2
 
     .line 226
-    .local v2, N:I
+    .local v2, "N":I
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     :goto_1
     if-ge v8, v2, :cond_d
 
@@ -741,7 +740,7 @@
     check-cast v18, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 228
-    .restart local v18       #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v18    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
@@ -822,10 +821,10 @@
     goto :goto_2
 
     .line 236
-    .end local v2           #N:I
-    .end local v4           #additionalSubtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
-    .end local v8           #i:I
-    .end local v18           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v2    # "N":I
+    .end local v4    # "additionalSubtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .end local v8    # "i":I
+    .end local v18    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_d
     move-object/from16 v0, v16
 
@@ -856,12 +855,11 @@
 
 .method public constructor <init>(Landroid/content/pm/ResolveInfo;ZLjava/lang/String;Ljava/util/List;IZ)V
     .locals 4
-    .parameter "ri"
-    .parameter "isAuxIme"
-    .parameter "settingsActivity"
-    .parameter
-    .parameter "isDefaultResId"
-    .parameter "forceDefault"
+    .param p1, "ri"    # Landroid/content/pm/ResolveInfo;
+    .param p2, "isAuxIme"    # Z
+    .param p3, "settingsActivity"    # Ljava/lang/String;
+    .param p5, "isDefaultResId"    # I
+    .param p6, "forceDefault"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -877,7 +875,7 @@
 
     .prologue
     .line 268
-    .local p4, subtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local p4, "subtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
@@ -891,7 +889,7 @@
     iget-object v0, p1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 270
-    .local v0, si:Landroid/content/pm/ServiceInfo;
+    .local v0, "si":Landroid/content/pm/ServiceInfo;
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     .line 271
@@ -941,7 +939,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -1040,10 +1038,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;)V
     .locals 7
-    .parameter "packageName"
-    .parameter "className"
-    .parameter "label"
-    .parameter "settingsActivity"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "className"    # Ljava/lang/String;
+    .param p3, "label"    # Ljava/lang/CharSequence;
+    .param p4, "settingsActivity"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -1071,9 +1069,9 @@
 
 .method private static buildDummyResolveInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/pm/ResolveInfo;
     .locals 4
-    .parameter "packageName"
-    .parameter "className"
-    .parameter "label"
+    .param p0, "packageName"    # Ljava/lang/String;
+    .param p1, "className"    # Ljava/lang/String;
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v3, 0x1
@@ -1084,19 +1082,19 @@
     invoke-direct {v1}, Landroid/content/pm/ResolveInfo;-><init>()V
 
     .line 285
-    .local v1, ri:Landroid/content/pm/ResolveInfo;
+    .local v1, "ri":Landroid/content/pm/ResolveInfo;
     new-instance v2, Landroid/content/pm/ServiceInfo;
 
     invoke-direct {v2}, Landroid/content/pm/ServiceInfo;-><init>()V
 
     .line 286
-    .local v2, si:Landroid/content/pm/ServiceInfo;
+    .local v2, "si":Landroid/content/pm/ServiceInfo;
     new-instance v0, Landroid/content/pm/ApplicationInfo;
 
     invoke-direct {v0}, Landroid/content/pm/ApplicationInfo;-><init>()V
 
     .line 287
-    .local v0, ai:Landroid/content/pm/ApplicationInfo;
+    .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     iput-object p0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     .line 288
@@ -1141,8 +1139,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 415
@@ -1265,7 +1263,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -1295,7 +1293,7 @@
     check-cast v0, Landroid/view/inputmethod/InputMethodInfo;
 
     .line 445
-    .local v0, obj:Landroid/view/inputmethod/InputMethodInfo;
+    .local v0, "obj":Landroid/view/inputmethod/InputMethodInfo;
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
     iget-object v2, v0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
@@ -1403,7 +1401,7 @@
 
 .method public getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 386
@@ -1458,7 +1456,7 @@
 
 .method public isDefault(Landroid/content/Context;)Z
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x0
@@ -1493,7 +1491,7 @@
     move-result-object v1
 
     .line 408
-    .local v1, res:Landroid/content/res/Resources;
+    .local v1, "res":Landroid/content/res/Resources;
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getIsDefaultResourceId()I
 
     move-result v3
@@ -1507,18 +1505,18 @@
     goto :goto_0
 
     .line 409
-    .end local v1           #res:Landroid/content/res/Resources;
+    .end local v1    # "res":Landroid/content/res/Resources;
     :catch_0
     move-exception v0
 
     .line 410
-    .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     goto :goto_0
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 356
@@ -1533,7 +1531,7 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 346
@@ -1604,8 +1602,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

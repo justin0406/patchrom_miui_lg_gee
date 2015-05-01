@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -199,7 +199,7 @@
 
 .method public constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 4
-    .parameter "other"
+    .param p1, "other"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .prologue
     .line 60
@@ -265,7 +265,7 @@
     check-cast v0, [Landroid/graphics/Rect;
 
     .line 555
-    .local v0, faceRectangles:[Landroid/graphics/Rect;
+    .local v0, "faceRectangles":[Landroid/graphics/Rect;
     if-nez v0, :cond_1
 
     const/4 v1, 0x0
@@ -281,10 +281,10 @@
     new-array v1, v3, [Landroid/graphics/Rect;
 
     .line 558
-    .local v1, fixedFaceRectangles:[Landroid/graphics/Rect;
+    .local v1, "fixedFaceRectangles":[Landroid/graphics/Rect;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     array-length v3, v0
 
@@ -345,10 +345,10 @@
     check-cast v0, [I
 
     .line 460
-    .local v0, availableFormats:[I
+    .local v0, "availableFormats":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -379,7 +379,6 @@
 
 .method private getBase(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 6
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -392,19 +391,19 @@
 
     .prologue
     .line 430
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     invoke-virtual {p1}, Landroid/hardware/camera2/CameraMetadata$Key;->getTag()I
 
     move-result v2
 
     .line 431
-    .local v2, tag:I
+    .local v2, "tag":I
     invoke-virtual {p0, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->readValues(I)[B
 
     move-result-object v3
 
     .line 432
-    .local v3, values:[B
+    .local v3, "values":[B
     if-nez v3, :cond_0
 
     .line 433
@@ -421,7 +420,7 @@
     move-result v1
 
     .line 438
-    .local v1, nativeType:I
+    .local v1, "nativeType":I
     invoke-static {v3}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
@@ -435,7 +434,7 @@
     move-result-object v0
 
     .line 439
-    .local v0, buffer:Ljava/nio/ByteBuffer;
+    .local v0, "buffer":Ljava/nio/ByteBuffer;
     invoke-virtual {p1}, Landroid/hardware/camera2/CameraMetadata$Key;->getType()Ljava/lang/Class;
 
     move-result-object v4
@@ -449,8 +448,7 @@
 
 .method private static getEnumFromValue(Ljava/lang/Class;I)Ljava/lang/Enum;
     .locals 10
-    .parameter
-    .parameter "value"
+    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -462,7 +460,7 @@
     .end annotation
 
     .prologue
-    .local p0, enumType:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "enumType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -477,17 +475,17 @@
     check-cast v2, [I
 
     .line 789
-    .local v2, registeredValues:[I
+    .local v2, "registeredValues":[I
     if-eqz v2, :cond_3
 
     .line 790
     const/4 v1, -0x1
 
     .line 792
-    .local v1, ordinal:I
+    .local v1, "ordinal":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v6, v2
 
@@ -502,7 +500,7 @@
     move v1, v0
 
     .line 802
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     :goto_1
     invoke-virtual {p0}, Ljava/lang/Class;->getEnumConstants()[Ljava/lang/Object;
@@ -512,7 +510,7 @@
     check-cast v3, [Ljava/lang/Enum;
 
     .line 804
-    .local v3, values:[Ljava/lang/Enum;,"[TT;"
+    .local v3, "values":[Ljava/lang/Enum;, "[TT;"
     if-ltz v1, :cond_1
 
     array-length v6, v3
@@ -557,23 +555,23 @@
     throw v6
 
     .line 792
-    .end local v3           #values:[Ljava/lang/Enum;,"[TT;"
-    .restart local v0       #i:I
+    .end local v3    # "values":[Ljava/lang/Enum;, "[TT;"
+    .restart local v0    # "i":I
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 799
-    .end local v0           #i:I
-    .end local v1           #ordinal:I
+    .end local v0    # "i":I
+    .end local v1    # "ordinal":I
     :cond_3
     move v1, p1
 
-    .restart local v1       #ordinal:I
+    .restart local v1    # "ordinal":I
     goto :goto_1
 
-    .restart local v3       #values:[Ljava/lang/Enum;,"[TT;"
+    .restart local v3    # "values":[Ljava/lang/Enum;, "[TT;"
     :cond_4
     move v4, v5
 
@@ -589,7 +587,6 @@
 
 .method private static getEnumValue(Ljava/lang/Enum;)I
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -600,7 +597,7 @@
 
     .prologue
     .line 768
-    .local p0, enumValue:Ljava/lang/Enum;,"TT;"
+    .local p0, "enumValue":Ljava/lang/Enum;, "TT;"
     sget-object v2, Landroid/hardware/camera2/impl/CameraMetadataNative;->sEnumValues:Ljava/util/HashMap;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -614,27 +611,27 @@
     check-cast v1, [I
 
     .line 770
-    .local v1, values:[I
+    .local v1, "values":[I
     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
     .line 771
-    .local v0, ordinal:I
+    .local v0, "ordinal":I
     if-eqz v1, :cond_0
 
     .line 772
     aget v0, v1, v0
 
     .line 775
-    .end local v0           #ordinal:I
+    .end local v0    # "ordinal":I
     :cond_0
     return v0
 .end method
 
 .method private static getExpectedType(I)Ljava/lang/Class;
     .locals 3
-    .parameter "nativeType"
+    .param p0, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -730,7 +727,7 @@
     const/4 v9, 0x6
 
     .line 472
-    .local v9, FACE_LANDMARK_SIZE:I
+    .local v9, "FACE_LANDMARK_SIZE":I
     sget-object v3, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CameraMetadata$Key;
 
     move-object/from16 v0, p0
@@ -742,7 +739,7 @@
     check-cast v10, Ljava/lang/Integer;
 
     .line 473
-    .local v10, faceDetectMode:Ljava/lang/Integer;
+    .local v10, "faceDetectMode":Ljava/lang/Integer;
     if-nez v10, :cond_2
 
     .line 474
@@ -772,7 +769,7 @@
     check-cast v15, [B
 
     .line 489
-    .local v15, faceScores:[B
+    .local v15, "faceScores":[B
     sget-object v3, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_RECTANGLES:Landroid/hardware/camera2/CameraMetadata$Key;
 
     move-object/from16 v0, p0
@@ -784,7 +781,7 @@
     check-cast v14, [Landroid/graphics/Rect;
 
     .line 490
-    .local v14, faceRectangles:[Landroid/graphics/Rect;
+    .local v14, "faceRectangles":[Landroid/graphics/Rect;
     if-eqz v15, :cond_1
 
     if-nez v14, :cond_4
@@ -805,8 +802,8 @@
     move-object/from16 v16, v0
 
     .line 546
-    .end local v14           #faceRectangles:[Landroid/graphics/Rect;
-    .end local v15           #faceScores:[B
+    .end local v14    # "faceRectangles":[Landroid/graphics/Rect;
+    .end local v15    # "faceScores":[B
     :goto_0
     return-object v16
 
@@ -878,8 +875,8 @@
     goto :goto_0
 
     .line 493
-    .restart local v14       #faceRectangles:[Landroid/graphics/Rect;
-    .restart local v15       #faceScores:[B
+    .restart local v14    # "faceRectangles":[Landroid/graphics/Rect;
+    .restart local v15    # "faceScores":[B
     :cond_4
     array-length v3, v15
 
@@ -937,7 +934,7 @@
     move-result v18
 
     .line 501
-    .local v18, numFaces:I
+    .local v18, "numFaces":I
     sget-object v3, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_IDS:Landroid/hardware/camera2/CameraMetadata$Key;
 
     move-object/from16 v0, p0
@@ -949,7 +946,7 @@
     check-cast v11, [I
 
     .line 502
-    .local v11, faceIds:[I
+    .local v11, "faceIds":[I
     sget-object v3, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_LANDMARKS:Landroid/hardware/camera2/CameraMetadata$Key;
 
     move-object/from16 v0, p0
@@ -961,7 +958,7 @@
     check-cast v12, [I
 
     .line 503
-    .local v12, faceLandmarks:[I
+    .local v12, "faceLandmarks":[I
     invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
@@ -998,7 +995,7 @@
     invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
 
     .line 522
-    .local v13, faceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
+    .local v13, "faceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
     invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
@@ -1010,7 +1007,7 @@
     .line 523
     const/16 v17, 0x0
 
-    .local v17, i:I
+    .local v17, "i":I
     :goto_2
     move/from16 v0, v17
 
@@ -1049,8 +1046,8 @@
     goto :goto_2
 
     .line 509
-    .end local v13           #faceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
-    .end local v17           #i:I
+    .end local v13    # "faceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
+    .end local v17    # "i":I
     :cond_9
     array-length v3, v11
 
@@ -1138,11 +1135,11 @@
     goto :goto_1
 
     .line 531
-    .restart local v13       #faceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
+    .restart local v13    # "faceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/Face;>;"
     :cond_c
     const/16 v17, 0x0
 
-    .restart local v17       #i:I
+    .restart local v17    # "i":I
     :goto_3
     move/from16 v0, v17
 
@@ -1183,7 +1180,7 @@
     invoke-direct {v6, v3, v4}, Landroid/graphics/Point;-><init>(II)V
 
     .line 536
-    .local v6, leftEye:Landroid/graphics/Point;
+    .local v6, "leftEye":Landroid/graphics/Point;
     new-instance v7, Landroid/graphics/Point;
 
     mul-int/lit8 v3, v17, 0x6
@@ -1201,7 +1198,7 @@
     invoke-direct {v7, v3, v4}, Landroid/graphics/Point;-><init>(II)V
 
     .line 537
-    .local v7, rightEye:Landroid/graphics/Point;
+    .local v7, "rightEye":Landroid/graphics/Point;
     new-instance v8, Landroid/graphics/Point;
 
     mul-int/lit8 v3, v17, 0x6
@@ -1219,7 +1216,7 @@
     invoke-direct {v8, v3, v4}, Landroid/graphics/Point;-><init>(II)V
 
     .line 538
-    .local v8, mouth:Landroid/graphics/Point;
+    .local v8, "mouth":Landroid/graphics/Point;
     new-instance v2, Landroid/hardware/camera2/Face;
 
     aget-object v3, v14, v17
@@ -1231,14 +1228,14 @@
     invoke-direct/range {v2 .. v8}, Landroid/hardware/camera2/Face;-><init>(Landroid/graphics/Rect;IILandroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)V
 
     .line 540
-    .local v2, face:Landroid/hardware/camera2/Face;
+    .local v2, "face":Landroid/hardware/camera2/Face;
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 531
-    .end local v2           #face:Landroid/hardware/camera2/Face;
-    .end local v6           #leftEye:Landroid/graphics/Point;
-    .end local v7           #rightEye:Landroid/graphics/Point;
-    .end local v8           #mouth:Landroid/graphics/Point;
+    .end local v2    # "face":Landroid/hardware/camera2/Face;
+    .end local v6    # "leftEye":Landroid/graphics/Point;
+    .end local v7    # "rightEye":Landroid/graphics/Point;
+    .end local v8    # "mouth":Landroid/graphics/Point;
     :cond_d
     add-int/lit8 v17, v17, 0x1
 
@@ -1255,7 +1252,7 @@
     move-object/from16 v16, v0
 
     .line 545
-    .local v16, faces:[Landroid/hardware/camera2/Face;
+    .local v16, "faces":[Landroid/hardware/camera2/Face;
     move-object/from16 v0, v16
 
     invoke-virtual {v13, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -1265,8 +1262,7 @@
 
 .method private static getMarshaler(Ljava/lang/Class;I)Landroid/hardware/camera2/impl/MetadataMarshalClass;
     .locals 4
-    .parameter
-    .parameter "nativeType"
+    .param p1, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1281,7 +1277,7 @@
 
     .prologue
     .line 825
-    .local p0, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v1, Landroid/hardware/camera2/impl/CameraMetadataNative;->sMarshalerMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1291,7 +1287,7 @@
     check-cast v0, Landroid/hardware/camera2/impl/MetadataMarshalClass;
 
     .line 827
-    .local v0, marshaler:Landroid/hardware/camera2/impl/MetadataMarshalClass;,"Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
+    .local v0, "marshaler":Landroid/hardware/camera2/impl/MetadataMarshalClass;, "Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
     if-eqz v0, :cond_0
 
     invoke-interface {v0, p1}, Landroid/hardware/camera2/impl/MetadataMarshalClass;->isNativeTypeSupported(I)Z
@@ -1342,7 +1338,7 @@
 
 .method public static getNativeType(I)I
     .locals 1
-    .parameter "tag"
+    .param p0, "tag"    # I
 
     .prologue
     .line 691
@@ -1355,7 +1351,6 @@
 
 .method private getOverride(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1368,7 +1363,7 @@
 
     .prologue
     .line 446
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_FORMATS:Landroid/hardware/camera2/CameraMetadata$Key;
 
     invoke-virtual {p1, v0}, Landroid/hardware/camera2/CameraMetadata$Key;->equals(Ljava/lang/Object;)Z
@@ -1429,7 +1424,7 @@
 
 .method public static getTag(Ljava/lang/String;)I
     .locals 1
-    .parameter "key"
+    .param p0, "key"    # Ljava/lang/String;
 
     .prologue
     .line 679
@@ -1442,7 +1437,7 @@
 
 .method private static getTypeSize(I)I
     .locals 3
-    .parameter "nativeType"
+    .param p0, "nativeType"    # I
 
     .prologue
     .line 161
@@ -1568,11 +1563,9 @@
 
 .method private static packArray(Ljava/lang/Object;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
     .locals 5
-    .parameter
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1586,27 +1579,27 @@
 
     .prologue
     .line 284
-    .local p0, value:Ljava/lang/Object;,"TT;"
-    .local p2, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "value":Ljava/lang/Object;, "TT;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v3, 0x0
 
     .line 285
-    .local v3, size:I
+    .local v3, "size":I
     invoke-static {p0}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v0
 
     .line 288
-    .local v0, arrayLength:I
+    .local v0, "arrayLength":I
     invoke-virtual {p2}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v1
 
     .line 290
-    .local v1, componentType:Ljava/lang/Class;,"Ljava/lang/Class<Ljava/lang/Object;>;"
+    .local v1, "componentType":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/lang/Object;>;"
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -1633,11 +1626,9 @@
 
 .method private static packClass(Ljava/lang/Object;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
     .locals 5
-    .parameter
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1651,14 +1642,14 @@
 
     .prologue
     .line 273
-    .local p0, value:Ljava/lang/Object;,"TT;"
-    .local p2, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "value":Ljava/lang/Object;, "TT;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p2, p3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshaler(Ljava/lang/Class;I)Landroid/hardware/camera2/impl/MetadataMarshalClass;
 
     move-result-object v0
 
     .line 274
-    .local v0, marshaler:Landroid/hardware/camera2/impl/MetadataMarshalClass;,"Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
+    .local v0, "marshaler":Landroid/hardware/camera2/impl/MetadataMarshalClass;, "Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
     if-nez v0, :cond_0
 
     .line 275
@@ -1693,11 +1684,9 @@
 
 .method private static packEnum(Ljava/lang/Enum;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
     .locals 2
-    .parameter
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1711,8 +1700,8 @@
 
     .prologue
     .line 266
-    .local p0, value:Ljava/lang/Enum;,"TT;"
-    .local p2, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "value":Ljava/lang/Enum;, "TT;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getEnumValue(Ljava/lang/Enum;)I
 
     move-result v0
@@ -1732,11 +1721,9 @@
 
 .method private static packSingle(Ljava/lang/Object;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
     .locals 2
-    .parameter
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1750,12 +1737,12 @@
 
     .prologue
     .line 247
-    .local p0, value:Ljava/lang/Object;,"TT;"
-    .local p2, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "value":Ljava/lang/Object;, "TT;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x0
 
     .line 249
-    .local v0, size:I
+    .local v0, "size":I
     invoke-virtual {p2}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v1
@@ -1773,12 +1760,12 @@
     move-result v0
 
     .line 259
-    .end local p0           #value:Ljava/lang/Object;,"TT;"
+    .end local p0    # "value":Ljava/lang/Object;, "TT;"
     :goto_0
     return v0
 
     .line 251
-    .restart local p0       #value:Ljava/lang/Object;,"TT;"
+    .restart local p0    # "value":Ljava/lang/Object;, "TT;"
     :cond_1
     invoke-virtual {p2}, Ljava/lang/Class;->isEnum()Z
 
@@ -1789,7 +1776,7 @@
     .line 252
     check-cast p0, Ljava/lang/Enum;
 
-    .end local p0           #value:Ljava/lang/Object;,"TT;"
+    .end local p0    # "value":Ljava/lang/Object;, "TT;"
     invoke-static {p0, p1, p2, p3, p4}, Landroid/hardware/camera2/impl/CameraMetadataNative;->packEnum(Ljava/lang/Enum;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
 
     move-result v0
@@ -1797,7 +1784,7 @@
     goto :goto_0
 
     .line 253
-    .restart local p0       #value:Ljava/lang/Object;,"TT;"
+    .restart local p0    # "value":Ljava/lang/Object;, "TT;"
     :cond_2
     invoke-virtual {p2}, Ljava/lang/Class;->isArray()Z
 
@@ -1823,11 +1810,9 @@
 
 .method private static packSingleNative(Ljava/lang/Object;Ljava/nio/ByteBuffer;Ljava/lang/Class;IZ)I
     .locals 7
-    .parameter
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
-    .parameter "sizeOnly"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p3, "nativeType"    # I
+    .param p4, "sizeOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1840,8 +1825,8 @@
     .end annotation
 
     .prologue
-    .local p0, value:Ljava/lang/Object;,"TT;"
-    .local p2, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "value":Ljava/lang/Object;, "TT;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v5, 0x1
 
     .line 201
@@ -1857,13 +1842,13 @@
     .line 210
     check-cast p0, Ljava/lang/Boolean;
 
-    .end local p0           #value:Ljava/lang/Object;,"TT;"
+    .end local p0    # "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     .line 211
-    .local v0, asBool:Z
+    .local v0, "asBool":Z
     if-eqz v0, :cond_2
 
     move v4, v5
@@ -1872,14 +1857,14 @@
     int-to-byte v1, v4
 
     .line 212
-    .local v1, asByte:B
+    .local v1, "asByte":B
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object p0
 
     .line 222
-    .end local v0           #asBool:Z
-    .end local v1           #asByte:B
+    .end local v0    # "asBool":Z
+    .end local v1    # "asByte":B
     :cond_0
     :goto_1
     if-nez p3, :cond_5
@@ -1903,15 +1888,15 @@
     return v4
 
     .line 211
-    .restart local v0       #asBool:Z
+    .restart local v0    # "asBool":Z
     :cond_2
     const/4 v4, 0x0
 
     goto :goto_0
 
     .line 213
-    .end local v0           #asBool:Z
-    .restart local p0       #value:Ljava/lang/Object;,"TT;"
+    .end local v0    # "asBool":Z
+    .restart local p0    # "value":Ljava/lang/Object;, "TT;"
     :cond_3
     if-nez p3, :cond_4
 
@@ -1922,28 +1907,28 @@
     .line 214
     check-cast p0, Ljava/lang/Integer;
 
-    .end local p0           #value:Ljava/lang/Object;,"TT;"
+    .end local p0    # "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
     .line 215
-    .local v2, asInt:I
+    .local v2, "asInt":I
     int-to-byte v1, v2
 
     .line 216
-    .restart local v1       #asByte:B
+    .restart local v1    # "asByte":B
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object p0
 
     .line 217
-    .local p0, value:Ljava/lang/Byte;,"TT;"
+    .local p0, "value":Ljava/lang/Byte;, "TT;"
     goto :goto_1
 
-    .end local v1           #asByte:B
-    .end local v2           #asInt:I
-    .local p0, value:Ljava/lang/Object;,"TT;"
+    .end local v1    # "asByte":B
+    .end local v2    # "asInt":I
+    .local p0, "value":Ljava/lang/Object;, "TT;"
     :cond_4
     invoke-static {p3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getExpectedType(I)Ljava/lang/Class;
 
@@ -1991,7 +1976,7 @@
     throw v4
 
     .line 224
-    .end local p0           #value:Ljava/lang/Object;,"TT;"
+    .end local p0    # "value":Ljava/lang/Object;, "TT;"
     :cond_5
     if-ne p3, v5, :cond_6
 
@@ -2069,7 +2054,7 @@
     check-cast v3, Landroid/hardware/camera2/Rational;
 
     .line 234
-    .local v3, r:Landroid/hardware/camera2/Rational;
+    .local v3, "r":Landroid/hardware/camera2/Rational;
     invoke-virtual {v3}, Landroid/hardware/camera2/Rational;->getNumerator()I
 
     move-result v4
@@ -2088,8 +2073,7 @@
 
 .method public static registerEnumValues(Ljava/lang/Class;[I)V
     .locals 3
-    .parameter
-    .parameter "values"
+    .param p1, "values"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2102,7 +2086,7 @@
 
     .prologue
     .line 746
-    .local p0, enumType:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "enumType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getEnumConstants()[Ljava/lang/Object;
 
     move-result-object v0
@@ -2199,7 +2183,6 @@
 
 .method private static registerMarshaler(Landroid/hardware/camera2/impl/MetadataMarshalClass;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2212,7 +2195,7 @@
 
     .prologue
     .line 820
-    .local p0, marshaler:Landroid/hardware/camera2/impl/MetadataMarshalClass;,"Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
+    .local p0, "marshaler":Landroid/hardware/camera2/impl/MetadataMarshalClass;, "Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
     sget-object v0, Landroid/hardware/camera2/impl/CameraMetadataNative;->sMarshalerMap:Ljava/util/HashMap;
 
     invoke-interface {p0}, Landroid/hardware/camera2/impl/MetadataMarshalClass;->getMarshalingClass()Ljava/lang/Class;
@@ -2227,14 +2210,14 @@
 
 .method private setAvailableFormats([I)Z
     .locals 5
-    .parameter "value"
+    .param p1, "value"    # [I
 
     .prologue
     .line 600
     move-object v0, p1
 
     .line 601
-    .local v0, availableFormat:[I
+    .local v0, "availableFormat":[I
     if-nez p1, :cond_0
 
     .line 603
@@ -2251,10 +2234,10 @@
     new-array v2, v3, [I
 
     .line 607
-    .local v2, newValues:[I
+    .local v2, "newValues":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     array-length v3, v0
 
@@ -2297,8 +2280,6 @@
 
 .method private setBase(Landroid/hardware/camera2/CameraMetadata$Key;Ljava/lang/Object;)V
     .locals 8
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2310,8 +2291,8 @@
     .end annotation
 
     .prologue
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
-    .local p2, value:Ljava/lang/Object;,"TT;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     const/4 v7, 0x0
 
     .line 569
@@ -2320,7 +2301,7 @@
     move-result v3
 
     .line 571
-    .local v3, tag:I
+    .local v3, "tag":I
     if-nez p2, :cond_0
 
     .line 572
@@ -2337,7 +2318,7 @@
     move-result v1
 
     .line 578
-    .local v1, nativeType:I
+    .local v1, "nativeType":I
     invoke-virtual {p1}, Landroid/hardware/camera2/CameraMetadata$Key;->getType()Ljava/lang/Class;
 
     move-result-object v5
@@ -2349,11 +2330,11 @@
     move-result v2
 
     .line 581
-    .local v2, size:I
+    .local v2, "size":I
     new-array v4, v2, [B
 
     .line 583
-    .local v4, values:[B
+    .local v4, "values":[B
     invoke-static {v4}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v5
@@ -2367,7 +2348,7 @@
     move-result-object v0
 
     .line 584
-    .local v0, buffer:Ljava/nio/ByteBuffer;
+    .local v0, "buffer":Ljava/nio/ByteBuffer;
     invoke-virtual {p1}, Landroid/hardware/camera2/CameraMetadata$Key;->getType()Ljava/lang/Class;
 
     move-result-object v5
@@ -2384,8 +2365,6 @@
 
 .method private setOverride(Landroid/hardware/camera2/CameraMetadata$Key;Ljava/lang/Object;)Z
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2398,8 +2377,8 @@
 
     .prologue
     .line 591
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
-    .local p2, value:Ljava/lang/Object;,"TT;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_FORMATS:Landroid/hardware/camera2/CameraMetadata$Key;
 
     invoke-virtual {p1, v0}, Landroid/hardware/camera2/CameraMetadata$Key;->equals(Ljava/lang/Object;)Z
@@ -2411,7 +2390,7 @@
     .line 592
     check-cast p2, [I
 
-    .end local p2           #value:Ljava/lang/Object;,"TT;"
+    .end local p2    # "value":Ljava/lang/Object;, "TT;"
     check-cast p2, [I
 
     invoke-direct {p0, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->setAvailableFormats([I)Z
@@ -2422,7 +2401,7 @@
     :goto_0
     return v0
 
-    .restart local p2       #value:Ljava/lang/Object;,"TT;"
+    .restart local p2    # "value":Ljava/lang/Object;, "TT;"
     :cond_0
     const/4 v0, 0x0
 
@@ -2431,9 +2410,8 @@
 
 .method private static unpackArray(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Object;
     .locals 17
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
+    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2447,19 +2425,19 @@
 
     .prologue
     .line 381
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual/range {p1 .. p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v5
 
     .line 384
-    .local v5, componentType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v5, "componentType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static/range {p2 .. p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTypeSize(I)I
 
     move-result v7
 
     .line 386
-    .local v7, elementSize:I
+    .local v7, "elementSize":I
     move/from16 v0, p2
 
     invoke-static {v5, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshaler(Ljava/lang/Class;I)Landroid/hardware/camera2/impl/MetadataMarshalClass;
@@ -2467,7 +2445,7 @@
     move-result-object v9
 
     .line 387
-    .local v9, marshaler:Landroid/hardware/camera2/impl/MetadataMarshalClass;,"Landroid/hardware/camera2/impl/MetadataMarshalClass<*>;"
+    .local v9, "marshaler":Landroid/hardware/camera2/impl/MetadataMarshalClass;, "Landroid/hardware/camera2/impl/MetadataMarshalClass<*>;"
     if-eqz v9, :cond_0
 
     .line 388
@@ -2489,11 +2467,11 @@
     move-result v11
 
     .line 393
-    .local v11, remaining:I
+    .local v11, "remaining":I
     div-int v4, v11, v7
 
     .line 395
-    .local v4, arraySize:I
+    .local v4, "arraySize":I
     sget-boolean v12, Landroid/hardware/camera2/impl/CameraMetadataNative;->VERBOSE:Z
 
     if-eqz v12, :cond_1
@@ -2548,10 +2526,10 @@
     move-result-object v2
 
     .line 404
-    .local v2, array:Ljava/lang/Object;
+    .local v2, "array":Ljava/lang/Object;
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     :goto_0
     if-ge v8, v4, :cond_4
 
@@ -2565,7 +2543,7 @@
     move-result-object v6
 
     .line 406
-    .local v6, elem:Ljava/lang/Object;
+    .local v6, "elem":Ljava/lang/Object;
     invoke-static {v2, v8, v6}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
     .line 404
@@ -2574,24 +2552,24 @@
     goto :goto_0
 
     .line 410
-    .end local v2           #array:Ljava/lang/Object;
-    .end local v4           #arraySize:I
-    .end local v6           #elem:Ljava/lang/Object;
-    .end local v8           #i:I
-    .end local v11           #remaining:I
+    .end local v2    # "array":Ljava/lang/Object;
+    .end local v4    # "arraySize":I
+    .end local v6    # "elem":Ljava/lang/Object;
+    .end local v8    # "i":I
+    .end local v11    # "remaining":I
     :cond_2
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 412
-    .local v3, arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Object;>;"
+    .local v3, "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Object;>;"
     invoke-static/range {p2 .. p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTypeSize(I)I
 
     move-result v10
 
     .line 413
-    .local v10, primitiveSize:I
+    .local v10, "primitiveSize":I
     :goto_1
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -2609,13 +2587,13 @@
     move-result-object v6
 
     .line 415
-    .restart local v6       #elem:Ljava/lang/Object;
+    .restart local v6    # "elem":Ljava/lang/Object;
     invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     .line 418
-    .end local v6           #elem:Ljava/lang/Object;
+    .end local v6    # "elem":Ljava/lang/Object;
     :cond_3
     const/4 v12, 0x0
 
@@ -2632,8 +2610,8 @@
     move-result-object v2
 
     .line 421
-    .end local v3           #arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Object;>;"
-    .end local v10           #primitiveSize:I
+    .end local v3    # "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Object;>;"
+    .end local v10    # "primitiveSize":I
     :cond_4
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -2687,9 +2665,8 @@
 
 .method private static unpackClass(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Object;
     .locals 4
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
+    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2703,13 +2680,13 @@
 
     .prologue
     .line 370
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshaler(Ljava/lang/Class;I)Landroid/hardware/camera2/impl/MetadataMarshalClass;
 
     move-result-object v0
 
     .line 371
-    .local v0, marshaler:Landroid/hardware/camera2/impl/MetadataMarshalClass;,"Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
+    .local v0, "marshaler":Landroid/hardware/camera2/impl/MetadataMarshalClass;, "Landroid/hardware/camera2/impl/MetadataMarshalClass<TT;>;"
     if-nez v0, :cond_0
 
     .line 372
@@ -2748,9 +2725,8 @@
 
 .method private static unpackEnum(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Enum;
     .locals 2
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
+    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2764,7 +2740,7 @@
 
     .prologue
     .line 364
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     invoke-static {p0, v1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->unpackSingleNative(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Object;
@@ -2778,7 +2754,7 @@
     move-result v0
 
     .line 365
-    .local v0, ordinal:I
+    .local v0, "ordinal":I
     invoke-static {p1, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getEnumFromValue(Ljava/lang/Class;I)Ljava/lang/Enum;
 
     move-result-object v1
@@ -2788,9 +2764,8 @@
 
 .method private static unpackSingle(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Object;
     .locals 2
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
+    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2804,7 +2779,7 @@
 
     .prologue
     .line 345
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p1}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v1
@@ -2862,15 +2837,14 @@
     move-result-object v0
 
     .line 359
-    .local v0, instance:Ljava/lang/Object;,"TT;"
+    .local v0, "instance":Ljava/lang/Object;, "TT;"
     goto :goto_0
 .end method
 
 .method private static unpackSingleNative(Ljava/nio/ByteBuffer;Ljava/lang/Class;I)Ljava/lang/Object;
     .locals 7
-    .parameter "buffer"
-    .parameter
-    .parameter "nativeType"
+    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2883,7 +2857,7 @@
     .end annotation
 
     .prologue
-    .local p1, type:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x1
 
     .line 302
@@ -2914,19 +2888,19 @@
     move-result v1
 
     .line 328
-    .local v1, asByte:B
+    .local v1, "asByte":B
     if-eqz v1, :cond_7
 
     .line 329
-    .local v0, asBool:Z
+    .local v0, "asBool":Z
     :goto_1
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
 
     .line 339
-    .end local v0           #asBool:Z
-    .end local v1           #asByte:B
+    .end local v0    # "asBool":Z
+    .end local v1    # "asByte":B
     :cond_0
     :goto_2
     return-object v3
@@ -2944,11 +2918,11 @@
 
     move-result-object v3
 
-    .local v3, val:Ljava/lang/Integer;,"TT;"
+    .local v3, "val":Ljava/lang/Integer;, "TT;"
     goto :goto_0
 
     .line 306
-    .end local v3           #val:Ljava/lang/Integer;,"TT;"
+    .end local v3    # "val":Ljava/lang/Integer;, "TT;"
     :cond_2
     const/4 v4, 0x2
 
@@ -2963,11 +2937,11 @@
 
     move-result-object v3
 
-    .local v3, val:Ljava/lang/Float;,"TT;"
+    .local v3, "val":Ljava/lang/Float;, "TT;"
     goto :goto_0
 
     .line 308
-    .end local v3           #val:Ljava/lang/Float;,"TT;"
+    .end local v3    # "val":Ljava/lang/Float;, "TT;"
     :cond_3
     const/4 v4, 0x3
 
@@ -2982,11 +2956,11 @@
 
     move-result-object v3
 
-    .local v3, val:Ljava/lang/Long;,"TT;"
+    .local v3, "val":Ljava/lang/Long;, "TT;"
     goto :goto_0
 
     .line 310
-    .end local v3           #val:Ljava/lang/Long;,"TT;"
+    .end local v3    # "val":Ljava/lang/Long;, "TT;"
     :cond_4
     const/4 v4, 0x4
 
@@ -3001,11 +2975,11 @@
 
     move-result-object v3
 
-    .local v3, val:Ljava/lang/Double;,"TT;"
+    .local v3, "val":Ljava/lang/Double;, "TT;"
     goto :goto_0
 
     .line 312
-    .end local v3           #val:Ljava/lang/Double;,"TT;"
+    .end local v3    # "val":Ljava/lang/Double;, "TT;"
     :cond_5
     const/4 v4, 0x5
 
@@ -3024,11 +2998,11 @@
 
     invoke-direct {v3, v4, v5}, Landroid/hardware/camera2/Rational;-><init>(II)V
 
-    .local v3, val:Landroid/hardware/camera2/Rational;,"TT;"
+    .local v3, "val":Landroid/hardware/camera2/Rational;, "TT;"
     goto :goto_0
 
     .line 315
-    .end local v3           #val:Landroid/hardware/camera2/Rational;,"TT;"
+    .end local v3    # "val":Landroid/hardware/camera2/Rational;, "TT;"
     :cond_6
     new-instance v4, Ljava/lang/UnsupportedOperationException;
 
@@ -3055,14 +3029,14 @@
     throw v4
 
     .line 328
-    .restart local v1       #asByte:B
+    .restart local v1    # "asByte":B
     :cond_7
     const/4 v0, 0x0
 
     goto :goto_1
 
     .line 330
-    .end local v1           #asByte:B
+    .end local v1    # "asByte":B
     :cond_8
     if-nez p2, :cond_9
 
@@ -3078,22 +3052,22 @@
     move-result v1
 
     .line 332
-    .restart local v1       #asByte:B
+    .restart local v1    # "asByte":B
     move v2, v1
 
     .line 333
-    .local v2, asInt:I
+    .local v2, "asInt":I
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
     .line 334
-    .local v3, val:Ljava/lang/Integer;,"TT;"
+    .local v3, "val":Ljava/lang/Integer;, "TT;"
     goto :goto_2
 
-    .end local v1           #asByte:B
-    .end local v2           #asInt:I
-    .end local v3           #val:Ljava/lang/Integer;,"TT;"
+    .end local v1    # "asByte":B
+    .end local v2    # "asInt":I
+    .end local v3    # "val":Ljava/lang/Integer;, "TT;"
     :cond_9
     invoke-static {p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getExpectedType(I)Ljava/lang/Class;
 
@@ -3185,7 +3159,6 @@
 
 .method public get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3198,21 +3171,21 @@
 
     .prologue
     .line 95
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
     invoke-direct {p0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getOverride(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 96
-    .local v0, value:Ljava/lang/Object;,"TT;"
+    .local v0, "value":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
     .line 100
-    .end local v0           #value:Ljava/lang/Object;,"TT;"
+    .end local v0    # "value":Ljava/lang/Object;, "TT;"
     :goto_0
     return-object v0
 
-    .restart local v0       #value:Ljava/lang/Object;,"TT;"
+    .restart local v0    # "value":Ljava/lang/Object;, "TT;"
     :cond_0
     invoke-direct {p0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getBase(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
 
@@ -3247,7 +3220,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 104
@@ -3259,7 +3232,7 @@
 
 .method public readValues(I)[B
     .locals 1
-    .parameter "tag"
+    .param p1, "tag"    # I
 
     .prologue
     .line 722
@@ -3272,8 +3245,6 @@
 
 .method public set(Landroid/hardware/camera2/CameraMetadata$Key;Ljava/lang/Object;)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3286,8 +3257,8 @@
 
     .prologue
     .line 117
-    .local p1, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
-    .local p2, value:Ljava/lang/Object;,"TT;"
+    .local p1, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<TT;>;"
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->setOverride(Landroid/hardware/camera2/CameraMetadata$Key;Ljava/lang/Object;)Z
 
     move-result v0
@@ -3307,7 +3278,7 @@
 
 .method public swap(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .prologue
     .line 651
@@ -3319,8 +3290,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 89
@@ -3332,8 +3303,8 @@
 
 .method public writeValues(I[B)V
     .locals 0
-    .parameter "tag"
-    .parameter "src"
+    .param p1, "tag"    # I
+    .param p2, "src"    # [B
 
     .prologue
     .line 706

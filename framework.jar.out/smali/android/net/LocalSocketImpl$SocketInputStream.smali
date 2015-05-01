@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/LocalSocketImpl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 55
@@ -48,12 +47,12 @@
 
     iget-object v1, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
+    # getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
     invoke-static {v1}, Landroid/net/LocalSocketImpl;->access$000(Landroid/net/LocalSocketImpl;)Ljava/io/FileDescriptor;
 
     move-result-object v1
 
-    #calls: Landroid/net/LocalSocketImpl;->available_native(Ljava/io/FileDescriptor;)I
+    # invokes: Landroid/net/LocalSocketImpl;->available_native(Ljava/io/FileDescriptor;)I
     invoke-static {v0, v1}, Landroid/net/LocalSocketImpl;->access$100(Landroid/net/LocalSocketImpl;Ljava/io/FileDescriptor;)I
 
     move-result v0
@@ -91,7 +90,7 @@
     .line 72
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #getter for: Landroid/net/LocalSocketImpl;->readMonitor:Ljava/lang/Object;
+    # getter for: Landroid/net/LocalSocketImpl;->readMonitor:Ljava/lang/Object;
     invoke-static {v2}, Landroid/net/LocalSocketImpl;->access$200(Landroid/net/LocalSocketImpl;)Ljava/lang/Object;
 
     move-result-object v3
@@ -102,13 +101,13 @@
     :try_start_0
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
+    # getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
     invoke-static {v2}, Landroid/net/LocalSocketImpl;->access$000(Landroid/net/LocalSocketImpl;)Ljava/io/FileDescriptor;
 
     move-result-object v0
 
     .line 74
-    .local v0, myFd:Ljava/io/FileDescriptor;
+    .local v0, "myFd":Ljava/io/FileDescriptor;
     if-nez v0, :cond_0
 
     new-instance v2, Ljava/io/IOException;
@@ -120,7 +119,7 @@
     throw v2
 
     .line 78
-    .end local v0           #myFd:Ljava/io/FileDescriptor;
+    .end local v0    # "myFd":Ljava/io/FileDescriptor;
     :catchall_0
     move-exception v2
 
@@ -131,18 +130,18 @@
     throw v2
 
     .line 76
-    .restart local v0       #myFd:Ljava/io/FileDescriptor;
+    .restart local v0    # "myFd":Ljava/io/FileDescriptor;
     :cond_0
     :try_start_1
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #calls: Landroid/net/LocalSocketImpl;->read_native(Ljava/io/FileDescriptor;)I
+    # invokes: Landroid/net/LocalSocketImpl;->read_native(Ljava/io/FileDescriptor;)I
     invoke-static {v2, v0}, Landroid/net/LocalSocketImpl;->access$300(Landroid/net/LocalSocketImpl;Ljava/io/FileDescriptor;)I
 
     move-result v1
 
     .line 77
-    .local v1, ret:I
+    .local v1, "ret":I
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -152,7 +151,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -174,9 +173,9 @@
 
 .method public read([BII)I
     .locals 5
-    .parameter "b"
-    .parameter "off"
-    .parameter "len"
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -187,7 +186,7 @@
     .line 90
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #getter for: Landroid/net/LocalSocketImpl;->readMonitor:Ljava/lang/Object;
+    # getter for: Landroid/net/LocalSocketImpl;->readMonitor:Ljava/lang/Object;
     invoke-static {v2}, Landroid/net/LocalSocketImpl;->access$200(Landroid/net/LocalSocketImpl;)Ljava/lang/Object;
 
     move-result-object v3
@@ -198,13 +197,13 @@
     :try_start_0
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
+    # getter for: Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
     invoke-static {v2}, Landroid/net/LocalSocketImpl;->access$000(Landroid/net/LocalSocketImpl;)Ljava/io/FileDescriptor;
 
     move-result-object v0
 
     .line 92
-    .local v0, myFd:Ljava/io/FileDescriptor;
+    .local v0, "myFd":Ljava/io/FileDescriptor;
     if-nez v0, :cond_0
 
     new-instance v2, Ljava/io/IOException;
@@ -216,7 +215,7 @@
     throw v2
 
     .line 101
-    .end local v0           #myFd:Ljava/io/FileDescriptor;
+    .end local v0    # "myFd":Ljava/io/FileDescriptor;
     :catchall_0
     move-exception v2
 
@@ -227,7 +226,7 @@
     throw v2
 
     .line 94
-    .restart local v0       #myFd:Ljava/io/FileDescriptor;
+    .restart local v0    # "myFd":Ljava/io/FileDescriptor;
     :cond_0
     if-ltz p2, :cond_1
 
@@ -252,13 +251,13 @@
     :cond_2
     iget-object v2, p0, Landroid/net/LocalSocketImpl$SocketInputStream;->this$0:Landroid/net/LocalSocketImpl;
 
-    #calls: Landroid/net/LocalSocketImpl;->readba_native([BIILjava/io/FileDescriptor;)I
+    # invokes: Landroid/net/LocalSocketImpl;->readba_native([BIILjava/io/FileDescriptor;)I
     invoke-static {v2, p1, p2, p3, v0}, Landroid/net/LocalSocketImpl;->access$400(Landroid/net/LocalSocketImpl;[BIILjava/io/FileDescriptor;)I
 
     move-result v1
 
     .line 100
-    .local v1, ret:I
+    .local v1, "ret":I
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

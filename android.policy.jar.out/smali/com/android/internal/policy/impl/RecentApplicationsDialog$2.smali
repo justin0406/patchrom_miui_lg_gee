@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/RecentApplicationsDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 335
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 338
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 339
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -63,7 +62,7 @@
     move-result-object v1
 
     .line 341
-    .local v1, reason:Ljava/lang/String;
+    .local v1, "reason":Ljava/lang/String;
     const-string v2, "recentapps"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -78,7 +77,7 @@
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->dismiss()V
 
     .line 345
-    .end local v1           #reason:Ljava/lang/String;
+    .end local v1    # "reason":Ljava/lang/String;
     :cond_0
     return-void
 .end method

@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[Ljava/lang/String;I)V
     .locals 0
-    .parameter "rootPerm"
-    .parameter "newPerms"
-    .parameter "targetSdk"
+    .param p1, "rootPerm"    # Ljava/lang/String;
+    .param p2, "newPerms"    # [Ljava/lang/String;
+    .param p3, "targetSdk"    # I
 
     .prologue
     .line 101

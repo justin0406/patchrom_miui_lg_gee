@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 162
@@ -51,11 +51,11 @@
 
 .method public doBackup(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
     .locals 5
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
+    .param p4, "token"    # I
+    .param p5, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
     move-result-object v0
 
     .line 198
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IBackupAgent"
 
@@ -192,9 +192,9 @@
 
 .method public doFullBackup(Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
     .locals 5
-    .parameter "data"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "token"    # I
+    .param p3, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -210,7 +210,7 @@
     move-result-object v0
 
     .line 300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IBackupAgent"
 
@@ -284,11 +284,11 @@
 
 .method public doRestore(Landroid/os/ParcelFileDescriptor;ILandroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
     .locals 5
-    .parameter "data"
-    .parameter "appVersionCode"
-    .parameter "newState"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "appVersionCode"    # I
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
+    .param p4, "token"    # I
+    .param p5, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -304,7 +304,7 @@
     move-result-object v0
 
     .line 255
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IBackupAgent"
 
@@ -406,15 +406,15 @@
 
 .method public doRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJILandroid/app/backup/IBackupManager;)V
     .locals 7
-    .parameter "data"
-    .parameter "size"
-    .parameter "type"
-    .parameter "domain"
-    .parameter "path"
-    .parameter "mode"
-    .parameter "mtime"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "size"    # J
+    .param p4, "type"    # I
+    .param p5, "domain"    # Ljava/lang/String;
+    .param p6, "path"    # Ljava/lang/String;
+    .param p7, "mode"    # J
+    .param p9, "mtime"    # J
+    .param p11, "token"    # I
+    .param p12, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -428,7 +428,7 @@
     move-result-object v2
 
     .line 335
-    .local v2, _data:Landroid/os/Parcel;
+    .local v2, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.IBackupAgent"
 

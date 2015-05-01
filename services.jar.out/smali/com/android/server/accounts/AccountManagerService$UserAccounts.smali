@@ -100,8 +100,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "userId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "userId"    # I
 
     .prologue
     .line 199
@@ -184,7 +184,7 @@
 
 .method static synthetic access$1400(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -195,7 +195,7 @@
 
 .method static synthetic access$300(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -206,7 +206,7 @@
 
 .method static synthetic access$400(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Lcom/android/server/accounts/AccountManagerService$DatabaseHelper;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -217,7 +217,7 @@
 
 .method static synthetic access$500(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -228,7 +228,7 @@
 
 .method static synthetic access$600(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -239,7 +239,7 @@
 
 .method static synthetic access$700(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -250,7 +250,7 @@
 
 .method static synthetic access$800(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180
@@ -261,7 +261,7 @@
 
 .method static synthetic access$900(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
     .prologue
     .line 180

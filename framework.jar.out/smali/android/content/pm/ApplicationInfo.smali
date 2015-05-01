@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -25,8 +25,6 @@
         }
     .end annotation
 .end field
-
-.field public static final FLAG_ACCESS_CONTROL_PASSWORD:I = -0x80000000
 
 .field public static final FLAG_ALLOW_BACKUP:I = 0x8000
 
@@ -39,8 +37,6 @@
 .field public static final FLAG_CANT_SAVE_STATE:I = 0x10000000
 
 .field public static final FLAG_DEBUGGABLE:I = 0x2
-
-.field public static final FLAG_DISABLE_AUTOSTART:I = 0x40000000
 
 .field public static final FLAG_EXTERNAL_STORAGE:I = 0x40000
 
@@ -65,8 +61,6 @@
 .field public static final FLAG_RESIZEABLE_FOR_SCREENS:I = 0x1000
 
 .field public static final FLAG_RESTORE_ANY_VERSION:I = 0x20000
-
-.field public static final FLAG_SHOW_FLOATING_WINDOW:I = 0x8000000
 
 .field public static final FLAG_STOPPED:I = 0x200000
 
@@ -201,7 +195,7 @@
 
 .method public constructor <init>(Landroid/content/pm/ApplicationInfo;)V
     .locals 2
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/ApplicationInfo;
 
     .prologue
     const/4 v1, 0x0
@@ -368,7 +362,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -594,8 +588,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ApplicationInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/ApplicationInfo$1;
 
     .prologue
     .line 34
@@ -606,7 +600,7 @@
 
 .method private isPackageUnavailable(Landroid/content/pm/PackageManager;)Z
     .locals 5
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     const/4 v1, 0x1
@@ -642,7 +636,7 @@
     move-exception v0
 
     .line 715
-    .local v0, ex:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v0, "ex":Landroid/content/pm/PackageManager$NameNotFoundException;
     goto :goto_0
 .end method
 
@@ -677,8 +671,8 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 479
@@ -1352,7 +1346,7 @@
     .locals 2
 
     .prologue
-    const/high16 v1, 0x40
+    const/high16 v1, 0x400000
 
     .line 530
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
@@ -1374,13 +1368,13 @@
 
 .method protected loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 703
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v1, 0x4
+    const/high16 v1, 0x40000
 
     and-int/2addr v0, v1
 
@@ -1417,7 +1411,7 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 679
@@ -1435,11 +1429,11 @@
     move-result-object v0
 
     .line 681
-    .local v0, label:Ljava/lang/CharSequence;
+    .local v0, "label":Ljava/lang/CharSequence;
     if-eqz v0, :cond_0
 
     .line 685
-    .end local v0           #label:Ljava/lang/CharSequence;
+    .end local v0    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object v0
 
@@ -1503,8 +1497,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 600

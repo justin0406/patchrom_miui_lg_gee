@@ -45,10 +45,10 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "user"
-    .parameter "album"
-    .parameter "photo"
-    .parameter "text"
+    .param p1, "user"    # Ljava/lang/String;
+    .param p2, "album"    # Ljava/lang/String;
+    .param p3, "photo"    # Ljava/lang/String;
+    .param p4, "text"    # Ljava/lang/String;
 
     .prologue
     .line 965
@@ -71,8 +71,8 @@
 
 .method public static getAlbumURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
-    .parameter "album"
+    .param p0, "user"    # Ljava/lang/String;
+    .param p1, "album"    # Ljava/lang/String;
 
     .prologue
     .line 1008
@@ -109,9 +109,9 @@
 
 .method public static getPhotoURL(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
-    .parameter "album"
-    .parameter "photo"
+    .param p0, "user"    # Ljava/lang/String;
+    .param p1, "album"    # Ljava/lang/String;
+    .param p2, "photo"    # Ljava/lang/String;
 
     .prologue
     .line 1013
@@ -158,7 +158,7 @@
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "user"
+    .param p0, "user"    # Ljava/lang/String;
 
     .prologue
     .line 1002
@@ -191,8 +191,8 @@
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$Photo;
     .locals 5
-    .parameter "url"
-    .parameter "text"
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "text"    # Ljava/lang/String;
 
     .prologue
     .line 980
@@ -203,7 +203,7 @@
     move-result-object v0
 
     .line 981
-    .local v0, m:Ljava/util/regex/Matcher;
+    .local v0, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v1
@@ -274,7 +274,7 @@
     move-result-object v0
 
     .line 990
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$Photo;->getUser()Ljava/lang/String;
 
     move-result-object v1

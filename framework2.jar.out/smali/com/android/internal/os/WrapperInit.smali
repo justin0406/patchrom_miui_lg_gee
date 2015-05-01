@@ -21,11 +21,11 @@
 
 .method public static execApplication(Ljava/lang/String;Ljava/lang/String;ILjava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 3
-    .parameter "invokeWith"
-    .parameter "niceName"
-    .parameter "targetSdkVersion"
-    .parameter "pipeFd"
-    .parameter "args"
+    .param p0, "invokeWith"    # Ljava/lang/String;
+    .param p1, "niceName"    # Ljava/lang/String;
+    .param p2, "targetSdkVersion"    # I
+    .param p3, "pipeFd"    # Ljava/io/FileDescriptor;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 102
@@ -34,7 +34,7 @@
     invoke-direct {v0, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 103
-    .local v0, command:Ljava/lang/StringBuilder;
+    .local v0, "command":Ljava/lang/StringBuilder;
     const-string v1, " /system/bin/app_process /system/bin --application"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -103,10 +103,10 @@
 
 .method public static execStandalone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 2
-    .parameter "invokeWith"
-    .parameter "classPath"
-    .parameter "className"
-    .parameter "args"
+    .param p0, "invokeWith"    # Ljava/lang/String;
+    .param p1, "classPath"    # Ljava/lang/String;
+    .param p2, "className"    # Ljava/lang/String;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 126
@@ -115,7 +115,7 @@
     invoke-direct {v0, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 127
-    .local v0, command:Ljava/lang/StringBuilder;
+    .local v0, "command":Ljava/lang/StringBuilder;
     const-string v1, " /system/bin/dalvikvm -classpath \'"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -149,7 +149,7 @@
 
 .method public static main([Ljava/lang/String;)V
     .locals 10
-    .parameter "args"
+    .param p0, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 61
@@ -165,7 +165,7 @@
     move-result v3
 
     .line 62
-    .local v3, fdNum:I
+    .local v3, "fdNum":I
     const/4 v7, 0x1
 
     aget-object v7, p0, v7
@@ -179,7 +179,7 @@
     move-result v6
 
     .line 66
-    .local v6, targetSdkVersion:I
+    .local v6, "targetSdkVersion":I
     if-eqz v3, :cond_0
 
     .line 68
@@ -189,7 +189,7 @@
     move-result-object v2
 
     .line 69
-    .local v2, fd:Ljava/io/FileDescriptor;
+    .local v2, "fd":Ljava/io/FileDescriptor;
     new-instance v4, Ljava/io/DataOutputStream;
 
     new-instance v7, Ljava/io/FileOutputStream;
@@ -199,7 +199,7 @@
     invoke-direct {v4, v7}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     .line 70
-    .local v4, os:Ljava/io/DataOutputStream;
+    .local v4, "os":Ljava/io/DataOutputStream;
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v7
@@ -216,8 +216,8 @@
     .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 79
-    .end local v2           #fd:Ljava/io/FileDescriptor;
-    .end local v4           #os:Ljava/io/DataOutputStream;
+    .end local v2    # "fd":Ljava/io/FileDescriptor;
+    .end local v4    # "os":Ljava/io/DataOutputStream;
     :cond_0
     :goto_0
     :try_start_2
@@ -231,7 +231,7 @@
     new-array v5, v7, [Ljava/lang/String;
 
     .line 83
-    .local v5, runtimeArgs:[Ljava/lang/String;
+    .local v5, "runtimeArgs":[Ljava/lang/String;
     const/4 v7, 0x2
 
     const/4 v8, 0x0
@@ -244,20 +244,20 @@
     invoke-static {v6, v5}, Lcom/android/internal/os/RuntimeInit;->wrapperInit(I[Ljava/lang/String;)V
 
     .line 88
-    .end local v3           #fdNum:I
-    .end local v5           #runtimeArgs:[Ljava/lang/String;
-    .end local v6           #targetSdkVersion:I
+    .end local v3    # "fdNum":I
+    .end local v5    # "runtimeArgs":[Ljava/lang/String;
+    .end local v6    # "targetSdkVersion":I
     :goto_1
     return-void
 
     .line 73
-    .restart local v3       #fdNum:I
-    .restart local v6       #targetSdkVersion:I
+    .restart local v3    # "fdNum":I
+    .restart local v6    # "targetSdkVersion":I
     :catch_0
     move-exception v1
 
     .line 74
-    .local v1, ex:Ljava/io/IOException;
+    .local v1, "ex":Ljava/io/IOException;
     const-string v7, "AndroidRuntime"
 
     const-string v8, "Could not write pid of wrapped process to Zygote pipe."
@@ -269,14 +269,14 @@
     goto :goto_0
 
     .line 85
-    .end local v1           #ex:Ljava/io/IOException;
-    .end local v3           #fdNum:I
-    .end local v6           #targetSdkVersion:I
+    .end local v1    # "ex":Ljava/io/IOException;
+    .end local v3    # "fdNum":I
+    .end local v6    # "targetSdkVersion":I
     :catch_1
     move-exception v0
 
     .line 86
-    .local v0, caller:Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
+    .local v0, "caller":Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
     invoke-virtual {v0}, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;->run()V
 
     goto :goto_1

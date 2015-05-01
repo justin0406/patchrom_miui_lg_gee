@@ -33,7 +33,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 295
@@ -68,7 +68,7 @@
     iput-object v0, p0, Landroid/renderscript/Sampler$Builder;->mWrapR:Landroid/renderscript/Sampler$Value;
 
     .line 302
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/renderscript/Sampler$Builder;->mAniso:F
 
@@ -117,7 +117,7 @@
     move-result v7
 
     .line 352
-    .local v7, id:I
+    .local v7, "id":I
     new-instance v8, Landroid/renderscript/Sampler;
 
     iget-object v0, p0, Landroid/renderscript/Sampler$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -125,7 +125,7 @@
     invoke-direct {v8, v7, v0}, Landroid/renderscript/Sampler;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 353
-    .local v8, sampler:Landroid/renderscript/Sampler;
+    .local v8, "sampler":Landroid/renderscript/Sampler;
     iget-object v0, p0, Landroid/renderscript/Sampler$Builder;->mMin:Landroid/renderscript/Sampler$Value;
 
     iput-object v0, v8, Landroid/renderscript/Sampler;->mMin:Landroid/renderscript/Sampler$Value;
@@ -161,7 +161,7 @@
 
 .method public setAnisotropy(F)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # F
 
     .prologue
     .line 341
@@ -190,7 +190,7 @@
 
 .method public setMagnification(Landroid/renderscript/Sampler$Value;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Sampler$Value;
 
     .prologue
     .line 317
@@ -222,7 +222,7 @@
 
 .method public setMinification(Landroid/renderscript/Sampler$Value;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Sampler$Value;
 
     .prologue
     .line 306
@@ -262,7 +262,7 @@
 
 .method public setWrapS(Landroid/renderscript/Sampler$Value;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Sampler$Value;
 
     .prologue
     .line 325
@@ -298,7 +298,7 @@
 
 .method public setWrapT(Landroid/renderscript/Sampler$Value;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/renderscript/Sampler$Value;
 
     .prologue
     .line 333

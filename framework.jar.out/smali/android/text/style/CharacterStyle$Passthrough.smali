@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/text/style/CharacterStyle;)V
     .locals 0
-    .parameter "cs"
+    .param p1, "cs"    # Landroid/text/style/CharacterStyle;
 
     .prologue
     .line 66
@@ -52,7 +52,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 75

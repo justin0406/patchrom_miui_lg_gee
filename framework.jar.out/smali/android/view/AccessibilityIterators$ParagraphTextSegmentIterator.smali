@@ -54,7 +54,7 @@
 
 .method private isEndBoundary(I)Z
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/16 v2, 0xa
@@ -102,7 +102,7 @@
 
 .method private isStartBoundary(I)Z
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     const/16 v2, 0xa
@@ -144,7 +144,7 @@
 # virtual methods
 .method public following(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -157,7 +157,7 @@
     move-result v2
 
     .line 270
-    .local v2, textLength:I
+    .local v2, "textLength":I
     if-gtz v2, :cond_1
 
     .line 291
@@ -173,7 +173,7 @@
     move v1, p1
 
     .line 277
-    .local v1, start:I
+    .local v1, "start":I
     if-gez v1, :cond_2
 
     .line 278
@@ -213,7 +213,7 @@
     add-int/lit8 v0, v1, 0x1
 
     .line 288
-    .local v0, end:I
+    .local v0, "end":I
     :goto_2
     if-ge v0, v2, :cond_4
 
@@ -239,7 +239,7 @@
 
 .method public preceding(I)[I
     .locals 6
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -252,7 +252,7 @@
     move-result v2
 
     .line 297
-    .local v2, textLength:I
+    .local v2, "textLength":I
     if-gtz v2, :cond_1
 
     .line 317
@@ -268,7 +268,7 @@
     move v0, p1
 
     .line 304
-    .local v0, end:I
+    .local v0, "end":I
     if-le v0, v2, :cond_2
 
     .line 305
@@ -310,7 +310,7 @@
     add-int/lit8 v1, v0, -0x1
 
     .line 314
-    .local v1, start:I
+    .local v1, "start":I
     :goto_2
     if-lez v1, :cond_4
 

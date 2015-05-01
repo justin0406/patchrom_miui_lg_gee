@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/inputmethod/ExtractedText;
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 111
@@ -51,7 +51,7 @@
     invoke-direct {v0}, Landroid/view/inputmethod/ExtractedText;-><init>()V
 
     .line 112
-    .local v0, res:Landroid/view/inputmethod/ExtractedText;
+    .local v0, "res":Landroid/view/inputmethod/ExtractedText;
     sget-object v1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -110,7 +110,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 109
@@ -123,7 +123,7 @@
 
 .method public newArray(I)[Landroid/view/inputmethod/ExtractedText;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 123
@@ -134,7 +134,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 109

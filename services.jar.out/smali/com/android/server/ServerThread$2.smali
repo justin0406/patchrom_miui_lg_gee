@@ -82,36 +82,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ServerThread;ZLandroid/content/Context;Lcom/android/server/MountService;Lcom/android/server/BatteryService;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/ConnectivityService;Lcom/android/server/DockObserver;Lcom/android/server/usb/UsbService;Lcom/android/server/TwilightService;Lcom/android/server/UiModeManagerService;Lcom/android/server/RecognitionManagerService;Lcom/android/server/AppWidgetService;ZLcom/android/server/WallpaperManagerService;Lcom/android/server/InputMethodManagerService;Lcom/android/server/StatusBarManagerService;Lcom/android/server/LocationManagerService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/CommonTimeManagementService;Lcom/android/server/TextServicesManagerService;Lcom/android/server/dreams/DreamManagerService;Lcom/android/server/AssetAtlasService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/print/PrintManagerService;Lcom/android/server/media/MediaRouterService;)V
     .locals 1
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 938
@@ -617,7 +587,7 @@
     move-exception v0
 
     .line 945
-    .local v0, e:Ljava/lang/Throwable;
+    .local v0, "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "observing native crashes"
@@ -627,12 +597,12 @@
     goto/16 :goto_0
 
     .line 952
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_1
     move-exception v0
 
     .line 953
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Mount Service ready"
@@ -642,12 +612,12 @@
     goto/16 :goto_1
 
     .line 957
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_2
     move-exception v0
 
     .line 958
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Battery Service ready"
@@ -657,12 +627,12 @@
     goto/16 :goto_2
 
     .line 962
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_3
     move-exception v0
 
     .line 963
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Network Managment Service ready"
@@ -672,12 +642,12 @@
     goto/16 :goto_3
 
     .line 967
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_4
     move-exception v0
 
     .line 968
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Network Stats Service ready"
@@ -687,12 +657,12 @@
     goto/16 :goto_4
 
     .line 972
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_5
     move-exception v0
 
     .line 973
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Network Policy Service ready"
@@ -702,12 +672,12 @@
     goto/16 :goto_5
 
     .line 977
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_6
     move-exception v0
 
     .line 978
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Connectivity Service ready"
@@ -717,12 +687,12 @@
     goto/16 :goto_6
 
     .line 982
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_7
     move-exception v0
 
     .line 983
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Dock Service ready"
@@ -732,12 +702,12 @@
     goto/16 :goto_7
 
     .line 987
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_8
     move-exception v0
 
     .line 988
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making USB Service ready"
@@ -747,12 +717,12 @@
     goto/16 :goto_8
 
     .line 992
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_9
     move-exception v0
 
     .line 993
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "makin Twilight Service ready"
@@ -762,12 +732,12 @@
     goto/16 :goto_9
 
     .line 997
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_a
     move-exception v0
 
     .line 998
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making UI Mode Service ready"
@@ -777,12 +747,12 @@
     goto/16 :goto_a
 
     .line 1002
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_b
     move-exception v0
 
     .line 1003
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "making Recognition Service ready"
@@ -792,12 +762,12 @@
     goto/16 :goto_b
 
     .line 1012
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_c
     move-exception v0
 
     .line 1013
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying AppWidgetService running"
@@ -807,12 +777,12 @@
     goto/16 :goto_c
 
     .line 1017
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_d
     move-exception v0
 
     .line 1018
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying WallpaperService running"
@@ -822,12 +792,12 @@
     goto/16 :goto_d
 
     .line 1022
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_e
     move-exception v0
 
     .line 1023
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying InputMethodService running"
@@ -837,12 +807,12 @@
     goto/16 :goto_e
 
     .line 1027
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_f
     move-exception v0
 
     .line 1028
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying Location Service running"
@@ -852,12 +822,12 @@
     goto/16 :goto_f
 
     .line 1032
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_10
     move-exception v0
 
     .line 1033
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying CountryDetectorService running"
@@ -867,12 +837,12 @@
     goto/16 :goto_10
 
     .line 1037
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_11
     move-exception v0
 
     .line 1038
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying NetworkTimeService running"
@@ -882,12 +852,12 @@
     goto/16 :goto_11
 
     .line 1042
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_12
     move-exception v0
 
     .line 1043
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying CommonTimeManagementService running"
@@ -897,12 +867,12 @@
     goto/16 :goto_12
 
     .line 1048
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_13
     move-exception v0
 
     .line 1049
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying TextServicesManagerService running"
@@ -912,12 +882,12 @@
     goto/16 :goto_13
 
     .line 1053
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_14
     move-exception v0
 
     .line 1054
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying DreamManagerService running"
@@ -927,12 +897,12 @@
     goto/16 :goto_14
 
     .line 1058
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_15
     move-exception v0
 
     .line 1059
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying AssetAtlasService running"
@@ -942,12 +912,12 @@
     goto/16 :goto_15
 
     .line 1064
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_16
     move-exception v0
 
     .line 1065
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying InputManagerService running"
@@ -957,12 +927,12 @@
     goto/16 :goto_16
 
     .line 1070
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_17
     move-exception v0
 
     .line 1071
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying TelephonyRegistry running"
@@ -972,12 +942,12 @@
     goto/16 :goto_17
 
     .line 1076
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_18
     move-exception v0
 
     .line 1077
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying PrintManagerService running"
@@ -987,12 +957,12 @@
     goto/16 :goto_18
 
     .line 1082
-    .end local v0           #e:Ljava/lang/Throwable;
+    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_19
     move-exception v0
 
     .line 1083
-    .restart local v0       #e:Ljava/lang/Throwable;
+    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/ServerThread$2;->this$0:Lcom/android/server/ServerThread;
 
     const-string v2, "Notifying MediaRouterService running"

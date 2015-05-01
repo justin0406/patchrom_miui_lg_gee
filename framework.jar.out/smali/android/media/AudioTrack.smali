@@ -103,12 +103,12 @@
 # direct methods
 .method public constructor <init>(IIIIII)V
     .locals 8
-    .parameter "streamType"
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
-    .parameter "bufferSizeInBytes"
-    .parameter "mode"
+    .param p1, "streamType"    # I
+    .param p2, "sampleRateInHz"    # I
+    .param p3, "channelConfig"    # I
+    .param p4, "audioFormat"    # I
+    .param p5, "bufferSizeInBytes"    # I
+    .param p6, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -141,13 +141,13 @@
 
 .method public constructor <init>(IIIIIII)V
     .locals 12
-    .parameter "streamType"
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
-    .parameter "bufferSizeInBytes"
-    .parameter "mode"
-    .parameter "sessionId"
+    .param p1, "streamType"    # I
+    .param p2, "sampleRateInHz"    # I
+    .param p3, "channelConfig"    # I
+    .param p4, "audioFormat"    # I
+    .param p5, "bufferSizeInBytes"    # I
+    .param p6, "mode"    # I
+    .param p7, "sessionId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -225,7 +225,7 @@
 
     move-result-object v11
 
-    .local v11, looper:Landroid/os/Looper;
+    .local v11, "looper":Landroid/os/Looper;
     if-nez v11, :cond_0
 
     .line 311
@@ -294,7 +294,7 @@
     new-array v9, v1, [I
 
     .line 324
-    .local v9, session:[I
+    .local v9, "session":[I
     const/4 v1, 0x0
 
     aput p7, v9, v1
@@ -323,7 +323,7 @@
     move-result v10
 
     .line 329
-    .local v10, initResult:I
+    .local v10, "initResult":I
     if-eqz v10, :cond_2
 
     .line 330
@@ -388,7 +388,7 @@
 
 .method static synthetic access$000(Landroid/media/AudioTrack;)Landroid/os/Looper;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/AudioTrack;
 
     .prologue
     .line 61
@@ -399,7 +399,7 @@
 
 .method static synthetic access$100(Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 61
@@ -410,7 +410,7 @@
 
 .method private audioBuffSizeCheck(I)V
     .locals 5
-    .parameter "audioBufferSize"
+    .param p1, "audioBufferSize"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -430,7 +430,7 @@
     mul-int v0, v3, v1
 
     .line 476
-    .local v0, frameSizeInBytes:I
+    .local v0, "frameSizeInBytes":I
     rem-int v1, p1, v0
 
     if-nez v1, :cond_0
@@ -448,14 +448,14 @@
     throw v1
 
     .line 474
-    .end local v0           #frameSizeInBytes:I
+    .end local v0    # "frameSizeInBytes":I
     :cond_1
     const/4 v1, 0x2
 
     goto :goto_0
 
     .line 480
-    .restart local v0       #frameSizeInBytes:I
+    .restart local v0    # "frameSizeInBytes":I
     :cond_2
     iput p1, p0, Landroid/media/AudioTrack;->mNativeBufferSizeInBytes:I
 
@@ -470,11 +470,11 @@
 
 .method private audioParamCheck(IIIII)V
     .locals 4
-    .parameter "streamType"
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
-    .parameter "mode"
+    .param p1, "streamType"    # I
+    .param p2, "sampleRateInHz"    # I
+    .param p3, "channelConfig"    # I
+    .param p4, "audioFormat"    # I
+    .param p5, "mode"    # I
 
     .prologue
     const/4 v3, 0x4
@@ -682,16 +682,16 @@
 
     .prologue
     .line 523
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     return v0
 .end method
 
 .method public static getMinBufferSize(III)I
     .locals 4
-    .parameter "sampleRateInHz"
-    .parameter "channelConfig"
-    .parameter "audioFormat"
+    .param p0, "sampleRateInHz"    # I
+    .param p1, "channelConfig"    # I
+    .param p2, "audioFormat"    # I
 
     .prologue
     const/4 v1, -0x2
@@ -700,7 +700,7 @@
     const/4 v0, 0x0
 
     .line 685
-    .local v0, channelCount:I
+    .local v0, "channelCount":I
     sparse-switch p1, :sswitch_data_0
 
     .line 695
@@ -801,7 +801,7 @@
     move-result v1
 
     .line 717
-    .local v1, size:I
+    .local v1, "size":I
     if-gtz v1, :cond_0
 
     .line 718
@@ -836,7 +836,7 @@
 
 .method public static getNativeOutputSampleRate(I)I
     .locals 1
-    .parameter "streamType"
+    .param p0, "streamType"    # I
 
     .prologue
     .line 661
@@ -849,7 +849,7 @@
 
 .method private static isMultichannelConfigSupported(I)Z
     .locals 5
-    .parameter "channelConfig"
+    .param p0, "channelConfig"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -873,7 +873,7 @@
     const/16 v1, 0xc
 
     .line 449
-    .local v1, frontPair:I
+    .local v1, "frontPair":I
     and-int/lit8 v3, p0, 0xc
 
     const/16 v4, 0xc
@@ -892,7 +892,7 @@
     const/16 v0, 0xc0
 
     .line 455
-    .local v0, backPair:I
+    .local v0, "backPair":I
     and-int/lit16 v3, p0, 0xc0
 
     if-eqz v3, :cond_2
@@ -920,7 +920,7 @@
 
 .method private static logd(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 1382
@@ -934,7 +934,7 @@
 
 .method private static loge(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 1386
@@ -1029,17 +1029,17 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
     .locals 4
-    .parameter "audiotrack_ref"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p0, "audiotrack_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1300
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    .end local p0
+    .end local p0    # "audiotrack_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v3
@@ -1047,7 +1047,7 @@
     check-cast v3, Landroid/media/AudioTrack;
 
     .line 1301
-    .local v3, track:Landroid/media/AudioTrack;
+    .local v3, "track":Landroid/media/AudioTrack;
     if-nez v3, :cond_1
 
     .line 1314
@@ -1060,7 +1060,7 @@
     iget-object v0, v3, Landroid/media/AudioTrack;->mEventHandlerDelegate:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
 
     .line 1306
-    .local v0, delegate:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
+    .local v0, "delegate":Landroid/media/AudioTrack$NativeEventHandlerDelegate;
     if-eqz v0, :cond_0
 
     .line 1307
@@ -1069,7 +1069,7 @@
     move-result-object v1
 
     .line 1308
-    .local v1, handler:Landroid/os/Handler;
+    .local v1, "handler":Landroid/os/Handler;
     if-eqz v1, :cond_0
 
     .line 1309
@@ -1078,7 +1078,7 @@
     move-result-object v2
 
     .line 1310
-    .local v2, m:Landroid/os/Message;
+    .local v2, "m":Landroid/os/Message;
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     goto :goto_0
@@ -1088,7 +1088,7 @@
 # virtual methods
 .method public attachAuxEffect(I)I
     .locals 1
-    .parameter "effectId"
+    .param p1, "effectId"    # I
 
     .prologue
     .line 1175
@@ -1315,7 +1315,7 @@
 
 .method public getTimestamp(Landroid/media/AudioTimestamp;)Z
     .locals 6
-    .parameter "timestamp"
+    .param p1, "timestamp"    # Landroid/media/AudioTimestamp;
 
     .prologue
     const/4 v3, 0x1
@@ -1339,13 +1339,13 @@
     new-array v0, v4, [J
 
     .line 764
-    .local v0, longArray:[J
+    .local v0, "longArray":[J
     invoke-direct {p0, v0}, Landroid/media/AudioTrack;->native_get_timestamp([J)I
 
     move-result v1
 
     .line 765
-    .local v1, ret:I
+    .local v1, "ret":I
     if-eqz v1, :cond_1
 
     .line 770
@@ -1545,7 +1545,7 @@
 
 .method public setAuxEffectSendLevel(F)I
     .locals 1
-    .parameter "level"
+    .param p1, "level"    # F
 
     .prologue
     .line 1198
@@ -1602,9 +1602,9 @@
 
 .method public setLoopPoints(III)I
     .locals 2
-    .parameter "startInFrames"
-    .parameter "endInFrames"
-    .parameter "loopCount"
+    .param p1, "startInFrames"    # I
+    .param p2, "endInFrames"    # I
+    .param p3, "loopCount"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -1669,7 +1669,7 @@
 
 .method public setNotificationMarkerPosition(I)I
     .locals 1
-    .parameter "markerInFrames"
+    .param p1, "markerInFrames"    # I
 
     .prologue
     .line 885
@@ -1694,7 +1694,7 @@
 
 .method public setPlaybackHeadPosition(I)I
     .locals 2
-    .parameter "positionInFrames"
+    .param p1, "positionInFrames"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -1749,7 +1749,7 @@
 
 .method public setPlaybackPositionUpdateListener(Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;
 
     .prologue
     .line 785
@@ -1763,8 +1763,8 @@
 
 .method public setPlaybackPositionUpdateListener(Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;Landroid/os/Handler;)V
     .locals 1
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 798
@@ -1792,7 +1792,7 @@
 
 .method public setPlaybackRate(I)I
     .locals 2
-    .parameter "sampleRateInHz"
+    .param p1, "sampleRateInHz"    # I
 
     .prologue
     .line 865
@@ -1829,7 +1829,7 @@
 
 .method public setPositionNotificationPeriod(I)I
     .locals 1
-    .parameter "periodInFrames"
+    .param p1, "periodInFrames"    # I
 
     .prologue
     .line 898
@@ -1854,7 +1854,7 @@
 
 .method protected setState(I)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1868,8 +1868,8 @@
 
 .method public setStereoVolume(FF)I
     .locals 1
-    .parameter "leftVolume"
-    .parameter "rightVolume"
+    .param p1, "leftVolume"    # F
+    .param p2, "rightVolume"    # F
 
     .prologue
     .line 817
@@ -1956,7 +1956,7 @@
 
 .method public setVolume(F)I
     .locals 1
-    .parameter "volume"
+    .param p1, "volume"    # F
 
     .prologue
     .line 846
@@ -2026,9 +2026,9 @@
 
 .method public write([BII)I
     .locals 3
-    .parameter "audioData"
-    .parameter "offsetInBytes"
-    .parameter "sizeInBytes"
+    .param p1, "audioData"    # [B
+    .param p2, "offsetInBytes"    # I
+    .param p3, "sizeInBytes"    # I
 
     .prologue
     .line 1073
@@ -2077,7 +2077,7 @@
     move-result v0
 
     .line 1085
-    .local v0, ret:I
+    .local v0, "ret":I
     iget v1, p0, Landroid/media/AudioTrack;->mDataLoadMode:I
 
     if-nez v1, :cond_0
@@ -2100,9 +2100,9 @@
 
 .method public write([SII)I
     .locals 3
-    .parameter "audioData"
-    .parameter "offsetInShorts"
-    .parameter "sizeInShorts"
+    .param p1, "audioData"    # [S
+    .param p2, "offsetInShorts"    # I
+    .param p3, "sizeInShorts"    # I
 
     .prologue
     .line 1116
@@ -2151,7 +2151,7 @@
     move-result v0
 
     .line 1128
-    .local v0, ret:I
+    .local v0, "ret":I
     iget v1, p0, Landroid/media/AudioTrack;->mDataLoadMode:I
 
     if-nez v1, :cond_0

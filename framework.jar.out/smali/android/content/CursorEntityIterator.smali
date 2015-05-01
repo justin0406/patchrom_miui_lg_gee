@@ -15,7 +15,7 @@
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
     .locals 1
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 36
@@ -173,7 +173,7 @@
     move-exception v0
 
     .line 86
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "caught a remote exception, this process will die soon"

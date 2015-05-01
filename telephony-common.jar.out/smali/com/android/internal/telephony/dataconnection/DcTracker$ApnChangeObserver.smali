@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTracker;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 83
@@ -40,7 +39,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 3
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 89

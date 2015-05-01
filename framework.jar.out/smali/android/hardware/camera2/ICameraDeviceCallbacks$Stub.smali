@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/camera2/ICameraDeviceCallbacks;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/camera2/ICameraDeviceCallbacks;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,13 +154,13 @@
     move-result v0
 
     .line 51
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub;->onCameraError(I)V
 
     goto :goto_0
 
     .line 56
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_2
     const-string v4, "android.hardware.camera2.ICameraDeviceCallbacks"
 
@@ -183,20 +183,20 @@
     move-result v0
 
     .line 66
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
 
     .line 67
-    .local v1, _arg1:J
+    .local v1, "_arg1":J
     invoke-virtual {p0, v0, v1, v2}, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub;->onCaptureStarted(IJ)V
 
     goto :goto_0
 
     .line 72
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:J
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":J
     :sswitch_4
     const-string v4, "android.hardware.camera2.ICameraDeviceCallbacks"
 
@@ -208,7 +208,7 @@
     move-result v0
 
     .line 76
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -225,18 +225,18 @@
     check-cast v1, Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     .line 82
-    .local v1, _arg1:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    .local v1, "_arg1":Landroid/hardware/camera2/impl/CameraMetadataNative;
     :goto_1
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub;->onResultReceived(ILandroid/hardware/camera2/impl/CameraMetadataNative;)V
 
     goto :goto_0
 
     .line 80
-    .end local v1           #_arg1:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    .end local v1    # "_arg1":Landroid/hardware/camera2/impl/CameraMetadataNative;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    .restart local v1    # "_arg1":Landroid/hardware/camera2/impl/CameraMetadataNative;
     goto :goto_1
 
     .line 39

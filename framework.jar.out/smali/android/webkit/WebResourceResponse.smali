@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
     .locals 0
-    .parameter "mimeType"
-    .parameter "encoding"
-    .parameter "data"
+    .param p1, "mimeType"    # Ljava/lang/String;
+    .param p2, "encoding"    # Ljava/lang/String;
+    .param p3, "data"    # Ljava/io/InputStream;
 
     .prologue
     .line 45
@@ -69,7 +69,7 @@
 
 .method public setData(Ljava/io/InputStream;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Ljava/io/InputStream;
 
     .prologue
     .line 95
@@ -81,7 +81,7 @@
 
 .method public setEncoding(Ljava/lang/String;)V
     .locals 0
-    .parameter "encoding"
+    .param p1, "encoding"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -93,7 +93,7 @@
 
 .method public setMimeType(Ljava/lang/String;)V
     .locals 0
-    .parameter "mimeType"
+    .param p1, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 57

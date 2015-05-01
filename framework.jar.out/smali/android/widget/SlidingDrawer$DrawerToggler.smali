@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/SlidingDrawer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 947
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/SlidingDrawer;Landroid/widget/SlidingDrawer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/SlidingDrawer;
+    .param p2, "x1"    # Landroid/widget/SlidingDrawer$1;
 
     .prologue
     .line 947
@@ -51,13 +50,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 949
     iget-object v0, p0, Landroid/widget/SlidingDrawer$DrawerToggler;->this$0:Landroid/widget/SlidingDrawer;
 
-    #getter for: Landroid/widget/SlidingDrawer;->mLocked:Z
+    # getter for: Landroid/widget/SlidingDrawer;->mLocked:Z
     invoke-static {v0}, Landroid/widget/SlidingDrawer;->access$200(Landroid/widget/SlidingDrawer;)Z
 
     move-result v0
@@ -72,7 +71,7 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/SlidingDrawer$DrawerToggler;->this$0:Landroid/widget/SlidingDrawer;
 
-    #getter for: Landroid/widget/SlidingDrawer;->mAnimateOnClick:Z
+    # getter for: Landroid/widget/SlidingDrawer;->mAnimateOnClick:Z
     invoke-static {v0}, Landroid/widget/SlidingDrawer;->access$300(Landroid/widget/SlidingDrawer;)Z
 
     move-result v0

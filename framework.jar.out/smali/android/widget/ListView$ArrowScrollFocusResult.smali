@@ -33,7 +33,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/ListView$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/ListView$1;
 
     .prologue
     .line 2778
@@ -66,8 +66,8 @@
 
 .method populate(II)V
     .locals 0
-    .parameter "selectedPosition"
-    .parameter "amountToScroll"
+    .param p1, "selectedPosition"    # I
+    .param p2, "amountToScroll"    # I
 
     .prologue
     .line 2786

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/DateTimeView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 230
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 233
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 234
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -62,7 +61,7 @@
 
     iget-object v3, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
-    #getter for: Landroid/widget/DateTimeView;->mUpdateTimeMillis:J
+    # getter for: Landroid/widget/DateTimeView;->mUpdateTimeMillis:J
     invoke-static {v3}, Landroid/widget/DateTimeView;->access$000(Landroid/widget/DateTimeView;)J
 
     move-result-wide v3

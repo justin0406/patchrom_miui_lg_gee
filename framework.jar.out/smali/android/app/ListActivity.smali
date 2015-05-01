@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 241
-    .local v0, emptyView:Landroid/view/View;
+    .local v0, "emptyView":Landroid/view/View;
     const v1, 0x102000a
 
     invoke-virtual {p0, v1}, Landroid/app/ListActivity;->findViewById(I)Landroid/view/View;
@@ -233,10 +233,10 @@
 
 .method protected onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
     .locals 0
-    .parameter "l"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "l"    # Landroid/widget/ListView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 208
@@ -245,7 +245,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Bundle;
 
     .prologue
     .line 218
@@ -260,7 +260,7 @@
 
 .method public setListAdapter(Landroid/widget/ListAdapter;)V
     .locals 1
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/ListAdapter;
 
     .prologue
     .line 262
@@ -297,7 +297,7 @@
 
 .method public setSelection(I)V
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 276

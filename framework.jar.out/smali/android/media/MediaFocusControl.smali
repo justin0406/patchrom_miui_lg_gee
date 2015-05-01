@@ -27,7 +27,7 @@
 
 .field protected static final DEBUG_VOL:Z = false
 
-.field private static final ENABLED_NOTIFICATION_LISTENERS_URI:Landroid/net/Uri; = null
+.field private static final ENABLED_NOTIFICATION_LISTENERS_URI:Landroid/net/Uri;
 
 .field private static final EXTRA_WAKELOCK_ACQUIRED:Ljava/lang/String; = "android.media.AudioService.WAKELOCK_ACQUIRED"
 
@@ -211,10 +211,10 @@
 
 .method protected constructor <init>(Landroid/os/Looper;Landroid/content/Context;Landroid/media/VolumeController;Landroid/media/AudioService;)V
     .locals 10
-    .parameter "looper"
-    .parameter "cntxt"
-    .parameter "volumeCtrl"
-    .parameter "as"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "cntxt"    # Landroid/content/Context;
+    .param p3, "volumeCtrl"    # Landroid/media/VolumeController;
+    .param p4, "as"    # Landroid/media/AudioService;
 
     .prologue
     const/4 v4, 0x3
@@ -336,7 +336,7 @@
     check-cast v7, Landroid/os/PowerManager;
 
     .line 96
-    .local v7, pm:Landroid/os/PowerManager;
+    .local v7, "pm":Landroid/os/PowerManager;
     const-string v0, "handleMediaEvent"
 
     invoke-virtual {v7, v2, v0}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
@@ -376,7 +376,7 @@
     check-cast v8, Landroid/telephony/TelephonyManager;
 
     .line 104
-    .local v8, tmgr:Landroid/telephony/TelephonyManager;
+    .local v8, "tmgr":Landroid/telephony/TelephonyManager;
     iget-object v0, p0, Landroid/media/MediaFocusControl;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
     const/16 v1, 0x20
@@ -389,7 +389,7 @@
     invoke-direct {v6}, Landroid/content/IntentFilter;-><init>()V
 
     .line 109
-    .local v6, pkgFilter:Landroid/content/IntentFilter;
+    .local v6, "pkgFilter":Landroid/content/IntentFilter;
     const-string v0, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -469,8 +469,8 @@
 
 .method static synthetic access$1100(Landroid/media/MediaFocusControl;Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Landroid/content/ComponentName;
 
     .prologue
     .line 64
@@ -481,7 +481,7 @@
 
 .method static synthetic access$1200(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -492,9 +492,9 @@
 
 .method static synthetic access$1300(Landroid/media/MediaFocusControl;Landroid/media/MediaFocusControl$RemoteControlStackEntry;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .param p2, "x2"    # I
 
     .prologue
     .line 64
@@ -505,7 +505,7 @@
 
 .method static synthetic access$1400(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -516,10 +516,10 @@
 
 .method static synthetic access$1500(Landroid/media/MediaFocusControl;III)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
 
     .prologue
     .line 64
@@ -530,9 +530,9 @@
 
 .method static synthetic access$1600(Landroid/media/MediaFocusControl;ILandroid/media/IRemoteVolumeObserver;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # Landroid/media/IRemoteVolumeObserver;
 
     .prologue
     .line 64
@@ -543,10 +543,10 @@
 
 .method static synthetic access$1700(Landroid/media/MediaFocusControl;IILandroid/media/MediaFocusControl$RccPlaybackState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # Landroid/media/MediaFocusControl$RccPlaybackState;
 
     .prologue
     .line 64
@@ -557,9 +557,9 @@
 
 .method static synthetic access$1800(Landroid/media/MediaFocusControl;IJ)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # J
 
     .prologue
     .line 64
@@ -570,10 +570,10 @@
 
 .method static synthetic access$1900(Landroid/media/MediaFocusControl;IILandroid/media/Rating;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # Landroid/media/Rating;
 
     .prologue
     .line 64
@@ -584,7 +584,7 @@
 
 .method static synthetic access$200(Landroid/media/MediaFocusControl;)Landroid/media/MediaFocusControl$MediaEventHandler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -595,8 +595,8 @@
 
 .method static synthetic access$2000(Landroid/media/MediaFocusControl;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # I
 
     .prologue
     .line 64
@@ -607,10 +607,10 @@
 
 .method static synthetic access$2100(Landroid/media/MediaFocusControl;Landroid/media/IRemoteControlDisplay;II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
 
     .prologue
     .line 64
@@ -621,7 +621,7 @@
 
 .method static synthetic access$2200(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -642,8 +642,8 @@
 
 .method static synthetic access$2402(Landroid/media/MediaFocusControl;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 64
@@ -664,8 +664,8 @@
 
 .method static synthetic access$2600(Landroid/media/MediaFocusControl;Landroid/os/IBinder;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Landroid/os/IBinder;
 
     .prologue
     .line 64
@@ -676,9 +676,9 @@
 
 .method static synthetic access$2700(Landroid/media/MediaFocusControl;Ljava/lang/String;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Z
 
     .prologue
     .line 64
@@ -689,7 +689,7 @@
 
 .method static synthetic access$2800(Landroid/media/MediaFocusControl;)Landroid/os/PowerManager$WakeLock;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -700,7 +700,7 @@
 
 .method static synthetic access$2900(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -711,7 +711,7 @@
 
 .method static synthetic access$300(Landroid/media/MediaFocusControl;)Landroid/content/ContentResolver;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -736,7 +736,7 @@
 
 .method static synthetic access$3300(Landroid/media/MediaFocusControl;)Ljava/util/Stack;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -747,7 +747,7 @@
 
 .method static synthetic access$3400(Landroid/media/MediaFocusControl;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -768,7 +768,7 @@
 
 .method static synthetic access$500(Landroid/media/MediaFocusControl;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaFocusControl;
 
     .prologue
     .line 64
@@ -821,7 +821,7 @@
 
 .method private checkRcdRegistrationAuthorization(Landroid/content/ComponentName;)I
     .locals 9
-    .parameter "listenerComp"
+    .param p1, "listenerComp"    # Landroid/content/ComponentName;
 
     .prologue
     .line 173
@@ -852,14 +852,14 @@
     move-result-wide v5
 
     .line 184
-    .local v5, ident:J
+    .local v5, "ident":J
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v2
 
     .line 185
-    .local v2, currentUser:I
+    .local v2, "currentUser":I
     iget-object v7, p0, Landroid/media/MediaFocusControl;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -873,7 +873,7 @@
     move-result-object v3
 
     .line 189
-    .local v3, enabledNotifListeners:Ljava/lang/String;
+    .local v3, "enabledNotifListeners":Ljava/lang/String;
     if-eqz v3, :cond_2
 
     .line 190
@@ -884,10 +884,10 @@
     move-result-object v1
 
     .line 191
-    .local v1, components:[Ljava/lang/String;
+    .local v1, "components":[Ljava/lang/String;
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     array-length v7, v1
 
@@ -901,7 +901,7 @@
     move-result-object v0
 
     .line 194
-    .local v0, component:Landroid/content/ComponentName;
+    .local v0, "component":Landroid/content/ComponentName;
     if-eqz v0, :cond_1
 
     .line 195
@@ -928,23 +928,23 @@
     goto :goto_1
 
     .line 206
-    .end local v0           #component:Landroid/content/ComponentName;
-    .end local v1           #components:[Ljava/lang/String;
-    .end local v4           #i:I
+    .end local v0    # "component":Landroid/content/ComponentName;
+    .end local v1    # "components":[Ljava/lang/String;
+    .end local v4    # "i":I
     :cond_2
     invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     .line 210
-    .end local v2           #currentUser:I
-    .end local v3           #enabledNotifListeners:Ljava/lang/String;
-    .end local v5           #ident:J
+    .end local v2    # "currentUser":I
+    .end local v3    # "enabledNotifListeners":Ljava/lang/String;
+    .end local v5    # "ident":J
     :cond_3
     const/4 v7, 0x0
 
     goto :goto_0
 
     .line 206
-    .restart local v5       #ident:J
+    .restart local v5    # "ident":J
     :catchall_0
     move-exception v7
 
@@ -955,7 +955,7 @@
 
 .method private checkUpdateRemoteControlDisplay_syncAfRcs(I)V
     .locals 7
-    .parameter "infoChangedFlags"
+    .param p1, "infoChangedFlags"    # I
 
     .prologue
     .line 1760
@@ -988,7 +988,7 @@
     const/4 v0, 0x0
 
     .line 1775
-    .local v0, af:Landroid/media/FocusRequester;
+    .local v0, "af":Landroid/media/FocusRequester;
     :try_start_0
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
@@ -998,7 +998,7 @@
 
     add-int/lit8 v3, v4, -0x1
 
-    .local v3, index:I
+    .local v3, "index":I
     :goto_1
     if-ltz v3, :cond_3
 
@@ -1012,7 +1012,7 @@
     check-cast v2, Landroid/media/FocusRequester;
 
     .line 1777
-    .local v2, fr:Landroid/media/FocusRequester;
+    .local v2, "fr":Landroid/media/FocusRequester;
     invoke-virtual {v2}, Landroid/media/FocusRequester;->getStreamType()I
 
     move-result v4
@@ -1036,8 +1036,8 @@
     move-object v0, v2
 
     .line 1787
-    .end local v2           #fr:Landroid/media/FocusRequester;
-    .end local v3           #index:I
+    .end local v2    # "fr":Landroid/media/FocusRequester;
+    .end local v3    # "index":I
     :cond_3
     :goto_2
     if-nez v0, :cond_5
@@ -1048,21 +1048,21 @@
     goto :goto_0
 
     .line 1775
-    .restart local v2       #fr:Landroid/media/FocusRequester;
-    .restart local v3       #index:I
+    .restart local v2    # "fr":Landroid/media/FocusRequester;
+    .restart local v3    # "index":I
     :cond_4
     add-int/lit8 v3, v3, -0x1
 
     goto :goto_1
 
     .line 1783
-    .end local v2           #fr:Landroid/media/FocusRequester;
-    .end local v3           #index:I
+    .end local v2    # "fr":Landroid/media/FocusRequester;
+    .end local v3    # "index":I
     :catch_0
     move-exception v1
 
     .line 1784
-    .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string v4, "MediaFocusControl"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1091,7 +1091,7 @@
     goto :goto_2
 
     .line 1793
-    .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :cond_5
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -1146,8 +1146,8 @@
 
 .method private cleanupMediaButtonReceiverForPackage(Ljava/lang/String;Z)V
     .locals 12
-    .parameter "packageName"
-    .parameter "removeAll"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "removeAll"    # Z
 
     .prologue
     .line 1403
@@ -1181,7 +1181,7 @@
     move-result-object v2
 
     .line 1408
-    .local v2, pm:Landroid/content/pm/PackageManager;
+    .local v2, "pm":Landroid/content/pm/PackageManager;
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     invoke-virtual {v5}, Ljava/util/Stack;->peek()Ljava/lang/Object;
@@ -1191,7 +1191,7 @@
     check-cast v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1409
-    .local v1, oldTop:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v1, "oldTop":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     invoke-virtual {v5}, Ljava/util/Stack;->iterator()Ljava/util/Iterator;
@@ -1199,7 +1199,7 @@
     move-result-object v4
 
     .line 1413
-    .local v4, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v4, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_1
     :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
@@ -1216,7 +1216,7 @@
     check-cast v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1415
-    .local v3, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v3, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     if-eqz p2, :cond_2
 
     iget-object v5, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
@@ -1240,10 +1240,10 @@
     goto :goto_1
 
     .line 1447
-    .end local v1           #oldTop:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v2           #pm:Landroid/content/pm/PackageManager;
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v4           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v1    # "oldTop":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v2    # "pm":Landroid/content/pm/PackageManager;
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v4    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v5
 
@@ -1254,10 +1254,10 @@
     throw v5
 
     .line 1419
-    .restart local v1       #oldTop:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .restart local v2       #pm:Landroid/content/pm/PackageManager;
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .restart local v4       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v1    # "oldTop":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v2    # "pm":Landroid/content/pm/PackageManager;
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v4    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_2
     :try_start_1
     iget-object v5, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mReceiverComponent:Landroid/content/ComponentName;
@@ -1274,8 +1274,8 @@
 
     invoke-virtual {v2, v5, v7}, Landroid/content/pm/PackageManager;->getReceiverInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
@@ -1284,7 +1284,7 @@
     move-exception v0
 
     .line 1425
-    .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_3
     invoke-interface {v4}, Ljava/util/Iterator;->remove()V
 
@@ -1294,8 +1294,8 @@
     goto :goto_1
 
     .line 1430
-    .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_3
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -1351,7 +1351,7 @@
     check-cast v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1440
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v5, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mReceiverComponent:Landroid/content/ComponentName;
 
     if-eqz v5, :cond_4
@@ -1430,8 +1430,8 @@
 
 .method private dispatchMediaKeyEvent(Landroid/view/KeyEvent;Z)V
     .locals 16
-    .parameter "keyEvent"
-    .parameter "needWakeLock"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
+    .param p2, "needWakeLock"    # Z
 
     .prologue
     .line 802
@@ -1455,7 +1455,7 @@
     invoke-direct {v4, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 806
-    .local v4, keyIntent:Landroid/content/Intent;
+    .local v4, "keyIntent":Landroid/content/Intent;
     const-string v1, "android.intent.extra.KEY_EVENT"
 
     move-object/from16 v0, p1
@@ -1514,8 +1514,8 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 833
     :goto_1
@@ -1536,7 +1536,7 @@
     move-exception v12
 
     .line 815
-    .local v12, e:Landroid/app/PendingIntent$CanceledException;
+    .local v12, "e":Landroid/app/PendingIntent$CanceledException;
     const-string v1, "MediaFocusControl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1573,7 +1573,7 @@
     goto :goto_1
 
     .line 833
-    .end local v12           #e:Landroid/app/PendingIntent$CanceledException;
+    .end local v12    # "e":Landroid/app/PendingIntent$CanceledException;
     :catchall_0
     move-exception v1
 
@@ -1604,7 +1604,7 @@
     move-result-wide v13
 
     .line 826
-    .local v13, ident:J
+    .local v13, "ident":J
     :try_start_4
     move-object/from16 v0, p0
 
@@ -1650,8 +1650,8 @@
 
 .method private dispatchMediaKeyEventForCalls(Landroid/view/KeyEvent;Z)V
     .locals 11
-    .parameter "keyEvent"
-    .parameter "needWakeLock"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
+    .param p2, "needWakeLock"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -1664,7 +1664,7 @@
     invoke-direct {v1, v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 779
-    .local v1, keyIntent:Landroid/content/Intent;
+    .local v1, "keyIntent":Landroid/content/Intent;
     const-string v0, "android.intent.extra.KEY_EVENT"
 
     invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
@@ -1700,7 +1700,7 @@
     move-result-wide v9
 
     .line 787
-    .local v9, ident:J
+    .local v9, "ident":J
     :try_start_0
     iget-object v0, p0, Landroid/media/MediaFocusControl;->mContext:Landroid/content/Context;
 
@@ -1739,7 +1739,7 @@
 
 .method private dumpFocusStack(Ljava/io/PrintWriter;)V
     .locals 3
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 503
@@ -1761,7 +1761,7 @@
     move-result-object v0
 
     .line 506
-    .local v0, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .local v0, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1781,7 +1781,7 @@
     goto :goto_0
 
     .line 509
-    .end local v0           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .end local v0    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :catchall_0
     move-exception v1
 
@@ -1791,7 +1791,7 @@
 
     throw v1
 
-    .restart local v0       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .restart local v0    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :cond_0
     :try_start_1
     monitor-exit v2
@@ -1804,7 +1804,7 @@
 
 .method private dumpRCCStack(Ljava/io/PrintWriter;)V
     .locals 6
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 1347
@@ -1826,7 +1826,7 @@
     move-result-object v1
 
     .line 1350
-    .local v1, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v1, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1842,7 +1842,7 @@
     check-cast v0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1352
-    .local v0, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v0, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1952,8 +1952,8 @@
     goto :goto_0
 
     .line 1364
-    .end local v0           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v1           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v0    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v2
 
@@ -1964,7 +1964,7 @@
     throw v2
 
     .line 1361
-    .restart local v1       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v1    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_0
     :try_start_1
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mCurrentRcLock:Ljava/lang/Object;
@@ -2212,7 +2212,7 @@
 
 .method private dumpRCDList(Ljava/io/PrintWriter;)V
     .locals 5
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 1383
@@ -2234,7 +2234,7 @@
     move-result-object v1
 
     .line 1386
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2250,7 +2250,7 @@
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 1388
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2261,7 +2261,7 @@
 
     move-result-object v2
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v4
@@ -2276,7 +2276,7 @@
 
     move-result-object v2
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$900(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v4
@@ -2291,7 +2291,7 @@
 
     move-result-object v2
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$1000(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v4
@@ -2306,7 +2306,7 @@
 
     move-result-object v2
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$3200(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v4
@@ -2321,7 +2321,7 @@
 
     move-result-object v4
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v2
@@ -2344,8 +2344,8 @@
     goto :goto_0
 
     .line 1394
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v1           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :catchall_0
     move-exception v2
 
@@ -2356,8 +2356,8 @@
     throw v2
 
     .line 1388
-    .restart local v0       #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .restart local v1       #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .restart local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .restart local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     :try_start_1
     const-string v2, "disabled"
@@ -2365,7 +2365,7 @@
     goto :goto_1
 
     .line 1394
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :cond_1
     monitor-exit v3
     :try_end_1
@@ -2377,7 +2377,7 @@
 
 .method private dumpRCStack(Ljava/io/PrintWriter;)V
     .locals 5
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 1325
@@ -2399,7 +2399,7 @@
     move-result-object v1
 
     .line 1328
-    .local v1, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v1, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2415,7 +2415,7 @@
     check-cast v0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1330
-    .local v0, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v0, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2513,8 +2513,8 @@
     goto :goto_0
 
     .line 1338
-    .end local v0           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v1           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v0    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v2
 
@@ -2524,7 +2524,7 @@
 
     throw v2
 
-    .restart local v1       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v1    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_0
     :try_start_1
     monitor-exit v3
@@ -2537,8 +2537,8 @@
 
 .method private enableRemoteControlDisplayForClient_syncRcStack(Landroid/media/IRemoteControlDisplay;Z)V
     .locals 5
-    .parameter "rcd"
-    .parameter "enabled"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "enabled"    # Z
 
     .prologue
     .line 2120
@@ -2549,7 +2549,7 @@
     move-result-object v2
 
     .line 2121
-    .local v2, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v2, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -2566,7 +2566,7 @@
     check-cast v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2123
-    .local v1, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v1, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v3, v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
 
     if-eqz v3, :cond_0
@@ -2586,7 +2586,7 @@
     move-exception v0
 
     .line 2127
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "MediaFocusControl"
 
     const-string v4, "Error connecting RCD to client: "
@@ -2596,16 +2596,16 @@
     goto :goto_0
 
     .line 2131
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     return-void
 .end method
 
 .method private filterMediaKeyEvent(Landroid/view/KeyEvent;Z)V
     .locals 4
-    .parameter "keyEvent"
-    .parameter "needWakeLock"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
+    .param p2, "needWakeLock"    # Z
 
     .prologue
     .line 748
@@ -2752,8 +2752,8 @@
 
 .method private filterVoiceInputKeyEvent(Landroid/view/KeyEvent;Z)V
     .locals 4
-    .parameter "keyEvent"
-    .parameter "needWakeLock"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
+    .param p2, "needWakeLock"    # Z
 
     .prologue
     const/4 v2, 0x1
@@ -2762,13 +2762,13 @@
     const/4 v1, 0x1
 
     .line 860
-    .local v1, voiceButtonAction:I
+    .local v1, "voiceButtonAction":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     .line 861
-    .local v0, keyAction:I
+    .local v0, "keyAction":I
     iget-object v3, p0, Landroid/media/MediaFocusControl;->mVoiceEventLock:Ljava/lang/Object;
 
     monitor-enter v3
@@ -2900,8 +2900,8 @@
 
 .method private isComponentInStringArray(Landroid/content/ComponentName;[Ljava/lang/String;)Z
     .locals 4
-    .parameter "comp"
-    .parameter "enabledArray"
+    .param p1, "comp"    # Landroid/content/ComponentName;
+    .param p2, "enabledArray"    # [Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -2925,10 +2925,10 @@
     move-result-object v0
 
     .line 306
-    .local v0, compString:Ljava/lang/String;
+    .local v0, "compString":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     array-length v3, p2
 
@@ -2957,7 +2957,7 @@
 
 .method private isCurrentRcController(Landroid/app/PendingIntent;)Z
     .locals 1
-    .parameter "pi"
+    .param p1, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1550
@@ -3000,7 +3000,7 @@
 
 .method protected static isMediaKeyCode(I)Z
     .locals 1
-    .parameter "keyCode"
+    .param p0, "keyCode"    # I
 
     .prologue
     .line 935
@@ -3042,7 +3042,7 @@
 
 .method private static isPlaystateActive(I)Z
     .locals 1
-    .parameter "playState"
+    .param p0, "playState"    # I
 
     .prologue
     .line 2571
@@ -3076,7 +3076,7 @@
 
 .method private static isValidMediaKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyEvent"
+    .param p0, "keyEvent"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 957
@@ -3103,7 +3103,7 @@
 
 .method private static isValidVoiceInputKeyCode(I)Z
     .locals 1
-    .parameter "keyCode"
+    .param p0, "keyCode"    # I
 
     .prologue
     .line 970
@@ -3164,7 +3164,7 @@
 
 .method private onHandlePersistMediaButtonReceiver(Landroid/content/ComponentName;)V
     .locals 4
-    .parameter "receiver"
+    .param p1, "receiver"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1557
@@ -3195,9 +3195,9 @@
 
 .method private onNewPlaybackInfoForRcc(III)V
     .locals 7
-    .parameter "rccId"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "rccId"    # I
+    .param p2, "key"    # I
+    .param p3, "value"    # I
 
     .prologue
     .line 2406
@@ -3215,7 +3215,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -3229,7 +3229,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2412
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v3, p1, :cond_4
@@ -3270,8 +3270,8 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2452
     :goto_1
@@ -3281,14 +3281,14 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 2460
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :goto_2
     return-void
 
     .line 2415
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :pswitch_0
     :try_start_2
     iput p3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mPlaybackType:I
@@ -3296,19 +3296,19 @@
     .line 2416
     invoke-direct {p0}, Landroid/media/MediaFocusControl;->postReevaluateRemote()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
     .line 2455
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 2457
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_3
     const-string v3, "MediaFocusControl"
 
@@ -3317,7 +3317,7 @@
     invoke-static {v3, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 2459
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :cond_0
     monitor-exit v4
 
@@ -3333,8 +3333,8 @@
     throw v3
 
     .line 2419
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :pswitch_1
     :try_start_4
     iput p3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mPlaybackVolume:I
@@ -3344,8 +3344,8 @@
 
     monitor-enter v5
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 2421
     :try_start_5
@@ -3390,8 +3390,8 @@
 
     monitor-enter v5
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 2430
     :try_start_7
@@ -3436,8 +3436,8 @@
 
     monitor-enter v5
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     .line 2439
     :try_start_9
@@ -3477,8 +3477,8 @@
     :pswitch_4
     iput p3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mPlaybackStream:I
     :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_a .. :try_end_a} :catch_0
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     goto :goto_1
 
@@ -3501,9 +3501,9 @@
 
 .method private onNewPlaybackStateForRcc(IILandroid/media/MediaFocusControl$RccPlaybackState;)V
     .locals 6
-    .parameter "rccId"
-    .parameter "state"
-    .parameter "newState"
+    .param p1, "rccId"    # I
+    .param p2, "state"    # I
+    .param p3, "newState"    # Landroid/media/MediaFocusControl$RccPlaybackState;
 
     .prologue
     .line 2471
@@ -3521,7 +3521,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_2
 
@@ -3535,7 +3535,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2477
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v3, p1, :cond_1
@@ -3548,8 +3548,8 @@
 
     monitor-enter v5
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 2480
     :try_start_1
@@ -3586,8 +3586,8 @@
     .line 2489
     invoke-direct {p0, p1}, Landroid/media/MediaFocusControl;->postPromoteRcc(I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 2475
     :cond_1
@@ -3607,17 +3607,17 @@
     :try_start_4
     throw v3
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 2493
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 2495
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_5
     const-string v3, "MediaFocusControl"
 
@@ -3626,7 +3626,7 @@
     invoke-static {v3, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 2497
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :cond_2
     monitor-exit v4
 
@@ -3646,7 +3646,7 @@
 
 .method private onPromoteRcc(I)V
     .locals 8
-    .parameter "rccId"
+    .param p1, "rccId"    # I
 
     .prologue
     .line 1822
@@ -3703,7 +3703,7 @@
     const/4 v2, -0x1
 
     .line 1830
-    .local v2, indexToPromote:I
+    .local v2, "indexToPromote":I
     :try_start_3
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -3713,7 +3713,7 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_1
     if-ltz v1, :cond_1
 
@@ -3727,7 +3727,7 @@
     check-cast v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1832
-    .local v3, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v3, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v4, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v4, p1, :cond_3
@@ -3736,7 +3736,7 @@
     move v2, v1
 
     .line 1837
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     if-ltz v2, :cond_2
 
@@ -3750,7 +3750,7 @@
     check-cast v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1841
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     invoke-virtual {v4, v3}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3760,12 +3760,12 @@
 
     invoke-direct {p0, v4}, Landroid/media/MediaFocusControl;->checkUpdateRemoteControlDisplay_syncAfRcs(I)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 1849
-    .end local v1           #index:I
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_2
     :goto_2
     :try_start_4
@@ -3779,7 +3779,7 @@
 
     goto :goto_0
 
-    .end local v2           #indexToPromote:I
+    .end local v2    # "indexToPromote":I
     :catchall_0
     move-exception v4
 
@@ -3790,22 +3790,22 @@
     throw v4
 
     .line 1830
-    .restart local v1       #index:I
-    .restart local v2       #indexToPromote:I
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "indexToPromote":I
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_3
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     .line 1845
-    .end local v1           #index:I
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 1847
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_6
     const-string v4, "MediaFocusControl"
 
@@ -3816,8 +3816,8 @@
     goto :goto_2
 
     .line 1849
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
-    .end local v2           #indexToPromote:I
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v2    # "indexToPromote":I
     :catchall_1
     move-exception v4
 
@@ -3904,9 +3904,9 @@
 
 .method private onRcDisplayInitInfo(Landroid/media/IRemoteControlDisplay;II)V
     .locals 6
-    .parameter "newRcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "newRcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
 
     .prologue
     .line 1681
@@ -3940,8 +3940,8 @@
 
     invoke-interface {p1, v1, v4, v5}, Landroid/media/IRemoteControlDisplay;->setCurrentClientId(ILandroid/app/PendingIntent;Z)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 1693
     :try_start_3
@@ -3949,8 +3949,8 @@
 
     invoke-interface {v1, p1, p2, p3}, Landroid/media/IRemoteControlClient;->informationRequestForDisplay(Landroid/media/IRemoteControlDisplay;II)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 1702
     :cond_0
@@ -3974,7 +3974,7 @@
     move-exception v0
 
     .line 1695
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_6
     const-string v1, "MediaFocusControl"
 
@@ -3987,18 +3987,18 @@
 
     iput-object v1, p0, Landroid/media/MediaFocusControl;->mCurrentRcClient:Landroid/media/IRemoteControlClient;
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_0
 
     .line 1698
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
 
     .line 1699
-    .restart local v0       #e:Landroid/os/RemoteException;
+    .restart local v0    # "e":Landroid/os/RemoteException;
     :try_start_7
     const-string v1, "MediaFocusControl"
 
@@ -4009,7 +4009,7 @@
     goto :goto_0
 
     .line 1702
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -4033,8 +4033,8 @@
 
 .method private onRcDisplayUpdate(Landroid/media/MediaFocusControl$RemoteControlStackEntry;I)V
     .locals 6
-    .parameter "rcse"
-    .parameter "flags"
+    .param p1, "rcse"    # Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1646
@@ -4092,8 +4092,8 @@
 
     invoke-interface {v1, v4, p2}, Landroid/media/IRemoteControlClient;->onInformationRequested(II)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 1671
     :cond_0
@@ -4117,7 +4117,7 @@
     move-exception v0
 
     .line 1663
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_5
     const-string v1, "MediaFocusControl"
 
@@ -4149,7 +4149,7 @@
     goto :goto_0
 
     .line 1671
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -4179,7 +4179,7 @@
     const/4 v0, 0x0
 
     .line 2709
-    .local v0, hasRemotePlayback:Z
+    .local v0, "hasRemotePlayback":Z
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     monitor-enter v4
@@ -4193,7 +4193,7 @@
     move-result-object v2
 
     .line 2713
-    .local v2, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v2, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -4209,7 +4209,7 @@
     check-cast v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2715
-    .local v1, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v1, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v3, v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mPlaybackType:I
 
     const/4 v5, 0x1
@@ -4220,7 +4220,7 @@
     const/4 v0, 0x1
 
     .line 2720
-    .end local v1           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     monitor-exit v4
     :try_end_0
@@ -4255,7 +4255,7 @@
     return-void
 
     .line 2720
-    .end local v2           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v2    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v3
 
@@ -4267,7 +4267,7 @@
     throw v3
 
     .line 2726
-    .restart local v2       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v2    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_1
     move-exception v3
 
@@ -4289,7 +4289,7 @@
     move-result v8
 
     .line 248
-    .local v8, currentUser:I
+    .local v8, "currentUser":I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/media/MediaFocusControl;->mContext:Landroid/content/Context;
@@ -4305,7 +4305,7 @@
     move-result-object v13
 
     .line 253
-    .local v13, enabledNotifListeners:Ljava/lang/String;
+    .local v13, "enabledNotifListeners":Ljava/lang/String;
     sget-object v15, Landroid/media/MediaFocusControl;->mAudioFocusLock:Ljava/lang/Object;
 
     monitor-enter v15
@@ -4329,7 +4329,7 @@
     const/4 v12, 0x0
 
     .line 263
-    .local v12, enabledComponents:[Ljava/lang/String;
+    .local v12, "enabledComponents":[Ljava/lang/String;
     :goto_0
     :try_start_1
     move-object/from16 v0, p0
@@ -4341,7 +4341,7 @@
     move-result-object v10
 
     .line 264
-    .local v10, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v10, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     :goto_1
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
@@ -4358,8 +4358,8 @@
     check-cast v9, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 267
-    .local v9, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
+    .local v9, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$600(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/content/ComponentName;
 
     move-result-object v1
@@ -4367,14 +4367,14 @@
     if-eqz v1, :cond_0
 
     .line 268
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v14
 
     .line 269
-    .local v14, wasEnabled:Z
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
+    .local v14, "wasEnabled":Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$600(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/content/ComponentName;
 
     move-result-object v1
@@ -4385,11 +4385,11 @@
 
     move-result v1
 
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9, v1}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$702(Landroid/media/MediaFocusControl$DisplayInfoForServer;Z)Z
 
     .line 271
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -4400,12 +4400,12 @@
 
     .line 274
     :try_start_2
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v1
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v2
@@ -4413,12 +4413,12 @@
     invoke-interface {v1, v2}, Landroid/media/IRemoteControlDisplay;->setEnabled(Z)V
 
     .line 276
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v1
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v2
@@ -4428,7 +4428,7 @@
     invoke-direct {v0, v1, v2}, Landroid/media/MediaFocusControl;->enableRemoteControlDisplayForClient_syncRcStack(Landroid/media/IRemoteControlDisplay;Z)V
 
     .line 279
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$700(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v1
@@ -4444,17 +4444,17 @@
 
     const/4 v3, 0x2
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$900(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v4
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$1000(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v5
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v9}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v6
@@ -4463,8 +4463,8 @@
 
     invoke-static/range {v1 .. v7}, Landroid/media/MediaFocusControl;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
@@ -4473,7 +4473,7 @@
     move-exception v11
 
     .line 286
-    .local v11, e:Landroid/os/RemoteException;
+    .local v11, "e":Landroid/os/RemoteException;
     :try_start_3
     const-string v1, "MediaFocusControl"
 
@@ -4484,11 +4484,11 @@
     goto :goto_1
 
     .line 291
-    .end local v9           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v10           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .end local v11           #e:Landroid/os/RemoteException;
-    .end local v12           #enabledComponents:[Ljava/lang/String;
-    .end local v14           #wasEnabled:Z
+    .end local v9    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v10    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v11    # "e":Landroid/os/RemoteException;
+    .end local v12    # "enabledComponents":[Ljava/lang/String;
+    .end local v14    # "wasEnabled":Z
     :catchall_0
     move-exception v1
 
@@ -4518,11 +4518,11 @@
 
     move-result-object v12
 
-    .restart local v12       #enabledComponents:[Ljava/lang/String;
+    .restart local v12    # "enabledComponents":[Ljava/lang/String;
     goto :goto_0
 
     .line 291
-    .restart local v10       #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .restart local v10    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_2
     monitor-exit v16
     :try_end_5
@@ -4540,8 +4540,8 @@
 
 .method private onRegisterVolumeObserverForRcc(ILandroid/media/IRemoteVolumeObserver;)V
     .locals 6
-    .parameter "rccId"
-    .parameter "rvo"
+    .param p1, "rccId"    # I
+    .param p2, "rvo"    # Landroid/media/IRemoteVolumeObserver;
 
     .prologue
     .line 2507
@@ -4559,7 +4559,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -4573,7 +4573,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2514
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v3, p1, :cond_1
@@ -4581,12 +4581,12 @@
     .line 2515
     iput-object p2, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRemoteVolumeObs:Landroid/media/IRemoteVolumeObserver;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2523
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_0
     :goto_1
     :try_start_1
@@ -4596,21 +4596,21 @@
     return-void
 
     .line 2512
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 2519
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 2521
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string v3, "MediaFocusControl"
 
     const-string v5, "Wrong index accessing media button stack, lock error? "
@@ -4620,7 +4620,7 @@
     goto :goto_1
 
     .line 2523
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catchall_0
     move-exception v3
 
@@ -4633,8 +4633,8 @@
 
 .method private onSetRemoteControlClientPlaybackPosition(IJ)V
     .locals 6
-    .parameter "generationId"
-    .parameter "timeMs"
+    .param p1, "generationId"    # I
+    .param p2, "timeMs"    # J
 
     .prologue
     .line 2352
@@ -4668,8 +4668,8 @@
 
     invoke-interface {v1, p1, p2, p3}, Landroid/media/IRemoteControlClient;->seekTo(IJ)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 2363
     :cond_0
@@ -4693,7 +4693,7 @@
     move-exception v0
 
     .line 2359
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_5
     const-string v1, "MediaFocusControl"
 
@@ -4725,7 +4725,7 @@
     goto :goto_0
 
     .line 2363
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -4749,9 +4749,9 @@
 
 .method private onUpdateRemoteControlClientMetadata(IILandroid/media/Rating;)V
     .locals 6
-    .parameter "genId"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "genId"    # I
+    .param p2, "key"    # I
+    .param p3, "value"    # Landroid/media/Rating;
 
     .prologue
     .line 2375
@@ -4816,8 +4816,8 @@
 
     invoke-static {v1, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 2393
     :cond_0
@@ -4843,8 +4843,8 @@
 
     invoke-interface {v1, p1, p2, p3}, Landroid/media/IRemoteControlClient;->updateMetadata(IILandroid/media/Rating;)V
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto :goto_0
 
@@ -4853,7 +4853,7 @@
     move-exception v0
 
     .line 2389
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_6
     const-string v1, "MediaFocusControl"
 
@@ -4869,7 +4869,7 @@
     goto :goto_0
 
     .line 2393
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -4901,7 +4901,7 @@
 
 .method private plugRemoteControlDisplaysIntoClient_syncRcStack(Landroid/media/IRemoteControlClient;)V
     .locals 6
-    .parameter "rcc"
+    .param p1, "rcc"    # Landroid/media/IRemoteControlClient;
 
     .prologue
     .line 2101
@@ -4912,7 +4912,7 @@
     move-result-object v1
 
     .line 2102
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -4929,19 +4929,19 @@
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 2105
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :try_start_0
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v3
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$900(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v4
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$1000(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v5
@@ -4949,7 +4949,7 @@
     invoke-interface {p1, v3, v4, v5}, Landroid/media/IRemoteControlClient;->plugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;II)V
 
     .line 2107
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$3200(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Z
 
     move-result v3
@@ -4957,7 +4957,7 @@
     if-eqz v3, :cond_0
 
     .line 2108
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v3
@@ -4975,7 +4975,7 @@
     move-exception v2
 
     .line 2111
-    .local v2, e:Landroid/os/RemoteException;
+    .local v2, "e":Landroid/os/RemoteException;
     const-string v3, "MediaFocusControl"
 
     const-string v4, "Error connecting RCD to RCC in RCC registration"
@@ -4985,15 +4985,15 @@
     goto :goto_0
 
     .line 2114
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v2           #e:Landroid/os/RemoteException;
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v2    # "e":Landroid/os/RemoteException;
     :cond_1
     return-void
 .end method
 
 .method private postPromoteRcc(I)V
     .locals 7
-    .parameter "rccId"
+    .param p1, "rccId"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -5069,7 +5069,7 @@
 
 .method private propagateFocusLossFromGain_syncAf(I)V
     .locals 2
-    .parameter "focusGain"
+    .param p1, "focusGain"    # I
 
     .prologue
     .line 490
@@ -5080,7 +5080,7 @@
     move-result-object v0
 
     .line 491
-    .local v0, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .local v0, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -5106,9 +5106,9 @@
 
 .method private pushMediaButtonReceiver_syncAfRcs(Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/os/IBinder;)Z
     .locals 10
-    .parameter "mediaIntent"
-    .parameter "target"
-    .parameter "token"
+    .param p1, "mediaIntent"    # Landroid/app/PendingIntent;
+    .param p2, "target"    # Landroid/content/ComponentName;
+    .param p3, "token"    # Landroid/os/IBinder;
 
     .prologue
     const/4 v6, 0x0
@@ -5174,11 +5174,11 @@
     const/4 v3, 0x0
 
     .line 1492
-    .local v3, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v3, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     const/4 v4, 0x0
 
     .line 1494
-    .local v4, wasInsideStack:Z
+    .local v4, "wasInsideStack":Z
     :try_start_0
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -5188,7 +5188,7 @@
 
     add-int/lit8 v2, v5, -0x1
 
-    .local v2, index:I
+    .local v2, "index":I
     :goto_1
     if-ltz v2, :cond_2
 
@@ -5225,7 +5225,7 @@
     const/4 v4, 0x1
 
     .line 1507
-    .end local v2           #index:I
+    .end local v2    # "index":I
     :cond_2
     :goto_2
     if-nez v4, :cond_3
@@ -5233,11 +5233,11 @@
     .line 1508
     new-instance v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     invoke-direct {v3, p0, p1, p2, p3}, Landroid/media/MediaFocusControl$RemoteControlStackEntry;-><init>(Landroid/media/MediaFocusControl;Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
     .line 1510
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_3
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -5264,19 +5264,19 @@
     goto :goto_0
 
     .line 1494
-    .restart local v2       #index:I
+    .restart local v2    # "index":I
     :cond_5
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
     .line 1503
-    .end local v2           #index:I
+    .end local v2    # "index":I
     :catch_0
     move-exception v1
 
     .line 1505
-    .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string v5, "MediaFocusControl"
 
     const-string v7, "Wrong index accessing media button stack, lock error? "
@@ -5288,7 +5288,7 @@
 
 .method private rcDisplayIsPluggedIn_syncRcStack(Landroid/media/IRemoteControlDisplay;)Z
     .locals 4
-    .parameter "rcd"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
 
     .prologue
     .line 2139
@@ -5299,7 +5299,7 @@
     move-result-object v1
 
     .line 2140
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -5315,8 +5315,8 @@
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 2142
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v2
@@ -5339,7 +5339,7 @@
     const/4 v2, 0x1
 
     .line 2146
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :goto_0
     return v2
 
@@ -5351,10 +5351,10 @@
 
 .method private registerRemoteControlDisplay_int(Landroid/media/IRemoteControlDisplay;IILandroid/content/ComponentName;)V
     .locals 17
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
-    .parameter "listenerComp"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
+    .param p4, "listenerComp"    # Landroid/content/ComponentName;
 
     .prologue
     .line 2165
@@ -5415,16 +5415,16 @@
     invoke-direct {v11, v0, v1, v2, v3}, Landroid/media/MediaFocusControl$DisplayInfoForServer;-><init>(Landroid/media/MediaFocusControl;Landroid/media/IRemoteControlDisplay;II)V
 
     .line 2171
-    .local v11, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .local v11, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     const/4 v4, 0x1
 
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
     invoke-static {v11, v4}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$702(Landroid/media/MediaFocusControl$DisplayInfoForServer;Z)Z
 
     .line 2172
     move-object/from16 v0, p4
 
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
     invoke-static {v11, v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$602(Landroid/media/MediaFocusControl$DisplayInfoForServer;Landroid/content/ComponentName;)Landroid/content/ComponentName;
 
     .line 2173
@@ -5445,7 +5445,7 @@
     goto :goto_0
 
     .line 2201
-    .end local v11           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v11    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :catchall_0
     move-exception v4
 
@@ -5456,7 +5456,7 @@
     throw v4
 
     .line 2178
-    .restart local v11       #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .restart local v11    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :cond_2
     :try_start_5
     move-object/from16 v0, p0
@@ -5475,7 +5475,7 @@
     move-result-object v14
 
     .line 2183
-    .local v14, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v14, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_3
     :goto_1
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
@@ -5492,7 +5492,7 @@
     check-cast v13, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2185
-    .local v13, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v13, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v4, v13, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
@@ -5511,8 +5511,8 @@
 
     invoke-interface {v4, v0, v1, v2}, Landroid/media/IRemoteControlClient;->plugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;II)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     goto :goto_1
 
@@ -5521,7 +5521,7 @@
     move-exception v12
 
     .line 2189
-    .local v12, e:Landroid/os/RemoteException;
+    .local v12, "e":Landroid/os/RemoteException;
     :try_start_7
     const-string v4, "MediaFocusControl"
 
@@ -5532,10 +5532,10 @@
     goto :goto_1
 
     .line 2200
-    .end local v11           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v12           #e:Landroid/os/RemoteException;
-    .end local v13           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v14           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v11    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v12    # "e":Landroid/os/RemoteException;
+    .end local v13    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v14    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_1
     move-exception v4
 
@@ -5549,8 +5549,8 @@
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     .line 2197
-    .restart local v11       #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .restart local v14       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v11    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .restart local v14    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_4
     :try_start_9
     move-object/from16 v0, p0
@@ -5587,8 +5587,8 @@
 
 .method private removeFocusStackEntry(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "clientToRemove"
-    .parameter "signal"
+    .param p1, "clientToRemove"    # Ljava/lang/String;
+    .param p2, "signal"    # Z
 
     .prologue
     .line 522
@@ -5624,7 +5624,7 @@
     check-cast v0, Landroid/media/FocusRequester;
 
     .line 526
-    .local v0, fr:Landroid/media/FocusRequester;
+    .local v0, "fr":Landroid/media/FocusRequester;
     invoke-virtual {v0}, Landroid/media/FocusRequester;->release()V
 
     .line 527
@@ -5648,12 +5648,12 @@
     monitor-exit v3
 
     .line 551
-    .end local v0           #fr:Landroid/media/FocusRequester;
+    .end local v0    # "fr":Landroid/media/FocusRequester;
     :cond_0
     return-void
 
     .line 533
-    .restart local v0       #fr:Landroid/media/FocusRequester;
+    .restart local v0    # "fr":Landroid/media/FocusRequester;
     :catchall_0
     move-exception v2
 
@@ -5664,7 +5664,7 @@
     throw v2
 
     .line 540
-    .end local v0           #fr:Landroid/media/FocusRequester;
+    .end local v0    # "fr":Landroid/media/FocusRequester;
     :cond_1
     iget-object v2, p0, Landroid/media/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
@@ -5673,7 +5673,7 @@
     move-result-object v1
 
     .line 541
-    .local v1, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .local v1, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :cond_2
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -5690,7 +5690,7 @@
     check-cast v0, Landroid/media/FocusRequester;
 
     .line 543
-    .restart local v0       #fr:Landroid/media/FocusRequester;
+    .restart local v0    # "fr":Landroid/media/FocusRequester;
     invoke-virtual {v0, p1}, Landroid/media/FocusRequester;->hasSameClient(Ljava/lang/String;)Z
 
     move-result v2
@@ -5731,7 +5731,7 @@
 
 .method private removeFocusStackEntryForClient(Landroid/os/IBinder;)V
     .locals 6
-    .parameter "cb"
+    .param p1, "cb"    # Landroid/os/IBinder;
 
     .prologue
     .line 560
@@ -5760,7 +5760,7 @@
     const/4 v1, 0x1
 
     .line 564
-    .local v1, isTopOfStackForClientToRemove:Z
+    .local v1, "isTopOfStackForClientToRemove":Z
     :goto_0
     iget-object v3, p0, Landroid/media/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
@@ -5769,7 +5769,7 @@
     move-result-object v2
 
     .line 565
-    .local v2, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .local v2, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :cond_0
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -5786,7 +5786,7 @@
     check-cast v0, Landroid/media/FocusRequester;
 
     .line 567
-    .local v0, fr:Landroid/media/FocusRequester;
+    .local v0, "fr":Landroid/media/FocusRequester;
     invoke-virtual {v0, p1}, Landroid/media/FocusRequester;->hasSameBinder(Landroid/os/IBinder;)Z
 
     move-result v3
@@ -5822,17 +5822,17 @@
     goto :goto_1
 
     .line 560
-    .end local v0           #fr:Landroid/media/FocusRequester;
-    .end local v1           #isTopOfStackForClientToRemove:Z
-    .end local v2           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .end local v0    # "fr":Landroid/media/FocusRequester;
+    .end local v1    # "isTopOfStackForClientToRemove":Z
+    .end local v2    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
     .line 573
-    .restart local v1       #isTopOfStackForClientToRemove:Z
-    .restart local v2       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
+    .restart local v1    # "isTopOfStackForClientToRemove":Z
+    .restart local v2    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/FocusRequester;>;"
     :cond_2
     if-eqz v1, :cond_3
 
@@ -5870,7 +5870,7 @@
 
 .method private removeMediaButtonReceiver_syncAfRcs(Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "pi"
+    .param p1, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1530
@@ -5883,7 +5883,7 @@
 
     add-int/lit8 v1, v3, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -5897,7 +5897,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1532
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v3, p1}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
@@ -5917,28 +5917,28 @@
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1543
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_0
     :goto_1
     return-void
 
     .line 1530
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 1539
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 1541
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string v3, "MediaFocusControl"
 
     const-string v4, "Wrong index accessing media button stack, lock error? "
@@ -5950,13 +5950,13 @@
 
 .method private static sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     .locals 3
-    .parameter "handler"
-    .parameter "msg"
-    .parameter "existingMsgPolicy"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
-    .parameter "delay"
+    .param p0, "handler"    # Landroid/os/Handler;
+    .param p1, "msg"    # I
+    .param p2, "existingMsgPolicy"    # I
+    .param p3, "arg1"    # I
+    .param p4, "arg2"    # I
+    .param p5, "obj"    # Ljava/lang/Object;
+    .param p6, "delay"    # I
 
     .prologue
     .line 345
@@ -5996,8 +5996,8 @@
 
 .method private sendSimulatedMediaButtonEvent(Landroid/view/KeyEvent;Z)V
     .locals 2
-    .parameter "originalKeyEvent"
-    .parameter "needWakeLock"
+    .param p1, "originalKeyEvent"    # Landroid/view/KeyEvent;
+    .param p2, "needWakeLock"    # Z
 
     .prologue
     .line 903
@@ -6008,7 +6008,7 @@
     move-result-object v0
 
     .line 904
-    .local v0, keyEvent:Landroid/view/KeyEvent;
+    .local v0, "keyEvent":Landroid/view/KeyEvent;
     invoke-direct {p0, v0, p2}, Landroid/media/MediaFocusControl;->dispatchMediaKeyEvent(Landroid/view/KeyEvent;Z)V
 
     .line 906
@@ -6027,8 +6027,8 @@
 
 .method private sendVolumeUpdateToRemote(II)V
     .locals 7
-    .parameter "rccId"
-    .parameter "direction"
+    .param p1, "rccId"    # I
+    .param p2, "direction"    # I
 
     .prologue
     .line 2609
@@ -6044,7 +6044,7 @@
     const/4 v3, 0x0
 
     .line 2614
-    .local v3, rvo:Landroid/media/IRemoteVolumeObserver;
+    .local v3, "rvo":Landroid/media/IRemoteVolumeObserver;
     iget-object v5, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     monitor-enter v5
@@ -6059,7 +6059,7 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_1
     if-ltz v1, :cond_2
 
@@ -6073,7 +6073,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2622
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v4, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v4, p1, :cond_3
@@ -6081,12 +6081,12 @@
     .line 2623
     iget-object v3, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRemoteVolumeObs:Landroid/media/IRemoteVolumeObserver;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2631
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_2
     :goto_2
     :try_start_1
@@ -6112,7 +6112,7 @@
     move-exception v0
 
     .line 2636
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v4, "MediaFocusControl"
 
     const-string v5, "Error dispatching relative volume update"
@@ -6122,22 +6122,22 @@
     goto :goto_0
 
     .line 2619
-    .end local v0           #e:Landroid/os/RemoteException;
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_3
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     .line 2627
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_1
     move-exception v0
 
     .line 2629
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_3
     const-string v4, "MediaFocusControl"
 
@@ -6148,7 +6148,7 @@
     goto :goto_2
 
     .line 2631
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catchall_0
     move-exception v4
 
@@ -6161,7 +6161,7 @@
 
 .method private setNewRcClientGenerationOnClients_syncRcsCurrc(I)V
     .locals 5
-    .parameter "newClientGeneration"
+    .param p1, "newClientGeneration"    # I
 
     .prologue
     .line 1595
@@ -6172,7 +6172,7 @@
     move-result-object v2
 
     .line 1596
-    .local v2, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v2, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -6189,7 +6189,7 @@
     check-cast v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1598
-    .local v1, se:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v1, "se":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     if-eqz v1, :cond_0
 
     iget-object v3, v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
@@ -6211,7 +6211,7 @@
     move-exception v0
 
     .line 1602
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "MediaFocusControl"
 
     const-string v4, "Dead client in setNewRcClientGenerationOnClients_syncRcsCurrc()"
@@ -6227,17 +6227,17 @@
     goto :goto_0
 
     .line 1608
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #se:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "se":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     return-void
 .end method
 
 .method private setNewRcClientOnDisplays_syncRcsCurrc(ILandroid/app/PendingIntent;Z)V
     .locals 6
-    .parameter "newClientGeneration"
-    .parameter "newMediaIntent"
-    .parameter "clearing"
+    .param p1, "newClientGeneration"    # I
+    .param p2, "newMediaIntent"    # Landroid/app/PendingIntent;
+    .param p3, "clearing"    # Z
 
     .prologue
     .line 1571
@@ -6263,7 +6263,7 @@
     move-result-object v1
 
     .line 1574
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -6281,17 +6281,17 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1577
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :try_start_1
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v3
 
     invoke-interface {v3, p1, p2, p3}, Landroid/media/IRemoteControlDisplay;->setCurrentClientId(ILandroid/app/PendingIntent;Z)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -6300,7 +6300,7 @@
     move-exception v2
 
     .line 1580
-    .local v2, e:Landroid/os/RemoteException;
+    .local v2, "e":Landroid/os/RemoteException;
     :try_start_2
     const-string v3, "MediaFocusControl"
 
@@ -6317,9 +6317,9 @@
     goto :goto_0
 
     .line 1586
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v1           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .end local v2           #e:Landroid/os/RemoteException;
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v2    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
 
@@ -6341,9 +6341,9 @@
 
 .method private setNewRcClient_syncRcsCurrc(ILandroid/app/PendingIntent;Z)V
     .locals 0
-    .parameter "newClientGeneration"
-    .parameter "newMediaIntent"
-    .parameter "clearing"
+    .param p1, "newClientGeneration"    # I
+    .param p2, "newMediaIntent"    # Landroid/app/PendingIntent;
+    .param p3, "clearing"    # Z
 
     .prologue
     .line 1621
@@ -6358,7 +6358,7 @@
 
 .method private startVoiceBasedInteractions(Z)V
     .locals 10
-    .parameter "needWakeLock"
+    .param p1, "needWakeLock"    # Z
 
     .prologue
     const/4 v6, 0x1
@@ -6369,7 +6369,7 @@
     const/4 v5, 0x0
 
     .line 986
-    .local v5, voiceIntent:Landroid/content/Intent;
+    .local v5, "voiceIntent":Landroid/content/Intent;
     iget-object v8, p0, Landroid/media/MediaFocusControl;->mContext:Landroid/content/Context;
 
     const-string/jumbo v9, "power"
@@ -6381,7 +6381,7 @@
     check-cast v4, Landroid/os/PowerManager;
 
     .line 987
-    .local v4, pm:Landroid/os/PowerManager;
+    .local v4, "pm":Landroid/os/PowerManager;
     iget-object v8, p0, Landroid/media/MediaFocusControl;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     if-eqz v8, :cond_3
@@ -6397,7 +6397,7 @@
     move v3, v6
 
     .line 988
-    .local v3, isLocked:Z
+    .local v3, "isLocked":Z
     :goto_0
     if-nez v3, :cond_4
 
@@ -6410,13 +6410,13 @@
     .line 989
     new-instance v5, Landroid/content/Intent;
 
-    .end local v5           #voiceIntent:Landroid/content/Intent;
+    .end local v5    # "voiceIntent":Landroid/content/Intent;
     const-string v6, "android.speech.action.WEB_SEARCH"
 
     invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 990
-    .restart local v5       #voiceIntent:Landroid/content/Intent;
+    .restart local v5    # "voiceIntent":Landroid/content/Intent;
     const-string v6, "MediaFocusControl"
 
     const-string/jumbo v7, "voice-based interactions: about to use ACTION_WEB_SEARCH"
@@ -6439,11 +6439,11 @@
     move-result-wide v1
 
     .line 1003
-    .local v1, identity:J
+    .local v1, "identity":J
     if-eqz v5, :cond_1
 
     .line 1004
-    const/high16 v6, 0x1080
+    const/high16 v6, 0x10800000
 
     :try_start_0
     invoke-virtual {v5, v6}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
@@ -6455,8 +6455,8 @@
 
     invoke-virtual {v6, v5, v7}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1011
     :cond_1
@@ -6475,8 +6475,8 @@
     :goto_2
     return-void
 
-    .end local v1           #identity:J
-    .end local v3           #isLocked:Z
+    .end local v1    # "identity":J
+    .end local v3    # "isLocked":Z
     :cond_3
     move v3, v7
 
@@ -6484,17 +6484,17 @@
     goto :goto_0
 
     .line 992
-    .restart local v3       #isLocked:Z
+    .restart local v3    # "isLocked":Z
     :cond_4
     new-instance v5, Landroid/content/Intent;
 
-    .end local v5           #voiceIntent:Landroid/content/Intent;
+    .end local v5    # "voiceIntent":Landroid/content/Intent;
     const-string v8, "android.speech.action.VOICE_SEARCH_HANDS_FREE"
 
     invoke-direct {v5, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 993
-    .restart local v5       #voiceIntent:Landroid/content/Intent;
+    .restart local v5    # "voiceIntent":Landroid/content/Intent;
     const-string v8, "android.speech.extras.EXTRA_SECURE"
 
     if-eqz v3, :cond_5
@@ -6526,12 +6526,12 @@
     goto :goto_3
 
     .line 1008
-    .restart local v1       #identity:J
+    .restart local v1    # "identity":J
     :catch_0
     move-exception v0
 
     .line 1009
-    .local v0, e:Landroid/content/ActivityNotFoundException;
+    .local v0, "e":Landroid/content/ActivityNotFoundException;
     :try_start_1
     const-string v6, "MediaFocusControl"
 
@@ -6571,7 +6571,7 @@
     goto :goto_2
 
     .line 1011
-    .end local v0           #e:Landroid/content/ActivityNotFoundException;
+    .end local v0    # "e":Landroid/content/ActivityNotFoundException;
     :catchall_0
     move-exception v6
 
@@ -6591,7 +6591,7 @@
 
 .method private updateRemoteControlDisplay_syncAfRcs(I)V
     .locals 6
-    .parameter "infoChangedFlags"
+    .param p1, "infoChangedFlags"    # I
 
     .prologue
     .line 1727
@@ -6604,11 +6604,11 @@
     check-cast v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1728
-    .local v1, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v1, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     move v0, p1
 
     .line 1731
-    .local v0, infoFlagsAboutToBeUsed:I
+    .local v0, "infoFlagsAboutToBeUsed":I
     iget-object v2, v1, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
 
     if-nez v2, :cond_0
@@ -6690,8 +6690,8 @@
 # virtual methods
 .method protected abandonAudioFocus(Landroid/media/IAudioFocusDispatcher;Ljava/lang/String;)I
     .locals 5
-    .parameter "fl"
-    .parameter "clientId"
+    .param p1, "fl"    # Landroid/media/IAudioFocusDispatcher;
+    .param p2, "clientId"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -6758,7 +6758,7 @@
     move-exception v0
 
     .line 710
-    .local v0, cme:Ljava/util/ConcurrentModificationException;
+    .local v0, "cme":Ljava/util/ConcurrentModificationException;
     const-string v1, "MediaFocusControl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6789,20 +6789,20 @@
 
 .method protected adjustRemoteVolume(III)V
     .locals 4
-    .parameter "streamType"
-    .parameter "direction"
-    .parameter "flags"
+    .param p1, "streamType"    # I
+    .param p2, "direction"    # I
+    .param p3, "flags"    # I
 
     .prologue
     .line 2585
     const/4 v0, -0x1
 
     .line 2586
-    .local v0, rccId:I
+    .local v0, "rccId":I
     const/4 v1, 0x0
 
     .line 2587
-    .local v1, volFixed:Z
+    .local v1, "volFixed":Z
     iget-object v3, p0, Landroid/media/MediaFocusControl;->mMainRemote:Landroid/media/MediaFocusControl$RemotePlaybackState;
 
     monitor-enter v3
@@ -6875,7 +6875,7 @@
 
 .method protected checkUpdateRemoteStateIfActive(I)Z
     .locals 9
-    .parameter "streamType"
+    .param p1, "streamType"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -6897,7 +6897,7 @@
 
     add-int/lit8 v1, v6, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -6911,7 +6911,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2538
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v6, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mPlaybackType:I
 
     if-ne v6, v3, :cond_1
@@ -6935,8 +6935,8 @@
 
     monitor-enter v6
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 2544
     :try_start_1
@@ -6984,14 +6984,14 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 2561
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :goto_1
     return v3
 
     .line 2549
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catchall_0
     move-exception v3
 
@@ -7003,17 +7003,17 @@
     :try_start_4
     throw v3
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 2553
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 2555
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_5
     const-string v3, "MediaFocusControl"
 
@@ -7022,7 +7022,7 @@
     invoke-static {v3, v6, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 2557
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :cond_0
     monitor-exit v5
     :try_end_5
@@ -7050,16 +7050,16 @@
     goto :goto_1
 
     .line 2536
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 2557
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catchall_1
     move-exception v3
 
@@ -7111,7 +7111,7 @@
     check-cast v0, Landroid/media/FocusRequester;
 
     .line 464
-    .local v0, exFocusOwner:Landroid/media/FocusRequester;
+    .local v0, "exFocusOwner":Landroid/media/FocusRequester;
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/media/FocusRequester;->handleFocusLoss(I)V
@@ -7136,7 +7136,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 471
-    .end local v0           #exFocusOwner:Landroid/media/FocusRequester;
+    .end local v0    # "exFocusOwner":Landroid/media/FocusRequester;
     :cond_0
     :try_start_2
     monitor-exit v2
@@ -7147,7 +7147,7 @@
     return-void
 
     .line 469
-    .restart local v0       #exFocusOwner:Landroid/media/FocusRequester;
+    .restart local v0    # "exFocusOwner":Landroid/media/FocusRequester;
     :catchall_0
     move-exception v1
 
@@ -7160,7 +7160,7 @@
     throw v1
 
     .line 471
-    .end local v0           #exFocusOwner:Landroid/media/FocusRequester;
+    .end local v0    # "exFocusOwner":Landroid/media/FocusRequester;
     :catchall_1
     move-exception v1
 
@@ -7173,7 +7173,7 @@
 
 .method protected dispatchMediaKeyEvent(Landroid/view/KeyEvent;)V
     .locals 1
-    .parameter "keyEvent"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 734
@@ -7187,7 +7187,7 @@
 
 .method protected dispatchMediaKeyEventUnderWakelock(Landroid/view/KeyEvent;)V
     .locals 1
-    .parameter "keyEvent"
+    .param p1, "keyEvent"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 743
@@ -7201,7 +7201,7 @@
 
 .method protected dump(Ljava/io/PrintWriter;)V
     .locals 0
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 127
@@ -7374,11 +7374,11 @@
 
 .method public onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .parameter "pendingIntent"
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "resultData"
-    .parameter "resultExtras"
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "resultCode"    # I
+    .param p4, "resultData"    # Ljava/lang/String;
+    .param p5, "resultExtras"    # Landroid/os/Bundle;
 
     .prologue
     .line 1026
@@ -7398,7 +7398,7 @@
 
 .method protected registerMediaButtonEventReceiverForCalls(Landroid/content/ComponentName;)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # Landroid/content/ComponentName;
 
     .prologue
     .line 1896
@@ -7450,9 +7450,9 @@
 
 .method protected registerMediaButtonIntent(Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .parameter "mediaIntent"
-    .parameter "eventReceiver"
-    .parameter "token"
+    .param p1, "mediaIntent"    # Landroid/app/PendingIntent;
+    .param p2, "eventReceiver"    # Landroid/content/ComponentName;
+    .param p3, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 1859
@@ -7544,16 +7544,16 @@
 
 .method protected registerRemoteControlClient(Landroid/app/PendingIntent;Landroid/media/IRemoteControlClient;Ljava/lang/String;)I
     .locals 11
-    .parameter "mediaIntent"
-    .parameter "rcClient"
-    .parameter "callingPackageName"
+    .param p1, "mediaIntent"    # Landroid/app/PendingIntent;
+    .param p2, "rcClient"    # Landroid/media/IRemoteControlClient;
+    .param p3, "callingPackageName"    # Ljava/lang/String;
 
     .prologue
     .line 1930
     const/4 v3, -0x1
 
     .line 1931
-    .local v3, rccId:I
+    .local v3, "rccId":I
     sget-object v7, Landroid/media/MediaFocusControl;->mAudioFocusLock:Ljava/lang/Object;
 
     monitor-enter v7
@@ -7576,7 +7576,7 @@
 
     add-int/lit8 v2, v6, -0x1
 
-    .local v2, index:I
+    .local v2, "index":I
     :goto_0
     if-ltz v2, :cond_1
 
@@ -7590,7 +7590,7 @@
     check-cast v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 1937
-    .local v5, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v5, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v6, v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v6, p1}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
@@ -7627,12 +7627,12 @@
     .line 1949
     invoke-virtual {v5}, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->resetPlaybackInfo()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1981
-    .end local v2           #index:I
-    .end local v5           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v2    # "index":I
+    .end local v5    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_1
     :goto_1
     :try_start_2
@@ -7663,8 +7663,8 @@
     return v3
 
     .line 1952
-    .restart local v2       #index:I
-    .restart local v5       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v2    # "index":I
+    .restart local v5    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_3
     :try_start_4
     iget v3, v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
@@ -7692,47 +7692,47 @@
     move-result-object v0
 
     .line 1961
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     new-instance v4, Landroid/media/MediaFocusControl$RcClientDeathHandler;
 
     iget-object v6, v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-direct {v4, p0, v0, v6}, Landroid/media/MediaFocusControl$RcClientDeathHandler;-><init>(Landroid/media/MediaFocusControl;Landroid/os/IBinder;Landroid/app/PendingIntent;)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 1964
-    .local v4, rcdh:Landroid/media/MediaFocusControl$RcClientDeathHandler;
+    .local v4, "rcdh":Landroid/media/MediaFocusControl$RcClientDeathHandler;
     const/4 v6, 0x0
 
     :try_start_5
     invoke-interface {v0, v4, v6}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 1970
     :goto_2
     :try_start_6
     iput-object v4, v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/MediaFocusControl$RcClientDeathHandler;
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_1
 
     .line 1974
-    .end local v0           #b:Landroid/os/IBinder;
-    .end local v2           #index:I
-    .end local v4           #rcdh:Landroid/media/MediaFocusControl$RcClientDeathHandler;
-    .end local v5           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v0    # "b":Landroid/os/IBinder;
+    .end local v2    # "index":I
+    .end local v4    # "rcdh":Landroid/media/MediaFocusControl$RcClientDeathHandler;
+    .end local v5    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v1
 
     .line 1976
-    .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_7
     const-string v6, "MediaFocusControl"
 
@@ -7743,7 +7743,7 @@
     goto :goto_1
 
     .line 1984
-    .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catchall_0
     move-exception v6
 
@@ -7765,15 +7765,15 @@
     throw v6
 
     .line 1965
-    .restart local v0       #b:Landroid/os/IBinder;
-    .restart local v2       #index:I
-    .restart local v4       #rcdh:Landroid/media/MediaFocusControl$RcClientDeathHandler;
-    .restart local v5       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v0    # "b":Landroid/os/IBinder;
+    .restart local v2    # "index":I
+    .restart local v4    # "rcdh":Landroid/media/MediaFocusControl$RcClientDeathHandler;
+    .restart local v5    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_1
     move-exception v1
 
     .line 1967
-    .local v1, e:Landroid/os/RemoteException;
+    .local v1, "e":Landroid/os/RemoteException;
     :try_start_9
     const-string v6, "MediaFocusControl"
 
@@ -7802,15 +7802,15 @@
 
     iput-object v6, v5, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     goto :goto_2
 
     .line 1935
-    .end local v0           #b:Landroid/os/IBinder;
-    .end local v1           #e:Landroid/os/RemoteException;
-    .end local v4           #rcdh:Landroid/media/MediaFocusControl$RcClientDeathHandler;
+    .end local v0    # "b":Landroid/os/IBinder;
+    .end local v1    # "e":Landroid/os/RemoteException;
+    .end local v4    # "rcdh":Landroid/media/MediaFocusControl$RcClientDeathHandler;
     :cond_5
     add-int/lit8 v2, v2, -0x1
 
@@ -7819,9 +7819,9 @@
 
 .method protected registerRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;II)Z
     .locals 4
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -7832,7 +7832,7 @@
     move-result v0
 
     .line 229
-    .local v0, reg:I
+    .local v0, "reg":I
     if-eqz v0, :cond_0
 
     .line 230
@@ -7899,10 +7899,10 @@
 
 .method protected registerRemoteController(Landroid/media/IRemoteControlDisplay;IILandroid/content/ComponentName;)Z
     .locals 4
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
-    .parameter "listenerComp"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
+    .param p4, "listenerComp"    # Landroid/content/ComponentName;
 
     .prologue
     .line 215
@@ -7911,7 +7911,7 @@
     move-result v0
 
     .line 216
-    .local v0, reg:I
+    .local v0, "reg":I
     if-eqz v0, :cond_0
 
     .line 217
@@ -7978,8 +7978,8 @@
 
 .method protected registerRemoteVolumeObserverForRcc(ILandroid/media/IRemoteVolumeObserver;)V
     .locals 7
-    .parameter "rccId"
-    .parameter "rvo"
+    .param p1, "rccId"    # I
+    .param p2, "rvo"    # Landroid/media/IRemoteVolumeObserver;
 
     .prologue
     const/4 v4, 0x0
@@ -8005,9 +8005,9 @@
 
 .method protected remoteControlDisplayUsesBitmapSize(Landroid/media/IRemoteControlDisplay;II)V
     .locals 9
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
 
     .prologue
     .line 2258
@@ -8024,11 +8024,11 @@
     move-result-object v2
 
     .line 2260
-    .local v2, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v2, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     const/4 v0, 0x0
 
     .line 2261
-    .local v0, artworkSizeUpdate:Z
+    .local v0, "artworkSizeUpdate":Z
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -8047,8 +8047,8 @@
     check-cast v1, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 2263
-    .local v1, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    .local v1, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v1}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v6
@@ -8068,14 +8068,14 @@
     if-eqz v6, :cond_0
 
     .line 2264
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
     invoke-static {v1}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$900(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v6
 
     if-ne v6, p2, :cond_1
 
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
     invoke-static {v1}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$1000(Landroid/media/MediaFocusControl$DisplayInfoForServer;)I
 
     move-result v6
@@ -8084,11 +8084,11 @@
 
     .line 2265
     :cond_1
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
     invoke-static {v1, p2}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$902(Landroid/media/MediaFocusControl$DisplayInfoForServer;I)I
 
     .line 2266
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
     invoke-static {v1, p3}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$1002(Landroid/media/MediaFocusControl$DisplayInfoForServer;I)I
 
     .line 2267
@@ -8097,7 +8097,7 @@
     goto :goto_0
 
     .line 2271
-    .end local v1           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v1    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :cond_2
     if-eqz v0, :cond_4
 
@@ -8109,7 +8109,7 @@
     move-result-object v5
 
     .line 2275
-    .local v5, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v5, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_3
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
@@ -8126,7 +8126,7 @@
     check-cast v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2277
-    .local v4, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v4, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v6, v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -8139,8 +8139,8 @@
 
     invoke-interface {v6, p1, p2, p3}, Landroid/media/IRemoteControlClient;->setBitmapSizeForDisplay(Landroid/media/IRemoteControlDisplay;II)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -8149,7 +8149,7 @@
     move-exception v3
 
     .line 2281
-    .local v3, e:Landroid/os/RemoteException;
+    .local v3, "e":Landroid/os/RemoteException;
     :try_start_2
     const-string v6, "MediaFocusControl"
 
@@ -8160,11 +8160,11 @@
     goto :goto_1
 
     .line 2286
-    .end local v0           #artworkSizeUpdate:Z
-    .end local v2           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .end local v3           #e:Landroid/os/RemoteException;
-    .end local v4           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v5           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v0    # "artworkSizeUpdate":Z
+    .end local v2    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v3    # "e":Landroid/os/RemoteException;
+    .end local v4    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v5    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v6
 
@@ -8174,8 +8174,8 @@
 
     throw v6
 
-    .restart local v0       #artworkSizeUpdate:Z
-    .restart local v2       #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .restart local v0    # "artworkSizeUpdate":Z
+    .restart local v2    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_4
     :try_start_3
     monitor-exit v7
@@ -8188,8 +8188,8 @@
 
 .method protected remoteControlDisplayWantsPlaybackPositionSync(Landroid/media/IRemoteControlDisplay;Z)V
     .locals 9
-    .parameter "rcd"
-    .parameter "wantsSync"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "wantsSync"    # Z
 
     .prologue
     .line 2303
@@ -8201,7 +8201,7 @@
     const/4 v3, 0x0
 
     .line 2307
-    .local v3, rcdRegistered:Z
+    .local v3, "rcdRegistered":Z
     :try_start_0
     iget-object v6, p0, Landroid/media/MediaFocusControl;->mRcDisplays:Ljava/util/ArrayList;
 
@@ -8210,7 +8210,7 @@
     move-result-object v1
 
     .line 2308
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -8226,8 +8226,8 @@
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 2310
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v6
@@ -8247,14 +8247,14 @@
     if-eqz v6, :cond_0
 
     .line 2311
-    #setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
+    # setter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
     invoke-static {v0, p2}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$3202(Landroid/media/MediaFocusControl$DisplayInfoForServer;Z)Z
 
     .line 2312
     const/4 v3, 0x1
 
     .line 2316
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :cond_1
     if-nez v3, :cond_2
 
@@ -8274,7 +8274,7 @@
     move-result-object v5
 
     .line 2322
-    .local v5, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v5, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_3
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
@@ -8291,7 +8291,7 @@
     check-cast v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2324
-    .local v4, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v4, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v6, v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -8304,8 +8304,8 @@
 
     invoke-interface {v6, p1, p2}, Landroid/media/IRemoteControlClient;->setWantsSyncForDisplay(Landroid/media/IRemoteControlDisplay;Z)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -8314,7 +8314,7 @@
     move-exception v2
 
     .line 2328
-    .local v2, e:Landroid/os/RemoteException;
+    .local v2, "e":Landroid/os/RemoteException;
     :try_start_2
     const-string v6, "MediaFocusControl"
 
@@ -8325,10 +8325,10 @@
     goto :goto_1
 
     .line 2332
-    .end local v1           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .end local v2           #e:Landroid/os/RemoteException;
-    .end local v4           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v5           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v2    # "e":Landroid/os/RemoteException;
+    .end local v4    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v5    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :catchall_0
     move-exception v6
 
@@ -8338,8 +8338,8 @@
 
     throw v6
 
-    .restart local v1       #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .restart local v5       #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .restart local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .restart local v5    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_4
     :try_start_3
     monitor-exit v7
@@ -8351,12 +8351,12 @@
 
 .method protected requestAudioFocus(IILandroid/os/IBinder;Landroid/media/IAudioFocusDispatcher;Ljava/lang/String;Ljava/lang/String;)I
     .locals 14
-    .parameter "mainStreamType"
-    .parameter "focusChangeHint"
-    .parameter "cb"
-    .parameter "fd"
-    .parameter "clientId"
-    .parameter "callingPackageName"
+    .param p1, "mainStreamType"    # I
+    .param p2, "focusChangeHint"    # I
+    .param p3, "cb"    # Landroid/os/IBinder;
+    .param p4, "fd"    # Landroid/media/IAudioFocusDispatcher;
+    .param p5, "clientId"    # Ljava/lang/String;
+    .param p6, "callingPackageName"    # Ljava/lang/String;
 
     .prologue
     .line 633
@@ -8471,7 +8471,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 655
-    .local v7, afdh:Landroid/media/MediaFocusControl$AudioFocusDeathHandler;
+    .local v7, "afdh":Landroid/media/MediaFocusControl$AudioFocusDeathHandler;
     const/4 v1, 0x0
 
     :try_start_2
@@ -8479,8 +8479,8 @@
 
     invoke-interface {v0, v7, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 662
     :try_start_3
@@ -8544,7 +8544,7 @@
     move-exception v10
 
     .line 658
-    .local v10, e:Landroid/os/RemoteException;
+    .local v10, "e":Landroid/os/RemoteException;
     const-string v1, "MediaFocusControl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -8583,7 +8583,7 @@
     goto/16 :goto_0
 
     .line 673
-    .end local v10           #e:Landroid/os/RemoteException;
+    .end local v10    # "e":Landroid/os/RemoteException;
     :cond_3
     iget-object v1, p0, Landroid/media/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
@@ -8594,11 +8594,11 @@
     check-cast v11, Landroid/media/FocusRequester;
 
     .line 674
-    .local v11, fr:Landroid/media/FocusRequester;
+    .local v11, "fr":Landroid/media/FocusRequester;
     invoke-virtual {v11}, Landroid/media/FocusRequester;->release()V
 
     .line 678
-    .end local v11           #fr:Landroid/media/FocusRequester;
+    .end local v11    # "fr":Landroid/media/FocusRequester;
     :cond_4
     const/4 v1, 0x0
 
@@ -8708,7 +8708,7 @@
     move-result-object v3
 
     .line 1457
-    .local v3, receiverName:Ljava/lang/String;
+    .local v3, "receiverName":Ljava/lang/String;
     if-eqz v3, :cond_0
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
@@ -8723,17 +8723,17 @@
     move-result-object v0
 
     .line 1459
-    .local v0, eventReceiver:Landroid/content/ComponentName;
+    .local v0, "eventReceiver":Landroid/content/ComponentName;
     if-nez v0, :cond_1
 
     .line 1472
-    .end local v0           #eventReceiver:Landroid/content/ComponentName;
+    .end local v0    # "eventReceiver":Landroid/content/ComponentName;
     :cond_0
     :goto_0
     return-void
 
     .line 1465
-    .restart local v0       #eventReceiver:Landroid/content/ComponentName;
+    .restart local v0    # "eventReceiver":Landroid/content/ComponentName;
     :cond_1
     new-instance v1, Landroid/content/Intent;
 
@@ -8742,7 +8742,7 @@
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 1467
-    .local v1, mediaButtonIntent:Landroid/content/Intent;
+    .local v1, "mediaButtonIntent":Landroid/content/Intent;
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 1468
@@ -8753,7 +8753,7 @@
     move-result-object v2
 
     .line 1470
-    .local v2, pi:Landroid/app/PendingIntent;
+    .local v2, "pi":Landroid/app/PendingIntent;
     const/4 v4, 0x0
 
     invoke-virtual {p0, v2, v0, v4}, Landroid/media/MediaFocusControl;->registerMediaButtonIntent(Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/os/IBinder;)V
@@ -8763,9 +8763,9 @@
 
 .method protected setPlaybackInfoForRcc(III)V
     .locals 7
-    .parameter "rccId"
-    .parameter "what"
-    .parameter "value"
+    .param p1, "rccId"    # I
+    .param p2, "what"    # I
+    .param p3, "value"    # I
 
     .prologue
     .line 2398
@@ -8793,10 +8793,10 @@
 
 .method protected setPlaybackStateForRcc(IIJF)V
     .locals 7
-    .parameter "rccId"
-    .parameter "state"
-    .parameter "timeMs"
-    .parameter "speed"
+    .param p1, "rccId"    # I
+    .param p2, "state"    # I
+    .param p3, "timeMs"    # J
+    .param p5, "speed"    # F
 
     .prologue
     .line 2463
@@ -8824,8 +8824,8 @@
 
 .method protected setRemoteControlClientPlaybackPosition(IJ)V
     .locals 7
-    .parameter "generationId"
-    .parameter "timeMs"
+    .param p1, "generationId"    # I
+    .param p2, "timeMs"    # J
 
     .prologue
     const/4 v2, 0x0
@@ -8920,14 +8920,14 @@
 
 .method protected setRemoteStreamVolume(I)V
     .locals 8
-    .parameter "vol"
+    .param p1, "vol"    # I
 
     .prologue
     .line 2661
     const/4 v2, -0x1
 
     .line 2662
-    .local v2, rccId:I
+    .local v2, "rccId":I
     iget-object v6, p0, Landroid/media/MediaFocusControl;->mMainRemote:Landroid/media/MediaFocusControl$RemotePlaybackState;
 
     monitor-enter v6
@@ -8965,7 +8965,7 @@
     const/4 v4, 0x0
 
     .line 2669
-    .local v4, rvo:Landroid/media/IRemoteVolumeObserver;
+    .local v4, "rvo":Landroid/media/IRemoteVolumeObserver;
     iget-object v6, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
     monitor-enter v6
@@ -8980,7 +8980,7 @@
 
     add-int/lit8 v1, v5, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_1
     if-ltz v1, :cond_2
 
@@ -8994,7 +8994,7 @@
     check-cast v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2677
-    .local v3, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v3, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget v5, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRccId:I
 
     if-ne v5, v2, :cond_3
@@ -9002,12 +9002,12 @@
     .line 2678
     iget-object v4, v3, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRemoteVolumeObs:Landroid/media/IRemoteVolumeObserver;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 2686
-    .end local v1           #index:I
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_2
     :goto_2
     :try_start_2
@@ -9033,7 +9033,7 @@
     move-exception v0
 
     .line 2691
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v5, "MediaFocusControl"
 
     const-string v6, "Error dispatching absolute volume update"
@@ -9043,8 +9043,8 @@
     goto :goto_0
 
     .line 2667
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v4           #rvo:Landroid/media/IRemoteVolumeObserver;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v4    # "rvo":Landroid/media/IRemoteVolumeObserver;
     :catchall_0
     move-exception v5
 
@@ -9056,22 +9056,22 @@
     throw v5
 
     .line 2674
-    .restart local v1       #index:I
-    .restart local v3       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .restart local v4       #rvo:Landroid/media/IRemoteVolumeObserver;
+    .restart local v1    # "index":I
+    .restart local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v4    # "rvo":Landroid/media/IRemoteVolumeObserver;
     :cond_3
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     .line 2682
-    .end local v1           #index:I
-    .end local v3           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v3    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_1
     move-exception v0
 
     .line 2684
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_5
     const-string v5, "MediaFocusControl"
 
@@ -9082,7 +9082,7 @@
     goto :goto_2
 
     .line 2686
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catchall_1
     move-exception v5
 
@@ -9095,7 +9095,7 @@
 
 .method protected unregisterAudioFocusClient(Ljava/lang/String;)V
     .locals 2
-    .parameter "clientId"
+    .param p1, "clientId"    # Ljava/lang/String;
 
     .prologue
     .line 719
@@ -9181,7 +9181,7 @@
 
 .method protected unregisterMediaButtonIntent(Landroid/app/PendingIntent;)V
     .locals 4
-    .parameter "mediaIntent"
+    .param p1, "mediaIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 1877
@@ -9227,7 +9227,7 @@
     move-result v0
 
     .line 1882
-    .local v0, topOfStackWillChange:Z
+    .local v0, "topOfStackWillChange":Z
     invoke-direct {p0, p1}, Landroid/media/MediaFocusControl;->removeMediaButtonReceiver_syncAfRcs(Landroid/app/PendingIntent;)V
 
     .line 1883
@@ -9254,7 +9254,7 @@
     return-void
 
     .line 1887
-    .end local v0           #topOfStackWillChange:Z
+    .end local v0    # "topOfStackWillChange":Z
     :catchall_0
     move-exception v1
 
@@ -9279,8 +9279,8 @@
 
 .method protected unregisterRemoteControlClient(Landroid/app/PendingIntent;Landroid/media/IRemoteControlClient;)V
     .locals 8
-    .parameter "mediaIntent"
-    .parameter "rcClient"
+    .param p1, "mediaIntent"    # Landroid/app/PendingIntent;
+    .param p2, "rcClient"    # Landroid/media/IRemoteControlClient;
 
     .prologue
     .line 1996
@@ -9300,7 +9300,7 @@
     const/4 v3, 0x0
 
     .line 2000
-    .local v3, topRccChange:Z
+    .local v3, "topRccChange":Z
     :try_start_1
     iget-object v4, p0, Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
 
@@ -9310,7 +9310,7 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    .local v1, index:I
+    .local v1, "index":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -9324,7 +9324,7 @@
     check-cast v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2002
-    .local v2, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v2, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v4, v2, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v4, p1}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
@@ -9359,8 +9359,8 @@
 
     invoke-virtual {v4}, Ljava/util/Stack;->size()I
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v4
 
@@ -9371,8 +9371,8 @@
     const/4 v3, 0x1
 
     .line 2019
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_0
     :goto_1
     if-eqz v3, :cond_1
@@ -9399,8 +9399,8 @@
     return-void
 
     .line 2010
-    .restart local v1       #index:I
-    .restart local v2       #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .restart local v1    # "index":I
+    .restart local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :cond_2
     const/4 v3, 0x0
 
@@ -9413,13 +9413,13 @@
     goto :goto_0
 
     .line 2015
-    .end local v1           #index:I
-    .end local v2           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v1    # "index":I
+    .end local v2    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     :catch_0
     move-exception v0
 
     .line 2017
-    .local v0, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :try_start_4
     const-string v4, "MediaFocusControl"
 
@@ -9430,7 +9430,7 @@
     goto :goto_1
 
     .line 2023
-    .end local v0           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v0    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catchall_0
     move-exception v4
 
@@ -9442,7 +9442,7 @@
     throw v4
 
     .line 2024
-    .end local v3           #topRccChange:Z
+    .end local v3    # "topRccChange":Z
     :catchall_1
     move-exception v4
 
@@ -9455,7 +9455,7 @@
 
 .method protected unregisterRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
     .locals 9
-    .parameter "rcd"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
 
     .prologue
     .line 2212
@@ -9479,7 +9479,7 @@
     const/4 v2, 0x0
 
     .line 2218
-    .local v2, displayWasPluggedIn:Z
+    .local v2, "displayWasPluggedIn":Z
     iget-object v6, p0, Landroid/media/MediaFocusControl;->mRcDisplays:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -9487,7 +9487,7 @@
     move-result-object v1
 
     .line 2219
-    .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .local v1, "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_1
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -9506,8 +9506,8 @@
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
     .line 2221
-    .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    #getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
+    .local v0, "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    # getter for: Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0}, Landroid/media/MediaFocusControl$DisplayInfoForServer;->access$800(Landroid/media/MediaFocusControl$DisplayInfoForServer;)Landroid/media/IRemoteControlDisplay;
 
     move-result-object v6
@@ -9538,9 +9538,9 @@
     goto :goto_1
 
     .line 2245
-    .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
-    .end local v1           #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .end local v2           #displayWasPluggedIn:Z
+    .end local v0    # "di":Landroid/media/MediaFocusControl$DisplayInfoForServer;
+    .end local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .end local v2    # "displayWasPluggedIn":Z
     :catchall_0
     move-exception v6
 
@@ -9551,8 +9551,8 @@
     throw v6
 
     .line 2228
-    .restart local v1       #displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
-    .restart local v2       #displayWasPluggedIn:Z
+    .restart local v1    # "displayIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
+    .restart local v2    # "displayWasPluggedIn":Z
     :cond_2
     if-eqz v2, :cond_4
 
@@ -9565,7 +9565,7 @@
     move-result-object v5
 
     .line 2232
-    .local v5, stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .local v5, "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_3
     :goto_2
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
@@ -9582,7 +9582,7 @@
     check-cast v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     .line 2234
-    .local v4, rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .local v4, "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
     iget-object v6, v4, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -9595,8 +9595,8 @@
 
     invoke-interface {v6, p1}, Landroid/media/IRemoteControlClient;->unplugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_2
 
@@ -9605,7 +9605,7 @@
     move-exception v3
 
     .line 2238
-    .local v3, e:Landroid/os/RemoteException;
+    .local v3, "e":Landroid/os/RemoteException;
     :try_start_3
     const-string v6, "MediaFocusControl"
 
@@ -9616,9 +9616,9 @@
     goto :goto_2
 
     .line 2245
-    .end local v3           #e:Landroid/os/RemoteException;
-    .end local v4           #rcse:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
-    .end local v5           #stackIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
+    .end local v3    # "e":Landroid/os/RemoteException;
+    .end local v4    # "rcse":Landroid/media/MediaFocusControl$RemoteControlStackEntry;
+    .end local v5    # "stackIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/MediaFocusControl$RemoteControlStackEntry;>;"
     :cond_4
     monitor-exit v7
     :try_end_3
@@ -9629,9 +9629,9 @@
 
 .method protected updateRemoteControlClientMetadata(IILandroid/media/Rating;)V
     .locals 7
-    .parameter "genId"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "genId"    # I
+    .param p2, "key"    # I
+    .param p3, "value"    # Landroid/media/Rating;
 
     .prologue
     .line 2368

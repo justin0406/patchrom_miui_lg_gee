@@ -48,10 +48,10 @@
 
 .method public constructor <init>(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V
     .locals 2
-    .parameter "account"
-    .parameter "authority"
-    .parameter "extras"
-    .parameter "periodInSeconds"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
+    .param p4, "periodInSeconds"    # J
 
     .prologue
     .line 48
@@ -98,11 +98,11 @@
 
 .method public constructor <init>(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;JJ)V
     .locals 1
-    .parameter "account"
-    .parameter "authority"
-    .parameter "extras"
-    .parameter "period"
-    .parameter "flexTime"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
+    .param p4, "period"    # J
+    .param p6, "flexTime"    # J
 
     .prologue
     .line 78
@@ -133,7 +133,7 @@
 
 .method public constructor <init>(Landroid/content/PeriodicSync;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/content/PeriodicSync;
 
     .prologue
     .line 65
@@ -174,7 +174,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 86
@@ -225,8 +225,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/PeriodicSync$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/PeriodicSync$1;
 
     .prologue
     .line 27
@@ -237,8 +237,8 @@
 
 .method public static syncExtrasEquals(Landroid/os/Bundle;Landroid/os/Bundle;)Z
     .locals 6
-    .parameter "b1"
-    .parameter "b2"
+    .param p0, "b1"    # Landroid/os/Bundle;
+    .param p1, "b2"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v3, 0x1
@@ -284,7 +284,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_3
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -299,7 +299,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 147
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v4
@@ -323,7 +323,7 @@
 
     goto :goto_0
 
-    .end local v1           #key:Ljava/lang/String;
+    .end local v1    # "key":Ljava/lang/String;
     :cond_4
     move v2, v3
 
@@ -345,7 +345,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -378,7 +378,7 @@
     check-cast v0, Landroid/content/PeriodicSync;
 
     .line 129
-    .local v0, other:Landroid/content/PeriodicSync;
+    .local v0, "other":Landroid/content/PeriodicSync;
     iget-object v3, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
     iget-object v4, v0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
@@ -495,8 +495,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 101

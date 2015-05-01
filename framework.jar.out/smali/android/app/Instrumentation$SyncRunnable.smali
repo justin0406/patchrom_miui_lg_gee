@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # Ljava/lang/Runnable;
 
     .prologue
     .line 1714
@@ -99,8 +99,8 @@
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 

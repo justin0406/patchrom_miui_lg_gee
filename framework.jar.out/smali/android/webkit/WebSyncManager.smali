@@ -57,8 +57,8 @@
 
 .method protected constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
-    .parameter "context"
-    .parameter "name"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -70,7 +70,7 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 67
@@ -170,7 +170,7 @@
     move-result-object v0
 
     .line 119
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     sget v2, Landroid/webkit/WebSyncManager;->SYNC_LATER_INTERVAL:I
@@ -216,7 +216,7 @@
     move-result-object v0
 
     .line 87
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     sget v2, Landroid/webkit/WebSyncManager;->SYNC_LATER_INTERVAL:I
@@ -268,7 +268,7 @@
     move-result-object v0
 
     .line 135
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     sget v2, Landroid/webkit/WebSyncManager;->SYNC_LATER_INTERVAL:I
@@ -343,7 +343,7 @@
     move-result-object v0
 
     .line 104
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     sget v2, Landroid/webkit/WebSyncManager;->SYNC_NOW_INTERVAL:I

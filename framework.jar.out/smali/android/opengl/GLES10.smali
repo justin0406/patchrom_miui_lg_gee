@@ -559,10 +559,10 @@
 
 .method public static glColorPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "size"    # I
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 398
@@ -815,9 +815,9 @@
 
 .method public static glNormalPointer(IILjava/nio/Buffer;)V
     .locals 1
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "type"    # I
+    .param p1, "stride"    # I
+    .param p2, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 959
@@ -923,10 +923,10 @@
 
 .method public static glTexCoordPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "size"    # I
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1152
@@ -1018,10 +1018,10 @@
 
 .method public static glVertexPointer(IIILjava/nio/Buffer;)V
     .locals 1
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p0, "size"    # I
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 1297

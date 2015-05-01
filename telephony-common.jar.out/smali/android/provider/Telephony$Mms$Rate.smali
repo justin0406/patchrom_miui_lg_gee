@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final SENT_TIME:Ljava/lang/String; = "sent_time"
 

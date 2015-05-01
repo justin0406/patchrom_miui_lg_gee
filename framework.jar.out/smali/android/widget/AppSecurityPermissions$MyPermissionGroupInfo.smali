@@ -65,7 +65,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/PermissionGroupInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/content/pm/PermissionGroupInfo;
 
     .prologue
     .line 97
@@ -105,7 +105,7 @@
 
 .method constructor <init>(Landroid/content/pm/PermissionInfo;)V
     .locals 1
-    .parameter "perm"
+    .param p1, "perm"    # Landroid/content/pm/PermissionInfo;
 
     .prologue
     .line 91
@@ -157,7 +157,7 @@
 # virtual methods
 .method public loadGroupIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 101
@@ -186,7 +186,7 @@
     move-result-object v0
 
     .line 107
-    .local v0, appInfo:Landroid/content/pm/ApplicationInfo;
+    .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
     invoke-virtual {v0, p1}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -196,7 +196,7 @@
     goto :goto_0
 
     .line 108
-    .end local v0           #appInfo:Landroid/content/pm/ApplicationInfo;
+    .end local v0    # "appInfo":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v1
 

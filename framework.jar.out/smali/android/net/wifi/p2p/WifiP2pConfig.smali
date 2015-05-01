@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -90,7 +90,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/p2p/WifiP2pConfig;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/p2p/WifiP2pConfig;
 
     .prologue
     .line 122
@@ -145,7 +145,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 9
-    .parameter "supplicantEvent"
+    .param p1, "supplicantEvent"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -185,7 +185,7 @@
     move-result-object v3
 
     .line 71
-    .local v3, tokens:[Ljava/lang/String;
+    .local v3, "tokens":[Ljava/lang/String;
     array-length v4, v3
 
     if-lt v4, v6, :cond_0
@@ -238,7 +238,7 @@
     move-result-object v2
 
     .line 82
-    .local v2, nameVal:[Ljava/lang/String;
+    .local v2, "nameVal":[Ljava/lang/String;
     const/4 v4, 0x1
 
     :try_start_0
@@ -251,7 +251,7 @@
     move-result v0
 
     .line 87
-    .local v0, devPasswdId:I
+    .local v0, "devPasswdId":I
     :goto_0
     packed-switch v0, :pswitch_data_0
 
@@ -262,26 +262,26 @@
     iput v7, v4, Landroid/net/wifi/WpsInfo;->setup:I
 
     .line 105
-    .end local v0           #devPasswdId:I
-    .end local v2           #nameVal:[Ljava/lang/String;
+    .end local v0    # "devPasswdId":I
+    .end local v2    # "nameVal":[Ljava/lang/String;
     :cond_2
     :goto_1
     return-void
 
     .line 83
-    .restart local v2       #nameVal:[Ljava/lang/String;
+    .restart local v2    # "nameVal":[Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 84
-    .local v1, e:Ljava/lang/NumberFormatException;
+    .local v1, "e":Ljava/lang/NumberFormatException;
     const/4 v0, 0x0
 
-    .restart local v0       #devPasswdId:I
+    .restart local v0    # "devPasswdId":I
     goto :goto_0
 
     .line 90
-    .end local v1           #e:Ljava/lang/NumberFormatException;
+    .end local v1    # "e":Ljava/lang/NumberFormatException;
     :pswitch_1
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
@@ -351,7 +351,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 109
-    .local v0, sbuf:Ljava/lang/StringBuffer;
+    .local v0, "sbuf":Ljava/lang/StringBuffer;
     const-string v1, "\n address: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -405,8 +405,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 133

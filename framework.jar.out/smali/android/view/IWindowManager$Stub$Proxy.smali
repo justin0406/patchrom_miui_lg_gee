@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 919
@@ -41,15 +41,15 @@
 # virtual methods
 .method public addAppToken(ILandroid/view/IApplicationToken;IIIZZII)V
     .locals 5
-    .parameter "addPos"
-    .parameter "token"
-    .parameter "groupId"
-    .parameter "stackId"
-    .parameter "requestedOrientation"
-    .parameter "fullscreen"
-    .parameter "showWhenLocked"
-    .parameter "userId"
-    .parameter "configChanges"
+    .param p1, "addPos"    # I
+    .param p2, "token"    # Landroid/view/IApplicationToken;
+    .param p3, "groupId"    # I
+    .param p4, "stackId"    # I
+    .param p5, "requestedOrientation"    # I
+    .param p6, "fullscreen"    # Z
+    .param p7, "showWhenLocked"    # Z
+    .param p8, "userId"    # I
+    .param p9, "configChanges"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,13 +67,13 @@
     move-result-object v0
 
     .line 1266
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1268
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -176,8 +176,8 @@
 
 .method public addWindowToken(Landroid/os/IBinder;I)V
     .locals 5
-    .parameter "token"
-    .parameter "type"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -191,13 +191,13 @@
     move-result-object v0
 
     .line 1235
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1237
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -256,7 +256,7 @@
 
 .method public clearForcedDisplayDensity(I)V
     .locals 5
-    .parameter "displayId"
+    .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -270,13 +270,13 @@
     move-result-object v0
 
     .line 1154
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1156
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -322,7 +322,7 @@
 
 .method public clearForcedDisplaySize(I)V
     .locals 5
-    .parameter "displayId"
+    .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -336,13 +336,13 @@
     move-result-object v0
 
     .line 1087
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1089
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -388,7 +388,7 @@
 
 .method public closeSystemDialogs(Ljava/lang/String;)V
     .locals 5
-    .parameter "reason"
+    .param p1, "reason"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -402,13 +402,13 @@
     move-result-object v0
 
     .line 1776
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1778
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -454,8 +454,8 @@
 
 .method public disableKeyguard(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 5
-    .parameter "token"
-    .parameter "tag"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -469,13 +469,13 @@
     move-result-object v0
 
     .line 1665
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1667
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -537,13 +537,13 @@
     move-result-object v0
 
     .line 1762
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1764
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -599,13 +599,13 @@
     move-result-object v0
 
     .line 1449
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1451
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -648,7 +648,7 @@
 
 .method public exitKeyguardSecurely(Landroid/view/IOnKeyguardExitResult;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/IOnKeyguardExitResult;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -662,13 +662,13 @@
     move-result-object v0
 
     .line 1696
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1698
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -727,7 +727,7 @@
 
 .method public freezeRotation(I)V
     .locals 5
-    .parameter "rotation"
+    .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -741,13 +741,13 @@
     move-result-object v0
 
     .line 2033
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2035
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -793,7 +793,7 @@
 
 .method public getAnimationScale(I)F
     .locals 6
-    .parameter "which"
+    .param p1, "which"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -807,13 +807,13 @@
     move-result-object v0
 
     .line 1793
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1796
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -842,7 +842,7 @@
     move-result v2
 
     .line 1803
-    .local v2, _result:F
+    .local v2, "_result":F
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1804
@@ -852,7 +852,7 @@
     return v2
 
     .line 1803
-    .end local v2           #_result:F
+    .end local v2    # "_result":F
     :catchall_0
     move-exception v3
 
@@ -879,13 +879,13 @@
     move-result-object v0
 
     .line 1811
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1814
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -911,7 +911,7 @@
     move-result-object v2
 
     .line 1820
-    .local v2, _result:[F
+    .local v2, "_result":[F
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1821
@@ -921,7 +921,7 @@
     return-object v2
 
     .line 1820
-    .end local v2           #_result:[F
+    .end local v2    # "_result":[F
     :catchall_0
     move-exception v3
 
@@ -935,7 +935,7 @@
 
 .method public getAppOrientation(Landroid/view/IApplicationToken;)I
     .locals 6
-    .parameter "token"
+    .param p1, "token"    # Landroid/view/IApplicationToken;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -949,13 +949,13 @@
     move-result-object v0
 
     .line 1321
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1324
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -991,7 +991,7 @@
     move-result v2
 
     .line 1331
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1332
@@ -1001,7 +1001,7 @@
     return v2
 
     .line 1325
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -1021,7 +1021,7 @@
 
 .method public getBaseDisplayDensity(I)I
     .locals 6
-    .parameter "displayId"
+    .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1035,13 +1035,13 @@
     move-result-object v0
 
     .line 1120
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1123
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1070,7 +1070,7 @@
     move-result v2
 
     .line 1130
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1131
@@ -1080,7 +1080,7 @@
     return v2
 
     .line 1130
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1094,8 +1094,8 @@
 
 .method public getBaseDisplaySize(ILandroid/graphics/Point;)V
     .locals 5
-    .parameter "displayId"
-    .parameter "size"
+    .param p1, "displayId"    # I
+    .param p2, "size"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1109,13 +1109,13 @@
     move-result-object v0
 
     .line 1052
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1054
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -1172,7 +1172,7 @@
 
 .method public getCompatibleMagnificationSpecForWindow(Landroid/os/IBinder;)Landroid/view/MagnificationSpec;
     .locals 6
-    .parameter "windowToken"
+    .param p1, "windowToken"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1186,13 +1186,13 @@
     move-result-object v0
 
     .line 2335
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2338
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1232,7 +1232,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2350
-    .local v2, _result:Landroid/view/MagnificationSpec;
+    .local v2, "_result":Landroid/view/MagnificationSpec;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1243,15 +1243,15 @@
     return-object v2
 
     .line 2346
-    .end local v2           #_result:Landroid/view/MagnificationSpec;
+    .end local v2    # "_result":Landroid/view/MagnificationSpec;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/view/MagnificationSpec;
+    .restart local v2    # "_result":Landroid/view/MagnificationSpec;
     goto :goto_0
 
     .line 2350
-    .end local v2           #_result:Landroid/view/MagnificationSpec;
+    .end local v2    # "_result":Landroid/view/MagnificationSpec;
     :catchall_0
     move-exception v3
 
@@ -1278,13 +1278,13 @@
     move-result-object v0
 
     .line 2203
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2206
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1310,7 +1310,7 @@
     move-result-object v2
 
     .line 2212
-    .local v2, _result:Landroid/os/IBinder;
+    .local v2, "_result":Landroid/os/IBinder;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2213
@@ -1320,7 +1320,7 @@
     return-object v2
 
     .line 2212
-    .end local v2           #_result:Landroid/os/IBinder;
+    .end local v2    # "_result":Landroid/os/IBinder;
     :catchall_0
     move-exception v3
 
@@ -1334,7 +1334,7 @@
 
 .method public getInitialDisplayDensity(I)I
     .locals 6
-    .parameter "displayId"
+    .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1348,13 +1348,13 @@
     move-result-object v0
 
     .line 1102
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1105
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1383,7 +1383,7 @@
     move-result v2
 
     .line 1112
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1113
@@ -1393,7 +1393,7 @@
     return v2
 
     .line 1112
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1407,8 +1407,8 @@
 
 .method public getInitialDisplaySize(ILandroid/graphics/Point;)V
     .locals 5
-    .parameter "displayId"
-    .parameter "size"
+    .param p1, "displayId"    # I
+    .param p2, "size"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1422,13 +1422,13 @@
     move-result-object v0
 
     .line 1034
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1036
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -1508,13 +1508,13 @@
     move-result-object v0
 
     .line 1371
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1374
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1540,7 +1540,7 @@
     move-result v2
 
     .line 1380
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1381
@@ -1550,7 +1550,7 @@
     return v2
 
     .line 1380
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1577,13 +1577,13 @@
     move-result-object v0
 
     .line 2010
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2013
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1609,7 +1609,7 @@
     move-result v2
 
     .line 2019
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2020
@@ -1619,7 +1619,7 @@
     return v2
 
     .line 2019
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1646,13 +1646,13 @@
     move-result-object v0
 
     .line 1947
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1950
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1678,7 +1678,7 @@
     move-result v2
 
     .line 1956
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1957
@@ -1688,7 +1688,7 @@
     return v2
 
     .line 1956
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1702,8 +1702,8 @@
 
 .method public getWindowFrame(Landroid/os/IBinder;Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "token"
-    .parameter "outFrame"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "outFrame"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1717,13 +1717,13 @@
     move-result-object v0
 
     .line 2241
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2243
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -1795,13 +1795,13 @@
     move-result-object v0
 
     .line 2159
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2162
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1831,7 +1831,7 @@
     const/4 v2, 0x1
 
     .line 2168
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1842,7 +1842,7 @@
     return v2
 
     .line 2168
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1871,13 +1871,13 @@
     move-result-object v0
 
     .line 1745
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1748
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1907,7 +1907,7 @@
     const/4 v2, 0x1
 
     .line 1754
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1918,7 +1918,7 @@
     return v2
 
     .line 1754
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -1932,7 +1932,7 @@
 
 .method public inputMethodClientHasFocus(Lcom/android/internal/view/IInputMethodClient;)Z
     .locals 6
-    .parameter "client"
+    .param p1, "client"    # Lcom/android/internal/view/IInputMethodClient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1948,13 +1948,13 @@
     move-result-object v0
 
     .line 1016
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1019
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -1994,7 +1994,7 @@
     const/4 v2, 0x1
 
     .line 1026
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2005,7 +2005,7 @@
     return v2
 
     .line 1020
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -2040,13 +2040,13 @@
     move-result-object v0
 
     .line 1711
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1714
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -2076,7 +2076,7 @@
     const/4 v2, 0x1
 
     .line 1720
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2087,7 +2087,7 @@
     return v2
 
     .line 1720
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2116,13 +2116,13 @@
     move-result-object v0
 
     .line 1728
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1731
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -2152,7 +2152,7 @@
     const/4 v2, 0x1
 
     .line 1737
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2163,7 +2163,7 @@
     return v2
 
     .line 1737
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2192,13 +2192,13 @@
     move-result-object v0
 
     .line 2071
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2074
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -2228,7 +2228,7 @@
     const/4 v2, 0x1
 
     .line 2080
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2239,7 +2239,7 @@
     return v2
 
     .line 2080
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2268,13 +2268,13 @@
     move-result-object v0
 
     .line 2262
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2265
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -2304,7 +2304,7 @@
     const/4 v2, 0x1
 
     .line 2271
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2315,7 +2315,7 @@
     return v2
 
     .line 2271
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2344,13 +2344,13 @@
     move-result-object v0
 
     .line 978
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 981
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -2380,7 +2380,7 @@
     const/4 v2, 0x1
 
     .line 987
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2391,7 +2391,7 @@
     return v2
 
     .line 987
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2405,7 +2405,7 @@
 
 .method public lockNow(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "options"
+    .param p1, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2419,13 +2419,13 @@
     move-result-object v0
 
     .line 2179
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2181
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -2493,8 +2493,8 @@
 
 .method public openSession(Lcom/android/internal/view/IInputMethodClient;Lcom/android/internal/view/IInputContext;)Landroid/view/IWindowSession;
     .locals 6
-    .parameter "client"
-    .parameter "inputContext"
+    .param p1, "client"    # Lcom/android/internal/view/IInputMethodClient;
+    .param p2, "inputContext"    # Lcom/android/internal/view/IInputContext;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2510,13 +2510,13 @@
     move-result-object v0
 
     .line 997
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1000
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -2566,7 +2566,7 @@
     move-result-object v2
 
     .line 1008
-    .local v2, _result:Landroid/view/IWindowSession;
+    .local v2, "_result":Landroid/view/IWindowSession;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1009
@@ -2575,7 +2575,7 @@
     .line 1011
     return-object v2
 
-    .end local v2           #_result:Landroid/view/IWindowSession;
+    .end local v2    # "_result":Landroid/view/IWindowSession;
     :cond_1
     move-object v4, v3
 
@@ -2596,10 +2596,10 @@
 
 .method public overridePendingAppTransition(Ljava/lang/String;IILandroid/os/IRemoteCallback;)V
     .locals 5
-    .parameter "packageName"
-    .parameter "enterAnim"
-    .parameter "exitAnim"
-    .parameter "startedCallback"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "enterAnim"    # I
+    .param p3, "exitAnim"    # I
+    .param p4, "startedCallback"    # Landroid/os/IRemoteCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2613,13 +2613,13 @@
     move-result-object v0
 
     .line 1388
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1390
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -2687,10 +2687,10 @@
 
 .method public overridePendingAppTransitionScaleUp(IIII)V
     .locals 5
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "startWidth"
-    .parameter "startHeight"
+    .param p1, "startX"    # I
+    .param p2, "startY"    # I
+    .param p3, "startWidth"    # I
+    .param p4, "startHeight"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2704,13 +2704,13 @@
     move-result-object v0
 
     .line 1406
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1408
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -2765,11 +2765,11 @@
 
 .method public overridePendingAppTransitionThumb(Landroid/graphics/Bitmap;IILandroid/os/IRemoteCallback;Z)V
     .locals 5
-    .parameter "srcThumb"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "startedCallback"
-    .parameter "scaleUp"
+    .param p1, "srcThumb"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
+    .param p4, "startedCallback"    # Landroid/os/IRemoteCallback;
+    .param p5, "scaleUp"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2787,13 +2787,13 @@
     move-result-object v0
 
     .line 1424
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1426
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -2895,7 +2895,7 @@
 
 .method public pauseKeyDispatching(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2909,13 +2909,13 @@
     move-result-object v0
 
     .line 1190
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1192
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -2961,8 +2961,8 @@
 
 .method public prepareAppTransition(IZ)V
     .locals 5
-    .parameter "transit"
-    .parameter "alwaysKeepCurrent"
+    .param p1, "transit"    # I
+    .param p2, "alwaysKeepCurrent"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2978,13 +2978,13 @@
     move-result-object v0
 
     .line 1355
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1357
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -3038,7 +3038,7 @@
 
 .method public reenableKeyguard(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3052,13 +3052,13 @@
     move-result-object v0
 
     .line 1681
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1683
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3104,7 +3104,7 @@
 
 .method public removeAppToken(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3118,13 +3118,13 @@
     move-result-object v0
 
     .line 1563
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1565
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3170,7 +3170,7 @@
 
 .method public removeRotationWatcher(Landroid/view/IRotationWatcher;)V
     .locals 5
-    .parameter "watcher"
+    .param p1, "watcher"    # Landroid/view/IRotationWatcher;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3184,13 +3184,13 @@
     move-result-object v0
 
     .line 1990
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1992
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3249,7 +3249,7 @@
 
 .method public removeWindowToken(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3263,13 +3263,13 @@
     move-result-object v0
 
     .line 1251
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1253
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3315,7 +3315,7 @@
 
 .method public resumeKeyDispatching(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3329,13 +3329,13 @@
     move-result-object v0
 
     .line 1205
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1207
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3381,11 +3381,11 @@
 
 .method public screenshotApplications(Landroid/os/IBinder;IIIZ)Landroid/graphics/Bitmap;
     .locals 6
-    .parameter "appToken"
-    .parameter "displayId"
-    .parameter "maxWidth"
-    .parameter "maxHeight"
-    .parameter "force565"
+    .param p1, "appToken"    # Landroid/os/IBinder;
+    .param p2, "displayId"    # I
+    .param p3, "maxWidth"    # I
+    .param p4, "maxHeight"    # I
+    .param p5, "force565"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3401,13 +3401,13 @@
     move-result-object v0
 
     .line 2091
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2094
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -3464,7 +3464,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2110
-    .local v2, _result:Landroid/graphics/Bitmap;
+    .local v2, "_result":Landroid/graphics/Bitmap;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -3475,15 +3475,15 @@
     return-object v2
 
     .line 2106
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/graphics/Bitmap;
+    .restart local v2    # "_result":Landroid/graphics/Bitmap;
     goto :goto_0
 
     .line 2110
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception v3
 
@@ -3497,8 +3497,8 @@
 
 .method public setAnimationScale(IF)V
     .locals 5
-    .parameter "which"
-    .parameter "scale"
+    .param p1, "which"    # I
+    .param p2, "scale"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3512,13 +3512,13 @@
     move-result-object v0
 
     .line 1828
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1830
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3567,7 +3567,7 @@
 
 .method public setAnimationScales([F)V
     .locals 5
-    .parameter "scales"
+    .param p1, "scales"    # [F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3581,13 +3581,13 @@
     move-result-object v0
 
     .line 1844
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1846
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3633,8 +3633,8 @@
 
 .method public setAppGroupId(Landroid/os/IBinder;I)V
     .locals 5
-    .parameter "token"
-    .parameter "groupId"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "groupId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3648,13 +3648,13 @@
     move-result-object v0
 
     .line 1289
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1291
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3703,8 +3703,8 @@
 
 .method public setAppOrientation(Landroid/view/IApplicationToken;I)V
     .locals 5
-    .parameter "token"
-    .parameter "requestedOrientation"
+    .param p1, "token"    # Landroid/view/IApplicationToken;
+    .param p2, "requestedOrientation"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3718,13 +3718,13 @@
     move-result-object v0
 
     .line 1305
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1307
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3786,17 +3786,17 @@
 
 .method public setAppStartingWindow(Landroid/os/IBinder;Ljava/lang/String;ILandroid/content/res/CompatibilityInfo;Ljava/lang/CharSequence;IIIILandroid/os/IBinder;Z)V
     .locals 5
-    .parameter "token"
-    .parameter "pkg"
-    .parameter "theme"
-    .parameter "compatInfo"
-    .parameter "nonLocalizedLabel"
-    .parameter "labelRes"
-    .parameter "icon"
-    .parameter "logo"
-    .parameter "windowFlags"
-    .parameter "transferFrom"
-    .parameter "createIfNeeded"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "pkg"    # Ljava/lang/String;
+    .param p3, "theme"    # I
+    .param p4, "compatInfo"    # Landroid/content/res/CompatibilityInfo;
+    .param p5, "nonLocalizedLabel"    # Ljava/lang/CharSequence;
+    .param p6, "labelRes"    # I
+    .param p7, "icon"    # I
+    .param p8, "logo"    # I
+    .param p9, "windowFlags"    # I
+    .param p10, "transferFrom"    # Landroid/os/IBinder;
+    .param p11, "createIfNeeded"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3810,13 +3810,13 @@
     move-result-object v0
 
     .line 1463
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1465
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -3947,8 +3947,8 @@
 
 .method public setAppVisibility(Landroid/os/IBinder;Z)V
     .locals 5
-    .parameter "token"
-    .parameter "visible"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "visible"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3964,13 +3964,13 @@
     move-result-object v0
 
     .line 1515
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1517
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -4024,7 +4024,7 @@
 
 .method public setAppWillBeHidden(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4038,13 +4038,13 @@
     move-result-object v0
 
     .line 1500
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1502
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4090,7 +4090,7 @@
 
 .method public setEventDispatching(Z)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4106,13 +4106,13 @@
     move-result-object v0
 
     .line 1220
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1222
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -4163,8 +4163,8 @@
 
 .method public setFocusedApp(Landroid/os/IBinder;Z)V
     .locals 5
-    .parameter "token"
-    .parameter "moveFocusNow"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "moveFocusNow"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4180,13 +4180,13 @@
     move-result-object v0
 
     .line 1339
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1341
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -4240,8 +4240,8 @@
 
 .method public setForcedDisplayDensity(II)V
     .locals 5
-    .parameter "displayId"
-    .parameter "density"
+    .param p1, "displayId"    # I
+    .param p2, "density"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4255,13 +4255,13 @@
     move-result-object v0
 
     .line 1138
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1140
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4310,9 +4310,9 @@
 
 .method public setForcedDisplaySize(III)V
     .locals 5
-    .parameter "displayId"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "displayId"    # I
+    .param p2, "width"    # I
+    .param p3, "height"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4326,13 +4326,13 @@
     move-result-object v0
 
     .line 1070
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1072
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4384,7 +4384,7 @@
 
 .method public setInTouchMode(Z)V
     .locals 5
-    .parameter "showFocus"
+    .param p1, "showFocus"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4400,13 +4400,13 @@
     move-result-object v0
 
     .line 1861
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1863
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -4457,7 +4457,7 @@
 
 .method public setInputFilter(Landroid/view/IInputFilter;)V
     .locals 5
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/view/IInputFilter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4471,13 +4471,13 @@
     move-result-object v0
 
     .line 2223
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2225
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4536,7 +4536,7 @@
 
 .method public setMagnificationCallbacks(Landroid/view/IMagnificationCallbacks;)V
     .locals 5
-    .parameter "callbacks"
+    .param p1, "callbacks"    # Landroid/view/IMagnificationCallbacks;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4550,13 +4550,13 @@
     move-result-object v0
 
     .line 2285
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2287
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4615,7 +4615,7 @@
 
 .method public setMagnificationSpec(Landroid/view/MagnificationSpec;)V
     .locals 5
-    .parameter "spec"
+    .param p1, "spec"    # Landroid/view/MagnificationSpec;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4629,13 +4629,13 @@
     move-result-object v0
 
     .line 2306
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2308
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4703,7 +4703,7 @@
 
 .method public setNewConfiguration(Landroid/content/res/Configuration;)V
     .locals 5
-    .parameter "config"
+    .param p1, "config"    # Landroid/content/res/Configuration;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4717,13 +4717,13 @@
     move-result-object v0
 
     .line 1612
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1614
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4791,11 +4791,11 @@
 
 .method public setOverscan(IIIII)V
     .locals 5
-    .parameter "displayId"
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "displayId"    # I
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4809,13 +4809,13 @@
     move-result-object v0
 
     .line 1169
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1171
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4873,7 +4873,7 @@
 
 .method public setStrictModeVisualIndicatorPreference(Ljava/lang/String;)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4887,13 +4887,13 @@
     move-result-object v0
 
     .line 1902
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1904
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -4939,7 +4939,7 @@
 
 .method public setTouchExplorationEnabled(Z)V
     .locals 5
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4955,13 +4955,13 @@
     move-result-object v0
 
     .line 2363
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2365
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5012,7 +5012,7 @@
 
 .method public showStrictModeViolation(Z)V
     .locals 5
-    .parameter "on"
+    .param p1, "on"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5028,13 +5028,13 @@
     move-result-object v0
 
     .line 1882
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1884
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5085,8 +5085,8 @@
 
 .method public startAppFreezingScreen(Landroid/os/IBinder;I)V
     .locals 5
-    .parameter "token"
-    .parameter "configChanges"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "configChanges"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5100,13 +5100,13 @@
     move-result-object v0
 
     .line 1531
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1533
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -5155,8 +5155,8 @@
 
 .method public startFreezingScreen(II)V
     .locals 5
-    .parameter "exitAnim"
-    .parameter "enterAnim"
+    .param p1, "exitAnim"    # I
+    .param p2, "enterAnim"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5170,13 +5170,13 @@
     move-result-object v0
 
     .line 1633
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1635
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -5225,7 +5225,7 @@
 
 .method public startViewServer(I)Z
     .locals 7
-    .parameter "port"
+    .param p1, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5243,13 +5243,13 @@
     move-result-object v0
 
     .line 939
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 942
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -5280,7 +5280,7 @@
     if-eqz v4, :cond_0
 
     .line 949
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -5290,7 +5290,7 @@
     .line 952
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -5311,7 +5311,7 @@
 
 .method public statusBarVisibilityChanged(I)V
     .locals 5
-    .parameter "visibility"
+    .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5325,7 +5325,7 @@
     move-result-object v0
 
     .line 2122
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IWindowManager"
 
@@ -5364,8 +5364,8 @@
 
 .method public stopAppFreezingScreen(Landroid/os/IBinder;Z)V
     .locals 5
-    .parameter "token"
-    .parameter "force"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "force"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5381,13 +5381,13 @@
     move-result-object v0
 
     .line 1547
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1549
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5454,13 +5454,13 @@
     move-result-object v0
 
     .line 1649
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1651
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -5518,13 +5518,13 @@
     move-result-object v0
 
     .line 959
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 962
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5554,7 +5554,7 @@
     const/4 v2, 0x1
 
     .line 968
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -5565,7 +5565,7 @@
     return v2
 
     .line 968
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -5592,13 +5592,13 @@
     move-result-object v0
 
     .line 2052
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2054
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IWindowManager"
 
@@ -5641,8 +5641,8 @@
 
 .method public updateOrientationFromAppTokens(Landroid/content/res/Configuration;Landroid/os/IBinder;)Landroid/content/res/Configuration;
     .locals 6
-    .parameter "currentConfig"
-    .parameter "freezeThisOneIfNeeded"
+    .param p1, "currentConfig"    # Landroid/content/res/Configuration;
+    .param p2, "freezeThisOneIfNeeded"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5656,13 +5656,13 @@
     move-result-object v0
 
     .line 1582
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1585
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5716,7 +5716,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1604
-    .local v2, _result:Landroid/content/res/Configuration;
+    .local v2, "_result":Landroid/content/res/Configuration;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -5727,7 +5727,7 @@
     return-object v2
 
     .line 1591
-    .end local v2           #_result:Landroid/content/res/Configuration;
+    .end local v2    # "_result":Landroid/content/res/Configuration;
     :cond_0
     const/4 v3, 0x0
 
@@ -5753,14 +5753,14 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/res/Configuration;
+    .restart local v2    # "_result":Landroid/content/res/Configuration;
     goto :goto_1
 .end method
 
 .method public updateRotation(ZZ)V
     .locals 5
-    .parameter "alwaysSendConfiguration"
-    .parameter "forceRelayout"
+    .param p1, "alwaysSendConfiguration"    # Z
+    .param p2, "forceRelayout"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5778,13 +5778,13 @@
     move-result-object v0
 
     .line 1927
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1929
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.view.IWindowManager"
 
@@ -5853,8 +5853,8 @@
 
 .method public waitForWindowDrawn(Landroid/os/IBinder;Landroid/os/IRemoteCallback;)Z
     .locals 6
-    .parameter "token"
-    .parameter "callback"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "callback"    # Landroid/os/IRemoteCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5870,13 +5870,13 @@
     move-result-object v0
 
     .line 2137
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 2140
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -5919,7 +5919,7 @@
     const/4 v2, 0x1
 
     .line 2148
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -5930,7 +5930,7 @@
     return v2
 
     .line 2142
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -5950,7 +5950,7 @@
 
 .method public watchRotation(Landroid/view/IRotationWatcher;)I
     .locals 6
-    .parameter "watcher"
+    .param p1, "watcher"    # Landroid/view/IRotationWatcher;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -5964,13 +5964,13 @@
     move-result-object v0
 
     .line 1968
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1971
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.view.IWindowManager"
 
@@ -6006,7 +6006,7 @@
     move-result v2
 
     .line 1978
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1979
@@ -6016,7 +6016,7 @@
     return v2
 
     .line 1972
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 

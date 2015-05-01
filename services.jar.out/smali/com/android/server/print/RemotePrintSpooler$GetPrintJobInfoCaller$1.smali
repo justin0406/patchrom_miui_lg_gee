@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 488
@@ -38,8 +37,8 @@
 # virtual methods
 .method public onGetPrintJobInfoResult(Landroid/print/PrintJobInfo;I)V
     .locals 1
-    .parameter "printJob"
-    .parameter "sequence"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
+    .param p2, "sequence"    # I
 
     .prologue
     .line 491

@@ -82,8 +82,8 @@
 
 .method static synthetic access$002(Landroid/accessibilityservice/AccessibilityService;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/accessibilityservice/AccessibilityService;
+    .param p1, "x1"    # I
 
     .prologue
     .line 210
@@ -108,7 +108,7 @@
     move-result-object v0
 
     .line 526
-    .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .local v0, "connection":Landroid/accessibilityservice/IAccessibilityServiceConnection;
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityService;->mInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     if-eqz v2, :cond_0
@@ -145,7 +145,7 @@
     move-exception v1
 
     .line 532
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "AccessibilityService"
 
     const-string v3, "Error while setting AccessibilityServiceInfo"
@@ -191,7 +191,7 @@
     move-result-object v0
 
     .line 495
-    .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .local v0, "connection":Landroid/accessibilityservice/IAccessibilityServiceConnection;
     if-eqz v0, :cond_0
 
     .line 497
@@ -211,7 +211,7 @@
     move-exception v1
 
     .line 499
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "AccessibilityService"
 
     const-string v3, "Error while getting AccessibilityServiceInfo"
@@ -219,7 +219,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 502
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v2, 0x0
 
@@ -231,7 +231,7 @@
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 3
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 543
@@ -252,7 +252,7 @@
 
 .method protected onGesture(I)Z
     .locals 1
-    .parameter "gestureId"
+    .param p1, "gestureId"    # I
 
     .prologue
     .line 416
@@ -266,7 +266,7 @@
 
 .method protected onKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 442
@@ -285,7 +285,7 @@
 
 .method public final performGlobalAction(I)Z
     .locals 4
-    .parameter "action"
+    .param p1, "action"    # I
 
     .prologue
     .line 470
@@ -300,7 +300,7 @@
     move-result-object v0
 
     .line 472
-    .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
+    .local v0, "connection":Landroid/accessibilityservice/IAccessibilityServiceConnection;
     if-eqz v0, :cond_0
 
     .line 474
@@ -320,7 +320,7 @@
     move-exception v1
 
     .line 476
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "AccessibilityService"
 
     const-string v3, "Error while calling performGlobalAction"
@@ -328,7 +328,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 479
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v2, 0x0
 
@@ -337,7 +337,7 @@
 
 .method public final setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
     .locals 0
-    .parameter "info"
+    .param p1, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .prologue
     .line 514

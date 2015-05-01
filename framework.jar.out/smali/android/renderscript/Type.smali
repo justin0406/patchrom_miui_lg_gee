@@ -33,8 +33,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 194
@@ -58,29 +58,29 @@
     move-result v2
 
     .line 157
-    .local v2, hasLod:Z
+    .local v2, "hasLod":Z
     invoke-virtual {p0}, Landroid/renderscript/Type;->getX()I
 
     move-result v3
 
     .line 158
-    .local v3, x:I
+    .local v3, "x":I
     invoke-virtual {p0}, Landroid/renderscript/Type;->getY()I
 
     move-result v4
 
     .line 159
-    .local v4, y:I
+    .local v4, "y":I
     invoke-virtual {p0}, Landroid/renderscript/Type;->getZ()I
 
     move-result v5
 
     .line 160
-    .local v5, z:I
+    .local v5, "z":I
     const/4 v1, 0x1
 
     .line 161
-    .local v1, faces:I
+    .local v1, "faces":I
     invoke-virtual {p0}, Landroid/renderscript/Type;->hasFaces()Z
 
     move-result v6
@@ -120,7 +120,7 @@
     mul-int v0, v6, v1
 
     .line 176
-    .local v0, count:I
+    .local v0, "count":I
     :goto_0
     if-eqz v2, :cond_8
 
@@ -265,7 +265,7 @@
     new-array v0, v2, [I
 
     .line 202
-    .local v0, dataBuffer:[I
+    .local v0, "dataBuffer":[I
     iget-object v2, p0, Landroid/renderscript/Type;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v5, p0, Landroid/renderscript/Type;->mRS:Landroid/renderscript/RenderScript;
@@ -321,7 +321,7 @@
     aget v1, v0, v2
 
     .line 211
-    .local v1, elementID:I
+    .local v1, "elementID":I
     if-eqz v1, :cond_0
 
     .line 212
@@ -345,7 +345,7 @@
     .line 216
     return-void
 
-    .end local v1           #elementID:I
+    .end local v1    # "elementID":I
     :cond_1
     move v2, v4
 

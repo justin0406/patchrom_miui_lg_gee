@@ -28,9 +28,9 @@
 # direct methods
 .method public constructor <init>(Landroid/animation/AnimatorSet;Landroid/animation/AnimatorSet$Node;I)V
     .locals 0
-    .parameter "animatorSet"
-    .parameter "node"
-    .parameter "rule"
+    .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
+    .param p2, "node"    # Landroid/animation/AnimatorSet$Node;
+    .param p3, "rule"    # I
 
     .prologue
     .line 697
@@ -51,7 +51,7 @@
 
 .method private startIfReady(Landroid/animation/Animator;)V
     .locals 6
-    .parameter "dependencyAnimation"
+    .param p1, "dependencyAnimation"    # Landroid/animation/Animator;
 
     .prologue
     .line 742
@@ -71,7 +71,7 @@
     const/4 v1, 0x0
 
     .line 747
-    .local v1, dependencyToRemove:Landroid/animation/AnimatorSet$Dependency;
+    .local v1, "dependencyToRemove":Landroid/animation/AnimatorSet$Dependency;
     iget-object v4, p0, Landroid/animation/AnimatorSet$DependencyListener;->mNode:Landroid/animation/AnimatorSet$Node;
 
     iget-object v4, v4, Landroid/animation/AnimatorSet$Node;->tmpDependencies:Ljava/util/ArrayList;
@@ -81,10 +81,10 @@
     move-result v3
 
     .line 748
-    .local v3, numDependencies:I
+    .local v3, "numDependencies":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v3, :cond_2
 
@@ -100,7 +100,7 @@
     check-cast v0, Landroid/animation/AnimatorSet$Dependency;
 
     .line 750
-    .local v0, dependency:Landroid/animation/AnimatorSet$Dependency;
+    .local v0, "dependency":Landroid/animation/AnimatorSet$Dependency;
     iget v4, v0, Landroid/animation/AnimatorSet$Dependency;->rule:I
 
     iget v5, p0, Landroid/animation/AnimatorSet$DependencyListener;->mRule:I
@@ -120,7 +120,7 @@
     invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 759
-    .end local v0           #dependency:Landroid/animation/AnimatorSet$Dependency;
+    .end local v0    # "dependency":Landroid/animation/AnimatorSet$Dependency;
     :cond_2
     iget-object v4, p0, Landroid/animation/AnimatorSet$DependencyListener;->mNode:Landroid/animation/AnimatorSet$Node;
 
@@ -149,7 +149,7 @@
     .line 763
     iget-object v4, p0, Landroid/animation/AnimatorSet$DependencyListener;->mAnimatorSet:Landroid/animation/AnimatorSet;
 
-    #getter for: Landroid/animation/AnimatorSet;->mPlayingSet:Ljava/util/ArrayList;
+    # getter for: Landroid/animation/AnimatorSet;->mPlayingSet:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/animation/AnimatorSet;->access$000(Landroid/animation/AnimatorSet;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -163,7 +163,7 @@
     goto :goto_0
 
     .line 748
-    .restart local v0       #dependency:Landroid/animation/AnimatorSet$Dependency;
+    .restart local v0    # "dependency":Landroid/animation/AnimatorSet$Dependency;
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
@@ -174,7 +174,7 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 709
@@ -183,7 +183,7 @@
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 715
@@ -203,7 +203,7 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 724
@@ -212,7 +212,7 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 1
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 730

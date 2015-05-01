@@ -89,7 +89,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x0
@@ -117,7 +117,7 @@
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     .line 331
-    .local v0, targetSdkVersion:I
+    .local v0, "targetSdkVersion":I
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_0
@@ -153,7 +153,7 @@
 
 .method private applyErrorDrawableIfNeeded(I)V
     .locals 1
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 425
@@ -300,7 +300,7 @@
 
 .method private updateDrawablesLayoutDirection(I)V
     .locals 1
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 389
@@ -355,7 +355,7 @@
 # virtual methods
 .method public resolveWithLayoutDirection(I)V
     .locals 1
-    .parameter "layoutDirection"
+    .param p1, "layoutDirection"    # I
 
     .prologue
     .line 338
@@ -521,8 +521,8 @@
 
 .method public setErrorDrawable(Landroid/graphics/drawable/Drawable;Landroid/widget/TextView;)V
     .locals 4
-    .parameter "dr"
-    .parameter "tv"
+    .param p1, "dr"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "tv"    # Landroid/widget/TextView;
 
     .prologue
     .line 404
@@ -549,13 +549,13 @@
     iget-object v0, p0, Landroid/widget/TextView$Drawables;->mCompoundRect:Landroid/graphics/Rect;
 
     .line 410
-    .local v0, compoundRect:Landroid/graphics/Rect;
+    .local v0, "compoundRect":Landroid/graphics/Rect;
     invoke-virtual {p2}, Landroid/widget/TextView;->getDrawableState()[I
 
     move-result-object v1
 
     .line 412
-    .local v1, state:[I
+    .local v1, "state":[I
     iget-object v2, p0, Landroid/widget/TextView$Drawables;->mDrawableError:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_1

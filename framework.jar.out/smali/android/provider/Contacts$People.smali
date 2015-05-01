@@ -4,10 +4,10 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/SyncConstValue;
 .implements Landroid/provider/Contacts$PeopleColumns;
 .implements Landroid/provider/Contacts$PhonesColumns;
 .implements Landroid/provider/Contacts$PresenceColumns;
+.implements Landroid/provider/SyncConstValue;
 
 
 # annotations
@@ -33,7 +33,7 @@
 
 
 # static fields
-.field public static final CONTENT_FILTER_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_FILTER_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -58,12 +58,12 @@
     .end annotation
 .end field
 
-.field public static final DELETED_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final DELETED_CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field private static final GROUPS_PROJECTION:[Ljava/lang/String; = null
+.field private static final GROUPS_PROJECTION:[Ljava/lang/String;
 
 .field public static final PRIMARY_EMAIL_ID:Ljava/lang/String; = "primary_email"
     .annotation runtime Ljava/lang/Deprecated;
@@ -155,9 +155,9 @@
 
 .method public static addToGroup(Landroid/content/ContentResolver;JJ)Landroid/net/Uri;
     .locals 3
-    .parameter "resolver"
-    .parameter "personId"
-    .parameter "groupId"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "personId"    # J
+    .param p3, "groupId"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -168,7 +168,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 541
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string/jumbo v1, "person"
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -198,9 +198,9 @@
 
 .method public static addToGroup(Landroid/content/ContentResolver;JLjava/lang/String;)Landroid/net/Uri;
     .locals 9
-    .parameter "resolver"
-    .parameter "personId"
-    .parameter "groupName"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "personId"    # J
+    .param p3, "groupName"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -211,7 +211,7 @@
     const-wide/16 v6, 0x0
 
     .line 510
-    .local v6, groupId:J
+    .local v6, "groupId":J
     sget-object v1, Landroid/provider/Contacts$Groups;->CONTENT_URI:Landroid/net/Uri;
 
     sget-object v2, Landroid/provider/Contacts$People;->GROUPS_PROJECTION:[Ljava/lang/String;
@@ -233,7 +233,7 @@
     move-result-object v8
 
     .line 512
-    .local v8, groupsCursor:Landroid/database/Cursor;
+    .local v8, "groupsCursor":Landroid/database/Cursor;
     if-eqz v8, :cond_1
 
     .line 514
@@ -293,8 +293,8 @@
 
 .method public static addToMyContactsGroup(Landroid/content/ContentResolver;J)Landroid/net/Uri;
     .locals 4
-    .parameter "resolver"
-    .parameter "personId"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "personId"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -305,7 +305,7 @@
     move-result-wide v0
 
     .line 490
-    .local v0, groupId:J
+    .local v0, "groupId":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -332,8 +332,8 @@
 
 .method public static createPersonInMyContactsGroup(Landroid/content/ContentResolver;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 4
-    .parameter "resolver"
-    .parameter "values"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "values"    # Landroid/content/ContentValues;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -348,7 +348,7 @@
     move-result-object v0
 
     .line 563
-    .local v0, contactUri:Landroid/net/Uri;
+    .local v0, "contactUri":Landroid/net/Uri;
     if-nez v0, :cond_1
 
     .line 564
@@ -361,13 +361,13 @@
     move-object v0, v1
 
     .line 572
-    .end local v0           #contactUri:Landroid/net/Uri;
+    .end local v0    # "contactUri":Landroid/net/Uri;
     :cond_0
     :goto_0
     return-object v0
 
     .line 568
-    .restart local v0       #contactUri:Landroid/net/Uri;
+    .restart local v0    # "contactUri":Landroid/net/Uri;
     :cond_1
     invoke-static {v0}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
@@ -390,10 +390,10 @@
 
 .method public static loadContactPhoto(Landroid/content/Context;Landroid/net/Uri;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "context"
-    .parameter "person"
-    .parameter "placeholderImageResource"
-    .parameter "options"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "person"    # Landroid/net/Uri;
+    .param p2, "placeholderImageResource"    # I
+    .param p3, "options"    # Landroid/graphics/BitmapFactory$Options;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -424,7 +424,7 @@
     move-result-object v1
 
     .line 641
-    .local v1, stream:Ljava/io/InputStream;
+    .local v1, "stream":Ljava/io/InputStream;
     if-eqz v1, :cond_2
 
     invoke-static {v1, v0, p3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
@@ -432,7 +432,7 @@
     move-result-object v0
 
     .line 642
-    .local v0, bm:Landroid/graphics/Bitmap;
+    .local v0, "bm":Landroid/graphics/Bitmap;
     :cond_2
     if-nez v0, :cond_0
 
@@ -446,9 +446,9 @@
 
 .method private static loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "placeholderImageResource"
-    .parameter "context"
-    .parameter "options"
+    .param p0, "placeholderImageResource"    # I
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 650
@@ -475,8 +475,8 @@
 
 .method public static markAsContacted(Landroid/content/ContentResolver;J)V
     .locals 6
-    .parameter "resolver"
-    .parameter "personId"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "personId"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -491,7 +491,7 @@
     move-result-object v0
 
     .line 450
-    .local v0, uri:Landroid/net/Uri;
+    .local v0, "uri":Landroid/net/Uri;
     const-string/jumbo v2, "update_contact_time"
 
     invoke-static {v0, v2}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
@@ -504,7 +504,7 @@
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 454
-    .local v1, values:Landroid/content/ContentValues;
+    .local v1, "values":Landroid/content/ContentValues;
     const-string v2, "last_time_contacted"
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -526,8 +526,8 @@
 
 .method public static openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;)Ljava/io/InputStream;
     .locals 8
-    .parameter "cr"
-    .parameter "person"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "person"    # Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -544,7 +544,7 @@
     move-result-object v1
 
     .line 608
-    .local v1, photoUri:Landroid/net/Uri;
+    .local v1, "photoUri":Landroid/net/Uri;
     const/4 v0, 0x1
 
     new-array v2, v0, [Ljava/lang/String;
@@ -564,7 +564,7 @@
     move-result-object v6
 
     .line 610
-    .local v6, cursor:Landroid/database/Cursor;
+    .local v6, "cursor":Landroid/database/Cursor;
     if-eqz v6, :cond_0
 
     :try_start_0
@@ -598,7 +598,7 @@
     move-result-object v7
 
     .line 614
-    .local v7, data:[B
+    .local v7, "data":[B
     if-nez v7, :cond_3
 
     .line 619
@@ -624,7 +624,7 @@
 
     goto :goto_0
 
-    .end local v7           #data:[B
+    .end local v7    # "data":[B
     :catchall_0
     move-exception v0
 
@@ -638,8 +638,8 @@
 
 .method public static queryGroups(Landroid/content/ContentResolver;J)Landroid/database/Cursor;
     .locals 6
-    .parameter "resolver"
-    .parameter "person"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "person"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -676,9 +676,9 @@
 
 .method public static setPhotoData(Landroid/content/ContentResolver;Landroid/net/Uri;[B)V
     .locals 4
-    .parameter "cr"
-    .parameter "person"
-    .parameter "data"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "person"    # Landroid/net/Uri;
+    .param p2, "data"    # [B
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -693,13 +693,13 @@
     move-result-object v0
 
     .line 594
-    .local v0, photoUri:Landroid/net/Uri;
+    .local v0, "photoUri":Landroid/net/Uri;
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
     .line 595
-    .local v1, values:Landroid/content/ContentValues;
+    .local v1, "values":Landroid/content/ContentValues;
     const-string v2, "data"
 
     invoke-virtual {v1, v2, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -713,7 +713,7 @@
 
 .method public static tryGetMyContactsGroupId(Landroid/content/ContentResolver;)J
     .locals 7
-    .parameter "resolver"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -736,7 +736,7 @@
     move-result-object v6
 
     .line 466
-    .local v6, groupsCursor:Landroid/database/Cursor;
+    .local v6, "groupsCursor":Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
     .line 468

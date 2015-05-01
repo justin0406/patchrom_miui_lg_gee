@@ -14,8 +14,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field static final synthetic $assertionsDisabled:Z = false
+.field static final synthetic $assertionsDisabled:Z
 
 .field private static final WHAT_HIDE:I = 0x2
 
@@ -101,9 +100,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/media/MediaTimeProvider;Landroid/media/SubtitleController$Listener;)V
     .locals 2
-    .parameter "context"
-    .parameter "timeProvider"
-    .parameter "listener"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "timeProvider"    # Landroid/media/MediaTimeProvider;
+    .param p3, "listener"    # Landroid/media/SubtitleController$Listener;
 
     .prologue
     const/4 v1, 0x0
@@ -171,7 +170,7 @@
 
 .method static synthetic access$000(Landroid/media/SubtitleController;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/SubtitleController;
 
     .prologue
     .line 36
@@ -182,7 +181,7 @@
 
 .method static synthetic access$100(Landroid/media/SubtitleController;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/SubtitleController;
 
     .prologue
     .line 36
@@ -193,8 +192,8 @@
 
 .method static synthetic access$200(Landroid/media/SubtitleController;Landroid/media/SubtitleTrack;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/SubtitleController;
+    .param p1, "x1"    # Landroid/media/SubtitleTrack;
 
     .prologue
     .line 36
@@ -205,7 +204,7 @@
 
 .method static synthetic access$300(Landroid/media/SubtitleController;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/SubtitleController;
 
     .prologue
     .line 36
@@ -364,7 +363,7 @@
     move-result-object v0
 
     .line 290
-    .local v0, track:Landroid/media/SubtitleTrack;
+    .local v0, "track":Landroid/media/SubtitleTrack;
     if-eqz v0, :cond_1
 
     .line 291
@@ -389,7 +388,7 @@
 
 .method private doSelectTrack(Landroid/media/SubtitleTrack;)V
     .locals 2
-    .parameter "track"
+    .param p1, "track"    # Landroid/media/SubtitleTrack;
 
     .prologue
     .line 162
@@ -530,7 +529,7 @@
 
 .method private processOnAnchor(Landroid/os/Message;)V
     .locals 2
-    .parameter "m"
+    .param p1, "m"    # Landroid/os/Message;
 
     .prologue
     .line 473
@@ -586,7 +585,7 @@
 # virtual methods
 .method public addTrack(Landroid/media/MediaFormat;)Landroid/media/SubtitleTrack;
     .locals 7
-    .parameter "format"
+    .param p1, "format"    # Landroid/media/MediaFormat;
 
     .prologue
     .line 320
@@ -602,7 +601,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -617,7 +616,7 @@
     check-cast v1, Landroid/media/SubtitleController$Renderer;
 
     .line 322
-    .local v1, renderer:Landroid/media/SubtitleController$Renderer;
+    .local v1, "renderer":Landroid/media/SubtitleController$Renderer;
     invoke-virtual {v1, p1}, Landroid/media/SubtitleController$Renderer;->supports(Landroid/media/MediaFormat;)Z
 
     move-result v3
@@ -630,7 +629,7 @@
     move-result-object v2
 
     .line 324
-    .local v2, track:Landroid/media/SubtitleTrack;
+    .local v2, "track":Landroid/media/SubtitleTrack;
     if-eqz v2, :cond_0
 
     .line 325
@@ -675,14 +674,14 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 337
-    .end local v1           #renderer:Landroid/media/SubtitleController$Renderer;
-    .end local v2           #track:Landroid/media/SubtitleTrack;
+    .end local v1    # "renderer":Landroid/media/SubtitleController$Renderer;
+    .end local v2    # "track":Landroid/media/SubtitleTrack;
     :goto_0
     return-object v2
 
     .line 331
-    .restart local v1       #renderer:Landroid/media/SubtitleController$Renderer;
-    .restart local v2       #track:Landroid/media/SubtitleTrack;
+    .restart local v1    # "renderer":Landroid/media/SubtitleController$Renderer;
+    .restart local v2    # "track":Landroid/media/SubtitleTrack;
     :catchall_0
     move-exception v3
 
@@ -695,9 +694,9 @@
     throw v3
 
     .line 336
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #renderer:Landroid/media/SubtitleController$Renderer;
-    .end local v2           #track:Landroid/media/SubtitleTrack;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "renderer":Landroid/media/SubtitleController$Renderer;
+    .end local v2    # "track":Landroid/media/SubtitleTrack;
     :catchall_1
     move-exception v3
 
@@ -707,7 +706,7 @@
 
     throw v3
 
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_2
     :try_start_5
     monitor-exit v4
@@ -751,11 +750,11 @@
     const/4 v3, 0x0
 
     .line 212
-    .local v3, bestTrack:Landroid/media/SubtitleTrack;
+    .local v3, "bestTrack":Landroid/media/SubtitleTrack;
     const/4 v2, -0x1
 
     .line 214
-    .local v2, bestScore:I
+    .local v2, "bestScore":I
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/media/SubtitleController;->mCaptioningManager:Landroid/view/accessibility/CaptioningManager;
@@ -765,11 +764,11 @@
     move-result-object v13
 
     .line 215
-    .local v13, selectedLocale:Ljava/util/Locale;
+    .local v13, "selectedLocale":Ljava/util/Locale;
     move-object v10, v13
 
     .line 216
-    .local v10, locale:Ljava/util/Locale;
+    .local v10, "locale":Ljava/util/Locale;
     if-nez v10, :cond_0
 
     .line 217
@@ -792,7 +791,7 @@
     const/4 v12, 0x1
 
     .line 221
-    .local v12, selectForced:Z
+    .local v12, "selectForced":Z
     :goto_0
     move-object/from16 v0, p0
 
@@ -812,7 +811,7 @@
 
     move-result-object v6
 
-    .local v6, i$:Ljava/util/Iterator;
+    .local v6, "i$":Ljava/util/Iterator;
     :cond_1
     :goto_1
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
@@ -828,13 +827,13 @@
     check-cast v14, Landroid/media/SubtitleTrack;
 
     .line 223
-    .local v14, track:Landroid/media/SubtitleTrack;
+    .local v14, "track":Landroid/media/SubtitleTrack;
     invoke-virtual {v14}, Landroid/media/SubtitleTrack;->getFormat()Landroid/media/MediaFormat;
 
     move-result-object v5
 
     .line 224
-    .local v5, format:Landroid/media/MediaFormat;
+    .local v5, "format":Landroid/media/MediaFormat;
     const-string v15, "language"
 
     invoke-virtual {v5, v15}, Landroid/media/MediaFormat;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -842,7 +841,7 @@
     move-result-object v8
 
     .line 225
-    .local v8, language:Ljava/lang/String;
+    .local v8, "language":Ljava/lang/String;
     const-string v15, "is-forced-subtitle"
 
     const/16 v16, 0x0
@@ -858,7 +857,7 @@
     const/4 v4, 0x1
 
     .line 227
-    .local v4, forced:Z
+    .local v4, "forced":Z
     :goto_2
     const-string v15, "is-autoselect"
 
@@ -875,7 +874,7 @@
     const/4 v1, 0x1
 
     .line 229
-    .local v1, autoselect:Z
+    .local v1, "autoselect":Z
     :goto_3
     const-string v15, "is-default"
 
@@ -892,7 +891,7 @@
     const/4 v7, 0x1
 
     .line 232
-    .local v7, is_default:Z
+    .local v7, "is_default":Z
     :goto_4
     if-eqz v10, :cond_2
 
@@ -932,7 +931,7 @@
     const/4 v9, 0x1
 
     .line 238
-    .local v9, languageMatches:Z
+    .local v9, "languageMatches":Z
     :goto_5
     if-eqz v4, :cond_b
 
@@ -965,7 +964,7 @@
     add-int v11, v16, v15
 
     .line 242
-    .local v11, score:I
+    .local v11, "score":I
     if-eqz v12, :cond_3
 
     if-eqz v4, :cond_1
@@ -998,55 +997,55 @@
     goto/16 :goto_1
 
     .line 219
-    .end local v1           #autoselect:Z
-    .end local v4           #forced:Z
-    .end local v5           #format:Landroid/media/MediaFormat;
-    .end local v6           #i$:Ljava/util/Iterator;
-    .end local v7           #is_default:Z
-    .end local v8           #language:Ljava/lang/String;
-    .end local v9           #languageMatches:Z
-    .end local v11           #score:I
-    .end local v12           #selectForced:Z
-    .end local v14           #track:Landroid/media/SubtitleTrack;
+    .end local v1    # "autoselect":Z
+    .end local v4    # "forced":Z
+    .end local v5    # "format":Landroid/media/MediaFormat;
+    .end local v6    # "i$":Ljava/util/Iterator;
+    .end local v7    # "is_default":Z
+    .end local v8    # "language":Ljava/lang/String;
+    .end local v9    # "languageMatches":Z
+    .end local v11    # "score":I
+    .end local v12    # "selectForced":Z
+    .end local v14    # "track":Landroid/media/SubtitleTrack;
     :cond_6
     const/4 v12, 0x0
 
     goto/16 :goto_0
 
     .line 225
-    .restart local v5       #format:Landroid/media/MediaFormat;
-    .restart local v6       #i$:Ljava/util/Iterator;
-    .restart local v8       #language:Ljava/lang/String;
-    .restart local v12       #selectForced:Z
-    .restart local v14       #track:Landroid/media/SubtitleTrack;
+    .restart local v5    # "format":Landroid/media/MediaFormat;
+    .restart local v6    # "i$":Ljava/util/Iterator;
+    .restart local v8    # "language":Ljava/lang/String;
+    .restart local v12    # "selectForced":Z
+    .restart local v14    # "track":Landroid/media/SubtitleTrack;
     :cond_7
     const/4 v4, 0x0
 
     goto :goto_2
 
     .line 227
-    .restart local v4       #forced:Z
+    .restart local v4    # "forced":Z
     :cond_8
     const/4 v1, 0x0
 
     goto :goto_3
 
     .line 229
-    .restart local v1       #autoselect:Z
+    .restart local v1    # "autoselect":Z
     :cond_9
     const/4 v7, 0x0
 
     goto :goto_4
 
     .line 232
-    .restart local v7       #is_default:Z
+    .restart local v7    # "is_default":Z
     :cond_a
     const/4 v9, 0x0
 
     goto :goto_5
 
     .line 238
-    .restart local v9       #languageMatches:Z
+    .restart local v9    # "languageMatches":Z
     :cond_b
     const/16 v15, 0x8
 
@@ -1070,13 +1069,13 @@
     goto :goto_9
 
     .line 256
-    .end local v1           #autoselect:Z
-    .end local v4           #forced:Z
-    .end local v5           #format:Landroid/media/MediaFormat;
-    .end local v7           #is_default:Z
-    .end local v8           #language:Ljava/lang/String;
-    .end local v9           #languageMatches:Z
-    .end local v14           #track:Landroid/media/SubtitleTrack;
+    .end local v1    # "autoselect":Z
+    .end local v4    # "forced":Z
+    .end local v5    # "format":Landroid/media/MediaFormat;
+    .end local v7    # "is_default":Z
+    .end local v8    # "language":Ljava/lang/String;
+    .end local v9    # "languageMatches":Z
+    .end local v14    # "track":Landroid/media/SubtitleTrack;
     :cond_f
     monitor-exit v17
 
@@ -1084,7 +1083,7 @@
     return-object v3
 
     .line 256
-    .end local v6           #i$:Ljava/util/Iterator;
+    .end local v6    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v15
 
@@ -1125,7 +1124,7 @@
     new-array v0, v1, [Landroid/media/SubtitleTrack;
 
     .line 122
-    .local v0, tracks:[Landroid/media/SubtitleTrack;
+    .local v0, "tracks":[Landroid/media/SubtitleTrack;
     iget-object v1, p0, Landroid/media/SubtitleController;->mTracks:Ljava/util/Vector;
 
     invoke-virtual {v1, v0}, Ljava/util/Vector;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -1136,7 +1135,7 @@
     return-object v0
 
     .line 124
-    .end local v0           #tracks:[Landroid/media/SubtitleTrack;
+    .end local v0    # "tracks":[Landroid/media/SubtitleTrack;
     :catchall_0
     move-exception v1
 
@@ -1168,7 +1167,7 @@
 
 .method public registerRenderer(Landroid/media/SubtitleController$Renderer;)V
     .locals 2
-    .parameter "renderer"
+    .param p1, "renderer"    # Landroid/media/SubtitleController$Renderer;
 
     .prologue
     .line 414
@@ -1269,7 +1268,7 @@
 
 .method public selectTrack(Landroid/media/SubtitleTrack;)Z
     .locals 2
-    .parameter "track"
+    .param p1, "track"    # Landroid/media/SubtitleTrack;
 
     .prologue
     .line 153
@@ -1310,7 +1309,7 @@
 
 .method public setAnchor(Landroid/media/SubtitleController$Anchor;)V
     .locals 3
-    .parameter "anchor"
+    .param p1, "anchor"    # Landroid/media/SubtitleController$Anchor;
 
     .prologue
     const/4 v1, 0x0

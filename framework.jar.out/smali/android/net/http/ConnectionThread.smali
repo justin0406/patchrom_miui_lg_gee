@@ -32,10 +32,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;ILandroid/net/http/RequestQueue$ConnectionManager;Landroid/net/http/RequestFeeder;)V
     .locals 2
-    .parameter "context"
-    .parameter "id"
-    .parameter "connectionManager"
-    .parameter "requestFeeder"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "id"    # I
+    .param p3, "connectionManager"    # Landroid/net/http/RequestQueue$ConnectionManager;
+    .param p4, "requestFeeder"    # Landroid/net/http/RequestFeeder;
 
     .prologue
     .line 51
@@ -171,7 +171,7 @@
     move-result-object v0
 
     .line 93
-    .local v0, request:Landroid/net/http/Request;
+    .local v0, "request":Landroid/net/http/Request;
     if-nez v0, :cond_3
 
     .line 94
@@ -193,8 +193,8 @@
 
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 101
     :goto_1
@@ -294,7 +294,7 @@
     iget-wide v1, p0, Landroid/net/http/ConnectionThread;->mCurrentThreadTime:J
 
     .line 125
-    .local v1, start:J
+    .local v1, "start":J
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
 
     move-result-wide v3
@@ -315,7 +315,7 @@
     goto :goto_0
 
     .line 119
-    .end local v1           #start:J
+    .end local v1    # "start":J
     :cond_5
     iget-object v3, p0, Landroid/net/http/ConnectionThread;->mConnection:Landroid/net/http/Connection;
 
@@ -324,12 +324,12 @@
     goto :goto_2
 
     .line 131
-    .end local v0           #request:Landroid/net/http/Request;
+    .end local v0    # "request":Landroid/net/http/Request;
     :cond_6
     return-void
 
     .line 99
-    .restart local v0       #request:Landroid/net/http/Request;
+    .restart local v0    # "request":Landroid/net/http/Request;
     :catch_0
     move-exception v3
 
@@ -351,7 +351,7 @@
     const-string v1, ""
 
     .line 135
-    .local v1, con:Ljava/lang/String;
+    .local v1, "con":Ljava/lang/String;
     :goto_0
     iget-boolean v2, p0, Landroid/net/http/ConnectionThread;->mWaiting:Z
 
@@ -360,7 +360,7 @@
     const-string/jumbo v0, "w"
 
     .line 136
-    .local v0, active:Ljava/lang/String;
+    .local v0, "active":Ljava/lang/String;
     :goto_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -409,8 +409,8 @@
     return-object v2
 
     .line 134
-    .end local v0           #active:Ljava/lang/String;
-    .end local v1           #con:Ljava/lang/String;
+    .end local v0    # "active":Ljava/lang/String;
+    .end local v1    # "con":Ljava/lang/String;
     :cond_0
     :try_start_1
     iget-object v2, p0, Landroid/net/http/ConnectionThread;->mConnection:Landroid/net/http/Connection;
@@ -422,7 +422,7 @@
     goto :goto_0
 
     .line 135
-    .restart local v1       #con:Ljava/lang/String;
+    .restart local v1    # "con":Ljava/lang/String;
     :cond_1
     const-string v0, "a"
     :try_end_1
@@ -431,7 +431,7 @@
     goto :goto_1
 
     .line 134
-    .end local v1           #con:Ljava/lang/String;
+    .end local v1    # "con":Ljava/lang/String;
     :catchall_0
     move-exception v2
 

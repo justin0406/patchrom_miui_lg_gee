@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 52
@@ -20,8 +20,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 44
@@ -35,9 +35,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 34
@@ -62,27 +62,27 @@
 
 .method private static getDefaultSize2(II)I
     .locals 3
-    .parameter "size"
-    .parameter "measureSpec"
+    .param p0, "size"    # I
+    .param p1, "measureSpec"    # I
 
     .prologue
     .line 70
     move v0, p0
 
     .line 71
-    .local v0, result:I
+    .local v0, "result":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
     .line 72
-    .local v1, specMode:I
+    .local v1, "specMode":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v2
 
     .line 74
-    .local v2, specSize:I
+    .local v2, "specSize":I
     sparse-switch v1, :sswitch_data_0
 
     .line 85
@@ -124,7 +124,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 0
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 62
@@ -133,8 +133,8 @@
 
 .method protected onMeasure(II)V
     .locals 2
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 90

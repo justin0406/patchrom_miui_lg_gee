@@ -38,7 +38,7 @@
 
 .method public onLayoutFailed(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "error"
+    .param p1, "error"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 329
@@ -47,8 +47,8 @@
 
 .method public onLayoutFinished(Landroid/print/PrintDocumentInfo;Z)V
     .locals 0
-    .parameter "info"
-    .parameter "changed"
+    .param p1, "info"    # Landroid/print/PrintDocumentInfo;
+    .param p2, "changed"    # Z
 
     .prologue
     .line 319

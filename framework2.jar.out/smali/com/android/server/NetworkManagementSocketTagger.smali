@@ -91,7 +91,7 @@
 
 .method public static kernelToTag(Ljava/lang/String;)I
     .locals 3
-    .parameter "string"
+    .param p0, "string"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -102,7 +102,7 @@
     move-result v0
 
     .line 139
-    .local v0, length:I
+    .local v0, "length":I
     const/16 v2, 0xa
 
     if-le v0, v2, :cond_0
@@ -141,7 +141,7 @@
 
 .method public static resetKernelUidStats(I)V
     .locals 4
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -161,7 +161,7 @@
     move-result v0
 
     .line 127
-    .local v0, errno:I
+    .local v0, "errno":I
     if-gez v0, :cond_0
 
     .line 128
@@ -198,15 +198,15 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 131
-    .end local v0           #errno:I
+    .end local v0    # "errno":I
     :cond_0
     return-void
 .end method
 
 .method public static setKernelCounterSet(II)V
     .locals 4
-    .parameter "uid"
-    .parameter "counterSet"
+    .param p0, "uid"    # I
+    .param p1, "counterSet"    # I
 
     .prologue
     .line 115
@@ -226,7 +226,7 @@
     move-result v0
 
     .line 117
-    .local v0, errno:I
+    .local v0, "errno":I
     if-gez v0, :cond_0
 
     .line 118
@@ -273,14 +273,14 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 122
-    .end local v0           #errno:I
+    .end local v0    # "errno":I
     :cond_0
     return-void
 .end method
 
 .method public static setThreadSocketStatsTag(I)V
     .locals 1
-    .parameter "tag"
+    .param p0, "tag"    # I
 
     .prologue
     .line 54
@@ -300,7 +300,7 @@
 
 .method public static setThreadSocketStatsUid(I)V
     .locals 1
-    .parameter "uid"
+    .param p0, "uid"    # I
 
     .prologue
     .line 62
@@ -320,9 +320,9 @@
 
 .method private tagSocketFd(Ljava/io/FileDescriptor;II)V
     .locals 4
-    .parameter "fd"
-    .parameter "tag"
-    .parameter "uid"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "tag"    # I
+    .param p3, "uid"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -355,7 +355,7 @@
     move-result v0
 
     .line 81
-    .local v0, errno:I
+    .local v0, "errno":I
     if-gez v0, :cond_0
 
     .line 82
@@ -420,7 +420,7 @@
 
 .method private unTagSocketFd(Ljava/io/FileDescriptor;)V
     .locals 5
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
 
     .prologue
     const/4 v3, -0x1
@@ -435,7 +435,7 @@
     check-cast v1, Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
 
     .line 99
-    .local v1, options:Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
+    .local v1, "options":Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
     iget v2, v1, Lcom/android/server/NetworkManagementSocketTagger$SocketTags;->statsTag:I
 
     if-ne v2, v3, :cond_1
@@ -467,7 +467,7 @@
     move-result v0
 
     .line 103
-    .local v0, errno:I
+    .local v0, "errno":I
     if-gez v0, :cond_0
 
     .line 104
@@ -514,7 +514,7 @@
 # virtual methods
 .method public tag(Ljava/io/FileDescriptor;)V
     .locals 3
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -532,7 +532,7 @@
     check-cast v0, Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
 
     .line 73
-    .local v0, options:Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
+    .local v0, "options":Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
     iget v1, v0, Lcom/android/server/NetworkManagementSocketTagger$SocketTags;->statsTag:I
 
     iget v2, v0, Lcom/android/server/NetworkManagementSocketTagger$SocketTags;->statsUid:I
@@ -545,7 +545,7 @@
 
 .method public untag(Ljava/io/FileDescriptor;)V
     .locals 0
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 3757

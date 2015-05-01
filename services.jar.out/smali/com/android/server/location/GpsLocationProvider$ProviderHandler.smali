@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/location/GpsLocationProvider;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 1758
@@ -43,7 +42,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v3, 0x2
@@ -54,7 +53,7 @@
     iget v1, p1, Landroid/os/Message;->what:I
 
     .line 1765
-    .local v1, message:I
+    .local v1, "message":I
     packed-switch v1, :pswitch_data_0
 
     .line 1798
@@ -68,7 +67,7 @@
     .line 1800
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #getter for: Lcom/android/server/location/GpsLocationProvider;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Lcom/android/server/location/GpsLocationProvider;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$1300(Lcom/android/server/location/GpsLocationProvider;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v2
@@ -88,7 +87,7 @@
     .line 1768
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleEnable()V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleEnable()V
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$2200(Lcom/android/server/location/GpsLocationProvider;)V
 
     goto :goto_0
@@ -97,7 +96,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleDisable()V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleDisable()V
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$2300(Lcom/android/server/location/GpsLocationProvider;)V
 
     goto :goto_0
@@ -109,20 +108,20 @@
     check-cast v0, Lcom/android/server/location/GpsLocationProvider$GpsRequest;
 
     .line 1775
-    .local v0, gpsRequest:Lcom/android/server/location/GpsLocationProvider$GpsRequest;
+    .local v0, "gpsRequest":Lcom/android/server/location/GpsLocationProvider$GpsRequest;
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     iget-object v3, v0, Lcom/android/server/location/GpsLocationProvider$GpsRequest;->request:Lcom/android/internal/location/ProviderRequest;
 
     iget-object v4, v0, Lcom/android/server/location/GpsLocationProvider$GpsRequest;->source:Landroid/os/WorkSource;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleSetRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleSetRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
     invoke-static {v2, v3, v4}, Lcom/android/server/location/GpsLocationProvider;->access$2400(Lcom/android/server/location/GpsLocationProvider;Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
 
     goto :goto_0
 
     .line 1778
-    .end local v0           #gpsRequest:Lcom/android/server/location/GpsLocationProvider$GpsRequest;
+    .end local v0    # "gpsRequest":Lcom/android/server/location/GpsLocationProvider$GpsRequest;
     :pswitch_3
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -132,7 +131,7 @@
 
     check-cast v2, Landroid/net/NetworkInfo;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleUpdateNetworkState(ILandroid/net/NetworkInfo;)V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleUpdateNetworkState(ILandroid/net/NetworkInfo;)V
     invoke-static {v3, v4, v2}, Lcom/android/server/location/GpsLocationProvider;->access$2500(Lcom/android/server/location/GpsLocationProvider;ILandroid/net/NetworkInfo;)V
 
     goto :goto_0
@@ -141,7 +140,7 @@
     :pswitch_4
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleInjectNtpTime()V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleInjectNtpTime()V
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$2600(Lcom/android/server/location/GpsLocationProvider;)V
 
     goto :goto_0
@@ -150,7 +149,7 @@
     :pswitch_5
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #getter for: Lcom/android/server/location/GpsLocationProvider;->mSupportsXtra:Z
+    # getter for: Lcom/android/server/location/GpsLocationProvider;->mSupportsXtra:Z
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$2700(Lcom/android/server/location/GpsLocationProvider;)Z
 
     move-result v2
@@ -160,7 +159,7 @@
     .line 1785
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleDownloadXtraData()V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleDownloadXtraData()V
     invoke-static {v2}, Lcom/android/server/location/GpsLocationProvider;->access$2800(Lcom/android/server/location/GpsLocationProvider;)V
 
     goto :goto_0
@@ -169,7 +168,7 @@
     :pswitch_6
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #setter for: Lcom/android/server/location/GpsLocationProvider;->mInjectNtpTimePending:I
+    # setter for: Lcom/android/server/location/GpsLocationProvider;->mInjectNtpTimePending:I
     invoke-static {v2, v3}, Lcom/android/server/location/GpsLocationProvider;->access$2902(Lcom/android/server/location/GpsLocationProvider;I)I
 
     goto :goto_0
@@ -178,7 +177,7 @@
     :pswitch_7
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    #setter for: Lcom/android/server/location/GpsLocationProvider;->mDownloadXtraDataPending:I
+    # setter for: Lcom/android/server/location/GpsLocationProvider;->mDownloadXtraDataPending:I
     invoke-static {v2, v3}, Lcom/android/server/location/GpsLocationProvider;->access$3002(Lcom/android/server/location/GpsLocationProvider;I)I
 
     goto :goto_0
@@ -191,7 +190,7 @@
 
     check-cast v2, Landroid/location/Location;
 
-    #calls: Lcom/android/server/location/GpsLocationProvider;->handleUpdateLocation(Landroid/location/Location;)V
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->handleUpdateLocation(Landroid/location/Location;)V
     invoke-static {v3, v2}, Lcom/android/server/location/GpsLocationProvider;->access$3100(Lcom/android/server/location/GpsLocationProvider;Landroid/location/Location;)V
 
     goto :goto_0

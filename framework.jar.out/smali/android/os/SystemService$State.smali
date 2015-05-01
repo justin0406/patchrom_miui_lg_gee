@@ -120,9 +120,7 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
-    .parameter
-    .parameter
-    .parameter "state"
+    .param p3, "state"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,6 +134,7 @@
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     .line 45
+    # getter for: Landroid/os/SystemService;->sStates:Ljava/util/HashMap;
     invoke-static {}, Landroid/os/SystemService;->access$000()Ljava/util/HashMap;
 
     move-result-object v0
@@ -148,7 +147,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/os/SystemService$State;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 38

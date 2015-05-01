@@ -29,8 +29,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "encoded"
-    .parameter "decoded"
+    .param p1, "encoded"    # Ljava/lang/String;
+    .param p2, "decoded"    # Ljava/lang/String;
 
     .prologue
     .line 1950
@@ -55,6 +55,7 @@
     .line 1959
     iget-object v1, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -64,7 +65,7 @@
     const/4 v0, 0x1
 
     .line 1960
-    .local v0, hasDecoded:Z
+    .local v0, "hasDecoded":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -74,14 +75,14 @@
     return-object v1
 
     .line 1959
-    .end local v0           #hasDecoded:Z
+    .end local v0    # "hasDecoded":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 1960
-    .restart local v0       #hasDecoded:Z
+    .restart local v0    # "hasDecoded":Z
     :cond_1
     iget-object v1, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
 
@@ -99,7 +100,7 @@
 
 .method final writeTo(Landroid/os/Parcel;)V
     .locals 6
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x1
@@ -109,6 +110,7 @@
     .line 1965
     iget-object v4, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v5
@@ -118,10 +120,11 @@
     move v1, v2
 
     .line 1968
-    .local v1, hasEncoded:Z
+    .local v1, "hasEncoded":Z
     :goto_0
     iget-object v4, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v5
@@ -131,7 +134,7 @@
     move v0, v2
 
     .line 1970
-    .local v0, hasDecoded:Z
+    .local v0, "hasDecoded":Z
     :goto_1
     if-eqz v1, :cond_2
 
@@ -154,15 +157,15 @@
     :goto_2
     return-void
 
-    .end local v0           #hasDecoded:Z
-    .end local v1           #hasEncoded:Z
+    .end local v0    # "hasDecoded":Z
+    .end local v1    # "hasEncoded":Z
     :cond_0
     move v1, v3
 
     .line 1965
     goto :goto_0
 
-    .restart local v1       #hasEncoded:Z
+    .restart local v1    # "hasEncoded":Z
     :cond_1
     move v0, v3
 
@@ -170,7 +173,7 @@
     goto :goto_1
 
     .line 1974
-    .restart local v0       #hasDecoded:Z
+    .restart local v0    # "hasDecoded":Z
     :cond_2
     if-eqz v1, :cond_3
 

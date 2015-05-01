@@ -14,8 +14,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;J)V
     .locals 4
-    .parameter "text"
-    .parameter "timestamp"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "timestamp"    # J
 
     .prologue
     .line 74
@@ -55,7 +55,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -77,7 +77,7 @@
     check-cast v0, Landroid/media/TextTrackCueSpan;
 
     .line 87
-    .local v0, span:Landroid/media/TextTrackCueSpan;
+    .local v0, "span":Landroid/media/TextTrackCueSpan;
     iget-wide v2, p0, Landroid/media/TextTrackCueSpan;->mTimestampMs:J
 
     iget-wide v4, v0, Landroid/media/TextTrackCueSpan;->mTimestampMs:J

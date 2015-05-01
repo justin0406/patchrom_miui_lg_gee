@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/UiModeManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 133
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v0, 0x0
@@ -56,7 +55,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    #setter for: Lcom/android/server/UiModeManagerService;->mCharging:Z
+    # setter for: Lcom/android/server/UiModeManagerService;->mCharging:Z
     invoke-static {v1, v0}, Lcom/android/server/UiModeManagerService;->access$202(Lcom/android/server/UiModeManagerService;Z)Z
 
     .line 137
@@ -70,7 +69,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
-    #getter for: Lcom/android/server/UiModeManagerService;->mSystemReady:Z
+    # getter for: Lcom/android/server/UiModeManagerService;->mSystemReady:Z
     invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$300(Lcom/android/server/UiModeManagerService;)Z
 
     move-result v0
@@ -84,7 +83,7 @@
 
     const/4 v3, 0x0
 
-    #calls: Lcom/android/server/UiModeManagerService;->updateLocked(II)V
+    # invokes: Lcom/android/server/UiModeManagerService;->updateLocked(II)V
     invoke-static {v0, v2, v3}, Lcom/android/server/UiModeManagerService;->access$400(Lcom/android/server/UiModeManagerService;II)V
 
     .line 141

@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;)V
     .locals 0
-    .parameter "header"
-    .parameter "location"
+    .param p1, "header"    # Lcom/android/internal/telephony/gsm/SmsCbHeader;
+    .param p2, "location"    # Landroid/telephony/SmsCbLocation;
 
     .prologue
     .line 204
@@ -44,7 +44,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;
 
     .line 222
-    .local v0, other:Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;
+    .local v0, "other":Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;->mHeader:Lcom/android/internal/telephony/gsm/SmsCbHeader;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getSerialNumber()I
@@ -88,7 +88,7 @@
     const/4 v1, 0x1
 
     .line 226
-    .end local v0           #other:Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;
+    .end local v0    # "other":Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler$SmsCbConcatInfo;
     :cond_0
     return v1
 .end method
@@ -119,9 +119,9 @@
 
 .method public matchesLocation(Ljava/lang/String;II)Z
     .locals 1
-    .parameter "plmn"
-    .parameter "lac"
-    .parameter "cid"
+    .param p1, "plmn"    # Ljava/lang/String;
+    .param p2, "lac"    # I
+    .param p3, "cid"    # I
 
     .prologue
     .line 240

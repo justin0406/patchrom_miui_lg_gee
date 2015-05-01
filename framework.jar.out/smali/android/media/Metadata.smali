@@ -58,7 +58,7 @@
 
 .field public static final LONG_VAL:I = 0x4
 
-.field public static final MATCH_ALL:Ljava/util/Set; = null
+.field public static final MATCH_ALL:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set",
@@ -69,7 +69,7 @@
     .end annotation
 .end field
 
-.field public static final MATCH_NONE:Ljava/util/Set; = null
+.field public static final MATCH_NONE:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set",
@@ -183,7 +183,7 @@
 
 .method private checkMetadataId(I)Z
     .locals 3
-    .parameter "val"
+    .param p1, "val"    # I
 
     .prologue
     .line 525
@@ -236,8 +236,8 @@
 
 .method private checkType(II)V
     .locals 5
-    .parameter "key"
-    .parameter "expectedType"
+    .param p1, "key"    # I
+    .param p2, "expectedType"    # I
 
     .prologue
     .line 536
@@ -258,7 +258,7 @@
     move-result v0
 
     .line 538
-    .local v0, pos:I
+    .local v0, "pos":I
     iget-object v2, p0, Landroid/media/Metadata;->mParcel:Landroid/os/Parcel;
 
     invoke-virtual {v2, v0}, Landroid/os/Parcel;->setDataPosition(I)V
@@ -271,7 +271,7 @@
     move-result v1
 
     .line 541
-    .local v1, type:I
+    .local v1, "type":I
     if-eq v1, p2, :cond_0
 
     .line 542
@@ -346,8 +346,8 @@
 
 .method private scanAllRecords(Landroid/os/Parcel;I)Z
     .locals 10
-    .parameter "parcel"
-    .parameter "bytesLeft"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "bytesLeft"    # I
 
     .prologue
     const/16 v9, 0xc
@@ -356,11 +356,11 @@
     const/4 v3, 0x0
 
     .line 294
-    .local v3, recCount:I
+    .local v3, "recCount":I
     const/4 v0, 0x0
 
     .line 296
-    .local v0, error:Z
+    .local v0, "error":Z
     iget-object v6, p0, Landroid/media/Metadata;->mKeyToPosMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->clear()V
@@ -375,13 +375,13 @@
     move-result v5
 
     .line 300
-    .local v5, start:I
+    .local v5, "start":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 302
-    .local v4, size:I
+    .local v4, "size":I
     if-gt v4, v9, :cond_2
 
     .line 303
@@ -395,8 +395,8 @@
     const/4 v0, 0x1
 
     .line 340
-    .end local v4           #size:I
-    .end local v5           #start:I
+    .end local v4    # "size":I
+    .end local v5    # "start":I
     :cond_0
     :goto_1
     if-nez p2, :cond_1
@@ -440,15 +440,15 @@
     return v6
 
     .line 309
-    .restart local v4       #size:I
-    .restart local v5       #start:I
+    .restart local v4    # "size":I
+    .restart local v5    # "start":I
     :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 310
-    .local v1, metadataId:I
+    .local v1, "metadataId":I
     invoke-direct {p0, v1}, Landroid/media/Metadata;->checkMetadataId(I)Z
 
     move-result v6
@@ -512,7 +512,7 @@
     move-result v2
 
     .line 328
-    .local v2, metadataType:I
+    .local v2, "metadataType":I
     if-lez v2, :cond_5
 
     const/4 v6, 0x7
@@ -565,10 +565,10 @@
     goto/16 :goto_0
 
     .line 345
-    .end local v1           #metadataId:I
-    .end local v2           #metadataType:I
-    .end local v4           #size:I
-    .end local v5           #start:I
+    .end local v1    # "metadataId":I
+    .end local v2    # "metadataType":I
+    .end local v4    # "size":I
+    .end local v5    # "start":I
     :cond_7
     const/4 v6, 0x1
 
@@ -579,7 +579,7 @@
 # virtual methods
 .method public getBoolean(I)Z
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -609,7 +609,7 @@
 
 .method public getByteArray(I)[B
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 477
@@ -629,7 +629,7 @@
 
 .method public getDate(I)Ljava/util/Date;
     .locals 6
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 485
@@ -645,7 +645,7 @@
     move-result-wide v1
 
     .line 487
-    .local v1, timeSinceEpoch:J
+    .local v1, "timeSinceEpoch":J
     iget-object v5, p0, Landroid/media/Metadata;->mParcel:Landroid/os/Parcel;
 
     invoke-virtual {v5}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -653,7 +653,7 @@
     move-result-object v3
 
     .line 489
-    .local v3, timeZone:Ljava/lang/String;
+    .local v3, "timeZone":Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -676,13 +676,13 @@
     move-result-object v4
 
     .line 493
-    .local v4, tz:Ljava/util/TimeZone;
+    .local v4, "tz":Ljava/util/TimeZone;
     invoke-static {v4}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
     move-result-object v0
 
     .line 495
-    .local v0, cal:Ljava/util/Calendar;
+    .local v0, "cal":Ljava/util/Calendar;
     invoke-virtual {v0, v1, v2}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 496
@@ -695,7 +695,7 @@
 
 .method public getDouble(I)D
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 469
@@ -715,7 +715,7 @@
 
 .method public getInt(I)I
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 443
@@ -735,7 +735,7 @@
 
 .method public getLong(I)J
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 459
@@ -755,7 +755,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 435
@@ -775,7 +775,7 @@
 
 .method public has(I)Z
     .locals 3
-    .parameter "metadataId"
+    .param p1, "metadataId"    # I
 
     .prologue
     .line 421
@@ -850,7 +850,7 @@
 
 .method public parse(Landroid/os/Parcel;)Z
     .locals 7
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/16 v5, 0x8
@@ -902,13 +902,13 @@
     move-result v1
 
     .line 384
-    .local v1, pin:I
+    .local v1, "pin":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 387
-    .local v2, size:I
+    .local v2, "size":I
     invoke-virtual {p1}, Landroid/os/Parcel;->dataAvail()I
 
     move-result v4
@@ -979,8 +979,8 @@
     move-result v0
 
     .line 395
-    .local v0, kShouldBeMetaMarker:I
-    const v4, 0x4d455441
+    .local v0, "kShouldBeMetaMarker":I
+    const v4, 0x4d455441    # 2.06914576E8f
 
     if-eq v0, v4, :cond_3
 

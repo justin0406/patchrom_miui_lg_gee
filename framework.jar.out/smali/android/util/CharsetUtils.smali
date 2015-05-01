@@ -79,7 +79,7 @@
 
 .method public static charsetForVendor(Ljava/lang/String;)Ljava/nio/charset/Charset;
     .locals 1
-    .parameter "charsetName"
+    .param p0, "charsetName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/charset/UnsupportedCharsetException;,
@@ -102,8 +102,8 @@
 
 .method public static charsetForVendor(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/charset/Charset;
     .locals 1
-    .parameter "charsetName"
-    .parameter "vendor"
+    .param p0, "charsetName"    # Ljava/lang/String;
+    .param p1, "vendor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/charset/UnsupportedCharsetException;,
@@ -137,7 +137,7 @@
 
 .method private static isShiftJis(Ljava/lang/String;)Z
     .locals 3
-    .parameter "charsetName"
+    .param p0, "charsetName"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -157,7 +157,7 @@
     move-result v0
 
     .line 181
-    .local v0, length:I
+    .local v0, "length":I
     const/4 v2, 0x4
 
     if-eq v0, v2, :cond_2
@@ -200,7 +200,7 @@
 
 .method public static nameForDefaultVendor(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "charsetName"
+    .param p0, "charsetName"    # Ljava/lang/String;
 
     .prologue
     .line 117
@@ -217,8 +217,8 @@
 
 .method public static nameForVendor(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "charsetName"
-    .parameter "vendor"
+    .param p0, "charsetName"    # Ljava/lang/String;
+    .param p1, "vendor"    # Ljava/lang/String;
 
     .prologue
     .line 91
@@ -251,11 +251,11 @@
     check-cast v0, Ljava/lang/String;
 
     .line 95
-    .local v0, vendorShiftJis:Ljava/lang/String;
+    .local v0, "vendorShiftJis":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 101
-    .end local v0           #vendorShiftJis:Ljava/lang/String;
+    .end local v0    # "vendorShiftJis":Ljava/lang/String;
     :goto_0
     return-object v0
 

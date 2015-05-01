@@ -27,13 +27,13 @@
 # static fields
 .field public static final CONTENT_ITEM_TYPE:Ljava/lang/String; = "vnd.android.cursor.item/stream_item"
 
-.field public static final CONTENT_LIMIT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_LIMIT_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_PHOTO_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_PHOTO_URI:Landroid/net/Uri;
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/stream_item"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final MAX_ITEMS:Ljava/lang/String; = "max_items"
 
@@ -43,7 +43,7 @@
     .locals 2
 
     .prologue
-    .line 3256
+    .line 3258
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items"
@@ -54,7 +54,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 3271
+    .line 3273
     sget-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "photo"
@@ -65,7 +65,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_PHOTO_URI:Landroid/net/Uri;
 
-    .line 3277
+    .line 3279
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items_limit"
@@ -83,9 +83,9 @@
     .locals 0
 
     .prologue
-    .line 3249
+    .line 3251
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3250
+    .line 3252
     return-void
 .end method

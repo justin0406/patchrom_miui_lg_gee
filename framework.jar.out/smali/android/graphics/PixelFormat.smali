@@ -90,7 +90,7 @@
 
 .method public static formatHasAlpha(I)Z
     .locals 1
-    .parameter "format"
+    .param p0, "format"    # I
 
     .prologue
     .line 123
@@ -133,8 +133,8 @@
 
 .method public static getPixelFormatInfo(ILandroid/graphics/PixelFormat;)V
     .locals 3
-    .parameter "format"
-    .parameter "info"
+    .param p0, "format"    # I
+    .param p1, "info"    # Landroid/graphics/PixelFormat;
 
     .prologue
     const/16 v0, 0x10

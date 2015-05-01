@@ -72,7 +72,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 443
@@ -104,7 +104,7 @@
 
 .method private nextRandomizationTime(I)I
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 434
@@ -119,7 +119,7 @@
     iget v0, v1, Lcom/android/internal/telephony/RetryManager$RetryRec;->mRandomizationTime:I
 
     .line 435
-    .local v0, randomTime:I
+    .local v0, "randomTime":I
     if-nez v0, :cond_0
 
     .line 436
@@ -141,8 +141,8 @@
 
 .method private parseNonNegativeInt(Ljava/lang/String;Ljava/lang/String;)Landroid/util/Pair;
     .locals 7
-    .parameter "name"
-    .parameter "stringValue"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "stringValue"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -167,7 +167,7 @@
     move-result v2
 
     .line 401
-    .local v2, value:I
+    .local v2, "value":I
     new-instance v1, Landroid/util/Pair;
 
     invoke-direct {p0, p1, v2}, Lcom/android/internal/telephony/RetryManager;->validateNonNegativeInt(Ljava/lang/String;I)Z
@@ -187,18 +187,18 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 408
-    .end local v2           #value:I
-    .local v1, retVal:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v2    # "value":I
+    .local v1, "retVal":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :goto_0
     return-object v1
 
     .line 402
-    .end local v1           #retVal:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v1    # "retVal":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :catch_0
     move-exception v0
 
     .line 403
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     const-string v3, "RetryManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -238,14 +238,14 @@
 
     invoke-direct {v1, v3, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .restart local v1       #retVal:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .restart local v1    # "retVal":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     goto :goto_0
 .end method
 
 .method private validateNonNegativeInt(Ljava/lang/String;I)Z
     .locals 4
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
     .prologue
     .line 420
@@ -278,16 +278,16 @@
     const/4 v0, 0x0
 
     .line 427
-    .local v0, retVal:Z
+    .local v0, "retVal":Z
     :goto_0
     return v0
 
     .line 424
-    .end local v0           #retVal:Z
+    .end local v0    # "retVal":Z
     :cond_0
     const/4 v0, 0x1
 
-    .restart local v0       #retVal:Z
+    .restart local v0    # "retVal":Z
     goto :goto_0
 .end method
 
@@ -295,9 +295,9 @@
 # virtual methods
 .method public configure(III)Z
     .locals 2
-    .parameter "maxRetryCount"
-    .parameter "retryTime"
-    .parameter "randomizationTime"
+    .param p1, "maxRetryCount"    # I
+    .param p2, "retryTime"    # I
+    .param p3, "randomizationTime"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -368,7 +368,7 @@
 
 .method public configure(Ljava/lang/String;)Z
     .locals 11
-    .parameter "configStr"
+    .param p1, "configStr"    # Ljava/lang/String;
 
     .prologue
     const/4 v10, 0x2
@@ -420,7 +420,7 @@
     const/4 v0, 0x0
 
     .line 191
-    .local v0, defaultRandomization:I
+    .local v0, "defaultRandomization":I
     iput v7, p0, Lcom/android/internal/telephony/RetryManager;->mMaxRetryCount:I
 
     .line 192
@@ -439,10 +439,10 @@
     move-result-object v4
 
     .line 196
-    .local v4, strArray:[Ljava/lang/String;
+    .local v4, "strArray":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v6, v4
 
@@ -458,7 +458,7 @@
     move-result-object v3
 
     .line 200
-    .local v3, splitStr:[Ljava/lang/String;
+    .local v3, "splitStr":[Ljava/lang/String;
     aget-object v6, v3, v7
 
     invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -502,7 +502,7 @@
     move-result-object v5
 
     .line 207
-    .local v5, value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .local v5, "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     iget-object v6, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v6, Ljava/lang/Boolean;
@@ -516,20 +516,20 @@
     move v6, v7
 
     .line 256
-    .end local v0           #defaultRandomization:I
-    .end local v1           #i:I
-    .end local v3           #splitStr:[Ljava/lang/String;
-    .end local v4           #strArray:[Ljava/lang/String;
-    .end local v5           #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v0    # "defaultRandomization":I
+    .end local v1    # "i":I
+    .end local v3    # "splitStr":[Ljava/lang/String;
+    .end local v4    # "strArray":[Ljava/lang/String;
+    .end local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :goto_1
     return v6
 
     .line 208
-    .restart local v0       #defaultRandomization:I
-    .restart local v1       #i:I
-    .restart local v3       #splitStr:[Ljava/lang/String;
-    .restart local v4       #strArray:[Ljava/lang/String;
-    .restart local v5       #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .restart local v0    # "defaultRandomization":I
+    .restart local v1    # "i":I
+    .restart local v3    # "splitStr":[Ljava/lang/String;
+    .restart local v4    # "strArray":[Ljava/lang/String;
+    .restart local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :cond_1
     iget-object v6, v5, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -540,7 +540,7 @@
     move-result v0
 
     .line 196
-    .end local v5           #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
@@ -585,7 +585,7 @@
     move-result-object v5
 
     .line 214
-    .restart local v5       #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .restart local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     iget-object v6, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v6, Ljava/lang/Boolean;
@@ -615,7 +615,7 @@
     goto :goto_2
 
     .line 218
-    .end local v5           #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :cond_5
     const-string v6, "RetryManager"
 
@@ -671,7 +671,7 @@
     invoke-direct {v2, v7, v7}, Lcom/android/internal/telephony/RetryManager$RetryRec;-><init>(II)V
 
     .line 230
-    .local v2, rr:Lcom/android/internal/telephony/RetryManager$RetryRec;
+    .local v2, "rr":Lcom/android/internal/telephony/RetryManager$RetryRec;
     const-string v6, "delayTime"
 
     aget-object v9, v3, v7
@@ -681,7 +681,7 @@
     move-result-object v5
 
     .line 231
-    .restart local v5       #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .restart local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     iget-object v6, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v6, Ljava/lang/Boolean;
@@ -773,9 +773,9 @@
     goto :goto_3
 
     .line 247
-    .end local v2           #rr:Lcom/android/internal/telephony/RetryManager$RetryRec;
-    .end local v3           #splitStr:[Ljava/lang/String;
-    .end local v5           #value:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
+    .end local v2    # "rr":Lcom/android/internal/telephony/RetryManager$RetryRec;
+    .end local v3    # "splitStr":[Ljava/lang/String;
+    .end local v5    # "value":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
     :cond_a
     iget-object v6, p0, Lcom/android/internal/telephony/RetryManager;->mRetryArray:Ljava/util/ArrayList;
 
@@ -807,9 +807,9 @@
     .line 253
     goto/16 :goto_1
 
-    .end local v0           #defaultRandomization:I
-    .end local v1           #i:I
-    .end local v4           #strArray:[Ljava/lang/String;
+    .end local v0    # "defaultRandomization":I
+    .end local v1    # "i":I
+    .end local v4    # "strArray":[Ljava/lang/String;
     :cond_c
     move v6, v7
 
@@ -846,7 +846,7 @@
     iget v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
 
     .line 284
-    .local v0, index:I
+    .local v0, "index":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -876,13 +876,13 @@
     add-int v1, v2, v3
 
     .line 291
-    .local v1, retVal:I
+    .local v1, "retVal":I
     :goto_1
     return v1
 
     .line 280
-    .end local v0           #index:I
-    .end local v1           #retVal:I
+    .end local v0    # "index":I
+    .end local v1    # "retVal":I
     :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/RetryManager;->mRetryArray:Ljava/util/ArrayList;
 
@@ -892,14 +892,14 @@
 
     add-int/lit8 v0, v2, -0x1
 
-    .restart local v0       #index:I
+    .restart local v0    # "index":I
     goto :goto_0
 
     .line 287
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #retVal:I
+    .restart local v1    # "retVal":I
     goto :goto_1
 .end method
 
@@ -960,12 +960,12 @@
     const/4 v0, 0x1
 
     .line 269
-    .local v0, retVal:Z
+    .local v0, "retVal":Z
     :goto_0
     return v0
 
     .line 267
-    .end local v0           #retVal:Z
+    .end local v0    # "retVal":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -1023,7 +1023,7 @@
 
 .method public setCurMaxRetryCount(I)V
     .locals 1
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 333
@@ -1051,7 +1051,7 @@
 
 .method public setRetryCount(I)V
     .locals 2
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 317
@@ -1087,7 +1087,7 @@
 
 .method public setRetryForever(Z)V
     .locals 0
-    .parameter "retryForever"
+    .param p1, "retryForever"    # Z
 
     .prologue
     .line 360
@@ -1177,14 +1177,14 @@
     move-result-object v2
 
     .line 125
-    .local v2, ret:Ljava/lang/String;
+    .local v2, "ret":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/internal/telephony/RetryManager;->mRetryArray:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1199,7 +1199,7 @@
     check-cast v1, Lcom/android/internal/telephony/RetryManager$RetryRec;
 
     .line 126
-    .local v1, r:Lcom/android/internal/telephony/RetryManager$RetryRec;
+    .local v1, "r":Lcom/android/internal/telephony/RetryManager$RetryRec;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1239,7 +1239,7 @@
     goto :goto_0
 
     .line 128
-    .end local v1           #r:Lcom/android/internal/telephony/RetryManager$RetryRec;
+    .end local v1    # "r":Lcom/android/internal/telephony/RetryManager$RetryRec;
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 

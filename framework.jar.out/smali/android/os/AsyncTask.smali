@@ -30,18 +30,15 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final CORE_POOL_SIZE:I = 0x0
+.field private static final CORE_POOL_SIZE:I
 
-#the value of this static final field might be set in the static constructor
-.field private static final CPU_COUNT:I = 0x0
+.field private static final CPU_COUNT:I
 
 .field private static final KEEP_ALIVE:I = 0x1
 
 .field private static final LOG_TAG:Ljava/lang/String; = "AsyncTask"
 
-#the value of this static final field might be set in the static constructor
-.field private static final MAXIMUM_POOL_SIZE:I = 0x0
+.field private static final MAXIMUM_POOL_SIZE:I
 
 .field private static final MESSAGE_POST_PROGRESS:I = 0x2
 
@@ -191,7 +188,7 @@
 
     .prologue
     .line 281
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 218
@@ -235,7 +232,7 @@
 
 .method static synthetic access$300(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/AsyncTask;
 
     .prologue
     .line 177
@@ -246,8 +243,8 @@
 
 .method static synthetic access$400(Landroid/os/AsyncTask;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/AsyncTask;
+    .param p1, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 177
@@ -260,8 +257,8 @@
 
 .method static synthetic access$500(Landroid/os/AsyncTask;Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/AsyncTask;
+    .param p1, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 177
@@ -272,8 +269,8 @@
 
 .method static synthetic access$600(Landroid/os/AsyncTask;Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/AsyncTask;
+    .param p1, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 177
@@ -284,7 +281,7 @@
 
 .method public static execute(Ljava/lang/Runnable;)V
     .locals 1
-    .parameter "runnable"
+    .param p0, "runnable"    # Ljava/lang/Runnable;
 
     .prologue
     .line 604
@@ -298,7 +295,6 @@
 
 .method private finish(Ljava/lang/Object;)V
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)V"
@@ -307,8 +303,8 @@
 
     .prologue
     .line 629
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, result:Ljava/lang/Object;,"TResult;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "result":Ljava/lang/Object;, "TResult;"
     invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
 
     move-result v0
@@ -349,7 +345,6 @@
 
 .method private postResult(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 6
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)TResult;"
@@ -357,8 +352,8 @@
     .end annotation
 
     .prologue
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, result:Ljava/lang/Object;,"TResult;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "result":Ljava/lang/Object;, "TResult;"
     const/4 v5, 0x1
 
     .line 318
@@ -379,7 +374,7 @@
     move-result-object v0
 
     .line 320
-    .local v0, message:Landroid/os/Message;
+    .local v0, "message":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 321
@@ -388,7 +383,6 @@
 
 .method private postResultIfNotInvoked(Ljava/lang/Object;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)V"
@@ -397,8 +391,8 @@
 
     .prologue
     .line 310
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, result:Ljava/lang/Object;,"TResult;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "result":Ljava/lang/Object;, "TResult;"
     iget-object v1, p0, Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -406,7 +400,7 @@
     move-result v0
 
     .line 311
-    .local v0, wasTaskInvoked:Z
+    .local v0, "wasTaskInvoked":Z
     if-nez v0, :cond_0
 
     .line 312
@@ -419,7 +413,7 @@
 
 .method public static setDefaultExecutor(Ljava/util/concurrent/Executor;)V
     .locals 0
-    .parameter "exec"
+    .param p0, "exec"    # Ljava/util/concurrent/Executor;
 
     .prologue
     .line 275
@@ -433,11 +427,11 @@
 # virtual methods
 .method public final cancel(Z)Z
     .locals 2
-    .parameter "mayInterruptIfRunning"
+    .param p1, "mayInterruptIfRunning"    # Z
 
     .prologue
     .line 467
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x1
@@ -464,7 +458,6 @@
 
 .method public final varargs execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TParams;)",
@@ -475,8 +468,8 @@
 
     .prologue
     .line 535
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, params:[Ljava/lang/Object;,"[TParams;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "params":[Ljava/lang/Object;, "[TParams;"
     sget-object v0, Landroid/os/AsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
 
     invoke-virtual {p0, v0, p1}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
@@ -488,8 +481,7 @@
 
 .method public final varargs executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
     .locals 2
-    .parameter "exec"
-    .parameter
+    .param p1, "exec"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -502,8 +494,8 @@
 
     .prologue
     .line 573
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p2, params:[Ljava/lang/Object;,"[TParams;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p2, "params":[Ljava/lang/Object;, "[TParams;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
 
     sget-object v1, Landroid/os/AsyncTask$Status;->PENDING:Landroid/os/AsyncTask$Status;
@@ -590,7 +582,7 @@
 
     .prologue
     .line 483
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
     invoke-virtual {v0}, Ljava/util/concurrent/FutureTask;->get()Ljava/lang/Object;
@@ -602,8 +594,8 @@
 
 .method public final get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 1
-    .parameter "timeout"
-    .parameter "unit"
+    .param p1, "timeout"    # J
+    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -622,7 +614,7 @@
 
     .prologue
     .line 503
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/util/concurrent/FutureTask;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
@@ -637,7 +629,7 @@
 
     .prologue
     .line 330
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
 
     return-object v0
@@ -648,7 +640,7 @@
 
     .prologue
     .line 434
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iget-object v0, p0, Landroid/os/AsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -663,13 +655,12 @@
 
     .prologue
     .line 421
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     return-void
 .end method
 
 .method protected onCancelled(Ljava/lang/Object;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)V"
@@ -678,8 +669,8 @@
 
     .prologue
     .line 405
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, result:Ljava/lang/Object;,"TResult;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "result":Ljava/lang/Object;, "TResult;"
     invoke-virtual {p0}, Landroid/os/AsyncTask;->onCancelled()V
 
     .line 406
@@ -688,7 +679,6 @@
 
 .method protected onPostExecute(Ljava/lang/Object;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TResult;)V"
@@ -697,8 +687,8 @@
 
     .prologue
     .line 374
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, result:Ljava/lang/Object;,"TResult;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "result":Ljava/lang/Object;, "TResult;"
     return-void
 .end method
 
@@ -707,13 +697,12 @@
 
     .prologue
     .line 358
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     return-void
 .end method
 
 .method protected varargs onProgressUpdate([Ljava/lang/Object;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TProgress;)V"
@@ -722,14 +711,13 @@
 
     .prologue
     .line 387
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, values:[Ljava/lang/Object;,"[TProgress;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "values":[Ljava/lang/Object;, "[TProgress;"
     return-void
 .end method
 
 .method protected final varargs publishProgress([Ljava/lang/Object;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TProgress;)V"
@@ -738,8 +726,8 @@
 
     .prologue
     .line 622
-    .local p0, this:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
-    .local p1, values:[Ljava/lang/Object;,"[TProgress;"
+    .local p0, "this":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
+    .local p1, "values":[Ljava/lang/Object;, "[TProgress;"
     invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
 
     move-result v0

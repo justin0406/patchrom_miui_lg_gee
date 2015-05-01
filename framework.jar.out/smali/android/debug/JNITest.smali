@@ -20,9 +20,9 @@
 
 .method private part2(DILjava/lang/String;)I
     .locals 4
-    .parameter "doubleArg"
-    .parameter "fromArray"
-    .parameter "stringArg"
+    .param p1, "doubleArg"    # D
+    .param p3, "fromArray"    # I
+    .param p4, "stringArg"    # Ljava/lang/String;
 
     .prologue
     .line 39
@@ -70,7 +70,7 @@
     move-result v0
 
     .line 43
-    .local v0, result:I
+    .local v0, "result":I
     add-int/lit8 v1, v0, 0x6
 
     return v1
@@ -83,9 +83,9 @@
 # virtual methods
 .method public test(IDLjava/lang/String;)I
     .locals 6
-    .parameter "intArg"
-    .parameter "doubleArg"
-    .parameter "stringArg"
+    .param p1, "intArg"    # I
+    .param p2, "doubleArg"    # D
+    .param p4, "stringArg"    # Ljava/lang/String;
 
     .prologue
     .line 28
@@ -95,7 +95,7 @@
 
     fill-array-data v5, :array_0
 
-    .local v5, intArray:[I
+    .local v5, "intArray":[I
     move-object v0, p0
 
     move v1, p1
@@ -115,10 +115,10 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x2at 0x0t 0x0t 0x0t
-        0x35t 0x0t 0x0t 0x0t
-        0x41t 0x0t 0x0t 0x0t
-        0x7ft 0x0t 0x0t 0x0t
+    .array-data 4
+        0x2a
+        0x35
+        0x41
+        0x7f
     .end array-data
 .end method

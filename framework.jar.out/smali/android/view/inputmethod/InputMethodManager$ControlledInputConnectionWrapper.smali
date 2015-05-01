@@ -23,9 +23,9 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputMethodManager;)V
     .locals 1
-    .parameter "mainLooper"
-    .parameter "conn"
-    .parameter "inputMethodManager"
+    .param p1, "mainLooper"    # Landroid/os/Looper;
+    .param p2, "conn"    # Landroid/view/inputmethod/InputConnection;
+    .param p3, "inputMethodManager"    # Landroid/view/inputmethod/InputMethodManager;
 
     .prologue
     .line 489

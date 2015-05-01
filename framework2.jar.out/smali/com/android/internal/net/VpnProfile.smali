@@ -3,12 +3,12 @@
 .source "VpnProfile.java"
 
 # interfaces
-.implements Ljava/lang/Cloneable;
 .implements Landroid/os/Parcelable;
+.implements Ljava/lang/Cloneable;
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -89,7 +89,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -318,7 +318,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -411,8 +411,8 @@
 
 .method public static decode(Ljava/lang/String;[B)Lcom/android/internal/net/VpnProfile;
     .locals 10
-    .parameter "key"
-    .parameter "value"
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "value"    # [B
 
     .prologue
     const/4 v9, 0x5
@@ -452,7 +452,7 @@
     move-result-object v1
 
     .line 122
-    .local v1, values:[Ljava/lang/String;
+    .local v1, "values":[Ljava/lang/String;
     array-length v5, v1
 
     if-lt v5, v8, :cond_1
@@ -476,7 +476,7 @@
     invoke-direct {v0, p0}, Lcom/android/internal/net/VpnProfile;-><init>(Ljava/lang/String;)V
 
     .line 127
-    .local v0, profile:Lcom/android/internal/net/VpnProfile;
+    .local v0, "profile":Lcom/android/internal/net/VpnProfile;
     const/4 v5, 0x0
 
     aget-object v5, v1, v5
@@ -644,8 +644,8 @@
     goto/16 :goto_0
 
     .line 148
-    .end local v0           #profile:Lcom/android/internal/net/VpnProfile;
-    .end local v1           #values:[Ljava/lang/String;
+    .end local v0    # "profile":Lcom/android/internal/net/VpnProfile;
+    .end local v1    # "values":[Ljava/lang/String;
     :catch_0
     move-exception v3
 
@@ -655,8 +655,8 @@
     goto/16 :goto_0
 
     .line 144
-    .restart local v0       #profile:Lcom/android/internal/net/VpnProfile;
-    .restart local v1       #values:[Ljava/lang/String;
+    .restart local v0    # "profile":Lcom/android/internal/net/VpnProfile;
+    .restart local v1    # "values":[Ljava/lang/String;
     :cond_7
     const-string v5, ""
     :try_end_0
@@ -691,7 +691,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 156
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -874,20 +874,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v1, v0, v3
 
     .line 183
-    .local v1, dnsServer:Ljava/lang/String;
+    .local v1, "dnsServer":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
     invoke-static {v6}, Ljava/net/InetAddress;->parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
@@ -898,7 +898,7 @@
     goto :goto_0
 
     .line 185
-    .end local v1           #dnsServer:Ljava/lang/String;
+    .end local v1    # "dnsServer":Ljava/lang/String;
     :cond_0
     iget-object v6, p0, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
@@ -918,30 +918,30 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 195
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :goto_1
     return v5
 
     .line 191
-    .restart local v0       #arr$:[Ljava/lang/String;
-    .restart local v3       #i$:I
-    .restart local v4       #len$:I
+    .restart local v0    # "arr$":[Ljava/lang/String;
+    .restart local v3    # "i$":I
+    .restart local v4    # "len$":I
     :cond_1
     const/4 v5, 0x1
 
     goto :goto_1
 
     .line 193
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :catch_0
     move-exception v2
 
     .line 194
-    .local v2, e:Ljava/lang/IllegalArgumentException;
+    .local v2, "e":Ljava/lang/IllegalArgumentException;
     const-string v6, "VpnProfile"
 
     const-string v7, "Invalid address"
@@ -953,8 +953,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

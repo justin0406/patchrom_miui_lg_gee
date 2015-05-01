@@ -144,7 +144,7 @@
     new-array v0, v1, [[Landroid/media/TextTrackCueSpan;
 
     .line 157
-    .local v0, lines:[[Landroid/media/TextTrackCueSpan;
+    .local v0, "lines":[[Landroid/media/TextTrackCueSpan;
     iget-object v1, p0, Landroid/media/UnstyledTextExtractor;->mLines:Ljava/util/Vector;
 
     invoke-virtual {v1, v0}, Ljava/util/Vector;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -158,7 +158,7 @@
 
 .method public onData(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 116
@@ -172,7 +172,7 @@
 
 .method public onEnd(Ljava/lang/String;)V
     .locals 0
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 123
@@ -233,7 +233,7 @@
     new-array v0, v1, [Landroid/media/TextTrackCueSpan;
 
     .line 146
-    .local v0, spans:[Landroid/media/TextTrackCueSpan;
+    .local v0, "spans":[Landroid/media/TextTrackCueSpan;
     iget-object v1, p0, Landroid/media/UnstyledTextExtractor;->mCurrentLine:Ljava/util/Vector;
 
     invoke-virtual {v1, v0}, Ljava/util/Vector;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -254,9 +254,9 @@
 
 .method public onStart(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "tag"
-    .parameter "classes"
-    .parameter "annotation"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "classes"    # [Ljava/lang/String;
+    .param p3, "annotation"    # Ljava/lang/String;
 
     .prologue
     .line 120
@@ -265,7 +265,7 @@
 
 .method public onTimeStamp(J)V
     .locals 5
-    .parameter "timestampMs"
+    .param p1, "timestampMs"    # J
 
     .prologue
     .line 128

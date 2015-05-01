@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1369
@@ -44,7 +43,7 @@
     .line 1372
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$6;->this$0:Landroid/widget/RemoteViewsAdapter;
 
-    #calls: Landroid/widget/RemoteViewsAdapter;->onNotifyDataSetChanged()V
+    # invokes: Landroid/widget/RemoteViewsAdapter;->onNotifyDataSetChanged()V
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->access$200(Landroid/widget/RemoteViewsAdapter;)V
 
     .line 1373

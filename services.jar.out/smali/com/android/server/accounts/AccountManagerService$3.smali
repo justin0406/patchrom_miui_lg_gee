@@ -25,14 +25,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLandroid/accounts/Account;Lcom/android/server/accounts/AccountManagerService$UserAccounts;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "x2"    # Ljava/lang/String;
+    .param p5, "x3"    # Z
+    .param p6, "x4"    # Z
 
     .prologue
     .line 601
@@ -51,7 +48,7 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 615
@@ -111,7 +108,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 2
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 604

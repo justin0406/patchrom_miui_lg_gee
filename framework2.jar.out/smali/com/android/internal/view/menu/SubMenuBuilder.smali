@@ -15,9 +15,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Lcom/android/internal/view/menu/MenuItemImpl;)V
     .locals 0
-    .parameter "context"
-    .parameter "parentMenu"
-    .parameter "item"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parentMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p3, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 35
@@ -37,7 +37,7 @@
 # virtual methods
 .method public collapseItemActionView(Lcom/android/internal/view/menu/MenuItemImpl;)Z
     .locals 1
-    .parameter "item"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 122
@@ -52,8 +52,8 @@
 
 .method dispatchMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
-    .parameter "menu"
-    .parameter "item"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 81
@@ -85,7 +85,7 @@
 
 .method public expandItemActionView(Lcom/android/internal/view/menu/MenuItemImpl;)Z
     .locals 1
-    .parameter "item"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 117
@@ -114,7 +114,7 @@
     move-result v0
 
     .line 128
-    .local v0, itemId:I
+    .local v0, "itemId":I
     :goto_0
     if-nez v0, :cond_1
 
@@ -126,14 +126,14 @@
     return-object v1
 
     .line 127
-    .end local v0           #itemId:I
+    .end local v0    # "itemId":I
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 131
-    .restart local v0       #itemId:I
+    .restart local v0    # "itemId":I
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -224,7 +224,7 @@
 
 .method public setCallback(Lcom/android/internal/view/menu/MenuBuilder$Callback;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/internal/view/menu/MenuBuilder$Callback;
 
     .prologue
     .line 71
@@ -238,7 +238,7 @@
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
     .locals 1
-    .parameter "iconRes"
+    .param p1, "iconRes"    # I
 
     .prologue
     .line 100
@@ -253,7 +253,7 @@
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 96
@@ -268,7 +268,7 @@
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
     .locals 1
-    .parameter "titleRes"
+    .param p1, "titleRes"    # I
 
     .prologue
     .line 108
@@ -283,7 +283,7 @@
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 104
@@ -298,7 +298,7 @@
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 112
@@ -313,7 +313,7 @@
 
 .method public setIcon(I)Landroid/view/SubMenu;
     .locals 1
-    .parameter "iconRes"
+    .param p1, "iconRes"    # I
 
     .prologue
     .line 91
@@ -327,7 +327,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 86
@@ -341,7 +341,7 @@
 
 .method public setQwertyMode(Z)V
     .locals 1
-    .parameter "isQwerty"
+    .param p1, "isQwerty"    # Z
 
     .prologue
     .line 43
@@ -355,7 +355,7 @@
 
 .method public setShortcutsVisible(Z)V
     .locals 1
-    .parameter "shortcutsVisible"
+    .param p1, "shortcutsVisible"    # Z
 
     .prologue
     .line 53

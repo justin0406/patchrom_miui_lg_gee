@@ -27,14 +27,13 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "callerIdentity"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
-    .parameter "language"
-    .parameter "country"
-    .parameter "variant"
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
+    .param p6, "language"    # Ljava/lang/String;
+    .param p7, "country"    # Ljava/lang/String;
+    .param p8, "variant"    # Ljava/lang/String;
 
     .prologue
     .line 753
@@ -86,7 +85,7 @@
     move-result v0
 
     .line 768
-    .local v0, result:I
+    .local v0, "result":I
     if-eqz v0, :cond_0
 
     const/4 v1, 0x1

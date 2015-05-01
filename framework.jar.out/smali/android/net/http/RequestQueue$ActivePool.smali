@@ -34,8 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/net/http/RequestQueue;I)V
     .locals 4
-    .parameter
-    .parameter "connectionCount"
+    .param p2, "connectionCount"    # I
 
     .prologue
     .line 80
@@ -63,7 +62,7 @@
     .line 85
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -74,7 +73,7 @@
 
     new-instance v2, Landroid/net/http/ConnectionThread;
 
-    #getter for: Landroid/net/http/RequestQueue;->mContext:Landroid/content/Context;
+    # getter for: Landroid/net/http/RequestQueue;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/net/http/RequestQueue;->access$000(Landroid/net/http/RequestQueue;)Landroid/content/Context;
 
     move-result-object v3
@@ -95,7 +94,7 @@
 
 .method static synthetic access$408(Landroid/net/http/RequestQueue$ActivePool;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/RequestQueue$ActivePool;
 
     .prologue
     .line 70
@@ -117,7 +116,7 @@
     .line 150
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v2, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -131,7 +130,7 @@
     iget-object v0, v2, Landroid/net/http/ConnectionThread;->mConnection:Landroid/net/http/Connection;
 
     .line 152
-    .local v0, connection:Landroid/net/http/Connection;
+    .local v0, "connection":Landroid/net/http/Connection;
     if-eqz v0, :cond_0
 
     const/4 v2, 0x0
@@ -145,7 +144,7 @@
     goto :goto_0
 
     .line 154
-    .end local v0           #connection:Landroid/net/http/Connection;
+    .end local v0    # "connection":Landroid/net/http/Connection;
     :cond_1
     iget-object v2, p0, Landroid/net/http/RequestQueue$ActivePool;->mIdleCache:Landroid/net/http/IdleCache;
 
@@ -157,14 +156,14 @@
 
 .method public getConnection(Landroid/content/Context;Lorg/apache/http/HttpHost;)Landroid/net/http/Connection;
     .locals 4
-    .parameter "context"
-    .parameter "host"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 174
     iget-object v1, p0, Landroid/net/http/RequestQueue$ActivePool;->this$0:Landroid/net/http/RequestQueue;
 
-    #calls: Landroid/net/http/RequestQueue;->determineHost(Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
+    # invokes: Landroid/net/http/RequestQueue;->determineHost(Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
     invoke-static {v1, p2}, Landroid/net/http/RequestQueue;->access$200(Landroid/net/http/RequestQueue;Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
 
     move-result-object p2
@@ -177,7 +176,7 @@
     move-result-object v0
 
     .line 176
-    .local v0, con:Landroid/net/http/Connection;
+    .local v0, "con":Landroid/net/http/Connection;
     if-nez v0, :cond_0
 
     .line 177
@@ -190,14 +189,14 @@
     .line 178
     iget-object v1, p0, Landroid/net/http/RequestQueue$ActivePool;->this$0:Landroid/net/http/RequestQueue;
 
-    #getter for: Landroid/net/http/RequestQueue;->mContext:Landroid/content/Context;
+    # getter for: Landroid/net/http/RequestQueue;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/net/http/RequestQueue;->access$000(Landroid/net/http/RequestQueue;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Landroid/net/http/RequestQueue$ActivePool;->this$0:Landroid/net/http/RequestQueue;
 
-    #getter for: Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
+    # getter for: Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
     invoke-static {v2}, Landroid/net/http/RequestQueue;->access$100(Landroid/net/http/RequestQueue;)Lorg/apache/http/HttpHost;
 
     move-result-object v2
@@ -220,7 +219,7 @@
     .line 143
     iget-object v0, p0, Landroid/net/http/RequestQueue$ActivePool;->this$0:Landroid/net/http/RequestQueue;
 
-    #getter for: Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
+    # getter for: Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
     invoke-static {v0}, Landroid/net/http/RequestQueue;->access$100(Landroid/net/http/RequestQueue;)Lorg/apache/http/HttpHost;
 
     move-result-object v0
@@ -230,7 +229,7 @@
 
 .method getThread(Lorg/apache/http/HttpHost;)Landroid/net/http/ConnectionThread;
     .locals 5
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 161
@@ -241,7 +240,7 @@
     .line 162
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     :try_start_0
     iget-object v3, p0, Landroid/net/http/RequestQueue$ActivePool;->mThreads:[Landroid/net/http/ConnectionThread;
@@ -256,11 +255,11 @@
     aget-object v1, v3, v2
 
     .line 164
-    .local v1, ct:Landroid/net/http/ConnectionThread;
+    .local v1, "ct":Landroid/net/http/ConnectionThread;
     iget-object v0, v1, Landroid/net/http/ConnectionThread;->mConnection:Landroid/net/http/Connection;
 
     .line 165
-    .local v0, connection:Landroid/net/http/Connection;
+    .local v0, "connection":Landroid/net/http/Connection;
     if-eqz v0, :cond_0
 
     iget-object v3, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
@@ -275,22 +274,22 @@
     monitor-exit v4
 
     .line 170
-    .end local v0           #connection:Landroid/net/http/Connection;
-    .end local v1           #ct:Landroid/net/http/ConnectionThread;
+    .end local v0    # "connection":Landroid/net/http/Connection;
+    .end local v1    # "ct":Landroid/net/http/ConnectionThread;
     :goto_1
     return-object v1
 
     .line 162
-    .restart local v0       #connection:Landroid/net/http/Connection;
-    .restart local v1       #ct:Landroid/net/http/ConnectionThread;
+    .restart local v0    # "connection":Landroid/net/http/Connection;
+    .restart local v1    # "ct":Landroid/net/http/ConnectionThread;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 169
-    .end local v0           #connection:Landroid/net/http/Connection;
-    .end local v1           #ct:Landroid/net/http/ConnectionThread;
+    .end local v0    # "connection":Landroid/net/http/Connection;
+    .end local v1    # "ct":Landroid/net/http/ConnectionThread;
     :cond_1
     monitor-exit v4
 
@@ -320,10 +319,10 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 135
-    .local v0, dump:Ljava/lang/StringBuilder;
+    .local v0, "dump":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget v2, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -373,7 +372,7 @@
 
 .method public recycleConnection(Landroid/net/http/Connection;)Z
     .locals 2
-    .parameter "connection"
+    .param p1, "connection"    # Landroid/net/http/Connection;
 
     .prologue
     .line 184
@@ -397,7 +396,7 @@
     .line 98
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -461,7 +460,7 @@
     .line 110
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v2, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -473,7 +472,7 @@
     aget-object v1, v2, v0
 
     .line 112
-    .local v1, rt:Landroid/net/http/ConnectionThread;
+    .local v1, "rt":Landroid/net/http/ConnectionThread;
     const-wide/16 v2, -0x1
 
     iput-wide v2, v1, Landroid/net/http/ConnectionThread;->mCurrentThreadTime:J
@@ -489,7 +488,7 @@
     goto :goto_0
 
     .line 115
-    .end local v1           #rt:Landroid/net/http/ConnectionThread;
+    .end local v1    # "rt":Landroid/net/http/ConnectionThread;
     :cond_0
     iput v4, p0, Landroid/net/http/RequestQueue$ActivePool;->mTotalRequest:I
 
@@ -507,7 +506,7 @@
     .line 92
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -538,10 +537,10 @@
     const/4 v2, 0x0
 
     .line 121
-    .local v2, totalTime:I
+    .local v2, "totalTime":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v3, p0, Landroid/net/http/RequestQueue$ActivePool;->mConnectionCount:I
 
@@ -553,7 +552,7 @@
     aget-object v1, v3, v0
 
     .line 123
-    .local v1, rt:Landroid/net/http/ConnectionThread;
+    .local v1, "rt":Landroid/net/http/ConnectionThread;
     iget-wide v3, v1, Landroid/net/http/ConnectionThread;->mCurrentThreadTime:J
 
     const-wide/16 v5, -0x1
@@ -583,7 +582,7 @@
     goto :goto_0
 
     .line 128
-    .end local v1           #rt:Landroid/net/http/ConnectionThread;
+    .end local v1    # "rt":Landroid/net/http/ConnectionThread;
     :cond_1
     const-string v3, "Http"
 

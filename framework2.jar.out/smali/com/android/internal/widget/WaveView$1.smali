@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/WaveView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 414
@@ -46,7 +45,7 @@
     .line 418
     iget-object v0, p0, Lcom/android/internal/widget/WaveView$1;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
     invoke-static {v0}, Lcom/android/internal/widget/WaveView;->access$000(Lcom/android/internal/widget/WaveView;)I
 
     move-result v0
@@ -58,14 +57,14 @@
     .line 420
     iget-object v0, p0, Lcom/android/internal/widget/WaveView$1;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #setter for: Lcom/android/internal/widget/WaveView;->mLockState:I
+    # setter for: Lcom/android/internal/widget/WaveView;->mLockState:I
     invoke-static {v0, v2}, Lcom/android/internal/widget/WaveView;->access$002(Lcom/android/internal/widget/WaveView;I)I
 
     .line 423
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/WaveView$1;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
+    # getter for: Lcom/android/internal/widget/WaveView;->mLockState:I
     invoke-static {v0}, Lcom/android/internal/widget/WaveView;->access$000(Lcom/android/internal/widget/WaveView;)I
 
     move-result v0
@@ -77,7 +76,7 @@
     .line 425
     iget-object v0, p0, Lcom/android/internal/widget/WaveView$1;->this$0:Lcom/android/internal/widget/WaveView;
 
-    #setter for: Lcom/android/internal/widget/WaveView;->mLockState:I
+    # setter for: Lcom/android/internal/widget/WaveView;->mLockState:I
     invoke-static {v0, v2}, Lcom/android/internal/widget/WaveView;->access$002(Lcom/android/internal/widget/WaveView;I)I
 
     .line 427

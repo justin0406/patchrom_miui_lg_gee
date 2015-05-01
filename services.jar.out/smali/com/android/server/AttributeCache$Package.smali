@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "c"
+    .param p1, "c"    # Landroid/content/Context;
 
     .prologue
     .line 49
@@ -56,7 +56,7 @@
 
 .method static synthetic access$000(Lcom/android/server/AttributeCache$Package;)Landroid/util/SparseArray;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/AttributeCache$Package;
 
     .prologue
     .line 44

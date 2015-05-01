@@ -85,7 +85,7 @@
 
 .method public static createFromParcelBody(Landroid/os/Parcel;)Landroid/net/MobileLinkQualityInfo;
     .locals 2
-    .parameter "in"
+    .param p0, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 71
@@ -94,7 +94,7 @@
     invoke-direct {v0}, Landroid/net/MobileLinkQualityInfo;-><init>()V
 
     .line 73
-    .local v0, li:Landroid/net/MobileLinkQualityInfo;
+    .local v0, "li":Landroid/net/MobileLinkQualityInfo;
     invoke-virtual {v0, p0}, Landroid/net/MobileLinkQualityInfo;->initializeFromParcel(Landroid/os/Parcel;)V
 
     .line 75
@@ -326,7 +326,7 @@
 
 .method public setCdmaDbm(I)V
     .locals 0
-    .parameter "cdmaDbm"
+    .param p1, "cdmaDbm"    # I
 
     .prologue
     .line 149
@@ -338,7 +338,7 @@
 
 .method public setCdmaEcio(I)V
     .locals 0
-    .parameter "cdmaEcio"
+    .param p1, "cdmaEcio"    # I
 
     .prologue
     .line 164
@@ -350,7 +350,7 @@
 
 .method public setEvdoDbm(I)V
     .locals 0
-    .parameter "evdoDbm"
+    .param p1, "evdoDbm"    # I
 
     .prologue
     .line 179
@@ -362,7 +362,7 @@
 
 .method public setEvdoEcio(I)V
     .locals 0
-    .parameter "evdoEcio"
+    .param p1, "evdoEcio"    # I
 
     .prologue
     .line 194
@@ -374,7 +374,7 @@
 
 .method public setEvdoSnr(I)V
     .locals 0
-    .parameter "evdoSnr"
+    .param p1, "evdoSnr"    # I
 
     .prologue
     .line 209
@@ -386,7 +386,7 @@
 
 .method public setGsmErrorRate(I)V
     .locals 0
-    .parameter "gsmErrorRate"
+    .param p1, "gsmErrorRate"    # I
 
     .prologue
     .line 134
@@ -398,7 +398,7 @@
 
 .method public setLteCqi(I)V
     .locals 0
-    .parameter "lteCqi"
+    .param p1, "lteCqi"    # I
 
     .prologue
     .line 284
@@ -410,7 +410,7 @@
 
 .method public setLteRsrp(I)V
     .locals 0
-    .parameter "lteRsrp"
+    .param p1, "lteRsrp"    # I
 
     .prologue
     .line 239
@@ -422,7 +422,7 @@
 
 .method public setLteRsrq(I)V
     .locals 0
-    .parameter "lteRsrq"
+    .param p1, "lteRsrq"    # I
 
     .prologue
     .line 254
@@ -434,7 +434,7 @@
 
 .method public setLteRssnr(I)V
     .locals 0
-    .parameter "lteRssnr"
+    .param p1, "lteRssnr"    # I
 
     .prologue
     .line 269
@@ -446,7 +446,7 @@
 
 .method public setLteSignalStrength(I)V
     .locals 0
-    .parameter "lteSignalStrength"
+    .param p1, "lteSignalStrength"    # I
 
     .prologue
     .line 224
@@ -458,7 +458,7 @@
 
 .method public setMobileNetworkType(I)V
     .locals 0
-    .parameter "mobileNetworkType"
+    .param p1, "mobileNetworkType"    # I
 
     .prologue
     .line 104
@@ -470,7 +470,7 @@
 
 .method public setRssi(I)V
     .locals 0
-    .parameter "Rssi"
+    .param p1, "Rssi"    # I
 
     .prologue
     .line 119
@@ -482,8 +482,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 48

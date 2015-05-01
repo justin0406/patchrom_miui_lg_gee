@@ -100,14 +100,14 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 8
-    .parameter "values"
+    .param p1, "values"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 85
     iget-object v0, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 86
-    .local v0, view:Landroid/view/View;
+    .local v0, "view":Landroid/view/View;
     iget-object v1, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v2, "android:changeBounds:bounds"
@@ -196,7 +196,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 101
@@ -208,7 +208,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 96
@@ -220,9 +220,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 52
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 107
@@ -248,13 +248,13 @@
     move-object/from16 v34, v0
 
     .line 111
-    .local v34, startParentVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v34, "startParentVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     move-object/from16 v0, p3
 
     iget-object v15, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     .line 112
-    .local v15, endParentVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v15, "endParentVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v47, "android:changeBounds:parent"
 
     move-object/from16 v0, v34
@@ -268,7 +268,7 @@
     check-cast v33, Landroid/view/ViewGroup;
 
     .line 113
-    .local v33, startParent:Landroid/view/ViewGroup;
+    .local v33, "startParent":Landroid/view/ViewGroup;
     const-string v47, "android:changeBounds:parent"
 
     move-object/from16 v0, v47
@@ -280,7 +280,7 @@
     check-cast v14, Landroid/view/ViewGroup;
 
     .line 114
-    .local v14, endParent:Landroid/view/ViewGroup;
+    .local v14, "endParent":Landroid/view/ViewGroup;
     if-eqz v33, :cond_3
 
     if-nez v14, :cond_4
@@ -300,7 +300,7 @@
     move-object/from16 v45, v0
 
     .line 118
-    .local v45, view:Landroid/view/View;
+    .local v45, "view":Landroid/view/View;
     move-object/from16 v0, v33
 
     if-eq v0, v14, :cond_5
@@ -323,7 +323,7 @@
     const/16 v24, 0x1
 
     .line 124
-    .local v24, parentsEqual:Z
+    .local v24, "parentsEqual":Z
     :goto_1
     move-object/from16 v0, p0
 
@@ -352,7 +352,7 @@
     check-cast v29, Landroid/graphics/Rect;
 
     .line 126
-    .local v29, startBounds:Landroid/graphics/Rect;
+    .local v29, "startBounds":Landroid/graphics/Rect;
     move-object/from16 v0, p3
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -368,7 +368,7 @@
     check-cast v10, Landroid/graphics/Rect;
 
     .line 127
-    .local v10, endBounds:Landroid/graphics/Rect;
+    .local v10, "endBounds":Landroid/graphics/Rect;
     move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
@@ -376,11 +376,11 @@
     move/from16 v32, v0
 
     .line 128
-    .local v32, startLeft:I
+    .local v32, "startLeft":I
     iget v13, v10, Landroid/graphics/Rect;->left:I
 
     .line 129
-    .local v13, endLeft:I
+    .local v13, "endLeft":I
     move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
@@ -388,13 +388,13 @@
     move/from16 v36, v0
 
     .line 130
-    .local v36, startTop:I
+    .local v36, "startTop":I
     iget v0, v10, Landroid/graphics/Rect;->top:I
 
     move/from16 v17, v0
 
     .line 131
-    .local v17, endTop:I
+    .local v17, "endTop":I
     move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
@@ -402,13 +402,13 @@
     move/from16 v35, v0
 
     .line 132
-    .local v35, startRight:I
+    .local v35, "startRight":I
     iget v0, v10, Landroid/graphics/Rect;->right:I
 
     move/from16 v16, v0
 
     .line 133
-    .local v16, endRight:I
+    .local v16, "endRight":I
     move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->bottom:I
@@ -416,31 +416,31 @@
     move/from16 v28, v0
 
     .line 134
-    .local v28, startBottom:I
+    .local v28, "startBottom":I
     iget v9, v10, Landroid/graphics/Rect;->bottom:I
 
     .line 135
-    .local v9, endBottom:I
+    .local v9, "endBottom":I
     sub-int v37, v35, v32
 
     .line 136
-    .local v37, startWidth:I
+    .local v37, "startWidth":I
     sub-int v31, v28, v36
 
     .line 137
-    .local v31, startHeight:I
+    .local v31, "startHeight":I
     sub-int v18, v16, v13
 
     .line 138
-    .local v18, endWidth:I
+    .local v18, "endWidth":I
     sub-int v12, v9, v17
 
     .line 139
-    .local v12, endHeight:I
+    .local v12, "endHeight":I
     const/16 v22, 0x0
 
     .line 140
-    .local v22, numChanges:I
+    .local v22, "numChanges":I
     if-eqz v37, :cond_a
 
     if-eqz v31, :cond_a
@@ -505,11 +505,11 @@
     move-object/from16 v25, v0
 
     .line 149
-    .local v25, pvh:[Landroid/animation/PropertyValuesHolder;
+    .local v25, "pvh":[Landroid/animation/PropertyValuesHolder;
     const/16 v26, 0x0
 
     .line 150
-    .local v26, pvhIndex:I
+    .local v26, "pvhIndex":I
     move/from16 v0, v32
 
     if-eq v0, v13, :cond_b
@@ -569,8 +569,8 @@
     .line 155
     add-int/lit8 v27, v26, 0x1
 
-    .end local v26           #pvhIndex:I
-    .local v27, pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .local v27, "pvhIndex":I
     const-string v47, "left"
 
     const/16 v48, 0x2
@@ -606,8 +606,8 @@
     .line 158
     add-int/lit8 v26, v27, 0x1
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     const-string/jumbo v47, "top"
 
     const/16 v48, 0x2
@@ -635,8 +635,8 @@
     move/from16 v27, v26
 
     .line 160
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     :cond_f
     move/from16 v0, v35
 
@@ -647,8 +647,8 @@
     .line 161
     add-int/lit8 v26, v27, 0x1
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     const-string/jumbo v47, "right"
 
     const/16 v48, 0x2
@@ -676,8 +676,8 @@
     move/from16 v27, v26
 
     .line 164
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     :cond_10
     move/from16 v0, v28
 
@@ -686,8 +686,8 @@
     .line 165
     add-int/lit8 v26, v27, 0x1
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     const-string v47, "bottom"
 
     const/16 v48, 0x2
@@ -723,7 +723,7 @@
     move-result-object v5
 
     .line 169
-    .local v5, anim:Landroid/animation/ObjectAnimator;
+    .local v5, "anim":Landroid/animation/ObjectAnimator;
     invoke-virtual/range {v45 .. v45}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v47
@@ -744,7 +744,7 @@
     check-cast v23, Landroid/view/ViewGroup;
 
     .line 171
-    .local v23, parent:Landroid/view/ViewGroup;
+    .local v23, "parent":Landroid/view/ViewGroup;
     const/16 v47, 0x1
 
     move-object/from16 v0, v23
@@ -765,7 +765,7 @@
     invoke-direct {v0, v1, v2}, Landroid/transition/ChangeBounds$1;-><init>(Landroid/transition/ChangeBounds;Landroid/view/ViewGroup;)V
 
     .line 198
-    .local v44, transitionListener:Landroid/transition/Transition$TransitionListener;
+    .local v44, "transitionListener":Landroid/transition/Transition$TransitionListener;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v44
@@ -775,49 +775,49 @@
     goto/16 :goto_0
 
     .line 118
-    .end local v5           #anim:Landroid/animation/ObjectAnimator;
-    .end local v9           #endBottom:I
-    .end local v10           #endBounds:Landroid/graphics/Rect;
-    .end local v12           #endHeight:I
-    .end local v13           #endLeft:I
-    .end local v16           #endRight:I
-    .end local v17           #endTop:I
-    .end local v18           #endWidth:I
-    .end local v22           #numChanges:I
-    .end local v23           #parent:Landroid/view/ViewGroup;
-    .end local v24           #parentsEqual:Z
-    .end local v25           #pvh:[Landroid/animation/PropertyValuesHolder;
-    .end local v26           #pvhIndex:I
-    .end local v28           #startBottom:I
-    .end local v29           #startBounds:Landroid/graphics/Rect;
-    .end local v31           #startHeight:I
-    .end local v32           #startLeft:I
-    .end local v35           #startRight:I
-    .end local v36           #startTop:I
-    .end local v37           #startWidth:I
-    .end local v44           #transitionListener:Landroid/transition/Transition$TransitionListener;
+    .end local v5    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v9    # "endBottom":I
+    .end local v10    # "endBounds":Landroid/graphics/Rect;
+    .end local v12    # "endHeight":I
+    .end local v13    # "endLeft":I
+    .end local v16    # "endRight":I
+    .end local v17    # "endTop":I
+    .end local v18    # "endWidth":I
+    .end local v22    # "numChanges":I
+    .end local v23    # "parent":Landroid/view/ViewGroup;
+    .end local v24    # "parentsEqual":Z
+    .end local v25    # "pvh":[Landroid/animation/PropertyValuesHolder;
+    .end local v26    # "pvhIndex":I
+    .end local v28    # "startBottom":I
+    .end local v29    # "startBounds":Landroid/graphics/Rect;
+    .end local v31    # "startHeight":I
+    .end local v32    # "startLeft":I
+    .end local v35    # "startRight":I
+    .end local v36    # "startTop":I
+    .end local v37    # "startWidth":I
+    .end local v44    # "transitionListener":Landroid/transition/Transition$TransitionListener;
     :cond_11
     const/16 v24, 0x0
 
     goto/16 :goto_1
 
     .line 202
-    .restart local v9       #endBottom:I
-    .restart local v10       #endBounds:Landroid/graphics/Rect;
-    .restart local v12       #endHeight:I
-    .restart local v13       #endLeft:I
-    .restart local v16       #endRight:I
-    .restart local v17       #endTop:I
-    .restart local v18       #endWidth:I
-    .restart local v22       #numChanges:I
-    .restart local v24       #parentsEqual:Z
-    .restart local v28       #startBottom:I
-    .restart local v29       #startBounds:Landroid/graphics/Rect;
-    .restart local v31       #startHeight:I
-    .restart local v32       #startLeft:I
-    .restart local v35       #startRight:I
-    .restart local v36       #startTop:I
-    .restart local v37       #startWidth:I
+    .restart local v9    # "endBottom":I
+    .restart local v10    # "endBounds":Landroid/graphics/Rect;
+    .restart local v12    # "endHeight":I
+    .restart local v13    # "endLeft":I
+    .restart local v16    # "endRight":I
+    .restart local v17    # "endTop":I
+    .restart local v18    # "endWidth":I
+    .restart local v22    # "numChanges":I
+    .restart local v24    # "parentsEqual":Z
+    .restart local v28    # "startBottom":I
+    .restart local v29    # "startBounds":Landroid/graphics/Rect;
+    .restart local v31    # "startHeight":I
+    .restart local v32    # "startLeft":I
+    .restart local v35    # "startRight":I
+    .restart local v36    # "startTop":I
+    .restart local v37    # "startWidth":I
     :cond_12
     move/from16 v0, v37
 
@@ -914,7 +914,7 @@
     move/from16 v42, v0
 
     .line 211
-    .local v42, transXDelta:F
+    .local v42, "transXDelta":F
     sub-int v47, v17, v36
 
     move/from16 v0, v47
@@ -924,15 +924,15 @@
     move/from16 v43, v0
 
     .line 212
-    .local v43, transYDelta:F
+    .local v43, "transYDelta":F
     sub-int v46, v18, v37
 
     .line 213
-    .local v46, widthDelta:I
+    .local v46, "widthDelta":I
     sub-int v21, v12, v31
 
     .line 214
-    .local v21, heightDelta:I
+    .local v21, "heightDelta":I
     const/16 v22, 0x0
 
     .line 215
@@ -972,11 +972,11 @@
     move-object/from16 v25, v0
 
     .line 219
-    .restart local v25       #pvh:[Landroid/animation/PropertyValuesHolder;
+    .restart local v25    # "pvh":[Landroid/animation/PropertyValuesHolder;
     const/16 v26, 0x0
 
     .line 220
-    .restart local v26       #pvhIndex:I
+    .restart local v26    # "pvhIndex":I
     const/16 v47, 0x0
 
     cmpl-float v47, v42, v47
@@ -986,8 +986,8 @@
     .line 221
     add-int/lit8 v27, v26, 0x1
 
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     const-string/jumbo v47, "translationX"
 
     const/16 v48, 0x2
@@ -1029,8 +1029,8 @@
     .line 225
     add-int/lit8 v26, v27, 0x1
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     const-string/jumbo v47, "translationY"
 
     const/16 v48, 0x2
@@ -1064,8 +1064,8 @@
     move/from16 v27, v26
 
     .line 228
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     :cond_1b
     if-nez v46, :cond_1c
 
@@ -1092,7 +1092,7 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 230
-    .local v41, tempStartBounds:Landroid/graphics/Rect;
+    .local v41, "tempStartBounds":Landroid/graphics/Rect;
     new-instance v40, Landroid/graphics/Rect;
 
     const/16 v47, 0x0
@@ -1110,11 +1110,11 @@
     invoke-direct {v0, v1, v2, v3, v12}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 231
-    .local v40, tempEndBounds:Landroid/graphics/Rect;
+    .local v40, "tempEndBounds":Landroid/graphics/Rect;
     add-int/lit8 v26, v27, 0x1
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     const-string v47, "clipBounds"
 
     sget-object v48, Landroid/transition/ChangeBounds;->sRectEvaluator:Landroid/animation/RectEvaluator;
@@ -1142,8 +1142,8 @@
     aput-object v47, v25, v27
 
     .line 234
-    .end local v40           #tempEndBounds:Landroid/graphics/Rect;
-    .end local v41           #tempStartBounds:Landroid/graphics/Rect;
+    .end local v40    # "tempEndBounds":Landroid/graphics/Rect;
+    .end local v41    # "tempStartBounds":Landroid/graphics/Rect;
     :goto_5
     move-object/from16 v0, v45
 
@@ -1154,7 +1154,7 @@
     move-result-object v5
 
     .line 235
-    .restart local v5       #anim:Landroid/animation/ObjectAnimator;
+    .restart local v5    # "anim":Landroid/animation/ObjectAnimator;
     invoke-virtual/range {v45 .. v45}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v47
@@ -1175,7 +1175,7 @@
     check-cast v23, Landroid/view/ViewGroup;
 
     .line 237
-    .restart local v23       #parent:Landroid/view/ViewGroup;
+    .restart local v23    # "parent":Landroid/view/ViewGroup;
     const/16 v47, 0x1
 
     move-object/from16 v0, v23
@@ -1196,7 +1196,7 @@
     invoke-direct {v0, v1, v2}, Landroid/transition/ChangeBounds$2;-><init>(Landroid/transition/ChangeBounds;Landroid/view/ViewGroup;)V
 
     .line 264
-    .restart local v44       #transitionListener:Landroid/transition/Transition$TransitionListener;
+    .restart local v44    # "transitionListener":Landroid/transition/Transition$TransitionListener;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v44
@@ -1204,8 +1204,8 @@
     invoke-virtual {v0, v1}, Landroid/transition/ChangeBounds;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     .line 266
-    .end local v23           #parent:Landroid/view/ViewGroup;
-    .end local v44           #transitionListener:Landroid/transition/Transition$TransitionListener;
+    .end local v23    # "parent":Landroid/view/ViewGroup;
+    .end local v44    # "transitionListener":Landroid/transition/Transition$TransitionListener;
     :cond_1d
     new-instance v47, Landroid/transition/ChangeBounds$3;
 
@@ -1224,28 +1224,28 @@
     goto/16 :goto_0
 
     .line 276
-    .end local v5           #anim:Landroid/animation/ObjectAnimator;
-    .end local v9           #endBottom:I
-    .end local v10           #endBounds:Landroid/graphics/Rect;
-    .end local v12           #endHeight:I
-    .end local v13           #endLeft:I
-    .end local v16           #endRight:I
-    .end local v17           #endTop:I
-    .end local v18           #endWidth:I
-    .end local v21           #heightDelta:I
-    .end local v22           #numChanges:I
-    .end local v25           #pvh:[Landroid/animation/PropertyValuesHolder;
-    .end local v26           #pvhIndex:I
-    .end local v28           #startBottom:I
-    .end local v29           #startBounds:Landroid/graphics/Rect;
-    .end local v31           #startHeight:I
-    .end local v32           #startLeft:I
-    .end local v35           #startRight:I
-    .end local v36           #startTop:I
-    .end local v37           #startWidth:I
-    .end local v42           #transXDelta:F
-    .end local v43           #transYDelta:F
-    .end local v46           #widthDelta:I
+    .end local v5    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v9    # "endBottom":I
+    .end local v10    # "endBounds":Landroid/graphics/Rect;
+    .end local v12    # "endHeight":I
+    .end local v13    # "endLeft":I
+    .end local v16    # "endRight":I
+    .end local v17    # "endTop":I
+    .end local v18    # "endWidth":I
+    .end local v21    # "heightDelta":I
+    .end local v22    # "numChanges":I
+    .end local v25    # "pvh":[Landroid/animation/PropertyValuesHolder;
+    .end local v26    # "pvhIndex":I
+    .end local v28    # "startBottom":I
+    .end local v29    # "startBounds":Landroid/graphics/Rect;
+    .end local v31    # "startHeight":I
+    .end local v32    # "startLeft":I
+    .end local v35    # "startRight":I
+    .end local v36    # "startTop":I
+    .end local v37    # "startWidth":I
+    .end local v42    # "transXDelta":F
+    .end local v43    # "transYDelta":F
+    .end local v46    # "widthDelta":I
     :cond_1e
     move-object/from16 v0, p2
 
@@ -1266,7 +1266,7 @@
     move-result v38
 
     .line 277
-    .local v38, startX:I
+    .local v38, "startX":I
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -1286,7 +1286,7 @@
     move-result v39
 
     .line 278
-    .local v39, startY:I
+    .local v39, "startY":I
     move-object/from16 v0, p3
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -1306,7 +1306,7 @@
     move-result v19
 
     .line 279
-    .local v19, endX:I
+    .local v19, "endX":I
     move-object/from16 v0, p3
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -1326,7 +1326,7 @@
     move-result v20
 
     .line 281
-    .local v20, endY:I
+    .local v20, "endY":I
     move/from16 v0, v38
 
     move/from16 v1, v19
@@ -1369,13 +1369,13 @@
     move-result-object v6
 
     .line 285
-    .local v6, bitmap:Landroid/graphics/Bitmap;
+    .local v6, "bitmap":Landroid/graphics/Bitmap;
     new-instance v7, Landroid/graphics/Canvas;
 
     invoke-direct {v7, v6}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 286
-    .local v7, canvas:Landroid/graphics/Canvas;
+    .local v7, "canvas":Landroid/graphics/Canvas;
     move-object/from16 v0, v45
 
     invoke-virtual {v0, v7}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
@@ -1386,7 +1386,7 @@
     invoke-direct {v8, v6}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 288
-    .local v8, drawable:Landroid/graphics/drawable/BitmapDrawable;
+    .local v8, "drawable":Landroid/graphics/drawable/BitmapDrawable;
     const/16 v47, 0x4
 
     move-object/from16 v0, v45
@@ -1480,7 +1480,7 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 293
-    .local v30, startBounds1:Landroid/graphics/Rect;
+    .local v30, "startBounds1":Landroid/graphics/Rect;
     new-instance v11, Landroid/graphics/Rect;
 
     move-object/from16 v0, p0
@@ -1554,7 +1554,7 @@
     invoke-direct {v11, v0, v1, v2, v3}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 296
-    .local v11, endBounds1:Landroid/graphics/Rect;
+    .local v11, "endBounds1":Landroid/graphics/Rect;
     const-string v47, "bounds"
 
     sget-object v48, Landroid/transition/ChangeBounds;->sRectEvaluator:Landroid/animation/RectEvaluator;
@@ -1586,7 +1586,7 @@
     move-result-object v5
 
     .line 298
-    .restart local v5       #anim:Landroid/animation/ObjectAnimator;
+    .restart local v5    # "anim":Landroid/animation/ObjectAnimator;
     new-instance v47, Landroid/transition/ChangeBounds$4;
 
     move-object/from16 v0, v47
@@ -1606,72 +1606,72 @@
     goto/16 :goto_0
 
     .line 308
-    .end local v5           #anim:Landroid/animation/ObjectAnimator;
-    .end local v6           #bitmap:Landroid/graphics/Bitmap;
-    .end local v7           #canvas:Landroid/graphics/Canvas;
-    .end local v8           #drawable:Landroid/graphics/drawable/BitmapDrawable;
-    .end local v11           #endBounds1:Landroid/graphics/Rect;
-    .end local v19           #endX:I
-    .end local v20           #endY:I
-    .end local v30           #startBounds1:Landroid/graphics/Rect;
-    .end local v38           #startX:I
-    .end local v39           #startY:I
+    .end local v5    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v6    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v7    # "canvas":Landroid/graphics/Canvas;
+    .end local v8    # "drawable":Landroid/graphics/drawable/BitmapDrawable;
+    .end local v11    # "endBounds1":Landroid/graphics/Rect;
+    .end local v19    # "endX":I
+    .end local v20    # "endY":I
+    .end local v30    # "startBounds1":Landroid/graphics/Rect;
+    .end local v38    # "startX":I
+    .end local v39    # "startY":I
     :cond_20
     const/4 v5, 0x0
 
     goto/16 :goto_0
 
-    .restart local v9       #endBottom:I
-    .restart local v10       #endBounds:Landroid/graphics/Rect;
-    .restart local v12       #endHeight:I
-    .restart local v13       #endLeft:I
-    .restart local v16       #endRight:I
-    .restart local v17       #endTop:I
-    .restart local v18       #endWidth:I
-    .restart local v21       #heightDelta:I
-    .restart local v22       #numChanges:I
-    .restart local v25       #pvh:[Landroid/animation/PropertyValuesHolder;
-    .restart local v27       #pvhIndex:I
-    .restart local v28       #startBottom:I
-    .restart local v29       #startBounds:Landroid/graphics/Rect;
-    .restart local v31       #startHeight:I
-    .restart local v32       #startLeft:I
-    .restart local v35       #startRight:I
-    .restart local v36       #startTop:I
-    .restart local v37       #startWidth:I
-    .restart local v42       #transXDelta:F
-    .restart local v43       #transYDelta:F
-    .restart local v46       #widthDelta:I
+    .restart local v9    # "endBottom":I
+    .restart local v10    # "endBounds":Landroid/graphics/Rect;
+    .restart local v12    # "endHeight":I
+    .restart local v13    # "endLeft":I
+    .restart local v16    # "endRight":I
+    .restart local v17    # "endTop":I
+    .restart local v18    # "endWidth":I
+    .restart local v21    # "heightDelta":I
+    .restart local v22    # "numChanges":I
+    .restart local v25    # "pvh":[Landroid/animation/PropertyValuesHolder;
+    .restart local v27    # "pvhIndex":I
+    .restart local v28    # "startBottom":I
+    .restart local v29    # "startBounds":Landroid/graphics/Rect;
+    .restart local v31    # "startHeight":I
+    .restart local v32    # "startLeft":I
+    .restart local v35    # "startRight":I
+    .restart local v36    # "startTop":I
+    .restart local v37    # "startWidth":I
+    .restart local v42    # "transXDelta":F
+    .restart local v43    # "transYDelta":F
+    .restart local v46    # "widthDelta":I
     :cond_21
     move/from16 v26, v27
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     goto/16 :goto_5
 
     :cond_22
     move/from16 v27, v26
 
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     goto/16 :goto_4
 
-    .end local v21           #heightDelta:I
-    .end local v42           #transXDelta:F
-    .end local v43           #transYDelta:F
-    .end local v46           #widthDelta:I
+    .end local v21    # "heightDelta":I
+    .end local v42    # "transXDelta":F
+    .end local v43    # "transYDelta":F
+    .end local v46    # "widthDelta":I
     :cond_23
     move/from16 v26, v27
 
-    .end local v27           #pvhIndex:I
-    .restart local v26       #pvhIndex:I
+    .end local v27    # "pvhIndex":I
+    .restart local v26    # "pvhIndex":I
     goto/16 :goto_3
 
     :cond_24
     move/from16 v27, v26
 
-    .end local v26           #pvhIndex:I
-    .restart local v27       #pvhIndex:I
+    .end local v26    # "pvhIndex":I
+    .restart local v27    # "pvhIndex":I
     goto/16 :goto_2
 .end method
 
@@ -1687,7 +1687,7 @@
 
 .method public setReparent(Z)V
     .locals 0
-    .parameter "reparent"
+    .param p1, "reparent"    # Z
 
     .prologue
     .line 81
@@ -1699,7 +1699,7 @@
 
 .method public setResizeClip(Z)V
     .locals 0
-    .parameter "resizeClip"
+    .param p1, "resizeClip"    # Z
 
     .prologue
     .line 67

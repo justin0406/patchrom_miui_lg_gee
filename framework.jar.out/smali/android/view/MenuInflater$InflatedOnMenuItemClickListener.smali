@@ -58,8 +58,8 @@
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
     .locals 5
-    .parameter "realOwner"
-    .parameter "methodName"
+    .param p1, "realOwner"    # Ljava/lang/Object;
+    .param p2, "methodName"    # Ljava/lang/String;
 
     .prologue
     .line 211
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 215
-    .local v0, c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     sget-object v3, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->PARAM_TYPES:[Ljava/lang/Class;
 
@@ -94,7 +94,7 @@
     move-exception v1
 
     .line 217
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     new-instance v2, Landroid/view/InflateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -132,7 +132,7 @@
     invoke-direct {v2, v3}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 220
-    .local v2, ex:Landroid/view/InflateException;
+    .local v2, "ex":Landroid/view/InflateException;
     invoke-virtual {v2, v1}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 221
@@ -143,7 +143,7 @@
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 6
-    .parameter "item"
+    .param p1, "item"    # Landroid/view/MenuItem;
 
     .prologue
     const/4 v1, 0x1
@@ -212,7 +212,7 @@
     move-exception v0
 
     .line 234
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

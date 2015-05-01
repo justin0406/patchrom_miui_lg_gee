@@ -35,8 +35,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;)V
     .locals 1
-    .parameter "context"
-    .parameter "client"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "client"    # Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
 
     .prologue
     .line 102
@@ -61,7 +61,7 @@
 
 .method static synthetic access$000(Landroid/media/MediaScannerConnection;)Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/MediaScannerConnection;
 
     .prologue
     .line 40
@@ -72,10 +72,10 @@
 
 .method public static scanFile(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
     .locals 2
-    .parameter "context"
-    .parameter "paths"
-    .parameter "mimeTypes"
-    .parameter "callback"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "paths"    # [Ljava/lang/String;
+    .param p2, "mimeTypes"    # [Ljava/lang/String;
+    .param p3, "callback"    # Landroid/media/MediaScannerConnection$OnScanCompletedListener;
 
     .prologue
     .line 235
@@ -84,13 +84,13 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/media/MediaScannerConnection$ClientProxy;-><init>([Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
 
     .line 236
-    .local v0, client:Landroid/media/MediaScannerConnection$ClientProxy;
+    .local v0, "client":Landroid/media/MediaScannerConnection$ClientProxy;
     new-instance v1, Landroid/media/MediaScannerConnection;
 
     invoke-direct {v1, p0, v0}, Landroid/media/MediaScannerConnection;-><init>(Landroid/content/Context;Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;)V
 
     .line 237
-    .local v1, connection:Landroid/media/MediaScannerConnection;
+    .local v1, "connection":Landroid/media/MediaScannerConnection;
     iput-object v1, v0, Landroid/media/MediaScannerConnection$ClientProxy;->mConnection:Landroid/media/MediaScannerConnection;
 
     .line 238
@@ -127,7 +127,7 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 116
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
     const-string v2, "com.android.providers.media"
@@ -151,7 +151,7 @@
     iput-boolean v1, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
 
     .line 122
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     monitor-exit p0
 
@@ -190,8 +190,8 @@
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 141
     :goto_0
@@ -264,8 +264,8 @@
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "className"
-    .parameter "service"
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 248
@@ -313,7 +313,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 1
-    .parameter "className"
+    .param p1, "className"    # Landroid/content/ComponentName;
 
     .prologue
     .line 263
@@ -344,8 +344,8 @@
 
 .method public scanFile(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "path"
-    .parameter "mimeType"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
     .prologue
     .line 164
@@ -390,8 +390,8 @@
 
     invoke-interface {v0, p1, p2, v1}, Landroid/media/IMediaScannerService;->requestScanFile(Ljava/lang/String;Ljava/lang/String;Landroid/media/IMediaScannerListener;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 178
     :goto_0

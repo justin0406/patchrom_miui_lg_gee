@@ -103,7 +103,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/widget/PointerLocationView$PointerState;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -114,7 +114,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/widget/PointerLocationView$PointerState;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -125,7 +125,7 @@
 
 .method static synthetic access$1000(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -136,8 +136,8 @@
 
 .method static synthetic access$1002(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -148,8 +148,8 @@
 
 .method static synthetic access$102(Lcom/android/internal/widget/PointerLocationView$PointerState;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 45
@@ -160,7 +160,7 @@
 
 .method static synthetic access$1100(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -171,8 +171,8 @@
 
 .method static synthetic access$1102(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -183,7 +183,7 @@
 
 .method static synthetic access$1200(Lcom/android/internal/widget/PointerLocationView$PointerState;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -194,8 +194,8 @@
 
 .method static synthetic access$1202(Lcom/android/internal/widget/PointerLocationView$PointerState;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # I
 
     .prologue
     .line 45
@@ -206,7 +206,7 @@
 
 .method static synthetic access$1300(Lcom/android/internal/widget/PointerLocationView$PointerState;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -217,8 +217,8 @@
 
 .method static synthetic access$1302(Lcom/android/internal/widget/PointerLocationView$PointerState;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 45
@@ -229,7 +229,7 @@
 
 .method static synthetic access$1400(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -240,8 +240,8 @@
 
 .method static synthetic access$1402(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -252,7 +252,7 @@
 
 .method static synthetic access$1500(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -263,8 +263,8 @@
 
 .method static synthetic access$1502(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -275,7 +275,7 @@
 
 .method static synthetic access$1600(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -286,8 +286,8 @@
 
 .method static synthetic access$1602(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -298,7 +298,7 @@
 
 .method static synthetic access$1700(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -309,8 +309,8 @@
 
 .method static synthetic access$1702(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -321,7 +321,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/MotionEvent$PointerCoords;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -332,7 +332,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/widget/PointerLocationView$PointerState;)[F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -343,7 +343,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/widget/PointerLocationView$PointerState;)[F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -354,7 +354,7 @@
 
 .method static synthetic access$500(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -365,8 +365,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -377,7 +377,7 @@
 
 .method static synthetic access$600(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -388,8 +388,8 @@
 
 .method static synthetic access$602(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
+    .param p1, "x1"    # F
 
     .prologue
     .line 45
@@ -400,7 +400,7 @@
 
 .method static synthetic access$700(Lcom/android/internal/widget/PointerLocationView$PointerState;)[Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -411,7 +411,7 @@
 
 .method static synthetic access$800(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/VelocityTracker$Estimator;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -422,7 +422,7 @@
 
 .method static synthetic access$900(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/VelocityTracker$Estimator;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/PointerLocationView$PointerState;
 
     .prologue
     .line 45
@@ -435,9 +435,9 @@
 # virtual methods
 .method public addTrace(FFZ)V
     .locals 7
-    .parameter "x"
-    .parameter "y"
-    .parameter "current"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "current"    # Z
 
     .prologue
     const/4 v6, 0x0
@@ -448,7 +448,7 @@
     array-length v3, v4
 
     .line 82
-    .local v3, traceCapacity:I
+    .local v3, "traceCapacity":I
     iget v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     if-ne v4, v3, :cond_0
@@ -460,7 +460,7 @@
     new-array v1, v3, [F
 
     .line 85
-    .local v1, newTraceX:[F
+    .local v1, "newTraceX":[F
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
@@ -474,7 +474,7 @@
     new-array v2, v3, [F
 
     .line 89
-    .local v2, newTraceY:[F
+    .local v2, "newTraceY":[F
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceY:[F
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
@@ -488,7 +488,7 @@
     new-array v0, v3, [Z
 
     .line 93
-    .local v0, newTraceCurrent:[Z
+    .local v0, "newTraceCurrent":[Z
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
@@ -499,9 +499,9 @@
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
     .line 97
-    .end local v0           #newTraceCurrent:[Z
-    .end local v1           #newTraceX:[F
-    .end local v2           #newTraceY:[F
+    .end local v0    # "newTraceCurrent":[Z
+    .end local v1    # "newTraceX":[F
+    .end local v2    # "newTraceY":[F
     :cond_0
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 

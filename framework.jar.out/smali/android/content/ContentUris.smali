@@ -16,8 +16,8 @@
 
 .method public static appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;
     .locals 1
-    .parameter "builder"
-    .parameter "id"
+    .param p0, "builder"    # Landroid/net/Uri$Builder;
+    .param p1, "id"    # J
 
     .prologue
     .line 98
@@ -34,7 +34,7 @@
 
 .method public static parseId(Landroid/net/Uri;)J
     .locals 3
-    .parameter "contentUri"
+    .param p0, "contentUri"    # Landroid/net/Uri;
 
     .prologue
     .line 85
@@ -43,7 +43,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, last:Ljava/lang/String;
+    .local v0, "last":Ljava/lang/String;
     if-nez v0, :cond_0
 
     const-wide/16 v1, -0x1
@@ -61,8 +61,8 @@
 
 .method public static withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
     .locals 1
-    .parameter "contentUri"
-    .parameter "id"
+    .param p0, "contentUri"    # Landroid/net/Uri;
+    .param p1, "id"    # J
 
     .prologue
     .line 110

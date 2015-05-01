@@ -27,8 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Fade;Landroid/view/View;)V
     .locals 1
-    .parameter
-    .parameter
 
     .prologue
     .line 149
@@ -50,13 +48,13 @@
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 155
     iget-object v0, p0, Landroid/transition/Fade$1;->val$endView:Landroid/view/View;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -71,7 +69,7 @@
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 161
@@ -82,7 +80,7 @@
     .line 162
     iget-object v0, p0, Landroid/transition/Fade$1;->val$endView:Landroid/view/View;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -93,7 +91,7 @@
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 168
@@ -108,7 +106,7 @@
     .line 169
     iget-object v0, p0, Landroid/transition/Fade$1;->val$endView:Landroid/view/View;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -118,7 +116,7 @@
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 174

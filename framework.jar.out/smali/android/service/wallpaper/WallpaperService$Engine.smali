@@ -117,7 +117,6 @@
 # direct methods
 .method public constructor <init>(Landroid/service/wallpaper/WallpaperService;)V
     .locals 1
-    .parameter
 
     .prologue
     const/4 v0, 0x1
@@ -228,8 +227,8 @@
 
 .method static synthetic access$000(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/MotionEvent;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/service/wallpaper/WallpaperService$Engine;
+    .param p1, "x1"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 122
@@ -240,7 +239,7 @@
 
 .method private dispatchPointer(Landroid/view/MotionEvent;)V
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 544
@@ -284,13 +283,13 @@
     move-result-object v0
 
     .line 553
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
     .line 557
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :goto_1
     return-void
 
@@ -324,7 +323,7 @@
 # virtual methods
 .method attach(Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;)V
     .locals 4
-    .parameter "wrapper"
+    .param p1, "wrapper"    # Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;
 
     .prologue
     const/4 v3, 0x0
@@ -343,7 +342,7 @@
     iput-object p1, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mIWallpaperEngine:Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;
 
     .line 760
-    #getter for: Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mCaller:Lcom/android/internal/os/HandlerCaller;
+    # getter for: Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mCaller:Lcom/android/internal/os/HandlerCaller;
     invoke-static {p1}, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->access$100(Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;)Lcom/android/internal/os/HandlerCaller;
 
     move-result-object v1
@@ -407,7 +406,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 772
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -556,7 +555,7 @@
 
 .method doCommand(Landroid/service/wallpaper/WallpaperService$WallpaperCommand;)V
     .locals 8
-    .parameter "cmd"
+    .param p1, "cmd"    # Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
 
     .prologue
     .line 870
@@ -584,7 +583,7 @@
     move-result-object v7
 
     .line 876
-    .local v7, result:Landroid/os/Bundle;
+    .local v7, "result":Landroid/os/Bundle;
     :goto_0
     iget-boolean v0, p1, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;->sync:Z
 
@@ -610,11 +609,11 @@
     return-void
 
     .line 874
-    .end local v7           #result:Landroid/os/Bundle;
+    .end local v7    # "result":Landroid/os/Bundle;
     :cond_1
     const/4 v7, 0x0
 
-    .restart local v7       #result:Landroid/os/Bundle;
+    .restart local v7    # "result":Landroid/os/Bundle;
     goto :goto_0
 
     .line 880
@@ -626,8 +625,8 @@
 
 .method doDesiredSizeChanged(II)V
     .locals 1
-    .parameter "desiredWidth"
-    .parameter "desiredHeight"
+    .param p1, "desiredWidth"    # I
+    .param p2, "desiredHeight"    # I
 
     .prologue
     .line 785
@@ -660,10 +659,10 @@
 
 .method doOffsetsChanged(Z)V
     .locals 13
-    .parameter "always"
+    .param p1, "always"    # Z
 
     .prologue
-    const/high16 v12, 0x3f00
+    const/high16 v12, 0x3f000000    # 0.5f
 
     const/4 v0, 0x0
 
@@ -696,23 +695,23 @@
     iget v1, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingXOffset:F
 
     .line 837
-    .local v1, xOffset:F
+    .local v1, "xOffset":F
     iget v2, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingYOffset:F
 
     .line 838
-    .local v2, yOffset:F
+    .local v2, "yOffset":F
     iget v3, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingXOffsetStep:F
 
     .line 839
-    .local v3, xOffsetStep:F
+    .local v3, "xOffsetStep":F
     iget v4, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingYOffsetStep:F
 
     .line 840
-    .local v4, yOffsetStep:F
+    .local v4, "yOffsetStep":F
     iget-boolean v9, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingSync:Z
 
     .line 841
-    .local v9, sync:Z
+    .local v9, "sync":Z
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingSync:Z
@@ -747,7 +746,7 @@
     sub-int v8, v10, v11
 
     .line 850
-    .local v8, availw:I
+    .local v8, "availw":I
     if-lez v8, :cond_4
 
     int-to-float v10, v8
@@ -761,7 +760,7 @@
     neg-int v5, v10
 
     .line 851
-    .local v5, xPixels:I
+    .local v5, "xPixels":I
     :goto_1
     iget-object v10, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mIWallpaperEngine:Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;
 
@@ -772,7 +771,7 @@
     sub-int v7, v10, v11
 
     .line 852
-    .local v7, availh:I
+    .local v7, "availh":I
     if-lez v7, :cond_5
 
     int-to-float v0, v7
@@ -785,7 +784,7 @@
 
     neg-int v6, v0
 
-    .local v6, yPixels:I
+    .local v6, "yPixels":I
     :goto_2
     move-object v0, p0
 
@@ -793,10 +792,10 @@
     invoke-virtual/range {v0 .. v6}, Landroid/service/wallpaper/WallpaperService$Engine;->onOffsetsChanged(FFFFII)V
 
     .line 859
-    .end local v5           #xPixels:I
-    .end local v6           #yPixels:I
-    .end local v7           #availh:I
-    .end local v8           #availw:I
+    .end local v5    # "xPixels":I
+    .end local v6    # "yPixels":I
+    .end local v7    # "availh":I
+    .end local v8    # "availw":I
     :cond_3
     :goto_3
     if-eqz v9, :cond_0
@@ -824,11 +823,11 @@
     goto :goto_0
 
     .line 843
-    .end local v1           #xOffset:F
-    .end local v2           #yOffset:F
-    .end local v3           #xOffsetStep:F
-    .end local v4           #yOffsetStep:F
-    .end local v9           #sync:Z
+    .end local v1    # "xOffset":F
+    .end local v2    # "yOffset":F
+    .end local v3    # "xOffsetStep":F
+    .end local v4    # "yOffsetStep":F
+    .end local v9    # "sync":Z
     :catchall_0
     move-exception v0
 
@@ -839,20 +838,20 @@
 
     throw v0
 
-    .restart local v1       #xOffset:F
-    .restart local v2       #yOffset:F
-    .restart local v3       #xOffsetStep:F
-    .restart local v4       #yOffsetStep:F
-    .restart local v8       #availw:I
-    .restart local v9       #sync:Z
+    .restart local v1    # "xOffset":F
+    .restart local v2    # "yOffset":F
+    .restart local v3    # "xOffsetStep":F
+    .restart local v4    # "yOffsetStep":F
+    .restart local v8    # "availw":I
+    .restart local v9    # "sync":Z
     :cond_4
     move v5, v0
 
     .line 850
     goto :goto_1
 
-    .restart local v5       #xPixels:I
-    .restart local v7       #availh:I
+    .restart local v5    # "xPixels":I
+    .restart local v7    # "availh":I
     :cond_5
     move v6, v0
 
@@ -860,9 +859,9 @@
     goto :goto_2
 
     .line 855
-    .end local v5           #xPixels:I
-    .end local v7           #availh:I
-    .end local v8           #availw:I
+    .end local v5    # "xPixels":I
+    .end local v7    # "availh":I
+    .end local v8    # "availw":I
     :cond_6
     const/4 v0, 0x1
 
@@ -873,7 +872,7 @@
 
 .method doVisibilityChanged(Z)V
     .locals 1
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 796
@@ -894,10 +893,10 @@
 
 .method protected dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "prefix"
-    .parameter "fd"
-    .parameter "out"
-    .parameter "args"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .param p3, "out"    # Ljava/io/PrintWriter;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 504
@@ -1296,12 +1295,12 @@
 
 .method public onCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)Landroid/os/Bundle;
     .locals 1
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "extras"
-    .parameter "resultRequested"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "z"    # I
+    .param p5, "extras"    # Landroid/os/Bundle;
+    .param p6, "resultRequested"    # Z
 
     .prologue
     .line 465
@@ -1312,7 +1311,7 @@
 
 .method public onCreate(Landroid/view/SurfaceHolder;)V
     .locals 0
-    .parameter "surfaceHolder"
+    .param p1, "surfaceHolder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 407
@@ -1321,8 +1320,8 @@
 
 .method public onDesiredSizeChanged(II)V
     .locals 0
-    .parameter "desiredWidth"
-    .parameter "desiredHeight"
+    .param p1, "desiredWidth"    # I
+    .param p2, "desiredHeight"    # I
 
     .prologue
     .line 473
@@ -1339,12 +1338,12 @@
 
 .method public onOffsetsChanged(FFFFII)V
     .locals 0
-    .parameter "xOffset"
-    .parameter "yOffset"
-    .parameter "xOffsetStep"
-    .parameter "yOffsetStep"
-    .parameter "xPixelOffset"
-    .parameter "yPixelOffset"
+    .param p1, "xOffset"    # F
+    .param p2, "yOffset"    # F
+    .param p3, "xOffsetStep"    # F
+    .param p4, "yOffsetStep"    # F
+    .param p5, "xPixelOffset"    # I
+    .param p6, "yPixelOffset"    # I
 
     .prologue
     .line 444
@@ -1353,10 +1352,10 @@
 
 .method public onSurfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 0
-    .parameter "holder"
-    .parameter "format"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 480
@@ -1365,7 +1364,7 @@
 
 .method public onSurfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 0
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 494
@@ -1374,7 +1373,7 @@
 
 .method public onSurfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 0
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 501
@@ -1383,7 +1382,7 @@
 
 .method public onSurfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
     .locals 0
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 487
@@ -1392,7 +1391,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)V
     .locals 0
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 433
@@ -1401,7 +1400,7 @@
 
 .method public onVisibilityChanged(Z)V
     .locals 0
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 423
@@ -1435,26 +1434,26 @@
     move-result-object v2
 
     .line 890
-    .local v2, callbacks:[Landroid/view/SurfaceHolder$Callback;
+    .local v2, "callbacks":[Landroid/view/SurfaceHolder$Callback;
     if-eqz v2, :cond_0
 
     .line 891
     move-object v0, v2
 
-    .local v0, arr$:[Landroid/view/SurfaceHolder$Callback;
+    .local v0, "arr$":[Landroid/view/SurfaceHolder$Callback;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v1, v0, v3
 
     .line 892
-    .local v1, c:Landroid/view/SurfaceHolder$Callback;
+    .local v1, "c":Landroid/view/SurfaceHolder$Callback;
     iget-object v5, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mSurfaceHolder:Lcom/android/internal/view/BaseSurfaceHolder;
 
     invoke-interface {v1, v5}, Landroid/view/SurfaceHolder$Callback;->surfaceDestroyed(Landroid/view/SurfaceHolder;)V
@@ -1465,17 +1464,17 @@
     goto :goto_0
 
     .line 897
-    .end local v0           #arr$:[Landroid/view/SurfaceHolder$Callback;
-    .end local v1           #c:Landroid/view/SurfaceHolder$Callback;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[Landroid/view/SurfaceHolder$Callback;
+    .end local v1    # "c":Landroid/view/SurfaceHolder$Callback;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :cond_0
     iget-object v5, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mSurfaceHolder:Lcom/android/internal/view/BaseSurfaceHolder;
 
     invoke-virtual {p0, v5}, Landroid/service/wallpaper/WallpaperService$Engine;->onSurfaceDestroyed(Landroid/view/SurfaceHolder;)V
 
     .line 899
-    .end local v2           #callbacks:[Landroid/view/SurfaceHolder$Callback;
+    .end local v2    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
     :cond_1
     return-void
 .end method
@@ -1503,7 +1502,7 @@
     const/4 v0, 0x1
 
     .line 805
-    .local v0, visible:Z
+    .local v0, "visible":Z
     :goto_0
     iget-boolean v2, p0, Landroid/service/wallpaper/WallpaperService$Engine;->mReportedVisible:Z
 
@@ -1526,7 +1525,7 @@
     invoke-virtual {p0, v0}, Landroid/service/wallpaper/WallpaperService$Engine;->onVisibilityChanged(Z)V
 
     .line 819
-    .end local v0           #visible:Z
+    .end local v0    # "visible":Z
     :cond_1
     return-void
 
@@ -1539,7 +1538,7 @@
 
 .method public setFixedSizeAllowed(Z)V
     .locals 0
-    .parameter "allowed"
+    .param p1, "allowed"    # Z
 
     .prologue
     .line 399
@@ -1551,7 +1550,7 @@
 
 .method public setOffsetNotificationsEnabled(Z)V
     .locals 2
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1589,7 +1588,7 @@
 
 .method public setTouchEventsEnabled(Z)V
     .locals 2
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1627,9 +1626,9 @@
 
 .method updateSurface(ZZZ)V
     .locals 33
-    .parameter "forceRelayout"
-    .parameter "forceReport"
-    .parameter "redrawNeeded"
+    .param p1, "forceRelayout"    # Z
+    .param p2, "forceReport"    # Z
+    .param p3, "redrawNeeded"    # Z
 
     .prologue
     .line 560
@@ -1657,7 +1656,7 @@
     move-result v27
 
     .line 565
-    .local v27, myWidth:I
+    .local v27, "myWidth":I
     if-gtz v27, :cond_1
 
     const/16 v27, -0x1
@@ -1673,7 +1672,7 @@
     move-result v26
 
     .line 567
-    .local v26, myHeight:I
+    .local v26, "myHeight":I
     if-gtz v26, :cond_2
 
     const/16 v26, -0x1
@@ -1689,7 +1688,7 @@
     const/16 v19, 0x1
 
     .line 570
-    .local v19, creating:Z
+    .local v19, "creating":Z
     :goto_0
     move-object/from16 v0, p0
 
@@ -1700,7 +1699,7 @@
     const/16 v30, 0x1
 
     .line 571
-    .local v30, surfaceCreating:Z
+    .local v30, "surfaceCreating":Z
     :goto_1
     move-object/from16 v0, p0
 
@@ -1719,7 +1718,7 @@
     const/16 v22, 0x1
 
     .line 572
-    .local v22, formatChanged:Z
+    .local v22, "formatChanged":Z
     :goto_2
     move-object/from16 v0, p0
 
@@ -1741,7 +1740,7 @@
     const/16 v29, 0x1
 
     .line 573
-    .local v29, sizeChanged:Z
+    .local v29, "sizeChanged":Z
     :goto_3
     move-object/from16 v0, p0
 
@@ -1760,7 +1759,7 @@
     const/16 v31, 0x1
 
     .line 574
-    .local v31, typeChanged:Z
+    .local v31, "typeChanged":Z
     :goto_4
     move-object/from16 v0, p0
 
@@ -1786,7 +1785,7 @@
     const/16 v21, 0x1
 
     .line 576
-    .local v21, flagsChanged:Z
+    .local v21, "flagsChanged":Z
     :goto_5
     if-nez p1, :cond_5
 
@@ -2085,54 +2084,54 @@
     return-void
 
     .line 569
-    .end local v19           #creating:Z
-    .end local v21           #flagsChanged:Z
-    .end local v22           #formatChanged:Z
-    .end local v29           #sizeChanged:Z
-    .end local v30           #surfaceCreating:Z
-    .end local v31           #typeChanged:Z
+    .end local v19    # "creating":Z
+    .end local v21    # "flagsChanged":Z
+    .end local v22    # "formatChanged":Z
+    .end local v29    # "sizeChanged":Z
+    .end local v30    # "surfaceCreating":Z
+    .end local v31    # "typeChanged":Z
     :cond_7
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
     .line 570
-    .restart local v19       #creating:Z
+    .restart local v19    # "creating":Z
     :cond_8
     const/16 v30, 0x0
 
     goto/16 :goto_1
 
     .line 571
-    .restart local v30       #surfaceCreating:Z
+    .restart local v30    # "surfaceCreating":Z
     :cond_9
     const/16 v22, 0x0
 
     goto/16 :goto_2
 
     .line 572
-    .restart local v22       #formatChanged:Z
+    .restart local v22    # "formatChanged":Z
     :cond_a
     const/16 v29, 0x0
 
     goto/16 :goto_3
 
     .line 573
-    .restart local v29       #sizeChanged:Z
+    .restart local v29    # "sizeChanged":Z
     :cond_b
     const/16 v31, 0x0
 
     goto/16 :goto_4
 
     .line 574
-    .restart local v31       #typeChanged:Z
+    .restart local v31    # "typeChanged":Z
     :cond_c
     const/16 v21, 0x0
 
     goto/16 :goto_5
 
     .line 620
-    .restart local v21       #flagsChanged:Z
+    .restart local v21    # "flagsChanged":Z
     :cond_d
     const/4 v2, 0x1
 
@@ -2238,7 +2237,7 @@
     move-result v28
 
     .line 637
-    .local v28, relayoutResult:I
+    .local v28, "relayoutResult":I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mWinFrame:Landroid/graphics/Rect;
@@ -2248,7 +2247,7 @@
     move-result v32
 
     .line 638
-    .local v32, w:I
+    .local v32, "w":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mCurWidth:I
@@ -2278,7 +2277,7 @@
     move-result v23
 
     .line 643
-    .local v23, h:I
+    .local v23, "h":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mCurHeight:I
@@ -2339,23 +2338,23 @@
     goto/16 :goto_6
 
     .line 745
-    .end local v23           #h:I
-    .end local v28           #relayoutResult:I
-    .end local v32           #w:I
+    .end local v23    # "h":I
+    .end local v28    # "relayoutResult":I
+    .end local v32    # "w":I
     :catch_0
     move-exception v2
 
     goto/16 :goto_6
 
     .line 657
-    .restart local v23       #h:I
-    .restart local v28       #relayoutResult:I
-    .restart local v32       #w:I
+    .restart local v23    # "h":I
+    .restart local v28    # "relayoutResult":I
+    .restart local v32    # "w":I
     :cond_11
     const/16 v20, 0x0
 
     .line 660
-    .local v20, didSurface:Z
+    .local v20, "didSurface":Z
     :try_start_1
     move-object/from16 v0, p0
 
@@ -2395,23 +2394,23 @@
     move-result-object v18
 
     .line 669
-    .local v18, callbacks:[Landroid/view/SurfaceHolder$Callback;
+    .local v18, "callbacks":[Landroid/view/SurfaceHolder$Callback;
     if-eqz v18, :cond_12
 
     .line 670
     move-object/from16 v16, v18
 
-    .local v16, arr$:[Landroid/view/SurfaceHolder$Callback;
+    .local v16, "arr$":[Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, v16
 
     array-length v0, v0
 
     move/from16 v25, v0
 
-    .local v25, len$:I
+    .local v25, "len$":I
     const/16 v24, 0x0
 
-    .local v24, i$:I
+    .local v24, "i$":I
     :goto_7
     move/from16 v0, v24
 
@@ -2422,7 +2421,7 @@
     aget-object v17, v16, v24
 
     .line 671
-    .local v17, c:Landroid/view/SurfaceHolder$Callback;
+    .local v17, "c":Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mSurfaceHolder:Lcom/android/internal/view/BaseSurfaceHolder;
@@ -2437,11 +2436,11 @@
     goto :goto_7
 
     .line 676
-    .end local v16           #arr$:[Landroid/view/SurfaceHolder$Callback;
-    .end local v17           #c:Landroid/view/SurfaceHolder$Callback;
-    .end local v18           #callbacks:[Landroid/view/SurfaceHolder$Callback;
-    .end local v24           #i$:I
-    .end local v25           #len$:I
+    .end local v16    # "arr$":[Landroid/view/SurfaceHolder$Callback;
+    .end local v17    # "c":Landroid/view/SurfaceHolder$Callback;
+    .end local v18    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
+    .end local v24    # "i$":I
+    .end local v25    # "len$":I
     :cond_12
     if-nez v19, :cond_13
 
@@ -2501,23 +2500,23 @@
     move-result-object v18
 
     .line 696
-    .restart local v18       #callbacks:[Landroid/view/SurfaceHolder$Callback;
+    .restart local v18    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
     if-eqz v18, :cond_16
 
     .line 697
     move-object/from16 v16, v18
 
-    .restart local v16       #arr$:[Landroid/view/SurfaceHolder$Callback;
+    .restart local v16    # "arr$":[Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, v16
 
     array-length v0, v0
 
     move/from16 v25, v0
 
-    .restart local v25       #len$:I
+    .restart local v25    # "len$":I
     const/16 v24, 0x0
 
-    .restart local v24       #i$:I
+    .restart local v24    # "i$":I
     :goto_9
     move/from16 v0, v24
 
@@ -2528,7 +2527,7 @@
     aget-object v17, v16, v24
 
     .line 698
-    .restart local v17       #c:Landroid/view/SurfaceHolder$Callback;
+    .restart local v17    # "c":Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mSurfaceHolder:Lcom/android/internal/view/BaseSurfaceHolder;
@@ -2555,11 +2554,11 @@
     goto :goto_9
 
     .line 676
-    .end local v16           #arr$:[Landroid/view/SurfaceHolder$Callback;
-    .end local v17           #c:Landroid/view/SurfaceHolder$Callback;
-    .end local v18           #callbacks:[Landroid/view/SurfaceHolder$Callback;
-    .end local v24           #i$:I
-    .end local v25           #len$:I
+    .end local v16    # "arr$":[Landroid/view/SurfaceHolder$Callback;
+    .end local v17    # "c":Landroid/view/SurfaceHolder$Callback;
+    .end local v18    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
+    .end local v24    # "i$":I
+    .end local v25    # "len$":I
     :cond_15
     const/4 v2, 0x0
 
@@ -2588,23 +2587,23 @@
     move-result-object v18
 
     .line 707
-    .restart local v18       #callbacks:[Landroid/view/SurfaceHolder$Callback;
+    .restart local v18    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
     if-eqz v18, :cond_18
 
     .line 708
     move-object/from16 v16, v18
 
-    .restart local v16       #arr$:[Landroid/view/SurfaceHolder$Callback;
+    .restart local v16    # "arr$":[Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, v16
 
     array-length v0, v0
 
     move/from16 v25, v0
 
-    .restart local v25       #len$:I
+    .restart local v25    # "len$":I
     const/16 v24, 0x0
 
-    .restart local v24       #i$:I
+    .restart local v24    # "i$":I
     :goto_a
     move/from16 v0, v24
 
@@ -2615,7 +2614,7 @@
     aget-object v17, v16, v24
 
     .line 709
-    .restart local v17       #c:Landroid/view/SurfaceHolder$Callback;
+    .restart local v17    # "c":Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, v17
 
     instance-of v2, v0, Landroid/view/SurfaceHolder$Callback2;
@@ -2625,7 +2624,7 @@
     .line 710
     check-cast v17, Landroid/view/SurfaceHolder$Callback2;
 
-    .end local v17           #c:Landroid/view/SurfaceHolder$Callback;
+    .end local v17    # "c":Landroid/view/SurfaceHolder$Callback;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mSurfaceHolder:Lcom/android/internal/view/BaseSurfaceHolder;
@@ -2641,10 +2640,10 @@
     goto :goto_a
 
     .line 717
-    .end local v16           #arr$:[Landroid/view/SurfaceHolder$Callback;
-    .end local v18           #callbacks:[Landroid/view/SurfaceHolder$Callback;
-    .end local v24           #i$:I
-    .end local v25           #len$:I
+    .end local v16    # "arr$":[Landroid/view/SurfaceHolder$Callback;
+    .end local v18    # "callbacks":[Landroid/view/SurfaceHolder$Callback;
+    .end local v24    # "i$":I
+    .end local v25    # "len$":I
     :cond_18
     if-eqz v20, :cond_1a
 

@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Crossfade;Landroid/view/View;Landroid/graphics/drawable/BitmapDrawable;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 204
@@ -49,7 +46,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .prologue
     .line 208

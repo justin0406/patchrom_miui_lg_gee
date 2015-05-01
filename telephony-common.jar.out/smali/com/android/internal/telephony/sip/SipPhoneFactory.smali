@@ -16,9 +16,9 @@
 
 .method public static makePhone(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;)Lcom/android/internal/telephony/sip/SipPhone;
     .locals 4
-    .parameter "sipUri"
-    .parameter "context"
-    .parameter "phoneNotifier"
+    .param p0, "sipUri"    # Ljava/lang/String;
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "phoneNotifier"    # Lcom/android/internal/telephony/PhoneNotifier;
 
     .prologue
     .line 42
@@ -32,7 +32,7 @@
     move-result-object v1
 
     .line 43
-    .local v1, profile:Landroid/net/sip/SipProfile;
+    .local v1, "profile":Landroid/net/sip/SipProfile;
     new-instance v2, Lcom/android/internal/telephony/sip/SipPhone;
 
     invoke-direct {v2, p1, p2, v1}, Lcom/android/internal/telephony/sip/SipPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;Landroid/net/sip/SipProfile;)V
@@ -40,7 +40,7 @@
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 46
-    .end local v1           #profile:Landroid/net/sip/SipProfile;
+    .end local v1    # "profile":Landroid/net/sip/SipProfile;
     :goto_0
     return-object v2
 
@@ -49,7 +49,7 @@
     move-exception v0
 
     .line 45
-    .local v0, e:Ljava/text/ParseException;
+    .local v0, "e":Ljava/text/ParseException;
     const-string v2, "SipPhoneFactory"
 
     const-string v3, "makePhone"

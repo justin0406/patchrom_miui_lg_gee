@@ -544,8 +544,8 @@
 
 .method public constructor <init>(Landroid/text/method/TextKeyListener$Capitalize;Z)V
     .locals 1
-    .parameter "cap"
-    .parameter "autoText"
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p2, "autoText"    # Z
 
     .prologue
     .line 51
@@ -559,9 +559,9 @@
 
 .method private constructor <init>(Landroid/text/method/TextKeyListener$Capitalize;ZZ)V
     .locals 0
-    .parameter "cap"
-    .parameter "autoText"
-    .parameter "fullKeyboard"
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p2, "autoText"    # Z
+    .param p3, "fullKeyboard"    # Z
 
     .prologue
     .line 44
@@ -582,8 +582,8 @@
 
 .method public static getInstance(ZLandroid/text/method/TextKeyListener$Capitalize;)Landroid/text/method/QwertyKeyListener;
     .locals 3
-    .parameter "autoText"
-    .parameter "cap"
+    .param p0, "autoText"    # Z
+    .param p1, "cap"    # Landroid/text/method/TextKeyListener$Capitalize;
 
     .prologue
     .line 59
@@ -601,7 +601,7 @@
     add-int v0, v2, v1
 
     .line 61
-    .local v0, off:I
+    .local v0, "off":I
     sget-object v1, Landroid/text/method/QwertyKeyListener;->sInstance:[Landroid/text/method/QwertyKeyListener;
 
     aget-object v1, v1, v0
@@ -626,7 +626,7 @@
     return-object v1
 
     .line 59
-    .end local v0           #off:I
+    .end local v0    # "off":I
     :cond_1
     const/4 v1, 0x0
 
@@ -664,10 +664,10 @@
 
 .method private getReplacement(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
     .locals 10
-    .parameter "src"
-    .parameter "start"
-    .parameter "end"
-    .parameter "view"
+    .param p1, "src"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "view"    # Landroid/view/View;
 
     .prologue
     const/4 v7, 0x0
@@ -678,17 +678,17 @@
     sub-int v4, p3, p2
 
     .line 363
-    .local v4, len:I
+    .local v4, "len":I
     const/4 v1, 0x0
 
     .line 365
-    .local v1, changecase:Z
+    .local v1, "changecase":Z
     invoke-static {p1, p2, p3, p4}, Landroid/text/AutoText;->get(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
 
     move-result-object v6
 
     .line 367
-    .local v6, replacement:Ljava/lang/String;
+    .local v6, "replacement":Ljava/lang/String;
     if-nez v6, :cond_1
 
     .line 368
@@ -701,7 +701,7 @@
     move-result-object v3
 
     .line 369
-    .local v3, key:Ljava/lang/String;
+    .local v3, "key":Ljava/lang/String;
     sub-int v8, p3, p2
 
     invoke-static {v3, v9, v8, p4}, Landroid/text/AutoText;->get(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
@@ -717,7 +717,7 @@
     move-object v5, v7
 
     .line 400
-    .end local v3           #key:Ljava/lang/String;
+    .end local v3    # "key":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v5
@@ -727,13 +727,13 @@
     const/4 v0, 0x0
 
     .line 378
-    .local v0, caps:I
+    .local v0, "caps":I
     if-eqz v1, :cond_3
 
     .line 379
     move v2, p2
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_1
     if-ge v2, p3, :cond_3
 
@@ -758,7 +758,7 @@
     goto :goto_1
 
     .line 387
-    .end local v2           #j:I
+    .end local v2    # "j":I
     :cond_3
     if-nez v0, :cond_4
 
@@ -766,7 +766,7 @@
     move-object v5, v6
 
     .line 396
-    .local v5, out:Ljava/lang/String;
+    .local v5, "out":Ljava/lang/String;
     :goto_2
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -786,7 +786,7 @@
     goto :goto_0
 
     .line 389
-    .end local v5           #out:Ljava/lang/String;
+    .end local v5    # "out":Ljava/lang/String;
     :cond_4
     const/4 v8, 0x1
 
@@ -797,11 +797,11 @@
 
     move-result-object v5
 
-    .restart local v5       #out:Ljava/lang/String;
+    .restart local v5    # "out":Ljava/lang/String;
     goto :goto_2
 
     .line 391
-    .end local v5           #out:Ljava/lang/String;
+    .end local v5    # "out":Ljava/lang/String;
     :cond_5
     if-ne v0, v4, :cond_6
 
@@ -810,26 +810,26 @@
 
     move-result-object v5
 
-    .restart local v5       #out:Ljava/lang/String;
+    .restart local v5    # "out":Ljava/lang/String;
     goto :goto_2
 
     .line 394
-    .end local v5           #out:Ljava/lang/String;
+    .end local v5    # "out":Ljava/lang/String;
     :cond_6
     invoke-static {v6}, Landroid/text/method/QwertyKeyListener;->toTitleCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .restart local v5       #out:Ljava/lang/String;
+    .restart local v5    # "out":Ljava/lang/String;
     goto :goto_2
 .end method
 
 .method public static markAsReplaced(Landroid/text/Spannable;IILjava/lang/String;)V
     .locals 7
-    .parameter "content"
-    .parameter "start"
-    .parameter "end"
-    .parameter "original"
+    .param p0, "content"    # Landroid/text/Spannable;
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "original"    # Ljava/lang/String;
 
     .prologue
     const/4 v6, 0x0
@@ -848,10 +848,10 @@
     check-cast v3, [Landroid/text/method/QwertyKeyListener$Replaced;
 
     .line 419
-    .local v3, repl:[Landroid/text/method/QwertyKeyListener$Replaced;
+    .local v3, "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
     const/4 v0, 0x0
 
-    .local v0, a:I
+    .local v0, "a":I
     :goto_0
     array-length v4, v3
 
@@ -874,11 +874,11 @@
     move-result v1
 
     .line 424
-    .local v1, len:I
+    .local v1, "len":I
     new-array v2, v1, [C
 
     .line 425
-    .local v2, orig:[C
+    .local v2, "orig":[C
     invoke-virtual {p3, v6, v1, v2, v6}, Ljava/lang/String;->getChars(II[CI)V
 
     .line 427
@@ -896,11 +896,11 @@
 
 .method private showCharacterPicker(Landroid/view/View;Landroid/text/Editable;CZI)Z
     .locals 7
-    .parameter "view"
-    .parameter "content"
-    .parameter "c"
-    .parameter "insert"
-    .parameter "count"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "c"    # C
+    .param p4, "insert"    # Z
+    .param p5, "count"    # I
 
     .prologue
     const/4 v6, 0x1
@@ -915,7 +915,7 @@
     check-cast v4, Ljava/lang/String;
 
     .line 499
-    .local v4, set:Ljava/lang/String;
+    .local v4, "set":Ljava/lang/String;
     if-nez v4, :cond_0
 
     .line 500
@@ -955,7 +955,7 @@
 
 .method private static toTitleCase(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "src"
+    .param p0, "src"    # Ljava/lang/String;
 
     .prologue
     .line 512
@@ -1014,17 +1014,17 @@
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 44
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 87
     const/16 v34, 0x0
 
     .line 89
-    .local v34, pref:I
+    .local v34, "pref":I
     if-eqz p1, :cond_0
 
     .line 90
@@ -1047,13 +1047,13 @@
     move-result v17
 
     .line 95
-    .local v17, a:I
+    .local v17, "a":I
     invoke-static/range {p2 .. p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v21
 
     .line 97
-    .local v21, b:I
+    .local v21, "b":I
     move/from16 v0, v17
 
     move/from16 v1, v21
@@ -1063,7 +1063,7 @@
     move-result v39
 
     .line 98
-    .local v39, selStart:I
+    .local v39, "selStart":I
     move/from16 v0, v17
 
     move/from16 v1, v21
@@ -1073,7 +1073,7 @@
     move-result v38
 
     .line 100
-    .local v38, selEnd:I
+    .local v38, "selEnd":I
     if-ltz v39, :cond_1
 
     if-gez v38, :cond_2
@@ -1104,7 +1104,7 @@
     move-result v20
 
     .line 107
-    .local v20, activeStart:I
+    .local v20, "activeStart":I
     sget-object v5, Landroid/text/method/TextKeyListener;->ACTIVE:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -1114,7 +1114,7 @@
     move-result v19
 
     .line 111
-    .local v19, activeEnd:I
+    .local v19, "activeEnd":I
     move-object/from16 v0, p2
 
     move-object/from16 v1, p4
@@ -1130,7 +1130,7 @@
     move-result v29
 
     .line 113
-    .local v29, i:I
+    .local v29, "i":I
     move-object/from16 v0, p0
 
     iget-boolean v5, v0, Landroid/text/method/QwertyKeyListener;->mFullKeyboard:Z
@@ -1143,7 +1143,7 @@
     move-result v10
 
     .line 115
-    .local v10, count:I
+    .local v10, "count":I
     if-lez v10, :cond_4
 
     move/from16 v0, v39
@@ -1164,7 +1164,7 @@
     move-result v8
 
     .line 118
-    .local v8, c:C
+    .local v8, "c":C
     move/from16 v0, v29
 
     if-eq v8, v0, :cond_3
@@ -1200,8 +1200,8 @@
     const/4 v5, 0x1
 
     .line 357
-    .end local v8           #c:C
-    .end local v10           #count:I
+    .end local v8    # "c":C
+    .end local v10    # "count":I
     :goto_0
     return v5
 
@@ -1259,7 +1259,7 @@
     move/from16 v41, v38
 
     .line 143
-    .local v41, start:I
+    .local v41, "start":I
     :goto_1
     if-lez v41, :cond_8
 
@@ -1291,17 +1291,17 @@
     goto :goto_1
 
     .line 147
-    .end local v41           #start:I
+    .end local v41    # "start":I
     :cond_7
     move/from16 v41, v39
 
     .line 150
-    .restart local v41       #start:I
+    .restart local v41    # "start":I
     :cond_8
     const/16 v22, -0x1
 
     .line 152
-    .local v22, ch:I
+    .local v22, "ch":I
     :try_start_0
     move-object/from16 v0, p2
 
@@ -1314,7 +1314,7 @@
     move-result-object v28
 
     .line 153
-    .local v28, hex:Ljava/lang/String;
+    .local v28, "hex":Ljava/lang/String;
     const/16 v5, 0x10
 
     move-object/from16 v0, v28
@@ -1326,7 +1326,7 @@
     move-result v22
 
     .line 156
-    .end local v28           #hex:Ljava/lang/String;
+    .end local v28    # "hex":Ljava/lang/String;
     :goto_2
     if-ltz v22, :cond_12
 
@@ -1346,8 +1346,8 @@
     move/from16 v29, v22
 
     .line 165
-    .end local v22           #ch:I
-    .end local v41           #start:I
+    .end local v22    # "ch":I
+    .end local v41    # "start":I
     :cond_9
     :goto_3
     if-eqz v29, :cond_1c
@@ -1356,8 +1356,8 @@
     const/16 v25, 0x0
 
     .line 168
-    .local v25, dead:Z
-    const/high16 v5, -0x8000
+    .local v25, "dead":Z
+    const/high16 v5, -0x80000000
 
     and-int v5, v5, v29
 
@@ -1389,7 +1389,7 @@
     const/16 v37, 0x0
 
     .line 176
-    .local v37, replace:Z
+    .local v37, "replace":Z
     sub-int v5, v38, v39
 
     add-int/lit8 v5, v5, -0x1
@@ -1406,7 +1406,7 @@
     move-result v18
 
     .line 178
-    .local v18, accent:C
+    .local v18, "accent":C
     move/from16 v0, v18
 
     move/from16 v1, v29
@@ -1416,7 +1416,7 @@
     move-result v23
 
     .line 180
-    .local v23, composed:I
+    .local v23, "composed":I
     if-eqz v23, :cond_b
 
     .line 181
@@ -1429,8 +1429,8 @@
     const/16 v25, 0x0
 
     .line 187
-    .end local v18           #accent:C
-    .end local v23           #composed:I
+    .end local v18    # "accent":C
+    .end local v23    # "composed":I
     :cond_b
     if-nez v37, :cond_c
 
@@ -1452,7 +1452,7 @@
     move/from16 v39, v38
 
     .line 194
-    .end local v37           #replace:Z
+    .end local v37    # "replace":Z
     :cond_c
     and-int/lit8 v5, v34, 0x1
 
@@ -1488,7 +1488,7 @@
     move-result v42
 
     .line 198
-    .local v42, where:I
+    .local v42, "where":I
     sget-object v5, Landroid/text/method/TextKeyListener;->CAPPED:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -1498,7 +1498,7 @@
     move-result v27
 
     .line 200
-    .local v27, flags:I
+    .local v27, "flags":I
     move/from16 v0, v42
 
     move/from16 v1, v39
@@ -1523,8 +1523,8 @@
     invoke-interface {v0, v5}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
 
     .line 217
-    .end local v27           #flags:I
-    .end local v42           #where:I
+    .end local v27    # "flags":I
+    .end local v42    # "where":I
     :cond_d
     :goto_4
     move/from16 v0, v39
@@ -1581,7 +1581,7 @@
     move-result v32
 
     .line 226
-    .local v32, oldStart:I
+    .local v32, "oldStart":I
     invoke-static/range {p2 .. p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v38
@@ -1718,7 +1718,7 @@
     .line 253
     move/from16 v43, v32
 
-    .local v43, x:I
+    .local v43, "x":I
     :goto_5
     if-lez v43, :cond_11
 
@@ -1732,7 +1732,7 @@
     move-result v8
 
     .line 255
-    .restart local v8       #c:C
+    .restart local v8    # "c":C
     const/16 v5, 0x27
 
     if-eq v8, v5, :cond_15
@@ -1744,7 +1744,7 @@
     if-nez v5, :cond_15
 
     .line 260
-    .end local v8           #c:C
+    .end local v8    # "c":C
     :cond_11
     move-object/from16 v0, p0
 
@@ -1761,7 +1761,7 @@
     move-result-object v35
 
     .line 262
-    .local v35, rep:Ljava/lang/String;
+    .local v35, "rep":Ljava/lang/String;
     if-eqz v35, :cond_17
 
     .line 263
@@ -1782,7 +1782,7 @@
     check-cast v36, [Landroid/text/method/QwertyKeyListener$Replaced;
 
     .line 265
-    .local v36, repl:[Landroid/text/method/QwertyKeyListener$Replaced;
+    .local v36, "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
     const/16 v17, 0x0
 
     :goto_6
@@ -1807,24 +1807,24 @@
     goto :goto_6
 
     .line 161
-    .end local v25           #dead:Z
-    .end local v32           #oldStart:I
-    .end local v35           #rep:Ljava/lang/String;
-    .end local v36           #repl:[Landroid/text/method/QwertyKeyListener$Replaced;
-    .end local v43           #x:I
-    .restart local v22       #ch:I
-    .restart local v41       #start:I
+    .end local v25    # "dead":Z
+    .end local v32    # "oldStart":I
+    .end local v35    # "rep":Ljava/lang/String;
+    .end local v36    # "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
+    .end local v43    # "x":I
+    .restart local v22    # "ch":I
+    .restart local v41    # "start":I
     :cond_12
     const/16 v29, 0x0
 
     goto/16 :goto_3
 
     .line 203
-    .end local v22           #ch:I
-    .end local v41           #start:I
-    .restart local v25       #dead:Z
-    .restart local v27       #flags:I
-    .restart local v42       #where:I
+    .end local v22    # "ch":I
+    .end local v41    # "start":I
+    .restart local v25    # "dead":Z
+    .restart local v27    # "flags":I
+    .restart local v42    # "where":I
     :cond_13
     shl-int/lit8 v27, v29, 0x10
 
@@ -1868,20 +1868,20 @@
     goto/16 :goto_4
 
     .line 253
-    .end local v27           #flags:I
-    .end local v42           #where:I
-    .restart local v8       #c:C
-    .restart local v32       #oldStart:I
-    .restart local v43       #x:I
+    .end local v27    # "flags":I
+    .end local v42    # "where":I
+    .restart local v8    # "c":C
+    .restart local v32    # "oldStart":I
+    .restart local v43    # "x":I
     :cond_15
     add-int/lit8 v43, v43, -0x1
 
     goto :goto_5
 
     .line 268
-    .end local v8           #c:C
-    .restart local v35       #rep:Ljava/lang/String;
-    .restart local v36       #repl:[Landroid/text/method/QwertyKeyListener$Replaced;
+    .end local v8    # "c":C
+    .restart local v35    # "rep":Ljava/lang/String;
+    .restart local v36    # "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
     :cond_16
     sub-int v5, v32, v43
 
@@ -1890,7 +1890,7 @@
     move-object/from16 v33, v0
 
     .line 269
-    .local v33, orig:[C
+    .local v33, "orig":[C
     const/4 v5, 0x0
 
     move-object/from16 v0, p2
@@ -1932,10 +1932,10 @@
     invoke-interface {v0, v1, v2, v3}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
     .line 279
-    .end local v33           #orig:[C
-    .end local v35           #rep:Ljava/lang/String;
-    .end local v36           #repl:[Landroid/text/method/QwertyKeyListener$Replaced;
-    .end local v43           #x:I
+    .end local v33    # "orig":[C
+    .end local v35    # "rep":Ljava/lang/String;
+    .end local v36    # "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
+    .end local v43    # "x":I
     :cond_17
     and-int/lit8 v5, v34, 0x4
 
@@ -1992,10 +1992,10 @@
     move-result v8
 
     .line 286
-    .restart local v8       #c:C
+    .restart local v8    # "c":C
     add-int/lit8 v30, v38, -0x3
 
-    .local v30, j:I
+    .local v30, "j":I
     :goto_7
     if-lez v30, :cond_19
 
@@ -2054,16 +2054,16 @@
     invoke-interface {v0, v5, v6, v7}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
     .line 302
-    .end local v8           #c:C
-    .end local v30           #j:I
+    .end local v8    # "c":C
+    .end local v30    # "j":I
     :cond_1b
     const/4 v5, 0x1
 
     goto/16 :goto_0
 
     .line 303
-    .end local v25           #dead:Z
-    .end local v32           #oldStart:I
+    .end local v25    # "dead":Z
+    .end local v32    # "oldStart":I
     :cond_1c
     const/16 v5, 0x43
 
@@ -2098,7 +2098,7 @@
     const/16 v24, 0x1
 
     .line 315
-    .local v24, consider:I
+    .local v24, "consider":I
     sget-object v5, Landroid/text/method/TextKeyListener;->LAST_TYPED:Ljava/lang/Object;
 
     move-object/from16 v0, p2
@@ -2144,7 +2144,7 @@
     check-cast v36, [Landroid/text/method/QwertyKeyListener$Replaced;
 
     .line 323
-    .restart local v36       #repl:[Landroid/text/method/QwertyKeyListener$Replaced;
+    .restart local v36    # "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
     move-object/from16 v0, v36
 
     array-length v5, v0
@@ -2163,7 +2163,7 @@
     move-result v40
 
     .line 325
-    .local v40, st:I
+    .local v40, "st":I
     const/4 v5, 0x0
 
     aget-object v5, v36, v5
@@ -2175,14 +2175,14 @@
     move-result v26
 
     .line 326
-    .local v26, en:I
+    .local v26, "en":I
     new-instance v31, Ljava/lang/String;
 
     const/4 v5, 0x0
 
     aget-object v5, v36, v5
 
-    #getter for: Landroid/text/method/QwertyKeyListener$Replaced;->mText:[C
+    # getter for: Landroid/text/method/QwertyKeyListener$Replaced;->mText:[C
     invoke-static {v5}, Landroid/text/method/QwertyKeyListener$Replaced;->access$000(Landroid/text/method/QwertyKeyListener$Replaced;)[C
 
     move-result-object v5
@@ -2192,7 +2192,7 @@
     invoke-direct {v0, v5}, Ljava/lang/String;-><init>([C)V
 
     .line 328
-    .local v31, old:Ljava/lang/String;
+    .local v31, "old":Ljava/lang/String;
     const/4 v5, 0x0
 
     aget-object v5, v36, v5
@@ -2290,11 +2290,11 @@
     goto/16 :goto_0
 
     .line 357
-    .end local v24           #consider:I
-    .end local v26           #en:I
-    .end local v31           #old:Ljava/lang/String;
-    .end local v36           #repl:[Landroid/text/method/QwertyKeyListener$Replaced;
-    .end local v40           #st:I
+    .end local v24    # "consider":I
+    .end local v26    # "en":I
+    .end local v31    # "old":Ljava/lang/String;
+    .end local v36    # "repl":[Landroid/text/method/QwertyKeyListener$Replaced;
+    .end local v40    # "st":I
     :cond_21
     invoke-super/range {p0 .. p4}, Landroid/text/method/BaseKeyListener;->onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
@@ -2303,8 +2303,8 @@
     goto/16 :goto_0
 
     .line 154
-    .restart local v22       #ch:I
-    .restart local v41       #start:I
+    .restart local v22    # "ch":I
+    .restart local v41    # "start":I
     :catch_0
     move-exception v5
 

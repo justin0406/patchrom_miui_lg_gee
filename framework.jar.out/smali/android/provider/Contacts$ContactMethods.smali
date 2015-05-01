@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_EMAIL_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_EMAIL_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -64,7 +64,7 @@
     .end annotation
 .end field
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -168,7 +168,7 @@
 
 .method public static decodeImProtocol(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
-    .parameter "encodedString"
+    .param p0, "encodedString"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -258,7 +258,7 @@
 
 .method public static encodeCustomImProtocol(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "protocolString"
+    .param p0, "protocolString"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -287,7 +287,7 @@
 
 .method public static encodePredefinedImProtocol(I)Ljava/lang/String;
     .locals 2
-    .parameter "protocol"
+    .param p0, "protocol"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -316,10 +316,10 @@
 
 .method public static final getDisplayLabel(Landroid/content/Context;IILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 6
-    .parameter "context"
-    .parameter "kind"
-    .parameter "type"
-    .parameter "label"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "kind"    # I
+    .param p2, "type"    # I
+    .param p3, "label"    # Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -330,7 +330,7 @@
     const-string v0, ""
 
     .line 1400
-    .local v0, display:Ljava/lang/CharSequence;
+    .local v0, "display":Ljava/lang/CharSequence;
     packed-switch p1, :pswitch_data_0
 
     .line 1436
@@ -354,14 +354,14 @@
 
     move-result-object v3
 
-    const/high16 v4, 0x107
+    const/high16 v4, 0x1070000
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v2
 
     .line 1406
-    .local v2, labels:[Ljava/lang/CharSequence;
+    .local v2, "labels":[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 
     :try_start_0
@@ -376,14 +376,14 @@
     move-exception v1
 
     .line 1408
-    .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     aget-object v0, v2, v5
 
     goto :goto_0
 
     .line 1411
-    .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
-    .end local v2           #labels:[Ljava/lang/CharSequence;
+    .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v2    # "labels":[Ljava/lang/CharSequence;
     :cond_1
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -412,7 +412,7 @@
     move-result-object v2
 
     .line 1423
-    .restart local v2       #labels:[Ljava/lang/CharSequence;
+    .restart local v2    # "labels":[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 
     :try_start_1
@@ -427,14 +427,14 @@
     move-exception v1
 
     .line 1425
-    .restart local v1       #e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .restart local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     aget-object v0, v2, v5
 
     goto :goto_0
 
     .line 1428
-    .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
-    .end local v2           #labels:[Ljava/lang/CharSequence;
+    .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
+    .end local v2    # "labels":[Ljava/lang/CharSequence;
     :cond_2
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -459,7 +459,7 @@
 
 .method public static lookupProviderNameFromId(I)Ljava/lang/String;
     .locals 1
-    .parameter "protocol"
+    .param p0, "protocol"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -541,10 +541,10 @@
 # virtual methods
 .method public addPostalLocation(Landroid/content/Context;JDD)V
     .locals 8
-    .parameter "context"
-    .parameter "postalId"
-    .parameter "latitude"
-    .parameter "longitude"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "postalId"    # J
+    .param p4, "latitude"    # D
+    .param p6, "longitude"    # D
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -557,7 +557,7 @@
     move-result-object v3
 
     .line 1455
-    .local v3, resolver:Landroid/content/ContentResolver;
+    .local v3, "resolver":Landroid/content/ContentResolver;
     new-instance v4, Landroid/content/ContentValues;
 
     const/4 v5, 0x2
@@ -565,7 +565,7 @@
     invoke-direct {v4, v5}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 1456
-    .local v4, values:Landroid/content/ContentValues;
+    .local v4, "values":Landroid/content/ContentValues;
     const-string v5, "data"
 
     invoke-static {p4, p5}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -591,13 +591,13 @@
     move-result-object v0
 
     .line 1459
-    .local v0, loc:Landroid/net/Uri;
+    .local v0, "loc":Landroid/net/Uri;
     invoke-static {v0}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
     move-result-wide v1
 
     .line 1462
-    .local v1, locId:J
+    .local v1, "locId":J
     invoke-virtual {v4}, Landroid/content/ContentValues;->clear()V
 
     .line 1463

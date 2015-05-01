@@ -39,7 +39,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 71
@@ -58,7 +58,7 @@
 # virtual methods
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 80
@@ -84,7 +84,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 87
@@ -95,7 +95,7 @@
     move-result-object v4
 
     .line 88
-    .local v4, input:Landroid/filterfw/core/Frame;
+    .local v4, "input":Landroid/filterfw/core/Frame;
     iget-object v1, p0, Landroid/filterpacks/base/CallbackFilter;->mListener:Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;
 
     if-eqz v1, :cond_2
@@ -122,7 +122,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;-><init>(Landroid/filterpacks/base/CallbackFilter;Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;Landroid/filterfw/core/Filter;Landroid/filterfw/core/Frame;Ljava/lang/Object;)V
 
     .line 92
-    .local v0, uiRunnable:Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;
+    .local v0, "uiRunnable":Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;
     iget-object v1, p0, Landroid/filterpacks/base/CallbackFilter;->mUiThreadHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
@@ -141,7 +141,7 @@
     throw v1
 
     .line 96
-    .end local v0           #uiRunnable:Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;
+    .end local v0    # "uiRunnable":Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;
     :cond_0
     iget-object v1, p0, Landroid/filterpacks/base/CallbackFilter;->mListener:Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;
 

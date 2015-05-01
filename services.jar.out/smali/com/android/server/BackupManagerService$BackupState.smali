@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 1894
+    .line 1961
     new-instance v0, Lcom/android/server/BackupManagerService$BackupState;
 
     const-string v1, "INITIAL"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$BackupState;->INITIAL:Lcom/android/server/BackupManagerService$BackupState;
 
-    .line 1895
+    .line 1962
     new-instance v0, Lcom/android/server/BackupManagerService$BackupState;
 
     const-string v1, "RUNNING_QUEUE"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$BackupState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$BackupState;
 
-    .line 1896
+    .line 1963
     new-instance v0, Lcom/android/server/BackupManagerService$BackupState;
 
     const-string v1, "FINAL"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$BackupState;->FINAL:Lcom/android/server/BackupManagerService$BackupState;
 
-    .line 1893
+    .line 1960
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/server/BackupManagerService$BackupState;
@@ -95,8 +95,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -104,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 1893
+    .line 1960
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -112,10 +110,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/BackupManagerService$BackupState;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1893
+    .line 1960
     const-class v0, Lcom/android/server/BackupManagerService$BackupState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,7 +129,7 @@
     .locals 1
 
     .prologue
-    .line 1893
+    .line 1960
     sget-object v0, Lcom/android/server/BackupManagerService$BackupState;->$VALUES:[Lcom/android/server/BackupManagerService$BackupState;
 
     invoke-virtual {v0}, [Lcom/android/server/BackupManagerService$BackupState;->clone()Ljava/lang/Object;

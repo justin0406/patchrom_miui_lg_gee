@@ -18,10 +18,10 @@
 # virtual methods
 .method public addressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 0
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
 
     .prologue
     .line 46
@@ -30,10 +30,10 @@
 
 .method public addressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 0
-    .parameter "address"
-    .parameter "iface"
-    .parameter "flags"
-    .parameter "scope"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
+    .param p3, "flags"    # I
+    .param p4, "scope"    # I
 
     .prologue
     .line 41
@@ -42,7 +42,7 @@
 
 .method public interfaceAdded(Ljava/lang/String;)V
     .locals 0
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 56
@@ -51,8 +51,8 @@
 
 .method public interfaceClassDataActivityChanged(Ljava/lang/String;Z)V
     .locals 0
-    .parameter "label"
-    .parameter "active"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "active"    # Z
 
     .prologue
     .line 61
@@ -61,8 +61,8 @@
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
     .locals 0
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 51
@@ -71,7 +71,7 @@
 
 .method public interfaceRemoved(Ljava/lang/String;)V
     .locals 0
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 36
@@ -80,8 +80,8 @@
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
     .locals 0
-    .parameter "iface"
-    .parameter "up"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
     .prologue
     .line 31
@@ -90,8 +90,8 @@
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "limitName"
-    .parameter "iface"
+    .param p1, "limitName"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 66

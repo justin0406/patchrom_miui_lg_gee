@@ -115,7 +115,7 @@
 
 .method protected constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 187
@@ -142,8 +142,8 @@
 
 .method protected constructor <init>(Landroid/view/LayoutInflater;Landroid/content/Context;)V
     .locals 1
-    .parameter "original"
-    .parameter "newContext"
+    .param p1, "original"    # Landroid/view/LayoutInflater;
+    .param p2, "newContext"    # Landroid/content/Context;
 
     .prologue
     .line 199
@@ -190,9 +190,9 @@
 
 .method private failNotAllowed(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "name"
-    .parameter "prefix"
-    .parameter "attrs"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "prefix"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 634
@@ -234,7 +234,7 @@
 
     move-result-object p1
 
-    .end local p1
+    .end local p1    # "name":Ljava/lang/String;
     :cond_0
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -251,7 +251,7 @@
 
 .method public static from(Landroid/content/Context;)Landroid/view/LayoutInflater;
     .locals 3
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 211
@@ -264,7 +264,7 @@
     check-cast v0, Landroid/view/LayoutInflater;
 
     .line 213
-    .local v0, LayoutInflater:Landroid/view/LayoutInflater;
+    .local v0, "LayoutInflater":Landroid/view/LayoutInflater;
     if-nez v0, :cond_0
 
     .line 214
@@ -283,9 +283,9 @@
 
 .method private parseInclude(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;Landroid/util/AttributeSet;)V
     .locals 23
-    .parameter "parser"
-    .parameter "parent"
-    .parameter "attrs"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "parent"    # Landroid/view/View;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -323,7 +323,7 @@
     move-result v13
 
     .line 784
-    .local v13, layout:I
+    .local v13, "layout":I
     if-nez v13, :cond_1
 
     .line 785
@@ -342,7 +342,7 @@
     move-result-object v16
 
     .line 786
-    .local v16, value:Ljava/lang/String;
+    .local v16, "value":Ljava/lang/String;
     if-nez v16, :cond_0
 
     .line 787
@@ -391,7 +391,7 @@
     throw v19
 
     .line 794
-    .end local v16           #value:Ljava/lang/String;
+    .end local v16    # "value":Ljava/lang/String;
     :cond_1
     invoke-virtual/range {p0 .. p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
 
@@ -408,20 +408,20 @@
     move-result-object v8
 
     .line 798
-    .local v8, childParser:Landroid/content/res/XmlResourceParser;
+    .local v8, "childParser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     invoke-static {v8}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v6
 
     .line 801
-    .local v6, childAttrs:Landroid/util/AttributeSet;
+    .local v6, "childAttrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v15
 
-    .local v15, type:I
+    .local v15, "type":I
     const/16 v19, 0x2
 
     move/from16 v0, v19
@@ -474,8 +474,8 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 869
-    .end local v6           #childAttrs:Landroid/util/AttributeSet;
-    .end local v15           #type:I
+    .end local v6    # "childAttrs":Landroid/util/AttributeSet;
+    .end local v15    # "type":I
     :catchall_0
     move-exception v19
 
@@ -484,8 +484,8 @@
     throw v19
 
     .line 810
-    .restart local v6       #childAttrs:Landroid/util/AttributeSet;
-    .restart local v15       #type:I
+    .restart local v6    # "childAttrs":Landroid/util/AttributeSet;
+    .restart local v15    # "type":I
     :cond_4
     :try_start_1
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
@@ -493,7 +493,7 @@
     move-result-object v7
 
     .line 812
-    .local v7, childName:Ljava/lang/String;
+    .local v7, "childName":Ljava/lang/String;
     const-string v19, "merge"
 
     move-object/from16 v0, v19
@@ -527,7 +527,7 @@
     move-result v9
 
     .line 878
-    .local v9, currentDepth:I
+    .local v9, "currentDepth":I
     :cond_5
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -559,7 +559,7 @@
     return-void
 
     .line 816
-    .end local v9           #currentDepth:I
+    .end local v9    # "currentDepth":I
     :cond_8
     :try_start_2
     move-object/from16 v0, p0
@@ -571,7 +571,7 @@
     move-result-object v17
 
     .line 817
-    .local v17, view:Landroid/view/View;
+    .local v17, "view":Landroid/view/View;
     move-object/from16 v0, p2
 
     check-cast v0, Landroid/view/ViewGroup;
@@ -581,18 +581,18 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 827
-    .local v11, group:Landroid/view/ViewGroup;
+    .local v11, "group":Landroid/view/ViewGroup;
     const/4 v14, 0x0
 
     .line 829
-    .local v14, params:Landroid/view/ViewGroup$LayoutParams;
+    .local v14, "params":Landroid/view/ViewGroup$LayoutParams;
     :try_start_3
     move-object/from16 v0, p3
 
     invoke-virtual {v11, v0}, Landroid/view/ViewGroup;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     move-result-object v14
 
@@ -646,7 +646,7 @@
     move-result-object v5
 
     .line 845
-    .local v5, a:Landroid/content/res/TypedArray;
+    .local v5, "a":Landroid/content/res/TypedArray;
     const/16 v19, 0x8
 
     const/16 v20, -0x1
@@ -660,7 +660,7 @@
     move-result v12
 
     .line 847
-    .local v12, id:I
+    .local v12, "id":I
     const/16 v19, 0x14
 
     const/16 v20, -0x1
@@ -674,7 +674,7 @@
     move-result v18
 
     .line 848
-    .local v18, visibility:I
+    .local v18, "visibility":I
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 850
@@ -704,14 +704,14 @@
     goto/16 :goto_0
 
     .line 830
-    .end local v5           #a:Landroid/content/res/TypedArray;
-    .end local v12           #id:I
-    .end local v18           #visibility:I
+    .end local v5    # "a":Landroid/content/res/TypedArray;
+    .end local v12    # "id":I
+    .end local v18    # "visibility":I
     :catch_0
     move-exception v10
 
     .line 831
-    .local v10, e:Ljava/lang/RuntimeException;
+    .local v10, "e":Ljava/lang/RuntimeException;
     :try_start_5
     invoke-virtual {v11, v6}, Landroid/view/ViewGroup;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     :try_end_5
@@ -731,7 +731,7 @@
     goto :goto_1
 
     .line 833
-    .end local v10           #e:Ljava/lang/RuntimeException;
+    .end local v10    # "e":Ljava/lang/RuntimeException;
     :catchall_1
     move-exception v19
 
@@ -746,9 +746,9 @@
     throw v19
 
     .line 856
-    .restart local v5       #a:Landroid/content/res/TypedArray;
-    .restart local v12       #id:I
-    .restart local v18       #visibility:I
+    .restart local v5    # "a":Landroid/content/res/TypedArray;
+    .restart local v12    # "id":I
+    .restart local v18    # "visibility":I
     :pswitch_0
     const/16 v19, 0x0
 
@@ -787,17 +787,17 @@
     goto :goto_2
 
     .line 873
-    .end local v5           #a:Landroid/content/res/TypedArray;
-    .end local v6           #childAttrs:Landroid/util/AttributeSet;
-    .end local v7           #childName:Ljava/lang/String;
-    .end local v8           #childParser:Landroid/content/res/XmlResourceParser;
-    .end local v11           #group:Landroid/view/ViewGroup;
-    .end local v12           #id:I
-    .end local v13           #layout:I
-    .end local v14           #params:Landroid/view/ViewGroup$LayoutParams;
-    .end local v15           #type:I
-    .end local v17           #view:Landroid/view/View;
-    .end local v18           #visibility:I
+    .end local v5    # "a":Landroid/content/res/TypedArray;
+    .end local v6    # "childAttrs":Landroid/util/AttributeSet;
+    .end local v7    # "childName":Ljava/lang/String;
+    .end local v8    # "childParser":Landroid/content/res/XmlResourceParser;
+    .end local v11    # "group":Landroid/view/ViewGroup;
+    .end local v12    # "id":I
+    .end local v13    # "layout":I
+    .end local v14    # "params":Landroid/view/ViewGroup$LayoutParams;
+    .end local v15    # "type":I
+    .end local v17    # "view":Landroid/view/View;
+    .end local v18    # "visibility":I
     :cond_c
     new-instance v19, Landroid/view/InflateException;
 
@@ -818,8 +818,8 @@
 
 .method private parseRequestFocus(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;)V
     .locals 3
-    .parameter "parser"
-    .parameter "parent"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "parent"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -837,13 +837,13 @@
     move-result v0
 
     .line 772
-    .local v0, currentDepth:I
+    .local v0, "currentDepth":I
     :cond_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v1
 
-    .local v1, type:I
+    .local v1, "type":I
     const/4 v2, 0x3
 
     if-ne v1, v2, :cond_1
@@ -871,9 +871,9 @@
 
 .method public final createView(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 13
-    .parameter "name"
-    .parameter "prefix"
-    .parameter "attrs"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "prefix"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -892,11 +892,11 @@
     check-cast v5, Ljava/lang/reflect/Constructor;
 
     .line 552
-    .local v5, constructor:Ljava/lang/reflect/Constructor;,"Ljava/lang/reflect/Constructor<+Landroid/view/View;>;"
+    .local v5, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Landroid/view/View;>;"
     const/4 v4, 0x0
 
     .line 555
-    .local v4, clazz:Ljava/lang/Class;,"Ljava/lang/Class<+Landroid/view/View;>;"
+    .local v4, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroid/view/View;>;"
     const-wide/16 v10, 0x8
 
     :try_start_0
@@ -956,14 +956,14 @@
     move-result v1
 
     .line 564
-    .local v1, allowed:Z
+    .local v1, "allowed":Z
     if-nez v1, :cond_0
 
     .line 565
     invoke-direct/range {p0 .. p3}, Landroid/view/LayoutInflater;->failNotAllowed(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)V
 
     .line 568
-    .end local v1           #allowed:Z
+    .end local v1    # "allowed":Z
     :cond_0
     sget-object v10, Landroid/view/LayoutInflater;->mConstructorSignature:[Ljava/lang/Class;
 
@@ -982,7 +982,7 @@
     iget-object v3, p0, Landroid/view/LayoutInflater;->mConstructorArgs:[Ljava/lang/Object;
 
     .line 592
-    .local v3, args:[Ljava/lang/Object;
+    .local v3, "args":[Ljava/lang/Object;
     const/4 v10, 0x1
 
     aput-object p3, v3, v10
@@ -995,7 +995,7 @@
     check-cast v8, Landroid/view/View;
 
     .line 595
-    .local v8, view:Landroid/view/View;
+    .local v8, "view":Landroid/view/View;
     instance-of v10, v8, Landroid/view/ViewStub;
 
     if-eqz v10, :cond_2
@@ -1008,17 +1008,17 @@
     move-object v9, v0
 
     .line 598
-    .local v9, viewStub:Landroid/view/ViewStub;
+    .local v9, "viewStub":Landroid/view/ViewStub;
     invoke-virtual {v9, p0}, Landroid/view/ViewStub;->setLayoutInflater(Landroid/view/LayoutInflater;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 626
-    .end local v9           #viewStub:Landroid/view/ViewStub;
+    .end local v9    # "viewStub":Landroid/view/ViewStub;
     :cond_2
     const-wide/16 v10, 0x8
 
@@ -1026,8 +1026,8 @@
 
     return-object v8
 
-    .end local v3           #args:[Ljava/lang/Object;
-    .end local v8           #view:Landroid/view/View;
+    .end local v3    # "args":[Ljava/lang/Object;
+    .end local v8    # "view":Landroid/view/View;
     :cond_3
     move-object v10, p1
 
@@ -1051,7 +1051,7 @@
     check-cast v2, Ljava/lang/Boolean;
 
     .line 575
-    .local v2, allowedState:Ljava/lang/Boolean;
+    .local v2, "allowedState":Ljava/lang/Boolean;
     if-nez v2, :cond_8
 
     .line 577
@@ -1104,7 +1104,7 @@
     const/4 v1, 0x1
 
     .line 581
-    .restart local v1       #allowed:Z
+    .restart local v1    # "allowed":Z
     :goto_3
     iget-object v10, p0, Landroid/view/LayoutInflater;->mFilterMap:Ljava/util/HashMap;
 
@@ -1120,22 +1120,22 @@
     .line 583
     invoke-direct/range {p0 .. p3}, Landroid/view/LayoutInflater;->failNotAllowed(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
     .line 602
-    .end local v1           #allowed:Z
-    .end local v2           #allowedState:Ljava/lang/Boolean;
+    .end local v1    # "allowed":Z
+    .end local v2    # "allowedState":Ljava/lang/Boolean;
     :catch_0
     move-exception v6
 
     .line 603
-    .local v6, e:Ljava/lang/NoSuchMethodException;
+    .local v6, "e":Ljava/lang/NoSuchMethodException;
     :try_start_2
     new-instance v7, Landroid/view/InflateException;
 
@@ -1175,7 +1175,7 @@
 
     move-result-object p1
 
-    .end local p1
+    .end local p1    # "name":Ljava/lang/String;
     :cond_5
     invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1188,7 +1188,7 @@
     invoke-direct {v7, v10}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 606
-    .local v7, ie:Landroid/view/InflateException;
+    .local v7, "ie":Landroid/view/InflateException;
     invoke-virtual {v7, v6}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 607
@@ -1197,8 +1197,8 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 626
-    .end local v6           #e:Ljava/lang/NoSuchMethodException;
-    .end local v7           #ie:Landroid/view/InflateException;
+    .end local v6    # "e":Ljava/lang/NoSuchMethodException;
+    .end local v7    # "ie":Landroid/view/InflateException;
     :catchall_0
     move-exception v10
 
@@ -1208,8 +1208,8 @@
 
     throw v10
 
-    .restart local v2       #allowedState:Ljava/lang/Boolean;
-    .restart local p1
+    .restart local v2    # "allowedState":Ljava/lang/Boolean;
+    .restart local p1    # "name":Ljava/lang/String;
     :cond_6
     move-object v10, p1
 
@@ -1236,21 +1236,21 @@
     .line 586
     invoke-direct/range {p0 .. p3}, Landroid/view/LayoutInflater;->failNotAllowed(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_1
 
     .line 609
-    .end local v2           #allowedState:Ljava/lang/Boolean;
+    .end local v2    # "allowedState":Ljava/lang/Boolean;
     :catch_1
     move-exception v6
 
     .line 611
-    .local v6, e:Ljava/lang/ClassCastException;
+    .local v6, "e":Ljava/lang/ClassCastException;
     :try_start_4
     new-instance v7, Landroid/view/InflateException;
 
@@ -1290,7 +1290,7 @@
 
     move-result-object p1
 
-    .end local p1
+    .end local p1    # "name":Ljava/lang/String;
     :cond_9
     invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1303,30 +1303,30 @@
     invoke-direct {v7, v10}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 614
-    .restart local v7       #ie:Landroid/view/InflateException;
+    .restart local v7    # "ie":Landroid/view/InflateException;
     invoke-virtual {v7, v6}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 615
     throw v7
 
     .line 616
-    .end local v6           #e:Ljava/lang/ClassCastException;
-    .end local v7           #ie:Landroid/view/InflateException;
-    .restart local p1
+    .end local v6    # "e":Ljava/lang/ClassCastException;
+    .end local v7    # "ie":Landroid/view/InflateException;
+    .restart local p1    # "name":Ljava/lang/String;
     :catch_2
     move-exception v6
 
     .line 618
-    .local v6, e:Ljava/lang/ClassNotFoundException;
+    .local v6, "e":Ljava/lang/ClassNotFoundException;
     throw v6
 
     .line 619
-    .end local v6           #e:Ljava/lang/ClassNotFoundException;
+    .end local v6    # "e":Ljava/lang/ClassNotFoundException;
     :catch_3
     move-exception v6
 
     .line 620
-    .local v6, e:Ljava/lang/Exception;
+    .local v6, "e":Ljava/lang/Exception;
     new-instance v7, Landroid/view/InflateException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1363,14 +1363,14 @@
     invoke-direct {v7, v10}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 623
-    .restart local v7       #ie:Landroid/view/InflateException;
+    .restart local v7    # "ie":Landroid/view/InflateException;
     invoke-virtual {v7, v6}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 624
     throw v7
 
     .line 620
-    .end local v7           #ie:Landroid/view/InflateException;
+    .end local v7    # "ie":Landroid/view/InflateException;
     :cond_a
     invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
     :try_end_4
@@ -1383,9 +1383,9 @@
 
 .method createViewFromTag(Landroid/view/View;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 5
-    .parameter "parent"
-    .parameter "name"
-    .parameter "attrs"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x0
@@ -1422,7 +1422,7 @@
     move-result-object v2
 
     .line 688
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     :goto_0
     if-nez v2, :cond_1
 
@@ -1465,7 +1465,7 @@
     return-object v2
 
     .line 685
-    .end local v2           #view:Landroid/view/View;
+    .end local v2    # "view":Landroid/view/View;
     :cond_3
     iget-object v3, p0, Landroid/view/LayoutInflater;->mFactory:Landroid/view/LayoutInflater$Factory;
 
@@ -1479,15 +1479,15 @@
 
     move-result-object v2
 
-    .restart local v2       #view:Landroid/view/View;
+    .restart local v2    # "view":Landroid/view/View;
     goto :goto_0
 
     .line 686
-    .end local v2           #view:Landroid/view/View;
+    .end local v2    # "view":Landroid/view/View;
     :cond_4
     const/4 v2, 0x0
 
-    .restart local v2       #view:Landroid/view/View;
+    .restart local v2    # "view":Landroid/view/View;
     goto :goto_0
 
     .line 696
@@ -1505,21 +1505,21 @@
     goto :goto_1
 
     .line 703
-    .end local v2           #view:Landroid/view/View;
+    .end local v2    # "view":Landroid/view/View;
     :catch_0
     move-exception v0
 
     .line 704
-    .local v0, e:Landroid/view/InflateException;
+    .local v0, "e":Landroid/view/InflateException;
     throw v0
 
     .line 706
-    .end local v0           #e:Landroid/view/InflateException;
+    .end local v0    # "e":Landroid/view/InflateException;
     :catch_1
     move-exception v0
 
     .line 707
-    .local v0, e:Ljava/lang/ClassNotFoundException;
+    .local v0, "e":Ljava/lang/ClassNotFoundException;
     new-instance v1, Landroid/view/InflateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1551,20 +1551,20 @@
     invoke-direct {v1, v3}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 709
-    .local v1, ie:Landroid/view/InflateException;
+    .local v1, "ie":Landroid/view/InflateException;
     invoke-virtual {v1, v0}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 710
     throw v1
 
     .line 712
-    .end local v0           #e:Ljava/lang/ClassNotFoundException;
-    .end local v1           #ie:Landroid/view/InflateException;
+    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
+    .end local v1    # "ie":Landroid/view/InflateException;
     :catch_2
     move-exception v0
 
     .line 713
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Landroid/view/InflateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1596,7 +1596,7 @@
     invoke-direct {v1, v3}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 715
-    .restart local v1       #ie:Landroid/view/InflateException;
+    .restart local v1    # "ie":Landroid/view/InflateException;
     invoke-virtual {v1, v0}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 716
@@ -1645,8 +1645,8 @@
 
 .method public inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .parameter "resource"
-    .parameter "root"
+    .param p1, "resource"    # I
+    .param p2, "root"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 353
@@ -1669,12 +1669,17 @@
 
 .method public inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
     .locals 2
-    .parameter "resource"
-    .parameter "root"
-    .parameter "attachToRoot"
+    .param p1, "resource"    # I
+    .param p2, "root"    # Landroid/view/ViewGroup;
+    .param p3, "attachToRoot"    # Z
 
     .prologue
-    invoke-static {p0, p1}, Landroid/view/Injector$LayoutInflaterHook;->before_inflate(Landroid/view/LayoutInflater;I)I
+    .line 395
+    invoke-virtual {p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, p1}, Landroid/view/LayoutInflaterMap;->getResourceId(Landroid/content/Context;I)I
 
     move-result p1
 
@@ -1691,7 +1696,7 @@
     move-result-object v0
 
     .line 397
-    .local v0, parser:Landroid/content/res/XmlResourceParser;
+    .local v0, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     invoke-virtual {p0, v0, p2, p3}, Landroid/view/LayoutInflater;->inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/ViewGroup;Z)Landroid/view/View;
     :try_end_0
@@ -1714,8 +1719,8 @@
 
 .method public inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .parameter "parser"
-    .parameter "root"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "root"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 373
@@ -1738,9 +1743,9 @@
 
 .method public inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/ViewGroup;Z)Landroid/view/View;
     .locals 17
-    .parameter "parser"
-    .parameter "root"
-    .parameter "attachToRoot"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "root"    # Landroid/view/ViewGroup;
+    .param p3, "attachToRoot"    # Z
 
     .prologue
     .line 426
@@ -1764,7 +1769,7 @@
     move-result-object v3
 
     .line 430
-    .local v3, attrs:Landroid/util/AttributeSet;
+    .local v3, "attrs":Landroid/util/AttributeSet;
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/view/LayoutInflater;->mConstructorArgs:[Ljava/lang/Object;
@@ -1776,7 +1781,7 @@
     check-cast v6, Landroid/content/Context;
 
     .line 431
-    .local v6, lastContext:Landroid/content/Context;
+    .local v6, "lastContext":Landroid/content/Context;
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/view/LayoutInflater;->mConstructorArgs:[Ljava/lang/Object;
@@ -1795,14 +1800,14 @@
     move-object/from16 v9, p2
 
     .line 438
-    .local v9, result:Landroid/view/View;
+    .local v9, "result":Landroid/view/View;
     :cond_0
     :try_start_1
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v11
 
-    .local v11, type:I
+    .local v11, "type":I
     const/4 v12, 0x2
 
     if-eq v11, v12, :cond_1
@@ -1846,17 +1851,17 @@
 
     throw v12
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 510
-    .end local v11           #type:I
+    .end local v11    # "type":I
     :catch_0
     move-exception v4
 
     .line 511
-    .local v4, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v4, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_2
     new-instance v5, Landroid/view/InflateException;
 
@@ -1867,7 +1872,7 @@
     invoke-direct {v5, v12}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 512
-    .local v5, ex:Landroid/view/InflateException;
+    .local v5, "ex":Landroid/view/InflateException;
     invoke-virtual {v5, v4}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 513
@@ -1876,8 +1881,8 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 522
-    .end local v4           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    .end local v5           #ex:Landroid/view/InflateException;
+    .end local v4    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v5    # "ex":Landroid/view/InflateException;
     :catchall_0
     move-exception v12
 
@@ -1904,9 +1909,9 @@
     throw v12
 
     .line 529
-    .end local v3           #attrs:Landroid/util/AttributeSet;
-    .end local v6           #lastContext:Landroid/content/Context;
-    .end local v9           #result:Landroid/view/View;
+    .end local v3    # "attrs":Landroid/util/AttributeSet;
+    .end local v6    # "lastContext":Landroid/content/Context;
+    .end local v9    # "result":Landroid/view/View;
     :catchall_1
     move-exception v12
 
@@ -1917,10 +1922,10 @@
     throw v12
 
     .line 447
-    .restart local v3       #attrs:Landroid/util/AttributeSet;
-    .restart local v6       #lastContext:Landroid/content/Context;
-    .restart local v9       #result:Landroid/view/View;
-    .restart local v11       #type:I
+    .restart local v3    # "attrs":Landroid/util/AttributeSet;
+    .restart local v6    # "lastContext":Landroid/content/Context;
+    .restart local v9    # "result":Landroid/view/View;
+    .restart local v11    # "type":I
     :cond_2
     :try_start_4
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -1928,7 +1933,7 @@
     move-result-object v7
 
     .line 456
-    .local v7, name:Ljava/lang/String;
+    .local v7, "name":Ljava/lang/String;
     const-string v12, "merge"
 
     invoke-virtual {v12, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1952,18 +1957,18 @@
 
     throw v12
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 514
-    .end local v7           #name:Ljava/lang/String;
-    .end local v11           #type:I
+    .end local v7    # "name":Ljava/lang/String;
+    .end local v11    # "type":I
     :catch_1
     move-exception v4
 
     .line 515
-    .local v4, e:Ljava/io/IOException;
+    .local v4, "e":Ljava/io/IOException;
     :try_start_5
     new-instance v5, Landroid/view/InflateException;
 
@@ -2000,7 +2005,7 @@
     invoke-direct {v5, v12}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     .line 518
-    .restart local v5       #ex:Landroid/view/InflateException;
+    .restart local v5    # "ex":Landroid/view/InflateException;
     invoke-virtual {v5, v4}, Landroid/view/InflateException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 519
@@ -2009,10 +2014,10 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 462
-    .end local v4           #e:Ljava/io/IOException;
-    .end local v5           #ex:Landroid/view/InflateException;
-    .restart local v7       #name:Ljava/lang/String;
-    .restart local v11       #type:I
+    .end local v4    # "e":Ljava/io/IOException;
+    .end local v5    # "ex":Landroid/view/InflateException;
+    .restart local v7    # "name":Ljava/lang/String;
+    .restart local v11    # "type":I
     :cond_4
     const/4 v12, 0x0
 
@@ -2025,9 +2030,9 @@
 
     invoke-virtual {v0, v1, v2, v3, v12}, Landroid/view/LayoutInflater;->rInflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;Landroid/util/AttributeSet;Z)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_0
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 522
     :cond_5
@@ -2085,12 +2090,12 @@
     invoke-direct {v10, v12, v3}, Landroid/view/LayoutInflater$BlinkLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 472
-    .local v10, temp:Landroid/view/View;
+    .local v10, "temp":Landroid/view/View;
     :goto_1
     const/4 v8, 0x0
 
     .line 474
-    .local v8, params:Landroid/view/ViewGroup$LayoutParams;
+    .local v8, "params":Landroid/view/ViewGroup$LayoutParams;
     if-eqz p2, :cond_7
 
     .line 480
@@ -2139,8 +2144,8 @@
     goto :goto_0
 
     .line 469
-    .end local v8           #params:Landroid/view/ViewGroup$LayoutParams;
-    .end local v10           #temp:Landroid/view/View;
+    .end local v8    # "params":Landroid/view/ViewGroup$LayoutParams;
+    .end local v10    # "temp":Landroid/view/View;
     :cond_a
     move-object/from16 v0, p0
 
@@ -2148,21 +2153,21 @@
 
     invoke-virtual {v0, v1, v7, v3}, Landroid/view/LayoutInflater;->createViewFromTag(Landroid/view/View;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_8 .. :try_end_8} :catch_0
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_1
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     move-result-object v10
 
-    .restart local v10       #temp:Landroid/view/View;
+    .restart local v10    # "temp":Landroid/view/View;
     goto :goto_1
 .end method
 
 .method protected onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 1
-    .parameter "parent"
-    .parameter "name"
-    .parameter "attrs"
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;
@@ -2180,8 +2185,8 @@
 
 .method protected onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 1
-    .parameter "name"
-    .parameter "attrs"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;
@@ -2201,10 +2206,10 @@
 
 .method rInflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;Landroid/util/AttributeSet;Z)V
     .locals 8
-    .parameter "parser"
-    .parameter "parent"
-    .parameter "attrs"
-    .parameter "finishInflate"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "parent"    # Landroid/view/View;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .param p4, "finishInflate"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2221,14 +2226,14 @@
     move-result v0
 
     .line 731
-    .local v0, depth:I
+    .local v0, "depth":I
     :cond_0
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
 
-    .local v3, type:I
+    .local v3, "type":I
     const/4 v6, 0x3
 
     if-ne v3, v6, :cond_1
@@ -2253,7 +2258,7 @@
     move-result-object v1
 
     .line 739
-    .local v1, name:Ljava/lang/String;
+    .local v1, "name":Ljava/lang/String;
     const-string/jumbo v6, "requestFocus"
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2335,20 +2340,20 @@
 
     invoke-direct {v4, v6, p3}, Landroid/view/LayoutInflater$BlinkLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .local v4, view:Landroid/view/View;
+    .local v4, "view":Landroid/view/View;
     move-object v5, p2
 
     .line 750
     check-cast v5, Landroid/view/ViewGroup;
 
     .line 751
-    .local v5, viewGroup:Landroid/view/ViewGroup;
+    .local v5, "viewGroup":Landroid/view/ViewGroup;
     invoke-virtual {v5, p3}, Landroid/view/ViewGroup;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
 
     .line 752
-    .local v2, params:Landroid/view/ViewGroup$LayoutParams;
+    .local v2, "params":Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {p0, p1, v4, p3, v7}, Landroid/view/LayoutInflater;->rInflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;Landroid/util/AttributeSet;Z)V
 
     .line 753
@@ -2357,28 +2362,28 @@
     goto :goto_0
 
     .line 755
-    .end local v2           #params:Landroid/view/ViewGroup$LayoutParams;
-    .end local v4           #view:Landroid/view/View;
-    .end local v5           #viewGroup:Landroid/view/ViewGroup;
+    .end local v2    # "params":Landroid/view/ViewGroup$LayoutParams;
+    .end local v4    # "view":Landroid/view/View;
+    .end local v5    # "viewGroup":Landroid/view/ViewGroup;
     :cond_6
     invoke-virtual {p0, p2, v1, p3}, Landroid/view/LayoutInflater;->createViewFromTag(Landroid/view/View;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v4
 
-    .restart local v4       #view:Landroid/view/View;
+    .restart local v4    # "view":Landroid/view/View;
     move-object v5, p2
 
     .line 756
     check-cast v5, Landroid/view/ViewGroup;
 
     .line 757
-    .restart local v5       #viewGroup:Landroid/view/ViewGroup;
+    .restart local v5    # "viewGroup":Landroid/view/ViewGroup;
     invoke-virtual {v5, p3}, Landroid/view/ViewGroup;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
 
     .line 758
-    .restart local v2       #params:Landroid/view/ViewGroup$LayoutParams;
+    .restart local v2    # "params":Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {p0, p1, v4, p3, v7}, Landroid/view/LayoutInflater;->rInflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/View;Landroid/util/AttributeSet;Z)V
 
     .line 759
@@ -2387,10 +2392,10 @@
     goto :goto_0
 
     .line 763
-    .end local v1           #name:Ljava/lang/String;
-    .end local v2           #params:Landroid/view/ViewGroup$LayoutParams;
-    .end local v4           #view:Landroid/view/View;
-    .end local v5           #viewGroup:Landroid/view/ViewGroup;
+    .end local v1    # "name":Ljava/lang/String;
+    .end local v2    # "params":Landroid/view/ViewGroup$LayoutParams;
+    .end local v4    # "view":Landroid/view/View;
+    .end local v5    # "viewGroup":Landroid/view/ViewGroup;
     :cond_7
     if-eqz p4, :cond_8
 
@@ -2403,7 +2408,7 @@
 
 .method public setFactory(Landroid/view/LayoutInflater$Factory;)V
     .locals 4
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/view/LayoutInflater$Factory;
 
     .prologue
     .line 277
@@ -2470,7 +2475,7 @@
 
 .method public setFactory2(Landroid/view/LayoutInflater$Factory2;)V
     .locals 3
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/view/LayoutInflater$Factory2;
 
     .prologue
     .line 296
@@ -2537,7 +2542,7 @@
 
 .method public setFilter(Landroid/view/LayoutInflater$Filter;)V
     .locals 1
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/view/LayoutInflater$Filter;
 
     .prologue
     .line 335
@@ -2560,7 +2565,7 @@
 
 .method public setPrivateFactory(Landroid/view/LayoutInflater$Factory2;)V
     .locals 0
-    .parameter "factory"
+    .param p1, "factory"    # Landroid/view/LayoutInflater$Factory2;
 
     .prologue
     .line 314

@@ -18,7 +18,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x1
@@ -48,8 +48,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v5, 0x1
@@ -76,13 +76,13 @@
     move-result-object v0
 
     .line 57
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
     .line 58
-    .local v2, resource:I
+    .local v2, "resource":I
     if-lez v2, :cond_0
 
     .line 59
@@ -109,7 +109,7 @@
     move-result v1
 
     .line 68
-    .local v1, flag:Z
+    .local v1, "flag":Z
     invoke-virtual {p0, v1}, Landroid/widget/ViewAnimator;->setAnimateFirstView(Z)V
 
     .line 70
@@ -124,8 +124,8 @@
 
 .method private initViewAnimator(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v3, 0x1
@@ -149,13 +149,13 @@
     move-result-object v0
 
     .line 90
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
     .line 92
-    .local v1, measureAllChildren:Z
+    .local v1, "measureAllChildren":Z
     invoke-virtual {p0, v1}, Landroid/widget/ViewAnimator;->setMeasureAllChildren(Z)V
 
     .line 93
@@ -168,9 +168,9 @@
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 2
-    .parameter "child"
-    .parameter "index"
-    .parameter "params"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "index"    # I
+    .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 184
@@ -304,7 +304,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 362
@@ -325,7 +325,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 368
@@ -367,7 +367,7 @@
 
 .method public removeView(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 205
@@ -376,7 +376,7 @@
     move-result v0
 
     .line 206
-    .local v0, index:I
+    .local v0, "index":I
     if-ltz v0, :cond_0
 
     .line 207
@@ -389,7 +389,7 @@
 
 .method public removeViewAt(I)V
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 213
@@ -401,7 +401,7 @@
     move-result v0
 
     .line 215
-    .local v0, childCount:I
+    .local v0, "childCount":I
     if-nez v0, :cond_1
 
     .line 216
@@ -448,7 +448,7 @@
 
 .method public removeViewInLayout(Landroid/view/View;)V
     .locals 0
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 228
@@ -460,8 +460,8 @@
 
 .method public removeViews(II)V
     .locals 2
-    .parameter "start"
-    .parameter "count"
+    .param p1, "start"    # I
+    .param p2, "count"    # I
 
     .prologue
     .line 232
@@ -511,8 +511,8 @@
 
 .method public removeViewsInLayout(II)V
     .locals 0
-    .parameter "start"
-    .parameter "count"
+    .param p1, "start"    # I
+    .param p2, "count"    # I
 
     .prologue
     .line 243
@@ -524,7 +524,7 @@
 
 .method public setAnimateFirstView(Z)V
     .locals 0
-    .parameter "animate"
+    .param p1, "animate"    # Z
 
     .prologue
     .line 352
@@ -536,7 +536,7 @@
 
 .method public setDisplayedChild(I)V
     .locals 2
-    .parameter "whichChild"
+    .param p1, "whichChild"    # I
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -568,7 +568,7 @@
     const/4 v0, 0x1
 
     .line 111
-    .local v0, hasFocus:Z
+    .local v0, "hasFocus":Z
     :cond_1
     iget v1, p0, Landroid/widget/ViewAnimator;->mWhichChild:I
 
@@ -587,7 +587,7 @@
     return-void
 
     .line 106
-    .end local v0           #hasFocus:Z
+    .end local v0    # "hasFocus":Z
     :cond_3
     if-gez p1, :cond_0
 
@@ -605,8 +605,8 @@
 
 .method public setInAnimation(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceID"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceID"    # I
 
     .prologue
     .line 315
@@ -622,7 +622,7 @@
 
 .method public setInAnimation(Landroid/view/animation/Animation;)V
     .locals 0
-    .parameter "inAnimation"
+    .param p1, "inAnimation"    # Landroid/view/animation/Animation;
 
     .prologue
     .line 278
@@ -634,8 +634,8 @@
 
 .method public setOutAnimation(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceID"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceID"    # I
 
     .prologue
     .line 328
@@ -651,7 +651,7 @@
 
 .method public setOutAnimation(Landroid/view/animation/Animation;)V
     .locals 0
-    .parameter "outAnimation"
+    .param p1, "outAnimation"    # Landroid/view/animation/Animation;
 
     .prologue
     .line 302
@@ -680,7 +680,7 @@
 
 .method showOnly(I)V
     .locals 2
-    .parameter "childIndex"
+    .param p1, "childIndex"    # I
 
     .prologue
     .line 178
@@ -696,7 +696,7 @@
     const/4 v0, 0x1
 
     .line 179
-    .local v0, animate:Z
+    .local v0, "animate":Z
     :goto_0
     invoke-virtual {p0, p1, v0}, Landroid/widget/ViewAnimator;->showOnly(IZ)V
 
@@ -704,7 +704,7 @@
     return-void
 
     .line 178
-    .end local v0           #animate:Z
+    .end local v0    # "animate":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -713,8 +713,8 @@
 
 .method showOnly(IZ)V
     .locals 6
-    .parameter "childIndex"
-    .parameter "animate"
+    .param p1, "childIndex"    # I
+    .param p2, "animate"    # Z
 
     .prologue
     const/4 v5, 0x0
@@ -725,10 +725,10 @@
     move-result v1
 
     .line 153
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_4
 
@@ -738,7 +738,7 @@
     move-result-object v0
 
     .line 155
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     if-ne v2, p1, :cond_1
 
     .line 156
@@ -810,7 +810,7 @@
     goto :goto_2
 
     .line 169
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_4
     return-void
 .end method

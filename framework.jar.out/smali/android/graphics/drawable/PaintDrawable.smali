@@ -17,7 +17,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 35
@@ -38,10 +38,10 @@
 # virtual methods
 .method protected inflateTag(Ljava/lang/String;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Z
     .locals 9
-    .parameter "name"
-    .parameter "r"
-    .parameter "parser"
-    .parameter "attrs"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "r"    # Landroid/content/res/Resources;
+    .param p3, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p4, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 75
@@ -61,7 +61,7 @@
     move-result-object v0
 
     .line 78
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v6, 0x0
 
     const/4 v7, 0x0
@@ -71,7 +71,7 @@
     move-result v3
 
     .line 80
-    .local v3, radius:I
+    .local v3, "radius":I
     int-to-float v6, v3
 
     invoke-virtual {p0, v6}, Landroid/graphics/drawable/PaintDrawable;->setCornerRadius(F)V
@@ -84,7 +84,7 @@
     move-result v4
 
     .line 86
-    .local v4, topLeftRadius:I
+    .local v4, "topLeftRadius":I
     const/4 v6, 0x2
 
     invoke-virtual {v0, v6, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -92,7 +92,7 @@
     move-result v5
 
     .line 88
-    .local v5, topRightRadius:I
+    .local v5, "topRightRadius":I
     const/4 v6, 0x3
 
     invoke-virtual {v0, v6, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -100,7 +100,7 @@
     move-result v1
 
     .line 90
-    .local v1, bottomLeftRadius:I
+    .local v1, "bottomLeftRadius":I
     const/4 v6, 0x4
 
     invoke-virtual {v0, v6, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -108,7 +108,7 @@
     move-result v2
 
     .line 93
-    .local v2, bottomRightRadius:I
+    .local v2, "bottomRightRadius":I
     if-ne v4, v3, :cond_0
 
     if-ne v5, v3, :cond_0
@@ -181,12 +181,12 @@
     const/4 v6, 0x1
 
     .line 105
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #bottomLeftRadius:I
-    .end local v2           #bottomRightRadius:I
-    .end local v3           #radius:I
-    .end local v4           #topLeftRadius:I
-    .end local v5           #topRightRadius:I
+    .end local v0    # "a":Landroid/content/res/TypedArray;
+    .end local v1    # "bottomLeftRadius":I
+    .end local v2    # "bottomRightRadius":I
+    .end local v3    # "radius":I
+    .end local v4    # "topLeftRadius":I
+    .end local v5    # "topRightRadius":I
     :goto_0
     return v6
 
@@ -200,7 +200,7 @@
 
 .method public setCornerRadii([F)V
     .locals 2
-    .parameter "radii"
+    .param p1, "radii"    # [F
 
     .prologue
     const/4 v1, 0x0
@@ -239,7 +239,7 @@
 
 .method public setCornerRadius(F)V
     .locals 4
-    .parameter "radius"
+    .param p1, "radius"    # F
 
     .prologue
     const/16 v3, 0x8
@@ -248,7 +248,7 @@
     const/4 v1, 0x0
 
     .line 46
-    .local v1, radii:[F
+    .local v1, "radii":[F
     const/4 v2, 0x0
 
     cmpl-float v2, p1, v2
@@ -261,7 +261,7 @@
     .line 48
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -274,7 +274,7 @@
     goto :goto_0
 
     .line 52
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/PaintDrawable;->setCornerRadii([F)V
 

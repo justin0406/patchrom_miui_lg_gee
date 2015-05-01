@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -64,12 +64,12 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "manufacturer"
-    .parameter "model"
-    .parameter "description"
-    .parameter "version"
-    .parameter "uri"
-    .parameter "serial"
+    .param p1, "manufacturer"    # Ljava/lang/String;
+    .param p2, "model"    # Ljava/lang/String;
+    .param p3, "description"    # Ljava/lang/String;
+    .param p4, "version"    # Ljava/lang/String;
+    .param p5, "uri"    # Ljava/lang/String;
+    .param p6, "serial"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -99,7 +99,7 @@
 
 .method public constructor <init>([Ljava/lang/String;)V
     .locals 1
-    .parameter "strings"
+    .param p1, "strings"    # [Ljava/lang/String;
 
     .prologue
     .line 89
@@ -153,8 +153,8 @@
 
 .method private static compare(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "s1"
-    .parameter "s2"
+    .param p0, "s1"    # Ljava/lang/String;
+    .param p1, "s2"    # Ljava/lang/String;
 
     .prologue
     .line 157
@@ -197,7 +197,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -213,7 +213,7 @@
     check-cast v0, Landroid/hardware/usb/UsbAccessory;
 
     .line 165
-    .local v0, accessory:Landroid/hardware/usb/UsbAccessory;
+    .local v0, "accessory":Landroid/hardware/usb/UsbAccessory;
     iget-object v2, p0, Landroid/hardware/usb/UsbAccessory;->mManufacturer:Ljava/lang/String;
 
     invoke-virtual {v0}, Landroid/hardware/usb/UsbAccessory;->getManufacturer()Ljava/lang/String;
@@ -289,7 +289,7 @@
     const/4 v1, 0x1
 
     .line 172
-    .end local v0           #accessory:Landroid/hardware/usb/UsbAccessory;
+    .end local v0    # "accessory":Landroid/hardware/usb/UsbAccessory;
     :cond_0
     return v1
 .end method
@@ -564,8 +564,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 217

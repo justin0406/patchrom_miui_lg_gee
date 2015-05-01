@@ -146,8 +146,6 @@
 
 .field public static final FORCE_DIGITAL_DOCK:I = 0x9
 
-.field public static final FORCE_EARPIECE:I = 0xc
-
 .field public static final FORCE_HEADPHONES:I = 0x2
 
 .field public static final FORCE_NONE:I = 0x0
@@ -163,8 +161,6 @@
 .field public static final FOR_COMMUNICATION:I = 0x0
 
 .field public static final FOR_DOCK:I = 0x3
-
-.field public static final FOR_LB_TEST:I = 0x5
 
 .field public static final FOR_MEDIA:I = 0x1
 
@@ -186,9 +182,9 @@
 
 .field private static final NUM_DEVICE_STATES:I = 0x1
 
-.field private static final NUM_FORCE_CONFIG:I = 0xd
+.field private static final NUM_FORCE_CONFIG:I = 0xc
 
-.field private static final NUM_FORCE_USE:I = 0x6
+.field private static final NUM_FORCE_USE:I = 0x5
 
 .field public static final NUM_MODES:I = 0x4
 
@@ -280,14 +276,14 @@
 
 .method private static errorCallbackFromNative(I)V
     .locals 3
-    .parameter "error"
+    .param p0, "error"    # I
 
     .prologue
     .line 188
     const/4 v0, 0x0
 
     .line 189
-    .local v0, errorCallback:Landroid/media/AudioSystem$ErrorCallback;
+    .local v0, "errorCallback":Landroid/media/AudioSystem$ErrorCallback;
     const-class v2, Landroid/media/AudioSystem;
 
     monitor-enter v2
@@ -334,7 +330,7 @@
 
 .method public static getDeviceName(I)Ljava/lang/String;
     .locals 1
-    .parameter "device"
+    .param p0, "device"    # I
 
     .prologue
     .line 313
@@ -524,7 +520,7 @@
 
 .method public static setErrorCallback(Landroid/media/AudioSystem$ErrorCallback;)V
     .locals 2
-    .parameter "cb"
+    .param p0, "cb"    # Landroid/media/AudioSystem$ErrorCallback;
 
     .prologue
     .line 178

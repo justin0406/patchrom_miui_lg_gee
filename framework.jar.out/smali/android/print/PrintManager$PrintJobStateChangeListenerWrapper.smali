@@ -41,8 +41,8 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrintManager$PrintJobStateChangeListener;Landroid/os/Handler;)V
     .locals 1
-    .parameter "listener"
-    .parameter "handler"
+    .param p1, "listener"    # Landroid/print/PrintManager$PrintJobStateChangeListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 1008
@@ -99,7 +99,7 @@
 
 .method public onPrintJobStateChanged(Landroid/print/PrintJobId;)V
     .locals 4
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 1015
@@ -112,7 +112,7 @@
     check-cast v1, Landroid/os/Handler;
 
     .line 1016
-    .local v1, handler:Landroid/os/Handler;
+    .local v1, "handler":Landroid/os/Handler;
     iget-object v3, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -122,7 +122,7 @@
     check-cast v2, Landroid/print/PrintManager$PrintJobStateChangeListener;
 
     .line 1017
-    .local v2, listener:Landroid/print/PrintManager$PrintJobStateChangeListener;
+    .local v2, "listener":Landroid/print/PrintManager$PrintJobStateChangeListener;
     if-eqz v1, :cond_0
 
     if-eqz v2, :cond_0
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 1019
-    .local v0, args:Lcom/android/internal/os/SomeArgs;
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p0, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 1020
@@ -149,7 +149,7 @@
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
     .line 1024
-    .end local v0           #args:Lcom/android/internal/os/SomeArgs;
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :cond_0
     return-void
 .end method

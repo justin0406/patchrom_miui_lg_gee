@@ -14,9 +14,9 @@
 # direct methods
 .method constructor <init>(IIZ)V
     .locals 5
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOpaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOpaque"    # Z
 
     .prologue
     const/4 v4, 0x0
@@ -34,7 +34,7 @@
     new-array v0, v3, [I
 
     .line 38
-    .local v0, layerInfo:[I
+    .local v0, "layerInfo":[I
     invoke-static {p1, p2, p3, v0}, Landroid/view/GLES20Canvas;->nCreateLayer(IIZ[I)I
 
     move-result v3
@@ -101,7 +101,7 @@
 # virtual methods
 .method end(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "currentCanvas"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 92
@@ -110,7 +110,7 @@
     move-result-object v0
 
     .line 93
-    .local v0, canvas:Landroid/view/HardwareCanvas;
+    .local v0, "canvas":Landroid/view/HardwareCanvas;
     if-eqz v0, :cond_0
 
     .line 94
@@ -125,7 +125,7 @@
     .line 97
     check-cast p1, Landroid/view/GLES20Canvas;
 
-    .end local p1
+    .end local p1    # "currentCanvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/view/GLES20Canvas;->resume()V
 
     .line 99
@@ -173,8 +173,8 @@
 
 .method redrawLater(Landroid/view/DisplayList;Landroid/graphics/Rect;)V
     .locals 7
-    .parameter "displayList"
-    .parameter "dirtyRect"
+    .param p1, "displayList"    # Landroid/view/DisplayList;
+    .param p2, "dirtyRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 126
@@ -188,7 +188,7 @@
 
     check-cast p1, Landroid/view/GLES20DisplayList;
 
-    .end local p1
+    .end local p1    # "displayList":Landroid/view/DisplayList;
     invoke-virtual {p1}, Landroid/view/GLES20DisplayList;->getNativeDisplayList()I
 
     move-result v2
@@ -209,8 +209,8 @@
 
 .method resize(II)Z
     .locals 3
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -254,7 +254,7 @@
     new-array v0, v2, [I
 
     .line 66
-    .local v0, layerInfo:[I
+    .local v0, "layerInfo":[I
     iget v2, p0, Landroid/view/GLES20RenderLayer;->mLayer:I
 
     invoke-static {v2, p1, p2, v0}, Landroid/view/GLES20Canvas;->nResizeLayer(III[I)Z
@@ -276,7 +276,7 @@
     iput v1, p0, Landroid/view/GLES20RenderLayer;->mLayerHeight:I
 
     .line 76
-    .end local v0           #layerInfo:[I
+    .end local v0    # "layerInfo":[I
     :cond_3
     :goto_1
     invoke-virtual {p0}, Landroid/view/GLES20RenderLayer;->isValid()Z
@@ -286,7 +286,7 @@
     goto :goto_0
 
     .line 71
-    .restart local v0       #layerInfo:[I
+    .restart local v0    # "layerInfo":[I
     :cond_4
     iput v1, p0, Landroid/view/GLES20RenderLayer;->mLayer:I
 
@@ -301,7 +301,7 @@
 
 .method setOpaque(Z)V
     .locals 1
-    .parameter "isOpaque"
+    .param p1, "isOpaque"    # Z
 
     .prologue
     .line 81
@@ -318,7 +318,7 @@
 
 .method setTransform(Landroid/graphics/Matrix;)V
     .locals 0
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 122
@@ -327,7 +327,7 @@
 
 .method start(Landroid/graphics/Canvas;)Landroid/view/HardwareCanvas;
     .locals 1
-    .parameter "currentCanvas"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 103
@@ -342,8 +342,8 @@
 
 .method start(Landroid/graphics/Canvas;Landroid/graphics/Rect;)Landroid/view/HardwareCanvas;
     .locals 3
-    .parameter "currentCanvas"
-    .parameter "dirty"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
+    .param p2, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 108
@@ -354,7 +354,7 @@
     .line 109
     check-cast p1, Landroid/view/GLES20Canvas;
 
-    .end local p1
+    .end local p1    # "currentCanvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/view/GLES20Canvas;->interrupt()V
 
     .line 111
@@ -364,7 +364,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, canvas:Landroid/view/HardwareCanvas;
+    .local v0, "canvas":Landroid/view/HardwareCanvas;
     iget v1, p0, Landroid/view/GLES20RenderLayer;->mWidth:I
 
     iget v2, p0, Landroid/view/GLES20RenderLayer;->mHeight:I

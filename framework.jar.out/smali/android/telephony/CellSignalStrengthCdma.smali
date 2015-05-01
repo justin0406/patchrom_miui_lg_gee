@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -66,11 +66,11 @@
 
 .method public constructor <init>(IIIII)V
     .locals 0
-    .parameter "cdmaDbm"
-    .parameter "cdmaEcio"
-    .parameter "evdoDbm"
-    .parameter "evdoEcio"
-    .parameter "evdoSnr"
+    .param p1, "cdmaDbm"    # I
+    .param p2, "cdmaEcio"    # I
+    .param p3, "evdoDbm"    # I
+    .param p4, "evdoEcio"    # I
+    .param p5, "evdoSnr"    # I
 
     .prologue
     .line 52
@@ -85,7 +85,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 347
@@ -140,8 +140,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/CellSignalStrengthCdma$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/telephony/CellSignalStrengthCdma$1;
 
     .prologue
     .line 26
@@ -152,7 +152,7 @@
 
 .method public constructor <init>(Landroid/telephony/CellSignalStrengthCdma;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/CellSignalStrengthCdma;
 
     .prologue
     .line 63
@@ -167,7 +167,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
 
     .prologue
     .line 384
@@ -207,7 +207,7 @@
 
 .method protected copyFrom(Landroid/telephony/CellSignalStrengthCdma;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/telephony/CellSignalStrengthCdma;
 
     .prologue
     .line 90
@@ -251,7 +251,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -267,11 +267,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 306
-    .local v2, s:Landroid/telephony/CellSignalStrengthCdma;
+    .local v2, "s":Landroid/telephony/CellSignalStrengthCdma;
     if-nez p1, :cond_1
 
     .line 310
-    .end local v2           #s:Landroid/telephony/CellSignalStrengthCdma;
+    .end local v2    # "s":Landroid/telephony/CellSignalStrengthCdma;
     :cond_0
     :goto_0
     return v3
@@ -281,12 +281,12 @@
     move-exception v1
 
     .line 303
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 310
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Landroid/telephony/CellSignalStrengthCdma;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Landroid/telephony/CellSignalStrengthCdma;
     :cond_1
     iget v4, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaDbm:I
 
@@ -337,13 +337,13 @@
     move-result v1
 
     .line 145
-    .local v1, cdmaDbm:I
+    .local v1, "cdmaDbm":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthCdma;->getCdmaEcio()I
 
     move-result v2
 
     .line 149
-    .local v2, cdmaEcio:I
+    .local v2, "cdmaEcio":I
     const/16 v5, -0x4b
 
     if-lt v1, v5, :cond_0
@@ -351,28 +351,28 @@
     const/16 v0, 0x10
 
     .line 157
-    .local v0, cdmaAsuLevel:I
+    .local v0, "cdmaAsuLevel":I
     :goto_0
     if-lt v2, v7, :cond_5
 
     const/16 v3, 0x10
 
     .line 164
-    .local v3, ecioAsuLevel:I
+    .local v3, "ecioAsuLevel":I
     :goto_1
     if-ge v0, v3, :cond_a
 
     move v4, v0
 
     .line 166
-    .local v4, level:I
+    .local v4, "level":I
     :goto_2
     return v4
 
     .line 150
-    .end local v0           #cdmaAsuLevel:I
-    .end local v3           #ecioAsuLevel:I
-    .end local v4           #level:I
+    .end local v0    # "cdmaAsuLevel":I
+    .end local v3    # "ecioAsuLevel":I
+    .end local v4    # "level":I
     :cond_0
     const/16 v5, -0x52
 
@@ -380,21 +380,21 @@
 
     const/16 v0, 0x8
 
-    .restart local v0       #cdmaAsuLevel:I
+    .restart local v0    # "cdmaAsuLevel":I
     goto :goto_0
 
     .line 151
-    .end local v0           #cdmaAsuLevel:I
+    .end local v0    # "cdmaAsuLevel":I
     :cond_1
     if-lt v1, v7, :cond_2
 
     const/4 v0, 0x4
 
-    .restart local v0       #cdmaAsuLevel:I
+    .restart local v0    # "cdmaAsuLevel":I
     goto :goto_0
 
     .line 152
-    .end local v0           #cdmaAsuLevel:I
+    .end local v0    # "cdmaAsuLevel":I
     :cond_2
     const/16 v5, -0x5f
 
@@ -402,25 +402,25 @@
 
     const/4 v0, 0x2
 
-    .restart local v0       #cdmaAsuLevel:I
+    .restart local v0    # "cdmaAsuLevel":I
     goto :goto_0
 
     .line 153
-    .end local v0           #cdmaAsuLevel:I
+    .end local v0    # "cdmaAsuLevel":I
     :cond_3
     if-lt v1, v6, :cond_4
 
     const/4 v0, 0x1
 
-    .restart local v0       #cdmaAsuLevel:I
+    .restart local v0    # "cdmaAsuLevel":I
     goto :goto_0
 
     .line 154
-    .end local v0           #cdmaAsuLevel:I
+    .end local v0    # "cdmaAsuLevel":I
     :cond_4
     const/16 v0, 0x63
 
-    .restart local v0       #cdmaAsuLevel:I
+    .restart local v0    # "cdmaAsuLevel":I
     goto :goto_0
 
     .line 158
@@ -429,11 +429,11 @@
 
     const/16 v3, 0x8
 
-    .restart local v3       #ecioAsuLevel:I
+    .restart local v3    # "ecioAsuLevel":I
     goto :goto_1
 
     .line 159
-    .end local v3           #ecioAsuLevel:I
+    .end local v3    # "ecioAsuLevel":I
     :cond_6
     const/16 v5, -0x73
 
@@ -441,11 +441,11 @@
 
     const/4 v3, 0x4
 
-    .restart local v3       #ecioAsuLevel:I
+    .restart local v3    # "ecioAsuLevel":I
     goto :goto_1
 
     .line 160
-    .end local v3           #ecioAsuLevel:I
+    .end local v3    # "ecioAsuLevel":I
     :cond_7
     const/16 v5, -0x82
 
@@ -453,11 +453,11 @@
 
     const/4 v3, 0x2
 
-    .restart local v3       #ecioAsuLevel:I
+    .restart local v3    # "ecioAsuLevel":I
     goto :goto_1
 
     .line 161
-    .end local v3           #ecioAsuLevel:I
+    .end local v3    # "ecioAsuLevel":I
     :cond_8
     const/16 v5, -0x96
 
@@ -465,15 +465,15 @@
 
     const/4 v3, 0x1
 
-    .restart local v3       #ecioAsuLevel:I
+    .restart local v3    # "ecioAsuLevel":I
     goto :goto_1
 
     .line 162
-    .end local v3           #ecioAsuLevel:I
+    .end local v3    # "ecioAsuLevel":I
     :cond_9
     const/16 v3, 0x63
 
-    .restart local v3       #ecioAsuLevel:I
+    .restart local v3    # "ecioAsuLevel":I
     goto :goto_1
 
     :cond_a
@@ -513,13 +513,13 @@
     move-result v0
 
     .line 174
-    .local v0, cdmaDbm:I
+    .local v0, "cdmaDbm":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthCdma;->getCdmaEcio()I
 
     move-result v1
 
     .line 178
-    .local v1, cdmaEcio:I
+    .local v1, "cdmaEcio":I
     const/16 v5, -0x4b
 
     if-lt v0, v5, :cond_0
@@ -527,7 +527,7 @@
     const/4 v3, 0x4
 
     .line 185
-    .local v3, levelDbm:I
+    .local v3, "levelDbm":I
     :goto_0
     const/16 v5, -0x5a
 
@@ -536,21 +536,21 @@
     const/4 v4, 0x4
 
     .line 191
-    .local v4, levelEcio:I
+    .local v4, "levelEcio":I
     :goto_1
     if-ge v3, v4, :cond_8
 
     move v2, v3
 
     .line 193
-    .local v2, level:I
+    .local v2, "level":I
     :goto_2
     return v2
 
     .line 179
-    .end local v2           #level:I
-    .end local v3           #levelDbm:I
-    .end local v4           #levelEcio:I
+    .end local v2    # "level":I
+    .end local v3    # "levelDbm":I
+    .end local v4    # "levelEcio":I
     :cond_0
     const/16 v5, -0x55
 
@@ -558,11 +558,11 @@
 
     const/4 v3, 0x3
 
-    .restart local v3       #levelDbm:I
+    .restart local v3    # "levelDbm":I
     goto :goto_0
 
     .line 180
-    .end local v3           #levelDbm:I
+    .end local v3    # "levelDbm":I
     :cond_1
     const/16 v5, -0x5f
 
@@ -570,11 +570,11 @@
 
     const/4 v3, 0x2
 
-    .restart local v3       #levelDbm:I
+    .restart local v3    # "levelDbm":I
     goto :goto_0
 
     .line 181
-    .end local v3           #levelDbm:I
+    .end local v3    # "levelDbm":I
     :cond_2
     const/16 v5, -0x64
 
@@ -582,15 +582,15 @@
 
     const/4 v3, 0x1
 
-    .restart local v3       #levelDbm:I
+    .restart local v3    # "levelDbm":I
     goto :goto_0
 
     .line 182
-    .end local v3           #levelDbm:I
+    .end local v3    # "levelDbm":I
     :cond_3
     const/4 v3, 0x0
 
-    .restart local v3       #levelDbm:I
+    .restart local v3    # "levelDbm":I
     goto :goto_0
 
     .line 186
@@ -601,11 +601,11 @@
 
     const/4 v4, 0x3
 
-    .restart local v4       #levelEcio:I
+    .restart local v4    # "levelEcio":I
     goto :goto_1
 
     .line 187
-    .end local v4           #levelEcio:I
+    .end local v4    # "levelEcio":I
     :cond_5
     const/16 v5, -0x82
 
@@ -613,11 +613,11 @@
 
     const/4 v4, 0x2
 
-    .restart local v4       #levelEcio:I
+    .restart local v4    # "levelEcio":I
     goto :goto_1
 
     .line 188
-    .end local v4           #levelEcio:I
+    .end local v4    # "levelEcio":I
     :cond_6
     const/16 v5, -0x96
 
@@ -625,15 +625,15 @@
 
     const/4 v4, 0x1
 
-    .restart local v4       #levelEcio:I
+    .restart local v4    # "levelEcio":I
     goto :goto_1
 
     .line 189
-    .end local v4           #levelEcio:I
+    .end local v4    # "levelEcio":I
     :cond_7
     const/4 v4, 0x0
 
-    .restart local v4       #levelEcio:I
+    .restart local v4    # "levelEcio":I
     goto :goto_1
 
     :cond_8
@@ -653,20 +653,20 @@
     move-result v0
 
     .line 228
-    .local v0, cdmaDbm:I
+    .local v0, "cdmaDbm":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthCdma;->getEvdoDbm()I
 
     move-result v1
 
     .line 231
-    .local v1, evdoDbm:I
+    .local v1, "evdoDbm":I
     if-ge v0, v1, :cond_0
 
-    .end local v0           #cdmaDbm:I
+    .end local v0    # "cdmaDbm":I
     :goto_0
     return v0
 
-    .restart local v0       #cdmaDbm:I
+    .restart local v0    # "cdmaDbm":I
     :cond_0
     move v0, v1
 
@@ -703,13 +703,13 @@
     move-result v0
 
     .line 201
-    .local v0, evdoDbm:I
+    .local v0, "evdoDbm":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthCdma;->getEvdoSnr()I
 
     move-result v1
 
     .line 205
-    .local v1, evdoSnr:I
+    .local v1, "evdoSnr":I
     const/16 v5, -0x41
 
     if-lt v0, v5, :cond_0
@@ -717,7 +717,7 @@
     const/4 v3, 0x4
 
     .line 211
-    .local v3, levelEvdoDbm:I
+    .local v3, "levelEvdoDbm":I
     :goto_0
     const/4 v5, 0x7
 
@@ -726,21 +726,21 @@
     const/4 v4, 0x4
 
     .line 217
-    .local v4, levelEvdoSnr:I
+    .local v4, "levelEvdoSnr":I
     :goto_1
     if-ge v3, v4, :cond_8
 
     move v2, v3
 
     .line 219
-    .local v2, level:I
+    .local v2, "level":I
     :goto_2
     return v2
 
     .line 206
-    .end local v2           #level:I
-    .end local v3           #levelEvdoDbm:I
-    .end local v4           #levelEvdoSnr:I
+    .end local v2    # "level":I
+    .end local v3    # "levelEvdoDbm":I
+    .end local v4    # "levelEvdoSnr":I
     :cond_0
     const/16 v5, -0x4b
 
@@ -748,11 +748,11 @@
 
     const/4 v3, 0x3
 
-    .restart local v3       #levelEvdoDbm:I
+    .restart local v3    # "levelEvdoDbm":I
     goto :goto_0
 
     .line 207
-    .end local v3           #levelEvdoDbm:I
+    .end local v3    # "levelEvdoDbm":I
     :cond_1
     const/16 v5, -0x5a
 
@@ -760,11 +760,11 @@
 
     const/4 v3, 0x2
 
-    .restart local v3       #levelEvdoDbm:I
+    .restart local v3    # "levelEvdoDbm":I
     goto :goto_0
 
     .line 208
-    .end local v3           #levelEvdoDbm:I
+    .end local v3    # "levelEvdoDbm":I
     :cond_2
     const/16 v5, -0x69
 
@@ -772,15 +772,15 @@
 
     const/4 v3, 0x1
 
-    .restart local v3       #levelEvdoDbm:I
+    .restart local v3    # "levelEvdoDbm":I
     goto :goto_0
 
     .line 209
-    .end local v3           #levelEvdoDbm:I
+    .end local v3    # "levelEvdoDbm":I
     :cond_3
     const/4 v3, 0x0
 
-    .restart local v3       #levelEvdoDbm:I
+    .restart local v3    # "levelEvdoDbm":I
     goto :goto_0
 
     .line 212
@@ -791,11 +791,11 @@
 
     const/4 v4, 0x3
 
-    .restart local v4       #levelEvdoSnr:I
+    .restart local v4    # "levelEvdoSnr":I
     goto :goto_1
 
     .line 213
-    .end local v4           #levelEvdoSnr:I
+    .end local v4    # "levelEvdoSnr":I
     :cond_5
     const/4 v5, 0x3
 
@@ -803,11 +803,11 @@
 
     const/4 v4, 0x2
 
-    .restart local v4       #levelEvdoSnr:I
+    .restart local v4    # "levelEvdoSnr":I
     goto :goto_1
 
     .line 214
-    .end local v4           #levelEvdoSnr:I
+    .end local v4    # "levelEvdoSnr":I
     :cond_6
     const/4 v5, 0x1
 
@@ -815,15 +815,15 @@
 
     const/4 v4, 0x1
 
-    .restart local v4       #levelEvdoSnr:I
+    .restart local v4    # "levelEvdoSnr":I
     goto :goto_1
 
     .line 215
-    .end local v4           #levelEvdoSnr:I
+    .end local v4    # "levelEvdoSnr":I
     :cond_7
     const/4 v4, 0x0
 
-    .restart local v4       #levelEvdoSnr:I
+    .restart local v4    # "levelEvdoSnr":I
     goto :goto_1
 
     :cond_8
@@ -853,13 +853,13 @@
     move-result v0
 
     .line 123
-    .local v0, cdmaLevel:I
+    .local v0, "cdmaLevel":I
     invoke-virtual {p0}, Landroid/telephony/CellSignalStrengthCdma;->getEvdoLevel()I
 
     move-result v1
 
     .line 124
-    .local v1, evdoLevel:I
+    .local v1, "evdoLevel":I
     if-nez v1, :cond_0
 
     .line 126
@@ -868,12 +868,12 @@
     move-result v2
 
     .line 135
-    .local v2, level:I
+    .local v2, "level":I
     :goto_0
     return v2
 
     .line 127
-    .end local v2           #level:I
+    .end local v2    # "level":I
     :cond_0
     if-nez v0, :cond_1
 
@@ -882,21 +882,21 @@
 
     move-result v2
 
-    .restart local v2       #level:I
+    .restart local v2    # "level":I
     goto :goto_0
 
     .line 132
-    .end local v2           #level:I
+    .end local v2    # "level":I
     :cond_1
     if-ge v0, v1, :cond_2
 
     move v2, v0
 
-    .restart local v2       #level:I
+    .restart local v2    # "level":I
     :goto_1
     goto :goto_0
 
-    .end local v2           #level:I
+    .end local v2    # "level":I
     :cond_2
     move v2, v1
 
@@ -911,7 +911,7 @@
     const/16 v0, 0x1f
 
     .line 292
-    .local v0, primeNum:I
+    .local v0, "primeNum":I
     iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaDbm:I
 
     mul-int/2addr v1, v0
@@ -945,11 +945,11 @@
 
 .method public initialize(IIIII)V
     .locals 0
-    .parameter "cdmaDbm"
-    .parameter "cdmaEcio"
-    .parameter "evdoDbm"
-    .parameter "evdoEcio"
-    .parameter "evdoSnr"
+    .param p1, "cdmaDbm"    # I
+    .param p2, "cdmaEcio"    # I
+    .param p3, "evdoDbm"    # I
+    .param p4, "evdoEcio"    # I
+    .param p5, "evdoSnr"    # I
 
     .prologue
     .line 79
@@ -973,7 +973,7 @@
 
 .method public setCdmaDbm(I)V
     .locals 0
-    .parameter "cdmaDbm"
+    .param p1, "cdmaDbm"    # I
 
     .prologue
     .line 242
@@ -985,7 +985,7 @@
 
 .method public setCdmaEcio(I)V
     .locals 0
-    .parameter "cdmaEcio"
+    .param p1, "cdmaEcio"    # I
 
     .prologue
     .line 253
@@ -1022,7 +1022,7 @@
 
 .method public setEvdoDbm(I)V
     .locals 0
-    .parameter "evdoDbm"
+    .param p1, "evdoDbm"    # I
 
     .prologue
     .line 264
@@ -1034,7 +1034,7 @@
 
 .method public setEvdoEcio(I)V
     .locals 0
-    .parameter "evdoEcio"
+    .param p1, "evdoEcio"    # I
 
     .prologue
     .line 275
@@ -1046,7 +1046,7 @@
 
 .method public setEvdoSnr(I)V
     .locals 0
-    .parameter "evdoSnr"
+    .param p1, "evdoSnr"    # I
 
     .prologue
     .line 286
@@ -1134,8 +1134,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 336

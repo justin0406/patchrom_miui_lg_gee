@@ -59,16 +59,16 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/security/spec/AlgorithmParameterSpec;Ljavax/security/auth/x500/X500Principal;Ljava/math/BigInteger;Ljava/util/Date;Ljava/util/Date;I)V
     .locals 3
-    .parameter "context"
-    .parameter "keyStoreAlias"
-    .parameter "keyType"
-    .parameter "keySize"
-    .parameter "spec"
-    .parameter "subjectDN"
-    .parameter "serialNumber"
-    .parameter "startDate"
-    .parameter "endDate"
-    .parameter "flags"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "keyStoreAlias"    # Ljava/lang/String;
+    .param p3, "keyType"    # Ljava/lang/String;
+    .param p4, "keySize"    # I
+    .param p5, "spec"    # Ljava/security/spec/AlgorithmParameterSpec;
+    .param p6, "subjectDN"    # Ljavax/security/auth/x500/X500Principal;
+    .param p7, "serialNumber"    # Ljava/math/BigInteger;
+    .param p8, "startDate"    # Ljava/util/Date;
+    .param p9, "endDate"    # Ljava/util/Date;
+    .param p10, "flags"    # I
 
     .prologue
     .line 131
@@ -179,7 +179,7 @@
     move-result v0
 
     .line 149
-    .local v0, keyTypeInt:I
+    .local v0, "keyTypeInt":I
     const/4 v1, -0x1
 
     if-ne p4, v1, :cond_7
@@ -232,9 +232,9 @@
 
 .method private static checkCorrectParametersSpec(IILjava/security/spec/AlgorithmParameterSpec;)V
     .locals 4
-    .parameter "keyType"
-    .parameter "keySize"
-    .parameter "spec"
+    .param p0, "keyType"    # I
+    .param p1, "keySize"    # I
+    .param p2, "spec"    # Ljava/security/spec/AlgorithmParameterSpec;
 
     .prologue
     .line 201
@@ -277,7 +277,7 @@
     check-cast v0, Ljava/security/spec/RSAKeyGenParameterSpec;
 
     .line 208
-    .local v0, rsaSpec:Ljava/security/spec/RSAKeyGenParameterSpec;
+    .local v0, "rsaSpec":Ljava/security/spec/RSAKeyGenParameterSpec;
     const/4 v1, -0x1
 
     if-eq p1, v1, :cond_2
@@ -328,7 +328,7 @@
     throw v1
 
     .line 213
-    .end local v0           #rsaSpec:Ljava/security/spec/RSAKeyGenParameterSpec;
+    .end local v0    # "rsaSpec":Ljava/security/spec/RSAKeyGenParameterSpec;
     :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -345,8 +345,8 @@
 
 .method private static checkValidKeySize(II)V
     .locals 3
-    .parameter "keyType"
-    .parameter "keySize"
+    .param p0, "keyType"    # I
+    .param p1, "keySize"    # I
 
     .prologue
     const/16 v2, 0x2000
@@ -452,7 +452,7 @@
 
 .method private static getDefaultKeySizeForType(I)I
     .locals 3
-    .parameter "keyType"
+    .param p0, "keyType"    # I
 
     .prologue
     .line 168

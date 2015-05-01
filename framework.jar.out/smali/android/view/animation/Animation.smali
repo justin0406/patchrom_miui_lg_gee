@@ -30,8 +30,7 @@
 
 .field public static final START_ON_FIRST_FRAME:I = -0x1
 
-#the value of this static final field might be set in the static constructor
-.field private static final USE_CLOSEGUARD:Z = false
+.field private static final USE_CLOSEGUARD:Z
 
 .field public static final ZORDER_BOTTOM:I = -0x1
 
@@ -168,7 +167,7 @@
     iput v3, p0, Landroid/view/animation/Animation;->mRepeatMode:I
 
     .line 194
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/view/animation/Animation;->mScaleFactor:F
 
@@ -225,8 +224,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v5, 0x1
@@ -272,7 +271,7 @@
     iput v5, p0, Landroid/view/animation/Animation;->mRepeatMode:I
 
     .line 194
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     iput v2, p0, Landroid/view/animation/Animation;->mScaleFactor:F
 
@@ -328,7 +327,7 @@
     move-result-object v0
 
     .line 234
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v2, 0x2
 
     invoke-virtual {v0, v2, v4}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -434,7 +433,7 @@
     move-result v1
 
     .line 252
-    .local v1, resID:I
+    .local v1, "resID":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 254
@@ -557,8 +556,8 @@
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 0
-    .parameter "interpolatedTime"
-    .parameter "t"
+    .param p1, "interpolatedTime"    # F
+    .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 973
@@ -593,7 +592,7 @@
 
     .line 305
     :cond_0
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     iput-wide v0, p0, Landroid/view/animation/Animation;->mStartTime:J
 
@@ -625,7 +624,7 @@
     check-cast v0, Landroid/view/animation/Animation;
 
     .line 264
-    .local v0, animation:Landroid/view/animation/Animation;
+    .local v0, "animation":Landroid/view/animation/Animation;
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
@@ -854,25 +853,25 @@
 
 .method public getInvalidateRegion(IIIILandroid/graphics/RectF;Landroid/view/animation/Transformation;)V
     .locals 9
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "invalidate"
-    .parameter "transformation"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
+    .param p5, "invalidate"    # Landroid/graphics/RectF;
+    .param p6, "transformation"    # Landroid/view/animation/Transformation;
 
     .prologue
-    const/high16 v8, -0x4080
+    const/high16 v8, -0x40800000    # -1.0f
 
     .line 1012
     iget-object v2, p0, Landroid/view/animation/Animation;->mRegion:Landroid/graphics/RectF;
 
     .line 1013
-    .local v2, tempRegion:Landroid/graphics/RectF;
+    .local v2, "tempRegion":Landroid/graphics/RectF;
     iget-object v0, p0, Landroid/view/animation/Animation;->mPreviousRegion:Landroid/graphics/RectF;
 
     .line 1015
-    .local v0, previousRegion:Landroid/graphics/RectF;
+    .local v0, "previousRegion":Landroid/graphics/RectF;
     int-to-float v4, p1
 
     int-to-float v5, p2
@@ -906,11 +905,11 @@
     iget-object v3, p0, Landroid/view/animation/Animation;->mTransformation:Landroid/view/animation/Transformation;
 
     .line 1025
-    .local v3, tempTransformation:Landroid/view/animation/Transformation;
+    .local v3, "tempTransformation":Landroid/view/animation/Transformation;
     iget-object v1, p0, Landroid/view/animation/Animation;->mPreviousTransformation:Landroid/view/animation/Transformation;
 
     .line 1027
-    .local v1, previousTransformation:Landroid/view/animation/Transformation;
+    .local v1, "previousTransformation":Landroid/view/animation/Transformation;
     invoke-virtual {v3, p6}, Landroid/view/animation/Transformation;->set(Landroid/view/animation/Transformation;)V
 
     .line 1028
@@ -975,8 +974,8 @@
 
 .method public getTransformation(JLandroid/view/animation/Transformation;)Z
     .locals 11
-    .parameter "currentTime"
-    .parameter "outTransformation"
+    .param p1, "currentTime"    # J
+    .param p3, "outTransformation"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 834
@@ -998,11 +997,11 @@
     move-result-wide v5
 
     .line 839
-    .local v5, startOffset:J
+    .local v5, "startOffset":J
     iget-wide v0, p0, Landroid/view/animation/Animation;->mDuration:J
 
     .line 841
-    .local v0, duration:J
+    .local v0, "duration":J
     const-wide/16 v7, 0x0
 
     cmp-long v7, v0, v7
@@ -1023,9 +1022,9 @@
     div-float v4, v7, v8
 
     .line 849
-    .local v4, normalizedTime:F
+    .local v4, "normalizedTime":F
     :goto_0
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     cmpl-float v7, v4, v7
 
@@ -1034,7 +1033,7 @@
     const/4 v2, 0x1
 
     .line 850
-    .local v2, expired:Z
+    .local v2, "expired":Z
     :goto_1
     if-nez v2, :cond_c
 
@@ -1048,7 +1047,7 @@
 
     if-nez v7, :cond_1
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     invoke-static {v4, v7}, Ljava/lang/Math;->min(FF)F
 
@@ -1073,7 +1072,7 @@
     if-eqz v7, :cond_7
 
     :cond_2
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     cmpg-float v7, v4, v7
 
@@ -1115,7 +1114,7 @@
 
     if-eqz v7, :cond_5
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     invoke-static {v4, v7}, Ljava/lang/Math;->min(FF)F
 
@@ -1134,7 +1133,7 @@
     if-eqz v7, :cond_6
 
     .line 866
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     sub-float v4, v7, v4
 
@@ -1147,11 +1146,11 @@
     move-result v3
 
     .line 870
-    .local v3, interpolatedTime:F
+    .local v3, "interpolatedTime":F
     invoke-virtual {p0, v3, p3}, Landroid/view/animation/Animation;->applyTransformation(FLandroid/view/animation/Transformation;)V
 
     .line 873
-    .end local v3           #interpolatedTime:F
+    .end local v3    # "interpolatedTime":F
     :cond_7
     if-eqz v2, :cond_8
 
@@ -1204,8 +1203,8 @@
     return v7
 
     .line 846
-    .end local v2           #expired:Z
-    .end local v4           #normalizedTime:F
+    .end local v2    # "expired":Z
+    .end local v4    # "normalizedTime":F
     :cond_9
     iget-wide v7, p0, Landroid/view/animation/Animation;->mStartTime:J
 
@@ -1215,25 +1214,25 @@
 
     const/4 v4, 0x0
 
-    .restart local v4       #normalizedTime:F
+    .restart local v4    # "normalizedTime":F
     :goto_5
     goto/16 :goto_0
 
-    .end local v4           #normalizedTime:F
+    .end local v4    # "normalizedTime":F
     :cond_a
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     goto :goto_5
 
     .line 849
-    .restart local v4       #normalizedTime:F
+    .restart local v4    # "normalizedTime":F
     :cond_b
     const/4 v2, 0x0
 
     goto/16 :goto_1
 
     .line 850
-    .restart local v2       #expired:Z
+    .restart local v2    # "expired":Z
     :cond_c
     const/4 v7, 0x0
 
@@ -1301,9 +1300,9 @@
 
 .method public getTransformation(JLandroid/view/animation/Transformation;F)Z
     .locals 1
-    .parameter "currentTime"
-    .parameter "outTransformation"
-    .parameter "scale"
+    .param p1, "currentTime"    # J
+    .param p3, "outTransformation"    # Landroid/view/animation/Transformation;
+    .param p4, "scale"    # F
 
     .prologue
     .line 939
@@ -1359,10 +1358,10 @@
 
 .method public initialize(IIII)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "parentWidth"
-    .parameter "parentHeight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "parentWidth"    # I
+    .param p4, "parentHeight"    # I
 
     .prologue
     .line 346
@@ -1379,19 +1378,19 @@
 
 .method public initializeInvalidateRegion(IIII)V
     .locals 7
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
     .prologue
-    const/high16 v6, -0x4080
+    const/high16 v6, -0x40800000    # -1.0f
 
     .line 1041
     iget-object v1, p0, Landroid/view/animation/Animation;->mPreviousRegion:Landroid/graphics/RectF;
 
     .line 1042
-    .local v1, region:Landroid/graphics/RectF;
+    .local v1, "region":Landroid/graphics/RectF;
     int-to-float v2, p1
 
     int-to-float v3, p2
@@ -1414,7 +1413,7 @@
     iget-object v0, p0, Landroid/view/animation/Animation;->mPreviousTransformation:Landroid/view/animation/Transformation;
 
     .line 1047
-    .local v0, previousTransformation:Landroid/view/animation/Transformation;
+    .local v0, "previousTransformation":Landroid/view/animation/Transformation;
     iget-object v2, p0, Landroid/view/animation/Animation;->mInterpolator:Landroid/view/animation/Interpolator;
 
     const/4 v3, 0x0
@@ -1426,7 +1425,7 @@
     invoke-virtual {p0, v2, v0}, Landroid/view/animation/Animation;->applyTransformation(FLandroid/view/animation/Transformation;)V
 
     .line 1049
-    .end local v0           #previousTransformation:Landroid/view/animation/Transformation;
+    .end local v0    # "previousTransformation":Landroid/view/animation/Transformation;
     :cond_0
     return-void
 .end method
@@ -1495,23 +1494,23 @@
 
 .method protected resolveSize(IFII)F
     .locals 1
-    .parameter "type"
-    .parameter "value"
-    .parameter "size"
-    .parameter "parentSize"
+    .param p1, "type"    # I
+    .param p2, "value"    # F
+    .param p3, "size"    # I
+    .param p4, "parentSize"    # I
 
     .prologue
     .line 987
     packed-switch p1, :pswitch_data_0
 
     .line 995
-    .end local p2
+    .end local p2    # "value":F
     :goto_0
     :pswitch_0
     return p2
 
     .line 991
-    .restart local p2
+    .restart local p2    # "value":F
     :pswitch_1
     int-to-float v0, p3
 
@@ -1538,7 +1537,7 @@
 
 .method public restrictDuration(J)V
     .locals 9
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # J
 
     .prologue
     const-wide/16 v7, 0x0
@@ -1575,7 +1574,7 @@
     add-long v0, v2, v4
 
     .line 453
-    .local v0, dur:J
+    .local v0, "dur":J
     cmp-long v2, v0, p1
 
     if-lez v2, :cond_2
@@ -1653,7 +1652,7 @@
 
 .method public scaleCurrentDuration(F)V
     .locals 2
-    .parameter "scale"
+    .param p1, "scale"    # F
 
     .prologue
     .line 483
@@ -1684,7 +1683,7 @@
 
 .method public setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/animation/Animation$AnimationListener;
 
     .prologue
     .line 800
@@ -1696,7 +1695,7 @@
 
 .method public setBackgroundColor(I)V
     .locals 0
-    .parameter "bg"
+    .param p1, "bg"    # I
 
     .prologue
     .line 626
@@ -1708,7 +1707,7 @@
 
 .method public setDetachWallpaper(Z)V
     .locals 0
-    .parameter "detachWallpaper"
+    .param p1, "detachWallpaper"    # Z
 
     .prologue
     .line 652
@@ -1720,7 +1719,7 @@
 
 .method public setDuration(J)V
     .locals 2
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # J
 
     .prologue
     .line 428
@@ -1749,7 +1748,7 @@
 
 .method public setFillAfter(Z)V
     .locals 0
-    .parameter "fillAfter"
+    .param p1, "fillAfter"    # Z
 
     .prologue
     .line 605
@@ -1761,7 +1760,7 @@
 
 .method public setFillBefore(Z)V
     .locals 0
-    .parameter "fillBefore"
+    .param p1, "fillBefore"    # Z
 
     .prologue
     .line 589
@@ -1773,7 +1772,7 @@
 
 .method public setFillEnabled(Z)V
     .locals 0
-    .parameter "fillEnabled"
+    .param p1, "fillEnabled"    # Z
 
     .prologue
     .line 571
@@ -1785,8 +1784,8 @@
 
 .method public setInterpolator(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resID"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resID"    # I
 
     .prologue
     .line 391
@@ -1802,7 +1801,7 @@
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)V
     .locals 0
-    .parameter "i"
+    .param p1, "i"    # Landroid/view/animation/Interpolator;
 
     .prologue
     .line 402
@@ -1814,7 +1813,7 @@
 
 .method public setListenerHandler(Landroid/os/Handler;)V
     .locals 1
-    .parameter "handler"
+    .param p1, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 356
@@ -1853,7 +1852,7 @@
 
 .method public setRepeatCount(I)V
     .locals 0
-    .parameter "repeatCount"
+    .param p1, "repeatCount"    # I
 
     .prologue
     .line 543
@@ -1872,7 +1871,7 @@
 
 .method public setRepeatMode(I)V
     .locals 0
-    .parameter "repeatMode"
+    .param p1, "repeatMode"    # I
 
     .prologue
     .line 530
@@ -1884,7 +1883,7 @@
 
 .method public setStartOffset(J)V
     .locals 0
-    .parameter "startOffset"
+    .param p1, "startOffset"    # J
 
     .prologue
     .line 415
@@ -1896,7 +1895,7 @@
 
 .method public setStartTime(J)V
     .locals 1
-    .parameter "startTimeMillis"
+    .param p1, "startTimeMillis"    # J
 
     .prologue
     const/4 v0, 0x0
@@ -1926,7 +1925,7 @@
 
 .method public setZAdjustment(I)V
     .locals 0
-    .parameter "zAdjustment"
+    .param p1, "zAdjustment"    # I
 
     .prologue
     .line 616

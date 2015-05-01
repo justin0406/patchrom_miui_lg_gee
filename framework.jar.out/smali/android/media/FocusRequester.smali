@@ -32,14 +32,14 @@
 # direct methods
 .method constructor <init>(IILandroid/media/IAudioFocusDispatcher;Landroid/os/IBinder;Ljava/lang/String;Landroid/media/MediaFocusControl$AudioFocusDeathHandler;Ljava/lang/String;I)V
     .locals 1
-    .parameter "streamType"
-    .parameter "focusRequest"
-    .parameter "afl"
-    .parameter "source"
-    .parameter "id"
-    .parameter "hdlr"
-    .parameter "pn"
-    .parameter "uid"
+    .param p1, "streamType"    # I
+    .param p2, "focusRequest"    # I
+    .param p3, "afl"    # Landroid/media/IAudioFocusDispatcher;
+    .param p4, "source"    # Landroid/os/IBinder;
+    .param p5, "id"    # Ljava/lang/String;
+    .param p6, "hdlr"    # Landroid/media/MediaFocusControl$AudioFocusDeathHandler;
+    .param p7, "pn"    # Ljava/lang/String;
+    .param p8, "uid"    # I
 
     .prologue
     .line 59
@@ -80,7 +80,7 @@
 
 .method private static focusChangeToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "focus"
+    .param p0, "focus"    # I
 
     .prologue
     .line 107
@@ -192,7 +192,7 @@
 
 .method private focusLossForGainRequest(I)I
     .locals 3
-    .parameter "gainRequest"
+    .param p1, "gainRequest"    # I
 
     .prologue
     const/4 v1, -0x2
@@ -328,7 +328,7 @@
 # virtual methods
 .method dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 138
@@ -475,7 +475,7 @@
 
 .method handleExternalFocusGain(I)V
     .locals 1
-    .parameter "focusGain"
+    .param p1, "focusGain"    # I
 
     .prologue
     .line 208
@@ -484,7 +484,7 @@
     move-result v0
 
     .line 209
-    .local v0, focusLoss:I
+    .local v0, "focusLoss":I
     invoke-virtual {p0, v0}, Landroid/media/FocusRequester;->handleFocusLoss(I)V
 
     .line 210
@@ -493,7 +493,7 @@
 
 .method handleFocusGain(I)V
     .locals 3
-    .parameter "focusGain"
+    .param p1, "focusGain"    # I
 
     .prologue
     .line 214
@@ -526,7 +526,7 @@
     move-exception v0
 
     .line 223
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaFocusControl"
 
     const-string v2, "Failure to signal gain of audio focus due to: "
@@ -538,7 +538,7 @@
 
 .method handleFocusLoss(I)V
     .locals 3
-    .parameter "focusLoss"
+    .param p1, "focusLoss"    # I
 
     .prologue
     .line 229
@@ -575,7 +575,7 @@
     move-exception v0
 
     .line 240
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaFocusControl"
 
     const-string v2, "Failure to signal loss of audio focus due to:"
@@ -587,7 +587,7 @@
 
 .method hasSameBinder(Landroid/os/IBinder;)Z
     .locals 1
-    .parameter "ib"
+    .param p1, "ib"    # Landroid/os/IBinder;
 
     .prologue
     .line 81
@@ -616,7 +616,7 @@
 
 .method hasSameClient(Ljava/lang/String;)Z
     .locals 3
-    .parameter "otherClient"
+    .param p1, "otherClient"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -645,13 +645,13 @@
     move-exception v0
 
     .line 76
-    .local v0, e:Ljava/lang/NullPointerException;
+    .local v0, "e":Ljava/lang/NullPointerException;
     goto :goto_0
 .end method
 
 .method hasSamePackage(Ljava/lang/String;)Z
     .locals 3
-    .parameter "pack"
+    .param p1, "pack"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -680,13 +680,13 @@
     move-exception v0
 
     .line 88
-    .local v0, e:Ljava/lang/NullPointerException;
+    .local v0, "e":Ljava/lang/NullPointerException;
     goto :goto_0
 .end method
 
 .method hasSameUid(I)Z
     .locals 1
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 93
@@ -745,7 +745,7 @@
     move-exception v0
 
     .line 155
-    .local v0, e:Ljava/util/NoSuchElementException;
+    .local v0, "e":Ljava/util/NoSuchElementException;
     const-string v1, "MediaFocusControl"
 
     const-string v2, "FocusRequester.release() hit "

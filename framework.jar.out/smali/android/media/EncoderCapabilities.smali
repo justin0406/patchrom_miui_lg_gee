@@ -62,7 +62,7 @@
     move-result v2
 
     .line 144
-    .local v2, nEncoders:I
+    .local v2, "nEncoders":I
     if-nez v2, :cond_1
 
     const/4 v0, 0x0
@@ -78,10 +78,10 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 147
-    .local v0, encoderList:Ljava/util/List;,"Ljava/util/List<Landroid/media/EncoderCapabilities$AudioEncoderCap;>;"
+    .local v0, "encoderList":Ljava/util/List;, "Ljava/util/List<Landroid/media/EncoderCapabilities$AudioEncoderCap;>;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -108,7 +108,7 @@
     move-result v2
 
     .line 114
-    .local v2, nFormats:I
+    .local v2, "nFormats":I
     if-nez v2, :cond_1
 
     const/4 v0, 0x0
@@ -122,10 +122,10 @@
     new-array v0, v2, [I
 
     .line 117
-    .local v0, formats:[I
+    .local v0, "formats":[I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -161,7 +161,7 @@
     move-result v2
 
     .line 129
-    .local v2, nEncoders:I
+    .local v2, "nEncoders":I
     if-nez v2, :cond_1
 
     const/4 v0, 0x0
@@ -177,10 +177,10 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 132
-    .local v0, encoderList:Ljava/util/List;,"Ljava/util/List<Landroid/media/EncoderCapabilities$VideoEncoderCap;>;"
+    .local v0, "encoderList":Ljava/util/List;, "Ljava/util/List<Landroid/media/EncoderCapabilities$VideoEncoderCap;>;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 

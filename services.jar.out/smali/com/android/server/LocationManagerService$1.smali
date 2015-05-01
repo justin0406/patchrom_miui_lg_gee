@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 227
@@ -36,14 +35,14 @@
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
     .locals 4
-    .parameter "op"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 229
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    #getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/server/LocationManagerService;->access$000(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
 
     move-result-object v3
@@ -54,7 +53,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    #getter for: Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/server/LocationManagerService;->access$100(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -67,7 +66,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -82,7 +81,7 @@
     check-cast v1, Lcom/android/server/LocationManagerService$Receiver;
 
     .line 231
-    .local v1, receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .local v1, "receiver":Lcom/android/server/LocationManagerService$Receiver;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/android/server/LocationManagerService$Receiver;->updateMonitoring(Z)V
@@ -90,8 +89,8 @@
     goto :goto_0
 
     .line 234
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     :catchall_0
     move-exception v2
 
@@ -102,12 +101,12 @@
     throw v2
 
     .line 233
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    #calls: Lcom/android/server/LocationManagerService;->applyAllProviderRequirementsLocked()V
+    # invokes: Lcom/android/server/LocationManagerService;->applyAllProviderRequirementsLocked()V
     invoke-static {v2}, Lcom/android/server/LocationManagerService;->access$200(Lcom/android/server/LocationManagerService;)V
 
     .line 234

@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
     .locals 0
-    .parameter "device"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
     .line 41
@@ -31,9 +31,9 @@
 
 .method private static checkBounds([BII)V
     .locals 3
-    .parameter "buffer"
-    .parameter "start"
-    .parameter "length"
+    .param p0, "buffer"    # [B
+    .param p1, "start"    # I
+    .param p2, "length"    # I
 
     .prologue
     .line 227
@@ -42,7 +42,7 @@
     array-length v0, p0
 
     .line 228
-    .local v0, bufferLength:I
+    .local v0, "bufferLength":I
     :goto_0
     if-ltz p1, :cond_0
 
@@ -61,14 +61,14 @@
     throw v1
 
     .line 227
-    .end local v0           #bufferLength:I
+    .end local v0    # "bufferLength":I
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 231
-    .restart local v0       #bufferLength:I
+    .restart local v0    # "bufferLength":I
     :cond_2
     return-void
 .end method
@@ -107,10 +107,10 @@
 # virtual methods
 .method public bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BII)I
     .locals 6
-    .parameter "endpoint"
-    .parameter "buffer"
-    .parameter "length"
-    .parameter "timeout"
+    .param p1, "endpoint"    # Landroid/hardware/usb/UsbEndpoint;
+    .param p2, "buffer"    # [B
+    .param p3, "length"    # I
+    .param p4, "timeout"    # I
 
     .prologue
     .line 177
@@ -135,11 +135,11 @@
 
 .method public bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BIII)I
     .locals 6
-    .parameter "endpoint"
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "timeout"
+    .param p1, "endpoint"    # Landroid/hardware/usb/UsbEndpoint;
+    .param p2, "buffer"    # [B
+    .param p3, "offset"    # I
+    .param p4, "length"    # I
+    .param p5, "timeout"    # I
 
     .prologue
     .line 194
@@ -169,8 +169,8 @@
 
 .method public claimInterface(Landroid/hardware/usb/UsbInterface;Z)Z
     .locals 1
-    .parameter "intf"
-    .parameter "force"
+    .param p1, "intf"    # Landroid/hardware/usb/UsbInterface;
+    .param p2, "force"    # Z
 
     .prologue
     .line 91
@@ -198,13 +198,13 @@
 
 .method public controlTransfer(IIII[BII)I
     .locals 9
-    .parameter "requestType"
-    .parameter "request"
-    .parameter "value"
-    .parameter "index"
-    .parameter "buffer"
-    .parameter "length"
-    .parameter "timeout"
+    .param p1, "requestType"    # I
+    .param p2, "request"    # I
+    .param p3, "value"    # I
+    .param p4, "index"    # I
+    .param p5, "buffer"    # [B
+    .param p6, "length"    # I
+    .param p7, "timeout"    # I
 
     .prologue
     .line 129
@@ -235,14 +235,14 @@
 
 .method public controlTransfer(IIII[BIII)I
     .locals 1
-    .parameter "requestType"
-    .parameter "request"
-    .parameter "value"
-    .parameter "index"
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "timeout"
+    .param p1, "requestType"    # I
+    .param p2, "request"    # I
+    .param p3, "value"    # I
+    .param p4, "index"    # I
+    .param p5, "buffer"    # [B
+    .param p6, "offset"    # I
+    .param p7, "length"    # I
+    .param p8, "timeout"    # I
 
     .prologue
     .line 154
@@ -294,8 +294,8 @@
 
 .method open(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
     .locals 1
-    .parameter "name"
-    .parameter "pfd"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "pfd"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 46
@@ -312,7 +312,7 @@
 
 .method public releaseInterface(Landroid/hardware/usb/UsbInterface;)Z
     .locals 1
-    .parameter "intf"
+    .param p1, "intf"    # Landroid/hardware/usb/UsbInterface;
 
     .prologue
     .line 100
@@ -337,7 +337,7 @@
     move-result-object v0
 
     .line 210
-    .local v0, request:Landroid/hardware/usb/UsbRequest;
+    .local v0, "request":Landroid/hardware/usb/UsbRequest;
     if-eqz v0, :cond_0
 
     .line 211

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$Static;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 569

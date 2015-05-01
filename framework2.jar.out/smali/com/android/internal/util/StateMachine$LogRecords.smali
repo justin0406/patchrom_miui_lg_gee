@@ -76,7 +76,7 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/internal/util/StateMachine$1;
 
     .prologue
     .line 572
@@ -87,7 +87,7 @@
 
 .method static synthetic access$1700(Lcom/android/internal/util/StateMachine$LogRecords;)Ljava/util/Vector;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/util/StateMachine$LogRecords;
 
     .prologue
     .line 572
@@ -100,12 +100,12 @@
 # virtual methods
 .method declared-synchronized add(Lcom/android/internal/util/StateMachine;Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;)V
     .locals 8
-    .parameter "sm"
-    .parameter "msg"
-    .parameter "messageInfo"
-    .parameter "state"
-    .parameter "orgState"
-    .parameter "transToState"
+    .param p1, "sm"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "msg"    # Landroid/os/Message;
+    .param p3, "messageInfo"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/util/IState;
+    .param p5, "orgState"    # Lcom/android/internal/util/IState;
+    .param p6, "transToState"    # Lcom/android/internal/util/IState;
 
     .prologue
     .line 659
@@ -172,7 +172,7 @@
     check-cast v0, Lcom/android/internal/util/StateMachine$LogRec;
 
     .line 664
-    .local v0, pmi:Lcom/android/internal/util/StateMachine$LogRec;
+    .local v0, "pmi":Lcom/android/internal/util/StateMachine$LogRec;
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
     add-int/lit8 v1, v1, 0x1
@@ -212,7 +212,7 @@
     goto :goto_0
 
     .line 659
-    .end local v0           #pmi:Lcom/android/internal/util/StateMachine$LogRec;
+    .end local v0    # "pmi":Lcom/android/internal/util/StateMachine$LogRec;
     :catchall_0
     move-exception v1
 
@@ -275,7 +275,7 @@
 
 .method declared-synchronized get(I)Lcom/android/internal/util/StateMachine$LogRec;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 634
@@ -287,7 +287,7 @@
     add-int v0, v1, p1
 
     .line 635
-    .local v0, nextIndex:I
+    .local v0, "nextIndex":I
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
     if-lt v0, v1, :cond_0
@@ -331,7 +331,7 @@
     goto :goto_0
 
     .line 634
-    .end local v0           #nextIndex:I
+    .end local v0    # "nextIndex":I
     :catchall_0
     move-exception v1
 
@@ -366,7 +366,7 @@
 
 .method declared-synchronized setLogOnlyTransitions(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 600
@@ -393,7 +393,7 @@
 
 .method declared-synchronized setSize(I)V
     .locals 1
-    .parameter "maxSize"
+    .param p1, "maxSize"    # I
 
     .prologue
     .line 594

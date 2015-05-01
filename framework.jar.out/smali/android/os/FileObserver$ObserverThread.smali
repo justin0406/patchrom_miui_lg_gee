@@ -74,16 +74,16 @@
 # virtual methods
 .method public onEvent(IILjava/lang/String;)V
     .locals 7
-    .parameter "wfd"
-    .parameter "mask"
-    .parameter "path"
+    .param p1, "wfd"    # I
+    .param p2, "mask"    # I
+    .param p3, "path"    # Ljava/lang/String;
 
     .prologue
     .line 110
     const/4 v1, 0x0
 
     .line 112
-    .local v1, observer:Landroid/os/FileObserver;
+    .local v1, "observer":Landroid/os/FileObserver;
     iget-object v5, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     monitor-enter v5
@@ -103,7 +103,7 @@
     check-cast v3, Ljava/lang/ref/WeakReference;
 
     .line 114
-    .local v3, weak:Ljava/lang/ref/WeakReference;
+    .local v3, "weak":Ljava/lang/ref/WeakReference;
     if-eqz v3, :cond_0
 
     .line 115
@@ -150,7 +150,7 @@
     return-void
 
     .line 120
-    .end local v3           #weak:Ljava/lang/ref/WeakReference;
+    .end local v3    # "weak":Ljava/lang/ref/WeakReference;
     :catchall_0
     move-exception v4
 
@@ -162,12 +162,12 @@
     throw v4
 
     .line 126
-    .restart local v3       #weak:Ljava/lang/ref/WeakReference;
+    .restart local v3    # "weak":Ljava/lang/ref/WeakReference;
     :catch_0
     move-exception v2
 
     .line 127
-    .local v2, throwable:Ljava/lang/Throwable;
+    .local v2, "throwable":Ljava/lang/Throwable;
     const-string v4, "FileObserver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -208,9 +208,9 @@
 
 .method public startWatching(Ljava/lang/String;ILandroid/os/FileObserver;)I
     .locals 5
-    .parameter "path"
-    .parameter "mask"
-    .parameter "observer"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "mask"    # I
+    .param p3, "observer"    # Landroid/os/FileObserver;
 
     .prologue
     .line 92
@@ -221,13 +221,13 @@
     move-result v1
 
     .line 94
-    .local v1, wfd:I
+    .local v1, "wfd":I
     new-instance v0, Ljava/lang/Integer;
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
     .line 95
-    .local v0, i:Ljava/lang/Integer;
+    .local v0, "i":Ljava/lang/Integer;
     if-ltz v1, :cond_0
 
     .line 96
@@ -272,7 +272,7 @@
 
 .method public stopWatching(I)V
     .locals 1
-    .parameter "descriptor"
+    .param p1, "descriptor"    # I
 
     .prologue
     .line 105

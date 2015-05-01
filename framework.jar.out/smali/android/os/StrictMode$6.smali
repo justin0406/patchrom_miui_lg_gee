@@ -40,7 +40,8 @@
     move-result-wide v0
 
     .line 1472
-    .local v0, now:J
+    .local v0, "now":J
+    # getter for: Landroid/os/StrictMode;->sLastInstanceCountCheckMillis:J
     invoke-static {}, Landroid/os/StrictMode;->access$1500()J
 
     move-result-wide v2
@@ -54,6 +55,7 @@
     if-lez v2, :cond_0
 
     .line 1473
+    # setter for: Landroid/os/StrictMode;->sLastInstanceCountCheckMillis:J
     invoke-static {v0, v1}, Landroid/os/StrictMode;->access$1502(J)J
 
     .line 1474

@@ -30,7 +30,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "initialCapacity"
+    .param p1, "initialCapacity"    # I
 
     .prologue
     .line 58
@@ -81,8 +81,8 @@
 # virtual methods
 .method public append(IZ)V
     .locals 7
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Z
 
     .prologue
     const/4 v6, 0x0
@@ -114,7 +114,7 @@
     iget v3, p0, Landroid/util/SparseBooleanArray;->mSize:I
 
     .line 237
-    .local v3, pos:I
+    .local v3, "pos":I
     iget-object v4, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
 
     array-length v4, v4
@@ -129,15 +129,15 @@
     move-result v0
 
     .line 240
-    .local v0, n:I
+    .local v0, "n":I
     new-array v1, v0, [I
 
     .line 241
-    .local v1, nkeys:[I
+    .local v1, "nkeys":[I
     new-array v2, v0, [Z
 
     .line 244
-    .local v2, nvalues:[Z
+    .local v2, "nvalues":[Z
     iget-object v4, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
 
     iget-object v5, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
@@ -162,9 +162,9 @@
     iput-object v2, p0, Landroid/util/SparseBooleanArray;->mValues:[Z
 
     .line 251
-    .end local v0           #n:I
-    .end local v1           #nkeys:[I
-    .end local v2           #nvalues:[Z
+    .end local v0    # "n":I
+    .end local v1    # "nkeys":[I
+    .end local v2    # "nvalues":[Z
     :cond_1
     iget-object v4, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
 
@@ -204,7 +204,7 @@
     const/4 v1, 0x0
 
     .line 74
-    .local v1, clone:Landroid/util/SparseBooleanArray;
+    .local v1, "clone":Landroid/util/SparseBooleanArray;
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -270,7 +270,7 @@
 
 .method public delete(I)V
     .locals 6
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 109
@@ -283,7 +283,7 @@
     move-result v0
 
     .line 111
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_0
 
     .line 112
@@ -330,7 +330,7 @@
 
 .method public get(I)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 88
@@ -345,8 +345,8 @@
 
 .method public get(IZ)Z
     .locals 3
-    .parameter "key"
-    .parameter "valueIfKeyNotFound"
+    .param p1, "key"    # I
+    .param p2, "valueIfKeyNotFound"    # Z
 
     .prologue
     .line 96
@@ -359,15 +359,15 @@
     move-result v0
 
     .line 98
-    .local v0, i:I
+    .local v0, "i":I
     if-gez v0, :cond_0
 
     .line 101
-    .end local p2
+    .end local p2    # "valueIfKeyNotFound":Z
     :goto_0
     return p2
 
-    .restart local p2
+    .restart local p2    # "valueIfKeyNotFound":Z
     :cond_0
     iget-object v1, p0, Landroid/util/SparseBooleanArray;->mValues:[Z
 
@@ -378,7 +378,7 @@
 
 .method public indexOfKey(I)I
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # I
 
     .prologue
     .line 200
@@ -395,13 +395,13 @@
 
 .method public indexOfValue(Z)I
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 212
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/util/SparseBooleanArray;->mSize:I
 
@@ -415,12 +415,12 @@
     if-ne v1, p1, :cond_0
 
     .line 216
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 212
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -435,7 +435,7 @@
 
 .method public keyAt(I)I
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 176
@@ -448,8 +448,8 @@
 
 .method public put(IZ)V
     .locals 8
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # I
+    .param p2, "value"    # Z
 
     .prologue
     const/4 v6, 0x0
@@ -464,7 +464,7 @@
     move-result v0
 
     .line 126
-    .local v0, i:I
+    .local v0, "i":I
     if-ltz v0, :cond_0
 
     .line 127
@@ -499,15 +499,15 @@
     move-result v1
 
     .line 134
-    .local v1, n:I
+    .local v1, "n":I
     new-array v2, v1, [I
 
     .line 135
-    .local v2, nkeys:[I
+    .local v2, "nkeys":[I
     new-array v3, v1, [Z
 
     .line 138
-    .local v3, nvalues:[Z
+    .local v3, "nvalues":[Z
     iget-object v4, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
 
     iget-object v5, p0, Landroid/util/SparseBooleanArray;->mKeys:[I
@@ -532,9 +532,9 @@
     iput-object v3, p0, Landroid/util/SparseBooleanArray;->mValues:[Z
 
     .line 145
-    .end local v1           #n:I
-    .end local v2           #nkeys:[I
-    .end local v3           #nvalues:[Z
+    .end local v1    # "n":I
+    .end local v2    # "nkeys":[I
+    .end local v3    # "nvalues":[Z
     :cond_1
     iget v4, p0, Landroid/util/SparseBooleanArray;->mSize:I
 
@@ -628,7 +628,7 @@
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 268
-    .local v0, buffer:Ljava/lang/StringBuilder;
+    .local v0, "buffer":Ljava/lang/StringBuilder;
     const/16 v4, 0x7b
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -636,7 +636,7 @@
     .line 269
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     iget v4, p0, Landroid/util/SparseBooleanArray;->mSize:I
 
@@ -657,7 +657,7 @@
     move-result v2
 
     .line 274
-    .local v2, key:I
+    .local v2, "key":I
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 275
@@ -671,7 +671,7 @@
     move-result v3
 
     .line 277
-    .local v3, value:Z
+    .local v3, "value":Z
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     .line 269
@@ -680,8 +680,8 @@
     goto :goto_1
 
     .line 279
-    .end local v2           #key:I
-    .end local v3           #value:Z
+    .end local v2    # "key":I
+    .end local v3    # "value":Z
     :cond_2
     const/16 v4, 0x7d
 
@@ -697,7 +697,7 @@
 
 .method public valueAt(I)Z
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 191

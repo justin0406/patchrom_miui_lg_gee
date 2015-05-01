@@ -34,7 +34,7 @@
 
 .method public static gluErrorString(I)Ljava/lang/String;
     .locals 1
-    .parameter "error"
+    .param p0, "error"    # I
 
     .prologue
     .line 36
@@ -103,23 +103,23 @@
 
 .method public static gluLookAt(Ljavax/microedition/khronos/opengles/GL10;FFFFFFFFF)V
     .locals 11
-    .parameter "gl"
-    .parameter "eyeX"
-    .parameter "eyeY"
-    .parameter "eyeZ"
-    .parameter "centerX"
-    .parameter "centerY"
-    .parameter "centerZ"
-    .parameter "upX"
-    .parameter "upY"
-    .parameter "upZ"
+    .param p0, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
+    .param p1, "eyeX"    # F
+    .param p2, "eyeY"    # F
+    .param p3, "eyeZ"    # F
+    .param p4, "centerX"    # F
+    .param p5, "centerY"    # F
+    .param p6, "centerZ"    # F
+    .param p7, "upX"    # F
+    .param p8, "upY"    # F
+    .param p9, "upZ"    # F
 
     .prologue
     .line 75
     sget-object v0, Landroid/opengl/GLU;->sScratch:[F
 
     .line 76
-    .local v0, scratch:[F
+    .local v0, "scratch":[F
     monitor-enter v0
 
     .line 77
@@ -170,17 +170,17 @@
 
 .method public static gluOrtho2D(Ljavax/microedition/khronos/opengles/GL10;FFFF)V
     .locals 7
-    .parameter "gl"
-    .parameter "left"
-    .parameter "right"
-    .parameter "bottom"
-    .parameter "top"
+    .param p0, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
+    .param p1, "left"    # F
+    .param p2, "right"    # F
+    .param p3, "bottom"    # F
+    .param p4, "top"    # F
 
     .prologue
     .line 94
-    const/high16 v5, -0x4080
+    const/high16 v5, -0x40800000    # -1.0f
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     move-object v0, p0
 
@@ -200,17 +200,17 @@
 
 .method public static gluPerspective(Ljavax/microedition/khronos/opengles/GL10;FFFF)V
     .locals 9
-    .parameter "gl"
-    .parameter "fovy"
-    .parameter "aspect"
-    .parameter "zNear"
-    .parameter "zFar"
+    .param p0, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
+    .param p1, "fovy"    # F
+    .param p2, "aspect"    # F
+    .param p3, "zNear"    # F
+    .param p4, "zFar"    # F
 
     .prologue
     .line 113
     float-to-double v5, p1
 
-    const-wide v7, 0x3f81df46a2529d39L
+    const-wide v7, 0x3f81df46a2529d39L    # 0.008726646259971648
 
     mul-double/2addr v5, v7
 
@@ -223,18 +223,18 @@
     mul-float v4, p3, v0
 
     .line 114
-    .local v4, top:F
+    .local v4, "top":F
     neg-float v3, v4
 
     .line 115
-    .local v3, bottom:F
+    .local v3, "bottom":F
     mul-float v1, v3, p2
 
     .line 116
-    .local v1, left:F
+    .local v1, "left":F
     mul-float v2, v4, p2
 
-    .local v2, right:F
+    .local v2, "right":F
     move-object v0, p0
 
     move v5, p3
@@ -250,39 +250,39 @@
 
 .method public static gluProject(FFF[FI[FI[II[FI)I
     .locals 11
-    .parameter "objX"
-    .parameter "objY"
-    .parameter "objZ"
-    .parameter "model"
-    .parameter "modelOffset"
-    .parameter "project"
-    .parameter "projectOffset"
-    .parameter "view"
-    .parameter "viewOffset"
-    .parameter "win"
-    .parameter "winOffset"
+    .param p0, "objX"    # F
+    .param p1, "objY"    # F
+    .param p2, "objZ"    # F
+    .param p3, "model"    # [F
+    .param p4, "modelOffset"    # I
+    .param p5, "project"    # [F
+    .param p6, "projectOffset"    # I
+    .param p7, "view"    # [I
+    .param p8, "viewOffset"    # I
+    .param p9, "win"    # [F
+    .param p10, "winOffset"    # I
 
     .prologue
     .line 150
     sget-object v0, Landroid/opengl/GLU;->sScratch:[F
 
     .line 151
-    .local v0, scratch:[F
+    .local v0, "scratch":[F
     monitor-enter v0
 
     .line 152
     const/4 v6, 0x0
 
     .line 153
-    .local v6, M_OFFSET:I
+    .local v6, "M_OFFSET":I
     const/16 v8, 0x10
 
     .line 154
-    .local v8, V_OFFSET:I
+    .local v8, "V_OFFSET":I
     const/16 v7, 0x14
 
     .line 155
-    .local v7, V2_OFFSET:I
+    .local v7, "V2_OFFSET":I
     const/4 v1, 0x0
 
     move-object/from16 v2, p5
@@ -314,7 +314,7 @@
     .line 161
     const/16 v1, 0x13
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     aput v2, v0, v1
 
@@ -337,7 +337,7 @@
     aget v10, v0, v1
 
     .line 167
-    .local v10, w:F
+    .local v10, "w":F
     const/4 v1, 0x0
 
     cmpl-float v1, v10, v1
@@ -355,12 +355,12 @@
 
     .line 171
     :cond_0
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     div-float v9, v1, v10
 
     .line 173
-    .local v9, rw:F
+    .local v9, "rw":F
     aget v1, p7, p8
 
     int-to-float v1, v1
@@ -377,13 +377,13 @@
 
     mul-float/2addr v3, v9
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     add-float/2addr v3, v4
 
     mul-float/2addr v2, v3
 
-    const/high16 v3, 0x3f00
+    const/high16 v3, 0x3f000000    # 0.5f
 
     mul-float/2addr v2, v3
 
@@ -412,13 +412,13 @@
 
     mul-float/2addr v4, v9
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     add-float/2addr v4, v5
 
     mul-float/2addr v3, v4
 
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
     mul-float/2addr v3, v4
 
@@ -435,11 +435,11 @@
 
     mul-float/2addr v2, v9
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     add-float/2addr v2, v3
 
-    const/high16 v3, 0x3f00
+    const/high16 v3, 0x3f000000    # 0.5f
 
     mul-float/2addr v2, v3
 
@@ -454,8 +454,8 @@
     goto :goto_0
 
     .line 181
-    .end local v9           #rw:F
-    .end local v10           #w:F
+    .end local v9    # "rw":F
+    .end local v10    # "w":F
     :catchall_0
     move-exception v1
 
@@ -468,39 +468,39 @@
 
 .method public static gluUnProject(FFF[FI[FI[II[FI)I
     .locals 10
-    .parameter "winX"
-    .parameter "winY"
-    .parameter "winZ"
-    .parameter "model"
-    .parameter "modelOffset"
-    .parameter "project"
-    .parameter "projectOffset"
-    .parameter "view"
-    .parameter "viewOffset"
-    .parameter "obj"
-    .parameter "objOffset"
+    .param p0, "winX"    # F
+    .param p1, "winY"    # F
+    .param p2, "winZ"    # F
+    .param p3, "model"    # [F
+    .param p4, "modelOffset"    # I
+    .param p5, "project"    # [F
+    .param p6, "projectOffset"    # I
+    .param p7, "view"    # [I
+    .param p8, "viewOffset"    # I
+    .param p9, "obj"    # [F
+    .param p10, "objOffset"    # I
 
     .prologue
     .line 216
     sget-object v0, Landroid/opengl/GLU;->sScratch:[F
 
     .line 217
-    .local v0, scratch:[F
+    .local v0, "scratch":[F
     monitor-enter v0
 
     .line 218
     const/4 v8, 0x0
 
     .line 219
-    .local v8, PM_OFFSET:I
+    .local v8, "PM_OFFSET":I
     const/16 v7, 0x10
 
     .line 220
-    .local v7, INVPM_OFFSET:I
+    .local v7, "INVPM_OFFSET":I
     const/4 v9, 0x0
 
     .line 221
-    .local v9, V_OFFSET:I
+    .local v9, "V_OFFSET":I
     const/4 v1, 0x0
 
     move-object v2, p5
@@ -538,7 +538,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     add-int/lit8 v3, p8, 0x0
 
@@ -558,7 +558,7 @@
 
     div-float/2addr v2, v3
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     sub-float/2addr v2, v3
 
@@ -567,7 +567,7 @@
     .line 231
     const/4 v1, 0x1
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     add-int/lit8 v3, p8, 0x1
 
@@ -587,7 +587,7 @@
 
     div-float/2addr v2, v3
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     sub-float/2addr v2, v3
 
@@ -596,11 +596,11 @@
     .line 234
     const/4 v1, 0x2
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     mul-float/2addr v2, p2
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     sub-float/2addr v2, v3
 
@@ -609,7 +609,7 @@
     .line 235
     const/4 v1, 0x3
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     aput v2, v0, v1
 

@@ -49,7 +49,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 106
@@ -63,8 +63,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 110
@@ -78,9 +78,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 11
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -134,13 +134,13 @@
     move-result-object v0
 
     .line 119
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v10, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
     move-result v2
 
     .line 121
-    .local v2, hSpacing:I
+    .local v2, "hSpacing":I
     invoke-virtual {p0, v2}, Landroid/widget/GridView;->setHorizontalSpacing(I)V
 
     .line 123
@@ -149,7 +149,7 @@
     move-result v5
 
     .line 125
-    .local v5, vSpacing:I
+    .local v5, "vSpacing":I
     invoke-virtual {p0, v5}, Landroid/widget/GridView;->setVerticalSpacing(I)V
 
     .line 127
@@ -160,7 +160,7 @@
     move-result v3
 
     .line 128
-    .local v3, index:I
+    .local v3, "index":I
     if-ltz v3, :cond_0
 
     .line 129
@@ -175,7 +175,7 @@
     move-result v1
 
     .line 133
-    .local v1, columnWidth:I
+    .local v1, "columnWidth":I
     if-lez v1, :cond_1
 
     .line 134
@@ -190,7 +190,7 @@
     move-result v4
 
     .line 138
-    .local v4, numColumns:I
+    .local v4, "numColumns":I
     invoke-virtual {p0, v4}, Landroid/widget/GridView;->setNumColumns(I)V
 
     .line 140
@@ -214,9 +214,9 @@
 
 .method private adjustForBottomFadingEdge(Landroid/view/View;II)V
     .locals 4
-    .parameter "childInSelectedRow"
-    .parameter "topSelectionPixel"
-    .parameter "bottomSelectionPixel"
+    .param p1, "childInSelectedRow"    # Landroid/view/View;
+    .param p2, "topSelectionPixel"    # I
+    .param p3, "bottomSelectionPixel"    # I
 
     .prologue
     .line 782
@@ -234,7 +234,7 @@
     sub-int v1, v3, p2
 
     .line 790
-    .local v1, spaceAbove:I
+    .local v1, "spaceAbove":I
     invoke-virtual {p1}, Landroid/view/View;->getBottom()I
 
     move-result v3
@@ -242,30 +242,30 @@
     sub-int v2, v3, p3
 
     .line 791
-    .local v2, spaceBelow:I
+    .local v2, "spaceBelow":I
     invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     .line 794
-    .local v0, offset:I
+    .local v0, "offset":I
     neg-int v3, v0
 
     invoke-virtual {p0, v3}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 796
-    .end local v0           #offset:I
-    .end local v1           #spaceAbove:I
-    .end local v2           #spaceBelow:I
+    .end local v0    # "offset":I
+    .end local v1    # "spaceAbove":I
+    .end local v2    # "spaceBelow":I
     :cond_0
     return-void
 .end method
 
 .method private adjustForTopFadingEdge(Landroid/view/View;II)V
     .locals 4
-    .parameter "childInSelectedRow"
-    .parameter "topSelectionPixel"
-    .parameter "bottomSelectionPixel"
+    .param p1, "childInSelectedRow"    # Landroid/view/View;
+    .param p2, "topSelectionPixel"    # I
+    .param p3, "bottomSelectionPixel"    # I
 
     .prologue
     .line 810
@@ -283,7 +283,7 @@
     sub-int v1, p2, v3
 
     .line 817
-    .local v1, spaceAbove:I
+    .local v1, "spaceAbove":I
     invoke-virtual {p1}, Landroid/view/View;->getBottom()I
 
     move-result v3
@@ -291,19 +291,19 @@
     sub-int v2, p3, v3
 
     .line 818
-    .local v2, spaceBelow:I
+    .local v2, "spaceBelow":I
     invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     .line 821
-    .local v0, offset:I
+    .local v0, "offset":I
     invoke-virtual {p0, v0}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 823
-    .end local v0           #offset:I
-    .end local v1           #spaceAbove:I
-    .end local v2           #spaceBelow:I
+    .end local v0    # "offset":I
+    .end local v1    # "spaceAbove":I
+    .end local v2    # "spaceBelow":I
     :cond_0
     return-void
 .end method
@@ -318,7 +318,7 @@
     move-result v1
 
     .line 2151
-    .local v1, childCount:I
+    .local v1, "childCount":I
     if-lez v1, :cond_2
 
     .line 2155
@@ -334,7 +334,7 @@
     move-result-object v0
 
     .line 2159
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getTop()I
 
     move-result v3
@@ -346,7 +346,7 @@
     sub-int v2, v3, v4
 
     .line 2160
-    .local v2, delta:I
+    .local v2, "delta":I
     iget v3, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     if-eqz v3, :cond_0
@@ -374,8 +374,8 @@
     invoke-virtual {p0, v3}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 2190
-    .end local v0           #child:Landroid/view/View;
-    .end local v2           #delta:I
+    .end local v0    # "child":Landroid/view/View;
+    .end local v2    # "delta":I
     :cond_2
     return-void
 
@@ -388,7 +388,7 @@
     move-result-object v0
 
     .line 2172
-    .restart local v0       #child:Landroid/view/View;
+    .restart local v0    # "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getBottom()I
 
     move-result v3
@@ -406,7 +406,7 @@
     sub-int v2, v3, v4
 
     .line 2174
-    .restart local v2       #delta:I
+    .restart local v2    # "delta":I
     iget v3, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     add-int/2addr v3, v1
@@ -432,9 +432,9 @@
 
 .method private commonKey(IILandroid/view/KeyEvent;)Z
     .locals 8
-    .parameter "keyCode"
-    .parameter "count"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "count"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v7, 0x2
@@ -470,13 +470,13 @@
     const/4 v1, 0x0
 
     .line 1549
-    .local v1, handled:Z
+    .local v1, "handled":Z
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     .line 1551
-    .local v0, action:I
+    .local v0, "action":I
     if-eq v0, v3, :cond_2
 
     .line 1552
@@ -1064,9 +1064,9 @@
 
 .method private correctTooHigh(III)V
     .locals 9
-    .parameter "numColumns"
-    .parameter "verticalSpacing"
-    .parameter "childCount"
+    .param p1, "numColumns"    # I
+    .param p2, "verticalSpacing"    # I
+    .param p3, "childCount"    # I
 
     .prologue
     .line 594
@@ -1077,7 +1077,7 @@
     add-int/lit8 v6, v7, -0x1
 
     .line 595
-    .local v6, lastPosition:I
+    .local v6, "lastPosition":I
     iget v7, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v7, v7, -0x1
@@ -1094,13 +1094,13 @@
     move-result-object v5
 
     .line 600
-    .local v5, lastChild:Landroid/view/View;
+    .local v5, "lastChild":Landroid/view/View;
     invoke-virtual {v5}, Landroid/view/View;->getBottom()I
 
     move-result v4
 
     .line 602
-    .local v4, lastBottom:I
+    .local v4, "lastBottom":I
     iget v7, p0, Landroid/widget/GridView;->mBottom:I
 
     iget v8, p0, Landroid/widget/GridView;->mTop:I
@@ -1114,11 +1114,11 @@
     sub-int v1, v7, v8
 
     .line 606
-    .local v1, end:I
+    .local v1, "end":I
     sub-int v0, v1, v4
 
     .line 608
-    .local v0, bottomOffset:I
+    .local v0, "bottomOffset":I
     const/4 v7, 0x0
 
     invoke-virtual {p0, v7}, Landroid/widget/GridView;->getChildAt(I)Landroid/view/View;
@@ -1126,13 +1126,13 @@
     move-result-object v2
 
     .line 609
-    .local v2, firstChild:Landroid/view/View;
+    .local v2, "firstChild":Landroid/view/View;
     invoke-virtual {v2}, Landroid/view/View;->getTop()I
 
     move-result v3
 
     .line 613
-    .local v3, firstTop:I
+    .local v3, "firstTop":I
     if-lez v0, :cond_3
 
     iget v7, p0, Landroid/widget/GridView;->mFirstPosition:I
@@ -1180,7 +1180,7 @@
 
     const/4 p1, 0x1
 
-    .end local p1
+    .end local p1    # "numColumns":I
     :cond_2
     sub-int/2addr v7, p1
 
@@ -1196,21 +1196,21 @@
     invoke-direct {p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
 
     .line 631
-    .end local v0           #bottomOffset:I
-    .end local v1           #end:I
-    .end local v2           #firstChild:Landroid/view/View;
-    .end local v3           #firstTop:I
-    .end local v4           #lastBottom:I
-    .end local v5           #lastChild:Landroid/view/View;
+    .end local v0    # "bottomOffset":I
+    .end local v1    # "end":I
+    .end local v2    # "firstChild":Landroid/view/View;
+    .end local v3    # "firstTop":I
+    .end local v4    # "lastBottom":I
+    .end local v5    # "lastChild":Landroid/view/View;
     :cond_3
     return-void
 .end method
 
 .method private correctTooLow(III)V
     .locals 10
-    .parameter "numColumns"
-    .parameter "verticalSpacing"
-    .parameter "childCount"
+    .param p1, "numColumns"    # I
+    .param p2, "verticalSpacing"    # I
+    .param p3, "childCount"    # I
 
     .prologue
     .line 634
@@ -1228,19 +1228,19 @@
     move-result-object v1
 
     .line 639
-    .local v1, firstChild:Landroid/view/View;
+    .local v1, "firstChild":Landroid/view/View;
     invoke-virtual {v1}, Landroid/view/View;->getTop()I
 
     move-result v2
 
     .line 642
-    .local v2, firstTop:I
+    .local v2, "firstTop":I
     iget-object v8, p0, Landroid/widget/GridView;->mListPadding:Landroid/graphics/Rect;
 
     iget v6, v8, Landroid/graphics/Rect;->top:I
 
     .line 645
-    .local v6, start:I
+    .local v6, "start":I
     iget v8, p0, Landroid/widget/GridView;->mBottom:I
 
     iget v9, p0, Landroid/widget/GridView;->mTop:I
@@ -1254,11 +1254,11 @@
     sub-int v0, v8, v9
 
     .line 649
-    .local v0, end:I
+    .local v0, "end":I
     sub-int v7, v2, v6
 
     .line 650
-    .local v7, topOffset:I
+    .local v7, "topOffset":I
     add-int/lit8 v8, p3, -0x1
 
     invoke-virtual {p0, v8}, Landroid/widget/GridView;->getChildAt(I)Landroid/view/View;
@@ -1266,13 +1266,13 @@
     move-result-object v4
 
     .line 651
-    .local v4, lastChild:Landroid/view/View;
+    .local v4, "lastChild":Landroid/view/View;
     invoke-virtual {v4}, Landroid/view/View;->getBottom()I
 
     move-result v3
 
     .line 652
-    .local v3, lastBottom:I
+    .local v3, "lastBottom":I
     iget v8, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     add-int/2addr v8, p3
@@ -1280,7 +1280,7 @@
     add-int/lit8 v5, v8, -0x1
 
     .line 656
-    .local v5, lastPosition:I
+    .local v5, "lastPosition":I
     if-lez v7, :cond_3
 
     iget v8, p0, Landroid/widget/GridView;->mItemCount:I
@@ -1326,7 +1326,7 @@
 
     const/4 p1, 0x1
 
-    .end local p1
+    .end local p1    # "numColumns":I
     :cond_2
     add-int v8, v5, p1
 
@@ -1342,21 +1342,21 @@
     invoke-direct {p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
 
     .line 674
-    .end local v0           #end:I
-    .end local v1           #firstChild:Landroid/view/View;
-    .end local v2           #firstTop:I
-    .end local v3           #lastBottom:I
-    .end local v4           #lastChild:Landroid/view/View;
-    .end local v5           #lastPosition:I
-    .end local v6           #start:I
-    .end local v7           #topOffset:I
+    .end local v0    # "end":I
+    .end local v1    # "firstChild":Landroid/view/View;
+    .end local v2    # "firstTop":I
+    .end local v3    # "lastBottom":I
+    .end local v4    # "lastChild":Landroid/view/View;
+    .end local v5    # "lastPosition":I
+    .end local v6    # "start":I
+    .end local v7    # "topOffset":I
     :cond_3
     return-void
 .end method
 
 .method private determineColumns(I)Z
     .locals 8
-    .parameter "availableSpace"
+    .param p1, "availableSpace"    # I
 
     .prologue
     const/4 v7, 0x1
@@ -1365,19 +1365,19 @@
     iget v2, p0, Landroid/widget/GridView;->mRequestedHorizontalSpacing:I
 
     .line 944
-    .local v2, requestedHorizontalSpacing:I
+    .local v2, "requestedHorizontalSpacing":I
     iget v4, p0, Landroid/widget/GridView;->mStretchMode:I
 
     .line 945
-    .local v4, stretchMode:I
+    .local v4, "stretchMode":I
     iget v1, p0, Landroid/widget/GridView;->mRequestedColumnWidth:I
 
     .line 946
-    .local v1, requestedColumnWidth:I
+    .local v1, "requestedColumnWidth":I
     const/4 v0, 0x0
 
     .line 948
-    .local v0, didNotInitiallyFit:Z
+    .local v0, "didNotInitiallyFit":Z
     iget v5, p0, Landroid/widget/GridView;->mRequestedNumColumns:I
 
     const/4 v6, -0x1
@@ -1425,7 +1425,7 @@
     sub-int v3, v5, v6
 
     .line 977
-    .local v3, spaceLeftOver:I
+    .local v3, "spaceLeftOver":I
     if-gez v3, :cond_1
 
     .line 978
@@ -1436,7 +1436,7 @@
     packed-switch v4, :pswitch_data_1
 
     .line 1013
-    .end local v3           #spaceLeftOver:I
+    .end local v3    # "spaceLeftOver":I
     :goto_1
     return v0
 
@@ -1466,7 +1466,7 @@
     goto :goto_1
 
     .line 984
-    .restart local v3       #spaceLeftOver:I
+    .restart local v3    # "spaceLeftOver":I
     :pswitch_1
     iget v5, p0, Landroid/widget/GridView;->mNumColumns:I
 
@@ -1558,15 +1558,15 @@
 
 .method private fillDown(II)Landroid/view/View;
     .locals 6
-    .parameter "pos"
-    .parameter "nextTop"
+    .param p1, "pos"    # I
+    .param p2, "nextTop"    # I
 
     .prologue
     .line 279
     const/4 v1, 0x0
 
     .line 281
-    .local v1, selectedView:Landroid/view/View;
+    .local v1, "selectedView":Landroid/view/View;
     iget v3, p0, Landroid/widget/GridView;->mBottom:I
 
     iget v4, p0, Landroid/widget/GridView;->mTop:I
@@ -1574,7 +1574,7 @@
     sub-int v0, v3, v4
 
     .line 282
-    .local v0, end:I
+    .local v0, "end":I
     iget v3, p0, Landroid/widget/GridView;->mGroupFlags:I
 
     and-int/lit8 v3, v3, 0x22
@@ -1607,7 +1607,7 @@
     move-result-object v2
 
     .line 288
-    .local v2, temp:Landroid/view/View;
+    .local v2, "temp":Landroid/view/View;
     if-eqz v2, :cond_1
 
     .line 289
@@ -1634,7 +1634,7 @@
     goto :goto_0
 
     .line 299
-    .end local v2           #temp:Landroid/view/View;
+    .end local v2    # "temp":Landroid/view/View;
     :cond_2
     iget v3, p0, Landroid/widget/GridView;->mFirstPosition:I
 
@@ -1656,8 +1656,8 @@
 
 .method private fillFromBottom(II)Landroid/view/View;
     .locals 3
-    .parameter "lastPosition"
-    .parameter "nextBottom"
+    .param p1, "lastPosition"    # I
+    .param p2, "nextBottom"    # I
 
     .prologue
     .line 425
@@ -1684,7 +1684,7 @@
     sub-int v0, v1, p1
 
     .line 429
-    .local v0, invertedPosition:I
+    .local v0, "invertedPosition":I
     iget v1, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v1, v1, -0x1
@@ -1707,9 +1707,9 @@
 
 .method private fillFromSelection(III)Landroid/view/View;
     .locals 14
-    .parameter "selectedTop"
-    .parameter "childrenTop"
-    .parameter "childrenBottom"
+    .param p1, "selectedTop"    # I
+    .param p2, "childrenTop"    # I
+    .param p3, "childrenBottom"    # I
 
     .prologue
     .line 687
@@ -1718,23 +1718,23 @@
     move-result v2
 
     .line 688
-    .local v2, fadingEdgeLength:I
+    .local v2, "fadingEdgeLength":I
     iget v9, p0, Landroid/widget/GridView;->mSelectedPosition:I
 
     .line 689
-    .local v9, selectedPosition:I
+    .local v9, "selectedPosition":I
     iget v4, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 690
-    .local v4, numColumns:I
+    .local v4, "numColumns":I
     iget v11, p0, Landroid/widget/GridView;->mVerticalSpacing:I
 
     .line 693
-    .local v11, verticalSpacing:I
+    .local v11, "verticalSpacing":I
     const/4 v6, -0x1
 
     .line 695
-    .local v6, rowEnd:I
+    .local v6, "rowEnd":I
     iget-boolean v12, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v12, :cond_0
@@ -1745,7 +1745,7 @@
     sub-int v7, v9, v12
 
     .line 707
-    .local v7, rowStart:I
+    .local v7, "rowStart":I
     :goto_0
     move/from16 v0, p2
 
@@ -1754,7 +1754,7 @@
     move-result v10
 
     .line 708
-    .local v10, topSelectionPixel:I
+    .local v10, "topSelectionPixel":I
     move/from16 v0, p3
 
     invoke-direct {p0, v0, v2, v4, v7}, Landroid/widget/GridView;->getBottomSelectionPixel(IIII)I
@@ -1762,7 +1762,7 @@
     move-result v1
 
     .line 711
-    .local v1, bottomSelectionPixel:I
+    .local v1, "bottomSelectionPixel":I
     iget-boolean v12, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-eqz v12, :cond_1
@@ -1777,14 +1777,14 @@
     move-result-object v8
 
     .line 713
-    .local v8, sel:Landroid/view/View;
+    .local v8, "sel":Landroid/view/View;
     iput v7, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     .line 715
     iget-object v5, p0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
     .line 716
-    .local v5, referenceView:Landroid/view/View;
+    .local v5, "referenceView":Landroid/view/View;
     invoke-direct {p0, v5, v10, v1}, Landroid/widget/GridView;->adjustForTopFadingEdge(Landroid/view/View;II)V
 
     .line 717
@@ -1825,11 +1825,11 @@
     return-object v8
 
     .line 698
-    .end local v1           #bottomSelectionPixel:I
-    .end local v5           #referenceView:Landroid/view/View;
-    .end local v7           #rowStart:I
-    .end local v8           #sel:Landroid/view/View;
-    .end local v10           #topSelectionPixel:I
+    .end local v1    # "bottomSelectionPixel":I
+    .end local v5    # "referenceView":Landroid/view/View;
+    .end local v7    # "rowStart":I
+    .end local v8    # "sel":Landroid/view/View;
+    .end local v10    # "topSelectionPixel":I
     :cond_0
     iget v12, p0, Landroid/widget/GridView;->mItemCount:I
 
@@ -1838,7 +1838,7 @@
     sub-int v3, v12, v9
 
     .line 700
-    .local v3, invertedSelection:I
+    .local v3, "invertedSelection":I
     iget v12, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v12, v12, -0x1
@@ -1860,12 +1860,12 @@
 
     move-result v7
 
-    .restart local v7       #rowStart:I
+    .restart local v7    # "rowStart":I
     goto :goto_0
 
-    .end local v3           #invertedSelection:I
-    .restart local v1       #bottomSelectionPixel:I
-    .restart local v10       #topSelectionPixel:I
+    .end local v3    # "invertedSelection":I
+    .restart local v1    # "bottomSelectionPixel":I
+    .restart local v10    # "topSelectionPixel":I
     :cond_1
     move v12, v7
 
@@ -1873,8 +1873,8 @@
     goto :goto_1
 
     .line 724
-    .restart local v5       #referenceView:Landroid/view/View;
-    .restart local v8       #sel:Landroid/view/View;
+    .restart local v5    # "referenceView":Landroid/view/View;
+    .restart local v8    # "sel":Landroid/view/View;
     :cond_2
     add-int v12, v6, v4
 
@@ -1905,7 +1905,7 @@
 
 .method private fillFromTop(I)Landroid/view/View;
     .locals 3
-    .parameter "nextTop"
+    .param p1, "nextTop"    # I
 
     .prologue
     .line 415
@@ -1968,8 +1968,8 @@
 
 .method private fillSelection(II)Landroid/view/View;
     .locals 15
-    .parameter "childrenTop"
-    .parameter "childrenBottom"
+    .param p1, "childrenTop"    # I
+    .param p2, "childrenBottom"    # I
 
     .prologue
     .line 435
@@ -1978,19 +1978,19 @@
     move-result v10
 
     .line 436
-    .local v10, selectedPosition:I
+    .local v10, "selectedPosition":I
     iget v4, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 437
-    .local v4, numColumns:I
+    .local v4, "numColumns":I
     iget v12, p0, Landroid/widget/GridView;->mVerticalSpacing:I
 
     .line 440
-    .local v12, verticalSpacing:I
+    .local v12, "verticalSpacing":I
     const/4 v7, -0x1
 
     .line 442
-    .local v7, rowEnd:I
+    .local v7, "rowEnd":I
     iget-boolean v13, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v13, :cond_0
@@ -2001,14 +2001,14 @@
     sub-int v8, v10, v13
 
     .line 451
-    .local v8, rowStart:I
+    .local v8, "rowStart":I
     :goto_0
     invoke-virtual {p0}, Landroid/widget/GridView;->getVerticalFadingEdgeLength()I
 
     move-result v2
 
     .line 452
-    .local v2, fadingEdgeLength:I
+    .local v2, "fadingEdgeLength":I
     move/from16 v0, p1
 
     invoke-direct {p0, v0, v2, v8}, Landroid/widget/GridView;->getTopSelectionPixel(III)I
@@ -2016,7 +2016,7 @@
     move-result v11
 
     .line 454
-    .local v11, topSelectionPixel:I
+    .local v11, "topSelectionPixel":I
     iget-boolean v13, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-eqz v13, :cond_1
@@ -2031,14 +2031,14 @@
     move-result-object v9
 
     .line 455
-    .local v9, sel:Landroid/view/View;
+    .local v9, "sel":Landroid/view/View;
     iput v8, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     .line 457
     iget-object v6, p0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
     .line 459
-    .local v6, referenceView:Landroid/view/View;
+    .local v6, "referenceView":Landroid/view/View;
     iget-boolean v13, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v13, :cond_2
@@ -2078,11 +2078,11 @@
     return-object v9
 
     .line 445
-    .end local v2           #fadingEdgeLength:I
-    .end local v6           #referenceView:Landroid/view/View;
-    .end local v8           #rowStart:I
-    .end local v9           #sel:Landroid/view/View;
-    .end local v11           #topSelectionPixel:I
+    .end local v2    # "fadingEdgeLength":I
+    .end local v6    # "referenceView":Landroid/view/View;
+    .end local v8    # "rowStart":I
+    .end local v9    # "sel":Landroid/view/View;
+    .end local v11    # "topSelectionPixel":I
     :cond_0
     iget v13, p0, Landroid/widget/GridView;->mItemCount:I
 
@@ -2091,7 +2091,7 @@
     sub-int v3, v13, v10
 
     .line 447
-    .local v3, invertedSelection:I
+    .local v3, "invertedSelection":I
     iget v13, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v13, v13, -0x1
@@ -2113,12 +2113,12 @@
 
     move-result v8
 
-    .restart local v8       #rowStart:I
+    .restart local v8    # "rowStart":I
     goto :goto_0
 
-    .end local v3           #invertedSelection:I
-    .restart local v2       #fadingEdgeLength:I
-    .restart local v11       #topSelectionPixel:I
+    .end local v3    # "invertedSelection":I
+    .restart local v2    # "fadingEdgeLength":I
+    .restart local v11    # "topSelectionPixel":I
     :cond_1
     move v13, v8
 
@@ -2126,8 +2126,8 @@
     goto :goto_1
 
     .line 465
-    .restart local v6       #referenceView:Landroid/view/View;
-    .restart local v9       #sel:Landroid/view/View;
+    .restart local v6    # "referenceView":Landroid/view/View;
+    .restart local v9    # "sel":Landroid/view/View;
     :cond_2
     move/from16 v0, p2
 
@@ -2136,7 +2136,7 @@
     move-result v1
 
     .line 467
-    .local v1, bottomSelectionPixel:I
+    .local v1, "bottomSelectionPixel":I
     invoke-virtual {v6}, Landroid/view/View;->getBottom()I
 
     move-result v13
@@ -2144,7 +2144,7 @@
     sub-int v5, v1, v13
 
     .line 468
-    .local v5, offset:I
+    .local v5, "offset":I
     invoke-virtual {p0, v5}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 469
@@ -2180,19 +2180,19 @@
 
 .method private fillSpecific(II)Landroid/view/View;
     .locals 12
-    .parameter "position"
-    .parameter "top"
+    .param p1, "position"    # I
+    .param p2, "top"    # I
 
     .prologue
     .line 533
     iget v6, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 536
-    .local v6, numColumns:I
+    .local v6, "numColumns":I
     const/4 v4, -0x1
 
     .line 538
-    .local v4, motionRowEnd:I
+    .local v4, "motionRowEnd":I
     iget-boolean v10, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v10, :cond_1
@@ -2203,7 +2203,7 @@
     sub-int v5, p1, v10
 
     .line 547
-    .local v5, motionRowStart:I
+    .local v5, "motionRowStart":I
     :goto_0
     iget-boolean v10, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
@@ -2219,28 +2219,28 @@
     move-result-object v8
 
     .line 550
-    .local v8, temp:Landroid/view/View;
+    .local v8, "temp":Landroid/view/View;
     iput v5, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     .line 552
     iget-object v7, p0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
     .line 554
-    .local v7, referenceView:Landroid/view/View;
+    .local v7, "referenceView":Landroid/view/View;
     if-nez v7, :cond_3
 
     .line 555
     const/4 v8, 0x0
 
     .line 588
-    .end local v8           #temp:Landroid/view/View;
+    .end local v8    # "temp":Landroid/view/View;
     :cond_0
     :goto_2
     return-object v8
 
     .line 541
-    .end local v5           #motionRowStart:I
-    .end local v7           #referenceView:Landroid/view/View;
+    .end local v5    # "motionRowStart":I
+    .end local v7    # "referenceView":Landroid/view/View;
     :cond_1
     iget v10, p0, Landroid/widget/GridView;->mItemCount:I
 
@@ -2249,7 +2249,7 @@
     sub-int v3, v10, p1
 
     .line 543
-    .local v3, invertedSelection:I
+    .local v3, "invertedSelection":I
     iget v10, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v10, v10, -0x1
@@ -2271,10 +2271,10 @@
 
     move-result v5
 
-    .restart local v5       #motionRowStart:I
+    .restart local v5    # "motionRowStart":I
     goto :goto_0
 
-    .end local v3           #invertedSelection:I
+    .end local v3    # "invertedSelection":I
     :cond_2
     move v10, v5
 
@@ -2282,13 +2282,13 @@
     goto :goto_1
 
     .line 558
-    .restart local v7       #referenceView:Landroid/view/View;
-    .restart local v8       #temp:Landroid/view/View;
+    .restart local v7    # "referenceView":Landroid/view/View;
+    .restart local v8    # "temp":Landroid/view/View;
     :cond_3
     iget v9, p0, Landroid/widget/GridView;->mVerticalSpacing:I
 
     .line 563
-    .local v9, verticalSpacing:I
+    .local v9, "verticalSpacing":I
     iget-boolean v10, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v10, :cond_5
@@ -2307,7 +2307,7 @@
     move-result-object v0
 
     .line 565
-    .local v0, above:Landroid/view/View;
+    .local v0, "above":Landroid/view/View;
     invoke-direct {p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
 
     .line 566
@@ -2324,13 +2324,13 @@
     move-result-object v1
 
     .line 568
-    .local v1, below:Landroid/view/View;
+    .local v1, "below":Landroid/view/View;
     invoke-virtual {p0}, Landroid/widget/GridView;->getChildCount()I
 
     move-result v2
 
     .line 569
-    .local v2, childCount:I
+    .local v2, "childCount":I
     if-lez v2, :cond_4
 
     .line 570
@@ -2350,9 +2350,9 @@
     goto :goto_2
 
     .line 573
-    .end local v0           #above:Landroid/view/View;
-    .end local v1           #below:Landroid/view/View;
-    .end local v2           #childCount:I
+    .end local v0    # "above":Landroid/view/View;
+    .end local v1    # "below":Landroid/view/View;
+    .end local v2    # "childCount":I
     :cond_5
     add-int v10, v4, v6
 
@@ -2367,7 +2367,7 @@
     move-result-object v1
 
     .line 574
-    .restart local v1       #below:Landroid/view/View;
+    .restart local v1    # "below":Landroid/view/View;
     invoke-direct {p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
 
     .line 575
@@ -2384,13 +2384,13 @@
     move-result-object v0
 
     .line 577
-    .restart local v0       #above:Landroid/view/View;
+    .restart local v0    # "above":Landroid/view/View;
     invoke-virtual {p0}, Landroid/widget/GridView;->getChildCount()I
 
     move-result v2
 
     .line 578
-    .restart local v2       #childCount:I
+    .restart local v2    # "childCount":I
     if-lez v2, :cond_4
 
     .line 579
@@ -2407,8 +2407,8 @@
 
 .method private fillUp(II)Landroid/view/View;
     .locals 6
-    .parameter "pos"
-    .parameter "nextBottom"
+    .param p1, "pos"    # I
+    .param p2, "nextBottom"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -2417,11 +2417,11 @@
     const/4 v1, 0x0
 
     .line 379
-    .local v1, selectedView:Landroid/view/View;
+    .local v1, "selectedView":Landroid/view/View;
     const/4 v0, 0x0
 
     .line 380
-    .local v0, end:I
+    .local v0, "end":I
     iget v3, p0, Landroid/widget/GridView;->mGroupFlags:I
 
     and-int/lit8 v3, v3, 0x22
@@ -2448,7 +2448,7 @@
     move-result-object v2
 
     .line 387
-    .local v2, temp:Landroid/view/View;
+    .local v2, "temp":Landroid/view/View;
     if-eqz v2, :cond_1
 
     .line 388
@@ -2478,7 +2478,7 @@
     goto :goto_0
 
     .line 398
-    .end local v2           #temp:Landroid/view/View;
+    .end local v2    # "temp":Landroid/view/View;
     :cond_2
     iget-boolean v3, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
@@ -2515,17 +2515,17 @@
 
 .method private getBottomSelectionPixel(IIII)I
     .locals 3
-    .parameter "childrenBottom"
-    .parameter "fadingEdgeLength"
-    .parameter "numColumns"
-    .parameter "rowStart"
+    .param p1, "childrenBottom"    # I
+    .param p2, "fadingEdgeLength"    # I
+    .param p3, "numColumns"    # I
+    .param p4, "rowStart"    # I
 
     .prologue
     .line 745
     move v0, p1
 
     .line 746
-    .local v0, bottomSelectionPixel:I
+    .local v0, "bottomSelectionPixel":I
     add-int v1, p4, p3
 
     add-int/lit8 v1, v1, -0x1
@@ -2546,16 +2546,16 @@
 
 .method private getTopSelectionPixel(III)I
     .locals 1
-    .parameter "childrenTop"
-    .parameter "fadingEdgeLength"
-    .parameter "rowStart"
+    .param p1, "childrenTop"    # I
+    .param p2, "fadingEdgeLength"    # I
+    .param p3, "rowStart"    # I
 
     .prologue
     .line 762
     move v0, p1
 
     .line 763
-    .local v0, topSelectionPixel:I
+    .local v0, "topSelectionPixel":I
     if-lez p3, :cond_0
 
     .line 764
@@ -2568,8 +2568,8 @@
 
 .method private isCandidateSelection(II)Z
     .locals 8
-    .parameter "childIndex"
-    .parameter "direction"
+    .param p1, "childIndex"    # I
+    .param p2, "direction"    # I
 
     .prologue
     const/4 v4, 0x1
@@ -2582,13 +2582,13 @@
     move-result v0
 
     .line 1899
-    .local v0, count:I
+    .local v0, "count":I
     add-int/lit8 v6, v0, -0x1
 
     sub-int v1, v6, p1
 
     .line 1904
-    .local v1, invertedIndex:I
+    .local v1, "invertedIndex":I
     iget-boolean v6, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v6, :cond_0
@@ -2601,7 +2601,7 @@
     sub-int v3, p1, v6
 
     .line 1906
-    .local v3, rowStart:I
+    .local v3, "rowStart":I
     iget v6, p0, Landroid/widget/GridView;->mNumColumns:I
 
     add-int/2addr v6, v3
@@ -2613,7 +2613,7 @@
     move-result v2
 
     .line 1912
-    .local v2, rowEnd:I
+    .local v2, "rowEnd":I
     :goto_0
     sparse-switch p2, :sswitch_data_0
 
@@ -2627,8 +2627,8 @@
     throw v4
 
     .line 1908
-    .end local v2           #rowEnd:I
-    .end local v3           #rowStart:I
+    .end local v2    # "rowEnd":I
+    .end local v3    # "rowStart":I
     :cond_0
     add-int/lit8 v6, v0, -0x1
 
@@ -2641,7 +2641,7 @@
     sub-int v2, v6, v7
 
     .line 1909
-    .restart local v2       #rowEnd:I
+    .restart local v2    # "rowEnd":I
     iget v6, p0, Landroid/widget/GridView;->mNumColumns:I
 
     sub-int v6, v2, v6
@@ -2652,7 +2652,7 @@
 
     move-result v3
 
-    .restart local v3       #rowStart:I
+    .restart local v3    # "rowStart":I
     goto :goto_0
 
     .line 1916
@@ -2734,12 +2734,12 @@
 
 .method private makeAndAddView(IIZIZI)Landroid/view/View;
     .locals 10
-    .parameter "position"
-    .parameter "y"
-    .parameter "flow"
-    .parameter "childrenLeft"
-    .parameter "selected"
-    .parameter "where"
+    .param p1, "position"    # I
+    .param p2, "y"    # I
+    .param p3, "flow"    # Z
+    .param p4, "childrenLeft"    # I
+    .param p5, "selected"    # Z
+    .param p6, "where"    # I
 
     .prologue
     .line 1332
@@ -2755,7 +2755,7 @@
     move-result-object v1
 
     .line 1335
-    .local v1, child:Landroid/view/View;
+    .local v1, "child":Landroid/view/View;
     if-eqz v1, :cond_0
 
     .line 1338
@@ -2780,13 +2780,13 @@
     move-object v9, v1
 
     .line 1350
-    .end local v1           #child:Landroid/view/View;
-    .local v9, child:Landroid/view/View;
+    .end local v1    # "child":Landroid/view/View;
+    .local v9, "child":Landroid/view/View;
     :goto_0
     return-object v9
 
     .line 1345
-    .end local v9           #child:Landroid/view/View;
+    .end local v9    # "child":Landroid/view/View;
     :cond_0
     iget-object v0, p0, Landroid/widget/GridView;->mIsScrap:[Z
 
@@ -2795,7 +2795,7 @@
     move-result-object v1
 
     .line 1348
-    .restart local v1       #child:Landroid/view/View;
+    .restart local v1    # "child":Landroid/view/View;
     iget-object v0, p0, Landroid/widget/GridView;->mIsScrap:[Z
 
     const/4 v2, 0x0
@@ -2821,16 +2821,16 @@
     move-object v9, v1
 
     .line 1350
-    .end local v1           #child:Landroid/view/View;
-    .restart local v9       #child:Landroid/view/View;
+    .end local v1    # "child":Landroid/view/View;
+    .restart local v9    # "child":Landroid/view/View;
     goto :goto_0
 .end method
 
 .method private makeRow(IIZ)Landroid/view/View;
     .locals 18
-    .parameter "startPos"
-    .parameter "y"
-    .parameter "flow"
+    .param p1, "startPos"    # I
+    .param p2, "y"    # I
+    .param p3, "flow"    # Z
 
     .prologue
     .line 304
@@ -2839,19 +2839,19 @@
     iget v9, v0, Landroid/widget/GridView;->mColumnWidth:I
 
     .line 305
-    .local v9, columnWidth:I
+    .local v9, "columnWidth":I
     move-object/from16 v0, p0
 
     iget v12, v0, Landroid/widget/GridView;->mHorizontalSpacing:I
 
     .line 307
-    .local v12, horizontalSpacing:I
+    .local v12, "horizontalSpacing":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridView;->isLayoutRtl()Z
 
     move-result v14
 
     .line 312
-    .local v14, isLayoutRtl:Z
+    .local v14, "isLayoutRtl":Z
     if-eqz v14, :cond_5
 
     .line 313
@@ -2883,7 +2883,7 @@
     sub-int v5, v3, v1
 
     .line 320
-    .local v5, nextLeft:I
+    .local v5, "nextLeft":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -2907,25 +2907,25 @@
     move-result v15
 
     .line 332
-    .local v15, last:I
+    .local v15, "last":I
     :cond_0
     :goto_2
     const/16 v17, 0x0
 
     .line 334
-    .local v17, selectedView:Landroid/view/View;
+    .local v17, "selectedView":Landroid/view/View;
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridView;->shouldShowSelector()Z
 
     move-result v11
 
     .line 335
-    .local v11, hasFocus:Z
+    .local v11, "hasFocus":Z
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridView;->touchModeDrawsInPressedState()Z
 
     move-result v13
 
     .line 336
-    .local v13, inClick:Z
+    .local v13, "inClick":Z
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mSelectedPosition:I
@@ -2933,14 +2933,14 @@
     move/from16 v16, v0
 
     .line 338
-    .local v16, selectedPosition:I
+    .local v16, "selectedPosition":I
     const/4 v8, 0x0
 
     .line 339
-    .local v8, child:Landroid/view/View;
+    .local v8, "child":Landroid/view/View;
     move/from16 v2, p1
 
-    .local v2, pos:I
+    .local v2, "pos":I
     :goto_3
     if-ge v2, v15, :cond_c
 
@@ -2952,13 +2952,13 @@
     const/4 v6, 0x1
 
     .line 344
-    .local v6, selected:Z
+    .local v6, "selected":Z
     :goto_4
     if-eqz p3, :cond_a
 
     const/4 v7, -0x1
 
-    .local v7, where:I
+    .local v7, "where":I
     :goto_5
     move-object/from16 v1, p0
 
@@ -3008,16 +3008,16 @@
     goto :goto_3
 
     .line 313
-    .end local v2           #pos:I
-    .end local v5           #nextLeft:I
-    .end local v6           #selected:Z
-    .end local v7           #where:I
-    .end local v8           #child:Landroid/view/View;
-    .end local v11           #hasFocus:Z
-    .end local v13           #inClick:Z
-    .end local v15           #last:I
-    .end local v16           #selectedPosition:I
-    .end local v17           #selectedView:Landroid/view/View;
+    .end local v2    # "pos":I
+    .end local v5    # "nextLeft":I
+    .end local v6    # "selected":Z
+    .end local v7    # "where":I
+    .end local v8    # "child":Landroid/view/View;
+    .end local v11    # "hasFocus":Z
+    .end local v13    # "inClick":Z
+    .end local v15    # "last":I
+    .end local v16    # "selectedPosition":I
+    .end local v17    # "selectedView":Landroid/view/View;
     :cond_4
     const/4 v1, 0x0
 
@@ -3044,22 +3044,22 @@
     :goto_7
     add-int v5, v3, v1
 
-    .restart local v5       #nextLeft:I
+    .restart local v5    # "nextLeft":I
     goto :goto_1
 
-    .end local v5           #nextLeft:I
+    .end local v5    # "nextLeft":I
     :cond_6
     const/4 v1, 0x0
 
     goto :goto_7
 
     .line 323
-    .restart local v5       #nextLeft:I
+    .restart local v5    # "nextLeft":I
     :cond_7
     add-int/lit8 v15, p1, 0x1
 
     .line 324
-    .restart local v15       #last:I
+    .restart local v15    # "last":I
     const/4 v1, 0x0
 
     move-object/from16 v0, p0
@@ -3097,7 +3097,7 @@
     mul-int v10, v1, v3
 
     .line 328
-    .local v10, deltaLeft:I
+    .local v10, "deltaLeft":I
     if-eqz v14, :cond_8
 
     const/4 v1, -0x1
@@ -3115,35 +3115,35 @@
     goto :goto_8
 
     .line 341
-    .end local v10           #deltaLeft:I
-    .restart local v2       #pos:I
-    .restart local v8       #child:Landroid/view/View;
-    .restart local v11       #hasFocus:Z
-    .restart local v13       #inClick:Z
-    .restart local v16       #selectedPosition:I
-    .restart local v17       #selectedView:Landroid/view/View;
+    .end local v10    # "deltaLeft":I
+    .restart local v2    # "pos":I
+    .restart local v8    # "child":Landroid/view/View;
+    .restart local v11    # "hasFocus":Z
+    .restart local v13    # "inClick":Z
+    .restart local v16    # "selectedPosition":I
+    .restart local v17    # "selectedView":Landroid/view/View;
     :cond_9
     const/4 v6, 0x0
 
     goto :goto_4
 
     .line 344
-    .restart local v6       #selected:Z
+    .restart local v6    # "selected":Z
     :cond_a
     sub-int v7, v2, p1
 
     goto :goto_5
 
     .line 347
-    .restart local v7       #where:I
+    .restart local v7    # "where":I
     :cond_b
     const/4 v1, 0x1
 
     goto :goto_6
 
     .line 357
-    .end local v6           #selected:Z
-    .end local v7           #where:I
+    .end local v6    # "selected":Z
+    .end local v7    # "where":I
     :cond_c
     move-object/from16 v0, p0
 
@@ -3168,9 +3168,9 @@
 
 .method private moveSelection(III)Landroid/view/View;
     .locals 22
-    .parameter "delta"
-    .parameter "childrenTop"
-    .parameter "childrenBottom"
+    .param p1, "delta"    # I
+    .param p2, "childrenTop"    # I
+    .param p3, "childrenBottom"    # I
 
     .prologue
     .line 859
@@ -3179,7 +3179,7 @@
     move-result v5
 
     .line 860
-    .local v5, fadingEdgeLength:I
+    .local v5, "fadingEdgeLength":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mSelectedPosition:I
@@ -3187,13 +3187,13 @@
     move/from16 v16, v0
 
     .line 861
-    .local v16, selectedPosition:I
+    .local v16, "selectedPosition":I
     move-object/from16 v0, p0
 
     iget v7, v0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 862
-    .local v7, numColumns:I
+    .local v7, "numColumns":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mVerticalSpacing:I
@@ -3201,11 +3201,11 @@
     move/from16 v18, v0
 
     .line 866
-    .local v18, verticalSpacing:I
+    .local v18, "verticalSpacing":I
     const/4 v13, -0x1
 
     .line 868
-    .local v13, rowEnd:I
+    .local v13, "rowEnd":I
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/GridView;->mStackFromBottom:Z
@@ -3224,18 +3224,18 @@
     sub-int v9, v19, v20
 
     .line 871
-    .local v9, oldRowStart:I
+    .local v9, "oldRowStart":I
     rem-int v19, v16, v7
 
     sub-int v14, v16, v19
 
     .line 883
-    .local v14, rowStart:I
+    .local v14, "rowStart":I
     :goto_0
     sub-int v12, v14, v9
 
     .line 885
-    .local v12, rowDelta:I
+    .local v12, "rowDelta":I
     move-object/from16 v0, p0
 
     move/from16 v1, p2
@@ -3245,7 +3245,7 @@
     move-result v17
 
     .line 886
-    .local v17, topSelectionPixel:I
+    .local v17, "topSelectionPixel":I
     move-object/from16 v0, p0
 
     move/from16 v1, p3
@@ -3255,7 +3255,7 @@
     move-result v4
 
     .line 890
-    .local v4, bottomSelectionPixel:I
+    .local v4, "bottomSelectionPixel":I
     move-object/from16 v0, p0
 
     iput v14, v0, Landroid/widget/GridView;->mFirstPosition:I
@@ -3275,7 +3275,7 @@
     const/4 v8, 0x0
 
     .line 903
-    .local v8, oldBottom:I
+    .local v8, "oldBottom":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -3305,13 +3305,13 @@
     move-result-object v15
 
     .line 904
-    .local v15, sel:Landroid/view/View;
+    .local v15, "sel":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget-object v11, v0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
     .line 906
-    .local v11, referenceView:Landroid/view/View;
+    .local v11, "referenceView":Landroid/view/View;
     move-object/from16 v0, p0
 
     move/from16 v1, v17
@@ -3319,7 +3319,7 @@
     invoke-direct {v0, v11, v1, v4}, Landroid/widget/GridView;->adjustForBottomFadingEdge(Landroid/view/View;II)V
 
     .line 929
-    .end local v8           #oldBottom:I
+    .end local v8    # "oldBottom":I
     :goto_3
     move-object/from16 v0, p0
 
@@ -3371,13 +3371,13 @@
     return-object v15
 
     .line 873
-    .end local v4           #bottomSelectionPixel:I
-    .end local v9           #oldRowStart:I
-    .end local v11           #referenceView:Landroid/view/View;
-    .end local v12           #rowDelta:I
-    .end local v14           #rowStart:I
-    .end local v15           #sel:Landroid/view/View;
-    .end local v17           #topSelectionPixel:I
+    .end local v4    # "bottomSelectionPixel":I
+    .end local v9    # "oldRowStart":I
+    .end local v11    # "referenceView":Landroid/view/View;
+    .end local v12    # "rowDelta":I
+    .end local v14    # "rowStart":I
+    .end local v15    # "sel":Landroid/view/View;
+    .end local v17    # "topSelectionPixel":I
     :cond_0
     move-object/from16 v0, p0
 
@@ -3390,7 +3390,7 @@
     sub-int v6, v19, v16
 
     .line 875
-    .local v6, invertedSelection:I
+    .local v6, "invertedSelection":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mItemCount:I
@@ -3417,7 +3417,7 @@
     move-result v14
 
     .line 878
-    .restart local v14       #rowStart:I
+    .restart local v14    # "rowStart":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mItemCount:I
@@ -3446,7 +3446,7 @@
     sub-int v9, v19, v20
 
     .line 880
-    .restart local v9       #oldRowStart:I
+    .restart local v9    # "oldRowStart":I
     const/16 v19, 0x0
 
     sub-int v20, v9, v7
@@ -3460,10 +3460,10 @@
     goto/16 :goto_0
 
     .line 900
-    .end local v6           #invertedSelection:I
-    .restart local v4       #bottomSelectionPixel:I
-    .restart local v12       #rowDelta:I
-    .restart local v17       #topSelectionPixel:I
+    .end local v6    # "invertedSelection":I
+    .restart local v4    # "bottomSelectionPixel":I
+    .restart local v12    # "rowDelta":I
+    .restart local v17    # "topSelectionPixel":I
     :cond_1
     move-object/from16 v0, p0
 
@@ -3477,7 +3477,7 @@
 
     goto/16 :goto_1
 
-    .restart local v8       #oldBottom:I
+    .restart local v8    # "oldBottom":I
     :cond_2
     move/from16 v19, v14
 
@@ -3485,7 +3485,7 @@
     goto/16 :goto_2
 
     .line 907
-    .end local v8           #oldBottom:I
+    .end local v8    # "oldBottom":I
     :cond_3
     if-gez v12, :cond_6
 
@@ -3501,7 +3501,7 @@
     const/4 v10, 0x0
 
     .line 914
-    .local v10, oldTop:I
+    .local v10, "oldTop":I
     :goto_5
     move-object/from16 v0, p0
 
@@ -3531,13 +3531,13 @@
     move-result-object v15
 
     .line 915
-    .restart local v15       #sel:Landroid/view/View;
+    .restart local v15    # "sel":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget-object v11, v0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
     .line 917
-    .restart local v11       #referenceView:Landroid/view/View;
+    .restart local v11    # "referenceView":Landroid/view/View;
     move-object/from16 v0, p0
 
     move/from16 v1, v17
@@ -3547,9 +3547,9 @@
     goto/16 :goto_3
 
     .line 911
-    .end local v10           #oldTop:I
-    .end local v11           #referenceView:Landroid/view/View;
-    .end local v15           #sel:Landroid/view/View;
+    .end local v10    # "oldTop":I
+    .end local v11    # "referenceView":Landroid/view/View;
+    .end local v15    # "sel":Landroid/view/View;
     :cond_4
     move-object/from16 v0, p0
 
@@ -3563,7 +3563,7 @@
 
     goto :goto_5
 
-    .restart local v10       #oldTop:I
+    .restart local v10    # "oldTop":I
     :cond_5
     move/from16 v19, v14
 
@@ -3571,7 +3571,7 @@
     goto :goto_6
 
     .line 922
-    .end local v10           #oldTop:I
+    .end local v10    # "oldTop":I
     :cond_6
     move-object/from16 v0, p0
 
@@ -3584,7 +3584,7 @@
     const/4 v10, 0x0
 
     .line 925
-    .restart local v10       #oldTop:I
+    .restart local v10    # "oldTop":I
     :goto_7
     move-object/from16 v0, p0
 
@@ -3610,18 +3610,18 @@
     move-result-object v15
 
     .line 926
-    .restart local v15       #sel:Landroid/view/View;
+    .restart local v15    # "sel":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget-object v11, v0, Landroid/widget/GridView;->mReferenceView:Landroid/view/View;
 
-    .restart local v11       #referenceView:Landroid/view/View;
+    .restart local v11    # "referenceView":Landroid/view/View;
     goto/16 :goto_3
 
     .line 922
-    .end local v10           #oldTop:I
-    .end local v11           #referenceView:Landroid/view/View;
-    .end local v15           #sel:Landroid/view/View;
+    .end local v10    # "oldTop":I
+    .end local v11    # "referenceView":Landroid/view/View;
+    .end local v15    # "sel":Landroid/view/View;
     :cond_7
     move-object/from16 v0, p0
 
@@ -3635,7 +3635,7 @@
 
     goto :goto_7
 
-    .restart local v10       #oldTop:I
+    .restart local v10    # "oldTop":I
     :cond_8
     move/from16 v19, v14
 
@@ -3643,9 +3643,9 @@
     goto :goto_8
 
     .line 934
-    .end local v10           #oldTop:I
-    .restart local v11       #referenceView:Landroid/view/View;
-    .restart local v15       #sel:Landroid/view/View;
+    .end local v10    # "oldTop":I
+    .restart local v11    # "referenceView":Landroid/view/View;
+    .restart local v15    # "sel":Landroid/view/View;
     :cond_9
     add-int v19, v13, v7
 
@@ -3688,7 +3688,7 @@
 
 .method private pinToBottom(I)V
     .locals 5
-    .parameter "childrenBottom"
+    .param p1, "childrenBottom"    # I
 
     .prologue
     .line 489
@@ -3697,7 +3697,7 @@
     move-result v1
 
     .line 490
-    .local v1, count:I
+    .local v1, "count":I
     iget v3, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     add-int/2addr v3, v1
@@ -3718,26 +3718,26 @@
     move-result v0
 
     .line 492
-    .local v0, bottom:I
+    .local v0, "bottom":I
     sub-int v2, p1, v0
 
     .line 493
-    .local v2, offset:I
+    .local v2, "offset":I
     if-lez v2, :cond_0
 
     .line 494
     invoke-virtual {p0, v2}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 497
-    .end local v0           #bottom:I
-    .end local v2           #offset:I
+    .end local v0    # "bottom":I
+    .end local v2    # "offset":I
     :cond_0
     return-void
 .end method
 
 .method private pinToTop(I)V
     .locals 3
-    .parameter "childrenTop"
+    .param p1, "childrenTop"    # I
 
     .prologue
     .line 479
@@ -3757,33 +3757,33 @@
     move-result v1
 
     .line 481
-    .local v1, top:I
+    .local v1, "top":I
     sub-int v0, p1, v1
 
     .line 482
-    .local v0, offset:I
+    .local v0, "offset":I
     if-gez v0, :cond_0
 
     .line 483
     invoke-virtual {p0, v0}, Landroid/widget/GridView;->offsetChildrenTopAndBottom(I)V
 
     .line 486
-    .end local v0           #offset:I
-    .end local v1           #top:I
+    .end local v0    # "offset":I
+    .end local v1    # "top":I
     :cond_0
     return-void
 .end method
 
 .method private setupChild(Landroid/view/View;IIZIZZI)V
     .locals 25
-    .parameter "child"
-    .parameter "position"
-    .parameter "y"
-    .parameter "flow"
-    .parameter "childrenLeft"
-    .parameter "selected"
-    .parameter "recycled"
-    .parameter "where"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "position"    # I
+    .param p3, "y"    # I
+    .param p4, "flow"    # Z
+    .param p5, "childrenLeft"    # I
+    .param p6, "selected"    # Z
+    .param p7, "recycled"    # Z
+    .param p8, "where"    # I
 
     .prologue
     .line 1371
@@ -3805,7 +3805,7 @@
     const/4 v14, 0x1
 
     .line 1374
-    .local v14, isSelected:Z
+    .local v14, "isSelected":Z
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->isSelected()Z
 
@@ -3818,7 +3818,7 @@
     const/16 v20, 0x1
 
     .line 1375
-    .local v20, updateChildSelected:Z
+    .local v20, "updateChildSelected":Z
     :goto_1
     move-object/from16 v0, p0
 
@@ -3827,7 +3827,7 @@
     move/from16 v16, v0
 
     .line 1376
-    .local v16, mode:I
+    .local v16, "mode":I
     if-lez v16, :cond_9
 
     const/16 v22, 0x3
@@ -3853,7 +3853,7 @@
     const/4 v13, 0x1
 
     .line 1378
-    .local v13, isPressed:Z
+    .local v13, "isPressed":Z
     :goto_2
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->isPressed()Z
 
@@ -3866,7 +3866,7 @@
     const/16 v19, 0x1
 
     .line 1380
-    .local v19, updateChildPressed:Z
+    .local v19, "updateChildPressed":Z
     :goto_3
     if-eqz p7, :cond_0
 
@@ -3882,7 +3882,7 @@
     const/16 v17, 0x1
 
     .line 1384
-    .local v17, needToMeasure:Z
+    .local v17, "needToMeasure":Z
     :goto_4
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -3891,7 +3891,7 @@
     check-cast v18, Landroid/widget/AbsListView$LayoutParams;
 
     .line 1385
-    .local v18, p:Landroid/widget/AbsListView$LayoutParams;
+    .local v18, "p":Landroid/widget/AbsListView$LayoutParams;
     if-nez v18, :cond_1
 
     .line 1386
@@ -3899,11 +3899,11 @@
 
     move-result-object v18
 
-    .end local v18           #p:Landroid/widget/AbsListView$LayoutParams;
+    .end local v18    # "p":Landroid/widget/AbsListView$LayoutParams;
     check-cast v18, Landroid/widget/AbsListView$LayoutParams;
 
     .line 1388
-    .restart local v18       #p:Landroid/widget/AbsListView$LayoutParams;
+    .restart local v18    # "p":Landroid/widget/AbsListView$LayoutParams;
     :cond_1
     move-object/from16 v0, p0
 
@@ -4046,14 +4046,14 @@
     move-result v7
 
     .line 1421
-    .local v7, childHeightSpec:I
+    .local v7, "childHeightSpec":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mColumnWidth:I
 
     move/from16 v22, v0
 
-    const/high16 v23, 0x4000
+    const/high16 v23, 0x40000000    # 2.0f
 
     invoke-static/range {v22 .. v23}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -4072,40 +4072,40 @@
     move-result v11
 
     .line 1423
-    .local v11, childWidthSpec:I
+    .local v11, "childWidthSpec":I
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v11, v7}, Landroid/view/View;->measure(II)V
 
     .line 1428
-    .end local v7           #childHeightSpec:I
-    .end local v11           #childWidthSpec:I
+    .end local v7    # "childHeightSpec":I
+    .end local v11    # "childWidthSpec":I
     :goto_7
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v21
 
     .line 1429
-    .local v21, w:I
+    .local v21, "w":I
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v12
 
     .line 1432
-    .local v12, h:I
+    .local v12, "h":I
     if-eqz p4, :cond_f
 
     move/from16 v10, p3
 
     .line 1434
-    .local v10, childTop:I
+    .local v10, "childTop":I
     :goto_8
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridView;->getLayoutDirection()I
 
     move-result v15
 
     .line 1435
-    .local v15, layoutDirection:I
+    .local v15, "layoutDirection":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mGravity:I
@@ -4119,7 +4119,7 @@
     move-result v5
 
     .line 1436
-    .local v5, absoluteGravity:I
+    .local v5, "absoluteGravity":I
     and-int/lit8 v22, v5, 0x7
 
     packed-switch v22, :pswitch_data_0
@@ -4129,7 +4129,7 @@
     move/from16 v8, p5
 
     .line 1451
-    .local v8, childLeft:I
+    .local v8, "childLeft":I
     :goto_9
     if-eqz v17, :cond_10
 
@@ -4137,18 +4137,18 @@
     add-int v9, v8, v21
 
     .line 1453
-    .local v9, childRight:I
+    .local v9, "childRight":I
     add-int v6, v10, v12
 
     .line 1454
-    .local v6, childBottom:I
+    .local v6, "childBottom":I
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8, v10, v9, v6}, Landroid/view/View;->layout(IIII)V
 
     .line 1460
-    .end local v6           #childBottom:I
-    .end local v9           #childRight:I
+    .end local v6    # "childBottom":I
+    .end local v9    # "childRight":I
     :goto_a
     move-object/from16 v0, p0
 
@@ -4202,56 +4202,56 @@
     return-void
 
     .line 1373
-    .end local v5           #absoluteGravity:I
-    .end local v8           #childLeft:I
-    .end local v10           #childTop:I
-    .end local v12           #h:I
-    .end local v13           #isPressed:Z
-    .end local v14           #isSelected:Z
-    .end local v15           #layoutDirection:I
-    .end local v16           #mode:I
-    .end local v17           #needToMeasure:Z
-    .end local v18           #p:Landroid/widget/AbsListView$LayoutParams;
-    .end local v19           #updateChildPressed:Z
-    .end local v20           #updateChildSelected:Z
-    .end local v21           #w:I
+    .end local v5    # "absoluteGravity":I
+    .end local v8    # "childLeft":I
+    .end local v10    # "childTop":I
+    .end local v12    # "h":I
+    .end local v13    # "isPressed":Z
+    .end local v14    # "isSelected":Z
+    .end local v15    # "layoutDirection":I
+    .end local v16    # "mode":I
+    .end local v17    # "needToMeasure":Z
+    .end local v18    # "p":Landroid/widget/AbsListView$LayoutParams;
+    .end local v19    # "updateChildPressed":Z
+    .end local v20    # "updateChildSelected":Z
+    .end local v21    # "w":I
     :cond_7
     const/4 v14, 0x0
 
     goto/16 :goto_0
 
     .line 1374
-    .restart local v14       #isSelected:Z
+    .restart local v14    # "isSelected":Z
     :cond_8
     const/16 v20, 0x0
 
     goto/16 :goto_1
 
     .line 1376
-    .restart local v16       #mode:I
-    .restart local v20       #updateChildSelected:Z
+    .restart local v16    # "mode":I
+    .restart local v20    # "updateChildSelected":Z
     :cond_9
     const/4 v13, 0x0
 
     goto/16 :goto_2
 
     .line 1378
-    .restart local v13       #isPressed:Z
+    .restart local v13    # "isPressed":Z
     :cond_a
     const/16 v19, 0x0
 
     goto/16 :goto_3
 
     .line 1380
-    .restart local v19       #updateChildPressed:Z
+    .restart local v19    # "updateChildPressed":Z
     :cond_b
     const/16 v17, 0x0
 
     goto/16 :goto_4
 
     .line 1393
-    .restart local v17       #needToMeasure:Z
-    .restart local v18       #p:Landroid/widget/AbsListView$LayoutParams;
+    .restart local v17    # "needToMeasure":Z
+    .restart local v18    # "p":Landroid/widget/AbsListView$LayoutParams;
     :cond_c
     const/16 v22, 0x0
 
@@ -4332,26 +4332,26 @@
     goto/16 :goto_7
 
     .line 1432
-    .restart local v12       #h:I
-    .restart local v21       #w:I
+    .restart local v12    # "h":I
+    .restart local v21    # "w":I
     :cond_f
     sub-int v10, p3, v12
 
     goto/16 :goto_8
 
     .line 1438
-    .restart local v5       #absoluteGravity:I
-    .restart local v10       #childTop:I
-    .restart local v15       #layoutDirection:I
+    .restart local v5    # "absoluteGravity":I
+    .restart local v10    # "childTop":I
+    .restart local v15    # "layoutDirection":I
     :pswitch_1
     move/from16 v8, p5
 
     .line 1439
-    .restart local v8       #childLeft:I
+    .restart local v8    # "childLeft":I
     goto/16 :goto_9
 
     .line 1441
-    .end local v8           #childLeft:I
+    .end local v8    # "childLeft":I
     :pswitch_2
     move-object/from16 v0, p0
 
@@ -4366,11 +4366,11 @@
     add-int v8, p5, v22
 
     .line 1442
-    .restart local v8       #childLeft:I
+    .restart local v8    # "childLeft":I
     goto/16 :goto_9
 
     .line 1444
-    .end local v8           #childLeft:I
+    .end local v8    # "childLeft":I
     :pswitch_3
     move-object/from16 v0, p0
 
@@ -4383,7 +4383,7 @@
     sub-int v8, v22, v21
 
     .line 1445
-    .restart local v8       #childLeft:I
+    .restart local v8    # "childLeft":I
     goto/16 :goto_9
 
     .line 1456
@@ -4432,7 +4432,7 @@
 # virtual methods
 .method arrowScroll(I)Z
     .locals 10
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     const/4 v9, 0x0
@@ -4443,15 +4443,15 @@
     iget v4, p0, Landroid/widget/GridView;->mSelectedPosition:I
 
     .line 1734
-    .local v4, selectedPosition:I
+    .local v4, "selectedPosition":I
     iget v3, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 1739
-    .local v3, numColumns:I
+    .local v3, "numColumns":I
     const/4 v2, 0x0
 
     .line 1741
-    .local v2, moved:Z
+    .local v2, "moved":Z
     iget-boolean v6, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v6, :cond_3
@@ -4462,7 +4462,7 @@
     mul-int v5, v6, v3
 
     .line 1743
-    .local v5, startOfRowPos:I
+    .local v5, "startOfRowPos":I
     add-int v6, v5, v3
 
     add-int/lit8 v6, v6, -0x1
@@ -4476,7 +4476,7 @@
     move-result v0
 
     .line 1750
-    .local v0, endOfRowPos:I
+    .local v0, "endOfRowPos":I
     :goto_0
     sparse-switch p1, :sswitch_data_0
 
@@ -4507,8 +4507,8 @@
     return v2
 
     .line 1745
-    .end local v0           #endOfRowPos:I
-    .end local v5           #startOfRowPos:I
+    .end local v0    # "endOfRowPos":I
+    .end local v5    # "startOfRowPos":I
     :cond_3
     iget v6, p0, Landroid/widget/GridView;->mItemCount:I
 
@@ -4517,7 +4517,7 @@
     sub-int v1, v6, v4
 
     .line 1746
-    .local v1, invertedSelection:I
+    .local v1, "invertedSelection":I
     iget v6, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/lit8 v6, v6, -0x1
@@ -4529,7 +4529,7 @@
     sub-int v0, v6, v7
 
     .line 1747
-    .restart local v0       #endOfRowPos:I
+    .restart local v0    # "endOfRowPos":I
     sub-int v6, v0, v3
 
     add-int/lit8 v6, v6, 0x1
@@ -4538,11 +4538,11 @@
 
     move-result v5
 
-    .restart local v5       #startOfRowPos:I
+    .restart local v5    # "startOfRowPos":I
     goto :goto_0
 
     .line 1752
-    .end local v1           #invertedSelection:I
+    .end local v1    # "invertedSelection":I
     :sswitch_0
     if-lez v5, :cond_0
 
@@ -4650,10 +4650,10 @@
 
 .method protected attachLayoutAnimationParameters(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;II)V
     .locals 4
-    .parameter "child"
-    .parameter "params"
-    .parameter "index"
-    .parameter "count"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
+    .param p3, "index"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 1107
@@ -4662,17 +4662,17 @@
     check-cast v0, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
 
     .line 1110
-    .local v0, animationParams:Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
+    .local v0, "animationParams":Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
     if-nez v0, :cond_0
 
     .line 1111
     new-instance v0, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
 
-    .end local v0           #animationParams:Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
+    .end local v0    # "animationParams":Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
     invoke-direct {v0}, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;-><init>()V
 
     .line 1112
-    .restart local v0       #animationParams:Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
+    .restart local v0    # "animationParams":Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
     iput-object v0, p2, Landroid/view/ViewGroup$LayoutParams;->layoutAnimationParameters:Landroid/view/animation/LayoutAnimationController$AnimationParameters;
 
     .line 1115
@@ -4724,7 +4724,7 @@
     sub-int v1, v2, p3
 
     .line 1126
-    .local v1, invertedIndex:I
+    .local v1, "invertedIndex":I
     iget v2, p0, Landroid/widget/GridView;->mNumColumns:I
 
     add-int/lit8 v2, v2, -0x1
@@ -4765,14 +4765,14 @@
     move-result v1
 
     .line 2195
-    .local v1, count:I
+    .local v1, "count":I
     if-lez v1, :cond_2
 
     .line 2196
     iget v4, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 2197
-    .local v4, numColumns:I
+    .local v4, "numColumns":I
     add-int v9, v1, v4
 
     add-int/lit8 v9, v9, -0x1
@@ -4780,29 +4780,29 @@
     div-int v5, v9, v4
 
     .line 2199
-    .local v5, rowCount:I
+    .local v5, "rowCount":I
     mul-int/lit8 v2, v5, 0x64
 
     .line 2201
-    .local v2, extent:I
+    .local v2, "extent":I
     invoke-virtual {p0, v8}, Landroid/widget/GridView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
 
     .line 2202
-    .local v7, view:Landroid/view/View;
+    .local v7, "view":Landroid/view/View;
     invoke-virtual {v7}, Landroid/view/View;->getTop()I
 
     move-result v6
 
     .line 2203
-    .local v6, top:I
+    .local v6, "top":I
     invoke-virtual {v7}, Landroid/view/View;->getHeight()I
 
     move-result v3
 
     .line 2204
-    .local v3, height:I
+    .local v3, "height":I
     if-lez v3, :cond_0
 
     .line 2205
@@ -4826,7 +4826,7 @@
     move-result v0
 
     .line 2210
-    .local v0, bottom:I
+    .local v0, "bottom":I
     invoke-virtual {v7}, Landroid/view/View;->getHeight()I
 
     move-result v3
@@ -4848,13 +4848,13 @@
     sub-int/2addr v2, v8
 
     .line 2217
-    .end local v0           #bottom:I
-    .end local v2           #extent:I
-    .end local v3           #height:I
-    .end local v4           #numColumns:I
-    .end local v5           #rowCount:I
-    .end local v6           #top:I
-    .end local v7           #view:Landroid/view/View;
+    .end local v0    # "bottom":I
+    .end local v2    # "extent":I
+    .end local v3    # "height":I
+    .end local v4    # "numColumns":I
+    .end local v5    # "rowCount":I
+    .end local v6    # "top":I
+    .end local v7    # "view":Landroid/view/View;
     :cond_1
     :goto_0
     return v2
@@ -4888,26 +4888,26 @@
     move-result-object v5
 
     .line 2224
-    .local v5, view:Landroid/view/View;
+    .local v5, "view":Landroid/view/View;
     invoke-virtual {v5}, Landroid/view/View;->getTop()I
 
     move-result v4
 
     .line 2225
-    .local v4, top:I
+    .local v4, "top":I
     invoke-virtual {v5}, Landroid/view/View;->getHeight()I
 
     move-result v0
 
     .line 2226
-    .local v0, height:I
+    .local v0, "height":I
     if-lez v0, :cond_0
 
     .line 2227
     iget v1, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 2228
-    .local v1, numColumns:I
+    .local v1, "numColumns":I
     iget v8, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/2addr v8, v1
@@ -4917,7 +4917,7 @@
     div-int v3, v8, v1
 
     .line 2232
-    .local v3, rowCount:I
+    .local v3, "rowCount":I
     invoke-virtual {p0}, Landroid/widget/GridView;->isStackFromBottom()Z
 
     move-result v8
@@ -4931,7 +4931,7 @@
     sub-int v2, v8, v9
 
     .line 2234
-    .local v2, oddItemsOnFirstRow:I
+    .local v2, "oddItemsOnFirstRow":I
     :goto_0
     iget v8, p0, Landroid/widget/GridView;->mFirstPosition:I
 
@@ -4940,7 +4940,7 @@
     div-int v6, v8, v1
 
     .line 2235
-    .local v6, whichRow:I
+    .local v6, "whichRow":I
     mul-int/lit8 v8, v6, 0x64
 
     mul-int/lit8 v9, v4, 0x64
@@ -4965,7 +4965,7 @@
 
     mul-float/2addr v9, v10
 
-    const/high16 v10, 0x42c8
+    const/high16 v10, 0x42c80000    # 100.0f
 
     mul-float/2addr v9, v10
 
@@ -4978,21 +4978,21 @@
     move-result v7
 
     .line 2239
-    .end local v0           #height:I
-    .end local v1           #numColumns:I
-    .end local v2           #oddItemsOnFirstRow:I
-    .end local v3           #rowCount:I
-    .end local v4           #top:I
-    .end local v5           #view:Landroid/view/View;
-    .end local v6           #whichRow:I
+    .end local v0    # "height":I
+    .end local v1    # "numColumns":I
+    .end local v2    # "oddItemsOnFirstRow":I
+    .end local v3    # "rowCount":I
+    .end local v4    # "top":I
+    .end local v5    # "view":Landroid/view/View;
+    .end local v6    # "whichRow":I
     :cond_0
     return v7
 
-    .restart local v0       #height:I
-    .restart local v1       #numColumns:I
-    .restart local v3       #rowCount:I
-    .restart local v4       #top:I
-    .restart local v5       #view:Landroid/view/View;
+    .restart local v0    # "height":I
+    .restart local v1    # "numColumns":I
+    .restart local v3    # "rowCount":I
+    .restart local v4    # "top":I
+    .restart local v5    # "view":Landroid/view/View;
     :cond_1
     move v2, v7
 
@@ -5008,7 +5008,7 @@
     iget v0, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 2246
-    .local v0, numColumns:I
+    .local v0, "numColumns":I
     iget v3, p0, Landroid/widget/GridView;->mItemCount:I
 
     add-int/2addr v3, v0
@@ -5018,7 +5018,7 @@
     div-int v2, v3, v0
 
     .line 2247
-    .local v2, rowCount:I
+    .local v2, "rowCount":I
     mul-int/lit8 v3, v2, 0x64
 
     const/4 v4, 0x0
@@ -5028,7 +5028,7 @@
     move-result v1
 
     .line 2248
-    .local v1, result:I
+    .local v1, "result":I
     iget v3, p0, Landroid/widget/GridView;->mScrollY:I
 
     if-eqz v3, :cond_0
@@ -5050,7 +5050,7 @@
 
     mul-float/2addr v3, v4
 
-    const/high16 v4, 0x42c8
+    const/high16 v4, 0x42c80000    # 100.0f
 
     mul-float/2addr v3, v4
 
@@ -5069,7 +5069,7 @@
 
 .method fillGap(Z)V
     .locals 9
-    .parameter "down"
+    .param p1, "down"    # Z
 
     .prologue
     const/16 v8, 0x22
@@ -5078,24 +5078,24 @@
     iget v1, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 232
-    .local v1, numColumns:I
+    .local v1, "numColumns":I
     iget v6, p0, Landroid/widget/GridView;->mVerticalSpacing:I
 
     .line 234
-    .local v6, verticalSpacing:I
+    .local v6, "verticalSpacing":I
     invoke-virtual {p0}, Landroid/widget/GridView;->getChildCount()I
 
     move-result v0
 
     .line 236
-    .local v0, count:I
+    .local v0, "count":I
     if-eqz p1, :cond_3
 
     .line 237
     const/4 v3, 0x0
 
     .line 238
-    .local v3, paddingTop:I
+    .local v3, "paddingTop":I
     iget v7, p0, Landroid/widget/GridView;->mGroupFlags:I
 
     and-int/lit8 v7, v7, 0x22
@@ -5124,14 +5124,14 @@
     add-int v5, v7, v6
 
     .line 243
-    .local v5, startOffset:I
+    .local v5, "startOffset":I
     :goto_0
     iget v7, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     add-int v4, v7, v0
 
     .line 244
-    .local v4, position:I
+    .local v4, "position":I
     iget-boolean v7, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-eqz v7, :cond_1
@@ -5153,13 +5153,13 @@
     invoke-direct {p0, v1, v6, v7}, Landroid/widget/GridView;->correctTooHigh(III)V
 
     .line 265
-    .end local v3           #paddingTop:I
+    .end local v3    # "paddingTop":I
     :goto_1
     return-void
 
-    .end local v4           #position:I
-    .end local v5           #startOffset:I
-    .restart local v3       #paddingTop:I
+    .end local v4    # "position":I
+    .end local v5    # "startOffset":I
+    .restart local v3    # "paddingTop":I
     :cond_2
     move v5, v3
 
@@ -5167,12 +5167,12 @@
     goto :goto_0
 
     .line 250
-    .end local v3           #paddingTop:I
+    .end local v3    # "paddingTop":I
     :cond_3
     const/4 v2, 0x0
 
     .line 251
-    .local v2, paddingBottom:I
+    .local v2, "paddingBottom":I
     iget v7, p0, Landroid/widget/GridView;->mGroupFlags:I
 
     and-int/lit8 v7, v7, 0x22
@@ -5201,12 +5201,12 @@
     sub-int v5, v7, v6
 
     .line 256
-    .restart local v5       #startOffset:I
+    .restart local v5    # "startOffset":I
     :goto_2
     iget v4, p0, Landroid/widget/GridView;->mFirstPosition:I
 
     .line 257
-    .restart local v4       #position:I
+    .restart local v4    # "position":I
     iget-boolean v7, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v7, :cond_6
@@ -5228,8 +5228,8 @@
     goto :goto_1
 
     .line 254
-    .end local v4           #position:I
-    .end local v5           #startOffset:I
+    .end local v4    # "position":I
+    .end local v5    # "startOffset":I
     :cond_5
     invoke-virtual {p0}, Landroid/widget/GridView;->getHeight()I
 
@@ -5240,8 +5240,8 @@
     goto :goto_2
 
     .line 260
-    .restart local v4       #position:I
-    .restart local v5       #startOffset:I
+    .restart local v4    # "position":I
+    .restart local v5    # "startOffset":I
     :cond_6
     add-int/lit8 v4, v4, -0x1
 
@@ -5250,7 +5250,7 @@
 
 .method findMotionRow(I)I
     .locals 4
-    .parameter "y"
+    .param p1, "y"    # I
 
     .prologue
     .line 501
@@ -5259,14 +5259,14 @@
     move-result v0
 
     .line 502
-    .local v0, childCount:I
+    .local v0, "childCount":I
     if-lez v0, :cond_3
 
     .line 504
     iget v2, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 505
-    .local v2, numColumns:I
+    .local v2, "numColumns":I
     iget-boolean v3, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v3, :cond_1
@@ -5274,7 +5274,7 @@
     .line 506
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_3
 
@@ -5295,25 +5295,25 @@
     add-int/2addr v3, v1
 
     .line 519
-    .end local v1           #i:I
-    .end local v2           #numColumns:I
+    .end local v1    # "i":I
+    .end local v2    # "numColumns":I
     :goto_1
     return v3
 
     .line 506
-    .restart local v1       #i:I
-    .restart local v2       #numColumns:I
+    .restart local v1    # "i":I
+    .restart local v2    # "numColumns":I
     :cond_0
     add-int/2addr v1, v2
 
     goto :goto_0
 
     .line 512
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_1
     add-int/lit8 v1, v0, -0x1
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_2
     if-ltz v1, :cond_3
 
@@ -5342,8 +5342,8 @@
     goto :goto_2
 
     .line 519
-    .end local v1           #i:I
-    .end local v2           #numColumns:I
+    .end local v1    # "i":I
+    .end local v2    # "numColumns":I
     :cond_3
     const/4 v3, -0x1
 
@@ -5352,7 +5352,7 @@
 
 .method fullScroll(I)Z
     .locals 3
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     const/4 v2, 0x2
@@ -5361,7 +5361,7 @@
     const/4 v0, 0x0
 
     .line 1705
-    .local v0, moved:Z
+    .local v0, "moved":Z
     const/16 v1, 0x21
 
     if-ne p1, v1, :cond_2
@@ -5531,7 +5531,7 @@
     iget-boolean v3, v0, Landroid/widget/GridView;->mBlockLayoutRequests:Z
 
     .line 1134
-    .local v3, blockLayoutRequests:Z
+    .local v3, "blockLayoutRequests":Z
     if-nez v3, :cond_0
 
     .line 1135
@@ -5599,7 +5599,7 @@
     iget v7, v0, Landroid/graphics/Rect;->top:I
 
     .line 1150
-    .local v7, childrenTop:I
+    .local v7, "childrenTop":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mBottom:I
@@ -5629,29 +5629,29 @@
     sub-int v6, v19, v20
 
     .line 1152
-    .local v6, childrenBottom:I
+    .local v6, "childrenBottom":I
     invoke-virtual/range {p0 .. p0}, Landroid/widget/GridView;->getChildCount()I
 
     move-result v5
 
     .line 1154
-    .local v5, childCount:I
+    .local v5, "childCount":I
     const/4 v9, 0x0
 
     .line 1157
-    .local v9, delta:I
+    .local v9, "delta":I
     const/16 v16, 0x0
 
     .line 1158
-    .local v16, oldSel:Landroid/view/View;
+    .local v16, "oldSel":Landroid/view/View;
     const/4 v15, 0x0
 
     .line 1159
-    .local v15, oldFirst:Landroid/view/View;
+    .local v15, "oldFirst":Landroid/view/View;
     const/4 v14, 0x0
 
     .line 1162
-    .local v14, newSel:Landroid/view/View;
+    .local v14, "newSel":Landroid/view/View;
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mLayoutMode:I
@@ -5676,7 +5676,7 @@
     sub-int v12, v19, v20
 
     .line 1182
-    .local v12, index:I
+    .local v12, "index":I
     if-ltz v12, :cond_3
 
     if-ge v12, v5, :cond_3
@@ -5701,7 +5701,7 @@
     move-result-object v15
 
     .line 1190
-    .end local v12           #index:I
+    .end local v12    # "index":I
     :cond_4
     :goto_1
     :pswitch_0
@@ -5710,7 +5710,7 @@
     iget-boolean v8, v0, Landroid/widget/GridView;->mDataChanged:Z
 
     .line 1191
-    .local v8, dataChanged:Z
+    .local v8, "dataChanged":Z
     if-eqz v8, :cond_5
 
     .line 1192
@@ -5749,7 +5749,7 @@
     goto :goto_0
 
     .line 1164
-    .end local v8           #dataChanged:Z
+    .end local v8    # "dataChanged":Z
     :pswitch_1
     :try_start_2
     move-object/from16 v0, p0
@@ -5767,7 +5767,7 @@
     sub-int v12, v19, v20
 
     .line 1165
-    .restart local v12       #index:I
+    .restart local v12    # "index":I
     if-ltz v12, :cond_4
 
     if-ge v12, v5, :cond_4
@@ -5782,7 +5782,7 @@
     goto :goto_1
 
     .line 1175
-    .end local v12           #index:I
+    .end local v12    # "index":I
     :pswitch_2
     move-object/from16 v0, p0
 
@@ -5810,7 +5810,7 @@
     goto :goto_1
 
     .line 1203
-    .restart local v8       #dataChanged:Z
+    .restart local v8    # "dataChanged":Z
     :cond_6
     move-object/from16 v0, p0
 
@@ -5830,7 +5830,7 @@
     iget v10, v0, Landroid/widget/GridView;->mFirstPosition:I
 
     .line 1208
-    .local v10, firstPosition:I
+    .local v10, "firstPosition":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/GridView;->mRecycler:Landroid/widget/AbsListView$RecycleBin;
@@ -5838,13 +5838,13 @@
     move-object/from16 v17, v0
 
     .line 1210
-    .local v17, recycleBin:Landroid/widget/AbsListView$RecycleBin;
+    .local v17, "recycleBin":Landroid/widget/AbsListView$RecycleBin;
     if-eqz v8, :cond_7
 
     .line 1211
     const/4 v11, 0x0
 
-    .local v11, i:I
+    .local v11, "i":I
     :goto_2
     if-ge v11, v5, :cond_8
 
@@ -5871,7 +5871,7 @@
     goto :goto_2
 
     .line 1215
-    .end local v11           #i:I
+    .end local v11    # "i":I
     :cond_7
     move-object/from16 v0, v17
 
@@ -5938,8 +5938,8 @@
     move-result-object v18
 
     .line 1277
-    .end local v7           #childrenTop:I
-    .local v18, sel:Landroid/view/View;
+    .end local v7    # "childrenTop":I
+    .local v18, "sel":Landroid/view/View;
     :goto_4
     invoke-virtual/range {v17 .. v17}, Landroid/widget/AbsListView$RecycleBin;->scrapActiveViews()V
 
@@ -6078,8 +6078,8 @@
     goto/16 :goto_0
 
     .line 1225
-    .end local v18           #sel:Landroid/view/View;
-    .restart local v7       #childrenTop:I
+    .end local v18    # "sel":Landroid/view/View;
+    .restart local v7    # "childrenTop":I
     :pswitch_3
     if-eqz v14, :cond_d
 
@@ -6097,11 +6097,11 @@
 
     move-result-object v18
 
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1228
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :cond_d
     move-object/from16 v0, p0
 
@@ -6110,11 +6110,11 @@
     move-result-object v18
 
     .line 1230
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1232
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :pswitch_4
     const/16 v19, 0x0
 
@@ -6132,7 +6132,7 @@
     move-result-object v18
 
     .line 1234
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     invoke-direct/range {p0 .. p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -6140,17 +6140,17 @@
     goto/16 :goto_4
 
     .line 1307
-    .end local v5           #childCount:I
-    .end local v6           #childrenBottom:I
-    .end local v7           #childrenTop:I
-    .end local v8           #dataChanged:Z
-    .end local v9           #delta:I
-    .end local v10           #firstPosition:I
-    .end local v14           #newSel:Landroid/view/View;
-    .end local v15           #oldFirst:Landroid/view/View;
-    .end local v16           #oldSel:Landroid/view/View;
-    .end local v17           #recycleBin:Landroid/widget/AbsListView$RecycleBin;
-    .end local v18           #sel:Landroid/view/View;
+    .end local v5    # "childCount":I
+    .end local v6    # "childrenBottom":I
+    .end local v7    # "childrenTop":I
+    .end local v8    # "dataChanged":Z
+    .end local v9    # "delta":I
+    .end local v10    # "firstPosition":I
+    .end local v14    # "newSel":Landroid/view/View;
+    .end local v15    # "oldFirst":Landroid/view/View;
+    .end local v16    # "oldSel":Landroid/view/View;
+    .end local v17    # "recycleBin":Landroid/widget/AbsListView$RecycleBin;
+    .end local v18    # "sel":Landroid/view/View;
     :catchall_0
     move-exception v19
 
@@ -6169,16 +6169,16 @@
     throw v19
 
     .line 1237
-    .restart local v5       #childCount:I
-    .restart local v6       #childrenBottom:I
-    .restart local v7       #childrenTop:I
-    .restart local v8       #dataChanged:Z
-    .restart local v9       #delta:I
-    .restart local v10       #firstPosition:I
-    .restart local v14       #newSel:Landroid/view/View;
-    .restart local v15       #oldFirst:Landroid/view/View;
-    .restart local v16       #oldSel:Landroid/view/View;
-    .restart local v17       #recycleBin:Landroid/widget/AbsListView$RecycleBin;
+    .restart local v5    # "childCount":I
+    .restart local v6    # "childrenBottom":I
+    .restart local v7    # "childrenTop":I
+    .restart local v8    # "dataChanged":Z
+    .restart local v9    # "delta":I
+    .restart local v10    # "firstPosition":I
+    .restart local v14    # "newSel":Landroid/view/View;
+    .restart local v15    # "oldFirst":Landroid/view/View;
+    .restart local v16    # "oldSel":Landroid/view/View;
+    .restart local v17    # "recycleBin":Landroid/widget/AbsListView$RecycleBin;
     :pswitch_5
     :try_start_4
     move-object/from16 v0, p0
@@ -6198,13 +6198,13 @@
     move-result-object v18
 
     .line 1238
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     invoke-direct/range {p0 .. p0}, Landroid/widget/GridView;->adjustViewsUpOrDown()V
 
     goto/16 :goto_4
 
     .line 1241
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :pswitch_6
     move-object/from16 v0, p0
 
@@ -6229,11 +6229,11 @@
     move-result-object v18
 
     .line 1242
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1244
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :pswitch_7
     move-object/from16 v0, p0
 
@@ -6258,11 +6258,11 @@
     move-result-object v18
 
     .line 1245
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1248
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :pswitch_8
     move-object/from16 v0, p0
 
@@ -6271,11 +6271,11 @@
     move-result-object v18
 
     .line 1249
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1253
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :cond_f
     const/16 v19, 0x0
 
@@ -6292,7 +6292,7 @@
     add-int/lit8 v13, v19, -0x1
 
     .line 1258
-    .local v13, last:I
+    .local v13, "last":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/GridView;->mAdapter:Landroid/widget/ListAdapter;
@@ -6325,10 +6325,10 @@
     move-result-object v18
 
     .line 1261
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
-    .end local v18           #sel:Landroid/view/View;
+    .end local v18    # "sel":Landroid/view/View;
     :cond_12
     move/from16 v19, v13
 
@@ -6336,7 +6336,7 @@
     goto :goto_6
 
     .line 1263
-    .end local v13           #last:I
+    .end local v13    # "last":I
     :cond_13
     move-object/from16 v0, p0
 
@@ -6373,7 +6373,7 @@
 
     if-nez v16, :cond_14
 
-    .end local v7           #childrenTop:I
+    .end local v7    # "childrenTop":I
     :goto_7
     move-object/from16 v0, p0
 
@@ -6383,11 +6383,11 @@
 
     move-result-object v18
 
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
-    .end local v18           #sel:Landroid/view/View;
-    .restart local v7       #childrenTop:I
+    .end local v18    # "sel":Landroid/view/View;
+    .restart local v7    # "childrenTop":I
     :cond_14
     invoke-virtual/range {v16 .. v16}, Landroid/view/View;->getTop()I
 
@@ -6424,7 +6424,7 @@
 
     if-nez v15, :cond_16
 
-    .end local v7           #childrenTop:I
+    .end local v7    # "childrenTop":I
     :goto_8
     move-object/from16 v0, p0
 
@@ -6434,11 +6434,11 @@
 
     move-result-object v18
 
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
-    .end local v18           #sel:Landroid/view/View;
-    .restart local v7       #childrenTop:I
+    .end local v18    # "sel":Landroid/view/View;
+    .restart local v7    # "childrenTop":I
     :cond_16
     invoke-virtual {v15}, Landroid/view/View;->getTop()I
 
@@ -6458,11 +6458,11 @@
 
     move-result-object v18
 
-    .restart local v18       #sel:Landroid/view/View;
+    .restart local v18    # "sel":Landroid/view/View;
     goto/16 :goto_4
 
     .line 1282
-    .end local v7           #childrenTop:I
+    .end local v7    # "childrenTop":I
     :cond_18
     move-object/from16 v0, p0
 
@@ -6510,7 +6510,7 @@
     move-result-object v4
 
     .line 1284
-    .local v4, child:Landroid/view/View;
+    .local v4, "child":Landroid/view/View;
     if-eqz v4, :cond_a
 
     move-object/from16 v0, p0
@@ -6528,7 +6528,7 @@
     goto/16 :goto_5
 
     .line 1286
-    .end local v4           #child:Landroid/view/View;
+    .end local v4    # "child":Landroid/view/View;
     :cond_19
     const/16 v19, 0x0
 
@@ -6578,8 +6578,8 @@
 
 .method lookForSelectablePosition(IZ)I
     .locals 3
-    .parameter "position"
-    .parameter "lookDown"
+    .param p1, "position"    # I
+    .param p2, "lookDown"    # Z
 
     .prologue
     const/4 v1, -0x1
@@ -6588,7 +6588,7 @@
     iget-object v0, p0, Landroid/widget/GridView;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 216
-    .local v0, adapter:Landroid/widget/ListAdapter;
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/GridView;->isInTouchMode()Z
@@ -6601,13 +6601,13 @@
     move p1, v1
 
     .line 223
-    .end local p1
+    .end local p1    # "position":I
     :cond_1
     :goto_0
     return p1
 
     .line 220
-    .restart local p1
+    .restart local p1    # "position":I
     :cond_2
     if-ltz p1, :cond_3
 
@@ -6624,9 +6624,9 @@
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 9
-    .parameter "gainFocus"
-    .parameter "direction"
-    .parameter "previouslyFocusedRect"
+    .param p1, "gainFocus"    # Z
+    .param p2, "direction"    # I
+    .param p3, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 1853
@@ -6636,7 +6636,7 @@
     const/4 v1, -0x1
 
     .line 1856
-    .local v1, closestChildIndex:I
+    .local v1, "closestChildIndex":I
     if-eqz p1, :cond_2
 
     if-eqz p3, :cond_2
@@ -6652,20 +6652,20 @@
     iget-object v6, p0, Landroid/widget/GridView;->mTempRect:Landroid/graphics/Rect;
 
     .line 1862
-    .local v6, otherRect:Landroid/graphics/Rect;
+    .local v6, "otherRect":Landroid/graphics/Rect;
     const v4, 0x7fffffff
 
     .line 1863
-    .local v4, minDistance:I
+    .local v4, "minDistance":I
     invoke-virtual {p0}, Landroid/widget/GridView;->getChildCount()I
 
     move-result v0
 
     .line 1864
-    .local v0, childCount:I
+    .local v0, "childCount":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v0, :cond_2
 
@@ -6690,7 +6690,7 @@
     move-result-object v5
 
     .line 1871
-    .local v5, other:Landroid/view/View;
+    .local v5, "other":Landroid/view/View;
     invoke-virtual {v5, v6}, Landroid/view/View;->getDrawingRect(Landroid/graphics/Rect;)V
 
     .line 1872
@@ -6702,7 +6702,7 @@
     move-result v2
 
     .line 1875
-    .local v2, distance:I
+    .local v2, "distance":I
     if-ge v2, v4, :cond_0
 
     .line 1876
@@ -6714,12 +6714,12 @@
     goto :goto_1
 
     .line 1882
-    .end local v0           #childCount:I
-    .end local v2           #distance:I
-    .end local v3           #i:I
-    .end local v4           #minDistance:I
-    .end local v5           #other:Landroid/view/View;
-    .end local v6           #otherRect:Landroid/graphics/Rect;
+    .end local v0    # "childCount":I
+    .end local v2    # "distance":I
+    .end local v3    # "i":I
+    .end local v4    # "minDistance":I
+    .end local v5    # "other":Landroid/view/View;
+    .end local v6    # "otherRect":Landroid/graphics/Rect;
     :cond_2
     if-ltz v1, :cond_3
 
@@ -6743,7 +6743,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 2257
@@ -6764,7 +6764,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 4
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 2263
@@ -6785,7 +6785,7 @@
     move-result v1
 
     .line 2267
-    .local v1, columnsCount:I
+    .local v1, "columnsCount":I
     invoke-virtual {p0}, Landroid/widget/GridView;->getCount()I
 
     move-result v3
@@ -6793,7 +6793,7 @@
     div-int v2, v3, v1
 
     .line 2268
-    .local v2, rowsCount:I
+    .local v2, "rowsCount":I
     const/4 v3, 0x0
 
     invoke-static {v1, v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->obtain(IIZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
@@ -6801,7 +6801,7 @@
     move-result-object v0
 
     .line 2269
-    .local v0, collectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    .local v0, "collectionInfo":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCollectionInfo(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;)V
 
     .line 2270
@@ -6810,9 +6810,9 @@
 
 .method public onInitializeAccessibilityNodeInfoForItem(Landroid/view/View;ILandroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 12
-    .parameter "view"
-    .parameter "position"
-    .parameter "info"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "position"    # I
+    .param p3, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     const/4 v9, 0x1
@@ -6826,17 +6826,17 @@
     move-result v2
 
     .line 2278
-    .local v2, count:I
+    .local v2, "count":I
     invoke-virtual {p0}, Landroid/widget/GridView;->getNumColumns()I
 
     move-result v1
 
     .line 2279
-    .local v1, columnsCount:I
+    .local v1, "columnsCount":I
     div-int v8, v2, v1
 
     .line 2283
-    .local v8, rowsCount:I
+    .local v8, "rowsCount":I
     iget-boolean v10, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v10, :cond_0
@@ -6845,11 +6845,11 @@
     rem-int v0, p2, v1
 
     .line 2285
-    .local v0, column:I
+    .local v0, "column":I
     div-int v7, p2, v1
 
     .line 2293
-    .local v7, row:I
+    .local v7, "row":I
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -6858,7 +6858,7 @@
     check-cast v6, Landroid/widget/AbsListView$LayoutParams;
 
     .line 2294
-    .local v6, lp:Landroid/widget/AbsListView$LayoutParams;
+    .local v6, "lp":Landroid/widget/AbsListView$LayoutParams;
     if-eqz v6, :cond_1
 
     iget v10, v6, Landroid/widget/AbsListView$LayoutParams;->viewType:I
@@ -6870,32 +6870,32 @@
     move v4, v9
 
     .line 2295
-    .local v4, isHeading:Z
+    .local v4, "isHeading":Z
     :goto_1
     invoke-static {v0, v9, v7, v9, v4}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->obtain(IIIIZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     move-result-object v5
 
     .line 2296
-    .local v5, itemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    .local v5, "itemInfo":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
     invoke-virtual {p3, v5}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCollectionItemInfo(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;)V
 
     .line 2297
     return-void
 
     .line 2287
-    .end local v0           #column:I
-    .end local v4           #isHeading:Z
-    .end local v5           #itemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
-    .end local v6           #lp:Landroid/widget/AbsListView$LayoutParams;
-    .end local v7           #row:I
+    .end local v0    # "column":I
+    .end local v4    # "isHeading":Z
+    .end local v5    # "itemInfo":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    .end local v6    # "lp":Landroid/widget/AbsListView$LayoutParams;
+    .end local v7    # "row":I
     :cond_0
     add-int/lit8 v10, v2, -0x1
 
     sub-int v3, v10, p2
 
     .line 2289
-    .local v3, invertedIndex:I
+    .local v3, "invertedIndex":I
     add-int/lit8 v10, v1, -0x1
 
     rem-int v11, v3, v1
@@ -6903,19 +6903,19 @@
     sub-int v0, v10, v11
 
     .line 2290
-    .restart local v0       #column:I
+    .restart local v0    # "column":I
     add-int/lit8 v10, v8, -0x1
 
     div-int v11, v3, v1
 
     sub-int v7, v10, v11
 
-    .restart local v7       #row:I
+    .restart local v7    # "row":I
     goto :goto_0
 
     .line 2294
-    .end local v3           #invertedIndex:I
-    .restart local v6       #lp:Landroid/widget/AbsListView$LayoutParams;
+    .end local v3    # "invertedIndex":I
+    .restart local v6    # "lp":Landroid/widget/AbsListView$LayoutParams;
     :cond_1
     const/4 v4, 0x0
 
@@ -6924,8 +6924,8 @@
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 1526
@@ -6940,9 +6940,9 @@
 
 .method public onKeyMultiple(IILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "repeatCount"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "repeatCount"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 1531
@@ -6955,8 +6955,8 @@
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "keyCode"    # I
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 1536
@@ -6971,8 +6971,8 @@
 
 .method protected onMeasure(II)V
     .locals 22
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 1019
@@ -6984,25 +6984,25 @@
     move-result v17
 
     .line 1022
-    .local v17, widthMode:I
+    .local v17, "widthMode":I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v11
 
     .line 1023
-    .local v11, heightMode:I
+    .local v11, "heightMode":I
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v18
 
     .line 1024
-    .local v18, widthSize:I
+    .local v18, "widthSize":I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v12
 
     .line 1026
-    .local v12, heightSize:I
+    .local v12, "heightSize":I
     if-nez v17, :cond_0
 
     .line 1027
@@ -7088,7 +7088,7 @@
     sub-int v7, v19, v20
 
     .line 1036
-    .local v7, childWidth:I
+    .local v7, "childWidth":I
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7}, Landroid/widget/GridView;->determineColumns(I)Z
@@ -7096,15 +7096,15 @@
     move-result v10
 
     .line 1038
-    .local v10, didNotInitiallyFit:Z
+    .local v10, "didNotInitiallyFit":Z
     const/4 v4, 0x0
 
     .line 1039
-    .local v4, childHeight:I
+    .local v4, "childHeight":I
     const/4 v6, 0x0
 
     .line 1041
-    .local v6, childState:I
+    .local v6, "childState":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/GridView;->mAdapter:Landroid/widget/ListAdapter;
@@ -7128,7 +7128,7 @@
     iget v9, v0, Landroid/widget/GridView;->mItemCount:I
 
     .line 1043
-    .local v9, count:I
+    .local v9, "count":I
     if-lez v9, :cond_2
 
     .line 1044
@@ -7151,7 +7151,7 @@
     move-result-object v3
 
     .line 1046
-    .local v3, child:Landroid/view/View;
+    .local v3, "child":Landroid/view/View;
     invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v16
@@ -7159,7 +7159,7 @@
     check-cast v16, Landroid/widget/AbsListView$LayoutParams;
 
     .line 1047
-    .local v16, p:Landroid/widget/AbsListView$LayoutParams;
+    .local v16, "p":Landroid/widget/AbsListView$LayoutParams;
     if-nez v16, :cond_1
 
     .line 1048
@@ -7167,11 +7167,11 @@
 
     move-result-object v16
 
-    .end local v16           #p:Landroid/widget/AbsListView$LayoutParams;
+    .end local v16    # "p":Landroid/widget/AbsListView$LayoutParams;
     check-cast v16, Landroid/widget/AbsListView$LayoutParams;
 
     .line 1049
-    .restart local v16       #p:Landroid/widget/AbsListView$LayoutParams;
+    .restart local v16    # "p":Landroid/widget/AbsListView$LayoutParams;
     move-object/from16 v0, v16
 
     invoke-virtual {v3, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -7227,14 +7227,14 @@
     move-result v5
 
     .line 1056
-    .local v5, childHeightSpec:I
+    .local v5, "childHeightSpec":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/GridView;->mColumnWidth:I
 
     move/from16 v19, v0
 
-    const/high16 v20, 0x4000
+    const/high16 v20, 0x40000000    # 2.0f
 
     invoke-static/range {v19 .. v20}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -7253,7 +7253,7 @@
     move-result v8
 
     .line 1058
-    .local v8, childWidthSpec:I
+    .local v8, "childWidthSpec":I
     invoke-virtual {v3, v8, v5}, Landroid/view/View;->measure(II)V
 
     .line 1060
@@ -7307,10 +7307,10 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/AbsListView$RecycleBin;->addScrapView(Landroid/view/View;I)V
 
     .line 1068
-    .end local v3           #child:Landroid/view/View;
-    .end local v5           #childHeightSpec:I
-    .end local v8           #childWidthSpec:I
-    .end local v16           #p:Landroid/widget/AbsListView$LayoutParams;
+    .end local v3    # "child":Landroid/view/View;
+    .end local v5    # "childHeightSpec":I
+    .end local v8    # "childWidthSpec":I
+    .end local v16    # "p":Landroid/widget/AbsListView$LayoutParams;
     :cond_2
     if-nez v11, :cond_3
 
@@ -7353,7 +7353,7 @@
 
     .line 1073
     :cond_3
-    const/high16 v19, -0x8000
+    const/high16 v19, -0x80000000
 
     move/from16 v0, v19
 
@@ -7387,16 +7387,16 @@
     add-int v15, v19, v20
 
     .line 1076
-    .local v15, ourSize:I
+    .local v15, "ourSize":I
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 1077
-    .local v14, numColumns:I
+    .local v14, "numColumns":I
     const/4 v13, 0x0
 
-    .local v13, i:I
+    .local v13, "i":I
     :goto_2
     if-ge v13, v9, :cond_5
 
@@ -7431,11 +7431,11 @@
     move v12, v15
 
     .line 1090
-    .end local v13           #i:I
-    .end local v14           #numColumns:I
-    .end local v15           #ourSize:I
+    .end local v13    # "i":I
+    .end local v14    # "numColumns":I
+    .end local v15    # "ourSize":I
     :cond_6
-    const/high16 v19, -0x8000
+    const/high16 v19, -0x80000000
 
     move/from16 v0, v17
 
@@ -7519,7 +7519,7 @@
     add-int v15, v19, v20
 
     .line 1094
-    .restart local v15       #ourSize:I
+    .restart local v15    # "ourSize":I
     move/from16 v0, v18
 
     if-gt v15, v0, :cond_7
@@ -7528,12 +7528,12 @@
 
     .line 1095
     :cond_7
-    const/high16 v19, 0x100
+    const/high16 v19, 0x1000000
 
     or-int v18, v18, v19
 
     .line 1099
-    .end local v15           #ourSize:I
+    .end local v15    # "ourSize":I
     :cond_8
     move-object/from16 v0, p0
 
@@ -7552,11 +7552,11 @@
     return-void
 
     .line 1030
-    .end local v4           #childHeight:I
-    .end local v6           #childState:I
-    .end local v7           #childWidth:I
-    .end local v9           #count:I
-    .end local v10           #didNotInitiallyFit:Z
+    .end local v4    # "childHeight":I
+    .end local v6    # "childState":I
+    .end local v7    # "childWidth":I
+    .end local v9    # "count":I
+    .end local v10    # "didNotInitiallyFit":Z
     :cond_9
     move-object/from16 v0, p0
 
@@ -7587,10 +7587,10 @@
     goto/16 :goto_0
 
     .line 1041
-    .restart local v4       #childHeight:I
-    .restart local v6       #childState:I
-    .restart local v7       #childWidth:I
-    .restart local v10       #didNotInitiallyFit:Z
+    .restart local v4    # "childHeight":I
+    .restart local v6    # "childState":I
+    .restart local v7    # "childWidth":I
+    .restart local v10    # "didNotInitiallyFit":Z
     :cond_a
     move-object/from16 v0, p0
 
@@ -7605,10 +7605,10 @@
     goto/16 :goto_1
 
     .line 1077
-    .restart local v9       #count:I
-    .restart local v13       #i:I
-    .restart local v14       #numColumns:I
-    .restart local v15       #ourSize:I
+    .restart local v9    # "count":I
+    .restart local v13    # "i":I
+    .restart local v14    # "numColumns":I
+    .restart local v15    # "ourSize":I
     :cond_b
     add-int/2addr v13, v14
 
@@ -7617,7 +7617,7 @@
 
 .method pageScroll(I)Z
     .locals 5
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -7626,7 +7626,7 @@
     const/4 v0, -0x1
 
     .line 1680
-    .local v0, nextPage:I
+    .local v0, "nextPage":I
     const/16 v2, 0x21
 
     if-ne p1, v2, :cond_2
@@ -7693,7 +7693,7 @@
 
 .method sequenceScroll(I)Z
     .locals 13
-    .parameter "direction"
+    .param p1, "direction"    # I
 
     .prologue
     const/4 v12, 0x6
@@ -7706,15 +7706,15 @@
     iget v5, p0, Landroid/widget/GridView;->mSelectedPosition:I
 
     .line 1799
-    .local v5, selectedPosition:I
+    .local v5, "selectedPosition":I
     iget v4, p0, Landroid/widget/GridView;->mNumColumns:I
 
     .line 1800
-    .local v4, numColumns:I
+    .local v4, "numColumns":I
     iget v0, p0, Landroid/widget/GridView;->mItemCount:I
 
     .line 1804
-    .local v0, count:I
+    .local v0, "count":I
     iget-boolean v10, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
     if-nez v10, :cond_3
@@ -7725,7 +7725,7 @@
     mul-int v7, v10, v4
 
     .line 1806
-    .local v7, startOfRow:I
+    .local v7, "startOfRow":I
     add-int v10, v7, v4
 
     add-int/lit8 v10, v10, -0x1
@@ -7737,16 +7737,16 @@
     move-result v1
 
     .line 1813
-    .local v1, endOfRow:I
+    .local v1, "endOfRow":I
     :goto_0
     const/4 v3, 0x0
 
     .line 1814
-    .local v3, moved:Z
+    .local v3, "moved":Z
     const/4 v6, 0x0
 
     .line 1815
-    .local v6, showScroll:Z
+    .local v6, "showScroll":Z
     packed-switch p1, :pswitch_data_0
 
     .line 1839
@@ -7776,17 +7776,17 @@
     return v3
 
     .line 1808
-    .end local v1           #endOfRow:I
-    .end local v3           #moved:Z
-    .end local v6           #showScroll:Z
-    .end local v7           #startOfRow:I
+    .end local v1    # "endOfRow":I
+    .end local v3    # "moved":Z
+    .end local v6    # "showScroll":Z
+    .end local v7    # "startOfRow":I
     :cond_3
     add-int/lit8 v10, v0, -0x1
 
     sub-int v2, v10, v5
 
     .line 1809
-    .local v2, invertedSelection:I
+    .local v2, "invertedSelection":I
     add-int/lit8 v10, v0, -0x1
 
     div-int v11, v2, v4
@@ -7796,7 +7796,7 @@
     sub-int v1, v10, v11
 
     .line 1810
-    .restart local v1       #endOfRow:I
+    .restart local v1    # "endOfRow":I
     sub-int v10, v1, v4
 
     add-int/lit8 v10, v10, 0x1
@@ -7805,13 +7805,13 @@
 
     move-result v7
 
-    .restart local v7       #startOfRow:I
+    .restart local v7    # "startOfRow":I
     goto :goto_0
 
     .line 1817
-    .end local v2           #invertedSelection:I
-    .restart local v3       #moved:Z
-    .restart local v6       #showScroll:Z
+    .end local v2    # "invertedSelection":I
+    .restart local v3    # "moved":Z
+    .restart local v6    # "showScroll":Z
     :pswitch_0
     add-int/lit8 v10, v0, -0x1
 
@@ -7879,13 +7879,13 @@
 
 .method public bridge synthetic setAdapter(Landroid/widget/Adapter;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/Adapter;
 
     .prologue
     .line 54
     check-cast p1, Landroid/widget/ListAdapter;
 
-    .end local p1
+    .end local p1    # "x0":Landroid/widget/Adapter;
     invoke-virtual {p0, p1}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     return-void
@@ -7893,7 +7893,7 @@
 
 .method public setAdapter(Landroid/widget/ListAdapter;)V
     .locals 5
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/ListAdapter;
 
     .prologue
     const/4 v4, 0x1
@@ -7934,7 +7934,7 @@
     iput v1, p0, Landroid/widget/GridView;->mOldSelectedPosition:I
 
     .line 179
-    const-wide/high16 v1, -0x8000
+    const-wide/high16 v1, -0x8000000000000000L
 
     iput-wide v1, p0, Landroid/widget/GridView;->mOldSelectedRowId:J
 
@@ -8006,7 +8006,7 @@
     move-result v0
 
     .line 201
-    .local v0, position:I
+    .local v0, "position":I
     :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/GridView;->setSelectedPositionInt(I)V
 
@@ -8017,7 +8017,7 @@
     invoke-virtual {p0}, Landroid/widget/GridView;->checkSelectionChanged()V
 
     .line 210
-    .end local v0           #position:I
+    .end local v0    # "position":I
     :goto_1
     invoke-virtual {p0}, Landroid/widget/GridView;->requestLayout()V
 
@@ -8030,11 +8030,11 @@
 
     move-result v0
 
-    .restart local v0       #position:I
+    .restart local v0    # "position":I
     goto :goto_0
 
     .line 205
-    .end local v0           #position:I
+    .end local v0    # "position":I
     :cond_2
     invoke-virtual {p0}, Landroid/widget/GridView;->checkFocus()V
 
@@ -8046,7 +8046,7 @@
 
 .method public setColumnWidth(I)V
     .locals 1
-    .parameter "columnWidth"
+    .param p1, "columnWidth"    # I
 
     .prologue
     .line 2078
@@ -8067,7 +8067,7 @@
 
 .method public setGravity(I)V
     .locals 1
-    .parameter "gravity"
+    .param p1, "gravity"    # I
 
     .prologue
     .line 1948
@@ -8088,7 +8088,7 @@
 
 .method public setHorizontalSpacing(I)V
     .locals 1
-    .parameter "horizontalSpacing"
+    .param p1, "horizontalSpacing"    # I
 
     .prologue
     .line 1975
@@ -8109,7 +8109,7 @@
 
 .method public setNumColumns(I)V
     .locals 1
-    .parameter "numColumns"
+    .param p1, "numColumns"    # I
 
     .prologue
     .line 2125
@@ -8130,7 +8130,7 @@
 
 .method public setRemoteViewsAdapter(Landroid/content/Intent;)V
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -8144,7 +8144,7 @@
 
 .method public setSelection(I)V
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 1482
@@ -8189,14 +8189,14 @@
 
 .method setSelectionInt(I)V
     .locals 7
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 1501
     iget v4, p0, Landroid/widget/GridView;->mNextSelectedPosition:I
 
     .line 1503
-    .local v4, previousSelectedPosition:I
+    .local v4, "previousSelectedPosition":I
     iget-object v5, p0, Landroid/widget/GridView;->mPositionScroller:Landroid/widget/AbsListView$PositionScroller;
 
     if-eqz v5, :cond_0
@@ -8227,7 +8227,7 @@
     sub-int v0, v5, v6
 
     .line 1512
-    .local v0, next:I
+    .local v0, "next":I
     :goto_0
     iget-boolean v5, p0, Landroid/widget/GridView;->mStackFromBottom:Z
 
@@ -8240,20 +8240,20 @@
     sub-int v2, v5, v4
 
     .line 1515
-    .local v2, previous:I
+    .local v2, "previous":I
     :goto_1
     iget v5, p0, Landroid/widget/GridView;->mNumColumns:I
 
     div-int v1, v0, v5
 
     .line 1516
-    .local v1, nextRow:I
+    .local v1, "nextRow":I
     iget v5, p0, Landroid/widget/GridView;->mNumColumns:I
 
     div-int v3, v2, v5
 
     .line 1518
-    .local v3, previousRow:I
+    .local v3, "previousRow":I
     if-eq v1, v3, :cond_1
 
     .line 1519
@@ -8264,16 +8264,16 @@
     return-void
 
     .line 1510
-    .end local v0           #next:I
-    .end local v1           #nextRow:I
-    .end local v2           #previous:I
-    .end local v3           #previousRow:I
+    .end local v0    # "next":I
+    .end local v1    # "nextRow":I
+    .end local v2    # "previous":I
+    .end local v3    # "previousRow":I
     :cond_2
     iget v0, p0, Landroid/widget/GridView;->mNextSelectedPosition:I
 
     goto :goto_0
 
-    .restart local v0       #next:I
+    .restart local v0    # "next":I
     :cond_3
     move v2, v4
 
@@ -8283,7 +8283,7 @@
 
 .method public setStretchMode(I)V
     .locals 1
-    .parameter "stretchMode"
+    .param p1, "stretchMode"    # I
 
     .prologue
     .line 2060
@@ -8304,7 +8304,7 @@
 
 .method public setVerticalSpacing(I)V
     .locals 1
-    .parameter "verticalSpacing"
+    .param p1, "verticalSpacing"    # I
 
     .prologue
     .line 2032
@@ -8325,7 +8325,7 @@
 
 .method public smoothScrollByOffset(I)V
     .locals 0
-    .parameter "offset"
+    .param p1, "offset"    # I
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -8339,7 +8339,7 @@
 
 .method public smoothScrollToPosition(I)V
     .locals 0
-    .parameter "position"
+    .param p1, "position"    # I
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 

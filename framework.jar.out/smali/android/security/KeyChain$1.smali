@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/BlockingQueue;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 434
@@ -46,8 +45,8 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 437
@@ -86,7 +85,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 446

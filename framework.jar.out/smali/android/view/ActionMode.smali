@@ -103,7 +103,7 @@
 
 .method public setTag(Ljava/lang/Object;)V
     .locals 0
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/Object;
 
     .prologue
     .line 46
@@ -121,7 +121,7 @@
 
 .method public setTitleOptionalHint(Z)V
     .locals 0
-    .parameter "titleOptional"
+    .param p1, "titleOptional"    # Z
 
     .prologue
     .line 123

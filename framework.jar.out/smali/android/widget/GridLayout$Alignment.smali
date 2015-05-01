@@ -50,9 +50,9 @@
 
 .method getSizeInCell(Landroid/view/View;II)I
     .locals 0
-    .parameter "view"
-    .parameter "viewSize"
-    .parameter "cellSize"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "viewSize"    # I
+    .param p3, "cellSize"    # I
 
     .prologue
     .line 2587

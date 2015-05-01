@@ -16,9 +16,9 @@
 
 .field private static final MAX_HISTORY_COUNT:I = 0xfa
 
-.field public static final QUERIES_PROJECTION_1LINE:[Ljava/lang/String; = null
+.field public static final QUERIES_PROJECTION_1LINE:[Ljava/lang/String;
 
-.field public static final QUERIES_PROJECTION_2LINE:[Ljava/lang/String; = null
+.field public static final QUERIES_PROJECTION_2LINE:[Ljava/lang/String;
 
 .field public static final QUERIES_PROJECTION_DATE_INDEX:I = 0x1
 
@@ -116,9 +116,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;I)V
     .locals 2
-    .parameter "context"
-    .parameter "authority"
-    .parameter "mode"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "authority"    # Ljava/lang/String;
+    .param p3, "mode"    # I
 
     .prologue
     .line 131
@@ -209,9 +209,9 @@
 
 .method static synthetic access$000(Landroid/provider/SearchRecentSuggestions;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/provider/SearchRecentSuggestions;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 55
@@ -232,8 +232,8 @@
 
 .method private saveRecentQueryBlocking(Ljava/lang/String;Ljava/lang/String;)V
     .locals 7
-    .parameter "queryString"
-    .parameter "line2"
+    .param p1, "queryString"    # Ljava/lang/String;
+    .param p2, "line2"    # Ljava/lang/String;
 
     .prologue
     .line 189
@@ -244,20 +244,20 @@
     move-result-object v0
 
     .line 190
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     .line 194
-    .local v2, now:J
+    .local v2, "now":J
     :try_start_0
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
     .line 195
-    .local v4, values:Landroid/content/ContentValues;
+    .local v4, "values":Landroid/content/ContentValues;
     const-string v5, "display1"
 
     invoke-virtual {v4, v5, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -295,7 +295,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 207
-    .end local v4           #values:Landroid/content/ContentValues;
+    .end local v4    # "values":Landroid/content/ContentValues;
     :goto_0
     const/16 v5, 0xfa
 
@@ -309,7 +309,7 @@
     move-exception v1
 
     .line 203
-    .local v1, e:Ljava/lang/RuntimeException;
+    .local v1, "e":Ljava/lang/RuntimeException;
     const-string v5, "SearchSuggestions"
 
     const-string/jumbo v6, "saveRecentQuery"
@@ -333,7 +333,7 @@
     move-result-object v0
 
     .line 220
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Landroid/provider/SearchRecentSuggestions;->truncateHistory(Landroid/content/ContentResolver;I)V
@@ -344,8 +344,8 @@
 
 .method public saveRecentQuery(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "queryString"
-    .parameter "line2"
+    .param p1, "queryString"    # Ljava/lang/String;
+    .param p2, "line2"    # Ljava/lang/String;
 
     .prologue
     .line 162
@@ -393,8 +393,8 @@
 
 .method protected truncateHistory(Landroid/content/ContentResolver;I)V
     .locals 4
-    .parameter "cr"
-    .parameter "maxEntries"
+    .param p1, "cr"    # Landroid/content/ContentResolver;
+    .param p2, "maxEntries"    # I
 
     .prologue
     .line 230
@@ -412,7 +412,7 @@
     const/4 v1, 0x0
 
     .line 237
-    .local v1, selection:Ljava/lang/String;
+    .local v1, "selection":Ljava/lang/String;
     if-lez p2, :cond_1
 
     .line 238
@@ -464,7 +464,7 @@
     move-exception v0
 
     .line 245
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "SearchSuggestions"
 
     const-string/jumbo v3, "truncateHistory"

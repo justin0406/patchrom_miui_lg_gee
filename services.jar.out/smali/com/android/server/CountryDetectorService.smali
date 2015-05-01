@@ -47,7 +47,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 94
@@ -69,8 +69,8 @@
 
 .method static synthetic access$000(Lcom/android/server/CountryDetectorService;Landroid/os/IBinder;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/CountryDetectorService;
+    .param p1, "x1"    # Landroid/os/IBinder;
 
     .prologue
     .line 44
@@ -81,7 +81,7 @@
 
 .method static synthetic access$100(Lcom/android/server/CountryDetectorService;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CountryDetectorService;
 
     .prologue
     .line 44
@@ -92,7 +92,7 @@
 
 .method static synthetic access$200(Lcom/android/server/CountryDetectorService;)Lcom/android/server/location/ComprehensiveCountryDetector;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CountryDetectorService;
 
     .prologue
     .line 44
@@ -103,7 +103,7 @@
 
 .method private addListener(Landroid/location/ICountryListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ICountryListener;
 
     .prologue
     .line 131
@@ -120,7 +120,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
-    .local v1, r:Lcom/android/server/CountryDetectorService$Receiver;
+    .local v1, "r":Lcom/android/server/CountryDetectorService$Receiver;
     :try_start_1
     invoke-interface {p1}, Landroid/location/ICountryListener;->asBinder()Landroid/os/IBinder;
 
@@ -162,8 +162,8 @@
 
     invoke-virtual {p0, v2}, Lcom/android/server/CountryDetectorService;->setCountryListener(Landroid/location/CountryListener;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 143
     :cond_0
@@ -179,7 +179,7 @@
     move-exception v0
 
     .line 141
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CountryDetector"
 
     const-string v4, "linkToDeath failed:"
@@ -189,8 +189,8 @@
     goto :goto_0
 
     .line 143
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #r:Lcom/android/server/CountryDetectorService$Receiver;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "r":Lcom/android/server/CountryDetectorService$Receiver;
     :catchall_0
     move-exception v2
 
@@ -227,7 +227,7 @@
 
 .method private removeListener(Landroid/os/IBinder;)V
     .locals 3
-    .parameter "key"
+    .param p1, "key"    # Landroid/os/IBinder;
 
     .prologue
     .line 147
@@ -284,7 +284,7 @@
 # virtual methods
 .method public addCountryListener(Landroid/location/ICountryListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ICountryListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -340,9 +340,9 @@
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .parameter "fd"
-    .parameter "fout"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "fout"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 211
@@ -370,7 +370,7 @@
 
 .method protected notifyReceivers(Landroid/location/Country;)V
     .locals 6
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
 
     .prologue
     .line 158
@@ -390,7 +390,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -407,7 +407,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 161
-    .local v2, receiver:Lcom/android/server/CountryDetectorService$Receiver;
+    .local v2, "receiver":Lcom/android/server/CountryDetectorService$Receiver;
     :try_start_1
     invoke-virtual {v2}, Lcom/android/server/CountryDetectorService$Receiver;->getListener()Landroid/location/ICountryListener;
 
@@ -415,8 +415,8 @@
 
     invoke-interface {v3, p1}, Landroid/location/ICountryListener;->onCountryDetected(Landroid/location/Country;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -425,7 +425,7 @@
     move-exception v0
 
     .line 164
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_2
     const-string v3, "CountryDetector"
 
@@ -436,9 +436,9 @@
     goto :goto_0
 
     .line 167
-    .end local v0           #e:Landroid/os/RemoteException;
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v2           #receiver:Lcom/android/server/CountryDetectorService$Receiver;
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "receiver":Lcom/android/server/CountryDetectorService$Receiver;
     :catchall_0
     move-exception v3
 
@@ -448,7 +448,7 @@
 
     throw v3
 
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_3
     monitor-exit v4
@@ -461,7 +461,7 @@
 
 .method public removeCountryListener(Landroid/location/ICountryListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/ICountryListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -518,7 +518,7 @@
 
 .method protected setCountryListener(Landroid/location/CountryListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/location/CountryListener;
 
     .prologue
     .line 195

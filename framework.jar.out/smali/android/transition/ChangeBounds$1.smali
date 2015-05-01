@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeBounds;Landroid/view/ViewGroup;)V
     .locals 1
-    .parameter
-    .parameter
 
     .prologue
     .line 172
@@ -48,7 +46,7 @@
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 177
@@ -69,7 +67,7 @@
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 183
@@ -91,7 +89,7 @@
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 190
@@ -107,7 +105,7 @@
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 2
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 195

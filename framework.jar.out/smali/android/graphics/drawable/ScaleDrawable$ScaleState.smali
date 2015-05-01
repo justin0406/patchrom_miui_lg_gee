@@ -35,9 +35,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ScaleDrawable$ScaleState;Landroid/graphics/drawable/ScaleDrawable;Landroid/content/res/Resources;)V
     .locals 2
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/ScaleDrawable$ScaleState;
+    .param p2, "owner"    # Landroid/graphics/drawable/ScaleDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 276
@@ -196,7 +196,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 300

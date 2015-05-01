@@ -32,8 +32,8 @@
 # virtual methods
 .method public onTerribleFailure(Ljava/lang/String;Landroid/util/Log$TerribleFailure;)V
     .locals 0
-    .parameter "tag"
-    .parameter "what"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "what"    # Landroid/util/Log$TerribleFailure;
 
     .prologue
     .line 104

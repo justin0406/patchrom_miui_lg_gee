@@ -29,9 +29,8 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;II)V
     .locals 1
-    .parameter
-    .parameter "viewId"
-    .parameter "emptyViewId"
+    .param p2, "viewId"    # I
+    .param p3, "emptyViewId"    # I
 
     .prologue
     .line 330
@@ -53,8 +52,7 @@
 
 .method constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "in"
+    .param p2, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 335
@@ -86,9 +84,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 4
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 348
@@ -99,7 +97,7 @@
     move-result-object v2
 
     .line 349
-    .local v2, view:Landroid/view/View;
+    .local v2, "view":Landroid/view/View;
     instance-of v3, v2, Landroid/widget/AdapterView;
 
     if-nez v3, :cond_1
@@ -116,7 +114,7 @@
     check-cast v0, Landroid/widget/AdapterView;
 
     .line 353
-    .local v0, adapterView:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
+    .local v0, "adapterView":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget v3, p0, Landroid/widget/RemoteViews$SetEmptyView;->emptyViewId:I
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -124,7 +122,7 @@
     move-result-object v1
 
     .line 354
-    .local v1, emptyView:Landroid/view/View;
+    .local v1, "emptyView":Landroid/view/View;
     if-eqz v1, :cond_0
 
     .line 356
@@ -145,8 +143,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 341

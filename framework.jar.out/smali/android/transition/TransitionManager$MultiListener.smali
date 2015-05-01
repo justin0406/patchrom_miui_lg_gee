@@ -3,8 +3,8 @@
 .source "TransitionManager.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 .implements Landroid/view/View$OnAttachStateChangeListener;
+.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # annotations
@@ -27,8 +27,8 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Transition;Landroid/view/ViewGroup;)V
     .locals 0
-    .parameter "transition"
-    .parameter "sceneRoot"
+    .param p1, "transition"    # Landroid/transition/Transition;
+    .param p2, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 234
@@ -76,6 +76,7 @@
     invoke-direct {p0}, Landroid/transition/TransitionManager$MultiListener;->removeListeners()V
 
     .line 265
+    # getter for: Landroid/transition/TransitionManager;->sPendingTransitions:Ljava/util/ArrayList;
     invoke-static {}, Landroid/transition/TransitionManager;->access$000()Ljava/util/ArrayList;
 
     move-result-object v5
@@ -85,13 +86,13 @@
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 267
-    #calls: Landroid/transition/TransitionManager;->getRunningTransitions()Landroid/util/ArrayMap;
+    # invokes: Landroid/transition/TransitionManager;->getRunningTransitions()Landroid/util/ArrayMap;
     invoke-static {}, Landroid/transition/TransitionManager;->access$100()Landroid/util/ArrayMap;
 
     move-result-object v4
 
     .line 269
-    .local v4, runningTransitions:Landroid/util/ArrayMap;,"Landroid/util/ArrayMap<Landroid/view/ViewGroup;Ljava/util/ArrayList<Landroid/transition/Transition;>;>;"
+    .local v4, "runningTransitions":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Landroid/view/ViewGroup;Ljava/util/ArrayList<Landroid/transition/Transition;>;>;"
     iget-object v5, p0, Landroid/transition/TransitionManager$MultiListener;->mSceneRoot:Landroid/view/ViewGroup;
 
     invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -101,21 +102,21 @@
     check-cast v0, Ljava/util/ArrayList;
 
     .line 270
-    .local v0, currentTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .local v0, "currentTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     const/4 v2, 0x0
 
     .line 271
-    .local v2, previousRunningTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .local v2, "previousRunningTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     if-nez v0, :cond_1
 
     .line 272
     new-instance v0, Ljava/util/ArrayList;
 
-    .end local v0           #currentTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .end local v0    # "currentTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 273
-    .restart local v0       #currentTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .restart local v0    # "currentTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     iget-object v5, p0, Landroid/transition/TransitionManager$MultiListener;->mSceneRoot:Landroid/view/ViewGroup;
 
     invoke-virtual {v4, v5, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -153,7 +154,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -168,14 +169,14 @@
     check-cast v3, Landroid/transition/Transition;
 
     .line 289
-    .local v3, runningTransition:Landroid/transition/Transition;
+    .local v3, "runningTransition":Landroid/transition/Transition;
     invoke-virtual {v3}, Landroid/transition/Transition;->resume()V
 
     goto :goto_1
 
     .line 274
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v3           #runningTransition:Landroid/transition/Transition;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v3    # "runningTransition":Landroid/transition/Transition;
     :cond_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -186,10 +187,10 @@
     .line 275
     new-instance v2, Ljava/util/ArrayList;
 
-    .end local v2           #previousRunningTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .end local v2    # "previousRunningTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .restart local v2       #previousRunningTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .restart local v2    # "previousRunningTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     goto :goto_0
 
     .line 292
@@ -208,7 +209,7 @@
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 246
@@ -217,13 +218,14 @@
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 250
     invoke-direct {p0}, Landroid/transition/TransitionManager$MultiListener;->removeListeners()V
 
     .line 252
+    # getter for: Landroid/transition/TransitionManager;->sPendingTransitions:Ljava/util/ArrayList;
     invoke-static {}, Landroid/transition/TransitionManager;->access$000()Ljava/util/ArrayList;
 
     move-result-object v3
@@ -233,7 +235,7 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 253
-    #calls: Landroid/transition/TransitionManager;->getRunningTransitions()Landroid/util/ArrayMap;
+    # invokes: Landroid/transition/TransitionManager;->getRunningTransitions()Landroid/util/ArrayMap;
     invoke-static {}, Landroid/transition/TransitionManager;->access$100()Landroid/util/ArrayMap;
 
     move-result-object v3
@@ -247,7 +249,7 @@
     check-cast v2, Ljava/util/ArrayList;
 
     .line 254
-    .local v2, runningTransitions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/transition/Transition;>;"
+    .local v2, "runningTransitions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/transition/Transition;>;"
     if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -261,7 +263,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -276,14 +278,14 @@
     check-cast v1, Landroid/transition/Transition;
 
     .line 256
-    .local v1, runningTransition:Landroid/transition/Transition;
+    .local v1, "runningTransition":Landroid/transition/Transition;
     invoke-virtual {v1}, Landroid/transition/Transition;->resume()V
 
     goto :goto_0
 
     .line 259
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #runningTransition:Landroid/transition/Transition;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "runningTransition":Landroid/transition/Transition;
     :cond_0
     iget-object v3, p0, Landroid/transition/TransitionManager$MultiListener;->mTransition:Landroid/transition/Transition;
 

@@ -35,8 +35,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "theme"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "theme"    # I
 
     .prologue
     .line 62
@@ -68,7 +68,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/app/MediaRouteChooserDialog;)Landroid/media/MediaRouter;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/MediaRouteChooserDialog;
 
     .prologue
     .line 50
@@ -158,7 +158,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v2, 0x3
@@ -185,7 +185,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x1040548
+    const v0, 0x1040549
 
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/app/MediaRouteChooserDialog;->setTitle(I)V
@@ -265,7 +265,7 @@
 
     .line 127
     :cond_0
-    const v0, 0x1040547
+    const v0, 0x1040548
 
     goto :goto_0
 .end method
@@ -295,7 +295,7 @@
 
 .method public onFilterRoute(Landroid/media/MediaRouter$RouteInfo;)Z
     .locals 1
-    .parameter "route"
+    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 117
@@ -351,7 +351,7 @@
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 99
@@ -372,7 +372,7 @@
 
 .method public setRouteTypes(I)V
     .locals 3
-    .parameter "types"
+    .param p1, "types"    # I
 
     .prologue
     .line 85

@@ -35,7 +35,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 2114
@@ -55,7 +55,7 @@
 
     .prologue
     .line 2119
-    const/high16 v0, -0x8000
+    const/high16 v0, -0x80000000
 
     iput v0, p0, Landroid/widget/GridLayout$MutableInt;->value:I
 

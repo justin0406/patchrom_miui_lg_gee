@@ -34,7 +34,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 412
@@ -71,8 +71,8 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "rowId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "rowId"    # J
 
     .prologue
     .line 426
@@ -113,7 +113,7 @@
 
 .method public static getMtpObjectsUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 435
@@ -150,8 +150,8 @@
 
 .method public static final getMtpObjectsUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "fileId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "fileId"    # J
 
     .prologue
     .line 445
@@ -192,8 +192,8 @@
 
 .method public static final getMtpReferencesUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "fileId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "fileId"    # J
 
     .prologue
     .line 455

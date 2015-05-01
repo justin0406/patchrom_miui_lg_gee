@@ -18,9 +18,9 @@
 # direct methods
 .method public constructor <init>([FLandroid/graphics/RectF;[F)V
     .locals 2
-    .parameter "outerRadii"
-    .parameter "inset"
-    .parameter "innerRadii"
+    .param p1, "outerRadii"    # [F
+    .param p2, "inset"    # Landroid/graphics/RectF;
+    .param p3, "innerRadii"    # [F
 
     .prologue
     const/16 v1, 0x8
@@ -131,7 +131,7 @@
     check-cast v0, Landroid/graphics/drawable/shapes/RoundRectShape;
 
     .line 109
-    .local v0, shape:Landroid/graphics/drawable/shapes/RoundRectShape;
+    .local v0, "shape":Landroid/graphics/drawable/shapes/RoundRectShape;
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
     if-eqz v1, :cond_0
@@ -242,8 +242,8 @@
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 1
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 78
@@ -257,8 +257,8 @@
 
 .method protected onResize(FF)V
     .locals 7
-    .parameter "w"
-    .parameter "h"
+    .param p1, "w"    # F
+    .param p2, "h"    # F
 
     .prologue
     .line 83
@@ -270,7 +270,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, r:Landroid/graphics/RectF;
+    .local v0, "r":Landroid/graphics/RectF;
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v1}, Landroid/graphics/Path;->reset()V

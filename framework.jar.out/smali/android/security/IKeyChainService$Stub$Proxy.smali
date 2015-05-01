@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 130
@@ -51,7 +51,7 @@
 
 .method public deleteCaCertificate(Ljava/lang/String;)Z
     .locals 6
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,13 +67,13 @@
     move-result-object v0
 
     .line 201
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 204
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
@@ -106,7 +106,7 @@
     const/4 v2, 0x1
 
     .line 211
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -117,7 +117,7 @@
     return v2
 
     .line 211
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -131,7 +131,7 @@
 
 .method public getCertificate(Ljava/lang/String;)[B
     .locals 6
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -145,13 +145,13 @@
     move-result-object v0
 
     .line 164
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 167
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
@@ -180,7 +180,7 @@
     move-result-object v2
 
     .line 174
-    .local v2, _result:[B
+    .local v2, "_result":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 175
@@ -190,7 +190,7 @@
     return-object v2
 
     .line 174
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -214,8 +214,8 @@
 
 .method public hasGrant(ILjava/lang/String;)Z
     .locals 6
-    .parameter "uid"
-    .parameter "alias"
+    .param p1, "uid"    # I
+    .param p2, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -231,13 +231,13 @@
     move-result-object v0
 
     .line 255
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 258
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
@@ -273,7 +273,7 @@
     const/4 v2, 0x1
 
     .line 266
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -284,7 +284,7 @@
     return v2
 
     .line 266
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -298,7 +298,7 @@
 
 .method public installCaCertificate([B)V
     .locals 5
-    .parameter "caCertificate"
+    .param p1, "caCertificate"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -312,13 +312,13 @@
     move-result-object v0
 
     .line 184
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 186
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.security.IKeyChainService"
 
@@ -364,7 +364,7 @@
 
 .method public requestPrivateKey(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .parameter "alias"
+    .param p1, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -378,13 +378,13 @@
     move-result-object v0
 
     .line 146
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 149
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
@@ -413,7 +413,7 @@
     move-result-object v2
 
     .line 156
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 157
@@ -423,7 +423,7 @@
     return-object v2
 
     .line 156
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -452,13 +452,13 @@
     move-result-object v0
 
     .line 219
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 222
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
@@ -488,7 +488,7 @@
     const/4 v2, 0x1
 
     .line 228
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -499,7 +499,7 @@
     return v2
 
     .line 228
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -513,9 +513,9 @@
 
 .method public setGrant(ILjava/lang/String;Z)V
     .locals 5
-    .parameter "uid"
-    .parameter "alias"
-    .parameter "value"
+    .param p1, "uid"    # I
+    .param p2, "alias"    # Ljava/lang/String;
+    .param p3, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -531,13 +531,13 @@
     move-result-object v0
 
     .line 238
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 240
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.IKeyChainService"
 

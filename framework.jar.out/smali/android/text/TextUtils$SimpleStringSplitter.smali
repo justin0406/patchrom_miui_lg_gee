@@ -42,7 +42,7 @@
 # direct methods
 .method public constructor <init>(C)V
     .locals 0
-    .parameter "delimiter"
+    .param p1, "delimiter"    # C
 
     .prologue
     .line 395
@@ -124,7 +124,7 @@
     move-result v0
 
     .line 419
-    .local v0, end:I
+    .local v0, "end":I
     const/4 v2, -0x1
 
     if-ne v0, v2, :cond_0
@@ -143,7 +143,7 @@
     move-result-object v1
 
     .line 423
-    .local v1, nextString:Ljava/lang/String;
+    .local v1, "nextString":Ljava/lang/String;
     add-int/lit8 v2, v0, 0x1
 
     iput v2, p0, Landroid/text/TextUtils$SimpleStringSplitter;->mPosition:I
@@ -166,7 +166,7 @@
 
 .method public setString(Ljava/lang/String;)V
     .locals 1
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
 
     .prologue
     .line 404

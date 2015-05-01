@@ -29,8 +29,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 64
@@ -42,7 +42,7 @@
 
 .method public static CLAMP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 131
@@ -56,7 +56,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 133
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -84,7 +84,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR:Landroid/renderscript/Sampler;
 
     .line 139
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR:Landroid/renderscript/Sampler;
 
@@ -93,7 +93,7 @@
 
 .method public static CLAMP_LINEAR_MIP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 151
@@ -107,7 +107,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 153
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -135,7 +135,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
     .line 159
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
@@ -144,7 +144,7 @@
 
 .method public static CLAMP_NEAREST(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 111
@@ -158,7 +158,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 113
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->NEAREST:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -186,7 +186,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_NEAREST:Landroid/renderscript/Sampler;
 
     .line 119
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_NEAREST:Landroid/renderscript/Sampler;
 
@@ -195,7 +195,7 @@
 
 .method public static MIRRORED_REPEAT_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 251
@@ -209,7 +209,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 253
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -237,7 +237,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_LINEAR:Landroid/renderscript/Sampler;
 
     .line 259
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_LINEAR:Landroid/renderscript/Sampler;
 
@@ -246,7 +246,7 @@
 
 .method public static MIRRORED_REPEAT_LINEAR_MIP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 271
@@ -260,7 +260,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 273
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -288,7 +288,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
     .line 279
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
@@ -297,7 +297,7 @@
 
 .method public static MIRRORED_REPEAT_NEAREST(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 231
@@ -311,7 +311,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 233
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->NEAREST:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -339,7 +339,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_NEAREST:Landroid/renderscript/Sampler;
 
     .line 239
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_MIRRORED_REPEAT_NEAREST:Landroid/renderscript/Sampler;
 
@@ -348,7 +348,7 @@
 
 .method public static WRAP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 191
@@ -362,7 +362,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 193
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -390,7 +390,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR:Landroid/renderscript/Sampler;
 
     .line 199
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR:Landroid/renderscript/Sampler;
 
@@ -399,7 +399,7 @@
 
 .method public static WRAP_LINEAR_MIP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 211
@@ -413,7 +413,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 213
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -441,7 +441,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
     .line 219
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
@@ -450,7 +450,7 @@
 
 .method public static WRAP_NEAREST(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
     .locals 2
-    .parameter "rs"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 171
@@ -464,7 +464,7 @@
     invoke-direct {v0, p0}, Landroid/renderscript/Sampler$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 173
-    .local v0, b:Landroid/renderscript/Sampler$Builder;
+    .local v0, "b":Landroid/renderscript/Sampler$Builder;
     sget-object v1, Landroid/renderscript/Sampler$Value;->NEAREST:Landroid/renderscript/Sampler$Value;
 
     invoke-virtual {v0, v1}, Landroid/renderscript/Sampler$Builder;->setMinification(Landroid/renderscript/Sampler$Value;)V
@@ -492,7 +492,7 @@
     iput-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_NEAREST:Landroid/renderscript/Sampler;
 
     .line 179
-    .end local v0           #b:Landroid/renderscript/Sampler$Builder;
+    .end local v0    # "b":Landroid/renderscript/Sampler$Builder;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_NEAREST:Landroid/renderscript/Sampler;
 

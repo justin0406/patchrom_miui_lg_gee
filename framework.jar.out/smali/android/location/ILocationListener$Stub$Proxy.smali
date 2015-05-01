@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 101
@@ -61,7 +61,7 @@
 
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 5
-    .parameter "location"
+    .param p1, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.ILocationListener"
 
@@ -136,7 +136,7 @@
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +150,7 @@
     move-result-object v0
 
     .line 166
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.ILocationListener"
 
@@ -189,7 +189,7 @@
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 5
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -203,7 +203,7 @@
     move-result-object v0
 
     .line 154
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.ILocationListener"
 
@@ -242,9 +242,9 @@
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 5
-    .parameter "provider"
-    .parameter "status"
-    .parameter "extras"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -258,7 +258,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.location.ILocationListener"
 

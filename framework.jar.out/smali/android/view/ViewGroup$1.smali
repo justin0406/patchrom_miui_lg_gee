@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2984
@@ -44,7 +43,7 @@
     .line 2986
     iget-object v0, p0, Landroid/view/ViewGroup$1;->this$0:Landroid/view/ViewGroup;
 
-    #calls: Landroid/view/ViewGroup;->notifyAnimationListener()V
+    # invokes: Landroid/view/ViewGroup;->notifyAnimationListener()V
     invoke-static {v0}, Landroid/view/ViewGroup;->access$000(Landroid/view/ViewGroup;)V
 
     .line 2987

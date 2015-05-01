@@ -55,7 +55,7 @@
 
 .method private getOrAllocate(I)Ljava/util/HashMap;
     .locals 2
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -80,17 +80,17 @@
     check-cast v0, Ljava/util/HashMap;
 
     .line 496
-    .local v0, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .local v0, "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     if-nez v0, :cond_0
 
     .line 497
     new-instance v0, Ljava/util/HashMap;
 
-    .end local v0           #map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .end local v0    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 498
-    .restart local v0       #map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .restart local v0    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PendingPackageBroadcasts;->mUidMap:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -117,8 +117,8 @@
 
 .method public get(ILjava/lang/String;)Ljava/util/ArrayList;
     .locals 2
-    .parameter "userId"
-    .parameter "packageName"
+    .param p1, "userId"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -138,7 +138,7 @@
     move-result-object v0
 
     .line 450
-    .local v0, packages:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .local v0, "packages":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -150,7 +150,7 @@
 
 .method public packagesForUserId(I)Ljava/util/HashMap;
     .locals 1
-    .parameter "userId"
+    .param p1, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -179,9 +179,8 @@
 
 .method public put(ILjava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "userId"
-    .parameter "packageName"
-    .parameter
+    .param p1, "userId"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -195,13 +194,13 @@
 
     .prologue
     .line 454
-    .local p3, components:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p3, "components":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {p0, p1}, Lcom/android/server/pm/PackageManagerService$PendingPackageBroadcasts;->getOrAllocate(I)Ljava/util/HashMap;
 
     move-result-object v0
 
     .line 455
-    .local v0, packages:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .local v0, "packages":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     invoke-virtual {v0, p2, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 456
@@ -210,7 +209,7 @@
 
 .method public remove(I)V
     .locals 1
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 466
@@ -224,8 +223,8 @@
 
 .method public remove(ILjava/lang/String;)V
     .locals 2
-    .parameter "userId"
-    .parameter "packageName"
+    .param p1, "userId"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 459
@@ -238,7 +237,7 @@
     check-cast v0, Ljava/util/HashMap;
 
     .line 460
-    .local v0, packages:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
+    .local v0, "packages":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     if-eqz v0, :cond_0
 
     .line 461
@@ -257,10 +256,10 @@
     const/4 v1, 0x0
 
     .line 484
-    .local v1, num:I
+    .local v1, "num":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$PendingPackageBroadcasts;->mUidMap:Landroid/util/SparseArray;
 
@@ -297,7 +296,7 @@
 
 .method public userIdAt(I)I
     .locals 1
-    .parameter "n"
+    .param p1, "n"    # I
 
     .prologue
     .line 474

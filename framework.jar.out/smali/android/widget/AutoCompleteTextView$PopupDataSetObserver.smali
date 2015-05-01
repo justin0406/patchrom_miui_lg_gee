@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AutoCompleteTextView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1254
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p2, "x1"    # Landroid/widget/AutoCompleteTextView$1;
 
     .prologue
     .line 1254
@@ -53,7 +52,7 @@
     .line 1257
     iget-object v0, p0, Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;->this$0:Landroid/widget/AutoCompleteTextView;
 
-    #getter for: Landroid/widget/AutoCompleteTextView;->mAdapter:Landroid/widget/ListAdapter;
+    # getter for: Landroid/widget/AutoCompleteTextView;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v0}, Landroid/widget/AutoCompleteTextView;->access$700(Landroid/widget/AutoCompleteTextView;)Landroid/widget/ListAdapter;
 
     move-result-object v0

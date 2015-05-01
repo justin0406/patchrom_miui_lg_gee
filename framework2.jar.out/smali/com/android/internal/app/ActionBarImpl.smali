@@ -115,7 +115,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
     .locals 5
-    .parameter "activity"
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
     const/4 v4, 0x1
@@ -190,13 +190,13 @@
     move-result-object v2
 
     .line 164
-    .local v2, window:Landroid/view/Window;
+    .local v2, "window":Landroid/view/Window;
     invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v0
 
     .line 165
-    .local v0, decor:Landroid/view/View;
+    .local v0, "decor":Landroid/view/View;
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v3}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -210,7 +210,7 @@
     move-result v1
 
     .line 166
-    .local v1, overlayMode:Z
+    .local v1, "overlayMode":Z
     invoke-direct {p0, v0}, Lcom/android/internal/app/ActionBarImpl;->init(Landroid/view/View;)V
 
     .line 167
@@ -232,7 +232,7 @@
 
 .method public constructor <init>(Landroid/app/Dialog;)V
     .locals 2
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/app/Dialog;
 
     .prologue
     const/4 v1, 0x1
@@ -318,7 +318,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/app/ActionBarImpl;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -329,7 +329,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/app/ActionBarImpl;)Landroid/view/View;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -340,7 +340,7 @@
 
 .method static synthetic access$1000(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ActionBarContextView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -351,7 +351,7 @@
 
 .method static synthetic access$1100(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ActionBarView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -362,7 +362,7 @@
 
 .method static synthetic access$1200(Lcom/android/internal/app/ActionBarImpl;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -373,7 +373,7 @@
 
 .method static synthetic access$1300(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ScrollingTabContainerView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -384,7 +384,7 @@
 
 .method static synthetic access$200(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ActionBarContainer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -395,7 +395,7 @@
 
 .method static synthetic access$300(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ActionBarContainer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -406,7 +406,7 @@
 
 .method static synthetic access$400(Lcom/android/internal/app/ActionBarImpl;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -417,8 +417,8 @@
 
 .method static synthetic access$502(Lcom/android/internal/app/ActionBarImpl;Landroid/animation/Animator;)Landroid/animation/Animator;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
+    .param p1, "x1"    # Landroid/animation/Animator;
 
     .prologue
     .line 70
@@ -429,7 +429,7 @@
 
 .method static synthetic access$600(Lcom/android/internal/app/ActionBarImpl;)Lcom/android/internal/widget/ActionBarOverlayLayout;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -440,7 +440,7 @@
 
 .method static synthetic access$700(Lcom/android/internal/app/ActionBarImpl;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -451,7 +451,7 @@
 
 .method static synthetic access$800(Lcom/android/internal/app/ActionBarImpl;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/app/ActionBarImpl;
 
     .prologue
     .line 70
@@ -462,9 +462,9 @@
 
 .method static synthetic access$900(ZZZ)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Z
+    .param p1, "x1"    # Z
+    .param p2, "x2"    # Z
 
     .prologue
     .line 70
@@ -477,9 +477,9 @@
 
 .method private static checkShowingFlags(ZZZ)Z
     .locals 1
-    .parameter "hiddenByApp"
-    .parameter "hiddenBySystem"
-    .parameter "showingForMode"
+    .param p0, "hiddenByApp"    # Z
+    .param p1, "hiddenBySystem"    # Z
+    .param p2, "showingForMode"    # Z
 
     .prologue
     const/4 v0, 0x1
@@ -547,8 +547,8 @@
 
 .method private configureTab(Landroid/app/ActionBar$Tab;I)V
     .locals 6
-    .parameter "tab"
-    .parameter "position"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
+    .param p2, "position"    # I
 
     .prologue
     .line 474
@@ -557,13 +557,13 @@
     check-cast v3, Lcom/android/internal/app/ActionBarImpl$TabImpl;
 
     .line 475
-    .local v3, tabi:Lcom/android/internal/app/ActionBarImpl$TabImpl;
+    .local v3, "tabi":Lcom/android/internal/app/ActionBarImpl$TabImpl;
     invoke-virtual {v3}, Lcom/android/internal/app/ActionBarImpl$TabImpl;->getCallback()Landroid/app/ActionBar$TabListener;
 
     move-result-object v0
 
     .line 477
-    .local v0, callback:Landroid/app/ActionBar$TabListener;
+    .local v0, "callback":Landroid/app/ActionBar$TabListener;
     if-nez v0, :cond_0
 
     .line 478
@@ -592,10 +592,10 @@
     move-result v1
 
     .line 485
-    .local v1, count:I
+    .local v1, "count":I
     add-int/lit8 v2, p2, 0x1
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_1
 
@@ -637,14 +637,14 @@
 
     .line 250
     :cond_0
+    new-instance v0, Lcom/android/internal/widget/ScrollingTabContainerView;
+
     iget-object v1, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/internal/app/Injector$ActionBarImplHook;->createScrollingTabContainerView(Landroid/content/Context;)Lcom/android/internal/widget/ScrollingTabContainerView;
-
-    move-result-object v0
+    invoke-direct {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;-><init>(Landroid/content/Context;)V
 
     .line 252
-    .local v0, tabScroller:Lcom/android/internal/widget/ScrollingTabContainerView;
+    .local v0, "tabScroller":Lcom/android/internal/widget/ScrollingTabContainerView;
     iget-boolean v1, p0, Lcom/android/internal/app/ActionBarImpl;->mHasEmbeddedTabs:Z
 
     if-eqz v1, :cond_1
@@ -739,7 +739,7 @@
 
 .method private init(Landroid/view/View;)V
     .locals 7
-    .parameter "decor"
+    .param p1, "decor"    # Landroid/view/View;
 
     .prologue
     const/4 v5, 0x0
@@ -902,7 +902,7 @@
     move-result v1
 
     .line 203
-    .local v1, current:I
+    .local v1, "current":I
     and-int/lit8 v3, v1, 0x4
 
     if-eqz v3, :cond_7
@@ -910,7 +910,7 @@
     move v2, v4
 
     .line 204
-    .local v2, homeAsUp:Z
+    .local v2, "homeAsUp":Z
     :goto_1
     if-eqz v2, :cond_3
 
@@ -926,7 +926,7 @@
     move-result-object v0
 
     .line 209
-    .local v0, abp:Lcom/android/internal/view/ActionBarPolicy;
+    .local v0, "abp":Lcom/android/internal/view/ActionBarPolicy;
     invoke-virtual {v0}, Lcom/android/internal/view/ActionBarPolicy;->enableHomeButtonByDefault()Z
 
     move-result v3
@@ -951,16 +951,16 @@
     .line 211
     return-void
 
-    .end local v0           #abp:Lcom/android/internal/view/ActionBarPolicy;
-    .end local v1           #current:I
-    .end local v2           #homeAsUp:Z
+    .end local v0    # "abp":Lcom/android/internal/view/ActionBarPolicy;
+    .end local v1    # "current":I
+    .end local v2    # "homeAsUp":Z
     :cond_6
     move v3, v5
 
     .line 198
     goto :goto_0
 
-    .restart local v1       #current:I
+    .restart local v1    # "current":I
     :cond_7
     move v2, v5
 
@@ -970,7 +970,7 @@
 
 .method private setHasEmbeddedTabs(Z)V
     .locals 5
-    .parameter "hasEmbeddedTabs"
+    .param p1, "hasEmbeddedTabs"    # Z
 
     .prologue
     const/4 v4, 0x0
@@ -979,31 +979,27 @@
 
     const/4 v2, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/internal/app/Injector$ActionBarImplHook;->setHasEmbeddedTabs(Lcom/android/internal/app/ActionBarImpl;Z)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_miui
-
-    return-void
-
-    :cond_miui
+    .line 218
     iput-boolean p1, p0, Lcom/android/internal/app/ActionBarImpl;->mHasEmbeddedTabs:Z
 
+    .line 220
     iget-boolean v3, p0, Lcom/android/internal/app/ActionBarImpl;->mHasEmbeddedTabs:Z
 
     if-nez v3, :cond_1
 
+    .line 221
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mActionView:Lcom/android/internal/widget/ActionBarView;
 
     invoke-virtual {v3, v4}, Lcom/android/internal/widget/ActionBarView;->setEmbeddedTabView(Lcom/android/internal/widget/ScrollingTabContainerView;)V
 
+    .line 222
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
     iget-object v4, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {v3, v4}, Lcom/android/internal/widget/ActionBarContainer;->setTabContainer(Lcom/android/internal/widget/ScrollingTabContainerView;)V
 
+    .line 227
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/app/ActionBarImpl;->getNavigationMode()I
 
@@ -1016,7 +1012,7 @@
     move v0, v1
 
     .line 228
-    .local v0, isInTabMode:Z
+    .local v0, "isInTabMode":Z
     :goto_1
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -1058,7 +1054,7 @@
     return-void
 
     .line 224
-    .end local v0           #isInTabMode:Z
+    .end local v0    # "isInTabMode":Z
     :cond_1
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
@@ -1080,7 +1076,7 @@
     goto :goto_1
 
     .line 235
-    .restart local v0       #isInTabMode:Z
+    .restart local v0    # "isInTabMode":Z
     :cond_3
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -1134,7 +1130,7 @@
 
 .method private updateVisibility(Z)V
     .locals 4
-    .parameter "fromSystem"
+    .param p1, "fromSystem"    # Z
 
     .prologue
     .line 663
@@ -1149,7 +1145,7 @@
     move-result v0
 
     .line 666
-    .local v0, shown:Z
+    .local v0, "shown":Z
     if-eqz v0, :cond_1
 
     .line 667
@@ -1191,7 +1187,7 @@
 # virtual methods
 .method public addOnMenuVisibilityListener(Landroid/app/ActionBar$OnMenuVisibilityListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/app/ActionBar$OnMenuVisibilityListener;
 
     .prologue
     .line 296
@@ -1205,7 +1201,7 @@
 
 .method public addTab(Landroid/app/ActionBar$Tab;)V
     .locals 1
-    .parameter "tab"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
 
     .prologue
     .line 492
@@ -1223,8 +1219,8 @@
 
 .method public addTab(Landroid/app/ActionBar$Tab;I)V
     .locals 1
-    .parameter "tab"
-    .parameter "position"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
+    .param p2, "position"    # I
 
     .prologue
     .line 497
@@ -1242,9 +1238,9 @@
 
 .method public addTab(Landroid/app/ActionBar$Tab;IZ)V
     .locals 1
-    .parameter "tab"
-    .parameter "position"
-    .parameter "setSelected"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
+    .param p2, "position"    # I
+    .param p3, "setSelected"    # Z
 
     .prologue
     .line 512
@@ -1271,8 +1267,8 @@
 
 .method public addTab(Landroid/app/ActionBar$Tab;Z)V
     .locals 1
-    .parameter "tab"
-    .parameter "setSelected"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
+    .param p2, "setSelected"    # Z
 
     .prologue
     .line 502
@@ -1305,7 +1301,7 @@
 
 .method animateToMode(Z)V
     .locals 4
-    .parameter "toActionMode"
+    .param p1, "toActionMode"    # Z
 
     .prologue
     const/16 v1, 0x8
@@ -1341,6 +1337,22 @@
 
     .line 795
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionView:Lcom/android/internal/widget/ActionBarView;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->hasEmbeddedTabs()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionView:Lcom/android/internal/widget/ActionBarView;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->isCollapsed()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -1412,7 +1424,7 @@
 
 .method public dispatchMenuVisibilityChanged(Z)V
     .locals 3
-    .parameter "isVisible"
+    .param p1, "isVisible"    # Z
 
     .prologue
     .line 304
@@ -1436,10 +1448,10 @@
     move-result v0
 
     .line 310
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -1462,12 +1474,12 @@
 
 .method public doHide(Z)V
     .locals 12
-    .parameter "fromSystem"
+    .param p1, "fromSystem"    # Z
 
     .prologue
     const/4 v8, 0x2
 
-    const/high16 v11, 0x3f80
+    const/high16 v11, 0x3f800000    # 1.0f
 
     const/4 v10, 0x0
 
@@ -1512,7 +1524,7 @@
     invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 749
-    .local v1, anim:Landroid/animation/AnimatorSet;
+    .local v1, "anim":Landroid/animation/AnimatorSet;
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-virtual {v5}, Lcom/android/internal/widget/ActionBarContainer;->getHeight()I
@@ -1524,7 +1536,7 @@
     int-to-float v3, v5
 
     .line 750
-    .local v3, endingY:F
+    .local v3, "endingY":F
     if-eqz p1, :cond_2
 
     .line 751
@@ -1533,7 +1545,7 @@
     fill-array-data v4, :array_0
 
     .line 752
-    .local v4, topLeft:[I
+    .local v4, "topLeft":[I
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-virtual {v5, v4}, Lcom/android/internal/widget/ActionBarContainer;->getLocationInWindow([I)V
@@ -1546,7 +1558,7 @@
     sub-float/2addr v3, v5
 
     .line 755
-    .end local v4           #topLeft:[I
+    .end local v4    # "topLeft":[I
     :cond_2
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
@@ -1561,7 +1573,7 @@
     move-result-object v0
 
     .line 756
-    .local v0, a:Landroid/animation/ObjectAnimator;
+    .local v0, "a":Landroid/animation/ObjectAnimator;
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     invoke-virtual {v0, v5}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
@@ -1572,7 +1584,7 @@
     move-result-object v2
 
     .line 758
-    .local v2, b:Landroid/animation/AnimatorSet$Builder;
+    .local v2, "b":Landroid/animation/AnimatorSet$Builder;
     iget-boolean v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContentAnimations:Z
 
     if-eqz v5, :cond_3
@@ -1671,10 +1683,10 @@
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
     .line 776
-    .end local v0           #a:Landroid/animation/ObjectAnimator;
-    .end local v1           #anim:Landroid/animation/AnimatorSet;
-    .end local v2           #b:Landroid/animation/AnimatorSet$Builder;
-    .end local v3           #endingY:F
+    .end local v0    # "a":Landroid/animation/ObjectAnimator;
+    .end local v1    # "anim":Landroid/animation/AnimatorSet;
+    .end local v2    # "b":Landroid/animation/AnimatorSet$Builder;
+    .end local v3    # "endingY":F
     :goto_0
     return-void
 
@@ -1690,20 +1702,20 @@
 
     .line 751
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
     .end array-data
 .end method
 
 .method public doShow(Z)V
     .locals 12
-    .parameter "fromSystem"
+    .param p1, "fromSystem"    # Z
 
     .prologue
     const/4 v11, 0x2
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     const/4 v10, 0x1
 
@@ -1756,7 +1768,7 @@
     int-to-float v3, v5
 
     .line 689
-    .local v3, startingY:F
+    .local v3, "startingY":F
     if-eqz p1, :cond_2
 
     .line 690
@@ -1765,7 +1777,7 @@
     fill-array-data v4, :array_0
 
     .line 691
-    .local v4, topLeft:[I
+    .local v4, "topLeft":[I
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-virtual {v5, v4}, Lcom/android/internal/widget/ActionBarContainer;->getLocationInWindow([I)V
@@ -1778,7 +1790,7 @@
     sub-float/2addr v3, v5
 
     .line 694
-    .end local v4           #topLeft:[I
+    .end local v4    # "topLeft":[I
     :cond_2
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
@@ -1790,7 +1802,7 @@
     invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 696
-    .local v1, anim:Landroid/animation/AnimatorSet;
+    .local v1, "anim":Landroid/animation/AnimatorSet;
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
     sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
@@ -1804,7 +1816,7 @@
     move-result-object v0
 
     .line 697
-    .local v0, a:Landroid/animation/ObjectAnimator;
+    .local v0, "a":Landroid/animation/ObjectAnimator;
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     invoke-virtual {v0, v5}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
@@ -1815,7 +1827,7 @@
     move-result-object v2
 
     .line 699
-    .local v2, b:Landroid/animation/AnimatorSet$Builder;
+    .local v2, "b":Landroid/animation/AnimatorSet$Builder;
     iget-boolean v5, p0, Lcom/android/internal/app/ActionBarImpl;->mContentAnimations:Z
 
     if-eqz v5, :cond_3
@@ -1913,10 +1925,10 @@
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
     .line 734
-    .end local v0           #a:Landroid/animation/ObjectAnimator;
-    .end local v1           #anim:Landroid/animation/AnimatorSet;
-    .end local v2           #b:Landroid/animation/AnimatorSet$Builder;
-    .end local v3           #startingY:F
+    .end local v0    # "a":Landroid/animation/ObjectAnimator;
+    .end local v1    # "anim":Landroid/animation/AnimatorSet;
+    .end local v2    # "b":Landroid/animation/AnimatorSet$Builder;
+    .end local v3    # "startingY":F
     :goto_0
     iget-object v5, p0, Lcom/android/internal/app/ActionBarImpl;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
 
@@ -1995,15 +2007,15 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
     .end array-data
 .end method
 
 .method public enableContentAnimations(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 597
@@ -2011,60 +2023,6 @@
 
     .line 598
     return-void
-.end method
-
-.method protected getActionBarOverlayLayout()Lcom/android/internal/widget/ActionBarOverlayLayout;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
-
-    return-object v0
-.end method
-
-.method protected getActionView()Lcom/android/internal/widget/ActionBarView;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionView:Lcom/android/internal/widget/ActionBarView;
-
-    return-object v0
-.end method
-
-.method protected getContainerView()Lcom/android/internal/widget/ActionBarContainer;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
-
-    return-object v0
-.end method
-
-.method getContext()Landroid/content/Context;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method protected getContextDisplayMode()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContextDisplayMode:I
-
-    return v0
-.end method
-
-.method protected getContextView()Lcom/android/internal/widget/ActionBarContextView;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
-
-    return-object v0
 .end method
 
 .method public getCustomView()Landroid/view/View;
@@ -2091,15 +2049,6 @@
     invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->getDisplayOptions()I
 
     move-result v0
-
-    return v0
-.end method
-
-.method getHasEmbeddedTabsFiled()Z
-    .locals 1
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/internal/app/ActionBarImpl;->mHasEmbeddedTabs:Z
 
     return v0
 .end method
@@ -2157,7 +2106,7 @@
     move-result-object v0
 
     .line 1164
-    .local v0, adapter:Landroid/widget/SpinnerAdapter;
+    .local v0, "adapter":Landroid/widget/SpinnerAdapter;
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Landroid/widget/SpinnerAdapter;->getCount()I
@@ -2254,15 +2203,6 @@
     return-object v0
 .end method
 
-.method protected getSplitView()Lcom/android/internal/widget/ActionBarContainer;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
-
-    return-object v0
-.end method
-
 .method public getSubtitle()Ljava/lang/CharSequence;
     .locals 1
 
@@ -2279,7 +2219,7 @@
 
 .method public getTabAt(I)Landroid/app/ActionBar$Tab;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 1206
@@ -2308,15 +2248,6 @@
     return v0
 .end method
 
-.method protected getTabScrollView()Lcom/android/internal/widget/ScrollingTabContainerView;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
-
-    return-object v0
-.end method
-
 .method public getThemedContext()Landroid/content/Context;
     .locals 5
 
@@ -2332,7 +2263,7 @@
     invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
     .line 803
-    .local v1, outValue:Landroid/util/TypedValue;
+    .local v1, "outValue":Landroid/util/TypedValue;
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -2340,7 +2271,7 @@
     move-result-object v0
 
     .line 804
-    .local v0, currentTheme:Landroid/content/res/Resources$Theme;
+    .local v0, "currentTheme":Landroid/content/res/Resources$Theme;
     const v3, 0x1010397
 
     const/4 v4, 0x1
@@ -2351,7 +2282,7 @@
     iget v2, v1, Landroid/util/TypedValue;->resourceId:I
 
     .line 808
-    .local v2, targetThemeRes:I
+    .local v2, "targetThemeRes":I
     if-eqz v2, :cond_1
 
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -2372,9 +2303,9 @@
     iput-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mThemedContext:Landroid/content/Context;
 
     .line 814
-    .end local v0           #currentTheme:Landroid/content/res/Resources$Theme;
-    .end local v1           #outValue:Landroid/util/TypedValue;
-    .end local v2           #targetThemeRes:I
+    .end local v0    # "currentTheme":Landroid/content/res/Resources$Theme;
+    .end local v1    # "outValue":Landroid/util/TypedValue;
+    .end local v2    # "targetThemeRes":I
     :cond_0
     :goto_0
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mThemedContext:Landroid/content/Context;
@@ -2382,9 +2313,9 @@
     return-object v3
 
     .line 811
-    .restart local v0       #currentTheme:Landroid/content/res/Resources$Theme;
-    .restart local v1       #outValue:Landroid/util/TypedValue;
-    .restart local v2       #targetThemeRes:I
+    .restart local v0    # "currentTheme":Landroid/content/res/Resources$Theme;
+    .restart local v1    # "outValue":Landroid/util/TypedValue;
+    .restart local v2    # "targetThemeRes":I
     :cond_1
     iget-object v3, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
 
@@ -2581,7 +2512,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 214
@@ -2614,7 +2545,7 @@
 
 .method public removeOnMenuVisibilityListener(Landroid/app/ActionBar$OnMenuVisibilityListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/app/ActionBar$OnMenuVisibilityListener;
 
     .prologue
     .line 300
@@ -2628,7 +2559,7 @@
 
 .method public removeTab(Landroid/app/ActionBar$Tab;)V
     .locals 1
-    .parameter "tab"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
 
     .prologue
     .line 527
@@ -2644,7 +2575,7 @@
 
 .method public removeTabAt(I)V
     .locals 7
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 532
@@ -2670,7 +2601,7 @@
     move-result v3
 
     .line 539
-    .local v3, selectedTabPosition:I
+    .local v3, "selectedTabPosition":I
     :goto_1
     iget-object v4, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -2686,7 +2617,7 @@
     check-cast v2, Lcom/android/internal/app/ActionBarImpl$TabImpl;
 
     .line 541
-    .local v2, removedTab:Lcom/android/internal/app/ActionBarImpl$TabImpl;
+    .local v2, "removedTab":Lcom/android/internal/app/ActionBarImpl$TabImpl;
     if-eqz v2, :cond_2
 
     .line 542
@@ -2703,10 +2634,10 @@
     move-result v1
 
     .line 546
-    .local v1, newTabCount:I
+    .local v1, "newTabCount":I
     move v0, p1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_2
     if-ge v0, v1, :cond_4
 
@@ -2727,20 +2658,20 @@
     goto :goto_2
 
     .line 537
-    .end local v0           #i:I
-    .end local v1           #newTabCount:I
-    .end local v2           #removedTab:Lcom/android/internal/app/ActionBarImpl$TabImpl;
-    .end local v3           #selectedTabPosition:I
+    .end local v0    # "i":I
+    .end local v1    # "newTabCount":I
+    .end local v2    # "removedTab":Lcom/android/internal/app/ActionBarImpl$TabImpl;
+    .end local v3    # "selectedTabPosition":I
     :cond_3
     iget v3, p0, Lcom/android/internal/app/ActionBarImpl;->mSavedTabPosition:I
 
     goto :goto_1
 
     .line 550
-    .restart local v0       #i:I
-    .restart local v1       #newTabCount:I
-    .restart local v2       #removedTab:Lcom/android/internal/app/ActionBarImpl$TabImpl;
-    .restart local v3       #selectedTabPosition:I
+    .restart local v0    # "i":I
+    .restart local v1    # "newTabCount":I
+    .restart local v2    # "removedTab":Lcom/android/internal/app/ActionBarImpl$TabImpl;
+    .restart local v3    # "selectedTabPosition":I
     :cond_4
     if-ne v3, p1, :cond_0
 
@@ -2782,7 +2713,7 @@
 
 .method public selectTab(Landroid/app/ActionBar$Tab;)V
     .locals 4
-    .parameter "tab"
+    .param p1, "tab"    # Landroid/app/ActionBar$Tab;
 
     .prologue
     const/4 v1, -0x1
@@ -2807,13 +2738,13 @@
     iput v1, p0, Lcom/android/internal/app/ActionBarImpl;->mSavedTabPosition:I
 
     .line 584
-    .end local p1
+    .end local p1    # "tab":Landroid/app/ActionBar$Tab;
     :cond_1
     :goto_0
     return-void
 
     .line 562
-    .restart local p1
+    .restart local p1    # "tab":Landroid/app/ActionBar$Tab;
     :cond_2
     iget-object v2, p0, Lcom/android/internal/app/ActionBarImpl;->mActivity:Landroid/app/Activity;
 
@@ -2830,7 +2761,7 @@
     move-result-object v0
 
     .line 565
-    .local v0, trans:Landroid/app/FragmentTransaction;
+    .local v0, "trans":Landroid/app/FragmentTransaction;
     iget-object v2, p0, Lcom/android/internal/app/ActionBarImpl;->mSelectedTab:Lcom/android/internal/app/ActionBarImpl$TabImpl;
 
     if-ne v2, p1, :cond_4
@@ -2861,7 +2792,7 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->animateToTab(I)V
 
     .line 581
-    .end local p1
+    .end local p1    # "tab":Landroid/app/ActionBar$Tab;
     :cond_3
     :goto_1
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->isEmpty()Z
@@ -2876,7 +2807,7 @@
     goto :goto_0
 
     .line 571
-    .restart local p1
+    .restart local p1    # "tab":Landroid/app/ActionBar$Tab;
     :cond_4
     iget-object v2, p0, Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -2909,7 +2840,7 @@
     :cond_6
     check-cast p1, Lcom/android/internal/app/ActionBarImpl$TabImpl;
 
-    .end local p1
+    .end local p1    # "tab":Landroid/app/ActionBar$Tab;
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl;->mSelectedTab:Lcom/android/internal/app/ActionBarImpl$TabImpl;
 
     .line 576
@@ -2933,7 +2864,7 @@
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 413
@@ -2947,7 +2878,7 @@
 
 .method public setCustomView(I)V
     .locals 3
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 317
@@ -2975,7 +2906,7 @@
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 1130
@@ -2989,8 +2920,8 @@
 
 .method public setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
     .locals 1
-    .parameter "view"
-    .parameter "layoutParams"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "layoutParams"    # Landroid/app/ActionBar$LayoutParams;
 
     .prologue
     .line 1135
@@ -3007,7 +2938,7 @@
 
 .method public setDefaultDisplayHomeAsUpEnabled(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 1239
@@ -3025,7 +2956,7 @@
 
 .method public setDisplayHomeAsUpEnabled(Z)V
     .locals 2
-    .parameter "showHomeAsUp"
+    .param p1, "showHomeAsUp"    # Z
 
     .prologue
     const/4 v1, 0x4
@@ -3050,7 +2981,7 @@
 
 .method public setDisplayOptions(I)V
     .locals 1
-    .parameter "options"
+    .param p1, "options"    # I
 
     .prologue
     .line 398
@@ -3075,8 +3006,8 @@
 
 .method public setDisplayOptions(II)V
     .locals 4
-    .parameter "options"
-    .parameter "mask"
+    .param p1, "options"    # I
+    .param p2, "mask"    # I
 
     .prologue
     .line 405
@@ -3087,7 +3018,7 @@
     move-result v0
 
     .line 406
-    .local v0, current:I
+    .local v0, "current":I
     and-int/lit8 v1, p2, 0x4
 
     if-eqz v1, :cond_0
@@ -3117,7 +3048,7 @@
 
 .method public setDisplayShowCustomEnabled(Z)V
     .locals 2
-    .parameter "showCustom"
+    .param p1, "showCustom"    # Z
 
     .prologue
     const/16 v1, 0x10
@@ -3142,7 +3073,7 @@
 
 .method public setDisplayShowHomeEnabled(Z)V
     .locals 2
-    .parameter "showHome"
+    .param p1, "showHome"    # Z
 
     .prologue
     const/4 v1, 0x2
@@ -3167,7 +3098,7 @@
 
 .method public setDisplayShowTitleEnabled(Z)V
     .locals 2
-    .parameter "showTitle"
+    .param p1, "showTitle"    # Z
 
     .prologue
     const/16 v1, 0x8
@@ -3192,7 +3123,7 @@
 
 .method public setDisplayUseLogoEnabled(Z)V
     .locals 2
-    .parameter "useLogo"
+    .param p1, "useLogo"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -3215,19 +3146,9 @@
     goto :goto_0
 .end method
 
-.method setHasEmbeddedTabsField(Z)V
-    .locals 0
-    .parameter "hasEmbeddedTabs"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/internal/app/ActionBarImpl;->mHasEmbeddedTabs:Z
-
-    return-void
-.end method
-
 .method public setHomeActionContentDescription(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 839
@@ -3241,7 +3162,7 @@
 
 .method public setHomeActionContentDescription(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 834
@@ -3255,7 +3176,7 @@
 
 .method public setHomeAsUpIndicator(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 829
@@ -3269,7 +3190,7 @@
 
 .method public setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "indicator"
+    .param p1, "indicator"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 824
@@ -3283,7 +3204,7 @@
 
 .method public setHomeButtonEnabled(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
 
     .prologue
     .line 347
@@ -3297,7 +3218,7 @@
 
 .method public setIcon(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 1212
@@ -3311,7 +3232,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 1217
@@ -3325,8 +3246,8 @@
 
 .method public setListNavigationCallbacks(Landroid/widget/SpinnerAdapter;Landroid/app/ActionBar$OnNavigationListener;)V
     .locals 1
-    .parameter "adapter"
-    .parameter "callback"
+    .param p1, "adapter"    # Landroid/widget/SpinnerAdapter;
+    .param p2, "callback"    # Landroid/app/ActionBar$OnNavigationListener;
 
     .prologue
     .line 1141
@@ -3345,7 +3266,7 @@
 
 .method public setLogo(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 1226
@@ -3359,7 +3280,7 @@
 
 .method public setLogo(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "logo"
+    .param p1, "logo"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 1231
@@ -3373,7 +3294,7 @@
 
 .method public setNavigationMode(I)V
     .locals 5
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -3388,7 +3309,7 @@
     move-result v0
 
     .line 1178
-    .local v0, oldMode:I
+    .local v0, "oldMode":I
     packed-switch v0, :pswitch_data_0
 
     .line 1185
@@ -3500,7 +3421,7 @@
 
 .method public setSelectedNavigationItem(I)V
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 361
@@ -3557,7 +3478,7 @@
 
 .method public setShowHideAnimationEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 289
@@ -3582,7 +3503,7 @@
 
 .method public setSplitBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 421
@@ -3602,7 +3523,7 @@
 
 .method public setStackedBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 417
@@ -3616,7 +3537,7 @@
 
 .method public setSubtitle(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 357
@@ -3634,7 +3555,7 @@
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "subtitle"
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 394
@@ -3648,7 +3569,7 @@
 
 .method public setTitle(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 352
@@ -3666,7 +3587,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 390
@@ -3680,7 +3601,7 @@
 
 .method public setWindowVisibility(I)V
     .locals 0
-    .parameter "visibility"
+    .param p1, "visibility"    # I
 
     .prologue
     .line 278
@@ -3738,7 +3659,7 @@
 
 .method public startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
     .locals 3
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/view/ActionMode$Callback;
 
     .prologue
     const/4 v2, 0x1
@@ -3765,7 +3686,7 @@
     invoke-direct {v0, p0, p1}, Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;-><init>(Lcom/android/internal/app/ActionBarImpl;Landroid/view/ActionMode$Callback;)V
 
     .line 453
-    .local v0, mode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
+    .local v0, "mode":Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
     invoke-virtual {v0}, Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;->dispatchOnCreate()Z
 
     move-result v1
@@ -3830,11 +3751,11 @@
     iput-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionMode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
 
     .line 470
-    .end local v0           #mode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
+    .end local v0    # "mode":Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
     :goto_0
     return-object v0
 
-    .restart local v0       #mode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
+    .restart local v0    # "mode":Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
     :cond_2
     const/4 v0, 0x0
 

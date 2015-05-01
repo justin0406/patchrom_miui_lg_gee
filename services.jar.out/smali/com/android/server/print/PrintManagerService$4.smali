@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/PrintManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 510
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v3, 0x0
@@ -48,7 +47,7 @@
     move-result-object v0
 
     .line 514
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -66,7 +65,7 @@
 
     move-result v2
 
-    #calls: Lcom/android/server/print/PrintManagerService;->switchUser(I)V
+    # invokes: Lcom/android/server/print/PrintManagerService;->switchUser(I)V
     invoke-static {v1, v2}, Lcom/android/server/print/PrintManagerService;->access$500(Lcom/android/server/print/PrintManagerService;I)V
 
     .line 519
@@ -93,7 +92,7 @@
 
     move-result v2
 
-    #calls: Lcom/android/server/print/PrintManagerService;->removeUser(I)V
+    # invokes: Lcom/android/server/print/PrintManagerService;->removeUser(I)V
     invoke-static {v1, v2}, Lcom/android/server/print/PrintManagerService;->access$600(Lcom/android/server/print/PrintManagerService;I)V
 
     goto :goto_0

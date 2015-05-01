@@ -33,8 +33,8 @@
 # virtual methods
 .method public addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
     .locals 1
-    .parameter "keyPrefix"
-    .parameter "helper"
+    .param p1, "keyPrefix"    # Ljava/lang/String;
+    .param p2, "helper"    # Landroid/app/backup/BackupHelper;
 
     .prologue
     .line 93
@@ -58,9 +58,9 @@
 
 .method public onBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 1
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,9 +79,9 @@
 
 .method public onRestore(Landroid/app/backup/BackupDataInput;ILandroid/os/ParcelFileDescriptor;)V
     .locals 1
-    .parameter "data"
-    .parameter "appVersionCode"
-    .parameter "newState"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInput;
+    .param p2, "appVersionCode"    # I
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

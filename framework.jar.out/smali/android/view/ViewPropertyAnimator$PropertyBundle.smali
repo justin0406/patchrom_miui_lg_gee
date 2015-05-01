@@ -32,8 +32,7 @@
 # direct methods
 .method constructor <init>(ILjava/util/ArrayList;)V
     .locals 0
-    .parameter "propertyMask"
-    .parameter
+    .param p1, "propertyMask"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -46,7 +45,7 @@
 
     .prologue
     .line 175
-    .local p2, nameValuesHolder:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewPropertyAnimator$NameValuesHolder;>;"
+    .local p2, "nameValuesHolder":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/ViewPropertyAnimator$NameValuesHolder;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 176
@@ -63,7 +62,7 @@
 # virtual methods
 .method cancel(I)Z
     .locals 5
-    .parameter "propertyConstant"
+    .param p1, "propertyConstant"    # I
 
     .prologue
     .line 191
@@ -85,10 +84,10 @@
     move-result v0
 
     .line 193
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -102,7 +101,7 @@
     check-cast v2, Landroid/view/ViewPropertyAnimator$NameValuesHolder;
 
     .line 195
-    .local v2, nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
+    .local v2, "nameValuesHolder":Landroid/view/ViewPropertyAnimator$NameValuesHolder;
     iget v3, v2, Landroid/view/ViewPropertyAnimator$NameValuesHolder;->mNameConstant:I
 
     if-ne v3, p1, :cond_0
@@ -125,25 +124,25 @@
     const/4 v3, 0x1
 
     .line 202
-    .end local v0           #count:I
-    .end local v1           #i:I
-    .end local v2           #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
+    .end local v0    # "count":I
+    .end local v1    # "i":I
+    .end local v2    # "nameValuesHolder":Landroid/view/ViewPropertyAnimator$NameValuesHolder;
     :goto_1
     return v3
 
     .line 193
-    .restart local v0       #count:I
-    .restart local v1       #i:I
-    .restart local v2       #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
+    .restart local v0    # "count":I
+    .restart local v1    # "i":I
+    .restart local v2    # "nameValuesHolder":Landroid/view/ViewPropertyAnimator$NameValuesHolder;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 202
-    .end local v0           #count:I
-    .end local v1           #i:I
-    .end local v2           #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
+    .end local v0    # "count":I
+    .end local v1    # "i":I
+    .end local v2    # "nameValuesHolder":Landroid/view/ViewPropertyAnimator$NameValuesHolder;
     :cond_1
     const/4 v3, 0x0
 

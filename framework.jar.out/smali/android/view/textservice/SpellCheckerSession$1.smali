@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/textservice/SpellCheckerSession;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 108
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 111
@@ -58,7 +57,7 @@
 
     check-cast v0, [Landroid/view/textservice/SuggestionsInfo;
 
-    #calls: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSuggestionsMultiple([Landroid/view/textservice/SuggestionsInfo;)V
+    # invokes: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSuggestionsMultiple([Landroid/view/textservice/SuggestionsInfo;)V
     invoke-static {v1, v0}, Landroid/view/textservice/SpellCheckerSession;->access$000(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SuggestionsInfo;)V
 
     goto :goto_0
@@ -73,7 +72,7 @@
 
     check-cast v0, [Landroid/view/textservice/SentenceSuggestionsInfo;
 
-    #calls: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSentenceSuggestionsMultiple([Landroid/view/textservice/SentenceSuggestionsInfo;)V
+    # invokes: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSentenceSuggestionsMultiple([Landroid/view/textservice/SentenceSuggestionsInfo;)V
     invoke-static {v1, v0}, Landroid/view/textservice/SpellCheckerSession;->access$100(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SentenceSuggestionsInfo;)V
 
     goto :goto_0

@@ -42,8 +42,8 @@
 # virtual methods
 .method public final compare(Lcom/android/internal/os/ProcessCpuTracker$Stats;Lcom/android/internal/os/ProcessCpuTracker$Stats;)I
     .locals 6
-    .parameter "sta"
-    .parameter "stb"
+    .param p1, "sta"    # Lcom/android/internal/os/ProcessCpuTracker$Stats;
+    .param p2, "stb"    # Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
     .prologue
     const/4 v3, 0x1
@@ -58,7 +58,7 @@
     add-int v0, v4, v5
 
     .line 249
-    .local v0, ta:I
+    .local v0, "ta":I
     iget v4, p2, Lcom/android/internal/os/ProcessCpuTracker$Stats;->rel_utime:I
 
     iget v5, p2, Lcom/android/internal/os/ProcessCpuTracker$Stats;->rel_stime:I
@@ -66,7 +66,7 @@
     add-int v1, v4, v5
 
     .line 250
-    .local v1, tb:I
+    .local v1, "tb":I
     if-eq v0, v1, :cond_2
 
     .line 251
@@ -126,17 +126,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 245
     check-cast p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/os/ProcessCpuTracker$1;->compare(Lcom/android/internal/os/ProcessCpuTracker$Stats;Lcom/android/internal/os/ProcessCpuTracker$Stats;)I
 
     move-result v0

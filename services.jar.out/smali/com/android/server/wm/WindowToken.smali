@@ -34,10 +34,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/IBinder;IZ)V
     .locals 1
-    .parameter "_service"
-    .parameter "_token"
-    .parameter "type"
-    .parameter "_explicit"
+    .param p1, "_service"    # Lcom/android/server/wm/WindowManagerService;
+    .param p2, "_token"    # Landroid/os/IBinder;
+    .param p3, "type"    # I
+    .param p4, "_explicit"    # Z
 
     .prologue
     .line 73
@@ -75,8 +75,8 @@
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 1
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 81
@@ -182,7 +182,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 96
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "WindowToken{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -219,7 +219,7 @@
     iput-object v1, p0, Lcom/android/server/wm/WindowToken;->stringName:Ljava/lang/String;
 
     .line 101
-    .end local v0           #sb:Ljava/lang/StringBuilder;
+    .end local v0    # "sb":Ljava/lang/StringBuilder;
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/WindowToken;->stringName:Ljava/lang/String;
 

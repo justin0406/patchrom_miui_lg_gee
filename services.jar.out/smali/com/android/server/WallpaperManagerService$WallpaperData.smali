@@ -54,7 +54,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 3
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     const/4 v1, -0x1
@@ -86,7 +86,7 @@
     .line 210
     new-instance v0, Ljava/io/File;
 
-    #calls: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
+    # invokes: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
     invoke-static {p1}, Lcom/android/server/WallpaperManagerService;->access$000(I)Ljava/io/File;
 
     move-result-object v1
@@ -103,7 +103,7 @@
 
 .method static synthetic access$300(Lcom/android/server/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/WallpaperManagerService$WallpaperData;
 
     .prologue
     .line 168

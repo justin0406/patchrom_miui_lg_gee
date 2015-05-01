@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions$1;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 169

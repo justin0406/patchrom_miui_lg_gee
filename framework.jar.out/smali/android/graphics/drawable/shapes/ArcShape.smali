@@ -12,8 +12,8 @@
 # direct methods
 .method public constructor <init>(FF)V
     .locals 0
-    .parameter "startAngle"
-    .parameter "sweepAngle"
+    .param p1, "startAngle"    # F
+    .param p2, "sweepAngle"    # F
 
     .prologue
     .line 41
@@ -33,8 +33,8 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 6
-    .parameter "canvas"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 48

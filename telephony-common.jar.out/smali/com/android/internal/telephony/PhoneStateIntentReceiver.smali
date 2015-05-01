@@ -82,8 +82,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 65
@@ -285,7 +285,7 @@
 
 .method public notifyPhoneCallState(I)V
     .locals 2
-    .parameter "eventWhat"
+    .param p1, "eventWhat"    # I
 
     .prologue
     .line 124
@@ -311,7 +311,7 @@
 
 .method public notifyServiceState(I)V
     .locals 2
-    .parameter "eventWhat"
+    .param p1, "eventWhat"    # I
 
     .prologue
     .line 134
@@ -337,7 +337,7 @@
 
 .method public notifySignalStrength(I)V
     .locals 2
-    .parameter "eventWhat"
+    .param p1, "eventWhat"    # I
 
     .prologue
     .line 144
@@ -363,8 +363,8 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 163
@@ -373,7 +373,7 @@
     move-result-object v0
 
     .line 166
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     :try_start_0
     const-string v4, "android.intent.action.SIG_STR"
 
@@ -415,13 +415,13 @@
     move-result-object v2
 
     .line 171
-    .local v2, message:Landroid/os/Message;
+    .local v2, "message":Landroid/os/Message;
     iget-object v4, p0, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->mTarget:Landroid/os/Handler;
 
     invoke-virtual {v4, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 198
-    .end local v2           #message:Landroid/os/Message;
+    .end local v2    # "message":Landroid/os/Message;
     :cond_0
     :goto_0
     return-void
@@ -444,7 +444,7 @@
     move-result-object v3
 
     .line 177
-    .local v3, phoneState:Ljava/lang/String;
+    .local v3, "phoneState":Ljava/lang/String;
     const-class v4, Lcom/android/internal/telephony/PhoneConstants$State;
 
     invoke-static {v4, v3}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -476,7 +476,7 @@
     move-result-object v2
 
     .line 183
-    .restart local v2       #message:Landroid/os/Message;
+    .restart local v2    # "message":Landroid/os/Message;
     iget-object v4, p0, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->mTarget:Landroid/os/Handler;
 
     invoke-virtual {v4, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
@@ -486,13 +486,13 @@
     goto :goto_0
 
     .line 194
-    .end local v2           #message:Landroid/os/Message;
-    .end local v3           #phoneState:Ljava/lang/String;
+    .end local v2    # "message":Landroid/os/Message;
+    .end local v3    # "phoneState":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 195
-    .local v1, ex:Ljava/lang/Exception;
+    .local v1, "ex":Ljava/lang/Exception;
     const-string v4, "PhoneStatIntentReceiver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -521,7 +521,7 @@
     goto :goto_0
 
     .line 185
-    .end local v1           #ex:Ljava/lang/Exception;
+    .end local v1    # "ex":Ljava/lang/Exception;
     :cond_2
     :try_start_1
     const-string v4, "android.intent.action.SERVICE_STATE"
@@ -564,7 +564,7 @@
     move-result-object v2
 
     .line 191
-    .restart local v2       #message:Landroid/os/Message;
+    .restart local v2    # "message":Landroid/os/Message;
     iget-object v4, p0, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->mTarget:Landroid/os/Handler;
 
     invoke-virtual {v4, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
@@ -591,7 +591,7 @@
 
 .method public setContext(Landroid/content/Context;)V
     .locals 0
-    .parameter "c"
+    .param p1, "c"    # Landroid/content/Context;
 
     .prologue
     .line 71
@@ -603,7 +603,7 @@
 
 .method public setTarget(Landroid/os/Handler;)V
     .locals 0
-    .parameter "h"
+    .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 75

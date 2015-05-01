@@ -11,7 +11,7 @@
 
 .field private static final COUPLED_SINK_SUPPORT_AT_SOURCE:I = 0x4
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -79,9 +79,9 @@
 
 .method public constructor <init>(III)V
     .locals 1
-    .parameter "devInfo"
-    .parameter "ctrlPort"
-    .parameter "maxTput"
+    .param p1, "devInfo"    # I
+    .param p2, "ctrlPort"    # I
+    .param p3, "maxTput"    # I
 
     .prologue
     .line 59
@@ -107,7 +107,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/p2p/WifiP2pWfdInfo;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     .prologue
     .line 159
@@ -323,7 +323,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -371,7 +371,7 @@
 
 .method public setControlPort(I)V
     .locals 0
-    .parameter "port"
+    .param p1, "port"    # I
 
     .prologue
     .line 128
@@ -383,7 +383,7 @@
 
 .method public setCoupledSinkSupportAtSink(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 103
@@ -413,7 +413,7 @@
 
 .method public setCoupledSinkSupportAtSource(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 91
@@ -443,7 +443,7 @@
 
 .method public setDeviceType(I)Z
     .locals 1
-    .parameter "deviceType"
+    .param p1, "deviceType"    # I
 
     .prologue
     .line 79
@@ -475,7 +475,7 @@
 
 .method public setMaxThroughput(I)V
     .locals 0
-    .parameter "maxThroughput"
+    .param p1, "maxThroughput"    # I
 
     .prologue
     .line 132
@@ -487,7 +487,7 @@
 
 .method public setSessionAvailable(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 115
@@ -524,7 +524,7 @@
 
 .method public setWfdEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 71
@@ -544,7 +544,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 146
-    .local v0, sbuf:Ljava/lang/StringBuffer;
+    .local v0, "sbuf":Ljava/lang/StringBuffer;
     const-string v1, "WFD enabled: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -598,8 +598,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 170

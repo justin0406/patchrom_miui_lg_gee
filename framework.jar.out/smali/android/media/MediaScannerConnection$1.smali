@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaScannerConnection;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 49
@@ -36,20 +35,20 @@
 # virtual methods
 .method public scanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
     .locals 2
-    .parameter "path"
-    .parameter "uri"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 51
     iget-object v1, p0, Landroid/media/MediaScannerConnection$1;->this$0:Landroid/media/MediaScannerConnection;
 
-    #getter for: Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
+    # getter for: Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
     invoke-static {v1}, Landroid/media/MediaScannerConnection;->access$000(Landroid/media/MediaScannerConnection;)Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
 
     move-result-object v0
 
     .line 52
-    .local v0, client:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
+    .local v0, "client":Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
     if-eqz v0, :cond_0
 
     .line 53

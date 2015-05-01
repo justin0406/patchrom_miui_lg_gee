@@ -34,7 +34,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1124
@@ -47,8 +46,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/RelativeLayout;
+    .param p2, "x1"    # Landroid/widget/RelativeLayout$1;
 
     .prologue
     .line 1124
@@ -61,8 +60,8 @@
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
     .locals 6
-    .parameter "first"
-    .parameter "second"
+    .param p1, "first"    # Landroid/view/View;
+    .param p2, "second"    # Landroid/view/View;
 
     .prologue
     .line 1127
@@ -77,16 +76,16 @@
     sub-int v2, v4, v5
 
     .line 1128
-    .local v2, topDifference:I
+    .local v2, "topDifference":I
     if-eqz v2, :cond_0
 
     .line 1146
-    .end local v2           #topDifference:I
+    .end local v2    # "topDifference":I
     :goto_0
     return v2
 
     .line 1132
-    .restart local v2       #topDifference:I
+    .restart local v2    # "topDifference":I
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
@@ -99,7 +98,7 @@
     sub-int v1, v4, v5
 
     .line 1133
-    .local v1, leftDifference:I
+    .local v1, "leftDifference":I
     if-eqz v1, :cond_1
 
     move v2, v1
@@ -120,7 +119,7 @@
     sub-int v0, v4, v5
 
     .line 1138
-    .local v0, heightDiference:I
+    .local v0, "heightDiference":I
     if-eqz v0, :cond_2
 
     move v2, v0
@@ -141,7 +140,7 @@
     sub-int v3, v4, v5
 
     .line 1143
-    .local v3, widthDiference:I
+    .local v3, "widthDiference":I
     if-eqz v3, :cond_3
 
     move v2, v3
@@ -158,17 +157,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 1124
     check-cast p1, Landroid/view/View;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/view/View;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/widget/RelativeLayout$TopToBottomLeftToRightComparator;->compare(Landroid/view/View;Landroid/view/View;)I
 
     move-result v0

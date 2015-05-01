@@ -49,16 +49,16 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;I[Landroid/content/Intent;[Ljava/lang/String;ILandroid/os/Bundle;I)V
     .locals 3
-    .parameter "_t"
-    .parameter "_p"
-    .parameter "_a"
-    .parameter "_w"
-    .parameter "_r"
-    .parameter "_i"
-    .parameter "_it"
-    .parameter "_f"
-    .parameter "_o"
-    .parameter "_userId"
+    .param p1, "_t"    # I
+    .param p2, "_p"    # Ljava/lang/String;
+    .param p3, "_a"    # Lcom/android/server/am/ActivityRecord;
+    .param p4, "_w"    # Ljava/lang/String;
+    .param p5, "_r"    # I
+    .param p6, "_i"    # [Landroid/content/Intent;
+    .param p7, "_it"    # [Ljava/lang/String;
+    .param p8, "_f"    # I
+    .param p9, "_o"    # Landroid/os/Bundle;
+    .param p10, "_userId"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -124,7 +124,7 @@
     const/16 v0, 0x17
 
     .line 77
-    .local v0, hash:I
+    .local v0, "hash":I
     add-int/lit16 v0, p8, 0x353
 
     .line 78
@@ -217,7 +217,7 @@
     .line 97
     return-void
 
-    .end local v0           #hash:I
+    .end local v0    # "hash":I
     :cond_5
     move-object v1, v2
 
@@ -229,7 +229,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "otherObj"
+    .param p1, "otherObj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x0
@@ -252,7 +252,7 @@
     move-object v1, v0
 
     .line 105
-    .local v1, other:Lcom/android/server/am/PendingIntentRecord$Key;
+    .local v1, "other":Lcom/android/server/am/PendingIntentRecord$Key;
     iget v3, p0, Lcom/android/server/am/PendingIntentRecord$Key;->type:I
 
     iget v4, v1, Lcom/android/server/am/PendingIntentRecord$Key;->type:I
@@ -402,7 +402,7 @@
     goto :goto_0
 
     .line 151
-    .end local v1           #other:Lcom/android/server/am/PendingIntentRecord$Key;
+    .end local v1    # "other":Lcom/android/server/am/PendingIntentRecord$Key;
     :catch_0
     move-exception v3
 

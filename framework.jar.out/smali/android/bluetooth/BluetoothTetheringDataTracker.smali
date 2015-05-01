@@ -167,8 +167,8 @@
 
 .method static synthetic access$002(Landroid/bluetooth/BluetoothTetheringDataTracker;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
+    .param p1, "x1"    # Landroid/bluetooth/BluetoothPan;
 
     .prologue
     .line 58
@@ -179,7 +179,7 @@
 
 .method static synthetic access$100(Landroid/bluetooth/BluetoothTetheringDataTracker;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -190,7 +190,7 @@
 
 .method static synthetic access$200(Landroid/bluetooth/BluetoothTetheringDataTracker;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -201,8 +201,8 @@
 
 .method static synthetic access$302(Landroid/bluetooth/BluetoothTetheringDataTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
+    .param p1, "x1"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 58
@@ -213,7 +213,7 @@
 
 .method static synthetic access$400(Landroid/bluetooth/BluetoothTetheringDataTracker;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -224,7 +224,7 @@
 
 .method static synthetic access$500(Landroid/bluetooth/BluetoothTetheringDataTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -235,7 +235,7 @@
 
 .method static synthetic access$600(Landroid/bluetooth/BluetoothTetheringDataTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -246,7 +246,7 @@
 
 .method static synthetic access$700(Landroid/bluetooth/BluetoothTetheringDataTracker;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -257,7 +257,7 @@
 
 .method static synthetic access$800(Landroid/bluetooth/BluetoothTetheringDataTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -268,7 +268,7 @@
 
 .method static synthetic access$900(Landroid/bluetooth/BluetoothTetheringDataTracker;)Ljava/util/concurrent/atomic/AtomicReference;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     .prologue
     .line 58
@@ -279,33 +279,33 @@
 
 .method private static countPrefixLength([B)S
     .locals 7
-    .parameter "mask"
+    .param p0, "mask"    # [B
 
     .prologue
     .line 295
     const/4 v2, 0x0
 
     .line 296
-    .local v2, count:S
+    .local v2, "count":S
     move-object v0, p0
 
-    .local v0, arr$:[B
+    .local v0, "arr$":[B
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_2
 
     aget-byte v1, v0, v4
 
     .line 297
-    .local v1, b:B
+    .local v1, "b":B
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     const/16 v6, 0x8
 
@@ -338,8 +338,8 @@
     goto :goto_0
 
     .line 303
-    .end local v1           #b:B
-    .end local v3           #i:I
+    .end local v1    # "b":B
+    .end local v3    # "i":I
     :cond_2
     return v2
 .end method
@@ -404,7 +404,7 @@
 
 .method public addStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 376
@@ -426,7 +426,7 @@
 
 .method public captivePortalCheckCompleted(Z)V
     .locals 0
-    .parameter "isCaptivePortal"
+    .param p1, "isCaptivePortal"    # Z
 
     .prologue
     .line 153
@@ -435,7 +435,7 @@
 
 .method public defaultRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 283
@@ -621,7 +621,7 @@
 
 .method public privateDnsRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 234
@@ -652,7 +652,7 @@
 
 .method public removeStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 381
@@ -666,7 +666,7 @@
 
 .method public setDependencyMet(Z)V
     .locals 0
-    .parameter "met"
+    .param p1, "met"    # Z
 
     .prologue
     .line 372
@@ -675,7 +675,7 @@
 
 .method public setPolicyDataEnable(Z)V
     .locals 3
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 220
@@ -713,7 +713,7 @@
 
 .method public setRadio(Z)Z
     .locals 1
-    .parameter "turnOn"
+    .param p1, "turnOn"    # Z
 
     .prologue
     .line 169
@@ -724,7 +724,7 @@
 
 .method public setTeardownRequested(Z)V
     .locals 1
-    .parameter "isRequested"
+    .param p1, "isRequested"    # Z
 
     .prologue
     .line 99
@@ -738,7 +738,7 @@
 
 .method public setUserDataEnable(Z)V
     .locals 3
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 215
@@ -776,8 +776,8 @@
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 110
@@ -840,7 +840,7 @@
     move-result-object v0
 
     .line 115
-    .local v0, adapter:Landroid/bluetooth/BluetoothAdapter;
+    .local v0, "adapter":Landroid/bluetooth/BluetoothAdapter;
     if-eqz v0, :cond_0
 
     .line 116
@@ -870,7 +870,7 @@
 
 .method startReverseTether(Landroid/net/LinkProperties;)V
     .locals 4
-    .parameter "linkProperties"
+    .param p1, "linkProperties"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 307
@@ -956,7 +956,7 @@
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     .line 347
-    .local v0, dhcpThread:Ljava/lang/Thread;
+    .local v0, "dhcpThread":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
@@ -964,9 +964,9 @@
 
 .method public startUsingNetworkFeature(Ljava/lang/String;II)I
     .locals 1
-    .parameter "feature"
-    .parameter "callingPid"
-    .parameter "callingUid"
+    .param p1, "feature"    # Ljava/lang/String;
+    .param p2, "callingPid"    # I
+    .param p3, "callingUid"    # I
 
     .prologue
     .line 193
@@ -1061,7 +1061,7 @@
     .line 363
     iget-object v0, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mCsHandler:Landroid/os/Handler;
 
-    const/high16 v3, 0x7
+    const/high16 v3, 0x70000
 
     new-instance v4, Landroid/net/NetworkInfo;
 
@@ -1113,9 +1113,9 @@
 
 .method public stopUsingNetworkFeature(Ljava/lang/String;II)I
     .locals 1
-    .parameter "feature"
-    .parameter "callingPid"
-    .parameter "callingUid"
+    .param p1, "feature"    # Ljava/lang/String;
+    .param p2, "callingPid"    # I
+    .param p3, "callingUid"    # I
 
     .prologue
     .line 210
@@ -1126,7 +1126,7 @@
 
 .method public supplyMessenger(Landroid/os/Messenger;)V
     .locals 3
-    .parameter "messenger"
+    .param p1, "messenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 429
@@ -1175,7 +1175,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1190,7 +1190,7 @@
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
     .line 139
-    .local v0, device:Landroid/bluetooth/BluetoothDevice;
+    .local v0, "device":Landroid/bluetooth/BluetoothDevice;
     iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothPan;->disconnect(Landroid/bluetooth/BluetoothDevice;)Z
@@ -1198,8 +1198,8 @@
     goto :goto_0
 
     .line 142
-    .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
-    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v0    # "device":Landroid/bluetooth/BluetoothDevice;
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     return v3
 .end method

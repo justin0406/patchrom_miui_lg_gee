@@ -21,7 +21,7 @@
 # direct methods
 .method private constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 871
@@ -40,8 +40,8 @@
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/DrawableContainer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "x1"    # Landroid/graphics/drawable/DrawableContainer$1;
 
     .prologue
     .line 868
@@ -54,7 +54,7 @@
 # virtual methods
 .method public get(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
 
     .prologue
     .line 882
@@ -69,7 +69,7 @@
     move-result-object v0
 
     .line 884
-    .local v0, result:Landroid/graphics/drawable/Drawable;
+    .local v0, "result":Landroid/graphics/drawable/Drawable;
     :goto_0
     iget v1, p1, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mLayoutDirection:I
 
@@ -93,7 +93,7 @@
     return-object v0
 
     .line 882
-    .end local v0           #result:Landroid/graphics/drawable/Drawable;
+    .end local v0    # "result":Landroid/graphics/drawable/Drawable;
     :cond_1
     iget-object v1, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState$ConstantStateFuture;->mConstantState:Landroid/graphics/drawable/Drawable$ConstantState;
 

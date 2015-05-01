@@ -34,11 +34,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService$SyncRoot;Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/DisplayAdapter$Listener;Ljava/lang/String;)V
     .locals 0
-    .parameter "syncRoot"
-    .parameter "context"
-    .parameter "handler"
-    .parameter "listener"
-    .parameter "name"
+    .param p1, "syncRoot"    # Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "handler"    # Landroid/os/Handler;
+    .param p4, "listener"    # Lcom/android/server/display/DisplayAdapter$Listener;
+    .param p5, "name"    # Ljava/lang/String;
 
     .prologue
     .line 47
@@ -65,7 +65,7 @@
 
 .method static synthetic access$000(Lcom/android/server/display/DisplayAdapter;)Lcom/android/server/display/DisplayAdapter$Listener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/display/DisplayAdapter;
 
     .prologue
     .line 34
@@ -78,7 +78,7 @@
 # virtual methods
 .method public dumpLocked(Ljava/io/PrintWriter;)V
     .locals 0
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 98
@@ -135,8 +135,8 @@
 
 .method protected final sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
     .locals 2
-    .parameter "device"
-    .parameter "event"
+    .param p1, "device"    # Lcom/android/server/display/DisplayDevice;
+    .param p2, "event"    # I
 
     .prologue
     .line 105

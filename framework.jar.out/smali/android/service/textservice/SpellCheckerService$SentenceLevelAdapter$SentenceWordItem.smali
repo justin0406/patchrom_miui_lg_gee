@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(Landroid/view/textservice/TextInfo;II)V
     .locals 1
-    .parameter "ti"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "ti"    # Landroid/view/textservice/TextInfo;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 344

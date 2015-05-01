@@ -21,7 +21,7 @@
 # virtual methods
 .method public certificate(Landroid/net/http/SslCertificate;)V
     .locals 0
-    .parameter "certificate"
+    .param p1, "certificate"    # Landroid/net/http/SslCertificate;
 
     .prologue
     .line 76
@@ -30,8 +30,8 @@
 
 .method public data([BI)V
     .locals 0
-    .parameter "data"
-    .parameter "len"
+    .param p1, "data"    # [B
+    .param p2, "len"    # I
 
     .prologue
     .line 65
@@ -48,8 +48,8 @@
 
 .method public error(ILjava/lang/String;)V
     .locals 0
-    .parameter "id"
-    .parameter "description"
+    .param p1, "id"    # I
+    .param p2, "description"    # Ljava/lang/String;
 
     .prologue
     .line 83
@@ -58,7 +58,7 @@
 
 .method public handleSslErrorRequest(Landroid/net/http/SslError;)Z
     .locals 1
-    .parameter "error"
+    .param p1, "error"    # Landroid/net/http/SslError;
 
     .prologue
     .line 90
@@ -69,7 +69,7 @@
 
 .method public headers(Landroid/net/http/Headers;)V
     .locals 0
-    .parameter "headers"
+    .param p1, "headers"    # Landroid/net/http/Headers;
 
     .prologue
     .line 51
@@ -78,8 +78,8 @@
 
 .method public locationChanged(Ljava/lang/String;Z)V
     .locals 0
-    .parameter "newLocation"
-    .parameter "permanent"
+    .param p1, "newLocation"    # Ljava/lang/String;
+    .param p2, "permanent"    # Z
 
     .prologue
     .line 58
@@ -101,10 +101,10 @@
 
 .method public status(IIILjava/lang/String;)V
     .locals 0
-    .parameter "major_version"
-    .parameter "minor_version"
-    .parameter "code"
-    .parameter "reason_phrase"
+    .param p1, "major_version"    # I
+    .param p2, "minor_version"    # I
+    .param p3, "code"    # I
+    .param p4, "reason_phrase"    # Ljava/lang/String;
 
     .prologue
     .line 44

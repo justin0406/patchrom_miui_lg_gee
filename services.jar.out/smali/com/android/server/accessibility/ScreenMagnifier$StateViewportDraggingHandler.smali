@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 585
@@ -36,8 +35,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;Lcom/android/server/accessibility/ScreenMagnifier$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier;
+    .param p2, "x1"    # Lcom/android/server/accessibility/ScreenMagnifier$1;
 
     .prologue
     .line 585
@@ -48,9 +47,9 @@
 
 .method static synthetic access$600(Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;Landroid/view/MotionEvent;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;
+    .param p1, "x1"    # Landroid/view/MotionEvent;
+    .param p2, "x2"    # I
 
     .prologue
     .line 585
@@ -61,8 +60,8 @@
 
 .method private onMotionEvent(Landroid/view/MotionEvent;I)V
     .locals 8
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "policyFlags"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -75,7 +74,7 @@
     move-result v0
 
     .line 590
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     .line 628
@@ -102,7 +101,7 @@
 
     const/4 v4, 0x4
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
     invoke-static {v3, v4}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1400(Lcom/android/server/accessibility/ScreenMagnifier;I)V
 
     goto :goto_0
@@ -131,16 +130,16 @@
     move-result v1
 
     .line 603
-    .local v1, eventX:F
+    .local v1, "eventX":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v2
 
     .line 604
-    .local v2, eventY:F
+    .local v2, "eventY":F
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnifiedBounds:Landroid/graphics/Region;
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
 
     move-result-object v3
@@ -166,7 +165,7 @@
     .line 607
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v3
@@ -179,7 +178,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v3
@@ -195,12 +194,12 @@
     goto :goto_0
 
     .line 618
-    .end local v1           #eventX:F
-    .end local v2           #eventY:F
+    .end local v1    # "eventX":F
+    .end local v2    # "eventY":F
     :pswitch_4
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mTranslationEnabledBeforePan:Z
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mTranslationEnabledBeforePan:Z
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1600(Lcom/android/server/accessibility/ScreenMagnifier;)Z
 
     move-result v3
@@ -210,7 +209,7 @@
     .line 619
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
-    #getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
+    # getter for: Lcom/android/server/accessibility/ScreenMagnifier;->mMagnificationController:Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     move-result-object v3
@@ -226,7 +225,7 @@
 
     const/4 v4, 0x2
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->transitionToState(I)V
     invoke-static {v3, v4}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1400(Lcom/android/server/accessibility/ScreenMagnifier;I)V
 
     goto :goto_0

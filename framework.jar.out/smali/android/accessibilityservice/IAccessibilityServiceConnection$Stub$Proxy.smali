@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 232
@@ -51,12 +51,12 @@
 
 .method public findAccessibilityNodeInfoByAccessibilityId(IJILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IJ)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "flags"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "interactionId"    # I
+    .param p5, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p6, "flags"    # I
+    .param p7, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,13 +72,13 @@
     move-result-object v0
 
     .line 267
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 270
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -133,7 +133,7 @@
     const/4 v2, 0x1
 
     .line 282
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -144,7 +144,7 @@
     return v2
 
     .line 274
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -164,12 +164,12 @@
 
 .method public findAccessibilityNodeInfosByText(IJLjava/lang/String;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "text"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "text"    # Ljava/lang/String;
+    .param p5, "interactionId"    # I
+    .param p6, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p7, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -185,13 +185,13 @@
     move-result-object v0
 
     .line 290
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 293
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -246,7 +246,7 @@
     const/4 v2, 0x1
 
     .line 305
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -257,7 +257,7 @@
     return v2
 
     .line 298
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -277,12 +277,12 @@
 
 .method public findAccessibilityNodeInfosByViewId(IJLjava/lang/String;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "viewId"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "viewId"    # Ljava/lang/String;
+    .param p5, "interactionId"    # I
+    .param p6, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p7, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -298,13 +298,13 @@
     move-result-object v0
 
     .line 313
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 316
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -359,7 +359,7 @@
     const/4 v2, 0x1
 
     .line 328
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -370,7 +370,7 @@
     return v2
 
     .line 321
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -390,12 +390,12 @@
 
 .method public findFocus(IJIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "focusType"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "focusType"    # I
+    .param p5, "interactionId"    # I
+    .param p6, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p7, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -411,13 +411,13 @@
     move-result-object v0
 
     .line 336
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 339
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -472,7 +472,7 @@
     const/4 v2, 0x1
 
     .line 351
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -483,7 +483,7 @@
     return v2
 
     .line 344
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -503,12 +503,12 @@
 
 .method public focusSearch(IJIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "direction"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "direction"    # I
+    .param p5, "interactionId"    # I
+    .param p6, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p7, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -524,13 +524,13 @@
     move-result-object v0
 
     .line 359
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 362
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -585,7 +585,7 @@
     const/4 v2, 0x1
 
     .line 374
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -596,7 +596,7 @@
     return v2
 
     .line 367
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v3, 0x0
 
@@ -639,13 +639,13 @@
     move-result-object v0
 
     .line 412
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 415
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -682,7 +682,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 426
-    .local v2, _result:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .local v2, "_result":Landroid/accessibilityservice/AccessibilityServiceInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -693,15 +693,15 @@
     return-object v2
 
     .line 422
-    .end local v2           #_result:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v2    # "_result":Landroid/accessibilityservice/AccessibilityServiceInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .restart local v2    # "_result":Landroid/accessibilityservice/AccessibilityServiceInfo;
     goto :goto_0
 
     .line 426
-    .end local v2           #_result:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .end local v2    # "_result":Landroid/accessibilityservice/AccessibilityServiceInfo;
     :catchall_0
     move-exception v3
 
@@ -715,13 +715,13 @@
 
 .method public performAccessibilityAction(IJILandroid/os/Bundle;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)Z
     .locals 6
-    .parameter "accessibilityWindowId"
-    .parameter "accessibilityNodeId"
-    .parameter "action"
-    .parameter "arguments"
-    .parameter "interactionId"
-    .parameter "callback"
-    .parameter "threadId"
+    .param p1, "accessibilityWindowId"    # I
+    .param p2, "accessibilityNodeId"    # J
+    .param p4, "action"    # I
+    .param p5, "arguments"    # Landroid/os/Bundle;
+    .param p6, "interactionId"    # I
+    .param p7, "callback"    # Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    .param p8, "threadId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -735,13 +735,13 @@
     move-result-object v0
 
     .line 382
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 385
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -810,7 +810,7 @@
     const/4 v2, 0x1
 
     .line 404
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -821,7 +821,7 @@
     return v2
 
     .line 394
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v3, 0x0
 
@@ -858,7 +858,7 @@
 
 .method public performGlobalAction(I)Z
     .locals 6
-    .parameter "action"
+    .param p1, "action"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -874,13 +874,13 @@
     move-result-object v0
 
     .line 434
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 437
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -913,7 +913,7 @@
     const/4 v2, 0x1
 
     .line 444
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -924,7 +924,7 @@
     return v2
 
     .line 444
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -938,8 +938,8 @@
 
 .method public setOnKeyEventResult(ZI)V
     .locals 5
-    .parameter "handled"
-    .parameter "sequence"
+    .param p1, "handled"    # Z
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -955,7 +955,7 @@
     move-result-object v0
 
     .line 453
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
@@ -1006,7 +1006,7 @@
 
 .method public setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
     .locals 5
-    .parameter "info"
+    .param p1, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1020,13 +1020,13 @@
     move-result-object v0
 
     .line 246
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 248
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 

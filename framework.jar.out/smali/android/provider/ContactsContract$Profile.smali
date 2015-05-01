@@ -4,10 +4,10 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/ContactsContract$ContactsColumns;
-.implements Landroid/provider/ContactsContract$ContactOptionsColumns;
 .implements Landroid/provider/ContactsContract$ContactNameColumns;
+.implements Landroid/provider/ContactsContract$ContactOptionsColumns;
 .implements Landroid/provider/ContactsContract$ContactStatusColumns;
+.implements Landroid/provider/ContactsContract$ContactsColumns;
 
 
 # annotations
@@ -22,11 +22,11 @@
 
 
 # static fields
-.field public static final CONTENT_RAW_CONTACTS_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_RAW_CONTACTS_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
-.field public static final CONTENT_VCARD_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_VCARD_URI:Landroid/net/Uri;
 
 .field public static final MIN_ID:J = 0x7fffffff80000000L
 
@@ -36,7 +36,7 @@
     .locals 2
 
     .prologue
-    .line 2084
+    .line 2086
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "profile"
@@ -47,7 +47,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 2092
+    .line 2094
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "as_vcard"
@@ -58,7 +58,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_VCARD_URI:Landroid/net/Uri;
 
-    .line 2102
+    .line 2104
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "raw_contacts"
@@ -76,9 +76,9 @@
     .locals 0
 
     .prologue
-    .line 2077
+    .line 2079
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2078
+    .line 2080
     return-void
 .end method

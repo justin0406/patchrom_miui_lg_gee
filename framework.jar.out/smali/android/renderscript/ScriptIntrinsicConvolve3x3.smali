@@ -12,8 +12,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 30
@@ -32,8 +32,8 @@
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)Landroid/renderscript/ScriptIntrinsicConvolve3x3;
     .locals 5
-    .parameter "rs"
-    .parameter "e"
+    .param p0, "rs"    # Landroid/renderscript/RenderScript;
+    .param p1, "e"    # Landroid/renderscript/Element;
 
     .prologue
     .line 53
@@ -44,7 +44,7 @@
     fill-array-data v0, :array_0
 
     .line 54
-    .local v0, f:[F
+    .local v0, "f":[F
     invoke-static {p0}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
     move-result-object v3
@@ -147,13 +147,13 @@
     move-result v1
 
     .line 65
-    .local v1, id:I
+    .local v1, "id":I
     new-instance v2, Landroid/renderscript/ScriptIntrinsicConvolve3x3;
 
     invoke-direct {v2, v1, p0}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 66
-    .local v2, si:Landroid/renderscript/ScriptIntrinsicConvolve3x3;
+    .local v2, "si":Landroid/renderscript/ScriptIntrinsicConvolve3x3;
     invoke-virtual {v2, v0}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->setCoefficients([F)V
 
     .line 67
@@ -163,16 +163,16 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x0
+        0x3f800000    # 1.0f
+        0x0
+        0x0
+        0x0
+        0x0
     .end array-data
 .end method
 
@@ -180,7 +180,7 @@
 # virtual methods
 .method public forEach(Landroid/renderscript/Allocation;)V
     .locals 2
-    .parameter "aout"
+    .param p1, "aout"    # Landroid/renderscript/Allocation;
 
     .prologue
     const/4 v1, 0x0
@@ -230,7 +230,7 @@
 
 .method public setCoefficients([F)V
     .locals 4
-    .parameter "v"
+    .param p1, "v"    # [F
 
     .prologue
     .line 95
@@ -241,10 +241,10 @@
     invoke-direct {v1, v2}, Landroid/renderscript/FieldPacker;-><init>(I)V
 
     .line 96
-    .local v1, fp:Landroid/renderscript/FieldPacker;
+    .local v1, "fp":Landroid/renderscript/FieldPacker;
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v2, p0, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->mValues:[F
 
@@ -283,7 +283,7 @@
 
 .method public setInput(Landroid/renderscript/Allocation;)V
     .locals 1
-    .parameter "ain"
+    .param p1, "ain"    # Landroid/renderscript/Allocation;
 
     .prologue
     .line 78

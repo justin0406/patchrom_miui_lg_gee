@@ -22,7 +22,7 @@
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "image_id ASC"
 
-.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final FULL_SCREEN_KIND:I = 0x2
 
@@ -30,7 +30,7 @@
 
 .field public static final IMAGE_ID:Ljava/lang/String; = "image_id"
 
-.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri; = null
+.field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final KIND:Ljava/lang/String; = "kind"
 
@@ -81,8 +81,8 @@
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;J)V
     .locals 6
-    .parameter "cr"
-    .parameter "origId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
 
     .prologue
     .line 1005
@@ -102,9 +102,9 @@
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;JJ)V
     .locals 6
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "groupId"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "groupId"    # J
 
     .prologue
     .line 1037
@@ -124,7 +124,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 1066
@@ -161,10 +161,10 @@
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 9
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "kind"
-    .parameter "options"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "kind"    # I
+    .param p4, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 1022
@@ -191,11 +191,11 @@
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JJILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 9
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "groupId"
-    .parameter "kind"
-    .parameter "options"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "groupId"    # J
+    .param p5, "kind"    # I
+    .param p6, "options"    # Landroid/graphics/BitmapFactory$Options;
 
     .prologue
     .line 1054
@@ -222,9 +222,9 @@
 
 .method public static final query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "uri"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "projection"    # [Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -249,10 +249,10 @@
 
 .method public static final queryMiniThumbnail(Landroid/content/ContentResolver;JI[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "origId"
-    .parameter "kind"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "origId"    # J
+    .param p3, "kind"    # I
+    .param p4, "projection"    # [Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x0
@@ -315,10 +315,10 @@
 
 .method public static final queryMiniThumbnails(Landroid/content/ContentResolver;Landroid/net/Uri;I[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "uri"
-    .parameter "kind"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "kind"    # I
+    .param p3, "projection"    # [Ljava/lang/String;
 
     .prologue
     .line 986

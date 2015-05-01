@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 504
@@ -36,9 +35,9 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 6
-    .parameter "fd"
-    .parameter "fout"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "fout"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x1
@@ -49,13 +48,13 @@
     invoke-direct {v1, v5}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
     .line 510
-    .local v1, latch:Ljava/util/concurrent/CountDownLatch;
+    .local v1, "latch":Ljava/util/concurrent/CountDownLatch;
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v2
 
     .line 511
-    .local v2, sargs:Lcom/android/internal/os/SomeArgs;
+    .local v2, "sargs":Lcom/android/internal/os/SomeArgs;
     iput-object p1, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     .line 512
@@ -111,7 +110,7 @@
     move-exception v0
 
     .line 521
-    .local v0, e:Ljava/lang/InterruptedException;
+    .local v0, "e":Ljava/lang/InterruptedException;
     const-string v3, "Interrupted waiting for dump"
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -121,7 +120,7 @@
 
 .method public onBindMethod(Lcom/android/internal/view/InputBindResult;)V
     .locals 3
-    .parameter "res"
+    .param p1, "res"    # Lcom/android/internal/view/InputBindResult;
 
     .prologue
     .line 531
@@ -147,7 +146,7 @@
 
 .method public onUnbindMethod(I)V
     .locals 4
-    .parameter "sequence"
+    .param p1, "sequence"    # I
 
     .prologue
     .line 536
@@ -175,7 +174,7 @@
 
 .method public setActive(Z)V
     .locals 5
-    .parameter "active"
+    .param p1, "active"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -214,7 +213,7 @@
 
 .method public setUsingInputMethod(Z)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Z
 
     .prologue
     .line 527

@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrinterDiscoverySession;)V
     .locals 1
-    .parameter "session"
+    .param p1, "session"    # Landroid/print/PrinterDiscoverySession;
 
     .prologue
     .line 292
@@ -51,7 +51,7 @@
 # virtual methods
 .method public onPrintersAdded(Landroid/content/pm/ParceledListSlice;)V
     .locals 4
-    .parameter "printers"
+    .param p1, "printers"    # Landroid/content/pm/ParceledListSlice;
 
     .prologue
     .line 299
@@ -64,11 +64,11 @@
     check-cast v0, Landroid/print/PrinterDiscoverySession;
 
     .line 300
-    .local v0, session:Landroid/print/PrinterDiscoverySession;
+    .local v0, "session":Landroid/print/PrinterDiscoverySession;
     if-eqz v0, :cond_0
 
     .line 301
-    #getter for: Landroid/print/PrinterDiscoverySession;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/print/PrinterDiscoverySession;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/print/PrinterDiscoverySession;->access$200(Landroid/print/PrinterDiscoverySession;)Landroid/os/Handler;
 
     move-result-object v1
@@ -92,7 +92,7 @@
 
 .method public onPrintersRemoved(Landroid/content/pm/ParceledListSlice;)V
     .locals 4
-    .parameter "printerIds"
+    .param p1, "printerIds"    # Landroid/content/pm/ParceledListSlice;
 
     .prologue
     .line 309
@@ -105,11 +105,11 @@
     check-cast v0, Landroid/print/PrinterDiscoverySession;
 
     .line 310
-    .local v0, session:Landroid/print/PrinterDiscoverySession;
+    .local v0, "session":Landroid/print/PrinterDiscoverySession;
     if-eqz v0, :cond_0
 
     .line 311
-    #getter for: Landroid/print/PrinterDiscoverySession;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/print/PrinterDiscoverySession;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/print/PrinterDiscoverySession;->access$200(Landroid/print/PrinterDiscoverySession;)Landroid/os/Handler;
 
     move-result-object v1

@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0xa
     name = "CursorTranslator"
 .end annotation
 
@@ -51,8 +51,8 @@
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/net/Uri;)V
     .locals 0
-    .parameter "cursor"
-    .parameter "baseUri"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "baseUri"    # Landroid/net/Uri;
 
     .prologue
     .line 1296
@@ -67,7 +67,7 @@
 
 .method private getErrorCode(I)J
     .locals 2
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 1369
@@ -184,7 +184,7 @@
     move-result-wide v0
 
     .line 1324
-    .local v0, destinationType:J
+    .local v0, "destinationType":J
     const-wide/16 v5, 0x4
 
     cmp-long v5, v0, v5
@@ -216,19 +216,19 @@
     move-result-object v4
 
     .line 1328
-    .local v4, localPath:Ljava/lang/String;
+    .local v4, "localPath":Ljava/lang/String;
     if-nez v4, :cond_1
 
     .line 1329
     const/4 v5, 0x0
 
     .line 1336
-    .end local v4           #localPath:Ljava/lang/String;
+    .end local v4    # "localPath":Ljava/lang/String;
     :goto_0
     return-object v5
 
     .line 1331
-    .restart local v4       #localPath:Ljava/lang/String;
+    .restart local v4    # "localPath":Ljava/lang/String;
     :cond_1
     new-instance v5, Ljava/io/File;
 
@@ -245,7 +245,7 @@
     goto :goto_0
 
     .line 1335
-    .end local v4           #localPath:Ljava/lang/String;
+    .end local v4    # "localPath":Ljava/lang/String;
     :cond_2
     const-string v5, "_id"
 
@@ -258,7 +258,7 @@
     move-result-wide v2
 
     .line 1336
-    .local v2, downloadId:J
+    .local v2, "downloadId":J
     iget-object v5, p0, Landroid/app/DownloadManager$CursorTranslator;->mBaseUri:Landroid/net/Uri;
 
     invoke-static {v5, v2, v3}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
@@ -274,35 +274,37 @@
 
 .method private getPausedReason(I)J
     .locals 2
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
+    .line 1353
     packed-switch p1, :pswitch_data_0
 
-    invoke-static {p1}, Landroid/app/Injector$DownloadManagerHook$CursorTranslator;->getPausedReason(I)I
-
-    move-result v0
-
-    int-to-long v0, v0
+    .line 1364
+    const-wide/16 v0, 0x4
 
     :goto_0
     return-wide v0
 
+    .line 1355
     :pswitch_0
     const-wide/16 v0, 0x1
 
     goto :goto_0
 
+    .line 1358
     :pswitch_1
     const-wide/16 v0, 0x2
 
     goto :goto_0
 
+    .line 1361
     :pswitch_2
     const-wide/16 v0, 0x3
 
     goto :goto_0
 
+    .line 1353
     nop
 
     :pswitch_data_0
@@ -315,20 +317,23 @@
 
 .method private getReason(I)J
     .locals 2
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
-    invoke-static {p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+    .line 1340
+    invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 1348
     const-wide/16 v0, 0x0
 
     :goto_0
     return-wide v0
 
+    .line 1342
     :sswitch_0
     invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getErrorCode(I)J
 
@@ -352,19 +357,21 @@
     .end sparse-switch
 .end method
 
-.method static translateStatus(I)I
+.method private translateStatus(I)I
     .locals 1
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
-    packed-switch p0, :pswitch_data_0
+    .line 1407
+    packed-switch p1, :pswitch_data_0
 
+    .line 1424
     :pswitch_0
     sget-boolean v0, Landroid/app/DownloadManager$CursorTranslator;->$assertionsDisabled:Z
 
     if-nez v0, :cond_0
 
-    invoke-static {p0}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
+    invoke-static {p1}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
 
     move-result v0
 
@@ -429,20 +436,9 @@
 
 
 # virtual methods
-.method callGetLocalUri()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    invoke-direct {p0}, Landroid/app/DownloadManager$CursorTranslator;->getLocalUri()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getInt(I)I
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 1302
@@ -457,7 +453,7 @@
 
 .method public getLong(I)J
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 1307
@@ -517,7 +513,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+    invoke-direct {p0, v0}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
 
     move-result v0
 
@@ -536,7 +532,7 @@
 
 .method public getString(I)Ljava/lang/String;
     .locals 2
-    .parameter "columnIndex"
+    .param p1, "columnIndex"    # I
 
     .prologue
     .line 1318
@@ -552,7 +548,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p0}, Landroid/app/Injector$DownloadManagerHook$CursorTranslator;->getLocalUri(Landroid/app/DownloadManager$CursorTranslator;)Ljava/lang/String;
+    invoke-direct {p0}, Landroid/app/DownloadManager$CursorTranslator;->getLocalUri()Ljava/lang/String;
 
     move-result-object v0
 

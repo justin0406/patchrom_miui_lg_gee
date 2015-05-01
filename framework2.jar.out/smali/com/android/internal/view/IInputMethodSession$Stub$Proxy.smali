@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 155
@@ -41,8 +41,8 @@
 # virtual methods
 .method public appPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "action"
-    .parameter "data"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,7 +56,7 @@
     move-result-object v0
 
     .line 259
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -130,7 +130,7 @@
 
 .method public displayCompletions([Landroid/view/inputmethod/CompletionInfo;)V
     .locals 5
-    .parameter "completions"
+    .param p1, "completions"    # [Landroid/view/inputmethod/CompletionInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 247
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -198,7 +198,7 @@
     move-result-object v0
 
     .line 170
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -247,7 +247,7 @@
     move-result-object v0
 
     .line 291
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -293,8 +293,8 @@
 
 .method public toggleSoftInput(II)V
     .locals 5
-    .parameter "showFlags"
-    .parameter "hideFlags"
+    .param p1, "showFlags"    # I
+    .param p2, "hideFlags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -308,7 +308,7 @@
     move-result-object v0
 
     .line 278
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -350,7 +350,7 @@
 
 .method public updateCursor(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "newCursor"
+    .param p1, "newCursor"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -364,7 +364,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -425,8 +425,8 @@
 
 .method public updateExtractedText(ILandroid/view/inputmethod/ExtractedText;)V
     .locals 5
-    .parameter "token"
-    .parameter "text"
+    .param p1, "token"    # I
+    .param p2, "text"    # Landroid/view/inputmethod/ExtractedText;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -440,7 +440,7 @@
     move-result-object v0
 
     .line 181
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -504,12 +504,12 @@
 
 .method public updateSelection(IIIIII)V
     .locals 5
-    .parameter "oldSelStart"
-    .parameter "oldSelEnd"
-    .parameter "newSelStart"
-    .parameter "newSelEnd"
-    .parameter "candidatesStart"
-    .parameter "candidatesEnd"
+    .param p1, "oldSelStart"    # I
+    .param p2, "oldSelEnd"    # I
+    .param p3, "newSelStart"    # I
+    .param p4, "newSelEnd"    # I
+    .param p5, "candidatesStart"    # I
+    .param p6, "candidatesEnd"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -523,7 +523,7 @@
     move-result-object v0
 
     .line 200
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodSession"
 
@@ -577,7 +577,7 @@
 
 .method public viewClicked(Z)V
     .locals 5
-    .parameter "focusChanged"
+    .param p1, "focusChanged"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -593,7 +593,7 @@
     move-result-object v0
 
     .line 217
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethodSession"
 

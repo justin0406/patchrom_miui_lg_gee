@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 2109
+    .line 2114
     iput-object p1, p0, Lcom/android/server/LocationManagerService$4;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -36,29 +35,29 @@
 # virtual methods
 .method public onPackageDisappeared(Ljava/lang/String;I)V
     .locals 6
-    .parameter "packageName"
-    .parameter "reason"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "reason"    # I
 
     .prologue
-    .line 2113
+    .line 2118
     iget-object v4, p0, Lcom/android/server/LocationManagerService$4;->this$0:Lcom/android/server/LocationManagerService;
 
-    #getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v4}, Lcom/android/server/LocationManagerService;->access$000(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
     monitor-enter v5
 
-    .line 2114
+    .line 2119
     const/4 v0, 0x0
 
-    .line 2116
-    .local v0, deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .line 2121
+    .local v0, "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :try_start_0
     iget-object v4, p0, Lcom/android/server/LocationManagerService$4;->this$0:Lcom/android/server/LocationManagerService;
 
-    #getter for: Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
+    # getter for: Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/server/LocationManagerService;->access$100(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -73,11 +72,11 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     move-object v1, v0
 
-    .end local v0           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .local v1, deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .local v1, "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :goto_0
     :try_start_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -92,8 +91,8 @@
 
     check-cast v3, Lcom/android/server/LocationManagerService$Receiver;
 
-    .line 2117
-    .local v3, receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .line 2122
+    .local v3, "receiver":Lcom/android/server/LocationManagerService$Receiver;
     iget-object v4, v3, Lcom/android/server/LocationManagerService$Receiver;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -102,19 +101,19 @@
 
     if-eqz v4, :cond_3
 
-    .line 2118
+    .line 2123
     if-nez v1, :cond_2
 
-    .line 2119
+    .line 2124
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 2121
-    .end local v1           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v0       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .line 2126
+    .end local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :goto_1
     :try_start_2
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -124,16 +123,16 @@
     :goto_2
     move-object v1, v0
 
-    .end local v0           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v1       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     goto :goto_0
 
-    .line 2126
-    .end local v3           #receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .line 2131
+    .end local v3    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     :cond_0
     if-eqz v1, :cond_1
 
-    .line 2127
+    .line 2132
     :try_start_3
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -152,27 +151,27 @@
 
     check-cast v3, Lcom/android/server/LocationManagerService$Receiver;
 
-    .line 2128
-    .restart local v3       #receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .line 2133
+    .restart local v3    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     iget-object v4, p0, Lcom/android/server/LocationManagerService$4;->this$0:Lcom/android/server/LocationManagerService;
 
-    #calls: Lcom/android/server/LocationManagerService;->removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
+    # invokes: Lcom/android/server/LocationManagerService;->removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
     invoke-static {v4, v3}, Lcom/android/server/LocationManagerService;->access$1300(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$Receiver;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_3
 
-    .line 2131
-    .end local v3           #receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .line 2136
+    .end local v3    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     :catchall_0
     move-exception v4
 
     move-object v0, v1
 
-    .end local v1           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .end local v2           #i$:Ljava/util/Iterator;
-    .restart local v0       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .restart local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :goto_4
     :try_start_4
     monitor-exit v5
@@ -181,44 +180,44 @@
 
     throw v4
 
-    .end local v0           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v1       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v2       #i$:Ljava/util/Iterator;
+    .end local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v2    # "i$":Ljava/util/Iterator;
     :cond_1
     :try_start_5
     monitor-exit v5
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 2132
+    .line 2137
     return-void
 
-    .line 2131
-    .end local v1           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .end local v2           #i$:Ljava/util/Iterator;
-    .restart local v0       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .line 2136
+    .end local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .restart local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :catchall_1
     move-exception v4
 
     goto :goto_4
 
-    .end local v0           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v1       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v2       #i$:Ljava/util/Iterator;
-    .restart local v3       #receiver:Lcom/android/server/LocationManagerService$Receiver;
+    .end local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v2    # "i$":Ljava/util/Iterator;
+    .restart local v3    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     :cond_2
     move-object v0, v1
 
-    .end local v1           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v0       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     goto :goto_1
 
-    .end local v0           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v1       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     :cond_3
     move-object v0, v1
 
-    .end local v1           #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
-    .restart local v0       #deadReceivers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .end local v1    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
+    .restart local v0    # "deadReceivers":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$Receiver;>;"
     goto :goto_2
 .end method

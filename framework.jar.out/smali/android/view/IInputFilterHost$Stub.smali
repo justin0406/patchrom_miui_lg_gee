@@ -48,7 +48,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/view/IInputFilterHost;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/view/IInputFilterHost;
@@ -86,7 +86,7 @@
     :cond_1
     new-instance v0, Landroid/view/IInputFilterHost$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/view/IInputFilterHost$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -104,10 +104,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,25 +159,25 @@
     check-cast v0, Landroid/view/InputEvent;
 
     .line 61
-    .local v0, _arg0:Landroid/view/InputEvent;
+    .local v0, "_arg0":Landroid/view/InputEvent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 62
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/view/IInputFilterHost$Stub;->sendInputEvent(Landroid/view/InputEvent;I)V
 
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:Landroid/view/InputEvent;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/view/InputEvent;
+    .end local v1    # "_arg1":I
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/InputEvent;
+    .restart local v0    # "_arg0":Landroid/view/InputEvent;
     goto :goto_1
 
     .line 43

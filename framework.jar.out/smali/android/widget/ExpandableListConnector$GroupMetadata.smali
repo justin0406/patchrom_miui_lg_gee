@@ -30,7 +30,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -82,10 +82,10 @@
 
 .method static obtain(IIIJ)Landroid/widget/ExpandableListConnector$GroupMetadata;
     .locals 1
-    .parameter "flPos"
-    .parameter "lastChildFlPos"
-    .parameter "gPos"
-    .parameter "gId"
+    .param p0, "flPos"    # I
+    .param p1, "lastChildFlPos"    # I
+    .param p2, "gPos"    # I
+    .param p3, "gId"    # J
 
     .prologue
     .line 903
@@ -94,7 +94,7 @@
     invoke-direct {v0}, Landroid/widget/ExpandableListConnector$GroupMetadata;-><init>()V
 
     .line 904
-    .local v0, gm:Landroid/widget/ExpandableListConnector$GroupMetadata;
+    .local v0, "gm":Landroid/widget/ExpandableListConnector$GroupMetadata;
     iput p0, v0, Landroid/widget/ExpandableListConnector$GroupMetadata;->flPos:I
 
     .line 905
@@ -114,7 +114,7 @@
 # virtual methods
 .method public compareTo(Landroid/widget/ExpandableListConnector$GroupMetadata;)I
     .locals 2
-    .parameter "another"
+    .param p1, "another"    # Landroid/widget/ExpandableListConnector$GroupMetadata;
 
     .prologue
     .line 912
@@ -140,13 +140,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 875
     check-cast p1, Landroid/widget/ExpandableListConnector$GroupMetadata;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/widget/ExpandableListConnector$GroupMetadata;->compareTo(Landroid/widget/ExpandableListConnector$GroupMetadata;)I
 
     move-result v0
@@ -166,8 +166,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 924

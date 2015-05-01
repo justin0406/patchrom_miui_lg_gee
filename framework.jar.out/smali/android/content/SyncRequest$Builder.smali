@@ -99,7 +99,7 @@
 
 .method static synthetic access$100(Landroid/content/SyncRequest$Builder;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -110,7 +110,7 @@
 
 .method static synthetic access$1000(Landroid/content/SyncRequest$Builder;)Landroid/os/Bundle;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -121,7 +121,7 @@
 
 .method static synthetic access$1100(Landroid/content/SyncRequest$Builder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -132,7 +132,7 @@
 
 .method static synthetic access$1200(Landroid/content/SyncRequest$Builder;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -143,7 +143,7 @@
 
 .method static synthetic access$1300(Landroid/content/SyncRequest$Builder;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -154,7 +154,7 @@
 
 .method static synthetic access$200(Landroid/content/SyncRequest$Builder;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -165,7 +165,7 @@
 
 .method static synthetic access$300(Landroid/content/SyncRequest$Builder;)Landroid/accounts/Account;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -176,7 +176,7 @@
 
 .method static synthetic access$400(Landroid/content/SyncRequest$Builder;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -187,7 +187,7 @@
 
 .method static synthetic access$500(Landroid/content/SyncRequest$Builder;)Landroid/content/ComponentName;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -198,7 +198,7 @@
 
 .method static synthetic access$600(Landroid/content/SyncRequest$Builder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -209,7 +209,7 @@
 
 .method static synthetic access$700(Landroid/content/SyncRequest$Builder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -220,7 +220,7 @@
 
 .method static synthetic access$800(Landroid/content/SyncRequest$Builder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -231,7 +231,7 @@
 
 .method static synthetic access$900(Landroid/content/SyncRequest$Builder;)Landroid/os/Bundle;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     .line 222
@@ -242,8 +242,8 @@
 
 .method private setupInterval(JJ)V
     .locals 2
-    .parameter "at"
-    .parameter "before"
+    .param p1, "at"    # J
+    .param p3, "before"    # J
 
     .prologue
     .line 369
@@ -273,7 +273,7 @@
 
 .method private validatePeriodicExtras(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v1, 0x0
@@ -573,7 +573,7 @@
 
 .method public setDisallowMetered(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "disallow"
+    .param p1, "disallow"    # Z
 
     .prologue
     .line 397
@@ -585,7 +585,7 @@
 
 .method public setExpedited(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "expedited"
+    .param p1, "expedited"    # Z
 
     .prologue
     .line 530
@@ -597,7 +597,7 @@
 
 .method public setExtras(Landroid/os/Bundle;)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 459
@@ -609,7 +609,7 @@
 
 .method public setIgnoreBackoff(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "ignoreBackoff"
+    .param p1, "ignoreBackoff"    # Z
 
     .prologue
     .line 503
@@ -621,7 +621,7 @@
 
 .method public setIgnoreSettings(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "ignoreSettings"
+    .param p1, "ignoreSettings"    # Z
 
     .prologue
     .line 487
@@ -633,7 +633,7 @@
 
 .method public setManual(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "isManual"
+    .param p1, "isManual"    # Z
 
     .prologue
     .line 517
@@ -645,7 +645,7 @@
 
 .method public setNoRetry(Z)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "noRetry"
+    .param p1, "noRetry"    # Z
 
     .prologue
     .line 473
@@ -657,7 +657,7 @@
 
 .method public setPriority(I)Landroid/content/SyncRequest$Builder;
     .locals 2
-    .parameter "priority"
+    .param p1, "priority"    # I
 
     .prologue
     .line 540
@@ -689,8 +689,8 @@
 
 .method public setSyncAdapter(Landroid/accounts/Account;Ljava/lang/String;)Landroid/content/SyncRequest$Builder;
     .locals 2
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
 
     .prologue
     .line 408
@@ -749,8 +749,8 @@
 
 .method public setTransferSize(JJ)Landroid/content/SyncRequest$Builder;
     .locals 0
-    .parameter "rxBytes"
-    .parameter "txBytes"
+    .param p1, "rxBytes"    # J
+    .param p3, "txBytes"    # J
 
     .prologue
     .line 386
@@ -798,8 +798,8 @@
 
 .method public syncPeriodic(JJ)Landroid/content/SyncRequest$Builder;
     .locals 2
-    .parameter "pollFrequency"
-    .parameter "beforeSeconds"
+    .param p1, "pollFrequency"    # J
+    .param p3, "beforeSeconds"    # J
 
     .prologue
     .line 359

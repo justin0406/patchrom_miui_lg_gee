@@ -102,7 +102,7 @@
 
 .method public static addFilterLibrary(Ljava/lang/String;)V
     .locals 3
-    .parameter "libraryPath"
+    .param p0, "libraryPath"    # Ljava/lang/String;
 
     .prologue
     .line 65
@@ -224,7 +224,7 @@
 # virtual methods
 .method public addPackage(Ljava/lang/String;)V
     .locals 3
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 78
@@ -266,8 +266,8 @@
 
 .method public createFilterByClass(Ljava/lang/Class;Ljava/lang/String;)Landroid/filterfw/core/Filter;
     .locals 7
-    .parameter "filterClass"
-    .parameter "filterName"
+    .param p1, "filterClass"    # Ljava/lang/Class;
+    .param p2, "filterName"    # Ljava/lang/String;
 
     .prologue
     .line 116
@@ -282,7 +282,7 @@
     const/4 v3, 0x0
 
     .line 125
-    .local v3, filterConstructor:Ljava/lang/reflect/Constructor;
+    .local v3, "filterConstructor":Ljava/lang/reflect/Constructor;
     const/4 v4, 0x1
 
     :try_start_1
@@ -304,7 +304,7 @@
     const/4 v2, 0x0
 
     .line 134
-    .local v2, filter:Landroid/filterfw/core/Filter;
+    .local v2, "filter":Landroid/filterfw/core/Filter;
     const/4 v4, 0x1
 
     :try_start_2
@@ -362,13 +362,13 @@
     throw v4
 
     .line 117
-    .end local v2           #filter:Landroid/filterfw/core/Filter;
-    .end local v3           #filterConstructor:Ljava/lang/reflect/Constructor;
+    .end local v2    # "filter":Landroid/filterfw/core/Filter;
+    .end local v3    # "filterConstructor":Ljava/lang/reflect/Constructor;
     :catch_0
     move-exception v1
 
     .line 118
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -400,13 +400,13 @@
     throw v4
 
     .line 126
-    .end local v1           #e:Ljava/lang/ClassCastException;
-    .restart local v3       #filterConstructor:Ljava/lang/reflect/Constructor;
+    .end local v1    # "e":Ljava/lang/ClassCastException;
+    .restart local v3    # "filterConstructor":Ljava/lang/reflect/Constructor;
     :catch_1
     move-exception v1
 
     .line 127
-    .local v1, e:Ljava/lang/NoSuchMethodException;
+    .local v1, "e":Ljava/lang/NoSuchMethodException;
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -438,8 +438,8 @@
     throw v4
 
     .line 143
-    .end local v1           #e:Ljava/lang/NoSuchMethodException;
-    .restart local v2       #filter:Landroid/filterfw/core/Filter;
+    .end local v1    # "e":Ljava/lang/NoSuchMethodException;
+    .restart local v2    # "filter":Landroid/filterfw/core/Filter;
     :cond_0
     return-object v2
 
@@ -452,8 +452,8 @@
 
 .method public createFilterByClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/filterfw/core/Filter;
     .locals 8
-    .parameter "className"
-    .parameter "filterName"
+    .param p1, "className"    # Ljava/lang/String;
+    .param p2, "filterName"    # Ljava/lang/String;
 
     .prologue
     .line 89
@@ -488,14 +488,14 @@
     const/4 v1, 0x0
 
     .line 93
-    .local v1, filterClass:Ljava/lang/Class;
+    .local v1, "filterClass":Ljava/lang/Class;
     iget-object v4, p0, Landroid/filterfw/core/FilterFactory;->mPackages:Ljava/util/HashSet;
 
     invoke-virtual {v4}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_1
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -511,7 +511,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 95
-    .local v3, packageName:Ljava/lang/String;
+    .local v3, "packageName":Ljava/lang/String;
     :try_start_0
     sget-boolean v4, Landroid/filterfw/core/FilterFactory;->mLogVerbose:Z
 
@@ -596,7 +596,7 @@
     if-eqz v1, :cond_1
 
     .line 107
-    .end local v3           #packageName:Ljava/lang/String;
+    .end local v3    # "packageName":Ljava/lang/String;
     :cond_3
     if-nez v1, :cond_4
 
@@ -632,7 +632,7 @@
     throw v4
 
     .line 98
-    .restart local v3       #packageName:Ljava/lang/String;
+    .restart local v3    # "packageName":Ljava/lang/String;
     :catchall_0
     move-exception v4
 
@@ -651,12 +651,12 @@
     move-exception v0
 
     .line 100
-    .local v0, e:Ljava/lang/ClassNotFoundException;
+    .local v0, "e":Ljava/lang/ClassNotFoundException;
     goto :goto_0
 
     .line 110
-    .end local v0           #e:Ljava/lang/ClassNotFoundException;
-    .end local v3           #packageName:Ljava/lang/String;
+    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
+    .end local v3    # "packageName":Ljava/lang/String;
     :cond_4
     invoke-virtual {p0, v1, p2}, Landroid/filterfw/core/FilterFactory;->createFilterByClass(Ljava/lang/Class;Ljava/lang/String;)Landroid/filterfw/core/Filter;
 

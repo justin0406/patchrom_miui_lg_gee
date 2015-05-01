@@ -248,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">deinstaliranje prečaca</string>
     <string name="permdesc_uninstall_shortcut">Aplikaciji omogućuje uklanjanje prečaca početnog zaslona bez intervencije korisnika.</string>
     <string name="permlab_processOutgoingCalls">preusmjeravanje odlaznih poziva</string>
-    <string name="permdesc_processOutgoingCalls">Aplikaciji omogućuje obradu odlaznih poziva i promjenu broja za biranje. Ta dozvola aplikaciji omogućuje nadziranje, preusmjeravanje ili sprječavanje odlaznih poziva.</string>
+    <string name="permdesc_processOutgoingCalls">Omogućuje aplikaciji da vidi broj koji se bira prilikom odlaznog poziva uz opciju preusmjeravanja poziva na neki drugi broj ili prekidanja poziva.</string>
     <string name="permlab_receiveSms">primanje tekstnih poruka (SMS)</string>
     <string name="permdesc_receiveSms">Aplikaciji omogućuje primanje i obradu SMS poruka. To znači da aplikacija može nadzirati ili izbrisati poruke poslane na vaš uređaj, a da vam ih ne prikaže.</string>
     <string name="permlab_receiveMms">primanje tekstnih poruka (MMS)</string>
@@ -583,7 +583,7 @@
     <string name="permdesc_changeWimaxState">Aplikaciji omogućuje povezivanje telefona s WiMAX mrežama i prekidanje veze telefona s njima.</string>
     <string name="permlab_bluetooth">uparivanje s Bluetooth uređajima</string>
     <string name="permdesc_bluetooth">Aplikaciji omogućuje pregled konfiguracije Bluetootha na telefonu te uspostavljanje i prihvaćanje veza s uparenim uređajima.</string>
-    <string name="permlab_nfc">upravljaj beskontaktnom (NFC) komunikacijom</string>
+    <string name="permlab_nfc">upravljanje beskontaktnom komunikacijom (NFC)</string>
     <string name="permdesc_nfc">Aplikaciji omogućuje komunikaciju s oznakama, karticama i čitačima komunikacije kratkog dometa (NFC).</string>
     <string name="permlab_disableKeyguard">onemogućavanje zaključavanja zaslona</string>
     <string name="permdesc_disableKeyguard">Aplikaciji omogućuje onemogućavanje zaključavanja tipkovnice i svih pripadajućih sigurnosnih zaporki. Na primjer, telefon onemogućuje zaključavanje tipkovnice kod primanja dolaznog telefonskog poziva, nakon kojeg se zaključavanje tipkovnice ponovo omogućuje.</string>
@@ -723,6 +723,7 @@
     <string name="sipAddressTypeHome">Početna</string>
     <string name="sipAddressTypeWork">Posao</string>
     <string name="sipAddressTypeOther">Drugo</string>
+    <string name="quick_contacts_not_available">Nema aplikacije za prikazivanje tog kontakta.</string>
     <string name="keyguard_password_enter_pin_code">Unesite PIN kôd</string>
     <string name="keyguard_password_enter_puk_code">Unesite PUK i novi PIN kôd</string>
     <string name="keyguard_password_enter_puk_prompt">PUK kôd</string>
@@ -1462,10 +1463,17 @@ Dulje slušanje preglasne glazbe može vam oštetiti sluh."</string>
     <string name="webviewchromium_actionbar_share">Dijeli</string>
     <string name="webviewchromium_actionbar_web_search">Pretraživanje weba</string>
     <string name="webviewchromium_accessibility_content_view">Web-prikaz</string>
+    <string name="webviewchromium_date_picker_dialog_title">Postavljanje datuma</string>
     <string name="webviewchromium_date_picker_dialog_set">Postavi</string>
     <string name="webviewchromium_date_picker_dialog_clear">Izbriši</string>
-    <string name="webviewchromium_date_picker_dialog_title">Postavljanje datuma</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Ostalo</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Postavljanje datuma i vremena</string>
+    <string name="webviewchromium_time_picker_dialog_title">Postavljanje vremena</string>
+    <string name="webviewchromium_time_picker_dialog_am">AM</string>
+    <string name="webviewchromium_time_picker_dialog_pm">PM</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Postavljanje mjeseca</string>
     <string name="webviewchromium_week_picker_dialog_title">Postavljanje tjedna</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Datum</string>
@@ -1473,6 +1481,11 @@ Dulje slušanje preglasne glazbe može vam oštetiti sluh."</string>
     <string name="webviewchromium_accessibility_date_picker_month">Mjesec</string>
     <string name="webviewchromium_accessibility_date_picker_week">Tjedan</string>
     <string name="webviewchromium_accessibility_date_picker_year">Godina</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Sat</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Minuta</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Sekunda</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Milisekunda</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">Doba dana</string>
     <string name="webviewchromium_media_player_error_title">Video se ne može reproducirati</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Videozapis nije valjan za strujanje na ovom uređaju.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Videozapis se ne može reproducirati.</string>
@@ -1485,7 +1498,20 @@ Dulje slušanje preglasne glazbe može vam oštetiti sluh."</string>
     <string name="webviewchromium_color_picker_button_set">Postavi</string>
     <string name="webviewchromium_color_picker_button_cancel">Odustani</string>
     <string name="webviewchromium_color_picker_dialog_title">Odabir boje</string>
+    <string name="webviewchromium_color_picker_button_red">Crvena</string>
+    <string name="webviewchromium_color_picker_button_cyan">Cijan</string>
+    <string name="webviewchromium_color_picker_button_blue">Plava</string>
+    <string name="webviewchromium_color_picker_button_green">Zelena</string>
+    <string name="webviewchromium_color_picker_button_magenta">Grimizna</string>
+    <string name="webviewchromium_color_picker_button_yellow">Žuta</string>
+    <string name="webviewchromium_color_picker_button_black">Crna</string>
+    <string name="webviewchromium_color_picker_button_white">Bijela</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Kopiranje u međuspremnik nije uspjelo</string>
     <string name="webviewchromium_low_memory_error">Prethodna operacija nije izvršena jer nema dovoljno memorije</string>
     <string name="webviewchromium_opening_file_error">Odabrana datoteka nije otvorena</string>
     <string name="webviewchromium_private_browsing_warning">Ta funkcija nije podržana na ovoj verziji Androida.</string>
+    <string name="webviewchromium_profiler_started_toast">Alat za profiliranje pokrenut je</string>
+    <string name="webviewchromium_profiler_stopped_toast">Profiliranje je dovršeno. Rezultati su zapisani u datoteku %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Alat za profiliranje ne može se pokrenuti jer vanjska pohrana nije spremna</string>
+    <string name="webviewchromium_profiler_error_toast">Pokretanje alata za profiliranje nije uspjelo</string>
 </resources>

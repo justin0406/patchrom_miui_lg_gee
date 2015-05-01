@@ -75,7 +75,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
+    .param p0, "volumeName"    # Ljava/lang/String;
 
     .prologue
     .line 1440
@@ -112,8 +112,8 @@
 
 .method public static getContentUriForAudioId(Ljava/lang/String;I)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "audioId"
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "audioId"    # I
 
     .prologue
     .line 1453

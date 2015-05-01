@@ -23,7 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/IThumbnailReceiver;)V
     .locals 1
-    .parameter "_receiver"
+    .param p1, "_receiver"    # Landroid/app/IThumbnailReceiver;
 
     .prologue
     .line 34

@@ -82,7 +82,7 @@
     iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     .line 344
-    .local v0, params:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "params":Landroid/view/WindowManager$LayoutParams;
     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 345
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 413
-    .local v0, accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    .local v0, "accessibilityManager":Landroid/view/accessibility/AccessibilityManager;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
     move-result v2
@@ -153,7 +153,7 @@
     move-result-object v1
 
     .line 420
-    .local v1, event:Landroid/view/accessibility/AccessibilityEvent;
+    .local v1, "event":Landroid/view/accessibility/AccessibilityEvent;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -190,6 +190,15 @@
 
 
 # virtual methods
+.method getParams()Landroid/view/WindowManager$LayoutParams;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    return-object v0
+.end method
+
 .method public handleHide()V
     .locals 2
 
@@ -230,7 +239,7 @@
     .locals 6
 
     .prologue
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     .line 376
     iget-object v3, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
@@ -259,7 +268,7 @@
     move-result-object v1
 
     .line 381
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     if-nez v1, :cond_0
 
     .line 382
@@ -297,7 +306,7 @@
     move-result-object v0
 
     .line 388
-    .local v0, config:Landroid/content/res/Configuration;
+    .local v0, "config":Landroid/content/res/Configuration;
     iget v3, p0, Landroid/widget/Toast$TN;->mGravity:I
 
     invoke-virtual {v0}, Landroid/content/res/Configuration;->getLayoutDirection()I
@@ -309,7 +318,7 @@
     move-result v2
 
     .line 389
-    .local v2, gravity:I
+    .local v2, "gravity":I
     iget-object v3, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v2, v3, Landroid/view/WindowManager$LayoutParams;->gravity:I
@@ -398,9 +407,9 @@
     invoke-direct {p0}, Landroid/widget/Toast$TN;->trySendAccessibilityEvent()V
 
     .line 408
-    .end local v0           #config:Landroid/content/res/Configuration;
-    .end local v1           #context:Landroid/content/Context;
-    .end local v2           #gravity:I
+    .end local v0    # "config":Landroid/content/res/Configuration;
+    .end local v1    # "context":Landroid/content/Context;
+    .end local v2    # "gravity":I
     :cond_4
     return-void
 .end method
@@ -417,18 +426,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 371
-    return-void
-.end method
-
-.method public setType(I)V
-    .locals 1
-    .parameter "type"
-
-    .prologue
-    iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
-
-    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->type:I
-
     return-void
 .end method
 

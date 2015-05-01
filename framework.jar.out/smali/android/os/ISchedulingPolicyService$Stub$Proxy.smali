@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 72
@@ -61,9 +61,9 @@
 
 .method public requestPriority(III)I
     .locals 6
-    .parameter "pid"
-    .parameter "tid"
-    .parameter "prio"
+    .param p1, "pid"    # I
+    .param p2, "tid"    # I
+    .param p3, "prio"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,13 +77,13 @@
     move-result-object v0
 
     .line 91
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 94
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.ISchedulingPolicyService"
 
@@ -118,7 +118,7 @@
     move-result v2
 
     .line 103
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 104
@@ -128,7 +128,7 @@
     return v2
 
     .line 103
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 

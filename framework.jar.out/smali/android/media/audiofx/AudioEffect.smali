@@ -38,25 +38,25 @@
 
 .field public static final EFFECT_PRE_PROCESSING:Ljava/lang/String; = "Pre Processing"
 
-.field public static final EFFECT_TYPE_AEC:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_AEC:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_AGC:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_AGC:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_BASS_BOOST:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_BASS_BOOST:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_ENV_REVERB:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_ENV_REVERB:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_EQUALIZER:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_EQUALIZER:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_LOUDNESS_ENHANCER:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_LOUDNESS_ENHANCER:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_NS:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_NS:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_NULL:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_NULL:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_PRESET_REVERB:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_PRESET_REVERB:Ljava/util/UUID;
 
-.field public static final EFFECT_TYPE_VIRTUALIZER:Ljava/util/UUID; = null
+.field public static final EFFECT_TYPE_VIRTUALIZER:Ljava/util/UUID;
 
 .field public static final ERROR:I = -0x1
 
@@ -223,10 +223,10 @@
 
 .method public constructor <init>(Ljava/util/UUID;Ljava/util/UUID;II)V
     .locals 10
-    .parameter "type"
-    .parameter "uuid"
-    .parameter "priority"
-    .parameter "audioSession"
+    .param p1, "type"    # Ljava/util/UUID;
+    .param p2, "uuid"    # Ljava/util/UUID;
+    .param p3, "priority"    # I
+    .param p4, "audioSession"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -278,11 +278,11 @@
     new-array v6, v2, [I
 
     .line 395
-    .local v6, id:[I
+    .local v6, "id":[I
     new-array v7, v2, [Landroid/media/audiofx/AudioEffect$Descriptor;
 
     .line 397
-    .local v7, desc:[Landroid/media/audiofx/AudioEffect$Descriptor;
+    .local v7, "desc":[Landroid/media/audiofx/AudioEffect$Descriptor;
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -306,7 +306,7 @@
     move-result v8
 
     .line 400
-    .local v8, initResult:I
+    .local v8, "initResult":I
     if-eqz v8, :cond_0
 
     const/4 v0, -0x2
@@ -472,7 +472,7 @@
 
 .method static synthetic access$000(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/AudioEffect;
 
     .prologue
     .line 59
@@ -483,7 +483,7 @@
 
 .method static synthetic access$100(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/AudioEffect;
 
     .prologue
     .line 59
@@ -494,7 +494,7 @@
 
 .method static synthetic access$200(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/AudioEffect;
 
     .prologue
     .line 59
@@ -512,7 +512,7 @@
 
     move-result-object v0
 
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
     .line 943
@@ -554,7 +554,7 @@
 
 .method public static isEffectTypeAvailable(Ljava/util/UUID;)Z
     .locals 3
-    .parameter "type"
+    .param p0, "type"    # Ljava/util/UUID;
 
     .prologue
     .line 486
@@ -563,10 +563,10 @@
     move-result-object v0
 
     .line 487
-    .local v0, desc:[Landroid/media/audiofx/AudioEffect$Descriptor;
+    .local v0, "desc":[Landroid/media/audiofx/AudioEffect$Descriptor;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
@@ -605,7 +605,7 @@
 
 .method public static isError(I)Z
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
     .line 1280
@@ -660,17 +660,17 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
     .locals 3
-    .parameter "effect_ref"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p0, "effect_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 1198
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    .end local p0
+    .end local p0    # "effect_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -678,7 +678,7 @@
     check-cast v0, Landroid/media/audiofx/AudioEffect;
 
     .line 1199
-    .local v0, effect:Landroid/media/audiofx/AudioEffect;
+    .local v0, "effect":Landroid/media/audiofx/AudioEffect;
     if-nez v0, :cond_1
 
     .line 1208
@@ -700,7 +700,7 @@
     move-result-object v1
 
     .line 1205
-    .local v1, m:Landroid/os/Message;
+    .local v1, "m":Landroid/os/Message;
     iget-object v2, v0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
     invoke-virtual {v2, v1}, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->sendMessage(Landroid/os/Message;)Z
@@ -726,7 +726,7 @@
 
 .method public static queryPreProcessings(I)[Landroid/media/audiofx/AudioEffect$Descriptor;
     .locals 1
-    .parameter "audioSession"
+    .param p0, "audioSession"    # I
 
     .prologue
     .line 476
@@ -745,7 +745,7 @@
 # virtual methods
 .method public byteArrayToInt([B)I
     .locals 1
-    .parameter "valueBuf"
+    .param p1, "valueBuf"    # [B
 
     .prologue
     .line 1287
@@ -760,8 +760,8 @@
 
 .method public byteArrayToInt([BI)I
     .locals 2
-    .parameter "valueBuf"
-    .parameter "offset"
+    .param p1, "valueBuf"    # [B
+    .param p2, "offset"    # I
 
     .prologue
     .line 1295
@@ -770,7 +770,7 @@
     move-result-object v0
 
     .line 1296
-    .local v0, converter:Ljava/nio/ByteBuffer;
+    .local v0, "converter":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v1
@@ -787,7 +787,7 @@
 
 .method public byteArrayToShort([B)S
     .locals 1
-    .parameter "valueBuf"
+    .param p1, "valueBuf"    # [B
 
     .prologue
     .line 1315
@@ -802,8 +802,8 @@
 
 .method public byteArrayToShort([BI)S
     .locals 2
-    .parameter "valueBuf"
-    .parameter "offset"
+    .param p1, "valueBuf"    # [B
+    .param p2, "offset"    # I
 
     .prologue
     .line 1322
@@ -812,7 +812,7 @@
     move-result-object v0
 
     .line 1323
-    .local v0, converter:Ljava/nio/ByteBuffer;
+    .local v0, "converter":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v1
@@ -829,7 +829,7 @@
 
 .method public checkState(Ljava/lang/String;)V
     .locals 4
-    .parameter "methodName"
+    .param p1, "methodName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -897,7 +897,7 @@
 
 .method public checkStatus(I)V
     .locals 2
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 1262
@@ -953,9 +953,9 @@
 
 .method public command(I[B[B)I
     .locals 6
-    .parameter "cmdCode"
-    .parameter "command"
-    .parameter "reply"
+    .param p1, "cmdCode"    # I
+    .param p2, "command"    # [B
+    .param p3, "reply"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -990,30 +990,30 @@
 
 .method public varargs concatArrays([[B)[B
     .locals 9
-    .parameter "arrays"
+    .param p1, "arrays"    # [[B
 
     .prologue
     .line 1343
     const/4 v4, 0x0
 
     .line 1344
-    .local v4, len:I
+    .local v4, "len":I
     move-object v1, p1
 
-    .local v1, arr$:[[B
+    .local v1, "arr$":[[B
     array-length v5, v1
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v5, :cond_0
 
     aget-object v0, v1, v3
 
     .line 1345
-    .local v0, a:[B
+    .local v0, "a":[B
     array-length v7, v0
 
     add-int/2addr v4, v7
@@ -1024,16 +1024,16 @@
     goto :goto_0
 
     .line 1347
-    .end local v0           #a:[B
+    .end local v0    # "a":[B
     :cond_0
     new-array v2, v4, [B
 
     .line 1349
-    .local v2, b:[B
+    .local v2, "b":[B
     const/4 v6, 0x0
 
     .line 1350
-    .local v6, offs:I
+    .local v6, "offs":I
     move-object v1, p1
 
     array-length v5, v1
@@ -1046,7 +1046,7 @@
     aget-object v0, v1, v3
 
     .line 1351
-    .restart local v0       #a:[B
+    .restart local v0    # "a":[B
     const/4 v7, 0x0
 
     array-length v8, v0
@@ -1064,7 +1064,7 @@
     goto :goto_1
 
     .line 1354
-    .end local v0           #a:[B
+    .end local v0    # "a":[B
     :cond_1
     return-object v2
 .end method
@@ -1144,8 +1144,8 @@
 
 .method public getParameter(I[B)I
     .locals 2
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1159,7 +1159,7 @@
     move-result-object v0
 
     .line 681
-    .local v0, p:[B
+    .local v0, "p":[B
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v1
@@ -1169,8 +1169,8 @@
 
 .method public getParameter(I[I)I
     .locals 7
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1203,7 +1203,7 @@
     move-result-object v0
 
     .line 699
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v3, p2
 
     mul-int/lit8 v3, v3, 0x4
@@ -1211,13 +1211,13 @@
     new-array v2, v3, [B
 
     .line 701
-    .local v2, v:[B
+    .local v2, "v":[B
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v1
 
     .line 703
-    .local v1, status:I
+    .local v1, "status":I
     if-eq v1, v5, :cond_1
 
     if-ne v1, v6, :cond_3
@@ -1259,8 +1259,8 @@
 
 .method public getParameter(I[S)I
     .locals 7
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # [S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1291,7 +1291,7 @@
     move-result-object v0
 
     .line 730
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v3, p2
 
     mul-int/lit8 v3, v3, 0x2
@@ -1299,13 +1299,13 @@
     new-array v2, v3, [B
 
     .line 732
-    .local v2, v:[B
+    .local v2, "v":[B
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v1
 
     .line 734
-    .local v1, status:I
+    .local v1, "status":I
     if-eq v1, v5, :cond_1
 
     if-ne v1, v6, :cond_3
@@ -1347,8 +1347,8 @@
 
 .method public getParameter([B[B)I
     .locals 2
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [B
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1375,8 +1375,8 @@
 
 .method public getParameter([I[B)I
     .locals 6
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1411,7 +1411,7 @@
     move-result-object v0
 
     .line 827
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v2, p1
 
     if-le v2, v3, :cond_1
@@ -1424,7 +1424,7 @@
     move-result-object v1
 
     .line 829
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v2, v5, [[B
 
     aput-object v0, v2, v4
@@ -1436,7 +1436,7 @@
     move-result-object v0
 
     .line 832
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_1
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
@@ -1447,8 +1447,8 @@
 
 .method public getParameter([I[I)I
     .locals 10
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1492,7 +1492,7 @@
     move-result-object v0
 
     .line 760
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v4, p1
 
     if-le v4, v5, :cond_2
@@ -1505,7 +1505,7 @@
     move-result-object v1
 
     .line 762
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v4, v7, [[B
 
     aput-object v0, v4, v6
@@ -1517,7 +1517,7 @@
     move-result-object v0
 
     .line 764
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_2
     array-length v4, p2
 
@@ -1526,13 +1526,13 @@
     new-array v3, v4, [B
 
     .line 766
-    .local v3, v:[B
+    .local v3, "v":[B
     invoke-virtual {p0, v0, v3}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v2
 
     .line 768
-    .local v2, status:I
+    .local v2, "status":I
     if-eq v2, v8, :cond_3
 
     if-ne v2, v9, :cond_5
@@ -1570,8 +1570,8 @@
 
 .method public getParameter([I[S)I
     .locals 9
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1613,7 +1613,7 @@
     move-result-object v0
 
     .line 794
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v4, p1
 
     if-le v4, v6, :cond_2
@@ -1626,7 +1626,7 @@
     move-result-object v1
 
     .line 796
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v4, v5, [[B
 
     aput-object v0, v4, v7
@@ -1638,7 +1638,7 @@
     move-result-object v0
 
     .line 798
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_2
     array-length v4, p2
 
@@ -1647,13 +1647,13 @@
     new-array v3, v4, [B
 
     .line 800
-    .local v3, v:[B
+    .local v3, "v":[B
     invoke-virtual {p0, v0, v3}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v2
 
     .line 802
-    .local v2, status:I
+    .local v2, "status":I
     if-eq v2, v5, :cond_3
 
     if-ne v2, v8, :cond_5
@@ -1713,7 +1713,7 @@
 
 .method public intToByteArray(I)[B
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # I
 
     .prologue
     .line 1305
@@ -1724,7 +1724,7 @@
     move-result-object v0
 
     .line 1306
-    .local v0, converter:Ljava/nio/ByteBuffer;
+    .local v0, "converter":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v1
@@ -1779,7 +1779,7 @@
 
 .method public setControlStatusListener(Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
 
     .prologue
     .line 913
@@ -1824,7 +1824,7 @@
 
 .method public setEnableStatusListener(Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
 
     .prologue
     .line 898
@@ -1869,7 +1869,7 @@
 
 .method public setEnabled(Z)I
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1892,8 +1892,8 @@
 
 .method public setParameter(II)I
     .locals 3
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1907,13 +1907,13 @@
     move-result-object v0
 
     .line 547
-    .local v0, p:[B
+    .local v0, "p":[B
     invoke-virtual {p0, p2}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
 
     move-result-object v1
 
     .line 548
-    .local v1, v:[B
+    .local v1, "v":[B
     invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v2
@@ -1923,8 +1923,8 @@
 
 .method public setParameter(IS)I
     .locals 3
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1938,13 +1938,13 @@
     move-result-object v0
 
     .line 561
-    .local v0, p:[B
+    .local v0, "p":[B
     invoke-virtual {p0, p2}, Landroid/media/audiofx/AudioEffect;->shortToByteArray(S)[B
 
     move-result-object v1
 
     .line 562
-    .local v1, v:[B
+    .local v1, "v":[B
     invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v2
@@ -1954,8 +1954,8 @@
 
 .method public setParameter(I[B)I
     .locals 2
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1969,7 +1969,7 @@
     move-result-object v0
 
     .line 575
-    .local v0, p:[B
+    .local v0, "p":[B
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v1
@@ -1979,8 +1979,8 @@
 
 .method public setParameter([B[B)I
     .locals 2
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [B
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -2007,8 +2007,8 @@
 
 .method public setParameter([I[B)I
     .locals 6
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -2043,7 +2043,7 @@
     move-result-object v0
 
     .line 642
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v2, p1
 
     if-le v2, v3, :cond_1
@@ -2056,7 +2056,7 @@
     move-result-object v1
 
     .line 644
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v2, v5, [[B
 
     aput-object v0, v2, v4
@@ -2068,7 +2068,7 @@
     move-result-object v0
 
     .line 646
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_1
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
@@ -2079,8 +2079,8 @@
 
 .method public setParameter([I[I)I
     .locals 8
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -2120,7 +2120,7 @@
     move-result-object v0
 
     .line 591
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v4, p1
 
     if-le v4, v5, :cond_2
@@ -2133,7 +2133,7 @@
     move-result-object v1
 
     .line 593
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v4, v7, [[B
 
     aput-object v0, v4, v6
@@ -2145,7 +2145,7 @@
     move-result-object v0
 
     .line 595
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_2
     aget v4, p2, v6
 
@@ -2154,7 +2154,7 @@
     move-result-object v2
 
     .line 596
-    .local v2, v:[B
+    .local v2, "v":[B
     array-length v4, p2
 
     if-le v4, v5, :cond_3
@@ -2167,7 +2167,7 @@
     move-result-object v3
 
     .line 598
-    .local v3, v2:[B
+    .local v3, "v2":[B
     new-array v4, v7, [[B
 
     aput-object v2, v4, v6
@@ -2179,7 +2179,7 @@
     move-result-object v2
 
     .line 600
-    .end local v3           #v2:[B
+    .end local v3    # "v2":[B
     :cond_3
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
@@ -2190,8 +2190,8 @@
 
 .method public setParameter([I[S)I
     .locals 8
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # [I
+    .param p2, "value"    # [S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -2231,7 +2231,7 @@
     move-result-object v0
 
     .line 616
-    .local v0, p:[B
+    .local v0, "p":[B
     array-length v4, p1
 
     if-le v4, v5, :cond_2
@@ -2244,7 +2244,7 @@
     move-result-object v1
 
     .line 618
-    .local v1, p2:[B
+    .local v1, "p2":[B
     new-array v4, v7, [[B
 
     aput-object v0, v4, v6
@@ -2256,7 +2256,7 @@
     move-result-object v0
 
     .line 621
-    .end local v1           #p2:[B
+    .end local v1    # "p2":[B
     :cond_2
     aget-short v4, p2, v6
 
@@ -2265,7 +2265,7 @@
     move-result-object v2
 
     .line 622
-    .local v2, v:[B
+    .local v2, "v":[B
     array-length v4, p2
 
     if-le v4, v5, :cond_3
@@ -2278,7 +2278,7 @@
     move-result-object v3
 
     .line 624
-    .local v3, v2:[B
+    .local v3, "v2":[B
     new-array v4, v7, [[B
 
     aput-object v2, v4, v6
@@ -2290,7 +2290,7 @@
     move-result-object v2
 
     .line 626
-    .end local v3           #v2:[B
+    .end local v3    # "v2":[B
     :cond_3
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
@@ -2301,7 +2301,7 @@
 
 .method public setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
 
     .prologue
     .line 928
@@ -2346,7 +2346,7 @@
 
 .method public shortToByteArray(S)[B
     .locals 3
-    .parameter "value"
+    .param p1, "value"    # S
 
     .prologue
     .line 1332
@@ -2357,7 +2357,7 @@
     move-result-object v0
 
     .line 1333
-    .local v0, converter:Ljava/nio/ByteBuffer;
+    .local v0, "converter":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v2
@@ -2368,7 +2368,7 @@
     move v1, p1
 
     .line 1335
-    .local v1, sValue:S
+    .local v1, "sValue":S
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
     .line 1336

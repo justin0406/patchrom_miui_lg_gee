@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 602
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v0, 0x0
@@ -62,11 +61,11 @@
     const/4 v0, 0x1
 
     .line 607
-    .local v0, available:Z
+    .local v0, "available":Z
     :cond_0
     iget-object v1, p0, Lcom/android/server/MountService$2;->this$0:Lcom/android/server/MountService;
 
-    #calls: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Z)V
+    # invokes: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Z)V
     invoke-static {v1, v0}, Lcom/android/server/MountService;->access$1000(Lcom/android/server/MountService;Z)V
 
     .line 608

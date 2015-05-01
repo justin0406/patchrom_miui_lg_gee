@@ -22,7 +22,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "valueCount"
+    .param p1, "valueCount"    # I
 
     .prologue
     const/4 v0, 0x2
@@ -49,8 +49,8 @@
 
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "valueCount"
-    .parameter "frameCount"
+    .param p1, "valueCount"    # I
+    .param p2, "frameCount"    # I
 
     .prologue
     .line 29
@@ -133,7 +133,7 @@
 
 .method public reset(I)V
     .locals 1
-    .parameter "valueCount"
+    .param p1, "valueCount"    # I
 
     .prologue
     .line 41
@@ -147,8 +147,8 @@
 
 .method public reset(II)V
     .locals 1
-    .parameter "valueCount"
-    .parameter "frameCount"
+    .param p1, "valueCount"    # I
+    .param p2, "frameCount"    # I
 
     .prologue
     .line 50
@@ -168,9 +168,9 @@
 
 .method public setKeyFrame(II[F)V
     .locals 1
-    .parameter "index"
-    .parameter "msec"
-    .parameter "values"
+    .param p1, "index"    # I
+    .param p2, "msec"    # I
+    .param p3, "values"    # [F
 
     .prologue
     .line 74
@@ -184,10 +184,10 @@
 
 .method public setKeyFrame(II[F[F)V
     .locals 2
-    .parameter "index"
-    .parameter "msec"
-    .parameter "values"
-    .parameter "blend"
+    .param p1, "index"    # I
+    .param p2, "msec"    # I
+    .param p3, "values"    # [F
+    .param p4, "blend"    # [F
 
     .prologue
     .line 88
@@ -249,8 +249,8 @@
 
 .method public setRepeatMirror(FZ)V
     .locals 1
-    .parameter "repeatCount"
-    .parameter "mirror"
+    .param p1, "repeatCount"    # F
+    .param p2, "mirror"    # Z
 
     .prologue
     .line 106
@@ -272,8 +272,8 @@
 
 .method public timeToValues(I[F)Landroid/graphics/Interpolator$Result;
     .locals 2
-    .parameter "msec"
-    .parameter "values"
+    .param p1, "msec"    # I
+    .param p2, "values"    # [F
 
     .prologue
     .line 137
@@ -332,7 +332,7 @@
 
 .method public timeToValues([F)Landroid/graphics/Interpolator$Result;
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # [F
 
     .prologue
     .line 122

@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 1268
@@ -49,8 +49,8 @@
 
 .method private getGlobalBoolean(Ljava/lang/String;Z)Z
     .locals 4
-    .parameter "name"
-    .parameter "def"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -63,7 +63,7 @@
     move v0, v1
 
     .line 1278
-    .local v0, defInt:I
+    .local v0, "defInt":I
     :goto_0
     iget-object v3, p0, Lcom/android/server/net/NetworkStatsService$DefaultNetworkStatsSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -76,14 +76,14 @@
     :goto_1
     return v1
 
-    .end local v0           #defInt:I
+    .end local v0    # "defInt":I
     :cond_0
     move v0, v2
 
     .line 1277
     goto :goto_0
 
-    .restart local v0       #defInt:I
+    .restart local v0    # "defInt":I
     :cond_1
     move v1, v2
 
@@ -93,8 +93,8 @@
 
 .method private getGlobalLong(Ljava/lang/String;J)J
     .locals 2
-    .parameter "name"
-    .parameter "def"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "def"    # J
 
     .prologue
     .line 1274
@@ -147,7 +147,7 @@
 
 .method public getDevPersistBytes(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
 
     .prologue
     .line 1325
@@ -162,7 +162,7 @@
 
 .method public getGlobalAlertBytes(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
 
     .prologue
     .line 1291
@@ -277,7 +277,7 @@
 
 .method public getUidPersistBytes(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
 
     .prologue
     .line 1333
@@ -328,7 +328,7 @@
 
 .method public getUidTagPersistBytes(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
 
     .prologue
     .line 1337
@@ -355,7 +355,7 @@
 
 .method public getXtPersistBytes(J)J
     .locals 2
-    .parameter "def"
+    .param p1, "def"    # J
 
     .prologue
     .line 1329

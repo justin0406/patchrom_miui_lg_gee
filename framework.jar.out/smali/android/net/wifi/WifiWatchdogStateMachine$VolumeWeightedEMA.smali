@@ -29,8 +29,7 @@
 # direct methods
 .method public constructor <init>(Landroid/net/wifi/WifiWatchdogStateMachine;D)V
     .locals 2
-    .parameter
-    .parameter "coefficient"
+    .param p2, "coefficient"    # D
 
     .prologue
     const-wide/16 v0, 0x0
@@ -58,7 +57,7 @@
 
 .method static synthetic access$4200(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     .prologue
     .line 998
@@ -69,7 +68,7 @@
 
 .method static synthetic access$4300(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     .prologue
     .line 998
@@ -82,11 +81,11 @@
 # virtual methods
 .method public update(DI)V
     .locals 10
-    .parameter "newValue"
-    .parameter "newVolume"
+    .param p1, "newValue"    # D
+    .param p3, "newVolume"    # I
 
     .prologue
-    const-wide/high16 v8, 0x3ff0
+    const-wide/high16 v8, 0x3ff0000000000000L    # 1.0
 
     .line 1012
     if-gtz p3, :cond_0
@@ -102,7 +101,7 @@
     mul-double v0, p1, v2
 
     .line 1015
-    .local v0, newProduct:D
+    .local v0, "newProduct":D
     iget-wide v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mAlpha:D
 
     mul-double/2addr v2, v0

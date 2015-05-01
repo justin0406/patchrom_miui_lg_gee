@@ -54,7 +54,7 @@
 
 .method public constructor <init>(Landroid/location/Country;)V
     .locals 2
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
 
     .prologue
     .line 101
@@ -81,8 +81,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 2
-    .parameter "countryIso"
-    .parameter "source"
+    .param p1, "countryIso"    # Ljava/lang/String;
+    .param p2, "source"    # I
 
     .prologue
     .line 81
@@ -131,9 +131,9 @@
 
 .method private constructor <init>(Ljava/lang/String;IJ)V
     .locals 1
-    .parameter "countryIso"
-    .parameter "source"
-    .parameter "timestamp"
+    .param p1, "countryIso"    # Ljava/lang/String;
+    .param p2, "source"    # I
+    .param p3, "timestamp"    # J
 
     .prologue
     .line 91
@@ -178,10 +178,10 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;IJLandroid/location/Country$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # J
+    .param p5, "x3"    # Landroid/location/Country$1;
 
     .prologue
     .line 30
@@ -204,7 +204,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -231,7 +231,7 @@
     check-cast v0, Landroid/location/Country;
 
     .line 169
-    .local v0, c:Landroid/location/Country;
+    .local v0, "c":Landroid/location/Country;
     iget-object v3, p0, Landroid/location/Country;->mCountryIso:Ljava/lang/String;
 
     invoke-virtual {v0}, Landroid/location/Country;->getCountryIso()Ljava/lang/String;
@@ -257,7 +257,7 @@
 
     goto :goto_0
 
-    .end local v0           #c:Landroid/location/Country;
+    .end local v0    # "c":Landroid/location/Country;
     :cond_3
     move v1, v2
 
@@ -267,7 +267,7 @@
 
 .method public equalsIgnoreSource(Landroid/location/Country;)Z
     .locals 2
-    .parameter "country"
+    .param p1, "country"    # Landroid/location/Country;
 
     .prologue
     .line 195
@@ -334,7 +334,7 @@
     iget v0, p0, Landroid/location/Country;->mHashCode:I
 
     .line 177
-    .local v0, hash:I
+    .local v0, "hash":I
     if-nez v0, :cond_0
 
     .line 178
@@ -426,8 +426,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 151

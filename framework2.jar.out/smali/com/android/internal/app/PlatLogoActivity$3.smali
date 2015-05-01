@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 152
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const-wide/16 v3, 0x0
@@ -119,7 +118,7 @@
     move-exception v0
 
     .line 169
-    .local v0, ex:Landroid/content/ActivityNotFoundException;
+    .local v0, "ex":Landroid/content/ActivityNotFoundException;
     const-string v1, "PlatLogoActivity"
 
     const-string v2, "Couldn\'t catch a break."

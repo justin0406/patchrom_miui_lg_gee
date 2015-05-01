@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 75
@@ -51,9 +51,9 @@
 
 .method public getISpellCheckerSession(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)Lcom/android/internal/textservice/ISpellCheckerSession;
     .locals 6
-    .parameter "locale"
-    .parameter "listener"
-    .parameter "bundle"
+    .param p1, "locale"    # Ljava/lang/String;
+    .param p2, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
+    .param p3, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,13 +67,13 @@
     move-result-object v0
 
     .line 89
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 92
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.textservice.ISpellCheckerService"
 
@@ -130,7 +130,7 @@
     move-result-object v2
 
     .line 107
-    .local v2, _result:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .local v2, "_result":Lcom/android/internal/textservice/ISpellCheckerSession;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 108
@@ -140,7 +140,7 @@
     return-object v2
 
     .line 94
-    .end local v2           #_result:Lcom/android/internal/textservice/ISpellCheckerSession;
+    .end local v2    # "_result":Lcom/android/internal/textservice/ISpellCheckerSession;
     :cond_0
     const/4 v3, 0x0
 

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 144
@@ -41,7 +41,7 @@
 # virtual methods
 .method public advisePersistThreshold(J)V
     .locals 5
-    .parameter "thresholdBytes"
+    .param p1, "thresholdBytes"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,13 +55,13 @@
     move-result-object v0
 
     .line 296
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 298
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkStatsService"
 
@@ -130,13 +130,13 @@
     move-result-object v0
 
     .line 281
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 283
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkStatsService"
 
@@ -179,7 +179,7 @@
 
 .method public getDataLayerSnapshotForUid(I)Landroid/net/NetworkStats;
     .locals 6
-    .parameter "uid"
+    .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -193,13 +193,13 @@
     move-result-object v0
 
     .line 204
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 207
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkStatsService"
 
@@ -239,7 +239,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 219
-    .local v2, _result:Landroid/net/NetworkStats;
+    .local v2, "_result":Landroid/net/NetworkStats;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -250,15 +250,15 @@
     return-object v2
 
     .line 215
-    .end local v2           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_result":Landroid/net/NetworkStats;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/net/NetworkStats;
+    .restart local v2    # "_result":Landroid/net/NetworkStats;
     goto :goto_0
 
     .line 219
-    .end local v2           #_result:Landroid/net/NetworkStats;
+    .end local v2    # "_result":Landroid/net/NetworkStats;
     :catchall_0
     move-exception v3
 
@@ -295,13 +295,13 @@
     move-result-object v0
 
     .line 228
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 231
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkStatsService"
 
@@ -327,7 +327,7 @@
     move-result-object v2
 
     .line 237
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 238
@@ -337,7 +337,7 @@
     return-object v2
 
     .line 237
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -351,9 +351,9 @@
 
 .method public getNetworkTotalBytes(Landroid/net/NetworkTemplate;JJ)J
     .locals 7
-    .parameter "template"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "template"    # Landroid/net/NetworkTemplate;
+    .param p2, "start"    # J
+    .param p4, "end"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -367,13 +367,13 @@
     move-result-object v0
 
     .line 177
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 180
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.INetworkStatsService"
 
@@ -419,7 +419,7 @@
     move-result-wide v2
 
     .line 195
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 196
@@ -429,7 +429,7 @@
     return-wide v2
 
     .line 186
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :cond_0
     const/4 v4, 0x0
 
@@ -454,9 +454,9 @@
 
 .method public incrementOperationCount(III)V
     .locals 5
-    .parameter "uid"
-    .parameter "tag"
-    .parameter "operationCount"
+    .param p1, "uid"    # I
+    .param p2, "tag"    # I
+    .param p3, "operationCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -470,13 +470,13 @@
     move-result-object v0
 
     .line 246
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 248
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.INetworkStatsService"
 
@@ -541,13 +541,13 @@
     move-result-object v0
 
     .line 159
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 162
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkStatsService"
 
@@ -577,7 +577,7 @@
     move-result-object v2
 
     .line 168
-    .local v2, _result:Landroid/net/INetworkStatsSession;
+    .local v2, "_result":Landroid/net/INetworkStatsSession;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 169
@@ -587,7 +587,7 @@
     return-object v2
 
     .line 168
-    .end local v2           #_result:Landroid/net/INetworkStatsSession;
+    .end local v2    # "_result":Landroid/net/INetworkStatsSession;
     :catchall_0
     move-exception v3
 
@@ -601,8 +601,8 @@
 
 .method public setUidForeground(IZ)V
     .locals 5
-    .parameter "uid"
-    .parameter "uidForeground"
+    .param p1, "uid"    # I
+    .param p2, "uidForeground"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -618,13 +618,13 @@
     move-result-object v0
 
     .line 264
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 266
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.INetworkStatsService"
 

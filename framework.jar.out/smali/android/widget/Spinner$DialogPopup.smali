@@ -3,8 +3,8 @@
 .source "Spinner.java"
 
 # interfaces
-.implements Landroid/widget/Spinner$SpinnerPopup;
 .implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/widget/Spinner$SpinnerPopup;
 
 
 # annotations
@@ -31,7 +31,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/Spinner;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 949
@@ -44,8 +43,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/Spinner;Landroid/widget/Spinner$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/Spinner;
+    .param p2, "x1"    # Landroid/widget/Spinner$1;
 
     .prologue
     .line 949
@@ -140,8 +139,8 @@
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 992
@@ -179,7 +178,7 @@
 
 .method public setAdapter(Landroid/widget/ListAdapter;)V
     .locals 0
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/ListAdapter;
 
     .prologue
     .line 964
@@ -191,7 +190,7 @@
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .parameter "bg"
+    .param p1, "bg"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 1001
@@ -207,7 +206,7 @@
 
 .method public setHorizontalOffset(I)V
     .locals 2
-    .parameter "px"
+    .param p1, "px"    # I
 
     .prologue
     .line 1011
@@ -223,7 +222,7 @@
 
 .method public setPromptText(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "hintText"
+    .param p1, "hintText"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 968
@@ -235,7 +234,7 @@
 
 .method public setVerticalOffset(I)V
     .locals 2
-    .parameter "px"
+    .param p1, "px"    # I
 
     .prologue
     .line 1006
@@ -251,8 +250,8 @@
 
 .method public show(II)V
     .locals 4
-    .parameter "textDirection"
-    .parameter "textAlignment"
+    .param p1, "textDirection"    # I
+    .param p2, "textAlignment"    # I
 
     .prologue
     .line 976
@@ -277,7 +276,7 @@
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 980
-    .local v0, builder:Landroid/app/AlertDialog$Builder;
+    .local v0, "builder":Landroid/app/AlertDialog$Builder;
     iget-object v2, p0, Landroid/widget/Spinner$DialogPopup;->mPrompt:Ljava/lang/CharSequence;
 
     if-eqz v2, :cond_1
@@ -307,15 +306,21 @@
 
     iput-object v2, p0, Landroid/widget/Spinner$DialogPopup;->mPopup:Landroid/app/AlertDialog;
 
+    .line 985
     iget-object v2, p0, Landroid/widget/Spinner$DialogPopup;->mPopup:Landroid/app/AlertDialog;
 
     invoke-virtual {v2}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    .local v1, listView:Landroid/widget/ListView;
-    invoke-static {v1, p1, p2}, Landroid/widget/Injector$SpinnerHook;->setListViewRtl(Landroid/widget/ListView;II)V
+    .line 986
+    .local v1, "listView":Landroid/widget/ListView;
+    invoke-virtual {v1, p1}, Landroid/widget/ListView;->setTextDirection(I)V
 
+    .line 987
+    invoke-virtual {v1, p2}, Landroid/widget/ListView;->setTextAlignment(I)V
+
+    .line 988
     iget-object v2, p0, Landroid/widget/Spinner$DialogPopup;->mPopup:Landroid/app/AlertDialog;
 
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V

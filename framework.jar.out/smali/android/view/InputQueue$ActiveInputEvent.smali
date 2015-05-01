@@ -25,7 +25,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/InputQueue;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 130
@@ -38,8 +37,8 @@
 
 .method synthetic constructor <init>(Landroid/view/InputQueue;Landroid/view/InputQueue$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/InputQueue;
+    .param p2, "x1"    # Landroid/view/InputQueue$1;
 
     .prologue
     .line 130

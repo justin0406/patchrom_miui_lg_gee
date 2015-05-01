@@ -18,12 +18,12 @@
 # direct methods
 .method constructor <init>(Landroid/content/IntentFilter;Lcom/android/server/am/ReceiverList;Ljava/lang/String;Ljava/lang/String;II)V
     .locals 0
-    .parameter "_filter"
-    .parameter "_receiverList"
-    .parameter "_packageName"
-    .parameter "_requiredPermission"
-    .parameter "_owningUid"
-    .parameter "_userId"
+    .param p1, "_filter"    # Landroid/content/IntentFilter;
+    .param p2, "_receiverList"    # Lcom/android/server/am/ReceiverList;
+    .param p3, "_packageName"    # Ljava/lang/String;
+    .param p4, "_requiredPermission"    # Ljava/lang/String;
+    .param p5, "_owningUid"    # I
+    .param p6, "_userId"    # I
 
     .prologue
     .line 35
@@ -52,8 +52,8 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 1
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -74,8 +74,8 @@
 
 .method public dumpBrief(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 0
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 49
@@ -87,8 +87,8 @@
 
 .method dumpBroadcastFilterState(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 1
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 58
@@ -114,9 +114,9 @@
 
 .method public dumpInReceiverList(Ljava/io/PrintWriter;Landroid/util/Printer;Ljava/lang/String;)V
     .locals 0
-    .parameter "pw"
-    .parameter "pr"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "pr"    # Landroid/util/Printer;
+    .param p3, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 53
@@ -139,7 +139,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 65
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "BroadcastFilter{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

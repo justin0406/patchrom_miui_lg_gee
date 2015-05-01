@@ -26,7 +26,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
     .locals 2
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 41
@@ -82,7 +82,7 @@
     const/4 v1, 0x0
 
     .line 57
-    .local v1, first:Landroid/filterfw/core/Filter;
+    .local v1, "first":Landroid/filterfw/core/Filter;
     :cond_0
     :goto_0
     invoke-super {p0}, Landroid/filterfw/core/RoundRobinScheduler;->scheduleNextNode()Landroid/filterfw/core/Filter;
@@ -90,7 +90,7 @@
     move-result-object v0
 
     .line 58
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     if-nez v0, :cond_3
 
     .line 59
@@ -108,13 +108,13 @@
     move-object v0, v2
 
     .line 76
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_2
     :goto_1
     return-object v0
 
     .line 62
-    .restart local v0       #filter:Landroid/filterfw/core/Filter;
+    .restart local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_3
     iget-object v3, p0, Landroid/filterfw/core/OneShotScheduler;->scheduled:Ljava/util/HashMap;
 

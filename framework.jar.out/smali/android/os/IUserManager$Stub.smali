@@ -90,7 +90,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/IUserManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -112,7 +112,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/IUserManager;
@@ -128,7 +128,7 @@
     :cond_1
     new-instance v0, Landroid/os/IUserManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/IUserManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -146,10 +146,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 8
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -192,19 +192,19 @@
     move-result-object v0
 
     .line 54
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 55
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/os/IUserManager$Stub;->createUser(Ljava/lang/String;I)Landroid/content/pm/UserInfo;
 
     move-result-object v3
 
     .line 56
-    .local v3, _result:Landroid/content/pm/UserInfo;
+    .local v3, "_result":Landroid/content/pm/UserInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 57
@@ -225,9 +225,9 @@
     goto :goto_0
 
     .line 68
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:I
-    .end local v3           #_result:Landroid/content/pm/UserInfo;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":I
+    .end local v3    # "_result":Landroid/content/pm/UserInfo;
     :sswitch_2
     const-string v7, "android.os.IUserManager"
 
@@ -239,13 +239,13 @@
     move-result v0
 
     .line 71
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->removeUser(I)Z
 
     move-result v3
 
     .line 72
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 73
@@ -259,8 +259,8 @@
     goto :goto_0
 
     .line 78
-    .end local v0           #_arg0:I
-    .end local v3           #_result:Z
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":Z
     :sswitch_3
     const-string v5, "android.os.IUserManager"
 
@@ -272,13 +272,13 @@
     move-result v0
 
     .line 82
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 83
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/os/IUserManager$Stub;->setUserName(ILjava/lang/String;)V
 
     .line 84
@@ -287,8 +287,8 @@
     goto :goto_0
 
     .line 89
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_4
     const-string v5, "android.os.IUserManager"
 
@@ -300,7 +300,7 @@
     move-result v0
 
     .line 93
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -317,7 +317,7 @@
     check-cast v1, Landroid/graphics/Bitmap;
 
     .line 99
-    .local v1, _arg1:Landroid/graphics/Bitmap;
+    .local v1, "_arg1":Landroid/graphics/Bitmap;
     :goto_1
     invoke-virtual {p0, v0, v1}, Landroid/os/IUserManager$Stub;->setUserIcon(ILandroid/graphics/Bitmap;)V
 
@@ -327,16 +327,16 @@
     goto :goto_0
 
     .line 97
-    .end local v1           #_arg1:Landroid/graphics/Bitmap;
+    .end local v1    # "_arg1":Landroid/graphics/Bitmap;
     :cond_2
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/graphics/Bitmap;
+    .restart local v1    # "_arg1":Landroid/graphics/Bitmap;
     goto :goto_1
 
     .line 105
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/graphics/Bitmap;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/graphics/Bitmap;
     :sswitch_5
     const-string v7, "android.os.IUserManager"
 
@@ -348,13 +348,13 @@
     move-result v0
 
     .line 108
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUserIcon(I)Landroid/graphics/Bitmap;
 
     move-result-object v3
 
     .line 109
-    .local v3, _result:Landroid/graphics/Bitmap;
+    .local v3, "_result":Landroid/graphics/Bitmap;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 110
@@ -375,8 +375,8 @@
     goto/16 :goto_0
 
     .line 121
-    .end local v0           #_arg0:I
-    .end local v3           #_result:Landroid/graphics/Bitmap;
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":Landroid/graphics/Bitmap;
     :sswitch_6
     const-string v7, "android.os.IUserManager"
 
@@ -392,14 +392,14 @@
     move v0, v6
 
     .line 124
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_2
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUsers(Z)Ljava/util/List;
 
     move-result-object v4
 
     .line 125
-    .local v4, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
+    .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 126
@@ -407,8 +407,8 @@
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
-    .end local v4           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
+    .end local v0    # "_arg0":Z
+    .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     :cond_4
     move v0, v5
 
@@ -427,13 +427,13 @@
     move-result v0
 
     .line 134
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v3
 
     .line 135
-    .local v3, _result:Landroid/content/pm/UserInfo;
+    .local v3, "_result":Landroid/content/pm/UserInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 136
@@ -454,8 +454,8 @@
     goto/16 :goto_0
 
     .line 147
-    .end local v0           #_arg0:I
-    .end local v3           #_result:Landroid/content/pm/UserInfo;
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":Landroid/content/pm/UserInfo;
     :sswitch_8
     const-string v7, "android.os.IUserManager"
 
@@ -467,7 +467,7 @@
     move-result v3
 
     .line 149
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
@@ -481,7 +481,7 @@
     goto/16 :goto_0
 
     .line 155
-    .end local v3           #_result:Z
+    .end local v3    # "_result":Z
     :sswitch_9
     const-string v7, "android.os.IUserManager"
 
@@ -497,7 +497,7 @@
     move v0, v6
 
     .line 158
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :goto_3
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->setGuestEnabled(Z)V
 
@@ -506,7 +506,7 @@
 
     goto/16 :goto_0
 
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :cond_7
     move v0, v5
 
@@ -525,7 +525,7 @@
     move-result v3
 
     .line 166
-    .restart local v3       #_result:Z
+    .restart local v3    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 167
@@ -539,7 +539,7 @@
     goto/16 :goto_0
 
     .line 172
-    .end local v3           #_result:Z
+    .end local v3    # "_result":Z
     :sswitch_b
     const-string v5, "android.os.IUserManager"
 
@@ -551,7 +551,7 @@
     move-result v0
 
     .line 175
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->wipeUser(I)V
 
     .line 176
@@ -560,7 +560,7 @@
     goto/16 :goto_0
 
     .line 181
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_c
     const-string v5, "android.os.IUserManager"
 
@@ -572,13 +572,13 @@
     move-result v0
 
     .line 184
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUserSerialNumber(I)I
 
     move-result v3
 
     .line 185
-    .local v3, _result:I
+    .local v3, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 186
@@ -587,8 +587,8 @@
     goto/16 :goto_0
 
     .line 191
-    .end local v0           #_arg0:I
-    .end local v3           #_result:I
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":I
     :sswitch_d
     const-string v5, "android.os.IUserManager"
 
@@ -600,13 +600,13 @@
     move-result v0
 
     .line 194
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUserHandle(I)I
 
     move-result v3
 
     .line 195
-    .restart local v3       #_result:I
+    .restart local v3    # "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 196
@@ -615,8 +615,8 @@
     goto/16 :goto_0
 
     .line 201
-    .end local v0           #_arg0:I
-    .end local v3           #_result:I
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":I
     :sswitch_e
     const-string v7, "android.os.IUserManager"
 
@@ -628,13 +628,13 @@
     move-result v0
 
     .line 204
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getUserRestrictions(I)Landroid/os/Bundle;
 
     move-result-object v3
 
     .line 205
-    .local v3, _result:Landroid/os/Bundle;
+    .local v3, "_result":Landroid/os/Bundle;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 206
@@ -655,8 +655,8 @@
     goto/16 :goto_0
 
     .line 217
-    .end local v0           #_arg0:I
-    .end local v3           #_result:Landroid/os/Bundle;
+    .end local v0    # "_arg0":I
+    .end local v3    # "_result":Landroid/os/Bundle;
     :sswitch_f
     const-string v5, "android.os.IUserManager"
 
@@ -679,14 +679,14 @@
     check-cast v0, Landroid/os/Bundle;
 
     .line 226
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 227
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/os/IUserManager$Stub;->setUserRestrictions(Landroid/os/Bundle;I)V
 
     .line 228
@@ -695,16 +695,16 @@
     goto/16 :goto_0
 
     .line 223
-    .end local v0           #_arg0:Landroid/os/Bundle;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/os/Bundle;
+    .end local v1    # "_arg1":I
     :cond_a
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/os/Bundle;
+    .restart local v0    # "_arg0":Landroid/os/Bundle;
     goto :goto_4
 
     .line 233
-    .end local v0           #_arg0:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/os/Bundle;
     :sswitch_10
     const-string v5, "android.os.IUserManager"
 
@@ -716,7 +716,7 @@
     move-result-object v0
 
     .line 237
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -733,14 +733,14 @@
     check-cast v1, Landroid/os/Bundle;
 
     .line 244
-    .local v1, _arg1:Landroid/os/Bundle;
+    .local v1, "_arg1":Landroid/os/Bundle;
     :goto_5
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 245
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/os/IUserManager$Stub;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;I)V
 
     .line 246
@@ -749,17 +749,17 @@
     goto/16 :goto_0
 
     .line 241
-    .end local v1           #_arg1:Landroid/os/Bundle;
-    .end local v2           #_arg2:I
+    .end local v1    # "_arg1":Landroid/os/Bundle;
+    .end local v2    # "_arg2":I
     :cond_b
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/Bundle;
+    .restart local v1    # "_arg1":Landroid/os/Bundle;
     goto :goto_5
 
     .line 251
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":Landroid/os/Bundle;
     :sswitch_11
     const-string v7, "android.os.IUserManager"
 
@@ -771,13 +771,13 @@
     move-result-object v0
 
     .line 254
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v3
 
     .line 255
-    .restart local v3       #_result:Landroid/os/Bundle;
+    .restart local v3    # "_result":Landroid/os/Bundle;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 256
@@ -798,8 +798,8 @@
     goto/16 :goto_0
 
     .line 267
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":Landroid/os/Bundle;
     :sswitch_12
     const-string v7, "android.os.IUserManager"
 
@@ -811,19 +811,19 @@
     move-result-object v0
 
     .line 271
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 272
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/os/IUserManager$Stub;->getApplicationRestrictionsForUser(Ljava/lang/String;I)Landroid/os/Bundle;
 
     move-result-object v3
 
     .line 273
-    .restart local v3       #_result:Landroid/os/Bundle;
+    .restart local v3    # "_result":Landroid/os/Bundle;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 274
@@ -844,9 +844,9 @@
     goto/16 :goto_0
 
     .line 285
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:I
-    .end local v3           #_result:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":I
+    .end local v3    # "_result":Landroid/os/Bundle;
     :sswitch_13
     const-string v7, "android.os.IUserManager"
 
@@ -858,13 +858,13 @@
     move-result-object v0
 
     .line 288
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->setRestrictionsChallenge(Ljava/lang/String;)Z
 
     move-result v3
 
     .line 289
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 290
@@ -878,8 +878,8 @@
     goto/16 :goto_0
 
     .line 295
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:Z
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":Z
     :sswitch_14
     const-string v5, "android.os.IUserManager"
 
@@ -891,13 +891,13 @@
     move-result-object v0
 
     .line 298
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/os/IUserManager$Stub;->checkRestrictionsChallenge(Ljava/lang/String;)I
 
     move-result v3
 
     .line 299
-    .local v3, _result:I
+    .local v3, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 300
@@ -906,8 +906,8 @@
     goto/16 :goto_0
 
     .line 305
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v3           #_result:I
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v3    # "_result":I
     :sswitch_15
     const-string v7, "android.os.IUserManager"
 
@@ -919,7 +919,7 @@
     move-result v3
 
     .line 307
-    .local v3, _result:Z
+    .local v3, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 308
@@ -933,7 +933,7 @@
     goto/16 :goto_0
 
     .line 313
-    .end local v3           #_result:Z
+    .end local v3    # "_result":Z
     :sswitch_16
     const-string v5, "android.os.IUserManager"
 

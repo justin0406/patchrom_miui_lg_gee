@@ -334,15 +334,15 @@
 
 .method static getMaxLengthValuesArray(Landroid/hardware/Sensor;I)I
     .locals 3
-    .parameter "sensor"
-    .parameter "sdkLevel"
+    .param p0, "sensor"    # Landroid/hardware/Sensor;
+    .param p1, "sdkLevel"    # I
 
     .prologue
     .line 290
     iget v1, p0, Landroid/hardware/Sensor;->mType:I
 
     .line 293
-    .local v1, type:I
+    .local v1, "type":I
     const/16 v2, 0xb
 
     if-ne v1, v2, :cond_0
@@ -365,7 +365,7 @@
     add-int/lit8 v0, v2, 0x1
 
     .line 298
-    .local v0, offset:I
+    .local v0, "offset":I
     sget-object v2, Landroid/hardware/Sensor;->sSensorReportingModes:[I
 
     array-length v2, v2
@@ -388,7 +388,7 @@
 
 .method static getReportingMode(Landroid/hardware/Sensor;)I
     .locals 3
-    .parameter "sensor"
+    .param p0, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 272
@@ -397,7 +397,7 @@
     mul-int/lit8 v1, v2, 0x2
 
     .line 273
-    .local v1, offset:I
+    .local v1, "offset":I
     sget-object v2, Landroid/hardware/Sensor;->sSensorReportingModes:[I
 
     array-length v2, v2
@@ -408,19 +408,19 @@
     iget v0, p0, Landroid/hardware/Sensor;->mMinDelay:I
 
     .line 278
-    .local v0, minDelay:I
+    .local v0, "minDelay":I
     if-nez v0, :cond_0
 
     .line 279
     sget v2, Landroid/hardware/Sensor;->REPORTING_MODE_ON_CHANGE:I
 
     .line 286
-    .end local v0           #minDelay:I
+    .end local v0    # "minDelay":I
     :goto_0
     return v2
 
     .line 280
-    .restart local v0       #minDelay:I
+    .restart local v0    # "minDelay":I
     :cond_0
     if-gez v0, :cond_1
 
@@ -436,7 +436,7 @@
     goto :goto_0
 
     .line 286
-    .end local v0           #minDelay:I
+    .end local v0    # "minDelay":I
     :cond_2
     sget-object v2, Landroid/hardware/Sensor;->sSensorReportingModes:[I
 
@@ -559,8 +559,8 @@
 
 .method setRange(FF)V
     .locals 0
-    .parameter "max"
-    .parameter "res"
+    .param p1, "max"    # F
+    .param p2, "res"    # F
 
     .prologue
     .line 410

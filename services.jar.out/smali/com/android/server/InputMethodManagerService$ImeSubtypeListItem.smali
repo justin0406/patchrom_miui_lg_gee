@@ -44,12 +44,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .parameter "imeName"
-    .parameter "subtypeName"
-    .parameter "imi"
-    .parameter "subtypeId"
-    .parameter "subtypeLocale"
-    .parameter "systemLocale"
+    .param p1, "imeName"    # Ljava/lang/CharSequence;
+    .param p2, "subtypeName"    # Ljava/lang/CharSequence;
+    .param p3, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p4, "subtypeId"    # I
+    .param p5, "subtypeLocale"    # Ljava/lang/String;
+    .param p6, "systemLocale"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -124,7 +124,7 @@
 # virtual methods
 .method public compareTo(Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;)I
     .locals 4
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;
 
     .prologue
     const/4 v0, 0x1
@@ -287,13 +287,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 2750
     check-cast p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->compareTo(Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;)I
 
     move-result v0

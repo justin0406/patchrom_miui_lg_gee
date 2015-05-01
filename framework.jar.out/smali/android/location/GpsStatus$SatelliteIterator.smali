@@ -38,8 +38,7 @@
 # direct methods
 .method constructor <init>(Landroid/location/GpsStatus;[Landroid/location/GpsSatellite;)V
     .locals 1
-    .parameter
-    .parameter "satellites"
+    .param p2, "satellites"    # [Landroid/location/GpsSatellite;
 
     .prologue
     .line 39
@@ -68,7 +67,7 @@
     .line 44
     iget v0, p0, Landroid/location/GpsStatus$SatelliteIterator;->mIndex:I
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/location/GpsStatus$SatelliteIterator;->mSatellites:[Landroid/location/GpsSatellite;
 
@@ -131,7 +130,7 @@
     aget-object v0, v1, v2
 
     .line 55
-    .local v0, satellite:Landroid/location/GpsSatellite;
+    .local v0, "satellite":Landroid/location/GpsSatellite;
     iget-boolean v1, v0, Landroid/location/GpsSatellite;->mValid:Z
 
     if-eqz v1, :cond_0
@@ -140,7 +139,7 @@
     return-object v0
 
     .line 59
-    .end local v0           #satellite:Landroid/location/GpsSatellite;
+    .end local v0    # "satellite":Landroid/location/GpsSatellite;
     :cond_1
     new-instance v1, Ljava/util/NoSuchElementException;
 

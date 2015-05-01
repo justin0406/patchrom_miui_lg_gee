@@ -29,10 +29,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
     .locals 2
-    .parameter "key"
-    .parameter "name"
-    .parameter "path"
-    .parameter "cr"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "path"    # Ljava/lang/String;
+    .param p4, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 58
@@ -71,7 +71,7 @@
 
 .method static synthetic access$000(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/io/File;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CertBlacklister$BlacklistObserver;
 
     .prologue
     .line 49
@@ -82,7 +82,7 @@
 
 .method static synthetic access$100(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/CertBlacklister$BlacklistObserver;
 
     .prologue
     .line 49
@@ -128,7 +128,7 @@
 
 .method public onChange(Z)V
     .locals 0
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 68

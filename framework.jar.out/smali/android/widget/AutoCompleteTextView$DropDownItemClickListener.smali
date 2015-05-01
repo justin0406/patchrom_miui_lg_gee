@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AutoCompleteTextView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1190
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p2, "x1"    # Landroid/widget/AutoCompleteTextView$1;
 
     .prologue
     .line 1190
@@ -51,16 +50,16 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
-    .parameter "parent"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "parent"    # Landroid/widget/AdapterView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 1192
     iget-object v0, p0, Landroid/widget/AutoCompleteTextView$DropDownItemClickListener;->this$0:Landroid/widget/AutoCompleteTextView;
 
-    #calls: Landroid/widget/AutoCompleteTextView;->performCompletion(Landroid/view/View;IJ)V
+    # invokes: Landroid/widget/AutoCompleteTextView;->performCompletion(Landroid/view/View;IJ)V
     invoke-static {v0, p2, p3, p4, p5}, Landroid/widget/AutoCompleteTextView;->access$500(Landroid/widget/AutoCompleteTextView;Landroid/view/View;IJ)V
 
     .line 1193

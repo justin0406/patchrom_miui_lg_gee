@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner$DropdownPopup;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1143
@@ -56,7 +54,7 @@
     move-result-object v0
 
     .line 1146
-    .local v0, vto:Landroid/view/ViewTreeObserver;
+    .local v0, "vto":Landroid/view/ViewTreeObserver;
     if-eqz v0, :cond_0
 
     .line 1147

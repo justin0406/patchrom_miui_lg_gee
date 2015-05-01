@@ -63,7 +63,7 @@
 
 .method public constructor <init>(Landroid/net/DhcpInfo;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/DhcpInfo;
 
     .prologue
     .line 41
@@ -114,8 +114,8 @@
 
 .method private static putAddress(Ljava/lang/StringBuffer;I)V
     .locals 1
-    .parameter "buf"
-    .parameter "addr"
+    .param p0, "buf"    # Ljava/lang/StringBuffer;
+    .param p1, "addr"    # I
 
     .prologue
     .line 68
@@ -155,7 +155,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 56
-    .local v0, str:Ljava/lang/StringBuffer;
+    .local v0, "str":Ljava/lang/StringBuffer;
     const-string v1, "ipaddr "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -236,8 +236,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 78

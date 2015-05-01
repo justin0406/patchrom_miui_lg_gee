@@ -18,8 +18,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 1
-    .parameter "context"
-    .parameter "hostView"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "hostView"    # Landroid/view/View;
 
     .prologue
     .line 48
@@ -40,7 +40,7 @@
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 71
@@ -91,7 +91,7 @@
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 81

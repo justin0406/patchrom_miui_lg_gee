@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 196
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v3, 0x0
@@ -50,7 +49,7 @@
     move-result-object v0
 
     .line 200
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -81,7 +80,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Lcom/android/server/content/SyncManager;->mStorageIsLow:Z
+    # setter for: Lcom/android/server/content/SyncManager;->mStorageIsLow:Z
     invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$002(Lcom/android/server/content/SyncManager;Z)Z
 
     .line 205
@@ -128,13 +127,13 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/server/content/SyncManager;->mStorageIsLow:Z
+    # setter for: Lcom/android/server/content/SyncManager;->mStorageIsLow:Z
     invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$002(Lcom/android/server/content/SyncManager;Z)Z
 
     .line 212
     iget-object v1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
+    # invokes: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)V
 
     goto :goto_0

@@ -23,8 +23,8 @@
 # direct methods
 .method public varargs constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
     .locals 1
-    .parameter "context"
-    .parameter "files"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "files"    # [Ljava/lang/String;
 
     .prologue
     .line 54
@@ -51,16 +51,16 @@
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
     .locals 7
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
+    .param p1, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p2, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 76
     iget-object v2, p0, Landroid/app/backup/FileBackupHelper;->mFiles:[Ljava/lang/String;
 
     .line 77
-    .local v2, files:[Ljava/lang/String;
+    .local v2, "files":[Ljava/lang/String;
     iget-object v5, p0, Landroid/app/backup/FileBackupHelper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
@@ -68,18 +68,18 @@
     move-result-object v1
 
     .line 78
-    .local v1, base:Ljava/io/File;
+    .local v1, "base":Ljava/io/File;
     array-length v0, v2
 
     .line 79
-    .local v0, N:I
+    .local v0, "N":I
     new-array v3, v0, [Ljava/lang/String;
 
     .line 80
-    .local v3, fullPaths:[Ljava/lang/String;
+    .local v3, "fullPaths":[Ljava/lang/String;
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v0, :cond_0
 
@@ -111,7 +111,7 @@
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
     .locals 3
-    .parameter "data"
+    .param p1, "data"    # Landroid/app/backup/BackupDataInputStream;
 
     .prologue
     .line 96
@@ -120,7 +120,7 @@
     move-result-object v1
 
     .line 97
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     iget-object v2, p0, Landroid/app/backup/FileBackupHelper;->mFiles:[Ljava/lang/String;
 
     invoke-virtual {p0, v1, v2}, Landroid/app/backup/FileBackupHelper;->isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
@@ -137,18 +137,18 @@
     invoke-direct {v0, v2, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 99
-    .local v0, f:Ljava/io/File;
+    .local v0, "f":Ljava/io/File;
     invoke-virtual {p0, v0, p1}, Landroid/app/backup/FileBackupHelper;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
 
     .line 101
-    .end local v0           #f:Ljava/io/File;
+    .end local v0    # "f":Ljava/io/File;
     :cond_0
     return-void
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 38

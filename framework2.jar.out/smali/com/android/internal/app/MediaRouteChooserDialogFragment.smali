@@ -50,7 +50,7 @@
     move-result-object v0
 
     .line 53
-    .local v0, args:Landroid/os/Bundle;
+    .local v0, "args":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     const-string v1, "routeTypes"
@@ -70,8 +70,8 @@
 
 .method public onCreateChooserDialog(Landroid/content/Context;Landroid/os/Bundle;)Lcom/android/internal/app/MediaRouteChooserDialog;
     .locals 2
-    .parameter "context"
-    .parameter "savedInstanceState"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 91
@@ -88,7 +88,7 @@
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 2
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 96
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 97
-    .local v0, dialog:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .local v0, "dialog":Lcom/android/internal/app/MediaRouteChooserDialog;
     invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getRouteTypes()I
 
     move-result v1
@@ -119,7 +119,7 @@
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
     .locals 2
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 73
@@ -138,21 +138,21 @@
     check-cast v0, Lcom/android/internal/app/MediaRouteChooserDialog;
 
     .line 77
-    .local v0, dialog:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .local v0, "dialog":Lcom/android/internal/app/MediaRouteChooserDialog;
     if-eqz v0, :cond_0
 
     .line 78
     invoke-virtual {v0, p1}, Lcom/android/internal/app/MediaRouteChooserDialog;->setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 81
-    .end local v0           #dialog:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .end local v0    # "dialog":Lcom/android/internal/app/MediaRouteChooserDialog;
     :cond_0
     return-void
 .end method
 
 .method public setRouteTypes(I)V
     .locals 3
-    .parameter "types"
+    .param p1, "types"    # I
 
     .prologue
     .line 57
@@ -168,17 +168,17 @@
     move-result-object v0
 
     .line 59
-    .local v0, args:Landroid/os/Bundle;
+    .local v0, "args":Landroid/os/Bundle;
     if-nez v0, :cond_0
 
     .line 60
     new-instance v0, Landroid/os/Bundle;
 
-    .end local v0           #args:Landroid/os/Bundle;
+    .end local v0    # "args":Landroid/os/Bundle;
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 62
-    .restart local v0       #args:Landroid/os/Bundle;
+    .restart local v0    # "args":Landroid/os/Bundle;
     :cond_0
     const-string v2, "routeTypes"
 
@@ -195,15 +195,15 @@
     check-cast v1, Lcom/android/internal/app/MediaRouteChooserDialog;
 
     .line 66
-    .local v1, dialog:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .local v1, "dialog":Lcom/android/internal/app/MediaRouteChooserDialog;
     if-eqz v1, :cond_1
 
     .line 67
     invoke-virtual {v1, p1}, Lcom/android/internal/app/MediaRouteChooserDialog;->setRouteTypes(I)V
 
     .line 70
-    .end local v0           #args:Landroid/os/Bundle;
-    .end local v1           #dialog:Lcom/android/internal/app/MediaRouteChooserDialog;
+    .end local v0    # "args":Landroid/os/Bundle;
+    .end local v1    # "dialog":Lcom/android/internal/app/MediaRouteChooserDialog;
     :cond_1
     return-void
 .end method

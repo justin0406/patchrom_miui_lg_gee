@@ -17,7 +17,7 @@
 
 .field public static final ACCURACY_MEDIUM:I = 0x2
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -114,7 +114,7 @@
 
 .method public constructor <init>(Landroid/location/Criteria;)V
     .locals 1
-    .parameter "criteria"
+    .param p1, "criteria"    # Landroid/location/Criteria;
 
     .prologue
     const/4 v0, 0x0
@@ -200,8 +200,8 @@
 
 .method static synthetic access$002(Landroid/location/Criteria;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -212,8 +212,8 @@
 
 .method static synthetic access$102(Landroid/location/Criteria;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -224,8 +224,8 @@
 
 .method static synthetic access$202(Landroid/location/Criteria;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -236,8 +236,8 @@
 
 .method static synthetic access$302(Landroid/location/Criteria;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -248,8 +248,8 @@
 
 .method static synthetic access$402(Landroid/location/Criteria;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -260,8 +260,8 @@
 
 .method static synthetic access$502(Landroid/location/Criteria;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 28
@@ -272,8 +272,8 @@
 
 .method static synthetic access$602(Landroid/location/Criteria;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 28
@@ -284,8 +284,8 @@
 
 .method static synthetic access$702(Landroid/location/Criteria;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 28
@@ -296,8 +296,8 @@
 
 .method static synthetic access$802(Landroid/location/Criteria;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/Criteria;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 28
@@ -308,7 +308,7 @@
 
 .method private static accuracyToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "accuracy"
+    .param p0, "accuracy"    # I
 
     .prologue
     .line 384
@@ -356,7 +356,7 @@
 
 .method private static powerToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "power"
+    .param p0, "power"    # I
 
     .prologue
     .line 369
@@ -530,7 +530,7 @@
 
 .method public setAccuracy(I)V
     .locals 3
-    .parameter "accuracy"
+    .param p1, "accuracy"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -590,7 +590,7 @@
 
 .method public setAltitudeRequired(Z)V
     .locals 0
-    .parameter "altitudeRequired"
+    .param p1, "altitudeRequired"    # Z
 
     .prologue
     .line 284
@@ -602,7 +602,7 @@
 
 .method public setBearingAccuracy(I)V
     .locals 3
-    .parameter "accuracy"
+    .param p1, "accuracy"    # I
 
     .prologue
     .line 198
@@ -648,7 +648,7 @@
 
 .method public setBearingRequired(Z)V
     .locals 0
-    .parameter "bearingRequired"
+    .param p1, "bearingRequired"    # Z
 
     .prologue
     .line 316
@@ -660,7 +660,7 @@
 
 .method public setCostAllowed(Z)V
     .locals 0
-    .parameter "costAllowed"
+    .param p1, "costAllowed"    # Z
 
     .prologue
     .line 269
@@ -672,7 +672,7 @@
 
 .method public setHorizontalAccuracy(I)V
     .locals 3
-    .parameter "accuracy"
+    .param p1, "accuracy"    # I
 
     .prologue
     .line 126
@@ -718,7 +718,7 @@
 
 .method public setPowerRequirement(I)V
     .locals 3
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     .line 251
@@ -764,7 +764,7 @@
 
 .method public setSpeedAccuracy(I)V
     .locals 3
-    .parameter "accuracy"
+    .param p1, "accuracy"    # I
 
     .prologue
     .line 174
@@ -810,7 +810,7 @@
 
 .method public setSpeedRequired(Z)V
     .locals 0
-    .parameter "speedRequired"
+    .param p1, "speedRequired"    # Z
 
     .prologue
     .line 300
@@ -822,7 +822,7 @@
 
 .method public setVerticalAccuracy(I)V
     .locals 3
-    .parameter "accuracy"
+    .param p1, "accuracy"    # I
 
     .prologue
     .line 150
@@ -876,7 +876,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 401
-    .local v0, s:Ljava/lang/StringBuilder;
+    .local v0, "s":Ljava/lang/StringBuilder;
     const-string v1, "Criteria[power="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -921,8 +921,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

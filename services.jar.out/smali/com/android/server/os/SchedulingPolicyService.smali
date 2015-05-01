@@ -27,9 +27,9 @@
 # virtual methods
 .method public requestPriority(III)I
     .locals 6
-    .parameter "pid"
-    .parameter "tid"
-    .parameter "prio"
+    .param p1, "pid"    # I
+    .param p2, "tid"    # I
+    .param p3, "prio"    # I
 
     .prologue
     const/4 v2, 0x3
@@ -93,6 +93,6 @@
     move-exception v0
 
     .line 59
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     goto :goto_0
 .end method

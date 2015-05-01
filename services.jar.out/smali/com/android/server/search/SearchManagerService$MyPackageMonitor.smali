@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/search/SearchManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 139
@@ -42,10 +41,10 @@
     move-result v0
 
     .line 153
-    .local v0, changingUserId:I
+    .local v0, "changingUserId":I
     iget-object v3, p0, Lcom/android/server/search/SearchManagerService$MyPackageMonitor;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
     invoke-static {v3}, Lcom/android/server/search/SearchManagerService;->access$500(Lcom/android/server/search/SearchManagerService;)Landroid/util/SparseArray;
 
     move-result-object v4
@@ -55,12 +54,12 @@
     .line 155
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     :try_start_0
     iget-object v3, p0, Lcom/android/server/search/SearchManagerService$MyPackageMonitor;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
     invoke-static {v3}, Lcom/android/server/search/SearchManagerService;->access$500(Lcom/android/server/search/SearchManagerService;)Landroid/util/SparseArray;
 
     move-result-object v3
@@ -74,7 +73,7 @@
     .line 156
     iget-object v3, p0, Lcom/android/server/search/SearchManagerService$MyPackageMonitor;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
     invoke-static {v3}, Lcom/android/server/search/SearchManagerService;->access$500(Lcom/android/server/search/SearchManagerService;)Landroid/util/SparseArray;
 
     move-result-object v3
@@ -90,7 +89,7 @@
 
     iget-object v5, p0, Lcom/android/server/search/SearchManagerService$MyPackageMonitor;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mSearchables:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/search/SearchManagerService;->access$500(Lcom/android/server/search/SearchManagerService;)Landroid/util/SparseArray;
 
     move-result-object v5
@@ -99,7 +98,7 @@
 
     move-result v5
 
-    #calls: Lcom/android/server/search/SearchManagerService;->getSearchables(I)Lcom/android/server/search/Searchables;
+    # invokes: Lcom/android/server/search/SearchManagerService;->getSearchables(I)Lcom/android/server/search/Searchables;
     invoke-static {v3, v5}, Lcom/android/server/search/SearchManagerService;->access$300(Lcom/android/server/search/SearchManagerService;I)Lcom/android/server/search/Searchables;
 
     move-result-object v3
@@ -120,15 +119,15 @@
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 164
-    .local v2, intent:Landroid/content/Intent;
-    const/high16 v3, 0x2400
+    .local v2, "intent":Landroid/content/Intent;
+    const/high16 v3, 0x24000000
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 166
     iget-object v3, p0, Lcom/android/server/search/SearchManagerService$MyPackageMonitor;->this$0:Lcom/android/server/search/SearchManagerService;
 
-    #getter for: Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/search/SearchManagerService;->access$200(Lcom/android/server/search/SearchManagerService;)Landroid/content/Context;
 
     move-result-object v3
@@ -143,7 +142,7 @@
     return-void
 
     .line 155
-    .end local v2           #intent:Landroid/content/Intent;
+    .end local v2    # "intent":Landroid/content/Intent;
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
@@ -165,7 +164,7 @@
 # virtual methods
 .method public onPackageModified(Ljava/lang/String;)V
     .locals 0
-    .parameter "pkg"
+    .param p1, "pkg"    # Ljava/lang/String;
 
     .prologue
     .line 148

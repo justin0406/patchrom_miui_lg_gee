@@ -64,7 +64,7 @@
 
 .method public static getMessagesFromIntent(Landroid/content/Intent;)[Landroid/telephony/SmsMessage;
     .locals 7
-    .parameter "intent"
+    .param p0, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 889
@@ -81,7 +81,7 @@
     check-cast v2, [Ljava/lang/Object;
 
     .line 890
-    .local v2, messages:[Ljava/lang/Object;
+    .local v2, "messages":[Ljava/lang/Object;
     const-string v6, "format"
 
     invoke-virtual {p0, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -89,18 +89,18 @@
     move-result-object v0
 
     .line 892
-    .local v0, format:Ljava/lang/String;
+    .local v0, "format":Ljava/lang/String;
     array-length v5, v2
 
     .line 893
-    .local v5, pduCount:I
+    .local v5, "pduCount":I
     new-array v3, v5, [Landroid/telephony/SmsMessage;
 
     .line 895
-    .local v3, msgs:[Landroid/telephony/SmsMessage;
+    .local v3, "msgs":[Landroid/telephony/SmsMessage;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v5, :cond_0
 
@@ -114,7 +114,7 @@
     check-cast v4, [B
 
     .line 897
-    .local v4, pdu:[B
+    .local v4, "pdu":[B
     invoke-static {v4, v0}, Landroid/telephony/SmsMessage;->createFromPdu([BLjava/lang/String;)Landroid/telephony/SmsMessage;
 
     move-result-object v6
@@ -127,7 +127,7 @@
     goto :goto_0
 
     .line 899
-    .end local v4           #pdu:[B
+    .end local v4    # "pdu":[B
     :cond_0
     return-object v3
 .end method

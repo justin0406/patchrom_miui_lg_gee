@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 110
@@ -51,10 +51,10 @@
 
 .method public backupObbs(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
     .locals 5
-    .parameter "packageName"
-    .parameter "data"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "token"    # I
+    .param p4, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 128
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.backup.IObbBackupService"
 
@@ -157,15 +157,15 @@
 
 .method public restoreObbFile(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;JILjava/lang/String;JJILandroid/app/backup/IBackupManager;)V
     .locals 7
-    .parameter "pkgName"
-    .parameter "data"
-    .parameter "fileSize"
-    .parameter "type"
-    .parameter "path"
-    .parameter "mode"
-    .parameter "mtime"
-    .parameter "token"
-    .parameter "callbackBinder"
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "data"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "fileSize"    # J
+    .param p5, "type"    # I
+    .param p6, "path"    # Ljava/lang/String;
+    .param p7, "mode"    # J
+    .param p9, "mtime"    # J
+    .param p11, "token"    # I
+    .param p12, "callbackBinder"    # Landroid/app/backup/IBackupManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -179,7 +179,7 @@
     move-result-object v2
 
     .line 152
-    .local v2, _data:Landroid/os/Parcel;
+    .local v2, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.backup.IObbBackupService"
 

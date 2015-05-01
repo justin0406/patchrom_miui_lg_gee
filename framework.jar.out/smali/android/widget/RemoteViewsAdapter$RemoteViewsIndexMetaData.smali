@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;J)V
     .locals 0
-    .parameter "v"
-    .parameter "itemId"
+    .param p1, "v"    # Landroid/widget/RemoteViews;
+    .param p2, "itemId"    # J
 
     .prologue
     .line 536
@@ -41,8 +41,8 @@
 # virtual methods
 .method public set(Landroid/widget/RemoteViews;J)V
     .locals 1
-    .parameter "v"
-    .parameter "id"
+    .param p1, "v"    # Landroid/widget/RemoteViews;
+    .param p2, "id"    # J
 
     .prologue
     .line 541

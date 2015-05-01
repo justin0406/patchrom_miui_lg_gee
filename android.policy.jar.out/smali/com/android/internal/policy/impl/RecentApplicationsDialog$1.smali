@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/RecentApplicationsDialog;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 64
@@ -48,20 +47,20 @@
 
     iget-object v0, v4, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
-    .local v0, arr$:[Landroid/widget/TextView;
+    .local v0, "arr$":[Landroid/widget/TextView;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
     .line 68
-    .local v2, icon:Landroid/widget/TextView;
+    .local v2, "icon":Landroid/widget/TextView;
     invoke-virtual {v2, v5, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     .line 69
@@ -73,7 +72,7 @@
     goto :goto_0
 
     .line 71
-    .end local v2           #icon:Landroid/widget/TextView;
+    .end local v2    # "icon":Landroid/widget/TextView;
     :cond_0
     return-void
 .end method

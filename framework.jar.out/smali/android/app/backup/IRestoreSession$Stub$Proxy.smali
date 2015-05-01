@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 113
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 263
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 265
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.backup.IRestoreSession"
 
@@ -113,7 +113,7 @@
 
 .method public getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
     .locals 6
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/app/backup/IRestoreObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -127,13 +127,13 @@
     move-result-object v0
 
     .line 135
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 138
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
@@ -169,7 +169,7 @@
     move-result v2
 
     .line 145
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 146
@@ -179,7 +179,7 @@
     return v2
 
     .line 139
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -209,8 +209,8 @@
 
 .method public restoreAll(JLandroid/app/backup/IRestoreObserver;)I
     .locals 6
-    .parameter "token"
-    .parameter "observer"
+    .param p1, "token"    # J
+    .param p3, "observer"    # Landroid/app/backup/IRestoreObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -224,13 +224,13 @@
     move-result-object v0
 
     .line 166
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 169
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
@@ -269,7 +269,7 @@
     move-result v2
 
     .line 177
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 178
@@ -279,7 +279,7 @@
     return v2
 
     .line 171
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -299,8 +299,8 @@
 
 .method public restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
     .locals 6
-    .parameter "packageName"
-    .parameter "observer"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "observer"    # Landroid/app/backup/IRestoreObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -314,13 +314,13 @@
     move-result-object v0
 
     .line 237
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 240
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
@@ -359,7 +359,7 @@
     move-result v2
 
     .line 248
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 249
@@ -369,7 +369,7 @@
     return v2
 
     .line 242
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -389,9 +389,9 @@
 
 .method public restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
     .locals 6
-    .parameter "token"
-    .parameter "observer"
-    .parameter "packages"
+    .param p1, "token"    # J
+    .param p3, "observer"    # Landroid/app/backup/IRestoreObserver;
+    .param p4, "packages"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -405,13 +405,13 @@
     move-result-object v0
 
     .line 202
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 205
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
@@ -453,7 +453,7 @@
     move-result v2
 
     .line 214
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 215
@@ -463,7 +463,7 @@
     return v2
 
     .line 207
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 

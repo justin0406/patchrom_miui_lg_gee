@@ -26,8 +26,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService;Landroid/view/SurfaceControl;)V
     .locals 1
-    .parameter "displayManager"
-    .parameter "surfaceControl"
+    .param p1, "displayManager"    # Lcom/android/server/display/DisplayManagerService;
+    .param p2, "surfaceControl"    # Landroid/view/SurfaceControl;
 
     .prologue
     .line 691
@@ -119,7 +119,7 @@
     move-result-object v0
 
     .line 712
-    .local v0, displayInfo:Landroid/view/DisplayInfo;
+    .local v0, "displayInfo":Landroid/view/DisplayInfo;
     iget v1, v0, Landroid/view/DisplayInfo;->rotation:I
 
     packed-switch v1, :pswitch_data_0
@@ -130,7 +130,7 @@
 
     goto :goto_0
 
-    .end local v0           #displayInfo:Landroid/view/DisplayInfo;
+    .end local v0    # "displayInfo":Landroid/view/DisplayInfo;
     :catchall_0
     move-exception v1
 
@@ -141,7 +141,7 @@
     throw v1
 
     .line 714
-    .restart local v0       #displayInfo:Landroid/view/DisplayInfo;
+    .restart local v0    # "displayInfo":Landroid/view/DisplayInfo;
     :pswitch_0
     :try_start_1
     iget-object v1, p0, Lcom/android/server/power/ElectronBeam$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
@@ -155,13 +155,13 @@
     .line 715
     iget-object v1, p0, Lcom/android/server/power/ElectronBeam$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/SurfaceControl;->setMatrix(FFFF)V
 
@@ -184,9 +184,9 @@
 
     const/4 v2, 0x0
 
-    const/high16 v3, -0x4080
+    const/high16 v3, -0x40800000    # -1.0f
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v5, 0x0
 
@@ -211,13 +211,13 @@
     .line 723
     iget-object v1, p0, Lcom/android/server/power/ElectronBeam$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const/high16 v2, -0x4080
+    const/high16 v2, -0x40800000    # -1.0f
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/high16 v5, -0x4080
+    const/high16 v5, -0x40800000    # -1.0f
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/SurfaceControl;->setMatrix(FFFF)V
 
@@ -240,9 +240,9 @@
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    const/high16 v4, -0x4080
+    const/high16 v4, -0x40800000    # -1.0f
 
     const/4 v5, 0x0
 

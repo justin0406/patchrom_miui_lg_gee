@@ -37,7 +37,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .parameter "_featureId"
+    .param p1, "_featureId"    # I
 
     .prologue
     const/16 v0, 0xff

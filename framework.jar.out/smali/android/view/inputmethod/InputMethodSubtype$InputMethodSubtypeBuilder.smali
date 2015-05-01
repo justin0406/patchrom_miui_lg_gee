@@ -82,7 +82,7 @@
 
 .method static synthetic access$100(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -93,8 +93,8 @@
 
 .method static synthetic access$102(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # I
 
     .prologue
     .line 84
@@ -105,7 +105,7 @@
 
 .method static synthetic access$200(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -116,8 +116,8 @@
 
 .method static synthetic access$202(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # I
 
     .prologue
     .line 84
@@ -128,7 +128,7 @@
 
 .method static synthetic access$300(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -139,8 +139,8 @@
 
 .method static synthetic access$302(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 84
@@ -151,7 +151,7 @@
 
 .method static synthetic access$400(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -162,8 +162,8 @@
 
 .method static synthetic access$402(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 84
@@ -174,7 +174,7 @@
 
 .method static synthetic access$500(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -185,8 +185,8 @@
 
 .method static synthetic access$502(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 84
@@ -197,7 +197,7 @@
 
 .method static synthetic access$600(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -208,8 +208,8 @@
 
 .method static synthetic access$602(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 84
@@ -220,7 +220,7 @@
 
 .method static synthetic access$700(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -231,8 +231,8 @@
 
 .method static synthetic access$702(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 84
@@ -243,7 +243,7 @@
 
 .method static synthetic access$800(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -254,8 +254,8 @@
 
 .method static synthetic access$802(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # I
 
     .prologue
     .line 84
@@ -266,7 +266,7 @@
 
 .method static synthetic access$900(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
     .prologue
     .line 84
@@ -277,8 +277,8 @@
 
 .method static synthetic access$902(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 84
@@ -305,7 +305,7 @@
 
 .method public setIsAsciiCapable(Z)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "isAsciiCapable"
+    .param p1, "isAsciiCapable"    # Z
 
     .prologue
     .line 122
@@ -317,7 +317,7 @@
 
 .method public setIsAuxiliary(Z)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "isAuxiliary"
+    .param p1, "isAuxiliary"    # Z
 
     .prologue
     .line 96
@@ -329,7 +329,7 @@
 
 .method public setOverridesImplicitlyEnabledSubtype(Z)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "overridesImplicitlyEnabledSubtype"
+    .param p1, "overridesImplicitlyEnabledSubtype"    # Z
 
     .prologue
     .line 110
@@ -341,7 +341,7 @@
 
 .method public setSubtypeExtraValue(Ljava/lang/String;)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeExtraValue"
+    .param p1, "subtypeExtraValue"    # Ljava/lang/String;
 
     .prologue
     .line 184
@@ -349,7 +349,7 @@
 
     const-string p1, ""
 
-    .end local p1
+    .end local p1    # "subtypeExtraValue":Ljava/lang/String;
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeExtraValue:Ljava/lang/String;
 
@@ -359,7 +359,7 @@
 
 .method public setSubtypeIconResId(I)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeIconResId"
+    .param p1, "subtypeIconResId"    # I
 
     .prologue
     .line 131
@@ -371,7 +371,7 @@
 
 .method public setSubtypeId(I)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeId"
+    .param p1, "subtypeId"    # I
 
     .prologue
     .line 156
@@ -383,7 +383,7 @@
 
 .method public setSubtypeLocale(Ljava/lang/String;)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeLocale"
+    .param p1, "subtypeLocale"    # Ljava/lang/String;
 
     .prologue
     .line 165
@@ -391,7 +391,7 @@
 
     const-string p1, ""
 
-    .end local p1
+    .end local p1    # "subtypeLocale":Ljava/lang/String;
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLocale:Ljava/lang/String;
 
@@ -401,7 +401,7 @@
 
 .method public setSubtypeMode(Ljava/lang/String;)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeMode"
+    .param p1, "subtypeMode"    # Ljava/lang/String;
 
     .prologue
     .line 174
@@ -409,7 +409,7 @@
 
     const-string p1, ""
 
-    .end local p1
+    .end local p1    # "subtypeMode":Ljava/lang/String;
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeMode:Ljava/lang/String;
 
@@ -419,7 +419,7 @@
 
 .method public setSubtypeNameResId(I)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
     .locals 0
-    .parameter "subtypeNameResId"
+    .param p1, "subtypeNameResId"    # I
 
     .prologue
     .line 143

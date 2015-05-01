@@ -41,9 +41,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILjava/util/ArrayList;)V
     .locals 1
-    .parameter "context"
-    .parameter "textViewResourceId"
-    .parameter
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "textViewResourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +57,7 @@
 
     .prologue
     .line 177
-    .local p3, infos:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/accounts/ChooseAccountTypeActivity$AuthInfo;>;"
+    .local p3, "infos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/accounts/ChooseAccountTypeActivity$AuthInfo;>;"
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
     .line 178
@@ -83,9 +82,9 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     const/4 v3, 0x0
@@ -108,7 +107,7 @@
     invoke-direct {v0, v3}, Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;-><init>(Landroid/accounts/ChooseAccountTypeActivity$1;)V
 
     .line 190
-    .local v0, holder:Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
+    .local v0, "holder":Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
     const v1, 0x1020290
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -168,7 +167,7 @@
     return-object p2
 
     .line 194
-    .end local v0           #holder:Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
+    .end local v0    # "holder":Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
     :cond_0
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -176,6 +175,6 @@
 
     check-cast v0, Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
 
-    .restart local v0       #holder:Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
+    .restart local v0    # "holder":Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
     goto :goto_0
 .end method

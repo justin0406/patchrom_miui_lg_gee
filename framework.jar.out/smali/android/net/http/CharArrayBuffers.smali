@@ -20,9 +20,9 @@
 
 .method static containsIgnoreCaseTrimmed(Lorg/apache/http/util/CharArrayBuffer;ILjava/lang/String;)Z
     .locals 10
-    .parameter "buffer"
-    .parameter "beginIndex"
-    .parameter "str"
+    .param p0, "buffer"    # Lorg/apache/http/util/CharArrayBuffer;
+    .param p1, "beginIndex"    # I
+    .param p2, "str"    # Ljava/lang/String;
 
     .prologue
     const/4 v7, 0x1
@@ -35,13 +35,13 @@
     move-result v4
 
     .line 42
-    .local v4, len:I
+    .local v4, "len":I
     invoke-virtual {p0}, Lorg/apache/http/util/CharArrayBuffer;->buffer()[C
 
     move-result-object v2
 
     .line 43
-    .local v2, chars:[C
+    .local v2, "chars":[C
     :goto_0
     if-ge p1, v4, :cond_0
 
@@ -65,7 +65,7 @@
     move-result v6
 
     .line 47
-    .local v6, size:I
+    .local v6, "size":I
     add-int v9, p1, v6
 
     if-lt v4, v9, :cond_2
@@ -73,11 +73,11 @@
     move v5, v7
 
     .line 48
-    .local v5, ok:Z
+    .local v5, "ok":Z
     :goto_1
     const/4 v3, 0x0
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_2
     if-eqz v5, :cond_4
 
@@ -89,13 +89,13 @@
     aget-char v0, v2, v9
 
     .line 50
-    .local v0, a:C
+    .local v0, "a":C
     invoke-virtual {p2, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     .line 51
-    .local v1, b:C
+    .local v1, "b":C
     if-eq v0, v1, :cond_1
 
     .line 52
@@ -120,20 +120,20 @@
 
     goto :goto_2
 
-    .end local v0           #a:C
-    .end local v1           #b:C
-    .end local v3           #j:I
-    .end local v5           #ok:Z
+    .end local v0    # "a":C
+    .end local v1    # "b":C
+    .end local v3    # "j":I
+    .end local v5    # "ok":Z
     :cond_2
     move v5, v8
 
     .line 47
     goto :goto_1
 
-    .restart local v0       #a:C
-    .restart local v1       #b:C
-    .restart local v3       #j:I
-    .restart local v5       #ok:Z
+    .restart local v0    # "a":C
+    .restart local v1    # "b":C
+    .restart local v3    # "j":I
+    .restart local v5    # "ok":Z
     :cond_3
     move v5, v8
 
@@ -141,38 +141,38 @@
     goto :goto_3
 
     .line 57
-    .end local v0           #a:C
-    .end local v1           #b:C
+    .end local v0    # "a":C
+    .end local v1    # "b":C
     :cond_4
     return v5
 .end method
 
 .method static setLowercaseIndexOf(Lorg/apache/http/util/CharArrayBuffer;I)I
     .locals 6
-    .parameter "buffer"
-    .parameter "ch"
+    .param p0, "buffer"    # Lorg/apache/http/util/CharArrayBuffer;
+    .param p1, "ch"    # I
 
     .prologue
     .line 66
     const/4 v0, 0x0
 
     .line 67
-    .local v0, beginIndex:I
+    .local v0, "beginIndex":I
     invoke-virtual {p0}, Lorg/apache/http/util/CharArrayBuffer;->length()I
 
     move-result v3
 
     .line 68
-    .local v3, endIndex:I
+    .local v3, "endIndex":I
     invoke-virtual {p0}, Lorg/apache/http/util/CharArrayBuffer;->buffer()[C
 
     move-result-object v1
 
     .line 70
-    .local v1, chars:[C
+    .local v1, "chars":[C
     move v4, v0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v3, :cond_2
 
@@ -180,18 +180,18 @@
     aget-char v2, v1, v4
 
     .line 72
-    .local v2, current:C
+    .local v2, "current":C
     if-ne v2, p1, :cond_0
 
     .line 80
-    .end local v2           #current:C
-    .end local v4           #i:I
+    .end local v2    # "current":C
+    .end local v4    # "i":I
     :goto_1
     return v4
 
     .line 74
-    .restart local v2       #current:C
-    .restart local v4       #i:I
+    .restart local v2    # "current":C
+    .restart local v4    # "i":I
     :cond_0
     const/16 v5, 0x41
 
@@ -216,7 +216,7 @@
     goto :goto_0
 
     .line 80
-    .end local v2           #current:C
+    .end local v2    # "current":C
     :cond_2
     const/4 v4, -0x1
 
@@ -225,7 +225,7 @@
 
 .method private static toLower(C)C
     .locals 1
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 84

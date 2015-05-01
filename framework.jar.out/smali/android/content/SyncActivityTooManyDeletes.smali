@@ -39,7 +39,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 118
-    .local v0, extras:Landroid/os/Bundle;
+    .local v0, "extras":Landroid/os/Bundle;
     const-string v1, "deletions_override"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
@@ -82,7 +82,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 127
-    .local v0, extras:Landroid/os/Bundle;
+    .local v0, "extras":Landroid/os/Bundle;
     const-string v1, "discard_deletions"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
@@ -117,7 +117,7 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 13
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 48
@@ -133,7 +133,7 @@
     move-result-object v1
 
     .line 51
-    .local v1, extras:Landroid/os/Bundle;
+    .local v1, "extras":Landroid/os/Bundle;
     if-nez v1, :cond_0
 
     .line 52
@@ -193,7 +193,7 @@
 
     move-result-object v9
 
-    const v10, 0x10404e3
+    const v10, 0x10404e4
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -207,7 +207,7 @@
 
     move-result-object v9
 
-    const v10, 0x10404e4
+    const v10, 0x10404e5
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -221,7 +221,7 @@
 
     move-result-object v9
 
-    const v10, 0x10404e5
+    const v10, 0x10404e6
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -230,7 +230,7 @@
     aput-object v9, v5, v8
 
     .line 68
-    .local v5, options:[Ljava/lang/CharSequence;
+    .local v5, "options":[Ljava/lang/CharSequence;
     new-instance v0, Landroid/widget/ArrayAdapter;
 
     const v8, 0x1090003
@@ -240,13 +240,13 @@
     invoke-direct {v0, p0, v8, v9, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 
     .line 73
-    .local v0, adapter:Landroid/widget/ListAdapter;
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     new-instance v2, Landroid/widget/ListView;
 
     invoke-direct {v2, p0}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
     .line 74
-    .local v2, listView:Landroid/widget/ListView;
+    .local v2, "listView":Landroid/widget/ListView;
     invoke-virtual {v2, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 75
@@ -263,19 +263,19 @@
     invoke-direct {v6, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 79
-    .local v6, textView:Landroid/widget/TextView;
+    .local v6, "textView":Landroid/widget/TextView;
     invoke-virtual {p0}, Landroid/content/SyncActivityTooManyDeletes;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
 
-    const v9, 0x10404e2
+    const v9, 0x10404e3
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v7
 
     .line 81
-    .local v7, tooManyDeletesDescFormat:Ljava/lang/CharSequence;
+    .local v7, "tooManyDeletesDescFormat":Ljava/lang/CharSequence;
     invoke-virtual {v7}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v8
@@ -320,7 +320,7 @@
     invoke-direct {v3, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 85
-    .local v3, ll:Landroid/widget/LinearLayout;
+    .local v3, "ll":Landroid/widget/LinearLayout;
     const/4 v8, 0x1
 
     invoke-virtual {v3, v8}, Landroid/widget/LinearLayout;->setOrientation(I)V
@@ -337,7 +337,7 @@
     invoke-direct {v4, v8, v9, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
     .line 88
-    .local v4, lp:Landroid/widget/LinearLayout$LayoutParams;
+    .local v4, "lp":Landroid/widget/LinearLayout$LayoutParams;
     invoke-virtual {v3, v6, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 89
@@ -351,10 +351,9 @@
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
-    .parameter
-    .parameter "view"
-    .parameter "position"
-    .parameter "id"
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -367,7 +366,7 @@
 
     .prologue
     .line 111
-    .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     if-nez p3, :cond_1
 
     invoke-direct {p0}, Landroid/content/SyncActivityTooManyDeletes;->startSyncReallyDelete()V

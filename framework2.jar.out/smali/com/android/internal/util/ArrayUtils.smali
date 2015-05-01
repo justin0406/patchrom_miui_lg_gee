@@ -45,9 +45,6 @@
 
 .method public static appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 4
-    .parameter
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -59,9 +56,9 @@
     .end annotation
 
     .prologue
-    .local p0, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
-    .local p1, array:[Ljava/lang/Object;,"[TT;"
-    .local p2, element:Ljava/lang/Object;,"TT;"
+    .local p0, "kind":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p1, "array":[Ljava/lang/Object;, "[TT;"
+    .local p2, "element":Ljava/lang/Object;, "TT;"
     const/4 v3, 0x0
 
     .line 188
@@ -71,7 +68,7 @@
     array-length v0, p1
 
     .line 190
-    .local v0, end:I
+    .local v0, "end":I
     add-int/lit8 v2, v0, 0x1
 
     invoke-static {p0, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
@@ -85,7 +82,7 @@
     check-cast v1, [Ljava/lang/Object;
 
     .line 191
-    .local v1, result:[Ljava/lang/Object;,"[TT;"
+    .local v1, "result":[Ljava/lang/Object;, "[TT;"
     invoke-static {p1, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 196
@@ -96,13 +93,13 @@
     return-object v1
 
     .line 193
-    .end local v0           #end:I
-    .end local v1           #result:[Ljava/lang/Object;,"[TT;"
+    .end local v0    # "end":I
+    .end local v1    # "result":[Ljava/lang/Object;, "[TT;"
     :cond_0
     const/4 v0, 0x0
 
     .line 194
-    .restart local v0       #end:I
+    .restart local v0    # "end":I
     const/4 v2, 0x1
 
     invoke-static {p0, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
@@ -115,14 +112,14 @@
 
     check-cast v1, [Ljava/lang/Object;
 
-    .restart local v1       #result:[Ljava/lang/Object;,"[TT;"
+    .restart local v1    # "result":[Ljava/lang/Object;, "[TT;"
     goto :goto_0
 .end method
 
 .method public static appendInt([II)[I
     .locals 5
-    .parameter "cur"
-    .parameter "val"
+    .param p0, "cur"    # [I
+    .param p1, "val"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -135,7 +132,7 @@
 
     new-array p0, v3, [I
 
-    .end local p0
+    .end local p0    # "cur":[I
     aput p1, p0, v4
 
     .line 242
@@ -144,15 +141,15 @@
     return-object p0
 
     .line 233
-    .restart local p0
+    .restart local p0    # "cur":[I
     :cond_1
     array-length v0, p0
 
     .line 234
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_2
 
@@ -173,7 +170,7 @@
     new-array v2, v3, [I
 
     .line 240
-    .local v2, ret:[I
+    .local v2, "ret":[I
     invoke-static {p0, v4, v2, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 241
@@ -187,46 +184,46 @@
 
 .method public static contains([II)Z
     .locals 5
-    .parameter "array"
-    .parameter "value"
+    .param p0, "array"    # [I
+    .param p1, "value"    # I
 
     .prologue
     .line 161
     move-object v0, p0
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget v1, v0, v2
 
     .line 162
-    .local v1, element:I
+    .local v1, "element":I
     if-ne v1, p1, :cond_0
 
     .line 163
     const/4 v4, 0x1
 
     .line 166
-    .end local v1           #element:I
+    .end local v1    # "element":I
     :goto_1
     return v4
 
     .line 161
-    .restart local v1       #element:I
+    .restart local v1    # "element":I
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 166
-    .end local v1           #element:I
+    .end local v1    # "element":I
     :cond_1
     const/4 v4, 0x0
 
@@ -235,8 +232,6 @@
 
 .method public static contains([Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -247,8 +242,8 @@
 
     .prologue
     .line 130
-    .local p0, array:[Ljava/lang/Object;,"[TT;"
-    .local p1, value:Ljava/lang/Object;,"TT;"
+    .local p0, "array":[Ljava/lang/Object;, "[TT;"
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-static {p0, p1}, Lcom/android/internal/util/ArrayUtils;->indexOf([Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
@@ -270,8 +265,6 @@
 
 .method public static containsAll([Ljava/lang/Object;[Ljava/lang/Object;)Z
     .locals 5
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -282,24 +275,24 @@
 
     .prologue
     .line 152
-    .local p0, array:[Ljava/lang/Object;,"[TT;"
-    .local p1, check:[Ljava/lang/Object;,"[TT;"
+    .local p0, "array":[Ljava/lang/Object;, "[TT;"
+    .local p1, "check":[Ljava/lang/Object;, "[TT;"
     move-object v0, p1
 
-    .local v0, arr$:[Ljava/lang/Object;
+    .local v0, "arr$":[Ljava/lang/Object;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 153
-    .local v1, checkItem:Ljava/lang/Object;,"TT;"
+    .local v1, "checkItem":Ljava/lang/Object;, "TT;"
     invoke-static {p0, v1}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
@@ -310,19 +303,19 @@
     const/4 v4, 0x0
 
     .line 157
-    .end local v1           #checkItem:Ljava/lang/Object;,"TT;"
+    .end local v1    # "checkItem":Ljava/lang/Object;, "TT;"
     :goto_1
     return v4
 
     .line 152
-    .restart local v1       #checkItem:Ljava/lang/Object;,"TT;"
+    .restart local v1    # "checkItem":Ljava/lang/Object;, "TT;"
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 157
-    .end local v1           #checkItem:Ljava/lang/Object;,"TT;"
+    .end local v1    # "checkItem":Ljava/lang/Object;, "TT;"
     :cond_1
     const/4 v4, 0x1
 
@@ -331,7 +324,6 @@
 
 .method public static emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -344,7 +336,7 @@
 
     .prologue
     .line 106
-    .local p0, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p0, "kind":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-class v2, Ljava/lang/Object;
 
     if-ne p0, v2, :cond_0
@@ -373,13 +365,13 @@
     rem-int/lit8 v0, v2, 0x49
 
     .line 111
-    .local v0, bucket:I
+    .local v0, "bucket":I
     sget-object v2, Lcom/android/internal/util/ArrayUtils;->sCache:[Ljava/lang/Object;
 
     aget-object v1, v2, v0
 
     .line 113
-    .local v1, cache:Ljava/lang/Object;
+    .local v1, "cache":Ljava/lang/Object;
     if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -409,7 +401,7 @@
     :cond_2
     check-cast v1, [Ljava/lang/Object;
 
-    .end local v1           #cache:Ljava/lang/Object;
+    .end local v1    # "cache":Ljava/lang/Object;
     check-cast v1, [Ljava/lang/Object;
 
     move-object v2, v1
@@ -419,9 +411,9 @@
 
 .method public static equals([B[BI)Z
     .locals 5
-    .parameter "array1"
-    .parameter "array2"
-    .parameter "length"
+    .param p0, "array1"    # [B
+    .param p1, "array2"    # [B
+    .param p2, "length"    # I
 
     .prologue
     const/4 v1, 0x1
@@ -471,7 +463,7 @@
     :cond_4
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, p2, :cond_1
 
@@ -496,7 +488,7 @@
 
 .method public static idealBooleanArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 46
@@ -509,7 +501,7 @@
 
 .method public static idealByteArraySize(I)I
     .locals 3
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     const/4 v2, 0x1
@@ -517,7 +509,7 @@
     .line 38
     const/4 v0, 0x4
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v1, 0x20
 
@@ -536,12 +528,12 @@
     add-int/lit8 p0, v1, -0xc
 
     .line 42
-    .end local p0
+    .end local p0    # "need":I
     :cond_0
     return p0
 
     .line 38
-    .restart local p0
+    .restart local p0    # "need":I
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
@@ -550,7 +542,7 @@
 
 .method public static idealCharArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 54
@@ -567,7 +559,7 @@
 
 .method public static idealFloatArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 62
@@ -584,7 +576,7 @@
 
 .method public static idealIntArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 58
@@ -601,7 +593,7 @@
 
 .method public static idealLongArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 70
@@ -618,7 +610,7 @@
 
 .method public static idealObjectArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 66
@@ -635,7 +627,7 @@
 
 .method public static idealShortArraySize(I)I
     .locals 1
-    .parameter "need"
+    .param p0, "need"    # I
 
     .prologue
     .line 50
@@ -652,8 +644,6 @@
 
 .method public static indexOf([Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -664,11 +654,11 @@
 
     .prologue
     .line 138
-    .local p0, array:[Ljava/lang/Object;,"[TT;"
-    .local p1, value:Ljava/lang/Object;,"TT;"
+    .local p0, "array":[Ljava/lang/Object;, "[TT;"
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v1, p0
 
@@ -683,13 +673,13 @@
     if-nez p1, :cond_2
 
     .line 145
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     :goto_1
     return v0
 
     .line 142
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_1
     if-eqz p1, :cond_2
 
@@ -716,9 +706,6 @@
 
 .method public static removeElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 5
-    .parameter
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -730,9 +717,9 @@
     .end annotation
 
     .prologue
-    .local p0, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
-    .local p1, array:[Ljava/lang/Object;,"[TT;"
-    .local p2, element:Ljava/lang/Object;,"TT;"
+    .local p0, "kind":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p1, "array":[Ljava/lang/Object;, "[TT;"
+    .local p2, "element":Ljava/lang/Object;, "TT;"
     const/4 v4, 0x0
 
     .line 212
@@ -742,10 +729,10 @@
     array-length v1, p1
 
     .line 214
-    .local v1, length:I
+    .local v1, "length":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_2
 
@@ -763,14 +750,14 @@
     const/4 v2, 0x0
 
     .line 226
-    .end local v0           #i:I
-    .end local v1           #length:I
+    .end local v0    # "i":I
+    .end local v1    # "length":I
     :goto_1
     return-object v2
 
     .line 219
-    .restart local v0       #i:I
-    .restart local v1       #length:I
+    .restart local v0    # "i":I
+    .restart local v1    # "length":I
     :cond_0
     add-int/lit8 v3, v1, -0x1
 
@@ -785,7 +772,7 @@
     check-cast v2, [Ljava/lang/Object;
 
     .line 220
-    .local v2, result:[Ljava/lang/Object;,"[TT;"
+    .local v2, "result":[Ljava/lang/Object;, "[TT;"
     invoke-static {p1, v4, v2, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 221
@@ -800,14 +787,14 @@
     goto :goto_1
 
     .line 214
-    .end local v2           #result:[Ljava/lang/Object;,"[TT;"
+    .end local v2    # "result":[Ljava/lang/Object;, "[TT;"
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .end local v0           #i:I
-    .end local v1           #length:I
+    .end local v0    # "i":I
+    .end local v1    # "length":I
     :cond_2
     move-object v2, p1
 
@@ -817,8 +804,8 @@
 
 .method public static removeInt([II)[I
     .locals 5
-    .parameter "cur"
-    .parameter "val"
+    .param p0, "cur"    # [I
+    .param p1, "val"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -839,10 +826,10 @@
     array-length v0, p0
 
     .line 250
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v0, :cond_4
 
@@ -857,7 +844,7 @@
     new-array v2, v3, [I
 
     .line 253
-    .local v2, ret:[I
+    .local v2, "ret":[I
     if-lez v1, :cond_2
 
     .line 254
@@ -881,7 +868,7 @@
     goto :goto_0
 
     .line 250
-    .end local v2           #ret:[I
+    .end local v2    # "ret":[I
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
@@ -896,30 +883,30 @@
 
 .method public static total([J)J
     .locals 7
-    .parameter "array"
+    .param p0, "array"    # [J
 
     .prologue
     .line 170
     const-wide/16 v3, 0x0
 
     .line 171
-    .local v3, total:J
+    .local v3, "total":J
     move-object v0, p0
 
-    .local v0, arr$:[J
+    .local v0, "arr$":[J
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-wide v5, v0, v1
 
     .line 172
-    .local v5, value:J
+    .local v5, "value":J
     add-long/2addr v3, v5
 
     .line 171
@@ -928,7 +915,7 @@
     goto :goto_0
 
     .line 174
-    .end local v5           #value:J
+    .end local v5    # "value":J
     :cond_0
     return-wide v3
 .end method

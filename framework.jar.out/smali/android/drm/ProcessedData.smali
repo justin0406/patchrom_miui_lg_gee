@@ -14,8 +14,8 @@
 # direct methods
 .method constructor <init>([BLjava/lang/String;)V
     .locals 1
-    .parameter "data"
-    .parameter "accountId"
+    .param p1, "data"    # [B
+    .param p2, "accountId"    # Ljava/lang/String;
 
     .prologue
     .line 38
@@ -43,9 +43,9 @@
 
 .method constructor <init>([BLjava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "data"
-    .parameter "accountId"
-    .parameter "subscriptionId"
+    .param p1, "data"    # [B
+    .param p2, "accountId"    # Ljava/lang/String;
+    .param p3, "subscriptionId"    # Ljava/lang/String;
 
     .prologue
     .line 50

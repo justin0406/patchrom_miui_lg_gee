@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/uicc/UiccCard;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 242
@@ -39,14 +38,14 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 245
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$1;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
-    #getter for: Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/UiccCard;->access$000(Lcom/android/internal/telephony/uicc/UiccCard;)Ljava/lang/Object;
 
     move-result-object v2
@@ -64,13 +63,13 @@
 
     const-string v3, "Reboot due to SIM swap"
 
-    #calls: Lcom/android/internal/telephony/uicc/UiccCard;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/uicc/UiccCard;->log(Ljava/lang/String;)V
     invoke-static {v1, v3}, Lcom/android/internal/telephony/uicc/UiccCard;->access$100(Lcom/android/internal/telephony/uicc/UiccCard;Ljava/lang/String;)V
 
     .line 248
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$1;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
-    #getter for: Lcom/android/internal/telephony/uicc/UiccCard;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/telephony/uicc/UiccCard;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/internal/telephony/uicc/UiccCard;->access$200(Lcom/android/internal/telephony/uicc/UiccCard;)Landroid/content/Context;
 
     move-result-object v1
@@ -84,13 +83,13 @@
     check-cast v0, Landroid/os/PowerManager;
 
     .line 250
-    .local v0, pm:Landroid/os/PowerManager;
+    .local v0, "pm":Landroid/os/PowerManager;
     const-string v1, "SIM is added."
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
     .line 252
-    .end local v0           #pm:Landroid/os/PowerManager;
+    .end local v0    # "pm":Landroid/os/PowerManager;
     :cond_0
     monitor-exit v2
 

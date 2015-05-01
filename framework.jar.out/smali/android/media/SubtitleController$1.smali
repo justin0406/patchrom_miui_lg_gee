@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/SubtitleController;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 50
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x1
@@ -59,7 +58,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/media/SubtitleController$1;->this$0:Landroid/media/SubtitleController;
 
-    #calls: Landroid/media/SubtitleController;->doShow()V
+    # invokes: Landroid/media/SubtitleController;->doShow()V
     invoke-static {v0}, Landroid/media/SubtitleController;->access$000(Landroid/media/SubtitleController;)V
 
     move v0, v1
@@ -71,7 +70,7 @@
     :pswitch_1
     iget-object v0, p0, Landroid/media/SubtitleController$1;->this$0:Landroid/media/SubtitleController;
 
-    #calls: Landroid/media/SubtitleController;->doHide()V
+    # invokes: Landroid/media/SubtitleController;->doHide()V
     invoke-static {v0}, Landroid/media/SubtitleController;->access$100(Landroid/media/SubtitleController;)V
 
     move v0, v1
@@ -87,7 +86,7 @@
 
     check-cast v0, Landroid/media/SubtitleTrack;
 
-    #calls: Landroid/media/SubtitleController;->doSelectTrack(Landroid/media/SubtitleTrack;)V
+    # invokes: Landroid/media/SubtitleController;->doSelectTrack(Landroid/media/SubtitleTrack;)V
     invoke-static {v2, v0}, Landroid/media/SubtitleController;->access$200(Landroid/media/SubtitleController;Landroid/media/SubtitleTrack;)V
 
     move v0, v1
@@ -99,7 +98,7 @@
     :pswitch_3
     iget-object v0, p0, Landroid/media/SubtitleController$1;->this$0:Landroid/media/SubtitleController;
 
-    #calls: Landroid/media/SubtitleController;->doSelectDefaultTrack()V
+    # invokes: Landroid/media/SubtitleController;->doSelectDefaultTrack()V
     invoke-static {v0}, Landroid/media/SubtitleController;->access$300(Landroid/media/SubtitleController;)V
 
     move v0, v1

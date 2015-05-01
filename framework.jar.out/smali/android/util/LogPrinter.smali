@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "priority"
-    .parameter "tag"
+    .param p1, "priority"    # I
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 40
@@ -41,9 +41,9 @@
 
 .method public constructor <init>(ILjava/lang/String;I)V
     .locals 0
-    .parameter "priority"
-    .parameter "tag"
-    .parameter "buffer"
+    .param p1, "priority"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "buffer"    # I
 
     .prologue
     .line 50
@@ -66,7 +66,7 @@
 # virtual methods
 .method public println(Ljava/lang/String;)V
     .locals 3
-    .parameter "x"
+    .param p1, "x"    # Ljava/lang/String;
 
     .prologue
     .line 57

@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "gid"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "gid"    # I
 
     .prologue
     .line 31

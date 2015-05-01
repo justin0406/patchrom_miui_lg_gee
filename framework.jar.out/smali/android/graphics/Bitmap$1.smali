@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 1438
+    .line 1451
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,20 +42,20 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
     .locals 3
-    .parameter "p"
+    .param p1, "p"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1446
-    #calls: Landroid/graphics/Bitmap;->nativeCreateFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
+    .line 1459
+    # invokes: Landroid/graphics/Bitmap;->nativeCreateFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
     invoke-static {p1}, Landroid/graphics/Bitmap;->access$000(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 1447
-    .local v0, bm:Landroid/graphics/Bitmap;
+    .line 1460
+    .local v0, "bm":Landroid/graphics/Bitmap;
     if-nez v0, :cond_0
 
-    .line 1448
+    .line 1461
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Failed to unparcel Bitmap"
@@ -64,17 +64,17 @@
 
     throw v1
 
-    .line 1450
+    .line 1463
     :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1438
+    .line 1451
     invoke-virtual {p0, p1}, Landroid/graphics/Bitmap$1;->createFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -84,10 +84,10 @@
 
 .method public newArray(I)[Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
-    .line 1453
+    .line 1466
     new-array v0, p1, [Landroid/graphics/Bitmap;
 
     return-object v0
@@ -95,10 +95,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
-    .line 1438
+    .line 1451
     invoke-virtual {p0, p1}, Landroid/graphics/Bitmap$1;->newArray(I)[Landroid/graphics/Bitmap;
 
     move-result-object v0

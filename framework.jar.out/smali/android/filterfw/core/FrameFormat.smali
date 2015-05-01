@@ -89,8 +89,8 @@
 
 .method public constructor <init>(II)V
     .locals 2
-    .parameter "baseType"
-    .parameter "target"
+    .param p1, "baseType"    # I
+    .param p2, "target"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -129,7 +129,7 @@
 
 .method public static baseTypeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "baseType"
+    .param p0, "baseType"    # I
 
     .prologue
     .line 344
@@ -214,7 +214,7 @@
 
 .method public static bytesPerSampleOf(I)I
     .locals 1
-    .parameter "baseType"
+    .param p0, "baseType"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -260,7 +260,7 @@
 
 .method public static dimensionsToString([I)Ljava/lang/String;
     .locals 5
-    .parameter "dimensions"
+    .param p0, "dimensions"    # [I
 
     .prologue
     .line 329
@@ -269,17 +269,17 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 330
-    .local v0, buffer:Ljava/lang/StringBuffer;
+    .local v0, "buffer":Ljava/lang/StringBuffer;
     if-eqz p0, :cond_1
 
     .line 331
     array-length v2, p0
 
     .line 332
-    .local v2, n:I
+    .local v2, "n":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -336,8 +336,8 @@
     goto :goto_1
 
     .line 340
-    .end local v1           #i:I
-    .end local v2           #n:I
+    .end local v1    # "i":I
+    .end local v2    # "n":I
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
 .method public static metaDataToString(Landroid/filterfw/core/KeyValueMap;)Ljava/lang/String;
     .locals 5
-    .parameter "metaData"
+    .param p0, "metaData"    # Landroid/filterfw/core/KeyValueMap;
 
     .prologue
     .line 371
@@ -385,7 +385,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 375
-    .local v0, buffer:Ljava/lang/StringBuffer;
+    .local v0, "buffer":Ljava/lang/StringBuffer;
     const-string/jumbo v3, "{ "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -399,7 +399,7 @@
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -414,7 +414,7 @@
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 377
-    .local v1, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -458,7 +458,7 @@
     goto :goto_1
 
     .line 379
-    .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_1
     const-string/jumbo v3, "}"
 
@@ -474,7 +474,7 @@
 
 .method public static readTargetString(Ljava/lang/String;)I
     .locals 3
-    .parameter "targetString"
+    .param p0, "targetString"    # Ljava/lang/String;
 
     .prologue
     .line 385
@@ -597,7 +597,7 @@
 
 .method public static targetToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "target"
+    .param p0, "target"    # I
 
     .prologue
     .line 359
@@ -677,7 +677,7 @@
 # virtual methods
 .method calcSize([I)I
     .locals 6
-    .parameter "dimensions"
+    .param p1, "dimensions"    # [I
 
     .prologue
     .line 424
@@ -693,23 +693,23 @@
     move-result v4
 
     .line 426
-    .local v4, size:I
+    .local v4, "size":I
     move-object v0, p1
 
-    .local v0, arr$:[I
+    .local v0, "arr$":[I
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget v1, v0, v2
 
     .line 427
-    .local v1, dim:I
+    .local v1, "dim":I
     mul-int/2addr v4, v1
 
     .line 426
@@ -718,11 +718,11 @@
     goto :goto_0
 
     .line 431
-    .end local v0           #arr$:[I
-    .end local v1           #dim:I
-    .end local v2           #i$:I
-    .end local v3           #len$:I
-    .end local v4           #size:I
+    .end local v0    # "arr$":[I
+    .end local v1    # "dim":I
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
+    .end local v4    # "size":I
     :cond_0
     const/4 v4, 0x0
 
@@ -732,7 +732,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -765,7 +765,7 @@
     check-cast v0, Landroid/filterfw/core/FrameFormat;
 
     .line 181
-    .local v0, format:Landroid/filterfw/core/FrameFormat;
+    .local v0, "format":Landroid/filterfw/core/FrameFormat;
     iget v3, v0, Landroid/filterfw/core/FrameFormat;->mBaseType:I
 
     iget v4, p0, Landroid/filterfw/core/FrameFormat;->mBaseType:I
@@ -864,7 +864,7 @@
 
 .method public getDimension(I)I
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 102
@@ -973,7 +973,7 @@
 
 .method public getMetaValue(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 127
@@ -1096,7 +1096,7 @@
 
 .method public hasMetaKey(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 110
@@ -1121,8 +1121,8 @@
 
 .method public hasMetaKey(Ljava/lang/String;Ljava/lang/Class;)Z
     .locals 3
-    .parameter "key"
-    .parameter "expectedClass"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "expectedClass"    # Ljava/lang/Class;
 
     .prologue
     .line 114
@@ -1280,7 +1280,7 @@
 
 .method public isCompatibleWith(Landroid/filterfw/core/FrameFormat;)Z
     .locals 8
-    .parameter "specification"
+    .param p1, "specification"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     const/4 v5, 0x1
@@ -1367,7 +1367,7 @@
     :cond_4
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getDimensionCount()I
 
@@ -1381,7 +1381,7 @@
     move-result v2
 
     .line 221
-    .local v2, specDim:I
+    .local v2, "specDim":I
     if-eqz v2, :cond_5
 
     invoke-virtual {p0, v0}, Landroid/filterfw/core/FrameFormat;->getDimension(I)I
@@ -1397,7 +1397,7 @@
     goto :goto_1
 
     .line 227
-    .end local v2           #specDim:I
+    .end local v2    # "specDim":I
     :cond_6
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getObjectClass()Ljava/lang/Class;
 
@@ -1443,7 +1443,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1458,7 +1458,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 237
-    .local v3, specKey:Ljava/lang/String;
+    .local v3, "specKey":Ljava/lang/String;
     iget-object v6, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     if-eqz v6, :cond_0
@@ -1491,8 +1491,8 @@
 
     goto/16 :goto_0
 
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v3           #specKey:Ljava/lang/String;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v3    # "specKey":Ljava/lang/String;
     :cond_9
     move v4, v5
 
@@ -1502,7 +1502,7 @@
 
 .method isReplaceableBy(Landroid/filterfw/core/FrameFormat;)Z
     .locals 2
-    .parameter "format"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 435
@@ -1545,7 +1545,7 @@
 
 .method public mayBeCompatibleWith(Landroid/filterfw/core/FrameFormat;)Z
     .locals 8
-    .parameter "specification"
+    .param p1, "specification"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     const/4 v5, 0x1
@@ -1656,7 +1656,7 @@
     :cond_4
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getDimensionCount()I
 
@@ -1670,7 +1670,7 @@
     move-result v2
 
     .line 281
-    .local v2, specDim:I
+    .local v2, "specDim":I
     if-eqz v2, :cond_5
 
     invoke-virtual {p0, v0}, Landroid/filterfw/core/FrameFormat;->getDimension(I)I
@@ -1692,7 +1692,7 @@
     goto :goto_1
 
     .line 289
-    .end local v2           #specDim:I
+    .end local v2    # "specDim":I
     :cond_6
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getObjectClass()Ljava/lang/Class;
 
@@ -1742,7 +1742,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1757,7 +1757,7 @@
     check-cast v3, Ljava/lang/String;
 
     .line 298
-    .local v3, specKey:Ljava/lang/String;
+    .local v3, "specKey":Ljava/lang/String;
     iget-object v6, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v6, v3}, Landroid/filterfw/core/KeyValueMap;->containsKey(Ljava/lang/Object;)Z
@@ -1786,8 +1786,8 @@
 
     goto/16 :goto_0
 
-    .end local v1           #i$:Ljava/util/Iterator;
-    .end local v3           #specKey:Ljava/lang/String;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v3    # "specKey":Ljava/lang/String;
     :cond_9
     move v4, v5
 
@@ -1805,7 +1805,7 @@
     invoke-direct {v0}, Landroid/filterfw/core/MutableFrameFormat;-><init>()V
 
     .line 161
-    .local v0, result:Landroid/filterfw/core/MutableFrameFormat;
+    .local v0, "result":Landroid/filterfw/core/MutableFrameFormat;
     invoke-virtual {p0}, Landroid/filterfw/core/FrameFormat;->getBaseType()I
 
     move-result v1
@@ -1876,7 +1876,7 @@
     move-result v3
 
     .line 404
-    .local v3, valuesPerSample:I
+    .local v3, "valuesPerSample":I
     const/4 v4, 0x1
 
     if-ne v3, v4, :cond_0
@@ -1884,7 +1884,7 @@
     const-string v1, ""
 
     .line 405
-    .local v1, sampleCountString:Ljava/lang/String;
+    .local v1, "sampleCountString":Ljava/lang/String;
     :goto_0
     iget v4, p0, Landroid/filterfw/core/FrameFormat;->mTarget:I
 
@@ -1893,7 +1893,7 @@
     const-string v2, ""
 
     .line 406
-    .local v2, targetString:Ljava/lang/String;
+    .local v2, "targetString":Ljava/lang/String;
     :goto_1
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mObjectClass:Ljava/lang/Class;
 
@@ -1902,7 +1902,7 @@
     const-string v0, ""
 
     .line 410
-    .local v0, classString:Ljava/lang/String;
+    .local v0, "classString":Ljava/lang/String;
     :goto_2
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1957,9 +1957,9 @@
     return-object v4
 
     .line 404
-    .end local v0           #classString:Ljava/lang/String;
-    .end local v1           #sampleCountString:Ljava/lang/String;
-    .end local v2           #targetString:Ljava/lang/String;
+    .end local v0    # "classString":Ljava/lang/String;
+    .end local v1    # "sampleCountString":Ljava/lang/String;
+    .end local v2    # "targetString":Ljava/lang/String;
     :cond_0
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1968,7 +1968,7 @@
     goto :goto_0
 
     .line 405
-    .restart local v1       #sampleCountString:Ljava/lang/String;
+    .restart local v1    # "sampleCountString":Ljava/lang/String;
     :cond_1
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1997,7 +1997,7 @@
     goto :goto_1
 
     .line 406
-    .restart local v2       #targetString:Ljava/lang/String;
+    .restart local v2    # "targetString":Ljava/lang/String;
     :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 

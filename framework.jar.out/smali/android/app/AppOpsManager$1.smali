@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/AppOpsManager;Landroid/app/AppOpsManager$OnOpChangedListener;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 813
@@ -41,8 +39,8 @@
 # virtual methods
 .method public opChanged(ILjava/lang/String;)V
     .locals 2
-    .parameter "op"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 815
@@ -61,6 +59,7 @@
 
     .line 818
     :cond_0
+    # getter for: Landroid/app/AppOpsManager;->sOpToString:[Ljava/lang/String;
     invoke-static {}, Landroid/app/AppOpsManager;->access$000()[Ljava/lang/String;
 
     move-result-object v0
@@ -72,6 +71,7 @@
     .line 819
     iget-object v0, p0, Landroid/app/AppOpsManager$1;->val$callback:Landroid/app/AppOpsManager$OnOpChangedListener;
 
+    # getter for: Landroid/app/AppOpsManager;->sOpToString:[Ljava/lang/String;
     invoke-static {}, Landroid/app/AppOpsManager;->access$000()[Ljava/lang/String;
 
     move-result-object v1

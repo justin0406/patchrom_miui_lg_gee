@@ -71,7 +71,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/WpsResult$Status;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/wifi/WpsResult$Status;
 
     .prologue
     .line 43
@@ -91,7 +91,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/WpsResult;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/WpsResult;
 
     .prologue
     .line 63
@@ -137,7 +137,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 50
-    .local v0, sbuf:Ljava/lang/StringBuffer;
+    .local v0, "sbuf":Ljava/lang/StringBuffer;
     const-string v1, " status: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -183,8 +183,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 72

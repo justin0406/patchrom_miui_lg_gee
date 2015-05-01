@@ -29,11 +29,11 @@
 # direct methods
 .method constructor <init>(ZJJJJ)V
     .locals 0
-    .parameter "isNight"
-    .parameter "yesterdaySunset"
-    .parameter "todaySunrise"
-    .parameter "todaySunset"
-    .parameter "tomorrowSunrise"
+    .param p1, "isNight"    # Z
+    .param p2, "yesterdaySunset"    # J
+    .param p4, "todaySunrise"    # J
+    .param p6, "todaySunset"    # J
+    .param p8, "tomorrowSunrise"    # J
 
     .prologue
     .line 179
@@ -62,7 +62,7 @@
 # virtual methods
 .method public equals(Lcom/android/server/TwilightService$TwilightState;)Z
     .locals 4
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/server/TwilightService$TwilightState;
 
     .prologue
     .line 232
@@ -119,7 +119,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 228
@@ -129,7 +129,7 @@
 
     check-cast p1, Lcom/android/server/TwilightService$TwilightState;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/TwilightService$TwilightState;->equals(Lcom/android/server/TwilightService$TwilightState;)Z
 
     move-result v0
@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 248
-    .local v0, f:Ljava/text/DateFormat;
+    .local v0, "f":Ljava/text/DateFormat;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

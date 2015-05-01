@@ -45,9 +45,9 @@
 # virtual methods
 .method classify(II[F)Ljava/util/ArrayList;
     .locals 19
-    .parameter "sequenceType"
-    .parameter "orientationType"
-    .parameter "vector"
+    .param p1, "sequenceType"    # I
+    .param p2, "orientationType"    # I
+    .param p3, "vector"    # [F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II[F)",
@@ -65,28 +65,28 @@
     invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
 
     .line 46
-    .local v11, predictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/Prediction;>;"
+    .local v11, "predictions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/Prediction;>;"
     invoke-virtual/range {p0 .. p0}, Landroid/gesture/InstanceLearner;->getInstances()Ljava/util/ArrayList;
 
     move-result-object v8
 
     .line 47
-    .local v8, instances:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/Instance;>;"
+    .local v8, "instances":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/Instance;>;"
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
     .line 48
-    .local v3, count:I
+    .local v3, "count":I
     new-instance v9, Ljava/util/TreeMap;
 
     invoke-direct {v9}, Ljava/util/TreeMap;-><init>()V
 
     .line 49
-    .local v9, label2score:Ljava/util/TreeMap;,"Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/Double;>;"
+    .local v9, "label2score":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/Double;>;"
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     if-ge v6, v3, :cond_5
 
@@ -98,7 +98,7 @@
     check-cast v12, Landroid/gesture/Instance;
 
     .line 51
-    .local v12, sample:Landroid/gesture/Instance;
+    .local v12, "sample":Landroid/gesture/Instance;
     iget-object v0, v12, Landroid/gesture/Instance;->vector:[F
 
     move-object/from16 v17, v0
@@ -158,7 +158,7 @@
     float-to-double v4, v0
 
     .line 61
-    .local v4, distance:D
+    .local v4, "distance":D
     :goto_2
     const-wide/16 v17, 0x0
 
@@ -167,10 +167,10 @@
     if-nez v17, :cond_4
 
     .line 62
-    const-wide v15, 0x7fefffffffffffffL
+    const-wide v15, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
     .line 66
-    .local v15, weight:D
+    .local v15, "weight":D
     :goto_3
     iget-object v0, v12, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
@@ -185,7 +185,7 @@
     check-cast v13, Ljava/lang/Double;
 
     .line 67
-    .local v13, score:Ljava/lang/Double;
+    .local v13, "score":Ljava/lang/Double;
     if-eqz v13, :cond_2
 
     invoke-virtual {v13}, Ljava/lang/Double;->doubleValue()D
@@ -215,9 +215,9 @@
     goto :goto_1
 
     .line 58
-    .end local v4           #distance:D
-    .end local v13           #score:Ljava/lang/Double;
-    .end local v15           #weight:D
+    .end local v4    # "distance":D
+    .end local v13    # "score":Ljava/lang/Double;
+    .end local v15    # "weight":D
     :cond_3
     iget-object v0, v12, Landroid/gesture/Instance;->vector:[F
 
@@ -235,22 +235,22 @@
 
     float-to-double v4, v0
 
-    .restart local v4       #distance:D
+    .restart local v4    # "distance":D
     goto :goto_2
 
     .line 64
     :cond_4
-    const-wide/high16 v17, 0x3ff0
+    const-wide/high16 v17, 0x3ff0000000000000L    # 1.0
 
     div-double v15, v17, v4
 
-    .restart local v15       #weight:D
+    .restart local v15    # "weight":D
     goto :goto_3
 
     .line 73
-    .end local v4           #distance:D
-    .end local v12           #sample:Landroid/gesture/Instance;
-    .end local v15           #weight:D
+    .end local v4    # "distance":D
+    .end local v12    # "sample":Landroid/gesture/Instance;
+    .end local v15    # "weight":D
     :cond_5
     invoke-virtual {v9}, Ljava/util/TreeMap;->keySet()Ljava/util/Set;
 
@@ -260,7 +260,7 @@
 
     move-result-object v7
 
-    .local v7, i$:Ljava/util/Iterator;
+    .local v7, "i$":Ljava/util/Iterator;
     :goto_4
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -275,7 +275,7 @@
     check-cast v10, Ljava/lang/String;
 
     .line 74
-    .local v10, name:Ljava/lang/String;
+    .local v10, "name":Ljava/lang/String;
     invoke-virtual {v9, v10}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v17
@@ -287,7 +287,7 @@
     move-result-wide v13
 
     .line 76
-    .local v13, score:D
+    .local v13, "score":D
     new-instance v17, Landroid/gesture/Prediction;
 
     move-object/from16 v0, v17
@@ -301,8 +301,8 @@
     goto :goto_4
 
     .line 84
-    .end local v10           #name:Ljava/lang/String;
-    .end local v13           #score:D
+    .end local v10    # "name":Ljava/lang/String;
+    .end local v13    # "score":D
     :cond_6
     sget-object v17, Landroid/gesture/InstanceLearner;->sComparator:Ljava/util/Comparator;
 

@@ -60,9 +60,9 @@
 
 .method public static obtain(III)Landroid/view/InputEventConsistencyVerifier$KeyState;
     .locals 3
-    .parameter "deviceId"
-    .parameter "source"
-    .parameter "keyCode"
+    .param p0, "deviceId"    # I
+    .param p1, "source"    # I
+    .param p2, "keyCode"    # I
 
     .prologue
     .line 711
@@ -75,7 +75,7 @@
     sget-object v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->mRecycledList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 713
-    .local v0, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .local v0, "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     if-eqz v0, :cond_0
 
     .line 714
@@ -111,14 +111,14 @@
     :try_start_1
     new-instance v0, Landroid/view/InputEventConsistencyVerifier$KeyState;
 
-    .end local v0           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v0    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     invoke-direct {v0}, Landroid/view/InputEventConsistencyVerifier$KeyState;-><init>()V
 
-    .restart local v0       #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .restart local v0    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     goto :goto_0
 
     .line 718
-    .end local v0           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
+    .end local v0    # "state":Landroid/view/InputEventConsistencyVerifier$KeyState;
     :catchall_0
     move-exception v1
 

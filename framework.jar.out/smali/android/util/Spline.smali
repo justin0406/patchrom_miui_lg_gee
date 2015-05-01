@@ -14,9 +14,9 @@
 # direct methods
 .method private constructor <init>([F[F[F)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
-    .parameter "m"
+    .param p1, "x"    # [F
+    .param p2, "y"    # [F
+    .param p3, "m"    # [F
 
     .prologue
     .line 28
@@ -37,8 +37,8 @@
 
 .method public static createMonotoneCubicSpline([F[F)Landroid/util/Spline;
     .locals 12
-    .parameter "x"
-    .parameter "y"
+    .param p0, "x"    # [F
+    .param p1, "y"    # [F
 
     .prologue
     const/4 v10, 0x0
@@ -77,20 +77,20 @@
     array-length v6, p0
 
     .line 59
-    .local v6, n:I
+    .local v6, "n":I
     add-int/lit8 v8, v6, -0x1
 
     new-array v2, v8, [F
 
     .line 60
-    .local v2, d:[F
+    .local v2, "d":[F
     new-array v5, v6, [F
 
     .line 63
-    .local v5, m:[F
+    .local v5, "m":[F
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     add-int/lit8 v8, v6, -0x1
 
@@ -106,7 +106,7 @@
     sub-float v3, v8, v9
 
     .line 65
-    .local v3, h:F
+    .local v3, "h":F
     cmpg-float v8, v3, v11
 
     if-gtz v8, :cond_2
@@ -140,7 +140,7 @@
     goto :goto_0
 
     .line 73
-    .end local v3           #h:F
+    .end local v3    # "h":F
     :cond_3
     aget v8, v2, v10
 
@@ -163,7 +163,7 @@
 
     add-float/2addr v8, v9
 
-    const/high16 v9, 0x3f00
+    const/high16 v9, 0x3f000000    # 0.5f
 
     mul-float/2addr v8, v9
 
@@ -223,7 +223,7 @@
     div-float v0, v8, v9
 
     .line 86
-    .local v0, a:F
+    .local v0, "a":F
     add-int/lit8 v8, v4, 0x1
 
     aget v8, v5, v8
@@ -233,7 +233,7 @@
     div-float v1, v8, v9
 
     .line 87
-    .local v1, b:F
+    .local v1, "b":F
     cmpg-float v8, v0, v11
 
     if-ltz v8, :cond_7
@@ -259,20 +259,20 @@
     move-result v3
 
     .line 92
-    .restart local v3       #h:F
-    const/high16 v8, 0x4110
+    .restart local v3    # "h":F
+    const/high16 v8, 0x41100000    # 9.0f
 
     cmpl-float v8, v3, v8
 
     if-lez v8, :cond_5
 
     .line 93
-    const/high16 v8, 0x4040
+    const/high16 v8, 0x40400000    # 3.0f
 
     div-float v7, v8, v3
 
     .line 94
-    .local v7, t:F
+    .local v7, "t":F
     mul-float v8, v7, v0
 
     aget v9, v2, v4
@@ -295,10 +295,10 @@
     goto :goto_3
 
     .line 99
-    .end local v0           #a:F
-    .end local v1           #b:F
-    .end local v3           #h:F
-    .end local v7           #t:F
+    .end local v0    # "a":F
+    .end local v1    # "b":F
+    .end local v3    # "h":F
+    .end local v7    # "t":F
     :cond_9
     new-instance v8, Landroid/util/Spline;
 
@@ -311,14 +311,14 @@
 # virtual methods
 .method public interpolate(F)F
     .locals 9
-    .parameter "x"
+    .param p1, "x"    # F
 
     .prologue
     const/4 v5, 0x0
 
-    const/high16 v7, 0x4000
+    const/high16 v7, 0x40000000    # 2.0f
 
-    const/high16 v8, 0x3f80
+    const/high16 v8, 0x3f800000    # 1.0f
 
     .line 111
     iget-object v4, p0, Landroid/util/Spline;->mX:[F
@@ -326,7 +326,7 @@
     array-length v2, v4
 
     .line 112
-    .local v2, n:I
+    .local v2, "n":I
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v4
@@ -334,12 +334,12 @@
     if-eqz v4, :cond_0
 
     .line 135
-    .end local p1
+    .end local p1    # "x":F
     :goto_0
     return p1
 
     .line 115
-    .restart local p1
+    .restart local p1    # "x":F
     :cond_0
     iget-object v4, p0, Landroid/util/Spline;->mX:[F
 
@@ -382,7 +382,7 @@
     const/4 v1, 0x0
 
     .line 125
-    .local v1, i:I
+    .local v1, "i":I
     :cond_3
     iget-object v4, p0, Landroid/util/Spline;->mX:[F
 
@@ -428,7 +428,7 @@
     sub-float v0, v4, v5
 
     .line 134
-    .local v0, h:F
+    .local v0, "h":F
     iget-object v4, p0, Landroid/util/Spline;->mX:[F
 
     aget v4, v4, v1
@@ -438,7 +438,7 @@
     div-float v3, v4, v0
 
     .line 135
-    .local v3, t:F
+    .local v3, "t":F
     iget-object v4, p0, Landroid/util/Spline;->mY:[F
 
     aget v4, v4, v1
@@ -473,7 +473,7 @@
 
     aget v5, v5, v6
 
-    const/high16 v6, 0x4040
+    const/high16 v6, 0x40400000    # 3.0f
 
     mul-float/2addr v7, v3
 
@@ -514,13 +514,13 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 143
-    .local v2, str:Ljava/lang/StringBuilder;
+    .local v2, "str":Ljava/lang/StringBuilder;
     iget-object v3, p0, Landroid/util/Spline;->mX:[F
 
     array-length v1, v3
 
     .line 144
-    .local v1, n:I
+    .local v1, "n":I
     const-string v3, "["
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -528,7 +528,7 @@
     .line 145
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 

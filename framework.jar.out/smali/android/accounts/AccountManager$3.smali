@@ -34,15 +34,11 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
-    .parameter
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 575
-    .local p3, x1:Landroid/accounts/AccountManagerCallback;,"Landroid/accounts/AccountManagerCallback<[Landroid/accounts/Account;>;"
+    .local p3, "x1":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<[Landroid/accounts/Account;>;"
     iput-object p1, p0, Landroid/accounts/AccountManager$3;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p4, p0, Landroid/accounts/AccountManager$3;->val$type:Ljava/lang/String;
@@ -58,7 +54,7 @@
 # virtual methods
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
@@ -76,7 +72,7 @@
 
 .method public bundleToResult(Landroid/os/Bundle;)[Landroid/accounts/Account;
     .locals 5
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
@@ -111,16 +107,16 @@
     move-result-object v2
 
     .line 584
-    .local v2, parcelables:[Landroid/os/Parcelable;
+    .local v2, "parcelables":[Landroid/os/Parcelable;
     array-length v3, v2
 
     new-array v0, v3, [Landroid/accounts/Account;
 
     .line 585
-    .local v0, descs:[Landroid/accounts/Account;
+    .local v0, "descs":[Landroid/accounts/Account;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     array-length v3, v2
 
@@ -155,7 +151,7 @@
     .line 577
     iget-object v0, p0, Landroid/accounts/AccountManager$3;->this$0:Landroid/accounts/AccountManager;
 
-    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+    # getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0

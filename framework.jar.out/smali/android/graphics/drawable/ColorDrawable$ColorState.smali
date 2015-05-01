@@ -28,7 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ColorDrawable$ColorState;)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     .prologue
     .line 184
@@ -85,7 +85,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 199

@@ -33,9 +33,9 @@
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;Landroid/database/IContentObserver;Ljava/lang/String;)V
     .locals 2
-    .parameter "cursor"
-    .parameter "observer"
-    .parameter "providerName"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "observer"    # Landroid/database/IContentObserver;
+    .param p3, "providerName"    # Ljava/lang/String;
 
     .prologue
     .line 92
@@ -56,7 +56,7 @@
     .line 94
     check-cast p1, Landroid/database/CrossProcessCursor;
 
-    .end local p1
+    .end local p1    # "cursor":Landroid/database/Cursor;
     iput-object p1, p0, Landroid/database/CursorToBulkCursorAdaptor;->mCursor:Landroid/database/CrossProcessCursor;
 
     .line 98
@@ -81,7 +81,7 @@
     return-void
 
     .line 96
-    .restart local p1
+    .restart local p1    # "cursor":Landroid/database/Cursor;
     :cond_0
     new-instance v0, Landroid/database/CrossProcessCursorWrapper;
 
@@ -92,7 +92,7 @@
     goto :goto_0
 
     .line 102
-    .end local p1
+    .end local p1    # "cursor":Landroid/database/Cursor;
     :catchall_0
     move-exception v0
 
@@ -130,7 +130,7 @@
 
 .method private createAndRegisterObserverProxyLocked(Landroid/database/IContentObserver;)V
     .locals 2
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/IContentObserver;
 
     .prologue
     .line 252
@@ -375,7 +375,7 @@
     invoke-direct {v0}, Landroid/database/BulkCursorDescriptor;-><init>()V
 
     .line 145
-    .local v0, d:Landroid/database/BulkCursorDescriptor;
+    .local v0, "d":Landroid/database/BulkCursorDescriptor;
     iput-object p0, v0, Landroid/database/BulkCursorDescriptor;->cursor:Landroid/database/IBulkCursor;
 
     .line 146
@@ -431,7 +431,7 @@
     return-object v0
 
     .line 156
-    .end local v0           #d:Landroid/database/BulkCursorDescriptor;
+    .end local v0    # "d":Landroid/database/BulkCursorDescriptor;
     :catchall_0
     move-exception v1
 
@@ -479,7 +479,7 @@
 
 .method public getWindow(I)Landroid/database/CursorWindow;
     .locals 4
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 161
@@ -521,7 +521,7 @@
     move-result-object v0
 
     .line 170
-    .local v0, window:Landroid/database/CursorWindow;
+    .local v0, "window":Landroid/database/CursorWindow;
     if-eqz v0, :cond_2
 
     .line 171
@@ -541,7 +541,7 @@
     goto :goto_0
 
     .line 190
-    .end local v0           #window:Landroid/database/CursorWindow;
+    .end local v0    # "window":Landroid/database/CursorWindow;
     :catchall_0
     move-exception v1
 
@@ -552,7 +552,7 @@
     throw v1
 
     .line 173
-    .restart local v0       #window:Landroid/database/CursorWindow;
+    .restart local v0    # "window":Landroid/database/CursorWindow;
     :cond_2
     :try_start_1
     iget-object v0, p0, Landroid/database/CursorToBulkCursorAdaptor;->mFilledWindow:Landroid/database/CursorWindow;
@@ -612,7 +612,7 @@
 
 .method public onMove(I)V
     .locals 3
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 195
@@ -654,7 +654,7 @@
 
 .method public requery(Landroid/database/IContentObserver;)I
     .locals 5
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/IContentObserver;
 
     .prologue
     .line 223
@@ -677,8 +677,8 @@
 
     invoke-interface {v2}, Landroid/database/CrossProcessCursor;->requery()Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v2
 
@@ -699,7 +699,7 @@
     move-exception v0
 
     .line 233
-    .local v0, e:Ljava/lang/IllegalStateException;
+    .local v0, "e":Ljava/lang/IllegalStateException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -735,12 +735,12 @@
     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 236
-    .local v1, leakProgram:Ljava/lang/IllegalStateException;
+    .local v1, "leakProgram":Ljava/lang/IllegalStateException;
     throw v1
 
     .line 242
-    .end local v0           #e:Ljava/lang/IllegalStateException;
-    .end local v1           #leakProgram:Ljava/lang/IllegalStateException;
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
+    .end local v1    # "leakProgram":Ljava/lang/IllegalStateException;
     :catchall_0
     move-exception v2
 
@@ -774,7 +774,7 @@
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 2
-    .parameter "extras"
+    .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 279

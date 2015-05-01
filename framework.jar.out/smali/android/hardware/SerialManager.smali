@@ -16,8 +16,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/hardware/ISerialManager;)V
     .locals 0
-    .parameter "context"
-    .parameter "service"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/hardware/ISerialManager;
 
     .prologue
     .line 43
@@ -58,7 +58,7 @@
     move-exception v0
 
     .line 57
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "SerialManager"
 
     const-string v2, "RemoteException in getSerialPorts"
@@ -73,8 +73,8 @@
 
 .method public openSerialPort(Ljava/lang/String;I)Landroid/hardware/SerialPort;
     .locals 6
-    .parameter "name"
-    .parameter "speed"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "speed"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -91,7 +91,7 @@
     move-result-object v1
 
     .line 76
-    .local v1, pfd:Landroid/os/ParcelFileDescriptor;
+    .local v1, "pfd":Landroid/os/ParcelFileDescriptor;
     if-eqz v1, :cond_0
 
     .line 77
@@ -100,17 +100,17 @@
     invoke-direct {v2, p1}, Landroid/hardware/SerialPort;-><init>(Ljava/lang/String;)V
 
     .line 78
-    .local v2, port:Landroid/hardware/SerialPort;
+    .local v2, "port":Landroid/hardware/SerialPort;
     invoke-virtual {v2, v1, p2}, Landroid/hardware/SerialPort;->open(Landroid/os/ParcelFileDescriptor;I)V
 
     .line 86
-    .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
-    .end local v2           #port:Landroid/hardware/SerialPort;
+    .end local v1    # "pfd":Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "port":Landroid/hardware/SerialPort;
     :goto_0
     return-object v2
 
     .line 81
-    .restart local v1       #pfd:Landroid/os/ParcelFileDescriptor;
+    .restart local v1    # "pfd":Landroid/os/ParcelFileDescriptor;
     :cond_0
     new-instance v3, Ljava/io/IOException;
 
@@ -139,12 +139,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 83
-    .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
+    .end local v1    # "pfd":Landroid/os/ParcelFileDescriptor;
     :catch_0
     move-exception v0
 
     .line 84
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "SerialManager"
 
     const-string v4, "exception in UsbManager.openDevice"

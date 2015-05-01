@@ -37,15 +37,15 @@
 # direct methods
 .method private constructor <init>(IIIIIIIII)V
     .locals 0
-    .parameter "codec"
-    .parameter "minBitRate"
-    .parameter "maxBitRate"
-    .parameter "minFrameRate"
-    .parameter "maxFrameRate"
-    .parameter "minFrameWidth"
-    .parameter "maxFrameWidth"
-    .parameter "minFrameHeight"
-    .parameter "maxFrameHeight"
+    .param p1, "codec"    # I
+    .param p2, "minBitRate"    # I
+    .param p3, "maxBitRate"    # I
+    .param p4, "minFrameRate"    # I
+    .param p5, "maxFrameRate"    # I
+    .param p6, "minFrameWidth"    # I
+    .param p7, "maxFrameWidth"    # I
+    .param p8, "minFrameHeight"    # I
+    .param p9, "maxFrameHeight"    # I
 
     .prologue
     .line 57

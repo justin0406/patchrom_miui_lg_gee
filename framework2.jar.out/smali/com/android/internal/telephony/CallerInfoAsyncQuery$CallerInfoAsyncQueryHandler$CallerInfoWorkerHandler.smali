@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 124
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 130
@@ -48,13 +47,13 @@
     check-cast v0, Landroid/content/AsyncQueryHandler$WorkerArgs;
 
     .line 131
-    .local v0, args:Landroid/content/AsyncQueryHandler$WorkerArgs;
+    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iget-object v1, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
 
     .line 133
-    .local v1, cw:Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
+    .local v1, "cw":Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;
     if-nez v1, :cond_0
 
     .line 142
@@ -89,7 +88,7 @@
     move-result-object v2
 
     .line 164
-    .local v2, reply:Landroid/os/Message;
+    .local v2, "reply":Landroid/os/Message;
     iput-object v0, v2, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 165

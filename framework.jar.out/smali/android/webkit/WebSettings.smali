@@ -44,7 +44,7 @@
 
 .method public static getDefaultUserAgent(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 1353
@@ -805,36 +805,36 @@
     const/4 v1, 0x0
 
     .line 491
-    .local v1, closestSize:Landroid/webkit/WebSettings$TextSize;
+    .local v1, "closestSize":Landroid/webkit/WebSettings$TextSize;
     const v6, 0x7fffffff
 
     .line 492
-    .local v6, smallestDelta:I
+    .local v6, "smallestDelta":I
     :try_start_0
     invoke-virtual {p0}, Landroid/webkit/WebSettings;->getTextZoom()I
 
     move-result v7
 
     .line 493
-    .local v7, textSize:I
+    .local v7, "textSize":I
     invoke-static {}, Landroid/webkit/WebSettings$TextSize;->values()[Landroid/webkit/WebSettings$TextSize;
 
     move-result-object v0
 
-    .local v0, arr$:[Landroid/webkit/WebSettings$TextSize;
+    .local v0, "arr$":[Landroid/webkit/WebSettings$TextSize;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_2
 
     aget-object v5, v0, v3
 
     .line 494
-    .local v5, size:Landroid/webkit/WebSettings$TextSize;
+    .local v5, "size":Landroid/webkit/WebSettings$TextSize;
     iget v8, v5, Landroid/webkit/WebSettings$TextSize;->value:I
 
     sub-int v8, v7, v8
@@ -846,22 +846,22 @@
     move-result v2
 
     .line 495
-    .local v2, delta:I
+    .local v2, "delta":I
     if-nez v2, :cond_0
 
     .line 503
-    .end local v1           #closestSize:Landroid/webkit/WebSettings$TextSize;
-    .end local v2           #delta:I
-    .end local v5           #size:Landroid/webkit/WebSettings$TextSize;
+    .end local v1    # "closestSize":Landroid/webkit/WebSettings$TextSize;
+    .end local v2    # "delta":I
+    .end local v5    # "size":Landroid/webkit/WebSettings$TextSize;
     :goto_1
     monitor-exit p0
 
     return-object v5
 
     .line 498
-    .restart local v1       #closestSize:Landroid/webkit/WebSettings$TextSize;
-    .restart local v2       #delta:I
-    .restart local v5       #size:Landroid/webkit/WebSettings$TextSize;
+    .restart local v1    # "closestSize":Landroid/webkit/WebSettings$TextSize;
+    .restart local v2    # "delta":I
+    .restart local v5    # "size":Landroid/webkit/WebSettings$TextSize;
     :cond_0
     if-ge v2, v6, :cond_1
 
@@ -878,18 +878,18 @@
     goto :goto_0
 
     .line 503
-    .end local v2           #delta:I
-    .end local v5           #size:Landroid/webkit/WebSettings$TextSize;
+    .end local v2    # "delta":I
+    .end local v5    # "size":Landroid/webkit/WebSettings$TextSize;
     :cond_2
     if-eqz v1, :cond_3
 
-    .end local v1           #closestSize:Landroid/webkit/WebSettings$TextSize;
+    .end local v1    # "closestSize":Landroid/webkit/WebSettings$TextSize;
     :goto_2
     move-object v5, v1
 
     goto :goto_1
 
-    .restart local v1       #closestSize:Landroid/webkit/WebSettings$TextSize;
+    .restart local v1    # "closestSize":Landroid/webkit/WebSettings$TextSize;
     :cond_3
     :try_start_1
     sget-object v1, Landroid/webkit/WebSettings$TextSize;->NORMAL:Landroid/webkit/WebSettings$TextSize;
@@ -899,10 +899,10 @@
     goto :goto_2
 
     .line 490
-    .end local v0           #arr$:[Landroid/webkit/WebSettings$TextSize;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    .end local v7           #textSize:I
+    .end local v0    # "arr$":[Landroid/webkit/WebSettings$TextSize;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v7    # "textSize":I
     :catchall_0
     move-exception v8
 
@@ -1041,7 +1041,7 @@
 
 .method public setAllowContentAccess(Z)V
     .locals 1
-    .parameter "allow"
+    .param p1, "allow"    # Z
 
     .prologue
     .line 327
@@ -1054,7 +1054,7 @@
 
 .method public setAllowFileAccess(Z)V
     .locals 1
-    .parameter "allow"
+    .param p1, "allow"    # Z
 
     .prologue
     .line 309
@@ -1073,7 +1073,7 @@
 
 .method public declared-synchronized setAppCacheEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1103
@@ -1098,7 +1098,7 @@
 
 .method public declared-synchronized setAppCacheMaxSize(J)V
     .locals 1
-    .parameter "appCacheMaxSize"
+    .param p1, "appCacheMaxSize"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1125,7 +1125,7 @@
 
 .method public declared-synchronized setAppCachePath(Ljava/lang/String;)V
     .locals 1
-    .parameter "appCachePath"
+    .param p1, "appCachePath"    # Ljava/lang/String;
 
     .prologue
     .line 1117
@@ -1150,7 +1150,7 @@
 
 .method public declared-synchronized setBlockNetworkImage(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 924
@@ -1175,7 +1175,7 @@
 
 .method public declared-synchronized setBlockNetworkLoads(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 956
@@ -1200,7 +1200,7 @@
 
 .method public setBuiltInZoomControls(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 266
@@ -1213,7 +1213,7 @@
 
 .method public setCacheMode(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 1394
@@ -1226,7 +1226,7 @@
 
 .method public declared-synchronized setCursiveFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 770
@@ -1251,7 +1251,7 @@
 
 .method public declared-synchronized setDatabaseEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1149
@@ -1276,7 +1276,7 @@
 
 .method public declared-synchronized setDatabasePath(Ljava/lang/String;)V
     .locals 1
-    .parameter "databasePath"
+    .param p1, "databasePath"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1303,7 +1303,7 @@
 
 .method public declared-synchronized setDefaultFixedFontSize(I)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 869
@@ -1328,7 +1328,7 @@
 
 .method public declared-synchronized setDefaultFontSize(I)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 849
@@ -1353,7 +1353,7 @@
 
 .method public declared-synchronized setDefaultTextEncodingName(Ljava/lang/String;)V
     .locals 1
-    .parameter "encoding"
+    .param p1, "encoding"    # Ljava/lang/String;
 
     .prologue
     .line 1314
@@ -1378,7 +1378,7 @@
 
 .method public setDefaultZoom(Landroid/webkit/WebSettings$ZoomDensity;)V
     .locals 1
-    .parameter "zoom"
+    .param p1, "zoom"    # Landroid/webkit/WebSettings$ZoomDensity;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1393,7 +1393,7 @@
 
 .method public setDisplayZoomControls(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 287
@@ -1406,7 +1406,7 @@
 
 .method public declared-synchronized setDomStorageEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1158
@@ -1431,7 +1431,7 @@
 
 .method public setEnableSmoothTransition(Z)V
     .locals 1
-    .parameter "enable"
+    .param p1, "enable"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1446,7 +1446,7 @@
 
 .method public declared-synchronized setFantasyFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 789
@@ -1471,7 +1471,7 @@
 
 .method public declared-synchronized setFixedFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 713
@@ -1496,7 +1496,7 @@
 
 .method public declared-synchronized setGeolocationDatabasePath(Ljava/lang/String;)V
     .locals 1
-    .parameter "databasePath"
+    .param p1, "databasePath"    # Ljava/lang/String;
 
     .prologue
     .line 1091
@@ -1521,7 +1521,7 @@
 
 .method public declared-synchronized setGeolocationEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1213
@@ -1546,7 +1546,7 @@
 
 .method public declared-synchronized setJavaScriptCanOpenWindowsAutomatically(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1294
@@ -1571,7 +1571,7 @@
 
 .method public declared-synchronized setJavaScriptEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 976
@@ -1596,7 +1596,7 @@
 
 .method public declared-synchronized setLayoutAlgorithm(Landroid/webkit/WebSettings$LayoutAlgorithm;)V
     .locals 1
-    .parameter "l"
+    .param p1, "l"    # Landroid/webkit/WebSettings$LayoutAlgorithm;
 
     .prologue
     .line 675
@@ -1621,7 +1621,7 @@
 
 .method public setLightTouchEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1636,7 +1636,7 @@
 
 .method public setLoadWithOverviewMode(Z)V
     .locals 1
-    .parameter "overview"
+    .param p1, "overview"    # Z
 
     .prologue
     .line 347
@@ -1649,7 +1649,7 @@
 
 .method public declared-synchronized setLoadsImagesAutomatically(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 894
@@ -1674,7 +1674,7 @@
 
 .method public setMediaPlaybackRequiresUserGesture(Z)V
     .locals 1
-    .parameter "require"
+    .param p1, "require"    # Z
 
     .prologue
     .line 237
@@ -1687,7 +1687,7 @@
 
 .method public declared-synchronized setMinimumFontSize(I)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 809
@@ -1712,7 +1712,7 @@
 
 .method public declared-synchronized setMinimumLogicalFontSize(I)V
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 829
@@ -1737,7 +1737,7 @@
 
 .method public setNavDump(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1752,7 +1752,7 @@
 
 .method public setNeedInitialFocus(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
 
     .prologue
     .line 1364
@@ -1765,7 +1765,7 @@
 
 .method public declared-synchronized setPluginState(Landroid/webkit/WebSettings$PluginState;)V
     .locals 1
-    .parameter "state"
+    .param p1, "state"    # Landroid/webkit/WebSettings$PluginState;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1792,7 +1792,7 @@
 
 .method public declared-synchronized setPluginsEnabled(Z)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1819,7 +1819,7 @@
 
 .method public declared-synchronized setPluginsPath(Ljava/lang/String;)V
     .locals 0
-    .parameter "pluginsPath"
+    .param p1, "pluginsPath"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1834,7 +1834,7 @@
 
 .method public declared-synchronized setRenderPriority(Landroid/webkit/WebSettings$RenderPriority;)V
     .locals 1
-    .parameter "priority"
+    .param p1, "priority"    # Landroid/webkit/WebSettings$RenderPriority;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1861,7 +1861,7 @@
 
 .method public declared-synchronized setSansSerifFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 732
@@ -1886,7 +1886,7 @@
 
 .method public setSaveFormData(Z)V
     .locals 1
-    .parameter "save"
+    .param p1, "save"    # Z
 
     .prologue
     .line 417
@@ -1899,7 +1899,7 @@
 
 .method public setSavePassword(Z)V
     .locals 1
-    .parameter "save"
+    .param p1, "save"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1914,7 +1914,7 @@
 
 .method public declared-synchronized setSerifFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 751
@@ -1939,7 +1939,7 @@
 
 .method public declared-synchronized setStandardFontFamily(Ljava/lang/String;)V
     .locals 1
-    .parameter "font"
+    .param p1, "font"    # Ljava/lang/String;
 
     .prologue
     .line 694
@@ -1964,7 +1964,7 @@
 
 .method public declared-synchronized setSupportMultipleWindows(Z)V
     .locals 1
-    .parameter "support"
+    .param p1, "support"    # Z
 
     .prologue
     .line 655
@@ -1989,7 +1989,7 @@
 
 .method public setSupportZoom(Z)V
     .locals 1
-    .parameter "support"
+    .param p1, "support"    # Z
 
     .prologue
     .line 217
@@ -2002,7 +2002,7 @@
 
 .method public declared-synchronized setTextSize(Landroid/webkit/WebSettings$TextSize;)V
     .locals 1
-    .parameter "t"
+    .param p1, "t"    # Landroid/webkit/WebSettings$TextSize;
 
     .prologue
     .line 477
@@ -2031,7 +2031,7 @@
 
 .method public declared-synchronized setTextZoom(I)V
     .locals 1
-    .parameter "textZoom"
+    .param p1, "textZoom"    # I
 
     .prologue
     .line 457
@@ -2056,7 +2056,7 @@
 
 .method public declared-synchronized setUseDoubleTree(Z)V
     .locals 0
-    .parameter "use"
+    .param p1, "use"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2071,7 +2071,7 @@
 
 .method public setUseWebViewBackgroundForOverscrollBackground(Z)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2086,7 +2086,7 @@
 
 .method public declared-synchronized setUseWideViewPort(Z)V
     .locals 1
-    .parameter "use"
+    .param p1, "use"    # Z
 
     .prologue
     .line 633
@@ -2111,7 +2111,7 @@
 
 .method public declared-synchronized setUserAgent(I)V
     .locals 1
-    .parameter "ua"
+    .param p1, "ua"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2138,7 +2138,7 @@
 
 .method public declared-synchronized setUserAgentString(Ljava/lang/String;)V
     .locals 1
-    .parameter "ua"
+    .param p1, "ua"    # Ljava/lang/String;
 
     .prologue
     .line 1332

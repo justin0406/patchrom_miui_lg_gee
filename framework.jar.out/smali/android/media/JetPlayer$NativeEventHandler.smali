@@ -23,9 +23,8 @@
 # direct methods
 .method public constructor <init>(Landroid/media/JetPlayer;Landroid/media/JetPlayer;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "jet"
-    .parameter "looper"
+    .param p2, "jet"    # Landroid/media/JetPlayer;
+    .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 400
@@ -45,17 +44,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 407
     const/4 v7, 0x0
 
     .line 408
-    .local v7, listener:Landroid/media/JetPlayer$OnJetEventListener;
+    .local v7, "listener":Landroid/media/JetPlayer$OnJetEventListener;
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->this$0:Landroid/media/JetPlayer;
 
-    #getter for: Landroid/media/JetPlayer;->mEventListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/media/JetPlayer;->mEventListenerLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$000(Landroid/media/JetPlayer;)Ljava/lang/Object;
 
     move-result-object v1
@@ -66,7 +65,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->mJet:Landroid/media/JetPlayer;
 
-    #getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
+    # getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
 
     move-result-object v7
@@ -102,7 +101,7 @@
 
     move-result-object v0
 
-    #calls: Landroid/media/JetPlayer;->loge(Ljava/lang/String;)V
+    # invokes: Landroid/media/JetPlayer;->loge(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/media/JetPlayer;->access$200(Ljava/lang/String;)V
 
     .line 444
@@ -128,7 +127,7 @@
     .line 416
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->this$0:Landroid/media/JetPlayer;
 
-    #getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
+    # getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
 
     move-result-object v0
@@ -137,7 +136,7 @@
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    const/high16 v3, -0x100
+    const/high16 v3, -0x1000000
 
     and-int/2addr v2, v3
 
@@ -147,7 +146,7 @@
 
     iget v3, p1, Landroid/os/Message;->arg1:I
 
-    const/high16 v4, 0xfc
+    const/high16 v4, 0xfc0000
 
     and-int/2addr v3, v4
 

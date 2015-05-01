@@ -17,7 +17,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -88,7 +88,7 @@
 
 .method public constructor <init>(J)V
     .locals 2
-    .parameter "bucketDuration"
+    .param p1, "bucketDuration"    # J
 
     .prologue
     .line 95
@@ -104,8 +104,8 @@
 
 .method public constructor <init>(JI)V
     .locals 1
-    .parameter "bucketDuration"
-    .parameter "initialSize"
+    .param p1, "bucketDuration"    # J
+    .param p3, "initialSize"    # I
 
     .prologue
     .line 99
@@ -119,9 +119,9 @@
 
 .method public constructor <init>(JII)V
     .locals 2
-    .parameter "bucketDuration"
-    .parameter "initialSize"
-    .parameter "fields"
+    .param p1, "bucketDuration"    # J
+    .param p3, "initialSize"    # I
+    .param p4, "fields"    # I
 
     .prologue
     .line 102
@@ -211,8 +211,8 @@
 
 .method public constructor <init>(Landroid/net/NetworkStatsHistory;J)V
     .locals 1
-    .parameter "existing"
-    .parameter "bucketDuration"
+    .param p1, "existing"    # Landroid/net/NetworkStatsHistory;
+    .param p2, "bucketDuration"    # J
 
     .prologue
     .line 116
@@ -231,7 +231,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 120
@@ -313,7 +313,7 @@
 
 .method public constructor <init>(Ljava/io/DataInputStream;)V
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -330,7 +330,7 @@
     move-result v0
 
     .line 148
-    .local v0, version:I
+    .local v0, "version":I
     packed-switch v0, :pswitch_data_0
 
     .line 177
@@ -611,9 +611,9 @@
 
 .method private static addLong([JIJ)V
     .locals 2
-    .parameter "array"
-    .parameter "i"
-    .parameter "value"
+    .param p0, "array"    # [J
+    .param p1, "i"    # I
+    .param p2, "value"    # J
 
     .prologue
     .line 627
@@ -632,8 +632,8 @@
 
 .method private ensureBuckets(JJ)V
     .locals 7
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
 
     .prologue
     .line 384
@@ -661,7 +661,7 @@
     .line 387
     move-wide v1, p1
 
-    .local v1, now:J
+    .local v1, "now":J
     :goto_0
     cmp-long v3, v1, p3
 
@@ -679,7 +679,7 @@
     move-result v0
 
     .line 390
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_0
 
     .line 392
@@ -696,16 +696,16 @@
     goto :goto_0
 
     .line 395
-    .end local v0           #index:I
+    .end local v0    # "index":I
     :cond_1
     return-void
 .end method
 
 .method private static getLong([JIJ)J
     .locals 0
-    .parameter "array"
-    .parameter "i"
-    .parameter "value"
+    .param p0, "array"    # [J
+    .param p1, "i"    # I
+    .param p2, "value"    # J
 
     .prologue
     .line 619
@@ -713,15 +713,15 @@
 
     aget-wide p2, p0, p1
 
-    .end local p2
+    .end local p2    # "value":J
     :cond_0
     return-wide p2
 .end method
 
 .method private insertBucket(IJ)V
     .locals 7
-    .parameter "index"
-    .parameter "start"
+    .param p1, "index"    # I
+    .param p2, "start"    # J
 
     .prologue
     const-wide/16 v5, 0x0
@@ -751,7 +751,7 @@
     div-int/lit8 v2, v3, 0x2
 
     .line 404
-    .local v2, newLength:I
+    .local v2, "newLength":I
     iget-object v3, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
 
     invoke-static {v3, v2}, Ljava/util/Arrays;->copyOf([JI)[J
@@ -844,7 +844,7 @@
     iput-object v3, p0, Landroid/net/NetworkStatsHistory;->operations:[J
 
     .line 414
-    .end local v2           #newLength:I
+    .end local v2    # "newLength":I
     :cond_5
     iget v3, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
@@ -854,13 +854,13 @@
     add-int/lit8 v0, p1, 0x1
 
     .line 416
-    .local v0, dstPos:I
+    .local v0, "dstPos":I
     iget v3, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
     sub-int v1, v3, p1
 
     .line 418
-    .local v1, length:I
+    .local v1, "length":I
     iget-object v3, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
 
     iget-object v4, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
@@ -939,8 +939,8 @@
     invoke-static {v3, p1, v4, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 427
-    .end local v0           #dstPos:I
-    .end local v1           #length:I
+    .end local v0    # "dstPos":I
+    .end local v1    # "length":I
     :cond_b
     iget-object v3, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
 
@@ -989,9 +989,9 @@
 
 .method public static randomLong(Ljava/util/Random;JJ)J
     .locals 4
-    .parameter "r"
-    .parameter "start"
-    .parameter "end"
+    .param p0, "r"    # Ljava/util/Random;
+    .param p1, "start"    # J
+    .param p3, "end"    # J
 
     .prologue
     .line 573
@@ -1016,9 +1016,9 @@
 
 .method private static setLong([JIJ)V
     .locals 0
-    .parameter "array"
-    .parameter "i"
-    .parameter "value"
+    .param p0, "array"    # [J
+    .param p1, "i"    # I
+    .param p2, "value"    # J
 
     .prologue
     .line 623
@@ -1045,8 +1045,8 @@
 
 .method public dump(Lcom/android/internal/util/IndentingPrintWriter;Z)V
     .locals 4
-    .parameter "pw"
-    .parameter "fullHistory"
+    .param p1, "pw"    # Lcom/android/internal/util/IndentingPrintWriter;
+    .param p2, "fullHistory"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1067,7 +1067,7 @@
     if-eqz p2, :cond_7
 
     .line 581
-    .local v1, start:I
+    .local v1, "start":I
     :goto_0
     if-lez v1, :cond_0
 
@@ -1086,7 +1086,7 @@
     :cond_0
     move v0, v1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     iget v2, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
@@ -1208,8 +1208,8 @@
     goto :goto_1
 
     .line 580
-    .end local v0           #i:I
-    .end local v1           #start:I
+    .end local v0    # "i":I
+    .end local v1    # "start":I
     :cond_7
     iget v2, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
@@ -1222,8 +1222,8 @@
     goto/16 :goto_0
 
     .line 596
-    .restart local v0       #i:I
-    .restart local v1       #start:I
+    .restart local v0    # "i":I
+    .restart local v1    # "start":I
     :cond_8
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
@@ -1233,7 +1233,7 @@
 
 .method public estimateResizeBuckets(J)I
     .locals 4
-    .parameter "newBucketDuration"
+    .param p1, "newBucketDuration"    # J
 
     .prologue
     .line 631
@@ -1258,9 +1258,9 @@
 
 .method public generateRandom(JJJ)V
     .locals 19
-    .parameter "start"
-    .parameter "end"
-    .parameter "bytes"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "bytes"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1271,13 +1271,13 @@
     invoke-direct/range {v17 .. v17}, Ljava/util/Random;-><init>()V
 
     .line 530
-    .local v17, r:Ljava/util/Random;
+    .local v17, "r":Ljava/util/Random;
     invoke-virtual/range {v17 .. v17}, Ljava/util/Random;->nextFloat()F
 
     move-result v18
 
     .line 531
-    .local v18, fractionRx:F
+    .local v18, "fractionRx":F
     move-wide/from16 v0, p5
 
     long-to-float v2, v0
@@ -1287,12 +1287,12 @@
     float-to-long v7, v2
 
     .line 532
-    .local v7, rxBytes:J
+    .local v7, "rxBytes":J
     move-wide/from16 v0, p5
 
     long-to-float v2, v0
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     sub-float v3, v3, v18
 
@@ -1301,24 +1301,24 @@
     float-to-long v11, v2
 
     .line 534
-    .local v11, txBytes:J
+    .local v11, "txBytes":J
     const-wide/16 v2, 0x400
 
     div-long v9, v7, v2
 
     .line 535
-    .local v9, rxPackets:J
+    .local v9, "rxPackets":J
     const-wide/16 v2, 0x400
 
     div-long v13, v11, v2
 
     .line 536
-    .local v13, txPackets:J
+    .local v13, "txPackets":J
     const-wide/16 v2, 0x800
 
     div-long v15, v7, v2
 
-    .local v15, operations:J
+    .local v15, "operations":J
     move-object/from16 v2, p0
 
     move-wide/from16 v3, p1
@@ -1334,14 +1334,14 @@
 
 .method public generateRandom(JJJJJJJLjava/util/Random;)V
     .locals 20
-    .parameter "start"
-    .parameter "end"
-    .parameter "rxBytes"
-    .parameter "rxPackets"
-    .parameter "txBytes"
-    .parameter "txPackets"
-    .parameter "operations"
-    .parameter "r"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "rxBytes"    # J
+    .param p7, "rxPackets"    # J
+    .param p9, "txBytes"    # J
+    .param p11, "txPackets"    # J
+    .param p13, "operations"    # J
+    .param p15, "r"    # Ljava/util/Random;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1373,7 +1373,7 @@
     invoke-direct/range {v5 .. v19}, Landroid/net/NetworkStats$Entry;-><init>(Ljava/lang/String;IIIJJJJJ)V
 
     .line 552
-    .local v5, entry:Landroid/net/NetworkStats$Entry;
+    .local v5, "entry":Landroid/net/NetworkStats$Entry;
     :goto_0
     const-wide/16 v11, 0x400
 
@@ -1418,7 +1418,7 @@
     move-result-wide v7
 
     .line 554
-    .local v7, curStart:J
+    .local v7, "curStart":J
     const-wide/16 v11, 0x0
 
     sub-long v13, p3, v7
@@ -1436,7 +1436,7 @@
     add-long v9, v7, v11
 
     .line 556
-    .local v9, curEnd:J
+    .local v9, "curEnd":J
     const-wide/16 v11, 0x0
 
     move-object/from16 v0, p15
@@ -1536,8 +1536,8 @@
     goto/16 :goto_0
 
     .line 570
-    .end local v7           #curStart:J
-    .end local v9           #curEnd:J
+    .end local v7    # "curStart":J
+    .end local v9    # "curEnd":J
     :cond_1
     return-void
 .end method
@@ -1579,14 +1579,14 @@
     return-wide v0
 
     :cond_0
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     goto :goto_0
 .end method
 
 .method public getIndexAfter(J)I
     .locals 4
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     const/4 v3, 0x0
@@ -1601,7 +1601,7 @@
     move-result v0
 
     .line 256
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_0
 
     .line 257
@@ -1628,7 +1628,7 @@
 
 .method public getIndexBefore(J)I
     .locals 4
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     const/4 v3, 0x0
@@ -1643,7 +1643,7 @@
     move-result v0
 
     .line 242
-    .local v0, index:I
+    .local v0, "index":I
     if-gez v0, :cond_0
 
     .line 243
@@ -1708,8 +1708,8 @@
 
 .method public getValues(ILandroid/net/NetworkStatsHistory$Entry;)Landroid/net/NetworkStatsHistory$Entry;
     .locals 5
-    .parameter "i"
-    .parameter "recycle"
+    .param p1, "i"    # I
+    .param p2, "recycle"    # Landroid/net/NetworkStatsHistory$Entry;
 
     .prologue
     const-wide/16 v3, -0x1
@@ -1720,7 +1720,7 @@
     move-object v0, p2
 
     .line 269
-    .local v0, entry:Landroid/net/NetworkStatsHistory$Entry;
+    .local v0, "entry":Landroid/net/NetworkStatsHistory$Entry;
     :goto_0
     iget-object v1, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
 
@@ -1791,7 +1791,7 @@
     return-object v0
 
     .line 268
-    .end local v0           #entry:Landroid/net/NetworkStatsHistory$Entry;
+    .end local v0    # "entry":Landroid/net/NetworkStatsHistory$Entry;
     :cond_0
     new-instance v0, Landroid/net/NetworkStatsHistory$Entry;
 
@@ -1802,10 +1802,10 @@
 
 .method public getValues(JJJLandroid/net/NetworkStatsHistory$Entry;)Landroid/net/NetworkStatsHistory$Entry;
     .locals 23
-    .parameter "start"
-    .parameter "end"
-    .parameter "now"
-    .parameter "recycle"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "now"    # J
+    .param p7, "recycle"    # Landroid/net/NetworkStatsHistory$Entry;
 
     .prologue
     .line 480
@@ -1814,7 +1814,7 @@
     move-object/from16 v8, p7
 
     .line 481
-    .local v8, entry:Landroid/net/NetworkStatsHistory$Entry;
+    .local v8, "entry":Landroid/net/NetworkStatsHistory$Entry;
     :goto_0
     sub-long v17, p3, p1
 
@@ -1933,10 +1933,10 @@
     move-result v16
 
     .line 491
-    .local v16, startIndex:I
+    .local v16, "startIndex":I
     move/from16 v9, v16
 
-    .local v9, i:I
+    .local v9, "i":I
     :goto_7
     if-ltz v9, :cond_0
 
@@ -1950,7 +1950,7 @@
     aget-wide v6, v17, v9
 
     .line 493
-    .local v6, curStart:J
+    .local v6, "curStart":J
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
@@ -1960,21 +1960,21 @@
     add-long v4, v6, v17
 
     .line 496
-    .local v4, curEnd:J
+    .local v4, "curEnd":J
     cmp-long v17, v4, p1
 
     if-gtz v17, :cond_8
 
     .line 520
-    .end local v4           #curEnd:J
-    .end local v6           #curStart:J
+    .end local v4    # "curEnd":J
+    .end local v6    # "curStart":J
     :cond_0
     return-object v8
 
     .line 480
-    .end local v8           #entry:Landroid/net/NetworkStatsHistory$Entry;
-    .end local v9           #i:I
-    .end local v16           #startIndex:I
+    .end local v8    # "entry":Landroid/net/NetworkStatsHistory$Entry;
+    .end local v9    # "i":I
+    .end local v16    # "startIndex":I
     :cond_1
     new-instance v8, Landroid/net/NetworkStatsHistory$Entry;
 
@@ -1983,7 +1983,7 @@
     goto/16 :goto_0
 
     .line 483
-    .restart local v8       #entry:Landroid/net/NetworkStatsHistory$Entry;
+    .restart local v8    # "entry":Landroid/net/NetworkStatsHistory$Entry;
     :cond_2
     const-wide/16 v17, -0x1
 
@@ -2020,10 +2020,10 @@
     goto :goto_6
 
     .line 498
-    .restart local v4       #curEnd:J
-    .restart local v6       #curStart:J
-    .restart local v9       #i:I
-    .restart local v16       #startIndex:I
+    .restart local v4    # "curEnd":J
+    .restart local v6    # "curStart":J
+    .restart local v9    # "i":I
+    .restart local v16    # "startIndex":I
     :cond_8
     cmp-long v17, v6, p3
 
@@ -2049,7 +2049,7 @@
     const/4 v3, 0x1
 
     .line 503
-    .local v3, activeBucket:Z
+    .local v3, "activeBucket":Z
     :goto_9
     if-eqz v3, :cond_11
 
@@ -2059,7 +2059,7 @@
     iget-wide v10, v0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
 
     .line 510
-    .local v10, overlap:J
+    .local v10, "overlap":J
     :goto_a
     const-wide/16 v17, 0x0
 
@@ -2297,15 +2297,15 @@
     goto/16 :goto_8
 
     .line 501
-    .end local v3           #activeBucket:Z
-    .end local v10           #overlap:J
+    .end local v3    # "activeBucket":Z
+    .end local v10    # "overlap":J
     :cond_10
     const/4 v3, 0x0
 
     goto/16 :goto_9
 
     .line 506
-    .restart local v3       #activeBucket:Z
+    .restart local v3    # "activeBucket":Z
     :cond_11
     cmp-long v17, v4, p3
 
@@ -2314,7 +2314,7 @@
     move-wide v12, v4
 
     .line 507
-    .local v12, overlapEnd:J
+    .local v12, "overlapEnd":J
     :goto_b
     cmp-long v17, v6, p1
 
@@ -2323,23 +2323,23 @@
     move-wide v14, v6
 
     .line 508
-    .local v14, overlapStart:J
+    .local v14, "overlapStart":J
     :goto_c
     sub-long v10, v12, v14
 
-    .restart local v10       #overlap:J
+    .restart local v10    # "overlap":J
     goto/16 :goto_a
 
-    .end local v10           #overlap:J
-    .end local v12           #overlapEnd:J
-    .end local v14           #overlapStart:J
+    .end local v10    # "overlap":J
+    .end local v12    # "overlapEnd":J
+    .end local v14    # "overlapStart":J
     :cond_12
     move-wide/from16 v12, p3
 
     .line 506
     goto :goto_b
 
-    .restart local v12       #overlapEnd:J
+    .restart local v12    # "overlapEnd":J
     :cond_13
     move-wide/from16 v14, p1
 
@@ -2349,9 +2349,9 @@
 
 .method public getValues(JJLandroid/net/NetworkStatsHistory$Entry;)Landroid/net/NetworkStatsHistory$Entry;
     .locals 8
-    .parameter "start"
-    .parameter "end"
-    .parameter "recycle"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "recycle"    # Landroid/net/NetworkStatsHistory$Entry;
 
     .prologue
     .line 472
@@ -2374,10 +2374,10 @@
 
 .method public recordData(JJJJ)V
     .locals 15
-    .parameter "start"
-    .parameter "end"
-    .parameter "rxBytes"
-    .parameter "txBytes"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "rxBytes"    # J
+    .param p7, "txBytes"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2421,9 +2421,9 @@
 
 .method public recordData(JJLandroid/net/NetworkStats$Entry;)V
     .locals 40
-    .parameter "start"
-    .parameter "end"
-    .parameter "entry"
+    .param p1, "start"    # J
+    .param p3, "end"    # J
+    .param p5, "entry"    # Landroid/net/NetworkStats$Entry;
 
     .prologue
     .line 295
@@ -2434,7 +2434,7 @@
     move-wide/from16 v25, v0
 
     .line 296
-    .local v25, rxBytes:J
+    .local v25, "rxBytes":J
     move-object/from16 v0, p5
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
@@ -2442,7 +2442,7 @@
     move-wide/from16 v27, v0
 
     .line 297
-    .local v27, rxPackets:J
+    .local v27, "rxPackets":J
     move-object/from16 v0, p5
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->txBytes:J
@@ -2450,7 +2450,7 @@
     move-wide/from16 v30, v0
 
     .line 298
-    .local v30, txBytes:J
+    .local v30, "txBytes":J
     move-object/from16 v0, p5
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
@@ -2458,7 +2458,7 @@
     move-wide/from16 v32, v0
 
     .line 299
-    .local v32, txPackets:J
+    .local v32, "txPackets":J
     move-object/from16 v0, p5
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->operations:J
@@ -2466,7 +2466,7 @@
     move-wide/from16 v21, v0
 
     .line 301
-    .local v21, operations:J
+    .local v21, "operations":J
     invoke-virtual/range {p5 .. p5}, Landroid/net/NetworkStats$Entry;->isNegative()Z
 
     move-result v34
@@ -2502,7 +2502,7 @@
     sub-long v8, p3, p1
 
     .line 313
-    .local v8, duration:J
+    .local v8, "duration":J
     move-object/from16 v0, p0
 
     move-wide/from16 v1, p3
@@ -2512,10 +2512,10 @@
     move-result v29
 
     .line 314
-    .local v29, startIndex:I
+    .local v29, "startIndex":I
     move/from16 v20, v29
 
-    .local v20, i:I
+    .local v20, "i":I
     :goto_1
     if-ltz v20, :cond_2
 
@@ -2529,7 +2529,7 @@
     aget-wide v6, v34, v20
 
     .line 316
-    .local v6, curStart:J
+    .local v6, "curStart":J
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
@@ -2539,14 +2539,14 @@
     add-long v4, v6, v34
 
     .line 319
-    .local v4, curEnd:J
+    .local v4, "curEnd":J
     cmp-long v34, v4, p1
 
     if-gez v34, :cond_3
 
     .line 343
-    .end local v4           #curEnd:J
-    .end local v6           #curStart:J
+    .end local v4    # "curEnd":J
+    .end local v6    # "curStart":J
     :cond_2
     move-object/from16 v0, p0
 
@@ -2579,8 +2579,8 @@
     goto :goto_0
 
     .line 321
-    .restart local v4       #curEnd:J
-    .restart local v6       #curStart:J
+    .restart local v4    # "curEnd":J
+    .restart local v6    # "curStart":J
     :cond_3
     cmp-long v34, v6, p3
 
@@ -2610,7 +2610,7 @@
     sub-long v23, v34, v36
 
     .line 324
-    .local v23, overlap:J
+    .local v23, "overlap":J
     const-wide/16 v34, 0x0
 
     cmp-long v34, v23, v34
@@ -2623,31 +2623,31 @@
     div-long v12, v34, v8
 
     .line 328
-    .local v12, fracRxBytes:J
+    .local v12, "fracRxBytes":J
     mul-long v34, v27, v23
 
     div-long v14, v34, v8
 
     .line 329
-    .local v14, fracRxPackets:J
+    .local v14, "fracRxPackets":J
     mul-long v34, v30, v23
 
     div-long v16, v34, v8
 
     .line 330
-    .local v16, fracTxBytes:J
+    .local v16, "fracTxBytes":J
     mul-long v34, v32, v23
 
     div-long v18, v34, v8
 
     .line 331
-    .local v18, fracTxPackets:J
+    .local v18, "fracTxPackets":J
     mul-long v34, v21, v23
 
     div-long v10, v34, v8
 
     .line 333
-    .local v10, fracOperations:J
+    .local v10, "fracOperations":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/NetworkStatsHistory;->activeTime:[J
@@ -2749,11 +2749,11 @@
 
 .method public recordEntireHistory(Landroid/net/NetworkStatsHistory;)V
     .locals 6
-    .parameter "input"
+    .param p1, "input"    # Landroid/net/NetworkStatsHistory;
 
     .prologue
     .line 351
-    const-wide/high16 v2, -0x8000
+    const-wide/high16 v2, -0x8000000000000000L
 
     const-wide v4, 0x7fffffffffffffffL
 
@@ -2769,9 +2769,9 @@
 
 .method public recordHistory(Landroid/net/NetworkStatsHistory;JJ)V
     .locals 17
-    .parameter "input"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "input"    # Landroid/net/NetworkStatsHistory;
+    .param p2, "start"    # J
+    .param p4, "end"    # J
 
     .prologue
     .line 360
@@ -2798,10 +2798,10 @@
     invoke-direct/range {v1 .. v15}, Landroid/net/NetworkStats$Entry;-><init>(Ljava/lang/String;IIIJJJJJ)V
 
     .line 362
-    .local v1, entry:Landroid/net/NetworkStats$Entry;
+    .local v1, "entry":Landroid/net/NetworkStats$Entry;
     const/16 v16, 0x0
 
-    .local v16, i:I
+    .local v16, "i":I
     :goto_0
     move-object/from16 v0, p1
 
@@ -2819,7 +2819,7 @@
     aget-wide v3, v2, v16
 
     .line 364
-    .local v3, bucketStart:J
+    .local v3, "bucketStart":J
     move-object/from16 v0, p1
 
     iget-wide v7, v0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
@@ -2827,7 +2827,7 @@
     add-long v5, v3, v7
 
     .line 367
-    .local v5, bucketEnd:J
+    .local v5, "bucketEnd":J
     cmp-long v2, v3, p2
 
     if-ltz v2, :cond_0
@@ -2929,15 +2929,15 @@
     goto :goto_1
 
     .line 377
-    .end local v3           #bucketStart:J
-    .end local v5           #bucketEnd:J
+    .end local v3    # "bucketStart":J
+    .end local v5    # "bucketEnd":J
     :cond_2
     return-void
 .end method
 
 .method public removeBucketsBefore(J)V
     .locals 8
-    .parameter "cutoff"
+    .param p1, "cutoff"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2945,7 +2945,7 @@
     .line 443
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     iget v6, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
@@ -2957,20 +2957,20 @@
     aget-wide v2, v6, v4
 
     .line 445
-    .local v2, curStart:J
+    .local v2, "curStart":J
     iget-wide v6, p0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
 
     add-long v0, v2, v6
 
     .line 449
-    .local v0, curEnd:J
+    .local v0, "curEnd":J
     cmp-long v6, v0, p1
 
     if-lez v6, :cond_8
 
     .line 452
-    .end local v0           #curEnd:J
-    .end local v2           #curStart:J
+    .end local v0    # "curEnd":J
+    .end local v2    # "curStart":J
     :cond_0
     if-lez v4, :cond_7
 
@@ -2980,7 +2980,7 @@
     array-length v5, v6
 
     .line 454
-    .local v5, length:I
+    .local v5, "length":I
     iget-object v6, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
 
     invoke-static {v6, v4, v5}, Ljava/util/Arrays;->copyOfRange([JII)[J
@@ -3081,13 +3081,13 @@
     iput v6, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
 
     .line 465
-    .end local v5           #length:I
+    .end local v5    # "length":I
     :cond_7
     return-void
 
     .line 443
-    .restart local v0       #curEnd:J
-    .restart local v2       #curStart:J
+    .restart local v0    # "curEnd":J
+    .restart local v2    # "curStart":J
     :cond_8
     add-int/lit8 v4, v4, 0x1
 
@@ -3114,7 +3114,7 @@
     invoke-direct {v0}, Ljava/io/CharArrayWriter;-><init>()V
 
     .line 602
-    .local v0, writer:Ljava/io/CharArrayWriter;
+    .local v0, "writer":Ljava/io/CharArrayWriter;
     new-instance v1, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string v2, "  "
@@ -3135,8 +3135,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 135
@@ -3204,7 +3204,7 @@
 
 .method public writeToStream(Ljava/io/DataOutputStream;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

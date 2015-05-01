@@ -34,7 +34,7 @@
 
 .method public constructor <init>(Z)V
     .locals 1
-    .parameter "singleActivityMode"
+    .param p1, "singleActivityMode"    # Z
 
     .prologue
     .line 46
@@ -55,10 +55,10 @@
 # virtual methods
 .method dispatchActivityResult(Ljava/lang/String;IILandroid/content/Intent;)V
     .locals 2
-    .parameter "who"
-    .parameter "requestCode"
-    .parameter "resultCode"
-    .parameter "data"
+    .param p1, "who"    # Ljava/lang/String;
+    .param p2, "requestCode"    # I
+    .param p3, "resultCode"    # I
+    .param p4, "data"    # Landroid/content/Intent;
 
     .prologue
     .line 113
@@ -72,14 +72,14 @@
     move-result-object v0
 
     .line 121
-    .local v0, act:Landroid/app/Activity;
+    .local v0, "act":Landroid/app/Activity;
     if-eqz v0, :cond_0
 
     .line 122
     invoke-virtual {v0, p2, p3, p4}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 127
-    .end local v0           #act:Landroid/app/Activity;
+    .end local v0    # "act":Landroid/app/Activity;
     :goto_0
     return-void
 
@@ -116,7 +116,7 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 52
@@ -132,7 +132,7 @@
     move-result-object v0
 
     .line 55
-    .local v0, states:Landroid/os/Bundle;
+    .local v0, "states":Landroid/os/Bundle;
     :goto_0
     iget-object v1, p0, Landroid/app/ActivityGroup;->mLocalActivityManager:Landroid/app/LocalActivityManager;
 
@@ -142,7 +142,7 @@
     return-void
 
     .line 53
-    .end local v0           #states:Landroid/os/Bundle;
+    .end local v0    # "states":Landroid/os/Bundle;
     :cond_0
     const/4 v0, 0x0
 
@@ -231,7 +231,7 @@
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 66
@@ -245,7 +245,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, state:Landroid/os/Bundle;
+    .local v0, "state":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     .line 69

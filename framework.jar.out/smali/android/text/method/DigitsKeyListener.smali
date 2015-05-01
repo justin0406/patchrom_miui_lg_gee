@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final CHARACTERS:[[C = null
+.field private static final CHARACTERS:[[C
 
 .field private static final DECIMAL:I = 0x2
 
@@ -82,67 +82,67 @@
 
     .line 52
     :array_0
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
     .end array-data
 
     :array_1
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
-        0x2dt 0x0t
-        0x2bt 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x2ds
+        0x2bs
     .end array-data
 
     :array_2
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
-        0x2et 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x2es
     .end array-data
 
     nop
 
     :array_3
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
-        0x2dt 0x0t
-        0x2bt 0x0t
-        0x2et 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x2ds
+        0x2bs
+        0x2es
     .end array-data
 .end method
 
@@ -161,8 +161,8 @@
 
 .method public constructor <init>(ZZ)V
     .locals 3
-    .parameter "sign"
-    .parameter "decimal"
+    .param p1, "sign"    # Z
+    .param p2, "decimal"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -190,7 +190,7 @@
     or-int v0, v2, v1
 
     .line 85
-    .local v0, kind:I
+    .local v0, "kind":I
     sget-object v1, Landroid/text/method/DigitsKeyListener;->CHARACTERS:[[C
 
     aget-object v1, v1, v0
@@ -200,7 +200,7 @@
     .line 86
     return-void
 
-    .end local v0           #kind:I
+    .end local v0    # "kind":I
     :cond_1
     move v2, v1
 
@@ -224,7 +224,7 @@
 
 .method public static getInstance(Ljava/lang/String;)Landroid/text/method/DigitsKeyListener;
     .locals 4
-    .parameter "accepted"
+    .param p0, "accepted"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -235,7 +235,7 @@
     invoke-direct {v0}, Landroid/text/method/DigitsKeyListener;-><init>()V
 
     .line 120
-    .local v0, dim:Landroid/text/method/DigitsKeyListener;
+    .local v0, "dim":Landroid/text/method/DigitsKeyListener;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -259,8 +259,8 @@
 
 .method public static getInstance(ZZ)Landroid/text/method/DigitsKeyListener;
     .locals 3
-    .parameter "sign"
-    .parameter "decimal"
+    .param p0, "sign"    # Z
+    .param p1, "decimal"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -279,7 +279,7 @@
     or-int v0, v2, v1
 
     .line 103
-    .local v0, kind:I
+    .local v0, "kind":I
     sget-object v1, Landroid/text/method/DigitsKeyListener;->sInstance:[Landroid/text/method/DigitsKeyListener;
 
     aget-object v1, v1, v0
@@ -295,7 +295,7 @@
     :goto_1
     return-object v1
 
-    .end local v0           #kind:I
+    .end local v0    # "kind":I
     :cond_1
     move v2, v1
 
@@ -303,7 +303,7 @@
     goto :goto_0
 
     .line 106
-    .restart local v0       #kind:I
+    .restart local v0    # "kind":I
     :cond_2
     sget-object v1, Landroid/text/method/DigitsKeyListener;->sInstance:[Landroid/text/method/DigitsKeyListener;
 
@@ -323,7 +323,7 @@
 
 .method private static isDecimalPointChar(C)Z
     .locals 1
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 65
@@ -344,7 +344,7 @@
 
 .method private static isSignChar(C)Z
     .locals 1
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 60
@@ -372,12 +372,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 10
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     .line 140
@@ -386,7 +386,7 @@
     move-result-object v4
 
     .line 142
-    .local v4, out:Ljava/lang/CharSequence;
+    .local v4, "out":Ljava/lang/CharSequence;
     iget-boolean v8, p0, Landroid/text/method/DigitsKeyListener;->mSign:Z
 
     if-nez v8, :cond_1
@@ -396,13 +396,13 @@
     if-nez v8, :cond_1
 
     .line 226
-    .end local v4           #out:Ljava/lang/CharSequence;
+    .end local v4    # "out":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-object v4
 
     .line 146
-    .restart local v4       #out:Ljava/lang/CharSequence;
+    .restart local v4    # "out":Ljava/lang/CharSequence;
     :cond_1
     if-eqz v4, :cond_2
 
@@ -422,20 +422,20 @@
     const/4 v5, -0x1
 
     .line 153
-    .local v5, sign:I
+    .local v5, "sign":I
     const/4 v1, -0x1
 
     .line 154
-    .local v1, decimal:I
+    .local v1, "decimal":I
     invoke-interface {p4}, Landroid/text/Spanned;->length()I
 
     move-result v2
 
     .line 160
-    .local v2, dlen:I
+    .local v2, "dlen":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, p5, :cond_5
 
@@ -445,7 +445,7 @@
     move-result v0
 
     .line 163
-    .local v0, c:C
+    .local v0, "c":C
     invoke-static {v0}, Landroid/text/method/DigitsKeyListener;->isSignChar(C)Z
 
     move-result v8
@@ -476,7 +476,7 @@
     goto :goto_2
 
     .line 169
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_5
     move/from16 v3, p6
 
@@ -489,7 +489,7 @@
     move-result v0
 
     .line 172
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     invoke-static {v0}, Landroid/text/method/DigitsKeyListener;->isSignChar(C)Z
 
     move-result v8
@@ -519,12 +519,12 @@
     goto :goto_3
 
     .line 186
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_8
     const/4 v7, 0x0
 
     .line 188
-    .local v7, stripped:Landroid/text/SpannableStringBuilder;
+    .local v7, "stripped":Landroid/text/SpannableStringBuilder;
     add-int/lit8 v3, p3, -0x1
 
     :goto_4
@@ -536,11 +536,11 @@
     move-result v0
 
     .line 190
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     const/4 v6, 0x0
 
     .line 192
-    .local v6, strip:Z
+    .local v6, "strip":Z
     invoke-static {v0}, Landroid/text/method/DigitsKeyListener;->isSignChar(C)Z
 
     move-result v8
@@ -615,11 +615,11 @@
     .line 214
     new-instance v7, Landroid/text/SpannableStringBuilder;
 
-    .end local v7           #stripped:Landroid/text/SpannableStringBuilder;
+    .end local v7    # "stripped":Landroid/text/SpannableStringBuilder;
     invoke-direct {v7, p1, p2, p3}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;II)V
 
     .line 217
-    .restart local v7       #stripped:Landroid/text/SpannableStringBuilder;
+    .restart local v7    # "stripped":Landroid/text/SpannableStringBuilder;
     :cond_10
     sub-int v8, v3, p2
 
@@ -636,8 +636,8 @@
     goto :goto_4
 
     .line 221
-    .end local v0           #c:C
-    .end local v6           #strip:Z
+    .end local v0    # "c":C
+    .end local v6    # "strip":Z
     :cond_12
     if-eqz v7, :cond_13
 
@@ -674,7 +674,7 @@
     const/4 v0, 0x2
 
     .line 128
-    .local v0, contentType:I
+    .local v0, "contentType":I
     iget-boolean v1, p0, Landroid/text/method/DigitsKeyListener;->mSign:Z
 
     if-eqz v1, :cond_0

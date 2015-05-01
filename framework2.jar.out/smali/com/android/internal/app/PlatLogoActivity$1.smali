@@ -28,8 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/widget/TextView;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 106
@@ -46,7 +44,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 7
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 110
@@ -98,7 +96,7 @@
     int-to-float v0, v1
 
     .line 117
-    .local v0, offset:F
+    .local v0, "offset":F
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$letter:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -109,7 +107,7 @@
 
     move-result-wide v3
 
-    const-wide/high16 v5, 0x3fe0
+    const-wide/high16 v5, 0x3fe0000000000000L    # 0.5
 
     cmpl-double v1, v3, v5
 

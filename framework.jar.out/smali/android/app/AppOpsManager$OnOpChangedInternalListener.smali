@@ -32,8 +32,8 @@
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
     .locals 0
-    .parameter "op"
-    .parameter "packageName"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 737
@@ -42,8 +42,8 @@
 
 .method public onOpChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "op"
-    .parameter "packageName"
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 736

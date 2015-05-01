@@ -152,7 +152,7 @@
 
 .method synthetic constructor <init>(Landroid/animation/ValueAnimator$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/animation/ValueAnimator$1;
 
     .prologue
     .line 553
@@ -163,7 +163,7 @@
 
 .method private doAnimationFrame(J)V
     .locals 11
-    .parameter "frameTime"
+    .param p1, "frameTime"    # J
 
     .prologue
     .line 594
@@ -186,7 +186,7 @@
     check-cast v6, Ljava/util/ArrayList;
 
     .line 597
-    .local v6, pendingCopy:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/ValueAnimator;>;"
+    .local v6, "pendingCopy":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/ValueAnimator;>;"
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mPendingAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
@@ -197,10 +197,10 @@
     move-result v1
 
     .line 599
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
@@ -212,8 +212,8 @@
     check-cast v0, Landroid/animation/ValueAnimator;
 
     .line 602
-    .local v0, anim:Landroid/animation/ValueAnimator;
-    #getter for: Landroid/animation/ValueAnimator;->mStartDelay:J
+    .local v0, "anim":Landroid/animation/ValueAnimator;
+    # getter for: Landroid/animation/ValueAnimator;->mStartDelay:J
     invoke-static {v0}, Landroid/animation/ValueAnimator;->access$000(Landroid/animation/ValueAnimator;)J
 
     move-result-wide v7
@@ -225,7 +225,7 @@
     if-nez v7, :cond_1
 
     .line 603
-    #calls: Landroid/animation/ValueAnimator;->startAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
+    # invokes: Landroid/animation/ValueAnimator;->startAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
     invoke-static {v0, p0}, Landroid/animation/ValueAnimator;->access$100(Landroid/animation/ValueAnimator;Landroid/animation/ValueAnimator$AnimationHandler;)V
 
     .line 599
@@ -243,10 +243,10 @@
     goto :goto_1
 
     .line 611
-    .end local v0           #anim:Landroid/animation/ValueAnimator;
-    .end local v1           #count:I
-    .end local v2           #i:I
-    .end local v6           #pendingCopy:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/ValueAnimator;>;"
+    .end local v0    # "anim":Landroid/animation/ValueAnimator;
+    .end local v1    # "count":I
+    .end local v2    # "i":I
+    .end local v6    # "pendingCopy":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/ValueAnimator;>;"
     :cond_2
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mDelayedAnims:Ljava/util/ArrayList;
 
@@ -255,10 +255,10 @@
     move-result v4
 
     .line 612
-    .local v4, numDelayedAnims:I
+    .local v4, "numDelayedAnims":I
     const/4 v2, 0x0
 
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :goto_2
     if-ge v2, v4, :cond_4
 
@@ -272,8 +272,8 @@
     check-cast v0, Landroid/animation/ValueAnimator;
 
     .line 614
-    .restart local v0       #anim:Landroid/animation/ValueAnimator;
-    #calls: Landroid/animation/ValueAnimator;->delayedAnimationFrame(J)Z
+    .restart local v0    # "anim":Landroid/animation/ValueAnimator;
+    # invokes: Landroid/animation/ValueAnimator;->delayedAnimationFrame(J)Z
     invoke-static {v0, p1, p2}, Landroid/animation/ValueAnimator;->access$200(Landroid/animation/ValueAnimator;J)Z
 
     move-result v7
@@ -292,7 +292,7 @@
     goto :goto_2
 
     .line 618
-    .end local v0           #anim:Landroid/animation/ValueAnimator;
+    .end local v0    # "anim":Landroid/animation/ValueAnimator;
     :cond_4
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mReadyAnims:Ljava/util/ArrayList;
 
@@ -301,7 +301,7 @@
     move-result v5
 
     .line 619
-    .local v5, numReadyAnims:I
+    .local v5, "numReadyAnims":I
     if-lez v5, :cond_6
 
     .line 620
@@ -320,14 +320,14 @@
     check-cast v0, Landroid/animation/ValueAnimator;
 
     .line 622
-    .restart local v0       #anim:Landroid/animation/ValueAnimator;
-    #calls: Landroid/animation/ValueAnimator;->startAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
+    .restart local v0    # "anim":Landroid/animation/ValueAnimator;
+    # invokes: Landroid/animation/ValueAnimator;->startAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
     invoke-static {v0, p0}, Landroid/animation/ValueAnimator;->access$100(Landroid/animation/ValueAnimator;Landroid/animation/ValueAnimator$AnimationHandler;)V
 
     .line 623
     const/4 v7, 0x1
 
-    #setter for: Landroid/animation/ValueAnimator;->mRunning:Z
+    # setter for: Landroid/animation/ValueAnimator;->mRunning:Z
     invoke-static {v0, v7}, Landroid/animation/ValueAnimator;->access$302(Landroid/animation/ValueAnimator;Z)Z
 
     .line 624
@@ -341,7 +341,7 @@
     goto :goto_3
 
     .line 626
-    .end local v0           #anim:Landroid/animation/ValueAnimator;
+    .end local v0    # "anim":Landroid/animation/ValueAnimator;
     :cond_5
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mReadyAnims:Ljava/util/ArrayList;
 
@@ -356,7 +356,7 @@
     move-result v3
 
     .line 632
-    .local v3, numAnims:I
+    .local v3, "numAnims":I
     const/4 v2, 0x0
 
     :goto_4
@@ -395,7 +395,7 @@
     check-cast v0, Landroid/animation/ValueAnimator;
 
     .line 637
-    .restart local v0       #anim:Landroid/animation/ValueAnimator;
+    .restart local v0    # "anim":Landroid/animation/ValueAnimator;
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -422,7 +422,7 @@
     goto :goto_5
 
     .line 641
-    .end local v0           #anim:Landroid/animation/ValueAnimator;
+    .end local v0    # "anim":Landroid/animation/ValueAnimator;
     :cond_9
     iget-object v7, p0, Landroid/animation/ValueAnimator$AnimationHandler;->mTmpAnimations:Ljava/util/ArrayList;
 
@@ -458,7 +458,7 @@
 
     check-cast v7, Landroid/animation/ValueAnimator;
 
-    #calls: Landroid/animation/ValueAnimator;->endAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
+    # invokes: Landroid/animation/ValueAnimator;->endAnimation(Landroid/animation/ValueAnimator$AnimationHandler;)V
     invoke-static {v7, p0}, Landroid/animation/ValueAnimator;->access$400(Landroid/animation/ValueAnimator;Landroid/animation/ValueAnimator$AnimationHandler;)V
 
     .line 643

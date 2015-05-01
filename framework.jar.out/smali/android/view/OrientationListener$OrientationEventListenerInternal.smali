@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/OrientationListener;Landroid/content/Context;)V
     .locals 0
-    .parameter
-    .parameter "context"
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     .line 63
@@ -37,9 +36,8 @@
 
 .method constructor <init>(Landroid/view/OrientationListener;Landroid/content/Context;I)V
     .locals 0
-    .parameter
-    .parameter "context"
-    .parameter "rate"
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "rate"    # I
 
     .prologue
     .line 67
@@ -59,7 +57,7 @@
 # virtual methods
 .method public onOrientationChanged(I)V
     .locals 1
-    .parameter "orientation"
+    .param p1, "orientation"    # I
 
     .prologue
     .line 74

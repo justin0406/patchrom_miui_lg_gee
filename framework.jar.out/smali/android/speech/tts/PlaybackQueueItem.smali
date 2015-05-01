@@ -15,8 +15,8 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;)V
     .locals 0
-    .parameter "dispatcher"
-    .parameter "callerIdentity"
+    .param p1, "dispatcher"    # Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
 
     .prologue
     .line 12

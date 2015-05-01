@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 31
@@ -18,8 +18,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 35
@@ -33,7 +33,7 @@
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 61
@@ -54,7 +54,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 67
@@ -75,7 +75,7 @@
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 54
@@ -86,7 +86,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 55
-    .local v0, image:Landroid/widget/ImageView;
+    .local v0, "image":Landroid/widget/ImageView;
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 56
@@ -98,7 +98,7 @@
 
 .method public setImageResource(I)V
     .locals 1
-    .parameter "resid"
+    .param p1, "resid"    # I
 
     .prologue
     .line 40
@@ -109,7 +109,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 41
-    .local v0, image:Landroid/widget/ImageView;
+    .local v0, "image":Landroid/widget/ImageView;
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 42
@@ -121,7 +121,7 @@
 
 .method public setImageURI(Landroid/net/Uri;)V
     .locals 1
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 47
@@ -132,7 +132,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 48
-    .local v0, image:Landroid/widget/ImageView;
+    .local v0, "image":Landroid/widget/ImageView;
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
     .line 49

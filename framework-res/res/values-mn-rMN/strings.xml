@@ -243,7 +243,7 @@
     <string name="permlab_uninstall_shortcut">товчлолыг устгах</string>
     <string name="permdesc_uninstall_shortcut">Аппликешн нь хэрэглэгчийн оролцоогүйгээр Нүүр дэлгэцний товчлолыг устгаж чадна.</string>
     <string name="permlab_processOutgoingCalls">гарсан дуудлагыг чиглэлийг өөрчлөх</string>
-    <string name="permdesc_processOutgoingCalls">Апп нь дуудлага хийх болон залгаж байгаа дугаарыг өөрчлөх боломжтой. Энэ зөвшөөрөл нь апп-г залгасан дуудлагыг хаах, хянах болон дахин чиглүүлэх боломжтой болгодог.</string>
+    <string name="permdesc_processOutgoingCalls">Гадагш дуудлага хийх үед залгасан дугаарыг харах, дуудлагыг өөр дугаар руу шилжүүлэх, таслах боломжтой болгоно.</string>
     <string name="permlab_receiveSms">текст мессеж(SMS) хүлээж авах</string>
     <string name="permdesc_receiveSms">Апп нь SMS мессежийг хүлээн авах болон гүйцэтгэх боломжтой. Ингэснээр апп нь таны төхөөрөмжрүү илгээсэн мессежийг танд үзүүлэхгүйгээр хянах болон устгаж чадна.</string>
     <string name="permlab_receiveMms">текст мессеж(МMS) хүлээж авах</string>
@@ -718,6 +718,7 @@
     <string name="sipAddressTypeHome">Гэрийн</string>
     <string name="sipAddressTypeWork">Ажлын</string>
     <string name="sipAddressTypeOther">Бусад</string>
+    <string name="quick_contacts_not_available">Энэ харилцагчийг харах аппликешн олдсонгүй.</string>
     <string name="keyguard_password_enter_pin_code">PIN кодыг бичнэ үү</string>
     <string name="keyguard_password_enter_puk_code">PUK-г бичээд шинэ PIN код оруулна уу</string>
     <string name="keyguard_password_enter_puk_prompt">PUK код</string>
@@ -863,7 +864,7 @@
     <string name="permlab_setAlarm">сэрүүлэг тохируулах</string>
     <string name="permdesc_setAlarm">Апп нь суулгагдсан сэрүүлэгний апп дээр сэрүүлэг тохируулах боломжтой. Зарим сэрүүлэгний апп нь энэ функцийг дэмжихгүй байж болзошгүй.</string>
     <string name="permlab_addVoicemail">дуут шуудан нэмэх</string>
-    <string name="permdesc_addVoicemail">Апп нь таны дуут шуудангийн ирсэн мэйлд мессеж нэмэх боломжтой.</string>
+    <string name="permdesc_addVoicemail">Таны дуут шуудангийн ирсэн мэйлд зурвас нэмэхийг апп-д зөвшөөрөх.</string>
     <string name="permlab_writeGeolocationPermissions">Хөтчийн геобайршлын зөвшөөрлийг өөрчлөх</string>
     <string name="permdesc_writeGeolocationPermissions">Апп нь Хөтчийн гео байршлын зөвшөөрлийг өөрчлөх боломжтой. Хортой апп нь энийг ашиглан дурын веб хуудасруу байршлын мэдээллийг илгээх боломжтой.</string>
     <string name="permlab_packageVerificationAgent">багцийг тулгах</string>
@@ -1457,10 +1458,17 @@
     <string name="webviewchromium_actionbar_share">Хуваалцах</string>
     <string name="webviewchromium_actionbar_web_search">Веб хайлт</string>
     <string name="webviewchromium_accessibility_content_view">Веб Харагдац</string>
+    <string name="webviewchromium_date_picker_dialog_title">Огноо тохируулах</string>
     <string name="webviewchromium_date_picker_dialog_set">Тохируулах</string>
     <string name="webviewchromium_date_picker_dialog_clear">Цэвэрлэх</string>
-    <string name="webviewchromium_date_picker_dialog_title">Огноо тохируулах</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Бусад</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Огноо болон цагийг тохируулах</string>
+    <string name="webviewchromium_time_picker_dialog_title">Цаг тохируулах</string>
+    <string name="webviewchromium_time_picker_dialog_am">ҮӨ</string>
+    <string name="webviewchromium_time_picker_dialog_pm">ҮХ</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Сарыг тохируулах</string>
     <string name="webviewchromium_week_picker_dialog_title">7 хоног тохируулах</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Огноо</string>
@@ -1468,6 +1476,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">Сар</string>
     <string name="webviewchromium_accessibility_date_picker_week">7 хоног</string>
     <string name="webviewchromium_accessibility_date_picker_year">Жил</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Цаг</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Минут</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Хоёрдох</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Миллисекунд</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">ҮӨ/ҮХ</string>
     <string name="webviewchromium_media_player_error_title">Видео тоглуулах боломжгүй</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Уучлаарай, энэ видеог энэ төхөөрөмж дээр урсгалаар гаргах боломжгүй.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Уучлаарай, энэ видеог тоглуулах боломжгүй.</string>
@@ -1480,7 +1493,20 @@
     <string name="webviewchromium_color_picker_button_set">Тохируулах</string>
     <string name="webviewchromium_color_picker_button_cancel">Цуцлах</string>
     <string name="webviewchromium_color_picker_dialog_title">Өнгө сонгох</string>
+    <string name="webviewchromium_color_picker_button_red">Улаан</string>
+    <string name="webviewchromium_color_picker_button_cyan">Шар хөх</string>
+    <string name="webviewchromium_color_picker_button_blue">Хөх</string>
+    <string name="webviewchromium_color_picker_button_green">Ногоон</string>
+    <string name="webviewchromium_color_picker_button_magenta">Магента</string>
+    <string name="webviewchromium_color_picker_button_yellow">Шар</string>
+    <string name="webviewchromium_color_picker_button_black">Хар</string>
+    <string name="webviewchromium_color_picker_button_white">Цагаан</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Түр санах самбарлуу хуулахад бүтэлгүйтэв</string>
     <string name="webviewchromium_low_memory_error">Санах ой бага байгаагаас шалтгаалан өмнөх үйлдлийг гүйцээх боломжгүй байна</string>
     <string name="webviewchromium_opening_file_error">Сонгосон файлыг нээж чадсангүй</string>
     <string name="webviewchromium_private_browsing_warning">Андройдын энэ хувилбар дээр энэ функц дэмжигдээгүй.</string>
+    <string name="webviewchromium_profiler_started_toast">Профайл үүсгэгч эхэлсэн</string>
+    <string name="webviewchromium_profiler_stopped_toast">Профайл үүсгэгч ажиллаж дууслаа. Үр дүнг %1$s дотор хадгалсан.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Гадаад сан бэлэн болоогүй тул профайл үүсгэгчийг эхлүүлэх боломжгүй</string>
+    <string name="webviewchromium_profiler_error_toast">Профайл үүсгэгчийг эхлүүлж чадсангүй</string>
 </resources>

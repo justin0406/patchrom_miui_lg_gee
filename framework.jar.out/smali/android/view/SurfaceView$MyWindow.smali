@@ -34,7 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/SurfaceView;)V
     .locals 1
-    .parameter "surfaceView"
+    .param p1, "surfaceView"    # Landroid/view/SurfaceView;
 
     .prologue
     const/4 v0, -0x1
@@ -63,7 +63,7 @@
 # virtual methods
 .method public dispatchAppVisibility(Z)V
     .locals 0
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 675
@@ -84,7 +84,7 @@
     check-cast v1, Landroid/view/SurfaceView;
 
     .line 680
-    .local v1, surfaceView:Landroid/view/SurfaceView;
+    .local v1, "surfaceView":Landroid/view/SurfaceView;
     if-eqz v1, :cond_0
 
     .line 681
@@ -97,22 +97,22 @@
     move-result-object v0
 
     .line 682
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v2, v1, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 684
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
 
 .method public executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .parameter "command"
-    .parameter "parameters"
-    .parameter "out"
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "parameters"    # Ljava/lang/String;
+    .param p3, "out"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 693
@@ -121,12 +121,12 @@
 
 .method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 3
-    .parameter "frame"
-    .parameter "overscanInsets"
-    .parameter "contentInsets"
-    .parameter "visibleInsets"
-    .parameter "reportDraw"
-    .parameter "newConfig"
+    .param p1, "frame"    # Landroid/graphics/Rect;
+    .param p2, "overscanInsets"    # Landroid/graphics/Rect;
+    .param p3, "contentInsets"    # Landroid/graphics/Rect;
+    .param p4, "visibleInsets"    # Landroid/graphics/Rect;
+    .param p5, "reportDraw"    # Z
+    .param p6, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 650
@@ -139,7 +139,7 @@
     check-cast v0, Landroid/view/SurfaceView;
 
     .line 651
-    .local v0, surfaceView:Landroid/view/SurfaceView;
+    .local v0, "surfaceView":Landroid/view/SurfaceView;
     if-eqz v0, :cond_1
 
     .line 655
@@ -238,8 +238,8 @@
 
 .method public windowFocusChanged(ZZ)V
     .locals 3
-    .parameter "hasFocus"
-    .parameter "touchEnabled"
+    .param p1, "hasFocus"    # Z
+    .param p2, "touchEnabled"    # Z
 
     .prologue
     .line 688

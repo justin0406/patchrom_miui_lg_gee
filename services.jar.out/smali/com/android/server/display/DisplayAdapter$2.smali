@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/DisplayAdapter;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 117
@@ -44,7 +43,7 @@
     .line 120
     iget-object v0, p0, Lcom/android/server/display/DisplayAdapter$2;->this$0:Lcom/android/server/display/DisplayAdapter;
 
-    #getter for: Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
+    # getter for: Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
     invoke-static {v0}, Lcom/android/server/display/DisplayAdapter;->access$000(Lcom/android/server/display/DisplayAdapter;)Lcom/android/server/display/DisplayAdapter$Listener;
 
     move-result-object v0

@@ -27,8 +27,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/InboundSmsHandler;Lcom/android/internal/telephony/InboundSmsTracker;)V
     .locals 2
-    .parameter
-    .parameter "tracker"
+    .param p2, "tracker"    # Lcom/android/internal/telephony/InboundSmsTracker;
 
     .prologue
     .line 816
@@ -61,12 +60,32 @@
     return-void
 .end method
 
+.method static synthetic access_mDeleteWhere(Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;)Ljava/lang/String;
+    .locals 1
+    .param p0, "x0"    # Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;->mDeleteWhere:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access_mDeleteWhereArgs(Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;)[Ljava/lang/String;
+    .locals 1
+    .param p0, "x0"    # Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;->mDeleteWhereArgs:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v4, 0x0
@@ -79,7 +98,7 @@
     move-result-object v0
 
     .line 825
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.provider.Telephony.SMS_DELIVER"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -190,7 +209,7 @@
     move-result v2
 
     .line 846
-    .local v2, rc:I
+    .local v2, "rc":I
     const/4 v3, -0x1
 
     if-eq v2, v3, :cond_3
@@ -261,7 +280,7 @@
     long-to-int v1, v3
 
     .line 857
-    .local v1, durationMillis:I
+    .local v1, "durationMillis":I
     const/16 v3, 0x1388
 
     if-lt v1, v3, :cond_4
@@ -298,7 +317,7 @@
     goto/16 :goto_0
 
     .line 850
-    .end local v1           #durationMillis:I
+    .end local v1    # "durationMillis":I
     :cond_3
     iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -309,7 +328,7 @@
     goto :goto_1
 
     .line 860
-    .restart local v1       #durationMillis:I
+    .restart local v1    # "durationMillis":I
     :cond_4
     iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsHandler$SmsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 

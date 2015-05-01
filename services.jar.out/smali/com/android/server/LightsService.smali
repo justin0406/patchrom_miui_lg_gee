@@ -60,7 +60,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/16 v4, 0x8
@@ -107,7 +107,7 @@
     .line 182
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v4, :cond_0
 
@@ -134,7 +134,7 @@
 
 .method static synthetic access$000(Lcom/android/server/LightsService;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/LightsService;
 
     .prologue
     .line 30
@@ -145,7 +145,7 @@
 
 .method static synthetic access$100(Lcom/android/server/LightsService;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/LightsService;
 
     .prologue
     .line 30
@@ -156,13 +156,13 @@
 
 .method static synthetic access$200(IIIIIII)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
+    .param p4, "x4"    # I
+    .param p5, "x5"    # I
+    .param p6, "x6"    # I
 
     .prologue
     .line 30
@@ -173,7 +173,7 @@
 
 .method static synthetic access$300(Lcom/android/server/LightsService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/LightsService;
 
     .prologue
     .line 30
@@ -216,7 +216,7 @@
 
 .method public getLight(I)Lcom/android/server/LightsService$Light;
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 193
@@ -229,8 +229,8 @@
 
 .method public setLight(ILcom/android/server/LightsService$Light;)V
     .locals 1
-    .parameter "index"
-    .parameter "light"
+    .param p1, "index"    # I
+    .param p2, "light"    # Lcom/android/server/LightsService$Light;
 
     .prologue
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;

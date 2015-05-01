@@ -6,12 +6,12 @@
 # direct methods
 .method constructor <init>(ILjava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V
     .locals 8
-    .parameter "transId"
-    .parameter "clientIp"
-    .parameter "yourIp"
-    .parameter "nextIp"
-    .parameter "relayIp"
-    .parameter "clientMac"
+    .param p1, "transId"    # I
+    .param p2, "clientIp"    # Ljava/net/InetAddress;
+    .param p3, "yourIp"    # Ljava/net/InetAddress;
+    .param p4, "nextIp"    # Ljava/net/InetAddress;
+    .param p5, "relayIp"    # Ljava/net/InetAddress;
+    .param p6, "clientMac"    # [B
 
     .prologue
     .line 33
@@ -41,9 +41,9 @@
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
     .locals 9
-    .parameter "encap"
-    .parameter "destUdp"
-    .parameter "srcUdp"
+    .param p1, "encap"    # I
+    .param p2, "destUdp"    # S
+    .param p3, "srcUdp"    # S
 
     .prologue
     .line 46
@@ -54,15 +54,15 @@
     move-result-object v6
 
     .line 47
-    .local v6, result:Ljava/nio/ByteBuffer;
+    .local v6, "result":Ljava/nio/ByteBuffer;
     iget-object v2, p0, Landroid/net/dhcp/DhcpNakPacket;->mClientIp:Ljava/net/InetAddress;
 
     .line 48
-    .local v2, destIp:Ljava/net/InetAddress;
+    .local v2, "destIp":Ljava/net/InetAddress;
     iget-object v3, p0, Landroid/net/dhcp/DhcpNakPacket;->mYourIp:Ljava/net/InetAddress;
 
     .line 50
-    .local v3, srcIp:Ljava/net/InetAddress;
+    .local v3, "srcIp":Ljava/net/InetAddress;
     const/4 v7, 0x2
 
     iget-boolean v8, p0, Landroid/net/dhcp/DhcpNakPacket;->mBroadcast:Z
@@ -86,7 +86,7 @@
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
     .locals 0
-    .parameter "machine"
+    .param p1, "machine"    # Landroid/net/dhcp/DhcpStateMachine;
 
     .prologue
     .line 70
@@ -98,7 +98,7 @@
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 60
@@ -139,7 +139,7 @@
     move-result-object v0
 
     .line 39
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/nsd/DnsSdTxtRecord;
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 316
@@ -51,8 +51,8 @@
     invoke-direct {v0}, Landroid/net/nsd/DnsSdTxtRecord;-><init>()V
 
     .line 317
-    .local v0, info:Landroid/net/nsd/DnsSdTxtRecord;
-    #getter for: Landroid/net/nsd/DnsSdTxtRecord;->mData:[B
+    .local v0, "info":Landroid/net/nsd/DnsSdTxtRecord;
+    # getter for: Landroid/net/nsd/DnsSdTxtRecord;->mData:[B
     invoke-static {v0}, Landroid/net/nsd/DnsSdTxtRecord;->access$000(Landroid/net/nsd/DnsSdTxtRecord;)[B
 
     move-result-object v1
@@ -65,7 +65,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 314
@@ -78,7 +78,7 @@
 
 .method public newArray(I)[Landroid/net/nsd/DnsSdTxtRecord;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 322
@@ -89,7 +89,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 314

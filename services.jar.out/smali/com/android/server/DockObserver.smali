@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v2, 0x1
@@ -121,7 +121,7 @@
 
 .method static synthetic access$000(Lcom/android/server/DockObserver;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/DockObserver;
 
     .prologue
     .line 42
@@ -181,7 +181,7 @@
     move-result-object v0
 
     .line 137
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     const-string v6, "device_provisioned"
 
     const/4 v8, 0x0
@@ -215,8 +215,8 @@
     invoke-direct {v1, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 145
-    .local v1, intent:Landroid/content/Intent;
-    const/high16 v6, 0x2000
+    .local v1, "intent":Landroid/content/Intent;
+    const/high16 v6, 0x20000000
 
     invoke-virtual {v1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -242,7 +242,7 @@
     const/4 v5, 0x0
 
     .line 153
-    .local v5, whichSound:Ljava/lang/String;
+    .local v5, "whichSound":Ljava/lang/String;
     iget v6, p0, Lcom/android/server/DockObserver;->mDockState:I
 
     if-nez v6, :cond_5
@@ -275,7 +275,7 @@
     move-result-object v3
 
     .line 173
-    .local v3, soundPath:Ljava/lang/String;
+    .local v3, "soundPath":Ljava/lang/String;
     if-eqz v3, :cond_3
 
     .line 174
@@ -302,7 +302,7 @@
     move-result-object v4
 
     .line 175
-    .local v4, soundUri:Landroid/net/Uri;
+    .local v4, "soundUri":Landroid/net/Uri;
     if-eqz v4, :cond_3
 
     .line 176
@@ -313,7 +313,7 @@
     move-result-object v2
 
     .line 177
-    .local v2, sfx:Landroid/media/Ringtone;
+    .local v2, "sfx":Landroid/media/Ringtone;
     if-eqz v2, :cond_3
 
     .line 178
@@ -325,10 +325,10 @@
     invoke-virtual {v2}, Landroid/media/Ringtone;->play()V
 
     .line 189
-    .end local v2           #sfx:Landroid/media/Ringtone;
-    .end local v3           #soundPath:Ljava/lang/String;
-    .end local v4           #soundUri:Landroid/net/Uri;
-    .end local v5           #whichSound:Ljava/lang/String;
+    .end local v2    # "sfx":Landroid/media/Ringtone;
+    .end local v3    # "soundPath":Ljava/lang/String;
+    .end local v4    # "soundUri":Landroid/net/Uri;
+    .end local v5    # "whichSound":Ljava/lang/String;
     :cond_3
     iget-object v6, p0, Lcom/android/server/DockObserver;->mContext:Landroid/content/Context;
 
@@ -346,8 +346,8 @@
 
     goto :goto_0
 
-    .end local v0           #cr:Landroid/content/ContentResolver;
-    .end local v1           #intent:Landroid/content/Intent;
+    .end local v0    # "cr":Landroid/content/ContentResolver;
+    .end local v1    # "intent":Landroid/content/Intent;
     :catchall_0
     move-exception v6
 
@@ -358,9 +358,9 @@
     throw v6
 
     .line 158
-    .restart local v0       #cr:Landroid/content/ContentResolver;
-    .restart local v1       #intent:Landroid/content/Intent;
-    .restart local v5       #whichSound:Ljava/lang/String;
+    .restart local v0    # "cr":Landroid/content/ContentResolver;
+    .restart local v1    # "intent":Landroid/content/Intent;
+    .restart local v5    # "whichSound":Ljava/lang/String;
     :cond_4
     :try_start_1
     iget v6, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
@@ -422,19 +422,19 @@
     new-array v0, v4, [C
 
     .line 100
-    .local v0, buffer:[C
+    .local v0, "buffer":[C
     new-instance v2, Ljava/io/FileReader;
 
     const-string v4, "/sys/class/switch/dock/state"
 
     invoke-direct {v2, v4}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 102
-    .local v2, file:Ljava/io/FileReader;
+    .local v2, "file":Ljava/io/FileReader;
     const/4 v4, 0x0
 
     const/16 v6, 0x400
@@ -445,7 +445,7 @@
     move-result v3
 
     .line 103
-    .local v3, len:I
+    .local v3, "len":I
     new-instance v4, Ljava/lang/String;
 
     const/4 v6, 0x0
@@ -477,14 +477,14 @@
     :try_start_2
     invoke-virtual {v2}, Ljava/io/FileReader;->close()V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 113
-    .end local v0           #buffer:[C
-    .end local v2           #file:Ljava/io/FileReader;
-    .end local v3           #len:I
+    .end local v0    # "buffer":[C
+    .end local v2    # "file":Ljava/io/FileReader;
+    .end local v3    # "len":I
     :goto_0
     :try_start_3
     monitor-exit v5
@@ -495,8 +495,8 @@
     return-void
 
     .line 106
-    .restart local v0       #buffer:[C
-    .restart local v2       #file:Ljava/io/FileReader;
+    .restart local v0    # "buffer":[C
+    .restart local v2    # "file":Ljava/io/FileReader;
     :catchall_0
     move-exception v4
 
@@ -505,18 +505,18 @@
 
     throw v4
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 108
-    .end local v0           #buffer:[C
-    .end local v2           #file:Ljava/io/FileReader;
+    .end local v0    # "buffer":[C
+    .end local v2    # "file":Ljava/io/FileReader;
     :catch_0
     move-exception v1
 
     .line 109
-    .local v1, e:Ljava/io/FileNotFoundException;
+    .local v1, "e":Ljava/io/FileNotFoundException;
     :try_start_5
     sget-object v4, Lcom/android/server/DockObserver;->TAG:Ljava/lang/String;
 
@@ -527,7 +527,7 @@
     goto :goto_0
 
     .line 113
-    .end local v1           #e:Ljava/io/FileNotFoundException;
+    .end local v1    # "e":Ljava/io/FileNotFoundException;
     :catchall_1
     move-exception v4
 
@@ -542,7 +542,7 @@
     move-exception v1
 
     .line 111
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_6
     sget-object v4, Lcom/android/server/DockObserver;->TAG:Ljava/lang/String;
 
@@ -579,7 +579,7 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 6
-    .parameter "event"
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
     .prologue
     .line 73
@@ -639,7 +639,7 @@
     move-result v1
 
     .line 80
-    .local v1, newState:I
+    .local v1, "newState":I
     iget v2, p0, Lcom/android/server/DockObserver;->mDockState:I
 
     if-eq v1, v2, :cond_1
@@ -669,11 +669,11 @@
     .line 87
     invoke-direct {p0}, Lcom/android/server/DockObserver;->updateLocked()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 93
-    .end local v1           #newState:I
+    .end local v1    # "newState":I
     :cond_1
     :goto_0
     :try_start_1
@@ -687,7 +687,7 @@
     move-exception v0
 
     .line 91
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     sget-object v2, Lcom/android/server/DockObserver;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -713,7 +713,7 @@
     goto :goto_0
 
     .line 93
-    .end local v0           #e:Ljava/lang/NumberFormatException;
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
     :catchall_0
     move-exception v2
 

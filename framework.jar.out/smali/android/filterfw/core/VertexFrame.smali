@@ -23,8 +23,8 @@
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
     .locals 2
-    .parameter "format"
-    .parameter "frameManager"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 35
@@ -256,7 +256,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 105
@@ -271,9 +271,9 @@
 
 .method public setData(Ljava/nio/ByteBuffer;II)V
     .locals 3
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     .line 89
@@ -285,7 +285,7 @@
     move-result-object v0
 
     .line 91
-    .local v0, bytes:[B
+    .local v0, "bytes":[B
     invoke-virtual {p0}, Landroid/filterfw/core/VertexFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
@@ -331,7 +331,7 @@
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
     .locals 0
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 116
@@ -343,7 +343,7 @@
 
 .method public setFloats([F)V
     .locals 2
-    .parameter "floats"
+    .param p1, "floats"    # [F
 
     .prologue
     .line 76
@@ -372,7 +372,7 @@
 
 .method public setInts([I)V
     .locals 2
-    .parameter "ints"
+    .param p1, "ints"    # [I
 
     .prologue
     .line 63

@@ -6,9 +6,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;)V
     .locals 10
-    .parameter "context"
-    .parameter "cur"
-    .parameter "next"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cur"    # Lcom/android/server/am/ActivityRecord;
+    .param p3, "next"    # Lcom/android/server/am/ActivityRecord;
 
     .prologue
     const/4 v5, 0x3
@@ -49,7 +49,7 @@
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->setContentView(I)V
 
     .line 39
-    const v3, 0x1040408
+    const v3, 0x1040409
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -63,7 +63,7 @@
     invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
     .line 42
-    .local v1, out:Landroid/util/TypedValue;
+    .local v1, "out":Landroid/util/TypedValue;
     invoke-virtual {p0}, Lcom/android/server/am/LaunchWarningWindow;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -95,7 +95,7 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 46
-    .local v0, icon:Landroid/widget/ImageView;
+    .local v0, "icon":Landroid/widget/ImageView;
     iget-object v3, p3, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
     iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -120,12 +120,12 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 48
-    .local v2, text:Landroid/widget/TextView;
+    .local v2, "text":Landroid/widget/TextView;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x1040409
+    const v4, 0x104040a
 
     new-array v5, v8, [Ljava/lang/Object;
 
@@ -160,11 +160,11 @@
 
     move-result-object v0
 
-    .end local v0           #icon:Landroid/widget/ImageView;
+    .end local v0    # "icon":Landroid/widget/ImageView;
     check-cast v0, Landroid/widget/ImageView;
 
     .line 51
-    .restart local v0       #icon:Landroid/widget/ImageView;
+    .restart local v0    # "icon":Landroid/widget/ImageView;
     iget-object v3, p2, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
     iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -186,16 +186,16 @@
 
     move-result-object v2
 
-    .end local v2           #text:Landroid/widget/TextView;
+    .end local v2    # "text":Landroid/widget/TextView;
     check-cast v2, Landroid/widget/TextView;
 
     .line 53
-    .restart local v2       #text:Landroid/widget/TextView;
+    .restart local v2    # "text":Landroid/widget/TextView;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x104040a
+    const v4, 0x104040b
 
     new-array v5, v8, [Ljava/lang/Object;
 

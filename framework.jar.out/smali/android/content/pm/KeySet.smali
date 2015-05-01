@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Binder;)V
     .locals 0
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/Binder;
 
     .prologue
     .line 27

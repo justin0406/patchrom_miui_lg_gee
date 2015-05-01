@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$ParsePackageItemArgs;Landroid/content/pm/InstrumentationInfo;)V
     .locals 0
-    .parameter "args"
-    .parameter "_info"
+    .param p1, "args"    # Landroid/content/pm/PackageParser$ParsePackageItemArgs;
+    .param p2, "_info"    # Landroid/content/pm/InstrumentationInfo;
 
     .prologue
     .line 4054
@@ -39,7 +39,7 @@
 # virtual methods
 .method public setPackageName(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 4059
@@ -66,7 +66,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 4065
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Instrumentation{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

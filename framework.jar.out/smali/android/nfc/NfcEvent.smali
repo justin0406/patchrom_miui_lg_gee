@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;)V
     .locals 0
-    .parameter "nfcAdapter"
+    .param p1, "nfcAdapter"    # Landroid/nfc/NfcAdapter;
 
     .prologue
     .line 41

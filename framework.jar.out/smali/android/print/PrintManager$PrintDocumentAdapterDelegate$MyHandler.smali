@@ -31,8 +31,7 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/Looper;)V
     .locals 2
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 751
@@ -53,13 +52,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 757
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #calls: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isFinished()Z
+    # invokes: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isFinished()Z
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$200(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
 
     move-result v1
@@ -108,7 +107,7 @@
     :pswitch_0
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v2
@@ -119,13 +118,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintDocumentAdapter;
 
     move-result-object v0
 
     .line 765
-    .local v0, adapter:Landroid/print/PrintDocumentAdapter;
+    .local v0, "adapter":Landroid/print/PrintDocumentAdapter;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -139,7 +138,7 @@
     goto :goto_0
 
     .line 765
-    .end local v0           #adapter:Landroid/print/PrintDocumentAdapter;
+    .end local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
     :catchall_0
     move-exception v1
 
@@ -154,7 +153,7 @@
     :pswitch_1
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v2
@@ -165,27 +164,27 @@
     :try_start_2
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintDocumentAdapter;
 
     move-result-object v0
 
     .line 778
-    .restart local v0       #adapter:Landroid/print/PrintDocumentAdapter;
+    .restart local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastLayoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastLayoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$500(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
 
     move-result-object v7
 
     .line 779
-    .local v7, layoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
+    .local v7, "layoutSpec":Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     const/4 v4, 0x0
 
-    #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastLayoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
+    # setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastLayoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     invoke-static {v1, v4}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$502(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
 
     .line 780
@@ -194,10 +193,10 @@
     invoke-direct {v3}, Landroid/os/CancellationSignal;-><init>()V
 
     .line 781
-    .local v3, cancellation:Landroid/os/CancellationSignal;
+    .local v3, "cancellation":Landroid/os/CancellationSignal;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
+    # setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
     invoke-static {v1, v3}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$602(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/CancellationSignal;)Landroid/os/CancellationSignal;
 
     .line 782
@@ -232,9 +231,9 @@
     goto :goto_0
 
     .line 782
-    .end local v0           #adapter:Landroid/print/PrintDocumentAdapter;
-    .end local v3           #cancellation:Landroid/os/CancellationSignal;
-    .end local v7           #layoutSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
+    .end local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
+    .end local v3    # "cancellation":Landroid/os/CancellationSignal;
+    .end local v7    # "layoutSpec":Landroid/print/PrintManager$PrintDocumentAdapterDelegate$LayoutSpec;
     :catchall_1
     move-exception v1
 
@@ -249,7 +248,7 @@
     :pswitch_2
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v2
@@ -260,27 +259,27 @@
     :try_start_4
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintDocumentAdapter;
 
     move-result-object v0
 
     .line 802
-    .restart local v0       #adapter:Landroid/print/PrintDocumentAdapter;
+    .restart local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastWriteSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastWriteSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$700(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
 
     move-result-object v8
 
     .line 803
-    .local v8, writeSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
+    .local v8, "writeSpec":Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     const/4 v4, 0x0
 
-    #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastWriteSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
+    # setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLastWriteSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     invoke-static {v1, v4}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$702(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;)Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
 
     .line 804
@@ -289,10 +288,10 @@
     invoke-direct {v3}, Landroid/os/CancellationSignal;-><init>()V
 
     .line 805
-    .restart local v3       #cancellation:Landroid/os/CancellationSignal;
+    .restart local v3    # "cancellation":Landroid/os/CancellationSignal;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
+    # setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
     invoke-static {v1, v3}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$602(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/CancellationSignal;)Landroid/os/CancellationSignal;
 
     .line 806
@@ -327,9 +326,9 @@
     goto/16 :goto_0
 
     .line 806
-    .end local v0           #adapter:Landroid/print/PrintDocumentAdapter;
-    .end local v3           #cancellation:Landroid/os/CancellationSignal;
-    .end local v8           #writeSpec:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
+    .end local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
+    .end local v3    # "cancellation":Landroid/os/CancellationSignal;
+    .end local v8    # "writeSpec":Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;
     :catchall_2
     move-exception v1
 
@@ -344,7 +343,7 @@
     :pswitch_3
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v2
@@ -355,25 +354,25 @@
     :try_start_6
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/print/PrintDocumentAdapter;
 
     move-result-object v0
 
     .line 826
-    .restart local v0       #adapter:Landroid/print/PrintDocumentAdapter;
+    .restart local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
+    # getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$800(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Landroid/app/Activity;
 
     move-result-object v6
 
     .line 827
-    .local v6, activity:Landroid/app/Activity;
+    .local v6, "activity":Landroid/app/Activity;
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    #calls: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->clearLocked()V
+    # invokes: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->clearLocked()V
     invoke-static {v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$900(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
 
     .line 828
@@ -403,8 +402,8 @@
     goto/16 :goto_0
 
     .line 828
-    .end local v0           #adapter:Landroid/print/PrintDocumentAdapter;
-    .end local v6           #activity:Landroid/app/Activity;
+    .end local v0    # "adapter":Landroid/print/PrintDocumentAdapter;
+    .end local v6    # "activity":Landroid/app/Activity;
     :catchall_3
     move-exception v1
 

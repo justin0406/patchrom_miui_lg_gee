@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 474
@@ -39,15 +38,15 @@
 # virtual methods
 .method public onInfo(Landroid/media/MediaPlayer;II)Z
     .locals 1
-    .parameter "mp"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 476
     iget-object v0, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mOnInfoListener:Landroid/media/MediaPlayer$OnInfoListener;
+    # getter for: Landroid/widget/VideoView;->mOnInfoListener:Landroid/media/MediaPlayer$OnInfoListener;
     invoke-static {v0}, Landroid/widget/VideoView;->access$1400(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnInfoListener;
 
     move-result-object v0
@@ -57,7 +56,7 @@
     .line 477
     iget-object v0, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/widget/VideoView;->mOnInfoListener:Landroid/media/MediaPlayer$OnInfoListener;
+    # getter for: Landroid/widget/VideoView;->mOnInfoListener:Landroid/media/MediaPlayer$OnInfoListener;
     invoke-static {v0}, Landroid/widget/VideoView;->access$1400(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnInfoListener;
 
     move-result-object v0

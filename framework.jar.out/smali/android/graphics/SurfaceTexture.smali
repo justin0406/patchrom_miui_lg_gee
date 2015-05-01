@@ -38,7 +38,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "texName"
+    .param p1, "texName"    # I
 
     .prologue
     .line 105
@@ -55,8 +55,8 @@
 
 .method public constructor <init>(IZ)V
     .locals 0
-    .parameter "texName"
-    .parameter "singleBufferMode"
+    .param p1, "texName"    # I
+    .param p2, "singleBufferMode"    # Z
 
     .prologue
     .line 126
@@ -71,7 +71,7 @@
 
 .method static synthetic access$000(Landroid/graphics/SurfaceTexture;)Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 64
@@ -82,8 +82,8 @@
 
 .method private init(IZ)V
     .locals 2
-    .parameter "texName"
-    .parameter "singleBufferMode"
+    .param p1, "texName"    # I
+    .param p2, "singleBufferMode"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    .local v0, looper:Landroid/os/Looper;
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
     .line 321
@@ -186,7 +186,7 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;)V
     .locals 4
-    .parameter "selfRef"
+    .param p0, "selfRef"    # Ljava/lang/Object;
 
     .prologue
     .line 306
@@ -195,7 +195,7 @@
     check-cast v2, Ljava/lang/ref/WeakReference;
 
     .line 307
-    .local v2, weakSelf:Ljava/lang/ref/WeakReference;
+    .local v2, "weakSelf":Ljava/lang/ref/WeakReference;
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -203,7 +203,7 @@
     check-cast v1, Landroid/graphics/SurfaceTexture;
 
     .line 308
-    .local v1, st:Landroid/graphics/SurfaceTexture;
+    .local v1, "st":Landroid/graphics/SurfaceTexture;
     if-nez v1, :cond_1
 
     .line 316
@@ -225,7 +225,7 @@
     move-result-object v0
 
     .line 314
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v3, v1, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
 
     invoke-virtual {v3, v0}, Landroid/graphics/SurfaceTexture$EventHandler;->sendMessage(Landroid/os/Message;)Z
@@ -237,7 +237,7 @@
 # virtual methods
 .method public attachToGLContext(I)V
     .locals 3
-    .parameter "texName"
+    .param p1, "texName"    # I
 
     .prologue
     .line 213
@@ -246,7 +246,7 @@
     move-result v0
 
     .line 214
-    .local v0, err:I
+    .local v0, "err":I
     if-eqz v0, :cond_0
 
     .line 215
@@ -273,7 +273,7 @@
     move-result v0
 
     .line 194
-    .local v0, err:I
+    .local v0, "err":I
     if-eqz v0, :cond_0
 
     .line 195
@@ -334,7 +334,7 @@
 
 .method public getTransformMatrix([F)V
     .locals 2
-    .parameter "mtx"
+    .param p1, "mtx"    # [F
 
     .prologue
     .line 237
@@ -383,8 +383,8 @@
 
 .method public setDefaultBufferSize(II)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 160
@@ -396,7 +396,7 @@
 
 .method public setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
     .prologue
     .line 137

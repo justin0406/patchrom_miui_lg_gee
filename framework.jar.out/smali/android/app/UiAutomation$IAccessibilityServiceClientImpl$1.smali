@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/UiAutomation;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 683
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 710
     iget-object v1, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/app/UiAutomation;->access$000(Landroid/app/UiAutomation;)Ljava/lang/Object;
 
     move-result-object v2
@@ -60,13 +59,13 @@
 
     move-result-wide v3
 
-    #setter for: Landroid/app/UiAutomation;->mLastEventTimeMillis:J
+    # setter for: Landroid/app/UiAutomation;->mLastEventTimeMillis:J
     invoke-static {v1, v3, v4}, Landroid/app/UiAutomation;->access$202(Landroid/app/UiAutomation;J)J
 
     .line 712
     iget-object v1, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
+    # getter for: Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
     invoke-static {v1}, Landroid/app/UiAutomation;->access$300(Landroid/app/UiAutomation;)Z
 
     move-result v1
@@ -76,7 +75,7 @@
     .line 713
     iget-object v1, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+    # getter for: Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
     invoke-static {v1}, Landroid/app/UiAutomation;->access$400(Landroid/app/UiAutomation;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -91,7 +90,7 @@
     :cond_0
     iget-object v1, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/app/UiAutomation;->access$000(Landroid/app/UiAutomation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -106,13 +105,13 @@
     .line 718
     iget-object v1, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mOnAccessibilityEventListener:Landroid/app/UiAutomation$OnAccessibilityEventListener;
+    # getter for: Landroid/app/UiAutomation;->mOnAccessibilityEventListener:Landroid/app/UiAutomation$OnAccessibilityEventListener;
     invoke-static {v1}, Landroid/app/UiAutomation;->access$500(Landroid/app/UiAutomation;)Landroid/app/UiAutomation$OnAccessibilityEventListener;
 
     move-result-object v0
 
     .line 719
-    .local v0, listener:Landroid/app/UiAutomation$OnAccessibilityEventListener;
+    .local v0, "listener":Landroid/app/UiAutomation$OnAccessibilityEventListener;
     if-eqz v0, :cond_1
 
     .line 720
@@ -127,7 +126,7 @@
     return-void
 
     .line 716
-    .end local v0           #listener:Landroid/app/UiAutomation$OnAccessibilityEventListener;
+    .end local v0    # "listener":Landroid/app/UiAutomation$OnAccessibilityEventListener;
     :catchall_0
     move-exception v1
 
@@ -141,7 +140,7 @@
 
 .method public onGesture(I)Z
     .locals 1
-    .parameter "gestureId"
+    .param p1, "gestureId"    # I
 
     .prologue
     .line 705
@@ -160,7 +159,7 @@
 
 .method public onKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 726
@@ -179,13 +178,13 @@
 
 .method public onSetConnectionId(I)V
     .locals 2
-    .parameter "connectionId"
+    .param p1, "connectionId"    # I
 
     .prologue
     .line 686
     iget-object v0, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/UiAutomation;->access$000(Landroid/app/UiAutomation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -196,13 +195,13 @@
     :try_start_0
     iget-object v0, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #setter for: Landroid/app/UiAutomation;->mConnectionId:I
+    # setter for: Landroid/app/UiAutomation;->mConnectionId:I
     invoke-static {v0, p1}, Landroid/app/UiAutomation;->access$102(Landroid/app/UiAutomation;I)I
 
     .line 688
     iget-object v0, p0, Landroid/app/UiAutomation$IAccessibilityServiceClientImpl$1;->val$this$0:Landroid/app/UiAutomation;
 
-    #getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    # getter for: Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/UiAutomation;->access$000(Landroid/app/UiAutomation;)Ljava/lang/Object;
 
     move-result-object v0

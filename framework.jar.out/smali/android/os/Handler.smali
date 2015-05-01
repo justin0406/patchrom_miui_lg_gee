@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Landroid/os/Handler$Callback;)V
     .locals 1
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/os/Handler$Callback;
 
     .prologue
     .line 128
@@ -64,8 +64,8 @@
 
 .method public constructor <init>(Landroid/os/Handler$Callback;Z)V
     .locals 2
-    .parameter "callback"
-    .parameter "async"
+    .param p1, "callback"    # Landroid/os/Handler$Callback;
+    .param p2, "async"    # Z
 
     .prologue
     .line 188
@@ -112,7 +112,7 @@
 
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 2
-    .parameter "looper"
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 137
@@ -128,8 +128,8 @@
 
 .method public constructor <init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
     .locals 1
-    .parameter "looper"
-    .parameter "callback"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "callback"    # Landroid/os/Handler$Callback;
 
     .prologue
     .line 148
@@ -143,9 +143,9 @@
 
 .method public constructor <init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
     .locals 1
-    .parameter "looper"
-    .parameter "callback"
-    .parameter "async"
+    .param p1, "looper"    # Landroid/os/Looper;
+    .param p2, "callback"    # Landroid/os/Handler$Callback;
+    .param p3, "async"    # Z
 
     .prologue
     .line 227
@@ -171,7 +171,7 @@
 
 .method public constructor <init>(Z)V
     .locals 1
-    .parameter "async"
+    .param p1, "async"    # Z
 
     .prologue
     .line 168
@@ -185,9 +185,9 @@
 
 .method private enqueueMessage(Landroid/os/MessageQueue;Landroid/os/Message;J)Z
     .locals 1
-    .parameter "queue"
-    .parameter "msg"
-    .parameter "uptimeMillis"
+    .param p1, "queue"    # Landroid/os/MessageQueue;
+    .param p2, "msg"    # Landroid/os/Message;
+    .param p3, "uptimeMillis"    # J
 
     .prologue
     .line 622
@@ -214,7 +214,7 @@
 
 .method private static getPostMessage(Ljava/lang/Runnable;)Landroid/os/Message;
     .locals 1
-    .parameter "r"
+    .param p0, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 720
@@ -223,7 +223,7 @@
     move-result-object v0
 
     .line 721
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
     .line 722
@@ -232,8 +232,8 @@
 
 .method private static getPostMessage(Ljava/lang/Runnable;Ljava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "r"
-    .parameter "token"
+    .param p0, "r"    # Ljava/lang/Runnable;
+    .param p1, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 726
@@ -242,7 +242,7 @@
     move-result-object v0
 
     .line 727
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 728
@@ -254,7 +254,7 @@
 
 .method private static handleCallback(Landroid/os/Message;)V
     .locals 1
-    .parameter "message"
+    .param p0, "message"    # Landroid/os/Message;
 
     .prologue
     .line 733
@@ -270,7 +270,7 @@
 # virtual methods
 .method public dispatchMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 94
@@ -310,8 +310,8 @@
 
 .method public final dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 688
@@ -468,7 +468,7 @@
 
 .method public getMessageName(Landroid/os/Message;)Ljava/lang/String;
     .locals 2
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 243
@@ -521,7 +521,7 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 0
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 88
@@ -530,7 +530,7 @@
 
 .method public final hasCallbacks(Ljava/lang/Runnable;)Z
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 678
@@ -547,7 +547,7 @@
 
 .method public final hasMessages(I)Z
     .locals 2
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 660
@@ -564,8 +564,8 @@
 
 .method public final hasMessages(ILjava/lang/Object;)Z
     .locals 1
-    .parameter "what"
-    .parameter "object"
+    .param p1, "what"    # I
+    .param p2, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 668
@@ -592,7 +592,7 @@
 
 .method public final obtainMessage(I)Landroid/os/Message;
     .locals 1
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 267
@@ -605,9 +605,9 @@
 
 .method public final obtainMessage(III)Landroid/os/Message;
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 295
@@ -620,10 +620,10 @@
 
 .method public final obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 310
@@ -636,8 +636,8 @@
 
 .method public final obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "what"
-    .parameter "obj"
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 281
@@ -650,7 +650,7 @@
 
 .method public final post(Ljava/lang/Runnable;)Z
     .locals 3
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 326
@@ -669,7 +669,7 @@
 
 .method public final postAtFrontOfQueue(Ljava/lang/Runnable;)Z
     .locals 1
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 414
@@ -686,8 +686,8 @@
 
 .method public final postAtTime(Ljava/lang/Runnable;J)Z
     .locals 1
-    .parameter "r"
-    .parameter "uptimeMillis"
+    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p2, "uptimeMillis"    # J
 
     .prologue
     .line 348
@@ -704,9 +704,9 @@
 
 .method public final postAtTime(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
     .locals 1
-    .parameter "r"
-    .parameter "token"
-    .parameter "uptimeMillis"
+    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p2, "token"    # Ljava/lang/Object;
+    .param p3, "uptimeMillis"    # J
 
     .prologue
     .line 372
@@ -723,8 +723,8 @@
 
 .method public final postDelayed(Ljava/lang/Runnable;J)Z
     .locals 1
-    .parameter "r"
-    .parameter "delayMillis"
+    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p2, "delayMillis"    # J
 
     .prologue
     .line 394
@@ -741,7 +741,7 @@
 
 .method public final removeCallbacks(Ljava/lang/Runnable;)V
     .locals 2
-    .parameter "r"
+    .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
     .line 479
@@ -757,8 +757,8 @@
 
 .method public final removeCallbacks(Ljava/lang/Runnable;Ljava/lang/Object;)V
     .locals 1
-    .parameter "r"
-    .parameter "token"
+    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p2, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 489
@@ -772,7 +772,7 @@
 
 .method public final removeCallbacksAndMessages(Ljava/lang/Object;)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # Ljava/lang/Object;
 
     .prologue
     .line 652
@@ -786,7 +786,7 @@
 
 .method public final removeMessages(I)V
     .locals 2
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 634
@@ -802,8 +802,8 @@
 
 .method public final removeMessages(ILjava/lang/Object;)V
     .locals 1
-    .parameter "what"
-    .parameter "object"
+    .param p1, "what"    # I
+    .param p2, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 643
@@ -817,8 +817,8 @@
 
 .method public final runWithScissors(Ljava/lang/Runnable;J)Z
     .locals 3
-    .parameter "r"
-    .parameter "timeout"
+    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p2, "timeout"    # J
 
     .prologue
     .line 458
@@ -877,7 +877,7 @@
     invoke-direct {v0, p1}, Landroid/os/Handler$BlockingRunnable;-><init>(Ljava/lang/Runnable;)V
 
     .line 471
-    .local v0, br:Landroid/os/Handler$BlockingRunnable;
+    .local v0, "br":Landroid/os/Handler$BlockingRunnable;
     invoke-virtual {v0, p0, p2, p3}, Landroid/os/Handler$BlockingRunnable;->postAndWait(Landroid/os/Handler;J)Z
 
     move-result v1
@@ -887,7 +887,7 @@
 
 .method public final sendEmptyMessage(I)Z
     .locals 2
-    .parameter "what"
+    .param p1, "what"    # I
 
     .prologue
     .line 515
@@ -902,8 +902,8 @@
 
 .method public final sendEmptyMessageAtTime(IJ)Z
     .locals 2
-    .parameter "what"
-    .parameter "uptimeMillis"
+    .param p1, "what"    # I
+    .param p2, "uptimeMillis"    # J
 
     .prologue
     .line 544
@@ -912,7 +912,7 @@
     move-result-object v0
 
     .line 545
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 546
@@ -925,8 +925,8 @@
 
 .method public final sendEmptyMessageDelayed(IJ)Z
     .locals 2
-    .parameter "what"
-    .parameter "delayMillis"
+    .param p1, "what"    # I
+    .param p2, "delayMillis"    # J
 
     .prologue
     .line 528
@@ -935,7 +935,7 @@
     move-result-object v0
 
     .line 529
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
     .line 530
@@ -948,7 +948,7 @@
 
 .method public final sendMessage(Landroid/os/Message;)Z
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 503
@@ -963,14 +963,14 @@
 
 .method public final sendMessageAtFrontOfQueue(Landroid/os/Message;)Z
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 611
     iget-object v1, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     .line 612
-    .local v1, queue:Landroid/os/MessageQueue;
+    .local v1, "queue":Landroid/os/MessageQueue;
     if-nez v1, :cond_0
 
     .line 613
@@ -997,7 +997,7 @@
     invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 615
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "Looper"
 
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
@@ -1010,7 +1010,7 @@
     const/4 v2, 0x0
 
     .line 618
-    .end local v0           #e:Ljava/lang/RuntimeException;
+    .end local v0    # "e":Ljava/lang/RuntimeException;
     :goto_0
     return v2
 
@@ -1026,15 +1026,15 @@
 
 .method public sendMessageAtTime(Landroid/os/Message;J)Z
     .locals 4
-    .parameter "msg"
-    .parameter "uptimeMillis"
+    .param p1, "msg"    # Landroid/os/Message;
+    .param p2, "uptimeMillis"    # J
 
     .prologue
     .line 588
     iget-object v1, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     .line 589
-    .local v1, queue:Landroid/os/MessageQueue;
+    .local v1, "queue":Landroid/os/MessageQueue;
     if-nez v1, :cond_0
 
     .line 590
@@ -1061,7 +1061,7 @@
     invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 592
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "Looper"
 
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
@@ -1074,7 +1074,7 @@
     const/4 v2, 0x0
 
     .line 595
-    .end local v0           #e:Ljava/lang/RuntimeException;
+    .end local v0    # "e":Ljava/lang/RuntimeException;
     :goto_0
     return v2
 
@@ -1088,8 +1088,8 @@
 
 .method public final sendMessageDelayed(Landroid/os/Message;J)Z
     .locals 2
-    .parameter "msg"
-    .parameter "delayMillis"
+    .param p1, "msg"    # Landroid/os/Message;
+    .param p2, "delayMillis"    # J
 
     .prologue
     .line 563

@@ -28,8 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/ExtractEditLayout;Landroid/view/ActionMode$Callback;)V
     .locals 2
-    .parameter
-    .parameter "cb"
+    .param p2, "cb"    # Landroid/view/ActionMode$Callback;
 
     .prologue
     .line 100
@@ -267,8 +266,8 @@
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
-    .parameter "menu"
-    .parameter "item"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 201
@@ -295,7 +294,7 @@
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 209
@@ -304,7 +303,7 @@
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 0
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 135
@@ -313,7 +312,7 @@
 
 .method public setSubtitle(I)V
     .locals 0
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 124
@@ -322,7 +321,7 @@
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "subtitle"
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 119
@@ -331,7 +330,7 @@
 
 .method public setTitle(I)V
     .locals 0
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 114
@@ -340,7 +339,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 109

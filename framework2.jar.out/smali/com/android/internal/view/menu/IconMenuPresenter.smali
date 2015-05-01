@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 46
@@ -68,8 +68,8 @@
 # virtual methods
 .method protected addItemView(Landroid/view/View;I)V
     .locals 3
-    .parameter "itemView"
-    .parameter "childIndex"
+    .param p1, "itemView"    # Landroid/view/View;
+    .param p2, "childIndex"    # I
 
     .prologue
     .line 79
@@ -78,13 +78,13 @@
     check-cast v1, Lcom/android/internal/view/menu/IconMenuItemView;
 
     .line 80
-    .local v1, v:Lcom/android/internal/view/menu/IconMenuItemView;
+    .local v1, "v":Lcom/android/internal/view/menu/IconMenuItemView;
     iget-object v0, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
 
     check-cast v0, Lcom/android/internal/view/menu/IconMenuView;
 
     .line 82
-    .local v0, parent:Lcom/android/internal/view/menu/IconMenuView;
+    .local v0, "parent":Lcom/android/internal/view/menu/IconMenuView;
     invoke-virtual {v1, v0}, Lcom/android/internal/view/menu/IconMenuItemView;->setIconMenuView(Lcom/android/internal/view/menu/IconMenuView;)V
 
     .line 83
@@ -106,8 +106,8 @@
 
 .method public bindItemView(Lcom/android/internal/view/menu/MenuItemImpl;Lcom/android/internal/view/menu/MenuView$ItemView;)V
     .locals 3
-    .parameter "item"
-    .parameter "itemView"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "itemView"    # Lcom/android/internal/view/menu/MenuView$ItemView;
 
     .prologue
     .line 59
@@ -116,7 +116,7 @@
     check-cast v0, Lcom/android/internal/view/menu/IconMenuItemView;
 
     .line 60
-    .local v0, view:Lcom/android/internal/view/menu/IconMenuItemView;
+    .local v0, "view":Lcom/android/internal/view/menu/IconMenuItemView;
     invoke-virtual {v0, p1}, Lcom/android/internal/view/menu/IconMenuItemView;->setItemData(Lcom/android/internal/view/menu/MenuItemImpl;)V
 
     .line 62
@@ -168,8 +168,8 @@
 
 .method protected filterLeftoverView(Landroid/view/ViewGroup;I)Z
     .locals 2
-    .parameter "parent"
-    .parameter "childIndex"
+    .param p1, "parent"    # Landroid/view/ViewGroup;
+    .param p2, "childIndex"    # I
 
     .prologue
     .line 125
@@ -214,8 +214,8 @@
 
 .method public initForMenu(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 1
-    .parameter "context"
-    .parameter "menu"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 53
@@ -232,13 +232,13 @@
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 0
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 173
     check-cast p1, Landroid/os/Bundle;
 
-    .end local p1
+    .end local p1    # "state":Landroid/os/Parcelable;
     invoke-virtual {p0, p1}, Lcom/android/internal/view/menu/IconMenuPresenter;->restoreHierarchyState(Landroid/os/Bundle;)V
 
     .line 174
@@ -269,7 +269,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 164
-    .local v0, state:Landroid/os/Bundle;
+    .local v0, "state":Landroid/os/Bundle;
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/IconMenuPresenter;->saveHierarchyState(Landroid/os/Bundle;)V
 
     .line 165
@@ -289,7 +289,7 @@
 
 .method public onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
     .locals 2
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     .line 90
@@ -312,7 +312,7 @@
     invoke-direct {v0, p1}, Lcom/android/internal/view/menu/MenuDialogHelper;-><init>(Lcom/android/internal/view/menu/MenuBuilder;)V
 
     .line 94
-    .local v0, helper:Lcom/android/internal/view/menu/MenuDialogHelper;
+    .local v0, "helper":Lcom/android/internal/view/menu/MenuDialogHelper;
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mSubMenuPresenterCallback:Lcom/android/internal/view/menu/IconMenuPresenter$SubMenuPresenterCallback;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuDialogHelper;->setPresenterCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
@@ -347,7 +347,7 @@
 
 .method public restoreHierarchyState(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "inState"
+    .param p1, "inState"    # Landroid/os/Bundle;
 
     .prologue
     .line 144
@@ -358,7 +358,7 @@
     move-result-object v2
 
     .line 145
-    .local v2, viewStates:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
+    .local v2, "viewStates":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
     if-eqz v2, :cond_0
 
     .line 146
@@ -379,7 +379,7 @@
     move-result v1
 
     .line 149
-    .local v1, subMenuId:I
+    .local v1, "subMenuId":I
     if-lez v1, :cond_1
 
     iget-object v3, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -394,7 +394,7 @@
     move-result-object v0
 
     .line 151
-    .local v0, item:Landroid/view/MenuItem;
+    .local v0, "item":Landroid/view/MenuItem;
     if-eqz v0, :cond_1
 
     .line 152
@@ -407,14 +407,14 @@
     invoke-virtual {p0, v3}, Lcom/android/internal/view/menu/IconMenuPresenter;->onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
 
     .line 155
-    .end local v0           #item:Landroid/view/MenuItem;
+    .end local v0    # "item":Landroid/view/MenuItem;
     :cond_1
     return-void
 .end method
 
 .method public saveHierarchyState(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "outState"
+    .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
     .line 136
@@ -423,7 +423,7 @@
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     .line 137
-    .local v0, viewStates:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
+    .local v0, "viewStates":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
 
     if-eqz v1, :cond_0
@@ -447,8 +447,8 @@
 
 .method public shouldIncludeItem(ILcom/android/internal/view/menu/MenuItemImpl;)Z
     .locals 6
-    .parameter "childIndex"
-    .parameter "item"
+    .param p1, "childIndex"    # I
+    .param p2, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     const/4 v2, 0x1
@@ -463,7 +463,7 @@
     move-result-object v1
 
     .line 72
-    .local v1, itemsToShow:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .local v1, "itemsToShow":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -487,7 +487,7 @@
     move v0, v2
 
     .line 74
-    .local v0, fits:Z
+    .local v0, "fits":Z
     :goto_0
     if-eqz v0, :cond_3
 
@@ -500,14 +500,14 @@
     :goto_1
     return v2
 
-    .end local v0           #fits:Z
+    .end local v0    # "fits":Z
     :cond_2
     move v0, v3
 
     .line 72
     goto :goto_0
 
-    .restart local v0       #fits:Z
+    .restart local v0    # "fits":Z
     :cond_3
     move v2, v3
 
@@ -517,7 +517,7 @@
 
 .method public updateMenuView(Z)V
     .locals 5
-    .parameter "cleared"
+    .param p1, "cleared"    # Z
 
     .prologue
     .line 104
@@ -526,7 +526,7 @@
     check-cast v1, Lcom/android/internal/view/menu/IconMenuView;
 
     .line 105
-    .local v1, menuView:Lcom/android/internal/view/menu/IconMenuView;
+    .local v1, "menuView":Lcom/android/internal/view/menu/IconMenuView;
     iget v3, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mMaxItems:I
 
     if-gez v3, :cond_0
@@ -546,7 +546,7 @@
     move-result-object v0
 
     .line 107
-    .local v0, itemsToShow:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
+    .local v0, "itemsToShow":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/view/menu/MenuItemImpl;>;"
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v3
@@ -558,7 +558,7 @@
     const/4 v2, 0x1
 
     .line 108
-    .local v2, needsMore:Z
+    .local v2, "needsMore":Z
     :goto_0
     invoke-super {p0, p1}, Lcom/android/internal/view/menu/BaseMenuPresenter;->updateMenuView(Z)V
 
@@ -621,14 +621,14 @@
     return-void
 
     .line 107
-    .end local v2           #needsMore:Z
+    .end local v2    # "needsMore":Z
     :cond_4
     const/4 v2, 0x0
 
     goto :goto_0
 
     .line 116
-    .restart local v2       #needsMore:Z
+    .restart local v2    # "needsMore":Z
     :cond_5
     if-nez v2, :cond_3
 

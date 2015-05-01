@@ -24,12 +24,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/AppBindRecord;Lcom/android/server/am/ActivityRecord;Landroid/app/IServiceConnection;IILandroid/app/PendingIntent;)V
     .locals 0
-    .parameter "_binding"
-    .parameter "_activity"
-    .parameter "_conn"
-    .parameter "_flags"
-    .parameter "_clientLabel"
-    .parameter "_clientIntent"
+    .param p1, "_binding"    # Lcom/android/server/am/AppBindRecord;
+    .param p2, "_activity"    # Lcom/android/server/am/ActivityRecord;
+    .param p3, "_conn"    # Landroid/app/IServiceConnection;
+    .param p4, "_flags"    # I
+    .param p5, "_clientLabel"    # I
+    .param p6, "_clientIntent"    # Landroid/app/PendingIntent;
 
     .prologue
     .line 49
@@ -61,8 +61,8 @@
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 39
@@ -201,7 +201,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 63
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ConnectionRecord{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -343,7 +343,7 @@
     :cond_8
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x1000
+    const/high16 v2, 0x10000000
 
     and-int/2addr v1, v2
 
@@ -358,7 +358,7 @@
     :cond_9
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x2000
+    const/high16 v2, 0x20000000
 
     and-int/2addr v1, v2
 
@@ -373,7 +373,7 @@
     :cond_a
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x4000
+    const/high16 v2, 0x40000000    # 2.0f
 
     and-int/2addr v1, v2
 

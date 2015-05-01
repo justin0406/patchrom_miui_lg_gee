@@ -4,15 +4,15 @@
 
 # interfaces
 .implements Landroid/provider/BaseColumns;
-.implements Landroid/provider/ContactsContract$ContactsColumns;
-.implements Landroid/provider/ContactsContract$ContactNameColumns;
-.implements Landroid/provider/ContactsContract$RawContactsColumns;
 .implements Landroid/provider/ContactsContract$BaseSyncColumns;
-.implements Landroid/provider/ContactsContract$SyncColumns;
-.implements Landroid/provider/ContactsContract$DataColumns;
-.implements Landroid/provider/ContactsContract$StatusColumns;
+.implements Landroid/provider/ContactsContract$ContactNameColumns;
 .implements Landroid/provider/ContactsContract$ContactOptionsColumns;
 .implements Landroid/provider/ContactsContract$ContactStatusColumns;
+.implements Landroid/provider/ContactsContract$ContactsColumns;
+.implements Landroid/provider/ContactsContract$DataColumns;
+.implements Landroid/provider/ContactsContract$RawContactsColumns;
+.implements Landroid/provider/ContactsContract$StatusColumns;
+.implements Landroid/provider/ContactsContract$SyncColumns;
 
 
 # annotations
@@ -39,9 +39,9 @@
     .locals 0
 
     .prologue
-    .line 1675
+    .line 1677
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1676
+    .line 1678
     return-void
 .end method

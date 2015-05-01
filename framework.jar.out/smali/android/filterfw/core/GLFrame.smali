@@ -39,8 +39,8 @@
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
     .locals 1
-    .parameter "format"
-    .parameter "frameManager"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 71
@@ -62,10 +62,10 @@
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;IJ)V
     .locals 1
-    .parameter "format"
-    .parameter "frameManager"
-    .parameter "bindingType"
-    .parameter "bindingId"
+    .param p1, "format"    # Landroid/filterfw/core/FrameFormat;
+    .param p2, "frameManager"    # Landroid/filterfw/core/FrameManager;
+    .param p3, "bindingType"    # I
+    .param p4, "bindingId"    # J
 
     .prologue
     .line 75
@@ -208,7 +208,7 @@
 
 .method private initNew(Z)V
     .locals 3
-    .parameter "isExternal"
+    .param p1, "isExternal"    # Z
 
     .prologue
     .line 115
@@ -274,7 +274,7 @@
 
 .method private initWithFbo(I)V
     .locals 4
-    .parameter "fboId"
+    .param p1, "fboId"    # I
 
     .prologue
     .line 137
@@ -287,7 +287,7 @@
     move-result v1
 
     .line 138
-    .local v1, width:I
+    .local v1, "width":I
     invoke-virtual {p0}, Landroid/filterfw/core/GLFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
@@ -297,7 +297,7 @@
     move-result v0
 
     .line 139
-    .local v0, height:I
+    .local v0, "height":I
     iget-object v2, p0, Landroid/filterfw/core/GLFrame;->mGLEnvironment:Landroid/filterfw/core/GLEnvironment;
 
     invoke-direct {p0, v2, p1, v1, v0}, Landroid/filterfw/core/GLFrame;->nativeAllocateWithFbo(Landroid/filterfw/core/GLEnvironment;III)Z
@@ -322,7 +322,7 @@
 
 .method private initWithTexture(I)V
     .locals 4
-    .parameter "texId"
+    .param p1, "texId"    # I
 
     .prologue
     .line 127
@@ -335,7 +335,7 @@
     move-result v1
 
     .line 128
-    .local v1, width:I
+    .local v1, "width":I
     invoke-virtual {p0}, Landroid/filterfw/core/GLFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
@@ -345,7 +345,7 @@
     move-result v0
 
     .line 129
-    .local v0, height:I
+    .local v0, "height":I
     iget-object v2, p0, Landroid/filterfw/core/GLFrame;->mGLEnvironment:Landroid/filterfw/core/GLEnvironment;
 
     invoke-direct {p0, v2, p1, v1, v0}, Landroid/filterfw/core/GLFrame;->nativeAllocateWithTexture(Landroid/filterfw/core/GLEnvironment;III)Z
@@ -431,7 +431,7 @@
 # virtual methods
 .method flushGPU(Ljava/lang/String;)V
     .locals 3
-    .parameter "message"
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 145
@@ -440,7 +440,7 @@
     move-result-object v0
 
     .line 146
-    .local v0, timer:Landroid/filterfw/core/StopWatchMap;
+    .local v0, "timer":Landroid/filterfw/core/StopWatchMap;
     iget-boolean v1, v0, Landroid/filterfw/core/StopWatchMap;->LOG_MFF_RUNNING_TIMES:Z
 
     if-eqz v1, :cond_0
@@ -587,7 +587,7 @@
     move-result-object v0
 
     .line 247
-    .local v0, result:Landroid/graphics/Bitmap;
+    .local v0, "result":Landroid/graphics/Bitmap;
     invoke-direct {p0, v0}, Landroid/filterfw/core/GLFrame;->getNativeBitmap(Landroid/graphics/Bitmap;)Z
 
     move-result v1
@@ -763,7 +763,7 @@
 
 .method init(Landroid/filterfw/core/GLEnvironment;)V
     .locals 6
-    .parameter "glEnv"
+    .param p1, "glEnv"    # Landroid/filterfw/core/GLEnvironment;
 
     .prologue
     .line 79
@@ -772,7 +772,7 @@
     move-result-object v1
 
     .line 80
-    .local v1, format:Landroid/filterfw/core/FrameFormat;
+    .local v1, "format":Landroid/filterfw/core/FrameFormat;
     iput-object p1, p0, Landroid/filterfw/core/GLFrame;->mGLEnvironment:Landroid/filterfw/core/GLEnvironment;
 
     .line 83
@@ -840,11 +840,11 @@
     move-result v0
 
     .line 93
-    .local v0, bindingType:I
+    .local v0, "bindingType":I
     const/4 v2, 0x1
 
     .line 94
-    .local v2, reusable:Z
+    .local v2, "reusable":Z
     if-nez v0, :cond_3
 
     .line 95
@@ -1043,7 +1043,7 @@
 
 .method protected reset(Landroid/filterfw/core/FrameFormat;)V
     .locals 2
-    .parameter "newFormat"
+    .param p1, "newFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 325
@@ -1072,7 +1072,7 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 3
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 227
@@ -1127,7 +1127,7 @@
     move-result-object v0
 
     .line 234
-    .local v0, rgbaBitmap:Landroid/graphics/Bitmap;
+    .local v0, "rgbaBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getByteCount()I
 
     move-result v1
@@ -1154,9 +1154,9 @@
 
 .method public setData(Ljava/nio/ByteBuffer;II)V
     .locals 3
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
 
     .prologue
     .line 208
@@ -1171,7 +1171,7 @@
     move-result-object v0
 
     .line 211
-    .local v0, bytes:[B
+    .local v0, "bytes":[B
     invoke-virtual {p0}, Landroid/filterfw/core/GLFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
@@ -1217,7 +1217,7 @@
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
     .locals 3
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 255
@@ -1314,7 +1314,7 @@
     .line 266
     check-cast p1, Landroid/filterfw/core/NativeFrame;
 
-    .end local p1
+    .end local p1    # "frame":Landroid/filterfw/core/Frame;
     invoke-direct {p0, p1}, Landroid/filterfw/core/GLFrame;->nativeCopyFromNative(Landroid/filterfw/core/NativeFrame;)Z
 
     .line 274
@@ -1322,7 +1322,7 @@
     return-void
 
     .line 267
-    .restart local p1
+    .restart local p1    # "frame":Landroid/filterfw/core/Frame;
     :cond_1
     instance-of v0, p1, Landroid/filterfw/core/GLFrame;
 
@@ -1331,13 +1331,13 @@
     .line 268
     check-cast p1, Landroid/filterfw/core/GLFrame;
 
-    .end local p1
+    .end local p1    # "frame":Landroid/filterfw/core/Frame;
     invoke-direct {p0, p1}, Landroid/filterfw/core/GLFrame;->nativeCopyFromGL(Landroid/filterfw/core/GLFrame;)Z
 
     goto :goto_0
 
     .line 269
-    .restart local p1
+    .restart local p1    # "frame":Landroid/filterfw/core/Frame;
     :cond_2
     instance-of v0, p1, Landroid/filterfw/core/SimpleFrame;
 
@@ -1361,7 +1361,7 @@
 
 .method public setFloats([F)V
     .locals 2
-    .parameter "floats"
+    .param p1, "floats"    # [F
 
     .prologue
     .line 192
@@ -1393,7 +1393,7 @@
 
 .method public setInts([I)V
     .locals 2
-    .parameter "ints"
+    .param p1, "ints"    # [I
 
     .prologue
     .line 176
@@ -1425,8 +1425,8 @@
 
 .method public setTextureParameter(II)V
     .locals 3
-    .parameter "param"
-    .parameter "value"
+    .param p1, "param"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 295
@@ -1496,10 +1496,10 @@
 
 .method public setViewport(IIII)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 277
@@ -1514,7 +1514,7 @@
 
 .method public setViewport(Landroid/graphics/Rect;)V
     .locals 5
-    .parameter "rect"
+    .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 282

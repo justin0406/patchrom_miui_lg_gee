@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 417
@@ -51,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$9;->val$printerId:Landroid/print/PrinterId;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleStartPrinterStateTracking(Landroid/print/PrinterId;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleStartPrinterStateTracking(Landroid/print/PrinterId;)V
     invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$900(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     .line 421

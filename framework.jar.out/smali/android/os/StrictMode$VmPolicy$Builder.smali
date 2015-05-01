@@ -54,7 +54,7 @@
 
 .method public constructor <init>(Landroid/os/StrictMode$VmPolicy;)V
     .locals 1
-    .parameter "base"
+    .param p1, "base"    # Landroid/os/StrictMode$VmPolicy;
 
     .prologue
     .line 592
@@ -86,7 +86,7 @@
 
 .method private enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
     .locals 1
-    .parameter "bit"
+    .param p1, "bit"    # I
 
     .prologue
     .line 713
@@ -140,6 +140,7 @@
     return-object v1
 
     :cond_1
+    # getter for: Landroid/os/StrictMode;->EMPTY_CLASS_LIMIT_MAP:Ljava/util/HashMap;
     invoke-static {}, Landroid/os/StrictMode;->access$100()Ljava/util/HashMap;
 
     move-result-object v0
@@ -275,8 +276,8 @@
 
 .method public setClassInstanceLimit(Ljava/lang/Class;I)Landroid/os/StrictMode$VmPolicy$Builder;
     .locals 2
-    .parameter "klass"
-    .parameter "instanceLimit"
+    .param p1, "klass"    # Ljava/lang/Class;
+    .param p2, "instanceLimit"    # I
 
     .prologue
     .line 603

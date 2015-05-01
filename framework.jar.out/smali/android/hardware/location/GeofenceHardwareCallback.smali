@@ -18,8 +18,8 @@
 # virtual methods
 .method public onGeofenceAdd(II)V
     .locals 0
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 52
@@ -28,8 +28,8 @@
 
 .method public onGeofencePause(II)V
     .locals 0
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 74
@@ -38,8 +38,8 @@
 
 .method public onGeofenceRemove(II)V
     .locals 0
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 63
@@ -48,8 +48,8 @@
 
 .method public onGeofenceResume(II)V
     .locals 0
-    .parameter "geofenceId"
-    .parameter "status"
+    .param p1, "geofenceId"    # I
+    .param p2, "status"    # I
 
     .prologue
     .line 86
@@ -58,11 +58,11 @@
 
 .method public onGeofenceTransition(IILandroid/location/Location;JI)V
     .locals 0
-    .parameter "geofenceId"
-    .parameter "transition"
-    .parameter "location"
-    .parameter "timestamp"
-    .parameter "monitoringType"
+    .param p1, "geofenceId"    # I
+    .param p2, "transition"    # I
+    .param p3, "location"    # Landroid/location/Location;
+    .param p4, "timestamp"    # J
+    .param p6, "monitoringType"    # I
 
     .prologue
     .line 39

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/telephony/PhoneStateListener;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 349
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v0, 0x1

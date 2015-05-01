@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -46,9 +46,9 @@
 
 .method public constructor <init>(Landroid/net/Uri;IJ)V
     .locals 0
-    .parameter "uri"
-    .parameter "modeFlags"
-    .parameter "persistedTime"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "modeFlags"    # I
+    .param p3, "persistedTime"    # J
 
     .prologue
     .line 42
@@ -69,7 +69,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 49
@@ -240,8 +240,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 101

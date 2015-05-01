@@ -47,8 +47,8 @@
 # direct methods
 .method private constructor <init>(ILandroid/net/Uri;)V
     .locals 2
-    .parameter "type"
-    .parameter "uri"
+    .param p1, "type"    # I
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 413
@@ -79,9 +79,9 @@
 
 .method synthetic constructor <init>(ILandroid/net/Uri;Landroid/content/ContentProviderOperation$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/net/Uri;
+    .param p3, "x2"    # Landroid/content/ContentProviderOperation$1;
 
     .prologue
     .line 401
@@ -92,7 +92,7 @@
 
 .method static synthetic access$000(Landroid/content/ContentProviderOperation$Builder;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -103,7 +103,7 @@
 
 .method static synthetic access$100(Landroid/content/ContentProviderOperation$Builder;)Landroid/net/Uri;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -114,7 +114,7 @@
 
 .method static synthetic access$200(Landroid/content/ContentProviderOperation$Builder;)Landroid/content/ContentValues;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -125,7 +125,7 @@
 
 .method static synthetic access$300(Landroid/content/ContentProviderOperation$Builder;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -136,7 +136,7 @@
 
 .method static synthetic access$400(Landroid/content/ContentProviderOperation$Builder;)[Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -147,7 +147,7 @@
 
 .method static synthetic access$500(Landroid/content/ContentProviderOperation$Builder;)Ljava/lang/Integer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -158,7 +158,7 @@
 
 .method static synthetic access$600(Landroid/content/ContentProviderOperation$Builder;)Ljava/util/Map;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -169,7 +169,7 @@
 
 .method static synthetic access$700(Landroid/content/ContentProviderOperation$Builder;)Landroid/content/ContentValues;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -180,7 +180,7 @@
 
 .method static synthetic access$800(Landroid/content/ContentProviderOperation$Builder;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/ContentProviderOperation$Builder;
 
     .prologue
     .line 401
@@ -299,7 +299,7 @@
 
 .method public withExpectedCount(I)Landroid/content/ContentProviderOperation$Builder;
     .locals 2
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 585
@@ -344,8 +344,8 @@
 
 .method public withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
     .locals 3
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "selection"    # Ljava/lang/String;
+    .param p2, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -414,8 +414,8 @@
 
 .method public withSelectionBackReference(II)Landroid/content/ContentProviderOperation$Builder;
     .locals 3
-    .parameter "selectionArgIndex"
-    .parameter "previousResult"
+    .param p1, "selectionArgIndex"    # I
+    .param p2, "previousResult"    # I
 
     .prologue
     .line 483
@@ -479,8 +479,8 @@
 
 .method public withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
     .locals 3
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 523
@@ -534,12 +534,12 @@
     invoke-virtual {v0, p1}, Landroid/content/ContentValues;->putNull(Ljava/lang/String;)V
 
     .line 552
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     :goto_0
     return-object p0
 
     .line 531
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_2
     instance-of v0, p2, Ljava/lang/String;
 
@@ -550,13 +550,13 @@
 
     check-cast p2, Ljava/lang/String;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 533
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_3
     instance-of v0, p2, Ljava/lang/Byte;
 
@@ -567,13 +567,13 @@
 
     check-cast p2, Ljava/lang/Byte;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Byte;)V
 
     goto :goto_0
 
     .line 535
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_4
     instance-of v0, p2, Ljava/lang/Short;
 
@@ -584,13 +584,13 @@
 
     check-cast p2, Ljava/lang/Short;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Short;)V
 
     goto :goto_0
 
     .line 537
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_5
     instance-of v0, p2, Ljava/lang/Integer;
 
@@ -601,13 +601,13 @@
 
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     goto :goto_0
 
     .line 539
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_6
     instance-of v0, p2, Ljava/lang/Long;
 
@@ -618,13 +618,13 @@
 
     check-cast p2, Ljava/lang/Long;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
     goto :goto_0
 
     .line 541
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_7
     instance-of v0, p2, Ljava/lang/Float;
 
@@ -635,13 +635,13 @@
 
     check-cast p2, Ljava/lang/Float;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Float;)V
 
     goto :goto_0
 
     .line 543
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_8
     instance-of v0, p2, Ljava/lang/Double;
 
@@ -652,13 +652,13 @@
 
     check-cast p2, Ljava/lang/Double;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Double;)V
 
     goto :goto_0
 
     .line 545
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_9
     instance-of v0, p2, Ljava/lang/Boolean;
 
@@ -669,13 +669,13 @@
 
     check-cast p2, Ljava/lang/Boolean;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
     goto :goto_0
 
     .line 547
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_a
     instance-of v0, p2, [B
 
@@ -686,7 +686,7 @@
 
     check-cast p2, [B
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     check-cast p2, [B
 
     invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -694,7 +694,7 @@
     goto :goto_0
 
     .line 550
-    .restart local p2
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -731,8 +731,8 @@
 
 .method public withValueBackReference(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;
     .locals 2
-    .parameter "key"
-    .parameter "previousResult"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "previousResult"    # I
 
     .prologue
     .line 465
@@ -792,7 +792,7 @@
 
 .method public withValueBackReferences(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
     .locals 2
-    .parameter "backReferences"
+    .param p1, "backReferences"    # Landroid/content/ContentValues;
 
     .prologue
     .line 449
@@ -833,7 +833,7 @@
 
 .method public withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
     .locals 2
-    .parameter "values"
+    .param p1, "values"    # Landroid/content/ContentValues;
 
     .prologue
     .line 502
@@ -889,7 +889,7 @@
 
 .method public withYieldAllowed(Z)Landroid/content/ContentProviderOperation$Builder;
     .locals 0
-    .parameter "yieldAllowed"
+    .param p1, "yieldAllowed"    # Z
 
     .prologue
     .line 594

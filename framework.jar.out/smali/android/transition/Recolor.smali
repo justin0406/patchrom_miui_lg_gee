@@ -22,7 +22,7 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 3
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 45
@@ -73,7 +73,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 59
@@ -85,7 +85,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 54
@@ -97,9 +97,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 15
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 65
@@ -122,7 +122,7 @@
     iget-object v9, v0, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 69
-    .local v9, view:Landroid/view/View;
+    .local v9, "view":Landroid/view/View;
     move-object/from16 v0, p2
 
     iget-object v10, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -136,7 +136,7 @@
     check-cast v6, Landroid/graphics/drawable/Drawable;
 
     .line 70
-    .local v6, startBackground:Landroid/graphics/drawable/Drawable;
+    .local v6, "startBackground":Landroid/graphics/drawable/Drawable;
     move-object/from16 v0, p3
 
     iget-object v10, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -150,11 +150,11 @@
     check-cast v3, Landroid/graphics/drawable/Drawable;
 
     .line 71
-    .local v3, endBackground:Landroid/graphics/drawable/Drawable;
+    .local v3, "endBackground":Landroid/graphics/drawable/Drawable;
     const/4 v1, 0x0
 
     .line 72
-    .local v1, changed:Z
+    .local v1, "changed":Z
     instance-of v10, v6, Landroid/graphics/drawable/ColorDrawable;
 
     if-eqz v10, :cond_2
@@ -168,14 +168,14 @@
     .line 73
     check-cast v7, Landroid/graphics/drawable/ColorDrawable;
 
-    .local v7, startColor:Landroid/graphics/drawable/ColorDrawable;
+    .local v7, "startColor":Landroid/graphics/drawable/ColorDrawable;
     move-object v4, v3
 
     .line 74
     check-cast v4, Landroid/graphics/drawable/ColorDrawable;
 
     .line 75
-    .local v4, endColor:Landroid/graphics/drawable/ColorDrawable;
+    .local v4, "endColor":Landroid/graphics/drawable/ColorDrawable;
     invoke-virtual {v7}, Landroid/graphics/drawable/ColorDrawable;->getColor()I
 
     move-result v10
@@ -238,8 +238,8 @@
     goto :goto_0
 
     .line 82
-    .end local v4           #endColor:Landroid/graphics/drawable/ColorDrawable;
-    .end local v7           #startColor:Landroid/graphics/drawable/ColorDrawable;
+    .end local v4    # "endColor":Landroid/graphics/drawable/ColorDrawable;
+    .end local v7    # "startColor":Landroid/graphics/drawable/ColorDrawable;
     :cond_2
     instance-of v10, v9, Landroid/widget/TextView;
 
@@ -251,7 +251,7 @@
     check-cast v8, Landroid/widget/TextView;
 
     .line 84
-    .local v8, textView:Landroid/widget/TextView;
+    .local v8, "textView":Landroid/widget/TextView;
     move-object/from16 v0, p2
 
     iget-object v10, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -269,7 +269,7 @@
     move-result v5
 
     .line 85
-    .local v5, start:I
+    .local v5, "start":I
     move-object/from16 v0, p3
 
     iget-object v10, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -287,7 +287,7 @@
     move-result v2
 
     .line 86
-    .local v2, end:I
+    .local v2, "end":I
     if-eq v5, v2, :cond_3
 
     .line 87
@@ -330,9 +330,9 @@
     goto/16 :goto_0
 
     .line 93
-    .end local v2           #end:I
-    .end local v5           #start:I
-    .end local v8           #textView:Landroid/widget/TextView;
+    .end local v2    # "end":I
+    .end local v5    # "start":I
+    .end local v8    # "textView":Landroid/widget/TextView;
     :cond_3
     const/4 v10, 0x0
 

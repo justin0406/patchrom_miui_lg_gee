@@ -25,9 +25,8 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/ConsumerIrManager;II)V
     .locals 0
-    .parameter
-    .parameter "min"
-    .parameter "max"
+    .param p2, "min"    # I
+    .param p3, "max"    # I
 
     .prologue
     .line 105

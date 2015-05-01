@@ -32,8 +32,8 @@
 
 .method public constructor <init>(II)V
     .locals 1
-    .parameter "w"
-    .parameter "h"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
 
     .prologue
     .line 699
@@ -47,9 +47,9 @@
 
 .method public constructor <init>(IIF)V
     .locals 1
-    .parameter "w"
-    .parameter "h"
-    .parameter "initWeight"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "initWeight"    # F
 
     .prologue
     .line 706
@@ -63,8 +63,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 692
@@ -76,7 +76,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .parameter "p"
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 722
@@ -88,7 +88,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .prologue
     .line 729
@@ -102,9 +102,9 @@
 # virtual methods
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
     .locals 1
-    .parameter "a"
-    .parameter "widthAttr"
-    .parameter "heightAttr"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "widthAttr"    # I
+    .param p3, "heightAttr"    # I
 
     .prologue
     .line 746

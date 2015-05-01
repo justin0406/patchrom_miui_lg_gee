@@ -194,7 +194,7 @@
 
 .method public setContentLength(J)V
     .locals 0
-    .parameter "contentLength"
+    .param p1, "contentLength"    # J
 
     .prologue
     .line 229
@@ -206,7 +206,7 @@
 
 .method public setEncoding(Ljava/lang/String;)V
     .locals 0
-    .parameter "encoding"
+    .param p1, "encoding"    # Ljava/lang/String;
 
     .prologue
     .line 222
@@ -218,7 +218,7 @@
 
 .method public setInputStream(Ljava/io/InputStream;)V
     .locals 0
-    .parameter "stream"
+    .param p1, "stream"    # Ljava/io/InputStream;
 
     .prologue
     .line 213

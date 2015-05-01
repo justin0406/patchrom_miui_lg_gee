@@ -62,8 +62,8 @@
 
 .method public static obtain(Landroid/view/View;I)Landroid/view/ViewGroup$TouchTarget;
     .locals 3
-    .parameter "child"
-    .parameter "pointerIdBits"
+    .param p0, "child"    # Landroid/view/View;
+    .param p1, "pointerIdBits"    # I
 
     .prologue
     .line 6491
@@ -83,7 +83,7 @@
     invoke-direct {v0}, Landroid/view/ViewGroup$TouchTarget;-><init>()V
 
     .line 6500
-    .local v0, target:Landroid/view/ViewGroup$TouchTarget;
+    .local v0, "target":Landroid/view/ViewGroup$TouchTarget;
     :goto_0
     monitor-exit v2
     :try_end_0
@@ -99,13 +99,13 @@
     return-object v0
 
     .line 6495
-    .end local v0           #target:Landroid/view/ViewGroup$TouchTarget;
+    .end local v0    # "target":Landroid/view/ViewGroup$TouchTarget;
     :cond_0
     :try_start_1
     sget-object v0, Landroid/view/ViewGroup$TouchTarget;->sRecycleBin:Landroid/view/ViewGroup$TouchTarget;
 
     .line 6496
-    .restart local v0       #target:Landroid/view/ViewGroup$TouchTarget;
+    .restart local v0    # "target":Landroid/view/ViewGroup$TouchTarget;
     iget-object v1, v0, Landroid/view/ViewGroup$TouchTarget;->next:Landroid/view/ViewGroup$TouchTarget;
 
     sput-object v1, Landroid/view/ViewGroup$TouchTarget;->sRecycleBin:Landroid/view/ViewGroup$TouchTarget;
@@ -125,7 +125,7 @@
     goto :goto_0
 
     .line 6500
-    .end local v0           #target:Landroid/view/ViewGroup$TouchTarget;
+    .end local v0    # "target":Landroid/view/ViewGroup$TouchTarget;
     :catchall_0
     move-exception v1
 

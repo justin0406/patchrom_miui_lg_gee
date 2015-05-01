@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(III)V
     .locals 0
-    .parameter "h"
-    .parameter "m"
-    .parameter "s"
+    .param p1, "h"    # I
+    .param p2, "m"    # I
+    .param p3, "s"    # I
 
     .prologue
     .line 74

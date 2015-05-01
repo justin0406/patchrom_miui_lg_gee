@@ -62,10 +62,10 @@
 
 .method public constructor <init>(Landroid/view/textservice/SpellCheckerInfo;Lcom/android/internal/textservice/ITextServicesManager;Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListener;Landroid/view/textservice/SpellCheckerSubtype;)V
     .locals 2
-    .parameter "info"
-    .parameter "tsm"
-    .parameter "listener"
-    .parameter "subtype"
+    .param p1, "info"    # Landroid/view/textservice/SpellCheckerInfo;
+    .param p2, "tsm"    # Lcom/android/internal/textservice/ITextServicesManager;
+    .param p3, "listener"    # Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListener;
+    .param p4, "subtype"    # Landroid/view/textservice/SpellCheckerSubtype;
 
     .prologue
     .line 128
@@ -135,8 +135,8 @@
 
 .method static synthetic access$000(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SuggestionsInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/textservice/SpellCheckerSession;
+    .param p1, "x1"    # [Landroid/view/textservice/SuggestionsInfo;
 
     .prologue
     .line 86
@@ -147,8 +147,8 @@
 
 .method static synthetic access$100(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SentenceSuggestionsInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/textservice/SpellCheckerSession;
+    .param p1, "x1"    # [Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .prologue
     .line 86
@@ -169,7 +169,7 @@
 
 .method private handleOnGetSentenceSuggestionsMultiple([Landroid/view/textservice/SentenceSuggestionsInfo;)V
     .locals 1
-    .parameter "suggestionInfos"
+    .param p1, "suggestionInfos"    # [Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .prologue
     .line 221
@@ -183,7 +183,7 @@
 
 .method private handleOnGetSuggestionsMultiple([Landroid/view/textservice/SuggestionsInfo;)V
     .locals 1
-    .parameter "suggestionInfos"
+    .param p1, "suggestionInfos"    # [Landroid/view/textservice/SuggestionsInfo;
 
     .prologue
     .line 217
@@ -279,8 +279,8 @@
 
 .method public getSentenceSuggestions([Landroid/view/textservice/TextInfo;I)V
     .locals 1
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
 
     .prologue
     .line 184
@@ -314,8 +314,8 @@
 
 .method public getSuggestions(Landroid/view/textservice/TextInfo;I)V
     .locals 2
-    .parameter "textInfo"
-    .parameter "suggestionsLimit"
+    .param p1, "textInfo"    # Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -337,9 +337,9 @@
 
 .method public getSuggestions([Landroid/view/textservice/TextInfo;IZ)V
     .locals 1
-    .parameter "textInfos"
-    .parameter "suggestionsLimit"
-    .parameter "sequentialWords"
+    .param p1, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p2, "suggestionsLimit"    # I
+    .param p3, "sequentialWords"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

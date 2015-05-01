@@ -27,10 +27,10 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaRouter$Callback;IILandroid/media/MediaRouter;)V
     .locals 0
-    .parameter "cb"
-    .parameter "type"
-    .parameter "flags"
-    .parameter "router"
+    .param p1, "cb"    # Landroid/media/MediaRouter$Callback;
+    .param p2, "type"    # I
+    .param p3, "flags"    # I
+    .param p4, "router"    # Landroid/media/MediaRouter;
 
     .prologue
     .line 2596
@@ -56,7 +56,7 @@
 # virtual methods
 .method public filterRouteEvent(I)Z
     .locals 1
-    .parameter "supportedTypes"
+    .param p1, "supportedTypes"    # I
 
     .prologue
     .line 2608
@@ -86,7 +86,7 @@
 
 .method public filterRouteEvent(Landroid/media/MediaRouter$RouteInfo;)Z
     .locals 1
-    .parameter "route"
+    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
     .prologue
     .line 2604

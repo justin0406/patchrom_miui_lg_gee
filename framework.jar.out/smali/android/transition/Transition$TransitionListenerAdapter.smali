@@ -32,7 +32,7 @@
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
     .locals 0
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 1615
@@ -41,7 +41,7 @@
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 0
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 1611
@@ -50,7 +50,7 @@
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 0
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 1619
@@ -59,7 +59,7 @@
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 0
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 1623
@@ -68,7 +68,7 @@
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
-    .parameter "transition"
+    .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
     .line 1607

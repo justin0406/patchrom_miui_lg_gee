@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(FF)V
     .locals 1
-    .parameter "segmentLength"
-    .parameter "deviation"
+    .param p1, "segmentLength"    # F
+    .param p2, "deviation"    # F
 
     .prologue
     .line 25

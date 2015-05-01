@@ -39,11 +39,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;ZILandroid/content/Intent;Lcom/android/server/am/ActivityManagerService$NeededUriGrants;)V
     .locals 0
-    .parameter "_sr"
-    .parameter "_taskRemoved"
-    .parameter "_id"
-    .parameter "_intent"
-    .parameter "_neededGrants"
+    .param p1, "_sr"    # Lcom/android/server/am/ServiceRecord;
+    .param p2, "_taskRemoved"    # Z
+    .param p3, "_id"    # I
+    .param p4, "_intent"    # Landroid/content/Intent;
+    .param p5, "_neededGrants"    # Lcom/android/server/am/ActivityManagerService$NeededUriGrants;
 
     .prologue
     .line 128
@@ -146,7 +146,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 155
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "ServiceRecord{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

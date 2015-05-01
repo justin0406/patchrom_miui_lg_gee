@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/backup/IRestoreObserver;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Landroid/app/backup/IRestoreObserver$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/backup/IRestoreObserver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,13 +158,13 @@
     check-cast v0, [Landroid/app/backup/RestoreSet;
 
     .line 55
-    .local v0, _arg0:[Landroid/app/backup/RestoreSet;
+    .local v0, "_arg0":[Landroid/app/backup/RestoreSet;
     invoke-virtual {p0, v0}, Landroid/app/backup/IRestoreObserver$Stub;->restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
 
     goto :goto_0
 
     .line 60
-    .end local v0           #_arg0:[Landroid/app/backup/RestoreSet;
+    .end local v0    # "_arg0":[Landroid/app/backup/RestoreSet;
     :sswitch_2
     const-string v3, "android.app.backup.IRestoreObserver"
 
@@ -176,13 +176,13 @@
     move-result v0
 
     .line 63
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/backup/IRestoreObserver$Stub;->restoreStarting(I)V
 
     goto :goto_0
 
     .line 68
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_3
     const-string v3, "android.app.backup.IRestoreObserver"
 
@@ -194,20 +194,20 @@
     move-result v0
 
     .line 72
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 73
-    .local v1, _arg1:Ljava/lang/String;
+    .local v1, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/app/backup/IRestoreObserver$Stub;->onUpdate(ILjava/lang/String;)V
 
     goto :goto_0
 
     .line 78
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Ljava/lang/String;
     :sswitch_4
     const-string v3, "android.app.backup.IRestoreObserver"
 
@@ -219,7 +219,7 @@
     move-result v0
 
     .line 81
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/backup/IRestoreObserver$Stub;->restoreFinished(I)V
 
     goto :goto_0

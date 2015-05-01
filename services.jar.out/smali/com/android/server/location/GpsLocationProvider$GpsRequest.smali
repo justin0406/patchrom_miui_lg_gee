@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
     .locals 0
-    .parameter "request"
-    .parameter "source"
+    .param p1, "request"    # Lcom/android/internal/location/ProviderRequest;
+    .param p2, "source"    # Landroid/os/WorkSource;
 
     .prologue
     .line 214

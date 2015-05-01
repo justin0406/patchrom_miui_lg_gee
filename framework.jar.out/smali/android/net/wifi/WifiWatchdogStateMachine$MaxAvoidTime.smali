@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "time"
-    .parameter "rssi"
+    .param p1, "time"    # I
+    .param p2, "rssi"    # I
 
     .prologue
     .line 986

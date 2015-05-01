@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 362

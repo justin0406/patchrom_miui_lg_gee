@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LightsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 196
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 199
@@ -45,8 +44,8 @@
     check-cast v0, Lcom/android/server/LightsService$Light;
 
     .line 200
-    .local v0, light:Lcom/android/server/LightsService$Light;
-    #calls: Lcom/android/server/LightsService$Light;->stopFlashing()V
+    .local v0, "light":Lcom/android/server/LightsService$Light;
+    # invokes: Lcom/android/server/LightsService$Light;->stopFlashing()V
     invoke-static {v0}, Lcom/android/server/LightsService$Light;->access$500(Lcom/android/server/LightsService$Light;)V
 
     .line 201

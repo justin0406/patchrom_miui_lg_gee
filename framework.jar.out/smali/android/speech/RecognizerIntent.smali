@@ -81,7 +81,7 @@
 
 .method public static final getVoiceDetailsIntent(Landroid/content/Context;)Landroid/content/Intent;
     .locals 6
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x0
@@ -94,7 +94,7 @@
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 332
-    .local v3, voiceSearchIntent:Landroid/content/Intent;
+    .local v3, "voiceSearchIntent":Landroid/content/Intent;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
@@ -106,7 +106,7 @@
     move-result-object v2
 
     .line 334
-    .local v2, ri:Landroid/content/pm/ResolveInfo;
+    .local v2, "ri":Landroid/content/pm/ResolveInfo;
     if-eqz v2, :cond_0
 
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -137,7 +137,7 @@
     move-result-object v0
 
     .line 337
-    .local v0, className:Ljava/lang/String;
+    .local v0, "className":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 339
@@ -148,7 +148,7 @@
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 340
-    .local v1, detailsIntent:Landroid/content/Intent;
+    .local v1, "detailsIntent":Landroid/content/Intent;
     new-instance v4, Landroid/content/ComponentName;
 
     iget-object v5, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;

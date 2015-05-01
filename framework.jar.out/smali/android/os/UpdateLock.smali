@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "tag"
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     const/4 v1, 0x0
@@ -116,7 +116,7 @@
     move-exception v0
 
     .line 118
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UpdateLock"
 
     const-string v2, "Unable to contact service to acquire"
@@ -213,7 +213,7 @@
     move-exception v0
 
     .line 142
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UpdateLock"
 
     const-string v2, "Unable to contact service to release"
@@ -223,7 +223,7 @@
     goto :goto_0
 
     .line 150
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_3
     return-void
 .end method
@@ -300,8 +300,8 @@
 
     invoke-interface {v1, v3}, Landroid/os/IUpdateLock;->releaseUpdateLock(Landroid/os/IBinder;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 164
     :cond_0
@@ -317,7 +317,7 @@
     move-exception v0
 
     .line 161
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "UpdateLock"
 
     const-string v3, "Unable to contact service to release"
@@ -327,7 +327,7 @@
     goto :goto_0
 
     .line 164
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -401,7 +401,7 @@
 
 .method public setReferenceCounted(Z)V
     .locals 0
-    .parameter "isRefCounted"
+    .param p1, "isRefCounted"    # Z
 
     .prologue
     .line 87

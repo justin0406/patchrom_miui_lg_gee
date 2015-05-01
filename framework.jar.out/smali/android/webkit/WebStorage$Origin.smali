@@ -25,7 +25,7 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "origin"
+    .param p1, "origin"    # Ljava/lang/String;
 
     .prologue
     const-wide/16 v1, 0x0
@@ -53,8 +53,8 @@
 
 .method protected constructor <init>(Ljava/lang/String;J)V
     .locals 3
-    .parameter "origin"
-    .parameter "quota"
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
 
     .prologue
     const-wide/16 v1, 0x0
@@ -85,9 +85,9 @@
 
 .method protected constructor <init>(Ljava/lang/String;JJ)V
     .locals 3
-    .parameter "origin"
-    .parameter "quota"
-    .parameter "usage"
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
+    .param p4, "usage"    # J
 
     .prologue
     const-wide/16 v1, 0x0

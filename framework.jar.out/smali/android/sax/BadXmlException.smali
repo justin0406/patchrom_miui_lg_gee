@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
     .locals 0
-    .parameter "message"
-    .parameter "locator"
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "locator"    # Lorg/xml/sax/Locator;
 
     .prologue
     .line 28

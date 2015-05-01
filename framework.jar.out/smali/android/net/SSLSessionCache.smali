@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 6
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 58
@@ -30,11 +30,11 @@
     move-result-object v1
 
     .line 60
-    .local v1, dir:Ljava/io/File;
+    .local v1, "dir":Ljava/io/File;
     const/4 v0, 0x0
 
     .line 62
-    .local v0, cache:Lcom/android/org/conscrypt/SSLClientSessionCache;
+    .local v0, "cache":Lcom/android/org/conscrypt/SSLClientSessionCache;
     :try_start_0
     invoke-static {v1}, Lcom/android/org/conscrypt/FileClientSessionCache;->usingDirectory(Ljava/io/File;)Lcom/android/org/conscrypt/SSLClientSessionCache;
     :try_end_0
@@ -54,7 +54,7 @@
     move-exception v2
 
     .line 64
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     const-string v3, "SSLSessionCache"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -82,7 +82,7 @@
 
 .method public constructor <init>(Ljava/io/File;)V
     .locals 1
-    .parameter "dir"
+    .param p1, "dir"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

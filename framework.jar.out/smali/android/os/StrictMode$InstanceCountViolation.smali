@@ -57,9 +57,9 @@
 
 .method public constructor <init>(Ljava/lang/Class;JI)V
     .locals 2
-    .parameter "klass"
-    .parameter "instances"
-    .parameter "limit"
+    .param p1, "klass"    # Ljava/lang/Class;
+    .param p2, "instances"    # J
+    .param p4, "limit"    # I
 
     .prologue
     .line 2230

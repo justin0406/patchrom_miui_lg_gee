@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1200
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 3
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x1
@@ -60,20 +59,20 @@
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     .line 1206
-    .local v0, flags:I
+    .local v0, "flags":I
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->performPoll(I)V
+    # invokes: Lcom/android/server/net/NetworkStatsService;->performPoll(I)V
     invoke-static {v2, v0}, Lcom/android/server/net/NetworkStatsService;->access$700(Lcom/android/server/net/NetworkStatsService;I)V
 
     goto :goto_0
 
     .line 1210
-    .end local v0           #flags:I
+    .end local v0    # "flags":I
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->updateIfaces()V
+    # invokes: Lcom/android/server/net/NetworkStatsService;->updateIfaces()V
     invoke-static {v2}, Lcom/android/server/net/NetworkStatsService;->access$600(Lcom/android/server/net/NetworkStatsService;)V
 
     goto :goto_0
@@ -82,7 +81,7 @@
     :pswitch_2
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #calls: Lcom/android/server/net/NetworkStatsService;->registerGlobalAlert()V
+    # invokes: Lcom/android/server/net/NetworkStatsService;->registerGlobalAlert()V
     invoke-static {v2}, Lcom/android/server/net/NetworkStatsService;->access$800(Lcom/android/server/net/NetworkStatsService;)V
 
     goto :goto_0

@@ -22,12 +22,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "_name"
-    .parameter "_pid"
-    .parameter "_oomAdj"
-    .parameter "_procState"
-    .parameter "_adjType"
-    .parameter "_adjReason"
+    .param p1, "_name"    # Ljava/lang/String;
+    .param p2, "_pid"    # I
+    .param p3, "_oomAdj"    # I
+    .param p4, "_procState"    # I
+    .param p5, "_adjType"    # Ljava/lang/String;
+    .param p6, "_adjReason"    # Ljava/lang/String;
 
     .prologue
     .line 29

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/ResultReceiver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 47
@@ -36,8 +35,8 @@
 # virtual methods
 .method public send(ILandroid/os/Bundle;)V
     .locals 3
-    .parameter "resultCode"
-    .parameter "resultData"
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/os/Bundle;
 
     .prologue
     .line 49

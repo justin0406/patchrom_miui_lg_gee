@@ -23,8 +23,8 @@
 # direct methods
 .method private constructor <init>(Landroid/graphics/Canvas;Landroid/graphics/pdf/PdfDocument$PageInfo;)V
     .locals 0
-    .parameter "canvas"
-    .parameter "pageInfo"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "pageInfo"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
 
     .prologue
     .line 393
@@ -42,9 +42,9 @@
 
 .method synthetic constructor <init>(Landroid/graphics/Canvas;Landroid/graphics/pdf/PdfDocument$PageInfo;Landroid/graphics/pdf/PdfDocument$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/graphics/Canvas;
+    .param p2, "x1"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
+    .param p3, "x2"    # Landroid/graphics/pdf/PdfDocument$1;
 
     .prologue
     .line 383
@@ -55,7 +55,7 @@
 
 .method static synthetic access$400(Landroid/graphics/pdf/PdfDocument$Page;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$Page;
 
     .prologue
     .line 383

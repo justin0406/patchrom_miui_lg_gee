@@ -32,10 +32,10 @@
 # direct methods
 .method public constructor <init>(FFFF)V
     .locals 2
-    .parameter "fromXDelta"
-    .parameter "toXDelta"
-    .parameter "fromYDelta"
-    .parameter "toYDelta"
+    .param p1, "fromXDelta"    # F
+    .param p2, "toXDelta"    # F
+    .param p3, "fromYDelta"    # F
+    .param p4, "toYDelta"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -99,14 +99,14 @@
 
 .method public constructor <init>(IFIFIFIF)V
     .locals 2
-    .parameter "fromXType"
-    .parameter "fromXValue"
-    .parameter "toXType"
-    .parameter "toXValue"
-    .parameter "fromYType"
-    .parameter "fromYValue"
-    .parameter "toYType"
-    .parameter "toYValue"
+    .param p1, "fromXType"    # I
+    .param p2, "fromXValue"    # F
+    .param p3, "toXType"    # I
+    .param p4, "toXValue"    # F
+    .param p5, "fromYType"    # I
+    .param p6, "fromYValue"    # F
+    .param p7, "toYType"    # I
+    .param p8, "toYValue"    # F
 
     .prologue
     const/4 v1, 0x0
@@ -170,8 +170,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -213,7 +213,7 @@
     move-result-object v0
 
     .line 59
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v2
@@ -223,7 +223,7 @@
     move-result-object v1
 
     .line 61
-    .local v1, d:Landroid/view/animation/Animation$Description;
+    .local v1, "d":Landroid/view/animation/Animation$Description;
     iget v2, v1, Landroid/view/animation/Animation$Description;->type:I
 
     iput v2, p0, Landroid/view/animation/TranslateAnimation;->mFromXType:I
@@ -307,19 +307,19 @@
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 5
-    .parameter "interpolatedTime"
-    .parameter "t"
+    .param p1, "interpolatedTime"    # F
+    .param p2, "t"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 151
     iget v0, p0, Landroid/view/animation/TranslateAnimation;->mFromXDelta:F
 
     .line 152
-    .local v0, dx:F
+    .local v0, "dx":F
     iget v1, p0, Landroid/view/animation/TranslateAnimation;->mFromYDelta:F
 
     .line 153
-    .local v1, dy:F
+    .local v1, "dy":F
     iget v2, p0, Landroid/view/animation/TranslateAnimation;->mFromXDelta:F
 
     iget v3, p0, Landroid/view/animation/TranslateAnimation;->mToXDelta:F
@@ -378,10 +378,10 @@
 
 .method public initialize(IIII)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
-    .parameter "parentWidth"
-    .parameter "parentHeight"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "parentWidth"    # I
+    .param p4, "parentHeight"    # I
 
     .prologue
     .line 164

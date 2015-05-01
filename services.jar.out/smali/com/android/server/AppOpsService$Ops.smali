@@ -32,8 +32,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "_packageName"
-    .parameter "_uid"
+    .param p1, "_packageName"    # Ljava/lang/String;
+    .param p2, "_uid"    # I
 
     .prologue
     .line 96

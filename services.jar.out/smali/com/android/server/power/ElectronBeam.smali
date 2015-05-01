@@ -78,7 +78,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
     .locals 2
-    .parameter "displayManager"
+    .param p1, "displayManager"    # Lcom/android/server/display/DisplayManagerService;
 
     .prologue
     const/16 v1, 0x8
@@ -237,7 +237,7 @@
     invoke-direct {v7, v0}, Landroid/graphics/SurfaceTexture;-><init>(I)V
 
     .line 394
-    .local v7, st:Landroid/graphics/SurfaceTexture;
+    .local v7, "st":Landroid/graphics/SurfaceTexture;
     new-instance v6, Landroid/view/Surface;
 
     invoke-direct {v6, v7}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
@@ -245,7 +245,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 396
-    .local v6, s:Landroid/view/Surface;
+    .local v6, "s":Landroid/view/Surface;
     const/4 v0, 0x0
 
     :try_start_2
@@ -299,7 +299,7 @@
 
     const/4 v1, 0x3
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
@@ -308,7 +308,7 @@
 
     const/4 v1, 0x4
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
@@ -316,7 +316,7 @@
 
     const/4 v1, 0x5
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
@@ -325,7 +325,7 @@
 
     const/4 v1, 0x6
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1, v2}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
@@ -371,7 +371,7 @@
 
     const/4 v4, 0x0
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     invoke-static/range {v0 .. v5}, Landroid/opengl/GLES10;->glOrthof(FFFFFF)V
 
@@ -420,8 +420,8 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 424
-    .end local v6           #s:Landroid/view/Surface;
-    .end local v7           #st:Landroid/graphics/SurfaceTexture;
+    .end local v6    # "s":Landroid/view/Surface;
+    .end local v7    # "st":Landroid/graphics/SurfaceTexture;
     :catchall_1
     move-exception v0
 
@@ -432,7 +432,7 @@
 
 .method private static checkGlErrors(Ljava/lang/String;)Z
     .locals 1
-    .parameter "func"
+    .param p0, "func"    # Ljava/lang/String;
 
     .prologue
     .line 653
@@ -447,21 +447,21 @@
 
 .method private static checkGlErrors(Ljava/lang/String;Z)Z
     .locals 5
-    .parameter "func"
-    .parameter "log"
+    .param p0, "func"    # Ljava/lang/String;
+    .param p1, "log"    # Z
 
     .prologue
     .line 657
     const/4 v1, 0x0
 
     .line 659
-    .local v1, hadError:Z
+    .local v1, "hadError":Z
     :goto_0
     invoke-static {}, Landroid/opengl/GLES10;->glGetError()I
 
     move-result v0
 
-    .local v0, error:I
+    .local v0, "error":I
     if-eqz v0, :cond_1
 
     .line 660
@@ -552,7 +552,7 @@
     new-array v9, v0, [I
 
     .line 452
-    .local v9, version:[I
+    .local v9, "version":[I
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     invoke-static {v0, v9, v2, v9, v10}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
@@ -574,7 +574,7 @@
     goto :goto_0
 
     .line 459
-    .end local v9           #version:[I
+    .end local v9    # "version":[I
     :cond_1
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglConfig:Landroid/opengl/EGLConfig;
 
@@ -588,15 +588,15 @@
     fill-array-data v1, :array_0
 
     .line 467
-    .local v1, eglConfigAttribList:[I
+    .local v1, "eglConfigAttribList":[I
     new-array v6, v10, [I
 
     .line 468
-    .local v6, numEglConfigs:[I
+    .local v6, "numEglConfigs":[I
     new-array v3, v10, [Landroid/opengl/EGLConfig;
 
     .line 469
-    .local v3, eglConfigs:[Landroid/opengl/EGLConfig;
+    .local v3, "eglConfigs":[Landroid/opengl/EGLConfig;
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     array-length v5, v3
@@ -625,9 +625,9 @@
     iput-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglConfig:Landroid/opengl/EGLConfig;
 
     .line 477
-    .end local v1           #eglConfigAttribList:[I
-    .end local v3           #eglConfigs:[Landroid/opengl/EGLConfig;
-    .end local v6           #numEglConfigs:[I
+    .end local v1    # "eglConfigAttribList":[I
+    .end local v3    # "eglConfigs":[Landroid/opengl/EGLConfig;
+    .end local v6    # "numEglConfigs":[I
     :cond_3
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglContext:Landroid/opengl/EGLContext;
 
@@ -641,7 +641,7 @@
     aput v0, v8, v2
 
     .line 481
-    .local v8, eglContextAttribList:[I
+    .local v8, "eglContextAttribList":[I
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v4, p0, Lcom/android/server/power/ElectronBeam;->mEglConfig:Landroid/opengl/EGLConfig;
@@ -666,7 +666,7 @@
 
     goto :goto_0
 
-    .end local v8           #eglContextAttribList:[I
+    .end local v8    # "eglContextAttribList":[I
     :cond_4
     move v2, v10
 
@@ -675,16 +675,16 @@
 
     .line 460
     :array_0
-    .array-data 0x4
-        0x24t 0x30t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x23t 0x30t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x22t 0x30t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x21t 0x30t 0x0t 0x0t
-        0x8t 0x0t 0x0t 0x0t
-        0x38t 0x30t 0x0t 0x0t
+    .array-data 4
+        0x3024
+        0x8
+        0x3023
+        0x8
+        0x3022
+        0x8
+        0x3021
+        0x8
+        0x3038
     .end array-data
 .end method
 
@@ -709,7 +709,7 @@
     aput v3, v0, v1
 
     .line 544
-    .local v0, eglSurfaceAttribList:[I
+    .local v0, "eglSurfaceAttribList":[I
     iget-object v3, p0, Lcom/android/server/power/ElectronBeam;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v4, p0, Lcom/android/server/power/ElectronBeam;->mEglConfig:Landroid/opengl/EGLConfig;
@@ -733,7 +733,7 @@
     invoke-static {v2}, Lcom/android/server/power/ElectronBeam;->logEglError(Ljava/lang/String;)V
 
     .line 551
-    .end local v0           #eglSurfaceAttribList:[I
+    .end local v0    # "eglSurfaceAttribList":[I
     :goto_0
     return v1
 
@@ -745,7 +745,7 @@
 
 .method private static createNativeFloatBuffer(I)Ljava/nio/FloatBuffer;
     .locals 2
-    .parameter "size"
+    .param p0, "size"    # I
 
     .prologue
     .line 643
@@ -756,7 +756,7 @@
     move-result-object v0
 
     .line 644
-    .local v0, bb:Ljava/nio/ByteBuffer;
+    .local v0, "bb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v1
@@ -811,7 +811,7 @@
     const v6, 0x20004
 
     .line 516
-    .local v6, flags:I
+    .local v6, "flags":I
     :goto_0
     new-instance v0, Landroid/view/SurfaceControl;
 
@@ -829,11 +829,11 @@
 
     iput-object v0, p0, Lcom/android/server/power/ElectronBeam;->mSurfaceControl:Landroid/view/SurfaceControl;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 525
-    .end local v6           #flags:I
+    .end local v6    # "flags":I
     :cond_1
     :try_start_2
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mSurfaceControl:Landroid/view/SurfaceControl;
@@ -896,16 +896,16 @@
     :cond_2
     const/16 v6, 0x404
 
-    .restart local v6       #flags:I
+    .restart local v6    # "flags":I
     goto :goto_0
 
     .line 519
-    .end local v6           #flags:I
+    .end local v6    # "flags":I
     :catch_0
     move-exception v7
 
     .line 520
-    .local v7, ex:Landroid/view/Surface$OutOfResourcesException;
+    .local v7, "ex":Landroid/view/Surface$OutOfResourcesException;
     :try_start_3
     const-string v0, "ElectronBeam"
 
@@ -923,7 +923,7 @@
 
     goto :goto_1
 
-    .end local v7           #ex:Landroid/view/Surface$OutOfResourcesException;
+    .end local v7    # "ex":Landroid/view/Surface$OutOfResourcesException;
     :catchall_0
     move-exception v0
 
@@ -1113,26 +1113,26 @@
 
 .method private drawHStretch(F)V
     .locals 8
-    .parameter "stretch"
+    .param p1, "stretch"    # F
 
     .prologue
     const v7, 0x8074
 
     const/4 v6, 0x0
 
-    const/high16 v5, 0x3f40
+    const/high16 v5, 0x3f400000    # 0.75f
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 330
-    const/high16 v1, 0x4100
+    const/high16 v1, 0x41000000    # 8.0f
 
     invoke-static {p1, v1}, Lcom/android/server/power/ElectronBeam;->scurve(FF)F
 
     move-result v0
 
     .line 335
-    .local v0, ag:F
+    .local v0, "ag":F
     cmpg-float v1, p1, v4
 
     if-gez v1, :cond_0
@@ -1194,7 +1194,7 @@
 
 .method private drawVStretch(F)V
     .locals 11
-    .parameter "stretch"
+    .param p1, "stretch"    # F
 
     .prologue
     const/4 v10, 0x6
@@ -1208,30 +1208,30 @@
     const/4 v6, 0x0
 
     .line 254
-    const/high16 v3, 0x40f0
+    const/high16 v3, 0x40f00000    # 7.5f
 
     invoke-static {p1, v3}, Lcom/android/server/power/ElectronBeam;->scurve(FF)F
 
     move-result v2
 
     .line 255
-    .local v2, ar:F
-    const/high16 v3, 0x4100
+    .local v2, "ar":F
+    const/high16 v3, 0x41000000    # 8.0f
 
     invoke-static {p1, v3}, Lcom/android/server/power/ElectronBeam;->scurve(FF)F
 
     move-result v1
 
     .line 256
-    .local v1, ag:F
-    const/high16 v3, 0x4108
+    .local v1, "ag":F
+    const/high16 v3, 0x41080000    # 8.5f
 
     invoke-static {p1, v3}, Lcom/android/server/power/ElectronBeam;->scurve(FF)F
 
     move-result v0
 
     .line 263
-    .local v0, ab:F
+    .local v0, "ab":F
     invoke-static {v7, v7}, Landroid/opengl/GLES10;->glBlendFunc(II)V
 
     .line 264
@@ -1401,7 +1401,7 @@
     if-ne v3, v7, :cond_0
 
     .line 312
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     invoke-static {v1, v1, v1, v3}, Landroid/opengl/GLES10;->glColor4f(FFFF)V
 
@@ -1431,7 +1431,7 @@
 
 .method private static logEglError(Ljava/lang/String;)V
     .locals 3
-    .parameter "func"
+    .param p0, "func"    # Ljava/lang/String;
 
     .prologue
     .line 649
@@ -1475,17 +1475,17 @@
 
 .method private static scurve(FF)F
     .locals 5
-    .parameter "value"
-    .parameter "s"
+    .param p0, "value"    # F
+    .param p1, "s"    # F
 
     .prologue
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
     .line 623
     sub-float v1, p0, v4
 
     .line 628
-    .local v1, x:F
+    .local v1, "x":F
     invoke-static {v1, p1}, Lcom/android/server/power/ElectronBeam;->sigmoid(FF)F
 
     move-result v3
@@ -1493,7 +1493,7 @@
     sub-float v2, v3, v4
 
     .line 632
-    .local v2, y:F
+    .local v2, "y":F
     invoke-static {v4, p1}, Lcom/android/server/power/ElectronBeam;->sigmoid(FF)F
 
     move-result v3
@@ -1501,7 +1501,7 @@
     sub-float v0, v3, v4
 
     .line 635
-    .local v0, v:F
+    .local v0, "v":F
     div-float v3, v2, v0
 
     mul-float/2addr v3, v4
@@ -1513,18 +1513,18 @@
 
 .method private static setHStretchQuad(Ljava/nio/FloatBuffer;FFF)V
     .locals 8
-    .parameter "vtx"
-    .parameter "dw"
-    .parameter "dh"
-    .parameter "a"
+    .param p0, "vtx"    # Ljava/nio/FloatBuffer;
+    .param p1, "dw"    # F
+    .param p2, "dh"    # F
+    .param p3, "a"    # F
 
     .prologue
-    const/high16 v7, 0x3f00
+    const/high16 v7, 0x3f000000    # 0.5f
 
-    const/high16 v6, 0x3f80
+    const/high16 v6, 0x3f800000    # 1.0f
 
     .line 359
-    const/high16 v4, 0x4000
+    const/high16 v4, 0x40000000    # 2.0f
 
     mul-float/2addr v4, p1
 
@@ -1533,23 +1533,23 @@
     mul-float v1, v4, v5
 
     .line 360
-    .local v1, w:F
-    const/high16 v0, 0x3f80
+    .local v1, "w":F
+    const/high16 v0, 0x3f800000    # 1.0f
 
     .line 361
-    .local v0, h:F
+    .local v0, "h":F
     sub-float v4, p1, v1
 
     mul-float v2, v4, v7
 
     .line 362
-    .local v2, x:F
+    .local v2, "x":F
     sub-float v4, p2, v6
 
     mul-float v3, v4, v7
 
     .line 363
-    .local v3, y:F
+    .local v3, "y":F
     invoke-static {p0, v2, v3, v1, v6}, Lcom/android/server/power/ElectronBeam;->setQuad(Ljava/nio/FloatBuffer;FFFF)V
 
     .line 364
@@ -1558,11 +1558,11 @@
 
 .method private static setQuad(Ljava/nio/FloatBuffer;FFFF)V
     .locals 2
-    .parameter "vtx"
-    .parameter "x"
-    .parameter "y"
-    .parameter "w"
-    .parameter "h"
+    .param p0, "vtx"    # Ljava/nio/FloatBuffer;
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "w"    # F
+    .param p4, "h"    # F
 
     .prologue
     .line 370
@@ -1619,13 +1619,13 @@
 
 .method private static setVStretchQuad(Ljava/nio/FloatBuffer;FFF)V
     .locals 6
-    .parameter "vtx"
-    .parameter "dw"
-    .parameter "dh"
-    .parameter "a"
+    .param p0, "vtx"    # Ljava/nio/FloatBuffer;
+    .param p1, "dw"    # F
+    .param p2, "dh"    # F
+    .param p3, "a"    # F
 
     .prologue
-    const/high16 v5, 0x3f00
+    const/high16 v5, 0x3f000000    # 0.5f
 
     .line 351
     mul-float v4, p1, p3
@@ -1633,25 +1633,25 @@
     add-float v1, p1, v4
 
     .line 352
-    .local v1, w:F
+    .local v1, "w":F
     mul-float v4, p2, p3
 
     sub-float v0, p2, v4
 
     .line 353
-    .local v0, h:F
+    .local v0, "h":F
     sub-float v4, p1, v1
 
     mul-float v2, v4, v5
 
     .line 354
-    .local v2, x:F
+    .local v2, "x":F
     sub-float v4, p2, v0
 
     mul-float v3, v4, v5
 
     .line 355
-    .local v3, y:F
+    .local v3, "y":F
     invoke-static {p0, v2, v3, v1, v0}, Lcom/android/server/power/ElectronBeam;->setQuad(Ljava/nio/FloatBuffer;FFFF)V
 
     .line 356
@@ -1660,7 +1660,7 @@
 
 .method private showSurface(F)Z
     .locals 3
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     const/4 v2, 0x1
@@ -1684,7 +1684,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/ElectronBeam;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const v1, 0x40000001
+    const v1, 0x40000001    # 2.0000002f
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setLayer(I)V
 
@@ -1724,11 +1724,11 @@
 
 .method private static sigmoid(FF)F
     .locals 2
-    .parameter "x"
-    .parameter "s"
+    .param p0, "x"    # F
+    .param p1, "s"    # F
 
     .prologue
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     .line 639
     neg-float v0, p0
@@ -1831,14 +1831,14 @@
 
 .method public draw(F)Z
     .locals 7
-    .parameter "level"
+    .param p1, "level"    # F
 
     .prologue
     const/4 v0, 0x0
 
-    const/high16 v6, 0x3f00
+    const/high16 v6, 0x3f000000    # 0.5f
 
-    const/high16 v5, 0x3f80
+    const/high16 v5, 0x3f800000    # 1.0f
 
     .line 212
     iget-boolean v1, p0, Lcom/android/server/power/ElectronBeam;->mPrepared:Z
@@ -1882,7 +1882,7 @@
 
     const/4 v3, 0x0
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     :try_start_0
     invoke-static {v1, v2, v3, v4}, Landroid/opengl/GLES10;->glClearColor(FFFF)V
@@ -1968,7 +1968,7 @@
 
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 669
@@ -2146,7 +2146,7 @@
 
 .method public prepare(I)Z
     .locals 5
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -2164,7 +2164,7 @@
     move-result-object v0
 
     .line 142
-    .local v0, displayInfo:Landroid/view/DisplayInfo;
+    .local v0, "displayInfo":Landroid/view/DisplayInfo;
     iget v4, v0, Landroid/view/DisplayInfo;->layerStack:I
 
     iput v4, p0, Lcom/android/server/power/ElectronBeam;->mDisplayLayerStack:I
@@ -2207,14 +2207,14 @@
     .line 163
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     const/4 v2, 0x3
 
     if-ge v1, v2, :cond_1
 
     .line 164
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-virtual {p0, v2}, Lcom/android/server/power/ElectronBeam;->draw(F)Z
 
@@ -2223,7 +2223,7 @@
 
     goto :goto_1
 
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :cond_1
     move v2, v3
 

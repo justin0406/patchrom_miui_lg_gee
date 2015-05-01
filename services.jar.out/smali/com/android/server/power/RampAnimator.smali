@@ -54,8 +54,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Landroid/util/IntProperty;)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -66,9 +64,9 @@
 
     .prologue
     .line 42
-    .local p0, this:Lcom/android/server/power/RampAnimator;,"Lcom/android/server/power/RampAnimator<TT;>;"
-    .local p1, object:Ljava/lang/Object;,"TT;"
-    .local p2, property:Landroid/util/IntProperty;,"Landroid/util/IntProperty<TT;>;"
+    .local p0, "this":Lcom/android/server/power/RampAnimator;, "Lcom/android/server/power/RampAnimator<TT;>;"
+    .local p1, "object":Ljava/lang/Object;, "TT;"
+    .local p2, "property":Landroid/util/IntProperty;, "Landroid/util/IntProperty<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
@@ -102,7 +100,7 @@
 
 .method static synthetic access$000(Lcom/android/server/power/RampAnimator;)Landroid/view/Choreographer;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -113,7 +111,7 @@
 
 .method static synthetic access$100(Lcom/android/server/power/RampAnimator;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -124,8 +122,8 @@
 
 .method static synthetic access$102(Lcom/android/server/power/RampAnimator;J)J
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
+    .param p1, "x1"    # J
 
     .prologue
     .line 27
@@ -136,7 +134,7 @@
 
 .method static synthetic access$200(Lcom/android/server/power/RampAnimator;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -147,8 +145,8 @@
 
 .method static synthetic access$202(Lcom/android/server/power/RampAnimator;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
+    .param p1, "x1"    # F
 
     .prologue
     .line 27
@@ -159,7 +157,7 @@
 
 .method static synthetic access$300(Lcom/android/server/power/RampAnimator;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -170,7 +168,7 @@
 
 .method static synthetic access$400(Lcom/android/server/power/RampAnimator;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -181,7 +179,7 @@
 
 .method static synthetic access$500(Lcom/android/server/power/RampAnimator;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -192,8 +190,8 @@
 
 .method static synthetic access$502(Lcom/android/server/power/RampAnimator;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
+    .param p1, "x1"    # I
 
     .prologue
     .line 27
@@ -204,7 +202,7 @@
 
 .method static synthetic access$600(Lcom/android/server/power/RampAnimator;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -215,7 +213,7 @@
 
 .method static synthetic access$700(Lcom/android/server/power/RampAnimator;)Landroid/util/IntProperty;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -226,7 +224,7 @@
 
 .method static synthetic access$800(Lcom/android/server/power/RampAnimator;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
 
     .prologue
     .line 27
@@ -237,8 +235,8 @@
 
 .method static synthetic access$902(Lcom/android/server/power/RampAnimator;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/power/RampAnimator;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 27
@@ -252,7 +250,7 @@
 
     .prologue
     .line 96
-    .local p0, this:Lcom/android/server/power/RampAnimator;,"Lcom/android/server/power/RampAnimator<TT;>;"
+    .local p0, "this":Lcom/android/server/power/RampAnimator;, "Lcom/android/server/power/RampAnimator<TT;>;"
     iget-object v0, p0, Lcom/android/server/power/RampAnimator;->mChoreographer:Landroid/view/Choreographer;
 
     const/4 v1, 0x1
@@ -271,11 +269,11 @@
 # virtual methods
 .method public animateTo(II)Z
     .locals 4
-    .parameter "target"
-    .parameter "rate"
+    .param p1, "target"    # I
+    .param p2, "rate"    # I
 
     .prologue
-    .local p0, this:Lcom/android/server/power/RampAnimator;,"Lcom/android/server/power/RampAnimator<TT;>;"
+    .local p0, "this":Lcom/android/server/power/RampAnimator;, "Lcom/android/server/power/RampAnimator<TT;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -346,7 +344,7 @@
     move v0, v1
 
     .line 82
-    .local v0, changed:Z
+    .local v0, "changed":Z
     :cond_4
     iput p1, p0, Lcom/android/server/power/RampAnimator;->mTargetValue:I
 

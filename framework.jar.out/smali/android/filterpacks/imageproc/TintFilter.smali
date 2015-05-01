@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -70,7 +70,7 @@
     fill-array-data v0, :array_0
 
     .line 120
-    .local v0, color_ratio:[F
+    .local v0, "color_ratio":[F
     iget-object v1, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string v2, "color_ratio"
@@ -87,10 +87,10 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x3dt 0xat 0x57t 0x3et
-        0x8ft 0xc2t 0x35t 0x3ft
-        0x29t 0x5ct 0x8ft 0x3dt
+    .array-data 4
+        0x3e570a3d    # 0.21f
+        0x3f35c28f    # 0.71f
+        0x3d8f5c29    # 0.07f
     .end array-data
 .end method
 
@@ -98,7 +98,7 @@
     .locals 4
 
     .prologue
-    const/high16 v3, 0x437f
+    const/high16 v3, 0x437f0000    # 255.0f
 
     .line 126
     const/4 v1, 0x3
@@ -148,7 +148,7 @@
     aput v2, v0, v1
 
     .line 130
-    .local v0, tint_color:[F
+    .local v0, "tint_color":[F
     iget-object v1, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v2, "tint"
@@ -163,8 +163,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 88
@@ -182,8 +182,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 68
@@ -192,8 +192,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 72
@@ -239,7 +239,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 75
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/TintFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -262,7 +262,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 96
@@ -273,13 +273,13 @@
     move-result-object v0
 
     .line 97
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 100
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0
@@ -314,7 +314,7 @@
     move-result-object v2
 
     .line 109
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V

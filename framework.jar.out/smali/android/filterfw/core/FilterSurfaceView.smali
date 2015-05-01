@@ -55,7 +55,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 43
@@ -84,8 +84,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 48
@@ -211,8 +211,8 @@
 # virtual methods
 .method public declared-synchronized bindToListener(Landroid/view/SurfaceHolder$Callback;Landroid/filterfw/core/GLEnvironment;)V
     .locals 5
-    .parameter "listener"
-    .parameter "glEnv"
+    .param p1, "listener"    # Landroid/view/SurfaceHolder$Callback;
+    .param p2, "glEnv"    # Landroid/filterfw/core/GLEnvironment;
 
     .prologue
     .line 54
@@ -424,10 +424,10 @@
 
 .method public declared-synchronized surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 1
-    .parameter "holder"
-    .parameter "format"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
+    .param p2, "format"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .prologue
     .line 120
@@ -476,7 +476,7 @@
 
 .method public declared-synchronized surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 101
@@ -525,7 +525,7 @@
 
 .method public declared-synchronized surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 1
-    .parameter "holder"
+    .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
     .line 133

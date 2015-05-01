@@ -31,12 +31,11 @@
 # direct methods
 .method private constructor <init>(Landroid/content/AbstractThreadedSyncAdapter;Ljava/lang/String;Landroid/content/SyncContext;Ljava/lang/String;Landroid/accounts/Account;Landroid/os/Bundle;)V
     .locals 1
-    .parameter
-    .parameter "name"
-    .parameter "syncContext"
-    .parameter "authority"
-    .parameter "account"
-    .parameter "extras"
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "syncContext"    # Landroid/content/SyncContext;
+    .param p4, "authority"    # Ljava/lang/String;
+    .param p5, "account"    # Landroid/accounts/Account;
+    .param p6, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 233
@@ -58,7 +57,7 @@
     iput-object p6, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->mExtras:Landroid/os/Bundle;
 
     .line 239
-    #calls: Landroid/content/AbstractThreadedSyncAdapter;->toSyncKey(Landroid/accounts/Account;)Landroid/accounts/Account;
+    # invokes: Landroid/content/AbstractThreadedSyncAdapter;->toSyncKey(Landroid/accounts/Account;)Landroid/accounts/Account;
     invoke-static {p1, p5}, Landroid/content/AbstractThreadedSyncAdapter;->access$100(Landroid/content/AbstractThreadedSyncAdapter;Landroid/accounts/Account;)Landroid/accounts/Account;
 
     move-result-object v0
@@ -71,13 +70,13 @@
 
 .method synthetic constructor <init>(Landroid/content/AbstractThreadedSyncAdapter;Ljava/lang/String;Landroid/content/SyncContext;Ljava/lang/String;Landroid/accounts/Account;Landroid/os/Bundle;Landroid/content/AbstractThreadedSyncAdapter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
+    .param p1, "x0"    # Landroid/content/AbstractThreadedSyncAdapter;
+    .param p2, "x1"    # Ljava/lang/String;
+    .param p3, "x2"    # Landroid/content/SyncContext;
+    .param p4, "x3"    # Ljava/lang/String;
+    .param p5, "x4"    # Landroid/accounts/Account;
+    .param p6, "x5"    # Landroid/os/Bundle;
+    .param p7, "x6"    # Landroid/content/AbstractThreadedSyncAdapter$1;
 
     .prologue
     .line 225
@@ -88,7 +87,7 @@
 
 .method static synthetic access$700(Landroid/content/AbstractThreadedSyncAdapter$SyncThread;)Landroid/content/SyncContext;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
 
     .prologue
     .line 225
@@ -137,11 +136,11 @@
     invoke-direct {v5}, Landroid/content/SyncResult;-><init>()V
 
     .line 252
-    .local v5, syncResult:Landroid/content/SyncResult;
+    .local v5, "syncResult":Landroid/content/SyncResult;
     const/4 v4, 0x0
 
     .line 254
-    .local v4, provider:Landroid/content/ContentProviderClient;
+    .local v4, "provider":Landroid/content/ContentProviderClient;
     :try_start_0
     invoke-direct {p0}, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->isCanceled()Z
     :try_end_0
@@ -177,7 +176,7 @@
     :cond_1
     iget-object v0, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter;->access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
 
     move-result-object v1
@@ -188,7 +187,7 @@
     :try_start_1
     iget-object v0, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -219,7 +218,7 @@
     :try_start_2
     iget-object v0, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mContext:Landroid/content/Context;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter;->access$900(Landroid/content/AbstractThreadedSyncAdapter;)Landroid/content/Context;
 
     move-result-object v0
@@ -277,7 +276,7 @@
     :cond_4
     iget-object v0, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter;->access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
 
     move-result-object v1
@@ -288,7 +287,7 @@
     :try_start_3
     iget-object v0, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -351,7 +350,7 @@
     :cond_7
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/content/AbstractThreadedSyncAdapter;->access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
 
     move-result-object v1
@@ -362,7 +361,7 @@
     :try_start_5
     iget-object v2, p0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
-    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
+    # getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v2}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v2

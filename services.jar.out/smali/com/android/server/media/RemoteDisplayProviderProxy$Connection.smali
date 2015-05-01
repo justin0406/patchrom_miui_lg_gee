@@ -28,8 +28,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/media/RemoteDisplayProviderProxy;Landroid/media/IRemoteDisplayProvider;)V
     .locals 1
-    .parameter
-    .parameter "provider"
+    .param p2, "provider"    # Landroid/media/IRemoteDisplayProvider;
 
     .prologue
     .line 329
@@ -55,8 +54,8 @@
 # virtual methods
 .method public adjustVolume(Ljava/lang/String;I)V
     .locals 3
-    .parameter "id"
-    .parameter "volume"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "volume"    # I
 
     .prologue
     .line 390
@@ -76,7 +75,7 @@
     move-exception v0
 
     .line 392
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to adjust display volume."
@@ -93,7 +92,7 @@
     .line 398
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    #getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v0
@@ -110,7 +109,7 @@
 
 .method public connect(Ljava/lang/String;)V
     .locals 3
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     .line 366
@@ -130,7 +129,7 @@
     move-exception v0
 
     .line 368
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to connect to display."
@@ -142,7 +141,7 @@
 
 .method public disconnect(Ljava/lang/String;)V
     .locals 3
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     .line 374
@@ -162,7 +161,7 @@
     move-exception v0
 
     .line 376
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to disconnect from display."
@@ -198,13 +197,13 @@
 
 .method postStateChanged(Landroid/media/RemoteDisplayState;)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Landroid/media/RemoteDisplayState;
 
     .prologue
     .line 407
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    #getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v0
@@ -247,7 +246,7 @@
     .line 338
     iget-object v2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    #getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v2}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v2
@@ -272,7 +271,7 @@
     move-exception v0
 
     .line 346
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->binderDied()V
 
     goto :goto_0
@@ -280,7 +279,7 @@
 
 .method public setDiscoveryMode(I)V
     .locals 3
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 358
@@ -300,7 +299,7 @@
     move-exception v0
 
     .line 360
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to set discovery mode."
@@ -312,8 +311,8 @@
 
 .method public setVolume(Ljava/lang/String;I)V
     .locals 3
-    .parameter "id"
-    .parameter "volume"
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "volume"    # I
 
     .prologue
     .line 382
@@ -333,7 +332,7 @@
     move-exception v0
 
     .line 384
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to set display volume."

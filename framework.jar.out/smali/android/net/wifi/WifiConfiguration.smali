@@ -22,7 +22,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -47,10 +47,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "WifiConfiguration"
 
-.field public static final WAPI_ASCII_PASSWORD:I = 0x0
-
-.field public static final WAPI_HEX_PASSWORD:I = 0x1
-
 .field public static final bssidVarName:Ljava/lang/String; = "bssid"
 
 .field public static final hiddenSSIDVarName:Ljava/lang/String; = "scan_ssid"
@@ -61,17 +57,7 @@
 
 .field public static final ssidVarName:Ljava/lang/String; = "ssid"
 
-.field public static final wapiAsCertVarName:Ljava/lang/String; = "as_cert_file"
-
-.field public static final wapiCertIndexVarName:Ljava/lang/String; = "cert_index"
-
-.field public static final wapiPskTypeVarName:Ljava/lang/String; = "wapi_key_type"
-
-.field public static final wapiPskVarName:Ljava/lang/String; = "wapi_psk"
-
-.field public static final wapiUserCertVarName:Ljava/lang/String; = "user_cert_file"
-
-.field public static final wepKeyVarNames:[Ljava/lang/String; = null
+.field public static final wepKeyVarNames:[Ljava/lang/String;
 
 .field public static final wepTxKeyIdxVarName:Ljava/lang/String; = "wep_tx_keyidx"
 
@@ -248,7 +234,7 @@
     .line 342
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
@@ -268,12 +254,14 @@
 
     .line 345
     :cond_0
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiASCert:Ljava/lang/String;
+
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiUserCert:Ljava/lang/String;
+
     const/4 v1, -0x1
-
-    iput-object v2, p0, Landroid/net/wifi/WifiConfiguration;->wapiASCert:Ljava/lang/String;
-
-    iput-object v2, p0, Landroid/net/wifi/WifiConfiguration;->wapiUserCert:Ljava/lang/String;
-
+    
     iput v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiCertIndex:I
 
     iput v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiPskType:I
@@ -307,7 +295,7 @@
 
 .method public constructor <init>(Landroid/net/wifi/WifiConfiguration;)V
     .locals 3
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/wifi/WifiConfiguration;
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -338,13 +326,13 @@
 
     iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
+    
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiASCert:Ljava/lang/String;
+
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiUserCert:Ljava/lang/String;
 
     const/4 v1, -0x1
-
-    iput-object v0, p0, Landroid/net/wifi/WifiConfiguration;->wapiASCert:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/WifiConfiguration;->wapiUserCert:Ljava/lang/String;
 
     iput v1, p0, Landroid/net/wifi/WifiConfiguration;->wapiCertIndex:I
 
@@ -358,7 +346,7 @@
 
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
@@ -480,14 +468,14 @@
     iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->linkProperties:Landroid/net/LinkProperties;
 
     .line 608
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/os/Parcel;)Ljava/util/BitSet;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 30
@@ -500,7 +488,7 @@
 
 .method private static readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     .locals 4
-    .parameter "src"
+    .param p0, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 536
@@ -509,16 +497,16 @@
     move-result v0
 
     .line 538
-    .local v0, cardinality:I
+    .local v0, "cardinality":I
     new-instance v2, Ljava/util/BitSet;
 
     invoke-direct {v2}, Ljava/util/BitSet;-><init>()V
 
     .line 539
-    .local v2, set:Ljava/util/BitSet;
+    .local v2, "set":Ljava/util/BitSet;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -541,7 +529,7 @@
 
 .method private trimStringForKeyId(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
 
     .prologue
     .line 532
@@ -566,15 +554,15 @@
 
 .method private static writeBitSet(Landroid/os/Parcel;Ljava/util/BitSet;)V
     .locals 2
-    .parameter "dest"
-    .parameter "set"
+    .param p0, "dest"    # Landroid/os/Parcel;
+    .param p1, "set"    # Ljava/util/BitSet;
 
     .prologue
     .line 547
     const/4 v0, -0x1
 
     .line 549
-    .local v0, nextSetBit:I
+    .local v0, "nextSetBit":I
     invoke-virtual {p1}, Ljava/util/BitSet;->cardinality()I
 
     move-result v1
@@ -616,9 +604,11 @@
 .end method
 
 .method public getAuthType()I
-    .locals 5
+    .locals 6
 
     .prologue
+    const/4 v5, 0x5
+
     const/4 v1, 0x4
 
     const/4 v3, 0x3
@@ -706,15 +696,13 @@
     :cond_4
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    const/4 v1, 0x5
-
-    invoke-virtual {v0, v1}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v0, v4}, Ljava/util/BitSet;->get(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_miui_0
 
-    const/4 v0, 0x5
+    move v0, v5
 
     goto :goto_0
 
@@ -741,14 +729,14 @@
 
 .method getKeyIdForCredentials(Landroid/net/wifi/WifiConfiguration;)Ljava/lang/String;
     .locals 5
-    .parameter "current"
+    .param p1, "current"    # Landroid/net/wifi/WifiConfiguration;
 
     .prologue
     .line 503
     const/4 v1, 0x0
 
     .line 507
-    .local v1, keyMgmt:Ljava/lang/String;
+    .local v1, "keyMgmt":Ljava/lang/String;
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -855,7 +843,7 @@
     move-exception v0
 
     .line 526
-    .local v0, e:Ljava/lang/NullPointerException;
+    .local v0, "e":Ljava/lang/NullPointerException;
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Invalid config details"
@@ -865,7 +853,7 @@
     throw v2
 
     .line 522
-    .end local v0           #e:Ljava/lang/NullPointerException;
+    .end local v0    # "e":Ljava/lang/NullPointerException;
     :cond_4
     :try_start_1
     new-instance v2, Ljava/lang/StringBuilder;
@@ -963,7 +951,7 @@
     move-result v0
 
     .line 477
-    .local v0, length:I
+    .local v0, "length":I
     if-le v0, v7, :cond_1
 
     iget-object v2, p0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
@@ -1043,7 +1031,7 @@
     move-result-object v1
 
     .line 489
-    .local v1, wifiSsid:Landroid/net/wifi/WifiSsid;
+    .local v1, "wifiSsid":Landroid/net/wifi/WifiSsid;
     invoke-virtual {v1}, Landroid/net/wifi/WifiSsid;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -1051,7 +1039,7 @@
     goto :goto_0
 
     .line 491
-    .end local v1           #wifiSsid:Landroid/net/wifi/WifiSsid;
+    .end local v1    # "wifiSsid":Landroid/net/wifi/WifiSsid;
     :cond_2
     iget-object v2, p0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -1139,7 +1127,7 @@
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 377
-    .local v5, sbuf:Ljava/lang/StringBuilder;
+    .local v5, "sbuf":Ljava/lang/StringBuilder;
     iget v6, p0, Landroid/net/wifi/WifiConfiguration;->status:I
 
     if-nez v6, :cond_2
@@ -1210,7 +1198,7 @@
     .line 386
     const/4 v2, 0x0
 
-    .local v2, k:I
+    .local v2, "k":I
     :goto_1
     iget-object v6, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
@@ -1256,7 +1244,7 @@
     goto :goto_1
 
     .line 379
-    .end local v2           #k:I
+    .end local v2    # "k":I
     :cond_2
     iget v6, p0, Landroid/net/wifi/WifiConfiguration;->status:I
 
@@ -1284,7 +1272,7 @@
     goto :goto_0
 
     .line 392
-    .restart local v2       #k:I
+    .restart local v2    # "k":I
     :cond_3
     const-string v6, "??"
 
@@ -1301,7 +1289,7 @@
     .line 397
     const/4 v3, 0x0
 
-    .local v3, p:I
+    .local v3, "p":I
     :goto_3
     iget-object v6, p0, Landroid/net/wifi/WifiConfiguration;->allowedProtocols:Ljava/util/BitSet;
 
@@ -1366,7 +1354,7 @@
     .line 409
     const/4 v0, 0x0
 
-    .local v0, a:I
+    .local v0, "a":I
     :goto_5
     iget-object v6, p0, Landroid/net/wifi/WifiConfiguration;->allowedAuthAlgorithms:Ljava/util/BitSet;
 
@@ -1431,7 +1419,7 @@
     .line 421
     const/4 v4, 0x0
 
-    .local v4, pc:I
+    .local v4, "pc":I
     :goto_7
     iget-object v6, p0, Landroid/net/wifi/WifiConfiguration;->allowedPairwiseCiphers:Ljava/util/BitSet;
 
@@ -1496,7 +1484,7 @@
     .line 433
     const/4 v1, 0x0
 
-    .local v1, gc:I
+    .local v1, "gc":I
     :goto_9
     iget-object v6, p0, Landroid/net/wifi/WifiConfiguration;->allowedGroupCiphers:Ljava/util/BitSet;
 
@@ -1666,8 +1654,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     iget v4, p0, Landroid/net/wifi/WifiConfiguration;->networkId:I
@@ -1712,20 +1700,20 @@
 
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
     .line 619
-    .local v3, wepKey:Ljava/lang/String;
+    .local v3, "wepKey":Ljava/lang/String;
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 618
@@ -1734,7 +1722,7 @@
     goto :goto_0
 
     .line 621
-    .end local v3           #wepKey:Ljava/lang/String;
+    .end local v3    # "wepKey":Ljava/lang/String;
     :cond_0
     iget v4, p0, Landroid/net/wifi/WifiConfiguration;->wepTxKeyIndex:I
 

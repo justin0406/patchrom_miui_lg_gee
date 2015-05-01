@@ -62,7 +62,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -227,7 +227,7 @@
 
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandParams;)V
     .locals 4
-    .parameter "cmdParams"
+    .param p1, "cmdParams"    # Lcom/android/internal/telephony/cat/CommandParams;
 
     .prologue
     const/4 v2, 0x0
@@ -265,16 +265,16 @@
     packed-switch v2, :pswitch_data_0
 
     .line 104
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :goto_0
     return-void
 
     .line 58
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_0
     check-cast p1, Lcom/android/internal/telephony/cat/SelectItemParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v2, p1, Lcom/android/internal/telephony/cat/SelectItemParams;->mMenu:Lcom/android/internal/telephony/cat/Menu;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mMenu:Lcom/android/internal/telephony/cat/Menu;
@@ -282,11 +282,11 @@
     goto :goto_0
 
     .line 66
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_1
     check-cast p1, Lcom/android/internal/telephony/cat/DisplayTextParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v2, p1, Lcom/android/internal/telephony/cat/DisplayTextParams;->mTextMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mTextMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -294,18 +294,18 @@
     goto :goto_0
 
     .line 70
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_2
     check-cast p1, Lcom/android/internal/telephony/cat/GetInputParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v2, p1, Lcom/android/internal/telephony/cat/GetInputParams;->mInput:Lcom/android/internal/telephony/cat/Input;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mInput:Lcom/android/internal/telephony/cat/Input;
 
     goto :goto_0
 
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_3
     move-object v2, p1
 
@@ -339,14 +339,14 @@
 
     check-cast p1, Lcom/android/internal/telephony/cat/LaunchBrowserParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v3, p1, Lcom/android/internal/telephony/cat/LaunchBrowserParams;->mMode:Lcom/android/internal/telephony/cat/LaunchBrowserMode;
 
     iput-object v3, v2, Lcom/android/internal/telephony/cat/CatCmdMessage$BrowserSettings;->mode:Lcom/android/internal/telephony/cat/LaunchBrowserMode;
 
     goto :goto_0
 
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_4
     move-object v1, p1
 
@@ -354,7 +354,7 @@
     check-cast v1, Lcom/android/internal/telephony/cat/PlayToneParams;
 
     .line 80
-    .local v1, params:Lcom/android/internal/telephony/cat/PlayToneParams;
+    .local v1, "params":Lcom/android/internal/telephony/cat/PlayToneParams;
     iget-object v2, v1, Lcom/android/internal/telephony/cat/PlayToneParams;->mSettings:Lcom/android/internal/telephony/cat/ToneSettings;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mToneSettings:Lcom/android/internal/telephony/cat/ToneSettings;
@@ -367,11 +367,11 @@
     goto :goto_0
 
     .line 84
-    .end local v1           #params:Lcom/android/internal/telephony/cat/PlayToneParams;
+    .end local v1    # "params":Lcom/android/internal/telephony/cat/PlayToneParams;
     :pswitch_5
     check-cast p1, Lcom/android/internal/telephony/cat/CallSetupParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v2, p1, Lcom/android/internal/telephony/cat/CallSetupParams;->mConfirmMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mTextMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -379,7 +379,7 @@
     goto :goto_0
 
     .line 87
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_6
     new-instance v2, Lcom/android/internal/telephony/cat/CatCmdMessage$CallSettings;
 
@@ -403,14 +403,14 @@
 
     check-cast p1, Lcom/android/internal/telephony/cat/CallSetupParams;
 
-    .end local p1
+    .end local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     iget-object v3, p1, Lcom/android/internal/telephony/cat/CallSetupParams;->mCallMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iput-object v3, v2, Lcom/android/internal/telephony/cat/CatCmdMessage$CallSettings;->callMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     goto :goto_0
 
-    .restart local p1
+    .restart local p1    # "cmdParams":Lcom/android/internal/telephony/cat/CommandParams;
     :pswitch_7
     move-object v0, p1
 
@@ -418,7 +418,7 @@
     check-cast v0, Lcom/android/internal/telephony/cat/BIPClientParams;
 
     .line 96
-    .local v0, param:Lcom/android/internal/telephony/cat/BIPClientParams;
+    .local v0, "param":Lcom/android/internal/telephony/cat/BIPClientParams;
     iget-object v2, v0, Lcom/android/internal/telephony/cat/BIPClientParams;->mTextMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iput-object v2, p0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mTextMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -541,8 +541,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v2, 0x0

@@ -12,10 +12,10 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 1
-    .parameter "year"
-    .parameter "month"
-    .parameter "dayOfMonth"
-    .parameter "weekStartDay"
+    .param p1, "year"    # I
+    .param p2, "month"    # I
+    .param p3, "dayOfMonth"    # I
+    .param p4, "weekStartDay"    # I
 
     .prologue
     .line 49
@@ -184,8 +184,8 @@
 
 .method public isSelected(II)Z
     .locals 1
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 92
@@ -268,7 +268,7 @@
     move-result v0
 
     .line 155
-    .local v0, lastDay:I
+    .local v0, "lastDay":I
     invoke-virtual {p0, v0}, Landroid/util/DayOfMonthCursor;->getRowOf(I)I
 
     move-result v1
@@ -377,7 +377,7 @@
 
 .method public setSelectedDayOfMonth(I)V
     .locals 1
-    .parameter "dayOfMonth"
+    .param p1, "dayOfMonth"    # I
 
     .prologue
     .line 87
@@ -400,8 +400,8 @@
 
 .method public setSelectedRowColumn(II)V
     .locals 0
-    .parameter "row"
-    .parameter "col"
+    .param p1, "row"    # I
+    .param p2, "col"    # I
 
     .prologue
     .line 64

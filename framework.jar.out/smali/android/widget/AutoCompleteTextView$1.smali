@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$OnDismissListener;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 589

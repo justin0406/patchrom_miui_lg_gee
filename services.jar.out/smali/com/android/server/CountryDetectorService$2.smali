@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/CountryDetectorService;Landroid/location/CountryListener;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 195
@@ -49,7 +47,7 @@
     .line 198
     iget-object v0, p0, Lcom/android/server/CountryDetectorService$2;->this$0:Lcom/android/server/CountryDetectorService;
 
-    #getter for: Lcom/android/server/CountryDetectorService;->mCountryDetector:Lcom/android/server/location/ComprehensiveCountryDetector;
+    # getter for: Lcom/android/server/CountryDetectorService;->mCountryDetector:Lcom/android/server/location/ComprehensiveCountryDetector;
     invoke-static {v0}, Lcom/android/server/CountryDetectorService;->access$200(Lcom/android/server/CountryDetectorService;)Lcom/android/server/location/ComprehensiveCountryDetector;
 
     move-result-object v0

@@ -19,7 +19,7 @@
 
 .field private static final DEBUG:Z = false
 
-.field private static final DUMPSYS_ARGS:[Ljava/lang/String; = null
+.field private static final DUMPSYS_ARGS:[Ljava/lang/String;
 
 .field private static final DUMPSYS_DATA_PATH:Ljava/lang/String; = "/data/system/"
 
@@ -126,8 +126,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/LightsService;)V
     .locals 3
-    .parameter "context"
-    .parameter "lights"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "lights"    # Lcom/android/server/LightsService;
 
     .prologue
     .line 140
@@ -281,7 +281,7 @@
     move-result-object v0
 
     .line 164
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/IBatteryPropertiesRegistrar$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IBatteryPropertiesRegistrar;
 
     move-result-object v1
@@ -311,7 +311,7 @@
 
 .method static synthetic access$100(Lcom/android/server/BatteryService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
 
     .prologue
     .line 83
@@ -322,7 +322,7 @@
 
 .method static synthetic access$200(Lcom/android/server/BatteryService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
 
     .prologue
     .line 83
@@ -333,7 +333,7 @@
 
 .method static synthetic access$300(Lcom/android/server/BatteryService;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
 
     .prologue
     .line 83
@@ -344,8 +344,8 @@
 
 .method static synthetic access$302(Lcom/android/server/BatteryService;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
+    .param p1, "x1"    # I
 
     .prologue
     .line 83
@@ -356,7 +356,7 @@
 
 .method static synthetic access$400(Lcom/android/server/BatteryService;)Landroid/os/BatteryProperties;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
 
     .prologue
     .line 83
@@ -367,7 +367,7 @@
 
 .method static synthetic access$500(Lcom/android/server/BatteryService;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
 
     .prologue
     .line 83
@@ -378,8 +378,8 @@
 
 .method static synthetic access$600(Lcom/android/server/BatteryService;Landroid/os/BatteryProperties;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/BatteryService;
+    .param p1, "x1"    # Landroid/os/BatteryProperties;
 
     .prologue
     .line 83
@@ -390,7 +390,7 @@
 
 .method private getIconLocked(I)I
     .locals 4
-    .parameter "level"
+    .param p1, "level"    # I
 
     .prologue
     const v0, 0x108059d
@@ -477,7 +477,7 @@
 
 .method private isPoweredLocked(I)Z
     .locals 2
-    .parameter "plugTypeSet"
+    .param p1, "plugTypeSet"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -549,7 +549,7 @@
     move-result-object v0
 
     .line 511
-    .local v0, batteryInfoService:Landroid/os/IBinder;
+    .local v0, "batteryInfoService":Landroid/os/IBinder;
     if-nez v0, :cond_1
 
     .line 545
@@ -570,7 +570,7 @@
     check-cast v1, Landroid/os/DropBoxManager;
 
     .line 514
-    .local v1, db:Landroid/os/DropBoxManager;
+    .local v1, "db":Landroid/os/DropBoxManager;
     if-eqz v1, :cond_0
 
     const-string v7, "BATTERY_DISCHARGE_INFO"
@@ -585,11 +585,11 @@
     const/4 v2, 0x0
 
     .line 517
-    .local v2, dumpFile:Ljava/io/File;
+    .local v2, "dumpFile":Ljava/io/File;
     const/4 v4, 0x0
 
     .line 520
-    .local v4, dumpStream:Ljava/io/FileOutputStream;
+    .local v4, "dumpStream":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v3, Ljava/io/File;
 
@@ -597,25 +597,25 @@
 
     invoke-direct {v3, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 521
-    .end local v2           #dumpFile:Ljava/io/File;
-    .local v3, dumpFile:Ljava/io/File;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .local v3, "dumpFile":Ljava/io/File;
     :try_start_1
     new-instance v5, Ljava/io/FileOutputStream;
 
     invoke-direct {v5, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_8
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_6
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 522
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .local v5, dumpStream:Ljava/io/FileOutputStream;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .local v5, "dumpStream":Ljava/io/FileOutputStream;
     :try_start_2
     invoke-virtual {v5}, Ljava/io/FileOutputStream;->getFD()Ljava/io/FileDescriptor;
 
@@ -635,9 +635,9 @@
 
     invoke-virtual {v1, v7, v3, v8}, Landroid/os/DropBoxManager;->addFile(Ljava/lang/String;Ljava/io/File;I)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_9
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_7
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 533
     if-eqz v5, :cond_2
@@ -688,24 +688,24 @@
 
     move-object v4, v5
 
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto :goto_0
 
     .line 536
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v3       #dumpFile:Ljava/io/File;
-    .restart local v5       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v3    # "dumpFile":Ljava/io/File;
+    .restart local v5    # "dumpStream":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v6
 
     .line 537
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     sget-object v7, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
 
     const-string v8, "failed to close dumpsys output stream"
@@ -715,16 +715,16 @@
     goto :goto_1
 
     .line 527
-    .end local v3           #dumpFile:Ljava/io/File;
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .end local v6           #e:Ljava/io/IOException;
-    .restart local v2       #dumpFile:Ljava/io/File;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .end local v6    # "e":Ljava/io/IOException;
+    .restart local v2    # "dumpFile":Ljava/io/File;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     :catch_1
     move-exception v6
 
     .line 528
-    .local v6, e:Landroid/os/RemoteException;
+    .local v6, "e":Landroid/os/RemoteException;
     :goto_2
     :try_start_4
     sget-object v7, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
@@ -745,7 +745,7 @@
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
     .line 540
-    .end local v6           #e:Landroid/os/RemoteException;
+    .end local v6    # "e":Landroid/os/RemoteException;
     :cond_3
     :goto_3
     if-eqz v2, :cond_0
@@ -786,12 +786,12 @@
     goto/16 :goto_0
 
     .line 536
-    .restart local v6       #e:Landroid/os/RemoteException;
+    .restart local v6    # "e":Landroid/os/RemoteException;
     :catch_2
     move-exception v6
 
     .line 537
-    .local v6, e:Ljava/io/IOException;
+    .local v6, "e":Ljava/io/IOException;
     sget-object v7, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
 
     const-string v8, "failed to close dumpsys output stream"
@@ -801,12 +801,12 @@
     goto :goto_3
 
     .line 529
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :catch_3
     move-exception v6
 
     .line 530
-    .restart local v6       #e:Ljava/io/IOException;
+    .restart local v6    # "e":Ljava/io/IOException;
     :goto_4
     :try_start_6
     sget-object v7, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
@@ -880,7 +880,7 @@
     goto :goto_5
 
     .line 533
-    .end local v6           #e:Ljava/io/IOException;
+    .end local v6    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
@@ -939,7 +939,7 @@
     move-exception v6
 
     .line 537
-    .restart local v6       #e:Ljava/io/IOException;
+    .restart local v6    # "e":Ljava/io/IOException;
     sget-object v8, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
 
     const-string v9, "failed to close dumpsys output stream"
@@ -949,112 +949,112 @@
     goto :goto_7
 
     .line 533
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v6           #e:Ljava/io/IOException;
-    .restart local v3       #dumpFile:Ljava/io/File;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v6    # "e":Ljava/io/IOException;
+    .restart local v3    # "dumpFile":Ljava/io/File;
     :catchall_1
     move-exception v7
 
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto :goto_6
 
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v3       #dumpFile:Ljava/io/File;
-    .restart local v5       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v3    # "dumpFile":Ljava/io/File;
+    .restart local v5    # "dumpStream":Ljava/io/FileOutputStream;
     :catchall_2
     move-exception v7
 
     move-object v4, v5
 
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto :goto_6
 
     .line 529
-    .end local v2           #dumpFile:Ljava/io/File;
-    .restart local v3       #dumpFile:Ljava/io/File;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .restart local v3    # "dumpFile":Ljava/io/File;
     :catch_6
     move-exception v6
 
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto :goto_4
 
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v3       #dumpFile:Ljava/io/File;
-    .restart local v5       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v3    # "dumpFile":Ljava/io/File;
+    .restart local v5    # "dumpStream":Ljava/io/FileOutputStream;
     :catch_7
     move-exception v6
 
     move-object v4, v5
 
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto :goto_4
 
     .line 527
-    .end local v2           #dumpFile:Ljava/io/File;
-    .restart local v3       #dumpFile:Ljava/io/File;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .restart local v3    # "dumpFile":Ljava/io/File;
     :catch_8
     move-exception v6
 
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto/16 :goto_2
 
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v3       #dumpFile:Ljava/io/File;
-    .restart local v5       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v3    # "dumpFile":Ljava/io/File;
+    .restart local v5    # "dumpStream":Ljava/io/FileOutputStream;
     :catch_9
     move-exception v6
 
     move-object v4, v5
 
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto/16 :goto_2
 
-    .end local v2           #dumpFile:Ljava/io/File;
-    .end local v4           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v3       #dumpFile:Ljava/io/File;
-    .restart local v5       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v2    # "dumpFile":Ljava/io/File;
+    .end local v4    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v3    # "dumpFile":Ljava/io/File;
+    .restart local v5    # "dumpStream":Ljava/io/FileOutputStream;
     :cond_7
     move-object v4, v5
 
-    .end local v5           #dumpStream:Ljava/io/FileOutputStream;
-    .restart local v4       #dumpStream:Ljava/io/FileOutputStream;
+    .end local v5    # "dumpStream":Ljava/io/FileOutputStream;
+    .restart local v4    # "dumpStream":Ljava/io/FileOutputStream;
     move-object v2, v3
 
-    .end local v3           #dumpFile:Ljava/io/File;
-    .restart local v2       #dumpFile:Ljava/io/File;
+    .end local v3    # "dumpFile":Ljava/io/File;
+    .restart local v2    # "dumpFile":Ljava/io/File;
     goto/16 :goto_0
 .end method
 
 .method private logOutlierLocked(J)V
     .locals 10
-    .parameter "duration"
+    .param p1, "duration"    # J
 
     .prologue
     .line 548
@@ -1065,7 +1065,7 @@
     move-result-object v0
 
     .line 549
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     const-string v7, "battery_discharge_threshold"
 
     invoke-static {v0, v7}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -1073,7 +1073,7 @@
     move-result-object v2
 
     .line 551
-    .local v2, dischargeThresholdString:Ljava/lang/String;
+    .local v2, "dischargeThresholdString":Ljava/lang/String;
     const-string v7, "battery_discharge_duration_threshold"
 
     invoke-static {v0, v7}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -1081,7 +1081,7 @@
     move-result-object v5
 
     .line 554
-    .local v5, durationThresholdString:Ljava/lang/String;
+    .local v5, "durationThresholdString":Ljava/lang/String;
     if-eqz v2, :cond_0
 
     if-eqz v5, :cond_0
@@ -1093,13 +1093,13 @@
     move-result-wide v3
 
     .line 557
-    .local v3, durationThreshold:J
+    .local v3, "durationThreshold":J
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
     .line 558
-    .local v1, dischargeThreshold:I
+    .local v1, "dischargeThreshold":I
     cmp-long v7, p1, v3
 
     if-gtz v7, :cond_0
@@ -1120,8 +1120,8 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 573
-    .end local v1           #dischargeThreshold:I
-    .end local v3           #durationThreshold:J
+    .end local v1    # "dischargeThreshold":I
+    .end local v3    # "durationThreshold":J
     :cond_0
     :goto_0
     return-void
@@ -1131,7 +1131,7 @@
     move-exception v6
 
     .line 568
-    .local v6, e:Ljava/lang/NumberFormatException;
+    .local v6, "e":Ljava/lang/NumberFormatException;
     sget-object v7, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1175,11 +1175,11 @@
     const/4 v9, 0x0
 
     .line 293
-    .local v9, logOutlier:Z
+    .local v9, "logOutlier":Z
     const-wide/16 v7, 0x0
 
     .line 295
-    .local v7, dischargeDuration:J
+    .local v7, "dischargeDuration":J
     iget-object v0, p0, Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
 
     iget v0, v0, Landroid/os/BatteryProperties;->batteryLevel:I
@@ -1582,7 +1582,7 @@
     const/4 v11, 0x1
 
     .line 388
-    .local v11, plugged:Z
+    .local v11, "plugged":Z
     :goto_5
     iget v0, p0, Lcom/android/server/BatteryService;->mLastPlugType:I
 
@@ -1591,7 +1591,7 @@
     const/4 v10, 0x1
 
     .line 396
-    .local v10, oldPlugged:Z
+    .local v10, "oldPlugged":Z
     :goto_6
     if-nez v11, :cond_13
 
@@ -1623,7 +1623,7 @@
     const/4 v12, 0x1
 
     .line 401
-    .local v12, sendBatteryLow:Z
+    .local v12, "sendBatteryLow":Z
     :goto_7
     invoke-direct {p0}, Lcom/android/server/BatteryService;->sendIntentLocked()V
 
@@ -1742,9 +1742,9 @@
     iput v0, p0, Lcom/android/server/BatteryService;->mLastInvalidCharger:I
 
     .line 467
-    .end local v10           #oldPlugged:Z
-    .end local v11           #plugged:Z
-    .end local v12           #sendBatteryLow:Z
+    .end local v10    # "oldPlugged":Z
+    .end local v11    # "plugged":Z
+    .end local v12    # "sendBatteryLow":Z
     :cond_a
     return-void
 
@@ -1827,21 +1827,21 @@
     goto/16 :goto_5
 
     .line 388
-    .restart local v11       #plugged:Z
+    .restart local v11    # "plugged":Z
     :cond_12
     const/4 v10, 0x0
 
     goto/16 :goto_6
 
     .line 396
-    .restart local v10       #oldPlugged:Z
+    .restart local v10    # "oldPlugged":Z
     :cond_13
     const/4 v12, 0x0
 
     goto/16 :goto_7
 
     .line 416
-    .restart local v12       #sendBatteryLow:Z
+    .restart local v12    # "sendBatteryLow":Z
     :cond_14
     iget v0, p0, Lcom/android/server/BatteryService;->mPlugType:I
 
@@ -1891,9 +1891,9 @@
     goto/16 :goto_9
 
     .line 329
-    .end local v10           #oldPlugged:Z
-    .end local v11           #plugged:Z
-    .end local v12           #sendBatteryLow:Z
+    .end local v10    # "oldPlugged":Z
+    .end local v11    # "plugged":Z
+    .end local v12    # "sendBatteryLow":Z
     :catch_0
     move-exception v0
 
@@ -1912,8 +1912,8 @@
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 472
-    .local v1, intent:Landroid/content/Intent;
-    const/high16 v2, 0x6000
+    .local v1, "intent":Landroid/content/Intent;
+    const/high16 v2, 0x60000000
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -1927,7 +1927,7 @@
     move-result v0
 
     .line 477
-    .local v0, icon:I
+    .local v0, "icon":I
     const-string v2, "status"
 
     iget-object v3, p0, Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
@@ -2091,7 +2091,7 @@
 
 .method private update(Landroid/os/BatteryProperties;)V
     .locals 2
-    .parameter "props"
+    .param p1, "props"    # Landroid/os/BatteryProperties;
 
     .prologue
     .line 282
@@ -2133,12 +2133,12 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 12
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    const/high16 v11, -0x8000
+    const/high16 v11, -0x80000000
 
     const/4 v6, 0x1
 
@@ -2605,7 +2605,7 @@
     aget-object v3, p3, v9
 
     .line 632
-    .local v3, key:Ljava/lang/String;
+    .local v3, "key":Ljava/lang/String;
     const/4 v9, 0x2
 
     aget-object v5, p3, v9
@@ -2613,11 +2613,11 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 634
-    .local v5, value:Ljava/lang/String;
+    .local v5, "value":Ljava/lang/String;
     const/4 v4, 0x1
 
     .line 635
-    .local v4, update:Z
+    .local v4, "update":Z
     :try_start_2
     const-string v9, "ac"
 
@@ -2646,13 +2646,13 @@
     .line 652
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-wide v1
 
     .line 654
-    .local v1, ident:J
+    .local v1, "ident":J
     const/4 v6, 0x1
 
     :try_start_3
@@ -2667,18 +2667,18 @@
     :try_start_4
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_1
 
     .line 660
-    .end local v1           #ident:J
+    .end local v1    # "ident":J
     :catch_0
     move-exception v0
 
     .line 661
-    .local v0, ex:Ljava/lang/NumberFormatException;
+    .local v0, "ex":Ljava/lang/NumberFormatException;
     :try_start_5
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -2704,7 +2704,7 @@
 
     goto :goto_1
 
-    .end local v0           #ex:Ljava/lang/NumberFormatException;
+    .end local v0    # "ex":Ljava/lang/NumberFormatException;
     :cond_7
     move v6, v7
 
@@ -2859,7 +2859,7 @@
     goto/16 :goto_3
 
     .line 657
-    .restart local v1       #ident:J
+    .restart local v1    # "ident":J
     :catchall_1
     move-exception v6
 
@@ -2867,14 +2867,14 @@
 
     throw v6
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 663
-    .end local v1           #ident:J
-    .end local v3           #key:Ljava/lang/String;
-    .end local v4           #update:Z
-    .end local v5           #value:Ljava/lang/String;
+    .end local v1    # "ident":J
+    .end local v3    # "key":Ljava/lang/String;
+    .end local v4    # "update":Z
+    .end local v5    # "value":Ljava/lang/String;
     :cond_10
     :try_start_7
     array-length v7, p3
@@ -2901,7 +2901,7 @@
     move-result-wide v1
 
     .line 666
-    .restart local v1       #ident:J
+    .restart local v1    # "ident":J
     const/4 v6, 0x0
 
     :try_start_8
@@ -2923,7 +2923,7 @@
     throw v6
 
     .line 671
-    .end local v1           #ident:J
+    .end local v1    # "ident":J
     :cond_11
     const-string v6, "Dump current battery state, or:"
 
@@ -3080,7 +3080,7 @@
 
 .method public isPowered(I)Z
     .locals 2
-    .parameter "plugTypeSet"
+    .param p1, "plugTypeSet"    # I
 
     .prologue
     .line 185

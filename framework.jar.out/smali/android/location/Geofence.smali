@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -48,9 +48,9 @@
 
 .method private constructor <init>(DDF)V
     .locals 1
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "radius"
+    .param p1, "latitude"    # D
+    .param p3, "longitude"    # D
+    .param p5, "radius"    # F
 
     .prologue
     .line 51
@@ -82,7 +82,7 @@
 
 .method static synthetic access$000(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 29
@@ -93,18 +93,18 @@
 
 .method private static checkLatLong(DD)V
     .locals 3
-    .parameter "latitude"
-    .parameter "longitude"
+    .param p0, "latitude"    # D
+    .param p2, "longitude"    # D
 
     .prologue
     .line 87
-    const-wide v0, 0x4056800000000000L
+    const-wide v0, 0x4056800000000000L    # 90.0
 
     cmpl-double v0, p0, v0
 
     if-gtz v0, :cond_0
 
-    const-wide v0, -0x3fa9800000000000L
+    const-wide v0, -0x3fa9800000000000L    # -90.0
 
     cmpg-double v0, p0, v0
 
@@ -138,13 +138,13 @@
 
     .line 90
     :cond_1
-    const-wide v0, 0x4066800000000000L
+    const-wide v0, 0x4066800000000000L    # 180.0
 
     cmpl-double v0, p2, v0
 
     if-gtz v0, :cond_2
 
-    const-wide v0, -0x3f99800000000000L
+    const-wide v0, -0x3f99800000000000L    # -180.0
 
     cmpg-double v0, p2, v0
 
@@ -183,7 +183,7 @@
 
 .method private static checkRadius(F)V
     .locals 3
-    .parameter "radius"
+    .param p0, "radius"    # F
 
     .prologue
     .line 81
@@ -225,7 +225,7 @@
 
 .method private static checkType(I)V
     .locals 3
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 96
@@ -265,9 +265,9 @@
 
 .method public static createCircle(DDF)Landroid/location/Geofence;
     .locals 6
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "radius"
+    .param p0, "latitude"    # D
+    .param p2, "longitude"    # D
+    .param p4, "radius"    # F
 
     .prologue
     .line 48
@@ -286,7 +286,7 @@
 
 .method private static typeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 131
@@ -330,7 +330,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -372,7 +372,7 @@
     check-cast v0, Landroid/location/Geofence;
 
     .line 172
-    .local v0, other:Landroid/location/Geofence;
+    .local v0, "other":Landroid/location/Geofence;
     iget v3, p0, Landroid/location/Geofence;->mRadius:F
 
     iget v4, v0, Landroid/location/Geofence;->mRadius:F
@@ -480,11 +480,11 @@
     const/16 v0, 0x1f
 
     .line 149
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 151
-    .local v1, result:I
+    .local v1, "result":I
     iget-wide v4, p0, Landroid/location/Geofence;->mLatitude:D
 
     invoke-static {v4, v5}, Ljava/lang/Double;->doubleToLongBits(D)J
@@ -492,7 +492,7 @@
     move-result-wide v2
 
     .line 152
-    .local v2, temp:J
+    .local v2, "temp":J
     ushr-long v4, v2, v6
 
     xor-long/2addr v4, v2
@@ -601,8 +601,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 124

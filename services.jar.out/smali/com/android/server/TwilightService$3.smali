@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/TwilightService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 558
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 1
-    .parameter "location"
+    .param p1, "location"    # Landroid/location/Location;
 
     .prologue
     .line 560
     iget-object v0, p0, Lcom/android/server/TwilightService$3;->this$0:Lcom/android/server/TwilightService;
 
-    #getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
+    # getter for: Lcom/android/server/TwilightService;->mLocationHandler:Lcom/android/server/TwilightService$LocationHandler;
     invoke-static {v0}, Lcom/android/server/TwilightService;->access$800(Lcom/android/server/TwilightService;)Lcom/android/server/TwilightService$LocationHandler;
 
     move-result-object v0
@@ -58,7 +57,7 @@
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 564
@@ -67,7 +66,7 @@
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .parameter "provider"
+    .param p1, "provider"    # Ljava/lang/String;
 
     .prologue
     .line 567
@@ -76,9 +75,9 @@
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .parameter "provider"
-    .parameter "status"
-    .parameter "extras"
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 570

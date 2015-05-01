@@ -66,7 +66,7 @@
 
 .method static synthetic access$000(Landroid/transition/Crossfade;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/transition/Crossfade;
 
     .prologue
     .line 47
@@ -77,7 +77,7 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 8
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     const/4 v7, 0x0
@@ -86,7 +86,7 @@
     iget-object v4, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 262
-    .local v4, view:Landroid/view/View;
+    .local v4, "view":Landroid/view/View;
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-virtual {v4}, Landroid/view/View;->getWidth()I
@@ -100,7 +100,7 @@
     invoke-direct {v1, v7, v7, v5, v6}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 263
-    .local v1, bounds:Landroid/graphics/Rect;
+    .local v1, "bounds":Landroid/graphics/Rect;
     iget v5, p0, Landroid/transition/Crossfade;->mFadeBehavior:I
 
     const/4 v6, 0x1
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 273
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     instance-of v5, v4, Landroid/view/TextureView;
 
     if-eqz v5, :cond_1
@@ -150,7 +150,7 @@
     .line 274
     check-cast v4, Landroid/view/TextureView;
 
-    .end local v4           #view:Landroid/view/View;
+    .end local v4    # "view":Landroid/view/View;
     invoke-virtual {v4}, Landroid/view/TextureView;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -169,7 +169,7 @@
     invoke-direct {v3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 283
-    .local v3, drawable:Landroid/graphics/drawable/BitmapDrawable;
+    .local v3, "drawable":Landroid/graphics/drawable/BitmapDrawable;
     invoke-virtual {v3, v1}, Landroid/graphics/drawable/BitmapDrawable;->setBounds(Landroid/graphics/Rect;)V
 
     .line 284
@@ -183,15 +183,15 @@
     return-void
 
     .line 276
-    .end local v3           #drawable:Landroid/graphics/drawable/BitmapDrawable;
-    .restart local v4       #view:Landroid/view/View;
+    .end local v3    # "drawable":Landroid/graphics/drawable/BitmapDrawable;
+    .restart local v4    # "view":Landroid/view/View;
     :cond_1
     new-instance v2, Landroid/graphics/Canvas;
 
     invoke-direct {v2, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 277
-    .local v2, c:Landroid/graphics/Canvas;
+    .local v2, "c":Landroid/graphics/Canvas;
     invoke-virtual {v4, v2}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
@@ -201,7 +201,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 294
@@ -213,7 +213,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 289
@@ -225,9 +225,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 21
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 169
@@ -257,14 +257,14 @@
     const/4 v3, 0x1
 
     .line 173
-    .local v3, useParentOverlay:Z
+    .local v3, "useParentOverlay":Z
     :goto_1
     move-object/from16 v0, p3
 
     iget-object v4, v0, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 174
-    .local v4, view:Landroid/view/View;
+    .local v4, "view":Landroid/view/View;
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -272,13 +272,13 @@
     move-object/from16 v18, v0
 
     .line 175
-    .local v18, startVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v18, "startVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     move-object/from16 v0, p3
 
     iget-object v13, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     .line 176
-    .local v13, endVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v13, "endVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v1, "android:crossfade:bounds"
 
     move-object/from16 v0, v18
@@ -290,7 +290,7 @@
     check-cast v17, Landroid/graphics/Rect;
 
     .line 177
-    .local v17, startBounds:Landroid/graphics/Rect;
+    .local v17, "startBounds":Landroid/graphics/Rect;
     const-string v1, "android:crossfade:bounds"
 
     invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -300,7 +300,7 @@
     check-cast v12, Landroid/graphics/Rect;
 
     .line 178
-    .local v12, endBounds:Landroid/graphics/Rect;
+    .local v12, "endBounds":Landroid/graphics/Rect;
     const-string v1, "android:crossfade:bitmap"
 
     move-object/from16 v0, v18
@@ -312,7 +312,7 @@
     check-cast v16, Landroid/graphics/Bitmap;
 
     .line 179
-    .local v16, startBitmap:Landroid/graphics/Bitmap;
+    .local v16, "startBitmap":Landroid/graphics/Bitmap;
     const-string v1, "android:crossfade:bitmap"
 
     invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -322,7 +322,7 @@
     check-cast v11, Landroid/graphics/Bitmap;
 
     .line 180
-    .local v11, endBitmap:Landroid/graphics/Bitmap;
+    .local v11, "endBitmap":Landroid/graphics/Bitmap;
     const-string v1, "android:crossfade:drawable"
 
     move-object/from16 v0, v18
@@ -334,7 +334,7 @@
     check-cast v5, Landroid/graphics/drawable/BitmapDrawable;
 
     .line 181
-    .local v5, startDrawable:Landroid/graphics/drawable/BitmapDrawable;
+    .local v5, "startDrawable":Landroid/graphics/drawable/BitmapDrawable;
     const-string v1, "android:crossfade:drawable"
 
     invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -344,7 +344,7 @@
     check-cast v6, Landroid/graphics/drawable/BitmapDrawable;
 
     .line 186
-    .local v6, endDrawable:Landroid/graphics/drawable/BitmapDrawable;
+    .local v6, "endDrawable":Landroid/graphics/drawable/BitmapDrawable;
     if-eqz v5, :cond_a
 
     if-eqz v6, :cond_a
@@ -371,7 +371,7 @@
     move-result-object v14
 
     .line 189
-    .local v14, overlay:Landroid/view/ViewOverlay;
+    .local v14, "overlay":Landroid/view/ViewOverlay;
     :goto_2
     move-object/from16 v0, p0
 
@@ -411,7 +411,7 @@
     move-result-object v7
 
     .line 204
-    .local v7, anim:Landroid/animation/ObjectAnimator;
+    .local v7, "anim":Landroid/animation/ObjectAnimator;
     :goto_3
     new-instance v1, Landroid/transition/Crossfade$1;
 
@@ -425,7 +425,7 @@
     const/4 v8, 0x0
 
     .line 212
-    .local v8, anim1:Landroid/animation/ObjectAnimator;
+    .local v8, "anim1":Landroid/animation/ObjectAnimator;
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/transition/Crossfade;->mFadeBehavior:I
@@ -464,7 +464,7 @@
     invoke-direct {v15}, Landroid/animation/AnimatorSet;-><init>()V
 
     .line 234
-    .local v15, set:Landroid/animation/AnimatorSet;
+    .local v15, "set":Landroid/animation/AnimatorSet;
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroid/animation/Animator;
@@ -535,7 +535,7 @@
     move-result-object v9
 
     .line 245
-    .local v9, anim2:Landroid/animation/Animator;
+    .local v9, "anim2":Landroid/animation/Animator;
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroid/animation/Animator;
@@ -583,7 +583,7 @@
     move-result-object v10
 
     .line 251
-    .local v10, anim3:Landroid/animation/Animator;
+    .local v10, "anim3":Landroid/animation/Animator;
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroid/animation/Animator;
@@ -597,38 +597,38 @@
     goto/16 :goto_0
 
     .line 172
-    .end local v3           #useParentOverlay:Z
-    .end local v4           #view:Landroid/view/View;
-    .end local v5           #startDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    .end local v6           #endDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    .end local v7           #anim:Landroid/animation/ObjectAnimator;
-    .end local v8           #anim1:Landroid/animation/ObjectAnimator;
-    .end local v9           #anim2:Landroid/animation/Animator;
-    .end local v10           #anim3:Landroid/animation/Animator;
-    .end local v11           #endBitmap:Landroid/graphics/Bitmap;
-    .end local v12           #endBounds:Landroid/graphics/Rect;
-    .end local v13           #endVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v14           #overlay:Landroid/view/ViewOverlay;
-    .end local v15           #set:Landroid/animation/AnimatorSet;
-    .end local v16           #startBitmap:Landroid/graphics/Bitmap;
-    .end local v17           #startBounds:Landroid/graphics/Rect;
-    .end local v18           #startVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v3    # "useParentOverlay":Z
+    .end local v4    # "view":Landroid/view/View;
+    .end local v5    # "startDrawable":Landroid/graphics/drawable/BitmapDrawable;
+    .end local v6    # "endDrawable":Landroid/graphics/drawable/BitmapDrawable;
+    .end local v7    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v8    # "anim1":Landroid/animation/ObjectAnimator;
+    .end local v9    # "anim2":Landroid/animation/Animator;
+    .end local v10    # "anim3":Landroid/animation/Animator;
+    .end local v11    # "endBitmap":Landroid/graphics/Bitmap;
+    .end local v12    # "endBounds":Landroid/graphics/Rect;
+    .end local v13    # "endVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .end local v14    # "overlay":Landroid/view/ViewOverlay;
+    .end local v15    # "set":Landroid/animation/AnimatorSet;
+    .end local v16    # "startBitmap":Landroid/graphics/Bitmap;
+    .end local v17    # "startBounds":Landroid/graphics/Rect;
+    .end local v18    # "startVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_6
     const/4 v3, 0x0
 
     goto/16 :goto_1
 
     .line 187
-    .restart local v3       #useParentOverlay:Z
-    .restart local v4       #view:Landroid/view/View;
-    .restart local v5       #startDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    .restart local v6       #endDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    .restart local v11       #endBitmap:Landroid/graphics/Bitmap;
-    .restart local v12       #endBounds:Landroid/graphics/Rect;
-    .restart local v13       #endVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .restart local v16       #startBitmap:Landroid/graphics/Bitmap;
-    .restart local v17       #startBounds:Landroid/graphics/Rect;
-    .restart local v18       #startVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .restart local v3    # "useParentOverlay":Z
+    .restart local v4    # "view":Landroid/view/View;
+    .restart local v5    # "startDrawable":Landroid/graphics/drawable/BitmapDrawable;
+    .restart local v6    # "endDrawable":Landroid/graphics/drawable/BitmapDrawable;
+    .restart local v11    # "endBitmap":Landroid/graphics/Bitmap;
+    .restart local v12    # "endBounds":Landroid/graphics/Rect;
+    .restart local v13    # "endVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .restart local v16    # "startBitmap":Landroid/graphics/Bitmap;
+    .restart local v17    # "startBounds":Landroid/graphics/Rect;
+    .restart local v18    # "startVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_7
     invoke-virtual {v4}, Landroid/view/View;->getOverlay()Landroid/view/ViewOverlay;
 
@@ -637,7 +637,7 @@
     goto/16 :goto_2
 
     .line 202
-    .restart local v14       #overlay:Landroid/view/ViewOverlay;
+    .restart local v14    # "overlay":Landroid/view/ViewOverlay;
     :cond_8
     const-string v1, "alpha"
 
@@ -655,11 +655,11 @@
 
     move-result-object v7
 
-    .restart local v7       #anim:Landroid/animation/ObjectAnimator;
+    .restart local v7    # "anim":Landroid/animation/ObjectAnimator;
     goto/16 :goto_3
 
     .line 215
-    .restart local v8       #anim1:Landroid/animation/ObjectAnimator;
+    .restart local v8    # "anim1":Landroid/animation/ObjectAnimator;
     :cond_9
     move-object/from16 v0, p0
 
@@ -683,9 +683,9 @@
     goto/16 :goto_4
 
     .line 256
-    .end local v7           #anim:Landroid/animation/ObjectAnimator;
-    .end local v8           #anim1:Landroid/animation/ObjectAnimator;
-    .end local v14           #overlay:Landroid/view/ViewOverlay;
+    .end local v7    # "anim":Landroid/animation/ObjectAnimator;
+    .end local v8    # "anim1":Landroid/animation/ObjectAnimator;
+    .end local v14    # "overlay":Landroid/view/ViewOverlay;
     :cond_a
     const/4 v15, 0x0
 
@@ -693,25 +693,25 @@
 
     .line 200
     :array_0
-    .array-data 0x4
-        0xfft 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0xff
+        0x0
+        0x0
     .end array-data
 
     .line 214
     :array_1
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 
     .line 216
     :array_2
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 .end method
 
@@ -737,7 +737,7 @@
 
 .method public setFadeBehavior(I)Landroid/transition/Crossfade;
     .locals 1
-    .parameter "fadeBehavior"
+    .param p1, "fadeBehavior"    # I
 
     .prologue
     .line 125
@@ -757,7 +757,7 @@
 
 .method public setResizeBehavior(I)Landroid/transition/Crossfade;
     .locals 1
-    .parameter "resizeBehavior"
+    .param p1, "resizeBehavior"    # I
 
     .prologue
     .line 150

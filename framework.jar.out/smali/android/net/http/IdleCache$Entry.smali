@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/http/IdleCache;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 32

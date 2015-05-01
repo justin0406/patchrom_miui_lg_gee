@@ -30,7 +30,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "date DESC"
 
@@ -65,14 +65,14 @@
 
 .method public static addMessageToUri(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZZ)Landroid/net/Uri;
     .locals 10
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "address"
-    .parameter "body"
-    .parameter "subject"
-    .parameter "date"
-    .parameter "read"
-    .parameter "deliveryReport"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "address"    # Ljava/lang/String;
+    .param p3, "body"    # Ljava/lang/String;
+    .param p4, "subject"    # Ljava/lang/String;
+    .param p5, "date"    # Ljava/lang/Long;
+    .param p6, "read"    # Z
+    .param p7, "deliveryReport"    # Z
 
     .prologue
     .line 317
@@ -103,15 +103,15 @@
 
 .method public static addMessageToUri(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZZJ)Landroid/net/Uri;
     .locals 3
-    .parameter "resolver"
-    .parameter "uri"
-    .parameter "address"
-    .parameter "body"
-    .parameter "subject"
-    .parameter "date"
-    .parameter "read"
-    .parameter "deliveryReport"
-    .parameter "threadId"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "address"    # Ljava/lang/String;
+    .param p3, "body"    # Ljava/lang/String;
+    .param p4, "subject"    # Ljava/lang/String;
+    .param p5, "date"    # Ljava/lang/Long;
+    .param p6, "read"    # Z
+    .param p7, "deliveryReport"    # Z
+    .param p8, "threadId"    # J
 
     .prologue
     .line 339
@@ -122,7 +122,7 @@
     invoke-direct {v0, v1}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 341
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "address"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -212,7 +212,7 @@
 
 .method public static getDefaultSmsPackage(Landroid/content/Context;)Ljava/lang/String;
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 265
@@ -223,7 +223,7 @@
     move-result-object v0
 
     .line 266
-    .local v0, component:Landroid/content/ComponentName;
+    .local v0, "component":Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
     .line 267
@@ -243,7 +243,7 @@
 
 .method public static isOutgoingFolder(I)Z
     .locals 1
-    .parameter "messageType"
+    .param p0, "messageType"    # I
 
     .prologue
     .line 410
@@ -277,10 +277,10 @@
 
 .method public static moveMessageToFolder(Landroid/content/Context;Landroid/net/Uri;II)Z
     .locals 10
-    .parameter "context"
-    .parameter "uri"
-    .parameter "folder"
-    .parameter "error"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "folder"    # I
+    .param p3, "error"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -301,11 +301,11 @@
     const/4 v7, 0x0
 
     .line 373
-    .local v7, markAsUnread:Z
+    .local v7, "markAsUnread":Z
     const/4 v6, 0x0
 
     .line 374
-    .local v6, markAsRead:Z
+    .local v6, "markAsRead":Z
     packed-switch p2, :pswitch_data_0
 
     goto :goto_0
@@ -320,7 +320,7 @@
     invoke-direct {v3, v0}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 392
-    .local v3, values:Landroid/content/ContentValues;
+    .local v3, "values":Landroid/content/ContentValues;
     const-string v0, "type"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -377,7 +377,7 @@
     goto :goto_0
 
     .line 380
-    .end local v3           #values:Landroid/content/ContentValues;
+    .end local v3    # "values":Landroid/content/ContentValues;
     :pswitch_1
     const/4 v6, 0x1
 
@@ -392,7 +392,7 @@
     goto :goto_1
 
     .line 395
-    .restart local v3       #values:Landroid/content/ContentValues;
+    .restart local v3    # "values":Landroid/content/ContentValues;
     :cond_2
     if-eqz v6, :cond_1
 
@@ -429,8 +429,8 @@
 
 .method public static query(Landroid/content/ContentResolver;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -455,10 +455,10 @@
 
 .method public static query(Landroid/content/ContentResolver;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "projection"
-    .parameter "where"
-    .parameter "orderBy"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
+    .param p2, "where"    # Ljava/lang/String;
+    .param p3, "orderBy"    # Ljava/lang/String;
 
     .prologue
     .line 286

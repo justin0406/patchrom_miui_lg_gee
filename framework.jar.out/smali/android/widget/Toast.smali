@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 90
@@ -124,9 +124,9 @@
 
 .method public static makeText(Landroid/content/Context;II)Landroid/widget/Toast;
     .locals 1
-    .parameter "context"
-    .parameter "resId"
-    .parameter "duration"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resId"    # I
+    .param p2, "duration"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -152,9 +152,9 @@
 
 .method public static makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
     .locals 6
-    .parameter "context"
-    .parameter "text"
-    .parameter "duration"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "duration"    # I
 
     .prologue
     .line 241
@@ -163,7 +163,7 @@
     invoke-direct {v1, p0}, Landroid/widget/Toast;-><init>(Landroid/content/Context;)V
 
     .line 243
-    .local v1, result:Landroid/widget/Toast;
+    .local v1, "result":Landroid/widget/Toast;
     const-string v4, "layout_inflater"
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -173,7 +173,7 @@
     check-cast v0, Landroid/view/LayoutInflater;
 
     .line 245
-    .local v0, inflate:Landroid/view/LayoutInflater;
+    .local v0, "inflate":Landroid/view/LayoutInflater;
     const v4, 0x10900b5
 
     const/4 v5, 0x0
@@ -183,7 +183,7 @@
     move-result-object v3
 
     .line 246
-    .local v3, v:Landroid/view/View;
+    .local v3, "v":Landroid/view/View;
     const v4, 0x102000b
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -193,7 +193,7 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 247
-    .local v2, tv:Landroid/widget/TextView;
+    .local v2, "tv":Landroid/widget/TextView;
     invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 249
@@ -328,7 +328,7 @@
 
 .method public setDuration(I)V
     .locals 0
-    .parameter "duration"
+    .param p1, "duration"    # I
 
     .prologue
     .line 156
@@ -340,9 +340,9 @@
 
 .method public setGravity(III)V
     .locals 1
-    .parameter "gravity"
-    .parameter "xOffset"
-    .parameter "yOffset"
+    .param p1, "gravity"    # I
+    .param p2, "xOffset"    # I
+    .param p3, "yOffset"    # I
 
     .prologue
     .line 202
@@ -366,8 +366,8 @@
 
 .method public setMargin(FF)V
     .locals 1
-    .parameter "horizontalMargin"
-    .parameter "verticalMargin"
+    .param p1, "horizontalMargin"    # F
+    .param p2, "verticalMargin"    # F
 
     .prologue
     .line 178
@@ -386,7 +386,7 @@
 
 .method public setText(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 276
@@ -404,7 +404,7 @@
 
 .method public setText(Ljava/lang/CharSequence;)V
     .locals 3
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 284
@@ -434,7 +434,7 @@
     check-cast v0, Landroid/widget/TextView;
 
     .line 288
-    .local v0, tv:Landroid/widget/TextView;
+    .local v0, "tv":Landroid/widget/TextView;
     if-nez v0, :cond_1
 
     .line 289
@@ -456,19 +456,23 @@
 
 .method public setType(I)V
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     iget-object v0, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Toast$TN;->setType(I)V
+    invoke-virtual {v0}, Landroid/widget/Toast$TN;->getParams()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->type:I
 
     return-void
 .end method
 
 .method public setView(Landroid/view/View;)V
     .locals 0
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 139
@@ -503,7 +507,7 @@
     move-result-object v1
 
     .line 108
-    .local v1, service:Landroid/app/INotificationManager;
+    .local v1, "service":Landroid/app/INotificationManager;
     iget-object v3, p0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -511,11 +515,11 @@
     move-result-object v0
 
     .line 109
-    .local v0, pkg:Ljava/lang/String;
+    .local v0, "pkg":Ljava/lang/String;
     iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
     .line 110
-    .local v2, tn:Landroid/widget/Toast$TN;
+    .local v2, "tn":Landroid/widget/Toast$TN;
     iget-object v3, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
     iput-object v3, v2, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;

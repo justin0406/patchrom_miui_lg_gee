@@ -42,8 +42,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 78
@@ -57,8 +57,8 @@
 # virtual methods
 .method public bindConstants(Landroid/renderscript/Allocation;I)V
     .locals 4
-    .parameter "a"
-    .parameter "slot"
+    .param p1, "a"    # Landroid/renderscript/Allocation;
+    .param p2, "slot"    # I
 
     .prologue
     .line 146
@@ -126,7 +126,7 @@
     move-result v0
 
     .line 154
-    .local v0, id:I
+    .local v0, "id":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
@@ -142,7 +142,7 @@
     return-void
 
     .line 153
-    .end local v0           #id:I
+    .end local v0    # "id":I
     :cond_3
     const/4 v0, 0x0
 
@@ -151,8 +151,8 @@
 
 .method public bindSampler(Landroid/renderscript/Sampler;I)V
     .locals 3
-    .parameter "vs"
-    .parameter "slot"
+    .param p1, "vs"    # Landroid/renderscript/Sampler;
+    .param p2, "slot"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -193,7 +193,7 @@
     move-result v0
 
     .line 196
-    .local v0, id:I
+    .local v0, "id":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
@@ -209,7 +209,7 @@
     return-void
 
     .line 195
-    .end local v0           #id:I
+    .end local v0    # "id":I
     :cond_2
     const/4 v0, 0x0
 
@@ -218,8 +218,8 @@
 
 .method public bindTexture(Landroid/renderscript/Allocation;I)V
     .locals 3
-    .parameter "va"
-    .parameter "slot"
+    .param p1, "va"    # Landroid/renderscript/Allocation;
+    .param p2, "slot"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -291,7 +291,7 @@
     move-result v0
 
     .line 176
-    .local v0, id:I
+    .local v0, "id":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
@@ -307,7 +307,7 @@
     return-void
 
     .line 175
-    .end local v0           #id:I
+    .end local v0    # "id":I
     :cond_3
     const/4 v0, 0x0
 
@@ -316,7 +316,7 @@
 
 .method public getConstant(I)Landroid/renderscript/Type;
     .locals 2
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 98
@@ -381,7 +381,7 @@
 
 .method public getTextureName(I)Ljava/lang/String;
     .locals 2
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 131
@@ -412,7 +412,7 @@
 
 .method public getTextureType(I)Landroid/renderscript/Program$TextureType;
     .locals 2
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 118

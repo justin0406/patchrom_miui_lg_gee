@@ -8,7 +8,7 @@
 
 .field private static final DEBUG_POLICY_INSTALL:Z = false
 
-.field private static final INSTALL_POLICY_FILE:[Ljava/io/File; = null
+.field private static final INSTALL_POLICY_FILE:[Ljava/io/File;
 
 .field private static final TAG:Ljava/lang/String; = "SELinuxMMAC"
 
@@ -112,7 +112,7 @@
 
 .method public static assignSeinfoValue(Landroid/content/pm/PackageParser$Package;)V
     .locals 8
-    .parameter "pkg"
+    .param p0, "pkg"    # Landroid/content/pm/PackageParser$Package;
 
     .prologue
     .line 259
@@ -136,20 +136,20 @@
     :cond_0
     iget-object v0, p0, Landroid/content/pm/PackageParser$Package;->mSignatures:[Landroid/content/pm/Signature;
 
-    .local v0, arr$:[Landroid/content/pm/Signature;
+    .local v0, "arr$":[Landroid/content/pm/Signature;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_3
 
     aget-object v3, v0, v1
 
     .line 264
-    .local v3, s:Landroid/content/pm/Signature;
+    .local v3, "s":Landroid/content/pm/Signature;
     if-nez v3, :cond_2
 
     .line 263
@@ -182,19 +182,19 @@
     iput-object v4, v5, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
 
     .line 293
-    .end local v0           #arr$:[Landroid/content/pm/Signature;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v3           #s:Landroid/content/pm/Signature;
-    .local v4, seinfo:Ljava/lang/String;
+    .end local v0    # "arr$":[Landroid/content/pm/Signature;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v3    # "s":Landroid/content/pm/Signature;
+    .local v4, "seinfo":Ljava/lang/String;
     :goto_1
     return-void
 
     .line 278
-    .end local v4           #seinfo:Ljava/lang/String;
-    .restart local v0       #arr$:[Landroid/content/pm/Signature;
-    .restart local v1       #i$:I
-    .restart local v2       #len$:I
+    .end local v4    # "seinfo":Ljava/lang/String;
+    .restart local v0    # "arr$":[Landroid/content/pm/Signature;
+    .restart local v1    # "i$":I
+    .restart local v2    # "len$":I
     :cond_3
     sget-object v5, Lcom/android/server/pm/SELinuxMMAC;->sPackageSeinfo:Ljava/util/HashMap;
 
@@ -222,14 +222,14 @@
     iput-object v4, v5, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
 
     .line 283
-    .restart local v4       #seinfo:Ljava/lang/String;
+    .restart local v4    # "seinfo":Ljava/lang/String;
     goto :goto_1
 
     .line 289
-    .end local v0           #arr$:[Landroid/content/pm/Signature;
-    .end local v1           #i$:I
-    .end local v2           #len$:I
-    .end local v4           #seinfo:Ljava/lang/String;
+    .end local v0    # "arr$":[Landroid/content/pm/Signature;
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
+    .end local v4    # "seinfo":Ljava/lang/String;
     :cond_4
     iget-object v5, p0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -246,7 +246,7 @@
     iput-object v4, v5, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
 
     .line 293
-    .restart local v4       #seinfo:Ljava/lang/String;
+    .restart local v4    # "seinfo":Ljava/lang/String;
     goto :goto_1
 .end method
 
@@ -284,7 +284,7 @@
 
 .method public static readInstallPolicy(Ljava/io/File;)Z
     .locals 3
-    .parameter "policyFile"
+    .param p0, "policyFile"    # Ljava/io/File;
 
     .prologue
     .line 86
@@ -311,7 +311,7 @@
 
 .method private static readInstallPolicy([Ljava/io/File;)Z
     .locals 14
-    .parameter "policyFiles"
+    .param p0, "policyFiles"    # [Ljava/io/File;
 
     .prologue
     const/4 v10, 0x1
@@ -320,11 +320,11 @@
     const/4 v5, 0x0
 
     .line 92
-    .local v5, policyFile:Ljava/io/FileReader;
+    .local v5, "policyFile":Ljava/io/FileReader;
     const/4 v2, 0x0
 
     .line 93
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-nez v5, :cond_0
 
@@ -344,13 +344,13 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v5           #policyFile:Ljava/io/FileReader;
-    .local v6, policyFile:Ljava/io/FileReader;
+    .end local v5    # "policyFile":Ljava/io/FileReader;
+    .local v6, "policyFile":Ljava/io/FileReader;
     move-object v5, v6
 
     .line 103
-    .end local v6           #policyFile:Ljava/io/FileReader;
-    .restart local v5       #policyFile:Ljava/io/FileReader;
+    .end local v6    # "policyFile":Ljava/io/FileReader;
+    .restart local v5    # "policyFile":Ljava/io/FileReader;
     :cond_0
     if-nez v5, :cond_1
 
@@ -373,7 +373,7 @@
     move-exception v1
 
     .line 98
-    .local v1, e:Ljava/io/FileNotFoundException;
+    .local v1, "e":Ljava/io/FileNotFoundException;
     const-string v11, "SELinuxMMAC"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -408,7 +408,7 @@
     goto :goto_0
 
     .line 108
-    .end local v1           #e:Ljava/io/FileNotFoundException;
+    .end local v1    # "e":Ljava/io/FileNotFoundException;
     :cond_1
     const-string v11, "SELinuxMMAC"
 
@@ -448,7 +448,7 @@
     move-result-object v3
 
     .line 114
-    .local v3, parser:Lorg/xmlpull/v1/XmlPullParser;
+    .local v3, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-interface {v3, v5}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 116
@@ -472,7 +472,7 @@
     if-ne v11, v10, :cond_3
 
     .line 185
-    .end local v3           #parser:Lorg/xmlpull/v1/XmlPullParser;
+    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :goto_3
     :try_start_2
     invoke-virtual {v5}, Ljava/io/FileReader;->close()V
@@ -488,7 +488,7 @@
     goto :goto_1
 
     .line 123
-    .restart local v3       #parser:Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :cond_3
     :try_start_3
     invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -496,7 +496,7 @@
     move-result-object v9
 
     .line 124
-    .local v9, tagName:Ljava/lang/String;
+    .local v9, "tagName":Ljava/lang/String;
     const-string v11, "signer"
 
     invoke-virtual {v11, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -515,7 +515,7 @@
     move-result-object v0
 
     .line 126
-    .local v0, cert:Ljava/lang/String;
+    .local v0, "cert":Ljava/lang/String;
     if-nez v0, :cond_4
 
     .line 127
@@ -554,14 +554,14 @@
     goto :goto_2
 
     .line 179
-    .end local v0           #cert:Ljava/lang/String;
-    .end local v3           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v9           #tagName:Ljava/lang/String;
+    .end local v0    # "cert":Ljava/lang/String;
+    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v9    # "tagName":Ljava/lang/String;
     :catch_2
     move-exception v1
 
     .line 180
-    .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     const-string v11, "SELinuxMMAC"
 
     const-string v12, "Got execption parsing "
@@ -571,10 +571,10 @@
     goto :goto_3
 
     .line 134
-    .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    .restart local v0       #cert:Ljava/lang/String;
-    .restart local v3       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v9       #tagName:Ljava/lang/String;
+    .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .restart local v0    # "cert":Ljava/lang/String;
+    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v9    # "tagName":Ljava/lang/String;
     :cond_4
     :try_start_4
     new-instance v8, Landroid/content/pm/Signature;
@@ -586,14 +586,14 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
     .line 141
-    .local v8, signature:Landroid/content/pm/Signature;
+    .local v8, "signature":Landroid/content/pm/Signature;
     :try_start_5
     invoke-static {v3}, Lcom/android/server/pm/SELinuxMMAC;->readSeinfoTag(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v7
 
     .line 142
-    .local v7, seinfo:Ljava/lang/String;
+    .local v7, "seinfo":Ljava/lang/String;
     if-eqz v7, :cond_2
 
     .line 147
@@ -607,16 +607,16 @@
     goto :goto_2
 
     .line 181
-    .end local v0           #cert:Ljava/lang/String;
-    .end local v3           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v7           #seinfo:Ljava/lang/String;
-    .end local v8           #signature:Landroid/content/pm/Signature;
-    .end local v9           #tagName:Ljava/lang/String;
+    .end local v0    # "cert":Ljava/lang/String;
+    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v7    # "seinfo":Ljava/lang/String;
+    .end local v8    # "signature":Landroid/content/pm/Signature;
+    .end local v9    # "tagName":Ljava/lang/String;
     :catch_3
     move-exception v1
 
     .line 182
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     const-string v11, "SELinuxMMAC"
 
     const-string v12, "Got execption parsing "
@@ -626,15 +626,15 @@
     goto :goto_3
 
     .line 135
-    .end local v1           #e:Ljava/io/IOException;
-    .restart local v0       #cert:Ljava/lang/String;
-    .restart local v3       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v9       #tagName:Ljava/lang/String;
+    .end local v1    # "e":Ljava/io/IOException;
+    .restart local v0    # "cert":Ljava/lang/String;
+    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v9    # "tagName":Ljava/lang/String;
     :catch_4
     move-exception v1
 
     .line 136
-    .local v1, e:Ljava/lang/IllegalArgumentException;
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     :try_start_6
     const-string v11, "SELinuxMMAC"
 
@@ -668,8 +668,8 @@
     goto/16 :goto_2
 
     .line 149
-    .end local v0           #cert:Ljava/lang/String;
-    .end local v1           #e:Ljava/lang/IllegalArgumentException;
+    .end local v0    # "cert":Ljava/lang/String;
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
     :cond_5
     const-string v11, "default"
 
@@ -685,7 +685,7 @@
     move-result-object v7
 
     .line 151
-    .restart local v7       #seinfo:Ljava/lang/String;
+    .restart local v7    # "seinfo":Ljava/lang/String;
     if-eqz v7, :cond_2
 
     .line 156
@@ -698,7 +698,7 @@
     goto/16 :goto_2
 
     .line 158
-    .end local v7           #seinfo:Ljava/lang/String;
+    .end local v7    # "seinfo":Ljava/lang/String;
     :cond_6
     const-string v11, "package"
 
@@ -718,7 +718,7 @@
     move-result-object v4
 
     .line 160
-    .local v4, pkgName:Ljava/lang/String;
+    .local v4, "pkgName":Ljava/lang/String;
     if-nez v4, :cond_7
 
     .line 161
@@ -760,7 +760,7 @@
     move-result-object v7
 
     .line 167
-    .restart local v7       #seinfo:Ljava/lang/String;
+    .restart local v7    # "seinfo":Ljava/lang/String;
     if-eqz v7, :cond_2
 
     .line 172
@@ -771,8 +771,8 @@
     goto/16 :goto_2
 
     .line 175
-    .end local v4           #pkgName:Ljava/lang/String;
-    .end local v7           #seinfo:Ljava/lang/String;
+    .end local v4    # "pkgName":Ljava/lang/String;
+    .end local v7    # "seinfo":Ljava/lang/String;
     :cond_8
     invoke-static {v3}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
     :try_end_6
@@ -784,7 +784,7 @@
 
 .method private static readSeinfoTag(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
     .locals 9
-    .parameter "parser"
+    .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -801,18 +801,18 @@
     move-result v0
 
     .line 197
-    .local v0, outerDepth:I
+    .local v0, "outerDepth":I
     const/4 v1, 0x0
 
     .line 199
-    .local v1, seinfo:Ljava/lang/String;
+    .local v1, "seinfo":Ljava/lang/String;
     :cond_0
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v4
 
-    .local v4, type:I
+    .local v4, "type":I
     const/4 v5, 0x1
 
     if-eq v4, v5, :cond_4
@@ -839,7 +839,7 @@
     move-result-object v3
 
     .line 207
-    .local v3, tagName:Ljava/lang/String;
+    .local v3, "tagName":Ljava/lang/String;
     const-string v5, "seinfo"
 
     invoke-virtual {v5, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -858,7 +858,7 @@
     move-result-object v2
 
     .line 209
-    .local v2, seinfoValue:Ljava/lang/String;
+    .local v2, "seinfoValue":Ljava/lang/String;
     invoke-static {v2}, Lcom/android/server/pm/SELinuxMMAC;->validateValue(Ljava/lang/String;)Z
 
     move-result v5
@@ -869,7 +869,7 @@
     move-object v1, v2
 
     .line 216
-    .end local v2           #seinfoValue:Ljava/lang/String;
+    .end local v2    # "seinfoValue":Ljava/lang/String;
     :cond_2
     :goto_1
     invoke-static {p0}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
@@ -877,7 +877,7 @@
     goto :goto_0
 
     .line 212
-    .restart local v2       #seinfoValue:Ljava/lang/String;
+    .restart local v2    # "seinfoValue":Ljava/lang/String;
     :cond_3
     const-string v5, "SELinuxMMAC"
 
@@ -908,15 +908,15 @@
     goto :goto_1
 
     .line 218
-    .end local v2           #seinfoValue:Ljava/lang/String;
-    .end local v3           #tagName:Ljava/lang/String;
+    .end local v2    # "seinfoValue":Ljava/lang/String;
+    .end local v3    # "tagName":Ljava/lang/String;
     :cond_4
     return-object v1
 .end method
 
 .method private static validateValue(Ljava/lang/String;)Z
     .locals 5
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -936,13 +936,13 @@
     move-result v0
 
     .line 231
-    .local v0, N:I
+    .local v0, "N":I
     if-eqz v0, :cond_0
 
     .line 234
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v0, :cond_5
 
@@ -952,7 +952,7 @@
     move-result v1
 
     .line 236
-    .local v1, c:C
+    .local v1, "c":C
     const/16 v4, 0x61
 
     if-lt v1, v4, :cond_2
@@ -982,7 +982,7 @@
     goto :goto_1
 
     .line 240
-    .end local v1           #c:C
+    .end local v1    # "c":C
     :cond_5
     const/4 v3, 0x1
 

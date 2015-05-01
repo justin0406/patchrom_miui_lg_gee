@@ -25,9 +25,9 @@
 
 .method public constructor <init>(DDD)V
     .locals 0
-    .parameter "initX"
-    .parameter "initY"
-    .parameter "initZ"
+    .param p1, "initX"    # D
+    .param p3, "initY"    # D
+    .param p5, "initZ"    # D
 
     .prologue
     .line 32

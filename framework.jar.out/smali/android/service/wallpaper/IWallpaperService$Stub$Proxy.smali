@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 73
@@ -51,12 +51,12 @@
 
 .method public attach(Landroid/service/wallpaper/IWallpaperConnection;Landroid/os/IBinder;IZII)V
     .locals 5
-    .parameter "connection"
-    .parameter "windowToken"
-    .parameter "windowType"
-    .parameter "isPreview"
-    .parameter "reqWidth"
-    .parameter "reqHeight"
+    .param p1, "connection"    # Landroid/service/wallpaper/IWallpaperConnection;
+    .param p2, "windowToken"    # Landroid/os/IBinder;
+    .param p3, "windowType"    # I
+    .param p4, "isPreview"    # Z
+    .param p5, "reqWidth"    # I
+    .param p6, "reqHeight"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 88
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.service.wallpaper.IWallpaperService"
 

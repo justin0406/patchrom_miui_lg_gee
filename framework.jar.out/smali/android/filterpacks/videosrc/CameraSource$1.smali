@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/filterpacks/videosrc/CameraSource;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 347
@@ -39,13 +38,13 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 3
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 350
     iget-object v0, p0, Landroid/filterpacks/videosrc/CameraSource$1;->this$0:Landroid/filterpacks/videosrc/CameraSource;
 
-    #getter for: Landroid/filterpacks/videosrc/CameraSource;->mLogVerbose:Z
+    # getter for: Landroid/filterpacks/videosrc/CameraSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/CameraSource;->access$000(Landroid/filterpacks/videosrc/CameraSource;)Z
 
     move-result v0
@@ -70,7 +69,7 @@
 
     const/4 v2, 0x1
 
-    #setter for: Landroid/filterpacks/videosrc/CameraSource;->mNewFrameAvailable:Z
+    # setter for: Landroid/filterpacks/videosrc/CameraSource;->mNewFrameAvailable:Z
     invoke-static {v0, v2}, Landroid/filterpacks/videosrc/CameraSource;->access$102(Landroid/filterpacks/videosrc/CameraSource;Z)Z
 
     .line 353

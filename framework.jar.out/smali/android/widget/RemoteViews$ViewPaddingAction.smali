@@ -33,12 +33,11 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IIIII)V
     .locals 1
-    .parameter
-    .parameter "viewId"
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p2, "viewId"    # I
+    .param p3, "left"    # I
+    .param p4, "top"    # I
+    .param p5, "right"    # I
+    .param p6, "bottom"    # I
 
     .prologue
     .line 1477
@@ -69,8 +68,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 1485
@@ -123,9 +121,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 5
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 1504
@@ -136,7 +134,7 @@
     move-result-object v0
 
     .line 1505
-    .local v0, target:Landroid/view/View;
+    .local v0, "target":Landroid/view/View;
     if-nez v0, :cond_0
 
     .line 1507
@@ -170,8 +168,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1494

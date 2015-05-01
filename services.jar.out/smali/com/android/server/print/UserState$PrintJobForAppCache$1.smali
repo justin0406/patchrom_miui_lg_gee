@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState$PrintJobForAppCache;Landroid/os/IBinder;I)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 1525
@@ -63,7 +60,7 @@
 
     iget-object v0, v0, Lcom/android/server/print/UserState$PrintJobForAppCache;->this$0:Lcom/android/server/print/UserState;
 
-    #getter for: Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/print/UserState;->access$600(Lcom/android/server/print/UserState;)Ljava/lang/Object;
 
     move-result-object v1
@@ -74,7 +71,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/print/UserState$PrintJobForAppCache$1;->this$1:Lcom/android/server/print/UserState$PrintJobForAppCache;
 
-    #getter for: Lcom/android/server/print/UserState$PrintJobForAppCache;->mPrintJobsForRunningApp:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/print/UserState$PrintJobForAppCache;->mPrintJobsForRunningApp:Landroid/util/SparseArray;
     invoke-static {v0}, Lcom/android/server/print/UserState$PrintJobForAppCache;->access$2000(Lcom/android/server/print/UserState$PrintJobForAppCache;)Landroid/util/SparseArray;
 
     move-result-object v0

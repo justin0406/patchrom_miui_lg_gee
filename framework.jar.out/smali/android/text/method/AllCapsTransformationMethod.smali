@@ -19,7 +19,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 36
@@ -46,8 +46,8 @@
 # virtual methods
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 2
-    .parameter "source"
-    .parameter "view"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     .line 42
@@ -94,11 +94,11 @@
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
     .locals 0
-    .parameter "view"
-    .parameter "sourceText"
-    .parameter "focused"
-    .parameter "direction"
-    .parameter "previouslyFocusedRect"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "sourceText"    # Ljava/lang/CharSequence;
+    .param p3, "focused"    # Z
+    .param p4, "direction"    # I
+    .param p5, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 52
@@ -107,7 +107,7 @@
 
 .method public setLengthChangesAllowed(Z)V
     .locals 0
-    .parameter "allowLengthChanges"
+    .param p1, "allowLengthChanges"    # Z
 
     .prologue
     .line 56

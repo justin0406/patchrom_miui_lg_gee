@@ -58,7 +58,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/print/IPrintDocumentAdapter;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/print/IPrintDocumentAdapter;
@@ -96,7 +96,7 @@
     :cond_1
     new-instance v0, Landroid/print/IPrintDocumentAdapter$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/print/IPrintDocumentAdapter$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -114,10 +114,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,7 +165,7 @@
     move-result-object v1
 
     .line 55
-    .local v1, _arg0:Landroid/print/IPrintDocumentAdapterObserver;
+    .local v1, "_arg0":Landroid/print/IPrintDocumentAdapterObserver;
     invoke-virtual {p0, v1}, Landroid/print/IPrintDocumentAdapter$Stub;->setObserver(Landroid/print/IPrintDocumentAdapterObserver;)V
 
     move v0, v6
@@ -174,7 +174,7 @@
     goto :goto_0
 
     .line 60
-    .end local v1           #_arg0:Landroid/print/IPrintDocumentAdapterObserver;
+    .end local v1    # "_arg0":Landroid/print/IPrintDocumentAdapterObserver;
     :sswitch_2
     const-string v0, "android.print.IPrintDocumentAdapter"
 
@@ -211,7 +211,7 @@
     check-cast v1, Landroid/print/PrintAttributes;
 
     .line 75
-    .local v1, _arg0:Landroid/print/PrintAttributes;
+    .local v1, "_arg0":Landroid/print/PrintAttributes;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -229,7 +229,7 @@
     check-cast v2, Landroid/print/PrintAttributes;
 
     .line 82
-    .local v2, _arg1:Landroid/print/PrintAttributes;
+    .local v2, "_arg1":Landroid/print/PrintAttributes;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -240,7 +240,7 @@
     move-result-object v3
 
     .line 84
-    .local v3, _arg2:Landroid/print/ILayoutResultCallback;
+    .local v3, "_arg2":Landroid/print/ILayoutResultCallback;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -257,13 +257,13 @@
     check-cast v4, Landroid/os/Bundle;
 
     .line 91
-    .local v4, _arg3:Landroid/os/Bundle;
+    .local v4, "_arg3":Landroid/os/Bundle;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .local v5, _arg4:I
+    .local v5, "_arg4":I
     move-object v0, p0
 
     .line 92
@@ -275,37 +275,37 @@
     goto :goto_0
 
     .line 72
-    .end local v1           #_arg0:Landroid/print/PrintAttributes;
-    .end local v2           #_arg1:Landroid/print/PrintAttributes;
-    .end local v3           #_arg2:Landroid/print/ILayoutResultCallback;
-    .end local v4           #_arg3:Landroid/os/Bundle;
-    .end local v5           #_arg4:I
+    .end local v1    # "_arg0":Landroid/print/PrintAttributes;
+    .end local v2    # "_arg1":Landroid/print/PrintAttributes;
+    .end local v3    # "_arg2":Landroid/print/ILayoutResultCallback;
+    .end local v4    # "_arg3":Landroid/os/Bundle;
+    .end local v5    # "_arg4":I
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/print/PrintAttributes;
+    .restart local v1    # "_arg0":Landroid/print/PrintAttributes;
     goto :goto_1
 
     .line 79
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/print/PrintAttributes;
+    .restart local v2    # "_arg1":Landroid/print/PrintAttributes;
     goto :goto_2
 
     .line 88
-    .restart local v3       #_arg2:Landroid/print/ILayoutResultCallback;
+    .restart local v3    # "_arg2":Landroid/print/ILayoutResultCallback;
     :cond_2
     const/4 v4, 0x0
 
-    .restart local v4       #_arg3:Landroid/os/Bundle;
+    .restart local v4    # "_arg3":Landroid/os/Bundle;
     goto :goto_3
 
     .line 97
-    .end local v1           #_arg0:Landroid/print/PrintAttributes;
-    .end local v2           #_arg1:Landroid/print/PrintAttributes;
-    .end local v3           #_arg2:Landroid/print/ILayoutResultCallback;
-    .end local v4           #_arg3:Landroid/os/Bundle;
+    .end local v1    # "_arg0":Landroid/print/PrintAttributes;
+    .end local v2    # "_arg1":Landroid/print/PrintAttributes;
+    .end local v3    # "_arg2":Landroid/print/ILayoutResultCallback;
+    .end local v4    # "_arg3":Landroid/os/Bundle;
     :sswitch_4
     const-string v0, "android.print.IPrintDocumentAdapter"
 
@@ -321,7 +321,7 @@
     check-cast v1, [Landroid/print/PageRange;
 
     .line 101
-    .local v1, _arg0:[Landroid/print/PageRange;
+    .local v1, "_arg0":[Landroid/print/PageRange;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -338,7 +338,7 @@
     check-cast v2, Landroid/os/ParcelFileDescriptor;
 
     .line 108
-    .local v2, _arg1:Landroid/os/ParcelFileDescriptor;
+    .local v2, "_arg1":Landroid/os/ParcelFileDescriptor;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -349,13 +349,13 @@
     move-result-object v3
 
     .line 110
-    .local v3, _arg2:Landroid/print/IWriteResultCallback;
+    .local v3, "_arg2":Landroid/print/IWriteResultCallback;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     .line 111
-    .local v4, _arg3:I
+    .local v4, "_arg3":I
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/print/IPrintDocumentAdapter$Stub;->write([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/print/IWriteResultCallback;I)V
 
     move v0, v6
@@ -364,18 +364,18 @@
     goto/16 :goto_0
 
     .line 105
-    .end local v2           #_arg1:Landroid/os/ParcelFileDescriptor;
-    .end local v3           #_arg2:Landroid/print/IWriteResultCallback;
-    .end local v4           #_arg3:I
+    .end local v2    # "_arg1":Landroid/os/ParcelFileDescriptor;
+    .end local v3    # "_arg2":Landroid/print/IWriteResultCallback;
+    .end local v4    # "_arg3":I
     :cond_3
     const/4 v2, 0x0
 
-    .restart local v2       #_arg1:Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "_arg1":Landroid/os/ParcelFileDescriptor;
     goto :goto_4
 
     .line 116
-    .end local v1           #_arg0:[Landroid/print/PageRange;
-    .end local v2           #_arg1:Landroid/os/ParcelFileDescriptor;
+    .end local v1    # "_arg0":[Landroid/print/PageRange;
+    .end local v2    # "_arg1":Landroid/os/ParcelFileDescriptor;
     :sswitch_5
     const-string v0, "android.print.IPrintDocumentAdapter"
 

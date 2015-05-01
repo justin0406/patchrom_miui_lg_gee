@@ -18,10 +18,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;II)V
     .locals 7
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "groupLayout"
-    .parameter "childLayout"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "groupLayout"    # I
+    .param p4, "childLayout"    # I
 
     .prologue
     .line 94
@@ -47,11 +47,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;III)V
     .locals 7
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "collapsedGroupLayout"
-    .parameter "expandedGroupLayout"
-    .parameter "childLayout"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "collapsedGroupLayout"    # I
+    .param p4, "expandedGroupLayout"    # I
+    .param p5, "childLayout"    # I
 
     .prologue
     .line 78
@@ -77,12 +77,12 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;IIII)V
     .locals 1
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "collapsedGroupLayout"
-    .parameter "expandedGroupLayout"
-    .parameter "childLayout"
-    .parameter "lastChildLayout"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "collapsedGroupLayout"    # I
+    .param p4, "expandedGroupLayout"    # I
+    .param p5, "childLayout"    # I
+    .param p6, "lastChildLayout"    # I
 
     .prologue
     .line 53
@@ -119,10 +119,10 @@
 # virtual methods
 .method public newChildView(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "isLastChild"
-    .parameter "parent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "isLastChild"    # Z
+    .param p4, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 100
@@ -149,10 +149,10 @@
 
 .method public newGroupView(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "context"
-    .parameter "cursor"
-    .parameter "isExpanded"
-    .parameter "parent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "isExpanded"    # Z
+    .param p4, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 105

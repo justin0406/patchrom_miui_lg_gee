@@ -33,7 +33,7 @@
 
 .method private constructor <init>(Lcom/android/server/firewall/Filter;)V
     .locals 0
-    .parameter "child"
+    .param p1, "child"    # Lcom/android/server/firewall/Filter;
 
     .prologue
     .line 30
@@ -48,8 +48,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/firewall/Filter;Lcom/android/server/firewall/NotFilter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/firewall/Filter;
+    .param p2, "x1"    # Lcom/android/server/firewall/NotFilter$1;
 
     .prologue
     .line 27
@@ -62,13 +62,13 @@
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
     .locals 8
-    .parameter "ifw"
-    .parameter "resolvedComponent"
-    .parameter "intent"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "resolvedType"
-    .parameter "receivingUid"
+    .param p1, "ifw"    # Lcom/android/server/firewall/IntentFirewall;
+    .param p2, "resolvedComponent"    # Landroid/content/ComponentName;
+    .param p3, "intent"    # Landroid/content/Intent;
+    .param p4, "callerUid"    # I
+    .param p5, "callerPid"    # I
+    .param p6, "resolvedType"    # Ljava/lang/String;
+    .param p7, "receivingUid"    # I
 
     .prologue
     .line 37

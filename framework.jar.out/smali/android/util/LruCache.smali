@@ -44,11 +44,11 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 4
-    .parameter "maxSize"
+    .param p1, "maxSize"    # I
 
     .prologue
     .line 80
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 81
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    const/high16 v2, 0x3f40
+    const/high16 v2, 0x3f400000    # 0.75f
 
     const/4 v3, 0x1
 
@@ -86,8 +86,6 @@
 
 .method private safeSizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 4
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)I"
@@ -96,15 +94,15 @@
 
     .prologue
     .line 287
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
-    .local p2, value:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1, p2}, Landroid/util/LruCache;->sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
     .line 288
-    .local v0, result:I
+    .local v0, "result":I
     if-gez v0, :cond_0
 
     .line 289
@@ -151,7 +149,6 @@
 # virtual methods
 .method protected create(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -160,8 +157,8 @@
 
     .prologue
     .line 283
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     return-object v0
@@ -172,7 +169,7 @@
 
     .prologue
     .line 350
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -194,10 +191,7 @@
 
 .method protected entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .parameter "evicted"
-    .parameter
-    .parameter
-    .parameter
+    .param p1, "evicted"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZTK;TV;TV;)V"
@@ -206,10 +200,10 @@
 
     .prologue
     .line 265
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p2, key:Ljava/lang/Object;,"TK;"
-    .local p3, oldValue:Ljava/lang/Object;,"TV;"
-    .local p4, newValue:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p2, "key":Ljava/lang/Object;, "TK;"
+    .local p3, "oldValue":Ljava/lang/Object;, "TV;"
+    .local p4, "newValue":Ljava/lang/Object;, "TV;"
     return-void
 .end method
 
@@ -218,7 +212,7 @@
 
     .prologue
     .line 309
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     const/4 v0, -0x1
 
     invoke-virtual {p0, v0}, Landroid/util/LruCache;->trimToSize(I)V
@@ -232,7 +226,7 @@
 
     .prologue
     .line 364
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -254,7 +248,6 @@
 
 .method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -263,8 +256,8 @@
 
     .prologue
     .line 112
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     if-nez p1, :cond_0
 
     .line 113
@@ -289,7 +282,7 @@
     move-result-object v1
 
     .line 119
-    .local v1, mapValue:Ljava/lang/Object;,"TV;"
+    .local v1, "mapValue":Ljava/lang/Object;, "TV;"
     if-eqz v1, :cond_1
 
     .line 120
@@ -327,7 +320,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, createdValue:Ljava/lang/Object;,"TV;"
+    .local v0, "createdValue":Ljava/lang/Object;, "TV;"
     if-nez v0, :cond_2
 
     .line 135
@@ -336,8 +329,8 @@
     goto :goto_0
 
     .line 124
-    .end local v0           #createdValue:Ljava/lang/Object;,"TV;"
-    .end local v1           #mapValue:Ljava/lang/Object;,"TV;"
+    .end local v0    # "createdValue":Ljava/lang/Object;, "TV;"
+    .end local v1    # "mapValue":Ljava/lang/Object;, "TV;"
     :catchall_0
     move-exception v2
 
@@ -349,8 +342,8 @@
     throw v2
 
     .line 138
-    .restart local v0       #createdValue:Ljava/lang/Object;,"TV;"
-    .restart local v1       #mapValue:Ljava/lang/Object;,"TV;"
+    .restart local v0    # "createdValue":Ljava/lang/Object;, "TV;"
+    .restart local v1    # "mapValue":Ljava/lang/Object;, "TV;"
     :cond_2
     monitor-enter p0
 
@@ -435,7 +428,7 @@
 
     .prologue
     .line 335
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -460,7 +453,7 @@
 
     .prologue
     .line 327
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -485,7 +478,7 @@
 
     .prologue
     .line 343
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -507,8 +500,6 @@
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -517,9 +508,9 @@
 
     .prologue
     .line 166
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
-    .local p2, value:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
@@ -565,7 +556,7 @@
     move-result-object v0
 
     .line 175
-    .local v0, previous:Ljava/lang/Object;,"TV;"
+    .local v0, "previous":Ljava/lang/Object;, "TV;"
     if-eqz v0, :cond_2
 
     .line 176
@@ -603,7 +594,7 @@
     return-object v0
 
     .line 178
-    .end local v0           #previous:Ljava/lang/Object;,"TV;"
+    .end local v0    # "previous":Ljava/lang/Object;, "TV;"
     :catchall_0
     move-exception v1
 
@@ -620,7 +611,7 @@
 
     .prologue
     .line 357
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -642,7 +633,6 @@
 
 .method public final remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -651,8 +641,8 @@
 
     .prologue
     .line 231
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     if-nez p1, :cond_0
 
     .line 232
@@ -677,7 +667,7 @@
     move-result-object v0
 
     .line 238
-    .local v0, previous:Ljava/lang/Object;,"TV;"
+    .local v0, "previous":Ljava/lang/Object;, "TV;"
     if-eqz v0, :cond_1
 
     .line 239
@@ -712,7 +702,7 @@
     return-object v0
 
     .line 241
-    .end local v0           #previous:Ljava/lang/Object;,"TV;"
+    .end local v0    # "previous":Ljava/lang/Object;, "TV;"
     :catchall_0
     move-exception v1
 
@@ -726,11 +716,11 @@
 
 .method public resize(I)V
     .locals 2
-    .parameter "maxSize"
+    .param p1, "maxSize"    # I
 
     .prologue
     .line 95
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     if-gtz p1, :cond_0
 
     .line 96
@@ -778,7 +768,7 @@
 
     .prologue
     .line 318
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -800,8 +790,6 @@
 
 .method protected sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)I"
@@ -810,9 +798,9 @@
 
     .prologue
     .line 302
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    .local p1, key:Ljava/lang/Object;,"TK;"
-    .local p2, value:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     const/4 v0, 0x1
 
     return v0
@@ -830,7 +818,7 @@
 
     .prologue
     .line 372
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     monitor-enter p0
 
     :try_start_0
@@ -858,7 +846,7 @@
     .locals 6
 
     .prologue
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     const/4 v1, 0x0
 
     .line 376
@@ -872,7 +860,7 @@
     add-int v0, v2, v3
 
     .line 377
-    .local v0, accesses:I
+    .local v0, "accesses":I
     if-eqz v0, :cond_0
 
     iget v2, p0, Landroid/util/LruCache;->hitCount:I
@@ -882,7 +870,7 @@
     div-int v1, v2, v0
 
     .line 378
-    .local v1, hitPercent:I
+    .local v1, "hitPercent":I
     :cond_0
     const-string v2, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]"
 
@@ -939,8 +927,8 @@
     return-object v2
 
     .line 376
-    .end local v0           #accesses:I
-    .end local v1           #hitPercent:I
+    .end local v0    # "accesses":I
+    .end local v1    # "hitPercent":I
     :catchall_0
     move-exception v2
 
@@ -951,11 +939,11 @@
 
 .method public trimToSize(I)V
     .locals 6
-    .parameter "maxSize"
+    .param p1, "maxSize"    # I
 
     .prologue
     .line 199
-    .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
+    .local p0, "this":Landroid/util/LruCache;, "Landroid/util/LruCache<TK;TV;>;"
     :goto_0
     monitor-enter p0
 
@@ -1044,7 +1032,7 @@
     move-result-object v1
 
     .line 210
-    .local v1, toEvict:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<TK;TV;>;"
+    .local v1, "toEvict":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     if-nez v1, :cond_3
 
     .line 211
@@ -1059,13 +1047,13 @@
     move-result-object v0
 
     .line 215
-    .local v0, key:Ljava/lang/Object;,"TK;"
+    .local v0, "key":Ljava/lang/Object;, "TK;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 216
-    .local v2, value:Ljava/lang/Object;,"TV;"
+    .local v2, "value":Ljava/lang/Object;, "TV;"
     iget-object v3, p0, Landroid/util/LruCache;->map:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v3, v0}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;

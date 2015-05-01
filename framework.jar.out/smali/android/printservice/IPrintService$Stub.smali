@@ -66,7 +66,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/printservice/IPrintService;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 28
@@ -88,7 +88,7 @@
     move-result-object v0
 
     .line 32
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/printservice/IPrintService;
@@ -104,7 +104,7 @@
     :cond_1
     new-instance v0, Landroid/printservice/IPrintService$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/printservice/IPrintService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -122,10 +122,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -170,13 +170,13 @@
     move-result-object v0
 
     .line 55
-    .local v0, _arg0:Landroid/printservice/IPrintServiceClient;
+    .local v0, "_arg0":Landroid/printservice/IPrintServiceClient;
     invoke-virtual {p0, v0}, Landroid/printservice/IPrintService$Stub;->setClient(Landroid/printservice/IPrintServiceClient;)V
 
     goto :goto_0
 
     .line 60
-    .end local v0           #_arg0:Landroid/printservice/IPrintServiceClient;
+    .end local v0    # "_arg0":Landroid/printservice/IPrintServiceClient;
     :sswitch_2
     const-string v3, "android.printservice.IPrintService"
 
@@ -199,22 +199,22 @@
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 68
-    .local v0, _arg0:Landroid/print/PrintJobInfo;
+    .local v0, "_arg0":Landroid/print/PrintJobInfo;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/printservice/IPrintService$Stub;->requestCancelPrintJob(Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 66
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrintJobInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintJobInfo;
     goto :goto_1
 
     .line 73
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :sswitch_3
     const-string v3, "android.printservice.IPrintService"
 
@@ -237,22 +237,22 @@
     check-cast v0, Landroid/print/PrintJobInfo;
 
     .line 81
-    .restart local v0       #_arg0:Landroid/print/PrintJobInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :goto_2
     invoke-virtual {p0, v0}, Landroid/printservice/IPrintService$Stub;->onPrintJobQueued(Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
     .line 79
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrintJobInfo;
+    .restart local v0    # "_arg0":Landroid/print/PrintJobInfo;
     goto :goto_2
 
     .line 86
-    .end local v0           #_arg0:Landroid/print/PrintJobInfo;
+    .end local v0    # "_arg0":Landroid/print/PrintJobInfo;
     :sswitch_4
     const-string v3, "android.printservice.IPrintService"
 
@@ -277,13 +277,13 @@
     move-result-object v1
 
     .line 95
-    .local v1, _arg0:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local v1, "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-virtual {p0, v1}, Landroid/printservice/IPrintService$Stub;->startPrinterDiscovery(Ljava/util/List;)V
 
     goto :goto_0
 
     .line 100
-    .end local v1           #_arg0:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v1    # "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :sswitch_6
     const-string v3, "android.printservice.IPrintService"
 
@@ -308,13 +308,13 @@
     move-result-object v1
 
     .line 109
-    .restart local v1       #_arg0:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .restart local v1    # "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-virtual {p0, v1}, Landroid/printservice/IPrintService$Stub;->validatePrinters(Ljava/util/List;)V
 
     goto :goto_0
 
     .line 114
-    .end local v1           #_arg0:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .end local v1    # "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     :sswitch_8
     const-string v3, "android.printservice.IPrintService"
 
@@ -337,22 +337,22 @@
     check-cast v0, Landroid/print/PrinterId;
 
     .line 122
-    .local v0, _arg0:Landroid/print/PrinterId;
+    .local v0, "_arg0":Landroid/print/PrinterId;
     :goto_3
     invoke-virtual {p0, v0}, Landroid/printservice/IPrintService$Stub;->startPrinterStateTracking(Landroid/print/PrinterId;)V
 
     goto/16 :goto_0
 
     .line 120
-    .end local v0           #_arg0:Landroid/print/PrinterId;
+    .end local v0    # "_arg0":Landroid/print/PrinterId;
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrinterId;
+    .restart local v0    # "_arg0":Landroid/print/PrinterId;
     goto :goto_3
 
     .line 127
-    .end local v0           #_arg0:Landroid/print/PrinterId;
+    .end local v0    # "_arg0":Landroid/print/PrinterId;
     :sswitch_9
     const-string v3, "android.printservice.IPrintService"
 
@@ -375,22 +375,22 @@
     check-cast v0, Landroid/print/PrinterId;
 
     .line 135
-    .restart local v0       #_arg0:Landroid/print/PrinterId;
+    .restart local v0    # "_arg0":Landroid/print/PrinterId;
     :goto_4
     invoke-virtual {p0, v0}, Landroid/printservice/IPrintService$Stub;->stopPrinterStateTracking(Landroid/print/PrinterId;)V
 
     goto/16 :goto_0
 
     .line 133
-    .end local v0           #_arg0:Landroid/print/PrinterId;
+    .end local v0    # "_arg0":Landroid/print/PrinterId;
     :cond_3
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/print/PrinterId;
+    .restart local v0    # "_arg0":Landroid/print/PrinterId;
     goto :goto_4
 
     .line 140
-    .end local v0           #_arg0:Landroid/print/PrinterId;
+    .end local v0    # "_arg0":Landroid/print/PrinterId;
     :sswitch_a
     const-string v3, "android.printservice.IPrintService"
 

@@ -35,8 +35,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 1
-    .parameter "context"
-    .parameter "anchor"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "anchor"    # Landroid/view/View;
 
     .prologue
     .line 68
@@ -50,9 +50,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;I)V
     .locals 2
-    .parameter "context"
-    .parameter "anchor"
-    .parameter "gravity"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "anchor"    # Landroid/view/View;
+    .param p3, "gravity"    # I
 
     .prologue
     .line 79
@@ -101,7 +101,7 @@
 
 .method static synthetic access$000(Landroid/widget/PopupMenu;)Lcom/android/internal/view/menu/MenuPopupHelper;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/PopupMenu;
 
     .prologue
     .line 39
@@ -176,7 +176,7 @@
 
 .method public inflate(I)V
     .locals 2
-    .parameter "menuRes"
+    .param p1, "menuRes"    # I
 
     .prologue
     .line 159
@@ -194,8 +194,8 @@
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 1
-    .parameter "menu"
-    .parameter "allMenusAreClosing"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
     .prologue
     .line 210
@@ -215,7 +215,7 @@
 
 .method public onCloseSubMenu(Lcom/android/internal/view/menu/SubMenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/SubMenuBuilder;
 
     .prologue
     .line 234
@@ -224,8 +224,8 @@
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
-    .parameter "menu"
-    .parameter "item"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 200
@@ -252,7 +252,7 @@
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 240
@@ -261,7 +261,7 @@
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 4
-    .parameter "subMenu"
+    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     const/4 v0, 0x1
@@ -300,7 +300,7 @@
 
 .method public setOnDismissListener(Landroid/widget/PopupMenu$OnDismissListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/widget/PopupMenu$OnDismissListener;
 
     .prologue
     .line 193
@@ -312,7 +312,7 @@
 
 .method public setOnMenuItemClickListener(Landroid/widget/PopupMenu$OnMenuItemClickListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/widget/PopupMenu$OnMenuItemClickListener;
 
     .prologue
     .line 184

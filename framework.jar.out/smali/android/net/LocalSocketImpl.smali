@@ -58,7 +58,7 @@
 
 .method constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 1
-    .parameter "fd"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -100,7 +100,7 @@
 
 .method static synthetic access$000(Landroid/net/LocalSocketImpl;)Ljava/io/FileDescriptor;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
 
     .prologue
     .line 33
@@ -111,8 +111,8 @@
 
 .method static synthetic access$100(Landroid/net/LocalSocketImpl;Ljava/io/FileDescriptor;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -130,7 +130,7 @@
 
 .method static synthetic access$200(Landroid/net/LocalSocketImpl;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
 
     .prologue
     .line 33
@@ -141,8 +141,8 @@
 
 .method static synthetic access$300(Landroid/net/LocalSocketImpl;Ljava/io/FileDescriptor;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -160,11 +160,11 @@
 
 .method static synthetic access$400(Landroid/net/LocalSocketImpl;[BIILjava/io/FileDescriptor;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
+    .param p4, "x4"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -182,7 +182,7 @@
 
 .method static synthetic access$500(Landroid/net/LocalSocketImpl;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
 
     .prologue
     .line 33
@@ -193,11 +193,11 @@
 
 .method static synthetic access$600(Landroid/net/LocalSocketImpl;[BIILjava/io/FileDescriptor;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # [B
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
+    .param p4, "x4"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -213,9 +213,9 @@
 
 .method static synthetic access$700(Landroid/net/LocalSocketImpl;ILjava/io/FileDescriptor;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -231,8 +231,8 @@
 
 .method static synthetic access$800(Landroid/net/LocalSocketImpl;Ljava/io/FileDescriptor;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/LocalSocketImpl;
+    .param p1, "x1"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -351,7 +351,7 @@
 # virtual methods
 .method protected accept(Landroid/net/LocalSocketImpl;)V
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/LocalSocketImpl;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -383,11 +383,12 @@
 
     iput-object v0, p1, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
+    .line 329
     const/4 v0, 0x1
 
     iput-boolean v0, p1, Landroid/net/LocalSocketImpl;->mFdCreatedInternally:Z
 
-    .line 329
+    .line 330
     return-void
 .end method
 
@@ -400,7 +401,7 @@
     .end annotation
 
     .prologue
-    .line 381
+    .line 382
     invoke-virtual {p0}, Landroid/net/LocalSocketImpl;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v0
@@ -414,7 +415,7 @@
 
 .method public bind(Landroid/net/LocalSocketAddress;)V
     .locals 3
-    .parameter "endpoint"
+    .param p1, "endpoint"    # Landroid/net/LocalSocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -504,8 +505,8 @@
 
     invoke-interface {v1, v2}, Llibcore/io/Os;->close(Ljava/io/FileDescriptor;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Llibcore/io/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 275
     :goto_1
@@ -533,7 +534,7 @@
     move-exception v0
 
     .line 273
-    .local v0, e:Llibcore/io/ErrnoException;
+    .local v0, "e":Llibcore/io/ErrnoException;
     :try_start_3
     invoke-virtual {v0}, Llibcore/io/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
     :try_end_3
@@ -544,8 +545,8 @@
 
 .method protected connect(Landroid/net/LocalSocketAddress;I)V
     .locals 3
-    .parameter "address"
-    .parameter "timeout"
+    .param p1, "address"    # Landroid/net/LocalSocketAddress;
+    .param p2, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -591,7 +592,7 @@
 
 .method public create(I)V
     .locals 5
-    .parameter "sockType"
+    .param p1, "sockType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -621,7 +622,7 @@
     sget v1, Llibcore/io/OsConstants;->SOCK_DGRAM:I
 
     .line 251
-    .local v1, osType:I
+    .local v1, "osType":I
     :goto_0
     :try_start_0
     sget-object v2, Llibcore/io/Libcore;->os:Llibcore/io/Os;
@@ -644,7 +645,7 @@
     .catch Llibcore/io/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 257
-    .end local v1           #osType:I
+    .end local v1    # "osType":I
     :cond_0
     :goto_1
     return-void
@@ -654,16 +655,16 @@
     sget v1, Llibcore/io/OsConstants;->SOCK_STREAM:I
 
     .line 243
-    .restart local v1       #osType:I
+    .restart local v1    # "osType":I
     goto :goto_0
 
     .line 245
-    .end local v1           #osType:I
+    .end local v1    # "osType":I
     :pswitch_2
     sget v1, Llibcore/io/OsConstants;->SOCK_SEQPACKET:I
 
     .line 246
-    .restart local v1       #osType:I
+    .restart local v1    # "osType":I
     goto :goto_0
 
     .line 253
@@ -671,7 +672,7 @@
     move-exception v0
 
     .line 254
-    .local v0, e:Llibcore/io/ErrnoException;
+    .local v0, "e":Llibcore/io/ErrnoException;
     invoke-virtual {v0}, Llibcore/io/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
 
     goto :goto_1
@@ -694,10 +695,10 @@
     .end annotation
 
     .prologue
-    .line 536
+    .line 537
     invoke-virtual {p0}, Landroid/net/LocalSocketImpl;->close()V
 
-    .line 537
+    .line 538
     return-void
 .end method
 
@@ -710,28 +711,28 @@
     .end annotation
 
     .prologue
-    .line 501
+    .line 502
     iget-object v2, p0, Landroid/net/LocalSocketImpl;->readMonitor:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 502
+    .line 503
     :try_start_0
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->inboundFileDescriptors:[Ljava/io/FileDescriptor;
 
-    .line 504
-    .local v0, result:[Ljava/io/FileDescriptor;
+    .line 505
+    .local v0, "result":[Ljava/io/FileDescriptor;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/net/LocalSocketImpl;->inboundFileDescriptors:[Ljava/io/FileDescriptor;
 
-    .line 505
+    .line 506
     monitor-exit v2
 
     return-object v0
 
-    .line 506
-    .end local v0           #result:[Ljava/io/FileDescriptor;
+    .line 507
+    .end local v0    # "result":[Ljava/io/FileDescriptor;
     :catchall_0
     move-exception v1
 
@@ -746,7 +747,7 @@
     .locals 1
 
     .prologue
-    .line 414
+    .line 415
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     return-object v0
@@ -761,12 +762,12 @@
     .end annotation
 
     .prologue
-    .line 339
+    .line 340
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v0, :cond_0
 
-    .line 340
+    .line 341
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "socket not created"
@@ -775,24 +776,24 @@
 
     throw v0
 
-    .line 343
+    .line 344
     :cond_0
     monitor-enter p0
 
-    .line 344
+    .line 345
     :try_start_0
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fis:Landroid/net/LocalSocketImpl$SocketInputStream;
 
     if-nez v0, :cond_1
 
-    .line 345
+    .line 346
     new-instance v0, Landroid/net/LocalSocketImpl$SocketInputStream;
 
     invoke-direct {v0, p0}, Landroid/net/LocalSocketImpl$SocketInputStream;-><init>(Landroid/net/LocalSocketImpl;)V
 
     iput-object v0, p0, Landroid/net/LocalSocketImpl;->fis:Landroid/net/LocalSocketImpl$SocketInputStream;
 
-    .line 348
+    .line 349
     :cond_1
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fis:Landroid/net/LocalSocketImpl$SocketInputStream;
 
@@ -800,7 +801,7 @@
 
     return-object v0
 
-    .line 349
+    .line 350
     :catchall_0
     move-exception v0
 
@@ -813,7 +814,7 @@
 
 .method public getOption(I)Ljava/lang/Object;
     .locals 3
-    .parameter "optID"
+    .param p1, "optID"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -821,12 +822,12 @@
     .end annotation
 
     .prologue
-    .line 429
+    .line 430
     iget-object v1, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v1, :cond_0
 
-    .line 430
+    .line 431
     new-instance v1, Ljava/io/IOException;
 
     const-string/jumbo v2, "socket not created"
@@ -835,24 +836,24 @@
 
     throw v1
 
-    .line 433
+    .line 434
     :cond_0
     const/16 v1, 0x1006
 
     if-ne p1, v1, :cond_1
 
-    .line 434
+    .line 435
     const/4 v1, 0x0
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    .line 445
+    .line 446
     :goto_0
     return-object v1
 
-    .line 437
+    .line 438
     :cond_1
     iget-object v1, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
@@ -860,18 +861,18 @@
 
     move-result v0
 
-    .line 438
-    .local v0, value:I
+    .line 439
+    .local v0, "value":I
     packed-switch p1, :pswitch_data_0
 
-    .line 445
+    .line 446
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     goto :goto_0
 
-    .line 442
+    .line 443
     :pswitch_0
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -879,7 +880,7 @@
 
     goto :goto_0
 
-    .line 438
+    .line 439
     :pswitch_data_0
     .packed-switch 0x1001
         :pswitch_0
@@ -896,12 +897,12 @@
     .end annotation
 
     .prologue
-    .line 360
+    .line 361
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v0, :cond_0
 
-    .line 361
+    .line 362
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "socket not created"
@@ -910,24 +911,24 @@
 
     throw v0
 
-    .line 364
+    .line 365
     :cond_0
     monitor-enter p0
 
-    .line 365
+    .line 366
     :try_start_0
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fos:Landroid/net/LocalSocketImpl$SocketOutputStream;
 
     if-nez v0, :cond_1
 
-    .line 366
+    .line 367
     new-instance v0, Landroid/net/LocalSocketImpl$SocketOutputStream;
 
     invoke-direct {v0, p0}, Landroid/net/LocalSocketImpl$SocketOutputStream;-><init>(Landroid/net/LocalSocketImpl;)V
 
     iput-object v0, p0, Landroid/net/LocalSocketImpl;->fos:Landroid/net/LocalSocketImpl$SocketOutputStream;
 
-    .line 369
+    .line 370
     :cond_1
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fos:Landroid/net/LocalSocketImpl$SocketOutputStream;
 
@@ -935,7 +936,7 @@
 
     return-object v0
 
-    .line 370
+    .line 371
     :catchall_0
     move-exception v0
 
@@ -955,7 +956,7 @@
     .end annotation
 
     .prologue
-    .line 518
+    .line 519
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     invoke-direct {p0, v0}, Landroid/net/LocalSocketImpl;->getPeerCredentials_native(Ljava/io/FileDescriptor;)Landroid/net/Credentials;
@@ -974,7 +975,7 @@
     .end annotation
 
     .prologue
-    .line 529
+    .line 530
     const/4 v0, 0x0
 
     return-object v0
@@ -982,7 +983,7 @@
 
 .method protected listen(I)V
     .locals 2
-    .parameter "backlog"
+    .param p1, "backlog"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1016,7 +1017,7 @@
 
 .method protected sendUrgentData(I)V
     .locals 2
-    .parameter "data"
+    .param p1, "data"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1024,7 +1025,7 @@
     .end annotation
 
     .prologue
-    .line 424
+    .line 425
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "not impled"
@@ -1036,25 +1037,25 @@
 
 .method public setFileDescriptorsForSend([Ljava/io/FileDescriptor;)V
     .locals 2
-    .parameter "fds"
+    .param p1, "fds"    # [Ljava/io/FileDescriptor;
 
     .prologue
-    .line 485
+    .line 486
     iget-object v1, p0, Landroid/net/LocalSocketImpl;->writeMonitor:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 486
+    .line 487
     :try_start_0
     iput-object p1, p0, Landroid/net/LocalSocketImpl;->outboundFileDescriptors:[Ljava/io/FileDescriptor;
 
-    .line 487
+    .line 488
     monitor-exit v1
 
-    .line 488
+    .line 489
     return-void
 
-    .line 487
+    .line 488
     :catchall_0
     move-exception v0
 
@@ -1067,8 +1068,8 @@
 
 .method public setOption(ILjava/lang/Object;)V
     .locals 5
-    .parameter "optID"
-    .parameter "value"
+    .param p1, "optID"    # I
+    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1076,20 +1077,20 @@
     .end annotation
 
     .prologue
-    .line 457
+    .line 458
     const/4 v0, -0x1
 
-    .line 458
-    .local v0, boolValue:I
+    .line 459
+    .local v0, "boolValue":I
     const/4 v1, 0x0
 
-    .line 460
-    .local v1, intValue:I
+    .line 461
+    .local v1, "intValue":I
     iget-object v2, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v2, :cond_0
 
-    .line 461
+    .line 462
     new-instance v2, Ljava/io/IOException;
 
     const-string/jumbo v3, "socket not created"
@@ -1098,40 +1099,40 @@
 
     throw v2
 
-    .line 464
+    .line 465
     :cond_0
     instance-of v2, p2, Ljava/lang/Integer;
 
     if-eqz v2, :cond_1
 
-    .line 465
+    .line 466
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    .line 472
+    .line 473
     :goto_0
     iget-object v2, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     invoke-direct {p0, v2, p1, v0, v1}, Landroid/net/LocalSocketImpl;->setOption_native(Ljava/io/FileDescriptor;III)V
 
-    .line 473
+    .line 474
     return-void
 
-    .line 466
-    .restart local p2
+    .line 467
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_1
     instance-of v2, p2, Ljava/lang/Boolean;
 
     if-eqz v2, :cond_3
 
-    .line 467
+    .line 468
     check-cast p2, Ljava/lang/Boolean;
 
-    .end local p2
+    .end local p2    # "value":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
@@ -1148,8 +1149,8 @@
 
     goto :goto_1
 
-    .line 469
-    .restart local p2
+    .line 470
+    .restart local p2    # "value":Ljava/lang/Object;
     :cond_3
     new-instance v2, Ljava/io/IOException;
 
@@ -1185,12 +1186,12 @@
     .end annotation
 
     .prologue
-    .line 391
+    .line 392
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v0, :cond_0
 
-    .line 392
+    .line 393
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "socket not created"
@@ -1199,7 +1200,7 @@
 
     throw v0
 
-    .line 395
+    .line 396
     :cond_0
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
@@ -1207,7 +1208,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/net/LocalSocketImpl;->shutdown(Ljava/io/FileDescriptor;Z)V
 
-    .line 396
+    .line 397
     return-void
 .end method
 
@@ -1220,12 +1221,12 @@
     .end annotation
 
     .prologue
-    .line 405
+    .line 406
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v0, :cond_0
 
-    .line 406
+    .line 407
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "socket not created"
@@ -1234,7 +1235,7 @@
 
     throw v0
 
-    .line 409
+    .line 410
     :cond_0
     iget-object v0, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
@@ -1242,7 +1243,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/net/LocalSocketImpl;->shutdown(Ljava/io/FileDescriptor;Z)V
 
-    .line 410
+    .line 411
     return-void
 .end method
 
@@ -1250,7 +1251,7 @@
     .locals 1
 
     .prologue
-    .line 419
+    .line 420
     const/4 v0, 0x0
 
     return v0

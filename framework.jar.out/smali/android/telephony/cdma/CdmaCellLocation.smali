@@ -67,7 +67,7 @@
 
 .method public constructor <init>(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "bundle"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     const v1, 0x7fffffff
@@ -153,7 +153,7 @@
 
 .method public static convertQuartSecToDecDegrees(I)D
     .locals 4
-    .parameter "quartSec"
+    .param p0, "quartSec"    # I
 
     .prologue
     .line 240
@@ -203,7 +203,7 @@
     :cond_1
     int-to-double v0, p0
 
-    const-wide v2, 0x40cc200000000000L
+    const-wide v2, 0x40cc200000000000L    # 14400.0
 
     div-double/2addr v0, v2
 
@@ -212,8 +212,8 @@
 
 .method private static equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .parameter "a"
-    .parameter "b"
+    .param p0, "a"    # Ljava/lang/Object;
+    .param p1, "b"    # Ljava/lang/Object;
 
     .prologue
     .line 203
@@ -243,7 +243,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
@@ -259,11 +259,11 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 174
-    .local v2, s:Landroid/telephony/cdma/CdmaCellLocation;
+    .local v2, "s":Landroid/telephony/cdma/CdmaCellLocation;
     if-nez p1, :cond_1
 
     .line 178
-    .end local v2           #s:Landroid/telephony/cdma/CdmaCellLocation;
+    .end local v2    # "s":Landroid/telephony/cdma/CdmaCellLocation;
     :cond_0
     :goto_0
     return v3
@@ -273,12 +273,12 @@
     move-exception v1
 
     .line 171
-    .local v1, ex:Ljava/lang/ClassCastException;
+    .local v1, "ex":Ljava/lang/ClassCastException;
     goto :goto_0
 
     .line 178
-    .end local v1           #ex:Ljava/lang/ClassCastException;
-    .restart local v2       #s:Landroid/telephony/cdma/CdmaCellLocation;
+    .end local v1    # "ex":Ljava/lang/ClassCastException;
+    .restart local v2    # "s":Landroid/telephony/cdma/CdmaCellLocation;
     :cond_1
     iget v4, p0, Landroid/telephony/cdma/CdmaCellLocation;->mBaseStationId:I
 
@@ -377,7 +377,7 @@
 
 .method public fillInNotifierBundle(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "bundleToFill"
+    .param p1, "bundleToFill"    # Landroid/os/Bundle;
 
     .prologue
     .line 212
@@ -537,9 +537,9 @@
 
 .method public setCellLocationData(III)V
     .locals 0
-    .parameter "baseStationId"
-    .parameter "baseStationLatitude"
-    .parameter "baseStationLongitude"
+    .param p1, "baseStationId"    # I
+    .param p2, "baseStationLatitude"    # I
+    .param p3, "baseStationLongitude"    # I
 
     .prologue
     .line 140
@@ -557,11 +557,11 @@
 
 .method public setCellLocationData(IIIII)V
     .locals 0
-    .parameter "baseStationId"
-    .parameter "baseStationLatitude"
-    .parameter "baseStationLongitude"
-    .parameter "systemId"
-    .parameter "networkId"
+    .param p1, "baseStationId"    # I
+    .param p2, "baseStationLatitude"    # I
+    .param p3, "baseStationLongitude"    # I
+    .param p4, "systemId"    # I
+    .param p5, "networkId"    # I
 
     .prologue
     .line 151

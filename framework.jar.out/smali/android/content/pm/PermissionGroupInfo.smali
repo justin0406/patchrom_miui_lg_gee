@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -59,7 +59,7 @@
 
 .method public constructor <init>(Landroid/content/pm/PermissionGroupInfo;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/PermissionGroupInfo;
 
     .prologue
     .line 65
@@ -91,7 +91,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 125
@@ -135,8 +135,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PermissionGroupInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/PermissionGroupInfo$1;
 
     .prologue
     .line 28
@@ -159,7 +159,7 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     const/4 v1, 0x0
@@ -193,10 +193,10 @@
     move-result-object v0
 
     .line 89
-    .local v0, label:Ljava/lang/CharSequence;
+    .local v0, "label":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
-    .end local v0           #label:Ljava/lang/CharSequence;
+    .end local v0    # "label":Ljava/lang/CharSequence;
     :cond_2
     move-object v0, v1
 
@@ -274,8 +274,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 107

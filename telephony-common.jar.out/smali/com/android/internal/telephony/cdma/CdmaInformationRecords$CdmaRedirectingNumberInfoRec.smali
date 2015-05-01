@@ -37,12 +37,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIIII)V
     .locals 7
-    .parameter "number"
-    .parameter "numberType"
-    .parameter "numberPlan"
-    .parameter "pi"
-    .parameter "si"
-    .parameter "reason"
+    .param p1, "number"    # Ljava/lang/String;
+    .param p2, "numberType"    # I
+    .param p3, "numberPlan"    # I
+    .param p4, "pi"    # I
+    .param p5, "si"    # I
+    .param p6, "reason"    # I
 
     .prologue
     .line 191

@@ -24,11 +24,11 @@
 
 .method public static writeBinderSample(Ljava/lang/String;IILjava/lang/String;I)V
     .locals 4
-    .parameter "descriptor"
-    .parameter "methodNum"
-    .parameter "time"
-    .parameter "blockingPackage"
-    .parameter "samplePercent"
+    .param p0, "descriptor"    # Ljava/lang/String;
+    .param p1, "methodNum"    # I
+    .param p2, "time"    # I
+    .param p3, "blockingPackage"    # Ljava/lang/String;
+    .param p4, "samplePercent"    # I
 
     .prologue
     .line 31
@@ -78,13 +78,13 @@
 
 .method public static writeContentQuerySample(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)V
     .locals 4
-    .parameter "uri"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "sortorder"
-    .parameter "time"
-    .parameter "blockingPackage"
-    .parameter "samplePercent"
+    .param p0, "uri"    # Ljava/lang/String;
+    .param p1, "projection"    # Ljava/lang/String;
+    .param p2, "selection"    # Ljava/lang/String;
+    .param p3, "sortorder"    # Ljava/lang/String;
+    .param p4, "time"    # I
+    .param p5, "blockingPackage"    # Ljava/lang/String;
+    .param p6, "samplePercent"    # I
 
     .prologue
     .line 23
@@ -138,12 +138,12 @@
 
 .method public static writeContentUpdateSample(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)V
     .locals 4
-    .parameter "uri"
-    .parameter "operation"
-    .parameter "selection"
-    .parameter "time"
-    .parameter "blockingPackage"
-    .parameter "samplePercent"
+    .param p0, "uri"    # Ljava/lang/String;
+    .param p1, "operation"    # Ljava/lang/String;
+    .param p2, "selection"    # Ljava/lang/String;
+    .param p3, "time"    # I
+    .param p4, "blockingPackage"    # Ljava/lang/String;
+    .param p5, "samplePercent"    # I
 
     .prologue
     .line 27

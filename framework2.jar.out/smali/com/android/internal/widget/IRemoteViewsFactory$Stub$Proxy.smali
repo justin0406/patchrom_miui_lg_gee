@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 151
@@ -64,13 +64,13 @@
     move-result-object v0
 
     .line 208
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 211
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -96,7 +96,7 @@
     move-result v2
 
     .line 217
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 218
@@ -106,7 +106,7 @@
     return v2
 
     .line 217
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -130,7 +130,7 @@
 
 .method public getItemId(I)J
     .locals 7
-    .parameter "position"
+    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -144,13 +144,13 @@
     move-result-object v0
 
     .line 287
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 290
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -179,7 +179,7 @@
     move-result-wide v2
 
     .line 297
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 298
@@ -189,7 +189,7 @@
     return-wide v2
 
     .line 297
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -216,13 +216,13 @@
     move-result-object v0
 
     .line 248
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 251
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -259,7 +259,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 262
-    .local v2, _result:Landroid/widget/RemoteViews;
+    .local v2, "_result":Landroid/widget/RemoteViews;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -270,15 +270,15 @@
     return-object v2
 
     .line 258
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/widget/RemoteViews;
+    .restart local v2    # "_result":Landroid/widget/RemoteViews;
     goto :goto_0
 
     .line 262
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :catchall_0
     move-exception v3
 
@@ -292,7 +292,7 @@
 
 .method public getViewAt(I)Landroid/widget/RemoteViews;
     .locals 6
-    .parameter "position"
+    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -306,13 +306,13 @@
     move-result-object v0
 
     .line 225
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 228
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -352,7 +352,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 240
-    .local v2, _result:Landroid/widget/RemoteViews;
+    .local v2, "_result":Landroid/widget/RemoteViews;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -363,15 +363,15 @@
     return-object v2
 
     .line 236
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/widget/RemoteViews;
+    .restart local v2    # "_result":Landroid/widget/RemoteViews;
     goto :goto_0
 
     .line 240
-    .end local v2           #_result:Landroid/widget/RemoteViews;
+    .end local v2    # "_result":Landroid/widget/RemoteViews;
     :catchall_0
     move-exception v3
 
@@ -398,13 +398,13 @@
     move-result-object v0
 
     .line 270
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 273
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -430,7 +430,7 @@
     move-result v2
 
     .line 279
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 280
@@ -440,7 +440,7 @@
     return v2
 
     .line 279
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -469,13 +469,13 @@
     move-result-object v0
 
     .line 305
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 308
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -505,7 +505,7 @@
     const/4 v2, 0x1
 
     .line 314
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -516,7 +516,7 @@
     return v2
 
     .line 314
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -545,13 +545,13 @@
     move-result-object v0
 
     .line 322
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 325
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -581,7 +581,7 @@
     const/4 v2, 0x1
 
     .line 331
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -592,7 +592,7 @@
     return v2
 
     .line 331
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -619,13 +619,13 @@
     move-result-object v0
 
     .line 165
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 167
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -681,7 +681,7 @@
     move-result-object v0
 
     .line 180
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.widget.IRemoteViewsFactory"
 
@@ -717,7 +717,7 @@
 
 .method public onDestroy(Landroid/content/Intent;)V
     .locals 5
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -731,7 +731,7 @@
     move-result-object v0
 
     .line 191
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.widget.IRemoteViewsFactory"
 

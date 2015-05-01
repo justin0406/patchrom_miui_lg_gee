@@ -19,8 +19,8 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;)V
     .locals 0
-    .parameter "real"
-    .parameter "temp"
+    .param p1, "real"    # Ljava/io/File;
+    .param p2, "temp"    # Ljava/io/File;
 
     .prologue
     .line 36
@@ -55,7 +55,7 @@
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
 
     .line 51
-    .local v0, result:Ljava/io/File;
+    .local v0, "result":Ljava/io/File;
     iget-object v1, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -70,7 +70,7 @@
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
     .line 60
-    .end local v0           #result:Ljava/io/File;
+    .end local v0    # "result":Ljava/io/File;
     :cond_0
     :goto_0
     return-object v0
@@ -89,7 +89,7 @@
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
 
     .line 56
-    .restart local v0       #result:Ljava/io/File;
+    .restart local v0    # "result":Ljava/io/File;
     iget-object v1, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
 
     iget-object v2, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
@@ -99,7 +99,7 @@
     goto :goto_0
 
     .line 58
-    .end local v0           #result:Ljava/io/File;
+    .end local v0    # "result":Ljava/io/File;
     :cond_2
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
 

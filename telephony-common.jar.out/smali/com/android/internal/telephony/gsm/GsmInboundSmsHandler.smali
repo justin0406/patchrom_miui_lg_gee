@@ -10,9 +10,9 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/android/internal/telephony/SmsStorageMonitor;Lcom/android/internal/telephony/PhoneBase;)V
     .locals 6
-    .parameter "context"
-    .parameter "storageMonitor"
-    .parameter "phone"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "storageMonitor"    # Lcom/android/internal/telephony/SmsStorageMonitor;
+    .param p3, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 46
@@ -60,9 +60,9 @@
 
 .method public static makeInboundSmsHandler(Landroid/content/Context;Lcom/android/internal/telephony/SmsStorageMonitor;Lcom/android/internal/telephony/PhoneBase;)Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;
     .locals 1
-    .parameter "context"
-    .parameter "storageMonitor"
-    .parameter "phone"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "storageMonitor"    # Lcom/android/internal/telephony/SmsStorageMonitor;
+    .param p2, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 69
@@ -71,7 +71,7 @@
     invoke-direct {v0, p0, p1, p2}, Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/SmsStorageMonitor;Lcom/android/internal/telephony/PhoneBase;)V
 
     .line 70
-    .local v0, handler:Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;
+    .local v0, "handler":Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;->start()V
 
     .line 71
@@ -80,7 +80,7 @@
 
 .method private static resultToCause(I)I
     .locals 1
-    .parameter "rc"
+    .param p0, "rc"    # I
 
     .prologue
     .line 165
@@ -122,9 +122,9 @@
 # virtual methods
 .method protected acknowledgeLastIncomingSms(ZILandroid/os/Message;)V
     .locals 2
-    .parameter "success"
-    .parameter "result"
-    .parameter "response"
+    .param p1, "success"    # Z
+    .param p2, "result"    # I
+    .param p3, "response"    # Landroid/os/Message;
 
     .prologue
     .line 140
@@ -144,7 +144,7 @@
 
 .method protected dispatchMessageRadioSpecific(Lcom/android/internal/telephony/SmsMessageBase;)I
     .locals 7
-    .parameter "smsb"
+    .param p1, "smsb"    # Lcom/android/internal/telephony/SmsMessageBase;
 
     .prologue
     const/4 v3, 0x0
@@ -157,7 +157,7 @@
     check-cast v1, Lcom/android/internal/telephony/gsm/SmsMessage;
 
     .line 95
-    .local v1, sms:Lcom/android/internal/telephony/gsm/SmsMessage;
+    .local v1, "sms":Lcom/android/internal/telephony/gsm/SmsMessage;
     invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/SmsMessage;->isTypeZero()Z
 
     move-result v5
@@ -190,7 +190,7 @@
     move-result-object v2
 
     .line 105
-    .local v2, ust:Lcom/android/internal/telephony/uicc/UsimServiceTable;
+    .local v2, "ust":Lcom/android/internal/telephony/uicc/UsimServiceTable;
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmInboundSmsHandler;->mDataDownloadHandler:Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;
 
     invoke-virtual {v3, v2, v1}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->handleUsimDataDownload(Lcom/android/internal/telephony/uicc/UsimServiceTable;Lcom/android/internal/telephony/gsm/SmsMessage;)I
@@ -200,12 +200,12 @@
     goto :goto_0
 
     .line 108
-    .end local v2           #ust:Lcom/android/internal/telephony/uicc/UsimServiceTable;
+    .end local v2    # "ust":Lcom/android/internal/telephony/uicc/UsimServiceTable;
     :cond_2
     const/4 v0, 0x0
 
     .line 109
-    .local v0, handled:Z
+    .local v0, "handled":Z
     invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/SmsMessage;->isMWISetMessage()Z
 
     move-result v5
@@ -376,7 +376,7 @@
 
 .method protected onUpdatePhoneObject(Lcom/android/internal/telephony/PhoneBase;)V
     .locals 1
-    .parameter "phone"
+    .param p1, "phone"    # Lcom/android/internal/telephony/PhoneBase;
 
     .prologue
     .line 152

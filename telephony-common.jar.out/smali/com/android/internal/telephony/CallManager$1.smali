@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/CallManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1730
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 1735
@@ -93,7 +92,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/CallManager$1;->this$0:Lcom/android/internal/telephony/CallManager;
 
-    #calls: Lcom/android/internal/telephony/CallManager;->hasMoreThanOneRingingCall()Z
+    # invokes: Lcom/android/internal/telephony/CallManager;->hasMoreThanOneRingingCall()Z
     invoke-static {v4}, Lcom/android/internal/telephony/CallManager;->access$000(Lcom/android/internal/telephony/CallManager;)Z
 
     move-result v4
@@ -111,7 +110,7 @@
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
     .line 1749
-    .local v0, c:Lcom/android/internal/telephony/Connection;
+    .local v0, "c":Lcom/android/internal/telephony/Connection;
     :try_start_0
     const-string v4, "CallManager"
 
@@ -155,7 +154,7 @@
     move-exception v1
 
     .line 1752
-    .local v1, e:Lcom/android/internal/telephony/CallStateException;
+    .local v1, "e":Lcom/android/internal/telephony/CallStateException;
     const-string v4, "CallManager"
 
     const-string v5, "new ringing connection"
@@ -165,8 +164,8 @@
     goto :goto_0
 
     .line 1755
-    .end local v0           #c:Lcom/android/internal/telephony/Connection;
-    .end local v1           #e:Lcom/android/internal/telephony/CallStateException;
+    .end local v0    # "c":Lcom/android/internal/telephony/Connection;
+    .end local v1    # "e":Lcom/android/internal/telephony/CallStateException;
     :cond_2
     iget-object v4, p0, Lcom/android/internal/telephony/CallManager$1;->this$0:Lcom/android/internal/telephony/CallManager;
 
@@ -417,7 +416,7 @@
     :pswitch_13
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     iget-object v4, p0, Lcom/android/internal/telephony/CallManager$1;->this$0:Lcom/android/internal/telephony/CallManager;
 
@@ -445,7 +444,7 @@
     move-result-object v3
 
     .line 1832
-    .local v3, notifyMsg:Landroid/os/Message;
+    .local v3, "notifyMsg":Landroid/os/Message;
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     iput-object v4, v3, Landroid/os/Message;->obj:Ljava/lang/Object;

@@ -73,7 +73,7 @@
     .line 19075
     new-array v0, v3, [F
 
-    const/high16 v1, 0x437f
+    const/high16 v1, 0x437f0000    # 255.0f
 
     aput v1, v0, v2
 
@@ -93,8 +93,8 @@
 
 .method public constructor <init>(Landroid/view/ViewConfiguration;Landroid/view/View;)V
     .locals 8
-    .parameter "configuration"
-    .parameter "host"
+    .param p1, "configuration"    # Landroid/view/ViewConfiguration;
+    .param p2, "host"    # Landroid/view/View;
 
     .prologue
     const/4 v6, 0x0
@@ -163,9 +163,9 @@
     .line 19102
     new-instance v0, Landroid/graphics/LinearGradient;
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    const/high16 v5, -0x100
+    const/high16 v5, -0x1000000
 
     sget-object v7, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -214,7 +214,7 @@
     move-result-wide v4
 
     .line 19129
-    .local v4, now:J
+    .local v4, "now":J
     iget-wide v6, p0, Landroid/view/View$ScrollabilityCache;->fadeStartTime:J
 
     cmp-long v6, v4, v6
@@ -225,19 +225,19 @@
     long-to-int v3, v4
 
     .line 19135
-    .local v3, nextFrame:I
+    .local v3, "nextFrame":I
     const/4 v0, 0x0
 
     .line 19137
-    .local v0, framesCount:I
+    .local v0, "framesCount":I
     iget-object v2, p0, Landroid/view/View$ScrollabilityCache;->scrollBarInterpolator:Landroid/graphics/Interpolator;
 
     .line 19140
-    .local v2, interpolator:Landroid/graphics/Interpolator;
+    .local v2, "interpolator":Landroid/graphics/Interpolator;
     add-int/lit8 v1, v0, 0x1
 
-    .end local v0           #framesCount:I
-    .local v1, framesCount:I
+    .end local v0    # "framesCount":I
+    .local v1, "framesCount":I
     sget-object v6, Landroid/view/View$ScrollabilityCache;->OPAQUE:[F
 
     invoke-virtual {v2, v0, v3, v6}, Landroid/graphics/Interpolator;->setKeyFrame(II[F)V
@@ -265,21 +265,21 @@
     invoke-virtual {v6, v7}, Landroid/view/View;->invalidate(Z)V
 
     .line 19151
-    .end local v1           #framesCount:I
-    .end local v2           #interpolator:Landroid/graphics/Interpolator;
-    .end local v3           #nextFrame:I
+    .end local v1    # "framesCount":I
+    .end local v2    # "interpolator":Landroid/graphics/Interpolator;
+    .end local v3    # "nextFrame":I
     :cond_0
     return-void
 .end method
 
 .method public setFadeColor(I)V
     .locals 8
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
-    const/high16 v5, -0x100
+    const/high16 v5, -0x1000000
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 

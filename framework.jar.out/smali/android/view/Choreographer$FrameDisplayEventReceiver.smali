@@ -30,8 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 694
@@ -48,9 +47,9 @@
 # virtual methods
 .method public onVsync(JII)V
     .locals 8
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "frame"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "frame"    # I
 
     .prologue
     const/4 v7, 0x1
@@ -79,7 +78,7 @@
     move-result-wide v1
 
     .line 723
-    .local v1, now:J
+    .local v1, "now":J
     cmp-long v3, p1, v1
 
     if-lez v3, :cond_1
@@ -101,7 +100,7 @@
 
     long-to-float v5, v5
 
-    const v6, 0x358637bd
+    const v6, 0x358637bd    # 1.0E-6f
 
     mul-float/2addr v5, v6
 
@@ -153,7 +152,7 @@
     .line 739
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
-    #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
+    # getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
     invoke-static {v3}, Landroid/view/Choreographer;->access$300(Landroid/view/Choreographer;)Landroid/view/Choreographer$FrameHandler;
 
     move-result-object v3
@@ -163,13 +162,13 @@
     move-result-object v0
 
     .line 740
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0, v7}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 741
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
-    #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
+    # getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
     invoke-static {v3}, Landroid/view/Choreographer;->access$300(Landroid/view/Choreographer;)Landroid/view/Choreographer$FrameHandler;
 
     move-result-object v3
@@ -183,7 +182,7 @@
     goto :goto_0
 
     .line 734
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_2
     iput-boolean v7, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
 

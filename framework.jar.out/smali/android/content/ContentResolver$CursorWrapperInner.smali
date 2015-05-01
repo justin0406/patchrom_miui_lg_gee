@@ -31,9 +31,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/database/Cursor;Landroid/content/IContentProvider;)V
     .locals 2
-    .parameter
-    .parameter "cursor"
-    .parameter "icp"
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "icp"    # Landroid/content/IContentProvider;
 
     .prologue
     .line 2252

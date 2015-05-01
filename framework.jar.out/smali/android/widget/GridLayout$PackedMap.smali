@@ -48,8 +48,6 @@
 # direct methods
 .method private constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TK;[TV;)V"
@@ -58,9 +56,9 @@
 
     .prologue
     .line 2178
-    .local p0, this:Landroid/widget/GridLayout$PackedMap;,"Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
-    .local p1, keys:[Ljava/lang/Object;,"[TK;"
-    .local p2, values:[Ljava/lang/Object;,"[TV;"
+    .local p0, "this":Landroid/widget/GridLayout$PackedMap;, "Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
+    .local p1, "keys":[Ljava/lang/Object;, "[TK;"
+    .local p2, "values":[Ljava/lang/Object;, "[TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 2179
@@ -94,13 +92,13 @@
 
 .method synthetic constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;Landroid/widget/GridLayout$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # [Ljava/lang/Object;
+    .param p2, "x1"    # [Ljava/lang/Object;
+    .param p3, "x2"    # Landroid/widget/GridLayout$1;
 
     .prologue
     .line 2173
-    .local p0, this:Landroid/widget/GridLayout$PackedMap;,"Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
+    .local p0, "this":Landroid/widget/GridLayout$PackedMap;, "Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
     invoke-direct {p0, p1, p2}, Landroid/widget/GridLayout$PackedMap;-><init>([Ljava/lang/Object;[Ljava/lang/Object;)V
 
     return-void
@@ -108,8 +106,7 @@
 
 .method private static compact([Ljava/lang/Object;[I)[Ljava/lang/Object;
     .locals 6
-    .parameter
-    .parameter "index"
+    .param p1, "index"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -120,11 +117,11 @@
 
     .prologue
     .line 2210
-    .local p0, a:[Ljava/lang/Object;,"[TK;"
+    .local p0, "a":[Ljava/lang/Object;, "[TK;"
     array-length v3, p0
 
     .line 2211
-    .local v3, size:I
+    .local v3, "size":I
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -134,7 +131,7 @@
     move-result-object v0
 
     .line 2212
-    .local v0, componentType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local v0, "componentType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v4, -0x1
 
     invoke-static {p1, v4}, Landroid/widget/GridLayout;->max2([II)I
@@ -154,10 +151,10 @@
     check-cast v2, [Ljava/lang/Object;
 
     .line 2215
-    .local v2, result:[Ljava/lang/Object;,"[TK;"
+    .local v2, "result":[Ljava/lang/Object;, "[TK;"
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_0
 
@@ -180,7 +177,6 @@
 
 .method private static createIndex([Ljava/lang/Object;)[I
     .locals 7
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -191,24 +187,24 @@
 
     .prologue
     .line 2190
-    .local p0, keys:[Ljava/lang/Object;,"[TK;"
+    .local p0, "keys":[Ljava/lang/Object;, "[TK;"
     array-length v5, p0
 
     .line 2191
-    .local v5, size:I
+    .local v5, "size":I
     new-array v4, v5, [I
 
     .line 2193
-    .local v4, result:[I
+    .local v4, "result":[I
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
     .line 2194
-    .local v3, keyToIndex:Ljava/util/Map;,"Ljava/util/Map<TK;Ljava/lang/Integer;>;"
+    .local v3, "keyToIndex":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/lang/Integer;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v5, :cond_1
 
@@ -216,7 +212,7 @@
     aget-object v2, p0, v0
 
     .line 2196
-    .local v2, key:Ljava/lang/Object;,"TK;"
+    .local v2, "key":Ljava/lang/Object;, "TK;"
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -224,7 +220,7 @@
     check-cast v1, Ljava/lang/Integer;
 
     .line 2197
-    .local v1, index:Ljava/lang/Integer;
+    .local v1, "index":Ljava/lang/Integer;
     if-nez v1, :cond_0
 
     .line 2198
@@ -253,8 +249,8 @@
     goto :goto_0
 
     .line 2203
-    .end local v1           #index:Ljava/lang/Integer;
-    .end local v2           #key:Ljava/lang/Object;,"TK;"
+    .end local v1    # "index":Ljava/lang/Integer;
+    .end local v2    # "key":Ljava/lang/Object;, "TK;"
     :cond_1
     return-object v4
 .end method
@@ -263,7 +259,7 @@
 # virtual methods
 .method public getValue(I)Ljava/lang/Object;
     .locals 2
-    .parameter "i"
+    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
@@ -272,7 +268,7 @@
 
     .prologue
     .line 2186
-    .local p0, this:Landroid/widget/GridLayout$PackedMap;,"Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
+    .local p0, "this":Landroid/widget/GridLayout$PackedMap;, "Landroid/widget/GridLayout$PackedMap<TK;TV;>;"
     iget-object v0, p0, Landroid/widget/GridLayout$PackedMap;->values:[Ljava/lang/Object;
 
     iget-object v1, p0, Landroid/widget/GridLayout$PackedMap;->index:[I

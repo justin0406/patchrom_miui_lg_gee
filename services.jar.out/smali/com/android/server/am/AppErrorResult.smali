@@ -47,8 +47,8 @@
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -84,7 +84,7 @@
 
 .method public set(I)V
     .locals 1
-    .parameter "res"
+    .param p1, "res"    # I
 
     .prologue
     .line 21

@@ -58,7 +58,7 @@
 
 .method public constructor <init>(Landroid/content/pm/PackageStats;)V
     .locals 2
-    .parameter "pStats"
+    .param p1, "pStats"    # Landroid/content/pm/PackageStats;
 
     .prologue
     .line 147
@@ -120,7 +120,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 134
@@ -202,7 +202,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "pkgName"
+    .param p1, "pkgName"    # Ljava/lang/String;
 
     .prologue
     .line 123
@@ -224,8 +224,8 @@
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "pkgName"
-    .parameter "userHandle"
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "userHandle"    # I
 
     .prologue
     .line 129
@@ -267,7 +267,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 84
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v1
@@ -447,8 +447,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 165

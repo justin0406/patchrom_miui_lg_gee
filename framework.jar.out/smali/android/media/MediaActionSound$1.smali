@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaActionSound;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 172
@@ -39,14 +38,14 @@
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
     .locals 7
-    .parameter "soundPool"
-    .parameter "sampleId"
-    .parameter "status"
+    .param p1, "soundPool"    # Landroid/media/SoundPool;
+    .param p2, "sampleId"    # I
+    .param p3, "status"    # I
 
     .prologue
     const/4 v4, 0x0
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     .line 175
     if-nez p3, :cond_1
@@ -54,7 +53,7 @@
     .line 176
     iget-object v0, p0, Landroid/media/MediaActionSound$1;->this$0:Landroid/media/MediaActionSound;
 
-    #getter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
+    # getter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
     invoke-static {v0}, Landroid/media/MediaActionSound;->access$000(Landroid/media/MediaActionSound;)I
 
     move-result v0
@@ -79,7 +78,7 @@
 
     const/4 v1, -0x1
 
-    #setter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
+    # setter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
     invoke-static {v0, v1}, Landroid/media/MediaActionSound;->access$002(Landroid/media/MediaActionSound;I)I
 
     .line 184

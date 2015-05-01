@@ -42,10 +42,10 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/net/NetworkIdentitySet;III)V
     .locals 3
-    .parameter "ident"
-    .parameter "uid"
-    .parameter "set"
-    .parameter "tag"
+    .param p1, "ident"    # Lcom/android/server/net/NetworkIdentitySet;
+    .param p2, "uid"    # I
+    .param p3, "set"    # I
+    .param p4, "tag"    # I
 
     .prologue
     .line 506
@@ -110,7 +110,7 @@
 # virtual methods
 .method public compareTo(Lcom/android/server/net/NetworkStatsCollection$Key;)I
     .locals 2
-    .parameter "another"
+    .param p1, "another"    # Lcom/android/server/net/NetworkStatsCollection$Key;
 
     .prologue
     .line 531
@@ -127,13 +127,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 498
     check-cast p1, Lcom/android/server/net/NetworkStatsCollection$Key;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/net/NetworkStatsCollection$Key;->compareTo(Lcom/android/server/net/NetworkStatsCollection$Key;)I
 
     move-result v0
@@ -143,7 +143,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -159,7 +159,7 @@
     check-cast v0, Lcom/android/server/net/NetworkStatsCollection$Key;
 
     .line 523
-    .local v0, key:Lcom/android/server/net/NetworkStatsCollection$Key;
+    .local v0, "key":Lcom/android/server/net/NetworkStatsCollection$Key;
     iget v2, p0, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
 
     iget v3, v0, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
@@ -191,7 +191,7 @@
     const/4 v1, 0x1
 
     .line 526
-    .end local v0           #key:Lcom/android/server/net/NetworkStatsCollection$Key;
+    .end local v0    # "key":Lcom/android/server/net/NetworkStatsCollection$Key;
     :cond_0
     return v1
 .end method

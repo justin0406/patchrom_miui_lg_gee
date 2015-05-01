@@ -12,7 +12,7 @@
 # direct methods
 .method constructor <init>(Z)V
     .locals 3
-    .parameter "isOpaque"
+    .param p1, "isOpaque"    # Z
 
     .prologue
     .line 33
@@ -24,7 +24,7 @@
     new-array v0, v1, [I
 
     .line 35
-    .local v0, layerInfo:[I
+    .local v0, "layerInfo":[I
     invoke-static {p1, v0}, Landroid/view/GLES20Canvas;->nCreateTextureLayer(Z[I)I
 
     move-result v1
@@ -69,7 +69,7 @@
 # virtual methods
 .method end(Landroid/graphics/Canvas;)V
     .locals 0
-    .parameter "currentCanvas"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 72
@@ -137,8 +137,8 @@
 
 .method redrawLater(Landroid/view/DisplayList;Landroid/graphics/Rect;)V
     .locals 0
-    .parameter "displayList"
-    .parameter "dirtyRect"
+    .param p1, "displayList"    # Landroid/view/DisplayList;
+    .param p2, "dirtyRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 107
@@ -147,8 +147,8 @@
 
 .method resize(II)Z
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 52
@@ -161,7 +161,7 @@
 
 .method setOpaque(Z)V
     .locals 2
-    .parameter "isOpaque"
+    .param p1, "isOpaque"    # Z
 
     .prologue
     .line 97
@@ -176,7 +176,7 @@
 
 .method setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
     .locals 2
-    .parameter "surfaceTexture"
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 82
@@ -206,7 +206,7 @@
 
 .method setTransform(Landroid/graphics/Matrix;)V
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 102
@@ -222,7 +222,7 @@
 
 .method start(Landroid/graphics/Canvas;)Landroid/view/HardwareCanvas;
     .locals 1
-    .parameter "currentCanvas"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 62
@@ -233,8 +233,8 @@
 
 .method start(Landroid/graphics/Canvas;Landroid/graphics/Rect;)Landroid/view/HardwareCanvas;
     .locals 1
-    .parameter "currentCanvas"
-    .parameter "dirty"
+    .param p1, "currentCanvas"    # Landroid/graphics/Canvas;
+    .param p2, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 67
@@ -245,9 +245,9 @@
 
 .method update(IIZ)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOpaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOpaque"    # Z
 
     .prologue
     .line 91

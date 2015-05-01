@@ -46,7 +46,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 8
-    .parameter "settings"
+    .param p1, "settings"    # Ljava/lang/String;
 
     .prologue
     .line 467
@@ -70,13 +70,13 @@
     invoke-direct {v3, p1, v5}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 469
-    .local v3, st:Ljava/util/StringTokenizer;
+    .local v3, "st":Ljava/util/StringTokenizer;
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->countTokens()I
 
     move-result v4
 
     .line 470
-    .local v4, tokens:I
+    .local v4, "tokens":I
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->countTokens()I
 
     move-result v5
@@ -117,7 +117,7 @@
     move-result-object v1
 
     .line 474
-    .local v1, key:Ljava/lang/String;
+    .local v1, "key":Ljava/lang/String;
     const-string v5, "Equalizer"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -199,7 +199,7 @@
     move-exception v2
 
     .line 501
-    .local v2, nfe:Ljava/lang/NumberFormatException;
+    .local v2, "nfe":Ljava/lang/NumberFormatException;
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -225,7 +225,7 @@
     throw v5
 
     .line 483
-    .end local v2           #nfe:Ljava/lang/NumberFormatException;
+    .end local v2    # "nfe":Ljava/lang/NumberFormatException;
     :cond_2
     :try_start_1
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -336,7 +336,7 @@
     .line 493
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-short v5, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
@@ -483,10 +483,10 @@
     invoke-direct {v1, v2}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     .line 513
-    .local v1, str:Ljava/lang/String;
+    .local v1, "str":Ljava/lang/String;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-short v2, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 

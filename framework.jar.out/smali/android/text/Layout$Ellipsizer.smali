@@ -3,8 +3,8 @@
 .source "Layout.java"
 
 # interfaces
-.implements Ljava/lang/CharSequence;
 .implements Landroid/text/GetChars;
+.implements Ljava/lang/CharSequence;
 
 
 # annotations
@@ -31,7 +31,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 1816
@@ -48,7 +48,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 4
-    .parameter "off"
+    .param p1, "off"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -61,7 +61,7 @@
     move-result-object v0
 
     .line 1822
-    .local v0, buf:[C
+    .local v0, "buf":[C
     add-int/lit8 v2, p1, 0x1
 
     invoke-virtual {p0, p1, v2, v0, v3}, Landroid/text/Layout$Ellipsizer;->getChars(II[CI)V
@@ -70,7 +70,7 @@
     aget-char v1, v0, v3
 
     .line 1825
-    .local v1, ret:C
+    .local v1, "ret":C
     invoke-static {v0}, Landroid/text/TextUtils;->recycle([C)V
 
     .line 1826
@@ -79,10 +79,10 @@
 
 .method public getChars(II[CI)V
     .locals 9
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "destoff"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "dest"    # [C
+    .param p4, "destoff"    # I
 
     .prologue
     .line 1830
@@ -93,7 +93,7 @@
     move-result v7
 
     .line 1831
-    .local v7, line1:I
+    .local v7, "line1":I
     iget-object v0, p0, Landroid/text/Layout$Ellipsizer;->mLayout:Landroid/text/Layout;
 
     invoke-virtual {v0, p2}, Landroid/text/Layout;->getLineForOffset(I)I
@@ -101,7 +101,7 @@
     move-result v8
 
     .line 1833
-    .local v8, line2:I
+    .local v8, "line2":I
     iget-object v0, p0, Landroid/text/Layout$Ellipsizer;->mText:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2, p3, p4}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
@@ -109,7 +109,7 @@
     .line 1835
     move v3, v7
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-gt v3, v8, :cond_0
 
@@ -126,7 +126,7 @@
 
     move v5, p4
 
-    #calls: Landroid/text/Layout;->ellipsize(III[CILandroid/text/TextUtils$TruncateAt;)V
+    # invokes: Landroid/text/Layout;->ellipsize(III[CILandroid/text/TextUtils$TruncateAt;)V
     invoke-static/range {v0 .. v6}, Landroid/text/Layout;->access$000(Landroid/text/Layout;III[CILandroid/text/TextUtils$TruncateAt;)V
 
     .line 1835
@@ -155,8 +155,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 1845
@@ -165,7 +165,7 @@
     new-array v0, v1, [C
 
     .line 1846
-    .local v0, s:[C
+    .local v0, "s":[C
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, p2, v0, v1}, Landroid/text/Layout$Ellipsizer;->getChars(II[CI)V
@@ -192,7 +192,7 @@
     new-array v0, v1, [C
 
     .line 1853
-    .local v0, s:[C
+    .local v0, "s":[C
     invoke-virtual {p0}, Landroid/text/Layout$Ellipsizer;->length()I
 
     move-result v1

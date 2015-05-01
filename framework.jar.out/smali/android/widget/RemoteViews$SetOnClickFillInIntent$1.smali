@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnClickFillInIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 394
@@ -44,7 +42,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 397
@@ -55,7 +53,7 @@
     check-cast v0, Landroid/view/View;
 
     .line 399
-    .local v0, parent:Landroid/view/View;
+    .local v0, "parent":Landroid/view/View;
     :goto_0
     if-eqz v0, :cond_0
 
@@ -72,10 +70,10 @@
 
     move-result-object v0
 
-    .end local v0           #parent:Landroid/view/View;
+    .end local v0    # "parent":Landroid/view/View;
     check-cast v0, Landroid/view/View;
 
-    .restart local v0       #parent:Landroid/view/View;
+    .restart local v0    # "parent":Landroid/view/View;
     goto :goto_0
 
     .line 403
@@ -126,14 +124,14 @@
     check-cast v1, Landroid/app/PendingIntent;
 
     .line 419
-    .local v1, pendingIntent:Landroid/app/PendingIntent;
-    #calls: Landroid/widget/RemoteViews;->getSourceBounds(Landroid/view/View;)Landroid/graphics/Rect;
+    .local v1, "pendingIntent":Landroid/app/PendingIntent;
+    # invokes: Landroid/widget/RemoteViews;->getSourceBounds(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$200(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v2
 
     .line 421
-    .local v2, rect:Landroid/graphics/Rect;
+    .local v2, "rect":Landroid/graphics/Rect;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->this$1:Landroid/widget/RemoteViews$SetOnClickFillInIntent;
 
     iget-object v3, v3, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;

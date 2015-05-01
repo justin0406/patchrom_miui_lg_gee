@@ -49,7 +49,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "fadingMode"
+    .param p1, "fadingMode"    # I
 
     .prologue
     .line 94
@@ -64,7 +64,7 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 4
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 123
@@ -73,7 +73,7 @@
     new-array v0, v1, [I
 
     .line 124
-    .local v0, loc:[I
+    .local v0, "loc":[I
     iget-object v1, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->getLocationOnScreen([I)V
@@ -114,10 +114,10 @@
 
 .method private createAnimation(Landroid/view/View;FFLandroid/animation/AnimatorListenerAdapter;)Landroid/animation/Animator;
     .locals 4
-    .parameter "view"
-    .parameter "startAlpha"
-    .parameter "endAlpha"
-    .parameter "listener"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "startAlpha"    # F
+    .param p3, "endAlpha"    # F
+    .param p4, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .prologue
     const/4 v0, 0x0
@@ -159,7 +159,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, anim:Landroid/animation/ObjectAnimator;
+    .local v0, "anim":Landroid/animation/ObjectAnimator;
     sget-boolean v1, Landroid/transition/Fade;->DBG:Z
 
     if-eqz v1, :cond_2
@@ -204,7 +204,7 @@
 # virtual methods
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 131
@@ -219,11 +219,11 @@
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 8
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     const/4 v7, 0x0
@@ -251,7 +251,7 @@
     iget-object v0, p4, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 143
-    .local v0, endView:Landroid/view/View;
+    .local v0, "endView":Landroid/view/View;
     sget-boolean v4, Landroid/transition/Fade;->DBG:Z
 
     if-eqz v4, :cond_2
@@ -262,7 +262,7 @@
     iget-object v1, p2, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 145
-    .local v1, startView:Landroid/view/View;
+    .local v1, "startView":Landroid/view/View;
     :goto_1
     const-string v4, "Fade"
 
@@ -317,7 +317,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 148
-    .end local v1           #startView:Landroid/view/View;
+    .end local v1    # "startView":Landroid/view/View;
     :cond_2
     invoke-virtual {v0, v7}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -327,11 +327,11 @@
     invoke-direct {v2, p0, v0}, Landroid/transition/Fade$1;-><init>(Landroid/transition/Fade;Landroid/view/View;)V
 
     .line 177
-    .local v2, transitionListener:Landroid/transition/Transition$TransitionListener;
+    .local v2, "transitionListener":Landroid/transition/Transition$TransitionListener;
     invoke-virtual {p0, v2}, Landroid/transition/Fade;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     .line 178
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     invoke-direct {p0, v0, v7, v4, v3}, Landroid/transition/Fade;->createAnimation(Landroid/view/View;FFLandroid/animation/AnimatorListenerAdapter;)Landroid/animation/Animator;
 
@@ -339,7 +339,7 @@
 
     goto :goto_0
 
-    .end local v2           #transitionListener:Landroid/transition/Transition$TransitionListener;
+    .end local v2    # "transitionListener":Landroid/transition/Transition$TransitionListener;
     :cond_3
     move-object v1, v3
 
@@ -349,11 +349,11 @@
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
     .locals 29
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "startVisibility"
-    .parameter "endValues"
-    .parameter "endVisibility"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "startVisibility"    # I
+    .param p4, "endValues"    # Landroid/transition/TransitionValues;
+    .param p5, "endVisibility"    # I
 
     .prologue
     .line 185
@@ -379,7 +379,7 @@
     const/16 v27, 0x0
 
     .line 189
-    .local v27, view:Landroid/view/View;
+    .local v27, "view":Landroid/view/View;
     if-eqz p2, :cond_4
 
     move-object/from16 v0, p2
@@ -389,7 +389,7 @@
     move-object/from16 v26, v0
 
     .line 190
-    .local v26, startView:Landroid/view/View;
+    .local v26, "startView":Landroid/view/View;
     :goto_1
     if-eqz p4, :cond_5
 
@@ -400,7 +400,7 @@
     move-object/from16 v18, v0
 
     .line 191
-    .local v18, endView:Landroid/view/View;
+    .local v18, "endView":Landroid/view/View;
     :goto_2
     sget-boolean v4, Landroid/transition/Fade;->DBG:Z
 
@@ -472,11 +472,11 @@
     const/16 v21, 0x0
 
     .line 196
-    .local v21, overlayView:Landroid/view/View;
+    .local v21, "overlayView":Landroid/view/View;
     const/16 v28, 0x0
 
     .line 197
-    .local v28, viewToKeep:Landroid/view/View;
+    .local v28, "viewToKeep":Landroid/view/View;
     if-eqz v18, :cond_2
 
     invoke-virtual/range {v18 .. v18}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -500,7 +500,7 @@
     move/from16 v7, p5
 
     .line 238
-    .local v7, finalVisibility:I
+    .local v7, "finalVisibility":I
     if-eqz v21, :cond_b
 
     .line 240
@@ -521,7 +521,7 @@
     move-result v22
 
     .line 241
-    .local v22, screenX:I
+    .local v22, "screenX":I
     move-object/from16 v0, p2
 
     iget-object v4, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -539,7 +539,7 @@
     move-result v23
 
     .line 242
-    .local v23, screenY:I
+    .local v23, "screenY":I
     const/4 v4, 0x2
 
     new-array v0, v4, [I
@@ -547,7 +547,7 @@
     move-object/from16 v20, v0
 
     .line 243
-    .local v20, loc:[I
+    .local v20, "loc":[I
     move-object/from16 v0, p1
 
     move-object/from16 v1, v20
@@ -598,30 +598,30 @@
     invoke-virtual {v4, v0}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
     .line 248
-    const/high16 v24, 0x3f80
+    const/high16 v24, 0x3f800000    # 1.0f
 
     .line 249
-    .local v24, startAlpha:F
+    .local v24, "startAlpha":F
     const/16 v17, 0x0
 
     .line 250
-    .local v17, endAlpha:F
+    .local v17, "endAlpha":F
     move-object/from16 v5, v27
 
     .line 251
-    .local v5, finalView:Landroid/view/View;
+    .local v5, "finalView":Landroid/view/View;
     move-object/from16 v8, v21
 
     .line 252
-    .local v8, finalOverlayView:Landroid/view/View;
+    .local v8, "finalOverlayView":Landroid/view/View;
     move-object/from16 v6, v28
 
     .line 253
-    .local v6, finalViewToKeep:Landroid/view/View;
+    .local v6, "finalViewToKeep":Landroid/view/View;
     move-object/from16 v9, p1
 
     .line 254
-    .local v9, finalSceneRoot:Landroid/view/ViewGroup;
+    .local v9, "finalSceneRoot":Landroid/view/ViewGroup;
     new-instance v3, Landroid/transition/Fade$2;
 
     move-object/from16 v4, p0
@@ -629,8 +629,8 @@
     invoke-direct/range {v3 .. v9}, Landroid/transition/Fade$2;-><init>(Landroid/transition/Fade;Landroid/view/View;Landroid/view/View;ILandroid/view/View;Landroid/view/ViewGroup;)V
 
     .line 281
-    .local v3, endListener:Landroid/animation/AnimatorListenerAdapter;
-    const/high16 v4, 0x3f80
+    .local v3, "endListener":Landroid/animation/AnimatorListenerAdapter;
+    const/high16 v4, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
@@ -645,37 +645,37 @@
     goto/16 :goto_0
 
     .line 189
-    .end local v3           #endListener:Landroid/animation/AnimatorListenerAdapter;
-    .end local v5           #finalView:Landroid/view/View;
-    .end local v6           #finalViewToKeep:Landroid/view/View;
-    .end local v7           #finalVisibility:I
-    .end local v8           #finalOverlayView:Landroid/view/View;
-    .end local v9           #finalSceneRoot:Landroid/view/ViewGroup;
-    .end local v17           #endAlpha:F
-    .end local v18           #endView:Landroid/view/View;
-    .end local v20           #loc:[I
-    .end local v21           #overlayView:Landroid/view/View;
-    .end local v22           #screenX:I
-    .end local v23           #screenY:I
-    .end local v24           #startAlpha:F
-    .end local v26           #startView:Landroid/view/View;
-    .end local v28           #viewToKeep:Landroid/view/View;
+    .end local v3    # "endListener":Landroid/animation/AnimatorListenerAdapter;
+    .end local v5    # "finalView":Landroid/view/View;
+    .end local v6    # "finalViewToKeep":Landroid/view/View;
+    .end local v7    # "finalVisibility":I
+    .end local v8    # "finalOverlayView":Landroid/view/View;
+    .end local v9    # "finalSceneRoot":Landroid/view/ViewGroup;
+    .end local v17    # "endAlpha":F
+    .end local v18    # "endView":Landroid/view/View;
+    .end local v20    # "loc":[I
+    .end local v21    # "overlayView":Landroid/view/View;
+    .end local v22    # "screenX":I
+    .end local v23    # "screenY":I
+    .end local v24    # "startAlpha":F
+    .end local v26    # "startView":Landroid/view/View;
+    .end local v28    # "viewToKeep":Landroid/view/View;
     :cond_4
     const/16 v26, 0x0
 
     goto/16 :goto_1
 
     .line 190
-    .restart local v26       #startView:Landroid/view/View;
+    .restart local v26    # "startView":Landroid/view/View;
     :cond_5
     const/16 v18, 0x0
 
     goto/16 :goto_2
 
     .line 201
-    .restart local v18       #endView:Landroid/view/View;
-    .restart local v21       #overlayView:Landroid/view/View;
-    .restart local v28       #viewToKeep:Landroid/view/View;
+    .restart local v18    # "endView":Landroid/view/View;
+    .restart local v21    # "overlayView":Landroid/view/View;
+    .restart local v28    # "viewToKeep":Landroid/view/View;
     :cond_6
     if-eqz v26, :cond_3
 
@@ -721,13 +721,13 @@
     check-cast v25, Landroid/view/View;
 
     .line 211
-    .local v25, startParent:Landroid/view/View;
+    .local v25, "startParent":Landroid/view/View;
     invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getId()I
 
     move-result v19
 
     .line 212
-    .local v19, id:I
+    .local v19, "id":I
     const/4 v4, -0x1
 
     move/from16 v0, v19
@@ -758,8 +758,8 @@
     goto/16 :goto_3
 
     .line 222
-    .end local v19           #id:I
-    .end local v25           #startParent:Landroid/view/View;
+    .end local v19    # "id":I
+    .end local v25    # "startParent":Landroid/view/View;
     :cond_8
     const/4 v4, 0x4
 
@@ -801,7 +801,7 @@
     goto/16 :goto_3
 
     .line 283
-    .restart local v7       #finalVisibility:I
+    .restart local v7    # "finalVisibility":I
     :cond_b
     if-eqz v28, :cond_c
 
@@ -813,30 +813,30 @@
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 288
-    const/high16 v24, 0x3f80
+    const/high16 v24, 0x3f800000    # 1.0f
 
     .line 289
-    .restart local v24       #startAlpha:F
+    .restart local v24    # "startAlpha":F
     const/16 v17, 0x0
 
     .line 290
-    .restart local v17       #endAlpha:F
+    .restart local v17    # "endAlpha":F
     move-object/from16 v5, v27
 
     .line 291
-    .restart local v5       #finalView:Landroid/view/View;
+    .restart local v5    # "finalView":Landroid/view/View;
     move-object/from16 v8, v21
 
     .line 292
-    .restart local v8       #finalOverlayView:Landroid/view/View;
+    .restart local v8    # "finalOverlayView":Landroid/view/View;
     move-object/from16 v6, v28
 
     .line 293
-    .restart local v6       #finalViewToKeep:Landroid/view/View;
+    .restart local v6    # "finalViewToKeep":Landroid/view/View;
     move-object/from16 v9, p1
 
     .line 294
-    .restart local v9       #finalSceneRoot:Landroid/view/ViewGroup;
+    .restart local v9    # "finalSceneRoot":Landroid/view/ViewGroup;
     new-instance v3, Landroid/transition/Fade$3;
 
     move-object v10, v3
@@ -856,8 +856,8 @@
     invoke-direct/range {v10 .. v16}, Landroid/transition/Fade$3;-><init>(Landroid/transition/Fade;Landroid/view/View;ILandroid/view/View;Landroid/view/View;Landroid/view/ViewGroup;)V
 
     .line 337
-    .restart local v3       #endListener:Landroid/animation/AnimatorListenerAdapter;
-    const/high16 v4, 0x3f80
+    .restart local v3    # "endListener":Landroid/animation/AnimatorListenerAdapter;
+    const/high16 v4, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
@@ -872,13 +872,13 @@
     goto/16 :goto_0
 
     .line 339
-    .end local v3           #endListener:Landroid/animation/AnimatorListenerAdapter;
-    .end local v5           #finalView:Landroid/view/View;
-    .end local v6           #finalViewToKeep:Landroid/view/View;
-    .end local v8           #finalOverlayView:Landroid/view/View;
-    .end local v9           #finalSceneRoot:Landroid/view/ViewGroup;
-    .end local v17           #endAlpha:F
-    .end local v24           #startAlpha:F
+    .end local v3    # "endListener":Landroid/animation/AnimatorListenerAdapter;
+    .end local v5    # "finalView":Landroid/view/View;
+    .end local v6    # "finalViewToKeep":Landroid/view/View;
+    .end local v8    # "finalOverlayView":Landroid/view/View;
+    .end local v9    # "finalSceneRoot":Landroid/view/ViewGroup;
+    .end local v17    # "endAlpha":F
+    .end local v24    # "startAlpha":F
     :cond_c
     const/4 v4, 0x0
 

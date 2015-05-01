@@ -37,7 +37,7 @@
 
 .method public constructor <init>(Landroid/view/MotionEvent$PointerProperties;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/MotionEvent$PointerProperties;
 
     .prologue
     .line 3478
@@ -52,8 +52,8 @@
 
 .method static synthetic access$000(Landroid/view/MotionEvent$PointerProperties;Landroid/view/MotionEvent$PointerProperties;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/MotionEvent$PointerProperties;
+    .param p1, "x1"    # Landroid/view/MotionEvent$PointerProperties;
 
     .prologue
     .line 3465
@@ -66,17 +66,17 @@
 
 .method public static createArray(I)[Landroid/view/MotionEvent$PointerProperties;
     .locals 3
-    .parameter "size"
+    .param p0, "size"    # I
 
     .prologue
     .line 3484
     new-array v0, p0, [Landroid/view/MotionEvent$PointerProperties;
 
     .line 3485
-    .local v0, array:[Landroid/view/MotionEvent$PointerProperties;
+    .local v0, "array":[Landroid/view/MotionEvent$PointerProperties;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p0, :cond_0
 
@@ -99,7 +99,7 @@
 
 .method private equals(Landroid/view/MotionEvent$PointerProperties;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/MotionEvent$PointerProperties;
 
     .prologue
     .line 3534
@@ -150,7 +150,7 @@
 
 .method public copyFrom(Landroid/view/MotionEvent$PointerProperties;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/MotionEvent$PointerProperties;
 
     .prologue
     .line 3521
@@ -169,7 +169,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     .line 3527
@@ -180,7 +180,7 @@
     .line 3528
     check-cast p1, Landroid/view/MotionEvent$PointerProperties;
 
-    .end local p1
+    .end local p1    # "other":Ljava/lang/Object;
     invoke-direct {p0, p1}, Landroid/view/MotionEvent$PointerProperties;->equals(Landroid/view/MotionEvent$PointerProperties;)Z
 
     move-result v0
@@ -189,7 +189,7 @@
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "other":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 

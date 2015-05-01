@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountServiceListener;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 46
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 50
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/storage/IMountServiceListener;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/os/storage/IMountServiceListener$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/storage/IMountServiceListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -154,7 +154,7 @@
     move v0, v4
 
     .line 72
-    .local v0, connected:Z
+    .local v0, "connected":Z
     :goto_1
     invoke-virtual {p0, v0}, Landroid/os/storage/IMountServiceListener$Stub;->onUsbMassStorageConnectionChanged(Z)V
 
@@ -164,7 +164,7 @@
     goto :goto_0
 
     .line 71
-    .end local v0           #connected:Z
+    .end local v0    # "connected":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -182,19 +182,19 @@
     move-result-object v3
 
     .line 81
-    .local v3, path:Ljava/lang/String;
+    .local v3, "path":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 83
-    .local v2, oldState:Ljava/lang/String;
+    .local v2, "oldState":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 84
-    .local v1, newState:Ljava/lang/String;
+    .local v1, "newState":Ljava/lang/String;
     invoke-virtual {p0, v3, v2, v1}, Landroid/os/storage/IMountServiceListener$Stub;->onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 85

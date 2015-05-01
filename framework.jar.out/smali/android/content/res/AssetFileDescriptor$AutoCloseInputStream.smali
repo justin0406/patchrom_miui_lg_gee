@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetFileDescriptor;)V
     .locals 2
-    .parameter "fd"
+    .param p1, "fd"    # Landroid/content/res/AssetFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -108,7 +108,7 @@
 
 .method public mark(I)V
     .locals 4
-    .parameter "readlimit"
+    .param p1, "readlimit"    # I
 
     .prologue
     .line 257
@@ -178,13 +178,13 @@
     new-array v0, v4, [B
 
     .line 220
-    .local v0, buffer:[B
+    .local v0, "buffer":[B
     invoke-virtual {p0, v0, v3, v4}, Landroid/content/res/AssetFileDescriptor$AutoCloseInputStream;->read([BII)I
 
     move-result v1
 
     .line 221
-    .local v1, result:I
+    .local v1, "result":I
     if-ne v1, v2, :cond_0
 
     :goto_0
@@ -200,7 +200,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -222,9 +222,9 @@
 
 .method public read([BII)I
     .locals 5
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buffer"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -276,7 +276,7 @@
     move-result v0
 
     .line 230
-    .local v0, res:I
+    .local v0, "res":I
     if-ltz v0, :cond_0
 
     iget-wide v1, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseInputStream;->mRemaining:J
@@ -290,7 +290,7 @@
     goto :goto_0
 
     .line 234
-    .end local v0           #res:I
+    .end local v0    # "res":I
     :cond_3
     invoke-super {p0, p1, p2, p3}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;->read([BII)I
 
@@ -348,7 +348,7 @@
 
 .method public skip(J)J
     .locals 6
-    .parameter "count"
+    .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -396,7 +396,7 @@
     move-result-wide v0
 
     .line 248
-    .local v0, res:J
+    .local v0, "res":J
     cmp-long v2, v0, v4
 
     if-ltz v2, :cond_0
@@ -410,7 +410,7 @@
     goto :goto_0
 
     .line 252
-    .end local v0           #res:J
+    .end local v0    # "res":J
     :cond_3
     invoke-super {p0, p1, p2}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;->skip(J)J
 

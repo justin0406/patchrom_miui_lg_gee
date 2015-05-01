@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 555
@@ -41,8 +41,8 @@
 # virtual methods
 .method public acquireMulticastLock(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 5
-    .parameter "binder"
-    .parameter "tag"
+    .param p1, "binder"    # Landroid/os/IBinder;
+    .param p2, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,13 +56,13 @@
     move-result-object v0
 
     .line 1040
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1042
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -111,10 +111,10 @@
 
 .method public acquireWifiLock(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/WorkSource;)Z
     .locals 7
-    .parameter "lock"
-    .parameter "lockType"
-    .parameter "tag"
-    .parameter "ws"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "lockType"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -132,13 +132,13 @@
     move-result-object v0
 
     .line 942
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 945
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.wifi.IWifiManager"
 
@@ -189,7 +189,7 @@
     if-eqz v4, :cond_1
 
     .line 961
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -200,7 +200,7 @@
     return v2
 
     .line 954
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -231,7 +231,7 @@
 
 .method public addOrUpdateNetwork(Landroid/net/wifi/WifiConfiguration;)I
     .locals 6
-    .parameter "config"
+    .param p1, "config"    # Landroid/net/wifi/WifiConfiguration;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -245,13 +245,13 @@
     move-result-object v0
 
     .line 586
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 589
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -291,7 +291,7 @@
     move-result v2
 
     .line 602
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 603
@@ -301,7 +301,7 @@
     return v2
 
     .line 595
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -326,7 +326,7 @@
 
 .method public addToBlacklist(Ljava/lang/String;)V
     .locals 5
-    .parameter "bssid"
+    .param p1, "bssid"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -340,13 +340,13 @@
     move-result-object v0
 
     .line 1180
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1182
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -415,13 +415,13 @@
     move-result-object v0
 
     .line 1270
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1272
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -477,13 +477,13 @@
     move-result-object v0
 
     .line 1195
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1197
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -526,7 +526,7 @@
 
 .method public disableNetwork(I)Z
     .locals 6
-    .parameter "netId"
+    .param p1, "netId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -542,13 +542,13 @@
     move-result-object v0
 
     .line 647
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 650
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -581,7 +581,7 @@
     const/4 v2, 0x1
 
     .line 657
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -592,7 +592,7 @@
     return v2
 
     .line 657
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -619,13 +619,13 @@
     move-result-object v0
 
     .line 721
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 723
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -668,8 +668,8 @@
 
 .method public enableNetwork(IZ)Z
     .locals 7
-    .parameter "netId"
-    .parameter "disableOthers"
+    .param p1, "netId"    # I
+    .param p2, "disableOthers"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -687,13 +687,13 @@
     move-result-object v0
 
     .line 628
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 631
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.wifi.IWifiManager"
 
@@ -732,7 +732,7 @@
     if-eqz v4, :cond_1
 
     .line 639
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -742,7 +742,7 @@
     .line 642
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v4, v3
 
@@ -769,8 +769,8 @@
 
 .method public enableTdls(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "remoteIPAddress"
-    .parameter "enable"
+    .param p1, "remoteIPAddress"    # Ljava/lang/String;
+    .param p2, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -786,13 +786,13 @@
     move-result-object v0
 
     .line 1284
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1286
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -846,8 +846,8 @@
 
 .method public enableTdlsWithMacAddress(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "remoteMacAddress"
-    .parameter "enable"
+    .param p1, "remoteMacAddress"    # Ljava/lang/String;
+    .param p2, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -863,13 +863,13 @@
     move-result-object v0
 
     .line 1300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1302
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -923,7 +923,7 @@
 
 .method public getBatchedScanResults(Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "callingPackage"
+    .param p1, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -949,13 +949,13 @@
     move-result-object v0
 
     .line 1369
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1372
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -986,7 +986,7 @@
     move-result-object v2
 
     .line 1379
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/BatchedScanResult;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/BatchedScanResult;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1380
@@ -996,7 +996,7 @@
     return-object v2
 
     .line 1379
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/BatchedScanResult;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/BatchedScanResult;>;"
     :catchall_0
     move-exception v3
 
@@ -1023,13 +1023,13 @@
     move-result-object v0
 
     .line 1253
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1256
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1055,7 +1055,7 @@
     move-result-object v2
 
     .line 1262
-    .local v2, _result:Ljava/lang/String;
+    .local v2, "_result":Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1263
@@ -1065,7 +1065,7 @@
     return-object v2
 
     .line 1262
-    .end local v2           #_result:Ljava/lang/String;
+    .end local v2    # "_result":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -1102,13 +1102,13 @@
     move-result-object v0
 
     .line 569
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 572
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1136,7 +1136,7 @@
     move-result-object v2
 
     .line 578
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 579
@@ -1146,7 +1146,7 @@
     return-object v2
 
     .line 578
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     :catchall_0
     move-exception v3
 
@@ -1173,13 +1173,13 @@
     move-result-object v0
 
     .line 763
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 766
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1216,7 +1216,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 777
-    .local v2, _result:Landroid/net/wifi/WifiInfo;
+    .local v2, "_result":Landroid/net/wifi/WifiInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1227,15 +1227,15 @@
     return-object v2
 
     .line 773
-    .end local v2           #_result:Landroid/net/wifi/WifiInfo;
+    .end local v2    # "_result":Landroid/net/wifi/WifiInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/net/wifi/WifiInfo;
+    .restart local v2    # "_result":Landroid/net/wifi/WifiInfo;
     goto :goto_0
 
     .line 777
-    .end local v2           #_result:Landroid/net/wifi/WifiInfo;
+    .end local v2    # "_result":Landroid/net/wifi/WifiInfo;
     :catchall_0
     move-exception v3
 
@@ -1262,13 +1262,13 @@
     move-result-object v0
 
     .line 903
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 906
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1305,7 +1305,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 917
-    .local v2, _result:Landroid/net/DhcpInfo;
+    .local v2, "_result":Landroid/net/DhcpInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1316,15 +1316,15 @@
     return-object v2
 
     .line 913
-    .end local v2           #_result:Landroid/net/DhcpInfo;
+    .end local v2    # "_result":Landroid/net/DhcpInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/net/DhcpInfo;
+    .restart local v2    # "_result":Landroid/net/DhcpInfo;
     goto :goto_0
 
     .line 917
-    .end local v2           #_result:Landroid/net/DhcpInfo;
+    .end local v2    # "_result":Landroid/net/DhcpInfo;
     :catchall_0
     move-exception v3
 
@@ -1351,13 +1351,13 @@
     move-result-object v0
 
     .line 852
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 855
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1383,7 +1383,7 @@
     move-result v2
 
     .line 861
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 862
@@ -1393,7 +1393,7 @@
     return v2
 
     .line 861
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1417,7 +1417,7 @@
 
 .method public getScanResults(Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "callingPackage"
+    .param p1, "callingPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1443,13 +1443,13 @@
     move-result-object v0
 
     .line 703
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 706
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1480,7 +1480,7 @@
     move-result-object v2
 
     .line 713
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 714
@@ -1490,7 +1490,7 @@
     return-object v2
 
     .line 713
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     :catchall_0
     move-exception v3
 
@@ -1517,13 +1517,13 @@
     move-result-object v0
 
     .line 1109
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1112
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1560,7 +1560,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1123
-    .local v2, _result:Landroid/net/wifi/WifiConfiguration;
+    .local v2, "_result":Landroid/net/wifi/WifiConfiguration;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1571,15 +1571,15 @@
     return-object v2
 
     .line 1119
-    .end local v2           #_result:Landroid/net/wifi/WifiConfiguration;
+    .end local v2    # "_result":Landroid/net/wifi/WifiConfiguration;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/net/wifi/WifiConfiguration;
+    .restart local v2    # "_result":Landroid/net/wifi/WifiConfiguration;
     goto :goto_0
 
     .line 1123
-    .end local v2           #_result:Landroid/net/wifi/WifiConfiguration;
+    .end local v2    # "_result":Landroid/net/wifi/WifiConfiguration;
     :catchall_0
     move-exception v3
 
@@ -1606,13 +1606,13 @@
     move-result-object v0
 
     .line 1092
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1095
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1638,7 +1638,7 @@
     move-result v2
 
     .line 1101
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1102
@@ -1648,7 +1648,7 @@
     return v2
 
     .line 1101
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1675,13 +1675,13 @@
     move-result-object v0
 
     .line 803
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 806
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1707,7 +1707,7 @@
     move-result v2
 
     .line 812
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 813
@@ -1717,7 +1717,7 @@
     return v2
 
     .line 812
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1744,13 +1744,13 @@
     move-result-object v0
 
     .line 1209
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1212
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1787,7 +1787,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1223
-    .local v2, _result:Landroid/os/Messenger;
+    .local v2, "_result":Landroid/os/Messenger;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1798,15 +1798,15 @@
     return-object v2
 
     .line 1219
-    .end local v2           #_result:Landroid/os/Messenger;
+    .end local v2    # "_result":Landroid/os/Messenger;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Messenger;
+    .restart local v2    # "_result":Landroid/os/Messenger;
     goto :goto_0
 
     .line 1223
-    .end local v2           #_result:Landroid/os/Messenger;
+    .end local v2    # "_result":Landroid/os/Messenger;
     :catchall_0
     move-exception v3
 
@@ -1833,13 +1833,13 @@
     move-result-object v0
 
     .line 1231
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1234
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -1876,7 +1876,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1245
-    .local v2, _result:Landroid/os/Messenger;
+    .local v2, "_result":Landroid/os/Messenger;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1887,15 +1887,15 @@
     return-object v2
 
     .line 1241
-    .end local v2           #_result:Landroid/os/Messenger;
+    .end local v2    # "_result":Landroid/os/Messenger;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/Messenger;
+    .restart local v2    # "_result":Landroid/os/Messenger;
     goto :goto_0
 
     .line 1245
-    .end local v2           #_result:Landroid/os/Messenger;
+    .end local v2    # "_result":Landroid/os/Messenger;
     :catchall_0
     move-exception v3
 
@@ -1922,13 +1922,13 @@
     move-result-object v0
 
     .line 1009
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1011
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -1986,13 +1986,13 @@
     move-result-object v0
 
     .line 1387
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1390
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2022,7 +2022,7 @@
     const/4 v2, 0x1
 
     .line 1396
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2033,7 +2033,7 @@
     return v2
 
     .line 1396
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2062,13 +2062,13 @@
     move-result-object v0
 
     .line 869
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 872
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2098,7 +2098,7 @@
     const/4 v2, 0x1
 
     .line 878
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2109,7 +2109,7 @@
     return v2
 
     .line 878
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2138,13 +2138,13 @@
     move-result-object v0
 
     .line 1023
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1026
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2174,7 +2174,7 @@
     const/4 v2, 0x1
 
     .line 1032
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2185,7 +2185,7 @@
     return v2
 
     .line 1032
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2214,13 +2214,13 @@
     move-result-object v0
 
     .line 925
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 928
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2250,7 +2250,7 @@
     const/4 v2, 0x1
 
     .line 934
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2261,7 +2261,7 @@
     return v2
 
     .line 934
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2290,13 +2290,13 @@
     move-result-object v0
 
     .line 665
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 668
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2326,7 +2326,7 @@
     const/4 v2, 0x1
 
     .line 674
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2337,7 +2337,7 @@
     return v2
 
     .line 674
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2364,13 +2364,13 @@
     move-result-object v0
 
     .line 1404
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1406
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -2426,13 +2426,13 @@
     move-result-object v0
 
     .line 749
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 751
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -2488,13 +2488,13 @@
     move-result-object v0
 
     .line 735
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 737
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -2550,13 +2550,13 @@
     move-result-object v0
 
     .line 1056
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1058
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -2599,7 +2599,7 @@
 
 .method public releaseWifiLock(Landroid/os/IBinder;)Z
     .locals 6
-    .parameter "lock"
+    .param p1, "lock"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2615,13 +2615,13 @@
     move-result-object v0
 
     .line 991
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 994
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2654,7 +2654,7 @@
     const/4 v2, 0x1
 
     .line 1001
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2665,7 +2665,7 @@
     return v2
 
     .line 1001
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2679,7 +2679,7 @@
 
 .method public removeNetwork(I)Z
     .locals 6
-    .parameter "netId"
+    .param p1, "netId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2695,13 +2695,13 @@
     move-result-object v0
 
     .line 610
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 613
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2734,7 +2734,7 @@
     const/4 v2, 0x1
 
     .line 620
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2745,7 +2745,7 @@
     return v2
 
     .line 620
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2759,9 +2759,9 @@
 
 .method public requestBatchedScan(Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;Landroid/os/WorkSource;)Z
     .locals 7
-    .parameter "requested"
-    .parameter "binder"
-    .parameter "ws"
+    .param p1, "requested"    # Landroid/net/wifi/BatchedScanSettings;
+    .param p2, "binder"    # Landroid/os/IBinder;
+    .param p3, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2779,13 +2779,13 @@
     move-result-object v0
 
     .line 1316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1319
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.wifi.IWifiManager"
 
@@ -2844,7 +2844,7 @@
     if-eqz v4, :cond_2
 
     .line 1340
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2855,7 +2855,7 @@
     return v2
 
     .line 1325
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -2912,13 +2912,13 @@
     move-result-object v0
 
     .line 886
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 889
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -2948,7 +2948,7 @@
     const/4 v2, 0x1
 
     .line 895
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -2959,7 +2959,7 @@
     return v2
 
     .line 895
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -2973,8 +2973,8 @@
 
 .method public setCountryCode(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "country"
-    .parameter "persist"
+    .param p1, "country"    # Ljava/lang/String;
+    .param p2, "persist"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2990,13 +2990,13 @@
     move-result-object v0
 
     .line 820
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 822
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -3050,8 +3050,8 @@
 
 .method public setFrequencyBand(IZ)V
     .locals 5
-    .parameter "band"
-    .parameter "persist"
+    .param p1, "band"    # I
+    .param p2, "persist"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3067,13 +3067,13 @@
     move-result-object v0
 
     .line 836
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 838
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.net.wifi.IWifiManager"
 
@@ -3127,7 +3127,7 @@
 
 .method public setWifiApConfiguration(Landroid/net/wifi/WifiConfiguration;)V
     .locals 5
-    .parameter "wifiConfig"
+    .param p1, "wifiConfig"    # Landroid/net/wifi/WifiConfiguration;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3141,13 +3141,13 @@
     move-result-object v0
 
     .line 1131
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1133
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -3215,8 +3215,8 @@
 
 .method public setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)V
     .locals 5
-    .parameter "wifiConfig"
-    .parameter "enable"
+    .param p1, "wifiConfig"    # Landroid/net/wifi/WifiConfiguration;
+    .param p2, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3234,13 +3234,13 @@
     move-result-object v0
 
     .line 1070
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1072
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.wifi.IWifiManager"
 
@@ -3320,7 +3320,7 @@
 
 .method public setWifiEnabled(Z)Z
     .locals 7
-    .parameter "enable"
+    .param p1, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3338,13 +3338,13 @@
     move-result-object v0
 
     .line 785
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 788
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.net.wifi.IWifiManager"
 
@@ -3380,7 +3380,7 @@
     if-eqz v4, :cond_1
 
     .line 795
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -3390,7 +3390,7 @@
     .line 798
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v4, v3
 
@@ -3417,7 +3417,7 @@
 
 .method public startScan(Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "ws"
+    .param p1, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3431,13 +3431,13 @@
     move-result-object v0
 
     .line 682
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 684
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -3518,13 +3518,13 @@
     move-result-object v0
 
     .line 1152
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1154
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -3567,7 +3567,7 @@
 
 .method public stopBatchedScan(Landroid/net/wifi/BatchedScanSettings;)V
     .locals 5
-    .parameter "requested"
+    .param p1, "requested"    # Landroid/net/wifi/BatchedScanSettings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3581,13 +3581,13 @@
     move-result-object v0
 
     .line 1348
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1350
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -3668,13 +3668,13 @@
     move-result-object v0
 
     .line 1166
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 1168
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 
@@ -3717,8 +3717,8 @@
 
 .method public updateWifiLockWorkSource(Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "lock"
-    .parameter "ws"
+    .param p1, "lock"    # Landroid/os/IBinder;
+    .param p2, "ws"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3732,13 +3732,13 @@
     move-result-object v0
 
     .line 969
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 971
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.net.wifi.IWifiManager"
 

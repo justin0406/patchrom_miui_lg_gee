@@ -66,7 +66,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "userHandle"
+    .param p1, "userHandle"    # I
 
     .prologue
     const/4 v0, 0x0

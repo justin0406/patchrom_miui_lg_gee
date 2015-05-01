@@ -14,9 +14,9 @@
 # direct methods
 .method public constructor <init>(FFJ)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
-    .parameter "t"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "t"    # J
 
     .prologue
     .line 32
@@ -37,7 +37,7 @@
 
 .method static deserialize(Ljava/io/DataInputStream;)Landroid/gesture/GesturePoint;
     .locals 5
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,19 +51,19 @@
     move-result v2
 
     .line 41
-    .local v2, x:F
+    .local v2, "x":F
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readFloat()F
 
     move-result v3
 
     .line 43
-    .local v3, y:F
+    .local v3, "y":F
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readLong()J
 
     move-result-wide v0
 
     .line 44
-    .local v0, timeStamp:J
+    .local v0, "timeStamp":J
     new-instance v4, Landroid/gesture/GesturePoint;
 
     invoke-direct {v4, v2, v3, v0, v1}, Landroid/gesture/GesturePoint;-><init>(FFJ)V

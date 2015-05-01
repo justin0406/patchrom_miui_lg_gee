@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 730
+    .line 732
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,17 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 733
+    .line 735
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 735
-    .local v0, action:Ljava/lang/String;
+    .line 737
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -55,20 +54,20 @@
 
     if-eqz v1, :cond_1
 
-    .line 736
+    .line 738
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v2, 0x1
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
+    # invokes: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
     invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$100(Landroid/net/wifi/WifiStateMachine;Z)V
 
-    .line 742
+    .line 744
     :cond_0
     :goto_0
     return-void
 
-    .line 737
+    .line 739
     :cond_1
     const-string v1, "android.intent.action.SCREEN_OFF"
 
@@ -78,17 +77,17 @@
 
     if-eqz v1, :cond_2
 
-    .line 738
+    .line 740
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v2, 0x0
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
+    # invokes: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
     invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$100(Landroid/net/wifi/WifiStateMachine;Z)V
 
     goto :goto_0
 
-    .line 739
+    .line 741
     :cond_2
     const-string v1, "com.android.server.WifiManager.action.REFRESH_BATCHED_SCAN"
 
@@ -98,10 +97,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 740
+    .line 742
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->startNextBatchedScanAsync()V
+    # invokes: Landroid/net/wifi/WifiStateMachine;->startNextBatchedScanAsync()V
     invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$200(Landroid/net/wifi/WifiStateMachine;)V
 
     goto :goto_0

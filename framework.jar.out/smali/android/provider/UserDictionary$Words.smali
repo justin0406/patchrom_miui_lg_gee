@@ -24,7 +24,7 @@
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/vnd.google.userword"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "frequency DESC"
 
@@ -78,10 +78,10 @@
 
 .method public static addWord(Landroid/content/Context;Ljava/lang/String;II)V
     .locals 2
-    .parameter "context"
-    .parameter "word"
-    .parameter "frequency"
-    .parameter "localeType"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "word"    # Ljava/lang/String;
+    .param p2, "frequency"    # I
+    .param p3, "localeType"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -107,7 +107,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, locale:Ljava/util/Locale;
+    .local v0, "locale":Ljava/util/Locale;
     :goto_1
     const/4 v1, 0x0
 
@@ -116,21 +116,21 @@
     goto :goto_0
 
     .line 141
-    .end local v0           #locale:Ljava/util/Locale;
+    .end local v0    # "locale":Ljava/util/Locale;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #locale:Ljava/util/Locale;
+    .restart local v0    # "locale":Ljava/util/Locale;
     goto :goto_1
 .end method
 
 .method public static addWord(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;Ljava/util/Locale;)V
     .locals 6
-    .parameter "context"
-    .parameter "word"
-    .parameter "frequency"
-    .parameter "shortcut"
-    .parameter "locale"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "word"    # Ljava/lang/String;
+    .param p2, "frequency"    # I
+    .param p3, "shortcut"    # Ljava/lang/String;
+    .param p4, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 160
@@ -139,7 +139,7 @@
     move-result-object v1
 
     .line 162
-    .local v1, resolver:Landroid/content/ContentResolver;
+    .local v1, "resolver":Landroid/content/ContentResolver;
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
@@ -169,7 +169,7 @@
     const/4 v0, 0x5
 
     .line 170
-    .local v0, COLUMN_COUNT:I
+    .local v0, "COLUMN_COUNT":I
     new-instance v3, Landroid/content/ContentValues;
 
     const/4 v4, 0x5
@@ -177,7 +177,7 @@
     invoke-direct {v3, v4}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 172
-    .local v3, values:Landroid/content/ContentValues;
+    .local v3, "values":Landroid/content/ContentValues;
     const-string/jumbo v4, "word"
 
     invoke-virtual {v3, v4, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -225,11 +225,11 @@
     move-result-object v2
 
     .line 181
-    .local v2, result:Landroid/net/Uri;
+    .local v2, "result":Landroid/net/Uri;
     goto :goto_0
 
     .line 174
-    .end local v2           #result:Landroid/net/Uri;
+    .end local v2    # "result":Landroid/net/Uri;
     :cond_3
     invoke-virtual {p4}, Ljava/util/Locale;->toString()Ljava/lang/String;
 

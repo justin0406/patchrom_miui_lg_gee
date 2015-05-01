@@ -31,8 +31,8 @@
 # virtual methods
 .method public onCreateControllerDialog(Landroid/content/Context;Landroid/os/Bundle;)Lcom/android/internal/app/MediaRouteControllerDialog;
     .locals 2
-    .parameter "context"
-    .parameter "savedInstanceState"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 53
@@ -49,7 +49,7 @@
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 1
-    .parameter "savedInstanceState"
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
     .line 58

@@ -10,8 +10,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/google/android/util/SmileyResources;)V
     .locals 8
-    .parameter "text"
-    .parameter "res"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "res"    # Lcom/google/android/util/SmileyResources;
 
     .prologue
     const/4 v3, 0x0
@@ -54,7 +54,7 @@
 
 .method public getSpannableString(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 11
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 56
@@ -63,7 +63,7 @@
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     .line 58
-    .local v0, builder:Landroid/text/SpannableStringBuilder;
+    .local v0, "builder":Landroid/text/SpannableStringBuilder;
     invoke-virtual {p0}, Lcom/google/android/util/SmileyParser;->getPartCount()I
 
     move-result v8
@@ -74,12 +74,12 @@
     const-string v0, ""
 
     .line 80
-    .end local v0           #builder:Landroid/text/SpannableStringBuilder;
+    .end local v0    # "builder":Landroid/text/SpannableStringBuilder;
     :cond_0
     return-object v0
 
     .line 63
-    .restart local v0       #builder:Landroid/text/SpannableStringBuilder;
+    .restart local v0    # "builder":Landroid/text/SpannableStringBuilder;
     :cond_1
     const/4 v8, 0x0
 
@@ -88,22 +88,22 @@
     move-result-object v3
 
     .line 64
-    .local v3, part:Lcom/google/android/util/AbstractMessageParser$Part;
+    .local v3, "part":Lcom/google/android/util/AbstractMessageParser$Part;
     invoke-virtual {v3}, Lcom/google/android/util/AbstractMessageParser$Part;->getTokens()Ljava/util/ArrayList;
 
     move-result-object v7
 
     .line 65
-    .local v7, tokens:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/google/android/util/AbstractMessageParser$Token;>;"
+    .local v7, "tokens":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/util/AbstractMessageParser$Token;>;"
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     .line 66
-    .local v2, len:I
+    .local v2, "len":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
@@ -115,13 +115,13 @@
     check-cast v6, Lcom/google/android/util/AbstractMessageParser$Token;
 
     .line 68
-    .local v6, token:Lcom/google/android/util/AbstractMessageParser$Token;
+    .local v6, "token":Lcom/google/android/util/AbstractMessageParser$Token;
     invoke-virtual {v0}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v5
 
     .line 69
-    .local v5, start:I
+    .local v5, "start":I
     invoke-virtual {v6}, Lcom/google/android/util/AbstractMessageParser$Token;->getRawText()Ljava/lang/String;
 
     move-result-object v8
@@ -149,7 +149,7 @@
     move-result v4
 
     .line 72
-    .local v4, resid:I
+    .local v4, "resid":I
     const/4 v8, -0x1
 
     if-eq v4, v8, :cond_2
@@ -168,7 +168,7 @@
     invoke-virtual {v0, v8, v5, v9, v10}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
     .line 66
-    .end local v4           #resid:I
+    .end local v4    # "resid":I
     :cond_2
     add-int/lit8 v1, v1, 0x1
 

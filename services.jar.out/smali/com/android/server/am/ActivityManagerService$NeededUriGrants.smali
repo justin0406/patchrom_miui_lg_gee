@@ -34,9 +34,9 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .parameter "targetPkg"
-    .parameter "targetUid"
-    .parameter "flags"
+    .param p1, "targetPkg"    # Ljava/lang/String;
+    .param p2, "targetUid"    # I
+    .param p3, "flags"    # I
 
     .prologue
     .line 6102

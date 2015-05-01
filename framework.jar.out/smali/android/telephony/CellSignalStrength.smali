@@ -12,7 +12,7 @@
 
 .field public static final SIGNAL_STRENGTH_MODERATE:I = 0x2
 
-.field public static final SIGNAL_STRENGTH_NAMES:[Ljava/lang/String; = null
+.field public static final SIGNAL_STRENGTH_NAMES:[Ljava/lang/String;
 
 .field public static final SIGNAL_STRENGTH_NONE_OR_UNKNOWN:I = 0x0
 

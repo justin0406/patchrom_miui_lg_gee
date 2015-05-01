@@ -39,7 +39,7 @@
 
 .method public constructor <init>(Ljava/io/File;)V
     .locals 2
-    .parameter "procRoot"
+    .param p1, "procRoot"    # Ljava/io/File;
 
     .prologue
     .line 60
@@ -78,8 +78,8 @@
 
 .method public static javaReadNetworkStatsDetail(Ljava/io/File;I)Landroid/net/NetworkStats;
     .locals 11
-    .parameter "detailPath"
-    .parameter "limitUid"
+    .param p0, "detailPath"    # Ljava/io/File;
+    .param p1, "limitUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -93,7 +93,7 @@
     move-result-object v6
 
     .line 196
-    .local v6, savedPolicy:Landroid/os/StrictMode$ThreadPolicy;
+    .local v6, "savedPolicy":Landroid/os/StrictMode$ThreadPolicy;
     new-instance v7, Landroid/net/NetworkStats;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -105,25 +105,25 @@
     invoke-direct {v7, v8, v9, v10}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 197
-    .local v7, stats:Landroid/net/NetworkStats;
+    .local v7, "stats":Landroid/net/NetworkStats;
     new-instance v1, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v1}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 199
-    .local v1, entry:Landroid/net/NetworkStats$Entry;
+    .local v1, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v2, 0x1
 
     .line 200
-    .local v2, idx:I
+    .local v2, "idx":I
     const/4 v3, 0x1
 
     .line 202
-    .local v3, lastIdx:I
+    .local v3, "lastIdx":I
     const/4 v4, 0x0
 
     .line 205
-    .local v4, reader:Lcom/android/internal/util/ProcFileReader;
+    .local v4, "reader":Lcom/android/internal/util/ProcFileReader;
     :try_start_0
     new-instance v5, Lcom/android/internal/util/ProcFileReader;
 
@@ -133,13 +133,13 @@
 
     invoke-direct {v5, v8}, Lcom/android/internal/util/ProcFileReader;-><init>(Ljava/io/InputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 206
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v5, reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v5, "reader":Lcom/android/internal/util/ProcFileReader;
     :try_start_1
     invoke-virtual {v5}, Lcom/android/internal/util/ProcFileReader;->finishLine()V
 
@@ -196,9 +196,9 @@
 
     throw v8
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 231
     :catch_0
@@ -207,9 +207,9 @@
     move-object v4, v5
 
     .line 232
-    .end local v5           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v0, e:Ljava/lang/NullPointerException;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v5    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v0, "e":Ljava/lang/NullPointerException;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     :goto_1
     :try_start_2
     new-instance v8, Ljava/net/ProtocolException;
@@ -239,7 +239,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 236
-    .end local v0           #e:Ljava/lang/NullPointerException;
+    .end local v0    # "e":Ljava/lang/NullPointerException;
     :catchall_0
     move-exception v8
 
@@ -252,8 +252,8 @@
     throw v8
 
     .line 214
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v5       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v5    # "reader":Lcom/android/internal/util/ProcFileReader;
     :cond_0
     move v3, v2
 
@@ -335,9 +335,9 @@
     :cond_2
     invoke-virtual {v5}, Lcom/android/internal/util/ProcFileReader;->finishLine()V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
     .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     goto/16 :goto_0
 
@@ -348,9 +348,9 @@
     move-object v4, v5
 
     .line 234
-    .end local v5           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v0, e:Ljava/lang/NumberFormatException;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v5    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v0, "e":Ljava/lang/NumberFormatException;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     :goto_3
     :try_start_4
     new-instance v8, Ljava/net/ProtocolException;
@@ -380,9 +380,9 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 236
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v5       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v5    # "reader":Lcom/android/internal/util/ProcFileReader;
     :cond_3
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
@@ -398,8 +398,8 @@
 
     move-object v4, v5
 
-    .end local v5           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v5    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     goto :goto_2
 
     .line 233
@@ -422,8 +422,8 @@
 # virtual methods
 .method public assertEquals(Landroid/net/NetworkStats;Landroid/net/NetworkStats;)V
     .locals 6
-    .parameter "expected"
-    .parameter "actual"
+    .param p1, "expected"    # Landroid/net/NetworkStats;
+    .param p2, "actual"    # Landroid/net/NetworkStats;
 
     .prologue
     .line 244
@@ -485,14 +485,14 @@
     const/4 v1, 0x0
 
     .line 250
-    .local v1, expectedRow:Landroid/net/NetworkStats$Entry;
+    .local v1, "expectedRow":Landroid/net/NetworkStats$Entry;
     const/4 v0, 0x0
 
     .line 251
-    .local v0, actualRow:Landroid/net/NetworkStats$Entry;
+    .local v0, "actualRow":Landroid/net/NetworkStats$Entry;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     invoke-virtual {p1}, Landroid/net/NetworkStats;->size()I
 
@@ -594,7 +594,7 @@
 
 .method public readNetworkStatsDetail(I)Landroid/net/NetworkStats;
     .locals 4
-    .parameter "limitUid"
+    .param p1, "limitUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -614,7 +614,7 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 174
-    .local v0, stats:Landroid/net/NetworkStats;
+    .local v0, "stats":Landroid/net/NetworkStats;
     iget-object v1, p0, Lcom/android/internal/net/NetworkStatsFactory;->mStatsXtUid:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -658,7 +658,7 @@
     move-result-object v5
 
     .line 77
-    .local v5, savedPolicy:Landroid/os/StrictMode$ThreadPolicy;
+    .local v5, "savedPolicy":Landroid/os/StrictMode$ThreadPolicy;
     new-instance v6, Landroid/net/NetworkStats;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -670,17 +670,17 @@
     invoke-direct {v6, v8, v9, v10}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 78
-    .local v6, stats:Landroid/net/NetworkStats;
+    .local v6, "stats":Landroid/net/NetworkStats;
     new-instance v2, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v2}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 80
-    .local v2, entry:Landroid/net/NetworkStats$Entry;
+    .local v2, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v3, 0x0
 
     .line 82
-    .local v3, reader:Lcom/android/internal/util/ProcFileReader;
+    .local v3, "reader":Lcom/android/internal/util/ProcFileReader;
     :try_start_0
     new-instance v4, Lcom/android/internal/util/ProcFileReader;
 
@@ -692,13 +692,13 @@
 
     invoke-direct {v4, v8}, Lcom/android/internal/util/ProcFileReader;-><init>(Ljava/io/InputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 84
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v4, reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v4, "reader":Lcom/android/internal/util/ProcFileReader;
     :goto_0
     :try_start_1
     invoke-virtual {v4}, Lcom/android/internal/util/ProcFileReader;->hasMoreData()Z
@@ -739,7 +739,7 @@
     const/4 v0, 0x1
 
     .line 93
-    .local v0, active:Z
+    .local v0, "active":Z
     :goto_1
     invoke-virtual {v4}, Lcom/android/internal/util/ProcFileReader;->nextLong()J
 
@@ -822,23 +822,23 @@
     .line 107
     invoke-virtual {v4}, Lcom/android/internal/util/ProcFileReader;->finishLine()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
     .line 109
-    .end local v0           #active:Z
+    .end local v0    # "active":Z
     :catch_0
     move-exception v1
 
     move-object v3, v4
 
     .line 110
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v1, e:Ljava/lang/NullPointerException;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v1, "e":Ljava/lang/NullPointerException;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     :goto_2
     :try_start_2
     new-instance v7, Ljava/net/ProtocolException;
@@ -852,7 +852,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 114
-    .end local v1           #e:Ljava/lang/NullPointerException;
+    .end local v1    # "e":Ljava/lang/NullPointerException;
     :catchall_0
     move-exception v7
 
@@ -864,8 +864,8 @@
 
     throw v7
 
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     :cond_1
     move v0, v7
 
@@ -883,13 +883,13 @@
     return-object v6
 
     .line 111
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catch_1
     move-exception v1
 
     .line 112
-    .local v1, e:Ljava/lang/NumberFormatException;
+    .local v1, "e":Ljava/lang/NumberFormatException;
     :goto_4
     :try_start_3
     new-instance v7, Ljava/net/ProtocolException;
@@ -903,28 +903,28 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 114
-    .end local v1           #e:Ljava/lang/NumberFormatException;
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v1    # "e":Ljava/lang/NumberFormatException;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catchall_1
     move-exception v7
 
     move-object v3, v4
 
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     goto :goto_3
 
     .line 111
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v4       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catch_2
     move-exception v1
 
     move-object v3, v4
 
-    .end local v4           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v4    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     goto :goto_4
 
     .line 109
@@ -949,7 +949,7 @@
     move-result-object v4
 
     .line 131
-    .local v4, savedPolicy:Landroid/os/StrictMode$ThreadPolicy;
+    .local v4, "savedPolicy":Landroid/os/StrictMode$ThreadPolicy;
     iget-object v6, p0, Lcom/android/internal/net/NetworkStatsFactory;->mStatsXtIfaceFmt:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
@@ -977,17 +977,17 @@
     invoke-direct {v5, v6, v7, v8}, Landroid/net/NetworkStats;-><init>(JI)V
 
     .line 134
-    .local v5, stats:Landroid/net/NetworkStats;
+    .local v5, "stats":Landroid/net/NetworkStats;
     new-instance v1, Landroid/net/NetworkStats$Entry;
 
     invoke-direct {v1}, Landroid/net/NetworkStats$Entry;-><init>()V
 
     .line 136
-    .local v1, entry:Landroid/net/NetworkStats$Entry;
+    .local v1, "entry":Landroid/net/NetworkStats$Entry;
     const/4 v2, 0x0
 
     .line 139
-    .local v2, reader:Lcom/android/internal/util/ProcFileReader;
+    .local v2, "reader":Lcom/android/internal/util/ProcFileReader;
     :try_start_0
     new-instance v3, Lcom/android/internal/util/ProcFileReader;
 
@@ -999,13 +999,13 @@
 
     invoke-direct {v3, v6}, Lcom/android/internal/util/ProcFileReader;-><init>(Ljava/io/InputStream;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 140
-    .end local v2           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v3, reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v3, "reader":Lcom/android/internal/util/ProcFileReader;
     :try_start_1
     invoke-virtual {v3}, Lcom/android/internal/util/ProcFileReader;->finishLine()V
 
@@ -1073,9 +1073,9 @@
     .line 154
     invoke-virtual {v3}, Lcom/android/internal/util/ProcFileReader;->finishLine()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_1
 
@@ -1086,9 +1086,9 @@
     move-object v2, v3
 
     .line 157
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .local v0, e:Ljava/lang/NullPointerException;
-    .restart local v2       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .local v0, "e":Ljava/lang/NullPointerException;
+    .restart local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
     :goto_2
     :try_start_2
     new-instance v6, Ljava/net/ProtocolException;
@@ -1102,7 +1102,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 161
-    .end local v0           #e:Ljava/lang/NullPointerException;
+    .end local v0    # "e":Ljava/lang/NullPointerException;
     :catchall_0
     move-exception v6
 
@@ -1115,8 +1115,8 @@
     throw v6
 
     .line 161
-    .end local v2           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     :cond_1
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
@@ -1126,13 +1126,13 @@
     goto :goto_0
 
     .line 158
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v2       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catch_1
     move-exception v0
 
     .line 159
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     :goto_4
     :try_start_3
     new-instance v6, Ljava/net/ProtocolException;
@@ -1146,28 +1146,28 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 161
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    .end local v2           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
+    .end local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catchall_1
     move-exception v6
 
     move-object v2, v3
 
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v2       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
     goto :goto_3
 
     .line 158
-    .end local v2           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v3       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
     :catch_2
     move-exception v0
 
     move-object v2, v3
 
-    .end local v3           #reader:Lcom/android/internal/util/ProcFileReader;
-    .restart local v2       #reader:Lcom/android/internal/util/ProcFileReader;
+    .end local v3    # "reader":Lcom/android/internal/util/ProcFileReader;
+    .restart local v2    # "reader":Lcom/android/internal/util/ProcFileReader;
     goto :goto_4
 
     .line 156

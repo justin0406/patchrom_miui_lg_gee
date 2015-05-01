@@ -64,7 +64,7 @@
 
 .method static synthetic access$200(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/AudioPlaybackHandler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -75,7 +75,7 @@
 
 .method static synthetic access$300(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$CallbackMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -86,7 +86,7 @@
 
 .method static synthetic access$400(Landroid/speech/tts/TextToSpeechService;)[Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -99,7 +99,7 @@
 
 .method static synthetic access$500(Landroid/speech/tts/TextToSpeechService;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -110,7 +110,7 @@
 
 .method static synthetic access$600(Landroid/speech/tts/TextToSpeechService;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -123,7 +123,7 @@
 
 .method static synthetic access$700(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$SynthHandler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
     .line 74
@@ -150,8 +150,8 @@
 
 .method private getSecureSettingInt(Ljava/lang/String;I)I
     .locals 1
-    .parameter "name"
-    .parameter "defaultValue"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 228
@@ -180,7 +180,7 @@
     move-result-object v0
 
     .line 224
-    .local v0, locale:Ljava/lang/String;
+    .local v0, "locale":Ljava/lang/String;
     invoke-static {v0}, Landroid/speech/tts/TtsEngines;->parseLocalePref(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
@@ -192,7 +192,7 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 784
@@ -234,7 +234,7 @@
     invoke-direct {v1, p0}, Landroid/speech/tts/TextToSpeechService$SynthThread;-><init>(Landroid/speech/tts/TextToSpeechService;)V
 
     .line 98
-    .local v1, synthThread:Landroid/speech/tts/TextToSpeechService$SynthThread;
+    .local v1, "synthThread":Landroid/speech/tts/TextToSpeechService$SynthThread;
     invoke-virtual {v1}, Landroid/speech/tts/TextToSpeechService$SynthThread;->start()V
 
     .line 99
@@ -291,7 +291,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, defaultLocale:[Ljava/lang/String;
+    .local v0, "defaultLocale":[Ljava/lang/String;
     const/4 v2, 0x0
 
     aget-object v2, v0, v2
@@ -338,9 +338,9 @@
 
 .method protected onGetFeaturesForLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;
     .locals 1
-    .parameter "lang"
-    .parameter "country"
-    .parameter "variant"
+    .param p1, "lang"    # Ljava/lang/String;
+    .param p2, "country"    # Ljava/lang/String;
+    .param p3, "variant"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

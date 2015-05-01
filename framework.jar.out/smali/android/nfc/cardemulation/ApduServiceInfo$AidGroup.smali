@@ -64,8 +64,8 @@
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "category"
-    .parameter "description"
+    .param p1, "category"    # Ljava/lang/String;
+    .param p2, "description"    # Ljava/lang/String;
 
     .prologue
     .line 381
@@ -90,9 +90,8 @@
 
 .method constructor <init>(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "category"
-    .parameter "description"
+    .param p2, "category"    # Ljava/lang/String;
+    .param p3, "description"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +107,7 @@
 
     .prologue
     .line 375
-    .local p1, aids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p1, "aids":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 376
@@ -213,14 +212,14 @@
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 399
-    .local v2, out:Ljava/lang/StringBuilder;
+    .local v2, "out":Ljava/lang/StringBuilder;
     iget-object v3, p0, Landroid/nfc/cardemulation/ApduServiceInfo$AidGroup;->aids:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -235,7 +234,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 400
-    .local v0, aid:Ljava/lang/String;
+    .local v0, "aid":Ljava/lang/String;
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 401
@@ -246,7 +245,7 @@
     goto :goto_0
 
     .line 403
-    .end local v0           #aid:Ljava/lang/String;
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -257,8 +256,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 413

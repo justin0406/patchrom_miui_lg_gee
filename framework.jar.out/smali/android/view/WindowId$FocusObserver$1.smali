@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/WindowId$FocusObserver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 48
@@ -36,7 +35,7 @@
 # virtual methods
 .method public focusGained(Landroid/os/IBinder;)V
     .locals 4
-    .parameter "inputToken"
+    .param p1, "inputToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 53
@@ -59,7 +58,7 @@
     check-cast v0, Landroid/view/WindowId;
 
     .line 55
-    .local v0, token:Landroid/view/WindowId;
+    .local v0, "token":Landroid/view/WindowId;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -93,7 +92,7 @@
     return-void
 
     .line 55
-    .end local v0           #token:Landroid/view/WindowId;
+    .end local v0    # "token":Landroid/view/WindowId;
     :catchall_0
     move-exception v1
 
@@ -105,7 +104,7 @@
     throw v1
 
     .line 59
-    .restart local v0       #token:Landroid/view/WindowId;
+    .restart local v0    # "token":Landroid/view/WindowId;
     :cond_0
     iget-object v1, p0, Landroid/view/WindowId$FocusObserver$1;->this$0:Landroid/view/WindowId$FocusObserver;
 
@@ -116,7 +115,7 @@
 
 .method public focusLost(Landroid/os/IBinder;)V
     .locals 4
-    .parameter "inputToken"
+    .param p1, "inputToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 66
@@ -139,7 +138,7 @@
     check-cast v0, Landroid/view/WindowId;
 
     .line 68
-    .local v0, token:Landroid/view/WindowId;
+    .local v0, "token":Landroid/view/WindowId;
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -173,7 +172,7 @@
     return-void
 
     .line 68
-    .end local v0           #token:Landroid/view/WindowId;
+    .end local v0    # "token":Landroid/view/WindowId;
     :catchall_0
     move-exception v1
 
@@ -185,7 +184,7 @@
     throw v1
 
     .line 72
-    .restart local v0       #token:Landroid/view/WindowId;
+    .restart local v0    # "token":Landroid/view/WindowId;
     :cond_0
     iget-object v1, p0, Landroid/view/WindowId$FocusObserver$1;->this$0:Landroid/view/WindowId$FocusObserver;
 

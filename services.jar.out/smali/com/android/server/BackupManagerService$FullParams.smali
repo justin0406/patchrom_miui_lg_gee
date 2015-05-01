@@ -31,15 +31,14 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;)V
     .locals 2
-    .parameter
 
     .prologue
-    .line 386
+    .line 391
     iput-object p1, p0, Lcom/android/server/BackupManagerService$FullParams;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 387
+    .line 392
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -48,6 +47,6 @@
 
     iput-object v0, p0, Lcom/android/server/BackupManagerService$FullParams;->latch:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 388
+    .line 393
     return-void
 .end method

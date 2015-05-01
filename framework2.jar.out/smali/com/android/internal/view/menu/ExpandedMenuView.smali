@@ -3,9 +3,9 @@
 .source "ExpandedMenuView.java"
 
 # interfaces
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 .implements Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
 .implements Lcom/android/internal/view/menu/MenuView;
-.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # instance fields
@@ -17,8 +17,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -34,7 +34,7 @@
     move-result-object v0
 
     .line 48
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
@@ -65,7 +65,7 @@
 
 .method public initialize(Lcom/android/internal/view/menu/MenuBuilder;)V
     .locals 0
-    .parameter "menu"
+    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
     .line 55
@@ -77,7 +77,7 @@
 
 .method public invokeItem(Lcom/android/internal/view/menu/MenuItemImpl;)Z
     .locals 2
-    .parameter "item"
+    .param p1, "item"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
     .prologue
     .line 67
@@ -110,10 +110,10 @@
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
-    .parameter "parent"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "parent"    # Landroid/widget/AdapterView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 71

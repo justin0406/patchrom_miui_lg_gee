@@ -48,8 +48,8 @@
 
 .method public constructor <init>(Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;)V
     .locals 1
-    .parameter "compatInfo"
-    .parameter "token"
+    .param p1, "compatInfo"    # Landroid/content/res/CompatibilityInfo;
+    .param p2, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 44
@@ -72,7 +72,7 @@
 
 .method public constructor <init>(Landroid/os/IBinder;)V
     .locals 1
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 36
@@ -92,7 +92,7 @@
 
 .method public constructor <init>(Landroid/view/DisplayAdjustments;)V
     .locals 2
-    .parameter "daj"
+    .param p1, "daj"    # Landroid/view/DisplayAdjustments;
 
     .prologue
     .line 41
@@ -114,7 +114,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
@@ -136,7 +136,7 @@
     check-cast v0, Landroid/view/DisplayAdjustments;
 
     .line 94
-    .local v0, daj:Landroid/view/DisplayAdjustments;
+    .local v0, "daj":Landroid/view/DisplayAdjustments;
     iget-object v2, v0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     iget-object v3, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
@@ -190,7 +190,7 @@
     const/16 v0, 0x11
 
     .line 81
-    .local v0, hash:I
+    .local v0, "hash":I
     iget-object v1, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->hashCode()I
@@ -205,7 +205,7 @@
 
 .method public setActivityToken(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 67
@@ -232,7 +232,7 @@
 
 .method public setCompatibilityInfo(Landroid/content/res/CompatibilityInfo;)V
     .locals 2
-    .parameter "compatInfo"
+    .param p1, "compatInfo"    # Landroid/content/res/CompatibilityInfo;
 
     .prologue
     .line 50

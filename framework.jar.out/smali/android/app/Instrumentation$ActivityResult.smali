@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(ILandroid/content/Intent;)V
     .locals 0
-    .parameter "resultCode"
-    .parameter "resultData"
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/content/Intent;
 
     .prologue
     .line 1330

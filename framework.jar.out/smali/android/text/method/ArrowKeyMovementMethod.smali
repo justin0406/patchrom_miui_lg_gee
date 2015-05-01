@@ -39,8 +39,8 @@
 
 .method private static getCurrentLineTop(Landroid/text/Spannable;Landroid/text/Layout;)I
     .locals 1
-    .parameter "buffer"
-    .parameter "layout"
+    .param p0, "buffer"    # Landroid/text/Spannable;
+    .param p1, "layout"    # Landroid/text/Layout;
 
     .prologue
     .line 39
@@ -84,7 +84,7 @@
 
 .method private static getPageHeight(Landroid/widget/TextView;)I
     .locals 2
-    .parameter "widget"
+    .param p0, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 46
@@ -93,7 +93,7 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     .line 47
-    .local v0, rect:Landroid/graphics/Rect;
+    .local v0, "rect":Landroid/graphics/Rect;
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
 
     move-result v1
@@ -115,7 +115,7 @@
 
 .method private static isSelecting(Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "buffer"
+    .param p0, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     const/4 v0, 0x1
@@ -149,8 +149,8 @@
 # virtual methods
 .method protected bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 168
@@ -196,8 +196,8 @@
 
 .method protected down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 100
@@ -206,7 +206,7 @@
     move-result-object v0
 
     .line 101
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1
@@ -232,8 +232,8 @@
 
 .method protected end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 221
@@ -246,11 +246,11 @@
 
 .method protected handleMovementKey(Landroid/widget/TextView;Landroid/text/Spannable;IILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "keyCode"
-    .parameter "movementMetaState"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "keyCode"    # I
+    .param p4, "movementMetaState"    # I
+    .param p5, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 53
@@ -312,8 +312,8 @@
 
 .method protected home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 216
@@ -326,8 +326,8 @@
 
 .method public initialize(Landroid/widget/TextView;Landroid/text/Spannable;)V
     .locals 1
-    .parameter "widget"
-    .parameter "text"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
 
     .prologue
     .line 302
@@ -341,8 +341,8 @@
 
 .method protected left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 70
@@ -351,7 +351,7 @@
     move-result-object v0
 
     .line 71
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1
@@ -377,8 +377,8 @@
 
 .method protected leftWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 199
@@ -387,13 +387,13 @@
     move-result v0
 
     .line 200
-    .local v0, selectionEnd:I
+    .local v0, "selectionEnd":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getWordIterator()Landroid/text/method/WordIterator;
 
     move-result-object v1
 
     .line 201
-    .local v1, wordIterator:Landroid/text/method/WordIterator;
+    .local v1, "wordIterator":Landroid/text/method/WordIterator;
     invoke-virtual {v1, p2, v0, v0}, Landroid/text/method/WordIterator;->setCharSequence(Ljava/lang/CharSequence;II)V
 
     .line 202
@@ -410,8 +410,8 @@
 
 .method protected lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 188
@@ -420,7 +420,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1
@@ -446,8 +446,8 @@
 
 .method protected lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 178
@@ -456,7 +456,7 @@
     move-result-object v0
 
     .line 179
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1
@@ -482,9 +482,9 @@
 
 .method public onTakeFocus(Landroid/widget/TextView;Landroid/text/Spannable;I)V
     .locals 1
-    .parameter "view"
-    .parameter "text"
-    .parameter "dir"
+    .param p1, "view"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "dir"    # I
 
     .prologue
     .line 307
@@ -524,9 +524,9 @@
 
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 8
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v5, 0x1
@@ -535,17 +535,17 @@
     const/4 v2, -0x1
 
     .line 227
-    .local v2, initialScrollX:I
+    .local v2, "initialScrollX":I
     const/4 v3, -0x1
 
     .line 228
-    .local v3, initialScrollY:I
+    .local v3, "initialScrollY":I
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     .line 230
-    .local v0, action:I
+    .local v0, "action":I
     if-ne v0, v5, :cond_0
 
     .line 231
@@ -565,7 +565,7 @@
     move-result v1
 
     .line 237
-    .local v1, handled:Z
+    .local v1, "handled":Z
     invoke-virtual {p1}, Landroid/widget/TextView;->isFocused()Z
 
     move-result v6
@@ -602,7 +602,7 @@
     move-result v4
 
     .line 242
-    .local v4, offset:I
+    .local v4, "offset":I
     sget-object v6, Landroid/text/method/ArrowKeyMovementMethod;->LAST_TAP_DOWN:Ljava/lang/Object;
 
     const/16 v7, 0x22
@@ -617,14 +617,14 @@
     invoke-interface {v6, v5}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     .line 292
-    .end local v1           #handled:Z
-    .end local v4           #offset:I
+    .end local v1    # "handled":Z
+    .end local v4    # "offset":I
     :cond_1
     :goto_0
     return v1
 
     .line 250
-    .restart local v1       #handled:Z
+    .restart local v1    # "handled":Z
     :cond_2
     const/4 v6, 0x2
 
@@ -656,7 +656,7 @@
     move-result v4
 
     .line 265
-    .restart local v4       #offset:I
+    .restart local v4    # "offset":I
     invoke-static {p2, v4}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     move v1, v5
@@ -665,7 +665,7 @@
     goto :goto_0
 
     .line 268
-    .end local v4           #offset:I
+    .end local v4    # "offset":I
     :cond_3
     if-ne v0, v5, :cond_1
 
@@ -711,7 +711,7 @@
     move-result v4
 
     .line 280
-    .restart local v4       #offset:I
+    .restart local v4    # "offset":I
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v6
@@ -741,8 +741,8 @@
 
 .method protected pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 7
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 134
@@ -751,13 +751,13 @@
     move-result-object v1
 
     .line 135
-    .local v1, layout:Landroid/text/Layout;
+    .local v1, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v3
 
     .line 136
-    .local v3, selecting:Z
+    .local v3, "selecting":Z
     invoke-static {p2, v1}, Landroid/text/method/ArrowKeyMovementMethod;->getCurrentLineTop(Landroid/text/Spannable;Landroid/text/Layout;)I
 
     move-result v5
@@ -769,18 +769,18 @@
     add-int v4, v5, v6
 
     .line 137
-    .local v4, targetY:I
+    .local v4, "targetY":I
     const/4 v0, 0x0
 
     .line 139
-    .local v0, handled:Z
+    .local v0, "handled":Z
     :cond_0
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v2
 
     .line 140
-    .local v2, previousSelectionEnd:I
+    .local v2, "previousSelectionEnd":I
     if-eqz v3, :cond_1
 
     .line 141
@@ -820,8 +820,8 @@
 
 .method protected pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 7
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 110
@@ -830,13 +830,13 @@
     move-result-object v1
 
     .line 111
-    .local v1, layout:Landroid/text/Layout;
+    .local v1, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v3
 
     .line 112
-    .local v3, selecting:Z
+    .local v3, "selecting":Z
     invoke-static {p2, v1}, Landroid/text/method/ArrowKeyMovementMethod;->getCurrentLineTop(Landroid/text/Spannable;Landroid/text/Layout;)I
 
     move-result v5
@@ -848,18 +848,18 @@
     sub-int v4, v5, v6
 
     .line 113
-    .local v4, targetY:I
+    .local v4, "targetY":I
     const/4 v0, 0x0
 
     .line 115
-    .local v0, handled:Z
+    .local v0, "handled":Z
     :cond_0
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v2
 
     .line 116
-    .local v2, previousSelectionEnd:I
+    .local v2, "previousSelectionEnd":I
     if-eqz v3, :cond_1
 
     .line 117
@@ -899,8 +899,8 @@
 
 .method protected right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 80
@@ -909,7 +909,7 @@
     move-result-object v0
 
     .line 81
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1
@@ -935,8 +935,8 @@
 
 .method protected rightWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 208
@@ -945,13 +945,13 @@
     move-result v0
 
     .line 209
-    .local v0, selectionEnd:I
+    .local v0, "selectionEnd":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getWordIterator()Landroid/text/method/WordIterator;
 
     move-result-object v1
 
     .line 210
-    .local v1, wordIterator:Landroid/text/method/WordIterator;
+    .local v1, "wordIterator":Landroid/text/method/WordIterator;
     invoke-virtual {v1, p2, v0, v0}, Landroid/text/method/WordIterator;->setCharSequence(Ljava/lang/CharSequence;II)V
 
     .line 211
@@ -968,8 +968,8 @@
 
 .method protected top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     const/4 v1, 0x0
@@ -999,8 +999,8 @@
 
 .method protected up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 2
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 90
@@ -1009,7 +1009,7 @@
     move-result-object v0
 
     .line 91
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-static {p2}, Landroid/text/method/ArrowKeyMovementMethod;->isSelecting(Landroid/text/Spannable;)Z
 
     move-result v1

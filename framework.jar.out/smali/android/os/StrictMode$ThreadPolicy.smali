@@ -47,7 +47,7 @@
 
 .method private constructor <init>(I)V
     .locals 0
-    .parameter "mask"
+    .param p1, "mask"    # I
 
     .prologue
     .line 323
@@ -62,8 +62,8 @@
 
 .method synthetic constructor <init>(ILandroid/os/StrictMode$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Landroid/os/StrictMode$1;
 
     .prologue
     .line 315

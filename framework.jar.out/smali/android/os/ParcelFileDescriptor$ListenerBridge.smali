@@ -23,9 +23,9 @@
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;Landroid/os/Looper;Landroid/os/ParcelFileDescriptor$OnCloseListener;)V
     .locals 1
-    .parameter "comm"
-    .parameter "looper"
-    .parameter "listener"
+    .param p1, "comm"    # Ljava/io/FileDescriptor;
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "listener"    # Landroid/os/ParcelFileDescriptor$OnCloseListener;
 
     .prologue
     .line 1004
@@ -60,16 +60,16 @@
     new-array v0, v2, [B
 
     .line 1019
-    .local v0, buf:[B
+    .local v0, "buf":[B
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge;->mCommFd:Ljava/io/FileDescriptor;
 
-    #calls: Landroid/os/ParcelFileDescriptor;->readCommStatus(Ljava/io/FileDescriptor;[B)Landroid/os/ParcelFileDescriptor$Status;
+    # invokes: Landroid/os/ParcelFileDescriptor;->readCommStatus(Ljava/io/FileDescriptor;[B)Landroid/os/ParcelFileDescriptor$Status;
     invoke-static {v2, v0}, Landroid/os/ParcelFileDescriptor;->access$000(Ljava/io/FileDescriptor;[B)Landroid/os/ParcelFileDescriptor$Status;
 
     move-result-object v1
 
     .line 1020
-    .local v1, status:Landroid/os/ParcelFileDescriptor$Status;
+    .local v1, "status":Landroid/os/ParcelFileDescriptor$Status;
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x0
@@ -94,8 +94,8 @@
     return-void
 
     .line 1022
-    .end local v0           #buf:[B
-    .end local v1           #status:Landroid/os/ParcelFileDescriptor$Status;
+    .end local v0    # "buf":[B
+    .end local v1    # "status":Landroid/os/ParcelFileDescriptor$Status;
     :catchall_0
     move-exception v2
 

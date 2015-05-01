@@ -91,11 +91,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/print/RemotePrintSpooler;Lcom/android/server/print/RemotePrintService$PrintServiceCallbacks;)V
     .locals 2
-    .parameter "context"
-    .parameter "componentName"
-    .parameter "userId"
-    .parameter "spooler"
-    .parameter "callbacks"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "userId"    # I
+    .param p4, "spooler"    # Lcom/android/server/print/RemotePrintSpooler;
+    .param p5, "callbacks"    # Lcom/android/server/print/RemotePrintService$PrintServiceCallbacks;
 
     .prologue
     .line 101
@@ -169,7 +169,7 @@
 
 .method static synthetic access$100(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -180,8 +180,8 @@
 
 .method static synthetic access$1000(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Landroid/print/PrinterId;
 
     .prologue
     .line 52
@@ -192,7 +192,7 @@
 
 .method static synthetic access$1100(Lcom/android/server/print/RemotePrintService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -203,7 +203,7 @@
 
 .method static synthetic access$1200(Lcom/android/server/print/RemotePrintService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -214,8 +214,8 @@
 
 .method static synthetic access$1202(Lcom/android/server/print/RemotePrintService;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 52
@@ -226,7 +226,7 @@
 
 .method static synthetic access$1300(Lcom/android/server/print/RemotePrintService;)Landroid/content/ServiceConnection;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -237,7 +237,7 @@
 
 .method static synthetic access$1400(Lcom/android/server/print/RemotePrintService;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -248,7 +248,7 @@
 
 .method static synthetic access$1500(Lcom/android/server/print/RemotePrintService;)Landroid/printservice/IPrintService;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -259,8 +259,8 @@
 
 .method static synthetic access$1502(Lcom/android/server/print/RemotePrintService;Landroid/printservice/IPrintService;)Landroid/printservice/IPrintService;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Landroid/printservice/IPrintService;
 
     .prologue
     .line 52
@@ -271,7 +271,7 @@
 
 .method static synthetic access$1600(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -282,7 +282,7 @@
 
 .method static synthetic access$1700(Lcom/android/server/print/RemotePrintService;)Lcom/android/server/print/RemotePrintService$RemotePrintServiceClient;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -293,7 +293,7 @@
 
 .method static synthetic access$1800(Lcom/android/server/print/RemotePrintService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -304,8 +304,8 @@
 
 .method static synthetic access$1802(Lcom/android/server/print/RemotePrintService;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 52
@@ -316,7 +316,7 @@
 
 .method static synthetic access$1900(Lcom/android/server/print/RemotePrintService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -327,8 +327,8 @@
 
 .method static synthetic access$200(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 52
@@ -339,7 +339,7 @@
 
 .method static synthetic access$2000(Lcom/android/server/print/RemotePrintService;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -350,7 +350,7 @@
 
 .method static synthetic access$2100(Lcom/android/server/print/RemotePrintService;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -361,7 +361,7 @@
 
 .method static synthetic access$2200(Lcom/android/server/print/RemotePrintService;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -372,7 +372,7 @@
 
 .method static synthetic access$2300(Lcom/android/server/print/RemotePrintService;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -383,7 +383,7 @@
 
 .method static synthetic access$2400(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -394,7 +394,7 @@
 
 .method static synthetic access$2500(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -405,7 +405,7 @@
 
 .method static synthetic access$2600(Lcom/android/server/print/RemotePrintService;)Landroid/content/ComponentName;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -416,7 +416,7 @@
 
 .method static synthetic access$2700(Lcom/android/server/print/RemotePrintService;)Lcom/android/server/print/RemotePrintSpooler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -427,7 +427,7 @@
 
 .method static synthetic access$2800(Lcom/android/server/print/RemotePrintService;)Lcom/android/server/print/RemotePrintService$PrintServiceCallbacks;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -438,8 +438,8 @@
 
 .method static synthetic access$300(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 52
@@ -450,7 +450,7 @@
 
 .method static synthetic access$400(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -461,7 +461,7 @@
 
 .method static synthetic access$500(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -472,8 +472,8 @@
 
 .method static synthetic access$600(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Ljava/util/List;
 
     .prologue
     .line 52
@@ -484,7 +484,7 @@
 
 .method static synthetic access$700(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
 
     .prologue
     .line 52
@@ -495,8 +495,8 @@
 
 .method static synthetic access$800(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Ljava/util/List;
 
     .prologue
     .line 52
@@ -507,8 +507,8 @@
 
 .method static synthetic access$900(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/print/RemotePrintService;
+    .param p1, "x1"    # Landroid/print/PrinterId;
 
     .prologue
     .line 52
@@ -737,7 +737,7 @@
     move-exception v0
 
     .line 273
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error creating printer dicovery session."
@@ -767,10 +767,10 @@
     move-result v2
 
     .line 126
-    .local v2, trackedPrinterCount:I
+    .local v2, "trackedPrinterCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
@@ -784,7 +784,7 @@
     check-cast v1, Landroid/print/PrinterId;
 
     .line 128
-    .local v1, printerId:Landroid/print/PrinterId;
+    .local v1, "printerId":Landroid/print/PrinterId;
     invoke-virtual {v1}, Landroid/print/PrinterId;->getServiceName()Landroid/content/ComponentName;
 
     move-result-object v3
@@ -807,9 +807,9 @@
     goto :goto_0
 
     .line 135
-    .end local v0           #i:I
-    .end local v1           #printerId:Landroid/print/PrinterId;
-    .end local v2           #trackedPrinterCount:I
+    .end local v0    # "i":I
+    .end local v1    # "printerId":Landroid/print/PrinterId;
+    .end local v2    # "trackedPrinterCount":I
     :cond_1
     iget-object v3, p0, Lcom/android/server/print/RemotePrintService;->mDiscoveryPriorityList:Ljava/util/List;
 
@@ -916,7 +916,7 @@
     move-exception v0
 
     .line 306
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error destroying printer dicovery session."
@@ -991,7 +991,7 @@
 
 .method private handleOnPrintJobQueued(Landroid/print/PrintJobInfo;)V
     .locals 3
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 229
@@ -1041,7 +1041,7 @@
     move-exception v0
 
     .line 246
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error announcing queued pring job."
@@ -1053,7 +1053,7 @@
 
 .method private handleRequestCancelPrintJob(Landroid/print/PrintJobInfo;)V
     .locals 3
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 202
@@ -1098,7 +1098,7 @@
     move-exception v0
 
     .line 218
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error canceling a pring job."
@@ -1110,7 +1110,6 @@
 
 .method private handleStartPrinterDiscovery(Ljava/util/List;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1123,7 +1122,7 @@
 
     .prologue
     .line 322
-    .local p1, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-direct {p0}, Lcom/android/server/print/RemotePrintService;->throwIfDestroyed()V
 
     .line 324
@@ -1181,7 +1180,7 @@
     move-exception v0
 
     .line 343
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error starting printer dicovery."
@@ -1193,7 +1192,7 @@
 
 .method private handleStartPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 3
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 409
@@ -1256,7 +1255,7 @@
     move-exception v0
 
     .line 430
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error requesting start printer tracking."
@@ -1317,7 +1316,7 @@
     move-exception v0
 
     .line 371
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error stopping printer dicovery."
@@ -1329,7 +1328,7 @@
 
 .method private handleStopPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 3
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 441
@@ -1406,7 +1405,7 @@
     move-exception v0
 
     .line 464
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error requesting stop printer tracking."
@@ -1418,7 +1417,6 @@
 
 .method private handleValidatePrinters(Ljava/util/List;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1431,7 +1429,7 @@
 
     .prologue
     .line 382
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     invoke-direct {p0}, Lcom/android/server/print/RemotePrintService;->throwIfDestroyed()V
 
     .line 383
@@ -1473,7 +1471,7 @@
     move-exception v0
 
     .line 398
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "RemotePrintService"
 
     const-string v2, "Error requesting printers validation."
@@ -1590,15 +1588,15 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 3
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 470
     const-string v0, "  "
 
     .line 471
-    .local v0, tab:Ljava/lang/String;
+    .local v0, "tab":Ljava/lang/String;
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
     move-result-object v1
@@ -1851,7 +1849,7 @@
 
 .method public onPrintJobQueued(Landroid/print/PrintJobInfo;)V
     .locals 2
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 224
@@ -1871,7 +1869,7 @@
 
 .method public onRequestCancelPrintJob(Landroid/print/PrintJobInfo;)V
     .locals 2
-    .parameter "printJob"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
 
     .prologue
     .line 197
@@ -1891,7 +1889,6 @@
 
 .method public startPrinterDiscovery(Ljava/util/List;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1904,7 +1901,7 @@
 
     .prologue
     .line 317
-    .local p1, priorityList:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -1921,7 +1918,7 @@
 
 .method public startPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 2
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 404
@@ -1956,7 +1953,7 @@
 
 .method public stopPrinterStateTracking(Landroid/print/PrinterId;)V
     .locals 2
-    .parameter "printerId"
+    .param p1, "printerId"    # Landroid/print/PrinterId;
 
     .prologue
     .line 436
@@ -1976,7 +1973,6 @@
 
 .method public validatePrinters(Ljava/util/List;)V
     .locals 2
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1989,7 +1985,7 @@
 
     .prologue
     .line 377
-    .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
+    .local p1, "printerIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x5

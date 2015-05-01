@@ -3,8 +3,8 @@
 .source "ForegroundColorSpan.java"
 
 # interfaces
-.implements Landroid/text/style/UpdateAppearance;
 .implements Landroid/text/ParcelableSpan;
+.implements Landroid/text/style/UpdateAppearance;
 
 
 # instance fields
@@ -14,7 +14,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 29
@@ -29,7 +29,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 33
@@ -80,7 +80,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 55
@@ -94,8 +94,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 46

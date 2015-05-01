@@ -37,10 +37,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 1
-    .parameter "isPresent"
-    .parameter "signalType"
-    .parameter "alertPitch"
-    .parameter "signal"
+    .param p1, "isPresent"    # I
+    .param p2, "signalType"    # I
+    .param p3, "alertPitch"    # I
+    .param p4, "signal"    # I
 
     .prologue
     .line 113

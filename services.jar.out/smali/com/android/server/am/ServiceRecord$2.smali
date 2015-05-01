@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Ljava/lang/String;I)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 506
@@ -57,7 +54,7 @@
     move-result-object v1
 
     .line 509
-    .local v1, inm:Landroid/app/INotificationManager;
+    .local v1, "inm":Landroid/app/INotificationManager;
     if-nez v1, :cond_0
 
     .line 520
@@ -89,7 +86,7 @@
     move-exception v0
 
     .line 516
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "ActivityManager"
 
     const-string v3, "Error canceling notification for service"
@@ -99,7 +96,7 @@
     goto :goto_0
 
     .line 518
-    .end local v0           #e:Ljava/lang/RuntimeException;
+    .end local v0    # "e":Ljava/lang/RuntimeException;
     :catch_1
     move-exception v2
 

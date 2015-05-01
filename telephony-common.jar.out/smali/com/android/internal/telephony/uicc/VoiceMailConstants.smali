@@ -70,7 +70,7 @@
     invoke-direct {v5, v7, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 80
-    .local v5, vmFile:Ljava/io/File;
+    .local v5, "vmFile":Ljava/io/File;
     :try_start_0
     new-instance v6, Ljava/io/FileReader;
 
@@ -79,14 +79,14 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 88
-    .local v6, vmReader:Ljava/io/FileReader;
+    .local v6, "vmReader":Ljava/io/FileReader;
     :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v4
 
     .line 89
-    .local v4, parser:Lorg/xmlpull/v1/XmlPullParser;
+    .local v4, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 91
@@ -104,14 +104,14 @@
     move-result-object v2
 
     .line 97
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     const-string v7, "voicemail"
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v7
 
@@ -127,9 +127,9 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 120
-    .end local v2           #name:Ljava/lang/String;
-    .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v6           #vmReader:Ljava/io/FileReader;
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v6    # "vmReader":Ljava/io/FileReader;
     :cond_0
     :goto_1
     return-void
@@ -139,7 +139,7 @@
     move-exception v1
 
     .line 82
-    .local v1, e:Ljava/io/FileNotFoundException;
+    .local v1, "e":Ljava/io/FileNotFoundException;
     const-string v7, "VoiceMailConstants"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -181,10 +181,10 @@
     goto :goto_1
 
     .line 101
-    .end local v1           #e:Ljava/io/FileNotFoundException;
-    .restart local v2       #name:Ljava/lang/String;
-    .restart local v4       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v6       #vmReader:Ljava/io/FileReader;
+    .end local v1    # "e":Ljava/io/FileNotFoundException;
+    .restart local v2    # "name":Ljava/lang/String;
+    .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v6    # "vmReader":Ljava/io/FileReader;
     :cond_1
     const/4 v7, 0x3
 
@@ -192,7 +192,7 @@
     new-array v0, v7, [Ljava/lang/String;
 
     .line 102
-    .local v0, data:[Ljava/lang/String;
+    .local v0, "data":[Ljava/lang/String;
     const/4 v7, 0x0
 
     const-string v8, "numeric"
@@ -202,7 +202,7 @@
     move-result-object v3
 
     .line 103
-    .local v3, numeric:Ljava/lang/String;
+    .local v3, "numeric":Ljava/lang/String;
     const/4 v7, 0x0
 
     const/4 v8, 0x0
@@ -246,22 +246,22 @@
 
     invoke-virtual {v7, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
 
     .line 109
-    .end local v0           #data:[Ljava/lang/String;
-    .end local v2           #name:Ljava/lang/String;
-    .end local v3           #numeric:Ljava/lang/String;
-    .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
+    .end local v0    # "data":[Ljava/lang/String;
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v3    # "numeric":Ljava/lang/String;
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :catch_1
     move-exception v1
 
     .line 110
-    .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_4
     const-string v7, "VoiceMailConstants"
 
@@ -299,7 +299,7 @@
     goto :goto_1
 
     .line 118
-    .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catch_2
     move-exception v7
 
@@ -310,7 +310,7 @@
     move-exception v1
 
     .line 112
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     :try_start_6
     const-string v7, "VoiceMailConstants"
 
@@ -348,7 +348,7 @@
     goto/16 :goto_1
 
     .line 114
-    .end local v1           #e:Ljava/io/IOException;
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
@@ -377,7 +377,7 @@
 # virtual methods
 .method containsCarrier(Ljava/lang/String;)Z
     .locals 1
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 55
@@ -392,7 +392,7 @@
 
 .method getCarrierName(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 59
@@ -405,7 +405,7 @@
     check-cast v0, [Ljava/lang/String;
 
     .line 60
-    .local v0, data:[Ljava/lang/String;
+    .local v0, "data":[Ljava/lang/String;
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -415,7 +415,7 @@
 
 .method getVoiceMailNumber(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 64
@@ -428,7 +428,7 @@
     check-cast v0, [Ljava/lang/String;
 
     .line 65
-    .local v0, data:[Ljava/lang/String;
+    .local v0, "data":[Ljava/lang/String;
     const/4 v1, 0x1
 
     aget-object v1, v0, v1
@@ -438,7 +438,7 @@
 
 .method getVoiceMailTag(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 69
@@ -451,7 +451,7 @@
     check-cast v0, [Ljava/lang/String;
 
     .line 70
-    .local v0, data:[Ljava/lang/String;
+    .local v0, "data":[Ljava/lang/String;
     const/4 v1, 0x2
 
     aget-object v1, v0, v1

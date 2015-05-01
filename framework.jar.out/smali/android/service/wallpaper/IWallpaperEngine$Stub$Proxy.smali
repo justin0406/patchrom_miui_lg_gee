@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 113
@@ -64,7 +64,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
@@ -100,7 +100,7 @@
 
 .method public dispatchPointer(Landroid/view/MotionEvent;)V
     .locals 5
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -114,7 +114,7 @@
     move-result-object v0
 
     .line 153
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
@@ -175,11 +175,11 @@
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;)V
     .locals 5
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "extras"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "z"    # I
+    .param p5, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -193,7 +193,7 @@
     move-result-object v0
 
     .line 171
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
@@ -276,8 +276,8 @@
 
 .method public setDesiredSize(II)V
     .locals 5
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -291,7 +291,7 @@
     move-result-object v0
 
     .line 128
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
@@ -333,7 +333,7 @@
 
 .method public setVisibility(Z)V
     .locals 5
-    .parameter "visible"
+    .param p1, "visible"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -349,7 +349,7 @@
     move-result-object v0
 
     .line 141
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.service.wallpaper.IWallpaperEngine"
 

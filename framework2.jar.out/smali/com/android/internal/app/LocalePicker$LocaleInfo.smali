@@ -54,8 +54,8 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Locale;)V
     .locals 0
-    .parameter "label"
-    .parameter "locale"
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 64
@@ -75,7 +75,7 @@
 # virtual methods
 .method public compareTo(Lcom/android/internal/app/LocalePicker$LocaleInfo;)I
     .locals 3
-    .parameter "another"
+    .param p1, "another"    # Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
     .prologue
     .line 84
@@ -94,13 +94,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 58
     check-cast p1, Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/app/LocalePicker$LocaleInfo;->compareTo(Lcom/android/internal/app/LocalePicker$LocaleInfo;)I
 
     move-result v0

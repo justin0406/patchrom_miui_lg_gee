@@ -26,7 +26,7 @@
 
 .method public static fromFile(Ljava/io/File;)Landroid/gesture/GestureLibrary;
     .locals 1
-    .parameter "path"
+    .param p0, "path"    # Ljava/io/File;
 
     .prologue
     .line 40
@@ -39,7 +39,7 @@
 
 .method public static fromFile(Ljava/lang/String;)Landroid/gesture/GestureLibrary;
     .locals 1
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
 
     .prologue
     .line 36
@@ -56,8 +56,8 @@
 
 .method public static fromPrivateFile(Landroid/content/Context;Ljava/lang/String;)Landroid/gesture/GestureLibrary;
     .locals 1
-    .parameter "context"
-    .parameter "name"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -74,8 +74,8 @@
 
 .method public static fromRawResource(Landroid/content/Context;I)Landroid/gesture/GestureLibrary;
     .locals 1
-    .parameter "context"
-    .parameter "resourceId"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resourceId"    # I
 
     .prologue
     .line 48

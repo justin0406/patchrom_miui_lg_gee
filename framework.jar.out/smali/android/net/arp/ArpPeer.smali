@@ -36,10 +36,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/net/InetAddress;Ljava/lang/String;Ljava/net/InetAddress;)V
     .locals 5
-    .parameter "interfaceName"
-    .parameter "myAddr"
-    .parameter "mac"
-    .parameter "peer"
+    .param p1, "interfaceName"    # Ljava/lang/String;
+    .param p2, "myAddr"    # Ljava/net/InetAddress;
+    .param p3, "mac"    # Ljava/lang/String;
+    .param p4, "peer"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -69,7 +69,7 @@
     .line 62
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v4, :cond_0
 
@@ -102,7 +102,7 @@
     goto :goto_0
 
     .line 68
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     instance-of v1, p2, Ljava/net/Inet6Address;
 
@@ -155,11 +155,11 @@
 
 .method public static doArp(Ljava/lang/String;Landroid/net/LinkProperties;III)Z
     .locals 15
-    .parameter "myMacAddress"
-    .parameter "linkProperties"
-    .parameter "timeoutMillis"
-    .parameter "numArpPings"
-    .parameter "minArpResponses"
+    .param p0, "myMacAddress"    # Ljava/lang/String;
+    .param p1, "linkProperties"    # Landroid/net/LinkProperties;
+    .param p2, "timeoutMillis"    # I
+    .param p3, "numArpPings"    # I
+    .param p4, "minArpResponses"    # I
 
     .prologue
     .line 135
@@ -168,15 +168,15 @@
     move-result-object v5
 
     .line 136
-    .local v5, interfaceName:Ljava/lang/String;
+    .local v5, "interfaceName":Ljava/lang/String;
     const/4 v4, 0x0
 
     .line 137
-    .local v4, inetAddress:Ljava/net/InetAddress;
+    .local v4, "inetAddress":Ljava/net/InetAddress;
     const/4 v1, 0x0
 
     .line 140
-    .local v1, gateway:Ljava/net/InetAddress;
+    .local v1, "gateway":Ljava/net/InetAddress;
     invoke-virtual/range {p1 .. p1}, Landroid/net/LinkProperties;->getLinkAddresses()Ljava/util/Collection;
 
     move-result-object v12
@@ -185,7 +185,7 @@
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
+    .local v3, "i$":Ljava/util/Iterator;
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
@@ -199,13 +199,13 @@
     check-cast v6, Landroid/net/LinkAddress;
 
     .line 141
-    .local v6, la:Landroid/net/LinkAddress;
+    .local v6, "la":Landroid/net/LinkAddress;
     invoke-virtual {v6}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v4
 
     .line 145
-    .end local v6           #la:Landroid/net/LinkAddress;
+    .end local v6    # "la":Landroid/net/LinkAddress;
     :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/net/LinkProperties;->getRoutes()Ljava/util/Collection;
 
@@ -228,13 +228,13 @@
     check-cast v9, Landroid/net/RouteInfo;
 
     .line 146
-    .local v9, route:Landroid/net/RouteInfo;
+    .local v9, "route":Landroid/net/RouteInfo;
     invoke-virtual {v9}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
     move-result-object v1
 
     .line 151
-    .end local v9           #route:Landroid/net/RouteInfo;
+    .end local v9    # "route":Landroid/net/RouteInfo;
     :cond_1
     :try_start_0
     new-instance v7, Landroid/net/arp/ArpPeer;
@@ -242,14 +242,14 @@
     invoke-direct {v7, v5, v4, p0, v1}, Landroid/net/arp/ArpPeer;-><init>(Ljava/lang/String;Ljava/net/InetAddress;Ljava/lang/String;Ljava/net/InetAddress;)V
 
     .line 152
-    .local v7, peer:Landroid/net/arp/ArpPeer;
+    .local v7, "peer":Landroid/net/arp/ArpPeer;
     const/4 v8, 0x0
 
     .line 153
-    .local v8, responses:I
+    .local v8, "responses":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     move/from16 v0, p3
 
@@ -281,38 +281,38 @@
     const/4 v11, 0x1
 
     .line 158
-    .local v11, success:Z
+    .local v11, "success":Z
     :goto_1
     invoke-virtual {v7}, Landroid/net/arp/ArpPeer;->close()V
     :try_end_0
     .catch Ljava/net/SocketException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 165
-    .end local v2           #i:I
-    .end local v7           #peer:Landroid/net/arp/ArpPeer;
-    .end local v8           #responses:I
+    .end local v2    # "i":I
+    .end local v7    # "peer":Landroid/net/arp/ArpPeer;
+    .end local v8    # "responses":I
     :goto_2
     return v11
 
     .line 157
-    .end local v11           #success:Z
-    .restart local v2       #i:I
-    .restart local v7       #peer:Landroid/net/arp/ArpPeer;
-    .restart local v8       #responses:I
+    .end local v11    # "success":Z
+    .restart local v2    # "i":I
+    .restart local v7    # "peer":Landroid/net/arp/ArpPeer;
+    .restart local v8    # "responses":I
     :cond_4
     const/4 v11, 0x0
 
     goto :goto_1
 
     .line 159
-    .end local v2           #i:I
-    .end local v7           #peer:Landroid/net/arp/ArpPeer;
-    .end local v8           #responses:I
+    .end local v2    # "i":I
+    .end local v7    # "peer":Landroid/net/arp/ArpPeer;
+    .end local v8    # "responses":I
     :catch_0
     move-exception v10
 
     .line 162
-    .local v10, se:Ljava/net/SocketException;
+    .local v10, "se":Ljava/net/SocketException;
     const-string v12, "ArpPeer"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -338,7 +338,7 @@
     .line 163
     const/4 v11, 0x1
 
-    .restart local v11       #success:Z
+    .restart local v11    # "success":Z
     goto :goto_2
 .end method
 
@@ -369,7 +369,7 @@
 
 .method public doArp(I)[B
     .locals 14
-    .parameter "timeoutMillis"
+    .param p1, "timeoutMillis"    # I
 
     .prologue
     .line 84
@@ -380,7 +380,7 @@
     move-result-object v6
 
     .line 85
-    .local v6, buf:Ljava/nio/ByteBuffer;
+    .local v6, "buf":Ljava/nio/ByteBuffer;
     iget-object v0, p0, Landroid/net/arp/ArpPeer;->mPeer:Ljava/net/InetAddress;
 
     invoke-virtual {v0}, Ljava/net/InetAddress;->getAddress()[B
@@ -388,7 +388,7 @@
     move-result-object v7
 
     .line 86
-    .local v7, desiredIp:[B
+    .local v7, "desiredIp":[B
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
@@ -398,7 +398,7 @@
     add-long v12, v2, v4
 
     .line 90
-    .local v12, timeout:J
+    .local v12, "timeout":J
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     .line 91
@@ -481,7 +481,7 @@
     new-array v1, v0, [B
 
     .line 107
-    .local v1, recvBuf:[B
+    .local v1, "recvBuf":[B
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -499,7 +499,7 @@
     sub-long v8, v12, v2
 
     .line 109
-    .local v8, duration:J
+    .local v8, "duration":J
     iget-object v0, p0, Landroid/net/arp/ArpPeer;->mSocket:Llibcore/net/RawSocket;
 
     const/4 v2, 0x0
@@ -515,7 +515,7 @@
     move-result v10
 
     .line 113
-    .local v10, readLen:I
+    .local v10, "readLen":I
     const/16 v0, 0x1c
 
     if-lt v10, v0, :cond_0
@@ -624,7 +624,7 @@
     new-array v11, v0, [B
 
     .line 125
-    .local v11, result:[B
+    .local v11, "result":[B
     const/16 v0, 0x8
 
     const/4 v2, 0x0
@@ -634,9 +634,9 @@
     invoke-static {v1, v0, v11, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 130
-    .end local v8           #duration:J
-    .end local v10           #readLen:I
-    .end local v11           #result:[B
+    .end local v8    # "duration":J
+    .end local v10    # "readLen":I
+    .end local v11    # "result":[B
     :goto_0
     return-object v11
 

@@ -25,8 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/VibratorService;Lcom/android/server/VibratorService$Vibration;)V
     .locals 2
-    .parameter
-    .parameter "vib"
+    .param p2, "vib"    # Lcom/android/server/VibratorService$Vibration;
 
     .prologue
     .line 518
@@ -38,12 +37,12 @@
     iput-object p2, p0, Lcom/android/server/VibratorService$VibrateThread;->mVibration:Lcom/android/server/VibratorService$Vibration;
 
     .line 520
-    #getter for: Lcom/android/server/VibratorService;->mTmpWorkSource:Landroid/os/WorkSource;
+    # getter for: Lcom/android/server/VibratorService;->mTmpWorkSource:Landroid/os/WorkSource;
     invoke-static {p1}, Lcom/android/server/VibratorService;->access$1000(Lcom/android/server/VibratorService;)Landroid/os/WorkSource;
 
     move-result-object v0
 
-    #getter for: Lcom/android/server/VibratorService$Vibration;->mUid:I
+    # getter for: Lcom/android/server/VibratorService$Vibration;->mUid:I
     invoke-static {p2}, Lcom/android/server/VibratorService$Vibration;->access$500(Lcom/android/server/VibratorService$Vibration;)I
 
     move-result v1
@@ -51,12 +50,12 @@
     invoke-virtual {v0, v1}, Landroid/os/WorkSource;->set(I)V
 
     .line 521
-    #getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {p1}, Lcom/android/server/VibratorService;->access$1100(Lcom/android/server/VibratorService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
-    #getter for: Lcom/android/server/VibratorService;->mTmpWorkSource:Landroid/os/WorkSource;
+    # getter for: Lcom/android/server/VibratorService;->mTmpWorkSource:Landroid/os/WorkSource;
     invoke-static {p1}, Lcom/android/server/VibratorService;->access$1000(Lcom/android/server/VibratorService;)Landroid/os/WorkSource;
 
     move-result-object v1
@@ -64,7 +63,7 @@
     invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
     .line 522
-    #getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {p1}, Lcom/android/server/VibratorService;->access$1100(Lcom/android/server/VibratorService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
@@ -77,7 +76,7 @@
 
 .method private delay(J)V
     .locals 6
-    .parameter "duration"
+    .param p1, "duration"    # J
 
     .prologue
     const-wide/16 v4, 0x0
@@ -95,7 +94,7 @@
     add-long v0, p1, v2
 
     .line 530
-    .local v0, bedtime:J
+    .local v0, "bedtime":J
     :cond_0
     :try_start_0
     invoke-virtual {p0, p1, p2}, Ljava/lang/Object;->wait(J)V
@@ -109,13 +108,13 @@
     if-eqz v2, :cond_2
 
     .line 540
-    .end local v0           #bedtime:J
+    .end local v0    # "bedtime":J
     :cond_1
     :goto_1
     return-void
 
     .line 537
-    .restart local v0       #bedtime:J
+    .restart local v0    # "bedtime":J
     :cond_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -155,47 +154,47 @@
     :try_start_0
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->mVibration:Lcom/android/server/VibratorService$Vibration;
 
-    #getter for: Lcom/android/server/VibratorService$Vibration;->mPattern:[J
+    # getter for: Lcom/android/server/VibratorService$Vibration;->mPattern:[J
     invoke-static {v8}, Lcom/android/server/VibratorService$Vibration;->access$900(Lcom/android/server/VibratorService$Vibration;)[J
 
     move-result-object v5
 
     .line 546
-    .local v5, pattern:[J
+    .local v5, "pattern":[J
     array-length v4, v5
 
     .line 547
-    .local v4, len:I
+    .local v4, "len":I
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->mVibration:Lcom/android/server/VibratorService$Vibration;
 
-    #getter for: Lcom/android/server/VibratorService$Vibration;->mRepeat:I
+    # getter for: Lcom/android/server/VibratorService$Vibration;->mRepeat:I
     invoke-static {v8}, Lcom/android/server/VibratorService$Vibration;->access$1200(Lcom/android/server/VibratorService$Vibration;)I
 
     move-result v6
 
     .line 548
-    .local v6, repeat:I
+    .local v6, "repeat":I
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->mVibration:Lcom/android/server/VibratorService$Vibration;
 
-    #getter for: Lcom/android/server/VibratorService$Vibration;->mUid:I
+    # getter for: Lcom/android/server/VibratorService$Vibration;->mUid:I
     invoke-static {v8}, Lcom/android/server/VibratorService$Vibration;->access$500(Lcom/android/server/VibratorService$Vibration;)I
 
     move-result v7
 
     .line 549
-    .local v7, uid:I
+    .local v7, "uid":I
     const/4 v2, 0x0
 
     .line 550
-    .local v2, index:I
+    .local v2, "index":I
     const-wide/16 v0, 0x0
 
-    .local v0, duration:J
+    .local v0, "duration":J
     move v3, v2
 
     .line 552
-    .end local v2           #index:I
-    .local v3, index:I
+    .end local v2    # "index":I
+    .local v3, "index":I
     :goto_0
     iget-boolean v8, p0, Lcom/android/server/VibratorService$VibrateThread;->mDone:Z
 
@@ -207,8 +206,8 @@
     .line 555
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     aget-wide v8, v5, v3
 
     add-long/2addr v0, v8
@@ -216,8 +215,8 @@
     move v3, v2
 
     .line 559
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     :cond_0
     invoke-direct {p0, v0, v1}, Lcom/android/server/VibratorService$VibrateThread;->delay(J)V
 
@@ -229,12 +228,12 @@
     move v2, v3
 
     .line 580
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     :goto_1
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->this$0:Lcom/android/server/VibratorService;
 
-    #getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    # getter for: Lcom/android/server/VibratorService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v8}, Lcom/android/server/VibratorService;->access$1100(Lcom/android/server/VibratorService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v8
@@ -249,7 +248,7 @@
     .line 582
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->this$0:Lcom/android/server/VibratorService;
 
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
+    # getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
     invoke-static {v8}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v9
@@ -280,7 +279,7 @@
     .line 589
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->this$0:Lcom/android/server/VibratorService;
 
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
+    # getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
     invoke-static {v8}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v8
@@ -294,13 +293,13 @@
 
     iget-object v10, p0, Lcom/android/server/VibratorService$VibrateThread;->mVibration:Lcom/android/server/VibratorService$Vibration;
 
-    #calls: Lcom/android/server/VibratorService;->unlinkVibration(Lcom/android/server/VibratorService$Vibration;)V
+    # invokes: Lcom/android/server/VibratorService;->unlinkVibration(Lcom/android/server/VibratorService$Vibration;)V
     invoke-static {v8, v10}, Lcom/android/server/VibratorService;->access$1400(Lcom/android/server/VibratorService;Lcom/android/server/VibratorService$Vibration;)V
 
     .line 591
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->this$0:Lcom/android/server/VibratorService;
 
-    #calls: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
+    # invokes: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
     invoke-static {v8}, Lcom/android/server/VibratorService;->access$300(Lcom/android/server/VibratorService;)V
 
     .line 593
@@ -313,16 +312,16 @@
     return-void
 
     .line 564
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     :cond_3
     if-ge v3, v4, :cond_4
 
     .line 567
     add-int/lit8 v2, v3, 0x1
 
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     :try_start_2
     aget-wide v0, v5, v3
 
@@ -336,13 +335,13 @@
     .line 569
     iget-object v8, p0, Lcom/android/server/VibratorService$VibrateThread;->this$0:Lcom/android/server/VibratorService;
 
-    #calls: Lcom/android/server/VibratorService;->doVibratorOn(JI)V
+    # invokes: Lcom/android/server/VibratorService;->doVibratorOn(JI)V
     invoke-static {v8, v0, v1, v7}, Lcom/android/server/VibratorService;->access$1300(Lcom/android/server/VibratorService;JI)V
 
     move v3, v2
 
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     goto :goto_0
 
     .line 572
@@ -352,34 +351,34 @@
     move v2, v3
 
     .line 573
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     goto :goto_1
 
     .line 575
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     :cond_5
     move v2, v6
 
     .line 576
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     const-wide/16 v0, 0x0
 
     move v3, v2
 
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     goto :goto_0
 
     .line 581
-    .end local v0           #duration:J
-    .end local v3           #index:I
-    .end local v4           #len:I
-    .end local v5           #pattern:[J
-    .end local v6           #repeat:I
-    .end local v7           #uid:I
+    .end local v0    # "duration":J
+    .end local v3    # "index":I
+    .end local v4    # "len":I
+    .end local v5    # "pattern":[J
+    .end local v6    # "repeat":I
+    .end local v7    # "uid":I
     :catchall_0
     move-exception v8
 
@@ -390,12 +389,12 @@
     throw v8
 
     .line 593
-    .restart local v0       #duration:J
-    .restart local v2       #index:I
-    .restart local v4       #len:I
-    .restart local v5       #pattern:[J
-    .restart local v6       #repeat:I
-    .restart local v7       #uid:I
+    .restart local v0    # "duration":J
+    .restart local v2    # "index":I
+    .restart local v4    # "len":I
+    .restart local v5    # "pattern":[J
+    .restart local v6    # "repeat":I
+    .restart local v7    # "uid":I
     :catchall_1
     move-exception v8
 
@@ -409,14 +408,14 @@
     :cond_6
     move v3, v2
 
-    .end local v2           #index:I
-    .restart local v3       #index:I
+    .end local v2    # "index":I
+    .restart local v3    # "index":I
     goto :goto_0
 
     :cond_7
     move v2, v3
 
-    .end local v3           #index:I
-    .restart local v2       #index:I
+    .end local v3    # "index":I
+    .restart local v2    # "index":I
     goto :goto_1
 .end method

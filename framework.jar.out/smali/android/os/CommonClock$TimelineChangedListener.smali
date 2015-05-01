@@ -25,7 +25,6 @@
 # direct methods
 .method private constructor <init>(Landroid/os/CommonClock;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 323
@@ -38,8 +37,8 @@
 
 .method synthetic constructor <init>(Landroid/os/CommonClock;Landroid/os/CommonClock$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/CommonClock;
+    .param p2, "x1"    # Landroid/os/CommonClock$1;
 
     .prologue
     .line 323
@@ -52,10 +51,10 @@
 # virtual methods
 .method protected onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -86,10 +85,10 @@
     move-result-wide v0
 
     .line 331
-    .local v0, timelineId:J
+    .local v0, "timelineId":J
     iget-object v2, p0, Landroid/os/CommonClock$TimelineChangedListener;->this$0:Landroid/os/CommonClock;
 
-    #getter for: Landroid/os/CommonClock;->mListenerLock:Ljava/lang/Object;
+    # getter for: Landroid/os/CommonClock;->mListenerLock:Ljava/lang/Object;
     invoke-static {v2}, Landroid/os/CommonClock;->access$000(Landroid/os/CommonClock;)Ljava/lang/Object;
 
     move-result-object v3
@@ -100,7 +99,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/os/CommonClock$TimelineChangedListener;->this$0:Landroid/os/CommonClock;
 
-    #getter for: Landroid/os/CommonClock;->mTimelineChangedListener:Landroid/os/CommonClock$OnTimelineChangedListener;
+    # getter for: Landroid/os/CommonClock;->mTimelineChangedListener:Landroid/os/CommonClock$OnTimelineChangedListener;
     invoke-static {v2}, Landroid/os/CommonClock;->access$200(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnTimelineChangedListener;
 
     move-result-object v2
@@ -110,7 +109,7 @@
     .line 333
     iget-object v2, p0, Landroid/os/CommonClock$TimelineChangedListener;->this$0:Landroid/os/CommonClock;
 
-    #getter for: Landroid/os/CommonClock;->mTimelineChangedListener:Landroid/os/CommonClock$OnTimelineChangedListener;
+    # getter for: Landroid/os/CommonClock;->mTimelineChangedListener:Landroid/os/CommonClock$OnTimelineChangedListener;
     invoke-static {v2}, Landroid/os/CommonClock;->access$200(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnTimelineChangedListener;
 
     move-result-object v2

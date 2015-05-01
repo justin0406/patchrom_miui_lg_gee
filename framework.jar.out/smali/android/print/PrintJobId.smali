@@ -59,7 +59,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/String;
 
     .prologue
     .line 47
@@ -74,7 +74,7 @@
 
 .method public static unflattenFromString(Ljava/lang/String;)Landroid/print/PrintJobId;
     .locals 1
-    .parameter "string"
+    .param p0, "string"    # Ljava/lang/String;
 
     .prologue
     .line 107
@@ -99,7 +99,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -147,7 +147,7 @@
     check-cast v0, Landroid/print/PrintJobId;
 
     .line 71
-    .local v0, other:Landroid/print/PrintJobId;
+    .local v0, "other":Landroid/print/PrintJobId;
     iget-object v3, p0, Landroid/print/PrintJobId;->mValue:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/print/PrintJobId;->mValue:Ljava/lang/String;
@@ -182,11 +182,11 @@
     const/16 v0, 0x1f
 
     .line 54
-    .local v0, prime:I
+    .local v0, "prime":I
     const/4 v1, 0x1
 
     .line 55
-    .local v1, result:I
+    .local v1, "result":I
     iget-object v2, p0, Landroid/print/PrintJobId;->mValue:Ljava/lang/String;
 
     if-eqz v2, :cond_0
@@ -212,8 +212,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 79

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -48,7 +48,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 59
@@ -112,10 +112,10 @@
 
 .method public constructor <init>(Lcom/android/internal/view/IInputMethodSession;Landroid/view/InputChannel;Ljava/lang/String;I)V
     .locals 0
-    .parameter "_method"
-    .parameter "_channel"
-    .parameter "_id"
-    .parameter "_sequence"
+    .param p1, "_method"    # Lcom/android/internal/view/IInputMethodSession;
+    .param p2, "_channel"    # Landroid/view/InputChannel;
+    .param p3, "_id"    # Ljava/lang/String;
+    .param p4, "_sequence"    # I
 
     .prologue
     .line 52
@@ -223,8 +223,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 84

@@ -61,7 +61,7 @@
 
     .prologue
     .line 87
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$UserServices;,"Landroid/content/pm/RegisteredServicesCache$UserServices<TV;>;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$UserServices;, "Landroid/content/pm/RegisteredServicesCache$UserServices<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
@@ -81,11 +81,11 @@
 
 .method synthetic constructor <init>(Landroid/content/pm/RegisteredServicesCache$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/content/pm/RegisteredServicesCache$1;
 
     .prologue
     .line 87
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$UserServices;,"Landroid/content/pm/RegisteredServicesCache$UserServices<TV;>;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$UserServices;, "Landroid/content/pm/RegisteredServicesCache$UserServices<TV;>;"
     invoke-direct {p0}, Landroid/content/pm/RegisteredServicesCache$UserServices;-><init>()V
 
     return-void

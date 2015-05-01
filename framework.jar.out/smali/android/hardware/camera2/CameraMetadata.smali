@@ -261,8 +261,7 @@
 
 .method static getKeysStatic(Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;)Ljava/util/ArrayList;
     .locals 10
-    .parameter
-    .parameter "instance"
+    .param p1, "instance"    # Landroid/hardware/camera2/CameraMetadata;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -281,35 +280,35 @@
 
     .prologue
     .line 105
-    .local p0, type:Ljava/lang/Class;,"Ljava/lang/Class<+Landroid/hardware/camera2/CameraMetadata;>;"
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Landroid/hardware/camera2/CameraMetadata;>;"
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
     .line 107
-    .local v6, keyList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/camera2/CameraMetadata$Key<*>;>;"
+    .local v6, "keyList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/CameraMetadata$Key<*>;>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
     move-result-object v3
 
     .line 108
-    .local v3, fields:[Ljava/lang/reflect/Field;
+    .local v3, "fields":[Ljava/lang/reflect/Field;
     move-object v0, v3
 
-    .local v0, arr$:[Ljava/lang/reflect/Field;
+    .local v0, "arr$":[Ljava/lang/reflect/Field;
     array-length v7, v0
 
-    .local v7, len$:I
+    .local v7, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v7, :cond_2
 
     aget-object v2, v0, v4
 
     .line 110
-    .local v2, field:Ljava/lang/reflect/Field;
+    .local v2, "field":Ljava/lang/reflect/Field;
     invoke-virtual {v2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v8
@@ -342,7 +341,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 120
-    .local v5, key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<*>;"
+    .local v5, "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<*>;"
     if-eqz p1, :cond_0
 
     invoke-virtual {p1, v5}, Landroid/hardware/camera2/CameraMetadata;->get(Landroid/hardware/camera2/CameraMetadata$Key;)Ljava/lang/Object;
@@ -356,7 +355,7 @@
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 108
-    .end local v5           #key:Landroid/hardware/camera2/CameraMetadata$Key;,"Landroid/hardware/camera2/CameraMetadata$Key<*>;"
+    .end local v5    # "key":Landroid/hardware/camera2/CameraMetadata$Key;, "Landroid/hardware/camera2/CameraMetadata$Key<*>;"
     :cond_1
     add-int/lit8 v4, v4, 0x1
 
@@ -367,7 +366,7 @@
     move-exception v1
 
     .line 116
-    .local v1, e:Ljava/lang/IllegalAccessException;
+    .local v1, "e":Ljava/lang/IllegalAccessException;
     new-instance v8, Ljava/lang/AssertionError;
 
     const-string v9, "Can\'t get IllegalAccessException"
@@ -377,12 +376,12 @@
     throw v8
 
     .line 117
-    .end local v1           #e:Ljava/lang/IllegalAccessException;
+    .end local v1    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v1
 
     .line 118
-    .local v1, e:Ljava/lang/IllegalArgumentException;
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     new-instance v8, Ljava/lang/AssertionError;
 
     const-string v9, "Can\'t get IllegalArgumentException"
@@ -392,8 +391,8 @@
     throw v8
 
     .line 126
-    .end local v1           #e:Ljava/lang/IllegalArgumentException;
-    .end local v2           #field:Ljava/lang/reflect/Field;
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
+    .end local v2    # "field":Ljava/lang/reflect/Field;
     :cond_2
     return-object v6
 .end method

@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/text/style/MetricAffectingSpan;)V
     .locals 0
-    .parameter "cs"
+    .param p1, "cs"    # Landroid/text/style/MetricAffectingSpan;
 
     .prologue
     .line 56
@@ -64,7 +64,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 65
@@ -78,7 +78,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 1
-    .parameter "tp"
+    .param p1, "tp"    # Landroid/text/TextPaint;
 
     .prologue
     .line 73

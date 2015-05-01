@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TabHost;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 134
@@ -39,9 +38,9 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 136
@@ -50,7 +49,7 @@
     .line 146
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
-    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
+    # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -62,7 +61,7 @@
     .line 147
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
-    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
+    # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0

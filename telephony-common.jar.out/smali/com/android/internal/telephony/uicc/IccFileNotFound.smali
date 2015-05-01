@@ -17,7 +17,7 @@
 
 .method constructor <init>(I)V
     .locals 2
-    .parameter "ef"
+    .param p1, "ef"    # I
 
     .prologue
     .line 33
@@ -51,7 +51,7 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 29

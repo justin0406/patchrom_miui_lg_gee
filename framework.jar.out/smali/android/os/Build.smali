@@ -13,50 +13,48 @@
 
 
 # static fields
-.field public static final BOARD:Ljava/lang/String; = null
+.field public static final BOARD:Ljava/lang/String;
 
-.field public static final BOOTLOADER:Ljava/lang/String; = null
+.field public static final BOOTLOADER:Ljava/lang/String;
 
-.field public static final BRAND:Ljava/lang/String; = null
+.field public static final BRAND:Ljava/lang/String;
 
-.field public static final CPU_ABI:Ljava/lang/String; = null
+.field public static final CPU_ABI:Ljava/lang/String;
 
-.field public static final CPU_ABI2:Ljava/lang/String; = null
+.field public static final CPU_ABI2:Ljava/lang/String;
 
-.field public static final DEVICE:Ljava/lang/String; = null
+.field public static final DEVICE:Ljava/lang/String;
 
-.field public static final DISPLAY:Ljava/lang/String; = null
+.field public static final DISPLAY:Ljava/lang/String;
 
-.field public static final FINGERPRINT:Ljava/lang/String; = null
+.field public static final FINGERPRINT:Ljava/lang/String;
 
-.field public static final HARDWARE:Ljava/lang/String; = null
+.field public static final HARDWARE:Ljava/lang/String;
 
-.field public static final HOST:Ljava/lang/String; = null
+.field public static final HOST:Ljava/lang/String;
 
-.field public static final ID:Ljava/lang/String; = null
+.field public static final ID:Ljava/lang/String;
 
-#the value of this static final field might be set in the static constructor
-.field public static final IS_DEBUGGABLE:Z = false
+.field public static final IS_DEBUGGABLE:Z
 
-.field public static final MANUFACTURER:Ljava/lang/String; = null
+.field public static final MANUFACTURER:Ljava/lang/String;
 
-.field public static final MODEL:Ljava/lang/String; = null
+.field public static final MODEL:Ljava/lang/String;
 
-.field public static final PRODUCT:Ljava/lang/String; = null
+.field public static final PRODUCT:Ljava/lang/String;
 
-.field public static final RADIO:Ljava/lang/String; = null
+.field public static final RADIO:Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field public static final SERIAL:Ljava/lang/String; = null
+.field public static final SERIAL:Ljava/lang/String;
 
-.field public static final TAGS:Ljava/lang/String; = null
+.field public static final TAGS:Ljava/lang/String;
 
-#the value of this static final field might be set in the static constructor
-.field public static final TIME:J = 0x0L
+.field public static final TIME:J
 
-.field public static final TYPE:Ljava/lang/String; = null
+.field public static final TYPE:Ljava/lang/String;
 
 .field public static final UNKNOWN:Ljava/lang/String; = "unknown"
 
@@ -289,7 +287,7 @@
 
 .method static synthetic access$000(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 24
@@ -302,7 +300,7 @@
 
 .method private static getLong(Ljava/lang/String;)J
     .locals 3
-    .parameter "property"
+    .param p0, "property"    # Ljava/lang/String;
 
     .prologue
     .line 507
@@ -326,7 +324,7 @@
     move-exception v0
 
     .line 509
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -350,7 +348,7 @@
 
 .method private static getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "property"
+    .param p0, "property"    # Ljava/lang/String;
 
     .prologue
     .line 502

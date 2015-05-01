@@ -37,11 +37,11 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$PathPart;Landroid/net/Uri$Part;Landroid/net/Uri$Part;)V
     .locals 1
-    .parameter "scheme"
-    .parameter "authority"
-    .parameter "path"
-    .parameter "query"
-    .parameter "fragment"
+    .param p1, "scheme"    # Ljava/lang/String;
+    .param p2, "authority"    # Landroid/net/Uri$Part;
+    .param p3, "path"    # Landroid/net/Uri$PathPart;
+    .param p4, "query"    # Landroid/net/Uri$Part;
+    .param p5, "fragment"    # Landroid/net/Uri$Part;
 
     .prologue
     .line 1142
@@ -50,6 +50,7 @@
     invoke-direct {p0, v0}, Landroid/net/Uri$AbstractHierarchicalUri;-><init>(Landroid/net/Uri$1;)V
 
     .line 1262
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -71,7 +72,7 @@
 
     sget-object p3, Landroid/net/Uri$PathPart;->NULL:Landroid/net/Uri$PathPart;
 
-    .end local p3
+    .end local p3    # "path":Landroid/net/Uri$PathPart;
     :cond_0
     iput-object p3, p0, Landroid/net/Uri$HierarchicalUri;->path:Landroid/net/Uri$PathPart;
 
@@ -95,12 +96,12 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$PathPart;Landroid/net/Uri$Part;Landroid/net/Uri$Part;Landroid/net/Uri$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Landroid/net/Uri$Part;
+    .param p3, "x2"    # Landroid/net/Uri$PathPart;
+    .param p4, "x3"    # Landroid/net/Uri$Part;
+    .param p5, "x4"    # Landroid/net/Uri$Part;
+    .param p6, "x5"    # Landroid/net/Uri$1;
 
     .prologue
     .line 1130
@@ -111,7 +112,7 @@
 
 .method private appendSspTo(Ljava/lang/StringBuilder;)V
     .locals 4
-    .parameter "builder"
+    .param p1, "builder"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 1210
@@ -122,7 +123,7 @@
     move-result-object v0
 
     .line 1211
-    .local v0, encodedAuthority:Ljava/lang/String;
+    .local v0, "encodedAuthority":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 1213
@@ -143,7 +144,7 @@
     move-result-object v1
 
     .line 1217
-    .local v1, encodedPath:Ljava/lang/String;
+    .local v1, "encodedPath":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 1218
@@ -217,7 +218,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1205
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-direct {p0, v0}, Landroid/net/Uri$HierarchicalUri;->appendSspTo(Ljava/lang/StringBuilder;)V
 
     .line 1206
@@ -238,7 +239,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1275
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/net/Uri$HierarchicalUri;->scheme:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -293,7 +294,7 @@
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
     .locals 6
-    .parameter "parcel"
+    .param p0, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 1151
@@ -592,6 +593,7 @@
     .line 1267
     iget-object v1, p0, Landroid/net/Uri$HierarchicalUri;->uriString:Ljava/lang/String;
 
+    # getter for: Landroid/net/Uri;->NOT_CACHED:Ljava/lang/String;
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -601,7 +603,7 @@
     const/4 v0, 0x1
 
     .line 1268
-    .local v0, cached:Z
+    .local v0, "cached":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -611,14 +613,14 @@
     return-object v1
 
     .line 1267
-    .end local v0           #cached:Z
+    .end local v0    # "cached":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 1268
-    .restart local v0       #cached:Z
+    .restart local v0    # "cached":Z
     :cond_1
     invoke-direct {p0}, Landroid/net/Uri$HierarchicalUri;->makeUriString()Ljava/lang/String;
 
@@ -631,8 +633,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 1165

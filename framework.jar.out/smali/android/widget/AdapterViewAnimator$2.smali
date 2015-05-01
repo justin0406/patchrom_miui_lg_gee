@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewAnimator;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 737

@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 167
@@ -46,7 +43,7 @@
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "data"
+    .param p1, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

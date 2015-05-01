@@ -41,8 +41,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 76
@@ -56,9 +56,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 65
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -148,7 +148,7 @@
     move-result-object v0
 
     .line 253
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v1, 0x1090056
 
     const/4 v2, 0x0
@@ -161,10 +161,12 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
+    .line 256
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
-    invoke-static {p0, v1}, Lcom/android/internal/view/menu/Injector$ListMenuItemViewHook;->addCheckBox(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/CheckBox;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView;->addView(Landroid/view/View;)V
 
+    .line 257
     return-void
 .end method
 
@@ -180,7 +182,7 @@
     move-result-object v0
 
     .line 238
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v1, 0x1090057
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -210,7 +212,7 @@
     move-result-object v0
 
     .line 245
-    .local v0, inflater:Landroid/view/LayoutInflater;
+    .local v0, "inflater":Landroid/view/LayoutInflater;
     const v1, 0x1090059
 
     const/4 v2, 0x0
@@ -223,10 +225,12 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
+    .line 248
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
-    invoke-static {p0, v1}, Lcom/android/internal/view/menu/Injector$ListMenuItemViewHook;->addRadioButton(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/RadioButton;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView;->addView(Landroid/view/View;)V
 
+    .line 249
     return-void
 .end method
 
@@ -242,19 +246,10 @@
     return-object v0
 .end method
 
-.method getTitleView()Landroid/widget/TextView;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
 .method public initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
     .locals 2
-    .parameter "itemData"
-    .parameter "menuType"
+    .param p1, "itemData"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "menuType"    # I
 
     .prologue
     .line 95
@@ -381,7 +376,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 276
@@ -412,8 +407,8 @@
 
 .method protected onMeasure(II)V
     .locals 3
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 225
@@ -431,7 +426,7 @@
     move-result-object v1
 
     .line 228
-    .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
+    .local v1, "lp":Landroid/view/ViewGroup$LayoutParams;
     iget-object v2, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v2}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -441,7 +436,7 @@
     check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
 
     .line 229
-    .local v0, iconLp:Landroid/widget/LinearLayout$LayoutParams;
+    .local v0, "iconLp":Landroid/widget/LinearLayout$LayoutParams;
     iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     if-lez v2, :cond_0
@@ -456,8 +451,8 @@
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
     .line 233
-    .end local v0           #iconLp:Landroid/widget/LinearLayout$LayoutParams;
-    .end local v1           #lp:Landroid/view/ViewGroup$LayoutParams;
+    .end local v0    # "iconLp":Landroid/widget/LinearLayout$LayoutParams;
+    .end local v1    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
@@ -477,7 +472,7 @@
 
 .method public setCheckable(Z)V
     .locals 5
-    .parameter "checkable"
+    .param p1, "checkable"    # Z
 
     .prologue
     const/16 v3, 0x8
@@ -521,11 +516,11 @@
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
     .line 140
-    .local v0, compoundButton:Landroid/widget/CompoundButton;
+    .local v0, "compoundButton":Landroid/widget/CompoundButton;
     iget-object v2, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     .line 149
-    .local v2, otherCompoundButton:Landroid/widget/CompoundButton;
+    .local v2, "otherCompoundButton":Landroid/widget/CompoundButton;
     :goto_1
     if-eqz p1, :cond_7
 
@@ -538,21 +533,13 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    iget-object v4, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
-
-    invoke-virtual {v4}, Lcom/android/internal/view/menu/MenuItemImpl;->isChecked()Z
-
-    move-result v4
-
-    invoke-static {p0, v4}, Lcom/android/internal/view/menu/Injector$ListMenuItemViewHook;->checkTextColor(Lcom/android/internal/view/menu/ListMenuItemView;Z)V
-
     .line 152
     if-eqz p1, :cond_6
 
     const/4 v1, 0x0
 
     .line 153
-    .local v1, newVisibility:I
+    .local v1, "newVisibility":I
     :goto_2
     invoke-virtual {v0}, Landroid/widget/CompoundButton;->getVisibility()I
 
@@ -579,9 +566,9 @@
     goto :goto_0
 
     .line 142
-    .end local v0           #compoundButton:Landroid/widget/CompoundButton;
-    .end local v1           #newVisibility:I
-    .end local v2           #otherCompoundButton:Landroid/widget/CompoundButton;
+    .end local v0    # "compoundButton":Landroid/widget/CompoundButton;
+    .end local v1    # "newVisibility":I
+    .end local v2    # "otherCompoundButton":Landroid/widget/CompoundButton;
     :cond_4
     iget-object v4, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
@@ -595,10 +582,10 @@
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     .line 146
-    .restart local v0       #compoundButton:Landroid/widget/CompoundButton;
+    .restart local v0    # "compoundButton":Landroid/widget/CompoundButton;
     iget-object v2, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
-    .restart local v2       #otherCompoundButton:Landroid/widget/CompoundButton;
+    .restart local v2    # "otherCompoundButton":Landroid/widget/CompoundButton;
     goto :goto_1
 
     :cond_6
@@ -632,7 +619,7 @@
 
 .method public setChecked(Z)V
     .locals 2
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 170
@@ -644,41 +631,47 @@
 
     if-eqz v1, :cond_1
 
+    .line 171
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
     if-nez v1, :cond_0
 
+    .line 172
     invoke-direct {p0}, Lcom/android/internal/view/menu/ListMenuItemView;->insertRadioButton()V
 
+    .line 174
     :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
-    .local v0, compoundButton:Landroid/widget/CompoundButton;
+    .line 182
+    .local v0, "compoundButton":Landroid/widget/CompoundButton;
     :goto_0
     invoke-virtual {v0, p1}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    invoke-static {p0, p1}, Lcom/android/internal/view/menu/Injector$ListMenuItemViewHook;->after_setChecked(Lcom/android/internal/view/menu/ListMenuItemView;Z)V
-
+    .line 183
     return-void
 
-    .end local v0           #compoundButton:Landroid/widget/CompoundButton;
+    .line 176
+    .end local v0    # "compoundButton":Landroid/widget/CompoundButton;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     if-nez v1, :cond_2
 
+    .line 177
     invoke-direct {p0}, Lcom/android/internal/view/menu/ListMenuItemView;->insertCheckBox()V
 
+    .line 179
     :cond_2
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
-    .restart local v0       #compoundButton:Landroid/widget/CompoundButton;
+    .restart local v0    # "compoundButton":Landroid/widget/CompoundButton;
     goto :goto_0
 .end method
 
 .method public setForceShowIcon(Z)V
     .locals 0
-    .parameter "forceShow"
+    .param p1, "forceShow"    # Z
 
     .prologue
     .line 108
@@ -692,7 +685,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 3
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v1, 0x0
@@ -714,7 +707,7 @@
     const/4 v0, 0x1
 
     .line 200
-    .local v0, showIcon:Z
+    .local v0, "showIcon":Z
     :goto_0
     if-nez v0, :cond_3
 
@@ -723,13 +716,13 @@
     if-nez v2, :cond_3
 
     .line 221
-    .end local p1
+    .end local p1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_1
     :goto_1
     return-void
 
-    .end local v0           #showIcon:Z
-    .restart local p1
+    .end local v0    # "showIcon":Z
+    .restart local p1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_2
     move v0, v1
 
@@ -737,7 +730,7 @@
     goto :goto_0
 
     .line 204
-    .restart local v0       #showIcon:Z
+    .restart local v0    # "showIcon":Z
     :cond_3
     iget-object v2, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
@@ -772,7 +765,7 @@
 
     if-eqz v0, :cond_7
 
-    .end local p1
+    .end local p1    # "icon":Landroid/graphics/drawable/Drawable;
     :goto_2
     invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
@@ -793,7 +786,7 @@
     goto :goto_1
 
     .line 213
-    .restart local p1
+    .restart local p1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_7
     const/4 p1, 0x0
 
@@ -812,8 +805,8 @@
 
 .method public setShortcut(ZC)V
     .locals 3
-    .parameter "showShortcut"
-    .parameter "shortcutKey"
+    .param p1, "showShortcut"    # Z
+    .param p2, "shortcutKey"    # C
 
     .prologue
     .line 186
@@ -830,7 +823,7 @@
     const/4 v0, 0x0
 
     .line 189
-    .local v0, newVisibility:I
+    .local v0, "newVisibility":I
     :goto_0
     if-nez v0, :cond_0
 
@@ -865,7 +858,7 @@
     return-void
 
     .line 186
-    .end local v0           #newVisibility:I
+    .end local v0    # "newVisibility":I
     :cond_2
     const/16 v0, 0x8
 
@@ -874,7 +867,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 2
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     const/16 v1, 0x8

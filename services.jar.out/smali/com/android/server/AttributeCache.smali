@@ -49,7 +49,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 74
@@ -78,7 +78,7 @@
 
 .method public static init(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 65
@@ -112,10 +112,10 @@
 # virtual methods
 .method public get(Ljava/lang/String;I[II)Lcom/android/server/AttributeCache$Entry;
     .locals 10
-    .parameter "packageName"
-    .parameter "resId"
-    .parameter "styleable"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "resId"    # I
+    .param p3, "styleable"    # [I
+    .param p4, "userId"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -134,19 +134,19 @@
     check-cast v5, Lcom/android/server/AttributeCache$Package;
 
     .line 101
-    .local v5, pkg:Lcom/android/server/AttributeCache$Package;
+    .local v5, "pkg":Lcom/android/server/AttributeCache$Package;
     const/4 v4, 0x0
 
     .line 102
-    .local v4, map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .local v4, "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
     const/4 v2, 0x0
 
     .line 103
-    .local v2, ent:Lcom/android/server/AttributeCache$Entry;
+    .local v2, "ent":Lcom/android/server/AttributeCache$Entry;
     if-eqz v5, :cond_0
 
     .line 104
-    #getter for: Lcom/android/server/AttributeCache$Package;->mMap:Landroid/util/SparseArray;
+    # getter for: Lcom/android/server/AttributeCache$Package;->mMap:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AttributeCache$Package;->access$000(Lcom/android/server/AttributeCache$Package;)Landroid/util/SparseArray;
 
     move-result-object v7
@@ -155,11 +155,11 @@
 
     move-result-object v4
 
-    .end local v4           #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .end local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
     check-cast v4, Ljava/util/HashMap;
 
     .line 105
-    .restart local v4       #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .restart local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
     if-eqz v4, :cond_2
 
     .line 106
@@ -167,11 +167,11 @@
 
     move-result-object v2
 
-    .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
+    .end local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
     check-cast v2, Lcom/android/server/AttributeCache$Entry;
 
     .line 107
-    .restart local v2       #ent:Lcom/android/server/AttributeCache$Entry;
+    .restart local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
     if-eqz v2, :cond_2
 
     .line 108
@@ -198,13 +198,13 @@
 
     invoke-virtual {v7, p1, v8, v9}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
     .line 116
-    .local v0, context:Landroid/content/Context;
+    .local v0, "context":Landroid/content/Context;
     if-nez v0, :cond_1
 
     .line 117
@@ -214,10 +214,10 @@
     goto :goto_0
 
     .line 140
-    .end local v0           #context:Landroid/content/Context;
-    .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
-    .end local v4           #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
-    .end local v5           #pkg:Lcom/android/server/AttributeCache$Package;
+    .end local v0    # "context":Landroid/content/Context;
+    .end local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .end local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .end local v5    # "pkg":Lcom/android/server/AttributeCache$Package;
     :catchall_0
     move-exception v6
 
@@ -228,52 +228,52 @@
     throw v6
 
     .line 119
-    .restart local v2       #ent:Lcom/android/server/AttributeCache$Entry;
-    .restart local v4       #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
-    .restart local v5       #pkg:Lcom/android/server/AttributeCache$Package;
+    .restart local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .restart local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .restart local v5    # "pkg":Lcom/android/server/AttributeCache$Package;
     :catch_0
     move-exception v1
 
     .line 120
-    .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v1, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_3
     monitor-exit p0
 
     goto :goto_0
 
     .line 122
-    .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v0       #context:Landroid/content/Context;
+    .end local v1    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v0    # "context":Landroid/content/Context;
     :cond_1
     new-instance v5, Lcom/android/server/AttributeCache$Package;
 
-    .end local v5           #pkg:Lcom/android/server/AttributeCache$Package;
+    .end local v5    # "pkg":Lcom/android/server/AttributeCache$Package;
     invoke-direct {v5, v0}, Lcom/android/server/AttributeCache$Package;-><init>(Landroid/content/Context;)V
 
     .line 123
-    .restart local v5       #pkg:Lcom/android/server/AttributeCache$Package;
+    .restart local v5    # "pkg":Lcom/android/server/AttributeCache$Package;
     iget-object v7, p0, Lcom/android/server/AttributeCache;->mPackages:Ljava/util/WeakHashMap;
 
     invoke-virtual {v7, p1, v5}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .end local v0           #context:Landroid/content/Context;
+    .end local v0    # "context":Landroid/content/Context;
     :cond_2
     move-object v3, v2
 
     .line 126
-    .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
-    .local v3, ent:Lcom/android/server/AttributeCache$Entry;
+    .end local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .local v3, "ent":Lcom/android/server/AttributeCache$Entry;
     if-nez v4, :cond_3
 
     .line 127
     new-instance v4, Ljava/util/HashMap;
 
-    .end local v4           #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    .end local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
     .line 128
-    .restart local v4       #map:Ljava/util/HashMap;,"Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
-    #getter for: Lcom/android/server/AttributeCache$Package;->mMap:Landroid/util/SparseArray;
+    .restart local v4    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<[ILcom/android/server/AttributeCache$Entry;>;"
+    # getter for: Lcom/android/server/AttributeCache$Package;->mMap:Landroid/util/SparseArray;
     invoke-static {v5}, Lcom/android/server/AttributeCache$Package;->access$000(Lcom/android/server/AttributeCache$Package;)Landroid/util/SparseArray;
 
     move-result-object v7
@@ -297,17 +297,17 @@
 
     invoke-direct {v2, v7, v8}, Lcom/android/server/AttributeCache$Entry;-><init>(Landroid/content/Context;Landroid/content/res/TypedArray;)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 134
-    .end local v3           #ent:Lcom/android/server/AttributeCache$Entry;
-    .restart local v2       #ent:Lcom/android/server/AttributeCache$Entry;
+    .end local v3    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .restart local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
     :try_start_5
     invoke-virtual {v4, p3, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_2
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 139
     :try_start_6
@@ -318,17 +318,17 @@
     goto :goto_0
 
     .line 135
-    .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
-    .restart local v3       #ent:Lcom/android/server/AttributeCache$Entry;
+    .end local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .restart local v3    # "ent":Lcom/android/server/AttributeCache$Entry;
     :catch_1
     move-exception v1
 
     move-object v2, v3
 
     .line 136
-    .end local v3           #ent:Lcom/android/server/AttributeCache$Entry;
-    .local v1, e:Landroid/content/res/Resources$NotFoundException;
-    .restart local v2       #ent:Lcom/android/server/AttributeCache$Entry;
+    .end local v3    # "ent":Lcom/android/server/AttributeCache$Entry;
+    .local v1, "e":Landroid/content/res/Resources$NotFoundException;
+    .restart local v2    # "ent":Lcom/android/server/AttributeCache$Entry;
     :goto_1
     monitor-exit p0
     :try_end_6
@@ -337,7 +337,7 @@
     goto :goto_0
 
     .line 135
-    .end local v1           #e:Landroid/content/res/Resources$NotFoundException;
+    .end local v1    # "e":Landroid/content/res/Resources$NotFoundException;
     :catch_2
     move-exception v1
 
@@ -346,7 +346,7 @@
 
 .method public removePackage(Ljava/lang/String;)V
     .locals 1
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 79
@@ -377,7 +377,7 @@
 
 .method public updateConfiguration(Landroid/content/res/Configuration;)V
     .locals 2
-    .parameter "config"
+    .param p1, "config"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 85
@@ -392,8 +392,8 @@
     move-result v0
 
     .line 87
-    .local v0, changes:I
-    const v1, -0x400000a1
+    .local v0, "changes":I
+    const v1, -0x400000a1    # -1.9999808f
 
     and-int/2addr v1, v0
 
@@ -412,7 +412,7 @@
     return-void
 
     .line 95
-    .end local v0           #changes:I
+    .end local v0    # "changes":I
     :catchall_0
     move-exception v1
 

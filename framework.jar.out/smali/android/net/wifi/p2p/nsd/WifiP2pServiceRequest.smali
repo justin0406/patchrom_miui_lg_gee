@@ -46,10 +46,10 @@
 
 .method private constructor <init>(IIILjava/lang/String;)V
     .locals 0
-    .parameter "serviceType"
-    .parameter "length"
-    .parameter "transId"
-    .parameter "query"
+    .param p1, "serviceType"    # I
+    .param p2, "length"    # I
+    .param p3, "transId"    # I
+    .param p4, "query"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -73,11 +73,11 @@
 
 .method synthetic constructor <init>(IIILjava/lang/String;Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Ljava/lang/String;
+    .param p5, "x4"    # Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest$1;
 
     .prologue
     .line 40
@@ -88,8 +88,8 @@
 
 .method protected constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .parameter "protocolType"
-    .parameter "query"
+    .param p1, "protocolType"    # I
+    .param p2, "query"    # Ljava/lang/String;
 
     .prologue
     .line 75
@@ -133,7 +133,7 @@
 
 .method public static newInstance(I)Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
     .locals 2
-    .parameter "protocolType"
+    .param p0, "protocolType"    # I
 
     .prologue
     .line 211
@@ -148,8 +148,8 @@
 
 .method public static newInstance(ILjava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
     .locals 1
-    .parameter "protocolType"
-    .parameter "queryData"
+    .param p0, "protocolType"    # I
+    .param p1, "queryData"    # Ljava/lang/String;
 
     .prologue
     .line 196
@@ -162,7 +162,7 @@
 
 .method private validateQuery(Ljava/lang/String;)V
     .locals 9
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 157
@@ -177,7 +177,7 @@
     const v0, 0xffff
 
     .line 162
-    .local v0, UNSIGNED_SHORT_MAX:I
+    .local v0, "UNSIGNED_SHORT_MAX":I
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v6
@@ -266,23 +266,23 @@
     move-result-object v3
 
     .line 174
-    .local v3, chars:[C
+    .local v3, "chars":[C
     move-object v1, v3
 
-    .local v1, arr$:[C
+    .local v1, "arr$":[C
     array-length v5, v1
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_0
 
     aget-char v2, v1, v4
 
     .line 175
-    .local v2, c:C
+    .local v2, "c":C
     const/16 v6, 0x30
 
     if-lt v2, v6, :cond_4
@@ -347,7 +347,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -380,7 +380,7 @@
     check-cast v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
 
     .line 229
-    .local v0, req:Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
+    .local v0, "req":Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
     iget v3, v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;->mProtocolType:I
 
     iget v4, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;->mProtocolType:I
@@ -447,7 +447,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 139
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v2, "%02x"
@@ -574,7 +574,7 @@
     const/16 v0, 0x11
 
     .line 245
-    .local v0, result:I
+    .local v0, "result":I
     iget v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;->mProtocolType:I
 
     add-int/lit16 v0, v1, 0x20f
@@ -614,7 +614,7 @@
 
 .method public setTransactionId(I)V
     .locals 0
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 120
@@ -626,8 +626,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 258

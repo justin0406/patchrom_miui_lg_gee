@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -58,8 +58,8 @@
 
 .method private constructor <init>(IF)V
     .locals 0
-    .parameter "ratingStyle"
-    .parameter "rating"
+    .param p1, "ratingStyle"    # I
+    .param p2, "rating"    # F
 
     .prologue
     .line 73
@@ -77,9 +77,9 @@
 
 .method synthetic constructor <init>(IFLandroid/media/Rating$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # F
+    .param p3, "x2"    # Landroid/media/Rating$1;
 
     .prologue
     .line 32
@@ -90,7 +90,7 @@
 
 .method public static newHeartRating(Z)Landroid/media/Rating;
     .locals 3
-    .parameter "hasHeart"
+    .param p0, "hasHeart"    # Z
 
     .prologue
     .line 145
@@ -100,7 +100,7 @@
 
     if-eqz p0, :cond_0
 
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     :goto_0
     invoke-direct {v1, v2, v0}, Landroid/media/Rating;-><init>(IF)V
@@ -115,7 +115,7 @@
 
 .method public static newPercentageRating(F)Landroid/media/Rating;
     .locals 2
-    .parameter "percent"
+    .param p0, "percent"    # F
 
     .prologue
     .line 202
@@ -125,7 +125,7 @@
 
     if-ltz v0, :cond_0
 
-    const/high16 v0, 0x42c8
+    const/high16 v0, 0x42c80000    # 100.0f
 
     cmpl-float v0, p0, v0
 
@@ -158,17 +158,17 @@
 
 .method public static newStarRating(IF)Landroid/media/Rating;
     .locals 5
-    .parameter "starRatingStyle"
-    .parameter "starRating"
+    .param p0, "starRatingStyle"    # I
+    .param p1, "starRating"    # F
 
     .prologue
     const/4 v1, 0x0
 
     .line 172
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     .line 173
-    .local v0, maxRating:F
+    .local v0, "maxRating":F
     packed-switch p0, :pswitch_data_0
 
     .line 184
@@ -206,7 +206,7 @@
 
     .line 175
     :pswitch_0
-    const/high16 v0, 0x4040
+    const/high16 v0, 0x40400000    # 3.0f
 
     .line 187
     :goto_1
@@ -232,14 +232,14 @@
 
     .line 178
     :pswitch_1
-    const/high16 v0, 0x4080
+    const/high16 v0, 0x40800000    # 4.0f
 
     .line 179
     goto :goto_1
 
     .line 181
     :pswitch_2
-    const/high16 v0, 0x40a0
+    const/high16 v0, 0x40a00000    # 5.0f
 
     .line 182
     goto :goto_1
@@ -263,7 +263,7 @@
 
 .method public static newThumbRating(Z)Landroid/media/Rating;
     .locals 3
-    .parameter "thumbIsUp"
+    .param p0, "thumbIsUp"    # Z
 
     .prologue
     .line 156
@@ -273,7 +273,7 @@
 
     if-eqz p0, :cond_0
 
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     :goto_0
     invoke-direct {v1, v2, v0}, Landroid/media/Rating;-><init>(IF)V
@@ -288,7 +288,7 @@
 
 .method public static newUnratedRating(I)Landroid/media/Rating;
     .locals 2
-    .parameter "ratingStyle"
+    .param p0, "ratingStyle"    # I
 
     .prologue
     .line 124
@@ -304,7 +304,7 @@
     :pswitch_0
     new-instance v0, Landroid/media/Rating;
 
-    const/high16 v1, -0x4080
+    const/high16 v1, -0x40800000    # -1.0f
 
     invoke-direct {v0, p0, v1}, Landroid/media/Rating;-><init>(IF)V
 
@@ -355,7 +355,7 @@
 
     .line 279
     :cond_0
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     .line 281
     :goto_0
@@ -388,7 +388,7 @@
 
     .line 268
     :cond_0
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     :goto_0
     return v0
@@ -437,7 +437,7 @@
     :cond_0
     iget v2, p0, Landroid/media/Rating;->mRatingValue:F
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     cmpl-float v2, v2, v3
 
@@ -499,7 +499,7 @@
     :cond_1
     iget v1, p0, Landroid/media/Rating;->mRatingValue:F
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     cmpl-float v1, v1, v2
 
@@ -570,8 +570,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 95

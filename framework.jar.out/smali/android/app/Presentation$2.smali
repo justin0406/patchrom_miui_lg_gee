@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/Presentation;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 323
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onDisplayAdded(I)V
     .locals 0
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 326
@@ -48,13 +47,13 @@
 
 .method public onDisplayChanged(I)V
     .locals 1
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 337
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
-    #getter for: Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
+    # getter for: Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
     invoke-static {v0}, Landroid/app/Presentation;->access$000(Landroid/app/Presentation;)Landroid/view/Display;
 
     move-result-object v0
@@ -68,7 +67,7 @@
     .line 338
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
-    #calls: Landroid/app/Presentation;->handleDisplayChanged()V
+    # invokes: Landroid/app/Presentation;->handleDisplayChanged()V
     invoke-static {v0}, Landroid/app/Presentation;->access$200(Landroid/app/Presentation;)V
 
     .line 340
@@ -78,13 +77,13 @@
 
 .method public onDisplayRemoved(I)V
     .locals 1
-    .parameter "displayId"
+    .param p1, "displayId"    # I
 
     .prologue
     .line 330
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
-    #getter for: Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
+    # getter for: Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
     invoke-static {v0}, Landroid/app/Presentation;->access$000(Landroid/app/Presentation;)Landroid/view/Display;
 
     move-result-object v0
@@ -98,7 +97,7 @@
     .line 331
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
-    #calls: Landroid/app/Presentation;->handleDisplayRemoved()V
+    # invokes: Landroid/app/Presentation;->handleDisplayRemoved()V
     invoke-static {v0}, Landroid/app/Presentation;->access$100(Landroid/app/Presentation;)V
 
     .line 333

@@ -3,10 +3,10 @@
 .source "ActionMenuItemView.java"
 
 # interfaces
-.implements Lcom/android/internal/view/menu/MenuView$ItemView;
 .implements Landroid/view/View$OnClickListener;
 .implements Landroid/view/View$OnLongClickListener;
 .implements Lcom/android/internal/view/menu/ActionMenuView$ActionMenuChildView;
+.implements Lcom/android/internal/view/menu/MenuView$ItemView;
 
 
 # static fields
@@ -32,15 +32,13 @@
 
 .field private mSavedPaddingLeft:I
 
-.field mSavedPaddingRight:I
-
 .field private mTitle:Ljava/lang/CharSequence;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 56
@@ -54,8 +52,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 60
@@ -69,9 +67,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -85,8 +83,8 @@
     move-result-object v2
 
     .line 66
-    .local v2, res:Landroid/content/res/Resources;
-    const v3, 0x1110047
+    .local v2, "res":Landroid/content/res/Resources;
+    const v3, 0x1110046
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -102,7 +100,7 @@
     move-result-object v0
 
     .line 70
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v3
@@ -120,12 +118,12 @@
     iget v1, v3, Landroid/util/DisplayMetrics;->density:F
 
     .line 75
-    .local v1, density:F
-    const/high16 v3, 0x4200
+    .local v1, "density":F
+    const/high16 v3, 0x42000000    # 32.0f
 
     mul-float/2addr v3, v1
 
-    const/high16 v4, 0x3f00
+    const/high16 v4, 0x3f000000    # 0.5f
 
     add-float/2addr v3, v4
 
@@ -168,19 +166,11 @@
     move v0, v1
 
     .line 146
-    .local v0, visible:Z
+    .local v0, "visible":Z
     :goto_0
     iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
 
     if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
-
-    invoke-virtual {v3}, Lcom/android/internal/view/menu/MenuItemImpl;->isForceShowText()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
 
     iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
@@ -215,7 +205,7 @@
     .line 150
     return-void
 
-    .end local v0           #visible:Z
+    .end local v0    # "visible":Z
     :cond_2
     move v0, v2
 
@@ -223,7 +213,7 @@
     goto :goto_0
 
     .line 149
-    .restart local v0       #visible:Z
+    .restart local v0    # "visible":Z
     :cond_3
     const/4 v1, 0x0
 
@@ -234,7 +224,7 @@
 # virtual methods
 .method public dispatchHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 207
@@ -247,7 +237,7 @@
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 191
@@ -259,15 +249,6 @@
     return v0
 .end method
 
-.method getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    return-object v0
-.end method
-
 .method public getItemData()Lcom/android/internal/view/menu/MenuItemImpl;
     .locals 1
 
@@ -276,15 +257,6 @@
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
     return-object v0
-.end method
-
-.method getSavedPaddingLeft()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
-
-    return v0
 .end method
 
 .method public hasText()Z
@@ -315,8 +287,8 @@
 
 .method public initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
     .locals 1
-    .parameter "itemData"
-    .parameter "menuType"
+    .param p1, "itemData"    # Lcom/android/internal/view/menu/MenuItemImpl;
+    .param p2, "menuType"    # I
 
     .prologue
     .line 103
@@ -416,7 +388,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 114
@@ -438,7 +410,7 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
-    .parameter "newConfig"
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 85
@@ -453,7 +425,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110047
+    const v1, 0x1110046
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -470,7 +442,7 @@
 
 .method public onLongClick(Landroid/view/View;)Z
     .locals 12
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v9, 0x1
@@ -495,13 +467,13 @@
     new-array v5, v10, [I
 
     .line 230
-    .local v5, screenPos:[I
+    .local v5, "screenPos":[I
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
     .line 231
-    .local v2, displayFrame:Landroid/graphics/Rect;
+    .local v2, "displayFrame":Landroid/graphics/Rect;
     invoke-virtual {p0, v5}, Lcom/android/internal/view/menu/ActionMenuItemView;->getLocationOnScreen([I)V
 
     .line 232
@@ -513,19 +485,19 @@
     move-result-object v1
 
     .line 235
-    .local v1, context:Landroid/content/Context;
+    .local v1, "context":Landroid/content/Context;
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuItemView;->getWidth()I
 
     move-result v7
 
     .line 236
-    .local v7, width:I
+    .local v7, "width":I
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuItemView;->getHeight()I
 
     move-result v3
 
     .line 237
-    .local v3, height:I
+    .local v3, "height":I
     aget v10, v5, v9
 
     div-int/lit8 v11, v3, 0x2
@@ -533,7 +505,7 @@
     add-int v4, v10, v11
 
     .line 238
-    .local v4, midy:I
+    .local v4, "midy":I
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
@@ -545,7 +517,7 @@
     iget v6, v10, Landroid/util/DisplayMetrics;->widthPixels:I
 
     .line 240
-    .local v6, screenWidth:I
+    .local v6, "screenWidth":I
     iget-object v10, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
     invoke-virtual {v10}, Lcom/android/internal/view/menu/MenuItemImpl;->getTitle()Ljava/lang/CharSequence;
@@ -557,7 +529,7 @@
     move-result-object v0
 
     .line 241
-    .local v0, cheatSheet:Landroid/widget/Toast;
+    .local v0, "cheatSheet":Landroid/widget/Toast;
     invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
     move-result v10
@@ -597,29 +569,22 @@
 
 .method protected onMeasure(II)V
     .locals 13
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    const/high16 v12, -0x8000
+    const/high16 v12, -0x80000000
 
-    const/high16 v11, 0x4000
+    const/high16 v11, 0x40000000    # 2.0f
 
-    invoke-static {p0, p1, p2}, Lcom/android/internal/view/menu/Injector$ActionMenuItemViewHook;->before_onMeasure(Lcom/android/internal/view/menu/ActionMenuItemView;II)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_miui
-
-    return-void
-
-    :cond_miui
+    .line 255
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v7
 
     if-ne v7, v12, :cond_0
 
+    .line 257
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v7
@@ -635,7 +600,7 @@
     move-result v3
 
     .line 261
-    .local v3, textVisible:Z
+    .local v3, "textVisible":Z
     if-eqz v3, :cond_1
 
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
@@ -669,19 +634,19 @@
     move-result v5
 
     .line 269
-    .local v5, widthMode:I
+    .local v5, "widthMode":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v6
 
     .line 270
-    .local v6, widthSize:I
+    .local v6, "widthSize":I
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuItemView;->getMeasuredWidth()I
 
     move-result v1
 
     .line 271
-    .local v1, oldMeasuredWidth:I
+    .local v1, "oldMeasuredWidth":I
     if-ne v5, v12, :cond_4
 
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMinWidth:I
@@ -691,7 +656,7 @@
     move-result v2
 
     .line 274
-    .local v2, targetWidth:I
+    .local v2, "targetWidth":I
     :goto_0
     if-eq v5, v11, :cond_2
 
@@ -722,7 +687,7 @@
     move-result v4
 
     .line 284
-    .local v4, w:I
+    .local v4, "w":I
     iget-object v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -734,7 +699,7 @@
     move-result v0
 
     .line 285
-    .local v0, dw:I
+    .local v0, "dw":I
     sub-int v7, v4, v0
 
     div-int/lit8 v7, v7, 0x2
@@ -754,13 +719,13 @@
     invoke-super {p0, v7, v8, v9, v10}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 287
-    .end local v0           #dw:I
-    .end local v4           #w:I
+    .end local v0    # "dw":I
+    .end local v4    # "w":I
     :cond_3
     return-void
 
     .line 271
-    .end local v2           #targetWidth:I
+    .end local v2    # "targetWidth":I
     :cond_4
     iget v2, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMinWidth:I
 
@@ -769,7 +734,7 @@
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 197
@@ -781,7 +746,7 @@
     move-result-object v0
 
     .line 199
-    .local v0, cdesc:Ljava/lang/CharSequence;
+    .local v0, "cdesc":Ljava/lang/CharSequence;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -812,7 +777,7 @@
 
 .method public setCheckable(Z)V
     .locals 0
-    .parameter "checkable"
+    .param p1, "checkable"    # Z
 
     .prologue
     .line 129
@@ -821,7 +786,7 @@
 
 .method public setChecked(Z)V
     .locals 0
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 133
@@ -830,7 +795,7 @@
 
 .method public setExpandedFormat(Z)V
     .locals 1
-    .parameter "expandedFormat"
+    .param p1, "expandedFormat"    # Z
 
     .prologue
     .line 136
@@ -858,7 +823,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 7
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     const/4 v6, 0x0
@@ -877,13 +842,13 @@
     move-result v2
 
     .line 156
-    .local v2, width:I
+    .local v2, "width":I
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v0
 
     .line 157
-    .local v0, height:I
+    .local v0, "height":I
     iget v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMaxIconSize:I
 
     if-le v2, v3, :cond_0
@@ -898,7 +863,7 @@
     div-float v1, v3, v4
 
     .line 159
-    .local v1, scale:F
+    .local v1, "scale":F
     iget v2, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMaxIconSize:I
 
     .line 160
@@ -909,7 +874,7 @@
     float-to-int v0, v3
 
     .line 162
-    .end local v1           #scale:F
+    .end local v1    # "scale":F
     :cond_0
     iget v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMaxIconSize:I
 
@@ -925,7 +890,7 @@
     div-float v1, v3, v4
 
     .line 164
-    .restart local v1       #scale:F
+    .restart local v1    # "scale":F
     iget v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMaxIconSize:I
 
     .line 165
@@ -936,13 +901,13 @@
     float-to-int v2, v3
 
     .line 167
-    .end local v1           #scale:F
+    .end local v1    # "scale":F
     :cond_1
     invoke-virtual {p1, v6, v6, v2, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 169
-    .end local v0           #height:I
-    .end local v2           #width:I
+    .end local v0    # "height":I
+    .end local v2    # "width":I
     :cond_2
     invoke-virtual {p0, p1, v5, v5, v5}, Lcom/android/internal/view/menu/ActionMenuItemView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
@@ -955,7 +920,7 @@
 
 .method public setItemInvoker(Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;)V
     .locals 0
-    .parameter "invoker"
+    .param p1, "invoker"    # Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
 
     .prologue
     .line 120
@@ -967,25 +932,26 @@
 
 .method public setPadding(IIII)V
     .locals 0
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "l"    # I
+    .param p2, "t"    # I
+    .param p3, "r"    # I
+    .param p4, "b"    # I
 
     .prologue
+    .line 94
     iput p1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
 
-    iput p3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingRight:I
-
+    .line 95
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setPadding(IIII)V
 
+    .line 96
     return-void
 .end method
 
 .method public setShortcut(ZC)V
     .locals 0
-    .parameter "showShortcut"
-    .parameter "shortcutKey"
+    .param p1, "showShortcut"    # Z
+    .param p2, "shortcutKey"    # C
 
     .prologue
     .line 180
@@ -994,7 +960,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 183
@@ -1020,28 +986,4 @@
     const/4 v0, 0x1
 
     return v0
-.end method
-
-.method superOnMeasure(II)V
-    .locals 0
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
-
-    .prologue
-    invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
-
-    return-void
-.end method
-
-.method superSetPadding(IIII)V
-    .locals 0
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
-
-    .prologue
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    return-void
 .end method

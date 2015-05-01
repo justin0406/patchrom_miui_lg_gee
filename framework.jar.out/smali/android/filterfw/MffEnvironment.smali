@@ -10,7 +10,7 @@
 # direct methods
 .method protected constructor <init>(Landroid/filterfw/core/FrameManager;)V
     .locals 1
-    .parameter "frameManager"
+    .param p1, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 43
@@ -22,11 +22,11 @@
     .line 46
     new-instance p1, Landroid/filterfw/core/CachedFrameManager;
 
-    .end local p1
+    .end local p1    # "frameManager":Landroid/filterfw/core/FrameManager;
     invoke-direct {p1}, Landroid/filterfw/core/CachedFrameManager;-><init>()V
 
     .line 50
-    .restart local p1
+    .restart local p1    # "frameManager":Landroid/filterfw/core/FrameManager;
     :cond_0
     new-instance v0, Landroid/filterfw/core/FilterContext;
 
@@ -57,7 +57,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v0, :cond_0
 
     .line 87
@@ -93,7 +93,7 @@
     invoke-direct {v0}, Landroid/filterfw/core/GLEnvironment;-><init>()V
 
     .line 75
-    .local v0, glEnvironment:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnvironment":Landroid/filterfw/core/GLEnvironment;
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->initWithNewContext()V
 
     .line 76
@@ -115,7 +115,7 @@
     move-result-object v0
 
     .line 100
-    .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
+    .local v0, "glEnv":Landroid/filterfw/core/GLEnvironment;
     if-eqz v0, :cond_0
 
     .line 101
@@ -153,7 +153,7 @@
 
 .method public setGLEnvironment(Landroid/filterfw/core/GLEnvironment;)V
     .locals 1
-    .parameter "glEnvironment"
+    .param p1, "glEnvironment"    # Landroid/filterfw/core/GLEnvironment;
 
     .prologue
     .line 67

@@ -29,8 +29,8 @@
 # virtual methods
 .method public getTransformation(JLandroid/view/animation/Transformation;)Z
     .locals 1
-    .parameter "currentTime"
-    .parameter "outTransformation"
+    .param p1, "currentTime"    # J
+    .param p3, "outTransformation"    # Landroid/view/animation/Transformation;
 
     .prologue
     .line 330

@@ -62,7 +62,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "p"
+    .param p1, "p"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -204,8 +204,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/os/BatteryProperties$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/os/BatteryProperties$1;
 
     .prologue
     .line 24
@@ -228,8 +228,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "p"
-    .parameter "flags"
+    .param p1, "p"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

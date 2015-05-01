@@ -175,7 +175,7 @@
 
 .field public static final empty:I = 0x1020004
 
-.field public static final enter_pin_section:I = 0x102037a
+.field public static final enter_pin_section:I = 0x1020388
 
 .field public static final expand_activities_button:I = 0x1020269
 
@@ -191,11 +191,11 @@
 
 .field public static final fillInIntent:I = 0x1020258
 
-.field public static final find:I = 0x1020386
+.field public static final find:I = 0x1020395
 
-.field public static final find_next:I = 0x1020389
+.field public static final find_next:I = 0x1020398
 
-.field public static final find_prev:I = 0x1020388
+.field public static final find_prev:I = 0x1020397
 
 .field public static final five:I = 0x1020353
 
@@ -309,7 +309,7 @@
 
 .field public static final minute:I = 0x102034b
 
-.field public static final mode_normal:I = 0x1020383
+.field public static final mode_normal:I = 0x1020391
 
 .field public static final month:I = 0x1020292
 
@@ -317,7 +317,7 @@
 
 .field public static final mount_button:I = 0x102035b
 
-.field public static final name:I = 0x102037c
+.field public static final name:I = 0x102038a
 
 .field public static final new_app_action:I = 0x10202ae
 
@@ -471,7 +471,7 @@
 
 .field public static final selectTextMode:I = 0x102002d
 
-.field public static final select_all:I = 0x1020384
+.field public static final select_all:I = 0x1020393
 
 .field public static final selectedIcon:I = 0x102000e
 
@@ -483,7 +483,7 @@
 
 .field public static final sha256_fingerprint:I = 0x1020346
 
-.field public static final share:I = 0x1020385
+.field public static final share:I = 0x1020394
 
 .field public static final shortcut:I = 0x10202c1
 
@@ -579,7 +579,9 @@
 
 .field public static final visible_panel:I = 0x102035d
 
-.field public static final websearch:I = 0x1020387
+.field public static final websearch:I = 0x1020396
+
+.field public static final webviewchromium_ampm:I = 0x102037e
 
 .field public static final webviewchromium_autofill_label:I = 0x1020366
 
@@ -587,63 +589,85 @@
 
 .field public static final webviewchromium_autofill_sublabel:I = 0x1020367
 
+.field public static final webviewchromium_color_button_swatch:I = 0x1020392
+
 .field public static final webviewchromium_color_picker_advanced:I = 0x102036c
 
 .field public static final webviewchromium_color_picker_gradient:I = 0x102036a
 
-.field public static final webviewchromium_color_picker_more_colors_button:I = 0x1020370
+.field public static final webviewchromium_color_picker_more_colors_button:I = 0x102036f
 
-.field public static final webviewchromium_color_picker_more_colors_button_border:I = 0x102036f
+.field public static final webviewchromium_color_picker_more_colors_button_border:I = 0x102036e
 
 .field public static final webviewchromium_color_picker_seek_bar:I = 0x102036b
 
-.field public static final webviewchromium_color_picker_selected_color_view:I = 0x1020374
+.field public static final webviewchromium_color_picker_selected_color_view:I = 0x1020372
 
-.field public static final webviewchromium_color_picker_simple:I = 0x102036e
-
-.field public static final webviewchromium_color_picker_simple_border:I = 0x102036d
+.field public static final webviewchromium_color_picker_simple:I = 0x102036d
 
 .field public static final webviewchromium_color_picker_text:I = 0x1020368
 
-.field public static final webviewchromium_color_picker_title:I = 0x1020371
+.field public static final webviewchromium_color_picker_title:I = 0x1020370
 
-.field public static final webviewchromium_date_picker:I = 0x1020375
+.field public static final webviewchromium_date_picker:I = 0x1020373
 
-.field public static final webviewchromium_pickers:I = 0x1020377
+.field public static final webviewchromium_date_time_suggestion_label:I = 0x1020377
 
-.field public static final webviewchromium_position_in_year:I = 0x1020378
+.field public static final webviewchromium_date_time_suggestion_value:I = 0x1020376
 
-.field public static final webviewchromium_select_action_menu_copy:I = 0x102038c
+.field public static final webviewchromium_hour:I = 0x1020378
 
-.field public static final webviewchromium_select_action_menu_cut:I = 0x102038b
+.field public static final webviewchromium_milli:I = 0x102037d
 
-.field public static final webviewchromium_select_action_menu_paste:I = 0x102038d
+.field public static final webviewchromium_minute:I = 0x1020379
 
-.field public static final webviewchromium_select_action_menu_select_all:I = 0x102038a
+.field public static final webviewchromium_pickers:I = 0x102037f
 
-.field public static final webviewchromium_select_action_menu_share:I = 0x102038e
+.field public static final webviewchromium_position_in_year:I = 0x1020380
 
-.field public static final webviewchromium_select_action_menu_web_search:I = 0x102038f
+.field public static final webviewchromium_second:I = 0x102037b
 
-.field public static final webviewchromium_time_picker:I = 0x1020376
+.field public static final webviewchromium_second_colon:I = 0x102037a
 
-.field public static final webviewchromium_year:I = 0x1020379
+.field public static final webviewchromium_second_dot:I = 0x102037c
+
+.field public static final webviewchromium_select_action_menu_copy:I = 0x102039b
+
+.field public static final webviewchromium_select_action_menu_cut:I = 0x102039a
+
+.field public static final webviewchromium_select_action_menu_paste:I = 0x102039c
+
+.field public static final webviewchromium_select_action_menu_select_all:I = 0x1020399
+
+.field public static final webviewchromium_select_action_menu_share:I = 0x102039d
+
+.field public static final webviewchromium_select_action_menu_web_search:I = 0x102039e
+
+.field public static final webviewchromium_time_picker:I = 0x1020374
+
+.field public static final webviewchromium_validation_bubble_arrow_image:I = 0x1020385
+
+.field public static final webviewchromium_validation_bubble_main_text:I = 0x1020386
+
+.field public static final webviewchromium_validation_bubble_sub_text:I = 0x1020387
+
+.field public static final webviewchromium_year:I = 0x1020381
 
 .field public static final widget_frame:I = 0x1020018
 
-.field public static final wifi_p2p_wps_pin:I = 0x102037b
+.field public static final wifi_p2p_wps_pin:I = 0x1020389
 
 .field public static final year:I = 0x1020294
 
 .field public static final zero:I = 0x1020358
 
-.field public static final zoomControls:I = 0x102037f
+.field public static final zoomControls:I = 0x102038d
 
-.field public static final zoomIn:I = 0x1020381
+.field public static final zoomIn:I = 0x102038f
 
-.field public static final zoomMagnify:I = 0x1020382
+.field public static final zoomMagnify:I = 0x1020390
 
-.field public static final zoomOut:I = 0x1020380
+.field public static final zoomOut:I = 0x102038e
 
 
 # direct methods
@@ -651,7 +675,7 @@
     .locals 0
 
     .prologue
-    .line 12731
+    .line 12739
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

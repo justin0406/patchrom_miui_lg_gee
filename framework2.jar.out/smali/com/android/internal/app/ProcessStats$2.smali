@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ProcessStats;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2100
@@ -49,8 +48,8 @@
 # virtual methods
 .method public compare(Lcom/android/internal/app/ProcessStats$ProcessState;Lcom/android/internal/app/ProcessStats$ProcessState;)I
     .locals 4
-    .parameter "lhs"
-    .parameter "rhs"
+    .param p1, "lhs"    # Lcom/android/internal/app/ProcessStats$ProcessState;
+    .param p2, "rhs"    # Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .prologue
     .line 2103
@@ -93,17 +92,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 2100
     check-cast p1, Lcom/android/internal/app/ProcessStats$ProcessState;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/internal/app/ProcessStats$ProcessState;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/app/ProcessStats$2;->compare(Lcom/android/internal/app/ProcessStats$ProcessState;Lcom/android/internal/app/ProcessStats$ProcessState;)I
 
     move-result v0

@@ -84,7 +84,7 @@
 
 .method public constructor <init>(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "opts"
+    .param p1, "opts"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v2, 0x0
@@ -264,7 +264,7 @@
 
 .method public static abort(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "options"
+    .param p0, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 394
@@ -284,9 +284,9 @@
 
 .method public static makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
     .locals 1
-    .parameter "context"
-    .parameter "enterResId"
-    .parameter "exitResId"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enterResId"    # I
+    .param p2, "exitResId"    # I
 
     .prologue
     const/4 v0, 0x0
@@ -301,11 +301,11 @@
 
 .method public static makeCustomAnimation(Landroid/content/Context;IILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
     .locals 2
-    .parameter "context"
-    .parameter "enterResId"
-    .parameter "exitResId"
-    .parameter "handler"
-    .parameter "listener"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enterResId"    # I
+    .param p2, "exitResId"    # I
+    .param p3, "handler"    # Landroid/os/Handler;
+    .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
     .line 154
@@ -314,7 +314,7 @@
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
     .line 155
-    .local v0, opts:Landroid/app/ActivityOptions;
+    .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -339,29 +339,13 @@
     return-object v0
 .end method
 
-.method public static makeDelayedThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
-    .locals 1
-    .parameter "source"
-    .parameter "thumbnail"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "listener"
-
-    .prologue
-    invoke-static {p0, p1, p2, p3, p4}, Landroid/app/ActivityOptions;->makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public static makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
     .locals 4
-    .parameter "source"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "startWidth"
-    .parameter "startHeight"
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "startX"    # I
+    .param p2, "startY"    # I
+    .param p3, "startWidth"    # I
+    .param p4, "startHeight"    # I
 
     .prologue
     const/4 v3, 0x2
@@ -372,7 +356,7 @@
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
     .line 210
-    .local v0, opts:Landroid/app/ActivityOptions;
+    .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -390,7 +374,7 @@
     new-array v1, v3, [I
 
     .line 213
-    .local v1, pts:[I
+    .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 214
@@ -423,12 +407,12 @@
 
 .method private static makeThumbnailAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;Z)Landroid/app/ActivityOptions;
     .locals 3
-    .parameter "source"
-    .parameter "thumbnail"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "listener"
-    .parameter "scaleUp"
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
+    .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
+    .param p5, "scaleUp"    # Z
 
     .prologue
     .line 293
@@ -437,7 +421,7 @@
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
     .line 294
-    .local v0, opts:Landroid/app/ActivityOptions;
+    .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -465,7 +449,7 @@
     new-array v1, v2, [I
 
     .line 298
-    .local v1, pts:[I
+    .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 299
@@ -497,7 +481,7 @@
     return-object v0
 
     .line 295
-    .end local v1           #pts:[I
+    .end local v1    # "pts":[I
     :cond_0
     const/4 v2, 0x4
 
@@ -506,11 +490,11 @@
 
 .method public static makeThumbnailScaleDownAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
     .locals 6
-    .parameter "source"
-    .parameter "thumbnail"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "listener"
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
+    .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
     .line 287
@@ -535,10 +519,10 @@
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;II)Landroid/app/ActivityOptions;
     .locals 1
-    .parameter "source"
-    .parameter "thumbnail"
-    .parameter "startX"
-    .parameter "startY"
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
 
     .prologue
     .line 242
@@ -553,11 +537,11 @@
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
     .locals 6
-    .parameter "source"
-    .parameter "thumbnail"
-    .parameter "startX"
-    .parameter "startY"
-    .parameter "listener"
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
+    .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
     .line 265
@@ -582,8 +566,8 @@
 
 .method private setListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
     .locals 3
-    .parameter "handler"
-    .parameter "listener"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
     .line 164
@@ -593,11 +577,11 @@
     move-object v1, p1
 
     .line 166
-    .local v1, h:Landroid/os/Handler;
+    .local v1, "h":Landroid/os/Handler;
     move-object v0, p2
 
     .line 167
-    .local v0, finalListener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
+    .local v0, "finalListener":Landroid/app/ActivityOptions$OnAnimationStartedListener;
     new-instance v2, Landroid/app/ActivityOptions$1;
 
     invoke-direct {v2, p0, v1, v0}, Landroid/app/ActivityOptions$1;-><init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
@@ -605,8 +589,8 @@
     iput-object v2, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     .line 177
-    .end local v0           #finalListener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
-    .end local v1           #h:Landroid/os/Handler;
+    .end local v0    # "finalListener":Landroid/app/ActivityOptions$OnAnimationStartedListener;
+    .end local v1    # "h":Landroid/os/Handler;
     :cond_0
     return-void
 .end method
@@ -756,7 +740,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 463
-    .local v0, b:Landroid/os/Bundle;
+    .local v0, "b":Landroid/os/Bundle;
     iget-object v2, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     if-eqz v2, :cond_0
@@ -915,7 +899,7 @@
 
 .method public update(Landroid/app/ActivityOptions;)V
     .locals 3
-    .parameter "otherOptions"
+    .param p1, "otherOptions"    # Landroid/app/ActivityOptions;
 
     .prologue
     const/4 v2, 0x0

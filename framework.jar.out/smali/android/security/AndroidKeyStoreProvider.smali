@@ -15,7 +15,7 @@
     .line 30
     const-string v0, "AndroidKeyStore"
 
-    const-wide/high16 v1, 0x3ff0
+    const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
 
     const-string v3, "Android KeyStore security provider"
 

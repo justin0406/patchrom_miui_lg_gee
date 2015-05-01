@@ -72,13 +72,13 @@
 
 .method public static apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;)V
     .locals 5
-    .parameter "gravity"
-    .parameter "w"
-    .parameter "h"
-    .parameter "container"
-    .parameter "xAdj"
-    .parameter "yAdj"
-    .parameter "outRect"
+    .param p0, "gravity"    # I
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "container"    # Landroid/graphics/Rect;
+    .param p4, "xAdj"    # I
+    .param p5, "yAdj"    # I
+    .param p6, "outRect"    # Landroid/graphics/Rect;
 
     .prologue
     const/16 v4, 0x80
@@ -406,14 +406,14 @@
 
 .method public static apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;I)V
     .locals 7
-    .parameter "gravity"
-    .parameter "w"
-    .parameter "h"
-    .parameter "container"
-    .parameter "xAdj"
-    .parameter "yAdj"
-    .parameter "outRect"
-    .parameter "layoutDirection"
+    .param p0, "gravity"    # I
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "container"    # Landroid/graphics/Rect;
+    .param p4, "xAdj"    # I
+    .param p5, "yAdj"    # I
+    .param p6, "outRect"    # Landroid/graphics/Rect;
+    .param p7, "layoutDirection"    # I
 
     .prologue
     .line 298
@@ -421,7 +421,7 @@
 
     move-result v0
 
-    .local v0, absGravity:I
+    .local v0, "absGravity":I
     move v1, p1
 
     move v2, p2
@@ -443,11 +443,11 @@
 
 .method public static apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 7
-    .parameter "gravity"
-    .parameter "w"
-    .parameter "h"
-    .parameter "container"
-    .parameter "outRect"
+    .param p0, "gravity"    # I
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "container"    # Landroid/graphics/Rect;
+    .param p4, "outRect"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v4, 0x0
@@ -473,12 +473,12 @@
 
 .method public static apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .locals 7
-    .parameter "gravity"
-    .parameter "w"
-    .parameter "h"
-    .parameter "container"
-    .parameter "outRect"
-    .parameter "layoutDirection"
+    .param p0, "gravity"    # I
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "container"    # Landroid/graphics/Rect;
+    .param p4, "outRect"    # Landroid/graphics/Rect;
+    .param p5, "layoutDirection"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -488,7 +488,7 @@
 
     move-result v0
 
-    .local v0, absGravity:I
+    .local v0, "absGravity":I
     move v1, p1
 
     move v2, p2
@@ -508,13 +508,13 @@
 
 .method public static applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "gravity"
-    .parameter "display"
-    .parameter "inoutObj"
+    .param p0, "gravity"    # I
+    .param p1, "display"    # Landroid/graphics/Rect;
+    .param p2, "inoutObj"    # Landroid/graphics/Rect;
 
     .prologue
     .line 319
-    const/high16 v1, 0x1000
+    const/high16 v1, 0x10000000
 
     and-int/2addr v1, p0
 
@@ -546,7 +546,7 @@
     .line 337
     :cond_1
     :goto_0
-    const/high16 v1, 0x100
+    const/high16 v1, 0x1000000
 
     and-int/2addr v1, p0
 
@@ -585,7 +585,7 @@
     const/4 v0, 0x0
 
     .line 324
-    .local v0, off:I
+    .local v0, "off":I
     iget v1, p2, Landroid/graphics/Rect;->top:I
 
     iget v2, p1, Landroid/graphics/Rect;->top:I
@@ -662,12 +662,12 @@
     goto :goto_0
 
     .line 341
-    .end local v0           #off:I
+    .end local v0    # "off":I
     :cond_8
     const/4 v0, 0x0
 
     .line 342
-    .restart local v0       #off:I
+    .restart local v0    # "off":I
     iget v1, p2, Landroid/graphics/Rect;->left:I
 
     iget v2, p1, Landroid/graphics/Rect;->left:I
@@ -746,10 +746,10 @@
 
 .method public static applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .locals 1
-    .parameter "gravity"
-    .parameter "display"
-    .parameter "inoutObj"
-    .parameter "layoutDirection"
+    .param p0, "gravity"    # I
+    .param p1, "display"    # Landroid/graphics/Rect;
+    .param p2, "inoutObj"    # Landroid/graphics/Rect;
+    .param p3, "layoutDirection"    # I
 
     .prologue
     .line 377
@@ -758,7 +758,7 @@
     move-result v0
 
     .line 378
-    .local v0, absGravity:I
+    .local v0, "absGravity":I
     invoke-static {v0, p1, p2}, Landroid/view/Gravity;->applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     .line 379
@@ -767,8 +767,8 @@
 
 .method public static getAbsoluteGravity(II)I
     .locals 5
-    .parameter "gravity"
-    .parameter "layoutDirection"
+    .param p0, "gravity"    # I
+    .param p1, "layoutDirection"    # I
 
     .prologue
     const v4, 0x800005
@@ -781,8 +781,8 @@
     move v0, p0
 
     .line 415
-    .local v0, result:I
-    const/high16 v1, 0x80
+    .local v0, "result":I
+    const/high16 v1, 0x800000
 
     and-int/2addr v1, v0
 
@@ -849,7 +849,7 @@
 
 .method public static isHorizontal(I)Z
     .locals 1
-    .parameter "gravity"
+    .param p0, "gravity"    # I
 
     .prologue
     .line 398
@@ -874,7 +874,7 @@
 
 .method public static isVertical(I)Z
     .locals 1
-    .parameter "gravity"
+    .param p0, "gravity"    # I
 
     .prologue
     .line 388

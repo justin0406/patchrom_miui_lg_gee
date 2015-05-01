@@ -41,7 +41,7 @@
 # virtual methods
 .method public onTime(J)V
     .locals 0
-    .parameter "timeMs"
+    .param p1, "timeMs"    # J
 
     .prologue
     .line 575

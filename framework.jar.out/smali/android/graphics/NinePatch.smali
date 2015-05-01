@@ -16,8 +16,8 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;[B)V
     .locals 1
-    .parameter "bitmap"
-    .parameter "chunk"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "chunk"    # [B
 
     .prologue
     .line 55
@@ -31,9 +31,9 @@
 
 .method public constructor <init>(Landroid/graphics/Bitmap;[BLjava/lang/String;)V
     .locals 1
-    .parameter "bitmap"
-    .parameter "chunk"
-    .parameter "srcName"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "chunk"    # [B
+    .param p3, "srcName"    # Ljava/lang/String;
 
     .prologue
     .line 66
@@ -64,7 +64,7 @@
 
 .method public constructor <init>(Landroid/graphics/NinePatch;)V
     .locals 2
-    .parameter "patch"
+    .param p1, "patch"    # Landroid/graphics/NinePatch;
 
     .prologue
     .line 75
@@ -126,8 +126,8 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "canvas"
-    .parameter "location"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "location"    # Landroid/graphics/Rect;
 
     .prologue
     .line 151
@@ -141,9 +141,9 @@
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
     .locals 0
-    .parameter "canvas"
-    .parameter "location"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "location"    # Landroid/graphics/Rect;
+    .param p3, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 163
@@ -155,8 +155,8 @@
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/RectF;)V
     .locals 1
-    .parameter "canvas"
-    .parameter "location"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "location"    # Landroid/graphics/RectF;
 
     .prologue
     .line 141
@@ -170,9 +170,9 @@
 
 .method drawSoftware(Landroid/graphics/Canvas;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
     .locals 7
-    .parameter "canvas"
-    .parameter "location"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "location"    # Landroid/graphics/Rect;
+    .param p3, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 172
@@ -213,9 +213,9 @@
 
 .method drawSoftware(Landroid/graphics/Canvas;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
     .locals 7
-    .parameter "canvas"
-    .parameter "location"
-    .parameter "paint"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "location"    # Landroid/graphics/RectF;
+    .param p3, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 167
@@ -344,7 +344,7 @@
 
 .method public final getTransparentRegion(Landroid/graphics/Rect;)Landroid/graphics/Region;
     .locals 3
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
     .line 220
@@ -361,7 +361,7 @@
     move-result v0
 
     .line 221
-    .local v0, r:I
+    .local v0, "r":I
     if-eqz v0, :cond_0
 
     new-instance v1, Landroid/graphics/Region;
@@ -407,7 +407,7 @@
 
 .method public setPaint(Landroid/graphics/Paint;)V
     .locals 0
-    .parameter "p"
+    .param p1, "p"    # Landroid/graphics/Paint;
 
     .prologue
     .line 124

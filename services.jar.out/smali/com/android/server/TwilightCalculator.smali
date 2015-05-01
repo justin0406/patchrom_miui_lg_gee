@@ -48,9 +48,9 @@
 # virtual methods
 .method public calculateTwilight(JDD)V
     .locals 25
-    .parameter "time"
-    .parameter "latiude"
-    .parameter "longitude"
+    .param p1, "time"    # J
+    .param p3, "latiude"    # D
+    .param p5, "longitude"    # D
 
     .prologue
     .line 72
@@ -64,12 +64,12 @@
 
     move/from16 v19, v0
 
-    const v20, 0x4ca4cb80
+    const v20, 0x4ca4cb80    # 8.64E7f
 
     div-float v7, v19, v20
 
     .line 75
-    .local v7, daysSince2000:F
+    .local v7, "daysSince2000":F
     const v19, 0x40c7ae92
 
     const v20, 0x3c8ceb25
@@ -79,7 +79,7 @@
     add-float v11, v19, v20
 
     .line 78
-    .local v11, meanAnomaly:F
+    .local v11, "meanAnomaly":F
     const v19, 0x3d08e2fe
 
     invoke-static {v11}, Landroid/util/FloatMath;->sin(F)F
@@ -92,7 +92,7 @@
 
     const v20, 0x39b702d8
 
-    const/high16 v21, 0x4000
+    const/high16 v21, 0x40000000    # 2.0f
 
     mul-float v21, v21, v11
 
@@ -104,9 +104,9 @@
 
     add-float v19, v19, v20
 
-    const v20, 0x36afb0e6
+    const v20, 0x36afb0e6    # 5.236E-6f
 
-    const/high16 v21, 0x4040
+    const/high16 v21, 0x40400000    # 3.0f
 
     mul-float v21, v21, v11
 
@@ -119,30 +119,30 @@
     add-float v18, v19, v20
 
     .line 82
-    .local v18, trueAnomaly:F
+    .local v18, "trueAnomaly":F
     const v19, 0x3fe5f6c3
 
     add-float v19, v19, v18
 
-    const v20, 0x40490fdb
+    const v20, 0x40490fdb    # (float)Math.PI
 
     add-float v15, v19, v20
 
     .line 85
-    .local v15, solarLng:F
+    .local v15, "solarLng":F
     move-wide/from16 v0, p5
 
     neg-double v0, v0
 
     move-wide/from16 v19, v0
 
-    const-wide v21, 0x4076800000000000L
+    const-wide v21, 0x4076800000000000L    # 360.0
 
     div-double v3, v19, v21
 
     .line 86
-    .local v3, arcLongitude:D
-    const v19, 0x3a6bedfa
+    .local v3, "arcLongitude":D
+    const v19, 0x3a6bedfa    # 9.0E-4f
 
     sub-float v19, v7, v19
 
@@ -163,8 +163,8 @@
     long-to-float v12, v0
 
     .line 87
-    .local v12, n:F
-    const v19, 0x3a6bedfa
+    .local v12, "n":F
+    const v19, 0x3a6bedfa    # 9.0E-4f
 
     add-float v19, v19, v12
 
@@ -176,7 +176,7 @@
 
     add-double v19, v19, v3
 
-    const v21, 0x3badab9f
+    const v21, 0x3badab9f    # 0.0053f
 
     invoke-static {v11}, Landroid/util/FloatMath;->sin(F)F
 
@@ -192,9 +192,9 @@
 
     add-double v19, v19, v21
 
-    const v21, -0x441de69b
+    const v21, -0x441de69b    # -0.0069f
 
-    const/high16 v22, 0x4000
+    const/high16 v22, 0x40000000    # 2.0f
 
     mul-float v22, v22, v15
 
@@ -213,7 +213,7 @@
     add-double v16, v19, v21
 
     .line 91
-    .local v16, solarTransitJ2000:D
+    .local v16, "solarTransitJ2000":D
     invoke-static {v15}, Landroid/util/FloatMath;->sin(F)F
 
     move-result v19
@@ -237,13 +237,13 @@
     move-result-wide v13
 
     .line 93
-    .local v13, solarDec:D
-    const-wide v19, 0x3f91df46a0000000L
+    .local v13, "solarDec":D
+    const-wide v19, 0x3f91df46a0000000L    # 0.01745329238474369
 
     mul-double v9, p3, v19
 
     .line 95
-    .local v9, latRad:D
+    .local v9, "latRad":D
     const v19, -0x422988b0
 
     invoke-static/range {v19 .. v19}, Landroid/util/FloatMath;->sin(F)F
@@ -281,8 +281,8 @@
     div-double v5, v19, v21
 
     .line 99
-    .local v5, cosHourAngle:D
-    const-wide/high16 v19, 0x3ff0
+    .local v5, "cosHourAngle":D
+    const-wide/high16 v19, 0x3ff0000000000000L    # 1.0
 
     cmpl-double v19, v5, v19
 
@@ -321,7 +321,7 @@
 
     .line 104
     :cond_0
-    const-wide/high16 v19, -0x4010
+    const-wide/high16 v19, -0x4010000000000000L    # -1.0
 
     cmpg-double v19, v5, v19
 
@@ -362,7 +362,7 @@
 
     move-result-wide v19
 
-    const-wide v21, 0x401921fb54442d18L
+    const-wide v21, 0x401921fb54442d18L    # 6.283185307179586
 
     div-double v19, v19, v21
 
@@ -371,14 +371,14 @@
     double-to-float v8, v0
 
     .line 113
-    .local v8, hourAngle:F
+    .local v8, "hourAngle":F
     float-to-double v0, v8
 
     move-wide/from16 v19, v0
 
     add-double v19, v19, v16
 
-    const-wide v21, 0x4194997000000000L
+    const-wide v21, 0x4194997000000000L    # 8.64E7
 
     mul-double v19, v19, v21
 
@@ -403,7 +403,7 @@
 
     sub-double v19, v16, v19
 
-    const-wide v21, 0x4194997000000000L
+    const-wide v21, 0x4194997000000000L    # 8.64E7
 
     mul-double v19, v19, v21
 

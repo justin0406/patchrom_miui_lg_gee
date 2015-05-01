@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 114
@@ -61,8 +61,8 @@
 
 .method public onCancelPrintJobResult(ZI)V
     .locals 5
-    .parameter "canceled"
-    .parameter "sequence"
+    .param p1, "canceled"    # Z
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 142
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpoolerCallbacks"
 
@@ -129,8 +129,8 @@
 
 .method public onGetPrintJobInfoResult(Landroid/print/PrintJobInfo;I)V
     .locals 5
-    .parameter "printJob"
-    .parameter "sequence"
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -144,7 +144,7 @@
     move-result-object v0
 
     .line 181
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintSpoolerCallbacks"
 
@@ -208,8 +208,7 @@
 
 .method public onGetPrintJobInfosResult(Ljava/util/List;I)V
     .locals 5
-    .parameter
-    .parameter "sequence"
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,13 +227,13 @@
 
     .prologue
     .line 127
-    .local p1, printJob:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .local p1, "printJob":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     .line 129
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrintSpoolerCallbacks"
 
@@ -276,8 +275,8 @@
 
 .method public onSetPrintJobStateResult(ZI)V
     .locals 5
-    .parameter "success"
-    .parameter "sequence"
+    .param p1, "success"    # Z
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -293,7 +292,7 @@
     move-result-object v0
 
     .line 155
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpoolerCallbacks"
 
@@ -344,8 +343,8 @@
 
 .method public onSetPrintJobTagResult(ZI)V
     .locals 5
-    .parameter "success"
-    .parameter "sequence"
+    .param p1, "success"    # Z
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -361,7 +360,7 @@
     move-result-object v0
 
     .line 168
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.print.IPrintSpoolerCallbacks"
 

@@ -78,7 +78,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/CharSequence;)V
     .locals 7
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v2, 0x0
@@ -154,15 +154,15 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
     .locals 12
-    .parameter "source"
-    .parameter "bufstart"
-    .parameter "bufend"
-    .parameter "paint"
-    .parameter "outerwidth"
-    .parameter "align"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "bufstart"    # I
+    .param p3, "bufend"    # I
+    .param p4, "paint"    # Landroid/text/TextPaint;
+    .param p5, "outerwidth"    # I
+    .param p6, "align"    # Landroid/text/Layout$Alignment;
+    .param p7, "spacingmult"    # F
+    .param p8, "spacingadd"    # F
+    .param p9, "includepad"    # Z
 
     .prologue
     .line 68
@@ -198,17 +198,17 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZLandroid/text/TextUtils$TruncateAt;I)V
     .locals 14
-    .parameter "source"
-    .parameter "bufstart"
-    .parameter "bufend"
-    .parameter "paint"
-    .parameter "outerwidth"
-    .parameter "align"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
-    .parameter "ellipsize"
-    .parameter "ellipsizedWidth"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "bufstart"    # I
+    .param p3, "bufend"    # I
+    .param p4, "paint"    # Landroid/text/TextPaint;
+    .param p5, "outerwidth"    # I
+    .param p6, "align"    # Landroid/text/Layout$Alignment;
+    .param p7, "spacingmult"    # F
+    .param p8, "spacingadd"    # F
+    .param p9, "includepad"    # Z
+    .param p10, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p11, "ellipsizedWidth"    # I
 
     .prologue
     .line 90
@@ -248,16 +248,16 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/Layout$Alignment;Landroid/text/TextDirectionHeuristic;FFZ)V
     .locals 14
-    .parameter "source"
-    .parameter "bufstart"
-    .parameter "bufend"
-    .parameter "paint"
-    .parameter "outerwidth"
-    .parameter "align"
-    .parameter "textDir"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "bufstart"    # I
+    .param p3, "bufend"    # I
+    .param p4, "paint"    # Landroid/text/TextPaint;
+    .param p5, "outerwidth"    # I
+    .param p6, "align"    # Landroid/text/Layout$Alignment;
+    .param p7, "textDir"    # Landroid/text/TextDirectionHeuristic;
+    .param p8, "spacingmult"    # F
+    .param p9, "spacingadd"    # F
+    .param p10, "includepad"    # Z
 
     .prologue
     .line 80
@@ -297,19 +297,19 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/Layout$Alignment;Landroid/text/TextDirectionHeuristic;FFZLandroid/text/TextUtils$TruncateAt;II)V
     .locals 15
-    .parameter "source"
-    .parameter "bufstart"
-    .parameter "bufend"
-    .parameter "paint"
-    .parameter "outerwidth"
-    .parameter "align"
-    .parameter "textDir"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
-    .parameter "ellipsize"
-    .parameter "ellipsizedWidth"
-    .parameter "maxLines"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "bufstart"    # I
+    .param p3, "bufend"    # I
+    .param p4, "paint"    # Landroid/text/TextPaint;
+    .param p5, "outerwidth"    # I
+    .param p6, "align"    # Landroid/text/Layout$Alignment;
+    .param p7, "textDir"    # Landroid/text/TextDirectionHeuristic;
+    .param p8, "spacingmult"    # F
+    .param p9, "spacingadd"    # F
+    .param p10, "includepad"    # Z
+    .param p11, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p12, "ellipsizedWidth"    # I
+    .param p13, "maxLines"    # I
 
     .prologue
     .line 104
@@ -357,7 +357,7 @@
     check-cast v14, Landroid/text/Layout$Ellipsizer;
 
     .line 122
-    .local v14, e:Landroid/text/Layout$Ellipsizer;
+    .local v14, "e":Landroid/text/Layout$Ellipsizer;
     iput-object p0, v14, Landroid/text/Layout$Ellipsizer;->mLayout:Landroid/text/Layout;
 
     .line 123
@@ -381,7 +381,7 @@
     iput v1, p0, Landroid/text/StaticLayout;->mColumns:I
 
     .line 133
-    .end local v14           #e:Landroid/text/Layout$Ellipsizer;
+    .end local v14    # "e":Landroid/text/Layout$Ellipsizer;
     :goto_1
     iget v1, p0, Landroid/text/StaticLayout;->mColumns:I
 
@@ -509,13 +509,13 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
     .locals 10
-    .parameter "source"
-    .parameter "paint"
-    .parameter "width"
-    .parameter "align"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "width"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "includepad"    # Z
 
     .prologue
     .line 48
@@ -549,14 +549,14 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;Landroid/text/TextDirectionHeuristic;FFZ)V
     .locals 11
-    .parameter "source"
-    .parameter "paint"
-    .parameter "width"
-    .parameter "align"
-    .parameter "textDir"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "width"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "textDir"    # Landroid/text/TextDirectionHeuristic;
+    .param p6, "spacingmult"    # F
+    .param p7, "spacingadd"    # F
+    .param p8, "includepad"    # Z
 
     .prologue
     .line 59
@@ -592,16 +592,16 @@
 
 .method private calculateEllipsis(II[FIFLandroid/text/TextUtils$TruncateAt;IFLandroid/text/TextPaint;Z)V
     .locals 20
-    .parameter "lineStart"
-    .parameter "lineEnd"
-    .parameter "widths"
-    .parameter "widthStart"
-    .parameter "avail"
-    .parameter "where"
-    .parameter "line"
-    .parameter "textWidth"
-    .parameter "paint"
-    .parameter "forceEllipsis"
+    .param p1, "lineStart"    # I
+    .param p2, "lineEnd"    # I
+    .param p3, "widths"    # [F
+    .param p4, "widthStart"    # I
+    .param p5, "avail"    # F
+    .param p6, "where"    # Landroid/text/TextUtils$TruncateAt;
+    .param p7, "line"    # I
+    .param p8, "textWidth"    # F
+    .param p9, "paint"    # Landroid/text/TextPaint;
+    .param p10, "forceEllipsis"    # Z
 
     .prologue
     .line 719
@@ -687,19 +687,19 @@
     move-result v6
 
     .line 729
-    .local v6, ellipsisWidth:F
+    .local v6, "ellipsisWidth":F
     const/4 v5, 0x0
 
     .line 730
-    .local v5, ellipsisStart:I
+    .local v5, "ellipsisStart":I
     const/4 v4, 0x0
 
     .line 731
-    .local v4, ellipsisCount:I
+    .local v4, "ellipsisCount":I
     sub-int v10, p2, p1
 
     .line 734
-    .local v10, len:I
+    .local v10, "len":I
     sget-object v17, Landroid/text/TextUtils$TruncateAt;->START:Landroid/text/TextUtils$TruncateAt;
 
     move-object/from16 v0, p6
@@ -727,10 +727,10 @@
     const/4 v15, 0x0
 
     .line 739
-    .local v15, sum:F
+    .local v15, "sum":F
     move v7, v10
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_2
     if-ltz v7, :cond_1
 
@@ -744,7 +744,7 @@
     aget v16, p3, v17
 
     .line 742
-    .local v16, w:F
+    .local v16, "w":F
     add-float v17, v16, v15
 
     add-float v17, v17, v6
@@ -754,7 +754,7 @@
     if-lez v17, :cond_4
 
     .line 749
-    .end local v16           #w:F
+    .end local v16    # "w":F
     :cond_1
     const/4 v5, 0x0
 
@@ -762,8 +762,8 @@
     move v4, v7
 
     .line 814
-    .end local v7           #i:I
-    .end local v15           #sum:F
+    .end local v7    # "i":I
+    .end local v15    # "sum":F
     :cond_2
     :goto_3
     move-object/from16 v0, p0
@@ -806,23 +806,23 @@
     goto :goto_0
 
     .line 726
-    .end local v4           #ellipsisCount:I
-    .end local v5           #ellipsisStart:I
-    .end local v6           #ellipsisWidth:F
-    .end local v10           #len:I
+    .end local v4    # "ellipsisCount":I
+    .end local v5    # "ellipsisStart":I
+    .end local v6    # "ellipsisWidth":F
+    .end local v10    # "len":I
     :cond_3
     sget-object v17, Landroid/text/StaticLayout;->ELLIPSIS_NORMAL:[C
 
     goto :goto_1
 
     .line 746
-    .restart local v4       #ellipsisCount:I
-    .restart local v5       #ellipsisStart:I
-    .restart local v6       #ellipsisWidth:F
-    .restart local v7       #i:I
-    .restart local v10       #len:I
-    .restart local v15       #sum:F
-    .restart local v16       #w:F
+    .restart local v4    # "ellipsisCount":I
+    .restart local v5    # "ellipsisStart":I
+    .restart local v6    # "ellipsisWidth":F
+    .restart local v7    # "i":I
+    .restart local v10    # "len":I
+    .restart local v15    # "sum":F
+    .restart local v16    # "w":F
     :cond_4
     add-float v15, v15, v16
 
@@ -832,9 +832,9 @@
     goto :goto_2
 
     .line 752
-    .end local v7           #i:I
-    .end local v15           #sum:F
-    .end local v16           #w:F
+    .end local v7    # "i":I
+    .end local v15    # "sum":F
+    .end local v16    # "w":F
     :cond_5
     const-string v17, "StaticLayout"
 
@@ -886,10 +886,10 @@
     const/4 v15, 0x0
 
     .line 761
-    .restart local v15       #sum:F
+    .restart local v15    # "sum":F
     const/4 v7, 0x0
 
-    .restart local v7       #i:I
+    .restart local v7    # "i":I
     :goto_4
     if-ge v7, v10, :cond_8
 
@@ -901,7 +901,7 @@
     aget v16, p3, v17
 
     .line 764
-    .restart local v16       #w:F
+    .restart local v16    # "w":F
     add-float v17, v16, v15
 
     add-float v17, v17, v6
@@ -911,7 +911,7 @@
     if-lez v17, :cond_9
 
     .line 771
-    .end local v16           #w:F
+    .end local v16    # "w":F
     :cond_8
     move v5, v7
 
@@ -934,7 +934,7 @@
     goto :goto_3
 
     .line 768
-    .restart local v16       #w:F
+    .restart local v16    # "w":F
     :cond_9
     add-float v15, v15, v16
 
@@ -944,9 +944,9 @@
     goto :goto_4
 
     .line 779
-    .end local v7           #i:I
-    .end local v15           #sum:F
-    .end local v16           #w:F
+    .end local v7    # "i":I
+    .end local v15    # "sum":F
+    .end local v16    # "w":F
     :cond_a
     move-object/from16 v0, p0
 
@@ -965,26 +965,26 @@
     .line 780
     const/4 v11, 0x0
 
-    .local v11, lsum:F
+    .local v11, "lsum":F
     const/4 v14, 0x0
 
     .line 781
-    .local v14, rsum:F
+    .local v14, "rsum":F
     const/4 v9, 0x0
 
-    .local v9, left:I
+    .local v9, "left":I
     move v13, v10
 
     .line 783
-    .local v13, right:I
+    .local v13, "right":I
     sub-float v17, p5, v6
 
-    const/high16 v18, 0x4000
+    const/high16 v18, 0x40000000    # 2.0f
 
     div-float v12, v17, v18
 
     .line 784
-    .local v12, ravail:F
+    .local v12, "ravail":F
     move v13, v10
 
     :goto_5
@@ -1000,7 +1000,7 @@
     aget v16, p3, v17
 
     .line 787
-    .restart local v16       #w:F
+    .restart local v16    # "w":F
     add-float v17, v16, v14
 
     cmpl-float v17, v17, v12
@@ -1008,14 +1008,14 @@
     if-lez v17, :cond_d
 
     .line 794
-    .end local v16           #w:F
+    .end local v16    # "w":F
     :cond_b
     sub-float v17, p5, v6
 
     sub-float v8, v17, v14
 
     .line 795
-    .local v8, lavail:F
+    .local v8, "lavail":F
     const/4 v9, 0x0
 
     :goto_6
@@ -1029,7 +1029,7 @@
     aget v16, p3, v17
 
     .line 798
-    .restart local v16       #w:F
+    .restart local v16    # "w":F
     add-float v17, v16, v11
 
     cmpl-float v17, v17, v8
@@ -1037,7 +1037,7 @@
     if-lez v17, :cond_e
 
     .line 805
-    .end local v16           #w:F
+    .end local v16    # "w":F
     :cond_c
     move v5, v9
 
@@ -1048,8 +1048,8 @@
     goto/16 :goto_3
 
     .line 791
-    .end local v8           #lavail:F
-    .restart local v16       #w:F
+    .end local v8    # "lavail":F
+    .restart local v16    # "w":F
     :cond_d
     add-float v14, v14, v16
 
@@ -1059,7 +1059,7 @@
     goto :goto_5
 
     .line 802
-    .restart local v8       #lavail:F
+    .restart local v8    # "lavail":F
     :cond_e
     add-float v11, v11, v16
 
@@ -1069,13 +1069,13 @@
     goto :goto_6
 
     .line 808
-    .end local v8           #lavail:F
-    .end local v9           #left:I
-    .end local v11           #lsum:F
-    .end local v12           #ravail:F
-    .end local v13           #right:I
-    .end local v14           #rsum:F
-    .end local v16           #w:F
+    .end local v8    # "lavail":F
+    .end local v9    # "left":I
+    .end local v11    # "lsum":F
+    .end local v12    # "ravail":F
+    .end local v13    # "right":I
+    .end local v14    # "rsum":F
+    .end local v16    # "w":F
     :cond_f
     const-string v17, "StaticLayout"
 
@@ -1097,23 +1097,10 @@
     goto/16 :goto_3
 .end method
 
-.method static callIsIdeographic(CZ)Z
-    .locals 1
-    .parameter "c"
-    .parameter "includeNonStarters"
-
-    .prologue
-    invoke-static {p0, p1}, Landroid/text/StaticLayout;->isIdeographic(CZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method private static final isIdeographic(CZ)Z
     .locals 3
-    .parameter "c"
-    .parameter "includeNonStarters"
+    .param p0, "c"    # C
+    .param p1, "includeNonStarters"    # Z
 
     .prologue
     const/4 v1, 0x0
@@ -1258,9 +1245,7 @@
     if-le p0, v2, :cond_0
 
     :cond_a
-    invoke-static {p0, p1}, Landroid/text/Injector$StaticLayoutHook;->isChineseIdeographic(CZ)Z
-
-    move-result v0
+    move v0, v1
 
     .line 582
     goto :goto_0
@@ -1311,35 +1296,35 @@
 
 .method private out(Ljava/lang/CharSequence;IIIIIIIFF[Landroid/text/style/LineHeightSpan;[ILandroid/graphics/Paint$FontMetricsInt;ZZ[BIZIZZ[C[FILandroid/text/TextUtils$TruncateAt;FFLandroid/text/TextPaint;Z)I
     .locals 28
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "above"
-    .parameter "below"
-    .parameter "top"
-    .parameter "bottom"
-    .parameter "v"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "chooseHt"
-    .parameter "chooseHtv"
-    .parameter "fm"
-    .parameter "hasTabOrEmoji"
-    .parameter "needMultiply"
-    .parameter "chdirs"
-    .parameter "dir"
-    .parameter "easy"
-    .parameter "bufEnd"
-    .parameter "includePad"
-    .parameter "trackPad"
-    .parameter "chs"
-    .parameter "widths"
-    .parameter "widthStart"
-    .parameter "ellipsize"
-    .parameter "ellipsisWidth"
-    .parameter "textWidth"
-    .parameter "paint"
-    .parameter "moreChars"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "above"    # I
+    .param p5, "below"    # I
+    .param p6, "top"    # I
+    .param p7, "bottom"    # I
+    .param p8, "v"    # I
+    .param p9, "spacingmult"    # F
+    .param p10, "spacingadd"    # F
+    .param p11, "chooseHt"    # [Landroid/text/style/LineHeightSpan;
+    .param p12, "chooseHtv"    # [I
+    .param p13, "fm"    # Landroid/graphics/Paint$FontMetricsInt;
+    .param p14, "hasTabOrEmoji"    # Z
+    .param p15, "needMultiply"    # Z
+    .param p16, "chdirs"    # [B
+    .param p17, "dir"    # I
+    .param p18, "easy"    # Z
+    .param p19, "bufEnd"    # I
+    .param p20, "includePad"    # Z
+    .param p21, "trackPad"    # Z
+    .param p22, "chs"    # [C
+    .param p23, "widths"    # [F
+    .param p24, "widthStart"    # I
+    .param p25, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p26, "ellipsisWidth"    # F
+    .param p27, "textWidth"    # F
+    .param p28, "paint"    # Landroid/text/TextPaint;
+    .param p29, "moreChars"    # Z
 
     .prologue
     .line 596
@@ -1350,7 +1335,7 @@
     move/from16 v22, v0
 
     .line 597
-    .local v22, j:I
+    .local v22, "j":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/text/StaticLayout;->mColumns:I
@@ -1358,7 +1343,7 @@
     mul-int v26, v22, v2
 
     .line 598
-    .local v26, off:I
+    .local v26, "off":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/text/StaticLayout;->mColumns:I
@@ -1368,7 +1353,7 @@
     add-int/lit8 v27, v2, 0x1
 
     .line 599
-    .local v27, want:I
+    .local v27, "want":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/StaticLayout;->mLines:[I
@@ -1376,7 +1361,7 @@
     move-object/from16 v24, v0
 
     .line 601
-    .local v24, lines:[I
+    .local v24, "lines":[I
     move-object/from16 v0, v24
 
     array-length v2, v0
@@ -1393,7 +1378,7 @@
     move-result v25
 
     .line 603
-    .local v25, nlen:I
+    .local v25, "nlen":I
     move/from16 v0, v25
 
     new-array v0, v0, [I
@@ -1401,7 +1386,7 @@
     move-object/from16 v19, v0
 
     .line 604
-    .local v19, grow:[I
+    .local v19, "grow":[I
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -1434,7 +1419,7 @@
     move-object/from16 v20, v0
 
     .line 609
-    .local v20, grow2:[Landroid/text/Layout$Directions;
+    .local v20, "grow2":[Landroid/text/Layout$Directions;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/StaticLayout;->mLineDirections:[Landroid/text/Layout$Directions;
@@ -1461,9 +1446,9 @@
     iput-object v0, v1, Landroid/text/StaticLayout;->mLineDirections:[Landroid/text/Layout$Directions;
 
     .line 614
-    .end local v19           #grow:[I
-    .end local v20           #grow2:[Landroid/text/Layout$Directions;
-    .end local v25           #nlen:I
+    .end local v19    # "grow":[I
+    .end local v20    # "grow2":[Landroid/text/Layout$Directions;
+    .end local v25    # "nlen":I
     :cond_0
     if-eqz p11, :cond_3
 
@@ -1498,7 +1483,7 @@
     .line 620
     const/16 v21, 0x0
 
-    .local v21, i:I
+    .local v21, "i":I
     :goto_0
     move-object/from16 v0, p11
 
@@ -1592,7 +1577,7 @@
     move/from16 p7, v0
 
     .line 636
-    .end local v21           #i:I
+    .end local v21    # "i":I
     :cond_3
     if-nez v22, :cond_5
 
@@ -1647,7 +1632,7 @@
 
     int-to-float v2, v2
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     sub-float v3, p9, v3
 
@@ -1658,7 +1643,7 @@
     float-to-double v15, v2
 
     .line 659
-    .local v15, ex:D
+    .local v15, "ex":D
     const-wide/16 v2, 0x0
 
     cmpl-double v2, v15, v2
@@ -1666,7 +1651,7 @@
     if-ltz v2, :cond_f
 
     .line 660
-    const-wide/high16 v2, 0x3fe0
+    const-wide/high16 v2, 0x3fe0000000000000L    # 0.5
 
     add-double/2addr v2, v15
 
@@ -1675,8 +1660,8 @@
     move/from16 v17, v0
 
     .line 668
-    .end local v15           #ex:D
-    .local v17, extra:I
+    .end local v15    # "ex":D
+    .local v17, "extra":I
     :goto_2
     add-int/lit8 v2, v26, 0x0
 
@@ -1731,7 +1716,7 @@
 
     aget v3, v24, v2
 
-    const/high16 v4, 0x2000
+    const/high16 v4, 0x20000000
 
     or-int/2addr v3, v4
 
@@ -1753,7 +1738,7 @@
     sget-object v23, Landroid/text/StaticLayout;->DIRS_ALL_LEFT_TO_RIGHT:Landroid/text/Layout$Directions;
 
     .line 684
-    .local v23, linedirs:Landroid/text/Layout$Directions;
+    .local v23, "linedirs":Landroid/text/Layout$Directions;
     if-eqz p18, :cond_11
 
     .line 685
@@ -1773,7 +1758,7 @@
     const/16 v18, 0x1
 
     .line 695
-    .local v18, firstLine:Z
+    .local v18, "firstLine":Z
     :goto_4
     add-int/lit8 v2, v22, 0x1
 
@@ -1786,7 +1771,7 @@
     const/4 v13, 0x1
 
     .line 696
-    .local v13, currentLineIsTheLastVisibleOne:Z
+    .local v13, "currentLineIsTheLastVisibleOne":Z
     :goto_5
     if-eqz p29, :cond_14
 
@@ -1805,7 +1790,7 @@
     const/4 v12, 0x1
 
     .line 698
-    .local v12, forceEllipsis:Z
+    .local v12, "forceEllipsis":Z
     :goto_6
     move-object/from16 v0, p0
 
@@ -1847,7 +1832,7 @@
     const/4 v14, 0x1
 
     .line 703
-    .local v14, doEllipsis:Z
+    .local v14, "doEllipsis":Z
     :goto_7
     if-eqz v14, :cond_e
 
@@ -1875,10 +1860,10 @@
     invoke-direct/range {v2 .. v12}, Landroid/text/StaticLayout;->calculateEllipsis(II[FIFLandroid/text/TextUtils$TruncateAt;IFLandroid/text/TextPaint;Z)V
 
     .line 710
-    .end local v12           #forceEllipsis:Z
-    .end local v13           #currentLineIsTheLastVisibleOne:Z
-    .end local v14           #doEllipsis:Z
-    .end local v18           #firstLine:Z
+    .end local v12    # "forceEllipsis":Z
+    .end local v13    # "currentLineIsTheLastVisibleOne":Z
+    .end local v14    # "doEllipsis":Z
+    .end local v18    # "firstLine":Z
     :cond_e
     move-object/from16 v0, p0
 
@@ -1894,13 +1879,13 @@
     return p8
 
     .line 662
-    .end local v17           #extra:I
-    .end local v23           #linedirs:Landroid/text/Layout$Directions;
-    .restart local v15       #ex:D
+    .end local v17    # "extra":I
+    .end local v23    # "linedirs":Landroid/text/Layout$Directions;
+    .restart local v15    # "ex":D
     :cond_f
     neg-double v2, v15
 
-    const-wide/high16 v4, 0x3fe0
+    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
 
     add-double/2addr v2, v4
 
@@ -1910,20 +1895,20 @@
 
     move/from16 v17, v0
 
-    .restart local v17       #extra:I
+    .restart local v17    # "extra":I
     goto/16 :goto_2
 
     .line 665
-    .end local v15           #ex:D
-    .end local v17           #extra:I
+    .end local v15    # "ex":D
+    .end local v17    # "extra":I
     :cond_10
     const/16 v17, 0x0
 
-    .restart local v17       #extra:I
+    .restart local v17    # "extra":I
     goto/16 :goto_2
 
     .line 687
-    .restart local v23       #linedirs:Landroid/text/Layout$Directions;
+    .restart local v23    # "linedirs":Landroid/text/Layout$Directions;
     :cond_11
     move-object/from16 v0, p0
 
@@ -1956,21 +1941,21 @@
     goto/16 :goto_4
 
     .line 695
-    .restart local v18       #firstLine:Z
+    .restart local v18    # "firstLine":Z
     :cond_13
     const/4 v13, 0x0
 
     goto :goto_5
 
     .line 696
-    .restart local v13       #currentLineIsTheLastVisibleOne:Z
+    .restart local v13    # "currentLineIsTheLastVisibleOne":Z
     :cond_14
     const/4 v12, 0x0
 
     goto :goto_6
 
     .line 698
-    .restart local v12       #forceEllipsis:Z
+    .restart local v12    # "forceEllipsis":Z
     :cond_15
     const/4 v14, 0x0
 
@@ -1998,32 +1983,33 @@
 
 .method generate(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/TextDirectionHeuristic;FFZZFLandroid/text/TextUtils$TruncateAt;)V
     .locals 132
-    .parameter "source"
-    .parameter "bufStart"
-    .parameter "bufEnd"
-    .parameter "paint"
-    .parameter "outerWidth"
-    .parameter "textDir"
-    .parameter "spacingmult"
-    .parameter "spacingadd"
-    .parameter "includepad"
-    .parameter "trackpad"
-    .parameter "ellipsizedWidth"
-    .parameter "ellipsize"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "bufStart"    # I
+    .param p3, "bufEnd"    # I
+    .param p4, "paint"    # Landroid/text/TextPaint;
+    .param p5, "outerWidth"    # I
+    .param p6, "textDir"    # Landroid/text/TextDirectionHeuristic;
+    .param p7, "spacingmult"    # F
+    .param p8, "spacingadd"    # F
+    .param p9, "includepad"    # Z
+    .param p10, "trackpad"    # Z
+    .param p11, "ellipsizedWidth"    # F
+    .param p12, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
 
     .prologue
-    invoke-static {}, Landroid/text/Injector$StaticLayoutHook;->before_generate()V
-
+    .line 164
     const/4 v5, 0x0
 
     move-object/from16 v0, p0
 
     iput v5, v0, Landroid/text/StaticLayout;->mLineCount:I
 
+    .line 166
     const/4 v13, 0x0
 
-    .local v13, v:I
-    const/high16 v5, 0x3f80
+    .line 167
+    .local v13, "v":I
+    const/high16 v5, 0x3f800000    # 1.0f
 
     cmpl-float v5, p7, v5
 
@@ -2039,7 +2025,7 @@
     const/16 v20, 0x1
 
     .line 169
-    .local v20, needMultiply:Z
+    .local v20, "needMultiply":Z
     :goto_0
     move-object/from16 v0, p0
 
@@ -2048,11 +2034,11 @@
     move-object/from16 v18, v0
 
     .line 170
-    .local v18, fm:Landroid/graphics/Paint$FontMetricsInt;
+    .local v18, "fm":Landroid/graphics/Paint$FontMetricsInt;
     const/16 v17, 0x0
 
     .line 172
-    .local v17, chooseHtv:[I
+    .local v17, "chooseHtv":[I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/StaticLayout;->mMeasured:Landroid/text/MeasuredText;
@@ -2060,11 +2046,11 @@
     move-object/from16 v113, v0
 
     .line 174
-    .local v113, measured:Landroid/text/MeasuredText;
+    .local v113, "measured":Landroid/text/MeasuredText;
     const/16 v126, 0x0
 
     .line 175
-    .local v126, spanned:Landroid/text/Spanned;
+    .local v126, "spanned":Landroid/text/Spanned;
     move-object/from16 v0, p1
 
     instance-of v5, v0, Landroid/text/Spanned;
@@ -2081,10 +2067,10 @@
     const/16 v93, 0x1
 
     .line 181
-    .local v93, DEFAULT_DIR:I
+    .local v93, "DEFAULT_DIR":I
     move/from16 v29, p2
 
-    .local v29, paraStart:I
+    .local v29, "paraStart":I
     :goto_1
     move/from16 v0, v29
 
@@ -2106,7 +2092,7 @@
     move-result v38
 
     .line 183
-    .local v38, paraEnd:I
+    .local v38, "paraEnd":I
     if-gez v38, :cond_4
 
     .line 184
@@ -2121,19 +2107,19 @@
     add-int/lit8 v98, v5, 0x1
 
     .line 189
-    .local v98, firstWidthLineLimit:I
+    .local v98, "firstWidthLineLimit":I
     move/from16 v97, p5
 
     .line 190
-    .local v97, firstWidth:I
+    .local v97, "firstWidth":I
     move/from16 v121, p5
 
     .line 192
-    .local v121, restWidth:I
+    .local v121, "restWidth":I
     const/16 v16, 0x0
 
     .line 194
-    .local v16, chooseHt:[Landroid/text/style/LineHeightSpan;
+    .local v16, "chooseHt":[Landroid/text/style/LineHeightSpan;
     if-eqz v126, :cond_9
 
     .line 195
@@ -2152,10 +2138,10 @@
     check-cast v122, [Landroid/text/style/LeadingMarginSpan;
 
     .line 197
-    .local v122, sp:[Landroid/text/style/LeadingMarginSpan;
+    .local v122, "sp":[Landroid/text/style/LeadingMarginSpan;
     const/16 v106, 0x0
 
-    .local v106, i:I
+    .local v106, "i":I
     :goto_3
     move-object/from16 v0, v122
 
@@ -2169,7 +2155,7 @@
     aget-object v110, v122, v106
 
     .line 199
-    .local v110, lms:Landroid/text/style/LeadingMarginSpan;
+    .local v110, "lms":Landroid/text/style/LeadingMarginSpan;
     aget-object v5, v122, v106
 
     const/4 v6, 0x1
@@ -2204,7 +2190,7 @@
     check-cast v111, Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;
 
     .line 208
-    .local v111, lms2:Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;
+    .local v111, "lms2":Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;
     move-object/from16 v0, v126
 
     move-object/from16 v1, v111
@@ -2220,7 +2206,7 @@
     move-result v112
 
     .line 209
-    .local v112, lmsFirstLine:I
+    .local v112, "lmsFirstLine":I
     invoke-interface/range {v111 .. v111}, Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;->getLeadingMarginLineCount()I
 
     move-result v5
@@ -2228,55 +2214,55 @@
     add-int v98, v112, v5
 
     .line 197
-    .end local v111           #lms2:Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;
-    .end local v112           #lmsFirstLine:I
+    .end local v111    # "lms2":Landroid/text/style/LeadingMarginSpan$LeadingMarginSpan2;
+    .end local v112    # "lmsFirstLine":I
     :cond_2
     add-int/lit8 v106, v106, 0x1
 
     goto :goto_3
 
     .line 167
-    .end local v16           #chooseHt:[Landroid/text/style/LineHeightSpan;
-    .end local v17           #chooseHtv:[I
-    .end local v18           #fm:Landroid/graphics/Paint$FontMetricsInt;
-    .end local v20           #needMultiply:Z
-    .end local v29           #paraStart:I
-    .end local v38           #paraEnd:I
-    .end local v93           #DEFAULT_DIR:I
-    .end local v97           #firstWidth:I
-    .end local v98           #firstWidthLineLimit:I
-    .end local v106           #i:I
-    .end local v110           #lms:Landroid/text/style/LeadingMarginSpan;
-    .end local v113           #measured:Landroid/text/MeasuredText;
-    .end local v121           #restWidth:I
-    .end local v122           #sp:[Landroid/text/style/LeadingMarginSpan;
-    .end local v126           #spanned:Landroid/text/Spanned;
+    .end local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
+    .end local v17    # "chooseHtv":[I
+    .end local v18    # "fm":Landroid/graphics/Paint$FontMetricsInt;
+    .end local v20    # "needMultiply":Z
+    .end local v29    # "paraStart":I
+    .end local v38    # "paraEnd":I
+    .end local v93    # "DEFAULT_DIR":I
+    .end local v97    # "firstWidth":I
+    .end local v98    # "firstWidthLineLimit":I
+    .end local v106    # "i":I
+    .end local v110    # "lms":Landroid/text/style/LeadingMarginSpan;
+    .end local v113    # "measured":Landroid/text/MeasuredText;
+    .end local v121    # "restWidth":I
+    .end local v122    # "sp":[Landroid/text/style/LeadingMarginSpan;
+    .end local v126    # "spanned":Landroid/text/Spanned;
     :cond_3
     const/16 v20, 0x0
 
     goto/16 :goto_0
 
     .line 186
-    .restart local v17       #chooseHtv:[I
-    .restart local v18       #fm:Landroid/graphics/Paint$FontMetricsInt;
-    .restart local v20       #needMultiply:Z
-    .restart local v29       #paraStart:I
-    .restart local v38       #paraEnd:I
-    .restart local v93       #DEFAULT_DIR:I
-    .restart local v113       #measured:Landroid/text/MeasuredText;
-    .restart local v126       #spanned:Landroid/text/Spanned;
+    .restart local v17    # "chooseHtv":[I
+    .restart local v18    # "fm":Landroid/graphics/Paint$FontMetricsInt;
+    .restart local v20    # "needMultiply":Z
+    .restart local v29    # "paraStart":I
+    .restart local v38    # "paraEnd":I
+    .restart local v93    # "DEFAULT_DIR":I
+    .restart local v113    # "measured":Landroid/text/MeasuredText;
+    .restart local v126    # "spanned":Landroid/text/Spanned;
     :cond_4
     add-int/lit8 v38, v38, 0x1
 
     goto :goto_2
 
     .line 213
-    .restart local v16       #chooseHt:[Landroid/text/style/LineHeightSpan;
-    .restart local v97       #firstWidth:I
-    .restart local v98       #firstWidthLineLimit:I
-    .restart local v106       #i:I
-    .restart local v121       #restWidth:I
-    .restart local v122       #sp:[Landroid/text/style/LeadingMarginSpan;
+    .restart local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
+    .restart local v97    # "firstWidth":I
+    .restart local v98    # "firstWidthLineLimit":I
+    .restart local v106    # "i":I
+    .restart local v121    # "restWidth":I
+    .restart local v122    # "sp":[Landroid/text/style/LeadingMarginSpan;
     :cond_5
     const-class v5, Landroid/text/style/LineHeightSpan;
 
@@ -2290,11 +2276,11 @@
 
     move-result-object v16
 
-    .end local v16           #chooseHt:[Landroid/text/style/LineHeightSpan;
+    .end local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
     check-cast v16, [Landroid/text/style/LineHeightSpan;
 
     .line 215
-    .restart local v16       #chooseHt:[Landroid/text/style/LineHeightSpan;
+    .restart local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
     move-object/from16 v0, v16
 
     array-length v5, v0
@@ -2351,7 +2337,7 @@
     move-result v114
 
     .line 225
-    .local v114, o:I
+    .local v114, "o":I
     move/from16 v0, v114
 
     move/from16 v1, v29
@@ -2388,9 +2374,9 @@
     goto :goto_5
 
     .line 239
-    .end local v106           #i:I
-    .end local v114           #o:I
-    .end local v122           #sp:[Landroid/text/style/LeadingMarginSpan;
+    .end local v106    # "i":I
+    .end local v114    # "o":I
+    .end local v122    # "sp":[Landroid/text/style/LeadingMarginSpan;
     :cond_9
     move-object/from16 v0, v113
 
@@ -2412,7 +2398,7 @@
     move-object/from16 v27, v0
 
     .line 241
-    .local v27, chs:[C
+    .local v27, "chs":[C
     move-object/from16 v0, v113
 
     iget-object v0, v0, Landroid/text/MeasuredText;->mWidths:[F
@@ -2420,7 +2406,7 @@
     move-object/from16 v28, v0
 
     .line 242
-    .local v28, widths:[F
+    .local v28, "widths":[F
     move-object/from16 v0, v113
 
     iget-object v0, v0, Landroid/text/MeasuredText;->mLevels:[B
@@ -2428,7 +2414,7 @@
     move-object/from16 v21, v0
 
     .line 243
-    .local v21, chdirs:[B
+    .local v21, "chdirs":[B
     move-object/from16 v0, v113
 
     iget v0, v0, Landroid/text/MeasuredText;->mDir:I
@@ -2436,7 +2422,7 @@
     move/from16 v22, v0
 
     .line 244
-    .local v22, dir:I
+    .local v22, "dir":I
     move-object/from16 v0, v113
 
     iget-boolean v0, v0, Landroid/text/MeasuredText;->mEasy:Z
@@ -2444,76 +2430,76 @@
     move/from16 v23, v0
 
     .line 246
-    .local v23, easy:Z
+    .local v23, "easy":Z
     move/from16 v131, v97
 
     .line 248
-    .local v131, width:I
+    .local v131, "width":I
     const/16 v62, 0x0
 
     .line 250
-    .local v62, w:F
+    .local v62, "w":F
     move/from16 v7, v29
 
     .line 254
-    .local v7, here:I
+    .local v7, "here":I
     move/from16 v115, v29
 
     .line 255
-    .local v115, ok:I
+    .local v115, "ok":I
     move/from16 v120, v62
 
     .line 256
-    .local v120, okWidth:F
+    .local v120, "okWidth":F
     const/16 v116, 0x0
 
-    .local v116, okAscent:I
+    .local v116, "okAscent":I
     const/16 v118, 0x0
 
-    .local v118, okDescent:I
+    .local v118, "okDescent":I
     const/16 v119, 0x0
 
-    .local v119, okTop:I
+    .local v119, "okTop":I
     const/16 v117, 0x0
 
     .line 260
-    .local v117, okBottom:I
+    .local v117, "okBottom":I
     move/from16 v99, v29
 
     .line 261
-    .local v99, fit:I
+    .local v99, "fit":I
     move/from16 v100, v62
 
     .line 262
-    .local v100, fitWidth:F
+    .local v100, "fitWidth":F
     const/16 v39, 0x0
 
-    .local v39, fitAscent:I
+    .local v39, "fitAscent":I
     const/16 v40, 0x0
 
-    .local v40, fitDescent:I
+    .local v40, "fitDescent":I
     const/16 v41, 0x0
 
-    .local v41, fitTop:I
+    .local v41, "fitTop":I
     const/16 v42, 0x0
 
     .line 264
-    .local v42, fitBottom:I
+    .local v42, "fitBottom":I
     const/16 v19, 0x0
 
     .line 265
-    .local v19, hasTabOrEmoji:Z
+    .local v19, "hasTabOrEmoji":Z
     const/16 v105, 0x0
 
     .line 266
-    .local v105, hasTab:Z
+    .local v105, "hasTab":Z
     const/16 v128, 0x0
 
     .line 268
-    .local v128, tabStops:Landroid/text/Layout$TabStops;
+    .local v128, "tabStops":Landroid/text/Layout$TabStops;
     move/from16 v125, v29
 
-    .local v125, spanStart:I
+    .local v125, "spanStart":I
     :goto_6
     move/from16 v0, v125
 
@@ -2528,11 +2514,11 @@
     move/from16 v123, v38
 
     .line 272
-    .local v123, spanEnd:I
+    .local v123, "spanEnd":I
     sub-int v124, v123, v125
 
     .line 273
-    .local v124, spanLen:I
+    .local v124, "spanLen":I
     move-object/from16 v0, v113
 
     move-object/from16 v1, p4
@@ -2552,7 +2538,7 @@
     move/from16 v104, v0
 
     .line 285
-    .local v104, fmTop:I
+    .local v104, "fmTop":I
     move-object/from16 v0, v18
 
     iget v0, v0, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
@@ -2560,7 +2546,7 @@
     move/from16 v102, v0
 
     .line 286
-    .local v102, fmBottom:I
+    .local v102, "fmBottom":I
     move-object/from16 v0, v18
 
     iget v0, v0, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
@@ -2568,7 +2554,7 @@
     move/from16 v101, v0
 
     .line 287
-    .local v101, fmAscent:I
+    .local v101, "fmAscent":I
     move-object/from16 v0, v18
 
     iget v0, v0, Landroid/graphics/Paint$FontMetricsInt;->descent:I
@@ -2576,10 +2562,10 @@
     move/from16 v103, v0
 
     .line 289
-    .local v103, fmDescent:I
+    .local v103, "fmDescent":I
     move/from16 v109, v125
 
-    .local v109, j:I
+    .local v109, "j":I
     :goto_8
     move/from16 v0, v109
 
@@ -2593,7 +2579,7 @@
     aget-char v95, v27, v5
 
     .line 292
-    .local v95, c:C
+    .local v95, "c":C
     const/16 v5, 0xa
 
     move/from16 v0, v95
@@ -2624,7 +2610,7 @@
     const/16 v108, 0x1
 
     .line 345
-    .local v108, isSpaceOrTab:Z
+    .local v108, "isSpaceOrTab":Z
     :goto_a
     move/from16 v0, v131
 
@@ -2688,32 +2674,6 @@
 
     .line 359
     :cond_f
-    move/from16 v0, v95
-
-    move-object/from16 v1, v27
-
-    move/from16 v2, v109
-
-    move/from16 v3, v123
-
-    move/from16 v4, v29
-
-    invoke-static {v0, v1, v2, v3, v4}, Landroid/text/Injector$StaticLayoutHook;->validateCJKCharAsSpace(C[CIII)C
-
-    move-result v95
-
-    if-nez v108, :cond_miui_0
-
-    const/16 v5, 0x20
-
-    move/from16 v0, v95
-
-    if-ne v0, v5, :cond_miui_1
-
-    :cond_miui_0
-    const/16 v108, 0x1
-
-    :goto_miui
     if-nez v108, :cond_12
 
     const/16 v5, 0x2f
@@ -2788,7 +2748,7 @@
     const/16 v107, 0x1
 
     .line 368
-    .local v107, isLineBreak:Z
+    .local v107, "isLineBreak":Z
     :goto_b
     if-eqz v107, :cond_16
 
@@ -2842,22 +2802,22 @@
     move/from16 v117, v42
 
     .line 289
-    .end local v107           #isLineBreak:Z
+    .end local v107    # "isLineBreak":Z
     :cond_16
     add-int/lit8 v109, v109, 0x1
 
     goto/16 :goto_8
 
     .line 275
-    .end local v95           #c:C
-    .end local v101           #fmAscent:I
-    .end local v102           #fmBottom:I
-    .end local v103           #fmDescent:I
-    .end local v104           #fmTop:I
-    .end local v108           #isSpaceOrTab:Z
-    .end local v109           #j:I
-    .end local v123           #spanEnd:I
-    .end local v124           #spanLen:I
+    .end local v95    # "c":C
+    .end local v101    # "fmAscent":I
+    .end local v102    # "fmBottom":I
+    .end local v103    # "fmDescent":I
+    .end local v104    # "fmTop":I
+    .end local v108    # "isSpaceOrTab":Z
+    .end local v109    # "j":I
+    .end local v123    # "spanEnd":I
+    .end local v124    # "spanLen":I
     :cond_17
     const-class v5, Landroid/text/style/MetricAffectingSpan;
 
@@ -2872,11 +2832,11 @@
     move-result v123
 
     .line 277
-    .restart local v123       #spanEnd:I
+    .restart local v123    # "spanEnd":I
     sub-int v124, v123, v125
 
     .line 278
-    .restart local v124       #spanLen:I
+    .restart local v124    # "spanLen":I
     const-class v5, Landroid/text/style/MetricAffectingSpan;
 
     move-object/from16 v0, v126
@@ -2892,7 +2852,7 @@
     check-cast v127, [Landroid/text/style/MetricAffectingSpan;
 
     .line 280
-    .local v127, spans:[Landroid/text/style/MetricAffectingSpan;
+    .local v127, "spans":[Landroid/text/style/MetricAffectingSpan;
     const-class v5, Landroid/text/style/MetricAffectingSpan;
 
     move-object/from16 v0, v127
@@ -2903,11 +2863,11 @@
 
     move-result-object v127
 
-    .end local v127           #spans:[Landroid/text/style/MetricAffectingSpan;
+    .end local v127    # "spans":[Landroid/text/style/MetricAffectingSpan;
     check-cast v127, [Landroid/text/style/MetricAffectingSpan;
 
     .line 281
-    .restart local v127       #spans:[Landroid/text/style/MetricAffectingSpan;
+    .restart local v127    # "spans":[Landroid/text/style/MetricAffectingSpan;
     move-object/from16 v0, v113
 
     move-object/from16 v1, p4
@@ -2923,13 +2883,13 @@
     goto/16 :goto_7
 
     .line 294
-    .end local v127           #spans:[Landroid/text/style/MetricAffectingSpan;
-    .restart local v95       #c:C
-    .restart local v101       #fmAscent:I
-    .restart local v102       #fmBottom:I
-    .restart local v103       #fmDescent:I
-    .restart local v104       #fmTop:I
-    .restart local v109       #j:I
+    .end local v127    # "spans":[Landroid/text/style/MetricAffectingSpan;
+    .restart local v95    # "c":C
+    .restart local v101    # "fmAscent":I
+    .restart local v102    # "fmBottom":I
+    .restart local v103    # "fmDescent":I
+    .restart local v104    # "fmTop":I
+    .restart local v109    # "j":I
     :cond_18
     const/16 v5, 0x9
 
@@ -2965,7 +2925,7 @@
     check-cast v127, [Landroid/text/style/TabStopSpan;
 
     .line 302
-    .local v127, spans:[Landroid/text/style/TabStopSpan;
+    .local v127, "spans":[Landroid/text/style/TabStopSpan;
     move-object/from16 v0, v127
 
     array-length v5, v0
@@ -2975,7 +2935,7 @@
     .line 303
     new-instance v128, Landroid/text/Layout$TabStops;
 
-    .end local v128           #tabStops:Landroid/text/Layout$TabStops;
+    .end local v128    # "tabStops":Landroid/text/Layout$TabStops;
     const/16 v5, 0x14
 
     move-object/from16 v0, v128
@@ -2985,8 +2945,8 @@
     invoke-direct {v0, v5, v1}, Landroid/text/Layout$TabStops;-><init>(I[Ljava/lang/Object;)V
 
     .line 307
-    .end local v127           #spans:[Landroid/text/style/TabStopSpan;
-    .restart local v128       #tabStops:Landroid/text/Layout$TabStops;
+    .end local v127    # "spans":[Landroid/text/style/TabStopSpan;
+    .restart local v128    # "tabStops":Landroid/text/Layout$TabStops;
     :cond_19
     if-eqz v128, :cond_1a
 
@@ -3043,7 +3003,7 @@
     move-result v96
 
     .line 316
-    .local v96, emoji:I
+    .local v96, "emoji":I
     sget v5, Landroid/text/StaticLayout;->MIN_EMOJI:I
 
     move/from16 v0, v96
@@ -3066,7 +3026,7 @@
     move-result-object v94
 
     .line 319
-    .local v94, bm:Landroid/graphics/Bitmap;
+    .local v94, "bm":Landroid/graphics/Bitmap;
     if-eqz v94, :cond_1d
 
     .line 322
@@ -3076,7 +3036,7 @@
     move-object/from16 v129, p4
 
     .line 328
-    .local v129, whichPaint:Landroid/graphics/Paint;
+    .local v129, "whichPaint":Landroid/graphics/Paint;
     :goto_c
     invoke-virtual/range {v94 .. v94}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -3101,7 +3061,7 @@
     div-float v130, v5, v6
 
     .line 330
-    .local v130, wid:F
+    .local v130, "wid":F
     add-float v62, v62, v130
 
     .line 331
@@ -3114,8 +3074,8 @@
     goto/16 :goto_9
 
     .line 325
-    .end local v129           #whichPaint:Landroid/graphics/Paint;
-    .end local v130           #wid:F
+    .end local v129    # "whichPaint":Landroid/graphics/Paint;
+    .end local v130    # "wid":F
     :cond_1c
     move-object/from16 v0, p0
 
@@ -3123,11 +3083,11 @@
 
     move-object/from16 v129, v0
 
-    .restart local v129       #whichPaint:Landroid/graphics/Paint;
+    .restart local v129    # "whichPaint":Landroid/graphics/Paint;
     goto :goto_c
 
     .line 334
-    .end local v129           #whichPaint:Landroid/graphics/Paint;
+    .end local v129    # "whichPaint":Landroid/graphics/Paint;
     :cond_1d
     sub-int v5, v109, v29
 
@@ -3138,7 +3098,7 @@
     goto/16 :goto_9
 
     .line 337
-    .end local v94           #bm:Landroid/graphics/Bitmap;
+    .end local v94    # "bm":Landroid/graphics/Bitmap;
     :cond_1e
     sub-int v5, v109, v29
 
@@ -3149,7 +3109,7 @@
     goto/16 :goto_9
 
     .line 340
-    .end local v96           #emoji:I
+    .end local v96    # "emoji":I
     :cond_1f
     sub-int v5, v109, v29
 
@@ -3159,22 +3119,20 @@
 
     goto/16 :goto_9
 
+    .line 343
     :cond_20
     const/16 v108, 0x0
 
     goto/16 :goto_a
 
-    .restart local v108       #isSpaceOrTab:Z
-    :cond_miui_1
-    const/16 v108, 0x0
-
-    goto/16 :goto_miui
-
+    .line 359
+    .restart local v108    # "isSpaceOrTab":Z
     :cond_21
     const/16 v107, 0x0
 
     goto/16 :goto_b
 
+    .line 382
     :cond_22
     add-int/lit8 v5, v109, 0x1
 
@@ -3185,7 +3143,7 @@
     const/16 v34, 0x1
 
     .line 387
-    .local v34, moreChars:Z
+    .local v34, "moreChars":Z
     :goto_d
     move/from16 v0, v115
 
@@ -3195,26 +3153,26 @@
     move/from16 v8, v115
 
     .line 389
-    .local v8, endPos:I
+    .local v8, "endPos":I
     move/from16 v9, v116
 
     .line 390
-    .local v9, above:I
+    .local v9, "above":I
     move/from16 v10, v118
 
     .line 391
-    .local v10, below:I
+    .local v10, "below":I
     move/from16 v11, v119
 
     .line 392
-    .local v11, top:I
+    .local v11, "top":I
     move/from16 v12, v117
 
     .line 393
-    .local v12, bottom:I
+    .local v12, "bottom":I
     move/from16 v32, v120
 
-    .local v32, currentTextWidth:F
+    .local v32, "currentTextWidth":F
     :goto_e
     move-object/from16 v5, p0
 
@@ -3296,15 +3254,15 @@
     move/from16 v123, v7
 
     .line 268
-    .end local v8           #endPos:I
-    .end local v9           #above:I
-    .end local v10           #below:I
-    .end local v11           #top:I
-    .end local v12           #bottom:I
-    .end local v32           #currentTextWidth:F
-    .end local v34           #moreChars:Z
-    .end local v95           #c:C
-    .end local v108           #isSpaceOrTab:Z
+    .end local v8    # "endPos":I
+    .end local v9    # "above":I
+    .end local v10    # "below":I
+    .end local v11    # "top":I
+    .end local v12    # "bottom":I
+    .end local v32    # "currentTextWidth":F
+    .end local v34    # "moreChars":Z
+    .end local v95    # "c":C
+    .end local v108    # "isSpaceOrTab":Z
     :cond_24
     :goto_f
     move/from16 v125, v123
@@ -3312,15 +3270,15 @@
     goto/16 :goto_6
 
     .line 382
-    .restart local v95       #c:C
-    .restart local v108       #isSpaceOrTab:Z
+    .restart local v95    # "c":C
+    .restart local v108    # "isSpaceOrTab":Z
     :cond_25
     const/16 v34, 0x0
 
     goto :goto_d
 
     .line 394
-    .restart local v34       #moreChars:Z
+    .restart local v34    # "moreChars":Z
     :cond_26
     move/from16 v0, v99
 
@@ -3330,69 +3288,69 @@
     move/from16 v8, v99
 
     .line 396
-    .restart local v8       #endPos:I
+    .restart local v8    # "endPos":I
     move/from16 v9, v39
 
     .line 397
-    .restart local v9       #above:I
+    .restart local v9    # "above":I
     move/from16 v10, v40
 
     .line 398
-    .restart local v10       #below:I
+    .restart local v10    # "below":I
     move/from16 v11, v41
 
     .line 399
-    .restart local v11       #top:I
+    .restart local v11    # "top":I
     move/from16 v12, v42
 
     .line 400
-    .restart local v12       #bottom:I
+    .restart local v12    # "bottom":I
     move/from16 v32, v100
 
-    .restart local v32       #currentTextWidth:F
+    .restart local v32    # "currentTextWidth":F
     goto :goto_e
 
     .line 402
-    .end local v8           #endPos:I
-    .end local v9           #above:I
-    .end local v10           #below:I
-    .end local v11           #top:I
-    .end local v12           #bottom:I
-    .end local v32           #currentTextWidth:F
+    .end local v8    # "endPos":I
+    .end local v9    # "above":I
+    .end local v10    # "below":I
+    .end local v11    # "top":I
+    .end local v12    # "bottom":I
+    .end local v32    # "currentTextWidth":F
     :cond_27
     add-int/lit8 v8, v7, 0x1
 
     .line 403
-    .restart local v8       #endPos:I
+    .restart local v8    # "endPos":I
     move-object/from16 v0, v18
 
     iget v9, v0, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
 
     .line 404
-    .restart local v9       #above:I
+    .restart local v9    # "above":I
     move-object/from16 v0, v18
 
     iget v10, v0, Landroid/graphics/Paint$FontMetricsInt;->descent:I
 
     .line 405
-    .restart local v10       #below:I
+    .restart local v10    # "below":I
     move-object/from16 v0, v18
 
     iget v11, v0, Landroid/graphics/Paint$FontMetricsInt;->top:I
 
     .line 406
-    .restart local v11       #top:I
+    .restart local v11    # "top":I
     move-object/from16 v0, v18
 
     iget v12, v0, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
 
     .line 407
-    .restart local v12       #bottom:I
+    .restart local v12    # "bottom":I
     sub-int v5, v7, v29
 
     aget v32, v28, v5
 
-    .restart local v32       #currentTextWidth:F
+    .restart local v32    # "currentTextWidth":F
     goto :goto_e
 
     .line 436
@@ -3410,22 +3368,22 @@
     goto :goto_f
 
     .line 443
-    .end local v8           #endPos:I
-    .end local v9           #above:I
-    .end local v10           #below:I
-    .end local v11           #top:I
-    .end local v12           #bottom:I
-    .end local v32           #currentTextWidth:F
-    .end local v34           #moreChars:Z
-    .end local v95           #c:C
-    .end local v101           #fmAscent:I
-    .end local v102           #fmBottom:I
-    .end local v103           #fmDescent:I
-    .end local v104           #fmTop:I
-    .end local v108           #isSpaceOrTab:Z
-    .end local v109           #j:I
-    .end local v123           #spanEnd:I
-    .end local v124           #spanLen:I
+    .end local v8    # "endPos":I
+    .end local v9    # "above":I
+    .end local v10    # "below":I
+    .end local v11    # "top":I
+    .end local v12    # "bottom":I
+    .end local v32    # "currentTextWidth":F
+    .end local v34    # "moreChars":Z
+    .end local v95    # "c":C
+    .end local v101    # "fmAscent":I
+    .end local v102    # "fmBottom":I
+    .end local v103    # "fmDescent":I
+    .end local v104    # "fmTop":I
+    .end local v108    # "isSpaceOrTab":Z
+    .end local v109    # "j":I
+    .end local v123    # "spanEnd":I
+    .end local v124    # "spanLen":I
     :cond_29
     move/from16 v0, v38
 
@@ -3558,35 +3516,35 @@
     if-ne v0, v1, :cond_30
 
     .line 473
-    .end local v7           #here:I
-    .end local v16           #chooseHt:[Landroid/text/style/LineHeightSpan;
-    .end local v19           #hasTabOrEmoji:Z
-    .end local v21           #chdirs:[B
-    .end local v22           #dir:I
-    .end local v23           #easy:Z
-    .end local v27           #chs:[C
-    .end local v28           #widths:[F
-    .end local v38           #paraEnd:I
-    .end local v39           #fitAscent:I
-    .end local v40           #fitDescent:I
-    .end local v41           #fitTop:I
-    .end local v42           #fitBottom:I
-    .end local v62           #w:F
-    .end local v97           #firstWidth:I
-    .end local v98           #firstWidthLineLimit:I
-    .end local v99           #fit:I
-    .end local v100           #fitWidth:F
-    .end local v105           #hasTab:Z
-    .end local v115           #ok:I
-    .end local v116           #okAscent:I
-    .end local v117           #okBottom:I
-    .end local v118           #okDescent:I
-    .end local v119           #okTop:I
-    .end local v120           #okWidth:F
-    .end local v121           #restWidth:I
-    .end local v125           #spanStart:I
-    .end local v128           #tabStops:Landroid/text/Layout$TabStops;
-    .end local v131           #width:I
+    .end local v7    # "here":I
+    .end local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
+    .end local v19    # "hasTabOrEmoji":Z
+    .end local v21    # "chdirs":[B
+    .end local v22    # "dir":I
+    .end local v23    # "easy":Z
+    .end local v27    # "chs":[C
+    .end local v28    # "widths":[F
+    .end local v38    # "paraEnd":I
+    .end local v39    # "fitAscent":I
+    .end local v40    # "fitDescent":I
+    .end local v41    # "fitTop":I
+    .end local v42    # "fitBottom":I
+    .end local v62    # "w":F
+    .end local v97    # "firstWidth":I
+    .end local v98    # "firstWidthLineLimit":I
+    .end local v99    # "fit":I
+    .end local v100    # "fitWidth":F
+    .end local v105    # "hasTab":Z
+    .end local v115    # "ok":I
+    .end local v116    # "okAscent":I
+    .end local v117    # "okBottom":I
+    .end local v118    # "okDescent":I
+    .end local v119    # "okTop":I
+    .end local v120    # "okWidth":F
+    .end local v121    # "restWidth":I
+    .end local v125    # "spanStart":I
+    .end local v128    # "tabStops":Landroid/text/Layout$TabStops;
+    .end local v131    # "width":I
     :cond_2c
     move/from16 v0, p3
 
@@ -3735,35 +3693,35 @@
     return-void
 
     .line 455
-    .restart local v7       #here:I
-    .restart local v16       #chooseHt:[Landroid/text/style/LineHeightSpan;
-    .restart local v19       #hasTabOrEmoji:Z
-    .restart local v21       #chdirs:[B
-    .restart local v22       #dir:I
-    .restart local v23       #easy:Z
-    .restart local v27       #chs:[C
-    .restart local v28       #widths:[F
-    .restart local v38       #paraEnd:I
-    .restart local v39       #fitAscent:I
-    .restart local v40       #fitDescent:I
-    .restart local v41       #fitTop:I
-    .restart local v42       #fitBottom:I
-    .restart local v62       #w:F
-    .restart local v97       #firstWidth:I
-    .restart local v98       #firstWidthLineLimit:I
-    .restart local v99       #fit:I
-    .restart local v100       #fitWidth:F
-    .restart local v105       #hasTab:Z
-    .restart local v115       #ok:I
-    .restart local v116       #okAscent:I
-    .restart local v117       #okBottom:I
-    .restart local v118       #okDescent:I
-    .restart local v119       #okTop:I
-    .restart local v120       #okWidth:F
-    .restart local v121       #restWidth:I
-    .restart local v125       #spanStart:I
-    .restart local v128       #tabStops:Landroid/text/Layout$TabStops;
-    .restart local v131       #width:I
+    .restart local v7    # "here":I
+    .restart local v16    # "chooseHt":[Landroid/text/style/LineHeightSpan;
+    .restart local v19    # "hasTabOrEmoji":Z
+    .restart local v21    # "chdirs":[B
+    .restart local v22    # "dir":I
+    .restart local v23    # "easy":Z
+    .restart local v27    # "chs":[C
+    .restart local v28    # "widths":[F
+    .restart local v38    # "paraEnd":I
+    .restart local v39    # "fitAscent":I
+    .restart local v40    # "fitDescent":I
+    .restart local v41    # "fitTop":I
+    .restart local v42    # "fitBottom":I
+    .restart local v62    # "w":F
+    .restart local v97    # "firstWidth":I
+    .restart local v98    # "firstWidthLineLimit":I
+    .restart local v99    # "fit":I
+    .restart local v100    # "fitWidth":F
+    .restart local v105    # "hasTab":Z
+    .restart local v115    # "ok":I
+    .restart local v116    # "okAscent":I
+    .restart local v117    # "okBottom":I
+    .restart local v118    # "okDescent":I
+    .restart local v119    # "okTop":I
+    .restart local v120    # "okWidth":F
+    .restart local v121    # "restWidth":I
+    .restart local v125    # "spanStart":I
+    .restart local v128    # "tabStops":Landroid/text/Layout$TabStops;
+    .restart local v131    # "width":I
     :cond_2f
     const/16 v64, 0x0
 
@@ -3788,7 +3746,7 @@
 
 .method public getEllipsisCount(I)I
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 900
@@ -3821,7 +3779,7 @@
 
 .method public getEllipsisStart(I)I
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 909
@@ -3864,7 +3822,7 @@
 
 .method public getLineContainsTab(I)Z
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 880
@@ -3878,7 +3836,7 @@
 
     aget v0, v0, v1
 
-    const/high16 v1, 0x2000
+    const/high16 v1, 0x20000000
 
     and-int/2addr v0, v1
 
@@ -3907,7 +3865,7 @@
 
 .method public getLineDescent(I)I
     .locals 3
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 860
@@ -3922,7 +3880,7 @@
     aget v0, v1, v2
 
     .line 861
-    .local v0, descent:I
+    .local v0, "descent":I
     iget v1, p0, Landroid/text/StaticLayout;->mMaximumVisibleLineCount:I
 
     if-lez v1, :cond_0
@@ -3951,7 +3909,7 @@
 
 .method public final getLineDirections(I)Landroid/text/Layout$Directions;
     .locals 1
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 885
@@ -3964,22 +3922,22 @@
 
 .method public getLineForVertical(I)I
     .locals 6
-    .parameter "vertical"
+    .param p1, "vertical"    # I
 
     .prologue
     .line 824
     iget v1, p0, Landroid/text/StaticLayout;->mLineCount:I
 
     .line 825
-    .local v1, high:I
+    .local v1, "high":I
     const/4 v3, -0x1
 
     .line 827
-    .local v3, low:I
+    .local v3, "low":I
     iget-object v2, p0, Landroid/text/StaticLayout;->mLines:[I
 
     .line 828
-    .local v2, lines:[I
+    .local v2, "lines":[I
     :goto_0
     sub-int v4, v1, v3
 
@@ -3993,7 +3951,7 @@
     shr-int/lit8 v0, v4, 0x1
 
     .line 830
-    .local v0, guess:I
+    .local v0, "guess":I
     iget v4, p0, Landroid/text/StaticLayout;->mColumns:I
 
     mul-int/2addr v4, v0
@@ -4016,7 +3974,7 @@
     goto :goto_0
 
     .line 836
-    .end local v0           #guess:I
+    .end local v0    # "guess":I
     :cond_1
     if-gez v3, :cond_2
 
@@ -4024,14 +3982,14 @@
     const/4 v3, 0x0
 
     .line 839
-    .end local v3           #low:I
+    .end local v3    # "low":I
     :cond_2
     return v3
 .end method
 
 .method public getLineStart(I)I
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 870
@@ -4054,7 +4012,7 @@
 
 .method public getLineTop(I)I
     .locals 3
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 850
@@ -4069,7 +4027,7 @@
     aget v0, v1, v2
 
     .line 851
-    .local v0, top:I
+    .local v0, "top":I
     iget v1, p0, Landroid/text/StaticLayout;->mMaximumVisibleLineCount:I
 
     if-lez v1, :cond_0
@@ -4096,7 +4054,7 @@
 
 .method public getParagraphDirection(I)I
     .locals 2
-    .parameter "line"
+    .param p1, "line"    # I
 
     .prologue
     .line 875

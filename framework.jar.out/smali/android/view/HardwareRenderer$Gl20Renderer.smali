@@ -49,7 +49,7 @@
 
 .method constructor <init>(Z)V
     .locals 1
-    .parameter "translucent"
+    .param p1, "translucent"    # Z
 
     .prologue
     .line 1933
@@ -63,7 +63,7 @@
 
 .method static synthetic access$500(Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 1877
@@ -84,7 +84,7 @@
 
 .method static synthetic access$602(Ljavax/microedition/khronos/egl/EGLSurface;)Ljavax/microedition/khronos/egl/EGLSurface;
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Ljavax/microedition/khronos/egl/EGLSurface;
 
     .prologue
     .line 1877
@@ -95,7 +95,7 @@
 
 .method static synthetic access$700(Landroid/view/View;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View;
 
     .prologue
     .line 1877
@@ -106,7 +106,7 @@
 
 .method static synthetic access$800(Landroid/view/View;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/View;
 
     .prologue
     .line 1877
@@ -117,7 +117,7 @@
 
 .method static create(Z)Landroid/view/HardwareRenderer;
     .locals 1
-    .parameter "translucent"
+    .param p0, "translucent"    # Z
 
     .prologue
     .line 2306
@@ -144,7 +144,7 @@
 
 .method private static destroyHardwareLayer(Landroid/view/View;)V
     .locals 4
-    .parameter "view"
+    .param p0, "view"    # Landroid/view/View;
 
     .prologue
     .line 2264
@@ -163,16 +163,16 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 2269
-    .local v1, group:Landroid/view/ViewGroup;
+    .local v1, "group":Landroid/view/ViewGroup;
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
     .line 2270
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -189,16 +189,16 @@
     goto :goto_0
 
     .line 2274
-    .end local v0           #count:I
-    .end local v1           #group:Landroid/view/ViewGroup;
-    .end local v2           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "group":Landroid/view/ViewGroup;
+    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method private static destroyResources(Landroid/view/View;)V
     .locals 4
-    .parameter "view"
+    .param p0, "view"    # Landroid/view/View;
 
     .prologue
     .line 2293
@@ -215,16 +215,16 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 2298
-    .local v1, group:Landroid/view/ViewGroup;
+    .local v1, "group":Landroid/view/ViewGroup;
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
     .line 2299
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -241,17 +241,17 @@
     goto :goto_0
 
     .line 2303
-    .end local v0           #count:I
-    .end local v1           #group:Landroid/view/ViewGroup;
-    .end local v2           #i:I
+    .end local v0    # "count":I
+    .end local v1    # "group":Landroid/view/ViewGroup;
+    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method private drawCurrentFrame(II)V
     .locals 6
-    .parameter "graphType"
-    .parameter "index"
+    .param p1, "graphType"    # I
+    .param p2, "index"    # I
 
     .prologue
     const/4 v4, 0x2
@@ -360,14 +360,14 @@
 
 .method private drawGraph(II)V
     .locals 6
-    .parameter "graphType"
-    .parameter "count"
+    .param p1, "graphType"    # I
+    .param p2, "count"    # I
 
     .prologue
     .line 2098
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/view/HardwareRenderer$Gl20Renderer;->mProfileShapes:[[F
 
@@ -441,8 +441,8 @@
 
 .method private drawThreshold(II)V
     .locals 8
-    .parameter "x"
-    .parameter "height"
+    .param p1, "x"    # I
+    .param p2, "height"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -455,7 +455,7 @@
     move-result v6
 
     .line 2130
-    .local v6, threshold:F
+    .local v6, "threshold":F
     cmpl-float v0, v6, v1
 
     if-lez v0, :cond_0
@@ -481,7 +481,7 @@
     float-to-int v7, v0
 
     .line 2133
-    .local v7, y:I
+    .local v7, "y":I
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer;->mGlCanvas:Landroid/view/GLES20Canvas;
 
     int-to-float v2, v7
@@ -495,7 +495,7 @@
     invoke-virtual/range {v0 .. v5}, Landroid/view/GLES20Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
     .line 2135
-    .end local v7           #y:I
+    .end local v7    # "y":I
     :cond_0
     return-void
 .end method
@@ -533,8 +533,8 @@
 
 .method private initProfileDrawData(Landroid/view/View$AttachInfo;Landroid/view/HardwareRenderer$GraphDataProvider;)V
     .locals 6
-    .parameter "attachInfo"
-    .parameter "provider"
+    .param p1, "attachInfo"    # Landroid/view/View$AttachInfo;
+    .param p2, "provider"    # Landroid/view/HardwareRenderer$GraphDataProvider;
 
     .prologue
     const/4 v5, 0x1
@@ -550,13 +550,13 @@
     move-result v0
 
     .line 2140
-    .local v0, elementCount:I
+    .local v0, "elementCount":I
     invoke-virtual {p2}, Landroid/view/HardwareRenderer$GraphDataProvider;->getFrameCount()I
 
     move-result v1
 
     .line 2142
-    .local v1, frameCount:I
+    .local v1, "frameCount":I
     new-array v3, v0, [[F
 
     iput-object v3, p0, Landroid/view/HardwareRenderer$Gl20Renderer;->mProfileShapes:[[F
@@ -564,7 +564,7 @@
     .line 2143
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
@@ -591,9 +591,9 @@
     iput-object v3, p0, Landroid/view/HardwareRenderer$Gl20Renderer;->mProfilePaint:Landroid/graphics/Paint;
 
     .line 2150
-    .end local v0           #elementCount:I
-    .end local v1           #frameCount:I
-    .end local v2           #i:I
+    .end local v0    # "elementCount":I
+    .end local v1    # "frameCount":I
+    .end local v2    # "i":I
     :cond_1
     iget-object v3, p0, Landroid/view/HardwareRenderer$Gl20Renderer;->mProfilePaint:Landroid/graphics/Paint;
 
@@ -643,7 +643,7 @@
 
 .method static startTrimMemory(I)V
     .locals 2
-    .parameter "level"
+    .param p0, "level"    # I
 
     .prologue
     .line 2313
@@ -671,7 +671,7 @@
     check-cast v0, Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
 
     .line 2318
-    .local v0, managedContext:Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
+    .local v0, "managedContext":Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
     if-eqz v0, :cond_0
 
     .line 2321
@@ -709,7 +709,7 @@
 
 .method private static usePbufferSurface(Ljavax/microedition/khronos/egl/EGLContext;)V
     .locals 5
-    .parameter "eglContext"
+    .param p0, "eglContext"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 2338
@@ -777,12 +777,12 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x57t 0x30t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x56t 0x30t 0x0t 0x0t
-        0x1t 0x0t 0x0t 0x0t
-        0x38t 0x30t 0x0t 0x0t
+    .array-data 4
+        0x3057
+        0x1
+        0x3056
+        0x1
+        0x3038
     .end array-data
 .end method
 
@@ -816,7 +816,7 @@
 
 .method cancelLayerUpdate(Landroid/view/HardwareLayer;)V
     .locals 1
-    .parameter "layer"
+    .param p1, "layer"    # Landroid/view/HardwareLayer;
 
     .prologue
     .line 2181
@@ -830,13 +830,13 @@
 
 .method countOverdraw(Landroid/view/HardwareCanvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/view/HardwareCanvas;
 
     .prologue
     .line 2206
     check-cast p1, Landroid/view/GLES20Canvas;
 
-    .end local p1
+    .end local p1    # "canvas":Landroid/view/HardwareCanvas;
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/view/GLES20Canvas;->setCountOverdrawEnabled(Z)V
@@ -863,7 +863,7 @@
 
 .method public createDisplayList(Ljava/lang/String;)Landroid/view/DisplayList;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 2191
@@ -876,9 +876,9 @@
 
 .method public createHardwareLayer(IIZ)Landroid/view/HardwareLayer;
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "isOpaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "isOpaque"    # Z
 
     .prologue
     .line 2201
@@ -891,7 +891,7 @@
 
 .method createHardwareLayer(Z)Landroid/view/HardwareLayer;
     .locals 1
-    .parameter "isOpaque"
+    .param p1, "isOpaque"    # Z
 
     .prologue
     .line 2196
@@ -904,7 +904,7 @@
 
 .method createManagedContext(Ljavax/microedition/khronos/egl/EGLContext;)Landroid/opengl/ManagedEGLContext;
     .locals 2
-    .parameter "eglContext"
+    .param p1, "eglContext"    # Ljavax/microedition/khronos/egl/EGLContext;
 
     .prologue
     .line 1943
@@ -919,13 +919,13 @@
 
 .method public createSurfaceTexture(Landroid/view/HardwareLayer;)Landroid/graphics/SurfaceTexture;
     .locals 1
-    .parameter "layer"
+    .param p1, "layer"    # Landroid/view/HardwareLayer;
 
     .prologue
     .line 2216
     check-cast p1, Landroid/view/GLES20TextureLayer;
 
-    .end local p1
+    .end local p1    # "layer":Landroid/view/HardwareLayer;
     invoke-virtual {p1}, Landroid/view/GLES20TextureLayer;->getSurfaceTexture()Landroid/graphics/SurfaceTexture;
 
     move-result-object v0
@@ -935,7 +935,7 @@
 
 .method destroy(Z)V
     .locals 3
-    .parameter "full"
+    .param p1, "full"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -979,7 +979,7 @@
 
 .method destroyHardwareResources(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 2278
@@ -999,7 +999,7 @@
 
 .method destroyLayers(Landroid/view/View;)V
     .locals 1
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 2249
@@ -1019,7 +1019,7 @@
 
 .method drawProfileData(Landroid/view/View$AttachInfo;)V
     .locals 23
-    .parameter "attachInfo"
+    .param p1, "attachInfo"    # Landroid/view/View$AttachInfo;
 
     .prologue
     .line 2018
@@ -1037,7 +1037,7 @@
     iget-object v12, v0, Landroid/view/HardwareRenderer$Gl20Renderer;->mDebugDataProvider:Landroid/view/HardwareRenderer$GraphDataProvider;
 
     .line 2020
-    .local v12, provider:Landroid/view/HardwareRenderer$GraphDataProvider;
+    .local v12, "provider":Landroid/view/HardwareRenderer$GraphDataProvider;
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1050,49 +1050,49 @@
     move-result v7
 
     .line 2023
-    .local v7, height:I
+    .local v7, "height":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getHorizontaUnitMargin()I
 
     move-result v11
 
     .line 2024
-    .local v11, margin:I
+    .local v11, "margin":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getHorizontalUnitSize()I
 
     move-result v15
 
     .line 2026
-    .local v15, width:I
+    .local v15, "width":I
     const/16 v16, 0x0
 
     .line 2027
-    .local v16, x:I
+    .local v16, "x":I
     const/4 v2, 0x0
 
     .line 2028
-    .local v2, count:I
+    .local v2, "count":I
     const/4 v3, 0x0
 
     .line 2030
-    .local v3, current:I
+    .local v3, "current":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getData()[F
 
     move-result-object v4
 
     .line 2031
-    .local v4, data:[F
+    .local v4, "data":[F
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getElementCount()I
 
     move-result v5
 
     .line 2032
-    .local v5, elementCount:I
+    .local v5, "elementCount":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getGraphType()I
 
     move-result v6
 
     .line 2034
-    .local v6, graphType:I
+    .local v6, "graphType":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getFrameCount()I
 
     move-result v20
@@ -1100,7 +1100,7 @@
     mul-int v14, v20, v5
 
     .line 2035
-    .local v14, totalCount:I
+    .local v14, "totalCount":I
     const/16 v20, 0x1
 
     move/from16 v0, v20
@@ -1114,7 +1114,7 @@
     :cond_0
     const/4 v8, 0x0
 
-    .local v8, i:I
+    .local v8, "i":I
     :goto_0
     if-ge v8, v14, :cond_1
 
@@ -1149,39 +1149,39 @@
     invoke-direct {v0, v1, v7}, Landroid/view/HardwareRenderer$Gl20Renderer;->drawThreshold(II)V
 
     .line 2095
-    .end local v2           #count:I
-    .end local v3           #current:I
-    .end local v4           #data:[F
-    .end local v5           #elementCount:I
-    .end local v6           #graphType:I
-    .end local v7           #height:I
-    .end local v8           #i:I
-    .end local v11           #margin:I
-    .end local v12           #provider:Landroid/view/HardwareRenderer$GraphDataProvider;
-    .end local v14           #totalCount:I
-    .end local v15           #width:I
-    .end local v16           #x:I
+    .end local v2    # "count":I
+    .end local v3    # "current":I
+    .end local v4    # "data":[F
+    .end local v5    # "elementCount":I
+    .end local v6    # "graphType":I
+    .end local v7    # "height":I
+    .end local v8    # "i":I
+    .end local v11    # "margin":I
+    .end local v12    # "provider":Landroid/view/HardwareRenderer$GraphDataProvider;
+    .end local v14    # "totalCount":I
+    .end local v15    # "width":I
+    .end local v16    # "x":I
     :cond_2
     return-void
 
     .line 2042
-    .restart local v2       #count:I
-    .restart local v3       #current:I
-    .restart local v4       #data:[F
-    .restart local v5       #elementCount:I
-    .restart local v6       #graphType:I
-    .restart local v7       #height:I
-    .restart local v8       #i:I
-    .restart local v11       #margin:I
-    .restart local v12       #provider:Landroid/view/HardwareRenderer$GraphDataProvider;
-    .restart local v14       #totalCount:I
-    .restart local v15       #width:I
-    .restart local v16       #x:I
+    .restart local v2    # "count":I
+    .restart local v3    # "current":I
+    .restart local v4    # "data":[F
+    .restart local v5    # "elementCount":I
+    .restart local v6    # "graphType":I
+    .restart local v7    # "height":I
+    .restart local v8    # "i":I
+    .restart local v11    # "margin":I
+    .restart local v12    # "provider":Landroid/view/HardwareRenderer$GraphDataProvider;
+    .restart local v14    # "totalCount":I
+    .restart local v15    # "width":I
+    .restart local v16    # "x":I
     :cond_3
     mul-int/lit8 v9, v2, 0x4
 
     .line 2043
-    .local v9, index:I
+    .local v9, "index":I
     invoke-virtual {v12}, Landroid/view/HardwareRenderer$GraphDataProvider;->getCurrentFrame()I
 
     move-result v20
@@ -1202,7 +1202,7 @@
     add-int v17, v16, v15
 
     .line 2048
-    .local v17, x2:I
+    .local v17, "x2":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/HardwareRenderer$Gl20Renderer;->mHeight:I
@@ -1210,7 +1210,7 @@
     move/from16 v19, v0
 
     .line 2049
-    .local v19, y2:I
+    .local v19, "y2":I
     move/from16 v0, v19
 
     int-to-float v0, v0
@@ -1234,7 +1234,7 @@
     move/from16 v18, v0
 
     .line 2051
-    .local v18, y1:I
+    .local v18, "y1":I
     packed-switch v6, :pswitch_data_0
 
     .line 2085
@@ -1253,7 +1253,7 @@
     :pswitch_0
     const/4 v10, 0x0
 
-    .local v10, j:I
+    .local v10, "j":I
     :goto_1
     if-ge v10, v5, :cond_5
 
@@ -1267,7 +1267,7 @@
     aget-object v13, v20, v10
 
     .line 2056
-    .local v13, r:[F
+    .local v13, "r":[F
     move/from16 v0, v16
 
     int-to-float v0, v0
@@ -1353,12 +1353,12 @@
     goto :goto_1
 
     .line 2068
-    .end local v10           #j:I
-    .end local v13           #r:[F
+    .end local v10    # "j":I
+    .end local v13    # "r":[F
     :pswitch_1
     const/4 v10, 0x0
 
-    .restart local v10       #j:I
+    .restart local v10    # "j":I
     :goto_2
     if-ge v10, v5, :cond_5
 
@@ -1372,7 +1372,7 @@
     aget-object v13, v20, v10
 
     .line 2071
-    .restart local v13       #r:[F
+    .restart local v13    # "r":[F
     add-int v20, v16, v17
 
     move/from16 v0, v20
@@ -1381,7 +1381,7 @@
 
     move/from16 v20, v0
 
-    const/high16 v21, 0x3f00
+    const/high16 v21, 0x3f000000    # 0.5f
 
     mul-float v20, v20, v21
 
@@ -1501,7 +1501,7 @@
 
 .method getConfig(Z)[I
     .locals 9
-    .parameter "dirtyRegions"
+    .param p1, "dirtyRegions"    # Z
 
     .prologue
     const/16 v8, 0x3038
@@ -1518,13 +1518,13 @@
     move-result v0
 
     .line 1950
-    .local v0, stencilSize:I
+    .local v0, "stencilSize":I
     if-eqz p1, :cond_0
 
     const/16 v1, 0x400
 
     .line 1952
-    .local v1, swapBehavior:I
+    .local v1, "swapBehavior":I
     :goto_0
     const/16 v3, 0x13
 
@@ -1622,7 +1622,7 @@
 
     return-object v3
 
-    .end local v1           #swapBehavior:I
+    .end local v1    # "swapBehavior":I
     :cond_0
     move v1, v2
 
@@ -1632,13 +1632,13 @@
 
 .method getOverdraw(Landroid/view/HardwareCanvas;)F
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/view/HardwareCanvas;
 
     .prologue
     .line 2211
     check-cast p1, Landroid/view/GLES20Canvas;
 
-    .end local p1
+    .end local p1    # "canvas":Landroid/view/HardwareCanvas;
     invoke-virtual {p1}, Landroid/view/GLES20Canvas;->getOverdraw()F
 
     move-result v0
@@ -1658,7 +1658,7 @@
     move-result-object v1
 
     .line 1977
-    .local v1, binder:Landroid/os/IBinder;
+    .local v1, "binder":Landroid/os/IBinder;
     if-nez v1, :cond_1
 
     .line 1999
@@ -1673,7 +1673,7 @@
     move-result-object v0
 
     .line 1981
-    .local v0, atlas:Landroid/view/IAssetAtlas;
+    .local v0, "atlas":Landroid/view/IAssetAtlas;
     :try_start_0
     invoke-static {}, Landroid/os/Process;->myPpid()I
 
@@ -1691,7 +1691,7 @@
     move-result-object v2
 
     .line 1983
-    .local v2, buffer:Landroid/view/GraphicBuffer;
+    .local v2, "buffer":Landroid/view/GraphicBuffer;
     if-eqz v2, :cond_0
 
     .line 1984
@@ -1700,7 +1700,7 @@
     move-result-object v4
 
     .line 1985
-    .local v4, map:[I
+    .local v4, "map":[I
     if-eqz v4, :cond_2
 
     .line 1986
@@ -1726,13 +1726,13 @@
     goto :goto_0
 
     .line 1996
-    .end local v2           #buffer:Landroid/view/GraphicBuffer;
-    .end local v4           #map:[I
+    .end local v2    # "buffer":Landroid/view/GraphicBuffer;
+    .end local v4    # "map":[I
     :catch_0
     move-exception v3
 
     .line 1997
-    .local v3, e:Landroid/os/RemoteException;
+    .local v3, "e":Landroid/os/RemoteException;
     const-string v5, "HardwareRenderer"
 
     const-string v6, "Could not acquire atlas"
@@ -1776,7 +1776,7 @@
 
 .method onPreDraw(Landroid/graphics/Rect;)I
     .locals 1
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 2008
@@ -1791,7 +1791,7 @@
 
 .method pushLayerUpdate(Landroid/view/HardwareLayer;)V
     .locals 1
-    .parameter "layer"
+    .param p1, "layer"    # Landroid/view/HardwareLayer;
 
     .prologue
     .line 2176
@@ -1805,7 +1805,7 @@
 
 .method safelyRun(Ljava/lang/Runnable;)Z
     .locals 8
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/Runnable;
 
     .prologue
     const/4 v3, 0x1
@@ -1829,7 +1829,7 @@
     move v1, v3
 
     .line 2228
-    .local v1, needsContext:Z
+    .local v1, "needsContext":Z
     :goto_0
     if-eqz v1, :cond_3
 
@@ -1843,15 +1843,15 @@
     check-cast v0, Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
 
     .line 2231
-    .local v0, managedContext:Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
+    .local v0, "managedContext":Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
     if-nez v0, :cond_2
 
     .line 2244
-    .end local v0           #managedContext:Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
+    .end local v0    # "managedContext":Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
     :goto_1
     return v2
 
-    .end local v1           #needsContext:Z
+    .end local v1    # "needsContext":Z
     :cond_1
     move v1, v2
 
@@ -1859,8 +1859,8 @@
     goto :goto_0
 
     .line 2232
-    .restart local v0       #managedContext:Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
-    .restart local v1       #needsContext:Z
+    .restart local v0    # "managedContext":Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
+    .restart local v1    # "needsContext":Z
     :cond_2
     invoke-virtual {v0}, Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;->getContext()Ljavax/microedition/khronos/egl/EGLContext;
 
@@ -1869,7 +1869,7 @@
     invoke-static {v2}, Landroid/view/HardwareRenderer$Gl20Renderer;->usePbufferSurface(Ljavax/microedition/khronos/egl/EGLContext;)V
 
     .line 2236
-    .end local v0           #managedContext:Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
+    .end local v0    # "managedContext":Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;
     :cond_3
     :try_start_0
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
@@ -1923,14 +1923,14 @@
 
 .method setSurfaceTexture(Landroid/view/HardwareLayer;Landroid/graphics/SurfaceTexture;)V
     .locals 0
-    .parameter "layer"
-    .parameter "surfaceTexture"
+    .param p1, "layer"    # Landroid/view/HardwareLayer;
+    .param p2, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .prologue
     .line 2221
     check-cast p1, Landroid/view/GLES20TextureLayer;
 
-    .end local p1
+    .end local p1    # "layer":Landroid/view/HardwareLayer;
     invoke-virtual {p1, p2}, Landroid/view/GLES20TextureLayer;->setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
 
     .line 2222

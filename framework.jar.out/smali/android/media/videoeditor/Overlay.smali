@@ -49,10 +49,10 @@
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;JJ)V
     .locals 4
-    .parameter "mediaItem"
-    .parameter "overlayId"
-    .parameter "startTimeMs"
-    .parameter "durationMs"
+    .param p1, "mediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "overlayId"    # Ljava/lang/String;
+    .param p3, "startTimeMs"    # J
+    .param p5, "durationMs"    # J
 
     .prologue
     const-wide/16 v1, 0x0
@@ -141,7 +141,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 209
@@ -153,17 +153,17 @@
     const/4 v0, 0x0
 
     .line 212
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_0
     iget-object v0, p0, Landroid/media/videoeditor/Overlay;->mUniqueId:Ljava/lang/String;
 
     check-cast p1, Landroid/media/videoeditor/Overlay;
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     iget-object v1, p1, Landroid/media/videoeditor/Overlay;->mUniqueId:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -249,7 +249,7 @@
 
 .method public setDuration(J)V
     .locals 9
-    .parameter "durationMs"
+    .param p1, "durationMs"    # J
 
     .prologue
     .line 109
@@ -311,7 +311,7 @@
     iget-wide v3, p0, Landroid/media/videoeditor/Overlay;->mDurationMs:J
 
     .line 120
-    .local v3, oldDurationMs:J
+    .local v3, "oldDurationMs":J
     iput-wide p1, p0, Landroid/media/videoeditor/Overlay;->mDurationMs:J
 
     .line 122
@@ -331,7 +331,7 @@
 
 .method public setStartTime(J)V
     .locals 9
-    .parameter "startTimeMs"
+    .param p1, "startTimeMs"    # J
 
     .prologue
     .line 142
@@ -376,7 +376,7 @@
     iget-wide v1, p0, Landroid/media/videoeditor/Overlay;->mStartTimeMs:J
 
     .line 149
-    .local v1, oldStartTimeMs:J
+    .local v1, "oldStartTimeMs":J
     iput-wide p1, p0, Landroid/media/videoeditor/Overlay;->mStartTimeMs:J
 
     .line 151
@@ -396,8 +396,8 @@
 
 .method public setStartTimeAndDuration(JJ)V
     .locals 9
-    .parameter "startTimeMs"
-    .parameter "durationMs"
+    .param p1, "startTimeMs"    # J
+    .param p3, "durationMs"    # J
 
     .prologue
     .line 161
@@ -440,11 +440,11 @@
     iget-wide v1, p0, Landroid/media/videoeditor/Overlay;->mStartTimeMs:J
 
     .line 168
-    .local v1, oldStartTimeMs:J
+    .local v1, "oldStartTimeMs":J
     iget-wide v3, p0, Landroid/media/videoeditor/Overlay;->mDurationMs:J
 
     .line 170
-    .local v3, oldDurationMs:J
+    .local v3, "oldDurationMs":J
     iput-wide p1, p0, Landroid/media/videoeditor/Overlay;->mStartTimeMs:J
 
     .line 171
@@ -465,8 +465,8 @@
 
 .method public setUserAttribute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 192

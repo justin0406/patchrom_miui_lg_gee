@@ -96,8 +96,8 @@
 
 .method protected onResize(FF)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .prologue
     .line 94
@@ -106,8 +106,8 @@
 
 .method public final resize(FF)V
     .locals 2
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .prologue
     const/4 v1, 0x0

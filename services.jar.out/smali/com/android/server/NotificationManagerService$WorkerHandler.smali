@@ -21,10 +21,9 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/NotificationManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 1603
+    .line 1614
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$WorkerHandler;->this$0:Lcom/android/server/NotificationManagerService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -34,11 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/NotificationManagerService;Lcom/android/server/NotificationManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/NotificationManagerService;
+    .param p2, "x1"    # Lcom/android/server/NotificationManagerService$1;
 
     .prologue
-    .line 1603
+    .line 1614
     invoke-direct {p0, p1}, Lcom/android/server/NotificationManagerService$WorkerHandler;-><init>(Lcom/android/server/NotificationManagerService;)V
 
     return-void
@@ -48,19 +47,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 1608
+    .line 1619
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1614
+    .line 1625
     :goto_0
     return-void
 
-    .line 1611
+    .line 1622
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$WorkerHandler;->this$0:Lcom/android/server/NotificationManagerService;
 
@@ -68,12 +67,12 @@
 
     check-cast v0, Lcom/android/server/NotificationManagerService$ToastRecord;
 
-    #calls: Lcom/android/server/NotificationManagerService;->handleTimeout(Lcom/android/server/NotificationManagerService$ToastRecord;)V
+    # invokes: Lcom/android/server/NotificationManagerService;->handleTimeout(Lcom/android/server/NotificationManagerService$ToastRecord;)V
     invoke-static {v1, v0}, Lcom/android/server/NotificationManagerService;->access$2200(Lcom/android/server/NotificationManagerService;Lcom/android/server/NotificationManagerService$ToastRecord;)V
 
     goto :goto_0
 
-    .line 1608
+    .line 1619
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

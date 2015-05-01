@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -86,7 +86,7 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -130,7 +130,7 @@
 
 .method protected constructor <init>(Landroid/telephony/CellInfo;)V
     .locals 2
-    .parameter "ci"
+    .param p1, "ci"    # Landroid/telephony/CellInfo;
 
     .prologue
     .line 68
@@ -157,7 +157,7 @@
 
 .method private static timeStampTypeToString(I)Ljava/lang/String;
     .locals 1
-    .parameter "type"
+    .param p0, "type"    # I
 
     .prologue
     .line 135
@@ -217,7 +217,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 9
-    .parameter "other"
+    .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x1
@@ -250,7 +250,7 @@
     move-object v2, v0
 
     .line 127
-    .local v2, o:Landroid/telephony/CellInfo;
+    .local v2, "o":Landroid/telephony/CellInfo;
     iget-boolean v5, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
     iget-boolean v6, v2, Landroid/telephony/CellInfo;->mRegistered:Z
@@ -284,12 +284,12 @@
     goto :goto_1
 
     .line 129
-    .end local v2           #o:Landroid/telephony/CellInfo;
+    .end local v2    # "o":Landroid/telephony/CellInfo;
     :catch_0
     move-exception v1
 
     .line 130
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     goto :goto_0
 .end method
 
@@ -321,7 +321,7 @@
     const/16 v0, 0x1f
 
     .line 113
-    .local v0, primeNum:I
+    .local v0, "primeNum":I
     iget-boolean v1, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
     if-eqz v1, :cond_0
@@ -369,7 +369,7 @@
 
 .method public setRegisterd(Z)V
     .locals 0
-    .parameter "registered"
+    .param p1, "registered"    # Z
 
     .prologue
     .line 80
@@ -381,7 +381,7 @@
 
 .method public setTimeStamp(J)V
     .locals 0
-    .parameter "timeStamp"
+    .param p1, "timeStamp"    # J
 
     .prologue
     .line 89
@@ -393,7 +393,7 @@
 
 .method public setTimeStampType(I)V
     .locals 1
-    .parameter "timeStampType"
+    .param p1, "timeStampType"    # I
 
     .prologue
     .line 103
@@ -430,7 +430,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 154
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string v2, "mRegistered="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -454,7 +454,7 @@
     move-result-object v1
 
     .line 156
-    .local v1, timeStampType:Ljava/lang/String;
+    .local v1, "timeStampType":Ljava/lang/String;
     const-string v2, " mTimeStampType="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -488,7 +488,7 @@
     return-object v2
 
     .line 154
-    .end local v1           #timeStampType:Ljava/lang/String;
+    .end local v1    # "timeStampType":Ljava/lang/String;
     :cond_0
     const-string v2, "NO"
 
@@ -500,9 +500,9 @@
 
 .method protected writeToParcel(Landroid/os/Parcel;II)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
-    .parameter "type"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
+    .param p3, "type"    # I
 
     .prologue
     .line 180

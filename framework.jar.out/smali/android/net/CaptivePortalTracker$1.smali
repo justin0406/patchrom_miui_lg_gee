@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/CaptivePortalTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 153
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 156
@@ -46,10 +45,10 @@
     move-result-object v0
 
     .line 160
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     iget-object v2, p0, Landroid/net/CaptivePortalTracker$1;->this$0:Landroid/net/CaptivePortalTracker;
 
-    #getter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
+    # getter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
     invoke-static {v2}, Landroid/net/CaptivePortalTracker;->access$500(Landroid/net/CaptivePortalTracker;)Z
 
     move-result v2
@@ -67,7 +66,7 @@
     :cond_0
     iget-object v2, p0, Landroid/net/CaptivePortalTracker$1;->this$0:Landroid/net/CaptivePortalTracker;
 
-    #getter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
+    # getter for: Landroid/net/CaptivePortalTracker;->mDeviceProvisioned:Z
     invoke-static {v2}, Landroid/net/CaptivePortalTracker;->access$500(Landroid/net/CaptivePortalTracker;)Z
 
     move-result v2
@@ -93,7 +92,7 @@
     check-cast v1, Landroid/net/NetworkInfo;
 
     .line 165
-    .local v1, info:Landroid/net/NetworkInfo;
+    .local v1, "info":Landroid/net/NetworkInfo;
     iget-object v2, p0, Landroid/net/CaptivePortalTracker$1;->this$0:Landroid/net/CaptivePortalTracker;
 
     iget-object v3, p0, Landroid/net/CaptivePortalTracker$1;->this$0:Landroid/net/CaptivePortalTracker;
@@ -107,7 +106,7 @@
     invoke-virtual {v2, v3}, Landroid/net/CaptivePortalTracker;->sendMessage(Landroid/os/Message;)V
 
     .line 167
-    .end local v1           #info:Landroid/net/NetworkInfo;
+    .end local v1    # "info":Landroid/net/NetworkInfo;
     :cond_2
     return-void
 .end method

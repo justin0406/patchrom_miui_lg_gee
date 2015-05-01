@@ -6,7 +6,7 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
     .locals 0
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 29
@@ -43,7 +43,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -58,7 +58,7 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 39
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->canProcess()Z
 
     move-result v2
@@ -66,7 +66,7 @@
     if-eqz v2, :cond_0
 
     .line 42
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :goto_0
     return-object v0
 

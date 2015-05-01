@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 190
@@ -51,7 +51,7 @@
 
 .method public attachToken(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
     move-result-object v0
 
     .line 205
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 
@@ -104,7 +104,7 @@
 
 .method public bindInput(Landroid/view/inputmethod/InputBinding;)V
     .locals 5
-    .parameter "binding"
+    .param p1, "binding"    # Landroid/view/inputmethod/InputBinding;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -118,7 +118,7 @@
     move-result-object v0
 
     .line 217
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 
@@ -179,7 +179,7 @@
 
 .method public changeInputMethodSubtype(Landroid/view/inputmethod/InputMethodSubtype;)V
     .locals 5
-    .parameter "subtype"
+    .param p1, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -193,7 +193,7 @@
     move-result-object v0
 
     .line 366
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 
@@ -254,8 +254,8 @@
 
 .method public createSession(Landroid/view/InputChannel;Lcom/android/internal/view/IInputSessionCallback;)V
     .locals 5
-    .parameter "channel"
-    .parameter "callback"
+    .param p1, "channel"    # Landroid/view/InputChannel;
+    .param p2, "callback"    # Lcom/android/internal/view/IInputSessionCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,7 +271,7 @@
     move-result-object v0
 
     .line 284
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethod"
 
@@ -352,8 +352,8 @@
 
 .method public hideSoftInput(ILandroid/os/ResultReceiver;)V
     .locals 5
-    .parameter "flags"
-    .parameter "resultReceiver"
+    .param p1, "flags"    # I
+    .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -367,7 +367,7 @@
     move-result-object v0
 
     .line 347
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 
@@ -431,8 +431,8 @@
 
 .method public restartInput(Lcom/android/internal/view/IInputContext;Landroid/view/inputmethod/EditorInfo;)V
     .locals 5
-    .parameter "inputContext"
-    .parameter "attribute"
+    .param p1, "inputContext"    # Lcom/android/internal/view/IInputContext;
+    .param p2, "attribute"    # Landroid/view/inputmethod/EditorInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -448,7 +448,7 @@
     move-result-object v0
 
     .line 265
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethod"
 
@@ -519,7 +519,7 @@
 
 .method public revokeSession(Lcom/android/internal/view/IInputMethodSession;)V
     .locals 5
-    .parameter "session"
+    .param p1, "session"    # Lcom/android/internal/view/IInputMethodSession;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -535,7 +535,7 @@
     move-result-object v0
 
     .line 316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethod"
 
@@ -581,8 +581,8 @@
 
 .method public setSessionEnabled(Lcom/android/internal/view/IInputMethodSession;Z)V
     .locals 5
-    .parameter "session"
-    .parameter "enabled"
+    .param p1, "session"    # Lcom/android/internal/view/IInputMethodSession;
+    .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -600,7 +600,7 @@
     move-result-object v0
 
     .line 303
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.view.IInputMethod"
 
@@ -658,8 +658,8 @@
 
 .method public showSoftInput(ILandroid/os/ResultReceiver;)V
     .locals 5
-    .parameter "flags"
-    .parameter "resultReceiver"
+    .param p1, "flags"    # I
+    .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -673,7 +673,7 @@
     move-result-object v0
 
     .line 328
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 
@@ -737,8 +737,8 @@
 
 .method public startInput(Lcom/android/internal/view/IInputContext;Landroid/view/inputmethod/EditorInfo;)V
     .locals 5
-    .parameter "inputContext"
-    .parameter "attribute"
+    .param p1, "inputContext"    # Lcom/android/internal/view/IInputContext;
+    .param p2, "attribute"    # Landroid/view/inputmethod/EditorInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -754,7 +754,7 @@
     move-result-object v0
 
     .line 246
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethod"
 
@@ -838,7 +838,7 @@
     move-result-object v0
 
     .line 235
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethod"
 

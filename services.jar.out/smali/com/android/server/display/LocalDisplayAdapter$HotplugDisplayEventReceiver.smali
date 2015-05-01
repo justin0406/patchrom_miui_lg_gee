@@ -21,8 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/LocalDisplayAdapter;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 196
@@ -39,9 +38,9 @@
 # virtual methods
 .method public onHotplug(JIZ)V
     .locals 2
-    .parameter "timestampNanos"
-    .parameter "builtInDisplayId"
-    .parameter "connected"
+    .param p1, "timestampNanos"    # J
+    .param p3, "builtInDisplayId"    # I
+    .param p4, "connected"    # Z
 
     .prologue
     .line 202
@@ -60,7 +59,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$HotplugDisplayEventReceiver;->this$0:Lcom/android/server/display/LocalDisplayAdapter;
 
-    #calls: Lcom/android/server/display/LocalDisplayAdapter;->tryConnectDisplayLocked(I)V
+    # invokes: Lcom/android/server/display/LocalDisplayAdapter;->tryConnectDisplayLocked(I)V
     invoke-static {v0, p3}, Lcom/android/server/display/LocalDisplayAdapter;->access$000(Lcom/android/server/display/LocalDisplayAdapter;I)V
 
     .line 208
@@ -74,7 +73,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$HotplugDisplayEventReceiver;->this$0:Lcom/android/server/display/LocalDisplayAdapter;
 
-    #calls: Lcom/android/server/display/LocalDisplayAdapter;->tryDisconnectDisplayLocked(I)V
+    # invokes: Lcom/android/server/display/LocalDisplayAdapter;->tryDisconnectDisplayLocked(I)V
     invoke-static {v0, p3}, Lcom/android/server/display/LocalDisplayAdapter;->access$100(Lcom/android/server/display/LocalDisplayAdapter;I)V
 
     goto :goto_0

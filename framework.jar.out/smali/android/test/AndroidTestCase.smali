@@ -24,9 +24,9 @@
 # virtual methods
 .method public assertActivityRequiresPermission(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "packageName"
-    .parameter "className"
-    .parameter "permission"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "className"    # Ljava/lang/String;
+    .param p3, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 93
@@ -35,11 +35,11 @@
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
     .line 94
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     invoke-virtual {v1, p1, p2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 95
-    const/high16 v2, 0x1000
+    const/high16 v2, 0x10000000
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -83,7 +83,7 @@
     move-exception v0
 
     .line 101
-    .local v0, expected:Ljava/lang/SecurityException;
+    .local v0, "expected":Ljava/lang/SecurityException;
     const-string/jumbo v2, "security exception\'s error message."
 
     invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
@@ -132,8 +132,8 @@
 
 .method public assertReadingContentUriRequiresPermission(Landroid/net/Uri;Ljava/lang/String;)V
     .locals 7
-    .parameter "uri"
-    .parameter "permission"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 117
@@ -190,7 +190,7 @@
     move-exception v6
 
     .line 120
-    .local v6, expected:Ljava/lang/SecurityException;
+    .local v6, "expected":Ljava/lang/SecurityException;
     const-string/jumbo v0, "security exception\'s error message."
 
     invoke-virtual {v6}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
@@ -239,8 +239,8 @@
 
 .method public assertWritingContentUriRequiresPermission(Landroid/net/Uri;Ljava/lang/String;)V
     .locals 3
-    .parameter "uri"
-    .parameter "permission"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "permission"    # Ljava/lang/String;
 
     .prologue
     .line 136
@@ -291,7 +291,7 @@
     move-exception v0
 
     .line 139
-    .local v0, expected:Ljava/lang/SecurityException;
+    .local v0, "expected":Ljava/lang/SecurityException;
     const-string/jumbo v1, "security exception\'s error message."
 
     invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
@@ -374,7 +374,6 @@
 
 .method protected scrubClass(Ljava/lang/Class;)V
     .locals 8
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -391,7 +390,7 @@
 
     .prologue
     .line 158
-    .local p1, testCaseClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
+    .local p1, "testCaseClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
@@ -401,23 +400,23 @@
     move-result-object v3
 
     .line 159
-    .local v3, fields:[Ljava/lang/reflect/Field;
+    .local v3, "fields":[Ljava/lang/reflect/Field;
     move-object v0, v3
 
-    .local v0, arr$:[Ljava/lang/reflect/Field;
+    .local v0, "arr$":[Ljava/lang/reflect/Field;
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_1
 
     aget-object v2, v0, v4
 
     .line 160
-    .local v2, field:Ljava/lang/reflect/Field;
+    .local v2, "field":Ljava/lang/reflect/Field;
     invoke-virtual {v2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v6
@@ -477,7 +476,7 @@
     move-exception v1
 
     .line 166
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const-string v6, "TestCase"
 
     const-string v7, "Error: Could not nullify field!"
@@ -487,15 +486,15 @@
     goto :goto_1
 
     .line 174
-    .end local v1           #e:Ljava/lang/Exception;
-    .end local v2           #field:Ljava/lang/reflect/Field;
+    .end local v1    # "e":Ljava/lang/Exception;
+    .end local v2    # "field":Ljava/lang/reflect/Field;
     :cond_1
     return-void
 .end method
 
 .method public setContext(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 53
@@ -507,7 +506,7 @@
 
 .method public setTestContext(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 69

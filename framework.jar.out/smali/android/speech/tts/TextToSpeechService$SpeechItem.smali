@@ -33,11 +33,10 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;)V
     .locals 1
-    .parameter
-    .parameter "caller"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
+    .param p2, "caller"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v0, 0x0

@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/media/IRingtonePlayer;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/media/IRingtonePlayer;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/media/IRingtonePlayer$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/media/IRingtonePlayer$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 8
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -158,7 +158,7 @@
     move-result-object v0
 
     .line 54
-    .local v0, _arg0:Landroid/os/IBinder;
+    .local v0, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -175,14 +175,14 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 61
-    .local v1, _arg1:Landroid/net/Uri;
+    .local v1, "_arg1":Landroid/net/Uri;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     .line 62
-    .local v2, _arg2:I
+    .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Landroid/media/IRingtonePlayer$Stub;->play(Landroid/os/IBinder;Landroid/net/Uri;I)V
 
     .line 63
@@ -191,17 +191,17 @@
     goto :goto_0
 
     .line 58
-    .end local v1           #_arg1:Landroid/net/Uri;
-    .end local v2           #_arg2:I
+    .end local v1    # "_arg1":Landroid/net/Uri;
+    .end local v2    # "_arg2":I
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/net/Uri;
+    .restart local v1    # "_arg1":Landroid/net/Uri;
     goto :goto_1
 
     .line 68
-    .end local v0           #_arg0:Landroid/os/IBinder;
-    .end local v1           #_arg1:Landroid/net/Uri;
+    .end local v0    # "_arg0":Landroid/os/IBinder;
+    .end local v1    # "_arg1":Landroid/net/Uri;
     :sswitch_2
     const-string v5, "android.media.IRingtonePlayer"
 
@@ -213,7 +213,7 @@
     move-result-object v0
 
     .line 71
-    .restart local v0       #_arg0:Landroid/os/IBinder;
+    .restart local v0    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v0}, Landroid/media/IRingtonePlayer$Stub;->stop(Landroid/os/IBinder;)V
 
     .line 72
@@ -222,7 +222,7 @@
     goto :goto_0
 
     .line 77
-    .end local v0           #_arg0:Landroid/os/IBinder;
+    .end local v0    # "_arg0":Landroid/os/IBinder;
     :sswitch_3
     const-string v7, "android.media.IRingtonePlayer"
 
@@ -234,13 +234,13 @@
     move-result-object v0
 
     .line 80
-    .restart local v0       #_arg0:Landroid/os/IBinder;
+    .restart local v0    # "_arg0":Landroid/os/IBinder;
     invoke-virtual {p0, v0}, Landroid/media/IRingtonePlayer$Stub;->isPlaying(Landroid/os/IBinder;)Z
 
     move-result v4
 
     .line 81
-    .local v4, _result:Z
+    .local v4, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 82
@@ -254,8 +254,8 @@
     goto :goto_0
 
     .line 87
-    .end local v0           #_arg0:Landroid/os/IBinder;
-    .end local v4           #_result:Z
+    .end local v0    # "_arg0":Landroid/os/IBinder;
+    .end local v4    # "_result":Z
     :sswitch_4
     const-string v7, "android.media.IRingtonePlayer"
 
@@ -278,7 +278,7 @@
     check-cast v0, Landroid/net/Uri;
 
     .line 96
-    .local v0, _arg0:Landroid/net/Uri;
+    .local v0, "_arg0":Landroid/net/Uri;
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -296,7 +296,7 @@
     check-cast v1, Landroid/os/UserHandle;
 
     .line 103
-    .local v1, _arg1:Landroid/os/UserHandle;
+    .local v1, "_arg1":Landroid/os/UserHandle;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -307,14 +307,14 @@
     move v2, v6
 
     .line 105
-    .local v2, _arg2:Z
+    .local v2, "_arg2":Z
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     .line 106
-    .local v3, _arg3:I
+    .local v3, "_arg3":I
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/media/IRingtonePlayer$Stub;->playAsync(Landroid/net/Uri;Landroid/os/UserHandle;ZI)V
 
     .line 107
@@ -323,21 +323,21 @@
     goto/16 :goto_0
 
     .line 93
-    .end local v0           #_arg0:Landroid/net/Uri;
-    .end local v1           #_arg1:Landroid/os/UserHandle;
-    .end local v2           #_arg2:Z
-    .end local v3           #_arg3:I
+    .end local v0    # "_arg0":Landroid/net/Uri;
+    .end local v1    # "_arg1":Landroid/os/UserHandle;
+    .end local v2    # "_arg2":Z
+    .end local v3    # "_arg3":I
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/net/Uri;
+    .restart local v0    # "_arg0":Landroid/net/Uri;
     goto :goto_2
 
     .line 100
     :cond_3
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/UserHandle;
+    .restart local v1    # "_arg1":Landroid/os/UserHandle;
     goto :goto_3
 
     :cond_4
@@ -347,8 +347,8 @@
     goto :goto_4
 
     .line 112
-    .end local v0           #_arg0:Landroid/net/Uri;
-    .end local v1           #_arg1:Landroid/os/UserHandle;
+    .end local v0    # "_arg0":Landroid/net/Uri;
+    .end local v1    # "_arg1":Landroid/os/UserHandle;
     :sswitch_5
     const-string v5, "android.media.IRingtonePlayer"
 

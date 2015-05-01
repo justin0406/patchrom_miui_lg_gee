@@ -25,11 +25,10 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
     .locals 7
-    .parameter
-    .parameter "accounts"
-    .parameter "response"
-    .parameter "account"
-    .parameter "features"
+    .param p2, "accounts"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "response"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "account"    # Landroid/accounts/Account;
+    .param p5, "features"    # [Ljava/lang/String;
 
     .prologue
     .line 797
@@ -66,7 +65,7 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 7
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v6, 0x2
@@ -77,7 +76,7 @@
     move-result-object v2
 
     .line 816
-    .local v2, response:Landroid/accounts/IAccountManagerResponse;
+    .local v2, "response":Landroid/accounts/IAccountManagerResponse;
     if-eqz v2, :cond_0
 
     .line 818
@@ -150,7 +149,7 @@
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
     .line 827
-    .local v1, newResult:Landroid/os/Bundle;
+    .local v1, "newResult":Landroid/os/Bundle;
     const-string v3, "booleanResult"
 
     const-string v4, "booleanResult"
@@ -171,12 +170,12 @@
     goto :goto_0
 
     .line 830
-    .end local v1           #newResult:Landroid/os/Bundle;
+    .end local v1    # "newResult":Landroid/os/Bundle;
     :catch_0
     move-exception v0
 
     .line 832
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "AccountManagerService"
 
     invoke-static {v3, v6}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -225,7 +224,7 @@
     move-exception v0
 
     .line 809
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x1
 
     const-string v2, "remote exception"
@@ -237,7 +236,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 3
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 841

@@ -50,7 +50,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IInstrumentationWatcher;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 24
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 28
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IInstrumentationWatcher;
@@ -88,7 +88,7 @@
     :cond_1
     new-instance v0, Landroid/app/IInstrumentationWatcher$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IInstrumentationWatcher$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -106,10 +106,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -161,14 +161,14 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 57
-    .local v0, _arg0:Landroid/content/ComponentName;
+    .local v0, "_arg0":Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 59
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -185,7 +185,7 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 65
-    .local v2, _arg2:Landroid/os/Bundle;
+    .local v2, "_arg2":Landroid/os/Bundle;
     :goto_2
     invoke-virtual {p0, v0, v1, v2}, Landroid/app/IInstrumentationWatcher$Stub;->instrumentationStatus(Landroid/content/ComponentName;ILandroid/os/Bundle;)V
 
@@ -195,27 +195,27 @@
     goto :goto_0
 
     .line 54
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":Landroid/os/Bundle;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_1
 
     .line 63
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_arg2:Landroid/os/Bundle;
+    .restart local v2    # "_arg2":Landroid/os/Bundle;
     goto :goto_2
 
     .line 71
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":Landroid/os/Bundle;
     :sswitch_2
     const-string v4, "android.app.IInstrumentationWatcher"
 
@@ -238,14 +238,14 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 80
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 82
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -262,7 +262,7 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 88
-    .restart local v2       #_arg2:Landroid/os/Bundle;
+    .restart local v2    # "_arg2":Landroid/os/Bundle;
     :goto_4
     invoke-virtual {p0, v0, v1, v2}, Landroid/app/IInstrumentationWatcher$Stub;->instrumentationFinished(Landroid/content/ComponentName;ILandroid/os/Bundle;)V
 
@@ -272,21 +272,21 @@
     goto :goto_0
 
     .line 77
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Landroid/os/Bundle;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_arg1":I
+    .end local v2    # "_arg2":Landroid/os/Bundle;
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_3
 
     .line 86
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     :cond_3
     const/4 v2, 0x0
 
-    .restart local v2       #_arg2:Landroid/os/Bundle;
+    .restart local v2    # "_arg2":Landroid/os/Bundle;
     goto :goto_4
 
     .line 39

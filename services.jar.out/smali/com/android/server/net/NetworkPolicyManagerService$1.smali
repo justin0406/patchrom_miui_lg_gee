@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 405
@@ -36,15 +35,15 @@
 # virtual methods
 .method public onForegroundActivitiesChanged(IIZ)V
     .locals 3
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "foregroundActivities"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "foregroundActivities"    # Z
 
     .prologue
     .line 408
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$000(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -67,9 +66,9 @@
 
 .method public onImportanceChanged(III)V
     .locals 0
-    .parameter "pid"
-    .parameter "uid"
-    .parameter "importance"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "importance"    # I
 
     .prologue
     .line 414
@@ -78,14 +77,14 @@
 
 .method public onProcessDied(II)V
     .locals 2
-    .parameter "pid"
-    .parameter "uid"
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
 
     .prologue
     .line 418
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$000(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/os/Handler;
 
     move-result-object v0

@@ -58,7 +58,7 @@
 
 .method private static getImageEncodingQualityLevels(I)[I
     .locals 6
-    .parameter "cameraId"
+    .param p0, "cameraId"    # I
 
     .prologue
     .line 97
@@ -67,7 +67,7 @@
     move-result v2
 
     .line 98
-    .local v2, nLevels:I
+    .local v2, "nLevels":I
     const/4 v3, 0x3
 
     if-eq v2, v3, :cond_0
@@ -102,10 +102,10 @@
     new-array v1, v2, [I
 
     .line 103
-    .local v1, levels:[I
+    .local v1, "levels":[I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
@@ -131,7 +131,7 @@
 
 .method public static getJpegEncodingQualityParameter(I)I
     .locals 4
-    .parameter "quality"
+    .param p0, "quality"    # I
 
     .prologue
     .line 58
@@ -140,16 +140,16 @@
     move-result v2
 
     .line 59
-    .local v2, numberOfCameras:I
+    .local v2, "numberOfCameras":I
     new-instance v0, Landroid/hardware/Camera$CameraInfo;
 
     invoke-direct {v0}, Landroid/hardware/Camera$CameraInfo;-><init>()V
 
     .line 60
-    .local v0, cameraInfo:Landroid/hardware/Camera$CameraInfo;
+    .local v0, "cameraInfo":Landroid/hardware/Camera$CameraInfo;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -185,8 +185,8 @@
 
 .method public static getJpegEncodingQualityParameter(II)I
     .locals 4
-    .parameter "cameraId"
-    .parameter "quality"
+    .param p0, "cameraId"    # I
+    .param p1, "quality"    # I
 
     .prologue
     .line 78
@@ -243,7 +243,7 @@
     check-cast v0, [I
 
     .line 83
-    .local v0, levels:[I
+    .local v0, "levels":[I
     if-nez v0, :cond_2
 
     .line 84
@@ -269,7 +269,7 @@
     return v1
 
     .line 88
-    .end local v0           #levels:[I
+    .end local v0    # "levels":[I
     :catchall_0
     move-exception v1
 

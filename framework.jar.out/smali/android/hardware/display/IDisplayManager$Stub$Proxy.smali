@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 202
@@ -51,7 +51,7 @@
 
 .method public connectWifiDisplay(Ljava/lang/String;)V
     .locals 5
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 306
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 308
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -117,14 +117,14 @@
 
 .method public createVirtualDisplay(Landroid/os/IBinder;Ljava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)I
     .locals 6
-    .parameter "token"
-    .parameter "packageName"
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "densityDpi"
-    .parameter "surface"
-    .parameter "flags"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "width"    # I
+    .param p5, "height"    # I
+    .param p6, "densityDpi"    # I
+    .param p7, "surface"    # Landroid/view/Surface;
+    .param p8, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -138,13 +138,13 @@
     move-result-object v0
 
     .line 431
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 434
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.display.IDisplayManager"
 
@@ -205,7 +205,7 @@
     move-result v2
 
     .line 454
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 455
@@ -215,7 +215,7 @@
     return v2
 
     .line 446
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -253,13 +253,13 @@
     move-result-object v0
 
     .line 323
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 325
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -302,7 +302,7 @@
 
 .method public forgetWifiDisplay(Ljava/lang/String;)V
     .locals 5
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -316,13 +316,13 @@
     move-result-object v0
 
     .line 357
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 359
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -381,13 +381,13 @@
     move-result-object v0
 
     .line 239
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 242
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.display.IDisplayManager"
 
@@ -413,7 +413,7 @@
     move-result-object v2
 
     .line 248
-    .local v2, _result:[I
+    .local v2, "_result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 249
@@ -423,7 +423,7 @@
     return-object v2
 
     .line 248
-    .end local v2           #_result:[I
+    .end local v2    # "_result":[I
     :catchall_0
     move-exception v3
 
@@ -437,7 +437,7 @@
 
 .method public getDisplayInfo(I)Landroid/view/DisplayInfo;
     .locals 6
-    .parameter "displayId"
+    .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -451,13 +451,13 @@
     move-result-object v0
 
     .line 216
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 219
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.display.IDisplayManager"
 
@@ -497,7 +497,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 231
-    .local v2, _result:Landroid/view/DisplayInfo;
+    .local v2, "_result":Landroid/view/DisplayInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -508,15 +508,15 @@
     return-object v2
 
     .line 227
-    .end local v2           #_result:Landroid/view/DisplayInfo;
+    .end local v2    # "_result":Landroid/view/DisplayInfo;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/view/DisplayInfo;
+    .restart local v2    # "_result":Landroid/view/DisplayInfo;
     goto :goto_0
 
     .line 231
-    .end local v2           #_result:Landroid/view/DisplayInfo;
+    .end local v2    # "_result":Landroid/view/DisplayInfo;
     :catchall_0
     move-exception v3
 
@@ -553,13 +553,13 @@
     move-result-object v0
 
     .line 406
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 409
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.display.IDisplayManager"
 
@@ -596,7 +596,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 420
-    .local v2, _result:Landroid/hardware/display/WifiDisplayStatus;
+    .local v2, "_result":Landroid/hardware/display/WifiDisplayStatus;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -607,15 +607,15 @@
     return-object v2
 
     .line 416
-    .end local v2           #_result:Landroid/hardware/display/WifiDisplayStatus;
+    .end local v2    # "_result":Landroid/hardware/display/WifiDisplayStatus;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/hardware/display/WifiDisplayStatus;
+    .restart local v2    # "_result":Landroid/hardware/display/WifiDisplayStatus;
     goto :goto_0
 
     .line 420
-    .end local v2           #_result:Landroid/hardware/display/WifiDisplayStatus;
+    .end local v2    # "_result":Landroid/hardware/display/WifiDisplayStatus;
     :catchall_0
     move-exception v3
 
@@ -642,13 +642,13 @@
     move-result-object v0
 
     .line 374
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 376
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -691,7 +691,7 @@
 
 .method public registerCallback(Landroid/hardware/display/IDisplayManagerCallback;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/hardware/display/IDisplayManagerCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -705,13 +705,13 @@
     move-result-object v0
 
     .line 256
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 258
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -770,7 +770,7 @@
 
 .method public releaseVirtualDisplay(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "token"
+    .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -784,13 +784,13 @@
     move-result-object v0
 
     .line 464
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 466
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -836,8 +836,8 @@
 
 .method public renameWifiDisplay(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "address"
-    .parameter "alias"
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -851,13 +851,13 @@
     move-result-object v0
 
     .line 339
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 341
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -919,13 +919,13 @@
     move-result-object v0
 
     .line 390
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 392
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -981,13 +981,13 @@
     move-result-object v0
 
     .line 274
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 276
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 
@@ -1043,13 +1043,13 @@
     move-result-object v0
 
     .line 290
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 292
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.display.IDisplayManager"
 

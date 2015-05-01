@@ -32,7 +32,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/StatusBarManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 80
@@ -45,8 +44,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/StatusBarManagerService;Lcom/android/server/StatusBarManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/StatusBarManagerService;
+    .param p2, "x1"    # Lcom/android/server/StatusBarManagerService$1;
 
     .prologue
     .line 80
@@ -97,7 +96,7 @@
 
     iget-object v3, p0, Lcom/android/server/StatusBarManagerService$DisableRecord;->pkg:Ljava/lang/String;
 
-    #calls: Lcom/android/server/StatusBarManagerService;->disableInternal(IILandroid/os/IBinder;Ljava/lang/String;)V
+    # invokes: Lcom/android/server/StatusBarManagerService;->disableInternal(IILandroid/os/IBinder;Ljava/lang/String;)V
     invoke-static {v0, v1, v4, v2, v3}, Lcom/android/server/StatusBarManagerService;->access$000(Lcom/android/server/StatusBarManagerService;IILandroid/os/IBinder;Ljava/lang/String;)V
 
     .line 89

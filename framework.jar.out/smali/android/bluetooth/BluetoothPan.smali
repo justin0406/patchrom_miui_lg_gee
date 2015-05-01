@@ -55,8 +55,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;)V
     .locals 3
-    .parameter "context"
-    .parameter "l"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "l"    # Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     .prologue
     .line 131
@@ -115,7 +115,7 @@
     move-exception v0
 
     .line 138
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "BluetoothPan"
 
     const-string v2, "Unable to register BluetoothStateChangeCallback"
@@ -127,7 +127,7 @@
 
 .method static synthetic access$000(Landroid/bluetooth/BluetoothPan;)Landroid/content/ServiceConnection;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothPan;
 
     .prologue
     .line 44
@@ -138,8 +138,8 @@
 
 .method static synthetic access$102(Landroid/bluetooth/BluetoothPan;Landroid/bluetooth/IBluetoothPan;)Landroid/bluetooth/IBluetoothPan;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothPan;
+    .param p1, "x1"    # Landroid/bluetooth/IBluetoothPan;
 
     .prologue
     .line 44
@@ -150,7 +150,7 @@
 
 .method static synthetic access$200(Landroid/bluetooth/BluetoothPan;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothPan;
 
     .prologue
     .line 44
@@ -161,7 +161,7 @@
 
 .method static synthetic access$300(Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/bluetooth/BluetoothPan;
 
     .prologue
     .line 44
@@ -199,7 +199,7 @@
 
 .method private isValidDevice(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 2
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
 
     .prologue
     const/4 v0, 0x0
@@ -231,7 +231,7 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 385
@@ -259,7 +259,7 @@
     move-result-object v0
 
     .line 160
-    .local v0, mgr:Landroid/bluetooth/IBluetoothManager;
+    .local v0, "mgr":Landroid/bluetooth/IBluetoothManager;
     if-eqz v0, :cond_0
 
     .line 162
@@ -298,8 +298,8 @@
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 177
     :cond_1
@@ -320,7 +320,7 @@
     move-exception v1
 
     .line 164
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "BluetoothPan"
 
     const-string v3, "Unable to unregister BluetoothStateChangeCallback"
@@ -330,12 +330,12 @@
     goto :goto_0
 
     .line 173
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
     .line 174
-    .local v1, re:Ljava/lang/Exception;
+    .local v1, "re":Ljava/lang/Exception;
     :try_start_4
     const-string v2, "BluetoothPan"
 
@@ -346,7 +346,7 @@
     goto :goto_1
 
     .line 177
-    .end local v1           #re:Ljava/lang/Exception;
+    .end local v1    # "re":Ljava/lang/Exception;
     :catchall_0
     move-exception v2
 
@@ -359,7 +359,7 @@
 
 .method public connect(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 5
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
 
     .prologue
     const/4 v1, 0x0
@@ -428,7 +428,7 @@
     move-exception v0
 
     .line 233
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothPan"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -462,7 +462,7 @@
     goto :goto_0
 
     .line 237
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     iget-object v2, p0, Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
 
@@ -479,7 +479,7 @@
 
 .method public disconnect(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 5
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
 
     .prologue
     const/4 v1, 0x0
@@ -548,7 +548,7 @@
     move-exception v0
 
     .line 274
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothPan"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -582,7 +582,7 @@
     goto :goto_0
 
     .line 278
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     iget-object v2, p0, Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
 
@@ -615,7 +615,7 @@
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 147
-    .local v1, intent:Landroid/content/Intent;
+    .local v1, "intent":Landroid/content/Intent;
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -627,7 +627,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, comp:Landroid/content/ComponentName;
+    .local v0, "comp":Landroid/content/ComponentName;
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 149
@@ -731,7 +731,7 @@
     move-exception v0
 
     .line 291
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothPan"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -770,7 +770,7 @@
     goto :goto_0
 
     .line 295
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
 
@@ -793,7 +793,7 @@
 
 .method public getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
     .locals 5
-    .parameter "device"
+    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
 
     .prologue
     const/4 v1, 0x0
@@ -835,7 +835,7 @@
     move-exception v0
 
     .line 326
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "BluetoothPan"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -869,7 +869,7 @@
     goto :goto_0
 
     .line 330
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     iget-object v2, p0, Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
 
@@ -886,7 +886,7 @@
 
 .method public getDevicesMatchingConnectionStates([I)Ljava/util/List;
     .locals 4
-    .parameter "states"
+    .param p1, "states"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([I)",
@@ -928,7 +928,7 @@
     move-exception v0
 
     .line 308
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothPan"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -967,7 +967,7 @@
     goto :goto_0
 
     .line 312
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothPan;->mPanService:Landroid/bluetooth/IBluetoothPan;
 
@@ -1011,7 +1011,7 @@
     move-exception v0
 
     .line 348
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothPan"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1050,7 +1050,7 @@
 
 .method public setBluetoothTethering(Z)V
     .locals 4
-    .parameter "value"
+    .param p1, "value"    # Z
 
     .prologue
     .line 335
@@ -1097,7 +1097,7 @@
     move-exception v0
 
     .line 339
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothPan"
 
     new-instance v2, Ljava/lang/StringBuilder;

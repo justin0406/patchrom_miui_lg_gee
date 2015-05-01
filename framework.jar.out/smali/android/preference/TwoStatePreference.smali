@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 55
@@ -42,8 +42,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 51
@@ -57,9 +57,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 47
@@ -130,7 +130,7 @@
     move v0, v1
 
     .line 64
-    .local v0, newValue:Z
+    .local v0, "newValue":Z
     :goto_0
     iput-boolean v1, p0, Landroid/preference/TwoStatePreference;->mSendClickAccessibilityEvent:Z
 
@@ -150,14 +150,14 @@
     return-void
 
     .line 62
-    .end local v0           #newValue:Z
+    .end local v0    # "newValue":Z
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 70
-    .restart local v0       #newValue:Z
+    .restart local v0    # "newValue":Z
     :cond_1
     invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -166,8 +166,8 @@
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 186
@@ -186,7 +186,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 261
@@ -219,7 +219,7 @@
     check-cast v0, Landroid/preference/TwoStatePreference$SavedState;
 
     .line 268
-    .local v0, myState:Landroid/preference/TwoStatePreference$SavedState;
+    .local v0, "myState":Landroid/preference/TwoStatePreference$SavedState;
     invoke-virtual {v0}, Landroid/preference/TwoStatePreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -244,7 +244,7 @@
     move-result-object v1
 
     .line 249
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isPersistent()Z
 
     move-result v2
@@ -252,19 +252,19 @@
     if-eqz v2, :cond_0
 
     .line 256
-    .end local v1           #superState:Landroid/os/Parcelable;
+    .end local v1    # "superState":Landroid/os/Parcelable;
     :goto_0
     return-object v1
 
     .line 254
-    .restart local v1       #superState:Landroid/os/Parcelable;
+    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
     new-instance v0, Landroid/preference/TwoStatePreference$SavedState;
 
     invoke-direct {v0, v1}, Landroid/preference/TwoStatePreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 255
-    .local v0, myState:Landroid/preference/TwoStatePreference$SavedState;
+    .local v0, "myState":Landroid/preference/TwoStatePreference$SavedState;
     invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
@@ -279,8 +279,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 1
-    .parameter "restoreValue"
-    .parameter "defaultValue"
+    .param p1, "restoreValue"    # Z
+    .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 191
@@ -292,7 +292,7 @@
 
     move-result v0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     :goto_0
     invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -300,11 +300,11 @@
     return-void
 
     .line 191
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :cond_0
     check-cast p2, Ljava/lang/Boolean;
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
@@ -314,7 +314,7 @@
 
 .method sendAccessibilityEvent(Landroid/view/View;)V
     .locals 3
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 199
@@ -327,7 +327,7 @@
     move-result-object v0
 
     .line 200
-    .local v0, accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    .local v0, "accessibilityManager":Landroid/view/accessibility/AccessibilityManager;
     iget-boolean v2, p0, Landroid/preference/TwoStatePreference;->mSendClickAccessibilityEvent:Z
 
     if-eqz v2, :cond_0
@@ -344,7 +344,7 @@
     move-result-object v1
 
     .line 202
-    .local v1, event:Landroid/view/accessibility/AccessibilityEvent;
+    .local v1, "event":Landroid/view/accessibility/AccessibilityEvent;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setEventType(I)V
@@ -359,7 +359,7 @@
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 207
-    .end local v1           #event:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v1    # "event":Landroid/view/accessibility/AccessibilityEvent;
     :cond_0
     const/4 v2, 0x0
 
@@ -371,7 +371,7 @@
 
 .method public setChecked(Z)V
     .locals 3
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     const/4 v1, 0x1
@@ -384,7 +384,7 @@
     move v0, v1
 
     .line 81
-    .local v0, changed:Z
+    .local v0, "changed":Z
     :goto_0
     if-nez v0, :cond_0
 
@@ -420,7 +420,7 @@
     return-void
 
     .line 80
-    .end local v0           #changed:Z
+    .end local v0    # "changed":Z
     :cond_2
     const/4 v0, 0x0
 
@@ -429,7 +429,7 @@
 
 .method public setDisableDependentsState(Z)V
     .locals 0
-    .parameter "disableDependentsState"
+    .param p1, "disableDependentsState"    # Z
 
     .prologue
     .line 181
@@ -441,7 +441,7 @@
 
 .method public setSummaryOff(I)V
     .locals 1
-    .parameter "summaryResId"
+    .param p1, "summaryResId"    # I
 
     .prologue
     .line 152
@@ -461,7 +461,7 @@
 
 .method public setSummaryOff(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "summary"
+    .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 141
@@ -484,7 +484,7 @@
 
 .method public setSummaryOn(I)V
     .locals 1
-    .parameter "summaryResId"
+    .param p1, "summaryResId"    # I
 
     .prologue
     .line 124
@@ -504,7 +504,7 @@
 
 .method public setSummaryOn(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "summary"
+    .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 113
@@ -541,7 +541,7 @@
     iget-boolean v0, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
     .line 104
-    .local v0, shouldDisable:Z
+    .local v0, "shouldDisable":Z
     :goto_0
     if-nez v0, :cond_0
 
@@ -558,7 +558,7 @@
     return v1
 
     .line 103
-    .end local v0           #shouldDisable:Z
+    .end local v0    # "shouldDisable":Z
     :cond_2
     iget-boolean v3, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
@@ -576,7 +576,7 @@
 
 .method syncSummaryView(Landroid/view/View;)V
     .locals 5
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 216
@@ -589,14 +589,14 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 217
-    .local v2, summaryView:Landroid/widget/TextView;
+    .local v2, "summaryView":Landroid/widget/TextView;
     if-eqz v2, :cond_3
 
     .line 218
     const/4 v3, 0x1
 
     .line 219
-    .local v3, useDefaultSummary:Z
+    .local v3, "useDefaultSummary":Z
     iget-boolean v4, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
     if-eqz v4, :cond_4
@@ -628,7 +628,7 @@
     move-result-object v1
 
     .line 229
-    .local v1, summary:Ljava/lang/CharSequence;
+    .local v1, "summary":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
@@ -642,12 +642,12 @@
     const/4 v3, 0x0
 
     .line 235
-    .end local v1           #summary:Ljava/lang/CharSequence;
+    .end local v1    # "summary":Ljava/lang/CharSequence;
     :cond_1
     const/16 v0, 0x8
 
     .line 236
-    .local v0, newVisibility:I
+    .local v0, "newVisibility":I
     if-nez v3, :cond_2
 
     .line 238
@@ -665,13 +665,13 @@
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 244
-    .end local v0           #newVisibility:I
-    .end local v3           #useDefaultSummary:Z
+    .end local v0    # "newVisibility":I
+    .end local v3    # "useDefaultSummary":Z
     :cond_3
     return-void
 
     .line 222
-    .restart local v3       #useDefaultSummary:Z
+    .restart local v3    # "useDefaultSummary":Z
     :cond_4
     iget-boolean v4, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 

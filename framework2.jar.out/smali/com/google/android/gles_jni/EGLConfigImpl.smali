@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .parameter "config"
+    .param p1, "config"    # I
 
     .prologue
     .line 24

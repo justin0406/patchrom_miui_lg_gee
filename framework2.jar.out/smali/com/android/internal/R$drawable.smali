@@ -461,9 +461,9 @@
 
 .field public static final notification_bg_low:I = 0x108044b
 
-.field public static final notification_template_icon_bg:I = 0x1080688
+.field public static final notification_template_icon_bg:I = 0x108068c
 
-.field public static final notification_template_icon_low_bg:I = 0x1080689
+.field public static final notification_template_icon_low_bg:I = 0x108068d
 
 .field public static final overscroll_edge:I = 0x108047c
 
@@ -732,11 +732,19 @@
 
 .field public static final vpn_disconnected:I = 0x1080676
 
-.field public static final webviewchromium_color_picker_advanced_select_handle:I = 0x108067a
+.field public static final webviewchromium_bubble:I = 0x108067a
 
-.field public static final webviewchromium_color_picker_border:I = 0x108067b
+.field public static final webviewchromium_bubble_arrow_up:I = 0x108067b
 
-.field public static final webviewchromium_ondemand_overlay:I = 0x108067c
+.field public static final webviewchromium_color_button_background:I = 0x108067c
+
+.field public static final webviewchromium_color_picker_advanced_select_handle:I = 0x108067d
+
+.field public static final webviewchromium_color_picker_border:I = 0x108067e
+
+.field public static final webviewchromium_ondemand_overlay:I = 0x108067f
+
+.field public static final webviewchromium_pageinfo_warning_major:I = 0x1080680
 
 .field public static final zoom_plate:I = 0x1080097
 
@@ -746,7 +754,7 @@
     .locals 0
 
     .prologue
-    .line 12333
+    .line 12337
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

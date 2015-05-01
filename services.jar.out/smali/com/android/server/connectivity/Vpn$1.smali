@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/Vpn;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 134
+    .line 136
     iput-object p1, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,35 +35,35 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/16 v3, -0x2710
 
-    .line 137
+    .line 139
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 138
-    .local v0, action:Ljava/lang/String;
+    .line 140
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 140
-    .local v1, userId:I
+    .line 142
+    .local v1, "userId":I
     if-ne v1, v3, :cond_1
 
-    .line 147
+    .line 149
     :cond_0
     :goto_0
     return-void
 
-    .line 142
+    .line 144
     :cond_1
     const-string v2, "android.intent.action.USER_ADDED"
 
@@ -74,15 +73,15 @@
 
     if-eqz v2, :cond_2
 
-    .line 143
+    .line 145
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    #calls: Lcom/android/server/connectivity/Vpn;->onUserAdded(I)V
+    # invokes: Lcom/android/server/connectivity/Vpn;->onUserAdded(I)V
     invoke-static {v2, v1}, Lcom/android/server/connectivity/Vpn;->access$000(Lcom/android/server/connectivity/Vpn;I)V
 
     goto :goto_0
 
-    .line 144
+    .line 146
     :cond_2
     const-string v2, "android.intent.action.USER_REMOVED"
 
@@ -92,10 +91,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 145
+    .line 147
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    #calls: Lcom/android/server/connectivity/Vpn;->onUserRemoved(I)V
+    # invokes: Lcom/android/server/connectivity/Vpn;->onUserRemoved(I)V
     invoke-static {v2, v1}, Lcom/android/server/connectivity/Vpn;->access$100(Lcom/android/server/connectivity/Vpn;I)V
 
     goto :goto_0

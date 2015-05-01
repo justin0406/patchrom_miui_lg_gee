@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 678
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
     .prologue
     .line 681
@@ -57,11 +56,11 @@
     const/4 v0, 0x1
 
     .line 682
-    .local v0, invalidCharger:I
+    .local v0, "invalidCharger":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/BatteryService$8;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/BatteryService;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/server/BatteryService;->access$200(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v2
@@ -72,7 +71,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/BatteryService$8;->this$0:Lcom/android/server/BatteryService;
 
-    #getter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
+    # getter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
     invoke-static {v1}, Lcom/android/server/BatteryService;->access$300(Lcom/android/server/BatteryService;)I
 
     move-result v1
@@ -82,7 +81,7 @@
     .line 684
     iget-object v1, p0, Lcom/android/server/BatteryService$8;->this$0:Lcom/android/server/BatteryService;
 
-    #setter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
+    # setter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
     invoke-static {v1, v0}, Lcom/android/server/BatteryService;->access$302(Lcom/android/server/BatteryService;I)I
 
     .line 686
@@ -93,14 +92,14 @@
     return-void
 
     .line 681
-    .end local v0           #invalidCharger:I
+    .end local v0    # "invalidCharger":I
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 686
-    .restart local v0       #invalidCharger:I
+    .restart local v0    # "invalidCharger":I
     :catchall_0
     move-exception v1
 

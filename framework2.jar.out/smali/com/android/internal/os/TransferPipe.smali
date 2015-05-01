@@ -73,11 +73,11 @@
 
 .method static go(Lcom/android/internal/os/TransferPipe$Caller;Landroid/os/IInterface;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 7
-    .parameter "caller"
-    .parameter "iface"
-    .parameter "out"
-    .parameter "prefix"
-    .parameter "args"
+    .param p0, "caller"    # Lcom/android/internal/os/TransferPipe$Caller;
+    .param p1, "iface"    # Landroid/os/IInterface;
+    .param p2, "out"    # Ljava/io/FileDescriptor;
+    .param p3, "prefix"    # Ljava/lang/String;
+    .param p4, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -107,12 +107,12 @@
 
 .method static go(Lcom/android/internal/os/TransferPipe$Caller;Landroid/os/IInterface;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;J)V
     .locals 2
-    .parameter "caller"
-    .parameter "iface"
-    .parameter "out"
-    .parameter "prefix"
-    .parameter "args"
-    .parameter "timeout"
+    .param p0, "caller"    # Lcom/android/internal/os/TransferPipe$Caller;
+    .param p1, "iface"    # Landroid/os/IInterface;
+    .param p2, "out"    # Ljava/io/FileDescriptor;
+    .param p3, "prefix"    # Ljava/lang/String;
+    .param p4, "args"    # [Ljava/lang/String;
+    .param p5, "timeout"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -147,7 +147,7 @@
     invoke-direct {v0}, Lcom/android/internal/os/TransferPipe;-><init>()V
 
     .line 91
-    .local v0, tp:Lcom/android/internal/os/TransferPipe;
+    .local v0, "tp":Lcom/android/internal/os/TransferPipe;
     :try_start_1
     invoke-virtual {v0}, Lcom/android/internal/os/TransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
@@ -177,7 +177,7 @@
     throw v1
 
     .line 84
-    .end local v0           #tp:Lcom/android/internal/os/TransferPipe;
+    .end local v0    # "tp":Lcom/android/internal/os/TransferPipe;
     :catch_0
     move-exception v1
 
@@ -186,9 +186,9 @@
 
 .method static goDump(Landroid/os/IBinder;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 2
-    .parameter "binder"
-    .parameter "out"
-    .parameter "args"
+    .param p0, "binder"    # Landroid/os/IBinder;
+    .param p1, "out"    # Ljava/io/FileDescriptor;
+    .param p2, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -208,10 +208,10 @@
 
 .method static goDump(Landroid/os/IBinder;Ljava/io/FileDescriptor;[Ljava/lang/String;J)V
     .locals 2
-    .parameter "binder"
-    .parameter "out"
-    .parameter "args"
-    .parameter "timeout"
+    .param p0, "binder"    # Landroid/os/IBinder;
+    .param p1, "out"    # Ljava/io/FileDescriptor;
+    .param p2, "args"    # [Ljava/lang/String;
+    .param p3, "timeout"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -242,7 +242,7 @@
     invoke-direct {v0}, Lcom/android/internal/os/TransferPipe;-><init>()V
 
     .line 116
-    .local v0, tp:Lcom/android/internal/os/TransferPipe;
+    .local v0, "tp":Lcom/android/internal/os/TransferPipe;
     :try_start_1
     invoke-virtual {v0}, Lcom/android/internal/os/TransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
@@ -272,7 +272,7 @@
     throw v1
 
     .line 109
-    .end local v0           #tp:Lcom/android/internal/os/TransferPipe;
+    .end local v0    # "tp":Lcom/android/internal/os/TransferPipe;
     :catch_0
     move-exception v1
 
@@ -283,7 +283,7 @@
 # virtual methods
 .method closeFd(I)V
     .locals 2
-    .parameter "num"
+    .param p1, "num"    # I
 
     .prologue
     .line 166
@@ -352,7 +352,7 @@
 
 .method public go(Ljava/io/FileDescriptor;)V
     .locals 2
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -371,8 +371,8 @@
 
 .method public go(Ljava/io/FileDescriptor;J)V
     .locals 6
-    .parameter "out"
-    .parameter "timeout"
+    .param p1, "out"    # Ljava/io/FileDescriptor;
+    .param p2, "timeout"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -429,7 +429,7 @@
     sub-long v0, v2, v4
 
     .line 143
-    .local v0, waitTime:J
+    .local v0, "waitTime":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -451,7 +451,7 @@
     throw v2
 
     .line 159
-    .end local v0           #waitTime:J
+    .end local v0    # "waitTime":J
     :catchall_0
     move-exception v2
 
@@ -473,13 +473,13 @@
     throw v2
 
     .line 150
-    .restart local v0       #waitTime:J
+    .restart local v0    # "waitTime":J
     :cond_0
     :try_start_3
     invoke-virtual {p0, v0, v1}, Ljava/lang/Object;->wait(J)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
 
@@ -490,7 +490,7 @@
     goto :goto_0
 
     .line 156
-    .end local v0           #waitTime:J
+    .end local v0    # "waitTime":J
     :cond_1
     :try_start_4
     iget-object v2, p0, Lcom/android/internal/os/TransferPipe;->mFailure:Ljava/lang/String;
@@ -549,7 +549,7 @@
     new-array v0, v9, [B
 
     .line 184
-    .local v0, buffer:[B
+    .local v0, "buffer":[B
     new-instance v3, Ljava/io/FileInputStream;
 
     invoke-virtual {p0}, Lcom/android/internal/os/TransferPipe;->getReadFd()Landroid/os/ParcelFileDescriptor;
@@ -563,7 +563,7 @@
     invoke-direct {v3, v9}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
     .line 185
-    .local v3, fis:Ljava/io/FileInputStream;
+    .local v3, "fis":Ljava/io/FileInputStream;
     new-instance v4, Ljava/io/FileOutputStream;
 
     iget-object v9, p0, Lcom/android/internal/os/TransferPipe;->mOutFd:Ljava/io/FileDescriptor;
@@ -571,15 +571,15 @@
     invoke-direct {v4, v9}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
     .line 188
-    .local v4, fos:Ljava/io/FileOutputStream;
+    .local v4, "fos":Ljava/io/FileOutputStream;
     const/4 v1, 0x0
 
     .line 189
-    .local v1, bufferPrefix:[B
+    .local v1, "bufferPrefix":[B
     const/4 v6, 0x1
 
     .line 190
-    .local v6, needPrefix:Z
+    .local v6, "needPrefix":Z
     iget-object v9, p0, Lcom/android/internal/os/TransferPipe;->mBufferPrefix:Ljava/lang/String;
 
     if-eqz v9, :cond_0
@@ -599,7 +599,7 @@
 
     move-result v7
 
-    .local v7, size:I
+    .local v7, "size":I
     if-lez v7, :cond_7
 
     .line 198
@@ -615,12 +615,12 @@
     goto :goto_0
 
     .line 229
-    .end local v7           #size:I
+    .end local v7    # "size":I
     :catch_0
     move-exception v2
 
     .line 230
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     monitor-enter p0
 
     .line 231
@@ -640,20 +640,20 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 241
-    .end local v2           #e:Ljava/io/IOException;
+    .end local v2    # "e":Ljava/io/IOException;
     :goto_1
     return-void
 
     .line 201
-    .restart local v7       #size:I
+    .restart local v7    # "size":I
     :cond_1
     const/4 v8, 0x0
 
     .line 202
-    .local v8, start:I
+    .local v8, "start":I
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_2
     if-ge v5, v7, :cond_6
 
@@ -720,8 +720,8 @@
     goto :goto_0
 
     .line 226
-    .end local v5           #i:I
-    .end local v8           #start:I
+    .end local v5    # "i":I
+    .end local v8    # "start":I
     :cond_7
     iget-object v9, p0, Lcom/android/internal/os/TransferPipe;->mThread:Ljava/lang/Thread;
 
@@ -761,8 +761,8 @@
     throw v9
 
     .line 234
-    .end local v7           #size:I
-    .restart local v2       #e:Ljava/io/IOException;
+    .end local v7    # "size":I
+    .restart local v2    # "e":Ljava/io/IOException;
     :catchall_1
     move-exception v9
 
@@ -776,7 +776,7 @@
 
 .method public setBufferPrefix(Ljava/lang/String;)V
     .locals 0
-    .parameter "prefix"
+    .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 70

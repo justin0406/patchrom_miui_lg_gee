@@ -3,8 +3,8 @@
 .source "RestrictionsPinActivity.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
 .implements Landroid/text/TextWatcher;
+.implements Landroid/view/View$OnClickListener;
 .implements Landroid/widget/TextView$OnEditorActionListener;
 
 
@@ -44,8 +44,8 @@
 
 .method static synthetic access$000(Lcom/android/internal/app/RestrictionsPinActivity;I)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/app/RestrictionsPinActivity;
+    .param p1, "x1"    # I
 
     .prologue
     .line 39
@@ -58,7 +58,7 @@
 
 .method private updatePinTimer(I)Z
     .locals 7
-    .parameter "pinTimerMs"
+    .param p1, "pinTimerMs"    # I
 
     .prologue
     const/4 v6, 0x0
@@ -92,7 +92,7 @@
     div-int/lit16 v2, v3, 0x3e8
 
     .line 110
-    .local v2, seconds:I
+    .local v2, "seconds":I
     invoke-virtual {p0}, Lcom/android/internal/app/RestrictionsPinActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -104,7 +104,7 @@
     move-result-object v1
 
     .line 113
-    .local v1, formatString:Ljava/lang/String;
+    .local v1, "formatString":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
     const/4 v4, 0x1
@@ -124,13 +124,13 @@
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 117
-    .end local v1           #formatString:Ljava/lang/String;
-    .end local v2           #seconds:I
+    .end local v1    # "formatString":Ljava/lang/String;
+    .end local v2    # "seconds":I
     :goto_0
     const/4 v0, 0x0
 
     .line 118
-    .local v0, enableInput:Z
+    .local v0, "enableInput":Z
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setVisibility(I)V
@@ -170,11 +170,11 @@
     return v0
 
     .line 115
-    .end local v0           #enableInput:Z
+    .end local v0    # "enableInput":Z
     :cond_1
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v4, 0x10405ea
+    const v4, 0x10405eb
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -185,10 +185,10 @@
     const/4 v0, 0x1
 
     .line 123
-    .restart local v0       #enableInput:Z
+    .restart local v0    # "enableInput":Z
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v4, 0x10405e3
+    const v4, 0x10405e4
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -199,7 +199,7 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
     .line 155
@@ -208,10 +208,10 @@
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 145
@@ -226,8 +226,8 @@
     iget-object v0, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 62
-    .local v0, ap:Lcom/android/internal/app/AlertController$AlertParams;
-    const v2, 0x10405e1
+    .local v0, "ap":Lcom/android/internal/app/AlertController$AlertParams;
+    const v2, 0x10405e2
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/RestrictionsPinActivity;->getString(I)Ljava/lang/String;
 
@@ -245,7 +245,7 @@
     check-cast v1, Landroid/view/LayoutInflater;
 
     .line 65
-    .local v1, inflater:Landroid/view/LayoutInflater;
+    .local v1, "inflater":Landroid/view/LayoutInflater;
     const v2, 0x1090089
 
     const/4 v3, 0x0
@@ -329,7 +329,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 174
@@ -364,7 +364,7 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
-    .parameter "icicle"
+    .param p1, "icicle"    # Landroid/os/Bundle;
 
     .prologue
     .line 52
@@ -402,9 +402,9 @@
 
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "v"
-    .parameter "actionId"
-    .parameter "event"
+    .param p1, "v"    # Landroid/widget/TextView;
+    .param p2, "actionId"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 159
@@ -438,7 +438,7 @@
     move-result v0
 
     .line 87
-    .local v0, hasPin:Z
+    .local v0, "hasPin":Z
     if-eqz v0, :cond_1
 
     .line 88
@@ -480,10 +480,10 @@
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 3
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 149
@@ -494,7 +494,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, pin:Ljava/lang/CharSequence;
+    .local v0, "pin":Ljava/lang/CharSequence;
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
@@ -544,7 +544,7 @@
     move-result v0
 
     .line 132
-    .local v0, result:I
+    .local v0, "result":I
     if-ne v0, v3, :cond_1
 
     .line 133
@@ -565,7 +565,7 @@
     .line 136
     iget-object v1, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v2, 0x10405e3
+    const v2, 0x10405e4
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -591,7 +591,7 @@
 
 .method protected setPositiveButtonState(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 98

@@ -27,8 +27,8 @@
 
 .method public proceed(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "username"
-    .parameter "password"
+    .param p1, "username"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
 
     .prologue
     .line 61

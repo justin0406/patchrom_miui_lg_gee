@@ -46,11 +46,11 @@
 
 .method private backspaceOrForwardDelete(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;Z)Z
     .locals 5
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
-    .parameter "isForwardDelete"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
+    .param p5, "isForwardDelete"    # Z
 
     .prologue
     const/4 v2, 0x0
@@ -117,7 +117,7 @@
     move-result v1
 
     .line 87
-    .local v1, start:I
+    .local v1, "start":I
     if-nez p5, :cond_4
 
     invoke-virtual {p4}, Landroid/view/KeyEvent;->isShiftPressed()Z
@@ -139,7 +139,7 @@
     move-result v0
 
     .line 93
-    .local v0, end:I
+    .local v0, "end":I
     :goto_1
     if-eq v1, v0, :cond_0
 
@@ -160,20 +160,20 @@
     goto :goto_0
 
     .line 91
-    .end local v0           #end:I
+    .end local v0    # "end":I
     :cond_5
     invoke-static {p2, v1}, Landroid/text/TextUtils;->getOffsetBefore(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
-    .restart local v0       #end:I
+    .restart local v0    # "end":I
     goto :goto_1
 .end method
 
 .method private deleteLine(Landroid/view/View;Landroid/text/Editable;)Z
     .locals 5
-    .parameter "view"
-    .parameter "content"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
 
     .prologue
     .line 116
@@ -184,13 +184,13 @@
     .line 117
     check-cast p1, Landroid/widget/TextView;
 
-    .end local p1
+    .end local p1    # "view":Landroid/view/View;
     invoke-virtual {p1}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v1
 
     .line 118
-    .local v1, layout:Landroid/text/Layout;
+    .local v1, "layout":Landroid/text/Layout;
     if-eqz v1, :cond_0
 
     .line 119
@@ -203,19 +203,19 @@
     move-result v2
 
     .line 120
-    .local v2, line:I
+    .local v2, "line":I
     invoke-virtual {v1, v2}, Landroid/text/Layout;->getLineStart(I)I
 
     move-result v3
 
     .line 121
-    .local v3, start:I
+    .local v3, "start":I
     invoke-virtual {v1, v2}, Landroid/text/Layout;->getLineEnd(I)I
 
     move-result v0
 
     .line 122
-    .local v0, end:I
+    .local v0, "end":I
     if-eq v0, v3, :cond_0
 
     .line 123
@@ -225,10 +225,10 @@
     const/4 v4, 0x1
 
     .line 128
-    .end local v0           #end:I
-    .end local v1           #layout:Landroid/text/Layout;
-    .end local v2           #line:I
-    .end local v3           #start:I
+    .end local v0    # "end":I
+    .end local v1    # "layout":Landroid/text/Layout;
+    .end local v2    # "line":I
+    .end local v3    # "start":I
     :goto_0
     return v4
 
@@ -240,8 +240,8 @@
 
 .method private deleteSelection(Landroid/view/View;Landroid/text/Editable;)Z
     .locals 4
-    .parameter "view"
-    .parameter "content"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
 
     .prologue
     .line 101
@@ -250,27 +250,27 @@
     move-result v1
 
     .line 102
-    .local v1, selectionStart:I
+    .local v1, "selectionStart":I
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v0
 
     .line 103
-    .local v0, selectionEnd:I
+    .local v0, "selectionEnd":I
     if-ge v0, v1, :cond_0
 
     .line 104
     move v2, v0
 
     .line 105
-    .local v2, temp:I
+    .local v2, "temp":I
     move v0, v1
 
     .line 106
     move v1, v2
 
     .line 108
-    .end local v2           #temp:I
+    .end local v2    # "temp":I
     :cond_0
     if-eq v1, v0, :cond_1
 
@@ -292,15 +292,15 @@
 
 .method static makeTextContentType(Landroid/text/method/TextKeyListener$Capitalize;Z)I
     .locals 3
-    .parameter "caps"
-    .parameter "autoText"
+    .param p0, "caps"    # Landroid/text/method/TextKeyListener$Capitalize;
+    .param p1, "autoText"    # Z
 
     .prologue
     .line 132
     const/4 v0, 0x1
 
     .line 133
-    .local v0, contentType:I
+    .local v0, "contentType":I
     sget-object v1, Landroid/text/method/BaseKeyListener$1;->$SwitchMap$android$text$method$TextKeyListener$Capitalize:[I
 
     invoke-virtual {p0}, Landroid/text/method/TextKeyListener$Capitalize;->ordinal()I
@@ -357,10 +357,10 @@
 # virtual methods
 .method public backspace(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 6
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 49
@@ -385,10 +385,10 @@
 
 .method public forwardDelete(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 6
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 61
@@ -413,10 +413,10 @@
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "view"
-    .parameter "content"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 153
@@ -426,7 +426,7 @@
     const/4 v0, 0x0
 
     .line 165
-    .local v0, handled:Z
+    .local v0, "handled":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -442,25 +442,25 @@
     return v1
 
     .line 155
-    .end local v0           #handled:Z
+    .end local v0    # "handled":Z
     :sswitch_0
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/text/method/BaseKeyListener;->backspace(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     .line 156
-    .restart local v0       #handled:Z
+    .restart local v0    # "handled":Z
     goto :goto_0
 
     .line 158
-    .end local v0           #handled:Z
+    .end local v0    # "handled":Z
     :sswitch_1
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/text/method/BaseKeyListener;->forwardDelete(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     .line 159
-    .restart local v0       #handled:Z
+    .restart local v0    # "handled":Z
     goto :goto_0
 
     .line 153
@@ -473,9 +473,9 @@
 
 .method public onKeyOther(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z
     .locals 7
-    .parameter "view"
-    .parameter "content"
-    .parameter "event"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "content"    # Landroid/text/Editable;
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v4, 0x0
@@ -507,34 +507,34 @@
     move-result v1
 
     .line 184
-    .local v1, selectionStart:I
+    .local v1, "selectionStart":I
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v0
 
     .line 185
-    .local v0, selectionEnd:I
+    .local v0, "selectionEnd":I
     if-ge v0, v1, :cond_2
 
     .line 186
     move v2, v0
 
     .line 187
-    .local v2, temp:I
+    .local v2, "temp":I
     move v0, v1
 
     .line 188
     move v1, v2
 
     .line 191
-    .end local v2           #temp:I
+    .end local v2    # "temp":I
     :cond_2
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getCharacters()Ljava/lang/String;
 
     move-result-object v3
 
     .line 192
-    .local v3, text:Ljava/lang/CharSequence;
+    .local v3, "text":Ljava/lang/CharSequence;
     if-eqz v3, :cond_0
 
     .line 196

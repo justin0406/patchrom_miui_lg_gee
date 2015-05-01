@@ -37,7 +37,7 @@
 
 .method synthetic constructor <init>(Landroid/view/Choreographer$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/view/Choreographer$1;
 
     .prologue
     .line 751
@@ -50,12 +50,13 @@
 # virtual methods
 .method public run(J)V
     .locals 2
-    .parameter "frameTimeNanos"
+    .param p1, "frameTimeNanos"    # J
 
     .prologue
     .line 758
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->token:Ljava/lang/Object;
 
+    # getter for: Landroid/view/Choreographer;->FRAME_CALLBACK_TOKEN:Ljava/lang/Object;
     invoke-static {}, Landroid/view/Choreographer;->access$400()Ljava/lang/Object;
 
     move-result-object v1

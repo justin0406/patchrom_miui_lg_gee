@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 975
@@ -36,18 +35,18 @@
 # virtual methods
 .method public addCircularHardwareGeofence(IDDDIIII)Z
     .locals 1
-    .parameter "geofenceId"
-    .parameter "latitude"
-    .parameter "longitude"
-    .parameter "radius"
-    .parameter "lastTransition"
-    .parameter "monitorTransitions"
-    .parameter "notificationResponsiveness"
-    .parameter "unknownTimer"
+    .param p1, "geofenceId"    # I
+    .param p2, "latitude"    # D
+    .param p4, "longitude"    # D
+    .param p6, "radius"    # D
+    .param p8, "lastTransition"    # I
+    .param p9, "monitorTransitions"    # I
+    .param p10, "notificationResponsiveness"    # I
+    .param p11, "unknownTimer"    # I
 
     .prologue
     .line 983
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_add_geofence(IDDDIIII)Z
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_add_geofence(IDDDIIII)Z
     invoke-static/range {p1 .. p11}, Lcom/android/server/location/GpsLocationProvider;->access$1700(IDDDIIII)Z
 
     move-result v0
@@ -60,7 +59,7 @@
 
     .prologue
     .line 977
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_is_geofence_supported()Z
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_is_geofence_supported()Z
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$1600()Z
 
     move-result v0
@@ -70,11 +69,11 @@
 
 .method public pauseHardwareGeofence(I)Z
     .locals 1
-    .parameter "geofenceId"
+    .param p1, "geofenceId"    # I
 
     .prologue
     .line 992
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_pause_geofence(I)Z
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_pause_geofence(I)Z
     invoke-static {p1}, Lcom/android/server/location/GpsLocationProvider;->access$1900(I)Z
 
     move-result v0
@@ -84,11 +83,11 @@
 
 .method public removeHardwareGeofence(I)Z
     .locals 1
-    .parameter "geofenceId"
+    .param p1, "geofenceId"    # I
 
     .prologue
     .line 988
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_remove_geofence(I)Z
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_remove_geofence(I)Z
     invoke-static {p1}, Lcom/android/server/location/GpsLocationProvider;->access$1800(I)Z
 
     move-result v0
@@ -98,12 +97,12 @@
 
 .method public resumeHardwareGeofence(II)Z
     .locals 1
-    .parameter "geofenceId"
-    .parameter "monitorTransition"
+    .param p1, "geofenceId"    # I
+    .param p2, "monitorTransition"    # I
 
     .prologue
     .line 996
-    #calls: Lcom/android/server/location/GpsLocationProvider;->native_resume_geofence(II)Z
+    # invokes: Lcom/android/server/location/GpsLocationProvider;->native_resume_geofence(II)Z
     invoke-static {p1, p2}, Lcom/android/server/location/GpsLocationProvider;->access$2000(II)Z
 
     move-result v0

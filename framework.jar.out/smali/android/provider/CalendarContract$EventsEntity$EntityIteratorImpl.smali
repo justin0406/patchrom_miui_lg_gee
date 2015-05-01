@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final ATTENDEES_PROJECTION:[Ljava/lang/String; = null
+.field private static final ATTENDEES_PROJECTION:[Ljava/lang/String;
 
 .field private static final COLUMN_ATTENDEE_EMAIL:I = 0x1
 
@@ -41,9 +41,9 @@
 
 .field private static final COLUMN_VALUE:I = 0x2
 
-.field private static final EXTENDED_PROJECTION:[Ljava/lang/String; = null
+.field private static final EXTENDED_PROJECTION:[Ljava/lang/String;
 
-.field private static final REMINDERS_PROJECTION:[Ljava/lang/String; = null
+.field private static final REMINDERS_PROJECTION:[Ljava/lang/String;
 
 .field private static final WHERE_EVENT_ID:Ljava/lang/String; = "event_id=?"
 
@@ -143,8 +143,8 @@
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/ContentProviderClient;)V
     .locals 1
-    .parameter "cursor"
-    .parameter "provider"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "provider"    # Landroid/content/ContentProviderClient;
 
     .prologue
     .line 1355
@@ -164,8 +164,8 @@
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/ContentResolver;)V
     .locals 1
-    .parameter "cursor"
-    .parameter "resolver"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "resolver"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 1349
@@ -187,7 +187,7 @@
 # virtual methods
 .method public getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
     .locals 16
-    .parameter "cursor"
+    .param p1, "cursor"    # Landroid/database/Cursor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -211,13 +211,13 @@
     move-result-wide v10
 
     .line 1364
-    .local v10, eventId:J
+    .local v10, "eventId":J
     new-instance v8, Landroid/content/ContentValues;
 
     invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
 
     .line 1365
-    .local v8, cv:Landroid/content/ContentValues;
+    .local v8, "cv":Landroid/content/ContentValues;
     const-string v1, "_id"
 
     invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -659,7 +659,7 @@
     invoke-direct {v9, v8}, Landroid/content/Entity;-><init>(Landroid/content/ContentValues;)V
 
     .line 1433
-    .local v9, entity:Landroid/content/Entity;
+    .local v9, "entity":Landroid/content/Entity;
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mResolver:Landroid/content/ContentResolver;
@@ -696,7 +696,7 @@
     move-result-object v14
 
     .line 1445
-    .local v14, subCursor:Landroid/database/Cursor;
+    .local v14, "subCursor":Landroid/database/Cursor;
     :goto_0
     :try_start_0
     invoke-interface {v14}, Landroid/database/Cursor;->moveToNext()Z
@@ -711,7 +711,7 @@
     invoke-direct {v13}, Landroid/content/ContentValues;-><init>()V
 
     .line 1447
-    .local v13, reminderValues:Landroid/content/ContentValues;
+    .local v13, "reminderValues":Landroid/content/ContentValues;
     const-string v1, "minutes"
 
     const/4 v2, 0x0
@@ -751,7 +751,7 @@
     goto :goto_0
 
     .line 1452
-    .end local v13           #reminderValues:Landroid/content/ContentValues;
+    .end local v13    # "reminderValues":Landroid/content/ContentValues;
     :catchall_0
     move-exception v1
 
@@ -760,7 +760,7 @@
     throw v1
 
     .line 1439
-    .end local v14           #subCursor:Landroid/database/Cursor;
+    .end local v14    # "subCursor":Landroid/database/Cursor;
     :cond_0
     move-object/from16 v0, p0
 
@@ -790,7 +790,7 @@
 
     move-result-object v14
 
-    .restart local v14       #subCursor:Landroid/database/Cursor;
+    .restart local v14    # "subCursor":Landroid/database/Cursor;
     goto :goto_0
 
     .line 1452
@@ -848,7 +848,7 @@
     invoke-direct {v7}, Landroid/content/ContentValues;-><init>()V
 
     .line 1469
-    .local v7, attendeeValues:Landroid/content/ContentValues;
+    .local v7, "attendeeValues":Landroid/content/ContentValues;
     const-string v1, "attendeeName"
 
     const/4 v2, 0x0
@@ -947,7 +947,7 @@
     goto :goto_1
 
     .line 1486
-    .end local v7           #attendeeValues:Landroid/content/ContentValues;
+    .end local v7    # "attendeeValues":Landroid/content/ContentValues;
     :catchall_1
     move-exception v1
 
@@ -1042,7 +1042,7 @@
     invoke-direct {v12}, Landroid/content/ContentValues;-><init>()V
 
     .line 1503
-    .local v12, extendedValues:Landroid/content/ContentValues;
+    .local v12, "extendedValues":Landroid/content/ContentValues;
     const-string v1, "_id"
 
     const/4 v2, 0x0
@@ -1085,7 +1085,7 @@
     goto :goto_2
 
     .line 1512
-    .end local v12           #extendedValues:Landroid/content/ContentValues;
+    .end local v12    # "extendedValues":Landroid/content/ContentValues;
     :catchall_2
     move-exception v1
 

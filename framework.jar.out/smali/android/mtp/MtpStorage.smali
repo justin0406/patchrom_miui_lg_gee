@@ -20,8 +20,8 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageVolume;Landroid/content/Context;)V
     .locals 4
-    .parameter "volume"
-    .parameter "context"
+    .param p1, "volume"    # Landroid/os/storage/StorageVolume;
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     const-wide/16 v2, 0x400
@@ -91,7 +91,7 @@
 
 .method public static getStorageId(I)I
     .locals 1
-    .parameter "index"
+    .param p0, "index"    # I
 
     .prologue
     .line 65

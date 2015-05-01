@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 36
@@ -51,7 +51,7 @@
 
 .method public clear_uid(J)I
     .locals 6
-    .parameter "uid"
+    .param p1, "uid"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,13 +65,13 @@
     move-result-object v0
 
     .line 467
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 470
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -100,7 +100,7 @@
     move-result v2
 
     .line 476
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 477
@@ -110,7 +110,7 @@
     return v2
 
     .line 476
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -124,8 +124,8 @@
 
 .method public del(Ljava/lang/String;I)I
     .locals 6
-    .parameter "name"
-    .parameter "uid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -139,13 +139,13 @@
     move-result-object v0
 
     .line 103
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 106
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -177,7 +177,7 @@
     move-result v2
 
     .line 113
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 114
@@ -187,7 +187,7 @@
     return v2
 
     .line 113
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -201,8 +201,8 @@
 
 .method public del_key(Ljava/lang/String;I)I
     .locals 6
-    .parameter "name"
-    .parameter "uid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -216,13 +216,13 @@
     move-result-object v0
 
     .line 354
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 357
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -254,7 +254,7 @@
     move-result v2
 
     .line 364
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 365
@@ -264,7 +264,7 @@
     return v2
 
     .line 364
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -278,10 +278,10 @@
 
 .method public duplicate(Ljava/lang/String;ILjava/lang/String;I)I
     .locals 6
-    .parameter "srcKey"
-    .parameter "srcUid"
-    .parameter "destKey"
-    .parameter "destUid"
+    .param p1, "srcKey"    # Ljava/lang/String;
+    .param p2, "srcUid"    # I
+    .param p3, "destKey"    # Ljava/lang/String;
+    .param p4, "destUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -295,13 +295,13 @@
     move-result-object v0
 
     .line 428
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 431
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -339,7 +339,7 @@
     move-result v2
 
     .line 440
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 441
@@ -349,7 +349,7 @@
     return v2
 
     .line 440
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -363,8 +363,8 @@
 
 .method public exist(Ljava/lang/String;I)I
     .locals 6
-    .parameter "name"
-    .parameter "uid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -378,13 +378,13 @@
     move-result-object v0
 
     .line 121
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 124
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -416,7 +416,7 @@
     move-result v2
 
     .line 131
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 132
@@ -426,7 +426,7 @@
     return v2
 
     .line 131
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -440,12 +440,12 @@
 
 .method public generate(Ljava/lang/String;IIII[[B)I
     .locals 7
-    .parameter "name"
-    .parameter "uid"
-    .parameter "keyType"
-    .parameter "keySize"
-    .parameter "flags"
-    .parameter "args"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "keyType"    # I
+    .param p4, "keySize"    # I
+    .param p5, "flags"    # I
+    .param p6, "args"    # [[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -459,13 +459,13 @@
     move-result-object v0
 
     .line 250
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 253
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.security.keystore"
 
@@ -515,7 +515,7 @@
     move-result v2
 
     .line 271
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 272
@@ -525,7 +525,7 @@
     return v2
 
     .line 262
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_1
     :try_start_1
     array-length v4, p6
@@ -535,7 +535,7 @@
     .line 263
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     array-length v4, p6
 
@@ -554,7 +554,7 @@
     goto :goto_0
 
     .line 271
-    .end local v3           #i:I
+    .end local v3    # "i":I
     :catchall_0
     move-exception v4
 
@@ -568,7 +568,7 @@
 
 .method public get(Ljava/lang/String;)[B
     .locals 6
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -582,13 +582,13 @@
     move-result-object v0
 
     .line 66
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 69
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -617,7 +617,7 @@
     move-result-object v2
 
     .line 75
-    .local v2, _result:[B
+    .local v2, "_result":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 76
@@ -627,7 +627,7 @@
     return-object v2
 
     .line 75
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -651,7 +651,7 @@
 
 .method public get_pubkey(Ljava/lang/String;)[B
     .locals 6
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -665,13 +665,13 @@
     move-result-object v0
 
     .line 337
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 340
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -700,7 +700,7 @@
     move-result-object v2
 
     .line 346
-    .local v2, _result:[B
+    .local v2, "_result":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 347
@@ -710,7 +710,7 @@
     return-object v2
 
     .line 346
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -724,7 +724,7 @@
 
 .method public getmtime(Ljava/lang/String;)J
     .locals 7
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -738,13 +738,13 @@
     move-result-object v0
 
     .line 409
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 412
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.security.keystore"
 
@@ -773,7 +773,7 @@
     move-result-wide v2
 
     .line 418
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 419
@@ -783,7 +783,7 @@
     return-wide v2
 
     .line 418
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :catchall_0
     move-exception v4
 
@@ -797,8 +797,8 @@
 
 .method public grant(Ljava/lang/String;I)I
     .locals 6
-    .parameter "name"
-    .parameter "granteeUid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "granteeUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -812,13 +812,13 @@
     move-result-object v0
 
     .line 372
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 375
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -850,7 +850,7 @@
     move-result v2
 
     .line 382
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 383
@@ -860,7 +860,7 @@
     return v2
 
     .line 382
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -874,10 +874,10 @@
 
 .method public import_key(Ljava/lang/String;[BII)I
     .locals 6
-    .parameter "name"
-    .parameter "data"
-    .parameter "uid"
-    .parameter "flags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "data"    # [B
+    .param p3, "uid"    # I
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -891,13 +891,13 @@
     move-result-object v0
 
     .line 280
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 283
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -935,7 +935,7 @@
     move-result v2
 
     .line 292
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 293
@@ -945,7 +945,7 @@
     return v2
 
     .line 292
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -959,10 +959,10 @@
 
 .method public insert(Ljava/lang/String;[BII)I
     .locals 6
-    .parameter "name"
-    .parameter "item"
-    .parameter "uid"
-    .parameter "flags"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "item"    # [B
+    .param p3, "uid"    # I
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -976,13 +976,13 @@
     move-result-object v0
 
     .line 83
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 86
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1020,7 +1020,7 @@
     move-result v2
 
     .line 95
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 96
@@ -1030,7 +1030,7 @@
     return v2
 
     .line 95
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1044,7 +1044,7 @@
 
 .method public is_hardware_backed(Ljava/lang/String;)I
     .locals 6
-    .parameter "keyType"
+    .param p1, "keyType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1058,13 +1058,13 @@
     move-result-object v0
 
     .line 449
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 452
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1093,7 +1093,7 @@
     move-result v2
 
     .line 458
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 459
@@ -1103,7 +1103,7 @@
     return v2
 
     .line 458
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1130,13 +1130,13 @@
     move-result-object v0
 
     .line 199
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 202
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1162,7 +1162,7 @@
     move-result v2
 
     .line 207
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 208
@@ -1172,7 +1172,7 @@
     return v2
 
     .line 207
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1186,7 +1186,7 @@
 
 .method public password(Ljava/lang/String;)I
     .locals 6
-    .parameter "password"
+    .param p1, "password"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1200,13 +1200,13 @@
     move-result-object v0
 
     .line 182
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 185
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1235,7 +1235,7 @@
     move-result v2
 
     .line 191
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 192
@@ -1245,7 +1245,7 @@
     return v2
 
     .line 191
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1272,13 +1272,13 @@
     move-result-object v0
 
     .line 166
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 169
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1304,7 +1304,7 @@
     move-result v2
 
     .line 174
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 175
@@ -1314,7 +1314,7 @@
     return v2
 
     .line 174
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1328,8 +1328,8 @@
 
 .method public saw(Ljava/lang/String;I)[Ljava/lang/String;
     .locals 9
-    .parameter "name"
-    .parameter "uid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1343,13 +1343,13 @@
     move-result-object v0
 
     .line 139
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 142
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v6, "android.security.keystore"
 
@@ -1379,14 +1379,14 @@
     move-result v5
 
     .line 148
-    .local v5, size:I
+    .local v5, "size":I
     new-array v2, v5, [Ljava/lang/String;
 
     .line 149
-    .local v2, _result:[Ljava/lang/String;
+    .local v2, "_result":[Ljava/lang/String;
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v5, :cond_0
 
@@ -1411,7 +1411,7 @@
     move-result v3
 
     .line 153
-    .local v3, _ret:I
+    .local v3, "_ret":I
     const/4 v6, 0x1
 
     if-eq v3, v6, :cond_1
@@ -1420,7 +1420,7 @@
     const/4 v2, 0x0
 
     .line 157
-    .end local v2           #_result:[Ljava/lang/String;
+    .end local v2    # "_result":[Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 158
@@ -1431,7 +1431,7 @@
     return-object v2
 
     .line 157
-    .restart local v2       #_result:[Ljava/lang/String;
+    .restart local v2    # "_result":[Ljava/lang/String;
     :cond_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1441,10 +1441,10 @@
     goto :goto_1
 
     .line 157
-    .end local v2           #_result:[Ljava/lang/String;
-    .end local v3           #_ret:I
-    .end local v4           #i:I
-    .end local v5           #size:I
+    .end local v2    # "_result":[Ljava/lang/String;
+    .end local v3    # "_ret":I
+    .end local v4    # "i":I
+    .end local v5    # "size":I
     :catchall_0
     move-exception v6
 
@@ -1458,8 +1458,8 @@
 
 .method public sign(Ljava/lang/String;[B)[B
     .locals 6
-    .parameter "name"
-    .parameter "data"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1473,13 +1473,13 @@
     move-result-object v0
 
     .line 300
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 303
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1511,7 +1511,7 @@
     move-result-object v2
 
     .line 310
-    .local v2, _result:[B
+    .local v2, "_result":[B
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 311
@@ -1521,7 +1521,7 @@
     return-object v2
 
     .line 310
-    .end local v2           #_result:[B
+    .end local v2    # "_result":[B
     :catchall_0
     move-exception v3
 
@@ -1548,13 +1548,13 @@
     move-result-object v0
 
     .line 50
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 53
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1580,7 +1580,7 @@
     move-result v2
 
     .line 58
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 59
@@ -1590,7 +1590,7 @@
     return v2
 
     .line 58
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1604,8 +1604,8 @@
 
 .method public ungrant(Ljava/lang/String;I)I
     .locals 6
-    .parameter "name"
-    .parameter "granteeUid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "granteeUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1619,13 +1619,13 @@
     move-result-object v0
 
     .line 390
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 393
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1657,7 +1657,7 @@
     move-result v2
 
     .line 400
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 401
@@ -1667,7 +1667,7 @@
     return v2
 
     .line 400
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1681,7 +1681,7 @@
 
 .method public unlock(Ljava/lang/String;)I
     .locals 6
-    .parameter "password"
+    .param p1, "password"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1695,13 +1695,13 @@
     move-result-object v0
 
     .line 215
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 218
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1730,7 +1730,7 @@
     move-result v2
 
     .line 224
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 225
@@ -1740,7 +1740,7 @@
     return v2
 
     .line 224
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1754,9 +1754,9 @@
 
 .method public verify(Ljava/lang/String;[B[B)I
     .locals 6
-    .parameter "name"
-    .parameter "data"
-    .parameter "signature"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "data"    # [B
+    .param p3, "signature"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1770,13 +1770,13 @@
     move-result-object v0
 
     .line 318
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 321
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1811,7 +1811,7 @@
     move-result v2
 
     .line 329
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 330
@@ -1821,7 +1821,7 @@
     return v2
 
     .line 329
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -1848,13 +1848,13 @@
     move-result-object v0
 
     .line 233
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 236
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.security.keystore"
 
@@ -1880,7 +1880,7 @@
     move-result v2
 
     .line 241
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 242
@@ -1890,7 +1890,7 @@
     return v2
 
     .line 241
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 

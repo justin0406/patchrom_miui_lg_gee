@@ -25,10 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 42
@@ -81,7 +78,7 @@
     move-exception v0
 
     .line 49
-    .local v0, e:Ljava/io/IOException;
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "MasterClear"
 
     const-string v2, "Can\'t perform master clear/factory reset"

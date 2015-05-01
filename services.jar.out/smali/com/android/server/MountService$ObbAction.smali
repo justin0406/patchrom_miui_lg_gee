@@ -29,8 +29,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
     .locals 0
-    .parameter
-    .parameter "obbState"
+    .param p2, "obbState"    # Lcom/android/server/MountService$ObbState;
 
     .prologue
     .line 2478
@@ -49,7 +48,7 @@
 # virtual methods
 .method public execute(Lcom/android/server/MountService$ObbActionHandler;)V
     .locals 4
-    .parameter "handler"
+    .param p1, "handler"    # Lcom/android/server/MountService$ObbActionHandler;
 
     .prologue
     const/4 v3, 0x3
@@ -77,7 +76,7 @@
     .line 2489
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
@@ -100,7 +99,7 @@
     .line 2496
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
@@ -119,10 +118,10 @@
     move-exception v0
 
     .line 2501
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
@@ -134,18 +133,18 @@
     goto :goto_0
 
     .line 2502
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
 
     .line 2505
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {p0}, Lcom/android/server/MountService$ObbAction;->handleError()V
 
     .line 2506
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
+    # getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
@@ -168,7 +167,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$ObbAction;->this$0:Lcom/android/server/MountService;
 
-    #getter for: Lcom/android/server/MountService;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
+    # getter for: Lcom/android/server/MountService;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
     invoke-static {v2}, Lcom/android/server/MountService;->access$2000(Lcom/android/server/MountService;)Lcom/android/internal/app/IMediaContainerService;
 
     move-result-object v2
@@ -184,7 +183,7 @@
     move-result-object v1
 
     .line 2522
-    .local v1, obbInfo:Landroid/content/res/ObbInfo;
+    .local v1, "obbInfo":Landroid/content/res/ObbInfo;
     :goto_0
     if-nez v1, :cond_0
 
@@ -218,12 +217,12 @@
     throw v2
 
     .line 2517
-    .end local v1           #obbInfo:Landroid/content/res/ObbInfo;
+    .end local v1    # "obbInfo":Landroid/content/res/ObbInfo;
     :catch_0
     move-exception v0
 
     .line 2518
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "MountService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -253,11 +252,11 @@
     .line 2520
     const/4 v1, 0x0
 
-    .restart local v1       #obbInfo:Landroid/content/res/ObbInfo;
+    .restart local v1    # "obbInfo":Landroid/content/res/ObbInfo;
     goto :goto_0
 
     .line 2525
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-object v1
 .end method
@@ -276,7 +275,7 @@
 
 .method protected sendNewStatusOrIgnore(I)V
     .locals 4
-    .parameter "status"
+    .param p1, "status"    # I
 
     .prologue
     .line 2529
@@ -321,7 +320,7 @@
     move-exception v0
 
     .line 2536
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MountService"
 
     const-string v2, "MountServiceListener went away while calling onObbStateChanged"

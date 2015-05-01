@@ -90,7 +90,7 @@
 
 .method public static getState(Ljava/lang/String;)Landroid/os/SystemService$State;
     .locals 4
-    .parameter "service"
+    .param p0, "service"    # Ljava/lang/String;
 
     .prologue
     .line 81
@@ -117,7 +117,7 @@
     move-result-object v0
 
     .line 82
-    .local v0, rawState:Ljava/lang/String;
+    .local v0, "rawState":Ljava/lang/String;
     sget-object v2, Landroid/os/SystemService;->sStates:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -127,15 +127,15 @@
     check-cast v1, Landroid/os/SystemService$State;
 
     .line 83
-    .local v1, state:Landroid/os/SystemService$State;
+    .local v1, "state":Landroid/os/SystemService$State;
     if-eqz v1, :cond_0
 
     .line 86
-    .end local v1           #state:Landroid/os/SystemService$State;
+    .end local v1    # "state":Landroid/os/SystemService$State;
     :goto_0
     return-object v1
 
-    .restart local v1       #state:Landroid/os/SystemService$State;
+    .restart local v1    # "state":Landroid/os/SystemService$State;
     :cond_0
     sget-object v1, Landroid/os/SystemService$State;->STOPPED:Landroid/os/SystemService$State;
 
@@ -144,7 +144,7 @@
 
 .method public static isRunning(Ljava/lang/String;)Z
     .locals 2
-    .parameter "service"
+    .param p0, "service"    # Ljava/lang/String;
 
     .prologue
     .line 101
@@ -163,7 +163,7 @@
 
 .method public static isStopped(Ljava/lang/String;)Z
     .locals 2
-    .parameter "service"
+    .param p0, "service"    # Ljava/lang/String;
 
     .prologue
     .line 94
@@ -182,7 +182,7 @@
 
 .method public static restart(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -196,7 +196,7 @@
 
 .method public static start(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 64
@@ -210,7 +210,7 @@
 
 .method public static stop(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 69
@@ -224,7 +224,7 @@
 
 .method public static varargs waitForAnyStopped([Ljava/lang/String;)V
     .locals 7
-    .parameter "services"
+    .param p0, "services"    # [Ljava/lang/String;
 
     .prologue
     .line 135
@@ -236,21 +236,21 @@
     .line 136
     move-object v0, p0
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     :try_start_0
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_1
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 137
-    .local v3, service:Ljava/lang/String;
+    .local v3, "service":Ljava/lang/String;
     sget-object v4, Landroid/os/SystemService$State;->STOPPED:Landroid/os/SystemService$State;
 
     invoke-static {v3}, Landroid/os/SystemService;->getState(Ljava/lang/String;)Landroid/os/SystemService$State;
@@ -277,15 +277,15 @@
     goto :goto_1
 
     .line 143
-    .end local v3           #service:Ljava/lang/String;
+    .end local v3    # "service":Ljava/lang/String;
     :cond_1
     :try_start_1
     sget-object v4, Landroid/os/SystemService;->sPropertyLock:Ljava/lang/Object;
 
     invoke-virtual {v4}, Ljava/lang/Object;->wait()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 146
     :goto_2
@@ -294,8 +294,8 @@
 
     goto :goto_0
 
-    .end local v1           #i$:I
-    .end local v2           #len$:I
+    .end local v1    # "i$":I
+    .end local v2    # "len$":I
     :catchall_0
     move-exception v4
 
@@ -306,8 +306,8 @@
     throw v4
 
     .line 144
-    .restart local v1       #i$:I
-    .restart local v2       #len$:I
+    .restart local v1    # "i$":I
+    .restart local v2    # "len$":I
     :catch_0
     move-exception v4
 
@@ -316,9 +316,9 @@
 
 .method public static waitForState(Ljava/lang/String;Landroid/os/SystemService$State;J)V
     .locals 7
-    .parameter "service"
-    .parameter "state"
-    .parameter "timeoutMillis"
+    .param p0, "service"    # Ljava/lang/String;
+    .param p1, "state"    # Landroid/os/SystemService$State;
+    .param p2, "timeoutMillis"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/concurrent/TimeoutException;
@@ -334,7 +334,7 @@
     add-long v1, v3, p2
 
     .line 111
-    .local v1, endMillis:J
+    .local v1, "endMillis":J
     :goto_0
     sget-object v4, Landroid/os/SystemService;->sPropertyLock:Ljava/lang/Object;
 
@@ -347,7 +347,7 @@
     move-result-object v0
 
     .line 113
-    .local v0, currentState:Landroid/os/SystemService$State;
+    .local v0, "currentState":Landroid/os/SystemService$State;
     invoke-virtual {p1, v0}, Landroid/os/SystemService$State;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -425,7 +425,7 @@
     throw v3
 
     .line 126
-    .end local v0           #currentState:Landroid/os/SystemService$State;
+    .end local v0    # "currentState":Landroid/os/SystemService$State;
     :catchall_0
     move-exception v3
 
@@ -436,15 +436,15 @@
     throw v3
 
     .line 123
-    .restart local v0       #currentState:Landroid/os/SystemService$State;
+    .restart local v0    # "currentState":Landroid/os/SystemService$State;
     :cond_1
     :try_start_1
     sget-object v3, Landroid/os/SystemService;->sPropertyLock:Ljava/lang/Object;
 
     invoke-virtual {v3, p2, p3}, Ljava/lang/Object;->wait(J)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 126
     :goto_1

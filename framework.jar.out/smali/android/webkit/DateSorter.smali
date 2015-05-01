@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 14
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v13, 0x7
@@ -56,13 +56,13 @@
     move-result-object v5
 
     .line 55
-    .local v5, resources:Landroid/content/res/Resources;
+    .local v5, "resources":Landroid/content/res/Resources;
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     .line 56
-    .local v0, c:Ljava/util/Calendar;
+    .local v0, "c":Ljava/util/Calendar;
     invoke-direct {p0, v0}, Landroid/webkit/DateSorter;->beginningOfDay(Ljava/util/Calendar;)V
 
     .line 59
@@ -129,7 +129,7 @@
     iget-object v2, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     .line 70
-    .local v2, locale:Ljava/util/Locale;
+    .local v2, "locale":Ljava/util/Locale;
     if-nez v2, :cond_0
 
     .line 71
@@ -144,7 +144,7 @@
     move-result-object v3
 
     .line 74
-    .local v3, localeData:Llibcore/icu/LocaleData;
+    .local v3, "localeData":Llibcore/icu/LocaleData;
     iget-object v6, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
     iget-object v7, v3, Llibcore/icu/LocaleData;->today:Ljava/lang/String;
@@ -162,13 +162,13 @@
     const v4, 0x1130004
 
     .line 78
-    .local v4, resId:I
+    .local v4, "resId":I
     invoke-virtual {v5, v4, v13}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
     move-result-object v1
 
     .line 79
-    .local v1, format:Ljava/lang/String;
+    .local v1, "format":Ljava/lang/String;
     iget-object v6, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
     new-array v7, v11, [Ljava/lang/Object;
@@ -190,7 +190,7 @@
 
     const/4 v7, 0x3
 
-    const v8, 0x10403cf
+    const v8, 0x10403d0
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
 
     const/4 v7, 0x4
 
-    const v8, 0x10403d0
+    const v8, 0x10403d1
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -217,7 +217,7 @@
 
 .method private beginningOfDay(Ljava/util/Calendar;)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # Ljava/util/Calendar;
 
     .prologue
     const/4 v1, 0x0
@@ -250,14 +250,14 @@
 # virtual methods
 .method public getBoundary(I)J
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 114
     const/4 v0, 0x4
 
     .line 116
-    .local v0, lastDay:I
+    .local v0, "lastDay":I
     if-ltz p1, :cond_0
 
     if-le p1, v0, :cond_1
@@ -269,7 +269,7 @@
     :cond_1
     if-ne p1, v0, :cond_2
 
-    const-wide/high16 v1, -0x8000
+    const-wide/high16 v1, -0x8000000000000000L
 
     .line 120
     :goto_0
@@ -285,17 +285,17 @@
 
 .method public getIndex(J)I
     .locals 4
-    .parameter "time"
+    .param p1, "time"    # J
 
     .prologue
     .line 92
     const/4 v1, 0x4
 
     .line 93
-    .local v1, lastDay:I
+    .local v1, "lastDay":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -309,12 +309,12 @@
     if-lez v2, :cond_0
 
     .line 96
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :goto_1
     return v0
 
     .line 93
-    .restart local v0       #i:I
+    .restart local v0    # "i":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -329,7 +329,7 @@
 
 .method public getLabel(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 104

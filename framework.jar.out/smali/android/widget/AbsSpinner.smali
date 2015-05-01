@@ -48,7 +48,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -91,8 +91,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 64
@@ -106,9 +106,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -153,13 +153,13 @@
     move-result-object v0
 
     .line 74
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v2
 
     .line 75
-    .local v2, entries:[Ljava/lang/CharSequence;
+    .local v2, "entries":[Ljava/lang/CharSequence;
     if-eqz v2, :cond_0
 
     .line 76
@@ -170,7 +170,7 @@
     invoke-direct {v1, p1, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     .line 79
-    .local v1, adapter:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/CharSequence;>;"
+    .local v1, "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/CharSequence;>;"
     const v3, 0x1090009
 
     invoke-virtual {v1, v3}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
@@ -179,7 +179,7 @@
     invoke-virtual {p0, v1}, Landroid/widget/AbsSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     .line 83
-    .end local v1           #adapter:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/CharSequence;>;"
+    .end local v1    # "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/CharSequence;>;"
     :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -189,9 +189,9 @@
 
 .method static synthetic access$000(Landroid/widget/AbsSpinner;Landroid/view/View;Z)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/widget/AbsSpinner;
+    .param p1, "x1"    # Landroid/view/View;
+    .param p2, "x2"    # Z
 
     .prologue
     .line 40
@@ -260,7 +260,7 @@
 
 .method getChildHeight(Landroid/view/View;)I
     .locals 1
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 238
@@ -273,7 +273,7 @@
 
 .method getChildWidth(Landroid/view/View;)I
     .locals 1
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     .line 242
@@ -333,7 +333,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 472
@@ -354,7 +354,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 478
@@ -375,8 +375,8 @@
 
 .method protected onMeasure(II)V
     .locals 13
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     const/4 v12, 0x1
@@ -389,7 +389,7 @@
     move-result v6
 
     .line 170
-    .local v6, widthMode:I
+    .local v6, "widthMode":I
     iget-object v9, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v8, p0, Landroid/widget/AbsSpinner;->mPaddingLeft:I
@@ -458,21 +458,21 @@
     const/4 v2, 0x0
 
     .line 184
-    .local v2, preferredHeight:I
+    .local v2, "preferredHeight":I
     const/4 v3, 0x0
 
     .line 185
-    .local v3, preferredWidth:I
+    .local v3, "preferredWidth":I
     const/4 v1, 0x1
 
     .line 187
-    .local v1, needsMeasuring:Z
+    .local v1, "needsMeasuring":Z
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->getSelectedItemPosition()I
 
     move-result v4
 
     .line 188
-    .local v4, selectedPosition:I
+    .local v4, "selectedPosition":I
     if-ltz v4, :cond_3
 
     iget-object v8, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -495,7 +495,7 @@
     move-result-object v5
 
     .line 191
-    .local v5, view:Landroid/view/View;
+    .local v5, "view":Landroid/view/View;
     if-nez v5, :cond_1
 
     .line 193
@@ -588,7 +588,7 @@
     const/4 v1, 0x0
 
     .line 218
-    .end local v5           #view:Landroid/view/View;
+    .end local v5    # "view":Landroid/view/View;
     :cond_3
     if-eqz v1, :cond_4
 
@@ -642,13 +642,13 @@
     move-result v0
 
     .line 230
-    .local v0, heightSize:I
+    .local v0, "heightSize":I
     invoke-static {v3, p1, v11}, Landroid/widget/AbsSpinner;->resolveSizeAndState(III)I
 
     move-result v7
 
     .line 232
-    .local v7, widthSize:I
+    .local v7, "widthSize":I
     invoke-virtual {p0, v7, v0}, Landroid/widget/AbsSpinner;->setMeasuredDimension(II)V
 
     .line 233
@@ -661,12 +661,12 @@
     return-void
 
     .line 170
-    .end local v0           #heightSize:I
-    .end local v1           #needsMeasuring:Z
-    .end local v2           #preferredHeight:I
-    .end local v3           #preferredWidth:I
-    .end local v4           #selectedPosition:I
-    .end local v7           #widthSize:I
+    .end local v0    # "heightSize":I
+    .end local v1    # "needsMeasuring":Z
+    .end local v2    # "preferredHeight":I
+    .end local v3    # "preferredWidth":I
+    .end local v4    # "selectedPosition":I
+    .end local v7    # "widthSize":I
     :cond_5
     iget v8, p0, Landroid/widget/AbsSpinner;->mSelectionLeftPadding:I
 
@@ -693,7 +693,7 @@
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 6
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     const/4 v5, 0x1
@@ -704,7 +704,7 @@
     check-cast v0, Landroid/widget/AbsSpinner$SavedState;
 
     .line 426
-    .local v0, ss:Landroid/widget/AbsSpinner$SavedState;
+    .local v0, "ss":Landroid/widget/AbsSpinner$SavedState;
     invoke-virtual {v0}, Landroid/widget/AbsSpinner$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -759,13 +759,13 @@
     move-result-object v1
 
     .line 412
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     new-instance v0, Landroid/widget/AbsSpinner$SavedState;
 
     invoke-direct {v0, v1}, Landroid/widget/AbsSpinner$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 413
-    .local v0, ss:Landroid/widget/AbsSpinner$SavedState;
+    .local v0, "ss":Landroid/widget/AbsSpinner$SavedState;
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->getSelectedItemId()J
 
     move-result-wide v2
@@ -803,15 +803,15 @@
 
 .method public pointToPosition(II)I
     .locals 5
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .prologue
     .line 343
     iget-object v2, p0, Landroid/widget/AbsSpinner;->mTouchFrame:Landroid/graphics/Rect;
 
     .line 344
-    .local v2, frame:Landroid/graphics/Rect;
+    .local v2, "frame":Landroid/graphics/Rect;
     if-nez v2, :cond_0
 
     .line 345
@@ -831,10 +831,10 @@
     move-result v1
 
     .line 350
-    .local v1, count:I
+    .local v1, "count":I
     add-int/lit8 v3, v1, -0x1
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ltz v3, :cond_2
 
@@ -844,7 +844,7 @@
     move-result-object v0
 
     .line 352
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v4
@@ -867,19 +867,19 @@
     add-int/2addr v4, v3
 
     .line 359
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :goto_1
     return v4
 
     .line 350
-    .restart local v0       #child:Landroid/view/View;
+    .restart local v0    # "child":Landroid/view/View;
     :cond_1
     add-int/lit8 v3, v3, -0x1
 
     goto :goto_0
 
     .line 359
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_2
     const/4 v4, -0x1
 
@@ -896,18 +896,18 @@
     move-result v0
 
     .line 254
-    .local v0, childCount:I
+    .local v0, "childCount":I
     iget-object v4, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
     .line 255
-    .local v4, recycleBin:Landroid/widget/AbsSpinner$RecycleBin;
+    .local v4, "recycleBin":Landroid/widget/AbsSpinner$RecycleBin;
     iget v3, p0, Landroid/widget/AbsSpinner;->mFirstPosition:I
 
     .line 258
-    .local v3, position:I
+    .local v3, "position":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -917,11 +917,11 @@
     move-result-object v5
 
     .line 260
-    .local v5, v:Landroid/view/View;
+    .local v5, "v":Landroid/view/View;
     add-int v2, v3, v1
 
     .line 261
-    .local v2, index:I
+    .local v2, "index":I
     invoke-virtual {v4, v2, v5}, Landroid/widget/AbsSpinner$RecycleBin;->put(ILandroid/view/View;)V
 
     .line 258
@@ -930,8 +930,8 @@
     goto :goto_0
 
     .line 263
-    .end local v2           #index:I
-    .end local v5           #v:Landroid/view/View;
+    .end local v2    # "index":I
+    .end local v5    # "v":Landroid/view/View;
     :cond_0
     return-void
 .end method
@@ -974,7 +974,7 @@
     iput v2, p0, Landroid/widget/AbsSpinner;->mOldSelectedPosition:I
 
     .line 149
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     iput-wide v0, p0, Landroid/widget/AbsSpinner;->mOldSelectedRowId:J
 
@@ -993,13 +993,13 @@
 
 .method public bridge synthetic setAdapter(Landroid/widget/Adapter;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/widget/Adapter;
 
     .prologue
     .line 40
     check-cast p1, Landroid/widget/SpinnerAdapter;
 
-    .end local p1
+    .end local p1    # "x0":Landroid/widget/Adapter;
     invoke-virtual {p0, p1}, Landroid/widget/AbsSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     return-void
@@ -1007,7 +1007,7 @@
 
 .method public setAdapter(Landroid/widget/SpinnerAdapter;)V
     .locals 3
-    .parameter "adapter"
+    .param p1, "adapter"    # Landroid/widget/SpinnerAdapter;
 
     .prologue
     const/4 v0, -0x1
@@ -1035,7 +1035,7 @@
     iput v0, p0, Landroid/widget/AbsSpinner;->mOldSelectedPosition:I
 
     .line 110
-    const-wide/high16 v1, -0x8000
+    const-wide/high16 v1, -0x8000000000000000L
 
     iput-wide v1, p0, Landroid/widget/AbsSpinner;->mOldSelectedRowId:J
 
@@ -1083,7 +1083,7 @@
     const/4 v0, 0x0
 
     .line 122
-    .local v0, position:I
+    .local v0, "position":I
     :cond_1
     invoke-virtual {p0, v0}, Landroid/widget/AbsSpinner;->setSelectedPositionInt(I)V
 
@@ -1099,7 +1099,7 @@
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->checkSelectionChanged()V
 
     .line 137
-    .end local v0           #position:I
+    .end local v0    # "position":I
     :cond_2
     :goto_0
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->requestLayout()V
@@ -1122,7 +1122,7 @@
 
 .method public setSelection(I)V
     .locals 0
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 277
@@ -1140,8 +1140,8 @@
 
 .method public setSelection(IZ)V
     .locals 3
-    .parameter "position"
-    .parameter "animate"
+    .param p1, "position"    # I
+    .param p2, "animate"    # Z
 
     .prologue
     .line 270
@@ -1166,7 +1166,7 @@
     const/4 v0, 0x1
 
     .line 272
-    .local v0, shouldAnimate:Z
+    .local v0, "shouldAnimate":Z
     :goto_0
     invoke-virtual {p0, p1, v0}, Landroid/widget/AbsSpinner;->setSelectionInt(IZ)V
 
@@ -1174,7 +1174,7 @@
     return-void
 
     .line 270
-    .end local v0           #shouldAnimate:Z
+    .end local v0    # "shouldAnimate":Z
     :cond_0
     const/4 v0, 0x0
 
@@ -1183,8 +1183,8 @@
 
 .method setSelectionInt(IZ)V
     .locals 2
-    .parameter "position"
-    .parameter "animate"
+    .param p1, "position"    # I
+    .param p2, "animate"    # Z
 
     .prologue
     .line 291
@@ -1203,7 +1203,7 @@
     sub-int v0, p1, v1
 
     .line 294
-    .local v0, delta:I
+    .local v0, "delta":I
     invoke-virtual {p0, p1}, Landroid/widget/AbsSpinner;->setNextSelectedPositionInt(I)V
 
     .line 295
@@ -1215,7 +1215,7 @@
     iput-boolean v1, p0, Landroid/widget/AbsSpinner;->mBlockLayoutRequests:Z
 
     .line 298
-    .end local v0           #delta:I
+    .end local v0    # "delta":I
     :cond_0
     return-void
 .end method

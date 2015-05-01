@@ -57,7 +57,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 51
@@ -110,7 +110,7 @@
 # virtual methods
 .method public compareTo(Lcom/android/internal/telephony/cat/CommandDetails;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Lcom/android/internal/telephony/cat/CommandDetails;
 
     .prologue
     .line 45
@@ -235,8 +235,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 60

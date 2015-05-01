@@ -69,7 +69,7 @@
 # virtual methods
 .method public following(I)[I
     .locals 12
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v9, 0x0
@@ -82,7 +82,7 @@
     move-result v8
 
     .line 138
-    .local v8, textLegth:I
+    .local v8, "textLegth":I
     if-gtz v8, :cond_1
 
     .line 161
@@ -119,7 +119,7 @@
     move-result v7
 
     .line 150
-    .local v7, start:I
+    .local v7, "start":I
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
     invoke-virtual {v9, v7}, Landroid/text/Layout;->getLineForOffset(I)I
@@ -127,7 +127,7 @@
     move-result v0
 
     .line 151
-    .local v0, currentLine:I
+    .local v0, "currentLine":I
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
     invoke-virtual {v9, v0}, Landroid/text/Layout;->getLineTop(I)I
@@ -135,7 +135,7 @@
     move-result v1
 
     .line 152
-    .local v1, currentLineTop:I
+    .local v1, "currentLineTop":I
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v9}, Landroid/graphics/Rect;->height()I
@@ -159,11 +159,11 @@
     sub-int v6, v9, v10
 
     .line 154
-    .local v6, pageHeight:I
+    .local v6, "pageHeight":I
     add-int v5, v1, v6
 
     .line 155
-    .local v5, nextPageStartY:I
+    .local v5, "nextPageStartY":I
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
     iget-object v10, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
@@ -179,7 +179,7 @@
     move-result v4
 
     .line 156
-    .local v4, lastLineTop:I
+    .local v4, "lastLineTop":I
     if-ge v5, v4, :cond_2
 
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
@@ -191,7 +191,7 @@
     add-int/lit8 v2, v9, -0x1
 
     .line 159
-    .local v2, currentPageEndLine:I
+    .local v2, "currentPageEndLine":I
     :goto_1
     const/4 v9, 0x1
 
@@ -202,7 +202,7 @@
     add-int/lit8 v3, v9, 0x1
 
     .line 161
-    .local v3, end:I
+    .local v3, "end":I
     invoke-virtual {p0, v7, v3}, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->getRange(II)[I
 
     move-result-object v9
@@ -210,8 +210,8 @@
     goto :goto_0
 
     .line 156
-    .end local v2           #currentPageEndLine:I
-    .end local v3           #end:I
+    .end local v2    # "currentPageEndLine":I
+    .end local v3    # "end":I
     :cond_2
     iget-object v9, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
@@ -226,7 +226,7 @@
 
 .method public initialize(Landroid/widget/TextView;)V
     .locals 2
-    .parameter "view"
+    .param p1, "view"    # Landroid/widget/TextView;
 
     .prologue
     .line 131
@@ -251,7 +251,7 @@
 
 .method public preceding(I)[I
     .locals 11
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     const/4 v8, 0x0
@@ -264,7 +264,7 @@
     move-result v7
 
     .line 167
-    .local v7, textLegth:I
+    .local v7, "textLegth":I
     if-gtz v7, :cond_1
 
     .line 189
@@ -299,7 +299,7 @@
     move-result v3
 
     .line 179
-    .local v3, end:I
+    .local v3, "end":I
     iget-object v8, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
     invoke-virtual {v8, v3}, Landroid/text/Layout;->getLineForOffset(I)I
@@ -307,7 +307,7 @@
     move-result v0
 
     .line 180
-    .local v0, currentLine:I
+    .local v0, "currentLine":I
     iget-object v8, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
     invoke-virtual {v8, v0}, Landroid/text/Layout;->getLineTop(I)I
@@ -315,7 +315,7 @@
     move-result v1
 
     .line 181
-    .local v1, currentLineTop:I
+    .local v1, "currentLineTop":I
     iget-object v8, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
@@ -339,11 +339,11 @@
     sub-int v4, v8, v9
 
     .line 183
-    .local v4, pageHeight:I
+    .local v4, "pageHeight":I
     sub-int v5, v1, v4
 
     .line 184
-    .local v5, previousPageEndY:I
+    .local v5, "previousPageEndY":I
     if-lez v5, :cond_2
 
     iget-object v8, p0, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->mLayout:Landroid/text/Layout;
@@ -355,7 +355,7 @@
     add-int/lit8 v2, v8, 0x1
 
     .line 187
-    .local v2, currentPageStartLine:I
+    .local v2, "currentPageStartLine":I
     :goto_1
     const/4 v8, -0x1
 
@@ -364,7 +364,7 @@
     move-result v6
 
     .line 189
-    .local v6, start:I
+    .local v6, "start":I
     invoke-virtual {p0, v6, v3}, Landroid/widget/AccessibilityIterators$PageTextSegmentIterator;->getRange(II)[I
 
     move-result-object v8
@@ -372,8 +372,8 @@
     goto :goto_0
 
     .line 184
-    .end local v2           #currentPageStartLine:I
-    .end local v6           #start:I
+    .end local v2    # "currentPageStartLine":I
+    .end local v6    # "start":I
     :cond_2
     const/4 v2, 0x0
 

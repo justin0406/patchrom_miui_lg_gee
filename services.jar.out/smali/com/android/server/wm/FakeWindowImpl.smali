@@ -27,16 +27,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/Looper;Landroid/view/InputEventReceiver$Factory;Ljava/lang/String;IIIZZZ)V
     .locals 5
-    .parameter "service"
-    .parameter "looper"
-    .parameter "inputEventReceiverFactory"
-    .parameter "name"
-    .parameter "windowType"
-    .parameter "layoutParamsFlags"
-    .parameter "layoutParamsPrivateFlags"
-    .parameter "canReceiveKeys"
-    .parameter "hasFocus"
-    .parameter "touchFullscreen"
+    .param p1, "service"    # Lcom/android/server/wm/WindowManagerService;
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "inputEventReceiverFactory"    # Landroid/view/InputEventReceiver$Factory;
+    .param p4, "name"    # Ljava/lang/String;
+    .param p5, "windowType"    # I
+    .param p6, "layoutParamsFlags"    # I
+    .param p7, "layoutParamsPrivateFlags"    # I
+    .param p8, "canReceiveKeys"    # Z
+    .param p9, "hasFocus"    # Z
+    .param p10, "touchFullscreen"    # Z
 
     .prologue
     .line 44
@@ -51,7 +51,7 @@
     move-result-object v0
 
     .line 48
-    .local v0, channels:[Landroid/view/InputChannel;
+    .local v0, "channels":[Landroid/view/InputChannel;
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -226,7 +226,7 @@
     .line 78
     iget-object v1, p0, Lcom/android/server/wm/FakeWindowImpl;->mWindowHandle:Lcom/android/server/input/InputWindowHandle;
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     iput v2, v1, Lcom/android/server/input/InputWindowHandle;->scaleFactor:F
 
@@ -239,7 +239,7 @@
 
 .method private getLayerLw(I)I
     .locals 1
-    .parameter "windowType"
+    .param p1, "windowType"    # I
 
     .prologue
     .line 108
@@ -325,8 +325,8 @@
 
 .method layout(II)V
     .locals 2
-    .parameter "dw"
-    .parameter "dh"
+    .param p1, "dw"    # I
+    .param p2, "dh"    # I
 
     .prologue
     const/4 v1, 0x0

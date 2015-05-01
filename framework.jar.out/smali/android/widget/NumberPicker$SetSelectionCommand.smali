@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2117
@@ -41,8 +40,8 @@
 
 .method static synthetic access$602(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/NumberPicker$SetSelectionCommand;
+    .param p1, "x1"    # I
 
     .prologue
     .line 2117
@@ -53,8 +52,8 @@
 
 .method static synthetic access$702(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/NumberPicker$SetSelectionCommand;
+    .param p1, "x1"    # I
 
     .prologue
     .line 2117
@@ -72,7 +71,7 @@
     .line 2123
     iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->this$0:Landroid/widget/NumberPicker;
 
-    #getter for: Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
+    # getter for: Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$100(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
 
     move-result-object v0

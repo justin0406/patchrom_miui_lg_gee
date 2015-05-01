@@ -25,9 +25,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/internal/view/IInputMethod;Landroid/view/InputChannel;)V
     .locals 0
-    .parameter "imms"
-    .parameter "method"
-    .parameter "channel"
+    .param p1, "imms"    # Lcom/android/server/InputMethodManagerService;
+    .param p2, "method"    # Lcom/android/internal/view/IInputMethod;
+    .param p3, "channel"    # Landroid/view/InputChannel;
 
     .prologue
     .line 571
@@ -50,7 +50,7 @@
 # virtual methods
 .method public sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
     .locals 3
-    .parameter "session"
+    .param p1, "session"    # Lcom/android/internal/view/IInputMethodSession;
 
     .prologue
     .line 579

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteControllerDialog;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 143
@@ -48,9 +47,9 @@
 # virtual methods
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 1
-    .parameter "seekBar"
-    .parameter "progress"
-    .parameter "fromUser"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
+    .param p2, "progress"    # I
+    .param p3, "fromUser"    # Z
 
     .prologue
     .line 173
@@ -59,7 +58,7 @@
     .line 174
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mRoute:Landroid/media/MediaRouter$RouteInfo;
+    # getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mRoute:Landroid/media/MediaRouter$RouteInfo;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$400(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/media/MediaRouter$RouteInfo;
 
     move-result-object v0
@@ -73,13 +72,13 @@
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
-    .parameter "seekBar"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .prologue
     .line 156
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
+    # getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$100(Lcom/android/internal/app/MediaRouteControllerDialog;)Z
 
     move-result v0
@@ -89,7 +88,7 @@
     .line 157
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
+    # getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$300(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/widget/SeekBar;
 
     move-result-object v0
@@ -108,7 +107,7 @@
 
     const/4 v1, 0x1
 
-    #setter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
+    # setter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSliderTouched:Z
     invoke-static {v0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$102(Lcom/android/internal/app/MediaRouteControllerDialog;Z)Z
 
     goto :goto_0
@@ -116,13 +115,13 @@
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 4
-    .parameter "seekBar"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .prologue
     .line 168
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog$1;->this$0:Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    #getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
+    # getter for: Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteControllerDialog;->access$300(Lcom/android/internal/app/MediaRouteControllerDialog;)Landroid/widget/SeekBar;
 
     move-result-object v0

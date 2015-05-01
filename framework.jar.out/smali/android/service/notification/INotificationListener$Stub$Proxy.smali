@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 79
@@ -61,7 +61,7 @@
 
 .method public onNotificationPosted(Landroid/service/notification/StatusBarNotification;)V
     .locals 5
-    .parameter "notification"
+    .param p1, "notification"    # Landroid/service/notification/StatusBarNotification;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 94
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.notification.INotificationListener"
 
@@ -136,7 +136,7 @@
 
 .method public onNotificationRemoved(Landroid/service/notification/StatusBarNotification;)V
     .locals 5
-    .parameter "notification"
+    .param p1, "notification"    # Landroid/service/notification/StatusBarNotification;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +150,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.service.notification.INotificationListener"
 

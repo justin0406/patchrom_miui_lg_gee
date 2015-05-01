@@ -97,7 +97,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 218
@@ -112,8 +112,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/DisplayInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/view/DisplayInfo$1;
 
     .prologue
     .line 32
@@ -124,7 +124,7 @@
 
 .method public constructor <init>(Landroid/view/DisplayInfo;)V
     .locals 0
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/DisplayInfo;
 
     .prologue
     .line 214
@@ -139,7 +139,7 @@
 
 .method private static flagsToString(I)Ljava/lang/String;
     .locals 2
-    .parameter "flags"
+    .param p0, "flags"    # I
 
     .prologue
     .line 459
@@ -148,7 +148,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 460
-    .local v0, result:Ljava/lang/StringBuilder;
+    .local v0, "result":Ljava/lang/StringBuilder;
     and-int/lit8 v1, p0, 0x2
 
     if-eqz v1, :cond_0
@@ -202,11 +202,11 @@
 
 .method private getMetricsWithSize(Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;II)V
     .locals 2
-    .parameter "outMetrics"
-    .parameter "compatInfo"
-    .parameter "token"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
+    .param p2, "compatInfo"    # Landroid/content/res/CompatibilityInfo;
+    .param p3, "token"    # Landroid/os/IBinder;
+    .param p4, "width"    # I
+    .param p5, "height"    # I
 
     .prologue
     .line 384
@@ -231,7 +231,7 @@
 
     int-to-float v0, v0
 
-    const v1, 0x3bcccccd
+    const v1, 0x3bcccccd    # 0.00625f
 
     mul-float/2addr v0, v1
 
@@ -281,7 +281,7 @@
 # virtual methods
 .method public copyFrom(Landroid/view/DisplayInfo;)V
     .locals 1
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/DisplayInfo;
 
     .prologue
     .line 261
@@ -420,7 +420,7 @@
 
 .method public equals(Landroid/view/DisplayInfo;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/view/DisplayInfo;
 
     .prologue
     .line 228
@@ -601,7 +601,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 224
@@ -611,7 +611,7 @@
 
     check-cast p1, Landroid/view/DisplayInfo;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/DisplayInfo;->equals(Landroid/view/DisplayInfo;)Z
 
     move-result v0
@@ -631,7 +631,7 @@
 
 .method public getAppMetrics(Landroid/util/DisplayMetrics;)V
     .locals 2
-    .parameter "outMetrics"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
     .line 348
@@ -647,9 +647,9 @@
 
 .method public getAppMetrics(Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;)V
     .locals 6
-    .parameter "outMetrics"
-    .parameter "ci"
-    .parameter "token"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
+    .param p2, "ci"    # Landroid/content/res/CompatibilityInfo;
+    .param p3, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 357
@@ -673,8 +673,8 @@
 
 .method public getAppMetrics(Landroid/util/DisplayMetrics;Landroid/view/DisplayAdjustments;)V
     .locals 6
-    .parameter "outMetrics"
-    .parameter "displayAdjustments"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
+    .param p2, "displayAdjustments"    # Landroid/view/DisplayAdjustments;
 
     .prologue
     .line 352
@@ -702,9 +702,9 @@
 
 .method public getLogicalMetrics(Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;)V
     .locals 6
-    .parameter "outMetrics"
-    .parameter "compatInfo"
-    .parameter "token"
+    .param p1, "outMetrics"    # Landroid/util/DisplayMetrics;
+    .param p2, "compatInfo"    # Landroid/content/res/CompatibilityInfo;
+    .param p3, "token"    # Landroid/os/IBinder;
 
     .prologue
     .line 362
@@ -782,7 +782,7 @@
 
 .method public hasAccess(I)Z
     .locals 2
-    .parameter "uid"
+    .param p1, "uid"    # I
 
     .prologue
     .line 379
@@ -809,7 +809,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 288
@@ -994,7 +994,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 403
-    .local v0, sb:Ljava/lang/StringBuilder;
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "DisplayInfo{\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1302,8 +1302,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 316

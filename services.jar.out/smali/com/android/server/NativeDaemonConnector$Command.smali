@@ -32,8 +32,8 @@
 # direct methods
 .method public varargs constructor <init>(Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 5
-    .parameter "cmd"
-    .parameter "args"
+    .param p1, "cmd"    # Ljava/lang/String;
+    .param p2, "args"    # [Ljava/lang/Object;
 
     .prologue
     .line 451
@@ -52,20 +52,20 @@
     .line 453
     move-object v1, p2
 
-    .local v1, arr$:[Ljava/lang/Object;
+    .local v1, "arr$":[Ljava/lang/Object;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v0, v1, v2
 
     .line 454
-    .local v0, arg:Ljava/lang/Object;
+    .local v0, "arg":Ljava/lang/Object;
     invoke-virtual {p0, v0}, Lcom/android/server/NativeDaemonConnector$Command;->appendArg(Ljava/lang/Object;)Lcom/android/server/NativeDaemonConnector$Command;
 
     .line 453
@@ -74,14 +74,14 @@
     goto :goto_0
 
     .line 456
-    .end local v0           #arg:Ljava/lang/Object;
+    .end local v0    # "arg":Ljava/lang/Object;
     :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/lang/String;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NativeDaemonConnector$Command;
 
     .prologue
     .line 447
@@ -92,7 +92,7 @@
 
 .method static synthetic access$100(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/NativeDaemonConnector$Command;
 
     .prologue
     .line 447
@@ -105,7 +105,7 @@
 # virtual methods
 .method public appendArg(Ljava/lang/Object;)Lcom/android/server/NativeDaemonConnector$Command;
     .locals 1
-    .parameter "arg"
+    .param p1, "arg"    # Ljava/lang/Object;
 
     .prologue
     .line 459

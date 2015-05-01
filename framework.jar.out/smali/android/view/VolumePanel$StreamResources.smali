@@ -77,7 +77,7 @@
 
     const/4 v3, 0x6
 
-    const v4, 0x1040426
+    const v4, 0x1040427
 
     const v5, 0x108029e
 
@@ -94,7 +94,7 @@
 
     const-string v4, "RingerStream"
 
-    const v7, 0x1040427
+    const v7, 0x1040428
 
     const v8, 0x10802a6
 
@@ -115,7 +115,7 @@
 
     const-string v4, "VoiceStream"
 
-    const v7, 0x1040428
+    const v7, 0x1040429
 
     const v8, 0x10802a4
 
@@ -136,7 +136,7 @@
 
     const-string v4, "AlarmStream"
 
-    const v7, 0x1040423
+    const v7, 0x1040424
 
     const v8, 0x108029c
 
@@ -157,7 +157,7 @@
 
     const-string v4, "MediaStream"
 
-    const v7, 0x1040429
+    const v7, 0x104042a
 
     const v8, 0x10802ac
 
@@ -182,7 +182,7 @@
 
     const/4 v6, 0x5
 
-    const v7, 0x104042a
+    const v7, 0x104042b
 
     const v8, 0x10802a0
 
@@ -203,7 +203,7 @@
 
     const/16 v6, -0x64
 
-    const v7, 0x1040429
+    const v7, 0x104042a
 
     const v8, 0x10802ac
 
@@ -224,7 +224,7 @@
 
     const/16 v6, -0xc8
 
-    const v7, 0x1040429
+    const v7, 0x104042a
 
     const v8, 0x108032c
 
@@ -286,13 +286,11 @@
 
 .method private constructor <init>(Ljava/lang/String;IIIIIZ)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter "streamType"
-    .parameter "descRes"
-    .parameter "iconRes"
-    .parameter "iconMuteRes"
-    .parameter "show"
+    .param p3, "streamType"    # I
+    .param p4, "descRes"    # I
+    .param p5, "iconRes"    # I
+    .param p6, "iconMuteRes"    # I
+    .param p7, "show"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIIIZ)V"
@@ -324,7 +322,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/VolumePanel$StreamResources;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 133

@@ -43,12 +43,12 @@
 # virtual methods
 .method public set(I[I[I[B[BI)V
     .locals 0
-    .parameter "newNumSubSamples"
-    .parameter "newNumBytesOfClearData"
-    .parameter "newNumBytesOfEncryptedData"
-    .parameter "newKey"
-    .parameter "newIV"
-    .parameter "newMode"
+    .param p1, "newNumSubSamples"    # I
+    .param p2, "newNumBytesOfClearData"    # [I
+    .param p3, "newNumBytesOfEncryptedData"    # [I
+    .param p4, "newKey"    # [B
+    .param p5, "newIV"    # [B
+    .param p6, "newMode"    # I
 
     .prologue
     .line 393
@@ -83,7 +83,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 430
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -110,10 +110,10 @@
     const-string v1, "0123456789abcdef"
 
     .line 432
-    .local v1, hexdigits:Ljava/lang/String;
+    .local v1, "hexdigits":Ljava/lang/String;
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     iget-object v3, p0, Landroid/media/MediaCodec$CryptoInfo;->key:[B
 

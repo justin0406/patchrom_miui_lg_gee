@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 544
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;Lcom/android/internal/widget/ScrollingTabContainerView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/widget/ScrollingTabContainerView;
+    .param p2, "x1"    # Lcom/android/internal/widget/ScrollingTabContainerView$1;
 
     .prologue
     .line 544
@@ -51,7 +50,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 546
@@ -60,7 +59,7 @@
     check-cast v3, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;
 
     .line 547
-    .local v3, tabView:Lcom/android/internal/widget/ScrollingTabContainerView$TabView;
+    .local v3, "tabView":Lcom/android/internal/widget/ScrollingTabContainerView$TabView;
     invoke-virtual {v3}, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->getTab()Landroid/app/ActionBar$Tab;
 
     move-result-object v4
@@ -70,7 +69,7 @@
     .line 548
     iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    #getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
+    # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$200(Lcom/android/internal/widget/ScrollingTabContainerView;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -80,17 +79,17 @@
     move-result v2
 
     .line 549
-    .local v2, tabCount:I
+    .local v2, "tabCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     .line 550
     iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    #getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
+    # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$200(Lcom/android/internal/widget/ScrollingTabContainerView;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -100,7 +99,7 @@
     move-result-object v0
 
     .line 551
-    .local v0, child:Landroid/view/View;
+    .local v0, "child":Landroid/view/View;
     if-ne v0, p1, :cond_0
 
     const/4 v4, 0x1
@@ -120,11 +119,7 @@
     goto :goto_1
 
     .line 553
-    .end local v0           #child:Landroid/view/View;
+    .end local v0    # "child":Landroid/view/View;
     :cond_1
-    iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
-
-    invoke-static {v4, p1}, Lcom/android/internal/widget/Injector$ScrollingTabContainerViewHook;->onTabViewClick(Lcom/android/internal/widget/ScrollingTabContainerView;Landroid/view/View;)V
-
     return-void
 .end method

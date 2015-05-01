@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothSocket;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/bluetooth/BluetoothSocket;
 
     .prologue
     .line 32
@@ -63,7 +63,7 @@
 
 .method public write(I)V
     .locals 4
-    .parameter "oneByte"
+    .param p1, "oneByte"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,7 +79,7 @@
     new-array v0, v3, [B
 
     .line 55
-    .local v0, b:[B
+    .local v0, "b":[B
     int-to-byte v1, p1
 
     aput-byte v1, v0, v2
@@ -95,9 +95,9 @@
 
 .method public write([BII)V
     .locals 2
-    .parameter "b"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

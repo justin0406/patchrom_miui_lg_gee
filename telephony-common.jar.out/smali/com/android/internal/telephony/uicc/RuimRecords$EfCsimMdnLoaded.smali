@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 326
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/uicc/RuimRecords;Lcom/android/internal/telephony/uicc/RuimRecords$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/internal/telephony/uicc/RuimRecords;
+    .param p2, "x1"    # Lcom/android/internal/telephony/uicc/RuimRecords$1;
 
     .prologue
     .line 326
@@ -61,7 +60,7 @@
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
     .locals 5
-    .parameter "ar"
+    .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
     .line 334
@@ -74,7 +73,7 @@
     check-cast v0, [B
 
     .line 335
-    .local v0, data:[B
+    .local v0, "data":[B
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimMdnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -109,7 +108,7 @@
     and-int/lit8 v1, v2, 0xf
 
     .line 338
-    .local v1, mdnDigitsNum:I
+    .local v1, "mdnDigitsNum":I
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimMdnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
     const/4 v3, 0x1
@@ -118,7 +117,7 @@
 
     move-result-object v3
 
-    #setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mMdn:Ljava/lang/String;
+    # setter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mMdn:Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$202(Lcom/android/internal/telephony/uicc/RuimRecords;Ljava/lang/String;)Ljava/lang/String;
 
     .line 339
@@ -136,7 +135,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimMdnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    #getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mMdn:Ljava/lang/String;
+    # getter for: Lcom/android/internal/telephony/uicc/RuimRecords;->mMdn:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/internal/telephony/uicc/RuimRecords;->access$200(Lcom/android/internal/telephony/uicc/RuimRecords;)Ljava/lang/String;
 
     move-result-object v4

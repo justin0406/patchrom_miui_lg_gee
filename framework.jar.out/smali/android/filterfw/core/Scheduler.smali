@@ -10,7 +10,7 @@
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/FilterGraph;)V
     .locals 0
-    .parameter "graph"
+    .param p1, "graph"    # Landroid/filterfw/core/FilterGraph;
 
     .prologue
     .line 31

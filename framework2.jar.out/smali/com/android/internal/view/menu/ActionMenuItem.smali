@@ -53,12 +53,12 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;IIIILjava/lang/CharSequence;)V
     .locals 1
-    .parameter "context"
-    .parameter "group"
-    .parameter "id"
-    .parameter "categoryOrder"
-    .parameter "ordering"
-    .parameter "title"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "group"    # I
+    .param p3, "id"    # I
+    .param p4, "categoryOrder"    # I
+    .param p5, "ordering"    # I
+    .param p6, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 60
@@ -413,7 +413,7 @@
 
 .method public setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
     .locals 1
-    .parameter "actionProvider"
+    .param p1, "actionProvider"    # Landroid/view/ActionProvider;
 
     .prologue
     .line 248
@@ -426,7 +426,7 @@
 
 .method public setActionView(I)Landroid/view/MenuItem;
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 238
@@ -439,7 +439,7 @@
 
 .method public setActionView(Landroid/view/View;)Landroid/view/MenuItem;
     .locals 1
-    .parameter "actionView"
+    .param p1, "actionView"    # Landroid/view/View;
 
     .prologue
     .line 229
@@ -452,7 +452,7 @@
 
 .method public setAlphabeticShortcut(C)Landroid/view/MenuItem;
     .locals 0
-    .parameter "alphaChar"
+    .param p1, "alphaChar"    # C
 
     .prologue
     .line 134
@@ -464,7 +464,7 @@
 
 .method public setCheckable(Z)Landroid/view/MenuItem;
     .locals 2
-    .parameter "checkable"
+    .param p1, "checkable"    # Z
 
     .prologue
     .line 139
@@ -493,7 +493,7 @@
 
 .method public setChecked(Z)Landroid/view/MenuItem;
     .locals 2
-    .parameter "checked"
+    .param p1, "checked"    # Z
 
     .prologue
     .line 149
@@ -522,7 +522,7 @@
 
 .method public setEnabled(Z)Landroid/view/MenuItem;
     .locals 2
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 154
@@ -551,7 +551,7 @@
 
 .method public setExclusiveCheckable(Z)Lcom/android/internal/view/menu/ActionMenuItem;
     .locals 2
-    .parameter "exclusive"
+    .param p1, "exclusive"    # Z
 
     .prologue
     .line 144
@@ -580,7 +580,7 @@
 
 .method public setIcon(I)Landroid/view/MenuItem;
     .locals 1
-    .parameter "iconRes"
+    .param p1, "iconRes"    # I
 
     .prologue
     .line 165
@@ -605,7 +605,7 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 159
@@ -622,7 +622,7 @@
 
 .method public setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
     .locals 0
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 171
@@ -634,7 +634,7 @@
 
 .method public setNumericShortcut(C)Landroid/view/MenuItem;
     .locals 0
-    .parameter "numericChar"
+    .param p1, "numericChar"    # C
 
     .prologue
     .line 176
@@ -646,7 +646,7 @@
 
 .method public setOnActionExpandListener(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/view/MenuItem$OnActionExpandListener;
 
     .prologue
     .line 275
@@ -655,7 +655,7 @@
 
 .method public setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
     .locals 0
-    .parameter "menuItemClickListener"
+    .param p1, "menuItemClickListener"    # Landroid/view/MenuItem$OnMenuItemClickListener;
 
     .prologue
     .line 181
@@ -667,8 +667,8 @@
 
 .method public setShortcut(CC)Landroid/view/MenuItem;
     .locals 0
-    .parameter "numericChar"
-    .parameter "alphaChar"
+    .param p1, "numericChar"    # C
+    .param p2, "alphaChar"    # C
 
     .prologue
     .line 186
@@ -683,7 +683,7 @@
 
 .method public setShowAsAction(I)V
     .locals 0
-    .parameter "show"
+    .param p1, "show"    # I
 
     .prologue
     .line 226
@@ -692,7 +692,7 @@
 
 .method public setShowAsActionFlags(I)Landroid/view/MenuItem;
     .locals 0
-    .parameter "actionEnum"
+    .param p1, "actionEnum"    # I
 
     .prologue
     .line 253
@@ -704,7 +704,7 @@
 
 .method public setTitle(I)Landroid/view/MenuItem;
     .locals 1
-    .parameter "title"
+    .param p1, "title"    # I
 
     .prologue
     .line 197
@@ -726,7 +726,7 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 192
@@ -738,7 +738,7 @@
 
 .method public setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
     .locals 0
-    .parameter "title"
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 202
@@ -750,7 +750,7 @@
 
 .method public setVisible(Z)Landroid/view/MenuItem;
     .locals 2
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 207

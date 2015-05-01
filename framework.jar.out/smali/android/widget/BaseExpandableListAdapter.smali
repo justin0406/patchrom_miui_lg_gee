@@ -43,8 +43,8 @@
 
 .method public getChildType(II)I
     .locals 1
-    .parameter "groupPosition"
-    .parameter "childPosition"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
 
     .prologue
     .line 112
@@ -65,12 +65,12 @@
 
 .method public getCombinedChildId(JJ)J
     .locals 5
-    .parameter "groupId"
-    .parameter "childId"
+    .param p1, "groupId"    # J
+    .param p3, "childId"    # J
 
     .prologue
     .line 81
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     const-wide/32 v2, 0x7fffffff
 
@@ -93,7 +93,7 @@
 
 .method public getCombinedGroupId(J)J
     .locals 3
-    .parameter "groupId"
+    .param p1, "groupId"    # J
 
     .prologue
     .line 96
@@ -110,7 +110,7 @@
 
 .method public getGroupType(I)I
     .locals 1
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 128
@@ -179,7 +179,7 @@
 
 .method public onGroupCollapsed(I)V
     .locals 0
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 64
@@ -188,7 +188,7 @@
 
 .method public onGroupExpanded(I)V
     .locals 0
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 67
@@ -197,7 +197,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 38
@@ -211,7 +211,7 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .prologue
     .line 42

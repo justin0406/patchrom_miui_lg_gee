@@ -56,15 +56,15 @@
 
 .method public constructor <init>(ZZZZZZZII)V
     .locals 0
-    .parameter "mRequiresNetwork"
-    .parameter "mRequiresSatellite"
-    .parameter "mRequiresCell"
-    .parameter "mHasMonetaryCost"
-    .parameter "mSupportsAltitude"
-    .parameter "mSupportsSpeed"
-    .parameter "mSupportsBearing"
-    .parameter "mPowerRequirement"
-    .parameter "mAccuracy"
+    .param p1, "mRequiresNetwork"    # Z
+    .param p2, "mRequiresSatellite"    # Z
+    .param p3, "mRequiresCell"    # Z
+    .param p4, "mHasMonetaryCost"    # Z
+    .param p5, "mSupportsAltitude"    # Z
+    .param p6, "mSupportsSpeed"    # Z
+    .param p7, "mSupportsBearing"    # Z
+    .param p8, "mPowerRequirement"    # I
+    .param p9, "mAccuracy"    # I
 
     .prologue
     .line 100
@@ -115,8 +115,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

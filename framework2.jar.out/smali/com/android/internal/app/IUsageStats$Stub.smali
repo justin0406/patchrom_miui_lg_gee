@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IUsageStats;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 23
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 27
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/app/IUsageStats;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/app/IUsageStats$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/app/IUsageStats$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 5
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,7 +167,7 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 55
-    .local v0, _arg0:Landroid/content/ComponentName;
+    .local v0, "_arg0":Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->noteResumeComponent(Landroid/content/ComponentName;)V
 
@@ -177,15 +177,15 @@
     goto :goto_0
 
     .line 53
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_1
 
     .line 61
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :sswitch_2
     const-string v4, "com.android.internal.app.IUsageStats"
 
@@ -208,7 +208,7 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 69
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     :goto_2
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->notePauseComponent(Landroid/content/ComponentName;)V
 
@@ -218,15 +218,15 @@
     goto :goto_0
 
     .line 67
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_2
 
     .line 75
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :sswitch_3
     const-string v4, "com.android.internal.app.IUsageStats"
 
@@ -249,14 +249,14 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 84
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 85
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/IUsageStats$Stub;->noteLaunchTime(Landroid/content/ComponentName;I)V
 
     .line 86
@@ -265,16 +265,16 @@
     goto :goto_0
 
     .line 81
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v1    # "_arg1":I
     :cond_2
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_3
 
     .line 91
-    .end local v0           #_arg0:Landroid/content/ComponentName;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
     :sswitch_4
     const-string v4, "com.android.internal.app.IUsageStats"
 
@@ -297,14 +297,14 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 99
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     :goto_4
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->getPkgUsageStats(Landroid/content/ComponentName;)Lcom/android/internal/os/PkgUsageStats;
 
     move-result-object v2
 
     .line 100
-    .local v2, _result:Lcom/android/internal/os/PkgUsageStats;
+    .local v2, "_result":Lcom/android/internal/os/PkgUsageStats;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 101
@@ -319,16 +319,16 @@
     goto/16 :goto_0
 
     .line 97
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v2           #_result:Lcom/android/internal/os/PkgUsageStats;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v2    # "_result":Lcom/android/internal/os/PkgUsageStats;
     :cond_3
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/content/ComponentName;
+    .restart local v0    # "_arg0":Landroid/content/ComponentName;
     goto :goto_4
 
     .line 106
-    .restart local v2       #_result:Lcom/android/internal/os/PkgUsageStats;
+    .restart local v2    # "_result":Lcom/android/internal/os/PkgUsageStats;
     :cond_4
     const/4 v4, 0x0
 
@@ -337,8 +337,8 @@
     goto/16 :goto_0
 
     .line 112
-    .end local v0           #_arg0:Landroid/content/ComponentName;
-    .end local v2           #_result:Lcom/android/internal/os/PkgUsageStats;
+    .end local v0    # "_arg0":Landroid/content/ComponentName;
+    .end local v2    # "_result":Lcom/android/internal/os/PkgUsageStats;
     :sswitch_5
     const-string v4, "com.android.internal.app.IUsageStats"
 
@@ -350,7 +350,7 @@
     move-result-object v2
 
     .line 114
-    .local v2, _result:[Lcom/android/internal/os/PkgUsageStats;
+    .local v2, "_result":[Lcom/android/internal/os/PkgUsageStats;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 115

@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pGroup;
     .locals 6
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v5, 0x0
@@ -55,7 +55,7 @@
     invoke-direct {v1}, Landroid/net/wifi/p2p/WifiP2pGroup;-><init>()V
 
     .line 315
-    .local v1, group:Landroid/net/wifi/p2p/WifiP2pGroup;
+    .local v1, "group":Landroid/net/wifi/p2p/WifiP2pGroup;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -89,10 +89,10 @@
     move-result v0
 
     .line 319
-    .local v0, clientCount:I
+    .local v0, "clientCount":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v0, :cond_1
 
@@ -111,16 +111,16 @@
     goto :goto_1
 
     .line 317
-    .end local v0           #clientCount:I
-    .end local v2           #i:I
+    .end local v0    # "clientCount":I
+    .end local v2    # "i":I
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 322
-    .restart local v0       #clientCount:I
-    .restart local v2       #i:I
+    .restart local v0    # "clientCount":I
+    .restart local v2    # "i":I
     :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -148,7 +148,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 312
@@ -161,7 +161,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/p2p/WifiP2pGroup;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 329
@@ -172,7 +172,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 312

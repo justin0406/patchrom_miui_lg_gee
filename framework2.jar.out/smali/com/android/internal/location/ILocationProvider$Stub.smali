@@ -60,7 +60,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/location/ILocationProvider;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 29
@@ -82,7 +82,7 @@
     move-result-object v0
 
     .line 33
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/location/ILocationProvider;
@@ -98,7 +98,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/location/ILocationProvider$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/location/ILocationProvider$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -116,10 +116,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -201,7 +201,7 @@
     check-cast v0, Lcom/android/internal/location/ProviderRequest;
 
     .line 76
-    .local v0, _arg0:Lcom/android/internal/location/ProviderRequest;
+    .local v0, "_arg0":Lcom/android/internal/location/ProviderRequest;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -219,7 +219,7 @@
     check-cast v1, Landroid/os/WorkSource;
 
     .line 82
-    .local v1, _arg1:Landroid/os/WorkSource;
+    .local v1, "_arg1":Landroid/os/WorkSource;
     :goto_2
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/location/ILocationProvider$Stub;->setRequest(Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
 
@@ -229,24 +229,24 @@
     goto :goto_0
 
     .line 73
-    .end local v0           #_arg0:Lcom/android/internal/location/ProviderRequest;
-    .end local v1           #_arg1:Landroid/os/WorkSource;
+    .end local v0    # "_arg0":Lcom/android/internal/location/ProviderRequest;
+    .end local v1    # "_arg1":Landroid/os/WorkSource;
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Lcom/android/internal/location/ProviderRequest;
+    .restart local v0    # "_arg0":Lcom/android/internal/location/ProviderRequest;
     goto :goto_1
 
     .line 80
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/WorkSource;
+    .restart local v1    # "_arg1":Landroid/os/WorkSource;
     goto :goto_2
 
     .line 88
-    .end local v0           #_arg0:Lcom/android/internal/location/ProviderRequest;
-    .end local v1           #_arg1:Landroid/os/WorkSource;
+    .end local v0    # "_arg0":Lcom/android/internal/location/ProviderRequest;
+    .end local v1    # "_arg1":Landroid/os/WorkSource;
     :sswitch_4
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -258,7 +258,7 @@
     move-result-object v2
 
     .line 90
-    .local v2, _result:Lcom/android/internal/location/ProviderProperties;
+    .local v2, "_result":Lcom/android/internal/location/ProviderProperties;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 91
@@ -279,7 +279,7 @@
     goto :goto_0
 
     .line 102
-    .end local v2           #_result:Lcom/android/internal/location/ProviderProperties;
+    .end local v2    # "_result":Lcom/android/internal/location/ProviderProperties;
     :sswitch_5
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -291,13 +291,13 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 105
-    .local v0, _arg0:Landroid/os/Bundle;
+    .local v0, "_arg0":Landroid/os/Bundle;
     invoke-virtual {p0, v0}, Lcom/android/internal/location/ILocationProvider$Stub;->getStatus(Landroid/os/Bundle;)I
 
     move-result v2
 
     .line 106
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 107
@@ -321,8 +321,8 @@
     goto/16 :goto_0
 
     .line 119
-    .end local v0           #_arg0:Landroid/os/Bundle;
-    .end local v2           #_result:I
+    .end local v0    # "_arg0":Landroid/os/Bundle;
+    .end local v2    # "_result":I
     :sswitch_6
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -334,7 +334,7 @@
     move-result-wide v2
 
     .line 121
-    .local v2, _result:J
+    .local v2, "_result":J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 122
@@ -343,7 +343,7 @@
     goto/16 :goto_0
 
     .line 127
-    .end local v2           #_result:J
+    .end local v2    # "_result":J
     :sswitch_7
     const-string v4, "com.android.internal.location.ILocationProvider"
 
@@ -355,7 +355,7 @@
     move-result-object v0
 
     .line 131
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -372,14 +372,14 @@
     check-cast v1, Landroid/os/Bundle;
 
     .line 137
-    .local v1, _arg1:Landroid/os/Bundle;
+    .local v1, "_arg1":Landroid/os/Bundle;
     :goto_3
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/location/ILocationProvider$Stub;->sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
 
     move-result v2
 
     .line 138
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 139
@@ -402,15 +402,15 @@
     goto/16 :goto_0
 
     .line 135
-    .end local v1           #_arg1:Landroid/os/Bundle;
-    .end local v2           #_result:Z
+    .end local v1    # "_arg1":Landroid/os/Bundle;
+    .end local v2    # "_result":Z
     :cond_4
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/os/Bundle;
+    .restart local v1    # "_arg1":Landroid/os/Bundle;
     goto :goto_3
 
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     :cond_5
     move v4, v6
 

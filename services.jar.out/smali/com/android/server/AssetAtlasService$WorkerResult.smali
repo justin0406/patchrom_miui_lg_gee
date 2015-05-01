@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Atlas$Type;III)V
     .locals 0
-    .parameter "type"
-    .parameter "width"
-    .parameter "height"
-    .parameter "count"
+    .param p1, "type"    # Landroid/graphics/Atlas$Type;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 635

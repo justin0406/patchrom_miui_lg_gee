@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 201
@@ -51,9 +51,9 @@
 
 .method public checkOperation(IILjava/lang/String;)I
     .locals 6
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "code"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,13 +67,13 @@
     move-result-object v0
 
     .line 218
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 221
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -108,7 +108,7 @@
     move-result v2
 
     .line 230
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 231
@@ -118,7 +118,7 @@
     return v2
 
     .line 230
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -130,10 +130,77 @@
     throw v3
 .end method
 
+.method public checkOperationInternal(IILjava/lang/String;)I
+    .locals 6
+    .param p1, "code"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.android.internal.app.IAppOpsService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/internal/app/IAppOpsService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xe
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .local v2, "_result":I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    .end local v2    # "_result":I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public checkPackage(ILjava/lang/String;)I
     .locals 6
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -147,13 +214,13 @@
     move-result-object v0
 
     .line 349
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 352
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -185,7 +252,7 @@
     move-result v2
 
     .line 360
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 361
@@ -195,7 +262,7 @@
     return v2
 
     .line 360
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -209,10 +276,10 @@
 
 .method public finishOperation(Landroid/os/IBinder;IILjava/lang/String;)V
     .locals 5
-    .parameter "token"
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "code"    # I
+    .param p3, "uid"    # I
+    .param p4, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -226,13 +293,13 @@
     move-result-object v0
 
     .line 279
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 281
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IAppOpsService"
 
@@ -297,9 +364,9 @@
 
 .method public getOpsForPackage(ILjava/lang/String;[I)Ljava/util/List;
     .locals 6
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "ops"
+    .param p1, "uid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "ops"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -325,13 +392,13 @@
     move-result-object v0
 
     .line 386
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 389
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -368,7 +435,7 @@
     move-result-object v2
 
     .line 398
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 399
@@ -378,7 +445,7 @@
     return-object v2
 
     .line 398
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
     :catchall_0
     move-exception v3
 
@@ -392,7 +459,7 @@
 
 .method public getPackagesForOps([I)Ljava/util/List;
     .locals 6
-    .parameter "ops"
+    .param p1, "ops"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([I)",
@@ -416,13 +483,13 @@
     move-result-object v0
 
     .line 368
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 371
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -453,7 +520,7 @@
     move-result-object v2
 
     .line 378
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 379
@@ -463,7 +530,7 @@
     return-object v2
 
     .line 378
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/app/AppOpsManager$PackageOps;>;"
     :catchall_0
     move-exception v3
 
@@ -477,7 +544,7 @@
 
 .method public getToken(Landroid/os/IBinder;)Landroid/os/IBinder;
     .locals 6
-    .parameter "clientToken"
+    .param p1, "clientToken"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -491,13 +558,13 @@
     move-result-object v0
 
     .line 329
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 332
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -526,7 +593,7 @@
     move-result-object v2
 
     .line 339
-    .local v2, _result:Landroid/os/IBinder;
+    .local v2, "_result":Landroid/os/IBinder;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 340
@@ -536,7 +603,7 @@
     return-object v2
 
     .line 339
-    .end local v2           #_result:Landroid/os/IBinder;
+    .end local v2    # "_result":Landroid/os/IBinder;
     :catchall_0
     move-exception v3
 
@@ -550,9 +617,9 @@
 
 .method public noteOperation(IILjava/lang/String;)I
     .locals 6
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "code"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -566,13 +633,13 @@
     move-result-object v0
 
     .line 238
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 241
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -607,7 +674,7 @@
     move-result v2
 
     .line 250
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 251
@@ -617,13 +684,86 @@
     return v2
 
     .line 250
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 251
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public registerCallback(Lcom/android/internal/app/IOpsCallback;)I
+    .locals 6
+    .param p1, "callback"    # Lcom/android/internal/app/IOpsCallback;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.android.internal.app.IAppOpsService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Lcom/android/internal/app/IOpsCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    iget-object v3, p0, Lcom/android/internal/app/IAppOpsService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xd
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .local v2, "_result":I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    .end local v2    # "_result":I
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -644,13 +784,13 @@
     move-result-object v0
 
     .line 424
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 426
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IAppOpsService"
 
@@ -693,10 +833,10 @@
 
 .method public setMode(IILjava/lang/String;I)V
     .locals 5
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
-    .parameter "mode"
+    .param p1, "code"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
+    .param p4, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -710,13 +850,13 @@
     move-result-object v0
 
     .line 406
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 408
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IAppOpsService"
 
@@ -771,10 +911,10 @@
 
 .method public startOperation(Landroid/os/IBinder;IILjava/lang/String;)I
     .locals 6
-    .parameter "token"
-    .parameter "code"
-    .parameter "uid"
-    .parameter "packageName"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "code"    # I
+    .param p3, "uid"    # I
+    .param p4, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -788,13 +928,13 @@
     move-result-object v0
 
     .line 258
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 261
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.app.IAppOpsService"
 
@@ -832,7 +972,7 @@
     move-result v2
 
     .line 271
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 272
@@ -842,7 +982,7 @@
     return v2
 
     .line 271
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -856,9 +996,9 @@
 
 .method public startWatchingMode(ILjava/lang/String;Lcom/android/internal/app/IAppOpsCallback;)V
     .locals 5
-    .parameter "op"
-    .parameter "packageName"
-    .parameter "callback"
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "callback"    # Lcom/android/internal/app/IAppOpsCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -872,13 +1012,13 @@
     move-result-object v0
 
     .line 297
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 299
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IAppOpsService"
 
@@ -943,7 +1083,7 @@
 
 .method public stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/internal/app/IAppOpsCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -957,13 +1097,13 @@
     move-result-object v0
 
     .line 314
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 316
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.app.IAppOpsService"
 

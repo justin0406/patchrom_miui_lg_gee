@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/test/InstrumentationTestCase;Ljava/lang/Runnable;[Ljava/lang/Throwable;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 135
@@ -68,7 +65,7 @@
     move-exception v0
 
     .line 140
-    .local v0, throwable:Ljava/lang/Throwable;
+    .local v0, "throwable":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$1;->val$exceptions:[Ljava/lang/Throwable;
 
     const/4 v2, 0x0

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 8067
@@ -44,7 +43,7 @@
     .line 8070
     iget-object v0, p0, Landroid/widget/TextView$3;->this$0:Landroid/widget/TextView;
 
-    #calls: Landroid/widget/TextView;->updateTextServicesLocaleLocked()V
+    # invokes: Landroid/widget/TextView;->updateTextServicesLocaleLocked()V
     invoke-static {v0}, Landroid/widget/TextView;->access$200(Landroid/widget/TextView;)V
 
     .line 8071

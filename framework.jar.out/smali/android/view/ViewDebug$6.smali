@@ -30,10 +30,6 @@
 # direct methods
 .method constructor <init>([Landroid/graphics/Bitmap;Landroid/view/View;ZLjava/util/concurrent/CountDownLatch;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 756
@@ -76,8 +72,8 @@
 
     aput-object v3, v1, v2
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 764
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
@@ -93,7 +89,7 @@
     move-exception v0
 
     .line 762
-    .local v0, e:Ljava/lang/OutOfMemoryError;
+    .local v0, "e":Ljava/lang/OutOfMemoryError;
     :try_start_1
     const-string v1, "View"
 
@@ -110,7 +106,7 @@
 
     goto :goto_0
 
-    .end local v0           #e:Ljava/lang/OutOfMemoryError;
+    .end local v0    # "e":Ljava/lang/OutOfMemoryError;
     :catchall_0
     move-exception v1
 

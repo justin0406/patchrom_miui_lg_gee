@@ -10,11 +10,11 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Field;Z)V
     .locals 0
-    .parameter "filter"
-    .parameter "name"
-    .parameter "varName"
-    .parameter "field"
-    .parameter "hasDefault"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "varName"    # Ljava/lang/String;
+    .param p4, "field"    # Ljava/lang/reflect/Field;
+    .param p5, "hasDefault"    # Z
 
     .prologue
     .line 34
@@ -61,7 +61,7 @@
 
 .method public declared-synchronized transfer(Landroid/filterfw/core/FilterContext;)V
     .locals 7
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 45
@@ -85,7 +85,7 @@
     move-result-object v2
 
     .line 48
-    .local v2, fieldValue:Ljava/lang/Object;
+    .local v2, "fieldValue":Ljava/lang/Object;
     if-eqz v2, :cond_0
 
     .line 49
@@ -96,7 +96,7 @@
     move-object v3, v0
 
     .line 50
-    .local v3, program:Landroid/filterfw/core/Program;
+    .local v3, "program":Landroid/filterfw/core/Program;
     iget-object v4, p0, Landroid/filterfw/core/ProgramPort;->mVarName:Ljava/lang/String;
 
     iget-object v5, p0, Landroid/filterfw/core/ProgramPort;->mValue:Ljava/lang/Object;
@@ -108,13 +108,13 @@
 
     iput-boolean v4, p0, Landroid/filterfw/core/ProgramPort;->mValueWaiting:Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 61
-    .end local v2           #fieldValue:Ljava/lang/Object;
-    .end local v3           #program:Landroid/filterfw/core/Program;
+    .end local v2    # "fieldValue":Ljava/lang/Object;
+    .end local v3    # "program":Landroid/filterfw/core/Program;
     :cond_0
     monitor-exit p0
 
@@ -125,7 +125,7 @@
     move-exception v1
 
     .line 54
-    .local v1, e:Ljava/lang/IllegalAccessException;
+    .local v1, "e":Ljava/lang/IllegalAccessException;
     :try_start_2
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -166,7 +166,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 45
-    .end local v1           #e:Ljava/lang/IllegalAccessException;
+    .end local v1    # "e":Ljava/lang/IllegalAccessException;
     :catchall_0
     move-exception v4
 
@@ -179,7 +179,7 @@
     move-exception v1
 
     .line 57
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     :try_start_3
     new-instance v4, Ljava/lang/RuntimeException;
 

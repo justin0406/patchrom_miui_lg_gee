@@ -38,9 +38,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/IContentProvider;Ljava/lang/String;Landroid/net/Uri;)V
     .locals 2
-    .parameter "provider"
-    .parameter "packageName"
-    .parameter "baseUri"
+    .param p1, "provider"    # Landroid/content/IContentProvider;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "baseUri"    # Landroid/net/Uri;
 
     .prologue
     .line 1237
@@ -79,7 +79,7 @@
 # virtual methods
 .method public delete(J)V
     .locals 3
-    .parameter "id"
+    .param p1, "id"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -170,25 +170,25 @@
     move-result v2
 
     .line 1255
-    .local v2, size:I
+    .local v2, "size":I
     if-lez v2, :cond_0
 
     .line 1256
     new-array v0, v2, [Ljava/lang/String;
 
     .line 1257
-    .local v0, foo:[Ljava/lang/String;
+    .local v0, "foo":[Ljava/lang/String;
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    .end local v0           #foo:[Ljava/lang/String;
+    .end local v0    # "foo":[Ljava/lang/String;
     check-cast v0, [Ljava/lang/String;
 
     .line 1258
-    .restart local v0       #foo:[Ljava/lang/String;
+    .restart local v0    # "foo":[Ljava/lang/String;
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->mProvider:Landroid/content/IContentProvider;
 
     iget-object v4, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->mPackageName:Ljava/lang/String;
@@ -230,7 +230,7 @@
     move-result v1
 
     .line 1262
-    .local v1, numrows:I
+    .local v1, "numrows":I
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
     const/4 v4, 0x0
@@ -243,8 +243,8 @@
     invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
 
     .line 1265
-    .end local v0           #foo:[Ljava/lang/String;
-    .end local v1           #numrows:I
+    .end local v0    # "foo":[Ljava/lang/String;
+    .end local v1    # "numrows":I
     :cond_0
     return-void
 .end method

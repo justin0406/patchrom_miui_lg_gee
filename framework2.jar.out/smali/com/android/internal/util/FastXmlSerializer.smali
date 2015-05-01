@@ -361,7 +361,7 @@
 
 .method private append(C)V
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -373,7 +373,7 @@
     iget v0, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
     .line 72
-    .local v0, pos:I
+    .local v0, "pos":I
     const/16 v1, 0x1fff
 
     if-lt v0, v1, :cond_0
@@ -401,7 +401,7 @@
 
 .method private append(Ljava/lang/String;)V
     .locals 2
-    .parameter "str"
+    .param p1, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -424,9 +424,9 @@
 
 .method private append(Ljava/lang/String;II)V
     .locals 5
-    .parameter "str"
-    .parameter "i"
-    .parameter "length"
+    .param p1, "str"    # Ljava/lang/String;
+    .param p2, "i"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -443,7 +443,7 @@
     add-int v0, p2, p3
 
     .line 83
-    .local v0, end:I
+    .local v0, "end":I
     :goto_0
     if-ge p2, v0, :cond_3
 
@@ -451,7 +451,7 @@
     add-int/lit16 v1, p2, 0x2000
 
     .line 85
-    .local v1, next:I
+    .local v1, "next":I
     if-ge v1, v0, :cond_0
 
     move v3, v4
@@ -472,13 +472,13 @@
     goto :goto_1
 
     .line 90
-    .end local v0           #end:I
-    .end local v1           #next:I
+    .end local v0    # "end":I
+    .end local v1    # "next":I
     :cond_1
     iget v2, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
     .line 91
-    .local v2, pos:I
+    .local v2, "pos":I
     add-int v3, v2, p3
 
     if-le v3, v4, :cond_2
@@ -503,16 +503,16 @@
     iput v3, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
     .line 97
-    .end local v2           #pos:I
+    .end local v2    # "pos":I
     :cond_3
     return-void
 .end method
 
 .method private append([CII)V
     .locals 5
-    .parameter "buf"
-    .parameter "i"
-    .parameter "length"
+    .param p1, "buf"    # [C
+    .param p2, "i"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -529,7 +529,7 @@
     add-int v0, p2, p3
 
     .line 102
-    .local v0, end:I
+    .local v0, "end":I
     :goto_0
     if-ge p2, v0, :cond_3
 
@@ -537,7 +537,7 @@
     add-int/lit16 v1, p2, 0x2000
 
     .line 104
-    .local v1, next:I
+    .local v1, "next":I
     if-ge v1, v0, :cond_0
 
     move v3, v4
@@ -558,13 +558,13 @@
     goto :goto_1
 
     .line 109
-    .end local v0           #end:I
-    .end local v1           #next:I
+    .end local v0    # "end":I
+    .end local v1    # "next":I
     :cond_1
     iget v2, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
     .line 110
-    .local v2, pos:I
+    .local v2, "pos":I
     add-int v3, v2, p3
 
     if-le v3, v4, :cond_2
@@ -587,14 +587,14 @@
     iput v3, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
     .line 116
-    .end local v2           #pos:I
+    .end local v2    # "pos":I
     :cond_3
     return-void
 .end method
 
 .method private appendIndent(I)V
     .locals 2
-    .parameter "indent"
+    .param p1, "indent"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -635,7 +635,7 @@
 
 .method private escapeAndAppendString(Ljava/lang/String;)V
     .locals 8
-    .parameter "string"
+    .param p1, "string"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -649,7 +649,7 @@
     move-result v0
 
     .line 132
-    .local v0, N:I
+    .local v0, "N":I
     sget-object v7, Lcom/android/internal/util/FastXmlSerializer;->ESCAPE_TABLE:[Ljava/lang/String;
 
     array-length v7, v7
@@ -657,18 +657,18 @@
     int-to-char v1, v7
 
     .line 133
-    .local v1, NE:C
+    .local v1, "NE":C
     sget-object v4, Lcom/android/internal/util/FastXmlSerializer;->ESCAPE_TABLE:[Ljava/lang/String;
 
     .line 134
-    .local v4, escapes:[Ljava/lang/String;
+    .local v4, "escapes":[Ljava/lang/String;
     const/4 v5, 0x0
 
     .line 136
-    .local v5, lastPos:I
+    .local v5, "lastPos":I
     const/4 v6, 0x0
 
-    .local v6, pos:I
+    .local v6, "pos":I
     :goto_0
     if-ge v6, v0, :cond_3
 
@@ -678,7 +678,7 @@
     move-result v2
 
     .line 138
-    .local v2, c:C
+    .local v2, "c":C
     if-lt v2, v1, :cond_1
 
     .line 136
@@ -693,7 +693,7 @@
     aget-object v3, v4, v2
 
     .line 140
-    .local v3, escape:Ljava/lang/String;
+    .local v3, "escape":Ljava/lang/String;
     if-eqz v3, :cond_0
 
     .line 141
@@ -713,8 +713,8 @@
     goto :goto_1
 
     .line 145
-    .end local v2           #c:C
-    .end local v3           #escape:Ljava/lang/String;
+    .end local v2    # "c":C
+    .end local v3    # "escape":Ljava/lang/String;
     :cond_3
     if-ge v5, v6, :cond_4
 
@@ -729,9 +729,9 @@
 
 .method private escapeAndAppendString([CII)V
     .locals 8
-    .parameter "buf"
-    .parameter "start"
-    .parameter "len"
+    .param p1, "buf"    # [C
+    .param p2, "start"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -747,22 +747,22 @@
     int-to-char v0, v7
 
     .line 150
-    .local v0, NE:C
+    .local v0, "NE":C
     sget-object v4, Lcom/android/internal/util/FastXmlSerializer;->ESCAPE_TABLE:[Ljava/lang/String;
 
     .line 151
-    .local v4, escapes:[Ljava/lang/String;
+    .local v4, "escapes":[Ljava/lang/String;
     add-int v2, p2, p3
 
     .line 152
-    .local v2, end:I
+    .local v2, "end":I
     move v5, p2
 
     .line 154
-    .local v5, lastPos:I
+    .local v5, "lastPos":I
     move v6, p2
 
-    .local v6, pos:I
+    .local v6, "pos":I
     :goto_0
     if-ge v6, v2, :cond_3
 
@@ -770,7 +770,7 @@
     aget-char v1, p1, v6
 
     .line 156
-    .local v1, c:C
+    .local v1, "c":C
     if-lt v1, v0, :cond_1
 
     .line 154
@@ -785,7 +785,7 @@
     aget-object v3, v4, v1
 
     .line 158
-    .local v3, escape:Ljava/lang/String;
+    .local v3, "escape":Ljava/lang/String;
     if-eqz v3, :cond_0
 
     .line 159
@@ -805,8 +805,8 @@
     goto :goto_1
 
     .line 163
-    .end local v1           #c:C
-    .end local v3           #escape:Ljava/lang/String;
+    .end local v1    # "c":C
+    .end local v3    # "escape":Ljava/lang/String;
     :cond_3
     if-ge v5, v6, :cond_4
 
@@ -835,7 +835,7 @@
 
     move-result v0
 
-    .local v0, position:I
+    .local v0, "position":I
     if-lez v0, :cond_0
 
     .line 231
@@ -870,9 +870,9 @@
 # virtual methods
 .method public attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     .locals 1
-    .parameter "namespace"
-    .parameter "name"
-    .parameter "value"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -926,7 +926,7 @@
 
 .method public cdsect(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -946,7 +946,7 @@
 
 .method public comment(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -966,7 +966,7 @@
 
 .method public docdecl(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1004,8 +1004,8 @@
 
 .method public endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     .locals 1
-    .parameter "namespace"
-    .parameter "name"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1092,7 +1092,7 @@
 
 .method public entityRef(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1143,7 +1143,7 @@
     move-result-object v0
 
     .line 242
-    .local v0, charBuffer:Ljava/nio/CharBuffer;
+    .local v0, "charBuffer":Ljava/nio/CharBuffer;
     iget-object v2, p0, Lcom/android/internal/util/FastXmlSerializer;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     iget-object v3, p0, Lcom/android/internal/util/FastXmlSerializer;->mBytes:Ljava/nio/ByteBuffer;
@@ -1153,7 +1153,7 @@
     move-result-object v1
 
     .line 244
-    .local v1, result:Ljava/nio/charset/CoderResult;
+    .local v1, "result":Ljava/nio/charset/CoderResult;
     :goto_0
     invoke-virtual {v1}, Ljava/nio/charset/CoderResult;->isError()Z
 
@@ -1205,8 +1205,8 @@
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
 
     .line 259
-    .end local v0           #charBuffer:Ljava/nio/CharBuffer;
-    .end local v1           #result:Ljava/nio/charset/CoderResult;
+    .end local v0    # "charBuffer":Ljava/nio/CharBuffer;
+    .end local v1    # "result":Ljava/nio/charset/CoderResult;
     :goto_1
     iput v5, p0, Lcom/android/internal/util/FastXmlSerializer;->mPos:I
 
@@ -1246,7 +1246,7 @@
 
 .method public getFeature(Ljava/lang/String;)Z
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 268
@@ -1283,8 +1283,8 @@
 
 .method public getPrefix(Ljava/lang/String;Z)Ljava/lang/String;
     .locals 1
-    .parameter "namespace"
-    .parameter "generatePrefix"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "generatePrefix"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1302,7 +1302,7 @@
 
 .method public getProperty(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 285
@@ -1315,7 +1315,7 @@
 
 .method public ignorableWhitespace(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1335,7 +1335,7 @@
 
 .method public processingInstruction(Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1355,8 +1355,8 @@
 
 .method public setFeature(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "name"
-    .parameter "state"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "state"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -1393,8 +1393,8 @@
 
 .method public setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
     .locals 2
-    .parameter "os"
-    .parameter "encoding"
+    .param p1, "os"    # Ljava/io/OutputStream;
+    .param p2, "encoding"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1441,7 +1441,7 @@
     move-exception v0
 
     .line 315
-    .local v0, e:Ljava/nio/charset/IllegalCharsetNameException;
+    .local v0, "e":Ljava/nio/charset/IllegalCharsetNameException;
     new-instance v1, Ljava/io/UnsupportedEncodingException;
 
     invoke-direct {v1, p2}, Ljava/io/UnsupportedEncodingException;-><init>(Ljava/lang/String;)V
@@ -1457,12 +1457,12 @@
     throw v1
 
     .line 317
-    .end local v0           #e:Ljava/nio/charset/IllegalCharsetNameException;
+    .end local v0    # "e":Ljava/nio/charset/IllegalCharsetNameException;
     :catch_1
     move-exception v0
 
     .line 318
-    .local v0, e:Ljava/nio/charset/UnsupportedCharsetException;
+    .local v0, "e":Ljava/nio/charset/UnsupportedCharsetException;
     new-instance v1, Ljava/io/UnsupportedEncodingException;
 
     invoke-direct {v1, p2}, Ljava/io/UnsupportedEncodingException;-><init>(Ljava/lang/String;)V
@@ -1480,7 +1480,7 @@
 
 .method public setOutput(Ljava/io/Writer;)V
     .locals 0
-    .parameter "writer"
+    .param p1, "writer"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1499,8 +1499,8 @@
 
 .method public setPrefix(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "prefix"
-    .parameter "namespace"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "namespace"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1520,8 +1520,8 @@
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .parameter "name"
-    .parameter "value"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -1540,8 +1540,8 @@
 
 .method public startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
     .locals 2
-    .parameter "encoding"
-    .parameter "standalone"
+    .param p1, "encoding"    # Ljava/lang/String;
+    .param p2, "standalone"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1604,8 +1604,8 @@
 
 .method public startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     .locals 1
-    .parameter "namespace"
-    .parameter "name"
+    .param p1, "namespace"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1680,7 +1680,7 @@
 
 .method public text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     .locals 3
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1747,9 +1747,9 @@
 
 .method public text([CII)Lorg/xmlpull/v1/XmlSerializer;
     .locals 3
-    .parameter "buf"
-    .parameter "start"
-    .parameter "len"
+    .param p1, "buf"    # [C
+    .param p2, "start"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,

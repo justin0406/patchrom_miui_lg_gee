@@ -110,7 +110,7 @@
 
 .method synthetic constructor <init>(Landroid/view/FocusFinder$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/view/FocusFinder$1;
 
     .prologue
     .line 29
@@ -121,17 +121,17 @@
 
 .method private findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;I)Landroid/view/View;
     .locals 8
-    .parameter "root"
-    .parameter "focused"
-    .parameter "focusedRect"
-    .parameter "direction"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focused"    # Landroid/view/View;
+    .param p3, "focusedRect"    # Landroid/graphics/Rect;
+    .param p4, "direction"    # I
 
     .prologue
     .line 82
     const/4 v6, 0x0
 
     .line 83
-    .local v6, next:Landroid/view/View;
+    .local v6, "next":Landroid/view/View;
     if-eqz p2, :cond_0
 
     .line 84
@@ -146,19 +146,19 @@
     move-object v7, v6
 
     .line 99
-    .end local v6           #next:Landroid/view/View;
-    .local v7, next:Landroid/view/View;
+    .end local v6    # "next":Landroid/view/View;
+    .local v7, "next":Landroid/view/View;
     :goto_0
     return-object v7
 
     .line 89
-    .end local v7           #next:Landroid/view/View;
-    .restart local v6       #next:Landroid/view/View;
+    .end local v7    # "next":Landroid/view/View;
+    .restart local v6    # "next":Landroid/view/View;
     :cond_1
     iget-object v5, p0, Landroid/view/FocusFinder;->mTempList:Ljava/util/ArrayList;
 
     .line 91
-    .local v5, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local v5, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     :try_start_0
     invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
 
@@ -196,13 +196,13 @@
     move-object v7, v6
 
     .line 99
-    .end local v6           #next:Landroid/view/View;
-    .restart local v7       #next:Landroid/view/View;
+    .end local v6    # "next":Landroid/view/View;
+    .restart local v7    # "next":Landroid/view/View;
     goto :goto_0
 
     .line 97
-    .end local v7           #next:Landroid/view/View;
-    .restart local v6       #next:Landroid/view/View;
+    .end local v7    # "next":Landroid/view/View;
+    .restart local v6    # "next":Landroid/view/View;
     :catchall_0
     move-exception v0
 
@@ -213,11 +213,10 @@
 
 .method private findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;ILjava/util/ArrayList;)Landroid/view/View;
     .locals 6
-    .parameter "root"
-    .parameter "focused"
-    .parameter "focusedRect"
-    .parameter "direction"
-    .parameter
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focused"    # Landroid/view/View;
+    .param p3, "focusedRect"    # Landroid/graphics/Rect;
+    .param p4, "direction"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,7 +234,7 @@
 
     .prologue
     .line 115
-    .local p5, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local p5, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     if-eqz p2, :cond_2
 
     .line 116
@@ -409,11 +408,10 @@
 
 .method private findNextFocusInRelativeDirection(Ljava/util/ArrayList;Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;I)Landroid/view/View;
     .locals 3
-    .parameter
-    .parameter "root"
-    .parameter "focused"
-    .parameter "focusedRect"
-    .parameter "direction"
+    .param p2, "root"    # Landroid/view/ViewGroup;
+    .param p3, "focused"    # Landroid/view/View;
+    .param p4, "focusedRect"    # Landroid/graphics/Rect;
+    .param p5, "direction"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -431,7 +429,7 @@
 
     .prologue
     .line 174
-    .local p1, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local p1, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     :try_start_0
     iget-object v1, p0, Landroid/view/FocusFinder;->mSequentialFocusComparator:Landroid/view/FocusFinder$SequentialFocusComparator;
 
@@ -464,7 +462,7 @@
     move-result v0
 
     .line 182
-    .local v0, count:I
+    .local v0, "count":I
     packed-switch p5, :pswitch_data_0
 
     .line 188
@@ -480,7 +478,7 @@
     return-object v1
 
     .line 178
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :catchall_0
     move-exception v1
 
@@ -491,7 +489,7 @@
     throw v1
 
     .line 184
-    .restart local v0       #count:I
+    .restart local v0    # "count":I
     :pswitch_0
     invoke-static {p3, p1, v0}, Landroid/view/FocusFinder;->getNextFocusable(Landroid/view/View;Ljava/util/ArrayList;I)Landroid/view/View;
 
@@ -519,9 +517,9 @@
 
 .method private findNextUserSpecifiedFocus(Landroid/view/ViewGroup;Landroid/view/View;I)Landroid/view/View;
     .locals 2
-    .parameter "root"
-    .parameter "focused"
-    .parameter "direction"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focused"    # Landroid/view/View;
+    .param p3, "direction"    # I
 
     .prologue
     .line 104
@@ -530,7 +528,7 @@
     move-result-object v0
 
     .line 105
-    .local v0, userSetNextFocus:Landroid/view/View;
+    .local v0, "userSetNextFocus":Landroid/view/View;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/view/View;->isFocusable()Z
@@ -552,12 +550,12 @@
     if-eqz v1, :cond_1
 
     .line 110
-    .end local v0           #userSetNextFocus:Landroid/view/View;
+    .end local v0    # "userSetNextFocus":Landroid/view/View;
     :cond_0
     :goto_0
     return-object v0
 
-    .restart local v0       #userSetNextFocus:Landroid/view/View;
+    .restart local v0    # "userSetNextFocus":Landroid/view/View;
     :cond_1
     const/4 v0, 0x0
 
@@ -582,9 +580,8 @@
 
 .method private static getNextFocusable(Landroid/view/View;Ljava/util/ArrayList;I)Landroid/view/View;
     .locals 2
-    .parameter "focused"
-    .parameter
-    .parameter "count"
+    .param p0, "focused"    # Landroid/view/View;
+    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -599,7 +596,7 @@
 
     .prologue
     .line 244
-    .local p1, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local p1, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     if-eqz p0, :cond_0
 
     .line 245
@@ -608,7 +605,7 @@
     move-result v0
 
     .line 246
-    .local v0, position:I
+    .local v0, "position":I
     if-ltz v0, :cond_0
 
     add-int/lit8 v1, v0, 0x1
@@ -625,7 +622,7 @@
     check-cast v1, Landroid/view/View;
 
     .line 253
-    .end local v0           #position:I
+    .end local v0    # "position":I
     :goto_0
     return-object v1
 
@@ -657,9 +654,8 @@
 
 .method private static getPreviousFocusable(Landroid/view/View;Ljava/util/ArrayList;I)Landroid/view/View;
     .locals 2
-    .parameter "focused"
-    .parameter
-    .parameter "count"
+    .param p0, "focused"    # Landroid/view/View;
+    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -674,7 +670,7 @@
 
     .prologue
     .line 257
-    .local p1, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local p1, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     if-eqz p0, :cond_0
 
     .line 258
@@ -683,7 +679,7 @@
     move-result v0
 
     .line 259
-    .local v0, position:I
+    .local v0, "position":I
     if-lez v0, :cond_0
 
     .line 260
@@ -696,7 +692,7 @@
     check-cast v1, Landroid/view/View;
 
     .line 266
-    .end local v0           #position:I
+    .end local v0    # "position":I
     :goto_0
     return-object v1
 
@@ -728,10 +724,10 @@
 
 .method private isTouchCandidate(IILandroid/graphics/Rect;I)Z
     .locals 3
-    .parameter "x"
-    .parameter "y"
-    .parameter "destRect"
-    .parameter "direction"
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "destRect"    # Landroid/graphics/Rect;
+    .param p4, "direction"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -844,9 +840,9 @@
 
 .method static majorAxisDistance(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 2
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 432
@@ -865,9 +861,9 @@
 
 .method static majorAxisDistanceRaw(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 2
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 436
@@ -938,9 +934,9 @@
 
 .method static majorAxisDistanceToFarEdge(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 2
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 457
@@ -959,9 +955,9 @@
 
 .method static majorAxisDistanceToFarEdgeRaw(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 2
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 461
@@ -1032,9 +1028,9 @@
 
 .method static minorAxisDistance(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
     .locals 3
-    .parameter "direction"
-    .parameter "source"
-    .parameter "dest"
+    .param p0, "direction"    # I
+    .param p1, "source"    # Landroid/graphics/Rect;
+    .param p2, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     .line 484
@@ -1124,8 +1120,8 @@
 
 .method private setFocusBottomRight(Landroid/view/ViewGroup;Landroid/graphics/Rect;)V
     .locals 4
-    .parameter "root"
-    .parameter "focusedRect"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 192
@@ -1140,7 +1136,7 @@
     add-int v0, v2, v3
 
     .line 193
-    .local v0, rootBottom:I
+    .local v0, "rootBottom":I
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getScrollX()I
 
     move-result v2
@@ -1152,7 +1148,7 @@
     add-int v1, v2, v3
 
     .line 194
-    .local v1, rootRight:I
+    .local v1, "rootRight":I
     invoke-virtual {p2, v1, v0, v1, v0}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 195
@@ -1161,8 +1157,8 @@
 
 .method private setFocusTopLeft(Landroid/view/ViewGroup;Landroid/graphics/Rect;)V
     .locals 2
-    .parameter "root"
-    .parameter "focusedRect"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 198
@@ -1171,13 +1167,13 @@
     move-result v1
 
     .line 199
-    .local v1, rootTop:I
+    .local v1, "rootTop":I
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getScrollX()I
 
     move-result v0
 
     .line 200
-    .local v0, rootLeft:I
+    .local v0, "rootLeft":I
     invoke-virtual {p2, v0, v1, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 201
@@ -1188,10 +1184,10 @@
 # virtual methods
 .method beamBeats(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 6
-    .parameter "direction"
-    .parameter "source"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "source"    # Landroid/graphics/Rect;
+    .param p3, "rect1"    # Landroid/graphics/Rect;
+    .param p4, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v3, 0x0
@@ -1204,13 +1200,13 @@
     move-result v0
 
     .line 320
-    .local v0, rect1InSrcBeam:Z
+    .local v0, "rect1InSrcBeam":Z
     invoke-virtual {p0, p1, p2, p4}, Landroid/view/FocusFinder;->beamsOverlap(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
 
     move-result v1
 
     .line 323
-    .local v1, rect2InSrcBeam:Z
+    .local v1, "rect2InSrcBeam":Z
     if-nez v1, :cond_0
 
     if-nez v0, :cond_2
@@ -1258,9 +1254,9 @@
 
 .method beamsOverlap(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 4
-    .parameter "direction"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "rect1"    # Landroid/graphics/Rect;
+    .param p3, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v0, 0x1
@@ -1335,11 +1331,11 @@
 
 .method public findNearestTouchable(Landroid/view/ViewGroup;III[I)Landroid/view/View;
     .locals 15
-    .parameter "root"
-    .parameter "x"
-    .parameter "y"
-    .parameter "direction"
-    .parameter "deltas"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "direction"    # I
+    .param p5, "deltas"    # [I
 
     .prologue
     .line 514
@@ -1348,21 +1344,21 @@
     move-result-object v12
 
     .line 515
-    .local v12, touchables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local v12, "touchables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     const v8, 0x7fffffff
 
     .line 516
-    .local v8, minDistance:I
+    .local v8, "minDistance":I
     const/4 v3, 0x0
 
     .line 518
-    .local v3, closest:Landroid/view/View;
+    .local v3, "closest":Landroid/view/View;
     invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v9
 
     .line 520
-    .local v9, numTouchables:I
+    .local v9, "numTouchables":I
     move-object/from16 v0, p1
 
     iget-object v13, v0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
@@ -1376,20 +1372,20 @@
     move-result v6
 
     .line 522
-    .local v6, edgeSlop:I
+    .local v6, "edgeSlop":I
     new-instance v4, Landroid/graphics/Rect;
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
     .line 523
-    .local v4, closestBounds:Landroid/graphics/Rect;
+    .local v4, "closestBounds":Landroid/graphics/Rect;
     iget-object v11, p0, Landroid/view/FocusFinder;->mOtherRect:Landroid/graphics/Rect;
 
     .line 525
-    .local v11, touchableBounds:Landroid/graphics/Rect;
+    .local v11, "touchableBounds":Landroid/graphics/Rect;
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v9, :cond_3
 
@@ -1401,7 +1397,7 @@
     check-cast v10, Landroid/view/View;
 
     .line 529
-    .local v10, touchable:Landroid/view/View;
+    .local v10, "touchable":Landroid/view/View;
     invoke-virtual {v10, v11}, Landroid/view/View;->getDrawingRect(Landroid/graphics/Rect;)V
 
     .line 531
@@ -1438,7 +1434,7 @@
     const v5, 0x7fffffff
 
     .line 539
-    .local v5, distance:I
+    .local v5, "distance":I
     sparse-switch p4, :sswitch_data_0
 
     .line 554
@@ -1549,8 +1545,8 @@
     goto :goto_1
 
     .line 579
-    .end local v5           #distance:I
-    .end local v10           #touchable:Landroid/view/View;
+    .end local v5    # "distance":I
+    .end local v10    # "touchable":Landroid/view/View;
     :cond_3
     return-object v3
 
@@ -1577,9 +1573,9 @@
 
 .method public final findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;I)Landroid/view/View;
     .locals 1
-    .parameter "root"
-    .parameter "focused"
-    .parameter "direction"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focused"    # Landroid/view/View;
+    .param p3, "direction"    # I
 
     .prologue
     .line 65
@@ -1594,9 +1590,9 @@
 
 .method public findNextFocusFromRect(Landroid/view/ViewGroup;Landroid/graphics/Rect;I)Landroid/view/View;
     .locals 2
-    .parameter "root"
-    .parameter "focusedRect"
-    .parameter "direction"
+    .param p1, "root"    # Landroid/view/ViewGroup;
+    .param p2, "focusedRect"    # Landroid/graphics/Rect;
+    .param p3, "direction"    # I
 
     .prologue
     .line 77
@@ -1618,11 +1614,10 @@
 
 .method findNextFocusInAbsoluteDirection(Ljava/util/ArrayList;Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;I)Landroid/view/View;
     .locals 7
-    .parameter
-    .parameter "root"
-    .parameter "focused"
-    .parameter "focusedRect"
-    .parameter "direction"
+    .param p2, "root"    # Landroid/view/ViewGroup;
+    .param p3, "focused"    # Landroid/view/View;
+    .param p4, "focusedRect"    # Landroid/graphics/Rect;
+    .param p5, "direction"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1639,7 +1634,7 @@
     .end annotation
 
     .prologue
-    .local p1, focusables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/View;>;"
+    .local p1, "focusables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     const/4 v6, 0x0
 
     .line 207
@@ -1655,16 +1650,16 @@
     const/4 v0, 0x0
 
     .line 224
-    .local v0, closest:Landroid/view/View;
+    .local v0, "closest":Landroid/view/View;
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
     .line 225
-    .local v3, numFocusables:I
+    .local v3, "numFocusables":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_1
     if-ge v2, v3, :cond_2
 
@@ -1676,7 +1671,7 @@
     check-cast v1, Landroid/view/View;
 
     .line 229
-    .local v1, focusable:Landroid/view/View;
+    .local v1, "focusable":Landroid/view/View;
     if-eq v1, p3, :cond_0
 
     if-ne v1, p2, :cond_1
@@ -1689,10 +1684,10 @@
     goto :goto_1
 
     .line 210
-    .end local v0           #closest:Landroid/view/View;
-    .end local v1           #focusable:Landroid/view/View;
-    .end local v2           #i:I
-    .end local v3           #numFocusables:I
+    .end local v0    # "closest":Landroid/view/View;
+    .end local v1    # "focusable":Landroid/view/View;
+    .end local v2    # "i":I
+    .end local v3    # "numFocusables":I
     :sswitch_0
     iget-object v4, p0, Landroid/view/FocusFinder;->mBestCandidateRect:Landroid/graphics/Rect;
 
@@ -1753,10 +1748,10 @@
     goto :goto_0
 
     .line 232
-    .restart local v0       #closest:Landroid/view/View;
-    .restart local v1       #focusable:Landroid/view/View;
-    .restart local v2       #i:I
-    .restart local v3       #numFocusables:I
+    .restart local v0    # "closest":Landroid/view/View;
+    .restart local v1    # "focusable":Landroid/view/View;
+    .restart local v2    # "i":I
+    .restart local v3    # "numFocusables":I
     :cond_1
     iget-object v4, p0, Landroid/view/FocusFinder;->mOtherRect:Landroid/graphics/Rect;
 
@@ -1791,7 +1786,7 @@
     goto :goto_2
 
     .line 240
-    .end local v1           #focusable:Landroid/view/View;
+    .end local v1    # "focusable":Landroid/view/View;
     :cond_2
     return-object v0
 
@@ -1807,8 +1802,8 @@
 
 .method getWeightedDistanceFor(II)I
     .locals 2
-    .parameter "majorAxisDistance"
-    .parameter "minorAxisDistance"
+    .param p1, "majorAxisDistance"    # I
+    .param p2, "minorAxisDistance"    # I
 
     .prologue
     .line 356
@@ -1825,10 +1820,10 @@
 
 .method isBetterCandidate(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 5
-    .parameter "direction"
-    .parameter "source"
-    .parameter "rect1"
-    .parameter "rect2"
+    .param p1, "direction"    # I
+    .param p2, "source"    # Landroid/graphics/Rect;
+    .param p3, "rect1"    # Landroid/graphics/Rect;
+    .param p4, "rect2"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v0, 0x1
@@ -1911,9 +1906,9 @@
 
 .method isCandidate(Landroid/graphics/Rect;Landroid/graphics/Rect;I)Z
     .locals 4
-    .parameter "srcRect"
-    .parameter "destRect"
-    .parameter "direction"
+    .param p1, "srcRect"    # Landroid/graphics/Rect;
+    .param p2, "destRect"    # Landroid/graphics/Rect;
+    .param p3, "direction"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -2054,9 +2049,9 @@
 
 .method isToDirectionOf(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
     .locals 4
-    .parameter "direction"
-    .parameter "src"
-    .parameter "dest"
+    .param p1, "direction"    # I
+    .param p2, "src"    # Landroid/graphics/Rect;
+    .param p3, "dest"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v0, 0x1

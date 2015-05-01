@@ -32,7 +32,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -75,7 +75,7 @@
     const v0, 0x3b808081
 
     .line 145
-    .local v0, shift:F
+    .local v0, "shift":F
     const/4 v2, 0x3
 
     new-array v1, v2, [F
@@ -83,7 +83,7 @@
     fill-array-data v1, :array_0
 
     .line 147
-    .local v1, weights:[F
+    .local v1, "weights":[F
     iget-object v2, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v3, "weights"
@@ -118,10 +118,10 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x80t 0x3et
-        0x0t 0x0t 0x20t 0x3ft
-        0x0t 0x0t 0x0t 0x3et
+    .array-data 4
+        0x3e800000    # 0.25f
+        0x3f200000    # 0.625f
+        0x3e000000    # 0.125f
     .end array-data
 .end method
 
@@ -129,7 +129,7 @@
     .locals 5
 
     .prologue
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 157
     iget v1, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mScale:F
@@ -146,10 +146,10 @@
     new-array v0, v1, [F
 
     .line 160
-    .local v0, exponents:[F
+    .local v0, "exponents":[F
     const/4 v1, 0x0
 
-    const v2, 0x3f666666
+    const v2, 0x3f666666    # 0.9f
 
     iget v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mScale:F
 
@@ -162,7 +162,7 @@
     .line 161
     const/4 v1, 0x1
 
-    const v2, 0x40066666
+    const v2, 0x40066666    # 2.1f
 
     iget v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mScale:F
 
@@ -175,7 +175,7 @@
     .line 162
     const/4 v1, 0x2
 
-    const v2, 0x402ccccd
+    const v2, 0x402ccccd    # 2.7f
 
     iget v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mScale:F
 
@@ -193,7 +193,7 @@
     invoke-virtual {v1, v2, v0}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 168
-    .end local v0           #exponents:[F
+    .end local v0    # "exponents":[F
     :goto_0
     return-void
 
@@ -220,8 +220,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 110
@@ -243,8 +243,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 85
@@ -253,8 +253,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 89
@@ -300,7 +300,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 92
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -311,13 +311,13 @@
     .line 95
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
-    .end local v0           #shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .end local v0    # "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform vec3 weights;\nuniform vec3 exponents;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float de = dot(color.rgb, weights);\n  float inv_de = 1.0 / de;\n  vec3 new_color = de * pow(color.rgb * inv_de, exponents);\n  float max_color = max(max(max(new_color.r, new_color.g), new_color.b), 1.0);\n  gl_FragColor = vec4(new_color / max_color, color.a);\n}\n"
 
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 96
-    .restart local v0       #shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .restart local v0    # "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -342,7 +342,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 118
@@ -353,13 +353,13 @@
     move-result-object v0
 
     .line 119
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 122
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0
@@ -394,7 +394,7 @@
     move-result-object v2
 
     .line 131
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mScale:F
 
     const/4 v4, 0x0

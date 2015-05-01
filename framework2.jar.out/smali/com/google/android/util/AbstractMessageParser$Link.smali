@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "url"
-    .parameter "text"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "text"    # Ljava/lang/String;
 
     .prologue
     .line 793
@@ -58,7 +58,7 @@
     move-result-object v0
 
     .line 803
-    .local v0, info:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "info":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$Link;->getURL()Ljava/lang/String;
 
     move-result-object v1

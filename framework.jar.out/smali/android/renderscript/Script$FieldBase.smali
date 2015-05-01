@@ -70,8 +70,8 @@
 
 .method protected init(Landroid/renderscript/RenderScript;I)V
     .locals 2
-    .parameter "rs"
-    .parameter "dimx"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
+    .param p2, "dimx"    # I
 
     .prologue
     .line 317
@@ -91,9 +91,9 @@
 
 .method protected init(Landroid/renderscript/RenderScript;II)V
     .locals 2
-    .parameter "rs"
-    .parameter "dimx"
-    .parameter "usages"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
+    .param p2, "dimx"    # I
+    .param p3, "usages"    # I
 
     .prologue
     .line 321

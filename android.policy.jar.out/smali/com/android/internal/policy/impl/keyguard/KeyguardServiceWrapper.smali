@@ -15,7 +15,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/IKeyguardService;)V
     .locals 1
-    .parameter "service"
+    .param p1, "service"    # Lcom/android/internal/policy/IKeyguardService;
 
     .prologue
     .line 38
@@ -70,7 +70,7 @@
     move-exception v0
 
     .line 115
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -82,7 +82,7 @@
 
 .method public dispatch(Landroid/view/MotionEvent;)V
     .locals 0
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 197
@@ -91,7 +91,7 @@
 
 .method public doKeyguardTimeout(Landroid/os/Bundle;)V
     .locals 3
-    .parameter "options"
+    .param p1, "options"    # Landroid/os/Bundle;
 
     .prologue
     .line 169
@@ -111,7 +111,7 @@
     move-exception v0
 
     .line 171
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -144,7 +144,7 @@
     move-exception v0
 
     .line 82
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -180,7 +180,7 @@
     move-exception v0
 
     .line 73
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -216,7 +216,7 @@
     move-exception v0
 
     .line 55
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -252,7 +252,7 @@
     move-exception v0
 
     .line 46
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -288,7 +288,7 @@
     move-exception v0
 
     .line 64
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -303,8 +303,8 @@
 
 .method public keyguardDone(ZZ)V
     .locals 3
-    .parameter "authenticated"
-    .parameter "wakeup"
+    .param p1, "authenticated"    # Z
+    .param p2, "wakeup"    # Z
 
     .prologue
     .line 97
@@ -324,7 +324,7 @@
     move-exception v0
 
     .line 99
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -363,7 +363,7 @@
     move-exception v0
 
     .line 187
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -394,7 +394,7 @@
     move-exception v0
 
     .line 123
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -425,7 +425,7 @@
     move-exception v0
 
     .line 131
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -437,7 +437,7 @@
 
 .method public onScreenTurnedOff(I)V
     .locals 3
-    .parameter "reason"
+    .param p1, "reason"    # I
 
     .prologue
     .line 137
@@ -457,7 +457,7 @@
     move-exception v0
 
     .line 139
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -469,7 +469,7 @@
 
 .method public onScreenTurnedOn(Lcom/android/internal/policy/IKeyguardShowCallback;)V
     .locals 3
-    .parameter "result"
+    .param p1, "result"    # Lcom/android/internal/policy/IKeyguardShowCallback;
 
     .prologue
     .line 145
@@ -489,7 +489,7 @@
     move-exception v0
 
     .line 147
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -520,7 +520,7 @@
     move-exception v0
 
     .line 163
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -532,7 +532,7 @@
 
 .method public setCurrentUser(I)V
     .locals 3
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 177
@@ -552,7 +552,7 @@
     move-exception v0
 
     .line 179
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -564,7 +564,7 @@
 
 .method public setHidden(Z)V
     .locals 3
-    .parameter "isHidden"
+    .param p1, "isHidden"    # Z
 
     .prologue
     .line 105
@@ -584,7 +584,7 @@
     move-exception v0
 
     .line 107
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -596,7 +596,7 @@
 
 .method public setKeyguardEnabled(Z)V
     .locals 3
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 153
@@ -616,7 +616,7 @@
     move-exception v0
 
     .line 155
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"
@@ -636,7 +636,7 @@
 
 .method public verifyUnlock(Lcom/android/internal/policy/IKeyguardExitCallback;)V
     .locals 3
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/internal/policy/IKeyguardExitCallback;
 
     .prologue
     .line 89
@@ -656,7 +656,7 @@
     move-exception v0
 
     .line 91
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->TAG:Ljava/lang/String;
 
     const-string v2, "Remote Exception"

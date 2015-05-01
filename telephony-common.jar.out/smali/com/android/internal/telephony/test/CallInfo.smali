@@ -26,10 +26,10 @@
 # direct methods
 .method constructor <init>(ZLcom/android/internal/telephony/test/CallInfo$State;ZLjava/lang/String;)V
     .locals 2
-    .parameter "isMT"
-    .parameter "state"
-    .parameter "isMpty"
-    .parameter "number"
+    .param p1, "isMT"    # Z
+    .param p2, "state"    # Lcom/android/internal/telephony/test/CallInfo$State;
+    .param p3, "isMpty"    # Z
+    .param p4, "number"    # Ljava/lang/String;
 
     .prologue
     .line 51
@@ -84,7 +84,7 @@
 
 .method static createIncomingCall(Ljava/lang/String;)Lcom/android/internal/telephony/test/CallInfo;
     .locals 4
-    .parameter "number"
+    .param p0, "number"    # Ljava/lang/String;
 
     .prologue
     .line 71
@@ -103,7 +103,7 @@
 
 .method static createOutgoingCall(Ljava/lang/String;)Lcom/android/internal/telephony/test/CallInfo;
     .locals 3
-    .parameter "number"
+    .param p0, "number"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -209,7 +209,7 @@
 
 .method toCLCCLine(I)Ljava/lang/String;
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 76
@@ -320,7 +320,7 @@
 
 .method toDriverCall(I)Lcom/android/internal/telephony/DriverCall;
     .locals 4
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 87
@@ -329,7 +329,7 @@
     invoke-direct {v1}, Lcom/android/internal/telephony/DriverCall;-><init>()V
 
     .line 89
-    .local v1, ret:Lcom/android/internal/telephony/DriverCall;
+    .local v1, "ret":Lcom/android/internal/telephony/DriverCall;
     iput p1, v1, Lcom/android/internal/telephony/DriverCall;->index:I
 
     .line 90
@@ -386,7 +386,7 @@
     move-exception v0
 
     .line 95
-    .local v0, ex:Lcom/android/internal/telephony/ATParseEx;
+    .local v0, "ex":Lcom/android/internal/telephony/ATParseEx;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "should never happen"

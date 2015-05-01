@@ -49,7 +49,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 743
-    const-wide/high16 v0, -0x8000
+    const-wide/high16 v0, -0x8000000000000000L
 
     iput-wide v0, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
@@ -75,10 +75,10 @@
 
 .method private getValueAt(J)F
     .locals 10
-    .parameter "currentTime"
+    .param p1, "currentTime"    # J
 
     .prologue
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v4, 0x0
 
@@ -116,8 +116,8 @@
     sub-long v2, p1, v5
 
     .line 790
-    .local v2, elapsedSinceStart:J
-    const/high16 v5, 0x3f00
+    .local v2, "elapsedSinceStart":J
+    const/high16 v5, 0x3f000000    # 0.5f
 
     long-to-float v6, v2
 
@@ -127,7 +127,7 @@
 
     div-float/2addr v6, v7
 
-    #calls: Lcom/android/internal/widget/AutoScrollHelper;->constrain(FFF)F
+    # invokes: Lcom/android/internal/widget/AutoScrollHelper;->constrain(FFF)F
     invoke-static {v6, v4, v9}, Lcom/android/internal/widget/AutoScrollHelper;->access$900(FFF)F
 
     move-result v4
@@ -137,14 +137,14 @@
     goto :goto_0
 
     .line 792
-    .end local v2           #elapsedSinceStart:J
+    .end local v2    # "elapsedSinceStart":J
     :cond_2
     iget-wide v5, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     sub-long v0, p1, v5
 
     .line 793
-    .local v0, elapsedSinceEnd:J
+    .local v0, "elapsedSinceEnd":J
     iget v5, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 
     sub-float v5, v9, v5
@@ -159,7 +159,7 @@
 
     div-float/2addr v7, v8
 
-    #calls: Lcom/android/internal/widget/AutoScrollHelper;->constrain(FFF)F
+    # invokes: Lcom/android/internal/widget/AutoScrollHelper;->constrain(FFF)F
     invoke-static {v7, v4, v9}, Lcom/android/internal/widget/AutoScrollHelper;->access$900(FFF)F
 
     move-result v4
@@ -173,17 +173,17 @@
 
 .method private interpolateValue(F)F
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # F
 
     .prologue
     .line 806
-    const/high16 v0, -0x3f80
+    const/high16 v0, -0x3f800000    # -4.0f
 
     mul-float/2addr v0, p1
 
     mul-float/2addr v0, p1
 
-    const/high16 v1, 0x4080
+    const/high16 v1, 0x40800000    # 4.0f
 
     mul-float/2addr v1, p1
 
@@ -223,25 +223,25 @@
     move-result-wide v0
 
     .line 822
-    .local v0, currentTime:J
+    .local v0, "currentTime":J
     invoke-direct {p0, v0, v1}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->getValueAt(J)F
 
     move-result v5
 
     .line 823
-    .local v5, value:F
+    .local v5, "value":F
     invoke-direct {p0, v5}, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->interpolateValue(F)F
 
     move-result v4
 
     .line 824
-    .local v4, scale:F
+    .local v4, "scale":F
     iget-wide v6, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     sub-long v2, v0, v6
 
     .line 826
-    .local v2, elapsedSinceDelta:J
+    .local v2, "elapsedSinceDelta":J
     iput-wide v0, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     .line 827
@@ -384,7 +384,7 @@
     move-result-wide v0
 
     .line 775
-    .local v0, currentTime:J
+    .local v0, "currentTime":J
     iget-wide v2, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
     sub-long v2, v0, v2
@@ -395,7 +395,7 @@
 
     iget v4, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mRampDownDuration:I
 
-    #calls: Lcom/android/internal/widget/AutoScrollHelper;->constrain(III)I
+    # invokes: Lcom/android/internal/widget/AutoScrollHelper;->constrain(III)I
     invoke-static {v2, v3, v4}, Lcom/android/internal/widget/AutoScrollHelper;->access$800(III)I
 
     move-result v2
@@ -418,7 +418,7 @@
 
 .method public setRampDownDuration(I)V
     .locals 0
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # I
 
     .prologue
     .line 755
@@ -430,7 +430,7 @@
 
 .method public setRampUpDuration(I)V
     .locals 0
-    .parameter "durationMillis"
+    .param p1, "durationMillis"    # I
 
     .prologue
     .line 751
@@ -442,8 +442,8 @@
 
 .method public setTargetVelocity(FF)V
     .locals 0
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 838
@@ -480,7 +480,7 @@
     iput-wide v0, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     .line 765
-    const/high16 v0, 0x3f00
+    const/high16 v0, 0x3f000000    # 0.5f
 
     iput v0, p0, Lcom/android/internal/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 

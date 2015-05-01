@@ -83,7 +83,7 @@
     iput v1, p0, Landroid/renderscript/RenderScriptGL$SurfaceConfig;->mSamplesPref:I
 
     .line 70
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/renderscript/RenderScriptGL$SurfaceConfig;->mSamplesQ:F
 
@@ -93,7 +93,7 @@
 
 .method public constructor <init>(Landroid/renderscript/RenderScriptGL$SurfaceConfig;)V
     .locals 3
-    .parameter "sc"
+    .param p1, "sc"    # Landroid/renderscript/RenderScriptGL$SurfaceConfig;
 
     .prologue
     const/16 v2, 0x8
@@ -136,7 +136,7 @@
     iput v1, p0, Landroid/renderscript/RenderScriptGL$SurfaceConfig;->mSamplesPref:I
 
     .line 70
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/renderscript/RenderScriptGL$SurfaceConfig;->mSamplesQ:F
 
@@ -201,10 +201,10 @@
 
 .method private validateRange(IIII)V
     .locals 2
-    .parameter "umin"
-    .parameter "upref"
-    .parameter "rmin"
-    .parameter "rmax"
+    .param p1, "umin"    # I
+    .param p2, "upref"    # I
+    .param p3, "rmin"    # I
+    .param p4, "rmax"    # I
 
     .prologue
     .line 96
@@ -244,8 +244,8 @@
 # virtual methods
 .method public setAlpha(II)V
     .locals 2
-    .parameter "minimum"
-    .parameter "preferred"
+    .param p1, "minimum"    # I
+    .param p2, "preferred"    # I
 
     .prologue
     .line 127
@@ -267,8 +267,8 @@
 
 .method public setColor(II)V
     .locals 2
-    .parameter "minimum"
-    .parameter "preferred"
+    .param p1, "minimum"    # I
+    .param p2, "preferred"    # I
 
     .prologue
     .line 113
@@ -290,8 +290,8 @@
 
 .method public setDepth(II)V
     .locals 2
-    .parameter "minimum"
-    .parameter "preferred"
+    .param p1, "minimum"    # I
+    .param p2, "preferred"    # I
 
     .prologue
     .line 143
@@ -313,9 +313,9 @@
 
 .method public setSamples(IIF)V
     .locals 2
-    .parameter "minimum"
-    .parameter "preferred"
-    .parameter "Q"
+    .param p1, "minimum"    # I
+    .param p2, "preferred"    # I
+    .param p3, "Q"    # F
 
     .prologue
     .line 160
@@ -332,7 +332,7 @@
 
     if-ltz v0, :cond_0
 
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p3, v0
 

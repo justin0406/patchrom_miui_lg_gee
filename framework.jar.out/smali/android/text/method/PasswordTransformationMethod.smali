@@ -3,8 +3,8 @@
 .source "PasswordTransformationMethod.java"
 
 # interfaces
-.implements Landroid/text/method/TransformationMethod;
 .implements Landroid/text/TextWatcher;
+.implements Landroid/text/method/TransformationMethod;
 
 
 # annotations
@@ -89,7 +89,7 @@
 
 .method private static removeVisibleSpans(Landroid/text/Spannable;)V
     .locals 5
-    .parameter "sp"
+    .param p0, "sp"    # Landroid/text/Spannable;
 
     .prologue
     .line 133
@@ -108,10 +108,10 @@
     check-cast v1, [Landroid/text/method/PasswordTransformationMethod$Visible;
 
     .line 134
-    .local v1, old:[Landroid/text/method/PasswordTransformationMethod$Visible;
+    .local v1, "old":[Landroid/text/method/PasswordTransformationMethod$Visible;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v2, v1
 
@@ -136,7 +136,7 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Landroid/text/Editable;
 
     .prologue
     .line 118
@@ -145,10 +145,10 @@
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
+    .param p4, "after"    # I
 
     .prologue
     .line 74
@@ -157,8 +157,8 @@
 
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 6
-    .parameter "source"
-    .parameter "view"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "view"    # Landroid/view/View;
 
     .prologue
     const/4 v5, 0x0
@@ -174,7 +174,7 @@
     check-cast v1, Landroid/text/Spannable;
 
     .line 48
-    .local v1, sp:Landroid/text/Spannable;
+    .local v1, "sp":Landroid/text/Spannable;
     invoke-interface {v1}, Landroid/text/Spannable;->length()I
 
     move-result v3
@@ -188,10 +188,10 @@
     check-cast v2, [Landroid/text/method/PasswordTransformationMethod$ViewReference;
 
     .line 50
-    .local v2, vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
+    .local v2, "vr":[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
@@ -221,9 +221,9 @@
     invoke-interface {v1, v3, v5, v5, v4}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
     .line 60
-    .end local v0           #i:I
-    .end local v1           #sp:Landroid/text/Spannable;
-    .end local v2           #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
+    .end local v0    # "i":I
+    .end local v1    # "sp":Landroid/text/Spannable;
+    .end local v2    # "vr":[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     :cond_1
     new-instance v3, Landroid/text/method/PasswordTransformationMethod$PasswordCharSequence;
 
@@ -234,11 +234,11 @@
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
     .locals 2
-    .parameter "view"
-    .parameter "sourceText"
-    .parameter "focused"
-    .parameter "direction"
-    .parameter "previouslyFocusedRect"
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "sourceText"    # Ljava/lang/CharSequence;
+    .param p3, "focused"    # Z
+    .param p4, "direction"    # I
+    .param p5, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 123
@@ -255,21 +255,21 @@
     check-cast v0, Landroid/text/Spannable;
 
     .line 127
-    .local v0, sp:Landroid/text/Spannable;
+    .local v0, "sp":Landroid/text/Spannable;
     invoke-static {v0}, Landroid/text/method/PasswordTransformationMethod;->removeVisibleSpans(Landroid/text/Spannable;)V
 
     .line 130
-    .end local v0           #sp:Landroid/text/Spannable;
+    .end local v0    # "sp":Landroid/text/Spannable;
     :cond_0
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 8
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "count"    # I
 
     .prologue
     .line 78
@@ -283,7 +283,7 @@
     check-cast v2, Landroid/text/Spannable;
 
     .line 80
-    .local v2, sp:Landroid/text/Spannable;
+    .local v2, "sp":Landroid/text/Spannable;
     const/4 v5, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -299,29 +299,29 @@
     check-cast v4, [Landroid/text/method/PasswordTransformationMethod$ViewReference;
 
     .line 82
-    .local v4, vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
+    .local v4, "vr":[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     array-length v5, v4
 
     if-nez v5, :cond_1
 
     .line 114
-    .end local v2           #sp:Landroid/text/Spannable;
-    .end local v4           #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
+    .end local v2    # "sp":Landroid/text/Spannable;
+    .end local v4    # "vr":[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     :cond_0
     :goto_0
     return-void
 
     .line 93
-    .restart local v2       #sp:Landroid/text/Spannable;
-    .restart local v4       #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
+    .restart local v2    # "sp":Landroid/text/Spannable;
+    .restart local v4    # "vr":[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     :cond_1
     const/4 v3, 0x0
 
     .line 94
-    .local v3, v:Landroid/view/View;
+    .local v3, "v":Landroid/view/View;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-nez v3, :cond_2
 
@@ -336,11 +336,11 @@
 
     move-result-object v3
 
-    .end local v3           #v:Landroid/view/View;
+    .end local v3    # "v":Landroid/view/View;
     check-cast v3, Landroid/view/View;
 
     .line 94
-    .restart local v3       #v:Landroid/view/View;
+    .restart local v3    # "v":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
@@ -363,7 +363,7 @@
     move-result v1
 
     .line 103
-    .local v1, pref:I
+    .local v1, "pref":I
     and-int/lit8 v5, v1, 0x8
 
     if-eqz v5, :cond_0

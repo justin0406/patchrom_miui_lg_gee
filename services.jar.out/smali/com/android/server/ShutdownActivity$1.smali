@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ShutdownActivity;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 46
@@ -51,11 +50,11 @@
     move-result-object v0
 
     .line 52
-    .local v0, pm:Landroid/os/IPowerManager;
+    .local v0, "pm":Landroid/os/IPowerManager;
     :try_start_0
     iget-object v1, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
-    #getter for: Lcom/android/server/ShutdownActivity;->mReboot:Z
+    # getter for: Lcom/android/server/ShutdownActivity;->mReboot:Z
     invoke-static {v1}, Lcom/android/server/ShutdownActivity;->access$000(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v1
@@ -65,7 +64,7 @@
     .line 53
     iget-object v1, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
-    #getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
+    # getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
     invoke-static {v1}, Lcom/android/server/ShutdownActivity;->access$100(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v1
@@ -84,7 +83,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
-    #getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
+    # getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
     invoke-static {v1}, Lcom/android/server/ShutdownActivity;->access$100(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v1

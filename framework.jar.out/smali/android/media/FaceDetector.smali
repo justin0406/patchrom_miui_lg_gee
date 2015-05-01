@@ -59,17 +59,17 @@
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 187
-    .local v0, e:Ljava/lang/UnsatisfiedLinkError;
+    .local v0, "e":Ljava/lang/UnsatisfiedLinkError;
     :goto_0
     return-void
 
     .line 184
-    .end local v0           #e:Ljava/lang/UnsatisfiedLinkError;
+    .end local v0    # "e":Ljava/lang/UnsatisfiedLinkError;
     :catch_0
     move-exception v0
 
     .line 185
-    .restart local v0       #e:Ljava/lang/UnsatisfiedLinkError;
+    .restart local v0    # "e":Ljava/lang/UnsatisfiedLinkError;
     const-string v1, "FFTEm"
 
     const-string v2, "face detection library not found!"
@@ -81,9 +81,9 @@
 
 .method public constructor <init>(III)V
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "maxFaces"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "maxFaces"    # I
 
     .prologue
     .line 113
@@ -156,8 +156,8 @@
 
 .method public findFaces(Landroid/graphics/Bitmap;[Landroid/media/FaceDetector$Face;)I
     .locals 4
-    .parameter "bitmap"
-    .parameter "faces"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "faces"    # [Landroid/media/FaceDetector$Face;
 
     .prologue
     .line 141
@@ -224,7 +224,7 @@
     move-result v1
 
     .line 154
-    .local v1, numFaces:I
+    .local v1, "numFaces":I
     iget v2, p0, Landroid/media/FaceDetector;->mMaxFaces:I
 
     if-lt v1, v2, :cond_5
@@ -236,7 +236,7 @@
     :cond_5
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 

@@ -50,7 +50,7 @@
 
 .method public setColorMode(I)Landroid/print/PrintAttributes$Builder;
     .locals 2
-    .parameter "colorMode"
+    .param p1, "colorMode"    # I
 
     .prologue
     .line 1233
@@ -83,7 +83,7 @@
 
 .method public setMediaSize(Landroid/print/PrintAttributes$MediaSize;)Landroid/print/PrintAttributes$Builder;
     .locals 1
-    .parameter "mediaSize"
+    .param p1, "mediaSize"    # Landroid/print/PrintAttributes$MediaSize;
 
     .prologue
     .line 1196
@@ -97,7 +97,7 @@
 
 .method public setMinMargins(Landroid/print/PrintAttributes$Margins;)Landroid/print/PrintAttributes$Builder;
     .locals 1
-    .parameter "margins"
+    .param p1, "margins"    # Landroid/print/PrintAttributes$Margins;
 
     .prologue
     .line 1219
@@ -111,7 +111,7 @@
 
 .method public setResolution(Landroid/print/PrintAttributes$Resolution;)Landroid/print/PrintAttributes$Builder;
     .locals 1
-    .parameter "resolution"
+    .param p1, "resolution"    # Landroid/print/PrintAttributes$Resolution;
 
     .prologue
     .line 1207

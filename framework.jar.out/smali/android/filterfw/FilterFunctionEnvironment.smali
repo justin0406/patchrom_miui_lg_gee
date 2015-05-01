@@ -19,7 +19,7 @@
 
 .method public constructor <init>(Landroid/filterfw/core/FrameManager;)V
     .locals 0
-    .parameter "frameManager"
+    .param p1, "frameManager"    # Landroid/filterfw/core/FrameManager;
 
     .prologue
     .line 53
@@ -33,8 +33,8 @@
 # virtual methods
 .method public varargs createFunction(Ljava/lang/Class;[Ljava/lang/Object;)Landroid/filterfw/core/FilterFunction;
     .locals 4
-    .parameter "filterClass"
-    .parameter "parameters"
+    .param p1, "filterClass"    # Ljava/lang/Class;
+    .param p2, "parameters"    # [Ljava/lang/Object;
 
     .prologue
     .line 66
@@ -67,7 +67,7 @@
     move-result-object v1
 
     .line 67
-    .local v1, filterName:Ljava/lang/String;
+    .local v1, "filterName":Ljava/lang/String;
     invoke-static {}, Landroid/filterfw/core/FilterFactory;->sharedFactory()Landroid/filterfw/core/FilterFactory;
 
     move-result-object v2
@@ -77,7 +77,7 @@
     move-result-object v0
 
     .line 68
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0, p2}, Landroid/filterfw/core/Filter;->initWithAssignmentList([Ljava/lang/Object;)V
 
     .line 69

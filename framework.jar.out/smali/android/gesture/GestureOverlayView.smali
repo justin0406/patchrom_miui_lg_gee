@@ -150,7 +150,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v3, 0x1
@@ -186,12 +186,12 @@
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     .line 76
-    const v0, 0x48ffff00
+    const v0, 0x48ffff00    # 524280.0f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
     .line 77
-    const/high16 v0, 0x4140
+    const/high16 v0, 0x41400000    # 12.0f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
@@ -204,17 +204,17 @@
     iput v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
     .line 81
-    const/high16 v0, 0x4248
+    const/high16 v0, 0x42480000    # 50.0f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
     .line 82
-    const v0, 0x3e8ccccd
+    const v0, 0x3e8ccccd    # 0.275f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
     .line 83
-    const/high16 v0, 0x4220
+    const/high16 v0, 0x42200000    # 40.0f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
@@ -281,7 +281,7 @@
     iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
     .line 122
-    const/high16 v0, 0x3f80
+    const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
@@ -310,8 +310,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 134
@@ -325,9 +325,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 6
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/16 v5, 0xa
@@ -365,12 +365,12 @@
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     .line 76
-    const v1, 0x48ffff00
+    const v1, 0x48ffff00    # 524280.0f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
     .line 77
-    const/high16 v1, 0x4140
+    const/high16 v1, 0x41400000    # 12.0f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
@@ -381,17 +381,17 @@
     iput v4, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
     .line 81
-    const/high16 v1, 0x4248
+    const/high16 v1, 0x42480000    # 50.0f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
     .line 82
-    const v1, 0x3e8ccccd
+    const v1, 0x3e8ccccd    # 0.275f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
     .line 83
-    const/high16 v1, 0x4220
+    const/high16 v1, 0x42200000    # 40.0f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
@@ -458,7 +458,7 @@
     iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
     .line 122
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
@@ -486,7 +486,7 @@
     move-result-object v0
 
     .line 143
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -645,7 +645,7 @@
 
 .method static synthetic access$100(Landroid/gesture/GestureOverlayView;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -656,7 +656,7 @@
 
 .method static synthetic access$1000(Landroid/gesture/GestureOverlayView;)F
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -667,8 +667,8 @@
 
 .method static synthetic access$1002(Landroid/gesture/GestureOverlayView;F)F
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # F
 
     .prologue
     .line 55
@@ -679,8 +679,8 @@
 
 .method static synthetic access$102(Landroid/gesture/GestureOverlayView;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 55
@@ -691,7 +691,7 @@
 
 .method static synthetic access$1100(Landroid/gesture/GestureOverlayView;)Landroid/view/animation/AccelerateDecelerateInterpolator;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -702,8 +702,8 @@
 
 .method static synthetic access$1202(Landroid/gesture/GestureOverlayView;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 55
@@ -714,7 +714,7 @@
 
 .method static synthetic access$200(Landroid/gesture/GestureOverlayView;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -725,7 +725,7 @@
 
 .method static synthetic access$300(Landroid/gesture/GestureOverlayView;)J
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -736,7 +736,7 @@
 
 .method static synthetic access$400(Landroid/gesture/GestureOverlayView;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -747,8 +747,8 @@
 
 .method static synthetic access$502(Landroid/gesture/GestureOverlayView;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 55
@@ -759,8 +759,8 @@
 
 .method static synthetic access$602(Landroid/gesture/GestureOverlayView;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 55
@@ -771,7 +771,7 @@
 
 .method static synthetic access$700(Landroid/gesture/GestureOverlayView;)Landroid/graphics/Path;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
 
     .prologue
     .line 55
@@ -782,8 +782,8 @@
 
 .method static synthetic access$802(Landroid/gesture/GestureOverlayView;Landroid/gesture/Gesture;)Landroid/gesture/Gesture;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # Landroid/gesture/Gesture;
 
     .prologue
     .line 55
@@ -794,8 +794,8 @@
 
 .method static synthetic access$900(Landroid/gesture/GestureOverlayView;I)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/gesture/GestureOverlayView;
+    .param p1, "x1"    # I
 
     .prologue
     .line 55
@@ -806,23 +806,23 @@
 
 .method private cancelGesture(Landroid/view/MotionEvent;)V
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 716
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     .line 717
-    .local v2, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .local v2, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
     .line 718
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -852,14 +852,14 @@
 
 .method private clear(ZZZ)V
     .locals 5
-    .parameter "animated"
-    .parameter "fireActionPerformed"
-    .parameter "immediate"
+    .param p1, "animated"    # Z
+    .param p2, "fireActionPerformed"    # Z
+    .param p3, "immediate"    # Z
 
     .prologue
     const/4 v4, 0x0
 
-    const/high16 v3, 0x3f80
+    const/high16 v3, 0x3f800000    # 1.0f
 
     const/4 v2, 0x1
 
@@ -1008,16 +1008,16 @@
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     .line 727
-    .local v0, actionListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;>;"
+    .local v0, "actionListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;>;"
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     .line 728
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
@@ -1057,7 +1057,7 @@
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
     .line 178
-    .local v0, gesturePaint:Landroid/graphics/Paint;
+    .local v0, "gesturePaint":Landroid/graphics/Paint;
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 179
@@ -1104,7 +1104,7 @@
 
 .method private processEvent(Landroid/view/MotionEvent;)Z
     .locals 4
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v2, 0x0
@@ -1147,7 +1147,7 @@
     move-result-object v0
 
     .line 523
-    .local v0, rect:Landroid/graphics/Rect;
+    .local v0, "rect":Landroid/graphics/Rect;
     if-eqz v0, :cond_1
 
     .line 524
@@ -1156,7 +1156,7 @@
     goto :goto_0
 
     .line 530
-    .end local v0           #rect:Landroid/graphics/Rect;
+    .end local v0    # "rect":Landroid/graphics/Rect;
     :pswitch_2
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
@@ -1196,7 +1196,7 @@
 
 .method private setCurrentColor(I)V
     .locals 2
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 375
@@ -1208,7 +1208,7 @@
     if-eqz v0, :cond_0
 
     .line 377
-    const/high16 v0, 0x437f
+    const/high16 v0, 0x437f0000    # 255.0f
 
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
@@ -1236,7 +1236,7 @@
 
 .method private setPaintAlpha(I)V
     .locals 5
-    .parameter "alpha"
+    .param p1, "alpha"    # I
 
     .prologue
     .line 401
@@ -1250,13 +1250,13 @@
     ushr-int/lit8 v0, v2, 0x18
 
     .line 403
-    .local v0, baseAlpha:I
+    .local v0, "baseAlpha":I
     mul-int v2, v0, p1
 
     shr-int/lit8 v1, v2, 0x8
 
     .line 404
-    .local v1, useAlpha:I
+    .local v1, "useAlpha":I
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
     iget v3, p0, Landroid/gesture/GestureOverlayView;->mCurrentColor:I
@@ -1277,7 +1277,7 @@
 
 .method private touchDown(Landroid/view/MotionEvent;)V
     .locals 11
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v7, 0x0
@@ -1293,13 +1293,13 @@
     move-result v4
 
     .line 551
-    .local v4, x:F
+    .local v4, "x":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v5
 
     .line 553
-    .local v5, y:F
+    .local v5, "y":F
     iput v4, p0, Landroid/gesture/GestureOverlayView;->mX:F
 
     .line 554
@@ -1393,7 +1393,7 @@
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
     .line 586
-    .local v0, border:I
+    .local v0, "border":I
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mInvalidRect:Landroid/graphics/Rect;
 
     float-to-int v7, v4
@@ -1424,16 +1424,16 @@
     iget-object v3, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     .line 593
-    .local v3, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .local v3, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     .line 594
-    .local v1, count:I
+    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_2
     if-ge v2, v1, :cond_8
 
@@ -1452,10 +1452,10 @@
     goto :goto_2
 
     .line 564
-    .end local v0           #border:I
-    .end local v1           #count:I
-    .end local v2           #i:I
-    .end local v3           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .end local v0    # "border":I
+    .end local v1    # "count":I
+    .end local v2    # "i":I
+    .end local v3    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :cond_5
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
@@ -1506,36 +1506,36 @@
     goto :goto_1
 
     .line 597
-    .restart local v0       #border:I
-    .restart local v1       #count:I
-    .restart local v2       #i:I
-    .restart local v3       #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .restart local v0    # "border":I
+    .restart local v1    # "count":I
+    .restart local v2    # "i":I
+    .restart local v3    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :cond_8
     return-void
 .end method
 
 .method private touchMove(Landroid/view/MotionEvent;)Landroid/graphics/Rect;
     .locals 25
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 600
     const/4 v6, 0x0
 
     .line 602
-    .local v6, areaToRefresh:Landroid/graphics/Rect;
+    .local v6, "areaToRefresh":Landroid/graphics/Rect;
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v19
 
     .line 603
-    .local v19, x:F
+    .local v19, "x":F
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v20
 
     .line 605
-    .local v20, y:F
+    .local v20, "y":F
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mX:F
@@ -1543,7 +1543,7 @@
     move/from16 v17, v0
 
     .line 606
-    .local v17, previousX:F
+    .local v17, "previousX":F
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mY:F
@@ -1551,7 +1551,7 @@
     move/from16 v18, v0
 
     .line 608
-    .local v18, previousY:F
+    .local v18, "previousY":F
     sub-float v21, v19, v17
 
     invoke-static/range {v21 .. v21}, Ljava/lang/Math;->abs(F)F
@@ -1559,7 +1559,7 @@
     move-result v12
 
     .line 609
-    .local v12, dx:F
+    .local v12, "dx":F
     sub-float v21, v20, v18
 
     invoke-static/range {v21 .. v21}, Ljava/lang/Math;->abs(F)F
@@ -1567,14 +1567,14 @@
     move-result v13
 
     .line 611
-    .local v13, dy:F
-    const/high16 v21, 0x4040
+    .local v13, "dy":F
+    const/high16 v21, 0x40400000    # 3.0f
 
     cmpl-float v21, v12, v21
 
     if-gez v21, :cond_0
 
-    const/high16 v21, 0x4040
+    const/high16 v21, 0x40400000    # 3.0f
 
     cmpl-float v21, v13, v21
 
@@ -1592,7 +1592,7 @@
     iget v7, v0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
     .line 616
-    .local v7, border:I
+    .local v7, "border":I
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mCurveEndX:F
@@ -1662,7 +1662,7 @@
     .line 619
     add-float v21, v19, v17
 
-    const/high16 v22, 0x4000
+    const/high16 v22, 0x40000000    # 2.0f
 
     div-float v9, v21, v22
 
@@ -1671,10 +1671,10 @@
     iput v9, v0, Landroid/gesture/GestureOverlayView;->mCurveEndX:F
 
     .line 620
-    .local v9, cX:F
+    .local v9, "cX":F
     add-float v21, v20, v18
 
-    const/high16 v22, 0x4000
+    const/high16 v22, 0x40000000    # 2.0f
 
     div-float v10, v21, v22
 
@@ -1683,7 +1683,7 @@
     iput v10, v0, Landroid/gesture/GestureOverlayView;->mCurveEndY:F
 
     .line 622
-    .local v10, cY:F
+    .local v10, "cY":F
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
@@ -1898,7 +1898,7 @@
     move-result-object v8
 
     .line 644
-    .local v8, box:Landroid/gesture/OrientedBoundingBox;
+    .local v8, "box":Landroid/gesture/OrientedBoundingBox;
     iget v0, v8, Landroid/gesture/OrientedBoundingBox;->orientation:F
 
     move/from16 v21, v0
@@ -1908,15 +1908,15 @@
     move-result v5
 
     .line 645
-    .local v5, angle:F
-    const/high16 v21, 0x42b4
+    .local v5, "angle":F
+    const/high16 v21, 0x42b40000    # 90.0f
 
     cmpl-float v21, v5, v21
 
     if-lez v21, :cond_1
 
     .line 646
-    const/high16 v21, 0x4334
+    const/high16 v21, 0x43340000    # 180.0f
 
     sub-float v5, v21, v5
 
@@ -1991,16 +1991,16 @@
     move-object/from16 v16, v0
 
     .line 658
-    .local v16, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .local v16, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
     .line 659
-    .local v11, count:I
+    .local v11, "count":I
     const/4 v14, 0x0
 
-    .local v14, i:I
+    .local v14, "i":I
     :goto_0
     if-ge v14, v11, :cond_4
 
@@ -2025,9 +2025,9 @@
     goto :goto_0
 
     .line 649
-    .end local v11           #count:I
-    .end local v14           #i:I
-    .end local v16           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .end local v11    # "count":I
+    .end local v14    # "i":I
+    .end local v16    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     :cond_3
     move-object/from16 v0, p0
 
@@ -2040,24 +2040,24 @@
     if-gtz v21, :cond_2
 
     .line 667
-    .end local v5           #angle:F
-    .end local v8           #box:Landroid/gesture/OrientedBoundingBox;
+    .end local v5    # "angle":F
+    .end local v8    # "box":Landroid/gesture/OrientedBoundingBox;
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     .line 668
-    .local v15, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .local v15, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
     .line 669
-    .restart local v11       #count:I
+    .restart local v11    # "count":I
     const/4 v14, 0x0
 
-    .restart local v14       #i:I
+    .restart local v14    # "i":I
     :goto_1
     if-ge v14, v11, :cond_5
 
@@ -2082,20 +2082,20 @@
     goto :goto_1
 
     .line 674
-    .end local v7           #border:I
-    .end local v9           #cX:F
-    .end local v10           #cY:F
-    .end local v11           #count:I
-    .end local v14           #i:I
-    .end local v15           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .end local v7    # "border":I
+    .end local v9    # "cX":F
+    .end local v10    # "cY":F
+    .end local v11    # "count":I
+    .end local v14    # "i":I
+    .end local v15    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :cond_5
     return-object v6
 .end method
 
 .method private touchUp(Landroid/view/MotionEvent;Z)V
     .locals 9
-    .parameter "event"
-    .parameter "cancel"
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "cancel"    # Z
 
     .prologue
     const/4 v5, 0x1
@@ -2128,16 +2128,16 @@
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     .line 688
-    .local v2, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .local v2, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
     .line 689
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -2180,9 +2180,9 @@
     invoke-direct {p0, v4, v5, v6}, Landroid/gesture/GestureOverlayView;->clear(ZZZ)V
 
     .line 703
-    .end local v0           #count:I
-    .end local v1           #i:I
-    .end local v2           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .end local v0    # "count":I
+    .end local v1    # "i":I
+    .end local v2    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :goto_3
     iget-object v4, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
@@ -2200,16 +2200,16 @@
     iget-object v3, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     .line 708
-    .local v3, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .local v3, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
     .line 709
-    .restart local v0       #count:I
+    .restart local v0    # "count":I
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :goto_4
     if-ge v1, v0, :cond_5
 
@@ -2227,8 +2227,8 @@
 
     goto :goto_4
 
-    .end local v3           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
-    .restart local v2       #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .end local v3    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .restart local v2    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :cond_1
     move v4, v6
 
@@ -2241,9 +2241,9 @@
     goto :goto_2
 
     .line 696
-    .end local v0           #count:I
-    .end local v1           #i:I
-    .end local v2           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .end local v0    # "count":I
+    .end local v1    # "i":I
+    .end local v2    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     :cond_3
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->cancelGesture(Landroid/view/MotionEvent;)V
 
@@ -2256,9 +2256,9 @@
     goto :goto_3
 
     .line 712
-    .restart local v0       #count:I
-    .restart local v1       #i:I
-    .restart local v3       #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .restart local v0    # "count":I
+    .restart local v1    # "i":I
+    .restart local v3    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     :cond_5
     return-void
 .end method
@@ -2267,7 +2267,7 @@
 # virtual methods
 .method public addOnGestureListener(Landroid/gesture/GestureOverlayView$OnGestureListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGestureListener;
 
     .prologue
     .line 328
@@ -2281,7 +2281,7 @@
 
 .method public addOnGesturePerformedListener(Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;
 
     .prologue
     .line 340
@@ -2310,7 +2310,7 @@
 
 .method public addOnGesturingListener(Landroid/gesture/GestureOverlayView$OnGesturingListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGesturingListener;
 
     .prologue
     .line 359
@@ -2386,7 +2386,7 @@
     move-result-wide v0
 
     .line 464
-    .local v0, now:J
+    .local v0, "now":J
     const/4 v4, 0x3
 
     move-wide v2, v0
@@ -2398,20 +2398,20 @@
     move-result-object v9
 
     .line 467
-    .local v9, event:Landroid/view/MotionEvent;
+    .local v9, "event":Landroid/view/MotionEvent;
     iget-object v11, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     .line 468
-    .local v11, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
+    .local v11, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
 
     move-result v8
 
     .line 469
-    .local v8, count:I
+    .local v8, "count":I
     const/4 v10, 0x0
 
-    .local v10, i:I
+    .local v10, "i":I
     :goto_0
     if-ge v10, v8, :cond_0
 
@@ -2451,7 +2451,7 @@
     iget-object v12, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     .line 481
-    .local v12, otherListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
+    .local v12, "otherListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v8
@@ -2483,7 +2483,7 @@
 
 .method public clear(Z)V
     .locals 2
-    .parameter "animated"
+    .param p1, "animated"    # Z
 
     .prologue
     .line 408
@@ -2499,7 +2499,7 @@
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 3
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/4 v1, 0x1
@@ -2540,7 +2540,7 @@
     move v0, v1
 
     .line 500
-    .local v0, cancelDispatch:Z
+    .local v0, "cancelDispatch":Z
     :goto_0
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->processEvent(Landroid/view/MotionEvent;)Z
 
@@ -2557,7 +2557,7 @@
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 511
-    .end local v0           #cancelDispatch:Z
+    .end local v0    # "cancelDispatch":Z
     :goto_1
     return v1
 
@@ -2578,7 +2578,7 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 393
@@ -2676,7 +2676,7 @@
 
 .method public getGesturePath(Landroid/graphics/Path;)Landroid/graphics/Path;
     .locals 1
-    .parameter "path"
+    .param p1, "path"    # Landroid/graphics/Path;
 
     .prologue
     .line 307
@@ -2858,7 +2858,7 @@
 
 .method public removeOnGestureListener(Landroid/gesture/GestureOverlayView$OnGestureListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGestureListener;
 
     .prologue
     .line 332
@@ -2872,7 +2872,7 @@
 
 .method public removeOnGesturePerformedListener(Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;
 
     .prologue
     .line 347
@@ -2901,7 +2901,7 @@
 
 .method public removeOnGesturingListener(Landroid/gesture/GestureOverlayView$OnGesturingListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/gesture/GestureOverlayView$OnGesturingListener;
 
     .prologue
     .line 363
@@ -2915,7 +2915,7 @@
 
 .method public setEventsInterceptionEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 265
@@ -2927,7 +2927,7 @@
 
 .method public setFadeEnabled(Z)V
     .locals 0
-    .parameter "fadeEnabled"
+    .param p1, "fadeEnabled"    # Z
 
     .prologue
     .line 273
@@ -2939,7 +2939,7 @@
 
 .method public setFadeOffset(J)V
     .locals 0
-    .parameter "fadeOffset"
+    .param p1, "fadeOffset"    # J
 
     .prologue
     .line 324
@@ -2951,12 +2951,12 @@
 
 .method public setGesture(Landroid/gesture/Gesture;)V
     .locals 9
-    .parameter "gesture"
+    .param p1, "gesture"    # Landroid/gesture/Gesture;
 
     .prologue
     const/4 v8, 0x1
 
-    const/high16 v7, 0x4000
+    const/high16 v7, 0x40000000    # 2.0f
 
     .line 281
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
@@ -2985,13 +2985,13 @@
     move-result-object v1
 
     .line 289
-    .local v1, path:Landroid/graphics/Path;
+    .local v1, "path":Landroid/graphics/Path;
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     .line 290
-    .local v0, bounds:Landroid/graphics/RectF;
+    .local v0, "bounds":Landroid/graphics/RectF;
     invoke-virtual {v1, v0, v8}, Landroid/graphics/Path;->computeBounds(Landroid/graphics/RectF;Z)V
 
     .line 293
@@ -3056,7 +3056,7 @@
 
 .method public setGestureColor(I)V
     .locals 0
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 203
@@ -3068,7 +3068,7 @@
 
 .method public setGestureStrokeAngleThreshold(F)V
     .locals 0
-    .parameter "gestureStrokeAngleThreshold"
+    .param p1, "gestureStrokeAngleThreshold"    # F
 
     .prologue
     .line 257
@@ -3080,7 +3080,7 @@
 
 .method public setGestureStrokeLengthThreshold(F)V
     .locals 0
-    .parameter "gestureStrokeLengthThreshold"
+    .param p1, "gestureStrokeLengthThreshold"    # F
 
     .prologue
     .line 241
@@ -3092,7 +3092,7 @@
 
 .method public setGestureStrokeSquarenessTreshold(F)V
     .locals 0
-    .parameter "gestureStrokeSquarenessTreshold"
+    .param p1, "gestureStrokeSquarenessTreshold"    # F
 
     .prologue
     .line 249
@@ -3104,7 +3104,7 @@
 
 .method public setGestureStrokeType(I)V
     .locals 0
-    .parameter "gestureStrokeType"
+    .param p1, "gestureStrokeType"    # I
 
     .prologue
     .line 233
@@ -3116,7 +3116,7 @@
 
 .method public setGestureStrokeWidth(F)V
     .locals 2
-    .parameter "gestureStrokeWidth"
+    .param p1, "gestureStrokeWidth"    # F
 
     .prologue
     .line 223
@@ -3146,7 +3146,7 @@
 
 .method public setGestureVisible(Z)V
     .locals 0
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 316
@@ -3158,7 +3158,7 @@
 
 .method public setOrientation(I)V
     .locals 0
-    .parameter "orientation"
+    .param p1, "orientation"    # I
 
     .prologue
     .line 199
@@ -3170,7 +3170,7 @@
 
 .method public setUncertainGestureColor(I)V
     .locals 0
-    .parameter "color"
+    .param p1, "color"    # I
 
     .prologue
     .line 207

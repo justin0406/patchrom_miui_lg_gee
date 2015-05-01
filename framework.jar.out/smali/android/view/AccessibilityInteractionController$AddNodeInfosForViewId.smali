@@ -47,7 +47,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/AccessibilityInteractionController;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 994
@@ -65,8 +64,8 @@
 
 .method synthetic constructor <init>(Landroid/view/AccessibilityInteractionController;Landroid/view/AccessibilityInteractionController$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/AccessibilityInteractionController;
+    .param p2, "x1"    # Landroid/view/AccessibilityInteractionController$1;
 
     .prologue
     .line 994
@@ -79,7 +78,7 @@
 # virtual methods
 .method public apply(Landroid/view/View;)Z
     .locals 2
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 1010
@@ -93,7 +92,7 @@
 
     iget-object v0, p0, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->this$0:Landroid/view/AccessibilityInteractionController;
 
-    #calls: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
+    # invokes: Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
     invoke-static {v0, p1}, Landroid/view/AccessibilityInteractionController;->access$200(Landroid/view/AccessibilityInteractionController;Landroid/view/View;)Z
 
     move-result v0
@@ -118,13 +117,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 994
     check-cast p1, Landroid/view/View;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->apply(Landroid/view/View;)Z
 
     move-result v0
@@ -134,8 +133,7 @@
 
 .method public init(ILjava/util/List;)V
     .locals 0
-    .parameter "viewId"
-    .parameter
+    .param p1, "viewId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -148,7 +146,7 @@
 
     .prologue
     .line 999
-    .local p2, infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
+    .local p2, "infos":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     iput p1, p0, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->mViewId:I
 
     .line 1000

@@ -29,11 +29,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewAnimator;Landroid/view/View;IIJ)V
     .locals 0
-    .parameter
-    .parameter "view"
-    .parameter "relativeIndex"
-    .parameter "adapterPosition"
-    .parameter "itemId"
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "relativeIndex"    # I
+    .param p4, "adapterPosition"    # I
+    .param p5, "itemId"    # J
 
     .prologue
     .line 220

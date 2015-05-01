@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AutoCompleteTextView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1242
@@ -39,8 +38,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/AutoCompleteTextView;Landroid/widget/AutoCompleteTextView$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/AutoCompleteTextView;
+    .param p2, "x1"    # Landroid/widget/AutoCompleteTextView$1;
 
     .prologue
     .line 1242
@@ -51,8 +50,8 @@
 
 .method static synthetic access$302(Landroid/widget/AutoCompleteTextView$PassThroughClickListener;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/AutoCompleteTextView$PassThroughClickListener;
+    .param p1, "x1"    # Landroid/view/View$OnClickListener;
 
     .prologue
     .line 1242
@@ -65,13 +64,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 1248
     iget-object v0, p0, Landroid/widget/AutoCompleteTextView$PassThroughClickListener;->this$0:Landroid/widget/AutoCompleteTextView;
 
-    #calls: Landroid/widget/AutoCompleteTextView;->onClickImpl()V
+    # invokes: Landroid/widget/AutoCompleteTextView;->onClickImpl()V
     invoke-static {v0}, Landroid/widget/AutoCompleteTextView;->access$600(Landroid/widget/AutoCompleteTextView;)V
 
     .line 1250

@@ -86,7 +86,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 158
@@ -111,14 +111,14 @@
 
 .method private readPowerValuesFromXml(Landroid/content/Context;)V
     .locals 13
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 167
     const v4, 0x10f000d
 
     .line 168
-    .local v4, id:I
+    .local v4, "id":I
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
@@ -128,21 +128,21 @@
     move-result-object v6
 
     .line 169
-    .local v6, parser:Landroid/content/res/XmlResourceParser;
+    .local v6, "parser":Landroid/content/res/XmlResourceParser;
     const/4 v7, 0x0
 
     .line 170
-    .local v7, parsingArray:Z
+    .local v7, "parsingArray":Z
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 171
-    .local v0, array:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Double;>;"
+    .local v0, "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Double;>;"
     const/4 v1, 0x0
 
     .line 174
-    .local v1, arrayName:Ljava/lang/String;
+    .local v1, "arrayName":Ljava/lang/String;
     :try_start_0
     const-string v11, "device"
 
@@ -159,7 +159,7 @@
     move-result-object v3
 
     .line 180
-    .local v3, element:Ljava/lang/String;
+    .local v3, "element":Ljava/lang/String;
     if-nez v3, :cond_2
 
     .line 209
@@ -180,9 +180,9 @@
 
     invoke-virtual {v11, v1, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 217
     :cond_1
@@ -272,7 +272,7 @@
     const/4 v5, 0x0
 
     .line 193
-    .local v5, name:Ljava/lang/String;
+    .local v5, "name":Ljava/lang/String;
     if-nez v7, :cond_6
 
     const/4 v11, 0x0
@@ -296,18 +296,18 @@
     .line 195
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getText()Ljava/lang/String;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v8
 
     .line 196
-    .local v8, power:Ljava/lang/String;
+    .local v8, "power":Ljava/lang/String;
     const-wide/16 v9, 0x0
 
     .line 198
-    .local v9, value:D
+    .local v9, "value":D
     :try_start_2
     invoke-static {v8}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
@@ -315,10 +315,10 @@
 
     invoke-virtual {v11}, Ljava/lang/Double;->doubleValue()D
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_2
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-wide v9
 
@@ -342,22 +342,22 @@
 
     invoke-virtual {v11, v5, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_0
 
     .line 212
-    .end local v3           #element:Ljava/lang/String;
-    .end local v5           #name:Ljava/lang/String;
-    .end local v8           #power:Ljava/lang/String;
-    .end local v9           #value:D
+    .end local v3    # "element":Ljava/lang/String;
+    .end local v5    # "name":Ljava/lang/String;
+    .end local v8    # "power":Ljava/lang/String;
+    .end local v9    # "value":D
     :catch_0
     move-exception v2
 
     .line 213
-    .local v2, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v2, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_4
     new-instance v11, Ljava/lang/RuntimeException;
 
@@ -368,7 +368,7 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 217
-    .end local v2           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v2    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catchall_0
     move-exception v11
 
@@ -377,10 +377,10 @@
     throw v11
 
     .line 203
-    .restart local v3       #element:Ljava/lang/String;
-    .restart local v5       #name:Ljava/lang/String;
-    .restart local v8       #power:Ljava/lang/String;
-    .restart local v9       #value:D
+    .restart local v3    # "element":Ljava/lang/String;
+    .restart local v5    # "name":Ljava/lang/String;
+    .restart local v8    # "power":Ljava/lang/String;
+    .restart local v9    # "value":D
     :cond_7
     if-eqz v7, :cond_0
 
@@ -392,22 +392,22 @@
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_0
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto/16 :goto_0
 
     .line 214
-    .end local v3           #element:Ljava/lang/String;
-    .end local v5           #name:Ljava/lang/String;
-    .end local v8           #power:Ljava/lang/String;
-    .end local v9           #value:D
+    .end local v3    # "element":Ljava/lang/String;
+    .end local v5    # "name":Ljava/lang/String;
+    .end local v8    # "power":Ljava/lang/String;
+    .end local v9    # "value":D
     :catch_1
     move-exception v2
 
     .line 215
-    .local v2, e:Ljava/io/IOException;
+    .local v2, "e":Ljava/io/IOException;
     :try_start_6
     new-instance v11, Ljava/lang/RuntimeException;
 
@@ -418,11 +418,11 @@
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 199
-    .end local v2           #e:Ljava/io/IOException;
-    .restart local v3       #element:Ljava/lang/String;
-    .restart local v5       #name:Ljava/lang/String;
-    .restart local v8       #power:Ljava/lang/String;
-    .restart local v9       #value:D
+    .end local v2    # "e":Ljava/io/IOException;
+    .restart local v3    # "element":Ljava/lang/String;
+    .restart local v5    # "name":Ljava/lang/String;
+    .restart local v8    # "power":Ljava/lang/String;
+    .restart local v9    # "value":D
     :catch_2
     move-exception v11
 
@@ -433,7 +433,7 @@
 # virtual methods
 .method public getAveragePower(Ljava/lang/String;)D
     .locals 3
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 227
@@ -453,7 +453,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, data:Ljava/lang/Object;
+    .local v0, "data":Ljava/lang/Object;
     instance-of v1, v0, [Ljava/lang/Double;
 
     if-eqz v1, :cond_0
@@ -461,7 +461,7 @@
     .line 230
     check-cast v0, [Ljava/lang/Double;
 
-    .end local v0           #data:Ljava/lang/Object;
+    .end local v0    # "data":Ljava/lang/Object;
     check-cast v0, [Ljava/lang/Double;
 
     const/4 v1, 0x0
@@ -477,7 +477,7 @@
     return-wide v1
 
     .line 232
-    .restart local v0       #data:Ljava/lang/Object;
+    .restart local v0    # "data":Ljava/lang/Object;
     :cond_0
     sget-object v1, Lcom/android/internal/os/PowerProfile;->sPowerMap:Ljava/util/HashMap;
 
@@ -494,7 +494,7 @@
     goto :goto_0
 
     .line 235
-    .end local v0           #data:Ljava/lang/Object;
+    .end local v0    # "data":Ljava/lang/Object;
     :cond_1
     const-wide/16 v1, 0x0
 
@@ -503,8 +503,8 @@
 
 .method public getAveragePower(Ljava/lang/String;I)D
     .locals 5
-    .parameter "type"
-    .parameter "level"
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "level"    # I
 
     .prologue
     const-wide/16 v2, 0x0
@@ -526,7 +526,7 @@
     move-result-object v0
 
     .line 250
-    .local v0, data:Ljava/lang/Object;
+    .local v0, "data":Ljava/lang/Object;
     instance-of v4, v0, [Ljava/lang/Double;
 
     if-eqz v4, :cond_2
@@ -534,13 +534,13 @@
     .line 251
     check-cast v0, [Ljava/lang/Double;
 
-    .end local v0           #data:Ljava/lang/Object;
+    .end local v0    # "data":Ljava/lang/Object;
     move-object v1, v0
 
     check-cast v1, [Ljava/lang/Double;
 
     .line 252
-    .local v1, values:[Ljava/lang/Double;
+    .local v1, "values":[Ljava/lang/Double;
     array-length v4, v1
 
     if-le v4, p2, :cond_1
@@ -555,13 +555,13 @@
     move-result-wide v2
 
     .line 263
-    .end local v1           #values:[Ljava/lang/Double;
+    .end local v1    # "values":[Ljava/lang/Double;
     :cond_0
     :goto_0
     return-wide v2
 
     .line 254
-    .restart local v1       #values:[Ljava/lang/Double;
+    .restart local v1    # "values":[Ljava/lang/Double;
     :cond_1
     if-ltz p2, :cond_0
 
@@ -579,12 +579,12 @@
     goto :goto_0
 
     .line 260
-    .end local v1           #values:[Ljava/lang/Double;
-    .restart local v0       #data:Ljava/lang/Object;
+    .end local v1    # "values":[Ljava/lang/Double;
+    .restart local v0    # "data":Ljava/lang/Object;
     :cond_2
     check-cast v0, Ljava/lang/Double;
 
-    .end local v0           #data:Ljava/lang/Object;
+    .end local v0    # "data":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v2
@@ -620,7 +620,7 @@
     move-result-object v0
 
     .line 282
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     instance-of v1, v0, [Ljava/lang/Double;
@@ -630,7 +630,7 @@
     .line 283
     check-cast v0, [Ljava/lang/Double;
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     check-cast v0, [Ljava/lang/Double;
 
     array-length v1, v0
@@ -639,7 +639,7 @@
     :goto_0
     return v1
 
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_0
     const/4 v1, 0x1
 

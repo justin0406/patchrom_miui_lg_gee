@@ -56,9 +56,9 @@
 
 .method private constructor <init>(IIZ)V
     .locals 0
-    .parameter "rowCount"
-    .parameter "columnCount"
-    .parameter "hierarchical"
+    .param p1, "rowCount"    # I
+    .param p2, "columnCount"    # I
+    .param p3, "hierarchical"    # Z
 
     .prologue
     .line 2714
@@ -98,9 +98,9 @@
 
 .method public static obtain(IIZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     .locals 2
-    .parameter "rowCount"
-    .parameter "columnCount"
-    .parameter "hierarchical"
+    .param p0, "rowCount"    # I
+    .param p1, "columnCount"    # I
+    .param p2, "hierarchical"    # Z
 
     .prologue
     .line 2701
@@ -113,18 +113,18 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
     .line 2702
-    .local v0, info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    .local v0, "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     if-eqz v0, :cond_0
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     :goto_0
     return-object v0
 
-    .restart local v0       #info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    .restart local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    .end local v0           #info:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    .end local v0    # "info":Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     invoke-direct {v0, p0, p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;-><init>(IIZ)V
 
     goto :goto_0
@@ -132,7 +132,7 @@
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
     .locals 3
-    .parameter "other"
+    .param p0, "other"    # Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
     .prologue
     .line 2688

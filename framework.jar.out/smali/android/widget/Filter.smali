@@ -67,7 +67,7 @@
 
 .method static synthetic access$200(Landroid/widget/Filter;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Filter;
 
     .prologue
     .line 39
@@ -78,7 +78,7 @@
 
 .method static synthetic access$300(Landroid/widget/Filter;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Filter;
 
     .prologue
     .line 39
@@ -89,7 +89,7 @@
 
 .method static synthetic access$400(Landroid/widget/Filter;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/Filter;
 
     .prologue
     .line 39
@@ -100,8 +100,8 @@
 
 .method static synthetic access$402(Landroid/widget/Filter;Landroid/os/Handler;)Landroid/os/Handler;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/Filter;
+    .param p1, "x1"    # Landroid/os/Handler;
 
     .prologue
     .line 39
@@ -114,7 +114,7 @@
 # virtual methods
 .method public convertResultToString(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "resultValue"
+    .param p1, "resultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 173
@@ -135,7 +135,7 @@
 
 .method public final filter(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "constraint"
+    .param p1, "constraint"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 84
@@ -149,8 +149,8 @@
 
 .method public final filter(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterListener;)V
     .locals 9
-    .parameter "constraint"
-    .parameter "listener"
+    .param p1, "constraint"    # Ljava/lang/CharSequence;
+    .param p2, "listener"    # Landroid/widget/Filter$FilterListener;
 
     .prologue
     const/4 v5, 0x0
@@ -176,7 +176,7 @@
     invoke-direct {v4, v7, v8}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
     .line 106
-    .local v4, thread:Landroid/os/HandlerThread;
+    .local v4, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v4}, Landroid/os/HandlerThread;->start()V
 
     .line 107
@@ -191,7 +191,7 @@
     iput-object v7, p0, Landroid/widget/Filter;->mThreadHandler:Landroid/os/Handler;
 
     .line 110
-    .end local v4           #thread:Landroid/os/HandlerThread;
+    .end local v4    # "thread":Landroid/os/HandlerThread;
     :cond_0
     iget-object v7, p0, Landroid/widget/Filter;->mDelayer:Landroid/widget/Filter$Delayer;
 
@@ -200,7 +200,7 @@
     const-wide/16 v1, 0x0
 
     .line 112
-    .local v1, delay:J
+    .local v1, "delay":J
     :goto_0
     iget-object v7, p0, Landroid/widget/Filter;->mThreadHandler:Landroid/os/Handler;
 
@@ -211,7 +211,7 @@
     move-result-object v3
 
     .line 114
-    .local v3, message:Landroid/os/Message;
+    .local v3, "message":Landroid/os/Message;
     new-instance v0, Landroid/widget/Filter$RequestArguments;
 
     const/4 v7, 0x0
@@ -219,7 +219,7 @@
     invoke-direct {v0, v7}, Landroid/widget/Filter$RequestArguments;-><init>(Landroid/widget/Filter$1;)V
 
     .line 117
-    .local v0, args:Landroid/widget/Filter$RequestArguments;
+    .local v0, "args":Landroid/widget/Filter$RequestArguments;
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -261,9 +261,9 @@
     return-void
 
     .line 110
-    .end local v0           #args:Landroid/widget/Filter$RequestArguments;
-    .end local v1           #delay:J
-    .end local v3           #message:Landroid/os/Message;
+    .end local v0    # "args":Landroid/widget/Filter$RequestArguments;
+    .end local v1    # "delay":J
+    .end local v3    # "message":Landroid/os/Message;
     :cond_2
     iget-object v7, p0, Landroid/widget/Filter;->mDelayer:Landroid/widget/Filter$Delayer;
 
@@ -292,7 +292,7 @@
 
 .method public setDelayer(Landroid/widget/Filter$Delayer;)V
     .locals 2
-    .parameter "delayer"
+    .param p1, "delayer"    # Landroid/widget/Filter$Delayer;
 
     .prologue
     .line 69

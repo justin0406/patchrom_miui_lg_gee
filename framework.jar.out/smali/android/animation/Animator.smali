@@ -70,7 +70,7 @@
 # virtual methods
 .method public addListener(Landroid/animation/Animator$AnimatorListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/animation/Animator$AnimatorListener;
 
     .prologue
     .line 221
@@ -97,7 +97,7 @@
 
 .method public addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/animation/Animator$AnimatorPauseListener;
 
     .prologue
     .line 260
@@ -143,7 +143,7 @@
     check-cast v0, Landroid/animation/Animator;
 
     .line 302
-    .local v0, anim:Landroid/animation/Animator;
+    .local v0, "anim":Landroid/animation/Animator;
     iget-object v6, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v6, :cond_0
@@ -152,7 +152,7 @@
     iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     .line 304
-    .local v4, oldListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
+    .local v4, "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
@@ -165,10 +165,10 @@
     move-result v3
 
     .line 306
-    .local v3, numListeners:I
+    .local v3, "numListeners":I
     const/4 v2, 0x0
 
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v3, :cond_0
 
@@ -187,9 +187,9 @@
     goto :goto_0
 
     .line 310
-    .end local v2           #i:I
-    .end local v3           #numListeners:I
-    .end local v4           #oldListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
+    .end local v2    # "i":I
+    .end local v3    # "numListeners":I
+    .end local v4    # "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     :cond_0
     iget-object v6, p0, Landroid/animation/Animator;->mPauseListeners:Ljava/util/ArrayList;
 
@@ -199,7 +199,7 @@
     iget-object v5, p0, Landroid/animation/Animator;->mPauseListeners:Ljava/util/ArrayList;
 
     .line 312
-    .local v5, oldListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .local v5, "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
@@ -212,10 +212,10 @@
     move-result v3
 
     .line 314
-    .restart local v3       #numListeners:I
+    .restart local v3    # "numListeners":I
     const/4 v2, 0x0
 
-    .restart local v2       #i:I
+    .restart local v2    # "i":I
     :goto_1
     if-ge v2, v3, :cond_1
 
@@ -236,15 +236,15 @@
     goto :goto_1
 
     .line 319
-    .end local v0           #anim:Landroid/animation/Animator;
-    .end local v2           #i:I
-    .end local v3           #numListeners:I
-    .end local v5           #oldListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .end local v0    # "anim":Landroid/animation/Animator;
+    .end local v2    # "i":I
+    .end local v3    # "numListeners":I
+    .end local v5    # "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     :catch_0
     move-exception v1
 
     .line 320
-    .local v1, e:Ljava/lang/CloneNotSupportedException;
+    .local v1, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v6, Ljava/lang/AssertionError;
 
     invoke-direct {v6}, Ljava/lang/AssertionError;-><init>()V
@@ -252,8 +252,8 @@
     throw v6
 
     .line 318
-    .end local v1           #e:Ljava/lang/CloneNotSupportedException;
-    .restart local v0       #anim:Landroid/animation/Animator;
+    .end local v1    # "e":Ljava/lang/CloneNotSupportedException;
+    .restart local v0    # "anim":Landroid/animation/Animator;
     :cond_1
     return-object v0
 .end method
@@ -378,16 +378,16 @@
     check-cast v2, Ljava/util/ArrayList;
 
     .line 98
-    .local v2, tmpListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .local v2, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     .line 99
-    .local v1, numListeners:I
+    .local v1, "numListeners":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -406,9 +406,9 @@
     goto :goto_0
 
     .line 104
-    .end local v0           #i:I
-    .end local v1           #numListeners:I
-    .end local v2           #tmpListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .end local v0    # "i":I
+    .end local v1    # "numListeners":I
+    .end local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     :cond_0
     return-void
 .end method
@@ -453,7 +453,7 @@
 
 .method public removeListener(Landroid/animation/Animator$AnimatorListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/animation/Animator$AnimatorListener;
 
     .prologue
     .line 234
@@ -491,7 +491,7 @@
 
 .method public removePauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/animation/Animator$AnimatorPauseListener;
 
     .prologue
     .line 273
@@ -556,16 +556,16 @@
     check-cast v2, Ljava/util/ArrayList;
 
     .line 122
-    .local v2, tmpListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .local v2, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     .line 123
-    .local v1, numListeners:I
+    .local v1, "numListeners":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -584,9 +584,9 @@
     goto :goto_0
 
     .line 128
-    .end local v0           #i:I
-    .end local v1           #numListeners:I
-    .end local v2           #tmpListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
+    .end local v0    # "i":I
+    .end local v1    # "numListeners":I
+    .end local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorPauseListener;>;"
     :cond_0
     return-void
 .end method
@@ -602,7 +602,7 @@
 
 .method public setTarget(Ljava/lang/Object;)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # Ljava/lang/Object;
 
     .prologue
     .line 357

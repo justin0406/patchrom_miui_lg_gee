@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/location/GeofenceManager;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 426
@@ -40,7 +39,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 432
@@ -56,7 +55,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/location/GeofenceManager$GeofenceHandler;->this$0:Lcom/android/server/location/GeofenceManager;
 
-    #calls: Lcom/android/server/location/GeofenceManager;->updateFences()V
+    # invokes: Lcom/android/server/location/GeofenceManager;->updateFences()V
     invoke-static {v0}, Lcom/android/server/location/GeofenceManager;->access$000(Lcom/android/server/location/GeofenceManager;)V
 
     goto :goto_0

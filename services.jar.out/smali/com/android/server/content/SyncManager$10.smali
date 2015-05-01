@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 471
@@ -36,13 +35,13 @@
 # virtual methods
 .method public onStatusChanged(I)V
     .locals 1
-    .parameter "which"
+    .param p1, "which"    # I
 
     .prologue
     .line 475
     iget-object v0, p0, Lcom/android/server/content/SyncManager$10;->this$0:Lcom/android/server/content/SyncManager;
 
-    #calls: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
+    # invokes: Lcom/android/server/content/SyncManager;->sendCheckAlarmsMessage()V
     invoke-static {v0}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)V
 
     .line 476

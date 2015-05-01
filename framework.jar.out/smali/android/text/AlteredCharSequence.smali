@@ -3,8 +3,8 @@
 .source "AlteredCharSequence.java"
 
 # interfaces
-.implements Ljava/lang/CharSequence;
 .implements Landroid/text/GetChars;
+.implements Ljava/lang/CharSequence;
 
 
 # annotations
@@ -29,10 +29,10 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/CharSequence;[CII)V
     .locals 0
-    .parameter "source"
-    .parameter "sub"
-    .parameter "substart"
-    .parameter "subend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "sub"    # [C
+    .param p3, "substart"    # I
+    .param p4, "subend"    # I
 
     .prologue
     .line 43
@@ -56,11 +56,11 @@
 
 .method synthetic constructor <init>(Ljava/lang/CharSequence;[CIILandroid/text/AlteredCharSequence$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
+    .param p2, "x1"    # [C
+    .param p3, "x2"    # I
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Landroid/text/AlteredCharSequence$1;
 
     .prologue
     .line 25
@@ -71,10 +71,10 @@
 
 .method public static make(Ljava/lang/CharSequence;[CII)Landroid/text/AlteredCharSequence;
     .locals 6
-    .parameter "source"
-    .parameter "sub"
-    .parameter "substart"
-    .parameter "subend"
+    .param p0, "source"    # Ljava/lang/CharSequence;
+    .param p1, "sub"    # [C
+    .param p2, "substart"    # I
+    .param p3, "subend"    # I
 
     .prologue
     .line 36
@@ -113,7 +113,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 2
-    .parameter "off"
+    .param p1, "off"    # I
 
     .prologue
     .line 90
@@ -150,10 +150,10 @@
 
 .method public getChars(II[CI)V
     .locals 3
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "off"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "dest"    # [C
+    .param p4, "off"    # I
 
     .prologue
     .line 106
@@ -210,8 +210,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 101
@@ -250,11 +250,11 @@
     move-result v0
 
     .line 118
-    .local v0, len:I
+    .local v0, "len":I
     new-array v1, v0, [C
 
     .line 119
-    .local v1, ret:[C
+    .local v1, "ret":[C
     invoke-virtual {p0, v2, v0, v1, v2}, Landroid/text/AlteredCharSequence;->getChars(II[CI)V
 
     .line 120
@@ -267,9 +267,9 @@
 
 .method update([CII)V
     .locals 0
-    .parameter "sub"
-    .parameter "substart"
-    .parameter "subend"
+    .param p1, "sub"    # [C
+    .param p2, "substart"    # I
+    .param p3, "subend"    # I
 
     .prologue
     .line 51

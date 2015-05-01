@@ -18,7 +18,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 36
@@ -46,11 +46,11 @@
 
 .method static performBackup_checked(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;[Ljava/lang/String;[Ljava/lang/String;)V
     .locals 10
-    .parameter "oldState"
-    .parameter "data"
-    .parameter "newState"
-    .parameter "files"
-    .parameter "keys"
+    .param p0, "oldState"    # Landroid/os/ParcelFileDescriptor;
+    .param p1, "data"    # Landroid/app/backup/BackupDataOutput;
+    .param p2, "newState"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "files"    # [Ljava/lang/String;
+    .param p4, "keys"    # [Ljava/lang/String;
 
     .prologue
     .line 55
@@ -66,20 +66,20 @@
     :cond_1
     move-object v0, p3
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_3
 
     aget-object v2, v0, v3
 
     .line 60
-    .local v2, f:Ljava/lang/String;
+    .local v2, "f":Ljava/lang/String;
     const/4 v7, 0x0
 
     invoke-virtual {v2, v7}, Ljava/lang/String;->charAt(I)C
@@ -122,7 +122,7 @@
     goto :goto_0
 
     .line 65
-    .end local v2           #f:Ljava/lang/String;
+    .end local v2    # "f":Ljava/lang/String;
     :cond_3
     array-length v7, p3
 
@@ -178,14 +178,14 @@
     move-result-object v6
 
     .line 71
-    .local v6, oldStateFd:Ljava/io/FileDescriptor;
+    .local v6, "oldStateFd":Ljava/io/FileDescriptor;
     :goto_1
     invoke-virtual {p2}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v5
 
     .line 72
-    .local v5, newStateFd:Ljava/io/FileDescriptor;
+    .local v5, "newStateFd":Ljava/io/FileDescriptor;
     if-nez v5, :cond_6
 
     .line 73
@@ -196,16 +196,16 @@
     throw v7
 
     .line 70
-    .end local v5           #newStateFd:Ljava/io/FileDescriptor;
-    .end local v6           #oldStateFd:Ljava/io/FileDescriptor;
+    .end local v5    # "newStateFd":Ljava/io/FileDescriptor;
+    .end local v6    # "oldStateFd":Ljava/io/FileDescriptor;
     :cond_5
     const/4 v6, 0x0
 
     goto :goto_1
 
     .line 76
-    .restart local v5       #newStateFd:Ljava/io/FileDescriptor;
-    .restart local v6       #oldStateFd:Ljava/io/FileDescriptor;
+    .restart local v5    # "newStateFd":Ljava/io/FileDescriptor;
+    .restart local v6    # "oldStateFd":Ljava/io/FileDescriptor;
     :cond_6
     iget v7, p1, Landroid/app/backup/BackupDataOutput;->mBackupWriter:I
 
@@ -214,7 +214,7 @@
     move-result v1
 
     .line 78
-    .local v1, err:I
+    .local v1, "err":I
     if-eqz v1, :cond_0
 
     .line 80
@@ -292,27 +292,27 @@
 
 .method isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
     .locals 5
-    .parameter "key"
-    .parameter "list"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "list"    # [Ljava/lang/String;
 
     .prologue
     .line 110
     move-object v0, p2
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v2, v0
 
-    .local v2, len$:I
+    .local v2, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 111
-    .local v3, s:Ljava/lang/String;
+    .local v3, "s":Ljava/lang/String;
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
@@ -323,19 +323,19 @@
     const/4 v4, 0x1
 
     .line 115
-    .end local v3           #s:Ljava/lang/String;
+    .end local v3    # "s":Ljava/lang/String;
     :goto_1
     return v4
 
     .line 110
-    .restart local v3       #s:Ljava/lang/String;
+    .restart local v3    # "s":Ljava/lang/String;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 115
-    .end local v3           #s:Ljava/lang/String;
+    .end local v3    # "s":Ljava/lang/String;
     :cond_1
     const/4 v4, 0x0
 
@@ -344,8 +344,8 @@
 
 .method writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
     .locals 6
-    .parameter "f"
-    .parameter "in"
+    .param p1, "f"    # Ljava/io/File;
+    .param p2, "in"    # Landroid/app/backup/BackupDataInputStream;
 
     .prologue
     const/4 v2, 0x1
@@ -354,13 +354,13 @@
     const/4 v1, -0x1
 
     .line 88
-    .local v1, result:I
+    .local v1, "result":I
     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v0
 
     .line 89
-    .local v0, parent:Ljava/io/File;
+    .local v0, "parent":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 91
@@ -457,7 +457,7 @@
 
 .method public writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
     .locals 3
-    .parameter "fd"
+    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
     .line 105
@@ -472,6 +472,6 @@
     move-result v0
 
     .line 107
-    .local v0, result:I
+    .local v0, "result":I
     return-void
 .end method

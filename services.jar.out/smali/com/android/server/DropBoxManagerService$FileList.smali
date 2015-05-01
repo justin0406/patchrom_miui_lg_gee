@@ -67,7 +67,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/DropBoxManagerService$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Lcom/android/server/DropBoxManagerService$1;
 
     .prologue
     .line 447
@@ -80,7 +80,7 @@
 # virtual methods
 .method public final compareTo(Lcom/android/server/DropBoxManagerService$FileList;)I
     .locals 3
-    .parameter "o"
+    .param p1, "o"    # Lcom/android/server/DropBoxManagerService$FileList;
 
     .prologue
     const/4 v0, 0x0
@@ -141,13 +141,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 447
     check-cast p1, Lcom/android/server/DropBoxManagerService$FileList;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/DropBoxManagerService$FileList;->compareTo(Lcom/android/server/DropBoxManagerService$FileList;)I
 
     move-result v0

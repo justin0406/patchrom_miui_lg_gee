@@ -26,8 +26,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;I)V
     .locals 3
-    .parameter
-    .parameter "viewId"
+    .param p2, "viewId"    # I
 
     .prologue
     .line 683
@@ -36,7 +35,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 684
-    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
+    # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {p1}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -91,9 +90,9 @@
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;ILandroid/widget/TabHost$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/widget/TabHost;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Landroid/widget/TabHost$1;
 
     .prologue
     .line 679

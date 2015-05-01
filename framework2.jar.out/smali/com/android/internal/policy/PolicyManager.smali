@@ -23,7 +23,7 @@
     move-result-object v1
 
     .line 39
-    .local v1, policyClass:Ljava/lang/Class;
+    .local v1, "policyClass":Ljava/lang/Class;
     invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v2
@@ -44,7 +44,7 @@
     move-exception v0
 
     .line 41
-    .local v0, ex:Ljava/lang/ClassNotFoundException;
+    .local v0, "ex":Ljava/lang/ClassNotFoundException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "com.android.internal.policy.impl.Policy could not be loaded"
@@ -54,12 +54,12 @@
     throw v2
 
     .line 43
-    .end local v0           #ex:Ljava/lang/ClassNotFoundException;
+    .end local v0    # "ex":Ljava/lang/ClassNotFoundException;
     :catch_1
     move-exception v0
 
     .line 44
-    .local v0, ex:Ljava/lang/InstantiationException;
+    .local v0, "ex":Ljava/lang/InstantiationException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "com.android.internal.policy.impl.Policy could not be instantiated"
@@ -69,12 +69,12 @@
     throw v2
 
     .line 46
-    .end local v0           #ex:Ljava/lang/InstantiationException;
+    .end local v0    # "ex":Ljava/lang/InstantiationException;
     :catch_2
     move-exception v0
 
     .line 47
-    .local v0, ex:Ljava/lang/IllegalAccessException;
+    .local v0, "ex":Ljava/lang/IllegalAccessException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "com.android.internal.policy.impl.Policy could not be instantiated"
@@ -96,7 +96,7 @@
 
 .method public static makeNewFallbackEventHandler(Landroid/content/Context;)Landroid/view/FallbackEventHandler;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 69
@@ -111,7 +111,7 @@
 
 .method public static makeNewLayoutInflater(Landroid/content/Context;)Landroid/view/LayoutInflater;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 61
@@ -126,7 +126,7 @@
 
 .method public static makeNewWindow(Landroid/content/Context;)Landroid/view/Window;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 57

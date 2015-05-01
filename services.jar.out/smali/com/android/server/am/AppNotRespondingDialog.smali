@@ -24,11 +24,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Z)V
     .locals 10
-    .parameter "service"
-    .parameter "context"
-    .parameter "app"
-    .parameter "activity"
-    .parameter "aboveSystem"
+    .param p1, "service"    # Lcom/android/server/am/ActivityManagerService;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "app"    # Lcom/android/server/am/ProcessRecord;
+    .param p4, "activity"    # Lcom/android/server/am/ActivityRecord;
+    .param p5, "aboveSystem"    # Z
 
     .prologue
     const/4 v9, 0x2
@@ -59,7 +59,7 @@
     move-result-object v3
 
     .line 48
-    .local v3, res:Landroid/content/res/Resources;
+    .local v3, "res":Landroid/content/res/Resources;
     invoke-virtual {p0, v7}, Lcom/android/server/am/AppNotRespondingDialog;->setCancelable(Z)V
 
     .line 51
@@ -76,12 +76,12 @@
     move-result-object v1
 
     .line 54
-    .local v1, name1:Ljava/lang/CharSequence;
+    .local v1, "name1":Ljava/lang/CharSequence;
     :goto_0
     const/4 v2, 0x0
 
     .line 55
-    .local v2, name2:Ljava/lang/CharSequence;
+    .local v2, "name2":Ljava/lang/CharSequence;
     iget-object v5, p3, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
     invoke-virtual {v5}, Landroid/util/ArrayMap;->size()I
@@ -106,10 +106,10 @@
     if-eqz v1, :cond_3
 
     .line 58
-    const v4, 0x1040400
+    const v4, 0x1040401
 
     .line 74
-    .local v4, resid:I
+    .local v4, "resid":I
     :goto_1
     if-eqz v2, :cond_6
 
@@ -137,7 +137,7 @@
     .line 78
     const/4 v5, -0x1
 
-    const v6, 0x1040404
+    const v6, 0x1040405
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -154,7 +154,7 @@
     .line 81
     const/4 v5, -0x2
 
-    const v6, 0x1040406
+    const v6, 0x1040407
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -176,7 +176,7 @@
     .line 86
     const/4 v5, -0x3
 
-    const v6, 0x1040405
+    const v6, 0x1040406
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -194,7 +194,7 @@
 
     .line 91
     :cond_0
-    const v5, 0x10403ff
+    const v5, 0x1040400
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -225,7 +225,7 @@
     move-result-object v0
 
     .line 96
-    .local v0, attrs:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -266,18 +266,18 @@
     return-void
 
     .line 51
-    .end local v0           #attrs:Landroid/view/WindowManager$LayoutParams;
-    .end local v1           #name1:Ljava/lang/CharSequence;
-    .end local v2           #name2:Ljava/lang/CharSequence;
-    .end local v4           #resid:I
+    .end local v0    # "attrs":Landroid/view/WindowManager$LayoutParams;
+    .end local v1    # "name1":Ljava/lang/CharSequence;
+    .end local v2    # "name2":Ljava/lang/CharSequence;
+    .end local v4    # "resid":I
     :cond_2
     const/4 v1, 0x0
 
     goto/16 :goto_0
 
     .line 60
-    .restart local v1       #name1:Ljava/lang/CharSequence;
-    .restart local v2       #name2:Ljava/lang/CharSequence;
+    .restart local v1    # "name1":Ljava/lang/CharSequence;
+    .restart local v2    # "name2":Ljava/lang/CharSequence;
     :cond_3
     move-object v1, v2
 
@@ -285,13 +285,13 @@
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 62
-    const v4, 0x1040402
+    const v4, 0x1040403
 
-    .restart local v4       #resid:I
+    .restart local v4    # "resid":I
     goto/16 :goto_1
 
     .line 65
-    .end local v4           #resid:I
+    .end local v4    # "resid":I
     :cond_4
     if-eqz v1, :cond_5
 
@@ -299,20 +299,20 @@
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 67
-    const v4, 0x1040401
+    const v4, 0x1040402
 
-    .restart local v4       #resid:I
+    .restart local v4    # "resid":I
     goto/16 :goto_1
 
     .line 69
-    .end local v4           #resid:I
+    .end local v4    # "resid":I
     :cond_5
     iget-object v1, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 70
-    const v4, 0x1040403
+    const v4, 0x1040404
 
-    .restart local v4       #resid:I
+    .restart local v4    # "resid":I
     goto/16 :goto_1
 
     .line 74
@@ -334,7 +334,7 @@
 
 .method static synthetic access$000(Lcom/android/server/am/AppNotRespondingDialog;)Lcom/android/server/am/ProcessRecord;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/AppNotRespondingDialog;
 
     .prologue
     .line 29
@@ -345,7 +345,7 @@
 
 .method static synthetic access$100(Lcom/android/server/am/AppNotRespondingDialog;)Lcom/android/server/am/ActivityManagerService;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/am/AppNotRespondingDialog;
 
     .prologue
     .line 29
@@ -356,15 +356,6 @@
 
 
 # virtual methods
-.method getProc()Lcom/android/server/am/ProcessRecord;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/am/AppNotRespondingDialog;->mProc:Lcom/android/server/am/ProcessRecord;
-
-    return-object v0
-.end method
-
 .method public onStop()V
     .locals 0
 

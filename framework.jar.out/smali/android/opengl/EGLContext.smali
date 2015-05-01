@@ -6,7 +6,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 0
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 26
@@ -20,7 +20,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -52,7 +52,7 @@
     check-cast v0, Landroid/opengl/EGLContext;
 
     .line 35
-    .local v0, that:Landroid/opengl/EGLContext;
+    .local v0, "that":Landroid/opengl/EGLContext;
     invoke-virtual {p0}, Landroid/opengl/EGLContext;->getHandle()I
 
     move-result v3

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1002
@@ -36,7 +35,7 @@
 # virtual methods
 .method public userStopAborted(I)V
     .locals 0
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 1009
@@ -45,7 +44,7 @@
 
 .method public userStopped(I)V
     .locals 1
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 1005

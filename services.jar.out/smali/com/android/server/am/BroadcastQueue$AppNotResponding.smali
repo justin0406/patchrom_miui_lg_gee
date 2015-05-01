@@ -28,9 +28,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/BroadcastQueue;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "app"
-    .parameter "annotation"
+    .param p2, "app"    # Lcom/android/server/am/ProcessRecord;
+    .param p3, "annotation"    # Ljava/lang/String;
 
     .prologue
     .line 156

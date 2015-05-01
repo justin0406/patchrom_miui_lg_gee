@@ -23,8 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/service/wallpaper/WallpaperService;Landroid/service/wallpaper/WallpaperService;)V
     .locals 0
-    .parameter
-    .parameter "context"
+    .param p2, "context"    # Landroid/service/wallpaper/WallpaperService;
 
     .prologue
     .line 1098
@@ -43,12 +42,12 @@
 # virtual methods
 .method public attach(Landroid/service/wallpaper/IWallpaperConnection;Landroid/os/IBinder;IZII)V
     .locals 9
-    .parameter "conn"
-    .parameter "windowToken"
-    .parameter "windowType"
-    .parameter "isPreview"
-    .parameter "reqWidth"
-    .parameter "reqHeight"
+    .param p1, "conn"    # Landroid/service/wallpaper/IWallpaperConnection;
+    .param p2, "windowToken"    # Landroid/os/IBinder;
+    .param p3, "windowType"    # I
+    .param p4, "isPreview"    # Z
+    .param p5, "reqWidth"    # I
+    .param p6, "reqHeight"    # I
 
     .prologue
     .line 1105

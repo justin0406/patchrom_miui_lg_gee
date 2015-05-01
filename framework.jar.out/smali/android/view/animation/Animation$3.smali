@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/animation/Animation;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 371

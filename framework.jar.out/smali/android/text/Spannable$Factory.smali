@@ -57,7 +57,7 @@
 # virtual methods
 .method public newSpannable(Ljava/lang/CharSequence;)Landroid/text/Spannable;
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 67

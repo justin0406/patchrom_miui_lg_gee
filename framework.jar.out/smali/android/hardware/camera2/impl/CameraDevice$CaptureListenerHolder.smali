@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraDevice$CaptureListener;Landroid/hardware/camera2/CaptureRequest;Landroid/os/Handler;Z)V
     .locals 2
-    .parameter "listener"
-    .parameter "request"
-    .parameter "handler"
-    .parameter "repeating"
+    .param p1, "listener"    # Landroid/hardware/camera2/CameraDevice$CaptureListener;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "handler"    # Landroid/os/Handler;
+    .param p4, "repeating"    # Z
 
     .prologue
     .line 435

@@ -28,9 +28,8 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "className"
-    .parameter "filterName"
+    .param p2, "className"    # Ljava/lang/String;
+    .param p3, "filterName"    # Ljava/lang/String;
 
     .prologue
     .line 86
@@ -52,7 +51,7 @@
 # virtual methods
 .method public execute(Landroid/filterfw/io/TextGraphReader;)V
     .locals 5
-    .parameter "reader"
+    .param p1, "reader"    # Landroid/filterfw/io/TextGraphReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
@@ -64,9 +63,9 @@
     const/4 v1, 0x0
 
     .line 95
-    .local v1, filter:Landroid/filterfw/core/Filter;
+    .local v1, "filter":Landroid/filterfw/core/Filter;
     :try_start_0
-    #getter for: Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
+    # getter for: Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
     invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->access$000(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
 
     move-result-object v2
@@ -82,7 +81,7 @@
     move-result-object v1
 
     .line 101
-    #setter for: Landroid/filterfw/io/TextGraphReader;->mCurrentFilter:Landroid/filterfw/core/Filter;
+    # setter for: Landroid/filterfw/io/TextGraphReader;->mCurrentFilter:Landroid/filterfw/core/Filter;
     invoke-static {p1, v1}, Landroid/filterfw/io/TextGraphReader;->access$102(Landroid/filterfw/io/TextGraphReader;Landroid/filterfw/core/Filter;)Landroid/filterfw/core/Filter;
 
     .line 102
@@ -93,7 +92,7 @@
     move-exception v0
 
     .line 97
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     new-instance v2, Landroid/filterfw/io/GraphIOException;
 
     invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;

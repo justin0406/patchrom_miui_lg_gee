@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/Notifier;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 444
@@ -44,7 +43,7 @@
     .line 447
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
-    #getter for: Lcom/android/server/power/Notifier;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/power/Notifier;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$000(Lcom/android/server/power/Notifier;)Ljava/lang/Object;
 
     move-result-object v1
@@ -55,7 +54,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
-    #getter for: Lcom/android/server/power/Notifier;->mScreenOnBlockerAcquired:Z
+    # getter for: Lcom/android/server/power/Notifier;->mScreenOnBlockerAcquired:Z
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$100(Lcom/android/server/power/Notifier;)Z
 
     move-result v0
@@ -64,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
-    #getter for: Lcom/android/server/power/Notifier;->mPendingWakeUpBroadcast:Z
+    # getter for: Lcom/android/server/power/Notifier;->mPendingWakeUpBroadcast:Z
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$200(Lcom/android/server/power/Notifier;)Z
 
     move-result v0
@@ -76,13 +75,13 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/server/power/Notifier;->mScreenOnBlockerAcquired:Z
+    # setter for: Lcom/android/server/power/Notifier;->mScreenOnBlockerAcquired:Z
     invoke-static {v0, v2}, Lcom/android/server/power/Notifier;->access$102(Lcom/android/server/power/Notifier;Z)Z
 
     .line 450
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
-    #getter for: Lcom/android/server/power/Notifier;->mScreenOnBlocker:Lcom/android/server/power/ScreenOnBlocker;
+    # getter for: Lcom/android/server/power/Notifier;->mScreenOnBlocker:Lcom/android/server/power/ScreenOnBlocker;
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$300(Lcom/android/server/power/Notifier;)Lcom/android/server/power/ScreenOnBlocker;
 
     move-result-object v0

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner$DropdownPopup;Landroid/widget/Spinner;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1040
@@ -44,10 +42,10 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
-    .parameter "parent"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
+    .param p1, "parent"    # Landroid/widget/AdapterView;
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
     .prologue
     .line 1042
@@ -73,7 +71,7 @@
 
     iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$1;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
-    #getter for: Landroid/widget/Spinner$DropdownPopup;->mAdapter:Landroid/widget/ListAdapter;
+    # getter for: Landroid/widget/Spinner$DropdownPopup;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v1}, Landroid/widget/Spinner$DropdownPopup;->access$300(Landroid/widget/Spinner$DropdownPopup;)Landroid/widget/ListAdapter;
 
     move-result-object v1

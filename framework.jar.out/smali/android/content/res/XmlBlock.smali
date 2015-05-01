@@ -30,8 +30,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/AssetManager;I)V
     .locals 3
-    .parameter "assets"
-    .parameter "xmlBlock"
+    .param p1, "assets"    # Landroid/content/res/AssetManager;
+    .param p2, "xmlBlock"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -70,7 +70,7 @@
 
 .method public constructor <init>([B)V
     .locals 3
-    .parameter "data"
+    .param p1, "data"    # [B
 
     .prologue
     const/4 v0, 0x1
@@ -119,9 +119,9 @@
 
 .method public constructor <init>([BII)V
     .locals 3
-    .parameter "data"
-    .parameter "offset"
-    .parameter "size"
+    .param p1, "data"    # [B
+    .param p2, "offset"    # I
+    .param p3, "size"    # I
 
     .prologue
     const/4 v0, 0x1
@@ -168,7 +168,7 @@
 
 .method static synthetic access$008(Landroid/content/res/XmlBlock;)I
     .locals 2
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/res/XmlBlock;
 
     .prologue
     .line 34
@@ -183,7 +183,7 @@
 
 .method static synthetic access$100(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -196,9 +196,9 @@
 
 .method static synthetic access$1000(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 34
@@ -211,8 +211,8 @@
 
 .method static synthetic access$1100(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34
@@ -225,7 +225,7 @@
 
 .method static synthetic access$1200(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -238,7 +238,7 @@
 
 .method static synthetic access$1300(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -251,7 +251,7 @@
 
 .method static synthetic access$1400(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -264,7 +264,7 @@
 
 .method static synthetic access$1500(I)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -275,7 +275,7 @@
 
 .method static synthetic access$1600(Landroid/content/res/XmlBlock;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/res/XmlBlock;
 
     .prologue
     .line 34
@@ -286,7 +286,7 @@
 
 .method static synthetic access$200(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -299,7 +299,7 @@
 
 .method static synthetic access$300(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -312,8 +312,8 @@
 
 .method static synthetic access$400(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34
@@ -326,8 +326,8 @@
 
 .method static synthetic access$500(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34
@@ -340,7 +340,7 @@
 
 .method static synthetic access$600(I)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # I
 
     .prologue
     .line 34
@@ -353,8 +353,8 @@
 
 .method static synthetic access$700(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34
@@ -367,8 +367,8 @@
 
 .method static synthetic access$800(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34
@@ -381,8 +381,8 @@
 
 .method static synthetic access$900(II)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # I
+    .param p1, "x1"    # I
 
     .prologue
     .line 34

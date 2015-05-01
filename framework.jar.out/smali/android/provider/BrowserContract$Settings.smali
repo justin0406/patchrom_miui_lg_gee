@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final KEY:Ljava/lang/String; = "key"
 
@@ -55,7 +55,7 @@
 
 .method public static isSyncEnabled(Landroid/content/Context;)Z
     .locals 10
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v7, 0x1
@@ -66,7 +66,7 @@
     const/4 v6, 0x0
 
     .line 722
-    .local v6, cursor:Landroid/database/Cursor;
+    .local v6, "cursor":Landroid/database/Cursor;
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -169,8 +169,8 @@
 
 .method public static setSyncEnabled(Landroid/content/Context;Z)V
     .locals 3
-    .parameter "context"
-    .parameter "enabled"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 737
@@ -179,7 +179,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 738
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "key"
 
     const-string/jumbo v2, "sync_enabled"

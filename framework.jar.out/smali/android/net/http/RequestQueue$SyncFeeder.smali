@@ -43,7 +43,7 @@
     iget-object v0, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
 
     .line 356
-    .local v0, r:Landroid/net/http/Request;
+    .local v0, "r":Landroid/net/http/Request;
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
@@ -54,7 +54,7 @@
 
 .method public getRequest(Lorg/apache/http/HttpHost;)Landroid/net/http/Request;
     .locals 1
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 360
@@ -67,7 +67,7 @@
 
 .method public haveRequest(Lorg/apache/http/HttpHost;)Z
     .locals 1
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 363
@@ -88,7 +88,7 @@
 
 .method public requeueRequest(Landroid/net/http/Request;)V
     .locals 0
-    .parameter "r"
+    .param p1, "r"    # Landroid/net/http/Request;
 
     .prologue
     .line 366

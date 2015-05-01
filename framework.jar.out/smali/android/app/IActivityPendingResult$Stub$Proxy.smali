@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 72
@@ -61,9 +61,9 @@
 
 .method public sendResult(ILjava/lang/String;Landroid/os/Bundle;)Z
     .locals 7
-    .parameter "code"
-    .parameter "data"
-    .parameter "ex"
+    .param p1, "code"    # I
+    .param p2, "data"    # Ljava/lang/String;
+    .param p3, "ex"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,13 +81,13 @@
     move-result-object v0
 
     .line 86
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 89
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.app.IActivityPendingResult"
 
@@ -135,7 +135,7 @@
     if-eqz v4, :cond_1
 
     .line 104
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -146,7 +146,7 @@
     return v2
 
     .line 97
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 

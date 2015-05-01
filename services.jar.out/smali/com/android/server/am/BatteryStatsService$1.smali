@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/BatteryStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 327
@@ -39,8 +38,8 @@
 # virtual methods
 .method public onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
     .locals 3
-    .parameter "profile"
-    .parameter "proxy"
+    .param p1, "profile"    # I
+    .param p2, "proxy"    # Landroid/bluetooth/BluetoothProfile;
 
     .prologue
     .line 329
@@ -48,8 +47,8 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothHeadset;
 
-    .end local p2
-    #setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
+    .end local p2    # "proxy":Landroid/bluetooth/BluetoothProfile;
+    # setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
     invoke-static {v0, p2}, Lcom/android/server/am/BatteryStatsService;->access$002(Lcom/android/server/am/BatteryStatsService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
 
     .line 330
@@ -63,7 +62,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    #getter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
+    # getter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
     invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->access$100(Lcom/android/server/am/BatteryStatsService;)Z
 
     move-result v0
@@ -84,7 +83,7 @@
 
     iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    #getter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
+    # getter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
     invoke-static {v2}, Lcom/android/server/am/BatteryStatsService;->access$000(Lcom/android/server/am/BatteryStatsService;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object v2
@@ -96,7 +95,7 @@
 
     const/4 v2, 0x0
 
-    #setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
+    # setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
     invoke-static {v0, v2}, Lcom/android/server/am/BatteryStatsService;->access$102(Lcom/android/server/am/BatteryStatsService;Z)Z
 
     .line 336
@@ -119,7 +118,7 @@
 
 .method public onServiceDisconnected(I)V
     .locals 2
-    .parameter "profile"
+    .param p1, "profile"    # I
 
     .prologue
     .line 340
@@ -127,7 +126,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
+    # setter for: Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
     invoke-static {v0, v1}, Lcom/android/server/am/BatteryStatsService;->access$002(Lcom/android/server/am/BatteryStatsService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
 
     .line 341

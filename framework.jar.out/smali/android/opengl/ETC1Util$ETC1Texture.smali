@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(IILjava/nio/ByteBuffer;)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "data"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "data"    # Ljava/nio/ByteBuffer;
 
     .prologue
     .line 117

@@ -68,7 +68,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/location/IFusedLocationHardware;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 30
@@ -90,7 +90,7 @@
     move-result-object v0
 
     .line 34
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/location/IFusedLocationHardware;
@@ -106,7 +106,7 @@
     :cond_1
     new-instance v0, Landroid/hardware/location/IFusedLocationHardware$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/hardware/location/IFusedLocationHardware$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -124,10 +124,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -174,7 +174,7 @@
     move-result-object v0
 
     .line 57
-    .local v0, _arg0:Landroid/hardware/location/IFusedLocationHardwareSink;
+    .local v0, "_arg0":Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->registerSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
 
     .line 58
@@ -183,7 +183,7 @@
     goto :goto_0
 
     .line 63
-    .end local v0           #_arg0:Landroid/hardware/location/IFusedLocationHardwareSink;
+    .end local v0    # "_arg0":Landroid/hardware/location/IFusedLocationHardwareSink;
     :sswitch_2
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -199,7 +199,7 @@
     move-result-object v0
 
     .line 66
-    .restart local v0       #_arg0:Landroid/hardware/location/IFusedLocationHardwareSink;
+    .restart local v0    # "_arg0":Landroid/hardware/location/IFusedLocationHardwareSink;
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->unregisterSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
 
     .line 67
@@ -208,7 +208,7 @@
     goto :goto_0
 
     .line 72
-    .end local v0           #_arg0:Landroid/hardware/location/IFusedLocationHardwareSink;
+    .end local v0    # "_arg0":Landroid/hardware/location/IFusedLocationHardwareSink;
     :sswitch_3
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -220,7 +220,7 @@
     move-result v2
 
     .line 74
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 75
@@ -229,7 +229,7 @@
     goto :goto_0
 
     .line 80
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :sswitch_4
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -241,7 +241,7 @@
     move-result v0
 
     .line 84
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -258,7 +258,7 @@
     check-cast v1, Landroid/location/FusedBatchOptions;
 
     .line 90
-    .local v1, _arg1:Landroid/location/FusedBatchOptions;
+    .local v1, "_arg1":Landroid/location/FusedBatchOptions;
     :goto_1
     invoke-virtual {p0, v0, v1}, Landroid/hardware/location/IFusedLocationHardware$Stub;->startBatching(ILandroid/location/FusedBatchOptions;)V
 
@@ -268,16 +268,16 @@
     goto :goto_0
 
     .line 88
-    .end local v1           #_arg1:Landroid/location/FusedBatchOptions;
+    .end local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     :cond_0
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/location/FusedBatchOptions;
+    .restart local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     goto :goto_1
 
     .line 96
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/location/FusedBatchOptions;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     :sswitch_5
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -289,7 +289,7 @@
     move-result v0
 
     .line 99
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->stopBatching(I)V
 
     .line 100
@@ -298,7 +298,7 @@
     goto :goto_0
 
     .line 105
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_6
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -310,7 +310,7 @@
     move-result v0
 
     .line 109
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -327,7 +327,7 @@
     check-cast v1, Landroid/location/FusedBatchOptions;
 
     .line 115
-    .restart local v1       #_arg1:Landroid/location/FusedBatchOptions;
+    .restart local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     :goto_2
     invoke-virtual {p0, v0, v1}, Landroid/hardware/location/IFusedLocationHardware$Stub;->updateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
 
@@ -337,16 +337,16 @@
     goto/16 :goto_0
 
     .line 113
-    .end local v1           #_arg1:Landroid/location/FusedBatchOptions;
+    .end local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     :cond_1
     const/4 v1, 0x0
 
-    .restart local v1       #_arg1:Landroid/location/FusedBatchOptions;
+    .restart local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     goto :goto_2
 
     .line 121
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:Landroid/location/FusedBatchOptions;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":Landroid/location/FusedBatchOptions;
     :sswitch_7
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -358,7 +358,7 @@
     move-result v0
 
     .line 124
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->requestBatchOfLocations(I)V
 
     .line 125
@@ -367,7 +367,7 @@
     goto/16 :goto_0
 
     .line 130
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_8
     const-string v5, "android.hardware.location.IFusedLocationHardware"
 
@@ -379,7 +379,7 @@
     move-result v2
 
     .line 132
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 133
@@ -393,7 +393,7 @@
     goto/16 :goto_0
 
     .line 138
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_9
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -405,7 +405,7 @@
     move-result-object v0
 
     .line 141
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->injectDiagnosticData(Ljava/lang/String;)V
 
     .line 142
@@ -414,7 +414,7 @@
     goto/16 :goto_0
 
     .line 147
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_a
     const-string v5, "android.hardware.location.IFusedLocationHardware"
 
@@ -426,7 +426,7 @@
     move-result v2
 
     .line 149
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
@@ -440,7 +440,7 @@
     goto/16 :goto_0
 
     .line 155
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :sswitch_b
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -452,7 +452,7 @@
     move-result v0
 
     .line 158
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardware$Stub;->injectDeviceContext(I)V
 
     .line 159

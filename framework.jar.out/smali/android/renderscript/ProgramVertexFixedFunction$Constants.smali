@@ -37,7 +37,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 4
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 222
@@ -49,7 +49,7 @@
     move-result-object v1
 
     .line 224
-    .local v1, constInputType:Landroid/renderscript/Type;
+    .local v1, "constInputType":Landroid/renderscript/Type;
     invoke-static {p1, v1}, Landroid/renderscript/Allocation;->createTyped(Landroid/renderscript/RenderScript;Landroid/renderscript/Type;)Landroid/renderscript/Allocation;
 
     move-result-object v2
@@ -72,7 +72,7 @@
     mul-int v0, v2, v3
 
     .line 227
-    .local v0, bufferSize:I
+    .local v0, "bufferSize":I
     new-instance v2, Landroid/renderscript/FieldPacker;
 
     invoke-direct {v2, v0}, Landroid/renderscript/FieldPacker;-><init>(I)V
@@ -127,8 +127,8 @@
 
 .method private addToBuffer(ILandroid/renderscript/Matrix4f;)V
     .locals 4
-    .parameter "offset"
-    .parameter "m"
+    .param p1, "offset"    # I
+    .param p2, "m"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 248
@@ -139,7 +139,7 @@
     .line 249
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     const/16 v1, 0x10
 
@@ -205,7 +205,7 @@
 
 .method public setModelview(Landroid/renderscript/Matrix4f;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 262
@@ -224,7 +224,7 @@
 
 .method public setProjection(Landroid/renderscript/Matrix4f;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 273
@@ -243,7 +243,7 @@
 
 .method public setTexture(Landroid/renderscript/Matrix4f;)V
     .locals 1
-    .parameter "m"
+    .param p1, "m"    # Landroid/renderscript/Matrix4f;
 
     .prologue
     .line 287

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 198
@@ -36,11 +35,12 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 201
+    # getter for: Lcom/android/server/media/RemoteDisplayProviderWatcher;->DEBUG:Z
     invoke-static {}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->access$000()Z
 
     move-result v0
@@ -74,7 +74,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$1;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
 
-    #calls: Lcom/android/server/media/RemoteDisplayProviderWatcher;->scanPackages()V
+    # invokes: Lcom/android/server/media/RemoteDisplayProviderWatcher;->scanPackages()V
     invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->access$100(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
 
     .line 205

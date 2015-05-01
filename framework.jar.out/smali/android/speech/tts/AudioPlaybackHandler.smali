@@ -74,7 +74,7 @@
 
 .method static synthetic access$100(Landroid/speech/tts/AudioPlaybackHandler;)Ljava/util/concurrent/LinkedBlockingQueue;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/speech/tts/AudioPlaybackHandler;
 
     .prologue
     .line 23
@@ -85,8 +85,8 @@
 
 .method static synthetic access$202(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/PlaybackQueueItem;)Landroid/speech/tts/PlaybackQueueItem;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/speech/tts/AudioPlaybackHandler;
+    .param p1, "x1"    # Landroid/speech/tts/PlaybackQueueItem;
 
     .prologue
     .line 23
@@ -110,7 +110,7 @@
 
 .method private removeWorkItemsFor(Ljava/lang/Object;)V
     .locals 3
-    .parameter "callerIdentity"
+    .param p1, "callerIdentity"    # Ljava/lang/Object;
 
     .prologue
     .line 103
@@ -121,7 +121,7 @@
     move-result-object v0
 
     .line 105
-    .local v0, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/speech/tts/PlaybackQueueItem;>;"
+    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/speech/tts/PlaybackQueueItem;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -138,7 +138,7 @@
     check-cast v1, Landroid/speech/tts/PlaybackQueueItem;
 
     .line 107
-    .local v1, item:Landroid/speech/tts/PlaybackQueueItem;
+    .local v1, "item":Landroid/speech/tts/PlaybackQueueItem;
     invoke-virtual {v1}, Landroid/speech/tts/PlaybackQueueItem;->getCallerIdentity()Ljava/lang/Object;
 
     move-result-object v2
@@ -151,14 +151,14 @@
     goto :goto_0
 
     .line 111
-    .end local v1           #item:Landroid/speech/tts/PlaybackQueueItem;
+    .end local v1    # "item":Landroid/speech/tts/PlaybackQueueItem;
     :cond_1
     return-void
 .end method
 
 .method private stop(Landroid/speech/tts/PlaybackQueueItem;)V
     .locals 1
-    .parameter "item"
+    .param p1, "item"    # Landroid/speech/tts/PlaybackQueueItem;
 
     .prologue
     .line 42
@@ -181,7 +181,7 @@
 # virtual methods
 .method public enqueue(Landroid/speech/tts/PlaybackQueueItem;)V
     .locals 1
-    .parameter "item"
+    .param p1, "item"    # Landroid/speech/tts/PlaybackQueueItem;
 
     .prologue
     .line 51
@@ -284,7 +284,7 @@
 
 .method public stopForApp(Ljava/lang/Object;)V
     .locals 2
-    .parameter "callerIdentity"
+    .param p1, "callerIdentity"    # Ljava/lang/Object;
 
     .prologue
     .line 60
@@ -294,7 +294,7 @@
     iget-object v0, p0, Landroid/speech/tts/AudioPlaybackHandler;->mCurrentWorkItem:Landroid/speech/tts/PlaybackQueueItem;
 
     .line 63
-    .local v0, current:Landroid/speech/tts/PlaybackQueueItem;
+    .local v0, "current":Landroid/speech/tts/PlaybackQueueItem;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/speech/tts/PlaybackQueueItem;->getCallerIdentity()Ljava/lang/Object;

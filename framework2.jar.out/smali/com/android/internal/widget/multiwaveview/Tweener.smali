@@ -51,7 +51,7 @@
 
 .method public constructor <init>(Landroid/animation/ObjectAnimator;)V
     .locals 0
-    .parameter "anim"
+    .param p1, "anim"    # Landroid/animation/ObjectAnimator;
 
     .prologue
     .line 40
@@ -66,7 +66,7 @@
 
 .method static synthetic access$000(Landroid/animation/Animator;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/animation/Animator;
 
     .prologue
     .line 33
@@ -77,7 +77,7 @@
 
 .method private static remove(Landroid/animation/Animator;)V
     .locals 3
-    .parameter "animator"
+    .param p0, "animator"    # Landroid/animation/Animator;
 
     .prologue
     .line 45
@@ -92,7 +92,7 @@
     move-result-object v1
 
     .line 46
-    .local v1, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;>;"
+    .local v1, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -108,7 +108,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 48
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -123,15 +123,14 @@
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 55
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/android/internal/widget/multiwaveview/Tweener;>;"
     :cond_1
     return-void
 .end method
 
 .method private static varargs replace(Ljava/util/ArrayList;[Ljava/lang/Object;)V
     .locals 7
-    .parameter
-    .parameter "args"
+    .param p1, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,23 +145,23 @@
 
     .prologue
     .line 164
-    .local p0, props:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/PropertyValuesHolder;>;"
+    .local p0, "props":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/PropertyValuesHolder;>;"
     move-object v0, p1
 
-    .local v0, arr$:[Ljava/lang/Object;
+    .local v0, "arr$":[Ljava/lang/Object;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v1, 0x0
 
-    .local v1, i$:I
+    .local v1, "i$":I
     :goto_0
     if-ge v1, v3, :cond_2
 
     aget-object v2, v0, v1
 
     .line 165
-    .local v2, killobject:Ljava/lang/Object;
+    .local v2, "killobject":Ljava/lang/Object;
     sget-object v5, Lcom/android/internal/widget/multiwaveview/Tweener;->sTweens:Ljava/util/HashMap;
 
     invoke-virtual {v5, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -172,7 +171,7 @@
     check-cast v4, Lcom/android/internal/widget/multiwaveview/Tweener;
 
     .line 166
-    .local v4, tween:Lcom/android/internal/widget/multiwaveview/Tweener;
+    .local v4, "tween":Lcom/android/internal/widget/multiwaveview/Tweener;
     if-eqz v4, :cond_0
 
     .line 167
@@ -216,8 +215,8 @@
     goto :goto_1
 
     .line 176
-    .end local v2           #killobject:Ljava/lang/Object;
-    .end local v4           #tween:Lcom/android/internal/widget/multiwaveview/Tweener;
+    .end local v2    # "killobject":Ljava/lang/Object;
+    .end local v4    # "tween":Lcom/android/internal/widget/multiwaveview/Tweener;
     :cond_2
     return-void
 .end method
@@ -237,28 +236,28 @@
 
 .method public static varargs to(Ljava/lang/Object;J[Ljava/lang/Object;)Lcom/android/internal/widget/multiwaveview/Tweener;
     .locals 18
-    .parameter "object"
-    .parameter "duration"
-    .parameter "vars"
+    .param p0, "object"    # Ljava/lang/Object;
+    .param p1, "duration"    # J
+    .param p3, "vars"    # [Ljava/lang/Object;
 
     .prologue
     .line 58
     const-wide/16 v3, 0x0
 
     .line 59
-    .local v3, delay:J
+    .local v3, "delay":J
     const/4 v12, 0x0
 
     .line 60
-    .local v12, updateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    .local v12, "updateListener":Landroid/animation/ValueAnimator$AnimatorUpdateListener;
     const/4 v9, 0x0
 
     .line 61
-    .local v9, listener:Landroid/animation/Animator$AnimatorListener;
+    .local v9, "listener":Landroid/animation/Animator$AnimatorListener;
     const/4 v7, 0x0
 
     .line 64
-    .local v7, interpolator:Landroid/animation/TimeInterpolator;
+    .local v7, "interpolator":Landroid/animation/TimeInterpolator;
     new-instance v10, Ljava/util/ArrayList;
 
     move-object/from16 v0, p3
@@ -270,10 +269,10 @@
     invoke-direct {v10, v14}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 65
-    .local v10, props:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/PropertyValuesHolder;>;"
+    .local v10, "props":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/PropertyValuesHolder;>;"
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     move-object/from16 v0, p3
 
@@ -322,13 +321,13 @@
     check-cast v8, Ljava/lang/String;
 
     .line 70
-    .local v8, key:Ljava/lang/String;
+    .local v8, "key":Ljava/lang/String;
     add-int/lit8 v14, v6, 0x1
 
     aget-object v13, p3, v14
 
     .line 71
-    .local v13, value:Ljava/lang/Object;
+    .local v13, "value":Ljava/lang/Object;
     const-string v14, "simultaneousTween"
 
     invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -338,7 +337,7 @@
     if-eqz v14, :cond_2
 
     .line 65
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v13    # "value":Ljava/lang/Object;
     :cond_1
     :goto_1
     add-int/lit8 v6, v6, 0x2
@@ -346,7 +345,7 @@
     goto :goto_0
 
     .line 73
-    .restart local v13       #value:Ljava/lang/Object;
+    .restart local v13    # "value":Ljava/lang/Object;
     :cond_2
     const-string v14, "ease"
 
@@ -428,7 +427,7 @@
     .line 80
     check-cast v13, Ljava/lang/Number;
 
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v13    # "value":Ljava/lang/Object;
     invoke-virtual {v13}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v3
@@ -436,7 +435,7 @@
     goto :goto_1
 
     .line 81
-    .restart local v13       #value:Ljava/lang/Object;
+    .restart local v13    # "value":Ljava/lang/Object;
     :cond_8
     const-string v14, "syncWith"
 
@@ -474,7 +473,7 @@
 
     check-cast v13, [F
 
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v13    # "value":Ljava/lang/Object;
     check-cast v13, [F
 
     const/16 v16, 0x1
@@ -492,7 +491,7 @@
     goto :goto_1
 
     .line 86
-    .restart local v13       #value:Ljava/lang/Object;
+    .restart local v13    # "value":Ljava/lang/Object;
     :cond_9
     instance-of v14, v13, [I
 
@@ -521,7 +520,7 @@
 
     check-cast v13, [I
 
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v13    # "value":Ljava/lang/Object;
     check-cast v13, [I
 
     const/16 v16, 0x1
@@ -539,7 +538,7 @@
     goto/16 :goto_1
 
     .line 89
-    .restart local v13       #value:Ljava/lang/Object;
+    .restart local v13    # "value":Ljava/lang/Object;
     :cond_a
     instance-of v14, v13, Ljava/lang/Number;
 
@@ -548,13 +547,13 @@
     .line 90
     check-cast v13, Ljava/lang/Number;
 
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v13    # "value":Ljava/lang/Object;
     invoke-virtual {v13}, Ljava/lang/Number;->floatValue()F
 
     move-result v5
 
     .line 91
-    .local v5, floatValue:F
+    .local v5, "floatValue":F
     const/4 v14, 0x1
 
     new-array v14, v14, [F
@@ -572,8 +571,8 @@
     goto/16 :goto_1
 
     .line 93
-    .end local v5           #floatValue:F
-    .restart local v13       #value:Ljava/lang/Object;
+    .end local v5    # "floatValue":F
+    .restart local v13    # "value":Ljava/lang/Object;
     :cond_b
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
@@ -614,8 +613,8 @@
     throw v14
 
     .line 99
-    .end local v8           #key:Ljava/lang/String;
-    .end local v13           #value:Ljava/lang/Object;
+    .end local v8    # "key":Ljava/lang/String;
+    .end local v13    # "value":Ljava/lang/Object;
     :cond_c
     sget-object v14, Lcom/android/internal/widget/multiwaveview/Tweener;->sTweens:Ljava/util/HashMap;
 
@@ -628,11 +627,11 @@
     check-cast v11, Lcom/android/internal/widget/multiwaveview/Tweener;
 
     .line 100
-    .local v11, tween:Lcom/android/internal/widget/multiwaveview/Tweener;
+    .local v11, "tween":Lcom/android/internal/widget/multiwaveview/Tweener;
     const/4 v2, 0x0
 
     .line 101
-    .local v2, anim:Landroid/animation/ObjectAnimator;
+    .local v2, "anim":Landroid/animation/ObjectAnimator;
     if-nez v11, :cond_10
 
     .line 102
@@ -657,11 +656,11 @@
     .line 104
     new-instance v11, Lcom/android/internal/widget/multiwaveview/Tweener;
 
-    .end local v11           #tween:Lcom/android/internal/widget/multiwaveview/Tweener;
+    .end local v11    # "tween":Lcom/android/internal/widget/multiwaveview/Tweener;
     invoke-direct {v11, v2}, Lcom/android/internal/widget/multiwaveview/Tweener;-><init>(Landroid/animation/ObjectAnimator;)V
 
     .line 105
-    .restart local v11       #tween:Lcom/android/internal/widget/multiwaveview/Tweener;
+    .restart local v11    # "tween":Lcom/android/internal/widget/multiwaveview/Tweener;
     sget-object v14, Lcom/android/internal/widget/multiwaveview/Tweener;->sTweens:Ljava/util/HashMap;
 
     move-object/from16 v0, p0
@@ -744,9 +743,9 @@
 # virtual methods
 .method varargs from(Ljava/lang/Object;J[Ljava/lang/Object;)Lcom/android/internal/widget/multiwaveview/Tweener;
     .locals 1
-    .parameter "object"
-    .parameter "duration"
-    .parameter "vars"
+    .param p1, "object"    # Ljava/lang/Object;
+    .param p2, "duration"    # J
+    .param p4, "vars"    # [Ljava/lang/Object;
 
     .prologue
     .line 136

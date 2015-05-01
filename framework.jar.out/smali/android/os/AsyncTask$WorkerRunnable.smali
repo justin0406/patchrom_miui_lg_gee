@@ -46,7 +46,7 @@
 
     .prologue
     .line 654
-    .local p0, this:Landroid/os/AsyncTask$WorkerRunnable;,"Landroid/os/AsyncTask$WorkerRunnable<TParams;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask$WorkerRunnable;, "Landroid/os/AsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,11 +54,11 @@
 
 .method synthetic constructor <init>(Landroid/os/AsyncTask$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/AsyncTask$1;
 
     .prologue
     .line 654
-    .local p0, this:Landroid/os/AsyncTask$WorkerRunnable;,"Landroid/os/AsyncTask$WorkerRunnable<TParams;TResult;>;"
+    .local p0, "this":Landroid/os/AsyncTask$WorkerRunnable;, "Landroid/os/AsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Landroid/os/AsyncTask$WorkerRunnable;-><init>()V
 
     return-void

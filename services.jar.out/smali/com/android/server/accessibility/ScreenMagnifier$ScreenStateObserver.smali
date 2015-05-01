@@ -31,9 +31,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;Landroid/content/Context;Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;)V
     .locals 3
-    .parameter
-    .parameter "context"
-    .parameter "magnificationController"
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "magnificationController"    # Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
 
     .prologue
     .line 1154
@@ -71,8 +70,8 @@
 
 .method static synthetic access$2900(Lcom/android/server/accessibility/ScreenMagnifier$ScreenStateObserver;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$ScreenStateObserver;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 1135
@@ -83,7 +82,7 @@
 
 .method private handleOnScreenStateChange(Ljava/lang/String;)V
     .locals 2
-    .parameter "action"
+    .param p1, "action"    # Ljava/lang/String;
 
     .prologue
     .line 1171
@@ -97,7 +96,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$ScreenStateObserver;->mContext:Landroid/content/Context;
 
-    #calls: Lcom/android/server/accessibility/ScreenMagnifier;->isScreenMagnificationAutoUpdateEnabled(Landroid/content/Context;)Z
+    # invokes: Lcom/android/server/accessibility/ScreenMagnifier;->isScreenMagnificationAutoUpdateEnabled(Landroid/content/Context;)Z
     invoke-static {v0}, Lcom/android/server/accessibility/ScreenMagnifier;->access$3000(Landroid/content/Context;)Z
 
     move-result v0
@@ -133,8 +132,8 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 1166

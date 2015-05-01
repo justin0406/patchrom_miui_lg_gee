@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1197
@@ -49,7 +48,7 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,13 +66,13 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
     .locals 6
-    .parameter "service"
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
 
     .prologue
     .line 1202
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
-    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
+    # getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v3
@@ -87,10 +86,10 @@
     move-result-object v1
 
     .line 1203
-    .local v1, lang:Ljava/lang/String;
+    .local v1, "lang":Ljava/lang/String;
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
-    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
+    # getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v3
@@ -104,10 +103,10 @@
     move-result-object v0
 
     .line 1204
-    .local v0, country:Ljava/lang/String;
+    .local v0, "country":Ljava/lang/String;
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
-    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
+    # getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v3
@@ -121,7 +120,7 @@
     move-result-object v2
 
     .line 1205
-    .local v2, variant:Ljava/lang/String;
+    .local v2, "variant":Ljava/lang/String;
     new-instance v3, Ljava/util/Locale;
 
     invoke-direct {v3, v1, v0, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V

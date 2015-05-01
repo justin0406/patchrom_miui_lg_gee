@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 87
@@ -51,8 +51,8 @@
 
 .method public filterInputEvent(Landroid/view/InputEvent;I)V
     .locals 5
-    .parameter "event"
-    .parameter "policyFlags"
+    .param p1, "event"    # Landroid/view/InputEvent;
+    .param p2, "policyFlags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -66,7 +66,7 @@
     move-result-object v0
 
     .line 125
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IInputFilter"
 
@@ -140,7 +140,7 @@
 
 .method public install(Landroid/view/IInputFilterHost;)V
     .locals 5
-    .parameter "host"
+    .param p1, "host"    # Landroid/view/IInputFilterHost;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -156,7 +156,7 @@
     move-result-object v0
 
     .line 102
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.view.IInputFilter"
 
@@ -215,7 +215,7 @@
     move-result-object v0
 
     .line 114
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IInputFilter"
 

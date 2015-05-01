@@ -31,7 +31,7 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .parameter "surface"
+    .param p1, "surface"    # I
 
     .prologue
     .line 28
@@ -53,7 +53,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -94,7 +94,7 @@
     check-cast v0, Lcom/google/android/gles_jni/EGLSurfaceImpl;
 
     .line 40
-    .local v0, that:Lcom/google/android/gles_jni/EGLSurfaceImpl;
+    .local v0, "that":Lcom/google/android/gles_jni/EGLSurfaceImpl;
     iget v3, p0, Lcom/google/android/gles_jni/EGLSurfaceImpl;->mEGLSurface:I
 
     iget v4, v0, Lcom/google/android/gles_jni/EGLSurfaceImpl;->mEGLSurface:I

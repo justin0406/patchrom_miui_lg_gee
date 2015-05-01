@@ -19,7 +19,7 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 47
@@ -36,7 +36,7 @@
 # virtual methods
 .method public final getCapabilitiesForType(Ljava/lang/String;)Landroid/media/MediaCodecInfo$CodecCapabilities;
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
     .line 291

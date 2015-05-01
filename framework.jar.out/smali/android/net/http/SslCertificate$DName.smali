@@ -29,8 +29,7 @@
 # direct methods
 .method public constructor <init>(Landroid/net/http/SslCertificate;Ljava/lang/String;)V
     .locals 6
-    .parameter
-    .parameter "dName"
+    .param p2, "dName"    # Ljava/lang/String;
 
     .prologue
     .line 375
@@ -51,22 +50,22 @@
     invoke-direct {v3, p2}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;-><init>(Ljava/lang/String;)V
 
     .line 381
-    .local v3, x509Name:Lcom/android/org/bouncycastle/asn1/x509/X509Name;
+    .local v3, "x509Name":Lcom/android/org/bouncycastle/asn1/x509/X509Name;
     invoke-virtual {v3}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;->getValues()Ljava/util/Vector;
 
     move-result-object v2
 
     .line 382
-    .local v2, val:Ljava/util/Vector;
+    .local v2, "val":Ljava/util/Vector;
     invoke-virtual {v3}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;->getOIDs()Ljava/util/Vector;
 
     move-result-object v1
 
     .line 384
-    .local v1, oid:Ljava/util/Vector;
+    .local v1, "oid":Ljava/util/Vector;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
@@ -139,10 +138,10 @@
     goto :goto_1
 
     .line 406
-    .end local v0           #i:I
-    .end local v1           #oid:Ljava/util/Vector;
-    .end local v2           #val:Ljava/util/Vector;
-    .end local v3           #x509Name:Lcom/android/org/bouncycastle/asn1/x509/X509Name;
+    .end local v0    # "i":I
+    .end local v1    # "oid":Ljava/util/Vector;
+    .end local v2    # "val":Ljava/util/Vector;
+    .end local v3    # "x509Name":Lcom/android/org/bouncycastle/asn1/x509/X509Name;
     :catch_0
     move-exception v4
 
@@ -151,10 +150,10 @@
     return-void
 
     .line 399
-    .restart local v0       #i:I
-    .restart local v1       #oid:Ljava/util/Vector;
-    .restart local v2       #val:Ljava/util/Vector;
-    .restart local v3       #x509Name:Lcom/android/org/bouncycastle/asn1/x509/X509Name;
+    .restart local v0    # "i":I
+    .restart local v1    # "oid":Ljava/util/Vector;
+    .restart local v2    # "val":Ljava/util/Vector;
+    .restart local v3    # "x509Name":Lcom/android/org/bouncycastle/asn1/x509/X509Name;
     :cond_3
     invoke-virtual {v1, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 

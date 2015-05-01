@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -74,7 +74,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 129
@@ -138,8 +138,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/database/CursorWindow$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/database/CursorWindow$1;
 
     .prologue
     .line 41
@@ -150,7 +150,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 99
@@ -177,7 +177,7 @@
 
     if-eqz v0, :cond_0
 
-    .end local p1
+    .end local p1    # "name":Ljava/lang/String;
     :goto_0
     iput-object p1, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
 
@@ -241,14 +241,14 @@
     throw v0
 
     .line 101
-    .restart local p1
+    .restart local p1    # "name":Ljava/lang/String;
     :cond_0
     const-string p1, "<unnamed>"
 
     goto :goto_0
 
     .line 107
-    .end local p1
+    .end local p1    # "name":Ljava/lang/String;
     :cond_1
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
@@ -271,7 +271,7 @@
 
 .method public constructor <init>(Z)V
     .locals 1
-    .parameter "localWindow"
+    .param p1, "localWindow"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -392,7 +392,7 @@
 
 .method public static newFromParcel(Landroid/os/Parcel;)Landroid/database/CursorWindow;
     .locals 1
-    .parameter "p"
+    .param p0, "p"    # Landroid/os/Parcel;
 
     .prologue
     .line 690
@@ -419,23 +419,23 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 739
-    .local v0, buff:Ljava/lang/StringBuilder;
+    .local v0, "buff":Ljava/lang/StringBuilder;
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
 
     .line 740
-    .local v3, myPid:I
+    .local v3, "myPid":I
     const/4 v10, 0x0
 
     .line 741
-    .local v10, total:I
+    .local v10, "total":I
     new-instance v7, Landroid/util/SparseIntArray;
 
     invoke-direct {v7}, Landroid/util/SparseIntArray;-><init>()V
 
     .line 742
-    .local v7, pidCounts:Landroid/util/SparseIntArray;
+    .local v7, "pidCounts":Landroid/util/SparseIntArray;
     sget-object v13, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v13
@@ -449,7 +449,7 @@
     move-result v9
 
     .line 744
-    .local v9, size:I
+    .local v9, "size":I
     if-nez v9, :cond_0
 
     .line 746
@@ -465,7 +465,7 @@
     :cond_0
     const/4 v2, 0x0
 
-    .local v2, indx:I
+    .local v2, "indx":I
     :goto_1
     if-ge v2, v9, :cond_1
 
@@ -477,13 +477,13 @@
     move-result v6
 
     .line 750
-    .local v6, pid:I
+    .local v6, "pid":I
     invoke-virtual {v7, v6}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v11
 
     .line 751
-    .local v11, value:I
+    .local v11, "value":I
     add-int/lit8 v11, v11, 0x1
 
     invoke-virtual {v7, v6, v11}, Landroid/util/SparseIntArray;->put(II)V
@@ -494,8 +494,8 @@
     goto :goto_1
 
     .line 753
-    .end local v6           #pid:I
-    .end local v11           #value:I
+    .end local v6    # "pid":I
+    .end local v11    # "value":I
     :cond_1
     monitor-exit v13
     :try_end_0
@@ -507,36 +507,40 @@
     move-result v5
 
     .line 755
-    .local v5, numPids:I
+    .local v5, "numPids":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_2
     if-ge v1, v5, :cond_3
 
+    .line 756
     const-string v12, " (# cursors opened by "
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 757
     invoke-virtual {v7, v1}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v6
 
-    .restart local v6       #pid:I
-    invoke-static {v0, v6}, Landroid/database/Injector$CursorWindowHook;->appendPackageName(Ljava/lang/StringBuilder;I)V
-
+    .line 758
+    .restart local v6    # "pid":I
     if-ne v6, v3, :cond_2
 
-    const-string v12, "this proc="
+    .line 759
+    const-string/jumbo v12, "this proc="
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 763
     :goto_3
     invoke-virtual {v7, v6}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v4
 
-    .local v4, num:I
+    .line 764
+    .local v4, "num":I
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -566,12 +570,12 @@
     goto :goto_2
 
     .line 753
-    .end local v1           #i:I
-    .end local v2           #indx:I
-    .end local v4           #num:I
-    .end local v5           #numPids:I
-    .end local v6           #pid:I
-    .end local v9           #size:I
+    .end local v1    # "i":I
+    .end local v2    # "indx":I
+    .end local v4    # "num":I
+    .end local v5    # "numPids":I
+    .end local v6    # "pid":I
+    .end local v9    # "size":I
     :catchall_0
     move-exception v12
 
@@ -583,11 +587,11 @@
     throw v12
 
     .line 761
-    .restart local v1       #i:I
-    .restart local v2       #indx:I
-    .restart local v5       #numPids:I
-    .restart local v6       #pid:I
-    .restart local v9       #size:I
+    .restart local v1    # "i":I
+    .restart local v2    # "indx":I
+    .restart local v5    # "numPids":I
+    .restart local v6    # "pid":I
+    .restart local v9    # "size":I
     :cond_2
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -618,7 +622,7 @@
     goto :goto_3
 
     .line 768
-    .end local v6           #pid:I
+    .end local v6    # "pid":I
     :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
@@ -633,7 +637,7 @@
     move-result-object v8
 
     .line 769
-    .local v8, s:Ljava/lang/String;
+    .local v8, "s":Ljava/lang/String;
     :goto_4
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -660,7 +664,7 @@
     goto/16 :goto_0
 
     .line 768
-    .end local v8           #s:Ljava/lang/String;
+    .end local v8    # "s":Ljava/lang/String;
     :cond_4
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -671,15 +675,15 @@
 
 .method private recordClosingOfWindow(I)V
     .locals 2
-    .parameter "window"
+    .param p1, "window"    # I
 
     .prologue
-    invoke-static {p1}, Landroid/database/Injector$CursorWindowHook;->before_recordClosingOfWindow(I)V
-
+    .line 728
     sget-object v1, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v1
 
+    .line 729
     :try_start_0
     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
@@ -719,21 +723,22 @@
 
 .method private recordNewWindow(II)V
     .locals 4
-    .parameter "pid"
-    .parameter "window"
+    .param p1, "pid"    # I
+    .param p2, "window"    # I
 
     .prologue
-    invoke-static {p1, p2}, Landroid/database/Injector$CursorWindowHook;->before_recordNewWindow(II)V
-
+    .line 719
     sget-object v1, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v1
 
+    .line 720
     :try_start_0
     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0, p2, p1}, Landroid/util/SparseIntArray;->put(II)V
 
+    .line 721
     const-string v0, "CursorWindowStats"
 
     const/4 v2, 0x2
@@ -858,9 +863,9 @@
 
 .method public copyStringToBuffer(IILandroid/database/CharArrayBuffer;)V
     .locals 2
-    .parameter "row"
-    .parameter "column"
-    .parameter "buffer"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
+    .param p3, "buffer"    # Landroid/database/CharArrayBuffer;
 
     .prologue
     .line 471
@@ -989,8 +994,8 @@
 
 .method public getBlob(II)[B
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 397
@@ -1025,8 +1030,8 @@
 
 .method public getDouble(II)D
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 537
@@ -1061,8 +1066,8 @@
 
 .method public getFloat(II)F
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 590
@@ -1077,8 +1082,8 @@
 
 .method public getInt(II)I
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 574
@@ -1093,8 +1098,8 @@
 
 .method public getLong(II)J
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 505
@@ -1169,8 +1174,8 @@
 
 .method public getShort(II)S
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 558
@@ -1197,8 +1202,8 @@
 
 .method public getString(II)Ljava/lang/String;
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 432
@@ -1233,8 +1238,8 @@
 
 .method public getType(II)I
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 367
@@ -1269,8 +1274,8 @@
 
 .method public isBlob(II)Z
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1281,7 +1286,7 @@
     move-result v0
 
     .line 302
-    .local v0, type:I
+    .local v0, "type":I
     const/4 v1, 0x4
 
     if-eq v0, v1, :cond_0
@@ -1302,8 +1307,8 @@
 
 .method public isFloat(II)Z
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1330,8 +1335,8 @@
 
 .method public isLong(II)Z
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1356,8 +1361,8 @@
 
 .method public isNull(II)Z
     .locals 1
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1382,8 +1387,8 @@
 
 .method public isString(II)Z
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1394,7 +1399,7 @@
     move-result v0
 
     .line 346
-    .local v0, type:I
+    .local v0, "type":I
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
@@ -1426,9 +1431,9 @@
 
 .method public putBlob([BII)Z
     .locals 2
-    .parameter "value"
-    .parameter "row"
-    .parameter "column"
+    .param p1, "value"    # [B
+    .param p2, "row"    # I
+    .param p3, "column"    # I
 
     .prologue
     .line 602
@@ -1463,9 +1468,9 @@
 
 .method public putDouble(DII)Z
     .locals 2
-    .parameter "value"
-    .parameter "row"
-    .parameter "column"
+    .param p1, "value"    # D
+    .param p3, "row"    # I
+    .param p4, "column"    # I
 
     .prologue
     .line 654
@@ -1500,9 +1505,9 @@
 
 .method public putLong(JII)Z
     .locals 2
-    .parameter "value"
-    .parameter "row"
-    .parameter "column"
+    .param p1, "value"    # J
+    .param p3, "row"    # I
+    .param p4, "column"    # I
 
     .prologue
     .line 636
@@ -1537,8 +1542,8 @@
 
 .method public putNull(II)Z
     .locals 2
-    .parameter "row"
-    .parameter "column"
+    .param p1, "row"    # I
+    .param p2, "column"    # I
 
     .prologue
     .line 670
@@ -1573,9 +1578,9 @@
 
 .method public putString(Ljava/lang/String;II)Z
     .locals 2
-    .parameter "value"
-    .parameter "row"
-    .parameter "column"
+    .param p1, "value"    # Ljava/lang/String;
+    .param p2, "row"    # I
+    .param p3, "column"    # I
 
     .prologue
     .line 619
@@ -1610,7 +1615,7 @@
 
 .method public setNumColumns(I)Z
     .locals 1
-    .parameter "columnNum"
+    .param p1, "columnNum"    # I
 
     .prologue
     .line 241
@@ -1641,7 +1646,7 @@
 
 .method public setStartPosition(I)V
     .locals 0
-    .parameter "pos"
+    .param p1, "pos"    # I
 
     .prologue
     .line 212
@@ -1699,8 +1704,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 698

@@ -58,7 +58,7 @@
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 126
@@ -124,8 +124,8 @@
     move-result-object v0
 
     .line 117
-    .local v0, msg:Landroid/os/Message;
-    const/high16 v1, 0x100
+    .local v0, "msg":Landroid/os/Message;
+    const/high16 v1, 0x1000000
 
     iput v1, v0, Landroid/os/Message;->what:I
 
@@ -140,9 +140,9 @@
 
 .method public onStartCommand(Landroid/content/Intent;II)I
     .locals 3
-    .parameter "intent"
-    .parameter "flags"
-    .parameter "startId"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "startId"    # I
 
     .prologue
     .line 95
@@ -160,7 +160,7 @@
     move-result-object v0
 
     .line 98
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     const v1, 0xffffff
 
     iput v1, v0, Landroid/os/Message;->what:I

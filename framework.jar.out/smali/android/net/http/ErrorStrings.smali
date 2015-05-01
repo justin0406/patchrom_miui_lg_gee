@@ -20,7 +20,7 @@
 
 .method public static getResource(I)I
     .locals 4
-    .parameter "errorCode"
+    .param p0, "errorCode"    # I
 
     .prologue
     const v0, 0x104009e
@@ -172,8 +172,8 @@
 
 .method public static getString(ILandroid/content/Context;)Ljava/lang/String;
     .locals 1
-    .parameter "errorCode"
-    .parameter "context"
+    .param p0, "errorCode"    # I
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 37

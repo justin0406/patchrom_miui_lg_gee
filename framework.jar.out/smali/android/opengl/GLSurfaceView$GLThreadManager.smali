@@ -61,7 +61,7 @@
 
 .method synthetic constructor <init>(Landroid/opengl/GLSurfaceView$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/opengl/GLSurfaceView$1;
 
     .prologue
     .line 1811
@@ -95,7 +95,7 @@
     .line 1899
     iget v0, p0, Landroid/opengl/GLSurfaceView$GLThreadManager;->mGLESVersion:I
 
-    const/high16 v1, 0x2
+    const/high16 v1, 0x20000
 
     if-lt v0, v1, :cond_0
 
@@ -115,7 +115,7 @@
 # virtual methods
 .method public declared-synchronized checkGLDriver(Ljavax/microedition/khronos/opengles/GL10;)V
     .locals 5
-    .parameter "gl"
+    .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
     .prologue
     const/4 v2, 0x0
@@ -141,10 +141,10 @@
     move-result-object v0
 
     .line 1879
-    .local v0, renderer:Ljava/lang/String;
+    .local v0, "renderer":Ljava/lang/String;
     iget v3, p0, Landroid/opengl/GLSurfaceView$GLThreadManager;->mGLESVersion:I
 
-    const/high16 v4, 0x2
+    const/high16 v4, 0x20000
 
     if-ge v3, v4, :cond_0
 
@@ -182,13 +182,13 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1892
-    .end local v0           #renderer:Ljava/lang/String;
+    .end local v0    # "renderer":Ljava/lang/String;
     :cond_1
     monitor-exit p0
 
     return-void
 
-    .restart local v0       #renderer:Ljava/lang/String;
+    .restart local v0    # "renderer":Ljava/lang/String;
     :cond_2
     move v3, v2
 
@@ -202,7 +202,7 @@
     goto :goto_1
 
     .line 1876
-    .end local v0           #renderer:Ljava/lang/String;
+    .end local v0    # "renderer":Ljava/lang/String;
     :catchall_0
     move-exception v1
 
@@ -213,7 +213,7 @@
 
 .method public releaseEglContextLocked(Landroid/opengl/GLSurfaceView$GLThread;)V
     .locals 1
-    .parameter "thread"
+    .param p1, "thread"    # Landroid/opengl/GLSurfaceView$GLThread;
 
     .prologue
     .line 1857
@@ -298,7 +298,7 @@
 
 .method public declared-synchronized threadExiting(Landroid/opengl/GLSurfaceView$GLThread;)V
     .locals 1
-    .parameter "thread"
+    .param p1, "thread"    # Landroid/opengl/GLSurfaceView$GLThread;
 
     .prologue
     .line 1818
@@ -307,7 +307,7 @@
     const/4 v0, 0x1
 
     :try_start_0
-    #setter for: Landroid/opengl/GLSurfaceView$GLThread;->mExited:Z
+    # setter for: Landroid/opengl/GLSurfaceView$GLThread;->mExited:Z
     invoke-static {p1, v0}, Landroid/opengl/GLSurfaceView$GLThread;->access$1102(Landroid/opengl/GLSurfaceView$GLThread;Z)Z
 
     .line 1819
@@ -342,7 +342,7 @@
 
 .method public tryAcquireEglContextLocked(Landroid/opengl/GLSurfaceView$GLThread;)Z
     .locals 2
-    .parameter "thread"
+    .param p1, "thread"    # Landroid/opengl/GLSurfaceView$GLThread;
 
     .prologue
     const/4 v0, 0x1

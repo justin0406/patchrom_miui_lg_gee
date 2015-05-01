@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/LayoutInflater$BlinkLayout;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 893
@@ -39,7 +38,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v1, 0x1
@@ -56,7 +55,7 @@
     .line 897
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
-    #getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlink:Z
+    # getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlink:Z
     invoke-static {v2}, Landroid/view/LayoutInflater$BlinkLayout;->access$000(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v2
@@ -68,7 +67,7 @@
 
     iget-object v3, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
-    #getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
+    # getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v3}, Landroid/view/LayoutInflater$BlinkLayout;->access$100(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v3
@@ -78,13 +77,13 @@
     move v0, v1
 
     :cond_0
-    #setter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
+    # setter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v2, v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$102(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
 
     .line 899
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
-    #calls: Landroid/view/LayoutInflater$BlinkLayout;->makeBlink()V
+    # invokes: Landroid/view/LayoutInflater$BlinkLayout;->makeBlink()V
     invoke-static {v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$200(Landroid/view/LayoutInflater$BlinkLayout;)V
 
     .line 901

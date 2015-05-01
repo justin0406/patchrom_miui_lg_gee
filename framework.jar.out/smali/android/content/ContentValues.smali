@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -72,7 +72,7 @@
 
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 52
@@ -81,7 +81,7 @@
     .line 53
     new-instance v0, Ljava/util/HashMap;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-direct {v0, p1, v1}, Ljava/util/HashMap;-><init>(IF)V
 
@@ -93,7 +93,7 @@
 
 .method public constructor <init>(Landroid/content/ContentValues;)V
     .locals 2
-    .parameter "from"
+    .param p1, "from"    # Landroid/content/ContentValues;
 
     .prologue
     .line 61
@@ -114,7 +114,6 @@
 
 .method private constructor <init>(Ljava/util/HashMap;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +127,7 @@
 
     .prologue
     .line 72
-    .local p1, values:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local p1, "values":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 73
@@ -140,8 +139,8 @@
 
 .method synthetic constructor <init>(Ljava/util/HashMap;Landroid/content/ContentValues$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/util/HashMap;
+    .param p2, "x1"    # Landroid/content/ContentValues$1;
 
     .prologue
     .line 32
@@ -167,7 +166,7 @@
 
 .method public containsKey(Ljava/lang/String;)Z
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 229
@@ -192,7 +191,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "object"
+    .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
     .line 78
@@ -204,17 +203,17 @@
     const/4 v0, 0x0
 
     .line 81
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1
+    .restart local p1    # "object":Ljava/lang/Object;
     :cond_0
     iget-object v0, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     check-cast p1, Landroid/content/ContentValues;
 
-    .end local p1
+    .end local p1    # "object":Ljava/lang/Object;
     iget-object v1, p1, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->equals(Ljava/lang/Object;)Z
@@ -226,7 +225,7 @@
 
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 240
@@ -241,7 +240,7 @@
 
 .method public getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 411
@@ -252,24 +251,24 @@
     move-result-object v1
 
     .line 413
-    .local v1, value:Ljava/lang/Object;
+    .local v1, "value":Ljava/lang/Object;
     :try_start_0
     check-cast v1, Ljava/lang/Boolean;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 421
-    .end local v1           #value:Ljava/lang/Object;
+    .end local v1    # "value":Ljava/lang/Object;
     :goto_0
     return-object v1
 
     .line 414
-    .restart local v1       #value:Ljava/lang/Object;
+    .restart local v1    # "value":Ljava/lang/Object;
     :catch_0
     move-exception v0
 
     .line 415
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     instance-of v2, v1, Ljava/lang/CharSequence;
 
     if-eqz v2, :cond_0
@@ -294,7 +293,7 @@
     .line 418
     check-cast v1, Ljava/lang/Number;
 
-    .end local v1           #value:Ljava/lang/Object;
+    .end local v1    # "value":Ljava/lang/Object;
     invoke-virtual {v1}, Ljava/lang/Number;->intValue()I
 
     move-result v2
@@ -316,7 +315,7 @@
     goto :goto_1
 
     .line 420
-    .restart local v1       #value:Ljava/lang/Object;
+    .restart local v1    # "value":Ljava/lang/Object;
     :cond_2
     const-string v2, "ContentValues"
 
@@ -358,7 +357,7 @@
 
 .method public getAsByte(Ljava/lang/String;)Ljava/lang/Byte;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -371,7 +370,7 @@
     move-result-object v3
 
     .line 338
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -409,7 +408,7 @@
     move-exception v1
 
     .line 340
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -433,7 +432,7 @@
     move-exception v2
 
     .line 344
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -469,7 +468,7 @@
     goto :goto_1
 
     .line 348
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -508,7 +507,7 @@
 
 .method public getAsByteArray(Ljava/lang/String;)[B
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 434
@@ -519,7 +518,7 @@
     move-result-object v0
 
     .line 435
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     instance-of v1, v0, [B
 
     if-eqz v1, :cond_0
@@ -527,14 +526,14 @@
     .line 436
     check-cast v0, [B
 
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     check-cast v0, [B
 
     .line 438
     :goto_0
     return-object v0
 
-    .restart local v0       #value:Ljava/lang/Object;
+    .restart local v0    # "value":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -543,7 +542,7 @@
 
 .method public getAsDouble(Ljava/lang/String;)Ljava/lang/Double;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -556,7 +555,7 @@
     move-result-object v3
 
     .line 363
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -594,7 +593,7 @@
     move-exception v1
 
     .line 365
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -618,7 +617,7 @@
     move-exception v2
 
     .line 369
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -654,7 +653,7 @@
     goto :goto_1
 
     .line 373
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -693,7 +692,7 @@
 
 .method public getAsFloat(Ljava/lang/String;)Ljava/lang/Float;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -706,7 +705,7 @@
     move-result-object v3
 
     .line 388
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -744,7 +743,7 @@
     move-exception v1
 
     .line 390
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -768,7 +767,7 @@
     move-exception v2
 
     .line 394
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -804,7 +803,7 @@
     goto :goto_1
 
     .line 398
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -843,7 +842,7 @@
 
 .method public getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -856,7 +855,7 @@
     move-result-object v3
 
     .line 288
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -894,7 +893,7 @@
     move-exception v1
 
     .line 290
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -918,7 +917,7 @@
     move-exception v2
 
     .line 294
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -954,7 +953,7 @@
     goto :goto_1
 
     .line 298
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -993,7 +992,7 @@
 
 .method public getAsLong(Ljava/lang/String;)Ljava/lang/Long;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -1006,7 +1005,7 @@
     move-result-object v3
 
     .line 263
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -1044,7 +1043,7 @@
     move-exception v1
 
     .line 265
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -1068,7 +1067,7 @@
     move-exception v2
 
     .line 269
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1104,7 +1103,7 @@
     goto :goto_1
 
     .line 273
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -1143,7 +1142,7 @@
 
 .method public getAsShort(Ljava/lang/String;)Ljava/lang/Short;
     .locals 8
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     const/4 v5, 0x0
@@ -1156,7 +1155,7 @@
     move-result-object v3
 
     .line 313
-    .local v3, value:Ljava/lang/Object;
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     :try_start_0
@@ -1194,7 +1193,7 @@
     move-exception v1
 
     .line 315
-    .local v1, e:Ljava/lang/ClassCastException;
+    .local v1, "e":Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_1
@@ -1218,7 +1217,7 @@
     move-exception v2
 
     .line 319
-    .local v2, e2:Ljava/lang/NumberFormatException;
+    .local v2, "e2":Ljava/lang/NumberFormatException;
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1254,7 +1253,7 @@
     goto :goto_1
 
     .line 323
-    .end local v2           #e2:Ljava/lang/NumberFormatException;
+    .end local v2    # "e2":Ljava/lang/NumberFormatException;
     :cond_1
     const-string v4, "ContentValues"
 
@@ -1293,7 +1292,7 @@
 
 .method public getAsString(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 250
@@ -1304,7 +1303,7 @@
     move-result-object v0
 
     .line 251
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1322,7 +1321,7 @@
 
 .method public getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1390,8 +1389,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Boolean;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Boolean;
 
     .prologue
     .line 175
@@ -1405,8 +1404,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Byte;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Byte;
 
     .prologue
     .line 115
@@ -1420,8 +1419,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Double;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Double;
 
     .prologue
     .line 165
@@ -1435,8 +1434,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Float;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Float;
 
     .prologue
     .line 155
@@ -1450,8 +1449,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Integer;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Integer;
 
     .prologue
     .line 135
@@ -1465,8 +1464,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Long;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Long;
 
     .prologue
     .line 145
@@ -1480,8 +1479,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Short;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Short;
 
     .prologue
     .line 125
@@ -1495,8 +1494,8 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -1510,8 +1509,8 @@
 
 .method public put(Ljava/lang/String;[B)V
     .locals 1
-    .parameter "key"
-    .parameter "value"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # [B
 
     .prologue
     .line 185
@@ -1525,7 +1524,7 @@
 
 .method public putAll(Landroid/content/ContentValues;)V
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/content/ContentValues;
 
     .prologue
     .line 105
@@ -1541,7 +1540,7 @@
 
 .method public putNull(Ljava/lang/String;)V
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 194
@@ -1557,8 +1556,7 @@
 
 .method public putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 1
-    .parameter "key"
-    .parameter
+    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1575,7 +1573,7 @@
 
     .prologue
     .line 489
-    .local p2, value:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p2, "value":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-object v0, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1586,7 +1584,7 @@
 
 .method public remove(Ljava/lang/String;)V
     .locals 1
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/String;
 
     .prologue
     .line 212
@@ -1622,7 +1620,7 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 509
-    .local v2, sb:Ljava/lang/StringBuilder;
+    .local v2, "sb":Ljava/lang/StringBuilder;
     iget-object v4, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -1633,7 +1631,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1648,13 +1646,13 @@
     check-cast v1, Ljava/lang/String;
 
     .line 510
-    .local v1, name:Ljava/lang/String;
+    .local v1, "name":Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 511
-    .local v3, value:Ljava/lang/String;
+    .local v3, "value":Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
@@ -1694,8 +1692,8 @@
     goto :goto_0
 
     .line 514
-    .end local v1           #name:Ljava/lang/String;
-    .end local v3           #value:Ljava/lang/String;
+    .end local v1    # "name":Ljava/lang/String;
+    .end local v3    # "value":Ljava/lang/String;
     :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1732,8 +1730,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 480

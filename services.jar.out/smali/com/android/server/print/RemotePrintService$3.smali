@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 233
@@ -51,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$3;->val$printJob:Landroid/print/PrintJobInfo;
 
-    #calls: Lcom/android/server/print/RemotePrintService;->handleOnPrintJobQueued(Landroid/print/PrintJobInfo;)V
+    # invokes: Lcom/android/server/print/RemotePrintService;->handleOnPrintJobQueued(Landroid/print/PrintJobInfo;)V
     invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$300(Lcom/android/server/print/RemotePrintService;Landroid/print/PrintJobInfo;)V
 
     .line 237

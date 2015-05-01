@@ -25,8 +25,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/GridLayout$Interval;Landroid/widget/GridLayout$MutableInt;)V
     .locals 1
-    .parameter "span"
-    .parameter "value"
+    .param p1, "span"    # Landroid/widget/GridLayout$Interval;
+    .param p2, "value"    # Landroid/widget/GridLayout$MutableInt;
 
     .prologue
     .line 2094

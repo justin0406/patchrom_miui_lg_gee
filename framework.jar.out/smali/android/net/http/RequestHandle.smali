@@ -46,14 +46,13 @@
 # direct methods
 .method public constructor <init>(Landroid/net/http/RequestQueue;Ljava/lang/String;Landroid/net/WebAddress;Ljava/lang/String;Ljava/util/Map;Ljava/io/InputStream;ILandroid/net/http/Request;)V
     .locals 1
-    .parameter "requestQueue"
-    .parameter "url"
-    .parameter "uri"
-    .parameter "method"
-    .parameter
-    .parameter "bodyProvider"
-    .parameter "bodyLength"
-    .parameter "request"
+    .param p1, "requestQueue"    # Landroid/net/http/RequestQueue;
+    .param p2, "url"    # Ljava/lang/String;
+    .param p3, "uri"    # Landroid/net/WebAddress;
+    .param p4, "method"    # Ljava/lang/String;
+    .param p6, "bodyProvider"    # Ljava/io/InputStream;
+    .param p7, "bodyLength"    # I
+    .param p8, "request"    # Landroid/net/http/Request;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +74,7 @@
 
     .prologue
     .line 64
-    .local p5, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p5, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
@@ -89,11 +88,11 @@
     .line 67
     new-instance p5, Ljava/util/HashMap;
 
-    .end local p5           #headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local p5    # "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p5}, Ljava/util/HashMap;-><init>()V
 
     .line 69
-    .restart local p5       #headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .restart local p5    # "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     iput-object p5, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
@@ -108,7 +107,7 @@
 
     const-string p4, "GET"
 
-    .end local p4
+    .end local p4    # "method":Ljava/lang/String;
     :cond_1
     iput-object p4, p0, Landroid/net/http/RequestHandle;->mMethod:Ljava/lang/String;
 
@@ -130,15 +129,14 @@
 
 .method public constructor <init>(Landroid/net/http/RequestQueue;Ljava/lang/String;Landroid/net/WebAddress;Ljava/lang/String;Ljava/util/Map;Ljava/io/InputStream;ILandroid/net/http/Request;Landroid/net/http/Connection;)V
     .locals 0
-    .parameter "requestQueue"
-    .parameter "url"
-    .parameter "uri"
-    .parameter "method"
-    .parameter
-    .parameter "bodyProvider"
-    .parameter "bodyLength"
-    .parameter "request"
-    .parameter "conn"
+    .param p1, "requestQueue"    # Landroid/net/http/RequestQueue;
+    .param p2, "url"    # Ljava/lang/String;
+    .param p3, "uri"    # Landroid/net/WebAddress;
+    .param p4, "method"    # Ljava/lang/String;
+    .param p6, "bodyProvider"    # Ljava/io/InputStream;
+    .param p7, "bodyLength"    # I
+    .param p8, "request"    # Landroid/net/http/Request;
+    .param p9, "conn"    # Landroid/net/http/Connection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +159,7 @@
 
     .prologue
     .line 90
-    .local p5, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p5, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct/range {p0 .. p8}, Landroid/net/http/RequestHandle;-><init>(Landroid/net/http/RequestQueue;Ljava/lang/String;Landroid/net/WebAddress;Ljava/lang/String;Ljava/util/Map;Ljava/io/InputStream;ILandroid/net/http/Request;)V
 
     .line 92
@@ -173,7 +171,7 @@
 
 .method private H(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "param"
+    .param p1, "param"    # Ljava/lang/String;
 
     .prologue
     .line 380
@@ -188,7 +186,7 @@
     move-result-object v2
 
     .line 384
-    .local v2, md5:Ljava/security/MessageDigest;
+    .local v2, "md5":Ljava/security/MessageDigest;
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v3
@@ -198,7 +196,7 @@
     move-result-object v0
 
     .line 385
-    .local v0, d:[B
+    .local v0, "d":[B
     if-eqz v0, :cond_0
 
     .line 386
@@ -209,8 +207,8 @@
     move-result-object v3
 
     .line 393
-    .end local v0           #d:[B
-    .end local v2           #md5:Ljava/security/MessageDigest;
+    .end local v0    # "d":[B
+    .end local v2    # "md5":Ljava/security/MessageDigest;
     :goto_0
     return-object v3
 
@@ -219,7 +217,7 @@
     move-exception v1
 
     .line 389
-    .local v1, e:Ljava/security/NoSuchAlgorithmException;
+    .local v1, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v3, Ljava/lang/RuntimeException;
 
     invoke-direct {v3, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -227,7 +225,7 @@
     throw v3
 
     .line 393
-    .end local v1           #e:Ljava/security/NoSuchAlgorithmException;
+    .end local v1    # "e":Ljava/security/NoSuchAlgorithmException;
     :cond_0
     const/4 v3, 0x0
 
@@ -236,8 +234,8 @@
 
 .method private KD(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "secret"
-    .parameter "data"
+    .param p1, "secret"    # Ljava/lang/String;
+    .param p2, "data"    # Ljava/lang/String;
 
     .prologue
     .line 373
@@ -272,7 +270,7 @@
 
 .method public static authorizationHeader(Z)Ljava/lang/String;
     .locals 1
-    .parameter "isProxy"
+    .param p0, "isProxy"    # Z
 
     .prologue
     .line 342
@@ -293,7 +291,7 @@
 
 .method private bufferToHex([B)Ljava/lang/String;
     .locals 7
-    .parameter "buffer"
+    .param p1, "buffer"    # [B
 
     .prologue
     .line 400
@@ -304,14 +302,14 @@
     fill-array-data v2, :array_0
 
     .line 403
-    .local v2, hexChars:[C
+    .local v2, "hexChars":[C
     if-eqz p1, :cond_2
 
     .line 404
     array-length v5, p1
 
     .line 405
-    .local v5, length:I
+    .local v5, "length":I
     if-lez v5, :cond_1
 
     .line 406
@@ -322,10 +320,10 @@
     invoke-direct {v1, v6}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 408
-    .local v1, hex:Ljava/lang/StringBuilder;
+    .local v1, "hex":Ljava/lang/StringBuilder;
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_0
     if-ge v3, v5, :cond_0
 
@@ -337,7 +335,7 @@
     int-to-byte v4, v6
 
     .line 410
-    .local v4, l:B
+    .local v4, "l":B
     aget-byte v6, p1, v3
 
     and-int/lit16 v6, v6, 0xf0
@@ -347,7 +345,7 @@
     int-to-byte v0, v6
 
     .line 412
-    .local v0, h:B
+    .local v0, "h":B
     aget-char v6, v2, v0
 
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -363,29 +361,29 @@
     goto :goto_0
 
     .line 416
-    .end local v0           #h:B
-    .end local v4           #l:B
+    .end local v0    # "h":B
+    .end local v4    # "l":B
     :cond_0
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
 
     .line 422
-    .end local v1           #hex:Ljava/lang/StringBuilder;
-    .end local v3           #i:I
-    .end local v5           #length:I
+    .end local v1    # "hex":Ljava/lang/StringBuilder;
+    .end local v3    # "i":I
+    .end local v5    # "length":I
     :goto_1
     return-object v6
 
     .line 418
-    .restart local v5       #length:I
+    .restart local v5    # "length":I
     :cond_1
     const-string v6, ""
 
     goto :goto_1
 
     .line 422
-    .end local v5           #length:I
+    .end local v5    # "length":I
     :cond_2
     const/4 v6, 0x0
 
@@ -395,30 +393,30 @@
     nop
 
     :array_0
-    .array-data 0x2
-        0x30t 0x0t
-        0x31t 0x0t
-        0x32t 0x0t
-        0x33t 0x0t
-        0x34t 0x0t
-        0x35t 0x0t
-        0x36t 0x0t
-        0x37t 0x0t
-        0x38t 0x0t
-        0x39t 0x0t
-        0x61t 0x0t
-        0x62t 0x0t
-        0x63t 0x0t
-        0x64t 0x0t
-        0x65t 0x0t
-        0x66t 0x0t
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x61s
+        0x62s
+        0x63s
+        0x64s
+        0x65s
+        0x66s
     .end array-data
 .end method
 
 .method public static computeBasicAuthResponse(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "username"
-    .parameter "password"
+    .param p0, "username"    # Ljava/lang/String;
+    .param p1, "password"    # Ljava/lang/String;
 
     .prologue
     .line 276
@@ -475,14 +473,14 @@
     invoke-direct {v1}, Ljava/util/Random;-><init>()V
 
     .line 430
-    .local v1, rand:Ljava/util/Random;
+    .local v1, "rand":Ljava/util/Random;
     invoke-virtual {v1}, Ljava/util/Random;->nextInt()I
 
     move-result v0
 
     .line 431
-    .local v0, nextInt:I
-    const/high16 v2, -0x8000
+    .local v0, "nextInt":I
+    const/high16 v2, -0x80000000
 
     if-ne v0, v2, :cond_0
 
@@ -509,12 +507,12 @@
 
 .method private computeDigest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .parameter "A1"
-    .parameter "A2"
-    .parameter "nonce"
-    .parameter "QOP"
-    .parameter "nc"
-    .parameter "cnonce"
+    .param p1, "A1"    # Ljava/lang/String;
+    .param p2, "A2"    # Ljava/lang/String;
+    .param p3, "nonce"    # Ljava/lang/String;
+    .param p4, "QOP"    # Ljava/lang/String;
+    .param p5, "nc"    # Ljava/lang/String;
+    .param p6, "cnonce"    # Ljava/lang/String;
 
     .prologue
     .line 358
@@ -645,13 +643,13 @@
 
 .method private computeDigestAuthResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 10
-    .parameter "username"
-    .parameter "password"
-    .parameter "realm"
-    .parameter "nonce"
-    .parameter "QOP"
-    .parameter "algorithm"
-    .parameter "opaque"
+    .param p1, "username"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "realm"    # Ljava/lang/String;
+    .param p4, "nonce"    # Ljava/lang/String;
+    .param p5, "QOP"    # Ljava/lang/String;
+    .param p6, "algorithm"    # Ljava/lang/String;
+    .param p7, "opaque"    # Ljava/lang/String;
 
     .prologue
     .line 304
@@ -697,7 +695,7 @@
     move-result-object v2
 
     .line 309
-    .local v2, A1:Ljava/lang/String;
+    .local v2, "A1":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -725,16 +723,16 @@
     move-result-object v3
 
     .line 312
-    .local v3, A2:Ljava/lang/String;
+    .local v3, "A2":Ljava/lang/String;
     const-string v6, "00000001"
 
     .line 313
-    .local v6, nc:Ljava/lang/String;
+    .local v6, "nc":Ljava/lang/String;
     invoke-direct {p0}, Landroid/net/http/RequestHandle;->computeCnonce()Ljava/lang/String;
 
     move-result-object v7
 
-    .local v7, cnonce:Ljava/lang/String;
+    .local v7, "cnonce":Ljava/lang/String;
     move-object v1, p0
 
     move-object v4, p4
@@ -747,11 +745,11 @@
     move-result-object v8
 
     .line 316
-    .local v8, digest:Ljava/lang/String;
+    .local v8, "digest":Ljava/lang/String;
     const-string v9, ""
 
     .line 317
-    .local v9, response:Ljava/lang/String;
+    .local v9, "response":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1062,7 +1060,7 @@
     move-result-object v8
 
     .line 456
-    .local v8, newHandle:Landroid/net/http/RequestHandle;
+    .local v8, "newHandle":Landroid/net/http/RequestHandle;
     iget-object v0, v8, Landroid/net/http/RequestHandle;->mRequest:Landroid/net/http/Request;
 
     iput-object v0, p0, Landroid/net/http/RequestHandle;->mRequest:Landroid/net/http/Request;
@@ -1076,7 +1074,7 @@
     invoke-virtual {v8}, Landroid/net/http/RequestHandle;->processRequest()V
 
     .line 465
-    .end local v8           #newHandle:Landroid/net/http/RequestHandle;
+    .end local v8    # "newHandle":Landroid/net/http/RequestHandle;
     :goto_0
     return-void
 
@@ -1113,7 +1111,7 @@
 
 .method private doubleQuote(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "param"
+    .param p1, "param"    # Ljava/lang/String;
 
     .prologue
     .line 440
@@ -1228,7 +1226,7 @@
 
 .method public handleSslErrorResponse(Z)V
     .locals 1
-    .parameter "proceed"
+    .param p1, "proceed"    # Z
 
     .prologue
     .line 119
@@ -1270,7 +1268,7 @@
 
 .method public pauseRequest(Z)V
     .locals 1
-    .parameter "pause"
+    .param p1, "pause"    # Z
 
     .prologue
     .line 109
@@ -1311,7 +1309,7 @@
 
 .method public setRedirectCount(I)V
     .locals 0
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     .line 136
@@ -1323,9 +1321,9 @@
 
 .method public setupBasicAuthResponse(ZLjava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "isProxy"
-    .parameter "username"
-    .parameter "password"
+    .param p1, "isProxy"    # Z
+    .param p2, "username"    # Ljava/lang/String;
+    .param p3, "password"    # Ljava/lang/String;
 
     .prologue
     .line 225
@@ -1334,7 +1332,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, response:Ljava/lang/String;
+    .local v0, "response":Ljava/lang/String;
     iget-object v1, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
     invoke-static {p1}, Landroid/net/http/RequestHandle;->authorizationHeader(Z)Ljava/lang/String;
@@ -1370,14 +1368,14 @@
 
 .method public setupDigestAuthResponse(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 9
-    .parameter "isProxy"
-    .parameter "username"
-    .parameter "password"
-    .parameter "realm"
-    .parameter "nonce"
-    .parameter "QOP"
-    .parameter "algorithm"
-    .parameter "opaque"
+    .param p1, "isProxy"    # Z
+    .param p2, "username"    # Ljava/lang/String;
+    .param p3, "password"    # Ljava/lang/String;
+    .param p4, "realm"    # Ljava/lang/String;
+    .param p5, "nonce"    # Ljava/lang/String;
+    .param p6, "QOP"    # Ljava/lang/String;
+    .param p7, "algorithm"    # Ljava/lang/String;
+    .param p8, "opaque"    # Ljava/lang/String;
 
     .prologue
     .line 245
@@ -1402,7 +1400,7 @@
     move-result-object v8
 
     .line 250
-    .local v8, response:Ljava/lang/String;
+    .local v8, "response":Ljava/lang/String;
     iget-object v0, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
     invoke-static {p1}, Landroid/net/http/RequestHandle;->authorizationHeader(Z)Ljava/lang/String;
@@ -1438,9 +1436,8 @@
 
 .method public setupRedirect(Ljava/lang/String;ILjava/util/Map;)Z
     .locals 7
-    .parameter "redirectTo"
-    .parameter "statusCode"
-    .parameter
+    .param p1, "redirectTo"    # Ljava/lang/String;
+    .param p2, "statusCode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1455,7 +1452,7 @@
     .end annotation
 
     .prologue
-    .local p3, cacheHeaders:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p3, "cacheHeaders":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
     .line 156
@@ -1559,7 +1556,7 @@
     move-result-object v0
 
     .line 187
-    .local v0, cookie:Ljava/lang/String;
+    .local v0, "cookie":Ljava/lang/String;
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -1635,28 +1632,28 @@
     goto :goto_0
 
     .line 180
-    .end local v0           #cookie:Ljava/lang/String;
+    .end local v0    # "cookie":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 181
-    .local v1, e:Landroid/net/ParseException;
+    .local v1, "e":Landroid/net/ParseException;
     invoke-virtual {v1}, Landroid/net/ParseException;->printStackTrace()V
 
     goto :goto_1
 
     .line 202
-    .end local v1           #e:Landroid/net/ParseException;
-    .restart local v0       #cookie:Ljava/lang/String;
+    .end local v1    # "e":Landroid/net/ParseException;
+    .restart local v0    # "cookie":Ljava/lang/String;
     :catch_1
     move-exception v2
 
     .line 206
-    .local v2, ex:Ljava/io/IOException;
+    .local v2, "ex":Ljava/io/IOException;
     goto :goto_0
 
     .line 210
-    .end local v2           #ex:Ljava/io/IOException;
+    .end local v2    # "ex":Ljava/io/IOException;
     :cond_6
     iget-object v3, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 

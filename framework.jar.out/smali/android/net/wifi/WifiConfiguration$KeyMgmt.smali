@@ -19,17 +19,13 @@
 
 .field public static final NONE:I = 0x0
 
-.field public static final WAPI_CERT:I = 0x6
-
-.field public static final WAPI_PSK:I = 0x5
-
 .field public static final WPA2_PSK:I = 0x4
 
 .field public static final WPA_EAP:I = 0x2
 
 .field public static final WPA_PSK:I = 0x1
 
-.field public static final strings:[Ljava/lang/String; = null
+.field public static final strings:[Ljava/lang/String;
 
 .field public static final varName:Ljava/lang/String; = "key_mgmt"
 

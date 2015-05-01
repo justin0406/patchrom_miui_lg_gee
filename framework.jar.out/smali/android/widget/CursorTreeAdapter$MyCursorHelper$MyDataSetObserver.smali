@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/CursorTreeAdapter$MyCursorHelper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 508
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Landroid/widget/CursorTreeAdapter$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/widget/CursorTreeAdapter$MyCursorHelper;
+    .param p2, "x1"    # Landroid/widget/CursorTreeAdapter$1;
 
     .prologue
     .line 508
@@ -55,7 +54,7 @@
 
     const/4 v1, 0x1
 
-    #setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
+    # setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 512
@@ -78,7 +77,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
+    # setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 518

@@ -15,7 +15,7 @@
 
 .field public static final CONTENT_CHANGE_TYPE_UNDEFINED:I = 0x0
 
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -164,7 +164,7 @@
 
 .method public static eventTypeToString(I)Ljava/lang/String;
     .locals 5
-    .parameter "eventType"
+    .param p0, "eventType"    # I
 
     .prologue
     const/4 v4, 0x1
@@ -188,11 +188,11 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1194
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
     .line 1195
-    .local v1, eventTypeCount:I
+    .local v1, "eventTypeCount":I
     :goto_1
     if-eqz p0, :cond_17
 
@@ -204,7 +204,7 @@
     shl-int v2, v4, v3
 
     .line 1197
-    .local v2, eventTypeFlag:I
+    .local v2, "eventTypeFlag":I
     xor-int/lit8 v3, v2, -0x1
 
     and-int/2addr p0, v3
@@ -676,7 +676,7 @@
     goto/16 :goto_1
 
     .line 1355
-    .end local v2           #eventTypeFlag:I
+    .end local v2    # "eventTypeFlag":I
     :cond_17
     if-le v1, v4, :cond_18
 
@@ -742,18 +742,18 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityEvent;
 
     .line 985
-    .local v0, event:Landroid/view/accessibility/AccessibilityEvent;
+    .local v0, "event":Landroid/view/accessibility/AccessibilityEvent;
     if-eqz v0, :cond_0
 
-    .end local v0           #event:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v0    # "event":Landroid/view/accessibility/AccessibilityEvent;
     :goto_0
     return-object v0
 
-    .restart local v0       #event:Landroid/view/accessibility/AccessibilityEvent;
+    .restart local v0    # "event":Landroid/view/accessibility/AccessibilityEvent;
     :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityEvent;
 
-    .end local v0           #event:Landroid/view/accessibility/AccessibilityEvent;
+    .end local v0    # "event":Landroid/view/accessibility/AccessibilityEvent;
     invoke-direct {v0}, Landroid/view/accessibility/AccessibilityEvent;-><init>()V
 
     goto :goto_0
@@ -761,7 +761,7 @@
 
 .method public static obtain(I)Landroid/view/accessibility/AccessibilityEvent;
     .locals 1
-    .parameter "eventType"
+    .param p0, "eventType"    # I
 
     .prologue
     .line 950
@@ -770,7 +770,7 @@
     move-result-object v0
 
     .line 951
-    .local v0, event:Landroid/view/accessibility/AccessibilityEvent;
+    .local v0, "event":Landroid/view/accessibility/AccessibilityEvent;
     invoke-virtual {v0, p0}, Landroid/view/accessibility/AccessibilityEvent;->setEventType(I)V
 
     .line 952
@@ -779,7 +779,7 @@
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityEvent;)Landroid/view/accessibility/AccessibilityEvent;
     .locals 6
-    .parameter "event"
+    .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 964
@@ -788,7 +788,7 @@
     move-result-object v0
 
     .line 965
-    .local v0, eventClone:Landroid/view/accessibility/AccessibilityEvent;
+    .local v0, "eventClone":Landroid/view/accessibility/AccessibilityEvent;
     invoke-virtual {v0, p0}, Landroid/view/accessibility/AccessibilityEvent;->init(Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 967
@@ -799,10 +799,10 @@
     move-result v4
 
     .line 968
-    .local v4, recordCount:I
+    .local v4, "recordCount":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v4, :cond_0
 
@@ -816,13 +816,13 @@
     check-cast v2, Landroid/view/accessibility/AccessibilityRecord;
 
     .line 970
-    .local v2, record:Landroid/view/accessibility/AccessibilityRecord;
+    .local v2, "record":Landroid/view/accessibility/AccessibilityRecord;
     invoke-static {v2}, Landroid/view/accessibility/AccessibilityRecord;->obtain(Landroid/view/accessibility/AccessibilityRecord;)Landroid/view/accessibility/AccessibilityRecord;
 
     move-result-object v3
 
     .line 971
-    .local v3, recordClone:Landroid/view/accessibility/AccessibilityRecord;
+    .local v3, "recordClone":Landroid/view/accessibility/AccessibilityRecord;
     iget-object v5, v0, Landroid/view/accessibility/AccessibilityEvent;->mRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -833,16 +833,16 @@
     goto :goto_0
 
     .line 974
-    .end local v2           #record:Landroid/view/accessibility/AccessibilityRecord;
-    .end local v3           #recordClone:Landroid/view/accessibility/AccessibilityRecord;
+    .end local v2    # "record":Landroid/view/accessibility/AccessibilityRecord;
+    .end local v3    # "recordClone":Landroid/view/accessibility/AccessibilityRecord;
     :cond_0
     return-object v0
 .end method
 
 .method private readAccessibilityRecordFromParcel(Landroid/view/accessibility/AccessibilityRecord;Landroid/os/Parcel;)V
     .locals 4
-    .parameter "record"
-    .parameter "parcel"
+    .param p1, "record"    # Landroid/view/accessibility/AccessibilityRecord;
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v2, 0x0
@@ -1009,9 +1009,9 @@
 
 .method private writeAccessibilityRecordToParcel(Landroid/view/accessibility/AccessibilityRecord;Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "record"
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "record"    # Landroid/view/accessibility/AccessibilityRecord;
+    .param p2, "parcel"    # Landroid/os/Parcel;
+    .param p3, "flags"    # I
 
     .prologue
     .line 1108
@@ -1128,7 +1128,7 @@
 # virtual methods
 .method public appendRecord(Landroid/view/accessibility/AccessibilityRecord;)V
     .locals 1
-    .parameter "record"
+    .param p1, "record"    # Landroid/view/accessibility/AccessibilityRecord;
 
     .prologue
     .line 783
@@ -1194,13 +1194,13 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityRecord;
 
     .line 1018
-    .local v0, record:Landroid/view/accessibility/AccessibilityRecord;
+    .local v0, "record":Landroid/view/accessibility/AccessibilityRecord;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityRecord;->recycle()V
 
     goto :goto_0
 
     .line 1020
-    .end local v0           #record:Landroid/view/accessibility/AccessibilityRecord;
+    .end local v0    # "record":Landroid/view/accessibility/AccessibilityRecord;
     :cond_0
     return-void
 .end method
@@ -1277,7 +1277,7 @@
 
 .method public getRecord(I)Landroid/view/accessibility/AccessibilityRecord;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 794
@@ -1308,7 +1308,7 @@
 
 .method init(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 2
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 739
@@ -1350,7 +1350,7 @@
 
 .method public initFromParcel(Landroid/os/Parcel;)V
     .locals 5
-    .parameter "parcel"
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x1
@@ -1427,10 +1427,10 @@
     move-result v2
 
     .line 1040
-    .local v2, recordCount:I
+    .local v2, "recordCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v2, :cond_1
 
@@ -1440,7 +1440,7 @@
     move-result-object v1
 
     .line 1042
-    .local v1, record:Landroid/view/accessibility/AccessibilityRecord;
+    .local v1, "record":Landroid/view/accessibility/AccessibilityRecord;
     invoke-direct {p0, v1, p1}, Landroid/view/accessibility/AccessibilityEvent;->readAccessibilityRecordFromParcel(Landroid/view/accessibility/AccessibilityRecord;Landroid/os/Parcel;)V
 
     .line 1043
@@ -1459,17 +1459,17 @@
     goto :goto_1
 
     .line 1028
-    .end local v0           #i:I
-    .end local v1           #record:Landroid/view/accessibility/AccessibilityRecord;
-    .end local v2           #recordCount:I
+    .end local v0    # "i":I
+    .end local v1    # "record":Landroid/view/accessibility/AccessibilityRecord;
+    .end local v2    # "recordCount":I
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 1046
-    .restart local v0       #i:I
-    .restart local v2       #recordCount:I
+    .restart local v0    # "i":I
+    .restart local v2    # "recordCount":I
     :cond_1
     return-void
 .end method
@@ -1492,7 +1492,7 @@
 
 .method public setAction(I)V
     .locals 0
-    .parameter "action"
+    .param p1, "action"    # I
 
     .prologue
     .line 929
@@ -1507,7 +1507,7 @@
 
 .method public setContentChangeTypes(I)V
     .locals 0
-    .parameter "changeTypes"
+    .param p1, "changeTypes"    # I
 
     .prologue
     .line 832
@@ -1522,7 +1522,7 @@
 
 .method public setEventTime(J)V
     .locals 0
-    .parameter "eventTime"
+    .param p1, "eventTime"    # J
 
     .prologue
     .line 865
@@ -1537,7 +1537,7 @@
 
 .method public setEventType(I)V
     .locals 0
-    .parameter "eventType"
+    .param p1, "eventType"    # I
 
     .prologue
     .line 844
@@ -1552,7 +1552,7 @@
 
 .method public setMovementGranularity(I)V
     .locals 0
-    .parameter "granularity"
+    .param p1, "granularity"    # I
 
     .prologue
     .line 898
@@ -1567,7 +1567,7 @@
 
 .method public setPackageName(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "packageName"
+    .param p1, "packageName"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 886
@@ -1582,7 +1582,7 @@
 
 .method public setSealed(Z)V
     .locals 4
-    .parameter "sealed"
+    .param p1, "sealed"    # Z
 
     .prologue
     .line 757
@@ -1592,16 +1592,16 @@
     iget-object v3, p0, Landroid/view/accessibility/AccessibilityEvent;->mRecords:Ljava/util/ArrayList;
 
     .line 759
-    .local v3, records:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityRecord;>;"
+    .local v3, "records":Ljava/util/List;, "Ljava/util/List<Landroid/view/accessibility/AccessibilityRecord;>;"
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v2
 
     .line 760
-    .local v2, recordCount:I
+    .local v2, "recordCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
@@ -1613,7 +1613,7 @@
     check-cast v1, Landroid/view/accessibility/AccessibilityRecord;
 
     .line 762
-    .local v1, record:Landroid/view/accessibility/AccessibilityRecord;
+    .local v1, "record":Landroid/view/accessibility/AccessibilityRecord;
     invoke-virtual {v1, p1}, Landroid/view/accessibility/AccessibilityRecord;->setSealed(Z)V
 
     .line 760
@@ -1622,7 +1622,7 @@
     goto :goto_0
 
     .line 764
-    .end local v1           #record:Landroid/view/accessibility/AccessibilityRecord;
+    .end local v1    # "record":Landroid/view/accessibility/AccessibilityRecord;
     :cond_0
     return-void
 .end method
@@ -1637,7 +1637,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1139
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "EventType: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1726,8 +1726,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v4, 0x0
@@ -1788,13 +1788,13 @@
     move-result v2
 
     .line 1093
-    .local v2, recordCount:I
+    .local v2, "recordCount":I
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1094
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v2, :cond_1
 
@@ -1808,7 +1808,7 @@
     check-cast v1, Landroid/view/accessibility/AccessibilityRecord;
 
     .line 1096
-    .local v1, record:Landroid/view/accessibility/AccessibilityRecord;
+    .local v1, "record":Landroid/view/accessibility/AccessibilityRecord;
     invoke-direct {p0, v1, p1, p2}, Landroid/view/accessibility/AccessibilityEvent;->writeAccessibilityRecordToParcel(Landroid/view/accessibility/AccessibilityRecord;Landroid/os/Parcel;I)V
 
     .line 1094
@@ -1816,9 +1816,9 @@
 
     goto :goto_1
 
-    .end local v0           #i:I
-    .end local v1           #record:Landroid/view/accessibility/AccessibilityRecord;
-    .end local v2           #recordCount:I
+    .end local v0    # "i":I
+    .end local v1    # "record":Landroid/view/accessibility/AccessibilityRecord;
+    .end local v2    # "recordCount":I
     :cond_0
     move v3, v4
 
@@ -1826,8 +1826,8 @@
     goto :goto_0
 
     .line 1098
-    .restart local v0       #i:I
-    .restart local v2       #recordCount:I
+    .restart local v0    # "i":I
+    .restart local v2    # "recordCount":I
     :cond_1
     return-void
 .end method

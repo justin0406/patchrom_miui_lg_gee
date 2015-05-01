@@ -49,10 +49,10 @@
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup;III)V
     .locals 5
-    .parameter "parent"
-    .parameter "tabId"
-    .parameter "barId"
-    .parameter "targetId"
+    .param p1, "parent"    # Landroid/view/ViewGroup;
+    .param p2, "tabId"    # I
+    .param p3, "barId"    # I
+    .param p4, "targetId"    # I
 
     .prologue
     const/4 v4, 0x4
@@ -198,7 +198,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/widget/SlidingTab$Slider;)Landroid/widget/ImageView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/SlidingTab$Slider;
 
     .prologue
     .line 158
@@ -209,7 +209,7 @@
 
 .method static synthetic access$700(Lcom/android/internal/widget/SlidingTab$Slider;)Landroid/widget/TextView;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/widget/SlidingTab$Slider;
 
     .prologue
     .line 158
@@ -271,7 +271,7 @@
     move v2, v4
 
     .line 237
-    .local v2, horiz:Z
+    .local v2, "horiz":Z
     :goto_0
     if-eqz v2, :cond_3
 
@@ -290,12 +290,12 @@
     sub-int v0, v5, v6
 
     .line 239
-    .local v0, dx:I
+    .local v0, "dx":I
     :goto_1
     if-eqz v2, :cond_4
 
     .line 242
-    .local v1, dy:I
+    .local v1, "dy":I
     :goto_2
     new-instance v3, Landroid/view/animation/TranslateAnimation;
 
@@ -306,7 +306,7 @@
     invoke-direct {v3, v7, v5, v7, v6}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
     .line 243
-    .local v3, trans:Landroid/view/animation/Animation;
+    .local v3, "trans":Landroid/view/animation/Animation;
     const-wide/16 v5, 0xfa
 
     invoke-virtual {v3, v5, v6}, Landroid/view/animation/Animation;->setDuration(J)V
@@ -334,10 +334,10 @@
     .line 248
     return-void
 
-    .end local v0           #dx:I
-    .end local v1           #dy:I
-    .end local v2           #horiz:Z
-    .end local v3           #trans:Landroid/view/animation/Animation;
+    .end local v0    # "dx":I
+    .end local v1    # "dy":I
+    .end local v2    # "horiz":Z
+    .end local v3    # "trans":Landroid/view/animation/Animation;
     :cond_1
     move v2, v1
 
@@ -345,7 +345,7 @@
     goto :goto_0
 
     .line 237
-    .restart local v2       #horiz:Z
+    .restart local v2    # "horiz":Z
     :cond_2
     iget v5, p0, Lcom/android/internal/widget/SlidingTab$Slider;->alignment_value:I
 
@@ -365,7 +365,7 @@
     goto :goto_1
 
     .line 239
-    .restart local v0       #dx:I
+    .restart local v0    # "dx":I
     :cond_4
     iget v5, p0, Lcom/android/internal/widget/SlidingTab$Slider;->alignment:I
 
@@ -421,11 +421,11 @@
 
 .method layout(IIIII)V
     .locals 26
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
-    .parameter "alignment"
+    .param p1, "l"    # I
+    .param p2, "t"    # I
+    .param p3, "r"    # I
+    .param p4, "b"    # I
+    .param p5, "alignment"    # I
 
     .prologue
     .line 336
@@ -447,19 +447,19 @@
     move-result-object v14
 
     .line 338
-    .local v14, tabBackground:Landroid/graphics/drawable/Drawable;
+    .local v14, "tabBackground":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v14}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v7
 
     .line 339
-    .local v7, handleWidth:I
+    .local v7, "handleWidth":I
     invoke-virtual {v14}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v6
 
     .line 340
-    .local v6, handleHeight:I
+    .local v6, "handleHeight":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/SlidingTab$Slider;->target:Landroid/widget/ImageView;
@@ -471,27 +471,27 @@
     move-result-object v16
 
     .line 341
-    .local v16, targetDrawable:Landroid/graphics/drawable/Drawable;
+    .local v16, "targetDrawable":Landroid/graphics/drawable/Drawable;
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v21
 
     .line 342
-    .local v21, targetWidth:I
+    .local v21, "targetWidth":I
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v17
 
     .line 343
-    .local v17, targetHeight:I
+    .local v17, "targetHeight":I
     sub-int v11, p3, p1
 
     .line 344
-    .local v11, parentWidth:I
+    .local v11, "parentWidth":I
     sub-int v10, p4, p2
 
     .line 346
-    .local v10, parentHeight:I
+    .local v10, "parentHeight":I
     const v23, 0x3f2aaaab
 
     int-to-float v0, v11
@@ -513,7 +513,7 @@
     add-int v9, v23, v24
 
     .line 347
-    .local v9, leftTarget:I
+    .local v9, "leftTarget":I
     const v23, 0x3eaaaaaa
 
     int-to-float v0, v11
@@ -533,17 +533,17 @@
     sub-int v13, v23, v24
 
     .line 348
-    .local v13, rightTarget:I
+    .local v13, "rightTarget":I
     sub-int v23, v11, v7
 
     div-int/lit8 v8, v23, 0x2
 
     .line 349
-    .local v8, left:I
+    .local v8, "left":I
     add-int v12, v8, v7
 
     .line 351
-    .local v12, right:I
+    .local v12, "right":I
     if-eqz p5, :cond_0
 
     const/16 v23, 0x1
@@ -561,23 +561,23 @@
     div-int/lit8 v20, v23, 0x2
 
     .line 354
-    .local v20, targetTop:I
+    .local v20, "targetTop":I
     add-int v15, v20, v17
 
     .line 355
-    .local v15, targetBottom:I
+    .local v15, "targetBottom":I
     sub-int v23, v10, v6
 
     div-int/lit8 v22, v23, 0x2
 
     .line 356
-    .local v22, top:I
+    .local v22, "top":I
     add-int v23, v10, v6
 
     div-int/lit8 v5, v23, 0x2
 
     .line 357
-    .local v5, bottom:I
+    .local v5, "bottom":I
     if-nez p5, :cond_1
 
     .line 358
@@ -654,14 +654,14 @@
     iput v0, v1, Lcom/android/internal/widget/SlidingTab$Slider;->alignment_value:I
 
     .line 388
-    .end local v15           #targetBottom:I
-    .end local v20           #targetTop:I
+    .end local v15    # "targetBottom":I
+    .end local v20    # "targetTop":I
     :goto_0
     return-void
 
     .line 364
-    .restart local v15       #targetBottom:I
-    .restart local v20       #targetTop:I
+    .restart local v15    # "targetBottom":I
+    .restart local v20    # "targetTop":I
     :cond_1
     move-object/from16 v0, p0
 
@@ -734,23 +734,23 @@
     goto :goto_0
 
     .line 372
-    .end local v5           #bottom:I
-    .end local v15           #targetBottom:I
-    .end local v20           #targetTop:I
-    .end local v22           #top:I
+    .end local v5    # "bottom":I
+    .end local v15    # "targetBottom":I
+    .end local v20    # "targetTop":I
+    .end local v22    # "top":I
     :cond_2
     sub-int v23, v11, v21
 
     div-int/lit8 v18, v23, 0x2
 
     .line 373
-    .local v18, targetLeft:I
+    .local v18, "targetLeft":I
     add-int v23, v11, v21
 
     div-int/lit8 v19, v23, 0x2
 
     .line 374
-    .local v19, targetRight:I
+    .local v19, "targetRight":I
     const v23, 0x3f2aaaab
 
     int-to-float v0, v10
@@ -772,7 +772,7 @@
     sub-int v22, v23, v17
 
     .line 375
-    .restart local v22       #top:I
+    .restart local v22    # "top":I
     const v23, 0x3eaaaaaa
 
     int-to-float v0, v10
@@ -792,7 +792,7 @@
     sub-int v5, v23, v24
 
     .line 376
-    .restart local v5       #bottom:I
+    .restart local v5    # "bottom":I
     const/16 v23, 0x2
 
     move/from16 v0, p5
@@ -963,7 +963,7 @@
 
 .method reset(Z)V
     .locals 9
-    .parameter "animate"
+    .param p1, "animate"    # Z
 
     .prologue
     const/4 v2, 0x1
@@ -1015,7 +1015,7 @@
     if-ne v5, v2, :cond_1
 
     .line 298
-    .local v2, horiz:Z
+    .local v2, "horiz":Z
     :cond_0
     :goto_0
     if-eqz v2, :cond_3
@@ -1035,14 +1035,14 @@
     sub-int v0, v5, v6
 
     .line 300
-    .local v0, dx:I
+    .local v0, "dx":I
     :goto_1
     if-eqz v2, :cond_4
 
     move v1, v4
 
     .line 302
-    .local v1, dy:I
+    .local v1, "dy":I
     :goto_2
     if-eqz p1, :cond_6
 
@@ -1056,7 +1056,7 @@
     invoke-direct {v3, v8, v5, v8, v6}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
     .line 304
-    .local v3, trans:Landroid/view/animation/TranslateAnimation;
+    .local v3, "trans":Landroid/view/animation/TranslateAnimation;
     const-wide/16 v5, 0xfa
 
     invoke-virtual {v3, v5, v6}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
@@ -1075,13 +1075,13 @@
     invoke-virtual {v4, v3}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 320
-    .end local v3           #trans:Landroid/view/animation/TranslateAnimation;
+    .end local v3    # "trans":Landroid/view/animation/TranslateAnimation;
     :goto_3
     return-void
 
-    .end local v0           #dx:I
-    .end local v1           #dy:I
-    .end local v2           #horiz:Z
+    .end local v0    # "dx":I
+    .end local v1    # "dy":I
+    .end local v2    # "horiz":Z
     :cond_1
     move v2, v4
 
@@ -1089,7 +1089,7 @@
     goto :goto_0
 
     .line 298
-    .restart local v2       #horiz:Z
+    .restart local v2    # "horiz":Z
     :cond_2
     iget v5, p0, Lcom/android/internal/widget/SlidingTab$Slider;->alignment_value:I
 
@@ -1109,7 +1109,7 @@
     goto :goto_1
 
     .line 300
-    .restart local v0       #dx:I
+    .restart local v0    # "dx":I
     :cond_4
     iget v5, p0, Lcom/android/internal/widget/SlidingTab$Slider;->alignment:I
 
@@ -1143,7 +1143,7 @@
     goto :goto_2
 
     .line 309
-    .restart local v1       #dy:I
+    .restart local v1    # "dy":I
     :cond_6
     if-eqz v2, :cond_7
 
@@ -1191,7 +1191,7 @@
 
 .method setBarBackgroundResource(I)V
     .locals 1
-    .parameter "barId"
+    .param p1, "barId"    # I
 
     .prologue
     .line 228
@@ -1205,7 +1205,7 @@
 
 .method setHintText(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 232
@@ -1219,7 +1219,7 @@
 
 .method setIcon(I)V
     .locals 1
-    .parameter "iconId"
+    .param p1, "iconId"    # I
 
     .prologue
     .line 220
@@ -1233,7 +1233,7 @@
 
 .method setState(I)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -1273,7 +1273,7 @@
     aput v1, v0, v3
 
     .line 271
-    .local v0, activeState:[I
+    .local v0, "activeState":[I
     iget-object v1, p0, Lcom/android/internal/widget/SlidingTab$Slider;->text:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -1333,7 +1333,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 281
-    .end local v0           #activeState:[I
+    .end local v0    # "activeState":[I
     :goto_2
     iput p1, p0, Lcom/android/internal/widget/SlidingTab$Slider;->currentState:I
 
@@ -1371,7 +1371,7 @@
 
 .method setTabBackgroundResource(I)V
     .locals 1
-    .parameter "tabId"
+    .param p1, "tabId"    # I
 
     .prologue
     .line 224
@@ -1385,7 +1385,7 @@
 
 .method setTarget(I)V
     .locals 1
-    .parameter "targetId"
+    .param p1, "targetId"    # I
 
     .prologue
     .line 323
@@ -1399,7 +1399,7 @@
 
 .method show(Z)V
     .locals 7
-    .parameter "animate"
+    .param p1, "animate"    # Z
 
     .prologue
     const/4 v2, 0x1
@@ -1431,7 +1431,7 @@
     if-ne v4, v2, :cond_2
 
     .line 256
-    .local v2, horiz:Z
+    .local v2, "horiz":Z
     :cond_0
     :goto_0
     if-eqz v2, :cond_4
@@ -1447,12 +1447,12 @@
     move-result v0
 
     .line 257
-    .local v0, dx:I
+    .local v0, "dx":I
     :goto_1
     if-eqz v2, :cond_5
 
     .line 259
-    .local v1, dy:I
+    .local v1, "dy":I
     :goto_2
     new-instance v3, Landroid/view/animation/TranslateAnimation;
 
@@ -1467,7 +1467,7 @@
     invoke-direct {v3, v4, v6, v5, v6}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
     .line 260
-    .local v3, trans:Landroid/view/animation/Animation;
+    .local v3, "trans":Landroid/view/animation/Animation;
     const-wide/16 v4, 0xfa
 
     invoke-virtual {v3, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
@@ -1483,10 +1483,10 @@
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 264
-    .end local v0           #dx:I
-    .end local v1           #dy:I
-    .end local v2           #horiz:Z
-    .end local v3           #trans:Landroid/view/animation/Animation;
+    .end local v0    # "dx":I
+    .end local v1    # "dy":I
+    .end local v2    # "horiz":Z
+    .end local v3    # "trans":Landroid/view/animation/Animation;
     :cond_1
     return-void
 
@@ -1497,7 +1497,7 @@
     goto :goto_0
 
     .line 256
-    .restart local v2       #horiz:Z
+    .restart local v2    # "horiz":Z
     :cond_3
     iget-object v4, p0, Lcom/android/internal/widget/SlidingTab$Slider;->tab:Landroid/widget/ImageView;
 
@@ -1515,7 +1515,7 @@
     goto :goto_1
 
     .line 257
-    .restart local v0       #dx:I
+    .restart local v0    # "dx":I
     :cond_5
     iget v4, p0, Lcom/android/internal/widget/SlidingTab$Slider;->alignment:I
 
@@ -1552,12 +1552,12 @@
 
     const/4 v1, 0x0
 
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     invoke-direct {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
     .line 286
-    .local v0, alphaAnim:Landroid/view/animation/AlphaAnimation;
+    .local v0, "alphaAnim":Landroid/view/animation/AlphaAnimation;
     const-wide/16 v1, 0x1f4
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
@@ -1580,8 +1580,8 @@
 
 .method public startAnimation(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)V
     .locals 1
-    .parameter "anim1"
-    .parameter "anim2"
+    .param p1, "anim1"    # Landroid/view/animation/Animation;
+    .param p2, "anim2"    # Landroid/view/animation/Animation;
 
     .prologue
     .line 428

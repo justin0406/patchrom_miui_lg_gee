@@ -21,9 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter
-    .parameter "drawableLtr"
-    .parameter "drawableRtl"
+    .param p2, "drawableLtr"    # Landroid/graphics/drawable/Drawable;
+    .param p3, "drawableRtl"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 3459
@@ -45,7 +44,7 @@
     .line 3474
     iget-object v0, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -59,8 +58,8 @@
 
 .method protected getHotspotX(Landroid/graphics/drawable/Drawable;Z)I
     .locals 1
-    .parameter "drawable"
-    .parameter "isRtlRun"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "isRtlRun"    # Z
 
     .prologue
     .line 3465
@@ -91,7 +90,7 @@
 
 .method public setActionPopupWindow(Landroid/widget/Editor$ActionPopupWindow;)V
     .locals 0
-    .parameter "actionPopupWindow"
+    .param p1, "actionPopupWindow"    # Landroid/widget/Editor$ActionPopupWindow;
 
     .prologue
     .line 3498
@@ -103,14 +102,14 @@
 
 .method public updatePosition(FF)V
     .locals 4
-    .parameter "x"
-    .parameter "y"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
     .prologue
     .line 3486
     iget-object v2, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -120,10 +119,10 @@
     move-result v0
 
     .line 3489
-    .local v0, offset:I
+    .local v0, "offset":I
     iget-object v2, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -133,7 +132,7 @@
     move-result v1
 
     .line 3490
-    .local v1, selectionStart:I
+    .local v1, "selectionStart":I
     if-gt v0, v1, :cond_0
 
     .line 3491
@@ -141,7 +140,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -170,13 +169,13 @@
 
 .method public updateSelection(I)V
     .locals 2
-    .parameter "offset"
+    .param p1, "offset"    # I
 
     .prologue
     .line 3479
     iget-object v0, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -189,7 +188,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1

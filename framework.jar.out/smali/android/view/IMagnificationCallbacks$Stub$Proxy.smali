@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 96
@@ -61,7 +61,7 @@
 
 .method public onMagnifedBoundsChanged(Landroid/graphics/Region;)V
     .locals 5
-    .parameter "bounds"
+    .param p1, "bounds"    # Landroid/graphics/Region;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 111
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IMagnificationCallbacks"
 
@@ -136,10 +136,10 @@
 
 .method public onRectangleOnScreenRequested(IIII)V
     .locals 5
-    .parameter "left"
-    .parameter "top"
-    .parameter "right"
-    .parameter "bottom"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -153,7 +153,7 @@
     move-result-object v0
 
     .line 129
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IMagnificationCallbacks"
 
@@ -201,7 +201,7 @@
 
 .method public onRotationChanged(I)V
     .locals 5
-    .parameter "rotation"
+    .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -215,7 +215,7 @@
     move-result-object v0
 
     .line 144
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IMagnificationCallbacks"
 
@@ -267,7 +267,7 @@
     move-result-object v0
 
     .line 156
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.view.IMagnificationCallbacks"
 

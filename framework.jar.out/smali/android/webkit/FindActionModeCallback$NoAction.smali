@@ -32,8 +32,8 @@
 # virtual methods
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
     .locals 1
-    .parameter "mode"
-    .parameter "item"
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
     .line 301
@@ -44,8 +44,8 @@
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 1
-    .parameter "mode"
-    .parameter "menu"
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
     .line 291
@@ -56,7 +56,7 @@
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
     .locals 0
-    .parameter "mode"
+    .param p1, "mode"    # Landroid/view/ActionMode;
 
     .prologue
     .line 306
@@ -65,8 +65,8 @@
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 1
-    .parameter "mode"
-    .parameter "menu"
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
     .line 296

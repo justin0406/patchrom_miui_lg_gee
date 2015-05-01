@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final INSECURE_TRUST_MANAGER:[Ljavax/net/ssl/TrustManager; = null
+.field private static final INSECURE_TRUST_MANAGER:[Ljavax/net/ssl/TrustManager;
 
 .field private static final TAG:Ljava/lang/String; = "SSLCertificateSocketFactory"
 
@@ -56,7 +56,7 @@
 
 .method public constructor <init>(I)V
     .locals 2
-    .parameter "handshakeTimeoutMillis"
+    .param p1, "handshakeTimeoutMillis"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -74,9 +74,9 @@
 
 .method private constructor <init>(ILandroid/net/SSLSessionCache;Z)V
     .locals 1
-    .parameter "handshakeTimeoutMillis"
-    .parameter "cache"
-    .parameter "secure"
+    .param p1, "handshakeTimeoutMillis"    # I
+    .param p2, "cache"    # Landroid/net/SSLSessionCache;
+    .param p3, "secure"    # Z
 
     .prologue
     const/4 v0, 0x0
@@ -129,7 +129,7 @@
 
 .method private static castToOpenSSLSocket(Ljava/net/Socket;)Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     .locals 3
-    .parameter "socket"
+    .param p0, "socket"    # Ljava/net/Socket;
 
     .prologue
     .line 413
@@ -166,13 +166,13 @@
     :cond_0
     check-cast p0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
-    .end local p0
+    .end local p0    # "socket":Ljava/net/Socket;
     return-object p0
 .end method
 
 .method public static getDefault(I)Ljavax/net/SocketFactory;
     .locals 3
-    .parameter "handshakeTimeoutMillis"
+    .param p0, "handshakeTimeoutMillis"    # I
 
     .prologue
     .line 117
@@ -189,8 +189,8 @@
 
 .method public static getDefault(ILandroid/net/SSLSessionCache;)Ljavax/net/ssl/SSLSocketFactory;
     .locals 2
-    .parameter "handshakeTimeoutMillis"
-    .parameter "cache"
+    .param p0, "handshakeTimeoutMillis"    # I
+    .param p1, "cache"    # Landroid/net/SSLSessionCache;
 
     .prologue
     .line 130
@@ -313,8 +313,8 @@
 
 .method public static getHttpSocketFactory(ILandroid/net/SSLSessionCache;)Lorg/apache/http/conn/ssl/SSLSocketFactory;
     .locals 3
-    .parameter "handshakeTimeoutMillis"
-    .parameter "cache"
+    .param p0, "handshakeTimeoutMillis"    # I
+    .param p1, "cache"    # Landroid/net/SSLSessionCache;
 
     .prologue
     .line 160
@@ -333,8 +333,8 @@
 
 .method public static getInsecure(ILandroid/net/SSLSessionCache;)Ljavax/net/ssl/SSLSocketFactory;
     .locals 2
-    .parameter "handshakeTimeoutMillis"
-    .parameter "cache"
+    .param p0, "handshakeTimeoutMillis"    # I
+    .param p1, "cache"    # Landroid/net/SSLSessionCache;
 
     .prologue
     .line 146
@@ -393,8 +393,8 @@
 
 .method private makeSocketFactory([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
     .locals 4
-    .parameter "keyManagers"
-    .parameter "trustManagers"
+    .param p1, "keyManagers"    # [Ljavax/net/ssl/KeyManager;
+    .param p2, "trustManagers"    # [Ljavax/net/ssl/TrustManager;
 
     .prologue
     .line 205
@@ -404,7 +404,7 @@
     invoke-direct {v1}, Lcom/android/org/conscrypt/OpenSSLContextImpl;-><init>()V
 
     .line 206
-    .local v1, sslContext:Lcom/android/org/conscrypt/OpenSSLContextImpl;
+    .local v1, "sslContext":Lcom/android/org/conscrypt/OpenSSLContextImpl;
     const/4 v2, 0x0
 
     invoke-virtual {v1, p1, p2, v2}, Lcom/android/org/conscrypt/OpenSSLContextImpl;->engineInit([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
@@ -426,7 +426,7 @@
     move-result-object v2
 
     .line 211
-    .end local v1           #sslContext:Lcom/android/org/conscrypt/OpenSSLContextImpl;
+    .end local v1    # "sslContext":Lcom/android/org/conscrypt/OpenSSLContextImpl;
     :goto_0
     return-object v2
 
@@ -435,7 +435,7 @@
     move-exception v0
 
     .line 210
-    .local v0, e:Ljava/security/KeyManagementException;
+    .local v0, "e":Ljava/security/KeyManagementException;
     const-string v2, "SSLCertificateSocketFactory"
 
     invoke-static {v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
@@ -452,7 +452,7 @@
 
 .method static varargs toLengthPrefixedList([[B)[B
     .locals 15
-    .parameter "items"
+    .param p0, "items"    # [[B
 
     .prologue
     .line 300
@@ -474,23 +474,23 @@
     const/4 v11, 0x0
 
     .line 304
-    .local v11, totalLength:I
+    .local v11, "totalLength":I
     move-object v0, p0
 
-    .local v0, arr$:[[B
+    .local v0, "arr$":[[B
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v5, :cond_3
 
     aget-object v10, v0, v3
 
     .line 305
-    .local v10, s:[B
+    .local v10, "s":[B
     array-length v12, v10
 
     if-eqz v12, :cond_1
@@ -543,16 +543,16 @@
     goto :goto_0
 
     .line 310
-    .end local v10           #s:[B
+    .end local v10    # "s":[B
     :cond_3
     new-array v9, v11, [B
 
     .line 311
-    .local v9, result:[B
+    .local v9, "result":[B
     const/4 v7, 0x0
 
     .line 312
-    .local v7, pos:I
+    .local v7, "pos":I
     move-object v0, p0
 
     array-length v5, v0
@@ -561,25 +561,25 @@
 
     move v4, v3
 
-    .end local v3           #i$:I
-    .local v4, i$:I
+    .end local v3    # "i$":I
+    .local v4, "i$":I
     move v8, v7
 
-    .end local v0           #arr$:[[B
-    .end local v5           #len$:I
-    .end local v7           #pos:I
-    .local v8, pos:I
+    .end local v0    # "arr$":[[B
+    .end local v5    # "len$":I
+    .end local v7    # "pos":I
+    .local v8, "pos":I
     :goto_1
     if-ge v4, v5, :cond_5
 
     aget-object v10, v0, v4
 
     .line 313
-    .restart local v10       #s:[B
+    .restart local v10    # "s":[B
     add-int/lit8 v7, v8, 0x1
 
-    .end local v8           #pos:I
-    .restart local v7       #pos:I
+    .end local v8    # "pos":I
+    .restart local v7    # "pos":I
     array-length v12, v10
 
     int-to-byte v12, v12
@@ -589,29 +589,29 @@
     .line 314
     move-object v1, v10
 
-    .local v1, arr$:[B
+    .local v1, "arr$":[B
     array-length v6, v1
 
-    .local v6, len$:I
+    .local v6, "len$":I
     const/4 v3, 0x0
 
-    .end local v4           #i$:I
-    .restart local v3       #i$:I
+    .end local v4    # "i$":I
+    .restart local v3    # "i$":I
     move v8, v7
 
-    .end local v7           #pos:I
-    .restart local v8       #pos:I
+    .end local v7    # "pos":I
+    .restart local v8    # "pos":I
     :goto_2
     if-ge v3, v6, :cond_4
 
     aget-byte v2, v1, v3
 
     .line 315
-    .local v2, b:B
+    .local v2, "b":B
     add-int/lit8 v7, v8, 0x1
 
-    .end local v8           #pos:I
-    .restart local v7       #pos:I
+    .end local v8    # "pos":I
+    .restart local v7    # "pos":I
     aput-byte v2, v9, v8
 
     .line 314
@@ -619,33 +619,33 @@
 
     move v8, v7
 
-    .end local v7           #pos:I
-    .restart local v8       #pos:I
+    .end local v7    # "pos":I
+    .restart local v8    # "pos":I
     goto :goto_2
 
     .line 312
-    .end local v2           #b:B
+    .end local v2    # "b":B
     :cond_4
     add-int/lit8 v3, v4, 0x1
 
     move v4, v3
 
-    .end local v3           #i$:I
-    .restart local v4       #i$:I
+    .end local v3    # "i$":I
+    .restart local v4    # "i$":I
     goto :goto_1
 
     .line 318
-    .end local v1           #arr$:[B
-    .end local v6           #len$:I
-    .end local v10           #s:[B
+    .end local v1    # "arr$":[B
+    .end local v6    # "len$":I
+    .end local v10    # "s":[B
     :cond_5
     return-object v9
 .end method
 
 .method public static verifyHostname(Ljava/net/Socket;Ljava/lang/String;)V
     .locals 5
-    .parameter "socket"
-    .parameter "hostname"
+    .param p0, "socket"    # Ljava/net/Socket;
+    .param p1, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -681,7 +681,7 @@
     check-cast v1, Ljavax/net/ssl/SSLSocket;
 
     .line 190
-    .local v1, ssl:Ljavax/net/ssl/SSLSocket;
+    .local v1, "ssl":Ljavax/net/ssl/SSLSocket;
     invoke-virtual {v1}, Ljavax/net/ssl/SSLSocket;->startHandshake()V
 
     .line 192
@@ -690,7 +690,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, session:Ljavax/net/ssl/SSLSession;
+    .local v0, "session":Ljavax/net/ssl/SSLSession;
     if-nez v0, :cond_1
 
     .line 194
@@ -740,8 +740,8 @@
     throw v2
 
     .line 200
-    .end local v0           #session:Ljavax/net/ssl/SSLSession;
-    .end local v1           #ssl:Ljavax/net/ssl/SSLSocket;
+    .end local v0    # "session":Ljavax/net/ssl/SSLSession;
+    .end local v1    # "ssl":Ljavax/net/ssl/SSLSocket;
     :cond_2
     return-void
 .end method
@@ -769,7 +769,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 451
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -795,8 +795,8 @@
 
 .method public createSocket(Ljava/lang/String;I)Ljava/net/Socket;
     .locals 2
-    .parameter "host"
-    .parameter "port"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -816,7 +816,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 524
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -851,10 +851,10 @@
 
 .method public createSocket(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;
     .locals 2
-    .parameter "host"
-    .parameter "port"
-    .parameter "localAddr"
-    .parameter "localPort"
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "port"    # I
+    .param p3, "localAddr"    # Ljava/net/InetAddress;
+    .param p4, "localPort"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -874,7 +874,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 505
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -909,8 +909,8 @@
 
 .method public createSocket(Ljava/net/InetAddress;I)Ljava/net/Socket;
     .locals 2
-    .parameter "addr"
-    .parameter "port"
+    .param p1, "addr"    # Ljava/net/InetAddress;
+    .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -930,7 +930,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 487
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -956,10 +956,10 @@
 
 .method public createSocket(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;
     .locals 2
-    .parameter "addr"
-    .parameter "port"
-    .parameter "localAddr"
-    .parameter "localPort"
+    .param p1, "addr"    # Ljava/net/InetAddress;
+    .param p2, "port"    # I
+    .param p3, "localAddr"    # Ljava/net/InetAddress;
+    .param p4, "localPort"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -979,7 +979,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 470
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -1005,10 +1005,10 @@
 
 .method public createSocket(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;
     .locals 2
-    .parameter "k"
-    .parameter "host"
-    .parameter "port"
-    .parameter "close"
+    .param p1, "k"    # Ljava/net/Socket;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "close"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1028,7 +1028,7 @@
     check-cast v0, Lcom/android/org/conscrypt/OpenSSLSocketImpl;
 
     .line 430
-    .local v0, s:Lcom/android/org/conscrypt/OpenSSLSocketImpl;
+    .local v0, "s":Lcom/android/org/conscrypt/OpenSSLSocketImpl;
     iget-object v1, p0, Landroid/net/SSLCertificateSocketFactory;->mNpnProtocols:[B
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setNpnProtocols([B)V
@@ -1063,7 +1063,7 @@
 
 .method public getAlpnSelectedProtocol(Ljava/net/Socket;)[B
     .locals 1
-    .parameter "socket"
+    .param p1, "socket"    # Ljava/net/Socket;
 
     .prologue
     .line 344
@@ -1096,7 +1096,7 @@
 
 .method public getNpnSelectedProtocol(Ljava/net/Socket;)[B
     .locals 1
-    .parameter "socket"
+    .param p1, "socket"    # Ljava/net/Socket;
 
     .prologue
     .line 330
@@ -1129,7 +1129,7 @@
 
 .method public setAlpnProtocols([[B)V
     .locals 1
-    .parameter "protocols"
+    .param p1, "protocols"    # [[B
 
     .prologue
     .line 292
@@ -1145,7 +1145,7 @@
 
 .method public setChannelIdPrivateKey(Ljava/security/PrivateKey;)V
     .locals 0
-    .parameter "privateKey"
+    .param p1, "privateKey"    # Ljava/security/PrivateKey;
 
     .prologue
     .line 369
@@ -1157,8 +1157,8 @@
 
 .method public setHostname(Ljava/net/Socket;Ljava/lang/String;)V
     .locals 1
-    .parameter "socket"
-    .parameter "hostName"
+    .param p1, "socket"    # Ljava/net/Socket;
+    .param p2, "hostName"    # Ljava/lang/String;
 
     .prologue
     .line 393
@@ -1174,7 +1174,7 @@
 
 .method public setKeyManagers([Ljavax/net/ssl/KeyManager;)V
     .locals 1
-    .parameter "keyManagers"
+    .param p1, "keyManagers"    # [Ljavax/net/ssl/KeyManager;
 
     .prologue
     const/4 v0, 0x0
@@ -1194,7 +1194,7 @@
 
 .method public setNpnProtocols([[B)V
     .locals 1
-    .parameter "npnProtocols"
+    .param p1, "npnProtocols"    # [[B
 
     .prologue
     .line 269
@@ -1210,8 +1210,8 @@
 
 .method public setSoWriteTimeout(Ljava/net/Socket;I)V
     .locals 1
-    .parameter "socket"
-    .parameter "writeTimeoutMilliseconds"
+    .param p1, "socket"    # Ljava/net/Socket;
+    .param p2, "writeTimeoutMilliseconds"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -1232,7 +1232,7 @@
 
 .method public setTrustManagers([Ljavax/net/ssl/TrustManager;)V
     .locals 1
-    .parameter "trustManager"
+    .param p1, "trustManager"    # [Ljavax/net/ssl/TrustManager;
 
     .prologue
     .line 244
@@ -1249,8 +1249,8 @@
 
 .method public setUseSessionTickets(Ljava/net/Socket;Z)V
     .locals 1
-    .parameter "socket"
-    .parameter "useSessionTickets"
+    .param p1, "socket"    # Ljava/net/Socket;
+    .param p2, "useSessionTickets"    # Z
 
     .prologue
     .line 381

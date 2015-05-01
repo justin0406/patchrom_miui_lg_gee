@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 168
@@ -51,8 +51,8 @@
 
 .method public enableRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;Z)V
     .locals 5
-    .parameter "rcd"
-    .parameter "enabled"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,7 +70,7 @@
     move-result-object v0
 
     .line 293
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IRemoteControlClient"
 
@@ -138,9 +138,9 @@
 
 .method public informationRequestForDisplay(Landroid/media/IRemoteControlDisplay;II)V
     .locals 5
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -156,7 +156,7 @@
     move-result-object v0
 
     .line 211
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
@@ -208,8 +208,8 @@
 
 .method public onInformationRequested(II)V
     .locals 5
-    .parameter "generationId"
-    .parameter "infoFlags"
+    .param p1, "generationId"    # I
+    .param p2, "infoFlags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -223,7 +223,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 
@@ -265,9 +265,9 @@
 
 .method public plugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;II)V
     .locals 5
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -283,7 +283,7 @@
     move-result-object v0
 
     .line 240
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
@@ -335,8 +335,8 @@
 
 .method public seekTo(IJ)V
     .locals 5
-    .parameter "clientGeneration"
-    .parameter "timeMs"
+    .param p1, "clientGeneration"    # I
+    .param p2, "timeMs"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -350,7 +350,7 @@
     move-result-object v0
 
     .line 306
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 
@@ -392,9 +392,9 @@
 
 .method public setBitmapSizeForDisplay(Landroid/media/IRemoteControlDisplay;II)V
     .locals 5
-    .parameter "rcd"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -410,7 +410,7 @@
     move-result-object v0
 
     .line 266
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
@@ -462,7 +462,7 @@
 
 .method public setCurrentClientGenerationId(I)V
     .locals 5
-    .parameter "clientGeneration"
+    .param p1, "clientGeneration"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -476,7 +476,7 @@
     move-result-object v0
 
     .line 228
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 
@@ -515,8 +515,8 @@
 
 .method public setWantsSyncForDisplay(Landroid/media/IRemoteControlDisplay;Z)V
     .locals 5
-    .parameter "rcd"
-    .parameter "wantsSync"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
+    .param p2, "wantsSync"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -534,7 +534,7 @@
     move-result-object v0
 
     .line 280
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.media.IRemoteControlClient"
 
@@ -592,7 +592,7 @@
 
 .method public unplugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
     .locals 5
-    .parameter "rcd"
+    .param p1, "rcd"    # Landroid/media/IRemoteControlDisplay;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -608,7 +608,7 @@
     move-result-object v0
 
     .line 254
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
@@ -654,9 +654,9 @@
 
 .method public updateMetadata(IILandroid/media/Rating;)V
     .locals 5
-    .parameter "clientGeneration"
-    .parameter "key"
-    .parameter "value"
+    .param p1, "clientGeneration"    # I
+    .param p2, "key"    # I
+    .param p3, "value"    # Landroid/media/Rating;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -670,7 +670,7 @@
     move-result-object v0
 
     .line 319
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 

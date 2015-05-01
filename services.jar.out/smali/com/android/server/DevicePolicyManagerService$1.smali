@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 181
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 184
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 185
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.extra.user_handle"
 
     invoke-virtual {p0}, Lcom/android/server/DevicePolicyManagerService$1;->getSendingUserId()I
@@ -58,7 +57,7 @@
     move-result v1
 
     .line 187
-    .local v1, userHandle:I
+    .local v1, "userHandle":I
     const-string v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -109,7 +108,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$1;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
-    #calls: Lcom/android/server/DevicePolicyManagerService;->manageMonitoringCertificateNotification(Landroid/content/Intent;)V
+    # invokes: Lcom/android/server/DevicePolicyManagerService;->manageMonitoringCertificateNotification(Landroid/content/Intent;)V
     invoke-static {v2, p2}, Lcom/android/server/DevicePolicyManagerService;->access$100(Lcom/android/server/DevicePolicyManagerService;Landroid/content/Intent;)V
 
     .line 201
@@ -198,7 +197,7 @@
     :cond_7
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$1;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
-    #calls: Lcom/android/server/DevicePolicyManagerService;->handlePackagesChanged(I)V
+    # invokes: Lcom/android/server/DevicePolicyManagerService;->handlePackagesChanged(I)V
     invoke-static {v2, v1}, Lcom/android/server/DevicePolicyManagerService;->access$200(Lcom/android/server/DevicePolicyManagerService;I)V
 
     goto :goto_0

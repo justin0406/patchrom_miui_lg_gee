@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 72
@@ -37,8 +37,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 68
@@ -52,9 +52,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 58
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -136,9 +136,9 @@
 
 .method public onActivityResult(IILandroid/content/Intent;)Z
     .locals 2
-    .parameter "requestCode"
-    .parameter "resultCode"
-    .parameter "data"
+    .param p1, "requestCode"    # I
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Landroid/content/Intent;
 
     .prologue
     .line 232
@@ -159,7 +159,7 @@
     check-cast v0, Landroid/net/Uri;
 
     .line 237
-    .local v0, uri:Landroid/net/Uri;
+    .local v0, "uri":Landroid/net/Uri;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -177,7 +177,7 @@
     invoke-virtual {p0, v0}, Landroid/preference/RingtonePreference;->onSaveRingtone(Landroid/net/Uri;)V
 
     .line 242
-    .end local v0           #uri:Landroid/net/Uri;
+    .end local v0    # "uri":Landroid/net/Uri;
     :cond_0
     const/4 v1, 0x1
 
@@ -186,14 +186,14 @@
     return v1
 
     .line 237
-    .restart local v0       #uri:Landroid/net/Uri;
+    .restart local v0    # "uri":Landroid/net/Uri;
     :cond_1
     const-string v1, ""
 
     goto :goto_0
 
     .line 245
-    .end local v0           #uri:Landroid/net/Uri;
+    .end local v0    # "uri":Landroid/net/Uri;
     :cond_2
     const/4 v1, 0x0
 
@@ -202,7 +202,7 @@
 
 .method protected onAttachedToHierarchy(Landroid/preference/PreferenceManager;)V
     .locals 1
-    .parameter "preferenceManager"
+    .param p1, "preferenceManager"    # Landroid/preference/PreferenceManager;
 
     .prologue
     .line 224
@@ -234,7 +234,7 @@
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 138
-    .local v0, intent:Landroid/content/Intent;
+    .local v0, "intent":Landroid/content/Intent;
     invoke-virtual {p0, v0}, Landroid/preference/RingtonePreference;->onPrepareRingtonePickerIntent(Landroid/content/Intent;)V
 
     .line 139
@@ -247,7 +247,7 @@
     move-result-object v1
 
     .line 140
-    .local v1, owningFragment:Landroid/preference/PreferenceFragment;
+    .local v1, "owningFragment":Landroid/preference/PreferenceFragment;
     if-eqz v1, :cond_0
 
     .line 141
@@ -278,8 +278,8 @@
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 198
@@ -292,7 +292,7 @@
 
 .method protected onPrepareRingtonePickerIntent(Landroid/content/Intent;)V
     .locals 2
-    .parameter "ringtonePickerIntent"
+    .param p1, "ringtonePickerIntent"    # Landroid/content/Intent;
 
     .prologue
     .line 156
@@ -353,7 +353,11 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    invoke-static {p1}, Landroid/preference/Injector$RingtonePreferenceHook;->after_onPrepareRingtonePickerIntent(Landroid/content/Intent;)V
+    const-string v0, "com.android.thememanager"
+
+    const-string v1, "com.android.thememanager.activity.ThemeTabActivity"
+
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 168
     return-void
@@ -371,7 +375,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, uriString:Ljava/lang/String;
+    .local v0, "uriString":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -388,7 +392,7 @@
 
 .method protected onSaveRingtone(Landroid/net/Uri;)V
     .locals 1
-    .parameter "ringtoneUri"
+    .param p1, "ringtoneUri"    # Landroid/net/Uri;
 
     .prologue
     .line 179
@@ -413,8 +417,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 2
-    .parameter "restorePersistedValue"
-    .parameter "defaultValueObj"
+    .param p1, "restorePersistedValue"    # Z
+    .param p2, "defaultValueObj"    # Ljava/lang/Object;
 
     .prologue
     .line 203
@@ -423,7 +427,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 212
-    .local v0, defaultValue:Ljava/lang/String;
+    .local v0, "defaultValue":Ljava/lang/String;
     if-eqz p1, :cond_1
 
     .line 220
@@ -451,7 +455,7 @@
 
 .method public setRingtoneType(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 92
@@ -463,7 +467,7 @@
 
 .method public setShowDefault(Z)V
     .locals 0
-    .parameter "showDefault"
+    .param p1, "showDefault"    # Z
 
     .prologue
     .line 112
@@ -475,7 +479,7 @@
 
 .method public setShowSilent(Z)V
     .locals 0
-    .parameter "showSilent"
+    .param p1, "showSilent"    # Z
 
     .prologue
     .line 131

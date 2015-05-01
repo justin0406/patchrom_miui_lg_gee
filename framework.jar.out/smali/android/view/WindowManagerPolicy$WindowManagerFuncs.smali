@@ -32,7 +32,7 @@
 .method public abstract getWindowManagerLock()Ljava/lang/Object;
 .end method
 
-.method public abstract rebootSafeMode()V
+.method public abstract reboot()V
 .end method
 
 .method public abstract rebootSafeMode(Z)V
@@ -42,9 +42,6 @@
 .end method
 
 .method public abstract registerPointerEventListener(Landroid/view/WindowManagerPolicy$PointerEventListener;)V
-.end method
-
-.method public abstract shutdown()V
 .end method
 
 .method public abstract shutdown(Z)V

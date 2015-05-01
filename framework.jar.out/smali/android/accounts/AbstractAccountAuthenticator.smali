@@ -24,7 +24,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 113
@@ -48,7 +48,7 @@
 
 .method static synthetic access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/accounts/AbstractAccountAuthenticator;
 
     .prologue
     .line 108
@@ -59,11 +59,11 @@
 
 .method static synthetic access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/accounts/AbstractAccountAuthenticator;
+    .param p1, "x1"    # Landroid/accounts/IAccountAuthenticatorResponse;
+    .param p2, "x2"    # Ljava/lang/String;
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,11 +87,11 @@
     move-result v1
 
     .line 340
-    .local v1, uid:I
+    .local v1, "uid":I
     const-string v0, "android.permission.ACCOUNT_MANAGER"
 
     .line 341
-    .local v0, perm:Ljava/lang/String;
+    .local v0, "perm":Ljava/lang/String;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.ACCOUNT_MANAGER"
@@ -146,10 +146,10 @@
 
 .method private handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 3
-    .parameter "response"
-    .parameter "method"
-    .parameter "data"
-    .parameter "e"
+    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
+    .param p2, "method"    # Ljava/lang/String;
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "e"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -440,9 +440,9 @@
 
 .method public addAccountFromCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 2
-    .parameter "response"
-    .parameter "account"
-    .parameter "accountCredentials"
+    .param p1, "response"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "accountCredentials"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
@@ -480,8 +480,8 @@
 
 .method public getAccountCredentialsForCloning(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;)Landroid/os/Bundle;
     .locals 2
-    .parameter "response"
-    .parameter "account"
+    .param p1, "response"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
@@ -508,8 +508,8 @@
 
 .method public getAccountRemovalAllowed(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;)Landroid/os/Bundle;
     .locals 3
-    .parameter "response"
-    .parameter "account"
+    .param p1, "response"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
@@ -523,7 +523,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 503
-    .local v0, result:Landroid/os/Bundle;
+    .local v0, "result":Landroid/os/Bundle;
     const-string v1, "booleanResult"
 
     const/4 v2, 0x1

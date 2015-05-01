@@ -32,12 +32,12 @@
 # direct methods
 .method public constructor <init>(FFFIILandroid/graphics/Shader$TileMode;)V
     .locals 7
-    .parameter "x"
-    .parameter "y"
-    .parameter "radius"
-    .parameter "color0"
-    .parameter "color1"
-    .parameter "tile"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "radius"    # F
+    .param p4, "color0"    # I
+    .param p5, "color1"    # I
+    .param p6, "tile"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 82
@@ -129,12 +129,12 @@
 
 .method public constructor <init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
     .locals 7
-    .parameter "x"
-    .parameter "y"
-    .parameter "radius"
-    .parameter "colors"
-    .parameter "positions"
-    .parameter "tile"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "radius"    # F
+    .param p4, "colors"    # [I
+    .param p5, "positions"    # [F
+    .param p6, "tile"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 51
@@ -328,7 +328,7 @@
     invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
     .line 116
-    .local v0, copy:Landroid/graphics/RadialGradient;
+    .local v0, "copy":Landroid/graphics/RadialGradient;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/graphics/RadialGradient;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
@@ -336,7 +336,7 @@
     return-object v0
 
     .line 106
-    .end local v0           #copy:Landroid/graphics/RadialGradient;
+    .end local v0    # "copy":Landroid/graphics/RadialGradient;
     :cond_0
     const/4 v5, 0x0
 
@@ -361,7 +361,7 @@
     invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFFIILandroid/graphics/Shader$TileMode;)V
 
     .line 111
-    .restart local v0       #copy:Landroid/graphics/RadialGradient;
+    .restart local v0    # "copy":Landroid/graphics/RadialGradient;
     goto :goto_1
 
     .line 104

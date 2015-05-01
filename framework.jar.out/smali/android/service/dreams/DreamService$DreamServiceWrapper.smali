@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/service/dreams/DreamService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 752
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/service/dreams/DreamService;Landroid/service/dreams/DreamService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/service/dreams/DreamService;
+    .param p2, "x1"    # Landroid/service/dreams/DreamService$1;
 
     .prologue
     .line 752
@@ -48,13 +47,13 @@
 # virtual methods
 .method public attach(Landroid/os/IBinder;)V
     .locals 2
-    .parameter "windowToken"
+    .param p1, "windowToken"    # Landroid/os/IBinder;
 
     .prologue
     .line 754
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
-    #getter for: Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/service/dreams/DreamService;->access$400(Landroid/service/dreams/DreamService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -76,7 +75,7 @@
     .line 762
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
-    #getter for: Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
+    # getter for: Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/service/dreams/DreamService;->access$400(Landroid/service/dreams/DreamService;)Landroid/os/Handler;
 
     move-result-object v0

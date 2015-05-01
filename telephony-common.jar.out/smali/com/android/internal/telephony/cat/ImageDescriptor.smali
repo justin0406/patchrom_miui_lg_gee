@@ -62,8 +62,8 @@
 
 .method static parse([BI)Lcom/android/internal/telephony/cat/ImageDescriptor;
     .locals 5
-    .parameter "rawData"
-    .parameter "valueIndex"
+    .param p0, "rawData"    # [B
+    .param p1, "valueIndex"    # I
 
     .prologue
     .line 57
@@ -72,11 +72,11 @@
     invoke-direct {v0}, Lcom/android/internal/telephony/cat/ImageDescriptor;-><init>()V
 
     .line 59
-    .local v0, d:Lcom/android/internal/telephony/cat/ImageDescriptor;
+    .local v0, "d":Lcom/android/internal/telephony/cat/ImageDescriptor;
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .local v2, valueIndex:I
+    .end local p1    # "valueIndex":I
+    .local v2, "valueIndex":I
     :try_start_0
     aget-byte v3, p0, p1
 
@@ -89,8 +89,8 @@
     .line 60
     add-int/lit8 p1, v2, 0x1
 
-    .end local v2           #valueIndex:I
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     :try_start_1
     aget-byte v3, p0, v2
 
@@ -103,8 +103,8 @@
     .line 61
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .restart local v2       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v2    # "valueIndex":I
     :try_start_2
     aget-byte v3, p0, p1
 
@@ -117,8 +117,8 @@
     .line 64
     add-int/lit8 p1, v2, 0x1
 
-    .end local v2           #valueIndex:I
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     :try_start_3
     aget-byte v3, p0, v2
 
@@ -135,8 +135,8 @@
 
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .restart local v2       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v2    # "valueIndex":I
     :try_start_4
     aget-byte v4, p0, p1
 
@@ -151,8 +151,8 @@
     .line 67
     add-int/lit8 p1, v2, 0x1
 
-    .end local v2           #valueIndex:I
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     :try_start_5
     aget-byte v3, p0, v2
 
@@ -165,8 +165,8 @@
     .line 68
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .restart local v2       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v2    # "valueIndex":I
     :try_start_6
     aget-byte v3, p0, p1
 
@@ -179,8 +179,8 @@
     .line 70
     add-int/lit8 p1, v2, 0x1
 
-    .end local v2           #valueIndex:I
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     :try_start_7
     aget-byte v3, p0, v2
     :try_end_7
@@ -192,8 +192,8 @@
 
     add-int/lit8 v2, p1, 0x1
 
-    .end local p1
-    .restart local v2       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v2    # "valueIndex":I
     :try_start_8
     aget-byte v4, p0, p1
 
@@ -208,23 +208,23 @@
     move p1, v2
 
     .line 75
-    .end local v2           #valueIndex:I
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .restart local p1    # "valueIndex":I
     :goto_0
     return-object v0
 
     .line 71
-    .end local p1
-    .restart local v2       #valueIndex:I
+    .end local p1    # "valueIndex":I
+    .restart local v2    # "valueIndex":I
     :catch_0
     move-exception v1
 
     move p1, v2
 
     .line 72
-    .end local v2           #valueIndex:I
-    .local v1, e:Ljava/lang/IndexOutOfBoundsException;
-    .restart local p1
+    .end local v2    # "valueIndex":I
+    .local v1, "e":Ljava/lang/IndexOutOfBoundsException;
+    .restart local p1    # "valueIndex":I
     :goto_1
     const-string v3, "ImageDescripter"
 
@@ -238,7 +238,7 @@
     goto :goto_0
 
     .line 71
-    .end local v1           #e:Ljava/lang/IndexOutOfBoundsException;
+    .end local v1    # "e":Ljava/lang/IndexOutOfBoundsException;
     :catch_1
     move-exception v1
 

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 118
@@ -61,7 +61,7 @@
 
 .method public remove(Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "operation"
+    .param p1, "operation"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,13 +75,13 @@
     move-result-object v0
 
     .line 195
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 197
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IAlarmManager"
 
@@ -149,12 +149,12 @@
 
 .method public set(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
     .locals 5
-    .parameter "type"
-    .parameter "triggerAtTime"
-    .parameter "windowLength"
-    .parameter "interval"
-    .parameter "operation"
-    .parameter "workSource"
+    .param p1, "type"    # I
+    .param p2, "triggerAtTime"    # J
+    .param p4, "windowLength"    # J
+    .param p6, "interval"    # J
+    .param p8, "operation"    # Landroid/app/PendingIntent;
+    .param p9, "workSource"    # Landroid/os/WorkSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -168,13 +168,13 @@
     move-result-object v0
 
     .line 133
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 135
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IAlarmManager"
 
@@ -279,7 +279,7 @@
 
 .method public setTime(J)V
     .locals 5
-    .parameter "millis"
+    .param p1, "millis"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -293,13 +293,13 @@
     move-result-object v0
 
     .line 165
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 167
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IAlarmManager"
 
@@ -345,7 +345,7 @@
 
 .method public setTimeZone(Ljava/lang/String;)V
     .locals 5
-    .parameter "zone"
+    .param p1, "zone"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -359,13 +359,13 @@
     move-result-object v0
 
     .line 180
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 182
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.app.IAlarmManager"
 

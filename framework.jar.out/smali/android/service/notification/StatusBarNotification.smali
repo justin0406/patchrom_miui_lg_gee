@@ -58,7 +58,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 75
@@ -163,14 +163,14 @@
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;)V
     .locals 10
-    .parameter "pkg"
-    .parameter "id"
-    .parameter "tag"
-    .parameter "uid"
-    .parameter "initialPid"
-    .parameter "score"
-    .parameter "notification"
-    .parameter "user"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "uid"    # I
+    .param p5, "initialPid"    # I
+    .param p6, "score"    # I
+    .param p7, "notification"    # Landroid/app/Notification;
+    .param p8, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 45
@@ -202,15 +202,15 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;)V
     .locals 12
-    .parameter "pkg"
-    .parameter "basePkg"
-    .parameter "id"
-    .parameter "tag"
-    .parameter "uid"
-    .parameter "initialPid"
-    .parameter "score"
-    .parameter "notification"
-    .parameter "user"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "basePkg"    # Ljava/lang/String;
+    .param p3, "id"    # I
+    .param p4, "tag"    # Ljava/lang/String;
+    .param p5, "uid"    # I
+    .param p6, "initialPid"    # I
+    .param p7, "score"    # I
+    .param p8, "notification"    # Landroid/app/Notification;
+    .param p9, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 51
@@ -246,16 +246,16 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;J)V
     .locals 1
-    .parameter "pkg"
-    .parameter "basePkg"
-    .parameter "id"
-    .parameter "tag"
-    .parameter "uid"
-    .parameter "initialPid"
-    .parameter "score"
-    .parameter "notification"
-    .parameter "user"
-    .parameter "postTime"
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "basePkg"    # Ljava/lang/String;
+    .param p3, "id"    # I
+    .param p4, "tag"    # Ljava/lang/String;
+    .param p5, "uid"    # I
+    .param p6, "initialPid"    # I
+    .param p7, "score"    # I
+    .param p8, "notification"    # Landroid/app/Notification;
+    .param p9, "user"    # Landroid/os/UserHandle;
+    .param p10, "postTime"    # J
 
     .prologue
     .line 57
@@ -385,7 +385,7 @@
     invoke-direct {v8}, Landroid/app/Notification;-><init>()V
 
     .line 135
-    .local v8, no:Landroid/app/Notification;
+    .local v8, "no":Landroid/app/Notification;
     iget-object v0, p0, Landroid/service/notification/StatusBarNotification;->notification:Landroid/app/Notification;
 
     const/4 v1, 0x0
@@ -662,8 +662,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 94

@@ -14,7 +14,7 @@
 # static fields
 .field public static final AUTHORITY:Ljava/lang/String; = "user_dictionary"
 
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field private static final FREQUENCY_MAX:I = 0xff
 

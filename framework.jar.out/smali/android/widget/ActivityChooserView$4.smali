@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/view/View;
 
     .prologue
     .line 246
@@ -42,7 +41,7 @@
     .line 249
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
-    #calls: Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
+    # invokes: Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$100(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
 
     move-result-object v0

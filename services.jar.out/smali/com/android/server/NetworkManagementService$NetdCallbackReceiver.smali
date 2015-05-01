@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/NetworkManagementService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 438
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/NetworkManagementService;Lcom/android/server/NetworkManagementService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/NetworkManagementService;
+    .param p2, "x1"    # Lcom/android/server/NetworkManagementService$1;
 
     .prologue
     .line 438
@@ -56,7 +55,7 @@
     .line 443
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    #getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
+    # getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$100(Lcom/android/server/NetworkManagementService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
@@ -66,7 +65,7 @@
     .line 444
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    #getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
+    # getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$100(Lcom/android/server/NetworkManagementService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
@@ -78,7 +77,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
+    # setter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0, v1}, Lcom/android/server/NetworkManagementService;->access$102(Lcom/android/server/NetworkManagementService;Ljava/util/concurrent/CountDownLatch;)Ljava/util/concurrent/CountDownLatch;
 
     .line 454
@@ -89,7 +88,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    #getter for: Lcom/android/server/NetworkManagementService;->mMainHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/NetworkManagementService;->mMainHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$300(Lcom/android/server/NetworkManagementService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -105,9 +104,9 @@
 
 .method public onEvent(ILjava/lang/String;[Ljava/lang/String;)Z
     .locals 12
-    .parameter "code"
-    .parameter "raw"
-    .parameter "cooked"
+    .param p1, "code"    # I
+    .param p2, "raw"    # Ljava/lang/String;
+    .param p3, "cooked"    # [Ljava/lang/String;
 
     .prologue
     const/4 v11, 0x4
@@ -180,7 +179,7 @@
 
     aget-object v7, p3, v9
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceAdded(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyInterfaceAdded(Ljava/lang/String;)V
     invoke-static {v6, v7}, Lcom/android/server/NetworkManagementService;->access$400(Lcom/android/server/NetworkManagementService;Ljava/lang/String;)V
 
     goto :goto_0
@@ -202,7 +201,7 @@
 
     aget-object v7, p3, v9
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceRemoved(Ljava/lang/String;)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyInterfaceRemoved(Ljava/lang/String;)V
     invoke-static {v6, v7}, Lcom/android/server/NetworkManagementService;->access$500(Lcom/android/server/NetworkManagementService;Ljava/lang/String;)V
 
     goto :goto_0
@@ -238,7 +237,7 @@
 
     move-result v8
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceStatusChanged(Ljava/lang/String;Z)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyInterfaceStatusChanged(Ljava/lang/String;Z)V
     invoke-static {v6, v7, v8}, Lcom/android/server/NetworkManagementService;->access$600(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Z)V
 
     goto :goto_0
@@ -274,7 +273,7 @@
 
     move-result v8
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceLinkStateChanged(Ljava/lang/String;Z)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyInterfaceLinkStateChanged(Ljava/lang/String;Z)V
     invoke-static {v6, v7, v8}, Lcom/android/server/NetworkManagementService;->access$700(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Z)V
 
     goto :goto_0
@@ -352,7 +351,7 @@
 
     aget-object v8, p3, v11
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyLimitReached(Ljava/lang/String;Ljava/lang/String;)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyLimitReached(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v6, v7, v8}, Lcom/android/server/NetworkManagementService;->access$800(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
@@ -420,18 +419,18 @@
     move-result v2
 
     .line 513
-    .local v2, isActive:Z
+    .local v2, "isActive":Z
     iget-object v6, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
     aget-object v7, p3, v9
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceClassActivity(Ljava/lang/String;Z)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyInterfaceClassActivity(Ljava/lang/String;Z)V
     invoke-static {v6, v7, v2}, Lcom/android/server/NetworkManagementService;->access$900(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
     .line 522
-    .end local v2           #isActive:Z
+    .end local v2    # "isActive":Z
     :sswitch_3
     const-string v7, "Invalid event from daemon (%s)"
 
@@ -444,7 +443,7 @@
     move-result-object v3
 
     .line 523
-    .local v3, msg:Ljava/lang/String;
+    .local v3, "msg":Ljava/lang/String;
     array-length v6, p3
 
     const/4 v7, 0x6
@@ -481,7 +480,7 @@
     move-result v1
 
     .line 531
-    .local v1, flags:I
+    .local v1, "flags":I
     const/4 v6, 0x6
 
     aget-object v6, p3, v6
@@ -493,7 +492,7 @@
     move-result v4
 
     .line 536
-    .local v4, scope:I
+    .local v4, "scope":I
     aget-object v6, p3, v10
 
     const-string v7, "updated"
@@ -511,19 +510,19 @@
 
     aget-object v8, p3, v11
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyAddressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyAddressUpdated(Ljava/lang/String;Ljava/lang/String;II)V
     invoke-static {v6, v7, v8, v1, v4}, Lcom/android/server/NetworkManagementService;->access$1000(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Ljava/lang/String;II)V
 
     goto/16 :goto_0
 
     .line 532
-    .end local v1           #flags:I
-    .end local v4           #scope:I
+    .end local v1    # "flags":I
+    .end local v4    # "scope":I
     :catch_0
     move-exception v0
 
     .line 533
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v5, Ljava/lang/IllegalStateException;
 
     invoke-direct {v5, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -531,9 +530,9 @@
     throw v5
 
     .line 539
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    .restart local v1       #flags:I
-    .restart local v4       #scope:I
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
+    .restart local v1    # "flags":I
+    .restart local v4    # "scope":I
     :cond_d
     iget-object v6, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
@@ -541,7 +540,7 @@
 
     aget-object v8, p3, v11
 
-    #calls: Lcom/android/server/NetworkManagementService;->notifyAddressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
+    # invokes: Lcom/android/server/NetworkManagementService;->notifyAddressRemoved(Ljava/lang/String;Ljava/lang/String;II)V
     invoke-static {v6, v7, v8, v1, v4}, Lcom/android/server/NetworkManagementService;->access$1100(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Ljava/lang/String;II)V
 
     goto/16 :goto_0

@@ -23,9 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/storage/StorageManager$ObbListenerDelegate;Landroid/os/Looper;Landroid/os/storage/StorageManager;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
+    .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
     .line 157
@@ -42,7 +40,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 160
@@ -53,7 +51,7 @@
     move-result-object v0
 
     .line 161
-    .local v0, changeListener:Landroid/os/storage/OnObbStateChangeListener;
+    .local v0, "changeListener":Landroid/os/storage/OnObbStateChangeListener;
     if-nez v0, :cond_0
 
     .line 173
@@ -67,7 +65,7 @@
     check-cast v1, Landroid/os/storage/StorageManager$StorageEvent;
 
     .line 167
-    .local v1, e:Landroid/os/storage/StorageManager$StorageEvent;
+    .local v1, "e":Landroid/os/storage/StorageManager$StorageEvent;
     iget v3, p1, Landroid/os/Message;->what:I
 
     const/4 v4, 0x3
@@ -80,7 +78,7 @@
     check-cast v2, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
 
     .line 169
-    .local v2, ev:Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
+    .local v2, "ev":Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
     iget-object v3, v2, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->path:Ljava/lang/String;
 
     iget v4, v2, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->state:I
@@ -90,7 +88,7 @@
     goto :goto_0
 
     .line 171
-    .end local v2           #ev:Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
+    .end local v2    # "ev":Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;
     :cond_1
     const-string v3, "StorageManager"
 

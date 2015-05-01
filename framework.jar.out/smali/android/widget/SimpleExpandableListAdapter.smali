@@ -54,17 +54,15 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;II[Ljava/lang/String;[ILjava/util/List;II[Ljava/lang/String;[I)V
     .locals 1
-    .parameter "context"
-    .parameter
-    .parameter "expandedGroupLayout"
-    .parameter "collapsedGroupLayout"
-    .parameter "groupFrom"
-    .parameter "groupTo"
-    .parameter
-    .parameter "childLayout"
-    .parameter "lastChildLayout"
-    .parameter "childFrom"
-    .parameter "childTo"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p3, "expandedGroupLayout"    # I
+    .param p4, "collapsedGroupLayout"    # I
+    .param p5, "groupFrom"    # [Ljava/lang/String;
+    .param p6, "groupTo"    # [I
+    .param p8, "childLayout"    # I
+    .param p9, "lastChildLayout"    # I
+    .param p10, "childFrom"    # [Ljava/lang/String;
+    .param p11, "childTo"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,8 +90,8 @@
 
     .prologue
     .line 197
-    .local p2, groupData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
-    .local p7, childData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
+    .local p2, "groupData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
+    .local p7, "childData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
     invoke-direct {p0}, Landroid/widget/BaseExpandableListAdapter;-><init>()V
 
     .line 198
@@ -143,16 +141,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;II[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V
     .locals 12
-    .parameter "context"
-    .parameter
-    .parameter "expandedGroupLayout"
-    .parameter "collapsedGroupLayout"
-    .parameter "groupFrom"
-    .parameter "groupTo"
-    .parameter
-    .parameter "childLayout"
-    .parameter "childFrom"
-    .parameter "childTo"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p3, "expandedGroupLayout"    # I
+    .param p4, "collapsedGroupLayout"    # I
+    .param p5, "groupFrom"    # [Ljava/lang/String;
+    .param p6, "groupTo"    # [I
+    .param p8, "childLayout"    # I
+    .param p9, "childFrom"    # [Ljava/lang/String;
+    .param p10, "childTo"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,8 +176,8 @@
 
     .prologue
     .line 143
-    .local p2, groupData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
-    .local p7, childData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
+    .local p2, "groupData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
+    .local p7, "childData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
     move-object v0, p0
 
     move-object v1, p1
@@ -214,15 +210,13 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V
     .locals 12
-    .parameter "context"
-    .parameter
-    .parameter "groupLayout"
-    .parameter "groupFrom"
-    .parameter "groupTo"
-    .parameter
-    .parameter "childLayout"
-    .parameter "childFrom"
-    .parameter "childTo"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p3, "groupLayout"    # I
+    .param p4, "groupFrom"    # [Ljava/lang/String;
+    .param p5, "groupTo"    # [I
+    .param p7, "childLayout"    # I
+    .param p8, "childFrom"    # [Ljava/lang/String;
+    .param p9, "childTo"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,8 +244,8 @@
 
     .prologue
     .line 95
-    .local p2, groupData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
-    .local p6, childData:Ljava/util/List;,"Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
+    .local p2, "groupData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
+    .local p6, "childData":Ljava/util/List;, "Ljava/util/List<+Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;>;"
     move-object v0, p0
 
     move-object v1, p1
@@ -284,10 +278,9 @@
 
 .method private bindView(Landroid/view/View;Ljava/util/Map;[Ljava/lang/String;[I)V
     .locals 4
-    .parameter "view"
-    .parameter
-    .parameter "from"
-    .parameter "to"
+    .param p1, "view"    # Landroid/view/View;
+    .param p3, "from"    # [Ljava/lang/String;
+    .param p4, "to"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -303,14 +296,14 @@
 
     .prologue
     .line 244
-    .local p2, data:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
+    .local p2, "data":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;*>;"
     array-length v1, p4
 
     .line 246
-    .local v1, len:I
+    .local v1, "len":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -324,7 +317,7 @@
     check-cast v2, Landroid/widget/TextView;
 
     .line 248
-    .local v2, v:Landroid/widget/TextView;
+    .local v2, "v":Landroid/widget/TextView;
     if-eqz v2, :cond_0
 
     .line 249
@@ -345,7 +338,7 @@
     goto :goto_0
 
     .line 252
-    .end local v2           #v:Landroid/widget/TextView;
+    .end local v2    # "v":Landroid/widget/TextView;
     :cond_1
     return-void
 .end method
@@ -354,8 +347,8 @@
 # virtual methods
 .method public getChild(II)Ljava/lang/Object;
     .locals 1
-    .parameter "groupPosition"
-    .parameter "childPosition"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
 
     .prologue
     .line 214
@@ -376,8 +369,8 @@
 
 .method public getChildId(II)J
     .locals 2
-    .parameter "groupPosition"
-    .parameter "childPosition"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
 
     .prologue
     .line 218
@@ -388,11 +381,11 @@
 
 .method public getChildView(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "groupPosition"
-    .parameter "childPosition"
-    .parameter "isLastChild"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
+    .param p3, "isLastChild"    # Z
+    .param p4, "convertView"    # Landroid/view/View;
+    .param p5, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 224
@@ -404,7 +397,7 @@
     move-result-object v0
 
     .line 229
-    .local v0, v:Landroid/view/View;
+    .local v0, "v":Landroid/view/View;
     :goto_0
     iget-object v1, p0, Landroid/widget/SimpleExpandableListAdapter;->mChildData:Ljava/util/List;
 
@@ -430,17 +423,17 @@
     return-object v0
 
     .line 227
-    .end local v0           #v:Landroid/view/View;
+    .end local v0    # "v":Landroid/view/View;
     :cond_0
     move-object v0, p4
 
-    .restart local v0       #v:Landroid/view/View;
+    .restart local v0    # "v":Landroid/view/View;
     goto :goto_0
 .end method
 
 .method public getChildrenCount(I)I
     .locals 1
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 255
@@ -461,7 +454,7 @@
 
 .method public getGroup(I)Ljava/lang/Object;
     .locals 1
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 259
@@ -490,7 +483,7 @@
 
 .method public getGroupId(I)J
     .locals 2
-    .parameter "groupPosition"
+    .param p1, "groupPosition"    # I
 
     .prologue
     .line 267
@@ -501,10 +494,10 @@
 
 .method public getGroupView(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "groupPosition"
-    .parameter "isExpanded"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "groupPosition"    # I
+    .param p2, "isExpanded"    # Z
+    .param p3, "convertView"    # Landroid/view/View;
+    .param p4, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 273
@@ -516,7 +509,7 @@
     move-result-object v0
 
     .line 278
-    .local v0, v:Landroid/view/View;
+    .local v0, "v":Landroid/view/View;
     :goto_0
     iget-object v1, p0, Landroid/widget/SimpleExpandableListAdapter;->mGroupData:Ljava/util/List;
 
@@ -536,11 +529,11 @@
     return-object v0
 
     .line 276
-    .end local v0           #v:Landroid/view/View;
+    .end local v0    # "v":Landroid/view/View;
     :cond_0
     move-object v0, p3
 
-    .restart local v0       #v:Landroid/view/View;
+    .restart local v0    # "v":Landroid/view/View;
     goto :goto_0
 .end method
 
@@ -556,8 +549,8 @@
 
 .method public isChildSelectable(II)Z
     .locals 1
-    .parameter "groupPosition"
-    .parameter "childPosition"
+    .param p1, "groupPosition"    # I
+    .param p2, "childPosition"    # I
 
     .prologue
     .line 294
@@ -568,8 +561,8 @@
 
 .method public newChildView(ZLandroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "isLastChild"
-    .parameter "parent"
+    .param p1, "isLastChild"    # Z
+    .param p2, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 240
@@ -596,8 +589,8 @@
 
 .method public newGroupView(ZLandroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
-    .parameter "isExpanded"
-    .parameter "parent"
+    .param p1, "isExpanded"    # Z
+    .param p2, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 289

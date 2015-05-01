@@ -176,7 +176,7 @@
 
 .method public setHomeActionContentDescription(I)V
     .locals 0
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 775
@@ -185,7 +185,7 @@
 
 .method public setHomeActionContentDescription(Ljava/lang/CharSequence;)V
     .locals 0
-    .parameter "description"
+    .param p1, "description"    # Ljava/lang/CharSequence;
 
     .prologue
     .line 755
@@ -194,7 +194,7 @@
 
 .method public setHomeAsUpIndicator(I)V
     .locals 0
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 736
@@ -203,7 +203,7 @@
 
 .method public setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "indicator"
+    .param p1, "indicator"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 715
@@ -212,7 +212,7 @@
 
 .method public setHomeButtonEnabled(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 675
@@ -242,7 +242,7 @@
 
 .method public setSplitBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 452
@@ -251,7 +251,7 @@
 
 .method public setStackedBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 442

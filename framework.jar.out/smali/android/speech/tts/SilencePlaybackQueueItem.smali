@@ -12,9 +12,9 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;J)V
     .locals 1
-    .parameter "dispatcher"
-    .parameter "callerIdentity"
-    .parameter "silenceDurationMs"
+    .param p1, "dispatcher"    # Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+    .param p2, "callerIdentity"    # Ljava/lang/Object;
+    .param p3, "silenceDurationMs"    # J
 
     .prologue
     .line 28
@@ -77,7 +77,7 @@
 
 .method stop(Z)V
     .locals 1
-    .parameter "isError"
+    .param p1, "isError"    # Z
 
     .prologue
     .line 43

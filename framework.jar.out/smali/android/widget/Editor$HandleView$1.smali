@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Editor$HandleView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 3112

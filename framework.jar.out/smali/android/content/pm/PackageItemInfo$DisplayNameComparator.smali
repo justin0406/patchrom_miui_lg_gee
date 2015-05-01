@@ -36,7 +36,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;)V
     .locals 1
-    .parameter "pm"
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
     .line 273
@@ -60,8 +60,8 @@
 # virtual methods
 .method public final compare(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/PackageItemInfo;)I
     .locals 5
-    .parameter "aa"
-    .parameter "ab"
+    .param p1, "aa"    # Landroid/content/pm/PackageItemInfo;
+    .param p2, "ab"    # Landroid/content/pm/PackageItemInfo;
 
     .prologue
     .line 278
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 279
-    .local v0, sa:Ljava/lang/CharSequence;
+    .local v0, "sa":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
@@ -86,7 +86,7 @@
     move-result-object v1
 
     .line 281
-    .local v1, sb:Ljava/lang/CharSequence;
+    .local v1, "sb":Ljava/lang/CharSequence;
     if-nez v1, :cond_1
 
     iget-object v1, p2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
@@ -112,17 +112,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 271
     check-cast p1, Landroid/content/pm/PackageItemInfo;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/content/pm/PackageItemInfo;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageItemInfo$DisplayNameComparator;->compare(Landroid/content/pm/PackageItemInfo;Landroid/content/pm/PackageItemInfo;)I
 
     move-result v0

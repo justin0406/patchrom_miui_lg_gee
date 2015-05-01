@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final ORIENTATIONS:[F = null
+.field private static final ORIENTATIONS:[F
 
 .field private static final PATCH_SAMPLE_SIZE:I = 0x10
 
@@ -36,25 +36,25 @@
     return-void
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0xdbt 0xft 0x49t 0x3ft
-        0xdbt 0xft 0xc9t 0x3ft
-        0xe4t 0xcbt 0x16t 0x40t
-        0xdbt 0xft 0x49t 0x40t
-        0x0t 0x0t 0x0t 0x0t
-        0xdbt 0xft 0x49t 0xbft
-        0xdbt 0xft 0xc9t 0xbft
-        0xe4t 0xcbt 0x16t 0xc0t
-        0xdbt 0xft 0x49t 0xc0t
+    .array-data 4
+        0x0
+        0x3f490fdb
+        0x3fc90fdb
+        0x4016cbe4
+        0x40490fdb    # (float)Math.PI
+        0x0
+        -0x40b6f025
+        -0x4036f025
+        -0x3fe9341c
+        -0x3fb6f025
     .end array-data
 .end method
 
 .method private constructor <init>(J[FLjava/lang/String;)V
     .locals 0
-    .parameter "id"
-    .parameter "sample"
-    .parameter "sampleName"
+    .param p1, "id"    # J
+    .param p3, "sample"    # [F
+    .param p4, "sampleName"    # Ljava/lang/String;
 
     .prologue
     .line 44
@@ -75,10 +75,10 @@
 
 .method static createInstance(IILandroid/gesture/Gesture;Ljava/lang/String;)Landroid/gesture/Instance;
     .locals 4
-    .parameter "sequenceType"
-    .parameter "orientationType"
-    .parameter "gesture"
-    .parameter "label"
+    .param p0, "sequenceType"    # I
+    .param p1, "orientationType"    # I
+    .param p2, "gesture"    # Landroid/gesture/Gesture;
+    .param p3, "label"    # Ljava/lang/String;
 
     .prologue
     .line 75
@@ -92,7 +92,7 @@
     move-result-object v1
 
     .line 77
-    .local v1, pts:[F
+    .local v1, "pts":[F
     new-instance v0, Landroid/gesture/Instance;
 
     invoke-virtual {p2}, Landroid/gesture/Gesture;->getID()J
@@ -102,7 +102,7 @@
     invoke-direct {v0, v2, v3, v1, p3}, Landroid/gesture/Instance;-><init>(J[FLjava/lang/String;)V
 
     .line 78
-    .local v0, instance:Landroid/gesture/Instance;
+    .local v0, "instance":Landroid/gesture/Instance;
     invoke-direct {v0}, Landroid/gesture/Instance;->normalize()V
 
     .line 83
@@ -110,15 +110,15 @@
     return-object v0
 
     .line 80
-    .end local v0           #instance:Landroid/gesture/Instance;
-    .end local v1           #pts:[F
+    .end local v0    # "instance":Landroid/gesture/Instance;
+    .end local v1    # "pts":[F
     :cond_0
     invoke-static {p2}, Landroid/gesture/Instance;->spatialSampler(Landroid/gesture/Gesture;)[F
 
     move-result-object v1
 
     .line 81
-    .restart local v1       #pts:[F
+    .restart local v1    # "pts":[F
     new-instance v0, Landroid/gesture/Instance;
 
     invoke-virtual {p2}, Landroid/gesture/Gesture;->getID()J
@@ -127,7 +127,7 @@
 
     invoke-direct {v0, v2, v3, v1, p3}, Landroid/gesture/Instance;-><init>(J[FLjava/lang/String;)V
 
-    .restart local v0       #instance:Landroid/gesture/Instance;
+    .restart local v0    # "instance":Landroid/gesture/Instance;
     goto :goto_0
 .end method
 
@@ -139,18 +139,18 @@
     iget-object v2, p0, Landroid/gesture/Instance;->vector:[F
 
     .line 52
-    .local v2, sample:[F
+    .local v2, "sample":[F
     const/4 v4, 0x0
 
     .line 54
-    .local v4, sum:F
+    .local v4, "sum":F
     array-length v3, v2
 
     .line 55
-    .local v3, size:I
+    .local v3, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -179,7 +179,7 @@
     double-to-float v1, v5
 
     .line 60
-    .local v1, magnitude:F
+    .local v1, "magnitude":F
     const/4 v0, 0x0
 
     :goto_1
@@ -204,7 +204,7 @@
 
 .method private static spatialSampler(Landroid/gesture/Gesture;)[F
     .locals 2
-    .parameter "gesture"
+    .param p0, "gesture"    # Landroid/gesture/Gesture;
 
     .prologue
     .line 87
@@ -221,8 +221,8 @@
 
 .method private static temporalSampler(ILandroid/gesture/Gesture;)[F
     .locals 13
-    .parameter "orientationType"
-    .parameter "gesture"
+    .param p0, "orientationType"    # I
+    .param p1, "gesture"    # Landroid/gesture/Gesture;
 
     .prologue
     const/4 v12, 0x1
@@ -247,13 +247,13 @@
     move-result-object v6
 
     .line 93
-    .local v6, pts:[F
+    .local v6, "pts":[F
     invoke-static {v6}, Landroid/gesture/GestureUtils;->computeCentroid([F)[F
 
     move-result-object v1
 
     .line 94
-    .local v1, center:[F
+    .local v1, "center":[F
     aget v7, v6, v12
 
     aget v8, v1, v12
@@ -277,11 +277,11 @@
     double-to-float v5, v7
 
     .line 96
-    .local v5, orientation:F
+    .local v5, "orientation":F
     neg-float v0, v5
 
     .line 97
-    .local v0, adjustment:F
+    .local v0, "adjustment":F
     if-eq p0, v12, :cond_1
 
     .line 98
@@ -290,10 +290,10 @@
     array-length v2, v7
 
     .line 99
-    .local v2, count:I
+    .local v2, "count":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_0
     if-ge v4, v2, :cond_1
 
@@ -305,7 +305,7 @@
     sub-float v3, v7, v5
 
     .line 101
-    .local v3, delta:F
+    .local v3, "delta":F
     invoke-static {v3}, Ljava/lang/Math;->abs(F)F
 
     move-result v7
@@ -328,9 +328,9 @@
     goto :goto_0
 
     .line 107
-    .end local v2           #count:I
-    .end local v3           #delta:F
-    .end local v4           #i:I
+    .end local v2    # "count":I
+    .end local v3    # "delta":F
+    .end local v4    # "i":I
     :cond_1
     aget v7, v1, v11
 

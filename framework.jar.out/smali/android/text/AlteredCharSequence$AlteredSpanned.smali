@@ -24,10 +24,10 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/CharSequence;[CII)V
     .locals 6
-    .parameter "source"
-    .parameter "sub"
-    .parameter "substart"
-    .parameter "subend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "sub"    # [C
+    .param p3, "substart"    # I
+    .param p4, "subend"    # I
 
     .prologue
     .line 62
@@ -48,7 +48,7 @@
     .line 63
     check-cast p1, Landroid/text/Spanned;
 
-    .end local p1
+    .end local p1    # "source":Ljava/lang/CharSequence;
     iput-object p1, p0, Landroid/text/AlteredCharSequence$AlteredSpanned;->mSpanned:Landroid/text/Spanned;
 
     .line 64
@@ -57,11 +57,11 @@
 
 .method synthetic constructor <init>(Ljava/lang/CharSequence;[CIILandroid/text/AlteredCharSequence$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p1, "x0"    # Ljava/lang/CharSequence;
+    .param p2, "x1"    # [C
+    .param p3, "x2"    # I
+    .param p4, "x3"    # I
+    .param p5, "x4"    # Landroid/text/AlteredCharSequence$1;
 
     .prologue
     .line 56
@@ -74,7 +74,7 @@
 # virtual methods
 .method public getSpanEnd(Ljava/lang/Object;)I
     .locals 1
-    .parameter "span"
+    .param p1, "span"    # Ljava/lang/Object;
 
     .prologue
     .line 75
@@ -89,7 +89,7 @@
 
 .method public getSpanFlags(Ljava/lang/Object;)I
     .locals 1
-    .parameter "span"
+    .param p1, "span"    # Ljava/lang/Object;
 
     .prologue
     .line 79
@@ -104,7 +104,7 @@
 
 .method public getSpanStart(Ljava/lang/Object;)I
     .locals 1
-    .parameter "span"
+    .param p1, "span"    # Ljava/lang/Object;
 
     .prologue
     .line 71
@@ -119,9 +119,8 @@
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
     .locals 1
-    .parameter "start"
-    .parameter "end"
-    .parameter
+    .param p1, "start"    # I
+    .param p2, "end"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -134,7 +133,7 @@
 
     .prologue
     .line 67
-    .local p3, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
+    .local p3, "kind":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Landroid/text/AlteredCharSequence$AlteredSpanned;->mSpanned:Landroid/text/Spanned;
 
     invoke-interface {v0, p1, p2, p3}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
@@ -146,9 +145,9 @@
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
     .locals 1
-    .parameter "start"
-    .parameter "end"
-    .parameter "kind"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "kind"    # Ljava/lang/Class;
 
     .prologue
     .line 83

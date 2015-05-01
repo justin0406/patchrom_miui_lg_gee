@@ -44,7 +44,7 @@
 
 .method synthetic constructor <init>(Landroid/graphics/pdf/PdfDocument$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/graphics/pdf/PdfDocument$1;
 
     .prologue
     .line 264
@@ -55,7 +55,7 @@
 
 .method static synthetic access$000(Landroid/graphics/pdf/PdfDocument$PageInfo;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
 
     .prologue
     .line 264
@@ -66,8 +66,8 @@
 
 .method static synthetic access$002(Landroid/graphics/pdf/PdfDocument$PageInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 264
@@ -78,7 +78,7 @@
 
 .method static synthetic access$100(Landroid/graphics/pdf/PdfDocument$PageInfo;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
 
     .prologue
     .line 264
@@ -89,8 +89,8 @@
 
 .method static synthetic access$102(Landroid/graphics/pdf/PdfDocument$PageInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 264
@@ -101,7 +101,7 @@
 
 .method static synthetic access$200(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/Rect;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
 
     .prologue
     .line 264
@@ -112,8 +112,8 @@
 
 .method static synthetic access$202(Landroid/graphics/pdf/PdfDocument$PageInfo;Landroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
+    .param p1, "x1"    # Landroid/graphics/Rect;
 
     .prologue
     .line 264
@@ -124,8 +124,8 @@
 
 .method static synthetic access$602(Landroid/graphics/pdf/PdfDocument$PageInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/graphics/pdf/PdfDocument$PageInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 264

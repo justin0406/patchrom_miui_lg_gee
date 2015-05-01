@@ -31,12 +31,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeText;Ljava/lang/CharSequence;Landroid/widget/TextView;Ljava/lang/CharSequence;II)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 194
@@ -61,7 +55,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 197
@@ -104,7 +98,7 @@
 
     iget v3, p0, Landroid/transition/ChangeText$1;->val$endSelectionEnd:I
 
-    #calls: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
+    # invokes: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
     .line 204

@@ -17,8 +17,7 @@
 
 
 # static fields
-#the value of this static final field might be set in the static constructor
-.field private static final DEBUG:Z = false
+.field private static final DEBUG:Z
 
 .field private static final TAG:Ljava/lang/String; = "RemoteDisplayProvider"
 
@@ -74,9 +73,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
     .locals 1
-    .parameter "context"
-    .parameter "componentName"
-    .parameter "userId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "userId"    # I
 
     .prologue
     .line 66
@@ -111,8 +110,8 @@
 
 .method static synthetic access$002(Lcom/android/server/media/RemoteDisplayProviderProxy;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 42
@@ -123,7 +122,7 @@
 
 .method static synthetic access$100(Lcom/android/server/media/RemoteDisplayProviderProxy;)Lcom/android/server/media/RemoteDisplayProviderProxy$Callback;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     .prologue
     .line 42
@@ -134,7 +133,7 @@
 
 .method static synthetic access$200(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/media/RemoteDisplayState;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     .prologue
     .line 42
@@ -145,8 +144,8 @@
 
 .method static synthetic access$300(Lcom/android/server/media/RemoteDisplayProviderProxy;Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
+    .param p1, "x1"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .prologue
     .line 42
@@ -157,7 +156,7 @@
 
 .method static synthetic access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     .prologue
     .line 42
@@ -168,8 +167,8 @@
 
 .method static synthetic access$500(Lcom/android/server/media/RemoteDisplayProviderProxy;Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
+    .param p1, "x1"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .prologue
     .line 42
@@ -180,9 +179,9 @@
 
 .method static synthetic access$600(Lcom/android/server/media/RemoteDisplayProviderProxy;Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;Landroid/media/RemoteDisplayState;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Lcom/android/server/media/RemoteDisplayProviderProxy;
+    .param p1, "x1"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .param p2, "x2"    # Landroid/media/RemoteDisplayState;
 
     .prologue
     .line 42
@@ -237,7 +236,7 @@
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 192
-    .local v1, service:Landroid/content/Intent;
+    .local v1, "service":Landroid/content/Intent;
     iget-object v2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
@@ -295,18 +294,18 @@
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 205
-    .end local v1           #service:Landroid/content/Intent;
+    .end local v1    # "service":Landroid/content/Intent;
     :cond_1
     :goto_0
     return-void
 
     .line 199
-    .restart local v1       #service:Landroid/content/Intent;
+    .restart local v1    # "service":Landroid/content/Intent;
     :catch_0
     move-exception v0
 
     .line 200
-    .local v0, ex:Ljava/lang/SecurityException;
+    .local v0, "ex":Ljava/lang/SecurityException;
     sget-boolean v2, Lcom/android/server/media/RemoteDisplayProviderProxy;->DEBUG:Z
 
     if-eqz v2, :cond_1
@@ -384,7 +383,7 @@
 
 .method private onConnectionDied(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 3
-    .parameter "connection"
+    .param p1, "connection"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .prologue
     .line 266
@@ -431,7 +430,7 @@
 
 .method private onConnectionReady(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 2
-    .parameter "connection"
+    .param p1, "connection"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .prologue
     .line 253
@@ -476,8 +475,8 @@
 
 .method private onDisplayStateChanged(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;Landroid/media/RemoteDisplayState;)V
     .locals 3
-    .parameter "connection"
-    .parameter "state"
+    .param p1, "connection"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .param p2, "state"    # Landroid/media/RemoteDisplayState;
 
     .prologue
     .line 275
@@ -528,7 +527,7 @@
 
 .method private setDisplayState(Landroid/media/RemoteDisplayState;)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # Landroid/media/RemoteDisplayState;
 
     .prologue
     .line 296
@@ -682,7 +681,7 @@
 # virtual methods
 .method public adjustDisplayVolume(I)V
     .locals 2
-    .parameter "delta"
+    .param p1, "delta"    # I
 
     .prologue
     .line 123
@@ -708,8 +707,8 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     .line 74
@@ -979,8 +978,8 @@
 
 .method public hasComponentName(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .parameter "packageName"
-    .parameter "className"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "className"    # Ljava/lang/String;
 
     .prologue
     .line 129
@@ -1021,8 +1020,8 @@
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
-    .parameter "name"
-    .parameter "service"
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
     .line 221
@@ -1068,7 +1067,7 @@
     move-result-object v1
 
     .line 229
-    .local v1, provider:Landroid/media/IRemoteDisplayProvider;
+    .local v1, "provider":Landroid/media/IRemoteDisplayProvider;
     if-eqz v1, :cond_3
 
     .line 230
@@ -1077,7 +1076,7 @@
     invoke-direct {v0, p0, v1}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;-><init>(Lcom/android/server/media/RemoteDisplayProviderProxy;Landroid/media/IRemoteDisplayProvider;)V
 
     .line 231
-    .local v0, connection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .local v0, "connection":Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
     invoke-virtual {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->register()Z
 
     move-result v2
@@ -1088,15 +1087,15 @@
     iput-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy;->mActiveConnection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
     .line 242
-    .end local v0           #connection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
-    .end local v1           #provider:Landroid/media/IRemoteDisplayProvider;
+    .end local v0    # "connection":Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .end local v1    # "provider":Landroid/media/IRemoteDisplayProvider;
     :cond_1
     :goto_0
     return-void
 
     .line 234
-    .restart local v0       #connection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
-    .restart local v1       #provider:Landroid/media/IRemoteDisplayProvider;
+    .restart local v0    # "connection":Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .restart local v1    # "provider":Landroid/media/IRemoteDisplayProvider;
     :cond_2
     sget-boolean v2, Lcom/android/server/media/RemoteDisplayProviderProxy;->DEBUG:Z
 
@@ -1128,7 +1127,7 @@
     goto :goto_0
 
     .line 239
-    .end local v0           #connection:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    .end local v0    # "connection":Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
     :cond_3
     const-string v2, "RemoteDisplayProvider"
 
@@ -1157,7 +1156,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
-    .parameter "name"
+    .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
     .line 246
@@ -1224,7 +1223,7 @@
 
 .method public setCallback(Lcom/android/server/media/RemoteDisplayProviderProxy$Callback;)V
     .locals 0
-    .parameter "callback"
+    .param p1, "callback"    # Lcom/android/server/media/RemoteDisplayProviderProxy$Callback;
 
     .prologue
     .line 86
@@ -1236,7 +1235,7 @@
 
 .method public setDiscoveryMode(I)V
     .locals 1
-    .parameter "mode"
+    .param p1, "mode"    # I
 
     .prologue
     .line 94
@@ -1268,7 +1267,7 @@
 
 .method public setDisplayVolume(I)V
     .locals 2
-    .parameter "volume"
+    .param p1, "volume"    # I
 
     .prologue
     .line 117
@@ -1294,7 +1293,7 @@
 
 .method public setSelectedDisplay(Ljava/lang/String;)V
     .locals 2
-    .parameter "id"
+    .param p1, "id"    # Ljava/lang/String;
 
     .prologue
     .line 104

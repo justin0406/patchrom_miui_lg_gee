@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -18,7 +18,7 @@
     .end annotation
 .end field
 
-.field private static final EMPTY:[Ljava/lang/String; = null
+.field private static final EMPTY:[Ljava/lang/String;
 
 .field public static final RESULT_ATTR_HAS_RECOMMENDED_SUGGESTIONS:I = 0x4
 
@@ -67,8 +67,8 @@
 
 .method public constructor <init>(I[Ljava/lang/String;)V
     .locals 1
-    .parameter "suggestionsAttributes"
-    .parameter "suggestions"
+    .param p1, "suggestionsAttributes"    # I
+    .param p2, "suggestions"    # [Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -82,10 +82,10 @@
 
 .method public constructor <init>(I[Ljava/lang/String;II)V
     .locals 1
-    .parameter "suggestionsAttributes"
-    .parameter "suggestions"
-    .parameter "cookie"
-    .parameter "sequence"
+    .param p1, "suggestionsAttributes"    # I
+    .param p2, "suggestions"    # [Ljava/lang/String;
+    .param p3, "cookie"    # I
+    .param p4, "sequence"    # I
 
     .prologue
     .line 71
@@ -131,7 +131,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v0, 0x1
@@ -221,7 +221,7 @@
 
 .method public getSuggestionAt(I)Ljava/lang/String;
     .locals 1
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 159
@@ -268,8 +268,8 @@
 
 .method public setCookieAndSequence(II)V
     .locals 0
-    .parameter "cookie"
-    .parameter "sequence"
+    .param p1, "cookie"    # I
+    .param p2, "sequence"    # I
 
     .prologue
     .line 114
@@ -284,8 +284,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 100

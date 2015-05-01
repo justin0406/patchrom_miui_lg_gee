@@ -13,7 +13,7 @@
 # direct methods
 .method public constructor <init>(F)V
     .locals 0
-    .parameter "proportion"
+    .param p1, "proportion"    # F
 
     .prologue
     .line 28
@@ -28,7 +28,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 32
@@ -79,7 +79,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 2
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 54
@@ -99,7 +99,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 2
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 59
@@ -119,8 +119,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 45

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Ljava/lang/String;
 
     .prologue
     .line 88
@@ -48,7 +47,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$1;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    #calls: Landroid/app/SharedPreferencesImpl;->loadFromDiskLocked()V
+    # invokes: Landroid/app/SharedPreferencesImpl;->loadFromDiskLocked()V
     invoke-static {v0}, Landroid/app/SharedPreferencesImpl;->access$000(Landroid/app/SharedPreferencesImpl;)V
 
     .line 92

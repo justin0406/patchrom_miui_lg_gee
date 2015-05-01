@@ -150,8 +150,8 @@
 
 .method public static writeBackupAgentFailure(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "package_"
-    .parameter "message"
+    .param p0, "package_"    # Ljava/lang/String;
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 328
@@ -177,7 +177,7 @@
 
 .method public static writeBackupDataChanged(Ljava/lang/String;)V
     .locals 1
-    .parameter "package_"
+    .param p0, "package_"    # Ljava/lang/String;
 
     .prologue
     .line 316
@@ -208,8 +208,8 @@
 
 .method public static writeBackupPackage(Ljava/lang/String;I)V
     .locals 4
-    .parameter "package_"
-    .parameter "size"
+    .param p0, "package_"    # Ljava/lang/String;
+    .param p1, "size"    # I
 
     .prologue
     .line 332
@@ -239,7 +239,7 @@
 
 .method public static writeBackupReset(Ljava/lang/String;)V
     .locals 1
-    .parameter "transport"
+    .param p0, "transport"    # Ljava/lang/String;
 
     .prologue
     .line 340
@@ -253,7 +253,7 @@
 
 .method public static writeBackupStart(Ljava/lang/String;)V
     .locals 1
-    .parameter "transport"
+    .param p0, "transport"    # Ljava/lang/String;
 
     .prologue
     .line 320
@@ -267,8 +267,8 @@
 
 .method public static writeBackupSuccess(II)V
     .locals 4
-    .parameter "packages"
-    .parameter "time"
+    .param p0, "packages"    # I
+    .param p1, "time"    # I
 
     .prologue
     .line 336
@@ -302,7 +302,7 @@
 
 .method public static writeBackupTransportFailure(Ljava/lang/String;)V
     .locals 1
-    .parameter "package_"
+    .param p0, "package_"    # Ljava/lang/String;
 
     .prologue
     .line 324
@@ -316,9 +316,9 @@
 
 .method public static writeBatteryDischarge(JII)V
     .locals 4
-    .parameter "duration"
-    .parameter "minlevel"
-    .parameter "maxlevel"
+    .param p0, "duration"    # J
+    .param p2, "minlevel"    # I
+    .param p3, "maxlevel"    # I
 
     .prologue
     .line 220
@@ -360,9 +360,9 @@
 
 .method public static writeBatteryLevel(III)V
     .locals 4
-    .parameter "level"
-    .parameter "voltage"
-    .parameter "temperature"
+    .param p0, "level"    # I
+    .param p1, "voltage"    # I
+    .param p2, "temperature"    # I
 
     .prologue
     .line 212
@@ -404,11 +404,11 @@
 
 .method public static writeBatteryStatus(IIIILjava/lang/String;)V
     .locals 4
-    .parameter "status"
-    .parameter "health"
-    .parameter "present"
-    .parameter "plugged"
-    .parameter "technology"
+    .param p0, "status"    # I
+    .param p1, "health"    # I
+    .param p2, "present"    # I
+    .param p3, "plugged"    # I
+    .param p4, "technology"    # Ljava/lang/String;
 
     .prologue
     .line 216
@@ -462,7 +462,7 @@
 
 .method public static writeBootProgressPmsDataScanStart(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 380
@@ -476,7 +476,7 @@
 
 .method public static writeBootProgressPmsReady(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 388
@@ -490,7 +490,7 @@
 
 .method public static writeBootProgressPmsScanEnd(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 384
@@ -504,7 +504,7 @@
 
 .method public static writeBootProgressPmsStart(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 372
@@ -518,7 +518,7 @@
 
 .method public static writeBootProgressPmsSystemScanStart(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 376
@@ -532,7 +532,7 @@
 
 .method public static writeBootProgressSystemRun(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 368
@@ -546,7 +546,7 @@
 
 .method public static writeCacheFileDeleted(Ljava/lang/String;)V
     .locals 1
-    .parameter "path"
+    .param p0, "path"    # Ljava/lang/String;
 
     .prologue
     .line 260
@@ -560,7 +560,7 @@
 
 .method public static writeConfigInstallFailed(Ljava/lang/String;)V
     .locals 1
-    .parameter "dir"
+    .param p0, "dir"    # Ljava/lang/String;
 
     .prologue
     .line 452
@@ -574,9 +574,9 @@
 
 .method public static writeConnectivityStateChanged(III)V
     .locals 4
-    .parameter "type"
-    .parameter "subtype"
-    .parameter "state"
+    .param p0, "type"    # I
+    .param p1, "subtype"    # I
+    .param p2, "state"    # I
 
     .prologue
     .line 428
@@ -618,7 +618,7 @@
 
 .method public static writeFreeStorageChanged(J)V
     .locals 1
-    .parameter "data"
+    .param p0, "data"    # J
 
     .prologue
     .line 248
@@ -632,9 +632,9 @@
 
 .method public static writeFreeStorageLeft(JJJ)V
     .locals 4
-    .parameter "data"
-    .parameter "system"
-    .parameter "cache"
+    .param p0, "data"    # J
+    .param p2, "system"    # J
+    .param p4, "cache"    # J
 
     .prologue
     .line 256
@@ -676,7 +676,7 @@
 
 .method public static writeFstrimFinish(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 472
@@ -690,7 +690,7 @@
 
 .method public static writeFstrimStart(J)V
     .locals 1
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     .line 468
@@ -704,10 +704,10 @@
 
 .method public static writeIdleMaintenanceWindowFinish(JJII)V
     .locals 4
-    .parameter "time"
-    .parameter "lastuseractivity"
-    .parameter "batterylevel"
-    .parameter "batterycharging"
+    .param p0, "time"    # J
+    .param p2, "lastuseractivity"    # J
+    .param p4, "batterylevel"    # I
+    .param p5, "batterycharging"    # I
 
     .prologue
     .line 464
@@ -757,10 +757,10 @@
 
 .method public static writeIdleMaintenanceWindowStart(JJII)V
     .locals 4
-    .parameter "time"
-    .parameter "lastuseractivity"
-    .parameter "batterylevel"
-    .parameter "batterycharging"
+    .param p0, "time"    # J
+    .param p2, "lastuseractivity"    # J
+    .param p4, "batterylevel"    # I
+    .param p5, "batterycharging"    # I
 
     .prologue
     .line 460
@@ -810,15 +810,15 @@
 
 .method public static writeIfwIntentMatched(ILjava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 4
-    .parameter "intentType"
-    .parameter "componentName"
-    .parameter "callerUid"
-    .parameter "callerPkgCount"
-    .parameter "callerPkgs"
-    .parameter "action"
-    .parameter "mimeType"
-    .parameter "uri"
-    .parameter "flags"
+    .param p0, "intentType"    # I
+    .param p1, "componentName"    # Ljava/lang/String;
+    .param p2, "callerUid"    # I
+    .param p3, "callerPkgCount"    # I
+    .param p4, "callerPkgs"    # Ljava/lang/String;
+    .param p5, "action"    # Ljava/lang/String;
+    .param p6, "mimeType"    # Ljava/lang/String;
+    .param p7, "uri"    # Ljava/lang/String;
+    .param p8, "flags"    # I
 
     .prologue
     .line 456
@@ -888,9 +888,9 @@
 
 .method public static writeImfForceReconnectIme([Ljava/lang/Object;JI)V
     .locals 4
-    .parameter "ime"
-    .parameter "timeSinceConnect"
-    .parameter "showing"
+    .param p0, "ime"    # [Ljava/lang/Object;
+    .param p1, "timeSinceConnect"    # J
+    .param p3, "showing"    # I
 
     .prologue
     .line 424
@@ -928,7 +928,7 @@
 
 .method public static writeLockdownVpnConnected(I)V
     .locals 1
-    .parameter "egressNet"
+    .param p0, "egressNet"    # I
 
     .prologue
     .line 444
@@ -942,7 +942,7 @@
 
 .method public static writeLockdownVpnConnecting(I)V
     .locals 1
-    .parameter "egressNet"
+    .param p0, "egressNet"    # I
 
     .prologue
     .line 440
@@ -956,7 +956,7 @@
 
 .method public static writeLockdownVpnError(I)V
     .locals 1
-    .parameter "egressNet"
+    .param p0, "egressNet"    # I
 
     .prologue
     .line 448
@@ -970,7 +970,7 @@
 
 .method public static writeLowStorage(J)V
     .locals 1
-    .parameter "data"
+    .param p0, "data"    # J
 
     .prologue
     .line 252
@@ -984,19 +984,19 @@
 
 .method public static writeNetstatsMobileSample(JJJJJJJJJJJJJ)V
     .locals 4
-    .parameter "devRxBytes"
-    .parameter "devTxBytes"
-    .parameter "devRxPkts"
-    .parameter "devTxPkts"
-    .parameter "xtRxBytes"
-    .parameter "xtTxBytes"
-    .parameter "xtRxPkts"
-    .parameter "xtTxPkts"
-    .parameter "uidRxBytes"
-    .parameter "uidTxBytes"
-    .parameter "uidRxPkts"
-    .parameter "uidTxPkts"
-    .parameter "trustedTime"
+    .param p0, "devRxBytes"    # J
+    .param p2, "devTxBytes"    # J
+    .param p4, "devRxPkts"    # J
+    .param p6, "devTxPkts"    # J
+    .param p8, "xtRxBytes"    # J
+    .param p10, "xtTxBytes"    # J
+    .param p12, "xtRxPkts"    # J
+    .param p14, "xtTxPkts"    # J
+    .param p16, "uidRxBytes"    # J
+    .param p18, "uidTxBytes"    # J
+    .param p20, "uidRxPkts"    # J
+    .param p22, "uidTxPkts"    # J
+    .param p24, "trustedTime"    # J
 
     .prologue
     .line 432
@@ -1118,19 +1118,19 @@
 
 .method public static writeNetstatsWifiSample(JJJJJJJJJJJJJ)V
     .locals 4
-    .parameter "devRxBytes"
-    .parameter "devTxBytes"
-    .parameter "devRxPkts"
-    .parameter "devTxPkts"
-    .parameter "xtRxBytes"
-    .parameter "xtTxBytes"
-    .parameter "xtRxPkts"
-    .parameter "xtTxPkts"
-    .parameter "uidRxBytes"
-    .parameter "uidTxBytes"
-    .parameter "uidRxPkts"
-    .parameter "uidTxPkts"
-    .parameter "trustedTime"
+    .param p0, "devRxBytes"    # J
+    .param p2, "devTxBytes"    # J
+    .param p4, "devRxPkts"    # J
+    .param p6, "devTxPkts"    # J
+    .param p8, "xtRxBytes"    # J
+    .param p10, "xtTxBytes"    # J
+    .param p12, "xtRxPkts"    # J
+    .param p14, "xtTxPkts"    # J
+    .param p16, "uidRxBytes"    # J
+    .param p18, "uidTxBytes"    # J
+    .param p20, "uidRxPkts"    # J
+    .param p22, "uidTxPkts"    # J
+    .param p24, "trustedTime"    # J
 
     .prologue
     .line 436
@@ -1252,12 +1252,12 @@
 
 .method public static writeNotificationCancel(Ljava/lang/String;ILjava/lang/String;III)V
     .locals 4
-    .parameter "pkg"
-    .parameter "id"
-    .parameter "tag"
-    .parameter "userid"
-    .parameter "requiredFlags"
-    .parameter "forbiddenFlags"
+    .param p0, "pkg"    # Ljava/lang/String;
+    .param p1, "id"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "userid"    # I
+    .param p4, "requiredFlags"    # I
+    .param p5, "forbiddenFlags"    # I
 
     .prologue
     .line 268
@@ -1315,10 +1315,10 @@
 
 .method public static writeNotificationCancelAll(Ljava/lang/String;III)V
     .locals 4
-    .parameter "pkg"
-    .parameter "userid"
-    .parameter "requiredFlags"
-    .parameter "forbiddenFlags"
+    .param p0, "pkg"    # Ljava/lang/String;
+    .param p1, "userid"    # I
+    .param p2, "requiredFlags"    # I
+    .param p3, "forbiddenFlags"    # I
 
     .prologue
     .line 272
@@ -1364,11 +1364,11 @@
 
 .method public static writeNotificationEnqueue(Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "pkg"
-    .parameter "id"
-    .parameter "tag"
-    .parameter "userid"
-    .parameter "notification"
+    .param p0, "pkg"    # Ljava/lang/String;
+    .param p1, "id"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "userid"    # I
+    .param p4, "notification"    # Ljava/lang/String;
 
     .prologue
     .line 264
@@ -1414,8 +1414,8 @@
 
 .method public static writePowerPartialWakeState(ILjava/lang/String;)V
     .locals 4
-    .parameter "releasedoracquired"
-    .parameter "tag"
+    .param p0, "releasedoracquired"    # I
+    .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 244
@@ -1445,9 +1445,9 @@
 
 .method public static writePowerScreenBroadcastDone(IJI)V
     .locals 4
-    .parameter "on"
-    .parameter "broadcastduration"
-    .parameter "wakelockcount"
+    .param p0, "on"    # I
+    .param p1, "broadcastduration"    # J
+    .param p3, "wakelockcount"    # I
 
     .prologue
     .line 232
@@ -1489,7 +1489,7 @@
 
 .method public static writePowerScreenBroadcastSend(I)V
     .locals 1
-    .parameter "wakelockcount"
+    .param p0, "wakelockcount"    # I
 
     .prologue
     .line 228
@@ -1503,8 +1503,8 @@
 
 .method public static writePowerScreenBroadcastStop(II)V
     .locals 4
-    .parameter "which"
-    .parameter "wakelockcount"
+    .param p0, "which"    # I
+    .param p1, "wakelockcount"    # I
 
     .prologue
     .line 236
@@ -1538,10 +1538,10 @@
 
 .method public static writePowerScreenState(IIJI)V
     .locals 4
-    .parameter "offoron"
-    .parameter "becauseofuser"
-    .parameter "totaltouchdowntime"
-    .parameter "touchcycles"
+    .param p0, "offoron"    # I
+    .param p1, "becauseofuser"    # I
+    .param p2, "totaltouchdowntime"    # J
+    .param p4, "touchcycles"    # I
 
     .prologue
     .line 240
@@ -1591,7 +1591,7 @@
 
 .method public static writePowerSleepRequested(I)V
     .locals 1
-    .parameter "wakelockscleared"
+    .param p0, "wakelockscleared"    # I
 
     .prologue
     .line 224
@@ -1605,8 +1605,8 @@
 
 .method public static writeRestoreAgentFailure(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "package_"
-    .parameter "message"
+    .param p0, "package_"    # Ljava/lang/String;
+    .param p1, "message"    # Ljava/lang/String;
 
     .prologue
     .line 356
@@ -1632,8 +1632,8 @@
 
 .method public static writeRestorePackage(Ljava/lang/String;I)V
     .locals 4
-    .parameter "package_"
-    .parameter "size"
+    .param p0, "package_"    # Ljava/lang/String;
+    .param p1, "size"    # I
 
     .prologue
     .line 360
@@ -1663,8 +1663,8 @@
 
 .method public static writeRestoreStart(Ljava/lang/String;J)V
     .locals 4
-    .parameter "transport"
-    .parameter "source"
+    .param p0, "transport"    # Ljava/lang/String;
+    .param p1, "source"    # J
 
     .prologue
     .line 348
@@ -1694,8 +1694,8 @@
 
 .method public static writeRestoreSuccess(II)V
     .locals 4
-    .parameter "packages"
-    .parameter "time"
+    .param p0, "packages"    # I
+    .param p1, "time"    # I
 
     .prologue
     .line 364
@@ -1746,7 +1746,7 @@
 
 .method public static writeUnknownSourcesEnabled(I)V
     .locals 1
-    .parameter "value"
+    .param p0, "value"    # I
 
     .prologue
     .line 392
@@ -1760,7 +1760,7 @@
 
 .method public static writeWatchdog(Ljava/lang/String;)V
     .locals 1
-    .parameter "service"
+    .param p0, "service"    # Ljava/lang/String;
 
     .prologue
     .line 276
@@ -1774,10 +1774,10 @@
 
 .method public static writeWatchdogHardReset(Ljava/lang/String;III)V
     .locals 4
-    .parameter "process"
-    .parameter "pid"
-    .parameter "maxpss"
-    .parameter "pss"
+    .param p0, "process"    # Ljava/lang/String;
+    .param p1, "pid"    # I
+    .param p2, "maxpss"    # I
+    .param p3, "pss"    # I
 
     .prologue
     .line 288
@@ -1823,17 +1823,17 @@
 
 .method public static writeWatchdogMeminfo(IIIIIIIIIII)V
     .locals 4
-    .parameter "memfree"
-    .parameter "buffers"
-    .parameter "cached"
-    .parameter "active"
-    .parameter "inactive"
-    .parameter "anonpages"
-    .parameter "mapped"
-    .parameter "slab"
-    .parameter "sreclaimable"
-    .parameter "sunreclaim"
-    .parameter "pagetables"
+    .param p0, "memfree"    # I
+    .param p1, "buffers"    # I
+    .param p2, "cached"    # I
+    .param p3, "active"    # I
+    .param p4, "inactive"    # I
+    .param p5, "anonpages"    # I
+    .param p6, "mapped"    # I
+    .param p7, "slab"    # I
+    .param p8, "sreclaimable"    # I
+    .param p9, "sunreclaim"    # I
+    .param p10, "pagetables"    # I
 
     .prologue
     .line 304
@@ -1939,9 +1939,9 @@
 
 .method public static writeWatchdogProcPss(Ljava/lang/String;II)V
     .locals 4
-    .parameter "process"
-    .parameter "pid"
-    .parameter "pss"
+    .param p0, "process"    # Ljava/lang/String;
+    .param p1, "pid"    # I
+    .param p2, "pss"    # I
 
     .prologue
     .line 280
@@ -1979,11 +1979,11 @@
 
 .method public static writeWatchdogProcStats(IIIII)V
     .locals 4
-    .parameter "deathsinone"
-    .parameter "deathsintwo"
-    .parameter "deathsinthree"
-    .parameter "deathsinfour"
-    .parameter "deathsinfive"
+    .param p0, "deathsinone"    # I
+    .param p1, "deathsintwo"    # I
+    .param p2, "deathsinthree"    # I
+    .param p3, "deathsinfour"    # I
+    .param p4, "deathsinfive"    # I
 
     .prologue
     .line 296
@@ -2041,17 +2041,17 @@
 
 .method public static writeWatchdogPssStats(IIIIIIIIIII)V
     .locals 4
-    .parameter "emptypss"
-    .parameter "emptycount"
-    .parameter "backgroundpss"
-    .parameter "backgroundcount"
-    .parameter "servicepss"
-    .parameter "servicecount"
-    .parameter "visiblepss"
-    .parameter "visiblecount"
-    .parameter "foregroundpss"
-    .parameter "foregroundcount"
-    .parameter "nopsscount"
+    .param p0, "emptypss"    # I
+    .param p1, "emptycount"    # I
+    .param p2, "backgroundpss"    # I
+    .param p3, "backgroundcount"    # I
+    .param p4, "servicepss"    # I
+    .param p5, "servicecount"    # I
+    .param p6, "visiblepss"    # I
+    .param p7, "visiblecount"    # I
+    .param p8, "foregroundpss"    # I
+    .param p9, "foregroundcount"    # I
+    .param p10, "nopsscount"    # I
 
     .prologue
     .line 292
@@ -2157,13 +2157,13 @@
 
 .method public static writeWatchdogRequestedReboot(IIIIIII)V
     .locals 4
-    .parameter "nowait"
-    .parameter "scheduleinterval"
-    .parameter "recheckinterval"
-    .parameter "starttime"
-    .parameter "window"
-    .parameter "minscreenoff"
-    .parameter "minnextalarm"
+    .param p0, "nowait"    # I
+    .param p1, "scheduleinterval"    # I
+    .param p2, "recheckinterval"    # I
+    .param p3, "starttime"    # I
+    .param p4, "window"    # I
+    .param p5, "minscreenoff"    # I
+    .param p6, "minnextalarm"    # I
 
     .prologue
     .line 312
@@ -2237,11 +2237,11 @@
 
 .method public static writeWatchdogScheduledReboot(JIIILjava/lang/String;)V
     .locals 4
-    .parameter "now"
-    .parameter "interval"
-    .parameter "starttime"
-    .parameter "window"
-    .parameter "skip"
+    .param p0, "now"    # J
+    .param p2, "interval"    # I
+    .param p3, "starttime"    # I
+    .param p4, "window"    # I
+    .param p5, "skip"    # Ljava/lang/String;
 
     .prologue
     .line 300
@@ -2295,11 +2295,11 @@
 
 .method public static writeWatchdogSoftReset(Ljava/lang/String;IIILjava/lang/String;)V
     .locals 4
-    .parameter "process"
-    .parameter "pid"
-    .parameter "maxpss"
-    .parameter "pss"
-    .parameter "skip"
+    .param p0, "process"    # Ljava/lang/String;
+    .param p1, "pid"    # I
+    .param p2, "maxpss"    # I
+    .param p3, "pss"    # I
+    .param p4, "skip"    # Ljava/lang/String;
 
     .prologue
     .line 284
@@ -2349,12 +2349,12 @@
 
 .method public static writeWatchdogVmstat(JIIIII)V
     .locals 4
-    .parameter "runtime"
-    .parameter "pgfree"
-    .parameter "pgactivate"
-    .parameter "pgdeactivate"
-    .parameter "pgfault"
-    .parameter "pgmajfault"
+    .param p0, "runtime"    # J
+    .param p2, "pgfree"    # I
+    .param p3, "pgactivate"    # I
+    .param p4, "pgdeactivate"    # I
+    .param p5, "pgfault"    # I
+    .param p6, "pgmajfault"    # I
 
     .prologue
     .line 308
@@ -2420,7 +2420,7 @@
 
 .method public static writeWmHomeStackMoved(I)V
     .locals 1
-    .parameter "totop"
+    .param p0, "totop"    # I
 
     .prologue
     .line 416
@@ -2434,9 +2434,9 @@
 
 .method public static writeWmNoSurfaceMemory(Ljava/lang/String;ILjava/lang/String;)V
     .locals 4
-    .parameter "window"
-    .parameter "pid"
-    .parameter "operation"
+    .param p0, "window"    # Ljava/lang/String;
+    .param p1, "pid"    # I
+    .param p2, "operation"    # Ljava/lang/String;
 
     .prologue
     .line 396
@@ -2470,10 +2470,10 @@
 
 .method public static writeWmStackCreated(IIII)V
     .locals 4
-    .parameter "stackid"
-    .parameter "relativeboxid"
-    .parameter "position"
-    .parameter "weight"
+    .param p0, "stackid"    # I
+    .param p1, "relativeboxid"    # I
+    .param p2, "position"    # I
+    .param p3, "weight"    # I
 
     .prologue
     .line 412
@@ -2523,7 +2523,7 @@
 
 .method public static writeWmStackRemoved(I)V
     .locals 1
-    .parameter "stackid"
+    .param p0, "stackid"    # I
 
     .prologue
     .line 420
@@ -2537,8 +2537,8 @@
 
 .method public static writeWmTaskCreated(II)V
     .locals 4
-    .parameter "taskid"
-    .parameter "stackid"
+    .param p0, "taskid"    # I
+    .param p1, "stackid"    # I
 
     .prologue
     .line 400
@@ -2572,9 +2572,9 @@
 
 .method public static writeWmTaskMoved(III)V
     .locals 4
-    .parameter "taskid"
-    .parameter "totop"
-    .parameter "index"
+    .param p0, "taskid"    # I
+    .param p1, "totop"    # I
+    .param p2, "index"    # I
 
     .prologue
     .line 404
@@ -2616,8 +2616,8 @@
 
 .method public static writeWmTaskRemoved(ILjava/lang/String;)V
     .locals 4
-    .parameter "taskid"
-    .parameter "reason"
+    .param p0, "taskid"    # I
+    .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 408

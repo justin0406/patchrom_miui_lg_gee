@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -97,8 +97,8 @@
 
 .method static synthetic access$000(Landroid/os/Message;Landroid/os/Parcel;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/os/Message;
+    .param p1, "x1"    # Landroid/os/Parcel;
 
     .prologue
     .line 32
@@ -126,7 +126,7 @@
     sget-object v0, Landroid/os/Message;->sPool:Landroid/os/Message;
 
     .line 110
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
     sput-object v1, Landroid/os/Message;->sPool:Landroid/os/Message;
@@ -147,7 +147,7 @@
     monitor-exit v2
 
     .line 116
-    .end local v0           #m:Landroid/os/Message;
+    .end local v0    # "m":Landroid/os/Message;
     :goto_0
     return-object v0
 
@@ -165,7 +165,7 @@
     goto :goto_0
 
     .line 115
-    .restart local v0       #m:Landroid/os/Message;
+    .restart local v0    # "m":Landroid/os/Message;
     :catchall_0
     move-exception v1
 
@@ -179,7 +179,7 @@
 
 .method public static obtain(Landroid/os/Handler;)Landroid/os/Message;
     .locals 1
-    .parameter "h"
+    .param p0, "h"    # Landroid/os/Handler;
 
     .prologue
     .line 147
@@ -188,7 +188,7 @@
     move-result-object v0
 
     .line 148
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 150
@@ -197,8 +197,8 @@
 
 .method public static obtain(Landroid/os/Handler;I)Landroid/os/Message;
     .locals 1
-    .parameter "h"
-    .parameter "what"
+    .param p0, "h"    # Landroid/os/Handler;
+    .param p1, "what"    # I
 
     .prologue
     .line 176
@@ -207,7 +207,7 @@
     move-result-object v0
 
     .line 177
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 178
@@ -219,10 +219,10 @@
 
 .method public static obtain(Landroid/os/Handler;III)Landroid/os/Message;
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
+    .param p0, "h"    # Landroid/os/Handler;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
     .prologue
     .line 211
@@ -231,7 +231,7 @@
     move-result-object v0
 
     .line 212
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 213
@@ -249,11 +249,11 @@
 
 .method public static obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "arg1"
-    .parameter "arg2"
-    .parameter "obj"
+    .param p0, "h"    # Landroid/os/Handler;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 233
@@ -262,7 +262,7 @@
     move-result-object v0
 
     .line 234
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 235
@@ -283,9 +283,9 @@
 
 .method public static obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
     .locals 1
-    .parameter "h"
-    .parameter "what"
-    .parameter "obj"
+    .param p0, "h"    # Landroid/os/Handler;
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 192
@@ -294,7 +294,7 @@
     move-result-object v0
 
     .line 193
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 194
@@ -309,8 +309,8 @@
 
 .method public static obtain(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;
     .locals 1
-    .parameter "h"
-    .parameter "callback"
+    .param p0, "h"    # Landroid/os/Handler;
+    .param p1, "callback"    # Ljava/lang/Runnable;
 
     .prologue
     .line 161
@@ -319,7 +319,7 @@
     move-result-object v0
 
     .line 162
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     .line 163
@@ -331,7 +331,7 @@
 
 .method public static obtain(Landroid/os/Message;)Landroid/os/Message;
     .locals 3
-    .parameter "orig"
+    .param p0, "orig"    # Landroid/os/Message;
 
     .prologue
     .line 126
@@ -340,7 +340,7 @@
     move-result-object v0
 
     .line 127
-    .local v0, m:Landroid/os/Message;
+    .local v0, "m":Landroid/os/Message;
     iget v1, p0, Landroid/os/Message;->what:I
 
     iput v1, v0, Landroid/os/Message;->what:I
@@ -396,7 +396,7 @@
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 519
@@ -516,7 +516,7 @@
 
 .method public copyFrom(Landroid/os/Message;)V
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Landroid/os/Message;
 
     .prologue
     .line 266
@@ -780,7 +780,7 @@
 
 .method public setAsynchronous(Z)V
     .locals 1
-    .parameter "async"
+    .param p1, "async"    # Z
 
     .prologue
     .line 398
@@ -810,7 +810,7 @@
 
 .method public setData(Landroid/os/Bundle;)V
     .locals 0
-    .parameter "data"
+    .param p1, "data"    # Landroid/os/Bundle;
 
     .prologue
     .line 352
@@ -822,7 +822,7 @@
 
 .method public setTarget(Landroid/os/Handler;)V
     .locals 0
-    .parameter "target"
+    .param p1, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 288
@@ -850,7 +850,7 @@
 
 .method toString(J)Ljava/lang/String;
     .locals 3
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 437
@@ -859,7 +859,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 438
-    .local v0, b:Ljava/lang/StringBuilder;
+    .local v0, "b":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "{ when="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1008,8 +1008,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 494
@@ -1054,7 +1054,7 @@
     check-cast v1, Landroid/os/Parcelable;
 
     .line 504
-    .local v1, p:Landroid/os/Parcelable;
+    .local v1, "p":Landroid/os/Parcelable;
     const/4 v2, 0x1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -1065,7 +1065,7 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 513
-    .end local v1           #p:Landroid/os/Parcelable;
+    .end local v1    # "p":Landroid/os/Parcelable;
     :goto_0
     iget-wide v2, p0, Landroid/os/Message;->when:J
 
@@ -1089,7 +1089,7 @@
     move-exception v0
 
     .line 507
-    .local v0, e:Ljava/lang/ClassCastException;
+    .local v0, "e":Ljava/lang/ClassCastException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Can\'t marshal non-Parcelable objects across processes."
@@ -1099,7 +1099,7 @@
     throw v2
 
     .line 511
-    .end local v0           #e:Ljava/lang/ClassCastException;
+    .end local v0    # "e":Ljava/lang/ClassCastException;
     :cond_1
     const/4 v2, 0x0
 

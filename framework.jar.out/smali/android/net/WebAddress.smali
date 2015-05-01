@@ -50,7 +50,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 7
-    .parameter "address"
+    .param p1, "address"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/net/ParseException;
@@ -107,7 +107,7 @@
     move-result-object v1
 
     .line 79
-    .local v1, m:Ljava/util/regex/Matcher;
+    .local v1, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v3
@@ -122,7 +122,7 @@
     move-result-object v2
 
     .line 81
-    .local v2, t:Ljava/lang/String;
+    .local v2, "t":Ljava/lang/String;
     if-eqz v2, :cond_1
 
     sget-object v3, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -265,7 +265,7 @@
     move-exception v0
 
     .line 92
-    .local v0, ex:Ljava/lang/NumberFormatException;
+    .local v0, "ex":Ljava/lang/NumberFormatException;
     new-instance v3, Landroid/net/ParseException;
 
     const-string v4, "Bad port"
@@ -275,7 +275,7 @@
     throw v3
 
     .line 102
-    .end local v0           #ex:Ljava/lang/NumberFormatException;
+    .end local v0    # "ex":Ljava/lang/NumberFormatException;
     :cond_8
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -300,7 +300,7 @@
     goto :goto_0
 
     .line 108
-    .end local v2           #t:Ljava/lang/String;
+    .end local v2    # "t":Ljava/lang/String;
     :cond_9
     new-instance v3, Landroid/net/ParseException;
 
@@ -311,7 +311,7 @@
     throw v3
 
     .line 115
-    .restart local v2       #t:Ljava/lang/String;
+    .restart local v2    # "t":Ljava/lang/String;
     :cond_a
     iget v3, p0, Landroid/net/WebAddress;->mPort:I
 
@@ -396,7 +396,7 @@
 
 .method public setAuthInfo(Ljava/lang/String;)V
     .locals 0
-    .parameter "authInfo"
+    .param p1, "authInfo"    # Ljava/lang/String;
 
     .prologue
     .line 172
@@ -408,7 +408,7 @@
 
 .method public setHost(Ljava/lang/String;)V
     .locals 0
-    .parameter "host"
+    .param p1, "host"    # Ljava/lang/String;
 
     .prologue
     .line 148
@@ -420,7 +420,7 @@
 
 .method public setPath(Ljava/lang/String;)V
     .locals 0
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
 
     .prologue
     .line 164
@@ -432,7 +432,7 @@
 
 .method public setPort(I)V
     .locals 0
-    .parameter "port"
+    .param p1, "port"    # I
 
     .prologue
     .line 156
@@ -444,7 +444,7 @@
 
 .method public setScheme(Ljava/lang/String;)V
     .locals 0
-    .parameter "scheme"
+    .param p1, "scheme"    # Ljava/lang/String;
 
     .prologue
     .line 140
@@ -462,7 +462,7 @@
     const-string v1, ""
 
     .line 127
-    .local v1, port:Ljava/lang/String;
+    .local v1, "port":Ljava/lang/String;
     iget v2, p0, Landroid/net/WebAddress;->mPort:I
 
     const/16 v3, 0x1bb
@@ -527,7 +527,7 @@
     const-string v0, ""
 
     .line 132
-    .local v0, authInfo:Ljava/lang/String;
+    .local v0, "authInfo":Ljava/lang/String;
     iget-object v2, p0, Landroid/net/WebAddress;->mAuthInfo:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I

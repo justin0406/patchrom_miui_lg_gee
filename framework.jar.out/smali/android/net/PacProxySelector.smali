@@ -81,7 +81,7 @@
 
 .method private static parseResponse(Ljava/lang/String;)Ljava/util/List;
     .locals 14
-    .parameter "response"
+    .param p0, "response"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,35 +103,35 @@
     move-result-object v9
 
     .line 86
-    .local v9, split:[Ljava/lang/String;
+    .local v9, "split":[Ljava/lang/String;
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v7
 
     .line 87
-    .local v7, ret:Ljava/util/List;,"Ljava/util/List<Ljava/net/Proxy;>;"
+    .local v7, "ret":Ljava/util/List;, "Ljava/util/List<Ljava/net/Proxy;>;"
     move-object v0, v9
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v5, v0
 
-    .local v5, len$:I
+    .local v5, "len$":I
     const/4 v4, 0x0
 
-    .local v4, i$:I
+    .local v4, "i$":I
     :goto_0
     if-ge v4, v5, :cond_2
 
     aget-object v8, v0, v4
 
     .line 88
-    .local v8, s:Ljava/lang/String;
+    .local v8, "s":Ljava/lang/String;
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v10
 
     .line 89
-    .local v10, trimmed:Ljava/lang/String;
+    .local v10, "trimmed":Ljava/lang/String;
     const-string v11, "DIRECT"
 
     invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -176,13 +176,13 @@
     move-result-object v3
 
     .line 93
-    .local v3, hostPort:[Ljava/lang/String;
+    .local v3, "hostPort":[Ljava/lang/String;
     const/4 v11, 0x0
 
     aget-object v2, v3, v11
 
     .line 96
-    .local v2, host:Ljava/lang/String;
+    .local v2, "host":Ljava/lang/String;
     const/4 v11, 0x1
 
     :try_start_0
@@ -195,7 +195,7 @@
     move-result v6
 
     .line 100
-    .local v6, port:I
+    .local v6, "port":I
     :goto_2
     new-instance v11, Ljava/net/Proxy;
 
@@ -212,24 +212,24 @@
     goto :goto_1
 
     .line 97
-    .end local v6           #port:I
+    .end local v6    # "port":I
     :catch_0
     move-exception v1
 
     .line 98
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     const/16 v6, 0x1f90
 
-    .restart local v6       #port:I
+    .restart local v6    # "port":I
     goto :goto_2
 
     .line 103
-    .end local v1           #e:Ljava/lang/Exception;
-    .end local v2           #host:Ljava/lang/String;
-    .end local v3           #hostPort:[Ljava/lang/String;
-    .end local v6           #port:I
-    .end local v8           #s:Ljava/lang/String;
-    .end local v10           #trimmed:Ljava/lang/String;
+    .end local v1    # "e":Ljava/lang/Exception;
+    .end local v2    # "host":Ljava/lang/String;
+    .end local v3    # "hostPort":[Ljava/lang/String;
+    .end local v6    # "port":I
+    .end local v8    # "s":Ljava/lang/String;
+    .end local v10    # "trimmed":Ljava/lang/String;
     :cond_2
     invoke-interface {v7}, Ljava/util/List;->size()I
 
@@ -251,9 +251,9 @@
 # virtual methods
 .method public connectFailed(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V
     .locals 0
-    .parameter "uri"
-    .parameter "address"
-    .parameter "failure"
+    .param p1, "uri"    # Ljava/net/URI;
+    .param p2, "address"    # Ljava/net/SocketAddress;
+    .param p3, "failure"    # Ljava/io/IOException;
 
     .prologue
     .line 112
@@ -262,7 +262,7 @@
 
 .method public select(Ljava/net/URI;)Ljava/util/List;
     .locals 6
-    .parameter "uri"
+    .param p1, "uri"    # Ljava/net/URI;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -331,7 +331,7 @@
     const/4 v1, 0x0
 
     .line 68
-    .local v1, response:Ljava/lang/String;
+    .local v1, "response":Ljava/lang/String;
     :try_start_0
     invoke-virtual {p1}, Ljava/net/URI;->toURL()Ljava/net/URL;
 
@@ -344,7 +344,7 @@
     move-result-object v2
 
     .line 73
-    .local v2, urlString:Ljava/lang/String;
+    .local v2, "urlString":Ljava/lang/String;
     :goto_1
     :try_start_1
     iget-object v3, p0, Landroid/net/PacProxySelector;->mProxyService:Lcom/android/net/IProxyService;
@@ -369,32 +369,32 @@
     goto :goto_0
 
     .line 69
-    .end local v2           #urlString:Ljava/lang/String;
+    .end local v2    # "urlString":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 70
-    .local v0, e:Ljava/net/MalformedURLException;
+    .local v0, "e":Ljava/net/MalformedURLException;
     invoke-virtual {p1}, Ljava/net/URI;->getHost()Ljava/lang/String;
 
     move-result-object v2
 
-    .restart local v2       #urlString:Ljava/lang/String;
+    .restart local v2    # "urlString":Ljava/lang/String;
     goto :goto_1
 
     .line 74
-    .end local v0           #e:Ljava/net/MalformedURLException;
+    .end local v0    # "e":Ljava/net/MalformedURLException;
     :catch_1
     move-exception v0
 
     .line 75
-    .local v0, e:Landroid/os/RemoteException;
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 
     .line 81
-    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_2
     invoke-static {v1}, Landroid/net/PacProxySelector;->parseResponse(Ljava/lang/String;)Ljava/util/List;
 

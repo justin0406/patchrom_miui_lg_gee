@@ -27,8 +27,8 @@
 # virtual methods
 .method protected install([BI)V
     .locals 1
-    .parameter "encodedContent"
-    .parameter "version"
+    .param p1, "encodedContent"    # [B
+    .param p2, "version"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

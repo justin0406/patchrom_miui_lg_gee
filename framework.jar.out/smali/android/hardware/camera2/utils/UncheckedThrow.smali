@@ -16,7 +16,7 @@
 
 .method public static throwAnyException(Ljava/lang/Exception;)V
     .locals 0
-    .parameter "e"
+    .param p0, "e"    # Ljava/lang/Exception;
 
     .prologue
     .line 33
@@ -28,7 +28,7 @@
 
 .method private static throwAnyImpl(Ljava/lang/Exception;)V
     .locals 0
-    .parameter "e"
+    .param p0, "e"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

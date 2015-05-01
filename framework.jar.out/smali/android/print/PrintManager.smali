@@ -58,10 +58,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/print/IPrintManager;II)V
     .locals 4
-    .parameter "context"
-    .parameter "service"
-    .parameter "userId"
-    .parameter "appId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/print/IPrintManager;
+    .param p3, "userId"    # I
+    .param p4, "appId"    # I
 
     .prologue
     .line 183
@@ -102,7 +102,7 @@
 # virtual methods
 .method public addPrintJobStateChangeListener(Landroid/print/PrintManager$PrintJobStateChangeListener;)V
     .locals 5
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/print/PrintManager$PrintJobStateChangeListener;
 
     .prologue
     .line 236
@@ -126,7 +126,7 @@
     invoke-direct {v1, p1, v2}, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;-><init>(Landroid/print/PrintManager$PrintJobStateChangeListener;Landroid/os/Handler;)V
 
     .line 243
-    .local v1, wrappedListener:Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
+    .local v1, "wrappedListener":Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
 
@@ -152,7 +152,7 @@
     move-exception v0
 
     .line 246
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error adding print job state change listener"
@@ -164,7 +164,7 @@
 
 .method cancelPrintJob(Landroid/print/PrintJobId;)V
     .locals 4
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 321
@@ -188,7 +188,7 @@
     move-exception v0
 
     .line 323
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "PrintManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -258,11 +258,11 @@
     move-result-object v0
 
     .line 417
-    .local v0, enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .local v0, "enabledServices":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     if-eqz v0, :cond_0
 
     .line 423
-    .end local v0           #enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .end local v0    # "enabledServices":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :goto_0
     return-object v0
 
@@ -271,7 +271,7 @@
     move-exception v1
 
     .line 421
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error getting the enabled print services"
@@ -279,7 +279,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 423
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :cond_0
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -290,7 +290,7 @@
 
 .method public getGlobalPrintManagerForUser(I)Landroid/print/PrintManager;
     .locals 4
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 217
@@ -333,11 +333,11 @@
     move-result-object v0
 
     .line 435
-    .local v0, installedServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .local v0, "installedServices":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     if-eqz v0, :cond_0
 
     .line 441
-    .end local v0           #installedServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
+    .end local v0    # "installedServices":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :goto_0
     return-object v0
 
@@ -346,7 +346,7 @@
     move-exception v1
 
     .line 439
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error getting the installed print services"
@@ -354,7 +354,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 441
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :cond_0
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -365,7 +365,7 @@
 
 .method public getPrintJob(Landroid/print/PrintJobId;)Landroid/print/PrintJob;
     .locals 5
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 285
@@ -381,7 +381,7 @@
     move-result-object v0
 
     .line 286
-    .local v0, printJob:Landroid/print/PrintJobInfo;
+    .local v0, "printJob":Landroid/print/PrintJobInfo;
     if-eqz v0, :cond_0
 
     .line 287
@@ -392,7 +392,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 292
-    .end local v0           #printJob:Landroid/print/PrintJobInfo;
+    .end local v0    # "printJob":Landroid/print/PrintJobInfo;
     :goto_0
     return-object v2
 
@@ -401,7 +401,7 @@
     move-exception v1
 
     .line 290
-    .local v1, re:Landroid/os/RemoteException;
+    .local v1, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error getting print job"
@@ -409,7 +409,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 292
-    .end local v1           #re:Landroid/os/RemoteException;
+    .end local v1    # "re":Landroid/os/RemoteException;
     :cond_0
     const/4 v2, 0x0
 
@@ -418,7 +418,7 @@
 
 .method getPrintJobInfo(Landroid/print/PrintJobId;)Landroid/print/PrintJobInfo;
     .locals 4
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 222
@@ -444,7 +444,7 @@
     move-exception v0
 
     .line 224
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "PrintManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -499,7 +499,7 @@
     move-result-object v2
 
     .line 304
-    .local v2, printJobInfos:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .local v2, "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     if-nez v2, :cond_1
 
     .line 305
@@ -508,29 +508,29 @@
     move-result-object v3
 
     .line 316
-    .end local v2           #printJobInfos:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .end local v2    # "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     :cond_0
     :goto_0
     return-object v3
 
     .line 307
-    .restart local v2       #printJobInfos:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .restart local v2    # "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     :cond_1
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v1
 
     .line 308
-    .local v1, printJobCount:I
+    .local v1, "printJobCount":I
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 309
-    .local v3, printJobs:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJob;>;"
+    .local v3, "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJob;>;"
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_0
 
@@ -555,15 +555,15 @@
     goto :goto_1
 
     .line 313
-    .end local v0           #i:I
-    .end local v1           #printJobCount:I
-    .end local v2           #printJobInfos:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
-    .end local v3           #printJobs:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJob;>;"
+    .end local v0    # "i":I
+    .end local v1    # "printJobCount":I
+    .end local v2    # "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .end local v3    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJob;>;"
     :catch_0
     move-exception v4
 
     .line 314
-    .local v4, re:Landroid/os/RemoteException;
+    .local v4, "re":Landroid/os/RemoteException;
     const-string v5, "PrintManager"
 
     const-string v6, "Error getting print jobs"
@@ -580,9 +580,9 @@
 
 .method public print(Ljava/lang/String;Landroid/print/PrintDocumentAdapter;Landroid/print/PrintAttributes;)Landroid/print/PrintJob;
     .locals 13
-    .parameter "printJobName"
-    .parameter "documentAdapter"
-    .parameter "attributes"
+    .param p1, "printJobName"    # Ljava/lang/String;
+    .param p2, "documentAdapter"    # Landroid/print/PrintDocumentAdapter;
+    .param p3, "attributes"    # Landroid/print/PrintAttributes;
 
     .prologue
     .line 375
@@ -642,7 +642,7 @@
     invoke-direct {v2, v0, p2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;-><init>(Landroid/app/Activity;Landroid/print/PrintDocumentAdapter;)V
 
     .line 387
-    .local v2, delegate:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .local v2, "delegate":Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
     :try_start_0
     iget-object v0, p0, Landroid/print/PrintManager;->mService:Landroid/print/IPrintManager;
 
@@ -665,7 +665,7 @@
     move-result-object v11
 
     .line 389
-    .local v11, result:Landroid/os/Bundle;
+    .local v11, "result":Landroid/os/Bundle;
     if-eqz v11, :cond_5
 
     .line 390
@@ -678,7 +678,7 @@
     check-cast v9, Landroid/print/PrintJobInfo;
 
     .line 391
-    .local v9, printJob:Landroid/print/PrintJobInfo;
+    .local v9, "printJob":Landroid/print/PrintJobInfo;
     const-string v0, "android.print.intent.extra.EXTRA_PRINT_DIALOG_INTENT"
 
     invoke-virtual {v11, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -690,7 +690,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 392
-    .local v4, intent:Landroid/content/IntentSender;
+    .local v4, "intent":Landroid/content/IntentSender;
     if-eqz v9, :cond_3
 
     if-nez v4, :cond_4
@@ -700,16 +700,16 @@
     const/4 v0, 0x0
 
     .line 405
-    .end local v4           #intent:Landroid/content/IntentSender;
-    .end local v9           #printJob:Landroid/print/PrintJobInfo;
-    .end local v11           #result:Landroid/os/Bundle;
+    .end local v4    # "intent":Landroid/content/IntentSender;
+    .end local v9    # "printJob":Landroid/print/PrintJobInfo;
+    .end local v11    # "result":Landroid/os/Bundle;
     :goto_0
     return-object v0
 
     .line 396
-    .restart local v4       #intent:Landroid/content/IntentSender;
-    .restart local v9       #printJob:Landroid/print/PrintJobInfo;
-    .restart local v11       #result:Landroid/os/Bundle;
+    .restart local v4    # "intent":Landroid/content/IntentSender;
+    .restart local v9    # "printJob":Landroid/print/PrintJobInfo;
+    .restart local v11    # "result":Landroid/os/Bundle;
     :cond_4
     :try_start_1
     iget-object v3, p0, Landroid/print/PrintManager;->mContext:Landroid/content/Context;
@@ -739,7 +739,7 @@
     move-exception v12
 
     .line 399
-    .local v12, sie:Landroid/content/IntentSender$SendIntentException;
+    .local v12, "sie":Landroid/content/IntentSender$SendIntentException;
     :try_start_2
     const-string v0, "PrintManager"
 
@@ -750,10 +750,10 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 405
-    .end local v4           #intent:Landroid/content/IntentSender;
-    .end local v9           #printJob:Landroid/print/PrintJobInfo;
-    .end local v11           #result:Landroid/os/Bundle;
-    .end local v12           #sie:Landroid/content/IntentSender$SendIntentException;
+    .end local v4    # "intent":Landroid/content/IntentSender;
+    .end local v9    # "printJob":Landroid/print/PrintJobInfo;
+    .end local v11    # "result":Landroid/os/Bundle;
+    .end local v12    # "sie":Landroid/content/IntentSender$SendIntentException;
     :cond_5
     :goto_1
     const/4 v0, 0x0
@@ -765,7 +765,7 @@
     move-exception v10
 
     .line 403
-    .local v10, re:Landroid/os/RemoteException;
+    .local v10, "re":Landroid/os/RemoteException;
     const-string v0, "PrintManager"
 
     const-string v1, "Error creating a print job"
@@ -777,7 +777,7 @@
 
 .method public removePrintJobStateChangeListener(Landroid/print/PrintManager$PrintJobStateChangeListener;)V
     .locals 4
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/print/PrintManager$PrintJobStateChangeListener;
 
     .prologue
     .line 257
@@ -801,7 +801,7 @@
     check-cast v1, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
 
     .line 262
-    .local v1, wrappedListener:Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
+    .local v1, "wrappedListener":Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
     if-eqz v1, :cond_0
 
     .line 265
@@ -839,7 +839,7 @@
     move-exception v0
 
     .line 272
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
     const-string v3, "Error removing print job state change listener"
@@ -851,7 +851,7 @@
 
 .method restartPrintJob(Landroid/print/PrintJobId;)V
     .locals 4
-    .parameter "printJobId"
+    .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
     .line 329
@@ -875,7 +875,7 @@
     move-exception v0
 
     .line 331
-    .local v0, re:Landroid/os/RemoteException;
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "PrintManager"
 
     new-instance v2, Ljava/lang/StringBuilder;

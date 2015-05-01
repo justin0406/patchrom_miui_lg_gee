@@ -31,8 +31,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 892
@@ -55,7 +55,7 @@
 
 .method static synthetic access$000(Landroid/view/LayoutInflater$BlinkLayout;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/LayoutInflater$BlinkLayout;
 
     .prologue
     .line 883
@@ -66,7 +66,7 @@
 
 .method static synthetic access$100(Landroid/view/LayoutInflater$BlinkLayout;)Z
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/LayoutInflater$BlinkLayout;
 
     .prologue
     .line 883
@@ -77,8 +77,8 @@
 
 .method static synthetic access$102(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/LayoutInflater$BlinkLayout;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 883
@@ -89,7 +89,7 @@
 
 .method static synthetic access$200(Landroid/view/LayoutInflater$BlinkLayout;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/LayoutInflater$BlinkLayout;
 
     .prologue
     .line 883
@@ -112,7 +112,7 @@
     move-result-object v0
 
     .line 911
-    .local v0, message:Landroid/os/Message;
+    .local v0, "message":Landroid/os/Message;
     iget-object v1, p0, Landroid/view/LayoutInflater$BlinkLayout;->mHandler:Landroid/os/Handler;
 
     const-wide/16 v2, 0x1f4
@@ -127,7 +127,7 @@
 # virtual methods
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 1
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 936

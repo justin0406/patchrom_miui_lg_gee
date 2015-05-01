@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 247
@@ -37,13 +36,13 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 250
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
-    #getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$000(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -54,7 +53,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
-    #calls: Lcom/android/server/LocationManagerService;->updateProvidersLocked()V
+    # invokes: Lcom/android/server/LocationManagerService;->updateProvidersLocked()V
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$300(Lcom/android/server/LocationManagerService;)V
 
     .line 252

@@ -16,10 +16,10 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;Ljava/lang/reflect/Field;Z)V
     .locals 1
-    .parameter "filter"
-    .parameter "name"
-    .parameter "field"
-    .parameter "hasDefault"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "field"    # Ljava/lang/reflect/Field;
+    .param p4, "hasDefault"    # Z
 
     .prologue
     .line 33
@@ -109,7 +109,7 @@
     move-exception v0
 
     .line 57
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -189,7 +189,7 @@
 
 .method public pushFrame(Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 44
@@ -203,8 +203,8 @@
 
 .method protected declared-synchronized setFieldFrame(Landroid/filterfw/core/Frame;Z)V
     .locals 2
-    .parameter "frame"
-    .parameter "isAssignment"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
+    .param p2, "isAssignment"    # Z
 
     .prologue
     .line 98
@@ -222,7 +222,7 @@
     move-result-object v0
 
     .line 103
-    .local v0, value:Ljava/lang/Object;
+    .local v0, "value":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     iget-object v1, p0, Landroid/filterfw/core/FieldPort;->mValue:Ljava/lang/Object;
@@ -261,7 +261,7 @@
     return-void
 
     .line 98
-    .end local v0           #value:Ljava/lang/Object;
+    .end local v0    # "value":Ljava/lang/Object;
     :catchall_0
     move-exception v1
 
@@ -272,7 +272,7 @@
 
 .method public setFrame(Landroid/filterfw/core/Frame;)V
     .locals 1
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 49
@@ -316,7 +316,7 @@
 
 .method public declared-synchronized transfer(Landroid/filterfw/core/FilterContext;)V
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 63
@@ -339,8 +339,8 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 70
     const/4 v1, 0x0
@@ -371,7 +371,7 @@
     move-exception v0
 
     .line 67
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     :try_start_3
     new-instance v1, Ljava/lang/RuntimeException;
 
@@ -412,7 +412,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 63
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catchall_0
     move-exception v1
 

@@ -24,10 +24,9 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 4926
+    .line 4933
     iput-object p1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +42,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4929
+    .line 4936
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     iget-boolean v0, v0, Landroid/widget/AbsListView;->mCachingStarted:Z
 
     if-eqz v0, :cond_1
 
-    .line 4930
+    .line 4937
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     iget-object v1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
@@ -59,16 +58,16 @@
 
     iput-boolean v2, v0, Landroid/widget/AbsListView;->mCachingStarted:Z
 
-    .line 4931
+    .line 4938
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
-    #calls: Landroid/widget/AbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
+    # invokes: Landroid/widget/AbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3300(Landroid/widget/AbsListView;Z)V
 
-    .line 4932
+    .line 4939
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/widget/AbsListView;->mPersistentDrawingCache:I
+    # getter for: Landroid/widget/AbsListView;->mPersistentDrawingCache:I
     invoke-static {v0}, Landroid/widget/AbsListView;->access$3400(Landroid/widget/AbsListView;)I
 
     move-result v0
@@ -77,13 +76,13 @@
 
     if-nez v0, :cond_0
 
-    .line 4933
+    .line 4940
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
-    #calls: Landroid/widget/AbsListView;->setChildrenDrawingCacheEnabled(Z)V
+    # invokes: Landroid/widget/AbsListView;->setChildrenDrawingCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3500(Landroid/widget/AbsListView;Z)V
 
-    .line 4935
+    .line 4942
     :cond_0
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
@@ -93,12 +92,12 @@
 
     if-nez v0, :cond_1
 
-    .line 4936
+    .line 4943
     iget-object v0, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->invalidate()V
 
-    .line 4939
+    .line 4946
     :cond_1
     return-void
 .end method

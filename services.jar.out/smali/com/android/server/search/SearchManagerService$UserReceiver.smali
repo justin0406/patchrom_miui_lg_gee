@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/search/SearchManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 129
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/search/SearchManagerService;Lcom/android/server/search/SearchManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/search/SearchManagerService;
+    .param p2, "x1"    # Lcom/android/server/search/SearchManagerService$1;
 
     .prologue
     .line 129
@@ -48,8 +47,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 132
@@ -63,7 +62,7 @@
 
     move-result v1
 
-    #calls: Lcom/android/server/search/SearchManagerService;->onUserRemoved(I)V
+    # invokes: Lcom/android/server/search/SearchManagerService;->onUserRemoved(I)V
     invoke-static {v0, v1}, Lcom/android/server/search/SearchManagerService;->access$400(Lcom/android/server/search/SearchManagerService;I)V
 
     .line 133

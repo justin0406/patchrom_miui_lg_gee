@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/HeavyWeightSwitcherActivity;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 133
@@ -39,7 +38,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 8
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 136
@@ -72,9 +71,9 @@
 
     const/4 v3, 0x0
 
-    const/high16 v4, 0x200
+    const/high16 v4, 0x2000000
 
-    const/high16 v5, 0x200
+    const/high16 v5, 0x2000000
 
     const/4 v6, 0x0
 
@@ -121,7 +120,7 @@
     move-exception v7
 
     .line 148
-    .local v7, ex:Landroid/content/IntentSender$SendIntentException;
+    .local v7, "ex":Landroid/content/IntentSender$SendIntentException;
     const-string v0, "HeavyWeightSwitcherActivity"
 
     const-string v1, "Failure starting"
@@ -131,7 +130,7 @@
     goto :goto_1
 
     .line 137
-    .end local v7           #ex:Landroid/content/IntentSender$SendIntentException;
+    .end local v7    # "ex":Landroid/content/IntentSender$SendIntentException;
     :catch_1
     move-exception v0
 

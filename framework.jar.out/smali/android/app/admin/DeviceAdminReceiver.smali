@@ -65,7 +65,7 @@
 # virtual methods
 .method public getManager(Landroid/content/Context;)Landroid/app/admin/DevicePolicyManager;
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 182
@@ -100,7 +100,7 @@
 
 .method public getWho(Landroid/content/Context;)Landroid/content/ComponentName;
     .locals 2
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 196
@@ -135,8 +135,8 @@
 
 .method public onDisableRequested(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/CharSequence;
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 225
@@ -147,8 +147,8 @@
 
 .method public onDisabled(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 237
@@ -157,8 +157,8 @@
 
 .method public onEnabled(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 211
@@ -167,8 +167,8 @@
 
 .method public onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 249
@@ -177,8 +177,8 @@
 
 .method public onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 292
@@ -187,8 +187,8 @@
 
 .method public onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 260
@@ -197,8 +197,8 @@
 
 .method public onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 271
@@ -207,8 +207,8 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 301
@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 302
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.app.action.ACTION_PASSWORD_CHANGED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -295,7 +295,7 @@
     move-result-object v2
 
     .line 312
-    .local v2, res:Ljava/lang/CharSequence;
+    .local v2, "res":Ljava/lang/CharSequence;
     if-eqz v2, :cond_0
 
     .line 313
@@ -306,7 +306,7 @@
     move-result-object v1
 
     .line 314
-    .local v1, extras:Landroid/os/Bundle;
+    .local v1, "extras":Landroid/os/Bundle;
     const-string v3, "android.app.extra.DISABLE_WARNING"
 
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
@@ -314,8 +314,8 @@
     goto :goto_0
 
     .line 316
-    .end local v1           #extras:Landroid/os/Bundle;
-    .end local v2           #res:Ljava/lang/CharSequence;
+    .end local v1    # "extras":Landroid/os/Bundle;
+    .end local v2    # "res":Ljava/lang/CharSequence;
     :cond_5
     const-string v3, "android.app.action.DEVICE_ADMIN_DISABLED"
 

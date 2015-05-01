@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;I)V
     .locals 0
-    .parameter "handler"
-    .parameter "msg"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "msg"    # I
 
     .prologue
     .line 293
@@ -44,7 +44,7 @@
 # virtual methods
 .method observe(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 299
@@ -53,7 +53,7 @@
     move-result-object v0
 
     .line 300
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v1, "auto_time"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -70,7 +70,7 @@
 
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 306

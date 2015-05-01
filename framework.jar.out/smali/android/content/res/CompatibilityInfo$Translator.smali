@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/CompatibilityInfo;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 303
@@ -47,9 +46,8 @@
 
 .method constructor <init>(Landroid/content/res/CompatibilityInfo;FF)V
     .locals 1
-    .parameter
-    .parameter "applicationScale"
-    .parameter "applicationInvertedScale"
+    .param p2, "applicationScale"    # F
+    .param p3, "applicationInvertedScale"    # F
 
     .prologue
     const/4 v0, 0x0
@@ -82,7 +80,7 @@
 # virtual methods
 .method public getTranslatedContentInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 1
-    .parameter "contentInsets"
+    .param p1, "contentInsets"    # Landroid/graphics/Rect;
 
     .prologue
     .line 400
@@ -115,7 +113,7 @@
 
 .method public getTranslatedTouchableArea(Landroid/graphics/Region;)Landroid/graphics/Region;
     .locals 2
-    .parameter "touchableArea"
+    .param p1, "touchableArea"    # Landroid/graphics/Region;
 
     .prologue
     .line 422
@@ -150,7 +148,7 @@
 
 .method public getTranslatedVisibleInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 1
-    .parameter "visibleInsets"
+    .param p1, "visibleInsets"    # Landroid/graphics/Rect;
 
     .prologue
     .line 411
@@ -183,7 +181,7 @@
 
 .method public translateCanvas(Landroid/graphics/Canvas;)V
     .locals 4
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     const v3, 0x3b2b5601
@@ -191,7 +189,7 @@
     .line 325
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
-    const/high16 v2, 0x3fc0
+    const/high16 v2, 0x3fc00000    # 1.5f
 
     cmpl-float v1, v1, v2
 
@@ -201,11 +199,11 @@
     const v0, 0x3b2b5601
 
     .line 342
-    .local v0, tinyOffset:F
+    .local v0, "tinyOffset":F
     invoke-virtual {p1, v3, v3}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 344
-    .end local v0           #tinyOffset:F
+    .end local v0    # "tinyOffset":F
     :cond_0
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
@@ -219,7 +217,7 @@
 
 .method public translateEventInScreenToAppWindow(Landroid/view/MotionEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 351
@@ -233,7 +231,7 @@
 
 .method public translateLayoutParamsInAppWindowToScreen(Landroid/view/WindowManager$LayoutParams;)V
     .locals 1
-    .parameter "params"
+    .param p1, "params"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
     .line 392
@@ -247,15 +245,15 @@
 
 .method public translatePointInScreenToAppWindow(Landroid/graphics/PointF;)V
     .locals 2
-    .parameter "point"
+    .param p1, "point"    # Landroid/graphics/PointF;
 
     .prologue
     .line 380
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
     .line 381
-    .local v0, scale:F
-    const/high16 v1, 0x3f80
+    .local v0, "scale":F
+    const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v1, v0, v1
 
@@ -282,7 +280,7 @@
 
 .method public translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "rect"
+    .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 366
@@ -296,7 +294,7 @@
 
 .method public translateRectInScreenToAppWinFrame(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "rect"
+    .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 311
@@ -310,7 +308,7 @@
 
 .method public translateRectInScreenToAppWindow(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "rect"
+    .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
     .line 373
@@ -324,7 +322,7 @@
 
 .method public translateRegionInWindowToScreen(Landroid/graphics/Region;)V
     .locals 1
-    .parameter "transparentRegion"
+    .param p1, "transparentRegion"    # Landroid/graphics/Region;
 
     .prologue
     .line 318
@@ -338,7 +336,7 @@
 
 .method public translateWindowLayout(Landroid/view/WindowManager$LayoutParams;)V
     .locals 1
-    .parameter "params"
+    .param p1, "params"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
     .line 359

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 798
@@ -36,8 +35,8 @@
 # virtual methods
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .parameter "limitName"
-    .parameter "iface"
+    .param p1, "limitName"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
 
     .prologue
     const/4 v4, 0x1
@@ -45,7 +44,7 @@
     .line 802
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1300(Lcom/android/server/net/NetworkStatsService;)Landroid/content/Context;
 
     move-result-object v1
@@ -69,10 +68,10 @@
     const/4 v0, 0x1
 
     .line 808
-    .local v0, flags:I
+    .local v0, "flags":I
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1400(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -88,7 +87,7 @@
     .line 811
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    #getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
+    # getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1400(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -102,7 +101,7 @@
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
     .line 813
-    .end local v0           #flags:I
+    .end local v0    # "flags":I
     :cond_0
     return-void
 .end method

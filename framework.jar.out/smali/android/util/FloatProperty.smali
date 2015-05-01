@@ -20,11 +20,11 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 34
-    .local p0, this:Landroid/util/FloatProperty;,"Landroid/util/FloatProperty<TT;>;"
+    .local p0, "this":Landroid/util/FloatProperty;, "Landroid/util/FloatProperty<TT;>;"
     const-class v0, Ljava/lang/Float;
 
     invoke-direct {p0, v0, p1}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
@@ -37,8 +37,7 @@
 # virtual methods
 .method public final set(Ljava/lang/Object;Ljava/lang/Float;)V
     .locals 1
-    .parameter
-    .parameter "value"
+    .param p2, "value"    # Ljava/lang/Float;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -49,8 +48,8 @@
 
     .prologue
     .line 45
-    .local p0, this:Landroid/util/FloatProperty;,"Landroid/util/FloatProperty<TT;>;"
-    .local p1, object:Ljava/lang/Object;,"TT;"
+    .local p0, "this":Landroid/util/FloatProperty;, "Landroid/util/FloatProperty<TT;>;"
+    .local p1, "object":Ljava/lang/Object;, "TT;"
     invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
 
     move-result v0
@@ -63,15 +62,15 @@
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 31
-    .local p0, this:Landroid/util/FloatProperty;,"Landroid/util/FloatProperty<TT;>;"
+    .local p0, "this":Landroid/util/FloatProperty;, "Landroid/util/FloatProperty<TT;>;"
     check-cast p2, Ljava/lang/Float;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/util/FloatProperty;->set(Ljava/lang/Object;Ljava/lang/Float;)V
 
     return-void

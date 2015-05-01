@@ -50,12 +50,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIIII)V
     .locals 2
-    .parameter "tag"
-    .parameter "transientFlag"
-    .parameter "unhideFlag"
-    .parameter "translucentFlag"
-    .parameter "statusBarManagerId"
-    .parameter "translucentWmFlag"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "transientFlag"    # I
+    .param p3, "unhideFlag"    # I
+    .param p4, "translucentFlag"    # I
+    .param p5, "statusBarManagerId"    # I
+    .param p6, "translucentWmFlag"    # I
 
     .prologue
     .line 63
@@ -122,7 +122,7 @@
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/BarController;)Lcom/android/internal/statusbar/IStatusBarService;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/BarController;
 
     .prologue
     .line 36
@@ -135,7 +135,7 @@
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/BarController;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/BarController;
 
     .prologue
     .line 36
@@ -146,8 +146,8 @@
 
 .method static synthetic access$202(Lcom/android/internal/policy/impl/BarController;Lcom/android/internal/statusbar/IStatusBarService;)Lcom/android/internal/statusbar/IStatusBarService;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/BarController;
+    .param p1, "x1"    # Lcom/android/internal/statusbar/IStatusBarService;
 
     .prologue
     .line 36
@@ -158,10 +158,10 @@
 
 .method private computeStateLw(ZZLandroid/view/WindowManagerPolicy$WindowState;Z)I
     .locals 6
-    .parameter "wasVis"
-    .parameter "wasAnim"
-    .parameter "win"
-    .parameter "change"
+    .param p1, "wasVis"    # Z
+    .param p2, "wasAnim"    # Z
+    .param p3, "win"    # Landroid/view/WindowManagerPolicy$WindowState;
+    .param p4, "change"    # Z
 
     .prologue
     const/4 v2, 0x2
@@ -183,13 +183,13 @@
     move-result v1
 
     .line 140
-    .local v1, vis:Z
+    .local v1, "vis":Z
     invoke-interface {p3}, Landroid/view/WindowManagerPolicy$WindowState;->isAnimatingLw()Z
 
     move-result v0
 
     .line 141
-    .local v0, anim:Z
+    .local v0, "anim":Z
     iget v5, p0, Lcom/android/internal/policy/impl/BarController;->mState:I
 
     if-ne v5, v4, :cond_0
@@ -199,14 +199,14 @@
     if-nez v1, :cond_0
 
     .line 153
-    .end local v0           #anim:Z
-    .end local v1           #vis:Z
+    .end local v0    # "anim":Z
+    .end local v1    # "vis":Z
     :goto_0
     return v2
 
     .line 143
-    .restart local v0       #anim:Z
-    .restart local v1       #vis:Z
+    .restart local v0    # "anim":Z
+    .restart local v1    # "vis":Z
     :cond_0
     iget v5, p0, Lcom/android/internal/policy/impl/BarController;->mState:I
 
@@ -244,8 +244,8 @@
     goto :goto_0
 
     .line 153
-    .end local v0           #anim:Z
-    .end local v1           #vis:Z
+    .end local v0    # "anim":Z
+    .end local v1    # "vis":Z
     :cond_3
     iget v2, p0, Lcom/android/internal/policy/impl/BarController;->mState:I
 
@@ -301,7 +301,7 @@
 
 .method private setTransientBarState(I)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     const/4 v1, 0x2
@@ -341,7 +341,7 @@
 
 .method private static transientBarStateToString(I)Ljava/lang/String;
     .locals 3
-    .parameter "state"
+    .param p0, "state"    # I
 
     .prologue
     .line 260
@@ -412,7 +412,7 @@
 
 .method private updateStateLw(I)Z
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 157
@@ -449,8 +449,8 @@
 # virtual methods
 .method public adjustSystemUiVisibilityLw(II)V
     .locals 2
-    .parameter "oldVis"
-    .parameter "vis"
+    .param p1, "oldVis"    # I
+    .param p2, "vis"    # I
 
     .prologue
     .line 96
@@ -513,9 +513,9 @@
 
 .method public applyTranslucentFlagLw(Landroid/view/WindowManagerPolicy$WindowState;II)I
     .locals 2
-    .parameter "win"
-    .parameter "vis"
-    .parameter "oldVis"
+    .param p1, "win"    # Landroid/view/WindowManagerPolicy$WindowState;
+    .param p2, "vis"    # I
+    .param p3, "oldVis"    # I
 
     .prologue
     .line 108
@@ -718,8 +718,8 @@
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 2
-    .parameter "pw"
-    .parameter "prefix"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
     const/16 v1, 0x3d
@@ -829,7 +829,7 @@
 
 .method public setBarShowingLw(Z)Z
     .locals 9
-    .parameter "show"
+    .param p1, "show"    # Z
 
     .prologue
     const/4 v5, 0x0
@@ -870,7 +870,7 @@
     move-result v4
 
     .line 130
-    .local v4, wasVis:Z
+    .local v4, "wasVis":Z
     iget-object v7, p0, Lcom/android/internal/policy/impl/BarController;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
     invoke-interface {v7}, Landroid/view/WindowManagerPolicy$WindowState;->isAnimatingLw()Z
@@ -878,7 +878,7 @@
     move-result v3
 
     .line 131
-    .local v3, wasAnim:Z
+    .local v3, "wasAnim":Z
     if-eqz p1, :cond_4
 
     iget-object v7, p0, Lcom/android/internal/policy/impl/BarController;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
@@ -888,7 +888,7 @@
     move-result v0
 
     .line 132
-    .local v0, change:Z
+    .local v0, "change":Z
     :goto_1
     iget-object v7, p0, Lcom/android/internal/policy/impl/BarController;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
@@ -897,13 +897,13 @@
     move-result v1
 
     .line 133
-    .local v1, state:I
+    .local v1, "state":I
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/BarController;->updateStateLw(I)Z
 
     move-result v2
 
     .line 134
-    .local v2, stateChanged:Z
+    .local v2, "stateChanged":Z
     if-nez v0, :cond_3
 
     if-eqz v2, :cond_0
@@ -914,9 +914,9 @@
     goto :goto_0
 
     .line 131
-    .end local v0           #change:Z
-    .end local v1           #state:I
-    .end local v2           #stateChanged:Z
+    .end local v0    # "change":Z
+    .end local v1    # "state":I
+    .end local v2    # "stateChanged":Z
     :cond_4
     iget-object v7, p0, Lcom/android/internal/policy/impl/BarController;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
@@ -929,7 +929,7 @@
 
 .method public setWindow(Landroid/view/WindowManagerPolicy$WindowState;)V
     .locals 0
-    .parameter "win"
+    .param p1, "win"    # Landroid/view/WindowManagerPolicy$WindowState;
 
     .prologue
     .line 74
@@ -960,9 +960,9 @@
 
 .method public updateVisibilityLw(ZII)I
     .locals 3
-    .parameter "transientAllowed"
-    .parameter "oldVis"
-    .parameter "vis"
+    .param p1, "transientAllowed"    # Z
+    .param p2, "oldVis"    # I
+    .param p3, "vis"    # I
 
     .prologue
     .line 217
@@ -973,14 +973,14 @@
     move v0, p3
 
     .line 236
-    .end local p3
-    .local v0, vis:I
+    .end local p3    # "vis":I
+    .local v0, "vis":I
     :goto_0
     return v0
 
     .line 218
-    .end local v0           #vis:I
-    .restart local p3
+    .end local v0    # "vis":I
+    .restart local p3    # "vis":I
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/BarController;->isTransientShowing()Z
 
@@ -1062,13 +1062,13 @@
     move v0, p3
 
     .line 236
-    .end local p3
-    .restart local v0       #vis:I
+    .end local p3    # "vis":I
+    .restart local v0    # "vis":I
     goto :goto_0
 
     .line 226
-    .end local v0           #vis:I
-    .restart local p3
+    .end local v0    # "vis":I
+    .restart local p3    # "vis":I
     :cond_7
     const/4 v1, 0x0
 

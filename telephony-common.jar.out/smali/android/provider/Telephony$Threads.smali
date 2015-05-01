@@ -96,8 +96,8 @@
 
 .method public static getOrCreateThreadId(Landroid/content/Context;Ljava/lang/String;)J
     .locals 3
-    .parameter "context"
-    .parameter "recipient"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "recipient"    # Ljava/lang/String;
 
     .prologue
     .line 1580
@@ -106,7 +106,7 @@
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     .line 1582
-    .local v0, recipients:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local v0, "recipients":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 1583
@@ -119,8 +119,7 @@
 
 .method public static getOrCreateThreadId(Landroid/content/Context;Ljava/util/Set;)J
     .locals 11
-    .parameter "context"
-    .parameter
+    .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +132,7 @@
     .end annotation
 
     .prologue
-    .local p1, recipients:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
+    .local p1, "recipients":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v4, 0x0
 
     .line 1599
@@ -144,12 +143,12 @@
     move-result-object v10
 
     .line 1601
-    .local v10, uriBuilder:Landroid/net/Uri$Builder;
+    .local v10, "uriBuilder":Landroid/net/Uri$Builder;
     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
-    .local v8, i$:Ljava/util/Iterator;
+    .local v8, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
@@ -164,7 +163,7 @@
     check-cast v9, Ljava/lang/String;
 
     .line 1602
-    .local v9, recipient:Ljava/lang/String;
+    .local v9, "recipient":Ljava/lang/String;
     invoke-static {v9}, Landroid/provider/Telephony$Mms;->isEmailAddress(Ljava/lang/String;)Z
 
     move-result v0
@@ -185,14 +184,14 @@
     goto :goto_0
 
     .line 1609
-    .end local v9           #recipient:Ljava/lang/String;
+    .end local v9    # "recipient":Ljava/lang/String;
     :cond_1
     invoke-virtual {v10}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v2
 
     .line 1612
-    .local v2, uri:Landroid/net/Uri;
+    .local v2, "uri":Landroid/net/Uri;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -210,7 +209,7 @@
     move-result-object v7
 
     .line 1614
-    .local v7, cursor:Landroid/database/Cursor;
+    .local v7, "cursor":Landroid/database/Cursor;
     if-eqz v7, :cond_3
 
     .line 1616

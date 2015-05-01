@@ -70,8 +70,8 @@
 
 .method public static buildChildDocumentsUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
-    .parameter "parentDocumentId"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "parentDocumentId"    # Ljava/lang/String;
 
     .prologue
     .line 561
@@ -114,8 +114,8 @@
 
 .method public static buildDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
-    .parameter "documentId"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "documentId"    # Ljava/lang/String;
 
     .prologue
     .line 545
@@ -152,8 +152,8 @@
 
 .method public static buildRecentDocumentsUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
-    .parameter "rootId"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "rootId"    # Ljava/lang/String;
 
     .prologue
     .line 531
@@ -196,8 +196,8 @@
 
 .method public static buildRootUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
-    .parameter "rootId"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "rootId"    # Ljava/lang/String;
 
     .prologue
     .line 518
@@ -234,7 +234,7 @@
 
 .method public static buildRootsUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
+    .param p0, "authority"    # Ljava/lang/String;
 
     .prologue
     .line 507
@@ -267,9 +267,9 @@
 
 .method public static buildSearchDocumentsUri(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .parameter "authority"
-    .parameter "rootId"
-    .parameter "query"
+    .param p0, "authority"    # Ljava/lang/String;
+    .param p1, "rootId"    # Ljava/lang/String;
+    .param p2, "query"    # Ljava/lang/String;
 
     .prologue
     .line 577
@@ -318,10 +318,10 @@
 
 .method public static createDocument(Landroid/content/ContentProviderClient;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 4
-    .parameter "client"
-    .parameter "parentDocumentUri"
-    .parameter "mimeType"
-    .parameter "displayName"
+    .param p0, "client"    # Landroid/content/ContentProviderClient;
+    .param p1, "parentDocumentUri"    # Landroid/net/Uri;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "displayName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -335,7 +335,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 783
-    .local v0, in:Landroid/os/Bundle;
+    .local v0, "in":Landroid/os/Bundle;
     const-string v2, "document_id"
 
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
@@ -364,7 +364,7 @@
     move-result-object v1
 
     .line 788
-    .local v1, out:Landroid/os/Bundle;
+    .local v1, "out":Landroid/os/Bundle;
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v2
@@ -384,10 +384,10 @@
 
 .method public static createDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 4
-    .parameter "resolver"
-    .parameter "parentDocumentUri"
-    .parameter "mimeType"
-    .parameter "displayName"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "parentDocumentUri"    # Landroid/net/Uri;
+    .param p2, "mimeType"    # Ljava/lang/String;
+    .param p3, "displayName"    # Ljava/lang/String;
 
     .prologue
     .line 767
@@ -400,12 +400,12 @@
     move-result-object v0
 
     .line 770
-    .local v0, client:Landroid/content/ContentProviderClient;
+    .local v0, "client":Landroid/content/ContentProviderClient;
     :try_start_0
     invoke-static {v0, p1, p2, p3}, Landroid/provider/DocumentsContract;->createDocument(Landroid/content/ContentProviderClient;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -420,7 +420,7 @@
     move-exception v1
 
     .line 772
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_1
     const-string v2, "Documents"
 
@@ -438,7 +438,7 @@
 
     goto :goto_0
 
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v2
 
@@ -449,8 +449,8 @@
 
 .method public static deleteDocument(Landroid/content/ContentProviderClient;Landroid/net/Uri;)V
     .locals 3
-    .parameter "client"
-    .parameter "documentUri"
+    .param p0, "client"    # Landroid/content/ContentProviderClient;
+    .param p1, "documentUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -464,7 +464,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 816
-    .local v0, in:Landroid/os/Bundle;
+    .local v0, "in":Landroid/os/Bundle;
     const-string v1, "document_id"
 
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
@@ -486,8 +486,8 @@
 
 .method public static deleteDocument(Landroid/content/ContentResolver;Landroid/net/Uri;)Z
     .locals 4
-    .parameter "resolver"
-    .parameter "documentUri"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "documentUri"    # Landroid/net/Uri;
 
     .prologue
     .line 799
@@ -500,12 +500,12 @@
     move-result-object v0
 
     .line 802
-    .local v0, client:Landroid/content/ContentProviderClient;
+    .local v0, "client":Landroid/content/ContentProviderClient;
     :try_start_0
     invoke-static {v0, p1}, Landroid/provider/DocumentsContract;->deleteDocument(Landroid/content/ContentProviderClient;Landroid/net/Uri;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 803
     const/4 v2, 0x1
@@ -521,7 +521,7 @@
     move-exception v1
 
     .line 805
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_1
     const-string v2, "Documents"
 
@@ -539,7 +539,7 @@
 
     goto :goto_0
 
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v2
 
@@ -550,7 +550,7 @@
 
 .method public static getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
     .locals 4
-    .parameter "documentUri"
+    .param p0, "documentUri"    # Landroid/net/Uri;
 
     .prologue
     .line 624
@@ -559,7 +559,7 @@
     move-result-object v0
 
     .line 625
-    .local v0, paths:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "paths":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -649,10 +649,10 @@
 
 .method public static getDocumentThumbnail(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/graphics/Point;Landroid/os/CancellationSignal;)Landroid/graphics/Bitmap;
     .locals 23
-    .parameter "client"
-    .parameter "documentUri"
-    .parameter "size"
-    .parameter "signal"
+    .param p0, "client"    # Landroid/content/ContentProviderClient;
+    .param p1, "documentUri"    # Landroid/net/Uri;
+    .param p2, "size"    # Landroid/graphics/Point;
+    .param p3, "signal"    # Landroid/os/CancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -667,7 +667,7 @@
     invoke-direct/range {v19 .. v19}, Landroid/os/Bundle;-><init>()V
 
     .line 688
-    .local v19, openOpts:Landroid/os/Bundle;
+    .local v19, "openOpts":Landroid/os/Bundle;
     const-string/jumbo v5, "thumbnail_size"
 
     move-object/from16 v0, v19
@@ -680,11 +680,11 @@
     const/4 v11, 0x0
 
     .line 691
-    .local v11, afd:Landroid/content/res/AssetFileDescriptor;
+    .local v11, "afd":Landroid/content/res/AssetFileDescriptor;
     const/4 v4, 0x0
 
     .line 693
-    .local v4, bitmap:Landroid/graphics/Bitmap;
+    .local v4, "bitmap":Landroid/graphics/Bitmap;
     :try_start_0
     const-string v5, "image/*"
 
@@ -706,7 +706,7 @@
     move-result-object v14
 
     .line 696
-    .local v14, fd:Ljava/io/FileDescriptor;
+    .local v14, "fd":Ljava/io/FileDescriptor;
     invoke-virtual {v11}, Landroid/content/res/AssetFileDescriptor;->getStartOffset()J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -714,11 +714,11 @@
     move-result-wide v17
 
     .line 700
-    .local v17, offset:J
+    .local v17, "offset":J
     const/16 v16, 0x0
 
     .line 702
-    .local v16, is:Ljava/io/BufferedInputStream;
+    .local v16, "is":Ljava/io/BufferedInputStream;
     :try_start_1
     sget-object v5, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
@@ -728,8 +728,8 @@
 
     invoke-interface {v5, v14, v0, v1, v6}, Llibcore/io/Os;->lseek(Ljava/io/FileDescriptor;JI)J
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Llibcore/io/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 710
     :goto_0
@@ -739,7 +739,7 @@
     invoke-direct/range {v20 .. v20}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
     .line 711
-    .local v20, opts:Landroid/graphics/BitmapFactory$Options;
+    .local v20, "opts":Landroid/graphics/BitmapFactory$Options;
     const/4 v5, 0x1
 
     move-object/from16 v0, v20
@@ -771,7 +771,7 @@
     div-int v22, v5, v6
 
     .line 719
-    .local v22, widthSample:I
+    .local v22, "widthSample":I
     move-object/from16 v0, v20
 
     iget v5, v0, Landroid/graphics/BitmapFactory$Options;->outHeight:I
@@ -783,7 +783,7 @@
     div-int v15, v5, v6
 
     .line 721
-    .local v15, heightSample:I
+    .local v15, "heightSample":I
     const/4 v5, 0x0
 
     move-object/from16 v0, v20
@@ -825,7 +825,7 @@
     move-result-object v13
 
     .line 739
-    .local v13, extras:Landroid/os/Bundle;
+    .local v13, "extras":Landroid/os/Bundle;
     if-eqz v13, :cond_3
 
     const-string v5, "android.content.extra.ORIENTATION"
@@ -837,7 +837,7 @@
     move-result v21
 
     .line 740
-    .local v21, orientation:I
+    .local v21, "orientation":I
     :goto_3
     if-eqz v21, :cond_0
 
@@ -847,19 +847,19 @@
     move-result v7
 
     .line 742
-    .local v7, width:I
+    .local v7, "width":I
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v8
 
     .line 744
-    .local v8, height:I
+    .local v8, "height":I
     new-instance v9, Landroid/graphics/Matrix;
 
     invoke-direct {v9}, Landroid/graphics/Matrix;-><init>()V
 
     .line 745
-    .local v9, m:Landroid/graphics/Matrix;
+    .local v9, "m":Landroid/graphics/Matrix;
     move/from16 v0, v21
 
     int-to-float v5, v0
@@ -888,9 +888,9 @@
     move-result-object v4
 
     .line 749
-    .end local v7           #width:I
-    .end local v8           #height:I
-    .end local v9           #m:Landroid/graphics/Matrix;
+    .end local v7    # "width":I
+    .end local v8    # "height":I
+    .end local v9    # "m":Landroid/graphics/Matrix;
     :cond_0
     invoke-static {v11}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
@@ -898,33 +898,33 @@
     return-object v4
 
     .line 703
-    .end local v13           #extras:Landroid/os/Bundle;
-    .end local v15           #heightSample:I
-    .end local v20           #opts:Landroid/graphics/BitmapFactory$Options;
-    .end local v21           #orientation:I
-    .end local v22           #widthSample:I
+    .end local v13    # "extras":Landroid/os/Bundle;
+    .end local v15    # "heightSample":I
+    .end local v20    # "opts":Landroid/graphics/BitmapFactory$Options;
+    .end local v21    # "orientation":I
+    .end local v22    # "widthSample":I
     :catch_0
     move-exception v12
 
     .line 704
-    .local v12, e:Llibcore/io/ErrnoException;
+    .local v12, "e":Llibcore/io/ErrnoException;
     :try_start_3
     new-instance v16, Ljava/io/BufferedInputStream;
 
-    .end local v16           #is:Ljava/io/BufferedInputStream;
+    .end local v16    # "is":Ljava/io/BufferedInputStream;
     new-instance v5, Ljava/io/FileInputStream;
 
     invoke-direct {v5, v14}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    const/high16 v6, 0x2
+    const/high16 v6, 0x20000
 
     move-object/from16 v0, v16
 
     invoke-direct {v0, v5, v6}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
 
     .line 705
-    .restart local v16       #is:Ljava/io/BufferedInputStream;
-    const/high16 v5, 0x2
+    .restart local v16    # "is":Ljava/io/BufferedInputStream;
+    const/high16 v5, 0x20000
 
     move-object/from16 v0, v16
 
@@ -935,10 +935,10 @@
     goto/16 :goto_0
 
     .line 749
-    .end local v12           #e:Llibcore/io/ErrnoException;
-    .end local v14           #fd:Ljava/io/FileDescriptor;
-    .end local v16           #is:Ljava/io/BufferedInputStream;
-    .end local v17           #offset:J
+    .end local v12    # "e":Llibcore/io/ErrnoException;
+    .end local v14    # "fd":Ljava/io/FileDescriptor;
+    .end local v16    # "is":Ljava/io/BufferedInputStream;
+    .end local v17    # "offset":J
     :catchall_0
     move-exception v5
 
@@ -947,10 +947,10 @@
     throw v5
 
     .line 715
-    .restart local v14       #fd:Ljava/io/FileDescriptor;
-    .restart local v16       #is:Ljava/io/BufferedInputStream;
-    .restart local v17       #offset:J
-    .restart local v20       #opts:Landroid/graphics/BitmapFactory$Options;
+    .restart local v14    # "fd":Ljava/io/FileDescriptor;
+    .restart local v16    # "is":Ljava/io/BufferedInputStream;
+    .restart local v17    # "offset":J
+    .restart local v20    # "opts":Landroid/graphics/BitmapFactory$Options;
     :cond_1
     const/4 v5, 0x0
 
@@ -964,8 +964,8 @@
     goto/16 :goto_1
 
     .line 728
-    .restart local v15       #heightSample:I
-    .restart local v22       #widthSample:I
+    .restart local v15    # "heightSample":I
+    .restart local v22    # "widthSample":I
     :cond_2
     :try_start_5
     sget-object v5, Llibcore/io/Libcore;->os:Llibcore/io/Os;
@@ -976,8 +976,8 @@
 
     invoke-interface {v5, v14, v0, v1, v6}, Llibcore/io/Os;->lseek(Ljava/io/FileDescriptor;JI)J
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Llibcore/io/ErrnoException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 732
     :goto_4
@@ -997,7 +997,7 @@
     move-exception v12
 
     .line 730
-    .restart local v12       #e:Llibcore/io/ErrnoException;
+    .restart local v12    # "e":Llibcore/io/ErrnoException;
     invoke-virtual {v12}, Llibcore/io/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
@@ -1005,8 +1005,8 @@
     goto :goto_4
 
     .line 739
-    .end local v12           #e:Llibcore/io/ErrnoException;
-    .restart local v13       #extras:Landroid/os/Bundle;
+    .end local v12    # "e":Llibcore/io/ErrnoException;
+    .restart local v13    # "extras":Landroid/os/Bundle;
     :cond_3
     const/16 v21, 0x0
 
@@ -1015,10 +1015,10 @@
 
 .method public static getDocumentThumbnail(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/graphics/Point;Landroid/os/CancellationSignal;)Landroid/graphics/Bitmap;
     .locals 5
-    .parameter "resolver"
-    .parameter "documentUri"
-    .parameter "size"
-    .parameter "signal"
+    .param p0, "resolver"    # Landroid/content/ContentResolver;
+    .param p1, "documentUri"    # Landroid/net/Uri;
+    .param p2, "size"    # Landroid/graphics/Point;
+    .param p3, "signal"    # Landroid/os/CancellationSignal;
 
     .prologue
     .line 669
@@ -1031,12 +1031,12 @@
     move-result-object v0
 
     .line 672
-    .local v0, client:Landroid/content/ContentProviderClient;
+    .local v0, "client":Landroid/content/ContentProviderClient;
     :try_start_0
     invoke-static {v0, p1, p2, p3}, Landroid/provider/DocumentsContract;->getDocumentThumbnail(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/graphics/Point;Landroid/os/CancellationSignal;)Landroid/graphics/Bitmap;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1051,7 +1051,7 @@
     move-exception v1
 
     .line 674
-    .local v1, e:Ljava/lang/Exception;
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_1
     instance-of v2, v1, Landroid/os/OperationCanceledException;
 
@@ -1101,7 +1101,7 @@
 
     goto :goto_0
 
-    .end local v1           #e:Ljava/lang/Exception;
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v2
 
@@ -1112,7 +1112,7 @@
 
 .method public static getRootId(Landroid/net/Uri;)Ljava/lang/String;
     .locals 4
-    .parameter "rootUri"
+    .param p0, "rootUri"    # Landroid/net/Uri;
 
     .prologue
     .line 610
@@ -1121,7 +1121,7 @@
     move-result-object v0
 
     .line 611
-    .local v0, paths:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v0, "paths":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -1211,7 +1211,7 @@
 
 .method public static getSearchDocumentsQuery(Landroid/net/Uri;)Ljava/lang/String;
     .locals 1
-    .parameter "searchDocumentsUri"
+    .param p0, "searchDocumentsUri"    # Landroid/net/Uri;
 
     .prologue
     .line 639
@@ -1226,8 +1226,8 @@
 
 .method public static isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z
     .locals 8
-    .parameter "context"
-    .parameter "uri"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     const/4 v5, 0x0
@@ -1238,7 +1238,7 @@
     move-result-object v4
 
     .line 588
-    .local v4, paths:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v4, "paths":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v6
@@ -1274,7 +1274,7 @@
     invoke-direct {v3, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 596
-    .local v3, intent:Landroid/content/Intent;
+    .local v3, "intent":Landroid/content/Intent;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v6
@@ -1284,12 +1284,12 @@
     move-result-object v2
 
     .line 598
-    .local v2, infos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .local v2, "infos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1304,7 +1304,7 @@
     check-cast v1, Landroid/content/pm/ResolveInfo;
 
     .line 599
-    .local v1, info:Landroid/content/pm/ResolveInfo;
+    .local v1, "info":Landroid/content/pm/ResolveInfo;
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v6
@@ -1327,7 +1327,7 @@
 
 .method public static isManageMode(Landroid/net/Uri;)Z
     .locals 2
-    .parameter "uri"
+    .param p0, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 649
@@ -1344,7 +1344,7 @@
 
 .method public static openImageThumbnail(Ljava/io/File;)Landroid/content/res/AssetFileDescriptor;
     .locals 10
-    .parameter "file"
+    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -1353,18 +1353,18 @@
 
     .prologue
     .line 829
-    const/high16 v0, 0x1000
+    const/high16 v0, 0x10000000
 
     invoke-static {p0, v0}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v1
 
     .line 831
-    .local v1, pfd:Landroid/os/ParcelFileDescriptor;
+    .local v1, "pfd":Landroid/os/ParcelFileDescriptor;
     const/4 v6, 0x0
 
     .line 834
-    .local v6, extras:Landroid/os/Bundle;
+    .local v6, "extras":Landroid/os/Bundle;
     :try_start_0
     new-instance v7, Landroid/media/ExifInterface;
 
@@ -1375,7 +1375,7 @@
     invoke-direct {v7, v0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
 
     .line 836
-    .local v7, exif:Landroid/media/ExifInterface;
+    .local v7, "exif":Landroid/media/ExifInterface;
     const-string v0, "Orientation"
 
     const/4 v2, -0x1
@@ -1394,7 +1394,7 @@
     move-result-object v9
 
     .line 852
-    .local v9, thumb:[J
+    .local v9, "thumb":[J
     if-eqz v9, :cond_0
 
     .line 853
@@ -1411,13 +1411,13 @@
     invoke-direct/range {v0 .. v6}, Landroid/content/res/AssetFileDescriptor;-><init>(Landroid/os/ParcelFileDescriptor;JJLandroid/os/Bundle;)V
 
     .line 858
-    .end local v7           #exif:Landroid/media/ExifInterface;
-    .end local v9           #thumb:[J
+    .end local v7    # "exif":Landroid/media/ExifInterface;
+    .end local v9    # "thumb":[J
     :goto_1
     return-object v0
 
     .line 838
-    .restart local v7       #exif:Landroid/media/ExifInterface;
+    .restart local v7    # "exif":Landroid/media/ExifInterface;
     :pswitch_1
     new-instance v8, Landroid/os/Bundle;
 
@@ -1428,8 +1428,8 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 839
-    .end local v6           #extras:Landroid/os/Bundle;
-    .local v8, extras:Landroid/os/Bundle;
+    .end local v6    # "extras":Landroid/os/Bundle;
+    .local v8, "extras":Landroid/os/Bundle;
     :try_start_1
     const-string v0, "android.content.extra.ORIENTATION"
 
@@ -1442,8 +1442,8 @@
     move-object v6, v8
 
     .line 840
-    .end local v8           #extras:Landroid/os/Bundle;
-    .restart local v6       #extras:Landroid/os/Bundle;
+    .end local v8    # "extras":Landroid/os/Bundle;
+    .restart local v6    # "extras":Landroid/os/Bundle;
     goto :goto_0
 
     .line 842
@@ -1458,8 +1458,8 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 843
-    .end local v6           #extras:Landroid/os/Bundle;
-    .restart local v8       #extras:Landroid/os/Bundle;
+    .end local v6    # "extras":Landroid/os/Bundle;
+    .restart local v8    # "extras":Landroid/os/Bundle;
     :try_start_3
     const-string v0, "android.content.extra.ORIENTATION"
 
@@ -1472,8 +1472,8 @@
     move-object v6, v8
 
     .line 844
-    .end local v8           #extras:Landroid/os/Bundle;
-    .restart local v6       #extras:Landroid/os/Bundle;
+    .end local v8    # "extras":Landroid/os/Bundle;
+    .restart local v6    # "extras":Landroid/os/Bundle;
     goto :goto_0
 
     .line 846
@@ -1488,8 +1488,8 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 847
-    .end local v6           #extras:Landroid/os/Bundle;
-    .restart local v8       #extras:Landroid/os/Bundle;
+    .end local v6    # "extras":Landroid/os/Bundle;
+    .restart local v8    # "extras":Landroid/os/Bundle;
     :try_start_5
     const-string v0, "android.content.extra.ORIENTATION"
 
@@ -1501,12 +1501,12 @@
 
     move-object v6, v8
 
-    .end local v8           #extras:Landroid/os/Bundle;
-    .restart local v6       #extras:Landroid/os/Bundle;
+    .end local v8    # "extras":Landroid/os/Bundle;
+    .restart local v6    # "extras":Landroid/os/Bundle;
     goto :goto_0
 
     .line 855
-    .end local v7           #exif:Landroid/media/ExifInterface;
+    .end local v7    # "exif":Landroid/media/ExifInterface;
     :catch_0
     move-exception v0
 
@@ -1524,16 +1524,16 @@
     goto :goto_1
 
     .line 855
-    .end local v6           #extras:Landroid/os/Bundle;
-    .restart local v7       #exif:Landroid/media/ExifInterface;
-    .restart local v8       #extras:Landroid/os/Bundle;
+    .end local v6    # "extras":Landroid/os/Bundle;
+    .restart local v7    # "exif":Landroid/media/ExifInterface;
+    .restart local v8    # "extras":Landroid/os/Bundle;
     :catch_1
     move-exception v0
 
     move-object v6, v8
 
-    .end local v8           #extras:Landroid/os/Bundle;
-    .restart local v6       #extras:Landroid/os/Bundle;
+    .end local v8    # "extras":Landroid/os/Bundle;
+    .restart local v6    # "extras":Landroid/os/Bundle;
     goto :goto_2
 
     .line 836
@@ -1552,7 +1552,7 @@
 
 .method public static setManageMode(Landroid/net/Uri;)Landroid/net/Uri;
     .locals 3
-    .parameter "uri"
+    .param p0, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 644

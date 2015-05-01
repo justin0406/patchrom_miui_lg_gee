@@ -28,7 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 66
@@ -62,31 +62,31 @@
     .locals 8
 
     .prologue
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     .line 131
-    const v1, 0x3e99999a
+    const v1, 0x3e99999a    # 0.3f
 
     .line 132
-    .local v1, fade_gamma:F
+    .local v1, "fade_gamma":F
     iget v5, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mBacklight:F
 
     sub-float v0, v7, v5
 
     .line 133
-    .local v0, amt:F
-    const v5, 0x3f333333
+    .local v0, "amt":F
+    const v5, 0x3f333333    # 0.7f
 
     mul-float/2addr v5, v0
 
-    const v6, 0x3e99999a
+    const v6, 0x3e99999a    # 0.3f
 
     add-float/2addr v5, v6
 
     div-float v4, v7, v5
 
     .line 134
-    .local v4, mult:F
+    .local v4, "mult":F
     sub-float v5, v7, v1
 
     mul-float/2addr v5, v4
@@ -94,11 +94,11 @@
     add-float v2, v1, v5
 
     .line 135
-    .local v2, faded:F
+    .local v2, "faded":F
     div-float v3, v7, v2
 
     .line 137
-    .local v3, igamma:F
+    .local v3, "igamma":F
     iget-object v5, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string v6, "mult"
@@ -128,8 +128,8 @@
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
     .locals 1
-    .parameter "name"
-    .parameter "context"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 125
@@ -147,8 +147,8 @@
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 77
@@ -157,8 +157,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 81
@@ -204,7 +204,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 84
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     const-string v1, "FillLight"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -254,7 +254,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 100
@@ -265,13 +265,13 @@
     move-result-object v0
 
     .line 101
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 104
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -281,7 +281,7 @@
     move-result-object v2
 
     .line 107
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0

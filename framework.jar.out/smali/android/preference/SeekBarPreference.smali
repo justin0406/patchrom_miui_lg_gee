@@ -25,7 +25,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 54
@@ -39,8 +39,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 50
@@ -54,9 +54,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     .line 41
@@ -72,7 +72,7 @@
     move-result-object v0
 
     .line 44
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x2
 
     iget v2, p0, Landroid/preference/SeekBarPreference;->mMax:I
@@ -97,8 +97,8 @@
 
 .method private setProgress(IZ)V
     .locals 1
-    .parameter "progress"
-    .parameter "notifyChanged"
+    .param p1, "progress"    # I
+    .param p2, "notifyChanged"    # Z
 
     .prologue
     .line 112
@@ -163,7 +163,7 @@
 
 .method protected onBindView(Landroid/view/View;)V
     .locals 2
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 59
@@ -179,7 +179,7 @@
     check-cast v0, Landroid/widget/SeekBar;
 
     .line 62
-    .local v0, seekBar:Landroid/widget/SeekBar;
+    .local v0, "seekBar":Landroid/widget/SeekBar;
     invoke-virtual {v0, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 63
@@ -205,8 +205,8 @@
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
     .locals 1
-    .parameter "a"
-    .parameter "index"
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "index"    # I
 
     .prologue
     .line 81
@@ -225,9 +225,9 @@
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/4 v0, 0x1
@@ -288,9 +288,9 @@
 
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 1
-    .parameter "seekBar"
-    .parameter "progress"
-    .parameter "fromUser"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
+    .param p2, "progress"    # I
+    .param p3, "fromUser"    # Z
 
     .prologue
     .line 149
@@ -310,7 +310,7 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 3
-    .parameter "state"
+    .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
     .line 190
@@ -340,7 +340,7 @@
     check-cast v0, Landroid/preference/SeekBarPreference$SavedState;
 
     .line 198
-    .local v0, myState:Landroid/preference/SeekBarPreference$SavedState;
+    .local v0, "myState":Landroid/preference/SeekBarPreference$SavedState;
     invoke-virtual {v0}, Landroid/preference/SeekBarPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
@@ -373,7 +373,7 @@
     move-result-object v1
 
     .line 176
-    .local v1, superState:Landroid/os/Parcelable;
+    .local v1, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Landroid/preference/SeekBarPreference;->isPersistent()Z
 
     move-result v2
@@ -381,19 +381,19 @@
     if-eqz v2, :cond_0
 
     .line 185
-    .end local v1           #superState:Landroid/os/Parcelable;
+    .end local v1    # "superState":Landroid/os/Parcelable;
     :goto_0
     return-object v1
 
     .line 182
-    .restart local v1       #superState:Landroid/os/Parcelable;
+    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
     new-instance v0, Landroid/preference/SeekBarPreference$SavedState;
 
     invoke-direct {v0, v1}, Landroid/preference/SeekBarPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 183
-    .local v0, myState:Landroid/preference/SeekBarPreference$SavedState;
+    .local v0, "myState":Landroid/preference/SeekBarPreference$SavedState;
     iget v2, p0, Landroid/preference/SeekBarPreference;->mProgress:I
 
     iput v2, v0, Landroid/preference/SeekBarPreference$SavedState;->progress:I
@@ -411,8 +411,8 @@
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
     .locals 1
-    .parameter "restoreValue"
-    .parameter "defaultValue"
+    .param p1, "restoreValue"    # Z
+    .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
     .line 75
@@ -424,7 +424,7 @@
 
     move-result v0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     :goto_0
     invoke-virtual {p0, v0}, Landroid/preference/SeekBarPreference;->setProgress(I)V
 
@@ -432,11 +432,11 @@
     return-void
 
     .line 75
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :cond_0
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -446,7 +446,7 @@
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 1
-    .parameter "seekBar"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .prologue
     .line 156
@@ -460,7 +460,7 @@
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
-    .parameter "seekBar"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .prologue
     .line 161
@@ -487,7 +487,7 @@
 
 .method public setMax(I)V
     .locals 1
-    .parameter "max"
+    .param p1, "max"    # I
 
     .prologue
     .line 101
@@ -508,7 +508,7 @@
 
 .method public setProgress(I)V
     .locals 1
-    .parameter "progress"
+    .param p1, "progress"    # I
 
     .prologue
     .line 108
@@ -522,7 +522,7 @@
 
 .method syncProgress(Landroid/widget/SeekBar;)V
     .locals 2
-    .parameter "seekBar"
+    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .prologue
     .line 136
@@ -531,7 +531,7 @@
     move-result v0
 
     .line 137
-    .local v0, progress:I
+    .local v0, "progress":I
     iget v1, p0, Landroid/preference/SeekBarPreference;->mProgress:I
 
     if-eq v0, v1, :cond_0

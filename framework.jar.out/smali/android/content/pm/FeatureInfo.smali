@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -59,7 +59,7 @@
 
 .method public constructor <init>(Landroid/content/pm/FeatureInfo;)V
     .locals 1
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/content/pm/FeatureInfo;
 
     .prologue
     .line 61
@@ -86,7 +86,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 100
@@ -119,8 +119,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/FeatureInfo$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/pm/FeatureInfo$1;
 
     .prologue
     .line 28
@@ -148,14 +148,14 @@
     .line 113
     iget v2, p0, Landroid/content/pm/FeatureInfo;->reqGlEsVersion:I
 
-    const/high16 v3, -0x1
+    const/high16 v3, -0x10000
 
     and-int/2addr v2, v3
 
     shr-int/lit8 v0, v2, 0x10
 
     .line 114
-    .local v0, major:I
+    .local v0, "major":I
     iget v2, p0, Landroid/content/pm/FeatureInfo;->reqGlEsVersion:I
 
     const v3, 0xffff
@@ -163,7 +163,7 @@
     and-int v1, v2, v3
 
     .line 115
-    .local v1, minor:I
+    .local v1, "minor":I
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -339,8 +339,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "parcelableFlags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "parcelableFlags"    # I
 
     .prologue
     .line 85

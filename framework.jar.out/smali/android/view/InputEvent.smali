@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -132,7 +132,7 @@
 
 .method public isFromSource(I)Z
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # I
 
     .prologue
     .line 94

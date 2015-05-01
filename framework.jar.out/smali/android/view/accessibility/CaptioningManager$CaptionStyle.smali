@@ -15,9 +15,9 @@
 
 
 # static fields
-.field private static final BLACK_ON_WHITE:Landroid/view/accessibility/CaptioningManager$CaptionStyle; = null
+.field private static final BLACK_ON_WHITE:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
-.field private static final DEFAULT_CUSTOM:Landroid/view/accessibility/CaptioningManager$CaptionStyle; = null
+.field private static final DEFAULT_CUSTOM:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
 .field public static final EDGE_TYPE_DROP_SHADOW:I = 0x2
 
@@ -25,7 +25,7 @@
 
 .field public static final EDGE_TYPE_OUTLINE:I = 0x1
 
-.field public static final PRESETS:[Landroid/view/accessibility/CaptioningManager$CaptionStyle; = null
+.field public static final PRESETS:[Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
 .field public static final PRESET_CUSTOM:I = -0x1
 
@@ -63,7 +63,7 @@
 
     const/4 v3, 0x0
 
-    const/high16 v2, -0x100
+    const/high16 v2, -0x1000000
 
     .line 348
     new-instance v0, Landroid/view/accessibility/CaptioningManager$CaptionStyle;
@@ -159,11 +159,11 @@
 
 .method private constructor <init>(IIIILjava/lang/String;)V
     .locals 0
-    .parameter "foregroundColor"
-    .parameter "backgroundColor"
-    .parameter "edgeType"
-    .parameter "edgeColor"
-    .parameter "rawTypeface"
+    .param p1, "foregroundColor"    # I
+    .param p2, "backgroundColor"    # I
+    .param p3, "edgeType"    # I
+    .param p4, "edgeColor"    # I
+    .param p5, "rawTypeface"    # Ljava/lang/String;
 
     .prologue
     .line 304
@@ -190,14 +190,14 @@
 
 .method public static getCustomStyle(Landroid/content/ContentResolver;)Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .locals 8
-    .parameter "cr"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
 
     .prologue
     .line 328
     sget-object v6, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->DEFAULT_CUSTOM:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     .line 329
-    .local v6, defStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    .local v6, "defStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     const-string v0, "accessibility_captioning_foreground_color"
 
     iget v7, v6, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->foregroundColor:I
@@ -207,7 +207,7 @@
     move-result v1
 
     .line 331
-    .local v1, foregroundColor:I
+    .local v1, "foregroundColor":I
     const-string v0, "accessibility_captioning_background_color"
 
     iget v7, v6, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->backgroundColor:I
@@ -217,7 +217,7 @@
     move-result v2
 
     .line 333
-    .local v2, backgroundColor:I
+    .local v2, "backgroundColor":I
     const-string v0, "accessibility_captioning_edge_type"
 
     iget v7, v6, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->edgeType:I
@@ -227,7 +227,7 @@
     move-result v3
 
     .line 335
-    .local v3, edgeType:I
+    .local v3, "edgeType":I
     const-string v0, "accessibility_captioning_edge_color"
 
     iget v7, v6, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->edgeColor:I
@@ -237,7 +237,7 @@
     move-result v4
 
     .line 338
-    .local v4, edgeColor:I
+    .local v4, "edgeColor":I
     const-string v0, "accessibility_captioning_typeface"
 
     invoke-static {p0, v0}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -245,7 +245,7 @@
     move-result-object v5
 
     .line 339
-    .local v5, rawTypeface:Ljava/lang/String;
+    .local v5, "rawTypeface":Ljava/lang/String;
     if-nez v5, :cond_0
 
     .line 340

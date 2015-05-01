@@ -34,13 +34,13 @@
 # direct methods
 .method public constructor <init>(FFFFIILandroid/graphics/Shader$TileMode;)V
     .locals 10
-    .parameter "x0"
-    .parameter "y0"
-    .parameter "x1"
-    .parameter "y1"
-    .parameter "color0"
-    .parameter "color1"
-    .parameter "tile"
+    .param p1, "x0"    # F
+    .param p2, "y0"    # F
+    .param p3, "x1"    # F
+    .param p4, "y1"    # F
+    .param p5, "color0"    # I
+    .param p6, "color1"    # I
+    .param p7, "tile"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 83
@@ -134,13 +134,13 @@
 
 .method public constructor <init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
     .locals 10
-    .parameter "x0"
-    .parameter "y0"
-    .parameter "x1"
-    .parameter "y1"
-    .parameter "colors"
-    .parameter "positions"
-    .parameter "tile"
+    .param p1, "x0"    # F
+    .param p2, "y0"    # F
+    .param p3, "x1"    # F
+    .param p4, "y1"    # F
+    .param p5, "colors"    # [I
+    .param p6, "positions"    # [F
+    .param p7, "tile"    # Landroid/graphics/Shader$TileMode;
 
     .prologue
     .line 53
@@ -340,7 +340,7 @@
     invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
 
     .line 115
-    .local v0, copy:Landroid/graphics/LinearGradient;
+    .local v0, "copy":Landroid/graphics/LinearGradient;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/graphics/LinearGradient;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
@@ -348,7 +348,7 @@
     return-object v0
 
     .line 105
-    .end local v0           #copy:Landroid/graphics/LinearGradient;
+    .end local v0    # "copy":Landroid/graphics/LinearGradient;
     :cond_0
     const/4 v6, 0x0
 
@@ -375,7 +375,7 @@
     invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFFIILandroid/graphics/Shader$TileMode;)V
 
     .line 110
-    .restart local v0       #copy:Landroid/graphics/LinearGradient;
+    .restart local v0    # "copy":Landroid/graphics/LinearGradient;
     goto :goto_1
 
     .line 103

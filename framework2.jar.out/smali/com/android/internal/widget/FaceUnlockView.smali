@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 29
@@ -24,8 +24,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 33
@@ -37,21 +37,21 @@
 
 .method private resolveMeasured(II)I
     .locals 3
-    .parameter "measureSpec"
-    .parameter "desired"
+    .param p1, "measureSpec"    # I
+    .param p2, "desired"    # I
 
     .prologue
     .line 38
     const/4 v0, 0x0
 
     .line 39
-    .local v0, result:I
+    .local v0, "result":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v1
 
     .line 40
-    .local v1, specSize:I
+    .local v1, "specSize":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v2
@@ -95,11 +95,11 @@
 # virtual methods
 .method protected onMeasure(II)V
     .locals 8
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    const/high16 v7, -0x8000
+    const/high16 v7, -0x80000000
 
     .line 56
     invoke-virtual {p0}, Lcom/android/internal/widget/FaceUnlockView;->getSuggestedMinimumWidth()I
@@ -107,43 +107,43 @@
     move-result v2
 
     .line 57
-    .local v2, minimumWidth:I
+    .local v2, "minimumWidth":I
     invoke-virtual {p0}, Lcom/android/internal/widget/FaceUnlockView;->getSuggestedMinimumHeight()I
 
     move-result v1
 
     .line 58
-    .local v1, minimumHeight:I
+    .local v1, "minimumHeight":I
     invoke-direct {p0, p1, v2}, Lcom/android/internal/widget/FaceUnlockView;->resolveMeasured(II)I
 
     move-result v6
 
     .line 59
-    .local v6, viewWidth:I
+    .local v6, "viewWidth":I
     invoke-direct {p0, p2, v1}, Lcom/android/internal/widget/FaceUnlockView;->resolveMeasured(II)I
 
     move-result v5
 
     .line 61
-    .local v5, viewHeight:I
+    .local v5, "viewHeight":I
     invoke-static {v6, v5}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     .line 62
-    .local v0, chosenSize:I
+    .local v0, "chosenSize":I
     invoke-static {v0, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v4
 
     .line 64
-    .local v4, newWidthMeasureSpec:I
+    .local v4, "newWidthMeasureSpec":I
     invoke-static {v0, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v3
 
     .line 67
-    .local v3, newHeightMeasureSpec:I
+    .local v3, "newHeightMeasureSpec":I
     invoke-super {p0, v4, v3}, Landroid/widget/RelativeLayout;->onMeasure(II)V
 
     .line 68

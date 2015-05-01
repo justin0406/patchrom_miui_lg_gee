@@ -6,7 +6,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 0
-    .parameter "ni"
+    .param p1, "ni"    # I
 
     .prologue
     .line 31
@@ -21,7 +21,7 @@
 
 .method public constructor <init>([B)V
     .locals 2
-    .parameter "table"
+    .param p1, "table"    # [B
 
     .prologue
     .line 24
@@ -57,8 +57,8 @@
 
 .method public static CreateClipTable(II)Landroid/graphics/TableMaskFilter;
     .locals 2
-    .parameter "min"
-    .parameter "max"
+    .param p0, "min"    # I
+    .param p1, "max"    # I
 
     .prologue
     .line 36
@@ -75,7 +75,7 @@
 
 .method public static CreateGammaTable(F)Landroid/graphics/TableMaskFilter;
     .locals 2
-    .parameter "gamma"
+    .param p0, "gamma"    # F
 
     .prologue
     .line 40

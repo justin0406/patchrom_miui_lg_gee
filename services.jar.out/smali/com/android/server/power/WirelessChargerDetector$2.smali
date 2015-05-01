@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/WirelessChargerDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 349
@@ -44,7 +43,7 @@
     .line 352
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector$2;->this$0:Lcom/android/server/power/WirelessChargerDetector;
 
-    #getter for: Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
+    # getter for: Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/server/power/WirelessChargerDetector;->access$000(Lcom/android/server/power/WirelessChargerDetector;)Ljava/lang/Object;
 
     move-result-object v1
@@ -55,7 +54,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector$2;->this$0:Lcom/android/server/power/WirelessChargerDetector;
 
-    #calls: Lcom/android/server/power/WirelessChargerDetector;->finishDetectionLocked()V
+    # invokes: Lcom/android/server/power/WirelessChargerDetector;->finishDetectionLocked()V
     invoke-static {v0}, Lcom/android/server/power/WirelessChargerDetector;->access$200(Lcom/android/server/power/WirelessChargerDetector;)V
 
     .line 354

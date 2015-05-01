@@ -59,12 +59,12 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V
     .locals 2
-    .parameter "deviceAddress"
-    .parameter "deviceName"
-    .parameter "deviceAlias"
-    .parameter "available"
-    .parameter "canConnect"
-    .parameter "remembered"
+    .param p1, "deviceAddress"    # Ljava/lang/String;
+    .param p2, "deviceName"    # Ljava/lang/String;
+    .param p3, "deviceAlias"    # Ljava/lang/String;
+    .param p4, "available"    # Z
+    .param p5, "canConnect"    # Z
+    .param p6, "remembered"    # Z
 
     .prologue
     .line 60
@@ -142,7 +142,7 @@
 
 .method public equals(Landroid/hardware/display/WifiDisplay;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/hardware/display/WifiDisplay;
 
     .prologue
     .line 140
@@ -191,7 +191,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     .line 132
@@ -201,7 +201,7 @@
 
     check-cast p1, Landroid/hardware/display/WifiDisplay;
 
-    .end local p1
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/hardware/display/WifiDisplay;->equals(Landroid/hardware/display/WifiDisplay;)Z
 
     move-result v0
@@ -271,7 +271,7 @@
 
 .method public hasSameAddress(Landroid/hardware/display/WifiDisplay;)Z
     .locals 2
-    .parameter "other"
+    .param p1, "other"    # Landroid/hardware/display/WifiDisplay;
 
     .prologue
     .line 152
@@ -370,7 +370,7 @@
     move-result-object v0
 
     .line 180
-    .local v0, result:Ljava/lang/String;
+    .local v0, "result":Ljava/lang/String;
     iget-object v1, p0, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -456,8 +456,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

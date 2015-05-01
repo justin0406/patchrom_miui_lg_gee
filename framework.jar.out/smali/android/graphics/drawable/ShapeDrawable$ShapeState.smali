@@ -35,7 +35,7 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;)V
     .locals 2
-    .parameter "orig"
+    .param p1, "orig"    # Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
     .prologue
     .line 417
@@ -129,7 +129,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 438

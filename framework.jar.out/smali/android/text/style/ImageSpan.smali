@@ -18,8 +18,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "resourceId"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceId"    # I
 
     .prologue
     .line 114
@@ -33,9 +33,9 @@
 
 .method public constructor <init>(Landroid/content/Context;II)V
     .locals 0
-    .parameter "context"
-    .parameter "resourceId"
-    .parameter "verticalAlignment"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceId"    # I
+    .param p3, "verticalAlignment"    # I
 
     .prologue
     .line 122
@@ -53,8 +53,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/graphics/Bitmap;)V
     .locals 1
-    .parameter "context"
-    .parameter "b"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 53
@@ -68,9 +68,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/graphics/Bitmap;I)V
     .locals 5
-    .parameter "context"
-    .parameter "b"
-    .parameter "verticalAlignment"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "b"    # Landroid/graphics/Bitmap;
+    .param p3, "verticalAlignment"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -103,7 +103,7 @@
     move-result v1
 
     .line 67
-    .local v1, width:I
+    .local v1, "width":I
     iget-object v2, p0, Landroid/text/style/ImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -111,16 +111,16 @@
     move-result v0
 
     .line 68
-    .local v0, height:I
+    .local v0, "height":I
     iget-object v2, p0, Landroid/text/style/ImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-lez v1, :cond_1
 
-    .end local v1           #width:I
+    .end local v1    # "width":I
     :goto_1
     if-lez v0, :cond_2
 
-    .end local v0           #height:I
+    .end local v0    # "height":I
     :goto_2
     invoke-virtual {v2, v3, v3, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
@@ -135,15 +135,15 @@
 
     goto :goto_0
 
-    .restart local v0       #height:I
-    .restart local v1       #width:I
+    .restart local v0    # "height":I
+    .restart local v1    # "width":I
     :cond_1
     move v1, v3
 
     .line 68
     goto :goto_1
 
-    .end local v1           #width:I
+    .end local v1    # "width":I
     :cond_2
     move v0, v3
 
@@ -152,8 +152,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 1
-    .parameter "context"
-    .parameter "uri"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 99
@@ -167,9 +167,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;I)V
     .locals 1
-    .parameter "context"
-    .parameter "uri"
-    .parameter "verticalAlignment"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "verticalAlignment"    # I
 
     .prologue
     .line 107
@@ -194,7 +194,7 @@
 
 .method public constructor <init>(Landroid/graphics/Bitmap;)V
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -212,8 +212,8 @@
 
 .method public constructor <init>(Landroid/graphics/Bitmap;I)V
     .locals 1
-    .parameter "b"
-    .parameter "verticalAlignment"
+    .param p1, "b"    # Landroid/graphics/Bitmap;
+    .param p2, "verticalAlignment"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -229,7 +229,7 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "d"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 72
@@ -243,8 +243,8 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;I)V
     .locals 0
-    .parameter "d"
-    .parameter "verticalAlignment"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "verticalAlignment"    # I
 
     .prologue
     .line 80
@@ -259,8 +259,8 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Ljava/lang/String;)V
     .locals 1
-    .parameter "d"
-    .parameter "source"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "source"    # Ljava/lang/String;
 
     .prologue
     .line 85
@@ -274,9 +274,9 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Ljava/lang/String;I)V
     .locals 0
-    .parameter "d"
-    .parameter "source"
-    .parameter "verticalAlignment"
+    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "source"    # Ljava/lang/String;
+    .param p3, "verticalAlignment"    # I
 
     .prologue
     .line 93
@@ -302,7 +302,7 @@
     const/4 v1, 0x0
 
     .line 131
-    .local v1, drawable:Landroid/graphics/drawable/Drawable;
+    .local v1, "drawable":Landroid/graphics/drawable/Drawable;
     iget-object v5, p0, Landroid/text/style/ImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v5, :cond_0
@@ -324,7 +324,7 @@
     const/4 v0, 0x0
 
     .line 136
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     :try_start_0
     iget-object v5, p0, Landroid/text/style/ImageSpan;->mContext:Landroid/content/Context;
 
@@ -339,7 +339,7 @@
     move-result-object v4
 
     .line 138
-    .local v4, is:Ljava/io/InputStream;
+    .local v4, "is":Ljava/io/InputStream;
     invoke-static {v4}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -358,8 +358,8 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 140
-    .end local v1           #drawable:Landroid/graphics/drawable/Drawable;
-    .local v2, drawable:Landroid/graphics/drawable/Drawable;
+    .end local v1    # "drawable":Landroid/graphics/drawable/Drawable;
+    .local v2, "drawable":Landroid/graphics/drawable/Drawable;
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -383,17 +383,17 @@
     move-object v1, v2
 
     .line 145
-    .end local v2           #drawable:Landroid/graphics/drawable/Drawable;
-    .restart local v1       #drawable:Landroid/graphics/drawable/Drawable;
+    .end local v2    # "drawable":Landroid/graphics/drawable/Drawable;
+    .restart local v1    # "drawable":Landroid/graphics/drawable/Drawable;
     goto :goto_0
 
     .line 143
-    .end local v4           #is:Ljava/io/InputStream;
+    .end local v4    # "is":Ljava/io/InputStream;
     :catch_0
     move-exception v3
 
     .line 144
-    .local v3, e:Ljava/lang/Exception;
+    .local v3, "e":Ljava/lang/Exception;
     :goto_1
     const-string/jumbo v5, "sms"
 
@@ -422,8 +422,8 @@
     goto :goto_0
 
     .line 148
-    .end local v0           #bitmap:Landroid/graphics/Bitmap;
-    .end local v3           #e:Ljava/lang/Exception;
+    .end local v0    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "e":Ljava/lang/Exception;
     :cond_1
     :try_start_2
     iget-object v5, p0, Landroid/text/style/ImageSpan;->mContext:Landroid/content/Context;
@@ -462,7 +462,7 @@
     move-exception v3
 
     .line 152
-    .restart local v3       #e:Ljava/lang/Exception;
+    .restart local v3    # "e":Ljava/lang/Exception;
     const-string/jumbo v5, "sms"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -490,18 +490,18 @@
     goto/16 :goto_0
 
     .line 143
-    .end local v1           #drawable:Landroid/graphics/drawable/Drawable;
-    .end local v3           #e:Ljava/lang/Exception;
-    .restart local v0       #bitmap:Landroid/graphics/Bitmap;
-    .restart local v2       #drawable:Landroid/graphics/drawable/Drawable;
-    .restart local v4       #is:Ljava/io/InputStream;
+    .end local v1    # "drawable":Landroid/graphics/drawable/Drawable;
+    .end local v3    # "e":Ljava/lang/Exception;
+    .restart local v0    # "bitmap":Landroid/graphics/Bitmap;
+    .restart local v2    # "drawable":Landroid/graphics/drawable/Drawable;
+    .restart local v4    # "is":Ljava/io/InputStream;
     :catch_2
     move-exception v3
 
     move-object v1, v2
 
-    .end local v2           #drawable:Landroid/graphics/drawable/Drawable;
-    .restart local v1       #drawable:Landroid/graphics/drawable/Drawable;
+    .end local v2    # "drawable":Landroid/graphics/drawable/Drawable;
+    .restart local v1    # "drawable":Landroid/graphics/drawable/Drawable;
     goto :goto_1
 .end method
 

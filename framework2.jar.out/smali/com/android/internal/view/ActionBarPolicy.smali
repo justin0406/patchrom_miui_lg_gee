@@ -10,7 +10,7 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 39
@@ -25,7 +25,7 @@
 
 .method public static get(Landroid/content/Context;)Lcom/android/internal/view/ActionBarPolicy;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 36
@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0049
+    const v1, 0x10e004a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -148,7 +148,7 @@
     move-result-object v0
 
     .line 69
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v3, 0x4
 
     invoke-virtual {v0, v3, v7}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
@@ -156,7 +156,7 @@
     move-result v1
 
     .line 70
-    .local v1, height:I
+    .local v1, "height":I
     iget-object v3, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -164,7 +164,7 @@
     move-result-object v2
 
     .line 71
-    .local v2, r:Landroid/content/res/Resources;
+    .local v2, "r":Landroid/content/res/Resources;
     invoke-virtual {p0}, Lcom/android/internal/view/ActionBarPolicy;->hasEmbeddedTabs()Z
 
     move-result v3
@@ -204,7 +204,7 @@
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     .line 57
-    .local v0, targetSdk:I
+    .local v0, "targetSdk":I
     const/16 v1, 0x10
 
     if-lt v0, v1, :cond_0

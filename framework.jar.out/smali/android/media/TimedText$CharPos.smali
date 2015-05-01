@@ -23,8 +23,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "startChar"
-    .parameter "endChar"
+    .param p1, "startChar"    # I
+    .param p2, "endChar"    # I
 
     .prologue
     .line 133

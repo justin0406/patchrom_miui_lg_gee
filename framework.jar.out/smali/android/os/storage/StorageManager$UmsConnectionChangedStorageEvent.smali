@@ -23,8 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;Z)V
     .locals 1
-    .parameter
-    .parameter "a"
+    .param p2, "a"    # Z
 
     .prologue
     .line 233

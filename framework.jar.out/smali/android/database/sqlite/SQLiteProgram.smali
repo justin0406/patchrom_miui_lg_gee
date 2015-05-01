@@ -38,10 +38,10 @@
 
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)V
     .locals 7
-    .parameter "db"
-    .parameter "sql"
-    .parameter "bindArgs"
-    .parameter "cancellationSignalForPrepare"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "sql"    # Ljava/lang/String;
+    .param p3, "bindArgs"    # [Ljava/lang/Object;
+    .param p4, "cancellationSignalForPrepare"    # Landroid/os/CancellationSignal;
 
     .prologue
     const/4 v0, 0x1
@@ -69,21 +69,21 @@
     move-result v2
 
     .line 46
-    .local v2, n:I
+    .local v2, "n":I
     packed-switch v2, :pswitch_data_0
 
     .line 56
     if-ne v2, v0, :cond_0
 
     .line 57
-    .local v0, assumeReadOnly:Z
+    .local v0, "assumeReadOnly":Z
     :goto_0
     new-instance v1, Landroid/database/sqlite/SQLiteStatementInfo;
 
     invoke-direct {v1}, Landroid/database/sqlite/SQLiteStatementInfo;-><init>()V
 
     .line 58
-    .local v1, info:Landroid/database/sqlite/SQLiteStatementInfo;
+    .local v1, "info":Landroid/database/sqlite/SQLiteStatementInfo;
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getThreadSession()Landroid/database/sqlite/SQLiteSession;
 
     move-result-object v4
@@ -112,8 +112,8 @@
     iput v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
     .line 67
-    .end local v0           #assumeReadOnly:Z
-    .end local v1           #info:Landroid/database/sqlite/SQLiteStatementInfo;
+    .end local v0    # "assumeReadOnly":Z
+    .end local v1    # "info":Landroid/database/sqlite/SQLiteStatementInfo;
     :goto_1
     if-eqz p3, :cond_1
 
@@ -237,8 +237,8 @@
 
 .method private bind(ILjava/lang/Object;)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 211
@@ -316,7 +316,7 @@
 # virtual methods
 .method public bindAllArgsAsStrings([Ljava/lang/String;)V
     .locals 2
-    .parameter "bindArgs"
+    .param p1, "bindArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 198
@@ -325,7 +325,7 @@
     .line 199
     array-length v0, p1
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-eqz v0, :cond_0
 
@@ -342,15 +342,15 @@
     goto :goto_0
 
     .line 203
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public bindBlob(I[B)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # [B
 
     .prologue
     .line 177
@@ -397,8 +397,8 @@
 
 .method public bindDouble(ID)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # D
 
     .prologue
     .line 152
@@ -414,8 +414,8 @@
 
 .method public bindLong(IJ)V
     .locals 1
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # J
 
     .prologue
     .line 141
@@ -431,7 +431,7 @@
 
 .method public bindNull(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 130
@@ -445,8 +445,8 @@
 
 .method public bindString(ILjava/lang/String;)V
     .locals 3
-    .parameter "index"
-    .parameter "value"
+    .param p1, "index"    # I
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 163

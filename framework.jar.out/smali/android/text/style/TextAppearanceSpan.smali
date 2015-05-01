@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .parameter "context"
-    .parameter "appearance"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "appearance"    # I
 
     .prologue
     .line 45
@@ -36,9 +36,9 @@
 
 .method public constructor <init>(Landroid/content/Context;II)V
     .locals 6
-    .parameter "context"
-    .parameter "appearance"
-    .parameter "colorList"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "appearance"    # I
+    .param p3, "colorList"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -54,7 +54,7 @@
     move-result-object v0
 
     .line 63
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v4, 0x3
 
     invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -62,7 +62,7 @@
     move-result-object v2
 
     .line 65
-    .local v2, textColor:Landroid/content/res/ColorStateList;
+    .local v2, "textColor":Landroid/content/res/ColorStateList;
     const/4 v4, 0x6
 
     invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -97,7 +97,7 @@
     move-result-object v1
 
     .line 72
-    .local v1, family:Ljava/lang/String;
+    .local v1, "family":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 73
@@ -143,7 +143,7 @@
     move-result v3
 
     .line 77
-    .local v3, tf:I
+    .local v3, "tf":I
     packed-switch v3, :pswitch_data_0
 
     .line 91
@@ -190,7 +190,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x0
@@ -275,11 +275,11 @@
 
 .method public constructor <init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V
     .locals 0
-    .parameter "family"
-    .parameter "style"
-    .parameter "size"
-    .parameter "color"
-    .parameter "linkColor"
+    .param p1, "family"    # Ljava/lang/String;
+    .param p2, "style"    # I
+    .param p3, "size"    # I
+    .param p4, "color"    # Landroid/content/res/ColorStateList;
+    .param p5, "linkColor"    # Landroid/content/res/ColorStateList;
 
     .prologue
     .line 114
@@ -378,7 +378,7 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 3
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     const/4 v2, 0x0
@@ -426,7 +426,7 @@
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 4
-    .parameter "ds"
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
     .prologue
     .line 219
@@ -445,11 +445,11 @@
     move-result-object v2
 
     .line 221
-    .local v2, tf:Landroid/graphics/Typeface;
+    .local v2, "tf":Landroid/graphics/Typeface;
     const/4 v1, 0x0
 
     .line 223
-    .local v1, style:I
+    .local v1, "style":I
     if-eqz v2, :cond_1
 
     .line 224
@@ -486,7 +486,7 @@
     and-int v0, v1, v3
 
     .line 239
-    .local v0, fake:I
+    .local v0, "fake":I
     and-int/lit8 v3, v0, 0x1
 
     if-eqz v3, :cond_2
@@ -503,7 +503,7 @@
     if-eqz v3, :cond_3
 
     .line 244
-    const/high16 v3, -0x4180
+    const/high16 v3, -0x41800000    # -0.25f
 
     invoke-virtual {p1, v3}, Landroid/text/TextPaint;->setTextSkewX(F)V
 
@@ -512,9 +512,9 @@
     invoke-virtual {p1, v2}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 250
-    .end local v0           #fake:I
-    .end local v1           #style:I
-    .end local v2           #tf:Landroid/graphics/Typeface;
+    .end local v0    # "fake":I
+    .end local v1    # "style":I
+    .end local v2    # "tf":Landroid/graphics/Typeface;
     :cond_4
     iget v3, p0, Landroid/text/style/TextAppearanceSpan;->mTextSize:I
 
@@ -532,8 +532,8 @@
     return-void
 
     .line 231
-    .restart local v1       #style:I
-    .restart local v2       #tf:Landroid/graphics/Typeface;
+    .restart local v1    # "style":I
+    .restart local v2    # "tf":Landroid/graphics/Typeface;
     :cond_6
     if-nez v2, :cond_7
 
@@ -555,8 +555,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v2, 0x1

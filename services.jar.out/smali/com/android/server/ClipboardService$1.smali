@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ClipboardService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 108
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 111
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 112
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.USER_REMOVED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -66,7 +65,7 @@
 
     move-result v2
 
-    #calls: Lcom/android/server/ClipboardService;->removeClipboard(I)V
+    # invokes: Lcom/android/server/ClipboardService;->removeClipboard(I)V
     invoke-static {v1, v2}, Lcom/android/server/ClipboardService;->access$000(Lcom/android/server/ClipboardService;I)V
 
     .line 115

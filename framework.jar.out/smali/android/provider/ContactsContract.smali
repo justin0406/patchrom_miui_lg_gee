@@ -66,7 +66,7 @@
 # static fields
 .field public static final AUTHORITY:Ljava/lang/String; = "com.android.contacts"
 
-.field public static final AUTHORITY_URI:Landroid/net/Uri; = null
+.field public static final AUTHORITY_URI:Landroid/net/Uri;
 
 .field public static final CALLER_IS_SYNCADAPTER:Ljava/lang/String; = "caller_is_syncadapter"
 
@@ -92,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 116
+    .line 118
     const-string v0, "content://com.android.contacts"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -108,19 +108,19 @@
     .locals 0
 
     .prologue
-    .line 112
+    .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8086
+    .line 8097
     return-void
 .end method
 
 .method public static isProfileId(J)Z
     .locals 2
-    .parameter "id"
+    .param p0, "id"    # J
 
     .prologue
-    .line 2128
+    .line 2130
     const-wide v0, 0x7fffffff80000000L
 
     cmp-long v0, p0, v0

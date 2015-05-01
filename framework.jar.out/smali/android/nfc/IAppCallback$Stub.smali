@@ -52,7 +52,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/nfc/IAppCallback;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -74,7 +74,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/nfc/IAppCallback;
@@ -90,7 +90,7 @@
     :cond_1
     new-instance v0, Landroid/nfc/IAppCallback$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/nfc/IAppCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -108,10 +108,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -152,7 +152,7 @@
     move-result-object v1
 
     .line 52
-    .local v1, _result:Landroid/nfc/BeamShareData;
+    .local v1, "_result":Landroid/nfc/BeamShareData;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 53
@@ -175,7 +175,7 @@
     goto :goto_0
 
     .line 64
-    .end local v1           #_result:Landroid/nfc/BeamShareData;
+    .end local v1    # "_result":Landroid/nfc/BeamShareData;
     :sswitch_2
     const-string v3, "android.nfc.IAppCallback"
 
@@ -212,7 +212,7 @@
     check-cast v0, Landroid/nfc/Tag;
 
     .line 79
-    .local v0, _arg0:Landroid/nfc/Tag;
+    .local v0, "_arg0":Landroid/nfc/Tag;
     :goto_1
     invoke-virtual {p0, v0}, Landroid/nfc/IAppCallback$Stub;->onTagDiscovered(Landroid/nfc/Tag;)V
 
@@ -222,11 +222,11 @@
     goto :goto_0
 
     .line 77
-    .end local v0           #_arg0:Landroid/nfc/Tag;
+    .end local v0    # "_arg0":Landroid/nfc/Tag;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/nfc/Tag;
+    .restart local v0    # "_arg0":Landroid/nfc/Tag;
     goto :goto_1
 
     .line 41

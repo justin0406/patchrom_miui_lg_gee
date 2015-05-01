@@ -24,11 +24,10 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;)V
     .locals 0
-    .parameter
-    .parameter "caller"
-    .parameter "callerUid"
-    .parameter "callerPid"
-    .parameter "params"
+    .param p2, "caller"    # Ljava/lang/Object;
+    .param p3, "callerUid"    # I
+    .param p4, "callerPid"    # I
+    .param p5, "params"    # Landroid/os/Bundle;
 
     .prologue
     .line 493
@@ -53,13 +52,13 @@
     move-result-object v0
 
     .line 500
-    .local v0, utteranceId:Ljava/lang/String;
+    .local v0, "utteranceId":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 501
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
     invoke-static {v1}, Landroid/speech/tts/TextToSpeechService;->access$300(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$CallbackMap;
 
     move-result-object v1
@@ -85,13 +84,13 @@
     move-result-object v0
 
     .line 516
-    .local v0, utteranceId:Ljava/lang/String;
+    .local v0, "utteranceId":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 517
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
     invoke-static {v1}, Landroid/speech/tts/TextToSpeechService;->access$300(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$CallbackMap;
 
     move-result-object v1
@@ -117,13 +116,13 @@
     move-result-object v0
 
     .line 508
-    .local v0, utteranceId:Ljava/lang/String;
+    .local v0, "utteranceId":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 509
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
-    #getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
+    # getter for: Landroid/speech/tts/TextToSpeechService;->mCallbacks:Landroid/speech/tts/TextToSpeechService$CallbackMap;
     invoke-static {v1}, Landroid/speech/tts/TextToSpeechService;->access$300(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$CallbackMap;
 
     move-result-object v1
@@ -141,8 +140,8 @@
 
 .method protected getFloatParam(Ljava/lang/String;F)F
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # F
 
     .prologue
     .line 546
@@ -150,11 +149,11 @@
 
     if-nez v0, :cond_0
 
-    .end local p2
+    .end local p2    # "defaultValue":F
     :goto_0
     return p2
 
-    .restart local p2
+    .restart local p2    # "defaultValue":F
     :cond_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->mParams:Landroid/os/Bundle;
 
@@ -167,8 +166,8 @@
 
 .method protected getIntParam(Ljava/lang/String;I)I
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # I
 
     .prologue
     .line 542
@@ -176,11 +175,11 @@
 
     if-nez v0, :cond_0
 
-    .end local p2
+    .end local p2    # "defaultValue":I
     :goto_0
     return p2
 
-    .restart local p2
+    .restart local p2    # "defaultValue":I
     :cond_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->mParams:Landroid/os/Bundle;
 
@@ -225,8 +224,8 @@
 
 .method protected getStringParam(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "key"
-    .parameter "defaultValue"
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "defaultValue"    # Ljava/lang/String;
 
     .prologue
     .line 538
@@ -234,11 +233,11 @@
 
     if-nez v0, :cond_0
 
-    .end local p2
+    .end local p2    # "defaultValue":Ljava/lang/String;
     :goto_0
     return-object p2
 
-    .restart local p2
+    .restart local p2    # "defaultValue":Ljava/lang/String;
     :cond_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->mParams:Landroid/os/Bundle;
 
@@ -272,7 +271,7 @@
     .line 526
     const-string/jumbo v0, "volume"
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {p0, v0, v1}, Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;->getFloatParam(Ljava/lang/String;F)F
 

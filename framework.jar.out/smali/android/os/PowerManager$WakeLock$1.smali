@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/PowerManager$WakeLock;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 634

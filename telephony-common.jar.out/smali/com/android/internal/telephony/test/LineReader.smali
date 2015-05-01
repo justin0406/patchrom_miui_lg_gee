@@ -16,7 +16,7 @@
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Ljava/io/InputStream;
 
     .prologue
     .line 54
@@ -54,7 +54,7 @@
 
 .method getNextLine(Z)Ljava/lang/String;
     .locals 9
-    .parameter "ctrlZ"
+    .param p1, "ctrlZ"    # Z
 
     .prologue
     const/4 v4, 0x0
@@ -62,12 +62,12 @@
     .line 80
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     move v2, v1
 
     .line 86
-    .end local v1           #i:I
-    .local v2, i:I
+    .end local v1    # "i":I
+    .local v2, "i":I
     :goto_0
     :try_start_0
     iget-object v5, p0, Lcom/android/internal/telephony/test/LineReader;->mInStream:Ljava/io/InputStream;
@@ -80,22 +80,22 @@
     move-result v3
 
     .line 88
-    .local v3, result:I
+    .local v3, "result":I
     if-gez v3, :cond_0
 
     move v1, v2
 
     .line 115
-    .end local v2           #i:I
-    .end local v3           #result:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .end local v3    # "result":I
+    .restart local v1    # "i":I
     :goto_1
     return-object v4
 
     .line 92
-    .end local v1           #i:I
-    .restart local v2       #i:I
-    .restart local v3       #result:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
+    .restart local v3    # "result":I
     :cond_0
     if-eqz p1, :cond_2
 
@@ -107,9 +107,9 @@
     move v1, v2
 
     .line 112
-    .end local v2           #i:I
-    .end local v3           #result:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .end local v3    # "result":I
+    .restart local v1    # "i":I
     :goto_2
     :try_start_1
     new-instance v5, Ljava/lang/String;
@@ -129,9 +129,9 @@
     goto :goto_1
 
     .line 94
-    .end local v1           #i:I
-    .restart local v2       #i:I
-    .restart local v3       #result:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
+    .restart local v3    # "result":I
     :cond_2
     const/16 v5, 0xd
 
@@ -157,8 +157,8 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2           #i:I
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .restart local v1    # "i":I
     int-to-byte v6, v3
 
     :try_start_3
@@ -170,37 +170,37 @@
     move v2, v1
 
     .line 104
-    .end local v1           #i:I
-    .restart local v2       #i:I
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
     goto :goto_0
 
     .line 105
-    .end local v3           #result:I
+    .end local v3    # "result":I
     :catch_0
     move-exception v0
 
     move v1, v2
 
     .line 106
-    .end local v2           #i:I
-    .local v0, ex:Ljava/io/IOException;
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .local v0, "ex":Ljava/io/IOException;
+    .restart local v1    # "i":I
     :goto_3
     goto :goto_1
 
     .line 107
-    .end local v0           #ex:Ljava/io/IOException;
-    .end local v1           #i:I
-    .restart local v2       #i:I
+    .end local v0    # "ex":Ljava/io/IOException;
+    .end local v1    # "i":I
+    .restart local v2    # "i":I
     :catch_1
     move-exception v0
 
     move v1, v2
 
     .line 108
-    .end local v2           #i:I
-    .local v0, ex:Ljava/lang/IndexOutOfBoundsException;
-    .restart local v1       #i:I
+    .end local v2    # "i":I
+    .local v0, "ex":Ljava/lang/IndexOutOfBoundsException;
+    .restart local v1    # "i":I
     :goto_4
     sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
@@ -211,12 +211,12 @@
     goto :goto_2
 
     .line 113
-    .end local v0           #ex:Ljava/lang/IndexOutOfBoundsException;
+    .end local v0    # "ex":Ljava/lang/IndexOutOfBoundsException;
     :catch_2
     move-exception v0
 
     .line 114
-    .local v0, ex:Ljava/io/UnsupportedEncodingException;
+    .local v0, "ex":Ljava/io/UnsupportedEncodingException;
     sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     const-string v6, "ATChannel: implausable UnsupportedEncodingException"
@@ -226,8 +226,8 @@
     goto :goto_1
 
     .line 107
-    .end local v0           #ex:Ljava/io/UnsupportedEncodingException;
-    .restart local v3       #result:I
+    .end local v0    # "ex":Ljava/io/UnsupportedEncodingException;
+    .restart local v3    # "result":I
     :catch_3
     move-exception v0
 

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1941
@@ -36,8 +35,8 @@
 # virtual methods
 .method public dispatchRemoteVolumeUpdate(II)V
     .locals 2
-    .parameter "direction"
-    .parameter "value"
+    .param p1, "direction"    # I
+    .param p2, "value"    # I
 
     .prologue
     .line 1944

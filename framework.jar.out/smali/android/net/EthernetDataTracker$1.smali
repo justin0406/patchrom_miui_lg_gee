@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/EthernetDataTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 166
@@ -47,7 +46,8 @@
     invoke-direct {v0}, Landroid/net/DhcpResults;-><init>()V
 
     .line 169
-    .local v0, dhcpResults:Landroid/net/DhcpResults;
+    .local v0, "dhcpResults":Landroid/net/DhcpResults;
+    # getter for: Landroid/net/EthernetDataTracker;->mIface:Ljava/lang/String;
     invoke-static {}, Landroid/net/EthernetDataTracker;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -117,7 +117,7 @@
 
     iget-object v5, p0, Landroid/net/EthernetDataTracker$1;->this$0:Landroid/net/EthernetDataTracker;
 
-    #getter for: Landroid/net/EthernetDataTracker;->mHwAddr:Ljava/lang/String;
+    # getter for: Landroid/net/EthernetDataTracker;->mHwAddr:Ljava/lang/String;
     invoke-static {v5}, Landroid/net/EthernetDataTracker;->access$400(Landroid/net/EthernetDataTracker;)Ljava/lang/String;
 
     move-result-object v5
@@ -127,12 +127,12 @@
     .line 177
     iget-object v2, p0, Landroid/net/EthernetDataTracker$1;->this$0:Landroid/net/EthernetDataTracker;
 
-    #getter for: Landroid/net/EthernetDataTracker;->mCsHandler:Landroid/os/Handler;
+    # getter for: Landroid/net/EthernetDataTracker;->mCsHandler:Landroid/os/Handler;
     invoke-static {v2}, Landroid/net/EthernetDataTracker;->access$500(Landroid/net/EthernetDataTracker;)Landroid/os/Handler;
 
     move-result-object v2
 
-    const/high16 v3, 0x7
+    const/high16 v3, 0x70000
 
     iget-object v4, p0, Landroid/net/EthernetDataTracker$1;->this$0:Landroid/net/EthernetDataTracker;
 
@@ -143,7 +143,7 @@
     move-result-object v1
 
     .line 178
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
     goto :goto_0

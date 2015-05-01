@@ -46,10 +46,10 @@
 
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "address"
-    .parameter "attributes"
-    .parameter "maxPacketSize"
-    .parameter "interval"
+    .param p1, "address"    # I
+    .param p2, "attributes"    # I
+    .param p3, "maxPacketSize"    # I
+    .param p4, "interval"    # I
 
     .prologue
     .line 44
@@ -231,8 +231,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 157

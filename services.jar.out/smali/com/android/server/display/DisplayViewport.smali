@@ -48,7 +48,7 @@
 # virtual methods
 .method public copyFrom(Lcom/android/server/display/DisplayViewport;)V
     .locals 2
-    .parameter "viewport"
+    .param p1, "viewport"    # Lcom/android/server/display/DisplayViewport;
 
     .prologue
     .line 54

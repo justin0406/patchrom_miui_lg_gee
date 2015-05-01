@@ -32,8 +32,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 1
-    .parameter "context"
-    .parameter "hostView"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "hostView"    # Landroid/view/View;
 
     .prologue
     .line 130
@@ -76,7 +76,7 @@
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 138
@@ -123,7 +123,7 @@
 
 .method public add(Landroid/view/View;)V
     .locals 7
-    .parameter "child"
+    .param p1, "child"    # Landroid/view/View;
 
     .prologue
     const/4 v6, 0x2
@@ -149,7 +149,7 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     .line 161
-    .local v1, parent:Landroid/view/ViewGroup;
+    .local v1, "parent":Landroid/view/ViewGroup;
     iget-object v3, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
 
     if-eq v1, v3, :cond_0
@@ -168,11 +168,11 @@
     new-array v2, v6, [I
 
     .line 166
-    .local v2, parentLocation:[I
+    .local v2, "parentLocation":[I
     new-array v0, v6, [I
 
     .line 167
-    .local v0, hostViewLocation:[I
+    .local v0, "hostViewLocation":[I
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
 
     .line 168
@@ -199,8 +199,8 @@
     invoke-virtual {p1, v3}, Landroid/view/View;->offsetTopAndBottom(I)V
 
     .line 172
-    .end local v0           #hostViewLocation:[I
-    .end local v2           #parentLocation:[I
+    .end local v0    # "hostViewLocation":[I
+    .end local v2    # "parentLocation":[I
     :cond_0
     invoke-virtual {v1, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
@@ -234,7 +234,7 @@
     iput-object v3, p1, Landroid/view/View;->mParent:Landroid/view/ViewParent;
 
     .line 182
-    .end local v1           #parent:Landroid/view/ViewGroup;
+    .end local v1    # "parent":Landroid/view/ViewGroup;
     :cond_2
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
@@ -266,7 +266,7 @@
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 3
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 211
@@ -280,11 +280,11 @@
     const/4 v1, 0x0
 
     .line 213
-    .local v1, numDrawables:I
+    .local v1, "numDrawables":I
     :goto_0
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v1, :cond_1
 
@@ -305,8 +305,8 @@
     goto :goto_1
 
     .line 212
-    .end local v0           #i:I
-    .end local v1           #numDrawables:I
+    .end local v0    # "i":I
+    .end local v1    # "numDrawables":I
     :cond_0
     iget-object v2, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
@@ -317,8 +317,8 @@
     goto :goto_0
 
     .line 216
-    .restart local v0       #i:I
-    .restart local v1       #numDrawables:I
+    .restart local v0    # "i":I
+    .restart local v1    # "numDrawables":I
     :cond_1
     return-void
 .end method
@@ -347,10 +347,10 @@
 
 .method public invalidate(IIII)V
     .locals 1
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "l"    # I
+    .param p2, "t"    # I
+    .param p3, "r"    # I
+    .param p4, "b"    # I
 
     .prologue
     .line 242
@@ -373,7 +373,7 @@
 
 .method public invalidate(Landroid/graphics/Rect;)V
     .locals 1
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 234
@@ -396,7 +396,7 @@
 
 .method invalidate(Z)V
     .locals 1
-    .parameter "invalidateCache"
+    .param p1, "invalidateCache"    # Z
 
     .prologue
     .line 258
@@ -419,8 +419,8 @@
 
 .method public invalidateChildFast(Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 3
-    .parameter "child"
-    .parameter "dirty"
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 289
@@ -432,11 +432,11 @@
     iget v0, p1, Landroid/view/View;->mLeft:I
 
     .line 294
-    .local v0, left:I
+    .local v0, "left":I
     iget v1, p1, Landroid/view/View;->mTop:I
 
     .line 295
-    .local v1, top:I
+    .local v1, "top":I
     invoke-virtual {p1}, Landroid/view/View;->getMatrix()Landroid/graphics/Matrix;
 
     move-result-object v2
@@ -460,16 +460,16 @@
     invoke-virtual {v2, p2}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
 
     .line 301
-    .end local v0           #left:I
-    .end local v1           #top:I
+    .end local v0    # "left":I
+    .end local v1    # "top":I
     :cond_1
     return-void
 .end method
 
 .method public invalidateChildInParent([ILandroid/graphics/Rect;)Landroid/view/ViewParent;
     .locals 4
-    .parameter "location"
-    .parameter "dirty"
+    .param p1, "location"    # [I
+    .param p2, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v3, 0x1
@@ -530,9 +530,9 @@
 
 .method protected invalidateChildInParentFast(IILandroid/graphics/Rect;)Landroid/view/ViewParent;
     .locals 1
-    .parameter "left"
-    .parameter "top"
-    .parameter "dirty"
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     .line 308
@@ -563,7 +563,7 @@
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 206
@@ -623,8 +623,8 @@
 
 .method invalidateViewProperty(ZZ)V
     .locals 1
-    .parameter "invalidateParent"
-    .parameter "forceRedraw"
+    .param p1, "invalidateParent"    # Z
+    .param p2, "forceRedraw"    # Z
 
     .prologue
     .line 266
@@ -684,11 +684,11 @@
 
 .method protected onLayout(ZIIII)V
     .locals 0
-    .parameter "changed"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
     .prologue
     .line 221
@@ -697,7 +697,7 @@
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .parameter "drawable"
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
     .line 151
@@ -729,7 +729,7 @@
 
 .method public remove(Landroid/view/View;)V
     .locals 0
-    .parameter "view"
+    .param p1, "view"    # Landroid/view/View;
 
     .prologue
     .line 186

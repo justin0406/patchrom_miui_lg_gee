@@ -53,8 +53,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/Locale;)V
     .locals 1
-    .parameter "context"
-    .parameter "locale"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "locale"    # Ljava/util/Locale;
 
     .prologue
     .line 48
@@ -76,7 +76,7 @@
 
 .method synthetic constructor <init>(Landroid/location/GeocoderParams$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/location/GeocoderParams$1;
 
     .prologue
     .line 35
@@ -87,8 +87,8 @@
 
 .method static synthetic access$102(Landroid/location/GeocoderParams;Ljava/util/Locale;)Ljava/util/Locale;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/GeocoderParams;
+    .param p1, "x1"    # Ljava/util/Locale;
 
     .prologue
     .line 35
@@ -99,8 +99,8 @@
 
 .method static synthetic access$202(Landroid/location/GeocoderParams;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/location/GeocoderParams;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 35
@@ -143,8 +143,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 89

@@ -25,8 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/KeyguardManager;Ljava/lang/String;)V
     .locals 1
-    .parameter
-    .parameter "tag"
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 50
@@ -58,7 +57,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/app/KeyguardManager$KeyguardLock;->this$0:Landroid/app/KeyguardManager;
 
-    #getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
+    # getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
     invoke-static {v0}, Landroid/app/KeyguardManager;->access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
 
     move-result-object v0
@@ -90,7 +89,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/app/KeyguardManager$KeyguardLock;->this$0:Landroid/app/KeyguardManager;
 
-    #getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
+    # getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
     invoke-static {v0}, Landroid/app/KeyguardManager;->access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
 
     move-result-object v0

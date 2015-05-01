@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 169
@@ -74,13 +74,13 @@
     move-result-object v0
 
     .line 228
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 231
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -106,7 +106,7 @@
     move-result v2
 
     .line 237
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 238
@@ -116,7 +116,7 @@
     return v2
 
     .line 237
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :catchall_0
     move-exception v3
 
@@ -130,7 +130,7 @@
 
 .method public injectDeviceContext(I)V
     .locals 5
-    .parameter "deviceEnabledContext"
+    .param p1, "deviceEnabledContext"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -144,13 +144,13 @@
     move-result-object v0
 
     .line 419
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 421
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -196,7 +196,7 @@
 
 .method public injectDiagnosticData(Ljava/lang/String;)V
     .locals 5
-    .parameter "data"
+    .param p1, "data"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -210,13 +210,13 @@
     move-result-object v0
 
     .line 376
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 378
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -262,7 +262,7 @@
 
 .method public registerSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
     .locals 5
-    .parameter "eventSink"
+    .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -276,13 +276,13 @@
     move-result-object v0
 
     .line 188
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 190
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -341,7 +341,7 @@
 
 .method public requestBatchOfLocations(I)V
     .locals 5
-    .parameter "batchSizeRequested"
+    .param p1, "batchSizeRequested"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -355,13 +355,13 @@
     move-result-object v0
 
     .line 333
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 335
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -407,8 +407,8 @@
 
 .method public startBatching(ILandroid/location/FusedBatchOptions;)V
     .locals 5
-    .parameter "id"
-    .parameter "batchOptions"
+    .param p1, "id"    # I
+    .param p2, "batchOptions"    # Landroid/location/FusedBatchOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -422,13 +422,13 @@
     move-result-object v0
 
     .line 253
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 255
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -499,7 +499,7 @@
 
 .method public stopBatching(I)V
     .locals 5
-    .parameter "id"
+    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -513,13 +513,13 @@
     move-result-object v0
 
     .line 281
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 283
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -580,13 +580,13 @@
     move-result-object v0
 
     .line 396
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 399
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -616,7 +616,7 @@
     const/4 v2, 0x1
 
     .line 405
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -627,7 +627,7 @@
     return v2
 
     .line 405
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -656,13 +656,13 @@
     move-result-object v0
 
     .line 353
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 356
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.location.IFusedLocationHardware"
 
@@ -692,7 +692,7 @@
     const/4 v2, 0x1
 
     .line 362
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -703,7 +703,7 @@
     return v2
 
     .line 362
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -717,7 +717,7 @@
 
 .method public unregisterSink(Landroid/hardware/location/IFusedLocationHardwareSink;)V
     .locals 5
-    .parameter "eventSink"
+    .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -731,13 +731,13 @@
     move-result-object v0
 
     .line 208
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 210
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 
@@ -796,8 +796,8 @@
 
 .method public updateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
     .locals 5
-    .parameter "id"
-    .parameter "batchOptions"
+    .param p1, "id"    # I
+    .param p2, "batchOptions"    # Landroid/location/FusedBatchOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -811,13 +811,13 @@
     move-result-object v0
 
     .line 304
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 306
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.location.IFusedLocationHardware"
 

@@ -34,9 +34,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/ArrayList;I)V
     .locals 1
-    .parameter "context"
-    .parameter
-    .parameter "viewTypeCount"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p3, "viewTypeCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +49,7 @@
 
     .prologue
     .line 36
-    .local p2, remoteViews:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/RemoteViews;>;"
+    .local p2, "remoteViews":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/widget/RemoteViews;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     .line 32
@@ -102,7 +101,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -118,7 +117,7 @@
     check-cast v1, Landroid/widget/RemoteViews;
 
     .line 54
-    .local v1, rv:Landroid/widget/RemoteViews;
+    .local v1, "rv":Landroid/widget/RemoteViews;
     iget-object v2, p0, Landroid/widget/RemoteViewsListAdapter;->mViewTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Landroid/widget/RemoteViews;->getLayoutId()I
@@ -151,7 +150,7 @@
     goto :goto_0
 
     .line 59
-    .end local v1           #rv:Landroid/widget/RemoteViews;
+    .end local v1    # "rv":Landroid/widget/RemoteViews;
     :cond_3
     iget-object v2, p0, Landroid/widget/RemoteViewsListAdapter;->mViewTypes:Ljava/util/ArrayList;
 
@@ -210,7 +209,7 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 76
@@ -221,7 +220,7 @@
 
 .method public getItemId(I)J
     .locals 2
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 81
@@ -232,7 +231,7 @@
 
 .method public getItemViewType(I)I
     .locals 3
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 105
@@ -256,7 +255,7 @@
     move-result v0
 
     .line 107
-    .local v0, layoutId:I
+    .local v0, "layoutId":I
     iget-object v1, p0, Landroid/widget/RemoteViewsListAdapter;->mViewTypes:Ljava/util/ArrayList;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -268,7 +267,7 @@
     move-result v1
 
     .line 109
-    .end local v0           #layoutId:I
+    .end local v0    # "layoutId":I
     :goto_0
     return v1
 
@@ -280,9 +279,9 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .parameter "position"
-    .parameter "convertView"
-    .parameter "parent"
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
     .line 86
@@ -302,7 +301,7 @@
     check-cast v0, Landroid/widget/RemoteViews;
 
     .line 88
-    .local v0, rv:Landroid/widget/RemoteViews;
+    .local v0, "rv":Landroid/widget/RemoteViews;
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/widget/RemoteViews;->setIsWidgetCollectionChild(Z)V
@@ -326,19 +325,19 @@
     move-object v1, p2
 
     .line 93
-    .local v1, v:Landroid/view/View;
+    .local v1, "v":Landroid/view/View;
     iget-object v2, p0, Landroid/widget/RemoteViewsListAdapter;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->reapply(Landroid/content/Context;Landroid/view/View;)V
 
     .line 99
-    .end local v0           #rv:Landroid/widget/RemoteViews;
-    .end local v1           #v:Landroid/view/View;
+    .end local v0    # "rv":Landroid/widget/RemoteViews;
+    .end local v1    # "v":Landroid/view/View;
     :goto_0
     return-object v1
 
     .line 95
-    .restart local v0       #rv:Landroid/widget/RemoteViews;
+    .restart local v0    # "rv":Landroid/widget/RemoteViews;
     :cond_0
     iget-object v2, p0, Landroid/widget/RemoteViewsListAdapter;->mContext:Landroid/content/Context;
 
@@ -346,12 +345,12 @@
 
     move-result-object v1
 
-    .restart local v1       #v:Landroid/view/View;
+    .restart local v1    # "v":Landroid/view/View;
     goto :goto_0
 
     .line 99
-    .end local v0           #rv:Landroid/widget/RemoteViews;
-    .end local v1           #v:Landroid/view/View;
+    .end local v0    # "rv":Landroid/widget/RemoteViews;
+    .end local v1    # "v":Landroid/view/View;
     :cond_1
     const/4 v1, 0x0
 
@@ -380,7 +379,6 @@
 
 .method public setViewsList(Ljava/util/ArrayList;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -393,7 +391,7 @@
 
     .prologue
     .line 44
-    .local p1, remoteViews:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/RemoteViews;>;"
+    .local p1, "remoteViews":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/widget/RemoteViews;>;"
     iput-object p1, p0, Landroid/widget/RemoteViewsListAdapter;->mRemoteViewsList:Ljava/util/ArrayList;
 
     .line 45

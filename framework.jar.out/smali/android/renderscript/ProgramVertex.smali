@@ -14,8 +14,8 @@
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
     .locals 0
-    .parameter "id"
-    .parameter "rs"
+    .param p1, "id"    # I
+    .param p2, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 57
@@ -29,7 +29,7 @@
 # virtual methods
 .method public getInput(I)Landroid/renderscript/Element;
     .locals 2
-    .parameter "slot"
+    .param p1, "slot"    # I
 
     .prologue
     .line 74

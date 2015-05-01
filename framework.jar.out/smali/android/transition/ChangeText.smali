@@ -79,10 +79,10 @@
 
 .method static synthetic access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .param p0, "x0"    # Landroid/transition/ChangeText;
+    .param p1, "x1"    # Landroid/widget/EditText;
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
 
     .prologue
     .line 40
@@ -93,7 +93,7 @@
 
 .method static synthetic access$100(Landroid/transition/ChangeText;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/transition/ChangeText;
 
     .prologue
     .line 40
@@ -104,7 +104,7 @@
 
 .method private captureValues(Landroid/transition/TransitionValues;)V
     .locals 4
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 129
@@ -120,7 +120,7 @@
     check-cast v0, Landroid/widget/TextView;
 
     .line 131
-    .local v0, textview:Landroid/widget/TextView;
+    .local v0, "textview":Landroid/widget/TextView;
     iget-object v1, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v2, "android:textchange:text"
@@ -188,16 +188,16 @@
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 142
-    .end local v0           #textview:Landroid/widget/TextView;
+    .end local v0    # "textview":Landroid/widget/TextView;
     :cond_1
     return-void
 .end method
 
 .method private setSelection(Landroid/widget/EditText;II)V
     .locals 0
-    .parameter "editText"
-    .parameter "start"
-    .parameter "end"
+    .param p1, "editText"    # Landroid/widget/EditText;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
 
     .prologue
     .line 307
@@ -217,7 +217,7 @@
 # virtual methods
 .method public captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 151
@@ -229,7 +229,7 @@
 
 .method public captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 0
-    .parameter "transitionValues"
+    .param p1, "transitionValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 146
@@ -241,9 +241,9 @@
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 27
-    .parameter "sceneRoot"
-    .parameter "startValues"
-    .parameter "endValues"
+    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
+    .param p2, "startValues"    # Landroid/transition/TransitionValues;
+    .param p3, "endValues"    # Landroid/transition/TransitionValues;
 
     .prologue
     .line 157
@@ -284,7 +284,7 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 162
-    .local v6, view:Landroid/widget/TextView;
+    .local v6, "view":Landroid/widget/TextView;
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -292,7 +292,7 @@
     move-object/from16 v26, v0
 
     .line 163
-    .local v26, startVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v26, "startVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     move-object/from16 v0, p3
 
     iget-object v0, v0, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
@@ -300,7 +300,7 @@
     move-object/from16 v22, v0
 
     .line 164
-    .local v22, endVals:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .local v22, "endVals":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v3, "android:textchange:text"
 
     move-object/from16 v0, v26
@@ -324,7 +324,7 @@
     move-object v5, v3
 
     .line 166
-    .local v5, startText:Ljava/lang/CharSequence;
+    .local v5, "startText":Ljava/lang/CharSequence;
     :goto_1
     const-string v3, "android:textchange:text"
 
@@ -349,7 +349,7 @@
     move-object v7, v3
 
     .line 169
-    .local v7, endText:Ljava/lang/CharSequence;
+    .local v7, "endText":Ljava/lang/CharSequence;
     :goto_2
     instance-of v3, v6, Landroid/widget/EditText;
 
@@ -381,7 +381,7 @@
     move-result v19
 
     .line 172
-    .local v19, startSelectionStart:I
+    .local v19, "startSelectionStart":I
     :goto_3
     const-string v3, "android:textchange:textSelectionEnd"
 
@@ -408,7 +408,7 @@
     move-result v20
 
     .line 174
-    .local v20, startSelectionEnd:I
+    .local v20, "startSelectionEnd":I
     :goto_4
     const-string v3, "android:textchange:textSelectionStart"
 
@@ -435,7 +435,7 @@
     move-result v8
 
     .line 176
-    .local v8, endSelectionStart:I
+    .local v8, "endSelectionStart":I
     :goto_5
     const-string v3, "android:textchange:textSelectionEnd"
 
@@ -462,7 +462,7 @@
     move-result v9
 
     .line 181
-    .local v9, endSelectionEnd:I
+    .local v9, "endSelectionEnd":I
     :goto_6
     invoke-virtual {v5, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -511,11 +511,11 @@
     .line 192
     const/4 v10, 0x0
 
-    .local v10, endColor:I
+    .local v10, "endColor":I
     move/from16 v25, v10
 
     .line 193
-    .local v25, startColor:I
+    .local v25, "startColor":I
     const/4 v3, 0x2
 
     new-array v3, v3, [F
@@ -527,7 +527,7 @@
     move-result-object v21
 
     .line 194
-    .local v21, anim:Landroid/animation/Animator;
+    .local v21, "anim":Landroid/animation/Animator;
     new-instance v3, Landroid/transition/ChangeText$1;
 
     move-object/from16 v4, p0
@@ -559,7 +559,7 @@
     invoke-direct/range {v11 .. v20}, Landroid/transition/ChangeText$6;-><init>(Landroid/transition/ChangeText;Landroid/widget/TextView;Ljava/lang/CharSequence;IIILjava/lang/CharSequence;II)V
 
     .line 297
-    .local v11, transitionListener:Landroid/transition/Transition$TransitionListener;
+    .local v11, "transitionListener":Landroid/transition/Transition$TransitionListener;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v11}, Landroid/transition/ChangeText;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
@@ -567,36 +567,36 @@
     goto/16 :goto_0
 
     .line 164
-    .end local v5           #startText:Ljava/lang/CharSequence;
-    .end local v7           #endText:Ljava/lang/CharSequence;
-    .end local v8           #endSelectionStart:I
-    .end local v9           #endSelectionEnd:I
-    .end local v10           #endColor:I
-    .end local v11           #transitionListener:Landroid/transition/Transition$TransitionListener;
-    .end local v19           #startSelectionStart:I
-    .end local v20           #startSelectionEnd:I
-    .end local v21           #anim:Landroid/animation/Animator;
-    .end local v25           #startColor:I
+    .end local v5    # "startText":Ljava/lang/CharSequence;
+    .end local v7    # "endText":Ljava/lang/CharSequence;
+    .end local v8    # "endSelectionStart":I
+    .end local v9    # "endSelectionEnd":I
+    .end local v10    # "endColor":I
+    .end local v11    # "transitionListener":Landroid/transition/Transition$TransitionListener;
+    .end local v19    # "startSelectionStart":I
+    .end local v20    # "startSelectionEnd":I
+    .end local v21    # "anim":Landroid/animation/Animator;
+    .end local v25    # "startColor":I
     :cond_3
     const-string v5, ""
 
     goto/16 :goto_1
 
     .line 166
-    .restart local v5       #startText:Ljava/lang/CharSequence;
+    .restart local v5    # "startText":Ljava/lang/CharSequence;
     :cond_4
     const-string v7, ""
 
     goto/16 :goto_2
 
     .line 170
-    .restart local v7       #endText:Ljava/lang/CharSequence;
+    .restart local v7    # "endText":Ljava/lang/CharSequence;
     :cond_5
     const/16 v19, -0x1
 
     goto/16 :goto_3
 
-    .restart local v19       #startSelectionStart:I
+    .restart local v19    # "startSelectionStart":I
     :cond_6
     move/from16 v20, v19
 
@@ -604,13 +604,13 @@
     goto/16 :goto_4
 
     .line 174
-    .restart local v20       #startSelectionEnd:I
+    .restart local v20    # "startSelectionEnd":I
     :cond_7
     const/4 v8, -0x1
 
     goto :goto_5
 
-    .restart local v8       #endSelectionStart:I
+    .restart local v8    # "endSelectionStart":I
     :cond_8
     move v9, v8
 
@@ -618,22 +618,22 @@
     goto :goto_6
 
     .line 179
-    .end local v8           #endSelectionStart:I
-    .end local v19           #startSelectionStart:I
-    .end local v20           #startSelectionEnd:I
+    .end local v8    # "endSelectionStart":I
+    .end local v19    # "startSelectionStart":I
+    .end local v20    # "startSelectionEnd":I
     :cond_9
     const/4 v9, -0x1
 
-    .restart local v9       #endSelectionEnd:I
+    .restart local v9    # "endSelectionEnd":I
     move v8, v9
 
-    .restart local v8       #endSelectionStart:I
+    .restart local v8    # "endSelectionStart":I
     move/from16 v20, v9
 
-    .restart local v20       #startSelectionEnd:I
+    .restart local v20    # "startSelectionEnd":I
     move/from16 v19, v9
 
-    .restart local v19       #startSelectionStart:I
+    .restart local v19    # "startSelectionStart":I
     goto :goto_6
 
     .line 207
@@ -653,7 +653,7 @@
     move-result v25
 
     .line 208
-    .restart local v25       #startColor:I
+    .restart local v25    # "startColor":I
     const-string v3, "android:textchange:textColor"
 
     move-object/from16 v0, v22
@@ -669,14 +669,14 @@
     move-result v10
 
     .line 210
-    .restart local v10       #endColor:I
+    .restart local v10    # "endColor":I
     const/16 v24, 0x0
 
-    .local v24, outAnim:Landroid/animation/ValueAnimator;
+    .local v24, "outAnim":Landroid/animation/ValueAnimator;
     const/16 v23, 0x0
 
     .line 211
-    .local v23, inAnim:Landroid/animation/ValueAnimator;
+    .local v23, "inAnim":Landroid/animation/ValueAnimator;
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/transition/ChangeText;->mChangeBehavior:I
@@ -792,7 +792,7 @@
 
     invoke-direct/range {v21 .. v21}, Landroid/animation/AnimatorSet;-><init>()V
 
-    .restart local v21       #anim:Landroid/animation/Animator;
+    .restart local v21    # "anim":Landroid/animation/Animator;
     move-object/from16 v3, v21
 
     .line 259
@@ -815,30 +815,30 @@
     goto/16 :goto_7
 
     .line 260
-    .end local v21           #anim:Landroid/animation/Animator;
+    .end local v21    # "anim":Landroid/animation/Animator;
     :cond_f
     if-eqz v24, :cond_10
 
     .line 261
     move-object/from16 v21, v24
 
-    .restart local v21       #anim:Landroid/animation/Animator;
+    .restart local v21    # "anim":Landroid/animation/Animator;
     goto/16 :goto_7
 
     .line 264
-    .end local v21           #anim:Landroid/animation/Animator;
+    .end local v21    # "anim":Landroid/animation/Animator;
     :cond_10
     move-object/from16 v21, v23
 
-    .restart local v21       #anim:Landroid/animation/Animator;
+    .restart local v21    # "anim":Landroid/animation/Animator;
     goto/16 :goto_7
 
     .line 303
-    .end local v10           #endColor:I
-    .end local v21           #anim:Landroid/animation/Animator;
-    .end local v23           #inAnim:Landroid/animation/ValueAnimator;
-    .end local v24           #outAnim:Landroid/animation/ValueAnimator;
-    .end local v25           #startColor:I
+    .end local v10    # "endColor":I
+    .end local v21    # "anim":Landroid/animation/Animator;
+    .end local v23    # "inAnim":Landroid/animation/ValueAnimator;
+    .end local v24    # "outAnim":Landroid/animation/ValueAnimator;
+    .end local v25    # "startColor":I
     :cond_11
     const/16 v21, 0x0
 
@@ -848,23 +848,23 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x80t 0x3ft
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
     .end array-data
 
     .line 213
     :array_1
-    .array-data 0x4
-        0xfft 0x0t 0x0t 0x0t
-        0x0t 0x0t 0x0t 0x0t
+    .array-data 4
+        0xff
+        0x0
     .end array-data
 
     .line 240
     :array_2
-    .array-data 0x4
-        0x0t 0x0t 0x0t 0x0t
-        0xfft 0x0t 0x0t 0x0t
+    .array-data 4
+        0x0
+        0xff
     .end array-data
 .end method
 
@@ -890,7 +890,7 @@
 
 .method public setChangeBehavior(I)Landroid/transition/ChangeText;
     .locals 1
-    .parameter "changeBehavior"
+    .param p1, "changeBehavior"    # I
 
     .prologue
     .line 107

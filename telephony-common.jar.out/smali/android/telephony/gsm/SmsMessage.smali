@@ -84,7 +84,7 @@
 
 .method private constructor <init>(Lcom/android/internal/telephony/SmsMessageBase;)V
     .locals 0
-    .parameter "smb"
+    .param p1, "smb"    # Lcom/android/internal/telephony/SmsMessageBase;
 
     .prologue
     .line 142
@@ -99,8 +99,8 @@
 
 .method public static calculateLength(Ljava/lang/CharSequence;Z)[I
     .locals 4
-    .parameter "messageBody"
-    .parameter "use7bitOnly"
+    .param p0, "messageBody"    # Ljava/lang/CharSequence;
+    .param p1, "use7bitOnly"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -111,13 +111,13 @@
     move-result-object v1
 
     .line 201
-    .local v1, ted:Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    .local v1, "ted":Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
     const/4 v2, 0x4
 
     new-array v0, v2, [I
 
     .line 202
-    .local v0, ret:[I
+    .local v0, "ret":[I
     const/4 v2, 0x0
 
     iget v3, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
@@ -151,8 +151,8 @@
 
 .method public static calculateLength(Ljava/lang/String;Z)[I
     .locals 1
-    .parameter "messageBody"
-    .parameter "use7bitOnly"
+    .param p0, "messageBody"    # Ljava/lang/String;
+    .param p1, "use7bitOnly"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -167,7 +167,7 @@
 
 .method public static createFromPdu([B)Landroid/telephony/gsm/SmsMessage;
     .locals 3
-    .parameter "pdu"
+    .param p0, "pdu"    # [B
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -182,7 +182,7 @@
     move-result v0
 
     .line 155
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v2, 0x2
 
     if-ne v2, v0, :cond_0
@@ -193,7 +193,7 @@
     move-result-object v1
 
     .line 161
-    .local v1, wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
+    .local v1, "wrappedMessage":Lcom/android/internal/telephony/SmsMessageBase;
     :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage;
 
@@ -202,13 +202,13 @@
     return-object v2
 
     .line 158
-    .end local v1           #wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
+    .end local v1    # "wrappedMessage":Lcom/android/internal/telephony/SmsMessageBase;
     :cond_0
     invoke-static {p0}, Lcom/android/internal/telephony/gsm/SmsMessage;->createFromPdu([B)Lcom/android/internal/telephony/gsm/SmsMessage;
 
     move-result-object v1
 
-    .restart local v1       #wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
+    .restart local v1    # "wrappedMessage":Lcom/android/internal/telephony/SmsMessageBase;
     goto :goto_0
 .end method
 
@@ -228,7 +228,7 @@
     move-result v0
 
     .line 619
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v1, 0x2
 
     if-ne v1, v0, :cond_0
@@ -252,10 +252,10 @@
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
     .locals 3
-    .parameter "scAddress"
-    .parameter "destinationAddress"
-    .parameter "message"
-    .parameter "statusReportRequested"
+    .param p0, "scAddress"    # Ljava/lang/String;
+    .param p1, "destinationAddress"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
+    .param p3, "statusReportRequested"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -270,7 +270,7 @@
     move-result v0
 
     .line 274
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v2, 0x2
 
     if-ne v2, v0, :cond_0
@@ -283,7 +283,7 @@
     move-result-object v1
 
     .line 282
-    .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .local v1, "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
@@ -292,23 +292,23 @@
     return-object v2
 
     .line 278
-    .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .end local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :cond_0
     invoke-static {p0, p1, p2, p3}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
-    .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .restart local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     goto :goto_0
 .end method
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z[B)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
     .locals 3
-    .parameter "scAddress"
-    .parameter "destinationAddress"
-    .parameter "message"
-    .parameter "statusReportRequested"
-    .parameter "header"
+    .param p0, "scAddress"    # Ljava/lang/String;
+    .param p1, "destinationAddress"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
+    .param p3, "statusReportRequested"    # Z
+    .param p4, "header"    # [B
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -323,7 +323,7 @@
     move-result v0
 
     .line 247
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v2, 0x2
 
     if-ne v2, v0, :cond_0
@@ -338,7 +338,7 @@
     move-result-object v1
 
     .line 256
-    .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .local v1, "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
@@ -347,23 +347,23 @@
     return-object v2
 
     .line 252
-    .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .end local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :cond_0
     invoke-static {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z[B)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
-    .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .restart local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     goto :goto_0
 .end method
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;S[BZ)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
     .locals 3
-    .parameter "scAddress"
-    .parameter "destinationAddress"
-    .parameter "destinationPort"
-    .parameter "data"
-    .parameter "statusReportRequested"
+    .param p0, "scAddress"    # Ljava/lang/String;
+    .param p1, "destinationAddress"    # Ljava/lang/String;
+    .param p2, "destinationPort"    # S
+    .param p3, "data"    # [B
+    .param p4, "statusReportRequested"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -378,7 +378,7 @@
     move-result v0
 
     .line 305
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v2, 0x2
 
     if-ne v2, v0, :cond_0
@@ -389,7 +389,7 @@
     move-result-object v1
 
     .line 313
-    .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .local v1, "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
@@ -398,19 +398,19 @@
     return-object v2
 
     .line 309
-    .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .end local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     :cond_0
     invoke-static {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;I[BZ)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
-    .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
+    .restart local v1    # "spb":Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
     goto :goto_0
 .end method
 
 .method public static getTPLayerLengthForPDU(Ljava/lang/String;)I
     .locals 2
-    .parameter "pdu"
+    .param p0, "pdu"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -425,7 +425,7 @@
     move-result v0
 
     .line 173
-    .local v0, activePhone:I
+    .local v0, "activePhone":I
     const/4 v1, 0x2
 
     if-ne v1, v0, :cond_0
@@ -579,7 +579,7 @@
     move-result v0
 
     .line 365
-    .local v0, index:I
+    .local v0, "index":I
     invoke-static {}, Landroid/telephony/gsm/SmsMessage$MessageClass;->values()[Landroid/telephony/gsm/SmsMessage$MessageClass;
 
     move-result-object v1

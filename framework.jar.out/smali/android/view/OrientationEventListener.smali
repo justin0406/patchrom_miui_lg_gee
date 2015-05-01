@@ -40,7 +40,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 56
@@ -54,8 +54,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "rate"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "rate"    # I
 
     .prologue
     .line 68
@@ -115,7 +115,7 @@
 
 .method static synthetic access$000(Landroid/view/OrientationEventListener;)Landroid/view/OrientationListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/OrientationEventListener;
 
     .prologue
     .line 30
@@ -126,7 +126,7 @@
 
 .method static synthetic access$100(Landroid/view/OrientationEventListener;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/view/OrientationEventListener;
 
     .prologue
     .line 30
@@ -137,8 +137,8 @@
 
 .method static synthetic access$102(Landroid/view/OrientationEventListener;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/view/OrientationEventListener;
+    .param p1, "x1"    # I
 
     .prologue
     .line 30
@@ -264,7 +264,7 @@
 
 .method registerListener(Landroid/view/OrientationListener;)V
     .locals 0
-    .parameter "lis"
+    .param p1, "lis"    # Landroid/view/OrientationListener;
 
     .prologue
     .line 79

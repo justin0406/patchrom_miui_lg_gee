@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 71
@@ -61,7 +61,7 @@
 
 .method public onGetSentenceSuggestions([Landroid/view/textservice/SentenceSuggestionsInfo;)V
     .locals 5
-    .parameter "result"
+    .param p1, "result"    # [Landroid/view/textservice/SentenceSuggestionsInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 98
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSessionListener"
 
@@ -116,7 +116,7 @@
 
 .method public onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
     .locals 5
-    .parameter "results"
+    .param p1, "results"    # [Landroid/view/textservice/SuggestionsInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -130,7 +130,7 @@
     move-result-object v0
 
     .line 86
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSessionListener"
 

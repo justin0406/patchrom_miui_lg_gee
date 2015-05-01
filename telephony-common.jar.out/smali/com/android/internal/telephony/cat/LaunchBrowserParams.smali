@@ -14,10 +14,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Ljava/lang/String;Lcom/android/internal/telephony/cat/LaunchBrowserMode;)V
     .locals 0
-    .parameter "cmdDet"
-    .parameter "confirmMsg"
-    .parameter "url"
-    .parameter "mode"
+    .param p1, "cmdDet"    # Lcom/android/internal/telephony/cat/CommandDetails;
+    .param p2, "confirmMsg"    # Lcom/android/internal/telephony/cat/TextMessage;
+    .param p3, "url"    # Ljava/lang/String;
+    .param p4, "mode"    # Lcom/android/internal/telephony/cat/LaunchBrowserMode;
 
     .prologue
     .line 69
@@ -40,7 +40,7 @@
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
     .locals 1
-    .parameter "icon"
+    .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 77

@@ -27,7 +27,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 50
@@ -46,31 +46,31 @@
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 10
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 64
     const/4 v5, 0x0
 
     .line 65
-    .local v5, fileSize:I
+    .local v5, "fileSize":I
     const/4 v1, 0x0
 
     .line 69
-    .local v1, byteBuffer:Ljava/nio/ByteBuffer;
+    .local v1, "byteBuffer":Ljava/nio/ByteBuffer;
     :try_start_0
     new-instance v2, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 70
-    .local v2, byteStream:Ljava/io/ByteArrayOutputStream;
+    .local v2, "byteStream":Ljava/io/ByteArrayOutputStream;
     const/16 v7, 0x400
 
     new-array v0, v7, [B
 
     .line 72
-    .local v0, buffer:[B
+    .local v0, "buffer":[B
     :goto_0
     iget-object v7, p0, Landroid/filterpacks/base/InputStreamSource;->mInputStream:Ljava/io/InputStream;
 
@@ -78,7 +78,7 @@
 
     move-result v3
 
-    .local v3, bytesRead:I
+    .local v3, "bytesRead":I
     if-lez v3, :cond_0
 
     .line 73
@@ -120,7 +120,7 @@
     move-result-object v6
 
     .line 85
-    .local v6, output:Landroid/filterfw/core/Frame;
+    .local v6, "output":Landroid/filterfw/core/Frame;
     invoke-virtual {v6, v1}, Landroid/filterfw/core/Frame;->setData(Ljava/nio/ByteBuffer;)V
 
     .line 88
@@ -140,15 +140,15 @@
     return-void
 
     .line 77
-    .end local v0           #buffer:[B
-    .end local v2           #byteStream:Ljava/io/ByteArrayOutputStream;
-    .end local v3           #bytesRead:I
-    .end local v6           #output:Landroid/filterfw/core/Frame;
+    .end local v0    # "buffer":[B
+    .end local v2    # "byteStream":Ljava/io/ByteArrayOutputStream;
+    .end local v3    # "bytesRead":I
+    .end local v6    # "output":Landroid/filterfw/core/Frame;
     :catch_0
     move-exception v4
 
     .line 78
-    .local v4, exception:Ljava/io/IOException;
+    .local v4, "exception":Ljava/io/IOException;
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -196,7 +196,7 @@
     move-result v0
 
     .line 56
-    .local v0, target:I
+    .local v0, "target":I
     iget-object v1, p0, Landroid/filterpacks/base/InputStreamSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
     if-nez v1, :cond_0

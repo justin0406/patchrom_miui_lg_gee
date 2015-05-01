@@ -3,8 +3,8 @@
 .source "ContactsContract.java"
 
 # interfaces
-.implements Landroid/provider/ContactsContract$StatusColumns;
 .implements Landroid/provider/ContactsContract$PresenceColumns;
+.implements Landroid/provider/ContactsContract$StatusColumns;
 
 
 # annotations
@@ -33,7 +33,7 @@
     .locals 2
 
     .prologue
-    .line 5009
+    .line 5011
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "status_updates"
@@ -44,7 +44,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StatusUpdates;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 5014
+    .line 5016
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "status_updates"
@@ -62,7 +62,7 @@
     .locals 0
 
     .prologue
-    .line 5004
+    .line 5006
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -70,10 +70,10 @@
 
 .method synthetic constructor <init>(Landroid/provider/ContactsContract$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/provider/ContactsContract$1;
 
     .prologue
-    .line 4999
+    .line 5001
     invoke-direct {p0}, Landroid/provider/ContactsContract$StatusUpdates;-><init>()V
 
     return-void
@@ -81,43 +81,43 @@
 
 .method public static final getPresenceIconResourceId(I)I
     .locals 1
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
-    .line 5024
+    .line 5026
     packed-switch p0, :pswitch_data_0
 
-    .line 5036
+    .line 5038
     const v0, 0x108006a
 
     :goto_0
     return v0
 
-    .line 5026
+    .line 5028
     :pswitch_0
     const v0, 0x108006b
 
     goto :goto_0
 
-    .line 5029
+    .line 5031
     :pswitch_1
     const v0, 0x1080067
 
     goto :goto_0
 
-    .line 5031
+    .line 5033
     :pswitch_2
     const v0, 0x1080068
 
     goto :goto_0
 
-    .line 5033
+    .line 5035
     :pswitch_3
     const v0, 0x1080069
 
     goto :goto_0
 
-    .line 5024
+    .line 5026
     nop
 
     :pswitch_data_0
@@ -132,9 +132,9 @@
 
 .method public static final getPresencePrecedence(I)I
     .locals 0
-    .parameter "status"
+    .param p0, "status"    # I
 
     .prologue
-    .line 5049
+    .line 5051
     return p0
 .end method

@@ -10,7 +10,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 3
-    .parameter "audioSession"
+    .param p1, "audioSession"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -35,40 +35,40 @@
 
 .method public static create(I)Landroid/media/audiofx/NoiseSuppressor;
     .locals 6
-    .parameter "audioSession"
+    .param p0, "audioSession"    # I
 
     .prologue
     .line 64
     const/4 v1, 0x0
 
     .line 66
-    .local v1, ns:Landroid/media/audiofx/NoiseSuppressor;
+    .local v1, "ns":Landroid/media/audiofx/NoiseSuppressor;
     :try_start_0
     new-instance v2, Landroid/media/audiofx/NoiseSuppressor;
 
     invoke-direct {v2, p0}, Landroid/media/audiofx/NoiseSuppressor;-><init>(I)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .local v2, ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .local v2, "ns":Landroid/media/audiofx/NoiseSuppressor;
     move-object v1, v2
 
     .line 74
-    .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     :goto_0
     return-object v2
 
     .line 67
-    .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     :catch_0
     move-exception v0
 
     .line 68
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     :try_start_1
     const-string v3, "NoiseSuppressor"
 
@@ -95,19 +95,19 @@
     move-object v2, v1
 
     .line 74
-    .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     goto :goto_0
 
     .line 69
-    .end local v0           #e:Ljava/lang/IllegalArgumentException;
-    .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
+    .end local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     :catch_1
     move-exception v0
 
     .line 70
-    .local v0, e:Ljava/lang/UnsupportedOperationException;
+    .local v0, "e":Ljava/lang/UnsupportedOperationException;
     const-string v3, "NoiseSuppressor"
 
     const-string/jumbo v4, "not enough resources"
@@ -117,19 +117,19 @@
     move-object v2, v1
 
     .line 74
-    .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     goto :goto_0
 
     .line 71
-    .end local v0           #e:Ljava/lang/UnsupportedOperationException;
-    .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v0    # "e":Ljava/lang/UnsupportedOperationException;
+    .end local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     :catch_2
     move-exception v0
 
     .line 72
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v3, "NoiseSuppressor"
 
     const-string/jumbo v4, "not enough memory"
@@ -141,20 +141,20 @@
     move-object v2, v1
 
     .line 74
-    .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     goto :goto_0
 
-    .end local v0           #e:Ljava/lang/RuntimeException;
-    .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v0    # "e":Ljava/lang/RuntimeException;
+    .end local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     :catchall_0
     move-exception v3
 
     move-object v2, v1
 
-    .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
+    .end local v1    # "ns":Landroid/media/audiofx/NoiseSuppressor;
+    .restart local v2    # "ns":Landroid/media/audiofx/NoiseSuppressor;
     goto :goto_0
 .end method
 

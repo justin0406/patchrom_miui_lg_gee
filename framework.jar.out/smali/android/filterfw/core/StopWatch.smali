@@ -20,7 +20,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 36
@@ -125,7 +125,7 @@
     move-result-wide v0
 
     .line 57
-    .local v0, stopTime:J
+    .local v0, "stopTime":J
     iget-wide v2, p0, Landroid/filterfw/core/StopWatch;->mTotalTime:J
 
     iget-wide v4, p0, Landroid/filterfw/core/StopWatch;->mStartTime:J
@@ -190,7 +190,7 @@
 
     long-to-float v6, v6
 
-    const/high16 v7, 0x3f80
+    const/high16 v7, 0x3f800000    # 1.0f
 
     mul-float/2addr v6, v7
 

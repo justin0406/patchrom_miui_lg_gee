@@ -45,7 +45,7 @@
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
     .locals 1
-    .parameter "rs"
+    .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 181
@@ -74,13 +74,13 @@
 
 .method private findNode(Landroid/renderscript/Script$KernelID;)Landroid/renderscript/ScriptGroup$Node;
     .locals 4
-    .parameter "k"
+    .param p1, "k"    # Landroid/renderscript/Script$KernelID;
 
     .prologue
     .line 263
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v3, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
@@ -100,10 +100,10 @@
     check-cast v2, Landroid/renderscript/ScriptGroup$Node;
 
     .line 265
-    .local v2, n:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "n":Landroid/renderscript/ScriptGroup$Node;
     const/4 v1, 0x0
 
-    .local v1, ct2:I
+    .local v1, "ct2":I
     :goto_1
     iget-object v3, v2, Landroid/renderscript/ScriptGroup$Node;->mKernels:Ljava/util/ArrayList;
 
@@ -123,14 +123,14 @@
     if-ne p1, v3, :cond_0
 
     .line 271
-    .end local v1           #ct2:I
-    .end local v2           #n:Landroid/renderscript/ScriptGroup$Node;
+    .end local v1    # "ct2":I
+    .end local v2    # "n":Landroid/renderscript/ScriptGroup$Node;
     :goto_2
     return-object v2
 
     .line 265
-    .restart local v1       #ct2:I
-    .restart local v2       #n:Landroid/renderscript/ScriptGroup$Node;
+    .restart local v1    # "ct2":I
+    .restart local v2    # "n":Landroid/renderscript/ScriptGroup$Node;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
@@ -143,8 +143,8 @@
     goto :goto_0
 
     .line 271
-    .end local v1           #ct2:I
-    .end local v2           #n:Landroid/renderscript/ScriptGroup$Node;
+    .end local v1    # "ct2":I
+    .end local v2    # "n":Landroid/renderscript/ScriptGroup$Node;
     :cond_2
     const/4 v2, 0x0
 
@@ -153,13 +153,13 @@
 
 .method private findNode(Landroid/renderscript/Script;)Landroid/renderscript/ScriptGroup$Node;
     .locals 2
-    .parameter "s"
+    .param p1, "s"    # Landroid/renderscript/Script;
 
     .prologue
     .line 254
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
@@ -210,14 +210,14 @@
 
 .method private mergeDAGs(II)V
     .locals 2
-    .parameter "valueUsed"
-    .parameter "valueKilled"
+    .param p1, "valueUsed"    # I
+    .param p2, "valueKilled"    # I
 
     .prologue
     .line 208
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
@@ -264,14 +264,14 @@
 
 .method private validateCycle(Landroid/renderscript/ScriptGroup$Node;Landroid/renderscript/ScriptGroup$Node;)V
     .locals 5
-    .parameter "target"
-    .parameter "original"
+    .param p1, "target"    # Landroid/renderscript/ScriptGroup$Node;
+    .param p2, "original"    # Landroid/renderscript/ScriptGroup$Node;
 
     .prologue
     .line 188
     const/4 v1, 0x0
 
-    .local v1, ct:I
+    .local v1, "ct":I
     :goto_0
     iget-object v3, p1, Landroid/renderscript/ScriptGroup$Node;->mOutputs:Ljava/util/ArrayList;
 
@@ -291,7 +291,7 @@
     check-cast v0, Landroid/renderscript/ScriptGroup$ConnectLine;
 
     .line 190
-    .local v0, cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .local v0, "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     iget-object v3, v0, Landroid/renderscript/ScriptGroup$ConnectLine;->mToK:Landroid/renderscript/Script$KernelID;
 
     if-eqz v3, :cond_1
@@ -306,7 +306,7 @@
     move-result-object v2
 
     .line 192
-    .local v2, tn:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "tn":Landroid/renderscript/ScriptGroup$Node;
     invoke-virtual {v2, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -327,7 +327,7 @@
     invoke-direct {p0, v2, p2}, Landroid/renderscript/ScriptGroup$Builder;->validateCycle(Landroid/renderscript/ScriptGroup$Node;Landroid/renderscript/ScriptGroup$Node;)V
 
     .line 197
-    .end local v2           #tn:Landroid/renderscript/ScriptGroup$Node;
+    .end local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     :cond_1
     iget-object v3, v0, Landroid/renderscript/ScriptGroup$ConnectLine;->mToF:Landroid/renderscript/Script$FieldID;
 
@@ -343,7 +343,7 @@
     move-result-object v2
 
     .line 199
-    .restart local v2       #tn:Landroid/renderscript/ScriptGroup$Node;
+    .restart local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     invoke-virtual {v2, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -364,14 +364,14 @@
     invoke-direct {p0, v2, p2}, Landroid/renderscript/ScriptGroup$Builder;->validateCycle(Landroid/renderscript/ScriptGroup$Node;Landroid/renderscript/ScriptGroup$Node;)V
 
     .line 188
-    .end local v2           #tn:Landroid/renderscript/ScriptGroup$Node;
+    .end local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 205
-    .end local v0           #cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .end local v0    # "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     :cond_4
     return-void
 .end method
@@ -383,7 +383,7 @@
     .line 236
     const/4 v0, 0x0
 
-    .local v0, ct:I
+    .local v0, "ct":I
     :goto_0
     iget-object v3, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
@@ -403,7 +403,7 @@
     check-cast v2, Landroid/renderscript/ScriptGroup$Node;
 
     .line 238
-    .local v2, n:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "n":Landroid/renderscript/ScriptGroup$Node;
     iget-object v3, v2, Landroid/renderscript/ScriptGroup$Node;->mInputs:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -453,7 +453,7 @@
     goto :goto_0
 
     .line 245
-    .end local v2           #n:Landroid/renderscript/ScriptGroup$Node;
+    .end local v2    # "n":Landroid/renderscript/ScriptGroup$Node;
     :cond_2
     iget-object v3, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
@@ -468,7 +468,7 @@
     iget v1, v3, Landroid/renderscript/ScriptGroup$Node;->dagNumber:I
 
     .line 246
-    .local v1, dagNumber:I
+    .local v1, "dagNumber":I
     const/4 v0, 0x0
 
     :goto_1
@@ -515,8 +515,8 @@
 
 .method private validateDAGRecurse(Landroid/renderscript/ScriptGroup$Node;I)V
     .locals 4
-    .parameter "n"
-    .parameter "dagNumber"
+    .param p1, "n"    # Landroid/renderscript/ScriptGroup$Node;
+    .param p2, "dagNumber"    # I
 
     .prologue
     .line 216
@@ -544,7 +544,7 @@
     .line 222
     const/4 v1, 0x0
 
-    .local v1, ct:I
+    .local v1, "ct":I
     :goto_0
     iget-object v3, p1, Landroid/renderscript/ScriptGroup$Node;->mOutputs:Ljava/util/ArrayList;
 
@@ -564,7 +564,7 @@
     check-cast v0, Landroid/renderscript/ScriptGroup$ConnectLine;
 
     .line 224
-    .local v0, cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .local v0, "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     iget-object v3, v0, Landroid/renderscript/ScriptGroup$ConnectLine;->mToK:Landroid/renderscript/Script$KernelID;
 
     if-eqz v3, :cond_2
@@ -579,11 +579,11 @@
     move-result-object v2
 
     .line 226
-    .local v2, tn:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "tn":Landroid/renderscript/ScriptGroup$Node;
     invoke-direct {p0, v2, p2}, Landroid/renderscript/ScriptGroup$Builder;->validateDAGRecurse(Landroid/renderscript/ScriptGroup$Node;I)V
 
     .line 228
-    .end local v2           #tn:Landroid/renderscript/ScriptGroup$Node;
+    .end local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     :cond_2
     iget-object v3, v0, Landroid/renderscript/ScriptGroup$ConnectLine;->mToF:Landroid/renderscript/Script$FieldID;
 
@@ -599,11 +599,11 @@
     move-result-object v2
 
     .line 230
-    .restart local v2       #tn:Landroid/renderscript/ScriptGroup$Node;
+    .restart local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     invoke-direct {p0, v2, p2}, Landroid/renderscript/ScriptGroup$Builder;->validateDAGRecurse(Landroid/renderscript/ScriptGroup$Node;I)V
 
     .line 222
-    .end local v2           #tn:Landroid/renderscript/ScriptGroup$Node;
+    .end local v2    # "tn":Landroid/renderscript/ScriptGroup$Node;
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
@@ -614,9 +614,9 @@
 # virtual methods
 .method public addConnection(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$FieldID;)Landroid/renderscript/ScriptGroup$Builder;
     .locals 5
-    .parameter "t"
-    .parameter "from"
-    .parameter "to"
+    .param p1, "t"    # Landroid/renderscript/Type;
+    .param p2, "from"    # Landroid/renderscript/Script$KernelID;
+    .param p3, "to"    # Landroid/renderscript/Script$FieldID;
 
     .prologue
     .line 319
@@ -625,7 +625,7 @@
     move-result-object v1
 
     .line 320
-    .local v1, nf:Landroid/renderscript/ScriptGroup$Node;
+    .local v1, "nf":Landroid/renderscript/ScriptGroup$Node;
     if-nez v1, :cond_0
 
     .line 321
@@ -646,7 +646,7 @@
     move-result-object v2
 
     .line 325
-    .local v2, nt:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "nt":Landroid/renderscript/ScriptGroup$Node;
     if-nez v2, :cond_1
 
     .line 326
@@ -665,7 +665,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/renderscript/ScriptGroup$ConnectLine;-><init>(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$FieldID;)V
 
     .line 330
-    .local v0, cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .local v0, "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     iget-object v3, p0, Landroid/renderscript/ScriptGroup$Builder;->mLines:Ljava/util/ArrayList;
 
     new-instance v4, Landroid/renderscript/ScriptGroup$ConnectLine;
@@ -693,9 +693,9 @@
 
 .method public addConnection(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$KernelID;)Landroid/renderscript/ScriptGroup$Builder;
     .locals 5
-    .parameter "t"
-    .parameter "from"
-    .parameter "to"
+    .param p1, "t"    # Landroid/renderscript/Type;
+    .param p2, "from"    # Landroid/renderscript/Script$KernelID;
+    .param p3, "to"    # Landroid/renderscript/Script$KernelID;
 
     .prologue
     .line 354
@@ -704,7 +704,7 @@
     move-result-object v1
 
     .line 355
-    .local v1, nf:Landroid/renderscript/ScriptGroup$Node;
+    .local v1, "nf":Landroid/renderscript/ScriptGroup$Node;
     if-nez v1, :cond_0
 
     .line 356
@@ -723,7 +723,7 @@
     move-result-object v2
 
     .line 360
-    .local v2, nt:Landroid/renderscript/ScriptGroup$Node;
+    .local v2, "nt":Landroid/renderscript/ScriptGroup$Node;
     if-nez v2, :cond_1
 
     .line 361
@@ -742,7 +742,7 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/renderscript/ScriptGroup$ConnectLine;-><init>(Landroid/renderscript/Type;Landroid/renderscript/Script$KernelID;Landroid/renderscript/Script$KernelID;)V
 
     .line 365
-    .local v0, cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .local v0, "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     iget-object v3, p0, Landroid/renderscript/ScriptGroup$Builder;->mLines:Ljava/util/ArrayList;
 
     new-instance v4, Landroid/renderscript/ScriptGroup$ConnectLine;
@@ -770,7 +770,7 @@
 
 .method public addKernel(Landroid/renderscript/Script$KernelID;)Landroid/renderscript/ScriptGroup$Builder;
     .locals 3
-    .parameter "k"
+    .param p1, "k"    # Landroid/renderscript/Script$KernelID;
 
     .prologue
     .line 283
@@ -819,19 +819,19 @@
     move-result-object v0
 
     .line 295
-    .local v0, n:Landroid/renderscript/ScriptGroup$Node;
+    .local v0, "n":Landroid/renderscript/ScriptGroup$Node;
     if-nez v0, :cond_2
 
     .line 297
     new-instance v0, Landroid/renderscript/ScriptGroup$Node;
 
-    .end local v0           #n:Landroid/renderscript/ScriptGroup$Node;
+    .end local v0    # "n":Landroid/renderscript/ScriptGroup$Node;
     iget-object v1, p1, Landroid/renderscript/Script$KernelID;->mScript:Landroid/renderscript/Script;
 
     invoke-direct {v0, v1}, Landroid/renderscript/ScriptGroup$Node;-><init>(Landroid/renderscript/Script;)V
 
     .line 298
-    .restart local v0       #n:Landroid/renderscript/ScriptGroup$Node;
+    .restart local v0    # "n":Landroid/renderscript/ScriptGroup$Node;
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Builder;->mNodes:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -875,7 +875,7 @@
     :cond_0
     const/4 v8, 0x0
 
-    .local v8, ct:I
+    .local v8, "ct":I
     :goto_0
     move-object/from16 v0, p0
 
@@ -919,13 +919,13 @@
     invoke-direct/range {v16 .. v16}, Ljava/util/ArrayList;-><init>()V
 
     .line 395
-    .local v16, inputs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/renderscript/ScriptGroup$IO;>;"
+    .local v16, "inputs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/renderscript/ScriptGroup$IO;>;"
     new-instance v19, Ljava/util/ArrayList;
 
     invoke-direct/range {v19 .. v19}, Ljava/util/ArrayList;-><init>()V
 
     .line 397
-    .local v19, outputs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/renderscript/ScriptGroup$IO;>;"
+    .local v19, "outputs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/renderscript/ScriptGroup$IO;>;"
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/renderscript/ScriptGroup$Builder;->mKernelCount:I
@@ -933,11 +933,11 @@
     new-array v2, v1, [I
 
     .line 398
-    .local v2, kernels:[I
+    .local v2, "kernels":[I
     const/4 v14, 0x0
 
     .line 399
-    .local v14, idx:I
+    .local v14, "idx":I
     const/4 v8, 0x0
 
     :goto_1
@@ -963,10 +963,10 @@
     check-cast v18, Landroid/renderscript/ScriptGroup$Node;
 
     .line 401
-    .local v18, n:Landroid/renderscript/ScriptGroup$Node;
+    .local v18, "n":Landroid/renderscript/ScriptGroup$Node;
     const/4 v9, 0x0
 
-    .local v9, ct2:I
+    .local v9, "ct2":I
     :goto_2
     move-object/from16 v0, v18
 
@@ -990,11 +990,11 @@
     check-cast v17, Landroid/renderscript/Script$KernelID;
 
     .line 403
-    .local v17, kid:Landroid/renderscript/Script$KernelID;
+    .local v17, "kid":Landroid/renderscript/Script$KernelID;
     add-int/lit8 v15, v14, 0x1
 
-    .end local v14           #idx:I
-    .local v15, idx:I
+    .end local v14    # "idx":I
+    .local v15, "idx":I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/renderscript/ScriptGroup$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -1011,14 +1011,14 @@
     const/4 v11, 0x0
 
     .line 406
-    .local v11, hasInput:Z
+    .local v11, "hasInput":Z
     const/4 v12, 0x0
 
     .line 407
-    .local v12, hasOutput:Z
+    .local v12, "hasOutput":Z
     const/4 v10, 0x0
 
-    .local v10, ct3:I
+    .local v10, "ct3":I
     :goto_3
     move-object/from16 v0, v18
 
@@ -1133,23 +1133,23 @@
 
     move v14, v15
 
-    .end local v15           #idx:I
-    .restart local v14       #idx:I
+    .end local v15    # "idx":I
+    .restart local v14    # "idx":I
     goto/16 :goto_2
 
     .line 399
-    .end local v10           #ct3:I
-    .end local v11           #hasInput:Z
-    .end local v12           #hasOutput:Z
-    .end local v17           #kid:Landroid/renderscript/Script$KernelID;
+    .end local v10    # "ct3":I
+    .end local v11    # "hasInput":Z
+    .end local v12    # "hasOutput":Z
+    .end local v17    # "kid":Landroid/renderscript/Script$KernelID;
     :cond_8
     add-int/lit8 v8, v8, 0x1
 
     goto/16 :goto_1
 
     .line 426
-    .end local v9           #ct2:I
-    .end local v18           #n:Landroid/renderscript/ScriptGroup$Node;
+    .end local v9    # "ct2":I
+    .end local v18    # "n":Landroid/renderscript/ScriptGroup$Node;
     :cond_9
     move-object/from16 v0, p0
 
@@ -1181,7 +1181,7 @@
     new-array v3, v1, [I
 
     .line 431
-    .local v3, src:[I
+    .local v3, "src":[I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/renderscript/ScriptGroup$Builder;->mLines:Ljava/util/ArrayList;
@@ -1193,7 +1193,7 @@
     new-array v4, v1, [I
 
     .line 432
-    .local v4, dstk:[I
+    .local v4, "dstk":[I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/renderscript/ScriptGroup$Builder;->mLines:Ljava/util/ArrayList;
@@ -1205,7 +1205,7 @@
     new-array v5, v1, [I
 
     .line 433
-    .local v5, dstf:[I
+    .local v5, "dstf":[I
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/renderscript/ScriptGroup$Builder;->mLines:Ljava/util/ArrayList;
@@ -1217,7 +1217,7 @@
     new-array v6, v1, [I
 
     .line 435
-    .local v6, types:[I
+    .local v6, "types":[I
     const/4 v8, 0x0
 
     :goto_5
@@ -1243,7 +1243,7 @@
     check-cast v7, Landroid/renderscript/ScriptGroup$ConnectLine;
 
     .line 437
-    .local v7, cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .local v7, "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     iget-object v1, v7, Landroid/renderscript/ScriptGroup$ConnectLine;->mFrom:Landroid/renderscript/Script$KernelID;
 
     move-object/from16 v0, p0
@@ -1329,7 +1329,7 @@
     goto :goto_5
 
     .line 447
-    .end local v7           #cl:Landroid/renderscript/ScriptGroup$ConnectLine;
+    .end local v7    # "cl":Landroid/renderscript/ScriptGroup$ConnectLine;
     :cond_d
     move-object/from16 v0, p0
 
@@ -1340,7 +1340,7 @@
     move-result v13
 
     .line 448
-    .local v13, id:I
+    .local v13, "id":I
     if-nez v13, :cond_e
 
     .line 449
@@ -1367,7 +1367,7 @@
     invoke-direct {v0, v13, v1}, Landroid/renderscript/ScriptGroup;-><init>(ILandroid/renderscript/RenderScript;)V
 
     .line 453
-    .local v20, sg:Landroid/renderscript/ScriptGroup;
+    .local v20, "sg":Landroid/renderscript/ScriptGroup;
     invoke-virtual/range {v19 .. v19}, Ljava/util/ArrayList;->size()I
 
     move-result v1

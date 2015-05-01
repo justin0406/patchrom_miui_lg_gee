@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 332
@@ -41,8 +41,8 @@
 # virtual methods
 .method public allowUsbDebugging(ZLjava/lang/String;)V
     .locals 5
-    .parameter "alwaysAllow"
-    .parameter "publicKey"
+    .param p1, "alwaysAllow"    # Z
+    .param p2, "publicKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,13 +58,13 @@
     move-result-object v0
 
     .line 732
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 734
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -128,8 +128,8 @@
 
 .method public clearDefaults(Ljava/lang/String;I)V
     .locals 5
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,13 +143,13 @@
     move-result-object v0
 
     .line 680
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 682
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -211,13 +211,13 @@
     move-result-object v0
 
     .line 764
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 766
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -273,13 +273,13 @@
     move-result-object v0
 
     .line 749
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 751
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -335,13 +335,13 @@
     move-result-object v0
 
     .line 391
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 394
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -378,7 +378,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 405
-    .local v2, _result:Landroid/hardware/usb/UsbAccessory;
+    .local v2, "_result":Landroid/hardware/usb/UsbAccessory;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -389,15 +389,15 @@
     return-object v2
 
     .line 401
-    .end local v2           #_result:Landroid/hardware/usb/UsbAccessory;
+    .end local v2    # "_result":Landroid/hardware/usb/UsbAccessory;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/hardware/usb/UsbAccessory;
+    .restart local v2    # "_result":Landroid/hardware/usb/UsbAccessory;
     goto :goto_0
 
     .line 405
-    .end local v2           #_result:Landroid/hardware/usb/UsbAccessory;
+    .end local v2    # "_result":Landroid/hardware/usb/UsbAccessory;
     :catchall_0
     move-exception v3
 
@@ -411,7 +411,7 @@
 
 .method public getDeviceList(Landroid/os/Bundle;)V
     .locals 5
-    .parameter "devices"
+    .param p1, "devices"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -425,13 +425,13 @@
     move-result-object v0
 
     .line 347
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 349
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -495,8 +495,8 @@
 
 .method public grantAccessoryPermission(Landroid/hardware/usb/UsbAccessory;I)V
     .locals 5
-    .parameter "accessory"
-    .parameter "uid"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -510,13 +510,13 @@
     move-result-object v0
 
     .line 637
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 639
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -587,8 +587,8 @@
 
 .method public grantDevicePermission(Landroid/hardware/usb/UsbDevice;I)V
     .locals 5
-    .parameter "device"
-    .parameter "uid"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
+    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -602,13 +602,13 @@
     move-result-object v0
 
     .line 614
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 616
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -679,7 +679,7 @@
 
 .method public hasAccessoryPermission(Landroid/hardware/usb/UsbAccessory;)Z
     .locals 7
-    .parameter "accessory"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -697,13 +697,13 @@
     move-result-object v0
 
     .line 523
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 526
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.hardware.usb.IUsbManager"
 
@@ -745,7 +745,7 @@
     if-eqz v4, :cond_1
 
     .line 539
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -756,7 +756,7 @@
     return v2
 
     .line 532
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -787,8 +787,8 @@
 
 .method public hasDefaults(Ljava/lang/String;I)Z
     .locals 6
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -804,13 +804,13 @@
     move-result-object v0
 
     .line 660
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 663
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -846,7 +846,7 @@
     const/4 v2, 0x1
 
     .line 671
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -857,7 +857,7 @@
     return v2
 
     .line 671
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -871,7 +871,7 @@
 
 .method public hasDevicePermission(Landroid/hardware/usb/UsbDevice;)Z
     .locals 7
-    .parameter "device"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -889,13 +889,13 @@
     move-result-object v0
 
     .line 498
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 501
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.hardware.usb.IUsbManager"
 
@@ -937,7 +937,7 @@
     if-eqz v4, :cond_1
 
     .line 514
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -948,7 +948,7 @@
     return v2
 
     .line 507
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -979,7 +979,7 @@
 
 .method public openAccessory(Landroid/hardware/usb/UsbAccessory;)Landroid/os/ParcelFileDescriptor;
     .locals 6
-    .parameter "accessory"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -993,13 +993,13 @@
     move-result-object v0
 
     .line 416
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 419
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -1050,7 +1050,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 437
-    .local v2, _result:Landroid/os/ParcelFileDescriptor;
+    .local v2, "_result":Landroid/os/ParcelFileDescriptor;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1061,7 +1061,7 @@
     return-object v2
 
     .line 425
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :cond_0
     const/4 v3, 0x0
 
@@ -1087,13 +1087,13 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     goto :goto_1
 .end method
 
 .method public openDevice(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 6
-    .parameter "deviceName"
+    .param p1, "deviceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1107,13 +1107,13 @@
     move-result-object v0
 
     .line 367
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 370
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -1153,7 +1153,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 382
-    .local v2, _result:Landroid/os/ParcelFileDescriptor;
+    .local v2, "_result":Landroid/os/ParcelFileDescriptor;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1164,15 +1164,15 @@
     return-object v2
 
     .line 378
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     goto :goto_0
 
     .line 382
-    .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
+    .end local v2    # "_result":Landroid/os/ParcelFileDescriptor;
     :catchall_0
     move-exception v3
 
@@ -1186,9 +1186,9 @@
 
 .method public requestAccessoryPermission(Landroid/hardware/usb/UsbAccessory;Ljava/lang/String;Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "accessory"
-    .parameter "packageName"
-    .parameter "pi"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "pi"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1202,13 +1202,13 @@
     move-result-object v0
 
     .line 584
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 586
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -1304,9 +1304,9 @@
 
 .method public requestDevicePermission(Landroid/hardware/usb/UsbDevice;Ljava/lang/String;Landroid/app/PendingIntent;)V
     .locals 5
-    .parameter "device"
-    .parameter "packageName"
-    .parameter "pi"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "pi"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1320,13 +1320,13 @@
     move-result-object v0
 
     .line 551
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 553
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -1422,9 +1422,9 @@
 
 .method public setAccessoryPackage(Landroid/hardware/usb/UsbAccessory;Ljava/lang/String;I)V
     .locals 5
-    .parameter "accessory"
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1438,13 +1438,13 @@
     move-result-object v0
 
     .line 474
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 476
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -1518,8 +1518,8 @@
 
 .method public setCurrentFunction(Ljava/lang/String;Z)V
     .locals 5
-    .parameter "function"
-    .parameter "makeDefault"
+    .param p1, "function"    # Ljava/lang/String;
+    .param p2, "makeDefault"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1535,13 +1535,13 @@
     move-result-object v0
 
     .line 697
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 699
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.hardware.usb.IUsbManager"
 
@@ -1595,9 +1595,9 @@
 
 .method public setDevicePackage(Landroid/hardware/usb/UsbDevice;Ljava/lang/String;I)V
     .locals 5
-    .parameter "device"
-    .parameter "packageName"
-    .parameter "userId"
+    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1611,13 +1611,13 @@
     move-result-object v0
 
     .line 448
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 450
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 
@@ -1691,7 +1691,7 @@
 
 .method public setMassStorageBackingFile(Ljava/lang/String;)V
     .locals 5
-    .parameter "path"
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1705,13 +1705,13 @@
     move-result-object v0
 
     .line 714
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 716
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.hardware.usb.IUsbManager"
 

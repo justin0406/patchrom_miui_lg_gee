@@ -43,7 +43,7 @@
 
 .method public static keyFor(Ljava/lang/String;)Ljava/lang/String;
     .locals 8
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     const/16 v7, 0x2e
@@ -55,7 +55,7 @@
     const/4 v4, 0x0
 
     .line 1289
-    .local v4, sortfirst:Z
+    .local v4, "sortfirst":Z
     const-string v5, "<unknown>"
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,13 +68,13 @@
     const-string v2, "\u0001"
 
     .line 1334
-    .end local v4           #sortfirst:Z
+    .end local v4    # "sortfirst":Z
     :cond_0
     :goto_0
     return-object v2
 
     .line 1294
-    .restart local v4       #sortfirst:Z
+    .restart local v4    # "sortfirst":Z
     :cond_1
     const-string v5, "\u0001"
 
@@ -238,7 +238,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1318
-    .local v0, b:Ljava/lang/StringBuilder;
+    .local v0, "b":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1319
@@ -247,10 +247,10 @@
     move-result v3
 
     .line 1320
-    .local v3, nl:I
+    .local v3, "nl":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_1
     if-ge v1, v3, :cond_8
 
@@ -281,7 +281,7 @@
     move-result-object v2
 
     .line 1326
-    .local v2, key:Ljava/lang/String;
+    .local v2, "key":Ljava/lang/String;
     if-eqz v4, :cond_0
 
     .line 1327
@@ -306,17 +306,17 @@
     goto/16 :goto_0
 
     .line 1331
-    .end local v0           #b:Ljava/lang/StringBuilder;
-    .end local v1           #i:I
-    .end local v2           #key:Ljava/lang/String;
-    .end local v3           #nl:I
+    .end local v0    # "b":Ljava/lang/StringBuilder;
+    .end local v1    # "i":I
+    .end local v2    # "key":Ljava/lang/String;
+    .end local v3    # "nl":I
     :cond_9
     const-string v2, ""
 
     goto/16 :goto_0
 
     .line 1334
-    .end local v4           #sortfirst:Z
+    .end local v4    # "sortfirst":Z
     :cond_a
     const/4 v2, 0x0
 

@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "renderer"
+    .param p1, "renderer"    # I
 
     .prologue
     .line 134
@@ -49,7 +49,7 @@
     :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas$CanvasFinalizer;->mRenderer:I
 
-    #calls: Landroid/view/GLES20Canvas;->nDestroyRenderer(I)V
+    # invokes: Landroid/view/GLES20Canvas;->nDestroyRenderer(I)V
     invoke-static {v0}, Landroid/view/GLES20Canvas;->access$000(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

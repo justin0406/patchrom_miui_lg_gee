@@ -25,14 +25,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLandroid/accounts/Account;Landroid/os/Bundle;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter
-    .parameter
+    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "x2"    # Ljava/lang/String;
+    .param p5, "x3"    # Z
+    .param p6, "x4"    # Z
 
     .prologue
     .line 637
@@ -51,8 +48,8 @@
 # virtual methods
 .method public onError(ILjava/lang/String;)V
     .locals 0
-    .parameter "errorCode"
-    .parameter "errorMessage"
+    .param p1, "errorCode"    # I
+    .param p2, "errorMessage"    # Ljava/lang/String;
 
     .prologue
     .line 676
@@ -64,7 +61,7 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 2
-    .parameter "result"
+    .param p1, "result"    # Landroid/os/Bundle;
 
     .prologue
     .line 661
@@ -112,8 +109,8 @@
     move-result-object v4
 
     .line 648
-    .local v4, owner:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
-    #getter for: Lcom/android/server/accounts/AccountManagerService$UserAccounts;->cacheLock:Ljava/lang/Object;
+    .local v4, "owner":Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    # getter for: Lcom/android/server/accounts/AccountManagerService$UserAccounts;->cacheLock:Ljava/lang/Object;
     invoke-static {v4}, Lcom/android/server/accounts/AccountManagerService$UserAccounts;->access$300(Lcom/android/server/accounts/AccountManagerService$UserAccounts;)Ljava/lang/Object;
 
     move-result-object v7
@@ -131,23 +128,23 @@
     move-result-object v5
 
     .line 650
-    .local v5, ownerAccounts:[Landroid/accounts/Account;
+    .local v5, "ownerAccounts":[Landroid/accounts/Account;
     move-object v1, v5
 
-    .local v1, arr$:[Landroid/accounts/Account;
+    .local v1, "arr$":[Landroid/accounts/Account;
     array-length v3, v1
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v0, v1, v2
 
     .line 651
-    .local v0, acc:Landroid/accounts/Account;
+    .local v0, "acc":Landroid/accounts/Account;
     iget-object v6, p0, Lcom/android/server/accounts/AccountManagerService$4;->val$account:Landroid/accounts/Account;
 
     invoke-virtual {v0, v6}, Landroid/accounts/Account;->equals(Ljava/lang/Object;)Z
@@ -166,7 +163,7 @@
     invoke-interface {v6, p0, v8, v9}, Landroid/accounts/IAccountAuthenticator;->addAccountFromCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)V
 
     .line 656
-    .end local v0           #acc:Landroid/accounts/Account;
+    .end local v0    # "acc":Landroid/accounts/Account;
     :cond_0
     monitor-exit v7
 
@@ -174,18 +171,18 @@
     return-void
 
     .line 650
-    .restart local v0       #acc:Landroid/accounts/Account;
+    .restart local v0    # "acc":Landroid/accounts/Account;
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 656
-    .end local v0           #acc:Landroid/accounts/Account;
-    .end local v1           #arr$:[Landroid/accounts/Account;
-    .end local v2           #i$:I
-    .end local v3           #len$:I
-    .end local v5           #ownerAccounts:[Landroid/accounts/Account;
+    .end local v0    # "acc":Landroid/accounts/Account;
+    .end local v1    # "arr$":[Landroid/accounts/Account;
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
+    .end local v5    # "ownerAccounts":[Landroid/accounts/Account;
     :catchall_0
     move-exception v6
 
@@ -198,7 +195,7 @@
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 2
-    .parameter "now"
+    .param p1, "now"    # J
 
     .prologue
     .line 640

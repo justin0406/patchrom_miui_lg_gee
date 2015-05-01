@@ -35,10 +35,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    const v0, 0x3f4ccccd
+    const v0, 0x3f4ccccd    # 0.8f
 
     .line 67
     invoke-direct {p0, p1}, Landroid/filterfw/core/Filter;-><init>(Ljava/lang/String;)V
@@ -70,12 +70,12 @@
 
 .method private renderBox(Landroid/filterfw/geometry/Quad;)V
     .locals 9
-    .parameter "box"
+    .param p1, "box"    # Landroid/filterfw/geometry/Quad;
 
     .prologue
     const/4 v4, 0x1
 
-    const/high16 v8, 0x3f80
+    const/high16 v8, 0x3f800000    # 1.0f
 
     const/4 v7, 0x0
 
@@ -87,7 +87,7 @@
     const/4 v0, 0x4
 
     .line 116
-    .local v0, FLOAT_SIZE:I
+    .local v0, "FLOAT_SIZE":I
     new-array v1, v6, [F
 
     iget v3, p0, Landroid/filterpacks/imageproc/DrawRectFilter;->mColorRed:F
@@ -107,7 +107,7 @@
     aput v8, v1, v3
 
     .line 117
-    .local v1, color:[F
+    .local v1, "color":[F
     const/16 v3, 0x8
 
     new-array v2, v3, [F
@@ -169,7 +169,7 @@
     aput v4, v2, v3
 
     .line 123
-    .local v2, vertexValues:[F
+    .local v2, "vertexValues":[F
     iget-object v3, p0, Landroid/filterpacks/imageproc/DrawRectFilter;->mProgram:Landroid/filterfw/core/ShaderProgram;
 
     const-string v4, "color"
@@ -207,8 +207,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 80
@@ -217,7 +217,7 @@
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 85
@@ -237,10 +237,10 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 6
-    .parameter "env"
+    .param p1, "env"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
-    const/high16 v5, -0x4080
+    const/high16 v5, -0x40800000    # -1.0f
 
     .line 91
     const-string v4, "image"
@@ -250,7 +250,7 @@
     move-result-object v2
 
     .line 92
-    .local v2, imageFrame:Landroid/filterfw/core/Frame;
+    .local v2, "imageFrame":Landroid/filterfw/core/Frame;
     const-string v4, "box"
 
     invoke-virtual {p0, v4}, Landroid/filterpacks/imageproc/DrawRectFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
@@ -258,7 +258,7 @@
     move-result-object v1
 
     .line 95
-    .local v1, boxFrame:Landroid/filterfw/core/Frame;
+    .local v1, "boxFrame":Landroid/filterfw/core/Frame;
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getObjectValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -266,8 +266,8 @@
     check-cast v0, Landroid/filterfw/geometry/Quad;
 
     .line 96
-    .local v0, box:Landroid/filterfw/geometry/Quad;
-    const/high16 v4, 0x4000
+    .local v0, "box":Landroid/filterfw/geometry/Quad;
+    const/high16 v4, 0x40000000    # 2.0f
 
     invoke-virtual {v0, v4}, Landroid/filterfw/geometry/Quad;->scaled(F)Landroid/filterfw/geometry/Quad;
 
@@ -289,7 +289,7 @@
     check-cast v3, Landroid/filterfw/core/GLFrame;
 
     .line 102
-    .local v3, output:Landroid/filterfw/core/GLFrame;
+    .local v3, "output":Landroid/filterfw/core/GLFrame;
     invoke-virtual {v3}, Landroid/filterfw/core/GLFrame;->focus()V
 
     .line 103

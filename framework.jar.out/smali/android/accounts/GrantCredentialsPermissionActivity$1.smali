@@ -36,8 +36,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/GrantCredentialsPermissionActivity;Landroid/widget/TextView;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 94
@@ -54,7 +52,6 @@
 # virtual methods
 .method public run(Landroid/accounts/AccountManagerFuture;)V
     .locals 3
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +64,7 @@
 
     .prologue
     .line 97
-    .local p1, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Ljava/lang/String;>;"
+    .local p1, "future":Landroid/accounts/AccountManagerFuture;, "Landroid/accounts/AccountManagerFuture<Ljava/lang/String;>;"
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
 
@@ -76,7 +73,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 98
-    .local v0, authTokenLabel:Ljava/lang/String;
+    .local v0, "authTokenLabel":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -97,7 +94,7 @@
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 112
-    .end local v0           #authTokenLabel:Ljava/lang/String;
+    .end local v0    # "authTokenLabel":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void

@@ -21,7 +21,7 @@
 
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "query"
+    .param p1, "query"    # Ljava/lang/String;
 
     .prologue
     .line 38
@@ -35,9 +35,9 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 2
-    .parameter "dnsQuery"
-    .parameter "dnsType"
-    .parameter "version"
+    .param p1, "dnsQuery"    # Ljava/lang/String;
+    .param p2, "dnsType"    # I
+    .param p3, "version"    # I
 
     .prologue
     .line 50
@@ -67,7 +67,7 @@
 
 .method public static newInstance(Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
     .locals 4
-    .parameter "serviceType"
+    .param p0, "serviceType"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -115,8 +115,8 @@
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
     .locals 4
-    .parameter "instanceName"
-    .parameter "serviceType"
+    .param p0, "instanceName"    # Ljava/lang/String;
+    .param p1, "serviceType"    # Ljava/lang/String;
 
     .prologue
     .line 98
@@ -165,7 +165,7 @@
     move-result-object v0
 
     .line 103
-    .local v0, fullDomainName:Ljava/lang/String;
+    .local v0, "fullDomainName":Ljava/lang/String;
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
 
     const/16 v2, 0x10

@@ -10,7 +10,7 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 2
-    .parameter "nativeMovie"
+    .param p1, "nativeMovie"    # I
 
     .prologue
     .line 26
@@ -41,7 +41,7 @@
 
 .method public static decodeFile(Ljava/lang/String;)Landroid/graphics/Movie;
     .locals 3
-    .parameter "pathName"
+    .param p0, "pathName"    # Ljava/lang/String;
 
     .prologue
     .line 68
@@ -53,12 +53,12 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 73
-    .local v1, is:Ljava/io/InputStream;
+    .local v1, "is":Ljava/io/InputStream;
     invoke-static {v1}, Landroid/graphics/Movie;->decodeTempStream(Ljava/io/InputStream;)Landroid/graphics/Movie;
 
     move-result-object v2
 
-    .end local v1           #is:Ljava/io/InputStream;
+    .end local v1    # "is":Ljava/io/InputStream;
     :goto_0
     return-object v2
 
@@ -67,7 +67,7 @@
     move-exception v0
 
     .line 71
-    .local v0, e:Ljava/io/FileNotFoundException;
+    .local v0, "e":Ljava/io/FileNotFoundException;
     const/4 v2, 0x0
 
     goto :goto_0
@@ -75,7 +75,7 @@
 
 .method public static decodeStream(Ljava/io/InputStream;)Landroid/graphics/Movie;
     .locals 2
-    .parameter "is"
+    .param p0, "is"    # Ljava/io/InputStream;
 
     .prologue
     .line 47
@@ -97,13 +97,13 @@
     .line 51
     check-cast p0, Landroid/content/res/AssetManager$AssetInputStream;
 
-    .end local p0
+    .end local p0    # "is":Ljava/io/InputStream;
     invoke-virtual {p0}, Landroid/content/res/AssetManager$AssetInputStream;->getAssetInt()I
 
     move-result v0
 
     .line 52
-    .local v0, asset:I
+    .local v0, "asset":I
     invoke-static {v0}, Landroid/graphics/Movie;->nativeDecodeAsset(I)Landroid/graphics/Movie;
 
     move-result-object v1
@@ -111,8 +111,8 @@
     goto :goto_0
 
     .line 55
-    .end local v0           #asset:I
-    .restart local p0
+    .end local v0    # "asset":I
+    .restart local p0    # "is":Ljava/io/InputStream;
     :cond_1
     invoke-static {p0}, Landroid/graphics/Movie;->nativeDecodeStream(Ljava/io/InputStream;)Landroid/graphics/Movie;
 
@@ -123,14 +123,14 @@
 
 .method private static decodeTempStream(Ljava/io/InputStream;)Landroid/graphics/Movie;
     .locals 2
-    .parameter "is"
+    .param p0, "is"    # Ljava/io/InputStream;
 
     .prologue
     .line 86
     const/4 v0, 0x0
 
     .line 88
-    .local v0, moov:Landroid/graphics/Movie;
+    .local v0, "moov":Landroid/graphics/Movie;
     :try_start_0
     invoke-static {p0}, Landroid/graphics/Movie;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Movie;
 
@@ -165,9 +165,9 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;FF)V
     .locals 1
-    .parameter "canvas"
-    .parameter "x"
-    .parameter "y"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .param p2, "x"    # F
+    .param p3, "y"    # F
 
     .prologue
     .line 43

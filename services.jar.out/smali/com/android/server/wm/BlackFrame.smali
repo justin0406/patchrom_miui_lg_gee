@@ -28,12 +28,12 @@
 # direct methods
 .method public constructor <init>(Landroid/view/SurfaceSession;Landroid/graphics/Rect;Landroid/graphics/Rect;IIZ)V
     .locals 13
-    .parameter "session"
-    .parameter "outer"
-    .parameter "inner"
-    .parameter "layer"
-    .parameter "layerStack"
-    .parameter "forceDefaultOrientation"
+    .param p1, "session"    # Landroid/view/SurfaceSession;
+    .param p2, "outer"    # Landroid/graphics/Rect;
+    .param p3, "inner"    # Landroid/graphics/Rect;
+    .param p4, "layer"    # I
+    .param p5, "layerStack"    # I
+    .param p6, "forceDefaultOrientation"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -69,7 +69,7 @@
     const/4 v10, 0x0
 
     .line 119
-    .local v10, success:Z
+    .local v10, "success":Z
     move/from16 v0, p6
 
     iput-boolean v0, p0, Lcom/android/server/wm/BlackFrame;->mForceDefaultOrientation:Z
@@ -292,7 +292,7 @@
     .line 190
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
@@ -337,7 +337,7 @@
     .line 165
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
@@ -368,7 +368,7 @@
     goto :goto_0
 
     .line 171
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
@@ -385,7 +385,7 @@
     .line 150
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
@@ -423,15 +423,15 @@
     goto :goto_0
 
     .line 161
-    .end local v0           #i:I
+    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public printTo(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 3
-    .parameter "prefix"
-    .parameter "pw"
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 103
@@ -460,7 +460,7 @@
     .line 106
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
@@ -474,7 +474,7 @@
     aget-object v0, v2, v1
 
     .line 108
-    .local v0, bs:Lcom/android/server/wm/BlackFrame$BlackSurface;
+    .local v0, "bs":Lcom/android/server/wm/BlackFrame$BlackSurface;
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v2, "#"
@@ -516,20 +516,20 @@
     goto :goto_0
 
     .line 113
-    .end local v0           #bs:Lcom/android/server/wm/BlackFrame$BlackSurface;
+    .end local v0    # "bs":Lcom/android/server/wm/BlackFrame$BlackSurface;
     :cond_0
     return-void
 .end method
 
 .method public setAlpha(F)V
     .locals 2
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 174
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
@@ -564,13 +564,13 @@
 
 .method public setMatrix(Landroid/graphics/Matrix;)V
     .locals 2
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 182
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 

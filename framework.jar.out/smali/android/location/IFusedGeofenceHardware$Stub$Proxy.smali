@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 127
@@ -41,7 +41,7 @@
 # virtual methods
 .method public addGeofences([Landroid/hardware/location/GeofenceHardwareRequestParcelable;)V
     .locals 5
-    .parameter "geofenceRequestsArray"
+    .param p1, "geofenceRequestsArray"    # [Landroid/hardware/location/GeofenceHardwareRequestParcelable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,13 +55,13 @@
     move-result-object v0
 
     .line 168
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 170
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IFusedGeofenceHardware"
 
@@ -146,13 +146,13 @@
     move-result-object v0
 
     .line 146
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 149
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.location.IFusedGeofenceHardware"
 
@@ -180,7 +180,7 @@
     if-eqz v4, :cond_0
 
     .line 155
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -190,7 +190,7 @@
     .line 158
     return v2
 
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     move v2, v3
 
@@ -211,12 +211,12 @@
 
 .method public modifyGeofenceOptions(IIIIII)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "lastTransition"
-    .parameter "monitorTransitions"
-    .parameter "notificationResponsiveness"
-    .parameter "unknownTimer"
-    .parameter "sourcesToUse"
+    .param p1, "geofenceId"    # I
+    .param p2, "lastTransition"    # I
+    .param p3, "monitorTransitions"    # I
+    .param p4, "notificationResponsiveness"    # I
+    .param p5, "unknownTimer"    # I
+    .param p6, "sourcesToUse"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -230,13 +230,13 @@
     move-result-object v0
 
     .line 263
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 265
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IFusedGeofenceHardware"
 
@@ -297,7 +297,7 @@
 
 .method public pauseMonitoringGeofence(I)V
     .locals 5
-    .parameter "geofenceId"
+    .param p1, "geofenceId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -311,13 +311,13 @@
     move-result-object v0
 
     .line 208
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 210
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IFusedGeofenceHardware"
 
@@ -363,7 +363,7 @@
 
 .method public removeGeofences([I)V
     .locals 5
-    .parameter "geofenceIds"
+    .param p1, "geofenceIds"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -377,13 +377,13 @@
     move-result-object v0
 
     .line 188
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 190
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IFusedGeofenceHardware"
 
@@ -429,8 +429,8 @@
 
 .method public resumeMonitoringGeofence(II)V
     .locals 5
-    .parameter "geofenceId"
-    .parameter "monitorTransitions"
+    .param p1, "geofenceId"    # I
+    .param p2, "monitorTransitions"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -444,13 +444,13 @@
     move-result-object v0
 
     .line 232
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 234
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.location.IFusedGeofenceHardware"
 

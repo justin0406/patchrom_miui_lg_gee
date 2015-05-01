@@ -30,7 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Dialog;)V
     .locals 1
-    .parameter "dialog"
+    .param p1, "dialog"    # Landroid/app/Dialog;
 
     .prologue
     .line 1230
@@ -51,7 +51,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 1236

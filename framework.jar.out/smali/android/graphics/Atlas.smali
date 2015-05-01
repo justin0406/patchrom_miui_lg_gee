@@ -30,9 +30,9 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Atlas$Type;II)V
     .locals 1
-    .parameter "type"
-    .parameter "width"
-    .parameter "height"
+    .param p1, "type"    # Landroid/graphics/Atlas$Type;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
     .prologue
     .line 89
@@ -46,10 +46,10 @@
 
 .method public constructor <init>(Landroid/graphics/Atlas$Type;III)V
     .locals 1
-    .parameter "type"
-    .parameter "width"
-    .parameter "height"
-    .parameter "flags"
+    .param p1, "type"    # Landroid/graphics/Atlas$Type;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "flags"    # I
 
     .prologue
     .line 105
@@ -68,10 +68,10 @@
 
 .method private static findPolicy(Landroid/graphics/Atlas$Type;III)Landroid/graphics/Atlas$Policy;
     .locals 3
-    .parameter "type"
-    .parameter "width"
-    .parameter "height"
-    .parameter "flags"
+    .param p0, "type"    # Landroid/graphics/Atlas$Type;
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "flags"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -155,8 +155,8 @@
 # virtual methods
 .method public pack(II)Landroid/graphics/Atlas$Entry;
     .locals 1
-    .parameter "width"
-    .parameter "height"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
     .prologue
     .line 121
@@ -171,9 +171,9 @@
 
 .method public pack(IILandroid/graphics/Atlas$Entry;)Landroid/graphics/Atlas$Entry;
     .locals 1
-    .parameter "width"
-    .parameter "height"
-    .parameter "entry"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "entry"    # Landroid/graphics/Atlas$Entry;
 
     .prologue
     .line 138
@@ -181,11 +181,11 @@
 
     new-instance p3, Landroid/graphics/Atlas$Entry;
 
-    .end local p3
+    .end local p3    # "entry":Landroid/graphics/Atlas$Entry;
     invoke-direct {p3}, Landroid/graphics/Atlas$Entry;-><init>()V
 
     .line 139
-    .restart local p3
+    .restart local p3    # "entry":Landroid/graphics/Atlas$Entry;
     :cond_0
     iget-object v0, p0, Landroid/graphics/Atlas;->mPolicy:Landroid/graphics/Atlas$Policy;
 

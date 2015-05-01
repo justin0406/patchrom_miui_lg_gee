@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 769
@@ -44,7 +43,7 @@
     .line 772
     iget-object v1, p0, Landroid/widget/Spinner$2;->this$0:Landroid/widget/Spinner;
 
-    #getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
+    # getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
     invoke-static {v1}, Landroid/widget/Spinner;->access$100(Landroid/widget/Spinner;)Landroid/widget/Spinner$SpinnerPopup;
 
     move-result-object v1
@@ -58,7 +57,7 @@
     .line 773
     iget-object v1, p0, Landroid/widget/Spinner$2;->this$0:Landroid/widget/Spinner;
 
-    #getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
+    # getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
     invoke-static {v1}, Landroid/widget/Spinner;->access$100(Landroid/widget/Spinner;)Landroid/widget/Spinner$SpinnerPopup;
 
     move-result-object v1
@@ -86,7 +85,7 @@
     move-result-object v0
 
     .line 776
-    .local v0, vto:Landroid/view/ViewTreeObserver;
+    .local v0, "vto":Landroid/view/ViewTreeObserver;
     if-eqz v0, :cond_1
 
     .line 777

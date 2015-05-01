@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 51
@@ -58,7 +58,7 @@
     fill-array-data v0, :array_0
 
     .line 109
-    .local v0, weights:[F
+    .local v0, "weights":[F
     iget-object v1, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mProgram:Landroid/filterfw/core/Program;
 
     const-string v2, "matrix"
@@ -72,16 +72,16 @@
     nop
 
     :array_0
-    .array-data 0x4
-        0x0t 0x40t 0xc9t 0x3et
-        0x0t 0xc0t 0xb2t 0x3et
-        0x0t 0x40t 0x8bt 0x3et
-        0x0t 0xe0t 0x44t 0x3ft
-        0x0t 0xa0t 0x2ft 0x3ft
-        0x0t 0x20t 0x9t 0x3ft
-        0x0t 0x80t 0x41t 0x3et
-        0x0t 0x0t 0x2ct 0x3et
-        0x0t 0x0t 0x6t 0x3et
+    .array-data 4
+        0x3ec94000
+        0x3eb2c000
+        0x3e8b4000
+        0x3f44e000
+        0x3f2fa000
+        0x3f092000
+        0x3e418000
+        0x3e2c0000    # 0.16796875f
+        0x3e060000
     .end array-data
 .end method
 
@@ -89,8 +89,8 @@
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 0
-    .parameter "portName"
-    .parameter "inputFormat"
+    .param p1, "portName"    # Ljava/lang/String;
+    .param p2, "inputFormat"    # Landroid/filterfw/core/FrameFormat;
 
     .prologue
     .line 62
@@ -99,8 +99,8 @@
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
     .locals 4
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "target"    # I
 
     .prologue
     .line 66
@@ -146,7 +146,7 @@
     invoke-direct {v0, p1, v1}, Landroid/filterfw/core/ShaderProgram;-><init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
 
     .line 69
-    .local v0, shaderProgram:Landroid/filterfw/core/ShaderProgram;
+    .local v0, "shaderProgram":Landroid/filterfw/core/ShaderProgram;
     iget v1, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mTileSize:I
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/ShaderProgram;->setMaximumTileSize(I)V
@@ -169,7 +169,7 @@
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
     .locals 5
-    .parameter "context"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
 
     .prologue
     .line 83
@@ -180,13 +180,13 @@
     move-result-object v0
 
     .line 84
-    .local v0, input:Landroid/filterfw/core/Frame;
+    .local v0, "input":Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
     .line 87
-    .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
+    .local v1, "inputFormat":Landroid/filterfw/core/FrameFormat;
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -196,7 +196,7 @@
     move-result-object v2
 
     .line 90
-    .local v2, output:Landroid/filterfw/core/Frame;
+    .local v2, "output":Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mProgram:Landroid/filterfw/core/Program;
 
     if-eqz v3, :cond_0

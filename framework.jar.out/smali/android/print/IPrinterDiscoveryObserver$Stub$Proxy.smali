@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 83
@@ -61,7 +61,7 @@
 
 .method public onPrintersAdded(Landroid/content/pm/ParceledListSlice;)V
     .locals 5
-    .parameter "printers"
+    .param p1, "printers"    # Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 98
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrinterDiscoveryObserver"
 
@@ -136,7 +136,7 @@
 
 .method public onPrintersRemoved(Landroid/content/pm/ParceledListSlice;)V
     .locals 5
-    .parameter "printerIds"
+    .param p1, "printerIds"    # Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +150,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.print.IPrinterDiscoveryObserver"
 

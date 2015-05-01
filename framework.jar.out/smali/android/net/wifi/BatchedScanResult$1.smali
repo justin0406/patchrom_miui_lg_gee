@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/BatchedScanResult;
     .locals 5
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v3, 0x1
@@ -53,7 +53,7 @@
     invoke-direct {v2}, Landroid/net/wifi/BatchedScanResult;-><init>()V
 
     .line 82
-    .local v2, result:Landroid/net/wifi/BatchedScanResult;
+    .local v2, "result":Landroid/net/wifi/BatchedScanResult;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -68,17 +68,17 @@
 
     move-result v0
 
-    .local v0, count:I
+    .local v0, "count":I
     move v1, v0
 
     .line 84
-    .end local v0           #count:I
-    .local v1, count:I
+    .end local v0    # "count":I
+    .local v1, "count":I
     :goto_1
     add-int/lit8 v0, v1, -0x1
 
-    .end local v1           #count:I
-    .restart local v0       #count:I
+    .end local v1    # "count":I
+    .restart local v0    # "count":I
     if-lez v1, :cond_1
 
     .line 85
@@ -94,26 +94,26 @@
 
     move v1, v0
 
-    .end local v0           #count:I
-    .restart local v1       #count:I
+    .end local v0    # "count":I
+    .restart local v1    # "count":I
     goto :goto_1
 
     .line 82
-    .end local v1           #count:I
+    .end local v1    # "count":I
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 87
-    .restart local v0       #count:I
+    .restart local v0    # "count":I
     :cond_1
     return-object v2
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 79
@@ -126,7 +126,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/BatchedScanResult;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 91
@@ -137,7 +137,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 79

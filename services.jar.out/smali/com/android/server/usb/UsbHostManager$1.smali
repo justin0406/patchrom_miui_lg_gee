@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/usb/UsbHostManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 174
@@ -44,7 +43,7 @@
     .line 176
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$1;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    #calls: Lcom/android/server/usb/UsbHostManager;->monitorUsbHostBus()V
+    # invokes: Lcom/android/server/usb/UsbHostManager;->monitorUsbHostBus()V
     invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->access$000(Lcom/android/server/usb/UsbHostManager;)V
 
     .line 177

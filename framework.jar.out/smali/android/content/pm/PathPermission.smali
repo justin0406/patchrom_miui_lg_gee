@@ -39,7 +39,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 53
@@ -65,10 +65,10 @@
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "pattern"
-    .parameter "type"
-    .parameter "readPermission"
-    .parameter "writePermission"
+    .param p1, "pattern"    # Ljava/lang/String;
+    .param p2, "type"    # I
+    .param p3, "readPermission"    # Ljava/lang/String;
+    .param p4, "writePermission"    # Ljava/lang/String;
 
     .prologue
     .line 33
@@ -108,8 +108,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 47

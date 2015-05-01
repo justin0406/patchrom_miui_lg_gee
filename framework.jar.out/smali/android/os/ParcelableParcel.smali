@@ -42,8 +42,8 @@
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 4
-    .parameter "src"
-    .parameter "loader"
+    .param p1, "src"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 32
@@ -65,13 +65,13 @@
     move-result v1
 
     .line 36
-    .local v1, size:I
+    .local v1, "size":I
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v0
 
     .line 37
-    .local v0, pos:I
+    .local v0, "pos":I
     iget-object v2, p0, Landroid/os/ParcelableParcel;->mParcel:Landroid/os/Parcel;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
@@ -91,7 +91,7 @@
 
 .method public constructor <init>(Ljava/lang/ClassLoader;)V
     .locals 1
-    .parameter "loader"
+    .param p1, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 27
@@ -152,8 +152,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 57

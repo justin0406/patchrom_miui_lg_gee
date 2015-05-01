@@ -31,7 +31,6 @@
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLLogWrapper;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 3905
@@ -45,11 +44,10 @@
 
 .method public constructor <init>(Landroid/opengl/GLLogWrapper;IIILjava/nio/Buffer;)V
     .locals 0
-    .parameter
-    .parameter "size"
-    .parameter "type"
-    .parameter "stride"
-    .parameter "pointer"
+    .param p2, "size"    # I
+    .param p3, "type"    # I
+    .param p4, "stride"    # I
+    .param p5, "pointer"    # Ljava/nio/Buffer;
 
     .prologue
     .line 3908
@@ -100,7 +98,7 @@
 
     iget-object v2, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mPointer:Ljava/nio/Buffer;
 
-    #calls: Landroid/opengl/GLLogWrapper;->toByteBuffer(ILjava/nio/Buffer;)Ljava/nio/ByteBuffer;
+    # invokes: Landroid/opengl/GLLogWrapper;->toByteBuffer(ILjava/nio/Buffer;)Ljava/nio/ByteBuffer;
     invoke-static {v0, v1, v2}, Landroid/opengl/GLLogWrapper;->access$000(Landroid/opengl/GLLogWrapper;ILjava/nio/Buffer;)Ljava/nio/ByteBuffer;
 
     move-result-object v0
@@ -138,7 +136,7 @@
 
 .method public sizeof(I)I
     .locals 2
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     const/4 v1, 0x4

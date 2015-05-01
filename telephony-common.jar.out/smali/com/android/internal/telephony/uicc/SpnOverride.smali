@@ -61,7 +61,7 @@
     invoke-direct {v5, v7, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 61
-    .local v5, spnFile:Ljava/io/File;
+    .local v5, "spnFile":Ljava/io/File;
     :try_start_0
     new-instance v6, Ljava/io/FileReader;
 
@@ -70,14 +70,14 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 69
-    .local v6, spnReader:Ljava/io/FileReader;
+    .local v6, "spnReader":Ljava/io/FileReader;
     :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v4
 
     .line 70
-    .local v4, parser:Lorg/xmlpull/v1/XmlPullParser;
+    .local v4, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 72
@@ -95,7 +95,7 @@
     move-result-object v2
 
     .line 78
-    .local v2, name:Ljava/lang/String;
+    .local v2, "name":Ljava/lang/String;
     const-string v7, "spnOverride"
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -107,20 +107,19 @@
 
     if-nez v7, :cond_0
 
-    .end local v2           #name:Ljava/lang/String;
-    .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .end local v6           #spnReader:Ljava/io/FileReader;
+    .line 92
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v6    # "spnReader":Ljava/io/FileReader;
     :goto_1
-    invoke-static {v6}, Lcom/android/internal/telephony/uicc/SpnOverride$Injector;->closeSpnReader(Ljava/io/FileReader;)V
-
-    .end local v6           #spnReader:Ljava/io/FileReader;
-    :goto_miui
     return-void
 
+    .line 62
     :catch_0
     move-exception v1
 
-    .local v1, e:Ljava/io/FileNotFoundException;
+    .line 63
+    .local v1, "e":Ljava/io/FileNotFoundException;
     const-string v7, "SpnOverride"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -159,13 +158,13 @@
 
     invoke-static {v7, v8}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_miui
+    goto :goto_1
 
     .line 82
-    .end local v1           #e:Ljava/io/FileNotFoundException;
-    .restart local v2       #name:Ljava/lang/String;
-    .restart local v4       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v6       #spnReader:Ljava/io/FileReader;
+    .end local v1    # "e":Ljava/io/FileNotFoundException;
+    .restart local v2    # "name":Ljava/lang/String;
+    .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v6    # "spnReader":Ljava/io/FileReader;
     :cond_0
     const/4 v7, 0x0
 
@@ -177,7 +176,7 @@
     move-result-object v3
 
     .line 83
-    .local v3, numeric:Ljava/lang/String;
+    .local v3, "numeric":Ljava/lang/String;
     const/4 v7, 0x0
 
     const-string v8, "spn"
@@ -187,7 +186,7 @@
     move-result-object v0
 
     .line 85
-    .local v0, data:Ljava/lang/String;
+    .local v0, "data":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/SpnOverride;->mCarrierSpnMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -198,15 +197,15 @@
     goto :goto_0
 
     .line 87
-    .end local v0           #data:Ljava/lang/String;
-    .end local v2           #name:Ljava/lang/String;
-    .end local v3           #numeric:Ljava/lang/String;
-    .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
+    .end local v0    # "data":Ljava/lang/String;
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v3    # "numeric":Ljava/lang/String;
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :catch_1
     move-exception v1
 
     .line 88
-    .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     const-string v7, "SpnOverride"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -232,12 +231,12 @@
     goto :goto_1
 
     .line 89
-    .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catch_2
     move-exception v1
 
     .line 90
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     const-string v7, "SpnOverride"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -267,7 +266,7 @@
 # virtual methods
 .method containsCarrier(Ljava/lang/String;)Z
     .locals 1
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 47
@@ -282,7 +281,7 @@
 
 .method getSpn(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .parameter "carrier"
+    .param p1, "carrier"    # Ljava/lang/String;
 
     .prologue
     .line 51

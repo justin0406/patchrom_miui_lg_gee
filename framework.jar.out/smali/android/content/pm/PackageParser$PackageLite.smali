@@ -27,10 +27,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IILjava/util/List;)V
     .locals 1
-    .parameter "packageName"
-    .parameter "versionCode"
-    .parameter "installLocation"
-    .parameter
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "versionCode"    # I
+    .param p3, "installLocation"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,7 +44,7 @@
 
     .prologue
     .line 214
-    .local p4, verifiers:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/VerifierInfo;>;"
+    .local p4, "verifiers":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/VerifierInfo;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 215

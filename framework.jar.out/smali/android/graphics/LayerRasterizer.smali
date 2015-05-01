@@ -32,7 +32,7 @@
 # virtual methods
 .method public addLayer(Landroid/graphics/Paint;)V
     .locals 3
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     const/4 v2, 0x0
@@ -50,9 +50,9 @@
 
 .method public addLayer(Landroid/graphics/Paint;FF)V
     .locals 2
-    .parameter "paint"
-    .parameter "dx"
-    .parameter "dy"
+    .param p1, "paint"    # Landroid/graphics/Paint;
+    .param p2, "dx"    # F
+    .param p3, "dy"    # F
 
     .prologue
     .line 30

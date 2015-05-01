@@ -25,9 +25,9 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .parameter "capability"
-    .parameter "titleResId"
-    .parameter "descResId"
+    .param p1, "capability"    # I
+    .param p2, "titleResId"    # I
+    .param p3, "descResId"    # I
 
     .prologue
     .line 921

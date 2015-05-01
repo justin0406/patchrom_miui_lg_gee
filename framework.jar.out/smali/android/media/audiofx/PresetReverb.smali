@@ -45,8 +45,8 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 3
-    .parameter "priority"
-    .parameter "audioSession"
+    .param p1, "priority"    # I
+    .param p2, "audioSession"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -84,7 +84,7 @@
 
 .method static synthetic access$000(Landroid/media/audiofx/PresetReverb;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/PresetReverb;
 
     .prologue
     .line 61
@@ -95,7 +95,7 @@
 
 .method static synthetic access$100(Landroid/media/audiofx/PresetReverb;)Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/audiofx/PresetReverb;
 
     .prologue
     .line 61
@@ -125,7 +125,7 @@
     new-array v0, v1, [S
 
     .line 165
-    .local v0, value:[S
+    .local v0, "value":[S
     invoke-virtual {p0, v2, v0}, Landroid/media/audiofx/PresetReverb;->getParameter(I[S)I
 
     move-result v1
@@ -157,13 +157,13 @@
     invoke-direct {v0}, Landroid/media/audiofx/PresetReverb$Settings;-><init>()V
 
     .line 293
-    .local v0, settings:Landroid/media/audiofx/PresetReverb$Settings;
+    .local v0, "settings":Landroid/media/audiofx/PresetReverb$Settings;
     const/4 v2, 0x1
 
     new-array v1, v2, [S
 
     .line 294
-    .local v1, value:[S
+    .local v1, "value":[S
     invoke-virtual {p0, v3, v1}, Landroid/media/audiofx/PresetReverb;->getParameter(I[S)I
 
     move-result v2
@@ -181,7 +181,7 @@
 
 .method public setParameterListener(Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;)V
     .locals 3
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;
 
     .prologue
     .line 224
@@ -232,7 +232,7 @@
 
 .method public setPreset(S)V
     .locals 1
-    .parameter "preset"
+    .param p1, "preset"    # S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -257,7 +257,7 @@
 
 .method public setProperties(Landroid/media/audiofx/PresetReverb$Settings;)V
     .locals 2
-    .parameter "settings"
+    .param p1, "settings"    # Landroid/media/audiofx/PresetReverb$Settings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,

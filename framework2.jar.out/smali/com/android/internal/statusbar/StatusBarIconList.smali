@@ -53,7 +53,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 31
@@ -70,7 +70,7 @@
 # virtual methods
 .method public copyFrom(Lcom/android/internal/statusbar/StatusBarIconList;)V
     .locals 5
-    .parameter "that"
+    .param p1, "that"    # Lcom/android/internal/statusbar/StatusBarIconList;
 
     .prologue
     const/4 v3, 0x0
@@ -97,7 +97,7 @@
     array-length v0, v2
 
     .line 145
-    .local v0, N:I
+    .local v0, "N":I
     new-array v2, v0, [Ljava/lang/String;
 
     iput-object v2, p0, Lcom/android/internal/statusbar/StatusBarIconList;->mSlots:[Ljava/lang/String;
@@ -110,7 +110,7 @@
     .line 147
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -157,23 +157,23 @@
 
 .method public defineSlots([Ljava/lang/String;)V
     .locals 4
-    .parameter "slots"
+    .param p1, "slots"    # [Ljava/lang/String;
 
     .prologue
     .line 91
     array-length v0, p1
 
     .line 92
-    .local v0, N:I
+    .local v0, "N":I
     new-array v2, v0, [Ljava/lang/String;
 
     iput-object v2, p0, Lcom/android/internal/statusbar/StatusBarIconList;->mSlots:[Ljava/lang/String;
 
     .line 93
-    .local v2, s:[Ljava/lang/String;
+    .local v2, "s":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -209,7 +209,7 @@
 
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 6
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 155
@@ -218,7 +218,7 @@
     array-length v0, v2
 
     .line 156
-    .local v0, N:I
+    .local v0, "N":I
     const-string v2, "Icon list:"
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -226,7 +226,7 @@
     .line 157
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -275,7 +275,7 @@
 
 .method public getIcon(I)Lcom/android/internal/statusbar/StatusBarIcon;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 126
@@ -288,7 +288,7 @@
 
 .method public getSlot(I)Ljava/lang/String;
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 122
@@ -301,7 +301,7 @@
 
 .method public getSlotIndex(Ljava/lang/String;)I
     .locals 3
-    .parameter "slot"
+    .param p1, "slot"    # Ljava/lang/String;
 
     .prologue
     .line 100
@@ -310,10 +310,10 @@
     array-length v0, v2
 
     .line 101
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -329,12 +329,12 @@
     if-eqz v2, :cond_0
 
     .line 106
-    .end local v1           #i:I
+    .end local v1    # "i":I
     :goto_1
     return v1
 
     .line 101
-    .restart local v1       #i:I
+    .restart local v1    # "i":I
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
@@ -349,17 +349,17 @@
 
 .method public getViewIndex(I)I
     .locals 3
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 130
     const/4 v0, 0x0
 
     .line 131
-    .local v0, count:I
+    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p1, :cond_1
 
@@ -386,7 +386,7 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 4
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 36
@@ -402,7 +402,7 @@
     move-result v0
 
     .line 38
-    .local v0, N:I
+    .local v0, "N":I
     if-gez v0, :cond_1
 
     .line 39
@@ -423,7 +423,7 @@
     .line 42
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -452,7 +452,7 @@
 
 .method public removeIcon(I)V
     .locals 2
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 118
@@ -468,8 +468,8 @@
 
 .method public setIcon(ILcom/android/internal/statusbar/StatusBarIcon;)V
     .locals 2
-    .parameter "index"
-    .parameter "icon"
+    .param p1, "index"    # I
+    .param p2, "icon"    # Lcom/android/internal/statusbar/StatusBarIcon;
 
     .prologue
     .line 114
@@ -499,8 +499,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .parameter "out"
-    .parameter "flags"
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 51
@@ -529,13 +529,13 @@
     array-length v0, v3
 
     .line 56
-    .local v0, N:I
+    .local v0, "N":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 57
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -545,7 +545,7 @@
     aget-object v2, v3, v1
 
     .line 59
-    .local v2, ic:Lcom/android/internal/statusbar/StatusBarIcon;
+    .local v2, "ic":Lcom/android/internal/statusbar/StatusBarIcon;
     if-nez v2, :cond_2
 
     .line 60

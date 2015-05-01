@@ -36,7 +36,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1991
@@ -49,8 +48,8 @@
 
 .method synthetic constructor <init>(Landroid/view/inputmethod/InputMethodManager;Landroid/view/inputmethod/InputMethodManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/view/inputmethod/InputMethodManager;
+    .param p2, "x1"    # Landroid/view/inputmethod/InputMethodManager$1;
 
     .prologue
     .line 1991
@@ -115,7 +114,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
-    #calls: Landroid/view/inputmethod/InputMethodManager;->recyclePendingEventLocked(Landroid/view/inputmethod/InputMethodManager$PendingEvent;)V
+    # invokes: Landroid/view/inputmethod/InputMethodManager;->recyclePendingEventLocked(Landroid/view/inputmethod/InputMethodManager$PendingEvent;)V
     invoke-static {v0, p0}, Landroid/view/inputmethod/InputMethodManager;->access$200(Landroid/view/inputmethod/InputMethodManager;Landroid/view/inputmethod/InputMethodManager$PendingEvent;)V
 
     .line 2014

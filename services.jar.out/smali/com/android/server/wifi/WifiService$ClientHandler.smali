@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/os/Looper;)V
     .locals 0
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 141
@@ -37,8 +36,8 @@
 
 .method private replyFailed(Landroid/os/Message;I)V
     .locals 2
-    .parameter "msg"
-    .parameter "what"
+    .param p1, "msg"    # Landroid/os/Message;
+    .param p2, "what"    # I
 
     .prologue
     .line 222
@@ -47,7 +46,7 @@
     move-result-object v0
 
     .line 223
-    .local v0, reply:Landroid/os/Message;
+    .local v0, "reply":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
     .line 224
@@ -78,7 +77,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 9
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const v8, 0x25008
@@ -128,7 +127,7 @@
     .line 153
     iget-object v3, p0, Lcom/android/server/wifi/WifiService$ClientHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mTrafficPoller:Lcom/android/server/wifi/WifiTrafficPoller;
+    # getter for: Lcom/android/server/wifi/WifiService;->mTrafficPoller:Lcom/android/server/wifi/WifiTrafficPoller;
     invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$100(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiTrafficPoller;
 
     move-result-object v3
@@ -179,7 +178,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/server/wifi/WifiService$ClientHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mTrafficPoller:Lcom/android/server/wifi/WifiTrafficPoller;
+    # getter for: Lcom/android/server/wifi/WifiService;->mTrafficPoller:Lcom/android/server/wifi/WifiTrafficPoller;
     invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$100(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiTrafficPoller;
 
     move-result-object v3
@@ -197,10 +196,10 @@
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
     .line 170
-    .local v0, ac:Lcom/android/internal/util/AsyncChannel;
+    .local v0, "ac":Lcom/android/internal/util/AsyncChannel;
     iget-object v3, p0, Lcom/android/server/wifi/WifiService$ClientHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$200(Lcom/android/server/wifi/WifiService;)Landroid/content/Context;
 
     move-result-object v3
@@ -212,18 +211,18 @@
     goto :goto_0
 
     .line 176
-    .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
+    .end local v0    # "ac":Lcom/android/internal/util/AsyncChannel;
     :sswitch_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/WifiConfiguration;
 
     .line 177
-    .local v1, config:Landroid/net/wifi/WifiConfiguration;
+    .local v1, "config":Landroid/net/wifi/WifiConfiguration;
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     .line 178
-    .local v2, networkId:I
+    .local v2, "networkId":I
     if-eqz v1, :cond_4
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiConfiguration;->isValid()Z
@@ -338,8 +337,8 @@
     goto/16 :goto_0
 
     .line 211
-    .end local v1           #config:Landroid/net/wifi/WifiConfiguration;
-    .end local v2           #networkId:I
+    .end local v1    # "config":Landroid/net/wifi/WifiConfiguration;
+    .end local v2    # "networkId":I
     :sswitch_4
     iget-object v3, p0, Lcom/android/server/wifi/WifiService$ClientHandler;->this$0:Lcom/android/server/wifi/WifiService;
 

@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 1276
@@ -37,8 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayManagerService$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Lcom/android/server/display/DisplayManagerService;
+    .param p2, "x1"    # Lcom/android/server/display/DisplayManagerService$1;
 
     .prologue
     .line 1276
@@ -51,8 +50,8 @@
 # virtual methods
 .method public onDisplayDeviceEvent(Lcom/android/server/display/DisplayDevice;I)V
     .locals 1
-    .parameter "device"
-    .parameter "event"
+    .param p1, "device"    # Lcom/android/server/display/DisplayDevice;
+    .param p2, "event"    # I
 
     .prologue
     .line 1279
@@ -66,7 +65,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    #calls: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceAdded(Lcom/android/server/display/DisplayDevice;)V
+    # invokes: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceAdded(Lcom/android/server/display/DisplayDevice;)V
     invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->access$1100(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayDevice;)V
 
     goto :goto_0
@@ -75,7 +74,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    #calls: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceChanged(Lcom/android/server/display/DisplayDevice;)V
+    # invokes: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceChanged(Lcom/android/server/display/DisplayDevice;)V
     invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->access$1200(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayDevice;)V
 
     goto :goto_0
@@ -84,7 +83,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    #calls: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceRemoved(Lcom/android/server/display/DisplayDevice;)V
+    # invokes: Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceRemoved(Lcom/android/server/display/DisplayDevice;)V
     invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->access$1300(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayDevice;)V
 
     goto :goto_0
@@ -105,7 +104,7 @@
     .line 1296
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    #getter for: Lcom/android/server/display/DisplayManagerService;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    # getter for: Lcom/android/server/display/DisplayManagerService;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
     invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->access$500(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
@@ -118,7 +117,7 @@
 
     const/4 v2, 0x0
 
-    #calls: Lcom/android/server/display/DisplayManagerService;->scheduleTraversalLocked(Z)V
+    # invokes: Lcom/android/server/display/DisplayManagerService;->scheduleTraversalLocked(Z)V
     invoke-static {v0, v2}, Lcom/android/server/display/DisplayManagerService;->access$1400(Lcom/android/server/display/DisplayManagerService;Z)V
 
     .line 1298

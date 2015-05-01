@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/net/http/IdleCache;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 144
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/net/http/IdleCache;Landroid/net/http/IdleCache$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/net/http/IdleCache;
+    .param p2, "x1"    # Landroid/net/http/IdleCache$1;
 
     .prologue
     .line 144
@@ -54,7 +53,7 @@
     const/4 v0, 0x0
 
     .line 149
-    .local v0, check:I
+    .local v0, "check":I
     const-string v1, "IdleReaper"
 
     invoke-virtual {p0, v1}, Landroid/net/http/IdleCache$IdleReaper;->setName(Ljava/lang/String;)V
@@ -83,15 +82,15 @@
 
     invoke-virtual {v1, v3, v4}, Ljava/lang/Object;->wait(J)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 158
     :goto_1
     :try_start_1
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
-    #getter for: Landroid/net/http/IdleCache;->mCount:I
+    # getter for: Landroid/net/http/IdleCache;->mCount:I
     invoke-static {v1}, Landroid/net/http/IdleCache;->access$100(Landroid/net/http/IdleCache;)I
 
     move-result v1
@@ -110,7 +109,7 @@
     .line 162
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
-    #calls: Landroid/net/http/IdleCache;->clearIdle()V
+    # invokes: Landroid/net/http/IdleCache;->clearIdle()V
     invoke-static {v1}, Landroid/net/http/IdleCache;->access$200(Landroid/net/http/IdleCache;)V
 
     goto :goto_0
@@ -132,7 +131,7 @@
 
     const/4 v3, 0x0
 
-    #setter for: Landroid/net/http/IdleCache;->mThread:Landroid/net/http/IdleCache$IdleReaper;
+    # setter for: Landroid/net/http/IdleCache;->mThread:Landroid/net/http/IdleCache$IdleReaper;
     invoke-static {v1, v3}, Landroid/net/http/IdleCache;->access$302(Landroid/net/http/IdleCache;Landroid/net/http/IdleCache$IdleReaper;)Landroid/net/http/IdleCache$IdleReaper;
 
     .line 166

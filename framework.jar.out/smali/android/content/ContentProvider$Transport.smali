@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentProvider;)V
     .locals 2
-    .parameter
 
     .prologue
     const/4 v1, -0x1
@@ -53,9 +52,9 @@
 
 .method private enforceFilePermission(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;)V
     .locals 2
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "mode"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mode"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;,
@@ -117,8 +116,8 @@
 
 .method private enforceReadPermission(Ljava/lang/String;Landroid/net/Uri;)I
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
@@ -163,8 +162,8 @@
 
 .method private enforceWritePermission(Ljava/lang/String;Landroid/net/Uri;)I
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
@@ -211,8 +210,7 @@
 # virtual methods
 .method public applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
     .locals 6
-    .parameter "callingPkg"
-    .parameter
+    .param p1, "callingPkg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -232,7 +230,7 @@
     .end annotation
 
     .prologue
-    .local p2, operations:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
+    .local p2, "operations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     const/4 v5, 0x0
 
     .line 243
@@ -240,7 +238,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -255,7 +253,7 @@
     check-cast v1, Landroid/content/ContentProviderOperation;
 
     .line 244
-    .local v1, operation:Landroid/content/ContentProviderOperation;
+    .local v1, "operation":Landroid/content/ContentProviderOperation;
     invoke-virtual {v1}, Landroid/content/ContentProviderOperation;->isReadOperation()Z
 
     move-result v3
@@ -311,17 +309,17 @@
     throw v3
 
     .line 258
-    .end local v1           #operation:Landroid/content/ContentProviderOperation;
+    .end local v1    # "operation":Landroid/content/ContentProviderOperation;
     :cond_2
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v3, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     .line 260
-    .local v2, original:Ljava/lang/String;
+    .local v2, "original":Ljava/lang/String;
     :try_start_0
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -334,7 +332,7 @@
     .line 262
     iget-object v4, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v4, v2}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v3
@@ -344,7 +342,7 @@
 
     iget-object v4, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v4, v2}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v3
@@ -352,9 +350,9 @@
 
 .method public bulkInsert(Ljava/lang/String;Landroid/net/Uri;[Landroid/content/ContentValues;)I
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "initialValues"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "initialValues"    # [Landroid/content/ContentValues;
 
     .prologue
     .line 228
@@ -375,13 +373,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 233
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -394,7 +392,7 @@
     .line 235
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -404,7 +402,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -412,22 +410,22 @@
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "method"
-    .parameter "arg"
-    .parameter "extras"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "method"    # Ljava/lang/String;
+    .param p3, "arg"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
 
     .prologue
     .line 323
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 325
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -440,7 +438,7 @@
     .line 327
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
@@ -450,7 +448,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -458,8 +456,8 @@
 
 .method public canonicalize(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 356
@@ -480,13 +478,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 361
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -499,7 +497,7 @@
     .line 363
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -509,7 +507,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -529,10 +527,10 @@
 
 .method public delete(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 268
@@ -553,13 +551,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 273
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -572,7 +570,7 @@
     .line 275
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -582,7 +580,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -620,8 +618,8 @@
 
 .method public getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
     .locals 1
-    .parameter "uri"
-    .parameter "mimeTypeFilter"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "mimeTypeFilter"    # Ljava/lang/String;
 
     .prologue
     .line 333
@@ -636,7 +634,7 @@
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 1
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 210
@@ -651,9 +649,9 @@
 
 .method public insert(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "initialValues"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "initialValues"    # Landroid/content/ContentValues;
 
     .prologue
     .line 215
@@ -678,13 +676,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 220
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -697,7 +695,7 @@
     .line 222
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -707,7 +705,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -715,10 +713,10 @@
 
 .method public openAssetFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "mode"
-    .parameter "cancellationSignal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mode"    # Ljava/lang/String;
+    .param p4, "cancellationSignal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -732,13 +730,13 @@
     .line 312
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 314
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -755,7 +753,7 @@
     .line 317
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
@@ -765,7 +763,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -773,10 +771,10 @@
 
 .method public openFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/os/ParcelFileDescriptor;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "mode"
-    .parameter "cancellationSignal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mode"    # Ljava/lang/String;
+    .param p4, "cancellationSignal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -790,13 +788,13 @@
     .line 298
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 300
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -813,7 +811,7 @@
     .line 303
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
@@ -823,7 +821,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -831,11 +829,11 @@
 
 .method public openTypedAssetFile(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/content/res/AssetFileDescriptor;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "mimeType"
-    .parameter "opts"
-    .parameter "cancellationSignal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mimeType"    # Ljava/lang/String;
+    .param p4, "opts"    # Landroid/os/Bundle;
+    .param p5, "cancellationSignal"    # Landroid/os/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -851,13 +849,13 @@
     .line 340
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 342
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -874,7 +872,7 @@
     .line 345
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
@@ -884,7 +882,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -892,13 +890,13 @@
 
 .method public query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
     .locals 8
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "projection"
-    .parameter "selection"
-    .parameter "selectionArgs"
-    .parameter "sortOrder"
-    .parameter "cancellationSignal"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "projection"    # [Ljava/lang/String;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
+    .param p6, "sortOrder"    # Ljava/lang/String;
+    .param p7, "cancellationSignal"    # Landroid/os/ICancellationSignal;
 
     .prologue
     .line 194
@@ -937,13 +935,13 @@
     :cond_0
     iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
     .line 200
-    .local v7, original:Ljava/lang/String;
+    .local v7, "original":Ljava/lang/String;
     :try_start_0
     iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -970,7 +968,7 @@
     .line 204
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, v7}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -980,7 +978,7 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, v7}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v0
@@ -988,8 +986,8 @@
 
 .method public uncanonicalize(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 369
@@ -1010,13 +1008,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 374
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -1029,7 +1027,7 @@
     .line 376
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -1039,7 +1037,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
@@ -1047,11 +1045,11 @@
 
 .method public update(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 3
-    .parameter "callingPkg"
-    .parameter "uri"
-    .parameter "values"
-    .parameter "selection"
-    .parameter "selectionArgs"
+    .param p1, "callingPkg"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "values"    # Landroid/content/ContentValues;
+    .param p4, "selection"    # Ljava/lang/String;
+    .param p5, "selectionArgs"    # [Ljava/lang/String;
 
     .prologue
     .line 282
@@ -1072,13 +1070,13 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 287
-    .local v0, original:Ljava/lang/String;
+    .local v0, "original":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
@@ -1091,7 +1089,7 @@
     .line 289
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -1101,7 +1099,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    #calls: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
+    # invokes: Landroid/content/ContentProvider;->setCallingPackage(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v0}, Landroid/content/ContentProvider;->access$000(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1

@@ -21,8 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentQueryMap;Landroid/os/Handler;)V
     .locals 0
-    .parameter
-    .parameter "x0"
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
     .line 98
@@ -37,7 +36,7 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
     .line 104
@@ -64,7 +63,7 @@
 
     const/4 v1, 0x1
 
-    #setter for: Landroid/content/ContentQueryMap;->mDirty:Z
+    # setter for: Landroid/content/ContentQueryMap;->mDirty:Z
     invoke-static {v0, v1}, Landroid/content/ContentQueryMap;->access$002(Landroid/content/ContentQueryMap;Z)Z
 
     goto :goto_0

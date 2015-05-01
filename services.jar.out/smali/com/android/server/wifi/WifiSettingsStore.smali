@@ -28,7 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -151,7 +151,7 @@
     move-result-object v0
 
     .line 180
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     :try_start_0
     const-string v3, "wifi_on"
 
@@ -170,7 +170,7 @@
     move-exception v1
 
     .line 182
-    .local v1, e:Landroid/provider/Settings$SettingNotFoundException;
+    .local v1, "e":Landroid/provider/Settings$SettingNotFoundException;
     const-string v3, "wifi_on"
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
@@ -196,7 +196,7 @@
     move-result-object v0
 
     .line 145
-    .local v0, airplaneModeRadios:Ljava/lang/String;
+    .local v0, "airplaneModeRadios":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string v1, "wifi"
@@ -237,7 +237,7 @@
     move-result-object v0
 
     .line 153
-    .local v0, toggleableRadios:Ljava/lang/String;
+    .local v0, "toggleableRadios":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string v1, "wifi"
@@ -261,7 +261,7 @@
 
 .method private persistWifiState(I)V
     .locals 2
-    .parameter "state"
+    .param p1, "state"    # I
 
     .prologue
     .line 136
@@ -272,7 +272,7 @@
     move-result-object v0
 
     .line 137
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     iput p1, p0, Lcom/android/server/wifi/WifiSettingsStore;->mPersistWifiState:I
 
     .line 138
@@ -300,11 +300,11 @@
     move-result-object v0
 
     .line 166
-    .local v0, cr:Landroid/content/ContentResolver;
+    .local v0, "cr":Landroid/content/ContentResolver;
     const/4 v1, 0x0
 
     .line 168
-    .local v1, wifiSavedState:I
+    .local v1, "wifiSavedState":I
     :try_start_0
     const-string v4, "wifi_saved_state"
 
@@ -348,9 +348,9 @@
 # virtual methods
 .method dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .parameter "fd"
-    .parameter "pw"
-    .parameter "args"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
     .line 131
@@ -525,7 +525,7 @@
 
 .method declared-synchronized handleWifiToggled(Z)Z
     .locals 3
-    .parameter "wifiEnabled"
+    .param p1, "wifiEnabled"    # Z
 
     .prologue
     const/4 v1, 0x1

@@ -175,7 +175,7 @@
     move-result-object v0
 
     .line 310
-    .local v0, componentName:Landroid/content/ComponentName;
+    .local v0, "componentName":Landroid/content/ComponentName;
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -239,14 +239,14 @@
     return-object v1
 
     .line 309
-    .end local v0           #componentName:Landroid/content/ComponentName;
+    .end local v0    # "componentName":Landroid/content/ComponentName;
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 310
-    .restart local v0       #componentName:Landroid/content/ComponentName;
+    .restart local v0    # "componentName":Landroid/content/ComponentName;
     :cond_1
     invoke-virtual {v0}, Landroid/content/ComponentName;->toShortString()Ljava/lang/String;
 

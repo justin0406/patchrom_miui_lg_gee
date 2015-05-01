@@ -36,8 +36,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;Landroid/view/View;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 1010

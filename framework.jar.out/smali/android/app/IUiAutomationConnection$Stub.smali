@@ -58,7 +58,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IUiAutomationConnection;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 32
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 36
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IUiAutomationConnection;
@@ -96,7 +96,7 @@
     :cond_1
     new-instance v0, Landroid/app/IUiAutomationConnection$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IUiAutomationConnection$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -114,10 +114,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 6
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -164,7 +164,7 @@
     move-result-object v0
 
     .line 59
-    .local v0, _arg0:Landroid/accessibilityservice/IAccessibilityServiceClient;
+    .local v0, "_arg0":Landroid/accessibilityservice/IAccessibilityServiceClient;
     invoke-virtual {p0, v0}, Landroid/app/IUiAutomationConnection$Stub;->connect(Landroid/accessibilityservice/IAccessibilityServiceClient;)V
 
     .line 60
@@ -173,7 +173,7 @@
     goto :goto_0
 
     .line 65
-    .end local v0           #_arg0:Landroid/accessibilityservice/IAccessibilityServiceClient;
+    .end local v0    # "_arg0":Landroid/accessibilityservice/IAccessibilityServiceClient;
     :sswitch_2
     const-string v4, "android.app.IUiAutomationConnection"
 
@@ -210,7 +210,7 @@
     check-cast v0, Landroid/view/InputEvent;
 
     .line 81
-    .local v0, _arg0:Landroid/view/InputEvent;
+    .local v0, "_arg0":Landroid/view/InputEvent;
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -221,14 +221,14 @@
     move v1, v3
 
     .line 82
-    .local v1, _arg1:Z
+    .local v1, "_arg1":Z
     :goto_2
     invoke-virtual {p0, v0, v1}, Landroid/app/IUiAutomationConnection$Stub;->injectInputEvent(Landroid/view/InputEvent;Z)Z
 
     move-result v2
 
     .line 83
-    .local v2, _result:Z
+    .local v2, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 84
@@ -242,13 +242,13 @@
     goto :goto_0
 
     .line 78
-    .end local v0           #_arg0:Landroid/view/InputEvent;
-    .end local v1           #_arg1:Z
-    .end local v2           #_result:Z
+    .end local v0    # "_arg0":Landroid/view/InputEvent;
+    .end local v1    # "_arg1":Z
+    .end local v2    # "_result":Z
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Landroid/view/InputEvent;
+    .restart local v0    # "_arg0":Landroid/view/InputEvent;
     goto :goto_1
 
     :cond_2
@@ -258,7 +258,7 @@
     goto :goto_2
 
     .line 89
-    .end local v0           #_arg0:Landroid/view/InputEvent;
+    .end local v0    # "_arg0":Landroid/view/InputEvent;
     :sswitch_4
     const-string v5, "android.app.IUiAutomationConnection"
 
@@ -270,13 +270,13 @@
     move-result v0
 
     .line 92
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/IUiAutomationConnection$Stub;->setRotation(I)Z
 
     move-result v2
 
     .line 93
-    .restart local v2       #_result:Z
+    .restart local v2    # "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 94
@@ -290,8 +290,8 @@
     goto :goto_0
 
     .line 99
-    .end local v0           #_arg0:I
-    .end local v2           #_result:Z
+    .end local v0    # "_arg0":I
+    .end local v2    # "_result":Z
     :sswitch_5
     const-string v5, "android.app.IUiAutomationConnection"
 
@@ -303,19 +303,19 @@
     move-result v0
 
     .line 103
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 104
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/app/IUiAutomationConnection$Stub;->takeScreenshot(II)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
     .line 105
-    .local v2, _result:Landroid/graphics/Bitmap;
+    .local v2, "_result":Landroid/graphics/Bitmap;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 106
@@ -336,9 +336,9 @@
     goto/16 :goto_0
 
     .line 117
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
-    .end local v2           #_result:Landroid/graphics/Bitmap;
+    .end local v0    # "_arg0":I
+    .end local v1    # "_arg1":I
+    .end local v2    # "_result":Landroid/graphics/Bitmap;
     :sswitch_6
     const-string v4, "android.app.IUiAutomationConnection"
 

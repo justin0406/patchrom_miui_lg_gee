@@ -29,14 +29,13 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/BlackFrame;Landroid/view/SurfaceSession;IIIIII)V
     .locals 7
-    .parameter
-    .parameter "session"
-    .parameter "layer"
-    .parameter "l"
-    .parameter "t"
-    .parameter "r"
-    .parameter "b"
-    .parameter "layerStack"
+    .param p2, "session"    # Landroid/view/SurfaceSession;
+    .param p3, "layer"    # I
+    .param p4, "l"    # I
+    .param p5, "t"    # I
+    .param p6, "r"    # I
+    .param p7, "b"    # I
+    .param p8, "layerStack"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/view/Surface$OutOfResourcesException;
@@ -62,11 +61,11 @@
     sub-int v3, p6, p4
 
     .line 45
-    .local v3, w:I
+    .local v3, "w":I
     sub-int v4, p7, p5
 
     .line 52
-    .local v4, h:I
+    .local v4, "h":I
     new-instance v0, Landroid/view/SurfaceControl;
 
     const-string v2, "BlackSurface"
@@ -84,7 +83,7 @@
     .line 56
     iget-object v0, p0, Lcom/android/server/wm/BlackFrame$BlackSurface;->surface:Landroid/view/SurfaceControl;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setAlpha(F)V
 
@@ -113,7 +112,7 @@
     .locals 3
 
     .prologue
-    const/high16 v2, 0x3f80
+    const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
@@ -128,7 +127,7 @@
 
 .method setAlpha(F)V
     .locals 1
-    .parameter "alpha"
+    .param p1, "alpha"    # F
 
     .prologue
     .line 66
@@ -142,7 +141,7 @@
 
 .method setMatrix(Landroid/graphics/Matrix;)V
     .locals 6
-    .parameter "matrix"
+    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .prologue
     .line 70

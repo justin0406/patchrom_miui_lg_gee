@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/SupplicantStateTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 346

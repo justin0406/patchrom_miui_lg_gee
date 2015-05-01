@@ -63,8 +63,8 @@
 
 .method public static fromContext(Landroid/content/Context;I)Landroid/content/Intent$ShortcutIconResource;
     .locals 2
-    .parameter "context"
-    .parameter "resourceId"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resourceId"    # I
 
     .prologue
     .line 747
@@ -73,7 +73,7 @@
     invoke-direct {v0}, Landroid/content/Intent$ShortcutIconResource;-><init>()V
 
     .line 748
-    .local v0, icon:Landroid/content/Intent$ShortcutIconResource;
+    .local v0, "icon":Landroid/content/Intent$ShortcutIconResource;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -119,8 +119,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 779

@@ -152,8 +152,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -179,7 +177,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;
     .locals 1
-    .parameter "name"
+    .param p0, "name"    # Ljava/lang/String;
 
     .prologue
     .line 54

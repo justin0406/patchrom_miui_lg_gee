@@ -25,7 +25,7 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 1724
@@ -40,8 +40,8 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/content/SyncManager$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # Lcom/android/server/content/SyncManager$1;
 
     .prologue
     .line 1719

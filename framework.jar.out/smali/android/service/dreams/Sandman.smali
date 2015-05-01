@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final SOMNAMBULATOR_COMPONENT:Landroid/content/ComponentName; = null
+.field private static final SOMNAMBULATOR_COMPONENT:Landroid/content/ComponentName;
 
 .field private static final TAG:Ljava/lang/String; = "Sandman"
 
@@ -41,7 +41,7 @@
 
 .method private static isScreenSaverActivatedOnDock(Landroid/content/Context;)Z
     .locals 6
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x1
@@ -53,7 +53,7 @@
 
     move-result-object v3
 
-    const v4, 0x111004b
+    const v4, 0x111004a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -64,7 +64,7 @@
     move v0, v1
 
     .line 119
-    .local v0, def:I
+    .local v0, "def":I
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -83,14 +83,14 @@
     :goto_1
     return v1
 
-    .end local v0           #def:I
+    .end local v0    # "def":I
     :cond_0
     move v0, v2
 
     .line 117
     goto :goto_0
 
-    .restart local v0       #def:I
+    .restart local v0    # "def":I
     :cond_1
     move v1, v2
 
@@ -100,7 +100,7 @@
 
 .method private static isScreenSaverEnabled(Landroid/content/Context;)Z
     .locals 6
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v1, 0x1
@@ -112,7 +112,7 @@
 
     move-result-object v3
 
-    const v4, 0x111004a
+    const v4, 0x1110049
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -123,7 +123,7 @@
     move v0, v1
 
     .line 111
-    .local v0, def:I
+    .local v0, "def":I
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -142,14 +142,14 @@
     :goto_1
     return v1
 
-    .end local v0           #def:I
+    .end local v0    # "def":I
     :cond_0
     move v0, v2
 
     .line 109
     goto :goto_0
 
-    .restart local v0       #def:I
+    .restart local v0    # "def":I
     :cond_1
     move v1, v2
 
@@ -159,8 +159,8 @@
 
 .method public static shouldStartDockApp(Landroid/content/Context;Landroid/content/Intent;)Z
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 55
@@ -173,7 +173,7 @@
     move-result-object v0
 
     .line 56
-    .local v0, name:Landroid/content/ComponentName;
+    .local v0, "name":Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
     sget-object v1, Landroid/service/dreams/Sandman;->SOMNAMBULATOR_COMPONENT:Landroid/content/ComponentName;
@@ -197,8 +197,8 @@
 
 .method private static startDream(Landroid/content/Context;Z)V
     .locals 5
-    .parameter "context"
-    .parameter "docked"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "docked"    # Z
 
     .prologue
     .line 82
@@ -214,7 +214,7 @@
     move-result-object v0
 
     .line 84
-    .local v0, dreamManagerService:Landroid/service/dreams/IDreamManager;
+    .local v0, "dreamManagerService":Landroid/service/dreams/IDreamManager;
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Landroid/service/dreams/IDreamManager;->isDreaming()Z
@@ -243,7 +243,7 @@
     check-cast v2, Landroid/os/PowerManager;
 
     .line 95
-    .local v2, powerManager:Landroid/os/PowerManager;
+    .local v2, "powerManager":Landroid/os/PowerManager;
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
@@ -251,18 +251,18 @@
     invoke-virtual {v2, v3, v4}, Landroid/os/PowerManager;->wakeUp(J)V
 
     .line 101
-    .end local v2           #powerManager:Landroid/os/PowerManager;
+    .end local v2    # "powerManager":Landroid/os/PowerManager;
     :goto_0
     invoke-interface {v0}, Landroid/service/dreams/IDreamManager;->dream()V
 
     .line 106
-    .end local v0           #dreamManagerService:Landroid/service/dreams/IDreamManager;
+    .end local v0    # "dreamManagerService":Landroid/service/dreams/IDreamManager;
     :cond_0
     :goto_1
     return-void
 
     .line 97
-    .restart local v0       #dreamManagerService:Landroid/service/dreams/IDreamManager;
+    .restart local v0    # "dreamManagerService":Landroid/service/dreams/IDreamManager;
     :cond_1
     const-string v3, "Sandman"
 
@@ -275,12 +275,12 @@
     goto :goto_0
 
     .line 103
-    .end local v0           #dreamManagerService:Landroid/service/dreams/IDreamManager;
+    .end local v0    # "dreamManagerService":Landroid/service/dreams/IDreamManager;
     :catch_0
     move-exception v1
 
     .line 104
-    .local v1, ex:Landroid/os/RemoteException;
+    .local v1, "ex":Landroid/os/RemoteException;
     const-string v3, "Sandman"
 
     const-string v4, "Could not start dream when docked."
@@ -292,7 +292,7 @@
 
 .method public static startDreamByUserRequest(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 63
@@ -306,7 +306,7 @@
 
 .method public static startDreamWhenDockedIfAppropriate(Landroid/content/Context;)V
     .locals 2
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 71

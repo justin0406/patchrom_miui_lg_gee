@@ -25,11 +25,11 @@
 
 .method public static compressTexture(Ljava/nio/Buffer;IIII)Landroid/opengl/ETC1Util$ETC1Texture;
     .locals 7
-    .parameter "input"
-    .parameter "width"
-    .parameter "height"
-    .parameter "pixelSize"
-    .parameter "stride"
+    .param p0, "input"    # Ljava/nio/Buffer;
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "pixelSize"    # I
+    .param p4, "stride"    # I
 
     .prologue
     .line 193
@@ -38,7 +38,7 @@
     move-result v6
 
     .line 194
-    .local v6, encodedImageSize:I
+    .local v6, "encodedImageSize":I
     invoke-static {v6}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
@@ -51,7 +51,7 @@
 
     move-result-object v5
 
-    .local v5, compressedImage:Ljava/nio/ByteBuffer;
+    .local v5, "compressedImage":Ljava/nio/ByteBuffer;
     move-object v0, p0
 
     move v1, p1
@@ -75,7 +75,7 @@
 
 .method public static createTexture(Ljava/io/InputStream;)Landroid/opengl/ETC1Util$ETC1Texture;
     .locals 12
-    .parameter "input"
+    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -91,17 +91,17 @@
     const/4 v7, 0x0
 
     .line 154
-    .local v7, width:I
+    .local v7, "width":I
     const/4 v4, 0x0
 
     .line 155
-    .local v4, height:I
+    .local v4, "height":I
     const/16 v8, 0x1000
 
     new-array v6, v8, [B
 
     .line 157
-    .local v6, ioBuffer:[B
+    .local v6, "ioBuffer":[B
     invoke-virtual {p0, v6, v10, v11}, Ljava/io/InputStream;->read([BII)I
 
     move-result v8
@@ -132,7 +132,7 @@
     move-result-object v3
 
     .line 162
-    .local v3, headerBuffer:Ljava/nio/ByteBuffer;
+    .local v3, "headerBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {v3, v6, v10, v11}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
 
     move-result-object v8
@@ -172,7 +172,7 @@
     move-result v2
 
     .line 170
-    .local v2, encodedSize:I
+    .local v2, "encodedSize":I
     invoke-static {v2}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v8
@@ -186,10 +186,10 @@
     move-result-object v1
 
     .line 171
-    .local v1, dataBuffer:Ljava/nio/ByteBuffer;
+    .local v1, "dataBuffer":Ljava/nio/ByteBuffer;
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_0
     if-ge v5, v2, :cond_3
 
@@ -203,7 +203,7 @@
     move-result v0
 
     .line 173
-    .local v0, chunkSize:I
+    .local v0, "chunkSize":I
     invoke-virtual {p0, v6, v10, v0}, Ljava/io/InputStream;->read([BII)I
 
     move-result v8
@@ -230,7 +230,7 @@
     goto :goto_0
 
     .line 179
-    .end local v0           #chunkSize:I
+    .end local v0    # "chunkSize":I
     :cond_3
     invoke-virtual {v1, v10}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
@@ -254,7 +254,7 @@
     new-array v2, v4, [I
 
     .line 99
-    .local v2, results:[I
+    .local v2, "results":[I
     const v4, 0x86a2
 
     invoke-static {v4, v2, v3}, Landroid/opengl/GLES10;->glGetIntegerv(I[II)V
@@ -263,7 +263,7 @@
     aget v1, v2, v3
 
     .line 101
-    .local v1, numFormats:I
+    .local v1, "numFormats":I
     array-length v4, v2
 
     if-le v1, v4, :cond_0
@@ -280,7 +280,7 @@
     .line 105
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -307,12 +307,12 @@
 
 .method public static loadTexture(IIIIILandroid/opengl/ETC1Util$ETC1Texture;)V
     .locals 24
-    .parameter "target"
-    .parameter "level"
-    .parameter "border"
-    .parameter "fallbackFormat"
-    .parameter "fallbackType"
-    .parameter "texture"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "border"    # I
+    .param p3, "fallbackFormat"    # I
+    .param p4, "fallbackType"    # I
+    .param p5, "texture"    # Landroid/opengl/ETC1Util$ETC1Texture;
 
     .prologue
     .line 66
@@ -361,19 +361,19 @@
     move-result v4
 
     .line 75
-    .local v4, width:I
+    .local v4, "width":I
     invoke-virtual/range {p5 .. p5}, Landroid/opengl/ETC1Util$ETC1Texture;->getHeight()I
 
     move-result v5
 
     .line 76
-    .local v5, height:I
+    .local v5, "height":I
     invoke-virtual/range {p5 .. p5}, Landroid/opengl/ETC1Util$ETC1Texture;->getData()Ljava/nio/ByteBuffer;
 
     move-result-object v8
 
     .line 77
-    .local v8, data:Ljava/nio/Buffer;
+    .local v8, "data":Ljava/nio/Buffer;
     invoke-static {}, Landroid/opengl/ETC1Util;->isETC1Supported()Z
 
     move-result v1
@@ -386,7 +386,7 @@
     move-result v7
 
     .line 79
-    .local v7, imageSize:I
+    .local v7, "imageSize":I
     const v3, 0x8d64
 
     move/from16 v1, p0
@@ -398,7 +398,7 @@
     invoke-static/range {v1 .. v8}, Landroid/opengl/GLES10;->glCompressedTexImage2D(IIIIIIILjava/nio/Buffer;)V
 
     .line 91
-    .end local v7           #imageSize:I
+    .end local v7    # "imageSize":I
     :goto_0
     return-void
 
@@ -413,19 +413,19 @@
     const/16 v23, 0x1
 
     .line 83
-    .local v23, useShorts:Z
+    .local v23, "useShorts":Z
     :goto_1
     if-eqz v23, :cond_4
 
     const/4 v12, 0x2
 
     .line 84
-    .local v12, pixelSize:I
+    .local v12, "pixelSize":I
     :goto_2
     mul-int v13, v12, v4
 
     .line 85
-    .local v13, stride:I
+    .local v13, "stride":I
     mul-int v1, v13, v5
 
     invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
@@ -440,7 +440,7 @@
 
     move-result-object v9
 
-    .local v9, decodedData:Ljava/nio/ByteBuffer;
+    .local v9, "decodedData":Ljava/nio/ByteBuffer;
     move v10, v4
 
     move v11, v5
@@ -472,17 +472,17 @@
     goto :goto_0
 
     .line 82
-    .end local v9           #decodedData:Ljava/nio/ByteBuffer;
-    .end local v12           #pixelSize:I
-    .end local v13           #stride:I
-    .end local v23           #useShorts:Z
+    .end local v9    # "decodedData":Ljava/nio/ByteBuffer;
+    .end local v12    # "pixelSize":I
+    .end local v13    # "stride":I
+    .end local v23    # "useShorts":Z
     :cond_3
     const/16 v23, 0x0
 
     goto :goto_1
 
     .line 83
-    .restart local v23       #useShorts:Z
+    .restart local v23    # "useShorts":Z
     :cond_4
     const/4 v12, 0x3
 
@@ -491,12 +491,12 @@
 
 .method public static loadTexture(IIIIILjava/io/InputStream;)V
     .locals 6
-    .parameter "target"
-    .parameter "level"
-    .parameter "border"
-    .parameter "fallbackFormat"
-    .parameter "fallbackType"
-    .parameter "input"
+    .param p0, "target"    # I
+    .param p1, "level"    # I
+    .param p2, "border"    # I
+    .param p3, "fallbackFormat"    # I
+    .param p4, "fallbackType"    # I
+    .param p5, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -527,8 +527,8 @@
 
 .method public static writeTexture(Landroid/opengl/ETC1Util$ETC1Texture;Ljava/io/OutputStream;)V
     .locals 11
-    .parameter "texture"
-    .parameter "output"
+    .param p0, "texture"    # Landroid/opengl/ETC1Util$ETC1Texture;
+    .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -542,26 +542,26 @@
     move-result-object v1
 
     .line 208
-    .local v1, dataBuffer:Ljava/nio/ByteBuffer;
+    .local v1, "dataBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v7
 
     .line 210
-    .local v7, originalPosition:I
+    .local v7, "originalPosition":I
     :try_start_0
     invoke-virtual {p0}, Landroid/opengl/ETC1Util$ETC1Texture;->getWidth()I
 
     move-result v8
 
     .line 211
-    .local v8, width:I
+    .local v8, "width":I
     invoke-virtual {p0}, Landroid/opengl/ETC1Util$ETC1Texture;->getHeight()I
 
     move-result v4
 
     .line 212
-    .local v4, height:I
+    .local v4, "height":I
     const/16 v9, 0x10
 
     invoke-static {v9}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
@@ -577,7 +577,7 @@
     move-result-object v3
 
     .line 213
-    .local v3, header:Ljava/nio/ByteBuffer;
+    .local v3, "header":Ljava/nio/ByteBuffer;
     invoke-static {v3, v8, v4}, Landroid/opengl/ETC1;->formatHeader(Ljava/nio/Buffer;II)V
 
     .line 214
@@ -586,7 +586,7 @@
     new-array v6, v9, [B
 
     .line 215
-    .local v6, ioBuffer:[B
+    .local v6, "ioBuffer":[B
     const/4 v9, 0x0
 
     const/16 v10, 0x10
@@ -606,10 +606,10 @@
     move-result v2
 
     .line 218
-    .local v2, encodedSize:I
+    .local v2, "encodedSize":I
     const/4 v5, 0x0
 
-    .local v5, i:I
+    .local v5, "i":I
     :goto_0
     if-ge v5, v2, :cond_0
 
@@ -623,7 +623,7 @@
     move-result v0
 
     .line 220
-    .local v0, chunkSize:I
+    .local v0, "chunkSize":I
     const/4 v9, 0x0
 
     invoke-virtual {v1, v6, v9, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
@@ -642,7 +642,7 @@
     goto :goto_0
 
     .line 225
-    .end local v0           #chunkSize:I
+    .end local v0    # "chunkSize":I
     :cond_0
     invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
@@ -650,12 +650,12 @@
     return-void
 
     .line 225
-    .end local v2           #encodedSize:I
-    .end local v3           #header:Ljava/nio/ByteBuffer;
-    .end local v4           #height:I
-    .end local v5           #i:I
-    .end local v6           #ioBuffer:[B
-    .end local v8           #width:I
+    .end local v2    # "encodedSize":I
+    .end local v3    # "header":Ljava/nio/ByteBuffer;
+    .end local v4    # "height":I
+    .end local v5    # "i":I
+    .end local v6    # "ioBuffer":[B
+    .end local v8    # "width":I
     :catchall_0
     move-exception v9
 

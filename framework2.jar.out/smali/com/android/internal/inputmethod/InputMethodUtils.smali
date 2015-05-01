@@ -14,11 +14,11 @@
 # static fields
 .field public static final DEBUG:Z = false
 
-.field private static final ENGLISH_LOCALE:Ljava/util/Locale; = null
+.field private static final ENGLISH_LOCALE:Ljava/util/Locale;
 
 .field public static final NOT_A_SUBTYPE_ID:I = -0x1
 
-.field private static final NOT_A_SUBTYPE_ID_STR:Ljava/lang/String; = null
+.field private static final NOT_A_SUBTYPE_ID_STR:Ljava/lang/String;
 
 .field public static final SUBTYPE_MODE_KEYBOARD:Ljava/lang/String; = "keyboard"
 
@@ -70,8 +70,8 @@
 
 .method static synthetic access$000(Landroid/content/res/Resources;Landroid/view/inputmethod/InputMethodInfo;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/content/res/Resources;
+    .param p1, "x1"    # Landroid/view/inputmethod/InputMethodInfo;
 
     .prologue
     .line 44
@@ -94,7 +94,7 @@
 
 .method public static canAddToLastInputMethod(Landroid/view/inputmethod/InputMethodSubtype;)Z
     .locals 2
-    .parameter "subtype"
+    .param p0, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
 
     .prologue
     const/4 v0, 0x1
@@ -121,9 +121,9 @@
 
 .method public static containsSubtypeOf(Landroid/view/inputmethod/InputMethodInfo;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
-    .parameter "imi"
-    .parameter "language"
-    .parameter "mode"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p1, "language"    # Ljava/lang/String;
+    .param p2, "mode"    # Ljava/lang/String;
 
     .prologue
     .line 185
@@ -132,10 +132,10 @@
     move-result v0
 
     .line 186
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_3
 
@@ -198,11 +198,10 @@
 
 .method public static findLastResortApplicableSubtypeLocked(Landroid/content/res/Resources;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Z)Landroid/view/inputmethod/InputMethodSubtype;
     .locals 10
-    .parameter "res"
-    .parameter
-    .parameter "mode"
-    .parameter "locale"
-    .parameter "canIgnoreLocaleAsLastResort"
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p2, "mode"    # Ljava/lang/String;
+    .param p3, "locale"    # Ljava/lang/String;
+    .param p4, "canIgnoreLocaleAsLastResort"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -220,7 +219,7 @@
 
     .prologue
     .line 350
-    .local p1, subtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local p1, "subtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -268,28 +267,28 @@
     move-result-object v4
 
     .line 357
-    .local v4, language:Ljava/lang/String;
+    .local v4, "language":Ljava/lang/String;
     const/4 v5, 0x0
 
     .line 358
-    .local v5, partialMatchFound:Z
+    .local v5, "partialMatchFound":Z
     const/4 v1, 0x0
 
     .line 359
-    .local v1, applicableSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v1, "applicableSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     const/4 v2, 0x0
 
     .line 360
-    .local v2, firstMatchedModeSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v2, "firstMatchedModeSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
     .line 361
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v3, 0x0
 
-    .local v3, i:I
+    .local v3, "i":I
     :goto_1
     if-ge v3, v0, :cond_6
 
@@ -301,13 +300,13 @@
     check-cast v6, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 363
-    .local v6, subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v6, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
 
     move-result-object v7
 
     .line 366
-    .local v7, subtypeLocale:Ljava/lang/String;
+    .local v7, "subtypeLocale":Ljava/lang/String;
     if-eqz p2, :cond_4
 
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -345,8 +344,8 @@
     move-object v1, v6
 
     .line 382
-    .end local v6           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
-    .end local v7           #subtypeLocale:Ljava/lang/String;
+    .end local v6    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v7    # "subtypeLocale":Ljava/lang/String;
     :cond_6
     if-nez v1, :cond_7
 
@@ -359,8 +358,8 @@
     goto :goto_0
 
     .line 374
-    .restart local v6       #subtype:Landroid/view/inputmethod/InputMethodSubtype;
-    .restart local v7       #subtypeLocale:Ljava/lang/String;
+    .restart local v6    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v7    # "subtypeLocale":Ljava/lang/String;
     :cond_8
     if-nez v5, :cond_9
 
@@ -391,7 +390,7 @@
     const-string v0, ""
 
     .line 79
-    .local v0, apiCallStack:Ljava/lang/String;
+    .local v0, "apiCallStack":Ljava/lang/String;
     :try_start_0
     new-instance v5, Ljava/lang/RuntimeException;
 
@@ -406,16 +405,16 @@
     move-exception v1
 
     .line 81
-    .local v1, e:Ljava/lang/RuntimeException;
+    .local v1, "e":Ljava/lang/RuntimeException;
     invoke-virtual {v1}, Ljava/lang/RuntimeException;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v2
 
     .line 82
-    .local v2, frames:[Ljava/lang/StackTraceElement;
+    .local v2, "frames":[Ljava/lang/StackTraceElement;
     const/4 v3, 0x1
 
-    .local v3, j:I
+    .local v3, "j":I
     :goto_0
     array-length v5, v2
 
@@ -429,7 +428,7 @@
     move-result-object v4
 
     .line 84
-    .local v4, tempCallStack:Ljava/lang/String;
+    .local v4, "tempCallStack":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
@@ -461,16 +460,15 @@
     goto :goto_1
 
     .line 95
-    .end local v4           #tempCallStack:Ljava/lang/String;
+    .end local v4    # "tempCallStack":Ljava/lang/String;
     :cond_1
     return-object v0
 .end method
 
 .method public static getDefaultEnabledImes(Landroid/content/Context;ZLjava/util/ArrayList;)Ljava/util/ArrayList;
     .locals 5
-    .parameter "context"
-    .parameter "isSystemReady"
-    .parameter
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "isSystemReady"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -489,20 +487,20 @@
 
     .prologue
     .line 130
-    .local p2, imis:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
+    .local p2, "imis":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 131
-    .local v3, retval:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
+    .local v3, "retval":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
     const/4 v0, 0x0
 
     .line 132
-    .local v0, auxilialyImeAdded:Z
+    .local v0, "auxilialyImeAdded":Z
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
 
@@ -518,7 +516,7 @@
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
     .line 134
-    .local v2, imi:Landroid/view/inputmethod/InputMethodInfo;
+    .local v2, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {p1, v2, p0}, Lcom/android/internal/inputmethod/InputMethodUtils;->isDefaultEnabledIme(ZLandroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;)Z
 
     move-result v4
@@ -545,7 +543,7 @@
     goto :goto_0
 
     .line 141
-    .end local v2           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_1
     if-eqz v0, :cond_3
 
@@ -572,7 +570,7 @@
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
     .line 146
-    .restart local v2       #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .restart local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {v2}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemAuxilialyImeThatHashAutomaticSubtype(Landroid/view/inputmethod/InputMethodInfo;)Z
 
     move-result v4
@@ -591,10 +589,9 @@
 
 .method private static getEnabledInputMethodSubtypeList(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Ljava/util/List;Z)Ljava/util/List;
     .locals 1
-    .parameter "context"
-    .parameter "imi"
-    .parameter
-    .parameter "allowsImplicitlySelectedSubtypes"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p3, "allowsImplicitlySelectedSubtypes"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -613,7 +610,7 @@
 
     .prologue
     .line 330
-    .local p2, enabledSubtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local p2, "enabledSubtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     if-eqz p3, :cond_0
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
@@ -644,9 +641,9 @@
 
 .method public static getImeAndSubtypeDisplayName(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Landroid/view/inputmethod/InputMethodSubtype;)Ljava/lang/CharSequence;
     .locals 5
-    .parameter "context"
-    .parameter "imi"
-    .parameter "subtype"
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p2, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
 
     .prologue
     .line 476
@@ -659,7 +656,7 @@
     move-result-object v0
 
     .line 477
-    .local v0, imiLabel:Ljava/lang/CharSequence;
+    .local v0, "imiLabel":Ljava/lang/CharSequence;
     if-eqz p2, :cond_0
 
     const/4 v1, 0x2
@@ -701,11 +698,11 @@
 
     move-result-object v0
 
-    .end local v0           #imiLabel:Ljava/lang/CharSequence;
+    .end local v0    # "imiLabel":Ljava/lang/CharSequence;
     :cond_0
     return-object v0
 
-    .restart local v0       #imiLabel:Ljava/lang/CharSequence;
+    .restart local v0    # "imiLabel":Ljava/lang/CharSequence;
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -730,8 +727,8 @@
 
 .method private static getImplicitlyApplicableSubtypesLocked(Landroid/content/res/Resources;Landroid/view/inputmethod/InputMethodInfo;)Ljava/util/ArrayList;
     .locals 14
-    .parameter "res"
-    .parameter "imi"
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -752,7 +749,7 @@
     move-result-object v10
 
     .line 263
-    .local v10, subtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v10, "subtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v12
@@ -764,7 +761,7 @@
     move-result-object v11
 
     .line 264
-    .local v11, systemLocale:Ljava/lang/String;
+    .local v11, "systemLocale":Ljava/lang/String;
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
@@ -787,16 +784,16 @@
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     .line 267
-    .local v1, applicableModeAndSubtypesMap:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v1, "applicableModeAndSubtypesMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v0
 
     .line 268
-    .local v0, N:I
+    .local v0, "N":I
     const/4 v4, 0x0
 
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     if-ge v4, v0, :cond_3
 
@@ -808,7 +805,7 @@
     check-cast v9, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 271
-    .local v9, subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v9, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v9}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
     move-result v12
@@ -821,7 +818,7 @@
     move-result-object v8
 
     .line 273
-    .local v8, mode:Ljava/lang/String;
+    .local v8, "mode":Ljava/lang/String;
     invoke-virtual {v1, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v12
@@ -832,14 +829,14 @@
     invoke-virtual {v1, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 268
-    .end local v8           #mode:Ljava/lang/String;
+    .end local v8    # "mode":Ljava/lang/String;
     :cond_2
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     .line 278
-    .end local v9           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v9    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_3
     invoke-virtual {v1}, Ljava/util/HashMap;->size()I
 
@@ -873,19 +870,19 @@
     check-cast v9, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 283
-    .restart local v9       #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v9    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v9}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
 
     move-result-object v7
 
     .line 284
-    .local v7, locale:Ljava/lang/String;
+    .local v7, "locale":Ljava/lang/String;
     invoke-virtual {v9}, Landroid/view/inputmethod/InputMethodSubtype;->getMode()Ljava/lang/String;
 
     move-result-object v8
 
     .line 293
-    .restart local v8       #mode:Ljava/lang/String;
+    .restart local v8    # "mode":Ljava/lang/String;
     invoke-virtual {v11, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v12
@@ -900,7 +897,7 @@
     check-cast v2, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 296
-    .local v2, applicableSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v2, "applicableSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     if-eqz v2, :cond_7
 
     .line 297
@@ -915,7 +912,7 @@
     if-eqz v12, :cond_6
 
     .line 281
-    .end local v2           #applicableSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v2    # "applicableSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_5
     :goto_3
     add-int/lit8 v4, v4, 0x1
@@ -923,7 +920,7 @@
     goto :goto_2
 
     .line 298
-    .restart local v2       #applicableSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v2    # "applicableSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_6
     invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -938,10 +935,10 @@
     goto :goto_3
 
     .line 303
-    .end local v2           #applicableSubtype:Landroid/view/inputmethod/InputMethodSubtype;
-    .end local v7           #locale:Ljava/lang/String;
-    .end local v8           #mode:Ljava/lang/String;
-    .end local v9           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v2    # "applicableSubtype":Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v7    # "locale":Ljava/lang/String;
+    .end local v8    # "mode":Ljava/lang/String;
+    .end local v9    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_8
     const-string v12, "keyboard"
 
@@ -952,7 +949,7 @@
     check-cast v5, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 305
-    .local v5, keyboardSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v5, "keyboardSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -962,7 +959,7 @@
     invoke-direct {v3, v12}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 307
-    .local v3, applicableSubtypes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v3, "applicableSubtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     if-eqz v5, :cond_a
 
     const-string v12, "AsciiCapable"
@@ -987,13 +984,13 @@
     check-cast v9, Landroid/view/inputmethod/InputMethodSubtype;
 
     .line 310
-    .restart local v9       #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v9    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v9}, Landroid/view/inputmethod/InputMethodSubtype;->getMode()Ljava/lang/String;
 
     move-result-object v8
 
     .line 311
-    .restart local v8       #mode:Ljava/lang/String;
+    .restart local v8    # "mode":Ljava/lang/String;
     const-string v12, "keyboard"
 
     invoke-virtual {v12, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1020,8 +1017,8 @@
     goto :goto_4
 
     .line 317
-    .end local v8           #mode:Ljava/lang/String;
-    .end local v9           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v8    # "mode":Ljava/lang/String;
+    .end local v9    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_a
     if-nez v5, :cond_0
 
@@ -1035,7 +1032,7 @@
     move-result-object v6
 
     .line 320
-    .local v6, lastResortKeyboardSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v6, "lastResortKeyboardSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     if-eqz v6, :cond_0
 
     .line 321
@@ -1046,7 +1043,6 @@
 
 .method public static getMostApplicableDefaultIME(Ljava/util/List;)Landroid/view/inputmethod/InputMethodInfo;
     .locals 4
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1060,7 +1056,7 @@
 
     .prologue
     .line 222
-    .local p0, enabledImes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
+    .local p0, "enabledImes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
     if-eqz p0, :cond_3
 
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -1075,11 +1071,11 @@
     move-result v1
 
     .line 225
-    .local v1, i:I
+    .local v1, "i":I
     const/4 v0, -0x1
 
     .line 226
-    .local v0, firstFoundSystemIme:I
+    .local v0, "firstFoundSystemIme":I
     :cond_0
     :goto_0
     if-lez v1, :cond_2
@@ -1095,7 +1091,7 @@
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
     .line 229
-    .local v2, imi:Landroid/view/inputmethod/InputMethodInfo;
+    .local v2, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {v2}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemImeThatHasEnglishKeyboardSubtype(Landroid/view/inputmethod/InputMethodInfo;)Z
 
     move-result v3
@@ -1109,16 +1105,16 @@
     if-nez v3, :cond_1
 
     .line 240
-    .end local v0           #firstFoundSystemIme:I
-    .end local v1           #i:I
-    .end local v2           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v0    # "firstFoundSystemIme":I
+    .end local v1    # "i":I
+    .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :goto_1
     return-object v2
 
     .line 233
-    .restart local v0       #firstFoundSystemIme:I
-    .restart local v1       #i:I
-    .restart local v2       #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .restart local v0    # "firstFoundSystemIme":I
+    .restart local v1    # "i":I
+    .restart local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_1
     if-gez v0, :cond_0
 
@@ -1140,7 +1136,7 @@
     goto :goto_0
 
     .line 238
-    .end local v2           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_2
     const/4 v3, 0x0
 
@@ -1159,8 +1155,8 @@
     goto :goto_1
 
     .line 240
-    .end local v0           #firstFoundSystemIme:I
-    .end local v1           #i:I
+    .end local v0    # "firstFoundSystemIme":I
+    .end local v1    # "i":I
     :cond_3
     const/4 v2, 0x0
 
@@ -1169,8 +1165,8 @@
 
 .method public static getOverridingImplicitlyEnabledSubtypes(Landroid/view/inputmethod/InputMethodInfo;Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 5
-    .parameter "imi"
-    .parameter "mode"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p1, "mode"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1191,16 +1187,16 @@
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 210
-    .local v3, subtypes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v3, "subtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v2
 
     .line 211
-    .local v2, subtypeCount:I
+    .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
@@ -1210,7 +1206,7 @@
     move-result-object v1
 
     .line 213
-    .local v1, subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v1, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
     move-result v4
@@ -1237,7 +1233,7 @@
     goto :goto_0
 
     .line 217
-    .end local v1           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v1    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_1
     return-object v3
 .end method
@@ -1252,7 +1248,7 @@
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 65
-    .local v3, sb:Ljava/lang/StringBuilder;
+    .local v3, "sb":Ljava/lang/StringBuilder;
     :try_start_0
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -1267,16 +1263,16 @@
     move-exception v0
 
     .line 67
-    .local v0, e:Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/RuntimeException;
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v1
 
     .line 69
-    .local v1, frames:[Ljava/lang/StackTraceElement;
+    .local v1, "frames":[Ljava/lang/StackTraceElement;
     const/4 v2, 0x1
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_0
     array-length v4, v1
 
@@ -1325,8 +1321,8 @@
 
 .method public static getSubtypeIdFromHashCode(Landroid/view/inputmethod/InputMethodInfo;I)I
     .locals 4
-    .parameter "imi"
-    .parameter "subtypeHashCode"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p1, "subtypeHashCode"    # I
 
     .prologue
     .line 248
@@ -1338,10 +1334,10 @@
     move-result v2
 
     .line 250
-    .local v2, subtypeCount:I
+    .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
@@ -1351,7 +1347,7 @@
     move-result-object v1
 
     .line 252
-    .local v1, ims:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v1, "ims":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
 
     move-result v3
@@ -1359,25 +1355,25 @@
     if-ne p1, v3, :cond_0
 
     .line 257
-    .end local v0           #i:I
-    .end local v1           #ims:Landroid/view/inputmethod/InputMethodSubtype;
-    .end local v2           #subtypeCount:I
+    .end local v0    # "i":I
+    .end local v1    # "ims":Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v2    # "subtypeCount":I
     :goto_1
     return v0
 
     .line 250
-    .restart local v0       #i:I
-    .restart local v1       #ims:Landroid/view/inputmethod/InputMethodSubtype;
-    .restart local v2       #subtypeCount:I
+    .restart local v0    # "i":I
+    .restart local v1    # "ims":Landroid/view/inputmethod/InputMethodSubtype;
+    .restart local v2    # "subtypeCount":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 257
-    .end local v0           #i:I
-    .end local v1           #ims:Landroid/view/inputmethod/InputMethodSubtype;
-    .end local v2           #subtypeCount:I
+    .end local v0    # "i":I
+    .end local v1    # "ims":Landroid/view/inputmethod/InputMethodSubtype;
+    .end local v2    # "subtypeCount":I
     :cond_1
     const/4 v0, -0x1
 
@@ -1386,7 +1382,7 @@
 
 .method public static getSubtypes(Landroid/view/inputmethod/InputMethodInfo;)Ljava/util/ArrayList;
     .locals 4
-    .parameter "imi"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1406,16 +1402,16 @@
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 200
-    .local v2, subtypes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
+    .local v2, "subtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v1
 
     .line 201
-    .local v1, subtypeCount:I
+    .local v1, "subtypeCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
@@ -1438,9 +1434,9 @@
 
 .method public static isDefaultEnabledIme(ZLandroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;)Z
     .locals 1
-    .parameter "isSystemReady"
-    .parameter "imi"
-    .parameter "context"
+    .param p0, "isSystemReady"    # Z
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     .line 180
@@ -1470,7 +1466,7 @@
 
 .method private static isSystemAuxilialyImeThatHashAutomaticSubtype(Landroid/view/inputmethod/InputMethodInfo;)Z
     .locals 5
-    .parameter "imi"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
 
     .prologue
     const/4 v3, 0x0
@@ -1501,10 +1497,10 @@
     move-result v2
 
     .line 119
-    .local v2, subtypeCount:I
+    .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_1
     if-ge v0, v2, :cond_0
 
@@ -1514,7 +1510,7 @@
     move-result-object v1
 
     .line 121
-    .local v1, s:Landroid/view/inputmethod/InputMethodSubtype;
+    .local v1, "s":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
     move-result v4
@@ -1535,7 +1531,7 @@
 
 .method public static isSystemIme(Landroid/view/inputmethod/InputMethodInfo;)Z
     .locals 1
-    .parameter "inputMethod"
+    .param p0, "inputMethod"    # Landroid/view/inputmethod/InputMethodInfo;
 
     .prologue
     .line 100
@@ -1564,7 +1560,7 @@
 
 .method public static isSystemImeThatHasEnglishKeyboardSubtype(Landroid/view/inputmethod/InputMethodInfo;)Z
     .locals 2
-    .parameter "imi"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
 
     .prologue
     .line 105
@@ -1599,8 +1595,8 @@
 
 .method public static isValidSubtypeId(Landroid/view/inputmethod/InputMethodInfo;I)Z
     .locals 2
-    .parameter "imi"
-    .parameter "subtypeHashCode"
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p1, "subtypeHashCode"    # I
 
     .prologue
     .line 244
@@ -1625,9 +1621,9 @@
 
 .method public static isValidSystemDefaultIme(ZLandroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;)Z
     .locals 4
-    .parameter "isSystemReady"
-    .parameter "imi"
-    .parameter "context"
+    .param p0, "isSystemReady"    # Z
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p2, "context"    # Landroid/content/Context;
 
     .prologue
     const/4 v0, 0x0
@@ -1736,8 +1732,8 @@
 
 .method private static setDisabledUntilUsed(Landroid/content/pm/PackageManager;Ljava/lang/String;)V
     .locals 3
-    .parameter "packageManager"
-    .parameter "packageName"
+    .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
+    .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
     .line 459
@@ -1746,7 +1742,7 @@
     move-result v0
 
     .line 460
-    .local v0, state:I
+    .local v0, "state":I
     if-eqz v0, :cond_0
 
     const/4 v1, 0x1
@@ -1768,8 +1764,7 @@
 
 .method public static setNonSelectedSystemImesDisabledUntilUsed(Landroid/content/pm/PackageManager;Ljava/util/List;)V
     .locals 16
-    .parameter "packageManager"
-    .parameter
+    .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1783,7 +1778,7 @@
 
     .prologue
     .line 407
-    .local p1, enabledImis:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
+    .local p1, "enabledImis":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v13
@@ -1795,7 +1790,7 @@
     move-result-object v12
 
     .line 409
-    .local v12, systemImesDisabledUntilUsed:[Ljava/lang/String;
+    .local v12, "systemImesDisabledUntilUsed":[Ljava/lang/String;
     if-eqz v12, :cond_0
 
     array-length v13, v12
@@ -1817,30 +1812,30 @@
     move-result-object v3
 
     .line 415
-    .local v3, currentSpellChecker:Landroid/view/textservice/SpellCheckerInfo;
+    .local v3, "currentSpellChecker":Landroid/view/textservice/SpellCheckerInfo;
     move-object v2, v12
 
-    .local v2, arr$:[Ljava/lang/String;
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v10, v2
 
-    .local v10, len$:I
+    .local v10, "len$":I
     const/4 v6, 0x0
 
-    .local v6, i$:I
+    .local v6, "i$":I
     :goto_0
     if-ge v6, v10, :cond_0
 
     aget-object v11, v2, v6
 
     .line 419
-    .local v11, packageName:Ljava/lang/String;
+    .local v11, "packageName":Ljava/lang/String;
     const/4 v5, 0x0
 
     .line 420
-    .local v5, enabledIme:Z
+    .local v5, "enabledIme":Z
     const/4 v9, 0x0
 
-    .local v9, j:I
+    .local v9, "j":I
     :goto_1
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
@@ -1858,7 +1853,7 @@
     check-cast v7, Landroid/view/inputmethod/InputMethodInfo;
 
     .line 422
-    .local v7, imi:Landroid/view/inputmethod/InputMethodInfo;
+    .local v7, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v13
@@ -1873,7 +1868,7 @@
     const/4 v5, 0x1
 
     .line 427
-    .end local v7           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_2
     if-eqz v5, :cond_5
 
@@ -1885,14 +1880,14 @@
     goto :goto_0
 
     .line 420
-    .restart local v7       #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .restart local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_4
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
     .line 431
-    .end local v7           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_5
     if-eqz v3, :cond_6
 
@@ -1911,7 +1906,7 @@
     const/4 v1, 0x0
 
     .line 441
-    .local v1, ai:Landroid/content/pm/ApplicationInfo;
+    .local v1, "ai":Landroid/content/pm/ApplicationInfo;
     const v13, 0x8000
 
     :try_start_0
@@ -1937,7 +1932,7 @@
     const/4 v8, 0x1
 
     .line 451
-    .local v8, isSystemPackage:Z
+    .local v8, "isSystemPackage":Z
     :goto_4
     if-eqz v8, :cond_3
 
@@ -1949,12 +1944,12 @@
     goto :goto_2
 
     .line 443
-    .end local v8           #isSystemPackage:Z
+    .end local v8    # "isSystemPackage":Z
     :catch_0
     move-exception v4
 
     .line 444
-    .local v4, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .local v4, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v13, "InputMethodUtils"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1980,7 +1975,7 @@
     goto :goto_3
 
     .line 450
-    .end local v4           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v4    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_7
     const/4 v8, 0x0
 

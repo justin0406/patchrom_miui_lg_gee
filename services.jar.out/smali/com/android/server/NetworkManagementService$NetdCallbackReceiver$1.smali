@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 447
@@ -46,7 +45,7 @@
 
     iget-object v0, v0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    #calls: Lcom/android/server/NetworkManagementService;->prepareNativeDaemon()V
+    # invokes: Lcom/android/server/NetworkManagementService;->prepareNativeDaemon()V
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$200(Lcom/android/server/NetworkManagementService;)V
 
     .line 451

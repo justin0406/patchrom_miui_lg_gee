@@ -23,10 +23,10 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "x"
-    .parameter "y"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "x"    # I
+    .param p4, "y"    # I
 
     .prologue
     .line 177
@@ -44,8 +44,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
-    .parameter "c"
-    .parameter "attrs"
+    .param p1, "c"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v2, 0x0
@@ -61,7 +61,7 @@
     move-result-object v0
 
     .line 202
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
     move-result v1
@@ -86,7 +86,7 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .parameter "source"
+    .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
     .line 213
@@ -100,7 +100,7 @@
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "output"
+    .param p1, "output"    # Ljava/lang/String;
 
     .prologue
     .line 218

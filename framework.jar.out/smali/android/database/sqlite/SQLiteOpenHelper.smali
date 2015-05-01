@@ -46,10 +46,10 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
     .locals 6
-    .parameter "context"
-    .parameter "name"
-    .parameter "factory"
-    .parameter "version"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "factory"    # Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
+    .param p4, "version"    # I
 
     .prologue
     .line 78
@@ -73,11 +73,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)V
     .locals 3
-    .parameter "context"
-    .parameter "name"
-    .parameter "factory"
-    .parameter "version"
-    .parameter "errorHandler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "factory"    # Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
+    .param p4, "version"    # I
+    .param p5, "errorHandler"    # Landroid/database/DatabaseErrorHandler;
 
     .prologue
     .line 99
@@ -134,7 +134,7 @@
 
 .method private getDatabaseLocked(Z)Landroid/database/sqlite/SQLiteDatabase;
     .locals 10
-    .parameter "writable"
+    .param p1, "writable"    # Z
 
     .prologue
     const/4 v6, 0x0
@@ -199,7 +199,7 @@
     iget-object v0, p0, Landroid/database/sqlite/SQLiteOpenHelper;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     .line 209
-    .local v0, db:Landroid/database/sqlite/SQLiteDatabase;
+    .local v0, "db":Landroid/database/sqlite/SQLiteDatabase;
     const/4 v4, 0x1
 
     :try_start_0
@@ -231,7 +231,7 @@
     move-result v3
 
     .line 243
-    .local v3, version:I
+    .local v3, "version":I
     iget v4, p0, Landroid/database/sqlite/SQLiteOpenHelper;->mNewVersion:I
 
     if-eq v3, v4, :cond_c
@@ -299,7 +299,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 276
-    .end local v3           #version:I
+    .end local v3    # "version":I
     :catchall_0
     move-exception v4
 
@@ -356,8 +356,8 @@
 
     invoke-virtual {v6, v7, v4, v8, v9}, Landroid/content/Context;->openOrCreateDatabase(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;Landroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v0
 
@@ -373,7 +373,7 @@
     move-exception v1
 
     .line 229
-    .local v1, ex:Landroid/database/sqlite/SQLiteException;
+    .local v1, "ex":Landroid/database/sqlite/SQLiteException;
     if-eqz p1, :cond_a
 
     .line 230
@@ -426,7 +426,7 @@
     move-result-object v2
 
     .line 235
-    .local v2, path:Ljava/lang/String;
+    .local v2, "path":Ljava/lang/String;
     iget-object v4, p0, Landroid/database/sqlite/SQLiteOpenHelper;->mFactory:Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
     const/4 v6, 0x1
@@ -440,9 +440,9 @@
     goto/16 :goto_1
 
     .line 249
-    .end local v1           #ex:Landroid/database/sqlite/SQLiteException;
-    .end local v2           #path:Ljava/lang/String;
-    .restart local v3       #version:I
+    .end local v1    # "ex":Landroid/database/sqlite/SQLiteException;
+    .end local v2    # "path":Ljava/lang/String;
+    .restart local v3    # "version":I
     :cond_b
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
     :try_end_3
@@ -709,7 +709,7 @@
 
 .method public onConfigure(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 312
@@ -721,9 +721,9 @@
 
 .method public onDowngrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 3
-    .parameter "db"
-    .parameter "oldVersion"
-    .parameter "newVersion"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "oldVersion"    # I
+    .param p3, "newVersion"    # I
 
     .prologue
     .line 361
@@ -764,7 +764,7 @@
 
 .method public onOpen(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
-    .parameter "db"
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
     .prologue
     .line 378
@@ -776,7 +776,7 @@
 
 .method public setWriteAheadLoggingEnabled(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 129

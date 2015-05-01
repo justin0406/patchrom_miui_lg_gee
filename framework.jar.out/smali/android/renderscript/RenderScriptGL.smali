@@ -22,8 +22,8 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/renderscript/RenderScriptGL$SurfaceConfig;)V
     .locals 17
-    .parameter "ctx"
-    .parameter "sc"
+    .param p1, "ctx"    # Landroid/content/Context;
+    .param p2, "sc"    # Landroid/renderscript/RenderScriptGL$SurfaceConfig;
 
     .prologue
     .line 180
@@ -48,7 +48,7 @@
     iget v4, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     .line 185
-    .local v4, sdkVersion:I
+    .local v4, "sdkVersion":I
     const/4 v1, 0x0
 
     move-object/from16 v0, p0
@@ -85,7 +85,7 @@
     move/from16 v16, v0
 
     .line 189
-    .local v16, dpi:I
+    .local v16, "dpi":I
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/renderscript/RenderScriptGL;->mDev:I
@@ -211,7 +211,7 @@
 # virtual methods
 .method public bindProgramFragment(Landroid/renderscript/ProgramFragment;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/renderscript/ProgramFragment;
 
     .prologue
     .line 312
@@ -230,7 +230,7 @@
 
 .method public bindProgramRaster(Landroid/renderscript/ProgramRaster;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/renderscript/ProgramRaster;
 
     .prologue
     .line 324
@@ -249,7 +249,7 @@
 
 .method public bindProgramStore(Landroid/renderscript/ProgramStore;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/renderscript/ProgramStore;
 
     .prologue
     .line 300
@@ -268,7 +268,7 @@
 
 .method public bindProgramVertex(Landroid/renderscript/ProgramVertex;)V
     .locals 1
-    .parameter "p"
+    .param p1, "p"    # Landroid/renderscript/ProgramVertex;
 
     .prologue
     .line 336
@@ -287,7 +287,7 @@
 
 .method public bindRootScript(Landroid/renderscript/Script;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/renderscript/Script;
 
     .prologue
     .line 288
@@ -354,9 +354,9 @@
 
 .method public setSurface(Landroid/view/SurfaceHolder;II)V
     .locals 1
-    .parameter "sur"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "sur"    # Landroid/view/SurfaceHolder;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
 
     .prologue
     .line 213
@@ -366,7 +366,7 @@
     const/4 v0, 0x0
 
     .line 215
-    .local v0, s:Landroid/view/Surface;
+    .local v0, "s":Landroid/view/Surface;
     if-eqz p1, :cond_0
 
     .line 216
@@ -390,9 +390,9 @@
 
 .method public setSurfaceTexture(Landroid/graphics/SurfaceTexture;II)V
     .locals 0
-    .parameter "sur"
-    .parameter "w"
-    .parameter "h"
+    .param p1, "sur"    # Landroid/graphics/SurfaceTexture;
+    .param p2, "w"    # I
+    .param p3, "h"    # I
 
     .prologue
     .line 232

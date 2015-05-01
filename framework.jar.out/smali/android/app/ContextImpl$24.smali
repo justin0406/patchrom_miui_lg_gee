@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 432
+    .line 440
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -29,10 +29,10 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 2
-    .parameter "ctx"
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 435
+    .line 443
     new-instance v0, Landroid/net/NetworkPolicyManager;
 
     const-string v1, "netpolicy"

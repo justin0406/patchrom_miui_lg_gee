@@ -37,15 +37,14 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;IIFILjava/lang/String;Landroid/view/Surface;)V
     .locals 0
-    .parameter
-    .parameter "displayToken"
-    .parameter "name"
-    .parameter "width"
-    .parameter "height"
-    .parameter "refreshRate"
-    .parameter "flags"
-    .parameter "address"
-    .parameter "surface"
+    .param p2, "displayToken"    # Landroid/os/IBinder;
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "width"    # I
+    .param p5, "height"    # I
+    .param p6, "refreshRate"    # F
+    .param p7, "flags"    # I
+    .param p8, "address"    # Ljava/lang/String;
+    .param p9, "surface"    # Landroid/view/Surface;
 
     .prologue
     .line 693
@@ -221,7 +220,7 @@
 
 .method public setNameLocked(Ljava/lang/String;)V
     .locals 1
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 713

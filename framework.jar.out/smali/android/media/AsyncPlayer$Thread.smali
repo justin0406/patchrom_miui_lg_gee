@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/AsyncPlayer;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 81
@@ -38,7 +37,7 @@
 
     move-result-object v0
 
-    #getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
+    # getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
     invoke-static {p1}, Landroid/media/AsyncPlayer;->access$000(Landroid/media/AsyncPlayer;)Ljava/lang/String;
 
     move-result-object v1
@@ -70,10 +69,10 @@
     const/4 v1, 0x0
 
     .line 89
-    .local v1, cmd:Landroid/media/AsyncPlayer$Command;
+    .local v1, "cmd":Landroid/media/AsyncPlayer$Command;
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
+    # getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$100(Landroid/media/AsyncPlayer;)Ljava/util/LinkedList;
 
     move-result-object v5
@@ -84,7 +83,7 @@
     :try_start_0
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
+    # getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$100(Landroid/media/AsyncPlayer;)Ljava/util/LinkedList;
 
     move-result-object v4
@@ -113,7 +112,7 @@
     :goto_1
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
+    # getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$100(Landroid/media/AsyncPlayer;)Ljava/util/LinkedList;
 
     move-result-object v5
@@ -124,7 +123,7 @@
     :try_start_1
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
+    # getter for: Landroid/media/AsyncPlayer;->mCmdQueue:Ljava/util/LinkedList;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$100(Landroid/media/AsyncPlayer;)Ljava/util/LinkedList;
 
     move-result-object v4
@@ -140,13 +139,13 @@
 
     const/4 v6, 0x0
 
-    #setter for: Landroid/media/AsyncPlayer;->mThread:Landroid/media/AsyncPlayer$Thread;
+    # setter for: Landroid/media/AsyncPlayer;->mThread:Landroid/media/AsyncPlayer$Thread;
     invoke-static {v4, v6}, Landroid/media/AsyncPlayer;->access$402(Landroid/media/AsyncPlayer;Landroid/media/AsyncPlayer$Thread;)Landroid/media/AsyncPlayer$Thread;
 
     .line 122
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #calls: Landroid/media/AsyncPlayer;->releaseWakeLock()V
+    # invokes: Landroid/media/AsyncPlayer;->releaseWakeLock()V
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$500(Landroid/media/AsyncPlayer;)V
 
     .line 123
@@ -171,7 +170,7 @@
     :pswitch_0
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #calls: Landroid/media/AsyncPlayer;->startSound(Landroid/media/AsyncPlayer$Command;)V
+    # invokes: Landroid/media/AsyncPlayer;->startSound(Landroid/media/AsyncPlayer$Command;)V
     invoke-static {v4, v1}, Landroid/media/AsyncPlayer;->access$200(Landroid/media/AsyncPlayer;Landroid/media/AsyncPlayer$Command;)V
 
     goto :goto_1
@@ -180,7 +179,7 @@
     :pswitch_1
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
+    # getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$300(Landroid/media/AsyncPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v4
@@ -197,7 +196,7 @@
     sub-long v2, v4, v6
 
     .line 103
-    .local v2, delay:J
+    .local v2, "delay":J
     const-wide/16 v4, 0x3e8
 
     cmp-long v4, v2, v4
@@ -207,7 +206,7 @@
     .line 104
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
+    # getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$000(Landroid/media/AsyncPlayer;)Ljava/lang/String;
 
     move-result-object v4
@@ -242,7 +241,7 @@
     :cond_0
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
+    # getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$300(Landroid/media/AsyncPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v4
@@ -252,7 +251,7 @@
     .line 107
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
+    # getter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$300(Landroid/media/AsyncPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v4
@@ -262,17 +261,17 @@
     .line 108
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #setter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
+    # setter for: Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
     invoke-static {v4, v8}, Landroid/media/AsyncPlayer;->access$302(Landroid/media/AsyncPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     goto :goto_1
 
     .line 110
-    .end local v2           #delay:J
+    .end local v2    # "delay":J
     :cond_1
     iget-object v4, p0, Landroid/media/AsyncPlayer$Thread;->this$0:Landroid/media/AsyncPlayer;
 
-    #getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
+    # getter for: Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
     invoke-static {v4}, Landroid/media/AsyncPlayer;->access$000(Landroid/media/AsyncPlayer;)Ljava/lang/String;
 
     move-result-object v4

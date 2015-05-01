@@ -30,8 +30,8 @@
 # virtual methods
 .method public addGesture(Ljava/lang/String;Landroid/gesture/Gesture;)V
     .locals 1
-    .parameter "entryName"
-    .parameter "gesture"
+    .param p1, "entryName"    # Ljava/lang/String;
+    .param p2, "gesture"    # Landroid/gesture/Gesture;
 
     .prologue
     .line 68
@@ -68,7 +68,7 @@
 
 .method public getGestures(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "entryName"
+    .param p1, "entryName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,7 +149,7 @@
 
 .method public recognize(Landroid/gesture/Gesture;)Ljava/util/ArrayList;
     .locals 1
-    .parameter "gesture"
+    .param p1, "gesture"    # Landroid/gesture/Gesture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -175,7 +175,7 @@
 
 .method public removeEntry(Ljava/lang/String;)V
     .locals 1
-    .parameter "entryName"
+    .param p1, "entryName"    # Ljava/lang/String;
 
     .prologue
     .line 76
@@ -189,8 +189,8 @@
 
 .method public removeGesture(Ljava/lang/String;Landroid/gesture/Gesture;)V
     .locals 1
-    .parameter "entryName"
-    .parameter "gesture"
+    .param p1, "entryName"    # Ljava/lang/String;
+    .param p2, "gesture"    # Landroid/gesture/Gesture;
 
     .prologue
     .line 72
@@ -207,7 +207,7 @@
 
 .method public setOrientationStyle(I)V
     .locals 1
-    .parameter "style"
+    .param p1, "style"    # I
 
     .prologue
     .line 44
@@ -221,7 +221,7 @@
 
 .method public setSequenceType(I)V
     .locals 1
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 52

@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 91
@@ -61,8 +61,8 @@
 
 .method public onUpdate(ILjava/lang/String;)V
     .locals 5
-    .parameter "nowBeingRestored"
-    .parameter "curentPackage"
+    .param p1, "nowBeingRestored"    # I
+    .param p2, "curentPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 155
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.backup.IRestoreObserver"
 
@@ -118,7 +118,7 @@
 
 .method public restoreFinished(I)V
     .locals 5
-    .parameter "error"
+    .param p1, "error"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -132,7 +132,7 @@
     move-result-object v0
 
     .line 174
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.backup.IRestoreObserver"
 
@@ -171,7 +171,7 @@
 
 .method public restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
     .locals 5
-    .parameter "result"
+    .param p1, "result"    # [Landroid/app/backup/RestoreSet;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -185,7 +185,7 @@
     move-result-object v0
 
     .line 116
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.backup.IRestoreObserver"
 
@@ -226,7 +226,7 @@
 
 .method public restoreStarting(I)V
     .locals 5
-    .parameter "numPackages"
+    .param p1, "numPackages"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -240,7 +240,7 @@
     move-result-object v0
 
     .line 134
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.app.backup.IRestoreObserver"
 

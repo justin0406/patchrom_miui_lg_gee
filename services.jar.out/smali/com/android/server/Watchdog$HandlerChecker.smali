@@ -47,10 +47,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/Watchdog;Landroid/os/Handler;Ljava/lang/String;J)V
     .locals 1
-    .parameter
-    .parameter "handler"
-    .parameter "name"
-    .parameter "waitMaxMillis"
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "waitMaxMillis"    # J
 
     .prologue
     .line 104
@@ -87,7 +86,7 @@
 # virtual methods
 .method public addMonitor(Lcom/android/server/Watchdog$Monitor;)V
     .locals 1
-    .parameter "monitor"
+    .param p1, "monitor"    # Lcom/android/server/Watchdog$Monitor;
 
     .prologue
     .line 112
@@ -252,7 +251,7 @@
     sub-long v0, v2, v4
 
     .line 147
-    .local v0, latency:J
+    .local v0, "latency":J
     iget-wide v2, p0, Lcom/android/server/Watchdog$HandlerChecker;->mWaitMax:J
 
     const-wide/16 v4, 0x2
@@ -362,10 +361,10 @@
     move-result v1
 
     .line 176
-    .local v1, size:I
+    .local v1, "size":I
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 

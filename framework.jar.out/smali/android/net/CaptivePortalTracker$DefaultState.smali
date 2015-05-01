@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/net/CaptivePortalTracker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 181
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/net/CaptivePortalTracker;Landroid/net/CaptivePortalTracker$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/net/CaptivePortalTracker;
+    .param p2, "x1"    # Landroid/net/CaptivePortalTracker$1;
 
     .prologue
     .line 181
@@ -48,7 +47,7 @@
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .parameter "message"
+    .param p1, "message"    # Landroid/os/Message;
 
     .prologue
     .line 185
@@ -78,7 +77,7 @@
 
     move-result-object v2
 
-    #calls: Landroid/net/CaptivePortalTracker;->log(Ljava/lang/String;)V
+    # invokes: Landroid/net/CaptivePortalTracker;->log(Ljava/lang/String;)V
     invoke-static {v1, v2}, Landroid/net/CaptivePortalTracker;->access$600(Landroid/net/CaptivePortalTracker;Ljava/lang/String;)V
 
     .line 186
@@ -107,7 +106,7 @@
 
     move-result-object v2
 
-    #calls: Landroid/net/CaptivePortalTracker;->loge(Ljava/lang/String;)V
+    # invokes: Landroid/net/CaptivePortalTracker;->loge(Ljava/lang/String;)V
     invoke-static {v1, v2}, Landroid/net/CaptivePortalTracker;->access$800(Landroid/net/CaptivePortalTracker;Ljava/lang/String;)V
 
     .line 200
@@ -124,10 +123,10 @@
     check-cast v0, Landroid/net/NetworkInfo;
 
     .line 191
-    .local v0, info:Landroid/net/NetworkInfo;
+    .local v0, "info":Landroid/net/NetworkInfo;
     iget-object v1, p0, Landroid/net/CaptivePortalTracker$DefaultState;->this$0:Landroid/net/CaptivePortalTracker;
 
-    #calls: Landroid/net/CaptivePortalTracker;->notifyPortalCheckComplete(Landroid/net/NetworkInfo;)V
+    # invokes: Landroid/net/CaptivePortalTracker;->notifyPortalCheckComplete(Landroid/net/NetworkInfo;)V
     invoke-static {v1, v0}, Landroid/net/CaptivePortalTracker;->access$700(Landroid/net/CaptivePortalTracker;Landroid/net/NetworkInfo;)V
 
     goto :goto_0

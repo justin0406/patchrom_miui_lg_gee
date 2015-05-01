@@ -39,7 +39,7 @@
 
 .method constructor <init>(Z)V
     .locals 0
-    .parameter "appendInvalid"
+    .param p1, "appendInvalid"    # Z
 
     .prologue
     .line 29
@@ -56,12 +56,12 @@
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
     .locals 5
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
+    .param p4, "dest"    # Landroid/text/Spanned;
+    .param p5, "dstart"    # I
+    .param p6, "dend"    # I
 
     .prologue
     .line 52
@@ -70,7 +70,7 @@
     .line 56
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p5, :cond_1
 
@@ -80,7 +80,7 @@
     move-result v0
 
     .line 58
-    .local v0, c:C
+    .local v0, "c":C
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->isAllowed(C)Z
 
     move-result v4
@@ -96,16 +96,16 @@
     goto :goto_0
 
     .line 62
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_1
     const/4 v2, 0x0
 
     .line 63
-    .local v2, modification:Landroid/text/SpannableStringBuilder;
+    .local v2, "modification":Landroid/text/SpannableStringBuilder;
     const/4 v3, 0x0
 
     .line 65
-    .local v3, modoff:I
+    .local v3, "modoff":I
     move v1, p2
 
     :goto_1
@@ -117,7 +117,7 @@
     move-result v0
 
     .line 67
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->isAllowed(C)Z
 
     move-result v4
@@ -155,11 +155,11 @@
     .line 75
     new-instance v2, Landroid/text/SpannableStringBuilder;
 
-    .end local v2           #modification:Landroid/text/SpannableStringBuilder;
+    .end local v2    # "modification":Landroid/text/SpannableStringBuilder;
     invoke-direct {v2, p1, p2, p3}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;II)V
 
     .line 76
-    .restart local v2       #modification:Landroid/text/SpannableStringBuilder;
+    .restart local v2    # "modification":Landroid/text/SpannableStringBuilder;
     sub-int v3, v1, p2
 
     .line 79
@@ -171,7 +171,7 @@
     goto :goto_3
 
     .line 88
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_5
     move v1, p6
 
@@ -188,7 +188,7 @@
     move-result v0
 
     .line 90
-    .restart local v0       #c:C
+    .restart local v0    # "c":C
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->isAllowed(C)Z
 
     move-result v4
@@ -204,7 +204,7 @@
     goto :goto_4
 
     .line 93
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_7
     invoke-virtual {p0}, Landroid/text/LoginFilter;->onStop()V
 
@@ -217,7 +217,7 @@
 
 .method public onInvalidCharacter(C)V
     .locals 0
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     .line 113

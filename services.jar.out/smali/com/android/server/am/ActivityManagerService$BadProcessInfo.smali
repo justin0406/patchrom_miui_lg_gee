@@ -27,10 +27,10 @@
 # direct methods
 .method constructor <init>(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "time"
-    .parameter "shortMsg"
-    .parameter "longMsg"
-    .parameter "stack"
+    .param p1, "time"    # J
+    .param p3, "shortMsg"    # Ljava/lang/String;
+    .param p4, "longMsg"    # Ljava/lang/String;
+    .param p5, "stack"    # Ljava/lang/String;
 
     .prologue
     .line 463

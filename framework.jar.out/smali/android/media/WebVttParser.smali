@@ -51,7 +51,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/WebVttCueListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/WebVttCueListener;
 
     .prologue
     .line 570
@@ -125,9 +125,9 @@
 
 .method static synthetic access$000(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
 
     .prologue
     .line 562
@@ -138,7 +138,7 @@
 
 .method static synthetic access$100(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -149,7 +149,7 @@
 
 .method static synthetic access$1000(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -160,8 +160,8 @@
 
 .method static synthetic access$102(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
+    .param p1, "x1"    # Landroid/media/WebVttParser$Phase;
 
     .prologue
     .line 562
@@ -172,7 +172,7 @@
 
 .method static synthetic access$1100(Landroid/media/WebVttParser;)Ljava/util/Vector;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -183,7 +183,7 @@
 
 .method static synthetic access$200(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -194,7 +194,7 @@
 
 .method static synthetic access$300(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -205,12 +205,12 @@
 
 .method static synthetic access$400(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # Ljava/lang/String;
+    .param p5, "x5"    # Ljava/lang/String;
 
     .prologue
     .line 562
@@ -221,11 +221,11 @@
 
 .method static synthetic access$500(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Ljava/lang/String;
+    .param p3, "x3"    # Ljava/lang/String;
+    .param p4, "x4"    # Ljava/lang/String;
 
     .prologue
     .line 562
@@ -236,7 +236,7 @@
 
 .method static synthetic access$600(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -247,7 +247,7 @@
 
 .method static synthetic access$700(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -258,7 +258,7 @@
 
 .method static synthetic access$800(Landroid/media/WebVttParser;)Landroid/media/WebVttCueListener;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -269,7 +269,7 @@
 
 .method static synthetic access$900(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
 
     .prologue
     .line 562
@@ -280,8 +280,8 @@
 
 .method static synthetic access$902(Landroid/media/WebVttParser;Landroid/media/TextTrackCue;)Landroid/media/TextTrackCue;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/media/WebVttParser;
+    .param p1, "x1"    # Landroid/media/TextTrackCue;
 
     .prologue
     .line 562
@@ -292,8 +292,8 @@
 
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "message"
-    .parameter "value"
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
     .prologue
     .line 966
@@ -341,10 +341,10 @@
 
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "nameType"
-    .parameter "name"
-    .parameter "message"
-    .parameter "value"
+    .param p1, "nameType"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "message"    # Ljava/lang/String;
+    .param p4, "value"    # Ljava/lang/String;
 
     .prologue
     .line 961
@@ -412,11 +412,11 @@
 
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "nameType"
-    .parameter "name"
-    .parameter "message"
-    .parameter "subMessage"
-    .parameter "value"
+    .param p1, "nameType"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
+    .param p3, "message"    # Ljava/lang/String;
+    .param p4, "subMessage"    # Ljava/lang/String;
+    .param p5, "value"    # Ljava/lang/String;
 
     .prologue
     .line 955
@@ -494,7 +494,7 @@
 
 .method public static parseFloatPercentage(Ljava/lang/String;)F
     .locals 4
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -560,14 +560,14 @@
     move-result v1
 
     .line 591
-    .local v1, value:F
+    .local v1, "value":F
     const/4 v2, 0x0
 
     cmpg-float v2, v1, v2
 
     if-ltz v2, :cond_2
 
-    const/high16 v2, 0x42c8
+    const/high16 v2, 0x42c80000    # 100.0f
 
     cmpl-float v2, v1, v2
 
@@ -586,12 +586,12 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 595
-    .end local v1           #value:F
+    .end local v1    # "value":F
     :catch_0
     move-exception v0
 
     .line 596
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Ljava/lang/NumberFormatException;
 
     const-string v3, "is not a number"
@@ -601,15 +601,15 @@
     throw v2
 
     .line 594
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    .restart local v1       #value:F
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
+    .restart local v1    # "value":F
     :cond_3
     return v1
 .end method
 
 .method public static parseIntPercentage(Ljava/lang/String;)I
     .locals 4
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -675,7 +675,7 @@
     move-result v1
 
     .line 612
-    .local v1, value:I
+    .local v1, "value":I
     if-ltz v1, :cond_2
 
     const/16 v2, 0x64
@@ -695,12 +695,12 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 616
-    .end local v1           #value:I
+    .end local v1    # "value":I
     :catch_0
     move-exception v0
 
     .line 617
-    .local v0, e:Ljava/lang/NumberFormatException;
+    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v2, Ljava/lang/NumberFormatException;
 
     const-string v3, "is not a number"
@@ -710,15 +710,15 @@
     throw v2
 
     .line 615
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    .restart local v1       #value:I
+    .end local v0    # "e":Ljava/lang/NumberFormatException;
+    .restart local v1    # "value":I
     :cond_3
     return v1
 .end method
 
 .method public static parseTimestampMs(Ljava/lang/String;)J
     .locals 11
-    .parameter "s"
+    .param p0, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
@@ -755,11 +755,11 @@
     move-result-object v4
 
     .line 627
-    .local v4, parts:[Ljava/lang/String;
+    .local v4, "parts":[Ljava/lang/String;
     const-wide/16 v5, 0x0
 
     .line 628
-    .local v5, value:J
+    .local v5, "value":J
     const/4 v7, 0x0
 
     aget-object v7, v4, v7
@@ -770,20 +770,20 @@
 
     move-result-object v0
 
-    .local v0, arr$:[Ljava/lang/String;
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
     .line 629
-    .local v1, group:Ljava/lang/String;
+    .local v1, "group":Ljava/lang/String;
     const-wide/16 v7, 0x3c
 
     mul-long/2addr v7, v5
@@ -800,7 +800,7 @@
     goto :goto_0
 
     .line 631
-    .end local v1           #group:Ljava/lang/String;
+    .end local v1    # "group":Ljava/lang/String;
     :cond_1
     const-wide/16 v7, 0x3e8
 
@@ -821,7 +821,7 @@
 
 .method public static timeToString(J)Ljava/lang/String;
     .locals 9
-    .parameter "timeMs"
+    .param p0, "timeMs"    # J
 
     .prologue
     const-wide/16 v7, 0x3e8
@@ -953,14 +953,14 @@
 
 .method public parse(Ljava/lang/String;)V
     .locals 6
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 641
     const/4 v2, 0x0
 
     .line 642
-    .local v2, trailingCR:Z
+    .local v2, "trailingCR":Z
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1041,10 +1041,10 @@
     move-result-object v1
 
     .line 651
-    .local v1, lines:[Ljava/lang/String;
+    .local v1, "lines":[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     array-length v3, v1
 

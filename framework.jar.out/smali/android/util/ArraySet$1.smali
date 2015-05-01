@@ -28,11 +28,10 @@
 # direct methods
 .method constructor <init>(Landroid/util/ArraySet;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 574
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     iput-object p1, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     invoke-direct {p0}, Landroid/util/MapCollections;-><init>()V
@@ -47,7 +46,7 @@
 
     .prologue
     .line 617
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
@@ -58,12 +57,12 @@
 
 .method protected colGetEntry(II)Ljava/lang/Object;
     .locals 1
-    .parameter "index"
-    .parameter "offset"
+    .param p1, "index"    # I
+    .param p2, "offset"    # I
 
     .prologue
     .line 582
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     iget-object v0, v0, Landroid/util/ArraySet;->mArray:[Ljava/lang/Object;
@@ -85,7 +84,7 @@
 
     .prologue
     .line 597
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "not a map"
@@ -100,7 +99,7 @@
 
     .prologue
     .line 577
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     iget v0, v0, Landroid/util/ArraySet;->mSize:I
@@ -110,16 +109,16 @@
 
 .method protected colIndexOfKey(Ljava/lang/Object;)I
     .locals 2
-    .parameter "key"
+    .param p1, "key"    # Ljava/lang/Object;
 
     .prologue
     .line 587
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     if-nez p1, :cond_0
 
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
-    #calls: Landroid/util/ArraySet;->indexOfNull()I
+    # invokes: Landroid/util/ArraySet;->indexOfNull()I
     invoke-static {v0}, Landroid/util/ArraySet;->access$000(Landroid/util/ArraySet;)I
 
     move-result v0
@@ -134,7 +133,7 @@
 
     move-result v1
 
-    #calls: Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
+    # invokes: Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
     invoke-static {v0, p1, v1}, Landroid/util/ArraySet;->access$100(Landroid/util/ArraySet;Ljava/lang/Object;I)I
 
     move-result v0
@@ -144,16 +143,16 @@
 
 .method protected colIndexOfValue(Ljava/lang/Object;)I
     .locals 2
-    .parameter "value"
+    .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
     .line 592
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     if-nez p1, :cond_0
 
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
-    #calls: Landroid/util/ArraySet;->indexOfNull()I
+    # invokes: Landroid/util/ArraySet;->indexOfNull()I
     invoke-static {v0}, Landroid/util/ArraySet;->access$000(Landroid/util/ArraySet;)I
 
     move-result v0
@@ -168,7 +167,7 @@
 
     move-result v1
 
-    #calls: Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
+    # invokes: Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;I)I
     invoke-static {v0, p1, v1}, Landroid/util/ArraySet;->access$100(Landroid/util/ArraySet;Ljava/lang/Object;I)I
 
     move-result v0
@@ -178,8 +177,6 @@
 
 .method protected colPut(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 1
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)V"
@@ -188,9 +185,9 @@
 
     .prologue
     .line 602
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
-    .local p1, key:Ljava/lang/Object;,"TE;"
-    .local p2, value:Ljava/lang/Object;,"TE;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
+    .local p1, "key":Ljava/lang/Object;, "TE;"
+    .local p2, "value":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
@@ -201,11 +198,11 @@
 
 .method protected colRemoveAt(I)V
     .locals 1
-    .parameter "index"
+    .param p1, "index"    # I
 
     .prologue
     .line 612
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
     iget-object v0, p0, Landroid/util/ArraySet$1;->this$0:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
@@ -216,8 +213,7 @@
 
 .method protected colSetValue(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .parameter "index"
-    .parameter
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
@@ -226,8 +222,8 @@
 
     .prologue
     .line 607
-    .local p0, this:Landroid/util/ArraySet$1;,"Landroid/util/ArraySet.1;"
-    .local p2, value:Ljava/lang/Object;,"TE;"
+    .local p0, "this":Landroid/util/ArraySet$1;, "Landroid/util/ArraySet.1;"
+    .local p2, "value":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "not a map"

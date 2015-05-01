@@ -17,7 +17,7 @@
 # static fields
 .field static final EMAIL_ID_COLUMN_INDEX:I = 0x0
 
-.field static final EMAIL_LOOKUP_PROJECTION:[Ljava/lang/String; = null
+.field static final EMAIL_LOOKUP_PROJECTION:[Ljava/lang/String;
 
 .field static final EMAIL_LOOKUP_STRING_COLUMN_INDEX:I = 0x1
 
@@ -25,7 +25,7 @@
 
 .field static final PHONE_ID_COLUMN_INDEX:I = 0x0
 
-.field static final PHONE_LOOKUP_PROJECTION:[Ljava/lang/String; = null
+.field static final PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
 
 .field static final PHONE_LOOKUP_STRING_COLUMN_INDEX:I = 0x1
 
@@ -98,7 +98,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 80
@@ -112,8 +112,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     .line 84
@@ -127,9 +127,9 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .parameter "context"
-    .parameter "attrs"
-    .parameter "defStyle"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyle"    # I
 
     .prologue
     const/4 v1, 0x0
@@ -153,7 +153,7 @@
     move-result-object v0
 
     .line 91
-    .local v0, styledAttributes:Landroid/content/res/TypedArray;
+    .local v0, "styledAttributes":Landroid/content/res/TypedArray;
     const/16 v1, 0xec
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -195,8 +195,8 @@
 
 .method static synthetic access$002(Landroid/widget/QuickContactBadge;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/QuickContactBadge;
+    .param p1, "x1"    # Landroid/net/Uri;
 
     .prologue
     .line 47
@@ -207,7 +207,7 @@
 
 .method static synthetic access$100(Landroid/widget/QuickContactBadge;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/QuickContactBadge;
 
     .prologue
     .line 47
@@ -264,8 +264,8 @@
 # virtual methods
 .method public assignContactFromEmail(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "emailAddress"
-    .parameter "lazyLookup"
+    .param p1, "emailAddress"    # Ljava/lang/String;
+    .param p2, "lazyLookup"    # Z
 
     .prologue
     .line 184
@@ -279,9 +279,9 @@
 
 .method public assignContactFromEmail(Ljava/lang/String;ZLandroid/os/Bundle;)V
     .locals 8
-    .parameter "emailAddress"
-    .parameter "lazyLookup"
-    .parameter "extras"
+    .param p1, "emailAddress"    # Ljava/lang/String;
+    .param p2, "lazyLookup"    # Z
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v2, 0x0
@@ -342,8 +342,8 @@
 
 .method public assignContactFromPhone(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "phoneNumber"
-    .parameter "lazyLookup"
+    .param p1, "phoneNumber"    # Ljava/lang/String;
+    .param p2, "lazyLookup"    # Z
 
     .prologue
     .line 225
@@ -359,9 +359,9 @@
 
 .method public assignContactFromPhone(Ljava/lang/String;ZLandroid/os/Bundle;)V
     .locals 8
-    .parameter "phoneNumber"
-    .parameter "lazyLookup"
-    .parameter "extras"
+    .param p1, "phoneNumber"    # Ljava/lang/String;
+    .param p2, "lazyLookup"    # Z
+    .param p3, "extras"    # Landroid/os/Bundle;
 
     .prologue
     const/4 v2, 0x0
@@ -418,7 +418,7 @@
 
 .method public assignContactUri(Landroid/net/Uri;)V
     .locals 1
-    .parameter "contactUri"
+    .param p1, "contactUri"    # Landroid/net/Uri;
 
     .prologue
     const/4 v0, 0x0
@@ -478,7 +478,7 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 8
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v1, 0x3
@@ -495,7 +495,7 @@
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
     .line 264
-    .local v2, extras:Landroid/os/Bundle;
+    .local v2, "extras":Landroid/os/Bundle;
     :goto_0
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
@@ -518,14 +518,14 @@
     return-void
 
     .line 263
-    .end local v2           #extras:Landroid/os/Bundle;
+    .end local v2    # "extras":Landroid/os/Bundle;
     :cond_1
     iget-object v2, p0, Landroid/widget/QuickContactBadge;->mExtras:Landroid/os/Bundle;
 
     goto :goto_0
 
     .line 267
-    .restart local v2       #extras:Landroid/os/Bundle;
+    .restart local v2    # "extras":Landroid/os/Bundle;
     :cond_2
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactEmail:Ljava/lang/String;
 
@@ -610,7 +610,7 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 5
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     const/4 v4, 0x0
@@ -659,25 +659,9 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/widget/QuickContactBadge;->mPaddingLeft:I
-
-    sub-int/2addr v2, v3
-
-    iget v3, p0, Landroid/widget/QuickContactBadge;->mPaddingRight:I
-
-    sub-int/2addr v2, v3
-
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getHeight()I
 
     move-result v3
-
-    iget v0, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
-
-    sub-int/2addr v3, v0
-
-    iget v0, p0, Landroid/widget/QuickContactBadge;->mPaddingBottom:I
-
-    sub-int/2addr v3, v0
 
     invoke-virtual {v1, v4, v4, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
@@ -704,7 +688,7 @@
     move-result v0
 
     .line 136
-    .local v0, saveCount:I
+    .local v0, "saveCount":I
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 137
@@ -731,7 +715,7 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
     .line 285
@@ -752,7 +736,7 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
     .line 291
@@ -773,7 +757,7 @@
 
 .method public setExcludeMimes([Ljava/lang/String;)V
     .locals 0
-    .parameter "excludeMimes"
+    .param p1, "excludeMimes"    # [Ljava/lang/String;
 
     .prologue
     .line 301
@@ -817,7 +801,7 @@
 
 .method public setMode(I)V
     .locals 0
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 113

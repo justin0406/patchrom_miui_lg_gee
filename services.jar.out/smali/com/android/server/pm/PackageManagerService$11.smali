@@ -25,12 +25,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZLjava/util/Set;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
-    .line 11244
+    .line 11292
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$11;->val$reportStatus:Z
@@ -46,13 +43,13 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 6
-    .parameter "intent"
-    .parameter "resultCode"
-    .parameter "data"
-    .parameter "extras"
-    .parameter "ordered"
-    .parameter "sticky"
-    .parameter "sendingUser"
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -62,7 +59,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 11248
+    .line 11296
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v3, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -82,19 +79,19 @@
 
     move-result-object v0
 
-    .line 11250
-    .local v0, msg:Landroid/os/Message;
+    .line 11298
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     invoke-virtual {v1, v0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 11251
+    .line 11299
     return-void
 
-    .line 11248
-    .end local v0           #msg:Landroid/os/Message;
+    .line 11296
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     const/4 v1, 0x0
 

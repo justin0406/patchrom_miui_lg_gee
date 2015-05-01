@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/ISyncAdapter;)V
     .locals 0
-    .parameter
-    .parameter "activeSyncContext"
-    .parameter "syncAdapter"
+    .param p2, "activeSyncContext"    # Lcom/android/server/content/SyncManager$ActiveSyncContext;
+    .param p3, "syncAdapter"    # Landroid/content/ISyncAdapter;
 
     .prologue
     .line 1765

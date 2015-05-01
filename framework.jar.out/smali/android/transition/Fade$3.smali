@@ -35,12 +35,6 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Fade;Landroid/view/View;ILandroid/view/View;Landroid/view/View;Landroid/view/ViewGroup;)V
     .locals 1
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 294
@@ -64,7 +58,7 @@
     iput-boolean v0, p0, Landroid/transition/Fade$3;->mCanceled:Z
 
     .line 296
-    const/high16 v0, -0x4080
+    const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Landroid/transition/Fade$3;->mPausedAlpha:F
 
@@ -75,7 +69,7 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 317
@@ -106,7 +100,7 @@
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 325
@@ -117,7 +111,7 @@
     .line 326
     iget-object v0, p0, Landroid/transition/Fade$3;->val$finalView:Landroid/view/View;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -162,7 +156,7 @@
 
 .method public onAnimationPause(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 300
@@ -194,7 +188,7 @@
     .line 304
     iget-object v0, p0, Landroid/transition/Fade$3;->val$finalView:Landroid/view/View;
 
-    const/high16 v1, 0x3f80
+    const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
@@ -204,7 +198,7 @@
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
     .locals 2
-    .parameter "animation"
+    .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
     .line 309

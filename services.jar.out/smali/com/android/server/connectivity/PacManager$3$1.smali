@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/PacManager$3;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 328
@@ -36,7 +35,7 @@
 # virtual methods
 .method public setProxyPort(I)V
     .locals 3
-    .parameter "port"
+    .param p1, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -51,7 +50,7 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
 
-    #getter for: Lcom/android/server/connectivity/PacManager;->mLastPort:I
+    # getter for: Lcom/android/server/connectivity/PacManager;->mLastPort:I
     invoke-static {v0}, Lcom/android/server/connectivity/PacManager;->access$1100(Lcom/android/server/connectivity/PacManager;)I
 
     move-result v0
@@ -65,7 +64,7 @@
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/server/connectivity/PacManager;->mHasSentBroadcast:Z
+    # setter for: Lcom/android/server/connectivity/PacManager;->mHasSentBroadcast:Z
     invoke-static {v0, v1}, Lcom/android/server/connectivity/PacManager;->access$1202(Lcom/android/server/connectivity/PacManager;Z)Z
 
     .line 335
@@ -74,7 +73,7 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
 
-    #setter for: Lcom/android/server/connectivity/PacManager;->mLastPort:I
+    # setter for: Lcom/android/server/connectivity/PacManager;->mLastPort:I
     invoke-static {v0, p1}, Lcom/android/server/connectivity/PacManager;->access$1102(Lcom/android/server/connectivity/PacManager;I)I
 
     .line 336
@@ -108,7 +107,7 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
 
-    #calls: Lcom/android/server/connectivity/PacManager;->sendProxyIfNeeded()V
+    # invokes: Lcom/android/server/connectivity/PacManager;->sendProxyIfNeeded()V
     invoke-static {v0}, Lcom/android/server/connectivity/PacManager;->access$600(Lcom/android/server/connectivity/PacManager;)V
 
     .line 343

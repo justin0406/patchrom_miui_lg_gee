@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/ComprehensiveCountryDetector;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 438
@@ -36,7 +35,7 @@
 # virtual methods
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 2
-    .parameter "serviceState"
+    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
 
     .prologue
     const/4 v1, 0x1
@@ -44,17 +43,19 @@
     .line 441
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
+    # operator++ for: Lcom/android/server/location/ComprehensiveCountryDetector;->mCountServiceStateChanges:I
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$308(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
     .line 442
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
+    # operator++ for: Lcom/android/server/location/ComprehensiveCountryDetector;->mTotalCountServiceStateChanges:I
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$408(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
     .line 444
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
-    #calls: Lcom/android/server/location/ComprehensiveCountryDetector;->isNetworkCountryCodeAvailable()Z
+    # invokes: Lcom/android/server/location/ComprehensiveCountryDetector;->isNetworkCountryCodeAvailable()Z
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$500(Lcom/android/server/location/ComprehensiveCountryDetector;)Z
 
     move-result v0
@@ -69,7 +70,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
-    #calls: Lcom/android/server/location/ComprehensiveCountryDetector;->detectCountry(ZZ)Landroid/location/Country;
+    # invokes: Lcom/android/server/location/ComprehensiveCountryDetector;->detectCountry(ZZ)Landroid/location/Country;
     invoke-static {v0, v1, v1}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$100(Lcom/android/server/location/ComprehensiveCountryDetector;ZZ)Landroid/location/Country;
 
     goto :goto_0

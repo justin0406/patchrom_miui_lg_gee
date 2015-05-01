@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -74,8 +74,8 @@
 
 .method static synthetic access$002(Landroid/net/InterfaceConfiguration;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/InterfaceConfiguration;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 31
@@ -86,8 +86,8 @@
 
 .method static synthetic access$102(Landroid/net/InterfaceConfiguration;Landroid/net/LinkAddress;)Landroid/net/LinkAddress;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/InterfaceConfiguration;
+    .param p1, "x1"    # Landroid/net/LinkAddress;
 
     .prologue
     .line 31
@@ -98,7 +98,7 @@
 
 .method static synthetic access$200(Landroid/net/InterfaceConfiguration;)Ljava/util/HashSet;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/InterfaceConfiguration;
 
     .prologue
     .line 31
@@ -109,7 +109,7 @@
 
 .method private static validateFlag(Ljava/lang/String;)V
     .locals 3
-    .parameter "flag"
+    .param p0, "flag"    # Ljava/lang/String;
 
     .prologue
     .line 160
@@ -155,7 +155,7 @@
 # virtual methods
 .method public clearFlag(Ljava/lang/String;)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Ljava/lang/String;
 
     .prologue
     .line 58
@@ -221,7 +221,7 @@
 
 .method public hasFlag(Ljava/lang/String;)Z
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Ljava/lang/String;
 
     .prologue
     .line 53
@@ -264,13 +264,13 @@
 
     move-result-object v0
 
-    .local v0, arr$:[B
+    .local v0, "arr$":[B
     array-length v4, v0
 
-    .local v4, len$:I
+    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, i$:I
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
@@ -279,46 +279,46 @@
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 110
-    .local v1, b:B
+    .local v1, "b":B
     if-eqz v1, :cond_1
 
     const/4 v5, 0x1
 
     .line 116
-    .end local v0           #arr$:[B
-    .end local v1           #b:B
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[B
+    .end local v1    # "b":B
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :cond_0
     :goto_1
     return v5
 
     .line 109
-    .restart local v0       #arr$:[B
-    .restart local v1       #b:B
-    .restart local v3       #i$:I
-    .restart local v4       #len$:I
+    .restart local v0    # "arr$":[B
+    .restart local v1    # "b":B
+    .restart local v3    # "i$":I
+    .restart local v4    # "len$":I
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 113
-    .end local v0           #arr$:[B
-    .end local v1           #b:B
-    .end local v3           #i$:I
-    .end local v4           #len$:I
+    .end local v0    # "arr$":[B
+    .end local v1    # "b":B
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :catch_0
     move-exception v2
 
     .line 114
-    .local v2, e:Ljava/lang/NullPointerException;
+    .local v2, "e":Ljava/lang/NullPointerException;
     goto :goto_1
 .end method
 
 .method public setFlag(Ljava/lang/String;)V
     .locals 1
-    .parameter "flag"
+    .param p1, "flag"    # Ljava/lang/String;
 
     .prologue
     .line 63
@@ -335,7 +335,7 @@
 
 .method public setHardwareAddress(Ljava/lang/String;)V
     .locals 0
-    .parameter "hwAddr"
+    .param p1, "hwAddr"    # Ljava/lang/String;
 
     .prologue
     .line 96
@@ -391,7 +391,7 @@
 
 .method public setLinkAddress(Landroid/net/LinkAddress;)V
     .locals 0
-    .parameter "addr"
+    .param p1, "addr"    # Landroid/net/LinkAddress;
 
     .prologue
     .line 88
@@ -411,7 +411,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 42
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "mHwAddr="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -460,8 +460,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 126
@@ -501,7 +501,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -516,14 +516,14 @@
     check-cast v0, Ljava/lang/String;
 
     .line 135
-    .local v0, flag:Ljava/lang/String;
+    .local v0, "flag":Ljava/lang/String;
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     goto :goto_1
 
     .line 131
-    .end local v0           #flag:Ljava/lang/String;
-    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v0    # "flag":Ljava/lang/String;
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     const/4 v2, 0x0
 
@@ -532,7 +532,7 @@
     goto :goto_0
 
     .line 137
-    .restart local v1       #i$:Ljava/util/Iterator;
+    .restart local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method

@@ -85,7 +85,7 @@
     invoke-direct {v0, v3, v4}, Landroid/net/LocalSocketAddress;-><init>(Ljava/lang/String;Landroid/net/LocalSocketAddress$Namespace;)V
 
     .line 54
-    .local v0, address:Landroid/net/LocalSocketAddress;
+    .local v0, "address":Landroid/net/LocalSocketAddress;
     iget-object v3, p0, Lcom/android/server/pm/Installer;->mSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v3, v0}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
@@ -113,12 +113,12 @@
     goto :goto_0
 
     .line 58
-    .end local v0           #address:Landroid/net/LocalSocketAddress;
+    .end local v0    # "address":Landroid/net/LocalSocketAddress;
     :catch_0
     move-exception v1
 
     .line 59
-    .local v1, ex:Ljava/io/IOException;
+    .local v1, "ex":Ljava/io/IOException;
     invoke-direct {p0}, Lcom/android/server/pm/Installer;->disconnect()V
 
     .line 60
@@ -218,7 +218,7 @@
 
 .method private execute(Ljava/lang/String;)I
     .locals 3
-    .parameter "cmd"
+    .param p1, "cmd"    # Ljava/lang/String;
 
     .prologue
     .line 183
@@ -227,7 +227,7 @@
     move-result-object v1
 
     .line 185
-    .local v1, res:Ljava/lang/String;
+    .local v1, "res":Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -244,7 +244,7 @@
     move-exception v0
 
     .line 187
-    .local v0, ex:Ljava/lang/NumberFormatException;
+    .local v0, "ex":Ljava/lang/NumberFormatException;
     const/4 v2, -0x1
 
     goto :goto_0
@@ -252,8 +252,8 @@
 
 .method private readBytes([BI)Z
     .locals 7
-    .parameter "buffer"
-    .parameter "len"
+    .param p1, "buffer"    # [B
+    .param p2, "len"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -262,7 +262,7 @@
     const/4 v2, 0x0
 
     .line 89
-    .local v2, off:I
+    .local v2, "off":I
     if-gez p2, :cond_1
 
     .line 110
@@ -270,12 +270,12 @@
     return v3
 
     .line 98
-    .local v0, count:I
+    .local v0, "count":I
     :cond_0
     add-int/2addr v2, v0
 
     .line 91
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :cond_1
     if-eq v2, p2, :cond_2
 
@@ -290,7 +290,7 @@
     move-result v0
 
     .line 94
-    .restart local v0       #count:I
+    .restart local v0    # "count":I
     if-gtz v0, :cond_0
 
     .line 95
@@ -319,7 +319,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 107
-    .end local v0           #count:I
+    .end local v0    # "count":I
     :cond_2
     :goto_1
     if-ne v2, p2, :cond_3
@@ -334,7 +334,7 @@
     move-exception v1
 
     .line 100
-    .local v1, ex:Ljava/io/IOException;
+    .local v1, "ex":Ljava/io/IOException;
     const-string v4, "Installer"
 
     const-string v5, "read exception"
@@ -344,7 +344,7 @@
     goto :goto_1
 
     .line 109
-    .end local v1           #ex:Ljava/io/IOException;
+    .end local v1    # "ex":Ljava/io/IOException;
     :cond_3
     invoke-direct {p0}, Lcom/android/server/pm/Installer;->disconnect()V
 
@@ -397,7 +397,7 @@
     or-int v0, v3, v4
 
     .line 119
-    .local v0, len:I
+    .local v0, "len":I
     if-lt v0, v2, :cond_2
 
     const/16 v3, 0x400
@@ -460,7 +460,7 @@
 
 .method private declared-synchronized transaction(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .parameter "cmd"
+    .param p1, "cmd"    # Ljava/lang/String;
 
     .prologue
     .line 149
@@ -546,11 +546,11 @@
     invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([BII)V
 
     .line 173
-    .local v0, s:Ljava/lang/String;
+    .local v0, "s":Ljava/lang/String;
     goto :goto_0
 
     .line 178
-    .end local v0           #s:Ljava/lang/String;
+    .end local v0    # "s":Ljava/lang/String;
     :cond_3
     const-string v0, "-1"
     :try_end_1
@@ -569,7 +569,7 @@
 
 .method private writeCommand(Ljava/lang/String;)Z
     .locals 9
-    .parameter "_cmd"
+    .param p1, "_cmd"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x1
@@ -582,11 +582,11 @@
     move-result-object v0
 
     .line 132
-    .local v0, cmd:[B
+    .local v0, "cmd":[B
     array-length v2, v0
 
     .line 133
-    .local v2, len:I
+    .local v2, "len":I
     if-lt v2, v3, :cond_0
 
     const/16 v5, 0x400
@@ -649,7 +649,7 @@
     move-exception v1
 
     .line 141
-    .local v1, ex:Ljava/io/IOException;
+    .local v1, "ex":Ljava/io/IOException;
     const-string v3, "Installer"
 
     const-string v5, "write error"
@@ -669,8 +669,8 @@
 # virtual methods
 .method public clearUserData(Ljava/lang/String;I)I
     .locals 3
-    .parameter "name"
-    .parameter "userId"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -683,7 +683,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 288
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 289
@@ -709,9 +709,9 @@
 
 .method public createUserData(Ljava/lang/String;II)I
     .locals 3
-    .parameter "name"
-    .parameter "uid"
-    .parameter "userId"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "userId"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -724,7 +724,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 270
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 271
@@ -756,8 +756,8 @@
 
 .method public deleteCacheFiles(Ljava/lang/String;I)I
     .locals 3
-    .parameter "name"
-    .parameter "userId"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -770,7 +770,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 261
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 262
@@ -796,9 +796,9 @@
 
 .method public dexopt(Ljava/lang/String;IZ)I
     .locals 3
-    .parameter "apkPath"
-    .parameter "uid"
-    .parameter "isPublic"
+    .param p1, "apkPath"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "isPublic"    # Z
 
     .prologue
     const/16 v2, 0x20
@@ -811,7 +811,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 206
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 207
@@ -851,9 +851,9 @@
 
 .method public fixUid(Ljava/lang/String;II)I
     .locals 3
-    .parameter "name"
-    .parameter "uid"
-    .parameter "gid"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "gid"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -866,7 +866,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 250
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 251
@@ -898,7 +898,7 @@
 
 .method public freeCache(J)I
     .locals 2
-    .parameter "freeStorageSize"
+    .param p1, "freeStorageSize"    # J
 
     .prologue
     .line 304
@@ -909,7 +909,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 305
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const/16 v1, 0x20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -935,13 +935,13 @@
 
 .method public getSizeInfo(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/pm/PackageStats;)I
     .locals 7
-    .parameter "pkgName"
-    .parameter "persona"
-    .parameter "apkPath"
-    .parameter "libDirPath"
-    .parameter "fwdLockApkPath"
-    .parameter "asecPath"
-    .parameter "pStats"
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "persona"    # I
+    .param p3, "apkPath"    # Ljava/lang/String;
+    .param p4, "libDirPath"    # Ljava/lang/String;
+    .param p5, "fwdLockApkPath"    # Ljava/lang/String;
+    .param p6, "asecPath"    # Ljava/lang/String;
+    .param p7, "pStats"    # Landroid/content/pm/PackageStats;
 
     .prologue
     const/4 v4, -0x1
@@ -956,7 +956,7 @@
     invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 313
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 314
@@ -980,7 +980,7 @@
     .line 320
     if-eqz p4, :cond_1
 
-    .end local p4
+    .end local p4    # "libDirPath":Ljava/lang/String;
     :goto_0
     invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -990,7 +990,7 @@
     .line 322
     if-eqz p5, :cond_2
 
-    .end local p5
+    .end local p5    # "fwdLockApkPath":Ljava/lang/String;
     :goto_1
     invoke-virtual {v0, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1000,7 +1000,7 @@
     .line 324
     if-eqz p6, :cond_3
 
-    .end local p6
+    .end local p6    # "asecPath":Ljava/lang/String;
     :goto_2
     invoke-virtual {v0, p6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1014,7 +1014,7 @@
     move-result-object v3
 
     .line 327
-    .local v3, s:Ljava/lang/String;
+    .local v3, "s":Ljava/lang/String;
     const-string v5, " "
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -1022,7 +1022,7 @@
     move-result-object v2
 
     .line 329
-    .local v2, res:[Ljava/lang/String;
+    .local v2, "res":[Ljava/lang/String;
     if-eqz v2, :cond_0
 
     array-length v5, v2
@@ -1037,34 +1037,34 @@
     return v4
 
     .line 320
-    .end local v2           #res:[Ljava/lang/String;
-    .end local v3           #s:Ljava/lang/String;
-    .restart local p4
-    .restart local p5
-    .restart local p6
+    .end local v2    # "res":[Ljava/lang/String;
+    .end local v3    # "s":Ljava/lang/String;
+    .restart local p4    # "libDirPath":Ljava/lang/String;
+    .restart local p5    # "fwdLockApkPath":Ljava/lang/String;
+    .restart local p6    # "asecPath":Ljava/lang/String;
     :cond_1
     const-string p4, "!"
 
     goto :goto_0
 
     .line 322
-    .end local p4
+    .end local p4    # "libDirPath":Ljava/lang/String;
     :cond_2
     const-string p5, "!"
 
     goto :goto_1
 
     .line 324
-    .end local p5
+    .end local p5    # "fwdLockApkPath":Ljava/lang/String;
     :cond_3
     const-string p6, "!"
 
     goto :goto_2
 
     .line 333
-    .end local p6
-    .restart local v2       #res:[Ljava/lang/String;
-    .restart local v3       #s:Ljava/lang/String;
+    .end local p6    # "asecPath":Ljava/lang/String;
+    .restart local v2    # "res":[Ljava/lang/String;
+    .restart local v3    # "s":Ljava/lang/String;
     :cond_4
     const/4 v5, 0x1
 
@@ -1128,16 +1128,16 @@
     move-exception v1
 
     .line 339
-    .local v1, e:Ljava/lang/NumberFormatException;
+    .local v1, "e":Ljava/lang/NumberFormatException;
     goto :goto_3
 .end method
 
 .method public install(Ljava/lang/String;IILjava/lang/String;)I
     .locals 3
-    .parameter "name"
-    .parameter "uid"
-    .parameter "gid"
-    .parameter "seinfo"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "gid"    # I
+    .param p4, "seinfo"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0x20
@@ -1150,7 +1150,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 193
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 194
@@ -1174,7 +1174,7 @@
     .line 200
     if-eqz p4, :cond_0
 
-    .end local p4
+    .end local p4    # "seinfo":Ljava/lang/String;
     :goto_0
     invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1190,7 +1190,7 @@
     return v1
 
     .line 200
-    .restart local p4
+    .restart local p4    # "seinfo":Ljava/lang/String;
     :cond_0
     const-string p4, "!"
 
@@ -1199,9 +1199,9 @@
 
 .method public linkNativeLibraryDirectory(Ljava/lang/String;Ljava/lang/String;I)I
     .locals 4
-    .parameter "dataPath"
-    .parameter "nativeLibPath"
-    .parameter "userId"
+    .param p1, "dataPath"    # Ljava/lang/String;
+    .param p2, "nativeLibPath"    # Ljava/lang/String;
+    .param p3, "userId"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -1244,7 +1244,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 365
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 366
@@ -1287,8 +1287,8 @@
 
 .method public movedex(Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
-    .parameter "srcPath"
-    .parameter "dstPath"
+    .param p1, "srcPath"    # Ljava/lang/String;
+    .param p2, "dstPath"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0x20
@@ -1301,7 +1301,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 216
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 217
@@ -1353,8 +1353,8 @@
 
 .method public remove(Ljava/lang/String;I)I
     .locals 3
-    .parameter "name"
-    .parameter "userId"
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
     .prologue
     const/16 v2, 0x20
@@ -1367,7 +1367,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 232
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 233
@@ -1393,7 +1393,7 @@
 
 .method public removeUserDataDirs(I)I
     .locals 2
-    .parameter "userId"
+    .param p1, "userId"    # I
 
     .prologue
     .line 280
@@ -1404,7 +1404,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 281
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const/16 v1, 0x20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1426,8 +1426,8 @@
 
 .method public rename(Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
-    .parameter "oldname"
-    .parameter "newname"
+    .param p1, "oldname"    # Ljava/lang/String;
+    .param p2, "newname"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0x20
@@ -1440,7 +1440,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 241
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 242
@@ -1466,7 +1466,7 @@
 
 .method public rmdex(Ljava/lang/String;)I
     .locals 2
-    .parameter "codePath"
+    .param p1, "codePath"    # Ljava/lang/String;
 
     .prologue
     .line 224
@@ -1477,7 +1477,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 225
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const/16 v1, 0x20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

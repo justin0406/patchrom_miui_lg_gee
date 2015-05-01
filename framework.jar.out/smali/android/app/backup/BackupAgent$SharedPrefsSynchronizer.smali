@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/app/backup/BackupAgent;)V
     .locals 2
-    .parameter
 
     .prologue
     .line 131

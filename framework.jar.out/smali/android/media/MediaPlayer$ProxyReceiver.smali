@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Landroid/media/MediaPlayer;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 2787
@@ -34,8 +33,8 @@
 
 .method synthetic constructor <init>(Landroid/media/MediaPlayer;Landroid/media/MediaPlayer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/media/MediaPlayer;
+    .param p2, "x1"    # Landroid/media/MediaPlayer$1;
 
     .prologue
     .line 2787
@@ -48,8 +47,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 2790
@@ -68,7 +67,7 @@
     .line 2791
     iget-object v0, p0, Landroid/media/MediaPlayer$ProxyReceiver;->this$0:Landroid/media/MediaPlayer;
 
-    #calls: Landroid/media/MediaPlayer;->handleProxyBroadcast(Landroid/content/Intent;)V
+    # invokes: Landroid/media/MediaPlayer;->handleProxyBroadcast(Landroid/content/Intent;)V
     invoke-static {v0, p2}, Landroid/media/MediaPlayer;->access$1900(Landroid/media/MediaPlayer;Landroid/content/Intent;)V
 
     .line 2793

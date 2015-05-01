@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final DATA_PROJECTION:[Ljava/lang/String; = null
+.field private static final DATA_PROJECTION:[Ljava/lang/String;
 
 .field private static final SELECT_BY_ACCOUNT:Ljava/lang/String; = "account_name=? AND account_type=?"
 
@@ -59,9 +59,9 @@
 
 .method public static get(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;)[B
     .locals 7
-    .parameter "provider"
-    .parameter "uri"
-    .parameter "account"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -101,7 +101,7 @@
     move-result-object v6
 
     .line 79
-    .local v6, c:Landroid/database/Cursor;
+    .local v6, "c":Landroid/database/Cursor;
     if-nez v6, :cond_0
 
     .line 80
@@ -156,9 +156,9 @@
 
 .method public static getWithUri(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;)Landroid/util/Pair;
     .locals 11
-    .parameter "provider"
-    .parameter "uri"
-    .parameter "account"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "account"    # Landroid/accounts/Account;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
     move-result-object v7
 
     .line 133
-    .local v7, c:Landroid/database/Cursor;
+    .local v7, "c":Landroid/database/Cursor;
     if-nez v7, :cond_0
 
     .line 134
@@ -239,7 +239,7 @@
     move-result-wide v8
 
     .line 140
-    .local v8, rowId:J
+    .local v8, "rowId":J
     const-string v0, "data"
 
     invoke-interface {v7, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
@@ -251,7 +251,7 @@
     move-result-object v6
 
     .line 141
-    .local v6, blob:[B
+    .local v6, "blob":[B
     invoke-static {p1, v8, v9}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
     move-result-object v0
@@ -266,8 +266,8 @@
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 146
-    .end local v6           #blob:[B
-    .end local v8           #rowId:J
+    .end local v6    # "blob":[B
+    .end local v8    # "rowId":J
     :goto_0
     return-object v5
 
@@ -287,10 +287,10 @@
 
 .method public static insert(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;[B)Landroid/net/Uri;
     .locals 3
-    .parameter "provider"
-    .parameter "uri"
-    .parameter "account"
-    .parameter "data"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -304,7 +304,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 115
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "data"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -333,9 +333,9 @@
 
 .method public static newSetOperation(Landroid/net/Uri;Landroid/accounts/Account;[B)Landroid/content/ContentProviderOperation;
     .locals 4
-    .parameter "uri"
-    .parameter "account"
-    .parameter "data"
+    .param p0, "uri"    # Landroid/net/Uri;
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "data"    # [B
 
     .prologue
     .line 160
@@ -344,7 +344,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 161
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "data"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -383,8 +383,8 @@
 
 .method public static newUpdateOperation(Landroid/net/Uri;[B)Landroid/content/ContentProviderOperation;
     .locals 2
-    .parameter "uri"
-    .parameter "data"
+    .param p0, "uri"    # Landroid/net/Uri;
+    .param p1, "data"    # [B
 
     .prologue
     .line 179
@@ -393,7 +393,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 180
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "data"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -416,10 +416,10 @@
 
 .method public static set(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;[B)V
     .locals 3
-    .parameter "provider"
-    .parameter "uri"
-    .parameter "account"
-    .parameter "data"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -433,7 +433,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 106
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "data"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
@@ -461,9 +461,9 @@
 
 .method public static update(Landroid/content/ContentProviderClient;Landroid/net/Uri;[B)V
     .locals 3
-    .parameter "provider"
-    .parameter "uri"
-    .parameter "data"
+    .param p0, "provider"    # Landroid/content/ContentProviderClient;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -479,7 +479,7 @@
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     .line 124
-    .local v0, values:Landroid/content/ContentValues;
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "data"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V

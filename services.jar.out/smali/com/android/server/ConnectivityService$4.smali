@@ -21,10 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ConnectivityService;)V
     .locals 0
-    .parameter
 
     .prologue
-    .line 2226
+    .line 2291
     iput-object p1, p0, Lcom/android/server/ConnectivityService$4;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,11 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 2231
+    .line 2296
     iget-object v0, p0, Lcom/android/server/ConnectivityService$4;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-virtual {v0}, Lcom/android/server/ConnectivityService;->updateLockdownVpn()Z
@@ -49,17 +48,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 2232
+    .line 2297
     iget-object v0, p0, Lcom/android/server/ConnectivityService$4;->this$0:Lcom/android/server/ConnectivityService;
 
-    #getter for: Lcom/android/server/ConnectivityService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/ConnectivityService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/ConnectivityService;->access$1100(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 2234
+    .line 2299
     :cond_0
     return-void
 .end method

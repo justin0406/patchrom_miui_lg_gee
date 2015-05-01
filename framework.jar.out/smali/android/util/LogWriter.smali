@@ -16,8 +16,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 2
-    .parameter "priority"
-    .parameter "tag"
+    .param p1, "priority"    # I
+    .param p2, "tag"    # Ljava/lang/String;
 
     .prologue
     .line 40
@@ -49,9 +49,9 @@
 
 .method public constructor <init>(ILjava/lang/String;I)V
     .locals 2
-    .parameter "priority"
-    .parameter "tag"
-    .parameter "buffer"
+    .param p1, "priority"    # I
+    .param p2, "tag"    # Ljava/lang/String;
+    .param p3, "buffer"    # I
 
     .prologue
     .line 50
@@ -151,15 +151,15 @@
 
 .method public write([CII)V
     .locals 3
-    .parameter "buf"
-    .parameter "offset"
-    .parameter "count"
+    .param p1, "buf"    # [C
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
 
     .prologue
     .line 65
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, p3, :cond_1
 
@@ -169,7 +169,7 @@
     aget-char v0, p1, v2
 
     .line 67
-    .local v0, c:C
+    .local v0, "c":C
     const/16 v2, 0xa
 
     if-ne v0, v2, :cond_0
@@ -192,7 +192,7 @@
     goto :goto_1
 
     .line 74
-    .end local v0           #c:C
+    .end local v0    # "c":C
     :cond_1
     return-void
 .end method

@@ -17,8 +17,8 @@
 # direct methods
 .method constructor <init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
     .locals 2
-    .parameter "state"
-    .parameter "expected"
+    .param p1, "state"    # Ljava/io/StreamTokenizer;
+    .param p2, "expected"    # Ljava/lang/String;
 
     .prologue
     .line 83

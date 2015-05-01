@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 93
@@ -61,7 +61,7 @@
 
 .method public onBindMethod(Lcom/android/internal/view/InputBindResult;)V
     .locals 5
-    .parameter "res"
+    .param p1, "res"    # Lcom/android/internal/view/InputBindResult;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 120
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodClient"
 
@@ -136,7 +136,7 @@
 
 .method public onUnbindMethod(I)V
     .locals 5
-    .parameter "sequence"
+    .param p1, "sequence"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +150,7 @@
     move-result-object v0
 
     .line 138
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.view.IInputMethodClient"
 
@@ -189,7 +189,7 @@
 
 .method public setActive(Z)V
     .locals 5
-    .parameter "active"
+    .param p1, "active"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -205,7 +205,7 @@
     move-result-object v0
 
     .line 150
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethodClient"
 
@@ -253,7 +253,7 @@
 
 .method public setUsingInputMethod(Z)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -269,7 +269,7 @@
     move-result-object v0
 
     .line 108
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.view.IInputMethodClient"
 

@@ -30,7 +30,7 @@
 
 .method public constructor <init>(Z)V
     .locals 0
-    .parameter "appendInvalid"
+    .param p1, "appendInvalid"    # Z
 
     .prologue
     .line 202
@@ -44,7 +44,7 @@
 # virtual methods
 .method public isAllowed(C)Z
     .locals 2
-    .parameter "c"
+    .param p1, "c"    # C
 
     .prologue
     const/4 v0, 0x1

@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -72,7 +72,7 @@
 
 .method protected constructor <init>(Landroid/content/SyncRequest$Builder;)V
     .locals 5
-    .parameter "b"
+    .param p1, "b"    # Landroid/content/SyncRequest$Builder;
 
     .prologue
     const/4 v2, 0x0
@@ -83,7 +83,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 201
-    #getter for: Landroid/content/SyncRequest$Builder;->mSyncFlexTimeSecs:J
+    # getter for: Landroid/content/SyncRequest$Builder;->mSyncFlexTimeSecs:J
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$100(Landroid/content/SyncRequest$Builder;)J
 
     move-result-wide v3
@@ -91,7 +91,7 @@
     iput-wide v3, p0, Landroid/content/SyncRequest;->mSyncFlexTimeSecs:J
 
     .line 202
-    #getter for: Landroid/content/SyncRequest$Builder;->mSyncRunTimeSecs:J
+    # getter for: Landroid/content/SyncRequest$Builder;->mSyncRunTimeSecs:J
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$200(Landroid/content/SyncRequest$Builder;)J
 
     move-result-wide v3
@@ -99,7 +99,7 @@
     iput-wide v3, p0, Landroid/content/SyncRequest;->mSyncRunTimeSecs:J
 
     .line 203
-    #getter for: Landroid/content/SyncRequest$Builder;->mAccount:Landroid/accounts/Account;
+    # getter for: Landroid/content/SyncRequest$Builder;->mAccount:Landroid/accounts/Account;
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$300(Landroid/content/SyncRequest$Builder;)Landroid/accounts/Account;
 
     move-result-object v0
@@ -107,7 +107,7 @@
     iput-object v0, p0, Landroid/content/SyncRequest;->mAccountToSync:Landroid/accounts/Account;
 
     .line 204
-    #getter for: Landroid/content/SyncRequest$Builder;->mAuthority:Ljava/lang/String;
+    # getter for: Landroid/content/SyncRequest$Builder;->mAuthority:Ljava/lang/String;
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$400(Landroid/content/SyncRequest$Builder;)Ljava/lang/String;
 
     move-result-object v0
@@ -115,7 +115,7 @@
     iput-object v0, p0, Landroid/content/SyncRequest;->mAuthority:Ljava/lang/String;
 
     .line 205
-    #getter for: Landroid/content/SyncRequest$Builder;->mComponentName:Landroid/content/ComponentName;
+    # getter for: Landroid/content/SyncRequest$Builder;->mComponentName:Landroid/content/ComponentName;
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$500(Landroid/content/SyncRequest$Builder;)Landroid/content/ComponentName;
 
     move-result-object v0
@@ -123,7 +123,7 @@
     iput-object v0, p0, Landroid/content/SyncRequest;->mComponentInfo:Landroid/content/ComponentName;
 
     .line 206
-    #getter for: Landroid/content/SyncRequest$Builder;->mSyncType:I
+    # getter for: Landroid/content/SyncRequest$Builder;->mSyncType:I
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$600(Landroid/content/SyncRequest$Builder;)I
 
     move-result v0
@@ -136,7 +136,7 @@
     iput-boolean v0, p0, Landroid/content/SyncRequest;->mIsPeriodic:Z
 
     .line 207
-    #getter for: Landroid/content/SyncRequest$Builder;->mSyncTarget:I
+    # getter for: Landroid/content/SyncRequest$Builder;->mSyncTarget:I
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$700(Landroid/content/SyncRequest$Builder;)I
 
     move-result v0
@@ -149,7 +149,7 @@
     iput-boolean v1, p0, Landroid/content/SyncRequest;->mIsAuthority:Z
 
     .line 208
-    #getter for: Landroid/content/SyncRequest$Builder;->mExpedited:Z
+    # getter for: Landroid/content/SyncRequest$Builder;->mExpedited:Z
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$800(Landroid/content/SyncRequest$Builder;)Z
 
     move-result v0
@@ -159,7 +159,7 @@
     .line 209
     new-instance v0, Landroid/os/Bundle;
 
-    #getter for: Landroid/content/SyncRequest$Builder;->mCustomExtras:Landroid/os/Bundle;
+    # getter for: Landroid/content/SyncRequest$Builder;->mCustomExtras:Landroid/os/Bundle;
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$900(Landroid/content/SyncRequest$Builder;)Landroid/os/Bundle;
 
     move-result-object v1
@@ -171,7 +171,7 @@
     .line 212
     iget-object v0, p0, Landroid/content/SyncRequest;->mExtras:Landroid/os/Bundle;
 
-    #getter for: Landroid/content/SyncRequest$Builder;->mSyncConfigExtras:Landroid/os/Bundle;
+    # getter for: Landroid/content/SyncRequest$Builder;->mSyncConfigExtras:Landroid/os/Bundle;
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$1000(Landroid/content/SyncRequest$Builder;)Landroid/os/Bundle;
 
     move-result-object v1
@@ -179,7 +179,7 @@
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     .line 213
-    #getter for: Landroid/content/SyncRequest$Builder;->mDisallowMetered:Z
+    # getter for: Landroid/content/SyncRequest$Builder;->mDisallowMetered:Z
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$1100(Landroid/content/SyncRequest$Builder;)Z
 
     move-result v0
@@ -187,7 +187,7 @@
     iput-boolean v0, p0, Landroid/content/SyncRequest;->mDisallowMetered:Z
 
     .line 214
-    #getter for: Landroid/content/SyncRequest$Builder;->mTxBytes:J
+    # getter for: Landroid/content/SyncRequest$Builder;->mTxBytes:J
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$1200(Landroid/content/SyncRequest$Builder;)J
 
     move-result-wide v0
@@ -195,7 +195,7 @@
     iput-wide v0, p0, Landroid/content/SyncRequest;->mTxBytes:J
 
     .line 215
-    #getter for: Landroid/content/SyncRequest$Builder;->mRxBytes:J
+    # getter for: Landroid/content/SyncRequest$Builder;->mRxBytes:J
     invoke-static {p1}, Landroid/content/SyncRequest$Builder;->access$1300(Landroid/content/SyncRequest$Builder;)J
 
     move-result-wide v0
@@ -220,7 +220,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 6
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -386,8 +386,8 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/SyncRequest$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/content/SyncRequest$1;
 
     .prologue
     .line 24
@@ -524,8 +524,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .parameter "parcel"
-    .parameter "flags"
+    .param p1, "parcel"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

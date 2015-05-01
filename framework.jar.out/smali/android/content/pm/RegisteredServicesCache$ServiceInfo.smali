@@ -40,9 +40,8 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Landroid/content/ComponentName;I)V
     .locals 0
-    .parameter
-    .parameter "componentName"
-    .parameter "uid"
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "uid"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;",
@@ -53,8 +52,8 @@
 
     .prologue
     .line 230
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$ServiceInfo;,"Landroid/content/pm/RegisteredServicesCache$ServiceInfo<TV;>;"
-    .local p1, type:Ljava/lang/Object;,"TV;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$ServiceInfo;, "Landroid/content/pm/RegisteredServicesCache$ServiceInfo<TV;>;"
+    .local p1, "type":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 231
@@ -77,7 +76,7 @@
 
     .prologue
     .line 238
-    .local p0, this:Landroid/content/pm/RegisteredServicesCache$ServiceInfo;,"Landroid/content/pm/RegisteredServicesCache$ServiceInfo<TV;>;"
+    .local p0, "this":Landroid/content/pm/RegisteredServicesCache$ServiceInfo;, "Landroid/content/pm/RegisteredServicesCache$ServiceInfo<TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

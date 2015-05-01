@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 1439
@@ -70,7 +67,7 @@
     move-exception v0
 
     .line 1446
-    .local v0, e:Landroid/database/SQLException;
+    .local v0, "e":Landroid/database/SQLException;
     const-string v1, "AccountManager"
 
     const-string v2, "Can\'t update accounts"

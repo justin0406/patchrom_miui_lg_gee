@@ -19,11 +19,11 @@
 # direct methods
 .method constructor <init>(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;Z)V
     .locals 6
-    .parameter "filter"
-    .parameter "match"
-    .parameter "set"
-    .parameter "activity"
-    .parameter "always"
+    .param p1, "filter"    # Landroid/content/IntentFilter;
+    .param p2, "match"    # I
+    .param p3, "set"    # [Landroid/content/ComponentName;
+    .param p4, "activity"    # Landroid/content/ComponentName;
+    .param p5, "always"    # Z
 
     .prologue
     .line 41
@@ -52,7 +52,7 @@
 
 .method constructor <init>(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 1
-    .parameter "parser"
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -79,8 +79,8 @@
 # virtual methods
 .method public onReadTag(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;)Z
     .locals 3
-    .parameter "tagName"
-    .parameter "parser"
+    .param p1, "tagName"    # Ljava/lang/String;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -201,8 +201,8 @@
 
 .method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;Z)V
     .locals 2
-    .parameter "serializer"
-    .parameter "full"
+    .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
+    .param p2, "full"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -63,7 +63,7 @@
 
 .method public static newFromBundle(Landroid/os/Bundle;)Landroid/telephony/CellLocation;
     .locals 1
-    .parameter "bundle"
+    .param p0, "bundle"    # Landroid/os/Bundle;
 
     .prologue
     .line 66
@@ -126,7 +126,7 @@
     move-result-object v0
 
     .line 44
-    .local v0, phone:Lcom/android/internal/telephony/ITelephony;
+    .local v0, "phone":Lcom/android/internal/telephony/ITelephony;
     if-eqz v0, :cond_0
 
     .line 45

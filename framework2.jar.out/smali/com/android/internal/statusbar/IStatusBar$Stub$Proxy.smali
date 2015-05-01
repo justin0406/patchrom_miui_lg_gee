@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 208
@@ -41,8 +41,8 @@
 # virtual methods
 .method public addNotification(Landroid/os/IBinder;Landroid/service/notification/StatusBarNotification;)V
     .locals 5
-    .parameter "key"
-    .parameter "notification"
+    .param p1, "key"    # Landroid/os/IBinder;
+    .param p2, "notification"    # Landroid/service/notification/StatusBarNotification;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -56,7 +56,7 @@
     move-result-object v0
 
     .line 254
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -133,7 +133,7 @@
     move-result-object v0
 
     .line 338
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -182,7 +182,7 @@
     move-result-object v0
 
     .line 316
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -231,7 +231,7 @@
     move-result-object v0
 
     .line 327
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -290,7 +290,7 @@
     move-result-object v0
 
     .line 423
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -326,7 +326,7 @@
 
 .method public disable(I)V
     .locals 5
-    .parameter "state"
+    .param p1, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -340,7 +340,7 @@
     move-result-object v0
 
     .line 304
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -402,7 +402,7 @@
     move-result-object v0
 
     .line 412
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -438,7 +438,7 @@
 
 .method public removeIcon(I)V
     .locals 5
-    .parameter "index"
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -452,7 +452,7 @@
     move-result-object v0
 
     .line 242
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -491,7 +491,7 @@
 
 .method public removeNotification(Landroid/os/IBinder;)V
     .locals 5
-    .parameter "key"
+    .param p1, "key"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -505,7 +505,7 @@
     move-result-object v0
 
     .line 292
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -544,8 +544,8 @@
 
 .method public setHardKeyboardStatus(ZZ)V
     .locals 5
-    .parameter "available"
-    .parameter "enabled"
+    .param p1, "available"    # Z
+    .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -563,7 +563,7 @@
     move-result-object v0
 
     .line 388
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.android.internal.statusbar.IStatusBar"
 
@@ -625,8 +625,8 @@
 
 .method public setIcon(ILcom/android/internal/statusbar/StatusBarIcon;)V
     .locals 5
-    .parameter "index"
-    .parameter "icon"
+    .param p1, "index"    # I
+    .param p2, "icon"    # Lcom/android/internal/statusbar/StatusBarIcon;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -640,7 +640,7 @@
     move-result-object v0
 
     .line 223
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -704,9 +704,9 @@
 
 .method public setImeWindowStatus(Landroid/os/IBinder;II)V
     .locals 5
-    .parameter "token"
-    .parameter "vis"
-    .parameter "backDisposition"
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "vis"    # I
+    .param p3, "backDisposition"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -720,7 +720,7 @@
     move-result-object v0
 
     .line 374
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -765,9 +765,9 @@
 
 .method public setStatus(ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "what"
-    .parameter "action"
-    .parameter "ext"
+    .param p1, "what"    # I
+    .param p2, "action"    # Ljava/lang/String;
+    .param p3, "ext"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -779,7 +779,7 @@
 
     move-result-object v0
 
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -802,7 +802,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/internal/statusbar/IStatusBar$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x1a
+    const/16 v2, 0x12
 
     const/4 v3, 0x0
 
@@ -836,8 +836,8 @@
 
 .method public setSystemUiVisibility(II)V
     .locals 5
-    .parameter "vis"
-    .parameter "mask"
+    .param p1, "vis"    # I
+    .param p2, "mask"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -851,7 +851,7 @@
     move-result-object v0
 
     .line 349
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -893,8 +893,8 @@
 
 .method public setWindowState(II)V
     .locals 5
-    .parameter "window"
-    .parameter "state"
+    .param p1, "window"    # I
+    .param p2, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -908,7 +908,7 @@
     move-result-object v0
 
     .line 434
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -963,7 +963,7 @@
     move-result-object v0
 
     .line 401
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 
@@ -999,7 +999,7 @@
 
 .method public topAppWindowChanged(Z)V
     .locals 5
-    .parameter "menuVisible"
+    .param p1, "menuVisible"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1015,7 +1015,7 @@
     move-result-object v0
 
     .line 362
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBar"
 
@@ -1063,8 +1063,8 @@
 
 .method public updateNotification(Landroid/os/IBinder;Landroid/service/notification/StatusBarNotification;)V
     .locals 5
-    .parameter "key"
-    .parameter "notification"
+    .param p1, "key"    # Landroid/os/IBinder;
+    .param p2, "notification"    # Landroid/service/notification/StatusBarNotification;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1078,7 +1078,7 @@
     move-result-object v0
 
     .line 273
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.android.internal.statusbar.IStatusBar"
 

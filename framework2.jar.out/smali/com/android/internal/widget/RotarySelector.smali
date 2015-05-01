@@ -126,7 +126,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 164
@@ -140,8 +140,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
-    .parameter "context"
-    .parameter "attrs"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
     const/4 v4, 0x0
@@ -193,7 +193,7 @@
     move-result-object v0
 
     .line 175
-    .local v0, a:Landroid/content/res/TypedArray;
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v3
@@ -209,7 +209,7 @@
     move-result-object v2
 
     .line 179
-    .local v2, r:Landroid/content/res/Resources;
+    .local v2, "r":Landroid/content/res/Resources;
     invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v3
@@ -275,7 +275,7 @@
     .line 191
     new-instance v3, Landroid/view/animation/DecelerateInterpolator;
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     invoke-direct {v3, v4}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
 
@@ -284,7 +284,7 @@
     .line 193
     iget v3, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
-    const/high16 v4, 0x42c8
+    const/high16 v4, 0x42c80000    # 100.0f
 
     mul-float/2addr v3, v4
 
@@ -322,7 +322,7 @@
     .line 199
     iget v3, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
-    const/high16 v4, 0x43c3
+    const/high16 v4, 0x43c30000    # 390.0f
 
     mul-float/2addr v3, v4
 
@@ -331,7 +331,7 @@
     iput v3, p0, Lcom/android/internal/widget/RotarySelector;->mOuterRadius:I
 
     .line 200
-    const v3, 0x43998000
+    const v3, 0x43998000    # 307.0f
 
     iget v4, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
@@ -349,7 +349,7 @@
     move-result-object v1
 
     .line 203
-    .local v1, configuration:Landroid/view/ViewConfiguration;
+    .local v1, "configuration":Landroid/view/ViewConfiguration;
     invoke-virtual {v1}, Landroid/view/ViewConfiguration;->getScaledMinimumFlingVelocity()I
 
     move-result v3
@@ -371,7 +371,7 @@
 
 .method private dispatchTriggerEvent(I)V
     .locals 2
-    .parameter "whichHandle"
+    .param p1, "whichHandle"    # I
 
     .prologue
     .line 711
@@ -396,10 +396,10 @@
 
 .method private drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
     .locals 5
-    .parameter "d"
-    .parameter "c"
-    .parameter "x"
-    .parameter "y"
+    .param p1, "d"    # Landroid/graphics/Bitmap;
+    .param p2, "c"    # Landroid/graphics/Canvas;
+    .param p3, "x"    # I
+    .param p4, "y"    # I
 
     .prologue
     .line 690
@@ -408,13 +408,13 @@
     move-result v1
 
     .line 691
-    .local v1, w:I
+    .local v1, "w":I
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
     .line 693
-    .local v0, h:I
+    .local v0, "h":I
     div-int/lit8 v2, v1, 0x2
 
     sub-int v2, p3, v2
@@ -437,7 +437,7 @@
 
 .method private getBitmapFor(I)Landroid/graphics/Bitmap;
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 208
@@ -458,10 +458,10 @@
 
 .method private getYOnArc(IIII)I
     .locals 6
-    .parameter "backgroundWidth"
-    .parameter "innerRadius"
-    .parameter "outerRadius"
-    .parameter "x"
+    .param p1, "backgroundWidth"    # I
+    .param p2, "innerRadius"    # I
+    .param p3, "outerRadius"    # I
+    .param p4, "x"    # I
 
     .prologue
     .line 468
@@ -470,17 +470,17 @@
     div-int/lit8 v0, v4, 0x2
 
     .line 469
-    .local v0, halfWidth:I
+    .local v0, "halfWidth":I
     add-int v1, p2, v0
 
     .line 472
-    .local v1, middleRadius:I
+    .local v1, "middleRadius":I
     div-int/lit8 v4, p1, 0x2
 
     sub-int v2, v4, p4
 
     .line 475
-    .local v2, triangleBottom:I
+    .local v2, "triangleBottom":I
     mul-int v4, v1, v1
 
     mul-int v5, v2, v2
@@ -496,7 +496,7 @@
     double-to-int v3, v4
 
     .line 482
-    .local v3, triangleY:I
+    .local v3, "triangleY":I
     sub-int v4, v1, v3
 
     add-int/2addr v4, v0
@@ -526,7 +526,7 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
     .line 771
@@ -565,7 +565,7 @@
 
 .method private setGrabbedState(I)V
     .locals 2
-    .parameter "newState"
+    .param p1, "newState"    # I
 
     .prologue
     .line 722
@@ -595,9 +595,9 @@
 
 .method private startAnimation(III)V
     .locals 3
-    .parameter "startX"
-    .parameter "endX"
-    .parameter "duration"
+    .param p1, "startX"    # I
+    .param p2, "endX"    # I
+    .param p3, "duration"    # I
 
     .prologue
     const/4 v2, 0x0
@@ -640,9 +640,9 @@
 
 .method private startAnimationWithVelocity(III)V
     .locals 2
-    .parameter "startX"
-    .parameter "endX"
-    .parameter "pixelsPerSecond"
+    .param p1, "startX"    # I
+    .param p2, "endX"    # I
+    .param p3, "pixelsPerSecond"    # I
 
     .prologue
     .line 620
@@ -700,13 +700,13 @@
     sub-long v5, v8, v10
 
     .line 631
-    .local v5, millisSoFar:J
+    .local v5, "millisSoFar":J
     iget-wide v8, p0, Lcom/android/internal/widget/RotarySelector;->mAnimationDuration:J
 
     sub-long v3, v8, v5
 
     .line 632
-    .local v3, millisLeft:J
+    .local v3, "millisLeft":J
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mAnimatingDeltaXStart:I
 
     iget v9, p0, Lcom/android/internal/widget/RotarySelector;->mAnimatingDeltaXEnd:I
@@ -714,13 +714,13 @@
     sub-int v7, v8, v9
 
     .line 633
-    .local v7, totalDeltaX:I
+    .local v7, "totalDeltaX":I
     if-gez v7, :cond_0
 
     const/4 v1, 0x1
 
     .line 635
-    .local v1, goingRight:Z
+    .local v1, "goingRight":Z
     :goto_0
     const-wide/16 v8, 0x0
 
@@ -736,14 +736,14 @@
     return-void
 
     .line 633
-    .end local v1           #goingRight:Z
+    .end local v1    # "goingRight":Z
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
     .line 640
-    .restart local v1       #goingRight:Z
+    .restart local v1    # "goingRight":Z
     :cond_1
     iget-object v8, p0, Lcom/android/internal/widget/RotarySelector;->mInterpolator:Landroid/view/animation/DecelerateInterpolator;
 
@@ -760,10 +760,10 @@
     move-result v2
 
     .line 642
-    .local v2, interpolation:F
+    .local v2, "interpolation":F
     int-to-float v8, v7
 
-    const/high16 v9, 0x3f80
+    const/high16 v9, 0x3f800000    # 1.0f
 
     sub-float/2addr v9, v2
 
@@ -772,7 +772,7 @@
     float-to-int v0, v8
 
     .line 643
-    .local v0, dx:I
+    .local v0, "dx":I
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mAnimatingDeltaXEnd:I
 
     add-int/2addr v8, v0
@@ -845,7 +845,7 @@
 
 .method private declared-synchronized vibrate(J)V
     .locals 5
-    .parameter "duration"
+    .param p1, "duration"    # J
 
     .prologue
     const/4 v0, 0x1
@@ -873,7 +873,7 @@
     if-eqz v1, :cond_2
 
     .line 675
-    .local v0, hapticEnabled:Z
+    .local v0, "hapticEnabled":Z
     :goto_0
     if-eqz v0, :cond_1
 
@@ -912,7 +912,7 @@
     return-void
 
     .line 672
-    .end local v0           #hapticEnabled:Z
+    .end local v0    # "hapticEnabled":Z
     :cond_2
     const/4 v0, 0x0
 
@@ -930,7 +930,7 @@
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 21
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 292
@@ -942,13 +942,13 @@
     move-result v13
 
     .line 303
-    .local v13, width:I
+    .local v13, "width":I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->getHeight()I
 
     move-result v11
 
     .line 306
-    .local v11, height:I
+    .local v11, "height":I
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/widget/RotarySelector;->mAnimating:Z
@@ -1067,7 +1067,7 @@
 
     move-object/from16 v17, v0
 
-    const/high16 v18, -0x3d4c
+    const/high16 v18, -0x3d4c0000    # -90.0f
 
     const/16 v19, 0x0
 
@@ -1128,7 +1128,7 @@
     iget v5, v0, Lcom/android/internal/widget/RotarySelector;->mBackgroundHeight:I
 
     .line 341
-    .local v5, bgHeight:I
+    .local v5, "bgHeight":I
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v17
@@ -1138,7 +1138,7 @@
     sub-int v6, v11, v5
 
     .line 359
-    .local v6, bgTop:I
+    .local v6, "bgTop":I
     :goto_1
     move-object/from16 v0, p0
 
@@ -1155,7 +1155,7 @@
     add-int v15, v17, v18
 
     .line 360
-    .local v15, xOffset:I
+    .local v15, "xOffset":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mBackgroundWidth:I
@@ -1187,7 +1187,7 @@
     move-result v9
 
     .line 365
-    .local v9, drawableY:I
+    .local v9, "drawableY":I
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v17
@@ -1197,7 +1197,7 @@
     move v14, v15
 
     .line 366
-    .local v14, x:I
+    .local v14, "x":I
     :goto_2
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
@@ -1208,7 +1208,7 @@
     add-int v16, v9, v6
 
     .line 367
-    .local v16, y:I
+    .local v16, "y":I
     :goto_3
     move-object/from16 v0, p0
 
@@ -1475,7 +1475,7 @@
     sub-int v7, v17, v18
 
     .line 415
-    .local v7, dimpleLeft:I
+    .local v7, "dimpleLeft":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleWidth:I
@@ -1485,7 +1485,7 @@
     div-int/lit8 v10, v17, 0x2
 
     .line 416
-    .local v10, halfdimple:I
+    .local v10, "halfdimple":I
     :goto_a
     neg-int v0, v10
 
@@ -1566,14 +1566,14 @@
     goto :goto_a
 
     .line 328
-    .end local v5           #bgHeight:I
-    .end local v6           #bgTop:I
-    .end local v7           #dimpleLeft:I
-    .end local v9           #drawableY:I
-    .end local v10           #halfdimple:I
-    .end local v14           #x:I
-    .end local v15           #xOffset:I
-    .end local v16           #y:I
+    .end local v5    # "bgHeight":I
+    .end local v6    # "bgTop":I
+    .end local v7    # "dimpleLeft":I
+    .end local v9    # "drawableY":I
+    .end local v10    # "halfdimple":I
+    .end local v14    # "x":I
+    .end local v15    # "xOffset":I
+    .end local v16    # "y":I
     :pswitch_2
     move-object/from16 v0, p0
 
@@ -1601,7 +1601,7 @@
 
     move-object/from16 v17, v0
 
-    const/high16 v18, -0x3d4c
+    const/high16 v18, -0x3d4c0000    # -90.0f
 
     const/16 v19, 0x0
 
@@ -1669,30 +1669,30 @@
     goto/16 :goto_0
 
     .line 341
-    .restart local v5       #bgHeight:I
+    .restart local v5    # "bgHeight":I
     :cond_3
     sub-int v6, v13, v5
 
     goto/16 :goto_1
 
     .line 365
-    .restart local v6       #bgTop:I
-    .restart local v9       #drawableY:I
-    .restart local v15       #xOffset:I
+    .restart local v6    # "bgTop":I
+    .restart local v9    # "drawableY":I
+    .restart local v15    # "xOffset":I
     :cond_4
     add-int v14, v9, v6
 
     goto/16 :goto_2
 
     .line 366
-    .restart local v14       #x:I
+    .restart local v14    # "x":I
     :cond_5
     sub-int v16, v11, v15
 
     goto/16 :goto_3
 
     .line 371
-    .restart local v16       #y:I
+    .restart local v16    # "y":I
     :cond_6
     move-object/from16 v0, p0
 
@@ -1785,8 +1785,8 @@
     goto/16 :goto_9
 
     .line 426
-    .restart local v7       #dimpleLeft:I
-    .restart local v10       #halfdimple:I
+    .restart local v7    # "dimpleLeft":I
+    .restart local v10    # "halfdimple":I
     :cond_c
     move-object/from16 v0, p0
 
@@ -1837,7 +1837,7 @@
     add-int v8, v17, v18
 
     .line 433
-    .local v8, dimpleRight:I
+    .local v8, "dimpleRight":I
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mRight:I
@@ -1847,7 +1847,7 @@
     add-int v12, v17, v10
 
     .line 434
-    .local v12, rightThresh:I
+    .local v12, "rightThresh":I
     :goto_c
     if-ge v8, v12, :cond_f
 
@@ -1964,8 +1964,8 @@
 
 .method protected onMeasure(II)V
     .locals 6
-    .parameter "widthMeasureSpec"
-    .parameter "heightMeasureSpec"
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .prologue
     .line 271
@@ -1980,9 +1980,9 @@
     move-result v3
 
     .line 274
-    .local v3, length:I
+    .local v3, "length":I
     :goto_0
-    const/high16 v4, 0x40c0
+    const/high16 v4, 0x40c00000    # 6.0f
 
     iget v5, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
@@ -1991,7 +1991,7 @@
     float-to-int v1, v4
 
     .line 275
-    .local v1, arrowScrunch:I
+    .local v1, "arrowScrunch":I
     iget-object v4, p0, Lcom/android/internal/widget/RotarySelector;->mArrowShortLeftAndRight:Landroid/graphics/Bitmap;
 
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
@@ -1999,7 +1999,7 @@
     move-result v0
 
     .line 281
-    .local v0, arrowH:I
+    .local v0, "arrowH":I
     iget v4, p0, Lcom/android/internal/widget/RotarySelector;->mBackgroundHeight:I
 
     add-int/2addr v4, v0
@@ -2007,7 +2007,7 @@
     sub-int v2, v4, v1
 
     .line 283
-    .local v2, height:I
+    .local v2, "height":I
     invoke-direct {p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v4
@@ -2022,10 +2022,10 @@
     return-void
 
     .line 271
-    .end local v0           #arrowH:I
-    .end local v1           #arrowScrunch:I
-    .end local v2           #height:I
-    .end local v3           #length:I
+    .end local v0    # "arrowH":I
+    .end local v1    # "arrowScrunch":I
+    .end local v2    # "height":I
+    .end local v3    # "length":I
     :cond_0
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -2034,10 +2034,10 @@
     goto :goto_0
 
     .line 286
-    .restart local v0       #arrowH:I
-    .restart local v1       #arrowScrunch:I
-    .restart local v2       #height:I
-    .restart local v3       #length:I
+    .restart local v0    # "arrowH":I
+    .restart local v1    # "arrowScrunch":I
+    .restart local v2    # "height":I
+    .restart local v3    # "length":I
     :cond_1
     invoke-virtual {p0, v2, v3}, Lcom/android/internal/widget/RotarySelector;->setMeasuredDimension(II)V
 
@@ -2046,10 +2046,10 @@
 
 .method protected onSizeChanged(IIII)V
     .locals 6
-    .parameter "w"
-    .parameter "h"
-    .parameter "oldw"
-    .parameter "oldh"
+    .param p1, "w"    # I
+    .param p2, "h"    # I
+    .param p3, "oldw"    # I
+    .param p4, "oldh"    # I
 
     .prologue
     const/4 v5, 0x0
@@ -2058,7 +2058,7 @@
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
     .line 215
-    const/high16 v3, 0x4110
+    const/high16 v3, 0x41100000    # 9.0f
 
     iget v4, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
@@ -2067,7 +2067,7 @@
     float-to-int v0, v3
 
     .line 216
-    .local v0, edgePadding:I
+    .local v0, "edgePadding":I
     iget v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleWidth:I
 
     div-int/lit8 v3, v3, 0x2
@@ -2086,7 +2086,7 @@
     move v2, p1
 
     .line 218
-    .local v2, length:I
+    .local v2, "length":I
     :goto_0
     sub-int v3, v2, v0
 
@@ -2125,10 +2125,10 @@
     sub-int v1, p1, v3
 
     .line 226
-    .local v1, left:I
+    .local v1, "left":I
     iget-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mBgMatrix:Landroid/graphics/Matrix;
 
-    const/high16 v4, -0x3d4c
+    const/high16 v4, -0x3d4c0000    # -90.0f
 
     invoke-virtual {v3, v4, v5, v5}, Landroid/graphics/Matrix;->preRotate(FFF)Z
 
@@ -2142,11 +2142,11 @@
     invoke-virtual {v3, v4, v5}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 232
-    .end local v1           #left:I
+    .end local v1    # "left":I
     :goto_1
     return-void
 
-    .end local v2           #length:I
+    .end local v2    # "length":I
     :cond_0
     move v2, p2
 
@@ -2154,7 +2154,7 @@
     goto :goto_0
 
     .line 230
-    .restart local v2       #length:I
+    .restart local v2    # "length":I
     :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mBgMatrix:Landroid/graphics/Matrix;
 
@@ -2171,7 +2171,7 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 14
-    .parameter "event"
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/16 v13, 0x8
@@ -2219,7 +2219,7 @@
     move-result v2
 
     .line 503
-    .local v2, height:I
+    .local v2, "height":I
     invoke-direct {p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v8
@@ -2233,18 +2233,18 @@
     float-to-int v1, v8
 
     .line 506
-    .local v1, eventX:I
+    .local v1, "eventX":I
     :goto_1
     iget v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleWidth:I
 
     .line 508
-    .local v3, hitWindow:I
+    .local v3, "hitWindow":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     .line 509
-    .local v0, action:I
+    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
     goto :goto_0
@@ -2293,9 +2293,9 @@
     goto :goto_0
 
     .line 503
-    .end local v0           #action:I
-    .end local v1           #eventX:I
-    .end local v3           #hitWindow:I
+    .end local v0    # "action":I
+    .end local v1    # "eventX":I
+    .end local v3    # "hitWindow":I
     :cond_4
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -2308,9 +2308,9 @@
     goto :goto_1
 
     .line 522
-    .restart local v0       #action:I
-    .restart local v1       #eventX:I
-    .restart local v3       #hitWindow:I
+    .restart local v0    # "action":I
+    .restart local v1    # "eventX":I
+    .restart local v3    # "hitWindow":I
     :cond_5
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mRightHandleX:I
 
@@ -2366,7 +2366,7 @@
     move-result v5
 
     .line 536
-    .local v5, rightThresh:I
+    .local v5, "rightThresh":I
     :goto_2
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mEdgeTriggerThresh:I
 
@@ -2388,7 +2388,7 @@
     iget-object v7, p0, Lcom/android/internal/widget/RotarySelector;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 540
-    .local v7, velocityTracker:Landroid/view/VelocityTracker;
+    .local v7, "velocityTracker":Landroid/view/VelocityTracker;
     const/16 v8, 0x3e8
 
     iget v9, p0, Lcom/android/internal/widget/RotarySelector;->mMaximumVelocity:I
@@ -2411,7 +2411,7 @@
     float-to-int v4, v8
 
     .line 544
-    .local v4, rawVelocity:I
+    .local v4, "rawVelocity":I
     :goto_3
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mMinimumVelocity:I
 
@@ -2420,7 +2420,7 @@
     move-result v6
 
     .line 545
-    .local v6, velocity:I
+    .local v6, "velocity":I
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleSpacing:I
 
     div-int v8, v6, v8
@@ -2450,10 +2450,10 @@
 
     goto/16 :goto_0
 
-    .end local v4           #rawVelocity:I
-    .end local v5           #rightThresh:I
-    .end local v6           #velocity:I
-    .end local v7           #velocityTracker:Landroid/view/VelocityTracker;
+    .end local v4    # "rawVelocity":I
+    .end local v5    # "rightThresh":I
+    .end local v6    # "velocity":I
+    .end local v7    # "velocityTracker":Landroid/view/VelocityTracker;
     :cond_6
     move v5, v2
 
@@ -2461,8 +2461,8 @@
     goto :goto_2
 
     .line 541
-    .restart local v5       #rightThresh:I
-    .restart local v7       #velocityTracker:Landroid/view/VelocityTracker;
+    .restart local v5    # "rightThresh":I
+    .restart local v7    # "velocityTracker":Landroid/view/VelocityTracker;
     :cond_7
     invoke-virtual {v7}, Landroid/view/VelocityTracker;->getYVelocity()F
 
@@ -2475,8 +2475,8 @@
     goto :goto_3
 
     .line 553
-    .end local v5           #rightThresh:I
-    .end local v7           #velocityTracker:Landroid/view/VelocityTracker;
+    .end local v5    # "rightThresh":I
+    .end local v7    # "velocityTracker":Landroid/view/VelocityTracker;
     :cond_8
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mGrabbedState:I
 
@@ -2511,7 +2511,7 @@
     iget-object v7, p0, Lcom/android/internal/widget/RotarySelector;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 560
-    .restart local v7       #velocityTracker:Landroid/view/VelocityTracker;
+    .restart local v7    # "velocityTracker":Landroid/view/VelocityTracker;
     const/16 v8, 0x3e8
 
     iget v9, p0, Lcom/android/internal/widget/RotarySelector;->mMaximumVelocity:I
@@ -2534,7 +2534,7 @@
     float-to-int v4, v8
 
     .line 564
-    .restart local v4       #rawVelocity:I
+    .restart local v4    # "rawVelocity":I
     :goto_4
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mMinimumVelocity:I
 
@@ -2545,7 +2545,7 @@
     move-result v6
 
     .line 565
-    .restart local v6       #velocity:I
+    .restart local v6    # "velocity":I
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleSpacing:I
 
     div-int v8, v6, v8
@@ -2578,8 +2578,8 @@
     goto/16 :goto_0
 
     .line 561
-    .end local v4           #rawVelocity:I
-    .end local v6           #velocity:I
+    .end local v4    # "rawVelocity":I
+    .end local v6    # "velocity":I
     :cond_9
     invoke-virtual {v7}, Landroid/view/VelocityTracker;->getYVelocity()F
 
@@ -2592,7 +2592,7 @@
     goto :goto_4
 
     .line 578
-    .end local v7           #velocityTracker:Landroid/view/VelocityTracker;
+    .end local v7    # "velocityTracker":Landroid/view/VelocityTracker;
     :pswitch_2
     iget v8, p0, Lcom/android/internal/widget/RotarySelector;->mGrabbedState:I
 
@@ -2708,7 +2708,7 @@
 
 .method public setLeftHandleResource(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 247
@@ -2731,7 +2731,7 @@
 
 .method public setOnDialTriggerListener(Lcom/android/internal/widget/RotarySelector$OnDialTriggerListener;)V
     .locals 0
-    .parameter "l"
+    .param p1, "l"    # Lcom/android/internal/widget/RotarySelector$OnDialTriggerListener;
 
     .prologue
     .line 704
@@ -2743,7 +2743,7 @@
 
 .method public setRightHandleResource(I)V
     .locals 1
-    .parameter "resId"
+    .param p1, "resId"    # I
 
     .prologue
     .line 262

@@ -19,7 +19,7 @@
 
 .method private getBottomLine(Landroid/widget/TextView;)I
     .locals 3
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 407
@@ -46,7 +46,7 @@
 
 .method private getCharacterWidth(Landroid/widget/TextView;)I
     .locals 2
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 419
@@ -71,7 +71,7 @@
 
 .method private getInnerHeight(Landroid/widget/TextView;)I
     .locals 2
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 415
@@ -96,7 +96,7 @@
 
 .method private getInnerWidth(Landroid/widget/TextView;)I
     .locals 2
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 411
@@ -121,7 +121,7 @@
 
 .method private getScrollBoundsLeft(Landroid/widget/TextView;)I
     .locals 8
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 423
@@ -130,19 +130,19 @@
     move-result-object v1
 
     .line 424
-    .local v1, layout:Landroid/text/Layout;
+    .local v1, "layout":Landroid/text/Layout;
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getTopLine(Landroid/widget/TextView;)I
 
     move-result v5
 
     .line 425
-    .local v5, topLine:I
+    .local v5, "topLine":I
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getBottomLine(Landroid/widget/TextView;)I
 
     move-result v0
 
     .line 426
-    .local v0, bottomLine:I
+    .local v0, "bottomLine":I
     if-le v5, v0, :cond_1
 
     .line 427
@@ -157,10 +157,10 @@
     const v2, 0x7fffffff
 
     .line 430
-    .local v2, left:I
+    .local v2, "left":I
     move v3, v5
 
-    .local v3, line:I
+    .local v3, "line":I
     :goto_0
     if-gt v3, v0, :cond_0
 
@@ -178,7 +178,7 @@
     double-to-int v4, v6
 
     .line 432
-    .local v4, lineLeft:I
+    .local v4, "lineLeft":I
     if-ge v4, v2, :cond_2
 
     .line 433
@@ -193,7 +193,7 @@
 
 .method private getScrollBoundsRight(Landroid/widget/TextView;)I
     .locals 8
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 440
@@ -202,19 +202,19 @@
     move-result-object v1
 
     .line 441
-    .local v1, layout:Landroid/text/Layout;
+    .local v1, "layout":Landroid/text/Layout;
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getTopLine(Landroid/widget/TextView;)I
 
     move-result v5
 
     .line 442
-    .local v5, topLine:I
+    .local v5, "topLine":I
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getBottomLine(Landroid/widget/TextView;)I
 
     move-result v0
 
     .line 443
-    .local v0, bottomLine:I
+    .local v0, "bottomLine":I
     if-le v5, v0, :cond_1
 
     .line 444
@@ -226,13 +226,13 @@
 
     .line 446
     :cond_1
-    const/high16 v4, -0x8000
+    const/high16 v4, -0x80000000
 
     .line 447
-    .local v4, right:I
+    .local v4, "right":I
     move v2, v5
 
-    .local v2, line:I
+    .local v2, "line":I
     :goto_0
     if-gt v2, v0, :cond_0
 
@@ -250,7 +250,7 @@
     double-to-int v3, v6
 
     .line 449
-    .local v3, lineRight:I
+    .local v3, "lineRight":I
     if-le v3, v4, :cond_2
 
     .line 450
@@ -265,7 +265,7 @@
 
 .method private getTopLine(Landroid/widget/TextView;)I
     .locals 2
-    .parameter "widget"
+    .param p1, "widget"    # Landroid/widget/TextView;
 
     .prologue
     .line 403
@@ -288,8 +288,8 @@
 # virtual methods
 .method protected bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 337
@@ -310,8 +310,8 @@
 
 .method protected down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 289
@@ -322,8 +322,8 @@
 
 .method protected end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 399
@@ -334,8 +334,8 @@
 
 .method protected getMovementMetaState(Landroid/text/Spannable;Landroid/view/KeyEvent;)I
     .locals 2
-    .parameter "buffer"
-    .parameter "event"
+    .param p1, "buffer"    # Landroid/text/Spannable;
+    .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 138
@@ -346,7 +346,7 @@
     and-int/lit16 v0, v1, -0x601
 
     .line 140
-    .local v0, metaState:I
+    .local v0, "metaState":I
     invoke-static {v0}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
 
     move-result v1
@@ -358,11 +358,11 @@
 
 .method protected handleMovementKey(Landroid/widget/TextView;Landroid/text/Spannable;IILandroid/view/KeyEvent;)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "keyCode"
-    .parameter "movementMetaState"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "keyCode"    # I
+    .param p4, "movementMetaState"    # I
+    .param p5, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     const/16 v2, 0x1000
@@ -667,8 +667,8 @@
 
 .method protected home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 385
@@ -679,8 +679,8 @@
 
 .method public initialize(Landroid/widget/TextView;Landroid/text/Spannable;)V
     .locals 0
-    .parameter "widget"
-    .parameter "text"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
 
     .prologue
     .line 37
@@ -689,8 +689,8 @@
 
 .method protected left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 253
@@ -701,8 +701,8 @@
 
 .method protected leftWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 366
@@ -713,8 +713,8 @@
 
 .method protected lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 361
@@ -725,8 +725,8 @@
 
 .method protected lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 349
@@ -737,9 +737,9 @@
 
 .method public onGenericMotionEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 6
-    .parameter "widget"
-    .parameter "text"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     const/16 v4, 0x9
@@ -784,18 +784,18 @@
     const/4 v2, 0x0
 
     .line 101
-    .local v2, vscroll:F
+    .local v2, "vscroll":F
     invoke-virtual {p3, v4}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v1
 
     .line 107
-    .local v1, hscroll:F
+    .local v1, "hscroll":F
     :goto_1
     const/4 v0, 0x0
 
     .line 108
-    .local v0, handled:Z
+    .local v0, "handled":Z
     cmpg-float v3, v1, v5
 
     if-gez v3, :cond_4
@@ -844,9 +844,9 @@
     goto :goto_0
 
     .line 103
-    .end local v0           #handled:Z
-    .end local v1           #hscroll:F
-    .end local v2           #vscroll:F
+    .end local v0    # "handled":Z
+    .end local v1    # "hscroll":F
+    .end local v2    # "vscroll":F
     :cond_3
     invoke-virtual {p3, v4}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
@@ -855,18 +855,18 @@
     neg-float v2, v3
 
     .line 104
-    .restart local v2       #vscroll:F
+    .restart local v2    # "vscroll":F
     const/16 v3, 0xa
 
     invoke-virtual {p3, v3}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v1
 
-    .restart local v1       #hscroll:F
+    .restart local v1    # "hscroll":F
     goto :goto_1
 
     .line 110
-    .restart local v0       #handled:Z
+    .restart local v0    # "handled":Z
     :cond_4
     cmpl-float v3, v1, v5
 
@@ -923,10 +923,10 @@
 
 .method public onKeyDown(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z
     .locals 7
-    .parameter "widget"
-    .parameter "text"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 41
@@ -934,7 +934,7 @@
 
     move-result v4
 
-    .local v4, movementMetaState:I
+    .local v4, "movementMetaState":I
     move-object v0, p0
 
     move-object v1, p1
@@ -951,7 +951,7 @@
     move-result v6
 
     .line 43
-    .local v6, handled:Z
+    .local v6, "handled":Z
     if-eqz v6, :cond_0
 
     .line 44
@@ -967,9 +967,9 @@
 
 .method public onKeyOther(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/KeyEvent;)Z
     .locals 9
-    .parameter "widget"
-    .parameter "text"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 52
@@ -978,13 +978,13 @@
     move-result v4
 
     .line 53
-    .local v4, movementMetaState:I
+    .local v4, "movementMetaState":I
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v3
 
     .line 54
-    .local v3, keyCode:I
+    .local v3, "keyCode":I
     if-eqz v3, :cond_3
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
@@ -1001,14 +1001,14 @@
     move-result v8
 
     .line 57
-    .local v8, repeat:I
+    .local v8, "repeat":I
     const/4 v6, 0x0
 
     .line 58
-    .local v6, handled:Z
+    .local v6, "handled":Z
     const/4 v7, 0x0
 
-    .local v7, i:I
+    .local v7, "i":I
     :goto_0
     if-ge v7, v8, :cond_0
 
@@ -1038,17 +1038,17 @@
     invoke-static {p2}, Landroid/text/method/MetaKeyKeyListener;->resetLockedMeta(Landroid/text/Spannable;)V
 
     .line 70
-    .end local v6           #handled:Z
-    .end local v7           #i:I
-    .end local v8           #repeat:I
+    .end local v6    # "handled":Z
+    .end local v7    # "i":I
+    .end local v8    # "repeat":I
     :cond_1
     :goto_1
     return v6
 
     .line 62
-    .restart local v6       #handled:Z
-    .restart local v7       #i:I
-    .restart local v8       #repeat:I
+    .restart local v6    # "handled":Z
+    .restart local v7    # "i":I
+    .restart local v8    # "repeat":I
     :cond_2
     const/4 v6, 0x1
 
@@ -1058,9 +1058,9 @@
     goto :goto_0
 
     .line 70
-    .end local v6           #handled:Z
-    .end local v7           #i:I
-    .end local v8           #repeat:I
+    .end local v6    # "handled":Z
+    .end local v7    # "i":I
+    .end local v8    # "repeat":I
     :cond_3
     const/4 v6, 0x0
 
@@ -1069,10 +1069,10 @@
 
 .method public onKeyUp(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "text"
-    .parameter "keyCode"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "keyCode"    # I
+    .param p4, "event"    # Landroid/view/KeyEvent;
 
     .prologue
     .line 75
@@ -1083,9 +1083,9 @@
 
 .method public onTakeFocus(Landroid/widget/TextView;Landroid/text/Spannable;I)V
     .locals 0
-    .parameter "widget"
-    .parameter "text"
-    .parameter "direction"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "direction"    # I
 
     .prologue
     .line 80
@@ -1094,9 +1094,9 @@
 
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "text"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 84
@@ -1107,9 +1107,9 @@
 
 .method public onTrackballEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "text"
-    .parameter "event"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "text"    # Landroid/text/Spannable;
+    .param p3, "event"    # Landroid/view/MotionEvent;
 
     .prologue
     .line 89
@@ -1120,8 +1120,8 @@
 
 .method protected pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 313
@@ -1132,8 +1132,8 @@
 
 .method protected pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 301
@@ -1144,8 +1144,8 @@
 
 .method protected right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 265
@@ -1156,8 +1156,8 @@
 
 .method protected rightWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 371
@@ -1168,8 +1168,8 @@
 
 .method protected scrollBottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 5
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 626
@@ -1178,13 +1178,13 @@
     move-result-object v0
 
     .line 627
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-virtual {v0}, Landroid/text/Layout;->getLineCount()I
 
     move-result v1
 
     .line 628
-    .local v1, lineCount:I
+    .local v1, "lineCount":I
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getBottomLine(Landroid/widget/TextView;)I
 
     move-result v2
@@ -1225,9 +1225,9 @@
 
 .method protected scrollDown(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
     .locals 7
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "amount"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "amount"    # I
 
     .prologue
     .line 536
@@ -1236,13 +1236,13 @@
     move-result-object v3
 
     .line 537
-    .local v3, layout:Landroid/text/Layout;
+    .local v3, "layout":Landroid/text/Layout;
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getInnerHeight(Landroid/widget/TextView;)I
 
     move-result v2
 
     .line 538
-    .local v2, innerHeight:I
+    .local v2, "innerHeight":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v5
@@ -1250,13 +1250,13 @@
     add-int v0, v5, v2
 
     .line 539
-    .local v0, bottom:I
+    .local v0, "bottom":I
     invoke-virtual {v3, v0}, Landroid/text/Layout;->getLineForVertical(I)I
 
     move-result v1
 
     .line 540
-    .local v1, bottomLine:I
+    .local v1, "bottomLine":I
     add-int/lit8 v5, v1, 0x1
 
     invoke-virtual {v3, v5}, Landroid/text/Layout;->getLineTop(I)I
@@ -1279,7 +1279,7 @@
     add-int/lit8 v4, v5, -0x1
 
     .line 547
-    .local v4, limit:I
+    .local v4, "limit":I
     if-gt v1, v4, :cond_1
 
     .line 548
@@ -1321,9 +1321,9 @@
 
 .method protected scrollLeft(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "amount"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "amount"    # I
 
     .prologue
     .line 467
@@ -1332,13 +1332,13 @@
     move-result v0
 
     .line 468
-    .local v0, minScrollX:I
+    .local v0, "minScrollX":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v1
 
     .line 469
-    .local v1, scrollX:I
+    .local v1, "scrollX":I
     if-le v1, v0, :cond_0
 
     .line 470
@@ -1376,8 +1376,8 @@
 
 .method protected scrollLineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 4
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 665
@@ -1392,13 +1392,13 @@
     sub-int v0, v2, v3
 
     .line 666
-    .local v0, maxScrollX:I
+    .local v0, "maxScrollX":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v1
 
     .line 667
-    .local v1, scrollX:I
+    .local v1, "scrollX":I
     if-ge v1, v0, :cond_0
 
     .line 668
@@ -1423,8 +1423,8 @@
 
 .method protected scrollLineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 646
@@ -1433,13 +1433,13 @@
     move-result v0
 
     .line 647
-    .local v0, minScrollX:I
+    .local v0, "minScrollX":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v1
 
     .line 648
-    .local v1, scrollX:I
+    .local v1, "scrollX":I
     if-le v1, v0, :cond_0
 
     .line 649
@@ -1464,8 +1464,8 @@
 
 .method protected scrollPageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 6
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 586
@@ -1474,13 +1474,13 @@
     move-result-object v3
 
     .line 587
-    .local v3, layout:Landroid/text/Layout;
+    .local v3, "layout":Landroid/text/Layout;
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getInnerHeight(Landroid/widget/TextView;)I
 
     move-result v2
 
     .line 588
-    .local v2, innerHeight:I
+    .local v2, "innerHeight":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v4
@@ -1490,13 +1490,13 @@
     add-int v0, v4, v2
 
     .line 589
-    .local v0, bottom:I
+    .local v0, "bottom":I
     invoke-virtual {v3, v0}, Landroid/text/Layout;->getLineForVertical(I)I
 
     move-result v1
 
     .line 590
-    .local v1, bottomLine:I
+    .local v1, "bottomLine":I
     invoke-virtual {v3}, Landroid/text/Layout;->getLineCount()I
 
     move-result v4
@@ -1535,8 +1535,8 @@
 
 .method protected scrollPageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 5
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 566
@@ -1545,7 +1545,7 @@
     move-result-object v0
 
     .line 567
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v3
@@ -1557,13 +1557,13 @@
     sub-int v1, v3, v4
 
     .line 568
-    .local v1, top:I
+    .local v1, "top":I
     invoke-virtual {v0, v1}, Landroid/text/Layout;->getLineForVertical(I)I
 
     move-result v2
 
     .line 569
-    .local v2, topLine:I
+    .local v2, "topLine":I
     if-ltz v2, :cond_0
 
     .line 570
@@ -1592,9 +1592,9 @@
 
 .method protected scrollRight(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
     .locals 4
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "amount"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "amount"    # I
 
     .prologue
     .line 488
@@ -1609,13 +1609,13 @@
     sub-int v0, v2, v3
 
     .line 489
-    .local v0, maxScrollX:I
+    .local v0, "maxScrollX":I
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
 
     move-result v1
 
     .line 490
-    .local v1, scrollX:I
+    .local v1, "scrollX":I
     if-ge v1, v0, :cond_0
 
     .line 491
@@ -1653,8 +1653,8 @@
 
 .method protected scrollTop(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 3
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     const/4 v1, 0x0
@@ -1665,7 +1665,7 @@
     move-result-object v0
 
     .line 609
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getTopLine(Landroid/widget/TextView;)I
 
     move-result v2
@@ -1693,9 +1693,9 @@
 
 .method protected scrollUp(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
     .locals 5
-    .parameter "widget"
-    .parameter "buffer"
-    .parameter "amount"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
+    .param p3, "amount"    # I
 
     .prologue
     const/4 v3, 0x0
@@ -1706,19 +1706,19 @@
     move-result-object v0
 
     .line 510
-    .local v0, layout:Landroid/text/Layout;
+    .local v0, "layout":Landroid/text/Layout;
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
 
     move-result v1
 
     .line 511
-    .local v1, top:I
+    .local v1, "top":I
     invoke-virtual {v0, v1}, Landroid/text/Layout;->getLineForVertical(I)I
 
     move-result v2
 
     .line 512
-    .local v2, topLine:I
+    .local v2, "topLine":I
     invoke-virtual {v0, v2}, Landroid/text/Layout;->getLineTop(I)I
 
     move-result v4
@@ -1762,8 +1762,8 @@
 
 .method protected top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 325
@@ -1774,8 +1774,8 @@
 
 .method protected up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
     .locals 1
-    .parameter "widget"
-    .parameter "buffer"
+    .param p1, "widget"    # Landroid/widget/TextView;
+    .param p2, "buffer"    # Landroid/text/Spannable;
 
     .prologue
     .line 277

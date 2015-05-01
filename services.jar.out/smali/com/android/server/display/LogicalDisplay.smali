@@ -32,9 +32,9 @@
 # direct methods
 .method public constructor <init>(IILcom/android/server/display/DisplayDevice;)V
     .locals 1
-    .parameter "displayId"
-    .parameter "layerStack"
-    .parameter "primaryDisplayDevice"
+    .param p1, "displayId"    # I
+    .param p2, "layerStack"    # I
+    .param p3, "primaryDisplayDevice"    # Lcom/android/server/display/DisplayDevice;
 
     .prologue
     .line 79
@@ -78,8 +78,8 @@
 # virtual methods
 .method public configureDisplayInTransactionLocked(Lcom/android/server/display/DisplayDevice;Z)V
     .locals 16
-    .parameter "device"
-    .parameter "isBlanked"
+    .param p1, "device"    # Lcom/android/server/display/DisplayDevice;
+    .param p2, "isBlanked"    # Z
 
     .prologue
     .line 246
@@ -88,13 +88,13 @@
     move-result-object v2
 
     .line 247
-    .local v2, displayInfo:Landroid/view/DisplayInfo;
+    .local v2, "displayInfo":Landroid/view/DisplayInfo;
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 
     move-result-object v1
 
     .line 250
-    .local v1, displayDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    .local v1, "displayDeviceInfo":Lcom/android/server/display/DisplayDeviceInfo;
     if-eqz p2, :cond_2
 
     const/4 v11, -0x1
@@ -123,7 +123,7 @@
     const/4 v7, 0x0
 
     .line 261
-    .local v7, orientation:I
+    .local v7, "orientation":I
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
@@ -162,21 +162,21 @@
     const/4 v10, 0x1
 
     .line 276
-    .local v10, rotated:Z
+    .local v10, "rotated":Z
     :goto_1
     if-eqz v10, :cond_4
 
     iget v9, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
     .line 277
-    .local v9, physWidth:I
+    .local v9, "physWidth":I
     :goto_2
     if-eqz v10, :cond_5
 
     iget v8, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
     .line 287
-    .local v8, physHeight:I
+    .local v8, "physHeight":I
     :goto_3
     iget v11, v2, Landroid/view/DisplayInfo;->logicalHeight:I
 
@@ -192,7 +192,7 @@
     move v6, v9
 
     .line 291
-    .local v6, displayRectWidth:I
+    .local v6, "displayRectWidth":I
     iget v11, v2, Landroid/view/DisplayInfo;->logicalHeight:I
 
     mul-int/2addr v11, v9
@@ -202,20 +202,20 @@
     div-int v3, v11, v12
 
     .line 297
-    .local v3, displayRectHeight:I
+    .local v3, "displayRectHeight":I
     :goto_4
     sub-int v11, v8, v3
 
     div-int/lit8 v5, v11, 0x2
 
     .line 298
-    .local v5, displayRectTop:I
+    .local v5, "displayRectTop":I
     sub-int v11, v9, v6
 
     div-int/lit8 v4, v11, 0x2
 
     .line 299
-    .local v4, displayRectLeft:I
+    .local v4, "displayRectLeft":I
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
@@ -243,14 +243,14 @@
     return-void
 
     .line 250
-    .end local v3           #displayRectHeight:I
-    .end local v4           #displayRectLeft:I
-    .end local v5           #displayRectTop:I
-    .end local v6           #displayRectWidth:I
-    .end local v7           #orientation:I
-    .end local v8           #physHeight:I
-    .end local v9           #physWidth:I
-    .end local v10           #rotated:Z
+    .end local v3    # "displayRectHeight":I
+    .end local v4    # "displayRectLeft":I
+    .end local v5    # "displayRectTop":I
+    .end local v6    # "displayRectWidth":I
+    .end local v7    # "orientation":I
+    .end local v8    # "physHeight":I
+    .end local v9    # "physWidth":I
+    .end local v10    # "rotated":Z
     :cond_2
     move-object/from16 v0, p0
 
@@ -259,28 +259,28 @@
     goto :goto_0
 
     .line 274
-    .restart local v7       #orientation:I
+    .restart local v7    # "orientation":I
     :cond_3
     const/4 v10, 0x0
 
     goto :goto_1
 
     .line 276
-    .restart local v10       #rotated:Z
+    .restart local v10    # "rotated":Z
     :cond_4
     iget v9, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
     goto :goto_2
 
     .line 277
-    .restart local v9       #physWidth:I
+    .restart local v9    # "physWidth":I
     :cond_5
     iget v8, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
     goto :goto_3
 
     .line 294
-    .restart local v8       #physHeight:I
+    .restart local v8    # "physHeight":I
     :cond_6
     iget v11, v2, Landroid/view/DisplayInfo;->logicalWidth:I
 
@@ -291,16 +291,16 @@
     div-int v6, v11, v12
 
     .line 295
-    .restart local v6       #displayRectWidth:I
+    .restart local v6    # "displayRectWidth":I
     move v3, v8
 
-    .restart local v3       #displayRectHeight:I
+    .restart local v3    # "displayRectHeight":I
     goto :goto_4
 .end method
 
 .method public dumpLocked(Ljava/io/PrintWriter;)V
     .locals 2
-    .parameter "pw"
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 329
@@ -576,7 +576,7 @@
 
 .method public setDisplayInfoOverrideFromWindowManagerLocked(Landroid/view/DisplayInfo;)Z
     .locals 3
-    .parameter "info"
+    .param p1, "info"    # Landroid/view/DisplayInfo;
 
     .prologue
     const/4 v0, 0x1
@@ -648,7 +648,7 @@
 
 .method public setHasContentLocked(Z)V
     .locals 0
-    .parameter "hasContent"
+    .param p1, "hasContent"    # Z
 
     .prologue
     .line 325
@@ -660,7 +660,6 @@
 
 .method public updateLocked(Ljava/util/List;)V
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -672,7 +671,7 @@
     .end annotation
 
     .prologue
-    .local p1, devices:Ljava/util/List;,"Ljava/util/List<Lcom/android/server/display/DisplayDevice;>;"
+    .local p1, "devices":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/display/DisplayDevice;>;"
     const/4 v4, 0x0
 
     const/4 v3, 0x0
@@ -711,7 +710,7 @@
     move-result-object v0
 
     .line 188
-    .local v0, deviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    .local v0, "deviceInfo":Lcom/android/server/display/DisplayDeviceInfo;
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     invoke-static {v1, v0}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z

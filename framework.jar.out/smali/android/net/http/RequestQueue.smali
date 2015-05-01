@@ -49,7 +49,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 199
@@ -63,8 +63,8 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 2
-    .parameter "context"
-    .parameter "connectionCount"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "connectionCount"    # I
 
     .prologue
     .line 212
@@ -116,7 +116,7 @@
 
 .method static synthetic access$000(Landroid/net/http/RequestQueue;)Landroid/content/Context;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/RequestQueue;
 
     .prologue
     .line 50
@@ -127,7 +127,7 @@
 
 .method static synthetic access$100(Landroid/net/http/RequestQueue;)Lorg/apache/http/HttpHost;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/RequestQueue;
 
     .prologue
     .line 50
@@ -138,8 +138,8 @@
 
 .method static synthetic access$200(Landroid/net/http/RequestQueue;Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/http/RequestQueue;
+    .param p1, "x1"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 50
@@ -152,7 +152,7 @@
 
 .method static synthetic access$300(Landroid/net/http/RequestQueue;)V
     .locals 0
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/http/RequestQueue;
 
     .prologue
     .line 50
@@ -163,7 +163,7 @@
 
 .method private determineHost(Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
     .locals 2
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 404
@@ -183,12 +183,12 @@
 
     if-eqz v0, :cond_1
 
-    .end local p1
+    .end local p1    # "host":Lorg/apache/http/HttpHost;
     :cond_0
     :goto_0
     return-object p1
 
-    .restart local p1
+    .restart local p1    # "host":Lorg/apache/http/HttpHost;
     :cond_1
     iget-object p1, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
 
@@ -197,7 +197,6 @@
 
 .method private removeFirst(Ljava/util/LinkedHashMap;)Landroid/net/http/Request;
     .locals 5
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -214,11 +213,11 @@
 
     .prologue
     .line 525
-    .local p1, requestQueue:Ljava/util/LinkedHashMap;,"Ljava/util/LinkedHashMap<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .local p1, "requestQueue":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
     const/4 v3, 0x0
 
     .line 526
-    .local v3, ret:Landroid/net/http/Request;
+    .local v3, "ret":Landroid/net/http/Request;
     invoke-virtual {p1}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v4
@@ -228,7 +227,7 @@
     move-result-object v1
 
     .line 527
-    .local v1, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
+    .local v1, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -243,7 +242,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 529
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -251,16 +250,16 @@
     check-cast v2, Ljava/util/LinkedList;
 
     .line 530
-    .local v2, reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .local v2, "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     invoke-virtual {v2}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
 
     move-result-object v3
 
-    .end local v3           #ret:Landroid/net/http/Request;
+    .end local v3    # "ret":Landroid/net/http/Request;
     check-cast v3, Landroid/net/http/Request;
 
     .line 531
-    .restart local v3       #ret:Landroid/net/http/Request;
+    .restart local v3    # "ret":Landroid/net/http/Request;
     invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
 
     move-result v4
@@ -275,8 +274,8 @@
     invoke-virtual {p1, v4}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 535
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
-    .end local v2           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .end local v2    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_0
     return-object v3
 .end method
@@ -296,7 +295,7 @@
     move-result-object v1
 
     .line 264
-    .local v1, info:Landroid/net/NetworkInfo;
+    .local v1, "info":Landroid/net/NetworkInfo;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
@@ -330,7 +329,7 @@
     move-result-object v0
 
     .line 269
-    .local v0, host:Ljava/lang/String;
+    .local v0, "host":Ljava/lang/String;
     if-nez v0, :cond_1
 
     .line 270
@@ -343,8 +342,8 @@
     goto :goto_0
 
     .line 263
-    .end local v0           #host:Ljava/lang/String;
-    .end local v1           #info:Landroid/net/NetworkInfo;
+    .end local v0    # "host":Ljava/lang/String;
+    .end local v1    # "info":Landroid/net/NetworkInfo;
     :catchall_0
     move-exception v2
 
@@ -353,8 +352,8 @@
     throw v2
 
     .line 272
-    .restart local v0       #host:Ljava/lang/String;
-    .restart local v1       #info:Landroid/net/NetworkInfo;
+    .restart local v0    # "host":Ljava/lang/String;
+    .restart local v1    # "info":Landroid/net/NetworkInfo;
     :cond_1
     :try_start_2
     iget-object v2, p0, Landroid/net/http/RequestQueue;->mActivePool:Landroid/net/http/RequestQueue$ActivePool;
@@ -442,11 +441,11 @@
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 422
-    .local v2, dump:Ljava/lang/StringBuilder;
+    .local v2, "dump":Ljava/lang/StringBuilder;
     const/4 v0, 0x0
 
     .line 427
-    .local v0, count:I
+    .local v0, "count":I
     iget-object v10, p0, Landroid/net/http/RequestQueue;->mPending:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v10}, Ljava/util/LinkedHashMap;->isEmpty()Z
@@ -466,12 +465,12 @@
 
     move-result-object v5
 
-    .local v5, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
+    .local v5, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
     move v1, v0
 
     .line 429
-    .end local v0           #count:I
-    .local v1, count:I
+    .end local v0    # "count":I
+    .local v1, "count":I
     :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
@@ -487,7 +486,7 @@
     check-cast v3, Ljava/util/Map$Entry;
 
     .line 431
-    .local v3, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .local v3, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v10
@@ -499,7 +498,7 @@
     move-result-object v4
 
     .line 432
-    .local v4, hostName:Ljava/lang/String;
+    .local v4, "hostName":Ljava/lang/String;
     new-instance v6, Ljava/lang/StringBuilder;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -514,8 +513,8 @@
 
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1           #count:I
-    .restart local v0       #count:I
+    .end local v1    # "count":I
+    .restart local v0    # "count":I
     invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v10
@@ -543,7 +542,7 @@
     invoke-direct {v6, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 434
-    .local v6, line:Ljava/lang/StringBuilder;
+    .local v6, "line":Ljava/lang/StringBuilder;
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v8
@@ -551,7 +550,7 @@
     check-cast v8, Ljava/util/LinkedList;
 
     .line 435
-    .local v8, reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .local v8, "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     const/4 v10, 0x0
 
     invoke-virtual {v8, v10}, Ljava/util/LinkedList;->listIterator(I)Ljava/util/ListIterator;
@@ -559,7 +558,7 @@
     move-result-object v7
 
     .line 436
-    .local v7, reqIter:Ljava/util/ListIterator;
+    .local v7, "reqIter":Ljava/util/ListIterator;
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
@@ -575,7 +574,7 @@
     check-cast v9, Landroid/net/http/Request;
 
     .line 438
-    .local v9, request:Landroid/net/http/Request;
+    .local v9, "request":Landroid/net/http/Request;
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -601,15 +600,15 @@
     goto :goto_1
 
     .line 420
-    .end local v0           #count:I
-    .end local v2           #dump:Ljava/lang/StringBuilder;
-    .end local v3           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
-    .end local v4           #hostName:Ljava/lang/String;
-    .end local v5           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
-    .end local v6           #line:Ljava/lang/StringBuilder;
-    .end local v7           #reqIter:Ljava/util/ListIterator;
-    .end local v8           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
-    .end local v9           #request:Landroid/net/http/Request;
+    .end local v0    # "count":I
+    .end local v2    # "dump":Ljava/lang/StringBuilder;
+    .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .end local v4    # "hostName":Ljava/lang/String;
+    .end local v5    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
+    .end local v6    # "line":Ljava/lang/StringBuilder;
+    .end local v7    # "reqIter":Ljava/util/ListIterator;
+    .end local v8    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v9    # "request":Landroid/net/http/Request;
     :catchall_0
     move-exception v10
 
@@ -618,14 +617,14 @@
     throw v10
 
     .line 440
-    .restart local v0       #count:I
-    .restart local v2       #dump:Ljava/lang/StringBuilder;
-    .restart local v3       #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
-    .restart local v4       #hostName:Ljava/lang/String;
-    .restart local v5       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
-    .restart local v6       #line:Ljava/lang/StringBuilder;
-    .restart local v7       #reqIter:Ljava/util/ListIterator;
-    .restart local v8       #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .restart local v0    # "count":I
+    .restart local v2    # "dump":Ljava/lang/StringBuilder;
+    .restart local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .restart local v4    # "hostName":Ljava/lang/String;
+    .restart local v5    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
+    .restart local v6    # "line":Ljava/lang/StringBuilder;
+    .restart local v7    # "reqIter":Ljava/util/ListIterator;
+    .restart local v8    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_0
     :try_start_1
     invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
@@ -638,22 +637,22 @@
     move v1, v0
 
     .line 442
-    .end local v0           #count:I
-    .restart local v1       #count:I
+    .end local v0    # "count":I
+    .restart local v1    # "count":I
     goto :goto_0
 
-    .end local v3           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
-    .end local v4           #hostName:Ljava/lang/String;
-    .end local v6           #line:Ljava/lang/StringBuilder;
-    .end local v7           #reqIter:Ljava/util/ListIterator;
-    .end local v8           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;"
+    .end local v4    # "hostName":Ljava/lang/String;
+    .end local v6    # "line":Ljava/lang/StringBuilder;
+    .end local v7    # "reqIter":Ljava/util/ListIterator;
+    .end local v8    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_1
     move v0, v1
 
     .line 444
-    .end local v1           #count:I
-    .end local v5           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
-    .restart local v0       #count:I
+    .end local v1    # "count":I
+    .end local v5    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Lorg/apache/http/HttpHost;Ljava/util/LinkedList<Landroid/net/http/Request;>;>;>;"
+    .restart local v0    # "count":I
     :cond_2
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -741,7 +740,7 @@
     const/4 v0, 0x0
 
     .line 453
-    .local v0, ret:Landroid/net/http/Request;
+    .local v0, "ret":Landroid/net/http/Request;
     :try_start_0
     iget-object v1, p0, Landroid/net/http/RequestQueue;->mPending:Ljava/util/LinkedHashMap;
 
@@ -777,7 +776,7 @@
 
 .method public declared-synchronized getRequest(Lorg/apache/http/HttpHost;)Landroid/net/http/Request;
     .locals 4
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 464
@@ -786,7 +785,7 @@
     const/4 v2, 0x0
 
     .line 466
-    .local v2, ret:Landroid/net/http/Request;
+    .local v2, "ret":Landroid/net/http/Request;
     :try_start_0
     iget-object v3, p0, Landroid/net/http/RequestQueue;->mPending:Ljava/util/LinkedHashMap;
 
@@ -806,7 +805,7 @@
     check-cast v1, Ljava/util/LinkedList;
 
     .line 468
-    .local v1, reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .local v1, "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     invoke-virtual {v1}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
 
     move-result-object v3
@@ -832,7 +831,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 474
-    .end local v1           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v1    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_0
     monitor-exit p0
 
@@ -849,7 +848,7 @@
 
 .method public declared-synchronized haveRequest(Lorg/apache/http/HttpHost;)Z
     .locals 1
-    .parameter "host"
+    .param p1, "host"    # Lorg/apache/http/HttpHost;
 
     .prologue
     .line 481
@@ -878,13 +877,12 @@
 
 .method public queueRequest(Ljava/lang/String;Landroid/net/WebAddress;Ljava/lang/String;Ljava/util/Map;Landroid/net/http/EventHandler;Ljava/io/InputStream;I)Landroid/net/http/RequestHandle;
     .locals 12
-    .parameter "url"
-    .parameter "uri"
-    .parameter "method"
-    .parameter
-    .parameter "eventHandler"
-    .parameter "bodyProvider"
-    .parameter "bodyLength"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/WebAddress;
+    .param p3, "method"    # Ljava/lang/String;
+    .param p5, "eventHandler"    # Landroid/net/http/EventHandler;
+    .param p6, "bodyProvider"    # Ljava/io/InputStream;
+    .param p7, "bodyLength"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -905,17 +903,17 @@
 
     .prologue
     .line 324
-    .local p4, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p4, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     if-nez p5, :cond_0
 
     .line 325
     new-instance p5, Landroid/net/http/LoggingEventHandler;
 
-    .end local p5
+    .end local p5    # "eventHandler":Landroid/net/http/EventHandler;
     invoke-direct/range {p5 .. p5}, Landroid/net/http/LoggingEventHandler;-><init>()V
 
     .line 330
-    .restart local p5
+    .restart local p5    # "eventHandler":Landroid/net/http/EventHandler;
     :cond_0
     new-instance v2, Lorg/apache/http/HttpHost;
 
@@ -934,7 +932,7 @@
     invoke-direct {v2, v1, v3, v4}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 333
-    .local v2, httpHost:Lorg/apache/http/HttpHost;
+    .local v2, "httpHost":Lorg/apache/http/HttpHost;
     new-instance v0, Landroid/net/http/Request;
 
     iget-object v3, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
@@ -956,7 +954,7 @@
     invoke-direct/range {v0 .. v8}, Landroid/net/http/Request;-><init>(Ljava/lang/String;Lorg/apache/http/HttpHost;Lorg/apache/http/HttpHost;Ljava/lang/String;Ljava/io/InputStream;ILandroid/net/http/EventHandler;Ljava/util/Map;)V
 
     .line 336
-    .local v0, req:Landroid/net/http/Request;
+    .local v0, "req":Landroid/net/http/Request;
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Landroid/net/http/RequestQueue;->queueRequest(Landroid/net/http/Request;Z)V
@@ -964,6 +962,7 @@
     .line 338
     iget-object v1, p0, Landroid/net/http/RequestQueue;->mActivePool:Landroid/net/http/RequestQueue$ActivePool;
 
+    # operator++ for: Landroid/net/http/RequestQueue$ActivePool;->mTotalRequest:I
     invoke-static {v1}, Landroid/net/http/RequestQueue$ActivePool;->access$408(Landroid/net/http/RequestQueue$ActivePool;)I
 
     .line 341
@@ -997,12 +996,11 @@
 
 .method public queueRequest(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Landroid/net/http/EventHandler;Ljava/io/InputStream;I)Landroid/net/http/RequestHandle;
     .locals 8
-    .parameter "url"
-    .parameter "method"
-    .parameter
-    .parameter "eventHandler"
-    .parameter "bodyProvider"
-    .parameter "bodyLength"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "method"    # Ljava/lang/String;
+    .param p4, "eventHandler"    # Landroid/net/http/EventHandler;
+    .param p5, "bodyProvider"    # Ljava/io/InputStream;
+    .param p6, "bodyLength"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1022,12 +1020,12 @@
 
     .prologue
     .line 300
-    .local p3, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p3, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     new-instance v2, Landroid/net/WebAddress;
 
     invoke-direct {v2, p1}, Landroid/net/WebAddress;-><init>(Ljava/lang/String;)V
 
-    .local v2, uri:Landroid/net/WebAddress;
+    .local v2, "uri":Landroid/net/WebAddress;
     move-object v0, p0
 
     move-object v1, p1
@@ -1052,8 +1050,8 @@
 
 .method protected declared-synchronized queueRequest(Landroid/net/http/Request;Z)V
     .locals 3
-    .parameter "request"
-    .parameter "head"
+    .param p1, "request"    # Landroid/net/http/Request;
+    .param p2, "head"    # Z
 
     .prologue
     .line 499
@@ -1067,7 +1065,7 @@
     iget-object v0, p1, Landroid/net/http/Request;->mHost:Lorg/apache/http/HttpHost;
 
     .line 501
-    .local v0, host:Lorg/apache/http/HttpHost;
+    .local v0, "host":Lorg/apache/http/HttpHost;
     :goto_0
     iget-object v2, p0, Landroid/net/http/RequestQueue;->mPending:Ljava/util/LinkedHashMap;
 
@@ -1087,7 +1085,7 @@
     check-cast v1, Ljava/util/LinkedList;
 
     .line 507
-    .local v1, reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .local v1, "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :goto_1
     if-eqz p2, :cond_2
 
@@ -1103,8 +1101,8 @@
     return-void
 
     .line 499
-    .end local v0           #host:Lorg/apache/http/HttpHost;
-    .end local v1           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v0    # "host":Lorg/apache/http/HttpHost;
+    .end local v1    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_0
     :try_start_1
     iget-object v0, p1, Landroid/net/http/Request;->mProxyHost:Lorg/apache/http/HttpHost;
@@ -1112,14 +1110,14 @@
     goto :goto_0
 
     .line 504
-    .restart local v0       #host:Lorg/apache/http/HttpHost;
+    .restart local v0    # "host":Lorg/apache/http/HttpHost;
     :cond_1
     new-instance v1, Ljava/util/LinkedList;
 
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
     .line 505
-    .restart local v1       #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .restart local v1    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     iget-object v2, p0, Landroid/net/http/RequestQueue;->mPending:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1129,8 +1127,8 @@
     goto :goto_1
 
     .line 499
-    .end local v0           #host:Lorg/apache/http/HttpHost;
-    .end local v1           #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .end local v0    # "host":Lorg/apache/http/HttpHost;
+    .end local v1    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :catchall_0
     move-exception v2
 
@@ -1139,8 +1137,8 @@
     throw v2
 
     .line 510
-    .restart local v0       #host:Lorg/apache/http/HttpHost;
-    .restart local v1       #reqList:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/net/http/Request;>;"
+    .restart local v0    # "host":Lorg/apache/http/HttpHost;
+    .restart local v1    # "reqList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Landroid/net/http/Request;>;"
     :cond_2
     :try_start_2
     invoke-virtual {v1, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
@@ -1152,13 +1150,12 @@
 
 .method public queueSynchronousRequest(Ljava/lang/String;Landroid/net/WebAddress;Ljava/lang/String;Ljava/util/Map;Landroid/net/http/EventHandler;Ljava/io/InputStream;I)Landroid/net/http/RequestHandle;
     .locals 13
-    .parameter "url"
-    .parameter "uri"
-    .parameter "method"
-    .parameter
-    .parameter "eventHandler"
-    .parameter "bodyProvider"
-    .parameter "bodyLength"
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "uri"    # Landroid/net/WebAddress;
+    .param p3, "method"    # Ljava/lang/String;
+    .param p5, "eventHandler"    # Landroid/net/http/EventHandler;
+    .param p6, "bodyProvider"    # Ljava/io/InputStream;
+    .param p7, "bodyLength"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1179,7 +1176,7 @@
 
     .prologue
     .line 378
-    .local p4, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p4, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     new-instance v2, Lorg/apache/http/HttpHost;
 
     invoke-virtual {p2}, Landroid/net/WebAddress;->getHost()Ljava/lang/String;
@@ -1197,7 +1194,7 @@
     invoke-direct {v2, v1, v3, v4}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 380
-    .local v2, host:Lorg/apache/http/HttpHost;
+    .local v2, "host":Lorg/apache/http/HttpHost;
     new-instance v0, Landroid/net/http/Request;
 
     iget-object v3, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
@@ -1219,7 +1216,7 @@
     invoke-direct/range {v0 .. v8}, Landroid/net/http/Request;-><init>(Ljava/lang/String;Lorg/apache/http/HttpHost;Lorg/apache/http/HttpHost;Ljava/lang/String;Ljava/io/InputStream;ILandroid/net/http/EventHandler;Ljava/util/Map;)V
 
     .line 385
-    .local v0, req:Landroid/net/http/Request;
+    .local v0, "req":Landroid/net/http/Request;
     invoke-direct {p0, v2}, Landroid/net/http/RequestQueue;->determineHost(Lorg/apache/http/HttpHost;)Lorg/apache/http/HttpHost;
 
     move-result-object v2
@@ -1238,7 +1235,7 @@
     move-result-object v12
 
     .line 391
-    .local v12, conn:Landroid/net/http/Connection;
+    .local v12, "conn":Landroid/net/http/Connection;
     new-instance v3, Landroid/net/http/RequestHandle;
 
     move-object v4, p0
@@ -1302,7 +1299,7 @@
 
 .method public requeueRequest(Landroid/net/http/Request;)V
     .locals 1
-    .parameter "request"
+    .param p1, "request"    # Landroid/net/http/Request;
 
     .prologue
     .line 488

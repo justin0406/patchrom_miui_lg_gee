@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/WindowId$FocusObserver;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 80
@@ -36,7 +35,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 83

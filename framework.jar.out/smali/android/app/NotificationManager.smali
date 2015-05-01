@@ -35,8 +35,8 @@
 
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
-    .parameter "context"
-    .parameter "handler"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
     .line 88
@@ -51,7 +51,7 @@
 
 .method public static from(Landroid/content/Context;)Landroid/app/NotificationManager;
     .locals 1
-    .parameter "context"
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
     .line 94
@@ -79,12 +79,12 @@
     sget-object v1, Landroid/app/NotificationManager;->sService:Landroid/app/INotificationManager;
 
     .line 84
-    .local v0, b:Landroid/os/IBinder;
+    .local v0, "b":Landroid/os/IBinder;
     :goto_0
     return-object v1
 
     .line 82
-    .end local v0           #b:Landroid/os/IBinder;
+    .end local v0    # "b":Landroid/os/IBinder;
     :cond_0
     const-string/jumbo v1, "notification"
 
@@ -93,7 +93,7 @@
     move-result-object v0
 
     .line 83
-    .restart local v0       #b:Landroid/os/IBinder;
+    .restart local v0    # "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/app/INotificationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/INotificationManager;
 
     move-result-object v1
@@ -110,7 +110,7 @@
 # virtual methods
 .method public cancel(I)V
     .locals 1
-    .parameter "id"
+    .param p1, "id"    # I
 
     .prologue
     .line 177
@@ -124,8 +124,8 @@
 
 .method public cancel(Ljava/lang/String;I)V
     .locals 5
-    .parameter "tag"
-    .parameter "id"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "id"    # I
 
     .prologue
     .line 187
@@ -134,7 +134,7 @@
     move-result-object v1
 
     .line 188
-    .local v1, service:Landroid/app/INotificationManager;
+    .local v1, "service":Landroid/app/INotificationManager;
     iget-object v2, p0, Landroid/app/NotificationManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, pkg:Ljava/lang/String;
+    .local v0, "pkg":Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
     if-eqz v2, :cond_0
@@ -211,7 +211,7 @@
     move-result-object v1
 
     .line 217
-    .local v1, service:Landroid/app/INotificationManager;
+    .local v1, "service":Landroid/app/INotificationManager;
     iget-object v2, p0, Landroid/app/NotificationManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -219,7 +219,7 @@
     move-result-object v0
 
     .line 218
-    .local v0, pkg:Ljava/lang/String;
+    .local v0, "pkg":Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
     if-eqz v2, :cond_0
@@ -270,9 +270,9 @@
 
 .method public cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
     .locals 5
-    .parameter "tag"
-    .parameter "id"
-    .parameter "user"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 201
@@ -281,7 +281,7 @@
     move-result-object v1
 
     .line 202
-    .local v1, service:Landroid/app/INotificationManager;
+    .local v1, "service":Landroid/app/INotificationManager;
     iget-object v2, p0, Landroid/app/NotificationManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -289,7 +289,7 @@
     move-result-object v0
 
     .line 203
-    .local v0, pkg:Ljava/lang/String;
+    .local v0, "pkg":Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
     if-eqz v2, :cond_0
@@ -350,8 +350,8 @@
 
 .method public notify(ILandroid/app/Notification;)V
     .locals 1
-    .parameter "id"
-    .parameter "notification"
+    .param p1, "id"    # I
+    .param p2, "notification"    # Landroid/app/Notification;
 
     .prologue
     .line 109
@@ -365,9 +365,9 @@
 
 .method public notify(Ljava/lang/String;ILandroid/app/Notification;)V
     .locals 8
-    .parameter "tag"
-    .parameter "id"
-    .parameter "notification"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "notification"    # Landroid/app/Notification;
 
     .prologue
     .line 125
@@ -376,13 +376,13 @@
     new-array v6, v2, [I
 
     .line 126
-    .local v6, idOut:[I
+    .local v6, "idOut":[I
     invoke-static {}, Landroid/app/NotificationManager;->getService()Landroid/app/INotificationManager;
 
     move-result-object v0
 
     .line 127
-    .local v0, service:Landroid/app/INotificationManager;
+    .local v0, "service":Landroid/app/INotificationManager;
     iget-object v2, p0, Landroid/app/NotificationManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -390,7 +390,7 @@
     move-result-object v1
 
     .line 128
-    .local v1, pkg:Ljava/lang/String;
+    .local v1, "pkg":Ljava/lang/String;
     iget-object v2, p3, Landroid/app/Notification;->sound:Landroid/net/Uri;
 
     if-eqz v2, :cond_0
@@ -547,10 +547,10 @@
 
 .method public notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
     .locals 8
-    .parameter "tag"
-    .parameter "id"
-    .parameter "notification"
-    .parameter "user"
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "notification"    # Landroid/app/Notification;
+    .param p4, "user"    # Landroid/os/UserHandle;
 
     .prologue
     .line 150
@@ -559,13 +559,13 @@
     new-array v6, v2, [I
 
     .line 151
-    .local v6, idOut:[I
+    .local v6, "idOut":[I
     invoke-static {}, Landroid/app/NotificationManager;->getService()Landroid/app/INotificationManager;
 
     move-result-object v0
 
     .line 152
-    .local v0, service:Landroid/app/INotificationManager;
+    .local v0, "service":Landroid/app/INotificationManager;
     iget-object v2, p0, Landroid/app/NotificationManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -573,7 +573,7 @@
     move-result-object v1
 
     .line 153
-    .local v1, pkg:Ljava/lang/String;
+    .local v1, "pkg":Ljava/lang/String;
     iget-object v2, p3, Landroid/app/Notification;->sound:Landroid/net/Uri;
 
     if-eqz v2, :cond_0

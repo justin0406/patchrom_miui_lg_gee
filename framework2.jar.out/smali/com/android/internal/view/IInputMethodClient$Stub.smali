@@ -54,7 +54,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputMethodClient;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 27
@@ -76,7 +76,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/view/IInputMethodClient;
@@ -92,7 +92,7 @@
     :cond_1
     new-instance v0, Lcom/android/internal/view/IInputMethodClient$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/view/IInputMethodClient$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -110,10 +110,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 3
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -160,14 +160,14 @@
     move v0, v1
 
     .line 54
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :cond_0
     invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputMethodClient$Stub;->setUsingInputMethod(Z)V
 
     goto :goto_0
 
     .line 59
-    .end local v0           #_arg0:Z
+    .end local v0    # "_arg0":Z
     :sswitch_2
     const-string v2, "com.android.internal.view.IInputMethodClient"
 
@@ -190,22 +190,22 @@
     check-cast v0, Lcom/android/internal/view/InputBindResult;
 
     .line 67
-    .local v0, _arg0:Lcom/android/internal/view/InputBindResult;
+    .local v0, "_arg0":Lcom/android/internal/view/InputBindResult;
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputMethodClient$Stub;->onBindMethod(Lcom/android/internal/view/InputBindResult;)V
 
     goto :goto_0
 
     .line 65
-    .end local v0           #_arg0:Lcom/android/internal/view/InputBindResult;
+    .end local v0    # "_arg0":Lcom/android/internal/view/InputBindResult;
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0       #_arg0:Lcom/android/internal/view/InputBindResult;
+    .restart local v0    # "_arg0":Lcom/android/internal/view/InputBindResult;
     goto :goto_1
 
     .line 72
-    .end local v0           #_arg0:Lcom/android/internal/view/InputBindResult;
+    .end local v0    # "_arg0":Lcom/android/internal/view/InputBindResult;
     :sswitch_3
     const-string v2, "com.android.internal.view.IInputMethodClient"
 
@@ -217,13 +217,13 @@
     move-result v0
 
     .line 75
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputMethodClient$Stub;->onUnbindMethod(I)V
 
     goto :goto_0
 
     .line 80
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_4
     const-string v2, "com.android.internal.view.IInputMethodClient"
 
@@ -239,7 +239,7 @@
     move v0, v1
 
     .line 83
-    .local v0, _arg0:Z
+    .local v0, "_arg0":Z
     :cond_2
     invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputMethodClient$Stub;->setActive(Z)V
 

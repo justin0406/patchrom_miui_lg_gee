@@ -47,8 +47,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ClipboardService;I)V
     .locals 1
-    .parameter
-    .parameter "userId"
+    .param p2, "userId"    # I
 
     .prologue
     .line 82

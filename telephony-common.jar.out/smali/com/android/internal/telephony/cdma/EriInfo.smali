@@ -32,12 +32,12 @@
 # direct methods
 .method public constructor <init>(IIILjava/lang/String;II)V
     .locals 0
-    .parameter "roamingIndicator"
-    .parameter "iconIndex"
-    .parameter "iconMode"
-    .parameter "eriText"
-    .parameter "callPromptId"
-    .parameter "alertId"
+    .param p1, "roamingIndicator"    # I
+    .param p2, "iconIndex"    # I
+    .param p3, "iconMode"    # I
+    .param p4, "eriText"    # Ljava/lang/String;
+    .param p5, "callPromptId"    # I
+    .param p6, "alertId"    # I
 
     .prologue
     .line 36

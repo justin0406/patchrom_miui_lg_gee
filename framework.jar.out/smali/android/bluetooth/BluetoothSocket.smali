@@ -96,13 +96,13 @@
 
 .method constructor <init>(IIZZLandroid/bluetooth/BluetoothDevice;ILandroid/os/ParcelUuid;)V
     .locals 4
-    .parameter "type"
-    .parameter "fd"
-    .parameter "auth"
-    .parameter "encrypt"
-    .parameter "device"
-    .parameter "port"
-    .parameter "uuid"
+    .param p1, "type"    # I
+    .param p2, "fd"    # I
+    .param p3, "auth"    # Z
+    .param p4, "encrypt"    # Z
+    .param p5, "device"    # Landroid/bluetooth/BluetoothDevice;
+    .param p6, "port"    # I
+    .param p7, "uuid"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,12 +249,12 @@
 
 .method private constructor <init>(IIZZLjava/lang/String;I)V
     .locals 8
-    .parameter "type"
-    .parameter "fd"
-    .parameter "auth"
-    .parameter "encrypt"
-    .parameter "address"
-    .parameter "port"
+    .param p1, "type"    # I
+    .param p2, "fd"    # I
+    .param p3, "auth"    # Z
+    .param p4, "encrypt"    # Z
+    .param p5, "address"    # Ljava/lang/String;
+    .param p6, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -289,7 +289,7 @@
 
 .method private constructor <init>(Landroid/bluetooth/BluetoothSocket;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/bluetooth/BluetoothSocket;
 
     .prologue
     .line 179
@@ -345,7 +345,7 @@
 
 .method private acceptSocket(Ljava/lang/String;)Landroid/bluetooth/BluetoothSocket;
     .locals 5
-    .parameter "RemoteAddr"
+    .param p1, "RemoteAddr"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -359,7 +359,7 @@
     invoke-direct {v0, p0}, Landroid/bluetooth/BluetoothSocket;-><init>(Landroid/bluetooth/BluetoothSocket;)V
 
     .line 191
-    .local v0, as:Landroid/bluetooth/BluetoothSocket;
+    .local v0, "as":Landroid/bluetooth/BluetoothSocket;
     sget-object v2, Landroid/bluetooth/BluetoothSocket$SocketState;->CONNECTED:Landroid/bluetooth/BluetoothSocket$SocketState;
 
     iput-object v2, v0, Landroid/bluetooth/BluetoothSocket;->mSocketState:Landroid/bluetooth/BluetoothSocket$SocketState;
@@ -372,7 +372,7 @@
     move-result-object v1
 
     .line 194
-    .local v1, fds:[Ljava/io/FileDescriptor;
+    .local v1, "fds":[Ljava/io/FileDescriptor;
     if-eqz v1, :cond_0
 
     array-length v2, v1
@@ -467,7 +467,7 @@
 
 .method private convertAddr([B)Ljava/lang/String;
     .locals 9
-    .parameter "addr"
+    .param p1, "addr"    # [B
 
     .prologue
     const/4 v8, 0x4
@@ -556,7 +556,7 @@
     const/4 v0, 0x0
 
     .line 233
-    .local v0, flags:I
+    .local v0, "flags":I
     iget-boolean v1, p0, Landroid/bluetooth/BluetoothSocket;->mAuth:Z
 
     if-eqz v1, :cond_0
@@ -580,8 +580,8 @@
 
 .method private readAll(Ljava/io/InputStream;[B)I
     .locals 5
-    .parameter "is"
-    .parameter "b"
+    .param p1, "is"    # Ljava/io/InputStream;
+    .param p2, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -593,7 +593,7 @@
     array-length v0, p2
 
     .line 502
-    .local v0, left:I
+    .local v0, "left":I
     :cond_0
     :goto_0
     if-lez v0, :cond_2
@@ -608,7 +608,7 @@
     move-result v1
 
     .line 504
-    .local v1, ret:I
+    .local v1, "ret":I
     if-gtz v1, :cond_1
 
     .line 505
@@ -685,7 +685,7 @@
     goto :goto_0
 
     .line 511
-    .end local v1           #ret:I
+    .end local v1    # "ret":I
     :cond_2
     array-length v2, p2
 
@@ -694,7 +694,7 @@
 
 .method private readInt(Ljava/io/InputStream;)I
     .locals 4
-    .parameter "is"
+    .param p1, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -708,19 +708,19 @@
     new-array v1, v3, [B
 
     .line 516
-    .local v1, ibytes:[B
+    .local v1, "ibytes":[B
     invoke-direct {p0, p1, v1}, Landroid/bluetooth/BluetoothSocket;->readAll(Ljava/io/InputStream;[B)I
 
     move-result v2
 
     .line 518
-    .local v2, ret:I
+    .local v2, "ret":I
     invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     .line 519
-    .local v0, bb:Ljava/nio/ByteBuffer;
+    .local v0, "bb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v3
@@ -737,7 +737,7 @@
 
 .method private waitSocketSignal(Ljava/io/InputStream;)Ljava/lang/String;
     .locals 11
-    .parameter "is"
+    .param p1, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -751,19 +751,19 @@
     new-array v5, v8, [B
 
     .line 482
-    .local v5, sig:[B
+    .local v5, "sig":[B
     invoke-direct {p0, p1, v5}, Landroid/bluetooth/BluetoothSocket;->readAll(Ljava/io/InputStream;[B)I
 
     move-result v4
 
     .line 484
-    .local v4, ret:I
+    .local v4, "ret":I
     invoke-static {v5}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
     .line 485
-    .local v2, bb:Ljava/nio/ByteBuffer;
+    .local v2, "bb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v8
@@ -776,7 +776,7 @@
     move-result v6
 
     .line 487
-    .local v6, size:I
+    .local v6, "size":I
     sget v8, Landroid/bluetooth/BluetoothSocket;->SOCK_SIGNAL_SIZE:I
 
     if-eq v6, v8, :cond_0
@@ -813,7 +813,7 @@
     new-array v1, v8, [B
 
     .line 490
-    .local v1, addr:[B
+    .local v1, "addr":[B
     invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 491
@@ -822,19 +822,19 @@
     move-result v3
 
     .line 492
-    .local v3, channel:I
+    .local v3, "channel":I
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v7
 
     .line 493
-    .local v7, status:I
+    .local v7, "status":I
     invoke-direct {p0, v1}, Landroid/bluetooth/BluetoothSocket;->convertAddr([B)Ljava/lang/String;
 
     move-result-object v0
 
     .line 496
-    .local v0, RemoteAddr:Ljava/lang/String;
+    .local v0, "RemoteAddr":Ljava/lang/String;
     if-eqz v7, :cond_1
 
     .line 497
@@ -871,7 +871,7 @@
 # virtual methods
 .method accept(I)Landroid/bluetooth/BluetoothSocket;
     .locals 5
-    .parameter "timeout"
+    .param p1, "timeout"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -935,7 +935,7 @@
     move-result-object v0
 
     .line 396
-    .local v0, RemoteAddr:Ljava/lang/String;
+    .local v0, "RemoteAddr":Ljava/lang/String;
     if-lez p1, :cond_2
 
     .line 397
@@ -984,7 +984,7 @@
     move-result-object v1
 
     .line 404
-    .local v1, acceptedSocket:Landroid/bluetooth/BluetoothSocket;
+    .local v1, "acceptedSocket":Landroid/bluetooth/BluetoothSocket;
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -1044,7 +1044,7 @@
     move-result-object v0
 
     .line 344
-    .local v0, bluetoothProxy:Landroid/bluetooth/IBluetooth;
+    .local v0, "bluetoothProxy":Landroid/bluetooth/IBluetooth;
     if-nez v0, :cond_1
 
     .line 345
@@ -1118,7 +1118,7 @@
     move-exception v7
 
     .line 382
-    .local v7, e:Ljava/io/IOException;
+    .local v7, "e":Ljava/io/IOException;
     const-string v1, "BluetoothSocket"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1147,12 +1147,12 @@
     goto :goto_0
 
     .line 351
-    .end local v7           #e:Ljava/io/IOException;
+    .end local v7    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v7
 
     .line 352
-    .local v7, e:Landroid/os/RemoteException;
+    .local v7, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothSocket"
 
     new-instance v2, Ljava/lang/Throwable;
@@ -1171,7 +1171,7 @@
     goto :goto_0
 
     .line 362
-    .end local v7           #e:Landroid/os/RemoteException;
+    .end local v7    # "e":Landroid/os/RemoteException;
     :cond_2
     :try_start_4
     iget-object v1, p0, Landroid/bluetooth/BluetoothSocket;->mPfd:Landroid/os/ParcelFileDescriptor;
@@ -1193,7 +1193,7 @@
     move-result-object v8
 
     .line 365
-    .local v8, fd:Ljava/io/FileDescriptor;
+    .local v8, "fd":Ljava/io/FileDescriptor;
     new-instance v1, Landroid/net/LocalSocket;
 
     invoke-direct {v1, v8}, Landroid/net/LocalSocket;-><init>(Ljava/io/FileDescriptor;)V
@@ -1232,7 +1232,7 @@
     move-result v6
 
     .line 372
-    .local v6, channel:I
+    .local v6, "channel":I
     monitor-enter p0
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
@@ -1271,11 +1271,11 @@
     :cond_5
     const/4 v9, 0x0
 
-    .local v9, ret:I
+    .local v9, "ret":I
     goto/16 :goto_0
 
     .line 375
-    .end local v9           #ret:I
+    .end local v9    # "ret":I
     :catchall_1
     move-exception v1
 
@@ -1435,7 +1435,7 @@
     move-exception v7
 
     .line 332
-    .local v7, e:Landroid/os/RemoteException;
+    .local v7, "e":Landroid/os/RemoteException;
     const-string v1, "BluetoothSocket"
 
     new-instance v2, Ljava/lang/Throwable;
@@ -1449,7 +1449,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 334
-    .end local v7           #e:Landroid/os/RemoteException;
+    .end local v7    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 
@@ -1467,7 +1467,7 @@
     move-result-object v0
 
     .line 307
-    .local v0, bluetoothProxy:Landroid/bluetooth/IBluetooth;
+    .local v0, "bluetoothProxy":Landroid/bluetooth/IBluetooth;
     if-nez v0, :cond_2
 
     new-instance v1, Ljava/io/IOException;
@@ -1593,7 +1593,7 @@
     move-result-object v8
 
     .line 316
-    .local v8, fd:Ljava/io/FileDescriptor;
+    .local v8, "fd":Ljava/io/FileDescriptor;
     new-instance v1, Landroid/net/LocalSocket;
 
     invoke-direct {v1, v8}, Landroid/net/LocalSocket;-><init>(Ljava/io/FileDescriptor;)V
@@ -1632,7 +1632,7 @@
     move-result v6
 
     .line 321
-    .local v6, channel:I
+    .local v6, "channel":I
     if-gtz v6, :cond_5
 
     .line 322
@@ -1825,9 +1825,9 @@
 
 .method read([BII)I
     .locals 4
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1843,7 +1843,7 @@
     move-result v0
 
     .line 428
-    .local v0, ret:I
+    .local v0, "ret":I
     if-gez v0, :cond_0
 
     .line 429
@@ -1886,7 +1886,7 @@
 
 .method setServiceName(Ljava/lang/String;)V
     .locals 0
-    .parameter "name"
+    .param p1, "name"    # Ljava/lang/String;
 
     .prologue
     .line 281
@@ -1898,9 +1898,9 @@
 
 .method write([BII)I
     .locals 1
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

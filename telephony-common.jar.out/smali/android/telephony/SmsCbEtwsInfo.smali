@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -58,10 +58,10 @@
 
 .method public constructor <init>(IZZ[B)V
     .locals 0
-    .parameter "warningType"
-    .parameter "emergencyUserAlert"
-    .parameter "activatePopup"
-    .parameter "warningSecurityInformation"
+    .param p1, "warningType"    # I
+    .param p2, "emergencyUserAlert"    # Z
+    .param p3, "activatePopup"    # Z
+    .param p4, "warningSecurityInformation"    # [B
 
     .prologue
     .line 73
@@ -85,7 +85,7 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     const/4 v1, 0x1
@@ -236,7 +236,7 @@
     move-result v8
 
     .line 137
-    .local v8, year:I
+    .local v8, "year":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     aget-byte v9, v9, v11
@@ -246,7 +246,7 @@
     move-result v3
 
     .line 138
-    .local v3, month:I
+    .local v3, "month":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x2
@@ -258,7 +258,7 @@
     move-result v0
 
     .line 139
-    .local v0, day:I
+    .local v0, "day":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x3
@@ -270,7 +270,7 @@
     move-result v1
 
     .line 140
-    .local v1, hour:I
+    .local v1, "hour":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x4
@@ -282,7 +282,7 @@
     move-result v2
 
     .line 141
-    .local v2, minute:I
+    .local v2, "minute":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x5
@@ -294,7 +294,7 @@
     move-result v4
 
     .line 148
-    .local v4, second:I
+    .local v4, "second":I
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x6
@@ -302,7 +302,7 @@
     aget-byte v7, v9, v10
 
     .line 151
-    .local v7, tzByte:B
+    .local v7, "tzByte":B
     and-int/lit8 v9, v7, -0x9
 
     int-to-byte v9, v9
@@ -312,7 +312,7 @@
     move-result v6
 
     .line 153
-    .local v6, timezoneOffset:I
+    .local v6, "timezoneOffset":I
     and-int/lit8 v9, v7, 0x8
 
     if-nez v9, :cond_2
@@ -326,7 +326,7 @@
     invoke-direct {v5, v9}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
 
     .line 158
-    .local v5, time:Landroid/text/format/Time;
+    .local v5, "time":Landroid/text/format/Time;
     add-int/lit16 v9, v8, 0x7d0
 
     iput v9, v5, Landroid/text/format/Time;->year:I
@@ -366,7 +366,7 @@
     goto :goto_0
 
     .line 153
-    .end local v5           #time:Landroid/text/format/Time;
+    .end local v5    # "time":Landroid/text/format/Time;
     :cond_2
     neg-int v6, v6
 
@@ -463,8 +463,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v1, 0x1

@@ -32,11 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/widget/ImageView;Landroid/view/View;Landroid/widget/TextView;Landroid/widget/TextView;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
-    .parameter
-    .parameter
 
     .prologue
     .line 124
@@ -59,7 +54,7 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 9
-    .parameter "v"
+    .param p1, "v"    # Landroid/view/View;
 
     .prologue
     const/4 v0, 0x0
@@ -68,9 +63,9 @@
 
     const-wide/16 v6, 0x3e8
 
-    const/high16 v5, 0x3f00
+    const/high16 v5, 0x3f000000    # 0.5f
 
-    const/high16 v4, 0x3f80
+    const/high16 v4, 0x3f800000    # 1.0f
 
     .line 127
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$logo:Landroid/widget/ImageView;
@@ -84,7 +79,7 @@
     .line 128
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$bg:Landroid/view/View;
 
-    const v2, 0x3c23d70a
+    const v2, 0x3c23d70a    # 0.01f
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setScaleX(F)V
 
@@ -130,7 +125,7 @@
 
     move-result-object v1
 
-    const/high16 v2, 0x43b4
+    const/high16 v2, 0x43b40000    # 360.0f
 
     invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->rotationBy(F)Landroid/view/ViewPropertyAnimator;
 

@@ -39,9 +39,9 @@
 
 .method public constructor <init>(Ljava/io/InputStream;II)V
     .locals 2
-    .parameter "inputStream"
-    .parameter "rateIn"
-    .parameter "rateOut"
+    .param p1, "inputStream"    # Ljava/io/InputStream;
+    .param p2, "rateIn"    # I
+    .param p3, "rateOut"    # I
 
     .prologue
     .line 61
@@ -183,7 +183,7 @@
     move-result v0
 
     .line 75
-    .local v0, rtn:I
+    .local v0, "rtn":I
     if-ne v0, v3, :cond_0
 
     iget-object v1, p0, Landroid/media/ResampleInputStream;->mOneByte:[B
@@ -203,7 +203,7 @@
 
 .method public read([B)I
     .locals 2
-    .parameter "b"
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -225,9 +225,9 @@
 
 .method public read([BII)I
     .locals 12
-    .parameter "b"
-    .parameter "offset"
-    .parameter "length"
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -269,7 +269,7 @@
     mul-int/lit8 v4, v6, 0x2
 
     .line 89
-    .local v4, nIn:I
+    .local v4, "nIn":I
     iget-object v6, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
     if-nez v6, :cond_4
@@ -299,7 +299,7 @@
     mul-int/lit8 v1, v6, 0x2
 
     .line 100
-    .local v1, len:I
+    .local v1, "len":I
     if-lez v1, :cond_6
 
     .line 101
@@ -325,7 +325,7 @@
     div-int v3, v5, v6
 
     .line 115
-    .local v3, nFwd:I
+    .local v3, "nFwd":I
     iget v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 
     sub-int/2addr v5, v3
@@ -349,12 +349,12 @@
     move v5, p3
 
     .line 118
-    .end local v3           #nFwd:I
+    .end local v3    # "nFwd":I
     :cond_3
     return v5
 
     .line 91
-    .end local v1           #len:I
+    .end local v1    # "len":I
     :cond_4
     iget-object v6, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
@@ -366,7 +366,7 @@
     new-array v0, v4, [B
 
     .line 93
-    .local v0, bf:[B
+    .local v0, "bf":[B
     iget-object v6, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
     iget v7, p0, Landroid/media/ResampleInputStream;->mBufCount:I
@@ -379,8 +379,8 @@
     goto :goto_0
 
     .line 101
-    .end local v0           #bf:[B
-    .restart local v1       #len:I
+    .end local v0    # "bf":[B
+    .restart local v1    # "len":I
     :cond_5
     div-int/lit8 v5, p3, 0x2
 
@@ -409,7 +409,7 @@
     move-result v2
 
     .line 106
-    .local v2, n:I
+    .local v2, "n":I
     if-eq v2, v5, :cond_3
 
     .line 107

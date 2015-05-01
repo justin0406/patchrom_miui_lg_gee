@@ -32,9 +32,9 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/TriggerEventListener;Landroid/os/Looper;Landroid/hardware/SystemSensorManager;)V
     .locals 1
-    .parameter "listener"
-    .parameter "looper"
-    .parameter "manager"
+    .param p1, "listener"    # Landroid/hardware/TriggerEventListener;
+    .param p2, "looper"    # Landroid/os/Looper;
+    .param p3, "manager"    # Landroid/hardware/SystemSensorManager;
 
     .prologue
     .line 437
@@ -58,7 +58,7 @@
 # virtual methods
 .method public addSensorEvent(Landroid/hardware/Sensor;)V
     .locals 4
-    .parameter "sensor"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 443
@@ -66,7 +66,7 @@
 
     iget-object v1, p0, Landroid/hardware/SystemSensorManager$TriggerEventQueue;->mManager:Landroid/hardware/SystemSensorManager;
 
-    #getter for: Landroid/hardware/SystemSensorManager;->mTargetSdkLevel:I
+    # getter for: Landroid/hardware/SystemSensorManager;->mTargetSdkLevel:I
     invoke-static {v1}, Landroid/hardware/SystemSensorManager;->access$100(Landroid/hardware/SystemSensorManager;)I
 
     move-result v1
@@ -78,7 +78,7 @@
     invoke-direct {v0, v1}, Landroid/hardware/TriggerEvent;-><init>(I)V
 
     .line 445
-    .local v0, t:Landroid/hardware/TriggerEvent;
+    .local v0, "t":Landroid/hardware/TriggerEvent;
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$TriggerEventQueue;->mTriggerEvents:Landroid/util/SparseArray;
 
     monitor-enter v2
@@ -112,7 +112,7 @@
 
 .method protected dispatchFlushCompleteEvent(I)V
     .locals 0
-    .parameter "handle"
+    .param p1, "handle"    # I
 
     .prologue
     .line 486
@@ -121,15 +121,16 @@
 
 .method protected dispatchSensorEvent(I[FIJ)V
     .locals 6
-    .parameter "handle"
-    .parameter "values"
-    .parameter "accuracy"
-    .parameter "timestamp"
+    .param p1, "handle"    # I
+    .param p2, "values"    # [F
+    .param p3, "accuracy"    # I
+    .param p4, "timestamp"    # J
 
     .prologue
     const/4 v5, 0x0
 
     .line 462
+    # getter for: Landroid/hardware/SystemSensorManager;->sHandleToSensor:Landroid/util/SparseArray;
     invoke-static {}, Landroid/hardware/SystemSensorManager;->access$000()Landroid/util/SparseArray;
 
     move-result-object v3
@@ -141,11 +142,11 @@
     check-cast v1, Landroid/hardware/Sensor;
 
     .line 463
-    .local v1, sensor:Landroid/hardware/Sensor;
+    .local v1, "sensor":Landroid/hardware/Sensor;
     const/4 v2, 0x0
 
     .line 464
-    .local v2, t:Landroid/hardware/TriggerEvent;
+    .local v2, "t":Landroid/hardware/TriggerEvent;
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$TriggerEventQueue;->mTriggerEvents:Landroid/util/SparseArray;
 
     monitor-enter v4
@@ -243,7 +244,7 @@
 
 .method public removeSensorEvent(Landroid/hardware/Sensor;)V
     .locals 3
-    .parameter "sensor"
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
 
     .prologue
     .line 452

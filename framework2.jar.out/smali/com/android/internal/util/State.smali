@@ -50,7 +50,7 @@
     move-result-object v1
 
     .line 71
-    .local v1, name:Ljava/lang/String;
+    .local v1, "name":Ljava/lang/String;
     const/16 v2, 0x24
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->lastIndexOf(I)I
@@ -58,7 +58,7 @@
     move-result v0
 
     .line 72
-    .local v0, lastDollar:I
+    .local v0, "lastDollar":I
     add-int/lit8 v2, v0, 0x1
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -70,7 +70,7 @@
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 1
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 53

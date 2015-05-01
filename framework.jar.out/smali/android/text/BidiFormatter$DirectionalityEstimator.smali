@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final DIR_TYPE_CACHE:[B = null
+.field private static final DIR_TYPE_CACHE:[B
 
 .field private static final DIR_TYPE_CACHE_SIZE:I = 0x700
 
@@ -47,7 +47,7 @@
     .line 516
     const/4 v0, 0x0
 
-    .local v0, i:I
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -72,8 +72,8 @@
 
 .method constructor <init>(Ljava/lang/String;Z)V
     .locals 1
-    .parameter "text"
-    .parameter "isHtml"
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "isHtml"    # Z
 
     .prologue
     .line 559
@@ -98,7 +98,7 @@
 
 .method private static getCachedDirectionality(C)B
     .locals 1
-    .parameter "c"
+    .param p0, "c"    # C
 
     .prologue
     .line 734
@@ -131,7 +131,7 @@
     iget v0, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 876
-    .local v0, initialCharIndex:I
+    .local v0, "initialCharIndex":I
     :cond_0
     iget v1, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -232,7 +232,7 @@
     iget v0, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 833
-    .local v0, initialCharIndex:I
+    .local v0, "initialCharIndex":I
     :cond_0
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -304,7 +304,7 @@
     iget-char v1, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     .line 845
-    .local v1, quote:C
+    .local v1, "quote":C
     :goto_1
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -337,7 +337,7 @@
     iget v0, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     .line 804
-    .local v0, initialCharIndex:I
+    .local v0, "initialCharIndex":I
     :cond_0
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -393,7 +393,7 @@
     iget-char v1, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->lastChar:C
 
     .line 813
-    .local v1, quote:C
+    .local v1, "quote":C
     :goto_1
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -420,7 +420,7 @@
     goto :goto_1
 
     .line 817
-    .end local v1           #quote:C
+    .end local v1    # "quote":C
     :cond_3
     iput v0, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
@@ -473,7 +473,7 @@
     move-result v0
 
     .line 780
-    .local v0, codePoint:I
+    .local v0, "codePoint":I
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
@@ -490,7 +490,7 @@
     move-result v1
 
     .line 793
-    .end local v0           #codePoint:I
+    .end local v0    # "codePoint":I
     :cond_0
     :goto_0
     return v1
@@ -511,7 +511,7 @@
     move-result v1
 
     .line 785
-    .local v1, dirType:B
+    .local v1, "dirType":B
     iget-boolean v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->isHtml:Z
 
     if-eqz v2, :cond_0
@@ -580,7 +580,7 @@
     move-result v0
 
     .line 750
-    .local v0, codePoint:I
+    .local v0, "codePoint":I
     iget v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
     invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
@@ -597,7 +597,7 @@
     move-result v1
 
     .line 763
-    .end local v0           #codePoint:I
+    .end local v0    # "codePoint":I
     :cond_0
     :goto_0
     return v1
@@ -618,7 +618,7 @@
     move-result v1
 
     .line 755
-    .local v1, dirType:B
+    .local v1, "dirType":B
     iget-boolean v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->isHtml:Z
 
     if-eqz v2, :cond_0
@@ -670,15 +670,15 @@
     const/4 v0, 0x0
 
     .line 579
-    .local v0, embeddingLevel:I
+    .local v0, "embeddingLevel":I
     const/4 v1, 0x0
 
     .line 580
-    .local v1, embeddingLevelDir:I
+    .local v1, "embeddingLevelDir":I
     const/4 v2, 0x0
 
     .line 581
-    .local v2, firstNonEmptyEmbeddingLevel:I
+    .local v2, "firstNonEmptyEmbeddingLevel":I
     :goto_0
     :pswitch_0
     iget v6, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
@@ -740,13 +740,13 @@
     move v1, v3
 
     .line 659
-    .end local v1           #embeddingLevelDir:I
+    .end local v1    # "embeddingLevelDir":I
     :cond_0
     :goto_1
     return v1
 
     .line 606
-    .restart local v1       #embeddingLevelDir:I
+    .restart local v1    # "embeddingLevelDir":I
     :cond_1
     move v2, v0
 
@@ -893,11 +893,11 @@
     const/4 v0, 0x0
 
     .line 677
-    .local v0, embeddingLevel:I
+    .local v0, "embeddingLevel":I
     const/4 v1, 0x0
 
     .line 678
-    .local v1, lastNonEmptyEmbeddingLevel:I
+    .local v1, "lastNonEmptyEmbeddingLevel":I
     :cond_0
     :goto_0
     :pswitch_0

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 227
@@ -52,7 +50,7 @@
     const/4 v0, 0x0
 
     .line 231
-    .local v0, countryIso:Ljava/lang/String;
+    .local v0, "countryIso":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->val$location:Landroid/location/Location;
 
     if-eqz v1, :cond_0

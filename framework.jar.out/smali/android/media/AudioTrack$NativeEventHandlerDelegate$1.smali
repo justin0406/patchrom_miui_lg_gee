@@ -27,11 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioTrack$NativeEventHandlerDelegate;Landroid/os/Looper;Landroid/media/AudioTrack;Landroid/media/AudioTrack;Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;)V
     .locals 0
-    .parameter
-    .parameter "x0"
-    .parameter
-    .parameter
-    .parameter
+    .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
     .line 1259
@@ -52,7 +48,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     .line 1262
@@ -92,7 +88,7 @@
 
     move-result-object v0
 
-    #calls: Landroid/media/AudioTrack;->loge(Ljava/lang/String;)V
+    # invokes: Landroid/media/AudioTrack;->loge(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/media/AudioTrack;->access$100(Ljava/lang/String;)V
 
     goto :goto_0

@@ -81,8 +81,7 @@
 
 .method public static declared-synchronized getPluginData(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/PluginData;
     .locals 6
-    .parameter "url"
-    .parameter
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +99,7 @@
     .end annotation
 
     .prologue
-    .local p1, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p1, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
     .line 154
@@ -137,7 +136,7 @@
     move-result-object v2
 
     .line 158
-    .local v2, iter:Ljava/util/Iterator;
+    .local v2, "iter":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -153,7 +152,7 @@
     check-cast v1, Landroid/webkit/UrlInterceptHandler;
 
     .line 160
-    .local v1, handler:Landroid/webkit/UrlInterceptHandler;
+    .local v1, "handler":Landroid/webkit/UrlInterceptHandler;
     invoke-interface {v1, p0, p1}, Landroid/webkit/UrlInterceptHandler;->getPluginData(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/PluginData;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -161,13 +160,13 @@
     move-result-object v0
 
     .line 161
-    .local v0, data:Landroid/webkit/PluginData;
+    .local v0, "data":Landroid/webkit/PluginData;
     if-eqz v0, :cond_1
 
     goto :goto_0
 
-    .end local v0           #data:Landroid/webkit/PluginData;
-    .end local v1           #handler:Landroid/webkit/UrlInterceptHandler;
+    .end local v0    # "data":Landroid/webkit/PluginData;
+    .end local v1    # "handler":Landroid/webkit/UrlInterceptHandler;
     :cond_2
     move-object v0, v3
 
@@ -175,7 +174,7 @@
     goto :goto_0
 
     .line 154
-    .end local v2           #iter:Ljava/util/Iterator;
+    .end local v2    # "iter":Ljava/util/Iterator;
     :catchall_0
     move-exception v3
 
@@ -186,8 +185,7 @@
 
 .method public static declared-synchronized getSurrogate(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
     .locals 6
-    .parameter "url"
-    .parameter
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,7 +203,7 @@
     .end annotation
 
     .prologue
-    .local p1, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local p1, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v3, 0x0
 
     .line 126
@@ -242,7 +240,7 @@
     move-result-object v1
 
     .line 130
-    .local v1, iter:Ljava/util/Iterator;
+    .local v1, "iter":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -258,7 +256,7 @@
     check-cast v0, Landroid/webkit/UrlInterceptHandler;
 
     .line 132
-    .local v0, handler:Landroid/webkit/UrlInterceptHandler;
+    .local v0, "handler":Landroid/webkit/UrlInterceptHandler;
     invoke-interface {v0, p0, p1}, Landroid/webkit/UrlInterceptHandler;->service(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -266,13 +264,13 @@
     move-result-object v2
 
     .line 133
-    .local v2, result:Landroid/webkit/CacheManager$CacheResult;
+    .local v2, "result":Landroid/webkit/CacheManager$CacheResult;
     if-eqz v2, :cond_1
 
     goto :goto_0
 
-    .end local v0           #handler:Landroid/webkit/UrlInterceptHandler;
-    .end local v2           #result:Landroid/webkit/CacheManager$CacheResult;
+    .end local v0    # "handler":Landroid/webkit/UrlInterceptHandler;
+    .end local v2    # "result":Landroid/webkit/CacheManager$CacheResult;
     :cond_2
     move-object v2, v3
 
@@ -280,7 +278,7 @@
     goto :goto_0
 
     .line 126
-    .end local v1           #iter:Ljava/util/Iterator;
+    .end local v1    # "iter":Ljava/util/Iterator;
     :catchall_0
     move-exception v3
 
@@ -291,7 +289,7 @@
 
 .method public static declared-synchronized registerHandler(Landroid/webkit/UrlInterceptHandler;)Z
     .locals 2
-    .parameter "handler"
+    .param p0, "handler"    # Landroid/webkit/UrlInterceptHandler;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -346,7 +344,7 @@
 
 .method public static declared-synchronized setUrlInterceptDisabled(Z)V
     .locals 2
-    .parameter "disabled"
+    .param p0, "disabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -377,7 +375,7 @@
 
 .method public static declared-synchronized unregisterHandler(Landroid/webkit/UrlInterceptHandler;)Z
     .locals 2
-    .parameter "handler"
+    .param p0, "handler"    # Landroid/webkit/UrlInterceptHandler;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

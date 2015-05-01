@@ -42,8 +42,8 @@
 # virtual methods
 .method public compare(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerService$Alarm;)I
     .locals 8
-    .parameter "a1"
-    .parameter "a2"
+    .param p1, "a1"    # Lcom/android/server/AlarmManagerService$Alarm;
+    .param p2, "a2"    # Lcom/android/server/AlarmManagerService$Alarm;
 
     .prologue
     const-wide/16 v6, 0x0
@@ -52,11 +52,11 @@
     iget-wide v0, p1, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
     .line 1070
-    .local v0, when1:J
+    .local v0, "when1":J
     iget-wide v2, p2, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
     .line 1071
-    .local v2, when2:J
+    .local v2, "when2":J
     sub-long v4, v0, v2
 
     cmp-long v4, v4, v6
@@ -92,17 +92,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
     .line 1067
     check-cast p1, Lcom/android/server/AlarmManagerService$Alarm;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/AlarmManagerService$Alarm;
 
-    .end local p2
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AlarmManagerService$IncreasingTimeOrder;->compare(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerService$Alarm;)I
 
     move-result v0

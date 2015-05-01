@@ -19,7 +19,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$ClassLoaderCreator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$ClassLoaderCreator",
@@ -77,12 +77,12 @@
 
 .method private constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 11
-    .parameter "p"
-    .parameter "loader"
+    .param p1, "p"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
     .line 52
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
@@ -91,7 +91,7 @@
     move-result v0
 
     .line 54
-    .local v0, N:I
+    .local v0, "N":I
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7, v0}, Ljava/util/ArrayList;-><init>(I)V
@@ -147,11 +147,11 @@
     move-result-object v1
 
     .line 60
-    .local v1, creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
+    .local v1, "creator":Landroid/os/Parcelable$Creator;, "Landroid/os/Parcelable$Creator<TT;>;"
     const/4 v4, 0x0
 
     .line 61
-    .local v4, i:I
+    .local v4, "i":I
     :goto_1
     if-ge v4, v0, :cond_3
 
@@ -172,7 +172,7 @@
     move-result-object v6
 
     .line 73
-    .local v6, retriever:Landroid/os/IBinder;
+    .local v6, "retriever":Landroid/os/IBinder;
     :goto_2
     if-ge v4, v0, :cond_1
 
@@ -230,13 +230,13 @@
     move-result-object v2
 
     .line 76
-    .local v2, data:Landroid/os/Parcel;
+    .local v2, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v5
 
     .line 77
-    .local v5, reply:Landroid/os/Parcel;
+    .local v5, "reply":Landroid/os/Parcel;
     invoke-virtual {v2, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 79
@@ -326,9 +326,9 @@
     goto :goto_3
 
     .line 65
-    .end local v2           #data:Landroid/os/Parcel;
-    .end local v5           #reply:Landroid/os/Parcel;
-    .end local v6           #retriever:Landroid/os/IBinder;
+    .end local v2    # "data":Landroid/os/Parcel;
+    .end local v5    # "reply":Landroid/os/Parcel;
+    .end local v6    # "retriever":Landroid/os/IBinder;
     :cond_6
     iget-object v7, p0, Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
 
@@ -396,14 +396,14 @@
     goto/16 :goto_1
 
     .line 80
-    .restart local v2       #data:Landroid/os/Parcel;
-    .restart local v5       #reply:Landroid/os/Parcel;
-    .restart local v6       #retriever:Landroid/os/IBinder;
+    .restart local v2    # "data":Landroid/os/Parcel;
+    .restart local v5    # "reply":Landroid/os/Parcel;
+    .restart local v6    # "retriever":Landroid/os/IBinder;
     :catch_0
     move-exception v3
 
     .line 81
-    .local v3, e:Landroid/os/RemoteException;
+    .local v3, "e":Landroid/os/RemoteException;
     sget-object v7, Landroid/content/pm/ParceledListSlice;->TAG:Ljava/lang/String;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -439,7 +439,7 @@
     goto/16 :goto_0
 
     .line 89
-    .end local v3           #e:Landroid/os/RemoteException;
+    .end local v3    # "e":Landroid/os/RemoteException;
     :cond_8
     invoke-virtual {v5}, Landroid/os/Parcel;->recycle()V
 
@@ -451,13 +451,13 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;Landroid/content/pm/ParceledListSlice$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Ljava/lang/ClassLoader;
+    .param p3, "x2"    # Landroid/content/pm/ParceledListSlice$1;
 
     .prologue
     .line 35
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
     invoke-direct {p0, p1, p2}, Landroid/content/pm/ParceledListSlice;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
     return-void
@@ -465,7 +465,6 @@
 
 .method public constructor <init>(Ljava/util/List;)V
     .locals 0
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -476,8 +475,8 @@
 
     .prologue
     .line 48
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
-    .local p1, list:Ljava/util/List;,"Ljava/util/List<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
@@ -509,7 +508,7 @@
 
 .method static synthetic access$200(Landroid/content/pm/ParceledListSlice;)Ljava/util/List;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/content/pm/ParceledListSlice;
 
     .prologue
     .line 35
@@ -525,14 +524,14 @@
 
     .prologue
     .line 100
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
     const/4 v0, 0x0
 
     .line 101
-    .local v0, contents:I
+    .local v0, "contents":I
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
 
@@ -579,7 +578,7 @@
 
     .prologue
     .line 95
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
     iget-object v0, p0, Landroid/content/pm/ParceledListSlice;->mList:Ljava/util/List;
 
     return-object v0
@@ -587,11 +586,11 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 8
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
-    .local p0, this:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<TT;>;"
+    .local p0, "this":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<TT;>;"
     const/4 v7, 0x0
 
     .line 114
@@ -602,11 +601,11 @@
     move-result v0
 
     .line 115
-    .local v0, N:I
+    .local v0, "N":I
     move v1, p2
 
     .line 116
-    .local v1, callFlags:I
+    .local v1, "callFlags":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 117
@@ -661,7 +660,7 @@
     const/4 v2, 0x0
 
     .line 121
-    .local v2, i:I
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_2
 
@@ -669,7 +668,7 @@
 
     move-result v4
 
-    const/high16 v5, 0x2
+    const/high16 v5, 0x20000
 
     if-ge v4, v5, :cond_2
 
@@ -751,7 +750,7 @@
     invoke-direct {v3, p0, v0, v1}, Landroid/content/pm/ParceledListSlice$1;-><init>(Landroid/content/pm/ParceledListSlice;II)V
 
     .line 151
-    .local v3, retriever:Landroid/os/Binder;
+    .local v3, "retriever":Landroid/os/Binder;
     sget-boolean v4, Landroid/content/pm/ParceledListSlice;->DEBUG:Z
 
     if-eqz v4, :cond_3
@@ -803,8 +802,8 @@
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 155
-    .end local v2           #i:I
-    .end local v3           #retriever:Landroid/os/Binder;
+    .end local v2    # "i":I
+    .end local v3    # "retriever":Landroid/os/Binder;
     :cond_4
     return-void
 .end method

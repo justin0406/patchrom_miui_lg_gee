@@ -23,11 +23,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterView;)V
     .locals 1
-    .parameter
 
     .prologue
     .line 794
-    .local p0, this:Landroid/widget/AdapterView$AdapterDataSetObserver;,"Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
+    .local p0, "this":Landroid/widget/AdapterView$AdapterDataSetObserver;, "Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
     iput-object p1, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -47,7 +46,7 @@
 
     .prologue
     .line 841
-    .local p0, this:Landroid/widget/AdapterView$AdapterDataSetObserver;,"Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
+    .local p0, "this":Landroid/widget/AdapterView$AdapterDataSetObserver;, "Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
@@ -61,7 +60,7 @@
 
     .prologue
     .line 800
-    .local p0, this:Landroid/widget/AdapterView$AdapterDataSetObserver;,"Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
+    .local p0, "this":Landroid/widget/AdapterView$AdapterDataSetObserver;, "Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     const/4 v1, 0x1
@@ -126,7 +125,7 @@
 
     iget-object v1, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
 
-    #calls: Landroid/widget/AdapterView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+    # invokes: Landroid/widget/AdapterView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
     invoke-static {v0, v1}, Landroid/widget/AdapterView;->access$000(Landroid/widget/AdapterView;Landroid/os/Parcelable;)V
 
     .line 809
@@ -161,8 +160,8 @@
     .locals 6
 
     .prologue
-    .local p0, this:Landroid/widget/AdapterView$AdapterDataSetObserver;,"Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
-    const-wide/high16 v4, -0x8000
+    .local p0, "this":Landroid/widget/AdapterView$AdapterDataSetObserver;, "Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
+    const-wide/high16 v4, -0x8000000000000000L
 
     const/4 v3, 0x0
 
@@ -191,7 +190,7 @@
     .line 824
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
-    #calls: Landroid/widget/AdapterView;->onSaveInstanceState()Landroid/os/Parcelable;
+    # invokes: Landroid/widget/AdapterView;->onSaveInstanceState()Landroid/os/Parcelable;
     invoke-static {v0}, Landroid/widget/AdapterView;->access$100(Landroid/widget/AdapterView;)Landroid/os/Parcelable;
 
     move-result-object v0

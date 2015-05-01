@@ -27,7 +27,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     const/4 v0, 0x0
@@ -53,7 +53,7 @@
 
 .method public constructor <init>(Landroid/net/Uri;)V
     .locals 1
-    .parameter "uri"
+    .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
     const/4 v0, 0x0
@@ -79,7 +79,7 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 1
-    .parameter "text"
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
     const/4 v0, 0x0
@@ -105,9 +105,9 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;Landroid/content/Intent;Landroid/net/Uri;)V
     .locals 1
-    .parameter "text"
-    .parameter "intent"
-    .parameter "uri"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 238
@@ -133,8 +133,8 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/String;)V
     .locals 1
-    .parameter "text"
-    .parameter "htmlText"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "htmlText"    # Ljava/lang/String;
 
     .prologue
     const/4 v0, 0x0
@@ -160,10 +160,10 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/String;Landroid/content/Intent;Landroid/net/Uri;)V
     .locals 2
-    .parameter "text"
-    .parameter "htmlText"
-    .parameter "intent"
-    .parameter "uri"
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "htmlText"    # Ljava/lang/String;
+    .param p3, "intent"    # Landroid/content/Intent;
+    .param p4, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 251
@@ -202,8 +202,8 @@
 
 .method private coerceToHtmlOrStyledText(Landroid/content/Context;Z)Ljava/lang/CharSequence;
     .locals 24
-    .parameter "context"
-    .parameter "styled"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "styled"    # Z
 
     .prologue
     .line 458
@@ -233,34 +233,34 @@
     move-result-object v19
 
     .line 464
-    .local v19, types:[Ljava/lang/String;
+    .local v19, "types":[Ljava/lang/String;
     const/4 v9, 0x0
 
     .line 465
-    .local v9, hasHtml:Z
+    .local v9, "hasHtml":Z
     const/4 v10, 0x0
 
     .line 466
-    .local v10, hasText:Z
+    .local v10, "hasText":Z
     if-eqz v19, :cond_2
 
     .line 467
     move-object/from16 v4, v19
 
-    .local v4, arr$:[Ljava/lang/String;
+    .local v4, "arr$":[Ljava/lang/String;
     array-length v13, v4
 
-    .local v13, len$:I
+    .local v13, "len$":I
     const/4 v11, 0x0
 
-    .local v11, i$:I
+    .local v11, "i$":I
     :goto_0
     if-ge v11, v13, :cond_2
 
     aget-object v18, v4, v11
 
     .line 468
-    .local v18, type:Ljava/lang/String;
+    .local v18, "type":Ljava/lang/String;
     const-string/jumbo v20, "text/html"
 
     move-object/from16 v0, v20
@@ -303,10 +303,10 @@
     goto :goto_1
 
     .line 477
-    .end local v4           #arr$:[Ljava/lang/String;
-    .end local v11           #i$:I
-    .end local v13           #len$:I
-    .end local v18           #type:Ljava/lang/String;
+    .end local v4    # "arr$":[Ljava/lang/String;
+    .end local v11    # "i$":I
+    .end local v13    # "len$":I
+    .end local v18    # "type":Ljava/lang/String;
     :cond_2
     if-nez v9, :cond_3
 
@@ -317,7 +317,7 @@
     const/16 v16, 0x0
 
     .line 481
-    .local v16, stream:Ljava/io/FileInputStream;
+    .local v16, "stream":Ljava/io/FileInputStream;
     :try_start_0
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -349,7 +349,7 @@
     move-result-object v7
 
     .line 484
-    .local v7, descr:Landroid/content/res/AssetFileDescriptor;
+    .local v7, "descr":Landroid/content/res/AssetFileDescriptor;
     invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->createInputStream()Ljava/io/FileInputStream;
 
     move-result-object v16
@@ -366,7 +366,7 @@
     invoke-direct {v15, v0, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 488
-    .local v15, reader:Ljava/io/InputStreamReader;
+    .local v15, "reader":Ljava/io/InputStreamReader;
     new-instance v6, Ljava/lang/StringBuilder;
 
     const/16 v20, 0x80
@@ -376,7 +376,7 @@
     invoke-direct {v6, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 489
-    .local v6, builder:Ljava/lang/StringBuilder;
+    .local v6, "builder":Ljava/lang/StringBuilder;
     const/16 v20, 0x2000
 
     move/from16 v0, v20
@@ -384,13 +384,13 @@
     new-array v5, v0, [C
 
     .line 491
-    .local v5, buffer:[C
+    .local v5, "buffer":[C
     :goto_3
     invoke-virtual {v15, v5}, Ljava/io/InputStreamReader;->read([C)I
 
     move-result v12
 
-    .local v12, len:I
+    .local v12, "len":I
     if-lez v12, :cond_7
 
     .line 492
@@ -400,18 +400,18 @@
 
     invoke-virtual {v6, v5, v0, v12}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_6
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_3
 
     .line 521
-    .end local v5           #buffer:[C
-    .end local v6           #builder:Ljava/lang/StringBuilder;
-    .end local v7           #descr:Landroid/content/res/AssetFileDescriptor;
-    .end local v12           #len:I
-    .end local v15           #reader:Ljava/io/InputStreamReader;
+    .end local v5    # "buffer":[C
+    .end local v6    # "builder":Ljava/lang/StringBuilder;
+    .end local v7    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .end local v12    # "len":I
+    .end local v15    # "reader":Ljava/io/InputStreamReader;
     :catch_0
     move-exception v20
 
@@ -425,7 +425,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_9
 
     .line 543
-    .end local v16           #stream:Ljava/io/FileInputStream;
+    .end local v16    # "stream":Ljava/io/FileInputStream;
     :cond_4
     :goto_4
     if-eqz p2, :cond_e
@@ -450,18 +450,18 @@
     move-result-object v17
 
     .line 561
-    .end local v9           #hasHtml:Z
-    .end local v10           #hasText:Z
-    .end local v19           #types:[Ljava/lang/String;
+    .end local v9    # "hasHtml":Z
+    .end local v10    # "hasText":Z
+    .end local v19    # "types":[Ljava/lang/String;
     :cond_5
     :goto_5
     return-object v17
 
     .line 481
-    .restart local v9       #hasHtml:Z
-    .restart local v10       #hasText:Z
-    .restart local v16       #stream:Ljava/io/FileInputStream;
-    .restart local v19       #types:[Ljava/lang/String;
+    .restart local v9    # "hasHtml":Z
+    .restart local v10    # "hasText":Z
+    .restart local v16    # "stream":Ljava/io/FileInputStream;
+    .restart local v19    # "types":[Ljava/lang/String;
     :cond_6
     :try_start_2
     const-string/jumbo v20, "text/plain"
@@ -469,22 +469,22 @@
     goto :goto_2
 
     .line 494
-    .restart local v5       #buffer:[C
-    .restart local v6       #builder:Ljava/lang/StringBuilder;
-    .restart local v7       #descr:Landroid/content/res/AssetFileDescriptor;
-    .restart local v12       #len:I
-    .restart local v15       #reader:Ljava/io/InputStreamReader;
+    .restart local v5    # "buffer":[C
+    .restart local v6    # "builder":Ljava/lang/StringBuilder;
+    .restart local v7    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .restart local v12    # "len":I
+    .restart local v15    # "reader":Ljava/io/InputStreamReader;
     :cond_7
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_6
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v17
 
     .line 495
-    .local v17, text:Ljava/lang/String;
+    .local v17, "text":Ljava/lang/String;
     if-eqz v9, :cond_b
 
     .line 496
@@ -494,19 +494,19 @@
     :try_start_3
     invoke-static/range {v17 .. v17}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_6
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result-object v14
 
     .line 501
-    .local v14, newText:Ljava/lang/CharSequence;
+    .local v14, "newText":Ljava/lang/CharSequence;
     if-eqz v14, :cond_9
 
     .line 531
-    .end local v14           #newText:Ljava/lang/CharSequence;
+    .end local v14    # "newText":Ljava/lang/CharSequence;
     :goto_6
     if-eqz v16, :cond_8
 
@@ -523,7 +523,7 @@
     .line 535
     goto :goto_5
 
-    .restart local v14       #newText:Ljava/lang/CharSequence;
+    .restart local v14    # "newText":Ljava/lang/CharSequence;
     :cond_9
     move-object/from16 v14, v17
 
@@ -531,12 +531,12 @@
     goto :goto_6
 
     .line 502
-    .end local v14           #newText:Ljava/lang/CharSequence;
+    .end local v14    # "newText":Ljava/lang/CharSequence;
     :catch_1
     move-exception v8
 
     .line 531
-    .local v8, e:Ljava/lang/RuntimeException;
+    .local v8, "e":Ljava/lang/RuntimeException;
     if-eqz v16, :cond_5
 
     .line 533
@@ -554,19 +554,19 @@
     goto :goto_5
 
     .line 508
-    .end local v8           #e:Ljava/lang/RuntimeException;
+    .end local v8    # "e":Ljava/lang/RuntimeException;
     :cond_a
     :try_start_6
     invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->toString()Ljava/lang/String;
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_0
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     move-result-object v17
 
     .line 531
-    .end local v17           #text:Ljava/lang/String;
+    .end local v17    # "text":Ljava/lang/String;
     if-eqz v16, :cond_5
 
     .line 533
@@ -584,7 +584,7 @@
     goto :goto_5
 
     .line 511
-    .restart local v17       #text:Ljava/lang/String;
+    .restart local v17    # "text":Ljava/lang/String;
     :cond_b
     if-eqz p2, :cond_c
 
@@ -610,14 +610,14 @@
     :try_start_9
     invoke-static/range {v17 .. v17}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_9 .. :try_end_9} :catch_0
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     move-result-object v17
 
     .line 531
-    .end local v17           #text:Ljava/lang/String;
+    .end local v17    # "text":Ljava/lang/String;
     if-eqz v16, :cond_5
 
     .line 533
@@ -635,16 +635,16 @@
     goto :goto_5
 
     .line 525
-    .end local v5           #buffer:[C
-    .end local v6           #builder:Ljava/lang/StringBuilder;
-    .end local v7           #descr:Landroid/content/res/AssetFileDescriptor;
-    .end local v12           #len:I
-    .end local v15           #reader:Ljava/io/InputStreamReader;
+    .end local v5    # "buffer":[C
+    .end local v6    # "builder":Ljava/lang/StringBuilder;
+    .end local v7    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .end local v12    # "len":I
+    .end local v15    # "reader":Ljava/io/InputStreamReader;
     :catch_6
     move-exception v8
 
     .line 527
-    .local v8, e:Ljava/io/IOException;
+    .local v8, "e":Ljava/io/IOException;
     :try_start_b
     const-string v20, "ClippedData"
 
@@ -685,7 +685,7 @@
     goto :goto_5
 
     .line 531
-    .end local v8           #e:Ljava/io/IOException;
+    .end local v8    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v20
 
@@ -703,7 +703,7 @@
     throw v20
 
     .line 546
-    .end local v16           #stream:Ljava/io/FileInputStream;
+    .end local v16    # "stream":Ljava/io/FileInputStream;
     :cond_e
     move-object/from16 v0, p0
 
@@ -726,9 +726,9 @@
     goto :goto_5
 
     .line 552
-    .end local v9           #hasHtml:Z
-    .end local v10           #hasText:Z
-    .end local v19           #types:[Ljava/lang/String;
+    .end local v9    # "hasHtml":Z
+    .end local v10    # "hasText":Z
+    .end local v19    # "types":[Ljava/lang/String;
     :cond_f
     move-object/from16 v0, p0
 
@@ -795,27 +795,27 @@
     goto/16 :goto_5
 
     .line 534
-    .restart local v5       #buffer:[C
-    .restart local v6       #builder:Ljava/lang/StringBuilder;
-    .restart local v7       #descr:Landroid/content/res/AssetFileDescriptor;
-    .restart local v9       #hasHtml:Z
-    .restart local v10       #hasText:Z
-    .restart local v12       #len:I
-    .restart local v15       #reader:Ljava/io/InputStreamReader;
-    .restart local v16       #stream:Ljava/io/FileInputStream;
-    .restart local v17       #text:Ljava/lang/String;
-    .restart local v19       #types:[Ljava/lang/String;
+    .restart local v5    # "buffer":[C
+    .restart local v6    # "builder":Ljava/lang/StringBuilder;
+    .restart local v7    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .restart local v9    # "hasHtml":Z
+    .restart local v10    # "hasText":Z
+    .restart local v12    # "len":I
+    .restart local v15    # "reader":Ljava/io/InputStreamReader;
+    .restart local v16    # "stream":Ljava/io/FileInputStream;
+    .restart local v17    # "text":Ljava/lang/String;
+    .restart local v19    # "types":[Ljava/lang/String;
     :catch_8
     move-exception v20
 
     goto/16 :goto_7
 
-    .end local v5           #buffer:[C
-    .end local v6           #builder:Ljava/lang/StringBuilder;
-    .end local v7           #descr:Landroid/content/res/AssetFileDescriptor;
-    .end local v12           #len:I
-    .end local v15           #reader:Ljava/io/InputStreamReader;
-    .end local v17           #text:Ljava/lang/String;
+    .end local v5    # "buffer":[C
+    .end local v6    # "builder":Ljava/lang/StringBuilder;
+    .end local v7    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .end local v12    # "len":I
+    .end local v15    # "reader":Ljava/io/InputStreamReader;
+    .end local v17    # "text":Ljava/lang/String;
     :catch_9
     move-exception v20
 
@@ -829,7 +829,7 @@
 
 .method private uriToHtml(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "uri"
+    .param p1, "uri"    # Ljava/lang/String;
 
     .prologue
     .line 565
@@ -840,7 +840,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 566
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "<a href=\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -879,7 +879,7 @@
 
 .method private uriToStyledText(Ljava/lang/String;)Ljava/lang/CharSequence;
     .locals 5
-    .parameter "uri"
+    .param p1, "uri"    # Ljava/lang/String;
 
     .prologue
     .line 575
@@ -888,7 +888,7 @@
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     .line 576
-    .local v0, builder:Landroid/text/SpannableStringBuilder;
+    .local v0, "builder":Landroid/text/SpannableStringBuilder;
     invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
     .line 577
@@ -914,7 +914,7 @@
 # virtual methods
 .method public coerceToHtmlText(Landroid/content/Context;)Ljava/lang/String;
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 438
@@ -923,23 +923,23 @@
     move-result-object v0
 
     .line 439
-    .local v0, htmlText:Ljava/lang/String;
+    .local v0, "htmlText":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 453
-    .end local v0           #htmlText:Ljava/lang/String;
+    .end local v0    # "htmlText":Ljava/lang/String;
     :goto_0
     return-object v0
 
     .line 444
-    .restart local v0       #htmlText:Ljava/lang/String;
+    .restart local v0    # "htmlText":Ljava/lang/String;
     :cond_0
     invoke-virtual {p0}, Landroid/content/ClipData$Item;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
     .line 445
-    .local v1, text:Ljava/lang/CharSequence;
+    .local v1, "text":Ljava/lang/CharSequence;
     if-eqz v1, :cond_2
 
     .line 446
@@ -950,7 +950,7 @@
     .line 447
     check-cast v1, Landroid/text/Spanned;
 
-    .end local v1           #text:Ljava/lang/CharSequence;
+    .end local v1    # "text":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/Html;->toHtml(Landroid/text/Spanned;)Ljava/lang/String;
 
     move-result-object v0
@@ -958,7 +958,7 @@
     goto :goto_0
 
     .line 449
-    .restart local v1       #text:Ljava/lang/CharSequence;
+    .restart local v1    # "text":Ljava/lang/CharSequence;
     :cond_1
     invoke-static {v1}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
 
@@ -994,7 +994,7 @@
 
 .method public coerceToStyledText(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 4
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 387
@@ -1003,26 +1003,26 @@
     move-result-object v2
 
     .line 388
-    .local v2, text:Ljava/lang/CharSequence;
+    .local v2, "text":Ljava/lang/CharSequence;
     instance-of v3, v2, Landroid/text/Spanned;
 
     if-eqz v3, :cond_1
 
     .line 406
-    .end local v2           #text:Ljava/lang/CharSequence;
+    .end local v2    # "text":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-object v2
 
     .line 391
-    .restart local v2       #text:Ljava/lang/CharSequence;
+    .restart local v2    # "text":Ljava/lang/CharSequence;
     :cond_1
     invoke-virtual {p0}, Landroid/content/ClipData$Item;->getHtmlText()Ljava/lang/String;
 
     move-result-object v0
 
     .line 392
-    .local v0, htmlText:Ljava/lang/String;
+    .local v0, "htmlText":Ljava/lang/String;
     if-eqz v0, :cond_2
 
     .line 394
@@ -1034,7 +1034,7 @@
     move-result-object v1
 
     .line 395
-    .local v1, newText:Ljava/lang/CharSequence;
+    .local v1, "newText":Ljava/lang/CharSequence;
     if-eqz v1, :cond_2
 
     move-object v2, v1
@@ -1043,7 +1043,7 @@
     goto :goto_0
 
     .line 398
-    .end local v1           #newText:Ljava/lang/CharSequence;
+    .end local v1    # "newText":Ljava/lang/CharSequence;
     :catch_0
     move-exception v3
 
@@ -1063,7 +1063,7 @@
 
 .method public coerceToText(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 13
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
     .line 314
@@ -1072,31 +1072,31 @@
     move-result-object v8
 
     .line 315
-    .local v8, text:Ljava/lang/CharSequence;
+    .local v8, "text":Ljava/lang/CharSequence;
     if-eqz v8, :cond_1
 
     .line 374
-    .end local v8           #text:Ljava/lang/CharSequence;
+    .end local v8    # "text":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-object v8
 
     .line 320
-    .restart local v8       #text:Ljava/lang/CharSequence;
+    .restart local v8    # "text":Ljava/lang/CharSequence;
     :cond_1
     invoke-virtual {p0}, Landroid/content/ClipData$Item;->getUri()Landroid/net/Uri;
 
     move-result-object v9
 
     .line 321
-    .local v9, uri:Landroid/net/Uri;
+    .local v9, "uri":Landroid/net/Uri;
     if-eqz v9, :cond_5
 
     .line 326
     const/4 v7, 0x0
 
     .line 329
-    .local v7, stream:Ljava/io/FileInputStream;
+    .local v7, "stream":Ljava/io/FileInputStream;
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1111,7 +1111,7 @@
     move-result-object v2
 
     .line 331
-    .local v2, descr:Landroid/content/res/AssetFileDescriptor;
+    .local v2, "descr":Landroid/content/res/AssetFileDescriptor;
     invoke-virtual {v2}, Landroid/content/res/AssetFileDescriptor;->createInputStream()Ljava/io/FileInputStream;
 
     move-result-object v7
@@ -1124,7 +1124,7 @@
     invoke-direct {v6, v7, v10}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 335
-    .local v6, reader:Ljava/io/InputStreamReader;
+    .local v6, "reader":Ljava/io/InputStreamReader;
     new-instance v1, Ljava/lang/StringBuilder;
 
     const/16 v10, 0x80
@@ -1132,19 +1132,19 @@
     invoke-direct {v1, v10}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 336
-    .local v1, builder:Ljava/lang/StringBuilder;
+    .local v1, "builder":Ljava/lang/StringBuilder;
     const/16 v10, 0x2000
 
     new-array v0, v10, [C
 
     .line 338
-    .local v0, buffer:[C
+    .local v0, "buffer":[C
     :goto_1
     invoke-virtual {v6, v0}, Ljava/io/InputStreamReader;->read([C)I
 
     move-result v5
 
-    .local v5, len:I
+    .local v5, "len":I
     if-lez v5, :cond_3
 
     .line 339
@@ -1152,18 +1152,18 @@
 
     invoke-virtual {v1, v0, v10, v5}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
 
     .line 343
-    .end local v0           #buffer:[C
-    .end local v1           #builder:Ljava/lang/StringBuilder;
-    .end local v2           #descr:Landroid/content/res/AssetFileDescriptor;
-    .end local v5           #len:I
-    .end local v6           #reader:Ljava/io/InputStreamReader;
+    .end local v0    # "buffer":[C
+    .end local v1    # "builder":Ljava/lang/StringBuilder;
+    .end local v2    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .end local v5    # "len":I
+    .end local v6    # "reader":Ljava/io/InputStreamReader;
     :catch_0
     move-exception v10
 
@@ -1186,23 +1186,23 @@
     goto :goto_0
 
     .line 341
-    .restart local v0       #buffer:[C
-    .restart local v1       #builder:Ljava/lang/StringBuilder;
-    .restart local v2       #descr:Landroid/content/res/AssetFileDescriptor;
-    .restart local v5       #len:I
-    .restart local v6       #reader:Ljava/io/InputStreamReader;
+    .restart local v0    # "buffer":[C
+    .restart local v1    # "builder":Ljava/lang/StringBuilder;
+    .restart local v2    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .restart local v5    # "len":I
+    .restart local v6    # "reader":Ljava/io/InputStreamReader;
     :cond_3
     :try_start_2
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v8
 
     .line 353
-    .end local v8           #text:Ljava/lang/CharSequence;
+    .end local v8    # "text":Ljava/lang/CharSequence;
     if-eqz v7, :cond_0
 
     .line 355
@@ -1220,17 +1220,17 @@
     goto :goto_0
 
     .line 347
-    .end local v0           #buffer:[C
-    .end local v1           #builder:Ljava/lang/StringBuilder;
-    .end local v2           #descr:Landroid/content/res/AssetFileDescriptor;
-    .end local v5           #len:I
-    .end local v6           #reader:Ljava/io/InputStreamReader;
-    .restart local v8       #text:Ljava/lang/CharSequence;
+    .end local v0    # "buffer":[C
+    .end local v1    # "builder":Ljava/lang/StringBuilder;
+    .end local v2    # "descr":Landroid/content/res/AssetFileDescriptor;
+    .end local v5    # "len":I
+    .end local v6    # "reader":Ljava/io/InputStreamReader;
+    .restart local v8    # "text":Ljava/lang/CharSequence;
     :catch_2
     move-exception v3
 
     .line 349
-    .local v3, e:Ljava/io/IOException;
+    .local v3, "e":Ljava/io/IOException;
     :try_start_4
     const-string v10, "ClippedData"
 
@@ -1246,7 +1246,7 @@
     move-result-object v8
 
     .line 353
-    .end local v8           #text:Ljava/lang/CharSequence;
+    .end local v8    # "text":Ljava/lang/CharSequence;
     if-eqz v7, :cond_0
 
     .line 355
@@ -1264,8 +1264,8 @@
     goto :goto_0
 
     .line 353
-    .end local v3           #e:Ljava/io/IOException;
-    .restart local v8       #text:Ljava/lang/CharSequence;
+    .end local v3    # "e":Ljava/io/IOException;
+    .restart local v8    # "text":Ljava/lang/CharSequence;
     :catchall_0
     move-exception v10
 
@@ -1283,14 +1283,14 @@
     throw v10
 
     .line 368
-    .end local v7           #stream:Ljava/io/FileInputStream;
+    .end local v7    # "stream":Ljava/io/FileInputStream;
     :cond_5
     invoke-virtual {p0}, Landroid/content/ClipData$Item;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
     .line 369
-    .local v4, intent:Landroid/content/Intent;
+    .local v4, "intent":Landroid/content/Intent;
     if-eqz v4, :cond_6
 
     .line 370
@@ -1309,8 +1309,8 @@
     goto :goto_0
 
     .line 356
-    .end local v4           #intent:Landroid/content/Intent;
-    .restart local v7       #stream:Ljava/io/FileInputStream;
+    .end local v4    # "intent":Landroid/content/Intent;
+    .restart local v7    # "stream":Ljava/io/FileInputStream;
     :catch_4
     move-exception v10
 
@@ -1364,7 +1364,7 @@
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
     .locals 6
-    .parameter "b"
+    .param p1, "b"    # Ljava/lang/StringBuilder;
 
     .prologue
     const/4 v2, 0x1
@@ -1471,7 +1471,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 586
-    .local v0, b:Ljava/lang/StringBuilder;
+    .local v0, "b":Ljava/lang/StringBuilder;
     const-string v1, "ClipData.Item { "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

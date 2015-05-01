@@ -27,8 +27,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/WallpaperManagerService;Lcom/android/server/WallpaperManagerService$WallpaperData;)V
     .locals 3
-    .parameter
-    .parameter "wallpaper"
+    .param p2, "wallpaper"    # Lcom/android/server/WallpaperManagerService$WallpaperData;
 
     .prologue
     .line 121
@@ -37,7 +36,7 @@
     .line 122
     iget v0, p2, Lcom/android/server/WallpaperManagerService$WallpaperData;->userId:I
 
-    #calls: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
+    # invokes: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
     invoke-static {v0}, Lcom/android/server/WallpaperManagerService;->access$000(I)Ljava/io/File;
 
     move-result-object v0
@@ -53,7 +52,7 @@
     .line 124
     iget v0, p2, Lcom/android/server/WallpaperManagerService$WallpaperData;->userId:I
 
-    #calls: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
+    # invokes: Lcom/android/server/WallpaperManagerService;->getWallpaperDir(I)Ljava/io/File;
     invoke-static {v0}, Lcom/android/server/WallpaperManagerService;->access$000(I)Ljava/io/File;
 
     move-result-object v0
@@ -82,8 +81,8 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 11
-    .parameter "event"
-    .parameter "path"
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
     const/16 v2, 0x8
@@ -110,7 +109,7 @@
     move-result-wide v8
 
     .line 137
-    .local v8, origId:J
+    .local v8, "origId":J
     new-instance v6, Landroid/app/backup/BackupManager;
 
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperObserver;->this$0:Lcom/android/server/WallpaperManagerService;
@@ -120,7 +119,7 @@
     invoke-direct {v6, v0}, Landroid/app/backup/BackupManager;-><init>(Landroid/content/Context;)V
 
     .line 138
-    .local v6, bm:Landroid/app/backup/BackupManager;
+    .local v6, "bm":Landroid/app/backup/BackupManager;
     invoke-virtual {v6}, Landroid/app/backup/BackupManager;->dataChanged()V
 
     .line 139
@@ -134,7 +133,7 @@
     invoke-direct {v7, v0, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 142
-    .local v7, changedFile:Ljava/io/File;
+    .local v7, "changedFile":Ljava/io/File;
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperObserver;->mWallpaperFile:Ljava/io/File;
 
     invoke-virtual {v0, v7}, Ljava/io/File;->equals(Ljava/lang/Object;)Z
@@ -148,7 +147,7 @@
 
     iget-object v1, p0, Lcom/android/server/WallpaperManagerService$WallpaperObserver;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
-    #calls: Lcom/android/server/WallpaperManagerService;->notifyCallbacksLocked(Lcom/android/server/WallpaperManagerService$WallpaperData;)V
+    # invokes: Lcom/android/server/WallpaperManagerService;->notifyCallbacksLocked(Lcom/android/server/WallpaperManagerService$WallpaperData;)V
     invoke-static {v0, v1}, Lcom/android/server/WallpaperManagerService;->access$100(Lcom/android/server/WallpaperManagerService;Lcom/android/server/WallpaperManagerService$WallpaperData;)V
 
     .line 144
@@ -198,7 +197,7 @@
 
     iget-object v1, p0, Lcom/android/server/WallpaperManagerService$WallpaperObserver;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
-    #calls: Lcom/android/server/WallpaperManagerService;->saveSettingsLocked(Lcom/android/server/WallpaperManagerService$WallpaperData;)V
+    # invokes: Lcom/android/server/WallpaperManagerService;->saveSettingsLocked(Lcom/android/server/WallpaperManagerService$WallpaperData;)V
     invoke-static {v0, v1}, Lcom/android/server/WallpaperManagerService;->access$200(Lcom/android/server/WallpaperManagerService;Lcom/android/server/WallpaperManagerService$WallpaperData;)V
 
     .line 154
@@ -207,9 +206,9 @@
 
     goto :goto_0
 
-    .end local v6           #bm:Landroid/app/backup/BackupManager;
-    .end local v7           #changedFile:Ljava/io/File;
-    .end local v8           #origId:J
+    .end local v6    # "bm":Landroid/app/backup/BackupManager;
+    .end local v7    # "changedFile":Ljava/io/File;
+    .end local v8    # "origId":J
     :catchall_0
     move-exception v0
 

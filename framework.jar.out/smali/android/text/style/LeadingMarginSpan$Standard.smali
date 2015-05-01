@@ -3,8 +3,8 @@
 .source "LeadingMarginSpan.java"
 
 # interfaces
-.implements Landroid/text/style/LeadingMarginSpan;
 .implements Landroid/text/ParcelableSpan;
+.implements Landroid/text/style/LeadingMarginSpan;
 
 
 # annotations
@@ -27,7 +27,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "every"
+    .param p1, "every"    # I
 
     .prologue
     .line 112
@@ -39,8 +39,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .parameter "first"
-    .parameter "rest"
+    .param p1, "first"    # I
+    .param p2, "rest"    # I
 
     .prologue
     .line 102
@@ -58,7 +58,7 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .parameter "src"
+    .param p1, "src"    # Landroid/os/Parcel;
 
     .prologue
     .line 115
@@ -96,18 +96,18 @@
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
     .locals 0
-    .parameter "c"
-    .parameter "p"
-    .parameter "x"
-    .parameter "dir"
-    .parameter "top"
-    .parameter "baseline"
-    .parameter "bottom"
-    .parameter "text"
-    .parameter "start"
-    .parameter "end"
-    .parameter "first"
-    .parameter "layout"
+    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p2, "p"    # Landroid/graphics/Paint;
+    .param p3, "x"    # I
+    .param p4, "dir"    # I
+    .param p5, "top"    # I
+    .param p6, "baseline"    # I
+    .param p7, "bottom"    # I
+    .param p8, "text"    # Ljava/lang/CharSequence;
+    .param p9, "start"    # I
+    .param p10, "end"    # I
+    .param p11, "first"    # Z
+    .param p12, "layout"    # Landroid/text/Layout;
 
     .prologue
     .line 143
@@ -116,7 +116,7 @@
 
 .method public getLeadingMargin(Z)I
     .locals 1
-    .parameter "first"
+    .param p1, "first"    # Z
 
     .prologue
     .line 134
@@ -145,8 +145,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 129

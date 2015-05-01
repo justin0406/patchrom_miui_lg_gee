@@ -3,8 +3,8 @@
 .source "ReplacementTransformationMethod.java"
 
 # interfaces
-.implements Ljava/lang/CharSequence;
 .implements Landroid/text/GetChars;
+.implements Ljava/lang/CharSequence;
 
 
 # annotations
@@ -29,9 +29,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;[C[C)V
     .locals 0
-    .parameter "source"
-    .parameter "original"
-    .parameter "replacement"
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "original"    # [C
+    .param p3, "replacement"    # [C
 
     .prologue
     .line 113
@@ -54,7 +54,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 4
-    .parameter "i"
+    .param p1, "i"    # I
 
     .prologue
     .line 124
@@ -65,16 +65,16 @@
     move-result v0
 
     .line 126
-    .local v0, c:C
+    .local v0, "c":C
     iget-object v3, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mOriginal:[C
 
     array-length v2, v3
 
     .line 127
-    .local v2, n:I
+    .local v2, "n":I
     const/4 v1, 0x0
 
-    .local v1, j:I
+    .local v1, "j":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -103,10 +103,10 @@
 
 .method public getChars(II[CI)V
     .locals 6
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "off"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "dest"    # [C
+    .param p4, "off"    # I
 
     .prologue
     .line 151
@@ -120,16 +120,16 @@
     add-int v4, v5, p4
 
     .line 153
-    .local v4, offend:I
+    .local v4, "offend":I
     iget-object v5, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mOriginal:[C
 
     array-length v3, v5
 
     .line 155
-    .local v3, n:I
+    .local v3, "n":I
     move v1, p4
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_0
     if-ge v1, v4, :cond_2
 
@@ -137,10 +137,10 @@
     aget-char v0, p3, v1
 
     .line 158
-    .local v0, c:C
+    .local v0, "c":C
     const/4 v2, 0x0
 
-    .local v2, j:I
+    .local v2, "j":I
     :goto_1
     if-ge v2, v3, :cond_1
 
@@ -171,8 +171,8 @@
     goto :goto_0
 
     .line 164
-    .end local v0           #c:C
-    .end local v2           #j:I
+    .end local v0    # "c":C
+    .end local v2    # "j":I
     :cond_2
     return-void
 .end method
@@ -193,8 +193,8 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 2
-    .parameter "start"
-    .parameter "end"
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
     .prologue
     .line 137
@@ -203,7 +203,7 @@
     new-array v0, v1, [C
 
     .line 139
-    .local v0, c:[C
+    .local v0, "c":[C
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, p2, v0, v1}, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->getChars(II[CI)V
@@ -230,7 +230,7 @@
     new-array v0, v1, [C
 
     .line 146
-    .local v0, c:[C
+    .local v0, "c":[C
     invoke-virtual {p0}, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->length()I
 
     move-result v1

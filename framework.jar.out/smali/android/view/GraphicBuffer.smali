@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -86,11 +86,11 @@
 
 .method private constructor <init>(IIIII)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "usage"
-    .parameter "nativeObject"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "format"    # I
+    .param p4, "usage"    # I
+    .param p5, "nativeObject"    # I
 
     .prologue
     .line 90
@@ -117,12 +117,12 @@
 
 .method synthetic constructor <init>(IIIIILandroid/view/GraphicBuffer$1;)V
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # I
+    .param p5, "x4"    # I
+    .param p6, "x5"    # Landroid/view/GraphicBuffer$1;
 
     .prologue
     .line 31
@@ -133,7 +133,7 @@
 
 .method static synthetic access$000(Landroid/os/Parcel;)I
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 31
@@ -146,10 +146,10 @@
 
 .method public static create(IIII)Landroid/view/GraphicBuffer;
     .locals 6
-    .parameter "width"
-    .parameter "height"
-    .parameter "format"
-    .parameter "usage"
+    .param p0, "width"    # I
+    .param p1, "height"    # I
+    .param p2, "format"    # I
+    .param p3, "usage"    # I
 
     .prologue
     .line 80
@@ -158,7 +158,7 @@
     move-result v5
 
     .line 81
-    .local v5, nativeObject:I
+    .local v5, "nativeObject":I
     if-eqz v5, :cond_0
 
     .line 82
@@ -341,7 +341,7 @@
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
     .locals 3
-    .parameter "dirty"
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
     const/4 v0, 0x0
@@ -398,7 +398,7 @@
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     .locals 2
-    .parameter "canvas"
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
     .line 192
@@ -438,8 +438,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 255

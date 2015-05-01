@@ -23,7 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
     .locals 1
-    .parameter "intent"
+    .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 6562
@@ -47,7 +47,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .parameter "obj"
+    .param p1, "obj"    # Ljava/lang/Object;
 
     .prologue
     .line 6578
@@ -58,11 +58,11 @@
     .line 6579
     check-cast p1, Landroid/content/Intent$FilterComparison;
 
-    .end local p1
+    .end local p1    # "obj":Ljava/lang/Object;
     iget-object v0, p1, Landroid/content/Intent$FilterComparison;->mIntent:Landroid/content/Intent;
 
     .line 6580
-    .local v0, other:Landroid/content/Intent;
+    .local v0, "other":Landroid/content/Intent;
     iget-object v1, p0, Landroid/content/Intent$FilterComparison;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
@@ -70,11 +70,11 @@
     move-result v1
 
     .line 6582
-    .end local v0           #other:Landroid/content/Intent;
+    .end local v0    # "other":Landroid/content/Intent;
     :goto_0
     return v1
 
-    .restart local p1
+    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_0
     const/4 v1, 0x0
 

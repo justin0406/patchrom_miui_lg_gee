@@ -27,9 +27,8 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/content/Intent;)V
     .locals 1
-    .parameter
-    .parameter "id"
-    .parameter "intent"
+    .param p2, "id"    # I
+    .param p3, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 599
@@ -51,8 +50,7 @@
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .parameter
-    .parameter "parcel"
+    .param p2, "parcel"    # Landroid/os/Parcel;
 
     .prologue
     .line 604
@@ -88,9 +86,9 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
-    .parameter "root"
-    .parameter "rootParent"
-    .parameter "handler"
+    .param p1, "root"    # Landroid/view/View;
+    .param p2, "rootParent"    # Landroid/view/ViewGroup;
+    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
     .line 617
@@ -101,7 +99,7 @@
     move-result-object v1
 
     .line 618
-    .local v1, target:Landroid/view/View;
+    .local v1, "target":Landroid/view/View;
     if-nez v1, :cond_1
 
     .line 646
@@ -198,7 +196,7 @@
     check-cast v0, Landroid/appwidget/AppWidgetHostView;
 
     .line 636
-    .local v0, host:Landroid/appwidget/AppWidgetHostView;
+    .local v0, "host":Landroid/appwidget/AppWidgetHostView;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;->intent:Landroid/content/Intent;
 
     const-string/jumbo v4, "remoteAdapterAppWidgetId"
@@ -220,7 +218,7 @@
     check-cast v2, Landroid/widget/AbsListView;
 
     .line 639
-    .local v2, v:Landroid/widget/AbsListView;
+    .local v2, "v":Landroid/widget/AbsListView;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;->intent:Landroid/content/Intent;
 
     invoke-virtual {v2, v3}, Landroid/widget/AbsListView;->setRemoteViewsAdapter(Landroid/content/Intent;)V
@@ -231,7 +229,7 @@
     goto :goto_0
 
     .line 641
-    .end local v2           #v:Landroid/widget/AbsListView;
+    .end local v2    # "v":Landroid/widget/AbsListView;
     :cond_4
     instance-of v3, v1, Landroid/widget/AdapterViewAnimator;
 
@@ -243,7 +241,7 @@
     check-cast v2, Landroid/widget/AdapterViewAnimator;
 
     .line 643
-    .local v2, v:Landroid/widget/AdapterViewAnimator;
+    .local v2, "v":Landroid/widget/AdapterViewAnimator;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;->intent:Landroid/content/Intent;
 
     invoke-virtual {v2, v3}, Landroid/widget/AdapterViewAnimator;->setRemoteViewsAdapter(Landroid/content/Intent;)V
@@ -266,8 +264,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 610

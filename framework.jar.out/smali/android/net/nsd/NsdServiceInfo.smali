@@ -59,9 +59,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/nsd/DnsSdTxtRecord;)V
     .locals 0
-    .parameter "sn"
-    .parameter "rt"
-    .parameter "tr"
+    .param p1, "sn"    # Ljava/lang/String;
+    .param p2, "rt"    # Ljava/lang/String;
+    .param p3, "tr"    # Landroid/net/nsd/DnsSdTxtRecord;
 
     .prologue
     .line 44
@@ -82,8 +82,8 @@
 
 .method static synthetic access$002(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/nsd/NsdServiceInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 28
@@ -94,8 +94,8 @@
 
 .method static synthetic access$102(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/nsd/NsdServiceInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 28
@@ -106,8 +106,8 @@
 
 .method static synthetic access$202(Landroid/net/nsd/NsdServiceInfo;Landroid/net/nsd/DnsSdTxtRecord;)Landroid/net/nsd/DnsSdTxtRecord;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/nsd/NsdServiceInfo;
+    .param p1, "x1"    # Landroid/net/nsd/DnsSdTxtRecord;
 
     .prologue
     .line 28
@@ -118,8 +118,8 @@
 
 .method static synthetic access$302(Landroid/net/nsd/NsdServiceInfo;Ljava/net/InetAddress;)Ljava/net/InetAddress;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/nsd/NsdServiceInfo;
+    .param p1, "x1"    # Ljava/net/InetAddress;
 
     .prologue
     .line 28
@@ -130,8 +130,8 @@
 
 .method static synthetic access$402(Landroid/net/nsd/NsdServiceInfo;I)I
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/nsd/NsdServiceInfo;
+    .param p1, "x1"    # I
 
     .prologue
     .line 28
@@ -204,7 +204,7 @@
 
 .method public setHost(Ljava/net/InetAddress;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/net/InetAddress;
 
     .prologue
     .line 87
@@ -216,7 +216,7 @@
 
 .method public setPort(I)V
     .locals 0
-    .parameter "p"
+    .param p1, "p"    # I
 
     .prologue
     .line 97
@@ -228,7 +228,7 @@
 
 .method public setServiceName(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 57
@@ -240,7 +240,7 @@
 
 .method public setServiceType(Ljava/lang/String;)V
     .locals 0
-    .parameter "s"
+    .param p1, "s"    # Ljava/lang/String;
 
     .prologue
     .line 67
@@ -252,7 +252,7 @@
 
 .method public setTxtRecord(Landroid/net/nsd/DnsSdTxtRecord;)V
     .locals 1
-    .parameter "t"
+    .param p1, "t"    # Landroid/net/nsd/DnsSdTxtRecord;
 
     .prologue
     .line 77
@@ -276,7 +276,7 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 103
-    .local v0, sb:Ljava/lang/StringBuffer;
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string v1, "name: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -345,8 +345,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     .line 118

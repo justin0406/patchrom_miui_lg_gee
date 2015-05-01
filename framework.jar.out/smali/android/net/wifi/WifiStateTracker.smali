@@ -43,8 +43,8 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 3
-    .parameter "netType"
-    .parameter "networkName"
+    .param p1, "netType"    # I
+    .param p2, "networkName"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -122,7 +122,7 @@
 
 .method static synthetic access$1000(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo$State;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -133,8 +133,8 @@
 
 .method static synthetic access$1002(Landroid/net/wifi/WifiStateTracker;Landroid/net/NetworkInfo$State;)Landroid/net/NetworkInfo$State;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/NetworkInfo$State;
 
     .prologue
     .line 43
@@ -145,8 +145,8 @@
 
 .method static synthetic access$102(Landroid/net/wifi/WifiStateTracker;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/NetworkInfo;
 
     .prologue
     .line 43
@@ -157,7 +157,7 @@
 
 .method static synthetic access$1100(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -168,7 +168,7 @@
 
 .method static synthetic access$1200(Landroid/net/wifi/WifiStateTracker;)Landroid/net/SamplingDataTracker;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -179,7 +179,7 @@
 
 .method static synthetic access$1300(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -190,7 +190,7 @@
 
 .method static synthetic access$1400(Landroid/net/wifi/WifiStateTracker;)Landroid/os/Handler;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -201,8 +201,8 @@
 
 .method static synthetic access$1502(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 43
@@ -213,7 +213,7 @@
 
 .method static synthetic access$1600(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -224,8 +224,8 @@
 
 .method static synthetic access$202(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 43
@@ -236,7 +236,7 @@
 
 .method static synthetic access$300(Landroid/net/wifi/WifiStateTracker;)Landroid/net/LinkProperties;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -247,8 +247,8 @@
 
 .method static synthetic access$402(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 43
@@ -259,8 +259,8 @@
 
 .method static synthetic access$502(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkCapabilities;)Landroid/net/LinkCapabilities;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/LinkCapabilities;
 
     .prologue
     .line 43
@@ -271,7 +271,7 @@
 
 .method static synthetic access$600(Landroid/net/wifi/WifiStateTracker;)Landroid/net/LinkCapabilities;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -282,8 +282,8 @@
 
 .method static synthetic access$702(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkCapabilities;)Landroid/net/LinkCapabilities;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/LinkCapabilities;
 
     .prologue
     .line 43
@@ -294,8 +294,8 @@
 
 .method static synthetic access$802(Landroid/net/wifi/WifiStateTracker;Landroid/net/wifi/WifiInfo;)Landroid/net/wifi/WifiInfo;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
+    .param p1, "x1"    # Landroid/net/wifi/WifiInfo;
 
     .prologue
     .line 43
@@ -306,7 +306,7 @@
 
 .method static synthetic access$900(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiStateTracker;
 
     .prologue
     .line 43
@@ -319,7 +319,7 @@
 # virtual methods
 .method public addStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 311
@@ -346,7 +346,7 @@
 
 .method public captivePortalCheckCompleted(Z)V
     .locals 0
-    .parameter "isCaptivePortal"
+    .param p1, "isCaptivePortal"    # Z
 
     .prologue
     .line 129
@@ -355,7 +355,7 @@
 
 .method public defaultRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 251
@@ -419,7 +419,7 @@
     invoke-direct {v0}, Landroid/net/WifiLinkQualityInfo;-><init>()V
 
     .line 216
-    .local v0, li:Landroid/net/WifiLinkQualityInfo;
+    .local v0, "li":Landroid/net/WifiLinkQualityInfo;
     iget-object v2, p0, Landroid/net/wifi/WifiStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->getType()I
@@ -486,7 +486,7 @@
     move-result v1
 
     .line 231
-    .local v1, rssi:I
+    .local v1, "rssi":I
     invoke-virtual {v0, v1}, Landroid/net/WifiLinkQualityInfo;->setRssi(I)V
 
     .line 233
@@ -503,7 +503,7 @@
     goto :goto_0
 
     .line 222
-    .end local v1           #rssi:I
+    .end local v1    # "rssi":I
     :catchall_0
     move-exception v2
 
@@ -597,7 +597,7 @@
 
 .method public privateDnsRouteSet(Z)V
     .locals 1
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 174
@@ -633,7 +633,7 @@
 
 .method public removeStackedLink(Landroid/net/LinkProperties;)V
     .locals 1
-    .parameter "link"
+    .param p1, "link"    # Landroid/net/LinkProperties;
 
     .prologue
     .line 316
@@ -647,7 +647,7 @@
 
 .method public setDependencyMet(Z)V
     .locals 0
-    .parameter "met"
+    .param p1, "met"    # Z
 
     .prologue
     .line 307
@@ -656,7 +656,7 @@
 
 .method public setPolicyDataEnable(Z)V
     .locals 0
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 161
@@ -665,7 +665,7 @@
 
 .method public setRadio(Z)Z
     .locals 1
-    .parameter "turnOn"
+    .param p1, "turnOn"    # Z
 
     .prologue
     .line 136
@@ -681,7 +681,7 @@
 
 .method public setTeardownRequested(Z)V
     .locals 1
-    .parameter "isRequested"
+    .param p1, "isRequested"    # Z
 
     .prologue
     .line 76
@@ -695,7 +695,7 @@
 
 .method public setUserDataEnable(Z)V
     .locals 3
-    .parameter "enabled"
+    .param p1, "enabled"    # Z
 
     .prologue
     .line 155
@@ -733,8 +733,8 @@
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 3
-    .parameter "context"
-    .parameter "target"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "target"    # Landroid/os/Handler;
 
     .prologue
     .line 87
@@ -762,7 +762,7 @@
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 92
-    .local v0, filter:Landroid/content/IntentFilter;
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -794,7 +794,7 @@
 
 .method public startSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 326
@@ -808,7 +808,7 @@
 
 .method public stopSampling(Landroid/net/SamplingDataTracker$SamplingSnapshot;)V
     .locals 1
-    .parameter "s"
+    .param p1, "s"    # Landroid/net/SamplingDataTracker$SamplingSnapshot;
 
     .prologue
     .line 331
@@ -822,7 +822,7 @@
 
 .method public supplyMessenger(Landroid/os/Messenger;)V
     .locals 0
-    .parameter "messenger"
+    .param p1, "messenger"    # Landroid/os/Messenger;
 
     .prologue
     .line 322

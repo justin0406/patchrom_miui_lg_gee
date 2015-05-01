@@ -83,8 +83,8 @@
 
 .method static synthetic access$300(Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;Ljava/lang/String;)Landroid/net/wifi/WifiMonitor;
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 386
@@ -97,7 +97,7 @@
 
 .method static synthetic access$400(Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;)Ljava/util/HashMap;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;
 
     .prologue
     .line 386
@@ -108,8 +108,8 @@
 
 .method static synthetic access$502(Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 386
@@ -165,7 +165,7 @@
 
 .method private declared-synchronized getMonitor(Ljava/lang/String;)Landroid/net/wifi/WifiMonitor;
     .locals 1
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 484
@@ -198,7 +198,7 @@
 # virtual methods
 .method public declared-synchronized killSupplicant(Z)V
     .locals 4
-    .parameter "p2pSupported"
+    .param p1, "p2pSupported"    # Z
 
     .prologue
     .line 473
@@ -226,7 +226,7 @@
     move-result-object v1
 
     .line 476
-    .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
+    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -242,7 +242,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 478
-    .local v0, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;"
+    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -250,10 +250,10 @@
     check-cast v2, Landroid/net/wifi/WifiMonitor;
 
     .line 479
-    .local v2, m:Landroid/net/wifi/WifiMonitor;
+    .local v2, "m":Landroid/net/wifi/WifiMonitor;
     const/4 v3, 0x0
 
-    #setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
+    # setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
     invoke-static {v2, v3}, Landroid/net/wifi/WifiMonitor;->access$002(Landroid/net/wifi/WifiMonitor;Z)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -261,9 +261,9 @@
     goto :goto_0
 
     .line 473
-    .end local v0           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;"
-    .end local v1           #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
-    .end local v2           #m:Landroid/net/wifi/WifiMonitor;
+    .end local v0    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;"
+    .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
+    .end local v2    # "m":Landroid/net/wifi/WifiMonitor;
     :catchall_0
     move-exception v3
 
@@ -272,7 +272,7 @@
     throw v3
 
     .line 481
-    .restart local v1       #it:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
+    .restart local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Landroid/net/wifi/WifiMonitor;>;>;"
     :cond_0
     monitor-exit p0
 
@@ -281,8 +281,8 @@
 
 .method public declared-synchronized registerInterfaceMonitor(Ljava/lang/String;Landroid/net/wifi/WifiMonitor;)V
     .locals 1
-    .parameter "iface"
-    .parameter "m"
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "m"    # Landroid/net/wifi/WifiMonitor;
 
     .prologue
     .line 454
@@ -299,7 +299,7 @@
     if-nez v0, :cond_0
 
     .line 456
-    #getter for: Landroid/net/wifi/WifiMonitor;->mWifiNative:Landroid/net/wifi/WifiNative;
+    # getter for: Landroid/net/wifi/WifiMonitor;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {p2}, Landroid/net/wifi/WifiMonitor;->access$200(Landroid/net/wifi/WifiMonitor;)Landroid/net/wifi/WifiNative;
 
     move-result-object v0
@@ -325,7 +325,7 @@
 
 .method public declared-synchronized startMonitoring(Ljava/lang/String;)V
     .locals 6
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 408
@@ -341,7 +341,7 @@
     check-cast v2, Landroid/net/wifi/WifiMonitor;
 
     .line 409
-    .local v2, m:Landroid/net/wifi/WifiMonitor;
+    .local v2, "m":Landroid/net/wifi/WifiMonitor;
     if-nez v2, :cond_0
 
     .line 410
@@ -420,11 +420,11 @@
     .line 417
     const/4 v3, 0x1
 
-    #setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
+    # setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
     invoke-static {v2, v3}, Landroid/net/wifi/WifiMonitor;->access$002(Landroid/net/wifi/WifiMonitor;Z)Z
 
     .line 418
-    #getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
+    # getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
     invoke-static {v2}, Landroid/net/wifi/WifiMonitor;->access$100(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v3
@@ -438,7 +438,7 @@
     goto :goto_0
 
     .line 408
-    .end local v2           #m:Landroid/net/wifi/WifiMonitor;
+    .end local v2    # "m":Landroid/net/wifi/WifiMonitor;
     :catchall_0
     move-exception v3
 
@@ -447,16 +447,16 @@
     throw v3
 
     .line 421
-    .restart local v2       #m:Landroid/net/wifi/WifiMonitor;
+    .restart local v2    # "m":Landroid/net/wifi/WifiMonitor;
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, connectTries:I
+    .local v0, "connectTries":I
     move v1, v0
 
     .line 423
-    .end local v0           #connectTries:I
-    .local v1, connectTries:I
+    .end local v0    # "connectTries":I
+    .local v1, "connectTries":I
     :goto_1
     :try_start_2
     iget-object v3, p0, Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -470,11 +470,11 @@
     .line 424
     const/4 v3, 0x1
 
-    #setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
+    # setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
     invoke-static {v2, v3}, Landroid/net/wifi/WifiMonitor;->access$002(Landroid/net/wifi/WifiMonitor;Z)Z
 
     .line 425
-    #getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
+    # getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
     invoke-static {v2}, Landroid/net/wifi/WifiMonitor;->access$100(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v3
@@ -505,8 +505,8 @@
     :cond_2
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1           #connectTries:I
-    .restart local v0       #connectTries:I
+    .end local v1    # "connectTries":I
+    .restart local v0    # "connectTries":I
     const/4 v3, 0x5
 
     if-ge v1, v3, :cond_3
@@ -517,32 +517,32 @@
     :try_start_3
     invoke-static {v3, v4}, Ljava/lang/Thread;->sleep(J)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move v1, v0
 
     .line 434
-    .end local v0           #connectTries:I
-    .restart local v1       #connectTries:I
+    .end local v0    # "connectTries":I
+    .restart local v1    # "connectTries":I
     goto :goto_1
 
     .line 433
-    .end local v1           #connectTries:I
-    .restart local v0       #connectTries:I
+    .end local v1    # "connectTries":I
+    .restart local v0    # "connectTries":I
     :catch_0
     move-exception v3
 
     move v1, v0
 
     .line 434
-    .end local v0           #connectTries:I
-    .restart local v1       #connectTries:I
+    .end local v0    # "connectTries":I
+    .restart local v1    # "connectTries":I
     goto :goto_1
 
     .line 436
-    .end local v1           #connectTries:I
-    .restart local v0       #connectTries:I
+    .end local v1    # "connectTries":I
+    .restart local v0    # "connectTries":I
     :cond_3
     :try_start_4
     iget-object v3, p0, Landroid/net/wifi/WifiMonitor$WifiMonitorSingleton;->mIfaceMap:Ljava/util/HashMap;
@@ -550,7 +550,7 @@
     invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 437
-    #getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
+    # getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
     invoke-static {v2}, Landroid/net/wifi/WifiMonitor;->access$100(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v3
@@ -595,7 +595,7 @@
 
 .method public declared-synchronized stopMonitoring(Ljava/lang/String;)V
     .locals 3
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 446
@@ -611,14 +611,14 @@
     check-cast v0, Landroid/net/wifi/WifiMonitor;
 
     .line 448
-    .local v0, m:Landroid/net/wifi/WifiMonitor;
+    .local v0, "m":Landroid/net/wifi/WifiMonitor;
     const/4 v1, 0x0
 
-    #setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
+    # setter for: Landroid/net/wifi/WifiMonitor;->mMonitoring:Z
     invoke-static {v0, v1}, Landroid/net/wifi/WifiMonitor;->access$002(Landroid/net/wifi/WifiMonitor;Z)Z
 
     .line 449
-    #getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
+    # getter for: Landroid/net/wifi/WifiMonitor;->mWifiStateMachine:Lcom/android/internal/util/StateMachine;
     invoke-static {v0}, Landroid/net/wifi/WifiMonitor;->access$100(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v1
@@ -635,7 +635,7 @@
     return-void
 
     .line 446
-    .end local v0           #m:Landroid/net/wifi/WifiMonitor;
+    .end local v0    # "m":Landroid/net/wifi/WifiMonitor;
     :catchall_0
     move-exception v1
 
@@ -674,7 +674,7 @@
 
 .method public declared-synchronized unregisterInterfaceMonitor(Ljava/lang/String;)V
     .locals 2
-    .parameter "iface"
+    .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
     .line 464
@@ -692,13 +692,13 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 466
-    .local v0, m:Landroid/net/wifi/WifiMonitor;
+    .local v0, "m":Landroid/net/wifi/WifiMonitor;
     monitor-exit p0
 
     return-void
 
     .line 464
-    .end local v0           #m:Landroid/net/wifi/WifiMonitor;
+    .end local v0    # "m":Landroid/net/wifi/WifiMonitor;
     :catchall_0
     move-exception v1
 

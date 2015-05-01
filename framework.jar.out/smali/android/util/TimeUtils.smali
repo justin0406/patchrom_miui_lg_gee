@@ -115,10 +115,10 @@
 
 .method private static accumField(IIZI)I
     .locals 1
-    .parameter "amt"
-    .parameter "suffix"
-    .parameter "always"
-    .parameter "zeropad"
+    .param p0, "amt"    # I
+    .param p1, "suffix"    # I
+    .param p2, "always"    # Z
+    .param p3, "zeropad"    # I
 
     .prologue
     .line 254
@@ -179,9 +179,9 @@
 
 .method public static formatDuration(JJLjava/io/PrintWriter;)V
     .locals 3
-    .parameter "time"
-    .parameter "now"
-    .parameter "pw"
+    .param p0, "time"    # J
+    .param p2, "now"    # J
+    .param p4, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 388
@@ -213,8 +213,8 @@
 
 .method public static formatDuration(JLjava/io/PrintWriter;)V
     .locals 1
-    .parameter "duration"
-    .parameter "pw"
+    .param p0, "duration"    # J
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
     .line 383
@@ -228,9 +228,9 @@
 
 .method public static formatDuration(JLjava/io/PrintWriter;I)V
     .locals 5
-    .parameter "duration"
-    .parameter "pw"
-    .parameter "fieldLen"
+    .param p0, "duration"    # J
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "fieldLen"    # I
 
     .prologue
     .line 375
@@ -245,7 +245,7 @@
     move-result v0
 
     .line 377
-    .local v0, len:I
+    .local v0, "len":I
     new-instance v1, Ljava/lang/String;
 
     sget-object v3, Landroid/util/TimeUtils;->sFormatStr:[C
@@ -263,7 +263,7 @@
     return-void
 
     .line 378
-    .end local v0           #len:I
+    .end local v0    # "len":I
     :catchall_0
     move-exception v1
 
@@ -276,8 +276,8 @@
 
 .method public static formatDuration(JLjava/lang/StringBuilder;)V
     .locals 4
-    .parameter "duration"
-    .parameter "builder"
+    .param p0, "duration"    # J
+    .param p2, "builder"    # Ljava/lang/StringBuilder;
 
     .prologue
     .line 367
@@ -294,7 +294,7 @@
     move-result v0
 
     .line 369
-    .local v0, len:I
+    .local v0, "len":I
     sget-object v1, Landroid/util/TimeUtils;->sFormatStr:[C
 
     const/4 v3, 0x0
@@ -308,7 +308,7 @@
     return-void
 
     .line 370
-    .end local v0           #len:I
+    .end local v0    # "len":I
     :catchall_0
     move-exception v1
 
@@ -321,8 +321,8 @@
 
 .method private static formatDurationLocked(JI)I
     .locals 21
-    .parameter "duration"
-    .parameter "fieldLen"
+    .param p0, "duration"    # J
+    .param p2, "fieldLen"    # I
 
     .prologue
     .line 291
@@ -346,7 +346,7 @@
     sget-object v2, Landroid/util/TimeUtils;->sFormatStr:[C
 
     .line 297
-    .local v2, formatStr:[C
+    .local v2, "formatStr":[C
     const-wide/16 v6, 0x0
 
     cmp-long v4, p0, v6
@@ -357,14 +357,14 @@
     const/4 v5, 0x0
 
     .line 299
-    .local v5, pos:I
+    .local v5, "pos":I
     add-int/lit8 p2, p2, -0x1
 
     move/from16 v16, v5
 
     .line 300
-    .end local v5           #pos:I
-    .local v16, pos:I
+    .end local v5    # "pos":I
+    .local v16, "pos":I
     :goto_0
     move/from16 v0, v16
 
@@ -375,16 +375,16 @@
     .line 301
     add-int/lit8 v5, v16, 0x1
 
-    .end local v16           #pos:I
-    .restart local v5       #pos:I
+    .end local v16    # "pos":I
+    .restart local v5    # "pos":I
     const/16 v4, 0x20
 
     aput-char v4, v2, v16
 
     move/from16 v16, v5
 
-    .end local v5           #pos:I
-    .restart local v16       #pos:I
+    .end local v5    # "pos":I
+    .restart local v16    # "pos":I
     goto :goto_0
 
     .line 303
@@ -397,7 +397,7 @@
     add-int/lit8 v4, v16, 0x1
 
     .line 362
-    .end local v16           #pos:I
+    .end local v16    # "pos":I
     :goto_1
     return v4
 
@@ -413,7 +413,7 @@
     const/16 v17, 0x2b
 
     .line 315
-    .local v17, prefix:C
+    .local v17, "prefix":C
     :goto_2
     const-wide v6, 0x141dd75fffL
 
@@ -433,7 +433,7 @@
     long-to-int v13, v6
 
     .line 320
-    .local v13, millis:I
+    .local v13, "millis":I
     const-wide/16 v6, 0x3e8
 
     div-long v6, p0, v6
@@ -449,17 +449,17 @@
     move/from16 v18, v0
 
     .line 321
-    .local v18, seconds:I
+    .local v18, "seconds":I
     const/4 v3, 0x0
 
-    .local v3, days:I
+    .local v3, "days":I
     const/4 v12, 0x0
 
-    .local v12, hours:I
+    .local v12, "hours":I
     const/4 v14, 0x0
 
     .line 323
-    .local v14, minutes:I
+    .local v14, "minutes":I
     const v4, 0x15180
 
     move/from16 v0, v18
@@ -517,7 +517,7 @@
     const/4 v5, 0x0
 
     .line 338
-    .restart local v5       #pos:I
+    .restart local v5    # "pos":I
     if-eqz p2, :cond_c
 
     .line 339
@@ -532,7 +532,7 @@
     move-result v15
 
     .line 340
-    .local v15, myLen:I
+    .local v15, "myLen":I
     const/4 v6, 0x1
 
     if-lez v15, :cond_8
@@ -620,19 +620,19 @@
     goto :goto_7
 
     .line 311
-    .end local v3           #days:I
-    .end local v5           #pos:I
-    .end local v12           #hours:I
-    .end local v13           #millis:I
-    .end local v14           #minutes:I
-    .end local v15           #myLen:I
-    .end local v17           #prefix:C
-    .end local v18           #seconds:I
+    .end local v3    # "days":I
+    .end local v5    # "pos":I
+    .end local v12    # "hours":I
+    .end local v13    # "millis":I
+    .end local v14    # "minutes":I
+    .end local v15    # "myLen":I
+    .end local v17    # "prefix":C
+    .end local v18    # "seconds":I
     :cond_7
     const/16 v17, 0x2d
 
     .line 312
-    .restart local v17       #prefix:C
+    .restart local v17    # "prefix":C
     move-wide/from16 v0, p0
 
     neg-long v0, v0
@@ -642,13 +642,13 @@
     goto/16 :goto_2
 
     .line 340
-    .restart local v3       #days:I
-    .restart local v5       #pos:I
-    .restart local v12       #hours:I
-    .restart local v13       #millis:I
-    .restart local v14       #minutes:I
-    .restart local v15       #myLen:I
-    .restart local v18       #seconds:I
+    .restart local v3    # "days":I
+    .restart local v5    # "pos":I
+    .restart local v12    # "hours":I
+    .restart local v13    # "millis":I
+    .restart local v14    # "minutes":I
+    .restart local v15    # "myLen":I
+    .restart local v18    # "seconds":I
     :cond_8
     const/4 v4, 0x0
 
@@ -673,7 +673,7 @@
     goto :goto_6
 
     .line 351
-    .end local v15           #myLen:I
+    .end local v15    # "myLen":I
     :cond_c
     aput-char v17, v2, v5
 
@@ -684,13 +684,13 @@
     move/from16 v19, v5
 
     .line 355
-    .local v19, start:I
+    .local v19, "start":I
     if-eqz p2, :cond_d
 
     const/16 v20, 0x1
 
     .line 356
-    .local v20, zeropad:Z
+    .local v20, "zeropad":Z
     :goto_8
     const/16 v4, 0x64
 
@@ -812,14 +812,14 @@
     goto/16 :goto_1
 
     .line 355
-    .end local v20           #zeropad:Z
+    .end local v20    # "zeropad":Z
     :cond_d
     const/16 v20, 0x0
 
     goto :goto_8
 
     .line 357
-    .restart local v20       #zeropad:Z
+    .restart local v20    # "zeropad":Z
     :cond_e
     const/4 v10, 0x0
 
@@ -861,7 +861,7 @@
 
 .method public static formatUptime(J)Ljava/lang/String;
     .locals 6
-    .parameter "time"
+    .param p0, "time"    # J
 
     .prologue
     const-wide/16 v4, 0x0
@@ -874,7 +874,7 @@
     sub-long v0, p0, v2
 
     .line 398
-    .local v0, diff:J
+    .local v0, "diff":J
     cmp-long v2, v0, v4
 
     if-lez v2, :cond_0
@@ -976,23 +976,23 @@
 
 .method public static getTimeZone(IZJLjava/lang/String;)Ljava/util/TimeZone;
     .locals 11
-    .parameter "offset"
-    .parameter "dst"
-    .parameter "when"
-    .parameter "country"
+    .param p0, "offset"    # I
+    .param p1, "dst"    # Z
+    .param p2, "when"    # J
+    .param p4, "country"    # Ljava/lang/String;
 
     .prologue
     .line 64
     const/4 v0, 0x0
 
     .line 66
-    .local v0, best:Ljava/util/TimeZone;
+    .local v0, "best":Ljava/util/TimeZone;
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v8
 
     .line 67
-    .local v8, r:Landroid/content/res/Resources;
+    .local v8, "r":Landroid/content/res/Resources;
     const v10, 0x10f0011
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -1000,37 +1000,37 @@
     move-result-object v7
 
     .line 68
-    .local v7, parser:Landroid/content/res/XmlResourceParser;
+    .local v7, "parser":Landroid/content/res/XmlResourceParser;
     new-instance v5, Ljava/util/Date;
 
     invoke-direct {v5, p2, p3}, Ljava/util/Date;-><init>(J)V
 
     .line 70
-    .local v5, d:Ljava/util/Date;
+    .local v5, "d":Ljava/util/Date;
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
     move-result-object v1
 
     .line 71
-    .local v1, current:Ljava/util/TimeZone;
+    .local v1, "current":Ljava/util/TimeZone;
     invoke-virtual {v1}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v3
 
     .line 72
-    .local v3, currentName:Ljava/lang/String;
+    .local v3, "currentName":Ljava/lang/String;
     invoke-virtual {v1, p2, p3}, Ljava/util/TimeZone;->getOffset(J)I
 
     move-result v4
 
     .line 73
-    .local v4, currentOffset:I
+    .local v4, "currentOffset":I
     invoke-virtual {v1, v5}, Ljava/util/TimeZone;->inDaylightTime(Ljava/util/Date;)Z
 
     move-result v2
 
     .line 75
-    .local v2, currentDst:Z
+    .local v2, "currentDst":Z
     invoke-static {p4}, Landroid/util/TimeUtils;->getTimeZones(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -1039,7 +1039,7 @@
 
     move-result-object v6
 
-    .local v6, i$:Ljava/util/Iterator;
+    .local v6, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
@@ -1055,7 +1055,7 @@
     check-cast v9, Ljava/util/TimeZone;
 
     .line 80
-    .local v9, tz:Ljava/util/TimeZone;
+    .local v9, "tz":Ljava/util/TimeZone;
     invoke-virtual {v9}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v10
@@ -1072,14 +1072,14 @@
     if-ne v2, p1, :cond_1
 
     .line 99
-    .end local v1           #current:Ljava/util/TimeZone;
-    .end local v9           #tz:Ljava/util/TimeZone;
+    .end local v1    # "current":Ljava/util/TimeZone;
+    .end local v9    # "tz":Ljava/util/TimeZone;
     :goto_1
     return-object v1
 
     .line 91
-    .restart local v1       #current:Ljava/util/TimeZone;
-    .restart local v9       #tz:Ljava/util/TimeZone;
+    .restart local v1    # "current":Ljava/util/TimeZone;
+    .restart local v9    # "tz":Ljava/util/TimeZone;
     :cond_1
     if-nez v0, :cond_0
 
@@ -1101,7 +1101,7 @@
 
     goto :goto_0
 
-    .end local v9           #tz:Ljava/util/TimeZone;
+    .end local v9    # "tz":Ljava/util/TimeZone;
     :cond_2
     move-object v1, v0
 
@@ -1127,7 +1127,7 @@
 
 .method public static getTimeZones(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 11
-    .parameter "country"
+    .param p0, "country"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1180,7 +1180,7 @@
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
     .line 168
-    .local v6, tzs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .local v6, "tzs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
     if-eqz p0, :cond_0
 
     .line 173
@@ -1189,7 +1189,7 @@
     move-result-object v4
 
     .line 174
-    .local v4, r:Landroid/content/res/Resources;
+    .local v4, "r":Landroid/content/res/Resources;
     const v8, 0x10f0011
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -1197,7 +1197,7 @@
     move-result-object v3
 
     .line 177
-    .local v3, parser:Landroid/content/res/XmlResourceParser;
+    .local v3, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_1
     const-string/jumbo v8, "timezones"
 
@@ -1214,16 +1214,16 @@
     move-result-object v2
 
     .line 183
-    .local v2, element:Ljava/lang/String;
+    .local v2, "element":Ljava/lang/String;
     if-eqz v2, :cond_3
 
     const-string/jumbo v8, "timezone"
 
     invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     move-result v8
 
@@ -1234,7 +1234,7 @@
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 212
-    .end local v2           #element:Ljava/lang/String;
+    .end local v2    # "element":Ljava/lang/String;
     :goto_2
     sget-object v9, Landroid/util/TimeUtils;->sLastLockObj:Ljava/lang/Object;
 
@@ -1250,7 +1250,7 @@
     .line 216
     sget-object v6, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
 
-    .end local v6           #tzs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .end local v6    # "tzs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
     monitor-exit v9
 
     goto :goto_0
@@ -1266,8 +1266,8 @@
     throw v8
 
     .line 164
-    .end local v3           #parser:Landroid/content/res/XmlResourceParser;
-    .end local v4           #r:Landroid/content/res/Resources;
+    .end local v3    # "parser":Landroid/content/res/XmlResourceParser;
+    .end local v4    # "r":Landroid/content/res/Resources;
     :catchall_1
     move-exception v8
 
@@ -1279,10 +1279,10 @@
     throw v8
 
     .line 187
-    .restart local v2       #element:Ljava/lang/String;
-    .restart local v3       #parser:Landroid/content/res/XmlResourceParser;
-    .restart local v4       #r:Landroid/content/res/Resources;
-    .restart local v6       #tzs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .restart local v2    # "element":Ljava/lang/String;
+    .restart local v3    # "parser":Landroid/content/res/XmlResourceParser;
+    .restart local v4    # "r":Landroid/content/res/Resources;
+    .restart local v6    # "tzs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
     :cond_4
     const/4 v8, 0x0
 
@@ -1294,7 +1294,7 @@
     move-result-object v0
 
     .line 189
-    .local v0, code:Ljava/lang/String;
+    .local v0, "code":Ljava/lang/String;
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
@@ -1316,13 +1316,13 @@
     move-result-object v7
 
     .line 192
-    .local v7, zoneIdString:Ljava/lang/String;
+    .local v7, "zoneIdString":Ljava/lang/String;
     invoke-static {v7}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v5
 
     .line 193
-    .local v5, tz:Ljava/util/TimeZone;
+    .local v5, "tz":Ljava/util/TimeZone;
     invoke-virtual {v5}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v8
@@ -1338,22 +1338,22 @@
     .line 195
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     goto :goto_1
 
     .line 204
-    .end local v0           #code:Ljava/lang/String;
-    .end local v2           #element:Ljava/lang/String;
-    .end local v5           #tz:Ljava/util/TimeZone;
-    .end local v7           #zoneIdString:Ljava/lang/String;
+    .end local v0    # "code":Ljava/lang/String;
+    .end local v2    # "element":Ljava/lang/String;
+    .end local v5    # "tz":Ljava/util/TimeZone;
+    .end local v7    # "zoneIdString":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 205
-    .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
+    .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_5
     const-string v8, "TimeUtils"
 
@@ -1391,12 +1391,12 @@
     goto :goto_2
 
     .line 206
-    .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v1    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catch_1
     move-exception v1
 
     .line 207
-    .local v1, e:Ljava/io/IOException;
+    .local v1, "e":Ljava/io/IOException;
     :try_start_6
     const-string v8, "TimeUtils"
 
@@ -1433,7 +1433,7 @@
 
     goto/16 :goto_2
 
-    .end local v1           #e:Ljava/io/IOException;
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_2
     move-exception v8
 
@@ -1444,7 +1444,7 @@
 
 .method public static getTimeZonesWithUniqueOffsets(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 8
-    .parameter "country"
+    .param p0, "country"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1496,18 +1496,18 @@
     move-result-object v5
 
     .line 121
-    .local v5, zones:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/TimeZone;>;"
+    .local v5, "zones":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/TimeZone;>;"
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 122
-    .local v3, uniqueTimeZones:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .local v3, "uniqueTimeZones":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
     invoke-interface {v5}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_1
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -1523,14 +1523,14 @@
     check-cast v4, Ljava/util/TimeZone;
 
     .line 125
-    .local v4, zone:Ljava/util/TimeZone;
+    .local v4, "zone":Ljava/util/TimeZone;
     const/4 v0, 0x0
 
     .line 126
-    .local v0, found:Z
+    .local v0, "found":Z
     const/4 v1, 0x0
 
-    .local v1, i:I
+    .local v1, "i":I
     :goto_2
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
@@ -1568,12 +1568,12 @@
     goto :goto_1
 
     .line 118
-    .end local v0           #found:Z
-    .end local v1           #i:I
-    .end local v2           #i$:Ljava/util/Iterator;
-    .end local v3           #uniqueTimeZones:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
-    .end local v4           #zone:Ljava/util/TimeZone;
-    .end local v5           #zones:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/TimeZone;>;"
+    .end local v0    # "found":Z
+    .end local v1    # "i":I
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v3    # "uniqueTimeZones":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .end local v4    # "zone":Ljava/util/TimeZone;
+    .end local v5    # "zones":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/TimeZone;>;"
     :catchall_0
     move-exception v6
 
@@ -1585,21 +1585,21 @@
     throw v6
 
     .line 126
-    .restart local v0       #found:Z
-    .restart local v1       #i:I
-    .restart local v2       #i$:Ljava/util/Iterator;
-    .restart local v3       #uniqueTimeZones:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
-    .restart local v4       #zone:Ljava/util/TimeZone;
-    .restart local v5       #zones:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/TimeZone;>;"
+    .restart local v0    # "found":Z
+    .restart local v1    # "i":I
+    .restart local v2    # "i$":Ljava/util/Iterator;
+    .restart local v3    # "uniqueTimeZones":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/TimeZone;>;"
+    .restart local v4    # "zone":Ljava/util/TimeZone;
+    .restart local v5    # "zones":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/TimeZone;>;"
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
     .line 141
-    .end local v0           #found:Z
-    .end local v1           #i:I
-    .end local v4           #zone:Ljava/util/TimeZone;
+    .end local v0    # "found":Z
+    .end local v1    # "i":I
+    .end local v4    # "zone":Ljava/util/TimeZone;
     :cond_4
     sget-object v7, Landroid/util/TimeUtils;->sLastUniqueLockObj:Ljava/lang/Object;
 
@@ -1632,7 +1632,7 @@
 
 .method public static logTimeOfDay(J)Ljava/lang/String;
     .locals 4
-    .parameter "millis"
+    .param p0, "millis"    # J
 
     .prologue
     .line 416
@@ -1641,7 +1641,7 @@
     move-result-object v0
 
     .line 417
-    .local v0, c:Ljava/util/Calendar;
+    .local v0, "c":Ljava/util/Calendar;
     const-wide/16 v1, 0x0
 
     cmp-long v1, p0, v1
@@ -1700,12 +1700,12 @@
 
 .method private static printField([CICIZI)I
     .locals 3
-    .parameter "formatStr"
-    .parameter "amt"
-    .parameter "suffix"
-    .parameter "pos"
-    .parameter "always"
-    .parameter "zeropad"
+    .param p0, "formatStr"    # [C
+    .param p1, "amt"    # I
+    .param p2, "suffix"    # C
+    .param p3, "pos"    # I
+    .param p4, "always"    # Z
+    .param p5, "zeropad"    # I
 
     .prologue
     .line 268
@@ -1718,7 +1718,7 @@
     move v1, p3
 
     .line 270
-    .local v1, startPos:I
+    .local v1, "startPos":I
     if-eqz p4, :cond_1
 
     const/4 v2, 0x3
@@ -1735,7 +1735,7 @@
     div-int/lit8 v0, p1, 0x64
 
     .line 272
-    .local v0, dig:I
+    .local v0, "dig":I
     add-int/lit8 v2, v0, 0x30
 
     int-to-char v2, v2
@@ -1751,7 +1751,7 @@
     sub-int/2addr p1, v2
 
     .line 276
-    .end local v0           #dig:I
+    .end local v0    # "dig":I
     :cond_3
     if-eqz p4, :cond_4
 
@@ -1771,7 +1771,7 @@
     div-int/lit8 v0, p1, 0xa
 
     .line 278
-    .restart local v0       #dig:I
+    .restart local v0    # "dig":I
     add-int/lit8 v2, v0, 0x30
 
     int-to-char v2, v2
@@ -1787,7 +1787,7 @@
     sub-int/2addr p1, v2
 
     .line 282
-    .end local v0           #dig:I
+    .end local v0    # "dig":I
     :cond_6
     add-int/lit8 v2, p1, 0x30
 
@@ -1805,7 +1805,7 @@
     add-int/lit8 p3, p3, 0x1
 
     .line 287
-    .end local v1           #startPos:I
+    .end local v1    # "startPos":I
     :cond_7
     return p3
 .end method

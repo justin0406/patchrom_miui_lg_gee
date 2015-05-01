@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TimePicker;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 181
@@ -39,9 +38,9 @@
 # virtual methods
 .method public onValueChange(Landroid/widget/NumberPicker;II)V
     .locals 7
-    .parameter "spinner"
-    .parameter "oldVal"
-    .parameter "newVal"
+    .param p1, "spinner"    # Landroid/widget/NumberPicker;
+    .param p2, "oldVal"    # I
+    .param p3, "newVal"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -51,13 +50,13 @@
     .line 183
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->updateInputState()V
+    # invokes: Landroid/widget/TimePicker;->updateInputState()V
     invoke-static {v5}, Landroid/widget/TimePicker;->access$000(Landroid/widget/TimePicker;)V
 
     .line 184
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
     invoke-static {v5}, Landroid/widget/TimePicker;->access$400(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v5
@@ -67,10 +66,10 @@
     move-result v1
 
     .line 185
-    .local v1, minValue:I
+    .local v1, "minValue":I
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
     invoke-static {v5}, Landroid/widget/TimePicker;->access$400(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v5
@@ -80,7 +79,7 @@
     move-result v0
 
     .line 186
-    .local v0, maxValue:I
+    .local v0, "maxValue":I
     if-ne p2, v0, :cond_3
 
     if-ne p3, v1, :cond_3
@@ -88,7 +87,7 @@
     .line 187
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
     invoke-static {v5}, Landroid/widget/TimePicker;->access$500(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v5
@@ -100,7 +99,7 @@
     add-int/lit8 v2, v5, 0x1
 
     .line 188
-    .local v2, newHour:I
+    .local v2, "newHour":I
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
     invoke-virtual {v5}, Landroid/widget/TimePicker;->is24HourView()Z
@@ -118,7 +117,7 @@
 
     iget-object v6, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # getter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v6}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)Z
 
     move-result v6
@@ -126,20 +125,20 @@
     if-nez v6, :cond_2
 
     :goto_0
-    #setter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v5, v3}, Landroid/widget/TimePicker;->access$102(Landroid/widget/TimePicker;Z)Z
 
     .line 190
     iget-object v3, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->updateAmPmControl()V
+    # invokes: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v3}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
     .line 192
     :cond_0
     iget-object v3, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
     invoke-static {v3}, Landroid/widget/TimePicker;->access$500(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v3
@@ -147,18 +146,18 @@
     invoke-virtual {v3, v2}, Landroid/widget/NumberPicker;->setValue(I)V
 
     .line 201
-    .end local v2           #newHour:I
+    .end local v2    # "newHour":I
     :cond_1
     :goto_1
     iget-object v3, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->onTimeChanged()V
+    # invokes: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v3}, Landroid/widget/TimePicker;->access$300(Landroid/widget/TimePicker;)V
 
     .line 202
     return-void
 
-    .restart local v2       #newHour:I
+    .restart local v2    # "newHour":I
     :cond_2
     move v3, v4
 
@@ -166,7 +165,7 @@
     goto :goto_0
 
     .line 193
-    .end local v2           #newHour:I
+    .end local v2    # "newHour":I
     :cond_3
     if-ne p2, v1, :cond_1
 
@@ -175,7 +174,7 @@
     .line 194
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
     invoke-static {v5}, Landroid/widget/TimePicker;->access$500(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v5
@@ -187,7 +186,7 @@
     add-int/lit8 v2, v5, -0x1
 
     .line 195
-    .restart local v2       #newHour:I
+    .restart local v2    # "newHour":I
     iget-object v5, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
     invoke-virtual {v5}, Landroid/widget/TimePicker;->is24HourView()Z
@@ -205,7 +204,7 @@
 
     iget-object v6, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # getter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v6}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)Z
 
     move-result v6
@@ -213,20 +212,20 @@
     if-nez v6, :cond_5
 
     :goto_2
-    #setter for: Landroid/widget/TimePicker;->mIsAm:Z
+    # setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v5, v3}, Landroid/widget/TimePicker;->access$102(Landroid/widget/TimePicker;Z)Z
 
     .line 197
     iget-object v3, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #calls: Landroid/widget/TimePicker;->updateAmPmControl()V
+    # invokes: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v3}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
     .line 199
     :cond_4
     iget-object v3, p0, Landroid/widget/TimePicker$3;->this$0:Landroid/widget/TimePicker;
 
-    #getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
+    # getter for: Landroid/widget/TimePicker;->mHourSpinner:Landroid/widget/NumberPicker;
     invoke-static {v3}, Landroid/widget/TimePicker;->access$500(Landroid/widget/TimePicker;)Landroid/widget/NumberPicker;
 
     move-result-object v3

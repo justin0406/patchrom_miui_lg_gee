@@ -80,7 +80,7 @@
 
 .method synthetic constructor <init>(Landroid/app/SharedPreferencesImpl$1;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/app/SharedPreferencesImpl$1;
 
     .prologue
     .line 289
@@ -93,7 +93,7 @@
 # virtual methods
 .method public setDiskWriteResult(Z)V
     .locals 1
-    .parameter "result"
+    .param p1, "result"    # Z
 
     .prologue
     .line 298

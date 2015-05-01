@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AppWidgetServiceImpl;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 972
@@ -52,7 +51,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/AppWidgetServiceImpl$2;->this$0:Lcom/android/server/AppWidgetServiceImpl;
 
-    #calls: Lcom/android/server/AppWidgetServiceImpl;->ensureStateLoadedLocked()V
+    # invokes: Lcom/android/server/AppWidgetServiceImpl;->ensureStateLoadedLocked()V
     invoke-static {v0}, Lcom/android/server/AppWidgetServiceImpl;->access$000(Lcom/android/server/AppWidgetServiceImpl;)V
 
     .line 977

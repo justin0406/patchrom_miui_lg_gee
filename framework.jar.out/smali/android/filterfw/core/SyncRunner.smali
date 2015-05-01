@@ -24,9 +24,9 @@
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FilterGraph;Ljava/lang/Class;)V
     .locals 5
-    .parameter "context"
-    .parameter "graph"
-    .parameter "schedulerClass"
+    .param p1, "context"    # Landroid/filterfw/core/FilterContext;
+    .param p2, "graph"    # Landroid/filterfw/core/FilterGraph;
+    .param p3, "schedulerClass"    # Ljava/lang/Class;
 
     .prologue
     const/4 v4, 0x0
@@ -108,7 +108,7 @@
     move-result-object v1
 
     .line 56
-    .local v1, schedulerConstructor:Ljava/lang/reflect/Constructor;
+    .local v1, "schedulerConstructor":Ljava/lang/reflect/Constructor;
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Object;
@@ -165,12 +165,12 @@
     return-void
 
     .line 57
-    .end local v1           #schedulerConstructor:Ljava/lang/reflect/Constructor;
+    .end local v1    # "schedulerConstructor":Ljava/lang/reflect/Constructor;
     :catch_0
     move-exception v0
 
     .line 58
-    .local v0, e:Ljava/lang/NoSuchMethodException;
+    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Scheduler does not have constructor <init>(FilterGraph)!"
@@ -180,12 +180,12 @@
     throw v2
 
     .line 59
-    .end local v0           #e:Ljava/lang/NoSuchMethodException;
+    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v0
 
     .line 60
-    .local v0, e:Ljava/lang/InstantiationException;
+    .local v0, "e":Ljava/lang/InstantiationException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Could not instantiate the Scheduler instance!"
@@ -195,12 +195,12 @@
     throw v2
 
     .line 61
-    .end local v0           #e:Ljava/lang/InstantiationException;
+    .end local v0    # "e":Ljava/lang/InstantiationException;
     :catch_2
     move-exception v0
 
     .line 62
-    .local v0, e:Ljava/lang/IllegalAccessException;
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Cannot access Scheduler constructor!"
@@ -210,12 +210,12 @@
     throw v2
 
     .line 63
-    .end local v0           #e:Ljava/lang/IllegalAccessException;
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_3
     move-exception v0
 
     .line 64
-    .local v0, e:Ljava/lang/reflect/InvocationTargetException;
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Scheduler constructor threw an exception"
@@ -225,12 +225,12 @@
     throw v2
 
     .line 65
-    .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
+    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_4
     move-exception v0
 
     .line 66
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Could not instantiate Scheduler"
@@ -240,7 +240,7 @@
     throw v2
 
     .line 69
-    .end local v0           #e:Ljava/lang/Exception;
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -357,7 +357,7 @@
     const/4 v2, 0x0
 
     .line 192
-    .local v2, isBlocked:Z
+    .local v2, "isBlocked":Z
     iget-object v4, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
 
     invoke-virtual {v4}, Landroid/filterfw/core/Scheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
@@ -372,7 +372,7 @@
 
     move-result-object v1
 
-    .local v1, i$:Ljava/util/Iterator;
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -387,7 +387,7 @@
     check-cast v0, Landroid/filterfw/core/Filter;
 
     .line 193
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->isOpen()Z
 
     move-result v4
@@ -405,7 +405,7 @@
     const/4 v3, 0x3
 
     .line 203
-    .end local v0           #filter:Landroid/filterfw/core/Filter;
+    .end local v0    # "filter":Landroid/filterfw/core/Filter;
     :cond_1
     :goto_0
     return v3
@@ -488,7 +488,7 @@
     move-result-object v0
 
     .line 210
-    .local v0, filter:Landroid/filterfw/core/Filter;
+    .local v0, "filter":Landroid/filterfw/core/Filter;
     if-eqz v0, :cond_1
 
     .line 211
@@ -527,7 +527,7 @@
 
 .method protected processFilterNode(Landroid/filterfw/core/Filter;)V
     .locals 3
-    .parameter "filter"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
 
     .prologue
     .line 163
@@ -649,11 +649,11 @@
     move-result v0
 
     .line 120
-    .local v0, glActivated:Z
+    .local v0, "glActivated":Z
     const/4 v1, 0x1
 
     .line 121
-    .local v1, keepRunning:Z
+    .local v1, "keepRunning":Z
     :goto_0
     if-eqz v1, :cond_1
 
@@ -717,8 +717,8 @@
 
 .method protected scheduleFilterWake(Landroid/filterfw/core/Filter;I)V
     .locals 7
-    .parameter "filter"
-    .parameter "delay"
+    .param p1, "filter"    # Landroid/filterfw/core/Filter;
+    .param p2, "delay"    # I
 
     .prologue
     .line 175
@@ -730,11 +730,11 @@
     move-object v1, p1
 
     .line 179
-    .local v1, filterToSchedule:Landroid/filterfw/core/Filter;
+    .local v1, "filterToSchedule":Landroid/filterfw/core/Filter;
     iget-object v0, p0, Landroid/filterfw/core/SyncRunner;->mWakeCondition:Landroid/os/ConditionVariable;
 
     .line 181
-    .local v0, conditionToWake:Landroid/os/ConditionVariable;
+    .local v0, "conditionToWake":Landroid/os/ConditionVariable;
     iget-object v2, p0, Landroid/filterfw/core/SyncRunner;->mWakeExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
     new-instance v3, Landroid/filterfw/core/SyncRunner$1;
@@ -753,7 +753,7 @@
 
 .method public setDoneCallback(Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;)V
     .locals 0
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
     .prologue
     .line 145

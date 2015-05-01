@@ -58,7 +58,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/media/IRemoteDisplayProvider;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 26
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 30
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/media/IRemoteDisplayProvider;
@@ -96,7 +96,7 @@
     :cond_1
     new-instance v0, Landroid/media/IRemoteDisplayProvider$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/media/IRemoteDisplayProvider$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -114,10 +114,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,13 +162,13 @@
     move-result-object v0
 
     .line 53
-    .local v0, _arg0:Landroid/media/IRemoteDisplayCallback;
+    .local v0, "_arg0":Landroid/media/IRemoteDisplayCallback;
     invoke-virtual {p0, v0}, Landroid/media/IRemoteDisplayProvider$Stub;->setCallback(Landroid/media/IRemoteDisplayCallback;)V
 
     goto :goto_0
 
     .line 58
-    .end local v0           #_arg0:Landroid/media/IRemoteDisplayCallback;
+    .end local v0    # "_arg0":Landroid/media/IRemoteDisplayCallback;
     :sswitch_2
     const-string v3, "android.media.IRemoteDisplayProvider"
 
@@ -180,13 +180,13 @@
     move-result v0
 
     .line 61
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/media/IRemoteDisplayProvider$Stub;->setDiscoveryMode(I)V
 
     goto :goto_0
 
     .line 66
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_3
     const-string v3, "android.media.IRemoteDisplayProvider"
 
@@ -198,13 +198,13 @@
     move-result-object v0
 
     .line 69
-    .local v0, _arg0:Ljava/lang/String;
+    .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/media/IRemoteDisplayProvider$Stub;->connect(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 74
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_4
     const-string v3, "android.media.IRemoteDisplayProvider"
 
@@ -216,13 +216,13 @@
     move-result-object v0
 
     .line 77
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/media/IRemoteDisplayProvider$Stub;->disconnect(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 82
-    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v0    # "_arg0":Ljava/lang/String;
     :sswitch_5
     const-string v3, "android.media.IRemoteDisplayProvider"
 
@@ -234,20 +234,20 @@
     move-result-object v0
 
     .line 86
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 87
-    .local v1, _arg1:I
+    .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/media/IRemoteDisplayProvider$Stub;->setVolume(Ljava/lang/String;I)V
 
     goto :goto_0
 
     .line 92
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:I
+    .end local v0    # "_arg0":Ljava/lang/String;
+    .end local v1    # "_arg1":I
     :sswitch_6
     const-string v3, "android.media.IRemoteDisplayProvider"
 
@@ -259,13 +259,13 @@
     move-result-object v0
 
     .line 96
-    .restart local v0       #_arg0:Ljava/lang/String;
+    .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     .line 97
-    .restart local v1       #_arg1:I
+    .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Landroid/media/IRemoteDisplayProvider$Stub;->adjustVolume(Ljava/lang/String;I)V
 
     goto :goto_0

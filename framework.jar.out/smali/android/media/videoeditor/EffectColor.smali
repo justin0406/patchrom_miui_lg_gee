@@ -55,12 +55,12 @@
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;JJII)V
     .locals 3
-    .parameter "mediaItem"
-    .parameter "effectId"
-    .parameter "startTimeMs"
-    .parameter "durationMs"
-    .parameter "type"
-    .parameter "color"
+    .param p1, "mediaItem"    # Landroid/media/videoeditor/MediaItem;
+    .param p2, "effectId"    # Ljava/lang/String;
+    .param p3, "startTimeMs"    # J
+    .param p5, "durationMs"    # J
+    .param p7, "type"    # I
+    .param p8, "color"    # I
 
     .prologue
     .line 95

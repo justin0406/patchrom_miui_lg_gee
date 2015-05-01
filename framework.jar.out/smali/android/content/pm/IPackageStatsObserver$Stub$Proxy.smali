@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 73
@@ -61,8 +61,8 @@
 
 .method public onGetStatsCompleted(Landroid/content/pm/PackageStats;Z)V
     .locals 5
-    .parameter "pStats"
-    .parameter "succeeded"
+    .param p1, "pStats"    # Landroid/content/pm/PackageStats;
+    .param p2, "succeeded"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -80,7 +80,7 @@
     move-result-object v0
 
     .line 88
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.pm.IPackageStatsObserver"
 

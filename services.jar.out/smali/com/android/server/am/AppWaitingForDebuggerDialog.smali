@@ -16,9 +16,9 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;)V
     .locals 6
-    .parameter "service"
-    .parameter "context"
-    .parameter "app"
+    .param p1, "service"    # Lcom/android/server/am/ActivityManagerService;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "app"    # Lcom/android/server/am/ProcessRecord;
 
     .prologue
     .line 32
@@ -61,7 +61,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 40
-    .local v1, text:Ljava/lang/StringBuilder;
+    .local v1, "text":Ljava/lang/StringBuilder;
     iget-object v2, p0, Lcom/android/server/am/AppWaitingForDebuggerDialog;->mAppName:Ljava/lang/CharSequence;
 
     if-eqz v2, :cond_0
@@ -142,7 +142,7 @@
     move-result-object v0
 
     .line 57
-    .local v0, attrs:Landroid/view/WindowManager$LayoutParams;
+    .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -178,7 +178,7 @@
     return-void
 
     .line 47
-    .end local v0           #attrs:Landroid/view/WindowManager$LayoutParams;
+    .end local v0    # "attrs":Landroid/view/WindowManager$LayoutParams;
     :cond_0
     const-string v2, "Process "
 

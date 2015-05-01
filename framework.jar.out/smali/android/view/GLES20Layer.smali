@@ -31,9 +31,9 @@
 
 .method constructor <init>(IIZ)V
     .locals 0
-    .parameter "width"
-    .parameter "height"
-    .parameter "opaque"
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "opaque"    # Z
 
     .prologue
     .line 34
@@ -65,7 +65,7 @@
 
 .method public copyInto(Landroid/graphics/Bitmap;)Z
     .locals 2
-    .parameter "bitmap"
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .prologue
     .line 57
@@ -132,7 +132,7 @@
 
 .method setLayerPaint(Landroid/graphics/Paint;)V
     .locals 2
-    .parameter "paint"
+    .param p1, "paint"    # Landroid/graphics/Paint;
 
     .prologue
     .line 48

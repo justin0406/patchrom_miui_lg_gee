@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 81
@@ -61,7 +61,7 @@
 
 .method public onDone(Ljava/lang/String;)V
     .locals 5
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 108
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.tts.ITextToSpeechCallback"
 
@@ -114,7 +114,7 @@
 
 .method public onError(Ljava/lang/String;)V
     .locals 5
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -128,7 +128,7 @@
     move-result-object v0
 
     .line 120
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.tts.ITextToSpeechCallback"
 
@@ -167,7 +167,7 @@
 
 .method public onStart(Ljava/lang/String;)V
     .locals 5
-    .parameter "utteranceId"
+    .param p1, "utteranceId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -181,7 +181,7 @@
     move-result-object v0
 
     .line 96
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "android.speech.tts.ITextToSpeechCallback"
 

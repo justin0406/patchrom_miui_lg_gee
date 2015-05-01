@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 254
@@ -36,7 +35,7 @@
 # virtual methods
 .method public dispatchAppVisibility(Z)V
     .locals 4
-    .parameter "visible"
+    .param p1, "visible"    # Z
 
     .prologue
     .line 273
@@ -65,7 +64,7 @@
     move-result-object v0
 
     .line 276
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -73,7 +72,7 @@
     invoke-virtual {v1, v0}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
     .line 278
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 
@@ -86,12 +85,12 @@
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)V
     .locals 5
-    .parameter "action"
-    .parameter "x"
-    .parameter "y"
-    .parameter "z"
-    .parameter "extras"
-    .parameter "sync"
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+    .param p4, "z"    # I
+    .param p5, "extras"    # Landroid/os/Bundle;
+    .param p6, "sync"    # Z
 
     .prologue
     .line 303
@@ -108,7 +107,7 @@
     invoke-direct {v0}, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;-><init>()V
 
     .line 306
-    .local v0, cmd:Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
+    .local v0, "cmd":Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
     iput-object p1, v0, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;->action:Ljava/lang/String;
 
     .line 307
@@ -138,7 +137,7 @@
     move-result-object v1
 
     .line 313
-    .local v1, msg:Landroid/os/Message;
+    .local v1, "msg":Landroid/os/Message;
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 314
@@ -155,8 +154,8 @@
     return-void
 
     .line 315
-    .end local v0           #cmd:Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
-    .end local v1           #msg:Landroid/os/Message;
+    .end local v0    # "cmd":Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
+    .end local v1    # "msg":Landroid/os/Message;
     :catchall_0
     move-exception v2
 
@@ -169,11 +168,11 @@
 
 .method public dispatchWallpaperOffsets(FFFFZ)V
     .locals 4
-    .parameter "x"
-    .parameter "y"
-    .parameter "xStep"
-    .parameter "yStep"
-    .parameter "sync"
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "xStep"    # F
+    .param p4, "yStep"    # F
+    .param p5, "sync"    # Z
 
     .prologue
     .line 283
@@ -241,7 +240,7 @@
     move-result-object v0
 
     .line 295
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -249,7 +248,7 @@
     invoke-virtual {v1, v0}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
     .line 297
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_1
     monitor-exit v2
 
@@ -269,8 +268,8 @@
 
 .method public moved(II)V
     .locals 3
-    .parameter "newX"
-    .parameter "newY"
+    .param p1, "newX"    # I
+    .param p2, "newY"    # I
 
     .prologue
     .line 265
@@ -285,7 +284,7 @@
     move-result-object v0
 
     .line 266
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -298,12 +297,12 @@
 
 .method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 4
-    .parameter "frame"
-    .parameter "overscanInsets"
-    .parameter "contentInsets"
-    .parameter "visibleInsets"
-    .parameter "reportDraw"
-    .parameter "newConfig"
+    .param p1, "frame"    # Landroid/graphics/Rect;
+    .param p2, "overscanInsets"    # Landroid/graphics/Rect;
+    .param p3, "contentInsets"    # Landroid/graphics/Rect;
+    .param p4, "visibleInsets"    # Landroid/graphics/Rect;
+    .param p5, "reportDraw"    # Z
+    .param p6, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 258
@@ -323,7 +322,7 @@
     move-result-object v0
 
     .line 260
-    .local v0, msg:Landroid/os/Message;
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -334,7 +333,7 @@
     return-void
 
     .line 258
-    .end local v0           #msg:Landroid/os/Message;
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     const/4 v1, 0x0
 

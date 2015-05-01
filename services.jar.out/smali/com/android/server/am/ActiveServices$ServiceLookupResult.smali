@@ -25,9 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ServiceRecord;Ljava/lang/String;)V
     .locals 0
-    .parameter
-    .parameter "_record"
-    .parameter "_permission"
+    .param p2, "_record"    # Lcom/android/server/am/ServiceRecord;
+    .param p3, "_permission"    # Ljava/lang/String;
 
     .prologue
     .line 924

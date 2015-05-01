@@ -42,7 +42,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/nfc/NdefRecord;
     .locals 8
-    .parameter "in"
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
     .line 953
@@ -53,17 +53,17 @@
     int-to-short v4, v7
 
     .line 954
-    .local v4, tnf:S
+    .local v4, "tnf":S
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     .line 955
-    .local v6, typeLength:I
+    .local v6, "typeLength":I
     new-array v5, v6, [B
 
     .line 956
-    .local v5, type:[B
+    .local v5, "type":[B
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 957
@@ -72,11 +72,11 @@
     move-result v1
 
     .line 958
-    .local v1, idLength:I
+    .local v1, "idLength":I
     new-array v0, v1, [B
 
     .line 959
-    .local v0, id:[B
+    .local v0, "id":[B
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 960
@@ -85,11 +85,11 @@
     move-result v3
 
     .line 961
-    .local v3, payloadLength:I
+    .local v3, "payloadLength":I
     new-array v2, v3, [B
 
     .line 962
-    .local v2, payload:[B
+    .local v2, "payload":[B
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 964
@@ -102,7 +102,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
     .line 950
@@ -115,7 +115,7 @@
 
 .method public newArray(I)[Landroid/nfc/NdefRecord;
     .locals 1
-    .parameter "size"
+    .param p1, "size"    # I
 
     .prologue
     .line 968
@@ -126,7 +126,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # I
 
     .prologue
     .line 950

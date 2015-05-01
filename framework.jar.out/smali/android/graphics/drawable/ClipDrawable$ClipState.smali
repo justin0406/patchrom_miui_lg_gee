@@ -31,9 +31,9 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ClipDrawable$ClipState;Landroid/graphics/drawable/ClipDrawable;Landroid/content/res/Resources;)V
     .locals 2
-    .parameter "orig"
-    .parameter "owner"
-    .parameter "res"
+    .param p1, "orig"    # Landroid/graphics/drawable/ClipDrawable$ClipState;
+    .param p2, "owner"    # Landroid/graphics/drawable/ClipDrawable;
+    .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 263
@@ -182,7 +182,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .parameter "res"
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
     .line 285

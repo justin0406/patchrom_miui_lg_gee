@@ -32,8 +32,8 @@
 # virtual methods
 .method public process(Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)V
     .locals 2
-    .parameter "request"
-    .parameter "context"
+    .param p1, "request"    # Lorg/apache/http/HttpRequest;
+    .param p2, "context"    # Lorg/apache/http/protocol/HttpContext;
 
     .prologue
     .line 99

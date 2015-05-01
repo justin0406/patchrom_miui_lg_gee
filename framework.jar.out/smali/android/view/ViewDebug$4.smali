@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 551
@@ -49,7 +48,7 @@
 # virtual methods
 .method public varargs post([Ljava/lang/Object;)V
     .locals 3
-    .parameter "data"
+    .param p1, "data"    # [Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -118,7 +117,7 @@
     move-result-object v2
 
     .line 556
-    .local v2, metrics:Landroid/util/DisplayMetrics;
+    .local v2, "metrics":Landroid/util/DisplayMetrics;
     :goto_0
     if-eqz v2, :cond_2
 
@@ -133,7 +132,7 @@
     move-result-object v0
 
     .line 559
-    .local v0, bitmap:Landroid/graphics/Bitmap;
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     :goto_1
     if-eqz v0, :cond_0
 
@@ -142,7 +141,7 @@
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 560
-    .local v1, canvas:Landroid/graphics/Canvas;
+    .local v1, "canvas":Landroid/graphics/Canvas;
     :cond_0
     const/4 v3, 0x2
 
@@ -158,16 +157,16 @@
 
     return-object v3
 
-    .end local v0           #bitmap:Landroid/graphics/Bitmap;
-    .end local v1           #canvas:Landroid/graphics/Canvas;
-    .end local v2           #metrics:Landroid/util/DisplayMetrics;
+    .end local v0    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v1    # "canvas":Landroid/graphics/Canvas;
+    .end local v2    # "metrics":Landroid/util/DisplayMetrics;
     :cond_1
     move-object v2, v1
 
     .line 553
     goto :goto_0
 
-    .restart local v2       #metrics:Landroid/util/DisplayMetrics;
+    .restart local v2    # "metrics":Landroid/util/DisplayMetrics;
     :cond_2
     move-object v0, v1
 
@@ -177,7 +176,7 @@
 
 .method public varargs run([Ljava/lang/Object;)V
     .locals 3
-    .parameter "data"
+    .param p1, "data"    # [Ljava/lang/Object;
 
     .prologue
     const/4 v2, 0x1

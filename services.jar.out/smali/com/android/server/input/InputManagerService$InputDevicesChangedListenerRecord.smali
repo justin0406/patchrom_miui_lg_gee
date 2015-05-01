@@ -28,9 +28,8 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/hardware/input/IInputDevicesChangedListener;)V
     .locals 0
-    .parameter
-    .parameter "pid"
-    .parameter "listener"
+    .param p2, "pid"    # I
+    .param p3, "listener"    # Landroid/hardware/input/IInputDevicesChangedListener;
 
     .prologue
     .line 1597
@@ -59,7 +58,7 @@
 
     iget v1, p0, Lcom/android/server/input/InputManagerService$InputDevicesChangedListenerRecord;->mPid:I
 
-    #calls: Lcom/android/server/input/InputManagerService;->onInputDevicesChangedListenerDied(I)V
+    # invokes: Lcom/android/server/input/InputManagerService;->onInputDevicesChangedListenerDied(I)V
     invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->access$800(Lcom/android/server/input/InputManagerService;I)V
 
     .line 1608
@@ -68,7 +67,7 @@
 
 .method public notifyInputDevicesChanged([I)V
     .locals 4
-    .parameter "info"
+    .param p1, "info"    # [I
 
     .prologue
     .line 1612
@@ -88,7 +87,7 @@
     move-exception v0
 
     .line 1614
-    .local v0, ex:Landroid/os/RemoteException;
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "InputManager"
 
     new-instance v2, Ljava/lang/StringBuilder;

@@ -38,8 +38,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/CursorTreeAdapter;Landroid/database/Cursor;)V
     .locals 3
-    .parameter
-    .parameter "cursor"
+    .param p2, "cursor"    # Landroid/database/Cursor;
 
     .prologue
     .line 408
@@ -53,7 +52,7 @@
     const/4 v0, 0x1
 
     .line 410
-    .local v0, cursorPresent:Z
+    .local v0, "cursorPresent":Z
     :goto_0
     iput-object p2, p0, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mCursor:Landroid/database/Cursor;
 
@@ -106,14 +105,14 @@
     return-void
 
     .line 409
-    .end local v0           #cursorPresent:Z
+    .end local v0    # "cursorPresent":Z
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
     .line 412
-    .restart local v0       #cursorPresent:Z
+    .restart local v0    # "cursorPresent":Z
     :cond_2
     const/4 v1, -0x1
 
@@ -122,7 +121,7 @@
 
 .method static synthetic access$300(Landroid/widget/CursorTreeAdapter$MyCursorHelper;)Landroid/database/Cursor;
     .locals 1
-    .parameter "x0"
+    .param p0, "x0"    # Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     .prologue
     .line 401
@@ -133,8 +132,8 @@
 
 .method static synthetic access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/widget/CursorTreeAdapter$MyCursorHelper;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 401
@@ -147,8 +146,8 @@
 # virtual methods
 .method changeCursor(Landroid/database/Cursor;Z)V
     .locals 1
-    .parameter "cursor"
-    .parameter "releaseCursors"
+    .param p1, "cursor"    # Landroid/database/Cursor;
+    .param p2, "releaseCursors"    # Z
 
     .prologue
     .line 454
@@ -303,7 +302,7 @@
 
 .method getId(I)J
     .locals 3
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     const-wide/16 v0, 0x0
@@ -366,7 +365,7 @@
 
 .method moveTo(I)Landroid/database/Cursor;
     .locals 1
-    .parameter "position"
+    .param p1, "position"    # I
 
     .prologue
     .line 446

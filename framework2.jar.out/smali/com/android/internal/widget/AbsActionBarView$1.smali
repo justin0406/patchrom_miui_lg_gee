@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/AbsActionBarView;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 183

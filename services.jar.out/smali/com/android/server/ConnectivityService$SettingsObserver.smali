@@ -23,20 +23,20 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;I)V
     .locals 0
-    .parameter "handler"
-    .parameter "what"
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "what"    # I
 
     .prologue
-    .line 3516
+    .line 3590
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 3517
+    .line 3591
     iput-object p1, p0, Lcom/android/server/ConnectivityService$SettingsObserver;->mHandler:Landroid/os/Handler;
 
-    .line 3518
+    .line 3592
     iput p2, p0, Lcom/android/server/ConnectivityService$SettingsObserver;->mWhat:I
 
-    .line 3519
+    .line 3593
     return-void
 .end method
 
@@ -44,16 +44,16 @@
 # virtual methods
 .method observe(Landroid/content/Context;)V
     .locals 3
-    .parameter "context"
+    .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 3522
+    .line 3596
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 3523
-    .local v0, resolver:Landroid/content/ContentResolver;
+    .line 3597
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v1, "http_proxy"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -64,16 +64,16 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 3525
+    .line 3599
     return-void
 .end method
 
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
 
     .prologue
-    .line 3529
+    .line 3603
     iget-object v0, p0, Lcom/android/server/ConnectivityService$SettingsObserver;->mHandler:Landroid/os/Handler;
 
     iget v1, p0, Lcom/android/server/ConnectivityService$SettingsObserver;->mWhat:I
@@ -84,6 +84,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 3530
+    .line 3604
     return-void
 .end method

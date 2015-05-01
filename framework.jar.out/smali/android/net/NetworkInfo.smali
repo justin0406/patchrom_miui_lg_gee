@@ -209,7 +209,7 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .parameter "type"
+    .param p1, "type"    # I
 
     .prologue
     .line 136
@@ -220,10 +220,10 @@
 
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "type"
-    .parameter "subtype"
-    .parameter "typeName"
-    .parameter "subtypeName"
+    .param p1, "type"    # I
+    .param p2, "subtype"    # I
+    .param p3, "typeName"    # Ljava/lang/String;
+    .param p4, "subtypeName"    # Ljava/lang/String;
 
     .prologue
     const/4 v2, 0x0
@@ -303,7 +303,7 @@
 
 .method public constructor <init>(Landroid/net/NetworkInfo;)V
     .locals 1
-    .parameter "source"
+    .param p1, "source"    # Landroid/net/NetworkInfo;
 
     .prologue
     .line 157
@@ -379,8 +379,8 @@
 
 .method static synthetic access$002(Landroid/net/NetworkInfo;Landroid/net/NetworkInfo$State;)Landroid/net/NetworkInfo$State;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Landroid/net/NetworkInfo$State;
 
     .prologue
     .line 31
@@ -391,8 +391,8 @@
 
 .method static synthetic access$102(Landroid/net/NetworkInfo;Landroid/net/NetworkInfo$DetailedState;)Landroid/net/NetworkInfo$DetailedState;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Landroid/net/NetworkInfo$DetailedState;
 
     .prologue
     .line 31
@@ -403,8 +403,8 @@
 
 .method static synthetic access$202(Landroid/net/NetworkInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 31
@@ -415,8 +415,8 @@
 
 .method static synthetic access$302(Landroid/net/NetworkInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 31
@@ -427,8 +427,8 @@
 
 .method static synthetic access$402(Landroid/net/NetworkInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 31
@@ -439,8 +439,8 @@
 
 .method static synthetic access$502(Landroid/net/NetworkInfo;Z)Z
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Z
 
     .prologue
     .line 31
@@ -451,8 +451,8 @@
 
 .method static synthetic access$602(Landroid/net/NetworkInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 31
@@ -463,8 +463,8 @@
 
 .method static synthetic access$702(Landroid/net/NetworkInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .parameter "x0"
-    .parameter "x1"
+    .param p0, "x0"    # Landroid/net/NetworkInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
     .line 31
@@ -882,9 +882,9 @@
 
 .method public setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .parameter "detailedState"
-    .parameter "reason"
-    .parameter "extraInfo"
+    .param p1, "detailedState"    # Landroid/net/NetworkInfo$DetailedState;
+    .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "extraInfo"    # Ljava/lang/String;
 
     .prologue
     .line 375
@@ -930,7 +930,7 @@
 
 .method public setExtraInfo(Ljava/lang/String;)V
     .locals 1
-    .parameter "extraInfo"
+    .param p1, "extraInfo"    # Ljava/lang/String;
 
     .prologue
     .line 390
@@ -959,7 +959,7 @@
 
 .method public setFailover(Z)V
     .locals 1
-    .parameter "isFailover"
+    .param p1, "isFailover"    # Z
 
     .prologue
     .line 304
@@ -988,7 +988,7 @@
 
 .method public setIsAvailable(Z)V
     .locals 1
-    .parameter "isAvailable"
+    .param p1, "isAvailable"    # Z
 
     .prologue
     .line 279
@@ -1017,7 +1017,7 @@
 
 .method public setIsConnectedToProvisioningNetwork(Z)V
     .locals 1
-    .parameter "val"
+    .param p1, "val"    # Z
 
     .prologue
     .line 340
@@ -1046,7 +1046,7 @@
 
 .method public setRoaming(Z)V
     .locals 1
-    .parameter "isRoaming"
+    .param p1, "isRoaming"    # Z
 
     .prologue
     .line 324
@@ -1075,8 +1075,8 @@
 
 .method setSubtype(ILjava/lang/String;)V
     .locals 1
-    .parameter "subtype"
-    .parameter "subtypeName"
+    .param p1, "subtype"    # I
+    .param p2, "subtypeName"    # Ljava/lang/String;
 
     .prologue
     .line 200
@@ -1122,7 +1122,7 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 422
-    .local v0, builder:Ljava/lang/StringBuilder;
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "type: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1276,7 +1276,7 @@
     goto :goto_1
 
     .line 432
-    .end local v0           #builder:Ljava/lang/StringBuilder;
+    .end local v0    # "builder":Ljava/lang/StringBuilder;
     :catchall_0
     move-exception v1
 
@@ -1289,8 +1289,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .parameter "dest"
-    .parameter "flags"
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .prologue
     const/4 v0, 0x1

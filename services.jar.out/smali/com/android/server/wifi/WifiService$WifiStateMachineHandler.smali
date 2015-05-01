@@ -23,8 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/os/Looper;)V
     .locals 3
-    .parameter
-    .parameter "looper"
+    .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
     .line 240
@@ -43,7 +42,7 @@
     .line 243
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$WifiStateMachineHandler;->mWsmChannel:Lcom/android/internal/util/AsyncChannel;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/server/wifi/WifiService;->access$200(Lcom/android/server/wifi/WifiService;)Landroid/content/Context;
 
     move-result-object v1
@@ -64,7 +63,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .parameter "msg"
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
     const/4 v3, 0x0
@@ -112,7 +111,7 @@
 
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$WifiStateMachineHandler;->mWsmChannel:Lcom/android/internal/util/AsyncChannel;
 
-    #setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
+    # setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v0, v1}, Lcom/android/server/wifi/WifiService;->access$302(Lcom/android/server/wifi/WifiService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_0
@@ -146,7 +145,7 @@
     .line 254
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$WifiStateMachineHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
+    # setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v0, v3}, Lcom/android/server/wifi/WifiService;->access$302(Lcom/android/server/wifi/WifiService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_0
@@ -180,7 +179,7 @@
     .line 260
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$WifiStateMachineHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
+    # setter for: Lcom/android/server/wifi/WifiService;->mWifiStateMachineChannel:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v0, v3}, Lcom/android/server/wifi/WifiService;->access$302(Lcom/android/server/wifi/WifiService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     .line 262
@@ -188,7 +187,7 @@
 
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$WifiStateMachineHandler;->this$0:Lcom/android/server/wifi/WifiService;
 
-    #getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/wifi/WifiService;->access$200(Lcom/android/server/wifi/WifiService;)Landroid/content/Context;
 
     move-result-object v1

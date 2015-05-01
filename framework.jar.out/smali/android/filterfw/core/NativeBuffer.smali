@@ -60,7 +60,7 @@
 
 .method public constructor <init>(I)V
     .locals 4
-    .parameter "count"
+    .param p1, "count"    # I
 
     .prologue
     const/4 v3, 0x1
@@ -182,7 +182,7 @@
 
 .method attachToFrame(Landroid/filterfw/core/Frame;)V
     .locals 0
-    .parameter "frame"
+    .param p1, "frame"    # Landroid/filterfw/core/Frame;
 
     .prologue
     .line 110
@@ -264,25 +264,25 @@
     const/4 v2, 0x0
 
     .line 47
-    .local v2, result:Landroid/filterfw/core/NativeBuffer;
+    .local v2, "result":Landroid/filterfw/core/NativeBuffer;
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
     .line 48
-    .local v1, myClass:Ljava/lang/Class;
+    .local v1, "myClass":Ljava/lang/Class;
     invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v2
 
-    .end local v2           #result:Landroid/filterfw/core/NativeBuffer;
+    .end local v2    # "result":Landroid/filterfw/core/NativeBuffer;
     check-cast v2, Landroid/filterfw/core/NativeBuffer;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 53
-    .restart local v2       #result:Landroid/filterfw/core/NativeBuffer;
+    .restart local v2    # "result":Landroid/filterfw/core/NativeBuffer;
     iget v3, p0, Landroid/filterfw/core/NativeBuffer;->mSize:I
 
     if-lez v3, :cond_0
@@ -303,13 +303,13 @@
     throw v3
 
     .line 49
-    .end local v1           #myClass:Ljava/lang/Class;
-    .end local v2           #result:Landroid/filterfw/core/NativeBuffer;
+    .end local v1    # "myClass":Ljava/lang/Class;
+    .end local v2    # "result":Landroid/filterfw/core/NativeBuffer;
     :catch_0
     move-exception v0
 
     .line 50
-    .local v0, e:Ljava/lang/Exception;
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -351,9 +351,9 @@
     throw v3
 
     .line 56
-    .end local v0           #e:Ljava/lang/Exception;
-    .restart local v1       #myClass:Ljava/lang/Class;
-    .restart local v2       #result:Landroid/filterfw/core/NativeBuffer;
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v1    # "myClass":Ljava/lang/Class;
+    .restart local v2    # "result":Landroid/filterfw/core/NativeBuffer;
     :cond_0
     return-object v2
 .end method
@@ -370,7 +370,7 @@
     const/4 v0, 0x0
 
     .line 83
-    .local v0, doDealloc:Z
+    .local v0, "doDealloc":Z
     iget-object v3, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
     if-eqz v3, :cond_3
@@ -400,11 +400,11 @@
     const/4 p0, 0x0
 
     .line 95
-    .end local p0
+    .end local p0    # "this":Landroid/filterfw/core/NativeBuffer;
     :cond_1
     return-object p0
 
-    .restart local p0
+    .restart local p0    # "this":Landroid/filterfw/core/NativeBuffer;
     :cond_2
     move v0, v2
 

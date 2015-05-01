@@ -34,8 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/UserState;Landroid/print/PrintJobInfo;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 187
@@ -52,13 +50,13 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .parameter "x0"
+    .param p1, "x0"    # [Ljava/lang/Object;
 
     .prologue
     .line 187
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/print/UserState$1;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
     move-result-object v0
@@ -68,13 +66,13 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 2
-    .parameter "params"
+    .param p1, "params"    # [Ljava/lang/Void;
 
     .prologue
     .line 190
     iget-object v0, p0, Lcom/android/server/print/UserState$1;->this$0:Lcom/android/server/print/UserState;
 
-    #getter for: Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
+    # getter for: Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
     invoke-static {v0}, Lcom/android/server/print/UserState;->access$100(Lcom/android/server/print/UserState;)Lcom/android/server/print/RemotePrintSpooler;
 
     move-result-object v0

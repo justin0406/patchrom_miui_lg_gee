@@ -36,7 +36,7 @@
 
 .method public constructor <init>(Ljava/io/DataInputStream;)V
     .locals 10
-    .parameter "in"
+    .param p1, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,16 +53,16 @@
     move-result v9
 
     .line 42
-    .local v9, version:I
+    .local v9, "version":I
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v8
 
     .line 43
-    .local v8, size:I
+    .local v8, "size":I
     const/4 v6, 0x0
 
-    .local v6, i:I
+    .local v6, "i":I
     :goto_0
     if-ge v6, v8, :cond_3
 
@@ -81,19 +81,19 @@
     move-result v1
 
     .line 48
-    .local v1, type:I
+    .local v1, "type":I
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v2
 
     .line 49
-    .local v2, subType:I
+    .local v2, "subType":I
     invoke-static {p1}, Lcom/android/server/net/NetworkIdentitySet;->readOptionalString(Ljava/io/DataInputStream;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 51
-    .local v3, subscriberId:Ljava/lang/String;
+    .local v3, "subscriberId":Ljava/lang/String;
     const/4 v0, 0x3
 
     if-lt v9, v0, :cond_1
@@ -104,7 +104,7 @@
     move-result-object v4
 
     .line 57
-    .local v4, networkId:Ljava/lang/String;
+    .local v4, "networkId":Ljava/lang/String;
     :goto_1
     const/4 v0, 0x2
 
@@ -116,7 +116,7 @@
     move-result v7
 
     .line 63
-    .local v7, roaming:Z
+    .local v7, "roaming":Z
     :goto_2
     new-instance v0, Landroid/net/NetworkIdentity;
 
@@ -132,34 +132,34 @@
     goto :goto_0
 
     .line 54
-    .end local v4           #networkId:Ljava/lang/String;
-    .end local v7           #roaming:Z
+    .end local v4    # "networkId":Ljava/lang/String;
+    .end local v7    # "roaming":Z
     :cond_1
     const/4 v4, 0x0
 
-    .restart local v4       #networkId:Ljava/lang/String;
+    .restart local v4    # "networkId":Ljava/lang/String;
     goto :goto_1
 
     .line 60
     :cond_2
     const/4 v7, 0x0
 
-    .restart local v7       #roaming:Z
+    .restart local v7    # "roaming":Z
     goto :goto_2
 
     .line 65
-    .end local v1           #type:I
-    .end local v2           #subType:I
-    .end local v3           #subscriberId:Ljava/lang/String;
-    .end local v4           #networkId:Ljava/lang/String;
-    .end local v7           #roaming:Z
+    .end local v1    # "type":I
+    .end local v2    # "subType":I
+    .end local v3    # "subscriberId":Ljava/lang/String;
+    .end local v4    # "networkId":Ljava/lang/String;
+    .end local v7    # "roaming":Z
     :cond_3
     return-void
 .end method
 
 .method private static readOptionalString(Ljava/io/DataInputStream;)Ljava/lang/String;
     .locals 1
-    .parameter "in"
+    .param p0, "in"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -191,8 +191,8 @@
 
 .method private static writeOptionalString(Ljava/io/DataOutputStream;Ljava/lang/String;)V
     .locals 1
-    .parameter "out"
-    .parameter "value"
+    .param p0, "out"    # Ljava/io/DataOutputStream;
+    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -228,7 +228,7 @@
 # virtual methods
 .method public writeToStream(Ljava/io/DataOutputStream;)V
     .locals 3
-    .parameter "out"
+    .param p1, "out"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -253,7 +253,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -268,7 +268,7 @@
     check-cast v1, Landroid/net/NetworkIdentity;
 
     .line 71
-    .local v1, ident:Landroid/net/NetworkIdentity;
+    .local v1, "ident":Landroid/net/NetworkIdentity;
     invoke-virtual {v1}, Landroid/net/NetworkIdentity;->getType()I
 
     move-result v2
@@ -306,7 +306,7 @@
     goto :goto_0
 
     .line 77
-    .end local v1           #ident:Landroid/net/NetworkIdentity;
+    .end local v1    # "ident":Landroid/net/NetworkIdentity;
     :cond_0
     return-void
 .end method

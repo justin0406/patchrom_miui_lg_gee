@@ -31,7 +31,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DEFAULT_SORT_ORDER:Ljava/lang/String; = "date DESC"
 
@@ -103,7 +103,7 @@
 
 .method public static extractAddrSpec(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .parameter "address"
+    .param p0, "address"    # Ljava/lang/String;
 
     .prologue
     .line 1702
@@ -114,7 +114,7 @@
     move-result-object v0
 
     .line 1704
-    .local v0, match:Ljava/util/regex/Matcher;
+    .local v0, "match":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v1
@@ -129,14 +129,14 @@
     move-result-object p0
 
     .line 1707
-    .end local p0
+    .end local p0    # "address":Ljava/lang/String;
     :cond_0
     return-object p0
 .end method
 
 .method public static isEmailAddress(Ljava/lang/String;)Z
     .locals 3
-    .parameter "address"
+    .param p0, "address"    # Ljava/lang/String;
 
     .prologue
     .line 1718
@@ -160,7 +160,7 @@
     move-result-object v1
 
     .line 1723
-    .local v1, s:Ljava/lang/String;
+    .local v1, "s":Ljava/lang/String;
     sget-object v2, Landroid/util/Patterns;->EMAIL_ADDRESS:Ljava/util/regex/Pattern;
 
     invoke-virtual {v2, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -168,7 +168,7 @@
     move-result-object v0
 
     .line 1724
-    .local v0, match:Ljava/util/regex/Matcher;
+    .local v0, "match":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v2
@@ -178,7 +178,7 @@
 
 .method public static isPhoneNumber(Ljava/lang/String;)Z
     .locals 2
-    .parameter "number"
+    .param p0, "number"    # Ljava/lang/String;
 
     .prologue
     .line 1735
@@ -204,7 +204,7 @@
     move-result-object v0
 
     .line 1740
-    .local v0, match:Ljava/util/regex/Matcher;
+    .local v0, "match":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v1
@@ -214,8 +214,8 @@
 
 .method public static query(Landroid/content/ContentResolver;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "projection"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
@@ -240,10 +240,10 @@
 
 .method public static query(Landroid/content/ContentResolver;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "projection"
-    .parameter "where"
-    .parameter "orderBy"
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "projection"    # [Ljava/lang/String;
+    .param p2, "where"    # Ljava/lang/String;
+    .param p3, "orderBy"    # Ljava/lang/String;
 
     .prologue
     .line 1693

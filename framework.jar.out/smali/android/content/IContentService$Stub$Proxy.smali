@@ -24,7 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .parameter "remote"
+    .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
     .line 404
@@ -41,10 +41,10 @@
 # virtual methods
 .method public addPeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V
     .locals 5
-    .parameter "account"
-    .parameter "providerName"
-    .parameter "extras"
-    .parameter "pollFrequency"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
+    .param p4, "pollFrequency"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -58,13 +58,13 @@
     move-result-object v0
 
     .line 665
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 667
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -163,8 +163,8 @@
 
 .method public addStatusChangeListener(ILandroid/content/ISyncStatusObserver;)V
     .locals 5
-    .parameter "mask"
-    .parameter "callback"
+    .param p1, "mask"    # I
+    .param p2, "callback"    # Landroid/content/ISyncStatusObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -178,13 +178,13 @@
     move-result-object v0
 
     .line 950
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 952
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -256,8 +256,8 @@
 
 .method public cancelSync(Landroid/accounts/Account;Ljava/lang/String;)V
     .locals 5
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,13 +271,13 @@
     move-result-object v0
 
     .line 546
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 548
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -371,13 +371,13 @@
     move-result-object v0
 
     .line 848
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 851
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -405,7 +405,7 @@
     move-result-object v2
 
     .line 857
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/SyncInfo;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/SyncInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 858
@@ -415,7 +415,7 @@
     return-object v2
 
     .line 857
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/SyncInfo;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/SyncInfo;>;"
     :catchall_0
     move-exception v3
 
@@ -439,8 +439,8 @@
 
 .method public getIsSyncable(Landroid/accounts/Account;Ljava/lang/String;)I
     .locals 6
-    .parameter "account"
-    .parameter "providerName"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -454,13 +454,13 @@
     move-result-object v0
 
     .line 735
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 738
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -503,7 +503,7 @@
     move-result v2
 
     .line 752
-    .local v2, _result:I
+    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 753
@@ -513,7 +513,7 @@
     return v2
 
     .line 744
-    .end local v2           #_result:I
+    .end local v2    # "_result":I
     :cond_0
     const/4 v3, 0x0
 
@@ -553,13 +553,13 @@
     move-result-object v0
 
     .line 802
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 805
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -589,7 +589,7 @@
     const/4 v2, 0x1
 
     .line 811
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -600,7 +600,7 @@
     return v2
 
     .line 811
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :catchall_0
     move-exception v3
 
@@ -614,8 +614,8 @@
 
 .method public getPeriodicSyncs(Landroid/accounts/Account;Ljava/lang/String;)Ljava/util/List;
     .locals 6
-    .parameter "account"
-    .parameter "providerName"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -642,13 +642,13 @@
     move-result-object v0
 
     .line 633
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 636
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -693,7 +693,7 @@
     move-result-object v2
 
     .line 650
-    .local v2, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/PeriodicSync;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 651
@@ -703,7 +703,7 @@
     return-object v2
 
     .line 642
-    .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/PeriodicSync;>;"
     :cond_0
     const/4 v3, 0x0
 
@@ -741,13 +741,13 @@
     move-result-object v0
 
     .line 869
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 872
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -777,7 +777,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 878
-    .local v2, _result:[Landroid/content/SyncAdapterType;
+    .local v2, "_result":[Landroid/content/SyncAdapterType;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 879
@@ -787,7 +787,7 @@
     return-object v2
 
     .line 878
-    .end local v2           #_result:[Landroid/content/SyncAdapterType;
+    .end local v2    # "_result":[Landroid/content/SyncAdapterType;
     :catchall_0
     move-exception v3
 
@@ -801,8 +801,8 @@
 
 .method public getSyncAutomatically(Landroid/accounts/Account;Ljava/lang/String;)Z
     .locals 7
-    .parameter "account"
-    .parameter "providerName"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -820,13 +820,13 @@
     move-result-object v0
 
     .line 573
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 576
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -871,7 +871,7 @@
     if-eqz v4, :cond_1
 
     .line 590
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -882,7 +882,7 @@
     return v2
 
     .line 582
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -913,8 +913,8 @@
 
 .method public getSyncStatus(Landroid/accounts/Account;Ljava/lang/String;)Landroid/content/SyncStatusInfo;
     .locals 6
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -928,13 +928,13 @@
     move-result-object v0
 
     .line 892
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 895
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -988,7 +988,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 914
-    .local v2, _result:Landroid/content/SyncStatusInfo;
+    .local v2, "_result":Landroid/content/SyncStatusInfo;
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -999,7 +999,7 @@
     return-object v2
 
     .line 901
-    .end local v2           #_result:Landroid/content/SyncStatusInfo;
+    .end local v2    # "_result":Landroid/content/SyncStatusInfo;
     :cond_0
     const/4 v3, 0x0
 
@@ -1025,14 +1025,14 @@
     :cond_1
     const/4 v2, 0x0
 
-    .restart local v2       #_result:Landroid/content/SyncStatusInfo;
+    .restart local v2    # "_result":Landroid/content/SyncStatusInfo;
     goto :goto_1
 .end method
 
 .method public isSyncActive(Landroid/accounts/Account;Ljava/lang/String;)Z
     .locals 7
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1050,13 +1050,13 @@
     move-result-object v0
 
     .line 823
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 826
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -1101,7 +1101,7 @@
     if-eqz v4, :cond_1
 
     .line 840
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1112,7 +1112,7 @@
     return v2
 
     .line 832
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -1143,8 +1143,8 @@
 
 .method public isSyncPending(Landroid/accounts/Account;Ljava/lang/String;)Z
     .locals 7
-    .parameter "account"
-    .parameter "authority"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1162,13 +1162,13 @@
     move-result-object v0
 
     .line 925
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 928
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -1213,7 +1213,7 @@
     if-eqz v4, :cond_1
 
     .line 942
-    .local v2, _result:Z
+    .local v2, "_result":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
@@ -1224,7 +1224,7 @@
     return v2
 
     .line 934
-    .end local v2           #_result:Z
+    .end local v2    # "_result":Z
     :cond_0
     const/4 v4, 0x0
 
@@ -1255,11 +1255,11 @@
 
 .method public notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZZI)V
     .locals 5
-    .parameter "uri"
-    .parameter "observer"
-    .parameter "observerWantsSelfNotifications"
-    .parameter "syncToNetwork"
-    .parameter "userHandle"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "observer"    # Landroid/database/IContentObserver;
+    .param p3, "observerWantsSelfNotifications"    # Z
+    .param p4, "syncToNetwork"    # Z
+    .param p5, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1277,13 +1277,13 @@
     move-result-object v0
 
     .line 471
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 473
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -1396,10 +1396,10 @@
 
 .method public registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;I)V
     .locals 5
-    .parameter "uri"
-    .parameter "notifyForDescendants"
-    .parameter "observer"
-    .parameter "userHandle"
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "notifyForDescendants"    # Z
+    .param p3, "observer"    # Landroid/database/IContentObserver;
+    .param p4, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1417,13 +1417,13 @@
     move-result-object v0
 
     .line 440
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 442
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -1522,9 +1522,9 @@
 
 .method public removePeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "account"
-    .parameter "providerName"
-    .parameter "extras"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1538,13 +1538,13 @@
     move-result-object v0
 
     .line 702
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 704
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -1640,7 +1640,7 @@
 
 .method public removeStatusChangeListener(Landroid/content/ISyncStatusObserver;)V
     .locals 5
-    .parameter "callback"
+    .param p1, "callback"    # Landroid/content/ISyncStatusObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1654,13 +1654,13 @@
     move-result-object v0
 
     .line 966
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 968
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -1719,9 +1719,9 @@
 
 .method public requestSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 5
-    .parameter "account"
-    .parameter "authority"
-    .parameter "extras"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "authority"    # Ljava/lang/String;
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1735,13 +1735,13 @@
     move-result-object v0
 
     .line 496
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 498
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -1837,9 +1837,9 @@
 
 .method public setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
     .locals 5
-    .parameter "account"
-    .parameter "providerName"
-    .parameter "syncable"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
+    .param p3, "syncable"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1853,13 +1853,13 @@
     move-result-object v0
 
     .line 764
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 766
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -1933,7 +1933,7 @@
 
 .method public setMasterSyncAutomatically(Z)V
     .locals 5
-    .parameter "flag"
+    .param p1, "flag"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1949,13 +1949,13 @@
     move-result-object v0
 
     .line 787
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 789
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.content.IContentService"
 
@@ -2006,9 +2006,9 @@
 
 .method public setSyncAutomatically(Landroid/accounts/Account;Ljava/lang/String;Z)V
     .locals 5
-    .parameter "account"
-    .parameter "providerName"
-    .parameter "sync"
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "providerName"    # Ljava/lang/String;
+    .param p3, "sync"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2026,13 +2026,13 @@
     move-result-object v0
 
     .line 604
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 606
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.content.IContentService"
 
@@ -2115,7 +2115,7 @@
 
 .method public sync(Landroid/content/SyncRequest;)V
     .locals 5
-    .parameter "request"
+    .param p1, "request"    # Landroid/content/SyncRequest;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2129,13 +2129,13 @@
     move-result-object v0
 
     .line 525
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 527
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 
@@ -2203,7 +2203,7 @@
 
 .method public unregisterContentObserver(Landroid/database/IContentObserver;)V
     .locals 5
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/IContentObserver;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2217,13 +2217,13 @@
     move-result-object v0
 
     .line 418
-    .local v0, _data:Landroid/os/Parcel;
+    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
     .line 420
-    .local v1, _reply:Landroid/os/Parcel;
+    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.content.IContentService"
 

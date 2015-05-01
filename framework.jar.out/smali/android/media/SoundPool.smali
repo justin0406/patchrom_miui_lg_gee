@@ -21,9 +21,9 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 2
-    .parameter "maxStreams"
-    .parameter "streamType"
-    .parameter "srcQuality"
+    .param p1, "maxStreams"    # I
+    .param p2, "streamType"    # I
+    .param p3, "srcQuality"    # I
 
     .prologue
     .line 123
@@ -92,9 +92,9 @@
 
 .method public load(Landroid/content/Context;II)I
     .locals 1
-    .parameter "context"
-    .parameter "resId"
-    .parameter "priority"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resId"    # I
+    .param p3, "priority"    # I
 
     .prologue
     .line 159
@@ -109,8 +109,8 @@
 
 .method public load(Landroid/content/res/AssetFileDescriptor;I)I
     .locals 1
-    .parameter "afd"
-    .parameter "priority"
+    .param p1, "afd"    # Landroid/content/res/AssetFileDescriptor;
+    .param p2, "priority"    # I
 
     .prologue
     .line 171
@@ -125,10 +125,10 @@
 
 .method public load(Ljava/io/FileDescriptor;JJI)I
     .locals 7
-    .parameter "fd"
-    .parameter "offset"
-    .parameter "length"
-    .parameter "priority"
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "offset"    # J
+    .param p4, "length"    # J
+    .param p6, "priority"    # I
 
     .prologue
     .line 189
@@ -151,8 +151,8 @@
 
 .method public load(Ljava/lang/String;I)I
     .locals 1
-    .parameter "path"
-    .parameter "priority"
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "priority"    # I
 
     .prologue
     .line 140
@@ -167,7 +167,7 @@
 
 .method public final pause(I)V
     .locals 1
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 248
@@ -181,12 +181,12 @@
 
 .method public final play(IFFIIF)I
     .locals 7
-    .parameter "soundID"
-    .parameter "leftVolume"
-    .parameter "rightVolume"
-    .parameter "priority"
-    .parameter "loop"
-    .parameter "rate"
+    .param p1, "soundID"    # I
+    .param p2, "leftVolume"    # F
+    .param p3, "rightVolume"    # F
+    .param p4, "priority"    # I
+    .param p5, "loop"    # I
+    .param p6, "rate"    # F
 
     .prologue
     .line 232
@@ -226,7 +226,7 @@
 
 .method public final resume(I)V
     .locals 1
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 262
@@ -240,8 +240,8 @@
 
 .method public final setLoop(II)V
     .locals 1
-    .parameter "streamID"
-    .parameter "loop"
+    .param p1, "streamID"    # I
+    .param p2, "loop"    # I
 
     .prologue
     .line 353
@@ -255,7 +255,7 @@
 
 .method public setOnLoadCompleteListener(Landroid/media/SoundPool$OnLoadCompleteListener;)V
     .locals 1
-    .parameter "listener"
+    .param p1, "listener"    # Landroid/media/SoundPool$OnLoadCompleteListener;
 
     .prologue
     .line 387
@@ -269,8 +269,8 @@
 
 .method public final setPriority(II)V
     .locals 1
-    .parameter "streamID"
-    .parameter "priority"
+    .param p1, "streamID"    # I
+    .param p2, "priority"    # I
 
     .prologue
     .line 338
@@ -284,8 +284,8 @@
 
 .method public final setRate(IF)V
     .locals 1
-    .parameter "streamID"
-    .parameter "rate"
+    .param p1, "streamID"    # I
+    .param p2, "rate"    # F
 
     .prologue
     .line 369
@@ -299,8 +299,8 @@
 
 .method public setVolume(IF)V
     .locals 0
-    .parameter "streamID"
-    .parameter "volume"
+    .param p1, "streamID"    # I
+    .param p2, "volume"    # F
 
     .prologue
     .line 324
@@ -312,9 +312,9 @@
 
 .method public final setVolume(IFF)V
     .locals 1
-    .parameter "streamID"
-    .parameter "leftVolume"
-    .parameter "rightVolume"
+    .param p1, "streamID"    # I
+    .param p2, "leftVolume"    # F
+    .param p3, "rightVolume"    # F
 
     .prologue
     .line 316
@@ -328,7 +328,7 @@
 
 .method public final stop(I)V
     .locals 1
-    .parameter "streamID"
+    .param p1, "streamID"    # I
 
     .prologue
     .line 299
@@ -342,7 +342,7 @@
 
 .method public final unload(I)Z
     .locals 1
-    .parameter "soundID"
+    .param p1, "soundID"    # I
 
     .prologue
     .line 203

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/TelephonyTester;)V
     .locals 0
-    .parameter
 
     .prologue
     .line 42
@@ -36,8 +35,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .parameter "context"
-    .parameter "intent"
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
     .line 45
@@ -46,7 +45,7 @@
     move-result-object v0
 
     .line 46
-    .local v0, action:Ljava/lang/String;
+    .local v0, "action":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,13 +64,13 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$000(Ljava/lang/String;)V
 
     .line 47
     iget-object v1, p0, Lcom/android/internal/telephony/TelephonyTester$1;->this$0:Lcom/android/internal/telephony/TelephonyTester;
 
-    #getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$100(Lcom/android/internal/telephony/TelephonyTester;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v1
@@ -89,13 +88,13 @@
     .line 48
     const-string v1, "simulate detaching"
 
-    #calls: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$000(Ljava/lang/String;)V
 
     .line 49
     iget-object v1, p0, Lcom/android/internal/telephony/TelephonyTester$1;->this$0:Lcom/android/internal/telephony/TelephonyTester;
 
-    #getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$100(Lcom/android/internal/telephony/TelephonyTester;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v1
@@ -116,7 +115,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/TelephonyTester$1;->this$0:Lcom/android/internal/telephony/TelephonyTester;
 
-    #getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$100(Lcom/android/internal/telephony/TelephonyTester;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v1
@@ -134,13 +133,13 @@
     .line 51
     const-string v1, "simulate attaching"
 
-    #calls: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$000(Ljava/lang/String;)V
 
     .line 52
     iget-object v1, p0, Lcom/android/internal/telephony/TelephonyTester$1;->this$0:Lcom/android/internal/telephony/TelephonyTester;
 
-    #getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/TelephonyTester;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$100(Lcom/android/internal/telephony/TelephonyTester;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v1
@@ -175,7 +174,7 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/TelephonyTester;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/internal/telephony/TelephonyTester;->access$000(Ljava/lang/String;)V
 
     goto :goto_0

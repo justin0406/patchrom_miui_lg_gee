@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;)V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
     .line 2705
@@ -44,8 +42,8 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
-    .parameter "dialog"
-    .parameter "which"
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
     .prologue
     .line 2708
@@ -59,7 +57,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1300(Lcom/android/server/InputMethodManagerService;)[Landroid/view/inputmethod/InputMethodInfo;
 
     move-result-object v2
@@ -68,7 +66,7 @@
 
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1300(Lcom/android/server/InputMethodManagerService;)[Landroid/view/inputmethod/InputMethodInfo;
 
     move-result-object v2
@@ -79,7 +77,7 @@
 
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1400(Lcom/android/server/InputMethodManagerService;)[I
 
     move-result-object v2
@@ -88,7 +86,7 @@
 
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1400(Lcom/android/server/InputMethodManagerService;)[I
 
     move-result-object v2
@@ -109,7 +107,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
+    # getter for: Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1300(Lcom/android/server/InputMethodManagerService;)[Landroid/view/inputmethod/InputMethodInfo;
 
     move-result-object v2
@@ -117,10 +115,10 @@
     aget-object v0, v2, p2
 
     .line 2714
-    .local v0, im:Landroid/view/inputmethod/InputMethodInfo;
+    .local v0, "im":Landroid/view/inputmethod/InputMethodInfo;
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    #getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
+    # getter for: Lcom/android/server/InputMethodManagerService;->mSubtypeIds:[I
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1400(Lcom/android/server/InputMethodManagerService;)[I
 
     move-result-object v2
@@ -128,7 +126,7 @@
     aget v1, v2, p2
 
     .line 2715
-    .local v1, subtypeId:I
+    .local v1, "subtypeId":I
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->val$adapter:Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;
 
     iput p2, v2, Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;->mCheckedItem:I
@@ -175,8 +173,8 @@
 
     goto :goto_0
 
-    .end local v0           #im:Landroid/view/inputmethod/InputMethodInfo;
-    .end local v1           #subtypeId:I
+    .end local v0    # "im":Landroid/view/inputmethod/InputMethodInfo;
+    .end local v1    # "subtypeId":I
     :catchall_0
     move-exception v2
 

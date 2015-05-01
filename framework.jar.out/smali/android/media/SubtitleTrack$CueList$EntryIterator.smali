@@ -89,8 +89,6 @@
 # direct methods
 .method public constructor <init>(Landroid/media/SubtitleTrack$CueList;Ljava/util/SortedMap;)V
     .locals 3
-    .parameter
-    .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +104,7 @@
 
     .prologue
     .line 520
-    .local p2, cues:Ljava/util/SortedMap;,"Ljava/util/SortedMap<Ljava/lang/Long;Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;>;"
+    .local p2, "cues":Ljava/util/SortedMap;, "Ljava/util/SortedMap<Ljava/lang/Long;Ljava/util/Vector<Landroid/media/SubtitleTrack$Cue;>;>;"
     iput-object p1, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->this$0:Landroid/media/SubtitleTrack$CueList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -183,7 +181,7 @@
     move-exception v0
 
     .line 544
-    .local v0, e:Ljava/util/NoSuchElementException;
+    .local v0, "e":Ljava/util/NoSuchElementException;
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->mDone:Z
@@ -195,7 +193,7 @@
     iput-object v6, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->mListIterator:Ljava/util/Iterator;
 
     .line 550
-    .end local v0           #e:Ljava/util/NoSuchElementException;
+    .end local v0    # "e":Ljava/util/NoSuchElementException;
     :goto_0
     return-void
 
@@ -287,7 +285,7 @@
     move-exception v0
 
     .line 540
-    .local v0, e:Ljava/lang/IllegalArgumentException;
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const/4 v1, 0x0
 
     :try_start_4
@@ -459,7 +457,7 @@
     .line 506
     iget-object v6, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->this$0:Landroid/media/SubtitleTrack$CueList;
 
-    #getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
+    # getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
     invoke-static {v6}, Landroid/media/SubtitleTrack$CueList;->access$200(Landroid/media/SubtitleTrack$CueList;)Ljava/util/SortedMap;
 
     move-result-object v6
@@ -483,7 +481,7 @@
     .line 507
     iget-object v6, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->this$0:Landroid/media/SubtitleTrack$CueList;
 
-    #getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
+    # getter for: Landroid/media/SubtitleTrack$CueList;->mCues:Ljava/util/SortedMap;
     invoke-static {v6}, Landroid/media/SubtitleTrack$CueList;->access$200(Landroid/media/SubtitleTrack$CueList;)Ljava/util/SortedMap;
 
     move-result-object v6
@@ -503,12 +501,12 @@
     check-cast v1, Landroid/media/SubtitleTrack$Cue;
 
     .line 512
-    .local v1, cue:Landroid/media/SubtitleTrack$Cue;
+    .local v1, "cue":Landroid/media/SubtitleTrack$Cue;
     iget-object v6, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->this$0:Landroid/media/SubtitleTrack$CueList;
 
     iget-wide v7, v1, Landroid/media/SubtitleTrack$Cue;->mStartTimeMs:J
 
-    #calls: Landroid/media/SubtitleTrack$CueList;->removeEvent(Landroid/media/SubtitleTrack$Cue;J)V
+    # invokes: Landroid/media/SubtitleTrack$CueList;->removeEvent(Landroid/media/SubtitleTrack$Cue;J)V
     invoke-static {v6, v1, v7, v8}, Landroid/media/SubtitleTrack$CueList;->access$300(Landroid/media/SubtitleTrack$CueList;Landroid/media/SubtitleTrack$Cue;J)V
 
     .line 513
@@ -519,23 +517,23 @@
     .line 514
     iget-object v0, v1, Landroid/media/SubtitleTrack$Cue;->mInnerTimesMs:[J
 
-    .local v0, arr$:[J
+    .local v0, "arr$":[J
     array-length v3, v0
 
-    .local v3, len$:I
+    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, i$:I
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_3
 
     aget-wide v4, v0, v2
 
     .line 515
-    .local v4, timeMs:J
+    .local v4, "timeMs":J
     iget-object v6, p0, Landroid/media/SubtitleTrack$CueList$EntryIterator;->this$0:Landroid/media/SubtitleTrack$CueList;
 
-    #calls: Landroid/media/SubtitleTrack$CueList;->removeEvent(Landroid/media/SubtitleTrack$Cue;J)V
+    # invokes: Landroid/media/SubtitleTrack$CueList;->removeEvent(Landroid/media/SubtitleTrack$Cue;J)V
     invoke-static {v6, v1, v4, v5}, Landroid/media/SubtitleTrack$CueList;->access$300(Landroid/media/SubtitleTrack$CueList;Landroid/media/SubtitleTrack$Cue;J)V
 
     .line 514
@@ -544,10 +542,10 @@
     goto :goto_0
 
     .line 518
-    .end local v0           #arr$:[J
-    .end local v2           #i$:I
-    .end local v3           #len$:I
-    .end local v4           #timeMs:J
+    .end local v0    # "arr$":[J
+    .end local v2    # "i$":I
+    .end local v3    # "len$":I
+    .end local v4    # "timeMs":J
     :cond_3
     return-void
 .end method

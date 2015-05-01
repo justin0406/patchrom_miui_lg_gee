@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x1a
     name = "ResourceName"
 .end annotation
 
@@ -23,8 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/ApplicationInfo;I)V
     .locals 1
-    .parameter "aInfo"
-    .parameter "_iconId"
+    .param p1, "aInfo"    # Landroid/content/pm/ApplicationInfo;
+    .param p2, "_iconId"    # I
 
     .prologue
     .line 918
@@ -38,8 +38,8 @@
 
 .method constructor <init>(Landroid/content/pm/ComponentInfo;I)V
     .locals 1
-    .parameter "cInfo"
-    .parameter "_iconId"
+    .param p1, "cInfo"    # Landroid/content/pm/ComponentInfo;
+    .param p2, "_iconId"    # I
 
     .prologue
     .line 922
@@ -55,8 +55,8 @@
 
 .method constructor <init>(Landroid/content/pm/ResolveInfo;I)V
     .locals 1
-    .parameter "rInfo"
-    .parameter "_iconId"
+    .param p1, "rInfo"    # Landroid/content/pm/ResolveInfo;
+    .param p2, "_iconId"    # I
 
     .prologue
     .line 926
@@ -74,8 +74,8 @@
 
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .parameter "_packageName"
-    .parameter "_iconId"
+    .param p1, "_packageName"    # Ljava/lang/String;
+    .param p2, "_iconId"    # I
 
     .prologue
     .line 912
@@ -95,7 +95,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .parameter "o"
+    .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x1
@@ -136,7 +136,7 @@
     check-cast v0, Landroid/app/ApplicationPackageManager$ResourceName;
 
     .line 936
-    .local v0, that:Landroid/app/ApplicationPackageManager$ResourceName;
+    .local v0, "that":Landroid/app/ApplicationPackageManager$ResourceName;
     iget v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I
 
     iget v4, v0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I
@@ -188,7 +188,7 @@
     move-result v0
 
     .line 946
-    .local v0, result:I
+    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I

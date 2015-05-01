@@ -56,7 +56,7 @@
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IUiModeManager;
     .locals 2
-    .parameter "obj"
+    .param p0, "obj"    # Landroid/os/IBinder;
 
     .prologue
     .line 27
@@ -78,7 +78,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, iin:Landroid/os/IInterface;
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IUiModeManager;
@@ -94,7 +94,7 @@
     :cond_1
     new-instance v0, Landroid/app/IUiModeManager$Stub$Proxy;
 
-    .end local v0           #iin:Landroid/os/IInterface;
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IUiModeManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -112,10 +112,10 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .parameter "code"
-    .parameter "data"
-    .parameter "reply"
-    .parameter "flags"
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -156,7 +156,7 @@
     move-result v0
 
     .line 54
-    .local v0, _arg0:I
+    .local v0, "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/IUiModeManager$Stub;->enableCarMode(I)V
 
     .line 55
@@ -165,7 +165,7 @@
     goto :goto_0
 
     .line 60
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_2
     const-string v3, "android.app.IUiModeManager"
 
@@ -177,7 +177,7 @@
     move-result v0
 
     .line 63
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/IUiModeManager$Stub;->disableCarMode(I)V
 
     .line 64
@@ -186,7 +186,7 @@
     goto :goto_0
 
     .line 69
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_3
     const-string v3, "android.app.IUiModeManager"
 
@@ -198,7 +198,7 @@
     move-result v1
 
     .line 71
-    .local v1, _result:I
+    .local v1, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 72
@@ -207,7 +207,7 @@
     goto :goto_0
 
     .line 77
-    .end local v1           #_result:I
+    .end local v1    # "_result":I
     :sswitch_4
     const-string v3, "android.app.IUiModeManager"
 
@@ -219,7 +219,7 @@
     move-result v0
 
     .line 80
-    .restart local v0       #_arg0:I
+    .restart local v0    # "_arg0":I
     invoke-virtual {p0, v0}, Landroid/app/IUiModeManager$Stub;->setNightMode(I)V
 
     .line 81
@@ -228,7 +228,7 @@
     goto :goto_0
 
     .line 86
-    .end local v0           #_arg0:I
+    .end local v0    # "_arg0":I
     :sswitch_5
     const-string v3, "android.app.IUiModeManager"
 
@@ -240,7 +240,7 @@
     move-result v1
 
     .line 88
-    .restart local v1       #_result:I
+    .restart local v1    # "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 89

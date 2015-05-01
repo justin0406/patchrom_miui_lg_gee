@@ -29,7 +29,7 @@
 # virtual methods
 .method public dispatchChange(Z)V
     .locals 1
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -45,8 +45,8 @@
 
 .method public dispatchChange(ZLandroid/net/Uri;)V
     .locals 4
-    .parameter "selfChange"
-    .parameter "uri"
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
     .line 67
@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -78,7 +78,7 @@
     check-cast v1, Landroid/database/ContentObserver;
 
     .line 69
-    .local v1, observer:Landroid/database/ContentObserver;
+    .local v1, "observer":Landroid/database/ContentObserver;
     if-eqz p1, :cond_1
 
     invoke-virtual {v1}, Landroid/database/ContentObserver;->deliverSelfNotifications()Z
@@ -94,8 +94,8 @@
     goto :goto_0
 
     .line 73
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #observer:Landroid/database/ContentObserver;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "observer":Landroid/database/ContentObserver;
     :catchall_0
     move-exception v2
 
@@ -105,7 +105,7 @@
 
     throw v2
 
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_2
     :try_start_1
     monitor-exit v3
@@ -118,7 +118,7 @@
 
 .method public notifyChange(Z)V
     .locals 4
-    .parameter "selfChange"
+    .param p1, "selfChange"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -136,7 +136,7 @@
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -151,7 +151,7 @@
     check-cast v1, Landroid/database/ContentObserver;
 
     .line 87
-    .local v1, observer:Landroid/database/ContentObserver;
+    .local v1, "observer":Landroid/database/ContentObserver;
     const/4 v2, 0x0
 
     invoke-virtual {v1, p1, v2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
@@ -159,8 +159,8 @@
     goto :goto_0
 
     .line 89
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #observer:Landroid/database/ContentObserver;
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "observer":Landroid/database/ContentObserver;
     :catchall_0
     move-exception v2
 
@@ -170,7 +170,7 @@
 
     throw v2
 
-    .restart local v0       #i$:Ljava/util/Iterator;
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     monitor-exit v3
@@ -183,7 +183,7 @@
 
 .method public registerObserver(Landroid/database/ContentObserver;)V
     .locals 0
-    .parameter "observer"
+    .param p1, "observer"    # Landroid/database/ContentObserver;
 
     .prologue
     .line 32
@@ -195,13 +195,13 @@
 
 .method public bridge synthetic registerObserver(Ljava/lang/Object;)V
     .locals 0
-    .parameter "x0"
+    .param p1, "x0"    # Ljava/lang/Object;
 
     .prologue
     .line 26
     check-cast p1, Landroid/database/ContentObserver;
 
-    .end local p1
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/database/ContentObservable;->registerObserver(Landroid/database/ContentObserver;)V
 
     return-void
